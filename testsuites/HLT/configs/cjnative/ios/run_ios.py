@@ -269,6 +269,7 @@ def main():
         sys.stderr.write(com_err)
         if args.uninstall:
             uninstall_app(args.device_type, udid, args.bundle_id)
+            run_cmd(['xcrun', 'simctl', 'shutdown', udid])
 
 if __name__ == "__main__":
     try:

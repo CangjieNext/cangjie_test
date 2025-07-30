@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C9EA65362EEAF6DA00A8730D /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C91F4D202EEAD439007DCB38 /* objc_ffi_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = objc_ffi_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C91F4D372EEAD439007DCB38 /* Exceptions for "objc_ffi_test" folder in "objc_ffi_test" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C91F4D1F2EEAD439007DCB38 /* objc_ffi_test */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		C9EA65372EEAF6DA00A8730D /* Exceptions for "objc_ffi_test" folder in "Embed Libraries" phase from "objc_ffi_test" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			attributesByRelativePath = {
+				ios_aarch64_cjnative/libboundscheck.dylib = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-runtime.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-argopt.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-ast.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-binary.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-collection.concurrent.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-collection.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-console.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-convert.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-core.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-crypto.cipher.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-crypto.digest.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-crypto.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-database.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-database.sql.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-deriving.api.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-deriving.builtins.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-deriving.impl.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-deriving.resolve.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-env.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-fs.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-interop.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-io.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-math.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-math.numeric.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-net.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-objectpool.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-overflow.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-posix.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-process.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-random.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-ref.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-regex.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-runtime.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-sort.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-sync.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-time.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-unicode.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-unittest.common.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-unittest.diff.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-unittest.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-unittest.mock.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-unittest.mock.internal.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std-unittest.prop_test.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libcangjie-std.dylib" = (CodeSignOnCopy, );
+				ios_aarch64_cjnative/libobjc.internal.dylib = (CodeSignOnCopy, );
+				ios_aarch64_cjnative/libobjc.lang.dylib = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libpcre2-8.0.14.0.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libpcre2-8.0.dylib" = (CodeSignOnCopy, );
+				"ios_aarch64_cjnative/libpcre2-8.dylib" = (CodeSignOnCopy, );
+				ios_aarch64_cjnative/libsecurec.dylib = (CodeSignOnCopy, );
+				libcjworld.dylib = (CodeSignOnCopy, );
+				libdep.dylib = (CodeSignOnCopy, );
+				libobjc.foundation.dylib = (CodeSignOnCopy, );
+			};
+			buildPhase = C9EA65362EEAF6DA00A8730D /* Embed Libraries */;
+			membershipExceptions = (
+				ios_aarch64_cjnative/libboundscheck.dylib,
+				"ios_aarch64_cjnative/libcangjie-runtime.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-argopt.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-ast.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-binary.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-collection.concurrent.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-collection.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-console.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-convert.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-core.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-crypto.cipher.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-crypto.digest.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-crypto.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-database.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-database.sql.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-deriving.api.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-deriving.builtins.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-deriving.impl.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-deriving.resolve.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-env.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-fs.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-interop.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-io.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-math.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-math.numeric.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-net.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-objectpool.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-overflow.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-posix.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-process.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-random.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-ref.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-regex.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-runtime.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-sort.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-sync.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-time.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-unicode.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-unittest.common.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-unittest.diff.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-unittest.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-unittest.mock.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-unittest.mock.internal.dylib",
+				"ios_aarch64_cjnative/libcangjie-std-unittest.prop_test.dylib",
+				"ios_aarch64_cjnative/libcangjie-std.dylib",
+				ios_aarch64_cjnative/libobjc.internal.dylib,
+				ios_aarch64_cjnative/libobjc.lang.dylib,
+				"ios_aarch64_cjnative/libpcre2-8.0.14.0.dylib",
+				"ios_aarch64_cjnative/libpcre2-8.0.dylib",
+				"ios_aarch64_cjnative/libpcre2-8.dylib",
+				ios_aarch64_cjnative/libsecurec.dylib,
+				libcjworld.dylib,
+				libdep.dylib,
+				libobjc.foundation.dylib,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C91F4D222EEAD439007DCB38 /* objc_ffi_test */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C91F4D372EEAD439007DCB38 /* Exceptions for "objc_ffi_test" folder in "objc_ffi_test" target */,
+				C9EA65372EEAF6DA00A8730D /* Exceptions for "objc_ffi_test" folder in "Embed Libraries" phase from "objc_ffi_test" target */,
+			);
+			path = objc_ffi_test;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C91F4D1D2EEAD439007DCB38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C91F4D172EEAD439007DCB38 = {
+			isa = PBXGroup;
+			children = (
+				C91F4D222EEAD439007DCB38 /* objc_ffi_test */,
+				C91F4D212EEAD439007DCB38 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C91F4D212EEAD439007DCB38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C91F4D202EEAD439007DCB38 /* objc_ffi_test.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C91F4D1F2EEAD439007DCB38 /* objc_ffi_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C91F4D382EEAD439007DCB38 /* Build configuration list for PBXNativeTarget "objc_ffi_test" */;
+			buildPhases = (
+				C91F4D1C2EEAD439007DCB38 /* Sources */,
+				C91F4D1D2EEAD439007DCB38 /* Frameworks */,
+				C91F4D1E2EEAD439007DCB38 /* Resources */,
+				C9EA65362EEAF6DA00A8730D /* Embed Libraries */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C91F4D222EEAD439007DCB38 /* objc_ffi_test */,
+			);
+			name = objc_ffi_test;
+			packageProductDependencies = (
+			);
+			productName = objc_ffi_test;
+			productReference = C91F4D202EEAD439007DCB38 /* objc_ffi_test.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C91F4D182EEAD439007DCB38 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					C91F4D1F2EEAD439007DCB38 = {
+						CreatedOnToolsVersion = 26.1;
+					};
+				};
+			};
+			buildConfigurationList = C91F4D1B2EEAD439007DCB38 /* Build configuration list for PBXProject "objc_ffi_test" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C91F4D172EEAD439007DCB38;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C91F4D212EEAD439007DCB38 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C91F4D1F2EEAD439007DCB38 /* objc_ffi_test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C91F4D1E2EEAD439007DCB38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C91F4D1C2EEAD439007DCB38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C91F4D392EEAD439007DCB38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = objc_ffi_test/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/objc_ffi_test/ios_aarch64_cjnative",
+					"$(PROJECT_DIR)/objc_ffi_test",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "test.objc-ffi-test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C91F4D3A2EEAD439007DCB38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = objc_ffi_test/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/objc_ffi_test/ios_aarch64_cjnative",
+					"$(PROJECT_DIR)/objc_ffi_test",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "test.objc-ffi-test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C91F4D3B2EEAD439007DCB38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C91F4D3C2EEAD439007DCB38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C91F4D1B2EEAD439007DCB38 /* Build configuration list for PBXProject "objc_ffi_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C91F4D3B2EEAD439007DCB38 /* Debug */,
+				C91F4D3C2EEAD439007DCB38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C91F4D382EEAD439007DCB38 /* Build configuration list for PBXNativeTarget "objc_ffi_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C91F4D392EEAD439007DCB38 /* Debug */,
+				C91F4D3A2EEAD439007DCB38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C91F4D182EEAD439007DCB38 /* Project object */;
+}

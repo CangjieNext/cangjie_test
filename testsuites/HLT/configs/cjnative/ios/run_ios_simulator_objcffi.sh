@@ -18,13 +18,6 @@ cjworld=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcjworld.dylib
 foundation=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libobjc.foundation.dylib
 dep=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libdep.dylib
 
-# rm -rf ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative
-# find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
-#   -maxdepth 1 \
-#   -name "*.dylib" \
-#   -not -name "libobjc.foundation.dylib" \
-#   -not -name "libdep.dylib" \
-#   -delete
 find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
   -maxdepth 1 \
   -name "*.o" \
@@ -45,16 +38,20 @@ find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
   -delete
 
 cp -f src/objc/*.*  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
-cp objc-gen/*.h  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
-cp objc-gen/*.o  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
+find objc-gen -maxdepth 1 -type f  -name "*.h" -exec cp {}  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ \;
+find objc-gen -maxdepth 1 -type f  -name "*.o" -exec cp {}  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ \;
 mkdir -p ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative
 cp -r $CANGJIE_HOME/runtime/lib/$TARGET/*.dylib ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative/
 cp libcjworld.dylib ${cjworld}
 if [ -f "libobjc.foundation.dylib" ]; then
     cp libobjc.foundation.dylib ${foundation}
+else
+    cp ${WORKSPACE}/libobjc.foundation.dylib ${foundation}
 fi
 if [ -f "libdep.dylib" ]; then
     cp libdep.dylib ${dep}
+else
+    cp ${WORKSPACE}/libdep.dylib ${dep}
 fi
 
 set -e

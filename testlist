@@ -1,0 +1,5 @@
+[ALL-TEST-CASE]
+
+compiler/cjnative/FFI/objcffi
+
+[EXCLUDE-TEST-CASE]

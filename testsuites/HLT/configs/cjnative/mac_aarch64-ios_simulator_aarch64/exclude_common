@@ -3,3 +3,15 @@
 # with Runtime Library Exception.
 #
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# "Objective-C calls Cangjie" interop (cjmapping) is disabled
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl
+
+# mirrorgen error Option<M> -> M
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_func_pointer_0007
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_func_pointer_0008
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_func_pointer_0014
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_func_pointer_0015
+
+# error: no visible @interface for 'A' declares the selector 'f3'
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_inheritance_0007/test.info
