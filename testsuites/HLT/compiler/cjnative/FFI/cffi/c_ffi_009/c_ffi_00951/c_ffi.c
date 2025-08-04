@@ -14,7 +14,6 @@
 #include <stdio.h>
 #include <securec.h>
 
-
 struct teststruct {
     int8_t num;
     struct teststruct* next;
