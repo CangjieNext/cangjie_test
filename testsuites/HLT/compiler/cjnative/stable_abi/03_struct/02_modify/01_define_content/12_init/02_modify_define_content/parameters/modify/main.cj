@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+import test_stable_abi.*
+
+main() {
+    return S(0, UInt64(0)).a + S(0, a2: 1.0, a3: 1.0).a + S(0).a + S((), a2: 0).a + S(r'0', a2: 0).a
+}
