@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/002_HashMap_via_inherit.cj
+// EXEC: %compiler %cmp_opt -g 002_HashMap_via_inherit.cj -o 002_HashMap_via_inherit%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_HashMap047.info 002_HashMap_via_inherit %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 002_HashMap_via_inherit,002_HashMap_via_inherit
+b,b 11,002_HashMap_via_inherit.cj:11
+AOT r,r,-> 11
+CJVM c,c,-> 11
+s,s,-> 41
+n,n,-> 42
+p,p map_f1,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = -29[\S\s]*value = 'C'[\S\s]*}
+p,p map_f1,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 12[\S\s]*value = 'H'[\S\s]*}
+n,n,-> 43
+q,q,

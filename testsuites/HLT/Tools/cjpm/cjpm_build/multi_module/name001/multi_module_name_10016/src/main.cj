@@ -10,7 +10,6 @@ package a
 
 internal import b.*
 internal import cc.*
-// import not use
 main() {
     return 0
 }

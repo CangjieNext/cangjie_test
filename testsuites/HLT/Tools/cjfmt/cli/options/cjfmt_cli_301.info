@@ -8,5 +8,5 @@
 
 // LEVEL: 0
 // DEPENDENCE: test_cli_104.cj
-// EXEC: %cjfmt -f test_cli_104.cj -o test_new.cj
+// EXEC: %cjfmt -f test_cli_104.cj -l 9:100 -o test_new.cj
 // EXEC-1: %diff test_cli_104.cj test_new.cj

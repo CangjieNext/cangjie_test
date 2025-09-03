@@ -26,7 +26,6 @@ interface I<T> {
     }
 
     // func foo<T>(a: T){
-    //   return a
     // }
 
     static prop pas: B<A> {

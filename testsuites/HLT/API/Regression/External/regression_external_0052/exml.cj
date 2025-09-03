@@ -224,7 +224,6 @@ class Exml {
             }
 
             println("${xmlstr}")
-            //println("${xmlstr[start..stop]}")
             println( "----- End of error context" )
         }
         println("- DUMP END -----" )

@@ -23,7 +23,6 @@ class MonoTime_CompareOperate_Test {
         let m1 = m2 - Duration.second
         sleep(Duration.microsecond * 2)
         let m3 = MonoTime.now()
-        // m0 = m1 < m2 < m3
         @Expect(m0 == m1, true)
         @Expect(m1 == m2, false)
         @Expect(m0 == m3, false)
@@ -36,7 +35,6 @@ class MonoTime_CompareOperate_Test {
         let m1 = m2 - Duration.second
         sleep(Duration.microsecond * 2)
         let m3 = MonoTime.now()
-        // m0 = m1 < m2 < m3
         @Expect(m0 != m1, false)
         @Expect(m1 != m3, true)
         @Expect(m0 != m3, true)
@@ -49,7 +47,6 @@ class MonoTime_CompareOperate_Test {
         let m1 = m2 - Duration.second
         sleep(Duration.microsecond * 2)
         let m3 = MonoTime.now()
-        // m0 = m1 < m2 < m3
         @Expect(m0 >= m1, true)
         @Expect(m1 >= m3, false)
         @Expect(m3 >= m0, true)
@@ -62,7 +59,6 @@ class MonoTime_CompareOperate_Test {
         let m1 = m2 - Duration.second
         sleep(Duration.microsecond * 2)
         let m3 = MonoTime.now()
-        // m0 = m1 < m2 < m3
         @Expect(m0 > m1, false)
         @Expect(m1 > m3, false)
         @Expect(m3 > m0, true)
@@ -75,7 +71,6 @@ class MonoTime_CompareOperate_Test {
         let m1 = m2 - Duration.second
         sleep(Duration.microsecond * 2)
         let m3 = MonoTime.now()
-        // m0 = m1 < m2 < m3
         @Expect(m0 <= m1, true)
         @Expect(m1 <= m3, true)
         @Expect(m3 <= m0, false)
@@ -88,7 +83,6 @@ class MonoTime_CompareOperate_Test {
         let m1 = m2 - Duration.second
         sleep(Duration.microsecond * 2)
         let m3 = MonoTime.now()
-        // m0 = m1 < m2 < m3
         @Expect(m0 < m1, false)
         @Expect(m1 < m3, true)
         @Expect(m3 < m0, false)
@@ -101,7 +95,6 @@ class MonoTime_CompareOperate_Test {
         let m1 = m2 - Duration.second
         sleep(Duration.microsecond * 2)
         let m3 = MonoTime.now()
-        // m0 = m1 < m2 < m3
         @Expect(m0.compare(m1), Ordering.EQ)
         @Expect(m0.compare(m0), Ordering.EQ)
         @Expect(m3.compare(m0), Ordering.GT)

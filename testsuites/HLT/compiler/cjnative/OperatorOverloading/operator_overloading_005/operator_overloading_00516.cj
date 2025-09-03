@@ -168,23 +168,16 @@ main(): Int64 {
     if (!(b | a)) {
         return 27
     }
-    //    if (!(b^^a)) {
-    //        return 28
     //    }
-    // if (!(+b)) {
-    //     return 29
     // }
     if (!(-b)) {
         return 30
     }
-    // if (!(~b)) {
-    //     return 31
     // }
     if (!(!b)) {
         return 32
     }
     /*
-    if (!(b++)) {
         return 33
     }
     if (!(b--)) {

@@ -18,7 +18,7 @@ breakpoint,breakpoint set -l 22 -c "s1.vcarrc2[0]==2",generics_local_var004.cj:2
 AOT r,r,-> 22
 CJVM c,c,
 locals,locals,\(default.S1<Int32>\) s1 = {[\s\S]*vunit = \(\)[\s\S]*vcarrc2 = {[\s\S]*\[0\] = 2[\s\S]*}
-locals,locals,\(default.C1<Bool>\) c1 = {[\s\S]*vunit = \(\)[\s\S]*vhmc = {[\s\S]*\[0\] = {[\s\S]*key = "a"[\s\S]*value = true[\s\S]*
+locals,locals,\(default.C1<Bool>\) c1 = {[\s\S]*vunit = \(\)[\s\S]*vhmc = {[\s\S]*\["a" -> true\] = {[\s\S]*key = "a"[\s\S]*value = true[\s\S]*
 expr~expr C1<Bool>.vcarrc2~\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 2[\s\S]*}
 expr~expr s1.vcarrc2~\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 2[\s\S]*}
 expr~expr S1<Int32>.vlist2~\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}

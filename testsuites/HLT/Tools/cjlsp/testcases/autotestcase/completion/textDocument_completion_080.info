@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -42,4 +42,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 1269,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(struct) public struct DefaultHasher","documentation": "","filterText": "DefaultHasher","insertText": "DefaultHasher","insertTextFormat": 1,"kind": 7,"label": "DefaultHasher","sortText": "622308"},{"deprecated": false,"detail": "(function) public func init(res!: Int64 = 0)","documentation": "","filterText": "DefaultHasher","insertText": "DefaultHasher(res: ${1:Int64 = 0})","insertTextFormat": 2,"kind": 3,"label": "DefaultHasher(res!: Int64 = 0)","sortText": "622308"},{"deprecated": false,"detail": "(class) open class Father <: Exception","documentation": "","filterText": "Father","insertText": "Father","insertTextFormat": 1,"kind": 7,"label": "Father","sortText": "370000"},{"deprecated": false,"detail": "(class) open class FatherException <: Exception","documentation": "","filterText": "FatherException","insertText": "FatherException","insertTextFormat": 1,"kind": 7,"label": "FatherException","sortText": "659655"},{"deprecated": false,"detail": "(variable) var father: Int32 = 0","documentation": "","filterText": "father","insertText": "father","insertTextFormat": 1,"kind": 6,"label": "father","sortText": "300000"}]}
+{"id": 1269,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(struct) public struct DefaultHasher","documentation": "","filterText": "DefaultHasher","insertText": "DefaultHasher","insertTextFormat": 1,"kind": 22,"label": "DefaultHasher","sortText": "604615"},{"deprecated": false,"detail": "(function) public func init(res!: Int64 = 0)","documentation": "","filterText": "DefaultHasher","insertText": "DefaultHasher(res: ${1:Int64 = 0})","insertTextFormat": 2,"kind": 3,"label": "DefaultHasher(res!: Int64 = 0)","sortText": "604615"},{"deprecated": false,"detail": "(class) open class Father <: Exception","documentation": "","filterText": "Father","insertText": "Father","insertTextFormat": 1,"kind": 7,"label": "Father","sortText": "486667"},{"deprecated": false,"detail": "(class) open class FatherException <: Exception","documentation": "","filterText": "FatherException","insertText": "FatherException","insertTextFormat": 1,"kind": 7,"label": "FatherException","sortText": "518667"},{"deprecated": false,"detail": "(variable) var father: Int32 = 0","documentation": "","filterText": "father","insertText": "father","insertTextFormat": 1,"kind": 6,"label": "father","sortText": "490000"}]}

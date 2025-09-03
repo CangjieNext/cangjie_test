@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/006_debug_multiArray_composite_record.cj
+// EXEC: %compiler %cmp_opt -g 006_debug_multiArray_composite_record.cj -o 006_debug_multiArray_composite_record%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_compositeArray_view025.info 006_debug_multiArray_composite_record %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 006_debug_multiArray_composite_record,006_debug_multiArray_composite_record
+b,b 16,006_debug_multiArray_composite_record.cj:16
+AOT r,r,-> 16
+CJVM c,c,
+s,s,func fun_r1\(pa_1:Array<String>,pa_2!:Array<String> = array_top_str_1\)[\s\S]*-> 45
+n,n,-> 46
+p,p fun_v1,std[.]core.Array<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "string_test_001"[\s\S]*
+finish,finish,-> 16
+q,q,

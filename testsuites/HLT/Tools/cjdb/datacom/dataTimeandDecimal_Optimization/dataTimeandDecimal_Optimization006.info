@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/dataTimeandDecimal_Optimization/dataTimeandDecimal_Optimization006.cj
+// (CJNATIVE and not MAC) EXEC: %compiler %cmp_opt -g dataTimeandDecimal_Optimization006.cj -o dataTimeandDecimal_Optimization006%cmp_output
+// (CJNATIVE and not MAC) RUN-EXEC: python3 cjdb_test.py dataTimeandDecimal_Optimization006.info dataTimeandDecimal_Optimization006 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors dataTimeandDecimal_Optimization006,dataTimeandDecimal_Optimization006
+b,b 8,dataTimeandDecimal_Optimization006.cj:8
+r,r,-> 8
+p,p a1,\(std.math.numeric.Decimal\) \$[\d] = 0
+p,p a2,\(std.math.numeric.Decimal\) \$[\d] = 0
+p,p a3,\(std.math.numeric.Decimal\) \$[\d] = 0.0000000000
+p,p a4,\(std.math.numeric.Decimal\) \$[\d] = 0.000
+expr,expr a1,\(std.math.numeric.Decimal\) \$[\d] = 0
+expr,expr a2,\(std.math.numeric.Decimal\) \$[\d] = 0
+expr,expr a3,\(std.math.numeric.Decimal\) \$[\d] = 0.0000000000
+expr,expr a4,\(std.math.numeric.Decimal\) \$[\d] = 0.000
+q,q,

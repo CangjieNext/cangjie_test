@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/collection_HashMap/basic_hashmap_001.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g basic_hashmap_001.cj -o basic_hashmap_001%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py cjdb_hashmap_001.info basic_hashmap_001 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors basic_hashmap_001,basic_hashmap_001
+b,b 28,basic_hashmap_001.cj:28
+AOT r,r,-> 28
+globals,globals,map_f = {[\s\S]*\["a" -> 1\] = {[\s\S]*key = "a"[\s\S]*value = 1[\s\S]*}[\s\S]*\["b" -> 2\] = {[\s\S]*key = "b"[\s\S]*value = 2[\s\S]*}
+locals,locals,map_9 = {[\s\S]*\[-29 -> 'C'\] = {[\s\S]*key = -29[\s\S]*value = 'C'[\s\S]*}[\s\S]*\[-10 -> 'a'\] = {[\s\S]*key = -10[\s\S]*value = 'a'[\s\S]*\[76 -> 'N'\] = {[\s\S]*key = 76[\s\S]*value = 'N'[\s\S]*}
+p,p map_14,\(std.collection.HashMap<UInt32,UInt32>\) \$[\d] = {[\s\S]*\[1 -> 2\] = {[\s\S]*key = 1[\s\S]*value = 2[\s\S]*}
+p,p map_12,\(std.collection.HashMap<std.core.String,Float64>\) \$[\d] = {[\s\S]*\["abc" -> 1\] = {[\s\S]*key = "abc"[\s\S]*value = 1[\s\S]*[\s\S]*\["bcd" -> 2\] = {[\s\S]*key = "bcd"[\s\S]*value = 2[\s\S]*}
+expr,expr map_11,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\s\S]*\["a" -> 1\] = {[\s\S]*key = "a"[\s\S]*value = 1[\s\S]*}[\s\S]*\["b" -> 2\] = {[\s\S]*key = "b"[\s\S]*value = 2[\s\S]*
+q,q,

@@ -22,5 +22,5 @@ AOT r,r,-> 6
 expr,expr this.s09,std[.]collection.HashSet<UInt64>\) \$[\d] = {[\S\s]*\[0\] = 0[\S\s]*\[1\] = 1[\S\s]*\[2\] = 2[\S\s]*}
 b,b 22,063_debug_expr_class_1.cj:22
 c,c,-> 22
-expr,expr this.hm,std[.]collection.HashMap<Int64,std.core.String>\) \$[\d] = {[\S\s]*\[0\] = {[\S\s]*key = 10[\S\s]*value = "aaaa"[\S\s]*}*
+expr,expr this.hm,std[.]collection.HashMap<Int64,std.core.String>\) \$[\d] = {[\S\s]*\[10 -> "aaaa"\] = {[\S\s]*key = 10[\S\s]*value = "aaaa"[\S\s]*}*
 q,q,

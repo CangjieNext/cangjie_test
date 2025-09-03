@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../../cjdb_test.py    ../../../basecase/past_basic/066_debug_lambda.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_lambda002.info 066_debug_lambda %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
+CJVM b,b main,066_debug_lambda.cj:10
+CJVM c,c,-> 10
+b,b 12,066_debug_lambda.cj:12
+AOT r,r,-> 12
+expr~ expr { => a - 1 }()~\(Int64\) \$[\d] = 9
+expr~  expr let l1 ={=>}()~\(Unit\) \$[\d] = ()
+expr~ expr f1({ a2 => a2 + 10 })~\(Int64\) \$[\d] = 11
+expr~ expr func f3(a1: (Int64) -> Int64): Int64 {a1(5)};f3({ a2 => a2 + 10 })~\(Int64\) \$[\d] = 15
+expr~ expr f2()(2)~\(Int64\) \$[\d] = 2
+expr~ expr func f4(): (Int64) -> Int64 {{a: Int64 => a}};f4()(10)~\(Int64\) \$[\d] = 10
+q,q,

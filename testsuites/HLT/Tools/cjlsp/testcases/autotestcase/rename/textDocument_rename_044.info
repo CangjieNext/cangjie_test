@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -21,4 +21,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 522,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "DataRecorda","range": {"end": {"character": 17,"line": 25},"start": {"character": 7,"line": 25}}},{"newText": "DataRecorda","range": {"end": {"character": 14,"line": 43},"start": {"character": 4,"line": 43}}}],"textDocument": {"uri": "renameProject/src/pkg/enum004.cj","version": 5}}]}}
+{"id": 522,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "DataRecorda","range": {"end": {"character": 17,"line": 25},"start": {"character": 7,"line": 25}}},{"newText": "DataRecorda","range": {"end": {"character": 14,"line": 43},"start": {"character": 4,"line": 43}}}],"textDocument": {"uri": "renameProject/src/pkg/enum004.cj","version": 4}}]}}

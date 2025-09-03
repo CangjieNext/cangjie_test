@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: cd %n && gcc pro0/test01.c -shared -fPIC -o pro0/libtest01.%test_suffix && gcc pro0/test02.c -shared -fPIC -o pro0/libtest02.%test_suffix
+// EXEC: cd %n && %cjpm run
+// ASSERT: scan aaa
+// ASSERT: scan bbb
+// ASSERT: scan cjpm run finished

@@ -13,13 +13,7 @@
 import std.ast.*
 
 // main() {
-//     var input : Tokens = quote(spawn{=>a=b})
-//     let expr = parseSpawnExpr(input)
-//     var b = expr.getTaskExpr().asLambdaExpr()
-//     if  (b.getLambdaBody()[0].asExpr().asAssignExpr().getRightExpr().asRefExpr().getIdentifier().value != "b") {
-//         return 3
 //     }
-//     return 0
 
 // }
 

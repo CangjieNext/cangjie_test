@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -22,4 +22,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 1668,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "add","insertText": "add","insertTextFormat": 1,"kind": 2,"label": "add","sortText": ""},{"deprecated": false,"detail": "(function) func add(a: Int32, b: Int32)","documentation": "","filterText": "add","insertText": "add(${1:a: Int32}, ${2:b: Int32})","insertTextFormat": 2,"kind": 2,"label": "add(a: Int32, b: Int32)","sortText": ""}]}
+{"id": 1668,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "add","insertText": "add","insertTextFormat": 1,"kind": 2,"label": "add","sortText": "423333"},{"deprecated": false,"detail": "(function) func add(a: Int32, b: Int32): Int32","documentation": "","filterText": "add","insertText": "add(${1:a: Int32}, ${2:b: Int32})","insertTextFormat": 2,"kind": 2,"label": "add(a: Int32, b: Int32)","sortText": "423333"}]}

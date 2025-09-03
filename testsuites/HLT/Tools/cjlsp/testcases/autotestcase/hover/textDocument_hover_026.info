@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 53,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: array005.cj\nPackage info: default.Arrary\n\ninternal type array = Array<T>\n\u7c7b\u578b\u522b\u540d\n"},"range": {"end": {"character": 10,"line": 3},"start": {"character": 5,"line": 3}}}}
+{"id": 53,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: array005.cj\nPackage info: default.Arrary\n\ninternal type array = Array<Int64>\n\u7c7b\u578b\u522b\u540d\n"},"range": {"end": {"character": 10,"line": 3},"start": {"character": 5,"line": 3}}}}

@@ -14,6 +14,8 @@
 
 import std.fs.*
 import stdx.crypto.x509.*
+import stdx.crypto.common.*
+import stdx.crypto.keys.*
 
 var sum = 0
 @When[os != "Windows"]

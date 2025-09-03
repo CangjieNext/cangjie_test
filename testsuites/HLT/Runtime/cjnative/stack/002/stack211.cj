@@ -10,7 +10,6 @@
 // (not O2) EXEC: %compiler %cmp_opt %f -o %output
 // (not O2) UN-EXEC-PIPE: %export cjStackSize=64kb && %export CJ_SOF_SIZE=0b10 && %run %run_opt %output %run_args 2>&1 | compare %f
 
-// 31 = 32 - 1
 // ASSERT: scan-34 at default.my_test_func
 
 // ASSERT: scan-begin An exception has occurred

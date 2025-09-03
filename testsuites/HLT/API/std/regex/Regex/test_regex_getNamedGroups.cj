@@ -60,11 +60,7 @@ Days:
         @Expect(matchdata.groupCount(),3)
         @Expect(matchdata.matchString(),"2024-10-24")
         @Expect(matchdataAll.size,3)
-        // for(data in matchdataAll){
-        //     try{
-        //         data.matchString(1)
 
-        //     }catch(e:IllegalArgumentException ){
 
         //     }
         // }

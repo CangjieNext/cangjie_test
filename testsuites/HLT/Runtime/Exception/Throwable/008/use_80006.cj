@@ -8,7 +8,6 @@
 
 // LEVEL: 1
 package use
-// import define.*
 
 var b = print("b!")
 

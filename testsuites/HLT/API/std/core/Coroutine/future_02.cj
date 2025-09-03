@@ -12,17 +12,14 @@
 // ASSERT:scan 3
 
 func add(a: Int32, b: Int32): Int32 {
-    // print("This is a new thread")
     return a + b
 }
 
 main(): Int64 {
-    // print("This is main\n")
     // Create a thread.
     let fut: Future<Int32> = spawn {
         add(1, 2)
     }
-    // print("main waiting...\n")
     // Waiting for the results of thread execution.
     try {
         let res: Int32 = fut.get()

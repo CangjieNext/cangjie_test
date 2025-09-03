@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_reflection/enum01.cj
+// (CJNATIVE and not MAC) EXEC: %compiler %cmp_opt -g --disable-reflection enum01.cj -o enum01%cmp_output
+// (CJNATIVE and not MAC) RUN-EXEC: python3 cjdb_test.py adapt_reflection04.info enum01 %run_env
+
+test#
+cjdb,cjdb --no-use-colors enum01,enum01
+b,b 33,enum01.cj:33
+r,r,-> 33
+globals,globals,\(default.TimeUnit1\) default::time_1 = Year
+locals,locals,\(default.TimeUnit2\) time2 = {[\s\S]*constructor = Year[\s\S]*arg_1 = 19[\s\S]*}
+p,p time4,\(default.TimeUnit1\) \$[\d] = Year
+expr~expr TimeUnit1.Year~\(default.TimeUnit1\) \$[\d] = Year
+expr~expr TimeUnit2.Year(19)~\(default.TimeUnit2\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 19[\s\S]*}
+expr~expr TimeUnit3.Month(1,2)~\(default.TimeUnit3\) \$[\d] = {[\s\S]*constructor = Month[\s\S]*arg_1 = 1[\s\S]*arg_2 = 2[\s\S]*}
+expr~expr TimeUnit4.Hour(1,2,3.0,4.0)~\(default.TimeUnit4\) \$[\d] = {[\s\S]*constructor = Hour[\s\S]*arg_1 = 1[\s\S]*arg_2 = 2[\s\S]*arg_3 = 3[\s\S]*arg_4 = 4[\s\S]*}
+q,q,

@@ -21,16 +21,10 @@ main(): Unit {
     // 不以lib开头。
     PackageInfo.load("./xxx")
     // lib之后的模块名非法。
-    // ModuleInfo.load("./lib123b")
     // 模块合法但之后不跟随下划线
-    // ModuleInfo.load("./libxxx")
     // 下划线后无至少一个包名。
-    // ModuleInfo.load("./libxxx_")
     // 包名不合法。
-    // ModuleInfo.load("./libxxx_123b")
     // 模块名称或包名称中含有下划线。
     // 动态模块名称合法，但不存在。
-    // ModuleInfo.load("./libxxx_xxx")
 
-    // ModuleInfo.load(".../libxxx")
 }

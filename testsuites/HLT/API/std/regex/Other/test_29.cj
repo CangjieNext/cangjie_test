@@ -36,7 +36,6 @@ main(): Int64 {
         all.add(
             spawn {
                 var cases: Array<Cases> = [
-                    //  Cases("***","***","123","***1***2***3***") // => RegexException: Compilation for pattern `***` failed at offset 0: quantifier does not follow a repeatable item.
                 ]
                 for (c in cases) {
                     var regex = Regex(c.pattern, RegexOption().multiLine())

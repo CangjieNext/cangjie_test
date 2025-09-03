@@ -20,7 +20,6 @@ class C<X> where X <: Z<C<Z<C<Int32>>>> {
 }
 
 interface I<X> where X <: Z<I<Z<I<Int32>>>> {
-    //let b = input.foo()
 }
 
 main(): Int64 {

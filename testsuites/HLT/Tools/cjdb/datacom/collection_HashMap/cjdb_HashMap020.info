@@ -17,10 +17,10 @@ cjdb,cjdb --no-use-colors 005_HashMap_via_class,005_HashMap_via_class
 b,b 13,005_HashMap_via_class.cj:13
 AOT r,r,-> 13
 CJVM c,c,-> 13
-s,s,static func fun_cs1\(par_1:HashMap<Int32, Rune>,par_2:Rune\):HashMap<Int32, Rune>[\S\s]*-> 65[\S\s]*
-b,b 67,005_HashMap_via_class.cj:67
-c,c,-> 67
+s,s,-> 66
+b,b 68,005_HashMap_via_class.cj:68
+c,c,-> 68
 p,p map_c_return,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 86[\S\s]*value = 'G'[\S\s]*}
 p,p map_c_return,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 12[\S\s]*value = 'F'[\S\s]*}
-n,n,-> 68
+n,n,-> 69
 q,q,

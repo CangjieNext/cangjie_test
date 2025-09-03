@@ -41,7 +41,6 @@ class C<X> where X <: T {
 }
 
 interface I<X> where X <: T {
-    //let b : Unit = foo(a)
 }
 
 extend<X> R<X> <: T where X <: T {

@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/collection_HashMap/basic_hashmap_014.cj
+// EXEC: %compiler %cmp_opt -g basic_hashmap_014.cj -o basic_hashmap_014%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_hashmap_014.info basic_hashmap_014 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors basic_hashmap_014,basic_hashmap_014
+b,b 16,basic_hashmap_014.cj:16
+AOT r,r,-> 16
+locals,locals,\(default.testC1\) a1 = {[\s\S]*map_a = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 42[\s\S]*
+p,p a1.map_c,\(std.collection.HashMap<default.cla,Float32>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 17.75[\s\S]*
+q,q,

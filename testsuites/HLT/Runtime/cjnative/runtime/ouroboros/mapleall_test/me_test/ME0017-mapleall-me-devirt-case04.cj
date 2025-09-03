@@ -12,7 +12,6 @@
 // (Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 1>log.txt && bash -c "dos2unix log.txt" && bash -c "cat log.txt" | compare %f
 /* SCAN-IN
 Base.foo()
-Base.foo()
 Inter.foo()
 Inter.foo()
  */

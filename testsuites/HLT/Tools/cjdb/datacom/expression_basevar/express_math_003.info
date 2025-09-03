@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/059_debug_jit.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 059_debug_jit.cj -o 003_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py express_math_003.info 003_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 003_express_basetype,003_express_basetype
+CJVM b,b main,059_debug_jit.cj:4
+CJVM c,c,-> 4
+b,b 33,059_debug_jit.cj:33
+CJVM c,c,-> 33
+AOT r,r,-> 33
+expr,expr arr[1]%arr[0],\(Int64\) \$[\d] = 0
+expr,expr arr[0]%=arr[1];arr[0],\(Int64\) \$[\d] = 10
+expr,expr arrli[1]%arrli[0],\(Int32\) \$[\d] = 3
+expr,expr arrli[1]%=arrli[0];arrli[1],\(Int32\) \$[\d] = 3
+expr,expr hm1["a"]%hm1["b"],\(Int64\) \$[\d] = 2
+expr,expr hm1["a"]%=hm1["b"];hm1["a"],\(Int64\) \$[\d] = 2
+q,q,

@@ -11,6 +11,7 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.crypto.digest.*
+import stdx.crypto.common.*
 import std.collection.*
 import stdx.encoding.hex.*
 

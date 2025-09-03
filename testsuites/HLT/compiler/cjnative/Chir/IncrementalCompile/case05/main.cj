@@ -7,7 +7,6 @@
  */
 
 import A.*
-// import B.*
 
 main(): Int64 {
     return a - 3

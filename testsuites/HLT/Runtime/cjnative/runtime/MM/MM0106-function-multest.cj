@@ -83,9 +83,6 @@ class MM_multest <: Tool {
     }
     // load consume and return
     // static func test7(mm : MM_multest): Object {
-    //     let o : Object = mm.b
-    //     consume(o)
-    //     return o
     // }
     // call and consume
     public static func test8(): Unit {
@@ -112,16 +109,9 @@ class MM_multest <: Tool {
         return mm
     }
     // static func testParam2(mm : MM_multest): Object {
-    //     consume(mm)
-    //     mm = test2()
-    //     return mm
     // }
     // static func testParam3(mm : MM_multest): Object {
-    //     consume(mm)
-    //     if (mm.b != []) {
-    //         mm = test()
     //     }
-    //     return mm
     // }
 
     public static func testSimple(): Unit {
@@ -134,7 +124,6 @@ class MM_multest <: Tool {
         test4(mm)
         test5(mm)
         test6(mm)
-        // test7(mm)
         test8()
         test9()
         test10()
@@ -144,8 +133,6 @@ class MM_multest <: Tool {
         mm.obj = Tool()
         mm.b = Array<UInt8>(10, repeat: 0)
         testParam1(mm)
-        // testParam2(mm)
-        // testParam3(mm)
     }
     public static func testFlow(): Unit {
         testFlow1(21)
@@ -171,7 +158,6 @@ class Bar <: Foo {
 
 main(): Int64 {
     MM_multest.mm_testcase_main_wrapper()
-    // GC()
     MM_multest.mm_testcase_main_wrapper()
     print((1).toString())
     return 0

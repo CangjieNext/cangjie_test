@@ -65,7 +65,6 @@ class COO {
         var a = foo(1) // call foo(x:Int64) in oneself(class COO)
         var b = TimeUnit.foo(1) // call foo from Enum
 
-        //var c = aaa.foo(1) // should not import itself
         var d = foo(1, r'a') // call foo from top-level
         var e = bbb.foo(1) // call foo from  other package
         var f = match (b) {
@@ -81,7 +80,6 @@ class COO {
         var a = foo(1) // call foo(x:Int64) in oneself(class COO)
         var b = TimeUnit.foo(1) // call foo from Enum
 
-        //var c = aaa.foo(1) // should not import itself
         var d = foo(1, r'a') // call foo from top-level
         var e = bbb.foo(1) // call foo from  other package
         var f = match (b) {

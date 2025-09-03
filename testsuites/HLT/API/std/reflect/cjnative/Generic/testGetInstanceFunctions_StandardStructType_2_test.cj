@@ -23,9 +23,7 @@ import dependency.*
 class testGetInstanceFunctions_StandardStructType_2 {
     @TestCase
     func TestCase_114(): Unit {
-        // logger.info("testcase TestCase_114 begins.")
         @Expect(1i64, TypeInfo.of<StandardStructType<Int32, Int8, UInt16>>().getInstanceFunctions("classInstanceMemberFunction_115").size)
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -35,7 +33,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -45,7 +42,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -55,7 +51,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -65,7 +60,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -75,7 +69,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -85,7 +78,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -95,7 +87,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -105,7 +96,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -115,7 +105,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -125,7 +114,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -135,7 +123,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -145,7 +132,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -155,7 +141,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -165,7 +150,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -175,12 +159,10 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("成功调用")
         TypeInfo
             .of<StandardStructType<Int32, Int8, UInt16>>()
             .getInstanceFunctions("classInstanceMemberFunction_115")[0i64]
             .apply(StandardStructType<Int32, Int8, UInt16>(), [true])
-        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -190,7 +172,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardStructType<Int32, Int8, UInt16>\", but now it`s \"Int64\"")
         }
-        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -200,7 +181,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardStructType<Int32, Int8, UInt16>\", but now it`s \"String\"")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -210,7 +190,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -220,7 +199,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -230,7 +208,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -240,7 +217,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -250,7 +226,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -260,7 +235,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -270,7 +244,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -280,7 +253,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -290,7 +262,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -300,7 +271,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -310,7 +280,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<Int32, Int8, UInt16>>()
@@ -320,14 +289,11 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("testcase TestCase_114 ends.")
     }
 
     @TestCase
     func TestCase_115(): Unit {
-        // logger.info("testcase TestCase_115 begins.")
         @Expect(1i64, TypeInfo.of<StandardStructType<Float64, Int32, Unit>>().getInstanceFunctions("classInstanceMemberFunction_116").size)
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -337,7 +303,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -347,7 +312,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -357,7 +321,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -367,7 +330,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -377,7 +339,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -387,7 +348,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -397,7 +357,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -407,7 +366,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -417,7 +375,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -427,7 +384,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -437,7 +393,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -447,7 +402,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -457,7 +411,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -467,7 +420,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -477,12 +429,10 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("成功调用")
         TypeInfo
             .of<StandardStructType<Float64, Int32, Unit>>()
             .getInstanceFunctions("classInstanceMemberFunction_116")[0i64]
             .apply(StandardStructType<Float64, Int32, Unit>(), [()])
-        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -492,7 +442,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardStructType<Float64, Int32, Unit>\", but now it`s \"Int64\"")
         }
-        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -502,7 +451,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardStructType<Float64, Int32, Unit>\", but now it`s \"String\"")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -512,7 +460,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -522,7 +469,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -532,7 +478,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -542,7 +487,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -552,7 +496,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -562,7 +505,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -572,7 +514,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -582,7 +523,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -592,7 +532,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -602,7 +541,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -612,7 +550,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Int32, Unit>>()
@@ -622,14 +559,11 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("testcase TestCase_115 ends.")
     }
 
     @TestCase
     func TestCase_116(): Unit {
-        // logger.info("testcase TestCase_116 begins.")
         @Expect(1i64, TypeInfo.of<StandardStructType<Int64, UInt16, UInt16>>().getInstanceFunctions("classInstanceMemberFunction_117").size)
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -639,7 +573,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -649,7 +582,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -659,7 +591,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -669,7 +600,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -679,7 +609,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -689,7 +618,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -699,7 +627,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -709,7 +636,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -719,7 +645,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -729,7 +654,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -739,7 +663,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -749,7 +672,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -759,7 +681,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -769,7 +690,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -779,12 +699,10 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("成功调用")
         TypeInfo
             .of<StandardStructType<Int64, UInt16, UInt16>>()
             .getInstanceFunctions("classInstanceMemberFunction_117")[0i64]
             .apply(StandardStructType<Int64, UInt16, UInt16>(), [123i64])
-        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -794,7 +712,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardStructType<Int64, UInt16, UInt16>\", but now it`s \"Int64\"")
         }
-        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -804,7 +721,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardStructType<Int64, UInt16, UInt16>\", but now it`s \"String\"")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -814,7 +730,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -824,7 +739,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -834,7 +748,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -844,7 +757,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -854,7 +766,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -864,7 +775,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -874,7 +784,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -884,7 +793,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -894,7 +802,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -904,7 +811,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -914,7 +820,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<Int64, UInt16, UInt16>>()
@@ -924,14 +829,11 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("testcase TestCase_116 ends.")
     }
 
     @TestCase
     func TestCase_117(): Unit {
-        // logger.info("testcase TestCase_117 begins.")
         @Expect(1i64, TypeInfo.of<StandardStructType<Float64, Float32, Int8>>().getInstanceFunctions("classInstanceMemberFunction_118").size)
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -941,7 +843,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -951,7 +852,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -961,7 +861,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -971,7 +870,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -981,7 +879,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -991,7 +888,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1001,7 +897,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1011,7 +906,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1021,7 +915,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1031,7 +924,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1041,7 +933,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1051,7 +942,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1061,7 +951,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1071,7 +960,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1081,12 +969,10 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("成功调用")
         TypeInfo
             .of<StandardStructType<Float64, Float32, Int8>>()
             .getInstanceFunctions("classInstanceMemberFunction_118")[0i64]
             .apply(StandardStructType<Float64, Float32, Int8>(), [114.514000f32])
-        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1096,7 +982,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardStructType<Float64, Float32, Int8>\", but now it`s \"Int64\"")
         }
-        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1106,7 +991,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardStructType<Float64, Float32, Int8>\", but now it`s \"String\"")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1116,7 +1000,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1126,7 +1009,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1136,7 +1018,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1146,7 +1027,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1156,7 +1036,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1166,7 +1045,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1176,7 +1054,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1186,7 +1063,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1196,7 +1072,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1206,7 +1081,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1216,7 +1090,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<Float64, Float32, Int8>>()
@@ -1226,14 +1099,11 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("testcase TestCase_117 ends.")
     }
 
     @TestCase
     func TestCase_118(): Unit {
-        // logger.info("testcase TestCase_118 begins.")
         @Expect(1i64, TypeInfo.of<StandardStructType<UInt16, Int8, Unit>>().getInstanceFunctions("classInstanceMemberFunction_119").size)
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1243,7 +1113,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1253,7 +1122,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1263,7 +1131,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1273,7 +1140,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1283,7 +1149,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1293,7 +1158,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1303,7 +1167,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1313,7 +1176,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1323,7 +1185,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1333,7 +1194,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1343,7 +1203,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1353,7 +1212,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1363,7 +1221,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1373,7 +1230,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1383,12 +1239,10 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("成功调用")
         TypeInfo
             .of<StandardStructType<UInt16, Int8, Unit>>()
             .getInstanceFunctions("classInstanceMemberFunction_119")[0i64]
             .apply(StandardStructType<UInt16, Int8, Unit>(), [()])
-        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1398,7 +1252,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardStructType<UInt16, Int8, Unit>\", but now it`s \"Int64\"")
         }
-        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1408,7 +1261,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardStructType<UInt16, Int8, Unit>\", but now it`s \"String\"")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1418,7 +1270,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1428,7 +1279,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1438,7 +1288,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1448,7 +1297,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1458,7 +1306,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1468,7 +1315,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1478,7 +1324,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1488,7 +1333,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1498,7 +1342,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1508,7 +1351,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1518,7 +1360,6 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardStructType<UInt16, Int8, Unit>>()
@@ -1528,6 +1369,5 @@ class testGetInstanceFunctions_StandardStructType_2 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
-        // logger.info("testcase TestCase_118 ends.")
     }
 }

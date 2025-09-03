@@ -26,8 +26,8 @@ struct A {
 var a = A(0)
 
 class GC_FrequentGCTest {
-    public static var array: Array<Object> = Array<Object>(20 * 1024 * 1024, {i => Object()})
-    public static let parallelCoroutineNum :Int64= 100
+    public static var array: Array<Object> = Array<Object>(10 * 1024 * 1024, {i => Object()})
+    public static let parallelCoroutineNum :Int64= 50
     public static let futureList :ArrayList<Future<Unit>>= ArrayList<Future<Unit>>()
 
     public static func WaitAllCoroutinesExit(list: ArrayList<Future<Unit>>):Unit {

@@ -18,7 +18,7 @@ AOT r,r,-> 23
 CJVM c,c,
 AOT globals,globals,\(std.core.Array<std.core.Any>\) default::mixtuple01 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = {[\s\S]*\[0\] = 3[\s\S]*\[1\] = 4[\s\S]*}[\s\S]*}
 AOT globals,globals,\(std.collection.ArrayList<Tuple<Int64,Bool>>\) default::e1 = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = true[\s\S]*}[\s\S]*}
-AOT globals,globals,\(std.collection.HashMap<std.core.String,Tuple<Int64,Int64>>\) default::f1 = {[\s\S]*\[0\] = {[\s\S]*key = "a"[\s\S]*value = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}[\s\S]*}[\s\S]*}
+AOT globals,globals,\(std.collection.HashMap<std.core.String,Tuple<Int64,Int64>>\) default::f1 = {[\s\S]*\["a"\] = {[\s\S]*key = "a"[\s\S]*value = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}[\s\S]*}[\s\S]*}
 AOT locals,locals,\(Tuple<Tuple<Int64,Int64>,Tuple<Int64,Int64>>\) b = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 3[\s\S]*\[1\] = 4[\s\S]*}[\s\S]*\[1\] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}[\s\S]*}
 AOT locals,locals,\(std.collection.ArrayList<Tuple<Int64,Bool>>\) e = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = true[\s\S]*}[\s\S]*}
 q,q,

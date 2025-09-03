@@ -12,6 +12,7 @@
 
 import stdx.crypto.keys.*
 import stdx.crypto.digest.*
+import stdx.crypto.common.*
 import std.io.*
 import std.crypto.digest.*
 import std.math.numeric.*

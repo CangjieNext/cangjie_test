@@ -12,6 +12,7 @@
 
 import stdx.crypto.crypto.*
 import stdx.crypto.digest.*
+import stdx.crypto.common.*
 
 @Test
 class Test_ECB_CBC_init_01 {
