@@ -1,0 +1,49 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output
+// EXEC-0: %run %run_opt %output %run_args
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC-PIPE-0: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC-1: %run %run_opt %output %run_args
+
+class A{
+  public A(var b!:Int32 = 0){
+
+  }
+}
+
+extend A <: I{
+  static public func me(b:Int32): A {
+    return foo()
+  }
+}
+
+interface I{
+  static func foo(): A{
+    return A()
+  }
+}
+
+main(): Int64 {
+  if (A.me(3).b is Int32) {
+    return 0
+  }
+  return 1
+}
+
+// ASSERT: scan begin dump raw modified decls:
+// ASSERT: scan A 7default1AC ClassCopyInterfaceFunc.cj 8: memory 
+// ASSERT: scan     added members 2: 7default1AC1AYl!V1b= 7default1AC1b$$l 
+// ASSERT: scan     deleted members 2: 7default1AC1AYi!V1b= 7default1AC1b$$i 
+// ASSERT: scan incremental compilation triggered
+// ASSERT: scan changed decls to recompile: 5
+// ASSERT: scan the changed decl after Spreading is:A in file ClassCopyInterfaceFunc.cj in line 8 in column 7
+// ASSERT: scan the changed decl after Spreading is:A in file ClassCopyInterfaceFunc.cj in line 9 in column 10
+// ASSERT: scan the changed decl after Spreading is:b in file ClassCopyInterfaceFunc.cj in line 9 in column 16
+// ASSERT: scan the changed decl after Spreading is:foo in file ClassCopyInterfaceFunc.cj in line 21 in column 15
+// ASSERT: scan the changed decl after Spreading is:main in file ClassCopyInterfaceFunc.cj in line 26 in column 1
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

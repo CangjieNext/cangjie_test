@@ -21,13 +21,13 @@ extend Int64 <: Eq<Int16> {
 }
 
 /* SCAN
-error: implementation of function '==' is needed in 'extend Int64'
+error: implementation of function or property is needed in 'extend Int64'
   ==> extend_overload_builtin_op2.cj:15:1:
    | 
 15 | extend Int64 <: Eq<Int32> {}
    | ^ 
    | 
-note: unimplemented interface function
+note: unimplemented interface function ==
   ==> extend_overload_builtin_op2.cj:10:5:
    | 
 10 |     operator func ==(right: T): Bool

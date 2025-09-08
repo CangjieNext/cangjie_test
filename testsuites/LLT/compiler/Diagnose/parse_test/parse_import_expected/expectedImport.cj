@@ -9,7 +9,7 @@
 
 import std.ast.Bytes-
 
-main(){
+main() {
 
 }
 

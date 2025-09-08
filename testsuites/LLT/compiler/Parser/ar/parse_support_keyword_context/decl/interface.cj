@@ -7,7 +7,7 @@ interface public<X> {
     }
 }
 class Test<X> <: public<X> {}
-main(){
+main() {
     return Test<Int64>.private()
 }
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

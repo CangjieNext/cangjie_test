@@ -1,6 +1,6 @@
 // ERRCHECK: %compiler %cmp_opt %n.cj -o %output
 
-main(){
+main() {
     (_){}
 }
 

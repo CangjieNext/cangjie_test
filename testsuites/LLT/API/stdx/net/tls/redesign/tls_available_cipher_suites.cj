@@ -12,7 +12,9 @@ import std.net.*
 import std.time.*
 import std.sync.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.net.tls.common.*
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.keys.*
 import std.collection.*
 import std.fs.*
 
@@ -24,43 +26,43 @@ func runTcpServer(): (TcpServerSocket, UInt16) {
     return (server, port)
 }
 
-func runTlsServer(server: TcpServerSocket, cipherSuite1_2: ?Array<String>, cipherSuite1_3: ?Array<String>): ?CipherSuite {
+func runTlsServer(server: TcpServerSocket, cipherSuite1_2:?Array<String>, cipherSuite1_3:?Array<String>): String {
     let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa.cer")))
-    let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
+    let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
     var serverConf = TlsServerConfig(serverCert, pkey)
     if (let Some(v) <- cipherSuite1_2) {
-        serverConf.cipherSuitesV1_2 = v
+        serverConf.supportedCipherSuites[V1_2] = v
     }
     if (let Some(v) <- cipherSuite1_3) {
-        serverConf.cipherSuitesV1_3 = v
+        serverConf.supportedCipherSuites[V1_3] = v
     }
     try (client = server.accept()) {
         try (tls = TlsSocket.server(client, serverConfig: serverConf)) {
             tls.handshake()
-            return tls.cipherSuite
+            return tls.handshakeResult.getOrThrow().cipherSuite
         }
     }
-    Option<CipherSuite>.None
+    ""
 }
 
-func runTlsClient(port: UInt16, cipherSuite1_2: ?Array<String>, cipherSuite1_3: ?Array<String>): ?CipherSuite {
+func runTlsClient(port: UInt16, cipherSuite1_2:?Array<String>, cipherSuite1_3:?Array<String>) : String {
     var clientConfig = TlsClientConfig()
     clientConfig.verifyMode = TrustAll
     if (let Some(v) <- cipherSuite1_2) {
-        clientConfig.cipherSuitesV1_2 = v
+        clientConfig.supportedCipherSuites[V1_2] = v
     }
     if (let Some(v) <- cipherSuite1_3) {
-        clientConfig.cipherSuitesV1_3 = v
+        clientConfig.supportedCipherSuites[V1_3] = v
     }
 
     try (clientTcp = TcpSocket("127.0.0.1", port)) {
         clientTcp.connect()
         try (client = TlsSocket.client(clientTcp, clientConfig: clientConfig)) {
             client.handshake()
-            return client.cipherSuite
+            return client.handshakeResult.getOrThrow().cipherSuite
         }
     }
-    Option<CipherSuite>.None
+    ""
 }
 
 @Test
@@ -71,11 +73,12 @@ class TestTlsVersion {
         let f = spawn {
             runTlsServer(tcpServer, Option<Array<String>>.None, Option<Array<String>>.None)
         }
-        let clientCipherSuite: CipherSuite = runTlsClient(port, Option<Array<String>>.None, Option<Array<String>>.None)
-            .getOrThrow()
-        let serverCipherSuite: CipherSuite = f.get().getOrThrow()
+        let clientCipherSuite: String = runTlsClient(port, Option<Array<String>>.None, Option<Array<String>>.None)
+        let serverCipherSuite: String = f.get()
         tcpServer.close()
-        @Assert(clientCipherSuite.toString(), serverCipherSuite.toString())
+        @Assert(clientCipherSuite != "")
+        @Assert(serverCipherSuite != "")
+        @Assert(clientCipherSuite, serverCipherSuite)
         @Assert(isSupporterCiphetSuite(clientCipherSuite))
         @Assert(isSupporterCiphetSuite(serverCipherSuite))
     }
@@ -88,16 +91,19 @@ class TestTlsVersion {
         let f = spawn {
             runTlsServer(tcpServer, tls_1_2, tls_1_3)
         }
-        let clientCipherSuite: CipherSuite = runTlsClient(port, tls_1_2, tls_1_3).getOrThrow()
-        let serverCipherSuite: CipherSuite = f.get().getOrThrow()
+        let clientCipherSuite: String = runTlsClient(port, tls_1_2, tls_1_3)
+        let serverCipherSuite: String = f.get()
         tcpServer.close()
-        @Assert(clientCipherSuite.toString(), serverCipherSuite.toString())
+        @Assert(clientCipherSuite != "")
+        @Assert(serverCipherSuite != "")
+        @Assert(clientCipherSuite, serverCipherSuite)
         @Assert(isSupporterCiphetSuite(clientCipherSuite))
         @Assert(isSupporterCiphetSuite(serverCipherSuite))
     }
 }
 
-func isSupporterCiphetSuite(suite: CipherSuite) {
+func isSupporterCiphetSuite(suite: String) {
     let suites = CipherSuite.allSupported
-    suites.contains(suite)
+    let suiteNames = suites.map({suite => suite.toString()})
+    suiteNames.contains(suite)
 }

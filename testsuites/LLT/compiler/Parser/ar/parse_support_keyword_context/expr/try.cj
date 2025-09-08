@@ -2,7 +2,7 @@
 
 class public <: Exception{}
 
-main(){
+main() {
     try {
         throw public()
     } catch (private) { 

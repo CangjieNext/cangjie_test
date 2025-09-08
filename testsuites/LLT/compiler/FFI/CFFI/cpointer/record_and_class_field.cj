@@ -22,7 +22,7 @@ class AC {
     var a1: CPointer<UIntNative> = CPointer<UIntNative>()
 }
 
-unsafe main(){
+unsafe main() {
     var ptr0 = getCPtrInt(11142)
     var ptr1 = getCPtrInt(22242)
     var a = A()

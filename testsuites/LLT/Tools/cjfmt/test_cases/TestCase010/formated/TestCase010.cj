@@ -9,7 +9,7 @@ type A<T> = structA<T>
 var d = r'a'
 
 extend<T> structA<T> where T <: Rune {
-    public mut static prop b: Rune {
+    public static mut prop b: Rune {
         get() {
             d
         }

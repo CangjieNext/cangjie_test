@@ -6,7 +6,7 @@
 
 sealed class A {}
 
-abstract sealed class B {}
+sealed abstract class B {}
 
 sealed interface I {}
 

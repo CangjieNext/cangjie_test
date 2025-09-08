@@ -56,7 +56,7 @@ class C4 {
     C5(){}
 }
 
-main(){}
+main() {}
 
 /* SCAN
 error: expected declaration, found 'S3'

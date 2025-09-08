@@ -31,7 +31,7 @@ error: return type of the inherited function members 'foo' are not identical and
   ==> generic_upper_constraint_inheritance_09.cj:21:25:
    | 
 21 | func bar<T>(x: T) where T <: C & I {
-   |                         ^^^^^^^^^^^ 
+   |                         ^^^^^^^^^^ 
    | 
    # note: conflict types are 'Int64', 'Struct-String'
 

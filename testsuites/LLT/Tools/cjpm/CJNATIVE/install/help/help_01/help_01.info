@@ -1,0 +1,33 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm install -h 2>&1 | compare %f
+/* SCAN
+Install a Cangjie binary.
+
+Usage:
+  cjpm install [option]
+
+Available option:
+  -h, --help                help for install
+  -V, --verbose             enable verbose
+  -m, --member <value>      specify a member module of the workspace
+  -g                        enable install debug version target
+  --path <value>            specify path of source module, default as current path
+  --root <value>            specify path of installed binary
+  --git <value>             specify url of installed git module
+  --branch <value>          specify branch of installed git module
+  --tag <value>             specify tag of installed git module
+  --commit <value>          specify commit ID of installed git module
+  -j, --jobs <N>            the number of jobs to spawn in parallel during the build process
+  --cfg                     enable the customized option 'cfg'
+  --target-dir <value>      specify target directory
+  --name <value>            specify product name to install, default to install all products
+  --skip-build              install binary in target directory directly without building
+  --list                    list all installed modules and their versions
+  --skip-script             disable script 'build.cj'.
+*/

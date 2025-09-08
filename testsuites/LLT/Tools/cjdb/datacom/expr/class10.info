@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/class_member_arraylist.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug class_member_arraylist.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb class10,class10
+b,b 30,class_member_arraylist.cj:30
+r,r,-> 30
+ ,expr r,\(default.Rectangle\) \$\d+ = {(\r|\n|\r\n)  arr = {\s+\[0\] = {\s+\["a" -> 0\] = {(\r|\n|\r\n)        key = "a"(\r|\n|\r\n)        value = 0
+ ,expr r.arr,\(std.collection.ArrayList<std.collection.HashMap<std.core.String,Int64>>\) \$\d+ = {\s+\[0\] = {\s+\["a" -> 0\] = {(\r|\n|\r\n)      key = "a"(\r|\n|\r\n)      value = 0
+q,q,

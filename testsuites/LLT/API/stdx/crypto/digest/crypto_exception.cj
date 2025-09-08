@@ -8,7 +8,7 @@
 // EXEC: %compiler %import-cangjie-stdx  %cmp_opt  -o %n.%suffix %f --test
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_args
 
-import stdx.crypto.digest.*
+import stdx.crypto.common.*
 
 @Test
 class Test_crypto_exception {

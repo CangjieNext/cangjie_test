@@ -1,0 +1,27 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb decimal_base,decimal_base
+b,b 26,decimal_base.cj:26
+r,r,-> 26
+ ,expr a1,\(std.math.numeric.Decimal\) \$\d+ = 0
+ ,expr a2,\(std.math.numeric.Decimal\) \$\d+ = 0
+ ,expr a3,\(std.math.numeric.Decimal\) \$\d+ = 0.0000000000
+ ,expr a3,\(std.math.numeric.Decimal\) \$\d+ = 0.000
+ ,expr b1,\(std.math.numeric.Decimal\) \$\d+ = 4165153151
+ ,expr b2,\(std.math.numeric.Decimal\) \$\d+ = -4165153151
+ ,expr b3,\(std.math.numeric.Decimal\) \$\d+ = 481151
+ ,expr b4,\(std.math.numeric.Decimal\) \$\d+ = -481151
+ ,expr b5,\(std.math.numeric.Decimal\) \$\d+ = 464131168146844
+ ,expr b6,\(std.math.numeric.Decimal\) \$\d+ = -464131168146844
+ ,expr b7,\(std.math.numeric.Decimal\) \$\d+ = -4641311653153168146844
+ ,expr b8,\(std.math.numeric.Decimal\) \$\d+ = 4641311653153168146844
+q,q,

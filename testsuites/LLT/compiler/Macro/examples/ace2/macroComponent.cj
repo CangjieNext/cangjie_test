@@ -57,6 +57,5 @@ public macro Component(input: Tokens): Tokens {
     var ret3 = quote(init) + initParams + initBody
 
     var ret = ret1 + ret2 + ret3 + quote(})
-    //ret.dump()
     return ret
 }

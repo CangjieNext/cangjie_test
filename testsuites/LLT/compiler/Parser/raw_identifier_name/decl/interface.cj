@@ -7,7 +7,7 @@ interface I {
     func f(): Unit
 }
 
-main(){
+main() {
     0
 }
 

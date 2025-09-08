@@ -6,7 +6,7 @@ import define.*
 
 @Same(
 import stdx.net.http.*
-main(){
+main() {
     return 0
 }
 )

@@ -35,7 +35,7 @@ error: the constraint of type parameter is not looser than parent's constraint
   ==> generic_constraint_inheritance_05.cj:20:46:
    | 
 20 |     public static func test<T>(): Unit where T <: C & Equatable<X> {}
-   |                                              ^^^^^^^^^^^^^^^^^^^^^^ 
+   |                                              ^^^^^^^^^^^^^^^^^^^^^ 
    | 
    # note: parent constraint is 'Class-B & Interface-Equatable<Generics-X>'
 

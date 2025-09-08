@@ -11,7 +11,9 @@
 
 import std.{fs.*, net.*, collection.*, io.*}
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey, Pem, PemEntry, DerBlob}
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.keys.*
+import stdx.crypto.common.*
 
 let certificatePath = "./files/apiserverchain.crt"
 
@@ -21,8 +23,8 @@ func parsePem(text: String): (Array<X509Certificate>, PrivateKey) {
         map<PemEntry, X509Certificate> {entry => X509Certificate.decodeFromDer(entry.body ?? DerBlob())} |> collectArray
 
     let key = (pem |> filter<PemEntry> {entry => entry.label == PemEntry.LABEL_PRIVATE_KEY} |>
-        map<PemEntry, PrivateKey> {entry => PrivateKey.decodeDer(entry.body ?? DerBlob())} |> first) ?? throw Exception(
-        "No private key found in the PEM file")
+        map<PemEntry, PrivateKey> {entry => GeneralPrivateKey.decodeDer(entry.body ?? DerBlob())} |> first) ??
+            throw Exception("No private key found in the PEM file")
 
     if (chain.isEmpty()) {
         throw Exception("No certificates found in the PEM file")

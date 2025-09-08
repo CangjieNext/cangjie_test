@@ -1,0 +1,26 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_env_display_04.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_env_display_04.cj -o debuginfo_env_display_04
+// EXEC: python3 cjdb_test.py debuginfo_env_display_04.info
+
+
+test#
+cjdb,cjdb debuginfo_env_display_04,debuginfo_env_display_04
+b,b 28,debuginfo_env_display_04.cj:28
+r,r,-> 28
+s,s,-> 20
+locals,locals,E\) b = Default(\r|\n|\r\n)\(Int64\) para = 50
+finish,finish,-> 28
+n,n,-> 29
+s,s,-> 23
+locals,locals,c = {(\r|\n|\r\n)  \[0\] = 1(\r|\n|\r\n)  \[1\] = 2
+finish,finish,-> 29
+n,n,-> 30
+s,s,-> 26
+locals,locals,A\) d = {(\r|\n|\r\n)  member = "HHH"
+q,q,

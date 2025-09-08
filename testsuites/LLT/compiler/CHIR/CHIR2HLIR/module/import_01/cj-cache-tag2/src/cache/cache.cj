@@ -44,18 +44,12 @@ public class Cache<T> {
         this.items = items
         this.mu = ReentrantMutex()
         this.onEvicted = None
-        // if (cleanupInterval.toNanoseconds() > 0) {
-        //     runJanitor(this, cleanupInterval)
-        // }
     }
     public init(defaultExpiration: Duration, cleanupInterval: Duration) {
         this.defaultExpiration = defaultExpiration
         this.items = HashMap()
         this.mu = ReentrantMutex()
         this.onEvicted = None
-        // if (cleanupInterval.toNanoseconds() > 0) {
-        //     runJanitor(this, cleanupInterval)
-        // }
     }
 
     public func Set(k: String, v: T, d!: Duration = DefaultExpiration) {

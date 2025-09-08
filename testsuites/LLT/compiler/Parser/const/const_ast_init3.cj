@@ -14,7 +14,7 @@ class MyVisitor <: Visitor {
     }
 }
 
-main(){
+main() {
     let tk = quote(
     struct A {
         public const init() {

@@ -44,19 +44,19 @@ note: constraint 'Generics-R <: Class-A' may come from:
   ==> type_arg_infer5.cj:10:19:
    | 
 10 | func f<T>() where T <: A {
-   |                   ^^^^^^^ 
+   |                   ^^^^^^ 
    | 
 note: constraint 'Generics-R <: Class-A' may come from:
   ==> type_arg_infer5.cj:11:26:
    | 
 11 |     func g<R>(): R where R <: T & A {
-   |                          ^^^^^^^^^^^ 
+   |                          ^^^^^^^^^^ 
    | 
 note: constraint 'Generics-R <: Generics-T' may come from:
   ==> type_arg_infer5.cj:11:26:
    | 
 11 |     func g<R>(): R where R <: T & A {
-   |                          ^^^^^^^^^^^ 
+   |                          ^^^^^^^^^^ 
    | 
 note: constraint 'Generics-R <: Int64' may come from:
   ==> type_arg_infer5.cj:12:24:

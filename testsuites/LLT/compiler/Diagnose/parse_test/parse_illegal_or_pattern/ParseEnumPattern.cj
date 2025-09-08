@@ -12,7 +12,7 @@ enum TimeUnit {
     | Month(Int32, Int32)
 }
 let oneYear = TimeUnit.Year(1)
-main(){
+main() {
     var howManyHours = match(oneYear){
         case TimeUnit.Year(y | x) => y * 365 * 24
         case _ => 0i32

@@ -49,7 +49,7 @@ error: return type of the inherited function members 'foo' are not identical and
   ==> interface_conflict_inheritance_08.cj:18:26:
    | 
 18 |     func test<X>() where X <: I1 & T {}
-   |                          ^^^^^^^^^^^^ 
+   |                          ^^^^^^^^^^^ 
    | 
    # note: conflict types are 'Int64', 'Struct-String'
 

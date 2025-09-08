@@ -12,7 +12,6 @@ main() {
     let structDecl = (parseDecl(input) as StructDecl).getOrThrow()
     let output = quote($structDecl)
     let flag = compareTokens(input, output)
-    // output.dump()
     if (!flag) {
         return 1
     }

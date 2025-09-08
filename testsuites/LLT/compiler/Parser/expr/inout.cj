@@ -2,7 +2,7 @@
 
 inout
 class AAA{}
-main(){}
+main() {}
 
 /* SCAN
 error: unexpected modifier 'inout' on class declaration

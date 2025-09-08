@@ -10,7 +10,7 @@ func f(): Unit {
     const (g, h)
 }
 
-main(){}
+main() {}
 
 /* SCAN
 error: const variable declaration must be initialized

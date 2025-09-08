@@ -37,5 +37,12 @@ note: no information known for type variable 'Generics-T'
    |                  ^ 
    | 
 
-1 error generated, 1 error printed.
+error: generic type should be used with type argument
+  ==> infer_member_access_with_enum_ctor_fail.cj:20:9:
+   | 
+20 |     if (T1.a16(i16) != i16) {
+   |         ^ 
+   | 
+
+2 errors generated, 2 errors printed.
 */

@@ -9,7 +9,7 @@
 
 import define.*
 
-main(){
+main() {
     var a = @SAME{1}() <= @SAME{1}()
     var b = @SAME[0]{1}() <= @SAME[0]{1}()
     if ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == ((a == b) && (a == true))

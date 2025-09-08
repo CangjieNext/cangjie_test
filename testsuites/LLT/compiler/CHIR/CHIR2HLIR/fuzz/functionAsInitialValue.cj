@@ -11,7 +11,7 @@
 main(): Int64 {
     func func1(iv!: () -> Unit = {=> ()}): Unit {
     }
-    // func1()
+
     func1(iv: {=> ()})
     return 0
 }

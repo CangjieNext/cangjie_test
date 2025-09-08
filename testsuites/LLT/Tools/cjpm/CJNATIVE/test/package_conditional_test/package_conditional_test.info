@@ -8,5 +8,5 @@
 // EXEC: cd %n && %cjpm build --cfg1 --cfg6 && %cjpm test --module "b pro1" -V --cfg1 --cfg6 %run_utest_opt 2>&1 | compare %f
 // ASSERT: scan-1 --test-only
 // ASSERT: scan-3 -g
-// ASSERT: scan-1 --cfg="feature1=lion, feature2=cat"
+// ASSERT: scan-3 --cfg feature1=lion, feature2=cat
 // ASSERT: scan cjpm test success

@@ -5,7 +5,7 @@ class Foo {
     static public const b = 200
     static public const c = 300
 }
-main(){
+main() {
     println("${Foo.a}, ${Foo.b}, ${Foo.c}")
 }
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

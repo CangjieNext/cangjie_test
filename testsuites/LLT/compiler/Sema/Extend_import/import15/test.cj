@@ -4,12 +4,11 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+// LEVEL: 0
 // DEPENDENCE: a.cj
 // EXEC-PIPE-1: %compiler %cmp_opt a.cj %f -o %output 2>&1 | compare %f
 
 package test
-
-// import std.collection.ArrayList
 
 main(): Int64 {
     let a: Foos = Foos()
@@ -21,9 +20,9 @@ main(): Int64 {
 
 /* SCAN
 error: no matching function declaration for function call 'contains'
-  ==> test.cj:18:12:
+  ==> test.cj:17:12:
    | 
-18 |     a.foos.contains(Foo("1"))
+17 |     a.foos.contains(Foo("1"))
    |            ^ 
    | 
 note: to use the following extension, import 'Class-ArrayList<Generics-T>'

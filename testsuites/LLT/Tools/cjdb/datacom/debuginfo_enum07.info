@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_enum07.cj
+// EXEC: %compiler %cmp_opt -g debuginfo_enum07.cj -o debuginfo_enum07
+// EXEC: python3 cjdb_test.py debuginfo_enum07.info
+
+
+test#
+cjdb,cjdb debuginfo_enum07,debuginfo_enum07
+b,b 14,debuginfo_enum07.cj:14
+r,r,-> 14
+p,p zzzz,\(default.EEEE\) \$[\d]+ = {\s+constructor = YYYY\s+arg_1 = XXXX\s+}
+q,q,
+q

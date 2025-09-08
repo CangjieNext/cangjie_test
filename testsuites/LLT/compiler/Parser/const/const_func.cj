@@ -8,7 +8,7 @@ const func test(a: Int64): Int64 { // ok
     return a
 }
 
-main(){
+main() {
     test(3)
 }
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

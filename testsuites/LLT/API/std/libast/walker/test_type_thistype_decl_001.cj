@@ -20,7 +20,6 @@ class MyVisitor <: Visitor {
 
     public override func visit(t: Decl) {
         println("visit Decl")
-        // types.add(t)
         return
     }
 }

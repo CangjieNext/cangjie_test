@@ -8,7 +8,7 @@ public macro test(a:Tokens,b:Tokens,c:Tokens):Tokens{
     a
 }
 
-main(){
+main() {
     return 0
 }
 

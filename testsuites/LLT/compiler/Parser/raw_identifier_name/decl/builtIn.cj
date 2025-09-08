@@ -10,7 +10,7 @@ let `point` = CPointer<Int8>()
 var cs: CString = CString(CPointer<UInt8>())
 var `cs`: CString = CString(CPointer<UInt8>())
 
-main(){
+main() {
     0
 }
 

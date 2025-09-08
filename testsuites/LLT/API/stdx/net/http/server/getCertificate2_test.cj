@@ -25,7 +25,7 @@ package tests.server
 
 import stdx.net.http.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
 import stdx.encoding.url.*
 import std.{net.*, fs.*}
 import std.unittest.*
@@ -65,7 +65,7 @@ class TestServer11TlsAllRightTest {
 
     func sendRequest1() {
         var clientCfg = clientConfig()
-        clientCfg.alpnProtocolsList = ["http/1.1"]
+        clientCfg.supportedAlpnProtocols = ["http/1.1"]
         let client = ClientBuilder().tlsConfig(clientCfg).build()
         let u = URL.parse("https://127.0.0.1:${port}/hello")
         let req = HttpRequestBuilder().url(u).header("Connection", "close").build()

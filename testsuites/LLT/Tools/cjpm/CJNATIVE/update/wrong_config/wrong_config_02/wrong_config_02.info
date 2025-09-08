@@ -6,5 +6,5 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm update 2>&1 | compare %f
-// ASSERT: regex Error: the path 'aoo' does not exist which is listed in 'dependencies' field at .[/|\\]cjpm.toml
+// ASSERT: regex Error: the path 'aoo' of module 'aoo' does not exist which is listed in 'dependencies' field at .[/|\\]cjpm.toml
 // ASSERT: scan Error: cjpm update failed

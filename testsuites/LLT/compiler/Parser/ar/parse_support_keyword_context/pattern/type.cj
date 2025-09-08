@@ -11,7 +11,7 @@ func protected() : (public, public) {
     return (public(), public())
 }
 
-main(){
+main() {
     return 0
 }
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

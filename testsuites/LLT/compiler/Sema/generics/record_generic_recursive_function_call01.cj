@@ -15,7 +15,7 @@ struct A<T>{
    }
 }
 
-main(){
+main() {
     var a : A<Int64> = A<Int64>()
     return 0
 }

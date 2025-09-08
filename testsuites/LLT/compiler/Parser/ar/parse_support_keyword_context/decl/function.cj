@@ -6,7 +6,7 @@ func f<public, Int64>() {}
 func g<open>() whier open <: update {}
 func g<open>() where open <: update {}
 
-main(){}
+main() {}
 
 /* SCAN
 error: expected a generic type name after ',' in generic, found keyword 'Int64'

@@ -18,6 +18,7 @@ import stdx.encoding.base64.toBase64String
 import stdx.encoding.base64.*
 import stdx.crypto.crypto.*
 import stdx.crypto.digest.*
+import stdx.crypto.common.*
 
 @Test
 class Test_sm4 {
