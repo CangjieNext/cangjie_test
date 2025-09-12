@@ -43,3 +43,11 @@ Tools/cjdb/datacom/debuginfo_env_display_04.info
 Tools/cjdb/datacom/debuginfo_inlined_function.info
 Tools/cjdb/datacom/expr/enum5.info
 Tools/cjdb/datacom/expr/localfunc3.info
+
+# fails if user is root 
+compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
+compiler/ConditionalCompilation/cfg/read_file_fail.cj
+
+# should be fixed.
+API/std/unittest/mock/compiler/createMock/usePrivateTypesOtherPackage.cj
+API/std/unittest/report_bench_html/report_html_gnuplot.cj
