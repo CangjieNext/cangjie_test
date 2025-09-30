@@ -17,31 +17,31 @@
 import ohos.labels.*
 import ohos.base.*
 
-@!APILevel[19, syscap: "A"]
+@!APILevel[since: "19", syscap: "A"]
 public func f_A() {}
 
-@!APILevel[19, syscap: "B"]
+@!APILevel[since: "19", syscap: "B"]
 public func f_B() {}
 
-@!APILevel[19, syscap: "C"]
+@!APILevel[since: "19", syscap: "C"]
 public func f_C() {}
 
-@!APILevel[19, syscap: "D"]
+@!APILevel[since: "19", syscap: "D"]
 public func f_D() {}
 
-@!APILevel[19, syscap: "E"]
+@!APILevel[since: "19", syscap: "E"]
 public func f_E() {}
 
-@!APILevel[19, syscap: "F"]
+@!APILevel[since: "19", syscap: "F"]
 public func f_F() {}
 
-@!APILevel[19, syscap: "G"]
+@!APILevel[since: "19", syscap: "G"]
 public func f_G() {}
 
-@!APILevel[19, syscap: "H"]
+@!APILevel[since: "19", syscap: "H"]
 public func f_H() {}
 
-@!APILevel[19, syscap: "I"]
+@!APILevel[since: "19", syscap: "I"]
 public func f_I() {}
 
 main() {

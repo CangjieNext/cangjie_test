@@ -11,7 +11,7 @@
 package std.convert
 
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface Formattable {
 }
 
@@ -27,7 +27,7 @@ extend Int64 <: Formattable {
     * @throws IllegalArgumentException if the `fmt` does not match the expected int format pattern
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 
@@ -45,7 +45,7 @@ extend Int32 <: Formattable {
     * @throws IllegalArgumentException if the `fmt` does not match the expected int format pattern
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 
@@ -63,7 +63,7 @@ extend Int16 <: Formattable {
     * @throws IllegalArgumentException if the `fmt` does not match the expected int format pattern
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 
@@ -81,7 +81,7 @@ extend Int8 <: Formattable {
     * @throws IllegalArgumentException if the `fmt` does not match the expected int format pattern
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 
@@ -99,7 +99,7 @@ extend UInt64 <: Formattable {
     * @throws IllegalArgumentException if the `fmt` does not match the expected unit format pattern
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 
@@ -117,7 +117,7 @@ extend UInt32 <: Formattable {
     * @throws IllegalArgumentException if the `fmt` does not match the expected unit format pattern
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 
@@ -135,7 +135,7 @@ extend UInt16 <: Formattable {
     * @throws IllegalArgumentException if the `fmt` does not match the expected unit format pattern
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 
@@ -153,7 +153,7 @@ extend UInt8 <: Formattable {
     * @throws IllegalArgumentException if the `fmt` does not match the expected unit format pattern
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 
@@ -168,7 +168,7 @@ extend Float64 <: Formattable {
     *
     * @throws IllegalArgumentException if the `fmt` does not match the expected float format pattern
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 
@@ -185,7 +185,7 @@ extend Float32 <: Formattable {
     *
     * @throws IllegalArgumentException if the `fmt` does not match the expected float format pattern
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 
@@ -202,7 +202,7 @@ extend Float16 <: Formattable {
     *
     * @throws IllegalArgumentException if the `fmt` does not match the expected float format pattern
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 
@@ -217,7 +217,7 @@ extend Rune <: Formattable {
     *
     * @throws IllegalArgumentException if the `fmt` does not match the expected char format pattern
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 
@@ -226,11 +226,11 @@ extend Rune <: Formattable {
 *
 * @since 0.17.4
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface Parsable<T> {
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface RadixConvertible<T> {
 }
 
@@ -253,7 +253,7 @@ extend Int8 <: Parsable<Int8> {
     * or if there is an invalid utf8 code in the string.
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(data: String): Int8
     
     /**
@@ -266,21 +266,21 @@ extend Int8 <: Parsable<Int8> {
     * @since 0.31.2
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(data: String): Option<Int8>
 }
 
 extend Int8 <: RadixConvertible<Int8> {
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(value: String, radix!: Int): Int8
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(value: String, radix!: Int): Option<Int8>
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(radix!: Int): String
 }
 
@@ -303,7 +303,7 @@ extend UInt8 <: Parsable<UInt8> {
     * or if there is an invalid utf8 code in the string.
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(data: String): UInt8
     
     /**
@@ -316,21 +316,21 @@ extend UInt8 <: Parsable<UInt8> {
     * @since 0.31.2
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(data: String): Option<UInt8>
 }
 
 extend UInt8 <: RadixConvertible<UInt8> {
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(value: String, radix!: Int): UInt8
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(value: String, radix!: Int): Option<UInt8>
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(radix!: Int): String
 }
 
@@ -353,7 +353,7 @@ extend Int16 <: Parsable<Int16> {
     * @or if there is an invalid utf8 code in the string.
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(data: String): Int16
     
     /**
@@ -366,21 +366,21 @@ extend Int16 <: Parsable<Int16> {
     * @since 0.31.2
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(data: String): Option<Int16>
 }
 
 extend Int16 <: RadixConvertible<Int16> {
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(value: String, radix!: Int): Int16
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(value: String, radix!: Int): Option<Int16>
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(radix!: Int): String
 }
 
@@ -403,7 +403,7 @@ extend UInt16 <: Parsable<UInt16> {
     * or if there is an invalid utf8 code in the string.
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(data: String): UInt16
     
     /**
@@ -416,21 +416,21 @@ extend UInt16 <: Parsable<UInt16> {
     * @since 0.31.2
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(data: String): Option<UInt16>
 }
 
 extend UInt16 <: RadixConvertible<UInt16> {
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(value: String, radix!: Int): UInt16
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(value: String, radix!: Int): Option<UInt16>
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(radix!: Int): String
 }
 
@@ -453,7 +453,7 @@ extend Int32 <: Parsable<Int32> {
     * or if there is an invalid utf8 code in the string.
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(data: String): Int32
     
     /**
@@ -466,21 +466,21 @@ extend Int32 <: Parsable<Int32> {
     * @since 0.31.2
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(data: String): Option<Int32>
 }
 
 extend Int32 <: RadixConvertible<Int32> {
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(value: String, radix!: Int): Int32
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(value: String, radix!: Int): Option<Int32>
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(radix!: Int): String
 }
 
@@ -503,7 +503,7 @@ extend UInt32 <: Parsable<UInt32> {
     * or if there is an invalid utf8 code in the string.
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(data: String): UInt32
     
     /**
@@ -516,21 +516,21 @@ extend UInt32 <: Parsable<UInt32> {
     * @since 0.31.2
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(data: String): Option<UInt32>
 }
 
 extend UInt32 <: RadixConvertible<UInt32> {
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(value: String, radix!: Int): UInt32
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(value: String, radix!: Int): Option<UInt32>
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(radix!: Int): String
 }
 
@@ -553,7 +553,7 @@ extend Int64 <: Parsable<Int64> {
     * or if there is an invalid utf8 code in the string.
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(data: String): Int64
     
     /**
@@ -566,21 +566,21 @@ extend Int64 <: Parsable<Int64> {
     * @since 0.31.2
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(data: String): Option<Int64>
 }
 
 extend Int64 <: RadixConvertible<Int64> {
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(value: String, radix!: Int): Int64
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(value: String, radix!: Int): Option<Int64>
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(radix!: Int): String
 }
 
@@ -603,7 +603,7 @@ extend UInt64 <: Parsable<UInt64> {
     * or if there is an invalid utf8 code in the string.
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(data: String): UInt64
     
     /**
@@ -616,36 +616,36 @@ extend UInt64 <: Parsable<UInt64> {
     * @since 0.31.2
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(data: String): Option<UInt64>
 }
 
 extend UInt64 <: RadixConvertible<UInt64> {
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(value: String, radix!: Int): UInt64
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(value: String, radix!: Int): Option<UInt64>
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(radix!: Int): String
 }
 
 extend Float16 <: FloatParsable<Float16> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func fromFloat64(n: Float64): Float16
 }
 
 extend Float32 <: FloatParsable<Float32> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func fromFloat64(n: Float64): Float32
 }
 
 extend Float64 <: FloatParsable<Float64> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func fromFloat64(n: Float64): Float64
 }
 
@@ -666,7 +666,7 @@ extend Float16 <: Parsable<Float16> {
     * @throws IllegalArgumentException if the string does not comply with the floating point number syntax.
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(data: String): Float16
     
     /**
@@ -677,7 +677,7 @@ extend Float16 <: Parsable<Float16> {
     *
     * @since 0.31.2
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(data: String): Option<Float16>
 }
 
@@ -698,7 +698,7 @@ extend Float32 <: Parsable<Float32> {
     * @throws IllegalArgumentException if the string does not comply with the floating point number syntax.
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(data: String): Float32
     
     /**
@@ -709,7 +709,7 @@ extend Float32 <: Parsable<Float32> {
     *
     * @since 0.31.2
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(data: String): Option<Float32>
 }
 
@@ -730,7 +730,7 @@ extend Float64 <: Parsable<Float64> {
     * @throws IllegalArgumentException if the string does not comply with the floating point number syntax.
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(data: String): Float64
     
     /**
@@ -742,7 +742,7 @@ extend Float64 <: Parsable<Float64> {
     *
     * @since 0.31.2
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(data: String): Option<Float64>
 }
 
@@ -763,7 +763,7 @@ extend Rune <: Parsable<Rune> {
     * @throws IllegalArgumentException if the string is empty, or if failing to convert to Rune,
     * or if there is an invalid utf8 code in the string.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(data: String): Rune
     
     /**
@@ -775,7 +775,7 @@ extend Rune <: Parsable<Rune> {
     *
     * @since 0.31.2
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(data: String): Option<Rune>
 }
 
@@ -795,7 +795,7 @@ extend Bool <: Parsable<Bool> {
     *
     * @throws IllegalArgumentException if the string is empty, or if failing to convert to Bool,
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(data: String): Bool
     
     /**
@@ -806,7 +806,7 @@ extend Bool <: Parsable<Bool> {
     *
     * @since 0.31.2
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(data: String): Option<Bool>
 }
 
