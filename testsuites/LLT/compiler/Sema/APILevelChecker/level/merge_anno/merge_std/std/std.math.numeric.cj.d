@@ -10,7 +10,7 @@ import std.math.*
 import std.random.*
 
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     /**
     * Return the signum function of this BigInt.
@@ -20,7 +20,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     *   0: if this BigInt equals to zero;
     *   1: if this BigInt is positive. 
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop sign: Int64
     
     /**
@@ -30,7 +30,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: the minmum of the number of bits to present this BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop bitLen: Int64
     
     /**
@@ -43,7 +43,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     *
     * @throw IllegalArgumentException, if @p bitLen <= 1. 
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func randomProbablePrime(bitLen: Int64, certainty: UInt64, rand!: Random = Random()): BigInt
     
     /**
@@ -55,7 +55,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throw IllegalArgumentException if the size of @p bytes is zero.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(bytes: Array<Byte>)
     
     /**
@@ -68,7 +68,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throw IllegalArgumentException if the value of @p magnitude is 0 and @p sign = false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(sign: Bool, magnitude: Array<Byte>)
     
     /**
@@ -76,7 +76,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param n: a value translated to a BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(n: Int8)
     
     /**
@@ -84,7 +84,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param n: a value translated to a BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(n: Int16)
     
     /**
@@ -92,7 +92,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param n: a value translated to a BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(n: Int32)
     
     /**
@@ -100,7 +100,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param n: a value translated to a BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(n: Int64)
     
     /**
@@ -108,7 +108,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param n: a value translated to a BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(n: UInt8)
     
     /**
@@ -116,7 +116,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param n: a value translated to a BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(n: UInt16)
     
     /**
@@ -124,7 +124,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param n: a value translated to a BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(n: UInt32)
     
     /**
@@ -132,7 +132,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param n: a value translated to a BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(n: UInt64)
     
     /**
@@ -140,7 +140,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param n: a value translated to a BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(n: UIntNative)
     
     /**
@@ -148,7 +148,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param n: a value translated to a BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(n: IntNative)
     
     /**
@@ -157,7 +157,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param n: a value translated to a BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(n: Float16)
     
     /**
@@ -166,7 +166,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param n: a value translated to a BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(n: Float32)
     
     /**
@@ -175,7 +175,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param n: a value translated to a BigInt.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(n: Float64)
     
     /**
@@ -188,7 +188,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     *
     * @throw IllegalArgumentException, if @p bitLen <= 0. 
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(sign: Bool, bitLen: Int64, rand!: Random = Random())
     
     /**
@@ -221,7 +221,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * - if @p base does not in the range of [2, 36].
     */
     @Deprecated[message: "Use member function `public static func parse(value: String, radix!: Int): BigInt` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(s: String, base!: Int64 = 10)
     
     /**
@@ -233,7 +233,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throw IllegalArgumentException, if @p index < 0. 
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func testBit(index: Int64): Bool
     
     /**
@@ -245,7 +245,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * - otherwise, -1.
     */
     @Deprecated[message: "Use global function `public func trailingZeros(x: BigInt): Int64` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func lowestOneBit(): Int64
     
     /**
@@ -257,7 +257,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throw IllegalArgumentException, if @p index < 0.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func setBit(index: Int64): BigInt
     
     /**
@@ -269,7 +269,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throw IllegalArgumentException, if @p index < 0.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clearBit(index: Int64): BigInt
     
     /**
@@ -281,7 +281,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throw IllegalArgumentException, if @p index < 0.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func flipBit(index: Int64): BigInt
     
     /**
@@ -290,7 +290,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @param certainty: a measure of a probability that such method views a composite as a prime;
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isProbablePrime(certainty: UInt64): Bool
     
     /**
@@ -300,7 +300,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: the result of (this + @p that).  
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func +(that: BigInt): BigInt
     
     /**
@@ -310,7 +310,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: the result of (this - @p that).  
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func -(that: BigInt): BigInt
     
     /**
@@ -320,7 +320,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: the result of (this * @p that).  
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func *(that: BigInt): BigInt
     
     /**
@@ -334,7 +334,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throws ArithmeticException if @p that == 0.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func /(that: BigInt): BigInt
     
     /**
@@ -350,7 +350,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throws ArithmeticException if @p that == 0.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func %(that: BigInt): BigInt
     
     /**
@@ -363,7 +363,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throws ArithmeticException if @p that == 0.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func divAndMod(that: BigInt): (BigInt, BigInt)
     
     /**
@@ -377,7 +377,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * @throws ArithmeticException if @p that == 0.
     */
     @Deprecated[message: "Use member function `public func divAndMod(that: BigInt): (BigInt, BigInt)` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func quo(that: BigInt): BigInt
     
     /**
@@ -391,7 +391,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * @throws ArithmeticException if @p that == 0.
     */
     @Deprecated[message: "Use member function `public func divAndMod(that: BigInt): (BigInt, BigInt)` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func rem(that: BigInt): BigInt
     
     /**
@@ -405,7 +405,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * @throws ArithmeticException if @p that == 0.
     */
     @Deprecated[message: "Use member function `public func divAndMod(that: BigInt): (BigInt, BigInt)` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func quoAndRem(that: BigInt): (BigInt, BigInt)
     
     /**
@@ -417,7 +417,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throws IllegalArgumentException if this BigInt and @p that are not relatively prime.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func modInverse(that: BigInt): BigInt
     
     /**
@@ -425,7 +425,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: the result of (- this).
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func -(): BigInt
     
     /**
@@ -435,7 +435,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: the result of (this ** (@p n)). 
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func **(n: UInt64): BigInt
     
     /**
@@ -450,7 +450,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * @throw IllegalArgumentException if @p n < 0;
     * @throw ArithmeticException if @p m equals to zero. 
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func modPow(n: BigInt, m!: ?BigInt = None): BigInt
     
     /**
@@ -460,7 +460,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: the result of (this & (@p that)).
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func &(that: BigInt): BigInt
     
     /**
@@ -470,7 +470,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: the result of (this | (@p that)).
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func |(that: BigInt): BigInt
     
     /**
@@ -480,7 +480,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: the result of (this ^ (@p that)).
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ^(that: BigInt): BigInt
     
     /**
@@ -488,7 +488,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: the result of (! this).
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !(): BigInt
     
     /**
@@ -498,7 +498,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throw ArithmeticException if @p n < 0.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func >>(n: Int64): BigInt
     
     /**
@@ -508,7 +508,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throw ArithmeticException if @p n < 0.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func <<(n: Int64): BigInt
     
     /**
@@ -518,7 +518,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: true if this BigInt is equal to @p that, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(that: BigInt): Bool
     
     /**
@@ -528,7 +528,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: true if this BigInt is not equal to @p that, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(that: BigInt): Bool
     
     /**
@@ -538,7 +538,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: true if this BigInt is greater than @p that, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func >(that: BigInt): Bool
     
     /**
@@ -548,7 +548,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: true if this BigInt is greater than or equal to @p that, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func >=(that: BigInt): Bool
     
     /**
@@ -558,7 +558,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: true if this BigInt is less than @p that, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func <(that: BigInt): Bool
     
     /**
@@ -568,7 +568,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: true if this BigInt is less than or equal to @p that, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func <=(that: BigInt): Bool
     
     /**
@@ -578,7 +578,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @return: the relationship between two BigInt instances.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func compare(that: BigInt): Ordering
     
     /**
@@ -587,7 +587,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * @return: hash value of this BigInt.
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func hashCode(): Int64
     
     /**
@@ -595,14 +595,14 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     *
     * @return: the string representation of this BigDecimal.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
     
     /**
     * Return a byte array of the two's-complement representation of this BigInteger. 
     * The byte array is in big-endian byte-order.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toBytes(): Array<Byte>
     
     /**
@@ -614,7 +614,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throws OverflowException if the value of the BigInt exceeds the range of Int8 and the overflow handling of Throwing is selected
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toInt8(overflowHandling!: OverflowStrategy = Throwing): Int8
     
     /**
@@ -626,7 +626,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throws OverflowException if the value of the BigInt exceeds the range of Int16 and the overflow handling of Throwing is selected
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toInt16(overflowHandling!: OverflowStrategy = Throwing): Int16
     
     /**
@@ -638,7 +638,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throws OverflowException if the value of the BigInt exceeds the range of Int32 and the overflow handling of Throwing is selected
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toInt32(overflowHandling!: OverflowStrategy = Throwing): Int32
     
     /**
@@ -650,19 +650,19 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throws OverflowException if the value of the BigInt exceeds the range of Int64 and the overflow handling of Throwing is selected
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toInt64(overflowHandling!: OverflowStrategy = Throwing): Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toIntNative(overflowHandling!: OverflowStrategy = Throwing): IntNative
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toFloat16(): Float16
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toFloat32(): Float32
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toFloat64(): Float64
     
     /**
@@ -674,7 +674,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throws OverflowException if the value of the BigInt exceeds the range of UInt8 and the overflow handling of Throwing is selected
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUInt8(overflowHandling!: OverflowStrategy = Throwing): UInt8
     
     /**
@@ -686,7 +686,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throws OverflowException if the value of the BigInt exceeds the range of UInt16 and the overflow handling of Throwing is selected
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUInt16(overflowHandling!: OverflowStrategy = Throwing): UInt16
     
     /**
@@ -698,7 +698,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throws OverflowException if the value of the BigInt exceeds the range of UInt32 and the overflow handling of Throwing is selected
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUInt32(overflowHandling!: OverflowStrategy = Throwing): UInt32
     
     /**
@@ -710,10 +710,10 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
     * 
     * @throws OverflowException if the value of the BigInt exceeds the range of UInt64 and the overflow handling of Throwing is selected
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUInt64(overflowHandling!: OverflowStrategy = Throwing): UInt64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUIntNative(overflowHandling!: OverflowStrategy = Throwing): UIntNative
 }
 
@@ -722,7 +722,7 @@ public struct BigInt <: Comparable<BigInt> & Hashable & ToString {
 * 
 * @return: a BigInt equals to abs(@p i).
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func abs(i: BigInt): BigInt
 
 /**
@@ -733,7 +733,7 @@ public func abs(i: BigInt): BigInt
 * 
 * @throws IllegalArgumentException if this < 0.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func sqrt(i: BigInt): BigInt
 
 /**
@@ -745,7 +745,7 @@ public func sqrt(i: BigInt): BigInt
 * 
 * @return: the greatest common divisor of @p i1 and @p i2.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func gcd(i1: BigInt, i2: BigInt): BigInt
 
 /**
@@ -757,11 +757,11 @@ public func gcd(i1: BigInt, i2: BigInt): BigInt
 * 
 * @return: the least common multiple of @p i1 and @p i2.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func lcm(i1: BigInt, i2: BigInt): BigInt
 
 @Deprecated[message: "Use global function `public func countOnes(i: BigInt): Int64` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func countOne(i: BigInt): Int64
 
 /**
@@ -772,7 +772,7 @@ public func countOne(i: BigInt): Int64
 * 
 * @return: the number of one in the two's-complement binary of @p i.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func countOnes(i: BigInt): Int64
 
 /**
@@ -782,14 +782,14 @@ public func countOnes(i: BigInt): Int64
 * @return number of consecutive 0s starting from the least significant bit of @p x.
 *
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func trailingZeros(x: BigInt): Int64
 
 extend BigInt <: Number<BigInt> {
 }
 
 extend BigInt <: Integer<BigInt> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func isSigned(): Bool
 }
 
@@ -824,10 +824,10 @@ extend BigInt <: Parsable<BigInt> {
     * @throws IllegalArgumentException 
     * - if @p value does match the required string format
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(value: String): BigInt
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(value: String): ?BigInt
 }
 
@@ -861,10 +861,10 @@ extend BigInt <: RadixConvertible<BigInt> {
     * - if @p value does match the required string format
     * - if @p radix does not in the range of [2, 36].
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(value: String, radix!: Int): BigInt
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(value: String, radix!: Int): ?BigInt
     
     /**
@@ -876,7 +876,7 @@ extend BigInt <: RadixConvertible<BigInt> {
     * 
     * @throws IllegalArgumentException if @p radix does not in the range of [2, 36]
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(radix!: Int): String
 }
 
@@ -904,7 +904,7 @@ extend BigInt <: Formattable {
     *  0x 1010 1010 1010 1010 1010 1010 1010 1010
     *    |-- [1] --|-- [0] --|------- int -------|
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 
@@ -913,7 +913,7 @@ extend BigInt <: Formattable {
 *
 * @since 0.46.1
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     /**
     * Return the scale of this Decimal.
@@ -924,7 +924,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop scale: Int32
     
     /**
@@ -934,7 +934,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop precision: Int64
     
     /**
@@ -946,7 +946,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop value: BigInt
     
     /**
@@ -959,7 +959,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop sign: Int64
     
     /**
@@ -996,7 +996,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     * @since 0.46.1
     */
     @Deprecated[message: "Use member function `public static func parse(value: String): Decimal` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: String)
     
     /**
@@ -1011,10 +1011,10 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: BigInt, scale: Int32)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: BigInt)
     
     /**
@@ -1026,7 +1026,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: Int8)
     
     /**
@@ -1038,7 +1038,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: Int16)
     
     /**
@@ -1050,7 +1050,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: Int32)
     
     /**
@@ -1062,7 +1062,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: IntNative)
     
     /**
@@ -1074,7 +1074,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: Int64)
     
     /**
@@ -1086,7 +1086,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: UInt8)
     
     /**
@@ -1098,7 +1098,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: UInt16)
     
     /**
@@ -1110,7 +1110,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: UInt32)
     
     /**
@@ -1122,7 +1122,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: UIntNative)
     
     /**
@@ -1134,7 +1134,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: UInt64)
     
     /**
@@ -1155,7 +1155,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: Float16)
     
     /**
@@ -1177,7 +1177,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: Float32)
     
     /**
@@ -1199,7 +1199,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(val: Float64)
     
     /**
@@ -1217,16 +1217,16 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func +(d: Decimal): Decimal
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func -(d: Decimal): Decimal
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func *(d: Decimal): Decimal
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func /(d: Decimal): Decimal
     
     /**
@@ -1245,11 +1245,11 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func divWithPrecision(d: Decimal, precision: Int64, roundingMode!: RoundingMode = HalfEven): Decimal
     
     @Deprecated[message: "Use member function `public func divAndMod(d: Decimal): (BigInt, Decimal)` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func divAndRem(d: Decimal): (BigInt, Decimal)
     
     /**
@@ -1266,10 +1266,10 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func divAndMod(d: Decimal): (BigInt, Decimal)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func -(): Decimal
     
     /** 
@@ -1281,7 +1281,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     * 
     * @return: the result of (this * 10^{-n}), whose digits is the same as this Decimal.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func shiftPoint(n: Int32): Decimal
     
     /**
@@ -1295,7 +1295,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     * @throws OverflowException if the target Decimal is not in the range of 
     * [-(maxValue(precision) * (10 ^ {Int32.MAX})), maxValue(precision) * (10 ^ {Int32.MAX})]
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func roundWithPrecision(precision: Int64, roundingMode!: RoundingMode = RoundingMode.HalfEven): Decimal
     
     /**
@@ -1307,7 +1307,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func <(d: Decimal): Bool
     
     /**
@@ -1319,7 +1319,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func >(d: Decimal): Bool
     
     /**
@@ -1331,7 +1331,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func <=(d: Decimal): Bool
     
     /**
@@ -1343,7 +1343,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func >=(d: Decimal): Bool
     
     /**
@@ -1355,7 +1355,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(d: Decimal): Bool
     
     /**
@@ -1367,7 +1367,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(d: Decimal): Bool
     
     /**
@@ -1379,10 +1379,10 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func compare(d: Decimal): Ordering
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func **(n: Int64): Decimal
     
     /**
@@ -1400,7 +1400,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func powWithPrecision(n: Int64, precision: Int64, roundingMode!: RoundingMode = RoundingMode.HalfEven): Decimal
     
     /**
@@ -1418,7 +1418,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func sqrtWithPrecision(precision: Int64, roundingMode!: RoundingMode = RoundingMode.HalfEven): Decimal
     
     /**
@@ -1430,7 +1430,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     * @since 0.46.1
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func hashCode(): Int64
     
     /**
@@ -1441,7 +1441,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
     
     /**
@@ -1459,7 +1459,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func reScale(newScale: Int32, roundingMode!: RoundingMode = HalfEven): Decimal
     
     /**
@@ -1471,7 +1471,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeTrailingZeros(): Decimal
     
     /**
@@ -1481,7 +1481,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func scaleUnit(): Decimal
     
     /**
@@ -1491,7 +1491,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isInteger(): Bool
     
     /**
@@ -1506,7 +1506,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toInt8(overflowHandling!: OverflowStrategy = Throwing): Int8
     
     /**
@@ -1521,7 +1521,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toInt16(overflowHandling!: OverflowStrategy = Throwing): Int16
     
     /**
@@ -1536,7 +1536,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toInt32(overflowHandling!: OverflowStrategy = Throwing): Int32
     
     /**
@@ -1551,7 +1551,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toInt64(overflowHandling!: OverflowStrategy = Throwing): Int64
     
     /**
@@ -1566,7 +1566,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toIntNative(overflowHandling!: OverflowStrategy = Throwing): IntNative
     
     /**
@@ -1581,7 +1581,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUInt8(overflowHandling!: OverflowStrategy = Throwing): UInt8
     
     /**
@@ -1596,7 +1596,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUInt16(overflowHandling!: OverflowStrategy = Throwing): UInt16
     
     /**
@@ -1611,7 +1611,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUInt32(overflowHandling!: OverflowStrategy = Throwing): UInt32
     
     /**
@@ -1626,7 +1626,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUInt64(overflowHandling!: OverflowStrategy = Throwing): UInt64
     
     /**
@@ -1641,7 +1641,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUIntNative(overflowHandling!: OverflowStrategy = Throwing): UIntNative
     
     /**
@@ -1652,7 +1652,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toBigInt(): BigInt
     
     /**
@@ -1664,7 +1664,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toFloat16(): Float16
     
     /**
@@ -1676,7 +1676,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toFloat32(): Float32
     
     /**
@@ -1688,7 +1688,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toFloat64(): Float64
     
     /**
@@ -1699,7 +1699,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toEngString(): String
     
     /**
@@ -1710,7 +1710,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
     *
     * @since 0.46.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toSciString(): String
 }
 
@@ -1724,7 +1724,7 @@ public struct Decimal <: Comparable<Decimal> & Hashable & ToString {
 *
 * @since 0.46.1
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func abs(d: Decimal): Decimal
 
 /**
@@ -1738,7 +1738,7 @@ public func abs(d: Decimal): Decimal
 * @throws OverflowException if the target Decimal is not in the range of 
 * [-(maxValue(precision) * (10 ^ {Int32.MAX})), maxValue(precision) * (10 ^ {Int32.MAX})]
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func round(d: Decimal, roundingMode!: RoundingMode = RoundingMode.HalfEven): Decimal
 
 /**
@@ -1758,7 +1758,7 @@ public func round(d: Decimal, roundingMode!: RoundingMode = RoundingMode.HalfEve
 *
 * @since 0.46.1
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func sqrt(d: Decimal): Decimal
 
 extend Decimal <: Number<Decimal> {
@@ -1770,31 +1770,31 @@ extend Decimal <: Number<Decimal> {
 * - Wrapping: Wrapping around at the numeric bounds of the type;
 * - Saturating: Saturating at the numeric bounds of the type
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public enum OverflowStrategy <: Equatable<OverflowStrategy> & ToString {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Saturating |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Throwing |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Wrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(that: OverflowStrategy): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
 }
 
 extend Decimal <: Parsable<Decimal> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(value: String): Decimal
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(value: String): ?Decimal
 }
 
 extend Decimal <: Formattable {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
 }
 

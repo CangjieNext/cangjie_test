@@ -8,64 +8,64 @@ package std.collection
 
 import std.math.*
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class ArrayDeque<T> <: Deque<T> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(capacity: Int64)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop size: Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop first: ?T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop last: ?T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop capacity: Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isEmpty(): Bool
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addFirst(element: T): Unit
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addLast(element: T): Unit
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeFirst(): ?T
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeLast(): ?T
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toArray(): Array<T>
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clear(): Unit
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func reserve(additional: Int64): Unit
     
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func iterator(): Iterator<T>
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 extend<T> ArrayDeque<T> <: ToString where T <: ToString {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
 }
 
@@ -76,11 +76,11 @@ extend<T> ArrayDeque<T> <: ToString where T <: ToString {
 *
 * @since 0.18.2
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class ArrayList<T> <: List<T> {
     /* Defines the capacity of the ArrayList. */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop capacity: Int64
     
     /**
@@ -89,7 +89,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
     /**
@@ -100,7 +100,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(capacity: Int64)
     
     /**
@@ -114,7 +114,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(size: Int64, initElement: (Int64) -> T)
     
     /**
@@ -125,7 +125,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(elements: Collection<T>)
     
     /**
@@ -135,7 +135,7 @@ public class ArrayList<T> <: List<T> {
     *
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func of(elements: Array<T>): ArrayList<T>
     
     /**
@@ -145,7 +145,7 @@ public class ArrayList<T> <: List<T> {
     *
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public unsafe func getRawArray(): Array<T>
     
     /**
@@ -154,7 +154,7 @@ public class ArrayList<T> <: List<T> {
     * @throws IndexOutOfBoundsException if "mySize" is out of bound.
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toArray(): Array<T>
     
     /**
@@ -166,15 +166,15 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func get(index: Int64): ?T
     
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop first: ?T
     
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop last: ?T
     
     /**
@@ -184,7 +184,7 @@ public class ArrayList<T> <: List<T> {
     *
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(element: T): Unit
     
     /**
@@ -194,7 +194,7 @@ public class ArrayList<T> <: List<T> {
     * @throws ConcurrentModificationException if there are some system errors.
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(all!: Collection<T>): Unit
     
     /**
@@ -206,7 +206,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen@OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(element: T, at!: Int64): Unit
     
     /**
@@ -218,7 +218,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen@OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(all!: Collection<T>, at!: Int64): Unit
     
     /**
@@ -229,7 +229,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(at!: Int64): T
     
     /**
@@ -243,7 +243,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.31.3
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(range: Range<Int64>): Unit
     
     /**
@@ -254,7 +254,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeIf(predicate: (T) -> Bool): Unit
     
     /**
@@ -264,7 +264,7 @@ public class ArrayList<T> <: List<T> {
     *
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clear(): Unit
     
     /**
@@ -275,7 +275,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func reserve(additional: Int64): Unit
     
     /**
@@ -287,7 +287,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.27.3
     */
     @Frozen@Deprecated[message:"Use global function `public func sort<T>(data: ArrayList<T>, by!: (T, T) -> Ordering, stable!: Bool = false, descending!: Bool = false): Unit` in std.sort instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func sortBy(stable!: Bool, comparator!: (T, T) -> Ordering): Unit
     
     /**
@@ -298,7 +298,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.27.3
     */
     @Frozen@Deprecated[message:"Use global function `public func sort<T>(data: ArrayList<T>, by!: (T, T) -> Ordering, stable!: Bool = false, descending!: Bool = false): Unit` in std.sort instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func sortBy(comparator!: (T, T) -> Ordering): Unit
     
     /**
@@ -308,7 +308,7 @@ public class ArrayList<T> <: List<T> {
     *
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func reverse(): Unit
     
     /**
@@ -322,7 +322,7 @@ public class ArrayList<T> <: List<T> {
     *
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func [](range: Range<Int64>): ArrayList<T>
     
     /**
@@ -335,7 +335,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func slice(range: Range<Int64>): ArrayList<T>
     
     /**
@@ -346,7 +346,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clone(): ArrayList<T>
     
     /**
@@ -359,7 +359,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func [](index: Int64): T
     
     /**
@@ -372,7 +372,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func [](index: Int64, value!: T): Unit
     
     /**
@@ -383,7 +383,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func iterator(): Iterator<T>
     
     /**
@@ -394,7 +394,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isEmpty(): Bool
     
     /**
@@ -405,7 +405,7 @@ public class ArrayList<T> <: List<T> {
     * @since 0.18.2
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop size: Int64
 }
 
@@ -417,16 +417,16 @@ public class ArrayList<T> <: List<T> {
 extend<T> ArrayList<T> <: Equatable<ArrayList<T>> where T <: Equatable<T> {
     /** overloaded determination == method. */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(that: ArrayList<T>): Bool
     
     /** overloaded determination != method. */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(that: ArrayList<T>): Bool
     
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func contains(element: T): Bool
 }
 
@@ -439,11 +439,11 @@ extend<T> ArrayList<T> where T <: Comparable<T> {
     * @since 0.27.3
     */
     @Frozen@Deprecated[message:"Use global function `public func sort<T>(data: ArrayList<T>, stable!: Bool = false, descending!: Bool = false): Unit where T <: Comparable<T>` in std.sort instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func sort(stable!: Bool): Unit
     
     @Frozen@Deprecated[message:"Use global function `public func sort<T>(data: ArrayList<T>, stable!: Bool = false, descending!: Bool = false): Unit where T <: Comparable<T>` in std.sort instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func sort(): Unit
     
     /**
@@ -454,66 +454,66 @@ extend<T> ArrayList<T> where T <: Comparable<T> {
     * @since 0.27.3
     */
     @Frozen@Deprecated[message:"Use global function `public func sort<T>(data: ArrayList<T>, stable!: Bool = false, descending!: Bool = false): Unit where T <: Comparable<T>` in std.sort instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func sortDescending(stable!: Bool): Unit
     
     @Frozen@Deprecated[message:"Use global function `public func sort<T>(data: ArrayList<T>, stable!: Bool = false, descending!: Bool = false): Unit where T <: Comparable<T>` in std.sort instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func sortDescending(): Unit
 }
 
 extend<T> ArrayList<T> <: ToString where T <: ToString {
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class ArrayQueue<T> <: Queue<T> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(capacity: Int64)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func peek(): ?T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(element: T): Unit
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(): ?T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop size: Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop capacity: Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isEmpty(): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clear(): Unit
     
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func iterator(): Iterator<T>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toArray(): Array<T>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func reserve(additional: Int64): Unit
 }
 
 extend <T> ArrayQueue<T> <: ToString where T <: ToString {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class ArrayStack<T> <: Stack<T> {
     /**
     * Constructs an empty stack with the specified capacity.
@@ -521,13 +521,13 @@ public class ArrayStack<T> <: Stack<T> {
     * @param capacity the capacity of the stack
     * @throws IllegalArgumentException if the capacity is negative
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(capacity: Int64)
     
     /**
     * Constructs an empty stack with the default capacity.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
     /**
@@ -535,7 +535,7 @@ public class ArrayStack<T> <: Stack<T> {
     *
     * @return the element at the top of the stack, or null if the stack is empty
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func peek(): ?T
     
     /**
@@ -543,7 +543,7 @@ public class ArrayStack<T> <: Stack<T> {
     *
     * @return the element at the top of the stack, or null if the stack is empty
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(): ?T
     
     /**
@@ -551,7 +551,7 @@ public class ArrayStack<T> <: Stack<T> {
     *
     * @param element the element to add
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(element: T): Unit
     
     /**
@@ -559,7 +559,7 @@ public class ArrayStack<T> <: Stack<T> {
     *
     * @return the capacity of the stack
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop capacity: Int64
     
     /**
@@ -567,7 +567,7 @@ public class ArrayStack<T> <: Stack<T> {
     *
     * @return the size of the stack
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop size: Int64
     
     /**
@@ -575,7 +575,7 @@ public class ArrayStack<T> <: Stack<T> {
     *
     * @return true if the stack is empty, and false otherwise
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isEmpty(): Bool
     
     /**
@@ -583,13 +583,13 @@ public class ArrayStack<T> <: Stack<T> {
     *
     * @param additional the number of additional elements to reserve space for
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func reserve(additional: Int64): Unit
     
     /**
     * Clears the stack.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clear(): Unit
     
     /**
@@ -597,7 +597,7 @@ public class ArrayStack<T> <: Stack<T> {
     *
     * @return an array containing the elements of the stack in the order of popping the stack
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toArray(): Array<T>
     
     /**
@@ -606,21 +606,21 @@ public class ArrayStack<T> <: Stack<T> {
     * @return an iterator over the elements in the stack
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func iterator(): Iterator<T>
 }
 
 extend<T> ArrayStack<T> <: ToString where T <: ToString {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class ConcurrentModificationException <: Exception {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(message: String)
 }
 
@@ -632,7 +632,7 @@ public class ConcurrentModificationException <: Exception {
 * 
 */
 @Frozen
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func reduce<T>(operation: (T, T) -> T): (Iterable<T>) -> Option<T>
 
 /**
@@ -643,7 +643,7 @@ public func reduce<T>(operation: (T, T) -> T): (Iterable<T>) -> Option<T>
 * @return (Iterable<T>) -> R An iteration function accept an Iterable as its input.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func fold<T, R>(initial: R, operation: (R, T) -> R): (Iterable<T>) -> R
 
 /**
@@ -653,7 +653,7 @@ public func fold<T, R>(initial: R, operation: (R, T) -> R): (Iterable<T>) -> R
 * @return Bool Whether the Iterable is empty.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func isEmpty<T>(it: Iterable<T>): Bool
 
 /**
@@ -663,7 +663,7 @@ public func isEmpty<T>(it: Iterable<T>): Bool
 * @return Int64 The number of the Iterable.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func count<T>(it: Iterable<T>): Int64
 
 /**
@@ -673,7 +673,7 @@ public func count<T>(it: Iterable<T>): Int64
 * @return (Iterable<T>) -> Bool An iteration function accept an Iterable as its input.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func contains<T>(element: T): (Iterable<T>) -> Bool where T <: Equatable<T>
 
 /**
@@ -683,7 +683,7 @@ public func contains<T>(element: T): (Iterable<T>) -> Bool where T <: Equatable<
 * @return Option<T> The maximum value.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func max<T>(it: Iterable<T>): Option<T> where T <: Comparable<T>
 
 /**
@@ -693,7 +693,7 @@ public func max<T>(it: Iterable<T>): Option<T> where T <: Comparable<T>
 * @return Option<T> The minimum value.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func min<T>(it: Iterable<T>): Option<T> where T <: Comparable<T>
 
 /**
@@ -703,7 +703,7 @@ public func min<T>(it: Iterable<T>): Option<T> where T <: Comparable<T>
 * @return (Iterable<T>) -> Bool An iteration function accept an Iterable as its input.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func all<T>(predicate: (T) -> Bool): (Iterable<T>) -> Bool
 
 /**
@@ -713,7 +713,7 @@ public func all<T>(predicate: (T) -> Bool): (Iterable<T>) -> Bool
 * @return (Iterable<T>) -> Bool An iteration function accept an Iterable as its input.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func any<T>(predicate: (T) -> Bool): (Iterable<T>) -> Bool
 
 /**
@@ -723,7 +723,7 @@ public func any<T>(predicate: (T) -> Bool): (Iterable<T>) -> Bool
 * @return (Iterable<T>) -> Bool An iteration function accept an Iterable as its input.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func none<T>(predicate: (T) -> Bool): (Iterable<T>) -> Bool
 
 /**
@@ -733,7 +733,7 @@ public func none<T>(predicate: (T) -> Bool): (Iterable<T>) -> Bool
 * @return Option<T> The first element.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func first<T>(it: Iterable<T>): Option<T>
 
 /**
@@ -743,7 +743,7 @@ public func first<T>(it: Iterable<T>): Option<T>
 * @return Option<T> The last element.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func last<T>(it: Iterable<T>): Option<T>
 
 /**
@@ -753,7 +753,7 @@ public func last<T>(it: Iterable<T>): Option<T>
 * @return (Iterable<T>) -> Option<T> An iteration function accept an Iterable as its input.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func at<T>(n: Int64): (Iterable<T>) -> Option<T>
 
 /**
@@ -763,7 +763,7 @@ public func at<T>(n: Int64): (Iterable<T>) -> Option<T>
 * @return (Iterable<T>) -> Unit An iteration function accept an Iterable as its input.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func forEach<T>(action: (T) -> Unit): (Iterable<T>) -> Unit
 
 /**
@@ -772,7 +772,7 @@ public func forEach<T>(action: (T) -> Unit): (Iterable<T>) -> Unit
 *
 * @since 0.18.4
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     /**
     * Initializes an empty HashMap with a default initial DEFAULT_CAPACITY (16) and a default load factor.
@@ -780,7 +780,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
     /**
@@ -791,7 +791,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(elements: Collection<(K, V)>)
     
     /**
@@ -802,7 +802,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(elements: Array<(K, V)>)
     
     /**
@@ -815,7 +815,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(capacity: Int64)
     
     /**
@@ -829,7 +829,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(size: Int64, initElement: (Int64) -> (K, V))
     
     /**
@@ -841,7 +841,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func get(key: K): ?V
     
     /**
@@ -856,7 +856,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen@OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(key: K, value: V): Option<V>
     
     /**
@@ -868,7 +868,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.45.1
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func entryView(key: K): MapEntryView<K, V>
     
     /**
@@ -880,7 +880,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(all!: Collection<(K, V)>): Unit
     
     /**
@@ -892,7 +892,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen@OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(key: K): Option<V>
     
     /**
@@ -903,7 +903,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(all!: Collection<K>): Unit
     
     /**
@@ -914,7 +914,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen@OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeIf(predicate: (K, V) -> Bool): Unit
     
     /**
@@ -923,7 +923,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen@OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clear(): Unit
     
     /**
@@ -936,7 +936,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func reserve(additional: Int64): Unit
     
     /**
@@ -948,7 +948,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop capacity: Int64
     
     /**
@@ -960,7 +960,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func contains(all!: Collection<K>): Bool
     
     /**
@@ -972,7 +972,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen@OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func contains(key: K): Bool
     
     /**
@@ -983,7 +983,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clone(): HashMap<K, V>
     
     /**
@@ -994,7 +994,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func keys(): EquatableCollection<K>
     
     /**
@@ -1005,7 +1005,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func values(): Collection<V>
     
     /**
@@ -1019,7 +1019,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func [](key: K): V
     
     /**
@@ -1031,7 +1031,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func [](key: K, value!: V): Unit
     
     /**
@@ -1042,7 +1042,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop size: Int64
     
     /**
@@ -1053,7 +1053,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func iterator(): HashMapIterator<K, V>
     
     /**
@@ -1064,14 +1064,14 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
     * @since 0.18.4
     */
     @Frozen@OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isEmpty(): Bool
     
     /**
     * Returns the element in this Map as an Array.
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toArray(): Array<(K, V)>
 }
 
@@ -1082,7 +1082,7 @@ public class HashMap<K, V> <: Map<K, V> where K <: Hashable & Equatable<K> {
 */
 extend<K, V> HashMap<K, V> <: ToString where V <: ToString, K <: ToString {
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
 }
 
@@ -1095,11 +1095,11 @@ extend<K, V> HashMap<K, V> <: ToString where V <: ToString, K <: ToString {
 */
 extend<K, V> HashMap<K, V> <: Equatable<HashMap<K, V>> where V <: Equatable<V> {
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(right: HashMap<K, V>): Bool
     
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(right: HashMap<K, V>): Bool
 }
 
@@ -1108,7 +1108,7 @@ extend<K, V> HashMap<K, V> <: Equatable<HashMap<K, V>> where V <: Equatable<V> {
 *
 * @since 0.18.4
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class HashMapIterator<K, V> <: Iterator<(K, V)> where K <: Hashable & Equatable<K> {
     /**
     * Initialize the iterator and transfer the hashmap.
@@ -1118,7 +1118,7 @@ public class HashMapIterator<K, V> <: Iterator<(K, V)> where K <: Hashable & Equ
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(map: HashMap<K, V>)
     
     /**
@@ -1131,7 +1131,7 @@ public class HashMapIterator<K, V> <: Iterator<(K, V)> where K <: Hashable & Equ
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func next(): ?(K, V)
     
     /**
@@ -1148,7 +1148,7 @@ public class HashMapIterator<K, V> <: Iterator<(K, V)> where K <: Hashable & Equ
     * @since 0.24.1
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(): Option<(K, V)>
 }
 
@@ -1164,7 +1164,7 @@ public class HashMapIterator<K, V> <: Iterator<(K, V)> where K <: Hashable & Equ
 *
 * @since 0.18.4
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     /**
     * Constructs a new, empty set; the backing @p HashSet instance has
@@ -1173,7 +1173,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
     /**
@@ -1184,7 +1184,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(elements: Collection<T>)
     
     /**
@@ -1195,7 +1195,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(elements: Array<T>)
     
     /**
@@ -1206,7 +1206,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(capacity: Int64)
     
     /**
@@ -1218,7 +1218,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(size: Int64, initElement: (Int64) -> T)
     
     /**
@@ -1230,7 +1230,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func contains(element: T): Bool
     
     /**
@@ -1242,7 +1242,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func subsetOf(other: ReadOnlySet<T>): Bool
     
     /**
@@ -1254,7 +1254,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func contains(all!: Collection<T>): Bool
     
     /**
@@ -1266,7 +1266,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(element: T): Bool
     
     /**
@@ -1277,7 +1277,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(element: T): Bool
     
     /**
@@ -1289,7 +1289,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(all!: Collection<T>): Unit
     
     /**
@@ -1300,7 +1300,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(all!: Collection<T>): Unit
     
     /**
@@ -1311,7 +1311,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeIf(predicate: (T) -> Bool): Unit
     
     /**
@@ -1320,7 +1320,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clear(): Unit
     
     /**
@@ -1335,7 +1335,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func retain(all!: Set<T>): Unit
     
     /**
@@ -1346,7 +1346,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clone(): HashSet<T>
     
     /**
@@ -1359,7 +1359,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func reserve(additional: Int64): Unit
     
     /**
@@ -1370,7 +1370,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop capacity: Int64
     
     /**
@@ -1381,7 +1381,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func iterator(): Iterator<T>
     
     /**
@@ -1392,7 +1392,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop size: Int64
     
     /**
@@ -1403,7 +1403,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @since 0.18.4
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isEmpty(): Bool
     
     /**
@@ -1412,7 +1412,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * @throws IndexOutOfBoundsException if "mySize" is out of bound.
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toArray(): Array<T>
     
     /**
@@ -1430,7 +1430,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * ```
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func &(other: ReadOnlySet<T>): HashSet<T>
     
     /**
@@ -1448,7 +1448,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * ```
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func |(other: ReadOnlySet<T>): HashSet<T>
     
     /**
@@ -1466,7 +1466,7 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
     * ```
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func -(other: ReadOnlySet<T>): HashSet<T>
 }
 
@@ -1478,154 +1478,154 @@ public class HashSet<T> <: Set<T> where T <: Hashable & Equatable<T> {
 extend<T> HashSet<T> <: Equatable<HashSet<T>> {
     /** overloaded determination equal function. */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(that: HashSet<T>): Bool
     
     /** overloaded determination unequal function. */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(that: HashSet<T>): Bool
 }
 
 extend<T> HashSet<T> <: ToString where T <: ToString {
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class LinkedListNode<T> {
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: T
     
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop next: Option<LinkedListNode<T>>
     
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop prev: Option<LinkedListNode<T>>
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class LinkedList<T> <: Collection<T> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(elements: Collection<T>)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(elements: Array<T>)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(size: Int64, initElement: (Int64)-> T)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop size: Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop first: ?T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop last: ?T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop firstNode: ?T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop lastNode: ?T
     
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addFirst(element: T): LinkedListNode<T>
     
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addLast(element: T): LinkedListNode<T>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toArray(): Array<T>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addBefore(node: LinkedListNode<T>, element: T): LinkedListNode<T>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addAfter(node: LinkedListNode<T>, element: T): LinkedListNode<T>
     
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(node: LinkedListNode<T>): T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeIf(predicate: (T)-> Bool): Unit
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clear(): Unit
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func reverse(): Unit
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isEmpty(): Bool
     
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func iterator(): Iterator<T>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeFirst(): ?T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeLast(): ?T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nodeAt(index: Int64): Option<LinkedListNode<T>>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func splitOff(node: LinkedListNode<T>): LinkedList<T>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func forward(mark: LinkedListNode<T>): Iterator<T>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func backward(mark: LinkedListNode<T>): Iterator<T>
 }
 
 extend<T> LinkedList<T> <: ToString where T <: ToString {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
 }
 
 extend<T> LinkedList<T> <: Equatable<LinkedList<T>> where T <: Equatable<T> {
     /** overloaded determination == method. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(right: LinkedList<T>): Bool
     
     /** overloaded determination != method. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(right: LinkedList<T>): Bool
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface ReadOnlyList<T> <: Collection<T> {
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface List<T> <: ReadOnlyList<T> {
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface MapEntryView<K, V> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop key: K
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?V
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface ReadOnlyMap<K, V> <: Collection<(K, V)> {
 }
 
@@ -1635,7 +1635,7 @@ public interface ReadOnlyMap<K, V> <: Collection<(K, V)> {
 *
 * @since 0.24.2
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface Map<K, V> <: ReadOnlyMap<K, V> {
 }
 
@@ -1644,28 +1644,28 @@ public interface Map<K, V> <: ReadOnlyMap<K, V> {
 *
 * @since 0.24.2
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface EquatableCollection<T> <: Collection<T> {
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface OrderedMap<K, V> <: Map<K, V> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop first: ?(K, V)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop last: ?(K, V)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeFirst(): ?(K, V)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeLast(): ?(K, V)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func backward(mark: K, inclusive!: Bool): Iterator<(K, V)>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func forward(mark: K, inclusive!: Bool): Iterator<(K, V)>
 }
 
@@ -1676,7 +1676,7 @@ public interface OrderedMap<K, V> <: Map<K, V> {
 * @return Iterator<Int64*T> An Iterator with index.
 *
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func enumerate<T>(it: Iterable<T>): Iterator<(Int64, T)>
 
 /**
@@ -1687,7 +1687,7 @@ public func enumerate<T>(it: Iterable<T>): Iterator<(Int64, T)>
 *
 */
 @Frozen
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func filter<T>(predicate: (T) -> Bool): (Iterable<T>) -> Iterator<T>
 
 /**
@@ -1697,7 +1697,7 @@ public func filter<T>(predicate: (T) -> Bool): (Iterable<T>) -> Iterator<T>
 * @return (Iterable<T>) -> Iterator<R> A filterMap function accept an Iterable.
 *
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func filterMap<T, R>(transform: (T) -> ?R): (Iterable<T>) -> Iterator<R>
 
 /**
@@ -1708,7 +1708,7 @@ public func filterMap<T, R>(transform: (T) -> ?R): (Iterable<T>) -> Iterator<R>
 *
 */
 @Frozen
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func map<T, R>(transform: (T) -> R): (Iterable<T>) -> Iterator<R>
 
 /**
@@ -1718,7 +1718,7 @@ public func map<T, R>(transform: (T) -> R): (Iterable<T>) -> Iterator<R>
 * @return Iterator<R>, an Iterator removing one level of indirection.
 *
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func flatten<T, R>(it: Iterable<T>): Iterator<R> where T <: Iterable<R>
 
 /**
@@ -1728,7 +1728,7 @@ public func flatten<T, R>(it: Iterable<T>): Iterator<R> where T <: Iterable<R>
 * @return (Iterable<T>) -> Iterator<R> A map-flatten function accept an Iterable as its input.
 *
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func flatMap<T, R>(transform: (T) -> Iterable<R>): (Iterable<T>) -> Iterator<R>
 
 /**
@@ -1738,7 +1738,7 @@ public func flatMap<T, R>(transform: (T) -> Iterable<R>): (Iterable<T>) -> Itera
 * @return (Iterable<T>) -> Iterator<(T, R)> A zip function accept an Iterable as its input.
 *
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func zip<T, R>(other: Iterable<R>): (Iterable<T>) -> Iterator<(T, R)>
 
 /**
@@ -1749,7 +1749,7 @@ public func zip<T, R>(other: Iterable<R>): (Iterable<T>) -> Iterator<(T, R)>
 *
 */
 @Frozen
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func concat<T>(other: Iterable<T>): (Iterable<T>) -> Iterator<T>
 
 /**
@@ -1763,7 +1763,7 @@ public func concat<T>(other: Iterable<T>): (Iterable<T>) -> Iterator<T>
 * @return (Iterable<T>) -> Iterator<T> A skip function accept an Iterable as its input.
 * @throws IllegalArgumentException if skip count is less than 0.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func skip<T>(count: Int64): (Iterable<T>) -> Iterator<T>
 
 /**
@@ -1773,7 +1773,7 @@ public func skip<T>(count: Int64): (Iterable<T>) -> Iterator<T>
 * @return (Iterable<T>) -> Iterator<T> A take function accept an Iterable as its input.
 * @throws IllegalArgumentException if count is less than 0.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func take<T>(count: Int64): (Iterable<T>) -> Iterator<T>
 
 /**
@@ -1783,7 +1783,7 @@ public func take<T>(count: Int64): (Iterable<T>) -> Iterator<T>
 * @return (Iterable<T>) -> Iterator<T> A step function accept an Iterable as its input.
 * @throws IllegalArgumentException if step count is less than 0.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func step<T>(count: Int64): (Iterable<T>) -> Iterator<T>
 
 /**
@@ -1793,7 +1793,7 @@ public func step<T>(count: Int64): (Iterable<T>) -> Iterator<T>
 * @return (Iterable<T>) -> Iterator<T> An iteration function accept an Iterable as its input.
 * 
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func inspect<T>(action: (T) -> Unit): (Iterable<T>) -> Iterator<T>
 
 /**
@@ -1801,7 +1801,7 @@ public func inspect<T>(action: (T) -> Unit): (Iterable<T>) -> Iterator<T>
 *
 * @param <T> The type of elements in the queue.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface Deque<T> <: Collection<T> {
 }
 
@@ -1809,11 +1809,11 @@ public interface Deque<T> <: Collection<T> {
 * Queue interface that inherits from the Collection interface.
 * @param <T> The type of elements in the queue.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface Queue<T> <: Collection<T> {
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface ReadOnlySet<T> <: Collection<T> {
 }
 
@@ -1823,28 +1823,28 @@ public interface ReadOnlySet<T> <: Collection<T> {
 *
 * @since 0.18.4
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface Set<T> <: ReadOnlySet<T> {
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface OrderedSet<T> <: Set<T> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop first: ?T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop last: ?T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeFirst(): ?T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeLast(): ?T
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func backward(mark: T, inclusive!: Bool): Iterator<T>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func forward(mark: T, inclusive!: Bool): Iterator<T>
 }
 
@@ -1852,7 +1852,7 @@ public interface OrderedSet<T> <: Set<T> {
 * Stack interface, inherits from Collection interface
 * @param <T> Generic parameter
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface Stack<T> <: Collection<T> {
 }
 
@@ -1863,7 +1863,7 @@ public interface Stack<T> <: Collection<T> {
 * @return String A new string containing all elements's string value in original iterator.
 *
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func collectString<T>(delimiter!: String = ""): (Iterable<T>) -> String where T <: ToString
 
 /**
@@ -1874,7 +1874,7 @@ public func collectString<T>(delimiter!: String = ""): (Iterable<T>) -> String w
 *
 */
 @Frozen
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func collectArray<T>(it: Iterable<T>): Array<T>
 
 /**
@@ -1885,7 +1885,7 @@ public func collectArray<T>(it: Iterable<T>): Array<T>
 *
 */
 @Frozen
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func collectArrayList<T>(it: Iterable<T>): ArrayList<T>
 
 /**
@@ -1896,7 +1896,7 @@ public func collectArrayList<T>(it: Iterable<T>): ArrayList<T>
 *
 */
 @Frozen
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func collectHashSet<T>(it: Iterable<T>): HashSet<T> where T <: Hashable & Equatable<T>
 
 /**
@@ -1907,17 +1907,17 @@ public func collectHashSet<T>(it: Iterable<T>): HashSet<T> where T <: Hashable &
 *
 */
 @Frozen
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func collectHashMap<K, V>(it: Iterable<(K, V)>): HashMap<K, V> where K <: Hashable & Equatable<K>
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     /**
     * Initializes an empty TreeMap.
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
     /**
@@ -1925,7 +1925,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(elements: Collection<(K, V)>)
     
     /**
@@ -1935,7 +1935,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(elements: Array<(K, V)>)
     
     /**
@@ -1948,7 +1948,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(size: Int64, initElement: (Int64) -> (K, V))
     
     /**
@@ -1959,7 +1959,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func get(key: K): ?V
     
     /**
@@ -1970,7 +1970,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func contains(key: K): Bool
     
     /**
@@ -1981,7 +1981,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func contains(all!: Collection<K>): Bool
     
     /**
@@ -1995,7 +1995,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(key: K, value: V): Option<V>
     
     /**
@@ -2006,7 +2006,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(all!: Collection<(K, V)>): Unit
     
     /**
@@ -2017,7 +2017,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(key: K): Option<V>
     
     /**
@@ -2027,7 +2027,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(all!: Collection<K>): Unit
     
     /**
@@ -2037,7 +2037,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeIf(predicate: (K, V) -> Bool): Unit
     
     /**
@@ -2045,7 +2045,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clear(): Unit
     
     /**
@@ -2055,7 +2055,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clone(): TreeMap<K, V>
     
     /**
@@ -2068,7 +2068,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func [](key: K): V
     
     /**
@@ -2079,7 +2079,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func [](key: K, value!: V): Unit
     
     /**
@@ -2089,7 +2089,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func keys(): EquatableCollection<K>
     
     /**
@@ -2099,7 +2099,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func values(): Collection<V>
     
     /**
@@ -2109,7 +2109,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop size: Int64
     
     /**
@@ -2119,7 +2119,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isEmpty(): Bool
     
     /**
@@ -2130,7 +2130,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     * @since 0.43.1
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func iterator(): Iterator<(K, V)>
     
     /**
@@ -2140,7 +2140,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop first: ?(K, V)
     
     /**
@@ -2150,7 +2150,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeFirst(): ?(K, V)
     
     /**
@@ -2160,7 +2160,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop last: ?(K, V)
     
     /**
@@ -2170,7 +2170,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeLast(): ?(K, V)
     
     /**
@@ -2185,7 +2185,7 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func backward(mark: K, inclusive!: Bool = true): Iterator<(K, V)>
     
     /**
@@ -2200,10 +2200,10 @@ public class TreeMap<K, V> <: OrderedMap<K, V> where K <: Comparable<K> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func forward(mark: K, inclusive!: Bool = true): Iterator<(K, V)>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func entryView(k: K): MapEntryView<K, V>
 }
 
@@ -2213,7 +2213,7 @@ extend<K, V> TreeMap<K, V> <: ToString where V <: ToString, K <: ToString & Comp
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
 }
 
@@ -2226,7 +2226,7 @@ extend<K, V> TreeMap<K, V> <: Equatable<TreeMap<K, V>> where V <: Equatable<V> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(right: TreeMap<K, V>): Bool
     
     /**
@@ -2237,11 +2237,11 @@ extend<K, V> TreeMap<K, V> <: Equatable<TreeMap<K, V>> where V <: Equatable<V> {
     *
     * @since 0.43.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(right: TreeMap<K, V>): Bool
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     /**
     * Returns the size.
@@ -2249,7 +2249,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return size.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop size: Int64
     
     /**
@@ -2258,7 +2258,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return If the first node exists, the element on the first node is returned. Otherwise, None is returned.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop first: ?T
     
     /**
@@ -2267,13 +2267,13 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return If the last node exists, the element on the last node is returned. Otherwise, None is returned.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop last: ?T
     
     /**
     * Constructs a new, empty set.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
     /**
@@ -2282,7 +2282,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @param elements an incoming collection.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(elements: Collection<T>)
     
     /**
@@ -2292,7 +2292,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @param initElement an incoming initElement is initialized.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(size: Int64, initElement: (Int64) -> T)
     
     /**
@@ -2301,7 +2301,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @param elements input element type array.
     * @return new TreeSet
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func of(elements: Array<T>): TreeSet<T>
     
     /**
@@ -2311,7 +2311,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return bool returns true if contained; otherwise, false.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func contains(element: T): Bool
     
     /**
@@ -2321,7 +2321,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return bool returns true if all elements are included, false otherwise.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func contains(all!: Collection<T>): Bool
     
     /**
@@ -2331,7 +2331,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return Bool returns true if element is added; otherwise, false.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(element: T): Bool
     
     /**
@@ -2340,7 +2340,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @param all the collection.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func add(all!: Collection<T>): Unit
     
     /**
@@ -2350,7 +2350,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return Bool if the removal is successful, true is returned. If the removal fails or the element does not exist, false is returned.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(element: T): Bool
     
     /**
@@ -2359,7 +2359,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @param all the collection.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func remove(all!: Collection<T>): Unit
     
     /**
@@ -2368,13 +2368,13 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @param predicate transfer a lambda expression for judgment.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeIf(predicate: (T) -> Bool): Unit
     
     /**
     * Clears all elements.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clear(): Unit
     
     /**
@@ -2383,7 +2383,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return returns a cloned TreeSet.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func clone(): TreeSet<T>
     
     /**
@@ -2392,7 +2392,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return bool if yes, true is returned. Otherwise, false is returned.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isEmpty(): Bool
     
     /**
@@ -2402,7 +2402,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     *
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func iterator(): Iterator<T>
     
     /**
@@ -2411,7 +2411,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return If the first node exists, it is deleted and the element it stores is returned. Otherwise, it returns None.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeFirst(): ?T
     
     /**
@@ -2420,7 +2420,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return If the last node exists, it is deleted and the element it stores is returned. Otherwise, it returns None.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func removeLast(): ?T
     
     /**
@@ -2434,7 +2434,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return iterator.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func backward(mark: T, inclusive!: Bool = true): Iterator<T>
     
     /**
@@ -2448,7 +2448,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return iterator.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func forward(mark: T, inclusive!: Bool = true): Iterator<T>
     
     /**
@@ -2461,14 +2461,14 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @param all the other set.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func retain(all!: Set<T>): Unit
     
     /**
     * Returns the element in this TreeSet as an Array.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toArray(): Array<T>
     
     /**
@@ -2478,7 +2478,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * @return bool returns true if it is a subset, false otherwise.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func subsetOf(other: ReadOnlySet<T>): Bool
     
     /**
@@ -2495,7 +2495,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * let result = set1 & set2 // result is [2, 3]
     * ```
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func &(other: ReadOnlySet<T>): TreeSet<T>
     
     /**
@@ -2512,7 +2512,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * let result = set1 | set2 // result is [1, 2, 3, 4, 5]
     * ```
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func |(other: ReadOnlySet<T>): TreeSet<T>
     
     /**
@@ -2529,7 +2529,7 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
     * let result = set1 - set2 // result is [1, 2]
     * ```
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func -(other: ReadOnlySet<T>): TreeSet<T>
 }
 
@@ -2539,16 +2539,16 @@ public class TreeSet<T> <: OrderedSet<T> where T <: Comparable<T> {
 */
 extend<T> TreeSet<T> <: Equatable<TreeSet<T>> {
     /** overloaded determination equal function. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(that: TreeSet<T>): Bool
     
     /** overloaded determination unequal function. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(that: TreeSet<T>): Bool
 }
 
 extend<T> TreeSet<T> <: ToString where T <: ToString {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
 }
 

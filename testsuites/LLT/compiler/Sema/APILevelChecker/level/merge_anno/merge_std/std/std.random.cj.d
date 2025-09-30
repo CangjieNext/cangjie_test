@@ -14,7 +14,7 @@ import std.math.*
 * Random class used for random manipulations.
 * @since 0.16.5
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class Random {
     /**
     * Create a new Random object.
@@ -23,7 +23,7 @@ public class Random {
     *
     * @since 0.16.5
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
     /**
@@ -34,7 +34,7 @@ public class Random {
     * @since 0.16.5
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(seed: UInt64)
     
     /**
@@ -42,7 +42,7 @@ public class Random {
     *
     * @param seed a seed of type UInt64.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop seed: UInt64
     
     /**
@@ -56,7 +56,7 @@ public class Random {
     * @throws IllegalArgumentException if bits greater than 64.
     */
     @Deprecated["Use member function `public func nextBits(bits: UInt64): UInt64` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func next(bits: UInt64): UInt64
     
     /**
@@ -67,7 +67,7 @@ public class Random {
     *
     * @throws IllegalArgumentException if bits greater than 64 or equal to 0.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextBits(bits: UInt64): UInt64
     
     /**
@@ -77,7 +77,7 @@ public class Random {
     *
     * @since 0.16.5
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextBool(): Bool
     
     /**
@@ -88,7 +88,7 @@ public class Random {
     * @since 0.16.5
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextUInt8(): UInt8
     
     /**
@@ -99,7 +99,7 @@ public class Random {
     * @since 0.16.5
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextUInt16(): UInt16
     
     /**
@@ -110,7 +110,7 @@ public class Random {
     * @since 0.16.5
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextUInt32(): UInt32
     
     /**
@@ -121,7 +121,7 @@ public class Random {
     * @since 0.16.5
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextUInt64(): UInt64
     
     /**
@@ -132,7 +132,7 @@ public class Random {
     * @since 0.16.5
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextInt8(): Int8
     
     /**
@@ -143,7 +143,7 @@ public class Random {
     * @since 0.16.5
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextInt16(): Int16
     
     /**
@@ -154,7 +154,7 @@ public class Random {
     * @since 0.16.5
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextInt32(): Int32
     
     /**
@@ -165,7 +165,7 @@ public class Random {
     * @since 0.16.5
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextInt64(): Int64
     
     /**
@@ -180,7 +180,7 @@ public class Random {
     * @throws IllegalArgumentException if upper is equal to zero.
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextUInt8(upper: UInt8): UInt8
     
     /**
@@ -195,7 +195,7 @@ public class Random {
     * @throws IllegalArgumentException if upper is equal to zero.
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextUInt16(upper: UInt16): UInt16
     
     /**
@@ -210,7 +210,7 @@ public class Random {
     * @throws IllegalArgumentException if upper is equal to zero.
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextUInt32(upper: UInt32): UInt32
     
     /**
@@ -225,7 +225,7 @@ public class Random {
     * @throws IllegalArgumentException if upper is equal to zero.
     */
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextUInt64(upper: UInt64): UInt64
     
     /**
@@ -239,7 +239,7 @@ public class Random {
     *
     * @throws IllegalArgumentException if upper <= 0.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextInt8(upper: Int8): Int8
     
     /**
@@ -253,7 +253,7 @@ public class Random {
     *
     * @throws IllegalArgumentException if upper <= 0.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextInt16(upper: Int16): Int16
     
     /**
@@ -267,7 +267,7 @@ public class Random {
     *
     * @throws IllegalArgumentException if upper <= 0.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextInt32(upper: Int32): Int32
     
     /**
@@ -281,7 +281,7 @@ public class Random {
     *
     * @throws IllegalArgumentException if upper <= 0.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextInt64(upper: Int64): Int64
     
     /**
@@ -292,19 +292,19 @@ public class Random {
     * @since 0.16.5
     */
     @Deprecated["Use member function `public func nextBytes(arr: Array<Byte>): Unit` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextUInt8s(array: Array<UInt8>): Array<UInt8>
     
     /**
     * Fill the byte array with random bytes.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextBytes(bytes: Array<Byte>): Unit
     
     /**
     * Generate a byte array with random bytes.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextBytes(length: Int32): Array<Byte>
     
     /**
@@ -314,7 +314,7 @@ public class Random {
     *
     * @since 0.16.5
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextFloat16(): Float16
     
     /**
@@ -324,7 +324,7 @@ public class Random {
     *
     * @since 0.16.5
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextFloat32(): Float32
     
     /**
@@ -334,7 +334,7 @@ public class Random {
     *
     * @since 0.16.5
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextFloat64(): Float64
     
     /**
@@ -346,7 +346,7 @@ public class Random {
     *
     * @since 0.40.2
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextGaussianFloat16(mean!: Float16 = 0.0, sigma!: Float16 = 1.0): Float16
     
     /**
@@ -358,7 +358,7 @@ public class Random {
     *
     * @since 0.40.2
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextGaussianFloat32(mean!: Float32 = 0.0, sigma!: Float32 = 1.0): Float32
     
     /**
@@ -370,7 +370,7 @@ public class Random {
     *
     * @since 0.40.2
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func nextGaussianFloat64(mean!: Float64 = 0.0, sigma!: Float64 = 1.0): Float64
 }
 
