@@ -20,7 +20,7 @@ import std.collection.*
 * @since 0.17.4
 */
 @Deprecated[message: "Use global function `public func parseArguments(args: Array<String>, specs: Array<ArgumentSpec>): ParsedArguments` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class ArgOpt {
     /**
     * Constructor one parameters.
@@ -32,7 +32,7 @@ public class ArgOpt {
     *
     * @since 0.17.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(shortArgFormat: String)
     
     /**
@@ -46,7 +46,7 @@ public class ArgOpt {
     *
     * @since 0.17.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(longArgList: Array<String>)
     
     /**
@@ -61,7 +61,7 @@ public class ArgOpt {
     *
     * @since 0.17.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(shortArgFormat: String, longArgList: Array<String>)
     
     /**
@@ -97,7 +97,7 @@ public class ArgOpt {
     *
     * @since 0.17.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(args: Array<String>, shortArgFormat: String, longArgList: Array<String>)
     
     /**
@@ -112,7 +112,7 @@ public class ArgOpt {
     *
     * @since 0.17.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func getArg(arg: String): Option<String>
     
     /**
@@ -122,7 +122,7 @@ public class ArgOpt {
     *
     * @since 0.17.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func getUnparseArgs(): Array<String>
     
     /**
@@ -132,61 +132,61 @@ public class ArgOpt {
     *
     * @since 0.17.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func getArgumentsMap(): HashMap<String, String>
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public enum ArgumentMode <: ToString & Equatable<ArgumentMode> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     NoValue |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     RequiredValue |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     OptionalValue
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(that: ArgumentMode): Bool
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public enum ArgumentSpec {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Short(Rune, ArgumentMode) |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Short(Rune, ArgumentMode, (String) -> Unit) |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Long(String, ArgumentMode) |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Long(String, ArgumentMode, (String) -> Unit) |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Full(String, Rune, ArgumentMode) |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Full(String, Rune, ArgumentMode, (String) -> Unit) |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     NonOptions((Array<String>) -> Unit)
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public struct ParsedArguments {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop options: ReadOnlyMap<String, String>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop nonOptions: Array<String>
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class ArgumentParseException <: Exception {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(message: String)
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func parseArguments(args: Array<String>, specs: Array<ArgumentSpec>): ParsedArguments
 

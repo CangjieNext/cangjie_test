@@ -2,7 +2,7 @@ package dep
 
 import ohos.labels.APILevel
 
-@!APILevel[18]
+@!APILevel[since: "18"]
 public func func2() {println(18)}
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
