@@ -10,7 +10,7 @@
 
 import ohos.labels.*
 
-@!APILevel[21]
+@!APILevel[since: "21"]
 class A {
     public init() {}
 }

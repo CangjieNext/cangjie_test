@@ -10,14 +10,14 @@
 
 import ohos.labels.*
 
-@!APILevel[11]
+@!APILevel[since: "11"]
 public class A {
-    // @!APILevel[11]
+    // @!APILevel[since: "11"]
     public func foo() {
         goo() // ok, scope level from A.
     }
 
-    @!APILevel[11]
+    @!APILevel[since: "11"]
     public func goo() {}
 }
 

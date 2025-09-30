@@ -12,56 +12,68 @@ public interface PermissionValue {
 }
 
 public class PermissionAnd <: PermissionValue {
-    public PermissionAnd(let lhs: PermissionValue, let rhs: PermissionValue) {}
-    public operator override func &(rhs: PermissionValue): PermissionValue {
+    public let lhs: PermissionValue
+    public let rhs: PermissionValue
+    public const init(lhs: PermissionValue, rhs: PermissionValue) {
+        this.lhs = lhs
+        this.rhs = rhs
+    }
+    public operator const override func &(rhs: PermissionValue): PermissionValue {
         return PermissionAnd(this, rhs)
     }
-    public operator override func |(rhs: PermissionValue): PermissionValue {
+    public operator const override func |(rhs: PermissionValue): PermissionValue {
         return PermissionOr(this, rhs)
     }
 }
 
 public class PermissionOr <: PermissionValue {
-    public PermissionOr(let lhs: PermissionValue, let rhs: PermissionValue) {}
-    public operator override func &(rhs: PermissionValue): PermissionValue {
+    public let lhs: PermissionValue
+    public let rhs: PermissionValue
+    public const init(lhs: PermissionValue, rhs: PermissionValue) {
+        this.lhs = lhs
+        this.rhs = rhs
+    }
+    public operator const override func &(rhs: PermissionValue): PermissionValue {
         return PermissionAnd(this, rhs)
     }
-    public operator override func |(rhs: PermissionValue): PermissionValue {
+    public operator const override func |(rhs: PermissionValue): PermissionValue {
         return PermissionOr(this, rhs)
     }
 }
 
 extend String <: PermissionValue {
-    public operator func &(rhs: PermissionValue): PermissionValue {
+    public operator const func &(rhs: PermissionValue): PermissionValue {
         return PermissionAnd(this, rhs)
     }
-    public operator func |(rhs: PermissionValue): PermissionValue {
+    public operator const func |(rhs: PermissionValue): PermissionValue {
         return PermissionOr(this, rhs)
     }
 }
 
 @Annotation
 public class APILevel {
-    // since
-    public let level: UInt8
+    public let since: String
     public let atomicservice: Bool
     public let crossplatform: Bool
-    // deprecated: 0 means the Api is not deprecated
-    public let deprecated: UInt8
+    public let deprecated: ?String
     public let form: Bool
     public let permission: ?PermissionValue
-    public let stagemodelonly: Bool
     public let syscap: String
-    public const init(level_val: UInt8, atomicservice!: Bool = false, crossplatform!: Bool = false,
-        deprecated!: UInt8 = 0, form!: Bool = false, permission!: ?PermissionValue = None, stagemodelonly!: Bool = true,
-        syscap!: String = "") {
-        this.level = level_val
+    public let throwexception: Bool
+    public let workerthread: Bool
+    public let systemapi: Bool
+    public const init(since!: String, atomicservice!: Bool = false, crossplatform!: Bool = false,
+        deprecated!: ?String = None, form!: Bool = false, permission!: ?PermissionValue = None,
+        syscap!: String = "", throwexception!: Bool = false, workerthread!: Bool = false, systemapi!: Bool = false) {
+        this.since = since
         this.atomicservice = atomicservice
         this.crossplatform = crossplatform
         this.deprecated = deprecated
         this.form = form
         this.permission = permission
-        this.stagemodelonly = stagemodelonly
         this.syscap = syscap
+        this.throwexception = throwexception
+        this.workerthread = workerthread
+        this.systemapi = systemapi
     }
 }
