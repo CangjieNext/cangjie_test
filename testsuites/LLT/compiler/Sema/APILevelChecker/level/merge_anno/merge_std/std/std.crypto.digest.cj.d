@@ -17,7 +17,7 @@ import std.io.{
 *
 *
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface Digest {
 }
 
@@ -30,12 +30,12 @@ public interface Digest {
 * @return message-digested data
 */
 @Deprecated[message: "Use global function `public func digest<T>(algorithm: T, input: InputStream): Array<Byte> where T <: Digest` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func digest<T>(algorithm: T, data: String): Array<Byte> where T <: Digest
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func digest<T>(algorithm: T, input: InputStream): Array<Byte> where T <: Digest
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func digest<T>(algorithm: T, data: Array<Byte>): Array<Byte> where T <: Digest
 

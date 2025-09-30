@@ -34,7 +34,7 @@ import std.math.numeric.Decimal
 /**
 * ColumnInfo, contain the name, type, length of a column.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface ColumnInfo {
 }
 
@@ -43,13 +43,13 @@ public interface ColumnInfo {
 *
 * @since 0.32.3
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface Connection <: Resource {
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public enum ConnectionState <: Equatable<ConnectionState> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     /**
     * The connection to the data source is broken.
     * This can occur only after the connection has been opened.
@@ -58,31 +58,31 @@ public enum ConnectionState <: Equatable<ConnectionState> {
     * @since 0.40.1
     */
     Broken |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     /**
     * The connection is closed.
     *
     * @since 0.40.1
     */
     Closed |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     /**
     * The connection object is connecting to the data source.
     *
     * @since 0.40.1
     */
     Connecting |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     /**
     * The connection is connected.
     *
     * @since 0.40.1
     */
     Connected
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(rhs: ConnectionState): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(rhs: ConnectionState): Bool
 }
 
@@ -91,7 +91,7 @@ public enum ConnectionState <: Equatable<ConnectionState> {
 *
 * @since 0.32.3
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface Datasource <: Resource {
 }
 
@@ -100,7 +100,7 @@ public interface Datasource <: Resource {
 *
 * @since 0.32.3
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface Driver {
 }
 
@@ -109,7 +109,7 @@ public interface Driver {
 *
 * @since 0.40.1
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class DriverManager {
     /**
     * makes a database driver available by the provided name. This method is thread safe.
@@ -117,7 +117,7 @@ public class DriverManager {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func register(driverName: String, driver: Driver): Unit
     
     /**
@@ -125,7 +125,7 @@ public class DriverManager {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func deregister(driverName: String): Unit
     
     /**
@@ -134,7 +134,7 @@ public class DriverManager {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func getDriver(driverName: String): Option<Driver>
     
     /**
@@ -142,14 +142,14 @@ public class DriverManager {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func drivers(): Array<String>
 }
 
 /**
 * connection pooled datasource implementation
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class PooledDatasource <: Datasource {
     /**
     * Initialize a PooledDatasource with specific datasource.
@@ -158,7 +158,7 @@ public class PooledDatasource <: Datasource {
     *
     * @since 0.20.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(datasource: Datasource)
     
     /**
@@ -166,7 +166,7 @@ public class PooledDatasource <: Datasource {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop idleTimeout: Duration
     
     /**
@@ -174,7 +174,7 @@ public class PooledDatasource <: Datasource {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop maxLifeTime: Duration
     
     /**
@@ -182,7 +182,7 @@ public class PooledDatasource <: Datasource {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop keepaliveTime: Duration
     
     /**
@@ -191,7 +191,7 @@ public class PooledDatasource <: Datasource {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop maxSize: Int32
     
     /**
@@ -199,7 +199,7 @@ public class PooledDatasource <: Datasource {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop maxIdleSize: Int32
     
     /**
@@ -207,7 +207,7 @@ public class PooledDatasource <: Datasource {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop connectionTimeout: Duration
     
     /**
@@ -215,7 +215,7 @@ public class PooledDatasource <: Datasource {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func setOption(key: String, value: String): Unit
     
     /**
@@ -225,7 +225,7 @@ public class PooledDatasource <: Datasource {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func connect(): Connection
     
     /**
@@ -235,7 +235,7 @@ public class PooledDatasource <: Datasource {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isClosed(): Bool
     
     /**
@@ -243,7 +243,7 @@ public class PooledDatasource <: Datasource {
     *
     * @since 0.40.1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func close(): Unit
 }
 
@@ -252,7 +252,7 @@ public class PooledDatasource <: Datasource {
 *
 * @since 0.32.3
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface QueryResult <: Resource {
 }
 
@@ -263,7 +263,7 @@ public interface QueryResult <: Resource {
 * @since 0.40.1
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface SqlDbType {
 }
 
@@ -273,7 +273,7 @@ public interface SqlDbType {
 * @since 0.40.1
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface SqlNullableDbType <: SqlDbType {
 }
 
@@ -283,15 +283,15 @@ public interface SqlNullableDbType <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `String` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlChar <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: String)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: String
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -301,15 +301,15 @@ public class SqlChar <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?String` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableChar <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?String)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?String
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -319,15 +319,15 @@ public class SqlNullableChar <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `String` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlVarchar <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: String)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: String
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -337,15 +337,15 @@ public class SqlVarchar <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?String` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableVarchar <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?String)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?String
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -355,15 +355,15 @@ public class SqlNullableVarchar <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `Array<Byte>` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlBinary <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: Array<Byte>)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: Array<Byte>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -373,15 +373,15 @@ public class SqlBinary <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?Array<Byte>` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableBinary <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?Array<Byte>)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?Array<Byte>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -391,15 +391,15 @@ public class SqlNullableBinary <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `Array<Byte>` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlVarBinary <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: Array<Byte>)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: Array<Byte>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -409,15 +409,15 @@ public class SqlVarBinary <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?Array<Byte>` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableVarBinary <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?Array<Byte>)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?Array<Byte>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -427,15 +427,15 @@ public class SqlNullableVarBinary <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `InputStream` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlClob <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: InputStream)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: InputStream
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -445,15 +445,15 @@ public class SqlClob <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?InputStream` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableClob <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?InputStream)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?InputStream
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -463,15 +463,15 @@ public class SqlNullableClob <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `InputStream` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlBlob <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: InputStream)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: InputStream
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -481,15 +481,15 @@ public class SqlBlob <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?InputStream` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableBlob <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?InputStream)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?InputStream
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -499,15 +499,15 @@ public class SqlNullableBlob <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `Bool` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlBool <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: Bool)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -517,15 +517,15 @@ public class SqlBool <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?Bool` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableBool <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?Bool)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -535,15 +535,15 @@ public class SqlNullableBool <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `Int8` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlByte <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: Int8)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: Int8
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -553,15 +553,15 @@ public class SqlByte <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?Int8` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableByte <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?Int8)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?Int8
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -571,15 +571,15 @@ public class SqlNullableByte <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `Int16` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlSmallInt <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: Int16)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: Int16
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -589,15 +589,15 @@ public class SqlSmallInt <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?Int16` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableSmallInt <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?Int16)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?Int16
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -607,15 +607,15 @@ public class SqlNullableSmallInt <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `Int32` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlInteger <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: Int32)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: Int32
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -625,15 +625,15 @@ public class SqlInteger <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?Int32` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableInteger <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?Int32)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?Int32
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -643,15 +643,15 @@ public class SqlNullableInteger <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `Int64` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlBigInt <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: Int64)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -661,15 +661,15 @@ public class SqlBigInt <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?Int64` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableBigInt <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?Int64)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -679,15 +679,15 @@ public class SqlNullableBigInt <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `Float32` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlReal <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: Float32)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: Float32
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -697,15 +697,15 @@ public class SqlReal <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?Float32` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableReal <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?Float32)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?Float32
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -715,15 +715,15 @@ public class SqlNullableReal <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `Float64` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlDouble <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: Float64)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: Float64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -733,15 +733,15 @@ public class SqlDouble <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?Float64` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableDouble <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?Float64)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?Float64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -751,15 +751,15 @@ public class SqlNullableDouble <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `DateTime` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlDate <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: DateTime)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: DateTime
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -769,15 +769,15 @@ public class SqlDate <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?DateTime` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableDate <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?DateTime)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?DateTime
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -787,15 +787,15 @@ public class SqlNullableDate <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `DateTime` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlTime <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: DateTime)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: DateTime
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -805,15 +805,15 @@ public class SqlTime <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?DateTime` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableTime <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?DateTime)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?DateTime
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -823,15 +823,15 @@ public class SqlNullableTime <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `DateTime` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlTimeTz <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: DateTime)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: DateTime
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -841,15 +841,15 @@ public class SqlTimeTz <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?DateTime` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableTimeTz <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?DateTime)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?DateTime
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -859,15 +859,15 @@ public class SqlNullableTimeTz <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `DateTime` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlTimestamp <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: DateTime)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: DateTime
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -877,15 +877,15 @@ public class SqlTimestamp <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?DateTime` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableTimestamp <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?DateTime)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?DateTime
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -895,15 +895,15 @@ public class SqlNullableTimestamp <: SqlNullableDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `Duration` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlInterval <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: Duration)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: Duration
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -913,15 +913,15 @@ public class SqlInterval <: SqlDbType {
 * @since 0.40.1
 */
 @Deprecated[message: "Use `?Duration` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableInterval <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?Duration)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?Duration
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -931,15 +931,15 @@ public class SqlNullableInterval <: SqlNullableDbType {
 * @since 0.50.2
 */
 @Deprecated[message: "Use `Decimal` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlDecimal <: SqlDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: Decimal)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: Decimal
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -949,15 +949,15 @@ public class SqlDecimal <: SqlDbType {
 * @since 0.50.2
 */
 @Deprecated[message: "Use `?Decimal` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlNullableDecimal <: SqlNullableDbType {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(v: ?Decimal)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public mut prop value: ?Decimal
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
 }
 
@@ -966,14 +966,14 @@ public class SqlNullableDecimal <: SqlNullableDbType {
 *
 * @since 0.32.3
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public open class SqlException <: Exception {
     /**
     * a five-character string where IDMS returns the status of the last SQL statement executed.
     *
     * @since 0.43.2
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop sqlState: String
     
     /**
@@ -981,10 +981,10 @@ public open class SqlException <: Exception {
     *
     * @since 0.43.2
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop errorCode: Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public override prop message: String
     
     /**
@@ -992,7 +992,7 @@ public open class SqlException <: Exception {
     *
     * @since 0.32.3
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
     /**
@@ -1004,7 +1004,7 @@ public open class SqlException <: Exception {
     *
     * @since 0.43.2
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(message: String, sqlState: String, errorCode: Int64)
     
     /**
@@ -1014,145 +1014,145 @@ public open class SqlException <: Exception {
     *
     * @since 0.32.3
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(message: String)
 }
 
 /**
 * Predefined SQL option name and value. If extension is required, do not conflict with these names and values.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SqlOption {
     /**
     * URL, which is usually used for database connection strings in SQL api.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const URL = "url"
     
     /**
     * Host, host name or IP address of the database server
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const Host = "host"
     
     /**
     * Username, user name for connecting to the database
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const Username = "username"
     
     /**
     * Password, password for connecting to the database
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const Password = "password"
     
     /**
     * Driver, database driver name, for example, postgres and opengauss.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const Driver = "driver"
     
     /**
     * Database, database Name
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const Database = "database"
     
     /**
     * Encoding, encoding type of the database character set.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const Encoding = "encoding"
     
     /**
     * ConnectionTimeout, timeout interval of the connect operation, in milliseconds.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const ConnectionTimeout = "connection_timeout"
     
     /**
     * UpdateTimeout, timeout interval of the update operation, in milliseconds.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const UpdateTimeout = "update_timeout"
     
     /**
     * QueryTimeout, Timeout interval of the query operation, in milliseconds.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const QueryTimeout = "query_timeout"
     
     /**
     * FetchRows, Specifies the number of rows to fetch from the database when additional rows need to be fetched
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const FetchRows = "fetch_rows"
     
     /**
     * SSLMode, transport layer encryption mode
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const SSLMode = "ssl.mode"
     
     /**
     * SSLModePreferred, value for SSLMode, first try an SSL connection; if that fails, try a non-SSL connection.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const SSLModePreferred = "ssl.mode.preferred"
     
     /**
     * SSLModeDisabled, value for SSLMode, Establish an unencrypted connection.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const SSLModeDisabled = "ssl.mode.disabled"
     
     /**
     * SSLModeRequired, value for SSLMode, only try an SSL connection. If a root CA file is present, verify the certificate in the same way as if verify-ca was specified.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const SSLModeRequired = "ssl.mode.required"
     
     /**
     * SSLModeVerifyCA, value for SSLMode, only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA).
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const SSLModeVerifyCA = "ssl.mode.verify_ca"
     
     /**
     * SSLModeVerifyFull, value for SSLMode, only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const SSLModeVerifyFull = "ssl.mode.verify_full"
     
     /**
     * SSLCA, specifies the name of a file containing SSL certificate authority (CA) certificate(s).
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const SSLCA = "ssl.ca"
     
     /**
     * SSLCert, specifies the file name of the client SSL certificate.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const SSLCert = "ssl.cert"
     
     /**
     * SSLKey, specifies the location for the secret key used for the client certificate.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const SSLKey = "ssl.key"
     
     /**
     * SSLKeyPassword, the password for the secret key specified in SSLKey
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const SSLKeyPassword = "ssl.key.password"
     
     /**
     * SSLSni, setting the value "Server Name Indication" (SNI) on SSL-enabled connections, in Bool type
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const SSLSni = "ssl.sni"
     
     /**
@@ -1160,7 +1160,7 @@ public class SqlOption {
     * The value is a list of zero or more colon-separated ciphersuite names.
     * For example: "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_DHE_RSA_WITH_AES_128_CBC_SHA"
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const Tls12Ciphersuites = "tls1.2.ciphersuites"
     
     /**
@@ -1168,7 +1168,7 @@ public class SqlOption {
     * The value is a list of zero or more colon-separated ciphersuite names.
     * For example: "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256"
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const Tls13Ciphersuites = "tls1.3.ciphersuites"
     
     /**
@@ -1176,7 +1176,7 @@ public class SqlOption {
     * The value is a list of one or more comma-separated protocol versions.
     * For example:"TLSv1.2,TLSv1.3"
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const TlsVersion = "tls.version"
 }
 
@@ -1185,110 +1185,110 @@ public class SqlOption {
 *
 * @since 0.32.3
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface Statement <: Resource {
 }
 
 /**
 * Transaction isolation defines when and how the results of an operation in a transaction are visible to other concurrent transaction operations in a database system.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public enum TransactionIsoLevel <: ToString & Hashable & Equatable<TransactionIsoLevel> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // unspecified transaction isolation level, the behavior depends on a specific database server.
     Unspecified |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // The transaction waits until rows write-locked by other transactions are unlocked; this prevents it from reading any "dirty" data.
     ReadCommitted |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // Transactions are not isolated from each other. 
     ReadUncommitted |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // The transaction waits until rows write-locked by other transactions are unlocked; this prevents it from reading any "dirty" data.
     RepeatableRead |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // Snapshot isolation avoids most locking and blocking by using row versioning. 
     Snapshot |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // The transaction waits until rows write-locked by other transactions are unlocked; this prevents it from reading any "dirty" data.
     Serializable |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // Linearizability is relevant when you are looking at a subset of operations on a single object (i.e. a db row or a nosql record).
     Linearizable |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // The pending changes from more highly isolated transactions cannot be overwritten.
     Chaos
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(rhs: TransactionIsoLevel): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(rhs: TransactionIsoLevel): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func hashCode(): Int64
 }
 
 /**
 * Transactional read/write mode.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public enum TransactionAccessMode <: ToString & Hashable & Equatable<TransactionAccessMode> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // unspecified transaction access mode, the behavior depends on a specific database server.
     Unspecified |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // read-write mode
     ReadWrite |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // readonly mode
     ReadOnly
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(rhs: TransactionAccessMode): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(rhs: TransactionAccessMode): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func hashCode(): Int64
 }
 
 /**
 * Deferred Mode for Transactions.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public enum TransactionDeferrableMode <: ToString & Hashable & Equatable<TransactionDeferrableMode> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // Unspecified transaction defer mode, the behavior depends on a specific database server.
     Unspecified |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // DEFERRABLE
     Deferrable |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // NOT_DEFERRABLE
     NotDeferrable
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(rhs: TransactionDeferrableMode): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(rhs: TransactionDeferrableMode): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func hashCode(): Int64
 }
 
 /**
 * Defines the core behavior of database transactions.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface Transaction {
 }
 
@@ -1297,7 +1297,7 @@ public interface Transaction {
 *
 * @since 0.32.3
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface UpdateResult {
 }
 

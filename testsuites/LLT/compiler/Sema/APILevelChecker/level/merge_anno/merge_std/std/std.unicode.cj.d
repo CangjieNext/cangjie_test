@@ -10,23 +10,23 @@ package std.unicode
 import std.collection.*
 
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public enum CasingOption {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // Turkish
     TR |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // Azeri
     AZ |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     // Lithuanian
     LT |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Other
 }
 
 /* Methods for  Unicode. */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface UnicodeRuneExtension {
 }
 
@@ -36,7 +36,7 @@ extend Rune <: UnicodeRuneExtension {
     * In Unicode, Letter includes Uppercase_Letter, Lowercase_Letter, Titlecase_Letter, Modifier_Letter and Other_Letter.
     * Definition is placed in https://www.unicode.org/reports/tr44/#GC_Values_Table
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isLetter(): Bool
     
     /**
@@ -44,51 +44,51 @@ extend Rune <: UnicodeRuneExtension {
     * In Unicode, Number includes Decimal_Number, Letter_Number and Other_Number.
     * Definition is placed in https://www.unicode.org/reports/tr44/#GC_Values_Table
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isNumber(): Bool
     
     /** Returns true if this Unicode character is Lowercase. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isLowerCase(): Bool
     
     /** Returns true if this Unicode character is Uppercase. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isUpperCase(): Bool
     
     /** Returns true if this Unicode character is Titlecase. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isTitleCase(): Bool
     
     /** Returns true if this Unicode character is whitespace. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isWhiteSpace(): Bool
     
     /** Returns the uppercase of this Unicode character. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUpperCase(): Rune
     
     /** Returns the lowercase of this Unicode character. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toLowerCase(): Rune
     
     /** Returns the titlecase of this Unicode character. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toTitleCase(): Rune
     
     /** Returns the uppercase of this Unicode character. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUpperCase(opt: CasingOption): Rune
     
     /** Returns the lowercase of this Unicode character. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toLowerCase(opt: CasingOption): Rune
     
     /** Returns the titlecase of this Unicode character. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toTitleCase(opt: CasingOption): Rune
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface UnicodeStringExtension {
 }
 
@@ -96,7 +96,7 @@ extend String <: UnicodeStringExtension {
     /**
     * Returns true if this string is empty or contains only whitespace Unicode, otherwise `false`.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isBlank(): Bool
     
     /**
@@ -105,7 +105,7 @@ extend String <: UnicodeStringExtension {
     * @throws IllegalArgumentException if there is an invalid utf8 leading code
     *         in array `itemBytes`.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toLower(): String
     
     /**
@@ -114,7 +114,7 @@ extend String <: UnicodeStringExtension {
     * @throws IllegalArgumentException if there is an invalid utf8 leading code
     *         in array `itemBytes`.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUpper(): String
     
     /**
@@ -123,7 +123,7 @@ extend String <: UnicodeStringExtension {
     * @throws IllegalArgumentException if there is an invalid utf8 leading code
     *         in array `itemBytes`.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toTitle(): String
     
     /**
@@ -132,7 +132,7 @@ extend String <: UnicodeStringExtension {
     * @throws IllegalArgumentException if there is an invalid utf8 leading code
     *         in array `itemBytes`.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toLower(opt: CasingOption): String
     
     /**
@@ -141,7 +141,7 @@ extend String <: UnicodeStringExtension {
     * @throws IllegalArgumentException if there is an invalid utf8 leading code
     *         in array `itemBytes`.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUpper(opt: CasingOption): String
     
     /**
@@ -150,7 +150,7 @@ extend String <: UnicodeStringExtension {
     * @throws IllegalArgumentException if there is an invalid utf8 leading code
     *         in array `itemBytes`.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toTitle(opt: CasingOption): String
     
     /**
@@ -158,7 +158,7 @@ extend String <: UnicodeStringExtension {
     *         whitespace of this string.
     * @throws IllegalArgumentException if there is no valid utf8 code in array `myData`.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func trim(): String
     
     /**
@@ -166,7 +166,7 @@ extend String <: UnicodeStringExtension {
     * @throws IllegalArgumentException if there is no valid utf8 leading code in array `myData`.
     */
     @Deprecated[message: "Use member function ` public func trimStart(): String` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func trimLeft(): String
     
     /**
@@ -174,21 +174,21 @@ extend String <: UnicodeStringExtension {
     * @throws IllegalArgumentException if there is no valid utf8 code in array `myData`.
     */
     @Deprecated[message: "Use member function ` public func trimEnd(): String` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func trimRight(): String
     
     /**
     * @return a string which is the result of removing the leading whitespace of this string.
     * @throws IllegalArgumentException if there is no valid utf8 leading code in array `myData`.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func trimStart(): String
     
     /**
     * @return a string which is the result of removing the trailing whitespace of this string.
     * @throws IllegalArgumentException if there is no valid utf8 code in array `myData`.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func trimEnd(): String
 }
 

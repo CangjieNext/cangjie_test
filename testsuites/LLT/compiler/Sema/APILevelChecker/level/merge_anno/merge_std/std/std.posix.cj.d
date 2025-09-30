@@ -14,21 +14,21 @@ package std.posix
 * Open file read-only.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_RDONLY: Int32 = 0x0
 
 /**
 * Open the file in read/write mode.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_RDWR: Int32 = 0x2
 
 /**
 * Open file write-only.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_WRONLY: Int32 = 0x1
 
 /**
@@ -36,15 +36,15 @@ public const O_WRONLY: Int32 = 0x1
 * That is, the written data is appended to the end of the file.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_APPEND: Int32 = 0x400
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_APPEND: Int32 = 0x00000008
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_APPEND: Int32 = 0x8
 
 /**
@@ -53,37 +53,37 @@ public const O_APPEND: Int32 = 0x8
 * same time as another thread does a fork(2) plus execve(2).
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_CLOEXEC: Int32 = 0x80000
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_CLOEXEC: Int32 = 0x01000000
 
 /**
 * If the file to be opened does not exist, it is automatically created.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_CREAT: Int32 = 0x40
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_CREAT: Int32 = 0x00000200
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_CREAT: Int32 = 0x100
 
 /**
 * If the file specified by pathname is not a directory, it fails to be opened.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_DIRECTORY: Int32 = 0x10000
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_DIRECTORY: Int32 = 0x00100000
 
 /**
@@ -92,11 +92,11 @@ public const O_DIRECTORY: Int32 = 0x00100000
 * such as file modification time, to be written to disk.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_DSYNC: Int32 = 0x1000
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_DSYNC: Int32 = 0x400000
 
 /**
@@ -105,59 +105,59 @@ public const O_DSYNC: Int32 = 0x400000
 *            and O_EXCL are set and the file to be opened is a symbolic link, the file fails to be opened.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_EXCL: Int32 = 0x80
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_EXCL: Int32 = 0x00000800
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_EXCL: Int32 = 0x400
 
 /**
 * If the file to be opened is a terminal device, the terminal is not treated as a process control terminal.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_NOCTTY: Int32 = 0x100
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_NOCTTY: Int32 = 0x00020000
 
 /**
 * If the file specified by pathname is a one-symbol connection, the file fails to be opened.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_NOFOLLOW: Int32 = 0x20000
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_NOFOLLOW: Int32 = 0x00000100
 
 /**
 * Open a file in an unblockable manner, that is, immediately returns to the process with or without data read or waiting.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_NONBLOCK: Int32 = 0x800
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_NONBLOCK: Int32 = 0x00000004
 
 /**
 * Open the file synchronously.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_SYNC: Int32 = 0x101000
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_SYNC: Int32 = 0x0080
 
 /**
@@ -165,11 +165,11 @@ public const O_SYNC: Int32 = 0x0080
 * and the data previously stored in the file disappears.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_TRUNC: Int32 = 0x200
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_TRUNC: Int32 = 0x00000400
 
 /**
@@ -178,112 +178,112 @@ public const O_TRUNC: Int32 = 0x00000400
 * has been flushed to disk, if necessary.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const O_RSYNC: Int32 = 0x101000
 
 /**
 * Indicates that the file owner has the read permission.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IRUSR: UInt32 = 0x100
 
 /**
 * Indicates that the file owner has the write permission.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IWUSR: UInt32 = 0x80
 
 /**
 * Indicates that the file owner has the execute permission.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IXUSR: UInt32 = 0x40
 
 /**
 * Indicates that the file owner has the read, write, and execute permissions.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IRWXU: UInt32 = 0x1C0
 
 /**
 * Indicates that the file user group has the read permission.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IRGRP: UInt32 = 0x20
 
 /**
 * Indicates that the file user group has the write permission.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IWGRP: UInt32 = 0x10
 
 /**
 * Indicates that the file user group has the execute permission.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IXGRP: UInt32 = 0x8
 
 /**
 * Indicates that the file user group has the read, write, and execute permissions.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IRWXG: UInt32 = 0x38
 
 /**
 * Read permission on behalf of other users.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IROTH: UInt32 = 0x4
 
 /**
 * Indicates that other users have the write permission.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IWOTH: UInt32 = 0x2
 
 /**
 * You have the execute permission on behalf of other users.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IXOTH: UInt32 = 0x1
 
 /**
 * The user has the read, write, and execute permissions on behalf of other users.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IRWXO: UInt32 = 0x7
 
 /**
 * The offset parameter indicates the new read/write position.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SEEK_SET: Int32 = 0x0
 
 /**
 * Add offsets to the current read/write position.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SEEK_CUR: Int32 = 0x1
 
 /**
 * Set the read/write position to the end of the file and add offsets.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SEEK_END: Int32 = 0x2
 
 /**
@@ -301,7 +301,7 @@ public const SEEK_END: Int32 = 0x2
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func `open`(path: String, oflag: Int32, flag: UInt32): Int32
 
 /**
@@ -317,7 +317,7 @@ public func `open`(path: String, oflag: Int32, flag: UInt32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func `open`(path: String, oflag: Int32): Int32
 
 /**
@@ -335,7 +335,7 @@ public func `open`(path: String, oflag: Int32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func open64(path: String, oflag: Int32, flag: UInt32): Int32
 
 /**
@@ -351,7 +351,7 @@ public func open64(path: String, oflag: Int32, flag: UInt32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func open64(path: String, oflag: Int32): Int32
 
 /**
@@ -369,7 +369,7 @@ public func open64(path: String, oflag: Int32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func openat(fd: Int32, path: String, oflag: Int32, flag: UInt32): Int32
 
 /**
@@ -386,7 +386,7 @@ public func openat(fd: Int32, path: String, oflag: Int32, flag: UInt32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func openat(fd: Int32, path: String, oflag: Int32): Int32
 
 /**
@@ -404,7 +404,7 @@ public func openat(fd: Int32, path: String, oflag: Int32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func openat64(fd: Int32, path: String, oflag: Int32, flag: UInt32): Int32
 
 /**
@@ -421,7 +421,7 @@ public func openat64(fd: Int32, path: String, oflag: Int32, flag: UInt32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func openat64(fd: Int32, path: String, oflag: Int32): Int32
 
 /**
@@ -436,7 +436,7 @@ public func openat64(fd: Int32, path: String, oflag: Int32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func creat(path: String, flag: UInt32): Int32
 
 /**
@@ -450,7 +450,7 @@ public func creat(path: String, flag: UInt32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func close(fd: Int32): Int32
 
 /**
@@ -470,7 +470,7 @@ public func close(fd: Int32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func lseek(fd: Int32, offset: Int64, whence: Int32): Int64
 
 /**
@@ -485,7 +485,7 @@ public func lseek(fd: Int32, offset: Int64, whence: Int32): Int64
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func dup(fd: Int32): Int32
 
 /**
@@ -500,7 +500,7 @@ public func dup(fd: Int32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func dup2(fd: Int32, fd2: Int32): Int32
 
 /**
@@ -520,7 +520,7 @@ public func dup2(fd: Int32, fd2: Int32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public unsafe func read(fd: Int32, buffer: CPointer<UInt8>, nbyte: UIntNative): IntNative
 
 /**
@@ -541,7 +541,7 @@ public unsafe func read(fd: Int32, buffer: CPointer<UInt8>, nbyte: UIntNative): 
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public unsafe func pread(fd: Int32, buffer: CPointer<UInt8>, nbyte: UIntNative, offset: Int32): IntNative
 
 /**
@@ -560,7 +560,7 @@ public unsafe func pread(fd: Int32, buffer: CPointer<UInt8>, nbyte: UIntNative, 
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public unsafe func write(fd: Int32, buffer: CPointer<UInt8>, nbyte: UIntNative): IntNative
 
 /**
@@ -580,42 +580,42 @@ public unsafe func write(fd: Int32, buffer: CPointer<UInt8>, nbyte: UIntNative):
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public unsafe func pwrite(fd: Int32, buffer: CPointer<UInt8>, nbyte: UIntNative, offset: Int32): IntNative
 
 /**< General documents. */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IFREG: UInt32 = 0x8000
 
 /**< Table of Contents. */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IFDIR: UInt32 = 0x4000
 
 /**< Character device. */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IFCHR: UInt32 = 0x2000
 
 /**< Block device. */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IFBLK: UInt32 = 0x6000
 
 /**< FIFO file. */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IFIFO: UInt32 = 0x1000
 
 /**< Soft connection. */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IFLNK: UInt32 = 0xA000
 
 /**< Socket file. */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const S_IFSOCK: UInt32 = 0xC000
 
 /**
@@ -630,7 +630,7 @@ public const S_IFSOCK: UInt32 = 0xC000
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func isType(path: String, mode: UInt32): Bool
 
 /**
@@ -643,7 +643,7 @@ public func isType(path: String, mode: UInt32): Bool
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func isReg(path: String): Bool
 
 /**
@@ -656,7 +656,7 @@ public func isReg(path: String): Bool
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func isDir(path: String): Bool
 
 /**
@@ -669,7 +669,7 @@ public func isDir(path: String): Bool
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func isChr(path: String): Bool
 
 /**
@@ -682,7 +682,7 @@ public func isChr(path: String): Bool
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func isBlk(path: String): Bool
 
 /**
@@ -695,7 +695,7 @@ public func isBlk(path: String): Bool
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func isFIFO(path: String): Bool
 
 /**
@@ -708,7 +708,7 @@ public func isFIFO(path: String): Bool
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func isSock(path: String): Bool
 
 /**
@@ -721,7 +721,7 @@ public func isSock(path: String): Bool
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func isLnk(path: String): Bool
 
 /**
@@ -735,7 +735,7 @@ public func isLnk(path: String): Bool
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func chdir(path: String): Int32
 
 /**
@@ -749,7 +749,7 @@ public func chdir(path: String): Int32
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func fchdir(fd: Int32): Int32
 
 /**
@@ -761,7 +761,7 @@ public func fchdir(fd: Int32): Int32
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func getcwd(): String
 
 /**
@@ -774,7 +774,7 @@ public func getcwd(): String
 * @since 0.18.4
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func getos(): String
 
 /**
@@ -787,7 +787,7 @@ public func getos(): String
 * @since 0.18.4
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func gethostname(): String
 
 /**
@@ -801,7 +801,7 @@ public func gethostname(): String
 * @since 0.18.4
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func sethostname(buf: String): Int32
 
 /**
@@ -813,7 +813,7 @@ public func sethostname(buf: String): Int32
 * @since 0.18.4
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func getlogin(): String
 
 /**
@@ -829,7 +829,7 @@ public func getlogin(): String
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func link(path: String, newpath: String): Int32
 
 /**
@@ -849,7 +849,7 @@ public func link(path: String, newpath: String): Int32
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func unlink(path: String): Int32
 
 /**
@@ -859,7 +859,7 @@ public func unlink(path: String): Int32
 * The caller must have the CAP_DAC_READ_SEARCH capability in order to use this flag.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const AT_EMPTY_PATH: Int32 = 0x1000
 
 /**
@@ -868,22 +868,22 @@ public const AT_EMPTY_PATH: Int32 = 0x1000
 * If procfs is mounted, this can be used as an alternative to AT_EMPTY_PATH
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const AT_SYMLINK_FOLLOW :Int32 = 0x400
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const AT_SYMLINK_FOLLOW :Int32 = 0x040
 
 /**
 * fd The special value AT_FDCWD, then pathname is interpreted relative to the current working directory of the calling process.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const AT_FDCWD :Int32 = -0x64
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const AT_FDCWD :Int32 = -2
 
 /**
@@ -902,14 +902,14 @@ public const AT_FDCWD :Int32 = -2
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func linkat(fd: Int32, path: String, nfd: Int32, newPath: String, lflag: Int32): Int32
 
 /**
 * If the AT_REMOVEDIR flag is specified, then performs the equivalent of rmdir(2) on pathname.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const AT_REMOVEDIR :Int32 = 0x200
 
 /**
@@ -930,7 +930,7 @@ public const AT_REMOVEDIR :Int32 = 0x200
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func unlinkat(fd: Int32, path: String, ulflag: Int32): Int32
 
 /**
@@ -951,7 +951,7 @@ public func unlinkat(fd: Int32, path: String, ulflag: Int32): Int32
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func symlink(path: String, symPath: String): Int32
 
 /**
@@ -970,7 +970,7 @@ public func symlink(path: String, symPath: String): Int32
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func symlinkat(path: String, fd: Int32, symPath: String): Int32
 
 /**
@@ -985,7 +985,7 @@ public func symlinkat(path: String, fd: Int32, symPath: String): Int32
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func remove(path: String): Int32
 
 /**
@@ -1008,7 +1008,7 @@ public func remove(path: String): Int32
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func rename(oldName: String, newName: String): Int32
 
 /**
@@ -1029,271 +1029,271 @@ public func rename(oldName: String, newName: String): Int32
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func renameat(oldfd: Int32, oldName: String, newfd: Int32, newName: String): Int32
 
 /**
 * The connection is disconnected; the default action is terminated.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGHUP: Int32 = 0x1
 
 /**
 * Terminal interrupt character; default action termination.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGINT: Int32 =  0x2
 
 /**
 * Terminal exit character; Default action termination + core.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGQUIT: Int32 = 0x3
 
 /**
 * Invalid hardware instruction. Default action termination + core.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGILL: Int32 = 0x4
 
 /**
 * Hardware fault; default action terminated + core.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGTRAP: Int32 = 0x5
 
 /**
 * Abnormal termination; default action termination + core.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGABRT: Int32 = 0x6
 
 /**
 * Hardware fault; default action terminated + core.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGIOT: Int32 = 0x6
 
 /**
 * Hardware fault; default action terminated + core.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGBUS: Int32 = 0x7
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGBUS: Int32 = 0xA
 
 /**
 * Arithmetic error; Default action termination + core.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGFPE: Int32 = 0x8
 
 /**
 * Terminate;Default Action Terminate.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGKILL: Int32 = 0x9
 
 /**
 * User Defined Signal; Default Action Termination.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGUSR1: Int32 = 0xA
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGUSR1: Int32 = 0x1E
 
 /**
 * Invalid memory reference; Default action termination + core.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGSEGV: Int32 = 0xB
 
 /**
 * User Defined Signal; Default Action Termination.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGUSR2: Int32 = 0xC
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGUSR2: Int32 = 0x1F
 
 /**
 * Pipelines written to unread processes; default action terminates.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGPIPE: Int32 = 0xD
 
 /**
 * The timer expires; the default action is terminated.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGALRM: Int32 = 0xE
 
 /**
 * Terminate;Default Action Terminate.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGTERM: Int32 = 0xF
 
 /**
 * Coprocessor stack failure; default action terminated.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGSTKFLT: Int32 = 0x10
 
 /**
 * Subprocess status changes; default action ignored.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGCHLD: Int32 = 0x11
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGCHLD: Int32 = 0x14
 
 /**
 * Continuation of the suspension process; Default Action Continue/Ignore.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGCONT: Int32 = 0x12
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGCONT: Int32 = 0x13
 
 /**
 * Stop;Default Action Stop.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGSTOP: Int32 = 0x13
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGSTOP: Int32 = 0x11
 
 /**
 * Terminal stop symbol; The default action stops the process.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGTSTP: Int32 = 0x14
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGTSTP: Int32 = 0x12
 
 /**
 * Background read control tty; the default action stops the process.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGTTIN: Int32 = 0x12
 
 /**
 * Background write control tty; the default action stops the process.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGTTOU: Int32 = 0x16
 
 /**
 * Emergency (socket); default action ignored.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGURG: Int32 =  0x17
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGURG: Int32 =  0x10
 
 /**
 * The CPU usage exceeds the upper limit. Default Action Termination or Termination + Core.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGXCPU: Int32 = 0x18
 
 /**
 * The file length exceeds the upper limit. Default Action Termination or Termination + Core.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGXFSZ: Int32 = 0x19
 
 /**
 * Virtual Time Alarm; Default Action Terminated.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGVTALRM: Int32 = 0x1A
 
 /**
 * Summary Timeout; Default Action Terminated.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGPROF: Int32 = 0x1B
 
 /**
 * Terminal window size changes; default action ignored.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGWINCH: Int32 = 0x1C
 
 /**
 * Asynchronous IO; Default Action Terminate/Ignore.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGIO: Int32 = 0x1D
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGIO: Int32 = 0x17
 
 /**
 * The power supply fails or restarts. Default Action Terminate/Ignore.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGPWR: Int32 = 0x1E
 
 /**
 * Invalid system call; Default action termination + core.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGSYS: Int32 = 0x1F
 
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const SIGSYS: Int32 = 0xC
 
 /**
@@ -1305,7 +1305,7 @@ public const SIGSYS: Int32 = 0xC
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func getgid(): UInt32
 
 /**
@@ -1317,7 +1317,7 @@ public func getgid(): UInt32
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func getuid(): UInt32
 
 /**
@@ -1330,7 +1330,7 @@ public func getuid(): UInt32
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func setgid(id: UInt32): Int32
 
 /**
@@ -1343,7 +1343,7 @@ public func setgid(id: UInt32): Int32
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func setuid(id: UInt32): Int32
 
 /**
@@ -1356,7 +1356,7 @@ public func setuid(id: UInt32): Int32
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func getpgid(pid: Int32): Int32
 
 /**
@@ -1372,7 +1372,7 @@ public func getpgid(pid: Int32): Int32
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public unsafe func getgroups(size: Int32, gidArray: CPointer<UInt32>): Int32
 
 /**
@@ -1384,7 +1384,7 @@ public unsafe func getgroups(size: Int32, gidArray: CPointer<UInt32>): Int32
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func getpid(): Int32
 
 /**
@@ -1396,7 +1396,7 @@ public func getpid(): Int32
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func getppid(): Int32
 
 /**
@@ -1409,7 +1409,7 @@ public func getppid(): Int32
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func getpgrp(): Int32
 
 /**
@@ -1422,7 +1422,7 @@ public func getpgrp(): Int32
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func setpgrp(): Int32
 
 /**
@@ -1437,7 +1437,7 @@ public func setpgrp(): Int32
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func setpgid(pid: Int32, pgrp: Int32): Int32
 
 /**
@@ -1452,7 +1452,7 @@ public func setpgid(pid: Int32, pgrp: Int32): Int32
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func nice(inc: Int32): Int32
 
 /**
@@ -1471,7 +1471,7 @@ public func nice(inc: Int32): Int32
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func kill(pid: Int32, sig: Int32): Int32
 
 /**
@@ -1485,35 +1485,35 @@ public func kill(pid: Int32, sig: Int32): Int32
 * @since 0.18.2
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func killpg(pgid: Int32, sig: Int32): Int32
 
 /**
 * Test for read permission.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const R_OK: Int32 = 0x4
 
 /**
 * Test for write permission.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const W_OK: Int32 = 0x2
 
 /**
 * Test for execute permission.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const X_OK: Int32 = 0x1
 
 /**
 * Test for existence.
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public const F_OK: Int32 = 0x0
 
 /**
@@ -1529,7 +1529,7 @@ public const F_OK: Int32 = 0x0
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func access(path: String, mode: Int32): Int32
 
 /**
@@ -1546,7 +1546,7 @@ public func access(path: String, mode: Int32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func faccessat(fd: Int32, path: String, mode: Int32, flag: Int32): Int32
 
 /**
@@ -1559,7 +1559,7 @@ public func faccessat(fd: Int32, path: String, mode: Int32, flag: Int32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func umask(cmask: UInt32): UInt32
 
 /**
@@ -1575,7 +1575,7 @@ public func umask(cmask: UInt32): UInt32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func chown(path: String, owner: UInt32, group: UInt32): Int32
 
 /**
@@ -1591,7 +1591,7 @@ public func chown(path: String, owner: UInt32, group: UInt32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func fchown(fd: Int32, owner: UInt32, group: UInt32): Int32
 
 /**
@@ -1608,7 +1608,7 @@ public func fchown(fd: Int32, owner: UInt32, group: UInt32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func lchown(path: String, owner: UInt32, group: UInt32): Int32
 
 /**
@@ -1626,7 +1626,7 @@ public func lchown(path: String, owner: UInt32, group: UInt32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func fchownat(fd: Int32, path: String, owner: UInt32, group: UInt32, flag: Int32): Int32
 
 /**
@@ -1641,7 +1641,7 @@ public func fchownat(fd: Int32, path: String, owner: UInt32, group: UInt32, flag
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func chmod(path: String, mode: UInt32): Int32
 
 /**
@@ -1655,7 +1655,7 @@ public func chmod(path: String, mode: UInt32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func fchmod(fd: Int32, mode: UInt32): Int32
 
 /**
@@ -1672,7 +1672,7 @@ public func fchmod(fd: Int32, mode: UInt32): Int32
 * @since 0.16.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func fchmodat(fd: Int32, path: String, mode: UInt32, flag: Int32): Int32
 
 /**
@@ -1685,7 +1685,7 @@ public func fchmodat(fd: Int32, path: String, mode: UInt32, flag: Int32): Int32
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func isatty(fd: Int32): Bool
 
 /**
@@ -1698,6 +1698,6 @@ public func isatty(fd: Int32): Bool
 * @since 0.18.5
 */
 @Deprecated
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func ttyname(fd: Int32): String
 

@@ -10,12 +10,12 @@
 
 import ohos.labels.*
 
-@!APILevel[9]
-@!APILevel[10]
+@!APILevel[since: "9"]
+@!APILevel[since: "10"]
 public func foo() {}
 
-@!APILevel[10]
-@!APILevel[9]
+@!APILevel[since: "10"]
+@!APILevel[since: "9"]
 public func goo() {}
 
 main() {

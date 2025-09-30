@@ -2,15 +2,15 @@ package dep
 
 import ohos.labels.APILevel
 
-@!APILevel[19]
+@!APILevel[since: "19"]
 public func func1(a!: Int64 = 1) {println(19)}
 
-@!APILevel[18]
+@!APILevel[since: "18"]
 public func func2() {println(18)}
 
-@!APILevel[19]
+@!APILevel[since: "19"]
 public class A {
-	@!APILevel[19]
+	@!APILevel[since: "19"]
 	public prop a: Int64 {
 		get() {1}
 	}
