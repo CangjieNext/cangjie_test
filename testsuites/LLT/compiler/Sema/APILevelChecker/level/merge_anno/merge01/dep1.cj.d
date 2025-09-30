@@ -8,72 +8,72 @@ package dep1
 
 import ohos.labels.APILevel
 
-@!APILevel[1]
+@!APILevel[since: "1"]
 public func foo(): Int64
-@!APILevel[2]
+@!APILevel[since: "2"]
 public func foo(a: Array<Int64>): Int64
-@!APILevel[3]
+@!APILevel[since: "3"]
 public func foo(a: Array<String>): Int64
 
-@!APILevel[4]
+@!APILevel[since: "4"]
 class A {
-    @!APILevel[5]
+    @!APILevel[since: "5"]
     init() {}
-    @!APILevel[6]
+    @!APILevel[since: "6"]
     init(a: Int64) {}
-    @!APILevel[7]
+    @!APILevel[since: "7"]
     init(a: String) {}
-    @!APILevel[8]
+    @!APILevel[since: "8"]
     public func foo(): Int64
-    @!APILevel[9]
-    public func foo(@!APILevel[10]a: Array<Int64>): Int64
-    @!APILevel[11]
-    public func foo(@!APILevel[12]a: Array<String>): Int64
+    @!APILevel[since: "9"]
+    public func foo(@!APILevel[since: "10"]a: Array<Int64>): Int64
+    @!APILevel[since: "11"]
+    public func foo(@!APILevel[since: "12"]a: Array<String>): Int64
 
-    @!APILevel[13]
+    @!APILevel[since: "13"]
     public var a = 0
-    @!APILevel[14]
+    @!APILevel[since: "14"]
     public prop b: Int64
 }
 
-@!APILevel[15]
+@!APILevel[since: "15"]
 struct B {
-    @!APILevel[16]
+    @!APILevel[since: "16"]
     init() {}
-    @!APILevel[17]
+    @!APILevel[since: "17"]
     init(a: Int64) {}
-    @!APILevel[18]
+    @!APILevel[since: "18"]
     init(a: String) {}
-    @!APILevel[19]
+    @!APILevel[since: "19"]
     public func foo(): Int64
-    @!APILevel[20]
-    public func foo(@!APILevel[21]a: Array<Int64>): Int64
-    @!APILevel[22]
-    public func foo(@!APILevel[23]a: Array<String>): Int64
+    @!APILevel[since: "20"]
+    public func foo(@!APILevel[since: "21"]a: Array<Int64>): Int64
+    @!APILevel[since: "22"]
+    public func foo(@!APILevel[since: "23"]a: Array<String>): Int64
 
-    @!APILevel[24]
+    @!APILevel[since: "24"]
     public var a = 0
-    @!APILevel[25]
+    @!APILevel[since: "25"]
     public prop b: Int64
 }
 
-@!APILevel[26]
+@!APILevel[since: "26"]
 enum C {
-    @!APILevel[27]A | @!APILevel[28]B(Int64)
+    @!APILevel[since: "27"]A | @!APILevel[since: "28"]B(Int64)
 
-    @!APILevel[29]
+    @!APILevel[since: "29"]
     public func foo(): Int64
-    @!APILevel[30]
+    @!APILevel[since: "30"]
     public func foo(a: Array<Int64>): Int64
-    @!APILevel[31]
+    @!APILevel[since: "31"]
     public func foo(a: Array<String>): Int64
 }
 
 interface D {
-    @!APILevel[32]
+    @!APILevel[since: "32"]
     func foo(): Int64
-    @!APILevel[33]
-    func foo(@!APILevel[34]a: Array<Int64>): Int64
-    @!APILevel[35]
-    func foo(@!APILevel[36]a: Array<String>): Int64
+    @!APILevel[since: "33"]
+    func foo(@!APILevel[since: "34"]a: Array<Int64>): Int64
+    @!APILevel[since: "35"]
+    func foo(@!APILevel[since: "36"]a: Array<String>): Int64
 }

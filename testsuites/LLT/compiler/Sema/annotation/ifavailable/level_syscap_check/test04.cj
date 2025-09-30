@@ -12,7 +12,7 @@
 import ohos.labels.*
 import ohos.device_info.*
 
-@!APILevel[21]
+@!APILevel[since: "21"]
 public func f21() {}
 
 main() {

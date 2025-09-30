@@ -12,19 +12,19 @@
 import ohos.labels.*
 import ohos.device_info.*
 
-@!APILevel[19]
+@!APILevel[since: "19"]
 public func f19() {}
 
-@!APILevel[20]
+@!APILevel[since: "20"]
 public func f20() {}
 
-@!APILevel[21]
+@!APILevel[since: "21"]
 public func f21() {}
 
-@!APILevel[22]
+@!APILevel[since: "22"]
 public func f22() {}
 
-@!APILevel[23]
+@!APILevel[since: "23"]
 public func f23() {}
 
 main() {
