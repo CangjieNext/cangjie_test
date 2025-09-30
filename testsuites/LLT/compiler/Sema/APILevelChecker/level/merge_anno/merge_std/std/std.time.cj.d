@@ -36,24 +36,24 @@ import std.collection.ArrayList
 * For example, 2023-04-10T08:00:00 in CST（China Standard Time）is equal to
 * 2023-04-10T00:00:00 in UTC.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattable & Parsable<DateTime> {
     /* Unix epoch time. */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     static public prop UnixEpoch: DateTime
     
     /**
     * Get the year of DateTime instance.
     * Ranges in [-999,999,999, 999,999,999].
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop year: Int64
     
     /**
     * Get the year of DateTime instance.
     * Values are in Enum Month.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop month: Month
     
     /**
@@ -61,87 +61,87 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     * Ranges in [1, 12].
     */
     @Deprecated[message: "Use `public prop month: Month` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop monthValue: Int64
     
     /**
     * Get the day of DateTime instance.
     * Ranges in [1, 31], the maximum depends on month and year.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop dayOfMonth: Int64
     
     /**
     * Get the day of week of DateTime instance.
     * Values are in Enum DayOfWeek.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop dayOfWeek: DayOfWeek
     
     /**
     * Get the day of year of DateTime instance.
     * Ranges in [1, 365] in non leap year and [1, 366] in leap year.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop dayOfYear: Int64
     
     /**
     * Get the hour of DateTime instance.
     * Ranges in [0, 23].
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop hour: Int64
     
     /**
     * Get the minute of DateTime instance.
     * Ranges in [0, 59].
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop minute: Int64
     
     /**
     * Get the second of DateTime instance.
     * Ranges in [0, 59].
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop second: Int64
     
     /**
     * Get the nanosecond of DateTime instance.
     * Ranges in [0, 59].
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop nanosecond: Int64
     
     /**
     * Get the year and week tuple of DateTime instance based on ISO-8601.
     * Ranges in [0, 59].
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop isoWeek: (Int64, Int64)
     
     /**
     * Get the timeZone of DateTime instance.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop zone: TimeZone
     
     /**
     * Get the zone id of DateTime instance.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop zoneId: String
     
     /**
     * Get the zone offset of DateTime instance.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop zoneOffset: Duration
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop date: (Int64, Month, Int64)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop time: (Int64, Int64, Int64)
     
     /**
@@ -151,7 +151,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     * @return current DateTime in specified time zone.
     */
     @Frozen
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func now(timeZone!: TimeZone = TimeZone.Local): DateTime
     
     /**
@@ -159,7 +159,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @return current DateTime of UTC.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func nowUTC(): DateTime
     
     /**
@@ -168,7 +168,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     * @param d duration.
     * @return DateTime after d since unix epoch time.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func fromUnixTimeStamp(d: Duration): DateTime
     
     /**
@@ -182,7 +182,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     * @throws IllegalArgumentException if the value of nanosecond is outside the range [0, 999,999,999].
     * @throws ArithmeticException if the result of year is outside the range [-999,999,999, 999,999,999].
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func ofEpoch(second!: Int64, nanosecond!: Int64): DateTime
     
     /**
@@ -201,7 +201,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws IllegalArgumentException if the value of any parameter is out of the range, or the datetime does not exist.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func of(
         year!: Int64,
         month!: Int64,
@@ -229,7 +229,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws IllegalArgumentException if the value of any parameter is out of the range, or the datetime does not exist.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func of(
         year!: Int64,
         month!: Month,
@@ -256,7 +256,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws IllegalArgumentException if the value of any parameter is out of the range.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func ofUTC(
         year!: Int64,
         month!: Int64,
@@ -282,7 +282,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws IllegalArgumentException if the value of any parameter is out of the range.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func ofUTC(
         year!: Int64,
         month!: Month,
@@ -301,10 +301,10 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws TimeParseException if the parsing is incorrect.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(str: String): DateTime
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func tryParse(str: String): Option<DateTime>
     
     /**
@@ -317,11 +317,11 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     * @throws TimeParseException if the parsing is incorrect.
     * @throws IllegalArgumentException if the format is illegal.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(str: String, format: String): DateTime
     
     @Deprecated[message: "Use member funtion `public static func parse(str: String, format: String): DateTime` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func parse(str: String, format: DateTimeFormat): DateTime
     
     /**
@@ -331,7 +331,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if the result of year in UTC is outside the range [-999,999,999, 999,999,999].
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func inUTC(): DateTime
     
     /**
@@ -341,7 +341,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if the result of year in Local is outside the range [-999,999,999, 999,999,999].
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func inLocal(): DateTime
     
     /**
@@ -352,7 +352,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if the result of year in Local is outside the range [-999,999,999, 999,999,999]
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func inTimeZone(timeZone: TimeZone): DateTime
     
     /**
@@ -364,7 +364,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if the timestamp is out of range for 'Duration'.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toUnixTimeStamp(): Duration
     
     /**
@@ -372,7 +372,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @return a DateTime string formatted in RFC3339.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
     
     /**
@@ -384,11 +384,11 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws IllegalArgumentException if the fmt is illegal.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func format(fmt: String): String
     
     @Deprecated[message: "Use member funtion `public func format(fmt: String): String` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(format: DateTimeFormat): String
     
     /**
@@ -396,7 +396,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @return Int64 the hash value of the current DateTime instance.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func hashCode(): Int64
     
     /**
@@ -410,7 +410,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if result of year is outside [-999,999,999, 999,999,999], or the result datetime does not exist.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addYears(n: Int64): DateTime
     
     /**
@@ -424,7 +424,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if result of year is outside [-999,999,999, 999,999,999], or the result datetime does not exist.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addMonths(n: Int64): DateTime
     
     /**
@@ -435,7 +435,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if result of year is outside [-999,999,999, 999,999,999], or the result datetime does not exist.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addWeeks(n: Int64): DateTime
     
     /**
@@ -446,7 +446,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if result of year is outside [-999,999,999, 999,999,999], or the result datetime does not exist.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addDays(n: Int64): DateTime
     
     /**
@@ -457,7 +457,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if result of year is outside [-999,999,999, 999,999,999], or the result datetime does not exist.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addHours(n: Int64): DateTime
     
     /**
@@ -468,7 +468,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if result of year is outside [-999,999,999, 999,999,999], or the result datetime does not exist.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addMinutes(n: Int64): DateTime
     
     /**
@@ -479,7 +479,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if result of year is outside [-999,999,999, 999,999,999], or the result datetime does not exist.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addSeconds(n: Int64): DateTime
     
     /**
@@ -490,7 +490,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if result of year is outside [-999,999,999, 999,999,999]
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func addNanoseconds(n: Int64): DateTime
     
     /**
@@ -502,7 +502,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if result of year is outside [-999,999,999, 999,999,999]
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func +(r: Duration): DateTime
     
     /**
@@ -514,7 +514,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     *
     * @throws ArithmeticException if result of year is outside [-999,999,999, 999,999,999]
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func -(r: Duration): DateTime
     
     /**
@@ -526,7 +526,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     * @param r another time.
     * @return a duration as a result of this - @p r.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func -(r: DateTime): Duration
     
     /**
@@ -535,7 +535,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     * @param r another DateTime to be compared to.
     * @return true if the DateTime is equal to @p r, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(r: DateTime): Bool
     
     /**
@@ -544,7 +544,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     * @param r another DateTime to be compared to.
     * @return true if the DateTime is not equal to @p r, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(r: DateTime): Bool
     
     /**
@@ -553,7 +553,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     * @param r another DateTime to be compared to.
     * @return true if the DateTime is later than or equal to @p r, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func >=(r: DateTime): Bool
     
     /**
@@ -562,7 +562,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     * @param r another DateTime to be compared to.
     * @return true if the time is later than @p r, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func >(r: DateTime): Bool
     
     /**
@@ -571,7 +571,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     * @param r another DateTime to be compared to.
     * @return true if the DateTime is earlier than or equal to @p r, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func <=(r: DateTime): Bool
     
     /**
@@ -580,7 +580,7 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     * @param r another DateTime to be compared to.
     * @return true if the DateTime is earlier than @p r, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func <(r: DateTime): Bool
     
     /**
@@ -589,60 +589,60 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     * @param rhs Instance of DateTime compared with this.
     * @return Value indicating the relationship between two instance of DateTime.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func compare(rhs: DateTime): Ordering
 }
 
 /**
 * The TimeParseException class
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class TimeParseException <: Exception {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(message: String)
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class DateTimeFormat {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const RFC1123: String = "www, dd MMM yyyy HH:mm:ss z"
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const RFC3339: String = "yyyy-MM-ddTHH:mm:ssOOOO"
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const RFC822: String = "ww dd MMM yy HH:mm:ss z"
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const RFC850: String = "wwww, dd-MMM-yy HH:mm:ss z"
     
     @Deprecated["Use member function `init(formatString: String)` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func of(format: String): DateTimeFormat
     
     @Deprecated["The prop is deprecated, no substitutions."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop format: String
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public enum DayOfWeek <: ToString & Equatable<DayOfWeek> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Sunday |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Monday |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Tuesday |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Wednesday |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Thursday |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Friday |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Saturday
     /**
     * Generates a instance of DayOfWeek according to a Int64 value.
@@ -654,7 +654,7 @@ public enum DayOfWeek <: ToString & Equatable<DayOfWeek> {
     *
     * @since 0.18.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func of(dayOfWeek: Int64): DayOfWeek
     
     /**
@@ -665,10 +665,10 @@ public enum DayOfWeek <: ToString & Equatable<DayOfWeek> {
     * @since 0.18.4
     */
     @Deprecated[message: "Use member function `public func toInteger(): Int64` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func value(): Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toInteger(): Int64
     
     /**
@@ -678,7 +678,7 @@ public enum DayOfWeek <: ToString & Equatable<DayOfWeek> {
     *
     * @since 0.18.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
     
     /**
@@ -689,7 +689,7 @@ public enum DayOfWeek <: ToString & Equatable<DayOfWeek> {
     *
     * @since 0.18.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(r: DayOfWeek): Bool
     
     /**
@@ -700,41 +700,41 @@ public enum DayOfWeek <: ToString & Equatable<DayOfWeek> {
     *
     * @since 0.18.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(r: DayOfWeek): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func +(n: Int64): DayOfWeek
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func -(n: Int64): DayOfWeek
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public enum Month <: ToString & Equatable<Month> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     January |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     February |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     March |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     April |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     May |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     June |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     July |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     August |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     September |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     October |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     November |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     December
     /**
     * Generates a instance of Month according to a Int64 value.
@@ -746,7 +746,7 @@ public enum Month <: ToString & Equatable<Month> {
     *
     * @since 0.18.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func of(mon: Int64): Month
     
     /**
@@ -757,10 +757,10 @@ public enum Month <: ToString & Equatable<Month> {
     * @since 0.18.4
     */
     @Deprecated[message: "Use member function `public func toInteger(): Int64` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func value(): Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toInteger(): Int64
     
     /**
@@ -770,7 +770,7 @@ public enum Month <: ToString & Equatable<Month> {
     *
     * @since 0.18.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
     
     /**
@@ -780,7 +780,7 @@ public enum Month <: ToString & Equatable<Month> {
     * @return a new Month after adding @p n to this Month.
     * @since 0.18.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func +(n: Int64): Month
     
     /**
@@ -790,7 +790,7 @@ public enum Month <: ToString & Equatable<Month> {
     * @return a new Month after subtracting @p n from this Month.
     * @since 0.18.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func -(n: Int64): Month
     
     /**
@@ -801,7 +801,7 @@ public enum Month <: ToString & Equatable<Month> {
     *
     * @since 0.18.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(r: Month): Bool
     
     /**
@@ -812,7 +812,7 @@ public enum Month <: ToString & Equatable<Month> {
     *
     * @since 0.18.4
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(r: Month): Bool
 }
 
@@ -822,14 +822,14 @@ public enum Month <: ToString & Equatable<Month> {
 * MonoTimes created by 'now' are always no less than any previously measured MonoTime created in the same way, and are
 * commonly used in BenchMark or task queues on a first come first served basis.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public struct MonoTime <: Hashable & Comparable<MonoTime> {
     /**
     * Obtain the elapsed time from the start of the system to current.
     *
     * @return a MonoTime corresponding to current.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func now(): MonoTime
     
     /**
@@ -838,7 +838,7 @@ public struct MonoTime <: Hashable & Comparable<MonoTime> {
     * @param r duration to add.
     * @return a MonoTime based on this MonoTime with the specified @r added.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func +(r: Duration): MonoTime
     
     /**
@@ -847,7 +847,7 @@ public struct MonoTime <: Hashable & Comparable<MonoTime> {
     * @param r duration to subtract.
     * @return a MonoTime based on this MonoTime with the specified @r subtracted.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func -(r: Duration): MonoTime
     
     /**
@@ -856,7 +856,7 @@ public struct MonoTime <: Hashable & Comparable<MonoTime> {
     * @param r MonoTime to subtract.
     * @return a MonoTime based on this MonoTime with the specified @r subtracted.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func -(r: MonoTime): Duration
     
     /**
@@ -865,7 +865,7 @@ public struct MonoTime <: Hashable & Comparable<MonoTime> {
     * @param r another MonoTime to be compared to.
     * @return true if the elapsed time of this MonoTime is equal to that of @r, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(r: MonoTime): Bool
     
     /**
@@ -874,7 +874,7 @@ public struct MonoTime <: Hashable & Comparable<MonoTime> {
     * @param r another MonoTime to be compared to.
     * @return true if the elapsed time of this MonoTime is not equal to that of @r, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(r: MonoTime): Bool
     
     /**
@@ -883,7 +883,7 @@ public struct MonoTime <: Hashable & Comparable<MonoTime> {
     * @param r another MonoTime to be compared to.
     * @return true if the elapsed time of this MonoTime is greater than or equal to that of @r, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func >=(r: MonoTime): Bool
     
     /**
@@ -892,7 +892,7 @@ public struct MonoTime <: Hashable & Comparable<MonoTime> {
     * @param r another MonoTime to be compared to.
     * @return true if the elapsed time of this MonoTime is greater than that of @r, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func >(r: MonoTime): Bool
     
     /**
@@ -901,7 +901,7 @@ public struct MonoTime <: Hashable & Comparable<MonoTime> {
     * @param r another MonoTime to be compared to.
     * @return true if the elapsed time of this MonoTime is less than or equal to that of @r, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func <=(r: MonoTime): Bool
     
     /**
@@ -910,7 +910,7 @@ public struct MonoTime <: Hashable & Comparable<MonoTime> {
     * @param r another MonoTime to be compared to.
     * @return true if the elapsed time of this MonoTime is less than that of @r, otherwise false.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func <(r: MonoTime): Bool
     
     /**
@@ -919,7 +919,7 @@ public struct MonoTime <: Hashable & Comparable<MonoTime> {
     * @param rhs instance of MonoTime compared with this.
     * @return a Ordering value indicating the relationship between two instance of MonoTime.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func compare(rhs: MonoTime): Ordering
     
     /**
@@ -927,7 +927,7 @@ public struct MonoTime <: Hashable & Comparable<MonoTime> {
     *
     * @return the hash value of this MonoTime.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func hashCode(): Int64
 }
 
@@ -940,15 +940,15 @@ public struct MonoTime <: Hashable & Comparable<MonoTime> {
 *
 * @since 0.19.3
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class TimeZone <: ToString & Equatable<TimeZone> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static let UTC = TimeZone("UTC", 0)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static let Local = initLocal()
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop id: String
     
     /**
@@ -960,7 +960,7 @@ public class TimeZone <: ToString & Equatable<TimeZone> {
     * @throws IllegalArgumentException if TimeZone id is empty.
     * @since 0.19.3
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(id: String, offset: Duration)
     
     /**
@@ -980,7 +980,7 @@ public class TimeZone <: ToString & Equatable<TimeZone> {
     *
     * @since 0.19.3
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func load(id: String): TimeZone
     
     /**
@@ -998,7 +998,7 @@ public class TimeZone <: ToString & Equatable<TimeZone> {
     *
     * @since 0.35.7
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func loadFromPaths(id: String, tzpaths: Array<String>): TimeZone
     
     /**
@@ -1013,7 +1013,7 @@ public class TimeZone <: ToString & Equatable<TimeZone> {
     * @throws IllegalMemoryException if failed to call runtimeNow(cjvm).
     * @since 0.19.3
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func loadFromTZData(id: String, data: Array<UInt8>): TimeZone
     
     /**
@@ -1023,7 +1023,7 @@ public class TimeZone <: ToString & Equatable<TimeZone> {
     *
     * @since 0.19.3
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
     
     /**
@@ -1034,7 +1034,7 @@ public class TimeZone <: ToString & Equatable<TimeZone> {
     *
     * @since 0.38.2
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(r: TimeZone): Bool
     
     /**
@@ -1045,16 +1045,16 @@ public class TimeZone <: ToString & Equatable<TimeZone> {
     *
     * @since 0.38.2
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(r: TimeZone): Bool
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class InvalidDataException <: Exception {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(message: String)
 }
 

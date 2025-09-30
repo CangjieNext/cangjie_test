@@ -10,17 +10,17 @@
 
 import ohos.labels.*
 
-func foo(@!APILevel[10, syscap: "xxx"] a: Int64) {}
+func foo(@!APILevel[since: "10", syscap: "xxx"] a: Int64) {}
 
-@!APILevel[10, syscap: "xxx"]
+@!APILevel[since: "10", syscap: "xxx"]
 main() {}
 
 /* SCAN
 error: unexpected annotation '@APILevel' on main
   ==> on_invalid_decl.cj:15:1:
    | 
-15 | @!APILevel[10, syscap: "xxx"]
-   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unexpected annotation here
+15 | @!APILevel[since: "10", syscap: "xxx"]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unexpected annotation here
 16 | main() {}
    | ~~~~ on main
    | 
