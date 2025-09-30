@@ -18,12 +18,12 @@
 import ohos.labels.*
 import ohos.base.*
 
-@!APILevel[19, syscap: "A"]
+@!APILevel[since: "19", syscap: "A"]
 public func f_A() {
     println("A")
 }
 
-@!APILevel[19, syscap: "camera"]
+@!APILevel[since: "19", syscap: "camera"]
 public func f_camera() {
     println("camera")
 }
