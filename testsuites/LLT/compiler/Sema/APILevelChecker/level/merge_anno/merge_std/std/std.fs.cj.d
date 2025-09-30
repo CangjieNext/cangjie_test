@@ -11,37 +11,37 @@ import std.io.*
 import std.time.*
 import std.io.IOException
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func copy(sourcePath: Path, to!: Path, overwrite!: Bool = false): Unit
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func copy(sourcePath: String, to!: String, overwrite!: Bool = false): Unit
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func remove(path: Path, recursive!: Bool = false): Unit
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func remove(path: String, recursive!: Bool = false): Unit
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func exists(path: Path): Bool
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func exists(path: String): Bool
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func rename(sourcePath: String, to!: String, overwrite!: Bool = false): Unit
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func rename(sourcePath: Path, to!: Path, overwrite!: Bool = false): Unit
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func removeIfExists(path: Path, recursive!: Bool = false): Bool
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func removeIfExists(path: String, recursive!: Bool = false): Bool
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class Directory {
     /*
     * @throws IllegalArgumentException while path is empty, or path is current directory,
@@ -49,7 +49,7 @@ public class Directory {
     * @throws FSException while path is exist, or while recursive is false
     * and the middle path is not exist.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func create(path: String, recursive!: Bool = false): Unit
     
     /*
@@ -58,71 +58,71 @@ public class Directory {
     * @throws FSException while path is exist, or while recursive is false
     * and the middle path is not exist.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func create(path: Path, recursive!: Bool = false): Unit
     
     /*
     * @throws FSException while path is not exist or failed to create temporary directory
     * @throws IllegalArgumentException while path is empty or path contains null character
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func createTemp(directoryPath: String): Path
     
     /*
     * @throws FSException while path is not exist or failed to create temporary directory.
     * @throws IllegalArgumentException while path is empty or path contains null character
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func createTemp(directoryPath: Path): Path
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func isEmpty(path: Path): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func isEmpty(path: String): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func readFrom(path: Path): Array<FileInfo>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func readFrom(path: String): Array<FileInfo>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func walk(path: Path, f: (FileInfo)->Bool): Unit
     
     @OverflowWrapping
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func walk(path: String, f: (FileInfo)->Bool): Unit
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public enum OpenMode <: ToString & Equatable<OpenMode> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Read |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Write |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Append |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     ReadWrite
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(that: OpenMode): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func !=(that: OpenMode): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
 }
 
 // FD numbers are indexes into the FD table.// Unix/Linux use the Int type for handle, while Windows use HANDLE type.// HANDLE is typedef'd void *, which is really just a 32-bit index, only for more opaque.
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public struct FileDescriptor {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop fileHandle: IntNative
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class File <: Resource & IOStream & Seekable {
     /**
     * Constructors
@@ -136,7 +136,7 @@ public class File <: Resource & IOStream & Seekable {
     * the parent directory of the file does not exist,
     * or other reasons caused fail to open file.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(path: String, mode: OpenMode)
     
     /**
@@ -151,19 +151,19 @@ public class File <: Resource & IOStream & Seekable {
     * the parent directory of the file does not exist,
     * or other reasons caused fail to open file.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(path: Path, mode: OpenMode)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop info: FileInfo
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop fileDescriptor: FileDescriptor
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop length: Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func setLength(length: Int64): Unit
     
     /**
@@ -178,7 +178,7 @@ public class File <: Resource & IOStream & Seekable {
     *      or the file does not have the read permission
     *      or failed to read file
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func read(buffer: Array<Byte>): Int64
     
     /**
@@ -186,10 +186,10 @@ public class File <: Resource & IOStream & Seekable {
     * @throws FSException if file is not opened
     * @throws FSException if the file is not allowed to write
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func write(buffer: Array<Byte>): Unit
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func flush(): Unit
     
     /**
@@ -197,57 +197,57 @@ public class File <: Resource & IOStream & Seekable {
     * @throws FSException if there is error in parameter
     * @throws FSException if unknown errors occurred
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func seek(sp: SeekPosition): Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func canRead(): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func canWrite(): Bool
     
     /**
     * @throws FSException if system failed to close file
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func close(): Unit
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isClosed(): Bool
     
     /**
     * @throws FSException while path is empty.
     * @throws IllegalArgumentException while path contains null character.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func create(path: Path): File
     
     /**
     * @throws FSException while path is empty.
     * @throws IllegalArgumentException while path contains null character.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func create(path: String): File
     
     /**
     * @throws FSException if failed to create the temporary file or directoryPath is invalid.
     * @throws IllegalArgumentException while path contains null character or path is empty.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func createTemp(directoryPath: String): File
     
     /**
     * @throws FSException if failed to create the temporary file or directoryPath is invalid.
     * @throws IllegalArgumentException while path contains null character or path is empty.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func createTemp(directoryPath: Path): File
     
     /**
     * @throws FSException while path is empty.
     * @throws IllegalArgumentException while path contains null character.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func readFrom(path: Path): Array<Byte>
     
     /**
@@ -256,7 +256,7 @@ public class File <: Resource & IOStream & Seekable {
     * @throws FSException if file read failed
     * @throws FSException if system failed to close file
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func readFrom(path: String): Array<Byte>
     
     /**
@@ -264,7 +264,7 @@ public class File <: Resource & IOStream & Seekable {
     * @throws IllegalArgumentException while path contains null character.
     * @throws FSException if system failed to close file.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func writeTo(path: Path, buffer: Array<Byte>): Unit
     
     /**
@@ -272,7 +272,7 @@ public class File <: Resource & IOStream & Seekable {
     * @throws IllegalArgumentException while path contains null character.
     * @throws FSException if system failed to close file.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func writeTo(path: String, buffer: Array<Byte>): Unit
     
     /**
@@ -280,7 +280,7 @@ public class File <: Resource & IOStream & Seekable {
     * @throws IllegalArgumentException while path contains null character.
     * @throws FSException if system failed to close file
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func appendTo(path: Path, buffer: Array<Byte>): Unit
     
     /**
@@ -288,240 +288,240 @@ public class File <: Resource & IOStream & Seekable {
     * @throws IllegalArgumentException while path contains null character.
     * @throws FSException if system failed to close file
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func appendTo(path: String, buffer: Array<Byte>): Unit
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public struct FileInfo <: Equatable<FileInfo> {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(path: Path)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(path: String)
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop name: String
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop parentDirectory: Option<FileInfo>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop path: Path
     
     /**
     * @throws FSException if system failed to get creation time
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop creationTime: DateTime
     
     /**
     * @throws FSException if system failed to get last access time
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop lastAccessTime: DateTime
     
     /**
     * @throws FSException if system failed to get last modification time
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop lastModificationTime: DateTime
     
     /**
     * @throws FSException if memory copy failed or get directory/file size failed
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop size: Int64
     
     /**
     * @throws FSException if cPath is invalid or symbol not linked
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isSymbolicLink(): Bool
     
     /**
     * @throws FSException if cPath is invalid
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isRegular(): Bool
     
     /**
     * @throws FSException if cPath is invalid
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isDirectory(): Bool
     
     /**
     * @throws FSException if cPath is invalid
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isReadOnly(): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isHidden(): Bool
     
     /**
     * @throws FSException if cPath is invalid
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func canExecute(): Bool
     
     /**
     * @throws FSException if cPath is invalid
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func canRead(): Bool
     
     /**
     * @throws FSException if cPath is invalid
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func canWrite(): Bool
     
     /**
     * @throws FSException if cPath is invalid
     * @throws FSException if operation not permitted on Windows
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func setExecutable(executable: Bool): Bool
     
     /**
     * @throws FSException if cPath is invalid
     * @throws FSException if operation not permitted on Windows
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func setReadable(readable: Bool): Bool
     
     /**
     * @throws FSException if cPath is invalid
     * @throws FSException if operation not permitted on Windows
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func setWritable(writable: Bool): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(that: FileInfo): Bool
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class FSException <: IOException {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(message: String)
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class HardLink {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func create(link: Path, to!: Path): Unit
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func create(link: String, to!: String): Unit
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func canonicalize(path: String): Path
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public func canonicalize(path: Path): Path
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public struct Path <: Equatable<Path> & Hashable & ToString {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const Separator: String = PATH_SEPARATOR
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static const ListSeparator: String = PATH_LISTSEPARATOR
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(rawPath: String)
     
     /**
     * @throws IllegalArgumentException while path contains null character,
     * or path is empty.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop parent: Path
     
     /**
     * @throws IllegalArgumentException while path contains null character,
     * or path is empty.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop fileName: String
     
     /**
     * @throws IllegalArgumentException while path contains null character,
     * or path is empty.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop extensionName: String
     
     /**
     * @throws IllegalArgumentException while path contains null character,
     * or path is empty.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public prop fileNameWithoutExtension: String
     
     /**
     * @throws IllegalArgumentException while path contains null character,
     * or path is empty.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isAbsolute(): Bool
     
     /**
     * @throws IllegalArgumentException while path contains null character,
     * or path is empty.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isRelative(): Bool
     
     /**
     * @throws IllegalArgumentException while rawpath or path contains null character, or rawpath is empty.
     * @throws FSException if path is an absolute path.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func join(path: String): Path
     
     /**
     * @throws IllegalArgumentException while path contains null character,
     * or path is empty.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func join(path: Path): Path
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func isEmpty(): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func normalize(): Path
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public operator func ==(that: Path): Bool
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class SymbolicLink {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func create(link: Path, to!: Path): Unit
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func create(link: String, to!: String): Unit
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func readFrom(path: String, recursive!: Bool = false): Path
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public static func readFrom(path: Path, recursive!: Bool = false): Path
 }
 

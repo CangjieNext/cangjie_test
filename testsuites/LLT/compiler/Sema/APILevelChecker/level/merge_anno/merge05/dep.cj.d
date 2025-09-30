@@ -6,5 +6,5 @@
 
 package dep
 
-@!APILevel[12]
+@!APILevel[since: "12"]
 public func foo(a: (Int64, Int64)): (Int64)->Unit
