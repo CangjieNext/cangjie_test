@@ -8,14 +8,14 @@ package dep
 
 import ohos.labels.*
 
-@!APILevel[9]
+@!APILevel[since: "9"]
 public func f9(): Unit {
 }
 
-@!APILevel[11]
+@!APILevel[since: "11"]
 public func f11(): Unit {
 }
 
-// 没写，相当于 @!APILevel[0]
+// 没写，相当于 @!APILevel[since: "0"]
 public func f0(): Unit {
 }
