@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.8.2.14
   @Scene: add
@@ -13,8 +13,8 @@
   @Object: struct static func
   @Behavior: modifier: add const
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // Expect: API Compatible & ABI Compatible
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -37,51 +37,51 @@ package test_stable_abi
 public struct Rectangle {
     static let width = 10
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
-    public static const func geta1() {
+    const public static func geta1() {
         return 0
     }
 
-    static const func geta2() {
+    const static func geta2() {
         return 0
     }
 
-    public static const func geta3() {
+    const public static func geta3() {
         return 0
     }
 
-    private static const func geta4() {
+    const private static func geta4() {
         return 0
     }
 
-    internal static const func geta5() {
+    const internal static func geta5() {
         return 0
     }
 
-    static const func geta6() {
+    const static func geta6() {
         return 0
     }
 
-    protected static const func geta7() {
+    const protected static func geta7() {
         return 0
     }
 
-    public static const func geta8() {
+    const public static func geta8() {
         return 0
     }
 
-    static const func geta9() {
+    const static func geta9() {
         return 0
     }
 
-    static const func geta10() {
+    const static func geta10() {
         return 0
     }
 
-    public unsafe static func geta11() {
+    unsafe public static func geta11() {
         return 0
     }
 

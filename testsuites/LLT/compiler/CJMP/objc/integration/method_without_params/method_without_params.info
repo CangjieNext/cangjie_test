@@ -1,0 +1,23 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and Darwin) DEPENDENCE: ../%n
+// (CJNATIVE and Darwin) RUN-EXEC-0: %cd %n && mkdir out
+// (CJNATIVE and Darwin) RUN-EXEC-0: %cd %n && %compiler %compile_shared_lib_opt %overflowOpt -p src/cjworld %import_objc_interop -o out
+// (CJNATIVE and Darwin) RUN-EXEC-0: %cd %n && %clang %modules_opt %objc_arc_opt src/objc/*.m objc-gen/*.m -o out/main -Lout %cangjie_runtime_link -Isrc/objc -Iobjc-gen %include_cangjie -lcjworld -lcangjie-runtime
+// (CJNATIVE and Darwin) RUN-EXEC-PIPE: %cd %n/out && ./main 2>& 1 | compare %f
+
+/* SCAN-IN
+objc: [M init]
+objc: [M goo]
+cj: get Int32 res from objc: 42
+objc: [[M1 alloc] init] from [M foo]
+objc: [M1 init]
+objc: [M1 fooBar]
+cj: get object from objc with result: true
+objc: [M1 fooBar]
+objc: result on [[a fooBar] fooBar] YES
+*/

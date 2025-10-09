@@ -5,5 +5,5 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../%n
-// EXEC: cd %n/pro1 && %cjpm build && cd .. && %cjpm build && %cjpm build && %cat target/.bin-cache | compare %f
+// EXEC: cd %n/pro1 && %cjpm build && cd .. && %cjpm build && %cjpm build && %cat target/.dep-cache | compare %f
 // ASSERT: scan std.collection

@@ -1,0 +1,20 @@
+{
+  "ExternalDateFunc" : [
+    {"name":"getos" , "parent":"", "lib":"std/posix" },
+    {"name":"gethostname", "parent":"", "lib":"std/posix"},
+    {"name":"getlogin" ,"parent":"", "lib":"std/posix"},
+    {"name":"getcwd" ,"parent":"", "lib":"std/posix"},
+    {"name":"getuid" ,"parent":"", "lib":"std/posix"},
+    {"name":"getArgs" ,"parent":"", "lib":"std/os"},
+    {"name":"init" ,"parent":"Response", "lib":"net/http"},
+    {"name":"init" ,"parent":"Client", "lib":"net/http"},
+    {"name":"readAllBytes" ,"parent":"FileStream", "lib":"std/io"},
+    {"name":"readAllText" ,"parent":"FileStream", "lib":"std/io"},
+    {"name":"read" ,"parent":"ConsoleReader", "lib":"std/console"},
+    {"name":"readln" ,"parent":"ConsoleReader", "lib":"std/console"},
+    {"name":"get" ,"parent":"Client", "lib":"net/http"}
+  ],
+  "ExternalDateFuncPassToVar" : [
+    {"name":"read" , "parent":"Socket", "lib":"std/socket" }
+  ]
+}

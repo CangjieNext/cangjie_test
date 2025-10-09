@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_class_top_mod,001_debug_class_top_mod
-b,b 46,001_debug_class_top_mod.cj:46
-AOT r,r,-> 46
-CJVM c,c,-> 46
-n,n,-> 47
+b,b 54,001_debug_class_top_mod.cj:54
+AOT r,r,-> 54
+CJVM c,c,-> 54
+n,n,-> 55
 AOT locals,locals,std[.]core.Array<Int8>\) m_arrayInt8 = {(\r\n|\r|\n)  \[0\] = 10(\r\n|\r|\n)  \[1\] = 20(\r\n|\r|\n)  \[2\] = 30(\r\n|\r|\n)}
 q,q,

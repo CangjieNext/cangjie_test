@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors enum03,enum03
-b,b 20,enum03.cj:20
-r,r,-> 20
+b,b 28,enum03.cj:28
+r,r,-> 28
 p,p a1,\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A[\s\S]*}
 expr~expr E1.B(E2.C(E1.A))~\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A[\s\S]*}
 expr~expr E1.B(E2.D(2))~\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = D[\s\S]*arg_1 = 2[\s\S]*}

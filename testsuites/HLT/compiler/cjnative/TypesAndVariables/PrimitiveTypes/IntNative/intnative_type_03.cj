@@ -27,6 +27,7 @@ var c2 = match (a1) {
 
 main(): Int64 {
     if (c1 != 0) {
+        //print("${c1}")
         return 1
     }
     if (c2 != 0) {

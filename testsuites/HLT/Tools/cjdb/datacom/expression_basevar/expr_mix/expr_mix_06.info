@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 55,expr_mix.cj:55
-CJVM c,c,-> 55
-AOT r,r,-> 55
+b,b 63,expr_mix.cj:63
+CJVM c,c,-> 63
+AOT r,r,-> 63
 expr,expr if (c.vc1+arr1[0]-arr2[0][1]*list1[2]/2>10){c.vc2 *=10};c.vc2,\(Int64\) \$[\d] = 5
 expr:expr if ((s.vs1+10+c.vc3[2])/3<10) {arr1[0]=50} else { arr1[0]=S1(10, 10).vs1};arr1[0]:\(Int64\) \$[\d] = 50
 expr:expr if ((s.vs1+10+c.vc2)*3>=10) {arr1[0]=S1(10, 10).vs1};arr1[0]:\(Int64\) \$[\d] = 10

@@ -50,6 +50,7 @@ class Test {
             map {a: StaticVariableInfo => a.toString()} |> collectArray
         arr.sort();
         @Expect(arr.toString(), "[static c6_public_mutable_static_member_variable_0: String, static c6_public_readonly_static_member_variable_0: Int64]")
+        // arr = (TypeInfo.of<C7<Rune, UInt32, Float16, Unit>>() as ClassTypeInfo).getOrThrow().staticVariables |> map { a: StaticVariableInfo => a.toString() } |> collectArray; arr.sort(); @Expect(arr.toString(), "")
         arr = (TypeInfo.of<C8>() as ClassTypeInfo).getOrThrow().staticVariables |>
             map {a: StaticVariableInfo => a.toString()} |> collectArray
         arr.sort();

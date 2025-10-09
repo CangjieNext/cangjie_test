@@ -13,11 +13,11 @@
 
 test#
 cjdb,cjdb --no-use-colors case17_3,case17_3
-b,b 15,case17_3.cj:15
-b,b 26,case17_3.cj:26
-AOT r,r,-> 15
-CJVM c,c,-> 15
+b,b 23,case17_3.cj:23
+b,b 34,case17_3.cj:34
+AOT r,r,-> 23
+CJVM c,c,-> 23
 AOT locals,locals,\(default.A\) this = {[\s\S]*mixtuple01 = {[\s\S]*\[0\] = 18[\s\S]*\[1\] = "a"[\s\S]*\[2\] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-c,c,-> 26
+c,c,-> 34
 AOT p, p x3,\(Tuple<Bool,std.core.String,Tuple<Int64,std.core.String,std.core.Array<Int64>>,Tuple<std.core.String,std.core.String>>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = "hello"[\s\S]*\[2\] = {[\s\S]*\[0\] = 18[\s\S]*\[3\] = {[\s\S]*\[0\] = "a"[\s\S]*
 q,q,

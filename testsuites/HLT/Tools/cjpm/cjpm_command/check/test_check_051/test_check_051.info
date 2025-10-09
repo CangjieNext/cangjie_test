@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // ERRCHECK: cd %n && %cjpm check
-// ASSERT: regex Error: the path '.[/|\\]e' does not exist which is listed in 'dependencies' field
+// ASSERT: regex Error: the path '.[/|\\]e' of module 'd' does not exist which is listed in 'dependencies' field

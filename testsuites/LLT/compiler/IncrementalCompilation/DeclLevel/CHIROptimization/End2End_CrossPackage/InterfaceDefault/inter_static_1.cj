@@ -21,7 +21,8 @@ main() {
 // ASSERT: scan          3inc1II1fF$$Int64: body 
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan begin dump incremental compile result:
-// ASSERT: scan changed decls to recompile: 1
+// ASSERT: scan changed decls to recompile: 2
+// ASSERT: scan the changed decl after Spreading is:main in file inter_static_1.cj in line 15 in column 1
 // ASSERT: scan the changed decl after Spreading is:f in file lib.cj in line 5 in column 17
 // ASSERT: scan incremental sema
 

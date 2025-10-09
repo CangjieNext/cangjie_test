@@ -39,18 +39,5 @@ note: unimplemented interface function f2
    |     ^ 
    | 
 
-error: class 'B' missing abstract modifier, otherwise abstract function or property should be implemented
-  ==> abstract_function2.cj:17:1:
-   | 
-17 | class B {
-   | ^ 
-   | 
-note: unimplemented abstract function a
-  ==> abstract_function2.cj:18:5:
-   | 
-18 |     static func a(): Unit
-   |     ^ 
-   | 
-
-3 errors generated, 3 errors printed.
+2 errors generated, 2 errors printed.
 */

@@ -38,3 +38,6 @@ compiler/Codegen_CJNative/incremental/cfunc/main.cj
 compiler/Driver/cross_compile/target_option/target_neg3.cj
 # These cross-compile tests should only be run on x86_64 platforms
 compiler/FFI/CFFI/cross-compile
+
+# ffi-python is only supported on linux.
+compiler/FFI/ffi_python

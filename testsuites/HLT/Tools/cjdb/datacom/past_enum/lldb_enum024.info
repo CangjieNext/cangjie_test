@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_enum_conflict,006_debug_enum_conflict
-b,b 24,006_debug_enum_conflict.cj:24
-AOT r,r,-> 24
+b,b 32,006_debug_enum_conflict.cj:32
+AOT r,r,-> 32
 CJVM c,c,
-n,n,-> 25
-n,n,-> 27
+n,n,-> 33
+n,n,-> 35
 locals,locals,\(Int64\) e = 1
 print,print d,E\) \$[\d] = {(\r|\n|\r\n)  constructor = F(\r|\n|\r\n)  arg_1 = 1
 q,q,

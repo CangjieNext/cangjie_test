@@ -16,14 +16,14 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 27,024_debug_variable.cj:27
-AOT r,r,-> 27
-CJVM c,c,-> 27
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 35,024_debug_variable.cj:35
+AOT r,r,-> 35
+CJVM c,c,-> 35
 AOT set,set var_uint16 = 65536,error: unsupported expression
 CJVM set,set var_uint16 = 65536,\(UInt16\) \$[\d] = 0
-AOT n,n,-> 30
+AOT n,n,-> 38
 AOT locals,locals,var_uint16 = 1
 AOT p,p var_uint16,\(UInt16\) \$[\d] = 1
 AOT locals,locals,f_uint16 = 9

@@ -10,4 +10,4 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm init --name test
 // ERRCHECK: cd %n && %cjpm update -v
-// ASSERT: scan unknow command '-v' for cjpm update
+// ASSERT: scan unknown command '-v' for cjpm update

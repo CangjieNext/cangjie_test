@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var010,generics_local_var010
-b,b 10,generics_local_var010.cj:10
-AOT r,r,-> 10
+b,b 18,generics_local_var010.cj:18
+AOT r,r,-> 18
 CJVM c,c,
 expr:expr vcarrc2[0]:\(Int64\) \$[\d] = 2
 expr:expr vrange2:\(std.core.Range<Int32>\) \$[\d] = 1..6 : 2

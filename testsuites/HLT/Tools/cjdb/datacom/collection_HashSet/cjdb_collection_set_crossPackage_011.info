@@ -14,16 +14,16 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashSet_external_invoke,collection_HashSet_external_invoke
-b,b 29,collection_HashSet_external_invoke.cj:29
-AOT r,r,-> 29
-CJVM c,c,-> 29
-s,s,-> 22
+b,b 37,collection_HashSet_external_invoke.cj:37
+AOT r,r,-> 37
+CJVM c,c,-> 37
+s,s,-> 30
 p,p par_1,\(Int16\) \$[\d] = 16
-n,n,-> 23
+n,n,-> 31
 p,p set_rint16,\(std[.]collection.HashSet<Int16>\) \$[\d] = {[\S\s]*\[2\] = -56[\S\s]*}
 p,p set_rint16,\(std[.]collection.HashSet<Int16>\) \$[\d] = {[\S\s]*\[0\] = 45[\S\s]*}
-n,n,-> 24
+n,n,-> 32
 p,p set_rint16,\(std[.]collection.HashSet<Int16>\) \$[\d] = {[\S\s]*\[3\] = 16[\S\s]*}
 p,p set_rint16,\(std[.]collection.HashSet<Int16>\) \$[\d] = {[\S\s]*\[0\] = 45[\S\s]*}
-finish,finish,-> 29
+finish,finish,-> 37
 q,q,

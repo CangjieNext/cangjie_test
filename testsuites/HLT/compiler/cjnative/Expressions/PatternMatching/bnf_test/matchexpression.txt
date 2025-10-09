@@ -1,0 +1,613 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+TEST-CASE:0
+	Step:match expression_var { case $ Identifier_const => case $ Identifier_const => }
+	Expect:Pass
+TEST-CASE:1
+	Step:match expression_var { case FloatLiteral => }
+	Expect:Pass
+TEST-CASE:2
+	Step:match expression_var { case BooleanLiteral | IntegerLiteral | IntegerLiteral => }
+	Expect:Pass
+TEST-CASE:3
+	Step:match expression_var { case BooleanLiteral | $ Identifier_const | $ Identifier_const => case BooleanLiteral | $ Identifier_const | $ Identifier_const => }
+	Expect:Pass
+TEST-CASE:4
+	Step:match expression_var { case BooleanLiteral | stringLiteral | stringLiteral => case BooleanLiteral | stringLiteral | stringLiteral => }
+	Expect:Pass
+TEST-CASE:5
+	Step:match expression_var { case CharacterLiteral => case CharacterLiteral => }
+	Expect:Pass
+TEST-CASE:6
+	Step:match expression_var { case sequencePattern => }
+	Expect:Pass
+TEST-CASE:7
+	Step:match expression_var { case BooleanLiteral | BooleanLiteral | BooleanLiteral => }
+	Expect:Pass
+TEST-CASE:8
+	Step:match expression_var { case BooleanLiteral | IntegerLiteral => case BooleanLiteral | IntegerLiteral => }
+	Expect:Pass
+TEST-CASE:9
+	Step:match expression_var { case IntegerLiteral => }
+	Expect:Pass
+TEST-CASE:10
+	Step:match expression_var { case tuplePattern if ( expression_if ) => }
+	Expect:Pass
+TEST-CASE:11
+	Step:match expression_var { case sequencePattern => case sequencePattern => }
+	Expect:Pass
+TEST-CASE:12
+	Step:match expression_var { case tuplePattern => expression_ret }
+	Expect:Pass
+TEST-CASE:13
+	Step:match expression_var { case _ => }
+	Expect:Pass
+TEST-CASE:14
+	Step:match expression_var { case BooleanLiteral | CharacterLiteral | CharacterLiteral => }
+	Expect:Pass
+TEST-CASE:15
+	Step:match expression_var { case enumPattern => case enumPattern => }
+	Expect:Pass
+TEST-CASE:16
+	Step:match expression_var { case tuplePattern if ( expression_if ) => case tuplePattern if ( expression_if ) => }
+	Expect:Pass
+TEST-CASE:17
+	Step:match expression_var { case BooleanLiteral | IntegerLiteral => }
+	Expect:Pass
+TEST-CASE:18
+	Step:match expression_var { case BooleanLiteral | stringLiteral => case BooleanLiteral | stringLiteral => }
+	Expect:Pass
+TEST-CASE:19
+	Step:match expression_var { case tuplePattern => expression_ret case tuplePattern => expression_ret }
+	Expect:Pass
+TEST-CASE:20
+	Step:match expression_var { case FloatLiteral => case FloatLiteral => }
+	Expect:Pass
+TEST-CASE:21
+	Step:match expression_var { case IntegerLiteral => case IntegerLiteral => }
+	Expect:Pass
+TEST-CASE:22
+	Step:match expression_var { case BooleanLiteral | $ Identifier_const => }
+	Expect:Pass
+TEST-CASE:23
+	Step:match expression_var { case BooleanLiteral | CharacterLiteral | CharacterLiteral => case BooleanLiteral | CharacterLiteral | CharacterLiteral => }
+	Expect:Pass
+TEST-CASE:24
+	Step:match expression_var { case typePattern => case typePattern => }
+	Expect:Pass
+TEST-CASE:25
+	Step:match expression_var { case Identifier_varBind @ pattern => }
+	Expect:Pass
+TEST-CASE:26
+	Step:match expression_var { case BooleanLiteral | FloatLiteral | FloatLiteral => }
+	Expect:Pass
+TEST-CASE:27
+	Step:match expression_var { case BooleanLiteral | CharacterLiteral => case BooleanLiteral | CharacterLiteral => }
+	Expect:Pass
+TEST-CASE:28
+	Step:match expression_var { case inPattern => }
+	Expect:Pass
+TEST-CASE:29
+	Step:match expression_var { case BooleanLiteral | $ Identifier_const => case BooleanLiteral | $ Identifier_const => }
+	Expect:Pass
+TEST-CASE:30
+	Step:match expression_var { case inPattern => case inPattern => }
+	Expect:Pass
+TEST-CASE:31
+	Step:match expression_var { case Identifier_varBind @ pattern => case Identifier_varBind @ pattern => }
+	Expect:Pass
+TEST-CASE:32
+	Step:match expression_var { case BooleanLiteral | FloatLiteral => case BooleanLiteral | FloatLiteral => }
+	Expect:Pass
+TEST-CASE:33
+	Step:match expression_var { case _ => case _ => }
+	Expect:Pass
+TEST-CASE:34
+	Step:match expression_var { case BooleanLiteral | CharacterLiteral => }
+	Expect:Pass
+TEST-CASE:35
+	Step:match { case _ => expression_ret }
+	Expect:Pass
+TEST-CASE:36
+	Step:match expression_var { case BooleanLiteral | FloatLiteral | FloatLiteral => case BooleanLiteral | FloatLiteral | FloatLiteral => }
+	Expect:Pass
+TEST-CASE:37
+	Step:match expression_var { case BooleanLiteral => case BooleanLiteral => }
+	Expect:Pass
+TEST-CASE:38
+	Step:match expression_var { case BooleanLiteral | stringLiteral => }
+	Expect:Pass
+TEST-CASE:39
+	Step:match expression_var { case BooleanLiteral | IntegerLiteral | IntegerLiteral => case BooleanLiteral | IntegerLiteral | IntegerLiteral => }
+	Expect:Pass
+TEST-CASE:40
+	Step:match expression_var { case tuplePattern => case tuplePattern => }
+	Expect:Pass
+TEST-CASE:41
+	Step:match { case expression_bool => expression_ret }
+	Expect:Pass
+TEST-CASE:42
+	Step:match expression_var { case BooleanLiteral | BooleanLiteral | BooleanLiteral => case BooleanLiteral | BooleanLiteral | BooleanLiteral => }
+	Expect:Pass
+TEST-CASE:43
+	Step:match expression_var { case BooleanLiteral | $ Identifier_const | $ Identifier_const => }
+	Expect:Pass
+TEST-CASE:44
+	Step:match expression_var { case BooleanLiteral | FloatLiteral => }
+	Expect:Pass
+TEST-CASE:45
+	Step:match expression_var { case BooleanLiteral | BooleanLiteral => case BooleanLiteral | BooleanLiteral => }
+	Expect:Pass
+TEST-CASE:46
+	Step:match expression_var { case BooleanLiteral | stringLiteral | stringLiteral => }
+	Expect:Pass
+TEST-CASE:47
+	Step:match expression_var { case stringLiteral => case stringLiteral => }
+	Expect:Pass
+TEST-CASE:48
+	Step:match expression_var { case Identifier_var => case Identifier_var => }
+	Expect:Pass
+TEST-CASE:49
+	Step:match expression_var { case BooleanLiteral | BooleanLiteral => }
+	Expect:Pass
+TEST-CASE:50
+	Step:match expression_var { case stringLiteral => }
+	Expect:Pass
+TEST-CASE:51
+	Step:match expression_var { case CharacterLiteral => }
+	Expect:Pass
+TEST-CASE:52
+	Step:match { case expression_bool => expression_ret case expression_bool => expression_ret }
+	Expect:Pass
+TEST-CASE:53
+	Step:match expression_var { case Identifier_var => }
+	Expect:Pass
+TEST-CASE:54
+	Step:match expression_var { case tuplePattern => }
+	Expect:Pass
+TEST-CASE:55
+	Step:match expression_var { case enumPattern => }
+	Expect:Pass
+TEST-CASE:56
+	Step:match { case _ => expression_ret case _ => expression_ret }
+	Expect:Pass
+TEST-CASE:57
+	Step:match expression_var { case typePattern => }
+	Expect:Pass
+TEST-CASE:58
+	Step:match expression_var { case BooleanLiteral => }
+	Expect:Pass
+TEST-CASE:59
+	Step:match expression_var { case $ Identifier_const => }
+	Expect:Pass
+TEST-CASE:60
+	Step:match expression_var { case BooleanLiteral BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:61
+	Step:match expression_var { ERROR_LITERAL_case tuplePattern => ERROR_LITERAL_case tuplePattern => }
+	Expect:Fail
+TEST-CASE:62
+	Step:match expression_var { case ERROR_IDENTIFIER_Identifier_var => }
+	Expect:Fail
+TEST-CASE:63
+	Step:match { case expression_bool => expression_ret case expression_bool => expression_ret
+	Expect:Fail
+TEST-CASE:64
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_BooleanLiteral | ERROR_IDENTIFIER_BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:65
+	Step:match { ERROR_LITERAL_case _ => expression_ret ERROR_LITERAL_case _ => expression_ret }
+	Expect:Fail
+TEST-CASE:66
+	Step:match expression_var { case ERROR_LITERAL__ => }
+	Expect:Fail
+TEST-CASE:67
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_CharacterLiteral => case BooleanLiteral | ERROR_IDENTIFIER_CharacterLiteral => }
+	Expect:Fail
+TEST-CASE:68
+	Step:match expression_var { case BooleanLiteral ERROR_LITERAL_| BooleanLiteral => case BooleanLiteral ERROR_LITERAL_| BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:69
+	Step:match { case ERROR_IDENTIFIER_expression_bool => expression_ret }
+	Expect:Fail
+TEST-CASE:70
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_FloatLiteral | ERROR_IDENTIFIER_FloatLiteral => }
+	Expect:Fail
+TEST-CASE:71
+	Step:match expression_var { tuplePattern => tuplePattern => }
+	Expect:Fail
+TEST-CASE:72
+	Step:match expression_var { case BooleanLiteral | ERROR_LITERAL_$ Identifier_const | ERROR_LITERAL_$ Identifier_const => }
+	Expect:Fail
+TEST-CASE:73
+	Step:match { case => expression_ret case => expression_ret }
+	Expect:Fail
+TEST-CASE:74
+	Step:match expression_var { case ERROR_IDENTIFIER_sequencePattern => }
+	Expect:Fail
+TEST-CASE:75
+	Step:match expression_var { case ERROR_IDENTIFIER_IntegerLiteral => case ERROR_IDENTIFIER_IntegerLiteral => }
+	Expect:Fail
+TEST-CASE:76
+	Step:match expression_var { case Identifier_varBind @ ERROR_IDENTIFIER_pattern => case Identifier_varBind @ ERROR_IDENTIFIER_pattern => }
+	Expect:Fail
+TEST-CASE:77
+	Step:match expression_var { case tuplePattern if ( ERROR_IDENTIFIER_expression_if ) => }
+	Expect:Fail
+TEST-CASE:78
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_stringLiteral | ERROR_IDENTIFIER_stringLiteral => case BooleanLiteral | ERROR_IDENTIFIER_stringLiteral | ERROR_IDENTIFIER_stringLiteral => }
+	Expect:Fail
+TEST-CASE:79
+	Step:match expression_var { case ERROR_IDENTIFIER_enumPattern => }
+	Expect:Fail
+TEST-CASE:80
+	Step:match expression_var { case ERROR_LITERAL__ => case ERROR_LITERAL__ => }
+	Expect:Fail
+TEST-CASE:81
+	Step:match expression_var { case tuplePattern => ERROR_IDENTIFIER_expression_ret case tuplePattern => ERROR_IDENTIFIER_expression_ret }
+	Expect:Fail
+TEST-CASE:82
+	Step:match expression_var { case ERROR_IDENTIFIER_FloatLiteral => case ERROR_IDENTIFIER_FloatLiteral => }
+	Expect:Fail
+TEST-CASE:83
+	Step:match expression_var { case ERROR_IDENTIFIER_CharacterLiteral => case ERROR_IDENTIFIER_CharacterLiteral => }
+	Expect:Fail
+TEST-CASE:84
+	Step:match expression_var { case BooleanLiteral ERROR_LITERAL_| BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:85
+	Step:match expression_var { case tuplePattern }
+	Expect:Fail
+TEST-CASE:86
+	Step:match expression_var { case BooleanLiteral | ERROR_LITERAL_$ Identifier_const | ERROR_LITERAL_$ Identifier_const => case BooleanLiteral | ERROR_LITERAL_$ Identifier_const | ERROR_LITERAL_$ Identifier_const => }
+	Expect:Fail
+TEST-CASE:87
+	Step:match expression_var { case BooleanLiteral ERROR_STRING_RANDOM_84 => }
+	Expect:Fail
+TEST-CASE:88
+	Step:match expression_var { case tuplePattern if ( expression_if ERROR_LITERAL_) => case tuplePattern if ( expression_if ERROR_LITERAL_) => }
+	Expect:Fail
+TEST-CASE:89
+	Step:match expression_var { case tuplePattern if ( ERROR_IDENTIFIER_expression_if ) => case tuplePattern if ( ERROR_IDENTIFIER_expression_if ) => }
+	Expect:Fail
+TEST-CASE:90
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_CharacterLiteral | ERROR_IDENTIFIER_CharacterLiteral => }
+	Expect:Fail
+TEST-CASE:91
+	Step:match expression_var { case ERROR_IDENTIFIER_enumPattern => case ERROR_IDENTIFIER_enumPattern => }
+	Expect:Fail
+TEST-CASE:92
+	Step:match expression_var { case $ ERROR_IDENTIFIER_Identifier_const => }
+	Expect:Fail
+TEST-CASE:93
+	Step:match expression_var { case CharacterLiteral => case CharacterLiteral =>
+	Expect:Fail
+TEST-CASE:94
+	Step:match expression_var { case BooleanLiteral | $ ERROR_IDENTIFIER_Identifier_const | $ ERROR_IDENTIFIER_Identifier_const => case BooleanLiteral | $ ERROR_IDENTIFIER_Identifier_const | $ ERROR_IDENTIFIER_Identifier_const => }
+	Expect:Fail
+TEST-CASE:95
+	Step:match expression_var { tuplePattern => }
+	Expect:Fail
+TEST-CASE:96
+	Step:match expression_var case CharacterLiteral => case CharacterLiteral => }
+	Expect:Fail
+TEST-CASE:97
+	Step:match expression_var { case tuplePattern ( expression_if ) => }
+	Expect:Fail
+TEST-CASE:98
+	Step:match expression_var { case tuplePattern if ( expression_if => case tuplePattern if ( expression_if => }
+	Expect:Fail
+TEST-CASE:99
+	Step:match expression_var { case BooleanLiteral ERROR_LITERAL_| BooleanLiteral ERROR_LITERAL_| BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:100
+	Step:expression_var { case CharacterLiteral => case CharacterLiteral => }
+	Expect:Fail
+TEST-CASE:101
+	Step:match expression_var { case tuplePattern ERROR_LITERAL_if ( expression_if ) => case tuplePattern ERROR_LITERAL_if ( expression_if ) => }
+	Expect:Fail
+TEST-CASE:102
+	Step:match { case _ ERROR_LITERAL_=> expression_ret case _ ERROR_LITERAL_=> expression_ret }
+	Expect:Fail
+TEST-CASE:103
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_BooleanLiteral | ERROR_IDENTIFIER_BooleanLiteral => case BooleanLiteral | ERROR_IDENTIFIER_BooleanLiteral | ERROR_IDENTIFIER_BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:104
+	Step:match expression_var { case tuplePattern ERROR_STRING_RANDOM_15 => }
+	Expect:Fail
+TEST-CASE:105
+	Step:match { ERROR_STRING_RANDOM_61 }
+	Expect:Fail
+TEST-CASE:106
+	Step:match expression_var { case BooleanLiteral ERROR_LITERAL_| BooleanLiteral ERROR_LITERAL_| BooleanLiteral => case BooleanLiteral ERROR_LITERAL_| BooleanLiteral ERROR_LITERAL_| BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:107
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:108
+	Step:{ case expression_bool => expression_ret case expression_bool => expression_ret }
+	Expect:Fail
+TEST-CASE:109
+	Step:match expression_var { case ERROR_IDENTIFIER_tuplePattern => }
+	Expect:Fail
+TEST-CASE:110
+	Step:match expression_var { case BooleanLiteral | Identifier_const | Identifier_const => case BooleanLiteral | Identifier_const | Identifier_const => }
+	Expect:Fail
+TEST-CASE:111
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_IntegerLiteral => }
+	Expect:Fail
+TEST-CASE:112
+	Step:match expression_var { case ERROR_IDENTIFIER_sequencePattern => case ERROR_IDENTIFIER_sequencePattern => }
+	Expect:Fail
+TEST-CASE:113
+	Step:match case expression_bool => expression_ret case expression_bool => expression_ret }
+	Expect:Fail
+TEST-CASE:114
+	Step:match expression_var { case Identifier_varBind ERROR_LITERAL_@ pattern => case Identifier_varBind ERROR_LITERAL_@ pattern => }
+	Expect:Fail
+TEST-CASE:115
+	Step:match expression_var { case BooleanLiteral | $ ERROR_IDENTIFIER_Identifier_const => }
+	Expect:Fail
+TEST-CASE:116
+	Step:match expression_var { case CharacterLiteral => case CharacterLiteral => ERROR_LITERAL_}
+	Expect:Fail
+TEST-CASE:117
+	Step:match expression_var { case Identifier_varBind pattern => }
+	Expect:Fail
+TEST-CASE:118
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_CharacterLiteral | ERROR_IDENTIFIER_CharacterLiteral => case BooleanLiteral | ERROR_IDENTIFIER_CharacterLiteral | ERROR_IDENTIFIER_CharacterLiteral => }
+	Expect:Fail
+TEST-CASE:119
+	Step:match { case _ ERROR_LITERAL_=> expression_ret }
+	Expect:Fail
+TEST-CASE:120
+	Step:match { case expression_bool => expression_ret case expression_bool => expression_ret ERROR_LITERAL_}
+	Expect:Fail
+TEST-CASE:121
+	Step:ERROR_LITERAL_match { case expression_bool => expression_ret case expression_bool => expression_ret }
+	Expect:Fail
+TEST-CASE:122
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_IntegerLiteral | ERROR_IDENTIFIER_IntegerLiteral => case BooleanLiteral | ERROR_IDENTIFIER_IntegerLiteral | ERROR_IDENTIFIER_IntegerLiteral => }
+	Expect:Fail
+TEST-CASE:123
+	Step:match expression_var { case tuplePattern => ERROR_IDENTIFIER_expression_ret }
+	Expect:Fail
+TEST-CASE:124
+	Step:match expression_var { case ERROR_IDENTIFIER_Identifier_var => case ERROR_IDENTIFIER_Identifier_var => }
+	Expect:Fail
+TEST-CASE:125
+	Step:match expression_var { case Identifier_const => case Identifier_const => }
+	Expect:Fail
+TEST-CASE:126
+	Step:match expression_var { case tuplePattern ERROR_LITERAL_=> }
+	Expect:Fail
+TEST-CASE:127
+	Step:match expression_var { case ERROR_IDENTIFIER_stringLiteral => }
+	Expect:Fail
+TEST-CASE:128
+	Step:match expression_var ERROR_LITERAL_{ case CharacterLiteral => case CharacterLiteral => }
+	Expect:Fail
+TEST-CASE:129
+	Step:match expression_var { case tuplePattern case tuplePattern }
+	Expect:Fail
+TEST-CASE:130
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_IntegerLiteral | ERROR_IDENTIFIER_IntegerLiteral => }
+	Expect:Fail
+TEST-CASE:131
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_FloatLiteral => }
+	Expect:Fail
+TEST-CASE:132
+	Step:match expression_var { case ERROR_IDENTIFIER_CharacterLiteral => }
+	Expect:Fail
+TEST-CASE:133
+	Step:match expression_var { case tuplePattern ERROR_LITERAL_=> case tuplePattern ERROR_LITERAL_=> }
+	Expect:Fail
+TEST-CASE:134
+	Step:match { case _ expression_ret }
+	Expect:Fail
+TEST-CASE:135
+	Step:match { case _ expression_ret case _ expression_ret }
+	Expect:Fail
+TEST-CASE:136
+	Step:ERROR_LITERAL_match expression_var { case CharacterLiteral => case CharacterLiteral => }
+	Expect:Fail
+TEST-CASE:137
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_CharacterLiteral => }
+	Expect:Fail
+TEST-CASE:138
+	Step:match expression_var { case ERROR_IDENTIFIER_Identifier_varBind @ pattern => }
+	Expect:Fail
+TEST-CASE:139
+	Step:match expression_var { case $ ERROR_IDENTIFIER_Identifier_const => case $ ERROR_IDENTIFIER_Identifier_const => }
+	Expect:Fail
+TEST-CASE:140
+	Step:match expression_var { case ERROR_IDENTIFIER_inPattern => case ERROR_IDENTIFIER_inPattern => }
+	Expect:Fail
+TEST-CASE:141
+	Step:match { case _ => ERROR_IDENTIFIER_expression_ret }
+	Expect:Fail
+TEST-CASE:142
+	Step:match expression_var { case => }
+	Expect:Fail
+TEST-CASE:143
+	Step:match expression_var { case BooleanLiteral | $ ERROR_IDENTIFIER_Identifier_const => case BooleanLiteral | $ ERROR_IDENTIFIER_Identifier_const => }
+	Expect:Fail
+TEST-CASE:144
+	Step:match expression_var { case tuplePattern if ERROR_LITERAL_( expression_if ) => }
+	Expect:Fail
+TEST-CASE:145
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_stringLiteral => case BooleanLiteral | ERROR_IDENTIFIER_stringLiteral => }
+	Expect:Fail
+TEST-CASE:146
+	Step:match expression_var { case tuplePattern => ERROR_STRING_RANDOM_42 case tuplePattern => ERROR_STRING_RANDOM_42 }
+	Expect:Fail
+TEST-CASE:147
+	Step:match expression_var { case tuplePattern if ( expression_if ERROR_LITERAL_) => }
+	Expect:Fail
+TEST-CASE:148
+	Step:match expression_var { case BooleanLiteral | ERROR_LITERAL_$ Identifier_const => }
+	Expect:Fail
+TEST-CASE:149
+	Step:match expression_var { case => case => }
+	Expect:Fail
+TEST-CASE:150
+	Step:match expression_var { case BooleanLiteral BooleanLiteral BooleanLiteral => case BooleanLiteral BooleanLiteral BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:151
+	Step:match { case _ => ERROR_IDENTIFIER_expression_ret case _ => ERROR_IDENTIFIER_expression_ret }
+	Expect:Fail
+TEST-CASE:152
+	Step:match expression_var { case tuplePattern if ERROR_LITERAL_( expression_if ) => case tuplePattern if ERROR_LITERAL_( expression_if ) => }
+	Expect:Fail
+TEST-CASE:153
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_IntegerLiteral => case BooleanLiteral | ERROR_IDENTIFIER_IntegerLiteral => }
+	Expect:Fail
+TEST-CASE:154
+	Step:match expression_var { case BooleanLiteral | Identifier_const => case BooleanLiteral | Identifier_const => }
+	Expect:Fail
+TEST-CASE:155
+	Step:match expression_var { case ERROR_IDENTIFIER_typePattern => }
+	Expect:Fail
+TEST-CASE:156
+	Step:match { case ERROR_LITERAL__ => expression_ret case ERROR_LITERAL__ => expression_ret }
+	Expect:Fail
+TEST-CASE:157
+	Step:match expression_var { case Identifier_varBind pattern => case Identifier_varBind pattern => }
+	Expect:Fail
+TEST-CASE:158
+	Step:match expression_var { case ERROR_IDENTIFIER_BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:159
+	Step:match expression_var { case Identifier_varBind ERROR_LITERAL_@ pattern => }
+	Expect:Fail
+TEST-CASE:160
+	Step:match expression_var { case tuplePattern ( expression_if ) => case tuplePattern ( expression_if ) => }
+	Expect:Fail
+TEST-CASE:161
+	Step:match { ERROR_LITERAL_case _ => expression_ret }
+	Expect:Fail
+TEST-CASE:162
+	Step:match expression_var { case BooleanLiteral | $ ERROR_IDENTIFIER_Identifier_const | $ ERROR_IDENTIFIER_Identifier_const => }
+	Expect:Fail
+TEST-CASE:163
+	Step:match expression_var { case BooleanLiteral | Identifier_const | Identifier_const => }
+	Expect:Fail
+TEST-CASE:164
+	Step:match expression_var { case ERROR_IDENTIFIER_stringLiteral => case ERROR_IDENTIFIER_stringLiteral => }
+	Expect:Fail
+TEST-CASE:165
+	Step:match expression_var { case ERROR_IDENTIFIER_FloatLiteral => }
+	Expect:Fail
+TEST-CASE:166
+	Step:match expression_var { case tuplePattern ERROR_STRING_RANDOM_15 => case tuplePattern ERROR_STRING_RANDOM_15 => }
+	Expect:Fail
+TEST-CASE:167
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_FloatLiteral | ERROR_IDENTIFIER_FloatLiteral => case BooleanLiteral | ERROR_IDENTIFIER_FloatLiteral | ERROR_IDENTIFIER_FloatLiteral => }
+	Expect:Fail
+TEST-CASE:168
+	Step:match expression_var { case Identifier_const => }
+	Expect:Fail
+TEST-CASE:169
+	Step:match expression_var { case ERROR_IDENTIFIER_tuplePattern => case ERROR_IDENTIFIER_tuplePattern => }
+	Expect:Fail
+TEST-CASE:170
+	Step:match expression_var { case ERROR_IDENTIFIER_typePattern => case ERROR_IDENTIFIER_typePattern => }
+	Expect:Fail
+TEST-CASE:171
+	Step:match expression_var { case Identifier_varBind @ ERROR_IDENTIFIER_pattern => }
+	Expect:Fail
+TEST-CASE:172
+	Step:match expression_var { ERROR_LITERAL_case tuplePattern => }
+	Expect:Fail
+TEST-CASE:173
+	Step:match expression_var { case BooleanLiteral | ERROR_LITERAL_$ Identifier_const => case BooleanLiteral | ERROR_LITERAL_$ Identifier_const => }
+	Expect:Fail
+TEST-CASE:174
+	Step:match { case ERROR_IDENTIFIER_expression_bool => expression_ret case ERROR_IDENTIFIER_expression_bool => expression_ret }
+	Expect:Fail
+TEST-CASE:175
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_BooleanLiteral => case BooleanLiteral | ERROR_IDENTIFIER_BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:176
+	Step:match expression_var { case ERROR_LITERAL_$ Identifier_const => }
+	Expect:Fail
+TEST-CASE:177
+	Step:match expression_var { case tuplePattern if expression_if ) => }
+	Expect:Fail
+TEST-CASE:178
+	Step:match { _ => expression_ret _ => expression_ret }
+	Expect:Fail
+TEST-CASE:179
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_stringLiteral | ERROR_IDENTIFIER_stringLiteral => }
+	Expect:Fail
+TEST-CASE:180
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_FloatLiteral => case BooleanLiteral | ERROR_IDENTIFIER_FloatLiteral => }
+	Expect:Fail
+TEST-CASE:181
+	Step:match expression_var { case BooleanLiteral BooleanLiteral => case BooleanLiteral BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:182
+	Step:match expression_var { case ERROR_LITERAL_$ Identifier_const => case ERROR_LITERAL_$ Identifier_const => }
+	Expect:Fail
+TEST-CASE:183
+	Step:match expression_var { case BooleanLiteral | Identifier_const => }
+	Expect:Fail
+TEST-CASE:184
+	Step:match { case => expression_ret }
+	Expect:Fail
+TEST-CASE:185
+	Step:match expression_var { case tuplePattern if expression_if ) => case tuplePattern if expression_if ) => }
+	Expect:Fail
+TEST-CASE:186
+	Step:match { case ERROR_LITERAL__ => expression_ret }
+	Expect:Fail
+TEST-CASE:187
+	Step:match expression_var { case tuplePattern ERROR_LITERAL_if ( expression_if ) => }
+	Expect:Fail
+TEST-CASE:188
+	Step:match ERROR_IDENTIFIER_expression_var { case CharacterLiteral => case CharacterLiteral => }
+	Expect:Fail
+TEST-CASE:189
+	Step:match expression_var { case ERROR_IDENTIFIER_BooleanLiteral => case ERROR_IDENTIFIER_BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:190
+	Step:match expression_var { case BooleanLiteral ERROR_STRING_RANDOM_84 => case BooleanLiteral ERROR_STRING_RANDOM_84 => }
+	Expect:Fail
+TEST-CASE:191
+	Step:match expression_var { case ERROR_IDENTIFIER_inPattern => }
+	Expect:Fail
+TEST-CASE:192
+	Step:match expression_var { case tuplePattern => ERROR_STRING_RANDOM_42 }
+	Expect:Fail
+TEST-CASE:193
+	Step:match expression_var { case BooleanLiteral | ERROR_IDENTIFIER_stringLiteral => }
+	Expect:Fail
+TEST-CASE:194
+	Step:match expression_var { case tuplePattern if ( expression_if => }
+	Expect:Fail
+TEST-CASE:195
+	Step:match expression_var { case ERROR_IDENTIFIER_IntegerLiteral => }
+	Expect:Fail
+TEST-CASE:196
+	Step:match { _ => expression_ret }
+	Expect:Fail
+TEST-CASE:197
+	Step:match ERROR_LITERAL_{ case expression_bool => expression_ret case expression_bool => expression_ret }
+	Expect:Fail
+TEST-CASE:198
+	Step:match expression_var { ERROR_STRING_RANDOM_50 }
+	Expect:Fail
+TEST-CASE:199
+	Step:match expression_var { case BooleanLiteral BooleanLiteral BooleanLiteral => }
+	Expect:Fail
+TEST-CASE:200
+	Step:match expression_var { case ERROR_IDENTIFIER_Identifier_varBind @ pattern => case ERROR_IDENTIFIER_Identifier_varBind @ pattern => }
+	Expect:Fail
+
+TOTAL-TEST-CASE:201

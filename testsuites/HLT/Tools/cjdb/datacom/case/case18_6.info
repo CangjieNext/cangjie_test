@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case18_6,case18_6
-b,b 40,case18_6.cj:40
-AOT r,r,-> 40
+b,b 48,case18_6.cj:48
+AOT r,r,-> 48
 CJVM c,c,
 expr,expr r1,\(std.core.Option<Int64>\) \$[\d] = 100
 expr,expr r3,\(std.core.Option<Int64>\) \$[\d] = 2

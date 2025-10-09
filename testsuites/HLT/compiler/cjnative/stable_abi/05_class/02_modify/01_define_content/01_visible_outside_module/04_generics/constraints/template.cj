@@ -5,18 +5,24 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test class: generic constraints
-public open class Father {}
+open public class Father {
 
-public class Son <: Father {}
+}
 
-public class Son1 <: Father {}
+public class Son <: Father {
 
-public open class Generics<T, U> where T <: Father, U <: Son {
+}
+
+public class Son1 <: Father {
+    
+}
+
+open public class Generics<T, U> where T <: Father, U <: Son {
     public var _v1 = 0
     public mut prop _v2: Int64 {
         get() {
@@ -28,7 +34,7 @@ public open class Generics<T, U> where T <: Father, U <: Son {
     }
     public var _v3: Int64
 
-    public open func goo1(a: Int64) {
+    open public func goo1(a: Int64) {
         10
     }
 
@@ -44,3 +50,6 @@ public open class Generics<T, U> where T <: Father, U <: Son {
         return (a, b)
     }
 }
+
+
+

@@ -17,20 +17,20 @@
 
 test#
 cjdb,cjdb --no-use-colors pkgs001,pkgs001
-b,b 19,pkgs001.cj:19
-AOT r,r,-> 19
+b,b 27,pkgs001.cj:27
+AOT r,r,-> 27
 CJVM c,c,
-s,s,-> 8
-b,b 9,pkg1.cj:9
-finish,finish,-> 9
+s,s,-> 16
+b,b 17,pkg1.cj:17
+finish,finish,-> 17
 locals,locals,a = 10
 globals,globals,varpkg1_001 = 127
 bt,bt,frame #1:
-frame,frame select 1,-> 19
+frame,frame select 1,-> 27
 locals,locals,res1 = 127
 globals,globals,\(Int8\) default(::|\.)test = 127[\s\S]*
-n,n,-> 10
-finish,finish,-> 19
-n,n,-> 20
+n,n,-> 18
+finish,finish,-> 27
+n,n,-> 28
 locals,locals,res2 = 30
 q,q,

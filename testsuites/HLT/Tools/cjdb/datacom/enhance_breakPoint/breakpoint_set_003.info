@@ -15,10 +15,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_breakpoint_set,003_breakpoint_set
-CJVM b,breakpoint set -n main,pkgs001.cj:29
-CJVM c,c,-> 29
-AOT b,breakpoint set -f pkg1.cj -l 8,Breakpoint 1: where[\s\S]*pkg1.cj:8
-AOT b,breakpoint set -f pkg1.cj -l 9,Breakpoint 2: where[\s\S]*pkg1.cj:9
-CJVM b,breakpoint set -l 8,Breakpoint 2: [\s\S]*pkgs001.cj:8
-CJVM b,breakpoint set -l 9,Breakpoint 3: [\s\S]*pkgs001.cj:9
+CJVM b,breakpoint set -n main,pkgs001.cj:37
+CJVM c,c,-> 37
+AOT b,breakpoint set -f pkg1.cj -l 16,Breakpoint 1: where[\s\S]*pkg1.cj:16
+AOT b,breakpoint set -f pkg1.cj -l 17,Breakpoint 2: where[\s\S]*pkg1.cj:17
+CJVM b,breakpoint set -l 16,Breakpoint 2: [\s\S]*pkgs001.cj:16
+CJVM b,breakpoint set -l 17,Breakpoint 3: [\s\S]*pkgs001.cj:17
 q,q,

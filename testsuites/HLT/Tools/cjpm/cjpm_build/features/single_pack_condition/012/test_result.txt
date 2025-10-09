@@ -1,4 +1,4 @@
 /* SCAN
-Error: unknow command '-condition=cfg1' for cjpm test
+Error: unknown command '-condition=cfg1' for cjpm test
 Error: cjpm test failed
 */

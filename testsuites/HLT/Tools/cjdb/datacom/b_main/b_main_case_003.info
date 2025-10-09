@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors b_main_003,b_main_003
-b,b main,Breakpoint 1: where[\s\S]*b_main_003.cj:3
-AOT r,r,-> 3
-CJVM c,c,-> 3
-s,s,-> 4
+b,b main,Breakpoint 1: where[\s\S]*b_main_003.cj:11
+AOT r,r,-> 11
+CJVM c,c,-> 11
+s,s,-> 12
 q,quit,

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 126,genericsfun_return.cj:126
-AOT r,r,-> 126
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
 CJVM c,c,
 p, p lstr,\(std.core.String\) \$[\d] = "Cangjie"
 p, p s1.vstrs,\(std.core.String\) \$[\d] = "Cangjie"
@@ -25,8 +25,8 @@ p, p globals_str,\(std.core.String\) \$[\d] = "Cangjie"
 locals, locals,\(std.core.String\) lstr = "Cangjie"[\s\S]*\(default.S1\) s1 = {[\s\S]*vstrs = "Cangjie"[\s\S]*\(default.C1\) c1 = {[\s\S]*vstrc = "Cangjie"[\s\S]*
 globals, globals,\(std.core.String\) default::C1::vstr = "Cangjie"
 globals, globals,\(std.core.String\) default::globals_str = "Cangjie"
-b, b 153,genericsfun_return.cj:153
-c,c,-> 153
+b, b 161,genericsfun_return.cj:161
+c,c,-> 161
 p, p a,\(std.core.String\) \$[\d] = "Cangjie"
 p, p test_a,\(std.core.String\) \$[\d] = "Cangjie"
 locals, locals,\(std.core.String\) a = "Cangjie"

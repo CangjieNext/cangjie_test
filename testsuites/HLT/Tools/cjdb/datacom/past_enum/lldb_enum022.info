@@ -16,19 +16,19 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_enum_fun_reload,005_debug_enum_fun_reload
-b,b 19,005_debug_enum_fun_reload.cj:19
-b,b 20,005_debug_enum_fun_reload.cj:20
-b,b 21,005_debug_enum_fun_reload.cj:21
-b,b 22,005_debug_enum_fun_reload.cj:22
-AOT r,r,-> 19
+b,b 27,005_debug_enum_fun_reload.cj:27
+b,b 28,005_debug_enum_fun_reload.cj:28
+b,b 29,005_debug_enum_fun_reload.cj:29
+b,b 30,005_debug_enum_fun_reload.cj:30
+AOT r,r,-> 27
 CJVM c,c,
-c,c,-> 20
-finish,finish,-> 21
-n,n,-> 22
-n,n,-> 23
-n,n,-> 24
-n,n,-> 23
-n,n,-> 28
+c,c,-> 28
+finish,finish,-> 29
+n,n,-> 30
+n,n,-> 31
+n,n,-> 32
+n,n,-> 31
+n,n,-> 36
 locals,locals,\(Int64\) num1 = 1
 locals,locals,\(Int64\) num3 = 3
 locals,locals,\(Int64\) howMany = 6

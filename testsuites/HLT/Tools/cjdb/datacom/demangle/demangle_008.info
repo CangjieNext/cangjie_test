@@ -18,7 +18,7 @@
 
 test#
 cjdb,cjdb --no-use-colors demangle_target,demangle_target
-b,b fun_struct1,where = demangle_target`default::Struct_1::fun_struct1\(Float32, Tuple<Float32,std[.]core::Range<Int64>,std[.]core::String>\) \+ \d+ at demangle.cj:90
-AOT r,r,demangle_target`default::Struct_1::fun_struct1\(this=default.Struct_1 @ [\s\S]*, p1=32.2150002, p2=Tuple<Float32,std[.]core.Range<Int64>,std[.]core.String> @ [\s\S]*\) at demangle.cj:90:9[\s\S]*-> 90
-CJVM c,c,-> 90
+b,b fun_struct1,where = demangle_target`default::Struct_1::fun_struct1\(Float32, Tuple<Float32,std[.]core::Range<Int64>,std[.]core::String>\) \+ \d+ at demangle.cj:98
+AOT r,r,demangle_target`default::Struct_1::fun_struct1\(this=default.Struct_1 @ [\s\S]*, p1=32.2150002, p2=Tuple<Float32,std[.]core.Range<Int64>,std[.]core.String> @ [\s\S]*\) at demangle.cj:98:9[\s\S]*-> 98
+CJVM c,c,-> 98
 q,q,

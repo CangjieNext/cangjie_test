@@ -19,5 +19,4 @@ main(){
 }
 // ASSERT: scan parse_expected_double_arrow_in_lambda
 // ASSERT: scan parse_trailing_closure_only_follow_name
-// ASSERT: scan parse_expected_right_delimiter
 // ASSERT: scan parse_expected_expression

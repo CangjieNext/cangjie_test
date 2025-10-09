@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 048_debug_array_type,048_debug_array_type
-b,b 27,048_debug_array_type.cj:27
-AOT r,r,-> 27
+b,b 35,048_debug_array_type.cj:35
+AOT r,r,-> 35
 CJVM c,c,
-n,n,-> 30
+n,n,-> 38
 locals,locals,slicing2
 locals,locals,\[0\] = 44
 locals,locals,\[3\] = 47

@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors enum04,enum04
-b,b 11,enum04.cj:11
-AOT r,r,-> 11
+b,b 19,enum04.cj:19
+AOT r,r,-> 19
 CJVM c,c,
 p,p a,\(Bool\) \$[\d] = true
 expr~expr A.X + A.Y~\(Bool\) \$[\d] = true

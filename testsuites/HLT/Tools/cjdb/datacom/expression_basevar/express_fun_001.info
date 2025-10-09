@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-CJVM b,b main,061_debug_fun.cj:51
-CJVM c,c,-> 51
-b,b 63,061_debug_fun.cj:63
-CJVM c,c,-> 63
-AOT r,r,-> 63
+CJVM b,b main,061_debug_fun.cj:59
+CJVM c,c,-> 59
+b,b 71,061_debug_fun.cj:71
+CJVM c,c,-> 71
+AOT r,r,-> 71
 expr,expr 123.toString(),\(std[.]core.String\) \$[\d] = "123"
 expr,expr arr.isEmpty(),\(Bool\) \$[\d] = false
 expr,expr fff.iterator(),\(std[.]core.Iterator<Int64>\) \$[\d] = {}

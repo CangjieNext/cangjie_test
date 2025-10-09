@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 34,063_debug_expr_array.cj:34
-CJVM c,c,-> 34
-AOT r,r,-> 34
+b,b 42,063_debug_expr_array.cj:42
+CJVM c,c,-> 42
+AOT r,r,-> 42
 expr,expr globals_arrbool,std.core.Array<Bool>\) \$[\d] = {[\s\S]*\[0\] = false[\s\S]*\[1\] = true[\s\S]*}*
 expr,expr globals_arrfloat64,std.core.Array<Float64>\) \$[\d] = {[\s\S]*\[0\] = 12.119999999999999[\s\S]*\[1\] = 22.219999999999999[\s\S]*}*
 q,q,

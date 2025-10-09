@@ -1,0 +1,40 @@
+import stdx.serialization.serialization.*
+
+abstract class People <: Serializable<People> {
+    var name: String
+
+    // 口令是敏感数据
+    protected var password: String
+
+    init(s: DataModelStruct) {
+        name = String.deserialize(s.get("name"))
+        password = String.deserialize(s.get("password"))
+    }
+    
+}
+
+class P <: People{
+    init(s: DataModelStruct){
+        super(s)
+    }
+
+    public func serialize(): DataModel {
+        DataModelStruct().add(field<String>("name", name))
+        DataModelStruct().add(field<String>("password", password))
+    }
+
+    public static func deserialize(s: DataModel): P {
+        let d = (s as DataModelStruct).getOrThrow()
+        P(d)
+    }
+}
+main(){}
+
+
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */

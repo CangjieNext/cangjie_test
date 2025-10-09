@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashMap_Ins_basic,001_HashMap_Ins_basic
-b,b 21,001_HashMap_Ins_basic.cj:21
-AOT r,r,-> 21
-CJVM c,c,-> 21
+b,b 29,001_HashMap_Ins_basic.cj:29
+AOT r,r,-> 29
+CJVM c,c,-> 29
 p,p map_main_12,std[.]collection.HashMap<default.cla,default.cla>\) \$[\d] = {[\S\s]*key = {[\S\s]*x = 1[\S\s]*}[\S\s]*value = {[\S\s]*x = 10[\S\s]*}
 q,q,

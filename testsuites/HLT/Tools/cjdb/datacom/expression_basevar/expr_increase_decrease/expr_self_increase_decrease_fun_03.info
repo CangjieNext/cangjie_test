@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 14,expr_func_1.cj:14
-CJVM c,c,-> 14
-AOT r,r,-> 14
+b,b 22,expr_func_1.cj:22
+CJVM c,c,-> 22
+AOT r,r,-> 22
 expr,expr rec.hmu8["b"]--;rec.hmu8["b"],\(UInt8\) \$[\d] = 0
 expr,expr rec.hmu16["b"]--;rec.hmu16["b"],\(UInt16\) \$[\d] = 0
 expr,expr rec.hmu32["c"]--;rec.hmu32["c"],\(UInt32\) \$[\d] = 1

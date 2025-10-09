@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_via_inherit,002_debug_array_via_inherit
-b,b 8,002_debug_array_via_inherit.cj:8
-AOT r,r,-> 8
+b,b 16,002_debug_array_via_inherit.cj:16
+AOT r,r,-> 16
 CJVM c,c,
 print,print v_main_1[0][4],\(UInt64\) \$[\d] = 45
 q,q,

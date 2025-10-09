@@ -5,12 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test class: add new class
-public open class Father {
+open public class Father {
     public var v1 = 0
     public mut prop v2: Int64 {
         get() {
@@ -22,7 +22,7 @@ public open class Father {
     }
     public var v3: Int64
 
-    public open func foo1(a: Int64) {
+    open public func foo1(a: Int64) {
         10
     }
 
@@ -35,7 +35,7 @@ public open class Father {
     }
 }
 
-public open class Generics<T> {
+open public class Generics<T> {
     public var _v1 = 0
     public mut prop _v2: Int64 {
         get() {
@@ -47,7 +47,7 @@ public open class Generics<T> {
     }
     public var _v3: Int64
 
-    public open func goo1(a: Int64) {
+    open public func goo1(a: Int64) {
         10
     }
 
@@ -63,3 +63,6 @@ public open class Generics<T> {
         return a
     }
 }
+
+
+

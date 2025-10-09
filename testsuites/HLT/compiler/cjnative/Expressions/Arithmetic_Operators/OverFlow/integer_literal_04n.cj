@@ -21,6 +21,11 @@ main(): Int64 {
     var lit09 = 9_2_2_3_3_7_2_0_3_6_8_5_4_7_7_5_8_1_9
     9223372036854775819.toString()
 
+    //    print("lit01: " + lit01.toString()+"\n")
+    //    print("lit02: " + lit02.toString()+"\n")
+    //    print("lit03: " + lit03.toString()+"\n")
+    //    print("lit04: " + lit04.toString()+"\n")
+    //    print("lit05: " + lit05.toString()+"\n")
 
     return 0
 }

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_multiArray_composite_class,005_debug_multiArray_composite_class
-b,b 106,005_debug_multiArray_composite_class.cj:106
-AOT r,r,-> 106
+b,b 114,005_debug_multiArray_composite_class.cj:114
+AOT r,r,-> 114
 CJVM c,c,
 p,p multiArr_mg_d3[1],std[.]core.Array<default.C2<UInt16>>\) \$[\d] = {(\r|\n|\r\n)  \[0\] = [\s\S]*
 p,p multiArr_mg_d3[1][0],default.Cla_sub_2<UInt16>\) \$[\d] = {(\r|\n|\r\n)  default.C2<UInt16> = {(\r|\n|\r\n)    width = 16

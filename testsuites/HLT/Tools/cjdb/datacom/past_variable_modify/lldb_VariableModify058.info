@@ -16,16 +16,16 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 131,024_debug_variable.cj:131
-AOT r,r,-> 131
-CJVM c,c,-> 131
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 139,024_debug_variable.cj:139
+AOT r,r,-> 139
+CJVM c,c,-> 139
 set,set var_stepout = 10,10
 locals,locals,var_stepout = 10
 p,p var_stepout,\(Int32\) \$[\d] = 10
-finish,finish,-> 108
-s,s,-> 111
+finish,finish,-> 116
+s,s,-> 119
 locals,locals,f_stepout = 20
 p,p f_stepout,\(Int32\) \$[\d] = 20
 q,q,

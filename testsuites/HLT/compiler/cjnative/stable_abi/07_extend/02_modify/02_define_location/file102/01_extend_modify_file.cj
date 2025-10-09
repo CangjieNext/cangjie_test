@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.2.1
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend
   @Behavior: move to another file
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template01.cj, template02.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template01.cj -o libstable_abi.%dylib_suffix

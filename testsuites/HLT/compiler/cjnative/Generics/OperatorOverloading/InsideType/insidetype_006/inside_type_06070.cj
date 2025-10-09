@@ -144,6 +144,23 @@ main(): Int64 {
     if (!(b | a)) {
         return 27
     }
+    //    if (!(b^^a)) {
+    //        return 28
+    //    }
+    /*
+    if (!(~b)) {
+        return 29
+    }
+    if (!(!b)) {
+        return 30
+    }
+    if (!(+b)) {
+        return 31
+    }
+    if (!(-b)) {
+        return 32
+    }
+     */
     return 0
 }
 // ASSERT: scan sema_generic_type_argument_not_match_constraint

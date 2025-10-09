@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashMap_external_invoke,collection_HashMap_external_invoke
-b,b 13,collection_HashMap_external_invoke.cj:13
-AOT r,r,-> 13
-CJVM c,c,-> 13
+b,b 21,collection_HashMap_external_invoke.cj:21
+AOT r,r,-> 21
+CJVM c,c,-> 21
 p,p main_rect.map_r_2,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 23[\S\s]*value = 1836[\S\s]*}
 p,p main_rect.map_r_2,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 12[\S\s]*value = 17750[\S\s]*}
 q,q,

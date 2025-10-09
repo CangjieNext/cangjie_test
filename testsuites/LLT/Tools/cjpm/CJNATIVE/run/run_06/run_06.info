@@ -6,5 +6,5 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run -a 2>&1 | compare %f
-// ASSERT: scan unknow command '-a' for cjpm run
+// ASSERT: scan unknown command '-a' for cjpm run
 // ASSERT: scan  cjpm run failed

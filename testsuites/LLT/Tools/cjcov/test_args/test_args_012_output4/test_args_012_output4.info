@@ -1,0 +1,13 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// (CJNATIVE) EXEC-PIPE: cd %n/code && cjc --output-type=staticlib --coverage p1/b.cj -o p1.o && cjc --coverage a.cj p1.o && %run_main
+// EXEC-PIPE: cd %n/code && cjcov --root=./ --html-details  --branches --keep
+// EXEC-PIPE: cd %n/code && %ls *.html 2>&1 | compare %f
+//ASSERT: scan a.cj.html
+//ASSERT: scan index.html
+//ASSERT: scan p1_b.cj.html

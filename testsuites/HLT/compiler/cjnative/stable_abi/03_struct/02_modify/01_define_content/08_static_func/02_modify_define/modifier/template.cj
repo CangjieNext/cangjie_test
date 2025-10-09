@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
@@ -13,7 +13,7 @@ package test_stable_abi
 public struct Rectangle {
     static let width = 10
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
@@ -57,7 +57,7 @@ public struct Rectangle {
         return 0
     }
 
-    public unsafe static func geta11() {
+    unsafe public static func geta11() {
         return 0
     }
 
@@ -90,3 +90,4 @@ public struct Rectangle {
         return z
     }
 }
+

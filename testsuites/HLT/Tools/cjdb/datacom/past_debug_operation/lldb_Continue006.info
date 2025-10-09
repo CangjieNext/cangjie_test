@@ -17,11 +17,11 @@
 
 test#
 cjdb,cjdb --no-use-colors pkgs001,pkgs001
-b,b 30,pkgs001.cj:30
-b,b pkg1.cj:9,pkg1.cj:9
-AOT r,r,-> 30
+b,b 38,pkgs001.cj:38
+b,b pkg1.cj:17,pkg1.cj:17
+AOT r,r,-> 38
 CJVM c,c,
-c,c,-> 9
+c,c,-> 17
 globals,globals,varpkg1_001 = 127
 locals,locals,a = 10
 q,q,

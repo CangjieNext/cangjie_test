@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case28,case28
-b,b 4,case28.cj:4
-AOT r,r,-> 4
+b,b 12,case28.cj:12
+AOT r,r,-> 12
 CJVM c,c,
 AOT p,p as,\(Int64\) \$[\d] = 1
 AOT expr,expr as,error: unsupported expression

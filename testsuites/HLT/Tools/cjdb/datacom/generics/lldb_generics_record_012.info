@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 103,052_debug_record_generics.cj:103
-AOT r,r,-> 103
+b,b 111,052_debug_record_generics.cj:111
+AOT r,r,-> 111
 CJVM c,c,
-n,n,-> 104
+n,n,-> 112
 print,print m_c.c_r1,R1<UInt32>\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 q,q,

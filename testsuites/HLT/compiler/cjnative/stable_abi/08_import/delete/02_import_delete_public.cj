@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 8.2
   @Scene: delete
@@ -13,7 +13,7 @@
   @Object: import
   @Behavior: delete import
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // Expect: API Incompatible & ABI Incompatible
 // DEPENDENCE: main.cj, template.cj
@@ -37,5 +37,5 @@ import std.ast.*
 import std.collection.*
 public import std.math.*
 
-let list = ArrayList<Int64>([-2, -1, 0, 1, 2])
-public var a: Int64 = abs(list[0] + list[1] + list[2] + list[3] + list[4])
+let list = ArrayList<Int64>([-2,-1,0,1,2])
+public var a : Int64 = abs(list[0] + list[1] +list[2] + list[3] + list[4])

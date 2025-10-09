@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_array_class,008_debug_array_class
-b,b 71,008_debug_array_class.cj:71
-AOT r,r,-> 71
+b,b 79,008_debug_array_class.cj:79
+AOT r,r,-> 79
 CJVM c,c,
 print,print arrayfunrec01[1],C2\) \$[\d]+ = {(\r|\n|\r\n)  width = 60(\r|\n|\r\n)  length = 400
 q,q,

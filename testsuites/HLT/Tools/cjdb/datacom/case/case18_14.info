@@ -13,9 +13,9 @@
 
 test#
 cjdb,cjdb --no-use-colors case18_13,case18_13
-b,b 38,case18_13.cj:38
-AOT r,r,-> 38
-CJVM c,c,-> 38
+b,b 46,case18_13.cj:46
+AOT r,r,-> 46
+CJVM c,c,-> 46
 AOT expr,expr a,error: unsupported expression
 CJVM expr,expr a,variable was not declared in this scope
 q,q,

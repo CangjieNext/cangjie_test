@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case05,case05
-b,b 5,Breakpoint 1
-AOT r,r,-> 5
+b,b 13,Breakpoint 1
+AOT r,r,-> 13
 CJVM c,c,
 AOT p,p number,\(Int64\) \$[\d] = 100
 q,q,

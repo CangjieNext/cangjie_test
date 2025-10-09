@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/cross_platform/cross_platform007/mp ../../basecase/cross_platform/cross_platform007/cross_platform007.cj
+// (CJNATIVE) EXEC: %compiler %cmp_opt -g mp/test_com.cj %compile_chir_opt -o ./
+// (CJNATIVE) EXEC: %compiler %cmp_opt -g mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
+// (CJNATIVE) EXEC: %compiler %cmp_opt -g cross_platform007.cj %link_cjmp -o cross_platform007%cmp_output
+// (CJNATIVE) RUN-EXEC: python3 cjdb_test.py cross_platform007.info cross_platform007 %run_env
+
+test#
+cjdb,cjdb --no-use-colors cross_platform007,cross_platform007
+b,b cross_platform007.cj:13,cross_platform007.cj:13
+r,r,-> 13
+locals,locals,\(Int64\) x1 = 0
+p,p a,error: unsupported expression
+q,q,
+

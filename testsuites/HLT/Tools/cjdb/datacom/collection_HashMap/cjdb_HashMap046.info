@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_HashMap_via_inherit,002_HashMap_via_inherit
-b,b 10,002_HashMap_via_inherit.cj:10
-AOT r,r,-> 10
-CJVM c,c,-> 10
+b,b 18,002_HashMap_via_inherit.cj:18
+AOT r,r,-> 18
+CJVM c,c,-> 18
 p,p map_main_2,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = -29[\S\s]*value = 'C'[\S\s]*}
 p,p map_main_2,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 12[\S\s]*value = 'H'[\S\s]*}
 q,q,

@@ -14,9 +14,9 @@
  
 test#
 cjdb,cjdb --no-use-colors VArray_basetype,VArray_basetype
-b,b 32,Breakpoint 1: where = VArray_basetype`default::main[\s\S]*VArray_basetype.cj:32
-AOT r,r,-> 32
-CJVM c,c,-> 32
+b,b 40,Breakpoint 1: where = VArray_basetype`default::main[\s\S]*VArray_basetype.cj:40
+AOT r,r,-> 40
+CJVM c,c,-> 40
 p, p vChar,\(VArray<Rune,\$2>\) \$[\d] = {[\s\S]*\[0\] = 'b'[\s\S]*\[1\] = 'b'
 expression, expression vChar,\(VArray<Rune,\$2>\) \$[\d] = {[\s\S]*\[0\] = 'b'[\s\S]*\[1\] = 'b'
 expression, expression vBool,\(VArray<Bool,\$2>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = true

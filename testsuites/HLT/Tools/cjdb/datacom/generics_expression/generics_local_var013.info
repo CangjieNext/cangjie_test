@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var013,generics_local_var013
-b,b 35,generics_local_var013.cj:35
-AOT r,r,-> 35
+b,b 43,generics_local_var013.cj:43
+AOT r,r,-> 43
 CJVM c,c,
 expr:expr r2:\(Int64\) \$[\d] = 1
 expr:expr RGBColor<Int32>.Red.name<Int64>(1):\(Int64\) \$[\d] = 1

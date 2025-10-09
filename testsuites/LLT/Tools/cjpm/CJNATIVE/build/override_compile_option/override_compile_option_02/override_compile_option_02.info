@@ -1,0 +1,20 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm build -V -g | compare %f
+// ASSERT: regex Compiling package `pro2`: [^\r\n]* -O2 -Woff all -j10
+// ASSERT: regex Compiling package `pro1`: [^\r\n]* -O2 -Woff all -j10
+// ASSERT: regex-not Compiling package `pro2`: [^\r\n]* -O0
+// ASSERT: regex-not Compiling package `pro1`: [^\r\n]* -O0
+// ASSERT: regex-not Compiling package `pro2`: [^\r\n]* -O1
+// ASSERT: regex-not Compiling package `pro1`: [^\r\n]* -O1
+// ASSERT: regex-not Compiling package `pro2`: [^\r\n]* -j5
+// ASSERT: regex-not Compiling package `pro1`: [^\r\n]* -j5
+// ASSERT: regex Compiling package `demo`: [^\r\n]* -O0 -O2 -Woff all -j10
+// ASSERT: regex-not Compiling package `demo`: [^\r\n]* -O1
+// ASSERT: regex-not Compiling package `demo`: [^\r\n]* -j5
+// ASSERT: scan cjpm build success

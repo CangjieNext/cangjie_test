@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_class_top_mod_open,002_debug_class_top_mod_open
-b,b 41,002_debug_class_top_mod_open.cj:41
-AOT r,r,-> 41
-CJVM c,c,-> 41
-n,n,-> 42
+b,b 49,002_debug_class_top_mod_open.cj:49
+AOT r,r,-> 49
+CJVM c,c,-> 49
+n,n,-> 50
 print,print data3.a3,\(Int64\) \$[\d] = 1
 q,q,

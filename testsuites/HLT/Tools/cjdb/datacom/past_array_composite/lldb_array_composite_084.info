@@ -15,9 +15,9 @@
 
 test#
 cjdb,cjdb --no-use-colors array_external_use,array_external_use
-b,b 17,array_external_use.cj:17
-AOT r,r,-> 17
+b,b 25,array_external_use.cj:25
+AOT r,r,-> 25
 CJVM c,c,
-n,n,-> 19
+n,n,-> 27
 print,print array01[0],Rectangle_ex\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
 q,q,

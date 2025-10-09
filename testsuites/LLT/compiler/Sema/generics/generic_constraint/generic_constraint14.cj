@@ -4,10 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
-// ASSERT: scan sema_generic_type_argument_not_match_constraint
-// ASSERT: scan-2 sema_upper_bound_must_be_class_or_interface
-// ASSERT: scan "Errors": 3,
+// ERRCHECK: %compiler %diag_json %f -o %output
 
 // Test for nested type error can be reported
 
@@ -44,3 +41,7 @@ main() {
     var en1: enum1<MyInterface<UInt32>> = enum1<MyInterface<UInt32>>.A(
         enum1<MyInterface<UInt32>>.foo2<UInt32>(enum1<MyInterface<UInt32>>.foo1() + enum1<MyInterface<UInt16>>.foo1()))
 }
+
+// ASSERT: scan-1 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan-2 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 3

@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b , b 22 ,050_debug_dataType_basic.cj:22
-r , r ,-> 22
+b , b 30 ,050_debug_dataType_basic.cj:30
+r , r ,-> 30
 watchpoint,watchpoint set variable -w read vu5 ,state \= enabled type \= r
-c ,c,-> 24
+c ,c,-> 32
 q,q,

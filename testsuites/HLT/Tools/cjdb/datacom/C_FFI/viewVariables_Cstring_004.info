@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_004,viewVariables_Cstring_004
-b,b 61,Test_CString.cj:61
-AOT r,r,-> 61
+b,b 69,Test_CString.cj:69
+AOT r,r,-> 69
 CJVM c,c,
 p, p str_3,\(CString\) \$[\d] = "仓颉与C互操作_CString\(<>\)"
 q,q,

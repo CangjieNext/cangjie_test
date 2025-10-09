@@ -14,7 +14,7 @@
 
 test#
 cjdb,cjdb --no-use-colors std_test,std_test
-b,b 283,std_test.cj:283
-AOT r,r,-> 283
+b,b 291,std_test.cj:291
+AOT r,r,-> 291
 CJVM c,c,
 q,q,

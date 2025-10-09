@@ -4,9 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
-// ASSERT: scan-2 sema_generic_type_argument_not_match_constraint
-// ASSERT: scan "Errors": 2,
+// EXEC:%frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
 
 class X {}
 
@@ -21,3 +19,5 @@ main(): Int64 {
     return 0
 }
 
+// ASSERT: scan-2 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan "Errors": 2

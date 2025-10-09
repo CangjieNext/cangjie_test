@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.1.3
   @Scene: delete
@@ -13,7 +13,7 @@
   @Object: extend
   @Behavior: delete exported extend
   @Expect: api Incompatible & abi Incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,11 +33,8 @@ package test_stable_abi
 
 // test extend: delete extend-exported/unexported
 private interface I1 {}
-
 internal interface I2 {}
-
 protected interface I3 {}
-
 public interface I4 {}
 
 extend Int64 <: I1 & I2 {

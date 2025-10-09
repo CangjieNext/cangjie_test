@@ -17,10 +17,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_thread_frame,002_thread_frame
-CJVM b,breakpoint set -n main,pkgs001.cj:29
-CJVM c,c,-> 29
-AOT b,b main,Breakpoint 1: where[\s\S]*pkgs001.cj:29
-AOT r,r,-> 29
+CJVM b,breakpoint set -n main,pkgs001.cj:37
+CJVM c,c,-> 37
+AOT b,b main,Breakpoint 1: where[\s\S]*pkgs001.cj:37
+AOT r,r,-> 37
 threadselect,f 1,frame #1
 threadselect,f 2,frame #2
 AOT threadselect,f 6,error: Frame index \(6\) out of range

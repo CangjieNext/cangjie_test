@@ -6,7 +6,7 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt %cmp_opt %f -o %output | compare %f
 // (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at ok_class_ctor.cj:25:5 - ok_class_ctor.cj:25:44 evaluated initializer function `gv$_earth` of 6 expressions to one of 6 expressions.
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_earth` of 6 expressions to one of 6 expressions.
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

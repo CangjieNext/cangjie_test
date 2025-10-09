@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var001,generics_local_var001
-b,b 11,generics_local_var001.cj:11
-AOT r,r,-> 11
+b,b 19,generics_local_var001.cj:19
+AOT r,r,-> 19
 CJVM c,c,
 expr:expr Float16(vcarrc2[0]):\(Float16\) \$[\d] = 2
 expr:expr ArrayList<Int64>([1, 2]):\(std.collection.ArrayList<Int64>\) [\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*

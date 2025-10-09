@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_CompositeVar,ArrayList_CompositeVar
-b,b 70,ArrayList_CompositeVar.cj:70
-AOT r,r,-> 70
-CJVM c,c,-> 70
+b,b 78,ArrayList_CompositeVar.cj:78
+AOT r,r,-> 78
+CJVM c,c,-> 78
 AOT p,p c,\(std[.]collection.ArrayList<default.C>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*\[2\] = "                    Hello[\s\S]*                    CangJie![\s\S]*                    "[\s\S]*}
 AOT p,p c,\(std[.]collection.ArrayList<default.C>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}
 AOT p,p c,\(std[.]collection.ArrayList<default.C>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}

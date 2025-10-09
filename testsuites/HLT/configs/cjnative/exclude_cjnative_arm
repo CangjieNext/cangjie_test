@@ -1,20 +1,29 @@
 # Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 # This source file is part of the Cangjie project, licensed under Apache-2.0
 # with Runtime Library Exception.
-#
+# 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-# should be fixed.
-API/std/convert/radixconvertible/test_radixconvertible_int_01.cj
-API/std/convert/radixconvertible/test_radixconvertible_uint_02.cj
-API/std/os/env/test_getArgs/test_getArgs_005/test_getArgs_005.cj
+
+# sema error, should be fixed later.
+API/std/os/process/test_getgroups/test_getgroups_001/test_getgroups_001.cj
+# testcase is not correct.
+Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
+
+# mock error, call an abstract function
 API/std/unittest/mock/test_mock_extend_cjnative.cj
 
-# cjpm should be fixed.
-Tools/cjpm/cjpm_command/build1/release_debug_path/case11
-Tools/cjpm/cjpm_command/build1/release_debug_path/case12
-Tools/cjpm/cjpm_command/build1/release_debug_path/case13
-Tools/cjpm/cjpm_command/build1/release_debug_path/case15
-Tools/cjpm/cjpm_build/zero_module/zero_module_005
-Tools/cjpm/cjpm_command/build1/zero/module_build_005
-Tools/cjpm/cjpm_command/build1/zero/module_build_006
+# testcase should be fixed.
+Tools/cjdb/datacom/C_FFI/viewVariables_Cstring_002.info
+
+# cjdb null pointer
+Tools/cjdb/datacom/case/case20_5.info
+Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP036.info
+Tools/cjdb/datacom/expression_enum/expression_enum006.info
+Tools/cjdb/datacom/generics_expression/generics_local_var014.info
+
+# syntax will be supported in future
+API/syntax
+
+# timezone file in ci not support now
+API/std/time/TimeZone/load/test_loadFromPaths.cj

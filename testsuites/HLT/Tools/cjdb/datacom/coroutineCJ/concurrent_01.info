@@ -13,10 +13,10 @@
 
 test#
 cjdb,cjdb --no-use-colors concurrent_01,concurrent_01
-b,b 16,concurrent_01.cj:16
-AOT r,r,-> 16
+b,b 24,concurrent_01.cj:24
+AOT r,r,-> 24
 CJVM c,c,
-n,n,-> 17
-n,n,-> 18
+n,n,-> 25
+n,n,-> 26
 c,c,with status = 0
 q,q,

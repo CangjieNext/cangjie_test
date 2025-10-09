@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ./src
+// EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
+// ASSERT: regex-1 :9:.*error.*?The nested synchronized objects has a different sequence than the nested synchronized objects on the line 8 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex-1 :10:.*error.*?The nested synchronized objects has a different sequence than the nested synchronized objects on the line 8 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex-1 :10:.*error.*?The nested synchronized objects has a different sequence than the nested synchronized objects on the line 9 of the file 'test.cj', which may cause a deadlock.

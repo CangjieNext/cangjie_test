@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashSet_external_invoke,collection_HashSet_external_invoke
-b,b 24,collection_HashSet_external_invoke.cj:24
-AOT r,r,-> 24
-CJVM c,c,-> 24
+b,b 32,collection_HashSet_external_invoke.cj:32
+AOT r,r,-> 32
+CJVM c,c,-> 32
 p,p val_7,std[.]collection.HashSet<Int32>\) \$[\d] = {[\S\s]*\[0\] = -74[\S\s]*}
 p,p val_7,std[.]collection.HashSet<Int32>\) \$[\d] = {[\S\s]*\[1\] = 9[\S\s]*}
 q,q,

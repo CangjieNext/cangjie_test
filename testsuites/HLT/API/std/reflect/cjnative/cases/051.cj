@@ -86,6 +86,7 @@ class Test {
         arr = TypeInfo.of<C6>().instanceProperties |> map {a: InstancePropertyInfo => a.toString()} |> collectArray
         arr.sort();
         @Expect(arr.toString(), "[mut prop c3_public_abstract_mutable_instance_member_property_0: Int8, mut prop c6_public_mutable_instance_member_property_0: Int8, open mut prop c6_public_open_mutable_instance_member_property_0: Int8, open prop c6_public_open_readonly_instance_member_property_0: String, prop c3_public_abstract_readonly_instance_member_property_0: String, prop c6_public_readonly_instance_member_property_0: String]")
+        // arr = TypeInfo.of<C7<String, Float32, Unit, ArrayList<Int64>>>().instanceProperties |> map { a: InstancePropertyInfo => a.toString() } |> collectArray; arr.sort(); @Expect(arr.toString(), "[///]")
     }
     @TestCase
     func testStruct(): Unit {

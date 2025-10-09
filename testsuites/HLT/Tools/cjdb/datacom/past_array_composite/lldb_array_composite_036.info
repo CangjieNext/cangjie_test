@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_array_record,003_debug_array_record
-b,b 43,003_debug_array_record.cj:43
-AOT r,r,-> 43
+b,b 51,003_debug_array_record.cj:51
+AOT r,r,-> 51
 CJVM c,c,
-n,n,-> 45
+n,n,-> 53
 print,print arraymainrec01[0],Rectangle1\) \$[\d]+ = {(\r|\n|\r\n)  length = 3(\r|\n|\r\n)  width = 0(\r|\n|\r\n)  diagonalLength = 0(\r|\n|\r\n)  varBool = true(\r|\n|\r\n)  varchar = '5'
 print,print arraymainrec01[0].length,\(Int32\) \$[\d]+ = 3
 q,q,

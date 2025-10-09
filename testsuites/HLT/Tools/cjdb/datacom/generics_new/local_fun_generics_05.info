@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
-b,b 73,genericsfun_local.cj:73
-AOT r,r,-> 73
+b,b 81,genericsfun_local.cj:81
+AOT r,r,-> 81
 CJVM c,c,
 p, p gengricsvar,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*
 p, p a,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*

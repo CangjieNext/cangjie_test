@@ -5,14 +5,16 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
-public var c: Mytype2 = 1.1
+public var c : Mytype2 = 1.1
 
-main() {
-    if (a == 1 && c == 1.1) {
+main() {  
+    if (a == 1 && c == 1.1){
         return 0
     }
     return 1
 }
+
+

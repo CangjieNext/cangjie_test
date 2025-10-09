@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors basic_hashmap_015,basic_hashmap_015
-b,b 13,basic_hashmap_015.cj:13
-AOT r,r,-> 13
+b,b 21,basic_hashmap_015.cj:21
+AOT r,r,-> 21
 locals,locals,\(std.collection.HashMap<default.cla,default.cla>\) map_a = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = {[\s\S]*x = 2[\s\S]*}[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = {[\s\S]*x = 3[\s\S]*
 p,p map_d,\(std.collection.HashMap<default.cla,default.cla>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = {[\s\S]*x = 1[\s\S]*}[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = {[\s\S]*x = 3[\s\S]*}[\s\S]*
 expr,expr map_c,\(std.collection.HashMap<default.cla,default.cla>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = {[\s\S]*x = 3[\s\S]*}[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = {[\s\S]*x = 4[\s\S]*}[\s\S]*

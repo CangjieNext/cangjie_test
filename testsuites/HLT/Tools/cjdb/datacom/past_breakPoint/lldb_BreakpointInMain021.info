@@ -16,14 +16,14 @@
 
 test#
 cjdb,cjdb --no-use-colors 016_debug_return,016_debug_return
-CJVM b,breakpoint set -n main,016_debug_return.cj:5
-CJVM c,c,-> 5
-b,b 5,016_debug_return.cj:5
-b,b 14,016_debug_return.cj:14
-b,b 16,016_debug_return.cj:16
-AOT r,r,-> 5
-c,c,-> 16
-n,n,-> 5
-n,n,-> 7
+CJVM b,breakpoint set -n main,016_debug_return.cj:13
+CJVM c,c,-> 13
+b,b 13,016_debug_return.cj:13
+b,b 22,016_debug_return.cj:22
+b,b 24,016_debug_return.cj:24
+AOT r,r,-> 13
+c,c,-> 24
+n,n,-> 13
+n,n,-> 15
 locals,locals,varreturnexpr = 20
 q,q,

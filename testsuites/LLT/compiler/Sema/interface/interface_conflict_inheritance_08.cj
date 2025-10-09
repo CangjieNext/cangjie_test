@@ -4,10 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
-// ASSERT: scan-3 sema_upper_bound_must_be_class_or_interface
-// ASSERT: scan-2 sema_inherit_member_type_inconsistent
-// ASSERT: scan "Errors": 5,
+// EXEC:%frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
 
 interface I1 {
     func foo(): Int
@@ -25,3 +22,7 @@ func f<T1, T2, T3>() where T1 <: T2 & I1, T2 <: T3, T3 <: I2 {}
 
 main() {
 }
+
+// ASSERT: scan-2 sema_inherit_member_type_inconsistent
+// ASSERT: scan-3 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 5

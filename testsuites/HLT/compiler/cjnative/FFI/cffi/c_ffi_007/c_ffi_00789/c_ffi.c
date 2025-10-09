@@ -9,13 +9,13 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-#include <securec.h>
+#include <stdlib.h>
 
 char* testfunc() {
     char* str = "Hello World\n";
     int inputSize = strlen(str);
     int resSize = inputSize + 1;
     char* res = (char*)malloc(resSize);
-    strcpy_s(res, resSize, str);
+    strcpy(res, str);
     return res;
 }

@@ -27,6 +27,8 @@ class TestParseFormat {
             assertEqule(time0, dateTime[1], "Compare result of DateTime.parse(), the index is ${index}:")
         }
 
+        //        let day2 = DateTime.parse("-0001-12-31T23:59:59Z")
+        //        let day3 = DateTime.parse("0000-01-01T00:00:01Z")
 
         return 0
     }

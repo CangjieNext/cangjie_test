@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.6.2.9
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: struct static var
   @Behavior: modifier: keep non public
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -33,6 +33,7 @@
 // test struct: delete access modifier: Invisible to Invisible
 package test_stable_abi
 
+
 public struct Rectangle {
     static let width = 10
     public static let a1 = 20
@@ -46,7 +47,7 @@ public struct Rectangle {
     static let a9 = 20
     static let a10 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 }
@@ -57,7 +58,7 @@ public struct Rectangle1 {
     public static let a2 = 20
     public static let a3 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 }
@@ -75,7 +76,7 @@ public struct Rectangle2 {
     static var a9 = 20
     static var a10 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 }
@@ -89,7 +90,7 @@ public struct Rectangle3 {
     }
 
     @Frozen
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return a11
     }
 }
@@ -98,7 +99,7 @@ public struct Rectangle4 {
     static let width = 10
     public static var a12 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 }
@@ -112,7 +113,7 @@ public struct Rectangle5 {
     }
 
     @Frozen
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return a13
     }
 }
@@ -121,7 +122,7 @@ public struct Rectangle6 {
     static let width = 10
     public static const a14 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 }
@@ -135,7 +136,7 @@ public struct Rectangle7 {
     }
 
     @Frozen
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return a15
     }
 }
@@ -144,7 +145,7 @@ public struct Rectangle8 {
     static let width = 10
     public static const a16 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 }
@@ -158,7 +159,7 @@ public struct Rectangle9 {
     }
 
     @Frozen
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return a17
     }
 }
@@ -167,7 +168,7 @@ public struct Rectangle10 {
     static let width = 10
     public static let a20 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 }
@@ -181,7 +182,7 @@ public struct Rectangle11 {
     }
 
     @Frozen
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return a21
     }
 }

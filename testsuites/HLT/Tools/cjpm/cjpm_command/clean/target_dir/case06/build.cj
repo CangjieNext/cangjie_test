@@ -56,6 +56,10 @@ internal import std.process.*
 main(): Int64 {
     match (Process.current.arguments[0]) {
         // Add operation here with format: "pre-"/"post-" + optionName
+        // case "pre-build" => stagePreBuild()
+        // case "post-build" => stagePostBuild()
+        // case "pre-clean" => stagePreClean()
+        // case "post-clean" => stagePostClean()
         case _ => 0
     }
 }

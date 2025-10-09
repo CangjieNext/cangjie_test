@@ -10,9 +10,9 @@
 // DEPENDENCE: test.c
 // EXEC: %clang %clang_opt -o libtest.%test_suffix test.c
 // (CJNATIVE) ERRCHECK: %compiler %cmp_opt %f --library-path . --output %output
-// (not MAC and not OHOS) ASSERT: scan undefined reference to `printHello'
+// (not MAC and not OHOS and not Windows) ASSERT: scan undefined reference to `printHello'
 // (MAC and not OHOS) ASSERT: scan undefined symbol: _printHello
-// (OHOS) ASSERT: scan undefined symbol: printHello
+// (OHOS and Windows) ASSERT: scan undefined symbol: printHello
 
 foreign func printHello(): Unit
 

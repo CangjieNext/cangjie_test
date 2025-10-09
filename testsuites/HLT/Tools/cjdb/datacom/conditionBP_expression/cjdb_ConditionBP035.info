@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var013,generics_local_var013
-breakpoint,breakpoint set -l 32 -c "1==1",generics_local_var013.cj:32
-AOT r,r,-> 32
+breakpoint,breakpoint set -l 40 -c "9==9",generics_local_var013.cj:40
+AOT r,r,-> 40
 CJVM c,c,
-s,s,-> 6
-n,n,-> 7
-n,n,-> 8
+s,s,-> 14
+n,n,-> 15
+n,n,-> 16
 p,p para,\(Int64\) \$[\d] = 1
 p,p vlist2,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
 expr~expr a~\(Int64\) \$[\d] = 1

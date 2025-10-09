@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.9.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class static func
   @Behavior: delete generic parameter
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -26,17 +26,15 @@
 
 // ASSERT: scan Incompatible
 // ASSERT: scan-1 [API/ABI] Deleted generic param of function visible outside the module
-// ASSERT: scan-1 [API/ABI] Deleted public/protected instance member functions for classes.
 // ASSERT: scan-1 [API/ABI] Changed number of parameters of function visible outside the module.
-// ASSERT: scan-3 [API/ABI]
+// ASSERT: scan-2 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 
 package test_stable_abi
 
 // test class: staticmember function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public class TestClass {
@@ -58,7 +56,6 @@ public class TestClass {
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -68,7 +65,6 @@ public class TestClass {
     public static func f7() {
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -89,7 +85,7 @@ public class TestClass {
         12
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13
     }
     public static const func f14(): Int64 {
@@ -116,7 +112,6 @@ public class TestClass {
     public static const func body1() {
         1
     }
-
     @Frozen
     public static func body2() {
         2

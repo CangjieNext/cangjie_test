@@ -5,10 +5,11 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
+
 
 public struct Rectangle {
     let width = 10
@@ -18,20 +19,17 @@ public struct Rectangle {
     protected let a4 = 20
     public let a5 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 }
 
-public open class A {}
-
-public class B <: A {}
-
-public class C {}
-
-public struct S2 {
-    public let a: A = B()
-    let b: A = B()
+public open class A{}
+public class B <: A{}
+public class C{}
+public struct S2{
+    public let a:A = B()
+    let b:A = B()
     public let c = 1
     public let d = 1
 
@@ -45,3 +43,4 @@ public struct S2 {
         return d
     }
 }
+

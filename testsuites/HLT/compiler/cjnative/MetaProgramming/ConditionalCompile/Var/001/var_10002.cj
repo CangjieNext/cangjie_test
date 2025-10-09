@@ -13,4 +13,4 @@
 main() {
     return 0
 }
-// ASSERT: scan sema_missing_entry
+// ASSERT: scan conditional_compilation_not_support_builtin_value

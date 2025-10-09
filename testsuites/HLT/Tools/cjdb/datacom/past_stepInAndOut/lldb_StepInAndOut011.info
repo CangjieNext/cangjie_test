@@ -16,16 +16,16 @@
 
 test#
 cjdb,cjdb --no-use-colors 017_debug_typechange,017_debug_typechange
-CJVM b main,b main,017_debug_typechange.cj:4
-CJVM c,c,-> 4
-b,b 5,017_debug_typechange.cj:5
-b,b 6,017_debug_typechange.cj:6
-b,b 7,017_debug_typechange.cj:7
-AOT r,r,-> 5
-CJVM c,c,-> 5
-s,s,-> 6
-finish,finish,-> 7
-n,n,-> 9
+CJVM b main,b main,017_debug_typechange.cj:12
+CJVM c,c,-> 12
+b,b 13,017_debug_typechange.cj:13
+b,b 14,017_debug_typechange.cj:14
+b,b 15,017_debug_typechange.cj:15
+AOT r,r,-> 13
+CJVM c,c,-> 13
+s,s,-> 14
+finish,finish,-> 15
+n,n,-> 17
 locals,locals,i16Number = 127
 locals,locals,i8Number = 127
 q,q,

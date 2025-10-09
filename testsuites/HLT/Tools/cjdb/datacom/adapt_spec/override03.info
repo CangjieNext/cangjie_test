@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors override03,override03
-b,b 30,override03.cj:30
-AOT r,r,-> 30
+b,b 38,override03.cj:38
+AOT r,r,-> 38
 CJVM c,c,
 expr~expr C2<Float64>().f1()~\(default.Child<Int64>\) \$[\d] = {}
 expr~expr C2<Int64>()~\(default.C2<Int64>\) \$[\d] = {}

@@ -1,0 +1,26 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cjcov -h xxx  2>&1  | compare %f 
+// EXEC: cjcov xxx --help  2>&1  | compare %f 
+// ASSERT: scan Usage: cjcov [options]
+// ASSERT: scan A tool used to summarize the coverage in html reports.
+// ASSERT: scan Options:
+// ASSERT: scan   -v, --version                 Print the version number, then exit.
+// ASSERT: scan   -h, --help                    Show this help message, then exit.
+// ASSERT: scan   -r ROOT, --root=ROOT          The root directories of your source files, defaults to '.', the current directory.
+// ASSERT: scan                                 File names are reported relative to this root.
+// ASSERT: scan   -o OUTPUT, --output=OUTPUT    The output directories of html reports, defaults to '.', the current directory.
+// ASSERT: scan   -b, --branches                Report the branch coverage. (It is an experimental feature and may generate imprecise branch coverage.)
+// ASSERT: scan   --verbose                     Print some detail messages, including parsing data for the gcov file.
+// ASSERT: scan   --html-details                Generate html reports for each source file.
+// ASSERT: scan   -k, --keep                    Keep gcov files after processing.
+// ASSERT: scan   -s SOURCE, --source=SOURCE    The directories of cangjie source files.
+// ASSERT: scan   -e EXCLUDE, --exclude=EXCLUDE
+// ASSERT: scan                                 The cangjie source files starts with EXCLUDE will not be showed in coverage reports.
+// ASSERT: scan   -i INCLUDE, --include=INCLUDE
+// ASSERT: scan                                 The cangjie source files starts with INCLUDE will be showed in coverage reports.

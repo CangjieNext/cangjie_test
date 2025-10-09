@@ -13,16 +13,16 @@
 
 test#
 cjdb,cjdb --no-use-colors case18_7,case18_7
-b,b 14,Breakpoint 1:
-b,b 28,Breakpoint 2:
-b,b 42,Breakpoint 3:
-AOT r,r,-> 14
+b,b 22,Breakpoint 1:
+b,b 36,Breakpoint 2:
+b,b 50,Breakpoint 3:
+AOT r,r,-> 22
 CJVM c,c,
 expr,expr testVT,\(Bool\) \$[\d] = true
 n,n,
 expr,expr testVT,\(Bool\) \$[\d] = false
-c,c,-> 28
+c,c,-> 36
 expr,expr test,\(Bool\) \$[\d] = false
-c,c,-> 42
+c,c,-> 50
 expr,expr test,\(Bool\) \$[\d] = true
 q,q,

@@ -21,6 +21,11 @@ public class A {
 
 public func foo<T>(x: T) { "original" }
 
+extend A {
+    public static func extend_foo<T>(x: T) { "original" }
+    public func extend_goo<T>(x: T) { "original" }
+}
+
 @Test
 func test_foo() {
     @On(A.foo<Int64>(_)).returns("mocked Int")
@@ -36,4 +41,39 @@ func test_goo() {
     @On(a.goo<String>(_)).returns("mocked String")
     @Assert(a.goo<Int64>(10), "mocked Int")
     @Assert(a.goo<String>("10"), "mocked String")
+}
+
+
+@Test
+func test_extend_foo() {
+    @On(A.extend_foo<Int64>(_)).returns("mocked Int")
+    @On(A.extend_foo<String>(_)).returns("mocked String")
+    @Assert(A.extend_foo<Int64>(10), "mocked Int")
+    @Assert(A.extend_foo<String>("10"), "mocked String")
+}
+
+@Test
+func test_extend_goo() {
+    let a = mock<A>()
+    @On(a.extend_goo<Int64>(_)).returns("mocked Int")
+    @On(a.extend_goo<String>(_)).returns("mocked String")
+    @Assert(a.extend_goo<Int64>(10), "mocked Int")
+    @Assert(a.extend_goo<String>("10"), "mocked String")
+}
+
+interface I {
+    @When[backend == "cjnative"]
+    func foo<T>(x: Int64): String {
+        return "x=${x}"
+    }
+}
+
+@When[backend != "cjnative"]
+@Test
+func test_interface_with_generic_func() {
+    let i = mock<I>()
+    @On(i.foo<Int64>(_)).returns("mocked Int")
+    @On(i.foo<String>(_)).returns("mocked String")
+    @Expect(i.foo<Int64>(10), "mocked Int")
+    @Expect(i.foo<String>(10), "mocked String")
 }

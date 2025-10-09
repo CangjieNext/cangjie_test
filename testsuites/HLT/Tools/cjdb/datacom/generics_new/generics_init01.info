@@ -14,14 +14,14 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_class_extend,generics_class_extend
-b,b 29,generics_class_extend.cj:29
-AOT r,r,-> 29
-s,s,-> 5
-n,n,-> 6
+b,b 37,generics_class_extend.cj:37
+AOT r,r,-> 37
+s,s,-> 13
+n,n,-> 14
 locals,locals,\(Int64\) a = 6[\s\S]*\(Bool\) b = true[\s\S]*
-finish,finish,-> 29
-n,n,-> 30
-n,n,-> 31
+finish,finish,-> 37
+n,n,-> 38
+n,n,-> 39
 locals,locals,\(default.Pair<Int64,Bool>\) c = {[\s\S]*first = 6[\s\S]*second = true[\s\S]*}[\s\S]*\(Bool\) d = false[\s\S]*
 p,p a,\(default.Foo\) \$[\d] = {}
 q,q,

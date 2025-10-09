@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.4.2.1
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend static prop
   @Behavior: delete static prop annotation
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -48,13 +48,15 @@ public class TestClass {
 }
 
 extend TestClass {
+
     public static prop prop1: Int64 {
         get() {
             1
         }
     }
 
-    mut static prop prop2: Int64 {
+
+    static mut prop prop2: Int64 {
         get() {
             1
         }
@@ -63,7 +65,8 @@ extend TestClass {
         }
     }
 
-    mut static prop prop3: Int64 {
+
+    static mut prop prop3: Int64 {
         get() {
             1
         }
@@ -77,13 +80,14 @@ extend TestClass {
         prop3
     }
 
+
     public static prop prop_1: Int64 {
         get() {
             1
         }
     }
 
-    mut static prop prop_2: Int64 {
+    static mut prop prop_2: Int64 {
         get() {
             1
         }
@@ -92,7 +96,8 @@ extend TestClass {
         }
     }
 
-    mut static prop prop_3: Int64 {
+
+    static mut prop prop_3: Int64 {
         get() {
             1
         }

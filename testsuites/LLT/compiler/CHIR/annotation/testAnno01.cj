@@ -6,11 +6,11 @@
 
 // LEVEL: 0
 // (DEBUG_OPTION) EXEC: %compiler %cmp_opt %debugCHIROpt %n.cj -o %output | compare %f
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of IA in the line .* is \_CAN7default2IAE
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of IB in the line .* is \_CAN7default2IBE
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of sayHi in the line .* is \_CAN7default2IB5sayHiHv
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of a in the line .* is \_CAN7default2IB4setAHlE1aE
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of \$aget in the line .* is \_CAN7default2IB1aE
+// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of IA in the line .* is \_CAF7default2IAE
+// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of IB in the line .* is \_CAF7default2IBE
+// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of sayHi in the line .* is \_CAF7default2IB5sayHiHv
+// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of a in the line .* is \_CAF7default2IB4setAHlE1aE
+// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of \$aget in the line .* is \_CAF7default2IB1aE
 
 // (not CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of IA in the line .* is \$Anno_ZN7default2IAE
 // (not CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of IB in the line .* is \$Anno_ZN7default2IBE

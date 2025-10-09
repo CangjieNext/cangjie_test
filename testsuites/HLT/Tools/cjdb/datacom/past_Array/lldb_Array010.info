@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 048_debug_array_type,048_debug_array_type
-b,b 13,048_debug_array_type.cj:13
-AOT r,r,-> 13
+b,b 21,048_debug_array_type.cj:21
+AOT r,r,-> 21
 CJVM c,c,
-n,n,-> 14
+n,n,-> 22
 print,print arrayUInt32,\[0\] = 31
 print,print arrayUInt32,\[2\] = 33
 print,print arrayUInt32,\[4\] = 35

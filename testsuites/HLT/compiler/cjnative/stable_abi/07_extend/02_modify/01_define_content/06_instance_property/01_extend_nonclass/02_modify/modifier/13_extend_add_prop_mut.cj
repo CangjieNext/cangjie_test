@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.6.1.2.13
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance prop
   @Behavior: add modifier static
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -67,10 +67,9 @@ extend TestStruct {
         set(v) {
         }
     }
-
     @Frozen
     public mut prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
         set(v) {
@@ -85,7 +84,6 @@ extend TestStruct {
         set(v) {
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public mut prop prop5: Int64 {
         get() {
@@ -94,7 +92,6 @@ extend TestStruct {
         set(v) {
         }
     }
-
     @Frozen
     public mut prop prop6: Int64 {
         get() {

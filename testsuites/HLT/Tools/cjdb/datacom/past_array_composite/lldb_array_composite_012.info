@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_string,001_debug_array_string
-b,b 44,001_debug_array_string.cj:44
-AOT r,r,-> 44
+b,b 52,001_debug_array_string.cj:52
+AOT r,r,-> 52
 CJVM c,c,
 locals,locals,slicing1 = {(\r\n|\r|\n)  \[0\] = "abcdxyz"(\r\n|\r|\n)  \[1\] = "!@\#\$%"(\r\n|\r|\n)  \[2\] = "1 a \#"(\r\n|\r|\n)  \[3\] = "仓颉字符串测试"
 q,q,

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
-b,b 51,genericsfun_local.cj:51
-AOT r,r,-> 51
+b,b 59,genericsfun_local.cj:59
+AOT r,r,-> 59
 CJVM c,c,
 p, p gengricsvar,\(Float16\) \$[\d] = 16.156
 p, p a,\(Float16\) \$[\d] = 16.156
