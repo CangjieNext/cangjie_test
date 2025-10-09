@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 230,Breakpoint 1:
-AOT r,r,-> 230
+b,b 238,Breakpoint 1:
+AOT r,r,-> 238
 CJVM c,c,
 p, p a,\(Float64\) \$[\d] = 64.640000000000001
 p, p a1,\(Float64\) \$[\d] = 64.640000000000001

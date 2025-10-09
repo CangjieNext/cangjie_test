@@ -16,12 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 151,005_debug_class_generics.cj:151
-AOT r,r,-> 151
+b,b 159,005_debug_class_generics.cj:159
+AOT r,r,-> 159
 CJVM c,c,
-n,n,-> 152
+n,n,-> 160
 locals,locals,C1<Bool>\) f_c1 = {(\r|\n|\r\n)  width = true(\r|\n|\r\n)  length = true
-finish,finish,-> 146
-n,n,-> 147
+finish,finish,-> 154
+n,n,-> 155
 locals,locals,C1<Bool>\) m_num2 = {(\r|\n|\r\n)  width = true(\r|\n|\r\n)  length = true
 q,q,

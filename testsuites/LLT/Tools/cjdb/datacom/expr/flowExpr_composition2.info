@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/flowExpr_composition2.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb flowExpr_composition2,flowExpr_composition2
+b,b 24,flowExpr_composition2.cj:24
+r,r,-> 24
+ ,expr objA ~> f,\(default.\(Int32\)->Float32\) \$\d+ = 0x
+ ,expr f ~> objB,\(default.\(Int32\)->Float32\) \$\d+ = 0x
+ ,expr objA ~> objA,\(default.\(Int32\)->Int32\) \$\d+ = 0x
+q,q,

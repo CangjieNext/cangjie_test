@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-not .cj:17:9: .*warning.*: The name of the '`type`' package must contain only digits, lowercase letters, and underscores \(_\).
+// ASSERT: regex-not .cj:1:9: .*warning.*: The name of the '`type`' package must contain only digits, lowercase letters, and underscores \(_\).

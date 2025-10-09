@@ -14,7 +14,7 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func002,generics_global_func002
-breakpoint,breakpoint set -l 16 -c 'a5==6',generics_global_func002.cj:16
+breakpoint,breakpoint set -l 24 -c 'a5==6',generics_global_func002.cj:24
 AOT r,r,exited with status = 0
 CJVM c,c,
 q,q,

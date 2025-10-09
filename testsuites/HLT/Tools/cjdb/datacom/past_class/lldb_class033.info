@@ -16,12 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_class_interface,006_debug_class_interface
-b,b 37,006_debug_class_interface.cj:37
-AOT r,r,-> 37
-CJVM c,c,-> 37
-s,s,-> 11
-s,s,-> 37
-s,s,-> 13
-n,n,-> 14
+b,b 45,006_debug_class_interface.cj:45
+AOT r,r,-> 45
+CJVM c,c,-> 45
+s,s,-> 19
+s,s,-> 45
+s,s,-> 21
+n,n,-> 22
 locals,locals,\(Int64\) y = 1
 q,q,

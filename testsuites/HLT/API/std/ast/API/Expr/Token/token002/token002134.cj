@@ -1,9 +1,17 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %use_ast %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
-// (Windows and not OHOS) ASSERT: regex description: newline, token_id: [0-9]*, token_literal_value: \\n, fileID: 1, line: 12, column: 14
-// (not Windows and not MAC or OHOS) ASSERT: regex description: newline, token_id: [0-9]*, token_literal_value: \\n, fileID: 1, line: 34, column: 14
-// (MAC and not OHOS)ASSERT: regex description: newline, token_id: [0-9]*, token_literal_value: \\n, fileID: 1, line: 56, column: 14
+// (Windows and not OHOS) ASSERT: regex description: newline, token_id: [0-9]*, token_literal_value: \\n, fileID: 1, line: 20, column: 14
+// (not Windows and not MAC or OHOS) ASSERT: regex description: newline, token_id: [0-9]*, token_literal_value: \\n, fileID: 1, line: 42, column: 14
+// (MAC and not OHOS)ASSERT: regex description: newline, token_id: [0-9]*, token_literal_value: \\n, fileID: 1, line: 64, column: 14
 
 import std.ast.*
 
@@ -20,7 +28,7 @@ func foo(): Int32 {
     if (tk.pos.fileID != 1) {
         return 3
     }
-    if (tk.pos.line != 12) {
+    if (tk.pos.line != 20) {
         return 4
     }
     if (tk.pos.column != 14) {
@@ -42,7 +50,7 @@ func foo(): Int32 {
     if (tk.pos.fileID != 1) {
         return 3
     }
-    if (tk.pos.line != 34) {
+    if (tk.pos.line != 42) {
         return 4
     }
     if (tk.pos.column != 14) {
@@ -64,7 +72,7 @@ func foo(): Int32 {
     if (tk.pos.fileID != 1) {
         return 3
     }
-    if (tk.pos.line != 56) {
+    if (tk.pos.line != 64) {
         return 4
     }
     if (tk.pos.column != 14) {
@@ -76,11 +84,4 @@ func foo(): Int32 {
 main() {
     foo()
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- * 
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
 

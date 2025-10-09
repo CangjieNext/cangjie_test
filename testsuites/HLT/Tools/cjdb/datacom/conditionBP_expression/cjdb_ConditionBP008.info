@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func008,generics_global_func008
-breakpoint,breakpoint set -l 22 -c "aa.a==1",generics_global_func008.cj:22
-AOT r,r,-> 22
+breakpoint,breakpoint set -l 30 -c "aa.a==1",generics_global_func008.cj:30
+AOT r,r,-> 30
 CJVM c,c,
 locals,locals,\(default.A\) aa = {[\s\S]*a = 1[\s\S]*}
 p,p A2<Int64>(1),error: unsupported expression

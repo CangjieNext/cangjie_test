@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex-1 :32:.*error.*?'s8' is external data, it should not be used to record logs
+// ASSERT: regex-1 :24:.*error.*?'s8' is external data, it should not be used to record logs

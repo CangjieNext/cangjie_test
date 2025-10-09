@@ -31,6 +31,7 @@ class Testdatamodel {
     }
     public func testinit(): Int64 {
         var result: Int64 = 0
+        //init()
         var g = DataModelStruct()
         //func getFields(): ArrayList<Field>
         var getFields_result1 = g.getFields()
@@ -54,6 +55,7 @@ class Testdatamodel {
     }
     public func testinitParam(e: ArrayList<Field>): Int64 {
         var result: Int64 = 0
+        //init(list: ArrayList<Field>)
         var g = DataModelStruct(e)
         //func getFields(): ArrayList<Field>
         var getFields_result1 = g.getFields()

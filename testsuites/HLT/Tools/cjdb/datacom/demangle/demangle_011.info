@@ -18,14 +18,14 @@
 
 test#
 cjdb,cjdb --no-use-colors demangle_target,demangle_target
-AOT b,b 275,where = demangle_target`default::main\(\) \+ \d+ at demangle.cj:275:26
-CJVM b,b 275,default\.main\(\)i64 at [\s\S]*demangle.cj:275
-AOT r,r,demangle_target`default::main\(\) at demangle.cj:275:26[\s\S]*-> 275
-CJVM c,c,-> 275
-AOT n,n,demangle_target`default::main\(\) at demangle.cj:275:26[\s\S]*-> 275
-CJVM n,n,default\.main at [\s\S]*demangle.cj:275[\s\S]*-> 275
-AOT n,n,demangle_target`default::main\(\) at demangle.cj:275:26[\s\S]*-> 275
-CJVM n,n,default\.main at [\s\S]*demangle.cj:275[\s\S]*-> 275
-AOT n,n,demangle_target`default::main\(\) at demangle.cj:276:25[\s\S]*-> 276
-CJVM n,n,default\.main at [\s\S]*demangle.cj:276[\s\S]*-> 276
+AOT b,b 283,where = demangle_target`default::main\(\) \+ \d+ at demangle.cj:283:26
+CJVM b,b 283,default\.main\(\)i64 at [\s\S]*demangle.cj:283
+AOT r,r,demangle_target`default::main\(\) at demangle.cj:283:26[\s\S]*-> 283
+CJVM c,c,-> 283
+AOT n,n,demangle_target`default::main\(\) at demangle.cj:283:26[\s\S]*-> 283
+CJVM n,n,default\.main at [\s\S]*demangle.cj:283[\s\S]*-> 283
+AOT n,n,demangle_target`default::main\(\) at demangle.cj:283:26[\s\S]*-> 283
+CJVM n,n,default\.main at [\s\S]*demangle.cj:283[\s\S]*-> 283
+AOT n,n,demangle_target`default::main\(\) at demangle.cj:284:25[\s\S]*-> 284
+CJVM n,n,default\.main at [\s\S]*demangle.cj:284[\s\S]*-> 284
 q,q,

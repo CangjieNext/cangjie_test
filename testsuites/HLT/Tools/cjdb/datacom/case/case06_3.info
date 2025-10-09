@@ -13,11 +13,11 @@
 
 test#
 cjdb,cjdb --no-use-colors case06,case06
-b,b 6,Breakpoint 1: 2 locations.
-AOT r,r,-> 6
+b,b 14,Breakpoint 1: 2 locations.
+AOT r,r,-> 14
 CJVM c,c,
-s,s,-> 6
+s,s,-> 14
 locals,locals,\(Int64\) a = 1
-CJVM n,n,-> 6
-n,n,-> 7
+CJVM n,n,-> 14
+n,n,-> 15
 q,q,

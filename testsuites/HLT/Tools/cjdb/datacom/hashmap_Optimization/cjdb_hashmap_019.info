@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors basic_hashmap_019,basic_hashmap_019
-b,b 16,basic_hashmap_019.cj:16
-AOT r,r,-> 16
+b,b 24,basic_hashmap_019.cj:24
+AOT r,r,-> 24
 p,p map_4,\(std.collection.HashMap<std.core.String,std.core.String>\) \$[\d] = {[\s\S]*\["a" -> "1"\] = {[\s\S]*key = "a"[\s\S]*value = "1"[\s\S]*}[\s\S]*\["b" -> "\\n    2"\] = {[\s\S]*key = "b"[\s\S]*value = "\\n    2"[\s\S]*
 expr,expr map_1,\(std.collection.HashMap<std.core.String,std.core.String>\) \$[\d] = {[\s\S]*\["0" -> "a"\] = {[\s\S]*key = "0"[\s\S]*value = "a"[\s\S]*}[\s\S]*\["1" -> "b"\] = {[\s\S]*key = "1"[\s\S]*value = "b"[\s\S]*
 q,q,

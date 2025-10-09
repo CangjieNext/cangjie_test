@@ -5,16 +5,22 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test interface: generic constraints
-public interface Father {}
+public interface Father {
 
-public interface Son <: Father {}
+}
 
-public interface Son1 <: Father {}
+public interface Son <: Father {
+
+}
+
+public interface Son1 <: Father {
+    
+}
 
 public interface Generics<T, U> where T <: Father, U <: Son {
     public static func typename(): String {
@@ -22,3 +28,6 @@ public interface Generics<T, U> where T <: Father, U <: Son {
     }
     public func goo3(a: T, b: U): Unit
 }
+
+
+

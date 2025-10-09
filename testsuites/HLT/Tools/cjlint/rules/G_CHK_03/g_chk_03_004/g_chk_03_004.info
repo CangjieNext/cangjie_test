@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-1 .*test.cj:25:.*G.CHK.03: The file path 'dir3' that may be constructed from external data must be canonicalized before validation.
+// ASSERT: regex-1 .*test.cj:17:.*G.CHK.03: The file path 'dir3' that may be constructed from external data must be canonicalized before validation.

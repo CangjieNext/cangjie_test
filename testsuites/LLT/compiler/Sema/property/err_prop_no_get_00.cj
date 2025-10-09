@@ -24,8 +24,11 @@ main() {
 error: property must implement both getter/setter of interface property 'x'
   ==> err_prop_no_get_00.cj:14:5:
    | 
-14 |     public mut static redef prop x: Int64 {
-   |     ^ 
+14 |       public mut static redef prop x: Int64 {
+   |  _____^
+15 | |         set(_) {}
+16 | |     }
+   | |_____^
    | 
 
 1 error generated, 1 error printed.

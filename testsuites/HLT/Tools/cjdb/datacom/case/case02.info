@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case02,case02
-b,b 26,case02.cj:26
-AOT r,r,-> 26
+b,b 34,case02.cj:34
+AOT r,r,-> 34
 CJVM c,c,
 AOT p,p b.getA(),error: unsupported expression
 CJVM p,p b.getA(),error: variable was not declared in this scope

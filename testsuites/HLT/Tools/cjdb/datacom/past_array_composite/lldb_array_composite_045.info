@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_array_record_init,005_debug_array_record_init
-b,b 46,005_debug_array_record_init.cj:46
-AOT r,r,-> 46
+b,b 54,005_debug_array_record_init.cj:54
+AOT r,r,-> 54
 CJVM c,c,
-n,n,-> 48
+n,n,-> 56
 print,print arraymainrec01[0],Rectangle\) \$[\d]+ = {(\r|\n|\r\n)  length = 0(\r|\n|\r\n)  width = 0(\r|\n|\r\n)  perimeter = 0
 q,q,

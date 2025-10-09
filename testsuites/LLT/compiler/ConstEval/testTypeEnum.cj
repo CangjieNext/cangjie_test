@@ -6,8 +6,8 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args
-// (CJNATIVE) ASSERT: scan debug: consteval at testTypeEnum.cj:27:5 - testTypeEnum.cj:27:27 function `gv$_ones` not evaluated successfully.
-// (not CJNATIVE) ASSERT: scan debug: consteval at testTypeEnum.cj:27:5 - testTypeEnum.cj:27:27 evaluated initializer function `gv$_ones` of 4 expressions to one of 11 expressions.
+// (CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 function `gv$_ones` not evaluated successfully.
+// (not CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_ones` of 4 expressions to one of 11 expressions.
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

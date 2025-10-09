@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // ERRCHECK:%compiler %cmp_opt %n.cj -o %output
-// ASSERT: scan builtin condition 'os' do not support 'Linuxs', supported listed: 'Windows Linux macOS HarmonyOS'
+// ASSERT: scan builtin condition 'os' do not support 'Linuxs', supported listed: 'Windows Linux macOS iOS HarmonyOS'
 // ASSERT: scan builtin condition 'backend' do not support 'cjnativegc', supported listed: 'cjnative'
 
 package b

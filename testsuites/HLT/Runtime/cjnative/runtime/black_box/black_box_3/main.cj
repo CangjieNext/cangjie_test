@@ -10,7 +10,7 @@ package tmp_test
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// EXEC: %run %run_opt %output %run_args
+// RUN-EXEC: %run %run_opt %output %run_args
 
 import std.unittest.*
 import std.unittest.common.*

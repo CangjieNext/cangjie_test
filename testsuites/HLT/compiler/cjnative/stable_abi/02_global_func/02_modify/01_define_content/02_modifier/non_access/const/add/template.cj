@@ -5,24 +5,14 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test global func: modify non access modifier: const
-func global_func_01() {
-    0
-}
+func global_func_01() { 0 }
+func global_func_02() { 0 }
+public func global_func_03() { 0 }
+@Frozen public func global_func_04() { global_func_02() }
 
-func global_func_02() {
-    0
-}
 
-public func global_func_03() {
-    0
-}
-
-@Frozen
-public func global_func_04() {
-    global_func_02()
-}

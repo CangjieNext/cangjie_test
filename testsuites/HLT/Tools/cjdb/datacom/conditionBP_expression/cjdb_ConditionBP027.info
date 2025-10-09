@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var008,generics_local_var008
-breakpoint,breakpoint set -l 74 -c "1==1",generics_local_var008.cj:74
-AOT r,r,-> 74
+breakpoint,breakpoint set -l 82 -c "9==9",generics_local_var008.cj:82
+AOT r,r,-> 82
 CJVM c,c,
 locals,locals,\(default.C1<default.S3<Int8>>\) ai8 = {[\s\S]*c1_a = {[\s\S]*s3_a = 8[\s\S]*}
 locals,locals,\(default.C2<default.C3<Float16>>\) cf16 = {[\s\S]*c2_a = {[\s\S]*c3_a = 16.156[\s\S]*}

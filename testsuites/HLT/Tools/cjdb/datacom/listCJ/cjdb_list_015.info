@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 117,list_debug.cj:117
-AOT r,r,-> 117
+b,b 125,list_debug.cj:125
+AOT r,r,-> 125
 CJVM c,c,
 AOT p,p m_base_2_1[0..3],std[.]core.Array<Float16>\) \$[\d]
 set,set m_base_2_1[0]=3,= 3

@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-1 :14:20: .*error.*: The 'FSException' is a sensitive exception type.
+// ASSERT: regex-1 :6:20: .*error.*: The 'FSException' is a sensitive exception type.

@@ -20,6 +20,7 @@ func test() {
         try {
             n[i] = 10 / (i - 2)
         } catch (e: Error) {
+        //e.printStackTrace()
         } finally {
             i++
             print("f!") // should print 3*f!

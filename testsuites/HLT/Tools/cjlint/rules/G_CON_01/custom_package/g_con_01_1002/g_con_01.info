@@ -9,4 +9,4 @@
 // LEVEL: 0-core
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex test.cj:14:.*: .*error.*: 'mtx' should not be defined at top-level
+// ASSERT: regex test.cj:6:.*: .*error.*: 'mtx' should not be defined at top-level

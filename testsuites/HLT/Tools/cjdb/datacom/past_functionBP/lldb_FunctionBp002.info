@@ -14,13 +14,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 014_debug_func_bp,014_debug_func_bp
-CJVM b,breakpoint set -n main,014_debug_func_bp.cj:6
-CJVM c,c,-> 6
+CJVM b,breakpoint set -n main,014_debug_func_bp.cj:14
+CJVM c,c,-> 14
 AOT b,b funcbp011,Breakpoint 1
 CJVM b,b funcbp011,Breakpoint 2
-AOT r,r,-> 126
-CJVM c,c,-> 126
-c,c,-> 131
+AOT r,r,-> 134
+CJVM c,c,-> 134
+c,c,-> 139
 bdelete,breakpoint delete 1,1 breakpoints deleted
 rerun,r,exited
 q,q,

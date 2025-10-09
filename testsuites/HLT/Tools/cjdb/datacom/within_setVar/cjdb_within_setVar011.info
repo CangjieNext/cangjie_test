@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_setVar_generices,001_debug_setVar_generices
-b,b 8,001_debug_setVar_generices.cj:8
-AOT r,r,-> 8
+b,b 16,001_debug_setVar_generices.cj:16
+AOT r,r,-> 16
 CJVM c,c,
 p,p mc_ms2,\(Int16\) \$[\d] = -12
 set,set mc_ms2 =32768,error: unsupported expression

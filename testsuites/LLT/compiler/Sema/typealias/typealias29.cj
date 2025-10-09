@@ -5,9 +5,6 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC: %compiler %diag_json %f -o %n.%suffix 2>&1 | compare %f
-// ASSERT: scan typealias_unused_type_parameters
-// ASSERT: scan-2 sema_generic_type_argument_not_match_constraint
-// ASSERT: scan "Errors": 2,
 
 interface I {}
 
@@ -25,3 +22,7 @@ func f<X>(a: A<X, X, X>) { // error
 }
 
 main() {}
+
+// ASSERT: scan-2 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan-1 typealias_unused_type_parameters
+// ASSERT: scan "Errors": 2

@@ -14,16 +14,16 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_regexpbreak,002_regexpbreak
-CJVM b,breakpoint set -n main,022_debug_launch.cj:4
-CJVM c,c,-> 4
-AOT b,_regexp-break notexist.cj:4,Unable to resolve breakpoint to any actual locations
-AOT b,_regexp-break notexist.cj:5,Unable to resolve breakpoint to any actual locations
-AOT b,_regexp-break notexist.cj:6,Unable to resolve breakpoint to any actual locations
-CJVM b,_regexp-break notexist.cj:4,Breakpoint 2: no code at notexist.cj:4
-CJVM b,_regexp-break notexist.cj:5,Breakpoint 3: no code at notexist.cj:5
-CJVM b,_regexp-break notexist.cj:6,Breakpoint 4: no code at notexist.cj:6
-AOT b,b notexist.cj:7,Unable to resolve breakpoint to any actual locations
-CJVM b,b notexist.cj:7,Breakpoint 5: no code at notexist.cj:7
+CJVM b,breakpoint set -n main,022_debug_launch.cj:12
+CJVM c,c,-> 12
+AOT b,_regexp-break notexist.cj:12,Unable to resolve breakpoint to any actual locations
+AOT b,_regexp-break notexist.cj:13,Unable to resolve breakpoint to any actual locations
+AOT b,_regexp-break notexist.cj:14,Unable to resolve breakpoint to any actual locations
+CJVM b,_regexp-break notexist.cj:12,Breakpoint 2: no code at notexist.cj:12
+CJVM b,_regexp-break notexist.cj:13,Breakpoint 3: no code at notexist.cj:13
+CJVM b,_regexp-break notexist.cj:14,Breakpoint 4: no code at notexist.cj:14
+AOT b,b notexist.cj:15,Unable to resolve breakpoint to any actual locations
+CJVM b,b notexist.cj:15,Breakpoint 5: no code at notexist.cj:15
 AOT blist,breakpoint list,1: file = 'notexist.cj'
 AOT blist,breakpoint list,2: file = 'notexist.cj'
 AOT blist,breakpoint list,3: file = 'notexist.cj'

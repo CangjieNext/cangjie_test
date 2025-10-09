@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors enum_arg,enum_arg
-b,b 22,default(::|\.)main\(\)[\s\S]*enum_arg.cj:22
-AOT r,r,-> 22
+b,b 30,default(::|\.)main\(\)[\s\S]*enum_arg.cj:30
+AOT r,r,-> 30
 CJVM c,c,
 p,p enum_2,\(default.test_R\) \$[\d] = Red
 q,q,

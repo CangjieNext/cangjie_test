@@ -15,9 +15,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 046_debug_record_mod_external_use,046_debug_record_mod_external_use
-b,b 13,046_debug_record_mod_external_use.cj:13
-AOT r,r,-> 13
+b,b 21,046_debug_record_mod_external_use.cj:21
+AOT r,r,-> 21
 CJVM c,c,
-n,n,-> 14
+n,n,-> 22
 locals,locals,Rectangle_ex\) newRectangle1 = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
 q,q,

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 4.2.1.9.2.17
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: enum instance prop
   @Behavior: modify prop getter/setter with not marked @Frozen
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -37,7 +37,7 @@ package test_stable_abi
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 
@@ -57,16 +57,14 @@ public enum Rectangle {
     }
 }
 
-public enum S1 {
+public enum S1{
     AB
-
     @Frozen
     public prop geta: Int64 {
         get() {
             0
         }
     }
-
     @Frozen
     prop getb: Int64 {
         get() {
@@ -75,7 +73,7 @@ public enum S1 {
     }
 
     @Frozen
-    public func f1() {
+    public func f1(){
         getb
     }
 }

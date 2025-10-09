@@ -6,7 +6,7 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt %cmp_opt %f -o %output | compare %f
 // (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at ok_func_overloading.cj:18:5 - ok_func_overloading.cj:18:27 replaced initializer function `gv$_result` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_result` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

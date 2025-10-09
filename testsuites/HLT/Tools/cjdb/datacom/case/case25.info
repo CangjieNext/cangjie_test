@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case25,case25
-b,b 7,case25.cj:7
-AOT r,r,-> 7
+b,b 15,case25.cj:15
+AOT r,r,-> 15
 CJVM c,c,
 AOT locals,locals,\(default.enumCol\) eVar1 = Aa
 AOT p,p eVar1,\(default.enumCol\) \$[\d] = Aa

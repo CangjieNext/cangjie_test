@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 9.5
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: typealias
   @Behavior: modify non public typealias
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // Expect: API Compatible & ABI Compatible
 // DEPENDENCE: main.cj, template.cj
@@ -34,14 +34,10 @@ package test_stable_abi
 
 // test typeAlias: modify non public typeAlias
 type Mytype1 = Int64
-
 type Mytype = Int32
-
 public type Mytype3 = Float64
-
 public type Mytype4 = Float32
-
 public var a: Mytype1 = 1
-var b: Mytype = 2
+var b: Mytype  = 2
 public var c: Mytype3 = 1.1
 var d: Mytype4 = 2.2

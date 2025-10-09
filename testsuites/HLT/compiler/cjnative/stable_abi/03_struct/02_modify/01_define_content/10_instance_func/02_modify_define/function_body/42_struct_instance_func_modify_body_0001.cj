@@ -5,52 +5,52 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.10.2.42
   @Scene: modify
   @Visibility: public
   @Object: struct instance func
-  @Behavior: modify non const frozen function body.
-  @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+  @Behavior: modify const function body
+  @Expect: api compatible & abi incompatible
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// EXEC: %rm libstable_abi.%dylib_suffix
+// EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// ASSERT: scan Incompatible!
+// ASSERT: scan-1 [ABI] The body of a const function or function marked with @Frozen changed.
+// ASSERT: scan-not [API]
+// ASSERT: scan-1 [ABI]
+// ASSERT: scan-not [API/ABI]
 
-// TEST ABI Compatibility
-// RUN-EXEC: %run %run_opt %output %run_args
-// TEST API Compatibility
-// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
-// RUN-EXEC: %run %run_opt %output %run_args
-
-// test struct: delete non public instance member function
-// 修改非const且未标记@Frozen函数的函数体
+// test struct: modify public instance member function
+// 修改const函数或标记@Frozen函数的函数体
 package test_stable_abi
+
 
 public struct Rectangle {
     let width = 10
     let a1 = 20
 
-    public const init() {}
+    const public init() {}
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
     public func geta(a: Int64): Int64 {
-        var b = a + 2
+        var b = a + 1
         return b
     }
 
-    public const func getb(a: Int64): Int64 {
-        let b = a + 1
+    const public func getb(a: Int64): Int64 {
+        let b = a + 2
         return b
     }
 
@@ -89,4 +89,14 @@ public struct Rectangle {
         let x = geth()
         return x
     }
+
+    @Frozen
+    public func getd1(b!: Int64 = 2, c!: Int64 = 2): Int64 {
+        return 10
+    }
+
+    public const func getd2(b!: Int64 = 2, c!: Int64 = 2): Int64 {
+        return 10
+    }
 }
+

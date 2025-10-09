@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors const02,const02
-b,b 24,const01.cj:24
-AOT r,r,-> 24
+b,b 32,const01.cj:32
+AOT r,r,-> 32
 CJVM c,c,
 p,p c1,\(default.C1<Int64>\) \$[\d] = {[\s\S]*a = 0[\s\S]*b = 100[\s\S]*}
 p,p c2,\(default.C2<Int64>\) \$[\d] = {[\s\S]*default.C1<Int64> = {[\s\S]*a = 0[\s\S]*b = -1[\s\S]*}[\s\S]*c = -1[\s\S]*}

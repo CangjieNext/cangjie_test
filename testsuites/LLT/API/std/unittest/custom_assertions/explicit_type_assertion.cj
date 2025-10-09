@@ -8,8 +8,9 @@
 // EXEC: %compiler %cmp_opt %f %cmp_utest_opt -o %output
 // EXEC-PIPE-1: %run %run_opt %output %run_args --no-color 2>&1 | compare %f
 
-// ASSERT: scan-1 Assert Failed: @Assert[doesThrow < NoneValueException >]({ => throw Exception() }):
-// ASSERT: scan-1 └── Assert Failed: `(Unexpected exception 'Exception' in codeblock: '{ => throw Exception() }')`
+// ASSERT: scan-1 Assert Failed: @Assert[doesThrow < NoneValueException >]({ =>
+// ASSERT: scan-1 └── Assert Failed: `(Unexpected exception 'Exception' in codeblock: '{ =>
+// ASSERT: scan-2 throw Exception()
 
 // ASSERT: scan-1 PASSED: 2
 // ASSERT: scan-1 SKIPPED: 0

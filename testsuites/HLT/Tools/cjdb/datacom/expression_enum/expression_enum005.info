@@ -13,13 +13,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 015_enum_lambda,015_enum_lambda
-b,b 9,015_enum_lambda.cj:9
-b,b 12,015_enum_lambda.cj:12
-AOT r,r,-> 9
+b,b 17,015_enum_lambda.cj:17
+b,b 20,015_enum_lambda.cj:20
+AOT r,r,-> 17
 CJVM c,c,
 locals,locals,\(default.RGB<Int64>\) a = {[\s\S]*constructor = red[\s\S]*arg_1 = 1[\s\S]*}
 expr,expr b,\(default.RGB<Float64>\) \$[\d] = {[\s\S]*constructor = blue[\s\S]*arg_1 = 4[\s\S]*}
-c,c,-> 12
+c,c,-> 20
 expr,expr op3,\(Unit\) \$[\d] = ()
 expr~expr lambda1(op1,op2)~\(Unit\) \$[\d] = ()
 q,q,

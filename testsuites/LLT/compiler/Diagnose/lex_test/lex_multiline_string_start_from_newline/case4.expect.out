@@ -1,17 +1,17 @@
-error: multi-line string may need start with newline character
+error: multi-line string must start with newline character
  ==> case4.cj:6:16:
   | 
 6 |     var a = """cangjie
-  |             ~~~^ excepted starting with newline character
+  |             ~~~^ expected to start with newline character
   |             |
   |             because it is in multi-line string
   | 
 
-error: multi-line string may need start with newline character
+error: multi-line string must start with newline character
  ==> case4.cj:9:17:
   | 
 9 |     var a1 = """cangjie\u{0000}
-  |              ~~~^ excepted starting with newline character
+  |              ~~~^ expected to start with newline character
   |              |
   |              because it is in multi-line string
   | 

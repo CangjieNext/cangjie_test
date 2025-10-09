@@ -24,6 +24,7 @@ main() {
         file.seek(Current(9223372036854775708))
     } catch (e: FSException) {
         i--
+        //if (e.toString() != "FSException: Failed to seek: The offset may be outside the range allowed by the current file system.") {return 1}
     }
     file.close()
     remove(fileName)

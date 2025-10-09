@@ -7,4 +7,4 @@
 // DEPENDENCE: a
 // EXEC: %compiler %cmp_opt %compile_lib_opt %pkg_opt a
 // EXEC: %compiler --scan-dependency a.cjo 2>&1 | compare %f
-// ASSERT: scan {"package":"a","isMacro":false,"accessLevel":"public","dependencies":[]}
+// ASSERT: scan {"package":"a","isMacro":false,"accessLevel":"public","dependencies":[],"features":[]}

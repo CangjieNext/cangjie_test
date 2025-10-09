@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors std_test,std_test
-b,b 380,Breakpoint 1: 2 locations
-AOT r,r,-> 380
+b,b 388,Breakpoint 1: 2 locations
+AOT r,r,-> 388
 CJVM c,c,
-s,s,-> 380
-s,s,-> 381
-s,s,-> 380
+s,s,-> 388
+s,s,-> 389
+s,s,-> 388
 q,q,

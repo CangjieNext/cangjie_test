@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.5.1.1.1
   @Scene: add
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: add instance func
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,14 +33,12 @@
 package test_stable_abi
 
 // test extend: instance function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public struct TestStruct {
     public const init() {}
 }
-
 extend TestStruct {
     public func f1() {
         1
@@ -65,7 +63,6 @@ extend TestStruct {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -73,7 +70,6 @@ extend TestStruct {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -88,17 +84,14 @@ extend TestStruct {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
@@ -176,7 +169,6 @@ extend TestStruct {
     func add_f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func add_f6(): Int64 {
         f5()
@@ -184,7 +176,6 @@ extend TestStruct {
     func add_pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func add_pf6(): Int64 {
         pf5()
@@ -199,17 +190,14 @@ extend TestStruct {
     public func add_f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func add_f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func add_pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func add_pf9() {
         9

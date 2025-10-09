@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_ArrayIns_composite_record,011_debug_ArrayIns_composite_record
-b,b 22,011_debug_ArrayIns_composite_record.cj:22
-AOT r,r,-> 22
+b,b 30,011_debug_ArrayIns_composite_record.cj:30
+AOT r,r,-> 30
 CJVM c,c,
 p,p multiArr_mg_d2[0],\(std[.]core.Array<default.R2<Rune>>\) \$[\d] = {(\r|\n|\r\n)  \[0\] = [\s\S]*
 p,p multiArr_mg_d2[0][1],default.R2<Rune>\) \$[\d] = {(\r|\n|\r\n)  width = 'F'

@@ -8,8 +8,8 @@
 // (DEBUG_OPTION)EXEC: %compiler %compile_lib_opt depFibonacci.cj -o depFibonacci.%middle
 // (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt depFibonacci.%middle %n.cj -o %output 2>&1 | compare %f
 // (CJNATIVE and DEBUG_OPTION) EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at testDependency.cj:20:1 - testDependency.cj:20:32 replaced initializer function `gv$_tenth_fibonacci` with initializer constant(s).
-// ASSERT: scan debug: consteval at testDependency.cj:21:1 - testDependency.cj:21:90 replaced initializer function `gv$_fifth_fibonacci_is_smaller_than_tenth_fibonacci` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_tenth_fibonacci` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_fifth_fibonacci_is_smaller_than_tenth_fibonacci` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors class01,class01
-b,b 27,class01.cj:27
-r,r,-> 27
+b,b 35,class01.cj:35
+r,r,-> 35
 locals,locals,\(Int32\) m_length = 3
 p,p m_str,\(std.core.String\) \$[\d] = "strmao"
 p,p m_arrayInt8,\(std.core.Array<Int8>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*\[2\] = 30[\s\S]*}

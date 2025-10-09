@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_baseVar,ArrayList_baseVar
-b,b 11,ArrayList_baseVar.cj:11
-AOT r,r,-> 11
-CJVM c,c,-> 11
+b,b 19,ArrayList_baseVar.cj:19
+AOT r,r,-> 19
+CJVM c,c,-> 19
 p,p Arrlist_I8,\(std[.]collection.ArrayList<Int8>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\[3\] = 4[\s\S]*}
 p,p Arrlist_I16,\(std[.]collection.ArrayList<Int16>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\[3\] = 127[\s\S]*}
 p,p Arrlist_I32,\(std[.]collection.ArrayList<Int32>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\[3\] = 1023[\s\S]*}

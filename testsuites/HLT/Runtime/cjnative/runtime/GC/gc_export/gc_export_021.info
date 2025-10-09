@@ -1,0 +1,12 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE: gc_export_code.cj
+// (not OHOS and not MAC)EXEC: %compiler %cmp_opt %overflow_wrapping gc_export_code.cj -o %output
+// (not OHOS and not MAC)RUN-EXEC: %export MRT_REPORT=./log.txt && %export cjProcessorNum=0 && %run %run_opt %output %run_args && cat log.txt | grep "Processor number: " | head -n 1 | cut -d ':' -f 2 | sed "s/^[ 	]*//;s/[ 	]*$//"> ProcessorNum.txt && cat /proc/cpuinfo | grep "processor" | sort -u | wc -l > CPU.txt && diff ProcessorNum.txt CPU.txt

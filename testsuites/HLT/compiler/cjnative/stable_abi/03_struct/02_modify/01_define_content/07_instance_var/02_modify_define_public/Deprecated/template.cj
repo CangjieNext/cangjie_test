@@ -5,37 +5,35 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
+
 
 public struct Rectangle {
     static let width = 10
     let a1 = 20
     public let a2 = 20
-    @Deprecated["this value is deprecated", strict: false]
-    let a3 = 20
-    @Deprecated["this value is deprecated", strict: false]
-    public let a4 = 20
-    @Deprecated["this value is deprecated", strict: true]
-    public let a5 = 20
+    @Deprecated["this value is deprecated", strict: false] let a3 = 20
+    @Deprecated["this value is deprecated", strict: false] public let a4 = 20
+    @Deprecated["this value is deprecated", strict: true] public let a5 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 }
 
-public struct S2 {
+public struct S2{
     let a1 = 20
     public let a2 = 0
     let a3 = 20
     public let a4 = 0
 
-    @Deprecated["this value is deprecated", strict: false]
-    public let a5 = 20
-    @Deprecated["this value is deprecated", strict: false]
-    let a6 = 20
+    let a7 = 20
+
+    @Deprecated["this value is deprecated", strict: false] public let a5 = 20
+    @Deprecated["this value is deprecated", strict: false] let a6 = 20
 
     @Frozen
     public func geta3() {
@@ -51,4 +49,47 @@ public struct S2 {
     public func geta6() {
         return a6
     }
+
+    public func getWidth(): Int64{
+        return a7
+    }
+
 }
+
+
+public struct Rectangle1 {
+    static let width = 10
+    @Deprecated["this value is deprecated", strict: true] let a9 = 20
+    @Deprecated["this value is deprecated", strict: true] let a10 = 202
+    @Deprecated["this value is deprecated", strict: true] public let a11 = 202
+
+    static const init() {
+        let degree = 180
+    }
+
+    @Frozen
+    @Deprecated["this value is deprecated", strict: true]
+    public func getWidth(): Int64{
+        return a9
+    }
+}
+
+
+public struct Rectangle2 {
+    static let width = 10
+    @Deprecated["this value is deprecated", strict: false] let a9 = 20
+    @Deprecated["this value is deprecated", strict: false] let a10 = 202
+    @Deprecated["this value is deprecated", strict: false] public let a11 = 202
+
+    static const init() {
+        let degree = 180
+    }
+
+    @Deprecated["this value is deprecated", strict: false]
+    public const func getWidth(): Int64{
+        return a9
+    }
+}
+
+
+

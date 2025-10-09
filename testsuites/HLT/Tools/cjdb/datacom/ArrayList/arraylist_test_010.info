@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_CompositeVar,ArrayList_CompositeVar
-b,b 57,ArrayList_CompositeVar.cj:57
-AOT r,r,-> 57
-CJVM c,c,-> 57
+b,b 65,ArrayList_CompositeVar.cj:65
+AOT r,r,-> 65
+CJVM c,c,-> 65
 p,p a.Arrlist_str,\(std[.]collection.ArrayList<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*\[2\] = "                    Hello[\s\S]*                    CangJie![\s\S]*                    "[\s\S]*}
 p,p a.Arrlist_Arr,\(std[.]collection.ArrayList<std[.]core.Array<std[.]core.String>>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
 p,p a.Arrlist_Arrlist,\(std[.]collection.ArrayList<std[.]collection.ArrayList<std[.]core.String>>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}

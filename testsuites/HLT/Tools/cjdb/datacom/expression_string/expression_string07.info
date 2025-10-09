@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors string_stdfunc07,string_stdfunc07
-b,b 11,string_stdfunc07.cj:11
-AOT r,r,-> 11
+b,b 19,string_stdfunc07.cj:19
+AOT r,r,-> 19
 CJVM c,c,
 expr,expr a,\(std.core.Option<UInt8>\) \$[\d] = 97
 expr,expr b,\(Int64\) \$[\d] = 6

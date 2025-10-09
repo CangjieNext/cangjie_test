@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_enum_generics,002_debug_enum_generics
-b,b 41,002_debug_enum_generics.cj:41
-AOT r,r,-> 41
+b,b 49,002_debug_enum_generics.cj:49
+AOT r,r,-> 49
 CJVM c,c,
 globals,globals,TimeUnit1<Int8>\) default(::|\.)top_time = {(\r|\n|\r\n)  constructor = Year(\r|\n|\r\n)  arg_1 = 8
 q,q,

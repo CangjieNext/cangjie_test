@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -15,21 +15,20 @@ public interface I1 {
         "interface I1"
     }
 }
-
 public interface I2<T> {
     public static func typename(): String {
         "interface I2<T>"
     }
 }
-
 interface I3 {
     public static func typename(): String {
         "interface I3"
     }
 }
-
 interface I4<T> {
     public static func typename(): String {
         "interface I4<T>"
     }
 }
+
+

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func003,generics_local_func003
-b,b 17,generics_local_func003.cj:17
-AOT r,r,-> 17
+b,b 25,generics_local_func003.cj:25
+AOT r,r,-> 25
 CJVM c,c,
 expr:expr aa:\(default.A1\) \$[\d] = {}
 expr:expr cc:\(UInt16\) \$[\d] = 4

@@ -15,11 +15,11 @@
 test#
 cjdb,cjdb --no-use-colors cffi_test_16,cffi_test_16
 AOT setting,settings set target.process.thread.step-out-avoid-nodebug true,
-b,b 24,Breakpoint 1:[\s\S]*C_FFI_stepin.cj:24
-AOT r,r,-> 24
-CJVM c,c,-> 24
-s,s,-> 6
-b,b 12,Breakpoint 2:[\s\S]*C_FFI_stepin.c:12
-c,c,-> 12
-s,step,-> 13
+b,b 32,Breakpoint 1:[\s\S]*C_FFI_stepin.cj:32
+AOT r,r,-> 32
+CJVM c,c,-> 32
+s,s,-> 14
+b,b 20,Breakpoint 2:[\s\S]*C_FFI_stepin.c:20
+c,c,-> 20
+s,step,-> 21
 q,q,

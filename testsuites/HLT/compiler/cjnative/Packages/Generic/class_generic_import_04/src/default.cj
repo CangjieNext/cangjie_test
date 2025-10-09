@@ -24,6 +24,7 @@ main(): Int64 {
         return 3
     }
     var a = C<Int32>.foo(Option<Int32>.None)
+    //var a = C<Int32>.foo(None) // infer the type fail
     var r1 = match (a) {
         case Some(v) => v
         case None => Int32(1)

@@ -33,13 +33,24 @@ main(): Int64 {
         }
     }
 
+    // var b = 65504____.0f16
+    // var c = 5.97_e-8_f16
+    // var d = 65504.0_f16
 
+    // if (!(a == .0000000597 && a is Float16)) {
+    // 	return 1
     // }
 
+    // if (!(b == 65504.0 && a is Float16)) {
+    // 	return 2
     // }
 
+    // if (!(c == .0000000597 && a is Float16)) {
+    // 	return 3
     // }
 
+    // if (!(d == 65504.0 && a is Float16)) {
+    // 	return 4
     // }
 
     return 0

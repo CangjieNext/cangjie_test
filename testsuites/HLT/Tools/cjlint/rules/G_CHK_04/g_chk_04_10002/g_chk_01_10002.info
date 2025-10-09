@@ -9,4 +9,4 @@
 // LEVEL: 0-core
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex-1 15:34: .*warning.*: 'a' is or includes function parameter, regular expressions should not be built dynamically.
+// ASSERT: regex-1 7:34: .*warning.*: 'a' is or includes function parameter, regular expressions should not be built dynamically.

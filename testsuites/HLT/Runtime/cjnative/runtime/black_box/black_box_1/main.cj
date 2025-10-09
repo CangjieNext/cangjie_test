@@ -10,7 +10,7 @@ package tmp_test
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan 111
 // ASSERT: scan holder init end
 

@@ -18,12 +18,12 @@
 
 test#
 cjdb,cjdb --no-use-colors demangle_target,demangle_target
-AOT b,b 286,Breakpoint 1: 2 locations.
-CJVM b,b 286,demangle.cj:286
-AOT r,r,demangle_target`default::main\(\) at demangle.cj:286:20[\s\S]*-> 286
-CJVM c,c,-> 286
-s,s,demangle_target`default::main::lambda.*\(\) at demangle.cj:286:25[\s\S]*-> 286
-CJVM s,s,demangle_target`default::main\(\) at demangle.cj:286:[\s\S]*-> 286
-CJVM s,s,demangle_target`default::main\(\) at demangle.cj:288:20[\s\S]*-> 288
-AOT s,s,demangle_target`default::main\(\) at demangle.cj:288:[\s\S]*-> 288
+AOT b,b 294,Breakpoint 1: 2 locations.
+CJVM b,b 294,demangle.cj:294
+AOT r,r,demangle_target`default::main\(\) at demangle.cj:294:20[\s\S]*-> 294
+CJVM c,c,-> 294
+s,s,demangle_target`default::main::lambda.*\(\) at demangle.cj:294:25[\s\S]*-> 294
+CJVM s,s,demangle_target`default::main\(\) at demangle.cj:294:[\s\S]*-> 294
+CJVM s,s,demangle_target`default::main\(\) at demangle.cj:296:20[\s\S]*-> 296
+AOT s,s,demangle_target`default::main\(\) at demangle.cj:296:[\s\S]*-> 296
 q,q,

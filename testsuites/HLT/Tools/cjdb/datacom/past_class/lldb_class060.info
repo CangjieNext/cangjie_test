@@ -15,9 +15,9 @@
 
 test#
 cjdb,cjdb --no-use-colors class_external_use,class_external_use
-b,b 16,class_external_use.cj:16
-AOT r,r,-> 16
-CJVM c,c,-> 16
-n,n,-> 17
+b,b 24,class_external_use.cj:24
+AOT r,r,-> 24
+CJVM c,c,-> 24
+n,n,-> 25
 print,print main_Rect,Rectangle_ex\) \$[\d] = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
 q,q,

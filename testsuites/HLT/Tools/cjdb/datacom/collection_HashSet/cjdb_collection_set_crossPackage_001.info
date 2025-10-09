@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashSet_external_invoke,collection_HashSet_external_invoke
-b,b 17,collection_HashSet_external_invoke.cj:17
-AOT r,r,-> 17
-CJVM c,c,-> 17
+b,b 25,collection_HashSet_external_invoke.cj:25
+AOT r,r,-> 25
+CJVM c,c,-> 25
 p,p newc,Class_sub_exter1\) \$[\d] = {[\S\s]*Exter_Cla_1 = {[\S\s]*set_pint32 = [\S\s]*sub_cp1 = [\S\s]*}
 AOT p,p newc.set_pint32,std[.]collection.HashSet<Int32>\) \$[\d] = {[\S\s]*\[0\] = -764
 CJVM p,p newc.set_pint32,error: variable was not declared in this scope

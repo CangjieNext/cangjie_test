@@ -12,9 +12,9 @@
 // (not MAC) RUN-EXEC: python3 cjdb_test.py case09.info case09 %run_env
 test#
 cjdb,cjdb --no-use-colors case09,case09
-b,b main,case09.cj:21
-AOT r,r,-> 21
+b,b main,case09.cj:29
+AOT r,r,-> 29
 CJVM c,c,
-n,n,-> 22
-AOT s,s,default(::|\.)ClassViaExtend(::|\.)v2(::|\.)get\(this=default(::|\.)ClassViaExtend @ [\S\s]*\) at case09.cj:16
+n,n,-> 30
+AOT s,s,default(::|\.)ClassViaExtend(::|\.)v2(::|\.)get\(this=default(::|\.)ClassViaExtend @ [\S\s]*\) at case09.cj:24
 q,q,

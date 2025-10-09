@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 058_debug_record_func,058_debug_record_func
-b,b 39,058_debug_record_func.cj:39
-AOT r,r,-> 39
+b,b 47,058_debug_record_func.cj:47
+AOT r,r,-> 47
 CJVM c,c,
-n,n,-> 40
+n,n,-> 48
 locals,locals,main_get4 = 4
 q,q,

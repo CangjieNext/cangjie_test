@@ -13,6 +13,6 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b ,b m_1,050_debug_dataType_basic.cj:45
+b ,b m_1,050_debug_dataType_basic.cj:53
 watchpoint,watchpoint set variable -w write v1,Command requires a current process.
 q,q,

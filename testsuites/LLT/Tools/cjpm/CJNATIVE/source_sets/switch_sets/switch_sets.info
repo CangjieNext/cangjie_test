@@ -1,0 +1,34 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// (Windows)EXEC: copy NUL output
+// (Unix)EXEC: cd %n && touch output
+// EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=feature.arch.big 2>&1 > output
+// EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=feature.arch.little >> output
+// (Windows)EXEC: cd %n && type output | compare %f
+// (Unix)EXEC: cd %n && cat output | compare %f
+// ASSERT: scan-1 BIG_MESSAGE
+// ASSERT: scan-1 LITTLE_MESSAGE
+
+// SEPARATE-FILE: %n/lib/src/common/main.cj
+package lib 
+
+public common func message(): Unit
+
+// SEPARATE-FILE: %n/lib/src/big/message.cj
+package lib
+
+public platform func message(): Unit {
+	println("BIG_MESSAGE")
+}
+
+// SEPARATE-FILE: %n/lib/src/little/message.cj
+package lib
+
+public platform func message(): Unit {
+	println("LITTLE_MESSAGE")
+}

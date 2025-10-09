@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_setVar_generices,001_debug_setVar_generices
-b,b 14,001_debug_setVar_generices.cj:14
-AOT r,r,-> 14
+b,b 22,001_debug_setVar_generices.cj:22
+AOT r,r,-> 22
 CJVM c,c,
-s,s,-> 58
-n,n,-> 59
+s,s,-> 66
+n,n,-> 67
 p, p par_fs1,\(Int32\) \$[\d] = 100
 set,set par_fs1 =132,\(Int32\) \$[0-9]* = 132
 p, p par_fs1,\(Int32\) \$[\d] = 132

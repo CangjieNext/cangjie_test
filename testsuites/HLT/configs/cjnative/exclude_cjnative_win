@@ -1,7 +1,7 @@
 # Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 # This source file is part of the Cangjie project, licensed under Apache-2.0
 # with Runtime Library Exception.
-#
+# 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 # ======================== API exclude ========================
@@ -160,7 +160,7 @@ API/net/handler/FileHandler/file_handler_init_15n.cj
 API/net/handler/FileHandler/file_handler_init_18n.cj
 API/std/fs/directory/windows/test_unc_dirapis.cj
 API/net/Client/ClientBuilder/Http2/ClientBuilder_sendRequest_and_getResponse.cj
-API/net/Server/ServerBuilder/Http2/ServerBuilder_servicePoolConfig_H2.cj
+API/net/Server/ServerBuilder/Http2/ServerBuilder_servicePoolConfig_H2.cj 
 
 # windows绑定socket时的SO_REUSEADDR，默认为true
 API/net/Server/ServerBuilder/Http1/ServerBuilder_afterBind.cj
@@ -211,18 +211,15 @@ API/std/socket/UnixSocket
 # windows 未授予创建软连接权限
 API/std/fs/path/windows/unc_path/test_path_unequal_02.cj
 
-# should be fixed.
-API/std/convert/radixconvertible/test_radixconvertible_int_01.cj
-API/std/convert/radixconvertible/test_radixconvertible_uint_02.cj
-API/std/os/env/test_getArgs/test_getArgs_005/test_getArgs_005.cj
-API/std/unittest/mock/test_mock_extend_cjnative.cj
-
 # ======================== Compiler exclude ========================
 # linux和win的命令行差异
 
 # cannot find -l:libcangjie-std-ffi.python.a: No such file or directory (windows平台python还不支持)
 compiler/cjnative/FFI/Python
 API/std/ffi/Python
+
+# old jffi can only be run with cjvm.
+compiler/cjnative/FFI/jffi
 
 # cannot find -ldl: No such file or directory （不支持 ldl）
 compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00785/c_ffi.cj
@@ -357,20 +354,14 @@ compiler/cli/Option/pgo/pgo_005.cj
 
 Regression/External/I4AZMP.cj
 
-# cjpm should be fixed.
-Tools/cjpm/cjpm_command/build1/release_debug_path/case11
-Tools/cjpm/cjpm_command/build1/release_debug_path/case12
-Tools/cjpm/cjpm_command/build1/release_debug_path/case13
-Tools/cjpm/cjpm_command/build1/release_debug_path/case15
-Tools/cjpm/cjpm_build/zero_module/zero_module_005
-Tools/cjpm/cjpm_command/build1/zero/module_build_005
-Tools/cjpm/cjpm_command/build1/zero/module_build_006
+# mock error, call an abstract function
+API/std/unittest/mock/test_mock_extend_cjnative.cj
 
-# fail randomly in win
-API/net/Server/ServerBuilder/Http2/Server_request_check_H2.cj
+# syntax will be supported in future
+API/syntax
 
-# for randomly fail
-API/net/Server/ServerBuilder/Http2/ServerBuilder_maxHeaderListSize_H2.cj
-API/net/Client/ClientBuilder/Http2/ClientBuilder_autoRedirect_H2.cj
-API/net/Server/ServerBuilder/Http2/ServerBuilder_httpKeepAliveTimeout_H2.cj
-API/std/os/process/test_kill/test_kill_001/test_kill_001.cj
+# timezone file in ci not support now
+API/std/time/TimeZone/load/test_loadFromPaths.cj
+
+# 930: dev merge main
+API\std\os\env\test_getArgs\test_getArgs_005\test_getArgs_005.cj

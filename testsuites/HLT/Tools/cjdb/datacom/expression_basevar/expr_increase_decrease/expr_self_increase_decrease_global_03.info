@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 53,expr_globals.cj:53
-CJVM c,c,-> 53
-AOT r,r,-> 53
+b,b 61,expr_globals.cj:61
+CJVM c,c,-> 61
+AOT r,r,-> 61
 expr,expr globals_hmu8["b"]++;globals_hmu8["b"],\(UInt8\) \$[\d] = 2
 expr,expr globals_hmu16["b"]++;globals_hmu16["b"],\(UInt16\) \$[\d] = 2
 expr,expr globals_hmu32["c"]++;globals_hmu32["c"],\(UInt32\) \$[\d] = 3

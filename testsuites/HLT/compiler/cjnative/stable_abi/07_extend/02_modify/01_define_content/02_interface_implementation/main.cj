@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
@@ -13,9 +13,12 @@ main() {
     let s1 = S1()
 
     if (c1.f1() == 100 && c1.ff1() == 100
-        && s1.f1() == 100 && s1.ff1() == 100) {
-        return 0
+    && s1.f1() == 100 && s1.ff1() == 100) {
+        return 0        
     } else {
         return 1
     }
+
 }
+
+

@@ -5,40 +5,23 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
-// ASSERT: scan Compatible!
-
+ 
+// ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
-public enum S1 {
-    | Red | Green | Blue(UInt8)
-
-    public func getX(): Int64 {
-        return 10
-    }
-
-    @OverflowThrowing
-    public static func geta1() {
-        return 0
-    }
-
-    public static func geta2() {
-        return 0
-    }
-
-    public static func geta3() {
-        return 0
+@Annotation
+public class A {
+    let name: String
+    public const init(name: String) {
+        this.name = name
     }
 }
 
-enum S2 {
-    | Red | Green | Blue(UInt8)
+public enum E {
+    | RED | BLUE | YELLOW(UInt8)
+    public static func f1(): Int64 { return 0 }
+    @A["func2"] public static func f2(): Int64 { return 0 }
+    @A["func3"] public static func f3(): Int64 { return 0 }
 }
 
-public enum S3 {
-    | Red | Green | Blue(UInt8)
 
-    public func getX(): Int64 {
-        return 10
-    }
-}

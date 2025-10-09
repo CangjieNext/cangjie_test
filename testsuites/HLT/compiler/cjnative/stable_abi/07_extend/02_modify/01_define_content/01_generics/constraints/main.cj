@@ -5,14 +5,19 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    if (Generics_C<Father, Son>().foo1() == 1
-        && Generics_S<Father, Son>().foo2() == 2) {
-        return 0
+    if (
+        Generics_C<Father, Son>().foo1() == 1
+        && Generics_S<Father, Son>().foo2() == 2
+    ) {
+        return 0        
     } else {
         return 1
     }
+
 }
+
+

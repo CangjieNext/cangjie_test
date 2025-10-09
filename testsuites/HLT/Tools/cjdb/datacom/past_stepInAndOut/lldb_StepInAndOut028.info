@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 038_debuginfun_basetype,038_debuginfun_basetype
-CJVM b main,b main,038_debuginfun_basetype.cj:4
-CJVM c,c,-> 4
-b,b 28,038_debuginfun_basetype.cj:28
-AOT r,r,-> 28
-CJVM c,c,-> 28
-s,s,-> 33
+CJVM b main,b main,038_debuginfun_basetype.cj:12
+CJVM c,c,-> 12
+b,b 36,038_debuginfun_basetype.cj:36
+AOT r,r,-> 36
+CJVM c,c,-> 36
+s,s,-> 41
 locals,locals,var18 = 9
-AOT rerun,r,-> 28
+AOT rerun,r,-> 36
 AOT finish,finish,stopped
 q,q,

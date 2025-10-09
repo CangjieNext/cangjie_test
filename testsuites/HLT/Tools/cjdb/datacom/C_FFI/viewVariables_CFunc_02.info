@@ -15,9 +15,9 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_CFunc_02,viewVariables_CFunc_02
-b,b 76,C_FFI.cj:76
-AOT r,r,-> 76
+b,b 84,C_FFI.cj:84
+AOT r,r,-> 84
 CJVM c,c,
 p,p v1,\(Int32\) \$[\d] = 100
-p,p CF_I,\(pkg_cffi.\(\)->Int32\) \$[\d] = 0x.* \(libviewVariables_CFunc_02.(so|dll|dylib)\`IntFromC at C_FFI.c:79\)
+p,p CF_I,\(pkg_cffi.\(\)->Int32\) \$[\d] = 0x.* \(libviewVariables_CFunc_02.(so|dll|dylib)\`IntFromC at C_FFI.c:87\)
 q,q,

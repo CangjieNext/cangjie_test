@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_ArrayIns_baseType,008_debug_ArrayIns_baseType
-b,b 17,008_debug_ArrayIns_baseType.cj:17
-AOT r,r,-> 17
+b,b 25,008_debug_ArrayIns_baseType.cj:25
+AOT r,r,-> 25
 CJVM c,c,
 p,p arr_1,\(std[.]core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[99\] = 100
 p,p arr_1[4950..4954],\(std[.]core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 4951[\s\S]*\[3\] = 4954

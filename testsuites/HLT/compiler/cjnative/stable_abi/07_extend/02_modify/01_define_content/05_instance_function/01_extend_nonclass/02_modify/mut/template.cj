@@ -5,19 +5,17 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test extend: instance function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public struct TestStruct {
     public const init() {}
 }
-
 extend TestStruct {
     public mut func f1() {
         1
@@ -26,17 +24,16 @@ extend TestStruct {
         2
     }
 
-    mut const func f3(): Int64 {
+    const mut func f3(): Int64 {
         return 3
     }
-    public mut const func f4(): Int64 {
+    public const mut func f4(): Int64 {
         f3()
     }
 
     mut func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public mut func f6(): Int64 {
         f5()
@@ -68,7 +65,6 @@ extend TestStruct {
     func f15(): Int64 {
         return 5
     }
-
     @Frozen
     public func f16(): Int64 {
         f15()
@@ -79,3 +75,5 @@ public func global() {
     var s1 = TestStruct()
     s1.f7()
 }
+
+

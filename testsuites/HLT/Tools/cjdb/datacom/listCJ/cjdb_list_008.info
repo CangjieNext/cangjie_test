@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 109,list_debug.cj:109
-AOT r,r,-> 109
+b,b 117,list_debug.cj:117
+AOT r,r,-> 117
 CJVM c,c,
 p,p m_base_copy[0][0],= 1
 set,set m_base_1_4[0][0]=100,= 100

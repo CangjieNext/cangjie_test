@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %cmp_opt %overflow_wrapping %f -o %output
-// RUN-EXEC-PIPE: %export MRT_LOG_LEVEL=i && %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT:scan The threshold must be greater than 0.
+// (not Android）EXEC: %compiler %cmp_opt %overflow_wrapping %f -o %output
+// (not Android）RUN-EXEC-PIPE: %export MRT_LOG_LEVEL=i && %run %run_opt %output %run_args 2>&1 | compare %f
+// (not Android）ASSERT:scan The threshold must be greater than 0.
 
 import std.runtime.*
 

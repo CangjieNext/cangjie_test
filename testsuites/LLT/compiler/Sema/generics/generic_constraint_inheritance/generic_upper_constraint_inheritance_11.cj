@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-1:%frontendCompiler %typecheck %cmp_opt %f 2>&1 | compare %f
+// EXEC-PIPE-1:%frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
 
 interface I {}
 
@@ -14,13 +14,5 @@ extend<T> A<T> where T <: String {}
 
 main() {}
 
-/* SCAN
-error: the upper bound 'Struct-String' of generic parameter 'Generics-T' must be class or interface
-  ==> generic_upper_constraint_inheritance_11.cj:13:8:
-   | 
-13 | extend<T> A<T> where T <: String {}
-   |        ^ 
-   | 
-
-1 error generated, 1 error printed.
-*/
+// ASSERT: scan-1 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 1

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var009,generics_local_var009
-b,b 13,generics_local_var009.cj:13
-AOT r,r,-> 13
+b,b 21,generics_local_var009.cj:21
+AOT r,r,-> 21
 CJVM c,c,
 expr:expr UInt8(a3):OverflowException: The result would be less than UInt8.Min.
 expr:expr a4[0]+1:\(Int8\) \$[\d] = 0

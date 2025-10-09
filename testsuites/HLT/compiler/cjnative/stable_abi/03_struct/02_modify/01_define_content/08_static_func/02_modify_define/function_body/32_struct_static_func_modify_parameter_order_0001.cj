@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.8.2.32
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: struct static func
   @Behavior: modify public function parameter order: non named parameter
   @Expect: api incompatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -22,6 +22,7 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
+
 
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Changed unnamed parameter order of function visible outside the module.
@@ -32,7 +33,7 @@
 // test struct: modify public function parameter order: non named parameter
 package test_stable_abi
 
-public open class A {
+open public class A {
     let a: Int64 = 10
 }
 
@@ -44,22 +45,22 @@ public struct Rectangle {
     let width = 10
     static let a1 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
-    public static func geta(a: Int64): Int64 {
+    static public func geta(a: Int64): Int64 {
         var b = a + 1
         return b
     }
 
-    public static const func getb(a: Int64): Int64 {
+    const static public func getb(a: Int64): Int64 {
         let b = a + 1
         return b
     }
 
     @Frozen
-    public static func getc(a: Int64): Int64 {
+    static public func getc(a: Int64): Int64 {
         var b = a + 1
         return b
     }
@@ -137,11 +138,11 @@ public struct Rectangle {
         return 1
     }
 
-    public static func gett(a!: Int64 = 1) {
+    public static func gett(a!: Int64=1) {
         return a
     }
 
-    static func getu(a!: Int64 = 2) {
+    static func getu(a!: Int64=2) {
         return a + 2
     }
 
@@ -176,7 +177,7 @@ public struct Rectangle {
     }
 
     @Frozen
-    static func geta3(a!: Int64 = 2) {
+    static func geta3(a!: Int64=2) {
         return a + 4
     }
 
@@ -185,4 +186,13 @@ public struct Rectangle {
         let y = geta3(a: 1)
         return y
     }
+
+    static func getz(a: B) {
+        return a
+    }
+
+    static func geta5(a!: Int64) {
+        return a + 4
+    }
 }
+

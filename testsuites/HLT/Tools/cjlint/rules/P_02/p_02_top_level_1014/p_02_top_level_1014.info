@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-1 :16:.*error.*?'res' is used in line 16,19, but not be protected by mutex
+// ASSERT: regex-1 :8:.*error.*?'res' is used in line 8,11, but not be protected by mutex

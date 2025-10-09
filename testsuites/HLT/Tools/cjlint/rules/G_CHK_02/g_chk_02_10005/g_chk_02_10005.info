@@ -9,4 +9,4 @@
 // LEVEL: 0-core
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex-1 :21:.*error.*?'HttpResponseBuilder\(\).build\(\).toString' is external data, it should not be used to record logs
+// ASSERT: regex-1 :13:.*error.*?'HttpResponseBuilder\(\).build\(\).toString' is external data, it should not be used to record logs

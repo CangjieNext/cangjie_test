@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 89,052_debug_record_generics.cj:89
-AOT r,r,-> 89
+b,b 97,052_debug_record_generics.cj:97
+AOT r,r,-> 97
 CJVM c,c,
-n,n,-> 90
+n,n,-> 98
 AOT locals,locals,R1<Float64>\) r2 = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 CJVM locals,locals,R1<UInt32>\) r1 = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 q,q,

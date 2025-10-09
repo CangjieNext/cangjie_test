@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 126,genericsfun_return.cj:126
-AOT r,r,-> 126
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
 CJVM c,c,
 p, p lrange,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
 p, p s1.vranges,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
@@ -25,8 +25,8 @@ p, p globals_range,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
 locals, locals,\(std.core.Range<Int64>\) lrange = 1..10 : 1[\s\S]*\(default.S1\) s1 = {[\s\S]*vranges = 1..10 : 1[\s\S]*\(default.C1\) c1 = {[\s\S]*vrangec = 1..10 : 1[\s\S]*
 globals, globals,\(std.core.Range<Int64>\) default::C1::vrange = 1..10 : 1
 globals, globals,\(std.core.Range<Int64>\) default::globals_range = 1..10 : 1
-b, b 153,genericsfun_return.cj:153
-c,c,-> 153
+b, b 161,genericsfun_return.cj:161
+c,c,-> 161
 p, p c,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
 p, p test_c,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
 locals, locals,\(std.core.Range<Int64>\) c = 1..10 : 1

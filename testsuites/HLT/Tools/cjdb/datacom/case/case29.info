@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case29,case29
-b,b 10,case29.cj:10
-AOT r,r,-> 10
+b,b 18,case29.cj:18
+AOT r,r,-> 18
 CJVM c,c,
 AOT p,p b,\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A
 AOT expr,expr b,\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A

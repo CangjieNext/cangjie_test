@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 96,052_debug_record_generics.cj:96
-AOT r,r,-> 96
+b,b 104,052_debug_record_generics.cj:104
+AOT r,r,-> 104
 CJVM c,c,
-n,n,-> 98
+n,n,-> 106
 locals,locals,r5 = {(\r|\n|\r\n)  width = Year(\r|\n|\r\n)  length = Year
 q,q,

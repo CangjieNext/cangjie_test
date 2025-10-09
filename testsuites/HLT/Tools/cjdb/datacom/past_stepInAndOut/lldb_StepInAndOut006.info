@@ -16,44 +16,44 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_while,004_debug_while
-CJVM b main,b main,004_debug_while.cj:4
-CJVM c,c,-> 4
-b,b 4,004_debug_while.cj:4
-b,b 5,004_debug_while.cj:5
-b,b 6,004_debug_while.cj:6
-AOT b,b 7,004_debug_while.cj:8
-CJVM b,b 7,004_debug_while.cj:7
-AOT r,r,-> 4
-s,s,-> 5
-finish,finish,-> 6
-finish,finish,-> 5
-finish,finish,-> 6
-s,s,-> 5
-AOT s,s,-> 5
-finish,finish,-> 6
-s,s,-> 5
-AOT s,s,-> 5
-finish,finish,-> 6
-s,s,-> 5
-AOT s,s,-> 5
-finish,finish,-> 6
-s,s,-> 5
-AOT s,s,-> 5
-finish,finish,-> 6
-s,s,-> 5
-AOT s,s,-> 5
-finish,finish,-> 6
-s,s,-> 5
-AOT s,s,-> 5
-finish,finish,-> 6
-s,s,-> 5
-AOT s,s,-> 5
-finish,finish,-> 6
-s,s,-> 5
-AOT s,s,-> 5
-finish,finish,-> 6
-s,s,-> 5
-AOT s,s,-> 5
-finish,finish,-> 8
+CJVM b main,b main,004_debug_while.cj:12
+CJVM c,c,-> 12
+b,b 12,004_debug_while.cj:12
+b,b 13,004_debug_while.cj:13
+b,b 14,004_debug_while.cj:14
+AOT b,b 15,004_debug_while.cj:16
+CJVM b,b 15,004_debug_while.cj:15
+AOT r,r,-> 12
+s,s,-> 13
+finish,finish,-> 14
+finish,finish,-> 13
+finish,finish,-> 14
+s,s,-> 13
+AOT s,s,-> 13
+finish,finish,-> 14
+s,s,-> 13
+AOT s,s,-> 13
+finish,finish,-> 14
+s,s,-> 13
+AOT s,s,-> 13
+finish,finish,-> 14
+s,s,-> 13
+AOT s,s,-> 13
+finish,finish,-> 14
+s,s,-> 13
+AOT s,s,-> 13
+finish,finish,-> 14
+s,s,-> 13
+AOT s,s,-> 13
+finish,finish,-> 14
+s,s,-> 13
+AOT s,s,-> 13
+finish,finish,-> 14
+s,s,-> 13
+AOT s,s,-> 13
+finish,finish,-> 14
+s,s,-> 13
+AOT s,s,-> 13
+finish,finish,-> 16
 locals,locals,hundred = 10
 q,q,

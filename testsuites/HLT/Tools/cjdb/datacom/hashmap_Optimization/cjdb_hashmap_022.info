@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors basic_hashmap_022,basic_hashmap_022
-b,b 6,basic_hashmap_022.cj:6
-AOT r,r,-> 6
+b,b 14,basic_hashmap_022.cj:14
+AOT r,r,-> 14
 p,p a,\(std.collection.HashMap<Int32,Bool>\) \$[\d] = {[\s\S]*\[1 -> true\] = {[\s\S]*key = 1[\s\S]*value = true[\s\S]*}[\s\S]*\[2 -> false\] = {[\s\S]*key = 2[\s\S]*value = false[\s\S]*
 expr,expr this,\(default.Data\) \$[\d] = {[\s\S]*a = {[\s\S]*\[1 -> true\] = {[\s\S]*key = 1[\s\S]*value = true[\s\S]*}[\s\S]*\[2 -> false\] = {[\s\S]*key = 2[\s\S]*value = false[\s\S]*
 q,q,

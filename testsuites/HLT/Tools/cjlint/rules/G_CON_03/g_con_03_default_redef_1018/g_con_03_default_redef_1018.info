@@ -9,6 +9,6 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-1 :71:.*error.*?Override function 'doSomething3' should not use non-thread safe way to override a thread-safe function
-// ASSERT: regex-1 :78:.*error.*?Override function 'doSomething4' should not use non-thread safe way to override a thread-safe function
-// ASSERT: regex-1 :85:.*error.*?Override function 'doSomething5' should not use non-thread safe way to override a thread-safe function
+// ASSERT: regex-1 :63:.*error.*?Override function 'doSomething3' should not use non-thread safe way to override a thread-safe function
+// ASSERT: regex-1 :70:.*error.*?Override function 'doSomething4' should not use non-thread safe way to override a thread-safe function
+// ASSERT: regex-1 :77:.*error.*?Override function 'doSomething5' should not use non-thread safe way to override a thread-safe function

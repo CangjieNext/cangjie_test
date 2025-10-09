@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func007,generics_global_func007
-b,b 20,generics_global_func007.cj:20
-AOT r,r,-> 20
+b,b 28,generics_global_func007.cj:28
+AOT r,r,-> 28
 CJVM c,c,
 expr:expr x1:\(Int64\) \$[\d] = 2
 expr:expr g2(a2,3):\(std.core.Array<std.core.Array<Int64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1[\s\S]*

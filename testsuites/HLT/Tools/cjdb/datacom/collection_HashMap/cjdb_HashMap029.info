@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashMap_Ins_composite,003_HashMap_Ins_composite
-b,b 36,003_HashMap_Ins_composite.cj:36
-AOT r,r,-> 36
-CJVM c,c,-> 36
+b,b 44,003_HashMap_Ins_composite.cj:44
+AOT r,r,-> 44
+CJVM c,c,-> 44
 p,p map_set_1,std[.]collection.HashMap<Int8,std[.]collection.HashSet<Int32>>\) \$[\d] = {[\S\s]*key = 2[\S\s]*\[0\] = -74[\S\s]*\[1\] = 92[\S\s]*\[2\] = -6954[\S\s]*}
 q,q,

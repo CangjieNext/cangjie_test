@@ -14,13 +14,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_HashMap_via_class,005_HashMap_via_class
-b,b 13,005_HashMap_via_class.cj:13
-AOT r,r,-> 13
-CJVM c,c,-> 13
-s,s,-> 66
-b,b 68,005_HashMap_via_class.cj:68
-c,c,-> 68
+b,b 21,005_HashMap_via_class.cj:21
+AOT r,r,-> 21
+CJVM c,c,-> 21
+s,s,-> 74
+b,b 76,005_HashMap_via_class.cj:76
+c,c,-> 76
 p,p map_c_return,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 86[\S\s]*value = 'G'[\S\s]*}
 p,p map_c_return,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 12[\S\s]*value = 'F'[\S\s]*}
-n,n,-> 69
+n,n,-> 77
 q,q,

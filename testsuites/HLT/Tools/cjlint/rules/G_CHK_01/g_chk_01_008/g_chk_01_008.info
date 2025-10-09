@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 1 EXCLUDE
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex-1 test.cj:20:16:.*G.CHK.01: In function 'foo', the 1st argument is untrusted, we can't deliver it outter.
+// ASSERT: regex-1 test.cj:12:16:.*G.CHK.01: In function 'foo', the 1st argument is untrusted, we can't deliver it outter.

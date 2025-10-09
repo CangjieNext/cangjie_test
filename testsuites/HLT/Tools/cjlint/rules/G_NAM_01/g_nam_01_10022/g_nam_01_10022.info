@@ -9,5 +9,5 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex .cj:9:25: .*warning.*: The name of the 'a.b.c.d.e.f.g.h.H' package must contain only digits, lowercase letters, and underscores \(_\).
-// ASSERT: regex .cj:9:27: .*warning.*: The name of the 'a.b.c.d.e.f.g.h.i.JKIHGFGF' package must contain only digits, lowercase letters, and underscores \(_\).
+// ASSERT: regex .cj:1:25: .*warning.*: The name of the 'a.b.c.d.e.f.g.h.H' package must contain only digits, lowercase letters, and underscores \(_\).
+// ASSERT: regex .cj:1:27: .*warning.*: The name of the 'a.b.c.d.e.f.g.h.i.JKIHGFGF' package must contain only digits, lowercase letters, and underscores \(_\).

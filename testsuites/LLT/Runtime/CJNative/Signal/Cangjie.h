@@ -116,7 +116,7 @@ typedef bool (*HasHigherPriorityTaskFunc)();
 
 /*
  * @struct CJThreadSpecificData
- * @brief Data structure to store the cjthread specific data,\n
+ * @brief Data structure to store the cjthread specific data,
  * including the key and value of cjthread specific data.
  */
 struct CJThreadSpecificData {
@@ -170,7 +170,7 @@ enum RTErrorCode { E_OK = 0, E_ARGS = -1, E_TIMEOUT = -2, E_STATE = -3, E_FAILED
 
 /*
  * @struct HeapParam
- * @brief Data structure for Cangjie heap configuration parameters,\n
+ * @brief Data structure for Cangjie heap configuration parameters,
  * including the heap size, region size at runtime, and etc.
  */
 struct HeapParam {
@@ -233,7 +233,7 @@ struct HeapParam {
 
 /*
  * @struct GCParam
- * @brief Data structure for Cangjie garbage collection configuration parameters,\n
+ * @brief Data structure for Cangjie garbage collection configuration parameters,
  * including the garbage ratio, garbage collection interval and etc.
  */
 struct GCParam {
@@ -277,7 +277,7 @@ struct GCParam {
 
 /*
  * @struct LogParam
- * @brief Data structure for Cangjie Log configuration parameters,\n
+ * @brief Data structure for Cangjie Log configuration parameters,
  * including the log size, log file level and etc.
  */
 struct LogParam {
@@ -287,8 +287,8 @@ struct LogParam {
 
 /*
  * @struct ConcurrencyParam
- * @brief Data structure for thread and cjthread configuration parameters,\n
- * including the default stack size for threads and cjthread, numbers of processors,\n
+ * @brief Data structure for thread and cjthread configuration parameters,
+ * including the default stack size for threads and cjthread, numbers of processors,
  * and the maximum number of cjthreads.
  */
 struct ConcurrencyParam {
@@ -313,7 +313,7 @@ struct ConcurrencyParam {
 
 /*
  * @struct RuntimeParam
- * @brief Data structure for Cangjie runtime parameters,\n
+ * @brief Data structure for Cangjie runtime parameters,
  * including the config information of heap, garbage collection, cjthread and log.
  */
 struct RuntimeParam {
@@ -413,7 +413,7 @@ MRT_EXPORT CJThreadHandle RunCJTaskToSchedule(const CJTaskFunc func, void* args,
 
 /*
  * @brief Submit a task with cjthread specific data to Cangjie cjthread scheduler.
- * @par This API will create a Cangjie cjthread with cjthread specific data,\n
+ * @par This API will create a Cangjie cjthread with cjthread specific data,
  * and return the cjthread handle.
  * @attention
  * @param  func  [IN]  user defined Cangjie task function prototype.
@@ -562,9 +562,9 @@ MRT_EXPORT int GetTaskRet(const CJThreadHandle handle, void** ret);
  * @attention
  * @param  handle  [IN]  specified cjthread handle.
  * @param  ret     [IN]  results of the given Cangjie task.
- * @param  timeout [IN]  given timeout, measured in milliseconds. If `timeout` <= 0,\n
+ * @param  timeout [IN]  given timeout, measured in milliseconds. If `timeout` <= 0,
  * its behavior is the same as `GetTaskRet(handle, ret)`.
- * @retval Return 0 if successfully get the returned results of cjthread\n
+ * @retval Return 0 if successfully get the returned results of cjthread
  * within the given timeout. Otherwise, return an error code.
  */
 MRT_EXPORT int GetTaskRetWithTimeout(const CJThreadHandle handle, void** ret, int64_t timeout);
@@ -585,12 +585,12 @@ MRT_EXPORT void ReleaseHandle(const CJThreadHandle handle);
 
 /*
  * @brief Create the key of cjthread specific data.
- * @attention If `destructor` is NULL, the user manages the memory and is responsible for the\n
- * free of the value of cjthread specific data. If `destructor` is non-null, the cjthread\n
- * framework is responsible for destroying the value of cjthread specific data. When the cjthread\n
- * stops, if the stored pointer of cjthread specific data is non-null, and the `destructor` is\
- * non-null, the destruction function will be called. Must be careful not to mix them. Must avoid\n
- * the case that the cjthread free again after the user manually free the memory of cjthread\n
+ * @attention If `destructor` is NULL, the user manages the memory and is responsible for the
+ * free of the value of cjthread specific data. If `destructor` is non-null, the cjthread
+ * framework is responsible for destroying the value of cjthread specific data. When the cjthread
+ * stops, if the stored pointer of cjthread specific data is non-null, and the `destructor` is
+ * non-null, the destruction function will be called. Must be careful not to mix them. Must avoid
+ * the case that the cjthread free again after the user manually free the memory of cjthread
  * specific data. You can create CJTHREAD_KEYS_MAX(now defined to 8 in cjthread)keys at most.
  * @param  key         [IN]  a pointer to the key of cjthread specific data.
  * @param  destructor  [IN]  destructor function for the value of cjthread specific data.
@@ -610,7 +610,7 @@ MRT_EXPORT int CJThreadSetspecific(CJThreadKey key, void* value);
 /*
  * @brief Get the value of cjthread specific data slot identified by key.
  * @param  key  [IN]  key of cjthread specific data, got from CJThreadKeyCreate.
- * @retval Return the current value of cjthread specific data slot identified by key\n
+ * @retval Return the current value of cjthread specific data slot identified by key
  * if OK. Otherwise, return NULL.
  */
 MRT_EXPORT void* CJThreadGetspecific(CJThreadKey key);
@@ -633,7 +633,7 @@ MRT_EXPORT void RegisterEventHandlerCallbacks(PostTaskFunc pFunc, HasHigherPrior
 /*
  * @brief Load Cangjie dynamic shared library.
  * @par This API will load Cangjie dynamic shared library and parse symbols.
- * @attention This no need to launch Cangjie runtime environment before calling this API if only need to load library.\n
+ * @attention This no need to launch Cangjie runtime environment before calling this API if only need to load library.
  * Suggest to use LoadCJLibraryWithInit if there is need to run cangjie func later.
  * @param  libName  [IN]  name of Cangjie dynamic shared library.
  * @retval Return 0 if OK. Otherwise, return an error code.
@@ -642,9 +642,9 @@ MRT_EXPORT int LoadCJLibrary(const char* libName);
 
 /*
  * @brief Initialize Cangjie dynamic shared library.
- * @par This API will invoke `package_global_init` to initialize Cangjie dynamic shared libraries.\n
- * Since `LoadCJLibrary` is provided by `libcangjie-elfloader.so`, which is not dependent with\n
- * Cangjie runtime, and it will be implemented in elibc later. Therefore, the API needs to be\n
+ * @par This API will invoke `package_global_init` to initialize Cangjie dynamic shared libraries.
+ * Since `LoadCJLibrary` is provided by `libcangjie-elfloader.so`, which is not dependent with
+ * Cangjie runtime, and it will be implemented in elibc later. Therefore, the API needs to be
  * temporarily extracted out separately.
  * @attention Make sure Cangjie runtime environment must have been launched before calling this API.
  * @param  libName  [IN]  name of Cangjie dynamic shared library.
@@ -654,7 +654,7 @@ MRT_EXPORT int InitCJLibrary(const char* libName);
 
 /*
  * @brief Load and initialize Cangjie dynamic shared library.
- * @par This API will load Cangjie dynamic shared library, parse symbols, and invoke `package_global_init`\n
+ * @par This API will load Cangjie dynamic shared library, parse symbols, and invoke `package_global_init`
  * to initialize Cangjie dynamic shared libraries.
  * @attention Make sure Cangjie runtime environment must have been launched before calling this API.
  * @param  libName  [IN]  name of Cangjie dynamic shared library.
@@ -678,15 +678,15 @@ MRT_EXPORT int LoadCJLibraryWithInit(const char* libName);
  *     fprintf(stderr, "failed to new task.\n");
  * }
  * @brief Find symbol address from Cangjie dynamic shared library.
- * @par This API takes a dynamic loaded Cangjie shared object along with a null-terminated symbol\n
+ * @par This API takes a dynamic loaded Cangjie shared object along with a null-terminated symbol
  * name, and returns the address where that symbol is loaded into memory.
- * @attention Make sure Cangjie dynamic shared library has been loaded before calling this API. This no need to\n
+ * @attention Make sure Cangjie dynamic shared library has been loaded before calling this API. This no need to
  * launch Cangjie runtime environment and initialize cangjie dynamic shared library if only to find symbol address.
- * However, make sure Cangjie runtime environment must has been launched and this Cangjie dynamic shared\n
+ * However, make sure Cangjie runtime environment must has been launched and this Cangjie dynamic shared
  * library has been initialized if the finded func symbol need to be executed as example.
  * @param  libName     [IN]  name of Cangjie dynamic shared library.
  * @param  symbolName  [IN]  symbol name of a Cangjie function.
- * @retval Return the address where that symbol is loaded into memory if found. Otherwise,\n
+ * @retval Return the address where that symbol is loaded into memory if found. Otherwise,
  * return NULL.
  */
 MRT_EXPORT void* FindCJSymbol(const char* libName, const char* symbolName);
@@ -703,7 +703,7 @@ MRT_EXPORT int UnloadCJLibrary(const char* libName);
 #ifndef _WIN64
 /*
  * @struct SignalAction
- * @brief Data structure to store the signal data,\n
+ * @brief Data structure to store the signal data,
  * including signal handler and other signal params.
  */
 struct SignalAction {

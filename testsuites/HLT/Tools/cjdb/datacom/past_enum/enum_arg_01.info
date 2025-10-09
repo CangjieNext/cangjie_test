@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors enum_arg,enum_arg
-b,b main,main\(\)[\s\S]*enum_arg.cj:20
-AOT r,r,-> 20
+b,b main,main\(\)[\s\S]*enum_arg.cj:28
+AOT r,r,-> 28
 CJVM c,c,
 globals,globals,\(default.test_R\) default::global_enum = {(\r|\n|\r\n)  constructor = Red(\r|\n|\r\n)  arg_1 = {(\r|\n|\r\n)    constructor = Yellow
 q,q,

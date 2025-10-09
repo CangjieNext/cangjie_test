@@ -9,9 +9,9 @@
 // LEVEL: 0-core
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: scan test.cj:10:5
-// ASSERT: scan a/c/c.cj:12:5
-// ASSERT: scan b/b.cj:12:5
-// ASSERT: scan a/a.cj:12:5
+// ASSERT: scan test.cj:2:5
+// ASSERT: scan a/c/c.cj:4:5
+// ASSERT: scan b/b.cj:4:5
+// ASSERT: scan a/a.cj:4:5
 // ASSERT: scan SenInfoName found!
 // ASSERT: scan is sensitive information is hard-coded in the program

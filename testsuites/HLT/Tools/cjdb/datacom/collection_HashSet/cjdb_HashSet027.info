@@ -14,19 +14,19 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
-b,b 20,003_HashSet_via_class.cj:20
-AOT r,r,-> 20
-CJVM c,c,-> 20
-s,s,-> 108
+b,b 28,003_HashSet_via_class.cj:28
+AOT r,r,-> 28
+CJVM c,c,-> 28
+s,s,-> 116
 p,p par_1,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[0\] = 9458[\S\s]*}
 p,p par_1,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[1\] = 625654[\S\s]*}
 p,p par_2,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[0\] = 32[\S\s]*}
 p,p par_2,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[1\] = 126[\S\s]*}
-b,b 110,003_HashSet_via_class.cj:110
-c,c,-> 110
+b,b 118,003_HashSet_via_class.cj:118
+c,c,-> 118
 p,p set_cuint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[5\] = 5[\S\s]*}
 p,p set_cuint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[4\] = 126[\S\s]*}
-n,n,-> 111
+n,n,-> 119
 p,p set_cuint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[5\] = 6978[\S\s]*}
 p,p set_cuint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[4\] = 126[\S\s]*}
 q,q,

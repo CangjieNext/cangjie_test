@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 38,expr_func.cj:38
-CJVM c,c,-> 38
-AOT r,r,-> 38
+b,b 46,expr_func.cj:46
+CJVM c,c,-> 46
+AOT r,r,-> 46
 expr,expr gui8++;gui8,\(UInt8\) \$[\d] = 9
 expr,expr gui16++;gui16,\(UInt16\) \$[\d] = 17
 expr,expr gui32++;gui32,\(UInt32\) \$[\d] = 33

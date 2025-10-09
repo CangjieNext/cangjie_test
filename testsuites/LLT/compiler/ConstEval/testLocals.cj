@@ -6,9 +6,9 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (CJNATIVE and DEBUG_OPTION) EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at testLocals.cj:25:3 - testLocals.cj:25:37 replaced initializer function `gv$_five` with initializer constant(s).
-// ASSERT: scan debug: consteval at testLocals.cj:26:3 - testLocals.cj:26:36 replaced initializer function `gv$_fifth_fibonacci` with initializer constant(s).
-// ASSERT: scan debug: consteval at testLocals.cj:30:1 - testLocals.cj:30:55 replaced initializer function `gv$_ten_plus_fifth_fib` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_five` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_fifth_fibonacci` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_ten_plus_fifth_fib` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

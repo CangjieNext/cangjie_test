@@ -14,21 +14,21 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 77,Breakpoint 1:
-AOT r,r,-> 77
+b,b 85,Breakpoint 1:
+AOT r,r,-> 85
 CJVM c,c,
 p, p a,\(default.S3<Int8>\) \$[\d] = {[\s\S]*s3_a = 8[\s\S]*}
 locals, locals,\(default.C1<default.S3<Int8>>\) this = {[\s\S]*c1_a = {[\s\S]*s3_a = 8[\s\S]*}[\s\S]*}[\s\S]*\(default.S3<Int8>\) a = {[\s\S]*s3_a = 8[\s\S]*}
-c,c,-> 77
+c,c,-> 85
 p, p a,\(default.S3<Int16>\) \$[\d] = {[\s\S]*s3_a = 16[\s\S]*}
 locals, locals,\(default.C1<default.S3<Int16>>\) this = {[\s\S]*c1_a = {[\s\S]*s3_a = 16[\s\S]*}[\s\S]*}[\s\S]*\(default.S3<Int16>\) a = {[\s\S]*s3_a = 16[\s\S]*}
-c,c,-> 77
+c,c,-> 85
 p, p a,\(default.S3<Int32>\) \$[\d] = {[\s\S]*s3_a = 32[\s\S]*}
 locals, locals,\(default.C1<default.S3<Int32>>\) this = {[\s\S]*c1_a = {[\s\S]*s3_a = 32[\s\S]*}[\s\S]*}[\s\S]*\(default.S3<Int32>\) a = {[\s\S]*s3_a = 32[\s\S]*}
-c,c,-> 77
+c,c,-> 85
 p, p a,\(default.S3<Int64>\) \$[\d] = {[\s\S]*s3_a = 64[\s\S]*}
 locals, locals,\(default.C1<default.S3<Int64>>\) this = {[\s\S]*c1_a = {[\s\S]*s3_a = 64[\s\S]*}[\s\S]*}[\s\S]*\(default.S3<Int64>\) a = {[\s\S]*s3_a = 64[\s\S]*}
-c,c,-> 77
+c,c,-> 85
 p, p a,\(default.S3<IntNative>\) \$[\d] = {[\s\S]*s3_a = 100[\s\S]*}
 locals, locals,\(default.C1<default.S3<IntNative>>\) this = {[\s\S]*c1_a = {[\s\S]*s3_a = 100[\s\S]*}[\s\S]*}[\s\S]*\(default.S3<IntNative>\) a = {[\s\S]*s3_a = 100[\s\S]*}
 q,q,

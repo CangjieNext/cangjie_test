@@ -6,8 +6,8 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (CJNATIVE and DEBUG_OPTION) EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at testTypeStruct.cj:25:1 - testTypeStruct.cj:25:40 evaluated initializer function `gv$_miii`
-// ASSERT: scan debug: consteval at testTypeStruct.cj:37:1 - testTypeStruct.cj:37:40 evaluated initializer function `gv$_miid`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_miii`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_miid`
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

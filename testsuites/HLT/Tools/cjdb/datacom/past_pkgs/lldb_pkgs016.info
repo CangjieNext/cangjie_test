@@ -20,11 +20,11 @@
 
 test#
 cjdb,cjdb --no-use-colors pkgs006,pkgs006
-b,b 31,pkgs006.cj:31
-AOT r,r,-> 31
+b,b 39,pkgs006.cj:39
+AOT r,r,-> 39
 CJVM c,c,
-s,s,-> 7
-finish,finish,-> 31
-n,n,-> 32
+s,s,-> 15
+finish,finish,-> 39
+n,n,-> 40
 locals,locals,Functioncall105 = 15
 q,q,

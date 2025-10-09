@@ -19,7 +19,7 @@ error: variable 'b' is used before initialization
    |                                  ^ 
    | 
 
-error: global/static variable 'b' is used before initialization during initializing 'b'
+error: global/static variable 'b' is used before initialization during initializing 'a'
   ==> record_member_variable_init02.cj:10:36:
    | 
 10 |     public static let a: Int64 = A.b

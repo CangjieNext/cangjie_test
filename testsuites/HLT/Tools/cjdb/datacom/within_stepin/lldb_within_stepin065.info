@@ -17,14 +17,14 @@
 
 test#
 cjdb,cjdb --no-use-colors stepin_external_invoke,stepin_external_invoke
-CJVM b main,b main,stepin_external_invoke.cj:12
-CJVM c,c,-> 12
-b,b 19,stepin_external_invoke.cj:19
-AOT r,r,-> 19
-CJVM c,c,-> 19
-s,s,-> 51[\s\S]*func f_002\(val_f1 :Int32 ,para! :Int32 = Exter_C1\.f_static\(\)\)
-s,s,static func f_static\(\)[\s\S]*-> 54[\s\S]*
-finish,finish,-> 51[\s\S]*func f_002\(val_f1 :Int32 ,para! :Int32 = Exter_C1\.f_static\(\)\)
-AOT finish,finish,-> 19
-s,s,-> 52
+CJVM b main,b main,stepin_external_invoke.cj:20
+CJVM c,c,-> 20
+b,b 27,stepin_external_invoke.cj:27
+AOT r,r,-> 27
+CJVM c,c,-> 27
+s,s,-> 59[\s\S]*func f_002\(val_f1 :Int32 ,para! :Int32 = Exter_C1\.f_static\(\)\)
+s,s,static func f_static\(\)[\s\S]*-> 62[\s\S]*
+finish,finish,-> 59[\s\S]*func f_002\(val_f1 :Int32 ,para! :Int32 = Exter_C1\.f_static\(\)\)
+AOT finish,finish,-> 27
+s,s,-> 60
 q,q,

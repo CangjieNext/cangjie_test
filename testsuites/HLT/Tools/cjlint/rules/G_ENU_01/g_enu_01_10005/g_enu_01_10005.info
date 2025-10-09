@@ -9,5 +9,5 @@
 // LEVEL: 0
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex 16:1: .*error.*: 'X' redeclared as different kind of symbol
-// ASSERT: regex 12:5: .*error.*: Enum sugar access 'X' conflict with type name, try to change it
+// ASSERT: regex 8:1: .*error.*: 'X' redeclared as different kind of symbol
+// ASSERT: regex 4:5: .*error.*: Enum sugar access 'X' conflict with type name, try to change it

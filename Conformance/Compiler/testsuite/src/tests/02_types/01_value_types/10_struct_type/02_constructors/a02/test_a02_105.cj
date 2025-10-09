@@ -24,13 +24,11 @@
                 : identifier
                 ;
               structPrimaryInitParamLists
-                : unnamedParameterList (',' namedParameterList)?
-                (',' structNamedInitParamList)?
-                | unnamedParameterList (',' structUnnamedInitParamList)?
-                (',' structNamedInitParamList)?
-                | structUnnamedInitParamList (',' structNamedInitParamList)?
-                | namedParameterList (',' structNamedInitParamList)?
-                | structNamedInitParamList
+                : unnamedParameterList (NL* COMMA NL* namedParameterList)? (NL* COMMA NL* structNamedInitParamList)? NL* COMMA?
+                | unnamedParameterList (NL* COMMA NL* structUnnamedInitParamList)? (NL* COMMA NL* structNamedInitParamList)? NL* COMMA?
+                | structUnnamedInitParamList (NL* COMMA NL* structNamedInitParamList)? NL* COMMA?
+                | namedParameterList (NL* COMMA NL* structNamedInitParamList)? NL* COMMA?
+                | structNamedInitParamList NL* COMMA?
                 ;
               structUnnamedInitParamList
                 : structUnnamedInitParam (',' structUnnamedInitParam)*
@@ -46,11 +44,11 @@
                 ('=' expression)?
                 ;
 
-  @Description: Check that the parameter list can not end in a trailing ',' symbol
+  @Description: Check that the parameter list can end in a trailing ',' symbol
 
-  @Mode: compileonly
+  @Mode: run
 
-  @Negative: yes
+  @Negative: no
 
   @Structure: single
 */

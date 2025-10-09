@@ -15,4 +15,4 @@ class Data<T> {
         a = 1
     }
 }
-// ASSERT: scan sema_invalid_return_value_type
+// ASSERT: scan parse_invalid_return_type

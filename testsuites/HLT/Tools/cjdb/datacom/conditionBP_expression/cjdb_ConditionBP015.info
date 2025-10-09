@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_var002,generics_global_var002
-breakpoint,breakpoint set -l 15 -c '1==1',generics_global_var002.cj:15
-AOT r,r,-> 15
+breakpoint,breakpoint set -l 23 -c '9==9',generics_global_var002.cj:23
+AOT r,r,-> 23
 CJVM c,c,
 globals,globals,\(std.collection.ArrayList<Int64>\) default::vlist2 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 1[\s\S]*}
 globals,globals,\(Int64\) default::vcarrc3 = 2

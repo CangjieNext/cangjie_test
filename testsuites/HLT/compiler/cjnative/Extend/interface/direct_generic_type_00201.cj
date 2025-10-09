@@ -36,6 +36,7 @@ interface I<T> {
 
 extend<T> C<T> <: I<T> where T <: B {
     // func foo<T>(a: T){
+    //   return a
     // }
 }
 

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.11.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance func
   @Behavior: add @Frozen compiler directive
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,8 +33,7 @@
 package test_stable_abi
 
 // test class: instancemember function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 @Annotation
@@ -45,52 +44,43 @@ public class Version {
     }
 }
 
-public open class TestClass {
+open public class TestClass {
     @Frozen
     public func f1() {
         1
     }
-
     @Frozen
     protected func f2() {
         2
     }
-
     @Frozen
     private const func f3(): Int64 {
         return 3
     }
-
     @Frozen
     public const func f4(): Int64 {
         f3()
     }
-
     @Frozen
     internal const func pf3(): Int64 {
         return 3
     }
-
     @Frozen
     protected const func pf4(): Int64 {
         pf3()
     }
-
     @Frozen
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
     }
-
     @Frozen
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -101,126 +91,103 @@ public open class TestClass {
     internal func f7(): Int64 {
         return 7
     }
-
     @Frozen
     @Deprecated["This API will be deprecated soon"]
     public func f8() {
         8
     }
-
     @Frozen
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Frozen
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Frozen
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
     }
-
     @Frozen
     func f10() {
         10
     }
-
     @Frozen
     internal func f11() {
         11
     }
-
     @Frozen
     private func f12() {
         12
     }
-
     @Frozen
     public unsafe func f13(): Int64 {
         return 13
     }
-
     @Frozen
     public const func f14(): Int64 {
         14
     }
-
     @Frozen
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
     }
-
     @Frozen
     public func g2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
         a.toString()
     }
-
     @Frozen
     protected func pg1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
     }
-
     @Frozen
     protected func pg2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
         a.toString()
     }
-
     @Frozen
     public func p1(a: Int64, b!: Int64, c!: Int64 = 1) {
         a + b + c
     }
-
     @Frozen
     public func p2(a: Son, b!: Son, c!: Son = Son()): Son {
         c
     }
-
     @Frozen
     public func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
-
     @Frozen
     protected func pp1(a: Int64, b!: Int64, c!: Int64 = 1) {
         a + b + c
     }
-
     @Frozen
     protected func pp2(a: Son, b!: Son, c!: Son = Son()): Son {
         c
     }
-
     @Frozen
     protected func pp3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
-
     @Frozen
     @Version["1.1"]
     public func ano1() {
         1
     }
-
     @Frozen
     @Version["1.1"]
     protected func pano1() {
         1
     }
-
     @Frozen
     @Version["1.1"]
     func ano2() {
         2
     }
-
     @Frozen
-    public open func openfunc() {
+    open public func openfunc() {
         1
     }
 

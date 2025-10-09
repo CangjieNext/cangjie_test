@@ -5,72 +5,167 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
 
-import std.random.*
-
-public open class A {
-    let a: Int64 = 10
-}
-
-public class B <: A {
-    let b: Int64 = 20
-}
-
 public struct Rectangle {
     let width = 10
-    let a1 = 20
-
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
+}
 
-    public func geta(a: Random, b!: Int64, c!: Int64 = 1): Int64 {
-        return b + c
+open public class A {const init() {}}
+public class B <: A {const init() {}}
+public class C <: A {const init() {}}
+
+public struct S1 {
+    const init() {}
+    public func f1(a:Float64, b:B, c!:Int64, d!:Int64 = 1) {
+        return a
     }
 
-    func geta1(a: Int64, b!: Int64) {
-        return 1
+    const func f2(a:Float64, b:B, c!:Int64, d!:Int64 = 2) {
+        return a
+    }
+    public const func f22() {
+        return f2(1.1, B(), c:1, d:2)
     }
 
+    func f3(a:Float64, b:B, c!:Int64, d!:Int64 = 3) {
+        return a
+    }
     @Frozen
-    public func geta2() {
-        let x = geta1(1, b: 1)
-        return x
+    public func f33() {
+        return f3(1.1, B(), c:1, d:3)
     }
 
-    public func geta3(a: Int64, b!: Int64) {
-        return 1
-    }
-
-    func geta4(a: Int64, b: Float64, c!: Int64 = 1, d!: Float64 = 2.2) {
-        return 1
-    }
-
-    @Frozen
-    public func geta5() {
-        let x = geta4(1, 2.1, c: 1, d: 2.2)
-        return x
-    }
-
-    public func geta6(a: Int64, b: Float64, c!: Int64 = 1, d!: Float64 = 2.2) {
-        return 1
-    }
-
-    func geta7(a: A, b: B) {
-        return 1
-    }
-
-    @Frozen
-    public func geta8() {
-        let x = geta7(A(), B())
-        return x
-    }
-
-    public func geta9(a: A, b: B) {
-        return 1
+    func f4(a:Float64, b:B, c!:Int64, d!:Int64 = 4) {
+        return a
     }
 }
+
+struct S2 {
+    const init() {}
+    public func f1(a:Float64, b:B, c!:Int64, d!:Int64 = 1) {
+        return a
+    }
+
+    const func f2(a:Float64, b:B, c!:Int64, d!:Int64 = 2) {
+        return a
+    }
+    public const func f22() {
+        return f2(1.1, B(), c:1, d:2)
+    }
+
+    func f3(a:Float64, b:B, c!:Int64, d!:Int64 = 3) {
+        return a
+    }
+    @Frozen
+    public func f33() {
+        return f3(1.1, B(), c:1, d:3)
+    }
+
+    func f4(a:Float64, b:B, c!:Int64, d!:Int64 = 4) {
+        return a
+    }
+}
+
+public struct S22 {
+    let s2 = S2()
+}
+
+struct S3 {
+    const init() {}
+    public func f1(a:Float64, b:B, c!:Int64, d!:Int64 = 1) {
+        return a
+    }
+
+    const func f2(a:Float64, b:B, c!:Int64, d!:Int64 = 2) {
+        return a
+    }
+    public const func f22() {
+        return f2(1.1, B(), c:1, d:2)
+    }
+
+    func f3(a:Float64, b:B, c!:Int64, d!:Int64 = 3) {
+        return a
+    }
+    @Frozen
+    public func f33() {
+        return f3(1.1, B(), c:1, d:3)
+    }
+
+    func f4(a:Float64, b:B, c!:Int64, d!:Int64 = 4) {
+        return a
+    }
+}
+
+public struct S33 {
+    @Frozen
+    public func f() {
+        let s3 = S3()
+    }
+}
+
+struct S4 {
+    const init() {}
+    public func f1(a:Float64, b:B, c!:Int64, d!:Int64 = 1) {
+        return a
+    }
+
+    const func f2(a:Float64, b:B, c!:Int64, d!:Int64 = 2) {
+        return a
+    }
+    public const func f22() {
+        return f2(1.1, B(), c:1, d:2)
+    }
+
+    func f3(a:Float64, b:B, c!:Int64, d!:Int64 = 3) {
+        return a
+    }
+    @Frozen
+    public func f33() {
+        return f3(1.1, B(), c:1, d:3)
+    }
+
+    func f4(a:Float64, b:B, c!:Int64, d!:Int64 = 4) {
+        return a
+    }
+}
+
+public struct S44 {
+    const init() {}
+    public const func f() {
+        let s4 = S4()
+    }
+}
+
+struct S5 {
+    const init() {}
+    public func f1(a:Float64, b:B, c!:Int64, d!:Int64 = 1) {
+        return a
+    }
+
+    const func f2(a:Float64, b:B, c!:Int64, d!:Int64 = 2) {
+        return a
+    }
+    public const func f22() {
+        return f2(1.1, B(), c:1, d:2)
+    }
+
+    func f3(a:Float64, b:B, c!:Int64, d!:Int64 = 3) {
+        return a
+    }
+    @Frozen
+    public func f33() {
+        return f3(1.1, B(), c:1, d:3)
+    }
+
+    func f4(a:Float64, b:B, c!:Int64, d!:Int64 = 4) {
+        return a
+    }
+}
+

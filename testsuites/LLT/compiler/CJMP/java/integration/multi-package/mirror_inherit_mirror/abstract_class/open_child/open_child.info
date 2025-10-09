@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc %compile_shared_lib_opt src/cj/Abstract.cj %import_java_interop --output-javagen-dir=src/java/cj -o libabstract.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc %compile_shared_lib_opt src/cj/Child.cj src/cj/Main.cj %import_java_interop --output-javagen-dir=src/java/cj -L. -labstract
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/com/java/lib/*.java src/java/cj/*.java -h ./ -d ./
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE-0: %cd %n && %java %cp_cj_loader_java_interop -Djava.library.path./ cj.Main 2>& 1 | compare %f
+
+/* SCAN-IN
+CJ: before Child()
+JAVA: Abstract()
+JAVA: Child()
+CJ: after Child()
+CJ: before child.foo()
+JAVA: child.foo()
+CJ: after child.foo()
+CJ: Main() end
+*/

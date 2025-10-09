@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_compositeVar,option_compositeVar
-b,b 30,option_compositeVar.cj:30
-AOT r,r,-> 30
-CJVM c,c,-> 30
+b,b 38,option_compositeVar.cj:38
+AOT r,r,-> 38
+CJVM c,c,-> 38
 p,p Hmap_IS,\(std[.]core.Option<std[.]collection.HashMap<Int64,std[.]core.String>>\) \$[\d] = {[\s\S]*key = 1[\s\S]*value = "cangjie"[\s\S]*key = 2[\s\S]*value = "hello"[\s\S]*}
 p,p Hmap_BC,\(std[.]core.Option<std[.]collection.HashMap<Bool,Rune>>\) \$[\d] = {[\s\S]*key = true[\s\S]*value = 'c'[\s\S]*key = false[\s\S]*value = 'w[\s\S]*}
 p,p Hmap_none,\(std[.]core.Option<std[.]collection.HashMap<Bool,Rune>>\) \$[\d] = None

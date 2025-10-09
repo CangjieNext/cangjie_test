@@ -16,9 +16,7 @@
 
 test#
 cjdb,cjdb --no-use-colors 021_debug_file,021_debug_file
-b,b 8,021_debug_file.cj:8
-b,b 14,021_debug_file.cj:14
-b,b 18,021_debug_file.cj:18
+b,b 16,021_debug_file.cj:16
 b,b 22,021_debug_file.cj:22
 b,b 26,021_debug_file.cj:26
 b,b 30,021_debug_file.cj:30
@@ -26,10 +24,10 @@ b,b 34,021_debug_file.cj:34
 b,b 38,021_debug_file.cj:38
 b,b 42,021_debug_file.cj:42
 b,b 46,021_debug_file.cj:46
-AOT r,r,-> 8
+b,b 50,021_debug_file.cj:50
+b,b 54,021_debug_file.cj:54
+AOT r,r,-> 16
 CJVM c,c,
-c,c,-> 14
-c,c,-> 18
 c,c,-> 22
 c,c,-> 26
 c,c,-> 30
@@ -37,5 +35,7 @@ c,c,-> 34
 c,c,-> 38
 c,c,-> 42
 c,c,-> 46
+c,c,-> 50
+c,c,-> 54
 locals,locals,a
 q,q,

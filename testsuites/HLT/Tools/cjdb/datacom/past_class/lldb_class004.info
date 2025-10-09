@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_class_top_mod,001_debug_class_top_mod
-b,b 43,001_debug_class_top_mod.cj:43
-AOT r,r,-> 43
-CJVM c,c,-> 43
-n,n,-> 44
+b,b 51,001_debug_class_top_mod.cj:51
+AOT r,r,-> 51
+CJVM c,c,-> 51
+n,n,-> 52
 locals,locals,\(Bool\) m_varBool = true
 q,q,

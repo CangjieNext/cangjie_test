@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var002,generics_local_var002
-b,b 48,generics_local_var002.cj:48
-AOT r,r,-> 48
+b,b 56,generics_local_var002.cj:56
+AOT r,r,-> 56
 CJVM c,c,
 expr:expr S1.varr:error: unsupported expression
 expr:expr s1.varrs:error: unsupported expression

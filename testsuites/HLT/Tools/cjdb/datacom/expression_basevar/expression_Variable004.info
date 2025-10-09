@@ -16,10 +16,10 @@
  
 test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
-CJVM b,b main,015_debug_basetype.cj:4
-CJVM c,c,-> 4
-b,b 29,015_debug_basetype.cj:29
-AOT r,r,-> 29
+CJVM b,b main,015_debug_basetype.cj:12
+CJVM c,c,-> 12
+b,b 37,015_debug_basetype.cj:37
+AOT r,r,-> 37
 expression, expression r'a',\(Rune\) \$[\d] = \'a\'
 expression, expression 10,\(Int64\) \$[\d] = 10
 expression, expression 12.12,\(Float64\) \$[\d] = 12.119999999999999

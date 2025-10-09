@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors expr_function,expr_function
-b,b 124,expr_function.cj:124
-CJVM c,c,-> 124
-AOT r,r,-> 124
+b,b 132,expr_function.cj:132
+CJVM c,c,-> 132
+AOT r,r,-> 132
 expr, expr test_range,error: unsupported expression
 q,q,

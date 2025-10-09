@@ -5,9 +5,6 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // ERRCHECK: %compiler %diag_json %f -o %output
-// ASSERT: scan-3 sema_upper_bound_must_be_class_or_interface
-// ASSERT: scan sema_generic_constraint_not_looser
-// ASSERT: scan "Errors": 4,
 
 interface I {
     static func f<T1, T2, T3, T4>(): Unit where T1 <: T2, T3 <: T4 {}
@@ -18,3 +15,7 @@ class A <: I {
 }
 
 main() {}
+
+// ASSERT: scan-1 sema_generic_constraint_not_looser
+// ASSERT: scan-3 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 4

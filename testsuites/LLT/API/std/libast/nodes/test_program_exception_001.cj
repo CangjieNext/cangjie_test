@@ -16,6 +16,7 @@ main(): Int64 {
 
     try {
         let program = Program()
+        program.featuresDirective = FeaturesDirective(quote(features os.Harmony))
         program.packageHeader = PackageHeader(quote(package a))
         program.importLists = ArrayList<ImportList>([ImportList(quote(import b)), ImportList(quote(import c))])
         program.decls = ArrayList<Decl>([FuncDecl(quote(func d(e: f): g))])
@@ -29,74 +30,98 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
+/* SCAN
 Cannot construct the 'Program' node.
 Program {
+  -featuresDirective: FeaturesDirective {
+      -keyword: Token {
+        value: "features"
+        kind: FEATURES
+        pos: 19: 61
+      }
+      -featureId: FeatureId {
+          -identifier: Token {
+            value: "os"
+            kind: IDENTIFIER
+            pos: 19: 70
+          }
+          -dot: Token {
+            value: "."
+            kind: DOT
+            pos: 19: 72
+          }
+          -identifier: Token {
+            value: "Harmony"
+            kind: IDENTIFIER
+            pos: 19: 73
+          }
+        }
+    }
   -packageHeader: PackageHeader {
       -keywordP: Token {
         value: "package"
         kind: PACKAGE
-        pos: 19: 53
+        pos: 20: 53
       }
       -packageIdentifier: Token {
         value: "a"
         kind: IDENTIFIER
-        pos: 19: 61
+        pos: 20: 61
       }
     }
   -importLists: 0, ImportList {
     -keywordI: Token {
       value: "import"
       kind: IMPORT
-      pos: 20: 71
+      pos: 21: 71
     }
     -importKind: Single
     -identifier: Token {
       value: "b"
       kind: IDENTIFIER
-      pos: 20: 78
+      pos: 21: 78
     }
   }
   -importLists: 1, ImportList {
     -keywordI: Token {
       value: "import"
       kind: IMPORT
-      pos: 20: 100
+      pos: 21: 100
     }
     -importKind: Single
     -identifier: Token {
       value: "c"
       kind: IDENTIFIER
-      pos: 20: 107
+      pos: 21: 107
     }
   }
   -decls: 0, FuncDecl {
     -keyword: Token {
       value: "func"
       kind: FUNC
-      pos: 21: 57
+      pos: 22: 57
     }
     -identifier: Token {
       value: "d"
       kind: IDENTIFIER
-      pos: 21: 62
+      pos: 22: 62
     }
     -funcParams: 0, FuncParam {
       -identifier: Token {
         value: "e"
         kind: IDENTIFIER
-        pos: 21: 64
+        pos: 22: 64
       }
       -colon: Token {
         value: ":"
         kind: COLON
-        pos: 21: 65
+        pos: 22: 65
       }
       -paramType: RefType {
         -identifier: Token {
           value: "f"
           kind: IDENTIFIER
-          pos: 21: 67
+          pos: 22: 67
         }
       }
     }
@@ -104,7 +129,7 @@ Program {
       -identifier: Token {
         value: "g"
         kind: IDENTIFIER
-        pos: 21: 71
+        pos: 22: 71
       }
     }
     -block: Block {
