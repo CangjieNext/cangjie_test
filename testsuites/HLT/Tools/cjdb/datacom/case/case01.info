@@ -12,14 +12,14 @@
 // (not MAC) RUN-EXEC: python3 cjdb_test.py case01.info case01 %run_env
 test#
 cjdb,cjdb --no-use-colors case01,case01
-b,b 10,case01.cj:10
-AOT r,r,-> 10
+b,b 18,case01.cj:18
+AOT r,r,-> 18
 CJVM c,c,
 AOT p,p item,error: unsupported expression
-b,b 12,Breakpoint 2: 2 locations
-c,c,-> 12
-n,n,-> 12
+b,b 20,Breakpoint 2: 2 locations
+c,c,-> 20
+n,n,-> 20
 locals,locals,\(Tuple<std[.]core.String,default.Circle>\) item = {[\S\s]*\[0\] = ""[\S\s]*\[1\] = \<parent is NULL\>
-n,n,-> 14
+n,n,-> 22
 locals,locals,\(Tuple<std[.]core.String,default.Circle>\) item = {[\S\s]*\[0\] = "small"[\S\s]*\[1\] = {[\S\s]*radis = 1
 q,q,

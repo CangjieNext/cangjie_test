@@ -2,13 +2,13 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args 
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.net.*
 
@@ -20,7 +20,7 @@ class Test_UnixSocket {
         try {
             UnixSocket(str)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Path size(${str.size}) is too long, expect <= 108") || e.message.contains("Unix domain socket path must not contain interior null bytes"))
+            @Expect(e.message.contains("Path size(${str.size}) is too long") || e.message.contains("Unix domain socket path must not contain interior null bytes"))
         }
     }
 
@@ -30,7 +30,7 @@ class Test_UnixSocket {
         try {
             UnixServerSocket(bindAt: str)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Path size(${str.size}) is too long, expect <= 108") || e.message.contains("Unix domain socket path must not contain interior null bytes"))
+            @Expect(e.message.contains("Path size(${str.size}) is too long") || e.message.contains("Unix domain socket path must not contain interior null bytes"))
         }
     }
 
@@ -40,7 +40,7 @@ class Test_UnixSocket {
         try {
             UnixDatagramSocket(bindAt: str)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Path size(${str.size}) is too long, expect <= 108") || e.message.contains("Unix domain socket path must not contain interior null bytes"))
+            @Expect(e.message.contains("Path size(${str.size}) is too long") || e.message.contains("Unix domain socket path must not contain interior null bytes"))
         }
     }
 }

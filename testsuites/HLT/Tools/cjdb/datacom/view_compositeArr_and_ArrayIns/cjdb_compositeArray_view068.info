@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayIns_external_invoke.out,ArrayIns_external_invoke
-b,b 20,ArrayIns_external_invoke.cj:20
-AOT r,r,-> 20
+b,b 28,ArrayIns_external_invoke.cj:28
+AOT r,r,-> 28
 CJVM c,c,
 p,p multiArr_m_cgd1[1],\(std[.]core.Array<pkgs.C1<Rune>>\) \$[\d]+ = {(\r|\n|\r\n)  \[0\] = [\s\S]*
 p,p multiArr_m_cgd1[1][1],pkgs.C1<Rune>\) \$[\d]+ = {(\r|\n|\r\n)  width = 'H'

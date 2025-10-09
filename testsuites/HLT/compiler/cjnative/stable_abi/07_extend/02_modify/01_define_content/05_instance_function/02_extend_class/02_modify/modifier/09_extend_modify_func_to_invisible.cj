@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.5.1.2.9
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: modifier is changed from public to non-public
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -24,26 +24,23 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // ASSERT: scan Incompatible!
-// ASSERT: scan [API/ABI] XXX
-// ASSERT: scan-2 [API/ABI]
+// ASSERT: scan-2 [API/ABI] Deleted public/protected member function of extend or made it private when the extended type is class.
+// ASSERT: scan-1 [API/ABI] Changed visibility of the member function of the extend.
+// ASSERT: scan-3 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 
 package test_stable_abi
 
 // test extend: instance function
-interface I {}
-
-public open class Father {}
-
-public class Son <: Father & I {}
-
+interface I{}
+open public class Father {}
+public class Son <: Father & I{}
 interface I2 <: I {}
 
-public open class TestClass {
+open public class TestClass {
     public const init() {}
 }
-
 extend TestClass {
     private func f1() {
         1
@@ -61,14 +58,13 @@ extend TestClass {
     internal const func pf3(): Int64 {
         return 3
     }
-    protected const func pf4(): Int64 {
+    private const func pf4(): Int64 {
         pf3()
     }
 
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -76,7 +72,6 @@ extend TestClass {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -91,17 +86,14 @@ extend TestClass {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9

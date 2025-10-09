@@ -14,7 +14,8 @@
 #include <stdio.h>
 #include <securec.h>
 
-struct teststruct {
+struct teststruct
+{
     char* canonname;
     struct teststruct* next;
 };
@@ -36,3 +37,12 @@ void* MallocWithZero(size_t size)
 
 void** GetDoublePtr()
 {
+    void** ptr = (void**)calloc(1, sizeof(void*));
+    return ptr;
+}
+
+struct teststruct** testfunc(char* str, struct teststruct **ppst)
+{   
+    (**ppst).canonname = str;
+    return ppst;
+}

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
@@ -22,6 +22,7 @@ public enum S1 {
 enum S2 {
     | Red | Green | Blue(UInt8)
 }
+
 
 @Deprecated["this enum is deprecated", strict: false]
 public enum S3 {
@@ -133,3 +134,4 @@ public class C2 {
         let v2 = S12.Green
     }
 }
+

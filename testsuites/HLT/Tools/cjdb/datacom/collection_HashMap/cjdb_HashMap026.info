@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashMap_Ins_composite,003_HashMap_Ins_composite
-b,b 32,003_HashMap_Ins_composite.cj:32
-AOT r,r,-> 32
-CJVM c,c,-> 32
+b,b 40,003_HashMap_Ins_composite.cj:40
+AOT r,r,-> 40
+CJVM c,c,-> 40
 p,p map_list_1,std[.]collection.HashMap<UInt8,std[.]collection.ArrayList<Rune>>\) \$[\d] = {[\S\s]*key = 2[\S\s]*\[0\] = 'r'[\S\s]*\[1\] = 'b'[\S\s]*\[2\] = 'C'[\S\s]*}
 p,p map_list_1,std[.]collection.HashMap<UInt8,std[.]collection.ArrayList<Rune>>\) \$[\d] = {[\S\s]*key = 3[\S\s]*\[0\] = 'r'[\S\s]*\[1\] = 'b'[\S\s]*\[2\] = 'C'[\S\s]*}
 q,q,

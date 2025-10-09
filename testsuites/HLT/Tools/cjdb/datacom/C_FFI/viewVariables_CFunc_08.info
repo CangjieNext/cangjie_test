@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_CFunc_08,viewVariables_CFunc_08
-b,b 79,C_FFI.cj:79
-AOT r,r,-> 79
+b,b 87,C_FFI.cj:87
+AOT r,r,-> 87
 CJVM c,c,
 p,p CF_I4,\(Int32\) \$[\d] = 56
 q,q,

@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashMap_external_invoke,collection_HashMap_external_invoke
-b,b 31,collection_HashMap_external_invoke.cj:31
-AOT r,r,-> 31
-CJVM c,c,-> 31
+b,b 39,collection_HashMap_external_invoke.cj:39
+AOT r,r,-> 39
+CJVM c,c,-> 39
 p,p val_4,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = -29[\S\s]*value = 'C'[\S\s]*}
 p,p val_4,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 76[\S\s]*value = 'N'[\S\s]*}
 q,q,

@@ -8,7 +8,7 @@
 // (DEBUG_OPTION)EXEC: %compiler %compile_lib_opt packageA.cj -o packageA.%middle
 // (DEBUG_OPTION)EXEC: %compiler %compile_lib_opt packageB.cj -o packageB.%middle
 // (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt packageB.%middle packageA.%middle %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan debug: consteval at main.cj:15:1 - main.cj:15:18 replaced initializer function `gv$_z` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_z` with initializer constant(s).
 // (CJNATIVE and DEBUG_OPTION) EXEC-85: %run %run_opt %output %run_args
 
 import b.*

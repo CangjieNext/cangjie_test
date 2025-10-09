@@ -82,6 +82,7 @@ class Test_treemap_03 {
         }
         let first = cmap.removeFirst().getOrThrow()
         let last = cmap.removeLast().getOrThrow()
+        //println(cmap_str.getOrThrow().toString())
         @Expect(first[0], "0")
         @Expect(first[1], "1")
         @Expect(last[0], "99")

@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 013_debug_array_class_parameters,013_debug_array_class_parameters
-b,b 63,013_debug_array_class_parameters.cj:63
-AOT r,r,-> 63
+b,b 71,013_debug_array_class_parameters.cj:71
+AOT r,r,-> 71
 CJVM c,c,
-n,n,-> 64
+n,n,-> 72
 print,print arraymainrec01[0].array02,std[.]core.Array<default.C2>\) \$[0-9]+ = {
 print,print arraymainrec01[0].array02[0],C2\) \$[0-9]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
 print,print arraymainrec01[0].array02[0].width,\(Int32\) \$[0-9]+ = 100

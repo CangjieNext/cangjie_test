@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.7.2.12
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: struct instance var
   @Behavior: modify value
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -30,42 +30,76 @@
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
+
 // test struct: modify value
 // 修改变量初始值
 package test_stable_abi
 
-public struct Rectangle {
+public struct Rectangle1 {
     let width = 10
-    let a1 = 200
-    private let a2 = 200
-    internal let a3 = 200
-    protected let a4 = 200
-    public let a5 = 200
-
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
+    }
+    
+    public let a1 = 200
+}
+
+public struct Rectangle2 {
+    const init() {}    
+    public let a2 = 20
+}
+
+public struct Rectangle3 {
+    @Frozen
+    init() {}
+    
+    public let a3 = 20
+}
+
+
+public open class A {const init() {}}
+public class B <: A {const init() {}}
+public class C {const init() {}}
+public struct S1{
+    public let a:A = B()
+    public let b = 1
+}
+
+struct S2{
+    public let a:A = B()
+    public let b = 1
+}
+
+public struct S22 {
+    var s2 = S2()
+}
+
+struct S3{
+    public let a:A = B()
+    public let b = 1
+}
+
+public struct S33 {
+    @Frozen
+    public func f3(){
+        let s3 = S3()
     }
 }
 
-public open class A {}
+struct S4{
+    const init() {}
+    public let a:A = B()
+    public let b = 1
+}
 
-public class B <: A {}
-
-public class C {}
-
-public struct S2 {
-    public let a: A = B()
-    let b: A = B()
-    public let c = 1
-    public let d = 1
-
-    @Frozen
-    public func getb() {
-        return b
+public struct S44 {
+    public const init() {}
+    public const func f4(){
+        let s4 = S4()
     }
+}
 
-    @Frozen
-    public func getd() {
-        return d
-    }
+struct S5{
+    public let a:A = B()
+    public let b = 1
 }

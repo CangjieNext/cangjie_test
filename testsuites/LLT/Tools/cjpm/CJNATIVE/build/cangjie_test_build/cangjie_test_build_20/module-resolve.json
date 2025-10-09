@@ -1,0 +1,25 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+{
+  "resolves": [
+    {
+      "organization": "a",
+      "name": "b",
+      "path": "./",
+      "packagePath": "/zhangjun/Cangjie-tools/cjpm/test/LLT/LLVM/build/cangjie_test_build_20/src",
+      "packageName": "b/default",
+      "version": "1.0.0",
+      "hash": "-1988359277365605915",
+      "isMacroPackage": false,
+      "output_type": "executable",
+      "command_option": "",
+      "requires": [],
+      "package_requires": {},
+      "foreign_requires": {}
+    }
+  ]
+}

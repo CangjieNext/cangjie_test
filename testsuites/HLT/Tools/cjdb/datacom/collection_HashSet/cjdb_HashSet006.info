@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashSet_Ins_basic,001_HashSet_Ins_basic
-b,b 9,001_HashSet_Ins_basic.cj:9
-AOT r,r,-> 9
-CJVM c,c,-> 9
-b,b 11,001_HashSet_Ins_basic.cj:11
-c,c,-> 11
+b,b 17,001_HashSet_Ins_basic.cj:17
+AOT r,r,-> 17
+CJVM c,c,-> 17
+b,b 19,001_HashSet_Ins_basic.cj:19
+c,c,-> 19
 p,p set_int32,std[.]collection.HashSet<Int32>\) \$[\d] = {[\S\s]*\[0\] = -74[\S\s]*}
 p,p set_int32,std[.]collection.HashSet<Int32>\) \$[\d] = {[\S\s]*\[1\] = 9[\S\s]*}
 q,q,

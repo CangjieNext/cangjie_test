@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n/dep && %cjpm build -V -j1 && %rm target/release/dep/libdep.aoo.a target/release/dep/libdep.boo.a
+// EXEC: cd %n && %cjpm run 2>&1 | compare %f
+// ASSERT: regex Warning: binary package 'dep.aoo' may be combined by 'libdep.(so|dll|dylib)', cjpm will use combined package instead
+// ASSERT: scan I'm in macro body
+// ASSERT: scan aoo
+// ASSERT: scan a = 3
+// ASSERT: scan cjpm run finished

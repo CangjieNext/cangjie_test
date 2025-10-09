@@ -18,8 +18,8 @@
 
 test#
 cjdb,cjdb --no-use-colors demangle_target,demangle_target
-AOT b,b 16,where = demangle_target`default::fun_top1\(\) \+ \d+ at demangle.cj:16:19
-CJVM b,b 16,where = default\.fun_top1\(\)void at [\s\S]*demangle.cj:16
-AOT r,r,demangle_target`default::fun_top1\(\) at demangle.cj:16:19[\s\S]*-> 16
-CJVM c,c,-> 16
+AOT b,b 24,where = demangle_target`default::fun_top1\(\) \+ \d+ at demangle.cj:24:19
+CJVM b,b 24,where = default\.fun_top1\(\)void at [\s\S]*demangle.cj:24
+AOT r,r,demangle_target`default::fun_top1\(\) at demangle.cj:24:19[\s\S]*-> 24
+CJVM c,c,-> 24
 q,q,

@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashMap_external_invoke,collection_HashMap_external_invoke
-b,b 31,collection_HashMap_external_invoke.cj:31
-AOT r,r,-> 31
-CJVM c,c,-> 31
+b,b 39,collection_HashMap_external_invoke.cj:39
+AOT r,r,-> 39
+CJVM c,c,-> 39
 p,p fun_pmap_3,std[.]collection.HashMap<Int64,Bool>\) \$[\d] = {[\S\s]*key = 19[\S\s]*value = true[\S\s]*}
 p,p fun_pmap_3,std[.]collection.HashMap<Int64,Bool>\) \$[\d] = {[\S\s]*key = -160[\S\s]*value = false[\S\s]*}
 p,p fun_pmap_3[19],error

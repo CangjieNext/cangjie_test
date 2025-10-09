@@ -1,0 +1,19 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir 2>&1 | compare %f
+// ASSERT: regex .*a\.cj:7:1: .*warning.*: G\.NAM\.03: Identifier 'aClass' recommend.*
+// ASSERT: regex .*main\.cj:7:1: .*warning.*: G\.NAM\.03: Identifier 'mainClass' recommend.*
+// ASSERT: regex .*test_a\.cj:7:1: .*warning.*: G\.NAM\.03: Identifier 'testAClass' recommend.*
+// ASSERT: regex .*dir1[/|\\]dir11[/|\\]dir111[/|\\]dep\.cj:7:1: .*warning.*: G\.NAM\.03: Identifier 'depClass' recommend.*
+// ASSERT: regex .*dir1[/|\\]dir11[/|\\]test_aabb\.cj:7:1: .*warning.*: G\.NAM\.03: Identifier 'testAABBClass' recommend.*
+// ASSERT: regex .*dir1[/|\\]dir12[/|\\]a\.cj:7:1: .*warning.*: G\.NAM\.03: Identifier 'aClass' recommend.*
+// ASSERT: regex .*dir1[/|\\]test_b\.cj:7:1: .*warning.*: G\.NAM\.03: Identifier 'testBClass' recommend.*
+// ASSERT: regex .*dir2[/|\\]test_b\.cj:7:1: .*warning.*: G\.NAM\.03: Identifier 'testBClass' recommend.*
+// ASSERT: regex .*a[/|\\]a\.cj:7:1: .*warning.*: G\.NAM\.03: Identifier 'aClass' recommend.*
+// ASSERT: regex .*dir2[/|\\]dir1[/|\\]dep\.cj:7:1: .*warning.*: G\.NAM\.03: Identifier 'depClass' recommend.*
+// ASSERT: regex .*dir1[/|\\]a\.cj[/|\\]dep\.cj:7:1: .*warning.*: G\.NAM\.03: Identifier 'depClass' recommend.*

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func007,generics_local_func007
-b,b 11,generics_local_func007.cj:11
-AOT r,r,-> 11
+b,b 19,generics_local_func007.cj:19
+AOT r,r,-> 19
 CJVM c,c,
 expr:expr aa:\(default.A<UInt16>\) \$[\d] = {}
 expr:expr A<UInt16>():\(default.A<UInt16>\) \$[\d] = {}

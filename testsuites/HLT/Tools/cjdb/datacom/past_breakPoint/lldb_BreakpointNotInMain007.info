@@ -16,20 +16,20 @@
 
 test#
 cjdb,cjdb --no-use-colors 027_debuginfun_match,027_debuginfun_match
-CJVM b,breakpoint set -n main,027_debuginfun_match.cj:4
-CJVM c,c,-> 4
-b,b 8,027_debuginfun_match.cj:8
-b,b 11,027_debuginfun_match.cj:11
+CJVM b,breakpoint set -n main,027_debuginfun_match.cj:12
+CJVM c,c,-> 12
 b,b 16,027_debuginfun_match.cj:16
-AOT b,b 18,027_debuginfun_match.cj:19
-CJVM b,b 18,027_debuginfun_match.cj:18
-AOT r,r,-> 8
-CJVM c,c,-> 8
-n,n,-> 9
-n,n,-> 10
-n,n,-> 11
-n,n,-> 16
-n,n,-> 11
+b,b 19,027_debuginfun_match.cj:19
+b,b 24,027_debuginfun_match.cj:24
+AOT b,b 26,027_debuginfun_match.cj:27
+CJVM b,b 26,027_debuginfun_match.cj:26
+AOT r,r,-> 16
+CJVM c,c,-> 16
+n,n,-> 17
+n,n,-> 18
 n,n,-> 19
+n,n,-> 24
+n,n,-> 19
+n,n,-> 27
 locals,locals,scoreResult = 5
 q,q,

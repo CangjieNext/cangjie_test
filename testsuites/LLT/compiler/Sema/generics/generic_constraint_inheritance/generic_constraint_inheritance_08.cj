@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// ERRCHECK: %compiler %diag_json %f -o %output
 
 interface Printable {}
 
@@ -23,14 +23,5 @@ class Implementation <: I {
 
 main() {}
 
-/* SCAN
-error: the constraint of type parameter is not looser than parent's constraint
-  ==> generic_constraint_inheritance_08.cj:19:45:
-   | 
-19 |     public static func id<T>(x: T): T where T <: Runnable {
-   |                                             ^^^^^^^^^^^^^ 
-   | 
-   # note: parent constraint is 'Interface-Printable'
-
-1 error generated, 1 error printed.
-*/
+// ASSERT: scan-1 sema_generic_constraint_not_looser
+// ASSERT: scan "Errors": 1

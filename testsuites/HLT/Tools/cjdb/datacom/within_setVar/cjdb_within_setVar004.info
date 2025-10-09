@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_setVar_generices,001_debug_setVar_generices
-b,b 7,001_debug_setVar_generices.cj:7
-AOT r,r,-> 7
+b,b 15,001_debug_setVar_generices.cj:15
+AOT r,r,-> 15
 CJVM c,c,
 p,p mc_m1,\(UInt8\) \$[\d] = 100
 set,set mc_m1 =260,error: unsupported expression

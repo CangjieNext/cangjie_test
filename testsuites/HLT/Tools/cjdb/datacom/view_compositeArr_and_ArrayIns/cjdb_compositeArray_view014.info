@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_multiArray_composite_string,004_debug_multiArray_composite_string
-b,b 25,004_debug_multiArray_composite_string.cj:25
-AOT r,r,-> 25
+b,b 33,004_debug_multiArray_composite_string.cj:33
+AOT r,r,-> 33
 CJVM c,c,
 p,p multiArr_str_t1[1][2],std[.]core.Array<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "1 a #0123456789abcdxyz"[\s\S]*
 p,p multiArr_str_t1[1][2][1..],std[.]core.Array<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "\\"Hello Cangjie Lang\\"仓颉中文字符串测试"[\s\S]*

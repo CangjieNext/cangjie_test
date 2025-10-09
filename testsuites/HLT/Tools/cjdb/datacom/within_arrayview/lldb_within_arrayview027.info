@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_baseType,001_debug_array_baseType
-b,b 46,001_debug_array_baseType.cj:46
-AOT r,r,-> 46
+b,b 54,001_debug_array_baseType.cj:54
+AOT r,r,-> 54
 CJVM c,c,
-s,s,func fun_2\(\): UInt16[\s\S]*-> 109[\s\S]*
-b,b 111,001_debug_array_baseType.cj:111
-c,c,-> 111
+s,s,func fun_2\(\): UInt16[\s\S]*-> 117[\s\S]*
+b,b 119,001_debug_array_baseType.cj:119
+c,c,-> 119
 print,print arrayUInt16_d[1][2..5],\(std[.]core.Array<UInt16>\) \$[\d] = {[\s\S]*? \[0\] = 23[\s\S]*&? \[2\] = 25[\s\S]*
 q,q,

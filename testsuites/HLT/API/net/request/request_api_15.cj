@@ -15,8 +15,8 @@ import std.io.*
 
 main(): Int64 {
     var req = HttpRequestBuilder().method("GET").url("http://www.examplenet.com").build()
-    var result = req.close
-    if (result != false) {
+    var result = req.isPersistent
+    if (result == false) {
         return 1
     }
     return 0

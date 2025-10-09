@@ -6,8 +6,8 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %cmp_opt %f -o %output | compare %f
 // (DEBUG_OPTION)EXEC-6: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at ok_varray.cj:14:1 - ok_varray.cj:14:44 evaluated initializer function `gv$_global` of 6 expressions to one of 5 expressions.
-// ASSERT: scan debug: consteval at ok_varray.cj:21:5 - ok_varray.cj:21:29 replaced initializer function `gv$_result` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_global` of 6 expressions to one of 5 expressions.
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_result` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors pkgs008,pkgs008
-b,b 22,pkgs008.cj:22
-AOT r,r,-> 22
+b,b 30,pkgs008.cj:30
+AOT r,r,-> 30
 CJVM c,c,
 locals,locals,C1<Float64>\) pkg_c1_m = {(\r|\n|\r\n)  width = 30[\s\S]*(\r|\n|\r\n)  length = 30[\s\S]*
 AOT locals,locals,TimeUnit1<Int8>\) pkg_enum_m = {(\r|\n|\r\n)  constructor = Month(\r|\n|\r\n)  arg_1 = 3

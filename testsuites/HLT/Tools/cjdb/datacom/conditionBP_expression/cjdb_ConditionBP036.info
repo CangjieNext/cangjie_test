@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var014,generics_local_var014
-breakpoint,breakpoint set -l 7 -c "1==1",generics_local_var014.cj:7
-AOT r,r,-> 7
+breakpoint,breakpoint set -l 15 -c "9==9",generics_local_var014.cj:15
+AOT r,r,-> 15
 CJVM c,c,
 locals,locals,\(default.Rect1<Int64>\) this = {}
 p,p vcarrc2[0],\(Int64\) \$[\d] = 2

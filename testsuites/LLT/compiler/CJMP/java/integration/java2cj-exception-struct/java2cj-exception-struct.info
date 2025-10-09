@@ -1,0 +1,29 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop %enable_java_cjmapping --output-javagen-dir=src/java/cj
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/com/java/lib/*.java src/java/cj/Vector.java -h ./ -d ./
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && %java %cp_cj_loader_java_interop -Djava.library.path./ com.java.lib.Main 2>& 1 | compare %f
+
+/* SCAN
+hello!
+java.lang.Exception: Exception in Vector init!
+	at cj.Vector.initCJObject(Native Method)
+	at cj.Vector.<init>(Vector.java:15)
+	at com.java.lib.Main.main(Main.java:18)
+java.lang.Exception: Exception in Vector dot!
+	at cj.Vector.dotRN2cj6VectorE(Native Method)
+	at cj.Vector.dot(Vector.java:37)
+	at com.java.lib.Main.main(Main.java:25)
+java.lang.Exception: Divided by zero!
+	at cj.Vector.divll(Native Method)
+	at cj.Vector.div(Vector.java:43)
+	at com.java.lib.Main.main(Main.java:32)
+java.lang.Exception: Exception in Vector static hello!
+	at cj.Vector.hello(Native Method)
+	at com.java.lib.Main.main(Main.java:38)
+*/

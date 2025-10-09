@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-1: cd %n && %cjpm test --no-color %run_utest_opt 2>&1 | compare %f
+// ASSERT: scan ERROR: Package execution failed outside of test cases (exit code = 1)
+// ASSERT: scan BEFORE TESTS STDOUT:
+// ASSERT: scan some info
+// ASSERT: scan BEFORE TESTS STDERR:
+// ASSERT: scan An exception has occurred:
+// ASSERT: scan Exception: DeadWorker_2
+// ASSERT: scan e1eiop2e4j123j23eiojw3iope3jop
+// ASSERT: scan Exception: DeadWorker_1
+// ASSERT: scan Summary: TOTAL: 5
+// ASSERT: scan PASSED: 1, SKIPPED: 0, ERROR: 3
+// ASSERT: FAILED: 1

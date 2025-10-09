@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 4.2.1.6.2.16
   @Scene: delete
@@ -13,8 +13,8 @@
   @Object: enum static func
   @Behavior: delete static modifier
   @Expect: api incompatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // Expect: API Incompatible & ABI Incompatible
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -37,7 +37,7 @@ package test_stable_abi
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 
@@ -81,7 +81,7 @@ public enum Rectangle {
         return 0
     }
 
-    public unsafe static func geta11() {
+    unsafe public static func geta11() {
         return 0
     }
 

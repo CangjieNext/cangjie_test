@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_array_record,003_debug_array_record
-b,b 41,003_debug_array_record.cj:41
-AOT r,r,-> 41
+b,b 49,003_debug_array_record.cj:49
+AOT r,r,-> 49
 CJVM c,c,
 globals,globals,std[.]core.Array<default.Rectangle2>\) default(::|\.)arraytoprec01 =
 print,print arraytoprec01[0],Rectangle2\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100

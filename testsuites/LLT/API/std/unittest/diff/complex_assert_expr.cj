@@ -49,7 +49,7 @@ public class TestA {
     @TestCase
     func case4(): Unit {
         let abcd = "abcd"
-        @Assert("a" + "abc" + abcd + "ab${abcd}cd" + { => "abcd" }() + { => abcd }(), "aabcabcdabaccdcdabcdabcd")
+        @Assert("a" + "abc" + abcd + "ab${abcd}cd", "aabcabcdabaccdcd")
     }
 }
 
@@ -74,8 +74,8 @@ public class TestA {
  */
 
 /* SCAN-IN
-    Assert Failed: {COLOR=YELLOW}"a" + "abc" + abcd + "ab${abcd}cd" + { => "abcd" }() + { => abcd }(){/COLOR} != {COLOR=YELLOW}"aabcabcdabaccdcdabcdabcd"{/COLOR}
-        "a" + "abc" + abcd + "ab${abcd}cd" + { => "abcd" }() + { => abcd }(): "aabcabcdaba{COLOR=YELLOW}b{/COLOR}cdcdabcdabcd"
-                                                  "aabcabcdabaccdcdabcdabcd": "aabcabcdaba{COLOR=YELLOW}c{/COLOR}cdcdabcdabcd"
-                                                                               ==========={COLOR=YELLOW}!{/COLOR}============
- */
+    Assert Failed: {COLOR=YELLOW}"a" + "abc" + abcd + "ab${abcd}cd"{/COLOR} != {COLOR=YELLOW}"aabcabcdabaccdcd"{/COLOR}
+        "a" + "abc" + abcd + "ab${abcd}cd": "aabcabcdaba{COLOR=YELLOW}b{/COLOR}cdcd"
+                        "aabcabcdabaccdcd": "aabcabcdaba{COLOR=YELLOW}c{/COLOR}cdcd"
+                                             ==========={COLOR=YELLOW}!{/COLOR}====
+*/

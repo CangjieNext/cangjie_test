@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 018_debug_parentheses,018_debug_parentheses
-CJVM b,breakpoint set -n main,018_debug_parentheses.cj:4
-CJVM c,c,-> 4
-b,b 4,018_debug_parentheses.cj:4
-b,b 5,018_debug_parentheses.cj:5
-AOT r,r,-> 4
-n,n,-> 5
+CJVM b,breakpoint set -n main,018_debug_parentheses.cj:12
+CJVM c,c,-> 12
+b,b 12,018_debug_parentheses.cj:12
+b,b 13,018_debug_parentheses.cj:13
+AOT r,r,-> 12
+n,n,-> 13
 locals,locals,kuonum = 5
 q,q,

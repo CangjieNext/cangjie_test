@@ -5,11 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test class: instancemember variable
+
 @Annotation
 public class Version {
     let code: String
@@ -21,7 +22,7 @@ public class Version {
 public class CC {
     public let a1 = 1
     public var a2 = 2
-
+    
     internal let b1 = 1
     internal var b2 = 2
 
@@ -34,18 +35,13 @@ public class CC {
     let e1 = 1
     var e2 = 2
 
-    @Version["1.1"]
-    public let f1 = 1
-    @Version["1.1"]
-    public var f2 = 2
+    @Version["1.1"] public let f1 = 1
+    @Version["1.1"] public var f2 = 2
 
-    @Deprecated["This variable will be deprecated soon"]
-    public let g1 = 1
-    @Deprecated["This variable is deprecated", strict: true]
-    public let g2 = 2
+    @Deprecated["This variable will be deprecated soon"] public let g1 = 1
+    @Deprecated["This variable is deprecated", strict: true] public let g2 = 2
 
     let h1 = 1
-
     @Frozen
     public func h2() {
         h1
@@ -54,3 +50,6 @@ public class CC {
     let x1 = 1
     private var x2 = 2
 }
+
+
+

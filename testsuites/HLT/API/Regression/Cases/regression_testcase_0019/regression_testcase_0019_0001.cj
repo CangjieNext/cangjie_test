@@ -13,11 +13,11 @@
 import std.io.*
 import stdx.net.http.*
 import stdx.net.tls.*
+import stdx.net.tls.common.*
 import stdx.crypto.x509.*
+import stdx.crypto.keys.*
 import std.net.*
 import std.sync.*
-import std.argopt.*
-import std.runtime.*
 import std.fs.*
 
 var sendNum = 128
@@ -29,7 +29,7 @@ var port: UInt16 = 0
 public func serverConfig(): TlsServerConfig {
     let pem0 = String.fromUtf8(readToEnd(File("./cert/end_rsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./cert/end_rsa_private_key.pem", Read)))
-    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0).map({c => c}), GeneralPrivateKey.decodeFromPem(pem02))
     tlsConfig.supportedAlpnProtocols = ["h2"]
     tlsConfig
 }
@@ -37,16 +37,15 @@ public func serverConfig(): TlsServerConfig {
 public func clientConfig(): TlsClientConfig {
     var tlsConfig = TlsClientConfig()
     let pem = String.fromUtf8(readToEnd(File("./cert/root_rsa.cer", Read)))
-    tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
-    tlsConfig.alpnProtocolsList = ["h2"]
+    tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+    tlsConfig.supportedAlpnProtocols = ["h2"]
     tlsConfig
 }
 
 func serve() {
     var serverTlsCfg = serverConfig()
-    serverTlsCfg.minVersion = TlsVersion.V1_2
-    serverTlsCfg.maxVersion = TlsVersion.V1_2
-    serverTlsCfg.cipherSuitesV1_2 = ["ECDHE-RSA-AES128-SHA256", "ECDHE-RSA-AES256-SHA384", "ECDHE-RSA-AES256-GCM-SHA384",
+    serverTlsCfg.supportedVersions = [TlsVersion.V1_2]
+    serverTlsCfg.supportedCipherSuites[TlsVersion.V1_2] = ["ECDHE-RSA-AES128-SHA256", "ECDHE-RSA-AES256-SHA384", "ECDHE-RSA-AES256-GCM-SHA384",
         "ECDHE-RSA-AES256-GCM-SHA384"]
 
     let socket = TcpServerSocket(bindAt: port)

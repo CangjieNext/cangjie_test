@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 016_debug_class_initial_value,016_debug_class_initial_value
-b,b 62,016_debug_class_initial_value.cj:62
-AOT r,r,-> 62
-CJVM c,c,-> 62
-n,n,-> 64
+b,b 70,016_debug_class_initial_value.cj:70
+AOT r,r,-> 70
+CJVM c,c,-> 70
+n,n,-> 72
 AOT print,print *m_c.newc,error: unsupported expression
 CJVM print,print *m_c.newc,error: variable was not declared in this scope
 print,print m_c.newc.width,\(Int32\) \$[\d]+ = 100

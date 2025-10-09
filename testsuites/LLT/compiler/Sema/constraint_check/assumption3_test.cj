@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC:%frontendCompiler %typecheck %cmp_opt %f 2>&1 | compare %f
+// EXEC:%frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
 
 class C<X> where X <: C<C<C<C<Int32>>>> {
     func foo() {}
@@ -19,46 +19,5 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN
-error: generics type arguments do not match the constraint of 'Class-C<Generics-X>'
- ==> assumption3_test.cj:9:31:
-  | 
-9 | class C<X> where X <: C<C<C<C<Int32>>>> {
-  |                               ^ 
-  | 
-note: 'Int32' is not a subtype of 'Class-C<Class-C<Class-C<Class-C<Int32>>>>'
- ==> assumption3_test.cj:9:18:
-  | 
-9 | class C<X> where X <: C<C<C<C<Int32>>>> {
-  |                  ^ 
-  | 
-
-error: generics type arguments do not match the constraint of 'Class-C<Generics-X>'
- ==> assumption3_test.cj:9:1:
-  | 
-9 | class C<X> where X <: C<C<C<C<Int32>>>> {
-  | ^ 
-  | 
-
-error: generics type arguments do not match the constraint of 'Interface-I<Generics-X>'
-  ==> assumption3_test.cj:16:35:
-   | 
-16 | interface I<X> where X <: I<I<I<I<Int32>>>> {}
-   |                                   ^ 
-   | 
-note: 'Int32' is not a subtype of 'Interface-I<Interface-I<Interface-I<Interface-I<Int32>>>>'
-  ==> assumption3_test.cj:16:22:
-   | 
-16 | interface I<X> where X <: I<I<I<I<Int32>>>> {}
-   |                      ^ 
-   | 
-
-error: generics type arguments do not match the constraint of 'Interface-I<Generics-X>'
-  ==> assumption3_test.cj:16:1:
-   | 
-16 | interface I<X> where X <: I<I<I<I<Int32>>>> {}
-   | ^ 
-   | 
-
-4 errors generated, 4 errors printed.
-*/
+// ASSERT: scan-4 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan "Errors": 4

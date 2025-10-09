@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_baseType,001_debug_array_baseType
-b,b 14,001_debug_array_baseType.cj:14
-AOT r,r,-> 14
+b,b 22,001_debug_array_baseType.cj:22
+AOT r,r,-> 22
 CJVM c,c,
 print, print arrayInt64_d[1][2],\(Int64\) \$[\d] = 643
 q,q,

@@ -14,13 +14,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashSet_Ins_basic,001_HashSet_Ins_basic
-b,b 8,001_HashSet_Ins_basic.cj:8
-AOT r,r,-> 8
-CJVM c,c,-> 8
+b,b 16,001_HashSet_Ins_basic.cj:16
+AOT r,r,-> 16
+CJVM c,c,-> 16
 p,p set_int8,std[.]collection.HashSet<Int8>\) \$[\d] = {[\S\s]*\[0\] = 76[\S\s]*}
 p,p set_int8,std[.]collection.HashSet<Int8>\) \$[\d] = {[\S\s]*\[2\] = -7[\S\s]*}
-b,b 10,001_HashSet_Ins_basic.cj:10
-c,c,-> 10
+b,b 18,001_HashSet_Ins_basic.cj:18
+c,c,-> 18
 p,p set_int8,std[.]collection.HashSet<Int8>\) \$[\d] = {[\S\s]*\[0\] = 76[\S\s]*}
 p,p set_int8,std[.]collection.HashSet<Int8>\) \$[\d] = {[\S\s]*\[3\] = -12[\S\s]*}
 p,p set_int8,std[.]collection.HashSet<Int8>\) \$[\d] = {[\S\s]*\[2\] = -7[\S\s]*}

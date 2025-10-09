@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors watchpoint_external_invoke,watchpoint_external_invoke
-b ,b 19,watchpoint_external_invoke.cj:19
-r , r,-> 19
-watchpoint,watchpoint set variable -w read main_c_area,watchpoint_external_invoke.cj:19
-n,n,-> 20
+b ,b 27,watchpoint_external_invoke.cj:27
+r , r,-> 27
+watchpoint,watchpoint set variable -w read main_c_area,watchpoint_external_invoke.cj:27
+n,n,-> 28
 q,q,

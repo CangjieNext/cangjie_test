@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_record_mod,045_debug_record_mod
-b,b 13,045_debug_record_mod.cj:13
-AOT r,r,-> 13
+b,b 21,045_debug_record_mod.cj:21
+AOT r,r,-> 21
 CJVM c,c,
 AOT locals,locals,\(default.Rectangle\) this = {(\r|\n|\r\n)  length = [-+]?\d+(\r|\n|\r\n)  width = 0(\r|\n|\r\n)  diagonalLength = 0(\r|\n|\r\n)  varBool = true(\r|\n|\r\n)  varchar = '5'(\r|\n|\r\n)}(\r|\n|\r\n)\(Int32\) length = 3
 q,q,

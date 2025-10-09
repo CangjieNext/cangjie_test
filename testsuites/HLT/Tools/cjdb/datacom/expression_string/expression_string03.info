@@ -14,15 +14,15 @@
 
 test#
 cjdb,cjdb --no-use-colors string_para03,string_para03
-b,b 2,string_para03.cj:2
-b,b 5,string_para03.cj:5
-AOT r,r,-> 2
+b,b 10,string_para03.cj:10
+b,b 13,string_para03.cj:13
+AOT r,r,-> 10
 CJVM c,c,
 expr,expr a,\(std.core.String\) \$[\d] = "a: String"
-c,c,-> 5
+c,c,-> 13
 expr,expr b,\(Int64\) \$[\d] = 1
-b,b 11,string_para03.cj:11
-c,c,-> 11
+b,b 19,string_para03.cj:19
+c,c,-> 19
 expr~expr f2<Int64>("a: String", 1)~\(Int64\) \$[\d] = 1
 expr~expr f1("a:String")~\(std.core.String\) \$[\d] = "a:String"
 q,q,

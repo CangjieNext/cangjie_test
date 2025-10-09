@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 117,005_debug_class_generics.cj:117
-AOT r,r,-> 117
+b,b 125,005_debug_class_generics.cj:125
+AOT r,r,-> 125
 CJVM c,c,
-n,n,-> 118
+n,n,-> 126
 AOT locals,locals,C1<Float64>\) mc_2 = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 CJVM locals,locals,C1<UInt32>\) mc_1 = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 q,q,

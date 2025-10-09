@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_setVar_generices,001_debug_setVar_generices
-b,b 13,001_debug_setVar_generices.cj:13
-AOT r,r,-> 13
+b,b 21,001_debug_setVar_generices.cj:21
+AOT r,r,-> 21
 CJVM c,c,
 p,p mr_m1,\(Int16\) \$[0-9]* = 12
 set,set mr_m1 =16,\(Int16\) \$[0-9]* = 16

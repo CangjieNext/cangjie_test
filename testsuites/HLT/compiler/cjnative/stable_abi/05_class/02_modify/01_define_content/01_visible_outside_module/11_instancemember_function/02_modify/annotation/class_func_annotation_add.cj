@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.11.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance func
   @Behavior: add annotations
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,8 +33,7 @@
 package test_stable_abi
 
 // test class: instancemember function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 @Annotation
@@ -45,7 +44,7 @@ public class Version {
     }
 }
 
-public open class TestClass {
+open public class TestClass {
     @Version["1.1"]
     public func f1() {
         1
@@ -74,7 +73,6 @@ public open class TestClass {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     @Version["1.1"]
     public func f6(): Int64 {
@@ -84,7 +82,6 @@ public open class TestClass {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     @Version["1.1"]
     protected func pf6(): Int64 {
@@ -190,7 +187,7 @@ public open class TestClass {
         2
     }
     @Version["1.1"]
-    public open func openfunc() {
+    open public func openfunc() {
         1
     }
 

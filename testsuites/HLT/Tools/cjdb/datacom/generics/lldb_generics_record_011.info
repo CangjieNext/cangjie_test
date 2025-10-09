@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 101,052_debug_record_generics.cj:101
-AOT r,r,-> 101
+b,b 109,052_debug_record_generics.cj:109
+AOT r,r,-> 109
 CJVM c,c,
-n,n,-> 103
+n,n,-> 111
 print,print r7.width,R1<UInt32>\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 print,print r7.length,R1<UInt32>\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 q,q,

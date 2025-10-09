@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_express_basetype,002_express_basetype
-CJVM b,b main,064_debug_enum.cj:15
-CJVM c,c,-> 15
-b,b 33,064_debug_enum.cj:33
-CJVM c,c,-> 33
-AOT r,r,-> 33
+CJVM b,b main,064_debug_enum.cj:23
+CJVM c,c,-> 23
+b,b 41,064_debug_enum.cj:41
+CJVM c,c,-> 41
+AOT r,r,-> 41
 expr,expr time7,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Green3\s+arg_1 = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}*
 expr,expr time8,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Green4\s+arg_1 = {[\s\S]*\[0\] = 1..10 : 2[\s\S]*\[1\] = 1..10 : 2[\s\S]*\[2\] = 1..10 : 2[\s\S]*}*
 expr,expr time9,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Green5\s+arg_1 = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}*

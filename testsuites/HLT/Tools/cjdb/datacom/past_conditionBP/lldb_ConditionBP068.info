@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 042_debuginfun_expressions,042_debuginfun_expressions
-breakpoint,breakpoint set -l 14 -c 'owni==5',042_debuginfun_expressions.cj:14
-AOT r,r,-> 14
+breakpoint,breakpoint set -l 22 -c 'owni==5',042_debuginfun_expressions.cj:22
+AOT r,r,-> 22
 CJVM c,c,
-n,n,-> 25
+n,n,-> 33
 locals,locals,count = 11
 q,q,

@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashSet_Ins_basic,001_HashSet_Ins_basic
-b,b 8,001_HashSet_Ins_basic.cj:8
-AOT r,r,-> 8
-CJVM c,c,-> 8
+b,b 16,001_HashSet_Ins_basic.cj:16
+AOT r,r,-> 16
+CJVM c,c,-> 16
 AOT p,p set_int8[0],error: unsupported expression
 CJVM p,p set_int8[0],\(Int8\) \$0 = 76
 q,q,

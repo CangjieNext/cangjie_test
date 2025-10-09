@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 import std.collection.*
 
 type A1 = String
@@ -20,11 +28,3 @@ main() {
     test2<String>(HashMap<Int, A1>([(1, 'abc'), (2, "bcd")]))
     0
 }
-
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- * 
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

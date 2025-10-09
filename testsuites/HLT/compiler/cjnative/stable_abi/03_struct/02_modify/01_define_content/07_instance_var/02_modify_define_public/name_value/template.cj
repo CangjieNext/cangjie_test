@@ -5,43 +5,77 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
 
-public struct Rectangle {
+public struct Rectangle1 {
     let width = 10
-    let a1 = 20
-    private let a2 = 20
-    internal let a3 = 20
-    protected let a4 = 20
-    public let a5 = 20
-
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
+    
+    public let a1 = 20
 }
 
-public open class A {}
+public struct Rectangle2 {
+    const init() {}    
+    public let a2 = 20
+}
 
-public class B <: A {}
-
-public class C {}
-
-public struct S2 {
-    public let a: A = B()
-    let b: A = B()
-    public let c = 1
-    public let d = 1
-
+public struct Rectangle3 {
     @Frozen
-    public func getb() {
-        return b
-    }
+    init() {}
+    
+    public let a3 = 20
+}
 
+
+public open class A {const init() {}}
+public class B <: A {const init() {}}
+public class C {const init() {}}
+public struct S1{
+    public let a:A = B()
+    public let b = 1
+}
+
+struct S2{
+    public let a:A = B()
+    public let b = 1
+}
+
+public struct S22 {
+    var s2 = S2()
+}
+
+struct S3{
+    public let a:A = B()
+    public let b = 1
+}
+
+public struct S33 {
     @Frozen
-    public func getd() {
-        return d
+    public func f3(){
+        let s3 = S3()
     }
 }
+
+struct S4{
+    const init() {}
+    public let a:A = B()
+    public let b = 1
+}
+
+public struct S44 {
+    public const init() {}
+    public const func f4(){
+        let s4 = S4()
+    }
+}
+
+struct S5{
+    public let a:A = B()
+    public let b = 1
+}
+

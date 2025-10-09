@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 015_debug_class_obj_box,015_debug_class_obj_box
-b,b 18,015_debug_class_obj_box.cj:18
-AOT r,r,-> 18
-CJVM c,c,-> 18
-n,n,-> 19
+b,b 26,015_debug_class_obj_box.cj:26
+AOT r,r,-> 26
+CJVM c,c,-> 26
+n,n,-> 27
 AOT locals,locals,\(default.A\) a = {(\r\n|\r|\n|)}
 q,q,

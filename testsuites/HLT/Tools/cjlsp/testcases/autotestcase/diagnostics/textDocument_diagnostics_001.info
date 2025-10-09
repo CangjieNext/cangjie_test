@@ -18,4 +18,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"jsonrpc": "2.0", "method": "textDocument/publishDiagnostics", "params": {"diagnostics": [{"category": 502, "code": 502, "message": "package name supposed to be 'diagnosticsTest.pkg_error'", "range": {"end": {"character": 1, "line": 0}, "start": {"character": 0, "line": 0}}, "severity": 1, "source": "Cangjie"}], "uri": "diagnosticsTest/src/pkg_error/diag_001.cj"}}
+{"jsonrpc": "2.0","method": "textDocument/publishDiagnostics","params": {"diagnostics": [{"category": 461,"code": 461,"message": "package name supposed to be 'diagnosticsTest.pkg_error'","range": {"end": {"character": 1,"line": 0},"start": {"character": 0,"line": 0}},"severity": 1,"source": "Cangjie"}],"uri": "diagnosticsTest/src/pkg_error/diag_001.cj"}}

@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
-b,b 23,066_debug_arraylist.cj:23
-AOT r,r,-> 23
-CJVM c,c,-> 23
+b,b 31,066_debug_arraylist.cj:31
+AOT r,r,-> 31
+CJVM c,c,-> 31
 AOT p,p a,\(std\.collection.ArrayList<Float32>\) \$[\d] = {[\s\S]*\[0\] = 32.0999985[\s\S]*\[1\] = 32.2000008[\s\S]*}
 CJVM p,p a,\(std\.collection.ArrayList<Float32>\) \$[\d] = {[\s\S]*\[0\] = 32.099998[\s\S]*\[1\] = 32.200001[\s\S]*}
 AOT locals,locals,a = {[\s\S]*\[0\] = 32.0999985[\s\S]*\[1\] = 32.2000008[\s\S]*}

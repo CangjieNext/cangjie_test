@@ -14,9 +14,9 @@
  
 test#
 cjdb,cjdb --no-use-colors VArray_basetype,VArray_basetype
-b,b 42,Breakpoint 1: where = VArray_basetype`default::main[\s\S]*VArray_basetype.cj:42
-AOT r,r,-> 42
-CJVM c,c,-> 42
+b,b 50,Breakpoint 1: where = VArray_basetype`default::main[\s\S]*VArray_basetype.cj:50
+AOT r,r,-> 50
+CJVM c,c,-> 50
 p, p vInt8[0],\(Int8\) \$[\d] = 0
 expression, expression vInt8[0],\(Int8\) \$[\d] = 0
 expression, expression vInt16[1],\(Int16\) \$[\d] = -2

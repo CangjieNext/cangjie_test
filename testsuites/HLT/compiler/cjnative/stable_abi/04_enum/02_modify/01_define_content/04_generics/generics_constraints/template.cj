@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
@@ -14,7 +14,6 @@ import std.random.*
 
 public enum Pair<T, U> {
     | Red | Green | Blue(UInt8)
-
     public func first(x: T): T {
         return x
     }
@@ -25,7 +24,6 @@ public enum Pair<T, U> {
 
 public enum Pair1<T, U> where T <: ToString, U <: Random {
     | Red | Green | Blue(UInt8)
-
     public func first(x: T): T {
         return x
     }
@@ -36,7 +34,6 @@ public enum Pair1<T, U> where T <: ToString, U <: Random {
 
 public enum Pair2<T, U> where T <: Random {
     | Red | Green | Blue(UInt8)
-
     public func first(x: T): T {
         return x
     }
@@ -80,3 +77,4 @@ public class C1 {
         let v2 = S9<Random, Float64>.Green
     }
 }
+

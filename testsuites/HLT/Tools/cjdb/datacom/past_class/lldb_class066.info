@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 013_debug_class_func,013_debug_class_func
-b,b 79,013_debug_class_func.cj:79
-AOT r,r,-> 79
-CJVM c,c,-> 79
-n,n,-> 80
+b,b 87,013_debug_class_func.cj:87
+AOT r,r,-> 87
+CJVM c,c,-> 87
+n,n,-> 88
 locals,locals,\(Int32\) main_num4 = 5
 q,q,

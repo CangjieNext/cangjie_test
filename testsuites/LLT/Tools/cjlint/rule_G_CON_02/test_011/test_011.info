@@ -1,0 +1,13 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir 2>&1 | compare %f
+// ASSERT: regex main.cj:23:13.*Use this.m1.lock\(\) outside try block or release 'm1' at finally block.
+// ASSERT: regex main.cj:34:13.*Use m3.lock\(\) outside try block or release 'm3' at finally block.
+// ASSERT: regex main.cj:35:13.*Use m4.lock\(\) outside try block or release 'm4' at finally block.
+// ASSERT: regex main.cj:45:13.*Use this.m1.lock\(\) outside try block or release 'm1' at finally block.
+// ASSERT: regex main.cj:46:13.*Use m2.lock\(\) outside try block or release 'm2' at finally block.

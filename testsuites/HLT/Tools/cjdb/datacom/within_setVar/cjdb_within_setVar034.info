@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_setVar,002_debug_setVar
-b,b 19,002_debug_setVar.cj:19
-AOT r,r,-> 19
+b,b 27,002_debug_setVar.cj:27
+AOT r,r,-> 27
 CJVM c,c,
 p,p vm_9,\(Int32\) \$[\d] = 120
 set,set vm_9 =-210,\(Int32\) \$[0-9]* = -210

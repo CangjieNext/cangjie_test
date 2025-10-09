@@ -14,31 +14,31 @@
 
 test#
 cjdb,cjdb --no-use-colors coroutine_8,coroutine_8
-b,b 6,coroutine_8.cj:6
-AOT r,r,-> 6
+b,b 14,coroutine_8.cj:14
+AOT r,r,-> 14
 CJVM c,c,
-s,s,-> 11
-n,n,-> 24
-n,n,-> 25
+s,s,-> 19
+n,n,-> 32
+n,n,-> 33
 p,p returnList[0][1],\(std[.]core.String\) \$[\d] = "Cangjie"
 cjthread,cjthread list,state:
-finish,finish,-> 6
-n,n,-> 8
-b,b 12,coroutine_8.cj:12
-c,c,-> 12
-cjthread,cjthread list,state: pending
-n,n,-> 13
-b,b func_1,p3_file.cj:30
-c,c,-> 30
-p,p c,\(Rune\) \$[\d] = \'c\'
-set,set c='a',error: unsupported expression
-finish,finish,-> 16
-n,n,-> 17
-p,p getChar,\(Rune\) \$[\d] = \'c\'
+finish,finish,-> 14
+n,n,-> 16
 b,b 20,coroutine_8.cj:20
 c,c,-> 20
+cjthread,cjthread list,state: pending
 n,n,-> 21
-n,n,-> 19
-n,n,-> 20
-n,n,-> 21
+b,b func_1,p3_file.cj:38
+c,c,-> 38
+p,p c,\(Rune\) \$[\d] = \'c\'
+set,set c='a',error: unsupported expression
+finish,finish,-> 24
+n,n,-> 25
+p,p getChar,\(Rune\) \$[\d] = \'c\'
+b,b 28,coroutine_8.cj:28
+c,c,-> 28
+n,n,-> 29
+n,n,-> 27
+n,n,-> 28
+n,n,-> 29
 q,quit,

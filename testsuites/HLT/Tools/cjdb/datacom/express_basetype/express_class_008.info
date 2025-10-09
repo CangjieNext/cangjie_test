@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 27,053_debug_class_basetype_1.cj:27
-CJVM c,c,-> 27
-AOT r,r,-> 27
+b,b 35,053_debug_class_basetype_1.cj:35
+CJVM c,c,-> 35
+AOT r,r,-> 35
 p,p b.var11,\(Bool\) \$[\d] = false
 p,p b.var22,\(Unit\) \$[\d] = \(\)
 p,p b.var33,\(Rune\) \$[\d] = 'c'

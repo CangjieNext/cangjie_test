@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 068_debug_hashset,068_debug_hashset
-b,b 32,068_debug_hashset.cj:32
-AOT r,r,-> 32
-CJVM c,c,-> 32
+b,b 40,068_debug_hashset.cj:40
+AOT r,r,-> 40
+CJVM c,c,-> 40
 p,p hashset11,\(std\.collection.HashSet<UInt8>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 11[\s\S]*\[2\] = 12[\s\S]*}
 p,p hashset12,\(std\.collection.HashSet<UInt16>\) \$[\d] = {[\s\S]*\[0\] = 20[\s\S]*\[1\] = 21[\s\S]*\[2\] = 22[\s\S]*}
 p,p hashset13,\(std\.collection.HashSet<UInt32>\) \$[\d] = {[\s\S]*\[0\] = 30[\s\S]*\[1\] = 31[\s\S]*\[2\] = 32[\s\S]*}

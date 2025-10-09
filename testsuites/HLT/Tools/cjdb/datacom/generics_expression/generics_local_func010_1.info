@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func010,generics_local_func010
-b,b 9,generics_local_func010.cj:9
-AOT r,r,-> 9
+b,b 17,generics_local_func010.cj:17
+AOT r,r,-> 17
 CJVM c,c,
 expr:expr this.width:\(Int32\) \$[\d] = 10
 expr:expr this.length:\(Int32\) \$[\d] = 0

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 007_debug_multiArray_composite_enum,007_debug_multiArray_composite_enum
-b,b 42,007_debug_multiArray_composite_enum.cj:42
-AOT r,r,-> 42
+b,b 50,007_debug_multiArray_composite_enum.cj:50
+AOT r,r,-> 50
 CJVM c,c,
 p,p multiArr_m_d1[0][0],default.TimeUnit1\) \$[\d] = a
 p,p multiArr_m_d1[1],std[.]core.Array<default.TimeUnit1>\) \$[\d] = {[\s\S]*\[0\] = a[\s\S]*

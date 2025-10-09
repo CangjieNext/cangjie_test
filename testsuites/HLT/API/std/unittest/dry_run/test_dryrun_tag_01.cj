@@ -10,7 +10,7 @@ package tmp_test
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args --dry-run 2>&1 | compare %f
+// RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args --dry-run 2>&1 | compare %f
 // ASSERT: scan CASE: test00 (tags: test00Tag)
 // ASSERT: scan CASE: test01 (tags: test01Tag0, test01Tag1)
 // ASSERT: scan CASE: topLevel (tags: tag1, tag2)

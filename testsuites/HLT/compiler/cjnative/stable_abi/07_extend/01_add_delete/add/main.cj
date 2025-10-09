@@ -5,17 +5,20 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    if (C1().f_c1() == 1 && C2().f_c2() == 2
-        && C3<Int64, Int64>().f_c3() == 3
+    if (
+        C1().f_c1() == 1 && C2().f_c2() == 2
+        && C3<Int64, Int64>().f_c3() == 3 
         && C4().f_c1() == 1 && C4().f_c4() == 4
-        && C5<Int64, I1>().f_c5() == 5
-        && S1().f_s1() == 1 && S2<Int64, C1>().f_s2() == 2) {
+        && C5<Int64, I1>().f_c5() == 5 
+        && S1().f_s1() == 1 && S2<Int64, C1>().f_s2() == 2
+    ) {
         return 0
     } else {
         return 1
     }
 }
+

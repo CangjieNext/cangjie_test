@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -13,10 +13,10 @@
 Req#
 {"jsonrpc": "2.0", "id": "0", "method": "initialize", "params": {"processId": null, "rootPath": "InheritProject", "rootUri": "InheritProject", "capabilities": {"workspace": {"applyEdit": true, "workspaceEdit": {}, "didChangeWatchedFiles": {}, "symbol": {}, "executeCommand": {}, "workspaceFolders": false, "configuration": false}, "textDocument": {"synchronization": {"willSave": true, "willSaveWaitUntil": true, "didSave": true}, "completion": {"completionItem": {"snippetSupport": true}}, "hover": {}, "signatureHelp": {}, "references": {}, "documentHighlight": {"dynamicRegistration": true}, "formatting": {}, "rangeFormatting": {}, "onTypeFormatting": {}, "definition": {}, "codeAction": {}, "documentLink": {}, "rename": {"prepareSupport": true}, "semanticHighlightingCapabilities": {"semanticHighlighting": true}, "callHierarchy": {}, "semanticTokens": {"tokenTypes": ["namespace", "type", "class", "enum", "interface", "struct", "typeParameter", "parameter", "variable", "property", "enumMember", "event", "function", "method", "macro", "keyword", "modifier", "comment", "string", "number", "regexp", "operator", "member", "label"], "tokenModifiers": ["declaration", "definition", "readonly", "static", "deprecated", "abstract", "async", "modification", "documentation", "defaultLibrary"], "dynamicRegistration": true}}}}}
 {"jsonrpc":"2.0","method":"initialized","params":{}}
-{"jsonrpc": "2.0", "method": "textDocument/didOpen", "params": {"textDocument": {"uri": "InheritProject/src/inherit07.cj", "languageId": "Cangjie", "version": 1, "text": "package default\nimport default.pkga.*\n\nclass B7 <: A7 {\n    public static redef func name1() {}\n}\n\nfunc test7() {\n    var a = B7.name1\n    var b = A7.name1()\n}\n"}}}
-{"jsonrpc":"2.0","id":45,"method":"textDocument/documentHighlight","params":{"textDocument":{"uri":"InheritProject/src/inherit07.cj"},"position":{"line":8,"character":16}}}
+{"jsonrpc": "2.0", "method": "textDocument/didOpen", "params": {"textDocument": {"uri": "InheritProject/src/inherit07.cj", "languageId": "Cangjie", "version": 1, "text": "/*\n * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.\n * This source file is part of the Cangjie project, licensed under Apache-2.0\n * with Runtime Library Exception.\n *\n * See https://cangjie-lang.cn/pages/LICENSE for license information.\n */\n\npackage default\nimport default.pkga.*\n\nclass B7 <: A7 {\n    public static redef func name1() :Unit{}\n}\n\nfunc test7() {\n    var a = B7.name1\n    var b = A7.name1()\n}\n"}}}
+{"jsonrpc":"2.0","id":45,"method":"textDocument/documentHighlight","params":{"textDocument":{"uri":"InheritProject/src/inherit07.cj"},"position":{"line":16,"character":16}}}
 {"jsonrpc": "2.0", "id": 46, "method": "shutdown", "params": {}}
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 45,"jsonrpc": "2.0","result": [{"kind": 1,"range": {"end": {"character": 34,"line": 4},"start": {"character": 29,"line": 4}}},{"kind": 1,"range": {"end": {"character": 20,"line": 8},"start": {"character": 15,"line": 8}}}]}
+{"id": 45,"jsonrpc": "2.0","result": [{"kind": 1,"range": {"end": {"character": 34,"line":12},"start": {"character": 29,"line":12}}},{"kind": 1,"range": {"end": {"character": 20,"line":16},"start": {"character": 15,"line":16}}}]}

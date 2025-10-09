@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC:%frontendCompiler %typecheck %cmp_opt %f 2>&1 | compare %f
+// EXEC:%frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
 
 interface I<T> {}
 
@@ -37,26 +37,5 @@ main() {
     return 0
 }
 
-/* SCAN
-error: unable to infer generic argument of this function
-  ==> infer_with_upper.cj:21:12:
-   | 
-21 |     return A()
-   |            ^ 
-   | 
-note: following constraints for type variable 'Generics-T' cannot be solved:
-      'Generics-T <: Interface-I<Generics-T>'
-  ==> infer_with_upper.cj:11:9:
-   | 
-11 | class A<T> where T <: I<T> {
-   |         ^ 
-   | 
-note: constraint 'Generics-T <: Interface-I<Generics-T>' may come from:
-  ==> infer_with_upper.cj:11:18:
-   | 
-11 | class A<T> where T <: I<T> {
-   |                  ^^^^^^^^^ 
-   | 
-
-1 error generated, 1 error printed.
-*/
+// ASSERT: scan-1 sema_unable_to_infer_generic_func
+// ASSERT: scan "Errors": 1

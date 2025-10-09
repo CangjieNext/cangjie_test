@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.3.1.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend static func
   @Behavior: delete public static func
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -25,8 +25,8 @@
 // EXEC: %mv test_stable_abi.cjo new.cjo
 
 // ASSERT: scan Incompatible
-// ASSERT: scan-1 [API/ABI] Deleted public/protected member function of extend when the extended type is class.
-// ASSERT: scan-1 [API/ABI] Deleted public member function of extend when the extended type is struct.
+// ASSERT: scan-1 [API/ABI] Deleted public/protected member function of extend or made it private when the extended type is class.
+// ASSERT: scan-1 [API/ABI] Deleted public member function of extend or made it private when the extended type is struct.
 // ASSERT: scan-2 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
@@ -34,12 +34,10 @@
 package test_stable_abi
 
 // test extend: static function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public class TestClass {}
-
 public struct TestStruct {}
 
 extend TestClass {
@@ -57,7 +55,6 @@ extend TestClass {
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -67,7 +64,6 @@ extend TestClass {
     public static func f7() {
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -88,7 +84,7 @@ extend TestClass {
         12
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13
     }
     public static const func f14(): Int64 {
@@ -128,7 +124,6 @@ extend TestStruct {
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -138,7 +133,6 @@ extend TestStruct {
     public static func f7() {
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -159,7 +153,7 @@ extend TestStruct {
         12
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13
     }
     public static const func f14(): Int64 {

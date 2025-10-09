@@ -13,12 +13,12 @@
 
 test#
 cjdb,cjdb --no-use-colors test_stepin,test_stepin
-b,b 36,test_stepin.cj:36
-AOT r,r,-> 36
+b,b 44,test_stepin.cj:44
+AOT r,r,-> 44
 CJVM c,c,
-s,s,-> 10
-finish,finish,-> 36|37
-b,b returnFunc_7,test_stepin.cj:26
-c,c,-> 26
-finish,finish,-> 40|41
+s,s,-> 18
+finish,finish,-> 44|45
+b,b returnFunc_7,test_stepin.cj:34
+c,c,-> 34
+finish,finish,-> 48|49
 q,q,

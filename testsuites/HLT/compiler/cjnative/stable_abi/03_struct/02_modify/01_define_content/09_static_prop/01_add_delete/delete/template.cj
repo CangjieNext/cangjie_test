@@ -5,20 +5,21 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
+
 
 public struct Rectangle {
     let width = 10
     static var a = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
-    mut static prop geta: Int64 {
+    static mut prop geta: Int64 {
         get() {
             a
         }
@@ -28,14 +29,14 @@ public struct Rectangle {
     }
 }
 
-public struct S1 {
+public struct S1{
     static var a = 20
     public static prop getb: Int64 {
         get() {
             a
         }
     }
-    public mut static prop geta: Int64 {
+    public static mut prop geta: Int64 {
         get() {
             a
         }
@@ -45,7 +46,8 @@ public struct S1 {
     }
 
     @Frozen
-    public func getgeta() {
+    public func getgeta(){
         return geta
     }
 }
+

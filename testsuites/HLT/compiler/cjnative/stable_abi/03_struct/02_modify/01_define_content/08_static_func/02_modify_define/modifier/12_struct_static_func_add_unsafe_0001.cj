@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.8.2.12
   @Scene: add
@@ -13,8 +13,8 @@
   @Object: struct static func
   @Behavior: modifier: add unsafe
   @Expect: api incompatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // Expect: API Incompatible & ABI Incompatible
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -37,11 +37,11 @@ package test_stable_abi
 public struct Rectangle {
     static let width = 10
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
-    public unsafe static func geta1() {
+    unsafe public static func geta1() {
         return 0
     }
 
@@ -81,7 +81,7 @@ public struct Rectangle {
         return 0
     }
 
-    public unsafe static func geta11() {
+    unsafe public static func geta11() {
         return 0
     }
 

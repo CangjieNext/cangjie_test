@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // ERRCHECK:cd %n && %cjpm build %cjpm_opt
-// ASSERT: regex the path '.*cjpm.toml' does not exist
+// ASSERT: regex the path '.*cjpm.toml' of module 'c' does not exist

@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 048_debug_array_type,048_debug_array_type
-b,b 31,048_debug_array_type.cj:31
-AOT r,r,-> 31
+b,b 39,048_debug_array_type.cj:39
+AOT r,r,-> 39
 CJVM c,c,
-n,n,-> 33
+n,n,-> 41
 locals,locals,Array<Rune>
 locals,locals,\[0\] = 'a'
 locals,locals,\[3\] = 'd'

@@ -162,11 +162,15 @@ let kinds = ArrayList<TokenKind>(
         TokenKind.DOLLAR_IDENTIFIER,
         TokenKind.ANNOTATION,
         TokenKind.AT_EXCL,
+        TokenKind.COMMON,
+        TokenKind.PLATFORM,
         TokenKind.PERFORM,
         TokenKind.RESUME,
         TokenKind.THROWING,
         TokenKind.HANDLE,
-        TokenKind.ILLEGAL
+        TokenKind.ILLEGAL,
+        TokenKind.DOUBLE_COLON,
+        TokenKind.FEATURES
     ]
 )
 let strs = ArrayList<String>(
@@ -327,11 +331,15 @@ let strs = ArrayList<String>(
         "DOLLAR_IDENTIFIER",
         "ANNOTATION",
         "AT_EXCLAMATION",
+        "COMMON",
+        "PLATFORM",
         "PERFORM",
         "RESUME",
         "THROWING",
         "HANDLE",
-        "ILLEGAL"
+        "ILLEGAL",
+        "DOUBLE_COLON",
+        "FEATURES"
     ]
 )
 
@@ -343,7 +351,7 @@ main(): Int64 {
             return 1
         }
 
-        // test TokenKind.toString()
+        // test toString() of TokenKind
         if (kinds[i].toString() != strs[i]) {
             return 2
         }
@@ -351,7 +359,7 @@ main(): Int64 {
 
     // test TokenKind.operator == when not equal
     for (i in 0..(kinds.size - 1)) {
-        if (kinds[i] == TokenKind.ILLEGAL) {
+        if (kinds[i] == TokenKind.FEATURES) {
             return 3
         }
     }

@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 012_debug_class_init,012_debug_class_init
-b,b 53,012_debug_class_init.cj:53
-AOT r,r,-> 53
-CJVM c,c,-> 53
-n,n,-> 55
+b,b 61,012_debug_class_init.cj:61
+AOT r,r,-> 61
+CJVM c,c,-> 61
+n,n,-> 63
 AOT locals,locals,default.C2\) num3 = {(\r|\n|\r\n)  default.C1 = {(\r|\n|\r\n)    length = 10(\r|\n|\r\n)    width = 10(\r|\n|\r\n)    perimeter = 10(\r|\n|\r\n)  }(\r|\n|\r\n)  size = 10
 CJVM locals,locals,default.C2\) num3 = {(\r|\n|\r\n)  default.C1 = {(\r|\n|\r\n)    length = 10(\r|\n|\r\n)    width = 10(\r|\n|\r\n)    perimeter = 10(\r|\n|\r\n)  }(\r|\n|\r\n)  size = 10
 q,q,

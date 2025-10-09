@@ -10,4 +10,4 @@
 // DEPENDENCE: pkgA
 // EXEC-PIPE: %compiler -p pkgA  %compile_lib_opt
 // EXEC-PIPE: %compiler --scan-dependency pkgA.cjo 2>&1 | compare %f
-// ASSERT: scan {"package":"pkgA","isMacro":true,"accessLevel":"public","dependencies":[]}
+// ASSERT: scan {"package":"pkgA","isMacro":true,"accessLevel":"public","dependencies":[],"features":[]}

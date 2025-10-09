@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_large_array,003_debug_large_array
-b,b 25,003_debug_large_array.cj:25
-AOT r,r,-> 25
+b,b 33,003_debug_large_array.cj:33
+AOT r,r,-> 33
 CJVM c,c,
 p, p arrayInt64_q[0][1][0][99],\(Int64\) \$[0-9]* = 98
 set,set arrayInt64_q[0][1][0][99]=-32768,\(Int64\) \$[0-9]* = -32768

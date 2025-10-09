@@ -1,0 +1,39 @@
+// DEPENDENCE: define.cj foo.c %f.expect
+// EXEC: %compiler %cmp_macro define.cj
+// EXEC: %clang foo.c %clang_shared_opt -o libfoo.%dylib_suffix
+// EXEC: %run_macro %compiler %cmp_opt %f -L . -l foo %macro_debug
+// EXEC: %diff %f.macrocall %f.expect
+import define.*
+
+foreign func PlusOne(ptr: CPointer<Int32>): Unit
+
+/* ===== Emitted by MacroCall @M1 in inout_m4.cj:10:1 ===== */
+/* 10.1 */func foo() {
+/* 10.2 */    var a: Int32 = 0
+/* 10.3 */    unsafe {
+/* 10.4 */        PlusOne(inout a)
+/* 10.5 */    }
+/* 10.6 */    println(a)
+/* 10.7 */    unsafe {
+/* 10.8 */        PlusOne(inout a)
+/* 10.9 */    }
+/* 10.10 */    println(a)
+/* 10.11 */}
+/* 10.12 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @M1 in inout_m4.cj:19:1 ===== */
+/* 19.1 */main() {
+/* 19.2 */    var a: Int32 = 0
+/* 19.3 */    unsafe {
+/* 19.4 */        PlusOne(inout a)
+/* 19.5 */    }
+/* 19.6 */    println(a)
+/* 19.7 */    unsafe {
+/* 19.8 */        PlusOne(inout a)
+/* 19.9 */    }
+/* 19.10 */    println(a)
+/* 19.11 */    foo()
+/* 19.12 */}
+/* 19.13 */
+/* ===== End of the Emit ===== */

@@ -5,13 +5,11 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    let r = S1.Red
-    let g = S1.Green
-    let b = S1.Blue(100)
-
-    return 0
+    return RED.f1() + BLUE.f2() + YELLOW(1).f3()
 }
+
+

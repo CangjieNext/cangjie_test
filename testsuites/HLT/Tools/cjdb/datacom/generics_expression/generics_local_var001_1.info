@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var001,generics_local_var001
-b,b 23,generics_local_var001.cj:23
-AOT r,r,-> 23
+b,b 31,generics_local_var001.cj:31
+AOT r,r,-> 31
 CJVM c,c,
 expr:expr vunit:\(Unit\) \$[\d] = ()
 expr:expr vlist2[0]:\(Int64\) \$[\d] = 1

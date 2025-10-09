@@ -13,17 +13,17 @@
 
 test#
 cjdb,cjdb --no-use-colors loop,loop
-b,b 13,loop.cj:13
-AOT r,r,-> 13
-CJVM c,c,-> 13
-n,n,-> 14
-n,n,-> 13
-n,n,-> 13
-n,n,-> 14
-n,n,-> 13
-n,n,-> 13
-n,n,-> 14
-n,n,-> 13
-n,n,-> 13
-n,n,-> 17
+b,b 21,loop.cj:21
+AOT r,r,-> 21
+CJVM c,c,-> 21
+n,n,-> 22
+n,n,-> 21
+n,n,-> 21
+n,n,-> 22
+n,n,-> 21
+n,n,-> 21
+n,n,-> 22
+n,n,-> 21
+n,n,-> 21
+n,n,-> 25
 q,q,

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_alias2,generics_alias2
-b,b 139,generics_alias2.cj:139
-AOT r,r,-> 139
+b,b 147,generics_alias2.cj:147
+AOT r,r,-> 147
 CJVM c,c,
 p, p lct,\(default.classtype01<Int32>\) \$[\d] = {[\s\S]*a = 16[\s\S]
 p, p s1.vcts,\(default.classtype01<Int64>\) \$[\d] = {[\s\S]*a = 10[\s\S]
@@ -25,8 +25,8 @@ p, p globals_ct,\(default.classtype01<Int32>\) \$[\d] = {[\s\S]*a = 16[\s\S]
 locals, locals,\(default.classtype01<Int32>\) lct = {[\s\S]*a = 16[\s\S][\s\S]*\(default.S1\) s1 = {[\s\S]*vcts = {[\s\S]*a = 10[\s\S][\s\S]*\(default.C1\) c1 = {[\s\S]*vctc = {[\s\S]*a = 10[\s\S][\s\S]*
 globals, globals,\(default.classtype01<Int64>\) default::S1::vct = {[\s\S]*a = 10[\s\S]
 globals, globals,\(default.classtype01<Int32>\) default::globals_ct = {[\s\S]*a = 16[\s\S]
-b, b 151,generics_alias2.cj:151
-c,c,-> 151
+b, b 159,generics_alias2.cj:159
+c,c,-> 159
 p, p h,\(default.classtype01<Int32>\) \$[\d] = {[\s\S]*a = 16[\s\S]
 p, p test_h,\(default.classtype01<Int32>\) \$[\d] = {[\s\S]*a = 16[\s\S]
 locals, locals,\(default.classtype01<Int32>\) h = {[\s\S]*a = 16[\s\S]

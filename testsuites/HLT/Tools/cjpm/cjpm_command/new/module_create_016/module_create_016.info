@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // ERRCHECK: cd %n && %cjpm init -f
-// ASSERT:scan unknow command '-f' for cjpm init
+// ASSERT:scan unknown command '-f' for cjpm init

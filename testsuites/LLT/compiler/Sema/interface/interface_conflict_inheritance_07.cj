@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC:%frontendCompiler %typecheck %cmp_opt %f 2>&1 | compare %f
+// EXEC:%frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
 
 interface I1 {
     func foo(): Int
@@ -22,22 +22,5 @@ class A<T> where T <: I1 & I2 {}
 main() {
 }
 
-/* SCAN
-error: return type of the inherited function members 'foo' are not identical and not in subtype relation
-  ==> interface_conflict_inheritance_07.cj:17:25:
-   | 
-17 | func bar<T>(x: T) where T <: I1 & I2 {
-   |                         ^^^^^^^^^^^^ 
-   | 
-   # note: conflict types are 'Int64', 'Struct-String'
-
-error: return type of the inherited function members 'foo' are not identical and not in subtype relation
-  ==> interface_conflict_inheritance_07.cj:20:18:
-   | 
-20 | class A<T> where T <: I1 & I2 {}
-   |                  ^^^^^^^^^^^^ 
-   | 
-   # note: conflict types are 'Int64', 'Struct-String'
-
-2 errors generated, 2 errors printed.
-*/
+// ASSERT: scan-2 sema_inherit_member_type_inconsistent
+// ASSERT: scan "Errors": 2

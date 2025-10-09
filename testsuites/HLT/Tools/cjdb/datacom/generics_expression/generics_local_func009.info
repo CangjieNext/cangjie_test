@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func009,generics_local_func009
-b,b 21,generics_local_func009.cj:21
-AOT r,r,-> 21
+b,b 29,generics_local_func009.cj:29
+AOT r,r,-> 29
 CJVM c,c,
 expr:expr b:\(Int64\) \$[\d] = 1
 expr:expr a:\(default.B<Int64>\) \$[\d] = {[\s\S]*default.A<Int64> = {[\s\S]*a = 30[\s\S]*}[\s\S]*b = 20[\s\S]*}

@@ -1,11 +1,3 @@
-package default.pkg
-
-func wildcardPat(x: Int64) {
-    match (x) {
-        case _ => "_"
-    }
-}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -13,3 +5,11 @@ func wildcardPat(x: Int64) {
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.pkg
+
+func wildcardPat(x: Int64) {
+    match (x) {
+        case _ => "_"
+    }
+}

@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// ERRCHECK: %compiler %diag_json %f -o %output
 
 interface A {}
 
@@ -30,22 +30,5 @@ class F <: I1 {
 
 main() {}
 
-/* SCAN
-error: the constraint of type parameter is not looser than parent's constraint
-  ==> generic_constraint_inheritance_03.cj:20:46:
-   | 
-20 |     public static func test<T>(): Unit where T <: A & C {}
-   |                                              ^^^^^^^^^^ 
-   | 
-   # note: parent constraint is 'Interface-B'
-
-error: the constraint of type parameter is not looser than parent's constraint
-  ==> generic_constraint_inheritance_03.cj:24:46:
-   | 
-24 |     public static func test<T>(): Unit where T <: B & C {}
-   |                                              ^^^^^^^^^^ 
-   | 
-   # note: parent constraint is 'Interface-B'
-
-2 errors generated, 2 errors printed.
-*/
+// ASSERT: scan-2 sema_generic_constraint_not_looser
+// ASSERT: scan "Errors": 2

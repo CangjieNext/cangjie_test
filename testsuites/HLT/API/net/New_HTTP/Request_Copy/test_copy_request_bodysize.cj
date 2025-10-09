@@ -11,7 +11,7 @@
 // DEPENDENCE: ../../../asan
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt asan.%middle %f -o %output %cmp_utest_opt
-// RUN-EXEC: %export cjHeapSize=16GB && %run_stdx %output %run_utest_opt %run_args
+// RUN-EXEC: %export cjHeapSize=12GB && %run_stdx %output %run_utest_opt %run_args
 
 /*
  * Test description:

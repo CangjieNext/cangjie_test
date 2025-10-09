@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_baseVar,option_baseVar
-b,b 45,option_baseVar.cj:45
-AOT r,r,-> 45
-CJVM c,c,-> 45
+b,b 53,option_baseVar.cj:53
+AOT r,r,-> 53
+CJVM c,c,-> 53
 p,p Bool_T,\(std[.]core.Option<Bool>\) \$[\d] = true
 p,p Bool_F,\(std[.]core.Option<Bool>\) \$[\d] = false
 p,p Bool_N,\(std[.]core.Option<Bool>\) \$[\d] = None

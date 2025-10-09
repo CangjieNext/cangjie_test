@@ -14,6 +14,7 @@ struct Data {
     public static let a: Int32 = 2
     public var b: Int32 = 2
     public init(x: String) {
+        // init()
         b = a + b
     }
 }

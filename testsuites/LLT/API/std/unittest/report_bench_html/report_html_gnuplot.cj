@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// (JET) LEVEL:2
+// LEVEL:0
 // EXEC: %compiler %cmp_opt -o %n.%suffix %f --test
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args --no-color --bench --report-format=html --report-path=./tmp | compare %f
 // ASSERT: scan PASSED: 3,

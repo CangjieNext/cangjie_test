@@ -13,9 +13,19 @@
 import std.ast.*
 
 // main() {
+//    	var input : Tokens = quote(a=if (true) {1} else {2})
+//     let expr = parseExpr(input)
+//     if (expr.isAssignExpr()) {
+//         var b = expr.asAssignExpr()
+//         if (b.getLeftValue().asRefExpr().getIdentifier().value != "a") {
+//             return 1
 //         }
+//         if (!b.getRightExpr().isIfExpr()) {
+//             return 2
 //         }
+//         return 0
 //     }
+//     return 3
 // }
 
 main() {

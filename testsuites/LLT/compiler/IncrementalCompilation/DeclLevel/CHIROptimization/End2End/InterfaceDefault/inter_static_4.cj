@@ -12,9 +12,10 @@
 // ASSERT: scan 7default3fooF$$l: body 
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan begin dump incremental compile result:
-// ASSERT: scan changed decls to recompile: 2
+// ASSERT: scan changed decls to recompile: 3
 // ASSERT: scan the changed decl after Spreading is:foo in file main.cj in line 1 in column 6
 // ASSERT: scan the changed decl after Spreading is:f in file main.cj in line 6 in column 17
+// ASSERT: scan the changed decl after Spreading is:main in file main.cj in line 15 in column 1
 // ASSERT: scan incremental sema
 
 

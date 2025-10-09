@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashMap_Ins_composite,003_HashMap_Ins_composite
-b,b 51,003_HashMap_Ins_composite.cj:51
-AOT r,r,-> 51
-CJVM c,c,-> 51
+b,b 59,003_HashMap_Ins_composite.cj:59
+AOT r,r,-> 59
+CJVM c,c,-> 59
 p,p map_map_4,std[.]collection.HashMap<Int64,std[.]collection.HashMap<Bool,std[.]core.Array<std[.]collection.HashSet<default.cla>>>>\) \$[\d] = {[\S\s]*key = 2536[\S\s]*value = [\S\s]*}
 q,q,

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.10.2.15
   @Scene: add
@@ -13,8 +13,8 @@
   @Object: struct instance func
   @Behavior: modifier: add const
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -38,11 +38,11 @@ public struct Rectangle {
 
     public const init() {}
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
-    public const func geta1() {
+    const public func geta1() {
         return 0
     }
 
@@ -50,15 +50,15 @@ public struct Rectangle {
         return 0
     }
 
-    public const func geta3() {
+    const public func geta3() {
         return 0
     }
 
-    private const func geta4() {
+    const private func geta4() {
         return 0
     }
 
-    internal const func geta5() {
+    const internal func geta5() {
         return 0
     }
 
@@ -66,11 +66,11 @@ public struct Rectangle {
         return 0
     }
 
-    protected const func geta7() {
+    const protected func geta7() {
         return 0
     }
 
-    public const func geta8() {
+    const public func geta8() {
         return 0
     }
 
@@ -82,7 +82,7 @@ public struct Rectangle {
         return 0
     }
 
-    public unsafe func geta11() {
+    unsafe public func geta11() {
         return 0
     }
 

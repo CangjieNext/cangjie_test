@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 101,Breakpoint 1:
-AOT r,r,-> 101
+b,b 109,Breakpoint 1:
+AOT r,r,-> 109
 CJVM c,c,
 p, p a,\(default.C3<Rune>\) \$[\d] = {[\s\S]*c3_a = 'a'[\s\S]*}
 locals, locals,\(default.C4<default.C3<Rune>>\) this = {[\s\S]*c4_a = {[\s\S]*c3_a = 'a'[\s\S]*}[\s\S]*}[\s\S]*\(default.C3<Rune>\) a = {[\s\S]*c3_a = 'a'[\s\S]*}

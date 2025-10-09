@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 009_debug_class_main_mod_private,009_debug_class_main_mod_private
-b,b 29,009_debug_class_main_mod_private.cj:29
-AOT r,r,-> 29
-CJVM c,c,-> 29
-n,n,-> 30
+b,b 37,009_debug_class_main_mod_private.cj:37
+AOT r,r,-> 37
+CJVM c,c,-> 37
+n,n,-> 38
 locals,locals,Rectangle\) newRectangle = {(\r|\n|\r\n)  name = "afdoaidfad"(\r|\n|\r\n)  width = 1(\r|\n|\r\n)  length = 2(\r|\n|\r\n)  height = 1
 q,q,

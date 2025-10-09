@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
@@ -14,10 +14,10 @@ public struct Rectangle {
     static let width = 10
     static var a = 10
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
-    mut static prop geta1: Int64 {
+    static mut prop geta1:Int64 {
         get() {
             println("get")
             a
@@ -28,7 +28,7 @@ public struct Rectangle {
         }
     }
 
-    public mut static prop geta2: Int64 {
+    public static mut prop geta2:Int64 {
         get() {
             println("get")
             a
@@ -39,52 +39,7 @@ public struct Rectangle {
         }
     }
 
-    @Deprecated["this function is deprecated", strict: false]
-    mut static prop geta3: Int64 {
-        get() {
-            println("get")
-            a
-        }
-        set(value) {
-            println("set")
-            a = value
-        }
-    }
-
-    @Deprecated["this function is deprecated", strict: false]
-    public mut static prop geta4: Int64 {
-        get() {
-            println("get")
-            a
-        }
-        set(value) {
-            println("set")
-            a = value
-        }
-    }
-
-    @Deprecated["this function is deprecated", strict: true]
-    public mut static prop geta5: Int64 {
-        get() {
-            println("get")
-            a
-        }
-        set(value) {
-            println("set")
-            a = value
-        }
-    }
-}
-
-public struct S1 {
-    static var a = 20
-    public static prop getb: Int64 {
-        get() {
-            a
-        }
-    }
-
-    mut static prop geta: Int64 {
+    static mut prop getb: Int64 {
         get() {
             a
         }
@@ -94,8 +49,8 @@ public struct S1 {
     }
 
     @Frozen
-    public func getgeta() {
-        return geta
+    public func getc1(){
+        return getb
     }
 
     @Deprecated["this function is deprecated", strict: false]
@@ -106,7 +61,7 @@ public struct S1 {
     }
 
     @Deprecated["this function is deprecated", strict: false]
-    mut static prop getd: Int64 {
+    static mut prop getd: Int64 {
         get() {
             a
         }
@@ -116,7 +71,39 @@ public struct S1 {
     }
 
     @Frozen
-    public func getgetd() {
+    public func getgetd(){
         return getd
     }
+
+    @Deprecated["this function is deprecated", strict: false]
+    public static prop gete: Int64 {
+        get() {
+            a
+        }
+    }
+
+    @Deprecated["this function is deprecated", strict: true]
+    public static prop geth: Int64 {
+        get() {
+            a
+        }
+    }
+
+    @Deprecated["this function is deprecated", strict: true]
+    static mut prop getf: Int64 {
+        get() {
+            a
+        }
+        set(value) {
+            a = value
+        }
+    }
+
+    @Frozen
+    @Deprecated["this function is deprecated", strict: true]
+    public func getgetf(){
+        return getf
+    }
 }
+
+

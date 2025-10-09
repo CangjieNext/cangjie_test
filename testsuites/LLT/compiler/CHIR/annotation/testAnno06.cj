@@ -6,9 +6,9 @@
 
 // LEVEL: 0
 // (DEBUG_OPTION)EXEC: %compiler %cmp_opt %debugCHIROpt %n.cj -o %output | compare %f
-// (CJNATIVE) ASSERT: regex The annotation factory function of C in the line .* is \_CAN7default1CE
-// (CJNATIVE) ASSERT: regex The annotation factory function of v in the line .* is \_CAN7default1C1vK_E
-// (CJNATIVE) ASSERT: regex The annotation factory function of foo in the line .* is \_CAN7default1C3fooHi
+// (CJNATIVE) ASSERT: regex The annotation factory function of C in the line .* is \_CAF7default1CE
+// (CJNATIVE) ASSERT: regex The annotation factory function of v in the line .* is \_CAF7default1C1vK_E
+// (CJNATIVE) ASSERT: regex The annotation factory function of foo in the line .* is \_CAF7default1C3fooHi
 // (not CJNATIVE) ASSERT: regex The annotation factory function of C in the line .* is \$Anno_ZN7default1CE
 // (not CJNATIVE) ASSERT: regex The annotation factory function of v in the line .* is \$Anno_ZN7default1C1vE
 // (not CJNATIVE) ASSERT: regex The annotation factory function of foo in the line .* is \$Anno_ZN7default1C3fooEi

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
-b,b 14,003_HashSet_via_class.cj:14
-AOT r,r,-> 14
-CJVM c,c,-> 14
+b,b 22,003_HashSet_via_class.cj:22
+AOT r,r,-> 22
+CJVM c,c,-> 22
 p,p set_string_3,std[.]collection.HashSet<std[.]core.String>\) \$[\d] = {[\S\s]*\[2\] = "[\s\S]*        Hello[\s\S]*            CangJie![\s\S]*        this is a test."[\S\s]*}
 q,q,

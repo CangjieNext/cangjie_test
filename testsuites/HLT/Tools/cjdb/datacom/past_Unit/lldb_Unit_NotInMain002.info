@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 039_debuginfun_return,039_debuginfun_return
-b,b 11,039_debuginfun_return.cj:11
-AOT r,r,-> 11
-CJVM c,c,-> 11
-n,n,-> 13
+b,b 19,039_debuginfun_return.cj:19
+AOT r,r,-> 19
+CJVM c,c,-> 19
+n,n,-> 21
 locals,locals,\(Unit\) varreturn = \(\)
 print,print varreturn,\(Unit\) \$[\d] = \(\)
 q,q,

@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_enum_generics,002_debug_enum_generics
-b,b 53,002_debug_enum_generics.cj:53
-AOT r,r,-> 53
+b,b 61,002_debug_enum_generics.cj:61
+AOT r,r,-> 61
 CJVM c,c,
-n,n,-> 54
+n,n,-> 62
 print,print m_rec.rec_time,TimeUnit1<Int8>\) \$[\d]+ = {(\r|\n|\r\n)  constructor = Year(\r|\n|\r\n)  arg_1 = 10
 q,q,

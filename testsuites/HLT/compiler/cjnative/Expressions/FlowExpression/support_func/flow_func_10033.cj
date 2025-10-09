@@ -19,5 +19,6 @@ main(): Int64 {
     /* a~>b
     1 |> (a~>b)
     a ~> b |> c
+    return ((a ~> b) |> c) - 1*/
     return 0
 }
