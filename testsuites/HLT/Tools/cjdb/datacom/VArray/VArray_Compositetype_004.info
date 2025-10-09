@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors VArray_Compositetype_004,VArray_Compositetype_004
-b,b 35,Breakpoint 1: where = VArray_Compositetype_004`default::main[\s\S]*VArray_Compositetype.cj:35
-AOT r,r,-> 35
-CJVM c,c,-> 35
+b,b 43,Breakpoint 1: where = VArray_Compositetype_004`default::main[\s\S]*VArray_Compositetype.cj:43
+AOT r,r,-> 43
+CJVM c,c,-> 43
 p,p v2.vChar,\(VArray<Rune,\$2>\) \$[\d] = {[\s\S]*\[0\] = 'a'[\s\S]*\[1\] = 'a'
 p,p v2.vBool,\(VArray<Bool,\$2>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false
 p,p v2.vUnit,\(VArray<Unit,\$2>\) \$[\d] = {[\s\S]*\[0\] = \(\)[\s\S]*\[1\] = \(\)

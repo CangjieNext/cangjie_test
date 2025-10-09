@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
@@ -21,6 +21,7 @@ public struct S1 {
 struct S2 {
     let x: Int64 = 0
 }
+
 
 public struct S3 {
     let x: S2 = S2()
@@ -93,3 +94,4 @@ public struct S11 {
         return x
     }
 }
+

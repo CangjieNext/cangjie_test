@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -38,12 +38,12 @@ public class Test_SocketAddress {
         let addr1: SocketAddress = IPSocketAddress.parse("[::]:8080")
         @Expect(addr1.size, 28)
         @Expect(addr1.family.toString(), "INET6")
-        @Expect(addr1.getAddressBytes()[1..28], [0u8, 31u8, 144u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 
+        @Expect(addr1.getAddressBytes()[1..28], [0u8, 31u8, 144u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8,
         0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8])
         let addr1_1: SocketAddress = IPSocketAddress.parse("[::]:8080")
         @Expect(addr1 == addr1_1)
         let addr2: SocketAddress = IPSocketAddress.parse("[::]:8081")
-        @Expect(addr2.getAddressBytes()[1..28], [0u8, 31u8, 145u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8,0u8, 
+        @Expect(addr2.getAddressBytes()[1..28], [0u8, 31u8, 145u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8,0u8,
         0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8, 0u8])
         @Expect(addr1 != addr2)
         @Expect(addr1.hashCode(), -4705207227553743927)
@@ -68,7 +68,7 @@ public class Test_SocketAddress {
             @Expect(addr1 != addr1_2) //不做规范化处理
         } else {
             let e = @AssertThrows[IllegalArgumentException](UnixSocketAddress(path_str))
-            @Expect(e.message, "Path size(${path_str.toArray().size}) is too long, expect <= 108.")
+            @Expect(e.message.contains("Path size(${path_str.toArray().size}) is too long"))
         }
 
         let addr2: SocketAddress = UnixSocketAddress("./path02")

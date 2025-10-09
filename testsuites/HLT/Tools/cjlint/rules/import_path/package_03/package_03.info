@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC-PIPE:cd %n && %lint -f "./src ./a0 ./a1 ./a2 ./a3 ./a4 ./a5 ./a6 ./a7" -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-1 .*main.cj:21:5:.*G.VAR.01: Prefer immutable variables when the value of the variable 'aa' does not change.
+// ASSERT: regex-1 .*main.cj:13:5:.*G.VAR.01: Prefer immutable variables when the value of the variable 'aa' does not change.

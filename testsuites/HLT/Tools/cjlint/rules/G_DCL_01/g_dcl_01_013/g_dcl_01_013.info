@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex .*test.cj:10.*: G.DCL.01: 'T' on line 9 is shadowed by the 'T' on line 10, please avoid shadowing.
+// ASSERT: regex .*test.cj:2.*: G.DCL.01: 'T' on line 1 is shadowed by the 'T' on line 2, please avoid shadowing.

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.4
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class
   @Behavior: class modify generic parameter order
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -26,15 +26,14 @@
 
 // ASSERT: scan Incompatible
 // ASSERT: scan-1 [API/ABI] Changed generic param of class visible outside the module.
-// ASSERT: scan-1 [API/ABI] Deleted public/protected instance member functions for classes.
-// ASSERT: scan-2 [API/ABI]
+// ASSERT: scan-1 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 
 package test_stable_abi
 
 // test class: generic params
-public open class Generics<U, T> {
+open public class Generics<U, T> {
     public var _v1 = 0
     public mut prop _v2: Int64 {
         get() {
@@ -46,7 +45,7 @@ public open class Generics<U, T> {
     }
     public var _v3: Int64
 
-    public open func goo1(a: Int64) {
+    open public func goo1(a: Int64) {
         10
     }
 

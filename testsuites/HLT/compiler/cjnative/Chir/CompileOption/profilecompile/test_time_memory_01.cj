@@ -7,19 +7,17 @@
  */
 
 // LEVEL: 2
-// EXEC-PIPE: %compiler %cmp_opt %f --profile-compile-memory --profile-compile-time -o %output 2>&1 | compare %f
-// ASSERT: scan Code Info of [ default ]
-// ASSERT: scan Memory Usage of [ default ]
-// ASSERT: regex [0-9]+.[0-9]+ => [0-9]+.[0-9]+ MB
-// ASSERT: scan Compile Time of [ default ]
-// ASSERT: regex cost [0-9]+ ms
+// EXEC-PIPE: %compiler %cmp_opt %f --profile-compile-memory --profile-compile-time -o %output 2>&1
+// (not Windows) EXEC-0: %cat default.time.prof
+// (not Windows) EXEC-0: %cat default.info.prof
+// (not Windows) EXEC-0: %cat default.mem.prof
 
-interface I1 {}
-
+interface I1 {
+}
 open class C1 <: I1 {
     var v11 = 1
     public static var v12 = 1
-    public mut open prop p1: Int64 {
+    public open mut prop p1: Int64 {
         get() {
             v11
         }
@@ -27,7 +25,7 @@ open class C1 <: I1 {
             v11 = v
         }
     }
-    public mut static prop p2: Int64 {
+    public static mut prop p2: Int64 {
         get() {
             v12
         }
@@ -48,11 +46,10 @@ open class C1 <: I1 {
         v
     }
 }
-
 open class C2 <: C1 & I1 {
     var v21 = 0
     public static var v22 = 0
-    public mut override prop p1: Int64 {
+    public override mut prop p1: Int64 {
         get() {
             v21
         }
@@ -60,7 +57,7 @@ open class C2 <: C1 & I1 {
             v21 = v
         }
     }
-    public mut static redef prop p2: Int64 {
+    public redef static mut prop p2: Int64 {
         get() {
             v22
         }
@@ -71,15 +68,15 @@ open class C2 <: C1 & I1 {
     public override func f1() {
         0
     }
-    public static redef func f3() {
+    public redef static func f3() {
         0
     }
-    public static redef func f4<T>(v: T) {
+    public redef static func f4<T>(v: T) {
         v
     }
 }
-
-class C3<M> <: C2 {}
+class C3<M> <: C2 {
+}
 
 class C<M> {
     var a: M
@@ -97,7 +94,7 @@ interface A1<M> {
             v
         }
     }
-    public mut static prop p2: Int64 {
+    public static mut prop p2: Int64 {
         get() {
             0
         }
@@ -115,7 +112,7 @@ interface A1<M> {
         var v3 = x3
         var v4 = v1 is Option<M>
         var v5 = v2 as Option<(M) -> M>
-        var v6 = match (v3) {
+        var v6 = match(v3) {
             case _: Option<C<M>> => false
             case _: C<M> => true
         }
@@ -144,7 +141,7 @@ struct A2<M> where M <: C1 & I1 {
             v11 = v
         }
     }
-    public mut static prop p2: Int64 {
+    public static mut prop p2: Int64 {
         get() {
             v12
         }
@@ -174,7 +171,7 @@ struct A2<M> where M <: C1 & I1 {
         var v3 = x3
         var v4 = v1 is Option<M>
         var v5 = v2 as Option<(M) -> M>
-        var v6 = match (v3) {
+        var v6 = match(v3) {
             case _: Option<C<M>> => false
             case _: C<M> => true
         }
@@ -193,16 +190,16 @@ struct A2<M> where M <: C1 & I1 {
 
 extend<M> A2<M> <: A1<M> where M <: C1 & I1 {}
 
-main() {
+main(){
     var a = A2<C2>(C2())
     var b = A2<C3<Int64>>(C3<Int64>())
-    var v1 = a.test(C2(), {x: C2 => x}, C<C2>(C2()))
+    var v1 = a.test(C2(), { x: C2 => x }, C<C2>(C2()))
     a.p3 = C2()
     var v2 = a.p3
     a.p1 = 2
     A2<C2>.p2 = 2
     var v3 = a.p1 + A2<C2>.p2
-    var v4 = b.test(C3<Int64>(), {x: C3<Int64> => x}, C<C3<Int64>>(C3<Int64>()))
+    var v4 = b.test(C3<Int64>(), { x: C3<Int64> => x }, C<C3<Int64>>(C3<Int64>()))
     b.p3 = C3<Int64>()
     var v5 = b.p3
     b.p1 = 3

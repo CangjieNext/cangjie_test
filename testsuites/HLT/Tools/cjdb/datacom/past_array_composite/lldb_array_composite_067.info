@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 009_debug_array_class_parameter,009_debug_array_class_parameter
-b,b 52,009_debug_array_class_parameter.cj:52
-AOT r,r,-> 52
+b,b 60,009_debug_array_class_parameter.cj:60
+AOT r,r,-> 60
 CJVM c,c,
-n,n,-> 54
+n,n,-> 62
 print,print arraymainrec01[1],C1\) \$[\d] = {(\r|\n|\r\n)  pro = 5(\r|\n|\r\n)  namenum = 110(\r|\n|\r\n)  num = 15(\r|\n|\r\n)  varBool = true(\r|\n|\r\n)  varchar = '5'(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 20(\r|\n|\r\n)  height = 100
 q,q,

@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 021_enum_interface,021_enum_interface
-b,b 21,021_enum_interface.cj:21
-AOT r,r,-> 21
+b,b 29,021_enum_interface.cj:29
+AOT r,r,-> 29
 CJVM c,c,
 expr,expr t1,\(default.TimeUnit2<default.I1>\) \$[\d] = {[\s\S]*constructor = Month[\s\S]*arg_1 = {}[\s\S]*arg_2 = 1[\s\S]*}
 expr,expr t2,\(default.TimeUnit2<default.I1>\) \$[\d] = {[\s\S]*constructor = Year\s+arg_1 = 5[\s\S]*}

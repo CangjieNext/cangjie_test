@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 115,list_debug.cj:115
-AOT r,r,-> 115
+b,b 123,list_debug.cj:123
+AOT r,r,-> 123
 CJVM c,c,
 AOT p,p m_base_1_8[0..3],\$[\d] =
 AOT set,set m_base_1_8[0]=-3,error: unsupported expression

@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors lldb_within_stepin_error001,lldb_within_stepin_error001
-CJVM b main,b main,001_debug_stepIn_via_overLoad.cj:11
-CJVM c,c,-> 11
+CJVM b main,b main,001_debug_stepIn_via_overLoad.cj:19
+CJVM c,c,-> 19
 AOT stepin,stepin,is not a valid command
 CJVM stepin,stepin,Unrecognized command
 q,q,

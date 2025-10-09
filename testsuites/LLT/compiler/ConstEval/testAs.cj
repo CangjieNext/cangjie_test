@@ -6,25 +6,25 @@
 
 // (DEBUG_OPTION) EXEC: %cjc %compile_exe_opt %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (DEBUG_OPTION) EXEC: %run %output
-// ASSERT: scan debug: consteval at testAs.cj:79:1 - testAs.cj:79:22 replaced initializer function `gv$_a1` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:80:1 - testAs.cj:80:23 replaced initializer function `gv$_a2` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:81:1 - testAs.cj:81:23 replaced initializer function `gv$_a3` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:82:1 - testAs.cj:82:23 replaced initializer function `gv$_a4` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:83:1 - testAs.cj:83:28 replaced initializer function `gv$_a5` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:84:1 - testAs.cj:84:22 replaced initializer function `gv$_a6` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:85:1 - testAs.cj:85:23 replaced initializer function `gv$_a7` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:86:1 - testAs.cj:86:23 replaced initializer function `gv$_a8` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:87:1 - testAs.cj:87:23 replaced initializer function `gv$_a9` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:88:1 - testAs.cj:88:30 replaced initializer function `gv$_a10` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:89:1 - testAs.cj:89:26 replaced initializer function `gv$_a11` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:90:1 - testAs.cj:90:26 replaced initializer function `gv$_a12` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:91:1 - testAs.cj:91:26 replaced initializer function `gv$_a13` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:92:1 - testAs.cj:92:22 replaced initializer function `gv$_a14` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:93:1 - testAs.cj:93:25 replaced initializer function `gv$_a15` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:94:1 - testAs.cj:94:24 replaced initializer function `gv$_a16` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:95:1 - testAs.cj:95:23 replaced initializer function `gv$_a17` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:96:1 - testAs.cj:96:23 replaced initializer function `gv$_a18` with initializer constant(s).
-// ASSERT: scan debug: consteval at testAs.cj:97:1 - testAs.cj:97:23 replaced initializer function `gv$_a19` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a1` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a2` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a3` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a4` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a5` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a6` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a7` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a8` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a9` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a10` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a11` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a12` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a13` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a14` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a15` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a16` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a17` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a18` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_a19` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

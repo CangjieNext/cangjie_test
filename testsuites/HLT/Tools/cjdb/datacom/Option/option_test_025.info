@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_memberVar,option_memberVar
-b,b 42,option_memberVar.cj:42
-AOT r,r,-> 42
-CJVM c,c,-> 42
+b,b 50,option_memberVar.cj:50
+AOT r,r,-> 50
+CJVM c,c,-> 50
 p,p b.Arr_none,\(std[.]core.Option<std[.]core.Array<Int64>>\) \$[\d] = None
 p,p b.Arrlist_char,\(std[.]core.Option<std[.]collection.ArrayList<Rune>>\) \$[\d] = {[\s\S]*\[0\] = 'c'[\s\S]*\[6\] = 'e'[\s\S]*}
 q,q,

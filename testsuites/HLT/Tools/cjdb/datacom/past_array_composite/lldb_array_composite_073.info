@@ -16,7 +16,7 @@
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_array_class_open,011_debug_array_class_open
-b,b 48,011_debug_array_class_open.cj:48
-AOT r,r,-> 48
+b,b 56,011_debug_array_class_open.cj:56
+AOT r,r,-> 56
 CJVM c,c,
 q,q,

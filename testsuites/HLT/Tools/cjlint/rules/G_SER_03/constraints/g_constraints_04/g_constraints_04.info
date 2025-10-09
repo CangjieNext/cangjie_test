@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex test.cj:28:5: .*error.*: Type mismatch: the deserialize type of 'value' is 'Class-HashMap<Struct-String, Float32>'\(line 25\), but in function 'serialize\(\)', 'value' is not serialized.
+// ASSERT: regex test.cj:20:5: .*error.*: Type mismatch: the deserialize type of 'value' is 'Class-HashMap<Struct-String, Float32>'\(line 17\), but in function 'serialize\(\)', 'value' is not serialized.

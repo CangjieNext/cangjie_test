@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex-1 :21:.*error.*?In function 'foo', the 1st argument is untrusted, we can't deliver it outter.
+// ASSERT: regex-1 :13:.*error.*?In function 'foo', the 1st argument is untrusted, we can't deliver it outter.

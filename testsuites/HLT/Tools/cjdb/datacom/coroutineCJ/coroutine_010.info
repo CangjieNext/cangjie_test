@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors coroutine_7,coroutine_7
-b,b 7,coroutine_7.cj:7
-AOT r,r,-> 7
+b,b 15,coroutine_7.cj:15
+AOT r,r,-> 15
 CJVM c,c,
 cjthread,cjthread list,cjthread #1 state: running
-n,n,-> 8
+n,n,-> 16
 cjthread,cjthread list,cjthread #1 state: running
 q,quit,

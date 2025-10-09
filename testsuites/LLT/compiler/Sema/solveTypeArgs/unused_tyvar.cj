@@ -5,9 +5,6 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC-PIPE-1: %compiler %diag_json %f -o %output 2>&1 | compare %f
-// ASSERT: scan-3 sema_undeclared_type_name
-// ASSERT: scan sema_unable_to_infer_generic_func
-// ASSERT: scan "Errors": 4,
 
 interface M0_<T> {}
 
@@ -32,3 +29,7 @@ open class G1_ <: I1_ {}
 main() {
     test({i: M0_<I1_> => G1_()})
 }
+
+// ASSERT: scan-1 sema_unable_to_infer_generic_func
+// ASSERT: scan-3 sema_undeclared_type_name
+// ASSERT: scan "Errors": 4

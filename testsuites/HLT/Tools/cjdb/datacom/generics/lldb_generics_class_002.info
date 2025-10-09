@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 116,005_debug_class_generics.cj:116
-AOT r,r,-> 116
+b,b 124,005_debug_class_generics.cj:124
+AOT r,r,-> 124
 CJVM c,c,
-n,n,-> 117
+n,n,-> 125
 locals,locals,C1<UInt32>\) mc_1 = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 q,q,

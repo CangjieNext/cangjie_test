@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_007,viewVariables_Cstring_007
-b,b 63,Test_CString.cj:63
-AOT r,r,-> 63
+b,b 71,Test_CString.cj:71
+AOT r,r,-> 71
 CJVM c,c,
 p, p cla_ins2,\(pkg_cstr.Cla_1\) \$[\d] = {[\s\S]*var_cla1 = "a\\\"bc"[\s\S]* var_cla2 = {[\s\S]*\[0\] = "Hello cangjie!"[\s\S]*[\s\S]*
 q,q,

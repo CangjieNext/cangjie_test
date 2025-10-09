@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-1 :11:10: .*error.*: The thrown exception contains sensitive information 'pwd'.
+// ASSERT: regex-1 :3:10: .*error.*: The thrown exception contains sensitive information 'pwd'.

@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func004,generics_global_func004
-breakpoint,breakpoint set -l 18 -c 'a6==5',generics_global_func004.cj:18
-AOT r,r,-> 18
-breakpoint,breakpoint set -l 20 -c 'a6==5',Breakpoint 2: no locations
+breakpoint,breakpoint set -l 26 -c 'a6==5',generics_global_func004.cj:26
+AOT r,r,-> 26
+breakpoint,breakpoint set -l 28 -c 'a6==5',Breakpoint 2: no locations
 CJVM c,c,
 locals,locals,\(Unit\) vunit = ()
 p,p a2,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*

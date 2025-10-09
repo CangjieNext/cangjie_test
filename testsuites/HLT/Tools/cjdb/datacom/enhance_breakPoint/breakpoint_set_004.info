@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_breakpoint_set,004_breakpoint_set
-CJVM b,breakpoint set -n main,035_debuginfun_func_reload.cj:4
-CJVM c,c,-> 4
-b,breakpoint set -n demoinfun,035_debuginfun_func_reload.cj:8
+CJVM b,breakpoint set -n main,035_debuginfun_func_reload.cj:12
+CJVM c,c,-> 12
+b,breakpoint set -n demoinfun,035_debuginfun_func_reload.cj:16
 b,breakpoint set -n demofun001,2 locations
-AOT blist,breakpoint list,035_debuginfun_func_reload.cj:8[\s\S]*035_debuginfun_func_reload.cj:12|17[\s\S]*035_debuginfun_func_reload.cj:17|12
-CJVM blist,breakpoint list,035_debuginfun_func_reload.cj:8[\s\S]*035_debuginfun_func_reload.cj:17|12[\s\S]*035_debuginfun_func_reload.cj:12|17
+AOT blist,breakpoint list,035_debuginfun_func_reload.cj:16[\s\S]*035_debuginfun_func_reload.cj:20|25[\s\S]*035_debuginfun_func_reload.cj:20|25
+CJVM blist,breakpoint list,035_debuginfun_func_reload.cj:16[\s\S]*035_debuginfun_func_reload.cj:20|25[\s\S]*035_debuginfun_func_reload.cj:20|25
 q,q,

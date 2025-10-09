@@ -14,15 +14,15 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashMap_external_invoke,collection_HashMap_external_invoke
-b,b 24,collection_HashMap_external_invoke.cj:24
-AOT r,r,-> 24
-CJVM c,c,-> 24
-s,s,[\S\s]*-> 55[\S\s]*
+b,b 32,collection_HashMap_external_invoke.cj:32
+AOT r,r,-> 32
+CJVM c,c,-> 32
+s,s,[\S\s]*-> 63[\S\s]*
 p,p par_2,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 132[\S\s]*value = 17[\S\s]*}
 p,p par_2,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 29[\S\s]*value = 1136[\S\s]*}
 p,p par_2[52],error
-b,b 60,collection_HashMap_external_define.cj:60
-c,c,-> 60
+b,b 68,collection_HashMap_external_define.cj:68
+c,c,-> 68
 p,p map_r_return,\(std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 3[\S\s]*value = 6[\S\s]*}
 p,p map_r_return,\(std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 29[\S\s]*value = 1136[\S\s]*}
 p,p map_r_return[23],error

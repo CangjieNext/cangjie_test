@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex test.cj:14:.*: .*error.*: Right operand 'top_a' include side effect
+// ASSERT: regex test.cj:6:.*: .*error.*: Right operand 'top_a' include side effect

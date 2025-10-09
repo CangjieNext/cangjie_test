@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 9,063_debug_expr_this.cj:9
-CJVM c,c,-> 9
-AOT r,r,-> 9
+b,b 17,063_debug_expr_this.cj:17
+CJVM c,c,-> 17
+AOT r,r,-> 17
 expr,expr this.s13a,\(std[.]collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 64[\s\S]*\[1\] = 65[\s\S]*}
 expr,expr this.bools,\(Bool\) \$[\d] = true
 expr,expr this.a,default.testc\) \$[\d] = {[\s\S]*age = 10[\s\S]*

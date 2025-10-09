@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_regexpbreak,005_regexpbreak
-CJVM b,breakpoint set -n main,035_debuginfun_func_reload.cj:4
-CJVM c,c,-> 4
+CJVM b,breakpoint set -n main,035_debuginfun_func_reload.cj:12
+CJVM c,c,-> 12
 AOT b,b notexist,Unable to resolve breakpoint to any actual locations
 CJVM b,b notexist,Breakpoint 2: notexist not loaded.
 q,q,

@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case26,case26
-b,b 10,case26.cj:10
-AOT r,r,-> 10
+b,b 18,case26.cj:18
+AOT r,r,-> 18
 CJVM c,c,
 AOT expr,expr gg,\(default.AC\) \$[\d] = ()
 p,p gg,\(default.AC\) \$[\d] = ()

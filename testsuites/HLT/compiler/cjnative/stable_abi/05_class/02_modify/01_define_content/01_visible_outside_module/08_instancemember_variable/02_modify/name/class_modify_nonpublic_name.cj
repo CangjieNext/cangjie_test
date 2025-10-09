@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.8.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance var
   @Behavior: change name of class instance var
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -44,12 +44,12 @@ public class Version {
 public class CC {
     public let a1 = 1
     public var a2 = 2
-
+    
     internal let _b1 = 1
     internal var _b2 = 2
 
-    protected let _c1 = 1
-    protected var _c2 = 2
+    protected let c1 = 1
+    protected var c2 = 2
 
     private let _d1 = 1
     private var _d2 = 2
@@ -57,18 +57,13 @@ public class CC {
     let _e1 = 1
     var _e2 = 2
 
-    @Version["1.1"]
-    public let f1 = 1
-    @Version["1.1"]
-    public var f2 = 2
+    @Version["1.1"] public let f1 = 1
+    @Version["1.1"] public var f2 = 2
 
-    @Deprecated["This variable will be deprecated soon"]
-    public let g1 = 1
-    @Deprecated["This variable is deprecated", strict: true]
-    public let g2 = 2
+    @Deprecated["This variable will be deprecated soon"] public let g1 = 1
+    @Deprecated["This variable is deprecated", strict: true] public let g2 = 2
 
     let h1 = 1
-
     @Frozen
     public func h2() {
         h1

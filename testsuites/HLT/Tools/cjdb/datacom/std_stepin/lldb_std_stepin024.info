@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors std_test,std_test
-b,b 417,Breakpoint 1: 2 locations.
-AOT r,r,-> 417
+b,b 425,Breakpoint 1: 2 locations.
+AOT r,r,-> 425
 CJVM c,c,
-s,s,-> 418
-s,s,-> 424
+s,s,-> 426
+s,s,-> 432
 q,q,

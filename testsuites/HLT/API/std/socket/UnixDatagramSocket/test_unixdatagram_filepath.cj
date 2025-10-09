@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -23,6 +23,12 @@ import std.process
 let b: Int64 = 0
 @When[os == "macOS"]
 let b: Int64 = 1
+
+@When[os != "macOS"]
+const MAX_UDS_PATH_LENGTH: Int64 = 108
+@When[os == "macOS"]
+const MAX_UDS_PATH_LENGTH: Int64 = 104
+
 var data = Array<Byte>(5000, repeat: 10)
 var unixdatagram = Option<UnixDatagramSocket>.None
 var sum = 0
@@ -152,7 +158,7 @@ class Test_Unixdatagram_Filepath {
         @Assert(exists("/tmp/testunixdatagram2"), true)
         //test the string length
         var dir = Path("/tmp/testunixdatagram1")
-        var dir1 = dir.join(String(Array<Rune>(84, repeat: r'a')))
+        var dir1 = dir.join(String(Array<Rune>(MAX_UDS_PATH_LENGTH - "/tmp/testunixdatagram1/".size - 1, repeat: r'a')))
         var unixdatagramsocket1 = UnixDatagramSocket(bindAt: dir1.toString())
         try {
             unixdatagramsocket1.bind()
@@ -161,7 +167,7 @@ class Test_Unixdatagram_Filepath {
         }
         @Expect(sum, 0)
 
-        var dir2 = dir.join(String(Array<Rune>(85, repeat: r'a')))
+        var dir2 = dir.join(String(Array<Rune>(MAX_UDS_PATH_LENGTH - "/tmp/testunixdatagram1/".size, repeat: r'a')))
         try {
             UnixDatagramSocket(bindAt: dir2.toString())
         } catch (e: SocketException) {

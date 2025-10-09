@@ -9,6 +9,6 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-1 :12:.*error.*?'baseMtx' should not be defined at top-level
-// ASSERT: regex-1 :13:.*error.*?'mtx' should not be defined at top-level
+// ASSERT: regex-1 :4:.*error.*?'baseMtx' should not be defined at top-level
+// ASSERT: regex-1 :5:.*error.*?'mtx' should not be defined at top-level
 // ASSERT: regex-1-not Override function 'doSomething' should not use non-thread safe way to override a thread-safe function

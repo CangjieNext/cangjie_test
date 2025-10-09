@@ -4,10 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
-// ASSERT: scan-3 sema_upper_bound_must_be_class_or_interface
-// ASSERT: scan-2 sema_generic_type_argument_not_match_constraint
-// ASSERT: scan "Errors": 5,
+// EXEC:%frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
 
 // UpperBound: Array Type
 
@@ -34,3 +31,7 @@ main(): Int64 {
     jay<(Int32, Array<Base>)>()
     jay<(Int32, Array<Child>)>()
 }
+
+// ASSERT: scan-2 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan-3 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 5

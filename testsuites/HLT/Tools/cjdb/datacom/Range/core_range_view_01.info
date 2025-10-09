@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors range_core,range_core
-b,b 25,range_core.cj:25
-AOT r,r,-> 25
-CJVM c,c,-> 25
+b,b 33,range_core.cj:33
+AOT r,r,-> 33
+CJVM c,c,-> 33
 p,p r1,\(std.core.Range<Int32>\) \$[\d] = 10..=0 : -1
 locals,locals,\(std.core.Range<Int32>\) r1 = 10..=0 : -1
 AOT frame var,frame var r1,\(std.core.Range<Int32>\) r1 = 10..=0 : -1

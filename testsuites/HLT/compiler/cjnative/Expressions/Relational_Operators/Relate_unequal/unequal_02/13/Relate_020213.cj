@@ -23,6 +23,7 @@ main(): Int64 {
     let k1 = r'\b'
 
     if (h != h1 && h1 != r'\0' && j != j1 && j1 != r'\n' && k != k1 && k1 != r'\t') {
+        //if (j==j1 && j1==r'\n' && k==k1 && k1==r'\t') {
         return 0
     }
 

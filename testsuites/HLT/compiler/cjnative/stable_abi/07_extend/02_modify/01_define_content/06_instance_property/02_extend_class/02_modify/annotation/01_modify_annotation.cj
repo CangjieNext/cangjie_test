@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.6.2.2.1
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: extend instance prop
   @Behavior: modify instance prop annotation
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 0-core
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output

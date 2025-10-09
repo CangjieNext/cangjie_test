@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 6.2.1.4.6
   @Scene: modify
@@ -13,9 +13,9 @@
   @Object: interface
   @Behavior: delete generic constraints
   @Expect: api compatible & abi incompatible
- */
+*/
 
-// LEVEL: 0 
+// LEVEL: 1 
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -33,11 +33,17 @@
 package test_stable_abi
 
 // test interface: generic constraints
-public interface Father {}
+public interface Father {
 
-public interface Son <: Father {}
+}
 
-public interface Son1 <: Father {}
+public interface Son <: Father {
+
+}
+
+public interface Son1 <: Father {
+    
+}
 
 public interface Generics<T, U> where T <: Father {
     public static func typename(): String {
@@ -45,3 +51,4 @@ public interface Generics<T, U> where T <: Father {
     }
     public func goo3(a: T, b: U): Unit
 }
+

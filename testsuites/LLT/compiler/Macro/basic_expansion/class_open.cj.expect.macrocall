@@ -1,0 +1,44 @@
+// DEPENDENCE:  macro_define.cj %f.expect
+// EXEC: %compiler %cmp_macro macro_define.cj
+// EXEC: %run_macro %compiler %cmp_opt %macro_parallel --debug-macro %f -o %output
+// EXEC: %run %run_opt %output %run_args
+// EXEC: %diff %f.expect %f.macrocall
+
+import test.*
+
+/* ===== Emitted by MacroCall @M in class_open.cj:9:1 ===== */
+/* 9.1 */open class Base < T > {
+/* 9.2 */    init(x: T) { }
+/* 9.3 */    protected open func foo(x: T): String {
+/* 9.4 */        return "Father"
+/* 9.5 */    }
+/* 9.6 */}
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @M in class_open.cj:18:1 ===== */
+/* 18.1 */class Data < T > <: Base < T > {
+/* 18.2 */    init(input: T) {
+/* 18.3 */        super(input)
+/* 18.4 */    }
+/* 18.5 */    protected override func foo(x: T): String {
+/* 18.6 */        return "Child"
+/* 18.7 */    }
+/* 18.8 */}
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @M in class_open.cj:29:1 ===== */
+/* 29.1 */main(): Int64 {
+/* 29.2 */    var data: Data < Int32 >= Data < Int32 >(0)
+/* 29.3 */    var res: String = data.foo(3)
+/* 29.4 */    if(res == "Child") {
+/* 29.5 */        return 0
+/* 29.6 */    }
+/* 29.7 */    return 1
+/* 29.8 */}
+/* ===== End of the Emit ===== */
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

@@ -33,50 +33,128 @@ import std.sync.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import {asan.*, tlsconfig.*}
+import std.convert.*
 
 @Test
 class TestProxy {
-    let server = ServerBuilder().addr("127.0.0.1").port(0).tlsConfig(serverConfig()).build()
-
+	let proxyServerSocket = TcpServerSocket(bindAt: 0)
     @TestCase
     func proxy(): Unit {
-        startServer()
-        sleep(Duration.second)
-        let client = ClientBuilder().tlsConfig(clientConfig()).httpsProxy("http://127.0.0.1:${server.port}").build()
-        let req = HttpRequestBuilder().version(HTTP2_0).url("https://192.168.1.1/proxy").body("hello proxy").build()
-        let resp = client.send(req)
-        let buf = Array<UInt8>(15, repeat: 0)
-        var len = resp.body.read(buf)
-        @Assert(String.fromUtf8(buf[..len]), "proxy ok")
-        client.close()
+        let server = startServer1()
+
+		spawn { startProxy(server.port) }
+
+        sleep(Duration.millisecond * 100)
+		let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
+		var cfg = clientConfig()
+        cfg.supportedAlpnProtocols = ["h2"]
+		let client = ClientBuilder()
+			.tlsConfig(cfg)
+			.httpsProxy("http://127.0.0.1:${port1}")
+			.build()
+		let req = HttpRequestBuilder()
+			.version(HTTP2_0)
+			.url("https://127.0.0.1:${server.port}")
+			.body("hello proxy")
+			.build()
+		let resp = client.send(req)
+		client.close()
         server.close()
-        asanGC()
+		asanGC()
+	}
+
+    func startServer1(): Server {
+        var transportCfg = TransportConfig()
+        transportCfg.readBufferSize = 8192
+        var cfg = serverConfig()
+        cfg.supportedAlpnProtocols = ["h2"]
+        let server = ServerBuilder()
+                    .addr("127.0.0.1")
+                    .port(0)
+                    .transportConfig(transportCfg)
+                    .tlsConfig(cfg)
+                    .headerTableSize(10 * 1024)
+                    .maxRequestHeaderSize(1024 * 1024)
+                    .build()
+        server.distributor.register("", {httpContext =>
+            httpContext.responseBuilder.body("Hello!")
+        })
+        spawn {
+            server.serve()
+        }
+        sleep(Duration.millisecond*100)
+        return server
+	}
+
+
+    func startProxy(serverPort: UInt16) {
+        try{
+            proxyServerSocket.bind()
+            sleep(Duration.millisecond * 200)
+            let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
+            let socket = proxyServerSocket.accept()
+            socket.readTimeout = Duration.millisecond * 100
+        
+            let buf = Array<UInt8>(500, repeat: 0)
+            sleep(Duration.millisecond * 100)
+            let i = socket.read(buf)
+            let read = String.fromUtf8(buf[0..i])
+            @Expect(read.contains("CONNECT 127.0.0.1:${serverPort} HTTP/1.1"))
+            @Expect(read.contains("host: 127.0.0.1:${serverPort}"))
+            @Expect(read.contains("user-agent: CANGJIEUSERAGENT_1_1"))
+
+            // Resolve the address and port of the target server
+            let a:Array<String> = read.split(" ")
+            let addrAndPort = a[1].split(":")
+            let realServerAddr = addrAndPort[0]
+            let realServerPort = addrAndPort[1]
+
+            let remote_socket = TcpSocket(realServerAddr,UInt16.parse(realServerPort))
+            remote_socket.connect()
+
+            socket.write("HTTP/1.1 200 Connection Established\r\n\r\n".toArray())
+
+            // Receive messages from the client and send them to the target server
+            spawn{
+                while(true){
+                    let buf1 = Array<UInt8>(5000, repeat: 0)
+                    let i1 = socket.read(buf1)
+                    if(i1 <= 0){
+                        break
+                    }else{
+                        remote_socket.write(buf1[0..i1])
+                    }
+                }
+            }
+            
+            spawn{
+                while(true){
+                    let buf1 = Array<UInt8>(5000, repeat: 0)
+                    let i1 = remote_socket.read(buf1)
+                    if(i1 <= 0){
+                        break
+                    }else{
+                        socket.write(buf1[0..i1])
+                    }
+                }
+            }
+            sleep(Duration.second * 3)
+            proxyServerSocket.close()
+        } catch (e: Exception) {
+            proxyServerSocket.close()
+        }
     }
 
     @TestCase
     func proxyFail(): Unit {
-        try {
-            let _ = ClientBuilder().tlsConfig(clientConfig()).httpsProxy("zxcvb").build()
-        } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Proxy must have http scheme.")
-        }
-    }
+		try {
+			let _ = ClientBuilder()
+				.tlsConfig(clientConfig())
+				.httpsProxy("zxcvb")
+				.build()
+		} catch (e: IllegalArgumentException) {
+			@Assert(e.message, "Proxy must have http scheme.")
+		}
 
-    func startServer(): Unit {
-        server
-            .distributor
-            .register(
-                "/proxy",
-                {
-                    ctx =>
-                    let buf = Array<UInt8>(15, repeat: 0)
-                    let len = ctx.request.body.read(buf)
-                    @Assert(String.fromUtf8(buf[..len]), "hello proxy")
-                    ctx.responseBuilder.body("proxy ok")
-                }
-            )
-        spawn {
-            server.serve()
-        }
-    }
+	}
 }

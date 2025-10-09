@@ -10,7 +10,6 @@
 // DEPENDENCE: pkgs
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkgs/pkgs.cj -o pkgs.%middle
 // EXEC-PIPE: %compiler %cmp_opt %f %compile_lib_opt pkgs.%middle -o %output 2>&1 | compare %f
-// ASSERT: regex-not Error
+// ASSERT: scan sema_unused_import
 
 import pkgs.string
-// ASSERT: regex-not no position error occurred

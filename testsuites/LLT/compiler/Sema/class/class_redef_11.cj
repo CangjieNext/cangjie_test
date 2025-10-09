@@ -4,11 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC:%frontendCompiler %noColor %diag_json %typecheck %f 2>&1 | compare %f
-// ASSERT: scan-2 sema_upper_bound_must_be_class_or_interface
-// ASSERT: scan sema_generic_type_argument_not_match_constraint
-// ASSERT: scan sema_generic_constraint_not_looser
-// ASSERT: scan "Errors": 4
+// EXEC:%frontendCompiler %diag_json %typecheck %f 2>&1 | compare %f
 
 main(): Int64 {
     if (Coo.foo<Int32>(1, 2) != 2 || Boo<Int32>.foo<Int32>(3, 4) != 4) {
@@ -28,3 +24,8 @@ class Coo <: Boo<Int32> {
         return y
     }
 }
+
+// ASSERT: scan-1 sema_generic_constraint_not_looser
+// ASSERT: scan-1 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan-2 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 4

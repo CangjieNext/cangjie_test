@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 99,052_debug_record_generics.cj:99
-AOT r,r,-> 99
+b,b 107,052_debug_record_generics.cj:107
+AOT r,r,-> 107
 CJVM c,c,
-n,n,-> 101
+n,n,-> 109
 print,print r6.width,\$[\d]+ = {(\r|\n|\r\n)  constructor = Month(\r|\n|\r\n)  arg_1 = {(\r|\n|\r\n)    width = 100(\r|\n|\r\n)    length = 100
 print,print r6.length,\$[\d]+ = {(\r|\n|\r\n)  constructor = Month(\r|\n|\r\n)  arg_1 = {(\r|\n|\r\n)    width = 100(\r|\n|\r\n)    length = 100
 q,q,

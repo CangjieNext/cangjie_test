@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func015,generics_local_func015
-b,b 40,generics_local_func015.cj:40
-AOT r,r,-> 40
+b,b 48,generics_local_func015.cj:48
+AOT r,r,-> 48
 CJVM c,c,
 expr:expr r10:\(default.R3<Bool,std.core.String>\) \$[\d] = {[\s\S]*z = "abcde"[\s\S]*}
 expr:expr r11:\(default.R4<Int8,Int8,Int8,Int16,Int16,Int32,Int32,Int64,Int64,Unit>\) \$[\d] = {[\s\S]*num1 = 1[\s\S]*num2 = 2[\s\S]*

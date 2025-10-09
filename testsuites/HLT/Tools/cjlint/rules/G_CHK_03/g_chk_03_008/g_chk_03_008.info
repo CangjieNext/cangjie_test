@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-1 .*test.cj:24:.*G.CHK.03: The file path 'dir2' that may be constructed from external data must be verified before use.
+// ASSERT: regex-1 .*test.cj:16:.*G.CHK.03: The file path 'dir2' that may be constructed from external data must be verified before use.

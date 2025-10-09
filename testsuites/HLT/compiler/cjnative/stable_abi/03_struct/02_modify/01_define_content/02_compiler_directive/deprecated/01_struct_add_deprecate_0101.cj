@@ -5,34 +5,36 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.2.1
   @Scene: add
   @Visibility: public
   @Object: struct
-  @Behavior: add @Deprecated，strict: true
-  @Expect: api Incompatible & abi Incompatible
- */
-// LEVEL: 0
+  @Behavior: add @Deprecated, strict: false
+  @Expect: api compatible & abi compatible
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// EXEC: %rm libstable_abi.*
+// EXEC: %rm libstable_abi.%dylib_suffix
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-// ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Added struct deprecated annotation with compilation error.
-// ASSERT: scan-not [API]
-// ASSERT: scan-not [ABI]
-// ASSERT: scan-1 [API/ABI]
+
+// TEST ABI Compatibility
+// RUN-EXEC: %run %run_opt %output %run_args
+// TEST API Compatibility
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 // test struct: add @Deprecated
 package test_stable_abi
 
 // struct类型S1是public修饰，模块外可见，会参与下游模块的编译过程
+@Deprecated["this struct is deprecated", strict: false]
 public struct S1 {
     let x: Int64 = 0
 
@@ -46,6 +48,7 @@ public struct S1 {
 struct S2 {
     let x: Int64 = 0
 }
+
 
 @Deprecated["this struct is deprecated", strict: false]
 public struct S3 {
@@ -82,7 +85,6 @@ struct S6 {
     }
 }
 
-@Deprecated["this struct is deprecated", strict: true]
 public struct S7 {
     let x: Int64 = 0
 
@@ -150,4 +152,89 @@ public struct S16 {
     public func getX(): Int64 {
         return x.x
     }
+}
+
+@Deprecated["this struct is deprecated", strict: true]
+struct S17 {
+    let x: Int64 = 0
+} 
+
+@Deprecated["this struct is deprecated", strict: true]
+public struct S18 {
+    let x: S17 = S17()
+
+    public func getX(): Int64 {
+        return x.x
+    }
+}
+
+
+@Deprecated["this struct is deprecated", strict: true]
+struct S19 {
+    let x: Int64 = 0
+} 
+
+@Deprecated["this struct is deprecated", strict: true]
+public struct S20 {
+    let x: S19 = S19()
+    
+    @Frozen
+    public func getX(): Int64 {
+        return x.x
+    }
+}
+
+@Deprecated["this struct is deprecated", strict: true]
+struct S21 {
+    public const init() {}
+    let x: Int64 = 0
+    
+}
+
+@Deprecated["this struct is deprecated", strict: true]
+public struct S22 {
+
+     public const init() {}
+    public const func getX(): Int64 {
+        let x = S21()
+        return 0
+    }
+}
+
+@Deprecated["this struct is deprecated", strict: false]
+struct S23 {
+    let x: Int64 = 0
+    public const init() {}
+}
+
+
+public struct S24 {
+
+     public const init() {}
+    public const func getX(): Int64 {
+        let x = S23()
+        return 0
+    }
+}
+
+
+struct S25 {
+    let x: Int64 = 0
+    public const init() {}
+}
+
+
+public struct S26 {
+
+    public const init() {}
+    public const func getX(): Int64 {
+        let x = S25()
+        return x.x
+    }
+
+}
+
+@Deprecated["this struct is deprecated", strict: false]
+struct S27 {
+    let x: Int64 = 0
 }

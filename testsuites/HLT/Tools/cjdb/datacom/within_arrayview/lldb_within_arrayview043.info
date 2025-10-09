@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_large_array,003_debug_large_array
-b,b 18,003_debug_large_array.cj:18
-AOT r,r,-> 18
+b,b 26,003_debug_large_array.cj:26
+AOT r,r,-> 26
 CJVM c,c,
 print,print arrayInt64_t[1][0][1..],\(std[.]core.Array<Int64>\) \$[\d] = {(\r|\n|\r\n)  \[0\] = 642(\r|\n|\r\n)  \[1\] = 643(\r|\n|\r\n)  \[2\] = 644
 q,q,

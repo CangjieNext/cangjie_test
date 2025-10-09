@@ -17,16 +17,16 @@
 
 test#
 cjdb,cjdb --no-use-colors pkgs003,pkgs003
-b,b 13,pkgs003.cj:13
-b,b 14,pkgs003.cj:14
-AOT r,r,-> 13
+b,b 21,pkgs003.cj:21
+b,b 22,pkgs003.cj:22
+AOT r,r,-> 21
 CJVM c,c,
-s,s,-> 9
-finish,finish,-> 13
-n,n,-> 14
-s,s,-> 9
-finish,finish,-> 14
-n,n,-> 15
+s,s,-> 17
+finish,finish,-> 21
+n,n,-> 22
+s,s,-> 17
+finish,finish,-> 22
+n,n,-> 23
 locals,locals,res1 = 20
 locals,locals,res2 = 40
 q,q,

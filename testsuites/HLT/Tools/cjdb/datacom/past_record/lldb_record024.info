@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_record_init,050_debug_record_init
-b,b 42,050_debug_record_init.cj:42
-AOT r,r,-> 42
+b,b 50,050_debug_record_init.cj:50
+AOT r,r,-> 50
 CJVM c,c,
-n,n,-> 43
+n,n,-> 51
 locals,locals,Rectangle\) rectangle0 = {(\r|\n|\r\n)  length = 0(\r|\n|\r\n)  width = 0(\r|\n|\r\n)  perimeter = 0
 q,q,

@@ -17,11 +17,11 @@
 test#
 cjdb,cjdb --no-use-colors expression_tuple_001,expression_tuple_001
 
-CJVM b,b main,056_debug_tuple.cj:4
-CJVM c,c,-> 4
-b,b 15,056_debug_tuple.cj:15
-CJVM c,c,-> 15
-AOT r,r,-> 15
+CJVM b,b main,056_debug_tuple.cj:12
+CJVM c,c,-> 12
+b,b 23,056_debug_tuple.cj:23
+CJVM c,c,-> 23
+AOT r,r,-> 23
 p,p tuple1,\(Tuple<std.core.String,std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "String"[\s\S]*\[1\] = "cangjie"[\s\S]*}
 expression,expression tuple1,\(Tuple<std.core.String,std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "String"[\s\S]*\[1\] = "cangjie"[\s\S]*}
 expression,expression tuple2,\(Tuple<UInt8,UInt8>\) \$[\d] = {[\s\S]*\[0\] = 97[\s\S]*\[1\] = 98[\s\S]*}

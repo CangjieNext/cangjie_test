@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 058_debug_varray,058_debug_varray
-b,b 16,Breakpoint 1: where = 058_debug_varray`default::main[\s\S]*058_debug_varray.cj:16
-AOT r,r,-> 16
-CJVM c,c,-> 16
+b,b 24,Breakpoint 1: where = 058_debug_varray`default::main[\s\S]*058_debug_varray.cj:24
+AOT r,r,-> 24
+CJVM c,c,-> 24
 expression, expression vInt8[0]&(vInt8[0]-1),\(Int8\) \$[\d] = -2
 expression, expression vInt16[0]&(vInt16[0]-1),\(Int16\) \$[\d] = -2
 expression, expression vInt32[0]&(vInt32[0]-1),\(Int32\) \$[\d] = -2

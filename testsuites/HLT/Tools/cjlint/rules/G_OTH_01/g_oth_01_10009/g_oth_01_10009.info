@@ -9,8 +9,8 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex-1 :14:.*error.*?Sensitive information \(keyword 'cipher'\) should not be recorded to logs.
-// ASSERT: regex-1 :14:.*error.*?Sensitive information \(keyword 'sms'\) should not be recorded to logs.
-// ASSERT: regex-1 :14:.*error.*?Sensitive information \(keyword 'message'\) should not be recorded to logs.
-// ASSERT: regex-1 :14:.*error.*?Sensitive information \(keyword 'secret'\) should not be recorded to logs.
-// ASSERT: regex-1 :14:.*error.*?Sensitive information \(keyword 'account'\) should not be recorded to logs.
+// ASSERT: regex-1 :6:.*error.*?Sensitive information \(keyword 'cipher'\) should not be recorded to logs.
+// ASSERT: regex-1 :6:.*error.*?Sensitive information \(keyword 'sms'\) should not be recorded to logs.
+// ASSERT: regex-1 :6:.*error.*?Sensitive information \(keyword 'message'\) should not be recorded to logs.
+// ASSERT: regex-1 :6:.*error.*?Sensitive information \(keyword 'secret'\) should not be recorded to logs.
+// ASSERT: regex-1 :6:.*error.*?Sensitive information \(keyword 'account'\) should not be recorded to logs.

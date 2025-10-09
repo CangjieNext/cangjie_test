@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && touch output
+// EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=feature.env.ohos 2>&1 > output
+// EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=feature.env.android 2>&1 >> output
+// EXEC: cd %n && cat output | compare %f
+// ASSERT: scan-1 indexOhos
+// ASSERT: scan-1 indexAndroid
+// ASSERT: scan-2 AppRCall
+// ASSERT: scan-2 Calling sensor...
+// ASSERT: scan-1 OHOS sensorcall
+// ASSERT: scan-1 ANDROID sensorcall
+// ASSERT: scan-2 cjpm run finished
+

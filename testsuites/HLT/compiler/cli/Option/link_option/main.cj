@@ -18,12 +18,12 @@
 // EXEC: %compiler %cmp_opt %f -o %output --link-option="-Lhello world" --link-option=-lmylib
 // (not Windows) EXEC: %compiler %cmp_opt %f -o %output --link-option=-Lhello\ world --link-option=-lmylib
 
-// (not Windows) EXEC: %compiler %cmp_opt %f -o %output --link-option=-z --link-option=now
-// (not Windows) EXEC: %compiler %cmp_opt %f -o %output --link-option=-z --link-option=relro
-// (not Windows) EXEC: %compiler %cmp_opt %f -o %output --link-option=-z --link-option=noexecstack
+// (not Windows and not MAC) EXEC: %compiler %cmp_opt %f -o %output --link-option=-z --link-option=now
+// (not Windows and not MAC) EXEC: %compiler %cmp_opt %f -o %output --link-option=-z --link-option=relro
+// (not Windows and not MAC) EXEC: %compiler %cmp_opt %f -o %output --link-option=-z --link-option=noexecstack
 
 // 同时使用--link-option选项和--link-options选项
-// (not Windows) EXEC: %compiler %cmp_opt %f -o %output --link-option=-z --link-option=now --link-options="-z relro -z noexecstack"
+// (not Windows and not MAC) EXEC: %compiler %cmp_opt %f -o %output --link-option=-z --link-option=now --link-options="-z relro -z noexecstack"
 
 main(): Unit {
     println("hello")

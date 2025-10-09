@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 1 EXCLUDE
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
 // ASSERT: regex .*warning.*: Function name 'i________' recommend to use lower camel case

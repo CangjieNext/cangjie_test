@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 1.2.2.1
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global var
   @Behavior: modify define file
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -24,7 +24,7 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [ABI] xxx
+// ASSERT: scan-1 [ABI] Changed location of private variable declaration visible outside the module.
 // ASSERT: scan-not [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-1 [ABI]
@@ -35,7 +35,4 @@
 package test_stable_abi
 
 private const global_var_01: Int64 = 0
-
-public const func global_func_01() {
-    global_var_01
-}
+public const func global_func_01() { global_var_01 }

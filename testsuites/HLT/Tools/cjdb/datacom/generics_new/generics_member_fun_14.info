@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 75,Breakpoint 1:
-AOT r,r,-> 75
+b,b 83,Breakpoint 1:
+AOT r,r,-> 83
 CJVM c,c,
-c,c,-> 75
+c,c,-> 83
 p, p a,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
 p, p a1,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
 locals, locals,\(std.collection.HashMap<std.core.String,Int64>\) a = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}[\s\S]*\(std.collection.HashMap<std.core.String,Int64>\) a1 = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}

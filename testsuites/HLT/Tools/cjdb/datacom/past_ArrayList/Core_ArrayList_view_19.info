@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_view_19,ArrayList_view_19
-b,b 15,ArrayList_view_19.cj:15
-AOT r,r,-> 15
-CJVM c,c,-> 15
+b,b 23,ArrayList_view_19.cj:23
+AOT r,r,-> 23
+CJVM c,c,-> 23
 p,p a,\(std\.collection.ArrayList<default.Rectangle>\) [\s\S]*hm = {[\s\S]*\["a" -> 0\] = {[\s\S]*key = "a"[\s\S]*value = 0[\s\S]*}[\s\S]*\["b" -> 1\] = {[\s\S]*key = "b"[\s\S]*value = 1[\s\S]*}[\s\S]*\["c" -> 2\] = {[\s\S]*key = "c"[\s\S]*value = 2[\s\S]*
 locals,locals,\(std\.collection.ArrayList<default.Rectangle>\) a = {[\s\S]*hm = {[\s\S]*\["a" -> 0\] = {[\s\S]*key = "a"[\s\S]*value = 0[\s\S]*}[\s\S]*\["b" -> 1\] = {[\s\S]*key = "b"[\s\S]*value = 1[\s\S]*}[\s\S]*\["c" -> 2\] = {[\s\S]*key = "c"[\s\S]*value = 2[\s\S]*
 q,q,

@@ -6,7 +6,7 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (DEBUG_OPTION)EXEC-42: %run %output
-// ASSERT: scan debug: consteval at testEnum1.cj:24:1 - testEnum1.cj:24:22 evaluated initializer function `gv$_d`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_d`
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

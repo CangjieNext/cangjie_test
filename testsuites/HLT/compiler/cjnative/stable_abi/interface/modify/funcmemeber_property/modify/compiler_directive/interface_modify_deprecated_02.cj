@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // LEVEL: 0
 // Expect: API Compatible & ABI Compatible
 // DEPENDENCE: ../../main.cj, ../../template.cj
@@ -33,8 +33,7 @@ public class Version {
     }
 }
 
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public interface I1 {
@@ -42,7 +41,6 @@ public interface I1 {
     public static func f7() {
         7
     }
-
     @Deprecated["This func is deprecated", strict: true]
     public static func f8() {
         8
@@ -53,7 +51,7 @@ public interface I1 {
         return 9
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13
     }
     public static const func f14(): Int64 {
@@ -84,14 +82,13 @@ public interface I1 {
     public func in_f7() {
         7
     }
-
     @Deprecated["This func is deprecated", strict: true]
-    public func in_f8(): Int64
+    public func in_f8() : Int64 
 
     @Frozen
-    public func in_f9(): Int64
-
-    public unsafe func in_f13(): Int64
+    public func in_f9(): Int64 
+    
+    public unsafe func in_f13(): Int64 
     public const func in_f14(): Int64 {
         14
     }
@@ -104,8 +101,8 @@ public interface I1 {
         a + b
     }
     @Version["1.0"]
-    public func in_p2(a: Son, b!: Son): Son
-    public func in_p3(a: Father, b!: Father): Father
+    public func in_p2(a: Son, b!: Son): Son 
+    public func in_p3(a: Father, b!: Father): Father 
 
     /*------------------------------------------------*/
     @Version["1.1"]
@@ -115,7 +112,7 @@ public interface I1 {
         }
     }
     @Version["1.1"]
-    public static prop prop_v2: Int64
+    public static prop prop_v2: Int64 
 
     @Deprecated["This func will be deprecated soon"]
     public static prop prop_v3: Int64 {
@@ -138,11 +135,12 @@ public interface I1 {
         }
     }
 
-    public mut static prop prop_v6: Int64 {
+    public static mut prop prop_v6: Int64 {
         get() {
             6
         }
         set(v) {
+
         }
     }
 
@@ -154,7 +152,7 @@ public interface I1 {
         }
     }
     @Version["1.1"]
-    public prop in_prop_v2: Int64
+    public prop in_prop_v2: Int64 
 
     @Deprecated["This func will be deprecated soon"]
     public prop in_prop_v3: Int64 {
@@ -182,6 +180,8 @@ public interface I1 {
             5
         }
         set(v) {
+            
         }
     }
 }
+

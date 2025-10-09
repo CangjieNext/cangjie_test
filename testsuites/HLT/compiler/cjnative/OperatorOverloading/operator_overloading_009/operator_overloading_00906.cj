@@ -155,6 +155,9 @@ main(): Int64 {
     var res: R = R(r: 8192)
     var a: R = zero > one << one + three * two ** -zero[zero]
     var final: R = three ^ one & res == zero > one << one + three * two ** -zero[zero]
+    // 1. zero[zero] = R(-2)
+    // 2. two ** -zero[zero] = R(4)
+    // 3. one + three * two ** -zero[zero] = R(13)
     // 4. one << R(13) = res
     // 5. zero > R(13) = res
     // 6. res == res = one , if 1-5 got any error, 5`s result will be zero.

@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_while,004_debug_while
-b,b 4,004_debug_while.cj:4
-AOT r,r,-> 4
+b,b 12,004_debug_while.cj:12
+AOT r,r,-> 12
 CJVM c,c,
-breakpoint,breakpoint set -l 6 -c 'hundred==9',004_debug_while.cj:6
-c,c,-> 6
+breakpoint,breakpoint set -l 14 -c 'hundred==9',004_debug_while.cj:14
+c,c,-> 14
 locals,locals,hundred = 9
 breakpoint,breakpoint list,Condition: hundred==9
 q,q,

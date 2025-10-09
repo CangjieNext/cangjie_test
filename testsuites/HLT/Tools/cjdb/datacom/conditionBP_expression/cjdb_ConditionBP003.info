@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func003,generics_global_func003
-breakpoint,breakpoint set -l 20 -c 'a1==true',generics_global_func003.cj:20
-AOT r,r,-> 20
+breakpoint,breakpoint set -l 28 -c 'a1==true',generics_global_func003.cj:28
+AOT r,r,-> 28
 CJVM c,c,
 locals,locals,\(Rune\) a2 = 'f'
 p,p a5,\(Tuple<Bool,Bool>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}

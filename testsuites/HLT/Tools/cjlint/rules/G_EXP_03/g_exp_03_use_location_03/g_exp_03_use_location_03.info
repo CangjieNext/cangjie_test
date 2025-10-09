@@ -9,15 +9,15 @@
 // LEVEL: 2
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex test.cj:25:26: .*error.*: Right operand 'A.foo_a' include side effect
-// ASSERT: regex test.cj:26:26: .*error.*: Right operand 'A.foo_a' include side effect
-// ASSERT: regex test.cj:27:45: .*error.*: Right operand 'A.foo_a' include side effect
-// ASSERT: regex test.cj:29:45: .*error.*: Right operand 'A.foo_a' include side effect
-// ASSERT: regex test.cj:30:50: .*error.*: Right operand 'A.foo_a' include side effect
-// ASSERT: regex test.cj:31:43: .*error.*: Right operand 'A.foo_a' include side effect
-// ASSERT: regex test.cj:32:50: .*error.*: Right operand 'A.foo_a' include side effect
-// ASSERT: regex test.cj:33:63: .*error.*: Right operand 'A.foo_a' include side effect
-// ASSERT: regex test.cj:34:65: .*error.*: Right operand 'A.foo_a' include side effect
-// ASSERT: regex test.cj:36:25: .*error.*: Right operand 'A.foo_a' include side effect
-// ASSERT: regex test.cj:37:25: .*error.*: Right operand 'A.foo_a' include side effect
-// ASSERT: regex test.cj:38:44: .*error.*: Right operand 'A.foo_a' include side effect
+// ASSERT: regex test.cj:17:26: .*error.*: Right operand 'A.foo_a' include side effect
+// ASSERT: regex test.cj:18:26: .*error.*: Right operand 'A.foo_a' include side effect
+// ASSERT: regex test.cj:19:45: .*error.*: Right operand 'A.foo_a' include side effect
+// ASSERT: regex test.cj:21:45: .*error.*: Right operand 'A.foo_a' include side effect
+// ASSERT: regex test.cj:22:50: .*error.*: Right operand 'A.foo_a' include side effect
+// ASSERT: regex test.cj:23:43: .*error.*: Right operand 'A.foo_a' include side effect
+// ASSERT: regex test.cj:24:50: .*error.*: Right operand 'A.foo_a' include side effect
+// ASSERT: regex test.cj:25:63: .*error.*: Right operand 'A.foo_a' include side effect
+// ASSERT: regex test.cj:26:65: .*error.*: Right operand 'A.foo_a' include side effect
+// ASSERT: regex test.cj:28:25: .*error.*: Right operand 'A.foo_a' include side effect
+// ASSERT: regex test.cj:29:25: .*error.*: Right operand 'A.foo_a' include side effect
+// ASSERT: regex test.cj:30:44: .*error.*: Right operand 'A.foo_a' include side effect

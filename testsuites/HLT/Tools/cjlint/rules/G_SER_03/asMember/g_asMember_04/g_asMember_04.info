@@ -9,5 +9,5 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex 25:39:.*warning.*G.ERR.03: Avoid using the getOrThrow\(\) function of the Option type.
-// ASSERT: regex 46:42:.*warning.*G.ERR.03: Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex 17:39:.*warning.*G.ERR.03: Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex 38:42:.*warning.*G.ERR.03: Avoid using the getOrThrow\(\) function of the Option type.

@@ -14,15 +14,15 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashSet_external_invoke,collection_HashSet_external_invoke
-b,b 21,collection_HashSet_external_invoke.cj:21
-AOT r,r,-> 21
-CJVM c,c,-> 21
-s,s,-> 79
-n,n,-> 80
+b,b 29,collection_HashSet_external_invoke.cj:29
+AOT r,r,-> 29
+CJVM c,c,-> 29
+s,s,-> 87
+n,n,-> 88
 p,p set_cla_fun_s1,\(std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[3\] = 119[\S\s]*}
 p,p set_cla_fun_s1,\(std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[0\] = 14[\S\s]*}
-n,n,-> 81
+n,n,-> 89
 p,p set_cla_fun_s1,\(std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[4\] = 18[\S\s]*}
 p,p set_cla_fun_s1,\(std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[0\] = 14[\S\s]*}
-finish,finish,-> 21
+finish,finish,-> 29
 q,q,

@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 037_debuginfun_lambda,037_debuginfun_lambda
-breakpoint,breakpoint set -l 10 -c 'a==10',037_debuginfun_lambda.cj:10
-AOT r,r,-> 10
+breakpoint,breakpoint set -l 18 -c 'a==10',037_debuginfun_lambda.cj:18
+AOT r,r,-> 18
 CJVM c,c,
-n,n,-> 12
-n,n,-> 13
+n,n,-> 20
+n,n,-> 21
 locals,locals,lamdba001 = 20
 q,q,

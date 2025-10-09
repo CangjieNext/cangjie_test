@@ -18,7 +18,7 @@
 
 test#
 cjdb,cjdb --no-use-colors demangle_target,demangle_target
-b,b 79,where = demangle_target`default::Struct_1::init\(Int64\) \+ \d+ at demangle.cj:79:5
-AOT r,r,demangle_target`default::Struct_1::init\(this=default.Struct_1 @ [\S\s]*, x=32\) at demangle.cj:79:5[\s\S]*-> 79
-CJVM c,c,-> 79
+b,b 87,where = demangle_target`default::Struct_1::init\(Int64\) \+ \d+ at demangle.cj:87:5
+AOT r,r,demangle_target`default::Struct_1::init\(this=default.Struct_1 @ [\S\s]*, x=32\) at demangle.cj:87:5[\s\S]*-> 87
+CJVM c,c,-> 87
 q,q,

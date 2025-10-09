@@ -9,7 +9,7 @@
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %cmp_utest_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
-// ASSERT: scan IllegalArgumentException: delta must be in interval [0.0; Float16.Max]. Actual delta: inf.
+// ASSERT: scan IllegalArgumentException: delta must be in interval [0.0, Float16.Max). Actual delta: inf.
 
 import std.math.*
 

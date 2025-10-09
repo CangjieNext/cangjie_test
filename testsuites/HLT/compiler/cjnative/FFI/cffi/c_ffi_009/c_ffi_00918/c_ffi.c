@@ -12,7 +12,6 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdio.h>
-#include <securec.h>
 
 struct teststruct {
     int32_t a;
@@ -39,9 +38,7 @@ void* MallocWithZero(size_t size)
     if (ptr == NULL) {
         return NULL;
     }
-    if (memset_s(ptr, size, 0, size) != 0) {
-        return NULL;
-    }
+    memset(ptr, 0, size);
     return ptr;
 }
 

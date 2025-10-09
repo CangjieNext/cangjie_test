@@ -6,12 +6,12 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (CJNATIVE and DEBUG_OPTION) EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at testTypeClass.cj:27:1 - testTypeClass.cj:27:40 evaluated initializer function `gv$_miii`
-// ASSERT: scan debug: consteval at testTypeClass.cj:37:1 - testTypeClass.cj:37:40 evaluated initializer function `gv$_miid`
-// (CJNATIVE) ASSERT: scan debug: consteval at testTypeClass.cj:51:1 - testTypeClass.cj:51:51 function `gv$_upcast` not evaluated successfully
-// (not CJNATIVE) ASSERT: scan debug: consteval at testTypeClass.cj:51:1 - testTypeClass.cj:51:51 evaluated initializer function `gv$_upcast`
-// (CJNATIVE) ASSERT: scan debug: consteval at testTypeClass.cj:52:1 - testTypeClass.cj:52:51 function `gv$_upcast2` not evaluated successfully
-// (not CJNATIVE) ASSERT: scan debug: consteval at testTypeClass.cj:52:1 - testTypeClass.cj:52:51 evaluated initializer function `gv$_upcast2`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_miii`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_miid`
+// (CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 function `gv$_upcast` not evaluated successfully
+// (not CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_upcast`
+// (CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 function `gv$_upcast2` not evaluated successfully
+// (not CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_upcast2`
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

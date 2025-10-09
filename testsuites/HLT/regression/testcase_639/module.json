@@ -1,0 +1,15 @@
+{
+    "cjc_version": "0.25.1",
+    "organization": "cangjie",
+    "name": "test",
+    "description": "nothing here",
+    "version": "1.0.0",
+    "requires": {},
+    "foreign_requires": {},
+    "output_type": "executable",
+    "command_option": "",
+    "cross_compile_configuration": {
+        "aarch64-hm-gnu": "-B/opt/RTOS_V2X/301.1.0/arm64le_hm_pro/bin -B/opt/RTOS_V2X/301.1.0/arm64le_hm_pro/sdk/usr/lib -L/opt/RTOS_V2X/301.1.0/arm64le_hm_pro/gnu64/aarch64-hongmeng-musl/lib64"
+    }
+}
+

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var006,generics_local_var006
-breakpoint,breakpoint set -l 11 -c "r1==6",generics_local_var006.cj:11
-AOT r,r,-> 11
+breakpoint,breakpoint set -l 19 -c "r1==6",generics_local_var006.cj:19
+AOT r,r,-> 19
 CJVM c,c,
 p,p r2,\(std.core.String\) \$[\d] = "6"
 p,p r3,\(Bool\) \$[\d] = true

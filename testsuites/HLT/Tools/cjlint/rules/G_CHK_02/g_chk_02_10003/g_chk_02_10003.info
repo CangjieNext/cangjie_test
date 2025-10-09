@@ -9,4 +9,4 @@
 // LEVEL: 0
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex-1 :17:.*error.*?'rep.status.toString' is external data, it should not be used to record logs
+// ASSERT: regex-1 :9:.*error.*?'rep.status.toString' is external data, it should not be used to record logs

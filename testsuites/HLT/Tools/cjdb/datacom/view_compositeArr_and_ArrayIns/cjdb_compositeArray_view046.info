@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 009_debug_ArrayIns_composite_string,009_debug_ArrayIns_composite_string
-b,b 13,009_debug_ArrayIns_composite_string.cj:13
-AOT r,r,-> 13
+b,b 21,009_debug_ArrayIns_composite_string.cj:21
+AOT r,r,-> 21
 CJVM c,c,
 p,p array_str_1,\(std[.]core.Array<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = ""[\s\S]*\[1\] = "\\"\\""[\s\S]*
 q,q,

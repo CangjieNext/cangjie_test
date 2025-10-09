@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
@@ -17,3 +17,5 @@ main() {
 
     return 0
 }
+
+

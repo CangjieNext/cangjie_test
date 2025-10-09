@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case18_11,case18_11
-b,b 18,case18_11.cj:18
-AOT r,r,-> 18
+b,b 26,case18_11.cj:26
+AOT r,r,-> 26
 CJVM c,c,
 AOT expr,expr v.a,\(Int64\) \$[\d] = 0
 AOT expr,expr v.f1(),\(Unit\) \$[\d] = ()

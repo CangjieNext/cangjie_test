@@ -5,12 +5,14 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 public package test_stable_abi
 
 // test package: delete package
 public class A {
-    public func foo() {
+    public func foo () {
         return 1
     }
 }
+
+

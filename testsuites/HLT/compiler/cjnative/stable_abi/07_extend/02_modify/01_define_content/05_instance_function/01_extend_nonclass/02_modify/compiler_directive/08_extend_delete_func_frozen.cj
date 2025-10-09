@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.5.1.2.8
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: delete instance func frozen
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,14 +33,12 @@
 package test_stable_abi
 
 // test extend: instance function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public struct TestStruct {
     public const init() {}
 }
-
 extend TestStruct {
     public func f1() {
         1
@@ -84,17 +82,14 @@ extend TestStruct {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9

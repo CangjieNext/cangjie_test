@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors Test_Lambda2,Test_Lambda2
-b,b 10,Test_Lambda2.cj:10
-AOT r,r,-> 10
+b,b 18,Test_Lambda2.cj:18
+AOT r,r,-> 18
 CJVM c,c,
 locals,locals,\(std.core.Array<Int64>\) array01 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}
 locals,locals,\(UInt32\) a = 99[\s\S]*\(std.collection.ArrayList<Int64>\) b = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*\(Tuple<Bool,Bool>\) tuplevar01 = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}

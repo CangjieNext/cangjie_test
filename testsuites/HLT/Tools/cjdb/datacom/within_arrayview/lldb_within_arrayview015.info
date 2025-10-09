@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_baseType,001_debug_array_baseType
-b,b 23,001_debug_array_baseType.cj:23
-AOT r,r,-> 23
+b,b 31,001_debug_array_baseType.cj:31
+AOT r,r,-> 31
 CJVM c,c,
 print,print arrayFloat16_d[0][1],\(Float16\) \$[\d] = 2.1992
 q,q,

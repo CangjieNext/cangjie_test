@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -16,3 +16,6 @@ public interface Generics<T, U> {
     }
     public func goo3(a: T, b: U): Unit
 }
+
+
+

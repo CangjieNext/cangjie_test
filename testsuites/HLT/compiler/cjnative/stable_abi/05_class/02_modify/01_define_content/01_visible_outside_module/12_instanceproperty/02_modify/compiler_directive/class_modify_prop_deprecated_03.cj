@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.12.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance prop
   @Behavior: modify @Deprecated compiler directive to unusable
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -41,7 +41,7 @@ public class Version {
     }
 }
 
-public open class TestClass {
+open public class TestClass {
     public var a: Int64 = 0
     public prop prop1: Int64 {
         get() {
@@ -65,10 +65,9 @@ public open class TestClass {
             3
         }
     }
-
     @Frozen
     public prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -79,14 +78,12 @@ public open class TestClass {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
     public mut prop prop6: Int64 {
         get() {
@@ -129,20 +126,20 @@ public open class TestClass {
         }
     }
 
-    public open prop prop13: Int64 {
+    open public prop prop13: Int64 {
         get() {
             13
         }
     }
 
-    public mut open prop prop14: Int64 {
+    open public mut prop prop14: Int64 {
         get() {
             14
         }
         set(v) {
             a = v
         }
-    }
+    }   
 
     @Version["1.1"]
     public prop prop12: Int64 {

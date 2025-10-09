@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var008,generics_local_var008
-b,b 74,generics_local_var008.cj:74
-AOT r,r,-> 74
+b,b 82,generics_local_var008.cj:82
+AOT r,r,-> 82
 CJVM c,c,
 expr:expr ai8.c1_a:\(default.S3<Int8>\) \$[\d] = {[\s\S]*s3_a = 8[\s\S]*}
 expr:expr bui8.s1_a:\(UInt8\) \$[\d] = 8

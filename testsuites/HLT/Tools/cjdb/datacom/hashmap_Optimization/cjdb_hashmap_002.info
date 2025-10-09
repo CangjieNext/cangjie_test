@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors basic_hashmap_002,basic_hashmap_002
-b,b 25,basic_hashmap_002.cj:25
-AOT r,r,-> 25
+b,b 33,basic_hashmap_002.cj:33
+AOT r,r,-> 33
 locals,locals,\(std.collection.HashMap<Int8,UInt8>\) map_1 = {[\s\S]*\[-3 -> 42\] = {[\s\S]*key = -3[\s\S]*value = 42[\s\S]*}[\s\S]*\[2 -> 12\] = {[\s\S]*key = 2[\s\S]*value = 12[\s\S]*}[\s\S]*\[-76 -> 165\] = {[\s\S]*key = -76[\s\S]*value = 165[\s\S]*}[\s\S]*}
 p,p map_14,\(std.collection.HashMap<UInt32,UInt32>\) \$[\d] = {[\s\S]*\[1 -> 2\] = {[\s\S]*key = 1[\s\S]*value = 2[\s\S]*}[\s\S]*}
 p,p map_3,\(std.collection.HashMap<Int32,UInt32>\) \$[\d] = {[\s\S]*\[-329 -> 1750\] = {[\s\S]*key = -329[\s\S]*value = 1750[\s\S]*}[\s\S]*\[-910 -> 1732\] = {[\s\S]*key = -910[\s\S]*value = 1732[\s\S]*}[\s\S]*\[-76 -> 1675\] = {[\s\S]*key = -76[\s\S]*value = 1675[\s\S]*}[\s\S]*}

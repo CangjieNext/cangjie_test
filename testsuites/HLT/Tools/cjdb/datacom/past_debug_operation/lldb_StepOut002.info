@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_func_no_arg,008_debug_func_no_arg
-b,b 11,008_debug_func_no_arg.cj:11
-AOT r,r,-> 11
+b,b 19,008_debug_func_no_arg.cj:19
+AOT r,r,-> 19
 CJVM c,c,
-b,b 12,008_debug_func_no_arg.cj:12
-c,c,-> 12
-finish,finish,-> 4
+b,b 20,008_debug_func_no_arg.cj:20
+c,c,-> 20
+finish,finish,-> 12
 q,q,

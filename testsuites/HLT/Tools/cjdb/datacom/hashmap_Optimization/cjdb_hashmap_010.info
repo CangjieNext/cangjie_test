@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors basic_hashmap_010,basic_hashmap_010
-b,b 17,basic_hashmap_010.cj:17
-AOT r,r,-> 17
+b,b 25,basic_hashmap_010.cj:25
+AOT r,r,-> 25
 locals,locals,\(std.collection.HashMap<Rune,default.cla<std.collection.HashMap<std.core.String,std.core.String>>>\) map_main_1 = {[\s\S]*\['K'\] = {[\s\S]*key = 'K'[\s\S]*value = {[\s\S]*x = 10[\s\S]*
 p,p map_main_4,\(std.collection.HashMap<Bool,default.str<std.collection.HashMap<std.core.String,std.core.String>>>\) \$[\d] = {[\s\S]*\[true\] = {[\s\S]*key = true[\s\S]*value = {[\s\S]*x = 6[\s\S]*
 expr,expr map_main_4,\(std.collection.HashMap<Bool,default.str<std.collection.HashMap<std.core.String,std.core.String>>>\) \$[\d] = {[\s\S]*\[true\] = {[\s\S]*key = true[\s\S]*value = {[\s\S]*x = 6[\s\S]*

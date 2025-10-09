@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (LLVM and not Windows and not MAC) EXEC: cd %n && %cjpm build --target x86_64-w64-mingw32 && %ls target/x86_64-w64-mingw32/release/performance_analysis | compare %f
-// (LLVM and not Windows and not MAC) ASSERT: scan case18.time.prof
-// (LLVM and not Windows and not MAC) ASSERT: scan case18.mem.prof
-// (LLVM and not Windows and not MAC) ASSERT: scan case18.info.prof
+// (CJNATIVE and not Windows and not MAC) EXEC: cd %n && %cjpm build --target x86_64-w64-mingw32 && %ls target/x86_64-w64-mingw32/release/performance_analysis | compare %f
+// (CJNATIVE and not Windows and not MAC) ASSERT: scan case18.time.prof
+// (CJNATIVE and not Windows and not MAC) ASSERT: scan case18.mem.prof
+// (CJNATIVE and not Windows and not MAC) ASSERT: scan case18.info.prof

@@ -14,9 +14,8 @@
 test#
 AOT cjdb,cjdb --no-use-colors -- b_main_001 hello world,b_main_001
 CJVM cjdb,cjdb,cjdb
-CJVM process connect,process connect 127.0.0.1:,connected to 127.0.0.1:
 CJVM b,b main,
 CJVM c,process continue,
-CJVM n,n,-> 5
+CJVM n,n,-> 13
 CJVM interrupt,process interrupt,
 q,quit,

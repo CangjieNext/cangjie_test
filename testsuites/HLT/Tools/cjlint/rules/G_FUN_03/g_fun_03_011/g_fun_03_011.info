@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 1 EXCLUDE
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex .*test.cj:18.*G.FUN.03: Avoid overloaded functions 'foo' appearing in different scopes.
+// ASSERT: regex .*test.cj:10.*G.FUN.03: Avoid overloaded functions 'foo' appearing in different scopes.

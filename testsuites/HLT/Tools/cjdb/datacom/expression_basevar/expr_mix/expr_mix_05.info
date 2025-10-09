@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 55,expr_mix.cj:55
-CJVM c,c,-> 55
-AOT r,r,-> 55
+b,b 63,expr_mix.cj:63
+CJVM c,c,-> 63
+AOT r,r,-> 63
 expr,expr if (test_bool(true)&&(globals_int64+1)>=0){ globals_int64=-globals_int64} else {globals_int64 = 10};globals_int64,\(Int64\) \$[\d] = -10
 expr,expr if (test_rune(r'c')<=r'b'&&(globals_int64+1)>=0){ globals_int64=-globals_int64} else {globals_int64 = 10};globals_int64,\(Int64\) \$[\d] = 10
 expr,expr if ((test_int(10)+test_int(5))<globals_int64){ globals_int64=(test_int(10)+test_int(5)*2)/5} else if(test_bool(false)){globals_int64 = 10};globals_int64 ,\(Int64\) \$[\d] = 10

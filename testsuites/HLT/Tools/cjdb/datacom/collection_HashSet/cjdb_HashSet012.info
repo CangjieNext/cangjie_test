@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashSet_Ins_basic,001_HashSet_Ins_basic
-b,b 16,001_HashSet_Ins_basic.cj:16
-AOT r,r,-> 16
-CJVM c,c,-> 16
+b,b 24,001_HashSet_Ins_basic.cj:24
+AOT r,r,-> 24
+CJVM c,c,-> 24
 p,p set_uint16,std[.]collection.HashSet<UInt16>\) \$[\d] = {[\S\s]*\[0\] = 49[\S\s]*}
 p,p set_uint16,std[.]collection.HashSet<UInt16>\) \$[\d] = {[\S\s]*\[1\] = 56[\S\s]*}
 q,q,

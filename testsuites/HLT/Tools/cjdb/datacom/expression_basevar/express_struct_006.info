@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_express_basetype,006_express_basetype
-CJVM b,b main,065_debug_struct.cj:51
-CJVM c,c,-> 51
-b,b 53,065_debug_struct.cj:53
-CJVM c,c,-> 53
-AOT r,r,-> 53
+CJVM b,b main,065_debug_struct.cj:59
+CJVM c,c,-> 59
+b,b 61,065_debug_struct.cj:61
+CJVM c,c,-> 61
+AOT r,r,-> 61
 expr,expr rr.a.arr,std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*[\2\] = 2[\s\S]*}*
 expr,expr rr.a.arr[0],\(Int64\) \$[\d] = 0
 expr,expr rr.a.arr[0]=10,\(Unit\) \$[\d] = ()

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_alias,generics_alias
-b,b 90,generics_alias.cj:90
-AOT r,r,-> 90
+b,b 98,generics_alias.cj:98
+AOT r,r,-> 98
 CJVM c,c,
 p, p llist,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 p, p s1.vlists,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
@@ -25,8 +25,8 @@ p, p globals_list,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1
 locals, locals,\(std.collection.ArrayList<Int64>\) llist = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(default.S1\) s1 = {[\s\S]*vlists = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(default.C1\) c1 = {[\s\S]*vlistc = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 globals, globals,\(std.collection.ArrayList<Int64>\) default::C1::vlist = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 globals, globals,\(std.collection.ArrayList<Int64>\) default::globals_list = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-b, b 101,generics_alias.cj:101
-c,c,-> 101
+b, b 109,generics_alias.cj:109
+c,c,-> 109
 p, p c,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 p, p test_c,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 locals, locals,\(std.collection.ArrayList<Int64>\) c = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*

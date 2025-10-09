@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_enum_generics,002_debug_enum_generics
-b,b 45,002_debug_enum_generics.cj:45
-AOT r,r,-> 45
+b,b 53,002_debug_enum_generics.cj:53
+AOT r,r,-> 53
 CJVM c,c,
-n,n,-> 47
+n,n,-> 55
 locals,locals,TimeUnit1<std[.]core.String>\) m_time4 = {(\r|\n|\r\n)  constructor = Year(\r|\n|\r\n)  arg_1 = "abc"
 q,q,

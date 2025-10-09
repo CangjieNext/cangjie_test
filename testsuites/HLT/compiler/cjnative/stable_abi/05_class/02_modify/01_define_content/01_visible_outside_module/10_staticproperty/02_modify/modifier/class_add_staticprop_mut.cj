@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.10.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class static prop
   @Behavior: modifier add mut and its setter
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -43,7 +43,7 @@ public class Version {
 
 public class TestClass {
     public static var a: Int64 = 0
-    public mut static prop prop1: Int64 {
+    public static mut prop prop1: Int64 {
         get() {
             1
         }
@@ -51,7 +51,7 @@ public class TestClass {
         }
     }
 
-    mut static prop prop2: Int64 {
+    static mut prop prop2: Int64 {
         get() {
             2
         }
@@ -59,17 +59,16 @@ public class TestClass {
         }
     }
 
-    mut static prop prop3: Int64 {
+    static mut prop prop3: Int64 {
         get() {
             3
         }
         set(v) {
         }
     }
-
     @Frozen
-    public mut static prop _prop3: Int64 {
-        get() {
+    public static mut prop _prop3: Int64 {
+        get () {
             prop3
         }
         set(v) {
@@ -77,25 +76,23 @@ public class TestClass {
     }
 
     @Deprecated["This API will be deprecated soon"]
-    public mut static prop prop4: Int64 {
+    public static mut prop prop4: Int64 {
         get() {
             4
         }
         set(v) {
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
-    public mut static prop prop5: Int64 {
+    public static mut prop prop5: Int64 {
         get() {
             5
         }
         set(v) {
         }
     }
-
     @Frozen
-    public mut static prop prop6: Int64 {
+    public static mut prop prop6: Int64 {
         get() {
             6
         }
@@ -104,21 +101,21 @@ public class TestClass {
         }
     }
 
-    protected mut static prop prop7: Int64 {
+    protected static mut prop prop7: Int64 {
         get() {
             7
         }
         set(v) {
         }
     }
-    internal mut static prop prop8: Int64 {
+    internal static mut prop prop8: Int64 {
         get() {
             8
         }
         set(v) {
         }
     }
-    private mut static prop prop9: Int64 {
+    private static mut prop prop9: Int64 {
         get() {
             9
         }
@@ -126,14 +123,14 @@ public class TestClass {
         }
     }
 
-    public mut static prop prop10: Int64 {
+    public static mut prop prop10: Int64 {
         get() {
             10
         }
         set(v) {
         }
     }
-    public mut static prop prop11: Int64 {
+    public static mut prop prop11: Int64 {
         get() {
             11
         }
@@ -141,9 +138,9 @@ public class TestClass {
             a = v
         }
     }
-
+    
     @Version["1.1"]
-    public mut static prop prop12: Int64 {
+    public static mut prop prop12: Int64 {
         get() {
             12
         }

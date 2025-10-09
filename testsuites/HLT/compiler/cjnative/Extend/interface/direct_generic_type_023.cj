@@ -22,6 +22,7 @@ class B<T> where T <: A {
 
 // interface I<T>{
 //   static func foos<T>(a: T){
+//     return a
 //   }
 
 //   static prop pas : B<A>{

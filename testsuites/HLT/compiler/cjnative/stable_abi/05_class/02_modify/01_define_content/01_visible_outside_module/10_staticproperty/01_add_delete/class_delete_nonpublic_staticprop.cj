@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.10.1
   @Scene: delete
@@ -13,7 +13,7 @@
   @Object: class static prop
   @Behavior: delete class static prop
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../main.cj, ../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -54,10 +54,9 @@ public class TestClass {
             3
         }
     }
-
     @Frozen
     public static prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -68,16 +67,14 @@ public class TestClass {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
-    public mut static prop prop6: Int64 {
+    public static mut prop prop6: Int64 {
         get() {
             6
         }
@@ -86,14 +83,14 @@ public class TestClass {
         }
     }
 
-    public mut static prop prop10: Int64 {
+    public static mut prop prop10: Int64 {
         get() {
             10
         }
         set(v) {
         }
     }
-    public mut static prop prop11: Int64 {
+    public static mut prop prop11: Int64 {
         get() {
             11
         }
@@ -101,7 +98,7 @@ public class TestClass {
             a = v
         }
     }
-
+    
     @Version["1.1"]
     public static prop prop12: Int64 {
         get() {

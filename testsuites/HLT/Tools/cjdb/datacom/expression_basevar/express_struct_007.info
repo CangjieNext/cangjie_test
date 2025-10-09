@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 007_express_basetype,007_express_basetype
-CJVM b,b main,065_debug_struct.cj:51
-CJVM c,c,-> 51
-b,b 53,065_debug_struct.cj:53
-CJVM c,c,-> 53
-AOT r,r,-> 53
+CJVM b,b main,065_debug_struct.cj:59
+CJVM c,c,-> 59
+b,b 61,065_debug_struct.cj:61
+CJVM c,c,-> 61
+AOT r,r,-> 61
 expr,expr rr.a.structinvar11,Tuple<UInt8,Int64,Float32,Bool,std.core.String>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 32[\s\S]*\[2\] = 13.3100004[\s\S]*\[3\] = true[\s\S]*\[4\] = "hello"[\s\S]*}*
 expr,expr rr.a.structinvar11[0],\(UInt8\) \$[\d] = 1
 expr,expr rr.vara,VArray<Int64,\$3>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3

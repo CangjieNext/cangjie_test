@@ -17,10 +17,10 @@
 
 test#
 cjdb,cjdb --no-use-colors pkgs001,pkgs001
-b,b 18,pkgs001.cj:18
-AOT r,r,-> 18
+b,b 26,pkgs001.cj:26
+AOT r,r,-> 26
 CJVM c,c,
-n,n,-> 19
+n,n,-> 27
 locals,locals,res1 = 127
 print,print test,\$[\d] = 127
 print,print res1,\$[\d] = 127

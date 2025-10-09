@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var019,generics_local_var019
-b,b 7,generics_local_var019.cj:7
-AOT r,r,-> 7
+b,b 15,generics_local_var019.cj:15
+AOT r,r,-> 15
 CJVM c,c,
 expr~expr cla_ins~\(default.Cla_1<Int64>\) \$[\d] = {[\s\S]*width = "Cangjie"[\s\S]*intValue = 18[\s\S]*
 expr~expr set_string_1~\(std.collection.HashSet<std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "Cangjie"[\s\S]*}

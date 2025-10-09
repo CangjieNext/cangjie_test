@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_memberVar,option_memberVar
-b,b 42,option_memberVar.cj:42
-AOT r,r,-> 42
-CJVM c,c,-> 42
+b,b 50,option_memberVar.cj:50
+AOT r,r,-> 50
+CJVM c,c,-> 50
 p,p a.Hset_String,\(std[.]core.Option<std[.]collection.HashSet<std[.]core.String>>[\s\S]*\) \$[\d] = {[\s\S]*\[0\] = "CANGJIE"[\s\S]*\[1\] = "HELLLO"[\s\S]*\[2\] = "WORLD"[\s\S]*}
 p,p a.Hmap_BC,\(std[.]core.Option<std[.]collection.HashMap<Bool,Rune>>[\s\S]*\) \$[\d] = {[\s\S]*key = true[\s\S]*value = 'c'[\s\S]*key = false[\s\S]*value = 'w[\s\S]*}
 p,p a.Hmap_hmap,\(std[.]core.Option<std[.]core.Option<std[.]core.Option<std[.]collection.HashMap<Int64,std[.]core.String>>>>[\s\S]*\) \$[\d] = {[\s\S]*key = 1[\s\S]*value = "cangjie"[\s\S]*key = 2[\s\S]*value = "hello"[\s\S]*}

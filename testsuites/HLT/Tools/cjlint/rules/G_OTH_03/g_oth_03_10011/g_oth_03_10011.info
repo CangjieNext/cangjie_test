@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex test.cj:10:8: .*error.*: https://www.example.com is public url, hard-coded in the program
+// ASSERT: regex test.cj:2:8: .*error.*: https://www.example.com is public url, hard-coded in the program

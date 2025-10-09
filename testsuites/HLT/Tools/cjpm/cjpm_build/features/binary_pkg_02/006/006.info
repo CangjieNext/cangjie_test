@@ -20,7 +20,7 @@
 // (not CJNATIVE) EXEC: %compiler --import-path %n/pro1/target -p "%n/pro1/src/xoo" %n/pro1/target/pro1/pro1.xoo.pdba %n/pro1/target/pro1/pro1.zoo.pdba --module-name pro1 --output-type=cbclib -o %n/pro1/target/pro1/pro1.yoo.cbc
 
 // EXEC: cd %n/ && %cjpm build 2>&1 | compare %f
-// (CJNATIVE and not MAC) ASSERT: scan undefined reference to `_CGP8pro1.zooilHv'
-// (CJNATIVE and not MAC) ASSERT: scan undefined reference to `_CN8pro1.zoo1zE'
-// (CJNATIVE and not MAC) ASSERT: scan cjpm build failed
-// (not CJNATIVE or MAC) ASSERT: scan cjpm build success
+// (CJNATIVE and not MAC and not Windows) ASSERT: scan undefined reference to `_CGP8pro1.zooilHv'
+// (CJNATIVE and not MAC and not Windows) ASSERT: scan undefined reference to `_CN8pro1.zoo1zE'
+// (CJNATIVE and not MAC and not Windows) ASSERT: scan cjpm build failed
+// (Windows or MAC) ASSERT: scan cjpm build success

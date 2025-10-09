@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.6.2.2.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance prop
   @Behavior: add compilation flag @deprecated
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,7 +33,7 @@
 package test_stable_abi
 
 // test extend: instance property
-public open class TestClass {
+open public class TestClass {
     public var a: Int64 = 0
 }
 
@@ -44,31 +44,27 @@ extend TestClass {
             1
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected prop exported_prop1: Int64 {
         get() {
             1
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     prop prop2: Int64 {
         get() {
             2
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     prop prop3: Int64 {
         get() {
             3
         }
     }
-
     @Frozen
     public prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -79,14 +75,12 @@ extend TestClass {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
     @Deprecated["This API will be deprecated soon"]
     public mut prop prop6: Int64 {
@@ -97,28 +91,24 @@ extend TestClass {
             a = v
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected prop prop7: Int64 {
         get() {
             7
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     internal prop prop8: Int64 {
         get() {
             8
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     private prop prop9: Int64 {
         get() {
             9
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     public mut prop prop10: Int64 {
         get() {

@@ -13,11 +13,11 @@
 
 test#
 cjdb,cjdb --no-use-colors coroutine_5,coroutine_5
-b,b 24,coroutine_5.cj:24
-AOT r,r,-> 24
+b,b 32,coroutine_5.cj:32
+AOT r,r,-> 32
 CJVM c,c,
-cjthread,cjthread list,cjthread #1 state: running[\s\S]*coroutine_5.cj:24
-n,n,-> 25
-cjthread,cjthread list,cjthread #2 state: [a-z]* name: [\s\S]*coroutine_5.cj:25
+cjthread,cjthread list,cjthread #1 state: running[\s\S]*coroutine_5.cj:32
+n,n,-> 33
+cjthread,cjthread list,cjthread #2 state: [a-z]* name: [\s\S]*coroutine_5.cj:33
 cjthread,cjthread backtrace -c 2 -s 2 -1,error: unknown or ambiguous option
 q,quit,

@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 032_debuginfun_func_no_arg,032_debuginfun_func_no_arg
-b,b 20,032_debuginfun_func_no_arg.cj:20
-AOT r,r,-> 20
+b,b 28,032_debuginfun_func_no_arg.cj:28
+AOT r,r,-> 28
 CJVM c,c,
-finish,finish,-> 10
-finish,finish,-> 4
-n,n,-> 5
+finish,finish,-> 18
+finish,finish,-> 12
+n,n,-> 13
 locals,locals,mainnum = 10
 q,q,

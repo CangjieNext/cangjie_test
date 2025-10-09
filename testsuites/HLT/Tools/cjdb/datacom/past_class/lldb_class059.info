@@ -17,9 +17,9 @@
 
 test#
 cjdb,cjdb --no-use-colors class_external_use,class_external_use
-b,b 15,class_external_use.cj:15
-AOT r,r,-> 15
-CJVM c,c,-> 15
-n,n,-> 16
+b,b 23,class_external_use.cj:23
+AOT r,r,-> 23
+CJVM c,c,-> 23
+n,n,-> 24
 print,print mian_time,TimeUnit\) \$[\d] = {(\r|\n|\r\n)  constructor = Year(\r|\n|\r\n)  arg_1 = 19
 q,q,

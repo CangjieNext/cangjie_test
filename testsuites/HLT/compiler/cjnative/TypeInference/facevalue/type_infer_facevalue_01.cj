@@ -38,11 +38,13 @@ main(): Int64 {
     //    var range = foo<Range<Int64>>(f)     B103 不支持Range<T>声明
     //    var res7 = 0
     //    for i in f:
+    //        res7 = res7 + i
     var res8 = foo<(Int32, Int32) -> Int32>(g)(2, 3)
 
     var res9 = foo<Array<Int64>>(h).size // 链式调用 foo<Array<Int64>>(h).size   core dump
 
     //var array = foo<Array<Int64>>(h)
+    //var res9 = array.size
     var tp = foo<(Float64, String)>(i)
     var res10 = tp[0]
 

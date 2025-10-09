@@ -14,16 +14,16 @@
 
 test#
 cjdb,cjdb --no-use-colors 020_debug_notsetbp,020_debug_notsetbp
-CJVM b,breakpoint set -n main,020_debug_notsetbp.cj:4
-CJVM c,c,-> 4
-AOT b,b 19,020_debug_notsetbp.cj:24
-CJVM b,b 19,020_debug_notsetbp.cj:19
-AOT b,b 20,020_debug_notsetbp.cj:24
-CJVM b,b 20,020_debug_notsetbp.cj:20
-AOT b,b 21,020_debug_notsetbp.cj:24
-CJVM b,b 21,020_debug_notsetbp.cj:21
-AOT b,b 22,020_debug_notsetbp.cj:24
-CJVM b,b 22,020_debug_notsetbp.cj:22
-AOT r,r,-> 24
+CJVM b,breakpoint set -n main,020_debug_notsetbp.cj:12
+CJVM c,c,-> 12
+AOT b,b 27,020_debug_notsetbp.cj:32
+CJVM b,b 27,020_debug_notsetbp.cj:27
+AOT b,b 28,020_debug_notsetbp.cj:32
+CJVM b,b 28,020_debug_notsetbp.cj:28
+AOT b,b 29,020_debug_notsetbp.cj:32
+CJVM b,b 29,020_debug_notsetbp.cj:29
+AOT b,b 30,020_debug_notsetbp.cj:32
+CJVM b,b 30,020_debug_notsetbp.cj:30
+AOT r,r,-> 32
 CJVM c,c,Process exited
 q,q,

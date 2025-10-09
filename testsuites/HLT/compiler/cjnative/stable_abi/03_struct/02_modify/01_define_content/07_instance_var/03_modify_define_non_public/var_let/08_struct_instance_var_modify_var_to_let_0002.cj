@@ -5,16 +5,16 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.7.3.8
   @Scene: modify
-  @Visibility: non public
+  @Visibility: used in public @Frozen declare
   @Object: struct instance var
   @Behavior: modifier: var to let
-  @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+  @Expect: api incompatible & abi incompatible
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -45,15 +45,15 @@ public struct Rectangle {
     let a9 = 20
     let a10 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 }
 
-public struct S1 {
-    let a1 = 20
+public struct S1{
+    var a1 = 20
     public let a2 = 0
-    var a3 = 20
+    let a3 = 20
     public let a4 = 0
 
     @Frozen

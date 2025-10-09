@@ -26,6 +26,8 @@ main(): Int64 {
 //func case01(){
 //    let arr =[0, 1, 2, 3, 4]
 //    var a: Int32 = 0
+//    for (item in arr) {
+//        print("${item}")
 //    }
 //    a
 //}

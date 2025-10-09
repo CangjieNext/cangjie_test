@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 2.2.1.3.7
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global func
   @Behavior: modify generic constraints type
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -38,32 +38,11 @@ package test_stable_abi
 // global func: global func is used in const global var/func
 // modify operation: modify generic constraints, T <: A -> T <: B, A <: B
 public open class B {}
-
 public open class A <: B {}
-
 public class C <: A {}
-
-func global_func_01<T1, T2>() where T1 <: A, T2 <: A {
-    0
-}
-
-func global_func_02<T1, T2>() where T1 <: A, T2 <: A {
-    0
-}
-
-const func global_func_03<T1, T2>() where T1 <: B, T2 <: B {
-    0
-}
-
-public func global_func_04<T1, T2>() where T1 <: A, T2 <: A {
-    0
-}
-
-public const func global_func_05<T1, T2>() where T1 <: A, T2 <: A {
-    global_func_03<T1, T2>()
-}
-
-@Frozen
-public func global_func_06() {
-    global_func_02<A, A>()
-}
+func global_func_01<T1, T2>() where T1 <: A, T2 <: A { 0 }
+func global_func_02<T1, T2>() where T1 <: A, T2 <: A { 0 }
+const func global_func_03<T1, T2>() where T1 <: B, T2 <: B { 0 }
+public func global_func_04<T1, T2>() where T1 <: A, T2 <: A { 0 }
+public const func global_func_05<T1, T2>() where T1 <: A, T2 <: A { global_func_03<T1, T2>() }
+@Frozen public func global_func_06() { global_func_02<A, A>() }

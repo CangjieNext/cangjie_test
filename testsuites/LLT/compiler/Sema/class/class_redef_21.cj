@@ -5,10 +5,6 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC-PIPE-1: %compiler %diag_json %f 2>&1 | compare %f
-// ASSERT: scan-2 sema_upper_bound_must_be_class_or_interface
-// ASSERT: scan sema_generic_constraint_not_looser
-// ASSERT: scan sema_accessibility
-// ASSERT: scan "Errors": 4,
 
 class C<T> {}
 
@@ -27,3 +23,8 @@ public open class B<T> <: A<T> {
 main() {
     return 0
 }
+
+// ASSERT: scan-1 sema_accessibility
+// ASSERT: scan-1 sema_generic_constraint_not_looser
+// ASSERT: scan-2 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 4

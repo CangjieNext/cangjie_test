@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_string,001_debug_array_string
-b,b 37,001_debug_array_string.cj:37
-AOT r,r,-> 37
+b,b 45,001_debug_array_string.cj:45
+AOT r,r,-> 45
 CJVM c,c,
 locals,locals,arrayMainString01 = {(\r\n|\r|\n)  \[0\] = "string_test_001"(\r\n|\r|\n)  \[1\] = "string_test_0010123456789abcdxyz"(\r\n|\r|\n)  \[2\] = "0123456789"(\r\n|\r|\n)  \[3\] = "abcdxyz"(\r\n|\r|\n)
 q,q,

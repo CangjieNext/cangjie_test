@@ -19,6 +19,7 @@ struct Data_1 {
     public let a: Int32
     public let b: Int32
     public init(a!: Int32, b!: Int32) {
+        //        super()
         this.a = a
         this.b = b
     }
@@ -33,6 +34,7 @@ struct Data2_1 {
     public let a: Int32
     public let b: Int32
     public init(a: Int32, b: Int32) {
+        //        super()
         this.a = a
         this.b = b
     }

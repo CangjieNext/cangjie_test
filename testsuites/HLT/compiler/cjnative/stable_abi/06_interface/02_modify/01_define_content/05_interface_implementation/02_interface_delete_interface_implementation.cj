@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 6.2.1.5.2
   @Scene: modify
@@ -13,9 +13,9 @@
   @Object: interface
   @Behavior: delete interface implementation
   @Expect: api incompatible & abi incompatible
- */
+*/
 
-// LEVEL: 0 
+// LEVEL: 1 
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -34,24 +34,18 @@ package test_stable_abi
 
 // test interface: interface implementation
 public interface I1 {
-    public func f1(): Int64 {
-        0
-    }
+    public func f1(): Int64 {0}
     public func _f1(): Int64
     public static func typename(): String {
         "interface I1"
     }
 }
-
 public interface I2 {
-    public func f2(): Int64 {
-        1
-    }
+    public func f2(): Int64 {1}
     public static func typename(): String {
         "interface I2"
     }
 }
-
 public interface I3 <: Father_I1 {
     public static func typename(): String {
         "interface I3"
@@ -59,5 +53,4 @@ public interface I3 <: Father_I1 {
 }
 
 public interface Father_I1 {}
-
 public interface Father_I2 {}

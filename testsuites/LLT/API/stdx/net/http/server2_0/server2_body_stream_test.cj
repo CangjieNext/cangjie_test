@@ -88,7 +88,7 @@ class TestH2BodyProvider {
                     w.status(200)
                     let writer = HttpResponseWriter(httpContext)
                     var num = 5
-                    while (num > 0) {
+                    while (num > 0 && !httpContext.isClosed()) {
                         num--
                         writer.write("cancan".toArray())
                         sleep(Duration.second * 1)

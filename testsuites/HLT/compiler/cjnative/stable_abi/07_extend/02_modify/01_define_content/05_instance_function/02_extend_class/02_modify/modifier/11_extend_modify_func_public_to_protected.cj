@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.5.1.2.11
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: modifier is changed from public to protected
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -24,7 +24,7 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // ASSERT: scan Incompatible!
-// ASSERT: scan [API/ABI] XXX
+// ASSERT: scan-2 [API/ABI] Changed visibility of the member function of the extend.
 // ASSERT: scan-2 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
@@ -32,23 +32,19 @@
 package test_stable_abi
 
 // test extend: instance function
-interface I {}
-
-public open class Father {}
-
-public class Son <: Father & I {}
-
+interface I{}
+open public class Father {}
+public class Son <: Father & I{}
 interface I2 <: I {}
 
-public open class TestClass {
+open public class TestClass {
     public const init() {}
 }
-
 extend TestClass {
-    public func f1() {
+    protected func f1() {
         1
     }
-    public func f2() {
+    protected func f2() {
         2
     }
 
@@ -68,7 +64,6 @@ extend TestClass {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -76,7 +71,6 @@ extend TestClass {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -91,17 +85,14 @@ extend TestClass {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
@@ -137,7 +128,7 @@ extend TestClass {
         a.toString()
     }
 
-    public func p1(a: Int64, b!: Int64, c!: Int64 = 1) {
+    protected func p1(a: Int64, b!: Int64, c!: Int64 = 1) {
         a + b + c
     }
     public func p2(a: Son, b!: Son, c!: Son = Son()): Son {
@@ -146,7 +137,7 @@ extend TestClass {
     public func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
-    public func pp1(a: Int64, b!: Int64, c!: Int64 = 1) {
+    protected func pp1(a: Int64, b!: Int64, c!: Int64 = 1) {
         a + b + c
     }
     protected func pp2(a: Son, b!: Son, c!: Son = Son()): Son {

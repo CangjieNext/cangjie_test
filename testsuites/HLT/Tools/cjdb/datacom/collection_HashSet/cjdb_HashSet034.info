@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
-b,b 29,003_HashSet_via_class.cj:29
-AOT r,r,-> 29
-CJVM c,c,-> 29
+b,b 37,003_HashSet_via_class.cj:37
+AOT r,r,-> 37
+CJVM c,c,-> 37
 p,p set_re_fun_s2,std[.]collection.HashSet<Int16>\) \$[\d] = {[\S\s]*\[3\] = -903[\S\s]*}
 p,p set_re_fun_s2,std[.]collection.HashSet<Int16>\) \$[\d] = {[\S\s]*\[0\] = 45[\S\s]*}
 q,q,

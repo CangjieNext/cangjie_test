@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
-CJVM b,b main,066_debug_lambda.cj:10
-CJVM c,c,-> 10
-b,b 12,066_debug_lambda.cj:12
-AOT r,r,-> 12
+CJVM b,b main,066_debug_lambda.cj:18
+CJVM c,c,-> 18
+b,b 20,066_debug_lambda.cj:20
+AOT r,r,-> 20
 expr~ expr if (let Some(data) <- result){ globals_i64++}else{globals_i64--};globals_i64~\(Int64\) \$[\d] = 65
 expr~ expr if (let Some(data) <- result){ test_f();globals_i64++}else{globals_i64--};globals_i64~\(Int64\) \$[\d] = 66
 expr~  expr if (false) {test_f();globals_i64++ }else if (let Some(data) <- result){ globals_i64 = 4};globals_i64~\(Int64\) \$[\d] = 4

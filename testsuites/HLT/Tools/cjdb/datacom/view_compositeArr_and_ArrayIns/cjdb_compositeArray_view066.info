@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayIns_external_invoke.out,ArrayIns_external_invoke
-b,b 15,ArrayIns_external_invoke.cj:15
-AOT r,r,-> 15
+b,b 23,ArrayIns_external_invoke.cj:23
+AOT r,r,-> 23
 CJVM c,c,
 p,p multiArr_m_cd1[0],\(std[.]core.Array<pkgs.Exter_Cla1>\) \$[0-9]* = {[\s\S]*\[0\] = [\s\S]*
 p,p multiArr_m_cd1[0][1],pkgs.Exter_Cla1\) \$[0-9]* = {[\s\S]*length = 360

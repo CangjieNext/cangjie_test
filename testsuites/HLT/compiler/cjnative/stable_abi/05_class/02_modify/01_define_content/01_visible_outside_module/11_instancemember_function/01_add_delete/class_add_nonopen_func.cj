@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.11.1
   @Scene: add
@@ -13,7 +13,7 @@
   @Object: class instance func
   @Behavior: add class instance func
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../main.cj, ../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -32,8 +32,7 @@
 
 package test_stable_abi
 // test class: instancemember function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 @Annotation
@@ -44,7 +43,7 @@ public class Version {
     }
 }
 
-public open class TestClass {
+open public class TestClass {
     public func f1() {
         1
     }
@@ -74,7 +73,6 @@ public open class TestClass {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -82,7 +80,6 @@ public open class TestClass {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -92,11 +89,10 @@ public open class TestClass {
     public func unopen_f6(): Int64 {
         5
     }
-
     @Frozen
     protected func unopen_pf6(): Int64 {
         5
-    }
+    } 
 
     // 被全局函数调用
     internal func f7(): Int64 {
@@ -107,17 +103,14 @@ public open class TestClass {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
@@ -127,17 +120,14 @@ public open class TestClass {
     public func unopen_f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func unopen_f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func unopen_pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func unopen_pf9() {
         9
@@ -257,7 +247,7 @@ public open class TestClass {
         2
     }
 
-    public open func openfunc() {
+    open public func openfunc() {
         1
     }
 

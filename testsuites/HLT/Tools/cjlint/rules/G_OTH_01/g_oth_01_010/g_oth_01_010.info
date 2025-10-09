@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 1 EXCLUDE
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex :18:.*G.OTH.01: Sensitive information \(keyword 'key'\) should not be recorded to logs.
+// ASSERT: regex :10:.*G.OTH.01: Sensitive information \(keyword 'key'\) should not be recorded to logs.

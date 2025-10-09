@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 171,list_debug.cj:171
-AOT r,r,-> 171
+b,b 179,list_debug.cj:179
+AOT r,r,-> 179
 CJVM c,c,
 p,p m_com_4_1,\$[\d] =
 p,p m_com_4_1[1],C2<Int64,Int32>\) \$[\d] = {[\S\s]*width = 11[\S\s]*length = 12[\s\S]*

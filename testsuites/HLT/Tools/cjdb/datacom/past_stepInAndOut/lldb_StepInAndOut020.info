@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 012_debug_func_recursion,012_debug_func_recursion
-CJVM b main,b main,012_debug_func_recursion.cj:4
-CJVM c,c,-> 4
-b,b 4,012_debug_func_recursion.cj:4
-AOT r,r,-> 4
-s,s,-> 9
-n,n,-> 12
-finish,finish,-> 4
-n,n,-> 5
+CJVM b main,b main,012_debug_func_recursion.cj:12
+CJVM c,c,-> 12
+b,b 12,012_debug_func_recursion.cj:12
+AOT r,r,-> 12
+s,s,-> 17
+n,n,-> 20
+finish,finish,-> 12
+n,n,-> 13
 locals,locals,Functioncall009 = 15
 q,q,

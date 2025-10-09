@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-1 :13:.*error.*: Regular expression: '\(\[A-Za-z\]\|\[A-Za-z\]\[0-9\]\*\|\[0-9\]\*\[A-Za-z\]\)\+' is susceptible to ReDos attacks, any group containing alternation where the alternate subexpressions overlap one another is vulnerable.
+// ASSERT: regex-1 :5:.*error.*: Regular expression: '\(\[A-Za-z\]\|\[A-Za-z\]\[0-9\]\*\|\[0-9\]\*\[A-Za-z\]\)\+' is susceptible to ReDos attacks, any group containing alternation where the alternate subexpressions overlap one another is vulnerable.
