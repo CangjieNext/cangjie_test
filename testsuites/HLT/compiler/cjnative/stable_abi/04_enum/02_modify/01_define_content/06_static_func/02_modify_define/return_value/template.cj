@@ -5,10 +5,11 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
+
 
 public interface I {
     func f(): Int64
@@ -19,6 +20,7 @@ public interface Addable <: I {
 }
 
 public open class Subtractable <: Addable {
+
     public open func add(other: Int64): Int64 {
         return 0
     }
@@ -49,7 +51,7 @@ public class MyInt <: Subtractable {
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 
@@ -78,3 +80,4 @@ public enum Rectangle {
         return a5
     }
 }
+

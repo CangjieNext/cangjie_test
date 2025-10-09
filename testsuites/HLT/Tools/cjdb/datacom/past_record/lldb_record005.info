@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_record_mod,045_debug_record_mod
-b,b 51,045_debug_record_mod.cj:51
-AOT r,r,-> 51
+b,b 59,045_debug_record_mod.cj:59
+AOT r,r,-> 59
 CJVM c,c,
-n,n,-> 53
+n,n,-> 61
 locals,locals,\(std[.]core.String\) main_name = "Rec"
 q,q,

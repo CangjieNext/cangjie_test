@@ -17,9 +17,9 @@
 
 test#
 cjdb,cjdb --no-use-colors class_external_use,class_external_use
-b,b 17,class_external_use.cj:17
-AOT r,r,-> 17
-CJVM c,c,-> 17
-n,n,-> 19
+b,b 25,class_external_use.cj:25
+AOT r,r,-> 25
+CJVM c,c,-> 25
+n,n,-> 27
 locals,locals,\(Int32\) main_re_area = 20000
 q,q,

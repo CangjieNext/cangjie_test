@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
@@ -18,15 +18,15 @@ public struct S1 {
     }
 
     @OverflowThrowing
-    public static func geta1() {
+    static public func geta1() {
         return 0
     }
 
-    public static func geta2() {
+    static public func geta2() {
         return 0
     }
 
-    public static func geta3() {
+    static public func geta3() {
         return 0
     }
 }
@@ -35,6 +35,7 @@ struct S2 {
     let x: Int64 = 0
 }
 
+
 public struct S3 {
     let x: S2 = S2()
 
@@ -42,3 +43,4 @@ public struct S3 {
         return x.x
     }
 }
+

@@ -44,25 +44,5 @@ compiler/Driver/options/occurance_warning_tests/--pgo-instr-use.cj
 # windows平台不支持LTO
 compiler/Driver/options/obfuscation/test_level/test_lto_lld_paramet.cj
 
-# Timezone files not supported on windows
-API/std/time/datetime/test_UnixTimeStamp.cj
-API/std/time/datetime/test_addDays.cj
-API/std/time/datetime/test_addHours.cj
-API/std/time/datetime/test_addMinutes.cj
-API/std/time/datetime/test_addMonths.cj
-API/std/time/datetime/test_addNanoseconds.cj
-API/std/time/datetime/test_addSeconds.cj
-API/std/time/datetime/test_addWeeks.cj
-API/std/time/datetime/test_addYears.cj
-API/std/time/datetime/test_compare.cj
-API/std/time/datetime/test_datetime_static_prop.cj
-API/std/time/datetime/test_inOtherTimeZone.cj
-API/std/time/datetime/test_parse.cj
-API/std/time/datetime/test_parse_format_check_input.cj
-API/std/time/datetime/test_static_of.cj
-API/std/time/datetime/test_static_ofEpoch.cj
-API/std/time/datetime/test_toString.cj
-API/std/time/datetime/test_base.cj
-API/std/time/datetime/test_load.cj
-API/std/time/datetime/test_local1_1.cj
-API/std/time/datetime/test_local1_4.cj
+# ffi-python只支持linux
+compiler/FFI/ffi_python

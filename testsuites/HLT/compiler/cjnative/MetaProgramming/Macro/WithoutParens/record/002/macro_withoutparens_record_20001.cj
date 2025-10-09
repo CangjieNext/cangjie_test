@@ -30,5 +30,6 @@ struct A {
 }
 
 main() {
+    //A(Int32(1))
     return 0
 }

@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ./src
+// EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A1.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A2.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A3.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A4.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A5.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A6.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A7.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A8.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A9.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A10.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A11.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A12.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A13.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A14.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A15.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A16.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A17.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A18.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A19.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A20.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A21.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A22.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A23.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A24.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A25.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A26.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A27.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A28.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A29.cj' is recommended to use digits, lowercase letters and underscores\(_\)
+// ASSERT: regex cj:1:1: .*warning.*: Filename 'A30.cj' is recommended to use digits, lowercase letters and underscores\(_\)

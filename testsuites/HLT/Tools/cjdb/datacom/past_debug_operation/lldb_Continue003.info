@@ -16,16 +16,16 @@
 
 test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
-b,b 4,015_debug_basetype.cj:4
-b,b 5,015_debug_basetype.cj:5
-b,b 6,015_debug_basetype.cj:6
-b,b 7,015_debug_basetype.cj:7
-b,b 8,015_debug_basetype.cj:8
-AOT r,r,-> 4
+b,b 12,015_debug_basetype.cj:12
+b,b 13,015_debug_basetype.cj:13
+b,b 14,015_debug_basetype.cj:14
+b,b 15,015_debug_basetype.cj:15
+b,b 16,015_debug_basetype.cj:16
+AOT r,r,-> 12
 CJVM c,c,
-c,c,-> 5
-c,c,-> 6
-c,c,-> 7
-c,c,-> 8
+c,c,-> 13
+c,c,-> 14
+c,c,-> 15
+c,c,-> 16
 c,c,resuming
 q,q,

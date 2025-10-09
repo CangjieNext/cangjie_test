@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_class_main_parameter,011_debug_class_main_parameter
-b,b 48,011_debug_class_main_parameter.cj:48
-AOT r,r,-> 48
-CJVM c,c,-> 48
-n,n,-> 49
+b,b 56,011_debug_class_main_parameter.cj:56
+AOT r,r,-> 56
+CJVM c,c,-> 56
+n,n,-> 57
 locals,locals,stac2 = 3
 locals,locals,sta_proc2 = 10
 AOT locals,locals,C2\) newc2 = {(\r|\n|\r\n)  default.C1 = {(\r|\n|\r\n)    pro = 5(\r|\n|\r\n)    name = "afdoaidfad"(\r|\n|\r\n)    num = 10

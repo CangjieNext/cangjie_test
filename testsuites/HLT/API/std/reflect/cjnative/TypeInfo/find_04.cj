@@ -24,14 +24,14 @@ class Test {
             TypeInfo.get("MyType.myType.");
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "InfoNotFoundException: TypeInfo 'MyType.myType.' not found")
+            @Expect(e.toString(), "InfoNotFoundException: TypeInfo 'MyType.myType.' not found.")
         }
 
         try {
             TypeInfo.get(",defau.");
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "InfoNotFoundException: TypeInfo ',defau.' not found")
+            @Expect(e.toString(), "InfoNotFoundException: TypeInfo ',defau.' not found.")
         }
     }
 }

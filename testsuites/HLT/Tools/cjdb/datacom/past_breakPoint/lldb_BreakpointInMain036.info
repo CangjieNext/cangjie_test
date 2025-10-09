@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 019_debug_expressions,019_debug_expressions
-CJVM b,breakpoint set -n main,019_debug_expressions.cj:5
-CJVM c,c,-> 5
-b,b 21,019_debug_expressions.cj:21
-b,b 22,019_debug_expressions.cj:22
-AOT r,r,-> 21
-CJVM c,c,-> 21
-c,c,-> 22
-n,n,-> 25
+CJVM b,breakpoint set -n main,019_debug_expressions.cj:13
+CJVM c,c,-> 13
+b,b 29,019_debug_expressions.cj:29
+b,b 30,019_debug_expressions.cj:30
+AOT r,r,-> 29
+CJVM c,c,-> 29
+c,c,-> 30
+n,n,-> 33
 locals,locals,weiq = -120
 q,q,

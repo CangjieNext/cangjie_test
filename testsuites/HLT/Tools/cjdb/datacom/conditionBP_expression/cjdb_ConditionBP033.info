@@ -14,13 +14,13 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var012,generics_local_var012
-breakpoint,breakpoint set --line 13 --condition "a1!=0",generics_local_var012.cj:13
-breakpoint,breakpoint set --line 21 --condition "vlist2!=0",generics_local_var012.cj:21
-AOT r,r,-> 13
+breakpoint,breakpoint set --line 21 --condition "a1!=8",generics_local_var012.cj:21
+breakpoint,breakpoint set --line 29 --condition "vlist2!=8",generics_local_var012.cj:29
+AOT r,r,-> 21
 CJVM c,c,
 locals,locals,\(Int8\) var1 = -128
 expr:expr vcarrc2[0]:\(Int64\) \$[\d] = 2
-c,c,-> 21
+c,c,-> 29
 expr:expr vlist2[0]:\(Int64\) \$[\d] = 1
 expr:expr vhmc["a"]:\(Bool\) \$[\d] = true
 q,q,

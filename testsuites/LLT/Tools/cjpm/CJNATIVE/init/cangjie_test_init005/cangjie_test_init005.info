@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm init --name test ---f 2>&1 | compare %f
-// ASSERT: scan Error: unknow command '---f' for cjpm init
+// ASSERT: scan Error: unknown command '---f' for cjpm init

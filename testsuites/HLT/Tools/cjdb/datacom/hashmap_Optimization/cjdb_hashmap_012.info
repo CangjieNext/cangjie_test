@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors basic_hashmap_012,basic_hashmap_012
-b,b 15,basic_hashmap_012.cj:15
-AOT r,r,-> 15
+b,b 23,basic_hashmap_012.cj:23
+AOT r,r,-> 23
 globals,globals,\(std.collection.HashMap<default.cla<Int64>,UInt8>\) default::map_a = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 42[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = {[\s\S]*x = 2[\s\S]*}[\s\S]*value = 12[\s\S]*
 p,p map_d,\(std.collection.HashMap<default.cla<Int64>,Rune>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 'C'[\s\S]*}[\s\S]*\[1\] = {[\s\S]*
 expr,expr map_b,\(std.collection.HashMap<default.cla<Int64>,std.core.String>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = "a"[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = {[\s\S]*x = 2[\s\S]*

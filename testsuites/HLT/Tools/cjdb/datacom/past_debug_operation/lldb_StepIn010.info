@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
-b,b 4,015_debug_basetype.cj:4
-AOT r,r,-> 4
+b,b 12,015_debug_basetype.cj:12
+AOT r,r,-> 12
 CJVM c,c,
 bdelete,breakpoint delete 1,breakpoints deleted
-s,s,-> 5
+s,s,-> 13
 locals,locals,var1 = -128
 q,q,

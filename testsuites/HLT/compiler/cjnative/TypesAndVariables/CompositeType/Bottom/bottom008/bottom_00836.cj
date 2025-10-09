@@ -16,6 +16,7 @@ class A<T> {
     }
 }
 
+// func test():Int64 = A<Bool>.test(return 0,return 1) // type infer?
 
 func test(): Int64 {
     A<Bool>.test(return 0, return 1)

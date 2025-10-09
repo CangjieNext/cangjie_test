@@ -16,14 +16,14 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 15,024_debug_variable.cj:15
-AOT r,r,-> 15
-CJVM c,c,-> 15
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 23,024_debug_variable.cj:23
+AOT r,r,-> 23
+CJVM c,c,-> 23
 AOT set,set var_int32 = 2147483648,error: unsupported expression
 CJVM set,set var_int32 = 2147483648,\(Int32\) \$[\d] = -2147483648
-AOT n,n,-> 18
+AOT n,n,-> 26
 AOT locals,locals,\(Int32\) var_int32 = 1
 AOT p,p var_int32,\(Int32\) \$[\d] = 1
 AOT q,q,

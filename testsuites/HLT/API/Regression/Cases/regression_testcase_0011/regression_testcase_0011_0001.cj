@@ -41,6 +41,7 @@ func test(count: Int64) {
             throw Exception("${toRead}!=${String.fromUtf8(msg)}!!")
         }
     }
+    //ts.close()
 }
 
 func readAll(size: Int64, res: HttpResponse): String {

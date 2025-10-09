@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_record_mod,045_debug_record_mod
-b,b 57,045_debug_record_mod.cj:57
-AOT r,r,-> 57
+b,b 65,045_debug_record_mod.cj:65
+AOT r,r,-> 65
 CJVM c,c,
-n,n,-> 59
+n,n,-> 67
 locals,locals,\(Rune\) main_char = '5'
 print,print rect.varchar,\(Rune\) \$[\d] = '5'
 q,q,

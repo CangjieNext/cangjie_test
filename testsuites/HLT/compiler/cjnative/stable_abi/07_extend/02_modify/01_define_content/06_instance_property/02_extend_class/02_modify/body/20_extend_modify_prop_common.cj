@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.6.2.2.20
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance prop
   @Behavior: modify to getter/setter functions of properties marked @Frozen
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,29 +33,21 @@
 package test_stable_abi
 
 // test extend: instance property
-public open class TestClass {
+open public class TestClass {
     public var a: Int64 = 0
 }
 
 extend TestClass {
     public prop prop1: Int64 {
         get() {
-            if (true) {
-                1
-            } else {
-                2
-            }
+            if (true) {1} else {2}
             1 ** 1
         }
     }
 
     protected prop exported_prop1: Int64 {
         get() {
-            if (true) {
-                1
-            } else {
-                2
-            }
+            if (true) {1} else {2}
             1
         }
     }
@@ -70,10 +62,9 @@ extend TestClass {
             3
         }
     }
-
     @Frozen
     public prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -81,22 +72,16 @@ extend TestClass {
     @Deprecated["This API will be deprecated soon"]
     public prop prop4: Int64 {
         get() {
-            if (true) {
-                1
-            } else {
-                2
-            }
+            if (true) {1} else {2}
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public prop prop5: Int64 {
         get() {
             51
         }
     }
-
     @Frozen
     public mut prop prop6: Int64 {
         get() {
@@ -109,11 +94,7 @@ extend TestClass {
 
     protected prop prop7: Int64 {
         get() {
-            if (true) {
-                1
-            } else {
-                2
-            }
+            if (true) {1} else {2}
             71
         }
     }
@@ -133,9 +114,7 @@ extend TestClass {
             10
         }
         set(v) {
-            if (true) {
-                1
-            }
+            if (true) {1}
         }
     }
     public mut prop prop11: Int64 {
@@ -144,11 +123,7 @@ extend TestClass {
             11
         }
         set(v) {
-            if (true) {
-                1
-            } else {
-                2
-            }
+            if (true) {1} else {2}
             a = v
         }
     }

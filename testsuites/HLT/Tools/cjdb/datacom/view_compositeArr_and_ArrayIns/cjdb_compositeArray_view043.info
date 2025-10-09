@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_ArrayIns_baseType,008_debug_ArrayIns_baseType
-b,b 38,008_debug_ArrayIns_baseType.cj:38
-AOT r,r,-> 38
+b,b 46,008_debug_ArrayIns_baseType.cj:46
+AOT r,r,-> 46
 CJVM c,c,
 p,p arrayBool_d[2],error: unsupported expression
 p,p arrayBool_d[1][10..13],error: unsupported expression

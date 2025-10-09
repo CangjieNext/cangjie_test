@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func010,generics_local_func010
-b,b 94,generics_local_func010.cj:94
-AOT r,r,-> 94
+b,b 102,generics_local_func010.cj:102
+AOT r,r,-> 102
 CJVM c,c,
 expr:expr m_num2:\(default.C1<Bool>\) \$[\d] = {[\s\S]*width = true[\s\S]*length = true[\s\S]*}
 expr:expr mc4_1:\(default.C4<Int8,Int8,Int8,Int16,Int16,Int32,Int32,Int64,Int64,Unit>\) \$[\d] = {[\s\S]*num1 = 1[\s\S]*num2 = 2[\s\S]*num3 = 3[\s\S]*num4 = 4[\s\S]*num5 = 5[\s\S]*

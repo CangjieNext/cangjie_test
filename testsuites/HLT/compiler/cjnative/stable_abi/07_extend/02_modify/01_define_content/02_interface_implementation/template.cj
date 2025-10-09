@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -14,15 +14,12 @@ interface I1 {
     public func f1(): Int64
     public func ff1(): Int64
 }
-
 interface I2 {
     public func f2(): Int64
 }
-
 interface I3 {}
 
 public class C1 {}
-
 public struct S1 {}
 
 extend C1 <: I1 & I3 {
@@ -32,7 +29,7 @@ extend C1 <: I1 & I3 {
     public func ff1() {
         100
     }
-}
+}  
 
 extend S1 <: I1 & I3 {
     public func f1() {
@@ -41,4 +38,6 @@ extend S1 <: I1 & I3 {
     public func ff1() {
         100
     }
-}
+}  
+
+

@@ -15,9 +15,11 @@ main() {
     var b = a << 64
     var c = a >> 64
     if (b != 0) {
+        //      print("1 Int64(0) << 64:"+b.toString()+"\n")
         result |= 0x01
     }
     if (c != 0) {
+        //    print("2 Int64(0) >> 64:"+c.toString()+"\n")
         result |= 0x10
     }
     return result

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 2.2.1.4.4
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global func
   @Behavior: modify named parameters identifier
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -25,9 +25,10 @@
 
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [API/ABI] Cannot change name of named parameter.
+// ASSERT: scan-2 [ABI] The body of a const function or function marked with @Frozen changed.
 // ASSERT: scan-2 [API/ABI]
 // ASSERT: scan-not [API]
-// ASSERT: scan-not [ABI]
+// ASSERT: scan-2 [ABI]
 
 package test_stable_abi
 
@@ -35,155 +36,40 @@ package test_stable_abi
 // global func: global func is used in const global var/func
 // modify operation: modify named parameters identifier
 public interface I {}
-
 extend Int64 <: I {}
-
-func global_func_01() {
-    0
-}
-
-func global_func_11(a: Int64) {
-    0
-}
-
-func global_func_21(a!: Int64) {
-    0
-}
-
-func global_func_31(a!: Int64 = 0) {
-    0
-}
-
-func global_func_02() {
-    0
-}
-
-func global_func_12(a: Int64) {
-    0
-}
-
-func global_func_22(a!: Int64) {
-    0
-}
-
-func global_func_32(a!: Int64 = 0) {
-    0
-}
-
-const func global_func_03() {
-    0
-}
-
-const func global_func_13(a: Int64) {
-    0
-}
-
-const func global_func_23(b!: Int64) {
-    0
-}
-
-const func global_func_33(b!: Int64 = 0) {
-    0
-}
-
-public func global_func_04() {
-    0
-}
-
-public func global_func_14(a: Int64) {
-    0
-}
-
-public func global_func_24(a!: Int64) {
-    0
-}
-
-public func global_func_34(a!: Int64 = 0) {
-    0
-}
-
-public const func global_func_05() {
-    global_func_03()
-}
-
-public const func global_func_15(a: Int64) {
-    global_func_13(0)
-}
-
-public const func global_func_25(a!: Int64) {
-    global_func_23(b: 0)
-}
-
-public const func global_func_35(a!: Int64 = 0) {
-    global_func_33(b: 0)
-}
-
-@Frozen
-public func global_func_06() {
-    global_func_02()
-}
-
-@Frozen
-public func global_func_16() {
-    global_func_12(0)
-}
-
-@Frozen
-public func global_func_26() {
-    global_func_22(a: 0)
-}
-
-@Frozen
-public func global_func_36() {
-    global_func_32(a: 0)
-}
-
-func global_func_41(a: Int32, b: Int64) {
-    0
-}
-
-func global_func_42(a: Int32, b: Int64) {
-    0
-}
-
-const func global_func_43(a: Int32, b: Int64) {
-    0
-}
-
-public func global_func_44(a: Int32, b: Int64) {
-    0
-}
-
-public const func global_func_45(a: Int32, b: Int64) {
-    global_func_43(0, 0)
-}
-
-@Frozen
-public func global_func_46(a: Int32, b: Int64) {
-    global_func_42(0, 0)
-}
-
-func global_func_51(a!: Int32, b!: Int64) {
-    0
-}
-
-func global_func_52(a!: Int32, b!: Int64) {
-    0
-}
-
-const func global_func_53(a!: Int32, b!: Int64) {
-    0
-}
-
-public func global_func_54(a!: Int32, b!: Int64) {
-    0
-}
-
-public const func global_func_55(a!: Int32, b!: Int64) {
-    global_func_53(a: 0, b: 0)
-}
-
-@Frozen
-public func global_func_56(a!: Int32, b!: Int64) {
-    global_func_52(a: 0, b: 0)
-}
+func global_func_01() { 0 }
+func global_func_11(a: Int64) { 0 }
+func global_func_21(a!: Int64) { 0 }
+func global_func_31(a!: Int64 = 0) { 0 }
+func global_func_02() { 0 }
+func global_func_12(a: Int64) { 0 }
+func global_func_22(a!: Int64) { 0 }
+func global_func_32(a!: Int64 = 0) { 0 }
+const func global_func_03() { 0 }
+const func global_func_13(a: Int64) { 0 }
+const func global_func_23(b!: Int64) { 0 }
+const func global_func_33(b!: Int64 = 0) { 0 }
+public func global_func_04() { 0 }
+public func global_func_14(a: Int64) { 0 }
+public func global_func_24(a!: Int64) { 0 }
+public func global_func_34(a!: Int64 = 0) { 0 }
+public const func global_func_05() { global_func_03() }
+public const func global_func_15(a: Int64) { global_func_13(0) }
+public const func global_func_25(a!: Int64) { global_func_23(b: 0) }
+public const func global_func_35(a!: Int64 = 0) { global_func_33(b: 0) }
+@Frozen public func global_func_06() { global_func_02() }
+@Frozen public func global_func_16() { global_func_12(0) }
+@Frozen public func global_func_26() { global_func_22(a: 0) }
+@Frozen public func global_func_36() { global_func_32(a: 0) }
+func global_func_41(a: Int32, b: Int64) { 0 }
+func global_func_42(a: Int32, b: Int64) { 0 }
+const func global_func_43(a: Int32, b: Int64) { 0 }
+public func global_func_44(a: Int32, b: Int64) { 0 }
+public const func global_func_45(a: Int32, b: Int64) { global_func_43(0, 0) }
+@Frozen public func global_func_46(a: Int32, b: Int64) { global_func_42(0, 0) }
+func global_func_51(a!: Int32, b!: Int64) { 0 }
+func global_func_52(a!: Int32, b!: Int64) { 0 }
+const func global_func_53(a!: Int32, b!: Int64) { 0 }
+public func global_func_54(a!: Int32, b!: Int64) { 0 }
+public const func global_func_55(a!: Int32, b!: Int64) { global_func_53(a: 0, b: 0) }
+@Frozen public func global_func_56(a!: Int32, b!: Int64) { global_func_52(a: 0, b: 0) }

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.6.1.2.2
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: extend instance prop
   @Behavior: add compilation flag @deprecated
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 0-core
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -44,32 +44,28 @@ extend TestStruct {
             1
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected prop exported_prop1: Int64 {
         get() {
             1
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     prop prop2: Int64 {
         get() {
             2
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     prop prop3: Int64 {
         get() {
             3
         }
     }
-
     @Frozen
     @Deprecated["This API will be deprecated soon"]
     public prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -80,14 +76,12 @@ extend TestStruct {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
     @Deprecated["This API will be deprecated soon"]
     public mut prop prop6: Int64 {
@@ -98,21 +92,18 @@ extend TestStruct {
             a = v
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected prop prop7: Int64 {
         get() {
             7
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     internal prop prop8: Int64 {
         get() {
             8
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     private prop prop9: Int64 {
         get() {
@@ -127,7 +118,6 @@ extend TestStruct {
         set(v) {
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     public mut prop prop11: Int64 {
         get() {
@@ -136,5 +126,5 @@ extend TestStruct {
         set(v) {
             a = v
         }
-    }
+    } 
 }

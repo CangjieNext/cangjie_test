@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 131,005_debug_class_generics.cj:131
-AOT r,r,-> 131
+b,b 139,005_debug_class_generics.cj:139
+AOT r,r,-> 139
 CJVM c,c,
-n,n,-> 132
+n,n,-> 140
 print,print m_r.r_1.width,UInt32\) \$[\d] = 100
 print,print m_r.r_1.length,UInt32\) \$[\d] = 100
 q,q,

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.3.2.7
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend static func
   @Behavior: add static func frozen
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,12 +33,10 @@
 package test_stable_abi
 
 // test extend: static function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public class TestClass {}
-
 public struct TestStruct {}
 
 extend TestClass {
@@ -50,7 +48,6 @@ extend TestClass {
     static func f2() {
         2
     }
-
     @Frozen
     static const func f3(): Int64 {
         return 3
@@ -58,23 +55,19 @@ extend TestClass {
     public static const func f4(): Int64 {
         f3()
     }
-
     @Frozen
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         f5()
     }
-
     @Frozen
     @Deprecated["This API will be deprecated soon"]
     public static func f7() {
         7
     }
-
     @Frozen
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
@@ -85,32 +78,26 @@ extend TestClass {
     public static func f9(): Int64 {
         return 9
     }
-
     @Frozen
     protected static func f10() {
         10
     }
-
     @Frozen
     internal static func f11() {
         11
     }
-
     @Frozen
     private static func f12() {
         12
     }
-
     @Frozen
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13
     }
-
     @Frozen
     public static const func f14(): Int64 {
         14
     }
-
     @Frozen
     public static func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
@@ -118,7 +105,6 @@ extend TestClass {
     public static func g2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
         a.toString()
     }
-
     @Frozen
     public static func p1(a: Int64, b!: Int64, c!: Int64 = 1) {
         a + b + c
@@ -140,12 +126,10 @@ extend TestStruct {
     static func f2() {
         2
     }
-
     @Frozen
     static const func f3(): Int64 {
         return 3
     }
-
     @Frozen
     public static const func f4(): Int64 {
         f3()
@@ -154,7 +138,6 @@ extend TestStruct {
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -165,7 +148,6 @@ extend TestStruct {
     public static func f7() {
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     @Frozen
     public static func f8() {
@@ -176,7 +158,6 @@ extend TestStruct {
     public static func f9(): Int64 {
         return 9
     }
-
     @Frozen
     protected static func f10() {
         10
@@ -184,17 +165,14 @@ extend TestStruct {
     internal static func f11() {
         11
     }
-
     @Frozen
     private static func f12() {
         12
     }
-
     @Frozen
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13
     }
-
     @Frozen
     public static const func f14(): Int64 {
         14
@@ -203,7 +181,6 @@ extend TestStruct {
     public static func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
     }
-
     @Frozen
     public static func g2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
         a.toString()
@@ -215,7 +192,6 @@ extend TestStruct {
     public static func p2(a: Son, b!: Son, c!: Son = Son()): Son {
         c
     }
-
     @Frozen
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c

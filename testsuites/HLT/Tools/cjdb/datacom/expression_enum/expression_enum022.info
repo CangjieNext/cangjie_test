@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 026_enum_generics_lambda,026_enum_generics_lambda
-b,b 13,026_enum_generics_lambda.cj:13
-AOT r,r,-> 13
+b,b 21,026_enum_generics_lambda.cj:21
+AOT r,r,-> 21
 CJVM c,c,
 p,p time4,\(default.TimeUnit4<Int32>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 0x[\s\S]*}
 p,p time5,\(default.TimeUnit5<Int64>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}

@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 133,Breakpoint 1:
-AOT r,r,-> 133
+b,b 141,Breakpoint 1:
+AOT r,r,-> 141
 CJVM c,c,
-c,c,-> 133
-c,c,-> 133
-c,c,-> 133
+c,c,-> 141
+c,c,-> 141
+c,c,-> 141
 p, p a,\(default.S3<std.collection.HashSet<Int64>>\) \$[\d] = {[\s\S]*s3_a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}
 locals, locals,\(default.S4<default.S3<std.collection.HashSet<Int64>>>\) this = {[\s\S]*s4_a = {[\s\S]*s3_a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}[\s\S]*\(default.S3<std.collection.HashSet<Int64>>\) a = {[\s\S]*s3_a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}
 q,q,

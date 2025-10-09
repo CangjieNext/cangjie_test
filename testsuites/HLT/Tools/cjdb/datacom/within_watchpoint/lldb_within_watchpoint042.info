@@ -13,11 +13,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b,b 11,050_debug_dataType_basic.cj:11
-AOT r,r,-> 11
+b,b 19,050_debug_dataType_basic.cj:19
+AOT r,r,-> 19
 CJVM c,c,
-watchpoint,watchpoint set variable -w write v1,050_debug_dataType_basic.cj:10
-c,c,-> 13
+watchpoint,watchpoint set variable -w write v1,050_debug_dataType_basic.cj:18
+c,c,-> 21
 disable,watchpoint disable 1 ,1 watchpoints disabled
 set,set v1 = 19,\(Int8\) \$0 = 19
 c,c,Process[\s\S]*

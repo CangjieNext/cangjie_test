@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case18_3,case18_3
-b,b 47,case18_3.cj:47
-AOT r,r,-> 47
+b,b 55,case18_3.cj:55
+AOT r,r,-> 55
 CJVM c,c,
 AOT expr,expr fut1,error: unsupported expression
 q,q,

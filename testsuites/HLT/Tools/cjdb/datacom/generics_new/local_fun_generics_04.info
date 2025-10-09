@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
-b,b 83,genericsfun_local.cj:83
-AOT r,r,-> 83
+b,b 91,genericsfun_local.cj:91
+AOT r,r,-> 91
 CJVM c,c,
 p, p gengricsvar,Tuple<Int8,UInt8,Float16,Bool>\) \$[\d] = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*
 p, p a,Tuple<Int8,UInt8,Float16,Bool>\) \$[\d] = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 106,list_debug.cj:106
-AOT r,r,-> 106
+b,b 114,list_debug.cj:114
+AOT r,r,-> 114
 CJVM c,c,
 AOT p,p m_base_1_2[1..5],\(std[.]core.Array<Int16>\) \$[\d] =
 CJVM p,p m_base_1_2[1..5],error: variable was not declared in this scope

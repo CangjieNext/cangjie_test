@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+package b
+
+internal import b.a.*
+internal import b.b.*
+
+main(): Int64 {
+    aa()
+    bb()
+    var ccc = 1
+    var ddd = 1
+    print("hello")
+    return 0
+}

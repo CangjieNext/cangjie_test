@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.11.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance func
   @Behavior: modifier add unsafe
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,8 +33,7 @@
 package test_stable_abi
 
 // test class: instancemember function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 @Annotation
@@ -45,7 +44,7 @@ public class Version {
     }
 }
 
-public open class TestClass {
+open public class TestClass {
     public unsafe func f1() {
         1
     }
@@ -53,23 +52,22 @@ public open class TestClass {
         2
     }
 
-    private unsafe const func f3(): Int64 {
+    private const unsafe func f3(): Int64 {
         return 3
     }
-    public unsafe const func f4(): Int64 {
+    public const unsafe func f4(): Int64 {
         f3()
     }
-    internal unsafe const func pf3(): Int64 {
+    internal const unsafe func pf3(): Int64 {
         return 3
     }
-    protected unsafe const func pf4(): Int64 {
+    protected const unsafe func pf4(): Int64 {
         pf3()
     }
 
     unsafe func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public unsafe func f6(): Int64 {
         f5()
@@ -77,7 +75,6 @@ public open class TestClass {
     unsafe func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected unsafe func pf6(): Int64 {
         pf5()
@@ -92,17 +89,14 @@ public open class TestClass {
     public unsafe func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public unsafe func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected unsafe func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected unsafe func pf9() {
         9
@@ -170,7 +164,7 @@ public open class TestClass {
         2
     }
 
-    public unsafe open func openfunc() {
+    open public unsafe func openfunc() {
         1
     }
 

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.11.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance func
   @Behavior: add @Deprecated compiler directive
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,8 +33,7 @@
 package test_stable_abi
 
 // test class: instancemember function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 @Annotation
@@ -45,53 +44,44 @@ public class Version {
     }
 }
 
-public open class TestClass {
+open public class TestClass {
     @Deprecated["This API will be deprecated soon"]
     public func f1() {
         1
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func f2() {
         2
     }
-
     @Deprecated["This API will be deprecated soon"]
     private const func f3(): Int64 {
         return 3
     }
-
     @Deprecated["This API will be deprecated soon"]
     public const func f4(): Int64 {
         f3()
     }
-
     @Deprecated["This API will be deprecated soon"]
     internal const func pf3(): Int64 {
         return 3
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected const func pf4(): Int64 {
         pf3()
     }
-
     @Deprecated["This API will be deprecated soon"]
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     @Deprecated["This API will be deprecated soon"]
     public func f6(): Int64 {
         f5()
     }
-
     @Deprecated["This API will be deprecated soon"]
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     @Deprecated["This API will be deprecated soon"]
     protected func pf6(): Int64 {
@@ -108,92 +98,74 @@ public open class TestClass {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     func f10() {
         10
     }
-
     @Deprecated["This API will be deprecated soon"]
     internal func f11() {
         11
     }
-
     @Deprecated["This API will be deprecated soon"]
     private func f12() {
         12
     }
-
     @Deprecated["This API will be deprecated soon"]
     public unsafe func f13(): Int64 {
         return 13
     }
-
     @Deprecated["This API will be deprecated soon"]
     public const func f14(): Int64 {
         14
     }
-
     @Deprecated["This API will be deprecated soon"]
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
     }
-
     @Deprecated["This API will be deprecated soon"]
     public func g2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
         a.toString()
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pg1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pg2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
         a.toString()
     }
-
     @Deprecated["This API will be deprecated soon"]
     public func p1(a: Int64, b!: Int64, c!: Int64 = 1) {
         a + b + c
     }
-
     @Deprecated["This API will be deprecated soon"]
     public func p2(a: Son, b!: Son, c!: Son = Son()): Son {
         c
     }
-
     @Deprecated["This API will be deprecated soon"]
     public func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pp1(a: Int64, b!: Int64, c!: Int64 = 1) {
         a + b + c
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pp2(a: Son, b!: Son, c!: Son = Son()): Son {
         c
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pp3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
@@ -204,7 +176,6 @@ public open class TestClass {
     public func ano1() {
         1
     }
-
     @Deprecated["This API will be deprecated soon"]
     @Version["1.1"]
     protected func pano1() {
@@ -215,9 +186,8 @@ public open class TestClass {
     func ano2() {
         2
     }
-
     @Deprecated["This API will be deprecated soon"]
-    public open func openfunc() {
+    open public func openfunc() {
         1
     }
 

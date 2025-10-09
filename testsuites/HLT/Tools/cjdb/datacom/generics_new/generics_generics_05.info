@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 117,Breakpoint 1:
-AOT r,r,-> 117
+b,b 125,Breakpoint 1:
+AOT r,r,-> 125
 CJVM c,c,
-c,c,-> 117
+c,c,-> 125
 p, p a,\(default.C3<Tuple<Int64,UInt64>>\) \$[\d] = {[\s\S]*c3_a = {[\s\S]*\[0\] = -64[\s\S]*\[1\] = 64[\s\S]*}[\s\S]*}
 locals, locals,\(default.S2<default.C3<Tuple<Int64,UInt64>>>\) this = {[\s\S]*s2_a = {[\s\S]*c3_a = {[\s\S]*\[0\] = -64[\s\S]*\[1\] = 64[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*\(default.C3<Tuple<Int64,UInt64>>\) a = {[\s\S]*c3_a = {[\s\S]*\[0\] = -64[\s\S]*\[1\] = 64[\s\S]*}[\s\S]*}
 q,q,

@@ -1,0 +1,10 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n ../../compare_html.py
+// EXEC: cd %n && cjpm init --name default && cjpm build --coverage && %run
+// EXEC-1: cd %n && cjcov --root=./ --html-details --output=html_output -s "./" -e "./src/dir01  ./src/dir00/dir000/f5.cj ./src/main.cj " -i "./src/dir01 ./src/dir00/dir000 ./src/main.cj"
+//ASSERT: scan --exclude and --include have duplicate paths

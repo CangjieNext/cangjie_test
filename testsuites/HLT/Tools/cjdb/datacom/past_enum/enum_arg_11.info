@@ -13,9 +13,9 @@
 
 test#
 cjdb,cjdb --no-use-colors enum_arg,enum_arg
-b,b 30,default(::|\.)main\(\)[\s\S]*enum_arg.cj:30
-AOT r,r,-> 30
+b,b 38,default(::|\.)main\(\)[\s\S]*enum_arg.cj:38
+AOT r,r,-> 38
 CJVM c,c,
-s,s,-> 14
+s,s,-> 22
 p,p para_1,\(default.test_RGBColor\) \$[\d] = {(\r|\n|\r\n)  constructor = Yellow_3[\s\S]*arg_1 = "测试%&……%￥#"[\s\S]*arg_6 = {(\r|\n|\r\n)    constructor = Yellow[\s\S]*}
 q,q,

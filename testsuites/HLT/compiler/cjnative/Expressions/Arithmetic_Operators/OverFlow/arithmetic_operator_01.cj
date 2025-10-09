@@ -28,6 +28,7 @@ main(): Int64 {
     if (c != -524.25) {
         return 3
     }
+    /* if (d != 20736.865) {
         return 4
     } */
     return 0

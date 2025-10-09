@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var005,generics_local_var005
-b,b 14,generics_local_var005.cj:14
-AOT r,r,-> 14
+b,b 22,generics_local_var005.cj:22
+AOT r,r,-> 22
 CJVM c,c,
 expr~expr r1~\(default.RGBColor<Int32>\) \$[\d] = Red
 expr~expr r4~\(default.RGBColor2<Bool,Float64>\) \$[\d] = {\s+constructor = Green[\s\S]*arg_1 = true[\s\S]*arg_2 = 1[\s\S]*}

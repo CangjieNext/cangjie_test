@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 4.2.1.6.2.21
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: enum static func
   @Behavior: modify generics parameters sequence
   @Expect: api incompatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -35,7 +35,7 @@ package test_stable_abi
 
 import std.random.*
 
-public open class A {
+open public class A {
     let a: Int64 = 10
 }
 
@@ -46,7 +46,7 @@ public class B <: A {
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 

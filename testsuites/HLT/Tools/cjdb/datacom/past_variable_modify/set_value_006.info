@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/set_value/006_basevar_setvalue.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 006_basevar_setvalue.cj -o 006_basevar_setvalue%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py set_value_006.info 006_basevar_setvalue %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 006_basevar_setvalue,004_basevar_setvalue
+b,b 23,006_basevar_setvalue.cj:23
+AOT r,r,-> 23
+CJVM c,c,
+AOT expression,expression this.width,\(Int64\) \$[\d] = 20
+CJVM p,p this.width,\(Int64\) \$[\d] = 20
+AOT expression,expression this.height,\(Int64\) \$[\d] = 2
+CJVM p,p this.height,\(Int64\) \$[\d] = 2
+AOT expression,expression this.width=11,\(Unit\) \$[\d] = ()
+CJVM set,set this.width=11,\(Int64\) \$[\d] = 11
+finish,finish,-> 31
+n,n,-> 32
+AOT expression,expression classvar01,\(Int64\) \$[\d] = 22
+CJVM p,p classvar01,\(Int64\) \$[\d] = 22
+q,q,

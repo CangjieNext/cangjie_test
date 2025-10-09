@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 8.3
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: import
   @Behavior: modify import module
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // Expect: API Compatible && ABI Incompatible
 // DEPENDENCE: main.cj, template.cj, a, b
@@ -29,7 +29,7 @@
 
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] Added import statement or changed modifier of an existing one.
-// ASSERT: scan-1 [ABI] Deleted import statement or changed modifier of an existing one.
+// ASSERT: scan-1 [ABI] Deleted non public import statement.
 // ASSERT: scan-not [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-2 [ABI]

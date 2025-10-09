@@ -32,6 +32,8 @@ main(): Int64 {
 
     var res1_4 = 0.format("-O")
     var res2_4 = (-0).format("+o")
+    //    var res3_4 = 0.format("#")
+    //    var res4_4 = (-0).format("0")
 
     if (res1_1 != "4294967295     ") {
         return 11

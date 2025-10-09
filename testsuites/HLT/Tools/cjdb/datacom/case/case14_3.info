@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case14_3,case14_3
-b,b 22,Breakpoint 1
-AOT r,r,-> 22
+b,b 30,Breakpoint 1
+AOT r,r,-> 30
 CJVM c,c,
 AOT s,s,-> T, Int64
 q,q,

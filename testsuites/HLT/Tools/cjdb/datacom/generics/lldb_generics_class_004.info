@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 118,005_debug_class_generics.cj:118
-AOT r,r,-> 118
+b,b 126,005_debug_class_generics.cj:126
+AOT r,r,-> 126
 CJVM c,c,
-n,n,-> 120
+n,n,-> 128
 locals,locals,C1<Rune>\) mc_3 = {(\r|\n|\r\n)  width = '5'(\r|\n|\r\n)  length = '5'
 q,q,

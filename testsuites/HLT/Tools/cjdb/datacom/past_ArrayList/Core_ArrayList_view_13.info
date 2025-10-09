@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
-b,b 14,066_debug_arraylist.cj:14
-AOT r,r,-> 14
-CJVM c,c,-> 14
+b,b 22,066_debug_arraylist.cj:22
+AOT r,r,-> 22
+CJVM c,c,-> 22
 p,p a,\(std\.collection.ArrayList<UInt8>\) \$[\d] = {[\s\S]*\[0\] = 11[\s\S]*\[1\] = 12[\s\S]*\[2\] = 13[\s\S]*}
 locals,locals,a = {[\s\S]*\[0\] = 11[\s\S]*\[1\] = 12[\s\S]*\[2\] = 13[\s\S]*}
 q,q,

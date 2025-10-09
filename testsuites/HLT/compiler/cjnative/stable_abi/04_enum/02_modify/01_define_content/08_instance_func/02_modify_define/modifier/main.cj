@@ -5,13 +5,13 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    let r = Rectangle.Red
-    let g = Rectangle.Green
-    let b = Rectangle.Blue(100)
-
-    return 0
+    return unsafe { Red.getWidth() + Red.geta1() + Red.geta3() +
+    Red.geta8() + Red.geta11() + Red.geta12() + Red.geta13() +
+    Red.geta15() + Red.geta17() - 11 }
 }
+
+

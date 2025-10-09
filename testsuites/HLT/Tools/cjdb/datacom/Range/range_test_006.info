@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors range_compositeVar,range_compositeVar
-b,b 31,range_compositeVar.cj:31
-AOT r,r,-> 31
-CJVM c,c,-> 31
+b,b 39,range_compositeVar.cj:39
+AOT r,r,-> 39
+CJVM c,c,-> 39
 p,p a.r0,\(std[.]core.Range<Int64>\) \$[\d] = 0..10 : 1
 p,p a.r1,\(std[.]core.Range<Int64>\) \$[\d] = 0..10 : 1
 p,p a.r2,\(std[.]core.Range<Int64>\) \$[\d] = 0..=10 : 1

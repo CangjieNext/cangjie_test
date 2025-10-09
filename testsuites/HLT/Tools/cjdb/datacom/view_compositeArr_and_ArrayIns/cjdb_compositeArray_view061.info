@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_ArrayIns_composite_record,011_debug_ArrayIns_composite_record
-b,b 23,011_debug_ArrayIns_composite_record.cj:23
-AOT r,r,-> 23
+b,b 31,011_debug_ArrayIns_composite_record.cj:31
+AOT r,r,-> 31
 CJVM c,c,
-s,s, func fun_r1\(pa_1:Array<R1>,pa_2!:Array<String> = array_top_str_1\)[\s\S]*-> 48
+s,s, func fun_r1\(pa_1:Array<R1>,pa_2!:Array<String> = array_top_str_1\)[\s\S]*-> 56
 p,p pa_1,\(std[.]core.Array<default.R1>\) \$[\d] = {[\s\S]*\[0\] = [\s\S]*
 p,p pa_1[1],R1\) \$[\d] = {[\s\S]*arrayInt8 = [\s\S]*
 p,p pa_2[0],\(std[.]core.String\) \$[\d] = "func_arr"

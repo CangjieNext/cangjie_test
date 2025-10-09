@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.3.2.42
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: modify const frozen func body
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -36,12 +36,10 @@
 package test_stable_abi
 
 // test extend: static function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public class TestClass {}
-
 public struct TestStruct {}
 
 extend TestClass {
@@ -49,11 +47,7 @@ extend TestClass {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         1 ** 1
     }
 
@@ -78,7 +72,6 @@ extend TestClass {
         } catch (_) {}
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         try {
@@ -91,7 +84,6 @@ extend TestClass {
     public static func f7() {
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -106,11 +98,7 @@ extend TestClass {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         10
     }
     internal static func f11() {
@@ -120,23 +108,15 @@ extend TestClass {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         12
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         return 13
     }
     public static const func f14(): Int64 {
@@ -166,11 +146,7 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         1
     }
 
@@ -195,7 +171,6 @@ extend TestStruct {
         } catch (_) {}
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         try {
@@ -209,14 +184,9 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -231,11 +201,7 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         10
     }
     internal static func f11() {
@@ -245,15 +211,11 @@ extend TestStruct {
         121
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         return 13
     }
     public static const func f14(): Int64 {
@@ -264,11 +226,7 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         a.toString() + b.toString()
     }
     public static func g2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
@@ -287,11 +245,8 @@ extend TestStruct {
 }
 
 private interface I1 {}
-
 internal interface I2 {}
-
 protected interface I3 {}
-
 public interface I4 {}
 
 extend Int64 <: I1 & I2 {

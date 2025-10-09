@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var013,generics_local_var013
-breakpoint,breakpoint set -l 35 -c "1==1",generics_local_var013.cj:35
-AOT r,r,-> 35
+breakpoint,breakpoint set -l 43 -c "9==9",generics_local_var013.cj:43
+AOT r,r,-> 43
 CJVM c,c,
 locals,locals,\(Unit\) r1 = ()
 expr:expr r2:\(Int64\) \$[\d] = 1

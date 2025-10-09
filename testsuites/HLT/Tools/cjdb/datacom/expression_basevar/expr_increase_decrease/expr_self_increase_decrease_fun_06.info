@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 38,expr_func.cj:38
-CJVM c,c,-> 38
-AOT r,r,-> 38
+b,b 46,expr_func.cj:46
+CJVM c,c,-> 46
+AOT r,r,-> 46
 expr,expr listui8[0]++;listui8[0],\(UInt8\) \$[\d] = 2
 expr,expr listui16[1]++;listui16[1],\(UInt16\) \$[\d] = 3
 expr,expr listui32[0]++;listui32[0],\(UInt32\) \$[\d] = 2

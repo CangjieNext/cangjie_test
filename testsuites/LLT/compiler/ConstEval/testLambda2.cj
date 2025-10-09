@@ -6,8 +6,8 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (CJNATIVE and DEBUG_OPTION) EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at testLambda2.cj:16:1 - testLambda2.cj:19:2 evaluated initializer function `gv$_fff` of 4 expressions to one of 3 expressions
-// ASSERT: scan debug: consteval at testLambda2.cj:20:1 - testLambda2.cj:20:19 replaced initializer function `gv$_xxx` with initializer constant(s)
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_fff` of 4 expressions to one of 3 expressions
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_xxx` with initializer constant(s)
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

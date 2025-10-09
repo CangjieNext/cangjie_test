@@ -20,6 +20,14 @@ main(): Int64 {
     var lit07 = -9223372036854775808 + 1
     var lit08 = -9223372036854775808 / 1
 
+    //    print("lit01: " + lit01.toString() + "\n")
+    //    print("lit02: " + lit02.toString() + "\n")
+    //    print("lit03: " + lit03.toString() + "\n")
+    //    print("lit04: " + lit04.toString() + "\n")
+    //    print("lit05: " + lit05.toString() + "\n")
+    //    print("lit06: " + lit06.toString() + "\n")
+    //    print("lit07: " + lit07.toString()+ "\n")
+    //    print("lit08: " + lit08.toString()+ "\n")
     //
     if (lit01 != 9223372036854775807) {
         return 1

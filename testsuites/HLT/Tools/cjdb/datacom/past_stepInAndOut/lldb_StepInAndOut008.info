@@ -16,38 +16,38 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_break,006_debug_break
-CJVM b main,b main,006_debug_break.cj:4
-CJVM c,c,-> 4
-b,b 4,006_debug_break.cj:4
-b,b 5,006_debug_break.cj:5
-b,b 6,006_debug_break.cj:6
-b,b 7,006_debug_break.cj:7
-b,b 8,006_debug_break.cj:8
-AOT b,b 9,006_debug_break.cj:11
-CJVM b,b 9,006_debug_break.cj:9
-AOT b,b 10,006_debug_break.cj:11
-CJVM b,b 10,006_debug_break.cj:10
-AOT r,r,-> 4
-finish,finish,-> 5
-s,s,-> 6
-s,s,-> 7
-finish,finish,-> 5
-s,s,-> 6
-s,s,-> 7
-finish,finish,-> 5
-s,s,-> 6
-s,s,-> 7
-finish,finish,-> 5
-s,s,-> 6
-s,s,-> 7
-finish,finish,-> 5
-s,s,-> 6
-s,s,-> 7
-finish,finish,-> 5
+CJVM b main,b main,006_debug_break.cj:12
+CJVM c,c,-> 12
+b,b 12,006_debug_break.cj:12
+b,b 13,006_debug_break.cj:13
+b,b 14,006_debug_break.cj:14
+b,b 15,006_debug_break.cj:15
+b,b 16,006_debug_break.cj:16
+AOT b,b 17,006_debug_break.cj:19
+CJVM b,b 17,006_debug_break.cj:17
+AOT b,b 18,006_debug_break.cj:19
+CJVM b,b 18,006_debug_break.cj:18
+AOT r,r,-> 12
+finish,finish,-> 13
+s,s,-> 14
+s,s,-> 15
+finish,finish,-> 13
+s,s,-> 14
+s,s,-> 15
+finish,finish,-> 13
+s,s,-> 14
+s,s,-> 15
+finish,finish,-> 13
+s,s,-> 14
+s,s,-> 15
+finish,finish,-> 13
+s,s,-> 14
+s,s,-> 15
+finish,finish,-> 13
 set,set indexbreak = 11,11
-s,s,-> 6
-s,s,-> 7
-s,s,-> 8
-s,s,-> 11
+s,s,-> 14
+s,s,-> 15
+s,s,-> 16
+s,s,-> 19
 locals,locals,indexbreak = 12
 q,q,

@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_debug,option_debug
-b,b 68,option_debug.cj:68
-AOT r,r,-> 68
-CJVM c,c,-> 68
+b,b 76,option_debug.cj:76
+AOT r,r,-> 76
+CJVM c,c,-> 76
 p,p oap,std.core.Option<std.core.Array<std.core.Range<Int64>>>\) \$[\d] = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 1..10 : 1[\s\S]*}
 locals,locals,std.core.Option<std.core.Array<std.core.Range<Int64>>>\) oap = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 1..10 : 1[\s\S]*}
 AOT frame var,frame var oap,std.core.Option<std.core.Array<std.core.Range<Int64>>>\) oap = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 1..10 : 1[\s\S]*}

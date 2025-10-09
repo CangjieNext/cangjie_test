@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
-b,b 27,066_debug_arraylist.cj:27
-AOT r,r,-> 27
-CJVM c,c,-> 27
+b,b 35,066_debug_arraylist.cj:35
+AOT r,r,-> 35
+CJVM c,c,-> 35
 p,p b,\(std\.collection.ArrayList<std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "aaa"[\s\S]*\[1\] = "abc"[\s\S]*}
 locals,locals,b = {[\s\S]*\[0\] = "aaa"[\s\S]*\[1\] = "abc"[\s\S]*}
 q,q,

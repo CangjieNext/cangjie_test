@@ -13,9 +13,9 @@
 
 test#
 cjdb,cjdb --no-use-colors case17_4,case17_4
-b,b 19,case17_4.cj:19
-AOT r,r,-> 19
-CJVM c,c,-> 19
+b,b 27,case17_4.cj:27
+AOT r,r,-> 27
+CJVM c,c,-> 27
 AOT p,p mixtuple08,\(Tuple<Unit,Unit>\) \$[\d] = {[\s\S]*\[0\] = ()[\s\S]*\[1\] = ()[\s\S]*}
 AOT p,p mixtuple07,\(Tuple<std.core.Array<std.core.ToString>,std.core.Range<Int64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = {[\s\S]*\[0\] = 3[\s\S]*\[1\] = 4[\s\S]*\[1\] = 1..5 : 1[\s\S]*
 q,q,

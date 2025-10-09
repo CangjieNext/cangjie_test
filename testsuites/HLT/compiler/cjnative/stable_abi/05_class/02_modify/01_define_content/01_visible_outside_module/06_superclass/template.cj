@@ -5,23 +5,25 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test class: super class
-public open class Father1 {}
+open public class Father1 {}
 
-public open class Father2 {}
+open public class Father2 {}
 
 public class Son1 <: Father1 {
     public func f1() {
         100
     }
-}
+}  
 
 public class Son2 {
     public func f2() {
         1001
     }
-}
+}  
+
+

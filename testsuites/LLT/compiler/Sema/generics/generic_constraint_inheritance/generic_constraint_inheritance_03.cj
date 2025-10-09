@@ -5,8 +5,6 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // ERRCHECK: %compiler %diag_json %f -o %output
-// ASSERT: scan-2 sema_generic_constraint_not_looser
-// ASSERT: scan "Errors": 2,
 
 interface A {}
 
@@ -32,4 +30,5 @@ class F <: I1 {
 
 main() {}
 
-// ...existing code...
+// ASSERT: scan-2 sema_generic_constraint_not_looser
+// ASSERT: scan "Errors": 2

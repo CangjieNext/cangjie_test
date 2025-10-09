@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_debug,option_debug
-b,b 68,option_debug.cj:68
-AOT r,r,-> 68
-CJVM c,c,-> 68
+b,b 76,option_debug.cj:76
+AOT r,r,-> 76
+CJVM c,c,-> 76
 p,p F16,\(std[.]core.Option<Float16>\) \$[\d] = 16.156
 p,p F32,\(std[.]core.Option<Float32>\) \$[\d] = 32.3199997
 p,p F64,\(std[.]core.Option<Float64>\) \$[\d] = 64.640000000000001

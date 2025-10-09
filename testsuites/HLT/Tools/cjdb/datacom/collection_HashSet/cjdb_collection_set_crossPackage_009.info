@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashSet_external_invoke,collection_HashSet_external_invoke
-b,b 27,collection_HashSet_external_invoke.cj:27
-AOT r,r,-> 27
-CJVM c,c,-> 27
+b,b 35,collection_HashSet_external_invoke.cj:35
+AOT r,r,-> 35
+CJVM c,c,-> 35
 p,p main_rect,Rec_r1\) \$[\d] = {[\S\s]*rec_par_1 = 10[\S\s]*set_ruint8 = [\S\s]*}
 p,p main_rect.set_rbool,std[.]collection.HashSet<Bool>\) \$[\d] = {[\S\s]*\[1\] = false[\S\s]*}
 p,p main_rect.set_rbool,std[.]collection.HashSet<Bool>\) \$[\d] = {[\S\s]*\[0\] = true[\S\s]*}

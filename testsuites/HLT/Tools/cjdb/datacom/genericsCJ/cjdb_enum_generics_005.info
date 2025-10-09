@@ -16,12 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors debug_enum_generics,debug_enum_generics
-CJVM b main,b main,debug_enum_generics.cj:9
-CJVM c,c,-> 9
-b,b 18,debug_enum_generics.cj:18
-AOT r,r,-> 18
-CJVM c,c,-> 18
-s,s,-> 20
-n,n,-> 21
-finish,finish,-> 18
+CJVM b main,b main,debug_enum_generics.cj:17
+CJVM c,c,-> 17
+b,b 26,debug_enum_generics.cj:26
+AOT r,r,-> 26
+CJVM c,c,-> 26
+s,s,-> 28
+n,n,-> 29
+finish,finish,-> 26
 q,quit,

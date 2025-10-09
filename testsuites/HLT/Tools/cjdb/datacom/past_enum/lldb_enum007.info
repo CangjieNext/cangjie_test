@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_enum_cons,001_debug_enum_cons
-b,b 30,001_debug_enum_cons.cj:30
-AOT r,r,-> 30
+b,b 38,001_debug_enum_cons.cj:38
+AOT r,r,-> 38
 CJVM c,c,
-n,n,-> 32|33
+n,n,-> 40|41
 locals,locals,TimeUnit2\) time7 = {(\r|\n|\r\n)  constructor = Minu(\r|\n|\r\n)  arg_1 = 1
 print,print time7,TimeUnit2\) \$[\d]+ = {(\r|\n|\r\n)  constructor = Minu(\r|\n|\r\n)  arg_1 = 1(\r|\n|\r\n)  arg_2 = 2(\r|\n|\r\n)  arg_3 = 3(\r|\n|\r\n)  arg_4 = 4(\r|\n|\r\n)  arg_5 = 5
 q,q,

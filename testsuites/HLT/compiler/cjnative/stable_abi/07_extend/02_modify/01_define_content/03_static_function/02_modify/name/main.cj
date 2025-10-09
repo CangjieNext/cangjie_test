@@ -5,11 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 unsafe main() {
-    if (TestClass.f1() == 1 && TestClass.f4() == 3
+    if (
+        TestClass.f1() == 1 && TestClass.f4() == 3
         && TestClass.f6() == 5 && TestClass.f7() == 7
         && TestClass.f9() == 9 && TestClass.f13() == 13
         && TestClass.f14() == 14
@@ -24,9 +25,13 @@ unsafe main() {
         && TestStruct.g1<Int64, Int64, Son>(1, 2, Son()) == "12"
         && TestStruct.g2<Int64, String, Son>(1, "a", Son()) == "1"
         && TestStruct.p1(1, b: 2, c: 3) == 6
-        && TestStruct.p2(Son(), b: Son()) is Son && TestStruct.p3(Father(), b: Father()) is Father) {
+        && TestStruct.p2(Son(), b: Son()) is Son && TestStruct.p3(Father(), b: Father()) is Father
+    ) {
         return 0
     } else {
         return 1
     }
+
 }
+
+

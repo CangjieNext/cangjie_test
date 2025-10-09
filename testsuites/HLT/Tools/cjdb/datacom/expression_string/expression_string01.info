@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors string_globals01,string_globals01
-b,b 9,string_globals01.cj:9
-AOT r,r,-> 9
+b,b 17,string_globals01.cj:17
+AOT r,r,-> 17
 CJVM c,c,
 expr~expr "1+1"~\(std.core.String\) \$[\d] = "1\+1"
 expr,expr main_str11,\(std.core.String\) \$[\d] = "This is a \\"#\\\\n"

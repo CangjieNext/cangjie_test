@@ -47,6 +47,7 @@ main() {
     //    var ra2 = (-1).pa.b.a
     var ra3 = 1.pa.b.a
     println(ra1)
+    //    println(ra2)
     println(ra3)
     return Int32.foos(1) + 1.foo(-1) + Int32.pas.b.a + 1.pa.b.a
 }

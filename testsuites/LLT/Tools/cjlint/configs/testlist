@@ -1,0 +1,37 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[ALL-TEST-CASE]
+../rule_*
+../common_macro
+../error_warning_exclude
+../file_exclude
+../report_test
+../Issues
+../command_option
+../import_path
+[EXCLUDE-TEST-CASE]
+../rule_G_CHK_01/collection_api/collection_api.info
+../rule_G_CHK_01/common_test/common_test.info
+../rule_G_CHK_01/generic/embedded_func/embedded_func.info
+../rule_G_CHK_01/generic/json_api/json_api.info
+../rule_G_CHK_01/json_api/json_api.info
+../rule_G_FIO_01/generic/fio_01_test_case_01/fio_01_test_case_01.info
+../rule_G_FIO_01/generic/fio_01_test_case_02/fio_01_test_case_02.info
+../rule_G_SER_03/rule_G_SER_03.info
+../rule_P_02/enum_test/enum_test.info
+../rule_P_02/generic/class_test/class_test.info
+../rule_P_02/generic/class_test1/class_test1.info
+../rule_P_02/generic/class_test2/class_test2.info
+../rule_P_02/generic/class_test3/class_test3.info
+../rule_P_02/generic/enum_test/enum_test.info
+../rule_P_02/generic/enum_test1/enum_test1.info
+../rule_P_02/generic/enum_test2/enum_test2.info
+../rule_P_02/if_branch_test/if_branch_test.info
+../rule_P_02/multi_data_type_test/multi_data_type_test.info
+../rule_P_02/multi_thread_test/multi_thread_test.info
+../rule_comments_block/test_case_07/test_case_07.info
+../rule_G_OTH_01/oth_01_test_case_38/oth_01_test_case_38.info

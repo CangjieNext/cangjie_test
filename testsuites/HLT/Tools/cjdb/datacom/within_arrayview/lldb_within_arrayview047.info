@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_large_array,003_debug_large_array
-b,b 25,003_debug_large_array.cj:25
-AOT r,r,-> 25
+b,b 33,003_debug_large_array.cj:33
+AOT r,r,-> 33
 CJVM c,c,
 print, print arrayInt64_q[0][0][0],\(std[.]core.Array<Int64>\) \$[\d] = {[\s\S]*? \[0\] = -1[\s\S]*&? \[99\] = 98[\s\S]*}
 q,q,

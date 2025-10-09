@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 4.2.1.9.2.2
   @Scene: add
@@ -13,8 +13,8 @@
   @Object: enum instance prop
   @Behavior: add @Deprecated, strict: true
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // Expect: API Incompatible & ABI Incompatible
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -35,24 +35,27 @@
 // test struct: add @Deprecated
 package test_stable_abi
 
+
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
-    prop geta1: Int64 {
+    prop geta1:Int64 {
         get() {
             println("get")
             0
         }
+
     }
 
-    public prop geta2: Int64 {
+    public prop geta2:Int64 {
         get() {
             println("get")
             0
         }
+
     }
 
     @Deprecated["this function is deprecated", strict: false]
@@ -61,6 +64,7 @@ public enum Rectangle {
             println("get")
             0
         }
+
     }
 
     @Deprecated["this function is deprecated", strict: false]
@@ -69,6 +73,7 @@ public enum Rectangle {
             println("get")
             0
         }
+
     }
 
     @Deprecated["this function is deprecated", strict: true]
@@ -77,28 +82,26 @@ public enum Rectangle {
             println("get")
             0
         }
+
     }
 }
 
 public enum Rectangle1 {
     AB
-
     public prop geta: Int64 {
         get() {
             0
         }
     }
-
     @Deprecated["this function is deprecated", strict: true]
     prop getb: Int64 {
         get() {
             0
         }
     }
-
     @Deprecated["this function is deprecated", strict: true]
     @Frozen
-    public func f1() {
+    public func f1(){
         getb
     }
 
@@ -117,7 +120,7 @@ public enum Rectangle1 {
     }
 
     @Frozen
-    public func f2() {
+    public func f2(){
         getd
     }
 }

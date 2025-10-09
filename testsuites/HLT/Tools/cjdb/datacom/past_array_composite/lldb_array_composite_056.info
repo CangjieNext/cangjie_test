@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_array_class,008_debug_array_class
-b,b 46,008_debug_array_class.cj:46
-AOT r,r,-> 46
+b,b 54,008_debug_array_class.cj:54
+AOT r,r,-> 54
 CJVM c,c,
 globals,globals,std[.]core.Array<default.C2>\) default(::|\.)arraytop_c01 = {
 print,print arraytop_c01[0],C2\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100

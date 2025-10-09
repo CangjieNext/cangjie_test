@@ -31,9 +31,8 @@ func D(n: Int32): Int64 {
 
 func f2(): Int32 {
     var i: Int32 = 0
-    while (i < 3) {
+    while (i < 5) {
         i += 1
-        break;
     }
     return i
 }

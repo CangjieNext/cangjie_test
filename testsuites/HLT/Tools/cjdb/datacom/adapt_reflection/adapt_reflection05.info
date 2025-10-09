@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors enum02,enum02
-b,b 26,enum02.cj:26
-r,r,-> 26
+b,b 34,enum02.cj:34
+r,r,-> 34
 globals,globals,\(default.TimeUnit1<Int8>\) default::top_time = {[\s\S]*constructor = Year[\s\S]*arg_1 = 8[\s\S]*}
 locals,locals,\(default.TimeUnit1<UInt8>\) m_time1 = {[\s\S]*constructor = Year[\s\S]*arg_1 = 2[\s\S]*}
 p,p m_time2,\(default.TimeUnit2<Int64,Float64>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 1[\s\S]*arg_2 = 2[\s\S]*arg_3 = 3[\s\S]*}

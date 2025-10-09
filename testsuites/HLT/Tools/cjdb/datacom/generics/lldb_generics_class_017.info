@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 140,005_debug_class_generics.cj:140
-AOT r,r,-> 140
+b,b 148,005_debug_class_generics.cj:148
+AOT r,r,-> 148
 CJVM c,c,
-n,n,-> 141
+n,n,-> 149
 locals,locals,CHC1\) chr1_1 = {
 locals,locals,C1<Int32> = {(\r|\n|\r\n)    width = 10(\r|\n|\r\n)    length = 10(\r|\n|\r\n)  }(\r|\n|\r\n)  size = 100
 q,q,

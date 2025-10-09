@@ -28,6 +28,7 @@ func Foo(c!: Unit = while (hundred < 10) {
         if (hundred < 5) {
             continue
         }
+    //print(hundred.toString()) // 5678910
     }): Unit {
     return c
 }

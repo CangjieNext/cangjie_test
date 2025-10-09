@@ -1,0 +1,31 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+package com.java.lib;
+
+import cj.*;
+
+public class Exe {
+    public static JBase GetJBase() {
+        return new JBase();
+    }
+
+    public static String IntToString(int x) {
+        if (x == 0) {
+            return null;
+        } else {
+            return "" + x;
+        }
+    }
+
+    public static void PrintString(String s) {
+        System.out.println("[Java]PrintString: " + s);
+    }
+
+    public static void PrintOptString(String s) {
+        System.out.println("[Java]PrintOptString: " + s);
+    }
+}

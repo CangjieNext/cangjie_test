@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func007,generics_global_func007
-breakpoint,breakpoint set -l 20 -c "a1[0]==1",generics_global_func007.cj:20
-AOT r,r,-> 20
+breakpoint,breakpoint set -l 28 -c "a1[8]==9",generics_global_func007.cj:28
+AOT r,r,-> 28
 CJVM c,c,
 locals,locals,\(std.core.Array<std.core.Array<Int64>>\) a2 = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1[\s\S]*
 p,p x3,\(std.collection.HashMap<std.core.String,std.core.Array<Int64>>\) \$[\d] = {[\s\S]*\["a"\] = {[\s\S]*key = "a"[\s\S]*value = {[\s\S]*\[0\] = 1[\s\S]*

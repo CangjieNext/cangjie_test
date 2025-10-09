@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 126,genericsfun_return.cj:126
-AOT r,r,-> 126
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
 CJVM c,c,
 p, p lcstr,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
 p, p s1.vcstrs,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
@@ -25,8 +25,8 @@ p, p globals_cstr,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
 locals, locals,\(CString\) lcstr = "CString in Cangjie\\n code. 05"[\s\S]*\(default.S1\) s1 = {[\s\S]*vcstrs = "CString in Cangjie\\n code. 05"[\s\S]*\(default.C1\) c1 = {[\s\S]*vcstrc = "CString in Cangjie\\n code. 05"[\s\S]*
 globals, globals,\(CString\) default::S1::vcstr = "CString in Cangjie\\n code. 05"
 globals, globals,\(CString\) default::globals_cstr = "CString in Cangjie\\n code. 05"
-b, b 137,genericsfun_return.cj:137
-c,c,-> 137
+b, b 145,genericsfun_return.cj:145
+c,c,-> 145
 p, p h,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
 p, p test_h,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
 locals, locals,\(CString\) h = "CString in Cangjie\\n code. 05"

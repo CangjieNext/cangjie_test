@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 019_debug_expressions,019_debug_expressions
-CJVM b main,b main,019_debug_expressions.cj:5
-CJVM c,c,-> 5
-b,b 21,019_debug_expressions.cj:21
-b,b 22,019_debug_expressions.cj:22
-AOT r,r,-> 21
-CJVM c,c,-> 21
-s,s,-> 22
+CJVM b main,b main,019_debug_expressions.cj:13
+CJVM c,c,-> 13
+b,b 29,019_debug_expressions.cj:29
+b,b 30,019_debug_expressions.cj:30
+AOT r,r,-> 29
+CJVM c,c,-> 29
+s,s,-> 30
 AOT finish,finish,stopped
 CJVM finish,finish,Process exited
 q,q,

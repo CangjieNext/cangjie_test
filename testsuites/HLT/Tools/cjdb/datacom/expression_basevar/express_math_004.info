@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_express_basetype,004_express_basetype
-CJVM b,b main,059_debug_jit.cj:4
-CJVM c,c,-> 4
-b,b 33,059_debug_jit.cj:33
-CJVM c,c,-> 33
-AOT r,r,-> 33
+CJVM b,b main,059_debug_jit.cj:12
+CJVM c,c,-> 12
+b,b 41,059_debug_jit.cj:41
+CJVM c,c,-> 41
+AOT r,r,-> 41
 expr,expr var_int64%f_int64,\(Int64\) \$[\d] = 2
 expr,expr var_int32%f_int32,\(Int32\) \$[\d] = 1
 expr,expr var_int16%=f_int16;var_int16,\(Int16\) \$[\d] = 1

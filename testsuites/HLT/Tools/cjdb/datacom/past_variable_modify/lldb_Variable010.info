@@ -16,21 +16,21 @@
 
 test#
 cjdb,cjdb --no-use-colors 021_debug_file,021_debug_file
-CJVM b,b main,021_debug_file.cj:8
-CJVM c,c,-> 8
-b,b 8,021_debug_file.cj:8
-b,b 15,021_debug_file.cj:15
-b,b 19,021_debug_file.cj:19
+CJVM b,b main,021_debug_file.cj:16
+CJVM c,c,-> 16
+b,b 16,021_debug_file.cj:16
 b,b 23,021_debug_file.cj:23
-AOT r,r,-> 8
-c,c,-> 23
+b,b 27,021_debug_file.cj:27
+b,b 31,021_debug_file.cj:31
+AOT r,r,-> 16
+c,c,-> 31
 locals,locals,a = 30
 p,p a,\(Int64\) \$[\d] = 30
 bt,bt,frame #0
-frame,frame select 2,-> 14
+frame,frame select 2,-> 22
 locals,locals,a =
 p,p a,\(Int64\) \$[\d]
-frame,frame select 0,-> 23
+frame,frame select 0,-> 31
 locals,locals,a = 30
 p,p a,\(Int64\) \$[\d] = 30
 q,q,

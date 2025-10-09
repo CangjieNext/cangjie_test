@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 1.2.1.2.9
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global var
   @Behavior: modifier: const -> var
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -37,8 +37,4 @@ package test_stable_abi
 const global_var_01: Int64 = 0
 var global_var_02: Int64 = 0
 public const global_var_03: Int64 = 0
-
-@Frozen
-public func global_func_01() {
-    global_var_02
-}
+@Frozen public func global_func_01() { global_var_02 }

@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case18,case18
-b,b 12,case18.cj:12
-AOT r,r,-> 12
+b,b 20,case18.cj:20
+AOT r,r,-> 20
 CJVM c,c,
 AOT expr,expr add,error: unsupported expression
 AOT expr,expr c,\(default.\(Int32\)->Int32\) \$[\d] = 0x

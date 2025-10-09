@@ -5,10 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 public struct S {
-    public var a: Int64 = 1
+    public var a = 1
 }
+
+

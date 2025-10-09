@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 2.2.1.4.13
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global func
   @Behavior: modify return type
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -38,67 +38,18 @@ package test_stable_abi
 // global func: public global func
 // modify operation: struct type C <: A, modify type A -> C
 public interface I {}
-
-public interface A <: I {
-    func test() {
-        0
-    }
-}
-
-public class B <: A {
-    const init() {}
-}
-
-public struct C <: A {
-    const init() {}
-}
-
-func global_func_01(): A {
-    B()
-}
-
-func global_func_11(): A {
-    C()
-}
-
-func global_func_02(): A {
-    B()
-}
-
-func global_func_12(): A {
-    C()
-}
-
-const func global_func_03(): A {
-    B()
-}
-
-const func global_func_13(): A {
-    C()
-}
-
-public func global_func_04(): A {
-    B()
-}
-
-public func global_func_14(): C {
-    C()
-}
-
-public const func global_func_05() {
-    global_func_03()
-}
-
-public const func global_func_15() {
-    global_func_13()
-}
-
-@Frozen
-public func global_func_06() {
-    global_func_02()
-}
-
-@Frozen
-public func global_func_16() {
-    global_func_12()
-}
+public interface A <: I { func test() { 0 } }
+public class B <: A { const init() {} }
+public struct C <: A { const init() {} }
+func global_func_01(): A { B() }
+func global_func_11(): A { C() }
+func global_func_02(): A { B() }
+func global_func_12(): A { C() }
+const func global_func_03(): A { B() }
+const func global_func_13(): A { C() }
+public func global_func_04(): A { B() }
+public func global_func_14(): C { C() }
+public const func global_func_05() { global_func_03() }
+public const func global_func_15() { global_func_13() }
+@Frozen public func global_func_06() { global_func_02() }
+@Frozen public func global_func_16() { global_func_12() }

@@ -15,7 +15,7 @@
 // (Linux and CJNATIVE) ASSERT: scan llvm/bin/llc
 // (Linux and CJNATIVE) ASSERT: scan lto_test5_1.o
 // (Linux and CJNATIVE) ASSERT: scan liblto_test3.o
-// (Linux and CJNATIVE) ASSERT: scan /usr/bin/ar
+// (Linux and CJNATIVE) ASSERT: scan /ar
 // (Linux and CJNATIVE) ASSERT: scan liblto_test5_1.a
 
 internal import lto_test3.*

@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_baseVar,option_baseVar
-b,b 40,option_baseVar.cj:40
-AOT r,r,-> 40
-CJVM c,c,-> 40
+b,b 48,option_baseVar.cj:48
+AOT r,r,-> 48
+CJVM c,c,-> 48
 p,p F16,\(std[.]core.Option<Float16>\) \$[\d] = 16
 p,p F16_none,\(std[.]core.Option<Float16>\) \$[\d] = None
 AOT p,p F32,\(std[.]core.Option<Float32>\) \$[\d] = 0.2399

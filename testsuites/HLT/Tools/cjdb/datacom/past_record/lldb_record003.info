@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_record_mod,045_debug_record_mod
-b,b 49,045_debug_record_mod.cj:49
-AOT r,r,-> 49
+b,b 57,045_debug_record_mod.cj:57
+AOT r,r,-> 57
 CJVM c,c,
-n,n,-> 50
+n,n,-> 58
 locals,locals,main_length = 3
 q,q,

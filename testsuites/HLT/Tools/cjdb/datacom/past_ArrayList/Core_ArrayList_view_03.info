@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
-b,b 18,066_debug_arraylist.cj:18
-AOT r,r,-> 18
-CJVM c,c,-> 18
+b,b 26,066_debug_arraylist.cj:26
+AOT r,r,-> 26
+CJVM c,c,-> 26
 p,p arraylistBool,\(std\.collection.ArrayList<Bool>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
 globals,globals,arraylistBool = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
 q,q,

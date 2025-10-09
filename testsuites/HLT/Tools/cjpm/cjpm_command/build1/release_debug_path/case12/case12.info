@@ -9,5 +9,5 @@
 // LEVEL: 0
 // DEPENDENCE: ../%n
 // ERRCHECK: cd %n && %cjpm build -G
-// ASSERT: scan Error: unknow command '-G' for cjpm build
+// ASSERT: scan Error: unknown command '-G' for cjpm build
 // ASSERT: scan Error: cjpm build failed

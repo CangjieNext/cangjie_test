@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 public class Son_TestClass <: TestClass {
@@ -53,15 +53,19 @@ unsafe main() {
 
     let tc = TestClass()
 
-    if (tc.f1() == 1 && tc.f4() == 3
+    if (
+        tc.f1() == 1 && tc.f4() == 3
         && tc.f6() == 5 && global() == 7
         && tc.f8() == 8 && tc.f13() == 13 && tc.f14() == 14
         && tc.g1<Int64, Int64, Son>(1, 2, Son()) == "12"
         && tc.g2<Int64, String, Son>(1, "a", Son()) == "1"
         && tc.p1(1, b: 2, c: 3) == 6
-        && tc.p2(Son(), b: Son()) is Son && tc.p3(Father(), b: Father()) is Father) {
+        && tc.p2(Son(), b: Son()) is Son && tc.p3(Father(), b: Father()) is Father
+    ) {
         return 0
     } else {
         return 1
     }
+
 }
+

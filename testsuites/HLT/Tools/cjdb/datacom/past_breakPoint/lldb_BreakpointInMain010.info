@@ -16,43 +16,43 @@
 
 test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
-CJVM b,breakpoint set -n main,015_debug_basetype.cj:4
-CJVM c,c,-> 4
-b,b 4,015_debug_basetype.cj:4
-b,b 5,015_debug_basetype.cj:5
-b,b 6,015_debug_basetype.cj:6
-b,b 7,015_debug_basetype.cj:7
-b,b 8,015_debug_basetype.cj:8
-b,b 9,015_debug_basetype.cj:9
-b,b 10,015_debug_basetype.cj:10
-b,b 11,015_debug_basetype.cj:11
+CJVM b,breakpoint set -n main,015_debug_basetype.cj:12
+CJVM c,c,-> 12
 b,b 12,015_debug_basetype.cj:12
 b,b 13,015_debug_basetype.cj:13
+b,b 14,015_debug_basetype.cj:14
 b,b 15,015_debug_basetype.cj:15
 b,b 16,015_debug_basetype.cj:16
 b,b 17,015_debug_basetype.cj:17
 b,b 18,015_debug_basetype.cj:18
 b,b 19,015_debug_basetype.cj:19
+b,b 20,015_debug_basetype.cj:20
 b,b 21,015_debug_basetype.cj:21
-b,b 22,015_debug_basetype.cj:22
-AOT r,r,-> 4
-c,c,-> 5
-c,c,-> 6
-c,c,-> 7
-c,c,-> 8
-c,c,-> 9
-c,c,-> 10
-c,c,-> 11
-c,c,-> 12
+b,b 23,015_debug_basetype.cj:23
+b,b 24,015_debug_basetype.cj:24
+b,b 25,015_debug_basetype.cj:25
+b,b 26,015_debug_basetype.cj:26
+b,b 27,015_debug_basetype.cj:27
+b,b 29,015_debug_basetype.cj:29
+b,b 30,015_debug_basetype.cj:30
+AOT r,r,-> 12
 c,c,-> 13
+c,c,-> 14
 c,c,-> 15
 c,c,-> 16
 c,c,-> 17
 c,c,-> 18
 c,c,-> 19
+c,c,-> 20
 c,c,-> 21
-c,c,-> 22
-n,n,-> 24
+c,c,-> 23
+c,c,-> 24
+c,c,-> 25
+c,c,-> 26
+c,c,-> 27
+c,c,-> 29
+c,c,-> 30
+n,n,-> 32
 locals,locals,var1 = -128
 locals,locals,var3 = 1
 locals,locals,var10 = 1

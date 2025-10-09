@@ -50,7 +50,7 @@ class Testupgradefromclientconf_01 {
             (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u, version: HTTP2_0)
             websocket.closeConn()
         } catch (e: HttpException) {
-            @Expect(e.message, "Invalid port string: 77777.")
+            @Expect(e.message, "Invalid url address or proxy address.")
             sum += 1
         }
         @Expect(sum, 1)

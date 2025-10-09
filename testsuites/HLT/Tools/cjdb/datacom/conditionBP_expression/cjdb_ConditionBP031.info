@@ -14,15 +14,15 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var010,generics_local_var010
-breakpoint,breakpoint set -l 6 -c "a1!=0",generics_local_var010.cj:6
-breakpoint,breakpoint set -l 25 -c "a1!=0",generics_local_var010.cj:25
-AOT r,r,-> 6
+breakpoint,breakpoint set -l 14 -c "a1!=8",generics_local_var010.cj:14
+breakpoint,breakpoint set -l 33 -c "a1!=8",generics_local_var010.cj:33
+AOT r,r,-> 14
 CJVM c,c,
 p,p a1,\(Int64\) \$[\d] = 2
-n,n,-> 7
-n,n,-> 8
+n,n,-> 15
+n,n,-> 16
 expr:expr vInt8[0]:\(Int8\) \$[\d] = -1
-c,c,-> 25
+c,c,-> 33
 expr:expr a1:\(Int64\) \$[\d] = 2
 expr:expr a2:\(Int64\) \$[\d] = 2
 q,q,

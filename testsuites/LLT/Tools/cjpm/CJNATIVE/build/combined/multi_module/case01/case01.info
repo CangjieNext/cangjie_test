@@ -1,0 +1,13 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n/pro1 && %cjpm build -V && %rm target/release/pro1/libpro1.aoo.a target/release/pro2/libpro2.boo.a
+// EXEC: cd %n && %cjpm run 2>&1 | compare %f
+// ASSERT: regex Warning: binary package 'pro1.aoo' may be combined by 'libpro1.(so|dll|dylib)', cjpm will use combined package instead
+// ASSERT: scan pro1.aoo
+// ASSERT: scan pro2.boo
+// ASSERT: scan cjpm run finished

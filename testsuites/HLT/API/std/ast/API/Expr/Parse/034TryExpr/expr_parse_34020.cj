@@ -24,6 +24,7 @@ main() {
     )
     let expr = parseExpr(input)
     /*
+    if (expr.isTryExpr()) {
         var b = expr.asTryExpr()
         if (!b.getCatchPatterns()[0].isExceptTypePattern()){
             return 3

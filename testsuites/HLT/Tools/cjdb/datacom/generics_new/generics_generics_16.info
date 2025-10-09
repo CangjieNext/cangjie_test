@@ -14,13 +14,13 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 101,Breakpoint 1:
-AOT r,r,-> 101
+b,b 109,Breakpoint 1:
+AOT r,r,-> 109
 CJVM c,c,
-c,c,-> 101
-c,c,-> 101
-c,c,-> 101
-c,c,-> 101
+c,c,-> 109
+c,c,-> 109
+c,c,-> 109
+c,c,-> 109
 p, p a,\(CPointer<Int64>\) \$[\d] = 0x[\s\S]*
 locals, locals,\(default.C4<CPointer<Int64>>\) this = {[\s\S]*c4_a = 0x[\s\S]*}[\s\S]*\(CPointer<Int64>\) a = 0x[\s\S]*
 q,q,

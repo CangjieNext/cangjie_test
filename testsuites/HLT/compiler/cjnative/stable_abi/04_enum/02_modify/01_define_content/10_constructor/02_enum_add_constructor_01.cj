@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 4.2.1.10.2
   @Scene: add
@@ -13,8 +13,8 @@
   @Object: enum
   @Behavior: add constructor for non-exhausitive enum, non end
   @Expect: api compatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -56,7 +56,7 @@ enum Testb {
 
 public enum Testc {
     | Red | Green | Blue(UInt8)
-
+    
     public static func printType() {
         print("RGBColor")
     }
@@ -97,6 +97,7 @@ public class C1 {
         let v2 = S9.Green
     }
 }
+
 
 public enum SS7 {
     | Red | Green | yellow | Blue | ...

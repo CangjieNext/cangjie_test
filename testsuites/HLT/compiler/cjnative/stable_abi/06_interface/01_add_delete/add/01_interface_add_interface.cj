@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 6.1.1
   @Scene: add
@@ -13,9 +13,9 @@
   @Object: interface
   @Behavior: add interface
   @Expect: api compatible & abi compatible
- */
+*/
 
-// LEVEL: 0
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -35,21 +35,15 @@ package test_stable_abi
 
 // test interface: add interface
 public interface I1 {
-    public static func typename(): String {
+  public static func typename(): String {
         "interface I1"
     }
 }
-
 public interface I2<T> {}
-
 interface I3 {}
-
 interface I4<T> {}
 
 public interface _I1 {}
-
 public interface _I2<T> {}
-
 interface _I3 {}
-
 interface _I4<T> {}

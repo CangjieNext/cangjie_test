@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var009,generics_local_var009
-breakpoint,breakpoint set -l 13 -c "a6[0]==2",generics_local_var009.cj:13
-AOT r,r,-> 13
+breakpoint,breakpoint set -l 21 -c "a6[8]==10",generics_local_var009.cj:21
+AOT r,r,-> 21
 CJVM c,c,
 locals,locals,\(std.core.Array<Int64>\) a6 = {[\s\S]*\[0\] = 2[\s\S*}
 locals,locals,\(Int8\) a3 = -128

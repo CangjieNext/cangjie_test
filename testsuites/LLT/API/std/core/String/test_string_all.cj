@@ -913,6 +913,30 @@ class StringTest {
         let trim2 = str2.trimEnd(r'$')
         @Expect(trim1.equalsIgnoreAsciiCase(trim2))
     }
+
+    @TestCase
+    func test_checkUtf8Encoding() {
+        var array: Array<Byte> = [0XE4, 0XB8, 0XAD, 0XE5]
+        @Expect(String.checkUtf8Encoding(array), false)
+ 
+        array = "cangjie仓颉".toArray()
+        @Expect(String.checkUtf8Encoding(array[..8]), false)
+    }
+
+    @TestCase
+    func testUnsafeCreate() {
+        var array = "0123456789abcde".toArray()
+        @Expect(unsafe { String.withRawData(array) }, "0123456789abcde")
+        array = [0XE4, 0XB8, 0XAD, 0XE5]
+        let string = unsafe { String.fromUtf8Unchecked(array) }
+ 
+        try {
+            string.compare("abc")
+        } catch(e:IllegalArgumentException) {
+            @Expect(e.message, "Invalid utf8 byte sequence")
+        }
+        ()
+    }
 }
 
 func interatorToArray(iterator: Iterator<String>, size: Int64): Array<String> {

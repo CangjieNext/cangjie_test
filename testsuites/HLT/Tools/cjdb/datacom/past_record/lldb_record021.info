@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_record_main_no_parameter,049_debug_record_main_no_parameter
-b,b 34,049_debug_record_main_no_parameter.cj:34
-AOT r,r,-> 34
+b,b 42,049_debug_record_main_no_parameter.cj:42
+AOT r,r,-> 42
 CJVM c,c,
-n,n,-> 35
+n,n,-> 43
 locals,locals,Rectangle\) newRectangle = {(\r|\n|\r\n)  name = "afdoaidfad"(\r|\n|\r\n)  num = 11(\r|\n|\r\n)  varBool = true(\r|\n|\r\n)  varchar = '5'(\r|\n|\r\n)  width = 1(\r|\n|\r\n)  length = 2(\r|\n|\r\n)  height = 1
 q,q,

@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
-b,b 18,066_debug_arraylist.cj:18
-AOT r,r,-> 18
-CJVM c,c,-> 18
+b,b 26,066_debug_arraylist.cj:26
+AOT r,r,-> 26
+CJVM c,c,-> 26
 p,p arraylistTuple2,\(std\.collection.ArrayList<Tuple<Int64,UInt32,Float64,std.core.String,Bool,Rune>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*\[2\] = 30[\s\S]*\[3\] = "bbb"[\s\S]*\[4\] = true[\s\S]*\[5\] = 'd'[\s\S]*}[\s\S]*}
 globals,globals,arraylistTuple2 = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*\[2\] = 30[\s\S]*\[3\] = "bbb"[\s\S]*\[4\] = true[\s\S]*\[5\] = 'd'[\s\S]*}[\s\S]*}
 q,q,

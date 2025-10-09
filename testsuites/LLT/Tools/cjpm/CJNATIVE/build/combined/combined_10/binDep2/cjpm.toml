@@ -1,0 +1,32 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[dependencies]
+
+[package]
+  cjc-version = "1.0.0"
+  compile-option = ""
+  description = "nothing here"
+  link-option = ""
+  name = "binDep2"
+  output-type = "static"
+  override-compile-option = ""
+  src-dir = ""
+  target-dir = ""
+  version = "1.0.0"
+  package-configuration = {}
+
+[target.x86_64-unknown-linux-gnu.bin-dependencies]
+  path-option = ["../binDep1/target/release/binDep1"]
+
+[target.x86_64-w64-mingw32.bin-dependencies]
+  path-option = ["../binDep1/target/release/binDep1"]
+
+[target.x86_64-apple-darwin.bin-dependencies]
+  path-option = ["../binDep1/target/release/binDep1"]
+
+[target.aarch64-apple-darwin.bin-dependencies]
+  path-option = ["../binDep1/target/release/binDep1"]

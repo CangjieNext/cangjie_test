@@ -8,5 +8,5 @@
 // (not Windows)EXEC: %compiler %cmp_opt --scan-dependency -p pkg/  2>&1 | compare %f
 
 /* SCAN
-{"package":"pkg","isMacro":false,"accessLevel":"public","dependencies":[{"package":"mod.pkg02","isStd":false,"imports":[{"file":"pkg/a.cj","begin":{"line":10,"column":1},"end":{"line":10,"column":28}}]},{"package":"pkg01","isStd":false,"imports":[{"file":"pkg/a.cj","begin":{"line":9,"column":1},"end":{"line":9,"column":24}}]}]}
+{"package":"pkg","isMacro":false,"accessLevel":"public","dependencies":[{"package":"mod.pkg02","isStd":false,"imports":[{"file":"pkg/a.cj","begin":{"line":10,"column":1},"end":{"line":10,"column":28}}]},{"package":"pkg01","isStd":false,"imports":[{"file":"pkg/a.cj","begin":{"line":9,"column":1},"end":{"line":9,"column":24}}]}],"features":[]}
 */

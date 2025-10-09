@@ -1,0 +1,16 @@
+type A2<T> = Book<Array<T>>
+
+struct Book<T>{
+    public var a:T
+    public init(x:T){ a = x }
+}
+
+func run():Int64{
+    var a:A2<Int64>
+    return 0
+}
+
+main(): Int64 {
+    return run()
+}
+

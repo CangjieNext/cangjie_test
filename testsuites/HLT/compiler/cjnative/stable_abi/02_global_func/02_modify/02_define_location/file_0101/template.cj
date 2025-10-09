@@ -5,12 +5,11 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
-const func global_func_01() {
-    0
-}
-
+const func global_func_01() { 0 }
 public const global_var_01 = global_func_01()
+
+

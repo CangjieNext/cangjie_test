@@ -1,0 +1,9 @@
+type NewType = Int64
+type NewType<S, T> = packageName.className<S, T>
+type NewType = ?Int64
+type NewType = (Int64)
+type NewType = (Int64) -> Int64
+type NewType = T.A
+type NewType = A
+type NewType = VArray<Int64, $3>
+@Deprecated["This API will be deprecated soon"] type NewType = A

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.11.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance func
   @Behavior: modifier public to non public
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -25,15 +25,16 @@
 // EXEC: %mv test_stable_abi.cjo new.cjo
 
 // ASSERT: scan Incompatible
-// ASSERT: scan-2 [API/ABI] Changed visibility of instance member functions for classes.
+// ASSERT: scan-1 [API/ABI] Changed visibility of instance member functions for classes.
+// ASSERT: scan-1 [API/ABI] Class member function visible outside the module deleted or made private
+// ASSERT: scan-2 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 
 package test_stable_abi
 
 // test class: instancemember function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 @Annotation
@@ -44,7 +45,7 @@ public class Version {
     }
 }
 
-public open class TestClass {
+open public class TestClass {
     private func f1() {
         1
     }
@@ -68,7 +69,6 @@ public open class TestClass {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -76,7 +76,6 @@ public open class TestClass {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -91,17 +90,14 @@ public open class TestClass {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
@@ -169,7 +165,7 @@ public open class TestClass {
         2
     }
 
-    public open func openfunc() {
+    open public func openfunc() {
         1
     }
 

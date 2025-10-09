@@ -23,7 +23,9 @@ import dependency.*
 class testGetInstanceFunctions_StandardClassType_5 {
     @TestCase
     func TestCase_20(): Unit {
+        // logger.info("testcase TestCase_20 begins.")
         @Expect(1i64, TypeInfo.of<StandardClassType<Float32, Int64, UInt64>>().getInstanceFunctions("classInstanceMemberFunction_21").size)
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -33,6 +35,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -42,6 +45,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -51,6 +55,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -60,6 +65,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -69,6 +75,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -78,6 +85,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -87,6 +95,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -97,6 +106,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -106,6 +116,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -115,6 +126,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -124,6 +136,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -133,6 +146,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -142,6 +156,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -151,6 +166,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -160,10 +176,12 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("成功调用")
         TypeInfo
             .of<StandardClassType<Float32, Int64, UInt64>>()
             .getInstanceFunctions("classInstanceMemberFunction_21")[0i64]
             .apply(StandardClassType<Float32, Int64, UInt64>(), [GenericClassWith1TypeParameters<Int64>()])
+        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -173,6 +191,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardClassType<Float32, Int64, UInt64>\", but now it`s \"Int64\"")
         }
+        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -182,6 +201,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardClassType<Float32, Int64, UInt64>\", but now it`s \"String\"")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -191,6 +211,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -200,6 +221,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -209,6 +231,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -218,6 +241,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -227,6 +251,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -236,6 +261,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -246,6 +272,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -255,6 +282,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -264,6 +292,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -273,6 +302,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -282,6 +312,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<Float32, Int64, UInt64>>()
@@ -291,11 +322,14 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("testcase TestCase_20 ends.")
     }
 
     @TestCase
     func TestCase_21(): Unit {
+        // logger.info("testcase TestCase_21 begins.")
         @Expect(1i64, TypeInfo.of<StandardClassType<UInt64, UInt32, Float64>>().getInstanceFunctions("classInstanceMemberFunction_22").size)
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -305,6 +339,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -314,6 +349,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -323,6 +359,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -332,6 +369,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -341,6 +379,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -350,6 +389,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -359,6 +399,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -369,6 +410,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -378,6 +420,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -387,6 +430,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -396,6 +440,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -405,6 +450,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -414,6 +460,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -423,6 +470,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -432,10 +480,12 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("成功调用")
         TypeInfo
             .of<StandardClassType<UInt64, UInt32, Float64>>()
             .getInstanceFunctions("classInstanceMemberFunction_22")[0i64]
             .apply(StandardClassType<UInt64, UInt32, Float64>(), [GenericClassWith1TypeParameters<Float64>()])
+        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -445,6 +495,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardClassType<UInt64, UInt32, Float64>\", but now it`s \"Int64\"")
         }
+        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -454,6 +505,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardClassType<UInt64, UInt32, Float64>\", but now it`s \"String\"")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -463,6 +515,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -472,6 +525,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -481,6 +535,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -490,6 +545,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -499,6 +555,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -508,6 +565,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -518,6 +576,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -527,6 +586,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -536,6 +596,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -545,6 +606,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -554,6 +616,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<UInt64, UInt32, Float64>>()
@@ -563,11 +626,14 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("testcase TestCase_21 ends.")
     }
 
     @TestCase
     func TestCase_22(): Unit {
+        // logger.info("testcase TestCase_22 begins.")
         @Expect(1i64, TypeInfo.of<StandardClassType<Float64, Int64, Float32>>().getInstanceFunctions("classInstanceMemberFunction_23").size)
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -578,6 +644,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -587,6 +654,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -596,6 +664,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -605,6 +674,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -614,6 +684,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -624,6 +695,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -633,6 +705,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -643,6 +716,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -652,6 +726,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -661,6 +736,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -670,6 +746,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -679,6 +756,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -688,6 +766,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -697,6 +776,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -706,10 +786,12 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("成功调用")
         TypeInfo
             .of<StandardClassType<Float64, Int64, Float32>>()
             .getInstanceFunctions("classInstanceMemberFunction_23")[0i64]
             .apply(StandardClassType<Float64, Int64, Float32>(), [GenericClassWith2TypeParameters<Int64, Int64>()])
+        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -719,6 +801,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardClassType<Float64, Int64, Float32>\", but now it`s \"Int64\"")
         }
+        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -728,6 +811,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardClassType<Float64, Int64, Float32>\", but now it`s \"String\"")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -737,6 +821,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -746,6 +831,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -755,6 +841,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -764,6 +851,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -773,6 +861,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -782,6 +871,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -792,6 +882,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -801,6 +892,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -810,6 +902,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -819,6 +912,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -828,6 +922,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<Float64, Int64, Float32>>()
@@ -837,11 +932,14 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("testcase TestCase_22 ends.")
     }
 
     @TestCase
     func TestCase_23(): Unit {
+        // logger.info("testcase TestCase_23 begins.")
         @Expect(1i64, TypeInfo.of<StandardClassType<Int16, Int16, UInt16>>().getInstanceFunctions("classInstanceMemberFunction_24").size)
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -851,6 +949,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -860,6 +959,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -869,6 +969,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -878,6 +979,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -887,6 +989,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -896,6 +999,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -905,6 +1009,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -915,6 +1020,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -924,6 +1030,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -933,6 +1040,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -942,6 +1050,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -951,6 +1060,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -960,6 +1070,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -969,6 +1080,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -978,10 +1090,12 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("成功调用")
         TypeInfo
             .of<StandardClassType<Int16, Int16, UInt16>>()
             .getInstanceFunctions("classInstanceMemberFunction_24")[0i64]
             .apply(StandardClassType<Int16, Int16, UInt16>(), [GenericClassWith2TypeParameters<Bool, Bool>()])
+        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -991,6 +1105,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardClassType<Int16, Int16, UInt16>\", but now it`s \"Int64\"")
         }
+        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -1000,6 +1115,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardClassType<Int16, Int16, UInt16>\", but now it`s \"String\"")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -1009,6 +1125,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -1018,6 +1135,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -1027,6 +1145,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -1036,6 +1155,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -1045,6 +1165,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -1054,6 +1175,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -1064,6 +1186,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -1073,6 +1196,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -1082,6 +1206,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -1091,6 +1216,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -1100,6 +1226,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<Int16, Int16, UInt16>>()
@@ -1109,11 +1236,14 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("testcase TestCase_23 ends.")
     }
 
     @TestCase
     func TestCase_24(): Unit {
+        // logger.info("testcase TestCase_24 begins.")
         @Expect(1i64, TypeInfo.of<StandardClassType<Int32, Float32, Bool>>().getInstanceFunctions("classInstanceMemberFunction_25").size)
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1123,6 +1253,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1132,6 +1263,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1141,6 +1273,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1150,6 +1283,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1159,6 +1293,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1168,6 +1303,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1177,6 +1313,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1187,6 +1324,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1196,6 +1334,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1205,6 +1344,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1214,6 +1354,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1223,6 +1364,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1232,6 +1374,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1241,6 +1384,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("非泛型函数指定了类型实参列表")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1250,10 +1394,12 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
+        // logger.info("成功调用")
         TypeInfo
             .of<StandardClassType<Int32, Float32, Bool>>()
             .getInstanceFunctions("classInstanceMemberFunction_25")[0i64]
             .apply(StandardClassType<Int32, Float32, Bool>(), [GenericClassWith2TypeParameters<Unit, Unit>()])
+        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1263,6 +1409,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardClassType<Int32, Float32, Bool>\", but now it`s \"Int64\"")
         }
+        // logger.info("实例类型错误")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1272,6 +1419,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input instance should be \"dependency.StandardClassType<Int32, Float32, Bool>\", but now it`s \"String\"")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1281,6 +1429,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1290,6 +1439,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1299,6 +1449,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1308,6 +1459,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1317,6 +1469,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1326,6 +1479,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1336,6 +1490,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1345,6 +1500,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1354,6 +1510,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1363,6 +1520,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1372,6 +1530,7 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型检查失败")
         try {
             TypeInfo
                 .of<StandardClassType<Int32, Float32, Bool>>()
@@ -1381,5 +1540,6 @@ class testGetInstanceFunctions_StandardClassType_5 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("testcase TestCase_24 ends.")
     }
 }

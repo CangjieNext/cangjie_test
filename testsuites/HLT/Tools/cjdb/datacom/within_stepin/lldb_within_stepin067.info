@@ -17,11 +17,11 @@
 
 test#
 cjdb,cjdb --no-use-colors stepin_external_invoke,stepin_external_invoke
-CJVM b main,b main,stepin_external_invoke.cj:12
-CJVM c,c,-> 12
-b,b 21,stepin_external_invoke.cj:21
-AOT r,r,-> 21
-CJVM c,c,-> 21
-s,s,static  func fun_1\(\): Int32[\s\S]*-> 68[\s\S]*
-finish,finish,-> 21
+CJVM b main,b main,stepin_external_invoke.cj:20
+CJVM c,c,-> 20
+b,b 29,stepin_external_invoke.cj:29
+AOT r,r,-> 29
+CJVM c,c,-> 29
+s,s,static  func fun_1\(\): Int32[\s\S]*-> 76[\s\S]*
+finish,finish,-> 29
 q,q,

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 2.2.1.3.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global func
   @Behavior: delete generic parameters
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -35,32 +35,10 @@ package test_stable_abi
 // global func: non public global func
 // modify operation: delete generic parameters
 public class A {}
-
-func global_func_01<T1, T2>() where T1 <: A, T2 <: A {
-    0
-}
-
-func global_func_02<T1>() {
-    0
-}
-
-func global_func_03<T1, T2>() {
-    0
-}
-
-const func global_func_04<T1, T2>() {
-    0
-}
-
-public func global_func_05<T1, T2>() {
-    0
-}
-
-public const func global_func_06<T1, T2, T3>() {
-    global_func_04<T1, T2>()
-}
-
-@Frozen
-public func global_func_07() {
-    global_func_03<A, A>()
-}
+func global_func_01<T1, T2>() where T1 <: A, T2 <: A { 0 }
+func global_func_02<T1>() { 0 }
+func global_func_03<T1, T2>() { 0 }
+const func global_func_04<T1, T2>() { 0 }
+public func global_func_05<T1, T2>() { 0 }
+public const func global_func_06<T1, T2, T3>() { global_func_04<T1, T2>() }
+@Frozen public func global_func_07() { global_func_03<A, A>() }

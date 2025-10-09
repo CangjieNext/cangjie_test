@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_baseType,001_debug_array_baseType
-b,b 26,001_debug_array_baseType.cj:26
-AOT r,r,-> 26
+b,b 34,001_debug_array_baseType.cj:34
+AOT r,r,-> 34
 CJVM c,c,
 p, p arrayFloat32_d[2],std[.]core.Array<Float32>\) \$[\d] = {[\s\S]*
 set,set arrayFloat32_d[2][1]=32,\(Float32\) \$[0-9]* = 32
