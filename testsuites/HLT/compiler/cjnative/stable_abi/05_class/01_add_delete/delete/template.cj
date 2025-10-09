@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -22,7 +22,7 @@ public class Father1 {
     }
     public var v3: Int64
 
-    public open func foo1(a: Int64) {
+    open public func foo1(a: Int64) {
         10
     }
 
@@ -47,7 +47,7 @@ public class Generics1<T> {
     }
     public var _v3: Int64
 
-    public open func goo1(a: Int64) {
+    open public func goo1(a: Int64) {
         10
     }
 
@@ -63,6 +63,7 @@ public class Generics1<T> {
         return a
     }
 }
+
 
 class Father2 {
     var v1 = 0
@@ -117,3 +118,5 @@ class Generics2<T> {
         return a
     }
 }
+
+

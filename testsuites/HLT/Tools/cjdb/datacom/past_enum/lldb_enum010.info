@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_enum_reload,003_debug_enum_reload
-b,b 16,003_debug_enum_reload.cj:16
-AOT r,r,-> 16
+b,b 24,003_debug_enum_reload.cj:24
+AOT r,r,-> 24
 CJVM c,c,
-n,n,-> 17
+n,n,-> 25
 locals,locals,TimeUnit1\) time1 = {(\r|\n|\r\n)  constructor = Year
 print,print time1,TimeUnit1\) \$[\d]+ = {(\r|\n|\r\n)  constructor = Year
 q,q,

@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_baseVar,option_baseVar
-b,b 15,option_baseVar.cj:15
-AOT r,r,-> 15
-CJVM c,c,-> 15
+b,b 23,option_baseVar.cj:23
+AOT r,r,-> 23
+CJVM c,c,-> 23
 p,p I8,\(std[.]core.Option<Int8>\) \$[\d] = 8
 p,p I8_none,\(std[.]core.Option<Int8>\) \$[\d] = None
 p,p I16,\(std[.]core.Option<Int16>\) \$[\d] = 16

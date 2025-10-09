@@ -9,7 +9,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-#include <securec.h>
+#include <stdlib.h>
 
 char* testfunc(char* input)
 {
@@ -17,7 +17,7 @@ char* testfunc(char* input)
     int inputSize = strlen(input);
     int resSize = inputSize + 7 + 1;
     char* res = (char*)malloc(resSize);
-    strcpy_s(res, resSize, input);
-    strcat_s(res, resSize, b);
+    strcpy(res, input);
+    strcat(res, b);
     return res;
 }

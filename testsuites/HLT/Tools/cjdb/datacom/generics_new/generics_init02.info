@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_init,generics_init
-b,b 37,generics_init.cj:37
-AOT r,r,-> 37
+b,b 45,generics_init.cj:45
+AOT r,r,-> 45
 p,p t1,\(default.Rect2<Int32,Bool,Float64>\) \$[\d] = {}
 p ,p t3,\(Int64\) \$[\d] = 0
 p,p t4,\(default.\(Int64,Float64\)->Int64\) \$[\d] = 0x[\s\S]*

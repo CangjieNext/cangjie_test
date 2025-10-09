@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_CompositeVar,ArrayList_CompositeVar
-b,b 70,ArrayList_CompositeVar.cj:70
-AOT r,r,-> 70
-CJVM c,c,-> 70
+b,b 78,ArrayList_CompositeVar.cj:78
+AOT r,r,-> 78
+CJVM c,c,-> 78
 p,p c4,\(default.C\) \$[\d] = {\s+constructor = C4\s+arg_1 = {\s+\[0\] = {\s+\[0\] = 'c'[\s\S]*\[1\] = 'a'\s+}\s+\[1\] = {\s+\[0\] = 'n'[\s\S]*\[1\] = 'g'[\s\S]*}
 p,p c5,\(default.C\) \$[\d] = {[\s\S]*constructor = C5[\s\S]*arg_1 = {[\s\S]*\[0\] = {[\s\S]*\[true -> "cangjie"\] = {[\s\S]*key = true[\s\S]*value = "cangjie"[\s\S]*
 q,q,

@@ -16,6 +16,6 @@ AOT cjdb,cjdb --no-use-colors -- b_main_001 hello world,b_main_001
 CJVM cjdb,cjdb,cjdb
 CJVM process connect,process connect 127.0.0.1:,connected to 127.0.0.1:
 CJVM c,c,Process exited
-b,b 3,
+b,b 11,
 CJVM c,c,
 q,quit,

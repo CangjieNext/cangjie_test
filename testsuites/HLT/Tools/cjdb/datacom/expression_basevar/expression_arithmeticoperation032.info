@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_0o.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
+// (not MAC and not Windows) EXEC: python3 cjdb_test.py expression_arithmeticoperation032.info 057_debug_0o %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 057_debug_0o,057_debug_0o
+CJVM b,b main,057_debug_0o.cj:12
+CJVM c,c,-> 12
+b,b 63,057_debug_0o.cj:63
+AOT r,r,-> 63
+expression, expression var6=-var6;var6,OverflowException: sub
+expression, expression var7=-var7;var7,OverflowException: sub
+expression, expression var8=-var8;var8,OverflowException: sub
+expression, expression var9=-var9;var9,OverflowException: sub
+expression, expression var10=-var10;var10,OverflowException: sub
+q,q,

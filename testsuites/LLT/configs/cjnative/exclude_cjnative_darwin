@@ -29,3 +29,6 @@ compiler/Driver/cross_compile/sysroot_option/sysroot_mock.cj
 compiler/Codegen_CJNative/reflect
 # hot reload is not supported currently
 compiler/Codegen_CJNative/hotupdate
+
+# ffi-python is only supported on linux.
+compiler/FFI/ffi_python

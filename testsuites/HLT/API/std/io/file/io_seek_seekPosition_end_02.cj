@@ -23,12 +23,14 @@ main() {
     try {
         file.seek(End(-1))
     } catch (e: FSException) {
+        //if (e.toString() != mess) {return 1}
         i--
     }
     file.write(arr)
     try {
         file.seek(End(-11))
     } catch (e: FSException) {
+        //if (e.toString() != mess) {return 2}
         i--
     }
     file.close()

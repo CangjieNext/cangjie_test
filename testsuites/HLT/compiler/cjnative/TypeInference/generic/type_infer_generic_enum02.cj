@@ -45,6 +45,7 @@ func x(a: Int64): Int32 {
 
 var time3 = TimeUnit3<Int32>.Year(ArrayList<Int32>(10, x))
 var res3: Int64 = match (time3) {
+    //    case Year(a) => a.size
     case Year(a) => a.size
     case _ => 0
 }

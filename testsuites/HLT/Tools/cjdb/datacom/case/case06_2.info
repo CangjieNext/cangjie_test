@@ -13,11 +13,11 @@
 
 test#
 cjdb,cjdb --no-use-colors case06,case06
-b,b 4,case06.cj:4
-AOT r,r,-> 4
+b,b 12,case06.cj:12
+AOT r,r,-> 12
 CJVM c,c,
-n,n,-> 4
-n,n,-> 4
+n,n,-> 12
+n,n,-> 12
 breakpoint del,breakpoint del 1,1 breakpoints deleted
-n,n,-> 5
+n,n,-> 13
 q,q,

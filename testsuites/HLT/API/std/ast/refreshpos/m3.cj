@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // LEVEL: 1
 // (CJNATIVE) DEPENDENCE: define.cj
 // (CJNATIVE) EXEC: %compiler %cmp_macro define.cj
@@ -11,13 +19,6 @@ main() {
 }
 
 // ASSERT: regex description: illegal, token_id: [0-9]+, token_literal_value: , fileID: 0, line: 0, column: 0
-// ASSERT: regex description: identifier, token_id: [0-9]+, token_literal_value: a, fileID: 1, line: 10, column: 5
-// ASSERT: regex description: incr, token_id: [0-9]+, token_literal_value: \+\+, fileID: 1, line: 10, column: 5
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- * 
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: regex description: identifier, token_id: [0-9]+, token_literal_value: a, fileID: 1, line: 18, column: 5
+// ASSERT: regex description: incr, token_id: [0-9]+, token_literal_value: \+\+, fileID: 1, line: 18, column: 5
 

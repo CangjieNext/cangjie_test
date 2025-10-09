@@ -5,12 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
 
-public open class A {
+open public class A {
     let a: Int64 = 10
 }
 
@@ -21,22 +21,22 @@ public class B <: A {
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 
-    public static func geta(a: Int64): Int64 {
+    static public func geta(a: Int64): Int64 {
         var b = a + 1
         return b
     }
 
-    public static const func getb(a: Int64): Int64 {
+    const static public func getb(a: Int64): Int64 {
         let b = a + 1
         return b
     }
 
     @Frozen
-    public static func getc(a: Int64): Int64 {
+    static public func getc(a: Int64): Int64 {
         var b = a + 1
         return b
     }
@@ -114,11 +114,11 @@ public enum Rectangle {
         return 1
     }
 
-    public static func gett(a!: Int64 = 1) {
+    public static func gett(a!: Int64=1) {
         return a
     }
 
-    static func getu(a!: Int64 = 2) {
+    static func getu(a!: Int64=2) {
         return a + 2
     }
 
@@ -153,7 +153,7 @@ public enum Rectangle {
     }
 
     @Frozen
-    static func geta3(a!: Int64 = 2) {
+    static func geta3(a!: Int64=2) {
         return a + 4
     }
 
@@ -163,3 +163,6 @@ public enum Rectangle {
         return y
     }
 }
+
+
+

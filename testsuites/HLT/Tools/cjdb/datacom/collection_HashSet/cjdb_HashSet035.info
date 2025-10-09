@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
-b,b 29,003_HashSet_via_class.cj:29
-AOT r,r,-> 29
-CJVM c,c,-> 29
-b,b 35,003_HashSet_via_class.cj:35
-c,c,-> 35
+b,b 37,003_HashSet_via_class.cj:37
+AOT r,r,-> 37
+CJVM c,c,-> 37
+b,b 43,003_HashSet_via_class.cj:43
+c,c,-> 43
 AOT p,p set_re_empty,std[.]collection.HashSet<UInt32>\) \$[\d] = {}
 q,q,

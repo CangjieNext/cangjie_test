@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func013,generics_global_func013
-b,b 13,generics_global_func013.cj:13
-AOT r,r,-> 13
+b,b 21,generics_global_func013.cj:21
+AOT r,r,-> 21
 CJVM c,c,
 expr:expr a2:\(Int64\) \$[\d] = 5
 expr:expr a3/a1:ArithmeticException: Divided by zero!

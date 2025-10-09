@@ -1,0 +1,22 @@
+{
+  "fileLists": [
+    {
+      "filepath": "src/dir_0_0/dir_0_0_0/dir_0_0_0_0/file6.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src/main.cj",
+      "totalLines": 8,
+      "hitLines": [
+        9,
+        10,
+        13,
+        17,
+        18,
+        19,
+        21
+      ]
+    }
+  ]
+}

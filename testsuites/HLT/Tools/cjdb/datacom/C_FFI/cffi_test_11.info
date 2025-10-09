@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors cffi_test_11,cffi_test_11
-b,b 51,Breakpoint 1:[\s\S]*C_FFI_stepin.cj:51
-b,b 55,Breakpoint 2:[\s\S]*C_FFI_stepin.cj:55
-AOT r,r,-> 51
-CJVM c,c,-> 51
-s,s,-> 18
-c,c,-> 55
-s,s,-> 18
+b,b 59,Breakpoint 1:[\s\S]*C_FFI_stepin.cj:59
+b,b 63,Breakpoint 2:[\s\S]*C_FFI_stepin.cj:63
+AOT r,r,-> 59
+CJVM c,c,-> 59
+s,s,-> 26
+c,c,-> 63
+s,s,-> 26
 q,q,

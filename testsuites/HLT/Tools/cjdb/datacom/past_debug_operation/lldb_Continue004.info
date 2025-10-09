@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 021_debug_file,021_debug_file
-b,b 8,021_debug_file.cj:8
-b,b 14,021_debug_file.cj:14
-AOT r,r,-> 8
+b,b 16,021_debug_file.cj:16
+b,b 22,021_debug_file.cj:22
+AOT r,r,-> 16
 CJVM c,c,
-c,c,-> 14
+c,c,-> 22
 locals,locals,a
 q,q,

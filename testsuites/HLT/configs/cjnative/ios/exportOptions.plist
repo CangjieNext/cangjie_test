@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+  <dict>
+    <key>method</key>
+    <string>debugging</string> <!-- 可选值：app-store, ad-hoc, enterprise, development, enterprise -->
+  </dict>
+</plist>

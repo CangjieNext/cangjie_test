@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayIns_external_invoke.out,ArrayIns_external_invoke
-b,b 30,ArrayIns_external_invoke.cj:30
-AOT r,r,-> 30
+b,b 38,ArrayIns_external_invoke.cj:38
+AOT r,r,-> 38
 CJVM c,c,
 p,p multiArr_sub_cdg1[1],\(std[.]core.Array<pkgs.cla_sub_2<Bool>>\) \$[\d] = {(\r|\n|\r\n)  \[0\] = [\s\S]*
 p,p multiArr_sub_cdg1[1][0],pkgs.cla_sub_2<Bool>\) \$[\d] = {[\s\S]* pkgs.C1<Bool> = {[\s\S]*chwidth = true

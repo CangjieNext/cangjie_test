@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 012_debug_array_class_default,012_debug_array_class_default
-b,b 12,012_debug_array_class_default.cj:12
-AOT r,r,-> 12
+b,b 20,012_debug_array_class_default.cj:20
+AOT r,r,-> 20
 CJVM c,c,
-n,n,-> 13
+n,n,-> 21
 print,print arraymainrec01[0],C\) \$[\d]+ = {(\r|\n|\r\n)  item1 = 3(\r|\n|\r\n)  item2 = true
 q,q,

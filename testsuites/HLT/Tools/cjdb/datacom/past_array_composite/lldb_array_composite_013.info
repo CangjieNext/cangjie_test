@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_string,001_debug_array_string
-b,b 50,001_debug_array_string.cj:50
-AOT r,r,-> 50
+b,b 58,001_debug_array_string.cj:58
+AOT r,r,-> 58
 CJVM c,c,
 locals,locals,arrayfun = {(\r\n|\r|\n)  \[0\] = "string_test_001"(\r\n|\r|\n)  \[1\] = "string_test_002"(\r\n|\r|\n)}
 q,q,

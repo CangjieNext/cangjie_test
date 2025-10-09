@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors range_baseVar,range_baseVar
-b,b 17,range_baseVar.cj:17
-AOT r,r,-> 17
-CJVM c,c,-> 17
+b,b 25,range_baseVar.cj:25
+AOT r,r,-> 25
+CJVM c,c,-> 25
 p,p r00,\(std[.]core.Range<Int64>\) \$[\d] = 0..10 : 2
 p,p r11,\(std[.]core.Range<Int64>\) \$[\d] = 0.. : 2
 p,p r22,\(std[.]core.Range<Int64>\) \$[\d] = 0..= : 2

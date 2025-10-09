@@ -5,17 +5,20 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
     let c0 = CC()
 
-    if (c0.a1 == 1 && c0.a2 == 2
-        && c0.f1 == 1 && c0.f2 == 2
-        && c0.g1 == 1 && c0.h2() == 1) {
-        return 0
+    if (c0.a1 == 1 && c0.a2 == 2 
+    && c0.f1 == 1 && c0.f2 == 2 
+    && c0.g1 == 1 && c0.h2() == 1) {
+        return 0        
     } else {
         return 1
     }
+
 }
+
+

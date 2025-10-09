@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 6.2.1.2.3
   @Scene: modify
@@ -13,9 +13,10 @@
   @Object: interface
   @Behavior: modify @Deprecated: warning -> error
   @Expect: api incompatible & abi incompatible
- */
+*/
 
-// LEVEL: 0 
+
+// LEVEL: 1 
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -39,7 +40,6 @@ public interface I1 {
         "interface I1"
     }
 }
-
 public interface G1<T> {
     public static func typename(): String {
         "interface G1<T>"
@@ -52,7 +52,6 @@ public interface I2 {
         "interface I2"
     }
 }
-
 @Deprecated["This API is deprecated", strict: true]
 public interface G2<T> {
     public static func typename(): String {
@@ -66,7 +65,6 @@ public interface I3 {
         "interface I3"
     }
 }
-
 @Deprecated["This API is deprecated", strict: true]
 public interface G3<T> {
     public static func typename(): String {

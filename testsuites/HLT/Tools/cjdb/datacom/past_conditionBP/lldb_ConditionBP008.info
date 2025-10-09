@@ -16,7 +16,7 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-breakpoint,breakpoint set -l 14 -c 'var_int16==2',024_debug_variable.cj:14
+breakpoint,breakpoint set -l 22 -c 'var_int16==2',024_debug_variable.cj:22
 AOT r,r,exited with status = 1
 CJVM c,c,
 q,q,

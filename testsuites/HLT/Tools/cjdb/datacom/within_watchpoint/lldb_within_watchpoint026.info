@@ -13,9 +13,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b , b 36 ,050_debug_dataType_basic.cj:36
-r , r,-> 36
-watchpoint,watchpoint set variable -w read vb12,050_debug_dataType_basic.cj:35
-set,set vb12 = 0,\(Bool\) \$0 = false
-c ,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 39[\s\S]*
+b , b 44 ,050_debug_dataType_basic.cj:44
+r , r,-> 44
+watchpoint,watchpoint set variable -w read vb12,050_debug_dataType_basic.cj:43
+set,set vb12 = 0,\(Bool\) \$[\d] = false
+c ,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 47[\s\S]*
 q,q,

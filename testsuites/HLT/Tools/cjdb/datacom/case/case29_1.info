@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case29_1,case29_1
-b,b 10,case29_1.cj:10
-AOT r,r,-> 10
+b,b 18,case29_1.cj:18
+AOT r,r,-> 18
 CJVM c,c,
 AOT expr,expr b,\(Int64\) \$[\d] = 6
 AOT expr~expr EE.AB.f1()~\(Int64\) \$[\d] = 6

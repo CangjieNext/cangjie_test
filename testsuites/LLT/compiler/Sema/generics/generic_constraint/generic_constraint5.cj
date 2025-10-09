@@ -5,10 +5,6 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC-PIPE-1: %compiler %diag_json %f 2>&1 | compare %f
-// ASSERT: scan-3 sema_upper_bound_must_be_class_or_interface
-// ASSERT: scan-3 sema_generic_type_argument_not_match_constraint
-// ASSERT: scan sema_ambiguous_use
-// ASSERT: scan "Errors": 7,
 
 class C1 {}
 
@@ -48,3 +44,8 @@ main(): Int64 {
     let x: Sub = B<Sub>().f<SSub>(SSub())
     0
 }
+
+// ASSERT: scan-1 sema_ambiguous_use
+// ASSERT: scan-3 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan-3 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 7

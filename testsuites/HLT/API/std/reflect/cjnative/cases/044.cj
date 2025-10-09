@@ -19,7 +19,7 @@ import std.collection.*
 class Test {
     @TestCase
     func testClass(): Unit {
-        @Expect((TypeInfo.of<C1>() as ClassTypeInfo).getOrThrow().getStaticVariable("c1_public_mutable_static_member_variable_0").isMutable(), false)
+        @Expect((TypeInfo.of<C1>() as ClassTypeInfo).getOrThrow().getStaticVariable("c1_public_mutable_static_member_variable_0").isMutable(), true)
         @Expect((TypeInfo.of<C1>() as ClassTypeInfo).getOrThrow().getStaticVariable("c1_public_mutable_static_member_variable_1").isMutable(), true)
         @Expect((TypeInfo.of<C1>() as ClassTypeInfo).getOrThrow().getStaticVariable("c1_public_readonly_static_member_variable_0").isMutable(), false)
         @Expect((TypeInfo.of<C1>() as ClassTypeInfo).getOrThrow().getStaticVariable("c1_public_readonly_static_member_variable_1").isMutable(), false)
@@ -28,7 +28,7 @@ class Test {
     func testStruct(): Unit {
         @Expect((TypeInfo.of<S1>() as StructTypeInfo).getOrThrow().getStaticVariable("s1_public_readonly_static_member_variable_0").isMutable(), false)
         @Expect((TypeInfo.of<S1>() as StructTypeInfo).getOrThrow().getStaticVariable("s1_public_readonly_static_member_variable_1").isMutable(), false)
-        @Expect((TypeInfo.of<S1>() as StructTypeInfo).getOrThrow().getStaticVariable("s1_public_mutable_static_member_variable_0").isMutable(), false)
-        @Expect((TypeInfo.of<S1>() as StructTypeInfo).getOrThrow().getStaticVariable("s1_public_mutable_static_member_variable_1").isMutable(), false)
+        @Expect((TypeInfo.of<S1>() as StructTypeInfo).getOrThrow().getStaticVariable("s1_public_mutable_static_member_variable_0").isMutable(), true)
+        @Expect((TypeInfo.of<S1>() as StructTypeInfo).getOrThrow().getStaticVariable("s1_public_mutable_static_member_variable_1").isMutable(), true)
     }
 }

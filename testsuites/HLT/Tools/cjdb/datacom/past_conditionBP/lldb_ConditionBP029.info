@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 016_debug_return,016_debug_return
-breakpoint,breakpoint set -l 16 -c 'a==10',016_debug_return.cj:16
 breakpoint,breakpoint set -l 24 -c 'a==10',016_debug_return.cj:24
-AOT r,r,-> 16
+breakpoint,breakpoint set -l 32 -c 'a==10',016_debug_return.cj:32
+AOT r,r,-> 24
 CJVM c,c,
-c,c,-> 24
+c,c,-> 32
 locals,locals,a = 10
 locals,locals,b = 20
 q,q,

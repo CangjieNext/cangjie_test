@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_setVar_inherit,003_debug_setVar_inherit
-b,b 11,003_debug_setVar_inherit.cj:11
-AOT r,r,-> 11
+b,b 19,003_debug_setVar_inherit.cj:19
+AOT r,r,-> 19
 CJVM c,c,
 p,p vm_4,\(Int32\) \$[\d] = -90
 set,set vm_4 =89,\(Int32\) \$[0-9]* = 89

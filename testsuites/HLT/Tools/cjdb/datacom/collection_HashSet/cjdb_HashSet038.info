@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_HashSet_via_inherit,002_HashSet_via_inherit
-b,b 12,002_HashSet_via_inherit.cj:12
-AOT r,r,-> 12
-CJVM c,c,-> 12
+b,b 20,002_HashSet_via_inherit.cj:20
+AOT r,r,-> 20
+CJVM c,c,-> 20
 p,p set_main_3,std[.]collection.HashSet<Int32>\) \$[\d] = {[\S\s]*\[0\] = -74[\S\s]*}
 p,p set_main_3,std[.]collection.HashSet<Int32>\) \$[\d] = {[\S\s]*\[1\] = 9[\S\s]*}
 q,q,

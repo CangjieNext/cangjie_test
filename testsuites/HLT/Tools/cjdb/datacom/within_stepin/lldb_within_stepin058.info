@@ -17,10 +17,10 @@
 
 test#
 cjdb,cjdb --no-use-colors stepin_external_invoke,stepin_external_invoke
-CJVM b main,b main,stepin_external_invoke.cj:12
-CJVM c,c,-> 12
-b,b 12,stepin_external_invoke.cj:12
-AOT r,r,-> 12
-s,s,public class Exter_C1[\s\S]*-> 37[\s\S]*
-finish,finish,-> 12
+CJVM b main,b main,stepin_external_invoke.cj:20
+CJVM c,c,-> 20
+b,b 20,stepin_external_invoke.cj:20
+AOT r,r,-> 20
+s,s,public class Exter_C1[\s\S]*-> 45[\s\S]*
+finish,finish,-> 20
 q,q,

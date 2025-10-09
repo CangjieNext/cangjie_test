@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0: %frontendCompiler %enableCompileDebug %dumpCHIRDebug  %f -o %n.%suffix 2>&1
-// (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR_Debug/[0-9]*\_AST\_CHIR.chir | compare %f
+// (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR_Debug/[0-9]*\_CreateVTableAndUpdateFuncCall.chir | compare %f
 // (CJNATIVE and not Windows) ASSERT: scan @test: (Struct-_CNat6StringE) -> Unit(Int64) => @_CN7default3Foo4testHRNat6StringE
 public open class Foo {
     public open func test(x: String): Int64 {

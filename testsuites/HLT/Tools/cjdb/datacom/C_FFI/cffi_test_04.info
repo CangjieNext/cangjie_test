@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors cffi_test_04,cffi_test_04
-b,b 24,Breakpoint 1:[\s\S]*C_FFI_stepin.cj:24
-b,b 32,Breakpoint 2:[\s\S]*C_FFI_stepin.cj:32
-AOT r,r,-> 24
-CJVM c,c,-> 24
-s,s,-> 6
-b,b 11,Breakpoint 3:[\s\S]*C_FFI_stepin.c:11
-c,c,-> 11
+b,b 32,Breakpoint 1:[\s\S]*C_FFI_stepin.cj:32
+b,b 40,Breakpoint 2:[\s\S]*C_FFI_stepin.cj:40
+AOT r,r,-> 32
+CJVM c,c,-> 32
+s,s,-> 14
+b,b 19,Breakpoint 3:[\s\S]*C_FFI_stepin.c:19
+c,c,-> 19
 locals,locals,\(double\[5\]\) balance
 q,q,

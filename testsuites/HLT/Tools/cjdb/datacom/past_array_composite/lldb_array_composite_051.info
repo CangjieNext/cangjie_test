@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 007_debug_array_record_parameters,007_debug_array_record_parameters
-b,b 49,007_debug_array_record_parameters.cj:49
-AOT r,r,-> 49
+b,b 57,007_debug_array_record_parameters.cj:57
+AOT r,r,-> 57
 CJVM c,c,
-n,n,-> 50
+n,n,-> 58
 print,print arraymainrec01[0],Rectangle\) \$[\d] = {(\r\n|\r|\n)  width = 0(\r\n|\r|\n)  length = 1(\r\n|\r|\n)  heigth = 10(\r\n|\r|\n)  re_func = 30
 q,q,

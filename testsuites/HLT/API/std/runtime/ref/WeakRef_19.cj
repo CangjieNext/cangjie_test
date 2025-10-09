@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1 
-// (LLVM) EXEC: %compiler %cmp_opt %f -o %output
-// (LLVM) RUN-EXEC: %run %run_opt %output %run_args
+// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
+// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
 
 import std.ref.*
 import std.time.*

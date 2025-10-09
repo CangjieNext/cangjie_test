@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -19,20 +19,15 @@ public interface I1 {
 
 private interface I2 {}
 
-public open class C1 {}
-
+open public class C1 {}
 public class C2 {
     public const init() {}
 }
-
-public open class C3<T, U> where T <: ToString {}
-
+open public class C3<T, U> where T <: ToString {}
 public class C4 <: C1 {}
-
 public class C5<T, U> <: C3<T, U> where T <: ToString {}
 
 public struct S1 {}
-
 public struct S2<T, U> where U <: C1 {}
 
 extend C1 {
@@ -76,3 +71,5 @@ extend<X, Y> S2<X, Y> {
         2
     }
 }
+
+

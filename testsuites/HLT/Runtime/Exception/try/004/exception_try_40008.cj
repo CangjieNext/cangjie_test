@@ -18,6 +18,7 @@ class B {
         try {
             throw A()
         }
+            //catch (_) {}
             finally {}
     }
 }

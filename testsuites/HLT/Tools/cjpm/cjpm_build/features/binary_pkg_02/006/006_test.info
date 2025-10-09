@@ -20,4 +20,4 @@
 
 
 // EXEC: %cp 006/test_result.txt .
-// (not MAC) EXEC-PIPE-1: cd 006/ && %cjpm build 2>&1 | compare test_result.txt
+// (not MAC and not Windows) EXEC-PIPE-1: cd 006/ && %cjpm build 2>&1 | compare test_result.txt

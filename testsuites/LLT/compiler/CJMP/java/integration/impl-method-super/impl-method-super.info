@@ -1,0 +1,35 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop --output-javagen-dir=src/java/cj
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/com/java/lib/*.java src/java/cj/Impl.java -h ./ -d ./
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && %java %cp_cj_loader_java_interop -Djava.library.path./ com.java.lib.Main 2>& 1 | compare %f
+
+/* SCAN-IN
+cangjie: Impl()
+java: foo()
+cangjie: test void foo()
+java: foo()
+cangjie: test void foo() end
+cangjie: test int bar()
+java: bar()
+cangjie: test int bar() end
+cangjie: test int foo(int)
+java: foo(33)
+cangjie: test int foo(int) end
+cangjie: test String foo(String)
+java: foo(Hello cangjie - java)
+cangjie: test String foo(String) end
+cangjie: test MyObject foo(MyObject)
+java: foo(MyObject)
+java: foo(MyObject)
+java: foo(MyObject)
+cangjie: test MyObject foo(MyObject) end
+cangjie: test MyObject foo(MyObject - null)
+java: foo(MyObject - null)
+cangjie: test MyObject foo(MyObject - null) end
+*/

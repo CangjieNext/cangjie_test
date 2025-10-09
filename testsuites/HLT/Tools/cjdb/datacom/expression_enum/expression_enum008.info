@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 018_enum_return,018_enum_return
-b,b 14,018_enum_return.cj:14
-AOT r,r,-> 14
+b,b 22,018_enum_return.cj:22
+AOT r,r,-> 22
 CJVM c,c,
 expr,expr bb,\(default.EE1\) \$[\d] = XY
 expr~expr EE1.XY~\(default.EE1\) \$[\d] = XY

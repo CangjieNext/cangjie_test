@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_enum_cons,001_debug_enum_cons
-b,b 28,001_debug_enum_cons.cj:28
-AOT r,r,-> 28
+b,b 36,001_debug_enum_cons.cj:36
+AOT r,r,-> 36
 CJVM c,c,
 locals,locals,TimeUnit1\) time4 = Year
 q,q,

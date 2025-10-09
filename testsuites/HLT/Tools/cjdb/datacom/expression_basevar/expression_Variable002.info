@@ -16,10 +16,10 @@
  
 test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
-CJVM b,b main,015_debug_basetype.cj:4
-CJVM c,c,-> 4
-b,b 29,015_debug_basetype.cj:29
-AOT r,r,-> 29
+CJVM b,b main,015_debug_basetype.cj:12
+CJVM c,c,-> 12
+b,b 37,015_debug_basetype.cj:37
+AOT r,r,-> 37
 p, p varf11,\(Float16\) \$[\d] = 0.0010004
 expression, expression varf11,\(Float16\) \$[\d] = 0.0010004
 expression, expression varf12,\(Float16\) \$[\d] = 4

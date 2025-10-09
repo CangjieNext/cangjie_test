@@ -14,15 +14,15 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
-b,b 22,003_HashSet_via_class.cj:22
-AOT r,r,-> 22
-CJVM c,c,-> 22
-s,s,-> 102
+b,b 30,003_HashSet_via_class.cj:30
+AOT r,r,-> 30
+CJVM c,c,-> 30
+s,s,-> 110
 p,p par_1,\(UInt8\) \$[\d] = 18
-n,n,-> 103
+n,n,-> 111
 p,p set_cuint8,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[0\] = 4[\S\s]*}
 p,p set_cuint8,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[1\] = 9[\S\s]*}
-n,n,-> 104
+n,n,-> 112
 p,p set_cuint8,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[3\] = 18[\S\s]*}
 p,p set_cuint8,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[1\] = 9[\S\s]*}
 q,q,

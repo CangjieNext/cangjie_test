@@ -23,7 +23,7 @@ class Test {
             TypeInfo.get("");
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "InfoNotFoundException: TypeInfo '' not found")
+            @Expect(e.toString(), "InfoNotFoundException: TypeInfo '' not found.")
         }
 
         // 绝对不存在的类型名称。
@@ -31,7 +31,7 @@ class Test {
             TypeInfo.get("xxx");
             @Assert(false)
         } catch (e: Exception) {
-            @Expect(e.toString(), "InfoNotFoundException: TypeInfo 'xxx' not found")
+            @Expect(e.toString(), "InfoNotFoundException: TypeInfo 'xxx' not found.")
         }
     }
 }

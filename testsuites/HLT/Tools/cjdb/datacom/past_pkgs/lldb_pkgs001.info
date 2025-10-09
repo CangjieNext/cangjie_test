@@ -17,13 +17,13 @@
 
 test#
 cjdb,cjdb --no-use-colors pkgs001,pkgs001
-b,b 8,pkgs001.cj:8
-AOT b,b 9,no locations
-CJVM b,b 9,no code at [\s\S]*pkgs001.cj:9
-b,b 32,pkgs001.cj:32
-AOT r,r,-> 8
+b,b 16,pkgs001.cj:16
+AOT b,b 17,no locations
+CJVM b,b 17,no code at [\s\S]*pkgs001.cj:17
+b,b 40,pkgs001.cj:40
+AOT r,r,-> 16
 CJVM c,c,
-c,c,-> 32
+c,c,-> 40
 globals,globals,test = 127
 globals,globals,test1 = 1
 locals,locals,res11 = 127

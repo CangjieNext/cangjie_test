@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 6.2.1.3.1
   @Scene: modify
@@ -13,9 +13,9 @@
   @Object: interface
   @Behavior: modify modifier: public -> non public
   @Expect: api incompatible & abi incompatible
- */
+*/
 
-// LEVEL: 0 
+// LEVEL: 1 
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -25,7 +25,7 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // ASSERT: scan Incompatible
-// ASSERT: scan-1 [API/ABI] Interface declaration visible outside the module made protected or internal.
+// ASSERT: scan-1 [API/ABI] Interface declaration visible outside the module deleted or changed modifier 'public'.
 // ASSERT: scan-1 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
@@ -38,11 +38,10 @@ protected interface I1 {
         "interface I1"
     }
 }
-
 protected interface I2 {}
-
 internal interface I3 {}
-
 interface I4 {}
-
 private interface I5 {}
+sealed interface I6 {} 
+public interface I7 {} 
+public sealed interface I8 {}

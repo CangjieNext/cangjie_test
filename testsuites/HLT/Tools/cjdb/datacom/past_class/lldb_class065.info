@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 013_debug_class_func,013_debug_class_func
-b,b 76,013_debug_class_func.cj:76
-AOT r,r,-> 76
-CJVM c,c,-> 76
-n,n,-> 78
+b,b 84,013_debug_class_func.cj:84
+AOT r,r,-> 84
+CJVM c,c,-> 84
+n,n,-> 86
 locals,locals,C1\) newc2 = {(\r|\n|\r\n)  length = 40(\r|\n|\r\n)  width = 40(\r|\n|\r\n)  perimeter = 0
 q,q,

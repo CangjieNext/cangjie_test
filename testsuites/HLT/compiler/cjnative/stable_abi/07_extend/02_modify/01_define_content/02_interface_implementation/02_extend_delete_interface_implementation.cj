@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.2.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend
   @Behavior: delete interface implementation
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -36,15 +36,12 @@ interface I1 {
     public func f1(): Int64
     public func ff1(): Int64
 }
-
 interface I2 {
     public func f2(): Int64
 }
-
 interface I3 {}
 
 public class C1 {}
-
 public struct S1 {}
 
 extend C1 <: I3 {
@@ -54,7 +51,7 @@ extend C1 <: I3 {
     public func ff1() {
         100
     }
-}
+}  
 
 extend S1 <: I3 {
     public func f1() {
@@ -63,4 +60,4 @@ extend S1 <: I3 {
     public func ff1() {
         100
     }
-}
+}  

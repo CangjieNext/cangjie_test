@@ -4,10 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %diag_json %f -o %output
-// ASSERT: scan sema_upper_bound_must_be_class_or_interface
-// ASSERT: scan sema_generic_type_argument_not_match_constraint
-// ASSERT: scan "Errors": 2,
+// EXEC-PIPE-1: %compiler %diag_json  %f  -o %output 2>&1 | compare %f
 
 class Aoo<T> where T <: Bool & Object {
     public var a: T
@@ -23,3 +20,7 @@ main() {
     }
     return 0
 }
+
+// ASSERT: scan-1 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan-1 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 2

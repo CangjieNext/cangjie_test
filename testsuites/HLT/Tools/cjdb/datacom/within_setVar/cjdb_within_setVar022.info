@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_setVar_generices,001_debug_setVar_generices
-b,b 18,001_debug_setVar_generices.cj:18
-AOT r,r,-> 18
+b,b 26,001_debug_setVar_generices.cj:26
+AOT r,r,-> 26
 CJVM c,c,
-s,s,static func fun_s1\(par_1:Y\)[\s\S]*-> 74
-n,n,-> 75
+s,s,static func fun_s1\(par_1:Y\)[\s\S]*-> 82
+n,n,-> 83
 p,p var_s1,\(Float32\) \$[\d] = 3.11999989
 set,set var_s1 =-1.236,\(Float32\) \$[0-9]* = -1.23599994
 p,p var_s1,\(Float32\) \$[\d] = -1.23599994

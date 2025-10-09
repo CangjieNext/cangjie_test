@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.10.2.3
   @Scene: delete
@@ -13,8 +13,8 @@
   @Object: struct instance func
   @Behavior: delete @Deprecated
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -33,10 +33,11 @@
 // test struct: delete @Deprecated
 package test_stable_abi
 
+
 public struct Rectangle {
     static let width = 10
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
@@ -72,3 +73,4 @@ public struct Rectangle {
         return x
     }
 }
+

@@ -19,10 +19,10 @@ test#
 cjdb,cjdb --no-use-colors 001_thread_bt,001_thread_bt
 AOT threadbt,thread backtrace,error: Command requires a current process
 CJVM threadbt,thread backtrace,error: frames is empty
-AOT b,b main,Breakpoint 1: where[\s\S]*pkgs001.cj:29
-AOT r,r,-> 29
-CJVM b,breakpoint set -n main,pkgs001.cj:29
-CJVM c,c,-> 29
-threadbt,thread backtrace,\* frame #0[\s\S]*pkgs001.cj:29
-threadbt,bt,\* frame #0[\s\S]*pkgs001.cj:29
+AOT b,b main,Breakpoint 1: where[\s\S]*pkgs001.cj:37
+AOT r,r,-> 37
+CJVM b,breakpoint set -n main,pkgs001.cj:37
+CJVM c,c,-> 37
+threadbt,thread backtrace,\* frame #0[\s\S]*pkgs001.cj:37
+threadbt,bt,\* frame #0[\s\S]*pkgs001.cj:37
 q,q,

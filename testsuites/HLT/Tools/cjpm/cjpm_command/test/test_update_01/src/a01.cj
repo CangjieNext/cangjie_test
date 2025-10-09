@@ -13,6 +13,7 @@ func returnNum(): Int64 {
 }
 
 main() {
+    // func_in_test()
     test0()
     println("running .cj case here")
     throw Exception("")

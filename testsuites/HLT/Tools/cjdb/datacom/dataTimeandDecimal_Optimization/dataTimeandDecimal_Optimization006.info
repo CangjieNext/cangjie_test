@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors dataTimeandDecimal_Optimization006,dataTimeandDecimal_Optimization006
-b,b 8,dataTimeandDecimal_Optimization006.cj:8
-r,r,-> 8
+b,b 16,dataTimeandDecimal_Optimization006.cj:16
+r,r,-> 16
 p,p a1,\(std.math.numeric.Decimal\) \$[\d] = 0
 p,p a2,\(std.math.numeric.Decimal\) \$[\d] = 0
 p,p a3,\(std.math.numeric.Decimal\) \$[\d] = 0.0000000000

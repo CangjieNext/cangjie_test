@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 033_debuginfun_func_with_arg,033_debuginfun_func_with_arg
-breakpoint,breakpoint set -l 9 -c 'Functioncall004==2',033_debuginfun_func_with_arg.cj:9
-AOT r,r,-> 9
+breakpoint,breakpoint set -l 17 -c 'Functioncall004==2',033_debuginfun_func_with_arg.cj:17
+AOT r,r,-> 17
 CJVM c,c,
-n,n,-> 10
+n,n,-> 18
 locals,locals,Functioncall005 = 2
 q,q,

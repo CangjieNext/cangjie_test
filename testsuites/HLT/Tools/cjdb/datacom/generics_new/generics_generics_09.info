@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 133,Breakpoint 1:
-AOT r,r,-> 133
+b,b 141,Breakpoint 1:
+AOT r,r,-> 141
 CJVM c,c,
 p, p a,\(default.S3<std.core.String>\) \$[\d] = {[\s\S]*s3_a = "cangjie"[\s\S]*}
 locals, locals,\(default.S4<default.S3<std.core.String>>\) this = {[\s\S]*s4_a = {[\s\S]*s3_a = "cangjie"[\s\S]*}[\s\S]*\(default.S3<std.core.String>\) a = {[\s\S]*s3_a = "cangjie"[\s\S]*}

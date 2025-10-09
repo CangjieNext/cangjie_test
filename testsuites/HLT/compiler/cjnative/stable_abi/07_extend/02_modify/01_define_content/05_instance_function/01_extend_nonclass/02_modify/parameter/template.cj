@@ -5,19 +5,17 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test extend: instance function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public struct TestStruct {
     public const init() {}
 }
-
 extend TestStruct {
     public func f1() {
         1
@@ -42,7 +40,6 @@ extend TestStruct {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -50,7 +47,6 @@ extend TestStruct {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -65,17 +61,14 @@ extend TestStruct {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
@@ -130,25 +123,24 @@ extend TestStruct {
         c
     }
 
-    private const func fa3(a!: Int64 = 1): Int64 {
+    private const func fa3(a!:Int64 = 1): Int64 {
         return 3
     }
-    public const func fa4(a!: Int64 = 1): Int64 {
+    public const func fa4(a!:Int64 = 1): Int64 {
         fa3()
     }
     internal const func paf3(): Int64 {
         return 3
     }
-    protected const func paf4(a!: Int64 = 1): Int64 {
+    protected const func paf4(a!:Int64 = 1): Int64 {
         paf3()
     }
 
     func fa5(): Int64 {
         return 5
     }
-
     @Frozen
-    public func fa6(a!: Int64 = 1): Int64 {
+    public func fa6(a!:Int64 = 1): Int64 {
         fa5()
     }
 }
@@ -157,3 +149,5 @@ public func global() {
     let s1 = TestStruct()
     s1.f7()
 }
+
+

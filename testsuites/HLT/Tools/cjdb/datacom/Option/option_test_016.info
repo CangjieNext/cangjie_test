@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_compositeVar,option_compositeVar
-b,b 25,option_compositeVar.cj:25
-AOT r,r,-> 25
-CJVM c,c,-> 25
+b,b 33,option_compositeVar.cj:33
+AOT r,r,-> 33
+CJVM c,c,-> 33
 p,p Hset_String,\(std[.]core.Option<std[.]collection.HashSet<std[.]core.String>>\) \$[\d] = {[\s\S]*\[0\] = "CANGJIE"[\s\S]*\[1\] = "HELLLO"[\s\S]*\[2\] = "WORLD"[\s\S]*}
 p,p Hset_none,\(std[.]core.Option<std[.]collection.HashSet<std[.]core.String>>\) \$[\d] = None
 q,q,

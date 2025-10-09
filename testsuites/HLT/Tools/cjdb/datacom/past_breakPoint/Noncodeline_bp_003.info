@@ -15,9 +15,9 @@
 
 test#
 cjdb,cjdb --no-use-colors Noncodeline_bp_003,Noncodeline_bp_003
-CJVM b,b 3,Breakpoint 1: no code at[\s\S]*055_noncodeline_bp.cj:3
-CJVM b,b 8,Breakpoint 2: no code at[\s\S]*055_noncodeline_bp.cj:8
-CJVM b,b 17,Breakpoint 3: no code at[\s\S]*055_noncodeline_bp.cj:17
-CJVM b,b 39,Breakpoint 4: no code at[\s\S]*055_noncodeline_bp.cj:39
+CJVM b,b 11,Breakpoint 1: no code at[\s\S]*055_noncodeline_bp.cj:11
+CJVM b,b 16,Breakpoint 2: no code at[\s\S]*055_noncodeline_bp.cj:16
+CJVM b,b 25,Breakpoint 3: no code at[\s\S]*055_noncodeline_bp.cj:25
+CJVM b,b 47,Breakpoint 4: no code at[\s\S]*055_noncodeline_bp.cj:47
 CJVM c,c,Process exited
 q,q,

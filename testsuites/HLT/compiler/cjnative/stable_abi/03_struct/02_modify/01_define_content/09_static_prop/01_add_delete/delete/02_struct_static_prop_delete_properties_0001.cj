@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.9.1.2
   @Scene: delete
@@ -13,8 +13,8 @@
   @Object: struct static prop
   @Behavior: delete non public static properties
   @Expect: api incompatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // Expect: API Incompatible & ABI Incompatible
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -35,15 +35,16 @@
 // 删除带public修饰符的静态属性
 package test_stable_abi
 
+
 public struct Rectangle {
     let width = 10
     static var a = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
-    mut static prop geta: Int64 {
+    static mut prop geta: Int64 {
         get() {
             a
         }
@@ -53,9 +54,9 @@ public struct Rectangle {
     }
 }
 
-public struct S1 {
+public struct S1{
     static var a = 20
-    public mut static prop geta: Int64 {
+    public static mut prop geta: Int64 {
         get() {
             a
         }
@@ -65,7 +66,7 @@ public struct S1 {
     }
 
     @Frozen
-    public func getgeta() {
+    public func getgeta(){
         return geta
     }
 }

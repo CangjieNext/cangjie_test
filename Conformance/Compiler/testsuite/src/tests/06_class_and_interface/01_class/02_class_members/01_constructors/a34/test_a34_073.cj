@@ -13,25 +13,19 @@
 
   @Assertion: 6.1.2.1(34)
               A constructor has the following dedicated syntax.
-              Init
-                : nonSMemberModifier? 'init' '(' InitParamLists? ')'
-                '{'
-                  (superCallExression | initCallExpression)?
-                  ( expression
-                  | variableDeclaration
-                  | functionDefinition)*
-                '}'
-                ;
-              InitParamLists
-                : unnamedParameterList (',' namedParameterList)?
-                | namedParameterList
-                ;
+              structInitDeclaration
+                  : annotationList? (structNonStaticMemberModifier | CONST NL*)? INIT NL* functionParameters NL* block
+                  ;
+ 
+              classInitDeclaration
+                  : annotationList? (classNonStaticMemberModifier | CONST NL*)? INIT NL* functionParameters NL* block
+                  ;
 
-  @Description: Check that the parameter list can not end in a trailing ',' symbol
+  @Description: Check that the parameter list can end in a trailing ',' symbol
 
-  @Mode: compileonly
+  @Mode: run
 
-  @Negative: yes
+  @Negative: no
 
   @Structure: single
 */

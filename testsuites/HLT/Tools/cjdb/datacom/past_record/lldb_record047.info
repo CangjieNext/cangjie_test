@@ -16,15 +16,15 @@
 // TODO: change "this$cjc" to "this" after 2022/8/12
 test#
 cjdb,cjdb --no-use-colors 045_debug_record_mod,045_debug_record_mod
-b,b 60,045_debug_record_mod.cj:60
-AOT r,r,-> 60
+b,b 68,045_debug_record_mod.cj:68
+AOT r,r,-> 68
 CJVM c,c,
-s,s,-> 20
-finish,finish,-> 60
-n,n,-> 61
-s,s,-> 40
+s,s,-> 28
+finish,finish,-> 68
+n,n,-> 69
+s,s,-> 48
 AOT p,p this.width,\$[\d] = 200
-n,n,-> 41
-n,n,-> 42
+n,n,-> 49
+n,n,-> 50
 AOT p,p this.width,\$[\d] = 70
 q,q,

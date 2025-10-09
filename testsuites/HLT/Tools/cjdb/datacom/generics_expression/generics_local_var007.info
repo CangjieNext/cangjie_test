@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var007,generics_local_var007
-b,b 49,generics_local_var007.cj:49
-AOT r,r,-> 49
+b,b 57,generics_local_var007.cj:57
+AOT r,r,-> 57
 CJVM c,c,
 expr:expr Float64(var22):\(Float64\) \$[\d] = 8
 expr~expr vUInt64[0]-2~OverflowException: sub

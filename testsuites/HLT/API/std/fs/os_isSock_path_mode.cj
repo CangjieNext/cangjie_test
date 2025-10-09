@@ -6,11 +6,11 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 3
 // DEPENDENCE: getPath_isSock.sh test_fj.txt
 // (not MAC and not Windows) EXEC: chmod +x getPath_isSock.sh
 // (not MAC and not Windows) EXEC: ls -l
-// (not MAC and not Windows) EXEC: ./getPath_isSock.sh s
+// (not MAC and not Windows) EXEC: ./getPath_isSock.sh s && cat mypath.cj
 // (not MAC and not Windows) EXEC: %compiler %cmp_opt mypath.cj -o %output %f
 // (not MAC and not Windows) RUN-EXEC: %run %run_opt %output %run_args
 import std.posix.*

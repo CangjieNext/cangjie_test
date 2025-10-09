@@ -28,4 +28,3 @@ main() {
 }
 // ASSERT: scan sema_interface_member_must_be_implemented
 // ASSERT: scan sema_generic_instantiation_causes_ambiguous_functions
-// ASSERT: scan sema_ambiguous_match

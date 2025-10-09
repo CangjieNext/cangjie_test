@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors demangle_2,demangle_2
-b,b 70,where = demangle_2`pkg_re::main::test_input::test_input_3\(Int64\) \+ \d+ at demangle_2.cj:70:13
-AOT r,r,demangle_2`pkg_re::main::test_input::test_input_3\(b=10\) at demangle_2.cj:70:13[\s\S]*-> 70
-CJVM c,c,-> 70
-n,n,-> 72|75
-b,b test_input_2,where = demangle_2`pkg_re::test_input_2\(Int64\) \+ \d+ at demangle_2.cj:51:5
-c,c,demangle_2`pkg_re::test_input_2\(b=10\) at demangle_2.cj:51:5
-finish,finish,-> 76|77
+b,b 78,where = demangle_2`pkg_re::main::test_input::test_input_3\(Int64\) \+ \d+ at demangle_2.cj:78:13
+AOT r,r,demangle_2`pkg_re::main::test_input::test_input_3\(b=10\) at demangle_2.cj:78:13[\s\S]*-> 78
+CJVM c,c,-> 78
+n,n,-> 80|83
+b,b test_input_2,where = demangle_2`pkg_re::test_input_2\(Int64\) \+ \d+ at demangle_2.cj:59:5
+c,c,demangle_2`pkg_re::test_input_2\(b=10\) at demangle_2.cj:59:5
+finish,finish,-> 84|85
 q,q,

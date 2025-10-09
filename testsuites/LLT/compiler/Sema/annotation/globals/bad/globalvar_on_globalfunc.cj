@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // ERRCHECK: %compiler %f %cmp_opt
-// (CJNATIVE) ERRCHECK: %compiler %f %cmp_opt
+
 
 @Annotation[target: [GlobalVariable]]
 public class APILevel {

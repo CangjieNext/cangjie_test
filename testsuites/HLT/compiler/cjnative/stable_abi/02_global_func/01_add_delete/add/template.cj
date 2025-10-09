@@ -5,15 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test global func: add global func
-func global_func_01() {
-    0
-}
+func global_func_01() { 0 }
+public func global_func_02() { global_func_01() }
 
-public func global_func_02() {
-    global_func_01()
-}
+

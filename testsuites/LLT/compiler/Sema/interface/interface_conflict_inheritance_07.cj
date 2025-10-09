@@ -4,9 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
-// ASSERT: scan-2 sema_inherit_member_type_inconsistent
-// ASSERT: scan "Errors": 2,
+// EXEC:%frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
 
 interface I1 {
     func foo(): Int
@@ -23,3 +21,6 @@ class A<T> where T <: I1 & I2 {}
 
 main() {
 }
+
+// ASSERT: scan-2 sema_inherit_member_type_inconsistent
+// ASSERT: scan "Errors": 2

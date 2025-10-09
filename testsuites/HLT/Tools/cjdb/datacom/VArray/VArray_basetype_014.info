@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors VArray_basetype_014,VArray_basetype_014
-b,b 42,Breakpoint 1: where = VArray_basetype_014`default::main[\s\S]*VArray_basetype.cj:42
-AOT r,r,-> 42
-CJVM c,c,-> 42
+b,b 50,Breakpoint 1: where = VArray_basetype_014`default::main[\s\S]*VArray_basetype.cj:50
+AOT r,r,-> 50
+CJVM c,c,-> 50
 p,p vUInt8[1]=1024,error: unsupported expression
 p,p vUInt16[1]=16,\(UInt16\) \$[\d] = 16
 p,p vUInt32[1]=32,\(UInt32\) \$[\d] = 32

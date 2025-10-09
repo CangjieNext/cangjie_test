@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 048_debug_array_type,048_debug_array_type
-b,b 17,048_debug_array_type.cj:17
-AOT r,r,-> 17
+b,b 25,048_debug_array_type.cj:25
+AOT r,r,-> 25
 CJVM c,c,
-n,n,-> 18
+n,n,-> 26
 print,p arrayFloat32,Array<Float32>
 print,p arrayFloat32,\[0\] = 32.
 print,p arrayFloat32,\[2\] = 32.

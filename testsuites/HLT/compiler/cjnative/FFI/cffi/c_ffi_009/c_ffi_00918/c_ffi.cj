@@ -8,7 +8,7 @@
 
 // LEVEL:2
 // DEPENDENCE: %n.c
-// EXEC: %clang %clang_opt %n.c -o %cffi_output -lboundscheck
+// EXEC: %clang %clang_opt %n.c -o %cffi_output %boundscheck
 // EXEC: %compiler %cmp_opt %ffic_opt -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 

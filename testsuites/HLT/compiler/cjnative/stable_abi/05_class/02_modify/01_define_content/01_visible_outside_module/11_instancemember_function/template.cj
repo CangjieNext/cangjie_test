@@ -5,13 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test class: instancemember function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 @Annotation
@@ -22,7 +21,7 @@ public class Version {
     }
 }
 
-public open class TestClass {
+open public class TestClass {
     public func f1() {
         1
     }
@@ -46,7 +45,6 @@ public open class TestClass {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -54,7 +52,6 @@ public open class TestClass {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -69,17 +66,14 @@ public open class TestClass {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
@@ -147,7 +141,7 @@ public open class TestClass {
         2
     }
 
-    public open func openfunc() {
+    open public func openfunc() {
         1
     }
 
@@ -158,3 +152,5 @@ public func global() {
     let v1 = TestClass()
     v1.f7()
 }
+
+

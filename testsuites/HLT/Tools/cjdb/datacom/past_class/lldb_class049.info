@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 012_debug_class_init,012_debug_class_init
-b,b 52,012_debug_class_init.cj:52
-AOT r,r,-> 52
-CJVM c,c,-> 52
-n,n,-> 53
+b,b 60,012_debug_class_init.cj:60
+AOT r,r,-> 60
+CJVM c,c,-> 60
+n,n,-> 61
 locals,locals,C1\) num2 = {(\r|\n|\r\n)  length = 3(\r|\n|\r\n)  width = 4(\r|\n|\r\n)  perimeter = 14
 q,q,

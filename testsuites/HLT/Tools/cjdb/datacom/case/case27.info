@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case27,case27
-b,b 11,case27.cj:11
-AOT r,r,-> 11
+b,b 19,case27.cj:19
+AOT r,r,-> 19
 CJVM c,c,
 AOT expr~expr mergeArray([1, 2], [1, 2, 3])~\(VArray<Int64,\$5>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
 AOT expr~expr b2[0]~\(VArray<Int64,\$2>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}

@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_009,viewVariables_Cstring_009
-b,b 62,Test_CString.cj:62
-AOT r,r,-> 62
+b,b 70,Test_CString.cj:70
+AOT r,r,-> 70
 CJVM c,c,
-s,s,-> 45
-b,b 49,Test_CString.cj:49
-c,c,-> 49
+s,s,-> 53
+b,b 57,Test_CString.cj:57
+c,c,-> 57
 p,p vf_str1,\(CString\) \$[\d] = " "
 p,p vf_arr_str_1[0],\(CString\) \$[\d] = " "
 q,q,

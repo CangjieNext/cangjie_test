@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 2.2.2.1
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global func
   @Behavior: modify define file
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -31,11 +31,5 @@
 
 package test_stable_abi
 
-func global_func_01() {
-    0
-}
-
-@Frozen
-public func global_func_02() {
-    global_func_01()
-}
+func global_func_01() { 0 }
+@Frozen public func global_func_02() { global_func_01() }

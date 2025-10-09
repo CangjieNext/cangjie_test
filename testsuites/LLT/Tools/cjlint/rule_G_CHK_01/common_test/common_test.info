@@ -1,0 +1,66 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir --import-path %cangjieStdxPath 2>&1 | compare %f
+// ASSERT: regex .*test.cj:7:17:.*Avoid using the wildcard '\*' in the import declaration 'std.regex'.
+// ASSERT: regex .*test.cj:8:17:.*Avoid using the wildcard '\*' in the import declaration 'std.core'.
+// ASSERT: regex .*test.cj:9:17:.*Avoid using the wildcard '\*' in the import declaration 'std.process'.
+// ASSERT: regex .*test.cj:10:17:.*Avoid using the wildcard '\*' in the import declaration 'std.console'.
+// ASSERT: regex .*test.cj:11:17:.*Avoid using the wildcard '\*' in the import declaration 'stdx.net.http'.
+// ASSERT: regex .*test.cj:12:17:.*Avoid using the wildcard '\*' in the import declaration 'stdx.encoding.url'.
+// ASSERT: regex .*test.cj:13:17:.*Avoid using the wildcard '\*' in the import declaration 'std.net'.
+// ASSERT: regex .*test.cj:15:19:.*Parameter 'param' is unused parameter
+// ASSERT: regex .*test.cj:16:18:.*Parameter 'param1' is unused parameter
+// ASSERT: regex .*test.cj:16:33:.*Parameter 'param2' is unused parameter
+// ASSERT: regex .*test.cj:16:48:.*Parameter 'param3' is unused parameter
+// ASSERT: regex .*test.cj:18:1:.*Identifier 'c1' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias
+// ASSERT: regex .*test.cj:20:5:.*Prefer immutable variables when the value of the member variable 'c1m2' does not change.
+// ASSERT: regex .*test.cj:21:15:.*Parameter 'p1' is unused parameter
+// ASSERT: regex .*test.cj:21:27:.*Parameter 'p2' is unused parameter
+// ASSERT: regex .*test.cj:24:1: .*Identifier 's1' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias
+// ASSERT: regex .*test.cj:26:5:.*Prefer immutable variables when the value of the member variable 's1m2' does not change.
+// ASSERT: regex .*test.cj:28:1:.*Prefer immutable variables when the value of the variable 'cond' does not change.
+// ASSERT: regex .*test.cj:30:5:.*Prefer immutable variables when the value of the variable 'v0' does not change.
+// ASSERT: regex .*test.cj:30:36:.*Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex .*test.cj:31:5:.*Prefer immutable variables when the value of the variable 'ic1' does not change.
+// ASSERT: regex .*test.cj:32:5:.*Prefer immutable variables when the value of the variable 'is1' does not change.
+// ASSERT: regex .*test.cj:35:5:.*Prefer immutable variables when the value of the variable 'v1' does not change.
+// ASSERT: regex .*test.cj:36:5:.*Prefer immutable variables when the value of the variable 'v2' does not change.
+// ASSERT: regex .*test.cj:38:5:.*In function 'c1f1', the 1st argument is untrusted, we can't deliver it outter.
+// ASSERT: regex .*test.cj:39:5:.*Prefer immutable variables when the value of the variable 'v3' does not change.
+// ASSERT: regex .*test.cj:45:9:.*The return value is untrusted, we can't deliver it outter.
+// ASSERT: regex .*test.cj:54:1:.*Function name 'ArrayTest' recommend to use lower camel case
+// ASSERT: regex .*test.cj:55:5:.*Prefer immutable variables when the value of the variable 'server' does not change.
+// ASSERT: regex .*test.cj:56:5:.*Prefer immutable variables when the value of the variable 'buf' does not change.
+// ASSERT: regex .*test.cj:57:5:.*Prefer immutable variables when the value of the variable 'buf2' does not change.
+// ASSERT: regex .*test.cj:58:5:.*In function 'read', the 1st argument is untrusted, we can't deliver it outter.
+// ASSERT: regex .*test.cj:59:5:.*Prefer immutable variables when the value of the variable 'v0' does not change.
+// ASSERT: regex .*test.cj:60:5:.*Prefer immutable variables when the value of the variable 'v1' does not change.
+// ASSERT: regex .*test.cj:62:5:.*Prefer immutable variables when the value of the variable 'v2' does not change.
+// ASSERT: regex .*test.cj:65:5:.*Prefer immutable variables when the value of the variable 'v3' does not change.
+// ASSERT: regex .*test.cj:73:5:.*Prefer immutable variables when the value of the variable 'v0' does not change.
+// ASSERT: regex .*test.cj:73:36:.*Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex .*test.cj:74:5:.*In function 'outputString', the 1st argument is untrusted, we can't deliver it outter.
+// ASSERT: regex .*test.cj:82:5:.*Prefer immutable variables when the value of the variable 'v1' does not change.
+// ASSERT: regex .*test.cj:82:36:.*Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex .*test.cj:83:5:.*In function 'println', the 1st argument is untrusted, we can't deliver it outter.
+// ASSERT: regex .*test.cj:84:5:.*Prefer immutable variables when the value of the variable 'abc' does not change.
+// ASSERT: regex .*test.cj:90:5:.*In function 'outputString', the 1st argument is untrusted, we can't deliver it outter.
+// ASSERT: regex .*test.cj:94:5:.*Prefer immutable variables when the value of the variable 'rep' does not change.
+// ASSERT: regex .*test.cj:95:5:.*Prefer immutable variables when the value of the variable 'v0' does not change.
+// ASSERT: regex .*test.cj:96:5:.*Prefer immutable variables when the value of the variable 'v1' does not change.
+// ASSERT: regex .*test.cj:97:5:.*Prefer immutable variables when the value of the variable 'v2' does not change.
+// ASSERT: regex .*test.cj:98:5:.*Prefer immutable variables when the value of the variable 'v3' does not change.
+// ASSERT: regex .*test.cj:102:9:.*The return value is untrusted, we can't deliver it outter.
+// ASSERT: regex .*test.cj:104:5:.*Prefer immutable variables when the value of the variable 'v5' does not change.
+// ASSERT: regex .*test.cj:104:36:.*Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex .*test.cj:111:9:.*The return value is untrusted, we can't deliver it outter.
+// ASSERT: regex .*test.cj:113:5:.*Prefer immutable variables when the value of the variable 'v6' does not change.
+// ASSERT: regex .*test.cj:118:3:.*Prefer immutable variables when the value of the variable 'rep' does not change.
+// ASSERT: regex .*test.cj:124:3:.*Prefer immutable variables when the value of the variable 'a' does not change.
+// ASSERT: regex .*test.cj:129:5:.*The return value is untrusted, we can't deliver it outter.
+// ASSERT: regex .*test.cj:129:18:.*'a' is or includes external data, it should not be used to regular expressions directly.

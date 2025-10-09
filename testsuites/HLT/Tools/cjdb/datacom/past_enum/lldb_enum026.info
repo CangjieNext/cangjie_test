@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 007_debug_enum_members,007_debug_enum_members
-b,b 19,007_debug_enum_members.cj:19
-AOT r,r,-> 19
+b,b 27,007_debug_enum_members.cj:27
+AOT r,r,-> 27
 CJVM c,c,
-n,n,-> 21
+n,n,-> 29
 print,print time,TimeUnit1\) \$[\d] = {(\r|\n|\r\n)  constructor = Year(\r|\n|\r\n)  arg_1 = 3
 q,q,

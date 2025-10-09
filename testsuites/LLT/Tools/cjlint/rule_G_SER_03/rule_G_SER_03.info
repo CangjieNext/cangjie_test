@@ -1,0 +1,20 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir 2>&1 | compare %f
+// ASSERT: regex .*test.cj:27:5:.*Type mismatch: type 'Int64' is deserialized in line 28, but in function 'serialize\(\)', return type is 'Int32'\(line 25\).
+// ASSERT: regex .*test.cj:49:5:.*Type mismatch: the deserialized type of 'value' is 'Int32'\(line 51\), but in function 'serialize\(\)', the type is 'Int64'\(line 46\).
+// ASSERT: regex .*test.cj:64:5:.*Type mismatch: the deserialized type of 'value' is 'Int8'\(line 66\), but in function 'serialize\(\)', the type is 'Int64'\(line 62\).
+// ASSERT: regex .*test.cj:80:5:.*Type mismatch: type 'Int16' is deserialized in line 83, but in function 'serialize\(\)', return type is 'Int32'\(line 78\).
+// ASSERT: regex .*test.cj:80:5:.*Type mismatch: the deserialize type of 'value' is 'Int32'\(line 82\), but in function 'serialize\(\)', return type is 'DataModelInt'\(line 78\), not 'DataModelStruct'.
+// ASSERT: regex .*test.cj:114:5:.*Type mismatch: type 'Int8' is deserialized in line 119, but in function 'serialize\(\)', return type is 'Int32'\(line 95\) or 'Int16'\(line 98\).
+// ASSERT: regex .*test.cj:114:5:.*Type mismatch: type 'Int8' is deserialized in line 118, but in function 'serialize\(\)', return type is 'Int32'\(line 95\) or 'Int16'\(line 98\).
+// ASSERT: regex .*test.cj:114:5:.*Type mismatch: the deserialized type of 'value1' is 'Int8'\(line 118\), but in function 'serialize\(\)', the type is 'Int64'\(line 102\), 'Int32'\(line 103\), 'Float32'\(line 104\) or 'Float64'\(line 105\).
+// ASSERT: regex .*test.cj:114:5:.*Type mismatch: type 'Float32' is deserialized in line 117, but in function 'serialize\(\)', return type is 'Int32'\(line 95\) or 'Int16'\(line 98\).
+// ASSERT: regex .*test.cj:114:5:.*Type mismatch: the deserialize type of 'value' is 'Float32'\(line 117\), but in function 'serialize\(\)', return type is 'DataModelInt'\(line 95\) or 'DataModelInt'\(line 98\), not 'DataModelStruct'.
+// ASSERT: regex .*test.cj:114:5:.*Type mismatch: the deserialized type of 'value3' is 'Int32'\(line 116\), but in function 'serialize\(\)', the type is 'Int64'\(line 107\).
+// ASSERT: regex .*test.cj:133:5:.*Type mismatch: type 'Class-MySerializeDemo4' is deserialized in line 134, but in function 'serialize\(\)', return type is 'Class-MySerializeDemo5'\(line 131\).

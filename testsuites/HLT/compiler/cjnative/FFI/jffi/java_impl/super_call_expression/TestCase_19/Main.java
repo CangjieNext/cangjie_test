@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package java_entry;
+
+import UNNAMED.ChildClass;
+
+public class Main {
+  public static void main(String[] args) {
+    final ChildClass childClass =
+        new ChildClass(
+            1L,
+            new char[114514],
+            new byte[114514],
+            114.514000D,
+            114.514000D,
+            "hello",
+            new int[114514],
+            new float[114514],
+            (byte) 1,
+            114.514000D);
+    System.out.println("hello");
+  }
+}

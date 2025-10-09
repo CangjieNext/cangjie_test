@@ -14,16 +14,16 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_HashSet_via_inherit,002_HashSet_via_inherit
-b,b 14,002_HashSet_via_inherit.cj:14
-AOT r,r,-> 14
-CJVM c,c,-> 14
-s,s,-> 60
+b,b 22,002_HashSet_via_inherit.cj:22
+AOT r,r,-> 22
+CJVM c,c,-> 22
+s,s,-> 68
 p,p par_1,\(UInt8\) \$[\d] = 31
-n,n,-> 61
+n,n,-> 69
 p,p set_cla_fun_s1,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[3\] = 119[\S\s]*}
 p,p set_cla_fun_s1,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[0\] = 14[\S\s]*}
-finish,finish,-> 14
-n,n,-> 19
+finish,finish,-> 22
+n,n,-> 27
 p,p set_main_6,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[3\] = 119[\S\s]*}
 p,p set_main_6,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[5\] = 105[\S\s]*}
 q,q,

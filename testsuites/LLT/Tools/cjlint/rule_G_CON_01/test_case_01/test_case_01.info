@@ -1,0 +1,17 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir 2>&1 | compare %f
+// ASSERT: regex .*testexternal01.cj:13:19:.*'private' should be used as modifier of synchronized object
+// ASSERT: regex .*testexternal03.cj:13:16:.*'private' should be used as modifier of synchronized object
+// ASSERT: regex .*g_con_01_rule_test_01.cj:15:5:.*'G_MTX_DEFAULT_1' should not be defined at top-level
+// ASSERT: regex .*g_con_01_rule_test_01.cj:16:12:.*'G_MTX_DEFAULT_2' should not be defined at top-level
+// ASSERT: regex .*g_con_01_rule_test_01.cj:19:16:.*'private' should be used as modifier of synchronized object
+// ASSERT: regex .*g_con_01_rule_test_01.cj:28:9:.*'private' should be used as modifier of synchronized object
+// ASSERT: regex .*g_con_01_rule_test_01.cj:37:19:.*'private' should be used as modifier of synchronized object
+// ASSERT: regex .*testinternal.cj:21:12:.*'public' should not be used as modifier of synchronized object
+// ASSERT: regex .*testexternal02.cj:13:16:.*'private' should be used as modifier of synchronized object

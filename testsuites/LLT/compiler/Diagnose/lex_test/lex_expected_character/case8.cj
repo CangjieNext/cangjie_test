@@ -13,11 +13,11 @@ main()
 }
 
 /* SCAN
-error: multi-line string may need start with newline character
+error: multi-line string must start with newline character
   ==> case8.cj:12:17:
    | 
 12 |     "cangjie ${r'''r'}'r'''"
-   |                 ~~~^ excepted starting with newline character
+   |                 ~~~^ expected to start with newline character
    |                 |
    |                 because it is in multi-line string
    | 

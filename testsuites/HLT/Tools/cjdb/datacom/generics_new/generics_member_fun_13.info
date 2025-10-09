@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 67,Breakpoint 1:
-AOT r,r,-> 67
+b,b 75,Breakpoint 1:
+AOT r,r,-> 75
 CJVM c,c,
-c,c,-> 67
+c,c,-> 75
 p, p vf1,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 p, p para1,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 locals, locals,\(std.collection.ArrayList<Int64>\) para1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(std.collection.ArrayList<Int64>\) vf1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*

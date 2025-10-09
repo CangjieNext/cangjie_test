@@ -17,14 +17,14 @@
 
 test#
 cjdb,cjdb --no-use-colors pkgs001,pkgs001
-b,b 30,main\(\)[\s\S]*pkgs001.cj:30
-b,b 31,main\(\)[\s\S]*pkgs001.cj:31
-b,b pkg1.cj:9,funpkg1001\(\)[\s\S]*pkg1.cj:9
-AOT r,r,-> 30
-CJVM c,c, -> 30
-c,c,-> 9
+b,b 38,main\(\)[\s\S]*pkgs001.cj:38
+b,b 39,main\(\)[\s\S]*pkgs001.cj:39
+b,b pkg1.cj:17,funpkg1001\(\)[\s\S]*pkg1.cj:17
+AOT r,r,-> 38
+CJVM c,c, -> 38
+c,c,-> 17
 globals,globals,varpkg1_001 = 127
 locals,locals,a = 10
-c,c,-> 31
+c,c,-> 39
 locals,locals,res22 = 30
 q,q,

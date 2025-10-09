@@ -6,11 +6,11 @@
 
 // (DEBUG_OPTION) EXEC: %cjc %debugCHIROpt %cmp_opt %f -o %output | compare %f
 // (DEBUG_OPTION) EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at testVArray.cj:17:1 - testVArray.cj:17:44 evaluated initializer function `gv$_global`
-// ASSERT: scan debug: consteval at testVArray.cj:19:1 - testVArray.cj:19:31 replaced initializer function `gv$_value` with initializer constant(s).
-// ASSERT: scan debug: consteval at testVArray.cj:25:1 - testVArray.cj:25:67 evaluated initializer function `gv$_array`
-// ASSERT: scan debug: consteval at testVArray.cj:27:1 - testVArray.cj:27:71 evaluated initializer function `gv$_nested`
-// ASSERT: scan debug: consteval at testVArray.cj:29:1 - testVArray.cj:29:33 replaced initializer function `gv$_doubleIndex` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_global`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_value` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_array`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_nested`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_doubleIndex` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_stepIn_via_extend,003_debug_stepIn_via_extend
-CJVM b main,b main,003_debug_stepIn_via_extend.cj:8
-CJVM c,c,-> 8
-b,b 14,003_debug_stepIn_via_extend.cj:14
-AOT r,r,-> 14
-CJVM c,c,-> 14
-s,s,public prop v2: Int64[\s\S]*-> 73[\s\S]*
-finish,finish,-> 14
+CJVM b main,b main,003_debug_stepIn_via_extend.cj:16
+CJVM c,c,-> 16
+b,b 22,003_debug_stepIn_via_extend.cj:22
+AOT r,r,-> 22
+CJVM c,c,-> 22
+s,s,public prop v2: Int64[\s\S]*-> 81[\s\S]*
+finish,finish,-> 22
 q,q,

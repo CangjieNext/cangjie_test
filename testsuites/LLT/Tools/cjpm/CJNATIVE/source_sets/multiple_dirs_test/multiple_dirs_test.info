@@ -1,0 +1,20 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// (Windows)EXEC: copy NUL output
+// (Unix)EXEC: cd %n && touch output
+// EXEC: cd %n && %cjpm test --no-feature-deduce --enable-features=feature.arch.big --exclude-tags=LittleFail --no-color 2>&1 > output
+// EXEC: cd %n && %cjpm test --no-feature-deduce --enable-features=feature.arch.little --exclude-tags=BigFail --no-color 2>&1 >> output
+// (Windows)EXEC: cd %n && type output | compare %f
+// (Unix)EXEC: cd %n && cat output | compare %f
+// ASSERT: scan-4 TOTAL: 4
+// ASSERT: scan-4 PASSED: 2
+// ASSERT: scan-4 SKIPPED: 2
+// ASSERT: scan-4 ERROR: 0
+// ASSERT: scan-4 FAILED: 0
+// ASSERT: scan-2 cjpm test success
+// ASSERT: scan-not Should not run

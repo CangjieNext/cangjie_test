@@ -13,9 +13,9 @@
 
 test#
 cjdb,cjdb --no-use-colors case31,case31
-b,b 27,001_HashMap_Ins_basic.cj:27
-AOT r,r,-> 27
-CJVM c,c,-> 27
+b,b 35,001_HashMap_Ins_basic.cj:35
+AOT r,r,-> 35
+CJVM c,c,-> 35
 locals,locals,\(std[.]collection.HashMap<Int8,UInt8>\) map_main_1 =
 locals,locals,\(std[.]collection.HashMap<Int32,UInt32>\) map_main_3 =
 q,q,

@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/dataTimeandDecimal_Optimization/dataTimeandDecimal_Optimization010.cj
+// (CJNATIVE and not MAC) EXEC: %compiler %cmp_opt -g dataTimeandDecimal_Optimization010.cj -o dataTimeandDecimal_Optimization010%cmp_output
+// (CJNATIVE and not MAC) RUN-EXEC: python3 cjdb_test.py dataTimeandDecimal_Optimization010.info dataTimeandDecimal_Optimization010 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors dataTimeandDecimal_Optimization010,dataTimeandDecimal_Optimization010
+b,b 33,dataTimeandDecimal_Optimization010.cj:33
+r,r,-> 33
+p,p res1,\(std.core.String\) \$[\d] = "2023-03-30T00:00:00Z"
+expr,expr dateTime1,\(std.time.DateTime\) \$[\d] = 2023-03-30T00:00:00Z
+p,p res2,\(std.core.String\) \$[\d] = "2023-03-28T22:00:01Z"
+expr,expr dateTime2,\(std.time.DateTime\) \$[\d] = 2023-03-28T22:00:01Z
+p,p res3,\(std.core.String\) \$[\d] = "2023-03-31T00:59:59Z"
+expr,expr dateTime3,\(std.time.DateTime\) \$[\d] = 2023-03-31T00:59:59Z
+p,p res4,\(std.core.String\) \$[\d] = "2023-03-30T00:00:00Z"
+expr,expr dateTime4,\(std.time.DateTime\) \$[\d] = 2023-03-30T00:00:00Z
+expr~expr dateTime3.inUTC().toString()~\(std.core.String\) \$[\d] = "2023-03-31T00:59:59Z"
+q,q,

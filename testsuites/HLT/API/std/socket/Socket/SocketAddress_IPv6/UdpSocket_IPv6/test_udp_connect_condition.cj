@@ -183,6 +183,8 @@ class Test_Tcp_Connect_Condition {
         }
 
         udpsocket1.disconnect()
+        // udpsocket1.connect(addr)
+        // udpsocket1.disconnect()
 
         var udpsocket2 = UdpSocket(bindAt: IPSocketAddress("::1", 0))
         udpsocket2.bind()

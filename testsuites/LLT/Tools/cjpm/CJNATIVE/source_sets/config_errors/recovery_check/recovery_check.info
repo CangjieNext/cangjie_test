@@ -1,0 +1,32 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm build 2>&1 | compare %f
+// ASSERT: scan-1 Field `source-set.invalid` should be table
+
+// ASSERT: scan-1 `source-set.unset_srcdir.src-dir` is not specified
+
+// ASSERT: scan-1 Error in `source-set.unset_srcdir.condition`: unknown feature `Invalid condition`
+
+// ASSERT: scan-1 Illegal field set for common/other source set `source-set.unset_srcdir.commonother.common`: `condition`
+
+// ASSERT: scan-1 Illegal field set for common/other source set `source-set.unset_srcdir.commonother.other`: `condition`
+
+// ASSERT: scan-1 Parse error in `source-set.unset_srcdir.commonother`: 'other' and 'common' source sets can only be redefined if any other nested source set was specified
+
+// ASSERT: scan-1 `source-set.unset_srcdir.commonother.other.src-dir` is not specified (empty array)
+
+// ASSERT: scan-1 Error in `source-set.unset_srcdir.commonother.other.condition`: unknown feature `Cannot change condition for other`
+
+// ASSERT: scan-1 `source-set.unset_srcdir.commonother.common.src-dir` has to be either string literal or an array literal of strings
+
+// ASSERT: scan-1 Error in `source-set.unset_srcdir.commonother.common.condition`: unknown feature `Cannot change condition for common`
+
+// ASSERT: scan-1 `source-set.unset_srcdir.subset.condition.x` has to be an array of features
+
+// ASSERT: scan-1 Error in `source-set.unset_srcdir.subset.condition.y`: unknown feature `feature.os.invalid`
+

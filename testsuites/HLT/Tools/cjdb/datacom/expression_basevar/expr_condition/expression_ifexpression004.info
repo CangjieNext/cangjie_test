@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
-CJVM b,b main,066_debug_lambda.cj:10
-CJVM c,c,-> 10
-b,b 12,066_debug_lambda.cj:12
-AOT r,r,-> 12
+CJVM b,b main,066_debug_lambda.cj:18
+CJVM c,c,-> 18
+b,b 20,066_debug_lambda.cj:20
+AOT r,r,-> 20
 expr~ expr if (r'a' < r'b') {if (globals_i64 < 70){for (i in 1..=10){globals_i64++}};globals_i64++} else if (r'a' < r'c'){globals_i64--};globals_i64~\(Int64\) \$[\d] = 75
 expr~ expr if (r'a' > r'b') {globals_i64++} else if (r'a' < r'c'){if (globals_i64 < 70){for (i in 1..=10){globals_i64--}};globals_i64--};globals_i64~\(Int64\) \$[\d] = 74
 expr~ expr if ("hello" >"hello1") {globals_i64++} else if ("hello" < "hello2"){if (globals_i64 < 70){do {globals_i64--} while (globals_i64<65)};globals_i64--}else {globals_i64--};globals_i64~\(Int64\) \$[\d] = 73

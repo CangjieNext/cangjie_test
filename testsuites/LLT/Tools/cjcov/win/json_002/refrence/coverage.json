@@ -1,0 +1,88 @@
+{
+  "fileLists": [
+    {
+      "filepath": "src\\1file#.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\file10_abc.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\file11_.aaa-bbb.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\file12!#aaa!bbb.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\file13~ccc.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\file15`.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\file16(#).cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\file2;aa.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\file4@bb.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\file5&cc.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\file6=.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\file7+=.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\file8$.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\file9-aaa.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\main.cj",
+      "totalLines": 8,
+      "hitLines": [
+        7,
+        8,
+        9,
+        11,
+        15,
+        16,
+        17,
+        19
+      ]
+    }
+  ]
+}

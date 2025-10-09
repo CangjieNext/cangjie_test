@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class
   @Behavior: add @Deprecated compiler directive
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -36,18 +36,15 @@ package test_stable_abi
 
 @Deprecated["This API will be deprecated soon"]
 public class B1 {}
-
 @Deprecated["This API will be deprecated soon"]
 public class BG1<T> {}
 
 @Deprecated["This API will be deprecated soon"]
 public class C1 {}
-
 @Deprecated["This API will be deprecated soon"]
 public class CG1<T> {}
 
 @Deprecated["This API is deprecated", strict: true]
 public class D1 {}
-
 @Deprecated["This API is deprecated", strict: true]
 public class DG1<T> {}

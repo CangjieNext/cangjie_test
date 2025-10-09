@@ -1,0 +1,1 @@
+func function<T1, T2>() {}

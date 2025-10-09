@@ -16,7 +16,7 @@
 
 test#
 cjdb,cjdb --no-use-colors 038_debuginfun_basetype,038_debuginfun_basetype
-breakpoint,breakpoint set -l 30 -c 'var18==9',038_debuginfun_basetype.cj:33
-AOT r,r,-> 33
+breakpoint,breakpoint set -l 38 -c 'var18==9',038_debuginfun_basetype.cj:41
+AOT r,r,-> 41
 CJVM c,c,
 q,q,

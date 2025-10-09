@@ -18,7 +18,7 @@
 
 test#
 cjdb,cjdb --no-use-colors demangle_target,demangle_target
-b,b pkg_enum/EnumSource.cj:17,where = demangle_target`pkg_enum::TimeUnit1::fun_E1\(pkg_enum::TimeUnit1\) \+ \d+ at EnumSource.cj:17
-AOT r,r,demangle_target`pkg_enum::TimeUnit1::fun_E1\(this=pkg_enum.TimeUnit1[\s\S]*, v=Year\) at EnumSource.cj:17
-CJVM n,n, -> 17
+b,b pkg_enum/EnumSource.cj:25,where = demangle_target`pkg_enum::TimeUnit1::fun_E1\(pkg_enum::TimeUnit1\) \+ \d+ at EnumSource.cj:25
+AOT r,r,demangle_target`pkg_enum::TimeUnit1::fun_E1\(this=pkg_enum.TimeUnit1[\s\S]*, v=Year\) at EnumSource.cj:25
+CJVM n,n, -> 25
 q,q,

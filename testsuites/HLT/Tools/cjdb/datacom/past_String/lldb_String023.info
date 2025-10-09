@@ -15,13 +15,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 067_debug_string_literal,067_debug_string_literal
-AOT b,b 3,067_debug_string_literal.cj:6
-CJVM b,b 3,no code at [\s\S]*067_debug_string_literal.cj:3
-CJVM b,b 6,067_debug_string_literal.cj:6
-AOT r,r,-> 6
+AOT b,b 11,067_debug_string_literal.cj:14
+CJVM b,b 11,no code at [\s\S]*067_debug_string_literal.cj:11
+CJVM b,b 14,067_debug_string_literal.cj:14
+AOT r,r,-> 14
 CJVM c,c,
-s,s,-> 13
-CJVM finish,finish,-> 6
-AOT finish,finish,-> 7
-b,b 7,067_debug_string_literal.cj:7
+s,s,-> 21
+CJVM finish,finish,-> 14
+AOT finish,finish,-> 15
+b,b 15,067_debug_string_literal.cj:15
 q,q,

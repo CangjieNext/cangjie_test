@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case18_10,case18_10
-b,b 25,case18_10.cj:25
-AOT r,r,-> 25
+b,b 33,case18_10.cj:33
+AOT r,r,-> 33
 CJVM c,c,
 expr,expr res,\(Int32\) \$[\d] = 2
 expr,expr res4,\(Int32\) \$[\d] = 1

@@ -26,12 +26,11 @@
                 : identifier
                 ;
               classPrimaryInitParamLists
-                : unnamedParameterList (',' namedParameterList)? (',' classNamedInitParamList)?
-                | unnamedParameterList (',' classUnnamedInitParamList)?
-                  (',' classNamedInitParamList)?
-                | classUnnamedInitParamList (',' classNamedInitParamList)?
-                | namedParameterList (',' classNamedInitParamList)?
-                | classNamedInitParamList
+                : unnamedParameterList (NL* COMMA NL* namedParameterList)? (NL* COMMA NL* classNamedInitParamList)? NL* COMMA?
+                | unnamedParameterList (NL* COMMA NL* classUnnamedInitParamList)? (NL* COMMA NL* classNamedInitParamList)? NL* COMMA?
+                | classUnnamedInitParamList (NL* COMMA NL* classNamedInitParamList)? NL* COMMA?
+                | namedParameterList (NL* COMMA NL* classNamedInitParamList)? NL* COMMA?
+                | classNamedInitParamList NL* COMMA?
                 ;
               classUnnamedInitParamList
                 : classUnnamedInitParam (',' classUnnamedInitParam)*
@@ -51,11 +50,11 @@
                 | 'private'
                 ;
 
-  @Description: Check that the parameter list can not end in a trailing ',' symbol
+  @Description: Check that the parameter list can end in a trailing ',' symbol
 
-  @Mode: compileonly
+  @Mode: run
 
-  @Negative: yes
+  @Negative: no
 
   @Structure: single
 */

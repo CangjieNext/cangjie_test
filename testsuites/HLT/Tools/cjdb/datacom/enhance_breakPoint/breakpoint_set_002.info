@@ -14,14 +14,14 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_breakpoint_set,002_breakpoint_set
-CJVM b,breakpoint set -n main,022_debug_launch.cj:4
-CJVM c,c,-> 4
-AOT b,breakpoint set -f notexist.cj -l 4,Unable to resolve breakpoint to any actual locations
-AOT b,breakpoint set -f notexist.cj -l 5,Unable to resolve breakpoint to any actual locations
-AOT b,breakpoint set -f notexist.cj -l 6,Unable to resolve breakpoint to any actual locations
-CJVM b,breakpoint set -f notexist.cj -l 4,notexist.cj:4
-CJVM b,breakpoint set -f notexist.cj -l 5,notexist.cj:5
-CJVM b,breakpoint set -f notexist.cj -l 6,notexist.cj:6
+CJVM b,breakpoint set -n main,022_debug_launch.cj:12
+CJVM c,c,-> 12
+AOT b,breakpoint set -f notexist.cj -l 12,Unable to resolve breakpoint to any actual locations
+AOT b,breakpoint set -f notexist.cj -l 13,Unable to resolve breakpoint to any actual locations
+AOT b,breakpoint set -f notexist.cj -l 14,Unable to resolve breakpoint to any actual locations
+CJVM b,breakpoint set -f notexist.cj -l 12,notexist.cj:12
+CJVM b,breakpoint set -f notexist.cj -l 13,notexist.cj:13
+CJVM b,breakpoint set -f notexist.cj -l 14,notexist.cj:14
 AOT blist,breakpoint list,1: file = 'notexist.cj'
 CJVM blist,breakpoint list,2: file = 'notexist.cj'
 AOT blist,breakpoint list,2: file = 'notexist.cj'

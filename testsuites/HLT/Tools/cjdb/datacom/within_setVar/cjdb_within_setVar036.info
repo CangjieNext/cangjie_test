@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_setVar_inherit,003_debug_setVar_inherit
-b,b 7,003_debug_setVar_inherit.cj:7
-AOT r,r,-> 7
+b,b 15,003_debug_setVar_inherit.cj:15
+AOT r,r,-> 15
 CJVM c,c,
 AOT p,p *class_sub_ins.clazz_1_ins,error: unsupported expression
 CJVM p,p *class_sub_ins.clazz_1_ins,error: variable was not declared in this scope

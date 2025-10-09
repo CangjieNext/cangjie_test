@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 057_debug_rune,057_debug_rune
-b,b 5,057_debug_rune.cj:5
-b,b 7,057_debug_rune.cj:7
-AOT r,r,-> 5
-CJVM c,c,-> 5
-c,c,-> 7
+b,b 13,057_debug_rune.cj:13
+b,b 15,057_debug_rune.cj:15
+AOT r,r,-> 13
+CJVM c,c,-> 13
+c,c,-> 15
 q,q,

@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_enum,002_debug_array_enum
-b,b 42,002_debug_array_enum.cj:42
-AOT r,r,-> 42
+b,b 50,002_debug_array_enum.cj:50
+AOT r,r,-> 50
 CJVM c,c,
-n,n,-> 43
+n,n,-> 51
 locals,locals,TimeUnit1\) a_enum = a
 q,q,

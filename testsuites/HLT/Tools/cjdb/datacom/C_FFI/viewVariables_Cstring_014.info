@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_014,viewVariables_Cstring_014
-b,b 74,Test_CString.cj:74
-AOT r,r,-> 74
+b,b 82,Test_CString.cj:82
+AOT r,r,-> 82
 CJVM c,c,
 p, p arr_str_5,\(std[.]core.Array<std[.]core.Array<std[.]core.Array<CString>>>\) \$[\d] = {[\s\S]*\[1\] = {[\s\S]*\[1\] = {[\s\S]*\[0\] = "Hello cangjie!"[\s\S]*
 p, p arr_str_5[0][1],\(std[.]core.Array<CString>\) \$[\d] = {[\s\S]*\[0\] = "\\\"bc"[\s\S]*
