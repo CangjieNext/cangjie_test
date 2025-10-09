@@ -20,6 +20,7 @@ main() {
     0
 }
 
+/* SCAN
 [aaa aaa aaa]
 [aaa aaa aaa]
 [ ,  ]

@@ -17,6 +17,7 @@ class Testjsonstring {
             func toString(): String;
             func toJsonString() : String
      */
+    //init()
     public func testinit(json: JsonString, exp_str_g: String, exp_str_ts: String, exp_str_tj: String): Int64 {
         var re_getValue = json.getValue()
         var re_toString = json.toString()

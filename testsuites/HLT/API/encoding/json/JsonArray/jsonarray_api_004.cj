@@ -14,6 +14,7 @@
 import stdx.encoding.json.*
 
 main(): Int64 {
+    //init(list: Array<JsonValue>)
     var buff = Array<JsonValue>()
     var init1 = JsonArray(buff)
     var cases1 = Testjsonarray()

@@ -309,6 +309,7 @@ class Testwebsocketconf_04 {
         (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u, headers: headers)
         let value1 = respHeaders.getFirst("resp") ?? ""
         @Expect(value1, "zpstest")
+        //sleep(Duration.millisecond * 100)       
         websocket.write(CloseWebFrame, Array<UInt8>(125, repeat: 19))
         websocket.closeConn()
         client.close()

@@ -39,7 +39,8 @@ main(): Int64 {
     if (str.contains("location: http://127.0.0.1:0/red") != true) {
         return 4
     }
-
+    server.close()
+    client.close()
     return 0
 }
 

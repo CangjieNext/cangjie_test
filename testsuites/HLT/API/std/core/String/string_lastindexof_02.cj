@@ -13,6 +13,7 @@
 class Test_lastIndexOf_11 {
     @TestCase
     func test_lastIndexOf_byte(): Unit {
+        // str [97, 240, 159, 153, 143, 240, 159, 143, 191, 240, 159, 153, 143, 240, 159, 143, 191, 97]
         let str = "a🙏🏿🙏🏿a"
         @Expect(str.lastIndexOf(UInt8(240)), Some(13))
         @Expect(str.lastIndexOf(UInt8(UInt32(r'a'))), Some(17))

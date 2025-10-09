@@ -15,6 +15,7 @@ import stdx.encoding.json.*
 import std.collection.*
 
 main(): Int64 {
+    //init(list:ArrayList<JsonValue>)
     var buff = ArrayList<JsonValue>([createjsonvalue(-8, 8, "-9")])
     var init1 = JsonArray(buff)
     var cases1 = Testjsonarray()
@@ -24,6 +25,7 @@ main(): Int64 {
     }
     println("time1 add")
     var a = createjsonvalue(-10, 10, "-20")
+    //     println("a=${cases1.testadd(a, init1)}")
     if (cases1.testadd(createjsonvalue(-10, 10, "-20"), init1) != 0) //只添加一个
     {
         println("case 2")
