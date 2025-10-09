@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_015,viewVariables_Cstring_015
-b,b 61,Test_CString.cj:61
-AOT r,r,-> 61
+b,b 69,Test_CString.cj:69
+AOT r,r,-> 69
 CJVM c,c,
 globals,globals,\(std[.]core.Array<CString>\) pkg_cstr::top_arr_str = {[\s\S]*\[1\] = "!@#\$\%\^\&\*\(\)<<\?>"
 globals,globals,[\s\S]*\(CString\) pkg_cstr::top_str1 = "Hello cangjie!"[\s\S]*

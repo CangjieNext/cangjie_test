@@ -1,0 +1,13 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// (Unix) EXEC: cd %n && cjc -p pp/pro1/xoo --output-type=staticlib -o pp/pro1/
+// (Unix) EXEC: cd %n && %lint -f "./pp/pro1/xoo" -c %lintConfigDir -m %lintModuleDir 2> log
+// (Unix) EXEC: cd %n && %lint -f "./src" --import-path "./pp" -c %lintConfigDir -m %lintModuleDir 2>> log
+// (Unix) EXEC: cd %n && cat log | compare %f
+// ASSERT: regex-1 .*xoo.cj:9:1:.*G.NAM.05: Immutable global or static variable name 'x' recommend to use all capital letters
+// ASSERT: regex-1 .*main.cj:12:5:.*G.VAR.01: Prefer immutable variables when the value of the variable 'a' does not change.

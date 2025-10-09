@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 126,005_debug_class_generics.cj:126
-AOT r,r,-> 126
+b,b 134,005_debug_class_generics.cj:134
+AOT r,r,-> 134
 CJVM c,c,
-n,n,-> 127
+n,n,-> 135
 locals,locals,m_time2 = {(\r|\n|\r\n)  constructor = Month(\r|\n|\r\n)  arg_1 = {(\r|\n|\r\n)    width = 100(\r|\n|\r\n)    length = 100
 q,q,

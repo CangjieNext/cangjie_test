@@ -1,12 +1,10 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 control-flow-bogus obf_me::main()
 control-flow-flatten obf_me::main()
 obf-const obf_me::main()
 obf-layout obf_me::main()
-
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- * 
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

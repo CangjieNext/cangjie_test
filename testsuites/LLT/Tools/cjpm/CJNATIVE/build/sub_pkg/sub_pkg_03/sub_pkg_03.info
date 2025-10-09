@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm build && %move src/aoo/aoo src/aoo/aoo.cj  && cjpm build -i -V 2>&1 | compare %f
+// ASSERT: scan-2 Compiling package
+// ASSERT: regex Compiling package `test.aoo.*--no-sub-pkg
+// ASSERT: scan-1 --no-sub-pkg
+// ASSERT: scan cjpm build success

@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors class03,class03
-b,b 39,class03.cj:39
-r,r,-> 39
+b,b 47,class03.cj:47
+r,r,-> 47
 globals,globals,\(std.core.String\) default::C1::name = "Rec"
 locals,locals,\(Int32\) m_length = 1
 p,p m_str,\(std.core.String\) \$[\d] = "strmao"

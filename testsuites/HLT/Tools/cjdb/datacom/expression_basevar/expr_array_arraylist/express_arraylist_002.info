@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 34,063_debug_expr_array.cj:34
-CJVM c,c,-> 34
-AOT r,r,-> 34
+b,b 42,063_debug_expr_array.cj:42
+CJVM c,c,-> 42
+AOT r,r,-> 42
 expr,expr stu.alr,std.collection.ArrayList<std.core.Range<Int64>>\) \$[\d] = {[\s\S]*\[0\] = 1..10 : 2[\s\S]*\[1\] = 1..10 : 2[\s\S]*}*
 expr,expr rect1.s13,std.collection.ArrayList<Rune>\) \$[\d] = {[\s\S]*\[0\] = 'a'[\s\S]*\[1\] = 'b'[\s\S]*}*
 expr,expr globals_sa1,std.collection.ArrayList<Float32>\) \$[\d] = {[\s\S]*\[0\] = 32.3199997[\s\S]*\[1\] = 12.1199999[\s\S]*}*

@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors demangle_2,demangle_2
-b,b 58,where = demangle_2`pkg_re::main\(std[.]core::Array<std[.]core::String>\) \+ \d+ at demangle_2.cj:58:18
-AOT r,r,demangle_2`pkg_re::main\(args=std.core.Array<std[.]core.String> @ [\s\S]*\) at demangle_2.cj:58:18[\s\S]*-> 58
-CJVM c,c,-> 58
-s,s,demangle_2`pkg_re::ClassViaExtend::v2::get\(this=pkg_re.ClassViaExtend @ [\S\s]*\) at demangle_2.cj:18:17[\s\S]*-> 18
-finish,finish,-> 58|60
+b,b 66,where = demangle_2`pkg_re::main\(std[.]core::Array<std[.]core::String>\) \+ \d+ at demangle_2.cj:66:18
+AOT r,r,demangle_2`pkg_re::main\(args=std.core.Array<std[.]core.String> @ [\s\S]*\) at demangle_2.cj:66:18[\s\S]*-> 66
+CJVM c,c,-> 66
+s,s,demangle_2`pkg_re::ClassViaExtend::v2::get\(this=pkg_re.ClassViaExtend @ [\S\s]*\) at demangle_2.cj:26:17[\s\S]*-> 26
+finish,finish,-> 66|68
 q,q,

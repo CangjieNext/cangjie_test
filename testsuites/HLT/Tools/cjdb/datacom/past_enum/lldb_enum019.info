@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_enum_recursion,004_debug_enum_recursion
-b,b 33,004_debug_enum_recursion.cj:33
-AOT r,r,-> 33
+b,b 41,004_debug_enum_recursion.cj:41
+AOT r,r,-> 41
 CJVM c,c,
 n,n,->
 locals,locals,E1\) time3 = {(\r|\n|\r\n)  constructor = B

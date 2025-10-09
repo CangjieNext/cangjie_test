@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC: %export cjHeapDumpOnOOM=on && %export cjHeapDumpLog= && %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan Unsupported cjHeapDumpLog parameter. The length should be in [2, 4096).
+// (not Android and not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (not Android and not iOS) RUN-EXEC: %export cjHeapDumpOnOOM=on && %export cjHeapDumpLog= && %run %run_opt %output %run_args 2>&1 | compare %f
+// (not Android and not iOS) ASSERT: scan Unsupported cjHeapDumpLog parameter. The length should be in [2, 4096).
 
 import std.collection.*
 import std.sync.*

@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/set_value/002_basevar_setvalue.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 002_basevar_setvalue.cj -o 002_basevar_setvalue%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py set_value_002.info 002_basevar_setvalue %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 002_basevar_setvalue,002_basevar_setvalue
+b,b 11,002_basevar_setvalue.cj:11
+AOT r,r,-> 11
+CJVM c,c,-> 11
+AOT expression,expression a,\(Int64\) \$[\d] = 1
+CJVM p,p a,\(Int64\) \$[\d] = 1
+AOT expression,expression b,\(Int64\) \$[\d] = 2
+CJVM p,p b,\(Int64\) \$[\d] = 2
+AOT expression,expression a=10,unsupported expression
+CJVM set,set a=10,\(Int64\) \$[\d] = 10
+AOT expression,expression b=20,unsupported expression
+CJVM set,set b=20,\(Int64\) \$[\d] = 20
+AOT expression,expression c=30,\(Unit\) \$[\d] = ()
+CJVM set,set c=30,\(Int64\) \$[\d] = 30
+n,n,-> 12
+AOT expression,expression d,\(Int64\) \$[\d] = 33
+CJVM p,p d,\(Int64\) \$[\d] = 60
+q,q,

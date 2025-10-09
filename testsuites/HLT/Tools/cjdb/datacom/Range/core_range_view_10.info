@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors range_core,range_core
-b,b 8,range_core.cj:8
-AOT r,r,-> 8
-CJVM c,c,-> 8
+b,b 16,range_core.cj:16
+AOT r,r,-> 16
+CJVM c,c,-> 16
 p,p ra,\(std.core.Range<Rune>\) \$[\d] = 'a'..='z' : 1
 locals,locals,\(std.core.Range<Rune>\) ra = 'a'..='z' : 1
 AOT frame var,frame var ra,\(std.core.Range<Rune>\) ra = 'a'..='z' : 1

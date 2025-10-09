@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors watchpoint_external_invoke,watchpoint_external_invoke
-b ,b 27,watchpoint_external_invoke.cj:27
-r , r,-> 27
-s , s,-> 32
-b , b 34,watchpoint_external_invoke.cj:34
-c , c,-> 34
-watchpoint,watchpoint set variable -w read_write v3,watchpoint_external_invoke.cj:34
-c,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 35[\s\S]*
+b ,b 35,watchpoint_external_invoke.cj:35
+r , r,-> 35
+s , s,-> 40
+b , b 42,watchpoint_external_invoke.cj:42
+c , c,-> 42
+watchpoint,watchpoint set variable -w read_write v3,watchpoint_external_invoke.cj:42
+c,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 43[\s\S]*
 q,q,

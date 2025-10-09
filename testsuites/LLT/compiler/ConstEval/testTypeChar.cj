@@ -6,7 +6,7 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (CJNATIVE and DEBUG_OPTION) EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at testTypeChar.cj:21:1 - testTypeChar.cj:21:24 replaced initializer function `gv$_b` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_b` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// (JET) LEVEL:2
+// LEVEL:0
 // DEPENDENCE: ./utils
 // DEPENDENCE: ./line_number_utils
 // EXEC: %compiler %cmp_opt -p utils --mock=on %compile_lib_opt --output p1.%middle

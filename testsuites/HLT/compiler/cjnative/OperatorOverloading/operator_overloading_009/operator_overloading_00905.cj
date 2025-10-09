@@ -86,13 +86,16 @@ extend R <: stronger<R> {
     }
     // operator func *&(b:R):R{
     //     // return R((this.r)*&(b.r))
+    //     return R((this.r)*(b.r))
     // }
 
     // operator func +&(b:R):R{
     //     // return R((this.r)+&(b.r))
+    //     return R((this.r)+(b.r))
     // }
     // operator func -&(b:R):R{
     //    // return R((this.r)-&(b.r))
+    //    return R((this.r)-(b.r))
     // }
     public operator func +(b: R): R {
         return R((this.r) + (b.r))
@@ -159,8 +162,13 @@ extend R <: stronger<R> {
     }
 
     // operator func ^^(b:R):R{
+    //     if (b.r == 2) {
+    //         return R(123)
     //     }
+    //     if (b.r == 3) {
+    //         return R(321)
     //     }
+    //     return R(0)
     // }
 }
 
@@ -172,6 +180,9 @@ main(): Int64 {
     var res: R = R(8192)
     var a: R = zero > one << one + three * two ** -zero[zero]
     var final: R = three ^ one & res == zero > one << one + three * two ** -zero[zero]
+    // 1. zero[zero] = R(-2)
+    // 2. two ** -zero[zero] = R(4)
+    // 3. one + three * two ** -zero[zero] = R(13)
     // 4. one << R(13) = res
     // 5. zero > R(13) = res
     // 6. res == res = one , if 1-5 got any error, 5`s result will be zero.

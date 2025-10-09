@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 027_debuginfun_match,027_debuginfun_match
-breakpoint,breakpoint set -l 16 -c ‘score==90',027_debuginfun_match.cj:16
-AOT r,r,-> 16
+breakpoint,breakpoint set -l 24 -c 'score==90',027_debuginfun_match.cj:24
+AOT r,r,-> 24
 CJVM c,c,
-n,n,-> 11
 n,n,-> 19
+n,n,-> 27
 locals,locals,scoreResult = 5
 q,q,

@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors arrayView_external_invoke.out,arrayView_external_invoke
-b,b 13,arrayView_external_invoke.cj:13
-AOT r,r,-> 13
+b,b 21,arrayView_external_invoke.cj:21
+AOT r,r,-> 21
 CJVM c,c,
 p,p val_1[0],std[.]core.Array<Int32>\) \$[0-9]* = {[\s\S]*
 set,set val_1[0][1 ]=-21,\(Int32\) \$[0-9]* = -21

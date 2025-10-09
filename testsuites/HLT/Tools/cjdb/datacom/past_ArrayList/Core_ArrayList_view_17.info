@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_view_17,ArrayList_view_17
-b,b 16,ArrayList_view_17.cj:16
-AOT r,r,-> 16
-CJVM c,c,-> 16
+b,b 24,ArrayList_view_17.cj:24
+AOT r,r,-> 24
+CJVM c,c,-> 24
 p,p aaa,\(std\.collection.ArrayList<default.Rectangle>\) \$[\d] = {[\s\S]*hm = {[\s\S]*\["a" -> 0\] = {[\s\S]*key = "a"[\s\S]*value = 0[\s\S]*}[\s\S]*\["b" -> 1\] = {[\s\S]*key = "b"[\s\S]*value = 1[\s\S]*}[\s\S]*\["c" -> 2\] = {[\s\S]*key = "c"[\s\S]*value = 2[\s\S]*
 locals,locals,\(std\.collection.ArrayList<default.Rectangle>\) aaa = {[\s\S]*hm = {[\s\S]*\["a" -> 0\] = {[\s\S]*key = "a"[\s\S]*value = 0[\s\S]*}[\s\S]*\["b" -> 1\] = {[\s\S]*key = "b"[\s\S]*value = 1[\s\S]*}[\s\S]*\["c" -> 2\] = {[\s\S]*key = "c"[\s\S]*value = 2[\s\S]*}[\s\S]*}[\s\S]*r = 0..10 : 1[\s\S]*}[\s\S]*}
 q,q,

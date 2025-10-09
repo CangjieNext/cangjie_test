@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 4.2.1.6.2.36
   @Scene: delete
@@ -13,8 +13,8 @@
   @Object: enum static func
   @Behavior: delete function parameters default values
   @Expect: api incompatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -32,7 +32,7 @@
 // test enum: delete function default parameter.
 package test_stable_abi
 
-public open class A {
+open public class A {
     let a: Int64 = 10
 }
 
@@ -43,22 +43,22 @@ public class B <: A {
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 
-    public static func geta(a: Int64): Int64 {
+    static public func geta(a: Int64): Int64 {
         var b = a + 1
         return b
     }
 
-    public static const func getb(a: Int64): Int64 {
+    const static public func getb(a: Int64): Int64 {
         let b = a + 1
         return b
     }
 
     @Frozen
-    public static func getc(a: Int64): Int64 {
+    static public func getc(a: Int64): Int64 {
         var b = a + 1
         return b
     }
@@ -136,7 +136,7 @@ public enum Rectangle {
         return 1
     }
 
-    public static func gett(a!: Int64 = 1) {
+    public static func gett(a!: Int64=1) {
         return a
     }
 
@@ -175,7 +175,7 @@ public enum Rectangle {
     }
 
     @Frozen
-    static func geta3(a!: Int64 = 2) {
+    static func geta3(a!: Int64=2) {
         return a + 4
     }
 
@@ -185,3 +185,4 @@ public enum Rectangle {
         return y
     }
 }
+

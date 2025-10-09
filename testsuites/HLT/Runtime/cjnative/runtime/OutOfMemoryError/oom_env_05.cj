@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC: %export cjHeapDumpOnOOM=on && %export cjHeapDumpLog=./test && %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan Failed to open heap dump file, stop dumping heap info, No such file or directory
+// (not Android and not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (not Android and not iOS) RUN-EXEC: %export cjHeapDumpOnOOM=on && %export cjHeapDumpLog=./test && %run %run_opt %output %run_args 2>&1 | compare %f
+// (not Android and not iOS) ASSERT: scan Failed to open heap dump file, stop dumping heap info, No such file or directory
 
 import std.collection.*
 import std.sync.*

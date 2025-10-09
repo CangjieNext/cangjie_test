@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func001,generics_global_func001
-b,b 15,generics_global_func001.cj:15
-AOT r,r,-> 15
+b,b 23,generics_global_func001.cj:23
+AOT r,r,-> 23
 CJVM c,c,
 expr:expr foo<Int8>:error: unsupported expression
 q,q,

@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+// LEVEL: 1
+// DEPENDENCE: test.toml test.h
+// (iOS) EXEC: ObjCInteropGen test.toml
+// (iOS) EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+package cjworld
+
+import objc.foundation.NSObject
+import objc.foundation.NSString
+import interoplib.objc.*
+
+@ObjCMirror
+public open class test/*<T>*/ <: NSObject {
+    public open func f1(): id /*T*/
+    public static func f2(): id /*T*/
+    @ForeignName["f3:"] public open func f3(a: Int32): id /*T*/
+    @ForeignName["f4:"] public static func f4(a: Int32): id /*T*/
+    @ForeignName["f5:and:"] public open func f5And(a: Int32, s: NSString): id /*T*/
+    @ForeignName["f6:and:"] public static func f6And(a: Int32, s: NSString): id /*T*/
+}
+*/

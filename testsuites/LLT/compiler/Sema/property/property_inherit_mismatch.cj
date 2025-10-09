@@ -37,8 +37,12 @@ main() {
 error: property 'a' should have 'mut' modifier
   ==> property_inherit_mismatch.cj:17:5:
    | 
-17 |     prop a: Int64 {
-   |     ^ 
+17 |       prop a: Int64 {
+   |  _____^
+18 | |         get() {
+   | | ...
+21 | |     }
+   | |_____^
    | 
 
 error: a deriving member must be at least as visible as its base member
@@ -57,8 +61,12 @@ note: the visibility of the base 'a' is 'public'
 error: property 'b' should be immutable
   ==> property_inherit_mismatch.cj:22:5:
    | 
-22 |     mut prop b: Int64 {
-   |     ^ 
+22 |       mut prop b: Int64 {
+   |  _____^
+23 | |         get() {
+   | | ...
+29 | |     }
+   | |_____^
    | 
 
 error: a deriving member must be at least as visible as its base member

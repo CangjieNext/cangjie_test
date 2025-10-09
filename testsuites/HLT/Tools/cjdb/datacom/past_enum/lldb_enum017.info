@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_enum_recursion,004_debug_enum_recursion
-b,b 28,004_debug_enum_recursion.cj:28
-AOT r,r,-> 28
+b,b 36,004_debug_enum_recursion.cj:36
+AOT r,r,-> 36
 CJVM c,c,
-n,n,-> 29
-n,n,-> 30
+n,n,-> 37
+n,n,-> 38
 locals,locals,TimeUnit\) time2 = {(\r|\n|\r\n)  constructor = Twounit
 print,print time2,TimeUnit\) \$[\d]+ = {(\r|\n|\r\n)  constructor = Twounit
 q,q,

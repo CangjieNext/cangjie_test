@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_enum_conflict,006_debug_enum_conflict
-b,b 27,006_debug_enum_conflict.cj:27
-AOT r,r,-> 27
+b,b 35,006_debug_enum_conflict.cj:35
+AOT r,r,-> 35
 CJVM c,c,
-n,n,-> 30
+n,n,-> 38
 print,print f,R\) \$[\d] = {(\r|\n|\r\n)  constructor = C(\r|\n|\r\n)  arg_1 = 1
 q,q,

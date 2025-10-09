@@ -15,10 +15,10 @@
 
 test#
 cjdb,cjdb --no-use-colors pkgs007,pkgs007
-b,b 12,pkgs007.cj:12
-AOT r,r,-> 12
+b,b 20,pkgs007.cj:20
+AOT r,r,-> 20
 CJVM c,c,
-n,n,-> 13
+n,n,-> 21
 locals,locals,a = 1
 locals,locals,b = 2
 q,q,

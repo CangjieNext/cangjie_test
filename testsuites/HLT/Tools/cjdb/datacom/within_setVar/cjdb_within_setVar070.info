@@ -15,14 +15,14 @@
 
 test#
 cjdb,cjdb --no-use-colors setVar_external_invoke.out,setVar_external_invoke
-b,b 16,setVar_external_invoke.cj:16
-AOT r,r,-> 16
+b,b 24,setVar_external_invoke.cj:24
+AOT r,r,-> 24
 CJVM c,c,
-s,s,static func f_static\(\)[\s\S]*-> 39
-n,n,-> 40
+s,s,static func f_static\(\)[\s\S]*-> 47
+n,n,-> 48
 p, p vf_1,\(Int32\) \$[\d] = 82
 AOT set,set vf_1='&',error: unsupported expression
 CJVM set,set vf_1='&',error: invalid argument '&'
 p, p vf_1,\(Int32\) \$[\d] = 82
-finish,finish,-> 16
+finish,finish,-> 24
 q,q,

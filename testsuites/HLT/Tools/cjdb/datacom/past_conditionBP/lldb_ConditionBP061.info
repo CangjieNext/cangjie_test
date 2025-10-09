@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 033_debuginfun_func_with_arg,033_debuginfun_func_with_arg
-breakpoint,breakpoint set -l 22 -c 'a==2',033_debuginfun_func_with_arg.cj:22
-AOT r,r,-> 22
+breakpoint,breakpoint set -l 30 -c 'a==2',033_debuginfun_func_with_arg.cj:30
+AOT r,r,-> 30
 CJVM c,c,
-n,n,-> 8
-n,n,-> 9
+n,n,-> 16
+n,n,-> 17
 locals,locals,Functioncall004 = 2
 q,q,

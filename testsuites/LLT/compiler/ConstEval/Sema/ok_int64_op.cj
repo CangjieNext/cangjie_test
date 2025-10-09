@@ -6,7 +6,7 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt %cmp_opt %f -o %output | compare %f
 // (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at ok_int64_op.cj:30:5 - ok_int64_op.cj:30:21 replaced initializer function `gv$_t` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_t` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

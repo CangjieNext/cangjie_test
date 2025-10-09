@@ -15,10 +15,10 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-AOT b,b 184,list_debug.cj:186
-CJVM b,b 186,list_debug.cj:186
-AOT r,r,-> 186
-CJVM c,c,-> 186
+AOT b,b 192,list_debug.cj:194
+CJVM b,b 194,list_debug.cj:194
+AOT r,r,-> 194
+CJVM c,c,-> 194
 p,p m_member_7,\$[\d] = 
 p,p m_member_7[0],\$[\d] =
 p,p m_member_7[0].z,\$[\d] =

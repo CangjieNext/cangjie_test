@@ -5,15 +5,13 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 public struct S {
-    public var a: Int64 = 1
-    public init(a1: UInt8) {
-        a = Int64(a1)
-    }
+    public var a = 1
+    public init(a1: UInt8) { a = Int64(a1) }
     protected init(a1: Int16) {}
     protected init(a1: UInt16) {}
     internal init(a1: Int32) {}
@@ -24,3 +22,5 @@ public struct S {
     init(a1: Float32) {}
     init(a1: Float64) {}
 }
+
+

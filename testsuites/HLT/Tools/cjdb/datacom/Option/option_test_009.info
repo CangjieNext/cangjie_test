@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_baseVar,option_baseVar
-b,b 54,option_baseVar.cj:54
-AOT r,r,-> 54
-CJVM c,c,-> 54
+b,b 62,option_baseVar.cj:62
+AOT r,r,-> 62
+CJVM c,c,-> 62
 p,p unit,\(std[.]core.Option<Unit>\) \$[\d] = \(\)
 p,p unit_none,\(std[.]core.Option<Unit>\) \$[\d] = None
 q,q,

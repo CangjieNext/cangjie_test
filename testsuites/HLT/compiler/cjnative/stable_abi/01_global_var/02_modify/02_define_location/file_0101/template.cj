@@ -5,9 +5,11 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 const global_var_01: Int64 = 0
 public const global_var_02: Int64 = global_var_01
+
+

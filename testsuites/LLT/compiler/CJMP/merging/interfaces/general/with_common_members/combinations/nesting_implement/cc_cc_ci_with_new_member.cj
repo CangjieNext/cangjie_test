@@ -1,0 +1,123 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// SEPARATE-FILE: c/c.cj
+// EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
+package cmp
+
+
+public common interface I {
+    common func foo1(): Unit // common open abstract
+    common func foo2(): Unit { println("foo2 of I in common") } // common open
+    common func foo3(): Unit { println("foo3 of I in common") } // common open
+    func foo4(): Unit // open abstract
+    func foo5(): Unit { println("foo5 of I in common") } // open
+}
+
+public open common class A <: I {
+    public init() {}
+    public open common func foo1(): Unit { println("foo1 of A in common") }
+    public open common func foo4(): Unit { println("foo4 of A in common") }
+}
+
+common class AA <: A {
+    init() {}
+    public common func foo1(): Unit { println("foo1 of AA in common") }
+    public common func foo4(): Unit { println("foo4 of AA in common") }
+}
+
+open common class B <: I {
+    public open common func foo1(): Unit { println("foo1 of B in platform") }
+    public open common func foo4(): Unit { println("foo4 of B in platform") }
+}
+
+common class BB <: B {
+    public common func foo1(): Unit { println("foo1 of BB in common") }
+    public common func foo4(): Unit { println("foo4 of BB in common") }
+}
+
+public func runCommon() {
+    let a = AA()
+    a.foo1() // foo1 of A in common
+    a.foo2() // foo2 of I in platform
+    a.foo3() // foo3 of I in common
+    a.foo4() // foo4 of A in common
+    a.foo5() // foo5 of I in common
+}
+// SEPARATE-FILE: p/p.cj
+// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
+// (LLVM and Linux)RUN-EXEC-PIPE-0: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
+// (LLVM and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
+// (LLVM and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
+package cmp
+
+public platform interface I {
+    platform func foo1(): Unit { println("foo1 of I in platform") } // ok: common open
+    // platform func foo2(): Unit // error: common open abstract
+    platform func foo2(): Unit { println("foo2 of I in platform") } // ok: common open
+
+    func foo6(): Unit { println("foo6 of I in platform") } // ok: open new func must have body
+}
+
+public open platform class A <: I {
+    public open platform func foo1(): Unit { println("foo1 of A in platform") }
+    public open platform func foo4(): Unit { println("foo4 of A in platform") }
+}
+
+open platform class B <: I {
+    public init() {}
+}
+
+platform class AA <: A {
+    public platform func foo1(): Unit { println("foo1 of AA in platform") }
+    public platform func foo4(): Unit { println("foo4 of AA in platform") }
+}
+platform class BB <: B {
+    init() {}
+}
+
+public func run() {
+    let a = AA()
+    a.foo1() // foo1 of A in common
+    a.foo2() // foo2 of I in platform
+    a.foo3() // foo3 of I in common
+    a.foo4() // foo4 of A in common
+    a.foo5() // foo5 of I in common
+    a.foo6() // foo6 of I in platform
+
+    let b = BB()
+    b.foo1() // foo1 of B in platform
+    b.foo2() // foo2 of I in platform
+    b.foo3() // foo3 of I in common
+    b.foo4() // foo4 of B in platform
+    b.foo5() // foo5 of I in common
+    b.foo6() // foo6 of I in platform
+}
+
+main() {
+    runCommon()
+    run()
+}
+
+/* SCAN
+foo1 of AA in platform
+foo2 of I in platform
+foo3 of I in common
+foo4 of AA in platform
+foo5 of I in common
+foo1 of AA in platform
+foo2 of I in platform
+foo3 of I in common
+foo4 of AA in platform
+foo5 of I in common
+foo6 of I in platform
+foo1 of BB in common
+foo2 of I in platform
+foo3 of I in common
+foo4 of BB in common
+foo5 of I in common
+foo6 of I in platform
+*/

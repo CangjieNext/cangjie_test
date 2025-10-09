@@ -1,0 +1,16 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/tryExpr/try_catch.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb try_catch,try_catch
+b,b 14,try_catch.cj:14
+r,r,-> 14
+ ,expr var result = try { a = a + 2 } catch (e: ArithmeticException) { println("an arithmeticException happened: " + e.toString())} ,\(Unit\) \$\d+ = ()
+q,q,

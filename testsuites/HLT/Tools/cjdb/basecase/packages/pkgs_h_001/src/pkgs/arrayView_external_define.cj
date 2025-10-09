@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 
 package pkgs
 
@@ -51,11 +59,3 @@ public class Exter_C1 {
     public var arr : Array<Int64> = Array<Int64>(5000, {i => i+1}) //给定数组大小和构造元素的函数创建Array
     public var a_d :Array<Array<Int64>> = [Array<Int64>(2000, {i => i-1}),arr] //7000个元素
     public  var arrayInt64_t : Array<Array<Array<Int64>>> = [a_d,a_d]
-
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

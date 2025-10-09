@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 009_debug_enum_result,009_debug_enum_result
-b,b 27,009_debug_enum_result.cj:27
-AOT r,r,-> 27
+b,b 35,009_debug_enum_result.cj:35
+AOT r,r,-> 35
 CJVM c,c,
 p,p rInt32_1,\(default.Result<Int32>\) \$[\d] = {[\s\S]*constructor = Success[\s\S]*arg_1 = 100[\s\S]*}
 p,p rInt32_2,\(default.Result<Int32>\) \$[\d] = {[\s\S]*constructor = Failure[\s\S]*arg_1 = [\s\S]*}

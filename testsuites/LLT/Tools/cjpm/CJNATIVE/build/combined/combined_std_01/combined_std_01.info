@@ -1,0 +1,4 @@
+// DEPENDENCE: ../%n
+// EXEC: cd %n/combine_dep_1 && %cjpm build -V
+// EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
+// ASSERT: scan cjpm build success

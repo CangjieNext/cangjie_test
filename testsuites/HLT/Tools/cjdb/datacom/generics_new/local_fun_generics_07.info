@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
-b,b 98,genericsfun_local.cj:98
-AOT r,r,-> 98
+b,b 106,genericsfun_local.cj:106
+AOT r,r,-> 106
 CJVM c,c,
 p, p gengricsvar2,std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 p, p c,std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*

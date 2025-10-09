@@ -21,5 +21,6 @@ func case01() {
     if ("${match (1) { case _ => 0 }}" != "0") {
         return 1
     }
+    //print( "${match(1){case _ => 0}}")
     return 0
 }

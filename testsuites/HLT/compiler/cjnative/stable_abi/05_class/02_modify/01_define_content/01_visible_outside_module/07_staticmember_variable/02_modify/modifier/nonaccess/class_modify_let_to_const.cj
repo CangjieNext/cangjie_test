@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.7.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class static var
   @Behavior: class staticmember variable let to const
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../../main.cj, ../../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -35,7 +35,7 @@
 package test_stable_abi
 
 // test class: staticmember variable
-public open class Father {}
+open public class Father {}
 
 public class Son <: Father {}
 
@@ -50,7 +50,7 @@ public class CC {
     protected static const b4 = 4
     internal static var b5 = 5
     private static const b6 = 6
-
+    
     public static let c1: Father = Son()
 
     static const d1 = 1
@@ -61,7 +61,6 @@ public class CC {
     public static const func e3() {
         e1
     }
-
     @Frozen
     public func e4() {
         e2

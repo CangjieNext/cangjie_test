@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+// LEVEL: 1 
+// DEPENDENCE: test.toml test.h
+// (iOS) EXEC: ObjCInteropGen test.toml
+// (iOS) EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+package cjworld
+
+import objc.foundation.NSObject
+import interoplib.objc.*
+
+@ObjCMirror
+public open class R <: NSObject {
+}
+
+@ObjCMirror
+public open class test <: NSObject {
+    public open mut prop p1: R
+}
+*/

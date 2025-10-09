@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case34,case34
-b,b 19,case34.cj:19
-AOT r,r,-> 19
-CJVM c,c,-> 19
+b,b 27,case34.cj:27
+AOT r,r,-> 27
+CJVM c,c,-> 27
 AOT thread,cjthread backtrace 100,cjthread #100 state: pending name: spawn98
 q,q,

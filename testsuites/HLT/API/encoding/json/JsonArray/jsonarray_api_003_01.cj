@@ -14,6 +14,7 @@
 import stdx.encoding.json.*
 
 main(): Int64 {
+    //init(list: List<JsonValue>)
     var buff: Array<JsonValue> = [createjsonvalue(-8, 8, "-9")]
     var init1 = JsonArray(buff)
     var cases1 = Testjsonarray()

@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 37,049_debug_string.cj:37
-AOT r,r,-> 37
+b,b 45,049_debug_string.cj:45
+AOT r,r,-> 45
 CJVM c,c,
-n,n,-> 38
+n,n,-> 46
 locals,locals,\(std[.]core.String\) main_str14 = "0123456789abcdxyz"
 q,q,

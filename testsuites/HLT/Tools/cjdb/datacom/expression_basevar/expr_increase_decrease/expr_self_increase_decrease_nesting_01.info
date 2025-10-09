@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 43,expr_nest.cj:43
-CJVM c,c,-> 43
-AOT r,r,-> 43
+b,b 51,expr_nest.cj:51
+CJVM c,c,-> 51
+AOT r,r,-> 51
 expr,expr C2().s.arr8[0]++;C2().s.arr8[0],\(UInt8\) \$[\d] = 1
 expr,expr C2().s.arr16[1]++;C2().s.arr16[1],\(UInt16\) \$[\d] = 2
 expr,expr C2().s.arr32[2]++;C2().s.arr32[2],\(UInt32\) \$[\d] = 3

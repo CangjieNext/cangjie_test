@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 4.2.1.6.2.34
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: enum static func
   @Behavior: modify function parameters type: subtype -> paretype
   @Expect: api compatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -22,7 +22,6 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] Changed parameter type of function visible outside the module.
@@ -30,10 +29,14 @@
 // ASSERT: scan-1 [ABI]
 // ASSERT: scan-not [API/ABI]
 
+// TEST API Compatibility
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 // test enum: modify public function parameter type: sub type -> parent type
 package test_stable_abi
 
-public open class A {
+open public class A {
     let a: Int64 = 10
 }
 
@@ -44,22 +47,22 @@ public class B <: A {
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 
-    public static func geta(a: Int64): Int64 {
+    static public func geta(a: Int64): Int64 {
         var b = a + 1
         return b
     }
 
-    public static const func getb(a: Int64): Int64 {
+    const static public func getb(a: Int64): Int64 {
         let b = a + 1
         return b
     }
 
     @Frozen
-    public static func getc(a: Int64): Int64 {
+    static public func getc(a: Int64): Int64 {
         var b = a + 1
         return b
     }
@@ -137,11 +140,11 @@ public enum Rectangle {
         return 1
     }
 
-    public static func gett(a!: Int64 = 1) {
+    public static func gett(a!: Int64=1) {
         return a
     }
 
-    static func getu(a!: Int64 = 2) {
+    static func getu(a!: Int64=2) {
         return a + 2
     }
 
@@ -176,7 +179,7 @@ public enum Rectangle {
     }
 
     @Frozen
-    static func geta3(a!: Int64 = 2) {
+    static func geta3(a!: Int64=2) {
         return a + 4
     }
 
@@ -186,3 +189,4 @@ public enum Rectangle {
         return y
     }
 }
+

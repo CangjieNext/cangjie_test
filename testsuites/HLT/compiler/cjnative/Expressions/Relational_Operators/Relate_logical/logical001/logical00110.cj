@@ -9,6 +9,7 @@
 // LEVEL: 1
 // ERRCHECK: %compiler %cmp_opt %f
 main(): Int64 {
+    //var a:Float16 = 1.2
     if (! @) {  
         return 1
     }

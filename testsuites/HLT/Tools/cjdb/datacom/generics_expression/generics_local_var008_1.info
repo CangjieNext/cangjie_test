@@ -14,14 +14,14 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var008,generics_local_var008
-b,b 71,generics_local_var008.cj:71
-AOT r,r,-> 71
+b,b 79,generics_local_var008.cj:79
+AOT r,r,-> 79
 CJVM c,c,
 expr:expr ai8.:error: unsupported expression
 expr:expr ai8.c1_a:\(default.S3<Int8>\) \$[\d] = {[\s\S]*s3_a = 8[\s\S]*}
-s,s,-> 38
-n,n,-> 39
-n,n,-> 40
+s,s,-> 46
+n,n,-> 47
+n,n,-> 48
 expr:expr this.s1_a:\(UInt8\) \$[\d] = 8
 expr:expr aa-Int64(a):\(Int64\) \$[\d] = 2
 q,q,

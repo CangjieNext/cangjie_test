@@ -5,15 +5,16 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
 
+
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 
@@ -22,7 +23,7 @@ public enum Rectangle {
         return b
     }
 
-    public const func getb(a: Int64): Int64 {
+    const public func getb(a: Int64): Int64 {
         let b = a + 1
         return b
     }
@@ -63,3 +64,4 @@ public enum Rectangle {
         return x
     }
 }
+

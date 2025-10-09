@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_debug,option_debug
-b,b 22,option_debug.cj:22
-AOT r,r,-> 22
-CJVM c,c,-> 22
+b,b 30,option_debug.cj:30
+AOT r,r,-> 30
+CJVM c,c,-> 30
 p,p option_none,\(std[.]core.Option<std.collection.HashMap<std.core.String,Bool>>\) \$[\d] = None
 locals,locals,\(std[.]core.Option<std.collection.HashMap<std.core.String,Bool>>\) option_none = None[\s\S]*
 AOT frame var,frame var option_none,\(std[.]core.Option<std.collection.HashMap<std.core.String,Bool>>\) option_none = None

@@ -12,7 +12,7 @@
 // ASSERT: scan first exception handler
 // ASSERT: scan func exception handler
 // ASSERT: scan-not second exception handler
-// ASSERT: scan third exception handler
+// (not iOS) ASSERT: scan third exception handler
 
 import std.sync.SyncCounter
 

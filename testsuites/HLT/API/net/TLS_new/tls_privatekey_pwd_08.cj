@@ -55,7 +55,7 @@ class Test_tlsprivatekey_pwd_08 {
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             bound.fetchAdd(1)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -184,8 +184,8 @@ class Test_tlsprivatekey_pwd_08 {
         clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
         let pem1 = String.fromUtf8(readToEnd(File("./data/end_rsa.cer", Read)))
         let keyPem = String.fromUtf8(readToEnd(File("./data/enc_pkcs8_end_rsa_private_key.pem", Read)))
-        clientConf.certificate = (X509Certificate.decodeFromPem(pem1), GeneralPrivateKey.decodeFromPem(keyPem,
-                password: "456"))
+        clientConf.certificate = (X509Certificate.decodeFromPem(pem1).map({c => c}), 
+        GeneralPrivateKey.decodeFromPem(keyPem, password: "456"))
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         sleep(Duration.millisecond * 500)

@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 048_debug_array_type,048_debug_array_type
-b,b 8,048_debug_array_type.cj:8
-AOT r,r,-> 8
+b,b 16,048_debug_array_type.cj:16
+AOT r,r,-> 16
 CJVM c,c,
-n,n,-> 9
+n,n,-> 17
 print,print arrayInt32,\$[\d] = {(\r\n|\r|\n)  \[0\] = 321(\r\n|\r|\n)  \[1\] = 322(\r\n|\r|\n)  \[2\] = 323(\r\n|\r|\n)}
 q,q,

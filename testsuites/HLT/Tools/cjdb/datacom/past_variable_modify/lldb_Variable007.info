@@ -16,14 +16,14 @@
 
 test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
-CJVM b,b main,015_debug_basetype.cj:4
-CJVM c,c,-> 4
-b,b 4,015_debug_basetype.cj:4
-b,b 5,015_debug_basetype.cj:5
+CJVM b,b main,015_debug_basetype.cj:12
+CJVM c,c,-> 12
+b,b 12,015_debug_basetype.cj:12
+b,b 13,015_debug_basetype.cj:13
 bdelete,breakpoint delete 1,breakpoints deleted
-AOT r,r,-> 5
-CJVM c,c,-> 5
-s,s,-> 6
+AOT r,r,-> 13
+CJVM c,c,-> 13
+s,s,-> 14
 locals,locals,var1 = -128
 p,p var1,\(Int8\) \$[\d] = -128
 locals,locals,var2 = 127

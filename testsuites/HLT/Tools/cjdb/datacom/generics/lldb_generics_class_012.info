@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 132,005_debug_class_generics.cj:132
-AOT r,r,-> 132
+b,b 140,005_debug_class_generics.cj:140
+AOT r,r,-> 140
 CJVM c,c,
-n,n,-> 135
+n,n,-> 143
 AOT print,print *mc_8.width.r_1,error: unsupported expression
 CJVM print,print *mc_8.width.r_1,error: variable was not declared in this scope
 AOT print,print *mc_8.length.r_1,error: unsupported expression

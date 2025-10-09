@@ -1,0 +1,25 @@
+// EXEC: %compiler %cmp_opt %n.cj -o %output
+// RUN-EXEC: %run %run_opt %output  %run_args
+
+enum TimeUnit{
+  | Year
+  | Month(Int64)
+}
+
+let oneYear = TimeUnit.Year
+
+main() : Int64 {
+
+  var arr: Array<Float32> = [
+    match (oneYear) {
+     case Year | Month(1)  => 24.0
+      case _ => 0.0
+    }
+  ]
+
+  if (arr[0] == 24.0){
+    return 0
+  }else{
+    return 1
+  }
+}

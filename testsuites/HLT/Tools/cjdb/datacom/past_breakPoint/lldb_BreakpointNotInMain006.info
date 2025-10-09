@@ -16,41 +16,41 @@
 
 test#
 cjdb,cjdb --no-use-colors 026_debuginfun_if,026_debuginfun_if
-CJVM b,breakpoint set -n main,026_debuginfun_if.cj:4
-CJVM c,c,-> 4
-b,b 8,026_debuginfun_if.cj:8
-AOT b,b 9,026_debuginfun_if.cj:10
-CJVM b,b 9,026_debuginfun_if.cj:9
-b,b 10,026_debuginfun_if.cj:10
-b,b 11,026_debuginfun_if.cj:11
-AOT b,b 12,026_debuginfun_if.cj:13
-CJVM b,b 12,026_debuginfun_if.cj:12
-b,b 13,026_debuginfun_if.cj:13
-AOT b,b 14,026_debuginfun_if.cj:15
-CJVM b,b 14,026_debuginfun_if.cj:14
-b,b 15,026_debuginfun_if.cj:15
+CJVM b,breakpoint set -n main,026_debuginfun_if.cj:12
+CJVM c,c,-> 12
 b,b 16,026_debuginfun_if.cj:16
 AOT b,b 17,026_debuginfun_if.cj:18
 CJVM b,b 17,026_debuginfun_if.cj:17
 b,b 18,026_debuginfun_if.cj:18
-AOT b,b 19,026_debuginfun_if.cj:20
-CJVM b,b 19,026_debuginfun_if.cj:19
-AOT r,r,-> 8
-CJVM c,c,-> 8
-n,n,-> 10
-n,n,-> 11
-n,n,-> 15
-locals,locals,if_a = 1
+b,b 19,026_debuginfun_if.cj:19
+AOT b,b 22,026_debuginfun_if.cj:23
+CJVM b,b 22,026_debuginfun_if.cj:22
+b,b 21,026_debuginfun_if.cj:21
+AOT b,b 22,026_debuginfun_if.cj:23
+CJVM b,b 22,026_debuginfun_if.cj:22
+b,b 23,026_debuginfun_if.cj:23
+b,b 24,026_debuginfun_if.cj:24
+AOT b,b 25,026_debuginfun_if.cj:26
+CJVM b,b 25,026_debuginfun_if.cj:25
+b,b 26,026_debuginfun_if.cj:26
+AOT b,b 27,026_debuginfun_if.cj:28
+CJVM b,b 27,026_debuginfun_if.cj:27
+AOT r,r,-> 16
+CJVM c,c,-> 16
 n,n,-> 18
-n,n,-> 20
+n,n,-> 19
+n,n,-> 23
+locals,locals,if_a = 1
+n,n,-> 26
+n,n,-> 28
 locals,locals,if_a = 2
-AOT rerun,r,-> 8
-AOT c,c,-> 10
+AOT rerun,r,-> 16
+AOT c,c,-> 18
 AOT set,set if001 = 0,false
-AOT n,n,-> 13
-AOT n,n,-> 15
+AOT n,n,-> 21
+AOT n,n,-> 23
 AOT locals,locals,if_a = 2
-AOT n,n,-> 16
-AOT n,n,-> 20
+AOT n,n,-> 24
+AOT n,n,-> 28
 AOT locals,locals,if_a = 1
 q,q,

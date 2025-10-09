@@ -29,6 +29,7 @@ main(): Int64 {
         println("case 3")
         return 1
     }
+    //testcontainsKey(json:JsonObject,all_keys:Array<String>,exp_re:Bool)
     if (cases.testcontainsKey(init1, Array<String>(), true) != 0) //空jsonObject
     {
         println("case 4")
@@ -40,6 +41,7 @@ main(): Int64 {
         println("case 5")
         return 1
     }
+    //testcontainsKey(json:JsonObject,all_keys:Array<String>,exp_re:Bool)
     if (cases.testcontainsKey(init1, ["key1"], true) != 0) //非空jsonObject
     {
         println("case 6")

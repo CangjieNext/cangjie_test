@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 067_debug_hashmap,067_debug_hashmap
-b,b 19,067_debug_hashmap.cj:19
-AOT r,r,-> 19
-CJVM c,c,-> 19
+b,b 27,067_debug_hashmap.cj:27
+AOT r,r,-> 27
+CJVM c,c,-> 27
 p,p a,\(std\.collection.HashMap<Rune,std.core.Array<UInt8>>\) \$[\d] = {[\s\S]*\['a'\] = {[\s\S]*key = 'a'[\s\S]*value = {[\s\S]*\[0\] = 11[\s\S]*\[1\] = 12[\s\S]*}[\s\S]*}[\s\S]*\['b'\] = {[\s\S]*key = 'b'[\s\S]*value = {[\s\S]*\[0\] = 21[\s\S]*\[1\] = 22[\s\S]*}[\s\S]*}[\s\S]*}
 locals,locals,a = {[\s\S]*key = 'a'[\s\S]*value = {[\s\S]*\[0\] = 11[\s\S]*\[1\] = 12[\s\S]*}[\s\S]*}[\s\S]*\['b'\] = {[\s\S]*key = 'b'[\s\S]*value = {[\s\S]*\[0\] = 21[\s\S]*\[1\] = 22[\s\S]*}[\s\S]*}[\s\S]*}
 q,q,

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_large_array,003_debug_large_array
-b,b 9,003_debug_large_array.cj:9
-AOT r,r,-> 9
+b,b 17,003_debug_large_array.cj:17
+AOT r,r,-> 17
 CJVM c,c,
 print,print arrayInt64_t[1][1][4999..4999],\(std[.]core.Array<Int64>\) \$[\d] = {[\s\S]*}
 q,q,

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 009_debug_ArrayIns_composite_string,009_debug_ArrayIns_composite_string
-b,b 23,009_debug_ArrayIns_composite_string.cj:23
-AOT r,r,-> 23
+b,b 31,009_debug_ArrayIns_composite_string.cj:31
+AOT r,r,-> 31
 CJVM c,c,
 p,p multiArr_str_d3[2][3],\(std[.]core.String\) \$[\d] = "\\"Hello Cangjie Lang\\"[\s\S]*
 q,q,

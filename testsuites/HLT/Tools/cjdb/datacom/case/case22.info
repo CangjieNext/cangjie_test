@@ -13,11 +13,11 @@
 
 test#
 cjdb,cjdb --no-use-colors case22,case22
-b,b 10,case22.cj:10
-b,b 17,case22.cj:17
-AOT r,r,-> 10
+b,b 18,case22.cj:18
+b,b 25,case22.cj:25
+AOT r,r,-> 18
 CJVM c,c,
 AOT expr:expr x:\(Int64\) \$[\d] = 2
-c,c,-> 17
+c,c,-> 25
 AOT expr~expr Color.Green(7)~\(default.Color\) \$[\d] = {\s+constructor = Green\s+arg_1 = 7[\s\S]*}
 q,q,

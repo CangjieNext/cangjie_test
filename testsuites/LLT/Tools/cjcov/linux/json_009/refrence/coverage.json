@@ -1,0 +1,17 @@
+{
+  "fileLists": [
+    {
+      "filepath": "src/main.cj",
+      "totalLines": 7,
+      "hitLines": [
+        12,
+        13,
+        16,
+        17,
+        20,
+        21,
+        22
+      ]
+    }
+  ]
+}

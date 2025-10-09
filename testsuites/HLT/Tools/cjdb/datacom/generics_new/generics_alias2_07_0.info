@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_alias2,generics_alias2
-b,b 139,generics_alias2.cj:139
-AOT r,r,-> 139
+b,b 147,generics_alias2.cj:147
+AOT r,r,-> 147
 CJVM c,c,
 p, p lst1,\(default.structtype01<Int32>\) \$[\d] = {[\s\S]*a = 32[\s\S]
 p, p s1.vst1s,\(default.structtype01<Int64>\) \$[\d] = {[\s\S]*a = 10[\s\S]
@@ -25,8 +25,8 @@ p, p globals_st1,\(default.structtype01<Int32>\) \$[\d] = {[\s\S]*a = 32[\s\S]
 locals, locals,\(default.structtype01<Int32>\) lst1 = {[\s\S]*a = 32[\s\S][\s\S]*\(default.S1\) s1 = {[\s\S]*vst1s = {[\s\S]*a = 10[\s\S][\s\S]*\(default.C1\) c1 = {[\s\S]*vst1c = {[\s\S]*a = 10[\s\S][\s\S]*
 globals, globals,\(default.structtype01<Int64>\) default::S1::vst1 = {[\s\S]*a = 10[\s\S]
 globals, globals,\(default.structtype01<Int32>\) default::globals_st1 = {[\s\S]*a = 32[\s\S]
-b, b 164,generics_alias2.cj:164
-c,c,-> 164
+b, b 172,generics_alias2.cj:172
+c,c,-> 172
 p, p g,\(default.structtype01<Int32>\) \$[\d] = {[\s\S]*a = 32[\s\S]
 p, p test_g,\(default.structtype01<Int32>\) \$[\d] = {[\s\S]*a = 32[\s\S]
 locals, locals,\(default.structtype01<Int32>\) g = {[\s\S]*a = 32[\s\S]

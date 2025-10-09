@@ -15,16 +15,16 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_breakpoint_able,002_breakpoint_able
-CJVM b,breakpoint set -n main,pkgs009.cj:8
-CJVM c,c,-> 8
+CJVM b,breakpoint set -n main,pkgs009.cj:16
+CJVM c,c,-> 16
 b,b fun001,2 locations
-b,b 4,pkgs009.cj:4
+b,b 12,pkgs009.cj:12
 AOT bdisable,breakpoint disable 2 3,'3' is not a currently valid breakpoint ID
 CJVM bdisable,breakpoint disable 3 4,'4' is not a currently valid breakpoint ID
 AOT bdisable,breakpoint disable 1 2,2 breakpoints disabled
 CJVM bdisable,breakpoint disable 2 3,2 breakpoints disabled
 AOT benable,breakpoint enable 1 2,2 breakpoints enabled
 CJVM benable,breakpoint enable 2 3,2 breakpoints enabled
-AOT blist,breakpoint list,pkgs009.cj:4[\s\S]*pkg9.cj:6[\s\S]*pkgs009.cj:4
-CJVM blist,breakpoint list,pkg9.cj:6[\s\S]*pkgs009.cj:4[\s\S]*pkgs009.cj:4
+AOT blist,breakpoint list,pkgs009.cj:12[\s\S]*pkg9.cj:14[\s\S]*pkgs009.cj:12
+CJVM blist,breakpoint list,pkg9.cj:14[\s\S]*pkgs009.cj:12[\s\S]*pkgs009.cj:12
 q,q,

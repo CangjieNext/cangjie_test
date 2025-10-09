@@ -16,12 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_func_reload,011_debug_func_reload
-CJVM b main,b main,011_debug_func_reload.cj:4
-CJVM c,c,-> 4
-b,b 4,011_debug_func_reload.cj:4
-AOT r,r,-> 4
-s,s,-> 13
-finish,finish,-> 4
-n,n,-> 5
+CJVM b main,b main,011_debug_func_reload.cj:12
+CJVM c,c,-> 12
+b,b 12,011_debug_func_reload.cj:12
+AOT r,r,-> 12
+s,s,-> 21
+finish,finish,-> 12
+n,n,-> 13
 locals,locals,Functioncall008 = 10
 q,q,

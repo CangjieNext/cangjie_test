@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
@@ -13,7 +13,7 @@ main() {
     let f1 = Father(5)
     let g1 = Generics<Int64>(101)
 
-    if (f1.v1 == 0 && f1.v2 == 1 && f1.v3 == 5
+    if (f1.v1 == 0 && f1.v2 == 1 && f1.v3 == 5 
         && f1.foo1(9) == 10 && Father.foo2(90) == 100) {
         count++
     }
@@ -25,8 +25,10 @@ main() {
     }
 
     if (count == 2) {
-        return 0
+        return 0        
     } else {
         return 1
     }
 }
+
+

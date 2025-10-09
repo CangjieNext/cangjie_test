@@ -36,6 +36,7 @@ main(): Int64 {
         // Cases(#"\S*"#, str, str),
         Cases(#"\s*"#, str, str),
         Cases(#"\D*"#, str, str)
+        // Cases(#"\d*"#, str, str)
     ]
     for (c in cases) {
         var regex = Regex(c.pattern, RegexOption().multiLine())

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 4.2.1.8.2.35
   @Scene: add
@@ -13,8 +13,8 @@
   @Object: enum instance func
   @Behavior: add parameters default values
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -34,9 +34,7 @@
 // 对某个参数新增默认值
 package test_stable_abi
 
-import std.random.*
-
-public open class A {
+open public class A {
     let a: Int64 = 10
 }
 
@@ -47,11 +45,11 @@ public class B <: A {
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 
-    public func geta(a: Random, b!: Int64 = 1, c!: Int64 = 1): Int64 {
+    public func geta(a: String, b!: Int64 = 1, c!: Int64 = 1): Int64 {
         return b + c
     }
 
@@ -69,7 +67,7 @@ public enum Rectangle {
         return 1
     }
 
-    func geta4(a: Int64, b: Float64, c!: Int64 = 1, d!: Float64 = 2.2) {
+    func geta4(a: Int64, b: Float64, c!: Int64=1, d!: Float64=2.2) {
         return 1
     }
 
@@ -79,7 +77,7 @@ public enum Rectangle {
         return x
     }
 
-    public func geta6(a: Int64, b: Float64, c!: Int64 = 1, d!: Float64 = 2.2) {
+    public func geta6(a: Int64, b: Float64, c!: Int64=1, d!: Float64=2.2) {
         return 1
     }
 
@@ -94,6 +92,15 @@ public enum Rectangle {
     }
 
     public func geta9(a: A, b: B) {
+        return 1
+    }
+
+    public const func geta10(a: Int64, b: Float64, c!: Int64=1, d!: Float64=2.2) {
+        return 1
+    }
+
+    @Frozen
+    public func geta11(a: Int64, b: Float64, c!: Int64=1, d!: Float64=2.2) {
         return 1
     }
 }

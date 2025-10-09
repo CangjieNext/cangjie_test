@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 047_debug_large_array,047_debug_large_array
-b,b 6,047_debug_large_array.cj:6
-AOT r,r,-> 6
+b,b 14,047_debug_large_array.cj:14
+AOT r,r,-> 14
 CJVM c,c,
-n,n,-> 31
+n,n,-> 39
 locals,locals,Array<Int64>
 locals,locals,\[99\] = 99
 q,q,

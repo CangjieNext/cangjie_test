@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 126,genericsfun_return.cj:126
-AOT r,r,-> 126
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
 CJVM c,c,
 p, p lr,\(Rune\) \$[\d] = 'a'
 p, p cvr,\(Rune\) \$[\d] = 'a'
@@ -26,8 +26,8 @@ p, p globals_vr,\(Rune\) \$[\d] = 'a'
 locals, locals,\(Rune\) lr = 'a'[\s\S]*\(default.S1\) s1 = {[\s\S]*vrs = 'a'[\s\S]*\(default.C1\) c1 = {[\s\S]*vrc = 'a'[\s\S]*
 globals, globals,\(Rune\) default::C1::vr = 'a'[\s\S]*
 globals, globals,\(Rune\) default::globals_vr = 'a'
-b, b 137,genericsfun_return.cj:137
-c,c,-> 137
+b, b 145,genericsfun_return.cj:145
+c,c,-> 145
 p, p e,\(Rune\) \$[\d] = 'a'
 p, p test_e,\(Rune\) \$[\d] = 'a'
 locals, locals,\(Rune\) e = 'a'

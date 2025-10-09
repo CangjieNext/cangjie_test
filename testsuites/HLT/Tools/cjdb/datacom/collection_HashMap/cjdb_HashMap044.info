@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_HashMap_Ins_array,004_HashMap_Ins_array
-b,b 50,004_HashMap_Ins_array.cj:50
-AOT r,r,-> 50
-CJVM c,c,-> 50
+b,b 58,004_HashMap_Ins_array.cj:58
+AOT r,r,-> 58
+CJVM c,c,-> 58
 p,p map_array_7,std[.]collection.HashMap<Bool,std[.]core.Array<std[.]collection.HashSet<default.cla>>>\) \$[\d] = {[\S\s]*key = false[\S\s]*value = [\S\s]*}
 q,q,

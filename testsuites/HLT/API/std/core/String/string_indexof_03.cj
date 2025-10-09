@@ -13,6 +13,7 @@
 class Test_indexof_12 {
     @TestCase
     func test_indexof_byte_with_fromindex(): Unit {
+        // str [97, 240, 159, 153, 143, 240, 159, 143, 191, 240, 159, 153, 143, 240, 159, 143, 191, 97]
         let str = "a🙏🏿🙏🏿a"
         @Expect(str.indexOf(UInt8(240), -1), Some(1))
         @Expect(str.indexOf(UInt8(240), 0), Some(1))

@@ -9,4 +9,4 @@
 // LEVEL: 0
 // DEPENDENCE: pkgA
 // EXEC-PIPE: %compiler --scan-dependency -p pkgA  2>&1 | compare %f
-// ASSERT: regex {"package":"pkgA","isMacro":false,"accessLevel":"public","dependencies":\[{"package":"pkgB","isStd":false,"imports":\[{"file":"pkgA(/|\\\\)pkgA.cj","begin":{"line":11,"column":1},"end":{"line":11,"column":14}}\]}\]}
+// ASSERT: regex {"package":"pkgA","isMacro":false,"accessLevel":"public","dependencies":\[{"package":"pkgB","isStd":false,"imports":\[{"file":"pkgA(/|\\\\)pkgA.cj","begin":{"line":11,"column":1},"end":{"line":11,"column":14}}\]}\],"features":\[\]}

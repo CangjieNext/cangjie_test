@@ -1,0 +1,3 @@
+default.global_default newobf_var
+default.test_default() newobf_func
+default.main() newobf_func

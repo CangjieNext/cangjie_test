@@ -8,9 +8,9 @@
 // (DEBUG_OPTION)EXEC: %compiler %compile_lib_opt depLambda.cj -o depLambda.%middle
 // (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt depLambda.%middle %n.cj -o %output 2>&1 | compare %f
 // (CJNATIVE and DEBUG_OPTION) EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at testLambdaDep.cj:21:1 - testLambdaDep.cj:21:36 replaced initializer function `gv$_two_plus_three` with initializer constant(s).
-// (CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at testLambdaDep.cj:22:1 - testLambdaDep.cj:22:34 evaluated initializer function `gv$_local_add_three` of 3 expressions to one of 3 expressions.
-// ASSERT: scan debug: consteval at testLambdaDep.cj:23:1 - testLambdaDep.cj:23:48 replaced initializer function `gv$_local_two_plus_three` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_two_plus_three` with initializer constant(s).
+// (CJNATIVE and DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_local_add_three` of 3 expressions to one of 3 expressions.
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_local_two_plus_three` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

@@ -16,17 +16,17 @@ import std.collection.*
 import std.time.*
 
 var shouldLog = true
-var blackHole: Int64 = 0
+var blackBox: Int64 = 0
 
 main(): Unit {
     measureObject(10)
 }
 
 func measureObject(N: Int64) {
-    blackHole = measureBodyObject(N)
+    blackBox = measureBodyObject(N)
 
     if (shouldLog) {
-        println("ComplexObject with ${N} problem size. Computation result: ${blackHole}")
+        println("ComplexObject with ${N} problem size. Computation result: ${blackBox}")
     }
 }
 

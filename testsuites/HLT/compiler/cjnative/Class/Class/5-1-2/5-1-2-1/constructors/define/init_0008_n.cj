@@ -16,4 +16,4 @@ class Data {
         return 0
     }
 }
-// ASSERT: scan sema_invalid_return_value_type
+// ASSERT: scan parse_invalid_return_type

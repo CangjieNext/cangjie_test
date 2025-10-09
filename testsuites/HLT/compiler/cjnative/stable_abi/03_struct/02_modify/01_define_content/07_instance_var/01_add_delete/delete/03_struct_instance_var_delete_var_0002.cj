@@ -5,16 +5,16 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.7.1.3
   @Scene: delete
-  @Visibility: non public
+  @Visibility: used in public @Frozen declare
   @Object: struct instance var
   @Behavior: delete non public instance member variable
   @Expect: api compatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -24,10 +24,11 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // ASSERT: scan Incompatible!
+// ASSERT: scan-1 [API/ABI] Deleted public member function of struct visible outside the module.
 // ASSERT: scan-1 [ABI] Deleted instance non public variable member from the struct.
 // ASSERT: scan-not [API]
 // ASSERT: scan-1 [ABI]
-// ASSERT: scan-not [API/ABI]
+// ASSERT: scan-1 [API/ABI]
 
 // TEST API Compatibility
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -41,20 +42,16 @@ public struct Rectangle {
     let width = 10
     let a1 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 }
 
 public struct S1 {
-    let a1 = 20
-    public let a2 = 0
-    public let a4 = 0
 
-    @Frozen
-    public func geta1() {
-        return a1
-    }
+    public let a2 = 0
+    let a3 = 20
+    public let a4 = 0
 
     @Frozen
     public func geta2() {

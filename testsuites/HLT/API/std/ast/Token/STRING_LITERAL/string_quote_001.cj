@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
@@ -22,14 +30,7 @@ abc''')[0]
     }
 }
 
-// ASSERT: regex description: multiline_string, token_id: [0-9]+, token_literal_value: abc, fileID: 1, line: 8, column: 24
-// ASSERT: regex description: multiline_raw_string, token_id: [0-9]+, token_literal_value: \\n, fileID: 1, line: 10, column: 24
-// ASSERT: regex description: double_quoted_string_literal, token_id: [0-9]+, token_literal_value: \'a\', fileID: 1, line: 11, column: 24
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- * 
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+// ASSERT: regex description: multiline_string, token_id: [0-9]+, token_literal_value: abc, fileID: 1, line: 16, column: 24
+// ASSERT: regex description: multiline_raw_string, token_id: [0-9]+, token_literal_value: \\n, fileID: 1, line: 18, column: 24
+// ASSERT: regex description: double_quoted_string_literal, token_id: [0-9]+, token_literal_value: \'a\', fileID: 1, line: 19, column: 24
 

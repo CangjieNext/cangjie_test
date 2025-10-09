@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func006,generics_local_func006
-b,b 14,generics_local_func006.cj:14
-AOT r,r,-> 14
+b,b 22,generics_local_func006.cj:22
+AOT r,r,-> 22
 CJVM c,c,
 expr:expr add(1, 2):\(Int64\) \$[\d] = 2
 expr:expr add2<Int64>(1, 4):\(Int64\) \$[\d\ = 4

@@ -121,17 +121,16 @@ class Test_tlsclientconf_07 {
     }
 
     @TestCase
-    func test_03(): Unit {
+    func test_03():Unit{
         //client cipherSuitesV1_2  and cipherSuitesV1_3 set the illegal characters.
-        spawn {
+        spawn{
             startServerHandshake_err()
         }
-        while (!bound.compareAndSwap(1, 0)) {
-            sleep(Duration.millisecond)
-        }
+        while(!bound.compareAndSwap(1, 0)) {sleep(Duration.millisecond)}
         let pem = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
         var clientConf = TlsClientConfig()
         clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+        clientConf.supportedVersions = [V1_2, V1_3]
         clientConf.supportedCipherSuites[V1_2] = ["h1"]
         clientConf.supportedCipherSuites[V1_3] = ["h2"]
         var tcpClient = TcpSocket("127.0.0.1", port.load())
@@ -139,7 +138,7 @@ class Test_tlsclientconf_07 {
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         try {
             tlsClient.handshake()
-        } catch (e: TlsException) {
+        } catch(e: TlsException) {
             @Expect(e.message.contains("Failed to set cipher suites of TLS1.2"))
             sum2 += 1
         }

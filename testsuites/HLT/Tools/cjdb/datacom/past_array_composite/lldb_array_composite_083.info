@@ -15,9 +15,9 @@
 
 test#
 cjdb,cjdb --no-use-colors array_external_use,array_external_use
-b,b 14,array_external_use.cj:14
-AOT r,r,-> 14
+b,b 22,array_external_use.cj:22
+AOT r,r,-> 22
 CJVM c,c,
-n,n,-> 16
+n,n,-> 24
 print,print arraymainrec03[0],TimeUnit\) \$[\d]+ = {(\r|\n|\r\n)  constructor = Year(\r|\n|\r\n)  arg_1 = 100
 q,q,

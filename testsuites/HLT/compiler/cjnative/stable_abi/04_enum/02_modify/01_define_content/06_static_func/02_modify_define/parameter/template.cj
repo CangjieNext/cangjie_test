@@ -5,21 +5,58 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
 
 import std.random.*
 
+public class A { var a = RectangleB.Red }
+
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 
-    public static func geta(a: Random, b!: Int64, c!: Int64 = 1): Int64 {
+    @Frozen
+    public static func getA(a: Random, b!: Int64, c!: Int64 = 1): Int64 {
+        let x = getC(1, b:1)
+        return b + c
+    }
+
+    public const static func getB(a: Int64, b!: Int64, c!: Int64 = 1): Int64 {
+        let x = getC(1, b:1)
+        return b + c
+    }
+
+    static const func getC(a: Int64, b!: Int64, c!: Int64 = 1): Int64 {
         return b + c
     }
 }
+
+enum RectangleB {
+    | Red | Green | Blue(UInt8)
+
+    public func getWidth(): Int64{
+        return 11
+    }
+
+    @Frozen
+    public static func getA(a: Random, b!: Int64, c!: Int64 = 1): Int64 {
+        let x = getC(1, b:1)
+        return b + c
+    }
+
+    public const static func getB(a: Int64, b!: Int64, c!: Int64 = 1): Int64 {
+        let x = getC(1, b:1)
+        return b + c
+    }
+
+    static const func getC(a: Int64, b!: Int64, c!: Int64 = 1): Int64 {
+        return b + c
+    }
+}
+

@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func021,generics_local_func021
-breakpoint,breakpoint set -l 21 -c "test()!=0",generics_local_func021.cj:21
-AOT r,r,-> 21
+breakpoint,breakpoint set -l 29 -c "test()!=8",generics_local_func021.cj:29
+AOT r,r,-> 29
 CJVM c,c,
 expr:expr test():\(Int64\) \$[\d] = 100
 expr:expr myIf(true, {=> 200}):\(Int64\) \$[\d] = 200
-s,s,-> 10
-n,n,-> 11
+s,s,-> 18
+n,n,-> 19
 expr:expr myIf(true){100}:\(Int64\) \$[\d] = 100
 q,q,

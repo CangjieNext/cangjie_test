@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var001,generics_local_var001
-breakpoint,breakpoint set -l 23 -c "vunit==()",generics_local_var001.cj:23
-AOT r,r,-> 23
+breakpoint,breakpoint set -l 31 -c "vunit==()",generics_local_var001.cj:31
+AOT r,r,-> 31
 CJVM c,c,
 locals,locals,\(Int64\) a = 6
 expr:expr vunit:\(Unit\) \$[\d] = ()

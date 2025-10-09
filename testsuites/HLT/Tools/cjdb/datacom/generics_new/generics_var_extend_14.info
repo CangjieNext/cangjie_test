@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 266,Breakpoint 1:
-AOT r,r,-> 266
+b,b 274,Breakpoint 1:
+AOT r,r,-> 274
 CJVM c,c,
 p, p a,\(std.core.String\) \$[\d] = "cnagjie"
 p, p a1,\(std.core.String\) \$[\d] = "cnagjie"

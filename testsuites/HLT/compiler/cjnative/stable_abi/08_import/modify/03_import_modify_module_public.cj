@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 8.3
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: import
   @Behavior: modify import module
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // Expect: API Incompatible & ABI Incompatible
 // DEPENDENCE: main.cj, template.cj, a, b

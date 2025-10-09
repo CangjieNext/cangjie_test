@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_enum_generics,024_enum_generics
-b,b 4,024_enum_generics.cj:4
-AOT r,r,-> 4
+b,b 12,024_enum_generics.cj:12
+AOT r,r,-> 12
 CJVM c,c,
 locals,locals,\(default.E1<Int64>\) a = A[\s\S]*
 locals,locals,\(default.E1<Int32>\) b = {[\s\S]*constructor = B[\s\S]*arg_1 = 6[\s\S]*}

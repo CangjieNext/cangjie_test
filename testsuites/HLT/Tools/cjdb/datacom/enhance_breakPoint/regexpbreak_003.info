@@ -15,12 +15,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_regexpbreak,003_regexpbreak
-CJVM b,breakpoint set -n main,pkgs001.cj:29
-CJVM c,c,-> 29
-AOT b,_regexp-break pkg1.cj:8,Breakpoint 1: where[\s\S]*pkg1.cj:8
-AOT b,_regexp-break pkg1.cj:9,Breakpoint 2: where[\s\S]*pkg1.cj:9
-CJVM b,_regexp-break 8,Breakpoint 2[\s\S]*pkgs001.cj:8
-CJVM b,_regexp-break 9,Breakpoint 3[\s\S]*pkgs001.cj:9
-AOT b,b 30,Breakpoint 3: where[\s\S]*pkgs001.cj:30
-CJVM b,b 30,Breakpoint 4[\s\S]*pkgs001.cj:30
+CJVM b,breakpoint set -n main,pkgs001.cj:37
+CJVM c,c,-> 37
+AOT b,_regexp-break pkg1.cj:16,Breakpoint 1: where[\s\S]*pkg1.cj:16
+AOT b,_regexp-break pkg1.cj:17,Breakpoint 2: where[\s\S]*pkg1.cj:17
+CJVM b,_regexp-break 16,Breakpoint 2[\s\S]*pkgs001.cj:16
+CJVM b,_regexp-break 17,Breakpoint 3[\s\S]*pkgs001.cj:17
+AOT b,b 38,Breakpoint 3: where[\s\S]*pkgs001.cj:38
+CJVM b,b 38,Breakpoint 4[\s\S]*pkgs001.cj:38
 q,q,

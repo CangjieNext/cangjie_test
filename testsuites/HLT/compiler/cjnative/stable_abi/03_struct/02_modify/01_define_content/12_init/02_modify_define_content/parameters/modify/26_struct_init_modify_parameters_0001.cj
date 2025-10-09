@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.12.2.26
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: struct init
   @Behavior: modify non const func or non @Frozen func default value for named parameters
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -32,25 +32,12 @@
 package test_stable_abi
 
 public interface I {}
-
 extend UInt64 <: I {}
-
 public struct S {
-    public var a: Int64 = 1
-    public init(a1: Int64, a2: UInt64) {
-        a = a1
-    }
-    public init(a1: Int64, a2!: Float32, a3!: Float64) {
-        a = a1
-    }
-    public init(a1: Int64, a2!: Bool = false, a3!: String = "1") {
-        a = a1
-    }
-    public const init(a1: Unit, a2!: Int64 = 0) {
-        a = a2
-    }
-    @Frozen
-    public init(a1: Rune, a2!: Int64 = 0) {
-        a = a2
-    }
+    public var a = 1
+    public init(a1: Int64, a2: UInt64) { a = a1 }
+    public init(a1: Int64, a2!: Float32, a3!: Float64) { a = a1 }
+    public init(a1: Int64, a2!: Bool = false, a3!: String = "1") { a = a1 }
+    public const init(a1: Unit, a2!: Int64 = 0) { a = a2 }
+    @Frozen public init(a1: Rune, a2!: Int64 = 0) { a = a2 }
 }

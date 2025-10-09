@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 048_debug_array_type,048_debug_array_type
-b,b 9,048_debug_array_type.cj:9
-AOT r,r,-> 9
+b,b 17,048_debug_array_type.cj:17
+AOT r,r,-> 17
 CJVM c,c,
-n,n,-> 11
+n,n,-> 19
 print,print arrayInt64,\$[\d] = {(\r\n|\r|\n)  \[0\] = 641(\r\n|\r|\n)  \[1\] = 642(\r\n|\r|\n)  \[2\] = 643(\r\n|\r|\n)  \[3\] = 644(\r\n|\r|\n)}
 q,q,

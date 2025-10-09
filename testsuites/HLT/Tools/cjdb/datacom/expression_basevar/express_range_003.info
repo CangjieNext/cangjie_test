@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_express_basetype,003_express_basetype
-CJVM b,b main,060_debug_range.cj:48
-CJVM c,c,-> 48
-b,b 43,060_debug_range.cj:43
-CJVM c,c,-> 43
-AOT r,r,-> 43
+CJVM b,b main,060_debug_range.cj:56
+CJVM c,c,-> 56
+b,b 51,060_debug_range.cj:51
+CJVM c,c,-> 51
+AOT r,r,-> 51
 expr,expr ra1,\(std[.]core.Range<Int64>\) \$[\d] = 0..10 : 2
 expr,expr ra2,\(std[.]core.Range<Int64>\) \$[\d] = 0..10 : 2
 q,q,

@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_enum_reload,003_debug_enum_reload
-b,b 17,003_debug_enum_reload.cj:17
-AOT r,r,-> 17
+b,b 25,003_debug_enum_reload.cj:25
+AOT r,r,-> 25
 CJVM c,c,
-n,n,-> 18
-n,n,-> 19
+n,n,-> 26
+n,n,-> 27
 locals,locals,TimeUnit1\) time2 = {(\r|\n|\r\n)  constructor = Month(\r|\n|\r\n)  arg_1
 print,print time2,TimeUnit1\) \$[\d]+ = {(\r|\n|\r\n)  constructor = Month(\r|\n|\r\n)  arg_1 = 1(\r|\n|\r\n)  arg_2 = 2
 q,q,
