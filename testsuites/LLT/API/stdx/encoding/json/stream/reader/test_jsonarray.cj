@@ -317,6 +317,16 @@ public class JsonArrayTest {
     }
 
     @TestCase
+    func arrayLinkedList(): Unit {
+        let jsonStr = ##"["aaa", "bbb", "ccc"]"##
+        var bas = ByteBuffer()
+        unsafe { bas.write(jsonStr.rawData()) }
+        var reader = JsonReader(bas)
+        var arr = reader.readValue<LinkedList<String>>()
+        @Expect(arr.toArray(), ["aaa", "bbb", "ccc"])
+    }
+
+    @TestCase
     func arrayArrayQueue(): Unit {
         let jsonStr = ##"["aaa", "bbb", "ccc"]"##
         var bas = ByteBuffer()
