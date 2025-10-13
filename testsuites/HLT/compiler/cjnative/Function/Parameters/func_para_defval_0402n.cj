@@ -21,7 +21,6 @@ func run(): Int64 {
     return 1
 }
 
-// Aborted (core dumped)
 func Foo(a!: Int64 = b) {
     var b: Int64 = 2
     return a + b

@@ -1,6 +1,6 @@
 // ERRCHECK: %compiler %cmp_opt %f
 
-main(){
+main() {
     (_, _) == (1, 2)
 }
 

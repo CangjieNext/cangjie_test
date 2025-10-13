@@ -9,7 +9,9 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, Pem, PemEntry, PrivateKey}
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.keys.*
+import stdx.crypto.common.*
 
 @Test
 class PemHeaderTest {
@@ -123,7 +125,7 @@ class PemHeaderTest {
 
     @TestCase
     func realExampleDecodeSmoke(): Unit {
-        PrivateKey.decodeFromPem(rsa, password: "1234")
+        GeneralPrivateKey.decodeFromPem(rsa, password: "1234")
     }
 
     private func single(p: String): PemEntry {

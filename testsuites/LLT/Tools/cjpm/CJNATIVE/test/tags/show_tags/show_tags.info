@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm test src --show-tags --no-color %run_utest_opt 2>&1 | compare %f
+// ASSERT: scan-2 TestsWithTags (tags: tag0, tag1), time elapsed
+// ASSERT: scan-2 [ FAILED ] CASE: failing (tags: failing)
+// ASSERT: scan-2 TestsWithTag (tags: tag1), time elapsed
+// ASSERT: scan-1 CASE: twoTags (tags: tag2, tag3)
+// ASSERT: scan-1 CASE: oneTag (tags: tag4)
+// ASSERT: scan-not TestsWithoutTag (tags:
+// ASSERT: scan-1 CASE: oneTag (tags: tag5)
+// ASSERT: scan-not TestCase_topLevel (tags:
+// ASSERT: scan-1 CASE: topLevel (tags: tag6, tag7)
+// ASSERT: scan-1 TCS: TestsWithTags (tags: tag0, tag1), CASE: failing (tags: failing)
+// ASSERT: scan-not CASE: noTags (tags:

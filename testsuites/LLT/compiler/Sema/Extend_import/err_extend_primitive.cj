@@ -21,5 +21,22 @@ error: undeclared identifier 'pow'
    |             ^ 
    | 
 
+warning: unused import 'std.convert.Formattable'
+ ==> err_extend_primitive.cj:9:1:
+  | 
+9 | import std.convert.Formattable
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unused import
+  | 
+  # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unused import 'std.math.abs'
+  ==> err_extend_primitive.cj:10:1:
+   | 
+10 | import std.math.abs
+   | ^^^^^^^^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 1 error generated, 1 error printed.
+2 warnings generated, 2 warnings printed.
 */

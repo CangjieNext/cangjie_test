@@ -21,6 +21,6 @@ locals,locals,\(std.core.Range<Int32>\) vrange2 = 1..6 : 2
 p,p vcarrc2,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 2[\s\S]*}
 expr:expr Float16(vcarrc2[0]):\(Float16\) \$[\d] = 2
 expr:expr ArrayList<Int64>([1, 2]):\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2
-expr:expr HashMap<String, Bool>([("a", true)]):\(std.collection.HashMap<std.core.String,Bool>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = "a"[\s\S]*value = true[\s\S]*
+expr:expr HashMap<String, Bool>([("a", true)]):\(std.collection.HashMap<std.core.String,Bool>\) \$[\d] = {[\s\S]*\["a" -> true\] = {[\s\S]*key = "a"[\s\S]*value = true[\s\S]*
 expr:expr f1():\(Unit\) \$[\d] = ()
 q,q,

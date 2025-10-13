@@ -14,7 +14,6 @@ func test() {
     return return Int64(0)
 }
 
-// func foo() = return return Int64(0)
 
 main(): Int64 {
     return test()

@@ -1,0 +1,25 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb enum2,enum2
+b,b 39,enum2.cj:39
+r,r,-> 39
+ ,expr time1,\(default.TimeUnit2\) \$\d+ = {\s+constructor = Year1
+ ,expr time2,\(default.TimeUnit2\) \$\d+ = {\s+constructor = Year\s+arg_1 = 10
+ ,expr time3,\(default.TimeUnit2\) \$\d+ = {\s+constructor = Red\s+arg_1 = 10
+ ,expr time4,\(default.TimeUnit2\) \$\d+ = {\s+constructor = Green\s+arg_1 = 32.3199997
+ ,expr time5,\(default.TimeUnit2\) \$\d+ = {\s+constructor = Green1\s+arg_1 = true
+ ,expr time6,\(default.TimeUnit2\) \$\d+ = {\s+constructor = Green2\s+arg_1 = 'A'
+ ,expr time7,\(default.TimeUnit2\) \$\d+ = {\s+constructor = Green3\s+arg_1 = {\s+\[0\] = 0\s+\[1\] = 1\s+\[2\] = 2
+ ,expr time8,\(default.TimeUnit2\) \$\d+ = {\s+constructor = Green4\s+arg_1 = {\s+\[0\] = 1..10 : 2\s+\[1\] = 1..10 : 2\s+\[2\] = 1..10 : 2
+ ,expr time9 ,\(default.TimeUnit2\) \$\d+ = {\s+constructor = Green5\s+arg_1 = {\s+\[0\] = 0\s+\[1\] = 1\s+\[2\] = 2
+ ,expr time10,\(default.TimeUnit2\) \$\d+ = {\s+constructor = Green6\s+arg_1 = {\s+\["a" -> 0\] = {\s+key = "a"\s+value = 0\s+}\s+\["b" -> 1\] = {\s+key = "b"\s+value = 1\s+}\s+\["c" -> 2\] = {\s+key = "c"\s+value = 2
+q,q,

@@ -4,7 +4,7 @@
 
 internal import test.*
 
-main(){
+main() {
     @callTest 1+1 
     return 1
 }

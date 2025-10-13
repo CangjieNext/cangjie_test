@@ -11,6 +11,7 @@
 
 import std.fs.File
 import stdx.crypto.x509.*
+import stdx.crypto.common.*
 
 @Test
 class Test_x509 {
@@ -26,5 +27,11 @@ class Test_x509 {
     func test_root(): Unit {
         let certificates = X509Certificate.systemRootCerts()
         println("The number is: ${certificates.size}")
+    }
+
+    @TestCase
+    func test_SignatureAlgorithm(): Unit {
+        @Expect(SignatureAlgorithm.MD2WithRSA, SignatureAlgorithm.MD2WithRSA)
+        @Expect(SignatureAlgorithm.MD2WithRSA != SignatureAlgorithm.ECDSAWithSHA512)
     }
 }

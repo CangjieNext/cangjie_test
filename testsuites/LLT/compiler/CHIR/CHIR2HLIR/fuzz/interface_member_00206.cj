@@ -14,7 +14,7 @@ interface I<T>{
     class J<>{} 
 }
 
-main(){
+main() {
 var a : I<Int32>.J<Int64>
 return 0
 }

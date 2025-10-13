@@ -15,7 +15,7 @@ class MyVisitor <: Visitor {
     }
 }
 
-main(){
+main() {
     let tk = quote(
     class A {
         const public A() {

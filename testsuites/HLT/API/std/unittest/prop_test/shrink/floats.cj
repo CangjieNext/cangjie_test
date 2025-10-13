@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt -o %n.%suffix %f
-// EXEC: %run %run_opt %n.%suffix %run_args
+// RUN-EXEC: %run %run_opt %n.%suffix %run_args
 
 import std.random.*
 import std.unittest.*

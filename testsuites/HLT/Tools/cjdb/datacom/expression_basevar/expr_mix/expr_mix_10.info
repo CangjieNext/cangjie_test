@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/expression/expr_mix.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g expr_mix.cj -o 001_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expr_mix_10.info 001_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+b,b 55,expr_mix.cj:55
+CJVM c,c,-> 55
+AOT r,r,-> 55
+expr~expr var g1: (Int64, Int64) -> Int64 = {a, b => a + b};g1(c.vc1+arr1[0],list1[0]-Int64(vi8))~\(Int64\) \$[\d] = 4
+expr~expr var g2 = { a:Int64, b:Int64 => a + b };g2(c.vc3[0]*2-s.vs1,Int64(vf32)/arr1[0])~\(Int64\) \$[\d] = 24
+expr~expr let r1 = { a: Int64, b: Int64 => a + b }(arr2[0][1]%10**2, Int64(vi32));r1~\(Int64\) \$[\d] = 34
+q,q,

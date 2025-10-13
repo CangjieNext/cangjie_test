@@ -11,12 +11,14 @@
 
 import std.{net.*, unittest.*, unittest.testmacro.*, sync.*, io.*, time.*, fs.*}
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.net.tls.common.*
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.keys.*
 
 @Test
 class TlsBehaviourTest {
     let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa.cer")))
-    let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
+    let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
     var serverConf = TlsServerConfig(serverCert, pkey)
     var clientConf = TlsClientConfig()
     var serverAddress = AtomicOptionReference<SocketAddress>(None)

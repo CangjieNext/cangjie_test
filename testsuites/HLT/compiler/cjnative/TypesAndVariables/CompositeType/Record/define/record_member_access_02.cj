@@ -20,7 +20,6 @@ struct GenRec {
         return a
     }
     //    public func bar():Int32{
-    //        foo()
     //    }
 }
 

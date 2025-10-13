@@ -21,11 +21,12 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
-description: upperbound, token_id: 135, token_literal_value: <:, fileID: 10, line: 340, column: 35
+/* SCAN
+description: upperbound, token_id: 135, token_literal_value: <:, fileID: 10, line: 337, column: 35
 Illegal TokenKind, TokenKind should be BITAND
 cnt = 1
- */
+*/
+
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0

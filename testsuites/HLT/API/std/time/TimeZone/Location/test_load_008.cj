@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// (not Windows) EXEC-PIPE: %compiler %cmp_opt   %f -o %output
-// (not Windows) EXEC-PIPE: unset TZ && %run %run_opt %output %run_args
+// (not Windows) RUN-EXEC-PIPE: %compiler %cmp_opt   %f -o %output
+// (not Windows) RUN-EXEC-PIPE: unset TZ && %run %run_opt %output %run_args
 
 import std.time.*
 import std.fs.*

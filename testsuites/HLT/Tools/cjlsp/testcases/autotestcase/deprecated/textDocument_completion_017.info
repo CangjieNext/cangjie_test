@@ -24,4 +24,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 138,"jsonrpc": "2.0","result": [{"deprecated": true,"detail": "","documentation": "","filterText": "distance","insertText": "distance","insertTextFormat": 1,"kind": 2,"label": "distance","sortText": "650000"},{"deprecated": true,"detail": "(function) func distance(a: Point_Test, b: Point_Test)","documentation": "","filterText": "distance","insertText": "distance(${1:a: Point_Test}, ${2:b: Point_Test})","insertTextFormat": 2,"kind": 2,"label": "distance(a: Point_Test, b: Point_Test)","sortText": "650000"}]}
+{"id": 138,"jsonrpc": "2.0","result": [{"deprecated": true,"detail": "","documentation": "","filterText": "distance","insertText": "distance","insertTextFormat": 1,"kind": 2,"label": "distance","sortText": "515000"},{"deprecated": true,"detail": "(function) internal func distance(a: Point_Test, b: Point_Test): Float64","documentation": "","filterText": "distance","insertText": "distance(${1:a: Point_Test}, ${2:b: Point_Test})","insertTextFormat": 2,"kind": 2,"label": "distance(a: Point_Test, b: Point_Test)","sortText": "515000"}]}

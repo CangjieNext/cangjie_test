@@ -8,8 +8,6 @@ package ohos.device_info
 
 public class DeviceInfo {
     public static prop sdkApiVersion: Int64 {
-        get() {
-            11
-        }
+        get() {19}
     }
 }

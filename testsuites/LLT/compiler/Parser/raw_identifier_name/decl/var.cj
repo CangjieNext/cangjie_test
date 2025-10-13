@@ -21,7 +21,7 @@ let `ran` = 0..10 : 1
 class A{}
 let cls = A()
 let `cls` = A()
-main(){
+main() {
     0
 }
 

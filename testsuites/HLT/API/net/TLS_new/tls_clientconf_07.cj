@@ -14,7 +14,9 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.net.tls.common.*
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.keys.*
 import std.sync.*
 import std.time.*
 import std.runtime.*
@@ -41,13 +43,13 @@ class Test_tlsclientconf_07 {
     func startServerHandshake(): Unit {
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
         tcpser = Option<TcpServerSocket>.Some(tcpServer)
         tlsser = Option<TlsSocket>.Some(tlsServer)
         tlsServer.handshake()
@@ -56,13 +58,13 @@ class Test_tlsclientconf_07 {
     func startServerHandshake_err(): Unit {
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
         tcpser = Option<TcpServerSocket>.Some(tcpServer)
         tlsser = Option<TlsSocket>.Some(tlsServer)
         try {
@@ -84,14 +86,12 @@ class Test_tlsclientconf_07 {
         }
         let pem = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
         var clientConf = TlsClientConfig()
-        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
-        clientConf.cipherSuitesV1_2 = []
-        clientConf.cipherSuitesV1_3 = []
+        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
-        tlsClient.handshake()
-        @Expect(tlsClient.cipherSuite.toString(), "TLS_AES_256_GCM_SHA384")
+        let result = tlsClient.handshake()
+        @Expect(result.cipherSuite, "TLS_AES_256_GCM_SHA384")
         tlsClient.close()
         tcpClient.close()
         tlsser.getOrThrow().close()
@@ -109,23 +109,7 @@ class Test_tlsclientconf_07 {
         }
         let pem = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
         var clientConf = TlsClientConfig()
-        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
-        try {
-            clientConf.cipherSuitesV1_2 = ["\0"]
-        } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("contain null character"))
-            println(e.message)
-            sum1 += 1
-        }
-        @Expect(sum1, 1)
-        try {
-            clientConf.cipherSuitesV1_3 = ["\0"]
-        } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("contain null character"))
-            println(e.message)
-            sum2 += 1
-        }
-        @Expect(sum2, 1)
+        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
@@ -147,9 +131,9 @@ class Test_tlsclientconf_07 {
         }
         let pem = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
         var clientConf = TlsClientConfig()
-        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
-        clientConf.cipherSuitesV1_2 = ["h1"]
-        clientConf.cipherSuitesV1_3 = ["h2"]
+        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+        clientConf.supportedCipherSuites[V1_2] = ["h1"]
+        clientConf.supportedCipherSuites[V1_3] = ["h2"]
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
@@ -178,9 +162,10 @@ class Test_tlsclientconf_07 {
         }
         let pem = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
         var clientConf = TlsClientConfig()
-        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
-        clientConf.cipherSuitesV1_2 = ["TLS_AES_256_GCM_SHA384"]
-        clientConf.cipherSuitesV1_3 = ["TLS_RSA_WITH_NULL_SHA256"]
+        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+        clientConf.supportedVersions = [V1_2, V1_3]
+        clientConf.supportedCipherSuites[V1_2] = ["TLS_AES_256_GCM_SHA384"]
+        clientConf.supportedCipherSuites[V1_3] = ["TLS_RSA_WITH_NULL_SHA256"]
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
@@ -209,13 +194,13 @@ class Test_tlsclientconf_07 {
         }
         let pem = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
         var clientConf = TlsClientConfig()
-        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
-        clientConf.cipherSuitesV1_2 = ["TLS_RSA_WITH_AES_128_CBC_SHA256"]
+        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+        clientConf.supportedCipherSuites[V1_2] = ["TLS_RSA_WITH_AES_128_CBC_SHA256"]
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
-        tlsClient.handshake()
-        @Expect(tlsClient.cipherSuite.toString(), "TLS_AES_256_GCM_SHA384")
+        let result = tlsClient.handshake()
+        @Expect(result.cipherSuite, "TLS_AES_256_GCM_SHA384")
         sleep(Duration.millisecond * 1000)
         tlsClient.close()
         tcpClient.close()
@@ -234,15 +219,15 @@ class Test_tlsclientconf_07 {
         }
         let pem = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
         var clientConf = TlsClientConfig()
-        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
-        clientConf.cipherSuitesV1_3 = ["TLS_AES_128_GCM_SHA256", "TLS_CHACHA20_POLY1305_SHA256",
-            "TLS_AES_128_CCM_8_SHA256"]
+        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+        clientConf.supportedVersions = [V1_3]
+        clientConf.supportedCipherSuites[V1_3] = ["TLS_AES_128_GCM_SHA256", "TLS_CHACHA20_POLY1305_SHA256", "TLS_AES_128_CCM_8_SHA256"]
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
-        tlsClient.handshake()
+        let result = tlsClient.handshake()
         sleep(Duration.millisecond * 1000)
-        @Expect(tlsClient.cipherSuite.toString(), "TLS_AES_128_GCM_SHA256")
+        @Expect(result.cipherSuite, "TLS_AES_128_GCM_SHA256")
         tlsClient.close()
         tcpClient.close()
         tlsser.getOrThrow().close()

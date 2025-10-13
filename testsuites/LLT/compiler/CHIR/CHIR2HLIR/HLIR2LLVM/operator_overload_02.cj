@@ -27,11 +27,5 @@ main() {
     }
     test()[0] += 3
     println(count)
-    // a[0] += 3
-    // run<Int64>()
-    // run<Int8>()
-    // if (a[0] != 4 || count != 3) {
-    //     return 1
-    // }
     return 0
 }

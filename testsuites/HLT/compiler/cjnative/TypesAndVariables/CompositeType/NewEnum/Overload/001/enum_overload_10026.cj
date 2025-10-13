@@ -17,7 +17,6 @@ enum E {
 var e = {=>}
 
 main(): Int64 {
-    //e()
     e(1)
     e(1, 1)
     return 0

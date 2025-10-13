@@ -77,12 +77,7 @@ main(): Int64 {
     if (expr3.resourceSpec.size != 2) {
         return 12
     }
-    /*
-    if(expr3.getResourceSpec().size != 2) {
-        print(expr3.getResourceSpec().size.toString() + "\n")
-        return 13
-    }
-     */
+
     return 0
 }
 /*

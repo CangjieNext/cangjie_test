@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -22,4 +22,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 447,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "Dayy","range": {"end": {"character": 23,"line": 4},"start": {"character": 20,"line": 4}}},{"newText": "Dayy","range": {"end": {"character": 27,"line": 11},"start": {"character": 24,"line": 11}}},{"newText": "Dayy","range": {"end": {"character": 16,"line": 16},"start": {"character": 13,"line": 16}}}],"textDocument": {"uri": "renameProject/src/pkg/enum001.cj","version": 6}}]}}
+{"id": 447,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "Dayy","range": {"end": {"character": 23,"line": 4},"start": {"character": 20,"line": 4}}},{"newText": "Dayy","range": {"end": {"character": 27,"line": 11},"start": {"character": 24,"line": 11}}},{"newText": "Dayy","range": {"end": {"character": 16,"line": 16},"start": {"character": 13,"line": 16}}}],"textDocument": {"uri": "renameProject/src/pkg/enum001.cj","version": 5}}]}}

@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// ASSERT: scan-full Compatible!\n
+package test_stable_abi
+
+// test interface: add interface
+public interface I1 {
+    public static func typename(): String {
+        "interface I1"
+    }
+}
+
+public interface I2<T> {
+    public static func typename(): String {
+        "interface I2<T>"
+    }
+}
+
+interface I3 {
+    public static func typename(): String {
+        "interface I3"
+    }
+}
+
+interface I4<T> {
+    public static func typename(): String {
+        "interface I4<T>"
+    }
+}

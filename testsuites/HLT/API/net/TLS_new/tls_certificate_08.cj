@@ -14,7 +14,9 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PemEntry, DerBlob, Pem, PrivateKey}
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.common.{PemEntry, DerBlob, Pem, PrivateKey}
+import stdx.crypto.keys.*
 import std.sync.*
 import std.runtime.*
 import std.unittest.*

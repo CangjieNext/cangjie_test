@@ -282,17 +282,6 @@ public func serialize(obj: Iterable<?TreeNodeSer>): String {
     return res.toString()
 }
 
-//public func serialize(obj: Iterable<Iterable<?TreeNodeSer>>) : String {
-//    let res = StringBuilder("[")
-//    for (i in obj) {
-//        let tmp: Iterable<?TreeNodeSer> = i
-//        res.append("${serialize(tmp)},")
-//    }
-//        res.removeLast()
-//        res.append(r']')
-//    return res.toString()
-//}
-
 public func serialize(obj: Iterable<?TLinkedListNode>): String {
     let res = StringBuilder("[")
     var isFirstElement = true
@@ -367,22 +356,3 @@ public func serialize(obj: Iterable<Bool>): String {
     res.append(r']')
     return res.toString()
 }
-
-//public func serialize(obj: Iterable<Iterable<?TLinkedListNode>>) : String {
-//    let res = StringBuilder("[")
-//    for (i in obj) {
-//        let tmp: Iterable<?TLinkedListNode> = i
-//        res.append("${serialize(tmp)},")
-//    }
-//        res.removeLast()
-//        res.append(r']')
-//    return res.toString()
-//}
-
-//public func serialize<T>(obj: Array<T>) : String where T <: Serializable<T> {
-//    return obj.serialize().toJson().toString()
-//}
-//
-//public func serialize<T>(obj: ArrayList<T>) : String where T <: Serializable<T> {
-//    return Array<T>(obj).serialize().toJson().toString()
-//}

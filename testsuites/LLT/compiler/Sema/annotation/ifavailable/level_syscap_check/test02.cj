@@ -13,6 +13,6 @@ import ohos.device_info.*
 import ohos.base.*
 
 main() {
-    @IfAvailable(level: 11, {=>}, {=>})
+    @IfAvailable(level: 19, {=>}, {=>})
     @IfAvailable(syscap: "xxx", {=>}, {=>})
 }

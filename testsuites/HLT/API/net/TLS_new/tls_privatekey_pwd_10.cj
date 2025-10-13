@@ -14,11 +14,13 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
+import stdx.net.tls.common.*
 import std.sync.*
 import std.runtime.*
 import std.collection.*
-import stdx.crypto.x509.{X509Certificate, DerBlob, PemEntry, Pem, PrivateKey, X509Exception}
-
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.common.{DerBlob, PemEntry, Pem, PrivateKey, CryptoException}
+import stdx.crypto.keys.*
 var sum = 0
 
 @Test
@@ -32,7 +34,7 @@ class Test_tlsprivatekey_pwd_10 {
         //der format of privatekey password using correct pwd to decode.
         let derData = DerBlob(File.readFrom("./data/enc_256_end_rsa_private_key.der"))
         @Expect(derData.size, 1905)
-        let derPriKey = PrivateKey.decodeDer(derData, password: "1234")
+        let derPriKey = GeneralPrivateKey.decodeDer(derData, password:"1234")
         @Expect(derPriKey.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
     }
 
@@ -41,7 +43,7 @@ class Test_tlsprivatekey_pwd_10 {
         //der format of privatekey password using correct pwd to decode.
         let derData = DerBlob(File.readFrom("./data/enc_128_end_rsa_private_key.der"))
         @Expect(derData.size, 1905)
-        let derPriKey = PrivateKey.decodeDer(derData, password: "5678")
+        let derPriKey = GeneralPrivateKey.decodeDer(derData, password:"5678")
         @Expect(derPriKey.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
     }
 
@@ -51,8 +53,8 @@ class Test_tlsprivatekey_pwd_10 {
         let derData = DerBlob(File.readFrom("./data/enc_256_end_rsa_private_key.der"))
         @Expect(derData.size, 1905)
         try {
-            PrivateKey.decodeDer(derData, password: "#$%")
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData, password:"#$%")
+        }catch (e:CryptoException){
             @Expect(e.message.contains("Failed to load private key, the password is incorrect or the key is corrupted"))
             sum += 1
         }
@@ -65,8 +67,8 @@ class Test_tlsprivatekey_pwd_10 {
         let derData = DerBlob(File.readFrom("./data/enc_128_end_rsa_private_key.der"))
         @Expect(derData.size, 1905)
         try {
-            PrivateKey.decodeDer(derData, password: "abc")
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData, password: "abc")
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load private key, the password is incorrect or the key is corrupted"))
             sum += 1
         }
@@ -78,8 +80,8 @@ class Test_tlsprivatekey_pwd_10 {
         let derData = DerBlob(File.readFrom("./data/enc_256_end_rsa_private_key.der"))
         @Expect(derData.size, 1905)
         try {
-            PrivateKey.decodeDer(derData, password: "")
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData, password: "")
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Password shouldn't be empty"))
             sum += 1
         }
@@ -92,8 +94,8 @@ class Test_tlsprivatekey_pwd_10 {
         let derData = DerBlob(File.readFrom("./data/enc_128_end_rsa_private_key.der"))
         @Expect(derData.size, 1905)
         try {
-            PrivateKey.decodeDer(derData, password: "")
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData, password: "")
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Password shouldn't be empty"))
             sum += 1
         }
@@ -106,8 +108,8 @@ class Test_tlsprivatekey_pwd_10 {
         let derData = DerBlob(File.readFrom("./data/enc_256_end_rsa_private_key.der"))
         @Expect(derData.size, 1905)
         try {
-            PrivateKey.decodeDer(derData, password: "\0")
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData, password: "\0")
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Password shouldn't contain zero byte"))
             sum += 1
         }
@@ -120,8 +122,8 @@ class Test_tlsprivatekey_pwd_10 {
         let derData = DerBlob(File.readFrom("./data/enc_128_end_rsa_private_key.der"))
         @Expect(derData.size, 1905)
         try {
-            PrivateKey.decodeDer(derData, password: "\0")
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData, password: "\0")
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Password shouldn't contain zero byte"))
             sum += 1
         }

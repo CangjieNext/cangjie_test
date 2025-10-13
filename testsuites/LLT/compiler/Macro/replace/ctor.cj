@@ -31,5 +31,5 @@ class C3 {
     C4(){}
 }
 
-main(){}
+main() {}
 

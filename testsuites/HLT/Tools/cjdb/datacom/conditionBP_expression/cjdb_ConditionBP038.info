@@ -24,5 +24,5 @@ p,p aa,\(Tuple<Int64,Float64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 1.2[\s\
 expr,expr aa,\(Tuple<Int64,Float64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 1.2[\s\S]*}
 n,n,-> 16
 expr~expr vhmc["a"]~\(Int64\) \$[\d] = 1
-expr~expr vhmc~\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {\s+\[0\] = {\s+key = "a"
+expr~expr vhmc~\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {\s+\["a" -> 1\] = {\s+key = "a"
 q,q,

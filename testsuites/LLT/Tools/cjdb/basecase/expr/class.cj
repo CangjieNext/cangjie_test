@@ -30,7 +30,7 @@ public class Cuboid <: Rectangle {
         this.length = length
     }
     public func volume() {
-        // super(width, height) // invalid calling 'super' outside the constructor
+
         this.width * this.height * this.length // Ok: protected 'height' can be accessed here
     }
 }

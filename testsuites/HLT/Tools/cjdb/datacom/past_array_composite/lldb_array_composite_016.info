@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/001_debug_array_string.cj
+// EXEC: %compiler %cmp_opt -g 001_debug_array_string.cj -o 001_debug_array_string%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_array_composite_016.info 001_debug_array_string %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_debug_array_string,001_debug_array_string
+b,b 56,001_debug_array_string.cj:56
+AOT r,r,-> 56
+CJVM c,c,
+locals,locals,arrayfunString01 = {(\r\n|\r|\n)  \[0\] = "change"(\r\n|\r|\n)  \[1\] = "0123456789"(\r\n|\r|\n)  \[2\] = "abcdxyz"(\r\n|\r|\n)}
+q,q,

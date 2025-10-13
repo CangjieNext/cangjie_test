@@ -21,4 +21,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 154,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "f1_21","range": {"end": {"character": 20,"line": 5},"start": {"character": 16,"line": 5}}},{"newText": "f1_21","range": {"end": {"character": 22,"line": 8},"start": {"character": 18,"line": 8}}}],"textDocument": {"uri": "InheritProject/src/inherit12.cj","version": 5}},{"edits": [{"newText": "f1_21","range": {"end": {"character": 20,"line": 3},"start": {"character": 16,"line": 3}}}],"textDocument": {"uri": "InheritProject/src/pkge/p5.cj","version": -1}}]}}
+{"id": 154,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "f1_21","range": {"end": {"character": 20,"line": 5},"start": {"character": 16,"line": 5}}},{"newText": "f1_21","range": {"end": {"character": 22,"line": 8},"start": {"character": 18,"line": 8}}}],"textDocument": {"uri": "InheritProject/src/inherit12.cj","version": 4}},{"edits": [{"newText": "f1_21","range": {"end": {"character": 20,"line": 3},"start": {"character": 16,"line": 3}}}],"textDocument": {"uri": "InheritProject/src/pkge/p5.cj","version": -1}}]}}

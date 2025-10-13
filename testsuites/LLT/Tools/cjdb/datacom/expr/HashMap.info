@@ -1,0 +1,23 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb HashMap,HashMap
+b,b 15,HashMap.cj:15
+r,r,-> 15
+ ,expr gmap,\(std.collection.HashMap<std.core.String,Int64>\) \$\d+ = {\s+\["tony" -> 30\] = {(\r|\n|\r\n)    key = "tony"(\r|\n|\r\n)    value = 30
+ ,expr lmap,\(std.collection.HashMap<std.core.String,Int64>\) \$\d+ = {\s+\["tony" -> 30\] = {(\r|\n|\r\n)    key = "tony"(\r|\n|\r\n)    value = 30
+ ,expr gmap["tony"] ,\(Int64\) \$\d+ = 30
+ ,expr lmap["tony"] ,\(Int64\) \$\d+ = 30
+ ,expr gmap.contains("tony"),\(Bool\) \$\d+ = true
+ ,expr lmap.contains("a"),\(Bool\) \$\d+ = false
+ ,expr gmap["tony"] = 3; gmap["tony"],\(Int64\) \$\d+ = 3
+ ,expr lmap["tony"] = 2; lmap["tony"],\(Int64\) \$\d+ = 2
+q,q,

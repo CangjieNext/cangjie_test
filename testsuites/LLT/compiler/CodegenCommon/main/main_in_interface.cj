@@ -11,5 +11,5 @@ interface A {
     private main(): Int64 {
         return 0
     }
-    main(){}
+    main() {}
 }

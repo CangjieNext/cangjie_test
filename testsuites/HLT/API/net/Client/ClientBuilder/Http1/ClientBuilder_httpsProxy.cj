@@ -17,19 +17,21 @@ import std.sync.*
 import std.net.*
 import std.collection.*
 import stdx.net.http.*
+import stdx.crypto.keys.*
+import stdx.net.tls.common.*
 import stdx.log.*
 import stdx.logger.*
 import std.console.Console
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
 import std.io.*
 import std.process.*
 
 public func serverConfig(): TlsServerConfig {
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_rsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
     tlsConfig.supportedAlpnProtocols = ["http/1.1"]
     tlsConfig
 }
@@ -37,8 +39,8 @@ public func serverConfig(): TlsServerConfig {
 public func clientConfig(): TlsClientConfig {
     var tlsConfig = TlsClientConfig()
     let pem = String.fromUtf8(readToEnd(File("./files/root_rsa.cer", Read)))
-    tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
-    tlsConfig.alpnProtocolsList = ["http/1.1"]
+    tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+    tlsConfig.supportedAlpnProtocols = ["http/1.1"]
     tlsConfig
 }
 

@@ -58,10 +58,6 @@ main(): Int64 {
     var array: Array<BinaryExpr> = [expr, expr, expr]
     let aa5 = quote($( array[0] ))
 
-    // MemberAccess
-    // var clazz = Data()
-    // let aa6 = quote($( clazz.a ))
-
     // ParenExpr
     let aa7 = quote($( (expr) ))
 

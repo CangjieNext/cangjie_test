@@ -45,8 +45,6 @@ class Coo {
     public static var b = foo(1)
     public var c = foo(1)
     public var d = 1
-    //var e = goo(1)
-    //var f = this.goo
     public init() {}
     public init(x: Int32) {
         this()

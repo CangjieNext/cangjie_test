@@ -21,7 +21,7 @@ CJVM c,c,-> 44
 b,b 37,062_debug_super.cj:37
 CJVM c,c,-> 37
 AOT r,r,-> 37
-expr,expr super.ahm,std[.]collection.HashMap<Int64,Int64>\) \$[\d] = {[\S\s]*\[0\] = {[\S\s]*key = 10[\S\s]*value = 11[\S\s]*
+expr,expr super.ahm,std[.]collection.HashMap<Int64,Int64>\) \$[\d] = {[\S\s]*\[10 -> 11\] = {[\S\s]*key = 10[\S\s]*value = 11[\S\s]*
 expr,expr super.hs,std[.]collection.HashSet<Bool>\) \$[\d] = {[\S\s]*\[0\] = true[\S\s]*\[1\] = false[\S\s]*}
 expr,expr super.ass,default.rect\) \$[\d] = {[\S\s]*boolr = true[\S\s]*width = 10[\S\s]*height = 32[\S\s]*}
 expr,expr super.acc,default.S1\) \$[\d] = {[\S\s]*ss1 = 1[\S\s]*}

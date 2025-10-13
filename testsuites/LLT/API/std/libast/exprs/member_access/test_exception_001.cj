@@ -115,9 +115,9 @@ ASTException:
 parsing expr error.
 description: dot, token_id: 0, token_literal_value: ., fileID: 1, line: 43, column: 49
 ASTException: Illegal TokenKind, TokenKind should be DOT
-description: illegal, token_id: 156, token_literal_value: , fileID: 0, line: 0, column: 0
+description: illegal, token_id: 160, token_literal_value: , fileID: 0, line: 0, column: 0
 ASTException: Illegal TokenKind, TokenKind should be LT
-description: illegal, token_id: 156, token_literal_value: , fileID: 0, line: 0, column: 0
+description: illegal, token_id: 160, token_literal_value: , fileID: 0, line: 0, column: 0
 ASTException: Illegal TokenKind, TokenKind should be GT
 0
 0

@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_reflection/class03.cj
+// (CJNATIVE and not MAC) EXEC: %compiler %cmp_opt -g --disable-reflection class03.cj -o class03%cmp_output
+// (CJNATIVE and not MAC) RUN-EXEC: python3 cjdb_test.py adapt_reflection03.info class03 %run_env
+
+test#
+cjdb,cjdb --no-use-colors class03,class03
+b,b 39,class03.cj:39
+r,r,-> 39
+globals,globals,\(std.core.String\) default::C1::name = "Rec"
+locals,locals,\(Int32\) m_length = 1
+p,p m_str,\(std.core.String\) \$[\d] = "strmao"
+p,p m_arrayInt8,\(std.core.Array<Int8>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*\[2\] = 30[\s\S]*}
+expr~expr m_arrayInt8[2]~\(Int8\) \$[\d] = 30
+expr~expr C1.name~\(std.core.String\) \$[\d] = "Rec"
+expr~expr m_c.diagonalLength~\(Int32\) \$[\d] = 0
+expr~expr m_c.str~\(std.core.String\) \$[\d] = "strmao"
+q,q,

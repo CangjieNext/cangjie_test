@@ -7,7 +7,7 @@
 // LEVEL: 0
 // ERRCHECK: %compiler %cmp_opt %n.cj 2>&1 | compare %f
 
-func main(){
+func main() {
 
 }
 
@@ -15,7 +15,7 @@ func main(){
 error: 'main' declaration doesn't need 'func' keyword
   ==> removeMain.cj:10:6:
    | 
-10 | func main(){
+10 | func main() {
    | ~~~~ ^^^^ 
    | |
    | help: try to remove 'func' keyword

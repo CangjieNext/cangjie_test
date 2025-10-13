@@ -19,6 +19,6 @@ cjdb,cjdb --no-use-colors 067_debug_hashmap,067_debug_hashmap
 b,b 15,067_debug_hashmap.cj:15
 AOT r,r,-> 15
 CJVM c,c,-> 15
-p,p a,\(std\.collection.HashMap<UInt64,std.core.String>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = 10[\s\S]*value = "aa"[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = 20[\s\S]*value = "bb"[\s\S]*}[\s\S]*\[2\] = {[\s\S]*key = 30[\s\S]*value = "cc"[\s\S]*}[\s\S]*}
-locals,locals,a = {[\s\S]*key = 10[\s\S]*value = "aa"[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = 20[\s\S]*value = "bb"[\s\S]*}[\s\S]*\[2\] = {[\s\S]*key = 30[\s\S]*value = "cc"[\s\S]*}[\s\S]*}
+p,p a,\(std\.collection.HashMap<UInt64,std.core.String>\) \$[\d] = {[\s\S]*\[10 -> "aa"\] = {[\s\S]*key = 10[\s\S]*value = "aa"[\s\S]*}[\s\S]*\[20 -> "bb"\] = {[\s\S]*key = 20[\s\S]*value = "bb"[\s\S]*}[\s\S]*\[30 -> "cc"\] = {[\s\S]*key = 30[\s\S]*value = "cc"[\s\S]*}[\s\S]*}
+locals,locals,a = {[\s\S]*key = 10[\s\S]*value = "aa"[\s\S]*}[\s\S]*\[20 -> "bb"\] = {[\s\S]*key = 20[\s\S]*value = "bb"[\s\S]*}[\s\S]*\[30 -> "cc"\] = {[\s\S]*key = 30[\s\S]*value = "cc"[\s\S]*}[\s\S]*}
 q,q,

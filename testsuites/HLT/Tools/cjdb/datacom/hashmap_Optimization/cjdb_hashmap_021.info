@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/collection_HashMap/basic_hashmap_021.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g basic_hashmap_021.cj -o basic_hashmap_021%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py cjdb_hashmap_021.info basic_hashmap_021 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors basic_hashmap_021,basic_hashmap_021
+b,b 15,basic_hashmap_021.cj:15
+AOT r,r,-> 15
+p,p a,\(std.collection.HashMap<Int64,Int64>\) \$[\d] = {[\s\S]*\[1 -> 1\] = {[\s\S]*key = 1[\s\S]*value = 1[\s\S]*
+expr,expr b,\(std.collection.HashMap<Int64,std.core.String>\) \$[\d] = {[\s\S]*\[1 -> "a"\] = {[\s\S]*key = 1[\s\S]*value = "a"[\s\S]*
+q,q,

@@ -26,7 +26,7 @@ error: invalid binary operator '**' on type 'Float64' and 'Int32'
 10 |     let a1 = 1.0 ** Int32(-1.0)
    |                  ^^ 
    | 
-   # note: you may want to implement 'operator func **(right: Int32)' for type 'Float64'
+   # note: you may want to implement 'operator func **(right: Int32)' for type 'Float64', or to provide a right operand of type 'Int64' or 'Float64'
 
 error: mismatched types
   ==> pow_float64_int64_float64_0.cj:11:22:
@@ -41,7 +41,7 @@ error: invalid binary operator '**' on type 'Float16' and 'Float64'
 12 |     let c = Float16(0.0) ** 0.1
    |                          ^^ 
    | 
-   # note: you may want to implement 'operator func **(right: Float64)' for type 'Float16'
+   # note: you may want to implement 'operator func **(right: Float64)' for type 'Float16', or to provide a left operand of type 'Float64'
 
 error: invalid binary operator '**' on type 'Float64' and 'Rune'
   ==> pow_float64_int64_float64_0.cj:13:18:
@@ -49,7 +49,7 @@ error: invalid binary operator '**' on type 'Float64' and 'Rune'
 13 |     let d = -1.0 ** r'c'
    |                  ^^ 
    | 
-   # note: you may want to implement 'operator func **(right: Rune)' for type 'Float64'
+   # note: you may want to implement 'operator func **(right: Rune)' for type 'Float64', or to provide a right operand of type 'Int64' or 'Float64'
 
 error: invalid binary operator '**' on type 'Class-A' and 'Float64'
   ==> pow_float64_int64_float64_0.cj:15:18:
@@ -57,7 +57,7 @@ error: invalid binary operator '**' on type 'Class-A' and 'Float64'
 15 |     let e1 = A() ** 0.0
    |                  ^^ 
    | 
-   # note: you may want to implement 'operator func **(right: Float64)' for type 'Class-A'
+   # note: you may want to implement 'operator func **(right: Float64)' for type 'Class-A', or to provide a left operand of type 'Float64'
 
 error: invalid binary operator '**' on type 'Float64' and 'Class-A'
   ==> pow_float64_int64_float64_0.cj:16:18:
@@ -65,7 +65,7 @@ error: invalid binary operator '**' on type 'Float64' and 'Class-A'
 16 |     let e2 = 0.0 ** A()
    |                  ^^ 
    | 
-   # note: you may want to implement 'operator func **(right: Class-A)' for type 'Float64'
+   # note: you may want to implement 'operator func **(right: Class-A)' for type 'Float64', or to provide a right operand of type 'Int64' or 'Float64'
 
 6 errors generated, 6 errors printed.
 */

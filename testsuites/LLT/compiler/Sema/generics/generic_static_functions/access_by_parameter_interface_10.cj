@@ -51,7 +51,7 @@ error: return type of the inherited function members 'foo' are not identical and
   ==> access_by_parameter_interface_10.cj:19:18:
    | 
 19 | class D<T> where T <: C1 & I {
-   |                  ^^^^^^^^^^^^ 
+   |                  ^^^^^^^^^^^ 
    | 
    # note: conflict types are 'Class-E1', 'Class-E2'
 

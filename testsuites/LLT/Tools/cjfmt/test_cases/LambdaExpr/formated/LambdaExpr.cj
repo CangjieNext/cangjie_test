@@ -6,26 +6,25 @@
 
 let longpress = {
     evt: EventBase =>
-    state.good = 1
-    promptShowToast(
-        ToastObj(
-            message: "change 1!!!",
-            duration: Some<Int64>(1000),
-            gravity: Some<Gravity>(Gravity.center)
-        )
-    )
-    //ABC
+        state.good = 1
+        promptShowToast(
+            ToastObj(
+                message: "change 1!!!",
+                duration: Some<Int64>(1000),
+                gravity: Some<Gravity>(Gravity.center)
+            )
+        ) //ABC
 }
 let click = {
     evt: EventBase =>
-    state.good = 0
-    promptShowToast(
-        ToastObj(
-            message: "change 0!!!",
-            duration: Some<Int64>(1000),
-            gravity: Some<Gravity>(Gravity.center)
+        state.good = 0
+        promptShowToast(
+            ToastObj(
+                message: "change 0!!!",
+                duration: Some<Int64>(1000),
+                gravity: Some<Gravity>(Gravity.center)
+            )
         )
-    )
 }
 let test = {evt: EventBase => state.good = 0}
 
@@ -33,8 +32,8 @@ func test(): Unit {
     unsafe {
         {
             =>
-            let stubCall = @EnsurePreparedToMock {=> return get_c_a()}
-            ConfigureMock.stubFunction(stubCall, [], "get_c_a", "get_c_a", #"get_c_a()"#, 27)
+                let stubCall = @EnsurePreparedToMock {=> return get_c_a()}
+                ConfigureMock.stubFunction(stubCall, [], "get_c_a", "get_c_a", #"get_c_a()"#, 27)
         }().returns(1)
     }
 }

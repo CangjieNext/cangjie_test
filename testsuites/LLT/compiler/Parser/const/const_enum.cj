@@ -5,7 +5,7 @@ const enum E { // err
     const prop aa: Int64 {}  // err
 }
 
-main(){}
+main() {}
 
 /* SCAN
 [31merror[0m: unexpected modifier 'const' on enum declaration

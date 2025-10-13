@@ -15,7 +15,16 @@ error: undeclared identifier 'x'
   |             ^ 
   | 
 
+warning: unused import 'a'
+ ==> importing_by_package_name_is_not_supported.cj:5:1:
+  | 
+5 | import a
+  | ^^^^^^^^ unused import
+  | 
+  # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 1 error generated, 1 error printed.
+1 warning generated, 1 warning printed.
 */
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

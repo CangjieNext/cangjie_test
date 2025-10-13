@@ -304,7 +304,6 @@ class Test_Unixdatagram_Transportbuffer {
         unixdatagramsocket2.receiveBufferSize = 6000
         unixdatagramsocket2.receiveTimeout = Duration.millisecond
         var buf = Array<Byte>(5000, repeat: 0)
-        // unixdatagramsocket1.sendTo(addr2, data)
         unixdatagramsocket1.send(data)
         try {
             unixdatagramsocket2.receiveFrom(buf)

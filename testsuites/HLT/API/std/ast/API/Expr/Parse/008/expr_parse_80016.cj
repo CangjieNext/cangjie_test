@@ -41,8 +41,6 @@ main() {
             case None => throw Exception("Not TypeConvExpr")
         }
         // var typeConvExprTypeValue = match (typeConvExprType as LitConstExpr){
-        //     case Some(v) => v.literal.kind
-        //     case None => throw Exception("Not LitConstExpr")
         // }
         var typeConvExprTypeValue = match (typeConvExprType as PrimitiveType) {
             case Some(v) => v.keyword.value

@@ -19,6 +19,5 @@ main(): Int64 {
     A<Int64>(1).a ~> A<Int64>(1).b
     //1 |> (A<Int64>(1).a~>A<Int64>(1).b)
     //A<Int64>(1).a ~> A<Int64>(1).b |> A<Int64>(1).c
-    //return ((A<Int64>(1).a ~> A<Int64>(1).b) |> A<Int64>(1).c) - 1
     0
 }

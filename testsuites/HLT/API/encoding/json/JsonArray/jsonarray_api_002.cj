@@ -15,7 +15,6 @@ import stdx.encoding.json.*
 import std.collection.*
 
 main(): Int64 {
-    //init(list:ArrayList<JsonValue>)
     var buff = ArrayList<JsonValue>()
     var init1 = JsonArray(buff)
     var cases1 = Testjsonarray()

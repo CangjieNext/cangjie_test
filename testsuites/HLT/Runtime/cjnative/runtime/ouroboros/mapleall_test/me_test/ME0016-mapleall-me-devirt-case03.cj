@@ -13,7 +13,6 @@
 /* SCAN-IN
 Derived.foo()
 Derived.foo()
-Derived.foo()
  */
 
 interface Inter {

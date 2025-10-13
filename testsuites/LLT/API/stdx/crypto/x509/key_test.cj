@@ -10,6 +10,8 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 import std.fs.File
 import stdx.crypto.x509.*
+import stdx.crypto.keys.*
+import stdx.crypto.common.*
 
 var sum = 0
 
@@ -25,7 +27,7 @@ class Test_key {
         let pem = String.fromUtf8(File.readFrom(path))
         try {
             // decode for pem
-            let pkey = PrivateKey.decodeFromPem(pem)
+            let pkey = GeneralPrivateKey.decodeFromPem(pem)
             pkey.encodeToPem()
             // encode the key to pem using password
             let penback = pkey.encodeToPem(password: "zzzzzxxxxx11111")
@@ -45,12 +47,12 @@ class Test_key {
         let pem = String.fromUtf8(File.readFrom(path))
         try {
             // decode for pem
-            let pkey = PublicKey.decodeFromPem(pem)
+            let pkey = GeneralPublicKey.decodeFromPem(pem)
             pkey.toString()
             // encode the public key from der
             let path2 = "./files/end_ecdsa_private_key.der"
             let derForm = File.readFrom(path2)
-            let derToKey = PrivateKey.decodeDer(DerBlob(derForm))
+            let derToKey = GeneralPrivateKey.decodeDer(DerBlob(derForm))
             derToKey.toString()
         } catch (e: X509Exception) {
             sum += 1

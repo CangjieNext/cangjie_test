@@ -25,7 +25,7 @@ func abc() {
     return 2
 }
 
-main(){
+main() {
     var x =  [A()]
     x[return  0]
     .

@@ -24,7 +24,8 @@ package tests.server1_1
 
 import stdx.net.http.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.kit.*
 import stdx.encoding.url.URL
 import std.{net.*, fs.*}
 import std.unittest.*
@@ -85,11 +86,9 @@ class TestServer11updateCertFail {
         sleep(Duration.second)
         port = server.port
         sendRequest1()
-        try {
+        @ExpectThrows[IllegalArgumentException](
             server.updateCert("./files\0/end_ecdsa.cer", "./files/end_ecdsa_private_key.pem")
-        } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("The Tls config cannot contain null character!"))
-        }
+        )
 
         server.close()
         asanGC()
@@ -97,7 +96,7 @@ class TestServer11updateCertFail {
 
     func sendRequest1() {
         var clientCfg = clientConfig()
-        clientCfg.alpnProtocolsList = ["http/1.1"]
+        clientCfg.supportedAlpnProtocols = ["http/1.1"]
         let client = ClientBuilder().tlsConfig(clientCfg).build()
         let u = URL.parse("https://127.0.0.1:${port}/hello")
         let req = HttpRequestBuilder().url(u).header("Connection", "close").build()

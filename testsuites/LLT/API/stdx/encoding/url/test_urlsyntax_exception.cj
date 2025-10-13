@@ -17,4 +17,10 @@ class UrlSyntaxExceptionTest {
         let exception = UrlSyntaxException("Invalid url part.")
         @Expect(exception.toString() == "UrlSyntaxException: Invalid url part.")
     }
+
+    @TestCase
+    func ExceptionName_1(): Unit {
+        let exception = UrlSyntaxException("Invalid url part.","reason","pos")
+        @Expect(exception.toString() == "UrlSyntaxException: reason Input = Invalid url part. (at 'pos').")
+    }
 }

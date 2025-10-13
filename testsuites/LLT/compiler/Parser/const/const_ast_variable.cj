@@ -4,7 +4,7 @@
 
 internal import std.ast.*
 
-main(){
+main() {
     let tk = quote(const a = 1)
     let a = parseDecl(tk)
     println(a.dump())

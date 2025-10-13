@@ -1,0 +1,43 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[ALL-TEST-CASE]
+CJNATIVE/
+
+[EXCLUDE-TEST-CASE]
+# 交叉编译用例仅用于本地验证
+CJNATIVE/target/cross_compile
+CJNATIVE/cross_compile
+
+# arm 未适配用例屏蔽
+CJNATIVE/build/build_path/build_path_07
+CJNATIVE/build/build_path/build_path_09
+CJNATIVE/build/combined
+CJNATIVE/build/cov/cov_04
+CJNATIVE/build/cov/cov_05
+CJNATIVE/build/foreign_requires/right_order_01
+CJNATIVE/build/incremental/incremental_35
+CJNATIVE/build/lto/lto_04
+CJNATIVE/build/lto/lto_05
+CJNATIVE/build/override_compile_option/override_compile_option_02
+CJNATIVE/build/override_compile_option/override_compile_option_03
+CJNATIVE/build/package
+CJNATIVE/build/short_option/short_option_04
+CJNATIVE/build/wrong_option/ignored_option_03
+CJNATIVE/build_script/dep/dep_03
+CJNATIVE/build_script/dep/dep_04
+CJNATIVE/target
+CJNATIVE/test/package/package_15
+CJNATIVE/test/package/package_25
+CJNATIVE/test/stripped_library_path
+CJNATIVE/test/unittest/Unittest15
+CJNATIVE/update/module_update/module_update_013
+CJNATIVE/update/module_update/module_update_014
+CJNATIVE/workspace/case_03
+CJNATIVE/workspace/case_04
+CJNATIVE/workspace/case_05
+CJNATIVE/workspace/case_12
+CJNATIVE/workspace/override_compile_option/override_compile_option_02

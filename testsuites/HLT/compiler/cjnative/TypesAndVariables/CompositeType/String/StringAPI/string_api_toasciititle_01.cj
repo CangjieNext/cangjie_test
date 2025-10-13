@@ -19,7 +19,6 @@ main(): Int64 {
     var r5 = String.fromUtf8(a5[0..4]).toAsciiTitle()
     var r6 = "仓aBCDE 仓aBCDE".toAsciiTitle()
     if (r1 != "Abcde") {
-        //    print("${r1}")
         return 1
     }
     if (r2 != "Abcde") {
@@ -32,7 +31,6 @@ main(): Int64 {
         return 4
     }
     if (r5 != "A Bc") {
-        //    print("${r5}")
         return 5
     }
     if (r6 != "仓Abcde 仓Abcde") {

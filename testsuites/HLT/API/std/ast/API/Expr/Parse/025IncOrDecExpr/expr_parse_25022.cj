@@ -18,7 +18,6 @@ main(): Int64 {
     var input: Tokens = quote(break++)
     let expr = parseExpr(input)
     /*
-    if (expr.isIncOrDecExpr()) {
         var b = expr.asIncOrDecExpr()
         if (!b.getExpr().asJumpExpr().isBreak()) {
             return 2

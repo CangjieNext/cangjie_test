@@ -1,0 +1,29 @@
+
+class A<T> <: ToString {
+    func test() {1}
+    public func toString() { "A" }
+}
+
+main() {
+    let a = A<Rune>()
+    if (a.test() != 1) {
+        return 1
+    }
+    let s = test()
+    if (s != "A") {
+        return 1
+    }
+    return 0
+}
+
+func test() : String {
+    A<Int64>().toString()
+}
+
+
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

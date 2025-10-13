@@ -126,28 +126,27 @@ ${a}""";
     }""")
 
     // Complex case.
-    Assert.equals("3\n7\n",
-        """
+    Assert.equals("3\n7\n", """
 ${
-            let a = """
+        let a = """
     ${let a = ""}""";
-            func one() {
-                1
-            };
-            func two() {
-                2
-            };
-            one() + two();
-            func three() {
-                one() + two()
-            }
-            three()
+        func one() {
+            1
+        };
+        func two() {
+            2
+        };
+        one() + two();
+        func three() {
+            one() + two()
         }
+        three()
+    }
 ${
-            a++;
-            a++;
-            a++;
-            a
-        }
+        a++;
+        a++;
+        a++;
+        a
+    }
 """)
 }

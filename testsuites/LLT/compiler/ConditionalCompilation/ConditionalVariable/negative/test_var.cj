@@ -9,4 +9,4 @@
 
 var a =
 @When[test=="true"]
-main(){0}
+main() {0}

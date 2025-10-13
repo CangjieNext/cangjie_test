@@ -7,7 +7,6 @@
  */
 
 import define_20012.x as X
-// import test.x as X
 
 main() {
     return 0

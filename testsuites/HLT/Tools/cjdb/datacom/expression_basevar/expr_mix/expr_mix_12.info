@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/expression/expr_mix_5.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g expr_mix_5.cj -o 001_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expr_mix_12.info 001_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+b,b 40,expr_mix_5.cj:40
+CJVM c,c,-> 40
+AOT r,r,-> 40
+expr,expr rect().array01[0]<<2+Int64(rect().height)+Int64(cc.clB.A),\(Int64\) \$[\d] = 17592186044416
+q,q,

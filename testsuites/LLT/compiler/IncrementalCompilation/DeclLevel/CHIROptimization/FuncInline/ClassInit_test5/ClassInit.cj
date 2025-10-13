@@ -1,0 +1,28 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output | compare %f
+// EXEC: %run %run_opt %output %run_args
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC-PIPE-0: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1
+// EXEC: %run %run_opt %output %run_args
+
+open class A{
+    public var b : Int64 = 0
+}
+
+class B <: A{
+}
+
+main(): Int64 {
+    var x = B()
+    0
+}
+
+/* SCAN-IN
+b(l:9, c:5) -> main(l:15, c:1),
+*/
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

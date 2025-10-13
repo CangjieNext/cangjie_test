@@ -4,7 +4,7 @@ const public a = 1
 const public b: Int64 = 1
 const public _ = 1
 
-main(){}
+main() {}
 
 /* SCAN
 error: expected declaration, found 'a'

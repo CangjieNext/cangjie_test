@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f %cmp_utest_opt -o %output
-// EXEC-0: %run %run_opt %output %run_utest_opt %run_args --no-color --random-seed=90
+// RUN-EXEC-0: %run %run_opt %output %run_utest_opt %run_args --no-color --random-seed=90
 
 import std.unittest.prop_test.*
 import std.random.*

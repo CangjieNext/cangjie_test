@@ -19,6 +19,6 @@ cjdb,cjdb --no-use-colors 067_debug_hashmap,067_debug_hashmap
 b,b 13,067_debug_hashmap.cj:13
 AOT r,r,-> 13
 CJVM c,c,-> 13
-p,p hashmap03,\(std\.collection.HashMap<Int16,Bool>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = 0[\s\S]*value = false[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = 1[\s\S]*value = true[\s\S]*}[\s\S]*\[2\] = {[\s\S]*key = 2[\s\S]*value = true[\s\S]*}[\s\S]*}
-globals,globals,hashmap03 = {[\s\S]*key = 0[\s\S]*value = false[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = 1[\s\S]*value = true[\s\S]*}[\s\S]*\[2\] = {[\s\S]*key = 2[\s\S]*value = true[\s\S]*}[\s\S]*}
+p,p hashmap03,\(std\.collection.HashMap<Int16,Bool>\) \$[\d] = {[\s\S]*\[0 -> false\] = {[\s\S]*key = 0[\s\S]*value = false[\s\S]*}[\s\S]*\[1 -> true\] = {[\s\S]*key = 1[\s\S]*value = true[\s\S]*}[\s\S]*\[2 -> true\] = {[\s\S]*key = 2[\s\S]*value = true[\s\S]*}[\s\S]*}
+globals,globals,hashmap03 = {[\s\S]*key = 0[\s\S]*value = false[\s\S]*}[\s\S]*\[1 -> true\] = {[\s\S]*key = 1[\s\S]*value = true[\s\S]*}[\s\S]*\[2 -> true\] = {[\s\S]*key = 2[\s\S]*value = true[\s\S]*}[\s\S]*}
 q,q,

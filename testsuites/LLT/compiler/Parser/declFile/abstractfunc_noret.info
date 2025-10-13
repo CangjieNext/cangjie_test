@@ -1,0 +1,20 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: %n.cj.d
+// (DEBUG_OPTION) EXEC-PIPE-1: %frontendCompiler -d %n.cj.d %cmp_opt 2>&1 | compare %f
+
+/* SCAN
+error: abstract function must have return type
+ ==> abstractfunc_noret.cj.d:2:22:
+  | 
+2 |     public func foo()
+  |                      ^ abstract function must have return type
+  | 
+
+1 error generated, 1 error printed.
+*/

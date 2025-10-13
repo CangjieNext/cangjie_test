@@ -24,3 +24,6 @@ CJNATIVE/build/safe_compile/safe_compile_06
 
 # 需要手动扩栈
 CJNATIVE/build/multi_module/multi_module_from_10008
+
+# macOS暂不支持combined
+CJNATIVE/build/combined

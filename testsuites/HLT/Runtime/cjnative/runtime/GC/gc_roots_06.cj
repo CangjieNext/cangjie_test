@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: check_array.cj
-// EXEC: %compiler %cmp_opt %compile_dylib_opt check_array.cj -o libcangjie-check.%test_suffix
+// EXEC: %compiler %cmp_opt %compile_lib_opt check_array.cj -o libcangjie-check.%middle
 // EXEC: %compiler %cmp_opt %overflow_wrapping %f -L. -lcangjie-check -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT:scan Success

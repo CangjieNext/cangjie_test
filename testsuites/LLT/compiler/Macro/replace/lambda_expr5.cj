@@ -12,6 +12,6 @@ internal import pkg1.*
 
 @Foo {x:int32, y:int32 => x + y} 
 
-main(){
+main() {
     return 0
 }

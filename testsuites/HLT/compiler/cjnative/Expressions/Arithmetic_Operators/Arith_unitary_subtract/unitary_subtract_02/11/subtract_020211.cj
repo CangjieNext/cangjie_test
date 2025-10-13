@@ -19,7 +19,6 @@ main(): Int64 {
         return 1
     }
     /*
-    if (b != -127) {
          return 1
     }
 

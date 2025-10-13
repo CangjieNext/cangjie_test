@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// EXEC:%compiler %dumpCHIRDebug %n.cj %compile_lib_opt
+// (DEBUG_OPTION) EXEC:%compiler %dumpCHIRDebug %n.cj %compile_lib_opt
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

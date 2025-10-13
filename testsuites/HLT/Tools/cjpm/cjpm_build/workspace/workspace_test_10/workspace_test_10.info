@@ -13,6 +13,6 @@
 // ASSERT: regex workspace_test_10[/|\\]pro1
 // ASSERT: scan-not workspace_test_10/boo
 // ASSERT: scan --warn-off all
-// ASSERT: regex-7 workspace_test_10[/|\\]target
+// ASSERT: regex-8 workspace_test_10[/|\\]target
 // ASSERT: scan cjpm build success
 // ASSERT: scan-not workspace_test_10/coo

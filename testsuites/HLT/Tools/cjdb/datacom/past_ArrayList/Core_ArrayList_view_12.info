@@ -13,12 +13,11 @@
 
 
 
-
 test#
 cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
 b,b 18,066_debug_arraylist.cj:18
 AOT r,r,-> 18
 CJVM c,c,-> 18
-p,p arraylistHashMap,\(std\.collection.ArrayList<std.collection.HashMap<std.core.String,Int64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = {[\s\S]*key = "aa"[\s\S]*value = 10[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = "bb"[\s\S]*value = 20[\s\S]*}[\s\S]*}[\s\S]*}
-globals,globals,arraylistHashMap = {[\s\S]*\[0\] = {[\s\S]*\[0\] = {[\s\S]*key = "aa"[\s\S]*value = 10[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = "bb"[\s\S]*value = 20[\s\S]*}[\s\S]*}[\s\S]*}
+p,p arraylistHashMap,\(std\.collection.ArrayList<std.collection.HashMap<std.core.String,Int64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\["aa" -> 10\] = {[\s\S]*key = "aa"[\s\S]*value = 10[\s\S]*}[\s\S]*\["bb" -> 20\] = {[\s\S]*key = "bb"[\s\S]*value = 20[\s\S]*}[\s\S]*}[\s\S]*}
+globals,globals,arraylistHashMap = {[\s\S]*\[0\] = {[\s\S]*\["aa" -> 10\] = {[\s\S]*key = "aa"[\s\S]*value = 10[\s\S]*}[\s\S]*\["bb" -> 20\] = {[\s\S]*key = "bb"[\s\S]*value = 20[\s\S]*}[\s\S]*}[\s\S]*}
 q,q,

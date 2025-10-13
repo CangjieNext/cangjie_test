@@ -15,13 +15,13 @@ struct C {}
 extend C <: I {}
 
 /* SCAN
-error: implementation of function 'f' is needed in 'extend C'
+error: implementation of function or property is needed in 'extend C'
   ==> abstrct_func_unimplement.cj:15:1:
    | 
 15 | extend C <: I {}
    | ^ 
    | 
-note: unimplemented interface function
+note: unimplemented interface function f
   ==> abstrct_func_unimplement.cj:10:5:
    | 
 10 |     static func f(): Int64

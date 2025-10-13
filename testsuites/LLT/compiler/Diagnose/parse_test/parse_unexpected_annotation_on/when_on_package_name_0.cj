@@ -15,7 +15,7 @@ error: unexpected annotation '@When' on package
   ==> when_on_package_name_0.cj:10:1:
    | 
 10 | @When[os == "Linux"]
-   | ^^^^^ unexpected annotation here
+   | ^^^^^^^^^^^^^^^^^^^^ unexpected annotation here
 11 | package A
    | ~~~~~~~ on package
    | 

@@ -10,7 +10,6 @@
 // EXEC-PIPE: %compiler %cmp_opt  %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args
 import std.random.*
-//nextUInt64()
 main() {
     var count: UInt64 = 0 //记录结果正确次数
     var n: UInt64 = 200 //定义循环次数

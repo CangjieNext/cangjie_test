@@ -8,112 +8,85 @@
 
 /* SCAN
 error: super class 'Foo1' is not inheritable
- ==> forbidInheritanceOfOpenToMockDecls.cj:7:17:
-  | 
-7 | class MyFoo1 <: Foo1 {}
-  |                 ^ 
-  | 
+  ==> forbidInheritanceOfOpenToMockDecls.cj:14:17:
+   | 
+14 | class MyFoo1 <: Foo1 {}
+   |                 ^ 
+   | 
 
 error: super class 'Foo2' is not inheritable
- ==> forbidInheritanceOfOpenToMockDecls.cj:8:17:
-  | 
-8 | class MyFoo2 <: Foo2 {}
-  |                 ^ 
-  | 
+  ==> forbidInheritanceOfOpenToMockDecls.cj:16:17:
+   | 
+16 | class MyFoo2 <: Foo2 {}
+   |                 ^ 
+   | 
 
 error: super class 'Foo3' is not inheritable
- ==> forbidInheritanceOfOpenToMockDecls.cj:9:17:
-  | 
-9 | class MyFoo3 <: Foo3 {
-  |                 ^ 
-  | 
+  ==> forbidInheritanceOfOpenToMockDecls.cj:18:17:
+   | 
+18 | class MyFoo3 <: Foo3 {
+   |                 ^ 
+   | 
 
 error: super class 'Foo10' is not inheritable
-  ==> forbidInheritanceOfOpenToMockDecls.cj:41:18:
+  ==> forbidInheritanceOfOpenToMockDecls.cj:63:18:
    | 
-41 | class MyFoo21 <: Foo10 {}
+63 | class MyFoo21 <: Foo10 {}
    |                  ^ 
    | 
 
 error: super class 'Foo10' is not inheritable
-  ==> forbidInheritanceOfOpenToMockDecls.cj:42:18:
+  ==> forbidInheritanceOfOpenToMockDecls.cj:65:18:
    | 
-42 | class MyFoo22 <: Foo10 {
+65 | class MyFoo22 <: Foo10 {
    |                  ^ 
    | 
 
 error: super class 'Foo17' is not inheritable
-  ==> forbidInheritanceOfOpenToMockDecls.cj:46:25:
+  ==> forbidInheritanceOfOpenToMockDecls.cj:71:25:
    | 
-46 | public class MyFoo34 <: Foo17<String> {}
+71 | public class MyFoo34 <: Foo17<String> {}
    |                         ^ 
    | 
 
 error: super class 'Foo17' is not inheritable
-  ==> forbidInheritanceOfOpenToMockDecls.cj:48:25:
+  ==> forbidInheritanceOfOpenToMockDecls.cj:73:25:
    | 
-48 | public class MyFoo35 <: Foo17<String> {
+73 | public class MyFoo35 <: Foo17<String> {
    |                         ^ 
    | 
 
 error: super class 'Foo17' is not inheritable
-  ==> forbidInheritanceOfOpenToMockDecls.cj:52:28:
+  ==> forbidInheritanceOfOpenToMockDecls.cj:79:28:
    | 
-52 | public class MyFoo36<K> <: Foo17<K> {}
+79 | public class MyFoo36<K> <: Foo17<K> {}
    |                            ^ 
    | 
 
 error: super class 'Foo17' is not inheritable
-  ==> forbidInheritanceOfOpenToMockDecls.cj:54:28:
+  ==> forbidInheritanceOfOpenToMockDecls.cj:81:28:
    | 
-54 | public class MyFoo37<K> <: Foo17<K> {
+81 | public class MyFoo37<K> <: Foo17<K> {
    |                            ^ 
    | 
 
 error: cannot override function 'foo'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:10:26:
+  ==> forbidInheritanceOfOpenToMockDecls.cj:19:26:
    | 
-10 |     public override func foo() {}
+19 |     public override func foo() {}
    |                          ^^^ 
    | 
 note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:10:17:
+  ==> (package declsToOpenToMock)main.cj:17:17:
 
 error: cannot override function 'foo'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:13:26:
+  ==> forbidInheritanceOfOpenToMockDecls.cj:23:26:
    | 
-13 |     public override func foo() {}
+23 |     public override func foo() {}
    |                          ^^^ 
    | 
 note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:14:17:
-
-error: cannot override function 'foo'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:16:26:
-   | 
-16 |     public override func foo() {}
-   |                          ^^^ 
-   | 
-note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:18:17:
-
-error: cannot override function 'foo2'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:20:26:
-   | 
-20 |     public override func foo2() {}
-   |                          ^^^^ 
-   | 
-note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:23:17:
-
-error: cannot override function 'foo2'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:24:26:
-   | 
-24 |     public override func foo2() {}
-   |                          ^^^^ 
-   | 
-note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:23:17:
+  ==> (package declsToOpenToMock)main.cj:21:17:
 
 error: cannot override function 'foo'
   ==> forbidInheritanceOfOpenToMockDecls.cj:27:26:
@@ -122,124 +95,151 @@ error: cannot override function 'foo'
    |                          ^^^ 
    | 
 note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:27:17:
+  ==> (package declsToOpenToMock)main.cj:25:17:
 
 error: cannot override function 'foo2'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:31:26:
+  ==> forbidInheritanceOfOpenToMockDecls.cj:32:26:
    | 
-31 |     public override func foo2() {}
+32 |     public override func foo2() {}
    |                          ^^^^ 
    | 
 note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:32:17:
+  ==> (package declsToOpenToMock)main.cj:30:17:
 
 error: cannot override function 'foo2'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:35:26:
+  ==> forbidInheritanceOfOpenToMockDecls.cj:37:26:
    | 
-35 |     public override func foo2() {}
+37 |     public override func foo2() {}
    |                          ^^^^ 
    | 
 note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:32:17:
-
-error: cannot override function 'foo2'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:39:26:
-   | 
-39 |     public override func foo2() {}
-   |                          ^^^^ 
-   | 
-note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:37:17:
+  ==> (package declsToOpenToMock)main.cj:30:17:
 
 error: cannot override function 'foo'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:43:26:
+  ==> forbidInheritanceOfOpenToMockDecls.cj:41:26:
    | 
-43 |     public override func foo(): Int64 { 1 }
+41 |     public override func foo() {}
    |                          ^^^ 
    | 
 note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:45:26:
+  ==> (package declsToOpenToMock)main.cj:34:17:
 
-error: cannot override function 'foo'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:49:26:
+error: cannot override function 'foo2'
+  ==> forbidInheritanceOfOpenToMockDecls.cj:48:26:
    | 
-49 |     public override func foo(x: String) { 1 }
-   |                          ^^^ 
+48 |     public override func foo2() {}
+   |                          ^^^^ 
    | 
 note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:75:17:
+  ==> (package declsToOpenToMock)main.cj:39:17:
 
-error: cannot override function 'foo'
+error: cannot override function 'foo2'
   ==> forbidInheritanceOfOpenToMockDecls.cj:55:26:
    | 
-55 |     public override func foo(x: K) { 1 }
-   |                          ^^^ 
+55 |     public override func foo2() {}
+   |                          ^^^^ 
    | 
 note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:75:17:
+  ==> (package declsToOpenToMock)main.cj:39:17:
 
 error: cannot override function 'foo2'
   ==> forbidInheritanceOfOpenToMockDecls.cj:60:26:
    | 
-60 |     public override func foo2(x: String) { 1 }
+60 |     public override func foo2() {}
    |                          ^^^^ 
    | 
 note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:80:17:
-
-error: cannot override function 'foo2'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:64:26:
-   | 
-64 |     public override func foo2(x: K) { 1 }
-   |                          ^^^^ 
-   | 
-note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:80:17:
-
-error: cannot override function 'foo2'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:69:26:
-   | 
-69 |     public override func foo2(x: String) { 1 }
-   |                          ^^^^ 
-   | 
-note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:85:17:
-
-error: cannot override function 'foo2'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:73:26:
-   | 
-73 |     public override func foo2(x: K) { 1 }
-   |                          ^^^^ 
-   | 
-note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:85:17:
-
-error: class 'MyFoo45' missing abstract modifier or abstract function 'foo' should be implemented
-  ==> forbidInheritanceOfOpenToMockDecls.cj:72:1:
-   | 
-72 | public open class MyFoo45<K> <: Foo19<K> {
-   | ^ 
-   | 
-note: unimplemented abstract function
-  ==> (package declsToOpenToMock)main.cj:84:5:
+  ==> (package declsToOpenToMock)main.cj:44:17:
 
 error: cannot override function 'foo'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:77:17:
+  ==> forbidInheritanceOfOpenToMockDecls.cj:66:26:
    | 
-77 |     public func foo<K>(x: String, y: K): Int64 { 1 }
-   |                 ^^^ 
+66 |     public override func foo(): Int64 {
+   |                          ^^^ 
    | 
 note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:89:17:
+  ==> (package declsToOpenToMock)main.cj:52:26:
 
 error: cannot override function 'foo'
-  ==> forbidInheritanceOfOpenToMockDecls.cj:81:17:
+  ==> forbidInheritanceOfOpenToMockDecls.cj:74:26:
    | 
-81 |     public func foo<K>(x: T, y: K): Int64 { 1 }
-   |                 ^^^ 
+74 |     public override func foo(x: String) {
+   |                          ^^^ 
    | 
 note: the parent function is not modified by 'open'
-  ==> (package declsToOpenToMock)main.cj:89:17:
+  ==> (package declsToOpenToMock)main.cj:86:17:
+
+error: cannot override function 'foo'
+  ==> forbidInheritanceOfOpenToMockDecls.cj:82:26:
+   | 
+82 |     public override func foo(x: K) {
+   |                          ^^^ 
+   | 
+note: the parent function is not modified by 'open'
+  ==> (package declsToOpenToMock)main.cj:86:17:
+
+error: cannot override function 'foo2'
+  ==> forbidInheritanceOfOpenToMockDecls.cj:91:26:
+   | 
+91 |     public override func foo2(x: String) {
+   |                          ^^^^ 
+   | 
+note: the parent function is not modified by 'open'
+  ==> (package declsToOpenToMock)main.cj:95:17:
+
+error: cannot override function 'foo2'
+  ==> forbidInheritanceOfOpenToMockDecls.cj:97:26:
+   | 
+97 |     public override func foo2(x: K) {
+   |                          ^^^^ 
+   | 
+note: the parent function is not modified by 'open'
+  ==> (package declsToOpenToMock)main.cj:95:17:
+
+error: cannot override function 'foo2'
+   ==> forbidInheritanceOfOpenToMockDecls.cj:106:26:
+    | 
+106 |     public override func foo2(x: String) {
+    |                          ^^^^ 
+    | 
+note: the parent function is not modified by 'open'
+   ==> (package declsToOpenToMock)main.cj:102:17:
+
+error: cannot override function 'foo2'
+   ==> forbidInheritanceOfOpenToMockDecls.cj:112:26:
+    | 
+112 |     public override func foo2(x: K) {
+    |                          ^^^^ 
+    | 
+note: the parent function is not modified by 'open'
+   ==> (package declsToOpenToMock)main.cj:102:17:
+
+error: class 'MyFoo45' missing abstract modifier, otherwise abstract function or property should be implemented
+   ==> forbidInheritanceOfOpenToMockDecls.cj:111:1:
+    | 
+111 | public open class MyFoo45<K> <: Foo19<K> {
+    | ^ 
+    | 
+note: unimplemented abstract function foo
+   ==> (package declsToOpenToMock)main.cj:101:5:
+
+error: cannot override function 'foo'
+   ==> forbidInheritanceOfOpenToMockDecls.cj:118:17:
+    | 
+118 |     public func foo<K>(x: String, y: K): Int64 {
+    |                 ^^^ 
+    | 
+note: the parent function is not modified by 'open'
+   ==> (package declsToOpenToMock)main.cj:108:17:
+
+error: cannot override function 'foo'
+   ==> forbidInheritanceOfOpenToMockDecls.cj:124:17:
+    | 
+124 |     public func foo<K>(x: T, y: K): Int64 {
+    |                 ^^^ 
+    | 
+note: the parent function is not modified by 'open'
+   ==> (package declsToOpenToMock)main.cj:108:17:
 
 28 errors generated, 28 errors printed.
 */

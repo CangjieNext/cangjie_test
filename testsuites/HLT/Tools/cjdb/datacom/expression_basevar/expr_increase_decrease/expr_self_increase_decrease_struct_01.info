@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/expression/expr_struct_2.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g expr_struct_2.cj -o 001_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expr_self_increase_decrease_struct_01.info 001_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+b,b 22,expr_struct_2.cj:22
+CJVM c,c,-> 22
+AOT r,r,-> 22
+expr,expr arru8[0]++;arru8[0],\(UInt8\) \$[\d] = 2
+expr,expr arru16[1]++;arru16[1],\(UInt16\) \$[\d] = 3
+expr,expr arru32[2]++;arru32[2],\(UInt32\) \$[\d] = 4
+expr,expr arru64[0]++;arru64[0],\(UInt64\) \$[\d] = 2
+expr,expr arruin[0]++;arruin[0],\(UIntNative\) \$[\d] = 2
+q,q,

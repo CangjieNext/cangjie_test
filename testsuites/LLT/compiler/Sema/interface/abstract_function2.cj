@@ -26,26 +26,26 @@ error: function 'a' can not be abstract
    |     ^ 
    | 
 
-error: class 'A' missing abstract modifier or abstract function 'f2' should be implemented
+error: class 'A' missing abstract modifier, otherwise abstract function or property should be implemented
   ==> abstract_function2.cj:13:1:
    | 
 13 | class A <: I {}
    | ^ 
    | 
-note: unimplemented interface function
+note: unimplemented interface function f2
   ==> abstract_function2.cj:10:5:
    | 
 10 |     static func f2(a!: Int64, b!: Int64): Int64
    |     ^ 
    | 
 
-error: class 'B' missing abstract modifier or abstract function 'a' should be implemented
+error: class 'B' missing abstract modifier, otherwise abstract function or property should be implemented
   ==> abstract_function2.cj:17:1:
    | 
 17 | class B {
    | ^ 
    | 
-note: unimplemented abstract function
+note: unimplemented abstract function a
   ==> abstract_function2.cj:18:5:
    | 
 18 |     static func a(): Unit

@@ -7,7 +7,7 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f 2>&1 | compare %f
 
-main(){
+main() {
   (( ) ->
     ?
   )

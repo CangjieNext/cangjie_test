@@ -1,0 +1,59 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/004_debug_while.cj
+//  EXEC: %compiler %cmp_opt -g 004_debug_while.cj -o 004_debug_while%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_StepInAndOut006.info 004_debug_while %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 004_debug_while,004_debug_while
+CJVM b main,b main,004_debug_while.cj:4
+CJVM c,c,-> 4
+b,b 4,004_debug_while.cj:4
+b,b 5,004_debug_while.cj:5
+b,b 6,004_debug_while.cj:6
+AOT b,b 7,004_debug_while.cj:8
+CJVM b,b 7,004_debug_while.cj:7
+AOT r,r,-> 4
+s,s,-> 5
+finish,finish,-> 6
+finish,finish,-> 5
+finish,finish,-> 6
+s,s,-> 5
+AOT s,s,-> 5
+finish,finish,-> 6
+s,s,-> 5
+AOT s,s,-> 5
+finish,finish,-> 6
+s,s,-> 5
+AOT s,s,-> 5
+finish,finish,-> 6
+s,s,-> 5
+AOT s,s,-> 5
+finish,finish,-> 6
+s,s,-> 5
+AOT s,s,-> 5
+finish,finish,-> 6
+s,s,-> 5
+AOT s,s,-> 5
+finish,finish,-> 6
+s,s,-> 5
+AOT s,s,-> 5
+finish,finish,-> 6
+s,s,-> 5
+AOT s,s,-> 5
+finish,finish,-> 6
+s,s,-> 5
+AOT s,s,-> 5
+finish,finish,-> 8
+locals,locals,hundred = 10
+q,q,

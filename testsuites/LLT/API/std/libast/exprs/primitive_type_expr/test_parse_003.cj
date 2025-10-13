@@ -27,7 +27,6 @@ main(): Int64 {
     if (tok[0].pos != Position(1, 8, 8)) {
         return 5
     }
-    // parsePrimitiveTypeExpr(tok)
     let inputOther = quote(
         a++
     )
