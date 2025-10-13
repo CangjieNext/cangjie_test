@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/static_variable_class.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug static_variable_class.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb static_variable_class3,static_variable_class3
+b,b 24,static_variable_class.cj:24
+r,r,-> 24
+ ,expr Rect2<UInt32>.vlist2,\(std.collection.ArrayList<Int64>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = 2
+ ,expr Rect2<Range<Int64>>.vhmc,\(std.collection.HashMap<std.core.String,Bool>\) \$\d+ = {\s+\["a" -> true\] = {\s+key = "a"\s+value = true
+ ,expr Rect2<UInt64>.vInt8,\(VArray<Int8,\$3>\) \$\d+ = {\s+\[0\] = -1\s+\[1\] = -2\s+\[2\] = -3
+q,q,

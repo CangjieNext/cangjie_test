@@ -57,7 +57,7 @@ error: the constraint of type parameter is not looser than parent's constraint
   ==> class_redef_11.cj:23:59:
    | 
 23 |     public static redef func foo<V>(x: Int32, y: V) where V <: Int64 {
-   |                                                           ^^^^^^^^^^^ 
+   |                                                           ^^^^^^^^^^ 
    | 
    # note: parent constraint is 'Int32'
 

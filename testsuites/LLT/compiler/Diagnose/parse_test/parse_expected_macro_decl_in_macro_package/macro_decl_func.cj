@@ -13,7 +13,7 @@ public func f1(input: Tokens): Tokens{
     return input
 }
 
-main(){
+main() {
     f1(1);
 }
 

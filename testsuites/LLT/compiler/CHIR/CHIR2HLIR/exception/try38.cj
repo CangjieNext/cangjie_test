@@ -8,7 +8,7 @@
 
 class A <: Exception{}
 
-main(){
+main() {
     try {
         throw A()
     } catch (a) { 

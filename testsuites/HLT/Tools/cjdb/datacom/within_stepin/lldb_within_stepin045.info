@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_stepin/003_debug_stepIn_via_extend.cj
+// EXEC: %compiler %cmp_opt -g 003_debug_stepIn_via_extend.cj -o 003_debug_stepIn_via_extend%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_within_stepin045.info 003_debug_stepIn_via_extend %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 003_debug_stepIn_via_extend,003_debug_stepIn_via_extend
+CJVM b main,b main,003_debug_stepIn_via_extend.cj:8
+CJVM c,c,-> 8
+b,b 22,003_debug_stepIn_via_extend.cj:22
+AOT r,r,-> 22
+CJVM c,c,-> 22
+s,s,-> 26
+AOT print,print v_main_12,\(std[.]core.Array<Int64>\) \$[\d][\s\S]*
+q,q,

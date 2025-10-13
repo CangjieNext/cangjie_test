@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/collection_HashMap/basic_hashmap_020.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g basic_hashmap_020.cj -o basic_hashmap_020%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py cjdb_hashmap_020.info basic_hashmap_020 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors basic_hashmap_020,basic_hashmap_020
+b,b 19,basic_hashmap_020.cj:19
+AOT r,r,-> 19
+locals,locals,\(std.collection.HashMap<Bool,Unit>\) map2 = {[\s\S]*\[true\] = {[\s\S]*key = true[\s\S]*value = ()[\s\S]*}[\s\S]*\[false\] = {[\s\S]*key = false[\s\S]*
+p,p myTuple,\(Tuple<std.collection.HashMap<Int32,Int32>,std.collection.HashMap<Int32,Int32>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[1 -> 1\] = {[\s\S]*key = 1[\s\S]*value = 1[\s\S]*}[\s\S]*}[\s\S]*\[1\] = {[\s\S]*\[2 -> 2\] = {[\s\S]*key = 2[\s\S]*value = 2[\s\S]*
+expr,expr HashMap02,\(std.collection.HashMap<UIntNative,IntNative>\) \$[\d] = {[\s\S]*\[1 -> 2\] = {[\s\S]*key = 1[\s\S]*value = 2[\s\S]*
+q,q,

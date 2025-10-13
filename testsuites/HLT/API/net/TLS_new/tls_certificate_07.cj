@@ -14,7 +14,8 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.keys.*
 import std.sync.*
 import std.runtime.*
 import std.unittest.*
@@ -32,7 +33,7 @@ class Test_tlscertificate_07 {
     func test_01(): Unit {
         //pem format of privatekey.
         let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))
-        let pemPriKey = PrivateKey.decodeFromPem(pemData)
+        let pemPriKey = GeneralPrivateKey.decodeFromPem(pemData)
         @Expect(pemPriKey.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
     }
 
@@ -41,7 +42,7 @@ class Test_tlscertificate_07 {
         //pem format of certificate using PrivateKey to decode.
         let pemData = String.fromUtf8(File.readFrom("./data/root_ecdsa.pem"))
         try {
-            PrivateKey.decodeFromPem(pemData)
+            GeneralPrivateKey.decodeFromPem(pemData)
         } catch (e: Exception) {
             @Expect(e.message.contains("No supported private key entry found in PEM"))
             sum += 1
@@ -54,7 +55,7 @@ class Test_tlscertificate_07 {
         //pem format of privatekey file using PublicKey to decode.
         let pemData = String.fromUtf8(File.readFrom("./data/root_rsa_public_key.pem"))
         try {
-            PrivateKey.decodeFromPem(pemData)
+            GeneralPrivateKey.decodeFromPem(pemData)
         } catch (e: Exception) {
             @Expect(e.message.contains("No supported private key entry found in PEM"))
             sum += 1
@@ -67,7 +68,7 @@ class Test_tlscertificate_07 {
         //pem format of text file using PrivateKey to decode.
         let pemData = String.fromUtf8(File.readFrom("./data/root_ecdsa_1.text"))
         try {
-            PrivateKey.decodeFromPem(pemData)
+            GeneralPrivateKey.decodeFromPem(pemData)
         } catch (e: Exception) {
             @Expect(e.message.contains("Failed to parse PEM"))
             sum += 1
@@ -79,12 +80,12 @@ class Test_tlscertificate_07 {
     func test_05(): Unit {
         //pem format of privatekey and encodetoder then decodeder.
         let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))
-        let pemPriKey = PrivateKey.decodeFromPem(pemData)
+        let pemPriKey = GeneralPrivateKey.decodeFromPem(pemData)
         @Expect(pemPriKey.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
         let derData = pemPriKey.encodeToDer()
         @Expect(derData.size, 1794)
         @Expect(derData.hashCode(),794757560254597261)
-        let derPriKey = PrivateKey.decodeDer(derData)
+        let derPriKey = GeneralPrivateKey.decodeDer(derData)
         let derData1 = derPriKey.encodeToDer()
         @Expect(derPriKey.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
         @Expect(derData.size, derData1.size)

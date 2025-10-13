@@ -97,17 +97,13 @@ class Test_arrayblockqueue {
 
     // @TestCase
     // func test_error_element_init_05():Unit{
-    //     try {
     //         ArrayBlockingQueue<Int64>(0,Array<Int64>())
-    //     }catch(e:IllegalArgumentException) {
     //         @Expect(e.message.contains("Invalid size of ArrayBlockingQueue: 0"))
     //         sum += 1
     //     }
     //     @Expect(sum, 1)
 
-    //     try {
     //         ArrayBlockingQueue<String>(-1,["hhh"])
-    //     }catch(e:IllegalArgumentException){
     //         @Expect(e.message.contains("Size of ArrayBlockingQueue should be equal or greater than 1"))
     //         sum += 1
     //     }
@@ -116,17 +112,13 @@ class Test_arrayblockqueue {
 
     // @TestCase
     // func test_error_element_init_06():Unit{
-    //     try {
     //         ArrayBlockingQueue<Int64>(9,Array<Int64>(10, {i => i + 10}))
-    //     }catch(e:IllegalArgumentException) {
     //         @Expect(e.message.contains("Size of ArrayBlockingQueue should be equal or greater than 10"))
     //         sum += 1
     //     }
     //     @Expect(sum, 1)
 
-    //     try {
     //         ArrayBlockingQueue<String>(1,  Array<String>(10, {i => "${i + 10}"}))
-    //     }catch(e:IllegalArgumentException){
     //         @Expect(e.message.contains("Size of ArrayBlockingQueue should be equal or greater than 10"))
     //         sum += 1
     //     }

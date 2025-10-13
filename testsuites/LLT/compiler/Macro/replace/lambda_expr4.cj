@@ -11,7 +11,7 @@
 
 internal import pkg1.*
 
-main(){
+main() {
     @Foo
     {
       var a = 1

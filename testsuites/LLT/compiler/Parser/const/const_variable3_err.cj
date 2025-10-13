@@ -4,7 +4,7 @@ class C {
     const b = 0 // error
 }
 
-main(){}
+main() {}
 
 /* SCAN
 error: expected static before const member variable

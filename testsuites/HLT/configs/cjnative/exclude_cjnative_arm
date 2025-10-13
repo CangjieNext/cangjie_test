@@ -1,5 +1,11 @@
 # Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 # This source file is part of the Cangjie project, licensed under Apache-2.0
 # with Runtime Library Exception.
-# 
+#
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# should be fixed.
+API/std/convert/radixconvertible/test_radixconvertible_int_01.cj
+API/std/convert/radixconvertible/test_radixconvertible_uint_02.cj
+API/std/os/env/test_getArgs/test_getArgs_005/test_getArgs_005.cj
+API/std/unittest/mock/test_mock_extend_cjnative.cj

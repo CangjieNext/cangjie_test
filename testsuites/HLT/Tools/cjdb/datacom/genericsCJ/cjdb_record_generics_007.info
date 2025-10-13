@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/generics_debug_files/record_generics/
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g record_generics/p1/debug_record_generics_p101.cj record_generics/p1/debug_record_generics_p102.cj -o p1.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g record_generics/p2/debug_record_generics_p201.cj -o p2.%middle
+// EXEC: %compiler %cmp_opt -g record_generics/debug_record_generics.cj p1.%middle p2.%middle -o debug_record_generics%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_record_generics_007.info debug_record_generics %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors debug_record_generics,debug_record_generics
+CJVM b main,b main,debug_record_generics.cj:9
+CJVM c,c,-> 9
+b,b 25,debug_record_generics.cj:25
+AOT r,r,-> 25
+CJVM c,c,-> 25
+s,s,-> 55
+n,n,-> 57
+finish,finish,-> 25
+q,quit,

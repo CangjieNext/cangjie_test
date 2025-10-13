@@ -36,7 +36,7 @@ const r1 = s1 == s2
 const r2 = s1 != s2
 const r3 = s1 == s1
 const r4 = s1 != s1
-main(){
+main() {
     if (r1) {
         return 1
     }

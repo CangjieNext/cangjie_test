@@ -14,7 +14,7 @@ public interface interf{
 
 }
 
-main(){
+main() {
 }
 
 /* SCAN

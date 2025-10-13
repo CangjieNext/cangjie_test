@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/enum_arg.cj
+// EXEC: %compiler %cmp_opt -g enum_arg.cj -o enum_arg%cmp_output
+// RUN-EXEC: python3 cjdb_test.py enum_arg_11.info enum_arg %run_env
+
+test#
+cjdb,cjdb --no-use-colors enum_arg,enum_arg
+b,b 30,default(::|\.)main\(\)[\s\S]*enum_arg.cj:30
+AOT r,r,-> 30
+CJVM c,c,
+s,s,-> 14
+p,p para_1,\(default.test_RGBColor\) \$[\d] = {(\r|\n|\r\n)  constructor = Yellow_3[\s\S]*arg_1 = "测试%&……%￥#"[\s\S]*arg_6 = {(\r|\n|\r\n)    constructor = Yellow[\s\S]*}
+q,q,

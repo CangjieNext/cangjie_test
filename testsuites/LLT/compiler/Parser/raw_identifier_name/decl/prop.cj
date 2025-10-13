@@ -9,7 +9,7 @@ class Foo {
         get() {a}
     }
 }
-main(){
+main() {
     0
 }
 

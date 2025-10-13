@@ -24,7 +24,6 @@ struct RR <: I {
     }
 
     /* func aaaa(): Int64{
-    return aa
     }*/
     public init(aa!: Int64 = 3) {
         this.aa = aa

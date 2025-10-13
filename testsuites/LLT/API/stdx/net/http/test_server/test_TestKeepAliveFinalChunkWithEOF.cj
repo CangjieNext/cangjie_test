@@ -15,6 +15,7 @@
 package tests.go_server
 
 import stdx.net.http.*
+import stdx.net.tls.*
 import stdx.encoding.json.*
 import std.unittest.*
 import std.unittest.testmacro.*

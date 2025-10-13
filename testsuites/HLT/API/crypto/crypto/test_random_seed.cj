@@ -39,7 +39,6 @@ public class Test_Random_Seed {
         @Expect(r1.seed, UInt64(0))
     }
 
-    //init(seed：UInt64), seed = UInt64.Max
     @TestCase
     func case3(): Unit {
         var r1 = Random(UInt64.Max)

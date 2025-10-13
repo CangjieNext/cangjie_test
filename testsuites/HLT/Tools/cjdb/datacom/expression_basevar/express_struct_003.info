@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/065_debug_struct.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 065_debug_struct.cj -o 003_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py express_struct_003.info 003_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 003_express_basetype,003_express_basetype
+CJVM b,b main,065_debug_struct.cj:51
+CJVM c,c,-> 51
+b,b 53,065_debug_struct.cj:53
+CJVM c,c,-> 53
+AOT r,r,-> 53
+expr,expr rr.arr,std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*[\2\] = 2[\s\S]*}*
+expr,expr rr.arr[0],\(Int64\) \$[\d] = 0
+expr,expr rr.arr[0]=10,\(Unit\) \$[\d] = ()
+expr,expr rr.arr,std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 1[\s\S]*[\2\] = 2[\s\S]*}*
+expr,expr rr.s09,std[.]collection.HashSet<Int64>\) \$[\d] = {[\S\s]*\[0\] = 0[\S\s]*\[1\] = 1[\S\s]*\[2\] = 2[\S\s]*}
+expr,expr rr.s10,std[.]collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 0[\S\s]*}
+expr,expr rr.a.age,\(Int64\) \$[\d] = 10
+expr,expr rr.a.age=20,\(Unit\) \$[\d] = ()
+expr,expr rr.a.age,\(Int64\) \$[\d] = 20
+q,q,

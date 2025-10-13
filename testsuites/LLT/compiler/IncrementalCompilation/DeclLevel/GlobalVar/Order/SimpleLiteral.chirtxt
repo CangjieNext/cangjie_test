@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// ASSERT: scan #from <default> import [private] [imported] [noReflectInfo] [nonRecompile] @_CN7defaultU00000003D3p3C2daHv(): () -> Int64
+// ASSERT: scan #from <default> import [imported] [internal] [nonRecompile] @_CN7default1aE: Int64&
+// ASSERT: scan #from <default> import [imported] @_CGV7default2f1Hv(): () -> Void // kind: globalVarInit
+// ASSERT: scan-not #from <default> import [imported] @_CN7default1aE: () -> Void // kind: globalVarInit
+
+// ASSERT: scan-begin [compilerAdd] [noReflectInfo] [noInline] Func @_CGF7defaultU00000003D3p3CiiHv() : Void
+// ASSERT: scan-after {
+// ASSERT: scan-after Block #
+// ASSERT: scan-after   %0: Void = Apply(@_CGV7default2f1Hv)
+// ASSERT: scan-after   Exit()
+// ASSERT: scan-after }

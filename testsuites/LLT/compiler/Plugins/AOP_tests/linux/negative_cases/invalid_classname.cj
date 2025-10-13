@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and Linux)EXEC-PIPE-1: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler -L $CANGJIE_STDX_PATH -lstdx.aspectCJ --import-path $CANGJIE_STDX_PATH %cmp_opt %f -o %output --plugin=$CANGJIE_STDX_PATH/libcollect-aspects.%dylib_suffix --plugin=$CANGJIE_STDX_PATH/libwave-aspects.%dylib_suffix 2>&1 | compare %f
-// (CJNATIVE and Linux)ASSERT: scan annotatedFunction: check if the className in @ReplaceFuncBody is right.
+// (CJNATIVE and Linux)ASSERT: scan annotatedFunction: For any function annotated with @ReplaceFuncBody, if it is intended to be woven into an instance member function, and its last parameter is of function type, the first parameter of this function type must be the same as the type indicated by packageName and className.
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

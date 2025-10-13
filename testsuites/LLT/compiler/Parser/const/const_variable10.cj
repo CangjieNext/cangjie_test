@@ -22,7 +22,7 @@ class D{
     const D(){}
 }
 
-main(){}
+main() {}
 
 /* SCAN
 error: enum patterns cannot be used in class or struct body

@@ -6,7 +6,7 @@ enum `RGBColor` {
     | Red | Green | Blue
 }
 
-main(){
+main() {
     let r1 = RGBColor.Red
     let r2 = `RGBColor`.Red
     match (r1){

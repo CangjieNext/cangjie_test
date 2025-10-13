@@ -1,6 +1,6 @@
 // EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
-main(){
+main() {
     var public = 1
     var open = 1
     var a = [1 << 

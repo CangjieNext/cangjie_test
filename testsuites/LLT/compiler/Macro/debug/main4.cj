@@ -14,7 +14,7 @@ import m1.*
 
 func test() {0}
 
-main(){
+main() {
     println("Okay")
     return @M{}()
 }

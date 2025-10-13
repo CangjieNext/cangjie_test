@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (not Windows) DEPENDENCE: %n.old.cj %n.new.cj
+// (not Windows) EXEC: %rmdir .cached
+
+// (not Windows) EXEC: %cpfile %n.old.cj %n.cj
+// (not Windows) EXEC: %compiler %incrementalCompile %n.cj -o %output
+// (not Windows) RUN-EXEC: %run %run_opt %output %run_args
+
+// (not Windows) EXEC: %cpfile %n.new.cj %n.cj
+// (not Windows) EXEC: echo "Illegal bitcode" > $(ls -1 .cached/*_cache.bc | head -n 1)
+// (not Windows and DEBUG_OPTION) EXEC-PIPE-1: %compiler %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// (not Windows and not DEBUG_OPTION) EXEC: %compiler %incrementalCompile %n.cj -o %output 
+
+// ASSERT: scan Illegal bitcode cache detected during incremental compilation.

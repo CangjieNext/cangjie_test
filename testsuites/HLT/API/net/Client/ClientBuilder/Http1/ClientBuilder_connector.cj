@@ -11,6 +11,8 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.net.http.*
+import stdx.net.tls
+import stdx.crypto.kit
 import stdx.log.*
 import stdx.logger.*
 import std.console.Console

@@ -8,7 +8,7 @@ struct `UsrTyp`{
     let b: String = "world"
 }
 
-main(){
+main() {
     let usrVar = `UsrTyp`() 
     let x: (Int64, `UsrTyp`) = (3, usrVar)
     let y: (Int64, UsrTyp) = (3, usrVar)

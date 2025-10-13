@@ -16,7 +16,9 @@ import std.time.*
 import std.sync.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.net.tls.common.*
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.keys.*
 import std.collection.*
 
 func runTcpServer(): (TcpServerSocket, UInt16) {
@@ -29,15 +31,17 @@ func runTcpServer(): (TcpServerSocket, UInt16) {
 
 func runTlsServer(server: TcpServerSocket) {
     let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa.cer")))
-    let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
+    let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
     var serverConfig = TlsServerConfig(serverCert, pkey)
     serverConfig.verifyMode = TrustAll
     try (client = server.accept()) {
         try (tls = TlsSocket.server(client, serverConfig: serverConfig)) {
             tls.handshake()
-            match (tls.alpnProtocolName) {
-                case Some(name) => println("Unexpected alpn name on server: ${name}")
-                case None => println("No alpn name on server")
+            let alpnProtocol = tls.handshakeResult.getOrThrow().alpnProtocol
+            if (alpnProtocol == "") {
+                println("No alpn name on server")
+            } else {
+                println("Unexpected alpn name on server: ${alpnProtocol}")
             }
         }
     }
@@ -51,9 +55,11 @@ func runTlsClient(port: UInt16) {
         clientTcp.connect()
         try (client = TlsSocket.client(clientTcp, clientConfig: clientConfig)) {
             client.handshake()
-            match (client.alpnProtocolName) {
-                case Some(name) => println("Unexpected alpn name on client: ${name}")
-                case None => println("No alpn name on client")
+            let alpnProtocol = client.handshakeResult.getOrThrow().alpnProtocol
+            if (alpnProtocol == "") {
+                println("No alpn name on client")
+            } else {
+                println("Unexpected alpn name on client: ${alpnProtocol}")
             }
         }
     }

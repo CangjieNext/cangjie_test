@@ -12,7 +12,7 @@ import std.ast.*
 
 public type ATokens = Tokens;
 
-main(){
+main() {
 }
 
 /* SCAN

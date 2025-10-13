@@ -148,9 +148,4 @@ public class SkipList<K, V> where K <: Comparable<K> & Equatable<K> & ToString, 
 
 func test() {
     // var list = SkipList<Int64, Int64>()
-    // list.insert(1, 10)
-    // var e = list.search(1)
-    // list.delete(1)
-    // var e2 = list.search(1)
-    // print("${e}, ${e2}")
 }

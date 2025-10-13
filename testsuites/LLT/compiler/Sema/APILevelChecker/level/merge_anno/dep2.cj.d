@@ -6,7 +6,7 @@
 
 package dep2
 
-@!APILevel[11]
+@!APILevel[13]
 public let cccc: VArray<Int64, $5>
-@!APILevel[12]
+@!APILevel[13]
 public let (aaaa, bbbb)

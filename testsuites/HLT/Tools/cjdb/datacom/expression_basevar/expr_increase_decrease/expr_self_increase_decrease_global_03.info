@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/expression/expr_globals.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g expr_globals.cj -o 001_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expr_self_increase_decrease_global_03.info 001_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+b,b 53,expr_globals.cj:53
+CJVM c,c,-> 53
+AOT r,r,-> 53
+expr,expr globals_hmu8["b"]++;globals_hmu8["b"],\(UInt8\) \$[\d] = 2
+expr,expr globals_hmu16["b"]++;globals_hmu16["b"],\(UInt16\) \$[\d] = 2
+expr,expr globals_hmu32["c"]++;globals_hmu32["c"],\(UInt32\) \$[\d] = 3
+expr,expr globals_hmu64["b"]++;globals_hmu64["b"],\(UInt64\) \$[\d] = 2
+expr,expr globals_hmuin["b"]++;globals_hmuin["b"],\(UIntNative\) \$[\d] = 2
+q,q,

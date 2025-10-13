@@ -1,0 +1,35 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_enum01.cj
+// EXEC: %compiler %cmp_opt -g debuginfo_enum01.cj -o debuginfo_enum01
+// EXEC: python3 cjdb_test.py debuginfo_enum01.info
+
+
+test#
+cjdb,cjdb debuginfo_enum01,debuginfo_enum01
+b,b 43,debuginfo_enum01.cj:43
+r,r,-> 43
+s,s,-> 35
+n,n,-> 34
+s,s,-> 43
+s,s,-> 39
+n,n,-> 38
+s,s,-> 43
+s,s,-> 18
+b,b 27,debuginfo_enum01.cj:27
+c,c,-> 27
+finish,finish,-> 43
+n,n,-> 44
+p,p a.member1,\(default.TimeUnit<Int8>\) \$[\d]+ = {\s+constructor = Month(\r|\n|\r\n)  arg_1 = 8
+p,p a.member2,\(default.TimeUnit<Int16>\) \$[\d]+ = {\s+constructor = Month(\r|\n|\r\n)  arg_1 = 16
+p,p a.member3,\(default.TimeUnit<Int32>\) \$[\d]+ = {\s+constructor = Month(\r|\n|\r\n)  arg_1 = 32
+p,p a.member4,\(default.TimeUnit<Int64>\) \$[\d]+ = {\s+constructor = Month(\r|\n|\r\n)  arg_1 = 64
+
+p,p a.member6,\(default.TimeUnit<Tuple<Int32,Int64>>\) \$[\d]+ = {\s+constructor = Month(\r|\n|\r\n)  arg_1 = {(\r|\n|\r\n)    \[0\] = 111(\r|\n|\r\n)    \[1\] = 222
+p,p a.member7,\(default.TimeUnit<std.core.String>\) \$[\d]+ = {\s+constructor = Month(\r|\n|\r\n)  arg_1 = "HHH"
+p,p a.member8,\(default.TimeUnit<default.A>\) \$[\d]+ = {\s+constructor = Month(\r|\n|\r\n)  arg_1 = {(\r|\n|\r\n)    a = 10
+p,p a.member9,\(default.TimeUnit<default.B>\) \$[\d]+ = {\s+constructor = Month(\r|\n|\r\n)  arg_1 = {(\r|\n|\r\n)    b = 20

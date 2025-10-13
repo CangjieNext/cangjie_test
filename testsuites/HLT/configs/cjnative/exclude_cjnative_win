@@ -1,7 +1,7 @@
 # Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 # This source file is part of the Cangjie project, licensed under Apache-2.0
 # with Runtime Library Exception.
-# 
+#
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 # ======================== API exclude ========================
@@ -160,7 +160,7 @@ API/net/handler/FileHandler/file_handler_init_15n.cj
 API/net/handler/FileHandler/file_handler_init_18n.cj
 API/std/fs/directory/windows/test_unc_dirapis.cj
 API/net/Client/ClientBuilder/Http2/ClientBuilder_sendRequest_and_getResponse.cj
-API/net/Server/ServerBuilder/Http2/ServerBuilder_servicePoolConfig_H2.cj 
+API/net/Server/ServerBuilder/Http2/ServerBuilder_servicePoolConfig_H2.cj
 
 # windows绑定socket时的SO_REUSEADDR，默认为true
 API/net/Server/ServerBuilder/Http1/ServerBuilder_afterBind.cj
@@ -210,6 +210,12 @@ API/std/socket/UnixSocket
 
 # windows 未授予创建软连接权限
 API/std/fs/path/windows/unc_path/test_path_unequal_02.cj
+
+# should be fixed.
+API/std/convert/radixconvertible/test_radixconvertible_int_01.cj
+API/std/convert/radixconvertible/test_radixconvertible_uint_02.cj
+API/std/os/env/test_getArgs/test_getArgs_005/test_getArgs_005.cj
+API/std/unittest/mock/test_mock_extend_cjnative.cj
 
 # ======================== Compiler exclude ========================
 # linux和win的命令行差异

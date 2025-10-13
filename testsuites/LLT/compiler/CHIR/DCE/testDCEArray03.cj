@@ -20,7 +20,7 @@ class A {
     }
 }
 
-main(){
+main() {
     var x =  [A()]
     x[return  0]
     .

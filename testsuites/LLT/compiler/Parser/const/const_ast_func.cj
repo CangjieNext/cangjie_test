@@ -5,7 +5,7 @@
 // ASSERT: scan }
 internal import std.ast.*
 
-main(){
+main() {
     let tk = quote(
     const public func test(a: Int64): Int64 {
         return a

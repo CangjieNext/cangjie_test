@@ -32,17 +32,17 @@ class E {
 let m = E();
 main()
 {
-    //[(-a < b), (c > d)]
+    [(-a < b), (c > d)]
     [-a < b, c > d];
-    //[(-goo2<i32, Point2D>(d)), e, f, g, h]
+    [(-goo2<i32, Point2D>(d)), e, f, g, h]
     [-goo2<i32, Point2D>(d), e, f, g, h]
-    //[(m.x < b), (c > d)];
+    [(m.x < b), (c > d)];
     [m.x < b, c > d];
-    //[(m.g<i32, Point2D>(d)), e, f, g, h];
+    [(m.g<i32, Point2D>(d)), e, f, g, h];
     [m.g<i32, Point2D>(d), e, f, g, h];
-    //[(a<b), (c<d), (e>f), (g>h)];
+    [(a<b), (c<d), (e>f), (g>h)];
     [a<b, c<d, e>f, g>h];
-    //[(goo2<i32, S<Point2D, ?Point2D>>(f)), g, h];
+    [(goo2<i32, S<Point2D, ?Point2D>>(f)), g, h];
     [goo2<i32, S<Point2D, ?Point2D>>(f), g, h];
     0
 }

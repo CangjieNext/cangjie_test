@@ -10,7 +10,9 @@
 
 import std.net.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.net.tls.common.*
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.keys.*
 import std.{sync.*, time.*}
 
 @Test
@@ -86,13 +88,13 @@ class ClientIdentificationModesTest {
     private func when(clientCert!: ?X509Certificate, expect!: HandshakeExpect): Unit {
         match ((expect, clientCert)) {
             case (ShouldAcceptWithCertificate, None) => throw Exception(
-                "Wrong test-case: we expect it to succeed with certificate but ClintCert is None")
+                "Wrong test-case: we expect it to succeed with certificate but ClientCert is None")
             case _ => ()
         }
         var client = clientConfig()
         match (clientCert) {
-            case Some(cert) where cert == CERT => client.clientCertificate = ([CERT], PKEY)
-            case Some(cert) where cert == IRRELEVANT_CERT => client.clientCertificate = ([cert], IRRELEVANT_PKEY)
+            case Some(cert) where cert == CERT => client.certificate = ([CERT], PKEY)
+            case Some(cert) where cert == IRRELEVANT_CERT => client.certificate = ([cert], IRRELEVANT_PKEY)
             case None => ()
             case _ => throw Exception("unexpected cert")
         }
@@ -151,7 +153,7 @@ class ClientIdentificationModesTest {
     -----END CERTIFICATE-----
     """)[0]
 
-    static let PKEY = PrivateKey.decodeFromPem(
+    static let PKEY = GeneralPrivateKey.decodeFromPem(
         """
     -----BEGIN PRIVATE KEY-----
     MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgKHxExgSBGx9qe2ru
@@ -176,7 +178,7 @@ class ClientIdentificationModesTest {
     -----END CERTIFICATE-----
     """)[0]
 
-    static let IRRELEVANT_PKEY = PrivateKey.decodeFromPem(
+    static let IRRELEVANT_PKEY = GeneralPrivateKey.decodeFromPem(
         """
     -----BEGIN EC PRIVATE KEY-----
     MHcCAQEEIN6DnXOM8LyWZlk44MUaS+oo3yGhQBOBKznjSCtY7KEvoAoGCCqGSM49
@@ -187,13 +189,13 @@ class ClientIdentificationModesTest {
 
     private static func serverConfig(): TlsServerConfig {
         var cfg = TlsServerConfig([CERT], PKEY)
-        cfg.verifyMode = CustomCA(ROOT_CA)
+        cfg.verifyMode = CustomCA(ROOT_CA.map({c => c}))
         return cfg
     }
 
     private static func clientConfig(): TlsClientConfig {
         var cfg = TlsClientConfig()
-        cfg.verifyMode = CustomCA(ROOT_CA)
+        cfg.verifyMode = CustomCA(ROOT_CA.map({c => c}))
         return cfg
     }
 }
@@ -218,9 +220,9 @@ class TestServer {
             try (tls = TlsSocket.server(accepted, serverConfig: cfg)) {
                 tls.handshake(timeout: TIMEOUT)
 
-                let c = tls.clientCertificate.getOrThrow()[0]
+                let c = (tls.handshakeResult?.peerCertificate).getOrThrow()[0]
 
-                @Expect(c == expectedCert)
+                @Expect((c as X509Certificate).getOrThrow() == expectedCert)
             }
         }
     }
@@ -230,7 +232,7 @@ class TestServer {
             try (tls = TlsSocket.server(accepted, serverConfig: cfg)) {
                 tls.handshake(timeout: TIMEOUT)
 
-                if (let Some(_) <- tls.clientCertificate) {
+                if (let Some(certs) <- tls.handshakeResult?.peerCertificate && !certs.isEmpty()) {
                     @Expect(false)
                 }
             }

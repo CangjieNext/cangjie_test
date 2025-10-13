@@ -1,0 +1,21 @@
+// DEPENDENCE: vo.old.cj vo.new.cj deleteExpr.old.cj deleteExpr.new.cj sdk.cj
+// EXEC: %rmdir .cached
+// EXEC: %compiler sdk.cj -Woff all %enableCompileDebug %incrementalCompile  %compile_shared_lib_opt -o libsdk.%dylib_suffix
+// EXEC: %cpfile vo.old.cj vo.cj
+// EXEC: %cpfile deleteExpr.old.cj deleteExpr.cj
+// EXEC: %compiler vo.cj -Woff all %enableCompileDebug %incrementalCompile %compile_lib_opt -o libvo.%lib_extension
+// EXEC: %compiler deleteExpr.cj -Woff all %enableCompileDebug %incrementalCompile -L . -lvo -lsdk -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+// EXEC: %cpfile vo.new.cj vo.cj
+// EXEC: %cpfile deleteExpr.new.cj deleteExpr.cj
+// EXEC: %compiler vo.cj -Woff all %enableCompileDebug %incrementalCompile %compile_lib_opt -o libvo.%lib_extension
+// EXEC: %compiler deleteExpr.cj -Woff all %enableCompileDebug %incrementalCompile -L . -lvo -lsdk -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

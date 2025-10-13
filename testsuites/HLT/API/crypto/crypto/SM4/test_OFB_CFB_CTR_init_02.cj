@@ -12,6 +12,7 @@
 
 import stdx.crypto.crypto.*
 import stdx.crypto.digest.*
+import stdx.crypto.common.*
 
 var sum = 0
 

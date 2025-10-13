@@ -32,7 +32,7 @@ import std.sync.*
 import stdx.log.*
 import std.io.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
 
 @Test
 class TestClient1_1Request {
@@ -78,7 +78,7 @@ class TestClient1_1Request {
     @TestCase
     func client1_1HttpsRequest(): Unit {
         var cfg = clientConfig()
-        cfg.alpnProtocolsList = ["http/1.1"]
+        cfg.supportedAlpnProtocols = ["http/1.1"]
         let client = ClientBuilder().tlsConfig(cfg).build()
         let u = URL.parse("https://127.0.0.1/a")
         spawn {serverPacketCapture2()}
@@ -198,7 +198,7 @@ class TestClient1_1Request {
         sleep(Duration.millisecond * 100)
         let port2 = (serverSocket4.localAddress as IPSocketAddress)?.port ?? 0
         var cfg = clientConfig()
-        cfg.alpnProtocolsList = ["http/1.1"]
+        cfg.supportedAlpnProtocols = ["http/1.1"]
         let client = ClientBuilder()
             .tlsConfig(cfg)
             .httpProxy("http://130.0.0.1")
@@ -235,7 +235,7 @@ class TestClient1_1Request {
     @TestCase
     func client1_1HttpsRequestProxy2(): Unit {
         var cfg = clientConfig()
-        cfg.alpnProtocolsList = ["http/1.1"]
+        cfg.supportedAlpnProtocols = ["http/1.1"]
         let client = ClientBuilder()
             .tlsConfig(cfg)
             .httpProxy("http://130.1.0.1:20")

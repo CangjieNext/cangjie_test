@@ -33,7 +33,7 @@ const r5 = s1.contains("a")
 const r6 = s1.contains("ab")
 const r7 = s1.contains("abc")
 const r8 = s1.contains("ac")
-main(){
+main() {
     if (r1) {
         return 1
     }

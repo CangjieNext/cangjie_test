@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb dateTime_collection,dateTime_collection
+b,b 20,dateTime_collection.cj:20
+r,r,-> 20
+ ,p map1,\(std.collection.HashMap<Int64,std.time.DateTime>\) \$\d+ = {\s+\[30 -> 2023-03-30T00:02:02Z\] = {
+ ,p map2,\(std.collection.HashMap<std.time.DateTime,Int64>\) \$\d+ = {\s+\[2023-03-30T00:02:02Z -> 1\] = {
+q,q,

@@ -8,7 +8,7 @@ class `A` {
     var var1 = 10;
 }
 
-main(){
+main() {
     0
 }
 

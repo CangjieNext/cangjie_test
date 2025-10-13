@@ -162,6 +162,10 @@ let kinds = ArrayList<TokenKind>(
         TokenKind.DOLLAR_IDENTIFIER,
         TokenKind.ANNOTATION,
         TokenKind.AT_EXCL,
+        TokenKind.PERFORM,
+        TokenKind.RESUME,
+        TokenKind.THROWING,
+        TokenKind.HANDLE,
         TokenKind.ILLEGAL
     ]
 )
@@ -323,6 +327,10 @@ let strs = ArrayList<String>(
         "DOLLAR_IDENTIFIER",
         "ANNOTATION",
         "AT_EXCLAMATION",
+        "PERFORM",
+        "RESUME",
+        "THROWING",
+        "HANDLE",
         "ILLEGAL"
     ]
 )

@@ -66,7 +66,6 @@ class MM_flow <: Tool {
 
 main(): Int64 {
     MM_flow.mm_testcase_main_wrapper()
-    // GC()
     MM_flow.mm_testcase_main_wrapper()
     print((1).toString())
     return 0

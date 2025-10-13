@@ -21,7 +21,6 @@ func test0() {
 public class A01_testactually {
     @Bench
     func test01() {
-        // func_in_test()
         sleep(Duration.second * 0.2)
     }
 

@@ -5,7 +5,7 @@ func f(a: Int64, fn: (Int64)->Int64) {
     fn(a) 
 }
 
-main(){
+main() {
     f(1, { i => i * i }) // normal function call
     f(1) { i => i * i } // trailing closures
     0

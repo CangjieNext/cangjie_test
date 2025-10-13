@@ -4,7 +4,7 @@
 
 internal import std.ast.*
 
-main(){
+main() {
     var `x`= "hello"
 
     var t: Tokens = quote($x)

@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n/uilang && cjfmt -f ./non_exhaustive_enum_02.cj
+// EXEC: cd %n/uilang && cjfmt -f ./non_exhaustive_enum_02.cj -l 9:100
 // (Windows) EXEC: dos2unix %n/formated/non_exhaustive_enum_02.cj
 // EXEC: %diff %n/formated/non_exhaustive_enum_02.cj %n/uilang/non_exhaustive_enum_02.cj

@@ -4,7 +4,7 @@ let f1: (Int64, Int64)->Int64 = {a: Int64, b: Int64 => a + b}
 var f2: () -> Int32 = { => 123 }
 
 
-main(){
+main() {
     f2 = { 123 }
 }
 

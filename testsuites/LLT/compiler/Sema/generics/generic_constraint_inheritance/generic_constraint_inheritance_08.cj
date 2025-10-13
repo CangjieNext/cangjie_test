@@ -28,7 +28,7 @@ error: the constraint of type parameter is not looser than parent's constraint
   ==> generic_constraint_inheritance_08.cj:19:45:
    | 
 19 |     public static func id<T>(x: T): T where T <: Runnable {
-   |                                             ^^^^^^^^^^^^^^ 
+   |                                             ^^^^^^^^^^^^^ 
    | 
    # note: parent constraint is 'Interface-Printable'
 

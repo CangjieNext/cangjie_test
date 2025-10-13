@@ -1,0 +1,29 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %incrementalCompile %n.cj -o %output
+// EXEC: %run %run_opt %output %run_args
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC: %compiler %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC-1: %run %run_opt %output %run_args
+
+
+struct foo {
+    func f() {
+        1
+    }
+}
+
+main(): Int64 {
+    var va = foo()
+    return va.f()
+}
+
+// ASSERT: scan changed decls to recompile: 2
+// ASSERT: scan the changed decl after Spreading is:f in file member_func_noreturn.cj in line 10 in column 10
+// ASSERT: scan the changed decl after Spreading is:main in file member_func_noreturn.cj in line 15 in column 1
+// ASSERT: scan incremental sema
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

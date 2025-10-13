@@ -30,7 +30,6 @@ var index = 0
 
 main(): Int64 {
     testSelfRecursion()
-    // testMutualRecursion()
     print("SOE test done\n")
     return 0
 }

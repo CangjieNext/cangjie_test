@@ -18,6 +18,9 @@
 package tests.request
 
 import stdx.net.http.*
+import stdx.net.tls
+import stdx.crypto.kit
+
 import stdx.log.*
 import asan.*
 

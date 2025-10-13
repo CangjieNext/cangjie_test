@@ -14,9 +14,9 @@
 
 import define.*
 
-main(){
+main() {
     4 - @D[0]var x = @B var ye.a*
 
-main(){
+main() {
     0
 }

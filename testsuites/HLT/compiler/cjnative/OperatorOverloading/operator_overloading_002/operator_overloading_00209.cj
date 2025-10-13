@@ -42,6 +42,5 @@ main(): Int64 {
     var a: I = A()
     var c = C()
     var r = R()
-    //return (-a)+(a-a) + (-c)+(c-c) + (-r)+(r-r)
     return (-a) + (a - a) + (-c) + (c - c)
 }

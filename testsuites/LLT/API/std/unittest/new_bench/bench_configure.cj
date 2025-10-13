@@ -61,16 +61,12 @@ main() {
     configuration.set(KeyVerbose.verbose, true)
     case1.runBenchmarks(configuration).reportTo(ConsoleReporter(colored: false))
     println(current.value)
-    // @Assert(warmup.value < 240)
     @Assert(current.value < 163)
 
-    // warmup = Box(0)
     current = Box(0)
-    // current = warmup
     let case2 = FooTest2().asTestSuite()
     case2.runBenchmarks(configuration).reportTo(ConsoleReporter(colored: false))
 
     println(current.value)
-    // @Assert(warmup.value < 202 && warmup.value > 199)
     @Assert(current.value < 143 && current.value > 110)
 }

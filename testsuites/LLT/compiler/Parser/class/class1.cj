@@ -216,20 +216,6 @@ error: expected a argument name after '(' in parameter list, found ','
    |                   after '(' in parameter list
    | 
 
-error: expected a parameter name after ',', found ')'
-  ==> class1.cj:66:21:
-   | 
-66 |         static set(,){} 
-   |                     ^ expected a parameter name here
-   | 
-
-error: expected a parameter name after ',', found ')'
-  ==> class1.cj:71:16:
-   | 
-71 |          set(v,){} 
-   |                ^ expected a parameter name here
-   | 
-
 error: unclosed delimiter: '{'
   ==> class1.cj:77:3:
    | 
@@ -240,7 +226,7 @@ error: unclosed delimiter: '{'
    |   ^ expected '}' here
    | 
 
-19 errors generated, 19 errors printed.
+17 errors generated, 17 errors printed.
 */
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

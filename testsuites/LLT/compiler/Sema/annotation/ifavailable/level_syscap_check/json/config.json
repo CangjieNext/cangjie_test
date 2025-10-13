@@ -1,8 +1,4 @@
 {
-    "cj.d.dir": {
-        "std.dir": "D:\\Cangjie\\B104\\deveco-studio\\plugins\\cangjie\\sdk\\cangjie\\compiler\\lib\\cjdecl",
-        "ohos.dir": "D:\\Cangjie\\B104\\deveco-studio\\plugins\\cangjie\\sdk\\cangjie\\build\\lib\\cjdecl"
-    },
     "Modules": {
         "entry": {
             "deviceSysCap": {
@@ -19,14 +15,10 @@
                     "./json/2in1.json"
                 ]
             }
-        },
-        "library": {
-            "deviceSysCap": {
-                "default": [
-                    "D:\\Cangjie\\400\\deveco-studio\\sdk\\default\\openharmony\\ets\\api\\device-define\\default.json"
-                ]
-            }
         }
     },
     "apiLevel": 19
 }
+
+
+

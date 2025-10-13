@@ -1,0 +1,2 @@
+// ASSERT: scan-not The apply node in the line:20 and the column:5 was optimized by The opt: Function Inline
+// ASSERT: scan incremental compilation triggered

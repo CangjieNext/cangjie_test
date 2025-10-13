@@ -83,7 +83,6 @@ class Test {
         arr.sort();
         @Expect(arr.toString(), "[static mut prop c6_public_mutable_static_member_property_0: Int8, static prop c6_public_readonly_static_member_property_0: String]")
         // 带泛型的class目前会segfault。
-        // arr = TypeInfo.of<C7>().staticProperties |> map { a: StaticPropertyInfo => a.toString() } |> collectArray; arr.sort(); @Expect(arr.toString(), "[]")
     }
     @TestCase
     func testStruct(): Unit {

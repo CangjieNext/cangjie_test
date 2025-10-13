@@ -9,7 +9,7 @@ struct UsrTyp{
     let b: Int64 = 0
 }
 
-main(){
+main() {
     0
 }
 

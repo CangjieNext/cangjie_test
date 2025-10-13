@@ -110,8 +110,6 @@ main(): Int64 {
         } else {
             let res = matcher.findAll().getOrThrow()
             var utf8_res = Array<Array<UInt8>>(res.size, {i => res[i].matchString().toArray()})
-            //for (i in utf8_res){
-            //  println(i)
             //}
             var total = ""
             for (r in res) {

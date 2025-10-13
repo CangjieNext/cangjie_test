@@ -22,7 +22,6 @@ main() {
     f64Number = 4.4E38
     f32Number = Float32(f64Number) // f32Number = POSITIVE_INFINITY
 
-    //    f64Number = f32Number*0.0
     f32Number = Float32(f64Number) // f32Number = NaN
     return 0
 }

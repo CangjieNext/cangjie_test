@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -23,4 +23,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 381,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "Deprecated","documentation": "","filterText": "Deprecated","insertText": "Deprecated","insertTextFormat": 1,"kind": 14,"label": "Deprecated","sortText": "590000"},{"deprecated": false,"detail": "(struct) public struct DefaultHasher","documentation": "","filterText": "DefaultHasher","insertText": "DefaultHasher","insertTextFormat": 1,"kind": 7,"label": "DefaultHasher","sortText": "476923"},{"deprecated": false,"detail": "(function) public func init(res!: Int64 = 0)","documentation": "","filterText": "DefaultHasher","insertText": "DefaultHasher(res: ${1:Int64 = 0})","insertTextFormat": 2,"kind": 3,"label": "DefaultHasher(res!: Int64 = 0)","sortText": "626923"}]}
+{"id": 381,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(struct) public struct DefaultHasher","documentation": "","filterText": "DefaultHasher","insertText": "DefaultHasher","insertTextFormat": 1,"kind": 22,"label": "DefaultHasher","sortText": "454615"},{"deprecated": false,"detail": "(function) public func init(res!: Int64 = 0)","documentation": "","filterText": "DefaultHasher","insertText": "DefaultHasher(res: ${1:Int64 = 0})","insertTextFormat": 2,"kind": 3,"label": "DefaultHasher(res!: Int64 = 0)","sortText": "454615"},{"deprecated": false,"detail": "Deprecated","documentation": "","filterText": "Deprecated","insertText": "Deprecated","insertTextFormat": 1,"kind": 14,"label": "Deprecated","sortText": "386000"}]}

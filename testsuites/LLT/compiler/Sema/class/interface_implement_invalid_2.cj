@@ -55,13 +55,13 @@ error: undeclared type name 'I2'
    |             ^ 
    | 
 
-error: class 'C2' missing abstract modifier or abstract function 'foo' should be implemented
+error: class 'C2' missing abstract modifier, otherwise abstract function or property should be implemented
   ==> interface_implement_invalid_2.cj:19:1:
    | 
 19 | class C2 <: I1 {}
    | ^ 
    | 
-note: unimplemented interface function
+note: unimplemented interface function foo
   ==> interface_implement_invalid_2.cj:14:5:
    | 
 14 |     func foo(): Base

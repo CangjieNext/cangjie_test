@@ -17,7 +17,5 @@ enum TimeUnit {
 type Time = TimeUnit
 
 main() {
-    //  var a = Time.Day
-    //  var b = Time.Month  // Use type alias Time to access constructors in TimeUnit    
     return 0
 }

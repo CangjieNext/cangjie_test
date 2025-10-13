@@ -1,0 +1,35 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_generic_struct_display_05.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_generic_struct_display_05.cj -o debuginfo_generic_struct_display_05
+// EXEC: python3 cjdb_test.py debuginfo_generic_struct_display_05.info
+
+
+test#
+cjdb,cjdb debuginfo_generic_struct_display_05,debuginfo_generic_struct_display_05
+b,b 42,debuginfo_generic_struct_display_05.cj:42
+r,r,-> 42
+p,p z,\(default.A<Int64>\) \$\d+ = {\s+a = 111\s+b = 222\s+c = {\s+xxx = 999\s+}\s+}
+p,p x,\(default.A<default.CCC>\) \$\d+ = {\s+a = 111\s+b = 222\s+c = {\s+xxx = 999\s+}\s+}
+s,s,-> 34
+n,n,-> 35
+n,n,-> 36
+p,p para,\(default.A<Int64>\) \$\d+ = {\s+a = 111\s+b = 222\s+c = {\s+xxx = 999\s+}\s+}
+p,p a,\(default.A<Int64>\) \$\d+ = {\s+a = 111\s+b = 222\s+c = {\s+xxx = 999\s+}\s+}
+p,p b,\(default.A<Int64>\) \$\d+ = {\s+a = 111\s+b = 222\s+c = {\s+xxx = 999\s+}\s+}
+b,b 17,debuginfo_generic_struct_display_05.cj:17
+b,b 23,debuginfo_generic_struct_display_05.cj:23
+c,c,-> 17
+p,p this,\(default.A<Int64>\) \$\d+ = {\s+a = 111\s+b = 222\s+c = {\s+xxx = 999\s+}\s+}
+n,n,-> 18
+n,n,-> 19
+s,s,-> 28
+p,p this,\(default.A<Int64>\) \$\d+ = {\s+a = 333\s+b = 444\s+c = {\s+xxx = 999\s+}\s+}
+c,c,-> 23
+s,s,-> 28
+p,p this,\(default.A<Int64>\) \$\d+ = {\s+a = 333\s+b = 444\s+c = {\s+xxx = 999\s+}\s+}
+q,q,

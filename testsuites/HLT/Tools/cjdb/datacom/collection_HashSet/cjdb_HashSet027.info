@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashSet/003_HashSet_via_class.cj
+// EXEC: %compiler %cmp_opt -g 003_HashSet_via_class.cj -o 003_HashSet_via_class%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_HashSet027.info 003_HashSet_via_class %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
+b,b 20,003_HashSet_via_class.cj:20
+AOT r,r,-> 20
+CJVM c,c,-> 20
+s,s,-> 108
+p,p par_1,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[0\] = 9458[\S\s]*}
+p,p par_1,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[1\] = 625654[\S\s]*}
+p,p par_2,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[0\] = 32[\S\s]*}
+p,p par_2,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[1\] = 126[\S\s]*}
+b,b 110,003_HashSet_via_class.cj:110
+c,c,-> 110
+p,p set_cuint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[5\] = 5[\S\s]*}
+p,p set_cuint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[4\] = 126[\S\s]*}
+n,n,-> 111
+p,p set_cuint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[5\] = 6978[\S\s]*}
+p,p set_cuint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[4\] = 126[\S\s]*}
+q,q,

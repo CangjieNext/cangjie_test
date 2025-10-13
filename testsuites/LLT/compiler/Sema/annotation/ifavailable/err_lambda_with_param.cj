@@ -11,18 +11,18 @@ main() {
 }
 
 /* SCAN
-error: mismatched types
-  ==> err_lambda_with_param.cj:10:34:
-   | 
-10 |     @IfAvailable(Level:11, {=>}, { a:Int=>() })
-   |                                  ^^^^^^^^^^^^^ expected '() -> Unit', found '(Int64) -> Unit'
-   | 
-
 error: unknown parameter name 'Level'
   ==> err_lambda_with_param.cj:10:18:
    | 
 10 |     @IfAvailable(Level:11, {=>}, { a:Int=>() })
    |                  ^^^^^ 
+   | 
+
+error: mismatched types
+  ==> err_lambda_with_param.cj:10:34:
+   | 
+10 |     @IfAvailable(Level:11, {=>}, { a:Int=>() })
+   |                                  ^^^^^^^^^^^^^ expected '() -> Unit', found '(Int64) -> Unit'
    | 
 
 2 errors generated, 2 errors printed.

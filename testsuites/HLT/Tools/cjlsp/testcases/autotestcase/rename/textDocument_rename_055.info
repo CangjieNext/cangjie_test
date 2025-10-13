@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -21,4 +21,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 646,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "aa_2","range": {"end": {"character": 10,"line": 3},"start": {"character": 8,"line": 3}}},{"newText": "aa_2","range": {"end": {"character": 15,"line": 5},"start": {"character": 13,"line": 5}}},{"newText": "aa_2","range": {"end": {"character": 15,"line": 11},"start": {"character": 13,"line": 11}}},{"newText": "aa_2","range": {"end": {"character": 26,"line": 11},"start": {"character": 24,"line": 11}}}],"textDocument": {"uri": "renameProject/src/pkg/expression005.cj","version": 5}}]}}
+{"id": 646,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "aa_2","range": {"end": {"character": 10,"line": 3},"start": {"character": 8,"line": 3}}},{"newText": "aa_2","range": {"end": {"character": 15,"line": 5},"start": {"character": 13,"line": 5}}},{"newText": "aa_2","range": {"end": {"character": 15,"line": 11},"start": {"character": 13,"line": 11}}},{"newText": "aa_2","range": {"end": {"character": 26,"line": 11},"start": {"character": 24,"line": 11}}}],"textDocument": {"uri": "renameProject/src/pkg/expression005.cj","version": 4}}]}}

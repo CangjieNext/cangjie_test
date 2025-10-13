@@ -19,7 +19,6 @@ var x: Int64 = 2
 func run(): Int64 {
     var res1 = Foo
     var res2 = res1(3)
-    //    print(res2.toString()+"\n")
     if (res2 == 6) {
         return 0
     }

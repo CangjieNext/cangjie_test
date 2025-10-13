@@ -12,7 +12,6 @@
 
 /*
 func test():Int64 = match (true) {
-    case _ => if (true) {
                   return 3
               } else {
                   return 4

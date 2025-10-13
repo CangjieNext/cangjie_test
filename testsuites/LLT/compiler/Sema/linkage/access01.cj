@@ -23,13 +23,10 @@ main() {
     println(DDDD().f1())
     println(DDDD().f2())
     println(DDDD().f3())
-    // println(DDDD().f4())
     println(EEEE().f1())
     println(EEEE().f2())
     println(EEEE().f3())
-    // println(EEEE().f4())
     println(FFFF().f1())
     println(FFFF().f2())
     println(FFFF().f3())
-    // println(FFFF().f4())
 }

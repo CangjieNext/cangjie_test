@@ -19,6 +19,7 @@ import stdx.log.*
 import stdx.logger.*
 import std.console.Console
 import stdx.net.http.*
+import stdx.net.tls
 import stdx.encoding.url.*
 
 @Test

@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC-PIPE: %compiler %cmp_opt %f %cmp_utest_opt -o %output
-// EXEC-1: %run %run_opt %output %run_utest_opt %run_args
+// RUN-EXEC-1: %run %run_opt %output %run_utest_opt %run_args
 
 import std.unittest.*
 import std.unittest.testmacro.*

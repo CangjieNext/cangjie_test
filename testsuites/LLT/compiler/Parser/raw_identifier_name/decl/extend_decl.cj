@@ -8,7 +8,7 @@ extend A {
 extend `A` {
     public func f() {}
 }
-main(){
+main() {
     0
 }
 

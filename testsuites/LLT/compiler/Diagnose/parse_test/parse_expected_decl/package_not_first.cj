@@ -11,7 +11,7 @@ import pkg1.*
 
 package pkg2
 
-main(){
+main() {
     return 0
 }
 

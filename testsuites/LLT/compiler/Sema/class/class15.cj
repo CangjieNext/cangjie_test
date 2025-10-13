@@ -32,13 +32,13 @@ main() {
 }
 
 /* SCAN
-error: class 'C' missing abstract modifier or abstract function 'a' should be implemented
+error: class 'C' missing abstract modifier, otherwise abstract function or property should be implemented
   ==> class15.cj:20:1:
    | 
 20 | public class C <: B {
    | ^ 
    | 
-note: unimplemented abstract function
+note: unimplemented abstract function a
   ==> class15.cj:10:5:
    | 
 10 |     public func a(): Int64

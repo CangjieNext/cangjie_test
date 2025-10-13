@@ -1,0 +1,8 @@
+// ASSERT: scan begin dump raw modified decls:
+// ASSERT: scan 7default3fooF$$u: body 
+// ASSERT: scan incremental compilation triggered
+// ASSERT: scan changed decls to recompile: 4
+// ASSERT: scan the changed decl after Spreading is:foo in file ClassInit.cj in line 8 in column 6
+// ASSERT: scan the changed decl after Spreading is:A in file ClassInit.cj in line 12 in column 7
+// ASSERT: scan the changed decl after Spreading is:init in file ClassInit.cj in line 13 in column 12
+// ASSERT: scan the changed decl after Spreading is:main in file ClassInit.cj in line 18 in column 1

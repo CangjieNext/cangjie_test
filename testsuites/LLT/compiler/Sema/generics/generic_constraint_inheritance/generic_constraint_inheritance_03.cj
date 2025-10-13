@@ -35,7 +35,7 @@ error: the constraint of type parameter is not looser than parent's constraint
   ==> generic_constraint_inheritance_03.cj:20:46:
    | 
 20 |     public static func test<T>(): Unit where T <: A & C {}
-   |                                              ^^^^^^^^^^^ 
+   |                                              ^^^^^^^^^^ 
    | 
    # note: parent constraint is 'Interface-B'
 
@@ -43,7 +43,7 @@ error: the constraint of type parameter is not looser than parent's constraint
   ==> generic_constraint_inheritance_03.cj:24:46:
    | 
 24 |     public static func test<T>(): Unit where T <: B & C {}
-   |                                              ^^^^^^^^^^^ 
+   |                                              ^^^^^^^^^^ 
    | 
    # note: parent constraint is 'Interface-B'
 

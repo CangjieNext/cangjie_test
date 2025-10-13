@@ -19,4 +19,4 @@ open class B {}
 @M1
 struct C {}
 
-main(){}
+main() {}

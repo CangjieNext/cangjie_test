@@ -11,6 +11,7 @@
 
 import std.fs.*
 import stdx.crypto.x509.*
+import stdx.crypto.common.*
 
 @Test
 class Test_X509_certificaterequest_format {

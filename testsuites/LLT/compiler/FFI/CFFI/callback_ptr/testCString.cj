@@ -32,7 +32,6 @@ func testParse(date : CString, ptn : CString) : Unit {
     print("print CString\n")
     let a : CString = unsafe{LibC.mallocCString("hello")}
     unsafe {
-        //printf(LibC.mallocCString("hello"))
         printf(a)
     }
     unsafe {
@@ -43,8 +42,6 @@ func testParse(date : CString, ptn : CString) : Unit {
         LibC.free(a)
     }
 }
-
-
 
 let testParse1:CFunc<(CString, CString) -> Unit> = {date : CString, ptn : CString =>
 

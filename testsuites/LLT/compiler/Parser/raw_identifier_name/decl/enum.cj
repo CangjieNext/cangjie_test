@@ -7,7 +7,7 @@ enum RGBColor {
     | Red | Green | Blue
 }
 
-main(){
+main() {
     0
 }
 

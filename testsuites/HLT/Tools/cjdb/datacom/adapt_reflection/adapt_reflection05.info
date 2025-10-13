@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_reflection/enum02.cj
+// (CJNATIVE and not MAC) EXEC: %compiler %cmp_opt -g --disable-reflection enum02.cj -o enum02%cmp_output
+// (CJNATIVE and not MAC) RUN-EXEC: python3 cjdb_test.py adapt_reflection05.info enum02 %run_env
+
+test#
+cjdb,cjdb --no-use-colors enum02,enum02
+b,b 26,enum02.cj:26
+r,r,-> 26
+globals,globals,\(default.TimeUnit1<Int8>\) default::top_time = {[\s\S]*constructor = Year[\s\S]*arg_1 = 8[\s\S]*}
+locals,locals,\(default.TimeUnit1<UInt8>\) m_time1 = {[\s\S]*constructor = Year[\s\S]*arg_1 = 2[\s\S]*}
+p,p m_time2,\(default.TimeUnit2<Int64,Float64>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 1[\s\S]*arg_2 = 2[\s\S]*arg_3 = 3[\s\S]*}
+expr~expr TimeUnit1<String>.Year("abc")~\(default.TimeUnit1<std.core.String>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = "abc"[\s\S]*}
+expr~expr TimeUnit1<TimeUnit2<Int64,Float64>>.Year(m_time2)~\(default.TimeUnit1<default.TimeUnit2<Int64,Float64>>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*
+q,q,

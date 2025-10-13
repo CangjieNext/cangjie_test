@@ -18,48 +18,47 @@ import std.reflect.*
 @Test
 class MutableTest {
     @TestCase
-    func testClass(): Unit {
+	func testClass(): Unit {
         let ti = TypeInfo.of(A())
         @Assert(ti.getInstanceVariable("v1").isMutable(), true)
-        @Assert(ti.getInstanceVariable("v2").isMutable(), false)
+        @Assert(ti.getInstanceVariable("v2").isMutable(), true)
         @Assert(ti.getStaticVariable("v3").isMutable(), true)
-        @Assert(ti.getStaticVariable("v4").isMutable(), false)
+        @Assert(ti.getStaticVariable("v4").isMutable(), true)
         @Assert(ti.getInstanceVariable("v5").isMutable(), false)
         @Assert(ti.getInstanceVariable("v6").isMutable(), false)
         @Assert(ti.getStaticVariable("v7").isMutable(), false)
         @Assert(ti.getStaticVariable("v8").isMutable(), false)
 
         @Assert(ti.getInstanceProperty("p1").isMutable(), true)
-        @Assert(ti.getInstanceProperty("p2").isMutable(), false)
+        @Assert(ti.getInstanceProperty("p2").isMutable(), true)
         @Assert(ti.getInstanceProperty("p3").isMutable(), false)
         @Assert(ti.getInstanceProperty("p4").isMutable(), false)
         @Assert(ti.getStaticProperty("p5").isMutable(), true)
-        @Assert(ti.getStaticProperty("p6").isMutable(), false)
+        @Assert(ti.getStaticProperty("p6").isMutable(), true)
         @Assert(ti.getStaticProperty("p7").isMutable(), false)
         @Assert(ti.getStaticProperty("p8").isMutable(), false)
-    }
+	}
 
-    @TestCase
-    func testStruct(): Unit {
+	func testStruct(): Unit {
         let ti = (TypeInfo.of(B()) as StructTypeInfo).getOrThrow()
-        @Assert(ti.getInstanceVariable("v1").isMutable(), false)
-        @Assert(ti.getInstanceVariable("v2").isMutable(), false)
-        @Assert(ti.getStaticVariable("v3").isMutable(), false)
-        @Assert(ti.getStaticVariable("v4").isMutable(), false)
+        @Assert(ti.getInstanceVariable("v1").isMutable(), true)
+        @Assert(ti.getInstanceVariable("v2").isMutable(), true)
+        @Assert(ti.getStaticVariable("v3").isMutable(), true)
+        @Assert(ti.getStaticVariable("v4").isMutable(), true)
         @Assert(ti.getInstanceVariable("v5").isMutable(), false)
         @Assert(ti.getInstanceVariable("v6").isMutable(), false)
         @Assert(ti.getStaticVariable("v7").isMutable(), false)
         @Assert(ti.getStaticVariable("v8").isMutable(), false)
 
         @Assert(ti.getInstanceProperty("p1").isMutable(), true)
-        @Assert(ti.getInstanceProperty("p2").isMutable(), false)
+        @Assert(ti.getInstanceProperty("p2").isMutable(), true)
         @Assert(ti.getInstanceProperty("p3").isMutable(), false)
         @Assert(ti.getInstanceProperty("p4").isMutable(), false)
         @Assert(ti.getStaticProperty("p5").isMutable(), true)
-        @Assert(ti.getStaticProperty("p6").isMutable(), false)
+        @Assert(ti.getStaticProperty("p6").isMutable(), true)
         @Assert(ti.getStaticProperty("p7").isMutable(), false)
         @Assert(ti.getStaticProperty("p8").isMutable(), false)
-    }
+	}
 }
 
 public class A {

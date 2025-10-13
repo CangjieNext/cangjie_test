@@ -4,14 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-/*a*/ public /*b*/ abstract /*c*/ sealed /*d*/ class C {}
+/*a*/ public /*b*/ sealed /*c*/ abstract /*d*/ class C {}
 
-public abstract sealed class D {}
+public sealed abstract class D {}
 
-public abstract /*g*/ sealed class E {}
+public sealed /*g*/ abstract class E {}
 
-abstract sealed /*oo*/ class K {}
+sealed abstract /*oo*/ class K {}
 
 public sealed /*ooo*/ class J {}
-/*ff*/ abstract /*f*/ sealed class K2 {}
+/*ff*/ sealed /*f*/ abstract class K2 {}
 /*kk*/ public /*k*/ sealed class J2 {}

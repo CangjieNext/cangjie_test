@@ -1,0 +1,55 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %incrementalCompile %cmp_opt -Woff unused %optimization_level_2 %n.cj
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC: %compiler %cmp_opt -Woff unused %optimization_level_2 %incrementalCompile %n.cj 2>&1 | compare %f
+
+func goo() {
+    var a0 = 1
+    var a1 = 1
+    var a2 = 1
+    var a3 = 1
+    var a4 = 1
+    var a5 = 1
+    var a6 = 1
+    var a7 = 1
+    var a8 = 1
+    var a9 = 1
+    var a10 = 1
+    var a11 = 1
+    var a12 = 1
+    var a13 = 1
+    var a14 = 1
+    var a15 = 1
+    var a16 = 1
+    println(a0 + a1)
+    println(a2 + a3)
+    println(a4 + a5)
+    println(a6 + a7)
+    println(a8 + a9)
+    println(a10 + a11)
+    println(a12 + a13)
+    println(a14 + a15)
+    println(a0 + a1)
+    println(a0 + a1)
+    println(a0 + a1)
+}
+
+func foo() {
+    goo()
+    println(2)
+}
+
+main() {
+    foo()
+}
+
+// ASSERT: scan-not The apply node in the line:38 and the column:5 was optimized by The opt: Function Inline
+/* SCAN-IN
+foo(l:37, c:1) -> main(l:42, c:1),
+*/
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

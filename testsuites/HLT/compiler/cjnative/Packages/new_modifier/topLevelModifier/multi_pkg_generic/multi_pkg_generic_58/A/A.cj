@@ -10,7 +10,6 @@ package A
 
 internal import A.a.*
 // public func A_A<T>() where T <: T_a{
-//     return 1
 // }
 protected class A_b <: T_a {}
 

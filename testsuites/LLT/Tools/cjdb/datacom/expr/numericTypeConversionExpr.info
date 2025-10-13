@@ -1,0 +1,26 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb numericTypeConversionExpr,numericTypeConversionExpr
+b,b 42,numericTypeConversionExpr.cj:42
+r,r,-> 42
+ ,expr Int64(i8),\(Int64\) \$\d+ = 1
+ ,expr Int32(i16),\(Int32\) \$\d+ = 1
+ ,expr UInt64(u8),\(UInt64\) \$\d+ = 1
+ ,expr UInt32(u16),\(UInt32\) \$\d+ = 1
+ ,expr Float64(f16),\(Float64\) \$\d+ = 1
+ ,expr Float32(f64),\(Float32\) \$\d+ = 1
+ ,expr Int64(u8),\(Int64\) \$\d+ = 1
+ ,expr UInt64(i8),\(UInt64\) \$\d+ = 1
+ ,expr Float64(i8),\(Float64\) \$\d+ = 1
+ ,expr Float64(u16),\(Float64\) \$\d+ = 1
+ ,expr UInt32(c),\(UInt32\) \$\d+ = 97
+q,q,

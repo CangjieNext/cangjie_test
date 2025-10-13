@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/006_debug_multiArray_composite_record.cj
+// EXEC: %compiler %cmp_opt -g 006_debug_multiArray_composite_record.cj -o 006_debug_multiArray_composite_record%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_compositeArray_view024.info 006_debug_multiArray_composite_record %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 006_debug_multiArray_composite_record,006_debug_multiArray_composite_record
+b,b 20,006_debug_multiArray_composite_record.cj:20
+AOT r,r,-> 20
+CJVM c,c,
+p,p multiArr_m_d1[0],std[.]core.Array<default.R1>\) \$[\d] = {[\s\S]*\[0\] = [\s\S]*
+p,p multiArr_m_d1[0][0],default.R1\) \$[\d] = {(\r|\n|\r\n)  length = 3
+q,q,

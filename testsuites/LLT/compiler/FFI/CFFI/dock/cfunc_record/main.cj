@@ -37,23 +37,3 @@ main():Int64 {
 
   return 0
 }
-
-
-
-// @C
-// func C2CJ_Func(aStruct: Int64): Int64 {
-//   print("C2CJ_Func "+aStruct.toString()+"\n")
-//   return aStruct
-// }
-//
-// foreign func C_Func(aStruct: Int64): Int64
-//
-// main():Int64 {
-//   var aaa : Int64 = 3
-//   var bbb : Int64 = unsafe{ C_Func(aaa) }
-//   print(bbb.toString()+"\n")
-//   if (bbb == 11) {
-//     return 0
-//   }
-//   return 1
-// }

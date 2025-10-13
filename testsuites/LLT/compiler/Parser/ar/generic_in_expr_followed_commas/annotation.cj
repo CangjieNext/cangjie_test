@@ -22,7 +22,7 @@ public class B {
 @B[f2<i32, i32>(d), 0]
 public class C {}
 
-main(){}
+main() {}
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

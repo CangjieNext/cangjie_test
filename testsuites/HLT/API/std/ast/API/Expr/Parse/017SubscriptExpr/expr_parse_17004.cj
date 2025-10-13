@@ -13,22 +13,10 @@
 import std.ast.*
 
 // main() {
-//     var input: Tokens = quote(a[..b])
-//     let expr = parseExpr(input)
-//     if (expr.isSubscriptExpr()) {
-//         var b = expr.asSubscriptExpr ()
-//         if (b.getBaseExpr().asRefExpr().getIdentifier().value != "a") {
-//             return 1
 //         }
-//         if (b.getIndexExprs()[0].asRangeExpr().getStopExpr().asRefExpr().getIdentifier().value != "b") {
-//             return 2
 //         }
-//         if (b.isTupleAccess()) {
-//             return 3
 //         }
-//         return 0
 //     }
-//     return 5
 // }
 
 main() {
