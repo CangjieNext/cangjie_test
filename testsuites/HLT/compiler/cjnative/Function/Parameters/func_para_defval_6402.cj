@@ -16,8 +16,6 @@ main(): Int64 {
 
 func run(): Int64 {
     var res1 = Base().Foo()
-    //    var res1 = Base().Foo(2)
-    //    print(res1.toString()+"\n")
     if (res1 == 4) {
         return 0
     }

@@ -5,7 +5,7 @@
 // ASSERT: scan }
 internal import std.ast.*
 
-main(){
+main() {
     let tk = quote(
     public const A() {
         a = 0

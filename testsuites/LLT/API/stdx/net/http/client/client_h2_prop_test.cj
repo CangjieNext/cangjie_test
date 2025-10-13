@@ -20,7 +20,7 @@ package tests.client
 import stdx.net.http.*
 import stdx.log.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
 import std.unittest.*
 import std.unittest.testmacro.*
 
@@ -74,7 +74,7 @@ class TestClientH2 {
 
     static func clientConfig(): TlsClientConfig {
         var tlsConfig = TlsClientConfig()
-        tlsConfig.alpnProtocolsList = ["h2"]
+        tlsConfig.supportedAlpnProtocols = ["h2"]
         tlsConfig
     }
 }

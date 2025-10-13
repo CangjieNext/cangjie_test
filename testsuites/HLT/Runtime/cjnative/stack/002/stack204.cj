@@ -12,7 +12,6 @@
 // (Windows and not OHOS and not O2) RUN-EXEC-PIPE: %export cjStackSize=64kb && setx CJ_SOF_SIZE "" && %run %run_opt %output %run_args 2>&1 | compare %f
 // (Windows and OHOS and not O2) RUN-EXEC-PIPE: %export cjStackSize=64kb && unset CJ_SOF_SIZE && %run %run_opt %output %run_args 2>&1 | compare %f
 
-// 31 = 32 - 1
 // ASSERT: scan-32 at default.my_test_func
 
 // ASSERT: scan-begin An exception has occurred

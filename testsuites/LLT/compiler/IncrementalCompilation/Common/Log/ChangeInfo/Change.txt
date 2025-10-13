@@ -1,0 +1,42 @@
+// LEVEL: 0
+// DEPENDENCE: %n.txt
+// EXEC: %rmdir .cached
+// EXEC: %compiler %n.cj -Woff all --incremental-compile
+// EXEC: %move %n.txt %n.cj
+// EXEC: %compiler %n.cj -Woff all --incremental-compile
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
+// (Windows)EXEC: type .cached\*.log | compare %n.cj
+var a = 0
+
+let c = 1
+
+class C {
+    let d = c
+}
+main () { a }
+
+// ASSERT: scan begin dump raw modified decls:
+// ASSERT: scan deleted 7default1bV$$
+// ASSERT: scan 7default1cV$$: srcuse 
+
+// ASSERT: scan incremental compilation triggered
+// ASSERT: scan begin dump incremental compile result:
+// ASSERT: scan changed decls to recompile: 3
+// ASSERT: scan the changed decl after Spreading is:c in file Change.cj in line 11 in column 5
+// ASSERT: scan the changed decl after Spreading is:C in file Change.cj in line 13 in column 7
+// ASSERT: scan the changed decl after Spreading is:d in file Change.cj in line 14 in column 9
+
+// ASSERT: scan deleted decls: 1
+// ASSERT: scan the deleted decl is:7default1bV$$
+
+// ASSERT: scan remove default ctor '_CN7default1C6<init>Hv' for '7default1CC'
+// ASSERT: scan remove for: 7default1CC
+// ASSERT: scan incremental sema
+// ASSERT: scan [LoadCachedTypeForPackage] begin collect some unfounded for incr compile to remove:
+// ASSERT: scan [CollectRemovedDecl] removed mangled: _CN7default1bE
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

@@ -20,7 +20,7 @@ func test(){
     var a = A()
 }
 
-main(){
+main() {
     test()
     GC()
     return 0

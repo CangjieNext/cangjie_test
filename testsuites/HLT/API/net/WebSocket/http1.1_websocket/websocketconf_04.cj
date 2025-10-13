@@ -17,6 +17,9 @@
  */
 
 import stdx.net.http.*
+import stdx.net.tls.common.*
+import stdx.net.tls
+import stdx.crypto.kit
 import stdx.encoding.url.*
 import std.net.*
 import std.unittest.*
@@ -306,7 +309,6 @@ class Testwebsocketconf_04 {
         (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u, headers: headers)
         let value1 = respHeaders.getFirst("resp") ?? ""
         @Expect(value1, "zpstest")
-        //sleep(Duration.millisecond * 100)       
         websocket.write(CloseWebFrame, Array<UInt8>(125, repeat: 19))
         websocket.closeConn()
         client.close()

@@ -1,6 +1,6 @@
 // ERRCHECK: %compiler %cmp_opt %f
 
-main(){
+main() {
     let a = ((_))
     let b = ((_, _))
     a = ((_))

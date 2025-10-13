@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -22,4 +22,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":1905,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"(variable) var sum1: (Int32, Int32) -> Int32 = {a, b => a + b}","documentation":"","filterText":"sum1","insertText":"sum1","insertTextFormat":1,"kind":6,"label":"sum1","sortText":""}]}
+{"id": 1905,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(variable) var sum1: (Int32, Int32) -> Int32 = {a, b => a + b}","documentation": "","filterText": "sum1","insertText": "sum1","insertTextFormat": 1,"kind": 6,"label": "sum1","sortText": "290000"},{"deprecated": false,"detail": "(variable) var sum1: (Int32, Int32) -> Int32 = {a, b => a + b}","documentation": "","filterText": "sum1","insertText": "sum1(${1:Int32}, ${2:Int32})","insertTextFormat": 2,"kind": 6,"label": "sum1(Int32, Int32)","sortText": "290000"}]}

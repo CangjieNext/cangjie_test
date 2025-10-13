@@ -16,6 +16,9 @@ import std.sync.*
 import std.net.*
 import std.collection.*
 import stdx.net.http.*
+import stdx.net.tls.common.*
+import stdx.net.tls
+import stdx.crypto.kit
 
 func send_request(s: Server) {
     let client = ClientBuilder().build()

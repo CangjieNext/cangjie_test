@@ -4,7 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+func test  (`a`: VArray<Int64, $1>) {
 let a: VArray<Int64, $1> = [1] 
 let a = VArray<Int64, $3>(item: 0)
 let a: Array<Int64> = [1] 
 let a = Array<Int64>(item: 0)
+}

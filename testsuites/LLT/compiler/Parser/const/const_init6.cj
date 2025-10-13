@@ -13,7 +13,7 @@ class AA{
     }
 }
 
-main(){}
+main() {}
 
 /* SCAN
 [31merror[0m: unexpected modifier 'const' on var or let variable

@@ -2,7 +2,7 @@
 // ASSERT: scan-not Struct-Array<Struct-Token>
 
 internal import std.ast.*
-main(){
+main() {
     let tokens = quote(0) 
     println(tokens) 
 }

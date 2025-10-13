@@ -26,7 +26,7 @@ class COO <: Base{
 
 func run(): Int64 {
     var coo: COO = COO()
-    var res = coo++ // B022 error: unsupported type 'Class-COO' for this increment or decrement expression
+    var res = coo++
     if (res != 2) { return 1}
     return 0
 }

@@ -16,7 +16,6 @@ class A {
     }
 }
 
-// func test():Int64 = A().test(return 0,return 1)
 
 func test(): Int64 {
     A().test(return 0, return 1)

@@ -13,6 +13,8 @@
 
 import std.fs.*
 import stdx.crypto.x509.*
+import stdx.crypto.common.*
+import stdx.crypto.keys.*
 
 var sum = 0
 
@@ -33,7 +35,6 @@ class Test_X509_pemformat_encode_02 {
 
     @TestCase
     func test_correct_rsa_cert_encode_04(): Unit {
-        //let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_certreq.der"))
         let derData = DerBlob(File.readFrom("./data/end_rsa_certreq.der"))
         let derx509 = X509CertificateRequest.decodeFromDer(derData)
         let derx509_1 = derx509.encodeToDer()

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/packages/pkgs_h_001/src
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/collection_HashMap_external_define.cj -o pkgs.%middle
+// EXEC: %compiler %cmp_opt -g src/collection_HashMap_external_invoke.cj pkgs.%middle -o collection_HashMap_external_invoke%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_collection_map_crossPackage_011.info collection_HashMap_external_invoke %run_env
+
+test#
+cjdb,cjdb --no-use-colors collection_HashMap_external_invoke,collection_HashMap_external_invoke
+b,b 15,collection_HashMap_external_invoke.cj:15
+AOT r,r,-> 15
+CJVM c,c,-> 15
+s,s,[\S\s]*-> 18[\S\s]*
+p,p par_1,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 736[\S\s]*value = 'Y'[\S\s]*}
+p,p par_1,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = -120[\S\s]*value = 'L'[\S\s]*}
+n,n,-> 19
+q,q,

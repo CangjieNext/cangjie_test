@@ -11,7 +11,6 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 
 struct Test {
-    //let range1: Range<Int32> = 0..10
     public let range1 = Int64(0)..5
     public init() {}
 }

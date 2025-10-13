@@ -14,6 +14,8 @@
 
 import std.fs.*
 import stdx.crypto.x509.*
+import stdx.crypto.common.*
+import stdx.crypto.keys.*
 import stdx.net.tls.*
 
 var sum = 0
@@ -62,8 +64,8 @@ class Test_der_verify_privatekey_03 {
         @Expect(derData.size, 0)
         @Expect(derData.hashCode(), 0)
         try {
-            PrivateKey.decodeDer(derData)
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData)
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Predicate failed: length > 0"))
             sum += 1
         }
@@ -76,8 +78,8 @@ class Test_der_verify_privatekey_03 {
         @Expect(derData.size, size_1)
         @Expect(derData.hashCode(), hashcode_1)
         try {
-            PrivateKey.decodeDer(derData)
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData)
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load private key, it's either corrupted, password is wrong or the format is unsupported"))
             sum += 1
         }
@@ -90,8 +92,8 @@ class Test_der_verify_privatekey_03 {
         @Expect(derData.size, size_2)
         @Expect(derData.hashCode(), hashcode_2)
         try {
-            PrivateKey.decodeDer(derData)
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData)
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load private key, it's either corrupted, password is wrong or the format is unsupported"))
             sum += 1
         }
@@ -104,8 +106,8 @@ class Test_der_verify_privatekey_03 {
         @Expect(derData.size, 274)
         @Expect(derData.hashCode(), -7707562200049764554)
         try {
-            PrivateKey.decodeDer(derData)
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData)
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load private key, it's either corrupted, password is wrong or the format is unsupported"))
             sum += 1
         }
@@ -117,7 +119,7 @@ class Test_der_verify_privatekey_03 {
         let derData = DerBlob(File.readFrom("./data/end_rsa_private_key.der"))
         @Expect(derData.size, 1768)
         @Expect(derData.hashCode(), 5801112079858918936)
-        let derpri = PrivateKey.decodeDer(derData)
+        let derpri = GeneralPrivateKey.decodeDer(derData)
         @Expect(derpri.toString(),"PrivateKey(1768 bytes, RSA 3072 bits)")
     }
 
@@ -127,8 +129,8 @@ class Test_der_verify_privatekey_03 {
         @Expect(derData.size, 1596)
         @Expect(derData.hashCode(), -1277195204321811497)
         try {
-            PrivateKey.decodeDer(derData)
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData)
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load private key, it's either corrupted, password is wrong or the format is unsupported"))
             sum += 1
         }
@@ -141,8 +143,8 @@ class Test_der_verify_privatekey_03 {
         @Expect(derData.size, 422)
         @Expect(derData.hashCode(), -6179307143943801750)
         try {
-            PrivateKey.decodeDer(derData)
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData)
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load private key, it's either corrupted, password is wrong or the format is unsupported"))
             sum += 1
         }
@@ -155,8 +157,8 @@ class Test_der_verify_privatekey_03 {
         @Expect(derData.size, size_3)
         @Expect(derData.hashCode(), hashcode_3)
         try {
-            PrivateKey.decodeDer(derData, password: "456")
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData, password:"456")
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load private key, the password is incorrect or the key is corrupted"))
             sum += 1
         }
@@ -169,8 +171,8 @@ class Test_der_verify_privatekey_03 {
         @Expect(derData.size, size_4)
         @Expect(derData.hashCode(), hashcode_4)
         try {
-            PrivateKey.decodeDer(derData, password: "#$")
-        } catch (e: X509Exception) {
+            GeneralPrivateKey.decodeDer(derData, password:"#$")
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load private key, the password is incorrect or the key is corrupted"))
             sum += 1
         }

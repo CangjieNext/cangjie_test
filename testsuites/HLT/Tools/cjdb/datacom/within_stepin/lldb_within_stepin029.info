@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_stepin/001_debug_stepIn_via_overLoad.cj
+// EXEC: %compiler %cmp_opt -g 001_debug_stepIn_via_overLoad.cj -o 001_debug_stepIn_via_overLoad%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_within_stepin029.info 001_debug_stepIn_via_overLoad %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 001_debug_stepIn_via_overLoad,001_debug_stepIn_via_overLoad
+CJVM b main,b main,001_debug_stepIn_via_overLoad.cj:11
+CJVM c,c,-> 11
+b,b 25,001_debug_stepIn_via_overLoad.cj:25
+AOT r,r,-> 25
+CJVM c,c,-> 25
+s,s,-> 102
+s,s,class Clazz_1 {[\s\S]*-> 31[\s\S]*
+q,q,

@@ -74,7 +74,6 @@ class Testjsonobject {
           func get(key: String): Option<JsonValue>;
           func getFields(): HashMap<String,JsonValue>
      */
-    //init()
     public func testinit(json: JsonObject, exp_size!: Int64 = 0): Int64 {
         var size1 = json.size()
         if (size1 != exp_size) {

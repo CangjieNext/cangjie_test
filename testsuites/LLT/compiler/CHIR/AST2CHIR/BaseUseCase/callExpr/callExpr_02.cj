@@ -26,9 +26,6 @@ class A {
 
 main() {
     var a = A()
-    // %1 InteractableViewV2 = apply(...)
-    // %2 Button = TypeCaset(%1, Button)
-    // %3 ComponentRender = TypeCast(%2, Button)
     a.foo(Button().onClick()) // apply
 
     0

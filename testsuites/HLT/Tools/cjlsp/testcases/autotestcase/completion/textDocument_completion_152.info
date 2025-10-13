@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -24,4 +24,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":2449,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"(struct) struct RR6","documentation":"","filterText":"RR6","insertText":"RR6","insertTextFormat":1,"kind":7,"label":"RR6","sortText":""},{"deprecated":false,"detail":"(function) func RR6(a: Int32, b: Int32, fn: (Int32, Int32) -> Int32)","documentation":"","filterText":"RR6","insertText":"RR6(${1:a: Int32}, ${2:b: Int32}, ${3:fn: (Int32, Int32) -> Int32})","insertTextFormat":2,"kind":3,"label":"RR6(a: Int32, b: Int32, fn: (Int32, Int32) -> Int32)","sortText":""},{"deprecated":false,"detail":"(function) func init(a: Int64, fn: (Int64, Int64) -> Int64)","documentation":"","filterText":"RR6","insertText":"RR6(${1:a: Int64}, ${2:fn: (Int64, Int64) -> Int64})","insertTextFormat":2,"kind":3,"label":"RR6(a: Int64, fn: (Int64, Int64) -> Int64)","sortText":""}]}
+{"id": 2449,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(struct) struct RR6","documentation": "","filterText": "RR6","insertText": "RR6","insertTextFormat": 1,"kind": 22,"label": "RR6","sortText": "273333"},{"deprecated": false,"detail": "(function) func RR6(a: Int32, b: Int32, fn: (Int32, Int32) -> Int32)","documentation": "","filterText": "RR6","insertText": "RR6(${1:a: Int32}, ${2:b: Int32}, ${3:fn: (Int32, Int32) -> Int32})","insertTextFormat": 2,"kind": 3,"label": "RR6(a: Int32, b: Int32, fn: (Int32, Int32) -> Int32)","sortText": "273333"},{"deprecated": false,"detail": "(function) func init(a: Int64, fn: (Int64, Int64) -> Int64)","documentation": "","filterText": "RR6","insertText": "RR6(${1:a: Int64}, ${2:fn: (Int64, Int64) -> Int64})","insertTextFormat": 2,"kind": 3,"label": "RR6(a: Int64, fn: (Int64, Int64) -> Int64)","sortText": "273333"},{"deprecated": false,"detail": "(function) func RR6(a: Int32, b: Int32, fn: (Int32, Int32) -> Int32)","documentation": "","filterText": "RR6","insertText": "RR6(${1:a: Int32}, ${2:b: Int32}) { arg1: Int32, arg2: Int32 => ${3:Int32} }","insertTextFormat": 2,"kind": 3,"label": "RR6(a: Int32, b: Int32) { Int32, Int32 => Int32 }","sortText": "273333"},{"deprecated": false,"detail": "(function) func init(a: Int64, fn: (Int64, Int64) -> Int64)","documentation": "","filterText": "RR6","insertText": "RR6(${1:a: Int64}) { arg1: Int64, arg2: Int64 => ${2:Int64} }","insertTextFormat": 2,"kind": 3,"label": "RR6(a: Int64) { Int64, Int64 => Int64 }","sortText": "273333"}]}

@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb dateTime_base2,dateTime_base2
+b,b 17,dateTime_base2.cj:17
+r,r,-> 17
+ ,expr dateTime,\(std.time.DateTime\) \$\d+ = 2023-04-10T00:00:00Z
+ ,expr dateTime1,\(std.time.DateTime\) \$\d+ = 2023-04-09T16:00:00Z
+ ,expr dateTime2,\(std.time.DateTime\) \$\d+ = 99999-04-10T00:00:00Z
+ ,expr dateTime3,\(std.time.DateTime\) \$\d+ = 2023-04-09T21:00:00Z
+ ,expr time1,\(std.time.DateTime\) \$\d+ = -0001-12-31T15:54:17Z
+ ,expr time2,\(std.time.DateTime\) \$\d+ = -0568-12-31T15:54:17Z
+q,q,

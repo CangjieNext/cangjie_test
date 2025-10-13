@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 1205,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "SSS","range": {"end": {"character": 12,"line": 2},"start": {"character": 7,"line": 2}}},{"newText": "SSS","range": {"end": {"character": 15,"line": 11},"start": {"character": 10,"line": 11}}},{"newText": "SSS","range": {"end": {"character": 16,"line": 12},"start": {"character": 11,"line": 12}}}],"textDocument": {"uri": "renameProject/src/pkg/record11.cj","version": 4}}]}}
+{"id": 1205,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "SSS","range": {"end": {"character": 12,"line": 2},"start": {"character": 7,"line": 2}}},{"newText": "SSS","range": {"end": {"character": 15,"line": 11},"start": {"character": 10,"line": 11}}},{"newText": "SSS","range": {"end": {"character": 16,"line": 12},"start": {"character": 11,"line": 12}}}],"textDocument": {"uri": "renameProject/src/pkg/record11.cj","version": 3}}]}}

@@ -17,13 +17,13 @@ class A <: I {
 }
 
 /* SCAN
-error: class 'A' missing abstract modifier or abstract function 'a' should be implemented
+error: class 'A' missing abstract modifier, otherwise abstract function or property should be implemented
   ==> class_impl_interface_abstract_func1.cj:13:1:
    | 
 13 | class A <: I {
    | ^ 
    | 
-note: unimplemented interface function
+note: unimplemented interface function a
   ==> class_impl_interface_abstract_func1.cj:10:5:
    | 
 10 |     func a(a: Int32): Int32

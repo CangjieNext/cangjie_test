@@ -6,7 +6,7 @@
 
 // EXEC-PIPE-1: %compiler %f %cmp_opt 2>&1 | compare %f
 
-main(){
+main() {
     if (let ) {
 
     }

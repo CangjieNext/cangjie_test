@@ -3,7 +3,7 @@
 func g(a: ()->Unit) {}
 
 
-main(){
+main() {
     if (true) {
         g
     } else {

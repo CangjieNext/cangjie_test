@@ -70,7 +70,6 @@ class Testjsonarray {
           func get(index: Int64): Option<JsonValue>;
           func getItems(): ArrayList<JsonValue>
      */
-    //init()
     public func testinit1(jsonarray: JsonArray, exp_size!: Int64 = 0): Int64 {
         var size1 = jsonarray.size()
         if (size1 != exp_size) {

@@ -12,7 +12,8 @@
 import ohos.device_info.DeviceInfo
 
 main() {
-    @IfAvailable(level:11, { => 3 }, {=>1})
+    @IfAvailable(level:19, { => println(3) }, {=>println(1)})
+    0
 }
 
 // ASSERT: scan 3

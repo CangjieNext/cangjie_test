@@ -11,6 +11,7 @@
 // RUN-EXEC: %run_stdx %output %run_args  
 
 import stdx.crypto.digest.*
+import stdx.crypto.common.*
 import std.convert.*
 import std.crypto.digest.*
 import stdx.encoding.hex.*

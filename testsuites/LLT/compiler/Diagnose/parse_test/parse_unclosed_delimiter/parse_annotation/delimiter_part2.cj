@@ -10,6 +10,6 @@
 // EXEC: %diff %n.expect.out %n.%realOut
 
 @Attribute[aaa
-main(){
+main() {
 
 }

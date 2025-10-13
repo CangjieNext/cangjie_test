@@ -1,0 +1,44 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output
+// EXEC-2: %run %run_opt %output %run_args
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC-PIPE-0: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC-4: %run %run_opt %output %run_args
+
+func foo(): Int32 {
+    return 1
+}
+
+class A<T> {
+    func goo(): Int32 {
+        return foo()
+    }
+}
+
+func foo2(): Int32 {
+    return A<Int8>().goo()
+}
+
+main(): Int32 {
+    var x = A<Int32>()
+    var y = A<Int64>()
+    return x.goo() + y.goo()
+}
+
+// ASSERT: scan begin dump raw modified decls:
+// ASSERT: scan A 7default1A<1>C Generic.cj 12: 
+// ASSERT: scan     changed members 1:
+// ASSERT: scan          7default1A<1>C3gooF$$i: body 
+// ASSERT: scan incremental compilation triggered
+// ASSERT: scan begin dump incremental compile result:
+// ASSERT: scan changed decls to recompile: 4
+// ASSERT: scan the changed decl after Spreading is:A in file Generic.cj in line 12 in column 7
+// ASSERT: scan the changed decl after Spreading is:goo in file Generic.cj in line 13 in column 10
+// ASSERT: scan the changed decl after Spreading is:foo2 in file Generic.cj in line 18 in column 6
+// ASSERT: scan the changed decl after Spreading is:main in file Generic.cj in line 22 in column 1
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

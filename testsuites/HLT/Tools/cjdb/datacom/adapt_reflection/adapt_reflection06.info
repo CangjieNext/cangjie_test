@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_reflection/enum03.cj
+// (CJNATIVE and not MAC) EXEC: %compiler %cmp_opt -g --disable-reflection enum03.cj -o enum03%cmp_output
+// (CJNATIVE and not MAC) RUN-EXEC: python3 cjdb_test.py adapt_reflection06.info enum03 %run_env
+
+test#
+cjdb,cjdb --no-use-colors enum03,enum03
+b,b 20,enum03.cj:20
+r,r,-> 20
+p,p a1,\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A[\s\S]*}
+expr~expr E1.B(E2.C(E1.A))~\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A[\s\S]*}
+expr~expr E1.B(E2.D(2))~\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = D[\s\S]*arg_1 = 2[\s\S]*}
+expr~expr B(E2.D(2))~\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = D[\s\S]*arg_1 = 2[\s\S]*}
+expr~expr E3.C(E3.C(E3.D(4)))~\(default.E3\) \$[\d] = {[\s\S]*
+q,q,

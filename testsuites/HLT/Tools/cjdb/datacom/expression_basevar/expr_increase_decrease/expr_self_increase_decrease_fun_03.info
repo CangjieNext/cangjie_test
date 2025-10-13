@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/expression/expr_func_1.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g expr_func_1.cj -o 001_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expr_self_increase_decrease_fun_03.info 001_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+b,b 14,expr_func_1.cj:14
+CJVM c,c,-> 14
+AOT r,r,-> 14
+expr,expr rec.hmu8["b"]--;rec.hmu8["b"],\(UInt8\) \$[\d] = 0
+expr,expr rec.hmu16["b"]--;rec.hmu16["b"],\(UInt16\) \$[\d] = 0
+expr,expr rec.hmu32["c"]--;rec.hmu32["c"],\(UInt32\) \$[\d] = 1
+expr,expr rec.hmu64["b"]--;rec.hmu64["b"],\(UInt64\) \$[\d] = 0
+expr,expr rec.hmuin["b"]--;rec.hmuin["b"],\(UIntNative\) \$[\d] = 0
+q,q,

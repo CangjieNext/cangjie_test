@@ -10,5 +10,5 @@
 // ASSERT: scan-1 Compiling package `aoo`
 // ASSERT: scan-1 cjpm build success
 // ASSERT: scan-3 -g
-// ASSERT: scan-4 tempdir
+// ASSERT: scan-5 tempdir
 // EXEC-0: cd %n && %cjpm clean

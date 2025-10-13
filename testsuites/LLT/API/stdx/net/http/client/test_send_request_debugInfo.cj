@@ -21,7 +21,9 @@ import std.time.*
 import std.convert.*
 import std.fs.*
 import stdx.net.tls.*
+import stdx.net.tls.common.*
 import stdx.crypto.x509.*
+import stdx.crypto.keys.*
 import stdx.log.*
 import std.sync.*
 
@@ -32,7 +34,7 @@ class TestSendRequestDebugInfo {
     func serverConfig(): TlsServerConfig {
         let cert = String.fromUtf8(File.readFrom("${certPath}/end_rsa.cer"))
         let key = String.fromUtf8(File.readFrom("${certPath}/end_rsa_private_key.pem"))
-        var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(cert), PrivateKey.decodeFromPem(key))
+        var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(cert).map({c => c}), GeneralPrivateKey.decodeFromPem(key))
         tlsConfig.supportedAlpnProtocols = ["h2"]
         tlsConfig
     }
@@ -40,7 +42,7 @@ class TestSendRequestDebugInfo {
     func clientConfig(): TlsClientConfig {
         var tlsConfig = TlsClientConfig()
         tlsConfig.verifyMode = TrustAll
-        tlsConfig.alpnProtocolsList = ["h2"]
+        tlsConfig.supportedAlpnProtocols = ["h2"]
         tlsConfig
     }
 

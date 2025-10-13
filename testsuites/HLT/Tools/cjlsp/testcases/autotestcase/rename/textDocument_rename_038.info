@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -21,4 +21,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 440,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "Year3","range": {"end": {"character": 8,"line": 4},"start": {"character": 4,"line": 4}}},{"newText": "Year3","range": {"end": {"character": 26,"line": 14},"start": {"character": 22,"line": 14}}}],"textDocument": {"uri": "renameProject/src/pkg/enum001.cj","version": 5}}]}}
+{"id": 440,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "Year3","range": {"end": {"character": 8,"line": 4},"start": {"character": 4,"line": 4}}},{"newText": "Year3","range": {"end": {"character": 26,"line": 14},"start": {"character": 22,"line": 14}}}],"textDocument": {"uri": "renameProject/src/pkg/enum001.cj","version": 4}}]}}

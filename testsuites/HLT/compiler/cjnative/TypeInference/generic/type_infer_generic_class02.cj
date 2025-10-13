@@ -64,7 +64,6 @@ func test_constructor_call() {
     Book<Int32>(b1)
 
     var a0: Int32 = 1
-    //[a0,a0].toArray()
     var b2 = Data2<Int32>([a0, a0]).a
     Book<Array<Int32>>(b2)
     //    var e2 = Data2([a0,a0]) // 此处B103无法推断

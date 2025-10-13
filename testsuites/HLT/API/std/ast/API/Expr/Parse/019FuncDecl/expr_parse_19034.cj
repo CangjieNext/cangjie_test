@@ -14,7 +14,6 @@ import std.ast.*
 import std.unicode.*
 
 main() {
-    //var input: Tokens = quote(public func foo<T,V>(a:T,b!:Int64=1):Int64 where T<: B,V <: Int64{})
     var input: Tokens = quote(public func foo<T,V>(a:T,b!:Int64=1):Int64{})
     let b = parseDecl(input)
     var expr = match (b as FuncDecl) {
@@ -87,7 +86,6 @@ main() {
     }
 
     /*
-    if (expr.getGeneric().getOrThrow().getTypeParameters().toString().trim()!= "T V") {
         return 5
     }
     if (expr.getGeneric().getOrThrow().getConstraints()[0].getType().getIdentifier().value!= "T") {

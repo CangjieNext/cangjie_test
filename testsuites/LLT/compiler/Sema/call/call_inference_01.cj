@@ -45,7 +45,7 @@ note: constraint 'Generics-T <: Interface-Comparable<Generics-T>' may come from:
   ==> call_inference_01.cj:12:60:
    | 
 12 |     public static func test<T>(data: Array<T>): Unit where T <: Comparable<T> {}
-   |                                                            ^^^^^^^^^^^^^^^^^^^ 
+   |                                                            ^^^^^^^^^^^^^^^^^^ 
    | 
 
 error: unable to infer generic argument of this function
@@ -72,7 +72,7 @@ note: constraint 'Generics-T <: Interface-ToString' may come from:
   ==> call_inference_01.cj:11:18:
    | 
 11 | class B<T> where T <: ToString {
-   |                  ^^^^^^^^^^^^^^ 
+   |                  ^^^^^^^^^^^^^ 
    | 
 
 2 errors generated, 2 errors printed.

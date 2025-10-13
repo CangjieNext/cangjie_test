@@ -35,7 +35,7 @@ main() {
     Float64(i8)
     Int64(f16)
     // unsign integer -> float 
-    // UInt64(f16)
+
     Float64(u16)
     // char ->UInt32
     UInt32(c)

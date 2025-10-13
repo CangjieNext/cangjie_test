@@ -22,7 +22,6 @@ func print_mem_info() {
 }
 
 public macro M(a: Tokens) {
-    // throw NegativeArraySizeException("I am an Exception!")
     print_mem_info()
     println("${Process.current.arguments}")
     return a

@@ -11,23 +11,19 @@ macro package define
 import std.ast.*
 
 public macro M(input: Tokens): Tokens {
-    // let c = parseClassDecl(input)
     return input
 }
 
 public macro N(attr: Tokens, input: Tokens): Tokens {
-    // let c = parseClassDecl(input)
     return input
 }
 
 public macro A(attr: Tokens, input: Tokens): Tokens {
-    // let c = parseClassDecl(input)
     input.dump()
     return input
 }
 
 public macro B(input: Tokens): Tokens {
-    // let c = parseClassDecl(input)
     input.dump()
     return input
 }

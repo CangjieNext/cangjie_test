@@ -1,7 +1,7 @@
 // EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix 2>&1 | compare %f
 
 
-main(){
+main() {
     let arr: Array<Int64> = [3,1,45,12,9]
     let s = arr.size
     var i = 0

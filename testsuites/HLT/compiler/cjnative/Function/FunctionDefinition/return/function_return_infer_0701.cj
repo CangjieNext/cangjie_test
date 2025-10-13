@@ -33,8 +33,6 @@ main(): Int64 {
     } != 0) {
         return 5
     }
-    //    if (case06().get(1) != 2 || match case05() { case a: List<Int32> => 1;case a: List<Int64> => 0 ;case _ => 2} != 0) {
-    //        return 6
     //    }
     if (case06()[1] != 2) {
         return 6

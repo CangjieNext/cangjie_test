@@ -2,7 +2,7 @@
 
 internal import std.collection.*
 
-main(){
+main() {
     let tempBuffer : ArrayList<CString> = ArrayList([LibC.mallocCString("xxx")])
     0
 }

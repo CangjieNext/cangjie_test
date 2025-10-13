@@ -14,6 +14,7 @@
 import std.fs.*
 import stdx.crypto.x509.*
 import stdx.crypto.crypto.*
+import stdx.crypto.common.*
 import std.time.*
 
 var sum = 0
@@ -92,7 +93,7 @@ class Test_X509_certreq_pem_decode_01 {
         let pemData = String.fromUtf8(File.readFrom("./data/root_rsa_blank.cer"))
         try {
             X509CertificateRequest.decodeFromPem(pemData)
-        } catch (e: X509Exception) {
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Pem is empty"))
             sum += 1
         }
@@ -104,7 +105,7 @@ class Test_X509_certreq_pem_decode_01 {
         let pemData = String.fromUtf8(File.readFrom("./data/root_ecdsa_1.text"))
         try {
             X509CertificateRequest.decodeFromPem(pemData)
-        } catch (e: X509Exception) {
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to parse PEM"))
             sum += 1
         }
@@ -116,7 +117,7 @@ class Test_X509_certreq_pem_decode_01 {
         let pemData = String.fromUtf8(File.readFrom("./data/end_ecdsa_1.cer"))
         try {
             X509CertificateRequest.decodeFromPem(pemData)
-        } catch (e: X509Exception) {
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to parse base64 encoded PEM body"))
             sum += 1
         }

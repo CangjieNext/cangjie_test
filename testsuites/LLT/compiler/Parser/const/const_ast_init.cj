@@ -6,7 +6,7 @@
 
 internal import std.ast.*
 
-main(){
+main() {
     let tk = quote(
     public const init() {
         a = 0

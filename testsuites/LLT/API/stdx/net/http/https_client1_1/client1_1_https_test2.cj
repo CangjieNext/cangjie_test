@@ -12,13 +12,14 @@
 package tests.client1_1
 
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
 import std.net.*
 import std.sync.*
 import std.time.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import stdx.net.http.*
+import stdx.net.tls.common.*
 import stdx.encoding.url.*
 import stdx.log.*
 

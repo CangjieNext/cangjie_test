@@ -14,7 +14,7 @@ public struct Struct{
     var x = 1;
 }
 
-main(){
+main() {
 }
 
 /* SCAN

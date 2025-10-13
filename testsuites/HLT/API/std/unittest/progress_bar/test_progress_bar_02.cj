@@ -8,7 +8,7 @@
 
 //LEVEL: 2
 // EXEC: %compiler %cmp_opt %f --test -o %output
-// EXEC-PIPE-1: %run %run_opt %output %run_args --no-color 2>&1 | compare %f
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args --no-color 2>&1 | compare %f
 
 // Check groups status
 // ASSERT: regex 📦 group ([\w\.]+)(\s+)(\d+)(\d+)\% \[(\|)*(\-)*\] ([✓✗\s])(\s)+\(\d\d\:\d\d\:\d\d\)

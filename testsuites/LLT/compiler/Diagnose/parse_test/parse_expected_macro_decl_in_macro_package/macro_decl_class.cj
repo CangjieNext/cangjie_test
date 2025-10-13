@@ -14,7 +14,7 @@ public class interf{
 
 }
 
-main(){
+main() {
 }
 
 /* SCAN

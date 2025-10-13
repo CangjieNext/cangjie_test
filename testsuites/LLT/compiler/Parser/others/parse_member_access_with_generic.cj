@@ -19,16 +19,7 @@ error: expected type name after '(', found ','
   |         after '('
   | 
 
-error: expected type name after ',', found ')'
- ==> parse_member_access_with_generic.cj:9:11:
-  | 
-9 |     A.a<(,)>()
-  |          ~^ expected type name here
-  |          |
-  |          after ','
-  | 
-
-2 errors generated, 2 errors printed.
+1 error generated, 1 error printed.
 */
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

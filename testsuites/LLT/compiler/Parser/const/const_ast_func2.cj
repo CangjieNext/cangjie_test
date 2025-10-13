@@ -5,7 +5,7 @@
 
 internal import std.ast.*
 
-main(){
+main() {
     let tk = quote(
     class A {
         let a = 0

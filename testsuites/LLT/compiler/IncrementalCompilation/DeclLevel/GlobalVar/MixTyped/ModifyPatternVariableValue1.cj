@@ -1,0 +1,23 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %incrementalCompile %n.cj -o %output
+// EXEC: %run %run_opt %output %run_args
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC: %compiler %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// ASSERT: scan changed decls to recompile: 3
+// ASSERT: scan the changed decl after Spreading is:VarWithPatternDecl in file ModifyPatternVariableValue1.cj in line 12 in column 1
+// ASSERT: scan the changed decl after Spreading is:a in file ModifyPatternVariableValue1.cj in line 12 in column 6
+// ASSERT: scan the changed decl after Spreading is:b in file ModifyPatternVariableValue1.cj in line 12 in column 9
+// EXEC-1: %run %run_opt %output %run_args
+
+var (a, b):(Int64, Int64) = (2 , 2)
+
+main():Int64{
+    return b - a
+}
+
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

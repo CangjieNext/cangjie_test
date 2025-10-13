@@ -24,8 +24,6 @@ class testPointApplyGenericGlobalFunction_10 {
     let packageInfo = PackageInfo.get("dependency")
     @TestCase
     func TestCase_481(): Unit {
-        // logger.info("testcase TestCase_481 begins.")
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_46")[0i64]
@@ -34,7 +32,6 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_46")[0i64]
@@ -43,35 +40,30 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_46")[0i64].apply([], [])
             @Expect("assertion#12872: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_46")[0i64].apply([TypeInfo.of<Float32>()], [])
             @Expect("assertion#12873: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_46")[0i64].apply([], [])
             @Expect("assertion#12874: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_46")[0i64].apply([TypeInfo.of<Float32>()], [])
             @Expect("assertion#12875: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_46")[0i64]
@@ -80,7 +72,6 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_46")[0i64]
@@ -89,27 +80,22 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_46")[0i64].apply([], [()])
             @Expect("assertion#12878: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_46")[0i64].apply([TypeInfo.of<Float32>()], [()])
             @Expect("assertion#12879: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("testcase TestCase_481 ends.")
     }
 
     @TestCase
     func TestCase_482(): Unit {
-        // logger.info("testcase TestCase_482 begins.")
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_47")[0i64]
@@ -118,7 +104,6 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_47")[0i64]
@@ -127,35 +112,30 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_47")[0i64].apply([], [])
             @Expect("assertion#12882: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_47")[0i64].apply([TypeInfo.of<Float32>()], [])
             @Expect("assertion#12883: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_47")[0i64].apply([], [])
             @Expect("assertion#12884: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_47")[0i64].apply([TypeInfo.of<Float32>()], [])
             @Expect("assertion#12885: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_47")[0i64]
@@ -164,7 +144,6 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_47")[0i64]
@@ -173,27 +152,22 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_47")[0i64].apply([], [()])
             @Expect("assertion#12888: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_47")[0i64].apply([TypeInfo.of<Float32>()], [()])
             @Expect("assertion#12889: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("testcase TestCase_482 ends.")
     }
 
     @TestCase
     func TestCase_483(): Unit {
-        // logger.info("testcase TestCase_483 begins.")
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_48")[0i64]
@@ -202,7 +176,6 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_48")[0i64]
@@ -211,35 +184,30 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_48")[0i64].apply([], [])
             @Expect("assertion#12892: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_48")[0i64].apply([TypeInfo.of<Float32>()], [])
             @Expect("assertion#12893: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_48")[0i64].apply([], [])
             @Expect("assertion#12894: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_48")[0i64].apply([TypeInfo.of<Float32>()], [])
             @Expect("assertion#12895: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_48")[0i64]
@@ -248,7 +216,6 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_48")[0i64]
@@ -257,27 +224,22 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_48")[0i64].apply([], [()])
             @Expect("assertion#12898: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_48")[0i64].apply([TypeInfo.of<Float32>()], [()])
             @Expect("assertion#12899: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("testcase TestCase_483 ends.")
     }
 
     @TestCase
     func TestCase_484(): Unit {
-        // logger.info("testcase TestCase_484 begins.")
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_49")[0i64]
@@ -286,7 +248,6 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_49")[0i64]
@@ -295,35 +256,30 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_49")[0i64].apply([], [])
             @Expect("assertion#12902: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_49")[0i64].apply([TypeInfo.of<Float32>()], [])
             @Expect("assertion#12903: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_49")[0i64].apply([], [])
             @Expect("assertion#12904: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_49")[0i64].apply([TypeInfo.of<Float32>()], [])
             @Expect("assertion#12905: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_49")[0i64]
@@ -332,7 +288,6 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_49")[0i64]
@@ -341,27 +296,22 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_49")[0i64].apply([], [()])
             @Expect("assertion#12908: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_49")[0i64].apply([TypeInfo.of<Float32>()], [()])
             @Expect("assertion#12909: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("testcase TestCase_484 ends.")
     }
 
     @TestCase
     func TestCase_485(): Unit {
-        // logger.info("testcase TestCase_485 begins.")
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_50")[0i64]
@@ -370,7 +320,6 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_50")[0i64]
@@ -379,35 +328,30 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_50")[0i64].apply([], [])
             @Expect("assertion#12912: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_50")[0i64].apply([TypeInfo.of<Float32>()], [])
             @Expect("assertion#12913: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_50")[0i64].apply([], [])
             @Expect("assertion#12914: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_50")[0i64].apply([TypeInfo.of<Float32>()], [])
             @Expect("assertion#12915: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_50")[0i64]
@@ -416,7 +360,6 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo
                 .getFunctions("globalFunction_50")[0i64]
@@ -425,20 +368,17 @@ class testPointApplyGenericGlobalFunction_10 {
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_50")[0i64].apply([], [()])
             @Expect("assertion#12918: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("非泛型函数指定了类型实参列表")
         try {
             packageInfo.getFunctions("globalFunction_50")[0i64].apply([TypeInfo.of<Float32>()], [()])
             @Expect("assertion#12919: not throw", "非泛型函数指定了类型实参列表")
         } catch (e: InvocationTargetException) {
             @Expect(e.message, "The function cannot be applied with `genericTypeArgs`.")
         }
-        // logger.info("testcase TestCase_485 ends.")
     }
 }

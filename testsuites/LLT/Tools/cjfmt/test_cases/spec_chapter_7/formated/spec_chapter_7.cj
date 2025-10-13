@@ -135,7 +135,7 @@ class A {
 
     static var y = 0
 
-    mut static prop Y: Int64 {
+    static mut prop Y: Int64 {
         get() {
             y
         }
@@ -192,7 +192,7 @@ class Foo {
 // 实例属性像实例函数一样，可以使用 open 和 override 修饰。
 // 使用 open 修饰的属性，子类型可以使用 override 覆盖父类型的实现（override 是可选的）。
 open class A {
-    public mut open prop i: Int64 {
+    public open mut prop i: Int64 {
         get() {
             0
         }
@@ -201,7 +201,7 @@ open class A {
 }
 
 class B <: A {
-    mut override prop i: Int64 {
+    override mut prop i: Int64 {
         get() {
             1
         }
@@ -211,7 +211,7 @@ class B <: A {
 
 // 静态属性像静态函数一样，可以使用 redef 修饰（redef 是可选的），子类型可以重新实现父类型的静态属性。
 open class A {
-    mut static prop i: Int64 {
+    static mut prop i: Int64 {
         get() {
             0
         }
@@ -220,7 +220,7 @@ open class A {
 }
 
 class B <: A {
-    mut static redef prop i: Int64 {
+    static redef mut prop i: Int64 {
         get() {
             1
         }
@@ -231,14 +231,14 @@ class B <: A {
 // 子类型 override/redef 使用 let 声明的实例属性必须要重新实现 getter。
 // 子类型 override/redef 父类型中使用 mut 修饰符声明的的属性时，允许只重新实现 getter 或 setter，但不能均不重新实现。
 open class A {
-    public mut open prop i1: Int64 {
+    public open mut prop i1: Int64 {
         get() {
             0
         }
         set(v) {}
     }
 
-    mut static prop i2: Int64 {
+    static mut prop i2: Int64 {
         get() {
             0
         }
@@ -248,13 +248,13 @@ open class A {
 
 // case 1
 class B <: A {
-    public mut override prop i1: Int64 {
+    public override mut prop i1: Int64 {
         get() {
             1 // ok
         }
     }
 
-    mut static redef prop i2: Int64 {
+    static redef mut prop i2: Int64 {
         get() {
             1 // ok
         }
@@ -263,21 +263,21 @@ class B <: A {
 
 // case 2
 class B <: A {
-    public mut override prop i1: Int64 {
+    public override mut prop i1: Int64 {
         set(v) {} // ok
     }
 
-    mut static redef prop i2: Int64 {
+    static redef mut prop i2: Int64 {
         set(v) {} // ok
     }
 }
 
 // case 3
 class B <: A {
-    mut override prop i1: Int64 {
+    override mut prop i1: Int64 {
     } // error
 
-    mut static redef prop i2: Int64 {
+    static redef mut prop i2: Int64 {
     } // error
 }
 
@@ -302,11 +302,11 @@ open class A {
 
 // case 1
 class B <: A {
-    mut override prop i1: P { // error
+    override mut prop i1: P { // error
         set(v) {}
     }
 
-    mut static redef prop i2: P { // error
+    static redef mut prop i2: P { // error
         set(v) {}
     }
 }

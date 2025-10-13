@@ -21,13 +21,6 @@ main() {
 }
 
 /* SCAN
-error: can not instantiate 'Generics-T' by interface or abstract class 'Class-A' for it has unimplemented static member
-  ==> generic_call_static_impl06.cj:20:7:
-   | 
-20 |     f<A>()
-   |       ^ 
-   | 
-
 error: abstract class 'A' cannot contain unimplemented static function 'f1'
   ==> generic_call_static_impl06.cj:13:16:
    | 
@@ -35,5 +28,5 @@ error: abstract class 'A' cannot contain unimplemented static function 'f1'
    |                ^ 
    | 
 
-2 errors generated, 2 errors printed.
+1 error generated, 1 error printed.
 */

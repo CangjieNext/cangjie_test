@@ -1,0 +1,32 @@
+enum TimeUnit1 {
+      Hour(TimeUnit2)
+      | Year
+}
+enum TimeUnit2 {
+      Month(TimeUnit1)
+}
+
+func run(): Int64 {
+    var time = TimeUnit2.Month(TimeUnit1.Year)
+    var res: Int32 = match (time) {
+        case Month(Year) => 2020
+        case _ =>1
+    }
+
+    if (res == 2020) {
+        return 0
+    } else {
+        return 1
+    }
+}
+
+main(): Int64 {
+    return run()
+}
+
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

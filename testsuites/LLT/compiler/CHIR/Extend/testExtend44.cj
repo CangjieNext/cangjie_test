@@ -37,7 +37,6 @@ class A {
 
 main() {
     var b = classB()
-    // var b = classA()
     var a = A()
     var res = a.test(b)
     if (res == false) {

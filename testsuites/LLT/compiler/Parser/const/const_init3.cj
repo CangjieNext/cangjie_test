@@ -13,7 +13,7 @@ class AA{
     }
 }
 
-main(){}
+main() {}
 
 /* SCAN
 error: cannot define 'const' constructor with 'var' members in class

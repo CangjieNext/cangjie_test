@@ -20,5 +20,5 @@ AOT globals,globals,\(Tuple<Int64,Int64,std.core.Range<Int64>>\) default::mixtup
 AOT globals,globals,\(std.collection.ArrayList<std.core.String>\) default::mixtuple04 = {[\s\S]*\[0\] = "0"[\s\S]*\[1\] = "1"[\s\S]*}
 AOT locals,locals,\(Tuple<Unit,Unit>\) mixtuple08 = {[\s\S]*\[0\] = ()[\s\S]*\[1\] = ()[\s\S]*}
 AOT locals,locals,\(Tuple<std.core.String,std.collection.HashSet<Int64>>\) mixtuple05 = {[\s\S]*\[0\] = "ab"[\s\S]*\[1\] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}[\s\S]*}
-AOT locals,locals,\(Tuple<Int64,Int64,std.collection.HashMap<std.core.String,Int64>>\) mixtuple06 = {[\s\S]*\[0\] = 3[\s\S]*\[1\] = 4[\s\S]*\[2\] = {[\s\S]*\[0\] = {[\s\S]*key = "a"[\s\S]*value = 0[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = "b"[\s\S]*value = 1[\s\S]*}[\s\S]*}[\s\S]*}
+AOT locals,locals,\(Tuple<Int64,Int64,std.collection.HashMap<std.core.String,Int64>>\) mixtuple06 = {[\s\S]*\[0\] = 3[\s\S]*\[1\] = 4[\s\S]*\[2\] = {[\s\S]*\["a" -> 0\] = {[\s\S]*key = "a"[\s\S]*value = 0[\s\S]*}[\s\S]*\["b" -> 1\] = {[\s\S]*key = "b"[\s\S]*value = 1[\s\S]*}[\s\S]*}[\s\S]*}
 q,q,

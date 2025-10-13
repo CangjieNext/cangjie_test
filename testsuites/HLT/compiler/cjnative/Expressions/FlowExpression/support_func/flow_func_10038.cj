@@ -20,7 +20,6 @@ main(): Int64 {
     A.a~>A.b
     1 |> (A.a~>A.b)
     A.a ~> A.b |> A.c
-    return ((A.a ~> A.b) |> A.c) - 1
      */
     return 0
 }

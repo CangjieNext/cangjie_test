@@ -7,7 +7,7 @@ struct `UsrTyp`{
     let b = "world"
 }
 
-main(){
+main() {
     let usrVar1 = `UsrTyp`()
     let usrVar2 = UsrTyp()
     println("${usrVar1.a} ${usrVar1.b}")

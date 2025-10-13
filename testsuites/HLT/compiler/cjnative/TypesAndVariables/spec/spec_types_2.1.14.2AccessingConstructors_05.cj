@@ -35,7 +35,6 @@ func g() {
     F(1)
     E.F1(1) // ok
 
-    //    p.F(1) // ok
     let x: Ca // error
     let y: Ca
 }

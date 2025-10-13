@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/generic/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb generic_class_member_field02,generic_class_member_field02
+b,b 26, generic_class_member_field02.cj:26
+r,r,-> 26
+ ,expr A<Array<Int64>>(array1),\(default.A<std.core.Array<Int64>>\) \$\d+ = {\s+value = {\s+\[0\] = 1\s+\[1\] = 2
+ ,expr A<ArrayList<Int64>>(arrayList1),\(default.A<std.collection.ArrayList<Int64>>\) \$\d+ = {\s+value = {\s+\[0\] = 0\s+\[1\] = 1\s+\[2\] = 2
+ ,expr A<HashSet<Int64>>(hashset1),\(default.A<std.collection.HashSet<Int64>>\) \$\d+ = {\s+value = {\s+\[0\] = 0\s+\[1\] = 1\s+\[2\] = 2
+expression:expr A<HashMap<String, Int64>>(hashmap1):\(default.A<std.collection.HashMap<std.core.String,Int64>>\) \$\d+ = {\s+value = {\s+\["a" -> 0\] = {\s+key = "a"\s+value = 0
+q,q,

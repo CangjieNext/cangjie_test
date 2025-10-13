@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/065_debug_struct.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 065_debug_struct.cj -o 002_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py express_struct_002.info 002_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 002_express_basetype,002_express_basetype
+CJVM b,b main,065_debug_struct.cj:51
+CJVM c,c,-> 51
+b,b 53,065_debug_struct.cj:53
+CJVM c,c,-> 53
+AOT r,r,-> 53
+expr,expr rr.lrun,\(Rune\) \$[\d] = 'A'
+expr,expr rr.lrun='b',\(Unit\) \$[\d] = ()
+expr,expr rr.lrun,\(Rune\) \$[\d] = 'b'
+expr,expr rr.range1,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 2
+expr,expr rr.range1=(1..5:1),\(Unit\) \$[\d] = ()
+expr,expr rr.range1,\(std.core.Range<Int64>\) \$[\d] = 1..5 : 1
+expr,expr rr.s7,std.core.Array<std.core.Range<Int64>>\) \$[\d] = {[\s\S]*\[0\] = 1..10 : 2[\s\S]*\[1\] = 1..10 : 2[\s\S]*\[2\] = 1..10 : 2[\s\S]*}*
+expr,expr rr.s7[0]=1..5:1,\(Unit\) \$[\d] = ()
+expr,expr rr.s7[0],std.core.Range<Int64>\) \$[\d] = 1..5 : 1
+q,q,

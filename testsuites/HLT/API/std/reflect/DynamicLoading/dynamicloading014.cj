@@ -26,24 +26,14 @@ main() {
     let n = PackageInfo.load("./module_case1/test1.dynamicloading_1")
     let l = PackageInfo.load("./module_case1/test2.dynamicloading_2")
     let q = PackageInfo.load("./module_case1/test3.dynamicloading_3")
-    // if (pkgm != pkgm || pkgm != pkgmm) {
-    //     return 1
     // }
 
-    // if (pkgn != pkgn || pkgn != pkgnn) {
-    //     return 1
     // }
 
-    // if (pkgl != pkgl || pkgl != pkgll) {
-    //     return 1
     // }
 
-    // if (pkgn != pkgl || pkgn != pkgll || pkgnn != pkgl || pkgnn != pkgll) {
-    //     return 1
     // }
 
-    // if (pkgq == pkgl || pkgq == pkgm || pkgq == pkgn) {
-    //     return 1
     // }
     return 0
 }

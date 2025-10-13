@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/collection_HashMap/basic_hashmap_013.cj
+// EXEC: %compiler %cmp_opt -g basic_hashmap_013.cj -o basic_hashmap_013%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_hashmap_013.info basic_hashmap_013 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors basic_hashmap_013,basic_hashmap_013
+b,b 8,basic_hashmap_013.cj:8
+AOT r,r,-> 8
+locals,locals,\(std.collection.HashMap<default.cla<Int64>,UInt8>\) a = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 42[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = {[\s\S]*x = 2[\s\S]*
+p,p b,\(std.collection.HashMap<default.cla<Int64>,UInt8>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 42[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = {[\s\S]*x = 2[\s\S]*
+q,q,

@@ -17,7 +17,6 @@ main(): Int64 {
 func run(): Int64 {
     var res1 = Data().Foo()
     var res2 = Base().Pooo()
-    //    print(res1.toString()+"\n"+res2.toString())
     if (res1 == 11 && res2 == 4) {
         return 0
     }

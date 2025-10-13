@@ -16,9 +16,6 @@ main(): Int64 {
     var b: Float32 = 0.000000000000000000000000000000000000000000000000000001
     print(b.format("e"))
     // var c = 65600f16
-    // print(c.format("e"))
-    // if(b.format("e") != "0.000000e+00"){
-    //   return 1
     // }
 
     var a = .00000002f16

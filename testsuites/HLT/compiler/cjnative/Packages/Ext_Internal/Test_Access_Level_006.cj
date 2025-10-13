@@ -39,8 +39,6 @@ class Date {
 main(): Int64 {
     var newClass1 = Date()
 
-    //if (newClass1.pub_modifier() != 5 || newRec1.pub_modifier1() != 6 || newRec1.pub_modifier2() != 7) {
-    //    return 1
     //}
 
     return 0

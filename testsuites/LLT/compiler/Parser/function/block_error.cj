@@ -8,7 +8,7 @@ class Point {
 
 foreign func testWithCallBack(clickfun: CFunc<(CPointer<UInt64>) -> Unit>): Unit
 
-main(){
+main() {
     let p: Point = Point(10, 20)
     let f2: CFunc<(CPointer<UInt64>) -> Unit> = {
       ptr => unsafe { prompare %f

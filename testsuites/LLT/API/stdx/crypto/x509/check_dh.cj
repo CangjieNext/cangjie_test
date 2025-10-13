@@ -10,7 +10,8 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args
 
 import std.fs.*
-import stdx.crypto.x509.{DerBlob, DHParameters, X509Exception}
+import stdx.crypto.x509.*
+import stdx.crypto.common.*
 import stdx.net.tls.*
 
 var sum = 0
@@ -25,10 +26,10 @@ class Test_der_verify_DH_01 {
  "./files/ca_public_key.pem", "./files/certsign.der" ]]
     func test_verify_dh(x: String): Unit {
         let derData = DerBlob(File.readFrom(x))
-        try {
-            let _ = DHParameters.decodeDer(derData)
+        try{
+            let _ = GeneralDHParameters.decodeDer(derData)
             @Assert(false)
-        } catch (e: X509Exception) {
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load"))
         }
     }
@@ -50,16 +51,18 @@ hO0wAt29/EVTsPSA+s52UAQDNsmLO6l/N+4VaKCClYpI80pIaRdjq8krzlY9HRmW
 P4+4EkB+G/2N5zz4vKsGCwBhpUC109TBSQIQiA1p9pUhRr22J05+4yMCAQU=
 -----END DH PARAMETERS-----
 """
-        let _ = DHParameters.decodeFromPem(pemString)
+        let dh  = GeneralDHParameters.decodeFromPem(pemString)
+        dh.encodeToPem()
+        @Expect(dh.toString(), "DHParameters(524 bytes)")
     }
 
     @TestCase
     func test_verify_dh_empty(): Unit {
         let derData = DerBlob(Array<Byte>())
-        try {
-            let _ = DHParameters.decodeDer(derData)
+        try{
+            let _ = GeneralDHParameters.decodeDer(derData)
             @Assert(false)
-        } catch (e: X509Exception) {
+        } catch (e: CryptoException) {
         }
     }
 }

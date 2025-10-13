@@ -33,26 +33,26 @@ main(): Int64 {
 }
 
 /* SCAN
-error: class 'C2' missing abstract modifier or abstract function 'foo' should be implemented
+error: class 'C2' missing abstract modifier, otherwise abstract function or property should be implemented
   ==> interface_implement_invalid_1.cj:17:1:
    | 
 17 | class C2 <: I2 {}
    | ^ 
    | 
-note: unimplemented interface function
+note: unimplemented interface function foo
   ==> interface_implement_invalid_1.cj:10:5:
    | 
 10 |     func foo(): Int64
    |     ^ 
    | 
 
-error: class 'C3' missing abstract modifier or abstract function 'foo' should be implemented
+error: class 'C3' missing abstract modifier, otherwise abstract function or property should be implemented
   ==> interface_implement_invalid_1.cj:19:1:
    | 
 19 | class C3 <: I2 {
    | ^ 
    | 
-note: unimplemented interface function
+note: unimplemented interface function foo
   ==> interface_implement_invalid_1.cj:10:5:
    | 
 10 |     func foo(): Int64

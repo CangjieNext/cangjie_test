@@ -1,0 +1,48 @@
+class A {
+    func foo(): Int64 { 0 }
+    static init() {
+
+    }
+    init(v: Int32) {
+
+    }
+
+    A() {
+
+    }
+
+    ~init() {
+
+    }
+
+    static mut prop f: Int32 {
+        get() {
+            1
+        }
+        set(v) {
+
+        }
+    }
+}
+
+enum B {
+    R|K(Int32)
+
+    func foo(): Unit {
+
+    }
+    prop f: Int32 {
+        get() {
+            2
+        }
+    }
+}
+main(): Int64 {
+    return A().foo()
+}
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

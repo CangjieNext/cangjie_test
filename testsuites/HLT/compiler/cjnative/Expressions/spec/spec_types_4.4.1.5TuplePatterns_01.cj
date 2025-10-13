@@ -18,6 +18,5 @@ main(): Int64 {
         case (_, 100) => "someone got 100"
         case (_, _) => ""
     }
-    //    print("${scoreResult}")
     return 0
 }

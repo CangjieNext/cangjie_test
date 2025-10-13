@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/C_FFI_stepin.c   ../../basecase/CFFI/C_FFI_stepin.cj
+// EXEC: %clang -g %clang_opt C_FFI_stepin.c -o %cffi_output
+// EXEC: %compiler -g -L. -l%n C_FFI_stepin.cj -o %n%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cffi_test_03.info cffi_test_03 %run_env
+
+test#
+cjdb,cjdb --no-use-colors cffi_test_03,cffi_test_03
+b,b 24,Breakpoint 1:[\s\S]*C_FFI_stepin.cj:24
+AOT r,r,-> 24
+CJVM c,c,-> 24
+s,s,-> 6
+b,breakpoint set -n cfoo_2,Breakpoint 2:[\s\S]*C_FFI_stepin.c:18| 2 locations.
+c,c,-> 18
+locals,locals,\(char\) b
+q,q,

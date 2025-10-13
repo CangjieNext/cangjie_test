@@ -14,7 +14,7 @@ public enum SpecialUnit{
     Year | Month
 }
 
-main(){
+main() {
 }
 
 /* SCAN

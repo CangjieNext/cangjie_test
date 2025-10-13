@@ -1,0 +1,30 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output | compare %f
+// EXEC: %run %run_opt %output %run_args
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1
+// EXEC-2: %run %run_opt %output %run_args
+
+func foo<T>(a!: Int32 = 0): Int32 {
+    if (a == 0) {
+        return 0
+    } else if (a == 1) {
+        return foo<Int64>(a: 2)
+    } else {
+        return 2
+    }
+}
+
+main(): Int32 {
+    foo<Int8>()
+}
+
+/* SCAN-IN
+foo(l:8, c:1) -> main(l:18, c:1),
+*/
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

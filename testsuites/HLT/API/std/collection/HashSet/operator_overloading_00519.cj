@@ -31,12 +31,8 @@ interface update {
     operator func &(b: Bool): Bool
     operator func ^(b: Bool): Bool
     operator func |(b: Bool): Bool
-    //    operator func ^^(b:Bool):Bool
     operator func -(): Bool
-    //operator func ~():Bool
     operator func !(): Bool
-    //operator func ++():Bool
-    //operator func --():Bool
 }
 
 extend HashSet<Int32> <: update {
@@ -94,16 +90,12 @@ extend HashSet<Int32> <: update {
     public operator func |(b: Bool): Bool {
         true
     }
-    //operator func ^^(b:Bool):Bool {true}
     public operator func -(): Bool {
         true
     }
-    //operator func ~():Bool  {true}
     public operator func !(): Bool {
         true
     }
-    //operator func ++():Bool {true}
-    //operator func --():Bool {true}
 }
 
 main(): Int64 {
@@ -164,25 +156,13 @@ main(): Int64 {
     if (!(b | a)) {
         return 27
     }
-    //    if (!(b^^a)) {
-    //        return 28
-    //    }
 
     if (!(-b)) {
         return 30
     }
-    //    if (!(~b)) {
-    //        return 31
-    //    }
     if (!(!b)) {
         return 32
     }
 
-    /* if (!(b++)) {
-        return 33
-    }
-    if (!(b--)) {
-        return 34
-    }*/
     return 0
 }

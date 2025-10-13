@@ -41,7 +41,7 @@ error: the constraint of type parameter is not looser than parent's constraint
   ==> generic_constraint_inheritance_01.cj:22:46:
    | 
 22 |     static redef func f<T>(a: T): Unit where T <: C {} // Error，stricter constraint
-   |                                              ^^^^^^^ 
+   |                                              ^^^^^^ 
    | 
    # note: parent constraint is 'Class-B'
 
@@ -49,7 +49,7 @@ error: the constraint of type parameter is not looser than parent's constraint
   ==> generic_constraint_inheritance_01.cj:23:42:
    | 
 23 |     static redef func g<T>(): Unit where T <: C {} // Error，stricter constraint
-   |                                          ^^^^^^^ 
+   |                                          ^^^^^^ 
    | 
    # note: parent constraint is 'Class-B'
 
@@ -57,7 +57,7 @@ error: the constraint of type parameter is not looser than parent's constraint
   ==> generic_constraint_inheritance_01.cj:24:42:
    | 
 24 |     static redef func p<T>(): Unit where T <: C {} // Error，stricter constraint
-   |                                          ^^^^^^^ 
+   |                                          ^^^^^^ 
    | 
    # note: parent constraint is empty
 

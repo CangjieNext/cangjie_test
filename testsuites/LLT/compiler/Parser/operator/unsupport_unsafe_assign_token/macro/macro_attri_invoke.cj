@@ -4,7 +4,7 @@
 
 import define.*
 
-main(){
+main() {
     @M[+&](+&)
     @M[-&](-&)
     @M[*&](*&)

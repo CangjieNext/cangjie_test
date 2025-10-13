@@ -4,7 +4,7 @@
 // ASSERT: scan float32inf overflow: inf
 // ASSERT: scan float16inf overflow: inf
 
-main(){
+main() {
     let float64inf : Float64 = 2e9023
     println("float64inf overflow: ${float64inf}")
     let float32inf : Float32 = 2e9023

@@ -5,13 +5,14 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// EXEC:  %compiler %import-cangjie-stdx  %cmp_opt %f -o %output %cmp_utest_opt
-// EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args 
+ // EXEC:  %compiler %import-cangjie-stdx  %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args
 import stdx.crypto.digest.*
 import stdx.encoding.hex.*
 import std.time.*
 import std.convert.*
 import std.crypto.digest.*
+import stdx.crypto.common.*
 
 @Test
 class HMACTest {
@@ -49,11 +50,17 @@ class HMACTest {
     }
 
     @TestCase
+    func testHashTypeOperator(): Unit {
+        @Expect(HashType.SHA512, HashType.SHA512)
+        @Expect(HashType.SHA512 != HashType.SM3)
+    }
+
+    @TestCase
     func testInvlidInit(): Unit {
         var caseException01: ?Exception = None
         try {
             var key: Array<UInt8> = "cangjie".toArray()
-            HMAC(key, {=> TextDigest01()})
+            HMAC(key, {=>TextDigest01()} )
         } catch (e: CryptoException) {
             caseException01 = e
         }
@@ -73,6 +80,18 @@ class HMACTest {
         anomalyAssert(
             "testInvlidInit_02",
             caseException02,
+            "The key cannot be empty."
+        )
+        var caseException03: ?Exception = None
+        try {
+            var key: Array<UInt8> = "".toArray()
+            HMAC(key, {=> SHA512()})
+        } catch (e: CryptoException) {
+            caseException03 = e
+        }
+        anomalyAssert(
+            "testInvlidInit_02",
+            caseException03,
             "The key cannot be empty."
         )
     }
@@ -218,16 +237,18 @@ class HMACTest {
     @TestCase
     func testEqualt(): Unit {
         var mac: Array<Byte> = [43, 175, 235, 83, 182, 10, 17, 157, 56, 121, 58, 136, 108, 119, 68, 245, 2, 125, 126,
-            170, 55, 2, 53, 30, 117, 228, 255, 155, 242, 85, 227, 206, 41, 107, 244, 31, 128, 173, 218, 40, 97, 232, 27,
-            216, 239, 197, 34, 25, 223, 130, 24, 82, 216, 74, 23, 251, 98, 94, 57, 101, 235, 242, 253, 217]
+        170, 55, 2, 53, 30, 117, 228, 255, 155, 242, 85, 227, 206, 41, 107, 244, 31, 128, 173, 218, 40, 97, 232, 27,
+        216, 239, 197, 34, 25, 223, 130, 24, 82, 216, 74, 23, 251, 98, 94, 57, 101, 235, 242, 253, 217]
         var mac1: Array<Byte> = [43, 175, 235, 83, 182, 10, 17, 157, 56, 121, 58, 136, 108, 119, 68, 245, 2, 125, 126,
-            170, 55, 2, 53, 30, 117, 228, 255, 155, 242, 85, 227, 206, 41, 107, 244, 31, 128, 173, 218, 40, 97, 232, 27,
-            216, 239, 197, 34, 25, 223, 130, 24, 82, 216, 74, 23, 251, 98, 94, 57, 101, 235, 242, 253, 217]
+        170, 55, 2, 53, 30, 117, 228, 255, 155, 242, 85, 227, 206, 41, 107, 244, 31, 128, 173, 218, 40, 97, 232, 27,
+        216, 239, 197, 34, 25, 223, 130, 24, 82, 216, 74, 23, 251, 98, 94, 57, 101, 235, 242, 253, 217]
         var mac2: Array<Byte> = [44, 175, 235, 83, 182, 10, 17, 157, 56, 121, 58, 136, 108, 119, 68, 245, 2, 125, 126,
-            170, 55, 2, 53, 30, 117, 228, 255, 155, 242, 85, 227, 206, 41, 107, 244, 31, 128, 173, 218, 40, 97, 232, 27,
-            216, 239, 197, 34, 25, 223, 130, 24, 82, 216, 74, 23, 251, 98, 94, 57, 101, 235, 242, 253, 217]
+        170, 55, 2, 53, 30, 117, 228, 255, 155, 242, 85, 227, 206, 41, 107, 244, 31, 128, 173, 218, 40, 97, 232, 27,
+        216, 239, 197, 34, 25, 223, 130, 24, 82, 216, 74, 23, 251, 98, 94, 57, 101, 235, 242, 253, 217]
+        var mac3: Array<Byte> = [43, 175]
         @Expect(HMAC.equal(mac1,mac))
         @Expect(!HMAC.equal(mac2,mac))
+        @Expect(!HMAC.equal(mac3,mac))
     }
     /*
      * Test HashType API:
@@ -242,7 +263,6 @@ class HMACTest {
         @Expect(HashType.MD5.toString(), "MD5")
     }
 }
-
 class TextDigest01 <: Digest {
     public init() {
     }
@@ -268,6 +288,7 @@ class TextDigest01 <: Digest {
         []
     }
     public func finish(to!: Array<Byte>): Unit {
+
     }
 
     public func reset(): Unit {

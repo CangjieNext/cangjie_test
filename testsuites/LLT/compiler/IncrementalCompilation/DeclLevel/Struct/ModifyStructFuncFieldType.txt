@@ -1,0 +1,51 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %incrementalCompile %n.cj -o %output
+// EXEC: %run %run_opt %output %run_args
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC: %compiler %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC-1: %run %run_opt %output %run_args
+
+
+struct A{
+    var a = 1
+    let b : Int64 = 1
+    A(i : Int64) {
+        a = i
+    }
+    init() {
+    }
+}
+
+func f(x : A) {
+    x
+}
+
+func g(x: A) {
+    x.a
+}
+
+func k(x: A) {
+    x.b
+}
+
+main():Int64{
+    let aa = A(1)
+    return aa.a;
+}
+
+// ASSERT: scan changed decls to recompile: 9
+// ASSERT: scan the changed decl after Spreading is:A in file ModifyStructFuncFieldType.cj in line 9 in column 8
+// ASSERT: scan the changed decl after Spreading is:a in file ModifyStructFuncFieldType.cj in line 10 in column 9
+// ASSERT: scan the changed decl after Spreading is:b in file ModifyStructFuncFieldType.cj in line 11 in column 9
+// ASSERT: scan the changed decl after Spreading is:A in file ModifyStructFuncFieldType.cj in line 12 in column 5
+// ASSERT: scan the changed decl after Spreading is:init in file ModifyStructFuncFieldType.cj in line 15 in column 5
+// ASSERT: scan the changed decl after Spreading is:f in file ModifyStructFuncFieldType.cj in line 19 in column 6
+// ASSERT: scan the changed decl after Spreading is:g in file ModifyStructFuncFieldType.cj in line 23 in column 6
+// ASSERT: scan the changed decl after Spreading is:k in file ModifyStructFuncFieldType.cj in line 27 in column 6
+// ASSERT: scan the changed decl after Spreading is:main in file ModifyStructFuncFieldType.cj in line 31 in column 1
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

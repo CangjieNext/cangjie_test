@@ -10,5 +10,4 @@ package b
 
 internal import c.*
 internal import d.D.*
-// import not use
 public var b = 2

@@ -1,0 +1,14 @@
+// LEVEL: 0
+// (CJNATIVE) DEPENDENCE: a.cj b.cj
+// (CJNATIVE) EXEC: %compiler %compile_lib_opt b.cj -o libb.a %optimization_level_2
+// (CJNATIVE) EXEC-PIPE-0: %compiler a.cj libb.a -o %output -Woff unused %dumpCHIRDebug %optimization_level_2 2>&1 
+// (CJNATIVE) EXEC: cat test_CHIR_Debug/$(ls -1 test_CHIR_Debug | sort -t '_' -k1,1n | tail -n 1) | compare %f
+// (CJNATIVE) ASSERT: scan genericDecl: _CN1b1CIG_E, packageName: b
+// (CJNATIVE) ASSERT: scan-not genericDecl: _CN1b1CIG_E, packageName: a
+
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

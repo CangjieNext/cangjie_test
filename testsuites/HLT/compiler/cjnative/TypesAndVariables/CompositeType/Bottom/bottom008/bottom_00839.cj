@@ -11,7 +11,6 @@
 
 var a: Array<Array<Int64>> = [[1, 2]]
 
-// func test():Int64 = a[return 0][return 1]
 
 func test(): Int64 {
     a[return 0][return 1]

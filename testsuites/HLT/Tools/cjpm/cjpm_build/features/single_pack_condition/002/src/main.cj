@@ -12,7 +12,6 @@ internal import cj002.coo.*
 
 // @When[feature1 == "tiger"]
 // func foo(): Unit {
-//     println("feature tiger")
 // }
 
 @When[feature1 == "lion"]
@@ -27,7 +26,6 @@ func koo(): Unit {
 
 // @When[feature2 == "dog"]
 // func koo() {
-//     println("feature dog")
 // }
 
 main(): Unit {

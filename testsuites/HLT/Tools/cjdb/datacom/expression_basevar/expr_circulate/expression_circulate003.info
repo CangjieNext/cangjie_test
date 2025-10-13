@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../../cjdb_test.py    ../../../basecase/past_basic/066_debug_lambda.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_circulate003.info 066_debug_lambda %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
+CJVM b,b main,066_debug_lambda.cj:10
+CJVM c,c,-> 10
+b,b 12,066_debug_lambda.cj:12
+AOT r,r,-> 12
+expr~ expr while(true) {var ia = 10; globals_i64++; break};globals_i64~\(Int64\) \$[\d] = 65
+expr~ expr while(false) {var ia:Float16 = 10.12; globals_i64++; break};globals_i64~\(Int64\) \$[\d] = 65
+expr~ expr do{test_f(); globals_i64++; break}while(true);globals_i64~\(Int64\) \$[\d] = 66
+expr~ expr do{test_f(); globals_i64++; break}while(false);globals_i64~\(Int64\) \$[\d] = 67
+expr~ expr for (i in 1..=10) {let r1 = { a: Int64, b: Int64 => a + b }(1, 2); globals_i64--};globals_i64~\(Int64\) \$[\d] = 57
+expr~ expr while(true){for (i in 0..=5){globals_i64++};globals_i64++;break};globals_i64~\(Int64\) \$[\d] = 64
+expr~ expr while(false){for (i in 0..=5){globals_i64++};globals_i64++;break};globals_i64~\(Int64\) \$[\d] = 64
+q,q,

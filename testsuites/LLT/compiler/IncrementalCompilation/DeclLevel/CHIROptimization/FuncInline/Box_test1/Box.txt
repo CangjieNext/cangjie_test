@@ -1,0 +1,39 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output
+// EXEC: %run %run_opt %output %run_args
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC-2: %run %run_opt %output %run_args
+
+func foo(): Int64 {
+    2
+}
+
+interface I {
+	func f() { 1 }
+}
+extend Int64 <: I {
+	public func f(): Int64 {
+        foo()
+	}
+}
+
+main() {
+	var a : I = 1
+	return a.f()
+}
+
+// ASSERT: scan begin dump raw modified decls:
+// ASSERT: scan 7default3fooF$$l: body
+// ASSERT: scan incremental compilation triggered
+// ASSERT: scan begin dump incremental compile result:
+// ASSERT: scan changed decls to recompile: 2
+// ASSERT: scan the changed decl after Spreading is:foo in file Box.cj in line 8 in column 6
+// ASSERT: scan the changed decl after Spreading is:f in file Box.cj in line 16 in column 14
+// ASSERT: scan incremental sema
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

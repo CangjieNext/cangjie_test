@@ -5,7 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE)RUN-EXEC-PIPE-1: %compiler %cmp_opt %f -o %output --plugin=%n.cj 2>&1 | compare %f
-// (CJNATIVE)ASSERT: scan '--plugin' requires a valid dynamic library path.
+// (CJNATIVE and Linux)ASSERT: scan '--plugin' requires a dynamic library path with '.so' suffix.
+// (CJNATIVE and Windows)ASSERT: scan '--plugin' requires a dynamic library path with '.dll' suffix.
 
 main() {
     0

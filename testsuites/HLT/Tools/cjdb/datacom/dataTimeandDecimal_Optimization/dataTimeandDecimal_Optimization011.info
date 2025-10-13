@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/dataTimeandDecimal_Optimization/dataTimeandDecimal_Optimization011.cj
+// (LLVM and not Windows and not MAC) EXEC: %compiler %cmp_opt -g dataTimeandDecimal_Optimization011.cj -o dataTimeandDecimal_Optimization011%cmp_output
+// (LLVM and not Windows and not MAC) RUN-EXEC: python3 cjdb_test.py dataTimeandDecimal_Optimization011.info dataTimeandDecimal_Optimization011 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors dataTimeandDecimal_Optimization011,dataTimeandDecimal_Optimization011
+b,b 8,dataTimeandDecimal_Optimization011.cj:8
+r,r,-> 8
+p,p dateTime,\(std.time.DateTime\) \$[\d] = 2023-04-10T00:00:00Z
+p,p dateTime1,\(std.time.DateTime\) \$[\d] = 2023-04-09T16:00:00Z
+p,p dateTime2,\(std.time.DateTime\) \$[\d] = 99999-04-10T00:00:00Z
+p,p dateTime3,\(std.time.DateTime\) \$[\d] = 2023-04-09T21:00:00Z
+q,q,

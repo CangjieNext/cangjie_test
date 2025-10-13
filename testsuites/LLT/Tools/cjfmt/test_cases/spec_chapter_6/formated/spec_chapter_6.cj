@@ -47,9 +47,9 @@ class SS1 <: S2 {} // OK
 
 class SS2 <: S3 {} // Error, S3 is sealed class, cannot be inherited here.
 
-abstract sealed class C1 {}
+sealed abstract class C1 {}
 
-abstract open class C1 {}
+open abstract class C1 {}
 
 // 6.1.1.2 类继承
 open class C1 {}

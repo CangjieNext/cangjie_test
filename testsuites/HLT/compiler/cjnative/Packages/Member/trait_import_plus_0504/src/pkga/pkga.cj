@@ -25,8 +25,6 @@ public func aoo(): Int64 {
     var b: Fruit<Int64> = Fruit<Int64>(b0)
     var v1: Int64 = 2
     var v2: Int64 = 2
-    //    if (a.addcolor(v2) != 2){
-    //        return 1
     //    }
     if (addcolor(a, v2) != 2) {
         return 1
@@ -34,8 +32,6 @@ public func aoo(): Int64 {
     if (addcolor(pkgb.b, v2) != 2) {
         return 1
     }
-    //    if (pkgb.b.addcolor(v2) != 2){
-    //        return 1
     //    }
     return 0
 }

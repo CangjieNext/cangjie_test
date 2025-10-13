@@ -19,6 +19,6 @@ cjdb,cjdb --no-use-colors 067_debug_hashmap,067_debug_hashmap
 b,b 9,067_debug_hashmap.cj:9
 AOT r,r,-> 9
 CJVM c,c,-> 9
-p,p a,\(std\.collection.HashMap<Bool,UInt64>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = true[\s\S]*value = 10[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = false[\s\S]*value = 20[\s\S]*}[\s\S]*}
-locals,locals,a = {[\s\S]*\[0\] = {[\s\S]*key = true[\s\S]*value = 10[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = false[\s\S]*value = 20[\s\S]*}[\s\S]*}
+p,p a,\(std\.collection.HashMap<Bool,UInt64>\) \$[\d] = {[\s\S]*\[true -> 10\] = {[\s\S]*key = true[\s\S]*value = 10[\s\S]*}[\s\S]*\[false -> 20\] = {[\s\S]*key = false[\s\S]*value = 20[\s\S]*}[\s\S]*}
+locals,locals,a = {[\s\S]*\[true -> 10\] = {[\s\S]*key = true[\s\S]*value = 10[\s\S]*}[\s\S]*\[false -> 20\] = {[\s\S]*key = false[\s\S]*value = 20[\s\S]*}[\s\S]*}
 q,q,

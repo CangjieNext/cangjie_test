@@ -17,7 +17,6 @@ foreign func PassToCUInt8(x: UInt8): UInt8
 foreign func PassToCUInt16(x: UInt16): UInt16
 foreign func PassToCUInt32(x: UInt32): UInt32
 foreign func PassToCUInt64(x: UInt64): UInt64
-//foreign func PassToCSizet(x: UIntNative): UIntNative
 
 func testAllPrimitives(): Int64
 {
@@ -74,12 +73,6 @@ func testAllPrimitives(): Int64
   if (resUInt64 != inputUInt64 * 2) {
     return 1
   }
-
-  //let inputSizet: UIntNative = 32
-  //let resSizet =  unsafe { PassToCSizet(inputSizet) }
-  //if (resSizet != inputSizet * 2) {
-  //  return 1
-  //}
 
   return 0
 }

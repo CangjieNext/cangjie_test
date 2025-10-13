@@ -24,8 +24,5 @@ func test(a: Int8, b: Int8) {
 
 main() {
     test(f1(), 100)
-    //print("${}\n")
-    //var res = Int64(test(127,100) - 127)
-    //print("success")
     return 0
 }

@@ -9,7 +9,7 @@
 struct A<T>{
     public operator func []<b:Float32):Bool {true}
 }
-main(){}
+main() {}
 
 /* SCAN
 error: unclosed delimiter: '<'

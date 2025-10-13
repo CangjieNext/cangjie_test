@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb HashMap2,HashMap2
+b,b 36,HashMap2.cj:36
+r,r,-> 36
+ ,expr basic1,\(std.collection.HashMap<Int64,std.core.String>\) \$\d+ = {\s+\[121 -> "a30"\] = {(\r|\n|\r\n)    key = 121(\r|\n|\r\n)    value = "a30"
+ ,expr basic2,\(std.collection.HashMap<Float64,Int32>\) \$\d+ = {\s+\[1.1000000000000001 -> 1\] = {(\r|\n|\r\n)    key = 1.1000000000000001(\r|\n|\r\n)    value = 1
+ ,expr basic3,\(std.collection.HashMap<Rune,Int32>\) \$\d+ = {\s+\['a' -> 1\] = {(\r|\n|\r\n)    key = 'a'(\r|\n|\r\n)    value = 1
+ ,expr basic4,\(std.collection.HashMap<Bool,Int32>\) \$\d+ = {\s+\[false -> 3\] = {(\r|\n|\r\n)    key = false(\r|\n|\r\n)    value = 3
+ ,p basic5,\(std.collection.HashMap<std.core.String,std.core.String>\) \$\d+ = {\s+\["tony" -> "a30"\] = {(\r|\n|\r\n)    key = "tony"(\r|\n|\r\n)    value = "a30"
+ ,expr gmap,\(std.collection.HashMap<std.core.String,default.Cla>\) \$\d+ = {\s+\["tony"\] = {\s+key = "tony"\s+value = {\s+a = 1
+q,q,

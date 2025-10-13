@@ -13,19 +13,9 @@
 import std.ast.*
 
 // main(): Int64 {
-//     var input : Tokens = quote(while (!a){-b})
-//     let expr = parseExpr(input)
-//     if (expr.isWhileExpr()) {
-//         var b = expr.asWhileExpr()
-//         if (b.getCondExpr().asUnaryExpr().getExpr().asRefExpr().getIdentifier().value != "a") {
-//             return 1
 //         }
-//         if (b.getBody()[0].asExpr().asUnaryExpr().getExpr().asRefExpr().getIdentifier().value != "b") {
-//             return 2
 //         }
-//         return 0
 //     }
-//     return 3
 // }
 
 main(): Int64 {

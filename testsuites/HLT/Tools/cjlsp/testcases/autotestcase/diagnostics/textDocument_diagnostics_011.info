@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../../lsp_test.py ../../../sourcecode/cangjieTest/diagnosticsTest ../../../lsp_config.txt
+// EXEC: %python lsp_test.py textDocument_diagnostics_011.info
+
+Req#
+{"jsonrpc": "2.0", "id": "0", "method": "initialize", "params": {"processId": null, "rootPath": "diagnosticsTest", "rootUri": "diagnosticsTest", "initializationOptions": {"multiModuleOption": {"diagnosticsTest": { "name": "diagnosticsTest", "requires": {}}}}, "capabilities": {"workspace": {"applyEdit": true, "workspaceEdit": {}, "didChangeWatchedFiles": {}, "symbol": {}, "executeCommand": {}, "workspaceFolders": false, "configuration": false}, "textDocument": {"synchronization": {"willSave": true, "willSaveWaitUntil": true, "didSave": true}, "completion": {"completionItem": {"snippetSupport": true}}, "hover": {}, "signatureHelp": {}, "references": {}, "documentHighlight": {"dynamicRegistration": true}, "formatting": {}, "rangeFormatting": {}, "onTypeFormatting": {}, "definition": {}, "codeAction": {}, "documentLink": {}, "rename": {"prepareSupport": true}, "semanticHighlightingCapabilities": {"semanticHighlighting": true}, "callHierarchy": {}, "semanticTokens": {"tokenTypes": ["namespace", "type", "class", "enum", "interface", "struct", "typeParameter", "parameter", "variable", "property", "enumMember", "event", "function", "method", "macro", "keyword", "modifier", "comment", "string", "number", "regexp", "operator", "member", "label"], "tokenModifiers": ["declaration", "definition", "readonly", "static", "deprecated", "abstract", "async", "modification", "documentation", "defaultLibrary"], "dynamicRegistration": true}}}}}
+{"jsonrpc": "2.0", "method": "initialized", "params": {}}
+{"jsonrpc":"2.0","method":"textDocument/didOpen","params":{"textDocument":{"uri":"diagnosticsTest/src/var_error/diag_004.cj","languageId":"Cangjie","version":39,"text":"package diagnosticsTest.var_error\n\nlet var0041: String = 1\nlet var0042: Int8 = 'x'\nlet var0043: Int8 = 999999\n"}}}
+{"jsonrpc": "2.0", "id": 10, "method": "shutdown", "params": {}}
+{"jsonrpc": "2.0", "method": "exit", "params": {}}
+
+Rev#
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"category":202,"code":202,"message":"cannot convert an integer literal to type 'Struct-String'","range":{"end":{"character":23,"line":2},"start":{"character":22,"line":2}},"severity":1,"source":"Cangjie"},{"category":684,"code":684,"message":"mismatched types expected 'Int8', found 'Struct-String'","range":{"end":{"character":23,"line":3},"start":{"character":20,"line":3}},"severity":1,"source":"Cangjie"},{"category":718,"code":718,"message":"the number '999999' exceeds the value range of type 'Int8'","range":{"end":{"character":26,"line":4},"start":{"character":20,"line":4}},"severity":1,"source":"Cangjie"}],"uri":"diagnosticsTest/src/var_error/diag_004.cj"}}
+

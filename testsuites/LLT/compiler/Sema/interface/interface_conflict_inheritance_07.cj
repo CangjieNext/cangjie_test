@@ -27,7 +27,7 @@ error: return type of the inherited function members 'foo' are not identical and
   ==> interface_conflict_inheritance_07.cj:17:25:
    | 
 17 | func bar<T>(x: T) where T <: I1 & I2 {
-   |                         ^^^^^^^^^^^^^ 
+   |                         ^^^^^^^^^^^^ 
    | 
    # note: conflict types are 'Int64', 'Struct-String'
 
@@ -35,7 +35,7 @@ error: return type of the inherited function members 'foo' are not identical and
   ==> interface_conflict_inheritance_07.cj:20:18:
    | 
 20 | class A<T> where T <: I1 & I2 {}
-   |                  ^^^^^^^^^^^^^ 
+   |                  ^^^^^^^^^^^^ 
    | 
    # note: conflict types are 'Int64', 'Struct-String'
 

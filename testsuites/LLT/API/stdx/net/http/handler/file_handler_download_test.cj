@@ -17,6 +17,8 @@
 package tests.handler
 
 import stdx.net.http.*
+import stdx.net.tls
+import stdx.crypto.kit
 import std.fs.*
 import stdx.log.*
 import std.sync.*

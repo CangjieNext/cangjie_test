@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 34,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "Derived2ff","range": {"end": {"character": 14,"line": 9},"start": {"character": 6,"line": 9}}},{"newText": "Derived2ff","range": {"end": {"character": 30,"line": 16},"start": {"character": 22,"line": 16}}},{"newText": "Derived2ff","range": {"end": {"character": 25,"line": 18},"start": {"character": 17,"line": 18}}},{"newText": "Derived2ff","range": {"end": {"character": 36,"line": 18},"start": {"character": 28,"line": 18}}},{"newText": "Derived2ff","range": {"end": {"character": 35,"line": 21},"start": {"character": 27,"line": 21}}},{"newText": "Derived2ff","range": {"end": {"character": 35,"line": 24},"start": {"character": 27,"line": 24}}},{"newText": "Derived2ff","range": {"end": {"character": 35,"line": 27},"start": {"character": 27,"line": 27}}},{"newText": "Derived2ff","range": {"end": {"character": 39,"line": 30},"start": {"character": 31,"line": 30}}},{"newText": "Derived2ff","range": {"end": {"character": 39,"line": 33},"start": {"character": 31,"line": 33}}}],"textDocument": {"uri": "renameProject/src/pkg/a01.cj","version": 4}}]}}
+{"id": 34,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "Derived2ff","range": {"end": {"character": 14,"line": 9},"start": {"character": 6,"line": 9}}},{"newText": "Derived2ff","range": {"end": {"character": 30,"line": 16},"start": {"character": 22,"line": 16}}},{"newText": "Derived2ff","range": {"end": {"character": 25,"line": 18},"start": {"character": 17,"line": 18}}},{"newText": "Derived2ff","range": {"end": {"character": 36,"line": 18},"start": {"character": 28,"line": 18}}},{"newText": "Derived2ff","range": {"end": {"character": 35,"line": 21},"start": {"character": 27,"line": 21}}},{"newText": "Derived2ff","range": {"end": {"character": 35,"line": 24},"start": {"character": 27,"line": 24}}},{"newText": "Derived2ff","range": {"end": {"character": 35,"line": 27},"start": {"character": 27,"line": 27}}},{"newText": "Derived2ff","range": {"end": {"character": 39,"line": 30},"start": {"character": 31,"line": 30}}},{"newText": "Derived2ff","range": {"end": {"character": 39,"line": 33},"start": {"character": 31,"line": 33}}}],"textDocument": {"uri": "renameProject/src/pkg/a01.cj","version": 3}}]}}

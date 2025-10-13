@@ -6,6 +6,4 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-main() {
-    0
-}
+main(){0}

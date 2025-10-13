@@ -14,6 +14,9 @@
 
 import std.io.*
 import stdx.net.http.*
+import stdx.net.tls.common.*
+import stdx.net.tls
+import stdx.crypto.kit
 import std.net.*
 import std.sync.*
 import asan.*

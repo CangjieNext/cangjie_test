@@ -2,7 +2,7 @@
 // EXEC:%frontendCompiler %typecheck %cmp_opt %f 2>&1 | compare %f
 
 
-main(){
+main() {
     static func test(){}
     operator func +(){}
     return
@@ -13,7 +13,7 @@ main(){
 error: unexpected modifier 'static' on function declaration in main function body
  ==> nested_function_modifier.cj:6:5:
   | 
-5 | main(){
+5 | main() {
   | ~~~~ in main function
 6 |     static func test(){}
   |     ^^^^^^ ~~~~ on function declaration
@@ -24,7 +24,7 @@ error: unexpected modifier 'static' on function declaration in main function bod
 error: unexpected modifier 'operator' on function declaration in main function body
  ==> nested_function_modifier.cj:7:5:
   | 
-5 | main(){
+5 | main() {
   | ~~~~ in main function
 6 |     static func test(){}
 7 |     operator func +(){}

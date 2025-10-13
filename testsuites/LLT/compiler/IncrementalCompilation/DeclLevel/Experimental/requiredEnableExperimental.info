@@ -1,0 +1,11 @@
+// LEVEL: 0
+// DEPENDENCE: code.cj
+// EXEC: %rmdir .cached
+// ERRCHECK: %compiler %n.cj --incremental-compile
+// ASSERT: scan --incremental-compile is an experimental feature. "--experimental" option is required to enable experimental features.
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

@@ -1,0 +1,2 @@
+// ASSERT: scan changed decls to recompile: 1
+// ASSERT: scan the changed decl after Spreading is:foo in file FI_3_Incr.old.cj in line 3 in column 13

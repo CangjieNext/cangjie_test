@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/member.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug member.cj -o member
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb member,member
+b,b 63,member.cj:63
+r,r,-> 63
+expr,expr rr.bbbb.map,\(std.collection.HashMap<std.core.String,Int64>\) \$\d+ = {\s+\["a" -> 0\] =
+expr,expr rr.stu.map,\(std.collection.HashMap<std.core.String,Int64>\) \$\d+ = {\s+\["a" -> 0\] =
+expr,expr rr.stu.map["a"],\(Int64\) \$\d+ = 0
+expr,expr rr.bbbb.map["b"],\(Int64\) \$\d+ = 1
+q,q,

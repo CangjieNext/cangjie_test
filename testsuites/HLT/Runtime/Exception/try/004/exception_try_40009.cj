@@ -17,7 +17,6 @@ class B {
     public init(input!: Int64 = try {
             throw A()
         }
-            //catch (_) {}
             finally {}) {
     }
 }

@@ -18,7 +18,6 @@ main(): Int64 {
     var input: Tokens = quote([a,b]--)
     let expr = parseExpr(input)
     /*
-    if (expr.isIncOrDecExpr()) {
         var b = expr.asIncOrDecExpr()
         if (b.getExpr().asArrayLit().getChildren()[0].asRefExpr().getIdentifier().value != "a") {
             return 2
