@@ -356,3 +356,6 @@ Regression/External/I4AZMP.cj
 
 # mock error, call an abstract function
 API/std/unittest/mock/test_mock_extend_cjnative.cj
+
+# syntax will be supported in future
+API/syntax

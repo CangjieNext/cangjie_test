@@ -21,3 +21,6 @@ Tools/cjdb/datacom/case/case20_5.info
 Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP036.info
 Tools/cjdb/datacom/expression_enum/expression_enum006.info
 Tools/cjdb/datacom/generics_expression/generics_local_var014.info
+
+# syntax will be supported in future
+API/syntax

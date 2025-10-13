@@ -12,3 +12,6 @@ API/std/unittest/mock/test_mock_extend_cjnative.cj
 
 # old jffi can only be run with cjvm.
 compiler/cjnative/FFI/jffi
+
+# syntax will be supported in future
+API/syntax

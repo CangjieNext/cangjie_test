@@ -77,3 +77,6 @@ Tools/cjlint/rules/G_CON_03/g_con_03_struct_extend_imple_1003/g_con_03_struct_ex
 Tools/cjlint/rules/G_OTH_01/g_oth_01_10016/g_oth_01_10016.info
 Tools/cjlint/rules/G_SER_03/constraints/g_constraints_06_04/g_constraints_06_04.info
 Tools/cjlint/rules/G_OTH_03/g_oth_03_10026/g_oth_03.info 
+
+# syntax will be supported in future
+API/syntax
