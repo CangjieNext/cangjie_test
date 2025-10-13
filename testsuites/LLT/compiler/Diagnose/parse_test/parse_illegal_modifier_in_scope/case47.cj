@@ -7,13 +7,13 @@
 // LEVEL: 0
 // ERRCHECK: %compiler %noColor %n.cj
 
-public main(){}
+public main() {}
 
 /* SCAN
 error: unexpected modifier 'public' on main function
   ==> case47.cj:10:1:
    | 
-10 | public main(){}
+10 | public main() {}
    | ^^^^^^ ~~~~ on main function
    | |
    | unexpected modifier

@@ -12,7 +12,8 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, Pem, PemEntry}
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.common.*
 import std.sync.*
 import std.time.*
 import std.argopt.*

@@ -28,38 +28,38 @@ let m = E();
 
 main()
 {
-    //((a < b), (c >= d)); tuple expr, type is (Bool, Bool)
+    ((a < b), (c >= d)); // tuple expr, type is (Bool, Bool)
     (a < b, c >= d);
-    //((a < b), (c > !d)); tuple expr, type is (Bool, Bool)
+    ((a < b), (c > !d)); // tuple expr, type is (Bool, Bool)
     (a < m.x, c > !d);
-    //( (a < b), (c > d)); tuple expr, type is (Bool, Bool)
+    ((a < b), (c > d)); // tuple expr, type is (Bool, Bool)
     (a < b, c >
     (d));
-    //((f2<Point2D, i32>(a)), (b)); tuple expr, type is (Int64, Int64)
+    ((f2<Point2D, i32>(a)), (b)); // tuple expr, type is (Int64, Int64)
     (f2 < Point2D, i32 > (a), b);
-    //(a, (f2 < Point2D, i32 >), c); tuple expr, type is (Int64, (Int64) -> Int64, Int64)
+    (a, (f2 < Point2D, i32 >), c); // tuple expr, type is (Int64, (Int64) -> Int64, Int64)
     (a, f2 < Point2D, i32 >, c);
-    //(a, b, (f2 < Point2D, i32 >)); tuple expr, type is (Int64, Int64, (Int64) -> Int64)
+    (a, b, (f2 < Point2D, i32 >)); // tuple expr, type is (Int64, Int64, (Int64) -> Int64)
     (a, b, f2 < Point2D, i32 >);
-    //((a<b), (c<d), (e>f), (g>h)); tuple expr, type is (Bool, Bool, Bool, Bool)
+    ((a<b), (c<d), (e>f), (g>h)); // tuple expr, type is (Bool, Bool, Bool, Bool)
     (a<b, c<d, e>f, g>h);
-    //(a<b, f1<i32>, e>f); tuple expr, type is (Bool, (Int64) -> Int64, Bool)
+    (a<b, f1<i32>, e>f); // tuple expr, type is (Bool, (Int64) -> Int64, Bool)
     (a<b, f1<i32>, e>f)
-    //((a<b), (c<d), (e>=f), (g>h)); tuple expr, type is (Bool, Bool, Bool, Bool)
+    ((a<b), (c<d), (e>=f), (g>h)); // tuple expr, type is (Bool, Bool, Bool, Bool)
     (a<b, c<d, e>=f, g>h);
-    //(a , (F<Point2D, i32>(b)), (c)); tuple expr, type is (Int64, Int64, Int64)
+    (a, (f2<Point2D, i32>(b)), (c)); // tuple expr, type is (Int64, Int64, Int64)
     (a, f2<Point2D, i32>(b), c);
-    //(a , (f2<Point2D, S<Point2D, i32>, i32>), (c)); tuple expr, type is (Int64, Int64, Int64)
+    (a, (f3<Point2D, S<Point2D, i32>, i32>), (c)); // tuple expr, type is (Int64, Int64, Int64)
     (a, f3<Point2D, S<Point2D, i32>, i32>(b), c);
-    //((a < b), (c , d), (e > f)); tuple expr, type is (Bool, (Int64, Int64), Bool)
+    ((a < b), (c , d), (e > f)); // tuple expr, type is (Bool, (Int64, Int64), Bool)
     (a < b, (c , d), e > f);
-    //(a<b, (c, d,), f>g); tuple expr, type is (Bool, (Int64, Int64), Bool)
+    (a<b, (c, d,), f>g); // tuple expr, type is (Bool, (Int64, Int64), Bool)
     (a<b, (c, d,), f>g)
-    //((f3<i32, (i32 , i32), i32>(f)), (g), (h)); tuple expr, type is (Int64, Int64, Int64)
+    ((f3<i32, (i32 , i32), i32>(f)), (g), (h)); // tuple expr, type is (Int64, Int64, Int64)
     (f3<i32, (i32 , i32), i32>(f), g, h);
-    //((a < b), ((c)> d)); tuple expr, type is (Bool, Bool)
+    ((a < b), ((c)> d)); // tuple expr, type is (Bool, Bool)
     (a < b, (c)> d);
-    //((f2<i32, (Point2D)>(d)), (e), (f)); tuple expr, type is (Int64, Int64, Int64)
+    ((f2<i32, (Point2D)>(d)), (e), (f)); // tuple expr, type is (Int64, Int64, Int64)
     (f2<FuncDecl, (?Point2D)>(d), e, f);
     0
 }

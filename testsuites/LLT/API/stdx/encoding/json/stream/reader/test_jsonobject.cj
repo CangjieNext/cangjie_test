@@ -280,6 +280,26 @@ public class JsonObjectTest {
     }
 
     @TestCase
+    func testTreeMap(): Unit {
+        let jsonStr = ##"{"string1": "null", "string2": "true", "string3": "123.456e3"}"##
+        var bas = ByteBuffer()
+        unsafe { bas.write(jsonStr.rawData()) }
+        var reader = JsonReader(bas)
+        var map = reader.readValue<TreeMap<String, String>>()
+        @Expect(map.toString(), "[(string1, null), (string2, true), (string3, 123.456e3)]")
+    }
+
+    @TestCase
+    func testConcurrentHashMap(): Unit {
+        let jsonStr = ##"{"string1": "null", "string2": "true", "string3": "123.456e3"}"##
+        var bas = ByteBuffer()
+        unsafe { bas.write(jsonStr.rawData()) }
+        var reader = JsonReader(bas)
+        var map = reader.readValue<TreeMap<String, String>>()
+        @Expect(map.toString(), "[(string1, null), (string2, true), (string3, 123.456e3)]")
+    }
+
+    @TestCase
     func jsonobjectToManyTop(): Unit {
         let jsonStr = ##"{"key":"value"}["value"]nulltrue123"value"123.456e3"##
         var bas = ByteBuffer()

@@ -14,7 +14,6 @@ func a<X, Y>(x: X, y: Y): Int64 {
     return 2
 }
 
-// func b():Int64 = a(return 0, return 1)
 
 func b(): Int64 {
     a(return 0, return 1)

@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and Linux)EXEC-PIPE-1: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler -L $CANGJIE_STDX_PATH -lstdx.aspectCJ --import-path $CANGJIE_STDX_PATH %cmp_opt %f -o %output --plugin=$CANGJIE_STDX_PATH/libcollect-aspects.%dylib_suffix --plugin=$CANGJIE_STDX_PATH/libwave-aspects.%dylib_suffix 2>&1 | compare %f
-// (CJNATIVE and Linux)ASSERT: scan printCurrentTimeImpl: labeled by @InsertAtEntry should have Unit return type.
+// (CJNATIVE and Linux)ASSERT: scan printCurrentTimeImpl: Return type of function annotated with @InsertAtEntry must be Unit.
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

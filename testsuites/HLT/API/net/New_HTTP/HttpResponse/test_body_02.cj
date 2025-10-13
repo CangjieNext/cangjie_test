@@ -18,6 +18,9 @@
  */
 
 import stdx.net.http.*
+import stdx.net.tls.common.*
+import stdx.net.tls
+import stdx.crypto.kit
 import std.time.*
 import std.sync.*
 import std.collection.*
@@ -29,7 +32,6 @@ var server = ServerBuilder().addr("127.0.0.1").port(0).build()
 @Test
 class Test_HttpResponseBuilder_Body_02 {
     func startserve(): Unit {
-        // content-length = body.size
         var a: HttpRequestHandler = FuncHandler(
             {
                 httpContext =>
@@ -37,7 +39,6 @@ class Test_HttpResponseBuilder_Body_02 {
                 httpContext.responseBuilder.body(Array<UInt8>(1000, repeat: UInt8(10)))
             }
         )
-        // content-length = body.size
         var b: HttpRequestHandler = FuncHandler(
             {
                 httpContext =>

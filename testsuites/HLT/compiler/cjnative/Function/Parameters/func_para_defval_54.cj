@@ -25,7 +25,6 @@ var hundred = 0
 
 func Foo(c!: Unit = while (hundred < 10) {
         hundred++;
-        //print(hundred.toString()) // 123456
         if (hundred > 5) {
             break
         }

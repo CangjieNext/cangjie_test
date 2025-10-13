@@ -9,7 +9,6 @@
 // LEVEL: 1
 // ERRCHECK: %compiler %cmp_opt %f -o %output
 
-// if (e1) {e2} else {e3}, whole expression`s type depend on e2 and e3`s type.
 // func test():Int64 = if (return 1) {return 2}else if (return 3) {return 4}
 
 func test(): Int64 {

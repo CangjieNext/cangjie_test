@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 660,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "prop","insertText": "prop","insertTextFormat": 1,"kind": 14,"label": "prop","sortText": "200000"}]}
+{"id": 660,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "prop","insertText": "prop","insertTextFormat": 1,"kind": 14,"label": "prop","sortText": "260000"},{"deprecated": false,"detail": "prop name: T {get(){val}}","documentation": "","filterText": "prop","insertText": "prop ${0:name}: ${1:T} {\n\tget() {\n\t\t${3:val}\n\t}\n}","insertTextFormat": 2,"kind": 14,"label": "prop name: T {get(){val}}","sortText": "260000"},{"deprecated": false,"detail": "prop name: T {get(){val} set(v){}}","documentation": "","filterText": "prop","insertText": "prop ${0:name}: ${1:T} {\n\tget() {\n\t\t${3:val}\n\t}\n\tset(v) {\n\t}\n}","insertTextFormat": 2,"kind": 14,"label": "prop name: T {get(){val} set(v){}}","sortText": "260000"}]}

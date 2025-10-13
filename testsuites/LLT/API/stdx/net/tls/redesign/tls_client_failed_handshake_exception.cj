@@ -15,7 +15,9 @@ import std.net.*
 import std.time.*
 import std.sync.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.net.tls.common.*
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.keys.*
 import std.fs.*
 import std.collection.*
 import std.io.*
@@ -31,9 +33,9 @@ func runTcpServer(): (TcpServerSocket, UInt16) {
 func runTlsServer(server: TcpServerSocket) {
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
-    var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
     let pem = String.fromUtf8(readToEnd(File("./files/root_ecdsa.cer", Read)))
-    serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
+    serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
     try (tcp = server.accept()) {
         try (tls = TlsSocket.server(tcp, serverConfig: serverConf)) {
             try {

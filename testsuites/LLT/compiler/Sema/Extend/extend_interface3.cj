@@ -18,13 +18,13 @@ extend A <: I {
 }
 
 /* SCAN
-error: implementation of function 'foo' is needed in 'extend A'
+error: implementation of function or property is needed in 'extend A'
   ==> extend_interface3.cj:16:1:
    | 
 16 | extend A <: I {
    | ^ 
    | 
-note: unimplemented interface function
+note: unimplemented interface function foo
   ==> extend_interface3.cj:13:5:
    | 
 13 |     func foo(): Unit

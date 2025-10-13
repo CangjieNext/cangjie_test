@@ -1,7 +1,7 @@
 // EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix 2>&1 | compare %f
 
 
-main(){
+main() {
     println("${ }")
     return 0
 }

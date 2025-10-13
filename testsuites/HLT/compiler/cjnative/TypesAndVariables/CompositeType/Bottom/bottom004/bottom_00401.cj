@@ -18,6 +18,5 @@ func test(): Int64 {
 
 main(): Int64 {
     test()
-    // foo()
     return 0
 }

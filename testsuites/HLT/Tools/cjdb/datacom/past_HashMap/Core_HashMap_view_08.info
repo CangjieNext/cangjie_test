@@ -19,6 +19,6 @@ cjdb,cjdb --no-use-colors 067_debug_hashmap,067_debug_hashmap
 b,b 23,067_debug_hashmap.cj:23
 AOT r,r,-> 23
 CJVM c,c,-> 23
-p,p a,\(std\.collection.HashMap<Int8,std.collection.HashMap<UInt8,Int64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = 10[\s\S]*value = {[\s\S]*\[0\] = {[\s\S]*key = 11[\s\S]*value = 12[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = 20[\s\S]*value = {[\s\S]*\[0\] = {[\s\S]*key = 21[\s\S]*value = 22[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*}
-locals,locals,a = {[\s\S]*\[0\] = {[\s\S]*key = 10[\s\S]*value = {[\s\S]*\[0\] = {[\s\S]*key = 11[\s\S]*value = 12[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = 20[\s\S]*value = {[\s\S]*\[0\] = {[\s\S]*key = 21[\s\S]*value = 22[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*}
+p,p a,\(std\.collection.HashMap<Int8,std.collection.HashMap<UInt8,Int64>>\) \$[\d] = {[\s\S]*\[10\] = {[\s\S]*key = 10[\s\S]*value = {[\s\S]*\[11 -> 12\] = {[\s\S]*key = 11[\s\S]*value = 12[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*\[20\] = {[\s\S]*key = 20[\s\S]*value = {[\s\S]*\[21 -> 22\] = {[\s\S]*key = 21[\s\S]*value = 22[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*}
+locals,locals,a = {[\s\S]*\[10\] = {[\s\S]*key = 10[\s\S]*value = {[\s\S]*\[11 -> 12\] = {[\s\S]*key = 11[\s\S]*value = 12[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*\[20\] = {[\s\S]*key = 20[\s\S]*value = {[\s\S]*\[21 -> 22\] = {[\s\S]*key = 21[\s\S]*value = 22[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*}
 q,q,

@@ -17,7 +17,6 @@ class B {
     public func test(input!: Int64 = try {
             throw A()
         }
-            //catch (_) {}
             finally {}):Unit {
     }
 }

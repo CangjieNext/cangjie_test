@@ -1,0 +1,13 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// ASSERT: scan #from <default> import [private] [readOnly] [imported] [nonRecompile] @_CN7defaultU000000016iSBU1aE: Int64&
+// ASSERT: regex-not #from <default> import .* @_CN7default2m1E: Int64
+// ASSERT: regex-not #from <default> import .* @_CN7default1bE: Int64
+// ASSERT: scan [readOnly] [internal] @_CN7default1bE: Int64& = 2
+// ASSERT: scan [internal] @_CN7default2m1E: Int64& = 3
+// ASSERT: scan Func @_CGF7defaultU000000016iSBUiiHv() :
+// ASSERT: scan Func @_CGF7defaultU000000016iSBUilHv() :

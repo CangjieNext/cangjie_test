@@ -14,7 +14,6 @@ func a<T>(x: T): Int64 {
     return 1
 }
 
-// func b():Int64 = a(return 0)
 
 func b(): Int64 {
     a(return 0)

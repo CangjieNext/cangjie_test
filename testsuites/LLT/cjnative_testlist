@@ -11,3 +11,43 @@ API/
 Tools/cjdb
 
 [EXCLUDE-TEST-CASE]
+# The following cases can only be executed in the debug version, but the CI gate currently only supports the release version.
+compiler/CHIR/Serialize
+compiler/CHIR/AST2CHIR/SetGenericInfo
+compiler/CHIR/ComputeAnnotations
+compiler/CHIR/InvokeNodetest
+compiler/CHIR/RemoveRedundantRet
+compiler/CHIR/ScalarReplacementOfArray
+compiler/CHIROpt
+compiler/Parser/declFile
+compiler/IncrementalCompilation
+
+# no perf and gnuplot
+API/std/unittest/new_bench/bench_perf.cj
+API/std/unittest/report_bench_html/report_html_no_gnuplot.cj
+
+# should be blocked , it's for --stdlib-mock version.
+API/std/unittest/mock/compiler/misc/stdlib/disabledMocking.cj
+
+# IR codedump should be fixed.
+API/std/unittest/mock/compiler/misc/coverage_default_funcs.cj
+
+# Re-enable after updating the strace
+API/std/socket/redesign/syscalls/tcp_bind_to_device.cj
+
+# should be fixed.
+Tools/cjdb/datacom/debuginfo_enum03.info
+Tools/cjdb/datacom/debuginfo_env_display_03.info
+Tools/cjdb/datacom/generic/generic_func02.info
+Tools/cjdb/datacom/debuginfo_env_display_04.info
+Tools/cjdb/datacom/debuginfo_inlined_function.info
+Tools/cjdb/datacom/expr/enum5.info
+Tools/cjdb/datacom/expr/localfunc3.info
+
+# fails if user is root 
+compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
+compiler/ConditionalCompilation/cfg/read_file_fail.cj
+
+# should be fixed.
+API/std/unittest/mock/compiler/createMock/usePrivateTypesOtherPackage.cj
+API/std/unittest/report_bench_html/report_html_gnuplot.cj

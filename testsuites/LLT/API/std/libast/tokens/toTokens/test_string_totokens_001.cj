@@ -4,7 +4,7 @@
 import std.ast.*
 
 main(): Int64 {
-    let str = """
+    var str = """
 Here
 is
 a
@@ -13,9 +13,34 @@ line
 string
 .
 """
-    let tok = str.toTokens()
+    var tok = str.toTokens()
     tok.dump()
-
+    str = "this is a string"
+    tok = str.toTokens()
+    tok.dump()
+    str = "\'\'"
+    tok = str.toTokens()
+    tok.dump()
+    str = 'this is a string'
+    tok = str.toTokens()
+    tok.dump()
+    str = '\"\"'
+    tok = str.toTokens()
+    tok.dump()
+    str = ##"""
+    #this is a string#
+    """##
+    tok = str.toTokens()
+    tok.dump()
+    str = '#"this is a string"#'
+    tok = str.toTokens()
+    tok.dump()
+    str = '''
+    """
+    """
+    '''
+    tok = str.toTokens()
+    tok.dump()
     return 0
 }
 

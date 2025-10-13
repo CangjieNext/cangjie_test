@@ -17,9 +17,9 @@ cjdb,cjdb --no-use-colors 005_HashMap_via_class,005_HashMap_via_class
 b,b 18,005_HashMap_via_class.cj:18
 AOT r,r,-> 18
 CJVM c,c,-> 18
-s,s,func fun_r1\(par_1:HashMap<UInt16, Int64>,par_2!:HashMap<UInt16, Int64> = map_r_2\):HashMap<UInt16, Int64>[\S\s]*-> 102[\S\s]*
-b,b 105,005_HashMap_via_class.cj:105
-c,c,-> 105
+s,s,-> 103
+b,b 106,005_HashMap_via_class.cj:106
+c,c,-> 106
 p,p map_r_return,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 132[\S\s]*value = 1750[\S\s]*}
 p,p map_r_return,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 12[\S\s]*value = 17750[\S\s]*}
 finish,finish,-> 18

@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/expression/expr_mix.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g expr_mix.cj -o 001_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expr_mix_08.info 001_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+b,b 55,expr_mix.cj:55
+CJVM c,c,-> 55
+AOT r,r,-> 55
+expr,expr if (arr1[0]<<2<10){count = list1[1]>>2+arr1[0]|arr1[2]};count,\(Int64\) \$[\d] = 3
+expr,expr if ((hm["a"]&2)<10){count = list1[0]-arr1[1]}else{count = arr1[2]|3};count,\(Int64\) \$[\d] = -1
+expr,expr if ((list1[1]|2)<10) {count = arr1[1]^2+count**2};count,\(Int64\) \$[\d] = 1
+expr,expr if (arr1[2]%2+hm["c"]**2+list1[1]*2+-arr1[0] >10) {count = count^2};count,\(Int64\) \$[\d] = 3
+q,q,

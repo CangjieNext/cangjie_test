@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -21,4 +21,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 1879,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "Int32","insertText": "Int32","insertTextFormat": 1,"kind": 14,"label": "Int32","sortText": "622000"},{"deprecated": false,"detail": "","documentation": "","filterText": "UInt32","insertText": "UInt32","insertTextFormat": 1,"kind": 14,"label": "UInt32","sortText": "643333"},{"deprecated": false,"detail": "(class) class Derived2 <: Base_new","documentation": "","filterText": "Derived2","insertText": "Derived2","insertTextFormat": 1,"kind": 7,"label": "Derived2","sortText": "690000"},{"deprecated": false,"detail": "(interface) interface I2","documentation": "","filterText": "I2","insertText": "I2","insertTextFormat": 1,"kind": 8,"label": "I2","sortText": "370000"},{"deprecated": false,"detail": "","documentation": "","filterText": "testi2","insertText": "testi2","insertTextFormat": 1,"kind": 2,"label": "testi2","sortText": "663333"},{"deprecated": false,"detail": "(function) func testi2()","documentation": "","filterText": "testi2","insertText": "testi2()","insertTextFormat": 1,"kind": 2,"label": "testi2()","sortText": "663333"}]}
+{"id": 1879,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(class) class Derived2 <: Base_new","documentation": "","filterText": "Derived2","insertText": "Derived2","insertTextFormat": 1,"kind": 7,"label": "Derived2","sortText": "630000"},{"deprecated": false,"detail": "(interface) interface I2","documentation": "","filterText": "I2","insertText": "I2","insertTextFormat": 1,"kind": 8,"label": "I2","sortText": "460000"},{"deprecated": false,"detail": "","documentation": "","filterText": "testi2","insertText": "testi2","insertTextFormat": 1,"kind": 2,"label": "testi2","sortText": "620000"},{"deprecated": false,"detail": "(function) internal func testi2(): Unit","documentation": "","filterText": "testi2","insertText": "testi2()","insertTextFormat": 1,"kind": 2,"label": "testi2()","sortText": "620000"},{"deprecated": false,"detail": "","documentation": "","filterText": "Int32","insertText": "Int32","insertTextFormat": 1,"kind": 14,"label": "Int32","sortText": "596000"},{"deprecated": false,"detail": "","documentation": "","filterText": "UInt32","insertText": "UInt32","insertTextFormat": 1,"kind": 14,"label": "UInt32","sortText": "620000"}]}

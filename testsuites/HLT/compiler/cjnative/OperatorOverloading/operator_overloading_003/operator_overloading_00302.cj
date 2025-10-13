@@ -15,10 +15,8 @@ struct R {
         return 1
     }
     //    operator func ++():Int32{ 
-    //        return 1
     //    }
     //    operator func --():Int32{ 
-    //        return 1
     //    }
     public operator func !(): Int32 {
         return 1
@@ -30,10 +28,8 @@ class C {
         return 1
     }
     //    operator func ++():Int32{ 
-    //        return 1
     //    }
     //    operator func --():Int32{ 
-    //        return 1
     //    }
     public operator func !(): Int32 {
         return 1
@@ -45,10 +41,8 @@ interface I {
         return 1
     }
     //    operator func ++():Int32{ 
-    //        return 1
     //    }
     //    operator func --():Int32{ 
-    //        return 1
     //    }
     operator func !(): Int32 {
         return 1

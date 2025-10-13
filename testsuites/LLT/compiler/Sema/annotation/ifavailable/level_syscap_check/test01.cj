@@ -10,7 +10,7 @@
 // ERRCHECK: %compiler %cmp_opt %f canIUse.%middle device_info.%middle
 
 main() {
-    @IfAvailable(level: 11, {=>}, {=>})
+    @IfAvailable(level: 19, {=>}, {=>})
     @IfAvailable(syscap: "xxx", {=>}, {=>})
 }
 
@@ -18,7 +18,7 @@ main() {
 error: import 'ohos.device_info' to use the 'IfAvailable' expression
   ==> test01.cj:13:5:
    | 
-13 |     @IfAvailable(level: 11, {=>}, {=>})
+13 |     @IfAvailable(level: 19, {=>}, {=>})
    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
    # note: depend on declaration 'DeviceInfo'

@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/collection_HashMap/basic_hashmap_012.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g basic_hashmap_012.cj -o basic_hashmap_012%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py cjdb_hashmap_012.info basic_hashmap_012 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors basic_hashmap_012,basic_hashmap_012
+b,b 15,basic_hashmap_012.cj:15
+AOT r,r,-> 15
+globals,globals,\(std.collection.HashMap<default.cla<Int64>,UInt8>\) default::map_a = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 42[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = {[\s\S]*x = 2[\s\S]*}[\s\S]*value = 12[\s\S]*
+p,p map_d,\(std.collection.HashMap<default.cla<Int64>,Rune>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 'C'[\s\S]*}[\s\S]*\[1\] = {[\s\S]*
+expr,expr map_b,\(std.collection.HashMap<default.cla<Int64>,std.core.String>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = "a"[\s\S]*}[\s\S]*\[1\] = {[\s\S]*key = {[\s\S]*x = 2[\s\S]*
+q,q,

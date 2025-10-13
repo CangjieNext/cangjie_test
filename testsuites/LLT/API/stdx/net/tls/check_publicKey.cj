@@ -10,8 +10,11 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args
 
 import std.fs.*
-import stdx.crypto.x509.{DerBlob, PrivateKey, PublicKey, X509Exception}
+import stdx.crypto.x509.*
+import stdx.crypto.keys.*
+import stdx.crypto.common.*
 import stdx.net.tls.*
+import stdx.net.tls.common.*
 
 var sum = 0
 
@@ -26,9 +29,9 @@ class Test_der_verify_publicKey_01 {
     func test_verify_publicKey(x: String): Unit {
         let derData = DerBlob(File.readFrom(x))
         try {
-            let derpub = PublicKey.decodeDer(derData)
+            let derpub = GeneralPublicKey.decodeDer(derData)
             @Assert(false)
-        } catch (e: X509Exception) {
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load public key"))
         }
     }
@@ -43,16 +46,16 @@ U5e0e7xiCJDzG2QnUXBl+0au82OAP7GDhGuj5Sm4Oz/G8B+zY75SWPmcFx3jTVF3
 kCYpM+BXs2u9knxRgwIDAQAB
 -----END PUBLIC KEY-----
 """
-        let derpub = PublicKey.decodeFromPem(pemString)
+        let derpub = GeneralPublicKey.decodeFromPem(pemString)
     }
 
     @TestCase
     func test_verify_publicKey_empty(): Unit {
         let derData = DerBlob(Array<Byte>())
         try {
-            let derpub = PublicKey.decodeDer(derData)
+            let derpub = GeneralPublicKey.decodeDer(derData)
             @Assert(false)
-        } catch (e: X509Exception) {
+        } catch (e: CryptoException) {
         }
     }
 }

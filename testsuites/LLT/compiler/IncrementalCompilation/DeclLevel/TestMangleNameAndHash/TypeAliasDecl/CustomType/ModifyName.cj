@@ -1,0 +1,24 @@
+// DEPENDENCE: ../template.cj %n.new.cj
+// EXEC: %cpfile template.cj main.cj
+// EXEC: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+// EXEC: %cpfile %n.new.cj main.cj
+// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output 2>&1 | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args
+
+// ASSERT: scan begin dump raw modified decls:
+// ASSERT: scan added FLOAT 7default5FLOATT at 2,6
+// ASSERT: scan deleted 7default3INTT
+// ASSERT: scan Fallback info:
+// ASSERT: scan changed typealias: FLOAT 7default5FLOATT main.cj 1
+// ASSERT: scan incremental compile result kind: rollback
+// ASSERT: scan full sema
+ 
+
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

@@ -11,7 +11,8 @@
 import std.net.*
 import std.sync.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.net.tls.common.*
+import stdx.crypto.x509.X509Certificate
 import std.unittest.*
 import std.unittest.testmacro.*
 import stdx.crypto.digest.HashType

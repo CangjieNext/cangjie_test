@@ -14,6 +14,7 @@ import std.unittest.testmacro.*
 import std.time.*
 import std.sync.*
 import std.net.*
+import stdx.net.tls
 import std.collection.*
 import stdx.log.*
 import stdx.logger.*

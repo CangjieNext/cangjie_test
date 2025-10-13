@@ -5,7 +5,7 @@ func f(fn: ()->Int64) {
     fn() 
 }
 
-main(){
+main() {
     f() { 5 } // trailing closures
 }
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

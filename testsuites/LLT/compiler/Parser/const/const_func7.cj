@@ -20,7 +20,7 @@ extend A {
     const protected func f3() {} // ok
 }
 
-main(){
+main() {
     let a = A()
     a.f1()
     a.f2(1)

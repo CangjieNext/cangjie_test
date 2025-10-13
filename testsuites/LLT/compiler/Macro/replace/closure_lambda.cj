@@ -13,7 +13,7 @@ internal import test.*
 
 func test(x:()->Int8):Int64 {return Int64(x()-127)}
 
-main(){
+main() {
     // Trailing Closure
     var res = test {
         var x : Int8 = 100

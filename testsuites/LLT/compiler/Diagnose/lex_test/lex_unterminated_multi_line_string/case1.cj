@@ -10,5 +10,5 @@
 
 internal import std.ast.*
 
-main(){
+main() {
     var i = """

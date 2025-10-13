@@ -27,7 +27,6 @@
 // (not MAC) ASSERT: scan-not libcangjie-std-random.so
 
 import std.core.*
-//import std.ast.* // ast is always dynamically linked
 import std.collection.*
 import std.convert.*
 import std.convert.*
@@ -37,7 +36,6 @@ import std.regex.*
 import std.sync.*
 import std.time.*
 import std.unicode.*
-// import std.unittest.* // block this since unittest depends on libraries not in std
 import std.argopt.*
 import std.random.*
 

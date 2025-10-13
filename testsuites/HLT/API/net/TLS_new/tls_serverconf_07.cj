@@ -14,7 +14,9 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.net.tls.common.*
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.keys.*
 import std.sync.*
 import std.time.*
 import std.runtime.*
@@ -47,7 +49,7 @@ class Test_tlsserverconf_07 {
         }
         let pem = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
         var clientConf = TlsClientConfig()
-        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
+        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
@@ -61,7 +63,7 @@ class Test_tlsserverconf_07 {
         }
         let pem = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
         var clientConf = TlsClientConfig()
-        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
+        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
@@ -84,20 +86,17 @@ class Test_tlsserverconf_07 {
         }
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
-        serverConf.minVersion = Unknown
-        serverConf.maxVersion = Unknown
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
-        tlsServer.handshake()
-        match (tlsServer.tlsVersion) {
+        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+        let result = tlsServer.handshake()
+        match (result.version) {
             case V1_2 => sum += 1
             case V1_3 => sum += 3
-            case Unknown => sum += 5
             case _ => ()
         }
         @Expect(sum, 3)
@@ -116,20 +115,18 @@ class Test_tlsserverconf_07 {
         }
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
-        serverConf.minVersion = V1_2
-        serverConf.maxVersion = V1_3
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+        serverConf.supportedVersions = [V1_2, V1_3]
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
-        tlsServer.handshake()
-        match (tlsServer.tlsVersion) {
+        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+        let result = tlsServer.handshake()
+        match (result.version) {
             case V1_2 => sum += 1
             case V1_3 => sum += 3
-            case Unknown => sum += 5
             case _ => ()
         }
         @Expect(sum, 3)
@@ -148,52 +145,19 @@ class Test_tlsserverconf_07 {
         }
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
-        serverConf.minVersion = V1_2
-        serverConf.maxVersion = V1_2
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+        serverConf.supportedVersions = [V1_2]
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
-        tlsServer.handshake()
-        match (tlsServer.tlsVersion) {
+        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+        let result = tlsServer.handshake()
+        match (result.version) {
             case V1_2 => sum += 1
             case V1_3 => sum += 3
-            case Unknown => sum += 5
             case _ => ()
-        }
-        @Expect(sum, 1)
-        sleep(Duration.millisecond * 100)
-        tlscli.getOrThrow().close()
-        tcpcli.getOrThrow().close()
-        tcpServer.close()
-        tlsServer.close()
-    }
-
-    @TestCase
-    func test_04(): Unit {
-        //server Tlsversion set the Unknown and the max V1_3.
-        spawn {
-            startClientHandshake_err()
-        }
-        let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
-        let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
-        serverConf.minVersion = Unknown
-        serverConf.maxVersion = V1_3
-        var tcpServer = TcpServerSocket(bindAt: 0)
-        tcpServer.bind()
-        port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
-        bound.fetchAdd(1)
-        var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
-        try {
-            tlsServer.handshake()
-        } catch (e: TlsException) {
-            @Expect(e.message.contains("The minVersion and maxVersion must be set together"))
-            sum += 1
         }
         @Expect(sum, 1)
         sleep(Duration.millisecond * 100)
@@ -211,54 +175,21 @@ class Test_tlsserverconf_07 {
         }
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
-        serverConf.minVersion = V1_3
-        serverConf.maxVersion = V1_3
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+        serverConf.supportedVersions = [V1_3]
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
-        tlsServer.handshake()
-        match (tlsServer.tlsVersion) {
+        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+        let result = tlsServer.handshake()
+        match (result.version) {
             case V1_2 => sum += 1
             case V1_3 => sum += 3
-            case Unknown => sum += 5
             case _ => ()
         }
         @Expect(sum, 3)
-        sleep(Duration.millisecond * 100)
-        tlscli.getOrThrow().close()
-        tcpcli.getOrThrow().close()
-        tcpServer.close()
-        tlsServer.close()
-    }
-
-    @TestCase
-    func test_06(): Unit {
-        //server Tlsversion set the min V1_3 and the max V1_2.
-        spawn {
-            startClientHandshake_err()
-        }
-        let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
-        let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
-        serverConf.minVersion = V1_3
-        serverConf.maxVersion = V1_2
-        var tcpServer = TcpServerSocket(bindAt: 0)
-        tcpServer.bind()
-        port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
-        bound.fetchAdd(1)
-        var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
-        try {
-            tlsServer.handshake()
-        } catch (e: TlsException) {
-            @Expect(e.message.contains("Failed to set proto versions: TlsVersion.V1_3 ~ TlsVersion.V1_2"))
-            sum += 1
-        }
-        @Expect(sum, 1)
         sleep(Duration.millisecond * 100)
         tlscli.getOrThrow().close()
         tcpcli.getOrThrow().close()
@@ -272,22 +203,20 @@ class Test_tlsserverconf_07 {
         func startServerHandshake(): Unit {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
-            serverConf.minVersion = V1_2
-            serverConf.maxVersion = V1_3
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+            serverConf.supportedVersions = [V1_2, V1_3]
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             bound.fetchAdd(1)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
-            tlsServer.handshake()
-            match (tlsServer.tlsVersion) {
+            let result = tlsServer.handshake()
+            match (result.version) {
                 case V1_2 => sum += 1
                 case V1_3 => sum += 3
-                case Unknown => sum += 5
                 case _ => ()
             }
             @Expect(sum, 3)
@@ -300,9 +229,8 @@ class Test_tlsserverconf_07 {
         }
         let pem = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
         var clientConf = TlsClientConfig()
-        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
-        clientConf.minVersion = V1_2
-        clientConf.maxVersion = V1_3
+        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+        clientConf.supportedVersions = [V1_2, V1_3]
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
@@ -320,22 +248,20 @@ class Test_tlsserverconf_07 {
         func startServerHandshake(): Unit {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
-            serverConf.minVersion = V1_2
-            serverConf.maxVersion = V1_2
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+            serverConf.supportedVersions = [V1_2]
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             bound.fetchAdd(1)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
-            tlsServer.handshake()
-            match (tlsServer.tlsVersion) {
+            let result = tlsServer.handshake()
+            match (result.version) {
                 case V1_2 => sum += 1
                 case V1_3 => sum += 3
-                case Unknown => sum += 5
                 case _ => ()
             }
             @Expect(sum, 1)
@@ -348,9 +274,8 @@ class Test_tlsserverconf_07 {
         }
         let pem = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
         var clientConf = TlsClientConfig()
-        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
-        clientConf.minVersion = V1_2
-        clientConf.maxVersion = V1_2
+        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+        clientConf.supportedVersions = [V1_2]
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
@@ -368,22 +293,20 @@ class Test_tlsserverconf_07 {
         func startServerHandshake(): Unit {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
-            serverConf.minVersion = V1_3
-            serverConf.maxVersion = V1_3
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+            serverConf.supportedVersions = [V1_3]
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             bound.fetchAdd(1)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
-            tlsServer.handshake()
-            match (tlsServer.tlsVersion) {
+            let result = tlsServer.handshake()
+            match (result.version) {
                 case V1_2 => sum += 1
                 case V1_3 => sum += 3
-                case Unknown => sum += 5
                 case _ => ()
             }
             @Expect(sum, 3)
@@ -396,9 +319,8 @@ class Test_tlsserverconf_07 {
         }
         let pem = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
         var clientConf = TlsClientConfig()
-        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
-        clientConf.minVersion = V1_3
-        clientConf.maxVersion = V1_3
+        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+        clientConf.supportedVersions = [V1_3]
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)

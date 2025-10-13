@@ -1,0 +1,9 @@
+/* SCAN-IN
+a(l:11, c:1) -> foo(l:13, c:1),foo2(l:18, c:1),foo3(l:26, c:1),main(l:22, c:1),
+b(l:12, c:1) -> foo(l:13, c:1),foo3(l:26, c:1),
+foo2(l:18, c:1) -> foo(l:13, c:1),foo3(l:26, c:1),main(l:22, c:1),
+foo3(l:26, c:1) -> foo(l:13, c:1),
+*/
+
+
+

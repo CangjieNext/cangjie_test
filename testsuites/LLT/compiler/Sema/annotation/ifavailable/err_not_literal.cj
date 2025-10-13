@@ -9,16 +9,7 @@
 const v = 11
 
 main() {
-    @IfAvailable(APILevel:v, { => println(0) }, {=>println(3)})
+    @IfAvailable(level:v, { => println(0) }, {=>println(3)})
 }
 
-/* SCAN
-error: the first argument of @IfAvailable expression must be a literal expression
-  ==> err_not_literal.cj:12:17:
-   | 
-12 |     @IfAvailable(APILevel:v, { => println(0) }, {=>println(3)})
-   |                 ^^^^^^^^^^^ 
-   | 
-
-1 error generated, 1 error printed.
-*/
+// ASSERT: scan error: the first argument of @IfAvailable expression must be a literal expression

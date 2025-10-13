@@ -1,6 +1,6 @@
 // EXEC:%frontendCompiler %cmp_opt %dump-parse %f  > %redirectNull
 
-main(){
+main() {
     var a = 1
     var b = 1
     (a,b) = (0,0)

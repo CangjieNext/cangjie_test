@@ -11,6 +11,7 @@
 import stdx.crypto.digest.*
 import std.convert.*
 import std.crypto.digest.*
+import stdx.crypto.common.*
 import stdx.encoding.hex.*
 import std.runtime.*
 import std.io.*

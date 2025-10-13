@@ -10,7 +10,6 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-// func test():Int64 = Int64(return 0)
 
 func test(): Int64 {
     Int64(return 0)

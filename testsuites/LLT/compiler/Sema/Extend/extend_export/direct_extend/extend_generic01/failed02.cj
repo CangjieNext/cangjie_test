@@ -22,5 +22,14 @@ error: undeclared identifier 'A'
    |     ^ 
    | 
 
+warning: unused import 'a.Upper'
+  ==> failed02.cj:11:1:
+   | 
+11 | import a.Upper
+   | ^^^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 1 error generated, 1 error printed.
+1 warning generated, 1 warning printed.
 */

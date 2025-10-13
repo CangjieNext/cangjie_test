@@ -1,0 +1,43 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output
+// EXEC: %run %run_opt %output %run_args
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC-PIPE-0: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC-1: %run %run_opt %output %run_args
+
+open class A {
+    var a: Int32 = 1
+}
+
+class B <: A {
+    var b: Int32 = 2
+}
+
+struct C {
+    var c: Int32 = 3
+}
+
+main() {
+    var x = B()
+    var y = C()
+    println(x.a)
+    if (x.b is Int64) {
+        return 1
+    }
+    return 0
+}
+
+// ASSERT: scan begin dump raw modified decls:
+// ASSERT: scan B 7default1BC ClassInit.cj 12: memory 
+// ASSERT: scan     added members 1: 7default1BC1bV$$l 
+// ASSERT: scan     deleted members 1: 7default1BC1bV$$i 
+// ASSERT: scan changed decls to recompile: 3
+// ASSERT: scan the changed decl after Spreading is:B in file ClassInit.cj in line 12 in column 7
+// ASSERT: scan the changed decl after Spreading is:b in file ClassInit.cj in line 13 in column 9
+// ASSERT: scan the changed decl after Spreading is:main in file ClassInit.cj in line 20 in column 1
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

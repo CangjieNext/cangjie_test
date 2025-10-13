@@ -18,7 +18,6 @@ class B {
 }
 
 func foo() {
-    //     A.foo()  // Use A to access static method in class B
     //     A.b
 }
 

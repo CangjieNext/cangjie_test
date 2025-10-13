@@ -23,17 +23,9 @@ main(): Int64 {
     let m = PackageInfo.load("./module_case1/test.dynamicloading")
     let n = PackageInfo.load("./module_case1/test1.dynamicloading_1")
     let l = PackageInfo.load("./module_case1/test2.dynamicloading_2")
-    // if (pkgm.hashCode() != pkgmm.hashCode()) {
-    //     return 1
     // }
-    // if (pkgn.hashCode() != pkgnn.hashCode()) {
-    //     return 1
     // }
-    // if (pkgl.hashCode() != pkgll.hashCode()) {
-    //     return 1
     // }
-    //  if (pkgl.hashCode() != pkgn.hashCode()) {
-    //     return 1
     // }
     return 0
 }

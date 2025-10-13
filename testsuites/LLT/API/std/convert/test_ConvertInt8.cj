@@ -33,7 +33,7 @@ class ConvertInt8Test {
 
     @TestCase
     func parseException(): Unit {
-        let testVars: Array<(String, String)> = [("", "The string is empty."),
+        let testVars: Array<(String, String)> = [("", "The string is empty."), ("-", "The value part is empty."),
             ("128", "The part of value convert failed."), ("-129", "The part of value convert failed."),
             ("0o1234567890", "The part of value convert failed."), ("0x1234567890", "The part of value convert failed."),
             ("+32", "Starting with \"+\" is illegal in Int8.")]
@@ -49,7 +49,7 @@ class ConvertInt8Test {
 
     @TestCase
     func parseExceptionRadix(): Unit {
-        let testVars: Array<(String, Int, String)> = [("", 3, "The string is empty."),
+        let testVars: Array<(String, Int, String)> = [("", 3, "The string is empty."), ("-", 10, "The value part is empty."),
             ("128", 2, "The part of value convert failed."), ("-129", 2, "The part of value convert failed."),
             ("0o1", 8, "The part of value convert failed."), ("0x1", 16, "The part of value convert failed."),
             ("+32", 37, "The radix out of range."), ("-", 2, "The value part is empty.")]
@@ -81,7 +81,7 @@ class ConvertInt8Test {
     @TestCase
     func tryParseRadix(): Unit {
         let testVars: Array<(String, Int, Int8)> = [("0xf", 16, 0), ("-0b0001_1000", 2, 0), ("0o30", 8, 0),
-            ("-24", 10, -24), ("", 10, 0), ("+12", 10, 12), ("-128", 2, 0), ("6d", 17, 115)]
+            ("-24", 10, -24), ("", 10, 0), ("+12", 10, 12), ("-128", 2, 0), ("6d", 17, 115), ("6d", 37, 0)]
 
         for (testVar in testVars) {
             var ret: Option<Int8> = Int8.tryParse(testVar[0], radix: testVar[1])
@@ -96,7 +96,7 @@ class ConvertInt8Test {
     @TestCase
     func toStringRadix(): Unit {
         let testVars: Array<(Int8, Int, String)> = [(125, 2, "1111101"), (125, 35, "3k"), (127, 10, "127"),
-            (-128, 4, "-2000")]
+            (-128, 4, "-2000"), (0, 3, "0")]
         for (testVar in testVars) {
             @Expect(testVar[0].toString(radix: testVar[1]), testVar[2])
         }

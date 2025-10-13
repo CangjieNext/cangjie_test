@@ -8,7 +8,7 @@ func echoprint(a: Int64){
 
 let var1 = 10
 
-main(){
+main() {
     echoprint(`var1`)
     echoprint(var1)
 }

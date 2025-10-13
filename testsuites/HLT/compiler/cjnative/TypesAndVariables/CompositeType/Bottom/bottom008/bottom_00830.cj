@@ -14,7 +14,6 @@ func test(): Int64 {
     // lambda
     /*
     var a = \{
-        return 0
     }
      */
     var a = {=> return 0}

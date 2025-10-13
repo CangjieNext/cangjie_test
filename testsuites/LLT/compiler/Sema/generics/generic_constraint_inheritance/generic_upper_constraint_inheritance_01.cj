@@ -28,7 +28,7 @@ error: the constraint of type parameter is not looser than parent's constraint
   ==> generic_upper_constraint_inheritance_01.cj:14:42:
    | 
 14 |     public static func f<T1, T2>() where T1 <: T2 {}
-   |                                          ^^^^^^^^^ 
+   |                                          ^^^^^^^^ 
    | 
    # note: parent constraint is 'Interface-Any'
 

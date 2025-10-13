@@ -1,0 +1,16 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb HashMap3,HashMap3
+b,b 11,HashMap3.cj:11
+r,r,-> 11
+ ,expr map_1,\(std.collection.HashMap<Int8,UInt8>\) \$\d+ = {\s+\[-3 -> 42\] = {\s+key = -3\s+value = 42\s+}\s+\[2 -> 12\] = {\s+key = 2\s+value = 12\s+}\s+\[-76 -> 165\]
+q,q,

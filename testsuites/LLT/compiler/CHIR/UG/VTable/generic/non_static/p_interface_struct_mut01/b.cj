@@ -24,16 +24,12 @@ main() {
         return 1
     }
 
-    //try {
     s.f1(1)
-    //} catch (_) { }
     if (s.field != 2) {
         return 1
     }
 
-    //try {
     s.f1(true)
-    //} catch (_) { }
     if (s.field != 3) {
         return 1
     }

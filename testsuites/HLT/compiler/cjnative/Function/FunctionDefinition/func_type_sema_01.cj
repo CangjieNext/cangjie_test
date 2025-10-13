@@ -94,12 +94,8 @@ func run(): Int64 {
         return 1
     }
     //   data.foo5(data.foo3)()
-    //   if (n != 3) {
-    //       return 1
     //   }
     //   data.foo6(data.foo5)(data.foo3)()
-    //   if (n != 4) {
-    //       return 1
     //   }
     if (rec.foo1(x) != 10) {
         return 1

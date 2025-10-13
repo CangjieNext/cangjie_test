@@ -1,0 +1,29 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_inlined_function.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_inlined_function.cj -o debuginfo_inlined_function
+// EXEC: python3 cjdb_test.py debuginfo_inlined_function.info
+
+
+test#
+cjdb,cjdb debuginfo_inlined_function,debuginfo_inlined_function
+b,b 10,debuginfo_inlined_function.cj:10
+r,r,-> 10
+p,p twoV,Int64\) \$[\d]+ = 600
+b,b 14,debuginfo_inlined_function.cj:14
+c,c,-> 14
+p,p oneV,Int64\) \$[\d]+ = 500
+p,p threeV,Int64\) \$[\d]+ = 500
+p,p twoV,Int64\) \$[\d]+ = 800
+b,b 17,debuginfo_inlined_function.cj:17
+c,c,-> 17
+p,p fourV,Int64\) \$[\d]+ = 800
+p,p twoV,Int64\) \$[\d]+ = 600
+n,n,-> 18
+n,n,-> 19
+p,p twoV,Int64\) \$[\d]+ = 900
+q,q,

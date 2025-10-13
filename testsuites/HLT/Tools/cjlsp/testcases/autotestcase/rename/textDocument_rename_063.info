@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -25,4 +25,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 745,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "second1","range": {"end": {"character": 14,"line": 4},"start": {"character": 8,"line": 4}}},{"newText": "second1","range": {"end": {"character": 14,"line": 7},"start": {"character": 8,"line": 7}}},{"newText": "second1","range": {"end": {"character": 44,"line": 16},"start": {"character": 38,"line": 16}}},{"newText": "second1","range": {"end": {"character": 65,"line": 16},"start": {"character": 59,"line": 16}}}],"textDocument": {"uri": "renameProject/src/pkg/extend004.cj","version": 7}}]}}
+{"id": 745,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "second1","range": {"end": {"character": 14,"line": 4},"start": {"character": 8,"line": 4}}},{"newText": "second1","range": {"end": {"character": 14,"line": 7},"start": {"character": 8,"line": 7}}},{"newText": "second1","range": {"end": {"character": 44,"line": 16},"start": {"character": 38,"line": 16}}},{"newText": "second1","range": {"end": {"character": 65,"line": 16},"start": {"character": 59,"line": 16}}}],"textDocument": {"uri": "renameProject/src/pkg/extend004.cj","version": 6}}]}}

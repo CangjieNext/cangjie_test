@@ -19,6 +19,7 @@
 package tests.server1_1
 
 import stdx.net.http.*
+import stdx.net.tls.*
 import std.net.TcpSocket
 
 @Test

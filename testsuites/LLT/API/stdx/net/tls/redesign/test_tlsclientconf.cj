@@ -12,7 +12,9 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.net.tls.common.*
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.keys.*
 import std.sync.*
 import std.time.*
 import std.argopt.*
@@ -37,14 +39,14 @@ class Test_tlsclientconf_05 {
         //client domain set None.
         func startServerHandshake(): Unit {
             let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa.cer")))
-            let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
+            let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
             var serverConf = TlsServerConfig(serverCert, pkey)
             serverConf.verifyMode = TrustAll
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -55,13 +57,13 @@ class Test_tlsclientconf_05 {
         sleep(Duration.millisecond * 100)
         var clientConf = TlsClientConfig()
         clientConf.verifyMode = TrustAll
-        clientConf.domain = None
+        clientConf.serverName = None
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         tlsClient.handshake()
-        println(tlsClient.domain)
-        @Expect(tlsClient.domain, None)
+        println(tlsClient.handshakeResult.getOrThrow().serverName)
+        @Expect(tlsClient.handshakeResult.getOrThrow().serverName, "")
         sleep(Duration.millisecond * 1000)
         tlsClient.close()
         tcpClient.close()
@@ -74,14 +76,14 @@ class Test_tlsclientconf_05 {
         //client domain set blank string.
         func startServerHandshake(): Unit {
             let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa.cer")))
-            let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
+            let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
             var serverConf = TlsServerConfig(serverCert, pkey)
             serverConf.verifyMode = TrustAll
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -92,12 +94,12 @@ class Test_tlsclientconf_05 {
         sleep(Duration.millisecond * 100)
         var clientConf = TlsClientConfig()
         clientConf.verifyMode = TrustAll
-        clientConf.domain = ""
+        clientConf.serverName = ""
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         tlsClient.handshake()
-        @Expect(tlsClient.domain, None)
+        @Expect(tlsClient.handshakeResult.getOrThrow().serverName, "")
         sleep(Duration.millisecond * 1000)
         tlsClient.close()
         tcpClient.close()
@@ -110,14 +112,14 @@ class Test_tlsclientconf_05 {
         //client domain set correct domain.
         func startServerHandshake(): Unit {
             let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa.cer")))
-            let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
+            let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
             var serverConf = TlsServerConfig(serverCert, pkey)
             serverConf.verifyMode = TrustAll
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -128,12 +130,12 @@ class Test_tlsclientconf_05 {
         sleep(Duration.millisecond * 100)
         var clientConf = TlsClientConfig()
         clientConf.verifyMode = TrustAll
-        clientConf.domain = "www.example.com"
+        clientConf.serverName = "www.example.com"
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         tlsClient.handshake()
-        @Expect(tlsClient.domain, "www.example.com")
+        @Expect(tlsClient.handshakeResult.getOrThrow().serverName, "www.example.com")
         sleep(Duration.millisecond * 1000)
         tlsClient.close()
         tcpClient.close()
@@ -146,14 +148,14 @@ class Test_tlsclientconf_05 {
         //client domain set illegal domain.
         func startServerHandshake(): Unit {
             let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa.cer")))
-            let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
+            let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
             var serverConf = TlsServerConfig(serverCert, pkey)
             serverConf.verifyMode = TrustAll
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -165,8 +167,8 @@ class Test_tlsclientconf_05 {
         var clientConf = TlsClientConfig()
         clientConf.verifyMode = TrustAll
         try {
-            clientConf.domain = "\0"
-        } catch (e: IllegalArgumentException) {
+            clientConf.serverName = "\0"
+        } catch(e:IllegalArgumentException){
             @Expect(e.message.contains("contain null character"))
             sum += 1
         }
@@ -175,7 +177,7 @@ class Test_tlsclientconf_05 {
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         tlsClient.handshake()
-        @Expect(tlsClient.domain, None)
+        @Expect(tlsClient.handshakeResult.getOrThrow().serverName, "")
         sleep(Duration.millisecond * 1000)
         tlsClient.close()
         tcpClient.close()

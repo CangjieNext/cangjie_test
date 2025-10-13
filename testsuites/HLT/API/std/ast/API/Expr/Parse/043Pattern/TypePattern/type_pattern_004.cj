@@ -13,36 +13,16 @@ import std.ast.*
 
 // main() {
 //     var input: Tokens = quote(
-//          match (a) {
-//             case _:((((M7_<I1_>)->G1_))->((G2_,G3_)), (((M7_<I1_>)->G1.A<Int64>))->((G2_,G3_)), (((M7_<I1_>)->Int64))->((G2_,G3_)))-> (((M7_<I1_>)->G1_))->((G2_,G3_)) where (true) => b
 //          }
 //     )
-//     let expr = parseExpr(input)
-//     if (expr.isMatchExpr()) {
-//         var mh = expr.asMatchExpr()
 //         var pattern = mh.getMatchCases()[0].getPatterns()[0]
-//         if (!pattern.isTypePattern()) {
-//             return 6
 //         }
-//         if (!pattern.asTypePattern().getPattern().isWildcardPattern()) {
-//             return 7
 //         }
-//         var tp = pattern.asTypePattern().getType()
-//         if (tp.asFuncType().getParamTypes()[0].asFuncType().getParamTypes()[0].asParenType().getType().asFuncType().getParamTypes()[0].asRefType().Process.current.arguments[0].asRefType().getIdentifier().value != "I1_") {
-//             return 3
 //         }
-//         if (tp.asFuncType().getParamTypes()[1].asFuncType().getParamTypes()[0].asParenType().getType().asFuncType().getRetType().asQualifiedType().getField().value != "A" ) {
-//             return 4
 //         }
-//         if (tp.asFuncType().getParamTypes()[2].asFuncType().getParamTypes()[0].asParenType().getType().asFuncType().getRetType().asPrimitiveType().getPrimitive().value != "Int64" ) {
-//             return 4
 //         }
-//         if (tp.asFuncType().getRetType().asFuncType().getRetType().asParenType().getType().asTupleType().getFieldTypes()[0].asRefType().getIdentifier().value != "G2_" ) {
-//             return 5
 //         }
-//         return 0
 //     }
-//     return 1
 // }
 
 main() {
@@ -66,12 +46,8 @@ main() {
             case None => throw Exception("Not TypePattern")
         }
         // var patternTypeExpr = match (patternType as EnumPattern){
-        //     case Some(v) => v.constructor
-        //     case None => throw Exception("Not EnumPattern")
         // }
         // var patternTypeExprValue = match (patternTypeExpr as RefExpr){
-        //     case Some(v) => v.identifier.value
-        //     case None => throw Exception("Not RefExpr")
         // }
         var tp = match (pattern as TypePattern) {
             case Some(v) => v.patternType

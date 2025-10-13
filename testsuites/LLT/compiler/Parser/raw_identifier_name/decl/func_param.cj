@@ -2,7 +2,7 @@
 
 func add(a: Int64, `a`: Int64){}
 
-main(){
+main() {
     0
 }
 

@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/past_basic/063_debug_expr_class_1.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 063_debug_expr_class_1.cj -o 001_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py express_hashmap_002.info 001_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+b,b 37,063_debug_expr_class_1.cj:37
+CJVM c,c,-> 37
+AOT r,r,-> 37
+expr,expr s10,std[.]collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 0[\S\s]*}
+expr,expr s10["a"],\(Int64\) \$[\d] = 0
+expr,expr s10["a"]=10,\(Unit\) \$[\d] = ()
+expr,expr s10["a"],\(Int64\) \$[\d] = 10
+expr,expr s10,std[.]collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 10[\S\s]*}
+q,q,

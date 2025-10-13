@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_forin_continue.cj
+// EXEC: %compiler %cmp_opt -g debuginfo_forin_continue.cj -o debuginfo_forin_continue
+// EXEC: python3 cjdb_test.py debuginfo_forin_continue.info
+
+
+test#
+cjdb,cjdb debuginfo_forin_continue,debuginfo_forin_continue
+b,b 11,debuginfo_forin_continue.cj:11
+b,b 16,debuginfo_forin_continue.cj:16
+r,r,-> 11
+c,c,-> 11
+c,c,-> 16
+q,q,

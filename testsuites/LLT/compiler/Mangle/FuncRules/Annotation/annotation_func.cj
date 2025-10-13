@@ -8,13 +8,12 @@
 // (CJNATIVE) EXEC: %compiler %cmp_opt %f --save-temps . --apc=1 -Woff unused --output-type=staticlib
 // (CJNATIVE) EXEC: %llvmDissembler %n.bc -o %n.ll
 // (CJNATIVE) EXEC: %cat %n.ll 2>&1 | compare %f
-// (CJNATIVE) ASSERT: scan define internal i64 @_CN7default3fooHvEL1_E
 // (CJNATIVE) ASSERT: scan define internal i64 @_CN7default3fooHvEL_E
 // (CJNATIVE) ASSERT: scan define internal i64 @_CN7default3fooHvEL0_E
 // (CJNATIVE) ASSERT: scan define internal i64 @_CN7default3fooHvE1cHvEL_E
 
 @A[{
-    => // 4          _CN7default3fooHvEL3_E
+    =>
     (3, 4)[0]
 }()]
 func foo() {

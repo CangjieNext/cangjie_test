@@ -7,7 +7,7 @@
 // LEVEL: 0
 // EXEC-PIPE-1: %frontendCompiler %cmp_opt %f -o %output 2>&1 > %redirectNull | compare %f
 
-main(){
+main() {
     a?b
 }
 

@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../../cjdb_test.py    ../../../basecase/past_basic/066_debug_lambda.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_lambda001.info 066_debug_lambda %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
+CJVM b,b main,066_debug_lambda.cj:10
+CJVM c,c,-> 10
+b,b 12,066_debug_lambda.cj:12
+AOT r,r,-> 12
+expr~ expr var g1: (Int64, Int64) -> Int64 = {a, b => a + b};g1(1,2)~\(Int64\) \$[\d] = 3
+expr~ expr var g2 = { a:Int64, b:Int64 => a + b };g2(1,2)~\(Int64\) \$[\d] = 3
+expr~ expr let r1 = { a: Int64, b: Int64 => a + b }(1, 2);r1~\(Int64\) \$[\d] = 3
+expr~ expr let r2 = { => 123 }();r2~\(Int64\) \$[\d] = 123
+expr~ expr let l1 ={ => }()~\(Unit\) \$[\d] = ()
+q,q,

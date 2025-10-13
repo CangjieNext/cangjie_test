@@ -304,4 +304,65 @@ public class JsonArrayTest {
         var arr = reader.readValue<ArrayList<Array<String>>>()
         @Expect(arr.toArray(), [["aaa", "bbb"], ["ccc"]])
     }
+
+
+    @TestCase
+    func arrayHashSet(): Unit {
+        let jsonStr = ##"["aaa", "bbb", "ccc"]"##
+        var bas = ByteBuffer()
+        unsafe { bas.write(jsonStr.rawData()) }
+        var reader = JsonReader(bas)
+        var arr = reader.readValue<HashSet<String>>()
+        @Expect(arr.toArray(), ["aaa", "bbb", "ccc"])
+    }
+
+    @TestCase
+    func arrayLinkedList(): Unit {
+        let jsonStr = ##"["aaa", "bbb", "ccc"]"##
+        var bas = ByteBuffer()
+        unsafe { bas.write(jsonStr.rawData()) }
+        var reader = JsonReader(bas)
+        var arr = reader.readValue<LinkedList<String>>()
+        @Expect(arr.toArray(), ["aaa", "bbb", "ccc"])
+    }
+
+    @TestCase
+    func arrayArrayQueue(): Unit {
+        let jsonStr = ##"["aaa", "bbb", "ccc"]"##
+        var bas = ByteBuffer()
+        unsafe { bas.write(jsonStr.rawData()) }
+        var reader = JsonReader(bas)
+        var arr = reader.readValue<ArrayQueue<String>>()
+        @Expect(arr.toArray(), ["aaa", "bbb", "ccc"])
+    }
+
+    @TestCase
+    func arrayArrayDeque(): Unit {
+        let jsonStr = ##"["aaa", "bbb", "ccc"]"##
+        var bas = ByteBuffer()
+        unsafe { bas.write(jsonStr.rawData()) }
+        var reader = JsonReader(bas)
+        var arr = reader.readValue<ArrayDeque<String>>()
+        @Expect(arr.toArray(), ["aaa", "bbb", "ccc"])
+    }
+
+    @TestCase
+    func arrayArrayStack(): Unit {
+        let jsonStr = ##"["aaa", "bbb", "ccc"]"##
+        var bas = ByteBuffer()
+        unsafe { bas.write(jsonStr.rawData()) }
+        var reader = JsonReader(bas)
+        var arr = reader.readValue<ArrayStack<String>>()
+        @Expect(arr.toArray(), ["ccc", "bbb", "aaa"])
+    }
+
+    @TestCase
+    func arrayTreeSet(): Unit {
+        let jsonStr = ##"["aaa", "bbb", "ccc"]"##
+        var bas = ByteBuffer()
+        unsafe { bas.write(jsonStr.rawData()) }
+        var reader = JsonReader(bas)
+        var arr = reader.readValue<TreeSet<String>>()
+        @Expect(arr.toArray(), ["aaa", "bbb", "ccc"])
+    }
 }

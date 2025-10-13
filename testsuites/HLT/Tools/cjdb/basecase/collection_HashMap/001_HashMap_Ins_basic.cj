@@ -45,6 +45,7 @@ class cla <: Hashable & Equatable<cla>{
             return this.x == right.x
         }
     public operator func !=(right : cla) : Bool {
+        var a = right
         return false
     }
 }

@@ -36,7 +36,7 @@ class RunTestcase:
         self.message_label = "Content-Length"
         self.error_key = []
         self.request_list = []
-        self.ignore_key = ["jsonrpc", "sortText", "symbolId"]
+        self.ignore_key = ["jsonrpc", "sortText", "symbolId", "category", "code"]
         # TODO：动态获取排序忽略的key
         self.ignore_sort_key = ["range", "data", 'to', 'fromRanges', 'end', 'start', 'selectionRange', 'children',
                                 'additionalTextEdits', 'edits', 'textDocument', 'parameters', 'location', "sortText",
@@ -98,28 +98,17 @@ class RunTestcase:
             else:
                 if not no_id_res_list:
                     res_index = 1
-                    self.write_msg(compare_file_handle, "no id")
+                    self.write_msg(compare_file_handle, "no id response message")
                     wrong_expected_list.append(each_expected)
                 else:
-                    for each_res in no_id_res_list:
-                        self.error_key = []
-                        self.json_compare(each_res, each_expected, "")
-                        if not self.error_key:
-                            res_index = 0
-                            no_id_res_list.remove(each_res)
-                            self.write_compare_log(compare_file_handle, res_index, each_expected, each_res)
-                            break
-                        else:
-                            res_index = 1
-                    if res_index:
-                        self.write_msg(compare_file_handle, "compare fail", use_placeholder=True)
-                        self.write_msg(compare_file_handle, "expected message:")
-                        self.write_msg(compare_file_handle, each_expected, is_json=True)
-                        self.write_msg(compare_file_handle, "receive message:")
-                        for item in act_res_list:
-                            self.write_msg(compare_file_handle, item, is_json=True)
+                    self.error_key = []
+                    self.json_compare(no_id_res_list[-1], each_expected, "")
+                    if not self.error_key:
+                        res_index = 0
+                    else:
                         wrong_expected_list.append(each_expected)
-        res_index = 1 if wrong_expected_list else 0
+                        res_index = 1
+                    self.write_compare_log(compare_file_handle, res_index, each_expected, no_id_res_list[-1])
         self.final_result(compare_file_handle, res_index)
 
     def final_result(self, file_handle, res_index):
@@ -186,8 +175,10 @@ class RunTestcase:
             else:
                 recv_all_keys, recv_json = self.json_patch(recv_data)
                 recv_all_keys = list(set(recv_all_keys) - set(recv_all_keys).intersection(set(self.ignore_sort_key)))
+                recv_all_keys = sorted(recv_all_keys)
                 expt_all_keys, expected_json = self.json_patch(expected_data)
                 expt_all_keys = list(set(expt_all_keys) - set(expt_all_keys).intersection(set(self.ignore_sort_key)))
+                expt_all_keys = sorted(expt_all_keys)
                 if len(recv_all_keys) > 0:
                     recv_json = sorted(recv_json, key=itemgetter(*recv_all_keys))
                 if len(expt_all_keys) > 0:
@@ -196,10 +187,16 @@ class RunTestcase:
                 for src_list, dst_list in zip(recv_json, expected_json):
                     self.json_compare(src_list, dst_list, key)
         else:
+            if key in self.ignore_key:
+                return
             recv_str = str(recv_data)
             expc_str = str(expected_data)
+            if recv_str == expc_str:
+                return
             if not self.platform and "\r\n" in recv_str:
                 recv_str = recv_str.replace("\r\n", "\n")
+            if not self.platform and "\r\n" in expc_str:
+                expc_str = expc_str.replace("\r\n", "\n")
             # 处理win环境文件名大小写不区分的逻辑
             if not self.platform and key in self.ignore_case_key_for_win:
                 recv_str = recv_str.lower()
@@ -210,9 +207,7 @@ class RunTestcase:
             # 处理使用cjvm后端时标准库文件带_cjvm后缀的逻辑
             if recv_str != expc_str and "_cjvm.cj\n" in recv_str:
                 recv_str = recv_str.replace("_cjvm.cj\n", ".cj\n")
-            if key in self.ignore_key:
-                pass
-            elif recv_str != expc_str:
+            if recv_str != expc_str:
                 self.error_key.append(key)
 
     def json_patch(self, list_json):
@@ -350,9 +345,9 @@ class RunTestcase:
             lsp_server_path = self.server_path_dict["win_path"]
         if self.platform == 2:
             cj_home = lsp_server_path.rsplit('/', 2)[0]
-            server_start = f'source {cj_home}/envsetup.sh && {lsp_server_path}/LSPServer --test --disableAutoImport'
+            server_start = f'source {cj_home}/envsetup.sh && {lsp_server_path}/LSPServer --test --disableAutoImport --enable-log=true'
         else:
-            server_start = f'{lsp_server_path}/LSPServer --test --disableAutoImport'
+            server_start = f'{lsp_server_path}/LSPServer --test --disableAutoImport --enable-log=true'
         print(server_start)
         f_out = open('freopen.out', 'w')
         process_server = subprocess.Popen(
@@ -437,9 +432,9 @@ class RunTestcase:
             uri_path = "file://" + uri_path
         else:
             uri_path = "file:///" + uri_path
-        return uri_path    
+        return uri_path
 
-    def get_multiModuleOption(self, json_object):
+    def get_multi_module_option(self, json_object):
         """
         将"multiModuleOption"中key值换成绝对路径的uri
         """
@@ -471,8 +466,6 @@ class RunTestcase:
                         json_object[key] = "file://" + uri_path
                     else:
                         json_object[key] = "file:///" + uri_path
-                if key == "code":
-                    json_object[key] = '\\d+'
                 if key == "path_option" and isinstance(value, list):
                     path_list = json_object[key]
                     for i in range(len(path_list)):
@@ -484,7 +477,7 @@ class RunTestcase:
             if isinstance(value, (dict, list)):
                 self.modify_json_key(value, search_key)
         if isinstance(json_object, dict) and 'multiModuleOption' in json_object:
-            self.get_multiModuleOption(json_object['multiModuleOption'])
+            self.get_multi_module_option(json_object['multiModuleOption'])
         return json.dumps(json_object, separators=(',', ':'))
 
     def include_ignore_uri(self, uri):

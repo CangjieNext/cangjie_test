@@ -17,15 +17,10 @@ class Test_datetime_format_tryparse_01 {
     @TestCase
     func test_datetime_format_01(): Unit {
         let time = DateTime.of(year: 2008, month: February, dayOfMonth: 29, hour: 0, minute: 0, second: 0, nanosecond: 0)
-        //println(time.format("&^%#$^*&()"))
 
         // let e = @AssertThrows[IllegalArgumentException](res.format(""))
-        // println(e.message)
         //@Expect(e.message, "The opened end of the range 1 is greater than the size 0.")      
 
-        // res.format("\0") 
-        // res.format("$%&*^*%") 
-        // res.format("仓颉鸿蒙")       
     }
 
     @TestCase

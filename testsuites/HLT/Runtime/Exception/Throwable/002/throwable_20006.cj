@@ -14,7 +14,6 @@ func test() {
     try {
         n = n / (n - 2)
     } catch (e: Error) {
-    //e.printStackTrace()
     } finally {
         print("finally_in_test!")
     }

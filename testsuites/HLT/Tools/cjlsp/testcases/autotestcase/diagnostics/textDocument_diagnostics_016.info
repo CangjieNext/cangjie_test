@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../../lsp_test.py ../../../sourcecode/cangjieTest/diagnosticsTest ../../../lsp_config.txt
+// EXEC: %python lsp_test.py textDocument_diagnostics_016.info
+
+Req#
+{"jsonrpc": "2.0", "id": "0", "method": "initialize", "params": {"processId": null, "rootPath": "diagnosticsTest", "rootUri": "diagnosticsTest", "initializationOptions": {"multiModuleOption": {"diagnosticsTest": { "name": "diagnosticsTest", "requires": {}}}}, "capabilities": {"workspace": {"applyEdit": true, "workspaceEdit": {}, "didChangeWatchedFiles": {}, "symbol": {}, "executeCommand": {}, "workspaceFolders": false, "configuration": false}, "textDocument": {"synchronization": {"willSave": true, "willSaveWaitUntil": true, "didSave": true}, "completion": {"completionItem": {"snippetSupport": true}}, "hover": {}, "signatureHelp": {}, "references": {}, "documentHighlight": {"dynamicRegistration": true}, "formatting": {}, "rangeFormatting": {}, "onTypeFormatting": {}, "definition": {}, "codeAction": {}, "documentLink": {}, "rename": {"prepareSupport": true}, "semanticHighlightingCapabilities": {"semanticHighlighting": true}, "callHierarchy": {}, "semanticTokens": {"tokenTypes": ["namespace", "type", "class", "enum", "interface", "struct", "typeParameter", "parameter", "variable", "property", "enumMember", "event", "function", "method", "macro", "keyword", "modifier", "comment", "string", "number", "regexp", "operator", "member", "label"], "tokenModifiers": ["declaration", "definition", "readonly", "static", "deprecated", "abstract", "async", "modification", "documentation", "defaultLibrary"], "dynamicRegistration": true}}}}}
+{"jsonrpc": "2.0", "method": "initialized", "params": {}}
+{"jsonrpc":"2.0","method":"textDocument/didOpen","params":{"textDocument":{"uri":"diagnosticsTest/src/func_error/diag_004.cj","languageId":"Cangjie","version":5,"text":"package diagnosticsTest.func_error\n\nfunc test04(a:Int8,b:myBool) {\n    \n\n}\n"}}}
+{"jsonrpc": "2.0", "id": 10, "method": "shutdown", "params": {}}
+{"jsonrpc": "2.0", "method": "exit", "params": {}}
+
+Rev#
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"category":79,"code":79,"message":"undeclared type name 'myBool'","range":{"end":{"character":22,"line":2},"start":{"character":21,"line":2}},"severity":1,"source":"Cangjie"}],"uri":"diagnosticsTest/src/func_error/diag_004.cj"}}

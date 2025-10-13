@@ -2,7 +2,7 @@
 
 struct <:where{}
 
-main(){}
+main() {}
 
 /* SCAN
 error: expected a struct name after keyword 'struct', found '<:'

@@ -24,8 +24,6 @@ import std.time.*
     minDuration: Duration.millisecond
 ]
 func case1(x: Int64, y: Int64): Unit {
-    // println("case1 parameter: x = ${x}")
-    // println("case1 parameter: y = ${y}")
     @Expect(x == y)
     sleep(Duration.millisecond)
 }

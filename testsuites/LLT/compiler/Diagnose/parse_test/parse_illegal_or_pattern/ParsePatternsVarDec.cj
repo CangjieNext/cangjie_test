@@ -7,7 +7,7 @@
 // LEVEL: 0
 // ERRCHECK: %compiler %cmp_opt %n.cj 2>&1 | compare %f
 
-main(){
+main() {
     let (x |, y) = (1,2);
 }
 

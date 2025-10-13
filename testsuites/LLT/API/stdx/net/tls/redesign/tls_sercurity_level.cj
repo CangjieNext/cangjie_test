@@ -12,7 +12,9 @@ import std.net.*
 import std.time.*
 import std.sync.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.net.tls.common.*
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.keys.*
 import std.collection.*
 import std.fs.*
 
@@ -26,10 +28,10 @@ func runTcpServer(): (TcpServerSocket, UInt16) {
 
 func runTlsServer(server: TcpServerSocket, cipherSuite1_2: ?Array<String>, securityLevel: Int32) {
     let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_rsa.cer")))
-    let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_rsa_private_key.pem")))
+    let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_rsa_private_key.pem")))
     var serverConf = TlsServerConfig(serverCert, pkey)
     if (let Some(v) <- cipherSuite1_2) {
-        serverConf.cipherSuitesV1_2 = v
+        serverConf.supportedCipherSuites[V1_2] = v
     }
     serverConf.securityLevel = securityLevel
     try (client = server.accept()) {

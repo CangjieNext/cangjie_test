@@ -55,7 +55,7 @@ note: constraint 'Generics-T <: Interface-I<Generics-T>' may come from:
   ==> infer_with_upper.cj:11:18:
    | 
 11 | class A<T> where T <: I<T> {
-   |                  ^^^^^^^^^^ 
+   |                  ^^^^^^^^^ 
    | 
 
 1 error generated, 1 error printed.

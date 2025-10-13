@@ -8,8 +8,8 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// (MAC) RUN-EXEC-PIPE: %export cjStackSize=1gb && %run %run_opt %output %run_args | compare %f
-// (OHOS) RUN-EXEC-PIPE: %export cjStackSize=64mb && %run %run_opt %output %run_args 2>&1 | compare %f
+// (MAC and not Android) RUN-EXEC-PIPE: %export cjStackSize=1gb && %run %run_opt %output %run_args | compare %f
+// (OHOS or Android) RUN-EXEC-PIPE: %export cjStackSize=64mb && %run %run_opt %output %run_args 2>&1 | compare %f
 // (CJNATIVE and not MAC) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // (not CJNATIVE)  RUN-EXEC-PIPE: %export JETVMPROP=-Djet.fiber.stack.size=512K %run %run_opt %output %run_args | compare %f
 // ASSERT: scan result = 50005000

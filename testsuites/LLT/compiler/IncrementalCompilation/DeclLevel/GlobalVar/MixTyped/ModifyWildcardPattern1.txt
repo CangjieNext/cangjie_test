@@ -1,0 +1,21 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %incrementalCompile %n.cj -o %output
+// EXEC: %run %run_opt %output %run_args
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC: %compiler %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// ASSERT: scan incremental compilation triggered
+// ASSERT: scan the changed decl after Spreading is:VarWithPatternDecl in file ModifyWildcardPattern1.cj in line 10 in column 1
+// EXEC: %run %run_opt %output %run_args
+
+let _ = 6
+
+main():Int64{
+    return 0
+}
+
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

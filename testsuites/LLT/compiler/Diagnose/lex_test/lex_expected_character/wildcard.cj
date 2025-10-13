@@ -7,7 +7,7 @@
 // LEVEL: 0
 // ERRCHECK: %compiler %noColor %n.cj
 
-main(){
+main() {
     __
     _()
 }

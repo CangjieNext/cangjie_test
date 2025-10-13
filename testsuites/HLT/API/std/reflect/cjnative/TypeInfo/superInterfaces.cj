@@ -113,7 +113,6 @@ class Test {
         arr.sort();
         @Expect(arr.toString(), "[Any]")
         // 带泛型的class目前会segfault。
-        // arr = TypeInfo.of<C7>().superInterfaces |> map { a: InterfaceTypeInfo => a.toString() } |> collectArray; arr.sort(); @Expect(arr.toString(), "[Any]")
         arr = TypeInfo.of<C8>().superInterfaces |> map {a: InterfaceTypeInfo => a.toString()} |> collectArray
         arr.sort();
         @Expect(arr.toString(), "[Any, MyType.myType.I1, MyType.myType.I2, MyType.myType.I3]")

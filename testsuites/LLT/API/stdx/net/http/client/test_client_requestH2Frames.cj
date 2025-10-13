@@ -27,7 +27,7 @@ import stdx.log.*
 import std.sync.*
 import stdx.net.tls.*
 import std.io.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
 import std.time.*
 import std.unittest.*
 import std.unittest.testmacro.*

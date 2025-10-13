@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and Linux)EXEC-PIPE-1: export LD_LIBRARY_PATH=$CANGJIE_HOME/tools/lib:$LD_LIBRARY_PATH && %compiler -L $CANGJIE_STDX_PATH -lstdx.aspectCJ --import-path $CANGJIE_STDX_PATH %cmp_opt %f -o %output --plugin=$CANGJIE_STDX_PATH/libcollect-aspects.%dylib_suffix --plugin=$CANGJIE_STDX_PATH/libwave-aspects.%dylib_suffix 2>&1 | compare %f
-// (CJNATIVE and Linux)ASSERT: scan printCurrentTimeImpl: don't wave a instance method into another instance method with different `this` type.
+// (CJNATIVE and Linux)ASSERT: scan printCurrentTimeImpl: Don't wave an instance method into another instance method with different `this` type.
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

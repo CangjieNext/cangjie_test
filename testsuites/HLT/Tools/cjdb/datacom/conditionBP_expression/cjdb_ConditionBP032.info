@@ -21,6 +21,5 @@ locals,locals,\(std.core.Array<Int64>\) a6 = {[\s\S]*\[0\] = 2[\s\S]*}
 expr:expr a1["a"]:\(Bool\) \$[\d] = true
 expr:expr a7.isEmpty():\(Bool\) \$[\d] = false
 expr:expr a6.fill(4);a6:\(std.core.Array<Int64>\) \$[\d = {[\s\S]*\[0\] = 4[\s\S]*}
-expr:expr a6[1]:IndexOutOfBoundsException
-expr~expr Rect2<Range<Int64>>.vhmc~\(std.collection.HashMap<std.core.String,Bool>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = "a"[\s\S]*value = true[\s\S]*
+expr~expr Rect2<Range<Int64>>.vhmc~\(std.collection.HashMap<std.core.String,Bool>\) \$[\d] = {[\s\S]*\["a" -> true\] = {[\s\S]*key = "a"[\s\S]*value = true[\s\S]*
 q,q,

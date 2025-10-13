@@ -49,5 +49,14 @@ error: 'f3' is not a member of class 'Foo<Int64>'
 note: to use the following extension, you must import at least one of its inherited interfaces
   ==> (package b.c)testb4.cj:27:1:
 
+warning: unused import 'b.c.*'
+  ==> main07.cj:15:1:
+   | 
+15 | import b.c.*
+   | ^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 3 errors generated, 3 errors printed.
+1 warning generated, 1 warning printed.
 */
