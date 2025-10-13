@@ -9,7 +9,7 @@
 package mp
 
 public platform open class C1 {
-    func f(): Int64 { 1 }
+    public open func f(): Int64 { 1 }
 }
 
 public platform class C2 <: C1 {}

@@ -9,4 +9,4 @@
 // LEVEL: 0
 // DEPENDENCE: mp
 // ERRCHECK: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
-// ASSERT: scan-2 sema_common_direct_extension_has_duplicate_private_members
+// ASSERT: scan sema_common_direct_extension_has_common_private_members

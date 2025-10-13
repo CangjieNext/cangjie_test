@@ -16,5 +16,5 @@
 import mp.*
 
 main() {
-    return C().f() - 1
+    return C().f()
 }
