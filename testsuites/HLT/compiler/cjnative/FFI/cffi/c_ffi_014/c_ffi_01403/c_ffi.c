@@ -9,7 +9,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <securec.h>
 
 char* testfunc(char* input)
 {
@@ -20,8 +19,8 @@ char* testfunc(char* input)
     if (res == NULL) {
         return NULL;
     }
-    strcpy_s(res, resSize, input);
-    strcat_s(res, resSize, b);
+    strcpy(res, input);
+    strcat(res, b);
     return res;
 }
 
