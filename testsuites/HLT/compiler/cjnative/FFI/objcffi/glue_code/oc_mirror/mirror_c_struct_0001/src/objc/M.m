@@ -17,8 +17,8 @@
     return self;
 }
 
-- (Point)goo {
-    Point p = {1, 2};
+- (S)goo {
+    S p = {1, 2};
     return p;
 }
 

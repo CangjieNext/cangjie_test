@@ -11,11 +11,11 @@
 typedef struct {
     int x;
     int y;
-} Point;
+} S;
 
 @interface M : NSObject
 
 - (id)init;
-- (Point)goo;
+- (S)goo;
 
 @end
