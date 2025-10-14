@@ -29,9 +29,8 @@ class TestMeasurement <: Measurement {
             batches++
         }
 
-        callsCounter = 0
-
         @Assert(check())
+        callsCounter = 0
         counter
     }
 }
@@ -92,13 +91,23 @@ class FooTest {
     }
 }
 
+class TestMeasurement2 <: Measurement {
+    public func setup() {
+        callsCounter = 0
+    }
+
+    public func measure(): Float64 {
+        Float64(callsCounter)
+    }
+}
+ 
 class CheckBatchInputProvider <: BenchInputProvider<Unit> {
     static let BATCH_SIZE = 5
-    var counter = 0
+    var batchCounter = 0
 
     public func reset(batchSize: Int64) {
         if (batchSize == BATCH_SIZE) {
-            counter += 1
+            batchCounter += 1
         }
         @Assert(batchSize == 0 || batchSize == BATCH_SIZE)
     }
@@ -109,22 +118,25 @@ class CheckBatchInputProvider <: BenchInputProvider<Unit> {
 let checker = CheckBatchInputProvider()
 
 @Test
+@Measure[TestMeasurement2()]
 class StrategyTest {
     @Bench[x in [ checker ]]
-    @Configure[minBatches: 20, batchSize: CheckBatchInputProvider.BATCH_SIZE, warmup: 10, minDuration: Duration.second]
+    @Configure[minBatches: 20, batchSize: CheckBatchInputProvider.BATCH_SIZE, warmup: 10, minDuration: 0.5*Duration.second]
     func test5(x: Unit) {
+        callsCounter+=1
         sleep(10 * Duration.millisecond)
     }
 
     @Bench[x in [ checker ]]
     @Configure[minBatches: 20, batchSize: CheckBatchInputProvider.BATCH_SIZE, warmup: 10, minDuration: Duration.Zero]
     func test6(x: Unit) {
+        callsCounter+=1
         sleep(10 * Duration.millisecond)
     }
 
     @AfterEach
-    func check() {
-        @Assert(checker.counter, 25)
-        checker.counter = 0
+    func check(name: String) {
+        @Expect(checker.batchCounter, 34)
+        checker.batchCounter = 0
     }
 }
