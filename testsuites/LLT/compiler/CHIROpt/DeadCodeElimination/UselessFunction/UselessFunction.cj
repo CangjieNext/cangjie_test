@@ -8,9 +8,15 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg.cj -o pkg.%middle
 // EXEC: %frontendCompiler %dumpCHIRDebug -Woff all %f -o %n.%suffix -O2
 // (not Windows and DEBUG_OPTION) EXEC: %cat %n\_CHIR_Debug/[0-9]*\_RemoveUnusedImports.chir 2>&1 | compare %f
+<<<<<<< HEAD
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg.cj -o pkg.%middle  %dumpCHIRDebug
 // EXEC: %frontendCompiler %dumpCHIRDebug -Woff all %f -o %n.%suffix -O2 -g 
 // (not Windows) EXEC: %cat %n\_CHIR_Debug/[0-9]*\_RemoveUnusedImports.chirtxt 2>&1 | compare %f
+=======
+// EXEC: %compiler %cmp_opt %compile_lib_opt pkg.cj -o pkg.%middle %dumpCHIRDebug
+// EXEC: %frontendCompiler %dumpCHIRDebug -Woff all %f -o %n.%suffix -O2 -g
+// (not Windows) EXEC: %cat %n\_CHIR_Debug/[0-9]*\_RemoveUnusedImports.chir 2>&1 | compare %f
+>>>>>>> b24bfedf2 (feat: change optimization strategy)
 
 import pkg.A
 
