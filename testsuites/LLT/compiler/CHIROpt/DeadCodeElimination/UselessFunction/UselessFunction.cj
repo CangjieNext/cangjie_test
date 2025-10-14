@@ -6,8 +6,11 @@
 
 // DEPENDENCE: pkg.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg.cj -o pkg.%middle
-// EXEC-PIPE-0: %frontendCompiler %dumpCHIRDebug -Woff all %f -o %n.%suffix
+// EXEC: %frontendCompiler %dumpCHIRDebug -Woff all %f -o %n.%suffix -O2
 // (not Windows and DEBUG_OPTION) EXEC: %cat %n\_CHIR_Debug/[0-9]*\_RemoveUnusedImports.chir 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %compile_lib_opt pkg.cj -o pkg.%middle %dumpCHIRDebug
+// EXEC: %frontendCompiler %dumpCHIRDebug -Woff all %f -o %n.%suffix -O2 -g
+// (not Windows) EXEC: %cat %n\_CHIR_Debug/[0-9]*\_RemoveUnusedImports.chir 2>&1 | compare %f
 
 import pkg.A
 
@@ -42,11 +45,9 @@ main() {
     0
 }
 
-// (not Windows) ASSERT: scan-not @_CN7default2C03fooEv
-// (not Windows) ASSERT: scan-not @_CN7default2C1Il3fooEv
-// (not Windows) ASSERT: scan-not @_CN7default2C23fooIlEv
-// (not Windows) ASSERT: scan-not @_CN7default2C23gooEv
-// (not Windows) ASSERT: scan-not @_CN7default2C23fooIGTEEv
-// (not Windows) ASSERT: scan-not @_CN7default2C33fooEv
-// (not Windows) ASSERT: scan-not @_CN7default2C1IGTE3fooEv
-// (not Windows) ASSERT: scan-not @_CN3pkg1A3fooEv
+// (not Windows) ASSERT: scan-not @_CN7default2C03fooHv
+// (not Windows) ASSERT: scan-not @_CN7default2C1IG_E3fooHv
+// (not Windows) ASSERT: scan-not @_CN7default2C23fooIG_Hv
+// (not Windows) ASSERT: scan-not @_CN7default2C23gooHv
+// (not Windows) ASSERT: scan-not @_CN7default2C33fooHv
+// (not Windows) ASSERT: scan-not @_CN7default2C33barHv
