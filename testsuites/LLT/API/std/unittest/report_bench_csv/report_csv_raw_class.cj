@@ -8,15 +8,11 @@
 // EXEC: %compiler %cmp_opt -o %n.%suffix %f %cmp_utest_opt
 // EXEC: %run %run_opt %output %run_utest_opt %run_args --no-color --bench --report-format=csv-raw --report-path=./tmp
 // RUN-EXEC-PIPE: %cat ./tmp/benchmarks/bench-default.BenchClass.csv | compare %f
-
-/* SCAN-IN
-Case,Args,BatchSize,Duration,Unit,Measurement
-"foo",,"10","10.000000","a","Measurement(a)"
- */
-
-// SCAN-IN "bar",,"10","20.000000","a","Measurement(a)"
-// SCAN-IN "parameterized","true","10","30.000000","a","Measurement(a)"
-// SCAN-IN "parameterized","false","10","30.000000","a","Measurement(a)"
+// ASSERT: scan Case,Args,BatchSize,Duration,Unit,Measurement
+// ASSERT: scan "foo",,"10","10.000000","a","Measurement(a)"
+// ASSERT: scan "bar",,"10","20.000000","a","Measurement(a)"
+// ASSERT: scan "parameterized","true","10","30.000000","a","Measurement(a)"
+// ASSERT: scan "parameterized","false","10","30.000000","a","Measurement(a)"
 
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -25,14 +21,11 @@ import std.time.*
 var counter: Float64 = 0.0
 
 class TestMeasurement <: Measurement {
-    static var callCounter = 0
-    let result: Float64 = 0.0
+    public func setup() { 
+        counter = 0.0
+    }
 
     public func measure(): Float64 {
-        if (callCounter % 2 == 0) {
-            counter = 0.0
-        }
-        callCounter += 1
         counter
     }
 
