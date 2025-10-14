@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// EXEC-PIPE-0: %run %run_opt %output %run_utest_opt --no-color --bench | compare %f
+// EXEC-PIPE-0: %export cjHeapSize=1gb && %run %run_opt %output %run_utest_opt --no-color --bench | compare %f
 // ASSERT: scan PASSED: 1
 import std.unittest.*
 import std.unittest.testmacro.*
