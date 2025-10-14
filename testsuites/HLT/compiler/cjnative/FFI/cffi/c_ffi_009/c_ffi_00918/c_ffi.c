@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdio.h>
-#include <securec.h>
+#include <boundscheck.h>
 
 struct teststruct {
     int32_t a;

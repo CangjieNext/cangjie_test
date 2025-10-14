@@ -9,7 +9,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-#include <securec.h>
+#include <boundscheck.h>
 
 char* testfunc(char* input) {
     char* b = "World\n";

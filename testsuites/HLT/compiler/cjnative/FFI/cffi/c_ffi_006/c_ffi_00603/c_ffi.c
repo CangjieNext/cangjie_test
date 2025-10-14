@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include <securec.h>
+#include <boundscheck.h>
 
 char* testfunc(char* a, char* b) {
     int inputSize = strlen(a);
