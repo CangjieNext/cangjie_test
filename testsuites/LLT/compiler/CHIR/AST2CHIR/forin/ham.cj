@@ -2,8 +2,8 @@
 // (Linux and CJNATIVE and DEBUG_OPTION) EXEC: lldb --batch -o 'b ham.cj:14' main | grep "ham.cj:14:13"
 // (DEBUG_OPTION) EXEC: %mkdir o2
 // (DEBUG_OPTION) EXEC: %cd o2 && %compiler ../%f -O2 -g %dumpCHIRDebug
-// (Linux and CJNATIVE and DEBUG_OPTION) EXEC: sed -n '/Func @_CN7default6<main>Hv() : Int64/,/}/p' default_CHIR_Debug/*_ConstantPropagation.chirtxt > a.t
-// (Linux and CJNATIVE and DEBUG_OPTION) EXEC: sed -n '/Func @_CN7default6<main>Hv() : Int64/,/}/p' o2/default_CHIR_Debug/*_ConstantPropagation.chirtxt > b.t
+// (Linux and CJNATIVE and DEBUG_OPTION) EXEC: sed -n '/Func @_CN7default6<main>Hv() : Int64/,/}/p' default_CHIR/*_ConstantPropagation.chirtxt > a.t
+// (Linux and CJNATIVE and DEBUG_OPTION) EXEC: sed -n '/Func @_CN7default6<main>Hv() : Int64/,/}/p' o2/default_CHIR/*_ConstantPropagation.chirtxt > b.t
 // (Linux and CJNATIVE and DEBUG_OPTION) EXEC: %diff a.t b.t
 // check in O0 and O2, for-in range has the same level of const propagation
 

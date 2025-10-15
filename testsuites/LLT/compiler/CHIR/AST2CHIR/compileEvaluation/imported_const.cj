@@ -8,8 +8,8 @@
 // DEPENDENCE: %n.lib.cj
 // (DEBUG_OPTION)EXEC: %compiler %n.lib.cj %compile_lib_opt -o libdefault.a2.%middle
 // (DEBUG_OPTION)EXEC: %compiler %f libdefault.a2.%middle %dumpCHIRDebug
-// (DEBUG_OPTION)EXEC: cat default.g1_CHIR_Debug/0_AST_CHIR.chir | compare %f
-// (Linux and CJNATIVE) EXEC: sed -n -E '/Func @default\.g1_global_init\$\(\)/,/Func @.+\(\)/p' default.g1_CHIR_Debug/0_AST_CHIR.chir | compare %n.lib.cj
+// (DEBUG_OPTION)EXEC: cat default.g1_CHIR/0_AST_CHIR.chir | compare %f
+// (Linux and CJNATIVE) EXEC: sed -n -E '/Func @default\.g1_global_init\$\(\)/,/Func @.+\(\)/p' default.g1_CHIR/0_AST_CHIR.chir | compare %n.lib.cj
 
 package default.g1
 
