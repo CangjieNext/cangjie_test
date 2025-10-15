@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %frontendCompiler %enableCompileDebug %dumpCHIRDebug  %f -o %n.%suffix 2>&1
-// (not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR_Debug/[0-9]*\_AST\_CHIR.chir | compare %f
+// (not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR/[0-9]*\_AST\_CHIR.chir | compare %f
 // (not Windows and CJNATIVE) ASSERT: scan-1 [readOnly] [compileTimeVal] [compilerAdd] @_CN7default1AL_4bbbbK_E: Int64& = 2
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace

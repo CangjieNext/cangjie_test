@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %frontendCompiler %enableCompileDebug %dumpCHIRDebug  %f -o %n.%suffix 2>&1
-// (not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR_Debug/[0-9]*\_AST\_CHIR.chir | compare %f
+// (not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR/[0-9]*\_AST\_CHIR.chir | compare %f
 // (not Windows and CJNATIVE) ASSERT: scan-not Func @_CGV7default1I5$igetHvE1aK_Hv()
 // (not Windows and not CJNATIVE) ASSERT: scan-not Func @gv$__ZN7default1aS9a0a0a0a0aE()
 

@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-/// EXEC-PIPE: %frontendCompiler %cmp_opt %enableO2 %dump-ir %f 2>&1| compare %f
+/// EXEC-PIPE: %frontendCompiler %cmp_opt %enableO2 %dump-ir-to-screen %f 2>&1| compare %f
 // EXEC: %compiler %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args 
 /// ASSERT: regex %\d+ = load atomic i8, i8 addrspace\(1\)\* %\d+ seq_cst, align 8

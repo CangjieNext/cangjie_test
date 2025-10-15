@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0: %frontendCompiler -g %enableCompileDebug %dumpCHIRDebug  %f -o %n.%suffix 2>&1
-// (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR_Debug/[0-9]*\_ClosureConversion.chir | compare %f
+// (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR/[0-9]*\_ClosureConversion.chir | compare %f
 // (CJNATIVE and not Windows and DEBUG_OPTION) ASSERT: scan Class-N15$Captured_Int64E&& = Allocate(Class-N15$Captured_Int64E&)
 // (CJNATIVE and not Windows and DEBUG_OPTION) ASSERT: regex Debug\(%[0-9]+, aaa\)
 // (CJNATIVE and not Windows and DEBUG_OPTION) ASSERT: scan-not core dumped
