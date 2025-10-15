@@ -6,7 +6,7 @@
 
 // LEVEL: 0
 // (CJNATIVE) EXEC: %compiler %cmp_opt %f -Woff unused -o %output
-// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %n.cj -Woff unused 2>&1 | compare %f
+// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %n.cj -Woff unused 2>&1 | compare %f
 // (CJNATIVE) ASSERT: scan define void @_CN21general_override_func3fooHv
 // (CJNATIVE) ASSERT: scan define void @_CN21general_override_func3fooHl
 // (CJNATIVE) ASSERT: scan define void @_CN21general_override_func3fooHd

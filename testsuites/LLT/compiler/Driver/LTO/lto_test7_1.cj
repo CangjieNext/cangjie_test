@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (Linux and CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %f 2>&1 | compare %f
+// (Linux and CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %f 2>&1 | compare %f
 // (Linux and CJNATIVE) ASSERT: scan !"CJBC", i32 1
 // (Linux and CJNATIVE) ASSERT: scan !"Cangjie_OPT", i32 0
 

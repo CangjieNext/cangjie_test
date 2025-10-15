@@ -2,7 +2,7 @@
 // (DEBUG_OPTION) EXEC: %compiler %f %dumpCHIRDebug -o %output
 // (DEBUG_OPTION) EXEC-PIPE-0: %run %run_opt %output
 // (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR2_Debug/[0-9]*\_ClosureConversion.chirtxt | compare %f
-// (not CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR_Debug/[0-9]*\_ClosureConversion.chirtxt | compare %f
+// (not CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/[0-9]*\_ClosureConversion.chirtxt | compare %f
 // (not Windows and CJNATIVE) ASSERT: scan-1 Func @_CN7default4foo13gooS9a0a0a0a_aEv([readOnly]
 
 // (not Windows and CJNATIVE) ASSERT: scan-1 Func @_CN7default4foo1HvE3gooHv([readOnly]

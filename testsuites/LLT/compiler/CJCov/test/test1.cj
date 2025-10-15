@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir %cmp_utest_opt %cmp_opt %coverage_opt %f 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir-to-screen %cmp_utest_opt %cmp_opt %coverage_opt %f 2>&1 | compare %f
 // ASSERT: scan !DIFile(filename: "0-aaa$test", directory: ".")
 package aaa
 

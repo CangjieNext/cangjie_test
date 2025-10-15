@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt -g --disable-reflection %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt -g --disable-reflection %n.cj 2>&1 | compare %f
 // ASSERT: regex !DILocalVariable\(name: "foo", scope: !\d+, file: !\d+, line: 12, type: !(?P<num1>\d+)\)
 // ASSERT: regex !(?P=num1) = !DICompositeType\(tag: DW_TAG_structure_type, name: "Array<Int64>",
 

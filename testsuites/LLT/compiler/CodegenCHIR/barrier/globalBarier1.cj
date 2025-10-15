@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir %cmp_opt %disableReflection %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir-to-screen %cmp_opt %disableReflection %n.cj 2>&1 | compare %f
 // ASSERT: regex-auto declare void @llvm.cj.gcwrite.static.ref(i8 addrspace(1)*, i8 addrspace(1)** nocapture)
 // ASSERT: regex-auto call void @llvm.cj.gcwrite.static.ref(i8 addrspace(1)*
 // EXEC: %compiler %cmp_opt %disableReflection %f -o %n.%suffix
