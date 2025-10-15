@@ -8,6 +8,7 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt p1.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt p2.cj -o p2.%middle
 // ERRCHECK: %compiler %cmp_opt p1.%middle p2.%middle %f -o %output
+// ASSERT: scan sema_extend_function_cannot_overridden
 
 import p2.B
 
