@@ -8,7 +8,7 @@
 // It may cause ABI compatibility issues if these functions have any type of counter in its mangle name.
 
 // EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %n.cj 2>&1 | compare %f
+// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
 // (CJNATIVE) ASSERT: scan _CN7defaultXCNY_1AE8export_fHv
 
 class A {

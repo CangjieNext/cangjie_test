@@ -7,7 +7,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args
 
-// (not CJNATIVE)EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
+// (not CJNATIVE)EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
 
 // (not CJNATIVE)ASSERT: scan define weak_odr void @"_ZN7default5ColorIc4BlueEl<init>"
 // (not CJNATIVE)ASSERT: scan define weak_odr void @"_ZN7default5ColorIc5GreenEGC_ZN7default5AppleIcE<init>"

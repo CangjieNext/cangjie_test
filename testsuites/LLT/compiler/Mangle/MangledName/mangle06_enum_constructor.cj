@@ -5,8 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC: %compiler %cmp_opt -g %n.cj -o %n.%suffix
-// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %enableCompileDebug %n.cj --apc=1 2>&1 | compare %f
-// (not CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
+// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %enableCompileDebug %n.cj --apc=1 2>&1 | compare %f
+// (not CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
 // (CJNATIVE) ASSERT: scan define private i8* @"default:Color.Ctor_0.Fn"
 // (CJNATIVE) ASSERT: scan define private i8* @"default:Color.Ctor_1.Fn"
 // (not CJNATIVE) ASSERT: scan define weak_odr void @"_ZN7default5Color4BlueEl<init>"

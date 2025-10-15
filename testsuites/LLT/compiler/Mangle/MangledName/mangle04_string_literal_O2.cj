@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC: %compiler %cmp_opt -g %n.cj -o %n.%suffix
-// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %enableO2 %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %enableO2 %n.cj 2>&1 | compare %f
 // (CJNATIVE) ASSERT: regex-auto @_CN7default1aE  = global
 // (CJNATIVE) ASSERT: regex-auto @_CN7default1bE = global
 // (not CJNATIVE) ASSERT: regex-auto @_ZN7default2ssE = global

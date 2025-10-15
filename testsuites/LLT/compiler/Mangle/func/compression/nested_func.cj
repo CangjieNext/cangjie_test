@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %n.cj 2>&1| compare %f
+// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %n.cj 2>&1| compare %f
 // (CJNATIVE) ASSERT: scan _CN7default3fooHCNY_1AECNY_1BEY2_Y4_EY1_HY2_Y4_Y2_Y4_
 
 class A {}

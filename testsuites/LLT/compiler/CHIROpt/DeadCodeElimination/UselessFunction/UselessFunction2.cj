@@ -8,10 +8,10 @@
 // DEPENDENCE: pkg.cj UselessFunction.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg.cj -o pkg.%middle
 // EXEC: %frontendCompiler %dumpCHIRDebug -Woff all UselessFunction.cj -o %n.%suffix -g -j1
-// (not Windows) EXEC: %cat %n\_CHIR_Debug/[0-9]*\_RemoveUnusedImports.chirtxt 2>&1 | compare %f
+// (not Windows) EXEC: %cat %n\_CHIR/[0-9]*\_RemoveUnusedImports.chirtxt 2>&1 | compare %f
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg.cj -o pkg.%middle
 // EXEC: %frontendCompiler %dumpCHIRDebug -Woff all UselessFunction.cj -o %n.%suffix -j1
-// (not Windows) EXEC: %cat %n\_CHIR_Debug/[0-9]*\_RemoveUnusedImports.chirtxt 2>&1 | compare %f
+// (not Windows) EXEC: %cat %n\_CHIR/[0-9]*\_RemoveUnusedImports.chirtxt 2>&1 | compare %f
  
 // (not Windows) ASSERT: scan @_CN7default2C03fooHv
 // (not Windows) ASSERT: scan @_CN7default2C1IG_E3fooHv
