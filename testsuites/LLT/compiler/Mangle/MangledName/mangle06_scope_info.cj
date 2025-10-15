@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt -g %n.cj -o %n.%suffix
 // EXEC: %run %run_opt %n.%suffix
-// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
 // (CJNATIVE) ASSERT: scan _CN7default3barHbE10func_innerIG_HG_
 // (not CJNATIVE) ASSERT: scan define internal i1 @_ZN7default3bar10func_innerIbS9a0a0a0b_bEb
 // Test two func_inner in if branch, scopeLevel == 1

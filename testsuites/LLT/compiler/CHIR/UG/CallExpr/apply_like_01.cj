@@ -6,7 +6,7 @@
 
 // EXEC-PIPE-0: %compiler %enableCompileDebug %disInst %dumpCHIRDebug  %f -o %n.%suffix
 // RUN-EXEC-0: %run %run_opt %output %run_args
-// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR_Debug/0\_AST\_CHIR.chir | %grep Apply | compare %f
+// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/0\_AST\_CHIR.chir | %grep Apply | compare %f
 // (not Windows) ASSERT: scan-1 Apply(ThisType: Struct-_CN7default2S1IG_E<Generic-_CN7default2S1IG_E1TE>, @_CN7default2S1IG_E10staticFoo1Hv) // loc: "apply_like_01.cj"-18-9
 // (not Windows) ASSERT: scan-1 Apply(ThisType: Struct-_CN7default2S1IG_E<Generic-_CN7default5test3IG_HG_E1TE>, @_CN7default2S1IG_E10staticFoo1Hv) // loc: "apply_like_01.cj"-29-5
 

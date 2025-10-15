@@ -8,7 +8,7 @@
 // EXEC: %cpfile %n.new.pkg.cj p1.cj
 // EXEC: %compiler %incrementalCompile %compile_lib_opt p1.cj -o p1.%lib_extension
 // EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj p1.%lib_extension -o %output %dumpCHIRDebug 2>&1 | compare %f
-// EXEC: compare Imported.chirtxt <Imported_CHIR_Debug/0_AST_CHIR.chirtxt
+// EXEC: compare Imported.chirtxt <Imported_CHIR/0_AST_CHIR.chirtxt
 // ASSERT: scan the changed decl after Spreading is:mm
 // ASSERT: scan the changed decl after Spreading is:main
 // EXEC: %run %run_opt %output %run_args | compare %n.new.cj

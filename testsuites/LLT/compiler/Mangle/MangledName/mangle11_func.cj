@@ -6,8 +6,8 @@
 
 // EXEC: %compiler %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args
-// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt --apc=1 %f 2>&1 | compare %f
-// (not CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %f 2>&1 | compare %f
+// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt --apc=1 %f 2>&1 | compare %f
+// (not CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %f 2>&1 | compare %f
 // (CJNATIVE) ASSERT: scan @_CN7default3barHFCilE
 // (not CJNATIVE) ASSERT: scan @_ZN7default3barEFilE
 // ASSERT: scan define internal i32 @aCfunc
