@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0: %frontendCompiler %enableO2 %enableCompileDebug %dumpCHIRDebug  %f -o %n.%suffix 2>&1
-// (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR_Debug/[0-9]*\_AST\_CHIR.chir | compare %f
+// (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR/[0-9]*\_AST\_CHIR.chir | compare %f
 // (CJNATIVE and not Windows) ASSERT: regex InvokeStatic\(Class-_CN7default11MyInterfaceE::foo4: \(\), %\d+\)\(Class-_CN7default1AE&, \[\], Int64\)
 // (CJNATIVE and not Windows) ASSERT: scan Apply(ThisType: Class-_CN7default1AE&, Class-_CN7default1AE::@_CN7default1A4foo1Hv : () -> Int64)
 

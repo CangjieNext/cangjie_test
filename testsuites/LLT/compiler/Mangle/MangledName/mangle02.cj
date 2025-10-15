@@ -4,8 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %compile_lib_opt %enableCompileDebug --apc=1 %f 2>&1 | compare %f
-// (not CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %compile_lib_opt %enableCompileDebug %f 2>&1 | compare %f
+// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %compile_lib_opt %enableCompileDebug --apc=1 %f 2>&1 | compare %f
+// (not CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %compile_lib_opt %enableCompileDebug %f 2>&1 | compare %f
 // (CJNATIVE) ASSERT: scan define internal i64 @"_CN7defaultUmangle02$1fHv"
 // (CJNATIVE) ASSERT: scan define internal i64 @"_CN7defaultUmangle02$1fHl"
 // (not CJNATIVE) ASSERT: scan define internal i64 @"_ZN7default9$mangle021fEv"

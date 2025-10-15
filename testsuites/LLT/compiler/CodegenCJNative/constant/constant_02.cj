@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)RUN-EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt --apc=1 %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)RUN-EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt --apc=1 %n.cj 2>&1 | compare %f
 
 // ASSERT: regex-1 constant \[3 x i64\] \[i64 1, i64 2, i64 3\]
 // ASSERT: regex-1 constant \[4 x i64\] \[i64 1, i64 2, i64 3, i64 4\]

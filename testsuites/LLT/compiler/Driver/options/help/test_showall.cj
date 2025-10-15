@@ -43,6 +43,11 @@ Options:
   --compile-as-exe            Hide symbols from bitcode files in LTO mode, and only the package init symbols remain visible
   --profile-compile-time      Print time spent of all phases in the compilation
   --profile-compile-memory    Print memory usage of all phases in the compilation
+  --dump-ast                  Dump human readable AST when compiling for debug
+  --dump-chir                 Dump human readable CHIR when compiling for debug
+  --dump-ir                   Dump human readable IR
+  --dump-all                  Dump all of AST, CHIR, IR
+  --dump-to-screen            Dump to screen instead of file
   --emit-chir                 emit CHIR serialization file of the specified phase. Candidate phases:
     <value>=raw                 emit CHIR before compiler optimization
     <value>=opt                 emit CHIR after compiler optimization (default)

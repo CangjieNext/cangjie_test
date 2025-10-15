@@ -6,7 +6,7 @@
 
 // DEPENDENCE: test2.cj
 
-// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir %n.cj test2.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir-to-screen %n.cj test2.cj 2>&1 | compare %f
 // ASSERT: scan store i1 true, i1* @"$has_applied_pkg_init_func", align 1
 // (CJNATIVE) ASSERT: scan call void @_CGPatiiHv()
 // (CJNATIVE) ASSERT: scan call void @"_CGF7defaultUtest2$iiHv"()
