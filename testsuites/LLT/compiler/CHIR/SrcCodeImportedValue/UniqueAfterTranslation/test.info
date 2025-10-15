@@ -2,7 +2,7 @@
 // (CJNATIVE) DEPENDENCE: up.cj cur.cj
 // (CJNATIVE and DEBUG_OPTION) EXEC: %compiler -Woff all %compile_lib_opt up.cj -o libup.%lib_extension %optimization_level_2
 // (CJNATIVE and DEBUG_OPTION) EXEC: %compiler -Woff all cur.cj libup.%lib_extension -o cur %dumpCHIRDebug %optimization_level_2
-// (CJNATIVE and DEBUG_OPTION) EXEC: %cat cur\_CHIR_Debug/0\_AST\_CHIR.chirtxt | grep @_CN2up3fooHll | compare %f
+// (CJNATIVE and DEBUG_OPTION) EXEC: %cat cur\_CHIR/0\_AST\_CHIR.chirtxt | grep @_CN2up3fooHll | compare %f
 // (CJNATIVE and DEBUG_OPTION) ASSERT: regex-not #from.*@_CN2up3fooHll
 // (CJNATIVE and DEBUG_OPTION) ASSERT: scan Func @_CN2up3fooHll
 // scan-2 for Func and Apply

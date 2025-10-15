@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir-to-screen %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
 // (CJNATIVE) ASSERT: regex-auto !DISubprogram(name: "new", linkageName: "_CN7default3AAA3newHv"
 // (not CJNATIVE) ASSERT: regex-auto !DISubprogram(name: "new", linkageName: "_ZN7default3AAA3newEv"
 

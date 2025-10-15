@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and DEBUG_OPTION) DEPENDENCE: test2.cj
-// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE-0: %frontendCompiler %dump-ir %f test2.cj 2>&1 | compare %f
+// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE-0: %frontendCompiler %dump-ir-to-screen %f test2.cj 2>&1 | compare %f
 // (CJNATIVE and DEBUG_OPTION) ASSERT: regex-auto @"_CN1AUtest1$3fooE"
 // (CJNATIVE and DEBUG_OPTION) ASSERT: regex-auto @"_CN1AUtest2$3fooE"
 // (CJNATIVE and DEBUG_OPTION) ASSERT: regex-auto i64 @"_CN1AUtest1$3gooHv"

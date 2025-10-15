@@ -1,5 +1,5 @@
 // EXEC: %compiler %cmp_opt %dumpCHIRDebug %f -o %output
-// (Linux and CJNATIVE) EXEC: sed -n -r '/Func @_CN7default3fooHllnll/,/^}$/p' NothingType05_CHIR_Debug/[0-9]*\_NothingTypeExprElimination.chirtxt | compare %f
+// (Linux and CJNATIVE) EXEC: sed -n -r '/Func @_CN7default3fooHllnll/,/^}$/p' NothingType05_CHIR/[0-9]*\_NothingTypeExprElimination.chirtxt | compare %f
 // ASSERT: regex Func @_CN7default3fooHllnll\(.*\).* // .* skip: vic,
 
 func foo(a: Int64, b: Int64, c: Nothing, d: Int64, e:Int64) {1}
