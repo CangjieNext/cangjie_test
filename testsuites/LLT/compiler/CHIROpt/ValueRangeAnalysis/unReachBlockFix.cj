@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (Linux) EXEC:%compiler %dumpCHIRDebug %enableO2 %n.cj -o %output 2>&1
-// (Linux) EXEC-PIPE-0: %cat %n\_CHIR_Debug/*RangePropagation.chirtxt | %grep "Lambda" | compare %f
+// (Linux) EXEC-PIPE-0: %cat %n\_CHIR/*RangePropagation.chirtxt | %grep "Lambda" | compare %f
 // (Linux) ASSERT: scan-not goo
 // (Linux) EXEC-0: %run %output
 

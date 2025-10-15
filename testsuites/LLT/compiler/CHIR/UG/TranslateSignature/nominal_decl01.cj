@@ -7,7 +7,7 @@
 // LEVEL: 0
 // EXEC-PIPE-0: %compiler %enableCompileDebug %disInst %dumpCHIRDebug  %f -o %n.%suffix
 // RUN-EXEC-0: %run %run_opt %output %run_args
-// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR_Debug/0\_AST\_CHIR.chir | compare %f
+// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/0\_AST\_CHIR.chir | compare %f
 // (not Windows) ASSERT: scan-1 interface @_CN7default3IIIIG_E<Generic-_CN7default3IIIIG_E1TE> {
 // (not Windows) ASSERT: scan-1 enum @_CN7default3EEEIG_E<Generic-_CN7default3EEEIG_E1TE> <: @_CN7default3IIIIG_E<Generic-_CN7default3EEEIG_E1TE> {
 // (not Windows) ASSERT: scan-1 struct @_CN7default3SSSIG_E<Generic-_CN7default3SSSIG_E1UE> <: @_CN7default3IIIIG_E<Generic-_CN7default3SSSIG_E1UE> {

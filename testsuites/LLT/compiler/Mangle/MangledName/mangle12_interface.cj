@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt -g %f -o %n.%suffix
 // EXEC: %run %run_opt %n.%suffix
-// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %enableCompileDebug %f 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %enableCompileDebug %f 2>&1 | compare %f
 // (CJNATIVE) ASSERT: scan _CN7default3barHCNY_3fooE
 // (not CJNATIVE) ASSERT: scan _ZN7default3barEC_ZN7default3fooE
 
