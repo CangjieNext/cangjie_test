@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (not CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %compile_lib_opt %n.cj 2>&1 | compare %f
+// (not CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %compile_lib_opt %n.cj 2>&1 | compare %f
 
 // (not CJNATIVE) ASSERT: regex @_ZN7default1aE = global i64 1, align 8
 // (not CJNATIVE) ASSERT: regex-auto @_ZN7default2a1E = global i64 2, align 8

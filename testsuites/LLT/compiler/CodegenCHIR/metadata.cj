@@ -5,8 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: SerializeMetadata.py
-// (not CJNATIVE and DEBUG_OPTION) EXEC: %frontendCompiler %dump-ir %cmp_opt %n.cj > %n.chirtxt.ll
-// (CJNATIVE and DEBUG_OPTION) EXEC: %frontendCompiler %dump-ir %cmp_opt -j1 %n.cj > %n.chirtxt.ll
+// (not CJNATIVE and DEBUG_OPTION) EXEC: %frontendCompiler %dump-ir-to-screen %cmp_opt %n.cj > %n.chirtxt.ll
+// (CJNATIVE and DEBUG_OPTION) EXEC: %frontendCompiler %dump-ir-to-screen %cmp_opt -j1 %n.cj > %n.chirtxt.ll
 // (CJNATIVE and DEBUG_OPTION) EXEC: %python SerializeMetadata.py %n.chirtxt.ll 2>&1 | compare %f
 /*
 create by chir:

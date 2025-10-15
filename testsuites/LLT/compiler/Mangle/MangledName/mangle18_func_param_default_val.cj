@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args
-// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %f 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %f 2>&1 | compare %f
 // (CJNATIVE)ASSERT: scan _CPI7default3fooHlCNY_1AERNat6StringEE1bHl
 // (not CJNATIVE)ASSERT: scan _ZN7default3fooElC_ZN7default1AERrecord._ZN8std.core6StringE$b_1l
 // (CJNATIVE)ASSERT: scan _CPI7default3fooHlCNY_1AERNat6StringEE1cHlY2_

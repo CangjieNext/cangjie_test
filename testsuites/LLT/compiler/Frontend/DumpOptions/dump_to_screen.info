@@ -1,0 +1,27 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: main.cj expected_ast.txt expected_chir.txt expected_ir.txt expected_all.txt
+// (Linux) EXEC: %rmdir ./output && %mkdir ./output
+// (Linux) EXEC: %compiler main.cj --dump-ast --dump-to-screen %output_dir_opt output 2>&1 | compare expected_ast.txt
+// (Linux) EXEC-1: test -f "./output/demo_AST/0_parse_ast.txt"
+
+// (Linux) EXEC: %compiler main.cj --dump-chir --dump-to-screen 2>&1 | compare expected_chir.txt
+// (Linux) EXEC-1: test -f "./output/demo_CHIR/0_AST_CHIR.chirtxt"
+
+// (Linux) EXEC: %rmdir ./*_IR
+// (Linux) EXEC: %compiler main.cj --dump-ir --dump-to-screen 2>&1 | compare expected_ir.txt
+// (Linux) EXEC-1: test -d "./output/demo_IR"
+
+// (Linux) EXEC: %compiler main.cj --dump-all --dump-to-screen 2>&1 | compare expected_all.txt
+
+// (Linux) EXEC: %rmdir ./output && %mkdir ./output
+// (Linux) EXEC-PIPE: %compiler main.cj --dump-to-screen %output_dir_opt output 2>&1 | compare %f
+// (Linux) ASSERT: scan-not demo
+// (Linux) EXEC-1: test -f "./output/demo_AST/0_parse_ast.txt"
+// (Linux) EXEC-1: test -f "./output/demo_CHIR/0_AST_CHIR.chirtxt"
+// (Linux) EXEC-1: test -d "./output/demo_IR"

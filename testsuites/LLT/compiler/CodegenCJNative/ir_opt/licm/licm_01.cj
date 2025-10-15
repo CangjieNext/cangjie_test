@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix
 // EXEC: %run %run_opt %n.%suffix
-/// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt --int-overflow=wrapping %n.cj 2>&1 | compare %f
+/// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt --int-overflow=wrapping %n.cj 2>&1 | compare %f
 
 /// ASSERT: regex-begin define internal void @_CN7default4demoHCNY_2I1E.+\n
 /// ASSERT: regex-after thunk.+\n

@@ -5,8 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (DEBUG_OPTION)EXEC: %compiler %f -g %dumpCHIRDebug -o %output
-// (Linux and CJNATIVE and DEBUG_OPTION) EXEC-PIPE: sed -E -n '/Func @_CN7default3fooHll/,/Func @/p' testDCEfor05_CHIR_Debug/0_AST_CHIR.chir | sed '$d' | compare %f
-// (Linux and not CJNATIVE and DEBUG_OPTION) EXEC-PIPE: sed -E -n '/Func @_ZN7default3fooEll/,/Func @/p' testDCEfor05_CHIR_Debug/0_AST_CHIR.chir | sed '$d' | compare %f
+// (Linux and CJNATIVE and DEBUG_OPTION) EXEC-PIPE: sed -E -n '/Func @_CN7default3fooHll/,/Func @/p' testDCEfor05_CHIR/0_AST_CHIR.chir | sed '$d' | compare %f
+// (Linux and not CJNATIVE and DEBUG_OPTION) EXEC-PIPE: sed -E -n '/Func @_ZN7default3fooEll/,/Func @/p' testDCEfor05_CHIR/0_AST_CHIR.chir | sed '$d' | compare %f
 
 func foo(a: Int64, b: Int64) {
     if (a <= b) {

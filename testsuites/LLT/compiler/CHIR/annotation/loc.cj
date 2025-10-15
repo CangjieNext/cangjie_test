@@ -6,7 +6,7 @@
 
 // LEVEL: 0
 // (DEBUG_OPTION)EXEC: %compiler %f %dumpCHIRDebug
-// (DEBUG_OPTION)EXEC: %cat default_CHIR_Debug/0_AST_CHIR.chir | compare %f
+// (DEBUG_OPTION)EXEC: %cat default_CHIR/0_AST_CHIR.chir | compare %f
 
 @Annotation
 public class Anno {

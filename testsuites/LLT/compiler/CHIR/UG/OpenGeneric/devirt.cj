@@ -8,7 +8,7 @@
 // DEPENDENCE: %n.info
 // EXEC: %compiler %f -o %output %enableO2 %dumpCHIRDebug
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args
-// (Linux and CJNATIVE and DEBUG_OPTION) EXEC: sed -n -r '/\[internal\] \[noReflectInfo\] \[noInline\] Func @_CN7default6<main>Hv\(\)/,/^}$/p' devirt_CHIR_Debug/*_Devirtualization.chir | compare %n.info
+// (Linux and CJNATIVE and DEBUG_OPTION) EXEC: sed -n -r '/\[internal\] \[noReflectInfo\] \[noInline\] Func @_CN7default6<main>Hv\(\)/,/^}$/p' devirt_CHIR/*_Devirtualization.chir | compare %n.info
 
 open class A {
     public open func foo<T>(a: T) where T <: ToString {
