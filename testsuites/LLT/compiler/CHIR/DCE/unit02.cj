@@ -7,8 +7,8 @@
 // (DEBUG_OPTION)EXEC: %compiler %f %dumpCHIRDebug -g 2>&1 >a.t
 // (DEBUG_OPTION)EXEC: %touch b.t
 // (DEBUG_OPTION)EXEC: %diff a.t b.t
-// (Linux and CJNATIVE and DEBUG_OPTION) EXEC: sed -n '/Func @_CN7default6<main>Hv/,/Func @\w+/p' default_CHIR_Debug/0_AST_CHIR.chir | compare %f
-// (Linux and not CJNATIVE and DEBUG_OPTION) EXEC: sed -n '/Func @_ZN7default6<main>Ev/,/Func @\w+/p' default_CHIR_Debug/0_AST_CHIR.chir | compare %f
+// (Linux and CJNATIVE and DEBUG_OPTION) EXEC: sed -n '/Func @_CN7default6<main>Hv/,/Func @\w+/p' default_CHIR/0_AST_CHIR.chir | compare %f
+// (Linux and not CJNATIVE and DEBUG_OPTION) EXEC: sed -n '/Func @_ZN7default6<main>Ev/,/Func @\w+/p' default_CHIR/0_AST_CHIR.chir | compare %f
 
 var a = 1
 var b = 2

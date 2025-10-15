@@ -7,7 +7,7 @@
 // LEVEL: 0
 // (CJNATIVE and DEBUG_OPTION) DEPENDENCE: %n.chir
 // (CJNATIVE and DEBUG_OPTION) EXEC-PIPE-0: %compiler %cmp_opt %f -o %output --dump-chil-debug
-// (CJNATIVE and DEBUG_OPTION) EXEC: compare %n.chir < match_enum_ir_01_CHIR_Debug/0_AST_CHIR.chir
+// (CJNATIVE and DEBUG_OPTION) EXEC: compare %n.chir < match_enum_ir_01_CHIR/0_AST_CHIR.chir
 
 enum E {
     X(Int64) | Y
