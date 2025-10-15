@@ -6,7 +6,7 @@
 
 // (LLVM) EXEC: %compiler %cmp_opt %debugCHIROpt %n.cj -o %output
 // (LLVM) EXEC: %run %run_opt %output %run_args
-// (LLVM) EXEC: %frontendCompiler %dump-ir %cmp_opt %n.cj 2>&1 | compare %f
+// (LLVM) EXEC: %frontendCompiler %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
 // (LLVM) ASSERT: scan-12 call i8* @llvm.cj.blackhole(i8*
  
 import std.runtime.*

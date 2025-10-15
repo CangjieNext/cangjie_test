@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir %cmp_opt -g %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir-to-screen %cmp_opt -g %n.cj 2>&1 | compare %f
 // ASSERT: regex !(?P<sp>\d+) = distinct !DISubprogram\(name: "init", linkageName: "_CN7default2C16<init>Hv"
 // ASSERT: regex !DILocalVariable\(name: "this", arg: 1, scope: !(?P=sp)
 

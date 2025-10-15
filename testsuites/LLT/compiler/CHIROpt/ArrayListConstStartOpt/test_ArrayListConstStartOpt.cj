@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %enableO2 %f -o %output %dumpCHIRDebug
 // RUN-EXEC: %run %output
-// (Linux and DEBUG_OPTION) EXEC: sed -n -r '/\[public\] \[operator\] \[noReflectInfo\] Func @_CNacXCNac9ArrayListIlEeqHY1_/,/^}$/p' test_ArrayListConstStartOpt_CHIR_Debug/*_RunArrayListConstStartOpt.chir | compare %f
+// (Linux and DEBUG_OPTION) EXEC: sed -n -r '/\[public\] \[operator\] \[noReflectInfo\] Func @_CNacXCNac9ArrayListIlEeqHY1_/,/^}$/p' test_ArrayListConstStartOpt_CHIR/*_RunArrayListConstStartOpt.chir | compare %f
 
 import std.collection.*
 

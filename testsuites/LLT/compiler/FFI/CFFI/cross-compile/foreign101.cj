@@ -7,7 +7,7 @@
 
 // (Linux and DEBUG_OPTION) EXEC: %mkdir mockmodule/modules/windows_x86_64_cjnative
 // (Linux and DEBUG_OPTION) EXEC: %cpdir $CANGJIE_HOME/modules/linux_x86_64_cjnative/* mockmodule/modules/windows_x86_64_cjnative
-// (Linux and DEBUG_OPTION) EXEC-PIPE-0: CANGJIE_HOME=./mockmodule %frontendCompiler %dump-ir --target=x86_64-w64-mingw32 %f -o %n.%middle 2>&1 | compare %f
+// (Linux and DEBUG_OPTION) EXEC-PIPE-0: CANGJIE_HOME=./mockmodule %frontendCompiler %dump-ir-to-screen --target=x86_64-w64-mingw32 %f -o %n.%middle 2>&1 | compare %f
 
 // (Linux) ASSERT: regex-auto declare void @a1(i1 zeroext)
 // (Linux) ASSERT: regex-not byval

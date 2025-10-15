@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args
-// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt --int-overflow=wrapping --apc=1 %n.cj 2>&1 | compare %f
+// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt --int-overflow=wrapping --apc=1 %n.cj 2>&1 | compare %f
 // (CJNATIVE) ASSERT: scan define internal void @"_CN7defaultUfileName$12startAbilityHCNY0_11MainAbilityE"
 // (CJNATIVE) ASSERT: scan define internal void @"_CN7defaultXCNY_11MainAbilityEUfileName$K_10onContinueHv"
 
