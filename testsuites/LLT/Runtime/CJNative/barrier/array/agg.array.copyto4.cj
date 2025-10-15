@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir %cmp_opt %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
 // ASSERT: regex-auto-not call void @llvm.cj.struct.array.copyto
 // ASSERT: regex-auto-not call void @llvm.cj.ref.array.copyto
 // EXEC: %compiler %cmp_opt %f -o %n.%suffix

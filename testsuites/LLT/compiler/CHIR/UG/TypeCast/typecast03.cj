@@ -7,7 +7,7 @@
 // LEVEL: 0
 // EXEC-PIPE-0: %compiler %cmp_opt %disInst %f %dumpCHIRDebug  -o %n.%suffix
 // RUN-EXEC-0: %run %run_opt %output %run_args
-// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR_Debug/0\_AST\_CHIR.chir | compare %f
+// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/0\_AST\_CHIR.chir | compare %f
 // (not Windows) ASSERT: regex %6: Class-_CN7default2CBIG_E<Int64>& = TransformToConcrete\(%[0-9]+, Class-_CN7default2CBIG_E<Int64>&\)
 open class CB<T> {
     var abc: T

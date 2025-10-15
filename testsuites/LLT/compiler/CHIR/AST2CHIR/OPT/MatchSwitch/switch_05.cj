@@ -7,7 +7,7 @@
 // LEVEL: 0
 // (DEBUG_OPTION)EXEC: %compiler %f -o %output %enableSwitchOpt
 // (DEBUG_OPTION)EXEC: %run %run_opt %output
-// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir %f %enableSwitchOpt 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir-to-screen %f %enableSwitchOpt 2>&1 | compare %f
 // ASSERT: regex switch i32 %\d+
 
 enum E {

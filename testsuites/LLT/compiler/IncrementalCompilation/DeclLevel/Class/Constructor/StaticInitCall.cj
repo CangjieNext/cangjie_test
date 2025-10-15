@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output
 // EXEC: %cpfile %n.new.cj %n.old.cj
 // EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 %dumpCHIRDebug
-// EXEC: compare %f <StaticInitCall_CHIR_Debug/0_AST_CHIR.chirtxt
+// EXEC: compare %f <StaticInitCall_CHIR/0_AST_CHIR.chirtxt
 // ASSERT: scan %0: Void = Apply(@_CGV7default1C5$initHv)
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

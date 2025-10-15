@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %enableCompileDebug %f -o %n.%suffix 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %enableCompileDebug %f -o %n.%suffix 2>&1 | compare %f
 // ASSERT: regex-auto llvm.module.flags
 // ASSERT: regex-auto DILocalVariable(name: "a"
 // ASSERT: regex-auto DISubprogram(name: "bar", linkageName:

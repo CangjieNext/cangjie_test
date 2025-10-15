@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %compile_lib_opt %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %compile_lib_opt %n.cj 2>&1 | compare %f
 
 // ASSERT: regex-begin define void @\"_CN7default2SA6\<init\>Hv\"
 // ASSERT: regex-after store i64 6, i64 addrspace\(1\)\*

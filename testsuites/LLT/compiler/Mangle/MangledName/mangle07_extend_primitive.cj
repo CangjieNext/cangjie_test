@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args
-// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %f 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %f 2>&1 | compare %f
 // (CJNATIVE) ASSERT: scan _CNatXa8toStringHv
 // (not CJNATIVE)  ASSERT: scan _ZN8std.core6Extend4Int88toStringEv
 // (CJNATIVE) ASSERT: regex _CN7defaultXa3fooHv

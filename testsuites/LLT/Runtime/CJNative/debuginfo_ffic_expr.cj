@@ -7,7 +7,7 @@
 // DEPENDENCE: debuginfo_ffic_expr.c
 // EXEC: %clang -g %clang_opt debuginfo_ffic_expr.c -o %cffi_output
 // EXEC: %compiler -g -L. -l%n %n.cj -o %n
-// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir -g %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir-to-screen -g %n.cj 2>&1 | compare %f
 // ASSERT: regex-auto call void @llvm.dbg.declare(metadata i32 ()** %cf, metadata
 
 foreign func IntFromC(): Int32

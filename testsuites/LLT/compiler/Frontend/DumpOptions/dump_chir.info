@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: main.cj
+// (Linux) EXEC: %rmdir ./*_CHIR
+// (Linux) EXEC: %frontendCompiler main.cj --dump-chir
+// (Linux) EXEC: test -f "./demo_CHIR/0_AST_CHIR.chirtxt"
+// (Linux) EXEC: %rmdir ./*_CHIR
+// (Linux) EXEC: %compiler main.cj --dump-chir
+// (Linux) EXEC: test -f "./demo_CHIR/0_AST_CHIR.chirtxt"
+// (Linux) EXEC: %rmdir ./*_CHIR
+
+// (Linux) EXEC: %mkdir ./output
+// (Linux) EXEC: %compiler main.cj --dump-chir %output_dir_opt output
+// (Linux) EXEC: test -f "./output/demo_CHIR/0_AST_CHIR.chirtxt"
+// (Linux) EXEC: %rmdir ./output/*_CHIR
+// (Linux) EXEC: %compiler main.cj --dump-chir %output_opt ./output/main.out
+// (Linux) EXEC: test -f "./output/main_CHIR/0_AST_CHIR.chirtxt"

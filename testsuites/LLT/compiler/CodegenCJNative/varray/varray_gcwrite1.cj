@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-/// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %f 2>&1 | compare %f
+/// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %f 2>&1 | compare %f
 // ASSERT: regex-auto define internal i64 @_CN7default3fffEV5_lE(i8* %"$BP", [5 x i64]* noalias %x)
 // EXEC-PIPE: %compiler %cmp_opt -o %output %f
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args
