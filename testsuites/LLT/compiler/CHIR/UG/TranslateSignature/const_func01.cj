@@ -6,7 +6,7 @@
 
 // LEVEL: 0
 // EXEC-PIPE-0: %compiler %dumpCHIRDebug %f -o %n.%suffix
-// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR_Debug/0\_AST\_CHIR.chir | compare %f
+// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/0\_AST\_CHIR.chir | compare %f
 // (not Windows) ASSERT: regex-not \[static\].*goo
 class C {
     static const func foo1() {

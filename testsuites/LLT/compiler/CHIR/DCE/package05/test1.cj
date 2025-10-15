@@ -7,7 +7,7 @@
 // (CJNATIVE) DEPENDENCE: p1
 // (CJNATIVE and DEBUG_OPTION) EXEC:%compiler %disableReflection %enableO2 p1/test0.cj %compile_lib_opt -o test0.%middle
 // (CJNATIVE and DEBUG_OPTION) EXEC:%compiler %dumpCHIRDebug %disableReflection %enableO2 test0.%middle test1.cj -o %output 2>&1
-// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR_Debug/0\_AST\_CHIR.chir | %grep "\ Func\ " | compare %f
+// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR/0\_AST\_CHIR.chir | %grep "\ Func\ " | compare %f
 // (CJNATIVE and DEBUG_OPTION) EXEC: %run %output
 
 internal import test0.*

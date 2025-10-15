@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir %cmp_opt %f 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir-to-screen %cmp_opt %f 2>&1 | compare %f
 // ASSERT: regex-not declare void @"_CNatat0A1_lIl2\[\]Hll"
 
 struct A {

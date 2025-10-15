@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir %cmp_opt %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
 
 // ASSERT: regex-not br i1 %icmpsgt, label %bb\d+, label %bb\d+, !dbg !\d+
 

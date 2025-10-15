@@ -7,7 +7,7 @@
 // EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix
 // EXEC: %run %run_opt %n.%suffix
 
-/// RUN-EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %n.cj 2>&1 | compare %f
+/// RUN-EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
 
 /// ASSERT: regex-1 private unnamed_addr constant \[3 x \[5 x i64\]\] \[\[5 x i64\] \[i64 1, i64 2, i64 3, i64 4, i64 5]\, \[5 x i64\] \[i64 11, i64 12, i64 13, i64 14, i64 15\], \[5 x i64\] \[i64 111, i64 112, i64 113, i64 114, i64 115\]\], align 8
 

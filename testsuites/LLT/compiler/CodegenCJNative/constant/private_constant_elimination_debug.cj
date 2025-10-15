@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
 
 // ASSERT: scan _CN7default1aE
 
