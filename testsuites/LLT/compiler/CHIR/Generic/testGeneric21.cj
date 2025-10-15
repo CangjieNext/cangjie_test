@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0: %frontendCompiler %enableCompileDebug %dumpCHIRDebug  %f -o %n.%suffix 2>&1
-// (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR_Debug/[0-9]*\_AST\_CHIR.chir | compare %f
+// (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR/[0-9]*\_AST\_CHIR.chir | compare %f
 // (CJNATIVE and not Windows and DEBUG_OPTION) ASSERT: scan Apply(ThisType: Class-_CN7default1CIG_E<Generic-_CN7default1CIG_E3barIG0_HvE1UE>&, Class-_CN7default1CIG_E<Generic-_CN7default1CIG_E3barIG0_HvE1UE>&::@_CN7default1CIG_E3fooHv : () -> Int64)
 
 class C<T> {

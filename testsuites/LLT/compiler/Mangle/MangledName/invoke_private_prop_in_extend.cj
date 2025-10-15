@@ -6,8 +6,8 @@
 
 // EXEC: %compiler %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args
-// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt --int-overflow=wrapping --apc=1 %n.cj 2>&1 | compare %f
-// (not CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt --int-overflow=wrapping %n.cj 2>&1 | compare %f
+// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt --int-overflow=wrapping --apc=1 %n.cj 2>&1 | compare %f
+// (not CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt --int-overflow=wrapping %n.cj 2>&1 | compare %f
 // (CJNATIVE) ASSERT: scan define internal i64 @_CN7defaultXCNY_1AEU0000000395vCXK_3aaapgHv
 // (CJNATIVE) ASSERT: scan define internal i64 @_CN7defaultXCNY_1AEU0000000395vCXK0_3aaapgHv
 // (not CJNATIVE) ASSERT: scan define internal i64 @"_ZN7default6Extend1A7$aaagetS7a0b0a_aEv"

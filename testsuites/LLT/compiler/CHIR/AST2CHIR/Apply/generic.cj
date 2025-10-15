@@ -7,7 +7,7 @@
 // LEVEL: 0
 // (DEBUG_OPTION)EXEC: %compiler %f -o %output %dumpCHIRDebug %enableO2
 // (DEBUG_OPTION)RUN-EXEC: %run %run_opt %output
-// (Linux and CJNATIVE and DEBUG_OPTION) EXEC: sed -n -r '/Func @_CN7default18CanvasRendererBase16createShapeImageHv/,/^}$/p' generic_CHIR_Debug/0_AST_CHIR.chir | compare %f
+// (Linux and CJNATIVE and DEBUG_OPTION) EXEC: sed -n -r '/Func @_CN7default18CanvasRendererBase16createShapeImageHv/,/^}$/p' generic_CHIR/0_AST_CHIR.chir | compare %f
 
 public open class BaseElement {
     public var buildElementParentingInComp: (BaseElement, Int64) -> Unit = {_, _ => ()}

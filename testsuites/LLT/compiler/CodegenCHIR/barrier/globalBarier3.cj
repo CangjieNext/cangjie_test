@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir %cmp_opt %disableReflection %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir-to-screen %cmp_opt %disableReflection %n.cj 2>&1 | compare %f
 // ASSERT: regex call void @llvm\.cj\.gcwrite\.static\.struct\(i8\* bitcast \(%"record\.default:B"\* @_CN7default1bE to i8\*\), i8\* %\d+, i64 24\)
 // EXEC: %compiler %cmp_opt %disableReflection %f -o %n.%suffix
 // EXEC: %run %run_opt %n.%suffix

@@ -1,5 +1,5 @@
 // (DEBUG_OPTION) EXEC: %compiler %dumpCHIRDebug %f -o %output
-// (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR_Debug/[0-9]*\_AST\_CHIR.chirtxt | compare %f
+// (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/[0-9]*\_AST\_CHIR.chirtxt | compare %f
 // (DEBUG_OPTION) ASSERT: regex TypeCast\(%[0-9]+\) //.* EnumCaseIndex: 0
 
 func foo(a: Array<Option<Int64>>) {

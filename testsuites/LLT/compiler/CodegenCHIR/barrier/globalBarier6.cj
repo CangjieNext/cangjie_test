@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir %cmp_opt %disableReflection %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir-to-screen %cmp_opt %disableReflection %n.cj 2>&1 | compare %f
 // ASSERT: regex call void @"_CN7default1A6<init>Hv"\(
 // ASSERT: regex call void @llvm.cj.gcwrite.static\(i8 addrspace\(1\)\* \d+, i8 addrspace\(1\)\*\* getelementptr inbounds \(%struct._CN7default1EE, %struct._CN7default1EE\* @_CN7default1eE, i32 0, i32 1, i32 0\)\)
 // ASSERT: regex store i64 1, i64\* getelementptr inbounds \(%struct._CN7default1EE, %struct._CN7default1EE\* @_CN7default1eE, i32 0, i32 1, i32 1\), align 8

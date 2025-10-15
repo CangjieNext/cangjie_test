@@ -7,7 +7,7 @@
 // LEVEL: 0
 // (DEBUG_OPTION)EXEC: %compiler %f %dumpCHIRDebug -o %output
 // (DEBUG_OPTION)EXEC-PIPE-0: %run %run_opt %output
-// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR_Debug/*\_ClosureConversion.chir | compare %f
+// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/*\_ClosureConversion.chir | compare %f
 // (not Windows) ASSERT: regex-3 Func @_CCN7default4foo1HvEL_E\$\d+\$g\(\[readOnly\]
 // (not Windows) ASSERT: regex-1 Func @_CCN7default4foo1HvEL_E\$g\(\[readOnly\]
 // (not Windows) ASSERT: regex-3 Apply\(ThisType: Class-\$ClN7default4foo1HvEL_E\$\d+&, Class-\$ClN7default4foo1HvEL_E\$\d+&::@_CCN7default4foo1HvEL_E\$\d+\$i

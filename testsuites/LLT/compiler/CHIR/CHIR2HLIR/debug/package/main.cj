@@ -7,7 +7,7 @@
 // LEVEL: 0
 // DEPENDENCE: ./package1
 // EXEC: %compiler %compile_lib_opt -g package1/p1.cj -o p1.%middle
-// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir -g %f p1.%middle -o %n.%suffix 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir-to-screen -g %f p1.%middle -o %n.%suffix 2>&1 | compare %f
 // (Unix) ASSERT: regex DIFile\(filename: "p1\.cj", directory: \".*main_cj
 // (Windows) ASSERT: regex DIFile\(filename: "p1\.cj", directory: \".*main_cj
 

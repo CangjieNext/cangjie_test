@@ -6,7 +6,7 @@
 
 // LEVEL: 0
 // EXEC: %compiler %f %dumpCHIRDebug
-// (DEBUG_OPTION)EXEC: compare %f <default_CHIR_Debug/0_AST_CHIR.chir
+// (DEBUG_OPTION)EXEC: compare %f <default_CHIR/0_AST_CHIR.chir
 
 open class A {
     public static func foo() {}
