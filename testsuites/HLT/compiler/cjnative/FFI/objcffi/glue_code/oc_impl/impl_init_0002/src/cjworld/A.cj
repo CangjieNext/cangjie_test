@@ -12,15 +12,21 @@ import interoplib.objc.*
 
 @ObjCImpl
 public class A <: M {
-    public init() {
-        println("in cangjie init")
+    public var a: Int64 = 0
+    public init(a: Int64) {
+        this.a = a
     }
 }
 
 @ObjCImpl
 public class B <: M {
-    public func test() {
-        println("in cangjie test")
-        A()
+    public var a: A
+    public init(a: A) {
+        this.a = a
+    }
+    public func test(a: A): A {
+        var tmp = this.a
+        this.a = a
+        return tmp
     }
 }

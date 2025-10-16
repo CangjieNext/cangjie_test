@@ -13,7 +13,7 @@ import interoplib.objc.*
 @ObjCImpl
 public class A <: M {
     public init() {}
-    public func foo() {
-        B().goo()
+    public func foo(): Int64 {
+        return 123
     }
 }

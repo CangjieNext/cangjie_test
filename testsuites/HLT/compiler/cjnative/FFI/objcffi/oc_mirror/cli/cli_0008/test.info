@@ -8,4 +8,4 @@
  
 // LEVEL: 1
 // (iOS) EXEC-PIPE-1: %mirror_gen 2>&1 | compare %f
-// ASSERT: scan Usage: ObjCInteropGen [-v] config-file.toml
+// ASSERT: scan Usage: %mirror_gen [-v] config-file.toml
