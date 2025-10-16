@@ -1,8 +1,3 @@
-package p
-
-foreign struct i________{}
-
-foreign struct I1{}
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -10,3 +5,10 @@ foreign struct I1{}
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package p
+
+foreign struct i________{}
+
+foreign struct I1{}
+
