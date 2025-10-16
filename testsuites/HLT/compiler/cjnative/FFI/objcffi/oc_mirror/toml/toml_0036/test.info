@@ -8,5 +8,5 @@
  
 // LEVEL: 1
 // DEPENDENCE: test.toml test.h
-// (iOS) ERRCHECK: ObjCInteropGen test.toml
+// (iOS) ERRCHECK: %mirror_gen test.toml
 // ASSERT: regex Entity ``UInt32`` from .* is ambiguous between 2 packages. Specify -v for more detailed information

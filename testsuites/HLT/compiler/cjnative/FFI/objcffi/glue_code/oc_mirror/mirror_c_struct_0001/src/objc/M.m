@@ -12,14 +12,14 @@
 
 - (id)init {
     if (self = [super init]) {
-        printf("in objc init\n");
+        s.x = 1;
+        s.y = 1;
     }
     return self;
 }
 
-- (Point)goo {
-    Point p = {1, 2};
-    return p;
+- (S)goo {
+    return s;
 }
 
 @end

@@ -12,8 +12,12 @@
 
 int main(int argc, char** argv) {
     @autoreleasepool {
-        B* b = [[B alloc] init];
-        A* a = [b test];
+        A* a1 = [[A alloc] init: 123];
+        A* a2 = [[A alloc] init: 321];
+        B* b = [[B alloc] init: a1];
+        A* a = [b test: a2];
+        printf("in objc main, test: %lld\n", a.a);
+        printf("in objc main, b.a: %lld\n", b.a.a);
     }
     return 0;
 }
