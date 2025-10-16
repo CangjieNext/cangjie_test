@@ -1,0 +1,15 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/parameter_init.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug parameter_init.cj -j1 -o parameter_init
+// EXEC: python3 cjdb_test.py debuginfo_parameter_init.info
+
+test#
+cjdb,cjdb parameter_init,parameter_init
+b,b 31,parameter_init.cj:31
+r,r,-> 31
+ ,expr b1.f(1),\(Int64\) \$\d+ = 1
