@@ -7,9 +7,33 @@ import std.collection.ArrayList
 @Test
 class Test {
     @TestCase
+    func testUnsupported() {
+        try {
+            parseText(#"foreign {
+    func f(): Int8
+}"#)
+        } catch (e: Exception) {
+            @Expect(e.message.contains("unsupported node type or parse error in parseText function:"))
+        }
+    
+
+        try {
+            parseText(#"public Rectangle(let width: Int64, let height: Int64) {}"#)
+        } catch (e: Exception) {
+            @Expect(e.message.contains("unsupported node type or parse error in parseText function:"))
+        }
+
+        try {
+            parseText(#"a: Int64"#)
+        } catch (e: Exception) {
+            @Expect(e.message.contains("unsupported node type or parse error in parseText function:"))
+        }
+    }
+    
+    @TestCase
     func testVarDecl() {
         let node = parseText("let a = 1")
-        let decl = (node.node.getOrThrow().getOrThrow() as VarDecl).getOrThrow()
+        let decl = (node.node.getOrThrow() as VarDecl).getOrThrow()
         let initializer = (decl.initializer).getOrThrow()
 
         @Expect(initializer.toString(), "1")
@@ -34,14 +58,14 @@ class Test {
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 10]).toArray())
 
         let text = #"@Deprecated["This API will be deprecated soon"] let (a, b): (Int64, String) = (1, "hello")"#
-        let decl_1 = (parseText(text).node.getOrThrow().getOrThrow() as VarDecl).getOrThrow()
+        let decl_1 = (parseText(text).node.getOrThrow() as VarDecl).getOrThrow()
         @Expect(decl_1.toString(), text)
     }
 
     @TestCase
     func testTypeAlias02() {
         let text = "type NewType<S, T> = packageName.className<S, T>"
-        let decl = (parseText(text).node.getOrThrow().getOrThrow() as TypeAlias).getOrThrow()
+        let decl = (parseText(text).node.getOrThrow() as TypeAlias).getOrThrow()
         @Expect(decl.aliasName, "NewType")
         @Expect(decl.typeParameters.size, 2)
         @Expect(decl.typeParameters[0].toString(), "S")
@@ -67,7 +91,7 @@ struct F {
         get() { return "hello" }
     }
 }"""
-        let decl = (parseText(text).node.getOrThrow().getOrThrow() as StructDecl).getOrThrow()
+        let decl = (parseText(text).node.getOrThrow() as StructDecl).getOrThrow()
         @Expect(decl.modifiers.size, 0)
         @Expect(decl.name, "F")
         @Expect(decl.superTyAnnotations.size, 0)
@@ -98,7 +122,7 @@ static init() {
         a = 1
         println()
     }"""
-        let decl = (parseText(text).node.getOrThrow().getOrThrow() as StaticInit).getOrThrow()
+        let decl = (parseText(text).node.getOrThrow() as StaticInit).getOrThrow()
         @Expect(decl.body.toString(), """
 {
         a = 1
@@ -118,7 +142,7 @@ mut prop b: Int64 {
             println(v)
         }
     }"""
-        let decl = (parseText(text).node.getOrThrow().getOrThrow() as PropDecl).getOrThrow()
+        let decl = (parseText(text).node.getOrThrow() as PropDecl).getOrThrow()
         @Expect(decl.name, "b")
         @Expect(decl.tyAnnotation.toString(), "Int64")
         let getter = decl.getter.getOrThrow()
@@ -158,7 +182,7 @@ main(param1: Int64, param2: Int64): Int64 {
     "a"
     0
 }"""
-        let decl = (parseText(text).node.getOrThrow().getOrThrow() as MainDecl).getOrThrow()
+        let decl = (parseText(text).node.getOrThrow() as MainDecl).getOrThrow()
         let ret = decl.retTyAnnotation.getOrThrow()
         let params = decl.params
 
@@ -173,7 +197,7 @@ main(param1: Int64, param2: Int64): Int64 {
 
     @TestCase
     func testMacroExpandParam01() {
-        let decl = (parseText("func function(@testMacro[public func]a: Int64, @macroPackage.testMacro(b!: Int64)){}").node.getOrThrow().getOrThrow() as FuncDecl).getOrThrow()
+        let decl = (parseText("func function(@testMacro[public func]a: Int64, @macroPackage.testMacro(b!: Int64)){}").node.getOrThrow() as FuncDecl).getOrThrow()
         let param = (decl.params.params[0] as MacroExpandParam).getOrThrow()
         @Expect(param.calleeMacro.toString(), "testMacro")
         @Expect(param.macroAttrs.toString(), "public func")
@@ -189,7 +213,7 @@ main(param1: Int64, param2: Int64): Int64 {
     @TestCase
     func testMacroDecl02() {
         let text = "public macro testMacro(a: Tokens, b: Tokens): Tokens { return quote() }"
-        let decl = (parseText(text).node.getOrThrow().getOrThrow() as MacroDecl).getOrThrow()
+        let decl = (parseText(text).node.getOrThrow() as MacroDecl).getOrThrow()
         @Expect(decl.name, "testMacro")
         let params = decl.params
         @Expect(params.toString(), "(a: Tokens, b: Tokens)")
@@ -212,7 +236,7 @@ main(param1: Int64, param2: Int64): Int64 {
         var diags = res.diags
         @Assert(diags.size, 0)
 
-        var interfaceDecl: InterfaceDecl = (res.node.getOrThrow().getOrThrow() as InterfaceDecl).getOrThrow()
+        var interfaceDecl: InterfaceDecl = (res.node.getOrThrow() as InterfaceDecl).getOrThrow()
         @Expect(interfaceDecl.toString(), text)
         @Assert(interfaceDecl.body.memberDecls.size, 2)
         @Assert(interfaceDecl.body.memberDecls[0] is PropDecl)
@@ -238,7 +262,7 @@ main(param1: Int64, param2: Int64): Int64 {
     1 + 1
     "a"
 }"#
-        let funcDecl = (parseText(text).node.getOrThrow().getOrThrow() as FuncDecl).getOrThrow()
+        let funcDecl = (parseText(text).node.getOrThrow() as FuncDecl).getOrThrow()
         @Expect(funcDecl.name, "b")
         let paramList = funcDecl.params
         @Expect(paramList.toString(), "(param1: Int64)")
@@ -262,15 +286,6 @@ main(param1: Int64, param2: Int64): Int64 {
     }
 
     @TestCase
-    func testForeign() {
-        let text = #"foreign {
-    func f(): Int8
-}"#
-        let node = parseText(text).node.getOrThrow()
-        @Expect(node.isNone())
-    }
-
-    @TestCase
     func testExtendDecl06() {
         let text = """
 extend F {
@@ -280,7 +295,7 @@ extend F {
         get() { return "hello" }
     }
 }"""
-        let decl = (parseText(text).node.getOrThrow().getOrThrow() as ExtendDecl).getOrThrow()
+        let decl = (parseText(text).node.getOrThrow() as ExtendDecl).getOrThrow()
         @Expect(decl.modifiers.size, 0)
         @Expect(decl.extendedTyAnnotation.toString(), "F")
         @Expect(decl.superTyAnnotations.size, 0)
@@ -304,7 +319,7 @@ public enum B {
     | Enum(Int64, A) | ...
     func a() {}
 }"""
-        let decl = (parseText(text).node.getOrThrow().getOrThrow() as EnumDecl).getOrThrow()
+        let decl = (parseText(text).node.getOrThrow() as EnumDecl).getOrThrow()
         @Expect(decl.modifiers.size, 1)
         @Expect(decl.name, "B")
         @Expect(decl.isNonExhaustive, true)
@@ -352,7 +367,7 @@ class F {
         get() { return "hello" }
     }
 }"""
-        let decl = (parseText(text).node.getOrThrow().getOrThrow() as ClassDecl).getOrThrow()
+        let decl = (parseText(text).node.getOrThrow() as ClassDecl).getOrThrow()
         @Expect(decl.modifiers.size, 0)
         @Expect(decl.name, "F")
         @Expect(decl.superTyAnnotations.size, 0)
