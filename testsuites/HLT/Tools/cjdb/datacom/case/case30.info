@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case30,case30
-b,b 5,case30.cj:5
-AOT r,r,-> 5
+b,b 13,case30.cj:13
+AOT r,r,-> 13
 CJVM c,c,
 AOT expr,expr e,\(std.collection.ArrayList<std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "0"[\s\S]*\[1\] = "1"[\s\S]*}
 AOT expr~expr ArrayList<String>(2,{x:Int64=>x.toString()})~\(std.collection.ArrayList<std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "0"[\s\S]*\[1\] = "1"[\s\S]*}

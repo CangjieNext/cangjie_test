@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_enum03.cj
+// EXEC: %compiler %cmp_opt -g debuginfo_enum03.cj -o debuginfo_enum03
+// EXEC: python3 cjdb_test.py debuginfo_enum03.info
+
+
+test#
+cjdb,cjdb debuginfo_enum03,debuginfo_enum03
+b,b 19,debuginfo_enum03.cj:19
+r,r,-> 19
+p,p x,\(default.E1\) \$[\d]+ = {\s+constructor = B\s+arg_1 = \{\s+a = 10
+p,p y,\(default.E1\) \$[\d]+ = {\s+constructor = B\s+arg_1 = {\s+a = 10\s+}\s+arg_2 = 50\s+}
+p,p z,\(default.E1\) \$[\d]+ = {\s+constructor = B\s+arg_1 = {\s+a = 10\s+}\s+arg_2 = 50\s+arg_3 = "hhh"\s+}

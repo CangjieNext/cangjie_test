@@ -3,7 +3,7 @@
 var va: VArray<Int64, $3> = [1, 2, 3]
 var `va`: VArray<Int64, $3> = [1, 2, 3]
 
-main(){
+main() {
     0
 }
 

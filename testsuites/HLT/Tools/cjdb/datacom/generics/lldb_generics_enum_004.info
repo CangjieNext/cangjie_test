@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_enum_generics,002_debug_enum_generics
-b,b 43,002_debug_enum_generics.cj:43
-AOT r,r,-> 43
+b,b 51,002_debug_enum_generics.cj:51
+AOT r,r,-> 51
 CJVM c,c,
-n,n,-> 45
+n,n,-> 53
 locals,locals,\(default.TimeUnit2<Rune,Bool>\) m_time3 = {(\r|\n|\r\n)  constructor = Month[\s\S]*arg_1 = '5'[\s\S]*arg_2 = true[\s\S]*}
 q,q,

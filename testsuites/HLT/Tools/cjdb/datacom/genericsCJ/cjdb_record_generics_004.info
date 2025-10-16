@@ -16,12 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors debug_record_generics,debug_record_generics
-CJVM b main,b main,debug_record_generics.cj:9
-CJVM c,c,-> 9
-b,b 15,debug_record_generics.cj:15
-AOT r,r,-> 15
-CJVM c,c,-> 15
-s,s,-> 31
-n,n,-> 32
-finish,finish,-> 15
+CJVM b main,b main,debug_record_generics.cj:17
+CJVM c,c,-> 17
+b,b 23,debug_record_generics.cj:23
+AOT r,r,-> 23
+CJVM c,c,-> 23
+s,s,-> 39
+n,n,-> 40
+finish,finish,-> 23
 q,quit,

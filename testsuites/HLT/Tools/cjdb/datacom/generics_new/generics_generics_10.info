@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 85,Breakpoint 1:
-AOT r,r,-> 85
+b,b 93,Breakpoint 1:
+AOT r,r,-> 93
 CJVM c,c,
-c,c,-> 85
-c,c,-> 85
-c,c,-> 85
+c,c,-> 93
+c,c,-> 93
+c,c,-> 93
 p, p a,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 2
 locals, locals,\(default.C2<std.core.Range<Int64>>\) this = {[\s\S]*c2_a = 1..10 : 2[\s\S]*}[\s\S]*\(std.core.Range<Int64>\) a = 1..10 : 2[\s\S]*
 q,q,

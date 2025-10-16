@@ -3,7 +3,7 @@
 
 let `arryfut` = [1, 2, 3]
 
-main(){
+main() {
     println(`arryfut`[0]); //RefType/RefExp
     println(arryfut[0]); //RefType/RefExp
 }

@@ -15,7 +15,7 @@
 package tests.client1_1
 
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
 import std.net.*
 import std.sync.*
 import std.time.*
@@ -35,11 +35,11 @@ class TestClient1_1HTTPs5 {
     func testHTTPs(): Unit {
         startServer()
         var ccfg = clientConfig()
-        ccfg.alpnProtocolsList = ["http/1.1"]
+        ccfg.supportedAlpnProtocols = ["http/1.1"]
         let connector = {
             sa: SocketAddress =>
             var cfg = clientConfig()
-            cfg.alpnProtocolsList = ["http/1.1"]
+            cfg.supportedAlpnProtocols = ["http/1.1"]
             let socket = TcpSocket(sa)
             socket.connect()
             let tlssocket = TlsSocket.client(socket, clientConfig: cfg)

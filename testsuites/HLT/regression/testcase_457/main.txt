@@ -1,0 +1,9 @@
+from std iMport collection.{Map, HashMap}
+
+main() {
+    let Map: HashMap<String, Int64> = HashMap()
+    let arr1: Array<(String,Int64)> = map.toArray()
+
+    let coll: Collection<(String,Int64)> = map
+    let arr2: Array<(String,Int64)> = coll.toArray()
+}

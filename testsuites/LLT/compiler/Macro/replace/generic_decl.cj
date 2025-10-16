@@ -35,7 +35,7 @@ struct C{
     public init(input:Int32){a = Int64(input)}
 }
 
-main(){
+main() {
     test1()
     test2()
     A()

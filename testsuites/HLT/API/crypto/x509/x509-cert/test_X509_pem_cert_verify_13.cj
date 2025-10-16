@@ -13,6 +13,8 @@
 
 import std.fs.File
 import stdx.crypto.x509.*
+import stdx.crypto.common.*
+import stdx.crypto.keys.*
 import std.time.DateTime
 
 var sum = 0

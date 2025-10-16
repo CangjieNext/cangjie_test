@@ -13,22 +13,22 @@
 
 test#
 cjdb,cjdb --no-use-colors concurrent_02,concurrent_02
-b,b 6,concurrent_02.cj:6
-AOT r,r,-> 6
+b,b 14,concurrent_02.cj:14
+AOT r,r,-> 14
 CJVM c,c,
-n,n,-> 4
-n,n,-> 5
-n,n,-> 6
-n,n,-> 4
-n,n,-> 5
-n,n,-> 6
-n,n,-> 4
-n,n,-> 5
-n,n,-> 6
-n,n,-> 4
-n,n,-> 5
-n,n,-> 6
-n,n,-> 4
-n,n,-> 8
+n,n,-> 12
+n,n,-> 13
+n,n,-> 14
+n,n,-> 12
+n,n,-> 13
+n,n,-> 14
+n,n,-> 12
+n,n,-> 13
+n,n,-> 14
+n,n,-> 12
+n,n,-> 13
+n,n,-> 14
+n,n,-> 12
+n,n,-> 16
 c,c,with status = 0
 q,q,

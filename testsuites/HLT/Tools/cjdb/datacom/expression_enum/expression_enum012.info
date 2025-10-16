@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_enum_recursion,004_debug_enum_recursion
-b,b 38,004_debug_enum_recursion.cj:38
-AOT r,r,-> 38
+b,b 46,004_debug_enum_recursion.cj:46
+AOT r,r,-> 46
 CJVM c,c,
 expr~expr TimeUnit.Twounit(TimeUnit.Year(3),TimeUnit.Year(3))~\(default.TimeUnit\) \$[\d] = {[\s\S]*constructor = Twounit[\s\S]*arg_1 = {[\s\S]*constructor = Year[\s\S]*arg_1 = 3[\s\S]*}
 expr~expr E1.B(E2.C(E1.B(E2.D(TimeUnit.Year(3)))))~\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = [\s\S]*constructor = C[\s\S]*arg_1 = [\s\S]*constructor = D[\s\S]*arg_1 = [\s\S]*constructor = Year[\s\S]*arg_1 = 3

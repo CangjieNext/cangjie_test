@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-AOT b,b 125,list_debug.cj:127
-CJVM b,b 127,list_debug.cj:127
-AOT r,r,-> 127
-CJVM c,c,-> 127
+AOT b,b 133,list_debug.cj:135
+CJVM b,b 135,list_debug.cj:135
+AOT r,r,-> 135
+CJVM c,c,-> 135
 p,p m_base_4,\$[\d]
 AOT set,set m_base_4[0]=0x7a,= 'z'
 CJVM set,set m_base_4[0]='z',= 'z'

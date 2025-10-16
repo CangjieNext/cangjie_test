@@ -1,0 +1,39 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir 2>&1 | compare %f
+// ASSERT: regex test.cj:33:5:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 25 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:39:5:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 19 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:46:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 19 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:46:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 25 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:46:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 33 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:46:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 39 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:54:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 19 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:54:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 25 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:54:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 33 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:54:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 39 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:65:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 25 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:65:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 39 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:65:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 46 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:65:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 54 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:71:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 19 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:71:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 33 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:71:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 46 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:71:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 54 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:77:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 19 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:77:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 25 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:77:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 33 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:77:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 39 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:77:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 54 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:85:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 19 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:85:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 25 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:85:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 33 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:85:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 39 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex test.cj:85:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 46 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex-not test.cj:39:5:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 33 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex-not test.cj:54:3:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 46 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex-not test.cj:25:5:.*The nested synchronized objects has a different sequence than the nested synchronized objects on the line 19 of the file 'test.cj', which may cause a deadlock.

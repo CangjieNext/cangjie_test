@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ./src
+// EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
+// ASSERT: regex test.cj:18:25: .*error.*: Right operand 'A.\$bget' include side effect
+// ASSERT: regex test.cj:19:26: .*error.*: Right operand 'A.\$bget' include side effect
+// ASSERT: regex test.cj:20:45: .*error.*: Right operand 'A.\$bget' include side effect
+// ASSERT: regex test.cj:22:45: .*error.*: Right operand 'A.\$bget' include side effect
+// ASSERT: regex test.cj:23:50: .*error.*: Right operand 'A.\$bget' include side effect
+// ASSERT: regex test.cj:24:43: .*error.*: Right operand 'A.\$bget' include side effect
+// ASSERT: regex test.cj:25:50: .*error.*: Right operand 'A.\$bget' include side effect
+// ASSERT: regex test.cj:26:63: .*error.*: Right operand 'A.\$bget' include side effect
+// ASSERT: regex test.cj:27:54: .*error.*: Right operand 'A.\$bget' include side effect
+// ASSERT: regex test.cj:29:25: .*error.*: Right operand 'A.\$bget' include side effect
+// ASSERT: regex test.cj:30:25: .*error.*: Right operand 'A.\$bget' include side effect
+// ASSERT: regex test.cj:31:44: .*error.*: Right operand 'A.\$bget' include side effect
+

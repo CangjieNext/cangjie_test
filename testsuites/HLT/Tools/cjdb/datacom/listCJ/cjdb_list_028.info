@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-AOT b,b 151,list_debug.cj:153
-CJVM b,b 153,list_debug.cj:153
-AOT r,r,-> 153
+AOT b,b 159,list_debug.cj:161
+CJVM b,b 161,list_debug.cj:161
+AOT r,r,-> 161
 CJVM c,c,
 p,p m_com_1_5,\$[\d] = 
 p,p m_com_1_5[0],\$[\d] = "There are 100 apples."

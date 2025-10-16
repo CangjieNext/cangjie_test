@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/dataTimeandDecimal_Optimization/dataTimeandDecimal_Optimization005.cj
+// (CJNATIVE) EXEC: %compiler %cmp_opt -g dataTimeandDecimal_Optimization005.cj -o dataTimeandDecimal_Optimization005%cmp_output
+// (CJNATIVE) RUN-EXEC: python3 cjdb_test.py dataTimeandDecimal_Optimization005.info dataTimeandDecimal_Optimization005 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors dataTimeandDecimal_Optimization005,dataTimeandDecimal_Optimization005
+b,b 14,dataTimeandDecimal_Optimization005.cj:14
+r,r,-> 14
+locals,locals,\(std.math.numeric.Decimal\) b2 = 464131168146844
+p,p b3,\(std.math.numeric.Decimal\) \$[\d] = 4641311653153168146844
+q,q,

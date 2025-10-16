@@ -372,14 +372,14 @@ func row(r: (Data) -> Unit) {}
 func build(): Unit {
     column {
         _ =>
-        row {
-            _ =>
-            buildDetail()
-            buildCalendar()
-        } // OK. Well typed since 'return' is inserted.
-        width(750)
-        height(700)
-        backgroundColor("#ff41444b")
+            row {
+                _ =>
+                    buildDetail()
+                    buildCalendar()
+            } // OK. Well typed since 'return' is inserted.
+            width(750)
+            height(700)
+            backgroundColor("#ff41444b")
     } // OK. Well typed since 'return' is inserted.
 }
 

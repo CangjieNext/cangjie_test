@@ -16,22 +16,22 @@
 
 test#
 cjdb,cjdb --no-use-colors 027_debuginfun_match,027_debuginfun_match
-CJVM b main,b main,027_debuginfun_match.cj:4
-CJVM c,c,-> 4
-b,b 8,027_debuginfun_match.cj:8
-b,b 11,027_debuginfun_match.cj:11
+CJVM b main,b main,027_debuginfun_match.cj:12
+CJVM c,c,-> 12
 b,b 16,027_debuginfun_match.cj:16
-AOT b,b 18,027_debuginfun_match.cj:19
-CJVM b,b 19,027_debuginfun_match.cj:19
-AOT r,r,-> 8
-CJVM c,c,-> 8
-s,s,-> 9
-s,s,-> 10
-s,s,-> 11
-s,s,-> 16
-s,s,-> 11
+b,b 19,027_debuginfun_match.cj:19
+b,b 24,027_debuginfun_match.cj:24
+AOT b,b 26,027_debuginfun_match.cj:27
+CJVM b,b 27,027_debuginfun_match.cj:27
+AOT r,r,-> 16
+CJVM c,c,-> 16
+s,s,-> 17
+s,s,-> 18
 s,s,-> 19
+s,s,-> 24
+s,s,-> 19
+s,s,-> 27
 locals,locals,scoreResult = 5
-rerun,r,-> 8
-AOT finish,finish,-> 11
+rerun,r,-> 16
+AOT finish,finish,-> 19
 q,q,

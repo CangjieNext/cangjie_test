@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 068_debug_hashset,068_debug_hashset
-b,b 16,068_debug_hashset.cj:16
-AOT r,r,-> 16
-CJVM c,c,-> 16
+b,b 24,068_debug_hashset.cj:24
+AOT r,r,-> 24
+CJVM c,c,-> 24
 p,p hashset06,\(std\.collection.HashSet<std.core.Range<Int64>>\) \$[\d] = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 11..20 : 1[\s\S]*}
 globals,globals,hashset06 = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 11..20 : 1[\s\S]*}
 q,q,

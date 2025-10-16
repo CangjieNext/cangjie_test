@@ -8,7 +8,5 @@
 
 call %1\envsetup.bat
 
-python windows_changeLine.py
-
 python %2\framework\main.py --test_cfg=%WORKSPACE%\tools\cjfmt\tests\configs\test_win.cfg --test_list=%WORKSPACE%\tools\cjfmt\tests\configs\testlist_win -j16 %WORKSPACE%\tools\cjfmt\tests -pFAIL --fail_exit --fail-verbose
 if %ERRORLEVEL% neq 0 ( echo *** Failed to test cjdoc! *** && exit /b 1 )

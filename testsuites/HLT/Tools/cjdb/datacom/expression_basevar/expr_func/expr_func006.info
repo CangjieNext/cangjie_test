@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors expr_function,expr_function
-b,b 108,expr_function.cj:108
-CJVM c,c,-> 108
-AOT r,r,-> 108
+b,b 116,expr_function.cj:116
+CJVM c,c,-> 116
+AOT r,r,-> 116
 expr~ expr test_tuple~error: unsupported expression
 q,q,

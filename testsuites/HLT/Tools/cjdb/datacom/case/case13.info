@@ -13,8 +13,8 @@
  
 test#
 cjdb,cjdb --no-use-colors case13,case13
-b,b 12,case13.cj:12
-AOT r,r,-> 12
+b,b 20,case13.cj:20
+AOT r,r,-> 20
 CJVM c,c,
 AOT globals,globals,Int64\) default::CA<T>::a = 99
 q,q,

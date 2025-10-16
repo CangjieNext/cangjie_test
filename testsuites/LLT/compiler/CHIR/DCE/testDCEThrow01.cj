@@ -8,7 +8,7 @@
 
 class A <: Exception {}
 
-main(){
+main() {
     try {throw try {throw A();A()} finally {}}
     finally {}
     return 0

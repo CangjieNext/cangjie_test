@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_baseVar,option_baseVar
-b,b 60,option_baseVar.cj:60
-AOT r,r,-> 60
-CJVM c,c,-> 60
+b,b 68,option_baseVar.cj:68
+AOT r,r,-> 68
+CJVM c,c,-> 68
 p,p s_native,\(std[.]core.Option<std[.]core.String>\) \$[\d] = "helloCangjie"
 p,p s_insert,\(std[.]core.Option<std[.]core.String>\) \$[\d] = "helloCangjiehelloCangjie"
 p,p s_none,\(std[.]core.Option<std[.]core.String>\) \$[\d] = None

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var011,generics_local_var011
-b,b 18,generics_local_var011.cj:18
-AOT r,r,-> 18
+b,b 26,generics_local_var011.cj:26
+AOT r,r,-> 26
 CJVM c,c,
 expr:expr a1["a"]:\(Bool\) \$[\d] = true
 expr:expr a7.isEmpty():\(Bool\) \$[\d] = false

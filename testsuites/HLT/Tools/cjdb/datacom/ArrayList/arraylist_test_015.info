@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_CompositeVar,ArrayList_CompositeVar
-b,b 70,ArrayList_CompositeVar.cj:70
-AOT r,r,-> 70
-CJVM c,c,-> 70
+b,b 78,ArrayList_CompositeVar.cj:78
+AOT r,r,-> 78
+CJVM c,c,-> 78
 AOT p,p c1,\(default.C\) \$\d = {\s+constructor = C1\s+arg_1 = {\s+\[0\] = "hello"\s+\[1\] = "Cangjie"\s+\[2\] = "                    Hello[\s\S]*                    CangJie![\s\S]*                    "[\s\S]*}
 AOT p,p c2,\(default.C\) \$\d = {\s+constructor = C2\s+arg_1 = {\s+\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}
 AOT p,p c3,\(default.C\) \$\d = {\s+constructor = C3\s+arg_1 = {\s+\[0\] = {\s+\[0\] = "hello"\s+\[1\] = "Cangjie"\s+}\s+\[1\] = {\s+\[0\] = "hello"\s+\[1\] = "Cangjie"

@@ -15,14 +15,14 @@
 
 test#
 cjdb,cjdb --no-use-colors setVar_external_invoke.out,setVar_external_invoke
-b,b 22,setVar_external_invoke.cj:22
-AOT r,r,-> 22
+b,b 30,setVar_external_invoke.cj:30
+AOT r,r,-> 30
 CJVM c,c,
-s,s,-> 17
-n,n,-> 18
+s,s,-> 25
+n,n,-> 26
 p,p var_m1,\(Int32\) \$[\d] = 12
 AOT set,set var_m1=-32.87,error: unsupported expression
 CJVM set,set var_m1=-32.87,error: invalid argument -32\.87
 p,p var_m1,\(Int32\) \$[\d] = 12
-finish,finish,-> 22
+finish,finish,-> 30
 q,q,

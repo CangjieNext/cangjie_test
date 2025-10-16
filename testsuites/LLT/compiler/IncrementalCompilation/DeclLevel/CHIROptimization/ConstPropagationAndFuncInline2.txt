@@ -1,0 +1,66 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output
+// EXEC: %run %run_opt %output %run_args
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC: %compiler %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC: %run %run_opt %output %run_args
+
+let a:Int64 = 3
+let b:Int64 = a
+let c:Int64 = b + a
+var d:Int64 = if (true) { b - a } else { a }
+var e:Int64 = try { func foo() { var x = 1; var y = x;}; foo(); b} finally { a }
+let f:Int64 = b + 2
+let g:Int64 = if (false) { func foo1() { var z = f + e }; foo1(); 2} else {3}
+let h:Int64 = c
+var i:Int64 = c
+
+func goo() : Int64 {
+    var g1 = c
+    return g1
+}
+
+func goo2() : Int64 {
+    var g2 = goo()
+    return g2
+}
+
+func goo3() : Int64 {
+    func goo31() {
+        var x = h
+    }
+    return 1
+}
+
+func goo4() : Int64 {
+    var g4 = goo3()
+    return g4
+}
+
+main() : Int64 {
+    var g3 = goo2()
+    return g3 - h
+}
+
+// ASSERT: scan changed decls to recompile: 13
+// ASSERT: scan the changed decl after Spreading is:a in file ConstPropagationAndFuncInline2.cj in line 8 in column 5
+// ASSERT: scan the changed decl after Spreading is:b in file ConstPropagationAndFuncInline2.cj in line 9 in column 5
+// ASSERT: scan the changed decl after Spreading is:c in file ConstPropagationAndFuncInline2.cj in line 10 in column 5
+// ASSERT: scan the changed decl after Spreading is:d in file ConstPropagationAndFuncInline2.cj in line 11 in column 5
+// ASSERT: scan the changed decl after Spreading is:e in file ConstPropagationAndFuncInline2.cj in line 12 in column 5
+// ASSERT: scan the changed decl after Spreading is:f in file ConstPropagationAndFuncInline2.cj in line 13 in column 5
+// ASSERT: scan the changed decl after Spreading is:h in file ConstPropagationAndFuncInline2.cj in line 15 in column 5
+// ASSERT: scan the changed decl after Spreading is:i in file ConstPropagationAndFuncInline2.cj in line 16 in column 5
+// ASSERT: scan the changed decl after Spreading is:goo in file ConstPropagationAndFuncInline2.cj in line 18 in column 6
+// ASSERT: scan the changed decl after Spreading is:goo2 in file ConstPropagationAndFuncInline2.cj in line 23 in column 6
+// ASSERT: scan the changed decl after Spreading is:goo3 in file ConstPropagationAndFuncInline2.cj in line 28 in column 6
+// ASSERT: scan the changed decl after Spreading is:goo4 in file ConstPropagationAndFuncInline2.cj in line 35 in column 6
+// ASSERT: scan the changed decl after Spreading is:main in file ConstPropagationAndFuncInline2.cj in line 40 in column 1
+
+// ASSERT: scan closure convert out func recompile, roll back to full compilation
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

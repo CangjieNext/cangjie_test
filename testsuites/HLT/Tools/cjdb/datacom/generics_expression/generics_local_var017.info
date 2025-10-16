@@ -14,14 +14,14 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var017,generics_local_var017
-b,b 15,generics_local_var017.cj:15
-AOT r,r,-> 15
+b,b 23,generics_local_var017.cj:23
+AOT r,r,-> 23
 CJVM c,c,
-s,s,-> 2
-n,n,-> 4
-n,n,-> 5
-n,n,-> 6
-n,n,-> 11
+s,s,-> 10
+n,n,-> 12
+n,n,-> 13
+n,n,-> 14
+n,n,-> 19
 expr~expr if_a~\(Int64\) \$[\d] = 1
 expr~expr !if_a~\(Int64\) \$[\d] = -2
 q,q,

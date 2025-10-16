@@ -16,6 +16,7 @@
 package tests.go_server
 
 import stdx.net.http.*
+import stdx.net.tls.*
 import std.collection.ArrayList
 import std.net.TcpSocket
 import std.unittest.*

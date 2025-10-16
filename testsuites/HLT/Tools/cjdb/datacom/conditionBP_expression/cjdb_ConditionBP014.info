@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_var001,generics_global_var001
-breakpoint,breakpoint set -l 26 -c '1==1',generics_global_var001.cj:26
-AOT r,r,-> 26
+breakpoint,breakpoint set -l 34 -c '9==9',generics_global_var001.cj:34
+AOT r,r,-> 34
 CJVM c,c,
 globals,globals,\(std.core.Array<Int64>\) default::vcarrc2 = {[\s\S]*\[0\] = 2[\s\S]*}
 expr:expr vctc:\(default.classtype01<Int64>\) \$[\d] = {[\s\S]*a = 10[\s\S]*}

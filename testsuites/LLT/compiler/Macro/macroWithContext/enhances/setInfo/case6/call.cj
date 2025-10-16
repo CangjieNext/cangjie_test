@@ -4,9 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (not CJNATIVE) DEPENDENCE: define.cj
-// (not CJNATIVE) EXEC: %compiler %cmp_macro define.cj -Woff unused
-// (not CJNATIVE) EXEC: %run_macro %compiler %cmp_opt %f -Woff unused 2>&1 | compare %f
+// DEPENDENCE: define.cj
+// EXEC: %compiler %cmp_macro define.cj -Woff unused
+// EXEC: %run_macro %compiler %cmp_opt %f -Woff unused 2>&1 | compare %f
 
 import define.*
 
@@ -16,12 +16,12 @@ main(): Int64 {
 }
 
 /* SCAN
-description: public, token_id: 119, token_literal_value: public, fileID: 1, line: 6, column: 27
-description: func, token_id: 87, token_literal_value: func, fileID: 1, line: 6, column: 34
+description: public, token_id: 119, token_literal_value: public, fileID: 1, line: 14, column: 28
+description: func, token_id: 87, token_literal_value: func, fileID: 1, line: 14, column: 28
 hello
-description: identifier, token_id: 137, token_literal_value: test1, fileID: 1, line: 8, column: 36
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 8, column: 41
-description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 8, column: 42
+description: identifier, token_id: 137, token_literal_value: test1, fileID: 1, line: 14, column: 36
+description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 14, column: 41
+description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 14, column: 42
 1
 true
- */
+*/

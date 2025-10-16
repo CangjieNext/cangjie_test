@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_breakpoint_set,005_breakpoint_set
-CJVM b,breakpoint set -n main,035_debuginfun_func_reload.cj:4
-CJVM c,c,-> 4
+CJVM b,breakpoint set -n main,035_debuginfun_func_reload.cj:12
+CJVM c,c,-> 12
 AOT b,breakpoint set -n notexist,Unable to resolve breakpoint to any actual locations
 CJVM b,breakpoint set -n notexist,Breakpoint 2: notexist not loaded.
 blist,breakpoint list,name = 'notexist'

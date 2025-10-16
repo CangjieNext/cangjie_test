@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %static_std %static_libs %f -o %output
-// EXEC: %ldd %output | compare %f
+// (not Windows) EXEC: %ldd %output | compare %f
 // ASSERT: scan-not libcangjie-std-core.so
 // ASSERT: scan-not libcangjie-std-math.so
 

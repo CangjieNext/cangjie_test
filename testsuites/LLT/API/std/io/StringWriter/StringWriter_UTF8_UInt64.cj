@@ -23,6 +23,7 @@ main() {
     var file = File(fileName, ReadWrite)
 
     var strWriter = StringWriter(file)
+    strWriter.write(Rune(97))
     strWriter.write(UInt64(128))
     strWriter.write(UInt64(0))
     strWriter.writeln(UInt64(9223372036854775807))
@@ -32,8 +33,7 @@ main() {
     var readArr: Array<Byte> = readToEnd(file)
     file.close()
     remove(fileName)
-
-    if (String.fromUtf8(readArr) != "12809223372036854775807\n") {
+    if (String.fromUtf8(readArr) != "a12809223372036854775807\n") {
         return 1
     }
     println("ok")

@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm update 2>&1 | compare %f
-// ASSERT: regex the path '.*aa' does not exist
+// ASSERT: regex the path '.*aa' of module 'pro1' does not exist

@@ -8,14 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/demangle/demangle_2.cj
-// EXEC: %compiler %cmp_opt -g demangle_2.cj -o demangle_2%cmp_output
-// RUN-EXEC: python3 cjdb_test.py demangle_017.info demangle_2 %run_env
+//(not MAC) EXEC: %compiler %cmp_opt -g demangle_2.cj -o demangle_2%cmp_output
+//(not MAC) RUN-EXEC: python3 cjdb_test.py demangle_017.info demangle_2 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors --no-use-colors  -- demangle_2 hello world,demangle_2
-AOT b,b main,where = demangle_2`pkg_re::main\(std[.]core::Array<std[.]core::String>\) \+ \d+ at demangle_2.cj:55:21
-CJVM b,b main,demangle_2.cj:55
-AOT r,r,demangle_2`pkg_re::main\(args=std.core.Array<std[.]core.String> @ [\s\S]*\) at demangle_2.cj:55:21[\s\S]*-> 55
-CJVM c,c,pkg_re.main at [\s\S]*demangle_2.cj:55[\s\S]*-> 55
+AOT b,b main,where = demangle_2`pkg_re::main\(std[.]core::Array<std[.]core::String>\) \+ \d+ at demangle_2.cj:63:21
+CJVM b,b main,demangle_2.cj:63
+AOT r,r,demangle_2`pkg_re::main\(args=std.core.Array<std[.]core.String> @ [\s\S]*\) at demangle_2.cj:63:21[\s\S]*-> 63
+CJVM c,c,pkg_re.main at [\s\S]*demangle_2.cj:63[\s\S]*-> 63
 q,q,

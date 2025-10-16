@@ -13,7 +13,7 @@ class MyVisitor <: Visitor {
         return 
     }
 }
-main(){
+main() {
     let tk = quote(
     interface I {
         const func f1(i: Int64): Int64

@@ -23,9 +23,9 @@ error: ambiguous use of 'clone'
    |             ^^^^^^^ 
    | 
 note: found function member of 'Struct-Array<Generics-T>'
-   ==> (package std.core)array.cj:274:17:
+   ==> (package std.core)array.cj:275:17:
 note: found function member of 'Struct-Array<Generics-T>'
-   ==> (package std.core)array.cj:288:17:
+   ==> (package std.core)array.cj:289:17:
 
 error: cannot convert an integer literal to type 'Struct-Range<Int64>'
   ==> array_invalid_api.cj:14:21:

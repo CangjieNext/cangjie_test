@@ -1,0 +1,47 @@
+{
+  "RegexSet": [
+    "chmod|chown|usermod",
+    "[a-zA-Z][a-zA-Z0-9_-]{2,15}:[^:]?:\\d+:\\d*:[^:]*:[^:]*:[^\\n ]*",
+    "\\b([a-zA-Z]{0,1}00[1-9]\\d{5,6})|\\b([a-zA-Z]{0,1}30\\d{6})|\\b([a-zA-Z]{2}[1-9]\\d{5,7})|([a-zA-Z]*kf[1-9]\\d{4,9})"
+  ],
+  "SenInfoName": [
+    "passwd",
+    "password"
+  ],
+  "WeakPasscode": [
+    "paswd",
+    "!5Hty*@LfMasbIiT",
+    "!QAZ1qaz",
+    "!QAZ2wsx",
+    "!QAZxsw2",
+    "12AaBb!#",
+    "1qaz@#$_WSX",
+    "1qaz@WSX",
+    "1qw2#ER$",
+    "321_emegnahC",
+    "3er4#ER$",
+    "3paradm",
+    "3pardata",
+    "7%Uk@sd04NiE",
+    "79y52unx@R",
+    "@b#6Nh",
+    "@jjfa",
+    "@storage",
+    "@WSX3edc",
+    "A11111111",
+    "Aa_123456",
+    "AAaa11!!",
+    "abc1234",
+    "Abcd_1234",
+    "Abcd_12345",
+    "Access@",
+    "Access@7",
+    "Access@7*24",
+    "activemq",
+    "Admin12#$",
+    "Admin123",
+    "Admin123#",
+    "Admin23@#",
+    "Huawei@123"
+  ]
+}

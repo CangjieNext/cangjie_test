@@ -10,7 +10,7 @@
 class foo {
     mut prop a : Int64 {
         get() {
-            public main(){}
+            public main() {}
             0
         }
     }
@@ -22,7 +22,7 @@ error: unexpected main function in getter body
    | 
 12 |         get() {
    |         ~~~ in getter
-13 |             public main(){}
+13 |             public main() {}
    |                    ^^^^ unexpected main function
    | 
 

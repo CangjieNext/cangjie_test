@@ -9,8 +9,8 @@
 // LEVEL: 1 
 // DEPENDENCE: ../003
 // EXEC: cd 003/pro1 && %cjpm build && cd .. && %cjpm build 2>&1 | compare %f
-// (CJNATIVE and not MAC) ASSERT: scan undefined reference to `_CGP8pro1.yooilHv'
-// (CJNATIVE and not MAC) ASSERT: scan undefined reference to `_CN8pro1.yoo1yE'
-// (CJNATIVE and not MAC) ASSERT: scan Error: cjpm build failed
-// (not CJNATIVE or MAC) ASSERT: scan cjpm build success
+// (CJNATIVE and not MAC and not Windows) ASSERT: scan undefined reference to `_CGP8pro1.yooilHv'
+// (CJNATIVE and not MAC and not Windows) ASSERT: scan undefined reference to `_CN8pro1.yoo1yE'
+// (CJNATIVE and not MAC and not Windows) ASSERT: scan Error: cjpm build failed
+// (Windows or MAC) ASSERT: scan cjpm build success
 

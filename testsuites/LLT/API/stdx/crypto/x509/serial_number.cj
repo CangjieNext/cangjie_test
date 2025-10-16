@@ -45,4 +45,9 @@ class Test_SerialNumber {
             println(e.message)
         }
     }
+
+    @TestCase
+    func create_operator(): Unit {
+        @Expect(SerialNumber(length:10) != SerialNumber(length:12))
+    }
 }

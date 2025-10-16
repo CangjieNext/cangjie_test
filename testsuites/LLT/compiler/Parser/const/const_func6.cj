@@ -14,7 +14,7 @@ struct A {
     }
 }
 
-main(){}
+main() {}
 
 /* SCAN
 [31merror[0m: 'mut' and 'const' modifiers conflict on function declaration

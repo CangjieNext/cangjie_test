@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // (not MAC) EXEC: %compiler %import-cangjie-stdx %cmp_opt %dy_std %f -o %output
-// (not MAC) EXEC: %ldd %output | compare %f
+// (not MAC and not Windows) EXEC: %ldd %output | compare %f
 // (not MAC) ASSERT: scan libcangjie-std-core.so
 // (not MAC) ASSERT: scan libcangjie-std-math.so
 

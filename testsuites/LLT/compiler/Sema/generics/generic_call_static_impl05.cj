@@ -27,25 +27,24 @@ main() {
 }
 
 /* SCAN
-error: can not instantiate 'Generics-T' by interface or abstract class 'Class-I3' for it has unimplemented static member
-  ==> generic_call_static_impl05.cj:26:7:
-   | 
-26 |     f<I3>()
-   |       ^ 
-   | 
-
-error: implementation of property 'a' is needed in 'extend I3'
+error: implementation of function or property is needed in 'extend I3'
   ==> generic_call_static_impl05.cj:18:1:
    | 
 18 | extend I3 <: I2 {}
    | ^ 
    | 
-note: unimplemented interface property
+note: unimplemented interface property a
   ==> generic_call_static_impl05.cj:10:5:
    | 
 10 |     mut static prop a: Int64
    |     ^ 
    | 
+note: unimplemented interface function f
+  ==> generic_call_static_impl05.cj:11:5:
+   | 
+11 |     static func f(): Unit
+   |     ^ 
+   | 
 
-2 errors generated, 2 errors printed.
+1 error generated, 1 error printed.
 */

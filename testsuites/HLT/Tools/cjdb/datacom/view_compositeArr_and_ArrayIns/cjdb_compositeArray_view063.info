@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 012_debug_ArrayIns_composite_enum,012_debug_ArrayIns_composite_enum
-b,b 39,012_debug_ArrayIns_composite_enum.cj:39
-AOT r,r,-> 39
+b,b 47,012_debug_ArrayIns_composite_enum.cj:47
+AOT r,r,-> 47
 CJVM c,c,
 p,p arrayMainEnum01,\(std[.]core.Array<default.TimeUnit1>\) \$[\d] = {[\s\S]*\[0\] = a[\s\S]*
 p,p arrayMainEnum01[1],default.TimeUnit1\) \$[\d] = a

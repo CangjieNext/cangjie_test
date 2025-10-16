@@ -443,15 +443,15 @@ func getInstanceFunctions(ti: TypeInfo) {
     let fns = ti.instanceFunctions.toArray()
     fns.sortBy() {
         rht: InstanceFunctionInfo, lht: InstanceFunctionInfo =>
-        let rhn = rht.toString() + rht.genericParams.toArray().toString()
-        let lhn = lht.toString() + lht.genericParams.toArray().toString()
-        return if (rhn > lhn) {
-            Ordering.GT
-        } else if (rhn < lhn) {
-            Ordering.LT
-        } else {
-            Ordering.EQ
-        }
+            let rhn = rht.toString() + rht.parameters.toArray().toString() + rht.genericParams.toArray().toString()
+            let lhn = lht.toString() + rht.parameters.toArray().toString() + lht.genericParams.toArray().toString()
+            return if (rhn > lhn) {
+                Ordering.GT
+            } else if (rhn < lhn) {
+                Ordering.LT
+            } else {
+                Ordering.EQ
+            }
     }
     fns
 }
@@ -460,15 +460,15 @@ func getInstanceFunctions(ti: TypeInfo, name: String) {
     let fns = ti.getInstanceFunctions(name).toArray()
     fns.sortBy() {
         rht: InstanceFunctionInfo, lht: InstanceFunctionInfo =>
-        let rhn = rht.toString() + rht.genericParams.toArray().toString()
-        let lhn = lht.toString() + lht.genericParams.toArray().toString()
-        return if (rhn > lhn) {
-            Ordering.GT
-        } else if (rhn < lhn) {
-            Ordering.LT
-        } else {
-            Ordering.EQ
-        }
+            let rhn = rht.toString() + rht.parameters.toArray().toString() + rht.genericParams.toArray().toString()
+            let lhn = lht.toString() + rht.parameters.toArray().toString() + lht.genericParams.toArray().toString()
+            return if (rhn > lhn) {
+                Ordering.GT
+            } else if (rhn < lhn) {
+                Ordering.LT
+            } else {
+                Ordering.EQ
+            }
     }
     fns
 }
@@ -477,15 +477,15 @@ func getStaticFunctions(ti: TypeInfo, name: String) {
     let fns = ti.getStaticFunctions(name).toArray()
     fns.sortBy() {
         rht: StaticFunctionInfo, lht: StaticFunctionInfo =>
-        let rhn = rht.toString() + rht.genericParams.toArray().toString()
-        let lhn = lht.toString() + lht.genericParams.toArray().toString()
-        return if (rhn > lhn) {
-            Ordering.GT
-        } else if (rhn < lhn) {
-            Ordering.LT
-        } else {
-            Ordering.EQ
-        }
+            let rhn = rht.toString() + rht.parameters.toArray().toString() + rht.genericParams.toArray().toString()
+            let lhn = lht.toString() + rht.parameters.toArray().toString() + lht.genericParams.toArray().toString()
+            return if (rhn > lhn) {
+                Ordering.GT
+            } else if (rhn < lhn) {
+                Ordering.LT
+            } else {
+                Ordering.EQ
+            }
     }
     fns
 }
@@ -494,15 +494,15 @@ func getPackageFunctions(ti: PackageInfo, name: String) {
     let fns = ti.getFunctions(name).toArray()
     fns.sortBy() {
         rht: GlobalFunctionInfo, lht: GlobalFunctionInfo =>
-        let rhn = rht.toString() + rht.genericParams.toArray().toString()
-        let lhn = lht.toString() + lht.genericParams.toArray().toString()
-        return if (rhn > lhn) {
-            Ordering.GT
-        } else if (rhn < lhn) {
-            Ordering.LT
-        } else {
-            Ordering.EQ
-        }
+            let rhn = rht.toString() + rht.parameters.toArray().toString() + rht.genericParams.toArray().toString()
+            let lhn = lht.toString() + rht.parameters.toArray().toString() + lht.genericParams.toArray().toString()
+            return if (rhn > lhn) {
+                Ordering.GT
+            } else if (rhn < lhn) {
+                Ordering.LT
+            } else {
+                Ordering.EQ
+            }
     }
     fns
 }

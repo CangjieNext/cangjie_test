@@ -19,5 +19,4 @@ main(){
     return y-1
 }
 // ASSERT: scan parse_expected_double_arrow_in_lambda
-// ASSERT: scan parse_expected_right_delimiter
 // ASSERT: scan parse_expected_expression

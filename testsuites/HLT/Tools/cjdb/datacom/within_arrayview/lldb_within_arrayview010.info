@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_baseType,001_debug_array_baseType
-b,b 11,001_debug_array_baseType.cj:11
-AOT r,r,-> 11
+b,b 19,001_debug_array_baseType.cj:19
+AOT r,r,-> 19
 CJVM c,c,
 print,print arrayInt8_d[0][2..0],error
 q,q,

@@ -19,7 +19,7 @@ func test3() {
     class b {} 
 }
 
-main(){
+main() {
     return 0
 }
 

@@ -56,5 +56,14 @@ error: undeclared identifier 'Data'
    |                              ^ 
    | 
 
+warning: unused import 'pkgs.*'
+  ==> main.cj:11:1:
+   | 
+11 | import pkgs.*
+   | ^^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 4 errors generated, 4 errors printed.
+1 warning generated, 1 warning printed.
 */

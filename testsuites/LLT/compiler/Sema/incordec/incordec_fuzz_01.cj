@@ -14,7 +14,7 @@ internal import stdx.log.*
 internal import stdx.logger.*
 import std.console.Console
 
-main(){
+main() {
    let logger: SimpleLogger = SimpleLogger(Console.stdOut)
    var fs = File("black1.txt", OpenMode.%s---%d---%tnd)
    logger.setOutput(fs)

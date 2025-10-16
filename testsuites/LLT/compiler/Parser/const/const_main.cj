@@ -2,7 +2,7 @@
 
 const public a = 1
 
-const main(){
+const main() {
     const static b = 2
     const c = 1
 }
@@ -19,7 +19,7 @@ const main(){
 [31merror[0m: unexpected modifier 'const' on main function
  [36m==>[0m const_main.cj:5:1:
   [36m| [0m
-[36m5[0m [36m| [0mconst main(){[0m
+[36m5[0m [36m| [0mconst main() {[0m
   [36m| [0m[31m^^^^^[0m [36m~~~~ on main function[0m
   [36m| [0m[31m|[0m
   [36m| [0m[31munexpected modifier[0m

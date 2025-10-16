@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashMap_Ins_basic,001_HashMap_Ins_basic
-b,b 27,001_HashMap_Ins_basic.cj:27
-AOT r,r,-> 27
-CJVM c,c,-> 27
+b,b 35,001_HashMap_Ins_basic.cj:35
+AOT r,r,-> 35
+CJVM c,c,-> 35
 AOT p,p map_main_1[1],error: unsupported expression
 CJVM p,p map_main_1[1],\(\(Int8,UInt8\)\) \$[\d] = {[\s\S]*key = 2[\s\S]*value = 12[\s\S]*}
 q,q,

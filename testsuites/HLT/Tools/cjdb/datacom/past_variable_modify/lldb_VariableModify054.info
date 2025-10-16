@@ -16,18 +16,18 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 72,024_debug_variable.cj:72
-AOT r,r,-> 72
-CJVM c,c,-> 72
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 80,024_debug_variable.cj:80
+AOT r,r,-> 80
+CJVM c,c,-> 80
 set,set var_cover = 5,5
-n,n,-> 73
+n,n,-> 81
 locals,locals,var_cover = 5
 p,p var_cover,\(Int64\) \$[\d] = 5
-n,n,-> 72
-n,n,-> 72
-n,n,-> 77
+n,n,-> 80
+n,n,-> 80
+n,n,-> 85
 locals,locals,var_cover = 10
 p,p var_cover,\(Int64\) \$[\d] = 10
 q,q,

@@ -1,0 +1,58 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// SEPARATE-FILE: c/c1.cj
+package cmp
+
+public let X: Int64 = 1
+
+public class A {
+    public static func getX() {
+        return X
+    }
+}
+
+public common let Y: Int64 = 2
+
+public class B {
+    public static func getY() {
+        return Y
+    }
+}
+
+// SEPARATE-FILE: c/c2.cj
+// EXEC-0: %compiler %noColor --experimental c/c1.cj c/c2.cj --output-type=chir --output-dir ./c
+package cmp
+
+public let Z: Int64 = B.getY()
+
+// SEPARATE-FILE: p/p1.cj
+package cmp
+
+public platform let Y: Int64 = A.getX()
+
+// SEPARATE-FILE: p/p2.cj
+// EXEC-0: %compiler %noColor --experimental p/p1.cj p/p2.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
+package cmp
+
+// SEPARATE-FILE: m_common.cj
+// EXEC-0: %compiler %noColor m_common.cj --import-path=./c -L./p -lcmp -o %output
+// (LLVM and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
+// (LLVM and Windows)EXEC-PIPE: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
+// (LLVM and Darwin)EXEC-PIPE: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
+import cmp.*
+
+main(): Unit {
+    println(X)
+    println(Y)
+    println(Z)
+}
+
+/* SCAN
+1
+1
+1
+*/

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 009_debug_ArrayIns_composite_string,009_debug_ArrayIns_composite_string
-b,b 15,009_debug_ArrayIns_composite_string.cj:15
-AOT r,r,-> 15
+b,b 23,009_debug_ArrayIns_composite_string.cj:23
+AOT r,r,-> 23
 CJVM c,c,
 p,p array_str_4,\(std[.]core.Array<std[.]core.String>\) \$[\d] = {[\s\S]*\[1\] = "\\"Hello Cangjie Lang\\"仓颉字符串测试"
 q,q,

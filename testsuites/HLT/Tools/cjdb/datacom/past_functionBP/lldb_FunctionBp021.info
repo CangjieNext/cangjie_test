@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 014_debug_func_bp,014_debug_func_bp
-CJVM b,breakpoint set -n main,014_debug_func_bp.cj:6
-CJVM c,c,-> 6
-b,b funcbp002,014_debug_func_bp.cj:64
-AOT r,r,-> 64
-CJVM c,c,-> 64
+CJVM b,breakpoint set -n main,014_debug_func_bp.cj:14
+CJVM c,c,-> 14
+b,b funcbp002,014_debug_func_bp.cj:72
+AOT r,r,-> 72
+CJVM c,c,-> 72
 q,q,

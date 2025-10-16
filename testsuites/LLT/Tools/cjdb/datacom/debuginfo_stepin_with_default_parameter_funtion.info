@@ -1,0 +1,41 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_stepin_with_default_parameter_funtion.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_stepin_with_default_parameter_funtion.cj -o debuginfo_stepin_with_default_parameter_funtion
+// EXEC: python3 cjdb_test.py debuginfo_stepin_with_default_parameter_funtion.info
+
+
+test#
+cjdb,cjdb debuginfo_stepin_with_default_parameter_funtion,debuginfo_stepin_with_default_parameter_funtion
+b,b 59,debuginfo_stepin_with_default_parameter_funtion.cj:59
+r,r,-> 59
+s,s,-> 25
+s,s,-> 18
+finish,finish,-> 25
+finish,finish,-> 59
+s,s,-> 26
+finish,finish,-> 60
+s,s,-> 30
+finish,finish,-> 61
+s,s,-> 34
+finish,finish,-> 62
+s,s,-> 38
+finish,finish,-> 63
+s,s,-> 42
+finish,finish,-> 63
+s,s,-> 64
+s,s,-> 46
+finish,finish,-> 64
+s,s,-> 65
+s,s,-> 50
+finish,finish,-> 65
+s,s,-> 66
+s,s,-> 54
+s,s,-> 66
+s,s,-> 55
+finish,finish,-> 66|67
+q,q,

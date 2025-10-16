@@ -16,7 +16,6 @@ main(): Int64 {
     var a5: Array<UInt8> = [65, 32, 66, 99] // A Bc
     var r5 = String.fromUtf8(a5[0..4]).toAsciiTitle()
     if (r1 != "Abcde") {
-        // print("${r1}")
         return 1
     }
     if (r2 != "Abcde") {
@@ -29,7 +28,6 @@ main(): Int64 {
         return 4
     }
     if (r5 != "A Bc") {
-        // print("${r5}")
         return 5
     }
     return 0

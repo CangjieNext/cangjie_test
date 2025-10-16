@@ -6,5 +6,5 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm test -g --no-run && %cjpm test -g -V --skip-build %run_utest_opt 2>&1 | compare %f
-// ASSERT: scan-5 debug
+// ASSERT: scan-3 debug
 // ASSERT: scan cjpm test success

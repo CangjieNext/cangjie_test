@@ -23,13 +23,13 @@ extend<T> A<T> where T <: C2 {
 extend<T> A<T> <: I where T <: C1 {}
 
 /* SCAN
-error: implementation of function 'f' is needed in 'extend A'
+error: implementation of function or property is needed in 'extend A'
   ==> implement_in_strict.cj:23:1:
    | 
 23 | extend<T> A<T> <: I where T <: C1 {}
    | ^ 
    | 
-note: unimplemented interface function
+note: unimplemented interface function f
   ==> implement_in_strict.cj:10:5:
    | 
 10 |     func f(): Unit

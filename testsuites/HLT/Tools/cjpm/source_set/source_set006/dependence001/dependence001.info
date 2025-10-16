@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// (Windows) EXEC: cd %n && %cjpm run --enable-features=feature.os.windows | compare %f
+// (CJNATIVE and not Windows and not MAC) EXEC: cd %n && %cjpm run --enable-features=feature.os.linux,feature.env.gnu | compare %f
+// (CJNATIVE and MAC)  EXEC: cd %n && %cjpm run --enable-features=feature.os.darwin | compare %f
+// (CJNATIVE) ASSERT: regex I run on [Windows|Linux|Drawin]
+// (CJNATIVE) ASSERT: regex Hello [Windows|Linux|Drawin]
+// (CJNATIVE) ASSERT: scan cjpm run finished

@@ -19,13 +19,13 @@ main() {
 }
 
 /* SCAN
-error: implementation of property 'v1' is needed in 'extend A'
+error: implementation of function or property is needed in 'extend A'
   ==> extend_property6.cj:15:1:
    | 
 15 | extend A <: Foo {}
    | ^ 
    | 
-note: unimplemented interface property
+note: unimplemented interface property v1
   ==> extend_property6.cj:12:5:
    | 
 12 |     prop v1: Int64

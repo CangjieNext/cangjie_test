@@ -14,7 +14,7 @@ class A {
     }
 }
 
-main(){}
+main() {}
 
 /* SCAN
 [31merror[0m: 'open' and 'const' modifiers conflict on function declaration

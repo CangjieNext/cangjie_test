@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_enum,002_debug_array_enum
-b,b 30,002_debug_array_enum.cj:30
-AOT r,r,-> 30
+b,b 38,002_debug_array_enum.cj:38
+AOT r,r,-> 38
 CJVM c,c,
-n,n,-> 32
+n,n,-> 40
 locals,locals,std[.]core.Array<default.TimeUnit2>\) arrayMainEnum02 = {(\r|\n|\r\n)  \[0\] =
 print,print arrayMainEnum02[2],TimeUnit2\) \$[\d]+ = {(\r|\n|\r\n)  constructor = Day(\r|\n|\r\n)  arg_1 = 1(\r|\n|\r\n)  arg_2 = 2(\r|\n|\r\n)  arg_3 = 3
 q,q,

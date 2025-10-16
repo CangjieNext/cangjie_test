@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func011,generics_global_func011
-breakpoint,breakpoint set -l 27 -c "ans3==1",generics_global_func011.cj:27
-AOT r,r,-> 27
+breakpoint,breakpoint set -l 35 -c "ans3==1",generics_global_func011.cj:35
+AOT r,r,-> 35
 CJVM c,c,
 p,p ans1,\(default.C<Int32>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
 p,p x1,\(default.C<Int32>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}

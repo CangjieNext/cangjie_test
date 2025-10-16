@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_class_top_mod_open,002_debug_class_top_mod_open
-b,b 48,002_debug_class_top_mod_open.cj:48
-AOT r,r,-> 48
-CJVM c,c,-> 48
-s,s,-> 32
-n,n,-> 33
+b,b 56,002_debug_class_top_mod_open.cj:56
+AOT r,r,-> 56
+CJVM c,c,-> 56
+s,s,-> 40
+n,n,-> 41
 locals,locals,\(Int64\) x = 1
 q,q,

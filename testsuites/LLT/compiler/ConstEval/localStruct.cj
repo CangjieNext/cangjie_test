@@ -8,8 +8,8 @@
 // (DEBUG_OPTION)EXEC: %compiler %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args 2>&1 > %n.real.out
 // (DEBUG_OPTION)EXEC: %diff %n.expect.out %n.real.out
-// (CJNATIVE) ASSERT: scan debug: consteval at localStruct.cj:31:5 - localStruct.cj:31:29 evaluated initializer function `gv$_three` of 6 expressions to one of 9 expressions.
-// (CJNATIVE) ASSERT: scan debug: consteval at localStruct.cj:32:5 - localStruct.cj:32:32 evaluated initializer function `gv$_nine` of 4 expressions to one of 9 expressions.
+// (CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_three` of 6 expressions to one of 9 expressions.
+// (CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_nine` of 4 expressions to one of 9 expressions.
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case15,case15
-b,b 16,case15.cj:16
-AOT r,r,-> 16
+b,b 24,case15.cj:24
+AOT r,r,-> 24
 CJVM c,c,
 AOT locals,locals,\(std.core.String\) c = "run"(\r|\n|\r\n)\(Int64\) d = 0(\r|\n|\r\n)\(Int64\) lvb = 1(\r|\n|\r\n)\(Int64\) llb = 2
 AOT p,p c,\(std.core.String\) \$[\d] = "run"

@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_compositeVar,option_compositeVar
-b,b 19,option_compositeVar.cj:19
-AOT r,r,-> 19
-CJVM c,c,-> 19
+b,b 27,option_compositeVar.cj:27
+AOT r,r,-> 27
+CJVM c,c,-> 27
 p,p Arrlist_F16,\(std[.]core.Option<std[.]collection.ArrayList<Float16>>\) \$[\d] = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
 p,p Arrlist_F64,\(std[.]core.Option<std[.]collection.ArrayList<Float64>>\) \$[\d] = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
 p,p Arrlist_none,\(std[.]core.Option<std[.]collection.ArrayList<Int64>>\) \$[\d] = None

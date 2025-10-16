@@ -1,11 +1,3 @@
-import default.testnoSrc2.*
-
-func test46(){
-    var v1 = SA(6)
-    var v2 = v1.f1()
-}
-
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -13,3 +5,11 @@ func test46(){
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+import default.testnoSrc2.*
+
+func test46(){
+    var v1 = SA(6)
+    var v2 = v1.f1()
+}
+

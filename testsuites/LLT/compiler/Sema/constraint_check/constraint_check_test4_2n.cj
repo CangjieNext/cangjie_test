@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC:%frontendCompiler %typecheck %cmp_opt %f 2>&1 | compare %f
+// EXEC:%frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
 // UpperBound: Primitive Type
 
 func foo<T>() where T <: Int32 {
@@ -15,26 +15,6 @@ main(): Int64 {
     foo<Bool>()
 }
 
-/* SCAN
-error: the upper bound 'Int32' of generic parameter 'Generics-T' must be class or interface
-  ==> constraint_check_test4_2n.cj:10:10:
-   | 
-10 | func foo<T>() where T <: Int32 {
-   |          ^ 
-   | 
-
-error: generics type arguments do not match the constraint of '() -> Int64'
-  ==> constraint_check_test4_2n.cj:15:9:
-   | 
-15 |     foo<Bool>()
-   |         ^ 
-   | 
-note: 'Bool' is not a subtype of 'Int32'
-  ==> constraint_check_test4_2n.cj:10:21:
-   | 
-10 | func foo<T>() where T <: Int32 {
-   |                     ^ 
-   | 
-
-2 errors generated, 2 errors printed.
-*/
+// ASSERT: scan-1 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan-1 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 2

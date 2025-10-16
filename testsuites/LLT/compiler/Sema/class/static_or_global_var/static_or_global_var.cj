@@ -34,7 +34,7 @@ error: global/static variable 'b' is used before initialization during initializ
    |           ^ 
    | 
 
-error: global/static variable 'b' is used before initialization during initializing 'b'
+error: global/static variable 'b' is used before initialization during initializing 'a'
   ==> static_or_global_var.cj:14:36:
    | 
 14 |     public static var a: Int64 = A.b

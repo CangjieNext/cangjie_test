@@ -38,14 +38,15 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
+/* SCAN
 1
-description: l_curl, token_id: 6, token_literal_value: {, fileID: 10, line: 452, column: 34
+description: l_curl, token_id: 6, token_literal_value: {, fileID: 10, line: 449, column: 34
 Illegal TokenKind, TokenKind should be LCURL
-description: r_curl, token_id: 7, token_literal_value: }, fileID: 10, line: 454, column: 34
+description: r_curl, token_id: 7, token_literal_value: }, fileID: 10, line: 451, column: 34
 Illegal TokenKind, TokenKind should be RCURL
 cnt = 2
- */
+*/
+
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0

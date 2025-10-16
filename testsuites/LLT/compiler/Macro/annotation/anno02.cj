@@ -18,5 +18,5 @@ open class B {}
 @Annotation
 sealed class C {}
 
-main(){} 
+main() {} 
 

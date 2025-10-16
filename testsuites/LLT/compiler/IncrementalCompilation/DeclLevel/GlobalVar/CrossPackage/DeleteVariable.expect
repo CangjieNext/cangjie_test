@@ -1,0 +1,6 @@
+// ASSERT: scan incremental compilation triggered
+// ASSERT: scan error: undeclared identifier 'x'
+
+
+
+

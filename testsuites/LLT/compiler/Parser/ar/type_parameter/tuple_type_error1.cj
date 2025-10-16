@@ -1,6 +1,6 @@
 // ERRCHECK: %frontendCompiler %cmp_opt %f -o %output
 
-main(){
+main() {
     let a:(Int64, tb:Int64) = (1,2)
 }
 

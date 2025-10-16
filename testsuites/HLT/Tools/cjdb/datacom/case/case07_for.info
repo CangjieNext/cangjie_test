@@ -13,18 +13,18 @@
 
 test#
 cjdb,cjdb --no-use-colors loop,loop
-AOT b,b 5,Breakpoint 1: 2 locations
-CJVM b,b 5,loop.cj:5
-AOT r,r,-> 5
+AOT b,b 13,Breakpoint 1: 2 locations
+CJVM b,b 13,loop.cj:13
+AOT r,r,-> 13
 CJVM c,c,
-AOT n,n,-> 5
-n,n,-> 6
-n,n,-> 5
-AOT n,n,-> 5
-n,n,-> 6
-n,n,-> 5
-AOT n,n,-> 5
-n,n,-> 6
-n,n,-> 5
-n,n,-> 10
+AOT n,n,-> 13
+n,n,-> 14
+n,n,-> 13
+AOT n,n,-> 13
+n,n,-> 14
+n,n,-> 13
+AOT n,n,-> 13
+n,n,-> 14
+n,n,-> 13
+n,n,-> 18
 q,q,

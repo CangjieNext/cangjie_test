@@ -11,7 +11,7 @@
 import ohos.device_info.DeviceInfo
 
 main() {
-    @IfAvailable(level:11, { => println(0) }, {=>println(3)})
+    @IfAvailable(level:19, { => println(0) }, {=>println(3)})
 }
 
 /* SCAN

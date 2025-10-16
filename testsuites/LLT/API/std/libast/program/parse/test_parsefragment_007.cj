@@ -24,7 +24,6 @@ main(): Int64 {
     print(e.toTokens().toString())
     e.toTokens().dump()
     if (compareDeclResult(e.toTokens().toString(), "var x = 2\n") != true) {
-        // println("e.toTokens().toString() = ${e.toTokens().toString()}")
         return 1
     }
 

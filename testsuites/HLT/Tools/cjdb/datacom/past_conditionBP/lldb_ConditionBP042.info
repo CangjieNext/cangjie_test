@@ -16,7 +16,7 @@
 
 test#
 cjdb,cjdb --no-use-colors 019_debug_expressions,019_debug_expressions
-breakpoint,breakpoint set -l 13 -c 'owni==5',019_debug_expressions.cj:21
-AOT r,r,-> 21
+breakpoint,breakpoint set -l 21 -c 'owni==5',019_debug_expressions.cj:29
+AOT r,r,-> 29
 CJVM c,c,
 q,q,

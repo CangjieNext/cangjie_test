@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_CompositeVar,ArrayList_CompositeVar
-b,b 53,ArrayList_CompositeVar.cj:53
-AOT r,r,-> 53
-CJVM c,c,-> 53
+b,b 61,ArrayList_CompositeVar.cj:61
+AOT r,r,-> 61
+CJVM c,c,-> 61
 p,p Arrlist_Hset,\(std[.]collection.ArrayList<std[.]collection.HashSet<Rune>>\) \$[\d] = {[\s\S]*\[0\] = 'c'[\s\S]*\[1\] = 'a'[\s\S]*\[0\] = 'n'[\s\S]*\[1\] = 'g'[\s\S]*}
 p,p Arrlist_Hmap,\(std[.]collection.ArrayList<std[.]collection.HashMap<Bool,std[.]core.String>>\) \$[\d] = {[\s\S]*key = true[\s\S]*value = "cangjie"[\s\S]*}
 q,q,

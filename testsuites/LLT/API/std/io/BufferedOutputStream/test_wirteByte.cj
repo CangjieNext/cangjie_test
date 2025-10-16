@@ -22,4 +22,17 @@ public class writeByteTest {
         var arr = readToEnd(bs)
         @Expect(String.fromUtf8(arr), "ab")
     }
+
+    @TestCase
+    func writeByteLenTest(): Unit {
+        let bs = ByteBuffer()
+        let bs2 = Array<Byte>(1, repeat: 0)
+        println(bs2.size)
+        let bos = BufferedOutputStream<ByteBuffer>(bs, bs2)
+        bos.writeByte(b'a')
+        bos.writeByte(b'b')
+        bos.flush()
+        var arr = readToEnd(bs)
+        @Expect(String.fromUtf8(arr), "ab")
+    }
 }

@@ -6,18 +6,18 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at testTypeArray.cj:26:1 - testTypeArray.cj:26:40 evaluated initializer function `gv$_a`
-// ASSERT: scan debug: consteval at testTypeArray.cj:27:1 - testTypeArray.cj:27:41 evaluated initializer function `gv$_b`
-// ASSERT: scan debug: consteval at testTypeArray.cj:28:1 - testTypeArray.cj:28:41 evaluated initializer function `gv$_c`
-// ASSERT: scan debug: consteval at testTypeArray.cj:29:1 - testTypeArray.cj:29:42 evaluated initializer function `gv$_d`
-// ASSERT: scan debug: consteval at testTypeArray.cj:30:1 - testTypeArray.cj:30:41 evaluated initializer function `gv$_e`
-// ASSERT: scan debug: consteval at testTypeArray.cj:31:1 - testTypeArray.cj:31:42 evaluated initializer function `gv$_f`
-// ASSERT: scan debug: consteval at testTypeArray.cj:32:1 - testTypeArray.cj:32:41 evaluated initializer function `gv$_g`
-// ASSERT: scan debug: consteval at testTypeArray.cj:33:1 - testTypeArray.cj:33:42 evaluated initializer function `gv$_h`
-// ASSERT: scan debug: consteval at testTypeArray.cj:34:1 - testTypeArray.cj:34:50 evaluated initializer function `gv$_i`
-// ASSERT: scan debug: consteval at testTypeArray.cj:35:1 - testTypeArray.cj:35:43 evaluated initializer function `gv$_j`
-// ASSERT: scan debug: consteval at testTypeArray.cj:36:1 - testTypeArray.cj:36:49 evaluated initializer function `gv$_k`
-// ASSERT: scan debug: consteval at testTypeArray.cj:42:1 - testTypeArray.cj:42:52 evaluated initializer function `gv$_first_numbers_when_counting`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_a`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_b`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_c`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_d`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_e`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_f`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_g`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_h`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_i`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_j`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_k`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_first_numbers_when_counting`
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

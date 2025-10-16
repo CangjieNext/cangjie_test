@@ -6,7 +6,7 @@
 
 // (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0: %frontendCompiler %enableCompileDebug %dumpCHIRDebug  %f -o %n.%suffix 2>&1
 // (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR_Debug/[0-9]*\_AST\_CHIR.chir | compare %f
-// (CJNATIVE and not Windows) ASSERT: regex Class-_CN7default1AE& = InvokeStaticWithException\(This&::f1 : \(\), %\d+, normal: #5, exception \[ Class-_CNat9ExceptionE \]: #3\)
+// (CJNATIVE and not Windows) ASSERT: scan-1 Class-_CN7default1AE& = InvokeStaticWithException(ThisType: This&, f1: () -> Class-_CN7default1AE&, %1, normal: #5, exception [ Class-_CNat9ExceptionE ]: #3)
 
 open class A {}
 

@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashSet_Ins_basic,001_HashSet_Ins_basic
-b,b 24,001_HashSet_Ins_basic.cj:24
-AOT r,r,-> 24
-CJVM c,c,-> 24
-b,b 29,001_HashSet_Ins_basic.cj:29
-c,c,-> 29
+b,b 32,001_HashSet_Ins_basic.cj:32
+AOT r,r,-> 32
+CJVM c,c,-> 32
+b,b 37,001_HashSet_Ins_basic.cj:37
+c,c,-> 37
 p,p set_bool,std[.]collection.HashSet<Bool>\) \$[\d] = {[\S\s]*\[0\] = true[\S\s]*}
 p,p set_bool,std[.]collection.HashSet<Bool>\) \$[\d] = {[\S\s]*\[1\] = false[\S\s]*}
 q,q,

@@ -5,9 +5,11 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// DEPENDENCE: %n.expect.out
-// EXEC-1: %compiler %noColor %n.cj > %n.%realOut 2>&1
-// EXEC: %diff %n.expect.out %n.%realOut
+// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// ASSERT: scan expected one character in rune literal
+// ASSERT: scan unterminated single-line string
+// ASSERT: scan expected one character in rune literal
+// ASSERT: scan unterminated single-line string
 
 main(): Int64 {
 

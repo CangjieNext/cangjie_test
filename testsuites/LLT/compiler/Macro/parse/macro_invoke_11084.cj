@@ -17,9 +17,9 @@
 
 import define.*
 
-main(){
+main() {
     4 - @D[0]var x = @B var ye.*
 
-main(){
+main() {
     4 - @D[0]var x = @B var y = 0 + @D[0]var z = 0 + @X[0](0) + @A(0)
 }

@@ -15,7 +15,7 @@
 // ASSERT: scan-3 MatchCase
 // ASSERT: scan-2 BinaryExpr
 // ASSERT: scan-7 LitConstExpr
-// ASSERT: scan-3 Block
+// ASSERT: scan-4 Block
 
 import std.ast.*
 

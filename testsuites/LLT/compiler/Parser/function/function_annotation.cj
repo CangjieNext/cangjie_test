@@ -12,7 +12,7 @@ func test1(a:Int64,b:UInt64){
 }
 @FastNative
 class A {}
-main(){
+main() {
     return 0
 }
 

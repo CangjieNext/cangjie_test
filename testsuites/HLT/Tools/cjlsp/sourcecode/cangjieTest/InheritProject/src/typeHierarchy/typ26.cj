@@ -1,10 +1,3 @@
-package default.typeHierarchy
-import default.typeHierarchy.pkg.ABC as TTT
-
-open class AF <: TTT {}
-class AF2 <: AF {}
-class AF3 <: TTT {}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -12,3 +5,10 @@ class AF3 <: TTT {}
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.typeHierarchy
+import default.typeHierarchy.pkg.ABC as TTT
+
+open class AF <: TTT {}
+class AF2 <: AF {}
+class AF3 <: TTT {}

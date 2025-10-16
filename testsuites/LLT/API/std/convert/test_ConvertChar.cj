@@ -14,7 +14,7 @@ import std.convert.*
 class ConvertRuneTest {
     @TestCase
     func parse(): Unit {
-        let testVars: Array<(String, Rune)> = [("'a'", r'a'), ("'5'", r'5'), ("'\''", r'\''), ("'\n'", r'\n'),
+        let testVars: Array<(String, Rune)> = [("'a'", r'a'), ("'A'", r'A'), ("'5'", r'5'), ("'\''", r'\''), ("'\n'", r'\n'),
             ("'\\u{4e25}'", r'严'), ("'\\u{10437}'", r'𐐷')]
 
         for (testVar in testVars) {
@@ -30,7 +30,8 @@ class ConvertRuneTest {
             ("\'\\f\'", "Fail to convert to Rune."), ("\'\\v\'", "Fail to convert to Rune."),
             ("\'\\0\'", "Fail to convert to Rune."), ("\'\\$\'", "Fail to convert to Rune."),
             ("\'\\\\\'", "Fail to convert to Rune."), ("\'\\\r'\'", "Fail to convert to Rune."),
-            ("\'\\\"\'", "Fail to convert to Rune."), ("'\\u4e25'", "Fail to convert to Rune.")]
+            ("\'\\\"\'", "Fail to convert to Rune."), ("\'\\\'\'", "Fail to convert to Rune."),
+            ("'\\u4e25'", "Fail to convert to Rune.")]
 
         for (testVar in testVars) {
             try {

@@ -1,0 +1,39 @@
+// DEPENDENCE: main.old.cj main.new.cj main_test.old.cj main_test.new.cj
+// EXEC: %rmdir .cached
+// EXEC: %mkdir my_pkg
+// EXEC: %mkdir build
+
+// EXEC: %cpfile main.old.cj ./my_pkg/main.cj
+// EXEC: %cpfile main_test.old.cj ./my_pkg/main_test.cj
+// EXEC: %compiler %cmp_opt %pkg_opt my_pkg -Woff all %enableCompileDebug %incrementalCompile %compile_lib_opt -o libtest.%lib_extension
+// EXEC: %compiler libtest.%lib_extension %cmp_opt %pkg_opt my_pkg -Woff all %enableCompileDebug %incrementalCompile %cmp_utest_opt-only -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+// EXEC: %cpfile main.new.cj ./my_pkg/main.cj
+// EXEC: %cpfile main_test.new.cj ./my_pkg/main_test.cj
+// EXEC: %compiler %cmp_opt %pkg_opt my_pkg -Woff all %enableCompileDebug %incrementalCompile %compile_lib_opt -o libtest.%lib_extension
+// EXEC: %compiler libtest.%lib_extension %cmp_opt %pkg_opt my_pkg -Woff all %enableCompileDebug %incrementalCompile %cmp_utest_opt-only -o %output 2>&1 | compare %f
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+
+/* SCAN-IN
+deleted 6my_pkg5newVOC
+deleted 6my_pkg5newVOC8toStringF$$Struct-String
+M 11my_pkg$test1MC main_test.cj 6: 
+    changed members 5:
+         11my_pkg$test1MC11asTestSuiteF$$9TestSuite: body 
+         11my_pkg$test1MC18classConfigurationF$$13Configuration: body 
+         11my_pkg$test1MC41inheritedFromClassAnnotatedByTestTemplate<1T>F$$9TestSuite: body 
+         11my_pkg$test1MC5testAF$$: body 
+         11my_pkg$test1MC6<init>F$$: body 
+11TestPackage<:22TestPackageExtension_MX main_test.cj 6: 
+    changed members 1:
+         11my_pkg$test7Extend!11TestPackage<:22TestPackageExtension_MX9registerMF$$: body 
+11my_pkg$test11$test.entryF$$INITIAL: body
+*/
+
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

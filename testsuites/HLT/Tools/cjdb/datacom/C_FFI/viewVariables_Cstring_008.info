@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_008,viewVariables_Cstring_008
-b,b 61,Test_CString.cj:61
-AOT r,r,-> 61
+b,b 69,Test_CString.cj:69
+AOT r,r,-> 69
 CJVM c,c,
-s,s,-> 11
-n,n,-> 12
+s,s,-> 19
+n,n,-> 20
 locals,locals,\(pkg_cstr.Cla_1\) this = {[\s\S]*var_cla1 = "!@#\$%\^&\*\(\)_\+<>\?:H  e llo"[\s\S]*
-n,n,-> 13
+n,n,-> 21
 locals,locals,\(pkg_cstr.Cla_1\) this = {[\s\S]*var_cla1 = "!@#\$%\^&\*\(\)_\+<>\?:H  e llo"[\s\S]* var_cla2 = {[\s\S]*\[2\] = "!@#\$%\^&\*\(\)_\+<>\?:H  e llo"[\s\S]*
 q,q,

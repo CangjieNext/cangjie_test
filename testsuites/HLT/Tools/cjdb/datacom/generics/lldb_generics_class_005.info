@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 120,005_debug_class_generics.cj:120
-AOT r,r,-> 120
+b,b 128,005_debug_class_generics.cj:128
+AOT r,r,-> 128
 CJVM c,c,
-n,n,-> 121
+n,n,-> 129
 print,print arrayrec01[0],C1<UInt32>\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 q,q,

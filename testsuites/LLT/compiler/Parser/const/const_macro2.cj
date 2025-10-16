@@ -10,7 +10,7 @@ const macro M(input: Tokens) {
     input
 }
 
-main(){}
+main() {}
 
 /* SCAN
 [31merror[0m: unexpected modifier 'const' on macro declaration

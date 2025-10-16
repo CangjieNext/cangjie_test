@@ -4,32 +4,12 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// ERRCHECK: %compiler %diag_json %f -o %output
 
 class B<K, L> where K <: (B<L, L>) -> Unit {}
 
 main() {}
 
-/* SCAN
-error: generics type arguments do not match the constraint of 'Class-B<Generics-K, Generics-L>'
- ==> generic_constraint11.cj:9:32:
-  | 
-9 | class B<K, L> where K <: (B<L, L>) -> Unit {}
-  |                                ^ 
-  | 
-note: 'Generics-L' is not a subtype of '(Class-B<Generics-L, Generics-L>) -> Unit'
- ==> generic_constraint11.cj:9:21:
-  | 
-9 | class B<K, L> where K <: (B<L, L>) -> Unit {}
-  |                     ^ 
-  | 
-
-error: the upper bound '(Class-B<Generics-L, Generics-L>) -> Unit' of generic parameter 'Generics-K' must be class or interface
- ==> generic_constraint11.cj:9:9:
-  | 
-9 | class B<K, L> where K <: (B<L, L>) -> Unit {}
-  |         ^ 
-  | 
-
-2 errors generated, 2 errors printed.
-*/
+// ASSERT: scan-1 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan-1 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 2

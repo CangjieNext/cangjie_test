@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 011_enum_option,011_enum_option
-b,b 12,011_enum_option.cj:12
-AOT r,r,-> 12
+b,b 20,011_enum_option.cj:20
+AOT r,r,-> 20
 CJVM c,c,
 p,p c1,\(default.C\) \$[\d] = {[\s\S]*constructor = C1[\s\S]*arg_1 = 16[\s\S]*}
 expr,expr c4,\(default.C\) \$[\d] = {[\s\S]*constructor = C4[\s\S]*arg_1 = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}[\s\S]*}

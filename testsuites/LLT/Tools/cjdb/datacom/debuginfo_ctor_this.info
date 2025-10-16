@@ -1,0 +1,29 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_ctor_this.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_ctor_this.cj -o debuginfo_ctor_this
+// EXEC: python3 cjdb_test.py debuginfo_ctor_this.info
+
+
+test#
+cjdb,cjdb debuginfo_ctor_this,debuginfo_ctor_this
+b,b 31,debuginfo_ctor_this.cj:31
+r,r,-> 31
+s,s,-> 18
+s,s,-> 21
+s,s,-> 22
+p,p this,S\) \$\d+ = {\s+e = 10\s+f = "2.5"
+p,p this.e,Int64\) \$\d+ = 10
+p,p this.f,String\) \$\d+ = "2.5"
+n,n,-> 31
+n,n,-> 32
+n,n,-> 33
+s,s,-> 8
+b,b 14,debuginfo_ctor_this.cj:14
+c,c,-> 14
+p,p this,C\) \$\d+ = {\s+a = 10\s+b = "HHH"\s+c = {\s+\[0\] = 1\s+\[1\] = 2\s+\[2\] = 3
+p;p this.d;Tuple<default.S,default.E>\) \$\d+ = {\s+\[0\] = {\s+e = 10\s+f = "2.5"\s+}\s+\[1\] = {\s+constructor = En\s+arg_1 = 500

@@ -12,7 +12,9 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.net.tls.common.*
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.keys.*
 import std.sync.*
 import std.time.*
 import std.argopt.*
@@ -41,14 +43,14 @@ class Test_tlsserverconf_03 {
         func startServerHandshake(): Unit {
             let pem0 = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
             let pem02 = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
             serverConf.verifyMode = Default
             serverConf.clientIdentityRequired = Required
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             try {
@@ -64,7 +66,7 @@ class Test_tlsserverconf_03 {
         var clientConf = TlsClientConfig()
         let pem = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
         let pem2 = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
-        clientConf.clientCertificate = (X509Certificate.decodeFromPem(pem), PrivateKey.decodeFromPem(pem2))
+        clientConf.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), GeneralPrivateKey.decodeFromPem(pem2))
         clientConf.verifyMode = Default
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
@@ -87,15 +89,15 @@ class Test_tlsserverconf_03 {
         func startServerHandshake(): Unit {
             let pem0 = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
             let pem02 = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+             var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
             let pem = String.fromUtf8(readToEnd(File("./files/root_ecdsa.cer", Read)))
-            serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
+            serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
             serverConf.clientIdentityRequired = Required
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             try {
@@ -111,7 +113,7 @@ class Test_tlsserverconf_03 {
         var clientConf = TlsClientConfig()
         let pem = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
         let pem2 = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
-        clientConf.clientCertificate = (X509Certificate.decodeFromPem(pem), PrivateKey.decodeFromPem(pem2))
+        clientConf.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), GeneralPrivateKey.decodeFromPem(pem2))
         clientConf.verifyMode = Default
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()

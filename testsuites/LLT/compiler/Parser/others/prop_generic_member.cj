@@ -9,7 +9,7 @@ class A{
     }
 }
 
-main(){
+main() {
     A()
     0
 }

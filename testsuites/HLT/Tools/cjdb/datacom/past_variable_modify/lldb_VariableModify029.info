@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 31,024_debug_variable.cj:31
-AOT r,r,-> 31
-CJVM c,c,-> 31
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 39,024_debug_variable.cj:39
+AOT r,r,-> 39
+CJVM c,c,-> 39
 set,set var_uint32 = ,error
-n,n,-> 34
+n,n,-> 42
 locals,locals,var_uint32 = 1
 p,p var_uint32,\(UInt32\) \$[\d] = 1
 locals,locals,f_uint32 = 9

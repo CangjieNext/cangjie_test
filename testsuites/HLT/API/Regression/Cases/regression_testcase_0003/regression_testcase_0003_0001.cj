@@ -17,7 +17,7 @@ import std.time.*
 import std.runtime.*
 
 var shouldLog = false
-var blackHole = WorkloadObject(-1)
+var blackBox = WorkloadObject(-1)
 
 class CountDownLatch {
     let m = Monitor()

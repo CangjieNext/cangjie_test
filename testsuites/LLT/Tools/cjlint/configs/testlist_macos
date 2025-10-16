@@ -1,0 +1,20 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[ALL-TEST-CASE]
+../rule_*
+../common_macro
+../file_exclude
+../import_path
+[EXCLUDE-TEST-CASE]
+# macos not support net lib
+../rule_G_CHK_01/common_test/
+../rule_G_CHK_01/generic/json_api/
+../rule_G_CHK_01/json_api/
+../rule_G_CHK_04/external_data_interface_test_case_01/
+../rule_G_CHK_04/g_chk_04_10009/
+../rule_G_CHK_04/g_chk_04_10012/
+../rule_comments_block/test_case_07/

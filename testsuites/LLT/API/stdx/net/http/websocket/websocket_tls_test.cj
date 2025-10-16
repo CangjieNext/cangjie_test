@@ -24,7 +24,8 @@ package tests.websocket
 
 import stdx.net.http.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.kit
+import stdx.crypto.x509.X509Certificate
 import stdx.encoding.url.*
 import std.net.*
 import std.unittest.*
@@ -74,7 +75,7 @@ class TestWebSocketWSS {
         spawn {startServer()}
         sleep(Duration.second)
         var clientCfg = clientConfig()
-        clientCfg.alpnProtocolsList = ["http/1.1"]
+        clientCfg.supportedAlpnProtocols = ["http/1.1"]
         let client = ClientBuilder().tlsConfig(clientCfg).build()
         client.logger.level = LogLevel.DEBUG
         println(serverZ?.port)

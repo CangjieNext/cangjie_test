@@ -46,10 +46,10 @@ class TestConnNodeGetTrailer2 {
         let u = URL.parse("http://127.0.0.1:${port}/a")
         let r = HttpRequestBuilder().url(u).build()
 
-        let buf = Array<UInt8>(4, repeat: 0)
+        let buf = Array<UInt8>(2, repeat: 0)
         var resp = client.send(r)
         var i = resp.body.read(buf)
-        @Expect(String.fromUtf8(buf[..i]), "hell")
+        @Expect(String.fromUtf8(buf[..i]), "he")
         try {
             readAll(1, resp)
             @Expect(1, 2)
@@ -59,7 +59,7 @@ class TestConnNodeGetTrailer2 {
 
         resp = client.send(r)
         try {
-            readAll(4, resp)
+            readAll(5, resp)
             @Expect(1, 2)
         } catch (e: HttpException) {
             @Expect(e.message.contains("Invalid field line"))
@@ -67,7 +67,7 @@ class TestConnNodeGetTrailer2 {
 
         resp = client.send(r)
         try {
-            readAll(4, resp)
+            readAll(5, resp)
             @Expect(1, 2)
         } catch (e: HttpException) {
             @Expect(e.message.contains("Invalid field line"))
@@ -89,12 +89,12 @@ class TestConnNodeGetTrailer2 {
         let server2 = serverSocket.accept()
         server2.read(buf)
         server2.write(
-            "HTTP/1.1 200\r\nTransfer-Encoding: chunked\r\n\r\n4\r\nhell\r\n0\r\ntra;iler: 4\r\n\r\n".toArray())
+            "HTTP/1.1 200\r\nTransfer-Encoding: chunked\r\n\r\n5\r\nhello\r\n0\r\ntra;iler: 4\r\n\r\n".toArray())
 
         let server3 = serverSocket.accept()
         server3.read(buf)
         server3.write(
-            "HTTP/1.1 200\r\nTransfer-Encoding: chunked\r\n\r\n4\r\nhell\r\n0\r\ntrailer: 4\04\r\n\r\n".toArray())
+            "HTTP/1.1 200\r\nTransfer-Encoding: chunked\r\n\r\n5\r\nhello\r\n0\r\ntrailer: 4\04\r\n\r\n".toArray())
         serverSocket.close()
     }
 }

@@ -1,0 +1,12 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC-PIPE: cd %n && cjc --no-sub-pkg -p ./a0/src --output-type=staticlib -o ./a0 && cjc --no-sub-pkg -p ./a1/src --output-type=staticlib -o ./a1 && %lint -f ./src --import-path "./a0 ./a1" -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
+// ASSERT: regex-1 .*main.cj:7:5:.*G.VAR.01: Prefer immutable variables when the value of the variable 'aa' does not change.

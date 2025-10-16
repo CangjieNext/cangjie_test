@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func010,generics_global_func010
-b,b 33,generics_global_func010.cj:33
-AOT r,r,-> 33
+b,b 41,generics_global_func010.cj:41
+AOT r,r,-> 41
 CJVM c,c,
 expr,expr rf3,\(default.RGBColor2<Bool>\) \$[\d] = {\s+constructor = Green[\s\S]*arg_1 = true[\s\S]*}
 expr,expr rf5,\(default.RGBColor3<Float64,Int64>\) \$[\d] = {\s+constructor = Green[\s\S]*arg_1 = 1.1[\s\S]*arg_2 = 2[\s\S]*}

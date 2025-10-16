@@ -24,7 +24,7 @@ import stdx.net.http.*
 import stdx.log.*
 import std.time.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
 import std.sync.*
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -65,7 +65,7 @@ class TestAutoVersion {
         var servercfg = serverConfig()
         servercfg.supportedAlpnProtocols = ["http/1.1"]
         var clientCfg = clientConfig()
-        clientCfg.alpnProtocolsList = ["http/1.1"]
+        clientCfg.supportedAlpnProtocols = ["http/1.1"]
         startServer(cfg: servercfg)
         client = ClientBuilder().tlsConfig(clientCfg).build()
         sleep(Duration.second)

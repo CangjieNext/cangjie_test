@@ -5,9 +5,9 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0: %frontendCompiler %enableCompileDebug %dumpCHIRDebug  %f -o %n.%suffix 2>&1
-// (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR_Debug/[0-9]*\_AST\_CHIR.chir | compare %f
+// (CJNATIVE and not Windows and DEBUG_OPTION) EXEC-PIPE-0:  %cat %n\_CHIR_Debug/[0-9]*\_CreateVTableAndUpdateFuncCall.chir | compare %f
 // (CJNATIVE and not Windows) ASSERT: scan [static] [public] [final] Func @_CN7default1I2f2Hv() : Unit
-// (CJNATIVE and not Windows) ASSERT: regex Class-_CN7default1AE& = InvokeStatic\(Class-_CN7default1IE::f1: \(\), %\d+\)\(This&, \[\], Class-_CN7default1AE&\)
+// (CJNATIVE and not Windows) ASSERT: regex Class-_CN7default1AE& = InvokeStatic\(ThisType: This&, f1: \(\) -> Class-_CN7default1AE&, %\d+\)
 
 open class A {}
 

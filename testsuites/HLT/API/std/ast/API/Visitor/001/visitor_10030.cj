@@ -11,7 +11,7 @@
 // EXEC: %compiler %cmp_opt %f utils.cj -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan-5 SynchronizedExpr
-// ASSERT: scan-5 Block
+// ASSERT: scan-6 Block
 // ASSERT: scan FuncDecl
 // ASSERT: scan-4 RefExpr
 

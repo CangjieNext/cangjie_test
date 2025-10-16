@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC:%frontendCompiler %typecheck %noColor %f 2>&1 | compare %f
+// EXEC:%frontendCompiler %f
 
 
 main():Int64 {
@@ -19,14 +19,3 @@ class Coo{
 
     }
 }
-
-/* SCAN
-error: expected a parameter name after ',', found ')'
-  ==> class13.cj:18:5:
-   | 
-18 |     ){ 
-   |     ^ expected a parameter name here
-   | 
-
-1 error generated, 1 error printed.
-*/

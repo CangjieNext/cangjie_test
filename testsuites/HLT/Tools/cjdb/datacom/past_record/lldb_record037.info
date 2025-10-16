@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 046_debug_record_mod_external_use,046_debug_record_mod_external_use
-b,b 12,046_debug_record_mod_external_use.cj:12
-AOT r,r,-> 12
+b,b 20,046_debug_record_mod_external_use.cj:20
+AOT r,r,-> 20
 CJVM c,c,
 globals,globals,Rectangle_ex\) default(::|\.)top_R = {(\r|\n|\r\n)  width = 5(\r|\n|\r\n)  length = 6
 q,q,

@@ -1,0 +1,14 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir 2>&1 | compare %f
+// ASSERT: regex-1 .*test.cj:8:17:.*G.EXP.05: Suggest to use parentheses to explicitly indicate the order of operations in an expression.
+// ASSERT: regex-1 .*test.cj:10:13:.*G.EXP.05: Suggest to use parentheses to explicitly indicate the order of operations in an expression.
+// ASSERT: regex-1 .*test.cj:10:27:.* G.EXP.05: Suggest to use parentheses to explicitly indicate the order of operations in an expression.
+// ASSERT: regex-1 .*test.cj:11:13:.*G.EXP.05: Suggest to use parentheses to explicitly indicate the order of operations in an expression.
+// ASSERT: regex-1 .*test.cj:11:27:.*G.EXP.05: Suggest to use parentheses to explicitly indicate the order of operations in an expression.
+// ASSERT: regex-1 .*test.cj:11:32:.*G.EXP.05: Suggest to use parentheses to explicitly indicate the order of operations in an expression.
