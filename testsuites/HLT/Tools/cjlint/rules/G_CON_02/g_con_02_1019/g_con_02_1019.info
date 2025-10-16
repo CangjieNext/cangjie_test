@@ -9,13 +9,13 @@
 // LEVEL: 2
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-1 test.cj:17:9.*Use mtx1.lock\(\) outside try block or release 'mtx1' at finally block.
-// ASSERT: regex-1 test.cj:18:9.*Use mtx2.lock\(\) outside try block or release 'mtx2' at finally block.
-// ASSERT: regex-1 test.cj:19:9.*Use mtx3.lock\(\) outside try block or release 'mtx3' at finally block.
-// ASSERT: regex-1 test.cj:20:9.*Use mtx4.lock\(\) outside try block or release 'mtx4' at finally block.
-// ASSERT: regex-1 test.cj:21:9.*Use mtx5.lock\(\) outside try block or release 'mtx5' at finally block.
-// ASSERT: regex-1 test.cj:22:9.*Use mtx6.lock\(\) outside try block or release 'mtx6' at finally block.
-// ASSERT: regex-1 test.cj:23:9.*Use mtx7.lock\(\) outside try block or release 'mtx7' at finally block.
-// ASSERT: regex-1 test.cj:24:9.*Use mtx8.lock\(\) outside try block or release 'mtx8' at finally block.
-// ASSERT: regex-1 test.cj:25:9.*Use mtx9.lock\(\) outside try block or release 'mtx9' at finally block.
-// ASSERT: regex-1 test.cj:26:9.*Use mtx10.lock\(\) outside try block or release 'mtx10' at finally block.
+// ASSERT: regex-1 test.cj:25:9.*Use mtx1.lock\(\) outside try block or release 'mtx1' at finally block.
+// ASSERT: regex-1 test.cj:26:9.*Use mtx2.lock\(\) outside try block or release 'mtx2' at finally block.
+// ASSERT: regex-1 test.cj:27:9.*Use mtx3.lock\(\) outside try block or release 'mtx3' at finally block.
+// ASSERT: regex-1 test.cj:28:9.*Use mtx4.lock\(\) outside try block or release 'mtx4' at finally block.
+// ASSERT: regex-1 test.cj:29:9.*Use mtx5.lock\(\) outside try block or release 'mtx5' at finally block.
+// ASSERT: regex-1 test.cj:30:9.*Use mtx6.lock\(\) outside try block or release 'mtx6' at finally block.
+// ASSERT: regex-1 test.cj:31:9.*Use mtx7.lock\(\) outside try block or release 'mtx7' at finally block.
+// ASSERT: regex-1 test.cj:32:9.*Use mtx8.lock\(\) outside try block or release 'mtx8' at finally block.
+// ASSERT: regex-1 test.cj:33:9.*Use mtx9.lock\(\) outside try block or release 'mtx9' at finally block.
+// ASSERT: regex-1 test.cj:34:9.*Use mtx10.lock\(\) outside try block or release 'mtx10' at finally block.

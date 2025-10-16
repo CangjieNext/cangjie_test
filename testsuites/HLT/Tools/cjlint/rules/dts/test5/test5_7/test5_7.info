@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-1 .*test.cj:2.*G.EXP.02: '4.9E-324' cannot be accurately represented in the current floating point number type.
+// ASSERT: regex-1 .*test.cj:10.*G.EXP.02: '4.9E-324' cannot be accurately represented in the current floating point number type.

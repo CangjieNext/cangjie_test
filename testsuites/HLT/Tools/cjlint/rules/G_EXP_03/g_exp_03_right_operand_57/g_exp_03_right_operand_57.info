@@ -9,17 +9,17 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex test.cj:4:23: .*error.*: Right operand 'top_a' include side effect
-// ASSERT: regex test.cj:6:24: .*error.*: Right operand 'top_a' include side effect
-// ASSERT: regex test.cj:7:43: .*error.*: Right operand 'top_a' include side effect
-// ASSERT: regex test.cj:9:43: .*error.*: Right operand 'top_a' include side effect
-// ASSERT: regex test.cj:10:47: .*error.*: Right operand 'top_a' include side effect
-// ASSERT: regex test.cj:11:40: .*error.*: Right operand 'top_a' include side effect
-// ASSERT: regex test.cj:12:47: .*error.*: Right operand 'top_a' include side effect
-// ASSERT: regex test.cj:13:60: .*error.*: Right operand 'top_a' include side effect
-// ASSERT: regex test.cj:14:51: .*error.*: Right operand 'top_a' include side effect
-// ASSERT: regex test.cj:16:23: .*error.*: Right operand 'top_a' include side effect
-// ASSERT: regex test.cj:17:23: .*error.*: Right operand 'top_a' include side effect
-// ASSERT: regex test.cj:18:42: .*error.*: Right operand 'top_a' include side effect
+// ASSERT: regex test.cj:12:23: .*error.*: Right operand 'top_a' include side effect
+// ASSERT: regex test.cj:14:24: .*error.*: Right operand 'top_a' include side effect
+// ASSERT: regex test.cj:15:43: .*error.*: Right operand 'top_a' include side effect
+// ASSERT: regex test.cj:17:43: .*error.*: Right operand 'top_a' include side effect
+// ASSERT: regex test.cj:18:47: .*error.*: Right operand 'top_a' include side effect
+// ASSERT: regex test.cj:19:40: .*error.*: Right operand 'top_a' include side effect
+// ASSERT: regex test.cj:20:47: .*error.*: Right operand 'top_a' include side effect
+// ASSERT: regex test.cj:21:60: .*error.*: Right operand 'top_a' include side effect
+// ASSERT: regex test.cj:22:51: .*error.*: Right operand 'top_a' include side effect
+// ASSERT: regex test.cj:24:23: .*error.*: Right operand 'top_a' include side effect
+// ASSERT: regex test.cj:25:23: .*error.*: Right operand 'top_a' include side effect
+// ASSERT: regex test.cj:26:42: .*error.*: Right operand 'top_a' include side effect
 
 

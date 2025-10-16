@@ -9,5 +9,5 @@
 // LEVEL: 2
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-not .*test.cj:6.*warning.*: G.ERR.01: The exception types that may be thrown should be described in the API comments.
-// ASSERT: regex-not .*test.cj:7.*warning.*: G.ERR.01: Exceptions should not be discarded without any processing.
+// ASSERT: regex-not .*test.cj:14.*warning.*: G.ERR.01: The exception types that may be thrown should be described in the API comments.
+// ASSERT: regex-not .*test.cj:15.*warning.*: G.ERR.01: Exceptions should not be discarded without any processing.
