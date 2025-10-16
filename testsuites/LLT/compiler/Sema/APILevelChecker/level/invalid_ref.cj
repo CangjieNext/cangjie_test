@@ -10,7 +10,7 @@
 
 import ohos.labels.*
 
-// globale.level = 11
+
 
 @!APILevel[10]
 public func foo(): Unit {
@@ -33,7 +33,7 @@ public func hoo(): Unit {
     koo() // ok
 }
 
-// APILevel[11]
+
 public func koo(): Unit {
     foo() // ok
     goo() // ok

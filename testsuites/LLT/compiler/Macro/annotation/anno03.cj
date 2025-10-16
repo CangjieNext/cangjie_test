@@ -34,4 +34,4 @@ func D() {}
 extend A {}
 
 @Annotation
-main(){}
+main() {}

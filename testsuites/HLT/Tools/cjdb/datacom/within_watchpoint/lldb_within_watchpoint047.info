@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b , b m_1 , 050_debug_dataType_basic.cj:45:1
-r , r ,-> 45
-watchpoint, watchpoint set variable -w read v2 ,050_debug_dataType_basic.cj:46
-c ,c ,-> 47
+b , b m_1 , 050_debug_dataType_basic.cj:53:1
+r , r ,-> 53
+watchpoint, watchpoint set variable -w read v2 ,050_debug_dataType_basic.cj:54
+c ,c ,-> 55
 q,q,

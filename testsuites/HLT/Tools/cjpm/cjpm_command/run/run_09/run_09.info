@@ -6,24 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0
+// LEVEL: 3
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run -h 2>&1 | compare %f
-
-/*SCAN
-Compile and run an executable product.
-
-Usage:
-  cjpm run [option]
-
-Available options:
-  --name <value>              name of the executable product to run, default to 'main'
-  --build-args <value>        the arguments to pass to the build process
-  --skip-build                skip compile, only run the executable product
-  --run-args <value>          the arguments to pass to the executable product
-  --target-dir <value>        specify target directory
-  -g                          enable debug version
-  -h, --help                  help for run
-  -V, --verbose               enable verbose
-  --skip-script               disable script 'build.cj'.
-*/
+// ASSERT: scan Compile and run an executable product.

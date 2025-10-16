@@ -8,7 +8,7 @@ func test(){
      print(a)
 }
 
-main(){
+main() {
     test()
 }
 

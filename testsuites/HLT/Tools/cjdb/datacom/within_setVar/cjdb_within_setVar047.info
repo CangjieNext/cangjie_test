@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_setVar_inherit,003_debug_setVar_inherit
-b,b 17,003_debug_setVar_inherit.cj:17
-AOT r,r,-> 17
+b,b 25,003_debug_setVar_inherit.cj:25
+AOT r,r,-> 25
 CJVM c,c,
-s,s,static func sub_s1\(\): Clazz_1<Bool>[\s\S]*-> 96
-n,n,-> 97
+s,s,static func sub_s1\(\): Clazz_1<Bool>[\s\S]*-> 104
+n,n,-> 105
 p,p f_c1.para_f1,\(Bool\) \$[\d] = true
 AOT set,set f_c1.para_f1=0.0,error: unsupported expression
 CJVM set,set f_c1.para_f1=0.0,error: Incorrect value

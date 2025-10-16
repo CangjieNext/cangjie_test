@@ -11,7 +11,7 @@ class AA{
     }
 }
 
-main(){}
+main() {}
 
 /* SCAN
 error: unexpected const member variable declaration in primary constructor paramlist

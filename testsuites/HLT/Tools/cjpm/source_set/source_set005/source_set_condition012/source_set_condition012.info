@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// (CJNATIVE) EXEC: cd %n && %cjpm build 2>&1| compare %f
+// (CJNATIVE) ASSERT: regex Error in `source-set.windows.condition`: unknown feature ``
+// (CJNATIVE) ASSERT: regex Error in `source-set.linux.condition`: unknown feature ``
+// (CJNATIVE) ASSERT: regex Error in `source-set.darwin.condition`: unknown feature ``
+// (CJNATIVE) ASSERT: scan cjpm build failed

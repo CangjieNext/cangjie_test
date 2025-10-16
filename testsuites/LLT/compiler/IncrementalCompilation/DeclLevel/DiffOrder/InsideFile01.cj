@@ -1,0 +1,25 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %incrementalCompile %cmp_opt %n.cj -o %output
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC: %compiler %cmp_opt %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+
+let a: Int64 = 1
+let b: Int64 = a
+let c: Int64 = 2
+
+main() {}
+
+// ASSERT: scan incremental compilation triggered
+// ASSERT: scan incremental sema
+
+// ASSERT: scan the changed decl after Spreading is:a
+// ASSERT: scan the changed decl after Spreading is:b
+// ASSERT: scan the changed decl after Spreading is:c
+// ASSERT: scan error: variable 'a' is used before being defined
+
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

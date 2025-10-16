@@ -14,17 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors std_test,std_test
-b,b 302,std_test.cj:302
-AOT r,r,-> 302
+b,b 310,std_test.cj:310
+AOT r,r,-> 310
 CJVM c,c,
-s,s,-> 303
-s,s,-> 304
-s,s,-> 305
-s,s,-> 306
-s,s,-> 307
-s,s,-> 308
-s,s,-> 309
-s,s,-> 310
 s,s,-> 311
 s,s,-> 312
 s,s,-> 313
@@ -35,4 +27,12 @@ s,s,-> 317
 s,s,-> 318
 s,s,-> 319
 s,s,-> 320
+s,s,-> 321
+s,s,-> 322
+s,s,-> 323
+s,s,-> 324
+s,s,-> 325
+s,s,-> 326
+s,s,-> 327
+s,s,-> 328
 q,q,

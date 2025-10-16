@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 110,052_debug_record_generics.cj:110
-AOT r,r,-> 110
+b,b 118,052_debug_record_generics.cj:118
+AOT r,r,-> 118
 CJVM c,c,
-n,n,-> 111
+n,n,-> 119
 locals,locals,R3<Bool,std[.]core.String>\) r10 = {[\S\s]*z = "abcde"[\s\S]*}
 q,q,

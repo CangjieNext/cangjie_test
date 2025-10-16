@@ -16,15 +16,15 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_while,004_debug_while
-b,b 6,004_debug_while.cj:6
-breakpoint,breakpoint set -l 6 -c 'hundred==2',004_debug_while.cj:6
-AOT r,r,-> 6
+b,b 14,004_debug_while.cj:14
+breakpoint,breakpoint set -l 14 -c 'hundred==2',004_debug_while.cj:14
+AOT r,r,-> 14
 CJVM c,c,
 locals,locals,hundred = 0
-c,c,-> 6
+c,c,-> 14
 locals,locals,hundred = 1
-c,c,-> 6
+c,c,-> 14
 locals,locals,hundred = 2
-c,c,-> 6
+c,c,-> 14
 locals,locals,hundred = 3
 q,q,

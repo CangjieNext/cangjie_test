@@ -18,8 +18,8 @@
 
 test#
 cjdb,cjdb --no-use-colors demangle_target,demangle_target
-AOT b,b 36,where = demangle_target`default::Cla_1::init\(Int64\) \+ \d+ at demangle.cj:38:9
-CJVM b,b 38,where = default\.Cla_1\.<init>\(i64\)void at [\s\S]*demangle.cj:38
-AOT r,r,demangle_target`default::Cla_1::init\(this=default.Cla_1 @ [\S\s]*, x=59\) at demangle.cj:38:9[\s\S]*-> 38
-CJVM c,c,-> 38
+AOT b,b 44,where = demangle_target`default::Cla_1::init\(Int64\) \+ \d+ at demangle.cj:46:9
+CJVM b,b 46,where = default\.Cla_1\.<init>\(i64\)void at [\s\S]*demangle.cj:46
+AOT r,r,demangle_target`default::Cla_1::init\(this=default.Cla_1 @ [\S\s]*, x=59\) at demangle.cj:46:9[\s\S]*-> 46
+CJVM c,c,-> 46
 q,q,

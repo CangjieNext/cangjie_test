@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 046_debug_record_main_mod_default,046_debug_record_main_mod_default
-b,b 27,046_debug_record_main_mod_default.cj:27
-AOT r,r,-> 27
+b,b 35,046_debug_record_main_mod_default.cj:35
+AOT r,r,-> 35
 CJVM c,c,
-n,n,-> 28
+n,n,-> 36
 AOT print,print newRectangle.counter,error: unsupported expression
 CJVM print,print newRectangle.counter,error: variable was not declared in this scope
 q,q,

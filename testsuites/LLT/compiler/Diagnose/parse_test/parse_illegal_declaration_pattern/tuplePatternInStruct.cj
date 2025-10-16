@@ -11,7 +11,7 @@ struct T{
     var (a,b) = (2,3)
 }
 
-main(){
+main() {
 
 }
 

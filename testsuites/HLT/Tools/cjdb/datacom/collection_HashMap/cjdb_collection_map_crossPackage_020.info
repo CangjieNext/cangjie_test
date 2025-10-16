@@ -14,17 +14,17 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashMap_external_invoke,collection_HashMap_external_invoke
-b,b 25,collection_HashMap_external_invoke.cj:25
-AOT r,r,-> 25
-CJVM c,c,-> 25
-s,s,[\S\s]*-> 46[\S\s]*
+b,b 33,collection_HashMap_external_invoke.cj:33
+AOT r,r,-> 33
+CJVM c,c,-> 33
+s,s,[\S\s]*-> 54[\S\s]*
 p,p par_3,std[.]collection.HashMap<Int64,Bool>\) \$[\d] = {[\S\s]*key = 19[\S\s]*value = true[\S\s]*}
 p,p par_3,std[.]collection.HashMap<Int64,Bool>\) \$[\d] = {[\S\s]*key = -160[\S\s]*value = false[\S\s]*}
 p,p par_3[76],error
-b,b 48,collection_HashMap_external_define.cj:48
-c,c,-> 48
+b,b 56,collection_HashMap_external_define.cj:56
+c,c,-> 56
 p,p map_r_1,std[.]collection.HashMap<Int64,Bool>\) \$[\d] = {[\S\s]*key = 64[\S\s]*value = true[\S\s]*}
 p,p map_r_1,std[.]collection.HashMap<Int64,Bool>\) \$[\d] = {[\S\s]*key = -160[\S\s]*value = false[\S\s]*}
-n,n,-> 49
+n,n,-> 57
 p,p map_r_1[64],error
 q,q,

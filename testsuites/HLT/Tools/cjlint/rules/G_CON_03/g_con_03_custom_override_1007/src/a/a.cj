@@ -1,0 +1,23 @@
+package a
+import std.sync.ReentrantMutex
+
+public struct A{}
+
+public var stru: A = A()
+
+public open class Base {
+  private let baseMtx: ReentrantMutex = ReentrantMutex()
+  public open func doSomething() {
+    synchronized(baseMtx) {
+
+    }
+  }
+}
+
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */

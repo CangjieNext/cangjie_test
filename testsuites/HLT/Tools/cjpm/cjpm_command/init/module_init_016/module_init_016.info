@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // ERRCHECK: cd %n && %cjpm init -f
-// ASSERT:scan Error: unknow command '-f' for cjpm init
+// ASSERT:scan Error: unknown command '-f' for cjpm init

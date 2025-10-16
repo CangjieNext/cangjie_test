@@ -4,7 +4,7 @@
 
 internal import std.ast.*
 
-main(){
+main() {
     let tk = quote(public const (a, b) = (1, 2))
     let a = parseDecl(tk)
     if (a.keyword.value == "const") {

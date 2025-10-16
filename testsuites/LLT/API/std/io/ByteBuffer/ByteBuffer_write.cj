@@ -15,6 +15,7 @@
 // ASSERT: scan hello cangjielo ca
 // ASSERT: scan 23
 // ASSERT: scan hello cangjielo cacangj
+// ASSERT: scan a
 
 internal import std.io.ByteBuffer
 
@@ -36,6 +37,11 @@ main() {
 
     bas.write("hello cangjie".toArray().slice(6, 5))
     println(bas.length)
+    println(String.fromUtf8(bas.bytes()))
+
+    var dataLeng = Array<Byte>(2048, repeat: 0)
+    bas.read(dataLeng)
+    bas.writeByte(97)
     println(String.fromUtf8(bas.bytes()))
     return 0
 }

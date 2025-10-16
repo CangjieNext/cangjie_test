@@ -36,3 +36,9 @@ import test.*
 /* 29.7 */    return 1
 /* 29.8 */}
 /* ===== End of the Emit ===== */
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

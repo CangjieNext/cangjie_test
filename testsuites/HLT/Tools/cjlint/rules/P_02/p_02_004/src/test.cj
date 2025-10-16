@@ -1,0 +1,22 @@
+struct Demo<T> {
+    static func test() {
+        let a: Int64 = 0
+        a
+    }
+}
+var b: Int64 = Demo<Int64>.test()
+main(): Int64 {
+    try{
+        spawn{
+            b = 2
+        }
+    } catch(_){spawn{}}
+    return 0
+}
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */

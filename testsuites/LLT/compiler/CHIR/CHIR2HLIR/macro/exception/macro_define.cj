@@ -12,5 +12,5 @@ class B <: Exception {}
 
 public macro M(a: Tokens) {
     throw B()
-    return quote(main(){0})
+    return quote(main() {0})
 }

@@ -7,14 +7,14 @@
 // EXEC: %compiler %cmp_opt %f  -o %output 2>&1 | compare %f
 
 type varr = VArray<Rune, $3>
-// type varr1<T> = VArray<T, $3> // Due to runtime limitations, unsupported right now.
+
 type varr1_1<T> = VArray<Int64, $3>
 
 // Omit Generic Arguments.
 
 main() {
     var a: varr = varr(repeat: 0)
-    //   var b: varr1 = varr1(repeat: 0) // error x2
+
     var c: varr1_1 = varr1_1(repeat: 0) // error x2
 }
 

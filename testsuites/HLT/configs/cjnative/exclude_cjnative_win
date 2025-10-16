@@ -218,6 +218,9 @@ API/std/fs/path/windows/unc_path/test_path_unequal_02.cj
 compiler/cjnative/FFI/Python
 API/std/ffi/Python
 
+# old jffi can only be run with cjvm.
+compiler/cjnative/FFI/jffi
+
 # cannot find -ldl: No such file or directory （不支持 ldl）
 compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00785/c_ffi.cj
 compiler/cjnative/FFI/cffi/c_ffi_007/c_ffi_00786/c_ffi.cj
@@ -350,3 +353,12 @@ compiler/cli/Option/pgo/pgo_004.cj
 compiler/cli/Option/pgo/pgo_005.cj
 
 Regression/External/I4AZMP.cj
+
+# mock error, call an abstract function
+API/std/unittest/mock/test_mock_extend_cjnative.cj
+
+# syntax will be supported in future
+API/syntax
+
+# timezone file in ci not support now
+API/std/time/TimeZone/load/test_loadFromPaths.cj

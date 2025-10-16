@@ -1,0 +1,29 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[dependencies]
+
+[package]
+  cjc-version = "1.0.0"
+  compile-option = "-O2 -Woff unused"
+  description = "sensor_mp4cj"
+  link-option = ""
+  name = "sensor_mp"
+  output-type = "dynamic"
+  target-dir = ""
+  version = "0.0.1"
+  package-configuration = {}
+
+[source-set.common]
+  src-dir = "./sensor/common"
+
+[source-set.android]
+  src-dir = "./sensor/android"
+  condition = ["feature.env.android"]
+
+[source-set.ohos]
+  src-dir = "./sensor/ohos"
+  condition = ["feature.env.ohos"]

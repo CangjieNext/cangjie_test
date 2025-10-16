@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_enum,002_debug_array_enum
-b,b 30,002_debug_array_enum.cj:30
-AOT r,r,-> 30
+b,b 38,002_debug_array_enum.cj:38
+AOT r,r,-> 38
 CJVM c,c,
-n,n,-> 32
+n,n,-> 40
 print,print arrayMainEnum02[2],TimeUnit2\) \$[\d]+ = {\s+constructor = Day\s+arg_1 = 1\s+arg_2 = 2\s+arg_3 = 3
 q,q,

@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_basic_07,viewVariables_basic_07
-b,b 91,C_FFI.cj:91
-AOT r,r,-> 91
+b,b 99,C_FFI.cj:99
+AOT r,r,-> 99
 CJVM c,c,
 p,p bt_D,\(Float64\) \$[\d] = 20.0015
 q,q,

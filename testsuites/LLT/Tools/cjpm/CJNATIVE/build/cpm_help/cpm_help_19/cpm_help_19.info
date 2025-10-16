@@ -6,6 +6,6 @@
 
 // DEPENDENCE: ../%n
 // ERRCHECK: cd %n && %cjpm clean -a
-// ASSERT: scan Error: unknow command '-a' for cjpm clean
+// ASSERT: scan Error: unknown command '-a' for cjpm clean
 
 

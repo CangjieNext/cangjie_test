@@ -26,7 +26,7 @@ import stdx.net.http.*
 import stdx.log.*
 import std.time.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
 import std.collection.*
 import std.sync.*
 import std.unittest.*

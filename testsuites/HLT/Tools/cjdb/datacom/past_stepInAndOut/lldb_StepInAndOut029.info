@@ -16,19 +16,19 @@
 
 test#
 cjdb,cjdb --no-use-colors 025_debuginfun_cover,025_debuginfun_cover
-CJVM b main,b main,025_debuginfun_cover.cj:4
-CJVM c,c,-> 4
-b,b 9,025_debuginfun_cover.cj:9
-b,b 11,025_debuginfun_cover.cj:11
-AOT r,r,-> 9
-CJVM c,c,-> 9
+CJVM b main,b main,025_debuginfun_cover.cj:12
+CJVM c,c,-> 12
+b,b 17,025_debuginfun_cover.cj:17
+b,b 19,025_debuginfun_cover.cj:19
+AOT r,r,-> 17
+CJVM c,c,-> 17
 locals,locals,var3 = 1
-s,s,-> 10
-s,s,-> 11
+s,s,-> 18
+s,s,-> 19
 locals,locals,var3 = 2
-s,s,-> 10
-s,s,-> 13
+s,s,-> 18
+s,s,-> 21
 locals,locals,var3 = 3
-rerun,r,-> 9
-AOT finish,finish,-> 11
+rerun,r,-> 17
+AOT finish,finish,-> 19
 q,q,

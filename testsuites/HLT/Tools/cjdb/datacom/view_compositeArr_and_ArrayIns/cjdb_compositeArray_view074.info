@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayIns_external_invoke.out,ArrayIns_external_invoke
-b,b 52,ArrayIns_external_invoke.cj:52
-AOT r,r,-> 52
+b,b 60,ArrayIns_external_invoke.cj:60
+AOT r,r,-> 60
 CJVM c,c,
 p,p arr_external_1,\(std[.]core.Array<std[.]core.Array<Int32>>\) \$[\d] = {[\s\S]*\[0\] = [\s\S]*
 p,p arr_external_1[0],\(std[.]core.Array<Int32>\) \$[\d] = {[\s\S]*\[2\] = 10

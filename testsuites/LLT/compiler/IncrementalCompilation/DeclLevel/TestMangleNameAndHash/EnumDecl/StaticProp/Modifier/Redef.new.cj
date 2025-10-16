@@ -1,0 +1,32 @@
+enum E <: I
+{
+    | R 
+    | G
+
+    // @OverflowThrowing // Annotation
+    static
+    public redef // Modifier
+    prop size  // Identifier
+    :Int64 // RetType
+    {
+        get(){
+            0  // get body
+        }
+    }
+}
+
+interface I {
+    static prop size:Int64{
+        get(){
+            0
+        }
+    }
+}
+
+main(): Int64 { 0 }
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

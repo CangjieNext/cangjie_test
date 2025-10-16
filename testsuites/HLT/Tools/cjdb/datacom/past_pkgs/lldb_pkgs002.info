@@ -17,9 +17,9 @@
 
 test#
 cjdb,cjdb --no-use-colors pkgs001,pkgs001
-b,b 29,pkgs001.cj:29
-AOT r,r,-> 29
+b,b 37,pkgs001.cj:37
+AOT r,r,-> 37
 CJVM c,c,
-n,n,-> 30
+n,n,-> 38
 locals,locals,res11 = 127
 q,q,

@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 051_debug_record_default,051_debug_record_default
-b,b 16,051_debug_record_default.cj:16
-AOT r,r,-> 16
+b,b 24,051_debug_record_default.cj:24
+AOT r,r,-> 24
 CJVM c,c,
-n,n,-> 17
+n,n,-> 25
 locals,locals,\(default.R\) r3 = {[\S\s]*item1 = 1[\S\s]* item2 = 3.14[\S\s]*item3 = "Hello"
 q,q,

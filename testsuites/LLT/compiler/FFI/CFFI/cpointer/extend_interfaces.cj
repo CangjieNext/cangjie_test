@@ -22,7 +22,7 @@ extend<T> CPointer<T> <: ToStringI where T <: ToString {
     }
 }
 
-unsafe main(){
+unsafe main() {
     var ptr = getCPtrInt(11142)
     println("${ptr.toString()}")
     unsafe { free(ptr) }

@@ -16,14 +16,14 @@
 
 test#
 cjdb,cjdb --no-use-colors 025_debuginfun_cover,025_debuginfun_cover
-breakpoint,breakpoint set -l 9 -c 'var3==1',025_debuginfun_cover.cj:9
-breakpoint,breakpoint set -l 11 -c 'var3==2',025_debuginfun_cover.cj:11
-AOT r,r,-> 9
+breakpoint,breakpoint set -l 17 -c 'var3==1',025_debuginfun_cover.cj:17
+breakpoint,breakpoint set -l 19 -c 'var3==2',025_debuginfun_cover.cj:19
+AOT r,r,-> 17
 CJVM c,c,
 locals,locals,var3 = 1
-c,c,-> 11
+c,c,-> 19
 locals,locals,var3 = 2
-n,n,-> 10
-n,n,-> 13
+n,n,-> 18
+n,n,-> 21
 locals,locals,var3 = 3
 q,q,

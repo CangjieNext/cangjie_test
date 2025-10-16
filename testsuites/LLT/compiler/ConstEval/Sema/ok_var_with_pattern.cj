@@ -6,9 +6,9 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt %cmp_opt %f -o %output | compare %f
 // (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args
-// (CJNATIVE) ASSERT: scan debug: consteval at ok_var_with_pattern.cj:17:1 - ok_var_with_pattern.cj:17:48 replaced initializer function `_CGV7default13tuple_patternHv:a:b:c:d` with initializer constant(s).
-// (not CJNATIVE) ASSERT: scan debug: consteval at ok_var_with_pattern.cj:17:1 - ok_var_with_pattern.cj:17:48 replaced initializer function `gv$_tuple_pattern:a:b:c:d` with initializer constant(s).
-// ASSERT: scan debug: consteval at ok_var_with_pattern.cj:24:5 - ok_var_with_pattern.cj:24:23 replaced initializer function `gv$_result` with initializer constant(s).
+// (CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `_CGV7default13tuple_patternHv:a:b:c:d` with initializer constant(s).
+// (not CJNATIVE) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_tuple_pattern:a:b:c:d` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_result` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

@@ -1,0 +1,24 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %incrementalCompile %f -o %output
+// EXEC: %run %run_opt %output %run_args
+// EXEC: %cpfile %n.txt %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %f -o %output 2>&1 | compare %f
+// ASSERT: scan incremental compilation triggered
+// ASSERT: scan the changed decl after Spreading is:foo in file WithReturnType_ChangeBody_Incr.cj in line 11 in column 6
+// EXEC-1: %run %run_opt %output %run_args
+
+
+func foo() : Int64 {
+    return 1
+}
+
+main() {
+    return foo()
+}
+
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

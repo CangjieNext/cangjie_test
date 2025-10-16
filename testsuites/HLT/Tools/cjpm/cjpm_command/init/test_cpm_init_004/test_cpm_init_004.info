@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC-PIPE-1: cd %n && cjpm init --name test_cjpm_init_004 --type=abcd 2>&1 | compare %f
-// ASSERT: scan Error: unknow command '--type=abcd' for cjpm init
+// ASSERT: scan Error: unknown command '--type=abcd' for cjpm init

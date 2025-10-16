@@ -1,0 +1,29 @@
+// DEPENDENCE: %n.txt
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output | compare %f
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1
+
+package A
+
+class B {}
+
+class Test {
+    public var a : Int32 = 11
+    public var b = B()
+}
+
+var t = Test()
+public func foo() {
+    println(t.a)
+    let num = 1
+    let fut = spawn {
+        return num + 10
+    }
+    fut.get()
+}
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

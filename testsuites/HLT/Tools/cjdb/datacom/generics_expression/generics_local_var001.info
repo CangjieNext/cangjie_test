@@ -14,16 +14,16 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var001,generics_local_var001
-b,b 28,generics_local_var001.cj:28
-AOT r,r,-> 28
+b,b 36,generics_local_var001.cj:36
+AOT r,r,-> 36
 CJVM c,c,
-s,s,-> 14
-n,n,-> 16
-n,n,-> 17
+s,s,-> 22
+n,n,-> 24
+n,n,-> 25
 expr:expr ssa[0]:\(Int64\) \$[\d] = 1
 expr:expr ssa[1]:\(Int64\) \$[\d] = 6
 expr~expr ssa[2]~error: unsupported expression
-n,n,-> 18
-n,n,-> 19
+n,n,-> 26
+n,n,-> 27
 expr:expr vunit is Unit:\(Bool\) \$[\d] = true
 q,q,

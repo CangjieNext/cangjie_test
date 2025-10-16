@@ -1,0 +1,3 @@
+package www
+
+func A(){}

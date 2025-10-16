@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ./src
+// EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
+// ASSERT: regex test.cj:2:8: .*error.*: 9.255.255.255 is public ip, hard-coded in the program
+// ASSERT: regex test.cj:3:8: .*error.*: 11.0.0.0 is public ip, hard-coded in the program
+// ASSERT: regex test.cj:4:8: .*error.*: 172.15.255.255 is public ip, hard-coded in the program
+// ASSERT: regex test.cj:5:8: .*error.*: 172.32.0.0 is public ip, hard-coded in the program
+// ASSERT: regex test.cj:6:8: .*error.*: 192.167.255.255 is public ip, hard-coded in the program
+// ASSERT: regex test.cj:7:8: .*error.*: 192.169.0.0 is public ip, hard-coded in the program
+// ASSERT: regex test.cj:8:8: .*error.*: 126.255.255.255 is public ip, hard-coded in the program
+// ASSERT: regex test.cj:9:8: .*error.*: 128.0.0.0 is public ip, hard-coded in the program
+// ASSERT: regex test.cj:10:8: .*error.*: 0.0.0.1 is public ip, hard-coded in the program

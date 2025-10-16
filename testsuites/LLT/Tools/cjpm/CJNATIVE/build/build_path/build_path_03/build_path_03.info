@@ -6,5 +6,5 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build 2>&1 | compare %f
-// ASSERT: regex the path 'pro1' does not exist which is listed in 'dependencies' field at .*cjpm.toml
+// ASSERT: regex the path 'pro1' of module 'pro1' does not exist which is listed in 'dependencies' field at .*cjpm.toml
 // ASSERT: scan cjpm build failed

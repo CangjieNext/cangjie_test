@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 058_debug_varray,058_debug_varray
-b,b 18,Breakpoint 1: where = 058_debug_varray`default::main[\s\S]*058_debug_varray.cj:18
-AOT r,r,-> 18
-CJVM c,c,-> 18
+b,b 26,Breakpoint 1: where = 058_debug_varray`default::main[\s\S]*058_debug_varray.cj:26
+AOT r,r,-> 26
+CJVM c,c,-> 26
 expression, expression vzj[0]>=vzj[0],\(Bool\) \$[\d] = true
 expression, expression vzj[1]>=vzj[1],\(Bool\) \$[\d] = true
 q,q,

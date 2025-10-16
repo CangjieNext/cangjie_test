@@ -43,3 +43,6 @@ compiler/Driver/options/occurance_warning_tests/--pgo-instr-use.cj
 
 # windows平台不支持LTO
 compiler/Driver/options/obfuscation/test_level/test_lto_lld_paramet.cj
+
+# ffi-python只支持linux
+compiler/FFI/ffi_python

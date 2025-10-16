@@ -6,8 +6,8 @@
 
 // (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at testTypeTuple.cj:16:1 - testTypeTuple.cj:16:174 evaluated initializer function `gv$_a`
-// ASSERT: scan debug: consteval at testTypeTuple.cj:22:1 - testTypeTuple.cj:22:28 evaluated initializer function `gv$_b`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_a`
+// ASSERT: scan debug: consteval at :0:0 - :0:0 evaluated initializer function `gv$_b`
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

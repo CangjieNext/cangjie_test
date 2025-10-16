@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_enum,002_debug_array_enum
-b,b 32,002_debug_array_enum.cj:32
-AOT r,r,-> 32
+b,b 40,002_debug_array_enum.cj:40
+AOT r,r,-> 40
 CJVM c,c,
-n,n,-> 33
+n,n,-> 41
 locals,locals,TimeUnit1\) time1 = a[\s\S]*
 q,q,

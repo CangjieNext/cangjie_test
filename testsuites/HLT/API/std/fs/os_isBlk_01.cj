@@ -6,12 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 3
 // DEPENDENCE: getPath.sh test_fj.txt
-// (not Windows) EXEC-PIPE: chmod +x getPath.sh
-// (not Windows) EXEC-PIPE: ./getPath.sh b
-// (not Windows) EXEC-PIPE: %compiler %cmp_opt mypath.cj -o %output %f
-// (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// (not Windows) EXEC: chmod +x getPath.sh
+// (not Windows) EXEC: ./getPath.sh b && cat mypath.cj
+// (not Windows) EXEC: %compiler %cmp_opt mypath.cj -o %output %f
+// (not Windows) RUN-EXEC: %run %run_opt %output %run_args
 import std.posix.*
 
 main() {

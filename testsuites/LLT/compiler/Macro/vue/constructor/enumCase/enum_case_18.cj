@@ -10,7 +10,7 @@ enum Eb1{
     | @AA3[Red(Int64,Int64)] func gggsss(){}
 }
 
-main(){}
+main() {}
 
 /* SCAN
 error: unknown enum constructor

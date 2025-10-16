@@ -24,5 +24,14 @@ error: import 'std.ast' to use the 'quote' expression
    |             ^^^^^^^^^^ 
    | 
 
+warning: unused import 'define_10004.*'
+  ==> main_err1.cj:11:1:
+   | 
+11 | import define_10004.*
+   | ^^^^^^^^^^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 1 error generated, 1 error printed.
+1 warning generated, 1 warning printed.
 */

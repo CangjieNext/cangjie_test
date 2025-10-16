@@ -1,0 +1,53 @@
+class A{
+
+    private var top_a = 10
+    private var top_a1 : Int32 = 10
+    protected var top_b = true
+    public var top_c = 1.0
+    public let top_d = ()
+    public static let TOPE = ""
+    public let top_f = (0.0, "100")
+    public var top_g = [""]
+
+    public func test(){
+        var a = true && top_b
+
+        var b = true || top_b
+
+        var c = Option<Int64>.Some(100) ?? top_a
+
+        var c1 = Option<Int32>.Some(100) ??  top_a1
+
+        var c2 = Option<Float64>.Some(100.0) ?? top_c
+
+        var c3 = Option<Unit>.Some(()) ?? top_d
+
+        var c4 = Option<String>.Some("100") ?? TOPE
+
+        var c5 = Option<(Float64,String)>.Some((10.0, "")) ?? top_f
+
+        var c6 = Option<Array<String>>.Some([""]) ?? top_g
+
+        let d = true &&  top_b
+
+        let e = true ||  top_b
+
+        let f = Option<Int64>.Some(100) ?? top_a
+
+        let g = Option<Int64>.Some((1)) ??  top_a
+
+    }
+}
+
+main(){
+
+}
+
+
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */

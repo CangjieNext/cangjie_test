@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var013,generics_local_var013
-b,b 32,generics_local_var013.cj:32
-AOT r,r,-> 32
+b,b 40,generics_local_var013.cj:40
+AOT r,r,-> 40
 CJVM c,c,
-s,s,-> 6
-n,n,-> 7
-n,n,-> 8
+s,s,-> 14
+n,n,-> 15
+n,n,-> 16
 expr~expr a~\(Int64\) \$[\d] = 1
 expr~expr vlist2[1]~\(Int64\) \$[\d] = 2
 q,q,

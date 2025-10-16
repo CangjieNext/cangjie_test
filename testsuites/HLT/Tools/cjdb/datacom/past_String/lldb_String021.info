@@ -16,14 +16,14 @@
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 7,049_debug_string.cj:7
-b,b 8,049_debug_string.cj:8
-b,b 9,049_debug_string.cj:9
-AOT r,r,-> 7
+b,b 15,049_debug_string.cj:15
+b,b 16,049_debug_string.cj:16
+b,b 17,049_debug_string.cj:17
+AOT r,r,-> 15
 CJVM c,c,
-c,c,-> 8
-finish,finish,-> 9
-s,s,-> 10
-n,n,-> 11
-rerun,r,-> 7
+c,c,-> 16
+finish,finish,-> 17
+s,s,-> 18
+n,n,-> 19
+rerun,r,-> 15
 q,q,

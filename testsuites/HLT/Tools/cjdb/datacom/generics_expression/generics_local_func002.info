@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func002,generics_local_func002
-b,b 24,generics_local_func002.cj:24
-AOT r,r,-> 24
+b,b 32,generics_local_func002.cj:32
+AOT r,r,-> 32
 CJVM c,c,
 expr:expr a:\(Int16\) \$[\d] = 3
 expr~expr goo(a)~error: unsupported expression

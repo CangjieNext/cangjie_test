@@ -1,0 +1,71 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop --output-javagen-dir=src/java/cj
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/com/java/lib/*.java src/java/cj/*.java -h ./ -d ./
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && %java %cp_cj_loader_java_interop -Djava.library.path./ com.java.lib.Main 2>& 1 | compare %f
+
+/* SCAN-IN
+================ TEST JBase ======================
+             is | JBase | JDer | CjDer | CjBaseDer
+new JBase()     | T     | F    | F     | F
+new JDer()      | T     | T    | F     | F
+new CjDer()     | T     | T    | T     | F
+new CjBaseDer() | T     | F    | F     | T
+================ TEST JBase Upcast to Any ========
+             is | JBase | JDer | CjDer | CjBaseDer
+new JBase()     | T     | F    | F     | F
+new JDer()      | T     | T    | F     | F
+new CjDer()     | T     | T    | T     | F
+new CjBaseDer() | T     | F    | F     | T
+================ TEST JDer Upcast to JBase ====
+         is | JBase | JDer | CjDer | CjBaseDer
+new JDer()  | T     | T    | F     | F
+new CjDer() | T     | T    | T     | F
+================ TEST JBase ======================
+             as | JBase | JDer | CjDer | CjBaseDer
+new JBase()     | T     | F    | F     | F
+new JDer()      | T     | T    | F     | F
+new CjDer()     | T     | T    | T     | F
+new CjBaseDer() | T     | F    | F     | T
+================ TEST JBase Upcast to Any ========
+             as | JBase | JDer | CjDer | CjBaseDer
+new JBase()     | T     | F    | F     | F
+new JDer()      | T     | T    | F     | F
+new CjDer()     | T     | T    | T     | F
+new CjBaseDer() | T     | F    | F     | T
+================ TEST JDer Upcast to JBase ====
+         as | JBase | JDer | CjDer | CjBaseDer
+new JDer()  | T     | T    | F     | F
+new CjDer() | T     | T    | T     | F
+================ TEST as =========================
+test a: true
+test b: true
+test c: true
+test d: true
+test e: true
+================ TEST is/as ======================
+Object: true, true
+Any: true, true
+================ TEST match ======================
+CjBaseDer,CjDer: CjBaseDer,JDer
+CjBaseDer,CjBaseDer: CjBaseDer,CjBaseDer
+CjDer,CjBaseDer: CjDer,CjBaseDer
+CjDer,CjDer: JObject,JBase
+JDer: JBase
+JBase: JBase
+Int64,JDer: Any,JBase
+================ TEST match_value ================
+[2] value = 10
+[8] value = 10
+[2] value = 15
+[9] value = 15
+[1] value = 10
+[5] value = 10
+[1] value = 15
+[6] value = 15
+*/

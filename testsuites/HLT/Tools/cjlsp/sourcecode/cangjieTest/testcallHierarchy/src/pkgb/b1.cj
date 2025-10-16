@@ -1,7 +1,3 @@
-package default.pkgb
-
-public func fb(a:Int64,b!:Int64):Unit{}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -9,3 +5,7 @@ public func fb(a:Int64,b!:Int64):Unit{}
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.pkgb
+
+public func fb(a:Int64,b!:Int64):Unit{}

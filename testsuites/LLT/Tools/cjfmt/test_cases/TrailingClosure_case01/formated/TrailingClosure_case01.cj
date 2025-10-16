@@ -9,17 +9,12 @@ internal import ohos.hilog.*
 internal import std.time.*
 
 func foo111(jsContext: JSContext, jsCallInfo: JSCallInfo): JSValue {
-    jsContext
-        .global["getAccessTokenId"]
-        .asFunction(jsContext)
-        .call()
-        .asPromise(jsContext)
-        .then(
-            jsContext.function {
-                jsContext: JSContext, jsCallInfo: JSCallInfo =>
+    jsContext.global["getAccessTokenId"].asFunction(jsContext).call().asPromise(jsContext).then(
+        jsContext.function {
+            jsContext: JSContext, jsCallInfo: JSCallInfo =>
                 let accessTokenId = jsCallInfo[0]
                 jsContext.undefined().toJSValue()
-            }
-        )
+        }
+    )
     jsContext.undefined().toJSValue()
 }

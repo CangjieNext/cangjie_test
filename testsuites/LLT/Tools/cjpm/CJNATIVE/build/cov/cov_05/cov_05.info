@@ -1,0 +1,11 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC:cd %n && cjc -p pp/pro1/xoo --output-type=staticlib --module-name pro1 -o pp/pro1 --coverage && cjc -p pp/pro2/yoo --output-type=staticlib --module-name pro2 -o pp/pro2 --coverage && %cjpm build --coverage 2>&1 | compare %f
+// ASSERT: scan cjpm build success
+// EXEC: cd %n && %cjpm run --skip-build
+// EXEC: cd %n && %ls 0-pro4.coo.gcda 0-pro4.coo.gcno 0-test.gcda 0-test.gcno 0-pro4.doo.gcda 0-pro4.doo.gcno 0-pro1.xoo.gcda 0-pro1.xoo.gcno 0-pro2.yoo.gcda 0-pro2.yoo.gcno 0-pro3.zoo.gcda 0-pro3.zoo.gcno

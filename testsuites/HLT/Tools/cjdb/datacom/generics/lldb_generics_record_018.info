@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 119,052_debug_record_generics.cj:119
-AOT r,r,-> 119
+b,b 127,052_debug_record_generics.cj:127
+AOT r,r,-> 127
 CJVM c,c,
-n,n,-> 120
+n,n,-> 128
 locals,locals,R1<Bool>\) f_r1 = {(\r|\n|\r\n)  width = true(\r|\n|\r\n)  length = true
 q,q,

@@ -44,5 +44,14 @@ error: 'f3' is not a member of class 'Foo<Int64>'
    |                  ^^ 
    | 
 
+warning: unused import 'b.c.*'
+  ==> main02.cj:16:1:
+   | 
+16 | import b.c.*
+   | ^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 3 errors generated, 3 errors printed.
+1 warning generated, 1 warning printed.
 */

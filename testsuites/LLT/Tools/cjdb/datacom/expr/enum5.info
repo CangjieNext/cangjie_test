@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb enum5,enum5
+b,b 16,enum5.cj:16
+r,r,-> 16
+ ,expr b,\(E1\) \$\d+ = {\s+constructor = B\s+arg_1 = {\s+constructor = C\s+arg_1 = {\s+constructor = A
+ ,p b,\(E1\) \$\d+ = {\s+constructor = B\s+arg_1 = {\s+constructor = C\s+arg_1 = {\s+constructor = A
+q,q,

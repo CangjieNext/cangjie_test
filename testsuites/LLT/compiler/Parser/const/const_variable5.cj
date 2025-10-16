@@ -16,7 +16,7 @@ const public var (c, d) = (3, 4) // err
 const static e = 1 // err
 const mut (f, g) = (1, 2) // err
 
-main(){}
+main() {}
 
 /* SCAN
 error: unexpected modifier 'const' on var or let variable

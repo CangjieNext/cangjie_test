@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %cmp_utest_opt 2>&1 | compare %f
-// ASSERT: scan-2 Invalid syntax for @PowerAssert: use either @PowerAssert(a, b) or @PowerAssert(b)
+// ASSERT: scan-2 Invalid syntax for @PowerAssert: use @PowerAssert(a, b), @PowerAssert(b), @PowerAssert(a 'compare_operator' b), @PowerAssert(a 'compare_operator' b, delta: d) or @PowerAssert(a, b, delta: d).
 // ASSERT: scan @PowerAssert()
 // ASSERT: scan @PowerAssert(true, false, true)
 

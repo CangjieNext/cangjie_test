@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func017,generics_local_func017
-b,b 17,generics_local_func017.cj:17
-AOT r,r,-> 17
+b,b 25,generics_local_func017.cj:25
+AOT r,r,-> 25
 CJVM c,c,
 expr:expr call_ca1:\(Int64\) \$[\d] = 2
 expr~expr A<Int64>().foo1(2)~error: unsupported expression

@@ -12,12 +12,12 @@
 import ohos.device_info.*
 import ohos.labels.*
 
-@APILevel[12]
+@APILevel[19]
 public func foo() {}
 
-@APILevel[11]
+@APILevel[18]
 public func goo() {
-    let a = @IfAvailable(level: 12, {=>
+    let a = @IfAvailable(level: 19, {=>
         foo()
     }, {=>
         foo()
@@ -27,7 +27,7 @@ public func goo() {
 main() {}
 
 /* SCAN
-error: cannot reference 'foo'(level: 12) which higher than level of the current scope(level: 11)
+error: cannot reference 'foo'(level: 19) which higher than level of the current scope(level: 18)
   ==> test09.cj:23:9:
    | 
 23 |         foo()

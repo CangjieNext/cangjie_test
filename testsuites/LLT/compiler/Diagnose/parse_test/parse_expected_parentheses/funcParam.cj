@@ -10,7 +10,7 @@
 func f(x:Int32->):Unit{
 
 }
-main(){
+main() {
 
 }
 

@@ -14,7 +14,7 @@ public const e = 0 // ok, the type of d is Int64
 public const _ = 1
 const public (f, g) = (1, 2) // ok, public is contextual keyword, here will be parsed as enumPattern variable
 
-main(){ }
+main() { }
 
 /* SCAN
 error: const variable declaration must be initialized

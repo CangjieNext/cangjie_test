@@ -9,7 +9,7 @@
 
 package pkg2
 
-main(){
+main() {
     return 0
 }
 internal import pkg2.pkg1.*

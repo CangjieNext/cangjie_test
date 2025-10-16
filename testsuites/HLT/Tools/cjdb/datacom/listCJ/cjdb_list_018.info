@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-AOT b,b 122,list_debug.cj:124
-CJVM b,b 124,list_debug.cj:124
-AOT r,r,-> 124
-CJVM c,c,-> 124
+AOT b,b 130,list_debug.cj:132
+CJVM b,b 132,list_debug.cj:132
+AOT r,r,-> 132
+CJVM c,c,-> 132
 p,p m_base_3,\$[\d]
 AOT set,set m_base_3[0]=0,= false
 CJVM set,set m_base_3[0]=false,= false

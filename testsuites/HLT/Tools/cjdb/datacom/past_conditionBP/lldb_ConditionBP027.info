@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_break,006_debug_break
-breakpoint,breakpoint set -l 8 -c ‘indexbreak==12',006_debug_break.cj:8
-AOT r,r,-> 8
+breakpoint,breakpoint set -l 16 -c 'indexbreak==12',006_debug_break.cj:16
+AOT r,r,-> 16
 CJVM c,c,
-n,n,-> 11
+n,n,-> 19
 locals,locals,indexbreak = 12
 q,q,

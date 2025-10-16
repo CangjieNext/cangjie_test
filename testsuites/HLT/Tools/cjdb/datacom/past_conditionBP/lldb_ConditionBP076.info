@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_condition_bp,045_debug_condition_bp
-breakpoint,breakpoint set -l 17 -c 'numint32>7',045_debug_condition_bp.cj:17
-AOT r,r,-> 17
+breakpoint,breakpoint set -l 25 -c 'numint32>7',045_debug_condition_bp.cj:25
+AOT r,r,-> 25
 CJVM c,c,
 locals,locals,numint32 = 8
-c,c,-> 17
+c,c,-> 25
 locals,locals,numint32 = 9
 c,c,exited with status
 q,q,

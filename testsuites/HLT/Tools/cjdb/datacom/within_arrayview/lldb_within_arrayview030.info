@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_via_inherit,002_debug_array_via_inherit
-b,b 11,002_debug_array_via_inherit.cj:11
-AOT r,r,-> 11
+b,b 19,002_debug_array_via_inherit.cj:19
+AOT r,r,-> 19
 CJVM c,c,
 print, print v_main_4[0][2..3],\(std[.]core.Array<Int32>\) \$[\d] = {[\s\S]*? \[0\] = -12[\s\S]*
 q,q,

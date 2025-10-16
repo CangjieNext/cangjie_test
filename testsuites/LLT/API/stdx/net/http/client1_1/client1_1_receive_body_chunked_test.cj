@@ -112,8 +112,6 @@ class TestClient1_1ReceiveChunkedBody {
         client.close()
         fut.get()
         serverSocket2.close()
-        println("ok")
-        asanGC()
     }
 
     func serverPacketCapture2() {
@@ -125,6 +123,58 @@ class TestClient1_1ReceiveChunkedBody {
         server.write(
             "HTTP/1.1 200 ok\r\ntrailer: A, b\r\ntransfer-encoding: chunked\r\n\r\n10\r\n1234567890123456\r\n2\r\n12\r\n0\r\na: 2\r\nb: 3\r\nc: 4\r\n\r\nHTTP/1.1 204 No Content\r\nconnection: close\r\n\r\n"
                 .toArray())
+        sleep(Duration.millisecond * 100)
+        server.close()
+    }
+
+    let serverSocket3 = TcpServerSocket(bindAt: 0)
+ 
+    @TestCase
+    func client1_1ReceiveChunkedBodyAbort(): Unit {
+        let serverHasException = Box<Bool>(false)
+        let sc = SyncCounter(1)
+        let fut = spawn {
+            try {
+                serverPacketCapture3()
+                @Expect(false)
+            } catch (e: SocketException) {
+                serverHasException.value = true
+                sc.dec()
+            }
+        }
+        sleep(Duration.millisecond * 10)
+ 
+        let client = ClientBuilder().build()
+        client.logger.level = LogLevel.DEBUG
+        let port3 = (serverSocket3.localAddress as IPSocketAddress)?.port ?? 0
+        let u = URL.parse("http://127.0.0.1:${port3}/a")
+        let r = HttpRequestBuilder()
+                                .url(u)
+                                .build()
+        let response = client.send(r)
+        @Expect(response.toString().contains("HTTP/1.1 200 OK\r\n"))
+        @Expect(response.toString().contains("transfer-encoding: chunked\r\n"))
+        // close response body
+        response.close()
+        sc.waitUntilZero()
+        @Expect(serverHasException.value, true)
+ 
+        client.close()
+        fut.get()
+        serverSocket3.close()
+        println("ok")
+        asanGC()
+    }
+ 
+    func serverPacketCapture3() {
+        serverSocket3.bind()
+        let server = serverSocket3.accept()
+        let buf = Array<UInt8>(500, repeat: 0)
+        sleep(Duration.millisecond * 10)
+        server.read(buf)
+        server.write("HTTP/1.1 200 ok\r\ntrailer: A, b\r\ntransfer-encoding: chunked\r\n\r\n10\r\n1234567890123456\r\n2\r\n12\r\n0\r\na: 2\r\nb: 3\r\nc: 4\r\n\r\nHTTP/1.1 204 No Content\r\nconnection: close\r\n\r\n".toArray())
+        server.write("data".toArray().repeat(1000000))
+        server.write("data".toArray().repeat(1000000))
         sleep(Duration.millisecond * 100)
         server.close()
     }

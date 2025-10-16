@@ -4,7 +4,7 @@ func test(const n: Int64, const var anno!: Int64 = 1) {
     return n + anno
 }
 
-main(){}
+main() {}
 
 /* SCAN
 error: unexpected const variable declaration in paramlist

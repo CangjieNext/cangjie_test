@@ -12,7 +12,7 @@ struct A<X,Y>{
     public operator func <=(b:A<Int32,(Int32,A<Int32,Int32)>):Bool {true}
 }
 
-main(){}
+main() {}
 
 /* SCAN
 error: unclosed delimiter: '<'

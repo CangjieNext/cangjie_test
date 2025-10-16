@@ -9,5 +9,7 @@
 API/
 Tools/
 compiler/
+regression/
 Runtime/
+
 [EXCLUDE-TEST-CASE]

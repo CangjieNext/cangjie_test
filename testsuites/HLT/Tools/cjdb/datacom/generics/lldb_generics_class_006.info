@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 121,005_debug_class_generics.cj:121
-AOT r,r,-> 121
+b,b 129,005_debug_class_generics.cj:129
+AOT r,r,-> 129
 CJVM c,c,
-AOT n,n,-> 124
-CJVM n,n,-> 123
+AOT n,n,-> 132
+CJVM n,n,-> 131
 print,print mc_4.width[0],C1<UInt32>\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 print,print mc_4.length[0],C1<UInt32>\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 q,q,

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 190,list_debug.cj:190
-AOT r,r,-> 190
+b,b 198,list_debug.cj:198
+AOT r,r,-> 198
 CJVM c,c,
 p,p m_inherit_8,\$[\d] =
 AOT p,p m_inherit_8[0].width,\$[0-9]* = {[\s\S]*There are 100 apples

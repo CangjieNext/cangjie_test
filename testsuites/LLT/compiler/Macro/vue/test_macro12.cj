@@ -19,14 +19,6 @@ main(): Int64 {
 // ASEERT: regex-not core dump
 // ASEERT: regex-not stack trace
 
-
-
-
-
-
-
-
-
 /* SCAN
 error: unexpected macro declaration in macro body
  ==> test_macro12.cj:8:12:

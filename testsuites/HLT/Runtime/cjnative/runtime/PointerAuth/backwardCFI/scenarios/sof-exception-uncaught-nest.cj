@@ -1,0 +1,80 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// !!!NOTE!!!: This testcase can only be run at real device, emulator is NOT support.
+
+// We require --link-options=--export-dynamic, so that dlsym can find functions below
+
+// LEVEL: 3
+// (OHOS and not Android) DEPENDENCE: ../exploit-wrapper.cj
+// (OHOS and not Android) DEPENDENCE: ../exploit.c
+// (Windows and OHOS and not Android) EXEC: %clang -c -march=armv8+pauth -fPIC %ohos_opt --sysroot=%OHOS_ROOT%/out/generic_generic_arm_64only/hisi_all_phone_standard/obj/third_party/musl exploit.c -o exploit.o
+// (MAC and OHOS and not Android) EXEC: %clang -c -march=armv8+pauth -fPIC %ohos_opt --sysroot=${OHOS_ROOT}/out/generic_generic_arm_64only/hisi_all_phone_standard/obj/third_party/musl exploit.c -o exploit.o
+// (OHOS and not Android) EXEC: %compiler %cmp_opt --link-options=--export-dynamic -ldl -o %n.%suffix %f exploit-wrapper.cj exploit.o
+
+// In our test, runtime or ohos will rethrow SIGILL(6) as SIGSEGV(11),
+// so we use 11 as return code here.
+// However, runtime will print SIGILL any way, so we can scan SIGILL here
+
+// (OHOS and not Android) RUN-EXEC-PIPE-132: %run %run_opt %n.%suffix 2>&1 | compare %f
+// (OHOS and not Android) ASSERT: scan SIGILL
+
+import std.process.Process
+
+public func exploited(): Unit {
+    try {
+        // dummy code, make space for offset
+        print("unreachable")
+        print("unreachable")
+        print("unreachable")
+        print("unreachable")
+        print("unreachable")
+        print("unreachable")
+    } catch (e: StackOverflowError) {
+        print("ROP exploited!")
+        Process.current.exit(1)
+    }
+}
+
+@C
+public unsafe func sof(p: CPointer<Int64>): Unit {
+    var arr1 = VArray<Int64, $65536>(repeat: 0)
+    arr1[1] = p.read()
+    sof(inout arr1)
+}
+
+public func sofException(): Unit {
+    // noinline in O2
+    var arr = Array<Int64>(100, {i => i})
+    print("dummy: ${arr[2]}")
+    var e = arr[0]
+    unsafe { sof(inout e) }
+}
+
+public func victim(): Unit {
+
+    // noinline in O2
+    var arr = Array<Int64>(2, repeat: 0)
+    print("dummy: ${arr[0]}")
+    var conf = ExploitConfig(
+        returnAddressAddon: 0x40,
+        victimMangleName: "_CN7default6victimHv",
+        exploitMangleName: "_CN7default9exploitedHv"
+    )
+    unsafe { ropAttacker(inout conf) }
+    sofException()
+}
+
+public func nestFunc(): Unit {
+    victim()
+}
+
+main() {
+    nestFunc()
+    return 1
+}

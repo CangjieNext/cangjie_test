@@ -15,7 +15,8 @@
 
 import stdx.net.http.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.net.tls.common.*
+import stdx.crypto.x509.X509Certificate
 import stdx.log.*
 import std.io.*
 import std.net.*
@@ -33,7 +34,7 @@ class TestTlsSocketServer {
     func tls(): Unit {
         startServer()
         var cfg = clientConfig()
-        cfg.alpnProtocolsList = ["http/1.1"]
+        cfg.supportedAlpnProtocols = ["http/1.1"]
         let client = ClientBuilder().tlsConfig(cfg).build()
         let rsp = client.get("https://127.0.0.1:${(server?.port).getOrThrow()}")
         println(rsp)

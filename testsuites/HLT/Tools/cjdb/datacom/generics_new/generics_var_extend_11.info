@@ -14,14 +14,14 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 243,Breakpoint 1:
-b,b 247,generics_var_extend.cj:247
-AOT r,r,-> 243
+b,b 251,Breakpoint 1:
+b,b 255,generics_var_extend.cj:255
+AOT r,r,-> 251
 CJVM c,c,
 p, p a,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 p, p a1,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 locals, locals,\(std.collection.ArrayList<Int64>\) a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(std.collection.ArrayList<Int64>\) a1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-c,c,-> 247
+c,c,-> 255
 p, p a,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 p, p a2,\(UInt64\) \$[\d] = 64
 locals, locals,\(std.core.Array<Int64>\) a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*[\s\S]*\(UInt64\) b = 64[\s\S]*\(std.core.Array<Int64>\) a1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*[\s\S]*\(UInt64\) a2 = 64

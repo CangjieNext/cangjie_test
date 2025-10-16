@@ -13,11 +13,11 @@
 
 test#
 cjdb,cjdb --no-use-colors coroutine_4,coroutine_4
-b,b 20,coroutine_4.cj:20
-AOT r,r,-> 20
+b,b 28,coroutine_4.cj:28
+AOT r,r,-> 28
 CJVM c,c,
-cjthread,cjthread list,cjthread #2 state: pending[\s\S]*coroutine_4.cj:20
-cjthread,cjthread list,cjthread #1 state: running[\s\S]*coroutine_4.cj:20
+cjthread,cjthread list,cjthread #2 state: pending[\s\S]*coroutine_4.cj:28
+cjthread,cjthread list,cjthread #1 state: running[\s\S]*coroutine_4.cj:28
 cjthread,cjthread backtrace -c 2 -s 2,cjthread #1 state: running[\s\S]*frame #2[\s\S]*frame #3
 cjthread,cjthread backtrace -c 2 -s 999,error: invalid frame index "999"
 cjthread,cjthread backtrace -c 2 -s -1,error: invalid integer value for option 's'

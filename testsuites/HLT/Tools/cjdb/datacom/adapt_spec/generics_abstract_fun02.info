@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_abstract_fun02,generics_abstract_fun02
-b,b 25,generics_abstract_fun02.cj:25
-AOT r,r,-> 25
+b,b 33,generics_abstract_fun02.cj:33
+AOT r,r,-> 33
 CJVM c,c,
 expr,expr a1,\(default.AB1<Int64>\) \$[\d] = {}
 expr,expr a3,\(Int64\) \$[\d] = 1

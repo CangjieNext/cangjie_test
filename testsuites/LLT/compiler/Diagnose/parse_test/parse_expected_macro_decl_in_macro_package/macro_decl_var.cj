@@ -12,7 +12,7 @@ import std.ast.*
 
 public var a = 1;
 
-main(){
+main() {
 }
 
 /* SCAN

@@ -7,7 +7,7 @@
 // ASSERT: regex-not core dumped
 // ASSERT: regex-not stack trace
 
-main(){
+main() {
     var a = () =>{
         if true{
             return 1

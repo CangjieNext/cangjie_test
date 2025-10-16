@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 010_debug_enum_toplevel,010_debug_enum_toplevel
-b,b 13,010_debug_enum_toplevel.cj:13
-AOT r,r,-> 13
+b,b 21,010_debug_enum_toplevel.cj:21
+AOT r,r,-> 21
 CJVM c,c,
-n,n,-> 14
-n,n,-> 15
-n,n,-> 14
-n,n,-> 20
+n,n,-> 22
+n,n,-> 23
+n,n,-> 22
+n,n,-> 28
 locals,locals,\(Int8\) howManyYears = 120
 print,print timemain,\(default.TimeUnit\) \$[\d] = {(\r|\n|\r\n)  constructor = Year
 print,print timetop,\(default.TimeUnit\) \$[\d] = {(\r|\n|\r\n)  constructor = Year

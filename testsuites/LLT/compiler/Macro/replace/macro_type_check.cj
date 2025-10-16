@@ -8,7 +8,7 @@ public macro test(input:Int64):Int64{
     input
 }
 
-main(){
+main() {
     return 0
 }
 

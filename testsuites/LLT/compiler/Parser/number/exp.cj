@@ -16,7 +16,7 @@ error: invalid binary operator '**' on type 'Int64' and 'Int64'
 4 |     var x = 2 ** 3 ** 2
   |               ^^ 
   | 
-  # note: you may want to implement 'operator func **(right: Int64)' for type 'Int64'
+  # note: you may want to implement 'operator func **(right: Int64)' for type 'Int64', or to provide a right operand of type 'UInt64'
 
 error: invalid binary operator '**' on type 'Int64' and 'Int64'
  ==> exp.cj:5:16:
@@ -24,7 +24,7 @@ error: invalid binary operator '**' on type 'Int64' and 'Int64'
 5 |     if (x == 2 ** (3 ** 2)) {
   |                ^^ 
   | 
-  # note: you may want to implement 'operator func **(right: Int64)' for type 'Int64'
+  # note: you may want to implement 'operator func **(right: Int64)' for type 'Int64', or to provide a right operand of type 'UInt64'
 
 2 errors generated, 2 errors printed.
 */

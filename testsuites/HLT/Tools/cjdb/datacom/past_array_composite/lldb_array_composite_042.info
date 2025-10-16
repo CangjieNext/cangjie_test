@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_array_record,003_debug_array_record
-b,b 66,003_debug_array_record.cj:66
-AOT r,r,-> 66
+b,b 74,003_debug_array_record.cj:74
+AOT r,r,-> 74
 CJVM c,c,
 locals,locals,std[.]core.Array<default.Rectangle2>\) arrayfun = {(\r|\n|\r\n)  \[0\] = [\s\S]*
 print,print arrayfunrec01[0],default.Rectangle2\) \$[\d]+ = {(\r|\n|\r\n)  width = 60(\r|\n|\r\n)  length = 400

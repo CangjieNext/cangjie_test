@@ -17,14 +17,23 @@ public class B <: A & IChild {}
 main() {}
 
 /* SCAN
-error: class 'B' missing abstract modifier or abstract function 'some' should be implemented
+warning: unused import 'b.I1'
+  ==> main.cj:13:1:
+   | 
+13 | import b.I1
+   | ^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+error: class 'B' missing abstract modifier, otherwise abstract function or property should be implemented
   ==> main.cj:15:1:
    | 
 15 | public class B <: A & IChild {}
    | ^ 
    | 
-note: unimplemented interface function
+note: unimplemented interface function some
   ==> (package a)testa.cj:10:5:
 
 1 error generated, 1 error printed.
+1 warning generated, 1 warning printed.
 */

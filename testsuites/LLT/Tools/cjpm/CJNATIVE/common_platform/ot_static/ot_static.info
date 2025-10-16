@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm run -V --no-feature-deduce --enable-features=feature.os.linux,feature.env.gnu 2>&1 > output
+// EXEC: cd %n && %cjpm run -V --no-feature-deduce --enable-features=feature.os.windows 2>&1 > output
+// (Unix) EXEC: cd %n && cat output | compare %f
+// (Windows) EXEC: cd %n && type output | compare %f
+// ASSERT: scan-2 --output-type=staticlib
+// ASSERT: scan-1 overriden default
+// ASSERT: scan-1 linux id
+// ASSERT: scan-1 subfunc linux
+// ASSERT: scan-1 windows id
+// ASSERT: scan-1 original default
+// ASSERT: scan-1 subfunc windows
+// ASSERT: scan-2 cjpm run finished

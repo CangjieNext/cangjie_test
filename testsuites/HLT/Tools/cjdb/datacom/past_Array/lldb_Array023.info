@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 047_debug_large_array,047_debug_large_array
-b,b 6,047_debug_large_array.cj:6
-AOT r,r,-> 6
+b,b 14,047_debug_large_array.cj:14
+AOT r,r,-> 14
 CJVM c,c,
-n,n,-> 31
-n,n,-> 32
+n,n,-> 39
+n,n,-> 40
 locals,locals,a = {
 locals,locals,\[0\] = -10
 locals,locals,\[4\] = -6

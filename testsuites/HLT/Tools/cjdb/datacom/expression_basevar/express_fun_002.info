@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_express_basetype,002_express_basetype
-CJVM b,b main,061_debug_fun.cj:51
-CJVM c,c,-> 51
-b,b 63,061_debug_fun.cj:63
-CJVM c,c,-> 63
-AOT r,r,-> 63
+CJVM b,b main,061_debug_fun.cj:59
+CJVM c,c,-> 59
+b,b 71,061_debug_fun.cj:71
+CJVM c,c,-> 71
+AOT r,r,-> 71
 expr:expr obj1.f31():\(UInt64\) \$[\d] = 100
 expr:expr obj1.f311(10, 20):\(Int64\) \$[\d] = 30
 expr:expr obj1.f311(10):\(Int64\) \$[\d] = 10

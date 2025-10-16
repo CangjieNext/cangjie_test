@@ -1,0 +1,36 @@
+// DEPENDENCE: %n.pkg.cj %n.txt Incr.expect
+
+// EXEC: %mkdir %n
+// EXEC: %cpfile %n.pkg.cj %n
+// EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension
+// EXEC: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o %output
+// EXEC-1: %run %run_opt %output %run_args
+
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o %output 2>&1 | compare %f
+// EXEC-1: %run %run_opt %output %run_args
+
+// ASSERT: scan-not the changed decl after Spreading is:main
+// ASSERT: scan the changed decl after Spreading is:foo
+
+import inc
+
+func useFoo(){
+    let a:Int64 = 100
+    return inc.foo(a)
+}
+
+main(): Int64 {
+    return useFoo()
+}
+
+func foo(a:Int64){
+    return 10
+}
+
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

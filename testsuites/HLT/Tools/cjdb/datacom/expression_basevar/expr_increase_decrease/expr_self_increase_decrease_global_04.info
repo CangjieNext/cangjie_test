@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 48,expr_globals.cj:48
-CJVM c,c,-> 48
-AOT r,r,-> 48
+b,b 56,expr_globals.cj:56
+CJVM c,c,-> 56
+AOT r,r,-> 56
 expr,expr globals_ui8++;globals_ui8,\(UInt8\) \$[\d] = 9
 expr,expr globals_ui16++;globals_ui16,\(UInt16\) \$[\d] = 17
 expr,expr globals_ui32++;globals_ui32,\(UInt32\) \$[\d] = 33

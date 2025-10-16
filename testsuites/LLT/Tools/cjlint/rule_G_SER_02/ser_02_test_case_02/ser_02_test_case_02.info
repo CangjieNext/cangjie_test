@@ -1,0 +1,13 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir 2>&1 | compare %f
+// ASSERT: regex .*test.cj:21:9:.*Assign variable 'value01' in deserialization function without checking
+// ASSERT: regex .*test.cj:104:9:.*Assign variable 'value04' in deserialization function without checking
+// ASSERT: regex .*test.cj:191:9:.*Assign variable 'value08' in deserialization function without checking
+// ASSERT: regex .*test.cj:225:9:.*Assign variable 'value10' in deserialization function without checking
+// ASSERT: regex .*test.cj:254:9:.*Assign variable 'value11' in deserialization function without checking

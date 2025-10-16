@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 018_debug_parentheses,018_debug_parentheses
-breakpoint,breakpoint set -l 5 -c 'kuonum==5',018_debug_parentheses.cj:5
-AOT r,r,-> 5
+breakpoint,breakpoint set -l 13 -c 'kuonum==5',018_debug_parentheses.cj:13
+AOT r,r,-> 13
 CJVM c,c,
 locals,locals,kuonum = 5
 q,q,

@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 92,Breakpoint 1:
-AOT r,r,-> 92
+b,b 100,Breakpoint 1:
+AOT r,r,-> 100
 CJVM c,c,
-c,c,-> 92
+c,c,-> 100
 p, p a,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
 p, p t1,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
 locals, locals,\(default.TimeUnit1<CPointer<Int64>>\) this = {(\r|\n|\r\n)  constructor = Year[\s\S]*arg_1 = 0x0000000000000000[\s\S]*}[\s\S]*\(CPointer<Int64>\) a = 0x0000000000000000[\s\S]*\(CPointer<Int64>\) t1 = 0x0000000000000000

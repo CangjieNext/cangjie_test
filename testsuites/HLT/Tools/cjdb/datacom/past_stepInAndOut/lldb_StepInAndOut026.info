@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 018_debug_parentheses,018_debug_parentheses
-CJVM b main,b main,018_debug_parentheses.cj:4
-CJVM c,c,-> 4
-b,b 4,018_debug_parentheses.cj:4
-AOT r,r,-> 4
-s,s,-> 5
+CJVM b main,b main,018_debug_parentheses.cj:12
+CJVM c,c,-> 12
+b,b 12,018_debug_parentheses.cj:12
+AOT r,r,-> 12
+s,s,-> 13
 locals,locals,kuonum = 5
-rerun,r,-> 4
+rerun,r,-> 12
 AOT finish,finish,stopped
 CJVM finish,finish,Process exited
 q,q,

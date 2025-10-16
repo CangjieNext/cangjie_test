@@ -2,7 +2,7 @@
 
 var a: Int64 = 5
 
-main(){
+main() {
     var c = Option<Int64>.None
     return c.pa - 5
 }

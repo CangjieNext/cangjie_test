@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// ERRCHECK: %compiler %diag_json %f -o %output
 
 interface I<T> {
     static func f<T1, T2>(): Unit where T1 <: T2, T2 <: T {}
@@ -16,27 +16,5 @@ class A <: I<Int64> {
 
 main() {}
 
-/* SCAN
-error: the upper bound 'Generics-T2' of generic parameter 'Generics-T1' must be class or interface
-  ==> generic_upper_constraint_inheritance_05.cj:10:19:
-   | 
-10 |     static func f<T1, T2>(): Unit where T1 <: T2, T2 <: T {}
-   |                   ^^ 
-   | 
-
-error: the upper bound 'Generics-T' of generic parameter 'Generics-T2' must be class or interface
-  ==> generic_upper_constraint_inheritance_05.cj:10:23:
-   | 
-10 |     static func f<T1, T2>(): Unit where T1 <: T2, T2 <: T {}
-   |                       ^^ 
-   | 
-
-error: the upper bound 'Int64' of generic parameter 'Generics-T1' must be class or interface
-  ==> generic_upper_constraint_inheritance_05.cj:14:26:
-   | 
-14 |     public static func f<T1, T2>(): Unit where T1 <: Int64 {}
-   |                          ^^ 
-   | 
-
-3 errors generated, 3 errors printed.
-*/
+// ASSERT: scan-3 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 3

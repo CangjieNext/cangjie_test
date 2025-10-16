@@ -8,7 +8,8 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include <securec.h>
+#include <string.h>
+#include <stdlib.h>
 
 char* testfunc(char* a, char* b) {
     int inputSize = strlen(a);
@@ -18,7 +19,7 @@ char* testfunc(char* a, char* b) {
         return NULL;
     }
     char* temp = res;
-    strcpy_s(res, resSize, a);
-    strcat_s(res, resSize, b);
+    strcpy(res, a);
+    strcat(res, b);
     return res;
 }

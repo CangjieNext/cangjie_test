@@ -26,7 +26,7 @@ import stdx.net.http.*
 import stdx.log.*
 import std.io.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
 import std.random.*
 import std.time.*
 import std.net.*
@@ -74,6 +74,20 @@ class TestBody {
             }
         }
         println("random body ok")
+    }
+
+    @TestCase
+    func testAbortBody(): Unit {
+		let req = HttpRequestBuilder()
+			.version(HTTP2_0)
+			.url("https://127.0.0.1:${server.port}/hd2")
+			.body(RandomBody())
+			.build()
+		let resp = client.send(req)
+		let buf = Array<UInt8>(128, repeat: 0)
+		resp.close()
+ 
+		println("close body ok")
         client.close()
         server.close()
         asanGC()

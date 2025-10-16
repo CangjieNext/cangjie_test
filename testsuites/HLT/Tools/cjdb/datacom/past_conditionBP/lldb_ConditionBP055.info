@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 031_debuginfun_continue,031_debuginfun_continue
-breakpoint,breakpoint set -l 12 -c 'indexcontinue==48',031_debuginfun_continue.cj:12
-AOT r,r,-> 12
+breakpoint,breakpoint set -l 20 -c 'indexcontinue==48',031_debuginfun_continue.cj:20
+AOT r,r,-> 20
 CJVM c,c,
-n,n,-> 9
+n,n,-> 17
 locals,locals,indexcontinue = 48
 q,q,

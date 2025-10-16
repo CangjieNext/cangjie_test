@@ -1,6 +1,6 @@
 // ERRCHECK:%frontendCompiler %cmp_opt %f
 
-main(){
+main() {
     _()
     _[1]
     _{}

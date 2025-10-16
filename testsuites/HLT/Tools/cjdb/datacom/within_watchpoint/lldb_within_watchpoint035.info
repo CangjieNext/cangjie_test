@@ -13,10 +13,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b,b 10,050_debug_dataType_basic.cj:10
-AOT r,r,-> 10
+b,b 18,050_debug_dataType_basic.cj:18
+AOT r,r,-> 18
 CJVM c,c,
-watchpoint,watchpoint set variable -w read v1,050_debug_dataType_basic.cj:10
+watchpoint,watchpoint set variable -w read v1,050_debug_dataType_basic.cj:18
 disable,watchpoint disable 1,1 watchpoints disabled
 watchpoint list,watchpoint list,state = disabled
 enable,watchpoint enable 1,1 watchpoints enabled

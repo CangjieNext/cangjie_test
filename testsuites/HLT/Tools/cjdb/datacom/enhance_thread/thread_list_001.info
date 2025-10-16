@@ -8,17 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/packages/pkgs001/src 
-// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj -o libpkg1.%middle
-// EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs001.cj -o 001_thread_list%cmp_output
-// RUN-EXEC: python3 cjdb_test.py thread_list_001.info 001_thread_list %run_env
+//(not MAC) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj -o libpkg1.%middle
+//(not MAC) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs001.cj -o 001_thread_list%cmp_output
+//(not MAC) RUN-EXEC: python3 cjdb_test.py thread_list_001.info 001_thread_list %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 001_thread_list,001_thread_list
-CJVM b,breakpoint set -n main,pkgs001.cj:29
-CJVM c,c,-> 29
-AOT b,b main,Breakpoint 1: where[\s\S]*pkgs001.cj:29
-AOT r,r,-> 29
-AOT threadlist,thread list,\* thread #1[\s\S]*pkgs001.cj:29[\s\S]*thread #5
+CJVM b,breakpoint set -n main,pkgs001.cj:37
+CJVM c,c,-> 37
+AOT b,b main,Breakpoint 1: where[\s\S]*pkgs001.cj:37
+AOT r,r,-> 37
+AOT threadlist,thread list,\* thread #1[\s\S]*pkgs001.cj:37[\s\S]*thread #5
 CJVM threadlist,thread list,\* thread #1[\s\S]*thread #3
 q,q,

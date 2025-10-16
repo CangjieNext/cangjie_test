@@ -8,7 +8,7 @@
 
 [package]
   cjc-version = "1.0.0"
-  compile-option = "--incremental-compile"
+  compile-option = "--incremental-compile --experimental"
   description = "nothing here"
   link-option = ""
   name = "test"

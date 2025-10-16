@@ -32,7 +32,7 @@ import std.unittest.*
 import std.unittest.testmacro.*
 import std.math.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
 import {asan.*, tlsconfig.*}
 
 @Test

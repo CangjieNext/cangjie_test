@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm test src/koo %run_utest_opt 2>&1 | compare %f
-// ASSERT: regex '.*' is an invalid package path, it will be ignored
+// ASSERT: regex Warning: there is no '.cj' file in directory '.*', and its subdirectories will not be scanned as source code

@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 009_debug_array_class_parameter,009_debug_array_class_parameter
-b,b 55,009_debug_array_class_parameter.cj:55
-AOT r,r,-> 55
+b,b 63,009_debug_array_class_parameter.cj:63
+AOT r,r,-> 63
 CJVM c,c,
-n,n,-> 57
+n,n,-> 65
 print,print arraymainrec02[0],C2\) \$[\d]+ = {
 print,print arraymainrec02[0],C1 = {(\r|\n|\r\n)    pro = 5(\r|\n|\r\n)    namenum = 110(\r|\n|\r\n)    num = 10(\r|\n|\r\n)    varBool = true(\r|\n|\r\n)    varchar = '5'(\r|\n|\r\n)    width = 1(\r|\n|\r\n)    length = 10(\r|\n|\r\n)    height = 1(\r|\n|\r\n)  }(\r|\n|\r\n)  stac2 = 3(\r|\n|\r\n)  sta_proc2 = 10
 q,q,

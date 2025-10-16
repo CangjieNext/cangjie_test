@@ -9,7 +9,7 @@
 
 class _@
 
-main(){}
+main() {}
 
 /* SCAN
 error: expected identifier after keyword 'class', found '_'

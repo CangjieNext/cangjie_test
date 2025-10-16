@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_HashSet_via_inherit,002_HashSet_via_inherit
-b,b 10,002_HashSet_via_inherit.cj:10
-AOT r,r,-> 10
-CJVM c,c,-> 10
+b,b 18,002_HashSet_via_inherit.cj:18
+AOT r,r,-> 18
+CJVM c,c,-> 18
 p,p class_sub_ins,Class_sub_1\) \$[\d] = {[\S\s]*set_cint32[\S\s]*}
 p,p class_sub_ins.set_sub_uint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[1\] = 62654[\S\s]*}
 p,p class_sub_ins.set_sub_uint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[0\] = 958[\S\s]*}

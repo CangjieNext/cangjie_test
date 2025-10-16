@@ -15,10 +15,10 @@
 
 test#
 cjdb,cjdb --no-use-colors array_external_use,array_external_use
-b,b 20,array_external_use.cj:20
-AOT r,r,-> 20
+b,b 28,array_external_use.cj:28
+AOT r,r,-> 28
 CJVM c,c,
-n,n,-> 23
+n,n,-> 31
 print,print arraytoprec01[0],C1\) \$[0-9]* = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
 print,print arraytoprec01[0].time,TimeUnit\) \$[0-9]* = {\s+constructor = Year\s+arg_1 = 19
 print,print arraytoprec01[0].newRectangle1,Rectangle_ex\) \$[0-9]* = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200

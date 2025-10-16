@@ -13,12 +13,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 016_enum_struct,016_enum_struct
-b,b 23,016_enum_struct.cj:23
-b,b 30,016_enum_struct.cj:30
-AOT r,r,-> 23
+b,b 31,016_enum_struct.cj:31
+b,b 38,016_enum_struct.cj:38
+AOT r,r,-> 31
 CJVM c,c,
 expr~expr time~\(default.TimeUnit<Int32>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 14[\s\S]*}
-c,c,-> 30
+c,c,-> 38
 expr~expr test(TimeUnit<Int32>.Day(14))~\(default.test\) \$[\d] = {[\s\S]*time = {[\s\S]*constructor = Day[\s\S]*arg_1 = 14[\s\S]*
 expr~expr Foo().getTime()~\(default.Time<Int32>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 4[\s\S]*}
 expr~expr data.time~\(default.TimeUnit<Int32>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 14[\s\S]*}

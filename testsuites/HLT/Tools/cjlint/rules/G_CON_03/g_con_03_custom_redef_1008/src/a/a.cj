@@ -1,0 +1,20 @@
+package a
+import std.sync.ReentrantMutex
+
+public open class A {
+  public static var arr: Array<Int64> = [1,2]
+  private static let baseMtx: ReentrantMutex = ReentrantMutex()
+  public static func doSomething() {
+    synchronized(baseMtx) {
+
+    }
+  }
+}
+
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */

@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../%n ../../scripts/compare_html.py
+// EXEC-PIPE: cd %n&& cjpm init --name default&& cjpm build --coverage&& cjpm run --skip-build
+// EXEC-PIPE: cd %n&& %cjcov -r ./ && %ls && %ls target/release/bin | compare %f
+// (CJNATIVE) ASSERT: scan default.gcda
+// (CJNATIVE) ASSERT: scan default.gcno
+// (not CJNATIVE) ASSERT: scan main.jcda
+// (not CJNATIVE) ASSERT: scan main.jcno
+// ASSERT: scan index.html

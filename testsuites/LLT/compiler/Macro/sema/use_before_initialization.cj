@@ -40,7 +40,7 @@ note: the code after the macro is expanded as follows
   | |_________^
   | 
 
-error: global/static variable 'b' is used before initialization during initializing 'b'
+error: global/static variable 'b' is used before initialization during initializing 'a'
  ==> use_before_initialization.cj:9:29:
   | 
 9 |     public static var a = A.b

@@ -17,13 +17,13 @@
 
 test#
 cjdb,cjdb --no-use-colors pkgs001,pkgs001
-CJVM b,breakpoint set -n main,pkgs001.cj:29
-CJVM c,c,-> 29
+CJVM b,breakpoint set -n main,pkgs001.cj:37
+CJVM c,c,-> 37
 b,b funpkg1001,2 locations.
-list,breakpoint list,pkgs001.cj:12
-list,breakpoint list,pkg1.cj:8
-AOT r,r,-> 8
-CJVM c,c,-> 8
-c,c,-> 8
-c,c,-> 12
+list,breakpoint list,pkgs001.cj:20
+list,breakpoint list,pkg1.cj:16
+AOT r,r,-> 16
+CJVM c,c,-> 16
+c,c,-> 16
+c,c,-> 20
 q,q,

@@ -16,44 +16,44 @@
 
 test#
 cjdb,cjdb --no-use-colors 038_debuginfun_basetype,038_debuginfun_basetype
-CJVM b,breakpoint set -n main,038_debuginfun_basetype.cj:4
-CJVM c,c,-> 4
-b,b 8,038_debuginfun_basetype.cj:8
-b,b 9,038_debuginfun_basetype.cj:9
-b,b 10,038_debuginfun_basetype.cj:10
-b,b 11,038_debuginfun_basetype.cj:11
-b,b 12,038_debuginfun_basetype.cj:12
-b,b 13,038_debuginfun_basetype.cj:13
-b,b 14,038_debuginfun_basetype.cj:14
-b,b 15,038_debuginfun_basetype.cj:15
+CJVM b,breakpoint set -n main,038_debuginfun_basetype.cj:12
+CJVM c,c,-> 12
 b,b 16,038_debuginfun_basetype.cj:16
 b,b 17,038_debuginfun_basetype.cj:17
+b,b 18,038_debuginfun_basetype.cj:18
 b,b 19,038_debuginfun_basetype.cj:19
 b,b 20,038_debuginfun_basetype.cj:20
 b,b 21,038_debuginfun_basetype.cj:21
 b,b 22,038_debuginfun_basetype.cj:22
 b,b 23,038_debuginfun_basetype.cj:23
+b,b 24,038_debuginfun_basetype.cj:24
 b,b 25,038_debuginfun_basetype.cj:25
-b,b 26,038_debuginfun_basetype.cj:26
-AOT r,r,-> 8
-CJVM c,c,-> 8
-c,c,-> 9
-c,c,-> 10
-c,c,-> 11
-c,c,-> 12
-c,c,-> 13
-c,c,-> 14
-c,c,-> 15
-c,c,-> 16
+b,b 27,038_debuginfun_basetype.cj:27
+b,b 28,038_debuginfun_basetype.cj:28
+b,b 29,038_debuginfun_basetype.cj:29
+b,b 30,038_debuginfun_basetype.cj:30
+b,b 31,038_debuginfun_basetype.cj:31
+b,b 33,038_debuginfun_basetype.cj:33
+b,b 34,038_debuginfun_basetype.cj:34
+AOT r,r,-> 16
+CJVM c,c,-> 16
 c,c,-> 17
+c,c,-> 18
 c,c,-> 19
 c,c,-> 20
 c,c,-> 21
 c,c,-> 22
 c,c,-> 23
+c,c,-> 24
 c,c,-> 25
-c,c,-> 26
-n,n,-> 28
+c,c,-> 27
+c,c,-> 28
+c,c,-> 29
+c,c,-> 30
+c,c,-> 31
+c,c,-> 33
+c,c,-> 34
+n,n,-> 36
 locals,locals,var1 = -128
 locals,locals,var3 = 1
 locals,locals,var10 = 1

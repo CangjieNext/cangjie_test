@@ -9,6 +9,6 @@ foreign func open(pathname: CString, oflags: Int32): Int32
 main() {
     var pathname = unsafe { LibC.mallocCString("./hello.txt") }
     var oflags = Int32(0)
-    var handle = unsafe { open(pathname, oflags) }
+    var handle = unsafe { open(pathname, oflags) };
     LibC.free(pathname)
 }

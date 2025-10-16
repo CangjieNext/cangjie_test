@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 013_debug_array_class_parameters,013_debug_array_class_parameters
-b,b 63,013_debug_array_class_parameters.cj:63
-AOT r,r,-> 63
+b,b 71,013_debug_array_class_parameters.cj:71
+AOT r,r,-> 71
 CJVM c,c,
-n,n,-> 64
+n,n,-> 72
 print,print arraymainrec01[0],C1\) \$[\d] = {(\r\n|\r|\n)  width = 0(\r\n|\r|\n)  length = 1(\r\n|\r|\n)
 q,q,

@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 136,005_debug_class_generics.cj:136
-AOT r,r,-> 136
+b,b 144,005_debug_class_generics.cj:144
+AOT r,r,-> 144
 CJVM c,c,
-n,n,-> 137
+n,n,-> 145
 locals,locals,C2<Bool,Bool>\) mc2_2 = {(\r\n|\r|\n)  width = true(\r\n|\r|\n)  length = false(\r\n|\r|\n)}
 q,q,

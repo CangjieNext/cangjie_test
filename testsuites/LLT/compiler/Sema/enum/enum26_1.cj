@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC:%frontendCompiler %typecheck %cmp_opt %f 2>&1 | compare %f
+// EXEC:%frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
 
 enum A<T> {
     a(T)
@@ -24,33 +24,7 @@ main(): Int64 {
     return 1
 }
 
-/* SCAN
-error: the upper bound 'Enum-Option<Class-B>' of generic parameter 'Generics-T' must be class or interface
-  ==> enum26_1.cj:20:11:
-   | 
-20 | func test<T>() where T <: Option<B> {}
-   |           ^ 
-   | 
-
-error: 'test' is non-static member, cannot be accessed by static function 'foo'
-  ==> enum26_1.cj:13:9:
-   | 
-13 |         test()
-   |         ^ 
-   | 
-
-error: generics type arguments do not match the constraint of '() -> Unit'
-  ==> enum26_1.cj:23:10:
-   | 
-23 |     test<B>()
-   |          ^ 
-   | 
-note: 'Class-B' is not a subtype of 'Enum-Option<Class-B>'
-  ==> enum26_1.cj:20:22:
-   | 
-20 | func test<T>() where T <: Option<B> {}
-   |                      ^ 
-   | 
-
-3 errors generated, 3 errors printed.
-*/
+// ASSERT: scan-1 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan-1 sema_static_function_cannot_access_non_static_member
+// ASSERT: scan-1 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 3

@@ -12,8 +12,7 @@ let longpress = {evt: EventBase =>
           duration: Some<Int64>(1000),
           gravity: Some<Gravity>(Gravity.center)
         )
-      )
-      //ABC
+      ) //ABC
     }
     let click = {evt: EventBase =>
       state.good = 0

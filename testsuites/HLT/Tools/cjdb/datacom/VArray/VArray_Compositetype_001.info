@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors VArray_Compositetype_001,VArray_Compositetype_001
-b,b 35,Breakpoint 1: where = VArray_Compositetype_001`default::main[\s\S]*VArray_Compositetype.cj:35
-AOT r,r,-> 35
-CJVM c,c,-> 35
+b,b 43,Breakpoint 1: where = VArray_Compositetype_001`default::main[\s\S]*VArray_Compositetype.cj:43
+AOT r,r,-> 43
+CJVM c,c,-> 43
 p,p v1.vInt8[1]=8,\(Int8\) \$[\d] = 8
 p,p v1.vInt16[1]=16,\(Int16\) \$[\d] = 16
 p,p v1.vInt32[1]=32,\(Int32\) \$[\d] = 32

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var006,generics_local_var006
-b,b 11,generics_local_var006.cj:11
-AOT r,r,-> 11
+b,b 19,generics_local_var006.cj:19
+AOT r,r,-> 19
 CJVM c,c,
 expr,expr r3 is Bool,\(Bool\) \$[\d] = true
 expr,expr r1*3,\(Int64\) \$[\d] = 18

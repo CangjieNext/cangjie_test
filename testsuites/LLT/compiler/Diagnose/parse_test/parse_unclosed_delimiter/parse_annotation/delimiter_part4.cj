@@ -10,7 +10,7 @@
 // EXEC: %diff %n.expect.out %n.%realOut
 
 @When[os == "Linux"
-main(){
+main() {
 
 }
 

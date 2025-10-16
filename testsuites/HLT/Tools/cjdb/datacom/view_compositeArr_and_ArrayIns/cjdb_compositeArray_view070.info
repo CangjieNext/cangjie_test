@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayIns_external_invoke.out,ArrayIns_external_invoke
-b,b 35,ArrayIns_external_invoke.cj:35
-AOT r,r,-> 35
+b,b 43,ArrayIns_external_invoke.cj:43
+AOT r,r,-> 43
 CJVM c,c,
 p,p multiArr_m_rd1[0],\(std[.]core.Array<pkgs.Rectangle_ex1>\) \$[\d]+ = {(\r|\n|\r\n)  \[0\] = [\s\S]*
 p,p multiArr_m_rd1[0][1],pkgs.Rectangle_ex1\) \$[\d]+ = {[\s\S]*  arr_re = [\s\S]*

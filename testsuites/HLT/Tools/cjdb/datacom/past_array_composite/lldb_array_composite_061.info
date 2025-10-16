@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_array_class,008_debug_array_class
-b,b 57,008_debug_array_class.cj:57
-AOT r,r,-> 57
+b,b 65,008_debug_array_class.cj:65
+AOT r,r,-> 65
 CJVM c,c,
-n,n,-> 58
+n,n,-> 66
 print,print slicing1[0],C2\) \$[\d] = {(\r|\n|\r\n)  width = 200(\r|\n|\r\n)  length = 400
 q,q,

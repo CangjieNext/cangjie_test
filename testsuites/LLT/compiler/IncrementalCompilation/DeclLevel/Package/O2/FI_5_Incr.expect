@@ -1,0 +1,6 @@
+// ASSERT: scan The Apply node in the line:20 and the column:5, was optimized by Function Inline
+// ASSERT: scan incremental compilation triggered
+// ASSERT: scan changed decls to recompile: 3
+// ASSERT: scan the changed decl after Spreading is:foo in file FI_5_Incr.old.cj in line 3 in column 13
+// ASSERT: scan the changed decl after Spreading is:bar in file FI_5_Incr.cj in line 19 in column 6
+// ASSERT: scan the changed decl after Spreading is:main in file FI_5_Incr.cj in line 22 in column 1

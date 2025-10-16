@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_ArrayIns_baseType,008_debug_ArrayIns_baseType
-b,b 15,008_debug_ArrayIns_baseType.cj:15
-AOT r,r,-> 15
+b,b 23,008_debug_ArrayIns_baseType.cj:23
+AOT r,r,-> 23
 CJVM c,c,
 p,p arrayInt64_t2[0],\(std[.]core.Array<std[.]core.Array<Int64>>\) \$[\d] = {[\s\S]*\[0\] = [\s\S]*
 p,p arrayInt64_t2[0][1][1992..1995],\(std[.]core.Array<Int64>\) \$[\d] = {[\s\S]*\[2\] = 1995

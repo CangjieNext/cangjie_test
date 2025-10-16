@@ -44,6 +44,5 @@ main() {
 func takeB(b: Array<B>) {
     for (bb in b) {
         bb.print()
-        //bb.bExclude()
     }
 }

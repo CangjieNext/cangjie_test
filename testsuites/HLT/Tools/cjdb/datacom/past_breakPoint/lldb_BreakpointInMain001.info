@@ -16,7 +16,7 @@
 
 test#
 cjdb,cjdb --no-use-colors 022_debug_launch,022_debug_launch
-b,breakpoint set -n main,022_debug_launch.cj:4
-AOT r,r,-> 4
-CJVM c,c,-> 4
+b,breakpoint set -n main,022_debug_launch.cj:12
+AOT r,r,-> 12
+CJVM c,c,-> 12
 q,q,

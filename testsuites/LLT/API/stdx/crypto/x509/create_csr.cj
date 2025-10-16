@@ -11,6 +11,8 @@
 
 import std.fs.*
 import stdx.crypto.x509.*
+import stdx.crypto.keys.*
+import stdx.crypto.common.*
 import std.io.*
 
 @Test
@@ -29,15 +31,15 @@ class Test_X509_certificaterequest_init {
     let ip3: IP = [8u8, 8u8, 8u8, 8u8, 8u8]
 
     let rsaPrivateKeyPem = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-    let rsaPrivateKey = PrivateKey.decodeFromPem(rsaPrivateKeyPem)
+    let rsaPrivateKey = GeneralPrivateKey.decodeFromPem(rsaPrivateKeyPem)
     let rsaPublicKeyPem = String.fromUtf8(readToEnd(File("./files/end_rsa_public_key.pem", Read)))
-    let rsaPublicKey = PublicKey.decodeFromPem(rsaPublicKeyPem)
+    let rsaPublicKey = GeneralPublicKey.decodeFromPem(rsaPublicKeyPem)
 
     let ecDer = DerBlob(File.readFrom("./files/end_ecdsa_private_key.der"))
-    let ec = PrivateKey.decodeDer(ecDer)
+    let ec = GeneralPrivateKey.decodeDer(ecDer)
 
     let dsaPem = String.fromUtf8(readToEnd(File("./files/dsa_private_key.pem", Read)))
-    let dsa = PrivateKey.decodeFromPem(dsaPem)
+    let dsa = GeneralPrivateKey.decodeFromPem(dsaPem)
 
     @TestCase
     func createCSR_01(): Unit {
@@ -58,6 +60,7 @@ class Test_X509_certificaterequest_init {
         @Assert(csr.signatureAlgorithm.toString() == "Signature Algorithm: md5WithRSAEncryption", true)
     }
 
+
     @TestCase
     func createCSR_02(): Unit {
         let csrInfo = X509CertificateRequestInfo(
@@ -65,8 +68,7 @@ class Test_X509_certificaterequest_init {
             IPAddresses: [ip1, ip2],
             emailAddresses: ["1", "1@a.com"]
         );
-        let csr = X509CertificateRequest(rsaPrivateKey, certificateRequestInfo: csrInfo,
-            signatureAlgorithm: SHA512WithRSA)
+        let csr = X509CertificateRequest(rsaPrivateKey, certificateRequestInfo: csrInfo, signatureAlgorithm: SHA512WithRSA)
         @Assert(csr.subject.toString() == "", true)
         @Assert(csr.dnsNames == ["a.com", "b.com"], true)
         @Assert(csr.IPAddresses[0] == ip1, true)
@@ -111,8 +113,7 @@ class Test_X509_certificaterequest_init {
             dnsNames: ["a.com", "b.com"],
             emailAddresses: ["1", "1@a.com"]
         );
-        let csr = X509CertificateRequest(rsaPrivateKey, certificateRequestInfo: csrInfo,
-            signatureAlgorithm: SHA512WithRSA)
+        let csr = X509CertificateRequest(rsaPrivateKey, certificateRequestInfo: csrInfo, signatureAlgorithm: SHA512WithRSA)
         @Assert(csr.subject.toString() == "", true)
         @Assert(csr.dnsNames == ["a.com", "b.com"], true)
         @Assert(csr.emailAddresses == ["1", "1@a.com"], true)
@@ -135,6 +136,16 @@ class Test_X509_certificaterequest_init {
             let csr = X509CertificateRequest(ec, signatureAlgorithm: SHA384WithRSA)
         } catch (e: X509Exception) {
             @Expect(e.message.contains("Private key type not match to signatureAlgorithm"))
+            println(e.message)
+        }
+    }
+
+    @TestCase
+    func createCSR_error_03(): Unit {
+        try {
+            let csr = X509CertificateRequest(ec, signatureAlgorithm: UnknownSignatureAlgorithm)
+        } catch (e: X509Exception) {
+            @Expect(e.message.contains("X509 create certificate failed: Not supported UnknownSignatureAlgorithm."))
             println(e.message)
         }
     }

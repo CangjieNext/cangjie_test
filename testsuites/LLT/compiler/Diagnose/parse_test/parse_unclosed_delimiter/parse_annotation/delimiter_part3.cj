@@ -10,7 +10,7 @@
 // EXEC: %diff %n.expect.out %n.%realOut
 
 @OverflowThrowing[aaa
-main(){
+main() {
 
 }
 
@@ -20,7 +20,7 @@ error: unexpected annotation '@OverflowThrowing' on
    | 
 10 | @OverflowThrowing[aaa
    | ^^^^^^^^^^^^^^^^^ unexpected annotation here
-11 | main(){
+11 | main() {
    | ...
 24 | */
    |    ~ on 

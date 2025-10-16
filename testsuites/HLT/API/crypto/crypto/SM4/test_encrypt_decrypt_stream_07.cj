@@ -13,6 +13,7 @@
 
 import stdx.crypto.crypto.*
 import stdx.crypto.digest.*
+import stdx.crypto.common.*
 import stdx.encoding.base64.toBase64String
 import stdx.encoding.base64.*
 import std.fs.*

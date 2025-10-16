@@ -10,7 +10,7 @@ paCkage use
 
 import defIne.*
 
-main(){
+main() {
     Return @
     M[x](y)
 }
@@ -27,8 +27,8 @@ error: expected declaration, found 'paCkage'
 error: unclosed delimiter: '{'
   ==> trailing_closure_00.cj:16:2:
    | 
-13 | main(){
-   |       ~ to match this opening '{'
+13 | main() {
+   |        ~ to match this opening '{'
 14 |     Return @
    | ...
 16 | }

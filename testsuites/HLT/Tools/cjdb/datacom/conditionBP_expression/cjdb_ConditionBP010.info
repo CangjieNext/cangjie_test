@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func010,generics_global_func010
-breakpoint,breakpoint set -l 33 -c "1==1",generics_global_func010.cj:33
-AOT r,r,-> 33
+breakpoint,breakpoint set -l 41 -c "9==9",generics_global_func010.cj:41
+AOT r,r,-> 41
 CJVM c,c,
 locals,locals,\(default.RGBColor\) red = {(\r|\n|\r\n)  constructor = Red
 expr,expr rf3,\(default.RGBColor2<Bool>\) \$[\d] = {(\r|\n|\r\n)  constructor = Green[\s\S]*arg_1 = true[\s\S]*}

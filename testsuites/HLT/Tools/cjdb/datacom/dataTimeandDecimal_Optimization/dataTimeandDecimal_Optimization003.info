@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/dataTimeandDecimal_Optimization/dataTimeandDecimal_Optimization003.cj
+// (CJNATIVE and not MAC) EXEC: %compiler %cmp_opt -g dataTimeandDecimal_Optimization003.cj -o dataTimeandDecimal_Optimization003%cmp_output
+// (CJNATIVE and not MAC) RUN-EXEC: python3 cjdb_test.py dataTimeandDecimal_Optimization003.info dataTimeandDecimal_Optimization003 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors dataTimeandDecimal_Optimization003,dataTimeandDecimal_Optimization003
+b,b 22,dataTimeandDecimal_Optimization003.cj:22
+r,r,-> 22
+locals,locals,\(std.time.DateTime\) dateTime1 = 2023-03-30T00:02:02Z
+locals,locals,\(std.time.DateTime\) dateTime2 = 2023-03-28T22:00:01Z
+expr,expr map2,\(std.collection.HashMap<std.time.DateTime,Int64>\) \$[\d] = {[\s\S]*\[2023-03-30T00:02:02Z -> 1\] = {[\s\S]*key = 2023-03-30T00:02:02Z[\s\S]*value = 1[\s\S]*}
+p,p map1,\(std.collection.HashMap<Int64,std.time.DateTime>\) \$[\d] = {[\s\S]*\[30 -> 2023-03-30T00:02:02Z\] = {[\s\S]*key = 30[\s\S]*value = 2023-03-30T00:02:02Z[\s\S]*}[\s\S]*\[3 -> 2023-03-28T22:00:01Z\] = {[\s\S]*key = 3[\s\S]*value = 2023-03-28T22:00:01Z[\s\S]*}
+q,q,

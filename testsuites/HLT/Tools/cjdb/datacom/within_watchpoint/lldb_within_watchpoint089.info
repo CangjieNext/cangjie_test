@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b,b 22,050_debug_dataType_basic.cj:22
-AOT r,r,-> 22
+b,b 30,050_debug_dataType_basic.cj:30
+AOT r,r,-> 30
 CJVM c,c,
-watchpoint,watchpoint set variable -w read_write vu5,050_debug_dataType_basic.cj:21
-c,c,-> 23|24
+watchpoint,watchpoint set variable -w read_write vu5,050_debug_dataType_basic.cj:29
+c,c,-> 31|32
 print,print vu5,\(UInt8\) \$[\d] = 2
 q,q,

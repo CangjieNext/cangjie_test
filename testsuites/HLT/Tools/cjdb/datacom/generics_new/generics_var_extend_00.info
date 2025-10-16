@@ -14,29 +14,29 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 64,generics_var_extend.cj:64
-b,b 71,generics_var_extend.cj:71
-b,b 78,generics_var_extend.cj:78
-b,b 85,generics_var_extend.cj:85
-b,b 92,generics_var_extend.cj:92
-AOT r,r,-> 64
+b,b 72,generics_var_extend.cj:72
+b,b 79,generics_var_extend.cj:79
+b,b 86,generics_var_extend.cj:86
+b,b 93,generics_var_extend.cj:93
+b,b 100,generics_var_extend.cj:100
+AOT r,r,-> 72
 CJVM c,c,
 p, p a,\(Bool\) \$[\d] = true
 p, p a1,\(Bool\) \$[\d] = true
 locals, locals,\(Bool\) a = true[\s\S]*\(Bool\) a1 = true
-c,c,-> 71
+c,c,-> 79
 p, p a,\(std.core.String\) \$[\d] = "cangjie"
 p, p a1,\(std.core.String\) \$[\d] = "cangjie"
 locals, locals,\(std.core.String\) a = "cangjie"[\s\S]*\(std.core.String\) a1 = "cangjie"
-c,c,-> 78
+c,c,-> 86
 p, p a,\(Float16\) \$[\d] = 16.156
 p, p a1,\(Float16\) \$[\d] = 16.156
 locals, locals,\(Float16\) a = 16.156[\s\S]*\(Float16\) a1 = 16.156
-c,c,-> 85
+c,c,-> 93
 p, p a,\(UInt16\) \$[\d] = 16
 p, p a1,\(UInt16\) \$[\d] = 16
 locals, locals,\(UInt16\) a = 16[\s\S]*\(UInt16\) a1 = 16
-c,c,-> 92
+c,c,-> 100
 p, p a,\(Rune\) \$[\d] = 'a'
 p, p a1,\(Rune\) \$[\d] = 'a'
 locals, locals,\(Rune\) a = 'a'[\s\S]*\(Rune\) a1 = 'a'

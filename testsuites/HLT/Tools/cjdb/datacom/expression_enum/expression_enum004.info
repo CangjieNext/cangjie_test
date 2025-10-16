@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 014_enum_extend,014_enum_extend
-b,b 18,014_enum_extend.cj:18
-AOT r,r,-> 18
+b,b 26,014_enum_extend.cj:26
+AOT r,r,-> 26
 CJVM c,c,
 p,p a,\(default.E1<Int64>\) \$[\d] = {[\s\S]*constructor = XY[\s\S]*arg_1 = 5[\s\S]*}
 expr,expr a,\(default.E1<Int64>\) \$[\d] = {[\s\S]*constructor = XY[\s\S]*arg_1 = 5[\s\S]*}

@@ -13,11 +13,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_stepIn_via_overLoad,001_debug_stepIn_via_overLoad
-CJVM b main,b main,001_debug_stepIn_via_overLoad.cj:11
-CJVM c,c,-> 11
-b,b 15,001_debug_stepIn_via_overLoad.cj:15
-AOT r,r,-> 15
-CJVM c,c,-> 15
-s,s,-> 38
-finish,finish,-> 15|16
+CJVM b main,b main,001_debug_stepIn_via_overLoad.cj:19
+CJVM c,c,-> 19
+b,b 23,001_debug_stepIn_via_overLoad.cj:23
+AOT r,r,-> 23
+CJVM c,c,-> 23
+s,s,-> 46
+finish,finish,-> 23|24
 q,q,

@@ -12,7 +12,7 @@ import stdx.crypto.keys.*
 import stdx.crypto.digest.*
 import std.io.*
 import std.crypto.digest.*
-import stdx.crypto.digest.CryptoException
+import stdx.crypto.common.CryptoException
 import std.math.numeric.BigInt
 import std.runtime.*
 

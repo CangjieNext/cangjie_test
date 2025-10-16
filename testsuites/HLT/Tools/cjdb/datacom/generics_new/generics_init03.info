@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_init,generics_init
-b,b 11,generics_init.cj:11
-AOT r,r,-> 11
+b,b 19,generics_init.cj:19
+AOT r,r,-> 19
 locals,locals,\(Int32\) a = 6[\s\S]*\(Bool\) b = true[\s\S]*\(Int32\) a1 = 6
-n,n,-> 12
-n,n,-> 32
-n,n,-> 33
-s,s,-> 21
+n,n,-> 20
+n,n,-> 40
+n,n,-> 41
+s,s,-> 29
 p,p a,\(Int64\) \$[\d] = 8
 q,q,

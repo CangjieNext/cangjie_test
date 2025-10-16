@@ -52,6 +52,22 @@ note: found imported candidate
    | ^^^^^^^^^^^^ 
    | 
 
+warning: unused import 'm1.p1'
+  ==> err_ambiguous_00.cj:13:1:
+   | 
+13 | import m1.p1
+   | ^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unused import 'm2.p1'
+  ==> err_ambiguous_00.cj:14:1:
+   | 
+14 | import m2.p1
+   | ^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 1 error generated, 1 error printed.
-1 warning generated, 1 warning printed.
+3 warnings generated, 3 warnings printed.
 */

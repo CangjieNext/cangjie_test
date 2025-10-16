@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_multiArray_composite_record,006_debug_multiArray_composite_record
-b,b 29,006_debug_multiArray_composite_record.cj:29
-AOT r,r,-> 29
+b,b 37,006_debug_multiArray_composite_record.cj:37
+AOT r,r,-> 37
 CJVM c,c,
 p,p multiArr_mg_d2[0][0],default.R2<Rune>\) \$[\d] = {(\r|\n|\r\n)  width = 'K'
 p,p multiArr_mg_d2[1][0],default.R2<Rune>\) \$[\d] = {(\r|\n|\r\n)  width = 'a'

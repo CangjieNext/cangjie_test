@@ -1,11 +1,3 @@
-package default.contextKeywords.open
-
-public class public{
-    public var xy:Int64 = 9
-    public static var open:Int64 =0
-}
-
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -13,3 +5,11 @@ public class public{
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.contextKeywords.open
+
+public class public{
+    public var xy:Int64 = 9
+    public static var open:Int64 =0
+}
+
