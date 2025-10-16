@@ -12,7 +12,7 @@
 // (iOS) EXEC: xcrun codesign --sign - libcjworld.dylib
 // (iOS) EXEC: install_name_tool -id @rpath/libcjworld.dylib libcjworld.dylib
 // (iOS) EXEC: install_name_tool -change /Users/p_cangjieci/jenkins/workspace/MapleLangMergeRequest/Cangjie_build_cjmp_cjnative_darwin_aarch64_ios/cj-interop/objc/samples/objc_cangjie_isl/build/libinteroplib.objc.dylib @rpath/libinteroplib.objc.dylib libcjworld.dylib
-// (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -lcjworld src/objc/*.m objc-gen/*.m -o %output
+// (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
 // (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan in objc init
 // ASSERT: scan in cangjie foo, a: 2
