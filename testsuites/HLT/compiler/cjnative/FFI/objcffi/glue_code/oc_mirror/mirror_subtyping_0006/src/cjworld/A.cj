@@ -13,9 +13,7 @@ import interoplib.objc.*
 @ObjCImpl
 public class A <: M {
     public init() {
-        super(0)
+        super(1)
         println("in cangjie init")
     }
 }
-
-
