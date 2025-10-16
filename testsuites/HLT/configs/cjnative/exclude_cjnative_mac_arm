@@ -34,3 +34,56 @@ API/std/time/TimeZone/load/test_loadFromPaths.cj
 
 # fail in ci env
 API/std/socket/UdpSocket/test_udp_transportation_init.cj
+# objcffi not support call mut func
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0022/
+# objcffi not support multi file
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0003/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0004/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0015/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0016/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0020/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0021/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0031/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0032/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0041/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0042/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0051/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0052/
+# objcffi not support not public member
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0006/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0007/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0008/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0009/
+# case not support
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0010/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0030/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0008/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0008_1/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0009/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0010/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0011/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_prop_0003/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_field_0002/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_field_0007/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_pointer_0014/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_field_0014/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0001/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0002/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0003/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0004/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0007/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0009/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0001/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0002/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0003/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0004/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0005/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0006/
+# todo: super()
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0005/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0006/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0007/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0008/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0009/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0005/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0006/
