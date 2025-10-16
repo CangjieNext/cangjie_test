@@ -82,6 +82,7 @@ compiler/CJMP/merging/top_level_function/enhance_test/top_level_function/user_de
 
 
 ## syntax testcases
+API/stdx/syntax
 API/stdx/syntax/testParse/test_parse_decls_from_text.cj
 API/stdx/syntax/testParse/test_parse_exprs_from_text.cj
 
@@ -109,6 +110,8 @@ API/std/unittest/mock/compiler/createMock/genericInstantiation.cj
 
 compiler/Macro/inout/inout_m2.cj
 
+# cjmp cases
+compiler/CJMP
 
 # native FFI
 ## java (broken after migration to "blue" branch)
