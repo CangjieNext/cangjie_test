@@ -57,6 +57,9 @@ CJNATIVE/init/cangjie_test_init014/cangjie_test_init014.info
 CJNATIVE/build/lto
 CJNATIVE/test/lto
 CJNATIVE/build/lto_combine
+CJNATIVE/build/combined/multi_module/case05
+CJNATIVE/build/combined/multi_module/case06
+CJNATIVE/build/combined/multi_module/case07
 # 增量编译相关用例本地全部自验通过
 # 暂时无法使用测试框架, win上需要类似touch命令去修改文件的时间戳
 CJNATIVE/build/incremental

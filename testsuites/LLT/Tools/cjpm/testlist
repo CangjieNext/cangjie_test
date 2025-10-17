@@ -36,3 +36,6 @@ CJNATIVE/source_sets/tests_in_source_sets/
 
 # 待特性合入
 CJNATIVE/build/lto_combine
+CJNATIVE/build/combined/multi_module/case05
+CJNATIVE/build/combined/multi_module/case06
+CJNATIVE/build/combined/multi_module/case07
