@@ -4,6 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+features os.ohos
 package simple_ui 
 
 import sensor_mp.sensorcall

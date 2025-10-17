@@ -4,6 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+features user.custom_source_set_tests.arch.big
 package custom_source_set_tests.packageB
 
 import std.unittest.*

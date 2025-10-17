@@ -5,57 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=feature.arch.little | compare %f
+// EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=user.cmp.arch.little | compare %f
 // ASSERT: scan Platform B 'foo'
 // ASSERT: scan call from goo:Platform B 'foo'
 // ASSERT: scan call from boo:  Platform B 'foo'
-
-// SEPARATE-FILE: %n/src/m_common.cj
-package testing
-
-import cmp.*
-
-main(): Unit {
-    foo(/*A()*/)
-    goo()
-    boo()
-}
-
-// SEPARATE-FILE: %n/cmp/common/c.cj
-package cmp
-
-public common func foo(): Unit 
-public func boo() {
-    print("call from boo:  ")
-    foo()
-}
-
-// SEPARATE-FILE: %n/cmp/platformB/p.cj
-package cmp
-
-import std.random.*
-
-public platform func foo(): Unit {
-    println("Platform B 'foo'")
-}
-
-public func goo() {
-    print("call from goo:")
-    foo()
-}
-
-// SEPARATE-FILE: %n/cmp/platformA/p.cj
-package cmp
-
-import std.random.*
-
-public platform func foo(): Unit {
-    let random = Random()
-    let x = Array<Int64>(1, repeat: random.nextInt64() )
-    println("Platform 'foo'" + x[0].toString())
-}
-
-public func goo() {
-    print("call from goo:")
-    foo()
-}

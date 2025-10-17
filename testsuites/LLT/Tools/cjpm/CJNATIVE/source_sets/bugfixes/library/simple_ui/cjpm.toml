@@ -19,14 +19,20 @@ target-dir = ""
 version = "1.0.0"
 package-configuration = {}
 
-[source-set.common]
-  src-dir = "./src/common"
 
-[source-set.android]
-  src-dir = "./src/android"
-  condition = ["feature.env.android"]
+[[source-set]]
+name = "common"
+src-dir = "./src/common"
+features = []
 
-[source-set.ohos]
-  src-dir = "./src/ohos"
-  condition = ["feature.env.ohos"]
+[[source-set]]
+name = "android"
+src-dir = "./src/android"
+features = ["os.android"]
+
+[[source-set]]
+name = "ohos"
+src-dir = "./src/ohos"
+features = ["os.ohos"]
+
 

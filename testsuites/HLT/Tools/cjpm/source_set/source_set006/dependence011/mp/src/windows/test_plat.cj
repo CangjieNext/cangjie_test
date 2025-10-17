@@ -6,7 +6,15 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+features os.windows
 package mp
+
+import mp1.*
+
+public platform func f(): Int64 {
+    println(f1() + f2())
+    0
+}
 
 public func t(): Int64 {
     0
