@@ -9,7 +9,7 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // (CJNATIVE) EXEC: cd %n && %cjpm run 2>&1| compare %f
-// (CJNATIVE) ASSERT: scan Error in `source-set.windows.condition`: unknown feature `feature.os.windows11`
-// (CJNATIVE) ASSERT: scan Error in `source-set.linux.condition`: unknown feature `feature.os.linux11`
-// (CJNATIVE) ASSERT: scan Error in `source-set.darwin.condition`: unknown feature `feature.os.darwin11`
+// (CJNATIVE) ASSERT: scan-1 Error at `cjpm.toml:package.always-enabled-features.0`: feature `user.mp.windows` is not declared by dependency `mp`
+// (CJNATIVE) ASSERT: scan-1 Error at `cjpm.toml:package.always-enabled-features.1`: feature `user.mp.linux` is not declared by dependency `mp`
+// (CJNATIVE) ASSERT: scan-1 Error at `cjpm.toml:package.always-enabled-features.2`: feature `user.mp.darwin` is not declared by dependency `mp`
 // (CJNATIVE) ASSERT: scan cjpm run failed

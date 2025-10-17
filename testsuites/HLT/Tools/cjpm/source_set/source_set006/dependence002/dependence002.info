@@ -9,4 +9,5 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // (CJNATIVE and not MAC) EXEC: cd %n && %cjpm build 2>&1 | compare %f
+// (CJNATIVE and not MAC) Error at `cjpm.toml:source-set.3`: source set `linux` with the same features is declared at `cjpm.toml:source-set.1`
 // (CJNATIVE and not MAC) ASSERT: scan cjpm build failed

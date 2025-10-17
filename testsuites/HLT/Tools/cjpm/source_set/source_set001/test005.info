@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../source_set001
-// (CJNATIVE) EXEC: cd source_set001 && %cjpm run --enable-features=feature.os.kqueue | compare %f
+// (CJNATIVE) EXEC: cd source_set001 && %cjpm run --enable-features=user.mp.dummy | compare %f
 // (CJNATIVE) ASSERT: scan 0
 // (CJNATIVE) ASSERT: regex I run on [Windows|Linux|Darwin]
 // (CJNATIVE) ASSERT: scan cjpm run finished

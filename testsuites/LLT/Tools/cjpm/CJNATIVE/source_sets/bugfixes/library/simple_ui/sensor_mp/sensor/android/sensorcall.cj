@@ -4,6 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+features os.android
 package sensor_mp
 
 public platform func sensorcall(): Unit {
