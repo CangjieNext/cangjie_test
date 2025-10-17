@@ -6,6 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+features user.mp.windowsorlinux
 package mp
 
 public platform enum A {

@@ -4,6 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+features os.darwin
 package no_common_folder_specified
 
 public func sayHello() { println("Hi! I'm Darwin") }

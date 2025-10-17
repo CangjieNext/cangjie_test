@@ -19,17 +19,26 @@
 [dependencies]
   mp2 = { path = "../mp2", version = "1.0.0" }
 
-[source-set.common]
-  src-dir = ["./src/common"]
 
-[source-set.windows]
-  src-dir = ["./src/windows"]
-  condition = ["feature.os.windows"]
+[[source-set]]
+name = "common"
+src-dir = "./src/common"
+features = []
 
-[source-set.linux]
-  src-dir = ["./src/linux"]
-  condition = ["feature.os.linux"]
+[[source-set]]
+name = "linux"
+src-dir = "./src/linux"
+features = ["os.linux"]
 
-[source-set.darwin]
-  src-dir = ["./src/darwin"]
-  condition = ["feature.os.darwin"]
+[[source-set]]
+name = "darwin"
+src-dir = "./src/darwin"
+features = ["os.darwin"]
+
+[[source-set]]
+name = "windows"
+src-dir = "./src/windows"
+features = ["os.windows"]
+
+
+
