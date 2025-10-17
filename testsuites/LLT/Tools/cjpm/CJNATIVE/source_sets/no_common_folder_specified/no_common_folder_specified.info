@@ -6,6 +6,8 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run 2>&1 | compare %f
-// ASSERT: scan-1 No common source directory exists in any of selected source sets, please specify one.
-// ASSERT: scan-1 source-set.common
+// ASSERT: scan-1 Error: multiple entry source sets, only one is allowed.
+// ASSERT: scan-1 `cjpm.toml:source-set.0`: linux
+// ASSERT: scan-1 `cjpm.toml:source-set.1`: darwin
+// ASSERT: scan-1 `cjpm.toml:source-set.2`: windows
 // ASSERT: scan-1 cjpm run failed

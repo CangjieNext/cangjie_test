@@ -4,6 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+features user.dep.arch.big
 package dep
 
 public func niceFunction() {

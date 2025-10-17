@@ -5,55 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../%n
-// EXEC: cd %n/cmp && %cjpm build --no-feature-deduce --enable-features=feature.os.linux,feature.env.gnu
+// EXEC: cd %n/cmp && %cjpm build --no-feature-deduce --enable-features=os.linux
 // EXEC: cd %n && %cjpm run | compare %f
 // ASSERT: scan-1 call from boo: platform foo: test
 // ASSERT: scan-1 I'm f2 in common without (platform)
 // ASSERT: scan-1 cjpm run finished
-
-// SEPARATE-FILE: %n/src/m_common.cj
-package import_path_passing
-
-import cmp.boo
-
-main(): Unit {
-    boo()
-}
-
-// SEPARATE-FILE: %n/cmp/common/cmp_common.cj
-package cmp
-
-import cmp.pkg2.*
-
-public common func foo(): Unit
-
-public func boo() {
-    print("call from boo: ")
-    foo()
-
-    f2()
-}
-
-// SEPARATE-FILE: %n/cmp/common/pkg2/pkg2_common.cj
-package cmp.pkg2
-
-public func f2() {
-    println("I'm f2 in common without (platform)")
-}
-
-// SEPARATE-FILE: %n/cmp/linux/cmp_linux.cj
-package cmp
-
-import cmp.pkg1.*
-
-public platform func foo(): Unit {
-    print("platform foo: ")
-    test()
-}
-
-// SEPARATE-FILE: %n/cmp/linux/pkg1/pkg1.cj
-package cmp.pkg1
-
-public func test(): Unit {
-    println("test")
-}

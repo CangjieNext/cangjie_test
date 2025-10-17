@@ -18,6 +18,7 @@ experimental = true
   compile-option = ""
   override-compile-option = ""
   link-option = ""
+  always-enabled-features = [ "user.mp.windowsorlinux" ]
   [package.package-configuration]
 
 [dependencies]

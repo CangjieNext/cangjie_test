@@ -18,9 +18,14 @@
   version = "1.0.0"
   package-configuration = {}
 
-[source-set.common]
-  src-dir = "common"
 
-[source-set.android]
-  src-dir = "android"
-  condition = [ "feature.env.android" ]
+[[source-set]]
+name = "common"
+src-dir = "common"
+features = []
+
+[[source-set]]
+name = "android"
+src-dir = "android"
+features = ["os.android"]
+

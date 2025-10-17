@@ -6,7 +6,7 @@
 
 // DEPENDENCE: ../%n
 // EXEC-0: cd %n/dylibhome && gcc test01.c -shared -fPIC -o libtest01%dylib
-// EXEC-PIPE-0: cd %n && %cjpm run --no-feature-deduce --enable-features=feature.env.android 2>&1 | compare %f
+// EXEC-PIPE-0: cd %n && %cjpm run --no-feature-deduce --enable-features=os.android 2>&1 | compare %f
 // ASSERT: scan-1 [TEST]: Android platform func
 // ASSERT: scan-1 android getInfo()
 // ASSERT: scan-1 cjpm run finished

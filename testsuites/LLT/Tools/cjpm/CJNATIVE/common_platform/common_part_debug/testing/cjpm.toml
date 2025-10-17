@@ -16,12 +16,16 @@
   target-dir = ""
   version = "1.0.0"
 
-[source-set.common]
-  src-dir = "./common"
-
-[source-set.linux]
-  src-dir = "./linux"
-  condition = ["feature.os.linux"]
-
 [profile]
   experimental = true
+
+[[source-set]]
+name = "common"
+src-dir = "./common"
+features = []
+
+[[source-set]]
+name = "linux"
+src-dir = "./linux"
+features = ["os.linux"]
+
