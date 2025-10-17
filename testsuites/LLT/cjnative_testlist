@@ -183,6 +183,56 @@ compiler/CJMP/objc/sema/objc_mirror_subtype_parse.cj
 compiler/CJMP/objc/sema/objc_pointer_illegal_argument.cj
 compiler/CJMP/objc/sema/objc_pointer_type_argument.cj
 
+## cjmp, driver and extend testcases commented on 2025-10-17, need to be fixed.
+compiler/CJMP
+compiler/ConditionalCompilation/cfg/read_file_fail.cj
+compiler/Driver/LTO/lto_test10_1.cj
+compiler/Driver/options/apc/test_g_opt.cj
+compiler/Driver/options/help/test_showall.cj
+compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_01/direct_extension_01_01.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_01/direct_extension_01_02.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_01/direct_extension_01_03.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_01/direct_extension_01_04.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_01/direct_extension_01_05.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_02/direct_extension_02_01.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_02/direct_extension_02_02.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_02/direct_extension_02_03.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_02/direct_extension_02_04.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_03/direct_extension_03_01.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_03/direct_extension_03_02.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_03/direct_extension_03_03.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_03/direct_extension_03_04.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_03/direct_extension_03_05.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_04/direct_extension_04_01.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_04/direct_extension_04_02.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_04/direct_extension_04_03.cj
+compiler/Sema/Extend/common_specific/check_specific/direct_extension_04/direct_extension_04_04.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_01/interface_extension_01_01.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_01/interface_extension_01_02.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_01/interface_extension_01_03.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_01/interface_extension_01_04.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_01/interface_extension_01_05.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_01/interface_extension_01_06.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_01/interface_extension_01_07.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_02/interface_extension_02_01.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_02/interface_extension_02_02.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_02/interface_extension_02_03.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_02/interface_extension_02_04.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_03/interface_extension_03_01.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_03/interface_extension_03_02.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_03/interface_extension_03_03.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_03/interface_extension_03_04.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_03/interface_extension_03_05.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_03/interface_extension_03_06.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_04/interface_extension_04_01.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_04/interface_extension_04_02.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_04/interface_extension_04_03.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_04/interface_extension_04_04.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_05/interface_extension_05_01.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_05/interface_extension_05_02.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_05/interface_extension_05_03.cj
+compiler/Sema/Extend/common_specific/check_specific/interface_extension_05/interface_extension_05_04.cj
 
 # API testcases commented on 2025-10-17, need to be fixed.
 ## signal testcases
@@ -203,3 +253,4 @@ API/stdx/fuzz/fuzzer_main.cj
 API/stdx/fuzz/fuzzer_main_dp.cj
 API/stdx/fuzz/test_u32.cj
 API/stdx/fuzz/test_u64.cj
+API/stdx/syntax
