@@ -21,6 +21,17 @@ experimental = true
   version = "1.0.0"
   package-configuration = {}
 
-[source-set.platform]
-  src-dir = "./platform"
-  condition = [ "feature.arch.big" ]
+
+[[feature]]
+name = "user.tests_in_common.arch.big"
+mapping = []
+
+[[source-set]]
+name = "common"
+src-dir = "./common"
+features = []
+
+[[source-set]]
+name = "platform"
+src-dir = "./platform"
+features = ["user.tests_in_common.arch.big"]

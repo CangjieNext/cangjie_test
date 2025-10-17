@@ -6,6 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+features os.windows
 package mp1
 
 public func f2(): Int64 {

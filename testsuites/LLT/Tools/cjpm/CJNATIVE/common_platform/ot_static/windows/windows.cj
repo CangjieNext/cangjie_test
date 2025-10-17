@@ -4,6 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+features os.windows
 package ot_static
 
 public platform func platformId(): String { "windows id" }

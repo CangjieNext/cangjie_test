@@ -17,13 +17,20 @@
   version = "0.0.1"
   package-configuration = {}
 
-[source-set.common]
-  src-dir = "./sensor/common"
 
-[source-set.android]
-  src-dir = "./sensor/android"
-  condition = ["feature.env.android"]
+[[source-set]]
+name = "common"
+src-dir = "./sensor/common"
+features = []
 
-[source-set.ohos]
-  src-dir = "./sensor/ohos"
-  condition = ["feature.env.ohos"]
+[[source-set]]
+name = "android"
+src-dir = "./sensor/android"
+features = ["os.android"]
+
+[[source-set]]
+name = "ohos"
+src-dir = "./sensor/ohos"
+features = ["os.ohos"]
+
+
