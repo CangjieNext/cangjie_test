@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+package com.java.lib;
+ 
+import cj.A;
+ 
+public class AImpOne implements A {
+ 
+    private String s;
+ 
+    public AImpOne(String s) {
+        this.s = s;
+    }
+ 
+    public void foo() {
+        System.out.println(s + "From AImpOne!");
+    }
+ 
+    public int goo(int a) {
+        return a;
+    }
+}
