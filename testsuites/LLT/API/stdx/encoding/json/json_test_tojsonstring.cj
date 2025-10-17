@@ -8,12 +8,12 @@
 // EXEC: %compiler  %import-cangjie-stdx  %cmp_opt %f %cmp_utest_opt -o %output
 // EXEC-PIPE:%set_stdx_path %run %run_opt %output %run_utest_opt %run_args
 
-import stdx.encoding.json.*
+ import stdx.encoding.json.*
 
 let ja = JsonValue.fromStr(##"[null, true, [123, false], {"key1": " ", "key2": "\\a"}]"##).asArray()
-let jo = JsonValue
-    .fromStr(##"{"null": null, "bool": true, "array": [123, false], "object": {"key1": " ", "key2": "\\a"}}"##)
-    .asObject()
+let jt = JsonValue.fromStr(##"[null, true, [123, false], {"key1": " ", "key2": "\\a&"}]"##).asArray()
+let jo = JsonValue.fromStr(##"{"null": null, "bool": true, "array": [123, false], "object": {"key1": " ", "key2": "\\a"}}"##).asObject()
+let jc = JsonValue.fromStr(##"{"code": 1,"action": {"data": {"url": "xxx://xx.xx.com/xx?a=1&b=2&c=3"}}}"##).asObject()
 
 @Test
 public class JsonToJsonStringTest {
@@ -42,6 +42,69 @@ public class JsonToJsonStringTest {
   }
 ]"##
         @Expect(ja.toJsonString(0, bracketInNewLine: false, indent: "  "), expectStr)
+    }
+
+    @TestCase
+    func jsonArraytoJsonStringWithoutEscaping(): Unit {
+        let expectStr = ##"[
+  null,
+  true,
+  [
+    123,
+    false
+  ],
+  {
+    "key1": " ",
+    "key2": "\\a&"
+  }
+]"##
+        @Expect(jt.toJsonStringWithoutEscaping(), expectStr)
+    }
+
+    @TestCase
+    func jsonArraytoJsonStringWithoutEscapingWithArgs(): Unit {
+        let expectStr = ##"[
+  null,
+  true,
+  [
+    123,
+    false
+  ],
+  {
+    "key1": " ",
+    "key2": "\\a&"
+  }
+]"##
+        @Expect(jt.toJsonStringWithoutEscaping(0, bracketInNewLine: false, indent: "  "), expectStr)
+    }
+
+    @TestCase
+    func jsonArraytoJsonStringWithEscaping(): Unit {
+        let expectStr = ##"[
+  null,
+  true,
+  [
+    123,
+    false
+  ],
+  {
+    "key1": " ",
+    "key2": "\\a\u0026"
+  }
+]"##
+        @Expect(jt.toJsonString(), expectStr)
+    }
+
+    @TestCase
+    func jsonArraytoStringWithoutEscaping(): Unit {
+        let expectStr = ##"[null,true,[123,false],{"key1":" ","key2":"\\a&"}]"##
+        @Expect(jt.toStringWithoutEscaping(), expectStr)
+    }
+
+    @TestCase
+    func jsonArraytoStringWithEscaping(): Unit {
+        let expectStr = ##"[null,true,[123,false],{"key1":" ","key2":"\\a\u0026"}]"##
+        @Expect(jt.toString(), expectStr)
     }
 
     @TestCase
@@ -203,6 +266,48 @@ false
 }
 }"##
         @Expect(jo.toJsonString(1, bracketInNewLine: false, indent: ""), expectStr)
+    }
+
+    @TestCase
+    func jsonObjecttoJsonStringWithoutEscaping(): Unit {
+        let expectStr = ##"{
+  "data": {
+    "url": "xxx://xx.xx.com/xx?a=1&b=2&c=3"
+  }
+}"##
+        @Expect(jc.asObject().get("action").getOrThrow().toJsonStringWithoutEscaping(), expectStr)
+    }
+
+    @TestCase
+    func jsonObjecttoJsonStringWithoutEscapingWithArgs(): Unit {
+        let expectStr = ##"{
+  "data": {
+    "url": "xxx://xx.xx.com/xx?a=1&b=2&c=3"
+  }
+}"##
+        @Expect(jc.get("action").getOrThrow().asObject().toJsonStringWithoutEscaping(0, bracketInNewLine: false, indent: "  "), expectStr)
+    }
+
+    @TestCase
+    func jsonObjecttoJsonStringWithEscaping(): Unit {
+        let expectStr = ##"{
+  "data": {
+    "url": "xxx://xx.xx.com/xx?a=1\u0026b=2\u0026c=3"
+  }
+}"##
+        @Expect(jc.asObject().get("action").getOrThrow().toJsonString(), expectStr)
+    }
+
+    @TestCase
+    func jsonObjecttoStringWithoutEscaping(): Unit {
+        let expectStr = ##"{"data":{"url":"xxx://xx.xx.com/xx?a=1&b=2&c=3"}}"##
+        @Expect(jc.asObject().get("action").getOrThrow().toStringWithoutEscaping(), expectStr)
+    }
+
+    @TestCase
+    func jsonObjecttoStringWithEscaping(): Unit {
+        let expectStr = ##"{"data":{"url":"xxx://xx.xx.com/xx?a=1\u0026b=2\u0026c=3"}}"##
+        @Expect(jc.asObject().get("action").getOrThrow().toString(), expectStr)
     }
 
     @TestCase
