@@ -33,6 +33,7 @@ import stdx.log.*
 import std.io.*
 import stdx.net.tls.*
 import stdx.crypto.x509.X509Certificate
+import std.convert.*
 
 @Test
 class TestClient1_1Request {
@@ -190,92 +191,212 @@ class TestClient1_1Request {
     }
 
     // https url with proxy
-
-    let serverSocket4 = TcpServerSocket(bindAt: 0)
+    let proxyServerSocket = TcpServerSocket(bindAt: 0)
     @TestCase
     func client1_1HttpsRequestProxy(): Unit {
-        spawn {serverPacketCapture6()}
+        let server = serverPacketCapture6()
+        spawn { proxyserverPacketCapture(server.port) }
         sleep(Duration.millisecond * 100)
-        let port2 = (serverSocket4.localAddress as IPSocketAddress)?.port ?? 0
+        let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
+        let port2 = server.port
         var cfg = clientConfig()
         cfg.supportedAlpnProtocols = ["http/1.1"]
-        let client = ClientBuilder()
-            .tlsConfig(cfg)
-            .httpProxy("http://130.0.0.1")
-            .httpsProxy("http://127.0.0.1:${port2}")
-            .build()
-        let u = URL.parse("https://1.0.0.1/a")
-        let r = HttpRequestBuilder().url(u).build()
+        let client = ClientBuilder().tlsConfig(cfg).httpsProxy("http://127.0.0.1:${port1}").build()
+        let u = URL.parse("https://127.0.0.1:${port2}")
+        let r = HttpRequestBuilder()
+                        .url(u)
+                        .build()
         client.logger.level = LogLevel.DEBUG
         client.send(r)
         client.close()
-    }
-    func serverPacketCapture6() {
-        serverSocket4.bind()
-        let port2 = (serverSocket4.localAddress as IPSocketAddress)?.port ?? 0
-        let socket = serverSocket4.accept()
-        var cfg = serverConfig()
-        cfg.supportedAlpnProtocols = ["http/1.1"]
-        let server = TlsSocket.server(socket, serverConfig: cfg)
-        server.handshake()
-        let buf = Array<UInt8>(500, repeat: 0)
-        sleep(Duration.millisecond * 100)
-        let i = server.read(buf)
-        let read = String.fromUtf8(buf[0..i])
-        @Expect(read.contains("GET https://1.0.0.1/a HTTP/1.1\r\nhost: 127.0.0.1:${port2}\r\n"))
-        @Expect(read.contains("user-agent: CANGJIEUSERAGENT_1_1\r\n"))
-        @Expect(read.contains("content-length: 0\r\n"))
-        @Expect(read.contains("connection: keep-alive\r\n"))
-        server.write("HTTP/1.1 204 no content\r\nconnection: close\r\n\r\n".toArray())
         server.close()
-        serverSocket4.close()
     }
 
+    func proxyserverPacketCapture(serverPort: UInt16) {
+        try{
+            proxyServerSocket.bind()
+            sleep(Duration.millisecond * 100)
+            let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
+            let socket = proxyServerSocket.accept()
+            socket.readTimeout = Duration.millisecond * 100
+        
+            let buf = Array<UInt8>(500, repeat: 0)
+            let i = socket.read(buf)
+            let read = String.fromUtf8(buf[0..i])
+            @Expect(read.contains("CONNECT 127.0.0.1:${serverPort} HTTP/1.1"))
+            @Expect(read.contains("host: 127.0.0.1:${serverPort}"))
+            @Expect(read.contains("user-agent: CANGJIEUSERAGENT_1_1"))
+
+            // Resolve the address and port of the target server
+            let a:Array<String> = read.split(" ")
+            let addrAndPort = a[1].split(":")
+            let realServerAddr = addrAndPort[0]
+            let realServerPort = addrAndPort[1]
+
+            let remote_socket = TcpSocket(realServerAddr,UInt16.parse(realServerPort))
+            remote_socket.connect()
+
+            socket.write("HTTP/1.1 200 Connection Established\r\n\r\n".toArray())
+
+            // Receive messages from the client and send them to the target server
+            spawn{
+                while(true){
+                    let buf1 = Array<UInt8>(5000, repeat: 0)
+                    let i1 = socket.read(buf1)
+                    if(i1 <= 0){
+                        break
+                    }else{
+                        remote_socket.write(buf1[0..i1])
+                    }
+                }
+            }
+            
+            spawn{
+                while(true){
+                    let buf1 = Array<UInt8>(5000, repeat: 0)
+                    let i1 = remote_socket.read(buf1)
+                    if(i1 <= 0){
+                        break
+                    }else{
+                        socket.write(buf1[0..i1])
+                    }
+                }
+            }
+            sleep(Duration.second * 3)
+            proxyServerSocket.close()
+        } catch (e: Exception) {
+            proxyServerSocket.close()
+        }
+    }
+
+    func serverPacketCapture6():Server {
+        var transportCfg = TransportConfig()
+        transportCfg.readBufferSize = 8192
+        var cfg = serverConfig()
+        cfg.supportedAlpnProtocols = ["http/1.1"]
+        let server = ServerBuilder()
+                    .addr("127.0.0.1")
+                    .port(0)
+                    // .transportConfig(transportCfg)
+                    .tlsConfig(cfg)
+                    // .headerTableSize(10 * 1024)
+                    // .maxRequestHeaderSize(1024 * 1024)
+                    .build()
+        server.distributor.register("", {httpContext =>
+            httpContext.responseBuilder.body("Hello!")
+        })
+        spawn {
+            server.serve()
+        }
+        sleep(Duration.millisecond*100)
+        return server
+    }
+
+    
+    let realServerSocket1 = TcpServerSocket(bindAt: 0)
+    let proxyServerSocket1 = TcpServerSocket(bindAt: 0)
     // https url with proxy
     @TestCase
     func client1_1HttpsRequestProxy2(): Unit {
+        spawn { serverPacketCapture5() }
+        spawn { proxyserverPacketCapture1() }
+        sleep(Duration.millisecond * 100)
+        let port1 = (proxyServerSocket1.localAddress as IPSocketAddress)?.port ?? 0
+        let port2 = (realServerSocket1.localAddress as IPSocketAddress)?.port ?? 0
         var cfg = clientConfig()
         cfg.supportedAlpnProtocols = ["http/1.1"]
-        let client = ClientBuilder()
-            .tlsConfig(cfg)
-            .httpProxy("http://130.1.0.1:20")
-            .httpsProxy("http://127.0.0.1")
-            .build()
-        let u = URL.parse("https://1.0.0.1/a")
-        spawn {serverPacketCapture5()}
-        let r = HttpRequestBuilder().url(u).build()
-        sleep(Duration.millisecond * 100)
+        let client = ClientBuilder().tlsConfig(cfg).httpsProxy("http://127.0.0.1:${port1}").build()
+        let u = URL.parse("https://127.0.0.1:${port2}")
+
+        let r = HttpRequestBuilder()
+                        .url(u)
+                        .build()
         client.logger.level = LogLevel.DEBUG
-        try {
-            client.send(r)
-        } catch (e: Exception) {
-            println(e.message)
-        }
+        client.send(r)
         client.close()
         println("request_test_ok")
         asanGC()
     }
+
+    func proxyserverPacketCapture1() {
+        try{
+            proxyServerSocket1.bind()
+            sleep(Duration.millisecond * 100)
+            let serverPort = (realServerSocket1.localAddress as IPSocketAddress)?.port ?? 0
+            let port1 = (proxyServerSocket1.localAddress as IPSocketAddress)?.port ?? 0
+            let socket = proxyServerSocket1.accept()
+            socket.readTimeout = Duration.millisecond * 100
+        
+            let buf = Array<UInt8>(500, repeat: 0)
+            let i = socket.read(buf)
+            let read = String.fromUtf8(buf[0..i])
+            @Expect(read.contains("CONNECT 127.0.0.1:${serverPort} HTTP/1.1"))
+            @Expect(read.contains("host: 127.0.0.1:${serverPort}"))
+            @Expect(read.contains("user-agent: CANGJIEUSERAGENT_1_1"))
+
+            // Resolve the address and port of the target server
+            let a:Array<String> = read.split(" ")
+            let addrAndPort = a[1].split(":")
+            let realServerAddr = addrAndPort[0]
+            let realServerPort = addrAndPort[1]
+
+            let remote_socket = TcpSocket(realServerAddr,UInt16.parse(realServerPort))
+            remote_socket.connect()
+
+            socket.write("HTTP/1.1 200 Connection Established\r\n\r\n".toArray())
+
+            // Receive messages from the client and send them to the target server
+            spawn{
+                while(true){
+                    let buf1 = Array<UInt8>(5000, repeat: 0)
+                    let i1 = socket.read(buf1)
+                    if(i1 <= 0){
+                        break
+                    }else{
+                        remote_socket.write(buf1[0..i1])
+                    }
+                }
+            }
+            
+            spawn{
+                while(true){
+                    let buf1 = Array<UInt8>(5000, repeat: 0)
+                    let i1 = remote_socket.read(buf1)
+                    if(i1 <= 0){
+                        break
+                    }else{
+                        socket.write(buf1[0..i1])
+                    }
+                }
+            }
+            sleep(Duration.second * 3)
+            proxyServerSocket1.close()
+        } catch (e: Exception) {
+            proxyServerSocket1.close()
+        }
+    }
+
     func serverPacketCapture5() {
         var cfg = serverConfig()
         cfg.supportedAlpnProtocols = ["http/1.1"]
-        let serverSocket = TcpServerSocket(bindAt: 443)
         try {
-            serverSocket.bind()
-            let socket = serverSocket.accept()
+            realServerSocket1.bind()
+            sleep(Duration.millisecond * 100)
+            
+            let port1 = (proxyServerSocket1.localAddress as IPSocketAddress)?.port ?? 0
+            let port2 = (realServerSocket1.localAddress as IPSocketAddress)?.port ?? 0
+            
+            let socket = realServerSocket1.accept()
             let server = TlsSocket.server(socket, serverConfig: cfg)
             server.handshake()
-            let buf = Array<UInt8>(500, repeat: 0)
-            sleep(Duration.millisecond * 100)
-            let i = server.read(buf)
-            let read = String.fromUtf8(buf[0..i])
-            @Expect(read.contains("GET https://1.0.0.1/a HTTP/1.1\r\nhost: 127.0.0.1:443\r\n"))
-            @Expect(read.contains("user-agent: CANGJIEUSERAGENT_1_1\r\n"))
-            @Expect(read.contains("content-length: 0\r\n"))
-            @Expect(read.contains("connection: keep-alive\r\n"))
+            let buf = Array<UInt8>(2000, repeat: 0)
+            let i1 = server.read(buf)
             server.write("HTTP/1.1 204 no content\r\nconnection: close\r\n\r\n".toArray())
+            
             server.close()
-            serverSocket.close()
+            realServerSocket1.close()
         } catch (e: Exception) {
+            realServerSocket1.close()
             println(e.message)
         }
     }
@@ -283,4 +404,4 @@ class TestClient1_1Request {
 
 /* SCAN-IN
 request_test_ok
- */
+*/
