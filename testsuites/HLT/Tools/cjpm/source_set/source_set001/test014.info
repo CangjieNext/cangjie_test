@@ -8,5 +8,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../source_set001
-// (CJNATIVE) EXEC: cd source_set001 && %cjpm build --enable-features=feature.os.windows,feature.os.linux,feature.os.darwin 2>&1 | compare %f
+// (CJNATIVE) EXEC: cd source_set001 && %cjpm build --enable-features=os.windows,os.linux,os.darwin 2>&1 | compare %f
 // (CJNATIVE) ASSERT: scan cjpm build failed

@@ -7,10 +7,10 @@
 // DEPENDENCE: ../%n
 // (Windows)EXEC: cd %n && copy NUL output
 // (Unix)EXEC: cd %n && touch output
-// EXEC: cd %n/dep && %cjpm build --no-feature-deduce --enable-features=feature.arch.big 2>&1 > output
-// EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=feature.arch.big 2>&1 >> output
-// EXEC: cd %n/dep && %cjpm build --no-feature-deduce --enable-features=feature.arch.little 2>&1 >> output
-// EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=feature.arch.little 2>&1 >> output
+// EXEC: cd %n/dep && %cjpm build --no-feature-deduce --enable-features=user.dep.arch.big 2>&1 > output
+// EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=user.dep.arch.big 2>&1 >> output
+// EXEC: cd %n/dep && %cjpm build --no-feature-deduce --enable-features=user.dep.arch.little 2>&1 >> output
+// EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=user.dep.arch.little 2>&1 >> output
 // (Windows)EXEC: cd %n && type output | compare %f
 // (Unix)EXEC: cd %n && cat output | compare %f
 // ASSERT: scan-1 NICE_BIG_CALL

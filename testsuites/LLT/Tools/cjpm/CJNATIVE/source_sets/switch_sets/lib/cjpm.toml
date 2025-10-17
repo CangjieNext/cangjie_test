@@ -18,13 +18,29 @@
   version = "1.0.0"
   package-configuration = {}
 
-[source-set.common]
-  src-dir = "./src/common"
 
-[source-set.big]
-  src-dir = "./src/big"
-  condition = ["feature.arch.big"]
+[[feature]]
+name = "user.lib.arch.big"
+mapping = []
 
-[source-set.little]
-  src-dir = "./src/little"
-  condition = ["feature.arch.little"]
+[[feature]]
+name = "user.lib.arch.little"
+mapping = []
+
+
+[[source-set]]
+name = "common"
+src-dir = "./src/common"
+features = []
+
+[[source-set]]
+name = "big"
+src-dir = "./src/big"
+features = ["user.lib.arch.big"]
+
+[[source-set]]
+name = "little"
+src-dir = "./src/little"
+features = ["user.lib.arch.little"]
+
+

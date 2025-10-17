@@ -1,0 +1,34 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[package]
+  cjc-version = "1.0.0"
+  name = "mp"
+  description = "nothing here"
+  version = "1.0.0"
+  target-dir = ""
+  output-type = "dynamic"
+  compile-option = ""
+  override-compile-option = ""
+  link-option = ""
+  package-configuration = {}
+
+[dependencies]
+othermp = { path = "../othermp", version = "1.0.0" }
+
+[profile]
+  experimental = true
+
+[[feature]]
+name = "user.mp.a"
+mapping = [ "user.othermp.a", "user.othermp.c" ]
+
+[[feature]]
+name = "user.mp.b"
+mapping = [ "user.othermp.b", "user.othermp.d", "user.othermp.e" ]
+
+[[feature]]
+names = [ "user.mp.c" ]

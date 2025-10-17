@@ -8,6 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (CJNATIVE and not MAC) EXEC: cd %n && %cjpm run| compare %f
+// (CJNATIVE and not MAC) EXEC: cd %n && %cjpm run --enable-features=user.mp.windowsorlinux | compare %f
 // (CJNATIVE and not MAC) ASSERT: regex hello windowsorlinux
 // (CJNATIVE and not MAC) ASSERT: scan cjpm run finished

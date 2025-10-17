@@ -8,6 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (CJNATIVE) EXEC: cd %n && %cjpm run| compare %f
+// (CJNATIVE) EXEC: cd %n && %cjpm run | compare %f
 // (CJNATIVE) ASSERT: scan 8
 // (CJNATIVE) ASSERT: scan cjpm run finished
