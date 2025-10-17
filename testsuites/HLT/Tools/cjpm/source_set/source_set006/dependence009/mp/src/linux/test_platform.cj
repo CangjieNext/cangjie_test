@@ -6,6 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+features os.linux
 package mp
 
 public platform var a: Int64 = 0

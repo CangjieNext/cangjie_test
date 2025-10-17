@@ -9,7 +9,7 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // (CJNATIVE) EXEC: cd %n && %cjpm build 2>&1| compare %f
-// (CJNATIVE) ASSERT: regex Error in `source-set.windows.condition`: unknown feature ``
-// (CJNATIVE) ASSERT: regex Error in `source-set.linux.condition`: unknown feature ``
-// (CJNATIVE) ASSERT: regex Error in `source-set.darwin.condition`: unknown feature ``
+// (CJNATIVE) ASSERT: scan-1 Error at `cjpm.toml:source-set.1.features.0`: value `` should be dot-separated qname, where each part matches regex `[a-zA-Z_][a-zA-Z0-9_]*`
+// (CJNATIVE) ASSERT: scan-1 Error at `cjpm.toml:source-set.2.features.0`: value `` should be dot-separated qname, where each part matches regex `[a-zA-Z_][a-zA-Z0-9_]*`
+// (CJNATIVE) ASSERT: scan-1 Error at `cjpm.toml:source-set.3.features.0`: value `` should be dot-separated qname, where each part matches regex `[a-zA-Z_][a-zA-Z0-9_]*`
 // (CJNATIVE) ASSERT: scan cjpm build failed

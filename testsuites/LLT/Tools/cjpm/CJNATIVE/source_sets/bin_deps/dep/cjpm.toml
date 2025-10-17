@@ -21,10 +21,25 @@ experimental = true
   version = "1.0.0"
   package-configuration = {}
 
-[source-set.little]
-  src-dir = "./little"
-  condition = ["feature.arch.little"]
+[[feature]]
+name = "user.dep.arch.little"
+mapping = []
 
-[source-set.big]
-  src-dir = "./big"
-  condition = ["feature.arch.big"]
+[[feature]]
+name = "user.dep.arch.big"
+mapping = []
+
+[[source-set]]
+name = "common"
+src-dir = "./common"
+features = []
+
+[[source-set]]
+name = "little"
+src-dir = "./little"
+features = ["user.dep.arch.little"]
+
+[[source-set]]
+name = "big"
+src-dir = "./big"
+features = ["user.dep.arch.big"]
