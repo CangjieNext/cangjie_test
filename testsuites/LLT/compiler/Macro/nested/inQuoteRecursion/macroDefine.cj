@@ -45,3 +45,7 @@ public macro testAttr2(attr: Tokens, input: Tokens) {
 public macro testaQuote(attr: Tokens) {
     quote(quote(\$input))
 }
+
+public macro MMMM(a: Tokens) {
+    return a
+}

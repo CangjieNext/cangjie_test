@@ -9,7 +9,7 @@
 // EXEC: %run_macro %compiler %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan 888
-// ASSERT: scan 999
+// ASSERT: scan @M[1](999)
 
 import pkg1.*
 import std.ast.*
