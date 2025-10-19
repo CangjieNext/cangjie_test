@@ -195,8 +195,6 @@ compiler/CJMP/objc/sema/objc_pointer_type_argument.cj
 
 ## cjmp, driver and extend testcases commented on 2025-10-17, need to be fixed.
 compiler/Driver/LTO/lto_test10_1.cj
-compiler/ConditionalCompilation/cfg/read_file_fail.cj
-compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
 compiler/Sema/Extend/common_specific/check_common/check_common_01.cj
 compiler/Sema/Extend/common_specific/check_common/check_common_02.cj
 compiler/Sema/Extend/common_specific/check_common/check_common_03.cj
