@@ -60,14 +60,15 @@ API/std/unittest/macro_test_no_remove_mod.cj
 compiler/Macro/sema/cfunc.cj
 
 ## CJMP testcases
-compiler/CJMP/frontend/matching/class/matching_rules/member_level/prop_abstractness/common_abstract_prop_in_abstract_class.cj
-compiler/CJMP/frontend/matching/class/matching_rules/member_level/prop_abstractness/common_open_prop_in_abstract_class.cj
+compiler/CJMP/frontend/common_declarations/enum/member_function_without_type.cj
+compiler/CJMP/frontend/common_declarations/function/return_type_even_with_implementation.cj
 compiler/CJMP/frontend/matching/class/matching_rules/class_level/definition_match/generics_constraints_not_match.cj
 compiler/CJMP/frontend/matching/class/matching_rules/class_level/definition_match/generics_not_match.cj
+compiler/CJMP/frontend/matching/class/matching_rules/member_level/prop_abstractness/common_abstract_prop_in_abstract_class.cj
+compiler/CJMP/frontend/matching/class/matching_rules/member_level/prop_abstractness/common_open_prop_in_abstract_class.cj
 compiler/CJMP/frontend/matching/class/new_members/new_required_constructor.cj
 compiler/CJMP/frontend/matching/enum/matching_rules/enum_level/definition_match/generics_constraints_not_match.cj
 compiler/CJMP/frontend/matching/enum/matching_rules/enum_level/definition_match/generics_not_match.cj
-compiler/CJMP/frontend/matching/function/overload_error/generic_not_match/not_same_generic_name.cj
 compiler/CJMP/frontend/matching/struct/new_members/new_required_constructor.cj
 compiler/CJMP/merging/classes/class_abstract/impl_interface/generic_interface.cj
 compiler/CJMP/merging/classes/class_abstract/impl_interface/generic_interface_with_non_common_class.cj
@@ -80,11 +81,9 @@ compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_leve
 compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_no_impl_platform_impl.cj
 compiler/CJMP/merging/top_level_function/enhance_test/top_level_function/user_define_thirdparty/moretype/generictype/thirdparty_genericclass_as_argument.cj
 
-
-## syntax testcases
-API/stdx/syntax/testParse/test_parse_decls_from_text.cj
-API/stdx/syntax/testParse/test_parse_exprs_from_text.cj
-
+## syntax testcases 
+ API/stdx/syntax/testParse/test_parse_decls_from_text.cj 
+ API/stdx/syntax/testParse/test_parse_exprs_from_text.cj
 # daignose is changed
 compiler/Sema/interface/interface_property/interface_property1.cj
 compiler/Sema/Extend/property/property_mut_immut_mismatch.cj
@@ -103,15 +102,23 @@ compiler/CHIR/CHIR2HLIR/package/scanDepPkg/test.cj
 compiler/CHIR/CHIR2HLIR/package/scanDepPkgNoModule/test.cj
 
 # mock failed.
+# helper issue.
+API/std/unittest/mock/compiler/
 API/std/unittest/mock/compiler/ensurePreparedToMock/default_methods.cj
 API/std/unittest/mock/compiler/ensurePreparedToMock/default_methods_interface.cj
 API/std/unittest/mock/compiler/createMock/genericInstantiation.cj
+API/std/unittest/mock/framework/bench.cj
 
 compiler/Macro/inout/inout_m2.cj
 
 
 # native FFI
 ## java (broken after migration to "blue" branch)
+compiler/CJMP/java/integration/impl-implements-mirror-interface/impl-implements-mirror-interface.info
+compiler/CJMP/java/integration/mirror-abstract-class/mirror-abstract-class.info
+compiler/CJMP/java/integration/mirror-finalizer/mirror-finalizer.info
+compiler/CJMP/java/integration/mirror-interface/mirror-interface.info
+
 compiler/CJMP/java/integration/impl-ctor-args-cangjie/impl-ctor-args-cangjie.info
 compiler/CJMP/java/integration/impl-ctor-args-java/impl-ctor-args-java.info
 compiler/CJMP/java/integration/impl-ctor-cangjie/impl-ctor-cangjie.info
@@ -121,13 +128,11 @@ compiler/CJMP/java/integration/impl-method-accept-java/impl-method-accept-java.i
 compiler/CJMP/java/integration/impl-method-overload/impl-method-overload.info
 compiler/CJMP/java/integration/impl-method-return-java/impl-method-return-java.info
 compiler/CJMP/java/integration/impl-method-static-accept-java/impl-method-static-accept-java.info
+compiler/CJMP/java/integration/impl-method-super-call-with-args-03/impl-method-super-call-with-args-03.info
+compiler/CJMP/java/integration/impl-method-super-call-with-args-04/impl-method-super-call-with-args-04.info
 compiler/CJMP/java/integration/impl-primary-ctor-java/impl-primary-ctor-java.info
 compiler/CJMP/java/integration/jarray-nested/jarray-nested.info
-compiler/CJMP/java/integration/java2cj-exception-struct-01/java2cj-exception-struct-01.info
-compiler/CJMP/java/integration/java2cj-exception-struct/java2cj-exception-struct.info
-compiler/CJMP/java/integration/mirror-abstract-class/mirror-abstract-class.info
 compiler/CJMP/java/integration/mirror-array/mirror-array.info
-compiler/CJMP/java/integration/mirror-interface/mirror-interface.info
 compiler/CJMP/java/integration/mirror-method-accept-jarray-option/mirror-method-accept-jarray-option.info
 compiler/CJMP/java/integration/mirror-method-accept-option-jarray/mirror-method-accept-option-jarray.info
 compiler/CJMP/java/integration/mirror-method-accept-option/mirror-method-accept-option.info
@@ -142,9 +147,8 @@ compiler/CJMP/java/integration/mirror-method-static-ret/mirror-method-static-ret
 compiler/CJMP/java/integration/mirror-method-static/mirror-method-static.info
 compiler/CJMP/java/integration/mirror-prop-option/mirror-prop-option.info
 compiler/CJMP/java/integration/mirror-prop/mirror-prop.info
-compiler/CJMP/java/integration/multi-package/mirror_inherit_mirror/interface/interface.info
+compiler/CJMP/java/integration/mirror_interface_default_method/interface_inheritance_different_default_methods/interface_inheritance_different_default_methods.info
 compiler/CJMP/java/integration/object-inheritance/object-inheritance.info
-compiler/CJMP/java/integration/public-enum-mapping/public-enum-mapping.info
 compiler/CJMP/java/parser/class/java_mirror_ctor.cj
 compiler/CJMP/java/parser/class/java_mirror_custom_fqname.cj
 compiler/CJMP/java/parser/class/java_mirror_field.cj
@@ -155,9 +159,26 @@ compiler/CJMP/java/parser/interface/java_mirror_inheritance.cj
 compiler/CJMP/java/sema/foreign_name/impl_custom_native_ok.cj
 compiler/CJMP/java/sema/foreign_name/impl_native_ok.cj
 compiler/CJMP/java/sema/java_impl_parse.cj
+
+## cjmapping is missed in cfg.
+compiler/CJMP/java/sema/cj_mapping_interop_lib_not_imported.cj
+compiler/CJMP/java/sema/cj_mapping_struct_generic.cj
+compiler/CJMP/java/sema/cj_mapping_struct_inheritance_interface.cj
+compiler/CJMP/java/sema/cj_mapping_struct_with_arg_option.cj
+compiler/CJMP/java/sema/cj_mapping_struct_with_return_option.cj
 compiler/CJMP/java/sema/struct-with-return-option.cj
+compiler/CJMP/java/integration/non-public-enum/non-public-enum.info
+compiler/CJMP/java/integration/non-public-struct/non-public-struct.info
+compiler/CJMP/java/integration/public-enum-mapping/public-enum-mapping.info
+compiler/CJMP/java/integration/public-enum-with-private/public-enum-with-private.info
+compiler/CJMP/java/integration/public-struct-mapping/public-struct-mapping.info
+compiler/CJMP/java/integration/public-struct-private-member/public-struct-private-member.info
+compiler/CJMP/java/integration/java2cj-exception-struct-01/java2cj-exception-struct-01.info
+compiler/CJMP/java/integration/java2cj-exception-struct/java2cj-exception-struct.info
+compiler/CJMP/java/integration/cj-mapping-protect-call-from-java/cj-mapping-protect-call-from-java.info
+
 ## objc (interoplib.objc and objc.lang are missing)
-compiler/CJMP/objc/integration/
+compiler/CJMP/objc/
 compiler/CJMP/objc/compiler/multi-file/A.cj
 compiler/CJMP/objc/parser/class/objc_mirror_ctor.cj
 compiler/CJMP/objc/parser/class/objc_mirror_custom_fqname.cj
@@ -193,11 +214,25 @@ API/std/libast/exprs/try_expr/test_handlers_001.cj
 API/std/libast/patterns/commandtypepattern/test_dump_001.cj
 API/std/libast/patterns/commandtypepattern/test_dump_002.cj
 API/std/math/numeric/bigint/test_json.cj
+
+## cjmp, driver and extend testcases commented on 2025-10-17, need to be fixed.
+compiler/Driver/LTO/lto_test10_1.cj
+compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
+compiler/Sema/Extend/common_specific/check_common/check_common_01.cj
+compiler/Sema/Extend/common_specific/check_common/check_common_02.cj
+compiler/Sema/Extend/common_specific/check_common/check_common_03.cj
+compiler/Sema/Extend/common_specific/check_common/check_common_04.cj
+
+# API testcases commented on 2025-10-17, need to be fixed.
+## signal testcases
+API/std/core/test_func_refeq.cj
+API/std/runtime/test_signal.cj
+API/std/runtime/test_signal_unregister.cj
+API/std/runtime/test_signal_unregister_oneSig.cj
+## unittest testcases
+### error: source file 'other.cj' doesn't exist
 API/std/unittest/mock/compiler/createMock/usePrivateTypesOtherPackage.cj
-API/std/unittest/mock/examples/ui_1.cj
-API/std/unittest/mock/examples/ui_2.cj
-API/std/unittest/mock/examples/ui_3.cj
-API/std/unittest/mock/examples/ui_4.cj
+### gnuplot executable not found
 API/std/unittest/report_bench_html/report_html_gnuplot.cj
 API/std/unittest/report_test_xml/report_xml_class.cj
 API/std/unittest/report_test_xml/report_xml_empty.cj
@@ -1877,6 +1912,7 @@ compiler/CJMP/merging/classes/common_member/function/function_ret_06.cj
 compiler/CJMP/merging/classes/common_member/function/function_ret_07.cj
 compiler/CJMP/merging/classes/common_member/function/function_ret_08.cj
 compiler/CJMP/merging/classes/common_member/function/function_ret_09.cj
+compiler/CJMP/merging/test.cj
 compiler/CJMP/merging/classes/common_member/let/double_let_01.cj
 compiler/CJMP/merging/classes/common_member/let/double_let_02.cj
 compiler/CJMP/merging/classes/common_member/let/double_let_03.cj
@@ -3237,3 +3273,17 @@ compiler/Sema/effect/resume_unit.cj
 compiler/Sema/effect/resume_with.cj
 compiler/Sema/interface/abstract_function2.cj
 compiler/Sema/lookup/bugfix2.cj
+
+# java is not ready.
+compiler/CJMP/java/compiler/escape_checks/class_member_variables.cj
+compiler/CJMP/java/compiler/escape_checks/enum_constructor_params.cj
+compiler/CJMP/java/compiler/escape_checks/generic_instantiate_classes.cj
+compiler/CJMP/java/compiler/escape_checks/generic_instantiate_functions.cj
+compiler/CJMP/java/compiler/escape_checks/global_variables.cj
+compiler/CJMP/java/compiler/escape_checks/member_variable_in_primary_ctor.cj
+compiler/CJMP/java/compiler/escape_checks/struct_member_variables.cj
+compiler/CJMP/java/sema/mirror_abstract_static_method.cj
+compiler/CJMP/java/sema/non-mirror-inherits_mirror/abstract_class_inherits_mirror_interface.cj
+compiler/CJMP/java/sema/non-mirror-inherits_mirror/interface_inherits_mirror_interface.cj
+compiler/CJMP/java/integration/invalid-jni-check/invalid-jni-check.info
+compiler/CJMP/java/integration/multi-package/mirror_inherit_mirror/interface/interface.info

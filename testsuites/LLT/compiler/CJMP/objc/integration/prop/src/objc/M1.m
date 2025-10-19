@@ -12,7 +12,6 @@
 
 - (id)initWithAnswer:(double)answer {
     if (self = [super init]) {
-        printf("objc: [M1 initWithAnswer: %lf]\n", answer);
         self.answer = answer;
     }
 
