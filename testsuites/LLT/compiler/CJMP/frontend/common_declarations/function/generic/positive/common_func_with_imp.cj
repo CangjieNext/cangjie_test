@@ -1,0 +1,39 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+
+// SEPARATE-FILE: c/c.cj
+// EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
+package cmp
+
+common func goo<T>(x:T):T{return x}
+common func koo<T>(x:T):T
+common func zoo<T>(x:T):T{return x}
+
+
+// SEPARATE-FILE: p/p.cj
+// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output 
+// (CJNATIVE and Linux)RUN-EXEC-PIPE-0: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
+// (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
+// (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
+package cmp
+platform func goo<T>(x:T):T{ println("platform");return x}
+platform func koo<T>(x:T):T {println("platform");return x}
+
+main(){
+    println(goo<Int64>(2))
+    println(koo<String>("a"))
+    println(zoo<String>("x"))
+
+}
+
+/* SCAN
+platform
+2
+platform
+a
+x
+*/
