@@ -20,7 +20,7 @@ common class A1 {
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
-// ASSERT: scan-3 parse_cjmp_generic_decl
+// ASSERT: scan-3 sema_not_matched
 package cmp
 
 platform func foo<T>(): Unit{}
