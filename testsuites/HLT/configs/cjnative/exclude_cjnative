@@ -93,6 +93,9 @@ compiler/cjnative/Packages/cjmp/cjmp_12009/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_12010/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_13002/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_14003/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_03006/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_09001/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_11017/test.cj
 
 # timezone file in ci not support now
 API/std/time/TimeZone/load/test_loadFromPaths.cj

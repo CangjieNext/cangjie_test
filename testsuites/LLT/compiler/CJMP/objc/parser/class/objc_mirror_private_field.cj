@@ -13,11 +13,11 @@ class M {
 
 /* SCAN-IN
 error: @ObjCMirror declaration cannot have private member
- ==> objc_mirror_private_field.cj:5:5:
-  | 
-5 |     private let x: Int64
-  |     ^^^^^^^^^^^^^^^^^^^^ 
-  | 
+  ==> objc_mirror_private_field.cj:11:5:
+   | 
+11 |     private let x: Int64
+   |     ^^^^^^^^^^^^^^^^^^^^ 
+   | 
 
 1 error generated, 1 error printed.
 */
