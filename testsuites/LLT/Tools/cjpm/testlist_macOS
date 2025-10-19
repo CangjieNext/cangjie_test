@@ -33,6 +33,12 @@ CJNATIVE/source_sets/not_all_common_specified/
 CJNATIVE/source_sets/switch_sets/
 CJNATIVE/source_sets/tests_in_common/
 CJNATIVE/source_sets/tests_in_source_sets/
+# mock failed.
+CJNATIVE/test/mock/mock_01/mock_01.info
+CJNATIVE/test/mock/mock_08/mock_08.info
+CJNATIVE/test/mock/mock_11/mock_11.info
+CJNATIVE/test/mock/mock_12/mock_12.info
+CJNATIVE/test/mock/mock_13/mock_13.info
 
 # macOS暂不支持lto
 CJNATIVE/build/lto

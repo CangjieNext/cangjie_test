@@ -18,9 +18,9 @@ class M {
 
 /* SCAN-IN
 error: param type of Objective-C mirror constructor must be Objective-C compatible
-  ==> objc_mirror_ctor_type_mismatch.cj:10:9:
+  ==> objc_mirror_ctor_type_mismatch.cj:16:9:
    | 
-10 |    init(a: Foo)
+16 |    init(a: Foo)
    |         ^^^^^^ 
    | 
 

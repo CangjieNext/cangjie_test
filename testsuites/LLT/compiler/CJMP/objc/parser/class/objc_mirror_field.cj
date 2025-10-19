@@ -6,13 +6,23 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-0: %frontendCompiler %dump-parse %cmp_opt %f -o %output %compile_shared_lib_opt
 
+// ASSERT: scan-not error
+
 import interoplib.objc.*
 
 @ObjCMirror
-class M {
+open class M {
+    init()
+    // primitive
     public let x: Int64
     public var xm: Int64
-
+    // mirror
     public let y: M
     public var ym: M
+    // impl
+    public let a: A
+    public var am: A
 }
+
+@ObjCImpl
+class A <: M {}
