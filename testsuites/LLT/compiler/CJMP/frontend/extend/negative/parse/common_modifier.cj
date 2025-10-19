@@ -14,12 +14,12 @@ common class Foo{ }
 common extend Foo {
    common public func f1():Unit {}
    common func f2():Unit {}
-   common private func f3():Unit {}
+   common protected func f3():Unit {}
    common protected func f4():Unit {f3()}
 
    common static public func s1():Unit {}
    common static func s2():Unit {}
-   common static private func s3():Unit {}
+   common static protected func s3():Unit {}
    common static protected func s4():Unit {s3()}
 }
 
@@ -35,12 +35,12 @@ platform class Foo{ }
 platform extend Foo {
    platform public func f1():Unit {}
    platform func f2():Unit {}
-   platform private func f3():Unit {}
+   platform protected func f3():Unit {}
    platform protected func f4():Unit {f3()}
 
    platform static public func s1():Unit {}
    platform static func s2():Unit {}
-   platform static private func s3():Unit {}
+   platform static protected func s3():Unit {}
    platform static protected func s4():Unit {s3()}
 }
 
