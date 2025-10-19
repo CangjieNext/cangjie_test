@@ -6,7 +6,7 @@
 
 // SEPARATE-FILE: c/c.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
-// ASSERT: scan error: declaration 'common' extend 'Foo' has a conflicting private property 'f'
+// ASSERT: scan error: 'common' and 'private' modifier conflict on property 'f' declaration
 package cmp
 
 class Foo {}

@@ -21,8 +21,6 @@ public open class B {
 
 public func foo(x: Any): Any { x }
 
-public func fooGeneric<T>(x: T): Any { x }
-
 public func leakVarInit() {
     let a: Any = A()
 }
@@ -45,11 +43,6 @@ public func leakArg(): Unit {
     let a = A()
     let b = 10
     foo(a)
-}
-
-public func leakArgGeneric(): Unit {
-    let a = A()
-    fooGeneric(a)
 }
 
 public func leakLca() {
@@ -87,55 +80,55 @@ public func implicitCastInLambda() {
 
 /* SCAN-IN
 error: Illegal type cast from Java type 'A' to non Java type 'Any'
-  ==> type_casts.cj:27:5:
+  ==> type_casts.cj:25:5:
    | 
-27 |     let a: Any = A()
+25 |     let a: Any = A()
    |     ^^^^^^^^^^^^^^^^ 
    | 
 
 error: Illegal type cast from Java type 'A' to non Java type 'Any'
-  ==> type_casts.cj:33:14:
+  ==> type_casts.cj:31:14:
    | 
-33 |         case a : Any => ()
+31 |         case a : Any => ()
    |              ^ 
    | 
 
 error: Illegal type cast from Java type 'A' to non Java type 'Any'
-  ==> type_casts.cj:41:16:
+  ==> type_casts.cj:39:16:
    | 
-41 |     let x = (a as Any).getOrThrow()
+39 |     let x = (a as Any).getOrThrow()
    |                ^ 
    | 
 
 error: Illegal type cast from Java type 'A' to non Java type 'Any'
-  ==> type_casts.cj:47:5:
+  ==> type_casts.cj:45:5:
    | 
-47 |     foo(a)
+45 |     foo(a)
    |     ^^^^^^ 
    | 
 
 error: Illegal type cast from Java type 'A' to non Java type 'Any'
-  ==> type_casts.cj:56:13:
+  ==> type_casts.cj:49:13:
    | 
-56 |       let x = if (true) {
+49 |       let x = if (true) {
    |  _____________^
-57 | |         A()
+50 | |         A()
    | | ...
-61 | |     }
+54 | |     }
    | |_____^
    | 
 
 error: Illegal type cast from Java type 'A' to non Java type 'Any'
-  ==> type_casts.cj:66:19:
+  ==> type_casts.cj:59:19:
    | 
-66 |         case 0 => A()
+59 |         case 0 => A()
    |                   ^^^ 
    | 
 
 error: Illegal type cast from Java type 'A' to non Java type 'Any'
-  ==> type_casts.cj:84:9:
+  ==> type_casts.cj:77:9:
    | 
-84 |         let x: Any = A()
+77 |         let x: Any = A()
    |         ^^^^^^^^^^^^^^^^ 
    | 
 

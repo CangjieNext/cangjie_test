@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// (CJNATIVE and not Windows) Description:
+// (CJNATIVE and not Windows) DEPENDENCE: CangjieStruct.cj Main.java
+// (CJNATIVE and not Windows) EXEC: %compiler %compile_shared_lib_opt %import_java_interop %enable_java_cjmapping CangjieStruct.cj --output-javagen-dir=.
+// (CJNATIVE and not Windows) EXEC: %javac %cp_cj_loader_java_interop Main.java CangjieStruct.java AnotherCangjieStruct.java AnotherCangjieClass.java -h . -d .
+// (CJNATIVE and not Windows) EXEC-PIPE: %java %cp_cj_loader_java_interop -Djava.library.path=. java_entry/Main 2>&1 | compare %f
+//  ASSERT: scan result = true
