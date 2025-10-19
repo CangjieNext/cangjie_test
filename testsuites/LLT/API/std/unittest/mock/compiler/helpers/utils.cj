@@ -9,8 +9,11 @@ package std.mock_test_util
 
 import std.collection.*
 import std.unittest.mock.internal.*
-public import std.unittest.mock.internal.{createMock, createSpy, HasDefaultValueForStub, CallHandler, Mocked, 
-    NoDefaultValueForMockException, IllegalMockCallException, MockReturnValueTypeMismatchException}
+
+public import std.unittest.mock.internal.{
+    createMock, createSpy, HasDefaultValueForStub, CallHandler, Mocked,
+    NoDefaultValueForMockException, IllegalMockCallException, MockReturnValueTypeMismatchException
+}
 
 public class NoMockMatchersFoundException <: Exception {
     public init(message: String) {
@@ -38,15 +41,15 @@ class DummyCallHandler <: CallHandler {
     private var shouldBeSpy = false
     private var shouldReturnDefault = false
 
-    public static redef func recordStatic(callHandler: CallHandler) {
+    public redef static func recordStatic(callHandler: CallHandler) {
         CallHandler.recordStatic(callHandler)
     }
 
-    public static redef func clearStatic() {
+    public redef static func clearStatic() {
         CallHandler.clearStatic()
     }
 
-    public static redef func currentStatic() {
+    public redef static func currentStatic() {
         CallHandler.currentStatic()
     }
 
@@ -95,21 +98,9 @@ class DummyCallHandler <: CallHandler {
         }
         println(")")
 
-        let hasImplementation = if (call.funcInfo.hasImplementation) {
-            "NA"
-        } else {
-            "A"
-        }
-        let isReturnTypeDefaultible = if (call.funcInfo.hasDefaultValue) {
-            "D"
-        } else {
-            "ND"
-        }
-        let isAccessible = if (call.funcInfo.isAccessible) {
-            "AC"
-        } else {
-            "NAC"
-        }
+        let hasImplementation = if (call.funcInfo.hasImplementation) { "NA" } else { "A" }
+        let isReturnTypeDefaultible = if (call.funcInfo.hasDefaultValue) { "D" } else { "ND" }
+        let isAccessible = if (call.funcInfo.isAccessible) { "AC" } else { "NAC" }
         let returnTypeName = call.funcInfo.returnTypeName
         let location = "${call.funcInfo.location[0]}:${call.funcInfo.location[1]}:${call.funcInfo.location[2]}"
 
@@ -147,16 +138,8 @@ class DummyCallHandler <: CallHandler {
         print("(")
 
         for ((i, param) in call.funcInfo.params |> enumerate) {
-            let namedOrPositional = if (param.isNamed) {
-                "N"
-            } else {
-                "P"
-            }
-            let hasDefaultValue = if (param.hasDefaultValue) {
-                "D"
-            } else {
-                "ND"
-            }
+            let namedOrPositional = if (param.isNamed) { "N" } else { "P" }
+            let hasDefaultValue = if (param.hasDefaultValue) { "D" } else { "ND" }
             print("${param.name}[${param.position}, ${namedOrPositional}, ${hasDefaultValue}]")
             if (i != call.funcInfo.params.size - 1) {
                 print(", ")
@@ -169,39 +152,36 @@ class DummyCallHandler <: CallHandler {
             case None => "NA"
         }
 
-        println(
-            ")[${hasImplementation}, ${isReturnTypeDefaultible}, ${isAccessible}, ${setterPresenseDescription}, ${location}]: ${returnTypeName}")
+        println(")[${hasImplementation}, ${isReturnTypeDefaultible}, ${isAccessible}, ${setterPresenseDescription}, ${location}]: ${returnTypeName}")
 
-        println(
-            "Declared function name: ${call.funcInfo.id.shortName} -> ${getBackendIndependentMangledName(call.funcInfo.id.mangledName)}")
+        println("Declared function name: ${call.funcInfo.id.shortName} -> ${getBackendIndependentMangledName(call.funcInfo.id.mangledName)}")
         match (call.funcInfo.outerDeclId) {
             case Some(outerDeclId) =>
                 print("Outer decl name: ${outerDeclId.shortName}")
-                match (call.receiver) {
-                    case Some(r) =>
-                        if (r[1].size > 0) {
-                            print("<")
-                            for ((i, receiverTypeArg) in r[1] |> enumerate) {
-                                print(receiverTypeArg)
-                                if (i != r[1].size - 1) {
-                                    print(", ")
-                                }
+                match(call.receiver) {
+                    case Some(r) => if (r[1].size > 0) {
+                        print("<")
+                        for ((i, receiverTypeArg) in r[1] |> enumerate) {
+                            print(receiverTypeArg)
+                            if (i != r[1].size - 1) {
+                                print(", ")
                             }
-                            print(">")
-                        } else {
-                            ()
                         }
+                        print(">")
+                    } else { () }
                     case _ => ()
                 }
                 println(" -> ${getBackendIndependentMangledName(outerDeclId.mangledName)}")
-            case _ => println("Top-level declaration")
+            case _ =>
+                println("Top-level declaration")
         }
 
-        match (call.receiver) {
-            case Some(receiver) => match (receiver[0]) {
-                case x: ToString => println("Receiver: ${x}")
-                case _ => println("Receiver: [doesn't implement ToString]")
-            }
+        match(call.receiver) {
+            case Some(receiver) =>
+                match(receiver[0]) {
+                    case x: ToString => println("Receiver: ${x}")
+                    case _ => println("Receiver: [doesn't implement ToString]")
+                }
             case _ => println("No receiver (top-level declaration)")
         }
 
@@ -224,8 +204,8 @@ class DummyCallHandler <: CallHandler {
             printCallInfo(call)
             return OnCall.ReturnDefault
         }
-        let throwNoMatchers = {
-            => OnCall.Throw(NoMockMatchersFoundException("There are no any matchers for method ${mangledName}"))
+        let throwNoMatchers = { =>
+            OnCall.Throw(NoMockMatchersFoundException("There are no any matchers for method ${mangledName}"))
         }
         let m = matchers ?? return throwNoMatchers()
         if (!m.contains(mangledName)) {
@@ -250,43 +230,34 @@ class DummyCallHandler <: CallHandler {
         m.clear()
     }
 
-    public func requireMockObject<T>(obj: T): T {
-        if (obj is Mocked) {
-            return obj
-        } else {
-            throw NotAMockObjectException("Receiver of the function to stub is not a mock object")
-        }
+    public func throwNotAMockObject(): Nothing {
+        throw NotAMockObjectException("Receiver of the function to stub is not a mock object")
     }
 }
 
 public let dummyMockingCallHandler: CallHandler = DummyCallHandler()
 
 public func addMatcher(rawFuncId: String, args: Array<Any>, returnValue: Any) {
-    let mockingSupport = dummyMockingCallHandler as DummyCallHandler ?? throw Exception(
-        "Mocking support should be `DummyCallHandler`");;
+    let mockingSupport = dummyMockingCallHandler as DummyCallHandler ?? throw Exception("Mocking support should be `DummyCallHandler`");
     mockingSupport.addMatcher(rawFuncId, args, returnValue)
 }
 
 public func clearMatchers(): Unit {
-    let mockingSupport = dummyMockingCallHandler as DummyCallHandler ?? throw Exception(
-        "Mocking support should be `DummyCallHandler`");;
+    let mockingSupport = dummyMockingCallHandler as DummyCallHandler ?? throw Exception("Mocking support should be `DummyCallHandler`");
     mockingSupport.clearMatchers()
 }
 
 public func setReturnZero() {
-    let mockingSupport = dummyMockingCallHandler as DummyCallHandler ?? throw Exception(
-        "Mocking support should be `DummyCallHandler`");;
+    let mockingSupport = dummyMockingCallHandler as DummyCallHandler ?? throw Exception("Mocking support should be `DummyCallHandler`");
     mockingSupport.setReturnZero()
 }
 
 public func setSpyMode() {
-    let mockingSupport = dummyMockingCallHandler as DummyCallHandler ?? throw Exception(
-        "Mocking support should be `DummyCallHandler`");;
+    let mockingSupport = dummyMockingCallHandler as DummyCallHandler ?? throw Exception("Mocking support should be `DummyCallHandler`");
     mockingSupport.setSpyMode()
 }
 
 public func setReturnDefaultMode() {
-    let mockingSupport = dummyMockingCallHandler as DummyCallHandler ?? throw Exception(
-        "Mocking support should be `DummyCallHandler`");;
+    let mockingSupport = dummyMockingCallHandler as DummyCallHandler ?? throw Exception("Mocking support should be `DummyCallHandler`");
     mockingSupport.setReturnDefaultMode()
 }
