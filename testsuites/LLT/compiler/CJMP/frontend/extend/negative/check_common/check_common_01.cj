@@ -12,9 +12,9 @@ package example.cmp
 class Foo {}
 
 common extend Foo {
-    common private func foo():Int64 { return 0 }
+    private func foo():Int64 { return 0 }
 }
 
 common extend Foo {
-    common private func foo():Int64 { return 1 }
+    private func foo():Int64 { return 1 }
 }
