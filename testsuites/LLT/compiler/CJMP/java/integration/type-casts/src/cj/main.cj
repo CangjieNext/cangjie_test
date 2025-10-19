@@ -59,7 +59,6 @@ public class CjBaseDer <: JBase {
 }
 
 func tf(b: Bool) { if (b) { "T" } else { "F" } }
-func tfo<T>(opt: Option<T>) { tf(opt.isSome()) }
 
 func isJBase(o: JBase): String { tf(o is JBase) }
 func isJDer(o: JBase): String { tf(o is JDer) }
@@ -71,15 +70,15 @@ func isAnyJDer(o: Any): String { tf(o is JDer) }
 func isAnyCjDer(o: Any): String { tf(o is CjDer)}
 func isAnyCjBaseDer(o: Any): String { tf(o is CjBaseDer)}
 
-func asJBase(o: JBase): String { tfo(o as JBase) }
-func asJDer(o: JBase): String { tfo(o as JDer) }
-func asCjDer(o: JBase): String { tfo(o as CjDer)}
-func asCjBaseDer(o: JBase): String { tfo(o as CjBaseDer)}
+func asJBase(o: JBase): String { tf((o as JBase).isSome()) }
+func asJDer(o: JBase): String { tf((o as JDer).isSome()) }
+func asCjDer(o: JBase): String { tf((o as CjDer).isSome()) }
+func asCjBaseDer(o: JBase): String { tf((o as CjBaseDer).isSome()) }
 
-func asAnyJBase(o: Any): String { tfo(o as JBase) }
-func asAnyJDer(o: Any): String { tfo(o as JDer) }
-func asAnyCjDer(o: Any): String { tfo(o as CjDer)}
-func asAnyCjBaseDer(o: Any): String { tfo(o as CjBaseDer)}
+func asAnyJBase(o: Any): String { tf((o as JBase).isSome()) }
+func asAnyJDer(o: Any): String { tf((o as JDer).isSome()) }
+func asAnyCjDer(o: Any): String { tf((o as CjDer).isSome()) }
+func asAnyCjBaseDer(o: Any): String { tf((o as CjBaseDer).isSome()) }
 
 @JavaMirror["com.java.lib.Exe"]
 public open class Exe {
