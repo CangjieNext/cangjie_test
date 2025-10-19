@@ -12,7 +12,7 @@ class Foo {}
 
 common extend Foo{
     private func bar():Unit {}
-    common private func foo():Unit {}
+    common protected func foo():Unit {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -23,5 +23,5 @@ package cmp
 
 platform extend Foo{
     platform private func bar():Unit {}
-    platform private func foo():Unit {}
+    platform protected func foo():Unit {}
 }
