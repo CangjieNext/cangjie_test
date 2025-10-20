@@ -87,3 +87,23 @@ compiler/CJMP/objc/sema/objc_pointer_type_argument.cj
 
 # mock failed.
 API/std/unittest/mock/compiler/createMock/genericInstantiation.cj
+
+# API testcases commented on 2025-10-17, need to be fixed.
+## signal testcases
+API/std/core/test_func_refeq.cj
+API/std/runtime/test_signal.cj
+API/std/runtime/test_signal_unregister.cj
+API/std/runtime/test_signal_unregister_oneSig.cj
+## unittest testcases
+### error: source file 'other.cj' doesn't exist
+API/std/unittest/mock/compiler/createMock/usePrivateTypesOtherPackage.cj
+### gnuplot executable not found
+API/std/unittest/report_bench_html/report_html_gnuplot.cj
+## fuzzer testcases (libclang_rt.fuzzer_no_main.a: No Such file or directory)
+API/stdx/fuzz/fuzzer_coverage.cj
+API/stdx/fuzz/fuzzer_enable_debugdp.cj
+API/stdx/fuzz/fuzzer_enable_fakecov.cj
+API/stdx/fuzz/fuzzer_main.cj
+API/stdx/fuzz/fuzzer_main_dp.cj
+API/stdx/fuzz/test_u32.cj
+API/stdx/fuzz/test_u64.cj

@@ -37,7 +37,7 @@ CJNATIVE/source_sets/tests_in_source_sets/
 # macOS暂不支持lto
 CJNATIVE/build/lto
 CJNATIVE/test/lto
-
+CJNATIVE/build/lto_combine
 # macOS本次不支持安全编译选项
 CJNATIVE/build/safe_compile/safe_compile_02
 CJNATIVE/build/safe_compile/safe_compile_03
