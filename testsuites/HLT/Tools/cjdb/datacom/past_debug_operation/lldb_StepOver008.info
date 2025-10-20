@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 023_debug_stop,023_debug_stop
-b,b 6,023_debug_stop.cj:6
-AOT r,r,-> 6
+b,b 14,023_debug_stop.cj:14
+AOT r,r,-> 14
 CJVM c,c,
-n,n,-> 7
+n,n,-> 15
 q,q,

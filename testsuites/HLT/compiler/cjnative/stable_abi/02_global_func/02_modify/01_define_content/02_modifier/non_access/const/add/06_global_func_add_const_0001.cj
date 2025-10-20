@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 2.2.1.2.6
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global func
   @Behavior: modifier: add const
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -34,19 +34,7 @@ package test_stable_abi
 // test global func: modify non access modifier: const
 // global func: public global func
 // modify operation: add const
-func global_func_01() {
-    0
-}
-
-func global_func_02() {
-    0
-}
-
-public const func global_func_03() {
-    0
-}
-
-@Frozen
-public func global_func_04() {
-    global_func_02()
-}
+func global_func_01() { 0 }
+func global_func_02() { 0 }
+public const func global_func_03() { 0 }
+@Frozen public func global_func_04() { global_func_02() }

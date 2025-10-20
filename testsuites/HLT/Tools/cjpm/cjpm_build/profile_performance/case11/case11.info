@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n/pro1 && %cjpm build
-// EXEC: cd %n && %cjpm build && %ls target/release/performance_analysis | compare %f
-// ASSERT: scan case11.time.prof
-// ASSERT: scan case11.mem.prof
-// ASSERT: scan case11.info.prof
+// (not Windows) EXEC: cd %n/pro1 && %cjpm build
+// (not Windows) EXEC: cd %n && %cjpm build && %ls target/release/performance_analysis | compare %f
+// (not Windows) ASSERT: scan case11.time.prof
+// (not Windows) ASSERT: scan case11.mem.prof
+// (not Windows) ASSERT: scan case11.info.prof

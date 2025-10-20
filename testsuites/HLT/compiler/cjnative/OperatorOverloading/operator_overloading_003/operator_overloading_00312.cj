@@ -60,6 +60,7 @@ struct R {
         return 262144
     }
     //    operator func ^^(b:R):Int32{
+    //        return 524288
     //    }
 
 }
@@ -115,6 +116,7 @@ class D {
         return 262144
     }
     //    operator func ^^(b:D):Int32{
+    //        return 524288
     //    }
 
 }
@@ -170,6 +172,7 @@ interface I {
         return 262144
     }
     //    operator func ^^(b:I):Int32{
+    //        return 524288
     //    }
 
 }

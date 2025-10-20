@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func001,generics_global_func001
-breakpoint,breakpoint set -f generics_global_func001.cj -l 15 -c 'a4==4',generics_global_func001.cj:15
-AOT r,r,-> 15
+breakpoint,breakpoint set -f generics_global_func001.cj -l 23 -c 'a4==4',generics_global_func001.cj:23
+AOT r,r,-> 23
 CJVM c,c,
 locals,locals,\(Int64\) a4 = 4
 p,p a1,\(Int8\) \$[\d] = 1

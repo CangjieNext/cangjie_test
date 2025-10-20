@@ -39,6 +39,7 @@ public class Test_URL {
         // rawUserInfo
         var rawUserInfo2 = url2.rawUserInfo.toString()
         @Expect(rawUserInfo2, expect)
+        // replace()
         var url10 = url2.replace(scheme: "testScheme", userInfo: "testUserInfo", hostName: "testHostName", port: "999",
             path: "/testPath", query: "?testQuery", fragment: "testFragment")
         @Expect(url10.scheme, "testscheme")
@@ -66,6 +67,7 @@ public class Test_URL {
         // rawUserInfo
         var rawUserInfo1 = url2.rawUserInfo.toString()
         @Expect(rawUserInfo1, "abc")
+        // replace()
         var url10 = url2.replace(scheme: "http", userInfo: "testUser1:testpsswd1", hostName: "testUser2", port: "88888",
             path: "/next/#/detail?uuid=867181847298789376", query: "key=987", fragment: "testfragment1")
         @Expect(url10.scheme, "http")
@@ -94,6 +96,7 @@ public class Test_URL {
         var rawUserInfo1 = url.rawUserInfo.toString()
         @Expect(rawUserInfo1, "")
         var url2 = URL.parse(str)
+        // replace()
         var url10 = url2.replace(scheme: "", userInfo: ":testpsswd1", hostName: "", port: "", path: "", query: "",
             fragment: "")
         @Expect(url10.scheme, "")

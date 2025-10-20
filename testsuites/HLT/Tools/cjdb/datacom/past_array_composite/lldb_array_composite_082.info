@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors array_external_use,array_external_use
-b,b 11,array_external_use.cj:11
-AOT r,r,-> 11
+b,b 19,array_external_use.cj:19
+AOT r,r,-> 19
 CJVM c,c,
-n,n,-> 13
+n,n,-> 21
 print,print arraymainrec02,std[.]core.Array<Int8>\) \$[\d] = {(\r\n|\r|\n)  \[0\] = 1(\r\n|\r|\n)  \[1\] = 2(\r\n|\r|\n)  \[2\] = 3(\r\n|\r|\n)}
 q,q,

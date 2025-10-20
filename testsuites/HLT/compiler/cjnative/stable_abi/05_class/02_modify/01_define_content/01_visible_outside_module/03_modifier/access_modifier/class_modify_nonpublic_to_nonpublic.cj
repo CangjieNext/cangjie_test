@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.3
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class
   @Behavior: class modifier nonpublic to nonpublic
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -34,11 +34,7 @@ package test_stable_abi
 // test class: access modifier
 
 public class A {}
-
 private class B {}
-
 internal class C {}
-
 class D {}
-
 protected class E {}

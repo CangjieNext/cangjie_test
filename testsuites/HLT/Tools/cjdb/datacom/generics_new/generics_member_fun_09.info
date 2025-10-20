@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 115,Breakpoint 1:
-AOT r,r,-> 115
+b,b 123,Breakpoint 1:
+AOT r,r,-> 123
 CJVM c,c,
 p, p a,\(std.core.String\) \$[\d] = "cangjie"
 p, p a1,\(std.core.String\) \$[\d] = "cangjie"

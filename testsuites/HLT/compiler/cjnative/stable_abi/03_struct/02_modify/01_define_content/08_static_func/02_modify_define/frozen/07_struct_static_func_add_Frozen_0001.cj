@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.8.2.7
   @Scene: add
@@ -13,8 +13,8 @@
   @Object: struct static func
   @Behavior: add @Frozen
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -37,8 +37,7 @@ public struct Rectangle {
     let width = 10
     static let a1 = 20
 
-    @Frozen
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
@@ -62,4 +61,24 @@ public struct Rectangle {
         let c = getc()
         return c
     }
+
+   static func gete(): Int64 {
+        return 0
+    }
+
+     @Frozen
+    static func getf() {
+        let c = gete()
+        return c
+    }
+
+    static func getg() {
+        return 0
+    }
+
+    @Frozen
+    public static func geth() {
+        return 0
+    }
 }
+

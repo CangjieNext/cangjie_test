@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_string,001_debug_array_string
-b,b 37,001_debug_array_string.cj:37
-AOT r,r,-> 37
+b,b 45,001_debug_array_string.cj:45
+AOT r,r,-> 45
 CJVM c,c,
 print,print arrayMainString01[0],\(std[.]core.String\) \$[\d] = "string_test_001"
 q,q,

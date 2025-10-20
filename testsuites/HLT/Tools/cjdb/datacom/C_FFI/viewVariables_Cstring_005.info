@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_005,viewVariables_Cstring_005
-b,b 61,Test_CString.cj:61
-AOT r,r,-> 61
+b,b 69,Test_CString.cj:69
+AOT r,r,-> 69
 CJVM c,c,
 p, p str_4,\(CString\) \$[\d] = "a\\"bc"
 p, p str_1,\(CString\) \$[\d] = "a\\"bc"

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.9.2.8
   @Scene: delete
@@ -13,8 +13,8 @@
   @Object: struct static prop
   @Behavior: delete @Frozen
   @Expect: api compatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -39,12 +39,12 @@ public struct Rectangle {
     let width = 10
     static var a = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
     @Frozen
-    public mut static prop geta: Int64 {
+    public static mut prop geta: Int64 {
         get() {
             println("get")
             a
@@ -55,7 +55,7 @@ public struct Rectangle {
         }
     }
 
-    mut static prop getb: Int64 {
+    static mut prop getb: Int64 {
         get() {
             println("get")
             a
@@ -67,7 +67,7 @@ public struct Rectangle {
     }
 }
 
-public struct S1 {
+public struct S1{
     static var a = 20
     public static prop getb: Int64 {
         get() {
@@ -76,7 +76,7 @@ public struct S1 {
     }
 
     @Frozen
-    mut static prop geta: Int64 {
+    static mut prop geta: Int64 {
         get() {
             a
         }
@@ -84,9 +84,8 @@ public struct S1 {
             a = value
         }
     }
-
     @Frozen
-    public func getgeta() {
+    public func getgeta(){
         return geta
     }
 }

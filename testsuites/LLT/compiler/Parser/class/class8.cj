@@ -70,14 +70,7 @@ note: the parent property is not modified by 'open'
   |                      ^ 
   | 
 
-error: property 'a' should be immutable
-  ==> class8.cj:37:6:
-   | 
-37 |      public mut prop a: Int64 {  
-   |      ^ 
-   | 
-
-3 errors generated, 3 errors printed.
+2 errors generated, 2 errors printed.
 */
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

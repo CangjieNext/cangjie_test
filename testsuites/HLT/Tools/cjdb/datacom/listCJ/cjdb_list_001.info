@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 100,list_debug.cj:100
-AOT r,r,-> 100
+b,b 108,list_debug.cj:108
+AOT r,r,-> 108
 CJVM c,c,
 p,p m_empty,\(std[.]core.Array<Int64>\) \$[\d] = {[\s\S]*}
 q,quit,

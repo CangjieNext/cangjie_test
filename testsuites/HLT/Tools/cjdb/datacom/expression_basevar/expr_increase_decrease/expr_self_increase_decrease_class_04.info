@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 36,expr_class.cj:36
-CJVM c,c,-> 36
-AOT r,r,-> 36
+b,b 44,expr_class.cj:44
+CJVM c,c,-> 44
+AOT r,r,-> 44
 expr,expr lUInt8++;lUInt8,\(UInt8\) \$[\d] = 9
 expr,expr lUInt16++;lUInt16,\(UInt16\) \$[\d] = 17
 expr,expr lUInt32++;lUInt32,\(UInt32\) \$[\d] = 33

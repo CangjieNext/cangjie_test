@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors watchpoint_external_invoke,watchpoint_external_invoke
-b ,b 22,watchpoint_external_invoke.cj:22
-r , r,-> 22
-watchpoint,watchpoint set variable -w read_write mian_p,watchpoint_external_invoke.cj:22
-n,n,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 23[\s\S]*
+b ,b 30,watchpoint_external_invoke.cj:30
+r , r,-> 30
+watchpoint,watchpoint set variable -w read_write mian_p,watchpoint_external_invoke.cj:30
+n,n,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 31[\s\S]*
 q,q,

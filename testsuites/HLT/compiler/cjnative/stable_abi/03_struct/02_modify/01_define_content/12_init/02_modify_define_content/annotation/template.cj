@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -18,16 +18,10 @@ public class A {
 }
 
 public struct S {
-    public var a: Int64 = 1
-    public init() {
-        a = 0
-    }
-    @A["init2"]
-    public init(a1: Int64) {
-        a = a1
-    }
-    @A["init3"]
-    public init(a1: Int64, a2: Int64) {
-        a = a1 + a2
-    }
+    public var a = 1
+    public init() { a = 0 }
+    @A["init2"] public init(a1: Int64) { a = a1 }
+    @A["init3"] public init(a1: Int64, a2: Int64) { a = a1 + a2 }
 }
+
+

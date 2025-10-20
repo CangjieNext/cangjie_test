@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_array_class,008_debug_array_class
-b,b 73,008_debug_array_class.cj:73
-AOT r,r,-> 73
+b,b 81,008_debug_array_class.cj:81
+AOT r,r,-> 81
 CJVM c,c,
-n,n,-> 75
+n,n,-> 83
 locals,locals,C2\) b_rec = {(\r|\n|\r\n)  width = 60(\r|\n|\r\n)  length = 400
 q,q,

@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case24,case24
-b,b 3,case24.cj:3
-AOT r,r,-> 3
+b,b 11,case24.cj:11
+AOT r,r,-> 11
 CJVM c,c,
 p,p i,\(Rune\) \$[\d] = 'a'
 AOT p,p v-compiler,error: unsupported expression

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
@@ -13,7 +13,7 @@ package test_stable_abi
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 
@@ -22,6 +22,7 @@ public enum Rectangle {
             println("get")
             1
         }
+        
     }
 
     static prop getb: Int64 {
@@ -29,10 +30,11 @@ public enum Rectangle {
             println("get")
             1
         }
+        
     }
 }
 
-public enum S1 {
+public enum S1{
     AB
 
     @Frozen
@@ -45,12 +47,14 @@ public enum S1 {
     @Frozen
     static prop getb: Int64 {
         get() {
-            0
+           0
         }
     }
 
     @Frozen
-    public func f1() {
+    public func f1(){
         getb
     }
 }
+
+

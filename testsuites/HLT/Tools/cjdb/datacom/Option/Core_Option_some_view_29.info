@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors Option_some_view_29,Option_some_view_29
-b,b 10,Option_some_view_29.cj:10
-AOT r,r,-> 10
-CJVM c,c,-> 10
+b,b 18,Option_some_view_29.cj:18
+AOT r,r,-> 18
+CJVM c,c,-> 18
 p,p op1,\(std.core.Option<default.Rectangle>\) \$[\d] = {[\s\S]*al = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}
 AOT globals,globals,\(std.core.Option<default.Rectangle>\) default::op1 = {[\s\S]*al = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}
 CJVM globals,globals,\(std.core.Option<default.Rectangle>\) default.op1 = {[\s\S]*al = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}

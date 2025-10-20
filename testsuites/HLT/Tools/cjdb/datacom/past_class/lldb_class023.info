@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_class_top_mod_open,002_debug_class_top_mod_open
-b,b 40,002_debug_class_top_mod_open.cj:40
-AOT r,r,-> 40
-CJVM c,c,-> 40
-n,n,-> 41
+b,b 48,002_debug_class_top_mod_open.cj:48
+AOT r,r,-> 48
+CJVM c,c,-> 48
+n,n,-> 49
 AOT print,print data2,default.C2\) \$[\d]+ = {(\r|\n|\r\n)  default.C1 = {(\r|\n|\r\n)    a1 = 1(\r|\n|\r\n)  }(\r|\n|\r\n)  a2 = 1
 CJVM print,print data2,default.C2\) \$[\d]+ = {(\r|\n|\r\n)  default.C1 = {(\r|\n|\r\n)    a1 = 1(\r|\n|\r\n)  }(\r|\n|\r\n)  a2 = 1
 print,print data2.a2,\(Int64\) \$[\d]+ = 1

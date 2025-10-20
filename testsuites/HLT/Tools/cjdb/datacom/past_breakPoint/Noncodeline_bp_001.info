@@ -15,11 +15,11 @@
 
 test#
 cjdb,cjdb --no-use-colors Noncodeline_bp_001,Noncodeline_bp_001
-CJVM b,b 7,Breakpoint 1: where = default.foo1[\s\S]*055_noncodeline_bp.cj:9
-CJVM b,b 9,Breakpoint 2: where = default.foo1[\s\S]*055_noncodeline_bp.cj:9
-CJVM b,b 23,Breakpoint 3: no code at [\s\S]*055_noncodeline_bp.cj:23
-CJVM b,b 055_noncodeline_bp_ext.cj:3,Breakpoint 4: no code at [\s\S]*055_noncodeline_bp_ext.cj:3
-CJVM b,b 055_noncodeline_bp_ext.cj:13,Breakpoint 5: no code at [\s\S]*055_noncodeline_bp_ext.cj:13
-CJVM c,c,-> 9
-CJVM c,c,-> 9
+CJVM b,b 15,Breakpoint 1: where = default.foo1[\s\S]*055_noncodeline_bp.cj:18
+CJVM b,b 18,Breakpoint 2: where = default.foo1[\s\S]*055_noncodeline_bp.cj:18
+CJVM b,b 31,Breakpoint 3: no code at [\s\S]*055_noncodeline_bp.cj:31
+CJVM b,b 055_noncodeline_bp_ext.cj:3,Breakpoint 4: no code at [\s\S]*055_noncodeline_bp_ext.cj:11
+CJVM b,b 055_noncodeline_bp_ext.cj:13,Breakpoint 5: no code at [\s\S]*055_noncodeline_bp_ext.cj:21
+CJVM c,c,-> 17
+CJVM c,c,-> 17
 q,q,

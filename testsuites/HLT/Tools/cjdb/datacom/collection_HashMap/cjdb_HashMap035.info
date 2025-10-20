@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashMap_Ins_composite,003_HashMap_Ins_composite
-b,b 43,003_HashMap_Ins_composite.cj:43
-AOT r,r,-> 43
-CJVM c,c,-> 43
+b,b 51,003_HashMap_Ins_composite.cj:51
+AOT r,r,-> 51
+CJVM c,c,-> 51
 p,p map_map_1,std[.]collection.HashMap<Int64,std[.]collection.HashMap<Float32,Float64>>\) \$[\d] = {[\S\s]*key = 2548[\S\s]*key = 12.1565[\S\s]*value = 1.7755[\S\s]*}
 q,q,

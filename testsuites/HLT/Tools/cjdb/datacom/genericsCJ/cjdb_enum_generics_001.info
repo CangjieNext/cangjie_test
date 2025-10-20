@@ -16,7 +16,7 @@
 
 test#
 cjdb,cjdb --no-use-colors debug_enum_generics,debug_enum_generics
-CJVM b main,b main,debug_enum_generics.cj:9
-CJVM c,c,-> 9
-b,b 5,debug_enum_generics.cj:5
+CJVM b main,b main,debug_enum_generics.cj:17
+CJVM c,c,-> 17
+b,b 13,debug_enum_generics.cj:13
 q,quit,

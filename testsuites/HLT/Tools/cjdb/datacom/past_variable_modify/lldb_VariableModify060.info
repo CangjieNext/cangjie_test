@@ -16,16 +16,16 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 136,024_debug_variable.cj:136
-AOT r,r,-> 136
-CJVM c,c,-> 136
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 144,024_debug_variable.cj:144
+AOT r,r,-> 144
+CJVM c,c,-> 144
 set,set var_samename = 10,10
 locals,locals,var_samename = 10
 p,p var_samename,\(Int64\) \$[\d] = 10
-finish,finish,-> 112
-n,n,-> 115
+finish,finish,-> 120
+n,n,-> 123
 locals,locals,var_samename = 50
 p,p var_samename,\(Int64\) \$[\d] = 50
 locals,locals,f_samename = 60

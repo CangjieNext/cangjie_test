@@ -9,7 +9,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-#include <securec.h>
+#include <stdlib.h>
 
 char* testfunc(char* input) {
     char* b = "World\n";
@@ -19,8 +19,8 @@ char* testfunc(char* input) {
     if (res == NULL) {
         return NULL;
     }
-    strcpy_s(res, resSize, input);
-    strcat_s(res, resSize, b);
+    strcpy(res, input);
+    strcat(res, b);
     return res;
 }
 

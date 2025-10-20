@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_via_inherit,002_debug_array_via_inherit
-b,b 12,002_debug_array_via_inherit.cj:12
-AOT r,r,-> 12
+b,b 20,002_debug_array_via_inherit.cj:20
+AOT r,r,-> 20
 CJVM c,c,
 p,p v_main_5[1],std[.]core.Array<Int32>\) \$[0-9]* = {[\s\S]*
 set,set v_main_5[1][2]=323,\(Int32\) \$[0-9]* = 323

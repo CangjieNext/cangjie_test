@@ -14,14 +14,14 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 273,Breakpoint 1:
-b,b 278,generics_var_extend.cj:278
-AOT r,r,-> 273
+b,b 281,Breakpoint 1:
+b,b 286,generics_var_extend.cj:286
+AOT r,r,-> 281
 CJVM c,c,
 p, p a,\(Rune\) \$[\d] = 'b'
 p, p a1,\(Rune\) \$[\d] = 'b'
 locals, locals,\(Rune\) a = 'b'[\s\S]*\(Rune\) a1 = 'b'
-c,c,-> 278
+c,c,-> 286
 p, p a,\(Float32\) \$[\d] = 32.3199997
 p, p a2,\(UInt32\) \$[\d] = 32
 locals, locals,\(Float32\) a = 32.3199997[\s\S]*\(UInt32\) b = 32[\s\S]*\(Float32\) a1 = 32.3199997[\s\S]*\(UInt32\) a2 = 32

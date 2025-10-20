@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors enum02,enum02
-b,b 9,enum02.cj:9
-AOT r,r,-> 9
+b,b 17,enum02.cj:17
+AOT r,r,-> 17
 CJVM c,c,
 p,p a3,\(default.E<Int64>\) \$[\d] = {[\s\S]*constructor = C[\s\S]*arg_1 = 1[\s\S]*}
 expr,expr a1,\(default.E<Int64>\) \$[\d] = {[\s\S]*constructor = A[\s\S]*}

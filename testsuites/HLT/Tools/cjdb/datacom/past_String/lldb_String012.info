@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 19,049_debug_string.cj:19
-AOT r,r,-> 19
+b,b 27,049_debug_string.cj:27
+AOT r,r,-> 27
 CJVM c,c,
-n,n,-> 20
+n,n,-> 28
 AOT locals,locals,\(std[.]core.String\) main_str11 = "This is a \\"#\\\\n"
 CJVM locals,locals,\(std[.]core.String\) main_str11 = "This is a "#\\n"
 q,q,

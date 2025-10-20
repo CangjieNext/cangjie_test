@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_class_top_mod,001_debug_class_top_mod
-b,b 41,001_debug_class_top_mod.cj:41
-AOT r,r,-> 41
-CJVM c,c,-> 41
-n,n,-> 42
+b,b 49,001_debug_class_top_mod.cj:49
+AOT r,r,-> 49
+CJVM c,c,-> 49
+n,n,-> 50
 globals,globals,sta_num = 0
 q,q,

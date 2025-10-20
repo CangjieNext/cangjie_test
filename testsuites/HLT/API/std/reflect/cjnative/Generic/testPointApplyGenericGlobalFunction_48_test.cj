@@ -24,10 +24,13 @@ class testPointApplyGenericGlobalFunction_48 {
     let packageInfo = PackageInfo.get("dependency")
     @TestCase
     func TestCase_671(): Unit {
+        // logger.info("testcase TestCase_671 begins.")
+        // logger.info("成功调用")
         packageInfo
             .getFunctions("globalFunction_236")[0i64]
             .apply([TypeInfo.of<UInt32>(), TypeInfo.of<UInt64>(), TypeInfo.of<Int32>()],
                 [GenericClassWith2TypeParameters<UInt8, UInt8>()])
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -36,6 +39,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -44,6 +48,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -53,6 +58,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -61,12 +67,14 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_236")[0i64].apply([TypeInfo.of<UInt64>(), TypeInfo.of<Int32>()], [])
             @Expect("assertion#16052: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -75,6 +83,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -83,6 +92,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -91,12 +101,14 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_236")[0i64].apply([TypeInfo.of<UInt64>(), TypeInfo.of<Int32>()], [])
             @Expect("assertion#16056: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -105,6 +117,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -113,6 +126,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -122,6 +136,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -131,6 +146,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -140,6 +156,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -149,6 +166,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型检查失败")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -157,6 +175,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -165,6 +184,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -173,6 +193,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_236")[0i64]
@@ -182,14 +203,18 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("testcase TestCase_671 ends.")
     }
 
     @TestCase
     func TestCase_672(): Unit {
+        // logger.info("testcase TestCase_672 begins.")
+        // logger.info("成功调用")
         packageInfo
             .getFunctions("globalFunction_237")[0i64]
             .apply([TypeInfo.of<Bool>(), TypeInfo.of<UInt16>(), TypeInfo.of<UInt8>()],
                 [GenericClassWith2TypeParameters<UInt16, UInt16>()])
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -199,6 +224,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -207,6 +233,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -216,6 +243,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -224,18 +252,21 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_237")[0i64].apply([TypeInfo.of<UInt16>(), TypeInfo.of<UInt8>()], [])
             @Expect("assertion#16071: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_237")[0i64].apply([TypeInfo.of<Bool>(), TypeInfo.of<UInt16>()], [])
             @Expect("assertion#16072: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -244,6 +275,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -252,18 +284,21 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_237")[0i64].apply([TypeInfo.of<UInt16>(), TypeInfo.of<UInt8>()], [])
             @Expect("assertion#16075: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_237")[0i64].apply([TypeInfo.of<Bool>(), TypeInfo.of<UInt16>()], [])
             @Expect("assertion#16076: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -272,6 +307,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -281,6 +317,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -290,6 +327,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -299,6 +337,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -308,6 +347,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型检查失败")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -316,6 +356,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -324,6 +365,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -332,6 +374,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_237")[0i64]
@@ -340,14 +383,18 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("testcase TestCase_672 ends.")
     }
 
     @TestCase
     func TestCase_673(): Unit {
+        // logger.info("testcase TestCase_673 begins.")
+        // logger.info("成功调用")
         packageInfo
             .getFunctions("globalFunction_238")[0i64]
             .apply([TypeInfo.of<Int64>(), TypeInfo.of<Unit>(), TypeInfo.of<Int8>()],
                 [GenericClassWith2TypeParameters<UInt32, UInt32>()])
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_238")[0i64]
@@ -356,6 +403,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_238")[0i64]
@@ -364,6 +412,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_238")[0i64]
@@ -373,6 +422,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_238")[0i64]
@@ -381,18 +431,21 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_238")[0i64].apply([TypeInfo.of<Unit>(), TypeInfo.of<Int8>()], [])
             @Expect("assertion#16090: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_238")[0i64].apply([TypeInfo.of<Int64>(), TypeInfo.of<Unit>()], [])
             @Expect("assertion#16091: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_238")[0i64]
@@ -401,6 +454,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_238")[0i64]
@@ -409,18 +463,21 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_238")[0i64].apply([TypeInfo.of<Unit>(), TypeInfo.of<Int8>()], [])
             @Expect("assertion#16094: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_238")[0i64].apply([TypeInfo.of<Int64>(), TypeInfo.of<Unit>()], [])
             @Expect("assertion#16095: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_238")[0i64]
@@ -429,6 +486,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_238")[0i64]
@@ -438,6 +496,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_238")[0i64]
@@ -447,6 +506,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_238")[0i64]
@@ -456,6 +516,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_238")[0i64]
@@ -465,6 +526,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型检查失败")
         try {
             packageInfo
                 .getFunctions("globalFunction_238")[0i64]
@@ -473,18 +535,21 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_238")[0i64].apply([TypeInfo.of<Unit>(), TypeInfo.of<Int8>()], [()])
             @Expect("assertion#16102: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_238")[0i64].apply([TypeInfo.of<Int64>(), TypeInfo.of<Unit>()], [()])
             @Expect("assertion#16103: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_238")[0i64]
@@ -493,14 +558,18 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("testcase TestCase_673 ends.")
     }
 
     @TestCase
     func TestCase_674(): Unit {
+        // logger.info("testcase TestCase_674 begins.")
+        // logger.info("成功调用")
         packageInfo
             .getFunctions("globalFunction_239")[0i64]
             .apply([TypeInfo.of<Bool>(), TypeInfo.of<Bool>(), TypeInfo.of<UInt8>()],
                 [GenericClassWith2TypeParameters<UInt64, UInt64>()])
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_239")[0i64]
@@ -509,6 +578,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_239")[0i64]
@@ -517,6 +587,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_239")[0i64]
@@ -526,6 +597,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_239")[0i64]
@@ -534,18 +606,21 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_239")[0i64].apply([TypeInfo.of<Bool>(), TypeInfo.of<UInt8>()], [])
             @Expect("assertion#16109: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_239")[0i64].apply([TypeInfo.of<Bool>(), TypeInfo.of<Bool>()], [])
             @Expect("assertion#16110: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_239")[0i64]
@@ -554,6 +629,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_239")[0i64]
@@ -562,18 +638,21 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_239")[0i64].apply([TypeInfo.of<Bool>(), TypeInfo.of<UInt8>()], [])
             @Expect("assertion#16113: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_239")[0i64].apply([TypeInfo.of<Bool>(), TypeInfo.of<Bool>()], [])
             @Expect("assertion#16114: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_239")[0i64]
@@ -582,6 +661,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_239")[0i64]
@@ -591,6 +671,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_239")[0i64]
@@ -600,6 +681,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_239")[0i64]
@@ -609,6 +691,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_239")[0i64]
@@ -618,6 +701,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型检查失败")
         try {
             packageInfo
                 .getFunctions("globalFunction_239")[0i64]
@@ -626,18 +710,21 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_239")[0i64].apply([TypeInfo.of<Bool>(), TypeInfo.of<UInt8>()], [()])
             @Expect("assertion#16121: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_239")[0i64].apply([TypeInfo.of<Bool>(), TypeInfo.of<Bool>()], [()])
             @Expect("assertion#16122: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_239")[0i64]
@@ -646,14 +733,18 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("testcase TestCase_674 ends.")
     }
 
     @TestCase
     func TestCase_675(): Unit {
+        // logger.info("testcase TestCase_675 begins.")
+        // logger.info("成功调用")
         packageInfo
             .getFunctions("globalFunction_240")[0i64]
             .apply([TypeInfo.of<Float32>(), TypeInfo.of<Int32>(), TypeInfo.of<Int8>()],
                 [GenericClassWith2TypeParameters<Float32, Float32>()])
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -663,6 +754,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -672,6 +764,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -681,6 +774,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -689,12 +783,14 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_240")[0i64].apply([TypeInfo.of<Int32>(), TypeInfo.of<Int8>()], [])
             @Expect("assertion#16128: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -703,6 +799,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -711,6 +808,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -719,12 +817,14 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_240")[0i64].apply([TypeInfo.of<Int32>(), TypeInfo.of<Int8>()], [])
             @Expect("assertion#16132: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -733,6 +833,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -741,6 +842,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("实参个数与形参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -750,6 +852,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -759,6 +862,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -768,6 +872,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -777,6 +882,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型检查失败")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -785,12 +891,14 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalTypeException) {
             @Expect(e.message, "The input parameter does not match the type of the input parameter required by the function.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo.getFunctions("globalFunction_240")[0i64].apply([TypeInfo.of<Int32>(), TypeInfo.of<Int8>()], [()])
             @Expect("assertion#16140: not throw", "类型形参个数与类型实参个数不等")
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -799,6 +907,7 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("类型形参个数与类型实参个数不等")
         try {
             packageInfo
                 .getFunctions("globalFunction_240")[0i64]
@@ -807,5 +916,6 @@ class testPointApplyGenericGlobalFunction_48 {
         } catch (e: IllegalArgumentException) {
             @Expect(e.message, "The input generic parameter item does not comply with the required quantity.")
         }
+        // logger.info("testcase TestCase_675 ends.")
     }
 }

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun,genericsfun
-b,b 26,genericsfun.cj:26
-AOT r,r,-> 26
+b,b 34,genericsfun.cj:34
+AOT r,r,-> 34
 CJVM c,c,
 p, p gengricsvar,\(Int8\) \$[\d] = 8
 p, p a,\(Int8\) \$[\d] = 8

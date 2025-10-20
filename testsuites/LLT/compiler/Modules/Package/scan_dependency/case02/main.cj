@@ -10,4 +10,4 @@
 // EXEC: %compiler %cmp_opt %pkg_opt --module-name=mod pkg %compile_lib_opt -o pkg.%middle
 // EXEC: %compiler %cmp_opt --scan-dependency pkg.cjo  2>&1 | compare %f
 
-// ASSERT: scan {"package":"pkg","isMacro":true,"accessLevel":"public","dependencies":[{"package":"mod1.pkg01","isStd":false,"imports":[{"file":"a.cj","begin":{"line":9,"column":1},"end":{"line":9,"column":29}}]},{"package":"mod2.pkg02","isStd":false,"imports":[{"file":"a.cj","begin":{"line":10,"column":1},"end":{"line":10,"column":29}}]}]}
+// ASSERT: scan {"package":"pkg","isMacro":true,"accessLevel":"public","dependencies":[{"package":"mod1.pkg01","isStd":false,"imports":[{"file":"a.cj","begin":{"line":9,"column":1},"end":{"line":9,"column":29}}]},{"package":"mod2.pkg02","isStd":false,"imports":[{"file":"a.cj","begin":{"line":10,"column":1},"end":{"line":10,"column":29}}]}],"features":[]}

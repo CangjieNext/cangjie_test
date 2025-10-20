@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %cmp_opt %f -o %output
-// RUN-ERRCHECK: %run %run_opt %output %run_args
+// (not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
 // ASSERT: regex file_global_init|My_Test
 // ASSERT: scan throwable_01101.cj:17
 

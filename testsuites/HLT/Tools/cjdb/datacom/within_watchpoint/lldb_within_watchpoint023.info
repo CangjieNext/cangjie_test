@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b , b 35 ,050_debug_dataType_basic.cj:35
-r , r ,-> 35
-watchpoint,watchpoint set variable -w write eVar1,050_debug_dataType_basic.cj:34
-c ,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 37[\s\S]*
+b , b 43 ,050_debug_dataType_basic.cj:43
+r , r ,-> 43
+watchpoint,watchpoint set variable -w write eVar1,050_debug_dataType_basic.cj:42
+c ,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 45[\s\S]*
 q,q,

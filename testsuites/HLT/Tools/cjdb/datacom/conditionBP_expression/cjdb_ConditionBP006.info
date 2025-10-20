@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func006,generics_global_func006
-breakpoint,breakpoint set -l 42 -c "varr1[1]==2",generics_global_func006.cj:42
-AOT r,r,-> 42
+breakpoint,breakpoint set -l 50 -c "varr1[9]==10",generics_global_func006.cj:50
+AOT r,r,-> 50
 CJVM c,c,
 locals,locals,\(VArray<Int64,\$2>\) varr1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
 p,p x1,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1

@@ -6,5 +6,5 @@
 
 // DEPENDENCE: ../%n
 // EXEC-1: cd %n && %cjpm tree -l
-// ASSERT: scan unknow command '-l' for cjpm tree
+// ASSERT: scan unknown command '-l' for cjpm tree
 // ASSERT: scan cjpm tree failed

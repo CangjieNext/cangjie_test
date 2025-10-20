@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_overload,generics_overload
-b,b 10,generics_overload.cj:10
-AOT r,r,-> 10
+b,b 18,generics_overload.cj:18
+AOT r,r,-> 18
 CJVM c,c,
 locals, locals,\(default.A<Int64>\) a = {}[\s\S]*\(Int64\) b = 8
 q,q,

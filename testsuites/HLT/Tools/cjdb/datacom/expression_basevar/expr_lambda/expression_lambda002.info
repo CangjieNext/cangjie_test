@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
-CJVM b,b main,066_debug_lambda.cj:10
-CJVM c,c,-> 10
-b,b 12,066_debug_lambda.cj:12
-AOT r,r,-> 12
+CJVM b,b main,066_debug_lambda.cj:18
+CJVM c,c,-> 18
+b,b 20,066_debug_lambda.cj:20
+AOT r,r,-> 20
 expr~ expr { => a - 1 }()~\(Int64\) \$[\d] = 9
 expr~  expr let l1 ={=>}()~\(Unit\) \$[\d] = ()
 expr~ expr f1({ a2 => a2 + 10 })~\(Int64\) \$[\d] = 11

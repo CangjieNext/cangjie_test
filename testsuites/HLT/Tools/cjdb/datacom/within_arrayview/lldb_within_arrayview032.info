@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_via_inherit,002_debug_array_via_inherit
-b,b 12,002_debug_array_via_inherit.cj:12
-AOT r,r,-> 12
+b,b 20,002_debug_array_via_inherit.cj:20
+AOT r,r,-> 20
 CJVM c,c,
 print,print v_002_debug_array_via_inherit_5[1][4..6],error: unsupported expression
 q,q,

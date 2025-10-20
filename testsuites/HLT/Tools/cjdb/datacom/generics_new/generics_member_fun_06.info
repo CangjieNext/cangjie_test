@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 96,Breakpoint 1:
-AOT r,r,-> 96
+b,b 104,Breakpoint 1:
+AOT r,r,-> 104
 CJVM c,c,
 p, p b,\(Unit\) \$[\d] = ()
 p, p c,\(Unit\) \$[\d] = ()

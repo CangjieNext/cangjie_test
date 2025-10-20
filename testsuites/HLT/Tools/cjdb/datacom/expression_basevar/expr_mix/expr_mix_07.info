@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 55,expr_mix.cj:55
-CJVM c,c,-> 55
-AOT r,r,-> 55
+b,b 63,expr_mix.cj:63
+CJVM c,c,-> 63
+AOT r,r,-> 63
 expr,expr if (Float64(c.vc1+s.vs1)/2.0 <= 16.16) {arr2[0][0]=10};arr2[0][0],\(Int64\) \$[\d] = 10
 expr,expr if (Int64(vi8)+Int64(vf32)>=10) {c.vc1 = Int64(vi32)-list1[0]};c.vc1,\(Int64\) \$[\d] = 31
 expr,expr if (Int8(vi32)+Int8(vf16)-10<15) {c.vc2 = list1[0]*arr2[0][2]};c.vc2 ,\(Int64\) \$[\d] = 5

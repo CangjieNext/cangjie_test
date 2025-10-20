@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors test_unittest_001,test_unittest_001
-b,b 43,test_unittest_001.cj:43
-CJVM c,c,-> 43
-AOT r,r,-> 43
-n,n,-> 44
-n,n,-> 45
-n,n,-> 46
+b,b 51,test_unittest_001.cj:51
+CJVM c,c,-> 51
+AOT r,r,-> 51
+n,n,-> 52
+n,n,-> 53
+n,n,-> 54
 q,q,

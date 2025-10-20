@@ -14,16 +14,16 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_HashMap_via_class,005_HashMap_via_class
-b,b 18,005_HashMap_via_class.cj:18
-AOT r,r,-> 18
-CJVM c,c,-> 18
-s,s,-> 103
-b,b 106,005_HashMap_via_class.cj:106
-c,c,-> 106
+b,b 26,005_HashMap_via_class.cj:26
+AOT r,r,-> 26
+CJVM c,c,-> 26
+s,s,-> 111
+b,b 114,005_HashMap_via_class.cj:114
+c,c,-> 114
 p,p map_r_return,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 132[\S\s]*value = 1750[\S\s]*}
 p,p map_r_return,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 12[\S\s]*value = 17750[\S\s]*}
-finish,finish,-> 18
-n,n,-> 19
+finish,finish,-> 26
+n,n,-> 27
 p,p map_re_fun_1,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 3[\S\s]*value = 6[\S\s]*}
 p,p map_re_fun_1,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 12[\S\s]*value = 17750[\S\s]*}
 q,q,

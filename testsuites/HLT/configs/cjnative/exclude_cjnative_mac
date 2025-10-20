@@ -1,15 +1,20 @@
 # Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 # This source file is part of the Cangjie project, licensed under Apache-2.0
 # with Runtime Library Exception.
-#
+# 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-# should be fixed.
-API/std/convert/radixconvertible/test_radixconvertible_int_01.cj
-API/std/convert/radixconvertible/test_radixconvertible_uint_02.cj
-API/std/os/env/test_getArgs/test_getArgs_005/test_getArgs_005.cj
+# testcase is not correct.
+Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
+
+# mock error, call an abstract function
 API/std/unittest/mock/test_mock_extend_cjnative.cj
 
-# Reflect not supported on Mac
-API/std/reflect/cjnative/findAnnotation/test_findAllAnnotations.cj
-API/std/reflect/cjnative/findAnnotation/test_getAllAnnotations.cj
+# old jffi can only be run with cjvm.
+compiler/cjnative/FFI/jffi
+
+# syntax will be supported in future
+API/syntax
+
+# timezone file in ci not support now
+API/std/time/TimeZone/load/test_loadFromPaths.cj

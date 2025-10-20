@@ -15,9 +15,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_breakpoint_set,006_breakpoint_set
-CJVM b,breakpoint set -n main,pkgs009.cj:8
-CJVM c,c,-> 8
+CJVM b,breakpoint set -n main,pkgs009.cj:16
+CJVM c,c,-> 16
 b,breakpoint set -n fun001,2 locations
-AOT blist,breakpoint list,pkgs009.cj:4[\s\S]*pkg9.cj:6
-CJVM blist,breakpoint list,pkg9.cj:6[\s\S]*pkgs009.cj:4
+AOT blist,breakpoint list,pkgs009.cj:12[\s\S]*pkg9.cj:14
+CJVM blist,breakpoint list,pkg9.cj:14[\s\S]*pkgs009.cj:12
 q,q,

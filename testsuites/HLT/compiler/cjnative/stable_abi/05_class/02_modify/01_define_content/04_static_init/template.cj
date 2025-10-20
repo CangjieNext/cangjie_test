@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -27,3 +27,5 @@ public class C2 {
 public class C3 {
     public static var v1: Int64 = 1
 }
+
+

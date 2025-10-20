@@ -16,55 +16,55 @@
 
 test#
 cjdb,cjdb --no-use-colors 007_debug_continue,007_debug_continue
-CJVM b,breakpoint set -n main,007_debug_continue.cj:4
-CJVM c,c,-> 4
-b,b 4,007_debug_continue.cj:4
-b,b 5,007_debug_continue.cj:5
-b,b 6,007_debug_continue.cj:6
-b,b 7,007_debug_continue.cj:7
-b,b 8,007_debug_continue.cj:8
-AOT b,b 9,007_debug_continue.cj:11
-CJVM b,b 9,007_debug_continue.cj:9
-AOT b,b 10,007_debug_continue.cj:11
-CJVM b,b 10,007_debug_continue.cj:10
-AOT r,r,-> 4
-c,c,-> 5
-n,n,-> 6
-s,s,-> 7
-c,c,-> 5
-n,n,-> 6
-s,s,-> 7
-c,c,-> 5
-n,n,-> 6
-s,s,-> 7
-c,c,-> 5
-n,n,-> 6
-s,s,-> 7
-c,c,-> 5
-n,n,-> 6
-s,s,-> 7
-c,c,-> 5
+CJVM b,breakpoint set -n main,007_debug_continue.cj:12
+CJVM c,c,-> 12
+b,b 12,007_debug_continue.cj:12
+b,b 13,007_debug_continue.cj:13
+b,b 14,007_debug_continue.cj:14
+b,b 15,007_debug_continue.cj:15
+b,b 16,007_debug_continue.cj:16
+AOT b,b 17,007_debug_continue.cj:19
+CJVM b,b 17,007_debug_continue.cj:17
+AOT b,b 18,007_debug_continue.cj:19
+CJVM b,b 18,007_debug_continue.cj:18
+AOT r,r,-> 12
+c,c,-> 13
+n,n,-> 14
+s,s,-> 15
+c,c,-> 13
+n,n,-> 14
+s,s,-> 15
+c,c,-> 13
+n,n,-> 14
+s,s,-> 15
+c,c,-> 13
+n,n,-> 14
+s,s,-> 15
+c,c,-> 13
+n,n,-> 14
+s,s,-> 15
+c,c,-> 13
 AOT set,set indexcontinue = 11,11
-n,n,-> 6
-s,s,-> 7
-n,n,-> 8
-n,n,-> 5
+n,n,-> 14
+s,s,-> 15
+n,n,-> 16
+n,n,-> 13
 AOT set,set indexcontinue = 23,23
-n,n,-> 6
-s,s,-> 7
-n,n,-> 8
-n,n,-> 5
+n,n,-> 14
+s,s,-> 15
+n,n,-> 16
+n,n,-> 13
 AOT set,set indexcontinue = 35,35
-n,n,-> 6
-s,s,-> 7
-n,n,-> 8
-n,n,-> 5
+n,n,-> 14
+s,s,-> 15
+n,n,-> 16
+n,n,-> 13
 AOT set,set indexcontinue = 47,47
-n,n,-> 6
-s,s,-> 7
-n,n,-> 8
-n,n,-> 5
+n,n,-> 14
+s,s,-> 15
+n,n,-> 16
+n,n,-> 13
 AOT set,set indexcontinue = 50,50
-n,n,-> 11
+n,n,-> 19
 locals,locals,indexcontinue = 50
 q,q,

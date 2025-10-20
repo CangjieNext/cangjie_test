@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 1.2.1.3.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global var
   @Behavior: modify type
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -39,21 +39,9 @@ package test_stable_abi
 // global var: global var is used in @Frozen global func
 // modify operation: struct type C <: A, modify type A -> C
 public interface I {}
-
-public interface A <: I {
-    func test() {
-        0
-    }
-}
-
-public class B <: A {
-    const init() {}
-}
-
-public struct C <: A {
-    const init() {}
-}
-
+public interface A <: I { func test() { 0 } }
+public class B <: A { const init() {} }
+public struct C <: A { const init() {} }
 var global_var_01: A = B()
 var global_var_02: A = B()
 const global_var_03: A = B()
@@ -64,13 +52,5 @@ public var global_var_04: A = B()
 public var global_var_14: A = C()
 public const global_var_05 = global_var_03 is A
 public const global_var_15 = global_var_13 is A
-
-@Frozen
-public func global_func_01() {
-    global_var_02 is A
-}
-
-@Frozen
-public func global_func_11() {
-    global_var_12 is A
-}
+@Frozen public func global_func_01() { global_var_02 is A }
+@Frozen public func global_func_11() { global_var_12 is A }

@@ -15,10 +15,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_thread_list,001_thread_list
-CJVM b,breakpoint set -n main,pkgs001.cj:29
-CJVM c,c,-> 29
-AOT b,b main,Breakpoint 1: where[\s\S]*pkgs001.cj:29
-AOT r,r,-> 29
-AOT threadlist,thread list,\* thread #1[\s\S]*pkgs001.cj:29[\s\S]*thread #5
+CJVM b,breakpoint set -n main,pkgs001.cj:37
+CJVM c,c,-> 37
+AOT b,b main,Breakpoint 1: where[\s\S]*pkgs001.cj:37
+AOT r,r,-> 37
+AOT threadlist,thread list,\* thread #1[\s\S]*pkgs001.cj:37[\s\S]*thread #5
 CJVM threadlist,thread list,\* thread #1[\s\S]*thread #3
 q,q,

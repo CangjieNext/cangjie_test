@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case20_4,case20_4
-b,b 12,case20_4.cj:12
-AOT r,r,-> 12
+b,b 20,case20_4.cj:20
+AOT r,r,-> 20
 CJVM c,c,
 AOT expr,expr aa,\(default.A1\) \$[\d] = {}
 AOT expr~expr aa.foo<Int64,Bool>(1,true)~\(Bool\) \$[\d] = true

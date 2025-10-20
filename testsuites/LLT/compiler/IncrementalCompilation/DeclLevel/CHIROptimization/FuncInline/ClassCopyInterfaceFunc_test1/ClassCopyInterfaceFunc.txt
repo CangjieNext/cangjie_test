@@ -35,10 +35,11 @@ main(): Int64 {
 // ASSERT: scan     added members 2: 7default1AC1AYl!V1b= 7default1AC1b$$l 
 // ASSERT: scan     deleted members 2: 7default1AC1AYi!V1b= 7default1AC1b$$i 
 // ASSERT: scan incremental compilation triggered
-// ASSERT: scan changed decls to recompile: 5
+// ASSERT: scan changed decls to recompile: 6
 // ASSERT: scan the changed decl after Spreading is:A in file ClassCopyInterfaceFunc.cj in line 8 in column 7
 // ASSERT: scan the changed decl after Spreading is:A in file ClassCopyInterfaceFunc.cj in line 9 in column 10
 // ASSERT: scan the changed decl after Spreading is:b in file ClassCopyInterfaceFunc.cj in line 9 in column 16
+// ASSERT: scan the changed decl after Spreading is:me in file ClassCopyInterfaceFunc.cj in line 15 in column 22
 // ASSERT: scan the changed decl after Spreading is:foo in file ClassCopyInterfaceFunc.cj in line 21 in column 15
 // ASSERT: scan the changed decl after Spreading is:main in file ClassCopyInterfaceFunc.cj in line 26 in column 1
 

@@ -5,14 +5,11 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
-public struct S1 {
-    public var a = 0
-}
+public struct S1 { public var a = 0 }
+struct S2 { public var a = 0 }
 
-struct S2 {
-    public var a = 0
-}
+

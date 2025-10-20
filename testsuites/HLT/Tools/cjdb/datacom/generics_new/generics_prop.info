@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_prop,generics_prop
-b,b 20,generics_prop.cj:20
-AOT r,r,-> 20
+b,b 28,generics_prop.cj:28
+AOT r,r,-> 28
 CJVM c,c,
 locals, locals,\(default.Foo<Int64>\) x = {[\s\S]*width = 6[\s\S]*height = 8[\s\S]*}[\s\S]*\(Int64\) y = 7
 q,q,

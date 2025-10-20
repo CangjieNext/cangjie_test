@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.5.1.2.7
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: add instance func frozen
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,30 +33,25 @@
 package test_stable_abi
 
 // test extend: instance function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public struct TestStruct {
     public const init() {}
 }
-
 extend TestStruct {
     @Frozen
     public func f1() {
         1
     }
-
     @Frozen
     protected func f2() {
         2
     }
-
     @Frozen
     private const func f3(): Int64 {
         return 3
     }
-
     @Frozen
     public const func f4(): Int64 {
         f3()
@@ -71,7 +66,6 @@ extend TestStruct {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -79,7 +73,6 @@ extend TestStruct {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -94,18 +87,15 @@ extend TestStruct {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     @Frozen
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
@@ -114,7 +104,6 @@ extend TestStruct {
     func f10() {
         10
     }
-
     @Frozen
     internal func f11() {
         11
@@ -122,7 +111,6 @@ extend TestStruct {
     private func f12() {
         12
     }
-
     @Frozen
     public unsafe func f13(): Int64 {
         return 13
@@ -130,7 +118,6 @@ extend TestStruct {
     public const func f14(): Int64 {
         14
     }
-
     @Frozen
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
@@ -144,7 +131,6 @@ extend TestStruct {
     protected func pg2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
         a.toString()
     }
-
     @Frozen
     public func p1(a: Int64, b!: Int64, c!: Int64 = 1) {
         a + b + c

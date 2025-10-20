@@ -16,11 +16,11 @@
  
 test#
 cjdb,cjdb --no-use-colors 056_debug_tuple,056_debug_tuple
-CJVM b,b main,056_debug_tuple.cj:4
-CJVM c,c,-> 4
-b,b 15,056_debug_tuple.cj:15
-CJVM c,c,-> 15
-AOT r,r,-> 15
+CJVM b,b main,056_debug_tuple.cj:12
+CJVM c,c,-> 12
+b,b 23,056_debug_tuple.cj:23
+CJVM c,c,-> 23
+AOT r,r,-> 23
 p, p str,\(std.core.String\) \$[\d] = "cangjie"
 expression, expression str,\(std.core.String\) \$[\d] = "cangjie"
 expression, expression var1,\(IntNative\) \$[\d] = 10

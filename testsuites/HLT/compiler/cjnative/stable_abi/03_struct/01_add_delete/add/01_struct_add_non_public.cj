@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.1.1
   @Scene: add
@@ -13,8 +13,8 @@
   @Object: struct
   @Behavior: add struct
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // Expect: API Compatible & ABI Compatible
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -32,14 +32,6 @@
 
 package test_stable_abi
 
-public struct S1 {
-    public var a = 0
-}
-
-struct S2 {
-    public var a = 0
-}
-
-struct S3 {
-    public var a = 0
-}
+public struct S1 { public var a = 0 }
+struct S2 { public var a = 0 }
+struct S3 { public var a = 0 }

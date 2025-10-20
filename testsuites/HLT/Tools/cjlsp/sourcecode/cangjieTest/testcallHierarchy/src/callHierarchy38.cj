@@ -1,8 +1,3 @@
-package default
-
-func f38(a:Int64):Int64{return a}
-let sum2 = { a: Int64, b: Int64 => a + b+f38(6)}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -10,3 +5,8 @@ let sum2 = { a: Int64, b: Int64 => a + b+f38(6)}
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default
+
+func f38(a:Int64):Int64{return a}
+let sum2 = { a: Int64, b: Int64 => a + b+f38(6)}

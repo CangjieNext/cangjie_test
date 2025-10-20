@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_memberVar,option_memberVar
-b,b 42,option_memberVar.cj:42
-AOT r,r,-> 42
-CJVM c,c,-> 42
+b,b 50,option_memberVar.cj:50
+AOT r,r,-> 50
+CJVM c,c,-> 50
 p,p b.UI64,\(std[.]core.Option<UInt64>\) \$[\d] = 64
 p,p b.BB,\(std[.]core.Option<UInt8>\) \$[\d] = 10
 p,p b.F32,\(std[.]core.Option<Float32>\) \$[\d] = 0.2[\s\S]*

@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-CJVM b,b main,063_debug_expr_class.cj:32
-CJVM c,c,-> 32
-b,b 35,063_debug_expr_class.cj:35
-CJVM c,c,-> 35
-AOT r,r,-> 35
+CJVM b,b main,063_debug_expr_class.cj:40
+CJVM c,c,-> 40
+b,b 43,063_debug_expr_class.cj:43
+CJVM c,c,-> 43
+AOT r,r,-> 43
 expr,expr stu.bool1,\(Bool\) \$[\d] = true
 expr,expr stu.bool1=false,\(Unit\) \$[\d] = ()
 expr,expr stu.bool1,\(Bool\) \$[\d] = false

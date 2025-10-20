@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashMap_external_invoke,collection_HashMap_external_invoke
-b,b 24,collection_HashMap_external_invoke.cj:24
-AOT r,r,-> 24
-CJVM c,c,-> 24
-s,s,-> 55
+b,b 32,collection_HashMap_external_invoke.cj:32
+AOT r,r,-> 32
+CJVM c,c,-> 32
+s,s,-> 63
 p,p par_1,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 23[\S\s]*value = 1836[\S\s]*}
 p,p par_1,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 12[\S\s]*value = 17750[\S\s]*}
 p,p par_1[12],error

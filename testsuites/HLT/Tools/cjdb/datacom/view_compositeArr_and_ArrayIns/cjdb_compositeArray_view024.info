@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_multiArray_composite_record,006_debug_multiArray_composite_record
-b,b 20,006_debug_multiArray_composite_record.cj:20
-AOT r,r,-> 20
+b,b 28,006_debug_multiArray_composite_record.cj:28
+AOT r,r,-> 28
 CJVM c,c,
 p,p multiArr_m_d1[0],std[.]core.Array<default.R1>\) \$[\d] = {[\s\S]*\[0\] = [\s\S]*
 p,p multiArr_m_d1[0][0],default.R1\) \$[\d] = {(\r|\n|\r\n)  length = 3

@@ -5,13 +5,13 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test typeAlias: add typeAlias
 type Mytype1 = Int64
-
 public type Mytype2 = Float64
-
 public var a: Mytype1 = 1
+
+

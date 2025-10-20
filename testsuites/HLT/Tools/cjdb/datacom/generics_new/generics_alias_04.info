@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_alias,generics_alias
-b,b 90,generics_alias.cj:90
-AOT r,r,-> 90
+b,b 98,generics_alias.cj:98
+AOT r,r,-> 98
 CJVM c,c,
 p, p lhm,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
 p, p s1.vhms,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
@@ -25,8 +25,8 @@ p, p globals_hm,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\
 locals, locals,\(std.collection.HashMap<std.core.String,Int64>\) lhm = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*\(default.S1\) s1 = {[\s\S]*vhms = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*\(default.C1\) c1 = {[\s\S]*vhmc = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*
 globals, globals,\(std.collection.HashMap<std.core.String,Int64>\) default::C1::vhm = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*
 globals, globals,\(std.collection.HashMap<std.core.String,Int64>\) default::globals_hm = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*
-b, b 101,generics_alias.cj:101
-c,c,-> 101
+b, b 109,generics_alias.cj:109
+c,c,-> 109
 p, p e,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
 p, p test_e,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
 locals, locals,\(std.collection.HashMap<std.core.String,Int64>\) e = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*

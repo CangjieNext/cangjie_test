@@ -17,9 +17,9 @@
 
 test#
 cjdb,cjdb --no-use-colors class_external_use,class_external_use
-b,b 19,class_external_use.cj:19
-AOT r,r,-> 19
-CJVM c,c,-> 19
-n,n,-> 21
+b,b 27,class_external_use.cj:27
+AOT r,r,-> 27
+CJVM c,c,-> 27
+n,n,-> 29
 locals,locals,\(Unit\) newit = \(\)
 q,q,

@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 90,052_debug_record_generics.cj:90
-AOT r,r,-> 90
+b,b 98,052_debug_record_generics.cj:98
+AOT r,r,-> 98
 CJVM c,c,
-n,n,-> 92
+n,n,-> 100
 locals,locals,R1<std[.]core.String>\) r3 = {(\r|\n|\r\n)  width = "abc"(\r|\n|\r\n)  length = "abc"
 q,q,

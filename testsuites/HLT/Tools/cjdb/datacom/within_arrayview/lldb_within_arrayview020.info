@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_baseType,001_debug_array_baseType
-b,b 39,001_debug_array_baseType.cj:39
-AOT r,r,-> 39
+b,b 47,001_debug_array_baseType.cj:47
+AOT r,r,-> 47
 CJVM c,c,
 print,print a_d[1][1..5],\(std[.]core.Array<Int64>\) \$[\d] = {[\s\S]*? \[0\] = -9[\s\S]*&? \[3\] = -6[\s\S]*
 q,q,

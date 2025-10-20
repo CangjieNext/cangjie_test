@@ -14,15 +14,15 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var016,generics_local_var016
-breakpoint,breakpoint set -l 21 -c "1==1",generics_local_var016.cj:21
-AOT r,r,-> 21
+breakpoint,breakpoint set -l 29 -c "9==9",generics_local_var016.cj:29
+AOT r,r,-> 29
 CJVM c,c,
-s,s,-> 13
-n,n,-> 14
-n,n,-> 15
+s,s,-> 21
+n,n,-> 22
+n,n,-> 23
 p,p aa,\(Tuple<Int64,Float64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 1.2[\s\S]*}
 expr,expr aa,\(Tuple<Int64,Float64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 1.2[\s\S]*}
-n,n,-> 16
+n,n,-> 24
 expr~expr vhmc["a"]~\(Int64\) \$[\d] = 1
 expr~expr vhmc~\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {\s+\["a" -> 1\] = {\s+key = "a"
 q,q,

@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 068_debug_hashset,068_debug_hashset
-b,b 29,068_debug_hashset.cj:29
-AOT r,r,-> 29
-CJVM c,c,-> 29
+b,b 37,068_debug_hashset.cj:37
+AOT r,r,-> 37
+CJVM c,c,-> 37
 p,p a,\(std\.collection.HashSet<Bool>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
 locals,locals,a = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
 q,q,

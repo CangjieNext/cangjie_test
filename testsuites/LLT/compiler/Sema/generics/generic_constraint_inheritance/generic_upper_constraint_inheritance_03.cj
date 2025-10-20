@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// ERRCHECK: %compiler %diag_json %f -o %output
 
 interface I {
     static func f<T1, T2, T3, T4>(): Unit where T1 <: T2, T3 <: T4 {}
@@ -16,35 +16,6 @@ class A <: I {
 
 main() {}
 
-/* SCAN
-error: the upper bound 'Generics-T2' of generic parameter 'Generics-T1' must be class or interface
-  ==> generic_upper_constraint_inheritance_03.cj:10:19:
-   | 
-10 |     static func f<T1, T2, T3, T4>(): Unit where T1 <: T2, T3 <: T4 {}
-   |                   ^^ 
-   | 
-
-error: the upper bound 'Generics-T4' of generic parameter 'Generics-T3' must be class or interface
-  ==> generic_upper_constraint_inheritance_03.cj:10:27:
-   | 
-10 |     static func f<T1, T2, T3, T4>(): Unit where T1 <: T2, T3 <: T4 {}
-   |                           ^^ 
-   | 
-
-error: the upper bound 'Generics-T4' of generic parameter 'Generics-T1' must be class or interface
-  ==> generic_upper_constraint_inheritance_03.cj:14:26:
-   | 
-14 |     public static func f<T1, T2, T3, T4>(): Unit where T1 <: T4 {}
-   |                          ^^ 
-   | 
-
-error: the constraint of type parameter is not looser than parent's constraint
-  ==> generic_upper_constraint_inheritance_03.cj:14:56:
-   | 
-14 |     public static func f<T1, T2, T3, T4>(): Unit where T1 <: T4 {}
-   |                                                        ^^^^^^^^ 
-   | 
-   # note: parent constraint is 'Generics-T2'
-
-4 errors generated, 4 errors printed.
-*/
+// ASSERT: scan-1 sema_generic_constraint_not_looser
+// ASSERT: scan-3 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 4

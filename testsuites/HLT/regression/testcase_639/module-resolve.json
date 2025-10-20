@@ -1,0 +1,14 @@
+{
+    "resolves": [
+        {
+            "organization": "test",
+            "name": "cjModDemo",
+            "path": "./",
+            "version": "1.0.0",
+            "hash": "WyJ0ZXN0IiwiY2pNb2REZW1vIiwiL2hvbWUvY2hlbmxpbGl1L2NvZGUvY2FuZ2ppZS90ZXN0L2V4dGVybmFsL0k0QjIzOV9jcG1fYnVpbGQiLCIxLjAuMCJdwZ480EWWIXN1iQ/uInOIKUxKIOE=",
+            "requires": [],
+            "packageRequires": {},
+            "foreign_requires": {}
+        }
+    ]
+}

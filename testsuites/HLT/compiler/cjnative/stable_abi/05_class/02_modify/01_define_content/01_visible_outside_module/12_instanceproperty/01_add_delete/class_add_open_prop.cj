@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.12.1
   @Scene: add
@@ -13,7 +13,7 @@
   @Object: class instance prop
   @Behavior: add open class instance prop
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../main.cj, ../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -24,10 +24,10 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // ASSERT: scan Incompatible!
-// ASSERT: scan-9 [ABI] Added open instance member properties for classes.
+// ASSERT: scan-8 [ABI] Added open instance member properties for classes.
 // ASSERT: scan-not [API/ABI]
 // ASSERT: scan-not [API]
-// ASSERT: scan-9 [ABI]
+// ASSERT: scan-8 [ABI]
 // TEST API Compatibility
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
@@ -43,7 +43,7 @@ public class Version {
     }
 }
 
-public open class TestClass {
+open public class TestClass {
     public var a: Int64 = 0
     public prop prop1: Int64 {
         get() {
@@ -51,7 +51,7 @@ public open class TestClass {
         }
     }
 
-    public open prop open_prop1: Int64 {
+    open public prop open_prop1: Int64 {
         get() {
             1
         }
@@ -67,7 +67,7 @@ public open class TestClass {
             2
         }
     }
-    protected open prop open_exported_prop1: Int64 {
+    open protected prop open_exported_prop1: Int64 {
         get() {
             1
         }
@@ -78,10 +78,9 @@ public open class TestClass {
             3
         }
     }
-
     @Frozen
     public prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -92,28 +91,24 @@ public open class TestClass {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
-    public open prop open_prop4: Int64 {
+    open public prop open_prop4: Int64 {
         get() {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
-    public open prop open_prop5: Int64 {
+    open public prop open_prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
     public mut prop prop6: Int64 {
         get() {
@@ -123,9 +118,8 @@ public open class TestClass {
             a = v
         }
     }
-
     @Frozen
-    public mut open prop open_prop6: Int64 {
+    open public mut prop open_prop6: Int64 {
         get() {
             6
         }
@@ -149,7 +143,7 @@ public open class TestClass {
             9
         }
     }
-    protected open prop open_prop7: Int64 {
+    open protected prop open_prop7: Int64 {
         get() {
             7
         }
@@ -170,14 +164,14 @@ public open class TestClass {
             a = v
         }
     }
-    public mut open prop open_prop10: Int64 {
+    open public mut prop open_prop10: Int64 {
         get() {
             10
         }
         set(v) {
         }
     }
-    public mut open prop open_prop11: Int64 {
+    open public mut prop open_prop11: Int64 {
         get() {
             11
         }
@@ -186,20 +180,20 @@ public open class TestClass {
         }
     }
 
-    public open prop prop13: Int64 {
+    open public prop prop13: Int64 {
         get() {
             13
         }
     }
 
-    public mut open prop prop14: Int64 {
+    open public mut prop prop14: Int64 {
         get() {
             14
         }
         set(v) {
             a = v
         }
-    }
+    }    
 
     @Version["1.1"]
     public prop prop12: Int64 {
@@ -208,7 +202,7 @@ public open class TestClass {
         }
     }
     @Version["1.1"]
-    public open prop open_prop12: Int64 {
+    open public prop open_prop12: Int64 {
         get() {
             12
         }

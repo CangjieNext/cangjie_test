@@ -16,12 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 022_debug_launch,022_debug_launch
-CJVM b,breakpoint set -n main,022_debug_launch.cj:4
-CJVM c,c,-> 4
-b,b 4,022_debug_launch.cj:4
-b,b 5,022_debug_launch.cj:5
-b,b 6,022_debug_launch.cj:6
-blist,breakpoint list,022_debug_launch.cj:4
-blist,breakpoint list,022_debug_launch.cj:5
-blist,breakpoint list,022_debug_launch.cj:6
+CJVM b,breakpoint set -n main,022_debug_launch.cj:12
+CJVM c,c,-> 12
+b,b 12,022_debug_launch.cj:12
+b,b 13,022_debug_launch.cj:13
+b,b 14,022_debug_launch.cj:14
+blist,breakpoint list,022_debug_launch.cj:12
+blist,breakpoint list,022_debug_launch.cj:13
+blist,breakpoint list,022_debug_launch.cj:14
 q,q,

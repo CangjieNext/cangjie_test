@@ -20,6 +20,7 @@ public class A01_testactually {
     @TestCase
     func test01() {
         returnNum()
+        // func_in_test()
         println("running test.cj cases without _test name here")
     }
 }

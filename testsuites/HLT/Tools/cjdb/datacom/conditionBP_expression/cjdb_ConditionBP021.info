@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var003,generics_local_var003
-breakpoint,breakpoint set -l 25 -c "lst2.a==32",generics_local_var003.cj:25
-AOT r,r,-> 25
+breakpoint,breakpoint set -l 33 -c "lst2.a==32",generics_local_var003.cj:33
+AOT r,r,-> 33
 CJVM c,c,
 locals,locals,\(default.structtype01<Int32>\) lst = {[\s\S]*a = 32[\s\S]*}
 locals,locals,\(default.structtype01<Int32>\) lst2 = {[\s\S]*a = 32[\s\S]*}

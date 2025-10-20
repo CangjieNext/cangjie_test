@@ -4,13 +4,11 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE: define.cj foo.c
+// DEPENDENCE: define.cj foo.c %f.expect
 // EXEC: %compiler %cmp_macro define.cj
 // EXEC: %clang foo.c %clang_shared_opt -o libfoo.%dylib_suffix
-// EXEC: %run_macro %compiler %cmp_opt %f -L . -l foo -o %output
-// EXEC-PIPE: %pwd_to_ld_path %run %run_opt %output 2>&1 | compare %f
-// ASSERT: scan 1
-// ASSERT: scan 2
+// EXEC: %run_macro %compiler %cmp_opt %f -L . -l foo %macro_debug
+// EXEC: %diff %f.macrocall %f.expect
 
 import define.*
 

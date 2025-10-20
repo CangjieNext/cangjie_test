@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 012_debug_class_init,012_debug_class_init
-b,b 16,012_debug_class_init.cj:16
-AOT r,r,-> 16
-CJVM c,c,-> 16
-n,n,-> 17
+b,b 24,012_debug_class_init.cj:24
+AOT r,r,-> 24
+CJVM c,c,-> 24
+n,n,-> 25
 locals,locals,squareLength = 500
 q,q,

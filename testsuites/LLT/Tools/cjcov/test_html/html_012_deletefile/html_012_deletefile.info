@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n ../../compare_html.py
+// EXEC-PIPE: cd %n && cjpm init --name default && cjpm build --coverage && %run && %rm -f ./src/test/b.cj %tonull
+// EXEC-PIPE: cd %n && cjcov --root=./ --html-details --output=html_output --keep  --branches
+// EXEC-PIPE: cd %n && %ls html_output 2>&1 | compare %f
+//ASSERT: scan index.html
+//ASSERT: scan src_main.cj.html
+//ASSERT: scan src_test_a.cj.html
+//ASSERT: scan src_test_c.cj.html

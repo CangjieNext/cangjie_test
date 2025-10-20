@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_express_basetype,006_express_basetype
-CJVM b,b main,053_debug_class_basetype.cj:25
-CJVM c,c,-> 25
-b,b 28,053_debug_class_basetype.cj:28
-CJVM c,c,-> 28
-AOT r,r,-> 28
+CJVM b,b main,053_debug_class_basetype.cj:33
+CJVM c,c,-> 33
+b,b 36,053_debug_class_basetype.cj:36
+CJVM c,c,-> 36
+AOT r,r,-> 36
 p,p a.var1=1+1,error
 p,p a.var2=1+1,error
 p,p a.var3=1+1,error

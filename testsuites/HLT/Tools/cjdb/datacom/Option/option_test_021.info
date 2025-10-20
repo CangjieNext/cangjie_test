@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_memberVar,option_memberVar
-b,b 42,option_memberVar.cj:42
-AOT r,r,-> 42
-CJVM c,c,-> 42
+b,b 50,option_memberVar.cj:50
+AOT r,r,-> 50
+CJVM c,c,-> 50
 p,p a.Bool_F,\(std[.]core.Option<Bool>\) \$[\d] = false
 p,p a.Char_c,\(std[.]core.Option<Rune>\) \$[\d] = 'c'
 q,q,

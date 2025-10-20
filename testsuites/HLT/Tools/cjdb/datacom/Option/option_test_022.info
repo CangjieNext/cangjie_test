@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_memberVar,option_memberVar
-b,b 42,option_memberVar.cj:42
-AOT r,r,-> 42
-CJVM c,c,-> 42
+b,b 50,option_memberVar.cj:50
+AOT r,r,-> 50
+CJVM c,c,-> 50
 p,p a.s_native,\(std[.]core.Option<std[.]core.String>\) \$[\d] = "helloCangjie"
 p,p a.Arr_I64,\(std[.]core.Option<std[.]core.Array<Int64>>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}
 p,p a.Arrlist_char,\(std[.]core.Option<std[.]collection.ArrayList<Rune>>\) \$[\d] = {[\s\S]*\[0\] = 'c'[\s\S]*\[6\] = 'e'[\s\S]*}

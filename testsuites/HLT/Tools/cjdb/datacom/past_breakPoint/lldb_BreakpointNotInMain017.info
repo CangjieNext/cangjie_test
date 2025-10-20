@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 032_debuginfun_func_no_arg,032_debuginfun_func_no_arg
-CJVM b,breakpoint set -n main,032_debuginfun_func_no_arg.cj:4
-CJVM c,c,-> 4
-b,b 10,032_debuginfun_func_no_arg.cj:10
-AOT r,r,-> 10
-CJVM c,c,-> 10
-n,n,-> 11
+CJVM b,breakpoint set -n main,032_debuginfun_func_no_arg.cj:12
+CJVM c,c,-> 12
+b,b 18,032_debuginfun_func_no_arg.cj:18
+AOT r,r,-> 18
+CJVM c,c,-> 18
+n,n,-> 19
 locals,locals,Functioncall003 = 30
 q,q,

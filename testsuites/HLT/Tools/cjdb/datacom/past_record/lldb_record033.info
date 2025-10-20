@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 051_debug_record_default,051_debug_record_default
-b,b 14,051_debug_record_default.cj:14
-AOT r,r,-> 14
+b,b 22,051_debug_record_default.cj:22
+AOT r,r,-> 22
 CJVM c,c,
-n,n,-> 15
+n,n,-> 23
 locals,locals,R\) r1 = {(\r|\n|\r\n)  item1 = 1(\r|\n|\r\n)  item2 = 1.2[\s\S]*(\r|\n|\r\n)  item3 = "a"
 q,q,

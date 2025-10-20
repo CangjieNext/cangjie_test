@@ -1,9 +1,3 @@
-package default.pkga
-
-public enum EEE {
-    Red | Green | Blue
-}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -11,3 +5,9 @@ public enum EEE {
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.pkga
+
+public enum EEE {
+    Red | Green | Blue
+}

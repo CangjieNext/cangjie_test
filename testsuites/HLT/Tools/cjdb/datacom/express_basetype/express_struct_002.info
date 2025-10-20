@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_express_basetype,002_express_basetype
-CJVM b,b main,054_debug_struct_basetype.cj:25
-CJVM c,c,-> 25
-b,b 27,054_debug_struct_basetype.cj:27
-CJVM c,c,-> 27
-AOT r,r,-> 27
+CJVM b,b main,054_debug_struct_basetype.cj:33
+CJVM c,c,-> 33
+b,b 35,054_debug_struct_basetype.cj:35
+CJVM c,c,-> 35
+AOT r,r,-> 35
 p,p b.varu1,\(UInt8\) \$[\d] = 127
 p,p b.varu2,\(UInt16\) \$[\d] = 1
 p,p b.varu3,\(UInt32\) \$[\d] = 1

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors string_enum04,string_enum04
-b,b 8,string_enum04.cj:8
-AOT r,r,-> 8
+b,b 16,string_enum04.cj:16
+AOT r,r,-> 16
 CJVM c,c,
 expr~expr E1<Int64>.A("String")~\(default.E1<Int64>\) \$[\d] = {[\s\S]*constructor = A[\s\S]*arg_1 = "String"[\s\S]*}
 expr~expr E1<Int64>.B("String",1)~\(default.E1<Int64>\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = "String"[\s\S]*arg_2 = 1[\s\S]*}

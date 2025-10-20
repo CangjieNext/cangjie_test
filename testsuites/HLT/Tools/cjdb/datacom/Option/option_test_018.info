@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_compositeVar,option_compositeVar
-b,b 34,option_compositeVar.cj:34
-AOT r,r,-> 34
-CJVM c,c,-> 34
+b,b 42,option_compositeVar.cj:42
+AOT r,r,-> 42
+CJVM c,c,-> 42
 p,p Arr_arr,\(std[.]core.Option<std[.]core.Option<std[.]core.Array<Int16>>>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 3[\s\S]*\[2\] = 4[\s\S]*}
 p,p Arrlist_arrlist,\(std[.]core.Option<std[.]core.Option<std[.]collection.ArrayList<Int64>>>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 3[\s\S]*\[2\] = 4[\s\S]*}
 q,q,

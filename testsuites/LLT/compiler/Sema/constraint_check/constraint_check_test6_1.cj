@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC:%frontendCompiler %typecheck %cmp_opt %f 2>&1 | compare %f
+// EXEC:%frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
 
 // UpperBound: Array Type
 
@@ -32,53 +32,6 @@ main(): Int64 {
     jay<(Int32, Array<Child>)>()
 }
 
-/* SCAN
-error: the upper bound 'Struct-Array<Int32>' of generic parameter 'Generics-T' must be class or interface
-  ==> constraint_check_test6_1.cj:11:10:
-   | 
-11 | func foo<T>() where T <: Array<Int32> {
-   |          ^ 
-   | 
-
-error: the upper bound 'Struct-Array<Tuple<Int32, Class-Base>>' of generic parameter 'Generics-T' must be class or interface
-  ==> constraint_check_test6_1.cj:19:10:
-   | 
-19 | func bar<T>() where T <: Array<(Int32, Base)> {
-   |          ^ 
-   | 
-
-error: the upper bound 'Tuple<Int32, Struct-Array<Class-Base>>' of generic parameter 'Generics-T' must be class or interface
-  ==> constraint_check_test6_1.cj:23:10:
-   | 
-23 | func jay<T>() where T <: (Int32, Array<Base>) {
-   |          ^ 
-   | 
-
-error: generics type arguments do not match the constraint of '() -> Int64'
-  ==> constraint_check_test6_1.cj:30:9:
-   | 
-30 |     bar<Array<(Int32, Child)>>()
-   |         ^ 
-   | 
-note: 'Struct-Array<Tuple<Int32, Class-Child>>' is not a subtype of 'Struct-Array<Tuple<Int32, Class-Base>>'
-  ==> constraint_check_test6_1.cj:19:21:
-   | 
-19 | func bar<T>() where T <: Array<(Int32, Base)> {
-   |                     ^ 
-   | 
-
-error: generics type arguments do not match the constraint of '() -> Int64'
-  ==> constraint_check_test6_1.cj:32:9:
-   | 
-32 |     jay<(Int32, Array<Child>)>()
-   |         ^ 
-   | 
-note: 'Tuple<Int32, Struct-Array<Class-Child>>' is not a subtype of 'Tuple<Int32, Struct-Array<Class-Base>>'
-  ==> constraint_check_test6_1.cj:23:21:
-   | 
-23 | func jay<T>() where T <: (Int32, Array<Base>) {
-   |                     ^ 
-   | 
-
-5 errors generated, 5 errors printed.
-*/
+// ASSERT: scan-2 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan-3 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 5

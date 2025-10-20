@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_class_top_mod,001_debug_class_top_mod
-b,b 45,001_debug_class_top_mod.cj:45
-AOT r,r,-> 45
-CJVM c,c,-> 45
-n,n,-> 46
+b,b 53,001_debug_class_top_mod.cj:53
+AOT r,r,-> 53
+CJVM c,c,-> 53
+n,n,-> 54
 locals,locals,\(std[.]core.String\) m_str = "strmao"
 q,q,

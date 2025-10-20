@@ -1,0 +1,4 @@
+func funcUnaryExpr() {
+    !a
+    -a
+}

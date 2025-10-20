@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 048_debug_array_type,048_debug_array_type
-b,b 7,048_debug_array_type.cj:7
-AOT r,r,-> 7
+b,b 15,048_debug_array_type.cj:15
+AOT r,r,-> 15
 CJVM c,c,
-n,n,-> 8
+n,n,-> 16
 print,print arrayInt16,\$[\d] = {(\r\n|\r|\n)  \[0\] = 161(\r\n|\r|\n)  \[1\] = 162(\r\n|\r|\n)}
 q,q,

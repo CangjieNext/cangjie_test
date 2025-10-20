@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var007,generics_local_var007
-breakpoint,breakpoint set -l 49 -c "a==7",generics_local_var007.cj:49
-AOT r,r,-> 49
+breakpoint,breakpoint set -l 57 -c "a==7",generics_local_var007.cj:57
+AOT r,r,-> 57
 CJVM c,c,
 locals,locals,\(Int64\) para = 7
 locals,locals,\(Int64\) a = 7

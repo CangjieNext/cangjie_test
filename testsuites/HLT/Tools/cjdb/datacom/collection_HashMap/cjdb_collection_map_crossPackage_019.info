@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashMap_external_invoke,collection_HashMap_external_invoke
-b,b 31,collection_HashMap_external_invoke.cj:31
-AOT r,r,-> 31
-CJVM c,c,-> 31
+b,b 39,collection_HashMap_external_invoke.cj:39
+AOT r,r,-> 39
+CJVM c,c,-> 39
 p,p val_7,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 3[\S\s]*value = 6[\S\s]*}
 p,p val_7,std[.]collection.HashMap<UInt16,Int64>\) \$[\d] = {[\S\s]*key = 29[\S\s]*value = 1136[\S\s]*}
 p,p val_7[12],error

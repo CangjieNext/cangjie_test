@@ -51,6 +51,9 @@ class MM_basic <: Tool {
     }
     // load and consume and return
     // static func test7(mm : MM_basic): Object {
+    //     let o : Object = mm.str
+    //     consume(o)
+    //     return o
     // }
     // call and consume
     public static func test8(): Unit {
@@ -78,6 +81,7 @@ class MM_basic <: Tool {
         test4(mm)
         test5(mm)
         test6(mm)
+        // test7(mm)
         test8()
         test9()
         test10()
@@ -86,6 +90,7 @@ class MM_basic <: Tool {
 
 main(): Int64 {
     MM_basic.mm_testcase_main_wrapper()
+    // GC()
     MM_basic.mm_testcase_main_wrapper()
     print((1).toString())
     return 0

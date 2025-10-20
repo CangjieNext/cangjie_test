@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 038_debuginfun_basetype,038_debuginfun_basetype
-breakpoint,breakpoint set -l 28 -c 'varchar17==\'5\'',038_debuginfun_basetype.cj:28
-AOT r,r,-> 28
+breakpoint,breakpoint set -l 36 -c 'varchar17==\'5\'',038_debuginfun_basetype.cj:36
+AOT r,r,-> 36
 CJVM c,c,
-n,n,-> 33
+n,n,-> 41
 locals,locals,varchar17 = '5'
 q,q,

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.4
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class
   @Behavior: class add generic constraints
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,13 +33,20 @@
 package test_stable_abi
 
 // test class: generic constraints
-public open class Father {}
+open public class Father {
 
-public class Son <: Father {}
+}
 
-public class Son1 <: Father {}
+public class Son <: Father {
 
-public open class Generics<T, U> where T <: Father & Son1, U <: Son {
+}
+
+
+public class Son1 <: Father {
+    
+}
+
+open public class Generics<T, U> where T <: Father & Son1, U <: Son {
     public var _v1 = 0
     public mut prop _v2: Int64 {
         get() {
@@ -51,7 +58,7 @@ public open class Generics<T, U> where T <: Father & Son1, U <: Son {
     }
     public var _v3: Int64
 
-    public open func goo1(a: Int64) {
+    open public func goo1(a: Int64) {
         10
     }
 

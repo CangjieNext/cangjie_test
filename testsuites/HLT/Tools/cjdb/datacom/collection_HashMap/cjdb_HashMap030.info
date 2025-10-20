@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashMap_Ins_composite,003_HashMap_Ins_composite
-b,b 37,003_HashMap_Ins_composite.cj:37
-AOT r,r,-> 37
-CJVM c,c,-> 37
+b,b 45,003_HashMap_Ins_composite.cj:45
+AOT r,r,-> 45
+CJVM c,c,-> 45
 p,p map_set_2,std[.]collection.HashMap<Int16,std[.]collection.HashSet<std[.]core.String>>\) \$[\d] = {[\S\s]*key = 13[\S\s]*\[0\] = "Cangjie"[\S\s]*}
 p,p map_set_2,std[.]collection.HashMap<Int16,std[.]collection.HashSet<std[.]core.String>>\) \$[\d] = {[\S\s]*key = -62[\S\s]*\[0\] = "Cangjie"[\S\s]*}
 q,q,

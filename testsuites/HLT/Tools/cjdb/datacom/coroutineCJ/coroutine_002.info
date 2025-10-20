@@ -13,6 +13,6 @@
 
 test#
 cjdb,cjdb --no-use-colors coroutine_1,coroutine_1
-b,b 28,Breakpoint 1: 2 locations
+b,b 36,Breakpoint 1: 2 locations
 cjthread,cjthread list,error: Command requires a current process
 q,quit,

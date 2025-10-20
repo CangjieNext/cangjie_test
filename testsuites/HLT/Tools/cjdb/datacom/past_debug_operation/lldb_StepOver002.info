@@ -16,12 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
-b,b 4,015_debug_basetype.cj:4
-AOT r,r,-> 4
+b,b 12,015_debug_basetype.cj:12
+AOT r,r,-> 12
 CJVM c,c,
-b,b 5,015_debug_basetype.cj:5
-c,c,-> 5
-n,n,-> 6
+b,b 13,015_debug_basetype.cj:13
+c,c,-> 13
+n,n,-> 14
 locals,locals,var1 = -128
 locals,locals,var2 = 127
 q,q,

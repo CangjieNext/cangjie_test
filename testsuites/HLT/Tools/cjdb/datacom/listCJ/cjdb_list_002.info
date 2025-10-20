@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-AOT b,b 101,list_debug.cj:103
-CJVM b,b 103,list_debug.cj:103
-AOT r,r,-> 103
-CJVM c,c,-> 103
+AOT b,b 109,list_debug.cj:111
+CJVM b,b 111,list_debug.cj:111
+AOT r,r,-> 111
+CJVM c,c,-> 111
 p,p m_empty_2,\(std[.]core.Array<std[.]core.Array<Int64>>\) \$[\d] =
 q,quit,

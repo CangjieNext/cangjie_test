@@ -50,8 +50,12 @@ extend A <: I {
 error: property 'p1' should have 'mut' modifier
   ==> property_mut_immut_mismatch.cj:20:5:
    | 
-20 |     static prop p1: Int64 {
-   |     ^ 
+20 |       static prop p1: Int64 {
+   |  _____^
+21 | |         get() {
+   | | ...
+24 | |     }
+   | |_____^
    | 
 
 error: a deriving member must be at least as visible as its base member
@@ -70,8 +74,12 @@ note: the visibility of the base 'p1' is 'public'
 error: property 'p2' should have 'mut' modifier
   ==> property_mut_immut_mismatch.cj:25:5:
    | 
-25 |     prop p2: Int64 {
-   |     ^ 
+25 |       prop p2: Int64 {
+   |  _____^
+26 | |         get() {
+   | | ...
+29 | |     }
+   | |_____^
    | 
 
 error: a deriving member must be at least as visible as its base member
@@ -90,8 +98,12 @@ note: the visibility of the base 'p2' is 'public'
 error: property 'p3' should be immutable
   ==> property_mut_immut_mismatch.cj:30:5:
    | 
-30 |     mut static prop p3: Int64 {
-   |     ^ 
+30 |       mut static prop p3: Int64 {
+   |  _____^
+31 | |         get() {
+   | | ...
+35 | |     }
+   | |_____^
    | 
 
 error: a deriving member must be at least as visible as its base member
@@ -110,8 +122,12 @@ note: the visibility of the base 'p3' is 'public'
 error: property 'p4' should be immutable
   ==> property_mut_immut_mismatch.cj:36:5:
    | 
-36 |     mut prop p4: Int64 {
-   |     ^ 
+36 |       mut prop p4: Int64 {
+   |  _____^
+37 | |         get() {
+   | | ...
+41 | |     }
+   | |_____^
    | 
 
 error: a deriving member must be at least as visible as its base member
@@ -134,6 +150,17 @@ error: The type of the override/implement property must be the same
    |     ^ 
    | 
 
+error: property 'p5' should have 'mut' modifier
+  ==> property_mut_immut_mismatch.cj:42:5:
+   | 
+42 |       static prop p5: Int64 {
+   |  _____^
+43 | |         get() {
+   | | ...
+46 | |     }
+   | |_____^
+   | 
+
 error: a deriving member must be at least as visible as its base member
   ==> property_mut_immut_mismatch.cj:42:17:
    | 
@@ -154,5 +181,5 @@ error: 'main' is missing
   | ^ 
   | 
 
-11 errors generated, 11 errors printed.
+12 errors generated, 12 errors printed.
 */

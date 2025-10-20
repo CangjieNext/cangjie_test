@@ -1,0 +1,21 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir 2>&1 | compare %f
+// ASSERT: regex-not .*test.cj:0:.*
+// ASSERT: regex .*test.cj:41:4:.*'c1m0.c0m1' is used in line 41,51, but not be protected by mutex
+// ASSERT: regex .*test.cj:42:4:.*'c1m1' is used in line 42,37,52,53, but not be protected by mutex
+// ASSERT: regex .*test.cj:44:5:.*'c1m2' is used in line 44,54, but not be protected by mutex
+// ASSERT: regex .*test.cj:46:4:.*'c1bm1' is used in line 46,56, but not be protected by mutex
+// ASSERT: regex .*test.cj:47:4:.*'c1bbs1' is used in line 47,57, but not be protected by mutex
+// ASSERT: regex .*test.cj:48:4:.*'c1bbm1' is used in line 48,58, but not be protected by mutex
+// ASSERT: regex .*test.cj:109:4:.*'c2m0.c0m1' is used in line 109,116, but not be protected by mutex
+// ASSERT: regex .*test.cj:110:4:.*'c2m1' is used in line 110,105,117,118, but not be protected by mutex
+// ASSERT: regex .*test.cj:112:5:.*'c2m2' is used in line 112,119, but not be protected by mutex
+// ASSERT: regex .*test.cj:170:4:.*'c3m1.s1m2' is used in line 170,169, but not be protected by mutex
+// ASSERT: regex .*test.cj:171:4:.*'c3m1.s1m4' is used in line 171,170, but not be protected by mutex
+// ASSERT: regex .*test.cj:172:4:.*'c3m2' is used in line 172,171, but not be protected by mutex

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_alias2,generics_alias2
-b,b 139,generics_alias2.cj:139
-AOT r,r,-> 139
+b,b 147,generics_alias2.cj:147
+AOT r,r,-> 147
 CJVM c,c,
 p, p lcp1,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
 p, p s1.vcp1s,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
@@ -25,8 +25,8 @@ p, p globals_cp1,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
 locals, locals,\(CPointer<Int64>\) lcp1 = 0x0000000000000000[\s\S]*\(default.S1\) s1 = {[\s\S]*vcp1s = 0x0000000000000000[\s\S]*\(default.C1\) c1 = {[\s\S]*vcp1c = 0x0000000000000000[\s\S]*
 globals, globals,\(CPointer<Int64>\) default::C1::vcp1 = 0x0000000000000000
 globals, globals,\(CPointer<Int64>\) default::globals_cp1 = 0x0000000000000000
-b, b 164,generics_alias2.cj:164
-c,c,-> 164
+b, b 172,generics_alias2.cj:172
+c,c,-> 172
 p, p f,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
 p, p test_f,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
 locals, locals,\(CPointer<Int64>\) f = 0x0000000000000000

@@ -16,7 +16,7 @@
 
 test#
 cjdb,cjdb --no-use-colors 047_debug_large_array,047_debug_large_array
-AOT b,b main,Breakpoint 1: where[\s\S]*047_debug_large_array.cj:6
-AOT r,r,-> 6
+AOT b,b main,Breakpoint 1: where[\s\S]*047_debug_large_array.cj:14
+AOT r,r,-> 14
 CJVM c,c,
 q,q,

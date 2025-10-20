@@ -5,13 +5,16 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    if (Generics<Father, Son>.typename() == "interface Generics") {
-        return 0
+    if (Generics<Father, Son>.typename() == "interface Generics" ) {
+        return 0        
     } else {
         return 1
     }
+
 }
+
+

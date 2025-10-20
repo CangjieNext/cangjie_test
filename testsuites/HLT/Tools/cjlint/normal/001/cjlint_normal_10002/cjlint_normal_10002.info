@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0-core
+// DEPENDENCE: ./src
+// EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
+// ASSERT: scan test.cj:2:5
+// ASSERT: scan test.cj:5:5
+// ASSERT: scan test.cj:8:5
+// ASSERT: scan test.cj:11:5
+// ASSERT: scan test.cj:14:5
+// ASSERT: scan test.cj:17:5
+// ASSERT: scan test.cj:20:5
+// ASSERT: scan test.cj:23:5
+// ASSERT: scan test.cj:26:5
+// ASSERT: scan test.cj:29:5
+// ASSERT: scan SenInfoName found!
+// ASSERT: scan is sensitive information is hard-coded in the program

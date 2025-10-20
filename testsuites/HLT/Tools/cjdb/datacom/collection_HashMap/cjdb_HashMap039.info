@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_HashMap_Ins_array,004_HashMap_Ins_array
-b,b 38,004_HashMap_Ins_array.cj:38
-AOT r,r,-> 38
-CJVM c,c,-> 38
+b,b 46,004_HashMap_Ins_array.cj:46
+AOT r,r,-> 46
+CJVM c,c,-> 46
 p,p map_array_1,std[.]collection.HashMap<Int16,std[.]core.Array<std[.]core.Array<Int64>>>\) \$[\d] = {[\S\s]*key = -2[\S\s]*\[0\] = 641[\S\s]*}
 q,q,

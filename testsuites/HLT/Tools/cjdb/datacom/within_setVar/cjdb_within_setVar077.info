@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors setVar_external_invoke.out,setVar_external_invoke
-b,b 27,setVar_external_invoke.cj:27
-AOT r,r,-> 27
+b,b 35,setVar_external_invoke.cj:35
+AOT r,r,-> 35
 CJVM c,c,
 p,p val_gr3,\(Float32\) \$[\d] = 1.01999998
 set,set val_gr3=-12.23,\(Float32\) \$[0-9]* = -12.2299995

@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 34,063_debug_expr_array.cj:34
-CJVM c,c,-> 34
-AOT r,r,-> 34
+b,b 42,063_debug_expr_array.cj:42
+CJVM c,c,-> 42
+AOT r,r,-> 42
 expr,expr arrl,std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*[\2\] = 2[\s\S]*}*
 expr,expr arrl[0],\(Int64\) \$[\d] = 0
 expr,expr arrl[0]=10,\(Unit\) \$[\d] = ()

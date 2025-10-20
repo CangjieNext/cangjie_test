@@ -1,0 +1,10 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n ../config
+// EXEC: cd %n && %lint -f ./src  -c ../. -m %lintModuleDir 2>&1 | compare %f
+// ASSERT: regex .*test.cj:8:15:.*i00123456 is sensitive information is hard-coded in the program
+// ASSERT: regex .*test.cj:9:8:.*i00123456 is sensitive information is hard-coded in the program

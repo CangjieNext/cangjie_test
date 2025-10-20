@@ -20,6 +20,3 @@ var a = 1
 main () {
     a
 }
-
-// cfg.toml
-k = "default"

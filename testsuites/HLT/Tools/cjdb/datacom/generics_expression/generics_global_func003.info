@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func003,generics_global_func003
-b,b 20,generics_global_func003.cj:20
-AOT r,r,-> 20
+b,b 28,generics_global_func003.cj:28
+AOT r,r,-> 28
 CJVM c,c,
 expr:expr a1:\(Bool\) \$[\d] = true
 expr:expr a2:\(Rune\) \$[\d] = 'f'

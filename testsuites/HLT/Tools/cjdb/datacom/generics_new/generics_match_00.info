@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_match,generics_match
-b,b 14,generics_match.cj:14
-AOT r,r,-> 14
+b,b 22,generics_match.cj:22
+AOT r,r,-> 22
 CJVM c,c,
 locals, locals,\(default.RGBColor<Int64>\) c = {(\r|\n|\r\n)  constructor = Green[\s\S]*arg_1 = -100[\s\S]*}[\s\S]*\(std.core.String\) cs = "Green = 0"
 q,q,

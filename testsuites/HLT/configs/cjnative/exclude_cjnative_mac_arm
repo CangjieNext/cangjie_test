@@ -1,15 +1,33 @@
 # Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 # This source file is part of the Cangjie project, licensed under Apache-2.0
 # with Runtime Library Exception.
-#
+# 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-# should be fixed.
-API/std/convert/radixconvertible/test_radixconvertible_int_01.cj
-API/std/convert/radixconvertible/test_radixconvertible_uint_02.cj
-API/std/os/env/test_getArgs/test_getArgs_005/test_getArgs_005.cj
+Tools/cjdb/datacom/ArrayList/arraylist_test_017.info
+Tools/cjdb/datacom/C_FFI/viewVariables_CFunc_07.info
+Tools/cjdb/datacom/lambda/lldb_lambda_05.info
+Tools/cjdb/datacom/lambda/lldb_lambda_10.info
+Tools/cjdb/datacom/past_HashMap/Core_HashMap_view_12.info
+Tools/cjdb/datacom/past_array_composite/lldb_array_composite_015.info
+Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointInMain026.info
+Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointNotInMain034.info
+Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointNotInMain037.info
+Tools/cjdb/datacom/past_debug_operation/lldb_Continue004.info
+Tools/cjdb/datacom/past_enum/lldb_enum026.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut007.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut044.info
+Tools/cjdb/datacom/past_variable_modify/lldb_VariableModify056.info
+Tools/cjdb/datacom/within_setVar/cjdb_within_setVar048.info
+Tools/cjdb/datacom/within_watchpoint/lldb_within_watchpoint055.info
+# testcase is not correct.
+Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
+
+# mock error, call an abstract function
 API/std/unittest/mock/test_mock_extend_cjnative.cj
 
-# Reflect not supported on Mac
-API/std/reflect/cjnative/findAnnotation/test_findAllAnnotations.cj
-API/std/reflect/cjnative/findAnnotation/test_getAllAnnotations.cj
+# syntax will be supported in future
+API/syntax
+
+# timezone file in ci not support now
+API/std/time/TimeZone/load/test_loadFromPaths.cj

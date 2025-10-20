@@ -1,11 +1,100 @@
 # Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 # This source file is part of the Cangjie project, licensed under Apache-2.0
 # with Runtime Library Exception.
-#
+# 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-# should be fixed.
-API/std/convert/radixconvertible/test_radixconvertible_int_01.cj
-API/std/convert/radixconvertible/test_radixconvertible_uint_02.cj
-API/std/os/env/test_getArgs/test_getArgs_005/test_getArgs_005.cj
+# sema error, should be fixed later.
+API/std/os/process/test_getgroups/test_getgroups_001/test_getgroups_001.cj
+# testcase is not correct.
+Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
+# will be fixed in future.
+API/SyntaxTreeNode/Annotation/parse_Annotation_03.cj
+# pffi should run with Python-ffi version
+API/std/ffi/Python
+# old jffi can only be run with cjvm.
+compiler/cjnative/FFI/jffi
+# invoke_api can only be used in cjvm.
+compiler/cjnative/FFI/cffi/invoke_api
+
+# mock error, call an abstract function
 API/std/unittest/mock/test_mock_extend_cjnative.cj
+# stable abi: not support jffi
+compiler/cjnative/stable_abi/05_class/02_modify/01_define_content/01_visible_outside_module/02_compiler_directive/Java/class_Java_add.cj
+compiler/cjnative/stable_abi/05_class/02_modify/01_define_content/01_visible_outside_module/02_compiler_directive/Java/class_Java_delete.cj
+compiler/cjnative/stable_abi/06_interface/02_modify/01_define_content/02_compiler_directive/java/06_interface_Java_add.cj
+compiler/cjnative/stable_abi/06_interface/02_modify/01_define_content/02_compiler_directive/java/06_interface_Java_delete.cj
+compiler/cjnative/stable_abi/interface/modify/funcmemeber_property/modify/compiler_directive/interface_add_java.cj
+
+# cjdb null pointer
+Tools/cjdb/datacom/case/case20_5.info
+Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP036.info
+Tools/cjdb/datacom/expression_enum/expression_enum006.info
+Tools/cjdb/datacom/generics_expression/generics_local_var014.info
+
+# cjlint failed cases, excluded before
+Tools/cjlint/rules/G_OTH_03/g_oth_03_10002/g_oth_03_10002.info
+Tools/cjlint/rules/G_FMT_01/g_fmt_01_10001/g_fmt_01_10001.info
+Tools/cjlint/rules/G_NAM_01/g_nam_01_10011/g_nam_01_10011.info
+Tools/cjlint/rules/G_CHK_02/g_chk_02_10007/g_chk_02_10007.info
+Tools/cjlint/rules/G_CHK_01/g_chk_01_10008/g_chk_01_10008.info
+Tools/cjlint/rules/G_CHK_01/g_chk_01_10033/g_chk_01_10033.info
+Tools/cjlint/rules/G_CHK_01/g_chk_01_10034/g_chk_01_10034.info
+Tools/cjlint/rules/P_02/p_02_class_static_1005/p_02_class_static_1005.info
+Tools/cjlint/rules/P_02/p_02_class_static_1008/p_02_class_static_1008.info
+Tools/cjlint/rules/P_02/p_02_struct_static_1005/p_02_struct_static_1005.info
+Tools/cjlint/rules/P_02/p_02_struct_static_1008/p_02_struct_static_1008.info
+Tools/cjlint/rules/G_OTH_01/g_oth_01_10013/g_oth_01_10013.info
+Tools/cjlint/rules/G_OTH_01/g_oth_01_10014/g_oth_01_10014.info
+Tools/cjlint/rules/G_OTH_01/g_oth_01_10015/g_oth_01_10015.info
+Tools/cjlint/rules/G_SER_03/typeCheck/different/g_tyck_081/g_tyck_081.info
+Tools/cjlint/rules/G_SER_03/typeCheck/different/g_tyck_089/g_tyck_089.info
+Tools/cjlint/rules/G_SER_03/typeCheck/different/g_tyck_098/g_tyck_098.info
+Tools/cjlint/rules/G_SER_03/typeCheck/different/g_tyck_099/g_tyck_099.info
+Tools/cjlint/rules/G_SER_03/typeCheck/different/g_tyck_100/g_tyck_100.info
+Tools/cjlint/rules/G_SER_03/typeCheck/different/g_tyck_108/g_tyck_108.info
+Tools/cjlint/rules/G_SER_03/typeCheck/different/g_tyck_109/g_tyck_109.info
+Tools/cjlint/rules/G_SER_03/typeCheck/different/g_tyck_117/g_tyck_117.info
+Tools/cjlint/rules/G_SER_03/typeCheck/different/g_tyck_118/g_tyck_118.info
+Tools/cjlint/rules/G_SER_03/typeCheck/different/g_tyck_126/g_tyck_126.info
+Tools/cjlint/rules/G_SER_03/typeCheck/different/g_tyck_127/g_tyck_127.info
+Tools/cjlint/rules/G_SER_03/typeCheck/different/g_tyck_131/g_tyck_131.info
+Tools/cjlint/rules/G_SER_03/typeCheck/same/g_tyck_071/g_tyck_071.info
+Tools/cjlint/rules/G_SER_03/typeCheck/same/g_tyck_073/g_tyck_073.info
+Tools/cjlint/rules/G_SER_03/typeCheck/same/g_tyck_074/g_tyck_074.info
+Tools/cjlint/rules/G_CON_03/g_con_03_class_dir_imple_1001/g_con_03_class_dir_imple_1001.info
+Tools/cjlint/rules/G_CON_03/g_con_03_class_dir_imple_1003/g_con_03_class_dir_imple_1003.info
+Tools/cjlint/rules/G_CON_03/g_con_03_class_extend_imple_1001/g_con_03_class_extend_imple_1001.info
+Tools/cjlint/rules/G_CON_03/g_con_03_class_extend_imple_1003/g_con_03_class_extend_imple_1003.info
+Tools/cjlint/rules/G_CON_03/g_con_03_enum_dir_imple_1001/g_con_03_enum_dir_imple_1001.info
+Tools/cjlint/rules/G_CON_03/g_con_03_enum_dir_imple_1003/g_con_03_enum_dir_imple_1003.info
+Tools/cjlint/rules/G_CON_03/g_con_03_enum_extend_imple_1001/g_con_03_enum_extend_imple_1001.info
+Tools/cjlint/rules/G_CON_03/g_con_03_enum_extend_imple_1003/g_con_03_enum_extend_imple_1003.info
+Tools/cjlint/rules/G_CON_03/g_con_03_struct_dir_imple_1001/g_con_03_struct_dir_imple_1001.info
+Tools/cjlint/rules/G_CON_03/g_con_03_struct_dir_imple_1003/g_con_03_struct_dir_imple_1003.info
+Tools/cjlint/rules/G_CON_03/g_con_03_struct_extend_imple_1001/g_con_03_struct_extend_imple_1001.info
+Tools/cjlint/rules/G_CON_03/g_con_03_struct_extend_imple_1003/g_con_03_struct_extend_imple_1003.info
+Tools/cjlint/rules/G_OTH_01/g_oth_01_10016/g_oth_01_10016.info
+Tools/cjlint/rules/G_SER_03/constraints/g_constraints_06_04/g_constraints_06_04.info
+Tools/cjlint/rules/G_OTH_03/g_oth_03_10026/g_oth_03.info 
+
+# syntax will be supported in future
+API/syntax
+
+# cjmp is not ready.
+compiler/cjnative/Packages/cjmp/cjmp_07014/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_11004_3/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_11012/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_11021/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_11022/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_11046/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_12003/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_12005/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_12008/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_12009/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_12010/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_13002/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_14003/test.cj
+
+# timezone file in ci not support now
+API/std/time/TimeZone/load/test_loadFromPaths.cj

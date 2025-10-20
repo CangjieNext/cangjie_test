@@ -17,6 +17,8 @@ import pkga
 main(): Int64 {
     let a: Int32 = pkga.one
     let b: Int32 = pkga.t
+    //    let c: ()->Unit = pkga.test // 'test' is not a member of package 'pkga'
+    //    let d: Int32 = pkga.test() // 'test' is not a member of package 'pkga'
     if (a != 1) {
         return 1
     }

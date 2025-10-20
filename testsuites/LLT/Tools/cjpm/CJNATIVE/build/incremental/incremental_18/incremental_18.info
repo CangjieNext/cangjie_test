@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm build && sleep 5 && touch src/boo/boo.cj && sleep 5 && cjc --import-path target/release -p "src/boo" --module-name test --output-type=staticlib --output-dir target/release/test -o libtest_boo.a && %cjpm build -i -V 2>&1 | compare %f
+// ASSERT: scan-not Compiling package `test.aoo`
+// ASSERT: scan Compiling package `test.boo`
+// ASSERT: scan Compiling package `test`
+// ASSERT: scan cjpm build success

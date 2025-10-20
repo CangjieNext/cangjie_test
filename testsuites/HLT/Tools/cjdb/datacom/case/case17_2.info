@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case17_2,case17_2
-b,b 11,case17_2.cj:11
-AOT r,r,-> 11
+b,b 19,case17_2.cj:19
+AOT r,r,-> 19
 CJVM c,c,
 AOT globals,globals,\(VArray<Tuple<Int64,Int64>,\$2>\) default::mixtuple02 = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 11[\s\S]*\[1\] = 10[\s\S]*}[\s\S]*\[1\] = {[\s\S]*\[0\] = 9[\s\S]*\[1\] = 8[\s\S]*}[\s\S]*}
 AOT globals,globals,\(Tuple<Bool,Int64,VArray<Int64,\$3>>\) default::mixtuple01 = {[\s\S]*\[0\] = true[\s\S]*\[1\] = 18[\s\S]*\[2\] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}[\s\S]*}

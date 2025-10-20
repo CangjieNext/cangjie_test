@@ -16,15 +16,15 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 53,024_debug_variable.cj:53
-AOT r,r,-> 53
-CJVM c,c,-> 53
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 61,024_debug_variable.cj:61
+AOT r,r,-> 61
+CJVM c,c,-> 61
 AOT set,set var_bool = 0,false
 CJVM set,set var_bool = false,false
-n,n,-> 56
-n,n,-> 61
+n,n,-> 64
+n,n,-> 69
 locals,locals,var_bool = false
 AOT p,p var_bool,\(Bool\) \$[\d] = false
 CJVM p,p var_bool,\(Bool\) \$[\d] = false

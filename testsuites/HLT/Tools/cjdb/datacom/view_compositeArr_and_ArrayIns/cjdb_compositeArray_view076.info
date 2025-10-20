@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayIns_external_invoke.out,ArrayIns_external_invoke
-b,b 58,ArrayIns_external_invoke.cj:58
-AOT r,r,-> 58
+b,b 66,ArrayIns_external_invoke.cj:66
+AOT r,r,-> 66
 CJVM c,c,
 p,p arr_external_top,\(std[.]core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] =[\s\S]*\[99\] =[\s\S]*
 p,p arr_external_top[4998..5000],\(std[.]core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 4999[\s\S]*\[1\] = 5000

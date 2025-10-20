@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 057_debug_rune,057_debug_rune
-b,b 8,057_debug_rune.cj:8
-AOT r,r,-> 8
-CJVM c,c,-> 8
+b,b 16,057_debug_rune.cj:16
+AOT r,r,-> 16
+CJVM c,c,-> 16
 AOT set, set var01=100
 CJVM set, set var01='\u{64}'
 p,p var01,\(Rune\) \$[\d] = 'd'

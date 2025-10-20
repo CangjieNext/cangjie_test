@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_ArrayIns_baseType,008_debug_ArrayIns_baseType
-b,b 38,008_debug_ArrayIns_baseType.cj:38
-AOT r,r,-> 38
+b,b 46,008_debug_ArrayIns_baseType.cj:46
+AOT r,r,-> 46
 CJVM c,c,
 p,p arrayFloat64_d[1][2..4],\(std[.]core.Array<Float64>\) \$[\d] = {[\s\S]*\[0\] = 64.299999999999997
 p,p arrayChar_d[0][2..5],\(std[.]core.Array<Rune>\) \$[\d] = {[\s\S]*\[1\] = 'd'

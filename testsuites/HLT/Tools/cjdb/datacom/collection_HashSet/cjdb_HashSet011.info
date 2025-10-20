@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashSet_Ins_basic,001_HashSet_Ins_basic
-b,b 14,001_HashSet_Ins_basic.cj:14
-AOT r,r,-> 14
-CJVM c,c,-> 14
+b,b 22,001_HashSet_Ins_basic.cj:22
+AOT r,r,-> 22
+CJVM c,c,-> 22
 p,p set_uint8,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[0\] = 4[\S\s]*}
 p,p set_uint8,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[1\] = 9[\S\s]*}
 q,q,

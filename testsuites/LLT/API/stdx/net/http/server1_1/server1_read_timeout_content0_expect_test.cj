@@ -67,7 +67,7 @@ class TestServerReadTimeoutExpect0 {
                     let writer = HttpResponseWriter(httpContext)
 
                     var num = 5
-                    while (num > 0) {
+                    while (num > 0 && !httpContext.isClosed()) {
                         num--
                         writer.write("hello".toArray())
                         sleep(Duration.second * 1)

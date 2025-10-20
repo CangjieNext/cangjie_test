@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (CJNATIVE) EXEC: %run %run_opt %output %run_args
-// (DEBUG_OPTION) ASSERT: scan debug: consteval at testFunctions.cj:23:1 - testFunctions.cj:23:32 replaced initializer function `gv$_fib_calculated` with initializer constant(s).
+// (DEBUG_OPTION) ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_fib_calculated` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/049_debug_string.cj
+// EXEC: %compiler %cmp_opt -g 049_debug_string.cj -o 049_debug_string%cmp_output
+// EXEC: python3 cjdb_test.py lldb_String022.info 049_debug_string %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
+AOT b,breakpoint set -l 17 -c "main_str2==0123456789",049_debug_string.cj:17
+CJVM b,b 17,049_debug_string.cj:17
+AOT r,r,-> 17
+CJVM c,c,
+n,n,-> 18
+locals,locals,\(std[.]core.String\) main_str3 = "abcdxyz"
+q,q,

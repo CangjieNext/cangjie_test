@@ -1,8 +1,3 @@
-package default.pkg
-
-public func fh1():Unit{}
-public func fh2(a:Int64):Int64{return a}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -10,3 +5,8 @@ public func fh2(a:Int64):Int64{return a}
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.pkg
+
+public func fh1():Unit{}
+public func fh2(a:Int64):Int64{return a}

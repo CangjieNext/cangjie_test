@@ -60,6 +60,8 @@ main() {
     }
 
     // EnumPattern
+    // case TimeUnit.Year(y) =>
+    // case Year(y) | Month(y, m) =>
     let x5: Option<Int64> = Option<Int64>.Some(100)
     let x55: Option<Int64> = Option<Int64>.None
     if (let Some(v) <- x5) {

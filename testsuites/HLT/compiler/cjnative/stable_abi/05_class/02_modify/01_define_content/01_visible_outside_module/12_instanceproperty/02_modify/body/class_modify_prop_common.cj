@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.12.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance prop
   @Behavior: change body of non const/@Frozen class instance prop
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -41,16 +41,14 @@ public class Version {
     }
 }
 
-public open class TestClass {
+open public class TestClass {
     public var a: Int64 = 0
     public prop prop1: Int64 {
         get() {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) {
-                1 + 1
-            }
+            if (true) { 1 + 1 }
             1
         }
     }
@@ -60,9 +58,7 @@ public open class TestClass {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) {
-                1 + 1
-            }
+            if (true) { 1 + 1 }
             1
         }
     }
@@ -71,9 +67,7 @@ public open class TestClass {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) {
-                1 + 1
-            }
+            if (true) { 1 + 1 }
             2
         }
     }
@@ -83,10 +77,9 @@ public open class TestClass {
             3
         }
     }
-
     @Frozen
     public prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -97,26 +90,20 @@ public open class TestClass {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) {
-                1 + 1
-            }
+            if (true) { 1 + 1 }
             4 ** 1
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public prop prop5: Int64 {
         get() {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) {
-                1 + 1
-            }
+            if (true) { 1 + 1 }
             5
         }
     }
-
     @Frozen
     public mut prop prop6: Int64 {
         get() {
@@ -132,15 +119,13 @@ public open class TestClass {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) {
-                1 + 1
-            }
+            if (true) { 1 + 1 }
             7
         }
     }
     internal prop prop8: Int64 {
         get() {
-            8 + 1
+            8 + 1 
         }
     }
     private prop prop9: Int64 {
@@ -154,18 +139,14 @@ public open class TestClass {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) {
-                1 + 1
-            }
+            if (true) { 1 + 1 }
             10
         }
         set(v) {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) {
-                v + 1
-            }
+            if (true) { v + 1 }
         }
     }
     public mut prop prop11: Int64 {
@@ -176,27 +157,23 @@ public open class TestClass {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) {
-                v + 1 + 1
-            }
+            if (true) { v + 1 + 1 }
 
             a = v
         }
     }
 
-    public open prop prop13: Int64 {
+    open public prop prop13: Int64 {
         get() {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) {
-                1 + 1
-            }
+            if (true) { 1 + 1 }
             13
         }
     }
 
-    public mut open prop prop14: Int64 {
+    open public mut prop prop14: Int64 {
         get() {
             14
         }
@@ -204,13 +181,11 @@ public open class TestClass {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) {
-                v + 1 + 1
-            }
+            if (true) { v + 1 + 1 }
 
             a = v
         }
-    }
+    }   
 
     @Version["1.1"]
     public prop prop12: Int64 {
