@@ -82,13 +82,37 @@ class ThreadTest {
      *
      */
     @TestCase
+    func testThreadState(): Unit {
+        @Expect(Thread.currentThread.state == ThreadState.Running)
+        let future = spawn {
+            while (true) {
+                sleep(Duration.millisecond * 100)
+                if (Thread.currentThread.hasPendingCancellation) {
+                    return
+                }
+            }
+        }
+        sleep(Duration.millisecond * 10)
+        @Expect(future.thread.state == ThreadState.Pending)
+        future.cancel()
+        sleep(1 * Duration.second)
+        @Expect(future.thread.state == ThreadState.Terminated)
+    }
+
+    /*
+     * Test description: public class Thread
+     * Test API:
+     * public static prop currentThread: Thread
+     *
+     */
+    @TestCase
     func testHandleUncaughtExceptionBy(): Unit {
         Thread.currentThread.name = "main thread"
 
         Thread.handleUncaughtExceptionBy {
             thread: Thread, exception: Exception =>
-            @Expect(thread.name,"main thread")
-            @Expect(exception.message,"a base exception")
+                @Expect(thread.name,"main thread")
+                @Expect(exception.message,"a base exception")
         }
         var caseException01: ?Exception = None
         try {
@@ -103,16 +127,16 @@ class ThreadTest {
 
         Thread.handleUncaughtExceptionBy {
             thread: Thread, exception: Exception =>
-            println("old exception handler")
-            println("thread name: ${thread.name}")
-            println(exception.message)
+                println("old exception handler")
+                println("thread name: ${thread.name}")
+                println(exception.message)
         }
 
         Thread.handleUncaughtExceptionBy {
             thread: Thread, exception: Exception =>
-            println("thread name: ${thread.name}")
-            println("new exception handler")
-            println(exception)
+                println("thread name: ${thread.name}")
+                println("new exception handler")
+                println(exception)
         }
         try {
             throw Exception("a base exception")
@@ -131,9 +155,9 @@ class ThreadTest {
     func testHandleUncaughtExceptionByForSpawn(): Unit {
         Thread.handleUncaughtExceptionBy {
             thread: Thread, exception: Exception =>
-            @Expect(exception.message,"a normal exception in child thread")
-            println("thread name: ${thread.name}")
-            isFinished.store(true)
+                @Expect(exception.message,"a normal exception in child thread")
+                println("thread name: ${thread.name}")
+                isFinished.store(true)
         }
         spawn {
             try {
@@ -164,8 +188,8 @@ class ThreadTest {
             // Register the exception handler in child thread
             Thread.handleUncaughtExceptionBy {
                 thread: Thread, exception: Exception =>
-                println("thread name: ${thread.name}")
-                println(exception)
+                    println("thread name: ${thread.name}")
+                    println(exception)
             }
 
             throw Exception("a base exception in child thread")
@@ -198,4 +222,5 @@ class ThreadTest {
         while (!isFinished.load()) {}
         @Expect(true)
     }
+
 }
