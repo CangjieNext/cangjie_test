@@ -63,6 +63,3 @@ CJNATIVE/workspace/case_04
 CJNATIVE/workspace/case_05
 CJNATIVE/workspace/case_12
 CJNATIVE/workspace/override_compile_option/override_compile_option_02
-
-# 待特性合入
-CJNATIVE/build/lto_combine
