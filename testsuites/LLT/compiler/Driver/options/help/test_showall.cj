@@ -47,6 +47,8 @@ Options:
   --profile-compile-time      Print time spent of all phases in the compilation
   --profile-compile-memory    Print memory usage of all phases in the compilation
   --enable-eh                 Enables experimental support for effect handlers (Experimental)
+  --import-interop-cj-package-config-path <value>
+                              Add interop cj package config directory to path
   --emit-chir                 emit CHIR serialization file of the specified phase. Candidate phases:
     <value>=raw                 emit CHIR before compiler optimization
     <value>=opt                 emit CHIR after compiler optimization (default)
