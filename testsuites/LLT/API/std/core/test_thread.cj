@@ -78,6 +78,30 @@ class ThreadTest {
     /*
      * Test description: public class Thread
      * Test API:
+     * public prop state: ThreadState
+     *
+     */
+    @TestCase
+    func testThreadState(): Unit {
+        @Expect(Thread.currentThread.state == ThreadState.Running)
+        let future = spawn {
+            while (true) {
+                sleep(Duration.millisecond * 100)
+                if (Thread.currentThread.hasPendingCancellation) {
+                    return
+                }
+            }
+        }
+        sleep(Duration.millisecond * 10)
+        @Expect(future.thread.state == ThreadState.Pending)
+        future.cancel()
+        sleep(1 * Duration.second)
+        @Expect(future.thread.state == ThreadState.Terminated)
+    }
+
+    /*
+     * Test description: public class Thread
+     * Test API:
      * public static prop currentThread: Thread
      *
      */
