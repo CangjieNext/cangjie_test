@@ -33,9 +33,3 @@ CJNATIVE/source_sets/not_all_common_specified/
 CJNATIVE/source_sets/switch_sets/
 CJNATIVE/source_sets/tests_in_common/
 CJNATIVE/source_sets/tests_in_source_sets/
-
-# 待特性合入
-CJNATIVE/build/lto_combine
-CJNATIVE/build/combined/multi_module/case05
-CJNATIVE/build/combined/multi_module/case06
-CJNATIVE/build/combined/multi_module/case07
