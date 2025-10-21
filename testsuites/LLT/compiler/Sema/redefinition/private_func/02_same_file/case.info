@@ -1,0 +1,3 @@
+// (Linux) DEPENDENCE: %n.cj
+// (Linux) ERRCHECK: %compiler %cmp_opt %n.cj -o %output %typecheck %diag_json
+// (Linux) ASSERT: scan sema_overload_conflicts
