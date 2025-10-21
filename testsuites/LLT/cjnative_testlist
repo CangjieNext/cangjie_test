@@ -229,6 +229,8 @@ compiler/Sema/Extend/common_specific/check_specific/interface_extension_05/inter
 compiler/Sema/Extend/common_specific/check_specific/interface_extension_05/interface_extension_05_03.cj
 compiler/Sema/Extend/common_specific/check_specific/interface_extension_05/interface_extension_05_04.cj
 
+compiler/CJMP/frontend/extend/positive/enum/common_platform_enum_cycle_ref.cj
+
 # API testcases commented on 2025-10-17, need to be fixed.
 ## signal testcases
 API/std/core/test_func_refeq.cj
