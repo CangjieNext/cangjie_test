@@ -10,7 +10,7 @@ public platform enum EA{
     A (Int64)|
     B |
     C
-    public platfomr func getA() :Int64 {
+    public platform func getA() :Int64 {
         0
     }
 }
