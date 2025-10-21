@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/coalescing02.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug coalescing02.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb coalescing02,coalescing02
+b,b 19,coalescing02.cj:19
+r,r,-> 19
+ ,expr Option<Range<Int64>>.Some(range1) ?? range2,\(std.core.Range<Int64>\) \$\d+ = 0..100 : 1
+ ,expr Option<Option<String>>.Some(str1) ?? "bcd",\(std.core.String\) \$\d+ = "abc"
+ ,expr Option<Option<Array<Int64>>>.Some(arr0) ?? [1, 22, 2],\(std.core.Array<Int64>\) \$\d+ = {\s+\[0\] = 1
+ :expr Option<Option<(Int64,Int64)>>.Some(tuple) ?? (2, 3):\(Tuple<Int64, Int64>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = 2
+ q,q,
