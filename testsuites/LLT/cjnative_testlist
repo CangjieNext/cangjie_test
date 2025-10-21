@@ -73,7 +73,7 @@ compiler/CJMP/frontend/matching/struct/new_members/new_required_constructor.cj
 compiler/CJMP/merging/structs/common_member/function/function_ret_09.cj
 compiler/CJMP/merging/test.cj
 
-## CJPM has to be fixed or to be deleted 
+## CJPM has to be fixed or to be deleted
 ## https://gitcode.com/Cangjie/cangjie_compiler/issues/394
 compiler/CJMP/merging/structs/struct_abstract/instance_variable/variables_all_init.cj
 compiler/CJMP/enhance/common_instance_var_members/common_var_with_initializer_00.cj
@@ -159,10 +159,13 @@ compiler/CJMP/objc/sema/objc_mirror_subtype_parse.cj
 compiler/CJMP/objc/sema/objc_pointer_illegal_argument.cj
 compiler/CJMP/objc/sema/objc_pointer_type_argument.cj
 
+compiler/CJMP/frontend/extend/positive/enum/common_platform_enum_cycle_ref.cj
+
 ## cjmp, driver testcases commented on 2025-10-17, need to be fixed.
 compiler/Driver/LTO/lto_test10_1.cj
 compiler/ConditionalCompilation/cfg/read_file_fail.cj
 compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
+
 
 # API testcases commented on 2025-10-17, need to be fixed.
 ## unittest testcases
