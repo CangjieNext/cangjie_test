@@ -195,8 +195,6 @@ class RunTestcase:
                 return
             if not self.platform and "\r\n" in recv_str:
                 recv_str = recv_str.replace("\r\n", "\n")
-            if not self.platform and "\r\n" in expc_str:
-                expc_str = expc_str.replace("\r\n", "\n")
             # 处理win环境文件名大小写不区分的逻辑
             if not self.platform and key in self.ignore_case_key_for_win:
                 recv_str = recv_str.lower()

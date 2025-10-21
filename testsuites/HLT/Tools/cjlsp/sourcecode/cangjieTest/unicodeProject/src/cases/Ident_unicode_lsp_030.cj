@@ -1,9 +1,3 @@
-package unicodeProject.cases
-//空+@
-class `@` {
-    var `中@` = 2024;
-}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -11,3 +5,9 @@ class `@` {
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package unicodeProject.cases
+//空+@
+class `@` {
+    var `中@` = 2024;
+}

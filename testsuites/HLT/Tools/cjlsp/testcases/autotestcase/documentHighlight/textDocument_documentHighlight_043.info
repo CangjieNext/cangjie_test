@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../../lsp_test.py ../../../sourcecode/cangjieTest/cangjiesource ../../../lsp_config.txt
+// EXEC: %python lsp_test.py textDocument_documentHighlight_043.info
+
+Req#
+{"jsonrpc": "2.0", "id": "0", "method": "initialize", "params": {"processId": null, "rootPath": "cangjiesource", "rootUri": "cangjiesource", "capabilities": {"workspace": {"applyEdit": true, "workspaceEdit": {}, "didChangeWatchedFiles": {}, "symbol": {}, "executeCommand": {}, "workspaceFolders": false, "configuration": false}, "textDocument": {"synchronization": {"willSave": true, "willSaveWaitUntil": true, "didSave": true}, "completion": {"completionItem": {"snippetSupport": true}}, "hover": {}, "signatureHelp": {}, "references": {}, "documentHighlight": {"dynamicRegistration": true}, "formatting": {}, "rangeFormatting": {}, "onTypeFormatting": {}, "definition": {}, "codeAction": {}, "documentLink": {}, "rename": {"prepareSupport": true}, "semanticHighlightingCapabilities": {"semanticHighlighting": true}, "callHierarchy": {}, "semanticTokens": {"tokenTypes": ["namespace", "type", "class", "enum", "interface", "struct", "typeParameter", "parameter", "variable", "property", "enumMember", "event", "function", "method", "macro", "keyword", "modifier", "comment", "string", "number", "regexp", "operator", "member", "label"], "tokenModifiers": ["declaration", "definition", "readonly", "static", "deprecated", "abstract", "async", "modification", "documentation", "defaultLibrary"], "dynamicRegistration": true}}}}}
+{"jsonrpc":"2.0","method":"initialized","params":{}}
+{"jsonrpc": "2.0", "method": "textDocument/didOpen", "params": {"textDocument": {"uri": "cangjiesource/src/Composition/c12.cj", "languageId": "Cangjie", "version": 1, "text": "/*\n * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.\n * This source file is part of the Cangjie project, licensed under Apache-2.0\n * with Runtime Library Exception.\n *\n * See https://cangjie-lang.cn/pages/LICENSE for license information.\n */\n\npackage default.Composition\n\nopen class Foo {\n    public static func f(a: Int64) :Int64{\n        return 1\n    }\n}\nclass Foo1 <: Foo {\n    public static redef func f(a: Int64) :Int64{\n        return 1\n    }\n}\n\nvar a :Int64 = Foo.f(1)\nvar b :Int64= Foo1.f(2)\nvar ab1 = Foo.f ~> Foo1.f\nvar ab2 = Foo1.f ~> Foo.f\nvar ab3 = Foo.f ~> {a: Int64 => a}\n\n"}}}
+{"jsonrpc":"2.0","id":229,"method":"textDocument/documentHighlight","params":{"textDocument":{"uri":"cangjiesource/src/Composition/c12.cj"},"position":{"line":24,"character":11}}}
+{"jsonrpc": "2.0", "id": 230, "method": "shutdown", "params": {}}
+{"jsonrpc": "2.0", "method": "exit", "params": {}}
+
+Rev#
+{"id": 229,"jsonrpc": "2.0","result": [{"kind": 1,"range": {"end": {"character": 10,"line":15},"start": {"character": 6,"line":15}}},{"kind": 1,"range": {"end": {"character": 18,"line":22},"start": {"character": 14,"line":22}}},{"kind": 1,"range": {"end": {"character": 23,"line":23},"start": {"character": 19,"line":23}}},{"kind": 1,"range": {"end": {"character": 14,"line":24},"start": {"character": 10,"line":24}}}]}

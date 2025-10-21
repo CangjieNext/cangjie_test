@@ -11,6 +11,19 @@ API/
 Tools/cjdb
 
 [EXCLUDE-TEST-CASE]
+# cjpm blue-area excluded tests
+/Tools/cjpm/CJNATIVE/init/cangjie_test_init003
+/Tools/cjpm/CJNATIVE/init/cangjie_test_init004
+/Tools/cjpm/CJNATIVE/init/cangjie_test_init005
+/Tools/cjpm/CJNATIVE/init/cangjie_test_init012
+/Tools/cjpm/CJNATIVE/run/run_06
+/Tools/cjpm/CJNATIVE/run/run_17
+/Tools/cjpm/CJNATIVE/run/run_27
+/Tools/cjpm/CJNATIVE/target/bin_dependencies/bin_dependencies_06
+/Tools/cjpm/CJNATIVE/target/bin_dependencies/bin_dependencies_10
+/Tools/cjpm/CJNATIVE/test/unittest/Unittest05
+/Tools/cjpm/CJNATIVE/test/unittest/Unittest06
+
 # The following cases can only be executed in the debug version, but the CI gate currently only supports the release version.
 compiler/CHIR/Serialize
 compiler/CHIR/AST2CHIR/SetGenericInfo

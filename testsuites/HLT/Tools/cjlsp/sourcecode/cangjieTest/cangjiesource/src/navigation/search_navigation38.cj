@@ -1,9 +1,3 @@
-package default.navigation
-
-interface I2<T> {}
-interface IA3<U> {}
-interface I4<V> <: I2<V> & IA3<Int32> {}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -11,3 +5,9 @@ interface I4<V> <: I2<V> & IA3<Int32> {}
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.navigation
+
+interface I2<T> {}
+interface IA3<U> {}
+interface I4<V> <: I2<V> & IA3<Int32> {}

@@ -1,9 +1,3 @@
-package default.Extend
-
-class Foo1<T> {}
-extend<T> Foo1<T> {}
-extend<R> Foo1<R> {}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -11,3 +5,9 @@ extend<R> Foo1<R> {}
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.Extend
+
+class Foo1<T> {}
+extend<T> Foo1<T> {}
+extend<R> Foo1<R> {}
