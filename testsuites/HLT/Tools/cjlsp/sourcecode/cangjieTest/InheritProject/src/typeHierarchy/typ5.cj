@@ -1,9 +1,3 @@
-package default.typeHierarchy
-
-open class C17<T> {}
-open class C18 <: C17<Int64>{}
-open class C19<T,R> <: C18{} 
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -11,3 +5,9 @@ open class C19<T,R> <: C18{}
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.typeHierarchy
+
+open class C17<T> {}
+open class C18 <: C17<Int64>{}
+open class C19<T,R> <: C18{} 

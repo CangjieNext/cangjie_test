@@ -1,10 +1,3 @@
-package default.testVArray
-
-let l1: VArray<Int64, $5> = [1, 2, 3, 4, 5]
-let l2: VArray<Int64, $0> = []
-let l3: VArray<Bool, $2> = [true, true]
-let l4: VArray<Bool, $2> = VArray<Bool, $2>(repeat: false)
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -12,3 +5,10 @@ let l4: VArray<Bool, $2> = VArray<Bool, $2>(repeat: false)
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.testVArray
+
+let l1: VArray<Int64, $5> = [1, 2, 3, 4, 5]
+let l2: VArray<Int64, $0> = []
+let l3: VArray<Bool, $2> = [true, true]
+let l4: VArray<Bool, $2> = VArray<Bool, $2>(repeat: false)
