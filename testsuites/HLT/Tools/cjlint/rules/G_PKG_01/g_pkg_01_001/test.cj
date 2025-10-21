@@ -1,7 +1,3 @@
-import std.ast.*
-main(){
-    return 1
-}
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -9,3 +5,8 @@ main(){
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+import std.ast.*
+main(){
+    return 1
+}
