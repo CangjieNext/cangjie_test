@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-not .*test.cj:36.*error.*: P.03: 'SecretFile' could be inherited and func 'getPath' could be overridden, Defensive copy required for security checks
+// ASSERT: regex-not .*test.cj:44.*error.*: P.03: 'SecretFile' could be inherited and func 'getPath' could be overridden, Defensive copy required for security checks

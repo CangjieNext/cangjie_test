@@ -9,6 +9,6 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex .*test.cj:15.*The isNaN\(\) method must be used to determine whether a Float type variable is NaN.
-// ASSERT: regex .*test.cj:19.*The isNaN\(\) method must be used to determine whether a Float type variable is NaN.
-// ASSERT: regex .*test.cj:22.*The isNaN\(\) method must be used to determine whether a Float type variable is NaN.
+// ASSERT: regex .*test.cj:23.*The isNaN\(\) method must be used to determine whether a Float type variable is NaN.
+// ASSERT: regex .*test.cj:27.*The isNaN\(\) method must be used to determine whether a Float type variable is NaN.
+// ASSERT: regex .*test.cj:30.*The isNaN\(\) method must be used to determine whether a Float type variable is NaN.

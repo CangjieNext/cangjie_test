@@ -1,12 +1,3 @@
-
-
-func test(){
-// ß?ß
-// df3f df7f
-}
-
-main(){}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -14,3 +5,12 @@ main(){}
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+
+
+func test(){
+// ï¿½?ï¿½
+// df3f df7f
+}
+
+main(){}
