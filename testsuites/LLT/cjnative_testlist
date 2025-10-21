@@ -164,6 +164,8 @@ compiler/Driver/LTO/lto_test10_1.cj
 compiler/ConditionalCompilation/cfg/read_file_fail.cj
 compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
 
+compiler/CJMP/frontend/extend/positive/enum/common_platform_enum_cycle_ref.cj
+
 # API testcases commented on 2025-10-17, need to be fixed.
 ## unittest testcases
 ### error: source file 'other.cj' doesn't exist
