@@ -6,11 +6,11 @@
 // LEVEL 0
 // DEPENDENCE: import.pkg.cj
 // EXEC: %compiler import.pkg.cj %compile_lib_opt -o %n.%lib_extension
-// (Linux) EXEC: mkdir -p some/a@b
-// (Linux) EXEC: mv a@b.cjo some/a@b
+// (Linux) EXEC: mkdir -p some/b@a
+// (Linux) EXEC: mv b@a.cjo some/b@a
 // (Linux) EXEC: CANGJIE_PATH="$(realpath some):$CANGJIE_PATH" %compiler %f %n.%lib_extension
-// (Linux) EXEC: CANGJIE_PATH="$(realpath some/a@b):$CANGJIE_PATH" %compiler %f %n.%lib_extension
-// (Linux) EXEC: %compiler %f %n.%lib_extension --import-path "$(realpath some/a@b)"
+// (Linux) EXEC: CANGJIE_PATH="$(realpath some/b@a):$CANGJIE_PATH" %compiler %f %n.%lib_extension
+// (Linux) EXEC: %compiler %f %n.%lib_extension --import-path "$(realpath some/b@a)"
 // (Linux) EXEC: %compiler %f %n.%lib_extension --import-path some
 
 import a::b.*
