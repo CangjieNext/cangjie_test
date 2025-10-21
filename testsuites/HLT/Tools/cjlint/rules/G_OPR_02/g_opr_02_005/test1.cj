@@ -1,10 +1,3 @@
-enum E1 {
-    Y | X
-    
-    operator func ()(a:Int64) {
-        print(a)
-    }
-}
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -12,3 +5,11 @@ enum E1 {
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+enum E1 {
+    Y | X
+    
+    operator func ()(a:Int64) {
+        print(a)
+    }
+}
