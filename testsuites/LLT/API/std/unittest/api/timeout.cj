@@ -27,9 +27,11 @@
 // ASSERT: scan-1 Timeout in Test.expectThrowsIsACancellationPointNoException!
 // ASSERT: scan-1 Timeout in Test.failIsACancellationPoint!
 // ASSERT: scan-1 Timeout in Test.failExpectIsACancellationPoint!
+// ASSERT: scan-not Cancellation in user's thread
 
 import std.unittest.*
 import std.unittest.testmacro.*
+import std.sync.*
 
 @CustomAssertion
 func custom<V>(ctx: AssertionCtx, _: V): Unit {}
@@ -157,6 +159,27 @@ class Test {
     func failExpectIsACancellationPoint() {
         sleep(Duration.second * 2)
         timeouts { @FailExpect("") }
+    }
+
+    @TestCase
+    func usersThreadCancel() {
+        let stop = AtomicBool(false)
+        let barrier = Barrier(2)
+        let feature = spawn {
+            try {
+                barrier.wait()
+                while (!stop.load()) {
+                    @Expect(true)
+                    sleep(Duration.millisecond)
+                }
+            } catch (e: UnittestTimeoutException) {
+                print("Cancellation in user's thread\n", flush:true)
+            }
+        }
+        barrier.wait()
+        feature.cancel()
+        sleep(Duration.second) // waiting for @Expect to check the flag
+        stop.store(true)
     }
 }
 
