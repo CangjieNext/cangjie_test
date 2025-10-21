@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-1 test.cj:3:.*G.VAR.02: Prefer variable 'b' to follow the principle of minimizing scope.
+// ASSERT: regex-1 test.cj:11:.*G.VAR.02: Prefer variable 'b' to follow the principle of minimizing scope.
