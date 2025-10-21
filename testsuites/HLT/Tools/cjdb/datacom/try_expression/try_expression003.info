@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/try_expression/try003.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g try003.cj -o try003%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py try_expression003.info try003 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors try003,try003
+b,b 20,try003.cj:20
+AOT r,r,-> 20
+expr~expr try {break} finally {print("finally")}~error: unsupported expression
+expr~expr try {var a=1} finally {print("finally")}~\(Unit\) \$[\d] = ()
+q,q,
