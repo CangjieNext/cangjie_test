@@ -1,10 +1,3 @@
-package default.Extend
-
-interface I4 {}
-
-class Foo4 <: I4 {}
-
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -12,3 +5,10 @@ class Foo4 <: I4 {}
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.Extend
+
+interface I4 {}
+
+class Foo4 <: I4 {}
+

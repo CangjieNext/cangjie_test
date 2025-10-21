@@ -1,10 +1,3 @@
-package unicodeProject.cases
-func test_015() {
-    func 名@() {
-        
-    }
-}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -12,3 +5,10 @@ func test_015() {
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package unicodeProject.cases
+func test_015() {
+    func 名@() {
+        
+    }
+}
