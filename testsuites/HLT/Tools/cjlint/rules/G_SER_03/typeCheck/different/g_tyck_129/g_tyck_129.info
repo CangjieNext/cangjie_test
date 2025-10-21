@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE-0: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 |compare %f
-// ASSERT: regex 19:5: .*error.*: Type mismatch: the deserialized type of 'value' is 'Class-ArrayList<Class-B>'\(line 16\), but in function 'serialize\(\)', the type is 'Class-ArrayList<Class-A>'\(line 12\).
+// ASSERT: regex 27:5: .*error.*: Type mismatch: the deserialized type of 'value' is 'Class-ArrayList<Class-B>'\(line 24\), but in function 'serialize\(\)', the type is 'Class-ArrayList<Class-A>'\(line 20\).

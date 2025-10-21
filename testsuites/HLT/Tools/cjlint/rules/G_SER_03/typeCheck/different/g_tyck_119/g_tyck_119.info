@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE-0: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 |compare %f
-// ASSERT: regex :18:5: .*error.*: Type mismatch: the deserialized type of 'value' is 'Enum-Option<UInt64>'\(line 15\), but in function 'serialize\(\)', the type is 'Enum-Option<UInt32>'\(line 11\).
+// ASSERT: regex :26:5: .*error.*: Type mismatch: the deserialized type of 'value' is 'Enum-Option<UInt64>'\(line 23\), but in function 'serialize\(\)', the type is 'Enum-Option<UInt32>'\(line 19\).

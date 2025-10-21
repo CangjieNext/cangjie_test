@@ -9,7 +9,7 @@
 // LEVEL: 1
 // DEPENDENCE: ./src ../config
 // EXEC-PIPE: %lint -f ./src  -c . -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex test.cj:3:8: .*error.*: chmod is sensitive information is hard-coded in the program
-// ASSERT: regex test.cj:4:8: .*error.*: chown is sensitive information is hard-coded in the program
-// ASSERT: regex test.cj:5:8: .*error.*: usermod is sensitive information is hard-coded in the program
+// ASSERT: regex test.cj:11:8: .*error.*: chmod is sensitive information is hard-coded in the program
+// ASSERT: regex test.cj:12:8: .*error.*: chown is sensitive information is hard-coded in the program
+// ASSERT: regex test.cj:13:8: .*error.*: usermod is sensitive information is hard-coded in the program
 

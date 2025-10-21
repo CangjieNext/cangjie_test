@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/try_expression/try001.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g try001.cj -o try001%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py try_expression001.info try001 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors try001,try001
+b,b 11,try001.cj:11
+AOT r,r,-> 11
+expr~expr try {} catch (_) {} finally {}~\(Unit\) \$[\d] = ()
+expr~expr try {} catch (_) {}~\(Unit\) \$[\d] = ()
+expr~expr try {} finally {}~\(Unit\) \$[\d] = ()
+q,q,

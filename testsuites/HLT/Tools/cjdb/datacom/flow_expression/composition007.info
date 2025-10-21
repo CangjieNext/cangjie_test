@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/composition007.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g composition007.cj -o composition007%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py composition007.info composition007 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors composition007,composition007
+b,b 48,composition007.cj:48
+AOT r,r,-> 48
+expr,expr b1,\(default.\(Int64\)->Bool\) \$[\d] = 0x[\s\S]*
+expr,expr b2,\(default.\(Float32\)->Bool\) \$[\d] = 0x[\s\S]*
+expr,expr b3,\(default.\(Bool\)->Bool\) \$[\d] = 0x[\s\S]*
+expr,expr c1,\(default.\(Int64\)->Bool\) \$[\d] = 0x[\s\S]*
+expr,expr c2,\(default.\(Float32\)->Bool\) \$[\d] = 0x[\s\S]*
+expr,expr c3,\(default.\(Bool\)->Bool\) \$[\d] = 0x[\s\S]*
+expr:expr S1.f2~>a2.f3:\(default.\(Float32\)->Bool\) \$[\d] = 0x[\s\S]*
+q,q,
