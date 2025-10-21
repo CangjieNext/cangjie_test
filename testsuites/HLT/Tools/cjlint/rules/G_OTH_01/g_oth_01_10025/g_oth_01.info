@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex test.cj:10:.*: .*error.*?Sensitive information \(keyword 'passwd'\) should not be recorded to logs.
+// ASSERT: regex test.cj:18:.*: .*error.*?Sensitive information \(keyword 'passwd'\) should not be recorded to logs.
