@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/composition004.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g composition004.cj -o composition004%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py composition004.info composition004 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors composition004,composition004
+b,b 21,composition004.cj:21
+AOT r,r,-> 21
+expr,expr l1,\(default.\(Int64\)->Float64\) \$[\d] = 0x[\s\S]*
+expr,expr l2,\(default.\(Int64\)->Float64\) \$[\d] = 0x[\s\S]*
+expr,expr l3,\(default.\(Float64\)->Float64\) \$[\d] = 0x[\s\S]*
+expr;expr f~>h1<Float64>;\(default.\(Int64\)->Float64\) \$[\d] = 0x[\s\S]*
+q,q,
