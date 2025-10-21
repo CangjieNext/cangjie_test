@@ -1,11 +1,3 @@
-package default
-
-// func testcase14(@Deprecated a: Int64) {
-//     return a
-// }
-
-// let test_b = testcase14(1)
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -13,3 +5,11 @@ package default
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default
+
+// func testcase14(@Deprecated a: Int64) {
+//     return a
+// }
+
+// let test_b = testcase14(1)

@@ -1,10 +1,3 @@
-#include <stdio.h>
-
-void testsame2()
-{
-    printf("Hello World testfunc1\n");
-}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -12,3 +5,10 @@ void testsame2()
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+#include <stdio.h>
+
+void testsame2()
+{
+    printf("Hello World testfunc1\n");
+}
