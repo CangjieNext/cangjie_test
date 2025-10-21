@@ -8,9 +8,8 @@ package pkg
 
 public common enum EA{
     A(CA) |
-    C 
+    C
 }
-public common enum CA {
-    A : EA
- }
-
+public common class CA {
+   var A : EA = EA.C
+}

@@ -6,10 +6,10 @@
 
 
 // DEPENDENCE: common.cj platform.cj
-// EXEC: %compiler %cmp_opt %compile_lib_opt common.cj -o common.%middle
-// EXEC: %compiler %cmp_opt %compile_lib_opt platform.cj -o platform.%middle
-// EXEC: %compiler %cmp_opt pkg.%middle %n.cj -o %n.%suffix
-// EXEC: %run %run_opt %n.%suffix
+// EXEC: %compiler %cmp_opt %compile_lib_opt --experimental --output-type=chir  common.cj
+// EXEC: %compiler %cmp_opt %compile_lib_opt --experimental --common-part-cjo=pkg.cjo platform.cj ./pkg.chir --output=dylib
+// EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix -import-path=. -L./ -lpkg
+// EXEC: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:. %run %run_opt %n.%suffix
 
 import pkg.*
 
@@ -17,4 +17,3 @@ main() {
     let x = EA.A
     return 0
 }
-

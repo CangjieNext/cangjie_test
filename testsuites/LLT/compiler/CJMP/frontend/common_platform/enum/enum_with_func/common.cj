@@ -9,7 +9,6 @@ package pkg
 public common enum EA{
     A (Int64)|
     B |
-    C 
-    func getA() :Int64 
+    C
+    public common func getA() :Int64
 }
-

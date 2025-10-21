@@ -9,9 +9,8 @@ package pkg
 public platform enum EA{
     A (Int64)|
     B |
-    C 
-    func getA() :Int64 {
+    C
+    public platfomr func getA() :Int64 {
         0
     }
 }
-
