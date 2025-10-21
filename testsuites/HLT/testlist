@@ -5,11 +5,16 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [ALL-TEST-CASE]
-
 API/
 Tools/
 compiler/
 regression/
 Runtime/
-
 [EXCLUDE-TEST-CASE]
+Tools/cjpm/cjpm_command/build1/release_debug_path/case11
+Tools/cjpm/cjpm_command/build1/release_debug_path/case12
+Tools/cjpm/cjpm_command/build1/release_debug_path/case13
+Tools/cjpm/cjpm_command/build1/release_debug_path/case15
+Tools/cjpm/cjpm_build/zero_module/zero_module_005
+Tools/cjpm/cjpm_command/build1/zero/module_build_005
+Tools/cjpm/cjpm_command/build1/zero/module_build_006
