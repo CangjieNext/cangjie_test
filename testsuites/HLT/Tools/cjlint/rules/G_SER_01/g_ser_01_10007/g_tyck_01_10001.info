@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex-1 :16:45: .*error.*: Serialize sensitive field 'passwd' may cause information leak
+// ASSERT: regex-1 :24:45: .*error.*: Serialize sensitive field 'passwd' may cause information leak

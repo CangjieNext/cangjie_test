@@ -9,7 +9,7 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex test.cj:12:.*: .*error.*: Assign variable 'name' in deserialization function without checking
-// ASSERT: regex test.cj:13:.*: .*error.*: Assign variable 'password' in deserialization function without checking
-// ASSERT: regex test.cj:18:.*: .*error.*: Serialize sensitive field 'password' may cause information leak
-// ASSERT: regex test.cj:18:.*: .*error.*: Serialize sensitive field 'password' may cause information leak
+// ASSERT: regex test.cj:20:.*: .*error.*: Assign variable 'name' in deserialization function without checking
+// ASSERT: regex test.cj:21:.*: .*error.*: Assign variable 'password' in deserialization function without checking
+// ASSERT: regex test.cj:26:.*: .*error.*: Serialize sensitive field 'password' may cause information leak
+// ASSERT: regex test.cj:26:.*: .*error.*: Serialize sensitive field 'password' may cause information leak

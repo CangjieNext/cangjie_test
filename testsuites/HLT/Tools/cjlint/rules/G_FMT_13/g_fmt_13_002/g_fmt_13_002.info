@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ./src ../config
 // EXEC-PIPE: %lint -f ./src -c ./ -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex .*test.cj:1:.*G.FMT.13: The file header comments should contain the copyright information.
+// ASSERT: regex-not .*test.cj:1:.*G.FMT.13: The file header comments should contain the copyright information.
