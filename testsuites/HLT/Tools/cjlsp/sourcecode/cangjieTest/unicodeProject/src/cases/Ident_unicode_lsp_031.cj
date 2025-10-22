@@ -1,11 +1,3 @@
-package unicodeProject.cases
-
-var 特ø: Int64 = 1
-
-func testcase_31() {
-    var c = 特ø;
-}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -13,3 +5,11 @@ func testcase_31() {
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package unicodeProject.cases
+
+var 特ø: Int64 = 1
+
+func testcase_31() {
+    var c = 特ø;
+}

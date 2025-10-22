@@ -1,9 +1,3 @@
-package unicodeProject.cases
-
-class _트 {
-    let _a = 1
-}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -11,3 +5,9 @@ class _트 {
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package unicodeProject.cases
+
+class _트 {
+    let _a = 1
+}

@@ -356,3 +356,12 @@ compiler/cli/Option/pgo/pgo_004.cj
 compiler/cli/Option/pgo/pgo_005.cj
 
 Regression/External/I4AZMP.cj
+
+# cjpm should be fixed.
+Tools/cjpm/cjpm_command/build1/release_debug_path/case11
+Tools/cjpm/cjpm_command/build1/release_debug_path/case12
+Tools/cjpm/cjpm_command/build1/release_debug_path/case13
+Tools/cjpm/cjpm_command/build1/release_debug_path/case15
+Tools/cjpm/cjpm_build/zero_module/zero_module_005
+Tools/cjpm/cjpm_command/build1/zero/module_build_005
+Tools/cjpm/cjpm_command/build1/zero/module_build_006

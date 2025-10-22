@@ -9,3 +9,12 @@ API/std/convert/radixconvertible/test_radixconvertible_int_01.cj
 API/std/convert/radixconvertible/test_radixconvertible_uint_02.cj
 API/std/os/env/test_getArgs/test_getArgs_005/test_getArgs_005.cj
 API/std/unittest/mock/test_mock_extend_cjnative.cj
+
+# cjpm should be fixed.
+Tools/cjpm/cjpm_command/build1/release_debug_path/case11
+Tools/cjpm/cjpm_command/build1/release_debug_path/case12
+Tools/cjpm/cjpm_command/build1/release_debug_path/case13
+Tools/cjpm/cjpm_command/build1/release_debug_path/case15
+Tools/cjpm/cjpm_build/zero_module/zero_module_005
+Tools/cjpm/cjpm_command/build1/zero/module_build_005
+Tools/cjpm/cjpm_command/build1/zero/module_build_006

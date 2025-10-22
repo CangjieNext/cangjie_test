@@ -1,8 +1,3 @@
-package default.testConst
-
-const ao1: (Int64, Int64) -> Int64 = {a: Int64, b: Int64 => a + b}
-const ao2: (p1: Int64, p2: Int64) -> Int64 = {a: Int64, b: Int64 => a + b}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -10,3 +5,8 @@ const ao2: (p1: Int64, p2: Int64) -> Int64 = {a: Int64, b: Int64 => a + b}
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.testConst
+
+const ao1: (Int64, Int64) -> Int64 = {a: Int64, b: Int64 => a + b}
+const ao2: (p1: Int64, p2: Int64) -> Int64 = {a: Int64, b: Int64 => a + b}

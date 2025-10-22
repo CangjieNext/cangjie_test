@@ -1,10 +1,3 @@
-package diagnosticsTest.func_error
-
-func test02(a:Int8,b:Bool) {
-    
-
-
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -12,3 +5,10 @@ func test02(a:Int8,b:Bool) {
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package diagnosticsTest.func_error
+
+func test02(a:Int8,b:Bool) {
+    
+
+

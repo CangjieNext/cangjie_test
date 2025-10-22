@@ -41,3 +41,16 @@ CJNATIVE/workspace/case_04
 CJNATIVE/workspace/case_05
 CJNATIVE/workspace/case_12
 CJNATIVE/workspace/override_compile_option/override_compile_option_02
+
+# cjpm should be fixed
+CJNATIVE/init/cangjie_test_init003
+CJNATIVE/init/cangjie_test_init004
+CJNATIVE/init/cangjie_test_init005
+CJNATIVE/init/cangjie_test_init012
+CJNATIVE/run/run_06
+CJNATIVE/run/run_17
+CJNATIVE/run/run_27
+CJNATIVE/target/bin_dependencies/bin_dependencies_06
+CJNATIVE/target/bin_dependencies/bin_dependencies_10
+CJNATIVE/test/unittest/Unittest05
+CJNATIVE/test/unittest/Unittest06

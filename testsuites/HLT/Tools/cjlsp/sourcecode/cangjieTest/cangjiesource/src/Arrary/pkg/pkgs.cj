@@ -1,8 +1,3 @@
-package default.Arrary.pkg
-
-public var arr1: Array<Int64> = [1,2,3,4,5]
-public var arr2: Array<Int64> = [1,2,3,4,5]
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -10,3 +5,8 @@ public var arr2: Array<Int64> = [1,2,3,4,5]
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.Arrary.pkg
+
+public var arr1: Array<Int64> = [1,2,3,4,5]
+public var arr2: Array<Int64> = [1,2,3,4,5]
