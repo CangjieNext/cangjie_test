@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0
+// LEVEL: 3
 // (not Windows)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // (not Windows)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args 
 
