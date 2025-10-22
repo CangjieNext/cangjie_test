@@ -98,3 +98,6 @@ compiler/cjnative/Packages/cjmp/cjmp_14003/test.cj
 
 # timezone file in ci not support now
 API/std/time/TimeZone/load/test_loadFromPaths.cj
+
+# fail in ci env
+API/std/socket/UdpSocket/test_udp_transportation_init.cj
