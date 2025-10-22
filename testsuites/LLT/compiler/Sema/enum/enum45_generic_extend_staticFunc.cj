@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args | compare %f
-// ASSEERT: scan 2
+// ASSERT: scan 2
 
 enum E<T> {
     AB
