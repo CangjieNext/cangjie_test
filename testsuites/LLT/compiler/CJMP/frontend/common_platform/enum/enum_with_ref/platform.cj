@@ -6,9 +6,8 @@
 
 package pkg
 
-public common enum EA{
+public platform enum EA{
     A(String) |
     B |
-    C 
+    C
 }
-

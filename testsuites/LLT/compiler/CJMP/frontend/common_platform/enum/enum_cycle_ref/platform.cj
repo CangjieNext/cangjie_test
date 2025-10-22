@@ -8,9 +8,8 @@ package pkg
 
 public platform enum EA{
     A(CA) |
-    C 
+    C
 }
-public platfrom enum CA {
-    A : EA
+public platform class CA {
+   var A : EA = EA.C
 }
-
