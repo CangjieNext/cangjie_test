@@ -32,5 +32,10 @@ import cmp.*
 
 main() {
     let x = EA.A("hello")
+    println(x)
     return 0
 }
+
+/* SCAN
+hello
+*/

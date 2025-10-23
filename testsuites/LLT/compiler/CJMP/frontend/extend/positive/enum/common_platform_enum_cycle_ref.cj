@@ -37,8 +37,10 @@ public platform class CA {
 import cmp.*
 
 main() {
-    let c = EA.C
-    let ca = CA(c)
+    let ca = CA()
     let ea = EA.A(ca)
     return 0
 }
+
+/* SCAN
+*/

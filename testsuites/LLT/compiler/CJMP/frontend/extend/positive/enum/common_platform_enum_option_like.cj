@@ -32,6 +32,10 @@ public platform enum EA{
 import cmp.*
 
 main() {
-    let x = EA.A
+    let x = EA.A(12)
+    println(x)
     return 0
 }
+/* SCAN
+12
+*/

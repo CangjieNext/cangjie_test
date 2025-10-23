@@ -39,5 +39,10 @@ import cmp.*
 main() {
     let x = EA.A
     let y = x.getA()
+    println(y)
     return 0
 }
+
+/* SCAN
+0
+*/
