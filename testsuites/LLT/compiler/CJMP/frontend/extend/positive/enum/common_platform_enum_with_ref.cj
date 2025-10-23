@@ -34,9 +34,9 @@ import cmp.*
 
 main() {
     let x = EA.A("hello")
-    let z = match x {
-        A(v) => v ;
-        C => 0
+    let z = match (x) {
+        case A(v) => v ;
+        case C => 0
     }
     println(z)
     return 0
