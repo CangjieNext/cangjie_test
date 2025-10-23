@@ -25,7 +25,7 @@ public platform enum EA{
     C
 }
 public platform class CA {
-   var A : EA = EA.C
+   var field : EA = EA.C
 }
 
 

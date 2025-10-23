@@ -33,7 +33,11 @@ import cmp.*
 
 main() {
     let x = EA.A(12)
-    println(x)
+    let z = match x {
+        A(v) => v ;
+        C => 0
+    }
+    println(z)
     return 0
 }
 /* SCAN

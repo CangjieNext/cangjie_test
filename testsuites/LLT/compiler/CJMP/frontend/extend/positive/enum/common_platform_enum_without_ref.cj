@@ -36,8 +36,13 @@ import cmp.*
 
 main() {
     let x = EA.A
+    match (x) {
+        case EA.A => println("a");
+        _ => println("b or c")
+      }
     return 0
 }
 
 /* SCAN
+a
 */

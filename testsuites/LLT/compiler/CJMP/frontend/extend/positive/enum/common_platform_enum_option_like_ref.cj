@@ -32,7 +32,12 @@ import cmp.*
 
 main() {
     let x = EA.A("hello")
-    println(x)
+    let z = match x {
+        A(v) => v;
+        C => 0
+    }
+    if let z = EA.A(A)
+    println(z)
     return 0
 }
 
