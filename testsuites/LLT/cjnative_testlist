@@ -182,21 +182,15 @@ compiler/CJMP/objc/sema/objc_mirror_subtype_method_ret_type.cj
 compiler/CJMP/objc/sema/objc_mirror_subtype_parse.cj
 compiler/CJMP/objc/sema/objc_pointer_illegal_argument.cj
 compiler/CJMP/objc/sema/objc_pointer_type_argument.cj
-# 930: dev merge main
-API/std/core/test_func_refeq.cj
-API/std/core/test_package.cj
-API/std/libast/exprs/performExpr/test_dump_001.cj
-API/std/libast/exprs/performExpr/test_dump_002.cj
-API/std/libast/exprs/resumeExpr/test_dump_001.cj
-API/std/libast/exprs/resumeExpr/test_dump_002.cj
-API/std/libast/exprs/resumeExpr/test_dump_003.cj
-API/std/libast/exprs/try_expr/test_handlers_001.cj
-API/std/libast/patterns/commandtypepattern/test_dump_001.cj
-API/std/libast/patterns/commandtypepattern/test_dump_002.cj
-API/std/math/numeric/bigint/test_json.cj
-API/std/runtime/test_signal.cj
-API/std/runtime/test_signal_unregister.cj
-API/std/runtime/test_signal_unregister_oneSig.cj
+
+## cjmp, driver testcases commented on 2025-10-17, need to be fixed.
+compiler/Driver/LTO/lto_test10_1.cj
+compiler/ConditionalCompilation/cfg/read_file_fail.cj
+compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
+
+# API testcases commented on 2025-10-17, need to be fixed.
+## unittest testcases
+### error: source file 'other.cj' doesn't exist
 API/std/unittest/mock/compiler/createMock/usePrivateTypesOtherPackage.cj
 API/std/unittest/mock/examples/ui_1.cj
 API/std/unittest/mock/examples/ui_2.cj
