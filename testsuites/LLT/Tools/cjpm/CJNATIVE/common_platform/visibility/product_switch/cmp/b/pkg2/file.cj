@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features user.cmp.b
+features { user.cmp.b }
 package cmp.pkg2
 
 public func g2(): String {
