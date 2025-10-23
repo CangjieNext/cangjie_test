@@ -36,7 +36,6 @@ main() {
         case A(v) => v;
         case C => 0
     }
-    if let z = EA.A(A)
     println(z)
     return 0
 }

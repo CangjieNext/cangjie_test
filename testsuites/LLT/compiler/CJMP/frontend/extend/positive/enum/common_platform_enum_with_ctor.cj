@@ -36,7 +36,7 @@ main() {
     let x = EA.A(12)
     let z = match (x) {
         case A(v) => v ;
-        case C => 0
+        case _ => 0
     }
     println(z)
     return 0

@@ -37,7 +37,7 @@ public platform enum EA{
 import cmp.*
 
 main() {
-    let x = EA.A
+    let x = EA.A(12)
     let y = x.getA()
     println(y)
     return 0

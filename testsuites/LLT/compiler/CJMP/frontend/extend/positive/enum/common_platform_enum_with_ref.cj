@@ -36,8 +36,11 @@ main() {
     let x = EA.A("hello")
     let z = match (x) {
         case A(v) => v ;
-        case C => 0
+        case C => "not me"
     }
     println(z)
     return 0
 }
+/* SCAN
+hello
+*/
