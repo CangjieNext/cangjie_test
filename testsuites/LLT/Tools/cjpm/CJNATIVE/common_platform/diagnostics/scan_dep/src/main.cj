@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-features invalid.to.cjpm
+features { invalid.to.cjpm }
 package scan_dep
 
 main(): Int64 {

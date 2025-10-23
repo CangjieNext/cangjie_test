@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-features os.ohos
+features { os.ohos }
 package sensor_mp
 
 public platform func sensorcall(): Unit {
