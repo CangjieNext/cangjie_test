@@ -31,6 +31,16 @@ class Test {
     }
     
     @TestCase
+    func testFinalizer() {
+        let node = parseText("~init() {}")
+        let decl = (node.node.getOrThrow() as FuncDecl).getOrThrow()
+
+        @Expect(decl.toString(), "~init() {}")
+        let pos = decl.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 11]).toArray())
+    }
+
+    @TestCase
     func testVarDecl() {
         let node = parseText("let a = 1")
         let decl = (node.node.getOrThrow() as VarDecl).getOrThrow()
