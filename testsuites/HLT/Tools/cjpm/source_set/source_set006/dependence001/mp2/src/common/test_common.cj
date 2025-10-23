@@ -6,6 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+@NonProduct
+features {}
 package mp2
 
 public common func foo(): Unit
