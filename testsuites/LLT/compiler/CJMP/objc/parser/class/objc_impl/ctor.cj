@@ -8,8 +8,7 @@
 
 // ASSERT: scan-not error
 
-import interoplib.interop.*
-// import objc.lang.ObjCId // Uncomment after `ObjCId` implementation
+import objc.lang.*
 
 @ObjCMirror
 open class M {
@@ -25,7 +24,7 @@ class A <: M {
 
     init(b: Bool) { }
     init(i: Int64) { }
-    // init(o: ObjCId) { } // Uncomment after `ObjCId` implementation
+    init(o: ObjCId) { } // Uncomment after `ObjCId` implementation
     // init(oo: ?ObjCId) { } // Uncomment after `ObjCId` & Option implementation
     init(a: Int64, b: Bool) { }
     init(a: Int64, b: Bool, c: ?ObjCId, d: M, e: ?M) { }

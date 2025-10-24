@@ -6,7 +6,6 @@
 
 package cjworld
 
-import interoplib.objc.*
 import objc.lang.*
 
 @ObjCImpl
@@ -33,7 +32,6 @@ public class A <: M {
         // m.fiveParams(1, 2, 3, 4, 5)
     }
 
-    @ForeignName["openFunc:"]
     public override func openFunc(first: Int64): Unit {
         println("cj: openFunc override ${first}")
     }

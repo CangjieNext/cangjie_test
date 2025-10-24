@@ -8,7 +8,6 @@
 
 // ASSERT: scan-not error
 
-import interoplib.objc.*
 import objc.lang.*
 
 @ObjCImpl
@@ -16,6 +15,7 @@ public class Line <: Shape {
     public var start: ObjCPointer<Point2D>
     public var end: ObjCPointer<Point2D>
 
+    @ForeignName["initWithStart:andEnd:"]
     public init(start: ObjCPointer<Point2D>, end: ObjCPointer<Point2D>) {
         this.start = start
         this.end = end

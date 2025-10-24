@@ -8,7 +8,6 @@
 
 // ASSERT: scan error: @ObjCMirror declaration method 'twoParams' cannot have body
 
-import interoplib.objc.*
 import objc.lang.*
 
 @ObjCMirror

@@ -36,7 +36,6 @@ error: param type of Objective-C mirror constructor must be Objective-C compatib
    | 
 */
 
-import interoplib.objc.*
 import objc.lang.*
 
 @ObjCImpl
