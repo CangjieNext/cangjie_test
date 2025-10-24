@@ -27,6 +27,7 @@ CJNATIVE/build/multi_module/multi_module_from_10008
 
 # macOS暂不支持combined
 CJNATIVE/build/combined
+CJNATIVE/build/lto_combine
 
 # cjpm should be fixed
 CJNATIVE/init/cangjie_test_init003
