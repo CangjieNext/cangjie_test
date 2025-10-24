@@ -7,7 +7,7 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %diag_json %f -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
 // ASSERT: scan sema_objc_mirror_subtype_must_be_annotated
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 open class M {

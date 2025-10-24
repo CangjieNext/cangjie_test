@@ -8,7 +8,6 @@
 
 // ASSERT: scan-not error
 
-import interoplib.objc.*
 import objc.lang.*
 
 type PrimitiveType = Int8

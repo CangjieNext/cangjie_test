@@ -8,7 +8,6 @@
 
 // ASSERT: scan error: expected ',' or ')', found '='
 
-import interoplib.objc.*
 import objc.lang.*
 
 @ObjCMirror
