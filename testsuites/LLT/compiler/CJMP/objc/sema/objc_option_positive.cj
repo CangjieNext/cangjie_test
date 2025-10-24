@@ -36,10 +36,9 @@ public class A <: M {
     @ForeignName["ImplImplOptionRet"]
     public func ImplImplOptionRet(): Option<A> { None }
 
-    // TODO: current limitation due to the problems with CHIR checks
-    // @ForeignName["ImplMirrorOptionArg"]
-    // public func ImplMirrorOptionArg(x: Option<M>): Unit {}
+    @ForeignName["ImplMirrorOptionArg"]
+    public func ImplMirrorOptionArg(x: Option<M>): Unit {}
 
-    // @ForeignName["ImplImplOptionArg"]
-    // public func ImplNonCompatibleOptionTypeArg(x: Option<A>): Unit {}
+    @ForeignName["ImplImplOptionArg"]
+    public func ImplNonCompatibleOptionTypeArg(x: Option<A>): Unit {}
 }

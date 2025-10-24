@@ -20,5 +20,8 @@ cj: F init()
 cj: pingF called
 objc: instantiateOptionFNilcj: Got expected None from instantiateOptionFNil
 objc: oneParamOption called - param is not nil
+cj: F.returnOption() called
+cj: F.optionParam() called - Some
+cj: F.optionParam() called - None
 objc: oneParamOption called - param is nil
 */

@@ -32,6 +32,9 @@
         printf(" - param is nil\n");
     } else {
         printf(" - param is not nil\n");
+        F* fOp = [param returnOption];
+        [param optionParam:fOp];
+        [param optionParam:nil];
     }
 }
 
