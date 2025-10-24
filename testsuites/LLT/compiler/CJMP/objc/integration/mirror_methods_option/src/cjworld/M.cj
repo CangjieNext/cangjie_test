@@ -25,26 +25,3 @@ open class M {
     @ForeignName["oneParamOption:"]
     public func oneParamOption(param: Option<F>): Unit
 }
-
-// open class M1 {
-//     public var obj: Int64 = 0
-//     public func oneParam(first: Int64): ?F1 {
-//         unsafe {
-//             let tmp = objCCall(first)
-//             match(tmp.$obj.isNull()) {
-//                 case true => Some(F1(tmp.$obj))
-//                 case _ => None
-//             }
-//         }
-//     }
-
-//     private unsafe func objCCall(first: Int64): CPointer<Int64> {
-//         let ptr = LibC.malloc<Int64>()
-//         ptr.write(first)
-//         ptr
-//     }
-// }
-
-// open class F1 {
-//     F1(obj: CPointer<Int64>){}
-// }
