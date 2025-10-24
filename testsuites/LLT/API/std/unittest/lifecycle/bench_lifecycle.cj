@@ -15,7 +15,7 @@
 // ASSERT: scan-next Starting measurements
 // ASSERT: scan-next Max batch
 // ASSERT: scan-next 
-// ASSERT: scan-next ae
+// ASSERT: scan-after ae
 // ASSERT: scan-next aa
 import std.time.*
 
