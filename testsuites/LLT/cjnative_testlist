@@ -249,3 +249,6 @@ API/stdx/fuzz/fuzzer_main_dp.cj
 API/stdx/fuzz/test_u32.cj
 API/stdx/fuzz/test_u64.cj
 API/stdx/syntax
+
+compiler/Plugins/IRCheck/FoundError/default.cj
+compiler/Plugins/IRCheck/FoundError/found_error.cj
