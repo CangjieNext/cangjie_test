@@ -8,7 +8,6 @@
 
 // ASSERT: scan error: param type of Objective-C mirror method must be Objective-C compatible
 
-import interoplib.objc.*
 import objc.lang.*
 
 @ObjCImpl

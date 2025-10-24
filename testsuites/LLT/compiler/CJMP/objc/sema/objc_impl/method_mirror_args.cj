@@ -31,19 +31,15 @@ public open class Base {
 @ObjCImpl
 public class Derived <: Base {
     public init() {}
-    @ForeignName["mirror1WithArg0:"]
     public override func mirror1(arg0: Box): Int64 {
         return -arg0.value
     }
-    @ForeignName["mirror2WithArg0:withArg1:"]
     public override func mirror2(arg0: Box, arg1: Box): Int64 {
         return -(arg0.value + arg1.value)
     }
-    @ForeignName["mirror3WithArg0:withArg1:withArg2:"]
     public override func mirror3(arg0: Box, arg1: Box, arg2: Box): Int64 {
         return -(arg0.value + arg1.value + arg2.value)
     }
-    @ForeignName["returnMirror:"]
     public open func returnMirror(box: Box): Box {
         return box;
     }

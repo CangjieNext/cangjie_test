@@ -8,7 +8,6 @@
 
 // ASSERT: scan error: @ObjCImpl declaration must inherit @ObjCMirror
 
-import interoplib.objc.*
 import objc.lang.*
 
 @ObjCImpl

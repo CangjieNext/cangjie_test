@@ -9,7 +9,7 @@
 
 // 1 diag message per parameter
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class M {

@@ -8,7 +8,6 @@
 // ASSERT: scan error: cannot assign to immutable value
 
 import objc.lang.*
-import interoplib.objc.*
 
 @ObjCMirror["M"]
 open class M {
