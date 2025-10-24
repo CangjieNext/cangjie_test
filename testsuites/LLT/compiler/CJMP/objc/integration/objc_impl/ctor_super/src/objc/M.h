@@ -9,7 +9,7 @@
 @interface M : NSObject
 
 - (id)initWithValue:(int64_t) value;
-- (id)initWithB:(M*)b;
+- (id)initWithB:(BOOL)b;
 - (id)initWithM:(M*)m andB:(BOOL)b;
 - (id)initWithA:(M*)a andM:(M*)m;
 @property (nonatomic, assign) int64_t value;

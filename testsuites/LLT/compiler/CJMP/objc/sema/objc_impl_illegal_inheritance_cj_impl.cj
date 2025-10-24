@@ -8,7 +8,6 @@
 
 // ASSERT: scan error: @ObjCImpl class cannot be open
 
-import interoplib.objc.*
 import objc.lang.*
 
 public class K <: N {

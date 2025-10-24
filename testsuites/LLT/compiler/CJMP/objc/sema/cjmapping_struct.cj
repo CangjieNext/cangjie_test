@@ -2,7 +2,7 @@
 
 // ASSERT: ASSERT: scan-not error
 
-import interoplib.objc.*
+import objc.lang.*
 
 public struct Vector {
     public let x: Int32

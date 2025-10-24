@@ -8,7 +8,7 @@
 
 // ASSERT: scan-not error
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 open class M {

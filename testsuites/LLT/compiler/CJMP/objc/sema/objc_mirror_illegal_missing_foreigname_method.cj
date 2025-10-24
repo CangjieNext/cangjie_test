@@ -4,18 +4,16 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
+// (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f %diag_json -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
+// ASSERT: scan sema_objc_method_must_have_foreign_name
 
-// ASSERT: scan error: @ObjCMirror declaration method with parameters must have @ForeignName annotation
-
-import interoplib.objc.*
 import objc.lang.*
 
 @ObjCMirror
 public open class M {
     init()
 
-    func someFunc()
+    func someFunc(): Unit
 
-    func someFuncWithParams(first: Int32, second: Int32)
+    func someFuncWithParams(first: Int32, second: Int32): Unit
 }

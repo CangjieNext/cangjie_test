@@ -1,6 +1,6 @@
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 open class M {
