@@ -248,4 +248,8 @@ API/stdx/fuzz/fuzzer_main.cj
 API/stdx/fuzz/fuzzer_main_dp.cj
 API/stdx/fuzz/test_u32.cj
 API/stdx/fuzz/test_u64.cj
-API/stdx/syntax
+
+## syntax testcases (parseFile/CJ_ParseFile/catched unhandled SIGABRT (Aborted) from native frame)
+API/stdx/syntax/testParseDir/test_parseDir.cj
+API/stdx/syntax/testDiags/test_diag_error.cj
+API/stdx/syntax/testDiags/test_diag_error_and_warning.cj
