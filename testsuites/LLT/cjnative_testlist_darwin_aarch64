@@ -13,6 +13,7 @@ API/std/posix/
 API/std/process/darwin
 API/std/process/unix
 API/std/time/
+compiler/Diagnose/PlatformRelated
 
 [EXCLUDE-TEST-CASE]
 
