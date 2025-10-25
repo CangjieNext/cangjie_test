@@ -7,6 +7,29 @@ import std.collection.ArrayList
 @Test
 class Test {
     @TestCase
+    func testInvalidPos() {
+        let tks = quote([1, 2, 3])
+        var tokens = Tokens()
+        var i: UInt32 = 1
+        for (tk in tks) {
+            tokens.append(Token(tk.kind, tk.value).addPosition(i, Int32(i), 1))
+            i += 1
+        }
+        try {
+            var tks1 = tokens + Token(TokenKind.NL)
+            parseTokens(tks1, refreshPos: false)
+        } catch (e: Exception) {
+            @Expect(e.message, "the position of the tokens is invalid, you may open the refreshPos option.")
+        }
+        try {
+            var tks2 = tokens + Token(TokenKind.NL).addPosition(1, 1, 1)
+            parseTokens(tks2, refreshPos: false)
+        } catch (e: Exception) {
+            @Expect(e.message, "the position of the tokens is invalid, you may open the refreshPos option.")
+        }
+    }
+
+    @TestCase
     func testUnsupported() {
         try {
             parseTokens(quote(#"import std.collection.*"#))
