@@ -16,6 +16,7 @@ API/std/time
 API/stdx/zlib/compress
 API/stdx/crypto/x509/x509_test.cj
 API/stdx/logger
+compiler/Diagnose/PlatformRelated
 
 [EXCLUDE-TEST-CASE]
 API/std/socket/redesign/props/tcp_props_quickack.cj
