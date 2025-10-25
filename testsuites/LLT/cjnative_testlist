@@ -107,7 +107,6 @@ compiler/CJMP/java/integration/impl-implements-mirror-interface/impl-implements-
 compiler/CJMP/java/integration/mirror-abstract-class/mirror-abstract-class.info
 compiler/CJMP/java/integration/mirror-finalizer/mirror-finalizer.info
 compiler/CJMP/java/integration/mirror-interface/mirror-interface.info
-
 compiler/CJMP/java/integration/impl-ctor-args-cangjie/impl-ctor-args-cangjie.info
 compiler/CJMP/java/integration/impl-ctor-args-java/impl-ctor-args-java.info
 compiler/CJMP/java/integration/impl-ctor-cangjie/impl-ctor-cangjie.info
@@ -149,22 +148,7 @@ compiler/CJMP/java/sema/foreign_name/impl_custom_native_ok.cj
 compiler/CJMP/java/sema/foreign_name/impl_native_ok.cj
 compiler/CJMP/java/sema/java_impl_parse.cj
 
-## cjmapping is missed in cfg.
-compiler/CJMP/java/sema/cj_mapping_interop_lib_not_imported.cj
-compiler/CJMP/java/sema/cj_mapping_struct_generic.cj
-compiler/CJMP/java/sema/cj_mapping_struct_inheritance_interface.cj
-compiler/CJMP/java/sema/cj_mapping_struct_with_arg_option.cj
-compiler/CJMP/java/sema/cj_mapping_struct_with_return_option.cj
 compiler/CJMP/java/sema/struct-with-return-option.cj
-compiler/CJMP/java/integration/non-public-enum/non-public-enum.info
-compiler/CJMP/java/integration/non-public-struct/non-public-struct.info
-compiler/CJMP/java/integration/public-enum-mapping/public-enum-mapping.info
-compiler/CJMP/java/integration/public-enum-with-private/public-enum-with-private.info
-compiler/CJMP/java/integration/public-struct-mapping/public-struct-mapping.info
-compiler/CJMP/java/integration/public-struct-private-member/public-struct-private-member.info
-compiler/CJMP/java/integration/java2cj-exception-struct-01/java2cj-exception-struct-01.info
-compiler/CJMP/java/integration/java2cj-exception-struct/java2cj-exception-struct.info
-compiler/CJMP/java/integration/cj-mapping-protect-call-from-java/cj-mapping-protect-call-from-java.info
 
 ## objc (interoplib.objc and objc.lang are missing)
 compiler/CJMP/objc/
