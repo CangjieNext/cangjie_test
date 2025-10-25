@@ -215,13 +215,9 @@ API/std/libast/patterns/commandtypepattern/test_dump_001.cj
 API/std/libast/patterns/commandtypepattern/test_dump_002.cj
 API/std/math/numeric/bigint/test_json.cj
 
-## cjmp, driver and extend testcases commented on 2025-10-17, need to be fixed.
+## cjmp, driver testcases commented on 2025-10-17, need to be fixed.
 compiler/Driver/LTO/lto_test10_1.cj
 compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
-compiler/Sema/Extend/common_specific/check_common/check_common_01.cj
-compiler/Sema/Extend/common_specific/check_common/check_common_02.cj
-compiler/Sema/Extend/common_specific/check_common/check_common_03.cj
-compiler/Sema/Extend/common_specific/check_common/check_common_04.cj
 
 # API testcases commented on 2025-10-17, need to be fixed.
 ## signal testcases
