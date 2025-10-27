@@ -20,15 +20,13 @@ platform func foo<T>(x:T):Unit {}
 platform func foo<M, N>(m:M, n:N):Unit where M <: ToString & Hashable {}
 
 /*SCAN
-error: 'platform' function 'foo' can not find 'common' match
- ==> p/p.cj:5:1:
+error: the constraint of type parameter is not looser than parent's constraint
+ ==> p/p.cj:5:40:
   | 
 5 | platform func foo<M, N>(m:M, n:N):Unit where M <: ToString & Hashable {}
-  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+  |                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
+  # note: parent constraint is 'Interface-ToString'
 
-error: 'common' function 'foo' can not find 'platform' match
- ==> c/c.cj:9:1:
-
-2 errors generated, 2 errors printed.
+1 error generated, 1 error printed.
 */
