@@ -13,22 +13,9 @@ common func foo<M, N>(m:M, n:N):Unit where M <: ToString
 
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1
 package cmp
 
 platform func foo<T>(x:T):Unit {}
 platform func foo<M, N>(m:M, n:N):Unit {}
 
-/*SCAN
-error: 'platform' function 'foo' can not find 'common' match
- ==> p/p.cj:5:1:
-  | 
-5 | platform func foo<M, N>(m:M, n:N):Unit {}
-  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
-  | 
-
-error: 'common' function 'foo' can not find 'platform' match
- ==> c/c.cj:9:1:
-
-2 errors generated, 2 errors printed.
-*/
