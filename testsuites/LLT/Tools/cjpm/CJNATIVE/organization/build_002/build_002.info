@@ -6,8 +6,8 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: regex Compiling package `huawei::pro2\.zoo`:.*-o=libhuawei@pro2\.zoo\.a
-// ASSERT: regex Compiling package `huawei1::pro1`:.*-o=libhuawei1@pro1\.a
-// ASSERT: regex Compiling package `huawei::pro2`:.*-o=libhuawei@pro2\.a
-// ASSERT: regex Compiling package `huawei::test`:.*-lhuawei@pro2\.zoo.*
+// ASSERT: regex Compiling package `huawei::pro2\.zoo`:.*-o=libpro2\.zoo@huawei\.a
+// ASSERT: regex Compiling package `huawei1::pro1`:.*-o=libpro1@huawei1\.a
+// ASSERT: regex Compiling package `huawei::pro2`:.*-o=libpro2@huawei\.a
+// ASSERT: regex Compiling package `huawei::test`:.*-lpro2\.zoo@huawei.*
 // ASSERT: scan cjpm build success

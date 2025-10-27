@@ -11,6 +11,7 @@ CJNATIVE/
 # 交叉编译用例仅用于本地验证
 CJNATIVE/target/cross_compile
 CJNATIVE/cross_compile
+CJNATIVE/organization/cross_001
 CJNATIVE/build/lint
 CJNATIVE/test/Coverage
 
