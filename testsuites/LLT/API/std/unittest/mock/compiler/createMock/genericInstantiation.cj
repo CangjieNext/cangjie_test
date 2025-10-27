@@ -87,7 +87,7 @@ public class TestA {
 
 /* SCAN-IN
 Actual call: boo<default:PassedAnotherBar>("my str 33", "This is AnotherBar")
-Declared method: boo<T>(x[1, P, ND], y[2, P, ND])[NA, ND, AC, NA, genericInstantiation.cj:26:17]: Class-ReturnedBar
+Declared method: boo<T>(x[1, P, ND], y[2, P, ND])[NA, ND, AC, NA, genericInstantiation.cj:34:17]: Class-ReturnedBar
 Declared function name: boo -> _CN7default3FooIG_E3booIG0_HG_G0_
 Outer decl name: Foo<std.core:String> -> _CN7default3FooIG_E
 Receiver: [doesn't implement ToString]
@@ -97,7 +97,7 @@ original `boo` was called
 Return value: This is ReturnedBar (original)
 ==============================
 Actual call: bee<default:PassedAnotherBar, default:ReturnedBar>("my str 33", "This is AnotherBar")
-Declared method: bee<T, R>(x[1, P, ND], y[2, P, ND])[NA, ND, AC, NA, genericInstantiation.cj:30:17]: Generics-R
+Declared method: bee<T, R>(x[1, P, ND], y[2, P, ND])[NA, ND, AC, NA, genericInstantiation.cj:38:17]: Generics-R
 Declared function name: bee -> _CN7default3FooIG_E3beeIG0_G1_HG_G0_
 Outer decl name: Foo<std.core:String> -> _CN7default3FooIG_E
 Receiver: [doesn't implement ToString]
