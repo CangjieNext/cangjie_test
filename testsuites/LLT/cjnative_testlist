@@ -91,12 +91,9 @@ compiler/CHIR/CHIR2HLIR/package/scanDepPkg/test.cj
 compiler/CHIR/CHIR2HLIR/package/scanDepPkgNoModule/test.cj
 
 # mock failed.
-# helper issue.
-API/std/unittest/mock/compiler/
 API/std/unittest/mock/compiler/ensurePreparedToMock/default_methods.cj
 API/std/unittest/mock/compiler/ensurePreparedToMock/default_methods_interface.cj
 API/std/unittest/mock/compiler/createMock/genericInstantiation.cj
-API/std/unittest/mock/framework/bench.cj
 
 compiler/Macro/inout/inout_m2.cj
 
