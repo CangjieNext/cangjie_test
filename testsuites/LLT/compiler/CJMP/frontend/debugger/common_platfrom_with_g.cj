@@ -28,8 +28,7 @@ public common struct E<T>{
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p -g
 package cmp
 
-public common struct E<T>{
-    var field : T
+public platform struct E<T>{
     public platform func foo(x: T) : T {
         println("platform::foo")
         return x
