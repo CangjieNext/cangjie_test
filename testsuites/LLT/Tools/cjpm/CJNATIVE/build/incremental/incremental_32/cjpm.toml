@@ -10,7 +10,6 @@
   description = "nothing here"
   link-option = ""
   name = "test"
-  organization = "test"
   output-type = "executable"
   version = "1.0.0"
 

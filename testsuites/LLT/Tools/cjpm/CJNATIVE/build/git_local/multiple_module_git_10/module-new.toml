@@ -6,7 +6,6 @@
 
 [dependencies]
   [dependencies.pro1]
-    organization = "i"
     version = "1.0.1"
     git = "pro1"
     branch = "branchname"
@@ -19,7 +18,6 @@
   link-option = ""
   lto = ""
   name = "test"
-  organization = "cangjie"
   output-type = "executable"
   src-dir = "src"
   version = "1.0.0"

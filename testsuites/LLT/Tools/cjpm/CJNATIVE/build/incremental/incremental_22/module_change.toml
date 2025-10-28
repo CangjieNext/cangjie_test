@@ -16,7 +16,6 @@
   link-option = ""
   lto = ""
   name = "test"
-  organization = "cangjie"
   output-type = "executable"
   src-dir = "src"
   version = "1.0.0"
