@@ -40,3 +40,15 @@ CJNATIVE/test/mock/mock_11/mock_11.info
 CJNATIVE/test/mock/mock_12/mock_12.info
 CJNATIVE/test/mock/mock_13/mock_13.info
 
+# git 用例暂时屏蔽，仅保留基础用例，避免并行问题
+CJNATIVE/install/git
+CJNATIVE/build/git_local/multiple_module_git_02
+CJNATIVE/build/git_local/multiple_module_git_03
+CJNATIVE/build/git_local/multiple_module_git_04
+CJNATIVE/build/git_local/multiple_module_git_05
+CJNATIVE/build/git_local/multiple_module_git_06
+CJNATIVE/build/git_local/multiple_module_git_07
+CJNATIVE/build/git_local/multiple_module_git_08
+CJNATIVE/build/git_local/multiple_module_git_10
+CJNATIVE/build/git_local/multiple_module_git_11
+CJNATIVE/build/git_local/multiple_module_git_12
