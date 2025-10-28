@@ -31,7 +31,7 @@ error: mismatched types
 11 | |         (match (x) {
    | | ...
 14 | |     }
-   | |_____^ expected 'This', found 'This'
+   | |_____^ expected 'This', found 'Class-Test'
    | 
 
 error: mismatched types
@@ -44,7 +44,7 @@ error: mismatched types
 17 | |         (match {
    | | ...
 20 | |     }
-   | |_____^ expected 'This', found 'This'
+   | |_____^ expected 'This', found 'Class-Test'
    | 
 
 2 errors generated, 2 errors printed.
