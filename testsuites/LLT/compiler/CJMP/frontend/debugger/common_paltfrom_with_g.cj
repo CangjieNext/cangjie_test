@@ -49,3 +49,7 @@ main() {
     d.foo(3)
     0
 }
+/* SCAN
+init
+platform::foo
+*/
