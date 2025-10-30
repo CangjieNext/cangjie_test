@@ -26,6 +26,7 @@ class Test {
         let condition = expr.condition
 
         @Assert(condition.toString(), ##"a == b && let c <- b && c == a && true"##)
+        @Assert(condition.toTokens().toString(), condition.toString())
         @Expect(condition.cond.size, 1)
         @Assert(condition.cond[0].toString(), ##"a == b && let c <- b && c == a && true"##)
     }

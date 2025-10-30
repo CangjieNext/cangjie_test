@@ -27,6 +27,7 @@ class Test {
 
         @Expect(pattern.name, "i")
         @Expect(pattern.toString(), "i")
+        @Expect(pattern.toTokens().toString(), "i")
 
         var pos = pattern.nodePos
         // note: need modify after support FOR pos

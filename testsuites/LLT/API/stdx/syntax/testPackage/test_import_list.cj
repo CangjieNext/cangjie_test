@@ -38,6 +38,7 @@ class Test {
             case _ => @Expect(false)
         }
         @Expect(importList.toString(), "private import testPackage")
+        @Expect(importList.toTokens().toString(), "private import testPackage")
         var pos = importList.getImportKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 9, 2, 15]).toArray())
     }

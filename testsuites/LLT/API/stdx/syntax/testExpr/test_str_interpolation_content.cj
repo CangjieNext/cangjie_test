@@ -25,6 +25,7 @@ class Test {
         let strExpr = (nodes[0] as LitConstStrExpr).getOrThrow()
         match(strExpr.strPartExprs[0]) {
             case StrInterpolation(v) => @Expect(v.interpolationBlock.toString(), "{a.toString()}")
+                                        @Expect(v.interpolationBlock.toTokens().toString(), "{ a.toString() }")
                                         var pos = v.getDollarPos()
                                         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 6, 2, 7]).toArray())
             case _ => @FailExpect("kind wrong")

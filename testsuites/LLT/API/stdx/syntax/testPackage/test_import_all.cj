@@ -27,6 +27,7 @@ class Test {
         let content = (importList.contents as ImportAll).getOrThrow()
         @Expect(content.prefixes, ["a"])
         @Expect(content.toString(), "a.*")
+        @Expect(content.toTokens().toString(), "a.*")
         var pos = content.getMulPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 10, 1, 11]).toArray())
         pos = content.nodePos

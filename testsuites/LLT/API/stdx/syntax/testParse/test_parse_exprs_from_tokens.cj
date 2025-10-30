@@ -17,6 +17,7 @@ class Test {
         @Expect(expr.elements[1].toString(), "2")
         @Expect(expr.elements[2].toString(), "3")
         @Expect(expr.toString(), "[1, 2, 3] // this is ArrayLiteral")
+        @Expect(expr.toTokens().toString(), "[1, 2, 3] // this is ArrayLiteral")
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 34]).toArray())
     }

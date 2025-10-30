@@ -30,6 +30,7 @@ class Test {
         let expr1 = (nodes[1] as SubscriptExpr).getOrThrow()
         let expr2 = (expr1.base as UnsafeExpr).getOrThrow()
         @Expect(expr2.toString(), "unsafe { data.rawData() }")
+        @Expect(parseTokens(expr2.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr2.toString())
         @Expect(expr2.block.toString(), "{ data.rawData() }")
         pos = expr2.getUnsafePos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 11]).toArray())

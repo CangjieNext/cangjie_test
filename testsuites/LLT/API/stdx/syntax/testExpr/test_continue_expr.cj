@@ -26,6 +26,7 @@ class Test {
         let whileNodes = whileExpr.body.nodes
         let expr =  (whileNodes[0] as ContinueExpr).getOrThrow()
         @Expect(expr.toString(), "continue")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 9, 3, 17]).toArray())
     }

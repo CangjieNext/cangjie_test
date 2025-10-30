@@ -28,6 +28,7 @@ class Test {
             case _ => @FailExpect("The atomic kind is wrong.")
         }
         @Expect(ty.toString(), "Int16")
+        @Expect(ty.toTokens().toString(), "Int16")
         let pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 13]).toArray())
     }

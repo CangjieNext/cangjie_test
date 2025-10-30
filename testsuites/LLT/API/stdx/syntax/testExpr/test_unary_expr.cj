@@ -29,6 +29,7 @@ class Test {
         }
         @Expect(expr.operand.toString(), "a")
         @Expect(expr.toString(), "!a")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 7]).toArray())

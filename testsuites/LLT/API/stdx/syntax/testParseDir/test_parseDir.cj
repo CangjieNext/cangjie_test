@@ -8,6 +8,22 @@ import std.fs.*
 import std.collection.ArrayList
 import std.regex.*
 
+@When[os != "Windows"]
+const NEWLINE = "\n"
+@When[os == "Windows"]
+const NEWLINE = "\r\n"
+
+func skipRedundancy(text: String): String {
+    var res = ""
+    for (i in 0..text.size) {
+        let cur = text[i..i + 1]
+        if (cur != NEWLINE && cur!= " " && cur != ";") {
+            res += cur
+        }
+    }
+    return res
+}
+
 @Test
 class Test {
     var pkg: ?Package = None
@@ -75,6 +91,7 @@ x: Bool,
     func test02() {
         if (let Some(val) <- pkg) {
             @Expect(val.toString(), packageStr)
+            @Expect(skipRedundancy(val.toTokens().toString()), skipRedundancy(packageStr))
         } else {
             @Expect(false)
         }

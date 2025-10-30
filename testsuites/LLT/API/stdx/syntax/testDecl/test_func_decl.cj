@@ -69,6 +69,7 @@ class Test {
         @Expect(body.nodes.size, 3)
         @Expect((body.nodes[0] as LitConstExpr).getOrThrow().rawValue, "1")
         @Expect((body.nodes[2] as LitConstExpr).getOrThrow().rawValue, "a")
+        @Expect(parseTokens(funcDecl.toTokens(), refreshPos: false).node.getOrThrow().toString(), funcDecl.toString())
     }
 
     @TestCase

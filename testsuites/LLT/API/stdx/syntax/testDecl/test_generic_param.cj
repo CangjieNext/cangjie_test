@@ -28,6 +28,7 @@ class Test {
 
         @Expect(params[1].name, "T2")
         @Expect(params[1].toString(), "T2")
+        @Expect(params[1].toTokens().toString(), params[1].toString())
 
         let decl = funcDecl.getOrThrow()
         var pos = decl.getGenericParamsLAnglePos().getOrThrow()

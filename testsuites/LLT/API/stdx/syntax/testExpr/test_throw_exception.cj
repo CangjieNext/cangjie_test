@@ -25,6 +25,7 @@ class Test {
         let expr = (nodes[0] as ThrowExpr).getOrThrow()
         @Expect(expr.throwVal.toString(), "Exception(\"Exception!\")")
         @Expect(expr.toString(), "throw Exception(\"Exception!\")")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         var pos = expr.getThrowKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 10]).toArray())
         pos = expr.nodePos
