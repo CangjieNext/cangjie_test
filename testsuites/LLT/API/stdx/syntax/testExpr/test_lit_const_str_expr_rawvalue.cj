@@ -13,6 +13,7 @@ func test_litconststrexpr_rawvalue() {
 
     var litconststrexpr_1 = (maindecl.body.nodes[0] as LitConstStrExpr).getOrThrow()
     @Assert(litconststrexpr_1.toString(), ##""${x}""##)
+    @Assert(litconststrexpr_1.toTokens().toString(), ##""${x}""##)
     @Expect(litconststrexpr_1.rawValue, ##"${x}"##)
     @Assert(litconststrexpr_1.strPartExprs.size, 1)
     match(litconststrexpr_1.strPartExprs[0]){
@@ -22,6 +23,7 @@ func test_litconststrexpr_rawvalue() {
 
     var litconststrexpr_2 = (maindecl.body.nodes[1] as LitConstStrExpr).getOrThrow()
     @Assert(litconststrexpr_2.toString(), ##"'${x}${y}'"##)
+    @Assert(litconststrexpr_2.toTokens().toString(), ##"'${x}${y}'"##)
     @Expect(litconststrexpr_2.rawValue, ##"${x}${y}"##)
     @Assert(litconststrexpr_2.strPartExprs.size, 2)
     match(litconststrexpr_2.strPartExprs[0]){

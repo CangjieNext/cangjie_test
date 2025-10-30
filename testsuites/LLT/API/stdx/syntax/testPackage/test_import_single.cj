@@ -48,6 +48,7 @@ class Test {
         @Expect(content.prefixes, ["a"])
         @Expect(content.identifier, "testPackage")
         @Expect(content.toString(), "a.testPackage")
+        @Expect(content.toTokens().toString(), "a.testPackage")
         var pos = content.getIdentifierPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 10, 2, 21]).toArray())
         pos = content.getPrefixesPos()[0]

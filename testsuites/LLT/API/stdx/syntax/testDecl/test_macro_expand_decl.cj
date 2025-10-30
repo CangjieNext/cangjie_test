@@ -35,6 +35,9 @@ class Test {
         @Expect(decl.toString(), """
 @testMacro
 class A {}""")
+        @Expect(decl.toTokens().toString(), """
+@testMacro
+class A { }""")
         var pos = decl.getAtPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
         @Expect(decl.getLSquarePos().isNone())
@@ -59,6 +62,9 @@ class A {}""")
         @Expect(decl.toString(), """
 @testMacro[public func]
     func a() {}""")
+        @Expect(decl.toTokens().toString(), """
+@testMacro[public func]
+func a() { }""")
         var pos = decl.getAtPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 5, 5, 6]).toArray())
         pos = decl.getLSquarePos().getOrThrow()

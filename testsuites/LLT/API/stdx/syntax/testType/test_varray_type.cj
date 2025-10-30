@@ -27,6 +27,7 @@ class Test {
         @Expect(ty.elementType.toString(), "Int32")
         @Expect(ty.size, 0)
         @Expect(ty.toString(), "VArray<Int32 , $0>")
+        @Expect(ty.toTokens().toString(), "VArray < Int32, $0 >")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 26]).toArray())

@@ -32,6 +32,7 @@ class Test {
         let rexpr = (expr.rhs as SymbolRef).getOrThrow()
         @Expect(rexpr.name, "b")
         @Expect(expr.toString(), "a + b")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 10]).toArray())
@@ -64,6 +65,7 @@ class Test {
         let rexpr = (expr.rhs as LitConstExpr).getOrThrow()
         @Expect(rexpr.rawValue, "3")
         @Expect(expr.toString(), "a<b, c, d> == 3")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
 
         pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 20]).toArray())

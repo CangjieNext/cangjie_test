@@ -31,6 +31,7 @@ func test_PropDecl_01() {
         get() {0}
         set(v) {}
     }"##)
+    @Expect(parseTokens(prop_1.toTokens(), refreshPos: false).node.getOrThrow().toString(), prop_1.toString())
     @Assert(prop_1.name, "p1")
     @Assert(prop_1.getter.isSome())
     @Assert(prop_1.getter.getOrThrow().toString(), "get() {0}")

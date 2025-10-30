@@ -39,6 +39,8 @@ class Test {
         @Expect(decl.getSuperTyAnnotationsBitAndsPos().size, 0)
         pos = decl.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 11]).toArray())
+        @Expect(decl.toTokens().toString(), "class A { }")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
     }
 
     @TestCase
@@ -57,6 +59,7 @@ class Test {
 public abstract class B {
     var a = 1
 }""")
+        @Expect(decl.toTokens().toString(), decl.toString())
     }
 
     @TestCase

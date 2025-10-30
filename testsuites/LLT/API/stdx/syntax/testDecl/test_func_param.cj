@@ -43,6 +43,7 @@ class Test {
         @Expect(param.typeAnnotation.toString(), "Int64")
         @Expect(param.defaultValue.isNone())
         @Expect(param.toString(), "a: Int64")
+        @Expect(param.toTokens().toString(), param.toString())
     }
 
     @TestCase
@@ -63,6 +64,7 @@ class Test {
         @Expect(param.typeAnnotation.toString(), "(Int64) -> Int64")
         @Expect(param.defaultValue.isNone())
         @Expect(param.toString(), "c: (Int64) -> Int64")
+        @Expect(param.toTokens().toString(), "c:(Int64) -> Int64")
         var pos = param.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 5, 4, 24]).toArray())
         pos = param.getIdentifierPos()

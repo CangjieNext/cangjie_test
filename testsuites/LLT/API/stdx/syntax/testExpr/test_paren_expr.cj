@@ -25,6 +25,7 @@ class Test {
         let expr = (nodes[1] as ParenExpr).getOrThrow()
         @Expect(expr.subExpr.toString(), "a + b")
         @Expect(expr.toString(), "(a + b)")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 12]).toArray())
