@@ -26,6 +26,7 @@ class Test {
         @Expect(ty.base is AtomicType)
         @Expect(ty.base.toString(), "Int16")
         @Expect(ty.toString(), "?Int16")
+        @Expect(ty.toTokens().toString(), "?Int16")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 14]).toArray())

@@ -29,6 +29,7 @@ class Test {
         @Expect(decl.genericConstraints.isNone())
         @Expect(decl.body.toString(), "{ Enum }")
         @Expect(decl.toString(), "enum A { Enum }")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
 
         let nodes = decl.body.memberDecls
         @Expect(nodes.size, 1)
@@ -75,6 +76,7 @@ public enum B {
     | Enum(Int64, A) | ...
     func a() {}
 }""")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
 
         let nodes = decl.body.memberDecls
         @Expect(nodes.size, 2)

@@ -28,6 +28,7 @@ class Test {
         @Expect(decl.genericConstraints.isNone())
         @Expect(decl.body.toString(), "{}")
         @Expect(decl.toString(), "extend A {}")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
         var pos = decl.getExtendKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
         @Expect(decl.getGenericParamsLAnglePos().isNone())
@@ -55,6 +56,7 @@ class Test {
 extend B {
     func a() {}
 }""")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
     }
 
     @TestCase

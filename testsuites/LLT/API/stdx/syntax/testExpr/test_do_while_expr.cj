@@ -26,6 +26,7 @@ class Test {
         @Expect(expr.condition.toString(), "true")
         @Expect(expr.body.toString(), "{}")
         @Expect(expr.toString(), "do {} while (true)")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         var pos = expr.getDoKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 7]).toArray())
         pos = expr.getWhileKeyWordPos()
@@ -52,6 +53,7 @@ do {
         println()
         return
     } while (x && y + 1 > 3)""")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         var pos = expr.getDoKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 7]).toArray())
         pos = expr.getWhileKeyWordPos()

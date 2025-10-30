@@ -29,6 +29,7 @@ class Test {
         @Expect(decl.retTyAnnotation.isNone())
         @Expect(decl.body.toString(), "{ a }")
         @Expect(decl.toString(), "public macro testMacro(a: Tokens) { a }")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
 
         var pos = decl.getMacroKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 8, 3, 13]).toArray())
@@ -56,6 +57,7 @@ class Test {
         @Expect(decl.retTyAnnotation.getOrThrow().toString(), "Tokens")
         @Expect(decl.body.toString(), "{ return quote() }")
         @Expect(decl.toString(), "public macro testMacro(a: Tokens, b: Tokens): Tokens { return quote() }")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
         var pos = decl.getMacroKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 8, 4, 13]).toArray())
         pos = decl.getIdentifierPos()

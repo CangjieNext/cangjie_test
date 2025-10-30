@@ -27,6 +27,7 @@ class Test {
         @Expect(expr.ifBlock.toString(), "{}")
         @Expect(expr.elseBlock.isNone())
         @Expect(expr.toString(), "if (true) {}")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
 
         var pos = expr.getIfKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 7]).toArray())
@@ -46,6 +47,7 @@ class Test {
             @Expect(elseBlock.toString(), "{}")
         }
         @Expect(expr.toString(), "if (x == 1) {} else {}")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
 
         var pos = expr.getElseKeyWordPos().getOrThrow()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 20, 3, 24]).toArray())

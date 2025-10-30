@@ -25,6 +25,7 @@ func test_MatchCase_17() {
     let case_1 = expr.matchCases[0]
 
     @Assert(case_1.toString(), ##"case _: T => { => }"##)
+    @Assert(case_1.toTokens().toString(), ##"case _: T => { => }"##)
     @Assert(case_1.body.size, 1)
     @Assert(case_1.body[0].toString(), ##"{ => }"##)
     @Assert(case_1.caseCond.isNone())

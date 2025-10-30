@@ -28,6 +28,7 @@ class Test {
         @Expect(expr.elements[1].toString(), "2")
         @Expect(expr.elements[2].toString(), "3")
         @Expect(expr.toString(), "(1, 2, 3)")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         var pos = expr.getLParenPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 6]).toArray())
         pos = expr.getRParenPos()

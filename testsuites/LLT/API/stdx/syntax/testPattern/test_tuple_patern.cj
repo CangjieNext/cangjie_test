@@ -31,6 +31,7 @@ class Test {
         @Expect(pattern.subPatterns[1] is VarOrEnumPattern)
         @Expect(pattern.subPatterns[1].toString(), "y")
         @Expect(pattern.toString(), "(x, y)")
+        @Expect(pattern.toTokens().toString(), "(x, y)")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 14, 5, 20]).toArray())

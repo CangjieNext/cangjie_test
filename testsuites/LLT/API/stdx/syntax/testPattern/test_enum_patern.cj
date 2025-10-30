@@ -28,6 +28,7 @@ class Test {
         @Expect(pattern.enumConstructor.toString(), "A")
         @Expect(pattern.subPatterns.size, 1)
         @Expect(pattern.toString(), "A(n)")
+        @Expect(pattern.toTokens().toString(), "A(n)")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 14, 5, 18]).toArray())
