@@ -21,7 +21,7 @@ class Test {
     }
 
     @TestCase
-    func testCallExpr01() {
+    func testUnsafeExpr01() {
         var expr = (nodes[0] as UnsafeExpr).getOrThrow()
         var pos = expr.getUnsafePos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 11]).toArray())
@@ -35,6 +35,27 @@ class Test {
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 11]).toArray())
         pos = expr2.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 30]).toArray())
+        
+    }
+
+    @TestCase
+    func testUnsafeExprInit() {
+        var expr = (nodes[0] as UnsafeExpr).getOrThrow()
+        var unsafeExpr = UnsafeExpr(expr.block)
+
+        var pos = unsafeExpr.getUnsafePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
+        pos = unsafeExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 10]).toArray())
+        let expr1 = (nodes[1] as SubscriptExpr).getOrThrow()
+        let expr2 = (expr1.base as UnsafeExpr).getOrThrow()
+        unsafeExpr = UnsafeExpr(expr2.block)
+        @Expect(unsafeExpr.toString(), "unsafe { data.rawData() }")
+        @Expect(unsafeExpr.block.toString(), "{ data.rawData() }")
+        pos = unsafeExpr.getUnsafePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
+        pos = unsafeExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 26]).toArray())
         
     }
 

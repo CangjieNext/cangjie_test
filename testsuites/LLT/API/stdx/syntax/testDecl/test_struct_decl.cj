@@ -164,6 +164,46 @@ struct F {
     }
 
     @TestCase
+    func testStructDeclInit() {
+        let decl = (decls[4] as StructDecl).getOrThrow()
+        let structDecl = StructDecl(decl.body, decl.genericConstraints,
+                                        decl.genericParams, decl.name, decl.superTyAnnotations, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(structDecl.modifiers.size, 0)
+        @Expect(structDecl.name, "E")
+        @Expect(structDecl.superTyAnnotations.size, 2)
+        @Expect(structDecl.superTyAnnotations[0].toString(), "ToString")
+        @Expect(structDecl.superTyAnnotations[1].toString(), "Inter<S, V>")
+        @Expect(structDecl.genericParams.size, 2)
+        @Expect(structDecl.genericParams[0].name, "S")
+        @Expect(structDecl.genericParams[1].name, "V")
+        let genericConstraints = structDecl.genericConstraints.getOrThrow()
+        @Expect(genericConstraints.constraints.size, 2)
+        @Expect(genericConstraints.constraints[0].toString(), "S <: B")
+        @Expect(genericConstraints.constraints[1].toString(), "V <: ToString")
+        @Expect(structDecl.body.toString(), "{}")
+        @Expect(structDecl.toString(), "struct E<S, V> <: ToString & Inter<S, V> where S <: B, V <: ToString {}")
+
+        var pos = structDecl.getStructKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
+        pos = structDecl.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 9]).toArray())
+        pos = structDecl.getGenericParamsLAnglePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 9, 1, 10]).toArray())
+        @Expect(structDecl.getGenericParamsCommasPos().size, 1)
+        pos = structDecl.getGenericParamsCommasPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 11, 1, 12]).toArray())
+        pos = structDecl.getGenericParamsRAnglePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 14, 1, 15]).toArray())
+        pos = structDecl.getUpperBoundPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 16, 1, 18]).toArray())
+        @Expect(structDecl.getSuperTyAnnotationsBitAndsPos().size, 1)
+        pos = structDecl.getSuperTyAnnotationsBitAndsPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 28, 1, 29]).toArray())
+        pos = structDecl.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 72]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("struct_decl.cj")
         let input = String.fromUtf8(File.readFrom("struct_decl.cj"))

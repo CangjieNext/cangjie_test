@@ -148,6 +148,24 @@ extend F {
     }
 
     @TestCase
+    func testExtendDeclInit() {
+        let decl = (decls[3] as ExtendDecl).getOrThrow()
+        let extendDecl = ExtendDecl(decl.body,
+                                    decl.extendedTyAnnotation, decl.genericConstraints, decl.genericParams,
+                                    decl.superTyAnnotations, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(extendDecl.modifiers.size, 0)
+        @Expect(extendDecl.extendedTyAnnotation.toString(), "D")
+        @Expect(extendDecl.superTyAnnotations.size, 0)
+        @Expect(extendDecl.genericParams.size, 1)
+        @Expect(extendDecl.genericParams[0].name, "T")
+        let genericConstraints = extendDecl.genericConstraints.getOrThrow()
+        @Expect(genericConstraints.constraints.size, 1)
+        @Expect(genericConstraints.constraints[0].toString(), "T <: B")
+        @Expect(extendDecl.body.toString(), "{}")
+        @Expect(extendDecl.toString(), "extend<T> D where T <: B {}")
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("extend_decl.cj")
         let input = String.fromUtf8(File.readFrom("extend_decl.cj"))

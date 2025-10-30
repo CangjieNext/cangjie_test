@@ -156,11 +156,53 @@ try {
     }
 
     @TestCase
+    func testTryCatchInit() {
+        let expr = (nodes[2] as TryCatch).getOrThrow()
+        let tryCatch = TryCatch(expr.catchBlocks, expr.catchPatterns, expr.finallyBlock, expr.resourceSpec, expr.tryBlock)
+        @Expect(tryCatch.tryBlock.toString(), "{}")
+        @Expect(tryCatch.catchPatterns.size, 0)
+        @Expect(tryCatch.catchBlocks.size, 0)
+        @Expect(tryCatch.finallyBlock.isNone())
+        @Expect(tryCatch.resourceSpec.size, 2)
+        @Expect(tryCatch.resourceSpec[0].toString(), "r1 = ResourceClass()")
+        @Expect(tryCatch.resourceSpec[1].toString(), "r2 = ResourceClass()")
+        @Expect(tryCatch.toString(), "try (r1 = ResourceClass(), r2 = ResourceClass()) {}")
+        var pos = tryCatch.getTryKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
+        pos = tryCatch.getResourceSpecLParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 5, 1, 6]).toArray())
+        pos = tryCatch.getResourceSpecCommasPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 26, 1, 27]).toArray())
+        pos = tryCatch.getResourceSpecRParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 48, 1, 49]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("try_catch.cj")
         let input = String.fromUtf8(File.readFrom("try_catch.cj"))
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
+    }
+
+    @TestCase
+    func testCatchPatternInit01() {
+        let tryCatch = (nodes[1] as TryCatch).getOrThrow()
+        let tmp = tryCatch.catchPatterns[0]
+        let catchPattern = CatchPattern(tmp.pattern, tmp.exceptionType)
+        var pos = catchPattern.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 27]).toArray())
+        pos = catchPattern.pattern.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = catchPattern.getColonPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 3]).toArray())
+        pos = catchPattern.exceptionType[0].nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 4, 1, 14]).toArray())
+        pos = catchPattern.getBitOrsPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 15, 1, 16]).toArray())
+        pos = catchPattern.exceptionType[1].nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 17, 1, 27]).toArray())
+        @Expect(catchPattern.toString(), ##"e: ExceptionA | ExceptionB"##)
     }
 }
 

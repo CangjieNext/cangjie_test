@@ -67,6 +67,24 @@ class Test {
     }
 
     @TestCase
+    func testSubscriptExprInit() {
+        let expr = (nodes[1] as SubscriptExpr).getOrThrow()
+        var subscriptExpr = SubscriptExpr(expr.base, expr.indexs)
+        let base = (subscriptExpr.base as SubscriptExpr).getOrThrow()
+        let index = (subscriptExpr.indexs[0] as SubscriptExpr).getOrThrow()
+        @Expect(base.toString(), "a[x]")
+        @Expect(subscriptExpr.indexs.size, 1)
+        @Expect(subscriptExpr.indexs[0].toString(), "b.c[1]")
+        @Expect(index.base is MemberAccess)
+        @Expect(index.base.toString(), "b.c")
+        @Expect(subscriptExpr.toString(), "a[x][b.c[1]]")
+        var pos = subscriptExpr.getLSquarePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 5, 1, 6]).toArray())
+        pos = subscriptExpr.getRSquarePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 12, 1, 13]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("subscript_expr.cj")
         let input = String.fromUtf8(File.readFrom("subscript_expr.cj"))

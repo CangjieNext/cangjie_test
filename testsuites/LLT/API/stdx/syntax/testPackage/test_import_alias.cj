@@ -90,6 +90,29 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let importList = importLists[0]
+        match(importList.kind) {
+            case ImportKind.Alias => @Expect(true)
+            case _ => @Expect(false)
+        }
+        let tmp = (importList.contents as ImportAlias).getOrThrow()
+        let content = ImportAlias(tmp.prefixes, tmp.identifier, tmp.aliasName)
+        @Expect(content.prefixes, [])
+        @Expect(content.identifier, "testPackage")
+        @Expect(content.aliasName, "pkg")
+        @Expect(content.toString(), "testPackage as pkg")
+        var pos = content.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 12]).toArray())
+        pos = content.getAsPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 13, 1, 15]).toArray())
+        pos = content.getAliasNamePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 16, 1, 19]).toArray())
+        pos = content.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 19]).toArray())
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

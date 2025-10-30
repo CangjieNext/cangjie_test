@@ -194,6 +194,36 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let varDecl = (decls[2] as VarDecl).getOrThrow()
+        let ty = (varDecl.tyAnnotation.getOrThrow() as FuncType).getOrThrow()
+        let funcType = FuncType(ty.paramTypes, ty.labels, ty.retType)
+
+        @Expect(funcType.paramTypes.size, 1)
+        @Expect(funcType.paramTypes[0] is AtomicType)
+        @Expect(funcType.paramTypes[0].toString(), "Int32")
+        @Expect(funcType.labels.size, 1)
+        @Expect(funcType.labels[0], "x")
+        @Expect(funcType.retType is CompositeType)
+        @Expect(funcType.retType.toString(), "A")
+        @Expect(funcType.toString(), "(x: Int32) -> A")
+
+        var pos = funcType.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 16]).toArray())
+        pos = funcType.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = funcType.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 10, 1, 11]).toArray())
+        @Expect(funcType.getCommasPos().size, 0)
+        pos = funcType.getLabelsPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 3]).toArray())
+        pos = funcType.getColonsPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 4]).toArray())
+        pos = funcType.getArrowPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 12, 1, 14]).toArray())
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

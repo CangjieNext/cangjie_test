@@ -53,6 +53,21 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let funcDecl = (decls[0] as FuncDecl).getOrThrow()
+        let body = funcDecl.body.getOrThrow()
+        let tmp = (body.nodes[0] as ReturnExpr).getOrThrow()
+        let expr = ReturnExpr(tmp.retVal)
+        @Expect(expr.retVal.getOrThrow().toString(), "1")
+        @Expect(expr.toString(), "return 1")
+
+        var pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 9]).toArray())
+        pos = expr.getReturnKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
+    }
 }
 
 /*

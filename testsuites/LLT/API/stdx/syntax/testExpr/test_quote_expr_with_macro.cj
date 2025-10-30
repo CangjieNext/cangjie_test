@@ -4,6 +4,7 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 
 import std.ast.Tokens
+import std.collection.ArrayList
 import stdx.syntax.*
 
 @Test
@@ -133,6 +134,18 @@ func test_QuoteExpr_02() {
     match(expr_9.tokensOrRefExpr[0]) {
         case TokenPart(QuoteToken) => 
             @Assert(QuoteToken.toString(), "1 + @PlusOne(x) * 2")
+        case _ => @Assert(false)
+    }
+
+    match(expr_5.tokensOrRefExpr[0]) {
+        case QuoteInterpolation(tmp) => 
+            let expr = QuoteInterpolationExpr(tmp.expr)
+            @Assert(expr.toString(), ##"$x"##)
+            @Assert(expr.expr.toString(), ##"x"##)
+            var pos = expr.nodePos
+            @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 3]).toArray())
+            pos = expr.expr.nodePos
+            @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 3]).toArray())
         case _ => @Assert(false)
     }
 }

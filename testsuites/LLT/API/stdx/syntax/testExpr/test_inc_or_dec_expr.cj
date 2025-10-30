@@ -59,6 +59,23 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[0] as IncOrDecExpr).getOrThrow()
+        let expr = IncOrDecExpr(tmp.kind, tmp.operand)
+        @Expect(expr.operand.toString(), "a")
+        match (expr.kind) {
+            case IncOrDecOpKind.Incr => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(expr.toString(), "a++")
+
+        var pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
+        pos = expr.getOperatorPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 4]).toArray())
+    }
 }
 
 /*

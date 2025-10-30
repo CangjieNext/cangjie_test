@@ -74,6 +74,40 @@ class Test {
     }
 
     @TestCase
+    func testMacroDeclInit() {
+        let decl = (decls[1] as MacroDecl).getOrThrow()
+        let marcoDecl = MacroDecl(decl.body, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(marcoDecl.name, "testMacro")
+        let params = marcoDecl.params
+        @Expect(params.toString(), "(a: Tokens, b: Tokens)")
+        @Expect(params.params.size, 2)
+        @Expect(params.params[0].toString(), "a: Tokens")
+        @Expect(params.params[1].toString(), "b: Tokens")
+        @Expect(marcoDecl.retTyAnnotation.getOrThrow().toString(), "Tokens")
+        let block = Block(marcoDecl.body.nodes)
+        @Expect(block.toString(), #"{
+    return quote()
+}"#)
+        @Expect(block.nodes[0].toString(), "return quote()")
+        @Expect(marcoDecl.toString(), "public macro testMacro(a: Tokens, b: Tokens): Tokens { return quote() }")
+        var pos = marcoDecl.getMacroKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 13]).toArray())
+        pos = marcoDecl.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 14, 1, 23]).toArray())
+        pos = params.getParamsLParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 23, 1, 24]).toArray())
+        @Expect(params.getParamsCommasPos().size, 1)
+        pos = params.getParamsCommasPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 33, 1, 34]).toArray())
+        pos = params.getParamsRParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 44, 1, 45]).toArray())
+        pos = marcoDecl.getRetTyAnnotationColonPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 45, 1, 46]).toArray())
+        pos = marcoDecl.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 72]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("macro_decl.cj")
         let input = String.fromUtf8(File.readFrom("macro_decl.cj"))
