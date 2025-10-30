@@ -1,0 +1,36 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and not Windows) EXEC-PIPE-0: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
+
+// ASSERT: scan-not error
+
+import interoplib.objc.*
+import objc.lang.*
+
+func nop(): ObjCFunc<() -> Unit> {
+    return unsafe { zeroValue() }
+}
+
+func primitives(): ObjCFunc<(Float64) -> Float64> {
+    return unsafe { zeroValue() }
+}
+
+func mirrors(): ObjCFunc<(Moo) -> Moo> {
+    return unsafe { zeroValue() }
+}
+
+func impls(): ObjCFunc<(Foo) -> Foo> {
+    return unsafe { zeroValue() }
+}
+
+@ObjCMirror
+open class Moo {
+    init()
+}
+
+@ObjCImpl
+class Foo <: Moo {}

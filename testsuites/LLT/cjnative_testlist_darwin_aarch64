@@ -26,7 +26,7 @@ API/std/posix/
 API/std/process/darwin
 API/std/process/unix
 API/std/time/
-compiler/CJMP/objc/
+# compiler/CJMP/objc/
 
 ## objc (Assertion failed)
 compiler/CJMP/objc/integration/cstruct
