@@ -6,7 +6,7 @@
 
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCImpl
 public class A <: M {
@@ -19,7 +19,7 @@ public class A <: M {
         let m2 = M.initWithBool(true)
         let m3 = M.initWithBoolAndBool(true, false)
         let m4 = M.initWithBoolAndBool(false, true)
-        
+
         print("cj: A.test() end\n", flush: true)
     }
 }
