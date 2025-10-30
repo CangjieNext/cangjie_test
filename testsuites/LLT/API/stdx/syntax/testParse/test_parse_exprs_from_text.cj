@@ -36,9 +36,8 @@ if (x && y + 1 > 2) {
         }
 
         try {
-            let node = parseText("a?")
+            parseText("a?")
         } catch (e: Exception) {
-            println(e.message)
             @Expect(e.message, #"unsupported node type or parse error in parseText function:
 expected '.', '(', '[', '{' or '?' after '?'
  ==> :1:2:
@@ -50,13 +49,13 @@ expected expression after '?', found '<EOF>'
         }
 
         try {
-            let node = parseText("( 1+1")
+            parseText("( 1+1")
         } catch (e: Exception) {
             @Expect(e.message.contains("unsupported node type or parse error in parseText function:"))
         }
 
         try {
-            let node = parseText("1+1  :Int")
+            parseText("1+1  :Int")
         } catch (e: Exception) {
             @Expect(e.message.contains("unsupported node type or parse error in parseText function:"))
         }
