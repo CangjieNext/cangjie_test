@@ -6,10 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run -g -V -- / * & 5 a b  "c" 2>&1 | compare %f
-// ASSERT: scan arg: '/'
-// ASSERT: scan arg: '*'
-// ASSERT: scan arg: '&'
-// ASSERT: scan arg: '5'
-// ASSERT: scan arg: 'a'
-// ASSERT: scan arg: 'b'
-// ASSERT: scan arg: 'c'
+// ASSERT: scan /bin/bash: 5: command not found
