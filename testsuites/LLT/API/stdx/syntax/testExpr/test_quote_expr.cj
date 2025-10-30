@@ -173,9 +173,9 @@ quote(public func test(): Unit {
         match(expr.tokensOrRefExpr[0]) {
             case TokenPart(v) =>
                 let quoteToken = QuoteToken(v.content)
-                @Expect(quoteToken.toString(), "public func test(): Unit")
+                @Expect(quoteToken.toString(), "public func test ( ) : Unit")
                 var pos = quoteToken.nodePos
-                @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 25]).toArray())
+                @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 28]).toArray())
             case _ => @FailExpect("kind wrong")
         }
     }
