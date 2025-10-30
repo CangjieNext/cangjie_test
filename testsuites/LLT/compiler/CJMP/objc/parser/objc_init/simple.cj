@@ -7,7 +7,7 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-0: %frontendCompiler %cmp_opt %diag_json %f -o %output %compile_shared_lib_opt 2>& 1 | compare %f
 // ASSERT: scan-not error
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public class M {

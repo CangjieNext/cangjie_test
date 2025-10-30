@@ -26,10 +26,10 @@ API/std/posix/
 API/std/process/darwin
 API/std/process/unix
 API/std/time/
-compiler/CJMP/objc/
 
 ## objc (Assertion failed)
 compiler/CJMP/objc/integration/cstruct
+compiler/CJMP/objc/integration/cstruct_pointer
 
 ## @C-struct tests are disabled for now as currently LLVM IR generated for functions returning structs is invalid for darwin-aarch64 platform
 compiler/CJMP/objc/sema/objc_cstruct_impl.cj
