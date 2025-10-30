@@ -8,7 +8,7 @@
 // ASSERT: scan sema_mismatched_types
 // ASSERT: scan expected 'Class-M', found 'Class-P'
 
-import interoplib.objc.*
+import objc.lang.*
 
 public class P {}
 
@@ -19,4 +19,3 @@ class M {
     @ObjCInit
     public static func customInit(): P // expected M
 }
-
