@@ -9,7 +9,7 @@
 // ASSERT: scan-2 error: param type of Objective-C mirror method must be Objective-C compatible
 // ASSERT: scan 4 errors generated, 4 errors printed
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public class M {
