@@ -6,11 +6,12 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run -g --run-args "a b c" -- a "b c" "d \"e\"" -V --run-args hello world 2>&1 | compare %f
+// ASSERT: scan option '--run-args' will be ignored while using '--' at the same time
 // ASSERT: scan arg: 'a'
 // ASSERT: scan arg: 'b c'
 // ASSERT: scan arg: 'd "e"'
 // ASSERT: scan arg: '-V'
 // ASSERT: scan arg: '--run-args'
-// ASSERT: scan arg: hello
-// ASSERT: scan arg: world
-// ASSERT: scan Please note that you should not mix '--run-args' with the '--' option; we will only retain the run-args following '--'.
+// ASSERT: scan arg: 'hello'
+// ASSERT: scan arg: 'world'
+

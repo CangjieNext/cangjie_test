@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm run -g -V -- / * & 5 a b  "c"7 2>&1 | compare %f
+// EXEC: cd %n && %cjpm run -g -V -- "/" "*" "&" 5 a b  "c"7 2>&1 | compare %f
 // ASSERT: scan arg: '/'
 // ASSERT: scan arg: '*'
 // ASSERT: scan arg: '&'

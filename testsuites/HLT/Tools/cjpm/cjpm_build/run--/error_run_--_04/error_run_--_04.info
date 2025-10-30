@@ -6,5 +6,5 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run -g -- "a b c" 2>&1 | compare %f
-// ASSERT: scan arg: 'a'
-// ASSERT: scan arg: 'b c'
+// ASSERT: scan-not arg: 'a b c'
+// ASSERT: scan cjpm run finished

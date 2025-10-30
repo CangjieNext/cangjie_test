@@ -8,7 +8,7 @@ package b
 
 
 main(args:Array<String>): Int64 {
-    for (arg in args) {print("arg： '${arg}'")}
+    for (arg in args) {print("arg: '${arg}'")}
     print("hello world")
     
     return 0

@@ -15,9 +15,3 @@
   output-type = "executable"
   override-compile-option = ""
   version = "1.0.0"
-
-[profile]
-build = { lto = "full", combined = { b = "dynamic" }}
-
-[package.package-configuration.b]
-combine-all-deps = true

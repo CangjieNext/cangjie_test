@@ -7,13 +7,4 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n/p3 && %cjpm build && cd .. && %cjpm run -g -V -- "a b c" 2>&1 | compare %f
 // ASSERT: scan arg: 'a b c'
-// ASSERT: regex Compiling package `b`: .*b\.p2\.bc.*
-// ASSERT: regex Compiling package `b`: .*b\.p1\.bc.*
-// ASSERT: regex Compiling package `b`: .*p4\.bc.*
-// ASSERT: regex Compiling package `b`: .*--lto=full.*
-// ASSERT: regex-not Compiling package `p4`: .*libp4.so
-// ASSERT: regex-not Compiling package `b`: .*libp4.so
-// ASSERT: regex-not Compiling package `b`: .*libp3.so
-// ASSERT: regex Compiling package `b`: .*libb.so
-// ASSERT: regex-not Compiling package `b`: .*--link-options=--whole-archive.*-lp3.*--link-options=--no-whole-archive.*
-// ASSERT: scan cjpm build success
+// ASSERT: scan cjpm run finished

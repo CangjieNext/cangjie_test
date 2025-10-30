@@ -11,40 +11,40 @@
 // ASSERT: scan arg: 'd "e"'
 // ASSERT: scan arg: '-V'
 // ASSERT: scan arg: '--run-args'
-// ASSERT: scan arg: hello
-// ASSERT: scan arg: world
+// ASSERT: scan arg: 'hello'
+// ASSERT: scan arg: 'world'
 // ASSERT: scan arg: 'a'
 // ASSERT: scan arg: 'b c'
 // ASSERT: scan arg: 'd "e"'
 // ASSERT: scan arg: '-V'
 // ASSERT: scan arg: '--run-args'
-// ASSERT: scan arg: hello
-// ASSERT: scan arg: world
+// ASSERT: scan arg: 'hello'
+// ASSERT: scan arg: 'world'
 // ASSERT: scan arg: 'a'
 // ASSERT: scan arg: 'b c'
 // ASSERT: scan arg: 'd "e"'
 // ASSERT: scan arg: '-V'
 // ASSERT: scan arg: '--run-args'
-// ASSERT: scan arg: hello
-// ASSERT: scan arg: world
+// ASSERT: scan arg: 'hello'
+// ASSERT: scan arg: 'world'
 // ASSERT: scan arg: 'a'
 // ASSERT: scan arg: 'b c'
 // ASSERT: scan arg: 'd "e"'
 // ASSERT: scan arg: '-V'
 // ASSERT: scan arg: '--run-args'
-// ASSERT: scan arg: hello
-// ASSERT: scan arg: world
+// ASSERT: scan arg: 'hello'
+// ASSERT: scan arg: 'world'
 // ASSERT: scan arg: 'a'
 // ASSERT: scan arg: 'b c'
 // ASSERT: scan arg: 'd "e"'
 // ASSERT: scan arg: '-V'
 // ASSERT: scan arg: '--run-args'
-// ASSERT: scan arg: hello
-// ASSERT: scan arg: world
+// ASSERT: scan arg: 'hello'
+// ASSERT: scan arg: 'world'
 // ASSERT: scan arg: 'a'
 // ASSERT: scan arg: 'b c'
 // ASSERT: scan arg: 'd "e"'
 // ASSERT: scan arg: '-V'
 // ASSERT: scan arg: '--run-args'
-// ASSERT: scan arg: hello
-// ASSERT: scan arg: world
+// ASSERT: scan arg: 'hello'
+// ASSERT: scan arg: 'world'
