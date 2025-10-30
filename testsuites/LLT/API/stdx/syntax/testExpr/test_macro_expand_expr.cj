@@ -124,6 +124,37 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[0] as MacroExpandExpr).getOrThrow()
+        let expr = MacroExpandExpr(tmp.calleeMacro, tmp.macroAttrs, tmp.macroInputs)
+        @Expect(expr.calleeMacro.toString(), "testMacro")
+        @Expect(expr.macroAttrs.toString(), "public func")
+        let macroInput = match (expr.macroInputs) {
+            case MacroExpandInput.WithParens(r) => r
+            case _ => @FailExpect("kind wrong")
+        }
+        let input = (macroInput as Tokens).getOrThrow()
+        @Expect(input.toString(), "let a = 1")
+        @Expect(expr.macroAttrs.size, 2)
+        @Expect(input.size, 4)
+        @Expect(tmp.macroAttrs.size, 2)
+        @Expect(expr.toString(), "@testMacro[public func](let a = 1)")
+
+        var pos = expr.getAtPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = expr.getLSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 11, 1, 12]).toArray())
+        pos = expr.getRSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 23, 1, 24]).toArray())
+        pos = expr.getLParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 24, 1, 25]).toArray())
+        pos = expr.getRParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 34, 1, 35]).toArray())
+        pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 35]).toArray())
+    }
 }
 
 /*

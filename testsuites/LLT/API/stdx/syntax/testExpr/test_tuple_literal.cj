@@ -56,6 +56,22 @@ class Test {
     }
 
     @TestCase
+    func testTupleLiteralInit() {
+        let expr = (nodes[1] as TupleLiteral).getOrThrow()
+        let tupleExpr = TupleLiteral(expr.elements)
+        @Expect(tupleExpr.elements.size, 2)
+        @Expect(tupleExpr.elements[0].toString(), "\"a\"")
+        @Expect(tupleExpr.elements[1].toString(), "\"b\"")
+        @Expect(tupleExpr.toString(), "(\"a\", \"b\")")
+        var pos = tupleExpr.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = tupleExpr.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 10, 1, 11]).toArray())
+        pos = tupleExpr.getCommasPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 5, 1, 6]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("tuple_literal.cj")
         let input = String.fromUtf8(File.readFrom("tuple_literal.cj"))

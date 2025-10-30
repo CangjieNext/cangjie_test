@@ -153,6 +153,48 @@ class Test {
         let input = String.fromUtf8(File.readFrom("packageHeader/identifiers_03.cj"))
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testPackageHeaderInit01() {
+        let node = parseFile("packageHeader/identifiers_03.cj")
+        let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
+        let header = file.pkgHeader.getOrThrow()
+        let packageHeader = PackageHeader(header.accessModifier, header.isMacroPkg, header.packageNameIdentifiers)
+        @Expect(packageHeader.packageNameIdentifiers.size, 3)
+        @Expect(packageHeader.packageNameIdentifiers[0], "A")
+        @Expect(packageHeader.packageNameIdentifiers[1], "B")
+        @Expect(packageHeader.packageNameIdentifiers[2], "testPackage")
+        @Expect(packageHeader.getParentPackageName(), "A.B")
+        @Expect(packageHeader.getPackageName(), "testPackage")
+        @Expect(packageHeader.toString(), "package A.B.testPackage")
+    }
+
+    @TestCase
+    func testPackageHeaderInit02() {
+        let node = parseFile("packageHeader/access_modifier_04.cj")
+        let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
+        let header = file.pkgHeader.getOrThrow()
+        let packageHeader = PackageHeader(header.accessModifier, header.isMacroPkg, header.packageNameIdentifiers)
+        let modifier = packageHeader.accessModifier.getOrThrow()
+        match (modifier.kind) {
+            case ModifierKind.Protected => ()
+            case _ => @FailExpect("The kind is wrong.")
+        }
+        @Expect(packageHeader.toString(), "protected package testPackage.childPackage")
+    }
+
+    @TestCase
+    func testPackageHeaderInit03() {
+        let node = parseFile("packageHeader/is_macro_02.cj")
+        let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
+        let header = file.pkgHeader.getOrThrow()
+        let packageHeader = PackageHeader(header.accessModifier, header.isMacroPkg, header.packageNameIdentifiers)
+        @Expect(packageHeader.isMacroPkg, true)
+        @Expect(packageHeader.toString(), "macro package testPackage")
+
+        var pos = packageHeader.getMacroKeyWordPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
+    }
 }
 
 /*

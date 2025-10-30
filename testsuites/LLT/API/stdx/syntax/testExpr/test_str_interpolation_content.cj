@@ -39,6 +39,22 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let strExpr = (nodes[0] as LitConstStrExpr).getOrThrow()
+        match(strExpr.strPartExprs[0]) {
+            case StrInterpolation(v) => 
+                let strInterpolationContent = StrInterpolationContent(v.interpolationBlock)
+                @Expect(strInterpolationContent.interpolationBlock.toString(), "{a.toString()}")
+                @Expect(strInterpolationContent.toString(), ##"${a.toString()}"##)
+                var pos = strInterpolationContent.getDollarPos()
+                @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+                pos = strInterpolationContent.nodePos
+                @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 16]).toArray())
+            case _ => @FailExpect("kind wrong")
+        }
+    }
 }
 
 /*

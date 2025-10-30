@@ -4,33 +4,46 @@
 
 /* ===== Emitted by MacroCall @Test in debug_macro.cj:5:1 ===== */
 /* 5.1 */@Attribute[TEST_GENERATED] class A <: TestClass {
-/* 5.2 */    init() {
-/* 5.3 */    }
-/* 5.4 */    private func classConfiguration(): Configuration {
-/* 5.5 */        let configuration = Configuration()
-/* 5.6 */        
-/* 5.7 */        return configuration
-/* 5.8 */    }
-/* 5.9 */    public override func asTestSuite(): TestSuite {
-/* 5.10 */        
-/* 5.11 */        let suiteConfiguration = classConfiguration()
-/* 5.12 */        let suiteBuilder = TestSuite.builder("A").configure(suiteConfiguration)
-/* 5.13 */        return suiteBuilder.build()
-/* 5.14 */    }
-/* 5.15 */    private func inheritedFromClassAnnotatedByTestTemplate < T >(): TestSuite where T <: TestClass {
-/* 5.16 */        throw Exception("Unreachable code")
-/* 5.17 */    }
-/* 5.18 */}
-/* 5.19 */
-/* 5.20 */
-/* 5.21 */interface TestPackageExtension_A {
-/* 5.22 */    func registerA(): Unit
-/* 5.23 */}
-/* 5.24 */extend TestPackage <: TestPackageExtension_A {
-/* 5.25 */    @Attribute[TEST_REGISTER]
-/* 5.26 */    public func registerA() {
-/* 5.27 */        registerSuite({ => A().asTestSuite() })
-/* 5.28 */    }
-/* 5.29 */}
-/* 5.30 */
+/* 5.2 */    public override func asTestSuite(): TestSuite {
+/* 5.3 */        
+/* 5.4 */        iff___(false) { 1 }
+/* 5.5 */        iff___(false) { throw Exception() }
+/* 5.6 */        let suiteConfiguration = classConfiguration()
+/* 5.7 */        let suiteBuilder = TestSuite.builder("A").configure(suiteConfiguration)
+/* 5.8 */        return suiteBuilder.build()
+/* 5.9 */    }
+/* 5.10 */    init() {
+/* 5.11 */    }
+/* 5.12 */    
+/* 5.13 */    @Frozen
+/* 5.14 */    private static func iff___(cond: Bool, a:() -> Nothing): Unit {
+/* 5.15 */        if(cond) { a() } else {() }
+/* 5.16 */    }
+/* 5.17 */    
+/* 5.18 */    @Frozen
+/* 5.19 */    private static func iff___ < T >(cond: Bool, a:() -> T): T {
+/* 5.20 */        if(cond) { a() } else { unsafe { zeroValue < T >() } }
+/* 5.21 */    }
+/* 5.22 */    
+/* 5.23 */    private func classConfiguration(): Configuration {
+/* 5.24 */        let configuration = Configuration()
+/* 5.25 */        
+/* 5.26 */        return configuration
+/* 5.27 */    }
+/* 5.28 */    private func inheritedFromClassAnnotatedByTestTemplate < T >(): TestSuite where T <: TestClass {
+/* 5.29 */        throw Exception("Unreachable code")
+/* 5.30 */    }
+/* 5.31 */}
+/* 5.32 */
+/* 5.33 */
+/* 5.34 */interface TestPackageExtension_A {
+/* 5.35 */    func registerA(): Unit
+/* 5.36 */}
+/* 5.37 */extend TestPackage <: TestPackageExtension_A {
+/* 5.38 */    @Attribute[TEST_REGISTER]
+/* 5.39 */    public func registerA() {
+/* 5.40 */        registerSuite({ => A().asTestSuite() })
+/* 5.41 */    }
+/* 5.42 */}
+/* 5.43 */
 /* ===== End of the Emit ===== */

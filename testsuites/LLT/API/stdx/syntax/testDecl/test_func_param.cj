@@ -243,6 +243,50 @@ class Test {
 
     }
 
+    @TestCase
+    func testFuncParamInit() {
+        let decl = (decls[1] as ClassDecl).getOrThrow()
+        let funcDecl = (decl.body.memberDecls[0] as FuncDecl).getOrThrow()
+        let params = funcDecl.params
+        let primaryParams = params.params
+        var param = (primaryParams[0] as FuncParam).getOrThrow()
+        var funcParam = FuncParam(param.defaultValue, param.kind, param.name, param.typeAnnotation, isNamed: false, annotations: param.annotations, modifiers: param.modifiers)
+        @Expect(funcParam.name, "a")
+        @Expect(funcParam.typeAnnotation is AtomicType)
+        @Expect(funcParam.typeAnnotation.toString(), "Int64")
+        @Expect(funcParam.defaultValue.isNone())
+        @Expect(funcParam.kind.isNone())
+        @Expect(funcParam.toString(), "a: Int64")
+
+        param = (primaryParams[3] as FuncParam).getOrThrow()
+        funcParam = FuncParam(param.defaultValue, param.kind, param.name, param.typeAnnotation, isNamed: true, annotations: param.annotations, modifiers: param.modifiers)
+        @Expect(funcParam.name, "d")
+        @Expect(funcParam.typeAnnotation is AtomicType)
+        @Expect(funcParam.typeAnnotation.toString(), "Int64")
+        @Expect(funcParam.defaultValue.isNone())
+        var kind = funcParam.kind.getOrThrow()
+        match(kind) {
+            case Var => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcParam.modifiers.toString(), "[public]")
+        @Expect(funcParam.toString(), "public var d!: Int64")
+
+        param = (primaryParams[4] as FuncParam).getOrThrow()
+        funcParam = FuncParam(param.defaultValue, param.kind, param.name, param.typeAnnotation, isNamed: true, annotations: param.annotations, modifiers: param.modifiers)
+        @Expect(funcParam.name, "e")
+        @Expect(funcParam.typeAnnotation is AtomicType)
+        @Expect(funcParam.typeAnnotation.toString(), "Int64")
+        @Expect(funcParam.defaultValue.getOrThrow().toString(), "3")
+        kind = funcParam.kind.getOrThrow()
+        match(kind) {
+            case Let => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcParam.modifiers.toString(), "[private]")
+        @Expect(funcParam.toString(), "private let e!: Int64 = 3")
+    }
+
 
 
     @TestCase

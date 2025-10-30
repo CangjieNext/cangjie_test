@@ -62,6 +62,33 @@ static init() {
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 5, 9, 6]).toArray())
     }
 
+    @TestCase
+    func testStaticInitInit() {
+        let classDecl = (decls[1] as ClassDecl).getOrThrow()
+        let decl = (classDecl.body.memberDecls[0] as StaticInit).getOrThrow()
+        let staticInit = StaticInit(decl.body, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(staticInit.body.toString(), """
+{
+        a = 1
+        println()
+    }""")
+        @Expect(staticInit.toString(), """
+static init() {
+        a = 1
+        println()
+    }""")
+        var pos = staticInit.getStaticKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
+        pos = staticInit.getInitKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 12]).toArray())
+        pos = staticInit.getParamsLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 12, 1, 13]).toArray())
+        pos = staticInit.getParamsRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 13, 1, 14]).toArray())
+        pos = staticInit.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 4, 6]).toArray())
+    }
+
 
     @TestCase
     func testFileToString() {

@@ -8,7 +8,6 @@
   cjc-version = "1.0.0"
   description = "nothing here"
   name = "test"
-  organization = "cangjie"
   output-type = "executable"
   version = "1.0.0"
 

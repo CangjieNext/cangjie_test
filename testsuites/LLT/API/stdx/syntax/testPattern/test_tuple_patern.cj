@@ -62,6 +62,29 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let matchExpr = (nodes[2] as MatchExpr).getOrThrow()
+        let pattern = (matchExpr.matchCases[0].patterns[0] as TuplePattern).getOrThrow()
+        let tuplePattern = TuplePattern(pattern.subPatterns)
+
+        @Expect(tuplePattern.subPatterns.size, 2)
+        @Expect(tuplePattern.subPatterns[0] is VarOrEnumPattern)
+        @Expect(tuplePattern.subPatterns[0].toString(), "x")
+        @Expect(tuplePattern.subPatterns[1] is VarOrEnumPattern)
+        @Expect(tuplePattern.subPatterns[1].toString(), "y")
+        @Expect(tuplePattern.toString(), "(x, y)")
+
+        var pos = tuplePattern.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
+        pos = tuplePattern.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = tuplePattern.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 6, 1, 7]).toArray())
+        pos = tuplePattern.getCommasPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 4]).toArray())
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

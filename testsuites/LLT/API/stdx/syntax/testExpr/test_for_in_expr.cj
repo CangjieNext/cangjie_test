@@ -76,6 +76,28 @@ for (i in 0..10 where i % 2 == 1) {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[0] as ForInExpr).getOrThrow()
+        let expr = ForInExpr(tmp.body, tmp.expr, tmp.pattern, tmp.patternGuard)
+        @Expect(expr.pattern.toString(), "(x, y)")
+        @Expect(expr.expr.toString(), "array")
+        @Expect(expr.body.toString(), "{}")
+        @Expect(expr.patternGuard.isNone())
+        @Expect(expr.toString(), "for ((x, y) in array) {}")
+        var pos = expr.getForKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
+        pos = expr.getInKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 13, 1, 15]).toArray())
+        pos = expr.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 5, 1, 6]).toArray())
+        pos = expr.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 21, 1, 22]).toArray())
+        @Expect(expr.getWhereKeyWordPos().isNone())
+        pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 25]).toArray())
+    }
 }
 
 /*

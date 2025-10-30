@@ -47,6 +47,33 @@ synchronized (obj) {
     }
 
     @TestCase
+    func testSynchronizedExprInit() {
+        let expr = (nodes[0] as SynchronizedExpr).getOrThrow()
+        let synchronizedExpr = SynchronizedExpr(expr.block, expr.structuredMutex)
+        @Expect(synchronizedExpr.structuredMutex.toString(), "obj")
+        @Expect(synchronizedExpr.block.toString(), """
+{
+        while (true) {
+            obj.wait()
+        }
+    }""")
+        @Expect(synchronizedExpr.toString(), """
+synchronized (obj) {
+        while (true) {
+            obj.wait()
+        }
+    }""")
+        var pos = synchronizedExpr.getSynchronizedKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 13]).toArray())
+        pos = synchronizedExpr.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 14, 1, 15]).toArray())
+        pos = synchronizedExpr.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 18, 1, 19]).toArray())
+        pos = synchronizedExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 5, 6]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("synchronized_expr.cj")
         let input = String.fromUtf8(File.readFrom("synchronized_expr.cj"))

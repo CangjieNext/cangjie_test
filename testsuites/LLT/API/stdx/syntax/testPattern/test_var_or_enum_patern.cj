@@ -51,6 +51,19 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let matchExpr = (nodes[3] as MatchExpr).getOrThrow()
+        let pattern = (matchExpr.matchCases[0].patterns[0] as VarOrEnumPattern).getOrThrow()
+        let varOrEnumPattern = VarOrEnumPattern(pattern.identifier)
+
+        @Expect(varOrEnumPattern.identifier, "B")
+        @Expect(varOrEnumPattern.toString(), "B")
+
+        var pos = varOrEnumPattern.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

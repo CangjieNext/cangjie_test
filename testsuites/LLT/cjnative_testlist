@@ -216,4 +216,3 @@ compiler/CJMP/java/integration/non-public-enum/non-public-enum.info
 compiler/CJMP/java/integration/non-public-struct/non-public-struct.info
 compiler/Driver/options/help/test_showall.cj
 compiler/Sema/this/thisfuncchain.cj
-compiler/Macro/ut/debug_macro.cj
