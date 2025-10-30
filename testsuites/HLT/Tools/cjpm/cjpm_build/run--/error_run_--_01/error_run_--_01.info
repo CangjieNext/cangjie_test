@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run -g - "a b c" 2>&1 | compare %f
-// ASSERT: scan Error: unknown command '-' for cjpm run 
+// ASSERT: scan Error: unknown command '-' for cjpm run
