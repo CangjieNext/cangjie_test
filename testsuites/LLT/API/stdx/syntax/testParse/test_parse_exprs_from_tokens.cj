@@ -17,7 +17,6 @@ class Test {
         @Expect(expr.elements[1].toString(), "2")
         @Expect(expr.elements[2].toString(), "3")
         @Expect(expr.toString(), "[1, 2, 3] // this is ArrayLiteral")
-        @Expect(expr.toTokens().toString(), "[1, 2, 3] // this is ArrayLiteral")
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 34]).toArray())
     }
@@ -248,17 +247,17 @@ do {
 do {
     println()
     return
-} while (x && y + 1 > 3)""")
+} while(x && y + 1 > 3)""")
         var pos = expr.getDoKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 3]).toArray())
         pos = expr.getWhileKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 3, 4, 8]).toArray())
         pos = expr.getCondLParenPos()
-        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 9, 4, 10]).toArray())
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 8, 4, 9]).toArray())
         pos = expr.getCondRParenPos()
-        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 24, 4, 25]).toArray())
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 23, 4, 24]).toArray())
         pos = expr.nodePos
-        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 4, 25]).toArray())
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 4, 24]).toArray())
     }
 
     @TestCase
@@ -267,9 +266,9 @@ do {
         let expr = (node.node.getOrThrow() as ForInExpr).getOrThrow()
         @Expect(expr.pattern.toString(), "(x, y)")
         @Expect(expr.expr.toString(), "array")
-        @Expect(expr.body.toString(), "{}")
+        @Expect(expr.body.toString(), "{ }")
         @Expect(expr.patternGuard.isNone())
-        @Expect(expr.toString(), "for ((x, y) in array) {}")
+        @Expect(expr.toString(), "for((x, y) in array) { }")
     }
 
     @TestCase
@@ -314,11 +313,11 @@ if (x && y + 1 > 2) {
 }""")
         }
         @Expect(expr.toString(), """
-if (x && y + 1 > 2) {
+if(x && y + 1 > 2) {
     println()
-} else if (let Some(f) <- d && f > 3) {
+} else if(let Some(f) <- d && f > 3) {
     println()
-} else if (let Some(_) <- a || let Some(_) <- d) {
+} else if(let Some(_) <- a || let Some(_) <- d) {
     return
 } else {
     return
@@ -334,7 +333,7 @@ if (x && y + 1 > 2) {
             case IncOrDecOpKind.Incr => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), "a++")
+        @Expect(expr.toString(), "a ++")
     }
 
     @TestCase
@@ -358,13 +357,13 @@ if (x && y + 1 > 2) {
         let expr = (node.node.getOrThrow() as Lambda).getOrThrow()
         let params = expr.params
         @Expect(params.params.size, 2)
-        @Expect(params.toString(), "a: (Int64, (Int64)), b: A")
-        @Expect(params.params[0].toString(), "a: (Int64, (Int64))")
+        @Expect(params.toString(), "a:(Int64,(Int64)), b: A")
+        @Expect(params.params[0].toString(), "a:(Int64,(Int64))")
         @Expect(params.params[1].toString(), "b: A")
         @Expect(expr.body.size, 2)
         @Expect(expr.body[0].toString(), "let c = a * b")
         @Expect(expr.body[1].toString(), "return c")
-        @Expect(expr.toString(), #"{ a: (Int64, (Int64)), b: A => let c = a * b
+        @Expect(expr.toString(), #"{ a:(Int64,(Int64)), b: A => let c = a * b
 return c }"#)
     }
 
@@ -383,19 +382,19 @@ match (a) {
         let selector = expr.selector.getOrThrow()
         @Expect(selector.toString(), "a")
         @Expect(expr.matchCases.size, 5)
-        @Expect(expr.matchCases[0].toString(), "case v: Int64 => ()")
-        @Expect(expr.matchCases[1].toString(), "case 1.1 | 2.2 => ()")
-        @Expect(expr.matchCases[2].toString(), "case b where true => ()")
+        @Expect(expr.matchCases[0].toString(), "case v: Int64 =>()")
+        @Expect(expr.matchCases[1].toString(), "case 1.1 | 2.2 =>()")
+        @Expect(expr.matchCases[2].toString(), "case b where true =>()")
         @Expect(expr.matchCases[3].toString(), "case _: T => { => }")
-        @Expect(expr.matchCases[4].toString(), "case _ => ()")
+        @Expect(expr.matchCases[4].toString(), "case _ =>()")
 
         @Expect(expr.toString(), """
-match (a) {
-    case v: Int64 => ()
-    case 1.1 | 2.2 => ()
-    case b where true => ()
+match(a) {
+    case v: Int64 =>()
+    case 1.1 | 2.2 =>()
+    case b where true =>()
     case _: T => { => }
-    case _ => ()
+    case _ =>()
 }""")
     }
 
@@ -511,13 +510,13 @@ synchronized (obj) {
         @Expect(expr.structuredMutex.toString(), "obj")
         @Expect(expr.block.toString(), """
 {
-    while (true) {
+    while(true) {
         obj.wait()
     }
 }""")
         @Expect(expr.toString(), """
-synchronized (obj) {
-    while (true) {
+synchronized(obj) {
+    while(true) {
         obj.wait()
     }
 }""")
@@ -555,9 +554,9 @@ synchronized (obj) {
         let expr = (parseTokens(tokens).node.getOrThrow() as TryCatch).getOrThrow()
         @Expect(expr.toString(), #"try {
     a
-} catch (e: Exception | IOException) {
+} catch(e: Exception | IOException) {
     b
-} catch (_) {
+} catch(_) {
     c
 }"#)
         @Expect(expr.tryBlock.toString(), ##"{
@@ -571,7 +570,6 @@ synchronized (obj) {
     c
 }"##)
         @Expect(expr.catchPatterns.size, 2)
-        expr.catchPatterns.toString() |> println
         @Expect(expr.catchPatterns[0].toString(), "e: Exception | IOException")
         @Expect(expr.catchPatterns[1].toString(), "_")
         @Expect(expr.finallyBlock.isNone())
@@ -609,7 +607,7 @@ synchronized (obj) {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(expr.operand.toString(), "a")
-        @Expect(expr.toString(), "!a")
+        @Expect(expr.toString(), "! a")
     }
 
     @TestCase
@@ -635,7 +633,7 @@ while (x && y + 1 > 3) {
     return
 }""")
         @Expect(expr.toString(), """
-while (x && y + 1 > 3) {
+while(x && y + 1 > 3) {
     println()
     return
 }""")

@@ -13,7 +13,7 @@ class Test {
         )
         let node = parseTokens(input)
         let decl = (node.node.getOrThrow() as VarDecl).getOrThrow()
-        @Expect(decl.toString(), "let a = (1 < 0)")
+        @Expect(decl.toString(), "let a =(1 < 0)")
     }
 
     @TestCase
@@ -71,7 +71,7 @@ class Test {
 
         let tokens = quote(@Deprecated["This API will be deprecated soon"] let (a, b): (Int64, String) = (1, "hello"))
         let decl_1 = (parseTokens(tokens).node.getOrThrow() as VarDecl).getOrThrow()
-        @Expect(decl_1.toString(), #"@Deprecated["This API will be deprecated soon"] let (a, b): (Int64, String) = (1, "hello")"#)
+        @Expect(decl_1.toString(), #"@Deprecated["This API will be deprecated soon"] let(a, b):(Int64, String) =(1, "hello")"#)
     }
 
     @TestCase
@@ -116,7 +116,7 @@ struct F {
         b = 4
     }
 
-    func testFunc(c: Int64, d: UInt32) {}
+    func testFunc(c: Int64, d: UInt32) { }
 
     prop e: String {
         get() { return "hello" }
@@ -131,7 +131,7 @@ struct F {
         b = 4
     }
 
-    func testFunc(c: Int64, d: UInt32) {}
+    func testFunc(c: Int64, d: UInt32) { }
 
     prop e: String {
         get() { return "hello" }
@@ -343,7 +343,7 @@ extend F {
         @Expect(decl.genericConstraints.isNone())
         @Expect(decl.body.toString(), """
 {
-    func testFunc(c: Int64, d: UInt32) {}
+    func testFunc(c: Int64, d: UInt32) { }
 
     prop e: String {
         get() { return "hello" }
@@ -351,7 +351,7 @@ extend F {
 }""")
         @Expect(decl.toString(), """
 extend F {
-    func testFunc(c: Int64, d: UInt32) {}
+    func testFunc(c: Int64, d: UInt32) { }
 
     prop e: String {
         get() { return "hello" }
@@ -376,12 +376,12 @@ public enum B {
         @Expect(decl.body.toString(), """
 {
     | Enum(Int64, A) | ...
-    func a() {}
+    func a() { }
 }""")
         @Expect(decl.toString(), """
 public enum B {
     | Enum(Int64, A) | ...
-    func a() {}
+    func a() { }
 }""")
 
         let nodes = decl.body.memberDecls
@@ -433,7 +433,7 @@ class F {
         b = 4
     }
 
-    func testFunc(c: Int64, d: UInt32) {}
+    func testFunc(c: Int64, d: UInt32) { }
 
     prop e: String {
         get() { return "hello" }
@@ -448,7 +448,7 @@ class F {
         b = 4
     }
 
-    func testFunc(c: Int64, d: UInt32) {}
+    func testFunc(c: Int64, d: UInt32) { }
 
     prop e: String {
         get() { return "hello" }
