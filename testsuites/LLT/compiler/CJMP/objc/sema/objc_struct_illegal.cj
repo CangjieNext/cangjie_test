@@ -9,31 +9,31 @@
 /* SCAN-IN
 error: Objective-C mirror field type must be Objective-C compatible
   ==> objc_struct_illegal.cj:44:23:
-   | 
+   |
 44 |     public var start: Point2D
-   |                       ^^^^^^^ 
-   | 
+   |                       ^^^^^^^
+   |
 
 error: Objective-C mirror field type must be Objective-C compatible
   ==> objc_struct_illegal.cj:45:21:
-   | 
+   |
 45 |     public var end: Point2D
-   |                     ^^^^^^^ 
-   | 
+   |                     ^^^^^^^
+   |
 
 error: param type of Objective-C mirror constructor must be Objective-C compatible
   ==> objc_struct_illegal.cj:47:17:
-   | 
+   |
 47 |     public init(start: Point2D, end: Point2D) {
-   |                 ^^^^^^^^^^^^^^ 
-   | 
+   |                 ^^^^^^^^^^^^^^
+   |
 
 error: param type of Objective-C mirror constructor must be Objective-C compatible
   ==> objc_struct_illegal.cj:47:33:
-   | 
+   |
 47 |     public init(start: Point2D, end: Point2D) {
-   |                                 ^^^^^^^^^^^^ 
-   | 
+   |                                 ^^^^^^^^^^^^
+   |
 */
 
 import objc.lang.*
