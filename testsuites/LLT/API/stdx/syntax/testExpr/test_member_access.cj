@@ -26,6 +26,7 @@ class Test {
         @Expect(expr.base.toString(), "A")
         @Expect(expr.field.toString(), "a")
         @Expect(expr.toString(), "A.a")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         var pos = expr.getDotPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 6, 2, 7]).toArray())
         pos = expr.nodePos

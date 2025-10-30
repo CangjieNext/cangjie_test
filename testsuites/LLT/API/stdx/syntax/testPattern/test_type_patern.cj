@@ -29,6 +29,7 @@ class Test {
         @Expect(pattern.subPattern is VarPattern)
         @Expect(pattern.subPattern.toString(), "x")
         @Expect(pattern.toString(), "x: Int64")
+        @Expect(pattern.toTokens().toString(), "x: Int64")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 14, 5, 22]).toArray())

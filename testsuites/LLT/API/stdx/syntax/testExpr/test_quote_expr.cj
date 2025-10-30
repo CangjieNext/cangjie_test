@@ -29,6 +29,7 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(expr.toString(), "quote(public func test(): Unit)")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         var pos = expr.getQuoteKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 10]).toArray())
         pos = expr.getLParenPos()

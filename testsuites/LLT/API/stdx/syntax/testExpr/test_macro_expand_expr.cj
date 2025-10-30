@@ -32,6 +32,7 @@ class Test {
         let input = (macroInput as Tokens).getOrThrow()
         @Expect(input.toString(), "let a = 1")
         @Expect(expr.toString(), "@testMacro[public func](let a = 1)")
+        @Expect(expr.toTokens().toString(), "@testMacro[public func](let a = 1)")
 
         var pos = expr.getAtPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 6]).toArray())

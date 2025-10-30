@@ -26,6 +26,8 @@ class Test {
         let expr = (callExpr.callee as OptionalExpr).getOrThrow()
         @Expect(expr.base.toString(), "a")
         @Expect(expr.toString(), "a?")
+        @Expect(expr.toTokens().toString(), "a?")
+
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 7]).toArray())

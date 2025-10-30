@@ -34,6 +34,7 @@ class Test {
         let stepEx = (expr.step.getOrThrow() as LitConstExpr).getOrThrow()
         @Expect(stepEx.rawValue, "2")
         @Expect(expr.toString(), "1..100:2")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 13]).toArray())

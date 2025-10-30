@@ -23,6 +23,7 @@ class Test {
         let gcs = decl.genericConstraints.getOrThrow()
         @Expect(gcs.constraints.size, 1)
         @Expect(gcs.toString(), "where T<: ToString")
+        @Expect(gcs.toTokens().toString(), "where T <: ToString")
 
         let gc = gcs.constraints[0]
         @Expect(gc.typeArgument.toString(), "T")

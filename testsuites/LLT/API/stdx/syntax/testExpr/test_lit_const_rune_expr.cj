@@ -26,6 +26,7 @@ class Test {
         @Expect(expr.rawValue, "a")
         @Expect(expr.isSingleQuote, true)
         @Expect(expr.toString(), "r'a'")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         let pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 9]).toArray())
     }

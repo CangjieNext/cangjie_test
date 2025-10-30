@@ -34,6 +34,7 @@ class Test {
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 13, 2, 24]).toArray())
 
         @Expect(expr.toString(), "match { case _ => 1 }")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         pos = expr.getMatchKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 10]).toArray())
         pos = expr.getMatchCasesLCurlPos()
@@ -86,6 +87,7 @@ match(a) {
         case b where true => ()
         case _ => ()
     }""")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         pos = expr.getMatchKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 5, 4, 10]).toArray())
         pos = expr.getSelectorLParenPos().getOrThrow()

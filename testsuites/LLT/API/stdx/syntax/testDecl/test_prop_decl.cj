@@ -41,6 +41,12 @@ prop a: Unit {
             ()
         }
     }""")
+        @Expect(decl.toTokens().toString(), """
+prop a: Unit {
+    get() {
+        ()
+    }
+}""")
         var pos = decl.getPropKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 9]).toArray())
         pos = decl.getIdentifierPos()
@@ -102,6 +108,7 @@ mut prop b: Int64 {
             println(v)
         }
     }""")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
         var pos = decl.getPropKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([8, 9, 8, 13]).toArray())
         pos = decl.getIdentifierPos()

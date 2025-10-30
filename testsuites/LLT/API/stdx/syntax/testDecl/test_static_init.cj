@@ -24,6 +24,7 @@ class Test {
         let decl = (classDecl.body.memberDecls[0] as StaticInit).getOrThrow()
         @Expect(decl.body.toString(), "{}")
         @Expect(decl.toString(), "static init() {}")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
         var pos = decl.getStaticKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 11]).toArray())
         pos = decl.getInitKeyWordPos()
@@ -50,6 +51,7 @@ static init() {
         a = 1
         println()
     }""")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
         var pos = decl.getStaticKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 5, 6, 11]).toArray())
         pos = decl.getInitKeyWordPos()

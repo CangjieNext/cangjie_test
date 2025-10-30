@@ -32,6 +32,7 @@ class Test {
             case _ => @FailExpect("The primitive kind is wrong.")
         }
         @Expect(ty.toString(), "() -> Unit")
+        @Expect(ty.toTokens().toString(), "() -> Unit")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 18]).toArray())

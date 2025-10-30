@@ -28,6 +28,7 @@ class Test {
         @Expect(expr.body.size, 1)
         @Expect(expr.body[0].toString(), "1")
         @Expect(expr.toString(), "{ => 1 }")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         var pos = expr.getLCurlPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 6]).toArray())
         pos = expr.getRCurlPos()
@@ -74,6 +75,7 @@ class Test {
         @Expect(expr.body[1].toString(), "return c")
         @Expect(expr.toString(), #"{ a: (Int64, (Int64)), b: A => let c = a * b
                                    return c }"#)
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         var pos = expr.getLCurlPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 5, 4, 6]).toArray())
         pos = expr.getRCurlPos()

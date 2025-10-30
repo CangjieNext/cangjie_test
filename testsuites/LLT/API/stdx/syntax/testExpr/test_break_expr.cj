@@ -24,6 +24,7 @@ class Test {
     func testExpr01() {
         let expr = (nodes[0] as BreakExpr).getOrThrow()
         @Expect(expr.toString(), "break")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 10]).toArray())

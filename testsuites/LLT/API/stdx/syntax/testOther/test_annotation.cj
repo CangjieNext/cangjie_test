@@ -26,6 +26,7 @@ class Test {
         @Expect(annotations[0].identifier, "Frozen")
         @Expect(annotations[0].arguments.size, 0)
         @Expect(annotations[0].toString(), "@Frozen")
+        @Expect(annotations[0].toTokens().toString(), "@Frozen")
         var pos = annotations[0].nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 8]).toArray())
         pos = annotations[0].getAtOpPos()
@@ -45,6 +46,7 @@ class Test {
         @Expect(annotations[0].arguments.size, 1)
         @Expect(annotations[0].arguments[0].toString(), "message: \'tt\'")
         @Expect(annotations[0].toString(), "@Deprecated[ message: \'tt\' ]")
+        @Expect(annotations[0].toTokens().toString(), "@Deprecated[message: \'tt\']")
     }
 
     @TestCase

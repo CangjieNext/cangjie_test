@@ -24,6 +24,7 @@ class Test {
     func testExpr01() {
         let expr = (nodes[0] as TrailingClosureExpr).getOrThrow()
         @Expect(expr.toString(), "f  { println() }")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         @Expect(expr.arguments.size, 0)
         let callee = (expr.callee as SymbolRef).getOrThrow()
         @Expect(callee.toString(), "f")

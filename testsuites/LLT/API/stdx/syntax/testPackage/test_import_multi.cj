@@ -36,6 +36,7 @@ class Test {
         @Expect(content.contents[1].toString(), "testPackage2.*")
         @Expect(content.contents[2].toString(), "testPackage3 as pkg")
         @Expect(content.toString(), "{testPackage1, testPackage2.*, testPackage3 as pkg}")
+        @Expect(content.toTokens().toString(), "{ testPackage1, testPackage2.*, testPackage3 as pkg }")
         var pos = content.getLCurlPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 9]).toArray())
         pos = content.getRCurlPos()
