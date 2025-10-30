@@ -120,14 +120,55 @@ class Test {
         @Expect(cond4Expr.toString(), "true")
     }
 
-    
-
     @TestCase
     func testFileToString() {
         let node = parseFile("disjunction_condition.cj")
         let input = String.fromUtf8(File.readFrom("disjunction_condition.cj"))
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
+    }
+
+    @TestCase
+    func testDisjunctionConditionInit01() {
+        let ifExpr = (nodes[2] as IfExpr).getOrThrow()
+        let tmp = ifExpr.condition
+        let condition = DisjunctionCondition(tmp.cond)
+
+        @Assert(condition.toString(), ##"a == b || c > d || e <= f || x != y && y > z"##)
+        @Expect(condition.cond.size, 4)
+        @Assert(condition.cond[0].toString(), ##"a == b"##)
+        @Assert(condition.cond[1].toString(), ##"c > d"##)
+        @Assert(condition.cond[2].toString(), ##"e <= f"##)
+        @Assert(condition.cond[3].toString(), ##"x != y && y > z"##)
+    }
+
+    @TestCase
+    func testConjunctionConditionInit01() {
+        let ifExpr = (nodes[3] as IfExpr).getOrThrow()
+        let tmp = ifExpr.condition
+        let conCondition = (tmp.cond[0] as ConjunctionCondition).getOrThrow()
+        let condition = ConjunctionCondition(conCondition.cond)
+        @Expect(condition.cond.size, 5)
+        @Assert(condition.toString(), ##"a > b && c == d && e > f && let x <- y && true"##)
+    }
+
+    @TestCase
+    func testLetPatternInit01() {
+        let expr = (nodes[3] as IfExpr).getOrThrow()
+        let condition = expr.condition
+        let conCondition = (condition.cond[0] as ConjunctionCondition).getOrThrow()
+        let optionLetPattern = match (conCondition.cond[3]) {
+            case AtomicCondition.LetPatternCondition(r) => r
+            case _ => 
+                @FailExpect("kind wrong")
+                Option<LetPattern>.None
+        }
+        let pattern = optionLetPattern.getOrThrow()
+        let patternCond = (pattern as LetPattern).getOrThrow()
+        let letPattern = LetPattern(patternCond.expr, patternCond.patterns)
+        @Expect(letPattern.toString(), "let x <- y")
+        var pos = letPattern.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 11]).toArray())
     }
 }
 

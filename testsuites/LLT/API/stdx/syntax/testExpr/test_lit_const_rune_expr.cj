@@ -31,6 +31,17 @@ class Test {
     }
 
     @TestCase
+    func testLitConstRuneExprInit() {
+        let expr = (nodes[0] as LitConstRuneExpr).getOrThrow()
+        let litConstRuneExpr = LitConstRuneExpr(expr.kind, expr.rawValue, expr.isSingleQuote)
+        @Expect(litConstRuneExpr.rawValue, "a")
+        @Expect(litConstRuneExpr.isSingleQuote, true)
+        @Expect(litConstRuneExpr.toString(), "r'a'")
+        let pos = litConstRuneExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 5]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("lit_const_rune_expr.cj")
         let input = String.fromUtf8(File.readFrom("lit_const_rune_expr.cj"))

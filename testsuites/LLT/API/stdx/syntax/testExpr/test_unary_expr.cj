@@ -59,6 +59,23 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[0] as UnaryExpr).getOrThrow()
+        let expr = UnaryExpr(tmp.opKind, tmp.operand)
+        match (expr.opKind) {
+            case UnaryOpKind.Not => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(expr.operand.toString(), "a")
+        @Expect(expr.toString(), "!a")
+
+        var pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 3]).toArray())
+        pos = expr.getOperatorPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+    }
 }
 
 /*

@@ -134,6 +134,48 @@ class Test {
     }
 
     @TestCase
+    func testMacroExpandParamInit01() {
+        let paramList = params.getOrThrow()
+        let param = (paramList.params[0] as MacroExpandParam).getOrThrow()
+        let macroExpandParam = MacroExpandParam(param.calleeMacro, param.macroAttrs, param.macroInputs, annotations: param.annotations, modifiers: param.modifiers)
+        @Expect(macroExpandParam.calleeMacro.toString(), "testMacro")
+        @Expect(macroExpandParam.macroAttrs.toString(), "public func")
+        match(macroExpandParam.macroInputs) {
+            case WithoutParens(v) => @Expect(v.toString(), "a: Int64")
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(macroExpandParam.toString(), "@testMacro[public func]a: Int64")
+
+        var pos = macroExpandParam.getAtPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 15, 1, 16]).toArray())
+        pos = macroExpandParam.getLSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 25, 1, 26]).toArray())
+        pos = macroExpandParam.getRSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 37, 1, 38]).toArray())
+        @Expect(macroExpandParam.getLParenPos().isNone())
+        @Expect(macroExpandParam.getRParenPos().isNone())
+    }
+
+    @TestCase
+    func testMacroExpandParamInit02() {
+        let paramList = params.getOrThrow()
+        let param = (paramList.params[1] as MacroExpandParam).getOrThrow()
+        let macroExpandParam = MacroExpandParam(param.calleeMacro, param.macroAttrs, param.macroInputs, annotations: param.annotations, modifiers: param.modifiers)
+        @Expect(macroExpandParam.calleeMacro.toString(), "macroPackage.testMacro")
+        @Expect(macroExpandParam.macroAttrs.toString(), "")
+        match(macroExpandParam.macroInputs) {
+            case WithParens(v) => @Expect(v.toString(), "b!: Int64")
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(macroExpandParam.toString(), "@macroPackage.testMacro(b!: Int64)")
+
+        var pos = macroExpandParam.getLParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 71, 1, 72]).toArray())
+        pos = macroExpandParam.getRParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 81, 1, 82]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("macro_expand_param.cj")
         let input = String.fromUtf8(File.readFrom("macro_expand_param.cj"))

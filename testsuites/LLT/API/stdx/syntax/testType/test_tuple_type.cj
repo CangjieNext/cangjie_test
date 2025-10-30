@@ -138,6 +138,33 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let varDecl = (decls[1] as VarDecl).getOrThrow()
+        let ty = (varDecl.tyAnnotation.getOrThrow() as TupleType).getOrThrow()
+        let tupleType = TupleType(ty.labels, ty.elements)
+
+        @Expect(tupleType.elements.size, 2)
+        @Expect(tupleType.elements[0] is AtomicType)
+        @Expect(tupleType.elements[1] is AtomicType)
+        @Expect(tupleType.elements[0].toString(), "Int16")
+        @Expect(tupleType.elements[1].toString(), "Int32")
+        @Expect(tupleType.labels.size, 0)
+        @Expect(tupleType.toString(), "(Int16, Int32)")
+
+        var pos = tupleType.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 15]).toArray())
+        pos = tupleType.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = tupleType.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 14, 1, 15]).toArray())
+        @Expect(tupleType.getCommasPos().size, 1)
+        pos = tupleType.getCommasPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 7, 1, 8]).toArray())
+        @Expect(tupleType.getLabelsPos().size, 0)
+        @Expect(tupleType.getColonsPos().size, 0)
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

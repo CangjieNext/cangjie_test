@@ -35,6 +35,19 @@ class Test {
             @Expect(false)
         }
     }
+    
+    @TestCase
+    func testInit01() {
+        if (let Some(f) <- file) {
+            let sourceFile = SourceFile(f.importLists, f.name, f.path, f.pkgHeader, f.topLevelDecls)
+            @Expect(sourceFile.topLevelDecls.size, 4)
+            if (let Some(fd) <- (sourceFile.topLevelDecls[0] as FuncDecl)) {
+                @Expect(fd.name, "foo")
+            }
+        } else {
+            @Expect(false)
+        }
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
