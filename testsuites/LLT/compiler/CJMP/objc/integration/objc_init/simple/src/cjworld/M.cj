@@ -6,7 +6,7 @@
 
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class M {
@@ -20,4 +20,3 @@ public open class M {
     @ForeignName["init:andBool:"]
     public static func initWithBoolAndBool(bool: Bool, b: Bool): M
 }
-
