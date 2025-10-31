@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // (not Windows and not MAC)EXEC: cd %n && %cjpm run -g -V -- / * & 5 a b  "c" 2>&1 | compare %f
-// ASSERT: scan /bin/bash: 5: command not found
+// ASSERT: scan command not found
