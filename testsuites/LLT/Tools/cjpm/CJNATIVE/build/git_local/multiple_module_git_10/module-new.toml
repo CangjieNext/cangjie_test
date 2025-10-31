@@ -6,7 +6,6 @@
 
 [dependencies]
   [dependencies.pro1]
-    version = "1.0.1"
     git = "pro1"
     branch = "branchname"
 
