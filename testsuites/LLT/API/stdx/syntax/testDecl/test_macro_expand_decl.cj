@@ -195,6 +195,56 @@ class C1 <: C2 {
     }
 
     @TestCase
+    func testMacroExpandDeclInit01() {
+        let decl = (decls[0] as MacroExpandDecl).getOrThrow()
+        let macroExpandDecl = MacroExpandDecl(decl.calleeMacro, decl.macroAttrs, decl.macroInputs, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(macroExpandDecl.calleeMacro.toString(), "testMacro")
+        @Expect(macroExpandDecl.macroAttrs.toString(), "public func")
+        match (macroExpandDecl.macroInputs) {
+            case WithoutParens(v) =>
+                @Expect(v is FuncDecl)
+                @Expect(v.toString(), "func a() {}")
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(macroExpandDecl.toString(), """
+@testMacro[public func]
+func a() {}""")
+        var pos = macroExpandDecl.getAtPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = macroExpandDecl.getLSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 11, 1, 12]).toArray())
+        pos = macroExpandDecl.getRSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 23, 1, 24]).toArray())
+        @Expect(macroExpandDecl.getLParenPos().isNone())
+        @Expect(macroExpandDecl.getRParenPos().isNone())
+        pos = macroExpandDecl.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 2, 12]).toArray())
+    }
+
+    @TestCase
+    func testMacroExpandDeclInit02() {
+        let decl = (decls[1] as MacroExpandDecl).getOrThrow()
+        let macroExpandDecl = MacroExpandDecl(decl.calleeMacro, decl.macroAttrs, decl.macroInputs, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(macroExpandDecl.calleeMacro.toString(), "macroPackage.testMacro")
+        @Expect(macroExpandDecl.macroAttrs.toString(), "")
+        match (macroExpandDecl.macroInputs) {
+            case WithParens(v) => @Expect(v.toString(), "var b = 1")
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(macroExpandDecl.toString(), "@macroPackage.testMacro(var b = 1)")
+        var pos = macroExpandDecl.getAtPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        @Expect(macroExpandDecl.getLSquarePos().isNone())
+        @Expect(macroExpandDecl.getRSquarePos().isNone())
+        pos = macroExpandDecl.getLParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 24, 1, 25]).toArray())
+        pos = macroExpandDecl.getRParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 34, 1, 35]).toArray())
+        pos = macroExpandDecl.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 35]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("macro_expand_decl.cj")
         let input = String.fromUtf8(File.readFrom("macro_expand_decl.cj"))

@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm run -V --no-feature-deduce --enable-features=feature.os.linux --build-args=--debug | compare %f
+// EXEC: cd %n && %cjpm run -V --no-feature-deduce --enable-features=os.linux --build-args=--debug | compare %f
 // ASSERT: scan-1 <empty>
 // ASSERT: scan-2 -g -Woff all -j1
 // ASSERT: scan-1 cjpm run finished

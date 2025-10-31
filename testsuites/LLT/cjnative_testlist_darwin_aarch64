@@ -13,97 +13,47 @@ API/std/posix/
 API/std/process/darwin
 API/std/process/unix
 API/std/time/
+compiler/CJMP/objc/
 
 [EXCLUDE-TEST-CASE]
 
-# Need to be fixed.
-# 非 CJMP 用例在分析， sema error
-API/std/unittest/macro_test_no_remove_mod.cj
-compiler/Macro/sema/cfunc.cj
-compiler/Macro/inout/inout_m4.cj
-compiler/Macro/inout/inout_m3.cj
+# exclude first.
+compiler/FFI/CFFI
+API/std/env/unix
+API/std/net/
+API/std/socket/
+API/std/posix/
+API/std/process/darwin
+API/std/process/unix
+API/std/time/
+compiler/CJMP/objc/
 
-## CJMP testcases
-compiler/CJMP/frontend/common_declarations/class/abstract_class/function_without_body_and_common_abstract.cj
-compiler/CJMP/frontend/common_declarations/class/class_and_member_matching_rules/member_func_without_common_and_abstract_modifier_in_common_abstract_class.cj
-compiler/CJMP/frontend/matching/class/matching_rules/class_level/definition_match/generics_constraints_not_match.cj
-compiler/CJMP/frontend/matching/class/matching_rules/class_level/definition_match/generics_not_match.cj
-compiler/CJMP/frontend/matching/class/matching_rules/member_level/normal_function_member/openness_compatibility_table/c_abstract_p_final.cj
-compiler/CJMP/frontend/matching/class/new_members/add_abstract_func_without_default_in_abstractclass.cj
-compiler/CJMP/frontend/matching/class/new_members/add_new_property_without_default_in_abstractclasss.cj
-compiler/CJMP/frontend/matching/class/new_members/new_required_constructor.cj
-compiler/CJMP/frontend/matching/enum/matching_rules/enum_level/definition_match/generics_constraints_not_match.cj
-compiler/CJMP/frontend/matching/enum/matching_rules/enum_level/definition_match/generics_not_match.cj
-compiler/CJMP/frontend/matching/function/overload_error/generic_not_match/not_same_generic_name.cj
-compiler/CJMP/frontend/matching/struct/new_members/new_required_constructor.cj
-compiler/CJMP/merging/classes/class_abstract/impl_interface/generic_interface.cj
-compiler/CJMP/merging/classes/class_abstract/impl_interface/generic_interface_with_non_common_class.cj
-compiler/CJMP/merging/classes/vtable/implemntation_ambiguity_is_detected_have_no_effect.cj
-compiler/CJMP/merging/classes/vtable/long_move_to_ancestor_class.cj
-compiler/CJMP/merging/classes/vtable/no_duplication_in_vtable.cj
-compiler/CJMP/merging/classes/vtable/no_early_devirtualization_in_class_test.cj
-compiler/CJMP/merging/classes/vtable/no_early_devirtualization_test.cj
-compiler/CJMP/merging/static_and_top_level_variables/initializer_dependencies_preserved.cj
-compiler/CJMP/merging/static_and_top_level_variables/nested/directed_dependent/directed_dependent_single_file_set/pattern_from_platform_use_pattern_from_common.cj
-compiler/CJMP/merging/static_and_top_level_variables/nested/directed_dependent/directed_dependent_single_file_set/pattern_from_platform_use_platform_pattern.cj
-compiler/CJMP/merging/structs/struct_abstract/impl_interface/generic_interface.cj
-compiler/CJMP/merging/structs/struct_abstract/impl_interface/generic_interface_with_non_common_struct.cj
-compiler/CJMP/merging/top_level_function/argument/enhance_test/enum_argument/generic_type_enum.cj
-compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_impl_platform_impl.cj
-compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_impl_platform_no_impl.cj
-compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_no_impl_platform_impl.cj
-compiler/CJMP/merging/top_level_function/enhance_test/top_level_function/user_define_thirdparty/moretype/generictype/thirdparty_genericclass_as_argument.cj
-compiler/CJMP/frontend/matching/struct/new_members/new_members_access_private_members.cj
-compiler/CJMP/frontend/matching/class/new_members/new_members_access_private_members.cj
-compiler/CJMP/merging/common_without_default_implementation/platform_function_call_platform_non_common.cj
+## objc (Assertion failed)
+compiler/CJMP/objc/integration/cstruct
 
-# native FFI
-## objc (interoplib.objc and objc.lang are missing)
-compiler/CJMP/objc/integration/
-compiler/CJMP/objc/compiler/multi-file/A.cj
-compiler/CJMP/objc/parser/class/objc_mirror_ctor.cj
-compiler/CJMP/objc/parser/class/objc_mirror_custom_fqname.cj
-compiler/CJMP/objc/parser/class/objc_mirror_field.cj 
-compiler/CJMP/objc/parser/class/objc_mirror_inheritance.cj
-compiler/CJMP/objc/parser/class/objc_mirror_method_static.cj
-compiler/CJMP/objc/parser/class/objc_mirror_open_prop.cj
-compiler/CJMP/objc/parser/class/objc_mirror_private_field.cj
-compiler/CJMP/objc/parser/class/objc_mirror_prop.cj
-compiler/CJMP/objc/parser/class/objc_mirror_subtype_member_cannot_be_generic.cj
-compiler/CJMP/objc/parser/class/objc_mirror_subtype_primary_ctor.cj
-compiler/CJMP/objc/parser/class/objc_mirror_subtype_static_init.cj
-compiler/CJMP/objc/sema/compile_order.cj
-compiler/CJMP/objc/sema/objc_mirror_ctor_type_mismatch.cj
-compiler/CJMP/objc/sema/objc_mirror_inherit_not_mirror.cj
-compiler/CJMP/objc/sema/objc_mirror_inheritance_without_annotation1.cj
-compiler/CJMP/objc/sema/objc_mirror_inheritance_without_annotation2.cj
-compiler/CJMP/objc/sema/objc_mirror_subtype.cj
-compiler/CJMP/objc/sema/objc_mirror_subtype_ctor.cj
-compiler/CJMP/objc/sema/objc_mirror_subtype_method_private.cj
-compiler/CJMP/objc/sema/objc_mirror_subtype_method_ret_type.cj
-compiler/CJMP/objc/sema/objc_mirror_subtype_parse.cj
-compiler/CJMP/objc/sema/objc_pointer_illegal_argument.cj
-compiler/CJMP/objc/sema/objc_pointer_type_argument.cj
+## @C-struct tests are disabled for now as currently LLVM IR generated for functions returning structs is invalid for darwin-aarch64 platform
+compiler/CJMP/objc/sema/objc_cstruct_impl.cj
+compiler/CJMP/objc/sema/objc_struct_illegal.cj
 
-# mock failed.
-API/std/unittest/mock/compiler/createMock/genericInstantiation.cj
+## objc (no @ForeignName checks)
+compiler/CJMP/objc/sema/foreign_name/objc_impl_ctor_with_params_no_foreign_name.cj
 
-# API testcases commented on 2025-10-17, need to be fixed.
-## signal testcases
-API/std/core/test_func_refeq.cj
-API/std/runtime/test_signal.cj
-API/std/runtime/test_signal_unregister.cj
-API/std/runtime/test_signal_unregister_oneSig.cj
-## unittest testcases
-### error: source file 'other.cj' doesn't exist
-API/std/unittest/mock/compiler/createMock/usePrivateTypesOtherPackage.cj
-### gnuplot executable not found
-API/std/unittest/report_bench_html/report_html_gnuplot.cj
-## fuzzer testcases (libclang_rt.fuzzer_no_main.a: No Such file or directory)
-API/stdx/fuzz/fuzzer_coverage.cj
-API/stdx/fuzz/fuzzer_enable_debugdp.cj
-API/stdx/fuzz/fuzzer_enable_fakecov.cj
-API/stdx/fuzz/fuzzer_main.cj
-API/stdx/fuzz/fuzzer_main_dp.cj
-API/stdx/fuzz/test_u32.cj
-API/stdx/fuzz/test_u64.cj
+## objc (omit @ForeignName for func members with one argument)
+compiler/CJMP/objc/parser/class/objc_impl/ctor.cj
+
+## objc (no named arguments checks)
+compiler/CJMP/objc/sema/objc_impl/ctor_args_named.cj
+compiler/CJMP/objc/sema/objc_impl/ctor_arg_default.cj
+
+## objc (no calls to super)
+compiler/CJMP/objc/integration/mirror_super
+
+# objc (no calls to super)
+compiler/CJMP/objc/integration/mirror_super/
+
+## objc (incorrect constructors merging between mirror <: impl & super calls in impls are not implemented)
+compiler/CJMP/objc/integration/objc_impl/ctor_super
+
+## objc (no working @ForeignName checks for constructors and methods in @ObjCImpl)
+compiler/CJMP/objc/sema/objc_impl_illegal_missing_foreigname_ctor.cj
+compiler/CJMP/objc/sema/objc_impl_illegal_missing_foreigname_method.cj

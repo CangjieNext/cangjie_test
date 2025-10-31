@@ -8,7 +8,7 @@
 // ASSERT: scan-not error
 // info: checks that declaration order (mirror is before impl and vice versa) does not matter
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 open class M {

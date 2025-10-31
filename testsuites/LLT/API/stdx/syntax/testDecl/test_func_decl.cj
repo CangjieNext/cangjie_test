@@ -360,6 +360,242 @@ foreign func foo(): Int64""")
     }
 
     @TestCase
+    func TestFuncDeclInit01(): Unit {
+        let decl = (file.getOrThrow().topLevelDecls[0] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "b")
+        let paramList = funcDecl.params
+        @Expect(paramList.toString(), "(param1: Int64)")
+        @Expect(paramList.params.size, 1)
+        let param = (paramList.params[0] as FuncParam).getOrThrow()
+        @Expect(param.name, "param1")
+        match (funcDecl.kind) {
+            case Normal => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let retTy = (funcDecl.retTyAnnotation).getOrThrow()
+        let retType = (retTy as AtomicType).getOrThrow()
+        match (retType.kind) {
+            case Int64Type => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let body = funcDecl.body.getOrThrow()
+        @Expect(body.nodes.size, 3)
+        @Expect((body.nodes[0] as LitConstExpr).getOrThrow().rawValue, "1")
+        @Expect((body.nodes[2] as LitConstExpr).getOrThrow().rawValue, "a")
+    }
+
+    @TestCase
+    func TestFuncDeclInit02(): Unit {
+        let classDecl = (file.getOrThrow().topLevelDecls[6] as ClassDecl).getOrThrow()
+        let decls = classDecl.body.memberDecls
+        let decl = (decls[0] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "init")
+        @Expect(funcDecl.modifiers.size, 1)
+        @Expect(funcDecl.modifiers.toString(), "[const]")
+
+        @Expect(funcDecl.toString(), ##"const init(b: B) {
+        println(b)
+    }"##)
+    }
+
+        @TestCase
+    func TestFuncDeclInit03(): Unit {
+        let decl = (decls[0] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "A")
+        @Expect(funcDecl.genericParams.size, 0)
+        @Expect(funcDecl.genericConstraints.isNone())
+        @Expect(funcDecl.params.params.size, 0)
+        @Expect(funcDecl.retTyAnnotation.isNone())
+        if (let Some(body) <- funcDecl.body) {
+            @Expect(body.toString(), "{}")
+        }
+        match (funcDecl.kind) {
+            case PrimaryConstructor => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.toString(), "public A() {}")
+    }
+
+    @TestCase
+    func TestFuncDeclInit04(): Unit {
+        let decl = (decls[1] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "init")
+        @Expect(funcDecl.genericParams.size, 0)
+        @Expect(funcDecl.genericConstraints.isNone())
+        @Expect(funcDecl.params.params.size, 1)
+        @Expect(funcDecl.retTyAnnotation.isNone())
+        if (let Some(body) <- funcDecl.body) {
+            @Expect(body.toString(), """
+{
+        println(a)
+    }""")
+        }
+        match (funcDecl.kind) {
+            case Constructor => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.toString(), """
+public init(a: A) {
+        println(a)
+    }""")
+    }
+
+    @TestCase
+    func TestFuncDeclInit05(): Unit {
+        let decl = (decls[2] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "+")
+        @Expect(funcDecl.genericParams.size, 0)
+        @Expect(funcDecl.genericConstraints.isNone())
+        @Expect(funcDecl.params.params.size, 1)
+        if (let Some(retTyAnnotation) <- funcDecl.retTyAnnotation) {
+            @Expect(retTyAnnotation.toString(), "A")
+        }
+        if (let Some(body) <- funcDecl.body) {
+            @Expect(body.toString(), """
+{
+        right
+    }""")
+        }
+        match (funcDecl.kind) {
+            case Operator => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.toString(), """
+public operator func +(right: A): A {
+        right
+    }""")
+    }
+
+    @TestCase
+    func TestFuncDeclInit06(): Unit {
+        let decl = (decls[3] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "function")
+        @Expect(funcDecl.genericParams.size, 0)
+        @Expect(funcDecl.genericConstraints.isNone())
+        @Expect(funcDecl.params.params.size, 0)
+        if (let Some(body) <- funcDecl.body) {
+            @Expect(body.toString(), "{}")
+        }
+        @Expect(funcDecl.modifiers.size, 2)
+        match (funcDecl.modifiers[0].kind) {
+            case Public => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        match (funcDecl.modifiers[1].kind) {
+            case Open => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        match (funcDecl.kind) {
+            case Normal => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.toString(), "public open func function(): Unit {}")
+    }
+
+    @TestCase
+    func TestFuncDeclInit07(): Unit {
+        let decl = (decls[4] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        let paramList = decl.params
+        @Expect(funcDecl.name, "~init")
+        @Expect(funcDecl.genericParams.size, 0)
+        @Expect(funcDecl.genericConstraints.isNone())
+        @Expect(paramList.params.size, 0)
+        @Expect(funcDecl.retTyAnnotation.isNone())
+        if (let Some(body) <- funcDecl.body) {
+            @Expect(body.toString(), "{}")
+        }
+        match (funcDecl.kind) {
+            case Finalizer => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.toString(), "~init() {}")
+    }
+
+    @TestCase
+    func TestFuncDeclInit08(): Unit {
+        let decl = (file.getOrThrow().topLevelDecls[2] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "c")
+        let paramList = funcDecl.params
+        @Expect(paramList.params.size, 1)
+        @Expect((paramList.params[0] as FuncParam).getOrThrow().name, "param1")
+        match (funcDecl.kind) {
+            case Normal => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let retTy = (funcDecl.retTyAnnotation).getOrThrow()
+        let retType = (retTy as AtomicType).getOrThrow()
+        match (retType.kind) {
+            case Int64Type => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let genericConstraints = funcDecl.genericConstraints.getOrThrow()
+        @Expect(genericConstraints.constraints.size, 2)
+        @Expect(genericConstraints.constraints[0].toString(), "T <: A<S>")
+        @Expect(genericConstraints.constraints[1].toString(), "S <: ToString & B")
+
+        let body = funcDecl.body.getOrThrow()
+        @Expect(body.nodes.size, 0)
+        @Expect(funcDecl.toString(), "func c<T, S>(param1: Int64): Int64 where T <: A<S>, S <: ToString & B {}")
+    }
+
+    @TestCase
+    func TestFuncDeclInit09(): Unit {
+        let decl = (file.getOrThrow().topLevelDecls[4] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        match (funcDecl.kind) {
+            case Foreign => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.name, "foo")
+        @Expect(funcDecl.params.toString(), "()")
+
+        @Expect(funcDecl.toString(), "foreign func foo(): Int64")
+    }
+
+    @TestCase
+    func TestFuncDeclInit10(): Unit {
+        let decl = (file.getOrThrow().topLevelDecls[5] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        match (funcDecl.kind) {
+            case Normal => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.name, "func_1")
+        @Expect(funcDecl.modifiers.size, 1)
+        @Expect(funcDecl.modifiers.toString(), "[const]")
+
+        var pos = funcDecl.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 23]).toArray())
+        pos = funcDecl.getFuncKeyWordPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 7, 1, 11]).toArray())
+        pos = funcDecl.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 12, 1, 18]).toArray())
+        pos = funcDecl.params.getParamsLParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 18, 1, 19]).toArray())
+        pos = funcDecl.params.getParamsRParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 19, 1, 20]).toArray())
+        @Expect(funcDecl.toString(), "const func func_1() {}")
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("func_decl.cj")
         let input = String.fromUtf8(File.readFrom("func_decl.cj"))

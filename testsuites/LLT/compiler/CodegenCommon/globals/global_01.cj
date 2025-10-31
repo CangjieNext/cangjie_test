@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir-to-screen %n.cj 2>&1 | compare %f
 
 // ASSERT: scan store i1 true, i1* @"$has_applied_pkg_init_func", align 1
 // (CJNATIVE) ASSERT: scan call void @_CGPatiiHv(

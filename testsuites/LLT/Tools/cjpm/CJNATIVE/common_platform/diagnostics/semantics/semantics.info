@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-PIPE-1: cd %n && %cjpm check 2>&1 | compare %f
+
+// ASSERT: scan-1 Error at `cjpm.toml:package.always-enabled-features.0`: feature `user.semantics` should be either builtin (like `os.linux`) or start with `user.packageName.`
+// ASSERT: scan-1 Error at `cjpm.toml:feature.1`: feature `user.semantics.a` was already declared at `cjpm.toml:feature.0`
+// ASSERT: scan-1 Error at `cjpm.toml:feature.2.names.0`: feature `user.semantics.a` was already declared at `cjpm.toml:feature.0`
+// ASSERT: scan-1 Error at `cjpm.toml:feature.2.names.2`: feature `user.semantics.a` was already declared at `cjpm.toml:feature.0`
+// ASSERT: scan-1 Error at `cjpm.toml:feature.3`: cannot declare feature with the name of a builtin `os.linux` without specifying mapping
+// ASSERT: scan-1 Error at `cjpm.toml:feature.4.names.1`: feature `user.semantics.b` was already declared at `cjpm.toml:feature.2.names.1`
+// ASSERT: scan-1 Error at `cjpm.toml:feature.4.names.2`: cannot declare feature with the name of a builtin `os.linux` without specifying mapping
+// ASSERT: scan-1 Error at `cjpm.toml:feature.4.names.3`: cannot declare feature with the name of a builtin `os.ohos` without specifying mapping
+// ASSERT: scan-1 Error at `cjpm.toml:feature.5`: feature `invalid.qname` should be either builtin (like `os.linux`) or start with `user.packageName.`
+// ASSERT: scan-1 Error at `cjpm.toml:feature.6.names.0`: The name of feature declaration `user.typing.qname` should start with `user.semantics.`
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.1`: source set with the same name `common` is declared at `cjpm.toml:source-set.0`
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.2`: source set `common` with the same src-dir `./platform` is declared at `cjpm.toml:source-set.1`
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.2`: source set `common` with the same features is declared at `cjpm.toml:source-set.1`

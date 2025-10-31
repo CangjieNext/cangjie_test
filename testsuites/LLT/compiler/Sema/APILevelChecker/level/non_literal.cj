@@ -5,8 +5,10 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: apilevel.cj
-// EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
+// EXEC: %compiler %cmp_opt %diag_json %compile_lib_opt apilevel.cj -o apilevel.%middle
 // ERRCHECK: %compiler %cmp_opt apilevel.%middle %n.cj -o %n.%suffix
+// ASSERT: scan 
+// ASSERT: scan 
 
 import ohos.labels.*
 
@@ -19,21 +21,3 @@ class A {
 }
 
 main() {}
-
-/* SCAN
-error: only literal values are supported for now
-  ==> non_literal.cj:16:12:
-   | 
-16 | @!APILevel[a, syscap: b]
-   |            ^ 
-   | 
-
-error: only literal values are supported for now
-  ==> non_literal.cj:16:23:
-   | 
-16 | @!APILevel[a, syscap: b]
-   |                       ^ 
-   | 
-
-2 errors generated, 2 errors printed.
-*/

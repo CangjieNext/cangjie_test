@@ -3,7 +3,7 @@
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
-// (DEBUG_OPTION) EXEC: %frontendCompiler %dump-ir %cmp_opt %compile_lib_opt %f 2>&1 | compare %f
+// (DEBUG_OPTION) EXEC: %frontendCompiler %dump-ir-to-screen %cmp_opt %compile_lib_opt %f 2>&1 | compare %f
 //  ASSERT: scan pkg_c_wrapper
 
 package pkg

@@ -172,11 +172,79 @@ if (x && y + 1 > 2) {
     }
 
     @TestCase
+    func testIfExprInit() {
+        let expr = (nodes[2] as IfExpr).getOrThrow()
+        let ifExpr = IfExpr(expr.condition, expr.elseBlock, expr.elseIf, expr.ifBlock)
+        @Expect(ifExpr.condition.toString(), "x && y + 1 > 2")
+        @Expect(ifExpr.ifBlock.toString(), """
+{
+        println()
+    }""")
+        @Expect(ifExpr.elseBlock.isNone())
+
+        let elseIf = ifExpr.elseIf.getOrThrow()
+        @Expect(elseIf.condition.toString(), "let Some(f) <- d && f > 3")
+        @Expect(elseIf.ifBlock.toString(), """
+{
+        println()
+    }""")
+        @Expect(elseIf.elseBlock.isNone())
+
+        let elseElseIf = elseIf.elseIf.getOrThrow()
+        @Expect(elseElseIf.condition.toString(), "let Some(_) <- a || let Some(_) <- d")
+        @Expect(elseElseIf.ifBlock.toString(), """
+{
+        return
+    }""")
+        if (let Some(elseBlock) <- elseElseIf.elseBlock) {
+            @Expect(elseBlock.toString(), """
+{
+        return
+    }""")
+        }
+
+        @Expect(ifExpr.toString(), """
+if (x && y + 1 > 2) {
+        println()
+    } else if (let Some(f) <- d && f > 3) {
+        println()
+    } else if (let Some(_) <- a || let Some(_) <- d) {
+        return
+    } else {
+        return
+    }""")
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("if_expr.cj")
         let input = String.fromUtf8(File.readFrom("if_expr.cj"))
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
+    }
+
+    @TestCase
+    func testParenConditionInit01() {
+        let expr = (nodes[4] as IfExpr).getOrThrow()
+        @Expect(expr.condition.toString(), "a == 1 || b > 3 && (c < 1 && let Some(d) <- f)")
+
+        let condition = (expr.condition as DisjunctionCondition).getOrThrow()
+        let conjunctionCond = (condition.cond[1] as ConjunctionCondition).getOrThrow()
+        let optionParenCond = match (conjunctionCond.cond[1]) {
+            case AtomicCondition.ParenConditionConstructor(r) => r
+            case _ => 
+                @FailExpect("kind wrong")
+                Option<ParenCondition>.None
+        }
+        let parenCond = optionParenCond.getOrThrow()
+        let tmp = (parenCond as ParenCondition).getOrThrow()
+        let parenCondition = ParenCondition(tmp.cond)
+        var pos = parenCondition.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = parenCondition.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 27, 1, 28]).toArray())
+        @Expect(parenCondition.toString(), "(c < 1 && let Some(d) <- f)")
+        @Expect(parenCondition.cond.toString(), "c < 1 && let Some(d) <- f")
     }
 }
 

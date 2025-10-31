@@ -8,5 +8,5 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (CJNATIVE and not Windows and not MAC) EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=feature.os.linux,feature.env.android 2>&1 | compare %f
-// (CJNATIVE and not Windows and not MAC) ASSERT: scan cjpm run failed
+// (CJNATIVE and not Windows and not MAC) EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=os.linux 2>&1 | compare %f
+// (CJNATIVE and not Windows and not MAC) ASSERT: scan cjpm run finished

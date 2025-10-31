@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/org/pkga/orga.cj ../../basecase/org/orgname.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %compile_lib_opt orga.cj -o pkga.%middle
+// EXEC: %compiler %cmp_opt %enableCompileDebug pkga.%middle orgname.cj -o orgname14
+// EXEC: python3 cjdb_test.py orgname14.info
+
+test#
+cjdb,cjdb orgname14,orgname14
+b,b testa,orga.cj:10
+r,r,-> 10
+ ;expr EE1.EB;\(org.pkga.EE1\) \$\d+ = EB
+ ;expr EE2.EA;\(org.pkga.EE2\) \$\d+ = EA
+ ;expr EE3.EB(3);\(org.pkga.EE3\) \$\d+ = {\s+constructor = EB\s+arg_1 = 3\s+}
+ ;expr EE4.EB(AA());\(org.pkga.EE4\) \$\d+ = {\s+constructor = EB\s+arg_1 = {\s+aa = 1\s+ab = 2\s+}\s+}
+ ;expr EE5.EB(5);\(org.pkga.EE5\) \$\d+ = {\s+constructor = EB\s+arg_1 = 5\s+}
+q,q,

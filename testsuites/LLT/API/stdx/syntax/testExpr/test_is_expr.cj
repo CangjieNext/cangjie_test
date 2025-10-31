@@ -62,6 +62,25 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[1] as IsExpr).getOrThrow()
+        let expr = IsExpr(tmp.srcVal, tmp.targetTypeAnnotation)
+        @Expect(expr.srcVal.toString(), "a")
+        let targetTy = (expr.targetTypeAnnotation as TypeAnnotation).getOrThrow()
+        let targetType = (targetTy as CompositeType).getOrThrow()
+        match (targetType.name) {
+            case "String" => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(expr.toString(), "a is String")
+
+        var pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 12]).toArray())
+        pos = expr.getIsKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 5]).toArray())
+    }
 }
 
 /*

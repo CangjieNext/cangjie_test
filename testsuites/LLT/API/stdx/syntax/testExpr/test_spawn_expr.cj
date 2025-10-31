@@ -69,6 +69,31 @@ spawn (a) { =>
     }
 
     @TestCase
+    func testSpawnExprInit() {
+        let expr = (nodes[1] as SpawnExpr).getOrThrow()
+        let spawnExpr = SpawnExpr(expr.threadContext, expr.trailingLambdaExpr)
+        @Expect(spawnExpr.threadContext.getOrThrow().toString(), "a")
+        @Expect(spawnExpr.trailingLambdaExpr.toString(), """
+{ =>
+        sleep(Duration.second)
+        return 1
+    }""")
+        @Expect(spawnExpr.toString(), """
+spawn (a) { =>
+        sleep(Duration.second)
+        return 1
+    }""")
+        var pos = spawnExpr.getSpawnKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
+        pos = spawnExpr.getThreadContextLParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 7, 1, 8]).toArray())
+        pos = spawnExpr.getThreadContextRParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 9, 1, 10]).toArray())
+        pos = spawnExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 4, 6]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("spawn_expr.cj")
         let input = String.fromUtf8(File.readFrom("spawn_expr.cj"))

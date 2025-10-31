@@ -34,6 +34,20 @@ class Test {
     }
 
     @TestCase
+    func testOptionalExprInit() {
+        let callExpr = (nodes[0] as CallExpr).getOrThrow()
+        let expr = (callExpr.callee as OptionalExpr).getOrThrow()
+        let optionalExpr = OptionalExpr(expr.base)
+        @Expect(optionalExpr.base.toString(), "a")
+        @Expect(optionalExpr.toString(), "a?")
+
+        var pos = optionalExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 3]).toArray())
+        pos = optionalExpr.getQuestionPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 3]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("optional_expr.cj")
         let input = String.fromUtf8(File.readFrom("optional_expr.cj"))

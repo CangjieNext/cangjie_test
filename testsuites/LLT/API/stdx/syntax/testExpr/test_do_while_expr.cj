@@ -65,6 +65,33 @@ do {
     }
 
     @TestCase
+    func testDoWhileInit() {
+        let expr = (nodes[1] as DoWhileExpr).getOrThrow()
+        let doWhileExpr = DoWhileExpr(expr.body, expr.condition)
+        @Expect(doWhileExpr.condition.toString(), "x && y + 1 > 3")
+        @Expect(doWhileExpr.body.toString(), """
+{
+        println()
+        return
+    }""")
+        @Expect(doWhileExpr.toString(), """
+do {
+        println()
+        return
+    } while (x && y + 1 > 3)""")
+        var pos = doWhileExpr.getDoKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 3]).toArray())
+        pos = doWhileExpr.getWhileKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 7, 4, 12]).toArray())
+        pos = doWhileExpr.getCondLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 13, 4, 14]).toArray())
+        pos = doWhileExpr.getCondRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 28, 4, 29]).toArray())
+        pos = doWhileExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 4, 29]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("do_while_expr.cj")
         let input = String.fromUtf8(File.readFrom("do_while_expr.cj"))

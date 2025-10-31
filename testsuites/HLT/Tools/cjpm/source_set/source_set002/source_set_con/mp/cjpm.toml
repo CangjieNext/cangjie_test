@@ -18,12 +18,17 @@
 
 [dependencies]
 
-[source-set.common]
-  src-dir = ["./src/common"]
+[[feature]]
+name = "user.mp.windowsorlinux"
+mapping = []
 
-# Linux And windows Have Same Impl
-[source-set.windowsorlinux]
-  src-dir = ["./src/windows"]
-  condition.a = ["feature.os.windows"]
-  condition.b = ["feature.os.linux"]
-  condition.c = ["feature.os.darwin"]
+[[source-set]]
+name = "common"
+src-dir = "./src/common"
+features = []
+
+[[source-set]]
+name = "windowsorlinux"
+src-dir = "./src/windows"
+features = ["user.mp.windowsorlinux"]
+

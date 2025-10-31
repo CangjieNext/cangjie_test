@@ -145,6 +145,39 @@ quote(public func test(): Unit {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[0] as QuoteExpr).getOrThrow()
+        let expr = QuoteExpr(tmp.tokensOrRefExpr)
+        @Expect(expr.tokensOrRefExpr.size, 1)
+        match(expr.tokensOrRefExpr[0]) {
+            case TokenPart(v) => @Expect(v.toString(), "public func test(): Unit")
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(expr.toString(), "quote(public func test(): Unit)")
+        var pos = expr.getQuoteKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
+        pos = expr.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 6, 1, 7]).toArray())
+        pos = expr.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 31, 1, 32]).toArray())
+    }
+
+    @TestCase
+    func testQuoteTokenInit01() {
+        let tmp = (nodes[0] as QuoteExpr).getOrThrow()
+        let expr = QuoteExpr(tmp.tokensOrRefExpr)
+        @Expect(expr.tokensOrRefExpr.size, 1)
+        match(expr.tokensOrRefExpr[0]) {
+            case TokenPart(v) =>
+                let quoteToken = QuoteToken(v.content)
+                @Expect(quoteToken.toString(), "public func test(): Unit")
+                var pos = quoteToken.nodePos
+                @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 25]).toArray())
+            case _ => @FailExpect("kind wrong")
+        }
+    }
 }
 
 /*

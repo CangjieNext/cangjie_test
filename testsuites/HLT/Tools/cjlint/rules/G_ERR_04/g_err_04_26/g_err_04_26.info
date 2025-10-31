@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex :12.*error.*G.ERR.04: Avoid using 'break' to cause a finally block to terminate abnormally.
+// ASSERT: regex :20.*error.*G.ERR.04: Avoid using 'break' to cause a finally block to terminate abnormally.

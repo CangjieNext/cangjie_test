@@ -50,6 +50,16 @@ class Test {
     }
 
     @TestCase
+    func testThrowExprInit() {
+        let expr = (nodes[2] as ThrowExpr).getOrThrow()
+        let throwExpr = ThrowExpr(expr.throwVal)
+        @Expect(throwExpr.throwVal.toString(), "Exception(\"\${Exception(a.b)}\")")
+        @Expect(throwExpr.toString(), "throw Exception(\"\${Exception(a.b)}\")")
+        var pos = throwExpr.getThrowKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("throw_expr.cj")
         let input = String.fromUtf8(File.readFrom("throw_expr.cj"))

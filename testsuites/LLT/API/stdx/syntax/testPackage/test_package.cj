@@ -39,6 +39,15 @@ class Test {
         @Expect(file.name, "testPackage")
         @Expect(file.srcFile.size, 2)
     }
+
+    @TestCase
+    func testPackageInit() {
+        let node = parsePackage("package/package_source_num_2")
+        let file = (node.node.getOrThrow() as Package).getOrThrow()
+        let packageNode = Package(file.isMacroPkg, file.name, file.srcFile)
+        @Expect(packageNode.name, "testPackage")
+        @Expect(packageNode.srcFile.size, 2)
+    }
 }
 
 /*

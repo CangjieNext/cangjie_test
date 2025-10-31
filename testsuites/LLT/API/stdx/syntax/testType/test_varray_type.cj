@@ -94,6 +94,37 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let varDecl = (decls[1] as VarDecl).getOrThrow()
+        let ty = (varDecl.tyAnnotation.getOrThrow() as VArrayType).getOrThrow()
+        println("5555555555555555555")
+        let vArrayType = VArrayType(ty.elementType, ty.size)
+        println("5555555555555555555")
+
+        @Expect(vArrayType.elementType is AtomicType)
+        println("5555555555555555555")
+        @Expect(vArrayType.elementType.toString(), "Int32")
+        println("5555555555555555555")
+        @Expect(vArrayType.size, 0)
+        println("5555555555555555555")
+        @Expect(vArrayType.toString(), "VArray<Int32, $0>")
+        println("5555555555555555555")
+
+        var pos = vArrayType.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 18]).toArray())
+        pos = vArrayType.getVArrayPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
+        pos = vArrayType.getLAnglePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 7, 1, 8]).toArray())
+        pos = vArrayType.getRAnglePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 17, 1, 18]).toArray())
+        pos = vArrayType.getDollarPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 15, 1, 16]).toArray())
+        pos = vArrayType.getCommaPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 13, 1, 14]).toArray())
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

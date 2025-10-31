@@ -8,7 +8,7 @@
 experimental = true
 
 [dependencies]
-cmp = { path="./cmp" }
+cmp = { path="./cmp", version="1.0.0" }
 
 [package]
   cjc-version = "1.0.0"

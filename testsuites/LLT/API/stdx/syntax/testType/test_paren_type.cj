@@ -91,6 +91,24 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let varDecl = (decls[1] as VarDecl).getOrThrow()
+        let ty = (varDecl.tyAnnotation.getOrThrow() as ParenType).getOrThrow()
+        let parenType = ParenType(ty.subType)
+
+        @Expect(parenType.subType is AtomicType)
+        @Expect(parenType.subType.toString(), "Int16")
+        @Expect(parenType.toString(), "(Int16)")
+
+        var pos = parenType.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 8]).toArray())
+        pos = parenType.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = parenType.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 7, 1, 8]).toArray())
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

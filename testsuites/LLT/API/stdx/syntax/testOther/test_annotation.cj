@@ -271,6 +271,91 @@ private struct MyStruct<A> {
     }
 
     @TestCase
+    func testAnnotationInit01() {
+        var structDecl = (decls[5] as StructDecl).getOrThrow()
+        @Expect(structDecl.annotations.size, 1)
+        let structAnno = structDecl.annotations[0]
+        let anno = Annotation(structAnno.arguments, structAnno.identifier, structAnno.opKind)
+        @Expect(anno.toString(), ##"@!Anno1"##)
+        @Expect(anno.identifier, "Anno1")
+        var pos = anno.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 8]).toArray())
+        pos = anno.getAtOpPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 3]).toArray())
+        pos = anno.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 8]).toArray())
+        @Expect(anno.getLSquarePos().isNone())
+        @Expect(anno.getRSquarePos().isNone())
+    }
+
+    @TestCase
+    func testAnnotationInit02() {
+        let annotations = decls[1].annotations
+        @Expect(annotations.size, 1)
+        let anno = Annotation(annotations[0].arguments, annotations[0].identifier, annotations[0].opKind)
+
+        @Expect(anno.identifier, "Deprecated")
+        @Expect(anno.arguments.size, 1)
+        @Expect(anno.arguments[0].toString(), "message: \'tt\'")
+        @Expect(anno.toString(), "@Deprecated[message: \'tt\']")
+    }
+
+    @TestCase
+    func testAnnotationInit03() {
+        let annotations = decls[2].annotations
+        @Expect(annotations.size, 2)
+        var anno = Annotation(annotations[0].arguments, annotations[0].identifier, annotations[0].opKind)
+        
+        
+        @Expect(anno.identifier, "When")
+        @Expect(anno.arguments.size, 1)
+        @Expect(anno.toString(), "@When[os == \"Windows\" || os == \"macOS\"]")
+        var pos = anno.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 40]).toArray())
+        pos = anno.getAtOpPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = anno.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 6]).toArray())
+        pos = anno.getLSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 6, 1, 7]).toArray())
+        pos = anno.getRSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 39, 1, 40]).toArray())
+
+        anno = Annotation(annotations[1].arguments, annotations[1].identifier, annotations[1].opKind)
+        @Expect(anno.identifier, "Deprecated")
+        @Expect(anno.arguments.size, 2)
+        @Expect(anno.arguments[0].toString(), "message: \"tt\"")
+        @Expect(anno.arguments[1].toString(), "since: \"1.3.4\"")
+        @Expect(anno.toString(), "@Deprecated[message: \"tt\", since: \"1.3.4\"]")
+        pos = anno.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 43]).toArray())
+        pos = anno.getAtOpPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = anno.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 12]).toArray())
+        pos = anno.getLSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 12, 1, 13]).toArray())
+        pos = anno.getRSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 42, 1, 43]).toArray())
+    }
+
+    @TestCase
+    func testArgumentInit() {
+        let annotations = decls[1].annotations
+        @Expect(annotations.size, 1)
+        let anno = Annotation(annotations[0].arguments, annotations[0].identifier, annotations[0].opKind)
+
+        @Expect(anno.identifier, "Deprecated")
+        @Expect(anno.arguments.size, 1)
+        let argument = Argument(anno.arguments[0].identifier, anno.arguments[0].isInOut, anno.arguments[0].isNamed, anno.arguments[0].value)
+        @Expect(argument.toString(), "message: \'tt\'")
+        @Expect(argument.isNamed, true)
+        @Expect(argument.isInOut, false)
+        @Expect(argument.value.toString(), "\'tt\'")
+        @Expect(anno.toString(), "@Deprecated[message: \'tt\']")
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("annotation.cj")
         let input = String.fromUtf8(File.readFrom("annotation.cj"))

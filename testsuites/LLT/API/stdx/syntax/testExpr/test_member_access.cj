@@ -33,6 +33,19 @@ class Test {
     }
 
     @TestCase
+    func testMemberAccessInit() {
+        let expr = (nodes[0] as MemberAccess).getOrThrow()
+        let memberAccess = MemberAccess(expr.base, expr.field)
+        @Expect(memberAccess.base.toString(), "A")
+        @Expect(memberAccess.field.toString(), "a")
+        @Expect(memberAccess.toString(), "A.a")
+        var pos = memberAccess.getDotPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 3]).toArray())
+        pos = memberAccess.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("member_access.cj")
         let input = String.fromUtf8(File.readFrom("member_access.cj"))

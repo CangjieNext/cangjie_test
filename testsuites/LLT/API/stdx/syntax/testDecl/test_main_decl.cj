@@ -88,6 +88,42 @@ main(param1: Int64, param2: Int64): Int64 {
     }
 
     @TestCase
+    func testMainDeclInit01() {
+        let decl = (decls[1] as MainDecl).getOrThrow()
+        let mainDecl = MainDecl(decl.body, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        let ret = mainDecl.retTyAnnotation.getOrThrow()
+        let params = mainDecl.params
+
+        @Expect(mainDecl.body.nodes.size, 4)
+        @Expect(params.params.size, 2)
+        @Expect(params.params[0].toString(), "param1: Int64")
+        @Expect(params.params[1].toString(), "param2: Int64")
+        @Expect(ret is AtomicType)
+        @Expect(ret.toString(), "Int64")
+
+        @Expect(mainDecl.toString(), """
+main(param1: Int64, param2: Int64): Int64 {
+    1
+    1 + 1
+    "a"
+    0
+}""")
+    }
+
+    @TestCase
+    func testMainDeclInit02() {
+        let decl = (decls[2] as MainDecl).getOrThrow()
+        let mainDecl = MainDecl(decl.body, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(mainDecl.body.nodes.size, 1)
+        let params = mainDecl.params
+        @Expect(params.params.size, 1)
+        let param = (params.params[0] as MacroExpandParam).getOrThrow()
+        let macroExpandParam = MacroExpandParam(param.calleeMacro, param.macroAttrs, param.macroInputs, annotations: param.annotations, modifiers: param.modifiers)
+        @Expect(macroExpandParam.toString(), "@M param1: Int64")
+        @Expect(macroExpandParam.calleeMacro.toString(), "M")
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("main_decl.cj")
         let input = String.fromUtf8(File.readFrom("main_decl.cj"))

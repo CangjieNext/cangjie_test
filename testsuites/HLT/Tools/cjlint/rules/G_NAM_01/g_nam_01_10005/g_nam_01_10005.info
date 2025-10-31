@@ -10,4 +10,4 @@
 // DEPENDENCE: ./src
 // (not Windows) EXEC: cd src; rm -rf '\t';mkdir '\t'; mv pkga.cj '\t'
 // (not Windows) EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// (not Windows) ASSERT: regex-1 pkga.cj:1:.*warning.*The name of the '<invalid identifier>' package must contain only digits, lowercase letters, and underscores \(_\).
+// (not Windows) ASSERT: regex-1 pkga.cj:17:.*warning.*The name of the '<invalid identifier>' package must contain only digits, lowercase letters, and underscores \(_\).

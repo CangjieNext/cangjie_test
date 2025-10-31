@@ -93,6 +93,26 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[0] as CallExpr).getOrThrow()
+        let expr = CallExpr(tmp.callee, tmp.arguments)
+        @Expect(expr.callee.toString(), "foo")
+        @Expect(expr.arguments.size, 1)
+        var pos = expr.arguments[0].nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 5, 1, 8]).toArray())
+        let arg0 = (expr.arguments[0].value as LitConstExpr).getOrThrow()
+        @Expect(arg0.rawValue, "100")
+        @Expect(expr.toString(), "foo(100)")
+        pos = expr.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 4, 1, 5]).toArray())
+        pos = expr.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 9]).toArray())
+        @Expect(expr.getCommasPos().size, 0)
+        pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 9]).toArray())
+    }
 }
 
 /*

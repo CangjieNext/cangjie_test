@@ -195,11 +195,52 @@ match(A.a == b) {
     }
 
     @TestCase
+    func testMatchExprInit() {
+        let expr = (nodes[1] as MatchExpr).getOrThrow()
+        let matchExpr = MatchExpr(expr.matchCases, expr.selector)
+        let selector = matchExpr.selector.getOrThrow()
+        @Expect(selector.toString(), "a")
+        @Expect(matchExpr.matchCases.size, 4)
+        @Expect(matchExpr.matchCases[0].toString(), "case v: Int64 => ()")
+        @Expect(matchExpr.matchCases[1].toString(), "case 1.1 | 2.2 => ()")
+        @Expect(matchExpr.matchCases[1].getBitOrsPos().size, 1)
+        @Expect(matchExpr.matchCases[2].toString(), "case b where true => ()")
+        @Expect(matchExpr.matchCases[3].toString(), "case _ => ()")
+        @Expect(matchExpr.toString(), """
+match (a) {
+    case v: Int64 => ()
+    case 1.1 | 2.2 => ()
+    case b where true => ()
+    case _ => ()
+}""")
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("match_expr.cj")
         let input = String.fromUtf8(File.readFrom("match_expr.cj"))
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
+    }
+
+    @TestCase
+    func testMatchCaseInit01() {
+        let expr = (nodes[3] as MatchExpr).getOrThrow()
+        let tmp = expr.matchCases[2]
+        let matchCase = MatchCase(tmp.patterns, tmp.patternGuardCond, tmp.caseCond, tmp.body)
+        @Expect(matchCase.toString(), ##"case 100 where false => println("a")"##)
+        @Expect(matchCase.body.size, 1)
+        @Expect(matchCase.body[0].toString(), ##"println("a")"##)
+        @Expect(matchCase.caseCond.isNone())
+        @Expect(matchCase.patternGuardCond.isSome())
+        @Expect(matchCase.patternGuardCond.toString(), "Some(false)")
+        @Expect(matchCase.patterns.size, 1)
+        @Expect(matchCase.patterns[0] is ConstPattern)
+        @Expect(matchCase.patterns[0].toString(), "100")
+        var pos = matchCase.getWherePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 10, 1, 15]).toArray())
+        pos = matchCase.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 37]).toArray())
     }
 }
 

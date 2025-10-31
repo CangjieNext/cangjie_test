@@ -166,6 +166,42 @@ class F {
     }
 
     @TestCase
+    func testClassDeclInit() {
+        let decl = (decls[3] as ClassDecl).getOrThrow()
+        let classDecl = ClassDecl(decl.body, decl.genericConstraints, decl.genericParams, decl.name, decl.superTyAnnotations, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(classDecl.modifiers.size, 0)
+        @Expect(classDecl.name, "D")
+        @Expect(classDecl.superTyAnnotations.size, 0)
+        @Expect(classDecl.genericParams.size, 1)
+        @Expect(classDecl.genericParams[0].name, "T")
+        let genericConstraints = classDecl.genericConstraints.getOrThrow()
+        @Expect(genericConstraints.constraints.size, 1)
+        @Expect(genericConstraints.constraints[0].toString(), "T <: B")
+        @Expect(classDecl.body.toString(), "{}")
+        @Expect(classDecl.toString(), "class D<T> where T <: B {}")
+    }
+
+    @TestCase
+    func testBodyInit() {
+        let decl = (decls[1] as ClassDecl).getOrThrow()
+        let classDecl = ClassDecl(decl.body, decl.genericConstraints, decl.genericParams, decl.name, decl.superTyAnnotations, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(classDecl.modifiers.size, 2)
+        @Expect(classDecl.name, "B")
+        @Expect(classDecl.superTyAnnotations.size, 0)
+        @Expect(classDecl.genericParams.size, 0)
+        @Expect(classDecl.genericConstraints.isNone())
+        let body = Body(classDecl.body.memberDecls)
+        @Expect(body.toString(), """
+{
+    var a = 1
+}""")
+        @Expect(classDecl.toString(), """
+public abstract class B {
+    var a = 1
+}""")
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("class_decl.cj")
         let input = String.fromUtf8(File.readFrom("class_decl.cj"))

@@ -1,9 +1,3 @@
-public macro test(input: Tokens) {
-    // ù
-    // ff
-    return input
-}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -11,3 +5,9 @@ public macro test(input: Tokens) {
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+public macro test(input: Tokens) {
+    // ù
+    // ff
+    return input
+}

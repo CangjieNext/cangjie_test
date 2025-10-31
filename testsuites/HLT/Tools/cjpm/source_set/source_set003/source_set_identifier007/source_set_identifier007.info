@@ -9,5 +9,7 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // (CJNATIVE) EXEC: cd %n && %cjpm run 2>&1| compare %f
-// (CJNATIVE) ASSERT: regex Error: path of src directory 'windows|linux|darwin' in [\s\S][\s\S]*[/|\\]source_set_identifier007[/|\\]mp[/|\\]cjpm.toml does not exist
+// (CJNATIVE) ASSERT: regex Error at `cjpm.toml:source-set.1`: directory '[\s\S][\s\S]*[/|\\]src[/|\\]windows' does not exist or path is too long
+// (CJNATIVE) ASSERT: regex Error at `cjpm.toml:source-set.2`: directory '[\s\S][\s\S]*[/|\\]src[/|\\]linux' does not exist or path is too long
+// (CJNATIVE) ASSERT: regex Error at `cjpm.toml:source-set.3`: directory '[\s\S][\s\S]*[/|\\]src[/|\\]darwin' does not exist or path is too long
 // (CJNATIVE) ASSERT: scan cjpm run failed

@@ -9,7 +9,7 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex :12:.*G.OTH.01: Sensitive information \(keyword 'password'\) should not be recorded to logs.
-// ASSERT: regex :22:.*G.OTH.01: Sensitive information \(keyword 'password'\) should not be recorded to logs.
-// ASSERT: regex :33:.*G.OTH.01: Sensitive information \(keyword 'password'\) should not be recorded to logs.
-// ASSERT: regex :35:.*G.OTH.01: Sensitive information \(keyword 'password'\) should not be recorded to logs.
+// ASSERT: regex :20:.*G.OTH.01: Sensitive information \(keyword 'password'\) should not be recorded to logs.
+// ASSERT: regex :30:.*G.OTH.01: Sensitive information \(keyword 'password'\) should not be recorded to logs.
+// ASSERT: regex :41:.*G.OTH.01: Sensitive information \(keyword 'password'\) should not be recorded to logs.
+// ASSERT: regex :43:.*G.OTH.01: Sensitive information \(keyword 'password'\) should not be recorded to logs.

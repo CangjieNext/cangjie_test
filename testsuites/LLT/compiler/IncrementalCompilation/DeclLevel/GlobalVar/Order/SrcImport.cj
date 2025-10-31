@@ -9,7 +9,7 @@
 // ASSERT: scan the changed decl after Spreading is:b in file SrcImport.old.cj in line 6 in column 5
 // ASSERT: scan the changed decl after Spreading is:main in file SrcImport.old.cj in line 8 in column 1
 // EXEC-2: %run %run_opt %output %run_args
-// EXEC: compare %n.chirtxt <SrcImport_CHIR_Debug/0_AST_CHIR.chirtxt
+// EXEC: compare %n.chirtxt <SrcImport_CHIR/0_AST_CHIR.chirtxt
 
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

@@ -173,6 +173,38 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let importList = importLists[0]
+        match(importList.kind) {
+            case ImportKind.Multi => @Expect(true)
+            case _ => @Expect(false)
+        }
+
+        let tmp = (importList.contents as ImportMulti).getOrThrow()
+        let content = ImportMulti(tmp.prefixes, tmp.contents)
+
+        @Expect(content.prefixes, [])
+        @Expect(content.contents.size, 3)
+        @Expect(content.contents[0] is ImportSingle)
+        @Expect(content.contents[1] is ImportAll)
+        @Expect(content.contents[2] is ImportAlias)
+        @Expect(content.contents[0].toString(), "testPackage1")
+        @Expect(content.contents[1].toString(), "testPackage2.*")
+        @Expect(content.contents[2].toString(), "testPackage3 as pkg")
+        @Expect(content.toString(), "{testPackage1, testPackage2.*, testPackage3 as pkg}")
+        var pos = content.getLCurlPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = content.getRCurlPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 51, 1, 52]).toArray())
+        pos = content.getCommasPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 14, 1, 15]).toArray())
+        pos = content.getCommasPos()[1]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 30, 1, 31]).toArray())
+        pos = content.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 52]).toArray())
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

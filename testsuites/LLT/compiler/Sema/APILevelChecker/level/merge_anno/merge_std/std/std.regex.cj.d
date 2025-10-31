@@ -9,16 +9,16 @@ package std.regex
 import std.collection.*
 import std.sync.*
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public struct Position {
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public struct MatchData {
     /**
     * Retrive the whole matched string.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func matchString(): String
     
     /**
@@ -26,7 +26,7 @@ public struct MatchData {
     * 
     * @throws IndexOutOfBoundsException if capture group not enabled, or group is less than zero or larger than groupCount()
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func matchString(group: Int64): String
     
     /**
@@ -34,7 +34,7 @@ public struct MatchData {
     * 
     * @throws IllegalArgumentException if capture group not enabled or group name not found
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func matchString(group: String): String
     
     /**
@@ -42,7 +42,7 @@ public struct MatchData {
     * 
     * @throws IndexOutOfBoundsException if the length of `position` is less than 1
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func matchPosition(): Position
     
     /**
@@ -50,7 +50,7 @@ public struct MatchData {
     * 
     * @throws IllegalArgumentException if capture group not enabled, or group is less than zero or larger than groupCount
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func matchPosition(group: Int64): Position
     
     /**
@@ -58,17 +58,17 @@ public struct MatchData {
     * 
     * @throws IllegalArgumentException if capture group not enabled or group name not found
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func matchPosition(group: String): Position
     
     @Deprecated[message: "Use member function `public func groupCount(): Int64` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func groupNumber(): Int64
     
     /**
     * Get the count of capture groups.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func groupCount(): Int64
 }
 
@@ -77,23 +77,23 @@ public struct MatchData {
 * by interpreting a pattern
 */
 @Deprecated[message: "APIs in Matcher have been moved to Regex."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class Matcher {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(regex: Regex, input: String)
     
     /**
     * Attempts to match the entire region against the pattern.
     * @return MatchData's Option where the entire region matches this matcher's pattern.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func fullMatch(): Option<MatchData>
     
     /**
     * Attempts to match the region against the pattern from beginning.
     * @return MatchData's Option where the entire region matches this matcher's pattern.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func matchStart(): Option<MatchData>
     
     /**
@@ -108,7 +108,7 @@ public class Matcher {
     * @return MatchData's Option where the entire region  matches this matcher's pattern.
     *
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func find(): Option<MatchData>
     
     /**
@@ -119,20 +119,20 @@ public class Matcher {
     *
     * @throws IndexOutOfBoundsException if index is less than 0 or index is greater than or equal to input.size.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func find(index: Int64): Option<MatchData>
     
     /**
     * Reset the region and find all match data in range of this matcher's region.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func findAll(): Option<Array<MatchData>>
     
     /**
     * Get number of records that match the regular expression.
     * @return number of records.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func allCount(): Int64
     
     /**
@@ -145,7 +145,7 @@ public class Matcher {
     * @param replacement The character sequence to be replaced.
     * @return The character that has been replaced.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func replace(replacement: String): String
     
     /**
@@ -162,13 +162,13 @@ public class Matcher {
     *
     * @throws IndexOutOfBoundsException if index is less than 0 or index is greater than or equal to input.size.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func replace(replacement: String, index: Int64): String
     
     /**
     * @param replacement The character sequence to be replaced.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func replaceAll(replacement: String): String
     
     /**
@@ -179,7 +179,7 @@ public class Matcher {
     * @param replacement The character sequence to be replaced.
     * @param limit The limit of replace.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func replaceAll(replacement: String, limit: Int64): String
     
     /**
@@ -188,7 +188,7 @@ public class Matcher {
     * @return The array of strings computed by splitting the input
     * around matches of this pattern
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func split(): Array<String>
     
     /**
@@ -202,7 +202,7 @@ public class Matcher {
     * @return The array of strings computed by splitting the input
     * around matches of this pattern
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func split(limit: Int64): Array<String>
     
     /**
@@ -215,13 +215,13 @@ public class Matcher {
     * @throws IndexOutOfBoundsException if endIndex less than 0 or endIndex greater than input.size
     * @throws IndexOutOfBoundsException if beginIndex greater than endIndex
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func setRegion(beginIndex: Int64, endIndex: Int64): Matcher
     
     /**
     * Reports the start index and end index of the matcher's region.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func region(): Position
     
     /**
@@ -232,7 +232,7 @@ public class Matcher {
     *
     * @throws RegexException if set region failed.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func resetRegion(): Matcher
     
     /**
@@ -242,7 +242,7 @@ public class Matcher {
     *
     * @return This matcher.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func resetString(input: String): Matcher
     
     /**
@@ -250,31 +250,31 @@ public class Matcher {
     *
     * @return This matcher's input.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func getString(): String
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 
 /**
 * Regular Expression.
 * Description: Used to retrieve and replace text that conforms to a certain pattern.
 */
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class Regex {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(pattern: String, flags: Array<RegexFlag>)
     
     @Deprecated[message: "Use member funtion `public Regex(let pattern: String, flags: Array<RegexFlag>)` instead."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(pattern: String, option: RegexOption)
     
     @Deprecated[message: "`Matcher` has been marked as deprecated."]
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func matcher(input: String): Matcher
     
     /**
@@ -282,7 +282,7 @@ public class Regex {
     * @param input The character sequence to be matched.
     * @return Bool indicates the check result
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func matches(input: String): Bool
     
     /**
@@ -290,7 +290,7 @@ public class Regex {
     * So this method can be invoked as soon as `Regex` is initialized. 
     * return Map<String, Int64> indicates the mapping from group name to group index
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func getNamedGroups(): Map<String, Int64>
     
     /**
@@ -299,7 +299,7 @@ public class Regex {
     * @param group Whether enable capture group or not. Disabled by default. 
     * @return Option<MatchData> indicates the match.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func find(input: String, group!: Bool = false): Option<MatchData>
     
     /**
@@ -308,7 +308,7 @@ public class Regex {
     * @param group Whether enable capture group or not. Disabled by default. 
     * @return Array<MatchData> indicates the matches.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func findAll(input: String, group!: Bool = false): Array<MatchData>
     
     /**
@@ -317,7 +317,7 @@ public class Regex {
     * @param group Whether enable capture group or not. Disabled by default. 
     * @return Iterator<MatchData> indicates the iterator.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func lazyFindAll(input: String, group!: Bool = false): Iterator<MatchData>
     
     /**
@@ -328,7 +328,7 @@ public class Regex {
     * @param replacement The character sequence to be replaced.
     * @return The character that has been replaced.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func replace(input: String, replacement: String): String
     
     /**
@@ -342,7 +342,7 @@ public class Regex {
     *
     * @throws IndexOutOfBoundsException if index is less than 0 or index is greater than or equal to input.size.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func replace(input: String, replacement: String, index: Int64): String
     
     /**
@@ -353,7 +353,7 @@ public class Regex {
     * @param replacement The character sequence to be replaced.
     * @return The character that has been replaced.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func replaceAll(input: String, replacement: String): String
     
     /**
@@ -369,7 +369,7 @@ public class Regex {
     * @param limit The replacement limit. 
     * @return The character that has been replaced.
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func replaceAll(input: String, replacement: String, limit: Int64): String
     
     /**
@@ -379,7 +379,7 @@ public class Regex {
     * @return The array of strings computed by splitting the input
     * around matches of this pattern
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func split(input: String): Array<String>
     
     /**
@@ -393,45 +393,45 @@ public class Regex {
     * @return The array of strings computed by splitting the input
     * around matches of this pattern
     */
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func split(input: String, limit: Int64): Array<String>
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func string(): String
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class RegexException <: Exception {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init(message: String)
 }
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public enum RegexFlag {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     IgnoreCase |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     MultiLine |
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     Unicode
 }
 
 @Deprecated[message: "Use `public enum RegexFlag` instead."]
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public class RegexOption <: ToString {
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public init()
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func ignoreCase(): RegexOption
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func multiLine(): RegexOption
     
-    @!APILevel[12, atomicservice : true]
+    @!APILevel[since: "12", atomicservice : true]
     public func toString(): String
 }
 
