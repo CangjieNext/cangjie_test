@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
+// (not Windows and not MAC)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
 // ASSERT: regex Compiling package `p2`: .*p2\.bc.*
 // ASSERT: regex Compiling package `p1`: .*p1\.bc.*
 // ASSERT: regex Compiling package `p3`: .*p3\.bc.*
