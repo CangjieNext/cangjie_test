@@ -1,6 +1,3 @@
-package a.b.c.d
-import a.b.c.d.e.*
-public open class d1 <: e1{}
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -8,3 +5,6 @@ public open class d1 <: e1{}
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package a.b.c.d
+import a.b.c.d.e.*

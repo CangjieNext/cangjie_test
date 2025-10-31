@@ -8,7 +8,7 @@
  
 // LEVEL: 1
 // DEPENDENCE: test.toml test.h
-// (iOS) EXEC: ObjCInteropGen test.toml
+// (iOS) EXEC: %mirror_gen test.toml
 // (iOS) EXEC: %cat test.cj | compare %f
 /* SCAN-IN
 package cjworld

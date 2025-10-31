@@ -6,7 +6,7 @@
 
 // LEVEL: 0
 // (DEBUG_OPTION)EXEC: %compiler %f %dumpCHIRDebug
-// (Linux and CJNATIVE and DEBUG_OPTION) EXEC: sed -n -E '/Func @_CN7default12WordsManager3fooHCNac9ArrayListIRNat6StringEE\(/,/Func .*\(/p' default_CHIR_Debug/0_AST_CHIR.chir | compare %f
+// (Linux and CJNATIVE and DEBUG_OPTION) EXEC: sed -n -E '/Func @_CN7default12WordsManager3fooHCNac9ArrayListIRNat6StringEE\(/,/Func .*\(/p' default_CHIR/0_AST_CHIR.chir | compare %f
 
 import std.collection.*
 

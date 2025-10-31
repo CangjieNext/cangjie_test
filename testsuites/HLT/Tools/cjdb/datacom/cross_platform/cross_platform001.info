@@ -19,6 +19,6 @@ b,b cross_platform001.cj:19,cross_platform001.cj:19
 r,r,-> 19
 p,p a1,\(Int64\) \$[\d] = 0
 p,p a2,\(Int64\) \$[\d] = 0
-globals,globals,\(Int64\) default::a1 = 0[\s\S]*\(Int64\) default::a2 = 0
+globals,globals,\(Int64\) default::a1 = 0[\s\S]*
 expr,expr a1,\(Int64\) \$[\d] = 0
 q,q,

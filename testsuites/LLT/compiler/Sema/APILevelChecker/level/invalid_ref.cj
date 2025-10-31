@@ -12,21 +12,21 @@ import ohos.labels.*
 
 
 
-@!APILevel[10]
+@!APILevel[since: "10"]
 public func foo(): Unit {
     goo // error
     hoo // error
     koo // ok
 }
 
-@!APILevel[11]
+@!APILevel[since: "11"]
 public func goo(): Unit {
     foo // ok
     hoo // error
     koo // ok
 }
 
-@!APILevel[12]
+@!APILevel[since: "12"]
 public func hoo(): Unit {
     goo() // ok
     foo() // ok

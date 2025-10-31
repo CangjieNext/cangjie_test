@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC: %compiler %cmp_opt -g %n.cj -o %n.%suffix
-// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir-to-screen %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
 // ASSERT: regex-auto !DIDerivedType(tag: DW_TAG_member, name: "arg_1"
 // ASSERT: regex-auto !DIDerivedType(tag: DW_TAG_member, name: "arg_2"
 // ASSERT: regex-auto !DIDerivedType(tag: DW_TAG_member, name: "arg_3"

@@ -8,9 +8,9 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (Windows) EXEC: cd %n && %cjpm run --enable-features=feature.os.windows | compare %f
-// (CJNATIVE and not Windows and not MAC) EXEC: cd %n && %cjpm run --enable-features=feature.os.linux,feature.env.gnu | compare %f
-// (CJNATIVE and MAC)  EXEC: cd %n && %cjpm run --enable-features=feature.os.darwin | compare %f
+// (Windows) EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=os.windows | compare %f
+// (CJNATIVE and not Windows and not MAC) EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=os.linux | compare %f
+// (CJNATIVE and MAC)  EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=os.darwin | compare %f
 // (CJNATIVE) ASSERT: regex I run on [Windows|Linux|Drawin]
 // (CJNATIVE) ASSERT: regex Hello [Windows|Linux|Drawin]
 // (CJNATIVE) ASSERT: scan cjpm run finished

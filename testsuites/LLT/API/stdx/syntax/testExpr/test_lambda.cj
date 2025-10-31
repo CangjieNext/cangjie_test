@@ -110,6 +110,35 @@ class Test {
     }
 
     @TestCase
+    func testLambdaInit() {
+        let expr = (nodes[7] as Lambda).getOrThrow()
+        let lambdaExpr = Lambda(expr.body, expr.params)
+        let params = lambdaExpr.params
+        @Expect(params.toString(), "a")
+        @Expect(params.getParamsLParenPos().isNone(), true)
+        @Expect(params.getParamsCommasPos().size, 0)
+        @Expect(params.getParamsRParenPos().isNone(), true)
+        @Expect(params.toString(), "a")
+        @Expect(params.params.size, 1)
+        let param = (params.params[0] as LambdaParam).getOrThrow()
+        let lambdaParam = LambdaParam(param.name, param.typeAnnotation, annotations: param.annotations, modifiers: param.modifiers)
+        @Expect(lambdaParam.toString(), "a")
+        @Expect(lambdaExpr.body.size, 1)
+        @Expect(lambdaExpr.body[0].toString(), "a + 1")
+        @Expect(lambdaExpr.toString(), #"{ a => a + 1 }"#)
+        var pos = lambdaExpr.getLCurlPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = lambdaExpr.getRCurlPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 14, 1, 15]).toArray())
+        pos = lambdaExpr.getDoubleArrowPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 5, 1, 7]).toArray())
+        pos = lambdaParam.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        @Expect(lambdaParam.getTypeAnnotationColonPos().isNone(), true)
+        @Expect(lambdaParam.typeAnnotation.isNone(), true)
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("lambda.cj")
         let input = String.fromUtf8(File.readFrom("lambda.cj"))

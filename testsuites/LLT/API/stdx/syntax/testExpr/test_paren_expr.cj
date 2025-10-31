@@ -54,6 +54,20 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[1] as ParenExpr).getOrThrow()
+        let expr = ParenExpr(tmp.subExpr)
+        @Expect(expr.subExpr.toString(), "a + b")
+        @Expect(expr.toString(), "(a + b)")
+        var pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 8]).toArray())
+        pos = expr.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = expr.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 7, 1, 8]).toArray())
+    }
 }
 
 /*

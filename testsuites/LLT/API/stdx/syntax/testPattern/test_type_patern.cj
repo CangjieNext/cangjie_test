@@ -54,6 +54,23 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let matchExpr = (nodes[2] as MatchExpr).getOrThrow()
+        let pattern = (matchExpr.matchCases[0].patterns[0] as TypePattern).getOrThrow()
+        let typePattern = TypePattern(pattern.subPattern, pattern.patternType)
+
+        @Expect(typePattern.patternType.toString(), "Int64")
+        @Expect(typePattern.subPattern is VarPattern)
+        @Expect(typePattern.subPattern.toString(), "x")
+        @Expect(typePattern.toString(), "x: Int64")
+
+        var pos = typePattern.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 9]).toArray())
+        pos = typePattern.getColonPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 3]).toArray())
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

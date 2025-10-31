@@ -1,0 +1,31 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-PIPE-1: cd %n && %cjpm check 2>&1 | compare %f
+
+// ASSERT: scan-1 Error at `cjpm.toml:package.always-enabled-features.1`: field type error. Expected type is `qname`
+// ASSERT: scan-1 Error at `cjpm.toml:package.always-enabled-features.3`: value `not .. qname` should be dot-separated qname, where each part matches regex `[a-zA-Z_][a-zA-Z0-9_]*`
+// ASSERT: scan-1 failed to parse `cjpm.toml:feature.0`:
+// ASSERT: scan-1 Error at `cjpm.toml:feature.0.name`: field type error. Expected type is `qname`
+// ASSERT: scan-1 Error at `cjpm.toml:feature.0.mapping`: field type error. Expected type is `array[qname]`
+// ASSERT: scan-1 Error at `cjpm.toml:feature.0.names`: field not found. Expected type is `array[qname]`
+// ASSERT: scan-1 failed to parse `cjpm.toml:feature.3`:
+// ASSERT: scan-1 Error at `cjpm.toml:feature.3.name`: value `not qname` should be dot-separated qname, where each part matches regex `[a-zA-Z_][a-zA-Z0-9_]*`
+// ASSERT: scan-1 Error at `cjpm.toml:feature.3.mapping.0`: value `not qname` should be dot-separated qname, where each part matches regex `[a-zA-Z_][a-zA-Z0-9_]*`
+// ASSERT: scan-1 Error at `cjpm.toml:feature.3.mapping.4`: value `this .. is .. not . qname` should be dot-separated qname, where each part matches regex `[a-zA-Z_][a-zA-Z0-9_]*`
+// ASSERT: scan-1 Error at `cjpm.toml:feature.3.names`: field not found. Expected type is `array[qname]`
+// ASSERT: scan-1 failed to parse `cjpm.toml:feature.4`:
+// ASSERT: scan-1 Error at `cjpm.toml:feature.4.name`: field not found. Expected type is `qname`
+// ASSERT: scan-1 Error at `cjpm.toml:feature.4.names`: field type error. Expected type is `array[qname]`
+// ASSERT: scan-1 failed to parse `cjpm.toml:feature.5`:
+// ASSERT: scan-1 Error at `cjpm.toml:feature.5.name`: field not found. Expected type is `qname`
+// ASSERT: scan-1 Error at `cjpm.toml:feature.5.names.3`: value `this .. is .. not . qname` should be dot-separated qname, where each part matches regex `[a-zA-Z_][a-zA-Z0-9_]*`
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.1.name`: field type error. Expected type is `string`
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.1.src-dir`: field type error. Expected type is `path`
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.1.features`: field type error. Expected type is `array[qname]`
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.1.product`: field type error. Expected type is `boolean`
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.2.name`: field type error. Expected type is `string`

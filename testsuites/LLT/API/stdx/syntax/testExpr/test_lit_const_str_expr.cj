@@ -81,6 +81,78 @@ class Test {
     }
 
     @TestCase
+    func testLitConstStrExprInit01() {
+        let expr = (nodes[0] as LitConstStrExpr).getOrThrow()
+        let litConstStrExpr = LitConstStrExpr(expr.kind, expr.rawValue, expr.delimiterNum, expr.isSingleQuote, expr.strKind,
+                expr.strPartExprs)
+        match (litConstStrExpr.strKind) {
+            case LitConstStrKind.StringLiteral => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(litConstStrExpr.strPartExprs.size, 0)
+        @Expect(litConstStrExpr.delimiterNum, 0)
+        @Expect(litConstStrExpr.isSingleQuote, false)
+        @Expect(litConstStrExpr.rawValue, "me")
+        @Expect(litConstStrExpr.toString(), "\"me\"")
+    }
+
+    @TestCase
+    func testLitConstStrExprInit02() {
+        let expr = (nodes[1] as LitConstStrExpr).getOrThrow()
+        let litConstStrExpr = LitConstStrExpr(expr.kind, expr.rawValue, expr.delimiterNum, expr.isSingleQuote, expr.strKind,
+                expr.strPartExprs)
+        match (litConstStrExpr.strKind) {
+            case LitConstStrKind.MultiLineRawString => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(litConstStrExpr.delimiterNum, 1)
+        @Expect(litConstStrExpr.isSingleQuote, false)
+        @Expect(litConstStrExpr.rawValue, "hi")
+        @Expect(litConstStrExpr.toString(), """
+#"hi"#""")
+        let pos = litConstStrExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
+    }
+
+    @TestCase
+    func testLitConstStrExprInit03() {
+        let expr = (nodes[2] as LitConstStrExpr).getOrThrow()
+        let litConstStrExpr = LitConstStrExpr(expr.kind, expr.rawValue, expr.delimiterNum, expr.isSingleQuote, expr.strKind,
+                expr.strPartExprs)
+        match (litConstStrExpr.strKind) {
+            case LitConstStrKind.StringLiteral => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(litConstStrExpr.delimiterNum, 0)
+        @Expect(litConstStrExpr.isSingleQuote, true)
+        @Expect(litConstStrExpr.strPartExprs.size, 1)
+        @Expect(litConstStrExpr.toString(), "\'\${dat}\'")
+        let pos = litConstStrExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 9]).toArray())
+    }
+
+    @TestCase
+    func testLitConstStrExprInit04() {
+        let expr = (nodes[3] as LitConstStrExpr).getOrThrow()
+        let litConstStrExpr = LitConstStrExpr(expr.kind, expr.rawValue, expr.delimiterNum, expr.isSingleQuote, expr.strKind,
+                expr.strPartExprs)
+        match (litConstStrExpr.strKind) {
+            case LitConstStrKind.MultiLineString => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(litConstStrExpr.delimiterNum, 0)
+        @Expect(litConstStrExpr.isSingleQuote, false)
+        @Expect(litConstStrExpr.strPartExprs.size, 4)
+        @Expect(litConstStrExpr.hasInterpolation(), true)
+        @Expect(litConstStrExpr.toString(), """
+\"\"\"
+\${dja}hel
+lo\${djalkw}\${hello}\"\"\"""")
+        let pos = litConstStrExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 3, 23]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("lit_const_str_expr.cj")
         let input = String.fromUtf8(File.readFrom("lit_const_str_expr.cj"))

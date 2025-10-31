@@ -11,13 +11,13 @@ package cjworld
 import interoplib.objc.*
 
 @C
-public struct Point {
-    var x: Int32 = 0
-    var y: Int32 = 0
+public struct S {
+    public var x: Int32 = 0
+    public var y: Int32 = 0
 }
 
 @ObjCMirror
 public open class M {
     public init()
-    public open func goo(): Point
+    public open func goo(): S
 }

@@ -48,6 +48,28 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[0] as VArrayExpr).getOrThrow()
+        let expr = VArrayExpr(tmp.argument, tmp.vArrayType)
+        let varrayTy = (expr.vArrayType as VArrayType).getOrThrow()
+        @Expect(varrayTy.size, 5)
+        let elementTy = (varrayTy.elementType as TypeAnnotation).getOrThrow()
+        let elementType = (elementTy as AtomicType).getOrThrow()
+        match (elementType.kind) {
+            case Int64Type => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        // TODO: check arguments
+        @Expect(expr.toString(), "VArray<Int64, $5>([0, 3 ,4])")
+        var pos = expr.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 18, 1, 19]).toArray())
+        pos = expr.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 28, 1, 29]).toArray())
+        pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 29]).toArray())
+    }
 }
 
 /*

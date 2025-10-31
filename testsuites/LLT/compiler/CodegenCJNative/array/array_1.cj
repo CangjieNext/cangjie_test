@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir --apc=1 %f 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir-to-screen --apc=1 %f 2>&1 | compare %f
 
 // ASSERT: regex-1 private unnamed_addr constant \[1 x i1\] \[i1 true\], align 1
 // ASSERT: regex-1 private unnamed_addr constant \[2 x i1\] \[i1 true, i1 false\], align 1

@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ./src
 // (not Windows) EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// (not Windows) ASSERT: regex-1 :14:.*error.*?'result.toString' is external data, it should not be used to record logs
+// (not Windows) ASSERT: regex-1 :22:.*error.*?'result.toString' is external data, it should not be used to record logs

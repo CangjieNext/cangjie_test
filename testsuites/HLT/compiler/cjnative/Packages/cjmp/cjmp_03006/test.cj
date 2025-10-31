@@ -7,9 +7,14 @@
  */
  
 // LEVEL: 0
-// ERRCHECK: %compiler %cmp_opt %f %compile_chir_opt -o %output
-// ASSERT: scan parse_common_function_must_have_return_type
+// DEPENDENCE: mp
+// EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
+// EXEC: %compiler %cmp_opt mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
+// EXEC: %compiler %cmp_opt %f %link_cjmp -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
-public common func f() { 0 }
+import mp.*
 
-
+main() {
+    return f().foo() + test_com() + test_plat() - 3
+}

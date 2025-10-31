@@ -275,6 +275,27 @@ class Test {
     }
 
     @TestCase
+    func testAssignExprInit() {
+        let expr = (nodes[21] as AssignExpr).getOrThrow()
+        let assignExpr = AssignExpr(expr.assignOpKind, expr.lhs, expr.rhs)
+        match (assignExpr.assignOpKind) {
+            case AssignOpKind.BitXorAssign => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let lexpr = (assignExpr.lhs as SymbolRef).getOrThrow()
+        let symbolRef = SymbolRef(lexpr.name, lexpr.typeArguments)
+        @Expect(symbolRef.name, "a")
+        let rexpr = (assignExpr.rhs as SymbolRef).getOrThrow()
+        @Expect(rexpr.name, "b")
+        @Expect(assignExpr.toString(), "a ^= b")
+
+        var pos = assignExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
+        pos = assignExpr.getAssignOpPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 5]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("assign_expr.cj")
         let input = String.fromUtf8(File.readFrom("assign_expr.cj"))

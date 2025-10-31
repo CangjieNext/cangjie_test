@@ -68,6 +68,18 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[0] as TrailingClosureExpr).getOrThrow()
+        let expr = TrailingClosureExpr(tmp.callee, tmp.arguments, tmp.trailingLambdaExpr)
+        @Expect(expr.toString(), "f { println() }")
+        @Expect(expr.arguments.size, 0)
+        let callee = (expr.callee as SymbolRef).getOrThrow()
+        @Expect(callee.toString(), "f")
+        var pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 16]).toArray())
+    }
 }
 
 /*

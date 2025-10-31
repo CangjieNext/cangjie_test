@@ -10,4 +10,4 @@
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
 // ASSERT: regex-not include side effect
-// ASSERT: regex test.cj:50:17: .*error.*: Parameter 'a' is unused parameter
+// ASSERT: regex test.cj:58:17: .*error.*: Parameter 'a' is unused parameter

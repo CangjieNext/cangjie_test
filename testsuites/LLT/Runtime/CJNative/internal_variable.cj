@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC: %frontendCompiler %cmp_opt %compile_lib_opt %n.cj %dump-ir 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC: %frontendCompiler %cmp_opt %compile_lib_opt %n.cj %dump-ir-to-screen 2>&1 | compare %f
 // ASSERT: scan _CN3pkg16myPublicVaraibleE = constant
 
 package pkg

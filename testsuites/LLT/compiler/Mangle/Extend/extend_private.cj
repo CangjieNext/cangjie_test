@@ -8,7 +8,7 @@
 // It may cause duplicate identifier errors if these private functions cannot be distinguished by its mangle name.
 
 // EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %n.cj 2>&1 | compare %f
+// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
 // (CJNATIVE) ASSERT: scan _CN7defaultXCNY_1AEU00000001L5uuIK_10internal_fHv
 // (CJNATIVE) ASSERT: scan _CN7defaultXCNY_1AEU00000001L5uuIK0_10internal_fHv
 

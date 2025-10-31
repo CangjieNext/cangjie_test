@@ -86,6 +86,48 @@ class Test {
     }
 
     @TestCase
+    func testLitConstExprInit01() {
+        let expr = (nodes[6] as LitConstExpr).getOrThrow()
+        let litConstExpr = LitConstExpr(expr.kind, expr.rawValue)
+        match (litConstExpr.kind) {
+            case LitConstKind.UnitLiteral => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(litConstExpr.rawValue, "(     )")
+        @Expect(litConstExpr.toString(), "(     )")
+        let pos = litConstExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 8]).toArray())
+    }
+
+    @TestCase
+    func testLitConstExprInit02() {
+        let expr = (nodes[1] as LitConstExpr).getOrThrow()
+        let litConstExpr = LitConstExpr(expr.kind, expr.rawValue)
+        match (litConstExpr.kind) {
+            case LitConstKind.FloatLiteral => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(litConstExpr.rawValue, "1.0")
+        @Expect(litConstExpr.toString(), "1.0")
+        let pos = litConstExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
+    }
+
+    @TestCase
+    func testLitConstExprInit03() {
+        let expr = (nodes[2] as LitConstExpr).getOrThrow()
+        let litConstExpr = LitConstExpr(expr.kind, expr.rawValue)
+        match (litConstExpr.kind) {
+            case LitConstKind.IntergerLiteral => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(litConstExpr.rawValue, "123")
+        @Expect(litConstExpr.toString(), "123")
+        let pos = litConstExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("lit_const_expr.cj")
         let input = String.fromUtf8(File.readFrom("lit_const_expr.cj"))

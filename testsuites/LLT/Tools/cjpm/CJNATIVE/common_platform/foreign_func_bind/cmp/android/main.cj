@@ -4,6 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+features os.android
 package cmp
 
 foreign func test01(tag: CString, message: CString): Unit 

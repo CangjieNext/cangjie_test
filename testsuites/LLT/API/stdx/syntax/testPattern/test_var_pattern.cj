@@ -40,6 +40,19 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let forExpr = (nodes[0] as ForInExpr).getOrThrow()
+        let pattern = (forExpr.pattern as VarPattern).getOrThrow()
+        let varPattern = VarPattern(pattern.name)
+
+        @Expect(varPattern.name, "i")
+        @Expect(varPattern.toString(), "i")
+
+        var pos = varPattern.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

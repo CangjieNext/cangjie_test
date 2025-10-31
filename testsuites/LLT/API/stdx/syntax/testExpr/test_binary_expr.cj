@@ -429,6 +429,26 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[0] as BinaryExpr).getOrThrow()
+        let expr = BinaryExpr(tmp.lhs, tmp.opKind, tmp.rhs)
+        match (expr.opKind) {
+            case BinaryOpKind.Add => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let lexpr = (expr.lhs as SymbolRef).getOrThrow()
+        @Expect(lexpr.name, "a")
+        let rexpr = (expr.rhs as SymbolRef).getOrThrow()
+        @Expect(rexpr.name, "b")
+        @Expect(expr.toString(), "a + b")
+
+        var pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
+        pos = expr.getOperatorPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 4]).toArray())
+    }
 }
 
 /*

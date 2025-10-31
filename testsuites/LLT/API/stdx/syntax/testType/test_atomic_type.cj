@@ -124,6 +124,21 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let varDecl = (decls[1] as VarDecl).getOrThrow()
+        let ty = (varDecl.tyAnnotation.getOrThrow() as AtomicType).getOrThrow()
+        let atomicType = AtomicType(ty.kind)
+
+        match (atomicType.kind) {
+            case Int16Type => ()
+            case _ => @FailExpect("The atomic kind is wrong.")
+        }
+        @Expect(atomicType.toString(), "Int16")
+        let pos = atomicType.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

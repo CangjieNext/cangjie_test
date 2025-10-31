@@ -9,5 +9,5 @@
 // LEVEL: 2
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-not .*test.cj:9:.*G.DCL.02: The return type of the public function 'func' needs to be explicitly declared.
-// ASSERT: regex-not .*test.cj:12:.*G.DCL.02: The return type of the public function 'func' needs to be explicitly declared.
+// ASSERT: regex-not .*test.cj:17:.*G.DCL.02: The return type of the public function 'func' needs to be explicitly declared.
+// ASSERT: regex-not .*test.cj:20:.*G.DCL.02: The return type of the public function 'func' needs to be explicitly declared.

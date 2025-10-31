@@ -193,6 +193,50 @@ class Test {
     }
 
     @TestCase
+    func testVarDeclInit01() {
+        let decl = (decls[2] as VarDecl).getOrThrow()
+        let varDecl = VarDecl(decl.initializer, decl.kind, decl.name, decl.pattern, decl.tyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        let initializer = (varDecl.initializer).getOrThrow()
+        let ret = varDecl.tyAnnotation.getOrThrow()
+
+        @Expect(initializer.toString(), "1")
+        match(varDecl.kind) {
+            case VarKind.Const => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(varDecl.name, "c")
+        @Expect(ret.toString(), "Int64")
+        @Expect(varDecl.toString(), "const c: Int64 = 1")
+        var pos = varDecl.getVarKindKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
+        pos = varDecl.getTyAnnotationColonPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 9]).toArray())
+        pos = varDecl.getIdentifierPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 7, 1, 8]).toArray())
+        pos = varDecl.getAssignPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 16, 1, 17]).toArray())
+    }
+
+    @TestCase
+    func testVarDeclInit02() {
+        let decl = (decls[0] as VarDecl).getOrThrow()
+        let varDecl = VarDecl(decl.initializer, decl.kind, decl.name, decl.pattern, decl.tyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        let initializer = (varDecl.initializer).getOrThrow()
+
+        @Expect(initializer.toString(), "1")
+        match(varDecl.kind) {
+            case VarKind.Let => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(varDecl.name, "a")
+        @Expect(varDecl.tyAnnotation.isNone(), true)
+        @Expect(varDecl.toString(), "let a = 1")
+        let pattern = (varDecl.pattern as VarPattern).getOrThrow()
+        @Expect(pattern.toString(), "a")
+        @Expect(pattern.name, "a")
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("var_decl.cj")
         let input = String.fromUtf8(File.readFrom("var_decl.cj"))

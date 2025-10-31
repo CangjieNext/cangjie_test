@@ -58,8 +58,7 @@ class BenchGCDisabled {
     @AfterAll
     func after() {
         let diff = getGCCount() - prevGC
-        println(diff)
-        @Assert(diff <= 10)
+        @Assert(diff <= 2)
     }
 }
 
@@ -85,9 +84,8 @@ class BenchGCLight {
     @AfterAll
     func after() {
         let diff = getGCCount() - prevGC
-        println(diff)
         @Assert(diff >= 10) 
-        @Assert(diff <= 130)
+        @Assert(diff <= 105)
     }
 }
 
@@ -115,7 +113,7 @@ class BenchGCWait {
     func after() {
         let diff = getGCCount() - prevGC
         println(diff)
-        @Assert(diff >= 95 && diff <= 140)
+        @Assert(diff >= 95 && diff <= 115)
     }
 }
 
