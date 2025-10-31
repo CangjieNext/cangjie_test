@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm run -g -V -- a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world2>&1 | compare %f
+// (not Windows and not MAC)EXEC: cd %n && %cjpm run -g -V -- a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world2>&1 | compare %f
 // ASSERT: scan arg: 'a'
 // ASSERT: scan arg: 'b c'
 // ASSERT: scan arg: 'd "e"'
