@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex :7:.*error.*?'/mytemp/doc.txt' may be a temporary file, please make sure temporary file will eventually be deleted before return statement: Line: .*, Colum: .*
+// ASSERT: regex :15:.*error.*?'/mytemp/doc.txt' may be a temporary file, please make sure temporary file will eventually be deleted before return statement: Line: .*, Colum: .*

@@ -257,6 +257,38 @@ class Test {
     }
 
     @TestCase
+    func testExtendDeclInitWithComment() {
+        /*
+        // leading comment belong to extendDecl
+        extend A {}
+        */
+        let decl = (decls[0] as ExtendDecl).getOrThrow()
+        let extendDecl = ExtendDecl(decl.body, decl.extendedTyAnnotation, decl.genericConstraints, decl.genericParams,
+                                    decl.superTyAnnotations, annotations: decl.annotations, modifiers: decl.modifiers, comments: decl.comments)
+        @Expect(extendDecl.toString(), #"// leading comment belong to extendDecl
+extend A {}"#)
+        let comments = extendDecl.comments
+        @Expect(comments.size, 1)
+        var pos = comments[0].nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 40]).toArray())
+        pos = extendDecl.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 2, 12]).toArray())
+    }
+
+    @TestCase
+    func testCommentInit() {
+        let returnExpr = ((decls[10] as FuncDecl).getOrThrow().body.getOrThrow().nodes[0] as ReturnExpr).getOrThrow()
+        let binaryExpr = (returnExpr.retVal.getOrThrow() as BinaryExpr).getOrThrow()
+        let rhs = binaryExpr.rhs
+        var comments = rhs.comments
+        @Expect(comments.size, 1)
+        let comment = Comment(comments[0].kind, comments[0].content)
+        @Expect(comment.content, "/* comment belong to 5 */")
+        var pos = comment.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 26]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("comment_nodes.cj")
         let input = String.fromUtf8(File.readFrom("comment_nodes.cj"))

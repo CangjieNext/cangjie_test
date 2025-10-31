@@ -7,6 +7,21 @@ import std.collection.ArrayList
 @Test
 class Test {
     @TestCase
+    func testIfExprWithTrailingSpace() {
+        let text = """
+if (x && y + 1 > 2) {  
+        println()  
+    }"""
+        let node = parseText(text).node.getOrThrow()
+        let expr = (node as IfExpr).getOrThrow()
+
+        @Expect(expr.toString(), """
+if (x && y + 1 > 2) {
+        println()
+    }""")
+    }
+
+    @TestCase
     func notSupport() {
         try {
             parseText(#"import std.collection.*"#)
