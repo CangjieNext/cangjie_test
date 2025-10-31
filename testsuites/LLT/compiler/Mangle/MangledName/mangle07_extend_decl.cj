@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args
-// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %f 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %f 2>&1 | compare %f
 // (not CJNATIVE) ASSERT: regex _ZN7default1AE
 // (not CJNATIVE) ASSERT: regex _ZN7default1A4baseEv
 // (not CJNATIVE) ASSERT: regex _ZN7default6Extend1A3fooEv

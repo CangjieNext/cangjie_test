@@ -9,5 +9,5 @@
 // Level: 1
 // Description:
 // DEPENDENCE: S.cj Main.java
-// (not Windows and Android) EXEC-PIPE-1: %compiler %cmp_opt %compile_dylib_opt %jffi_link --experimental --enable-interop-cjmapping S.cj --output-javagen-dir=. 2>&1 | compare %f
+// (not Windows and Android) EXEC-PIPE-1: %compiler %cmp_opt %compile_dylib_opt %jffi_link %enable_java_cjmapping S.cj --output-javagen-dir=. 2>&1 | compare %f
 // (not Windows and Android) ASSERT: scan cjmapping struct generic S is not supported

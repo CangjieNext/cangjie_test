@@ -64,6 +64,24 @@ class Test {
     }
 
     @TestCase
+    func testTypeAliasInit() {
+        let decl = (decls[1] as TypeAlias).getOrThrow()
+        let typeAlias = TypeAlias(decl.aliasName, decl.originalTyAnnotation, decl.typeParameters, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(typeAlias.aliasName, "NewType")
+        @Expect(typeAlias.typeParameters.size, 2)
+        @Expect(typeAlias.typeParameters[0].toString(), "S")
+        @Expect(typeAlias.typeParameters[1].toString(), "T")
+        @Expect(typeAlias.originalTyAnnotation.toString(), "packageName.className<S, T>")
+        @Expect(typeAlias.toString(), "type NewType<S, T> = packageName.className<S, T>")
+        var pos = typeAlias.getTypeAliasKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 5]).toArray())
+        pos = typeAlias.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 6, 1, 13]).toArray())
+        pos = typeAlias.getAssignPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 20, 1, 21]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("type_alias.cj")
         let input = String.fromUtf8(File.readFrom("type_alias.cj"))

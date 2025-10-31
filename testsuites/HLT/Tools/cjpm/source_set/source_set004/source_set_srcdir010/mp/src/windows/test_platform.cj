@@ -6,11 +6,11 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+features os.windows
 package mp
 
-public platform var a: Int64 = 0
-
-public func test_plat(): Unit {
+public platform var a:Int64 =0
+public func test_plat(){
     a
     println("I run on Windows")
 }

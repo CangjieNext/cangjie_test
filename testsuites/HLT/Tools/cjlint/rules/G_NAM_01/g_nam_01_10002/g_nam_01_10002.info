@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex pkga.cj:1.*warning.* The name of the '_a' package must contain only digits, lowercase letters, and underscores \(_\).
+// ASSERT: regex pkga.cj:9.*warning.* The name of the '_a' package must contain only digits, lowercase letters, and underscores \(_\).

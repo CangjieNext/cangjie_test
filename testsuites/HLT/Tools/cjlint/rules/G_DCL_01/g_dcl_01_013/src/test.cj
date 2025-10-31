@@ -1,8 +1,3 @@
-class Foo<T> {
-    static func foo<T>(a: T): T { return a }
-
-    func goo(a: T): T { return a }
-}
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -10,3 +5,10 @@ class Foo<T> {
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+class Foo<T> {
+    static func foo<T>(a: T): T { return a }
+
+    func goo(a: T): T { return a }
+}
+

@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex Type mismatch: the deserialized type of 'value' is 'Int32'\(line 26\), but in function 'serialize\(\)', the type is 'Int64'\(line 14\) or 'Int64'\(line 17\).
+// ASSERT: regex Type mismatch: the deserialized type of 'value' is 'Int32'\(line 34\), but in function 'serialize\(\)', the type is 'Int64'\(line 22\) or 'Int64'\(line 25\).

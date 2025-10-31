@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 // LEVEL 0
 // EXEC: %compiler %f %compile_lib_opt %dumpCHIRDebug
-// (Linux) : sed -r -n '/Func @_CGV7default3strHv/,/^}$/p' default_CHIR_Debug/0_AST_CHIR.chirtxt | compare %f
+// (Linux) : sed -r -n '/Func @_CGV7default3strHv/,/^}$/p' default_CHIR/0_AST_CHIR.chirtxt | compare %f
  
 const str = "Test" + "String"
  

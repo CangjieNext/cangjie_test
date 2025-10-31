@@ -1,8 +1,3 @@
-package a.c
-
-func test_c(){
-    var passwd = 123456
-}
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -10,3 +5,10 @@ func test_c(){
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+ 
+package a.c
+
+func test_c(){
+    var passwd = 123456
+}
+

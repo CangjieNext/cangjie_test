@@ -7,7 +7,7 @@
 // LEVEL: 0
 // EXEC-PIPE-0: %compiler %enableCompileDebug %dumpCHIRDebug  %f -o %n.%suffix
 // RUN-EXEC-0: %run %run_opt %output %run_args
-// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR_Debug/0\_AST\_CHIR.chir | compare %f
+// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/0\_AST\_CHIR.chir | compare %f
 // (not Windows) ASSERT: regex Tuple<UInt32,Generic-_CN7default3fooIG_G0_HNNY_3HHHIG_G0_EE1GE,Int8> = TypeCast\(%[0-9]+, Tuple<UInt32,Generic-_CN7default3fooIG_G0_HNNY_3HHHIG_G0_EE1GE,Int8>\)
 
 enum HHH<T, G> {

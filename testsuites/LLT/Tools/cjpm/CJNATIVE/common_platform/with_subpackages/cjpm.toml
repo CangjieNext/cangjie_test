@@ -19,8 +19,14 @@
   [package.package-configuration]
   [package.scripts]
 
-[source-set.common]
-  src-dir = "./common"
 
-[source-set.windows]
-  src-dir = "./windows/cangjie"
+[[source-set]]
+name = "common"
+src-dir = "./common"
+features = []
+
+[[source-set]]
+name = "windows"
+src-dir = "./windows/cangjie"
+features = ["os.windows"]
+

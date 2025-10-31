@@ -12,10 +12,10 @@
 import ohos.device_info.*
 import ohos.labels.*
 
-@APILevel[19]
+@APILevel[since: "19"]
 public func foo() {}
 
-@APILevel[18]
+@APILevel[since: "18"]
 public func goo() {
     let a = @IfAvailable(level: 19, {=>
         foo()

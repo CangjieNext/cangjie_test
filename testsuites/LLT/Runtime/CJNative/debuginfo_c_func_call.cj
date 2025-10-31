@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir %cmp_opt %enableCompileDebug %compile_lib_opt --apc=1 %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %dump-ir-to-screen %cmp_opt %enableCompileDebug %compile_lib_opt --apc=1 %n.cj 2>&1 | compare %f
 // ASSERT: regex define internal void @cjfoo\(\) #\d+ !dbg !(?P<num1>\d+)
 // ASSERT: regex call void @_CN7defaultU00000002sAPsR5cjfooHv\(\), !dbg !(?P<num2>\d+)
 // ASSERT: regex !(?P=num1) = distinct !DISubprogram\(name: "cjfoo", linkageName: "cjfoo", scope: !\d+, file: !\d+, line: 16

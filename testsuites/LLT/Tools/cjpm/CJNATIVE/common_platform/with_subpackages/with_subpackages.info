@@ -5,5 +5,5 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build --no-feature-deduce --enable-features=feature.os.windows | compare %f
+// EXEC: cd %n && %cjpm build --no-feature-deduce --enable-features=os.windows | compare %f
 // ASSERT: scan-1 cjpm build success

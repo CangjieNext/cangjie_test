@@ -253,6 +253,109 @@ enum E1 {
     }
 
     @TestCase
+    func testEnumDeclInit01() {
+        let decl = (decls[1] as EnumDecl).getOrThrow()
+        let enumDecl = EnumDecl(decl.body, decl.genericConstraints,
+                                decl.genericParams, decl.isNonExhaustive, decl.name, decl.superTyAnnotations, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(enumDecl.modifiers.size, 1)
+        @Expect(enumDecl.name, "B")
+        @Expect(enumDecl.isNonExhaustive, true)
+        @Expect(enumDecl.superTyAnnotations.size, 0)
+        @Expect(enumDecl.genericParams.size, 0)
+        @Expect(enumDecl.genericConstraints.isNone())
+        @Expect(enumDecl.body.toString(), """
+{
+    | Enum(Int64, A) | ...
+    func a() {}
+}""")
+        @Expect(enumDecl.toString(), """
+public enum B {
+    | Enum(Int64, A) | ...
+    func a() {}
+}""")
+
+        let nodes = enumDecl.body.memberDecls
+        @Expect(nodes.size, 2)
+        let constructor = (nodes[0] as EnumConstructor).getOrThrow()
+        let enumConstructor = EnumConstructor(constructor.name, constructor.paramTyAnnotations, annotations: constructor.annotations, modifiers: constructor.modifiers)
+        @Expect(enumConstructor.name, "Enum")
+        @Expect(enumConstructor.paramTyAnnotations.size, 2)
+        @Expect(enumConstructor.paramTyAnnotations[0].toString(), "Int64")
+        @Expect(enumConstructor.paramTyAnnotations[1].toString(), "A")
+        @Expect(enumConstructor.toString(), "Enum(Int64, A)")
+
+        var pos = enumDecl.getEnumKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 12]).toArray())
+        pos = enumDecl.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 13, 1, 14]).toArray())
+        @Expect(enumDecl.getGenericParamsLAnglePos().isNone())
+        @Expect(enumDecl.getGenericParamsCommasPos().size, 0)
+        @Expect(enumDecl.getGenericParamsRAnglePos().isNone())
+        @Expect(enumDecl.getUpperBoundPos().isNone())
+        @Expect(enumDecl.getSuperTyAnnotationsBitAndsPos().size, 0)
+        @Expect(enumDecl.getCaseSeparatorsPos().size, 2)
+        pos = enumDecl.getCaseSeparatorsPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 6]).toArray())
+        pos = enumDecl.getCaseSeparatorsPos()[1]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 22, 2, 23]).toArray())
+        pos = enumDecl.getNonExhaustiveTripleDotPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 24, 2, 27]).toArray())
+
+        pos = enumConstructor.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 5]).toArray())
+        pos = enumConstructor.getParamsLParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 5, 1, 6]).toArray())
+        @Expect(enumConstructor.getParamsCommasPos().size, 1)
+        pos = enumConstructor.getParamsCommasPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 11, 1, 12]).toArray())
+        pos = enumConstructor.getParamsRParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 14, 1, 15]).toArray())
+        pos = enumConstructor.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 15]).toArray())
+    }
+
+    @TestCase
+    func testEnumDeclInit02() {
+        let decl = (decls[4] as EnumDecl).getOrThrow()
+        let enumDecl = EnumDecl(decl.body, decl.genericConstraints,
+                                decl.genericParams, decl.isNonExhaustive, decl.name, decl.superTyAnnotations, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(enumDecl.modifiers.size, 0)
+        @Expect(enumDecl.name, "E")
+        @Expect(enumDecl.isNonExhaustive, false)
+        @Expect(enumDecl.superTyAnnotations.size, 2)
+        @Expect(enumDecl.superTyAnnotations[0].toString(), "ToString")
+        @Expect(enumDecl.superTyAnnotations[1].toString(), "Inter<S, V>")
+        @Expect(enumDecl.genericParams.size, 2)
+        @Expect(enumDecl.genericParams[0].name, "S")
+        @Expect(enumDecl.genericParams[1].name, "V")
+        let genericConstraints =  enumDecl.genericConstraints.getOrThrow()
+        @Expect(genericConstraints.constraints.size, 2)
+        @Expect(genericConstraints.constraints[0].toString(), "S <: B")
+        @Expect(genericConstraints.constraints[1].toString(), "V <: ToString")
+        @Expect(enumDecl.body.toString(), "{ Enum }")
+        @Expect(enumDecl.toString(), "enum E<S, V> <: ToString & Inter<S, V> where S <: B, V <: ToString { Enum }")
+
+        var pos = enumDecl.getEnumKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 5]).toArray())
+        pos = enumDecl.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 6, 1, 7]).toArray())
+        pos = enumDecl.getGenericParamsLAnglePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 7, 1, 8]).toArray())
+        @Expect(enumDecl.getGenericParamsCommasPos().size, 1)
+        pos = enumDecl.getGenericParamsCommasPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 9, 1, 10]).toArray())
+        pos = enumDecl.getGenericParamsRAnglePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 12, 1, 13]).toArray())
+        pos = enumDecl.getUpperBoundPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 14, 1, 16]).toArray())
+        @Expect(enumDecl.getSuperTyAnnotationsBitAndsPos().size, 1)
+        pos = enumDecl.getSuperTyAnnotationsBitAndsPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 26, 1, 27]).toArray())
+        pos = enumDecl.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 76]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("enum_decl.cj")
         let input = String.fromUtf8(File.readFrom("enum_decl.cj"))

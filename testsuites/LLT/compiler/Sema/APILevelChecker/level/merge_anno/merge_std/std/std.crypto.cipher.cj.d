@@ -8,7 +8,7 @@
 package std.crypto.cipher
 
 
-@!APILevel[12, atomicservice : true]
+@!APILevel[since: "12", atomicservice : true]
 public interface BlockCipher {
 }
 

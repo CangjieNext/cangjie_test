@@ -7,7 +7,7 @@
 // DEPENDENCE: import.pkg.cj %n.pkg.cj
 // EXEC: %compiler import.pkg.cj %compile_lib_opt
 // EXEC: %compiler %n.pkg.cj %compile_lib_opt
-// EXEC: %compiler %f liba@b.%lib_extension liba@b.c.%lib_extension -o %output
+// EXEC: %compiler %f libb@a.%lib_extension libb.c@a.%lib_extension -o %output
 // RUN-EXEC-1: %run %run_opt %output %run_args
 
 package a::c

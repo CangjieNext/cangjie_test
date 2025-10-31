@@ -19,4 +19,22 @@ experimental = true
   version = "1.0.0"
   package-configuration = {}
 
-[source-set]
+[[source-set]]
+  name = "common"
+  src-dir = "./common"
+  features = []
+
+[[source-set]]
+  name = "darwin"
+  src-dir = "./darwin"
+  features = [ "os.darwin" ]
+
+[[source-set]]
+  name = "linux"
+  src-dir = "./linux"
+  features = [ "os.linux" ]
+
+[[source-set]]
+  name = "windows"
+  src-dir = "./windows"
+  features = [ "os.windows" ]

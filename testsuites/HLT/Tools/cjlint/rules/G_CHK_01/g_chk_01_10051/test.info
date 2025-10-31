@@ -9,4 +9,4 @@
 // LEVEL: 0
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex :7:.*error.*?G.CHK.01: The return value is untrusted, we can't deliver it outter.
+// ASSERT: regex :15:.*error.*?G.CHK.01: The return value is untrusted, we can't deliver it outter.

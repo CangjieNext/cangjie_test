@@ -56,6 +56,27 @@ class Test {
     }
 
     @TestCase
+    func testArrayLiteralInit() {
+        let expr = (nodes[0] as ArrayLiteral).getOrThrow()
+        let arrayExpr = ArrayLiteral(expr.elements)
+        @Expect(arrayExpr.elements.size, 3)
+        @Expect(arrayExpr.elements[0].toString(), "1")
+        @Expect(arrayExpr.elements[1].toString(), "2")
+        @Expect(arrayExpr.elements[2].toString(), "3")
+        @Expect(arrayExpr.toString(), "[1, 2, 3]")
+        var pos = arrayExpr.getLSquarePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = arrayExpr.getRSquarePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 9, 1, 10]).toArray())
+        pos = arrayExpr.getCommasPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 4]).toArray())
+        pos = arrayExpr.getCommasPos()[1]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 6, 1, 7]).toArray())
+        pos = arrayExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 10]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("array_literal.cj")
         let input = String.fromUtf8(File.readFrom("array_literal.cj"))

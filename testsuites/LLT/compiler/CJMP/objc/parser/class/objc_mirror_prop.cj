@@ -6,7 +6,7 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-0: %frontendCompiler %dump-parse %cmp_opt %f -o %output %compile_shared_lib_opt
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 class M {

@@ -235,6 +235,28 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let varDecl = (decls[2] as VarDecl).getOrThrow()
+        let ty = (varDecl.tyAnnotation.getOrThrow() as CompositeType).getOrThrow()
+        let compositeType = CompositeType(ty.name, ty.prefixes, ty.typeArguments)
+
+        @Expect(compositeType.typeArguments.size, 1)
+        @Expect(compositeType.typeArguments[0] is CompositeType)
+        @Expect(compositeType.typeArguments[0].toString(), "B")
+        @Expect(compositeType.name, "A")
+        @Expect(compositeType.prefixes.size, 0)
+        @Expect(compositeType.toString(), "A<B>")
+
+        var pos = compositeType.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 5]).toArray())
+        pos = compositeType.getLAnglePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 3]).toArray())
+        pos = compositeType.getRAnglePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 4, 1, 5]).toArray())
+        @Expect(compositeType.getCommasPos().size, 0)
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

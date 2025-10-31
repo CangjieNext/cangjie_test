@@ -71,6 +71,30 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[0] as RangeExpr).getOrThrow()
+        let expr = RangeExpr(tmp.start, tmp.kind, tmp.end, tmp.step)
+        match (expr.kind) {
+            case RangeKind.RangeOp => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let startEx = (expr.start.getOrThrow() as LitConstExpr).getOrThrow()
+        @Expect(startEx.rawValue, "1")
+        let endEx = (expr.end.getOrThrow() as LitConstExpr).getOrThrow()
+        @Expect(endEx.rawValue, "100")
+        let stepEx = (expr.step.getOrThrow() as LitConstExpr).getOrThrow()
+        @Expect(stepEx.rawValue, "2")
+        @Expect(expr.toString(), "1..100 : 2")
+
+        var pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 11]).toArray())
+        pos = expr.getRangeOpPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 4]).toArray())
+        pos = expr.getColonPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 9]).toArray())
+    }
 }
 
 /*

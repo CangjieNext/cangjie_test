@@ -55,6 +55,23 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let importList = importLists[0]
+        match(importList.kind) {
+            case ImportKind.All => @Expect(true)
+            case _ => @Expect(false)
+        }
+        let tmp = (importList.contents as ImportAll).getOrThrow()
+        let content = ImportAll(tmp.prefixes)
+        @Expect(content.prefixes, ["a"])
+        @Expect(content.toString(), "a.*")
+        var pos = content.getMulPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 4]).toArray())
+        pos = content.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

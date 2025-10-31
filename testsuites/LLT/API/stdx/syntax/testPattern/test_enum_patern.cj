@@ -91,6 +91,25 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let matchExpr = (nodes[2] as MatchExpr).getOrThrow()
+        let pattern = (matchExpr.matchCases[0].patterns[0] as EnumPattern).getOrThrow()
+        let enumPattern = EnumPattern(pattern.enumConstructor, pattern.enumType, pattern.subPatterns)
+        @Expect(enumPattern.enumConstructor.toString(), "A")
+        @Expect(enumPattern.subPatterns.size, 1)
+        enumPattern.toString() |> println
+        @Expect(enumPattern.toString(), "A(n)")
+
+        var pos = enumPattern.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 5]).toArray())
+        pos = enumPattern.getLParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 3]).toArray())
+        pos = enumPattern.getRParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 4, 1, 5]).toArray())
+        @Expect(enumPattern.getCommasPos().size, 0)
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

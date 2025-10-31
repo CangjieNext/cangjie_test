@@ -42,4 +42,5 @@ Unittest options:
     [Bool] - Do display single-line progress report
 --progress-entries-limit Limit the entries amount displayed in the progress report. Has lower precedence than `--progress-brief`
     [Int64] - Limit value. Value 0 means no limit. Default: 0
+--optimize-mocks-for-bench [Bool] - Optimize mocks when using benchmarks
 */

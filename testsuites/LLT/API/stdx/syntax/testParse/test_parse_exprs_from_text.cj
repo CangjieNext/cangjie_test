@@ -7,6 +7,21 @@ import std.collection.ArrayList
 @Test
 class Test {
     @TestCase
+    func testIfExprWithTrailingSpace() {
+        let text = """
+if (x && y + 1 > 2) {  
+        println()  
+    }"""
+        let node = parseText(text).node.getOrThrow()
+        let expr = (node as IfExpr).getOrThrow()
+
+        @Expect(expr.toString(), """
+if (x && y + 1 > 2) {
+        println()
+    }""")
+    }
+
+    @TestCase
     func notSupport() {
         try {
             parseText(#"import std.collection.*"#)
@@ -56,10 +71,10 @@ expected expression after '?', found '<EOF>'
 
     @TestCase
     func testTrailingWhiteSpace() {
-        let node = parseText(#"
+        let node = parseText(#"    
         
     'hello'    
-
+    
     ;   ; "#)
         let res = (node.node.getOrThrow() as LitConstStrExpr).getOrThrow()
         @Expect(res.rawValue, 'hello')
@@ -79,7 +94,7 @@ expected expression after '?', found '<EOF>'
     'hello'"#)
         let res = (node.node.getOrThrow() as LitConstStrExpr).getOrThrow()
         @Expect(res.rawValue, 'hello')
-        @Expect(res.toString(), #"
+        @Expect(res.toString(), #"    
         
     'hello'"#)
         @Expect(node.diags.size, 0)
@@ -129,7 +144,7 @@ expected expression after '?', found '<EOF>'
         let expr2 = (parseText("   12").node.getOrThrow() as LitConstExpr).getOrThrow()
         match (expr2.kind) {
             case LitConstKind.IntergerLiteral => ()
-            case _ => @FailExpect(kind wrong)
+            case _ => @FailExpect("kind wrong")
         }
         @Expect(expr2.rawValue, "12")
         @Expect(expr2.toString(), "   12")

@@ -62,6 +62,31 @@ while (x && y + 1 > 3) {
     }
 
     @TestCase
+    func testWhileExprInit() {
+        let expr = (nodes[1] as WhileExpr).getOrThrow()
+        let whileExpr = WhileExpr(expr.body, expr.condition)
+        @Expect(whileExpr.condition.toString(), "x && y + 1 > 3")
+        @Expect(whileExpr.body.toString(), """
+{
+        println()
+        return
+    }""")
+        @Expect(whileExpr.toString(), """
+while (x && y + 1 > 3) {
+        println()
+        return
+    }""")
+        var pos = whileExpr.getWhileKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
+        pos = whileExpr.getCondLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 7, 1, 8]).toArray())
+        pos = whileExpr.getCondRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 22, 1, 23]).toArray())
+        pos = whileExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 4, 6]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("while_expr.cj")
         let input = String.fromUtf8(File.readFrom("while_expr.cj"))

@@ -7,8 +7,8 @@
 // DEPENDENCE: ../%n
 // (Windows)EXEC: copy NUL output
 // (Unix)EXEC: cd %n && touch output
-// EXEC: cd %n && %cjpm test --no-feature-deduce --enable-features=feature.arch.big --exclude-tags=LittleFail --no-color 2>&1 > output
-// EXEC: cd %n && %cjpm test --no-feature-deduce --enable-features=feature.arch.little --exclude-tags=BigFail --no-color 2>&1 >> output
+// EXEC: cd %n && %cjpm test --no-feature-deduce --enable-features=user.tests_in_source_sets.arch.big --exclude-tags=LittleFail --no-color 2>&1 > output
+// EXEC: cd %n && %cjpm test --no-feature-deduce --enable-features=user.tests_in_source_sets.arch.little --exclude-tags=BigFail --no-color 2>&1 >> output
 // (Windows)EXEC: cd %n && type output | compare %f
 // (Unix)EXEC: cd %n && cat output | compare %f
 // ASSERT: scan-4 TOTAL: 2

@@ -47,6 +47,27 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[0] as TypeConvExpr).getOrThrow()
+        let expr = TypeConvExpr(tmp.srcVal, tmp.targetTypeAnnotation)
+        @Expect(expr.srcVal.toString(), "32")
+        let targetTy = (expr.targetTypeAnnotation as TypeAnnotation).getOrThrow()
+        let targetType = (targetTy as AtomicType).getOrThrow()
+        match (targetType.kind) {
+            case Int8Type => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(expr.toString(), "Int8(32)")
+
+        var pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 9]).toArray())
+        pos = expr.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 5, 1, 6]).toArray())
+        pos = expr.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 9]).toArray())
+    }
 }
 
 /*

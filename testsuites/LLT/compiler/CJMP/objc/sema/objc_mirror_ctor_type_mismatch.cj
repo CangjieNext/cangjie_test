@@ -6,7 +6,7 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
 
-import interoplib.objc.*
+import objc.lang.*
 
 class Foo {}
 
@@ -18,9 +18,9 @@ class M {
 
 /* SCAN-IN
 error: param type of Objective-C mirror constructor must be Objective-C compatible
-  ==> objc_mirror_ctor_type_mismatch.cj:10:9:
+  ==> objc_mirror_ctor_type_mismatch.cj:16:9:
    | 
-10 |    init(a: Foo)
+16 |    init(a: Foo)
    |         ^^^^^^ 
    | 
 

@@ -7,7 +7,7 @@
  */
 // (x86) EXEC: %compiler %cmp_opt -o %n.%suffix %f --test
 // (x86) RUN-EXEC-PIPE: %run %run_opt %output %run_args --no-color --bench | compare %f
-// (x86) ASSERT: scan-12 cycles
+// (x86) ASSERT: scan-52 cycles
 // (x86) ASSERT: scan PASSED: 3,
 
 import std.unittest.*
