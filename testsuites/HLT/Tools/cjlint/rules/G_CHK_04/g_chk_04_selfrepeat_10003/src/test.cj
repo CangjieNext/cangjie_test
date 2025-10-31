@@ -1,10 +1,3 @@
-import std.regex.*
-
-main(): Int64 {
-  let REGEX_PATTER: Regex = Regex("^(\\d+)*$")
-  REGEX_PATTER.matcher("").fullMatch()
-  0
-}
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -12,3 +5,12 @@ main(): Int64 {
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+import std.regex.*
+
+main(): Int64 {
+  let REGEX_PATTER: Regex = Regex("^(\\d+)*$")
+  REGEX_PATTER.matcher("").fullMatch()
+  0
+}
+

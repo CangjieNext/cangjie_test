@@ -9,13 +9,5 @@
 // LEVEL: 0
 // DEPENDENCE: mp, mp1
 // EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
-// EXEC: %compiler %cmp_opt mp1/mp1.cj --output-type=dylib -o ./
-// EXEC: %compiler %cmp_opt mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
-// EXEC: %compiler %cmp_opt %f %link_cjmp -lmp1 -o %output
-// RUN-EXEC: %run %run_opt %output %run_args
-
-import mp1.*
-
-main() {
-    return f()
-}
+// ERRCHECK: %compiler %cmp_opt mp1/mp1.cj %compile_dylib_opt_cjmp -o ./
+// ASSERT: scan module_common_cjo_wrong_package

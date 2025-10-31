@@ -9,5 +9,5 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC-PIPE:cd %n && cjc -p pp/pro1/xoo --output-type=staticlib --module-name pro1 -o pp/pro1/ && %lint -f "./src ./pp/pro1" -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex-1 .*xoo.cj:3:1:.*G.NAM.05: Immutable global or static variable name 'x' recommend to use all capital letters
-// ASSERT: regex-1 .*main.cj:6:5:.*G.VAR.01: Prefer immutable variables when the value of the variable 'a' does not change.
+// ASSERT: regex-1 .*xoo.cj:11:1:.*G.NAM.05: Immutable global or static variable name 'x' recommend to use all capital letters
+// ASSERT: regex-1 .*main.cj:14:5:.*G.VAR.01: Prefer immutable variables when the value of the variable 'a' does not change.

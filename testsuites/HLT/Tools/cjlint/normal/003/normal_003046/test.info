@@ -9,5 +9,5 @@
 // LEVEL: 0-core
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex-not :13:.*error.*?G.CHK.01: In function 'foo', the 1st argument is untrusted, we can't deliver it outter.
-// ASSERT: regex :15:.*error.*?G.CHK.01: In function 'foo', the 1st argument is untrusted, we can't deliver it outter.
+// ASSERT: regex-not :21:.*error.*?G.CHK.01: In function 'foo', the 1st argument is untrusted, we can't deliver it outter.
+// ASSERT: regex :23:.*error.*?G.CHK.01: In function 'foo', the 1st argument is untrusted, we can't deliver it outter.
