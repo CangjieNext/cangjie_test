@@ -34,3 +34,7 @@ CJNATIVE/build/git_local/multiple_module_git_08
 CJNATIVE/build/git_local/multiple_module_git_10
 CJNATIVE/build/git_local/multiple_module_git_11
 CJNATIVE/build/git_local/multiple_module_git_12
+
+# 中心仓联调用例，线下看护
+CJNATIVE/repo/install
+CJNATIVE/repo/publish

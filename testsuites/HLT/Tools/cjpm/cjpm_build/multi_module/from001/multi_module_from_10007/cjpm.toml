@@ -1,138 +1,138 @@
 # Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 # This source file is part of the Cangjie project, licensed under Apache-2.0
 # with Runtime Library Exception.
-# 
+#
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [dependencies]
-  a0 = {path = "./a0", version = "1.0.0"}
-  a1 = {path = "./a1", version = "1.0.0"}
-  a10 = {path = "./a10", version = "1.0.0"}
-  a100 = {path = "./a100", version = "1.0.0"}
-  a101 = {path = "./a101", version = "1.0.0"}
-  a102 = {path = "./a102", version = "1.0.0"}
-  a103 = {path = "./a103", version = "1.0.0"}
-  a104 = {path = "./a104", version = "1.0.0"}
-  a105 = {path = "./a105", version = "1.0.0"}
-  a106 = {path = "./a106", version = "1.0.0"}
-  a107 = {path = "./a107", version = "1.0.0"}
-  a108 = {path = "./a108", version = "1.0.0"}
-  a109 = {path = "./a109", version = "1.0.0"}
-  a11 = {path = "./a11", version = "1.0.0"}
-  a110 = {path = "./a110", version = "1.0.0"}
-  a111 = {path = "./a111", version = "1.0.0"}
-  a112 = {path = "./a112", version = "1.0.0"}
-  a113 = {path = "./a113", version = "1.0.0"}
-  a114 = {path = "./a114", version = "1.0.0"}
-  a115 = {path = "./a115", version = "1.0.0"}
-  a116 = {path = "./a116", version = "1.0.0"}
-  a117 = {path = "./a117", version = "1.0.0"}
-  a118 = {path = "./a118", version = "1.0.0"}
-  a119 = {path = "./a119", version = "1.0.0"}
-  a12 = {path = "./a12", version = "1.0.0"}
-  a120 = {path = "./a120", version = "1.0.0"}
-  a121 = {path = "./a121", version = "1.0.0"}
-  a122 = {path = "./a122", version = "1.0.0"}
-  a123 = {path = "./a123", version = "1.0.0"}
-  a124 = {path = "./a124", version = "1.0.0"}
-  a125 = {path = "./a125", version = "1.0.0"}
-  a126 = {path = "./a126", version = "1.0.0"}
-  a127 = {path = "./a127", version = "1.0.0"}
-  a13 = {path = "./a13", version = "1.0.0"}
-  a14 = {path = "./a14", version = "1.0.0"}
-  a15 = {path = "./a15", version = "1.0.0"}
-  a16 = {path = "./a16", version = "1.0.0"}
-  a17 = {path = "./a17", version = "1.0.0"}
-  a18 = {path = "./a18", version = "1.0.0"}
-  a19 = {path = "./a19", version = "1.0.0"}
-  a2 = {path = "./a2", version = "1.0.0"}
-  a20 = {path = "./a20", version = "1.0.0"}
-  a21 = {path = "./a21", version = "1.0.0"}
-  a22 = {path = "./a22", version = "1.0.0"}
-  a23 = {path = "./a23", version = "1.0.0"}
-  a24 = {path = "./a24", version = "1.0.0"}
-  a25 = {path = "./a25", version = "1.0.0"}
-  a26 = {path = "./a26", version = "1.0.0"}
-  a27 = {path = "./a27", version = "1.0.0"}
-  a28 = {path = "./a28", version = "1.0.0"}
-  a29 = {path = "./a29", version = "1.0.0"}
-  a3 = {path = "./a3", version = "1.0.0"}
-  a30 = {path = "./a30", version = "1.0.0"}
-  a31 = {path = "./a31", version = "1.0.0"}
-  a32 = {path = "./a32", version = "1.0.0"}
-  a33 = {path = "./a33", version = "1.0.0"}
-  a34 = {path = "./a34", version = "1.0.0"}
-  a35 = {path = "./a35", version = "1.0.0"}
-  a36 = {path = "./a36", version = "1.0.0"}
-  a37 = {path = "./a37", version = "1.0.0"}
-  a38 = {path = "./a38", version = "1.0.0"}
-  a39 = {path = "./a39", version = "1.0.0"}
-  a4 = {path = "./a4", version = "1.0.0"}
-  a40 = {path = "./a40", version = "1.0.0"}
-  a41 = {path = "./a41", version = "1.0.0"}
-  a42 = {path = "./a42", version = "1.0.0"}
-  a43 = {path = "./a43", version = "1.0.0"}
-  a44 = {path = "./a44", version = "1.0.0"}
-  a45 = {path = "./a45", version = "1.0.0"}
-  a46 = {path = "./a46", version = "1.0.0"}
-  a47 = {path = "./a47", version = "1.0.0"}
-  a48 = {path = "./a48", version = "1.0.0"}
-  a49 = {path = "./a49", version = "1.0.0"}
-  a5 = {path = "./a5", version = "1.0.0"}
-  a50 = {path = "./a50", version = "1.0.0"}
-  a51 = {path = "./a51", version = "1.0.0"}
-  a52 = {path = "./a52", version = "1.0.0"}
-  a53 = {path = "./a53", version = "1.0.0"}
-  a54 = {path = "./a54", version = "1.0.0"}
-  a55 = {path = "./a55", version = "1.0.0"}
-  a56 = {path = "./a56", version = "1.0.0"}
-  a57 = {path = "./a57", version = "1.0.0"}
-  a58 = {path = "./a58", version = "1.0.0"}
-  a59 = {path = "./a59", version = "1.0.0"}
-  a6 = {path = "./a6", version = "1.0.0"}
-  a60 = {path = "./a60", version = "1.0.0"}
-  a61 = {path = "./a61", version = "1.0.0"}
-  a62 = {path = "./a62", version = "1.0.0"}
-  a63 = {path = "./a63", version = "1.0.0"}
-  a64 = {path = "./a64", version = "1.0.0"}
-  a65 = {path = "./a65", version = "1.0.0"}
-  a66 = {path = "./a66", version = "1.0.0"}
-  a67 = {path = "./a67", version = "1.0.0"}
-  a68 = {path = "./a68", version = "1.0.0"}
-  a69 = {path = "./a69", version = "1.0.0"}
-  a7 = {path = "./a7", version = "1.0.0"}
-  a70 = {path = "./a70", version = "1.0.0"}
-  a71 = {path = "./a71", version = "1.0.0"}
-  a72 = {path = "./a72", version = "1.0.0"}
-  a73 = {path = "./a73", version = "1.0.0"}
-  a74 = {path = "./a74", version = "1.0.0"}
-  a75 = {path = "./a75", version = "1.0.0"}
-  a76 = {path = "./a76", version = "1.0.0"}
-  a77 = {path = "./a77", version = "1.0.0"}
-  a78 = {path = "./a78", version = "1.0.0"}
-  a79 = {path = "./a79", version = "1.0.0"}
-  a8 = {path = "./a8", version = "1.0.0"}
-  a80 = {path = "./a80", version = "1.0.0"}
-  a81 = {path = "./a81", version = "1.0.0"}
-  a82 = {path = "./a82", version = "1.0.0"}
-  a83 = {path = "./a83", version = "1.0.0"}
-  a84 = {path = "./a84", version = "1.0.0"}
-  a85 = {path = "./a85", version = "1.0.0"}
-  a86 = {path = "./a86", version = "1.0.0"}
-  a87 = {path = "./a87", version = "1.0.0"}
-  a88 = {path = "./a88", version = "1.0.0"}
-  a89 = {path = "./a89", version = "1.0.0"}
-  a9 = {path = "./a9", version = "1.0.0"}
-  a90 = {path = "./a90", version = "1.0.0"}
-  a91 = {path = "./a91", version = "1.0.0"}
-  a92 = {path = "./a92", version = "1.0.0"}
-  a93 = {path = "./a93", version = "1.0.0"}
-  a94 = {path = "./a94", version = "1.0.0"}
-  a95 = {path = "./a95", version = "1.0.0"}
-  a96 = {path = "./a96", version = "1.0.0"}
-  a97 = {path = "./a97", version = "1.0.0"}
-  a98 = {path = "./a98", version = "1.0.0"}
-  a99 = {path = "./a99", version = "1.0.0"}
+  a0 = {path = "./a0"}
+  a1 = {path = "./a1"}
+  a10 = {path = "./a10"}
+  a100 = {path = "./a100"}
+  a101 = {path = "./a101"}
+  a102 = {path = "./a102"}
+  a103 = {path = "./a103"}
+  a104 = {path = "./a104"}
+  a105 = {path = "./a105"}
+  a106 = {path = "./a106"}
+  a107 = {path = "./a107"}
+  a108 = {path = "./a108"}
+  a109 = {path = "./a109"}
+  a11 = {path = "./a11"}
+  a110 = {path = "./a110"}
+  a111 = {path = "./a111"}
+  a112 = {path = "./a112"}
+  a113 = {path = "./a113"}
+  a114 = {path = "./a114"}
+  a115 = {path = "./a115"}
+  a116 = {path = "./a116"}
+  a117 = {path = "./a117"}
+  a118 = {path = "./a118"}
+  a119 = {path = "./a119"}
+  a12 = {path = "./a12"}
+  a120 = {path = "./a120"}
+  a121 = {path = "./a121"}
+  a122 = {path = "./a122"}
+  a123 = {path = "./a123"}
+  a124 = {path = "./a124"}
+  a125 = {path = "./a125"}
+  a126 = {path = "./a126"}
+  a127 = {path = "./a127"}
+  a13 = {path = "./a13"}
+  a14 = {path = "./a14"}
+  a15 = {path = "./a15"}
+  a16 = {path = "./a16"}
+  a17 = {path = "./a17"}
+  a18 = {path = "./a18"}
+  a19 = {path = "./a19"}
+  a2 = {path = "./a2"}
+  a20 = {path = "./a20"}
+  a21 = {path = "./a21"}
+  a22 = {path = "./a22"}
+  a23 = {path = "./a23"}
+  a24 = {path = "./a24"}
+  a25 = {path = "./a25"}
+  a26 = {path = "./a26"}
+  a27 = {path = "./a27"}
+  a28 = {path = "./a28"}
+  a29 = {path = "./a29"}
+  a3 = {path = "./a3"}
+  a30 = {path = "./a30"}
+  a31 = {path = "./a31"}
+  a32 = {path = "./a32"}
+  a33 = {path = "./a33"}
+  a34 = {path = "./a34"}
+  a35 = {path = "./a35"}
+  a36 = {path = "./a36"}
+  a37 = {path = "./a37"}
+  a38 = {path = "./a38"}
+  a39 = {path = "./a39"}
+  a4 = {path = "./a4"}
+  a40 = {path = "./a40"}
+  a41 = {path = "./a41"}
+  a42 = {path = "./a42"}
+  a43 = {path = "./a43"}
+  a44 = {path = "./a44"}
+  a45 = {path = "./a45"}
+  a46 = {path = "./a46"}
+  a47 = {path = "./a47"}
+  a48 = {path = "./a48"}
+  a49 = {path = "./a49"}
+  a5 = {path = "./a5"}
+  a50 = {path = "./a50"}
+  a51 = {path = "./a51"}
+  a52 = {path = "./a52"}
+  a53 = {path = "./a53"}
+  a54 = {path = "./a54"}
+  a55 = {path = "./a55"}
+  a56 = {path = "./a56"}
+  a57 = {path = "./a57"}
+  a58 = {path = "./a58"}
+  a59 = {path = "./a59"}
+  a6 = {path = "./a6"}
+  a60 = {path = "./a60"}
+  a61 = {path = "./a61"}
+  a62 = {path = "./a62"}
+  a63 = {path = "./a63"}
+  a64 = {path = "./a64"}
+  a65 = {path = "./a65"}
+  a66 = {path = "./a66"}
+  a67 = {path = "./a67"}
+  a68 = {path = "./a68"}
+  a69 = {path = "./a69"}
+  a7 = {path = "./a7"}
+  a70 = {path = "./a70"}
+  a71 = {path = "./a71"}
+  a72 = {path = "./a72"}
+  a73 = {path = "./a73"}
+  a74 = {path = "./a74"}
+  a75 = {path = "./a75"}
+  a76 = {path = "./a76"}
+  a77 = {path = "./a77"}
+  a78 = {path = "./a78"}
+  a79 = {path = "./a79"}
+  a8 = {path = "./a8"}
+  a80 = {path = "./a80"}
+  a81 = {path = "./a81"}
+  a82 = {path = "./a82"}
+  a83 = {path = "./a83"}
+  a84 = {path = "./a84"}
+  a85 = {path = "./a85"}
+  a86 = {path = "./a86"}
+  a87 = {path = "./a87"}
+  a88 = {path = "./a88"}
+  a89 = {path = "./a89"}
+  a9 = {path = "./a9"}
+  a90 = {path = "./a90"}
+  a91 = {path = "./a91"}
+  a92 = {path = "./a92"}
+  a93 = {path = "./a93"}
+  a94 = {path = "./a94"}
+  a95 = {path = "./a95"}
+  a96 = {path = "./a96"}
+  a97 = {path = "./a97"}
+  a98 = {path = "./a98"}
+  a99 = {path = "./a99"}
 
 [package]
   cjc-version = "0.25.1"
