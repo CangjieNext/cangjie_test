@@ -17,9 +17,11 @@ package cj
 import interoplib.interop.*
 import java.lang.*
 
-func id<T>(x: T): T {
-    x
-}
+func idI2(x: I2): I2 { x }
+func idMyObject(x: MyObject): MyObject { x }
+func idJString(x: JString): JString { x }
+func idJArray(x: JArray<?MyObject>): JArray<?MyObject> { x }
+
 
 func a2(v0: ?MyObject, v1: ?MyObject): JArray<?MyObject> {
     var ret = JArray<?MyObject>(2)
@@ -32,22 +34,22 @@ func a2(v0: ?MyObject, v1: ?MyObject): JArray<?MyObject> {
 public class Impl <: MyObject & I2 {
     public init(value: I2) {
         // Primitive argument
-        super(id(value))
+        super(idI2(value))
     }
 
     public init(value: MyObject) {
         // JavaMirror argument
-        super(id(value))
+        super(idMyObject(value))
     }
 
     public init(value: JString) {
         // String
-        super(id(value))
+        super(idJString(value))
     }
 
     public init(value: JArray<?MyObject>) {
         // String
-        super(id(value))
+        super(idJArray(value))
     }
 
     public init(v0: ?MyObject, v1: ?MyObject) {
