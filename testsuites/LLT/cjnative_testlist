@@ -100,40 +100,6 @@ compiler/Macro/inout/inout_m2.cj
 
 # native FFI
 ## java (broken after migration to "blue" branch)
-compiler/CJMP/java/integration/impl-implements-mirror-interface/impl-implements-mirror-interface.info
-compiler/CJMP/java/integration/mirror-abstract-class/mirror-abstract-class.info
-compiler/CJMP/java/integration/mirror-finalizer/mirror-finalizer.info
-compiler/CJMP/java/integration/mirror-interface/mirror-interface.info
-compiler/CJMP/java/integration/impl-ctor-args-cangjie/impl-ctor-args-cangjie.info
-compiler/CJMP/java/integration/impl-ctor-args-java/impl-ctor-args-java.info
-compiler/CJMP/java/integration/impl-ctor-cangjie/impl-ctor-cangjie.info
-compiler/CJMP/java/integration/impl-ctor-java/impl-ctor-java.info
-compiler/CJMP/java/integration/impl-method-accept-cangjie/impl-method-accept-cangjie.info
-compiler/CJMP/java/integration/impl-method-accept-java/impl-method-accept-java.info
-compiler/CJMP/java/integration/impl-method-overload/impl-method-overload.info
-compiler/CJMP/java/integration/impl-method-return-java/impl-method-return-java.info
-compiler/CJMP/java/integration/impl-method-static-accept-java/impl-method-static-accept-java.info
-compiler/CJMP/java/integration/impl-method-super-call-with-args-03/impl-method-super-call-with-args-03.info
-compiler/CJMP/java/integration/impl-method-super-call-with-args-04/impl-method-super-call-with-args-04.info
-compiler/CJMP/java/integration/impl-primary-ctor-java/impl-primary-ctor-java.info
-compiler/CJMP/java/integration/jarray-nested/jarray-nested.info
-compiler/CJMP/java/integration/mirror-array/mirror-array.info
-compiler/CJMP/java/integration/mirror-method-accept-jarray-option/mirror-method-accept-jarray-option.info
-compiler/CJMP/java/integration/mirror-method-accept-option-jarray/mirror-method-accept-option-jarray.info
-compiler/CJMP/java/integration/mirror-method-accept-option/mirror-method-accept-option.info
-compiler/CJMP/java/integration/mirror-method-accept/mirror-method-accept.info
-compiler/CJMP/java/integration/mirror-method-common/mirror-method-common.info
-compiler/CJMP/java/integration/mirror-method-ret-impl/mirror-method-ret-impl.info
-compiler/CJMP/java/integration/mirror-method-ret-option-jarray/mirror-method-ret-option-jarray.info
-compiler/CJMP/java/integration/mirror-method-ret-option/mirror-method-ret-option.info
-compiler/CJMP/java/integration/mirror-method-ret/mirror-method-ret.info
-compiler/CJMP/java/integration/mirror-method-static-accept/mirror-method-static-accept.info
-compiler/CJMP/java/integration/mirror-method-static-ret/mirror-method-static-ret.info
-compiler/CJMP/java/integration/mirror-method-static/mirror-method-static.info
-compiler/CJMP/java/integration/mirror-prop-option/mirror-prop-option.info
-compiler/CJMP/java/integration/mirror-prop/mirror-prop.info
-compiler/CJMP/java/integration/mirror_interface_default_method/interface_inheritance_different_default_methods/interface_inheritance_different_default_methods.info
-compiler/CJMP/java/integration/object-inheritance/object-inheritance.info
 compiler/CJMP/java/parser/class/java_mirror_ctor.cj
 compiler/CJMP/java/parser/class/java_mirror_custom_fqname.cj
 compiler/CJMP/java/parser/class/java_mirror_field.cj
