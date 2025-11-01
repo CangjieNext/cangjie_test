@@ -36,6 +36,7 @@ synchronized (obj) {
             obj.wait()
         }
     }""")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         var pos = expr.getSynchronizedKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 17]).toArray())
         pos = expr.getLParenPos()

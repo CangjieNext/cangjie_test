@@ -39,6 +39,7 @@ try {
         var a = 1
         a += 1
     } catch (e: Exception) {}""")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         @Expect(expr.getResourceSpecLParenPos().isNone())
         @Expect(expr.getResourceSpecRParenPos().isNone())
         var pos = expr.getTryKeyWordPos()

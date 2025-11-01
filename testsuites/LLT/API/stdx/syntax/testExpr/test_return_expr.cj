@@ -25,6 +25,7 @@ class Test {
         let expr = (body.nodes[0] as ReturnExpr).getOrThrow()
         @Expect(expr.retVal.getOrThrow().toString(), "1")
         @Expect(expr.toString(), "return 1")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 13]).toArray())

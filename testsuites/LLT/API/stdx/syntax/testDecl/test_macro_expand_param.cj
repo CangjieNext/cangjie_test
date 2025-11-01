@@ -35,6 +35,7 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(param.toString(), "@testMacro[public func]a: Int64")
+        @Expect(param.toTokens().toString(), "@testMacro[public func] a: Int64")
 
         var pos = param.getAtPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 15, 1, 16]).toArray())

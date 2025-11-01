@@ -27,6 +27,7 @@ class Test {
 
         @Expect(pattern.litConstExpr.rawValue, "1")
         @Expect(pattern.toString(), "1")
+        @Expect(pattern.toTokens().toString(), "1")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 14, 5, 15]).toArray())

@@ -27,6 +27,7 @@ class Test {
 
         @Expect(pattern is WildcardPattern)
         @Expect(pattern.toString(), "_")
+        @Expect(pattern.toTokens().toString(), "_")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 14, 5, 15]).toArray())

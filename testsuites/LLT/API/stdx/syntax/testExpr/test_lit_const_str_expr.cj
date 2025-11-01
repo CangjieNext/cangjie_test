@@ -31,6 +31,7 @@ class Test {
         @Expect(expr.isSingleQuote, false)
         @Expect(expr.rawValue, "me")
         @Expect(expr.toString(), "\"me\"")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         let pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 9]).toArray())
     }
@@ -47,6 +48,7 @@ class Test {
         @Expect(expr.rawValue, "hi")
         @Expect(expr.toString(), """
 #"hi"#""")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         let pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 11]).toArray())
     }

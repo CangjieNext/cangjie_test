@@ -25,6 +25,7 @@ public interface I1<T> <: S1<T> where T <: I2<T> {
     static mut prop p1: Int64
     func foo(): Int64
 }"##)
+    @Expect(parseTokens(interfaceDecl.toTokens(), refreshPos: false).node.getOrThrow().toString(), interfaceDecl.toString())
     @Assert(interfaceDecl.body.memberDecls.size, 2)
     @Assert(interfaceDecl.body.memberDecls[0] is PropDecl)
     @Assert(interfaceDecl.body.memberDecls[0].toString(), ##"static mut prop p1: Int64"##)

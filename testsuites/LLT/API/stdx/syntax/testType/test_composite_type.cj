@@ -47,6 +47,7 @@ class Test {
         @Expect(ty.name, "A")
         @Expect(ty.prefixes.size, 0)
         @Expect(ty.toString(), "A<B>")
+        @Expect(ty.toTokens().toString(), "A < B >")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 8, 3, 12]).toArray())

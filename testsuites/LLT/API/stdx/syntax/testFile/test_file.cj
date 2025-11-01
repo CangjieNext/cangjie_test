@@ -6,6 +6,22 @@
 import stdx.syntax.*
 import std.fs.*
 
+@When[os != "Windows"]
+const NEWLINE = "\n"
+@When[os == "Windows"]
+const NEWLINE = "\r\n"
+
+func skipRedundancy(text: String): String {
+    var res = ""
+    for (i in 0..text.size) {
+        let cur = text[i..i + 1]
+        if (cur != NEWLINE && cur!= " " && cur != ";") {
+            res += cur
+        }
+    }
+    return res
+}
+
 @Test
 class Test {
     var file: ?SourceFile = None
@@ -22,6 +38,7 @@ class Test {
     func test01() {
         let input = String.fromUtf8(File.readFrom("test_file_input.cj"))
         @Expect(file?.toString(), input)
+        @Expect(skipRedundancy(file.getOrThrow().toTokens().toString()), skipRedundancy(input))
     }
 
     @TestCase
@@ -30,12 +47,13 @@ class Test {
             @Expect(val.topLevelDecls.size, 4)
             if (let Some(fd) <- (val.topLevelDecls[0] as FuncDecl)) {
                 @Expect(fd.name, "foo")
+                @Expect(skipRedundancy(fd.toTokens().toString()), skipRedundancy(fd.toString()))
             }
         } else {
             @Expect(false)
         }
     }
-    
+
     @TestCase
     func testInit01() {
         if (let Some(f) <- file) {

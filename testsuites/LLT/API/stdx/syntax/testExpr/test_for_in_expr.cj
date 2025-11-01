@@ -28,6 +28,7 @@ class Test {
         @Expect(expr.body.toString(), "{}")
         @Expect(expr.patternGuard.isNone())
         @Expect(expr.toString(), "for ((x, y) in array) {}")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         var pos = expr.getForKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 8]).toArray())
         pos = expr.getInKeyWordPos()
@@ -55,6 +56,7 @@ class Test {
 for (i in 0..10 where i % 2 == 1) {
         println(i)
     }""")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         var pos = expr.getForKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 8]).toArray())
         pos = expr.getInKeyWordPos()

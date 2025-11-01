@@ -30,6 +30,7 @@ class Test {
         }
         @Expect(pattern.enumConstructor.toString(), "A")
         @Expect(pattern.toString(), "TestEnum.A")
+        @Expect(pattern.toTokens().toString(), "TestEnum.A")
     }
 
     @TestCase

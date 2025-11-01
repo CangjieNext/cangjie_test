@@ -33,6 +33,7 @@ class Test {
         }
         // TODO: check arguments
         @Expect(expr.toString(), "VArray<Int64, $5>([0, 3 ,4])")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
         var pos = expr.getLParenPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 22, 2, 23]).toArray())
         pos = expr.getRParenPos()

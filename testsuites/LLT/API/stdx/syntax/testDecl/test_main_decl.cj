@@ -27,6 +27,7 @@ class Test {
         @Expect(decl.params.params.size, 0)
         @Expect(decl.retTyAnnotation.isNone(), true)
         @Expect(decl.toString(), "main() {}")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
     }
 
     @TestCase
@@ -74,6 +75,7 @@ main(param1: Int64, param2: Int64): Int64 {
     "a"
     0
 }""")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
     }
 
     @TestCase

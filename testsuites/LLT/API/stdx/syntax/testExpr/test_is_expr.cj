@@ -31,6 +31,7 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(expr.toString(), "a is String")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 16]).toArray())

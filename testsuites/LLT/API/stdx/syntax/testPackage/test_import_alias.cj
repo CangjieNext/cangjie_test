@@ -31,6 +31,7 @@ class Test {
         @Expect(content.identifier, "testPackage")
         @Expect(content.aliasName, "pkg")
         @Expect(content.toString(), "testPackage as pkg")
+        @Expect(content.toTokens().toString(), "testPackage as pkg")
         var pos = content.getIdentifierPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 19]).toArray())
         pos = content.getAsPos()

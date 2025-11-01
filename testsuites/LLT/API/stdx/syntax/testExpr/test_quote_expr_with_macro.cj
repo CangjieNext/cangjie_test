@@ -30,6 +30,7 @@ func test_QuoteExpr_02() {
     var mainDecl: MainDecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
     var expr_1: QuoteExpr = (mainDecl.body.nodes[0] as QuoteExpr).getOrThrow()
     @Assert(expr_1.toString(), ##"quote((x))"##)
+    @Expect(parseTokens(expr_1.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr_1.toString())
     @Assert(expr_1.tokensOrRefExpr.size, 1)
     match(expr_1.tokensOrRefExpr[0]) {
         case TokenPart(QuoteToken) => 

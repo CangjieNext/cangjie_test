@@ -28,6 +28,7 @@ class Test {
         @Expect(decl.genericConstraints.isNone())
         @Expect(decl.body.toString(), "{}")
         @Expect(decl.toString(), "interface A {}")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
         var pos = decl.getInterfaceKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 10]).toArray())
         pos = decl.getIdentifierPos()
@@ -57,6 +58,7 @@ class Test {
 public interface B {
     func a(): Int64
 }""")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
     }
 
     @TestCase

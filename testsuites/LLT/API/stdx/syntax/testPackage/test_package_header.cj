@@ -32,6 +32,7 @@ class Test {
             case _ => @FailExpect("The kind is wrong.")
         }
         @Expect(header.toString(), "public package testPackage")
+        @Expect(header.toTokens().toString(), "public package testPackage")
 
         let input = String.fromUtf8(File.readFrom("packageHeader/access_modifier_02.cj"))
         @Expect(file.toString(), input)

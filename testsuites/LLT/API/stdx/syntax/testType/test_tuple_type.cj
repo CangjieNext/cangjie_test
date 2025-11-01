@@ -30,6 +30,7 @@ class Test {
         @Expect(ty.elements[1].toString(), "Int32")
         @Expect(ty.labels.size, 0)
         @Expect(ty.toString(), "(Int16, Int32)")
+        @Expect(ty.toTokens().toString(), "(Int16, Int32)")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 22]).toArray())
