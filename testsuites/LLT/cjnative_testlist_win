@@ -69,3 +69,5 @@ API\std\time\timezone\test_base.cj
 API\std\time\timezone\test_load.cj
 API\std\time\timezone\test_local1_1.cj
 API\std\time\timezone\test_local1_4.cj
+API/stdx/crypto/x509/x509_test.cj
+API/stdx/logger/logger_test.cj
