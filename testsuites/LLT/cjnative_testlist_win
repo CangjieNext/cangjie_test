@@ -69,3 +69,13 @@ API\std\time\timezone\test_base.cj
 API\std\time\timezone\test_load.cj
 API\std\time\timezone\test_local1_1.cj
 API\std\time\timezone\test_local1_4.cj
+
+# API testcases commented on 2025-11-03, need to be fixed.
+## fuzzer testcases (libclang_rt.fuzzer_no_main.a: No Such file or directory)
+API/stdx/fuzz/fuzzer_coverage.cj
+API/stdx/fuzz/fuzzer_enable_debugdp.cj
+API/stdx/fuzz/fuzzer_enable_fakecov.cj
+API/stdx/fuzz/fuzzer_main.cj
+API/stdx/fuzz/fuzzer_main_dp.cj
+API/stdx/fuzz/test_u32.cj
+API/stdx/fuzz/test_u64.cj
