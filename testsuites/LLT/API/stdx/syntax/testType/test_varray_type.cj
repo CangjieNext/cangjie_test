@@ -100,18 +100,12 @@ class Test {
     func testInit01() {
         let varDecl = (decls[1] as VarDecl).getOrThrow()
         let ty = (varDecl.tyAnnotation.getOrThrow() as VArrayType).getOrThrow()
-        println("5555555555555555555")
         let vArrayType = VArrayType(ty.elementType, ty.size)
-        println("5555555555555555555")
 
         @Expect(vArrayType.elementType is AtomicType)
-        println("5555555555555555555")
         @Expect(vArrayType.elementType.toString(), "Int32")
-        println("5555555555555555555")
         @Expect(vArrayType.size, 0)
-        println("5555555555555555555")
         @Expect(vArrayType.toString(), "VArray<Int32, $0>")
-        println("5555555555555555555")
 
         var pos = vArrayType.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 18]).toArray())

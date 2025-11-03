@@ -26,7 +26,6 @@ func test_QuoteExpr_With_NewLine() {
 }"##))
 
     var _decl: MacroDecl = (sourcefile.topLevelDecls[0] as MacroDecl).getOrThrow()
-    _decl.toString() |> println
     @Expect(_decl.toString(), ##"public macro Prop(input:Tokens):Tokens {
     let v = parseDecl(input)
     @getIdent[ident](input)

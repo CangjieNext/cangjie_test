@@ -14,7 +14,6 @@ func test_QuoteExpr_02() {
     @Assert(diags.size, 0)
 
     let sourcefile : SourceFile = res.node.getOrThrow()
-    sourcefile.toString() |> println
     @Assert(sourcefile.toString().contains(##"main() {
     quote((x))
     quote(quote(x))

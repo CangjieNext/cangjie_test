@@ -13,7 +13,6 @@ func test_QuoteExpr_01() {
     @Assert(diags.size, 0)
 
     let sourcefile : SourceFile = res.node.getOrThrow()
-    sourcefile.toString() |> println
     @Expect(sourcefile.toString().contains(##"main() {
     quote()
     quote(a)

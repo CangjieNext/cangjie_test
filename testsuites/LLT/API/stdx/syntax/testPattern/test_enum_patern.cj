@@ -100,7 +100,6 @@ class Test {
         let enumPattern = EnumPattern(pattern.enumConstructor, pattern.enumType, pattern.subPatterns)
         @Expect(enumPattern.enumConstructor.toString(), "A")
         @Expect(enumPattern.subPatterns.size, 1)
-        enumPattern.toString() |> println
         @Expect(enumPattern.toString(), "A(n)")
 
         var pos = enumPattern.nodePos

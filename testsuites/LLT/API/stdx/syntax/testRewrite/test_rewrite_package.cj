@@ -37,7 +37,6 @@ class Test{
     func testDetachTrue() {
         let rewrite = RewriteNode()
         let newNode = rewrite.walk(pkg.getOrThrow(), detach: true)
-        println(newNode)
         @Expect(newNode.toString(), """
 // test_file_input1.cj
 package www.w.w.wx

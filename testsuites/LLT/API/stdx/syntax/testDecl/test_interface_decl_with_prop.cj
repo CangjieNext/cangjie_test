@@ -12,7 +12,6 @@ func test_InterfaceDecl_01() {
     @Assert(diags.size, 0)
 
     let sourcefile : SourceFile = res.node.getOrThrow()
-    sourcefile.toString() |> println
     @Expect(sourcefile.toString().contains(##"@Deprecated["aaa"]
 public interface I1<T> <: S1<T> where T <: I2<T> {
     static mut prop p1: Int64
