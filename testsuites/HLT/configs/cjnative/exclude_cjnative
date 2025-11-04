@@ -82,9 +82,6 @@ Tools/cjlint/rules/G_OTH_03/g_oth_03_10026/g_oth_03.info
 API/syntax
 
 # cjmp is not ready.
-compiler/cjnative/Packages/cjmp/cjmp_15008/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_15012_1/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_16010/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_16018_1/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_16020/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_16021/test.cj

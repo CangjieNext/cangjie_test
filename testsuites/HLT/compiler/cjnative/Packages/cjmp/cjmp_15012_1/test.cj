@@ -10,9 +10,10 @@
 // DEPENDENCE: mp, mp1
 // EXEC: %compiler %cmp_opt mp1/test_imp.cj --output-type=dylib -o ./
 // EXEC: %compiler %cmp_opt mp/test_com.cj -L . -lmp1 %compile_chir_opt -o ./
-// EXEC: %compiler %cmp_opt mp/test_plat.cj -L . -lmp1 %compile_dylib_opt_cjmp -o ./
-// EXEC: %compiler %cmp_opt %f %link_cjmp -o %output
-// RUN-EXEC: %run %run_opt %output %run_args
+// ERRCHECK: %compiler %cmp_opt mp/test_plat.cj -L . -lmp1 %compile_dylib_opt_cjmp -o ./ 2>&1 | compare %f
+// ASSERT: scan sema_undeclared_type_name
+// ASSERT: scan sema_undeclared_identifier
+// ASSERT: scan sema_not_matched
 
 import mp.*
 
