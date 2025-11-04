@@ -44,8 +44,9 @@ public func f1() {
 
 // SEPARATE-FILE: mp/test_plat.cj
 // EXEC-PIPE-0: %compiler %noColor --experimental mp/test_plat.cj -L ./mp1 -lmp1  ./mp/mp.chir --common-part-cjo=./mp/mp.cjo  -o %output
-// (CJNATIVE and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./mp1:./mp %run %output 
-
+// (CJNATIVE and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./mp1: %run %output 
+// (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./mp1;%PATH% && %run %output
+// (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./mp1 && %run %output
 package mp
 
 import mp1.*
