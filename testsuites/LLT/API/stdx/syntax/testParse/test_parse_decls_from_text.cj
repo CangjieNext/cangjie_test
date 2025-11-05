@@ -29,7 +29,7 @@ class Test {
             @Expect(e.message.contains("unsupported node type or parse error in parseText function:"))
         }
     }
-    
+
     @TestCase
     func testFinalizer() {
         let node = parseText("~init() {}")
@@ -81,6 +81,26 @@ class Test {
         @Expect(decl.typeParameters[0].toString(), "S")
         @Expect(decl.typeParameters[1].toString(), "T")
         @Expect(decl.originalTyAnnotation.toString(), "packageName.className<S, T>")
+        @Expect(decl.toString(), text)
+    }
+
+    @TestCase
+    func testAtExclAnnotation() {
+        let text = """
+@!Anno1
+private struct MyStruct<A> {
+    public var s1: T
+}"""
+        let decl = (parseText(text).node.getOrThrow() as StructDecl).getOrThrow()
+        @Expect(decl.modifiers.size, 1)
+        @Expect(decl.name, "MyStruct")
+        @Expect(decl.superTyAnnotations.size, 0)
+        @Expect(decl.genericParams.size, 1)
+        @Expect(decl.genericConstraints.isNone())
+        @Expect(decl.body.toString(), """
+{
+    public var s1: T
+}""")
         @Expect(decl.toString(), text)
     }
 
@@ -139,6 +159,14 @@ static init() {
         println()
     }""")
         @Expect(decl.toString(), text)
+    }
+
+    @TestCase
+    func testPropDecl01() {
+        let decl = parseText("prop _prop: Int64").node.getOrThrow()
+        @Expect(decl.toString(), "prop _prop: Int64")
+        let decl_1 = parseText("prop _prop: Int64 { get() {1} }").node.getOrThrow()
+        @Expect(decl_1.toString(), "prop _prop: Int64 { get() {1} }")
     }
 
     @TestCase
