@@ -8,11 +8,9 @@
  
 package cjworld
  
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class M2 <: M1 {
     public init()
 }
-
-

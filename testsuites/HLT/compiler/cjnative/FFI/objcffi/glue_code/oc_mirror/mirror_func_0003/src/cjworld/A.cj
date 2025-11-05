@@ -8,7 +8,7 @@
  
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCImpl
 public class A <: M {
@@ -22,5 +22,3 @@ func test() {
     M().goo()
     println("in cangjie test")
 }
-
-

@@ -8,7 +8,7 @@
  
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCImpl
 public class A <: M {
@@ -27,5 +27,3 @@ func test() {
     println("in cangjie test, p1: ${m.p1}")
     println("in cangjie test, p2: ${M.p2}")
 }
-
-

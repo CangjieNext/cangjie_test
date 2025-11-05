@@ -8,12 +8,10 @@
  
 package cjworld
  
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class M2 {
     @ForeignName["initWithA:AndB:AndC:"]
     public init(a: Int64, b: Bool, c: M1)
 }
-
-

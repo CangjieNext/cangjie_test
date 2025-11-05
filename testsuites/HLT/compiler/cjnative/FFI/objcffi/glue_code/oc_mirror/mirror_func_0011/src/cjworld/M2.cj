@@ -8,7 +8,7 @@
  
 package cjworld
  
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class M2 {
@@ -16,5 +16,3 @@ public open class M2 {
     @ForeignName["goo:"]
     public open func goo(a: M1): Unit
 }
-
-
