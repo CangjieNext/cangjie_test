@@ -8,7 +8,7 @@
  
 package cjworld
  
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class M {
@@ -20,5 +20,3 @@ public open class M {
     public mut prop p1: Int64
     public static mut prop p2: Int64
 }
-
-

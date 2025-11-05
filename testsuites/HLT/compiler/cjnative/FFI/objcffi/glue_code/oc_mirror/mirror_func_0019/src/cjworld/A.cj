@@ -8,7 +8,7 @@
  
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCImpl
 public class A <: M {
@@ -20,5 +20,3 @@ public class A <: M {
         println("in cangjie foo")
     }
 }
-
-
