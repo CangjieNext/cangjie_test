@@ -289,7 +289,13 @@ class Test {
         @Expect(funcParam.toString(), "private let e!: Int64 = 3")
     }
 
-
+    @TestCase
+    func testParameterList01() {
+        let tmp = params.getOrThrow()
+        let parameterList = ParameterList(tmp.params)
+        @Expect(parameterList.toString(), "(a: Int64, b: String, c: (Int64) -> Int64, f: ?Int64, g: T.A, h: (A, Int64), i: VArray<Int64, $3>, d!: Int64, e!: String = \"\")")
+        @Expect(parameterList.params.toString(), "[a: Int64, b: String, c: (Int64) -> Int64, f: ?Int64, g: T.A, h: (A, Int64), i: VArray<Int64, $3>, d!: Int64, e!: String = \"\"]")
+    }
 
     @TestCase
     func testFileToString() {
