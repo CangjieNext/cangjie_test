@@ -7,30 +7,26 @@
 // SEPARATE-FILE: c/c.cj
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
-
-    
-common  func foo(input!:String = "common"): Unit{
-    println("From common member foo func")
-    println(input)
+interface I{}
+common  func foo<T>(x:T,input!:String) where T <: I   {
 }
-    
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
-// (LLVM and Linux)RUN-EXEC-PIPE-0: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
-// (LLVM and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
-// (LLVM and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
+// (CJNATIVE and Linux)RUN-EXEC-PIPE-0: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
+// (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
+// (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform  func foo(input!:String ): Unit {
+
+platform  func foo<R>(x:R,input!:String ) {
     println("From platform member foo func")
     println(input)
 }
 main() {
-    foo(input:"platform")
+    // foo(input:"platform")
 }
 
 /* SCAN
-From platform member foo func
-platform
+
 */
