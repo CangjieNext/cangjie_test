@@ -90,6 +90,18 @@ ffffff
         @Expect(comments[7].toString(), ##"// ggg"##)
     }
 
+    @TestCase
+    func testMacroExpandDecl() {
+        /*
+        @M1/* block comment1 */ [/* block comment2 */expr] /* block comment3 */var a = 1 // line comment1
+        */
+        let macroExpandDecl = (decls[1] as MacroExpandDecl).getOrThrow()
+        var comments = macroExpandDecl.comments
+        @Expect(comments.size, 2)
+        @Expect(comments[0].content, ##"/* block comment1 */"##)
+        @Expect(comments[1].content, ##"// line comment1"##)
+    }
+
     
     @TestCase
     func testFileToString() {
