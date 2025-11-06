@@ -87,3 +87,26 @@ compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0008/
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0009/
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0005/
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0006/
+# objcid
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0002/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0003/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0004/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0005/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0006/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0007/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0001/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0002/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0003/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0004/
+# interface
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002_1/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0004/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0006/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0007/
+# subtyping
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0013/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0014/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0016/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0017/

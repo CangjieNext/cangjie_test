@@ -8,11 +8,21 @@
  
 package cjworld
 
-import interoplib.objc.*
+import objc.foundation.NSObject
+import objc.lang.*
 
 @ObjCImpl
-public class A <: I {
-    public init() {
-        println("in cangjie init")
+public class A <: NSObject & I {
+    private var a = 0
+    public init() {}
+    public mut prop p1: Int64 {
+        get() {a}
+        set(v) {a=v}
     }
+    public prop p2: Int64 {
+        get() {2}
+    }
+    public func f1() { println("in cj f1") }
+    public func f2() { println("in cj f2") }
+    public func f3() { println("in cj f3") }
 }

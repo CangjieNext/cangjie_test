@@ -8,7 +8,7 @@
  
 package dep
 
-import interoplib.objc.*
+import objc.lang.*
 
 public struct B {
     public var a: Int64 = 1

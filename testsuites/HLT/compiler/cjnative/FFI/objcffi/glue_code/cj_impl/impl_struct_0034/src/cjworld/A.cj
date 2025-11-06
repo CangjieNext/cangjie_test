@@ -8,7 +8,7 @@
  
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 public struct A {
     protected var var_a: Int64 = 1
