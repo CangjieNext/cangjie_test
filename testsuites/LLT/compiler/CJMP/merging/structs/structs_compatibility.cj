@@ -90,7 +90,7 @@ public func passPlatformA() {
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor -j8 m_common.cj --import-path=./p -L./p -lcmp -o %output
-// (LLVM and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
+// (CJNATIVE and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
 import cmp.*
 
 public func passMainA() {
@@ -170,7 +170,7 @@ selfRefPlatform
 
 // SEPARATE-FILE: m_common_only.cj
 // EXEC-0: %compiler %noColor -j8 m_common_only.cj --import-path=./c -L./p -lcmp -o %output
-// (LLVM and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
+// (CJNATIVE and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
 import cmp.*
 
 public func passMainA() {
