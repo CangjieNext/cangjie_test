@@ -39,9 +39,9 @@ public platform enum A {
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor -j8 m_common.cj --import-path=./p -L./p -lcmp -o %output
-// (LLVM and Linux)EXEC-PIPE-0: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
-// (LLVM and Windows)EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
-// (LLVM and Darwin)EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
+// (CJNATIVE and Linux)EXEC-PIPE-0: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
+// (CJNATIVE and Windows)EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
+// (CJNATIVE and Darwin)EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
 // ASSERT: scan-1 I guess there's something else
 // ASSERT: scan-1 BB
 // ASSERT: scan-not SHOULD NOT HAPPENED
