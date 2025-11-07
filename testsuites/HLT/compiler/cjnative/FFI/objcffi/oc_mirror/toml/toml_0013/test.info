@@ -9,5 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: test.toml test1.h test2.h
 // (iOSNative) EXEC: %mirror_gen test.toml
-// (iOSNative) ERRCHECK: %compiler %compile_dylib_opt -Woff all mirrors/objc/foundation/*.cj
-// ASSERT: scan redefinition of declaration
+// (iOSNative) EXEC: %compiler %compile_dylib_opt -Woff all mirrors/objc/foundation/*.cj -lobjc.lang -linteroplib.objc --link-options "-framework Foundation"
