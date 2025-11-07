@@ -17,6 +17,7 @@ import objc.foundation.NSInteger
 import objc.foundation.NSObject
 import objc.foundation.NSUInteger
 import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class test <: NSObject {
