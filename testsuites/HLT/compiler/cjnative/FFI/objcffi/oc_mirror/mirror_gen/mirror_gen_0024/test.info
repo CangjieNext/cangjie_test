@@ -34,8 +34,8 @@ public struct S {
 @ObjCMirror
 public open class test <: NSObject {
     public init()
-    public init(a: Int32)
-    public init(s: NSString)
-    public init(a: A, b: B, s: S)
+    @ForeignName["initWithA:"] public init(a: Int32)
+    @ForeignName["initWithS:"] public init(s: ?NSString)
+    @ForeignName["initWithA:andB:andS:"] public init(a: ?A, b: ?B, s: S)
 }
 */

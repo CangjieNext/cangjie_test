@@ -23,6 +23,6 @@ public open class R <: NSObject {
 
 @ObjCMirror
 public open class test <: NSObject {
-    public static prop p1: R
+    public static prop p1: ?R
 }
 */

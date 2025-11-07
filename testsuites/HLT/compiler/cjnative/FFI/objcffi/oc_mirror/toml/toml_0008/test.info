@@ -9,5 +9,5 @@
 // LEVEL: 1
 // DEPENDENCE: test.toml test.h test1.toml test2.toml
 // (iOSNative) EXEC: %mirror_gen test.toml
-// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc mirrors/objc/foundation/*.cj
+// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc mirrors/objc/foundation/*.cj --link-options "-framework Foundation"
 // (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc -L . -lobjc.foundation mirrors/cjworld/*.cj

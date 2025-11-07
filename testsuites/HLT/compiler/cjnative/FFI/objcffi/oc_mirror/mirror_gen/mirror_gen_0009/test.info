@@ -32,8 +32,8 @@ public struct S {
 
 @ObjCMirror
 public open class test <: NSObject {
-    @ForeignName["f1WithA:andB:andS:"] public static func f1WithAAndBAndS(a: A, b: B, s: S): A
-    @ForeignName["f2WithA:andB:andS:"] public static func f2WithAAndBAndS(a: A, b: B, s: S): B
-    @ForeignName["f3WithA:andB:andS:"] public static func f3WithAAndBAndS(a: A, b: B, s: S): S
+    @ForeignName["f1WithA:andB:andS:"] public static func f1WithAAndBAndS(a: ?A, b: ?B, s: S): ?A
+    @ForeignName["f2WithA:andB:andS:"] public static func f2WithAAndBAndS(a: ?A, b: ?B, s: S): ?B
+    @ForeignName["f3WithA:andB:andS:"] public static func f3WithAAndBAndS(a: ?A, b: ?B, s: S): S
 }
 */

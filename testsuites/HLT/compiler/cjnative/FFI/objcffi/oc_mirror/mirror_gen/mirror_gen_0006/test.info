@@ -20,13 +20,13 @@ import objc.lang.*
 
 @ObjCMirror
 public open class test/*<T>*/ <: NSObject {
-    @ForeignName["f1:"] public open func f1(t: id /*T*/): Unit
-    @ForeignName["f2:"] public static func f2(t: id /*T*/): Unit
-    @ForeignName["f3:and:"] public open func f3And(s: NSString, t: id /*T*/): Int32
-    @ForeignName["f4:and:"] public static func f4And(s: NSString, t: id /*T*/): Int32
-    @ForeignName["f5:and:"] public open func f5And(t: id /*T*/, s: NSString): NSString
-    @ForeignName["f6:and:"] public static func f6And(t: id /*T*/, s: NSString): NSString
-    @ForeignName["f7:"] public open func f7(t: id /*T*/): id /*T*/
-    @ForeignName["f8:"] public static func f8(t: id /*T*/): id /*T*/
+    @ForeignName["f1:"] public open func f1(t: ?ObjCId /*T*/): Unit
+    @ForeignName["f2:"] public static func f2(t: ?ObjCId /*T*/): Unit
+    @ForeignName["f3:and:"] public open func f3And(s: ?NSString, t: ?ObjCId /*T*/): Int32
+    @ForeignName["f4:and:"] public static func f4And(s: ?NSString, t: ?ObjCId /*T*/): Int32
+    @ForeignName["f5:and:"] public open func f5And(t: ?ObjCId /*T*/, s: ?NSString): ?NSString
+    @ForeignName["f6:and:"] public static func f6And(t: ?ObjCId /*T*/, s: ?NSString): ?NSString
+    @ForeignName["f7:"] public open func f7(t: ?ObjCId /*T*/): ?ObjCId /*T*/
+    @ForeignName["f8:"] public static func f8(t: ?ObjCId /*T*/): ?ObjCId /*T*/
 }
 */

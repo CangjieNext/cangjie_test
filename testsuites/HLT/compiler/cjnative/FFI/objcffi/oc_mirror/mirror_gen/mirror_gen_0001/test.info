@@ -18,9 +18,9 @@ import interoplib.objc.*
 import objc.lang.*
 
 @ObjCMirror
-public open class /*interface*/ test <: NSObjectProtocol {
-    public open func f1(): Unit
-    public static func f2(): Unit
-    public open func f3(): Unit
+public interface test <: NSObjectProtocol {
+    func f1(): Unit
+    static func f2(): Unit
+    func f3(): Unit
 }
 */

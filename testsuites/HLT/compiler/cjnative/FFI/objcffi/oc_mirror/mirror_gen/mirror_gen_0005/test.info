@@ -20,11 +20,11 @@ import objc.lang.*
 
 @ObjCMirror
 public open class test/*<T>*/ <: NSObject {
-    public open func f1(): id /*T*/
-    public static func f2(): id /*T*/
-    @ForeignName["f3:"] public open func f3(a: Int32): id /*T*/
-    @ForeignName["f4:"] public static func f4(a: Int32): id /*T*/
-    @ForeignName["f5:and:"] public open func f5And(a: Int32, s: NSString): id /*T*/
-    @ForeignName["f6:and:"] public static func f6And(a: Int32, s: NSString): id /*T*/
+    public open func f1(): ObjCId /*T*/
+    public static func f2(): ObjCId /*T*/
+    @ForeignName["f3:"] public open func f3(a: Int32): ObjCId /*T*/
+    @ForeignName["f4:"] public static func f4(a: Int32): ObjCId /*T*/
+    @ForeignName["f5:and:"] public open func f5And(a: Int32, s: NSString): ObjCId /*T*/
+    @ForeignName["f6:and:"] public static func f6And(a: Int32, s: NSString): ObjCId /*T*/
 }
 */
