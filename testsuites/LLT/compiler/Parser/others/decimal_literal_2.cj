@@ -6,11 +6,11 @@ main():Unit{
 }
 
 /* SCAN
-error: cannot start a(n) integer literal with a '0' digit
+error: cannot start a(n) integer literal with '0_'
  ==> decimal_literal_2.cj:4:13:
   | 
 4 |     let a = 0_1
-  |             ^ unexpected digit
+  |             ^ unexpected digit(s)
   | 
 
 error: unexpected digit 'a' in decimal
