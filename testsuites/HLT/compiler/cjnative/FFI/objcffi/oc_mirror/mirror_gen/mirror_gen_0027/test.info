@@ -15,6 +15,7 @@ package cjworld
 
 import objc.foundation.NSObject
 import objc.foundation.NSObjectProtocol
+import objc.foundation.NSString
 import interoplib.objc.*
 import objc.lang.*
 
@@ -32,5 +33,11 @@ public struct S {
 
 @ObjCMirror
 public open class test <: NSObject {
+    public var a1: Int32
+    public var a2: Bool
+    public var a3: ?NSString
+    public var a4: ?A
+    public var a5: ?B
+    public var a6: S
 }
 */

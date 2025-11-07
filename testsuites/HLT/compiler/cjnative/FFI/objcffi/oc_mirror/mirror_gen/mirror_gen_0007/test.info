@@ -17,9 +17,9 @@ import objc.foundation.NSString
 import interoplib.objc.*
 import objc.lang.*
 
-@ObjCMirror
+/* @ObjCMirror */
 public struct test {
     public var x: Int32 = 0
-    public var y: NSString = Option<NSString>.None.getOrThrow()
+    public var y: ?NSString = None
 }
 */
