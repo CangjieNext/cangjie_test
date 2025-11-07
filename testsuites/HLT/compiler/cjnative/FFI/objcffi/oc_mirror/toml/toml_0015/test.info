@@ -10,5 +10,5 @@
 // DEPENDENCE: test.toml test.a main.cj
 // (iOSNative) EXEC: %mirror_gen test.toml
 // (iOSNative) EXEC: cp main.cj mirrors/objc/foundation
-// (iOSNative) EXEC: %compiler %cmp_ocffi_opt %link_oc mirrors/objc/foundation/*.cj -o %n.%suffix
+// (iOSNative) EXEC: %compiler %cmp_ocffi_opt %link_oc mirrors/objc/foundation/*.cj -o %n.%suffix -lobjc.lang -linteroplib.common -linteroplib.objc --link-options "-framework Foundation"
 // (iOSNative) EXEC: %run %run_opt %n.%suffix %run_args
