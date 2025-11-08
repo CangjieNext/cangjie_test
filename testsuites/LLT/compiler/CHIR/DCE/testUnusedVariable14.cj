@@ -30,6 +30,7 @@ const func temp() {
 main() {
     bbb = 3
     bbb_3 = test
+    temp()
     return 0
 }
 

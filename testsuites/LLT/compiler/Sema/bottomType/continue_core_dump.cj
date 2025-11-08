@@ -16,6 +16,7 @@ func function20() {
 }
 
 main(): Int64 {
+    function20()
     return 0;
 }
 

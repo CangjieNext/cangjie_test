@@ -39,7 +39,11 @@ public func arithmeticOpt02() {
     var a4: Int64 = -INT64_MIN
 }
 
-main() {}
+main() {
+    arithmeticOpt01()
+    arithmeticOpt02()
+    0
+}
 
 /* SCAN
 warning: unused variable:'a1'

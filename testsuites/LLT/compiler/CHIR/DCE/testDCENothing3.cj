@@ -32,6 +32,17 @@ main() {
 }
 
 /* SCAN
+warning: unused function:'test'
+  ==> testDCENothing3.cj:12:1:
+   | 
+12 |   func test(a: Int64, b: Nothing, c: Int64) {
+   |  _^
+13 | |     num = 1
+14 | | }
+   | |_^ unused function
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 warning: unused variable:'a'
   ==> testDCENothing3.cj:12:11:
    | 

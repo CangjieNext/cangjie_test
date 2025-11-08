@@ -20,6 +20,7 @@ extend Int64 <: I {
 }
 
 main() {
+    1.test()
     0
 }
 

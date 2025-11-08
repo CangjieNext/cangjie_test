@@ -3,7 +3,7 @@
 // (CJNATIVE) EXEC-PIPE: %compiler %cmp_opt %f %enableO2 -o %output 2>&1 | compare %f
 // (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
 
-public func test(){
+public func test() {
     for (i in 1..10){
         if(true){
             break
@@ -16,7 +16,8 @@ public func test(){
 }
 
 main() {
-  0
+    test()
+    0
 }
 
 /* SCAN

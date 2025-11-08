@@ -19,7 +19,11 @@ public func arrayInit02(temp: Array<Int64>) {
     g0 = a1[1]
 }
 
-main() {}
+main() {
+    arrayInit01()
+    arrayInit02([1])
+    0
+}
 
 /* SCAN
 error: array index is out of bounds

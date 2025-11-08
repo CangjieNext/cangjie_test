@@ -19,7 +19,10 @@ func foo() {}
 @F
 public var a = 3
 
-main() {}
+main() {
+    foo()
+    0
+}
 
 /* SCAN
 error: '@F' not applicable to extend
