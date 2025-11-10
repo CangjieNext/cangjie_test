@@ -1,0 +1,2 @@
+@LateM
+class A {}
