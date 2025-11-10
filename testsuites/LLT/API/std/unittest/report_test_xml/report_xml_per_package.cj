@@ -59,7 +59,7 @@ main() {
     let reportPath = dir.join("test-${packname}.xml")
     if (!exists(reportPath)) { throw Exception("Report file must exist") }
 
-    let report = TestSuitesXml(File.readFrom(reportPath) |> String.fromUtf8)
+    let report = TestSuitesXml.readFromFile(reportPath)
     assert(report.tests == 5, "tests count mismatch: ${report.tests}")
     assert(report.failures == 0, "failures count mismatch: ${report.failures}")
     assert(report.errors == 1, "errors count mismatch: ${report.errors}")

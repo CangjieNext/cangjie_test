@@ -56,7 +56,7 @@ func checkReport(dir: Path, fooname: String) {
         throw Exception("Report file of ${fooname} must exist")
     }
 
-    let report = TestSuiteXml(File.readFrom(reportPath) |> String.fromUtf8)
+    let report = TestSuiteXml.readFromFile(reportPath)
 
     if (report.tests != 1) {
         throw Exception("Tests count mismatch: ${report.tests}")
