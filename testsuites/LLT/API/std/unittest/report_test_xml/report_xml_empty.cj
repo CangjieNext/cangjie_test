@@ -33,7 +33,7 @@ main(): Unit {
         throw Exception("Report file must exist")
     }
 
-    let suite = TestSuiteXml(File.readFrom(reportPath) |> String.fromUtf8)
+    let suite = TestSuiteXml.readFromFile(reportPath)
 
     if (suite.name != "${packname}.${casesname}") {
         throw Exception("Testsuite name mismatch: ${suite.name}")
