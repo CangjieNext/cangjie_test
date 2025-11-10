@@ -257,7 +257,7 @@ enum E1 {
     @TestCase
     func testEnumDeclInit01() {
         let decl = (decls[1] as EnumDecl).getOrThrow()
-        let enumDecl = EnumDecl(decl.body, decl.genericConstraints,
+        let enumDecl = EnumDecl(Body([]), [(decl.body.memberDecls[0] as EnumConstructor).getOrThrow()], decl.genericConstraints,
                                 decl.genericParams, decl.isNonExhaustive, decl.name, decl.superTyAnnotations, annotations: decl.annotations, modifiers: decl.modifiers)
         @Expect(enumDecl.modifiers.size, 1)
         @Expect(enumDecl.name, "B")
@@ -267,17 +267,17 @@ enum E1 {
         @Expect(enumDecl.genericConstraints.isNone())
         @Expect(enumDecl.body.toString(), """
 {
-    | Enum(Int64, A) | ...
-    func a() {}
+    | Enum(Int64, A)
+    | ...
 }""")
         @Expect(enumDecl.toString(), """
 public enum B {
-    | Enum(Int64, A) | ...
-    func a() {}
+    | Enum(Int64, A)
+    | ...
 }""")
 
         let nodes = enumDecl.body.memberDecls
-        @Expect(nodes.size, 2)
+        @Expect(nodes.size, 1)
         let constructor = (nodes[0] as EnumConstructor).getOrThrow()
         let enumConstructor = EnumConstructor(constructor.name, constructor.paramTyAnnotations, annotations: constructor.annotations, modifiers: constructor.modifiers)
         @Expect(enumConstructor.name, "Enum")
@@ -299,9 +299,9 @@ public enum B {
         pos = enumDecl.getCaseSeparatorsPos()[0]
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 6]).toArray())
         pos = enumDecl.getCaseSeparatorsPos()[1]
-        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 22, 2, 23]).toArray())
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 6]).toArray())
         pos = enumDecl.getNonExhaustiveTripleDotPos().getOrThrow()
-        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 24, 2, 27]).toArray())
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 7, 3, 10]).toArray())
 
         pos = enumConstructor.getIdentifierPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 5]).toArray())
@@ -319,7 +319,7 @@ public enum B {
     @TestCase
     func testEnumDeclInit02() {
         let decl = (decls[4] as EnumDecl).getOrThrow()
-        let enumDecl = EnumDecl(decl.body, decl.genericConstraints,
+        let enumDecl = EnumDecl(Body(), [], decl.genericConstraints,
                                 decl.genericParams, decl.isNonExhaustive, decl.name, decl.superTyAnnotations, annotations: decl.annotations, modifiers: decl.modifiers)
         @Expect(enumDecl.modifiers.size, 0)
         @Expect(enumDecl.name, "E")
@@ -334,8 +334,8 @@ public enum B {
         @Expect(genericConstraints.constraints.size, 2)
         @Expect(genericConstraints.constraints[0].toString(), "S <: B")
         @Expect(genericConstraints.constraints[1].toString(), "V <: ToString")
-        @Expect(enumDecl.body.toString(), "{ Enum }")
-        @Expect(enumDecl.toString(), "enum E<S, V> <: ToString & Inter<S, V> where S <: B, V <: ToString { Enum }")
+        @Expect(enumDecl.body.toString(), "{}")
+        @Expect(enumDecl.toString(), "enum E<S, V> <: ToString & Inter<S, V> where S <: B, V <: ToString {}")
 
         var pos = enumDecl.getEnumKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 5]).toArray())
@@ -354,7 +354,7 @@ public enum B {
         pos = enumDecl.getSuperTyAnnotationsBitAndsPos()[0]
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 26, 1, 27]).toArray())
         pos = enumDecl.nodePos
-        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 76]).toArray())
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 70]).toArray())
     }
 
     @TestCase
