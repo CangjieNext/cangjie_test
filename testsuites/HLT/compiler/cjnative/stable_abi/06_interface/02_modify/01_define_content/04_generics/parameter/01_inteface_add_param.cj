@@ -32,10 +32,10 @@
 
 package test_stable_abi
 
-// test inteface: generic params
-public interface Generics<T, U, X> {
-    public static func typename(): String {
-        "interface Generics"
-    }
-    public func goo3(a: T, b: U): Unit
+public interface F1 { static func g() {1} }
+public interface F2 { static func g() {1} }
+public interface S1 <: F1 {}
+public interface S2 <: S1 & F2 { static func g() {2} }
+public interface I<T1, T2, T3, T4> where T1 <: F1 & F2, T2 <: S1 {
+    static func g(a: T1, b: T2) { T1.g() + T2.g() }
 }

@@ -53,4 +53,3 @@ public interface I2 {
         "interface I2"
     }
 }
-

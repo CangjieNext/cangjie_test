@@ -30,40 +30,35 @@
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-
-
 package test_stable_abi
 
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
 @Annotation
 public class Version {
     let code: String
-    const init(code: String) {
-        this.code = code
-    }
+    const init(code: String) { this.code = code }
 }
-
-
-public interface I1 {
-     public static func typename(): String {
-        "interface I1"
+public interface I {
+    static mut prop p1: Int64 {
+        get() {1}
+        set(v) {v}
     }
-   
-    public mut prop a: String {
-         get() {
-           "interface testThree"
-        }
-        set(value) {
-            "interface testThree"
-        }
+    mut prop p2: Int64 {
+        get() {1}
+        set(v) {v}
     }
-
-     public mut prop b: String {
-         get() {
-           "interface testThree"
-        }
-        set(value) {
-            "interface testThree"
-        }
+    static mut prop p3: Int64
+    mut prop p4: Int64
+}
+public class C <: I {
+    public static mut prop p3: Int64 {
+        get() {1}
+        set(v) {v}
     }
-
+    public mut prop p4: Int64 {
+        get() {1}
+        set(v) {v}
+    }
 }

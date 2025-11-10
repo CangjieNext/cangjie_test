@@ -29,26 +29,23 @@
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [API/ABI]
 // ASSERT: scan-1 [ABI]
+// TEST API Compatibility
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 package test_stable_abi
 
-public interface I1 {
-
-    public static func testThree(): String {
-          "interface testThree"
-    }
-
-    public func testTwo(): Unit {
-        
-    }
-   
-    public static func testOne(): Unit {
-
-    }
-
-
-     public static func typename(): String {
-        "interface I1"
-    }
-
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
+public interface I {
+    @Frozen
+    func g6() {1}
+    @Frozen
+    static func g5() {1}
+    func g2() {1}
+    static func g1() {1}
+    const func g4() {1}
+    static const func g3() {1}
+}
+public class C <: I {}

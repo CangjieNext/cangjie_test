@@ -48,4 +48,6 @@ public interface G3<T> {
     }
 }
 
-
+public func f() {
+    return 0
+}

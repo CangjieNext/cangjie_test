@@ -68,3 +68,11 @@ public interface G3<T> {
         "interface G3<T>"
     }
 }
+
+public func f() {
+    if (I3.typename() == "interface I3" && G3<Int64>.typename() == "interface G3<T>") {
+        0
+    } else {
+        1
+    }
+}

@@ -24,49 +24,30 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // ASSERT: scan Incompatible
-// ASSERT: scan-1 [API/ABI] Deleted the modifier 'static' of the member function/property of the interface.
+// ASSERT: scan-2 [API/ABI] Deleted the modifier 'static' of the member function/property of the interface.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
-// ASSERT: scan-1 [API/ABI]
+// ASSERT: scan-2 [API/ABI]
 
 package test_stable_abi
 
-public interface I1 {
-     public static func typename(): String {
-        "interface I1"
-    }
-
-    public mut prop a: String {
-         get() {
-           "interface testThree"
-        }
-        set(value) {
-            "interface testThree"
-        }
-    }
-
-     public mut prop b: String {
-         get() {
-           "interface testThree"
-        }
-        set(value) {
-            "interface testThree"
-        }
-    }
-
-      public prop c: String {
-         get() {
-           "interface testThree"
-        }
-    }
-
-    public mut prop d: Int64 {
-         get() {
-           0
-        }
-        set(value) {
-            "interface testThree"
-        }
-    }
-
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
+public interface I {
+    mut prop p1: Int64 {
+        get() {1}
+        set(v) {v}
+    }
+    mut prop p2: Int64 {
+        get() {1}
+        set(v) {v}
+    }
+    prop p3: Int64 {
+        get() {1}
+    }
+    prop p4: Int64 {
+        get() {1}
+    }
+}
+public class C <: I {}

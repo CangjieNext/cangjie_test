@@ -30,25 +30,13 @@
 // TEST API Compatibility
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+
 package test_stable_abi
 
-// test interface: generic constraints
-public interface Father {
-
+public interface F1 { static func g() {1} }
+public interface F2 { static func g() {1} }
+public interface S1 <: F1 {}
+public interface S2 <: S1 & F2 { static func g() {2} }
+public interface I<T1, T2, T3> where T2 <: S1, T1 <: F2 & F1 {
+    static func g(a: T1, b: T2) { 1 }
 }
-
-public interface Son <: Father {
-
-}
-
-public interface Son1 <: Father {
-    
-}
-
-public interface Generics<T, U> where U <: Son, T <: Father{
-    public static func typename(): String {
-        "interface Generics"
-    }
-    public func goo3(a: T, b: U): Unit
-}
-

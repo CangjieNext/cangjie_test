@@ -29,39 +29,16 @@
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-
 package test_stable_abi
 
-public interface I1 {
-    public static func typename(): String {
-        "interface I1"
-    }
-
-    public func testOne(): Unit {
-
-    }
-
-    public func testTwo(): Unit {
-        
-    }
-
-    public func testThree(): String {
-          "interface testThree"
-    }
-
-    public static func testFour(): String {
-          "interface testFour"
-    }
-
-    public const func testFive(): String {
-          "interface testFive"
-    }
-
-    public func testSix(): String {
-          "interface testSix"
-    }
-
-    public mut func testSeven(): String {
-          "interface testSeven"
-    }
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
+public interface I {
+    func g1() {1}
+    static func g2() {1}
+    const func g3() {1}
+    func g4() {1}
+    mut func g5() {1}
+}
+public class C <: I {}

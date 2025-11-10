@@ -24,29 +24,21 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// ASSERT: scan Incompatible!
+// ASSERT: scan-1 [ABI] Deleted generic constraint of interface visible outside the module.
+// ASSERT: scan-not [API/ABI]
+// ASSERT: scan-not [API]
+// ASSERT: scan-1 [ABI]
 // TEST API Compatibility
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+
 package test_stable_abi
 
-// test interface: generic constraints
-public interface Father {
-
+public interface F1 { static func g() {1} }
+public interface F2 { static func g() {1} }
+public interface S1 <: F1 {}
+public interface S2 <: S1 & F2 { static func g() {2} }
+public interface I<T1, T2, T3> where T1 <: F1, T2 <: S1 {
+    static func g(a: T1, b: T2) { 1 }
 }
-
-public interface Son <: Father {
-
-}
-
-public interface Son1 <: Father {
-    
-}
-
-public interface Generics<T, U> where T <: Father {
-    public static func typename(): String {
-        "interface Generics"
-    }
-    public func goo3(a: T, b: U): Unit
-}
-

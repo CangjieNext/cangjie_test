@@ -26,22 +26,21 @@
 
 // ASSERT: scan Incompatible
 // ASSERT: scan-not [ABI] 
-// ASSERT: scan-1 [API/ABI] Deleted member function of interface.
+// ASSERT: scan-2 [API/ABI] Deleted member function of interface.
 // ASSERT: scan-not [API]
-// ASSERT: scan-1 [API/ABI]
+// ASSERT: scan-2 [API/ABI]
 
 package test_stable_abi
 
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
 public interface I1 {
-    public static func typename(): String {
-        "interface I1"
-    }
-
-    public func testTwo(): Unit {
-        
-    }
-
-    public static func testThree(): String {
-          "interface testThree"
-    }
+    func g2() {1}
+}
+public interface I2 {
+    func g2(): Int64
+}
+public class C1 <: I1 {}
+public func f() {
 }

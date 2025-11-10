@@ -9,19 +9,17 @@
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
-// test interface: modify annotation
-
-public interface I1 <: I2 {
-    public static func typename(): String {
-        "interface I1"
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public interface I {
+    static mut prop p1: Int64 {
+        get() {1}
+        set(v) {v}
+    }
+    mut prop p2: Int64 {
+        get() {1}
+        set(v) {v}
     }
 }
-
-private interface I2 {
-    public static func typename(): String {
-        "interface I2"
-    }
-}
-
-
-
+public class C <: I {}

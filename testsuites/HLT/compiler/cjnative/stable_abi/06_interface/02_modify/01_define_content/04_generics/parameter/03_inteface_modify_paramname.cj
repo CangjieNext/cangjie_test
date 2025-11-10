@@ -30,13 +30,13 @@
 // TEST API Compatibility
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+
 package test_stable_abi
 
-// test inteface: generic params
-public interface Generics<R, S> {
-    public static func typename(): String {
-        "interface Generics"
-    }
-    public func goo3(a: R, b: S): Unit
+public interface F1 { static func g() {1} }
+public interface F2 { static func g() {1} }
+public interface S1 <: F1 {}
+public interface S2 <: S1 & F2 { static func g() {2} }
+public interface I<K1, K2, K3> where K1 <: F1 & F2, K2 <: S1 {
+    static func g(a: K1, b: K2) { K1.g() + K2.g() }
 }
-

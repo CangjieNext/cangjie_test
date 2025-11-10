@@ -8,12 +8,17 @@
  
 import test_stable_abi.*
 
+class A <: I1 {}
+class B {}
+extend B <: I2 {}
+
 main() {
-    if (I1.typename() == "interface I1" && I2.typename() == "interface I2") {
+    var str1 = "interface I1"
+    var str2 = "interface I2"
+    if (I1.typename() == str1 && I2.typename() == str2 &&
+        A.typename() == str1 && B.typename() == str2) {
         0
     } else {
         1
     }
 }
-
-
