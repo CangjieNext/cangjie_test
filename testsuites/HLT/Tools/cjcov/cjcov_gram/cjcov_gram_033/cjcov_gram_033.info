@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../%n ../../scripts/compare_html.py
+// (CJNATIVE) EXEC-PIPE: cd %n&& %compiler %compile_lib_opt p1/b.cj -o p1.o
+// (CJNATIVE) EXEC-PIPE: cd %n&& %compiler --coverage a.cj p1.o --int-overflow wrapping && ./main
+// (not CJNATIVE) EXEC-PIPE: cd %n&& %compiler --output-type=cbclib p1/b.cj -o p1.cbc
+// (not CJNATIVE) EXEC-PIPE: cd %n&& %compiler --coverage a.cj p1.pdba --int-overflow wrapping && cj --cbc-path ./ main.cbc
+// EXEC-PIPE: cd %n&& %cjcov --root=./ --html-details --output=html_output
+// EXEC-PIPE: python3 compare_html.py -b %n/refrence -d %n/html_output
+
+
