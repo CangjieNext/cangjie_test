@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0-core
+// DEPENDENCE: ./src
+// (Windows)EXEC: xcopy %cangjieDir\tools\config .\config /E /I
+// (Windows)EXEC: xcopy %cangjieDir\modules .\modules /E /I
+// (not Windows)EXEC: %cp -r %cangjieDir/tools/config .
+// (not Windows)EXEC: %cp -r %cangjieDir/modules .
+// EXEC-PIPE: %lint -f ./src 2>&1 -m . -c . 2>&1 | compare %f
+// ASSERT: scan SenInfoName found!passwd is sensitive information is hard-coded in the program

@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case11/case11.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g case11.cj -o case11%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py case11.info case11 %run_env
+
+test#
+cjdb,cjdb --no-use-colors case11,case11
+AOT b,b main,case11.cj:22
+AOT r,r,22
+AOT s,s,15
+q,q,

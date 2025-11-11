@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/050_debug_dataType_basic.cj
+// EXEC: %compiler %cmp_opt -g 050_debug_dataType_basic.cj -o 050_debug_dataType_basic%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_within_watchpoint046.info 050_debug_dataType_basic %run_env
+
+test#
+cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
+b,b 30,050_debug_dataType_basic.cj:30
+AOT r,r,-> 30
+CJVM c,c,
+watchpoint,watchpoint set variable -w read_write vu5,050_debug_dataType_basic.cj:29
+modify,watch modify -c "vu5 == 2"
+c,c,-> 32|31
+print,print vu5,\(UInt8\) \$[\d] = 2
+q,q,

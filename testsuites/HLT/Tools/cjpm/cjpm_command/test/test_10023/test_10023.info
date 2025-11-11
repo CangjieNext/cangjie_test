@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // ERRCHECK: cd %n && %cjpm test -z
-// ASSERT: regex Error: unknow command '-z' for cjpm test
+// ASSERT: regex Error: unknown command '-z' for cjpm test
