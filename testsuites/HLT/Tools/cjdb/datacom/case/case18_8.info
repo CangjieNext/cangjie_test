@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case18/case18_8.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g case18_8.cj -o case18_8%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py case18_8.info case18_8 %run_env
+
+test#
+cjdb,cjdb --no-use-colors case18_8,case18_8
+b,b 44,case18_8.cj:44
+AOT r,r,-> 44
+CJVM c,c,
+AOT expr,expr castOP1,\(std.core.Option<default.Base>\) \$[\d] = {[\s\S]*name = "Alice"[\s\S]*}
+AOT expr,expr castOP6,\(std.core.Option<default.Derived2>\) \$[\d] = None
+AOT expr,expr castOP14,\(std.core.Option<default.Derived1>\) \$[\d] = None
+AOT p,p castOP6,\(std.core.Option<default.Derived2>\) \$[\d] = None
+q,q,
