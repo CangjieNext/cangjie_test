@@ -1,0 +1,12 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ./src ../config
+// EXEC-PIPE: %lint -f ./src -c ./ -m %cangjieDir 2>&1 | compare %f
+// ASSERT: regex .*test.cj:11.*G.NAM.06: Properties 'Abc' is recommended to use camelCase naming

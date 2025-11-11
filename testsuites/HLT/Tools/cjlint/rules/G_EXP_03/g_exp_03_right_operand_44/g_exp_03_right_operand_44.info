@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ./src
+// EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
+//ASSERT: regex test.cj:29:33: .*error.*: Right operand 'top_c1\?\.item' include side effect
+//ASSERT: regex test.cj:31:33: .*error.*: Right operand 'top_c1\?\.item' include side effect
+//ASSERT: regex test.cj:33:51: .*error.*: Right operand 'top_c1\?\.item' include side effect
+//ASSERT: regex test.cj:35:59: .*error.*: Right operand 'top_c1\?\.item' include side effect
+//ASSERT: regex test.cj:37:58: .*error.*: Right operand 'top_c1\?\.item' include side effect
+//ASSERT: regex test.cj:39:49: .*error.*: Right operand 'top_c1\?\.item' include side effect
+//ASSERT: regex test.cj:41:58: .*error.*: Right operand 'top_c1\?\.item' include side effect
+//ASSERT: regex test.cj:43:77: .*error.*: Right operand 'top_c1\?\.item' include side effect
+//ASSERT: regex test.cj:45:62: .*error.*: Right operand 'top_c1\?\.item' include side effect
+//ASSERT: regex test.cj:47:33: .*error.*: Right operand 'top_c1\?\.item' include side effect
+//ASSERT: regex test.cj:49:33: .*error.*: Right operand 'top_c1\?\.item' include side effect
+//ASSERT: regex test.cj:51:51: .*error.*: Right operand 'top_c1\?\.item' include side effect
+//ASSERT: regex test.cj:53:49: .*error.*: Right operand 'top_c1\?\.item' include side effect
+

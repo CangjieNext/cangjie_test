@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ./src
+// EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
+//ASSERT: regex test.cj:15:33: .*error.*: Right operand 'top_a' include side effect
+//ASSERT: regex test.cj:23:33: .*error.*: Right operand 'top_a' include side effect
+//ASSERT: regex test.cj:30:33: .*error.*: Right operand 'top_a' include side effect
+//ASSERT: regex test.cj:37:33: .*error.*: Right operand 'top_a' include side effect
+//ASSERT: regex test.cj:44:33: .*error.*: Right operand 'top_a' include side effect
+//ASSERT: regex test.cj:50:63: .*error.*: Right operand 'top_a' include side effect
+//ASSERT: regex test.cj:55:33: .*error.*: Right operand 'top_a' include side effect
+//ASSERT: regex test.cj:62:33: .*error.*: Right operand 'top_a' include side effect
+//ASSERT: regex test.cj:69:33: .*error.*: Right operand 'top_a' include side effect
+//ASSERT: regex test.cj:76:33: .*error.*: Right operand 'top_a' include side effect
+//ASSERT: regex test.cj:83:33: .*error.*: Right operand 'top_a' include side effect
+//ASSERT: regex test.cj:90:33: .*error.*: Right operand 'top_a' include side effect
