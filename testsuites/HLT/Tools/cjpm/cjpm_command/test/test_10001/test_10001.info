@@ -9,4 +9,5 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm test
-// EXEC: cd %n && %cjpm run
+// EXEC: cd %n && %cjpm run | compare %f
+// ASSERT: scan cjpm run finished

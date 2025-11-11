@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func005.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func005.cj -o generics_global_func005%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_global_func005.info generics_global_func005 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_global_func005,generics_global_func005
+b,b 30,generics_global_func005.cj:30
+AOT r,r,-> 30
+CJVM c,c,
+expr:expr x5.contains(1):\(Bool\) \$[\d] = true
+expr:expr x4.size==2:\(Bool\) \$[\d] = true
+expr:expr x4["a"]:\(UInt32\) \$[\d] = 1
+expr:expr x4["a"]+3:\(UInt32\) \$[\d] = 4
+expr:expr x3[2]:\(Int8\) \$[\d] = 3
+expr:expr x3[3]:IndexOutOfBoundsException: index: 3, size: 3
+q,q,

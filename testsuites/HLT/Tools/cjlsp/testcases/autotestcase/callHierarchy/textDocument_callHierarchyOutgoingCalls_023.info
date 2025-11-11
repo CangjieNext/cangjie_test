@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0
+// LEVEL: 1
 // DEPENDENCE:  ../../../lsp_test.py ../../../sourcecode/cangjieTest/testcallHierarchy ../../../lsp_config.txt
 // EXEC: %python lsp_test.py textDocument_callHierarchyOutgoingCalls_023.info
 

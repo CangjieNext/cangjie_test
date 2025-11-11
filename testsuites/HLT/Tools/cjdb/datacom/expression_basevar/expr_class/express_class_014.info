@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/past_basic/063_debug_expr_class.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 063_debug_expr_class.cj -o 001_express_basetype%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py express_class_014.info 001_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+CJVM b,b main,063_debug_expr_class.cj:40
+CJVM c,c,-> 40
+b,b 43,063_debug_expr_class.cj:43
+CJVM c,c,-> 43
+AOT r,r,-> 43
+expr,expr stu.tt.range1,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 2
+expr,expr stu.tt.range1=(1..5:1),\(Unit\) \$[\d] = ()
+expr,expr stu.tt.range1,\(std.core.Range<Int64>\) \$[\d] = 1..5 : 1
+q,q,

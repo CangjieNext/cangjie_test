@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/set_value/001_basevar_setvalue.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 001_basevar_setvalue.cj -o 001_basevar_setvalue%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py set_value_001.info 001_basevar_setvalue %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 001_basevar_setvalue,001_basevar_setvalue
+b,b 22,001_basevar_setvalue.cj:22
+AOT r,r,-> 22
+CJVM c,c,-> 22
+AOT expression,expression vm7,\(Bool\) \$[\d] = false
+CJVM p,p vm7,\(Bool\) \$[\d] = false
+AOT expression,expression vm7=true,\(Unit\) \$[\d] = ()
+CJVM set,set vm7=true,\(Bool\) \$[\d] = true
+q,q,
