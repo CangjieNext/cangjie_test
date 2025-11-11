@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.1.7.2.3
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class static var
   @Behavior: modify @Deprecated: warning -> error
   @Expect: api incompatible & abi incompatible
-*/
+ */
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,7 +33,7 @@
 package test_stable_abi
 
 // test class: staticmember variable
-open public class Father {}
+public open class Father {}
 
 public class Son <: Father {}
 
@@ -45,12 +45,23 @@ public class CC {
     public static var a5 = a2
     public static const a6 = a3
 
-    @Deprecated["this var is deprecated", strict: true] public static let b1 = 1
-    @Deprecated["this var is deprecated", strict: true] public static var b2 = 2
-    @Deprecated["this var is deprecated", strict: true] public static const b3 = 3
-    @Deprecated["this var is deprecated", strict: true] public static let b4 = b1
-    @Deprecated["this var is deprecated", strict: true] public static var b5 = b2
-    @Deprecated["this var is deprecated", strict: true] public static const b6 = b3
+    @Deprecated["this var is deprecated", strict: true]
+    public static let b1 = 1
+
+    @Deprecated["this var is deprecated", strict: true]
+    public static var b2 = 2
+
+    @Deprecated["this var is deprecated", strict: true]
+    public static const b3 = 3
+
+    @Deprecated["this var is deprecated", strict: true]
+    public static let b4 = b1
+
+    @Deprecated["this var is deprecated", strict: true]
+    public static var b5 = b2
+
+    @Deprecated["this var is deprecated", strict: true]
+    public static const b6 = b3
 
     public static let c1: Father = Son()
 
@@ -62,8 +73,42 @@ public class CC {
     public static const func e3() {
         e1
     }
+
     @Frozen
     public func e4() {
         e2
     }
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    let c0 = CC()
+    assert(CC.a1, 1)
+    assert(CC.a2, 2)
+    CC.a2 = 22
+    assert(CC.a2, 22)
+    CC.a2 = 2
+    assert(CC.a2, 2)
+    assert(CC.a3, 3)
+    assert(CC.a4, 1)
+    assert(CC.a5, 2)
+    CC.a5 = 22
+    assert(CC.a5, 22)
+    CC.a5 = 2
+    assert(CC.a5, 2)
+    assert(CC.a6, 3)
+
+    assert(CC.c1 is Son, true)
+    assert(CC.d1, 1)
+    assert(CC.d2, 1)
+    assert(CC.e1, 1)
+    assert(CC.e2, 2)
+    assert(CC.e3(), 1)
+    assert(c0.e4(), 2)
 }

@@ -47,3 +47,27 @@ class privateClass {
 }
 
 
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    let c = CC()
+    assert(c.a1, 1)
+    assert(c.a2, 2)
+    c.a2 = 22
+    assert(c.a2, 22)
+    c.a2 = 2
+    assert(c.a2, 2)
+    assert(c.c1, 1)
+    assert(c.c2, 2)
+    c.c2 = 22
+    assert(c.c2, 22)
+    c.c2 = 2
+    assert(c.c2, 2)
+
+    let 
+}

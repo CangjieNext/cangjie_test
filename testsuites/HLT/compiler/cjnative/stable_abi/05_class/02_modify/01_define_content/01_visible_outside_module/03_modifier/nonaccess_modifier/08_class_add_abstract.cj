@@ -64,3 +64,16 @@ class H <: H0 {}
 open abstract class I0 {}
 
 public class I <: I0 {}
+
+public func checker(): Int64 {
+    A()
+    B()
+    C()
+    D()
+    E()
+    F()
+    G()
+    H()
+    I()
+    0
+}

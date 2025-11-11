@@ -14,7 +14,7 @@ main() {
 
     C1()
     CG1<Int64>()
-    0
+    checker()
 }
 
 

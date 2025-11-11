@@ -50,3 +50,12 @@ public class C1 <: I3 & I1 {
         100
     }
 }  
+
+public func checker(): Int64 {
+    let c1 = C1()
+    if (c1.f1() == 100 && c1.ff1() == 100) {
+    } else {
+        return 1
+    }
+    0
+}

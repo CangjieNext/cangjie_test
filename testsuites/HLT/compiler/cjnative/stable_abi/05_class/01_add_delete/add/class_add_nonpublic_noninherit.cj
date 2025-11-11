@@ -140,3 +140,7 @@ class Single_Generics<T> {
         return a
     }
 }
+
+public func checker(): Int64 {
+    
+}

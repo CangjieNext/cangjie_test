@@ -76,3 +76,59 @@ public class CC {
     @Version["21.1"] private var x2 = 2
 }
 
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    let c = CC()
+    assert(c.a1, 1)
+    assert(c.a2, 2)
+    c.a2 = 22
+    assert(c.a2, 22)
+    c.a2 = 2
+    assert(c.a2, 2)
+
+    assert(c.b1, 1)
+    assert(c.b2, 2)
+    c.b2 = 22
+    assert(c.b2, 22)
+    c.b2 = 2
+    assert(c.b2, 2)
+
+    assert(c.c1, 1)
+    assert(c.c2, 2)
+    c.c2 = 22
+    assert(c.c2, 22)
+    c.c2 = 2
+    assert(c.c2, 2)
+
+    assert(c.e1, 1)
+    assert(c.e2, 2)
+    c.e2 = 22
+    assert(c.e2, 22)
+    c.e2 = 2
+    assert(c.e2, 2)
+
+    assert(c.f1, 1)
+    assert(c.f2, 2)
+    c.f2 = 22
+    assert(c.f2, 22)
+    c.f2 = 2
+    assert(c.f2, 2)
+
+    assert(c.i1, 1)
+    assert(c.i2, 2)
+    c.i2 = 22
+    assert(c.i2, 22)
+    c.i2 = 2
+    assert(c.i2, 2)
+
+    assert(c.g1, 1)
+    assert(c.h1, 1)
+    assert(c.h2(), 1)
+    assert(c.x1, 1)
+}

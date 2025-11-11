@@ -48,3 +48,10 @@ public class B {}
 
 @Version["2.0"]
 public class C {}
+
+public func checker(): Int64 {
+    A()
+    B()
+    C()
+  0
+}

@@ -40,3 +40,11 @@ protected class C {}
 internal class D {}
 private class E {}
 
+public func checker(): Int64 {
+    A()
+    B()
+    C()
+    D()
+    E()
+    0
+}

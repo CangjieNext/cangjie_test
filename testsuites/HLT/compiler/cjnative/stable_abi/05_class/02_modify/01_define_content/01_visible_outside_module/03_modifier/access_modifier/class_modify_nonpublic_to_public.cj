@@ -38,3 +38,12 @@ public class B {}
 public class C {}
 public class D {}
 public class E {}
+
+public func checker(): Int64 {
+    A()
+    B()
+    C()
+    D()
+    E()
+    0
+}
