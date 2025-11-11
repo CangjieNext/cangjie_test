@@ -7,9 +7,6 @@
 # testcase is not correct.
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 
-# mock error, call an abstract function
-API/std/unittest/mock/test_mock_extend_cjnative.cj
-
 # syntax will be supported in future
 API/syntax
 
