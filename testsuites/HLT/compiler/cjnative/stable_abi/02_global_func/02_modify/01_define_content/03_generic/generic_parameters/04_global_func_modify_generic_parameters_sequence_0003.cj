@@ -35,6 +35,44 @@ package test_stable_abi
 // global func: global func is used in const global var/func
 // modify operation: modify generic parameters sequence
 public class A {}
+<<<<<<< HEAD
+
+func global_func_01<T1, T2>() where T1 <: A, T2 <: A {
+    0
+}
+
+func global_func_02<T1, T2>() {
+    0
+}
+
+func global_func_03<T2, T1>() {
+    0
+}
+
+const func global_func_04<T1, T2>() {
+    0
+}
+
+public func global_func_05<T1, T2>() {
+    0
+}
+
+public const func global_func_06<T1, T2, T3>() {
+    global_func_04<T1, T2>()
+}
+
+@Frozen
+public func global_func_07() {
+    global_func_03<A, A>()
+}
+
+public func global_func_08() {
+    global_func_02<A, A>()
+}
+public func global_func_09() {
+    global_func_01<A, A>()
+}
+=======
 func global_func_01<T1, T2>() where T1 <: A, T2 <: A { 0 }
 func global_func_02<T1, T2>() { 0 }
 func global_func_03<T2, T1>() { 0 }
@@ -42,3 +80,4 @@ const func global_func_04<T1, T2>() { 0 }
 public func global_func_05<T1, T2>() { 0 }
 public const func global_func_06<T1, T2, T3>() { global_func_04<T1, T2>() }
 @Frozen public func global_func_07() { global_func_03<A, A>() }
+>>>>>>> upstream/dev

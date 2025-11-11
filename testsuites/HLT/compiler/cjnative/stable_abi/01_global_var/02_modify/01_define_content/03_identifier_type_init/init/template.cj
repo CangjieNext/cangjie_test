@@ -31,4 +31,10 @@ public func global_func_02() {
     global_var_04
 }
 
+<<<<<<< HEAD
+public func global_func_03() {
+    global_var_01
+}
+=======
 
+>>>>>>> upstream/dev

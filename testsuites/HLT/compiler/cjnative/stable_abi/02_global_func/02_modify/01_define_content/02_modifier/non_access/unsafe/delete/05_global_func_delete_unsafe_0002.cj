@@ -34,9 +34,40 @@ package test_stable_abi
 // test global func: modify non access modifier: unsafe
 // global func: global func is used in const global var/func
 // modify operation: delete unsafe
+<<<<<<< HEAD
+unsafe func global_func_01() {
+    0
+}
+
+unsafe func global_func_02() {
+    0
+}
+
+const func global_func_03() {
+    0
+}
+
+public unsafe func global_func_04() {
+    0
+}
+
+public unsafe const func global_func_05() {
+    global_func_03()
+}
+
+@Frozen
+public unsafe func global_func_06() {
+    global_func_02()
+}
+
+public func global_func_07() {
+    global_func_01()
+}
+=======
 unsafe func global_func_01() { 0 }
 unsafe func global_func_02() { 0 }
 const func global_func_03() { 0 }
 public unsafe func global_func_04() { 0 }
 public unsafe const func global_func_05() { global_func_03() }
 @Frozen public unsafe func global_func_06() { global_func_02() }
+>>>>>>> upstream/dev

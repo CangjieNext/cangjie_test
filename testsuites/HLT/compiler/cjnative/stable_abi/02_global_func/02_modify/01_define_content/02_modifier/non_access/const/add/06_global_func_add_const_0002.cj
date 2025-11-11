@@ -34,7 +34,30 @@ package test_stable_abi
 // test global func: modify non access modifier: const
 // global func: global func is used in @Frozen global func
 // modify operation: add const
+<<<<<<< HEAD
+func global_func_01() {
+    0
+}
+
+const func global_func_02() {
+    0
+}
+
+public func global_func_03() {
+    0
+}
+
+@Frozen
+public func global_func_04() {
+    global_func_02()
+}
+
+public func global_func_05() {
+    global_func_01()
+}
+=======
 func global_func_01() { 0 }
 const func global_func_02() { 0 }
 public func global_func_03() { 0 }
 @Frozen public func global_func_04() { global_func_02() }
+>>>>>>> upstream/dev

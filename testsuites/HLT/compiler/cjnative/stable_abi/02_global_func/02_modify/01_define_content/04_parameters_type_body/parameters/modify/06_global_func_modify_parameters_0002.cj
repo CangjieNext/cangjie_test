@@ -37,6 +37,168 @@ package test_stable_abi
 // modify operation: modify named parameters -> unnamed parameters
 public interface I {}
 extend Int64 <: I {}
+<<<<<<< HEAD
+
+func global_func_01() {
+    0
+}
+
+func global_func_11(a: Int64) {
+    0
+}
+
+func global_func_21(a!: Int64) {
+    0
+}
+
+func global_func_31(a!: Int64 = 0) {
+    0
+}
+
+func global_func_02() {
+    0
+}
+
+func global_func_12(a: Int64) {
+    0
+}
+
+func global_func_22(a!: Int64) {
+    0
+}
+
+func global_func_32(a!: Int64 = 0) {
+    0
+}
+
+const func global_func_03() {
+    0
+}
+
+const func global_func_13(a: Int64) {
+    0
+}
+
+const func global_func_23(a: Int64) {
+    0
+}
+
+const func global_func_33(a!: Int64 = 0) {
+    0
+}
+
+public func global_func_04() {
+    0
+}
+
+public func global_func_14(a: Int64) {
+    0
+}
+
+public func global_func_24(a!: Int64) {
+    0
+}
+
+public func global_func_34(a!: Int64 = 0) {
+    0
+}
+
+public const func global_func_05() {
+    global_func_03()
+}
+
+public const func global_func_15(a: Int64) {
+    global_func_13(0)
+}
+
+public const func global_func_25(a!: Int64) {
+    global_func_23(0)
+}
+
+public const func global_func_35(a!: Int64 = 0) {
+    global_func_33(a: 0)
+}
+
+@Frozen
+public func global_func_06() {
+    global_func_02()
+}
+
+@Frozen
+public func global_func_16() {
+    global_func_12(0)
+}
+
+@Frozen
+public func global_func_26() {
+    global_func_22(a: 0)
+}
+
+@Frozen
+public func global_func_36() {
+    global_func_32(a: 0)
+}
+
+func global_func_41(a: Int32, b: Int64) {
+    0
+}
+
+func global_func_42(a: Int32, b: Int64) {
+    0
+}
+
+const func global_func_43(a: Int32, b: Int64) {
+    0
+}
+
+public func global_func_44(a: Int32, b: Int64) {
+    0
+}
+
+public const func global_func_45(a: Int32, b: Int64) {
+    global_func_43(0, 0)
+}
+
+@Frozen
+public func global_func_46(a: Int32, b: Int64) {
+    global_func_42(0, 0)
+}
+
+func global_func_51(a!: Int32, b!: Int64) {
+    0
+}
+
+func global_func_52(a!: Int32, b!: Int64) {
+    0
+}
+
+const func global_func_53(a!: Int32, b!: Int64) {
+    0
+}
+
+public func global_func_54(a!: Int32, b!: Int64) {
+    0
+}
+
+public const func global_func_55(a!: Int32, b!: Int64) {
+    global_func_53(a: 0, b: 0)
+}
+
+@Frozen
+public func global_func_56(a!: Int32, b!: Int64) {
+    global_func_52(a: 0, b: 0)
+}
+
+public func global_func_57() {
+    global_func_11(0)
+}
+public func global_func_58() {
+    global_func_21(a: 0)
+}
+public func global_func_59() {
+    global_func_31(a: 0)
+}
+=======
 func global_func_01() { 0 }
 func global_func_11(a: Int64) { 0 }
 func global_func_21(a!: Int64) { 0 }
@@ -73,3 +235,4 @@ const func global_func_53(a!: Int32, b!: Int64) { 0 }
 public func global_func_54(a!: Int32, b!: Int64) { 0 }
 public const func global_func_55(a!: Int32, b!: Int64) { global_func_53(a: 0, b: 0) }
 @Frozen public func global_func_56(a!: Int32, b!: Int64) { global_func_52(a: 0, b: 0) }
+>>>>>>> upstream/dev

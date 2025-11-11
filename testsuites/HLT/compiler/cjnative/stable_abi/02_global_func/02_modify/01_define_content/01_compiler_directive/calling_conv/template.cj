@@ -43,4 +43,16 @@ public unsafe func global_func_18() {
     global_func_08()
 }
 
+<<<<<<< HEAD
+public func global_func_19() {
+    global_func_01()
+}
+public func global_func_20() {
+    global_func_07()
+}
+public func global_func_21() {
+    global_func_04()
+}
+=======
 
+>>>>>>> upstream/dev

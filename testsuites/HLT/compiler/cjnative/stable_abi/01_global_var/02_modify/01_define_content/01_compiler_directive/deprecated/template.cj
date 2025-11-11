@@ -45,4 +45,34 @@ public func global_func_03() {
     global_var_08
 }
 
+<<<<<<< HEAD
+public func global_func_04() {
+    global_var_01
+}
+public func global_func_05() {
+    0
+}
+public func global_func_06() {
+    0 + global_var_09
+}
+public func global_func_07() {
+    0 + global_var_08
+}
+public func global_func_08() {
+    0 + global_var_07
+}
+public func global_func_09() {
+    0
+}
+public func global_func_10() {
+    0
+}
+public func global_func_11() {
+    0
+}
+public func global_func_12() {
+    0
+}
+=======
 
+>>>>>>> upstream/dev

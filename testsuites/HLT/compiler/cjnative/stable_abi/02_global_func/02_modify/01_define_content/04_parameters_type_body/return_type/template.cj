@@ -28,3 +28,70 @@ public const func global_func_15() { global_func_13() }
 @Frozen public func global_func_16() { global_func_12() }
 
 
+<<<<<<< HEAD
+public class B <: A {
+    const init() {}
+}
+
+public struct C <: A {
+    const init() {}
+}
+
+func global_func_01(): A {
+    B()
+}
+
+func global_func_11(): A {
+    C()
+}
+
+func global_func_02(): A {
+    B()
+}
+
+func global_func_12(): A {
+    C()
+}
+
+const func global_func_03(): A {
+    B()
+}
+
+const func global_func_13(): A {
+    C()
+}
+
+public func global_func_04(): A {
+    B()
+}
+
+public func global_func_14(): A {
+    C()
+}
+
+public const func global_func_05() {
+    global_func_03()
+}
+
+public const func global_func_15() {
+    global_func_13()
+}
+
+@Frozen
+public func global_func_06() {
+    global_func_02()
+}
+
+@Frozen
+public func global_func_16() {
+    global_func_12()
+}
+
+public func global_func_17() {
+    global_func_01()
+}
+public func global_func_18() {
+    global_func_11()
+}
+=======
+>>>>>>> upstream/dev

@@ -34,6 +34,60 @@ package test_stable_abi
 // test global func: modify access modifier eg: public/protected/internal/private
 // global func: non public global func
 // modify operation: modify non public modifier -> public modifier
+<<<<<<< HEAD
+public func global_func_01() {
+    0
+}
+
+public func global_func_02() {
+    0
+}
+
+protected func global_func_03() {
+    0
+}
+
+public func global_func_04() {
+    0
+}
+
+internal func global_func_05() {
+    0
+}
+
+public func global_func_06() {
+    0
+}
+
+private func global_func_07() {
+    0
+}
+
+func global_func_08() {
+    0
+}
+
+func global_func_09() {
+    0
+}
+
+func global_func_10() {
+    0
+}
+
+public func global_func_11() {
+    global_func_08() + global_func_10()
+}
+public func global_func_12() {
+    global_func_02() + global_func_04() + global_func_06()
+}
+public func global_func_13() {
+    global_func_09()
+}
+public func global_func_14() {
+    global_func_03() + global_func_05() + global_func_07()
+}
+=======
 public func global_func_01() { 0 }
 public func global_func_02() { 0 }
 protected func global_func_03() { 0 }
@@ -44,3 +98,4 @@ private func global_func_07() { 0 }
 func global_func_08() { 0 }
 func global_func_09() { 0 }
 func global_func_10() { 0 }
+>>>>>>> upstream/dev

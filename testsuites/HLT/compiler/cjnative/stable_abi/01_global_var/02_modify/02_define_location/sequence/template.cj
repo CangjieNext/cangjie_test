@@ -16,4 +16,10 @@ internal var global_var_03: Int64 = 0
 protected var global_var_04: Int64 = 0
 var global_var_05: Int64 = 0
 
+<<<<<<< HEAD
+public func global_func_01(){
+    global_var_05
+}
+=======
 
+>>>>>>> upstream/dev

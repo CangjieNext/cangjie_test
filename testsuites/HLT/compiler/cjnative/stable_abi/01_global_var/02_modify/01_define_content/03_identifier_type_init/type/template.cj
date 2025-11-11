@@ -28,3 +28,29 @@ public const global_var_15 = global_var_13 is A
 @Frozen public func global_func_11() { global_var_12 is A }
 
 
+<<<<<<< HEAD
+@Frozen
+public func global_func_11() {
+    global_var_12 is A
+}
+
+public func global_func_02() {
+    global_var_03
+}
+public func global_func_03() {
+    global_var_02
+}
+public func global_func_04() {
+    global_var_01
+}
+public func global_func_05() {
+    global_var_13
+}
+public func global_func_06() {
+    global_var_12
+}
+public func global_func_07() {
+    global_var_11
+}
+=======
+>>>>>>> upstream/dev

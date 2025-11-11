@@ -33,4 +33,13 @@ public func global_func_12() {
     global_func_05()
 }
 
+<<<<<<< HEAD
+public func global_func_13() {
+    global_func_01()
+}
+public func global_func_14() {
+    global_func_04()
+}
+=======
 
+>>>>>>> upstream/dev
