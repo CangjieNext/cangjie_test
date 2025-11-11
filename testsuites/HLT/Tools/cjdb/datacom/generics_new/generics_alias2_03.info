@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_alias2.cj
+// EXEC: %compiler %cmp_opt -g generics_alias2.cj -o generics_alias2%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_alias2_03.info generics_alias2 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_alias2,generics_alias2
+b,b 147,generics_alias2.cj:147
+AOT r,r,-> 147
+CJVM c,c,
+p, p llist,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p s1.vlists,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p c1.vlistc,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p default::C1::vlist,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p globals_list,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p llist,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p,p s1,\(default.S1\) \$[\d] = {[\s\S]*vlists = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p,p c1,\(default.C1\) \$[\d] = {[\s\S]*vlistc = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+globals, globals,\(std.collection.ArrayList<Int64>\) default::C1::vlist = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+globals, globals,\(std.collection.ArrayList<Int64>\) default::globals_list = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+b, b 159,generics_alias2.cj:159
+c,c,-> 159
+p, p c,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p test_c,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+locals, locals,\(std.collection.ArrayList<Int64>\) c = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+q,q,
