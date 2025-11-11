@@ -9,4 +9,6 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build %cjpm_opt
+// ASSERT: regex -v
+// ASSERT: scan cjpm build success
 // EXEC: cd %n && %cjpm run

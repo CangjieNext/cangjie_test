@@ -8,4 +8,4 @@
 
 // LEVEL: 1
 // ERRCHECK: %cjpm init --name--path 
-// ASSERT: scan Error: unknow command '--name--path' for cjpm init
+// ASSERT: scan Error: unknown command '--name--path' for cjpm init

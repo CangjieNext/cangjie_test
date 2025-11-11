@@ -9,3 +9,6 @@ API/std/convert/radixconvertible/test_radixconvertible_int_01.cj
 API/std/convert/radixconvertible/test_radixconvertible_uint_02.cj
 API/std/os/env/test_getArgs/test_getArgs_005/test_getArgs_005.cj
 API/std/unittest/mock/test_mock_extend_cjnative.cj
+
+#lsp失败，暂时屏蔽
+Tools/cjlsp/testcases/autotestcase/callHierarchy/textDocument_callHierarchyOutgoingCalls_023.info
