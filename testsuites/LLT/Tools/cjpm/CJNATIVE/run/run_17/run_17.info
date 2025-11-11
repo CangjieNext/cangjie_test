@@ -6,6 +6,6 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run --build-args="-g --cfg1  \" --cfg6\"    -V" 2>&1 | compare %f
-// ASSERT: scan unknow command ' --cfg6' for cjpm build
+// ASSERT: scan unknown command ' --cfg6' for cjpm build
 // ASSERT: scan-not cjpm build failed
 // ASSERT: scan cjpm run failed

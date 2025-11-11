@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ./src
+// EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
+// ASSERT: regex test.cj:78:25: .*error.*: Right operand 'fooA' include side effect
+// ASSERT: regex test.cj:80:25: .*error.*: Right operand 'fooA' include side effect
+// ASSERT: regex test.cj:82:44: .*error.*: Right operand 'fooA' include side effect
+// ASSERT: regex test.cj:84:46: .*error.*: Right operand 'fooA' include side effect
+// ASSERT: regex test.cj:86:49: .*error.*: Right operand 'fooA' include side effect
+// ASSERT: regex test.cj:88:43: .*error.*: Right operand 'fooA' include side effect
+// ASSERT: regex test.cj:90:48: .*error.*: Right operand 'fooA' include side effect
+// ASSERT: regex test.cj:92:63: .*error.*: Right operand 'fooA' include side effect
+// ASSERT: regex test.cj:94:54: .*error.*: Right operand 'fooA' include side effect
+// ASSERT: regex test.cj:96:25: .*error.*: Right operand 'fooA' include side effect
+// ASSERT: regex test.cj:98:25: .*error.*: Right operand 'fooA' include side effect
+// ASSERT: regex test.cj:100:44: .*error.*: Right operand 'fooA' include side effect
+// ASSERT: regex test.cj:102:44: .*error.*: Right operand 'fooA' include side effect

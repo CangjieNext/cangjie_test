@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC-PIPE-1: cd %n && %cjpm check src 2>&1 | compare %f
-// ASSERT: regex Error: unknow command 'src' for cjpm check
+// ASSERT: regex Error: unknown command 'src' for cjpm check

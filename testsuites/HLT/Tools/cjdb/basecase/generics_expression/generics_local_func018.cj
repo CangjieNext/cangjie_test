@@ -1,11 +1,3 @@
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- * 
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
-
 public func genericsfun_int<T, T1>(a: T, b: T1): T {
     var gengricsvar = a
     var gengricsvar1 = b

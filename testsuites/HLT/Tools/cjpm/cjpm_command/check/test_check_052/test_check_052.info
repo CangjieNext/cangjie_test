@@ -9,6 +9,6 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // ERRCHECK: cd %n && %cjpm check
-// ASSERT: regex Error: the path '.[/|\\]bbbb' does not exist which is listed in 'dependencies' field
-// ASSERT: regex Error: the path '.[/|\\]cccc' does not exist which is listed in 'dependencies' field
-// ASSERT: regex Error: the path '.[/|\\]dddd' does not exist which is listed in 'dependencies' field
+// ASSERT: regex Error: the path '.[/|\\]bbbb' of module 'b' does not exist which is listed in 'dependencies' field
+// ASSERT: regex Error: the path '.[/|\\]cccc' of module 'c' does not exist which is listed in 'dependencies' field
+// ASSERT: regex Error: the path '.[/|\\]dddd' of module 'd' does not exist which is listed in 'dependencies' field
