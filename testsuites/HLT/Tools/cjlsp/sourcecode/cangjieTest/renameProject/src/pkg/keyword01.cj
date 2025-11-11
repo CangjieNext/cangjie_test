@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -13,3 +14,20 @@ public class public{
     var num = 0
 }
 var tm1 = public(2).num
+=======
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package default.pkg
+
+public class public{
+    public(x:Int64){}
+    var num = 0
+}
+var tm1 = public(2).num
+>>>>>>> upstream/dev

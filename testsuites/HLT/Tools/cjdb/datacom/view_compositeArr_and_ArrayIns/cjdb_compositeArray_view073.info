@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayIns_external_invoke.out,ArrayIns_external_invoke
-b,b 51,ArrayIns_external_invoke.cj:51
-AOT r,r,-> 51
+b,b 59,ArrayIns_external_invoke.cj:59
+AOT r,r,-> 59
 CJVM c,c,
 p,p multiArr_m_egd1[1],\(std[.]core.Array<pkgs.TimeUnit_e<Int32>>\) \$[\d] = {[\s\S]*\[0\] = Day[\s\S]*
 p,p multiArr_m_egd1[1][1],pkgs.TimeUnit_e<Int32>\) \$[\d] = Month

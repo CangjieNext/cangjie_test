@@ -5,12 +5,14 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    if (a == 1 && c == 1.1) {
+    if (a == 1 && c == 1.1){
         return 0
     }
     return 1
 }
+
+

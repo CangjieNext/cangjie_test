@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_setVar,002_debug_setVar
-b,b 10,002_debug_setVar.cj:10
-AOT r,r,-> 10
+b,b 18,002_debug_setVar.cj:18
+AOT r,r,-> 18
 CJVM c,c,
 p,p rec,Rectangle_ex\) \$[\d] = {(\r|\n|\r\n)  var_m1 = 10(\r|\n|\r\n)  var_withNoVal = 52
 set,set rec.var_withNoVal=-32,\(Int32\) \$[0-9]* = -32

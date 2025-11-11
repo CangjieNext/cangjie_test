@@ -5,13 +5,13 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
 
-open class Base {}
 
+open class Base {}
 public class c1 <: Base {}
 
 interface I {
@@ -32,13 +32,13 @@ interface Subtractable {
 
 public enum MyInt <: Addable & Subtractable {
     | Red | Green | Blue(UInt8)
-
     public func add(other: Int64): Int64 {
         10 + other
     }
     public func sub(other: Int64): Int64 {
         10 - other
     }
+
 }
 
 public enum S7 <: Addable {
@@ -71,8 +71,11 @@ public class C1 {
     const init() {
         let v3 = 0
     }
-
+    
     public const func f1() {
         let v2 = S9.Green
     }
 }
+
+
+

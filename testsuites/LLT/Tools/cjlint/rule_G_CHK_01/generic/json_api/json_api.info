@@ -1,0 +1,40 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir --import-path %cangjieStdxPath 2>&1 | compare %f
+// ASSERT: regex .*test.cj:7:17:.*Avoid using the wildcard '\*' in the import declaration 'stdx.encoding.json'.
+// ASSERT: regex .*test.cj:8:17:.*Avoid using the wildcard '\*' in the import declaration 'stdx.net.http'.
+// ASSERT: regex .*test.cj:9:17:.*Avoid using the wildcard '\*' in the import declaration 'std.console'.
+// ASSERT: regex .*test.cj:10:17:.*Avoid using the wildcard '\*' in the import declaration 'std.collection'.
+// ASSERT: regex .*test.cj:11:1:.*Prefer immutable variables when the value of the variable 'cond' does not change.
+// ASSERT: regex .*test.cj:13:5:.*Prefer immutable variables when the value of the variable 'v0' does not change.
+// ASSERT: regex .*test.cj:13:36:.*Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex .*test.cj:14:5:.*Prefer immutable variables when the value of the variable 'json' does not change.
+// ASSERT: regex .*test.cj:15:5:.*Prefer immutable variables when the value of the variable 'jv' does not change.
+// ASSERT: regex .*test.cj:16:5:.*Prefer immutable variables when the value of the variable 'v1' does not change.
+// ASSERT: regex .*test.cj:17:5:.*Prefer immutable variables when the value of the variable 'v2' does not change.
+// ASSERT: regex .*test.cj:18:5:.*Prefer immutable variables when the value of the variable 'v3' does not change.
+// ASSERT: regex .*test.cj:20:9:.*The return value is untrusted, we can't deliver it outter.
+// ASSERT: regex .*test.cj:22:9:.*The return value is untrusted, we can't deliver it outter.
+// ASSERT: regex .*test.cj:24:9:.*The return value is untrusted, we can't deliver it outter.
+// ASSERT: regex .*test.cj:31:5:.*Prefer immutable variables when the value of the variable 'v0' does not change.
+// ASSERT: regex .*test.cj:31:36:.*Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex .*test.cj:32:5:.*Prefer immutable variables when the value of the variable 'j1' does not change.
+// ASSERT: regex .*test.cj:33:5:.*Prefer immutable variables when the value of the variable 'j2' does not change.
+// ASSERT: regex .*test.cj:34:5:.*Prefer immutable variables when the value of the variable 'v1' does not change.
+// ASSERT: regex .*test.cj:35:5:.*Prefer immutable variables when the value of the variable 'json' does not change.
+// ASSERT: regex .*test.cj:36:5:.*Prefer immutable variables when the value of the variable 'v2' does not change.
+// ASSERT: regex .*test.cj:38:5:.*Prefer immutable variables when the value of the variable 'v3' does not change.
+// ASSERT: regex .*test.cj:38:25:.*Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex .*test.cj:39:5:.*Prefer immutable variables when the value of the variable 'v4' does not change.
+// ASSERT: regex .*test.cj:50:5:.*Prefer immutable variables when the value of the variable 'v0' does not change.
+// ASSERT: regex .*test.cj:50:36:.*Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex .*test.cj:51:5:.*Prefer immutable variables when the value of the variable 'jv' does not change.
+// ASSERT: regex .*test.cj:52:5:.*Prefer immutable variables when the value of the variable 'arr' does not change.
+// ASSERT: regex .*test.cj:53:5:.*Prefer immutable variables when the value of the variable 'mp' does not change.
+// ASSERT: regex .*test.cj:54:5:.*Prefer immutable variables when the value of the variable 'jo' does not change.
+// ASSERT: regex .*test.cj:59:29:.*Avoid using the getOrThrow\(\) function of the Option type.

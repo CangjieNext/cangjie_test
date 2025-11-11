@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-AOT b,b 128,list_debug.cj:130
-CJVM b,b 130,list_debug.cj:130
-AOT r,r,-> 130
-CJVM c,c,-> 130
+AOT b,b 138,list_debug.cj:138
+CJVM b,b 130,list_debug.cj:138
+AOT r,r,-> 138
+CJVM c,c,-> 138
 p,p m_base_5,\$[\d] = {[\s\S]*\[0\] = \(\)
 q,q,

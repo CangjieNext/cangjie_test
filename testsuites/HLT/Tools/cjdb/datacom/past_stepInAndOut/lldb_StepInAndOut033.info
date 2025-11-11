@@ -16,41 +16,41 @@
 
 test#
 cjdb,cjdb --no-use-colors 029_debuginfun_dowhile,029_debuginfun_dowhile
-CJVM b main,b main,029_debuginfun_dowhile.cj:4
-CJVM c,c,-> 4
-b,b 8,029_debuginfun_dowhile.cj:8
-AOT b,b 9,029_debuginfun_dowhile.cj:10
-CJVM b,b 9,029_debuginfun_dowhile.cj:9
-b,b 10,029_debuginfun_dowhile.cj:10
-b,b 11,029_debuginfun_dowhile.cj:11
-AOT r,r,-> 8
-CJVM c,c,-> 8
-finish,finish,-> 10
-s,s,-> 11
-finish,finish,-> 10
-s,s,-> 11
-finish,finish,-> 10
-s,s,-> 11
-finish,finish,-> 10
-s,s,-> 11
-finish,finish,-> 10
-s,s,-> 11
-finish,finish,-> 10
-s,s,-> 11
-finish,finish,-> 10
-s,s,-> 11
-finish,finish,-> 10
-s,s,-> 11
-finish,finish,-> 10
-s,s,-> 11
-finish,finish,-> 10
-s,s,-> 11
-s,s,-> 12
+CJVM b main,b main,029_debuginfun_dowhile.cj:12
+CJVM c,c,-> 12
+b,b 16,029_debuginfun_dowhile.cj:16
+AOT b,b 17,029_debuginfun_dowhile.cj:18
+CJVM b,b 17,029_debuginfun_dowhile.cj:17
+b,b 18,029_debuginfun_dowhile.cj:18
+b,b 19,029_debuginfun_dowhile.cj:19
+AOT r,r,-> 16
+CJVM c,c,-> 16
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+s,s,-> 20
 locals,locals,hundredo = 10
-rerun,r,-> 8
-AOT finish,finish,-> 10
-AOT finish,finish,-> 11
+rerun,r,-> 16
+AOT finish,finish,-> 18
+AOT finish,finish,-> 19
 AOT set,set hundredo = 11,11
-AOT s,s,-> 12
+AOT s,s,-> 20
 AOT locals,locals,hundredo = 11
 q,q,

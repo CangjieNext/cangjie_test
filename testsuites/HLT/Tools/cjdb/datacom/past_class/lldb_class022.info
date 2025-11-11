@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_class_top_mod_open,002_debug_class_top_mod_open
-b,b 39,002_debug_class_top_mod_open.cj:39
-AOT r,r,-> 39
-CJVM c,c,-> 39
-n,n,-> 40
+b,b 47,002_debug_class_top_mod_open.cj:47
+AOT r,r,-> 47
+CJVM c,c,-> 47
+n,n,-> 48
 locals,locals,C1\) data1 = {(\r|\n|\r\n)  a1 = 1
 print,print data1,C1\) \$[\d]+ = {(\r|\n|\r\n)  a1 = 1
 print,print data1.a1,\(Int64\) \$[\d]+ = 1

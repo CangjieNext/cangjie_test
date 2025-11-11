@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
@@ -28,7 +28,7 @@ enum Testb {
 
 public enum Testc {
     | Red | Green | Blue(UInt8)
-
+    
     public static func printType() {
         print("RGBColor")
     }
@@ -70,6 +70,7 @@ public class C1 {
     }
 }
 
+
 public enum SS7 {
     | Red | Green | Blue | ...
 
@@ -105,3 +106,5 @@ public class CC1 {
         let v2 = SS9.Green
     }
 }
+
+

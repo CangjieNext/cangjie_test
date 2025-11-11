@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors string_lambda06,string_lambda06
-b,b 6,string_lambda06.cj:6
-b,b 8,string_lambda06.cj:8
-AOT r,r,-> 6
+b,b 14,string_lambda06.cj:14
+b,b 16,string_lambda06.cj:16
+AOT r,r,-> 14
 CJVM c,c,
 expr,expr b,\(std.core.String\) \$[\d] = "lambda\\n"
-c,c,-> 8
+c,c,-> 16
 p,p a1,\(Unit\) \$[\d] = ()
 expr~expr test_lambda(1,"lambda\n")~\(Unit\) \$[\d] = ()
 q,q,

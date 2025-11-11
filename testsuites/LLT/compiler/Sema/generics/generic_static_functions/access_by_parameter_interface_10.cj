@@ -4,10 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+<<<<<<< HEAD
 // ERRCHECK: %compiler %diag_json %f -o %output
 // ASSERT: scan sema_return_type_incompatible
 // ASSERT: scan sema_inherit_member_type_inconsistent
 // ASSERT: scan "Errors": 2,
+=======
+// EXEC: %compiler %diag_json %f 2>&1 | compare %f
+>>>>>>> upstream/dev
 
 class E1 {}
 
@@ -35,3 +39,10 @@ main() {
     let obj = D<C1>().foo()
     return 1
 }
+<<<<<<< HEAD
+=======
+
+// ASSERT: scan-1 sema_inherit_member_type_inconsistent
+// ASSERT: scan-1 sema_return_type_incompatible
+// ASSERT: scan "Errors": 2
+>>>>>>> upstream/dev

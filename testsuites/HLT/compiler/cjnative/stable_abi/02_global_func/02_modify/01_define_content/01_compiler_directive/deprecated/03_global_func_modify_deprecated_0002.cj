@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 2.2.1.1.3
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global func
   @Behavior: modify @Deprecated: warning -> error
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -34,75 +34,23 @@ package test_stable_abi
 // test global func: modify compiler directive
 // global func: global func is used in const global var/func
 // modify operation: modify @Deprecated: warning -> error
-func global_func_01() {
-    0
-}
+func global_func_01() { 0 }
+func global_func_02() { 0 }
+const func global_func_03() { 0 }
+@Deprecated["this var is deprecated", strict: true] func global_func_04() { 0 }
+@Deprecated["this var is deprecated", strict: true] func global_func_05() { 0 }
+@Deprecated["this var is deprecated", strict: true] const func global_func_06() { 0 }
+@Deprecated["this var is deprecated", strict: false] func global_func_07() { 0 }
+@Deprecated["this var is deprecated", strict: false] func global_func_08() { 0 }
+@Deprecated["this var is deprecated", strict: true] const func global_func_09() { 0 }
 
-func global_func_02() {
-    0
-}
+public func global_func_10() { 0 }
+@Deprecated["this var is deprecated", strict: true] public func global_func_11() { 0 }
+@Deprecated["this var is deprecated", strict: false] public func global_func_12() { 0 }
 
-const func global_func_03() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: true]
-func global_func_04() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: true]
-func global_func_05() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: true]
-const func global_func_06() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: false]
-func global_func_07() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: false]
-func global_func_08() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: true]
-const func global_func_09() {
-    0
-}
-
-public func global_func_10() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: true]
-public func global_func_11() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: false]
-public func global_func_12() {
-    0
-}
-
-public const func global_func_13() {
-    global_func_03()
-}
-
-@Deprecated["this var is deprecated", strict: true]
-public const func global_func_14() {
-    global_func_06()
-}
-
-@Deprecated["this var is deprecated", strict: true]
-public const func global_func_15() {
-    global_func_09()
-}
+public const func global_func_13() { global_func_03() }
+@Deprecated["this var is deprecated", strict: true] public const func global_func_14() { global_func_06() }
+@Deprecated["this var is deprecated", strict: true] public const func global_func_15() { global_func_09() }
 
 @Frozen
 public func global_func_16() {

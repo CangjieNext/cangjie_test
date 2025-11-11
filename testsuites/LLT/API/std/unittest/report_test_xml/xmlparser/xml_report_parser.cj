@@ -11,6 +11,9 @@ import std.time.*
 import std.regex.*
 import std.convert.*
 import std.collection.*
+import std.process.*
+import std.io.*
+import std.fs.*
 
 public open class XmlTagParser {
     public let tagName: String
@@ -79,6 +82,85 @@ public open class XmlTagParser {
     func get(k: String): ?String {
         storage.get(k)
     }
+
+    func parseBody<Entity>(parser: (String) -> Entity): Array<Entity> 
+            where Entity <: XmlTagParser {
+        let entities = ArrayList<Entity>()
+        var shift = 0
+        while (shift + start < end) {
+            let entityStr = body?[shift..] ?? break
+            if (entityStr.isAsciiBlank()) {
+                break
+            }
+            let entity = parser(entityStr)
+            entities.add(entity)
+            shift += entity.end + 1
+        }
+        entities.toArray()
+    }
+}
+
+public class TestSuitesXml <: XmlTagParser {
+    public prop name: String {
+        get() {
+            get("name").getOrThrow()
+        }
+    }
+
+    public prop tests: Int64 {
+        get() {
+            get("tests").getOrThrow() |> Int64.parse
+        }
+    }
+
+    public prop failures: Int64 {
+        get() {
+            get("failures").getOrThrow() |> Int64.parse
+        }
+    }
+
+    public prop errors: Int64 {
+        get() {
+            get("errors").getOrThrow() |> Int64.parse
+        }
+    }
+
+    public prop skipped: Int64 {
+        get() {
+            get("skipped").getOrThrow() |> Int64.parse
+        }
+    }
+
+    public prop time: Float64 {
+        get() {
+            get("time").getOrThrow() |> Float64.parse
+        }
+    }
+
+    public prop timestamp: DateTime {
+        get() {
+            get("timestamp").getOrThrow() |> DateTime.parse
+        }
+    }
+
+    public prop testsuites: Array<TestSuiteXml> {
+        get() {
+            parseBody { str => TestSuiteXml(str) }
+        }
+    }
+
+    TestSuitesXml(suites: String) {
+        super(suites)
+        if (tagName != "testsuites") {
+            throw Exception("Expected testsuites tag name but was ${tagName}")
+        }
+    }
+
+    public static func readFromFile(path: Path) {
+        validateXml(path)
+        let suites = File.readFrom(path) |> String.fromUtf8
+        TestSuitesXml(suites)
+    }
 }
 
 public class TestSuiteXml <: XmlTagParser {
@@ -126,23 +208,11 @@ public class TestSuiteXml <: XmlTagParser {
 
     public prop testcases: Array<TestCaseXml> {
         get() {
-            let cases = ArrayList<TestCaseXml>()
-            var shift = 0
-            while (shift + start < end) {
-                let tcaseStr = body?[shift..] ?? break
-                if (tcaseStr.isAsciiBlank()) {
-                    break
-                }
-                let tcase = TestCaseXml(tcaseStr)
-                cases.add(tcase)
-
-                shift += tcase.end + 1
-            }
-            cases.toArray()
+            parseBody { str => TestCaseXml(str) }
         }
     }
 
-    public TestSuiteXml(suite: String) {
+    TestSuiteXml(suite: String) {
         super(suite)
         if (tagName != "testsuite") {
             throw Exception("Expected testuite tag name but was ${tagName}")
@@ -151,6 +221,12 @@ public class TestSuiteXml <: XmlTagParser {
             println(suite)
             throw Exception("${name}: attributed tests (${tests}) != parsed testcases (${testcases.size})")
         }
+    }
+
+    public static func readFromFile(filepath: Path) {
+        validateXml(filepath)
+        let suite = File.readFrom(filepath) |> String.fromUtf8
+        TestSuiteXml(suite)
     }
 }
 
@@ -191,7 +267,7 @@ public class TestCaseXml <: XmlTagParser {
         }
     }
 
-    public TestCaseXml(testcase: String) {
+    TestCaseXml(testcase: String) {
         super(testcase)
         if (tagName != "testcase") {
             throw Exception("Expected testcase tag name but was ${tagName}")
@@ -286,3 +362,20 @@ public class TestCaseData {
         }
     }
 }
+
+
+public func validateXml(filepath: Path): Unit { 
+    let timeout = Duration.second * 3
+
+    // This line expects testcases being called from the parent directory
+    let scriptpath = Process.current.workingDirectory.join("xmlparser/parse_xml_file.py")
+
+    let subprocess = launch("python", [scriptpath.toString(), filepath.toString()])
+    let returnCode = subprocess.wait(timeout: timeout)
+    if (returnCode != 0) {
+        let stderr = StringReader(subprocess.stdErrPipe).readToEnd()
+        throw Exception(stderr)
+    }
+}
+
+main() {}

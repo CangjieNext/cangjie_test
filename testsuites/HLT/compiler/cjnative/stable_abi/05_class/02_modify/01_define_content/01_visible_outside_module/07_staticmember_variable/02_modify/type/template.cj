@@ -5,14 +5,18 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test class: staticmember variable
-public open class Father {}
+open public class Father {
+    const init() {}
+}
 
-public class Son <: Father {}
+public class Son <: Father {
+    const init() {}
+}
 
 public class CC {
     public static let a1: Any = 1
@@ -20,7 +24,95 @@ public class CC {
     public static const a3: Int64 = 3
 
     public static let c1: Father = Father()
-    protected static let c2: Son = Son()
-    internal static const c3: Int64 = 1
-    private static var c4: Int64 = 1
+    public static let c2: Son = Son()
+
+    static const c3: Father = Father()
+    public static const func f3(): Father {
+        c3
+    }
+
+    static const c4: Son = Son()
+    public static const func f4(): Son {
+        c4
+    }
+
+    static var c5: Father = Father()
+    @Frozen
+    public static func f5(): Father {
+        c5
+    }
+
+    static var c6: Son = Son()
+    @Frozen
+    public static func f6(): Son {
+        c6
+    }
 }
+
+open class baseClass {
+    public static let a1: Any = 1
+    public static var a2: Any = 2
+    public static const a3: Int64 = 3
+
+    public static let c1: Father = Father()
+    public static let c2: Son = Son()
+
+    static const c3: Father = Father()
+    public static const func f3(): Father {
+        c3
+    }
+
+    static const c4: Son = Son()
+    public static const func f4(): Son {
+        c4
+    }
+
+    static var c5: Father = Father()
+    @Frozen
+    public static func f5(): Father {
+        c5
+    }
+
+    static var c6: Son = Son()
+    @Frozen
+    public static func f6(): Son {
+        c6
+    }
+}
+
+public class B <: baseClass {
+    let b: Int64 = 20
+}
+
+class privateClass {
+    public static let a1: Any = 1
+    public static var a2: Any = 2
+    public static const a3: Int64 = 3
+
+    public static let c1: Father = Father()
+    public static let c2: Son = Son()
+
+    static const c3: Father = Father()
+    public static const func f3(): Father {
+        c3
+    }
+
+    static const c4: Son = Son()
+    public static const func f4(): Son {
+        c4
+    }
+
+    static var c5: Father = Father()
+    @Frozen
+    public static func f5(): Father {
+        c5
+    }
+
+    static var c6: Son = Son()
+    @Frozen
+    public static func f6(): Son {
+        c6
+    }
+}
+
+

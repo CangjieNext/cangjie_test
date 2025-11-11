@@ -5,12 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test class: staticmember variable
-public open class Father {}
+open public class Father {}
 
 public class Son <: Father {}
 
@@ -25,7 +25,7 @@ public class CC {
     protected static let b4 = 4
     internal static var b5 = 5
     private static const b6 = 6
-
+    
     public static let c1: Father = Son()
 
     static const d1 = 1
@@ -36,9 +36,10 @@ public class CC {
     public static const func e3() {
         e1
     }
-
     @Frozen
     public func e4() {
         e2
     }
 }
+
+

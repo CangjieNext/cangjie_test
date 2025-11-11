@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_setVar_inherit,003_debug_setVar_inherit
-b,b 15,003_debug_setVar_inherit.cj:15
-AOT r,r,-> 15
+b,b 23,003_debug_setVar_inherit.cj:23
+AOT r,r,-> 23
 CJVM c,c,
 p,p class_sub_ins2.chwidth,\(Int64\) \$[\d] = 64
 set,set class_sub_ins2.chwidth =960,\(Int64\) \$[0-9]* = 960

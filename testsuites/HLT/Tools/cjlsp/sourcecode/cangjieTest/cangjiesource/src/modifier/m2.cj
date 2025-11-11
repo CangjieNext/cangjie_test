@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -16,3 +17,23 @@ func t2() {
     m2.a
 
 }
+=======
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package default.modifier
+
+import default.modifier.pkg2 as test
+
+func t2() {
+    var m1 = test.AB(2, 8)
+    var m2 = test.AB(1, 1, 6)
+    m2.a
+
+}
+>>>>>>> upstream/dev

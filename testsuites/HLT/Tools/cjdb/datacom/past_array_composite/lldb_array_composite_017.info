@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_string,001_debug_array_string
-b,b 57,001_debug_array_string.cj:57
-AOT r,r,-> 57
+b,b 65,001_debug_array_string.cj:65
+AOT r,r,-> 65
 CJVM c,c,
 locals,locals,std[.]core.Option<std[.]core.String>\)
 q,q,

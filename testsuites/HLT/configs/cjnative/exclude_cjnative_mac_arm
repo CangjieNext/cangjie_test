@@ -1,15 +1,32 @@
 # Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 # This source file is part of the Cangjie project, licensed under Apache-2.0
 # with Runtime Library Exception.
-#
+# 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-# should be fixed.
-API/std/convert/radixconvertible/test_radixconvertible_int_01.cj
-API/std/convert/radixconvertible/test_radixconvertible_uint_02.cj
-API/std/os/env/test_getArgs/test_getArgs_005/test_getArgs_005.cj
+Tools/cjdb/datacom/ArrayList/arraylist_test_017.info
+Tools/cjdb/datacom/C_FFI/viewVariables_CFunc_07.info
+Tools/cjdb/datacom/lambda/lldb_lambda_05.info
+Tools/cjdb/datacom/lambda/lldb_lambda_10.info
+Tools/cjdb/datacom/past_HashMap/Core_HashMap_view_12.info
+Tools/cjdb/datacom/past_array_composite/lldb_array_composite_015.info
+Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointInMain026.info
+Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointNotInMain034.info
+Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointNotInMain037.info
+Tools/cjdb/datacom/past_debug_operation/lldb_Continue004.info
+Tools/cjdb/datacom/past_enum/lldb_enum026.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut007.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut044.info
+Tools/cjdb/datacom/past_variable_modify/lldb_VariableModify056.info
+Tools/cjdb/datacom/within_setVar/cjdb_within_setVar048.info
+Tools/cjdb/datacom/within_watchpoint/lldb_within_watchpoint055.info
+# testcase is not correct.
+Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
+
+# mock error, call an abstract function
 API/std/unittest/mock/test_mock_extend_cjnative.cj
 
+<<<<<<< HEAD
 # Reflect not supported on Mac
 API/std/reflect/cjnative/findAnnotation/test_findAllAnnotations.cj
 API/std/reflect/cjnative/findAnnotation/test_getAllAnnotations.cj
@@ -29,3 +46,181 @@ API/std/socket/UdpSocket/test_udp_transportation_init.cj
 # not support now
 API/net/New_HTTP/HttpRequest/test_connection_close.cj
 API/net/request/request_api_15.cj
+=======
+# syntax will be supported in future
+API/syntax
+
+# timezone file in ci not support now
+API/std/time/TimeZone/load/test_loadFromPaths.cj
+
+# fail in ci env
+API/std/socket/UdpSocket/test_udp_transportation_init.cj
+# objcffi not support call mut func
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0022/
+# objcffi not support multi file
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0003/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0004/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0015/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0016/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0020/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0021/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0031/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0032/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0041/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0042/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0051/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0052/
+# objcffi not support not public member
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0006/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0007/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0008/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0009/
+# case not support
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0010/
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0030/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0008/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0008_1/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0009/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0010/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0011/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_prop_0003/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_field_0002/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_field_0007/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_pointer_0014/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_field_0014/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0001/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0002/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0003/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0004/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0007/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0009/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0001/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0002/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0003/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0004/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0005/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0006/
+# todo: super()
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0005/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0006/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0007/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0008/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0009/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0005/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0006/
+# objcid
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0002/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0003/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0004/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0005/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0006/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0007/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0001/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0002/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0003/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0004/
+# interface
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002_1/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0004/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0006/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0007/
+# subtyping
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0013/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0014/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0016/
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0017/
+
+# cjdb
+Tools/cjdb/datacom/C_FFI/viewVariables_Cstring_009.info
+Tools/cjdb/datacom/C_FFI/viewVariables_Cstring_012.info
+Tools/cjdb/datacom/case/case06_1.info
+Tools/cjdb/datacom/case/case07_do_while.info
+Tools/cjdb/datacom/case/case12_char.info
+Tools/cjdb/datacom/case/case12_range.info
+Tools/cjdb/datacom/case/case12_string.info
+Tools/cjdb/datacom/case/case12_unit.info
+Tools/cjdb/datacom/demangle/demangle_004.info
+Tools/cjdb/datacom/demangle/demangle_016.info
+Tools/cjdb/datacom/enhance_breakPoint/breakpoint_able_002.info
+Tools/cjdb/datacom/generics_new/generics_fun_returnvalue_02.info
+Tools/cjdb/datacom/generics_new/generics_fun_returnvalue_03.info
+Tools/cjdb/datacom/generics_new/generics_fun_returnvalue_04.info
+Tools/cjdb/datacom/generics_new/generics_fun_returnvalue_05.info
+Tools/cjdb/datacom/generics_new/generics_fun_returnvalue_06.info
+Tools/cjdb/datacom/generics_new/generics_fun_returnvalue_07.info
+Tools/cjdb/datacom/generics_new/generics_fun_returnvalue_08.info
+Tools/cjdb/datacom/generics_new/generics_fun_returnvalue_09.info
+Tools/cjdb/datacom/generics_new/generics_fun_returnvalue_10.info
+Tools/cjdb/datacom/generics_new/generics_fun_returnvalue_13.info
+Tools/cjdb/datacom/generics_new/generics_fun_returnvalue_14.info
+Tools/cjdb/datacom/generics_new/generics_fun_returnvalue_15.info
+Tools/cjdb/datacom/generics_new/generics_fun_returnvalue_16.info
+Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointInMain016.info
+Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointInMain038.info
+Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointInMain043.info
+Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointNotInMain008.info
+Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointNotInMain032.info
+Tools/cjdb/datacom/past_enum/enum_arg_11.info
+Tools/cjdb/datacom/past_enum/enum_arg_12.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp002.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp007.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp008.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp009.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp010.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp022.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp023.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp024.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp025.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp027.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp028.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp029.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp030.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp031.info
+Tools/cjdb/datacom/past_functionBP/lldb_FunctionBp036.info
+Tools/cjdb/datacom/past_pkgs/lldb_pkgs009.info
+Tools/cjdb/datacom/past_pkgs/lldb_pkgs012.info
+Tools/cjdb/datacom/past_pkgs/lldb_pkgs013.info
+Tools/cjdb/datacom/past_pkgs/lldb_pkgs014.info
+Tools/cjdb/datacom/past_pkgs/lldb_pkgs015.info
+Tools/cjdb/datacom/past_pkgs/lldb_pkgs016.info
+Tools/cjdb/datacom/past_record/lldb_record028.info
+Tools/cjdb/datacom/past_record/lldb_record030.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut003.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut006.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut010.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut016.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut017.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut018.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut019.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut020.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut025.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut029.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut032.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut036.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut041.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut042.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut043.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut045.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut046.info
+Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut052.info
+Tools/cjdb/datacom/past_variable_modify/lldb_VariableModify054.info
+Tools/cjdb/datacom/within_arrayview/lldb_within_arrayview024.info
+Tools/cjdb/datacom/within_setVar/cjdb_within_setVar032.info
+Tools/cjdb/datacom/within_setVar/cjdb_within_setVar033.info
+Tools/cjdb/datacom/within_setVar/cjdb_within_setVar039.info
+Tools/cjdb/datacom/within_stepin/lldb_within_stepin024.info
+Tools/cjdb/datacom/within_stepin/lldb_within_stepin026.info
+Tools/cjdb/datacom/within_stepin/lldb_within_stepin029.info
+Tools/cjdb/datacom/within_stepin/lldb_within_stepin030.info
+Tools/cjdb/datacom/within_stepin/lldb_within_stepin032.info
+Tools/cjdb/datacom/within_stepin/lldb_within_stepin037.info
+Tools/cjdb/datacom/within_stepin/lldb_within_stepin050.info
+Tools/cjdb/datacom/within_stepin/lldb_within_stepin051.info
+Tools/cjdb/datacom/within_stepin/lldb_within_stepin055.info
+Tools/cjdb/datacom/within_stepin/lldb_within_stepin056.info
+Tools/cjdb/datacom/within_stepin/lldb_within_stepin065.info
+Tools/cjdb/datacom/within_watchpoint/lldb_within_watchpoint057.info
+Tools/cjdb/datacom/within_watchpoint/lldb_within_watchpoint059.info
+>>>>>>> upstream/dev

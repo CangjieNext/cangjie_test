@@ -4,12 +4,22 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+<<<<<<< HEAD
 // ERRCHECK: %compiler %diag_json %f -o %output
 // ASSERT: scan sema_generic_type_argument_not_match_constraint
 // ASSERT: scan "Errors": 1,
+=======
+// EXEC-PIPE-1: %compiler %diag_json %f -o %output 2>&1 | compare %f
+>>>>>>> upstream/dev
 
 struct A {}
 
 main() {
     sizeOf<VArray<A, $3>>()
 }
+<<<<<<< HEAD
+=======
+
+// ASSERT: scan-1 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan "Errors": 1
+>>>>>>> upstream/dev

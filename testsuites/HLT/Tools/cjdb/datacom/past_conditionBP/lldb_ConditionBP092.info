@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_condition_bp,045_debug_condition_bp
-breakpoint,breakpoint set -l 72 -c 'numfl64>7.0',045_debug_condition_bp.cj:72
-AOT r,r,-> 72
+breakpoint,breakpoint set -l 80 -c 'numfl64>7.0',045_debug_condition_bp.cj:80
+AOT r,r,-> 80
 CJVM c,c,
 locals,locals,numfl64 = 8
-c,c,-> 72
+c,c,-> 80
 locals,locals,numfl64 = 9
 c,c,exited with status
 q,q,

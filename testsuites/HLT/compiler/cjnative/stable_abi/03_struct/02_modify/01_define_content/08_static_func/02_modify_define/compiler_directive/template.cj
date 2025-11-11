@@ -5,15 +5,16 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
 
+
 public struct Rectangle {
     static let width = 10
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
     static const func geta1() {
@@ -53,4 +54,29 @@ public struct Rectangle {
         const b = geta7()
         return b
     }
+
+    static func geta9() {
+        return 1
+    }
+
+    @Deprecated["this function is deprecated", strict: true]
+    static func geta10() {
+        return 4
+    }
+
+    @Deprecated["this function is deprecated", strict: true]
+    static const func geta11() {
+        return 5
+    }
+
+    @Deprecated["this function is deprecated", strict: true]
+    public static func geta12() {
+        @Deprecated["this function is deprecated", strict: true]
+        const b = geta11()
+        return b
+    }
+
 }
+
+
+

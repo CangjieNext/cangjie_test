@@ -1,0 +1,28 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir 2>&1 | compare %f
+// ASSERT: regex .*test.cj:125:18:.*Right operand 'num' include side effect
+// ASSERT: regex .*test.cj:125:28:.*Right operand 'num' include side effect
+// ASSERT: regex .*test.cj:126:19:.*Right operand 'num' include side effect
+// ASSERT: regex .*test.cj:126:32:.*Right operand 'num' include side effect
+// ASSERT: regex .*test.cj:129:18:.*Right operand 'wrongCaseOne' include side effect
+// ASSERT: regex .*test.cj:130:18:.*Right operand 'wrongCaseTwo' include side effect
+// ASSERT: regex .*test.cj:131:18:.*Right operand 'wrongCaseThree' include side effect
+// ASSERT: regex .*test.cj:132:18:.*Right operand 'C.wrongCaseFour' include side effect
+// ASSERT: regex .*test.cj:133:18:.*Right operand 'C.wrongCaseFive' include side effect
+// ASSERT: regex .*test.cj:134:18:.*Right operand 'wrongCaseSix' include side effect
+// ASSERT: regex .*test.cj:135:18:.*Right operand 'C.wrongCaseSeven' include side effect
+// ASSERT: regex .*test.cj:136:18:.*Right operand 'C.wrongCaseEight' include side effect
+// ASSERT: regex .*test.cj:137:18:.*Right operand 'wrongCaseNine' include side effect
+// ASSERT: regex .*test.cj:138:18:.*Right operand 'C.wrongCaseTen' include side effect
+// ASSERT: regex .*test.cj:139:18:.*Right operand 'f' include side effect
+// ASSERT: regex .*test.cj:149:20:.*Right operand 'wrongCaseOne' include side effect
+// ASSERT: regex .*test.cj:150:20:.*Right operand 'wrongCaseTwo' include side effect
+// ASSERT: regex .*test.cj:151:20:.*Right operand 'wrongCaseThree' include side effect
+// ASSERT: regex .*test.cj:152:21:.*Right operand 'C.wrongCaseFour' include side effect
+// ASSERT: regex .*test.cj:153:21:.*Right operand 'C.wrongCaseFive' include side effect

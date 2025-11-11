@@ -5,9 +5,12 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // ERRCHECK: %compiler %diag_json %f -o %output
+<<<<<<< HEAD
 // ASSERT: scan-3 sema_generic_constraint_not_looser
 // ASSERT: scan sema_missing_entry
 // ASSERT: scan "Errors": 4,
+=======
+>>>>>>> upstream/dev
 
 open class A {}
 
@@ -36,3 +39,11 @@ class F <: Base {
     static redef func f<T>(a: T): Unit where T <: B {} // OK，same constraint
     static redef func g<T>(): Unit where T <: B {} // OK，same constraint
 }
+<<<<<<< HEAD
+=======
+
+main() {}
+
+// ASSERT: scan-3 sema_generic_constraint_not_looser
+// ASSERT: scan "Errors": 3
+>>>>>>> upstream/dev

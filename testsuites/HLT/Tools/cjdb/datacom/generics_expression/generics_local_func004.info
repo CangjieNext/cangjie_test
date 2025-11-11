@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func004,generics_local_func004
-b,b 42,generics_local_func004.cj:42
-AOT r,r,-> 42
+b,b 50,generics_local_func004.cj:50
+AOT r,r,-> 50
 CJVM c,c,
 expr:expr p3:\(default.Point\) \$[\d] = {[\s\S]*x = 0[\s\S]*y = 0[\s\S]*}
 expr:expr p1 + p2:\(default.Point\) \$[\d] = {[\s\S]*x = 0[\s\S]*y = 0[\s\S]*}

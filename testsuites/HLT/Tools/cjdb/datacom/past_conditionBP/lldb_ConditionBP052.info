@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 026_debuginfun_if,026_debuginfun_if
-breakpoint,breakpoint set -l 11 -c 'if001==true',026_debuginfun_if.cj:11
-breakpoint,breakpoint set -l 18 -c 'if001==true',026_debuginfun_if.cj:18
-AOT r,r,-> 11
+breakpoint,breakpoint set -l 19 -c 'if001==true',026_debuginfun_if.cj:19
+breakpoint,breakpoint set -l 26 -c 'if001==true',026_debuginfun_if.cj:26
+AOT r,r,-> 19
 CJVM c,c,
-c,c,-> 18
-n,n,-> 20
+c,c,-> 26
+n,n,-> 28
 locals,locals,if_a = 2
 q,q,

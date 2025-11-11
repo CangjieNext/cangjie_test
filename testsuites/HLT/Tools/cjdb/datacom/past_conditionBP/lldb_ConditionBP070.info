@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 042_debuginfun_expressions,042_debuginfun_expressions
-breakpoint,breakpoint set -l 26 -c 'weip==-30',042_debuginfun_expressions.cj:26
-AOT r,r,-> 26
+breakpoint,breakpoint set -l 34 -c 'weip==-30',042_debuginfun_expressions.cj:34
+AOT r,r,-> 34
 CJVM c,c,
-n,n,-> 29
+n,n,-> 37
 locals,locals,weiq = -120
 q,q,

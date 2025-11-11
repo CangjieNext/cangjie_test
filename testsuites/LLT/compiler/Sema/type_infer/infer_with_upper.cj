@@ -4,9 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+<<<<<<< HEAD
 // EXEC: %frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
 // ASSERT: scan sema_unable_to_infer_generic_func
 // ASSERT: scan "Errors": 1,
+=======
+// EXEC:%frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
+>>>>>>> upstream/dev
 
 interface I<T> {}
 
@@ -38,3 +42,9 @@ main() {
     test<Int64>()
     return 0
 }
+<<<<<<< HEAD
+=======
+
+// ASSERT: scan-1 sema_unable_to_infer_generic_func
+// ASSERT: scan "Errors": 1
+>>>>>>> upstream/dev

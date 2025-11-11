@@ -77,7 +77,7 @@ main(): Int64 {
     if (expr3.resourceSpec.size != 2) {
         return 12
     }
-
+    
     return 0
 }
 /*

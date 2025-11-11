@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors enum_arg,enum_arg
-b,b 29,default(::|\.)main\(\)[\s\S]*enum_arg.cj:29
-AOT r,r,-> 29
+b,b 37,default(::|\.)main\(\)[\s\S]*enum_arg.cj:37
+AOT r,r,-> 37
 CJVM c,c,
 p,p test_enum_3,\(default.test_RGBColor\) \$[\d] = {(\r|\n|\r\n)  constructor = Yellow_3[\s\S]*arg_1 = "测试%&……%￥#"[\s\S]*arg_2 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*arg_3 = {[\s\S]*\[0\] = 18[\s\S]*\[1\] = "测试test"[\s\S]*}[\s\S]*arg_4 = \(\)[\s\S]*arg_5 = 0..5 : 1[\s\S]*arg_6 = {(\r|\n|\r\n)    constructor = Yellow[\s\S]*}
 q,q,

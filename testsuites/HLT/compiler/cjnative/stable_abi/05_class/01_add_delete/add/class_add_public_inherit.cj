@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.1
   @Scene: add
@@ -13,7 +13,7 @@
   @Object: class
   @Behavior: add class
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,7 +33,7 @@
 package test_stable_abi
 
 // test class: add new class
-public open class Father {
+open public class Father {
     public var v1 = 0
     public mut prop v2: Int64 {
         get() {
@@ -45,7 +45,7 @@ public open class Father {
     }
     public var v3: Int64
 
-    public open func foo1(a: Int64) {
+    open public func foo1(a: Int64) {
         10
     }
 
@@ -58,7 +58,7 @@ public open class Father {
     }
 }
 
-public open class Generics<T> {
+open public class Generics<T> {
     public var _v1 = 0
     public mut prop _v2: Int64 {
         get() {
@@ -70,7 +70,7 @@ public open class Generics<T> {
     }
     public var _v3: Int64
 
-    public open func goo1(a: Int64) {
+    open public func goo1(a: Int64) {
         10
     }
 
@@ -88,12 +88,12 @@ public open class Generics<T> {
 }
 
 public class Son <: Father {
-    public var v4: Int64
+    public var v4 : Int64
     public override func foo1(a: Int64) {
         100
     }
 
-    public static redef func foo2(a: Int64) {
+    redef public static func foo2(a: Int64) {
         1001
     }
 
@@ -110,7 +110,7 @@ public class Son_Generics<T> <: Generics<T> {
         101
     }
 
-    public static redef func goo2(a: Int64) {
+    redef public static func goo2(a: Int64) {
         1002
     }
 

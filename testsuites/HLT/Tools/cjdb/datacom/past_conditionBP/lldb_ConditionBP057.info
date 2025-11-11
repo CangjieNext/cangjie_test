@@ -16,12 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 040_debuginfun_typechange,040_debuginfun_typechange
-breakpoint,breakpoint set -l 10 -c 'i8Number==127',040_debuginfun_typechange.cj:10
-breakpoint,breakpoint set -l 11 -c 'i8Number==127',040_debuginfun_typechange.cj:11
-AOT r,r,-> 10
+breakpoint,breakpoint set -l 18 -c 'i8Number==127',040_debuginfun_typechange.cj:18
+breakpoint,breakpoint set -l 19 -c 'i8Number==127',040_debuginfun_typechange.cj:19
+AOT r,r,-> 18
 CJVM c,c,
-c,c,-> 11
+c,c,-> 19
 locals,locals,i16Number = 127
-n,n,-> 13
+n,n,-> 21
 locals,locals,i8Number = 127
 q,q,

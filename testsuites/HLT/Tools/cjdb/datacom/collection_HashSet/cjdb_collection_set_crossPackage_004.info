@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashSet_external_invoke,collection_HashSet_external_invoke
-b,b 17,collection_HashSet_external_invoke.cj:17
-AOT r,r,-> 17
-CJVM c,c,-> 17
-b,b 20,collection_HashSet_external_invoke.cj:20
-c,c,-> 20
+b,b 25,collection_HashSet_external_invoke.cj:25
+AOT r,r,-> 25
+CJVM c,c,-> 25
+b,b 28,collection_HashSet_external_invoke.cj:28
+c,c,-> 28
 p,p val_4,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[0\] = 958[\S\s]*}
 p,p val_4,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[1\] = 62654[\S\s]*}
 q,q,

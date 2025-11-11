@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -13,7 +13,10 @@ package test_stable_abi
 let global_var_01: Int64 = 0
 let global_var_02: Int64 = 0
 public let global_var_03: Int64 = 0
+@Frozen public func global_func_01() { global_var_02 }
 
+
+<<<<<<< HEAD
 @Frozen
 public func global_func_01() {
     global_var_02
@@ -22,3 +25,5 @@ public func global_func_01() {
 public func global_func_02() {
     global_var_01
 }
+=======
+>>>>>>> upstream/dev

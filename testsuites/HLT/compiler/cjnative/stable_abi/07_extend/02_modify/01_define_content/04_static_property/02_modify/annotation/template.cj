@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -34,7 +34,7 @@ extend TestClass {
     }
 
     @CustomAnnotation["Sample", version: 1]
-    mut static prop prop2: Int64 {
+    static mut prop prop2: Int64 {
         get() {
             1
         }
@@ -44,7 +44,7 @@ extend TestClass {
     }
 
     @CustomAnnotation["Sample", version: 1]
-    mut static prop prop3: Int64 {
+    static mut prop prop3: Int64 {
         get() {
             1
         }
@@ -64,7 +64,7 @@ extend TestClass {
         }
     }
 
-    mut static prop prop_2: Int64 {
+    static mut prop prop_2: Int64 {
         get() {
             1
         }
@@ -73,7 +73,7 @@ extend TestClass {
         }
     }
 
-    mut static prop prop_3: Int64 {
+    static mut prop prop_3: Int64 {
         get() {
             1
         }
@@ -87,3 +87,5 @@ extend TestClass {
         prop_3
     }
 }
+
+

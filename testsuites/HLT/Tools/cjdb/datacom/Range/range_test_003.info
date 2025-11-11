@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors range_baseVar,range_baseVar
-b,b 11,range_baseVar.cj:11
-AOT r,r,-> 11
-CJVM c,c,-> 11
+b,b 19,range_baseVar.cj:19
+AOT r,r,-> 19
+CJVM c,c,-> 19
 p,p r5,\(std[.]core.Range<Rune>\) \$[\d] = 'A'..'Z' : 1
 p,p r6,\(std[.]core.Range<Rune>\) \$[\d] = 'z'..'a' : -1
 q,q,

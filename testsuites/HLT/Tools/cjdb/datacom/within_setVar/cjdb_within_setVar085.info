@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors arrayView_external_invoke.out,arrayView_external_invoke
-b,b 16,arrayView_external_invoke.cj:16
-AOT r,r,-> 16
+b,b 24,arrayView_external_invoke.cj:24
+AOT r,r,-> 24
 CJVM c,c,
 p,p val_2[2],std[.]core.Array<std[.]core.Array<Int32>>\) \$[\d] = {[\s\S]*
 set,set val_2[2][0]=236,error: unsupported expression

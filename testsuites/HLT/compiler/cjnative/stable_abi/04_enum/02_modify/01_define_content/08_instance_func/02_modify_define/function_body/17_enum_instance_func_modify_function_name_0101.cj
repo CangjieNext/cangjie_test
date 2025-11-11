@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 4.2.1.8.2.17
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: enum instance func
   @Behavior: modify function name
   @Expect: api incompatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -33,10 +33,11 @@
 // test enum: modify public function name
 package test_stable_abi
 
+
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 
@@ -45,7 +46,7 @@ public enum Rectangle {
         return b
     }
 
-    public const func getb(a: Int64): Int64 {
+    const public func getb(a: Int64): Int64 {
         let b = a + 1
         return b
     }
@@ -86,3 +87,4 @@ public enum Rectangle {
         return x
     }
 }
+

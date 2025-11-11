@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 068_debug_hashset,068_debug_hashset
-b,b 32,068_debug_hashset.cj:32
-AOT r,r,-> 32
-CJVM c,c,-> 32
+b,b 40,068_debug_hashset.cj:40
+AOT r,r,-> 40
+CJVM c,c,-> 40
 p,p hashset15,\(std\.collection.HashSet<std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "aa"[\s\S]*\[1\] = "bb"[\s\S]*}
 locals,locals,hashset15 = {[\s\S]*\[0\] = "aa"[\s\S]*\[1\] = "bb"[\s\S]*}
 q,q,

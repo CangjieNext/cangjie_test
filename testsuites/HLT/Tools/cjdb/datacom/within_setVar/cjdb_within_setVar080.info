@@ -15,11 +15,11 @@
 
 test#
 cjdb,cjdb --no-use-colors setVar_external_invoke.out,setVar_external_invoke
-b,b 32,setVar_external_invoke.cj:32
-AOT r,r,-> 32
+b,b 40,setVar_external_invoke.cj:40
+AOT r,r,-> 40
 CJVM c,c,
-s,s,static func fun_cs1\(par_1:T\)[\s\S]*-> 124
-n,n,-> 125
+s,s,static func fun_cs1\(par_1:T\)[\s\S]*-> 132
+n,n,-> 133
 p,p par_fs1,\(Float16\) \$[\d] = 10.117
 set,set par_fs1=-12.23,\(Float16\) \$[0-9]* = -12.227
 p,p par_fs1,\(Float16\) \$[\d] = -12.227

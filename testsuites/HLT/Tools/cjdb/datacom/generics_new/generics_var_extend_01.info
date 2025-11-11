@@ -14,29 +14,29 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 99,generics_var_extend.cj:99
-b,b 116,generics_var_extend.cj:116
-b,b 128,generics_var_extend.cj:128
-b,b 135,generics_var_extend.cj:135
-b,b 152,generics_var_extend.cj:152
-AOT r,r,-> 99
+b,b 107,generics_var_extend.cj:107
+b,b 124,generics_var_extend.cj:124
+b,b 136,generics_var_extend.cj:136
+b,b 143,generics_var_extend.cj:143
+b,b 160,generics_var_extend.cj:160
+AOT r,r,-> 107
 CJVM c,c,
 p, p a,\(Int64\) \$[\d] = 64
 p, p a1,\(Int64\) \$[\d] = 64
 locals, locals,\(Int64\) a = 64[\s\S]*\(Int64\) a1 = 64
-c,c,-> 116
+c,c,-> 124
 p, p a,\(std.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 p, p a2,\(Int64\) \$[\d] = 6
 locals, locals,\(std.collection.HashSet<Int64>\) a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*[\s\S]*\(Int64\) b = 6[\s\S]*\(std.collection.HashSet<Int64>\) a1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*[\s\S]*\(Int64\) a2 = 6
-c,c,-> 128
+c,c,-> 136
 p, p a1,\(Rune\) \$[\d] = 'a'
 p, p b,\(std.core.String\) \$[\d] = "cangjie"
 locals, locals,\(Rune\) a = 'a'[\s\S]*\(std.core.String\) b = "cangjie"[\s\S]*\(Rune\) a1 = 'a'[\s\S]*\(std.core.String\) a2 = "cangjie"
-c,c,-> 135
+c,c,-> 143
 p, p a,\(UInt16\) \$[\d] = 16
 p, p a1,\(UInt16\) \$[\d] = 16
 locals, locals,\(UInt16\) a = 16[\s\S]*\(UInt16\) a1 = 16
-c,c,-> 152
+c,c,-> 160
 p, p a,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
 p, p b,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 locals, locals,\(std.collection.HashMap<std.core.String,Int64>\) a = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}[\s\S]*\(std.collection.ArrayList<Int64>\) b = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(std.collection.HashMap<std.core.String,Int64>\) a1 = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}[\s\S]*\(std.collection.ArrayList<Int64>\) a2 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*

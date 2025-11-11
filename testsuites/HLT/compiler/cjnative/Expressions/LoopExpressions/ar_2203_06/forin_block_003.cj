@@ -5,10 +5,11 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output  %run_args
+
 func foo(): Int64 {
     var c = 0
     for (a in [1, 2, 3]) {
@@ -21,7 +22,7 @@ func foo(): Int64 {
     }
     return c - 2
 }
-
+ 
 main(): Int64 {
     var c = 0
     for (a in [1, 2, 3]) {
@@ -34,7 +35,7 @@ main(): Int64 {
     }
     return c - 2
 }
-
+ 
 /*
 main() {
   var c = 0
@@ -48,6 +49,6 @@ main() {
   }
   return c - 2
 }
-
+ 
 compile error, correct according to spec, but strange
  */

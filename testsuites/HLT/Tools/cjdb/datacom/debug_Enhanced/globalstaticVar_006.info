@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors globalstaticVar,globalstaticVar
-b,b 33,globalstaticVar.cj:33
-AOT r,r,-> 33
+b,b 41,globalstaticVar.cj:41
+AOT r,r,-> 41
 CJVM c,c,
 global,global,\(Rune\) default(::|\.)varchar = '5'
 global,global,\(UInt64\) default(::|\.)varUInt = 1

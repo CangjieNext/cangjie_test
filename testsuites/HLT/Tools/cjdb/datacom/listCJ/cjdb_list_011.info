@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 111,list_debug.cj:111
-AOT r,r,-> 111
+b,b 119,list_debug.cj:119
+AOT r,r,-> 119
 CJVM c,c,
 AOT p,p m_base_1_6[0..3],\$[\d] = 
 CJVM p,p m_base_1_6[0..3],error: variable was not declared in this scope

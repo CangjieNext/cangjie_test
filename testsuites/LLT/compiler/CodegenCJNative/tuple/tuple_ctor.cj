@@ -7,7 +7,7 @@
 // EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix
 // EXEC: %run %run_opt %n.%suffix
 
-/// RUN-EXEC-PIPE: %frontendCompiler %dump-ir %cmp_opt %n.cj 2>&1 | compare %f
+/// RUN-EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
 
 /// ASSERT: regex-begin define internal i8 addrspace\(1\)\* @_CN7default3fooEl\(i64 %x\)
 /// ASSERT: regex-after (?P<num0>%\d+) = alloca %T2_llE, align 8

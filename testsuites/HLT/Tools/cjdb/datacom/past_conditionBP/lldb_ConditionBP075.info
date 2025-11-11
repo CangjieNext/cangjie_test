@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_condition_bp,045_debug_condition_bp
-breakpoint,breakpoint set -l 12 -c 'numint16!=1',045_debug_condition_bp.cj:12
-AOT r,r,-> 12
+breakpoint,breakpoint set -l 20 -c 'numint16!=1',045_debug_condition_bp.cj:20
+AOT r,r,-> 20
 CJVM c,c,
 locals,locals,numint16 = 0
-c,c,-> 12
+c,c,-> 20
 locals,locals,numint16 = 2
 q,q,

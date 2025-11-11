@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors enum03,enum03
-b,b 12,enum03.cj:12
-AOT r,r,-> 12
+b,b 20,enum03.cj:20
+AOT r,r,-> 20
 CJVM c,c,
 p,p a3,\(Int64\) \$[\d] = 4
 expr,expr a1,\(default.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*

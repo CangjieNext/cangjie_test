@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.6
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class
   @Behavior: class modify super class
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,18 +33,18 @@
 package test_stable_abi
 
 // test class: super class
-public open class Father1 {}
+open public class Father1 {}
 
-public open class Father2 {}
+open public class Father2 {}
 
 public class Son1 <: Father2 {
     public func f1() {
         100
     }
-}
+}  
 
 public class Son2 {
     public func f2() {
         1001
     }
-}
+}  

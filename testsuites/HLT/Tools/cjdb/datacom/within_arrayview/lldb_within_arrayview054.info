@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors arrayView_external_invoke,arrayView_external_invoke
-b,b 19,arrayView_external_invoke.cj:19
-AOT r,r,-> 19
+b,b 27,arrayView_external_invoke.cj:27
+AOT r,r,-> 27
 CJVM c,c,
 print,print val_3[0][..3],\(std[.]core.Array<Int32>\) \$[\d] = {[\s\S]*?\[1\] = 322[\s\S]*&?\[2\] = 10[\s\S]*}
 q,q,

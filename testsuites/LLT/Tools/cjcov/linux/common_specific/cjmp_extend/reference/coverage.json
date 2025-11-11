@@ -1,0 +1,27 @@
+{
+  "fileLists": [
+    {
+      "filepath": "mp/test_com.cj",
+      "totalLines": 2,
+      "hitLines": []
+    },
+    {
+      "filepath": "mp/test_plat.cj",
+      "totalLines": 3,
+      "hitLines": [
+        11,
+        14,
+        15
+      ]
+    },
+    {
+      "filepath": "test.cj",
+      "totalLines": 4,
+      "hitLines": [
+        20,
+        21,
+        22
+      ]
+    }
+  ]
+}

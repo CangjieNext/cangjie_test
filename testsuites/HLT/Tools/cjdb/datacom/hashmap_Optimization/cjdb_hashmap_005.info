@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors basic_hashmap_005,basic_hashmap_005
-b,b 6,basic_hashmap_005.cj:6
-AOT r,r,-> 6
+b,b 14,basic_hashmap_005.cj:14
+AOT r,r,-> 14
 locals,locals,\(std.collection.HashMap<Int32,Rune>\) map_subcla_fun_s1 = {[\s\S]*\[1 -> 'A'\] = {[\s\S]*key = 1[\s\S]*value = 'A'[\s\S]*}[\s\S]*}
 p,p map_subcla_fun_s1,\(std.collection.HashMap<Int32,Rune>\) \$[\d] = {[\s\S]*\[1 -> 'A'\] = {[\s\S]*key = 1[\s\S]*value = 'A'[\s\S]*}[\s\S]*}
 q,q,

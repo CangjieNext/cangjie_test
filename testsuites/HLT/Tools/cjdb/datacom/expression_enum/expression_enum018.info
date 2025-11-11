@@ -13,11 +13,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 022_enum_numberfun,022_enum_numberfun
-b,b name,022_enum_numberfun.cj:6
-AOT r,r,-> 6
+b,b name,022_enum_numberfun.cj:14
+AOT r,r,-> 14
 CJVM c,c,
-n,n,-> 7
-n,n,-> 8
+n,n,-> 15
+n,n,-> 16
 expr,expr x1,\(default.TimeUnit2<Int64>\) \$[\d] = Month
 expr,expr x2,\(default.TimeUnit2<Int64>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 1[\s\S]*}
 expr~expr TimeUnit2<Int64>.Month~\(default.TimeUnit2<Int64>\) \$[\d] = Month

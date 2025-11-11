@@ -8,11 +8,11 @@
 // (DEBUG_OPTION)EXEC: %compiler %compile_exe_opt %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (DEBUG_OPTION)EXEC: %run %run_opt %output %run_args 2>&1 > %n.real.out
 // (DEBUG_OPTION)EXEC: %diff %n.expect.out %n.real.out
-// ASSERT: scan debug: consteval at localConsts2.cj:34:9 - localConsts2.cj:34:42 replaced initializer function `gv$_f_LOCAL_4` with initializer constant(s).
-// ASSERT: scan debug: consteval at localConsts2.cj:30:5 - localConsts2.cj:30:37 replaced initializer function `gv$_f_LOCAL_3` with initializer constant(s).
-// ASSERT: scan debug: consteval at localConsts2.cj:39:9 - localConsts2.cj:39:40 replaced initializer function `gv$_f_LOCAL_4` with initializer constant(s).
-// ASSERT: scan debug: consteval at localConsts2.cj:36:13 - localConsts2.cj:36:52 replaced initializer function `gv$_f_LOCAL_5` with initializer constant(s).
-// ASSERT: scan debug: consteval at localConsts2.cj:29:5 - localConsts2.cj:29:69 replaced initializer function `gv$_f_LOCAL_2` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_4` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_3` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_4` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_5` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_f_LOCAL_2` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

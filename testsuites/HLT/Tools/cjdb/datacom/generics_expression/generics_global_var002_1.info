@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_var002,generics_global_var002
-b,b 13,generics_global_var002.cj:13
-AOT r,r,-> 13
+b,b 21,generics_global_var002.cj:21
+AOT r,r,-> 21
 CJVM c,c,
 expr:expr i>6:\(Bool\) \$[\d] = false
 expr:expr if(i==0){i++};i:\(Int64\) \$[\d] = 1

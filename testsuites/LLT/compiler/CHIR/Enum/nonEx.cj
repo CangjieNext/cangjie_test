@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (DEBUG_OPTION)EXEC:%compiler %dumpCHIRDebug %n.cj %compile_lib_opt
-// (DEBUG_OPTION)EXEC:compare %f < default_CHIR_Debug/0_AST_CHIR.chir
+// (DEBUG_OPTION)EXEC:compare %f < default_CHIR/0_AST_CHIR.chir
 
 enum A {
     B | C

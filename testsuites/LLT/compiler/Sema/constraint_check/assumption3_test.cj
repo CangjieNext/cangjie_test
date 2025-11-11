@@ -4,9 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+<<<<<<< HEAD
 // EXEC: %frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
 // ASSERT: scan-4 sema_generic_type_argument_not_match_constraint
 // ASSERT: scan "Errors": 4,
+=======
+// EXEC:%frontendCompiler %typecheck %diag_json %f 2>&1 | compare %f
+>>>>>>> upstream/dev
 
 class C<X> where X <: C<C<C<C<Int32>>>> {
     func foo() {}
@@ -21,3 +25,8 @@ main(): Int64 {
     return 0
 }
 
+<<<<<<< HEAD
+=======
+// ASSERT: scan-4 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan "Errors": 4
+>>>>>>> upstream/dev

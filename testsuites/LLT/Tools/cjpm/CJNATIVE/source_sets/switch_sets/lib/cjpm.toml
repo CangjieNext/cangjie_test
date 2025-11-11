@@ -1,0 +1,46 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[dependencies]
+
+[package]
+  cjc-version = "1.0.0"
+  compile-option = ""
+  description = "nothing here"
+  link-option = ""
+  name = "lib"
+  output-type = "dynamic"
+  override-compile-option = ""
+  target-dir = ""
+  version = "1.0.0"
+  package-configuration = {}
+
+
+[[feature]]
+name = "user.lib.arch.big"
+mapping = []
+
+[[feature]]
+name = "user.lib.arch.little"
+mapping = []
+
+
+[[source-set]]
+name = "common"
+src-dir = "./src/common"
+features = []
+
+[[source-set]]
+name = "big"
+src-dir = "./src/big"
+features = ["user.lib.arch.big"]
+
+[[source-set]]
+name = "little"
+src-dir = "./src/little"
+features = ["user.lib.arch.little"]
+
+

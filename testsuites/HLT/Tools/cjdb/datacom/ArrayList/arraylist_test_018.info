@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_Extendclass,ArrayList_Extendclass
-b,b 19,ArrayList_Extendclass.cj:19
-AOT r,r,-> 19
-CJVM c,c,-> 19
+b,b 27,ArrayList_Extendclass.cj:27
+AOT r,r,-> 27
+CJVM c,c,-> 27
 p,p c1.arr1,\(std[.]collection.ArrayList<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
 p,p c2.arr2,\(std[.]collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}
 ,p c2.arr2[0],\(Int64\) \$[\d] = 1

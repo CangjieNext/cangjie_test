@@ -4,9 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+<<<<<<< HEAD
 // ERRCHECK: %compiler %diag_json %f -o %output
 // ASSERT: scan sema_inherit_member_type_inconsistent
 // ASSERT: scan "Errors": 1,
+=======
+// EXEC-PIPE-1: %compiler %diag_json %f 2>&1 | compare %f
+>>>>>>> upstream/dev
 
 open class C {}
 
@@ -27,3 +31,9 @@ func bar<T>(x: T) where T <: C & I {
 main() {
     return 1
 }
+<<<<<<< HEAD
+=======
+
+// ASSERT: scan-1 sema_inherit_member_type_inconsistent
+// ASSERT: scan "Errors": 1
+>>>>>>> upstream/dev

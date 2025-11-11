@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var003,generics_local_var003
-b,b 25,generics_local_var003.cj:25
-AOT r,r,-> 25
+b,b 33,generics_local_var003.cj:33
+AOT r,r,-> 33
 CJVM c,c,
 expr:expr lct:\(default.classtype01<Int32>\) \$[\d] = {[\s\S]*a = 16[\s\S]*}
 expr:expr lst.a:\(Int32\) \$[\d] = 32

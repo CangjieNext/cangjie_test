@@ -5,16 +5,14 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
+// ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test extend: delete extend-exported/unexported
 private interface I1 {}
-
 internal interface I2 {}
-
 protected interface I3 {}
-
 public interface I4 {}
 
 extend Int64 <: I1 & I2 {
@@ -87,6 +85,7 @@ extend<T> SS<T> where T <: I3 & I4 {
     public func f5() {}
 }
 
+<<<<<<< HEAD
 public func global_func_01(){
     SS<I1>().f1()
     SS<I2>().f2()
@@ -99,3 +98,5 @@ public func global_func_01(){
     && 1.foo1() == 1
     && 2.foo2() == 2
 }
+=======
+>>>>>>> upstream/dev

@@ -5,9 +5,12 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // ERRCHECK: %compiler %diag_json %f -o %output
+<<<<<<< HEAD
 // ASSERT: scan sema_generic_constraint_not_looser
 // ASSERT: scan "Errors": 1,
 
+=======
+>>>>>>> upstream/dev
 
 open class A {}
 
@@ -32,3 +35,9 @@ class F<X> <: I<X> {
 }
 
 main() {}
+<<<<<<< HEAD
+=======
+
+// ASSERT: scan-1 sema_generic_constraint_not_looser
+// ASSERT: scan "Errors": 1
+>>>>>>> upstream/dev

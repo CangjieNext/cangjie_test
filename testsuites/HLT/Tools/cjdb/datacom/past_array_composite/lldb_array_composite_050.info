@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_array_record_default,006_debug_array_record_default
-b,b 18,006_debug_array_record_default.cj:18
-AOT r,r,-> 18
+b,b 26,006_debug_array_record_default.cj:26
+AOT r,r,-> 26
 CJVM c,c,
-n,n,-> 20
+n,n,-> 28
 print,print arraymainrec01[2],Rectangle\) \$[\d]+ = {(\r|\n|\r\n)  item1 = 20(\r|\n|\r\n)  item2 = 3(\r|\n|\r\n)  item3 = true
 q,q,

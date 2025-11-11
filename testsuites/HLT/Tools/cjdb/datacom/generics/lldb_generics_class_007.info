@@ -13,9 +13,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 124,005_debug_class_generics.cj:124
-AOT r,r,-> 124
+b,b 132,005_debug_class_generics.cj:132
+AOT r,r,-> 132
 CJVM c,c,
-n,n,-> 126
+n,n,-> 134
 locals,locals,mc_5 = {(\r|\n|\r\n)  width = Year(\r|\n|\r\n)  length = Year
 q,q,

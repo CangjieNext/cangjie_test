@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_setVar_inherit,003_debug_setVar_inherit
-b,b 11,003_debug_setVar_inherit.cj:11
-AOT r,r,-> 11
+b,b 19,003_debug_setVar_inherit.cj:19
+AOT r,r,-> 19
 CJVM c,c,
-s,s,static func f_001\(a:T\) :T[\s\S]*-> 47
-n,n,-> 48
+s,s,static func f_001\(a:T\) :T[\s\S]*-> 55
+n,n,-> 56
 p,p par_re,\(Int16\) \$[\d] = 56
 set,set par_re=-97,\(Int16\) \$[0-9]* = -97
 p,p par_re,\(Int16\) \$[\d] = -97

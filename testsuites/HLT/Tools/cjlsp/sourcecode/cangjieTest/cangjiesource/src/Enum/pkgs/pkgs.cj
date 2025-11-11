@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -15,3 +16,22 @@ public enum TimeUnita {
 public enum TimeUnita1 {
     Year | Month | Day(Int32) | Hour(Int64)
 }
+=======
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package default.Enum.pkgs
+
+public enum TimeUnita {
+    Year | Month | Day(Int32) | Hour(Int64)
+}
+
+public enum TimeUnita1 {
+    Year | Month | Day(Int32) | Hour(Int64)
+}
+>>>>>>> upstream/dev

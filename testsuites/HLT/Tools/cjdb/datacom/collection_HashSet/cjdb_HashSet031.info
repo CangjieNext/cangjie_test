@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
-b,b 26,003_HashSet_via_class.cj:26
-AOT r,r,-> 26
-CJVM c,c,-> 26
+b,b 34,003_HashSet_via_class.cj:34
+AOT r,r,-> 34
+CJVM c,c,-> 34
 p,p re_ins,rec_ex\) \$[\d] = {[\S\s]*rec_par_1 = 21[\S\s]*set_ruint8 = [\S\s]*}
 p,p re_ins.set_ruint8,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[0\] = 4[\S\s]*}
 p,p re_ins.set_ruint8,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[1\] = 9[\S\s]*}

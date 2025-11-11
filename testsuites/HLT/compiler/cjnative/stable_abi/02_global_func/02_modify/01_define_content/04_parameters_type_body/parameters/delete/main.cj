@@ -5,14 +5,18 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    if (global_func_04() + global_func_14(0) + global_func_24(a: 0) + global_func_34(a: 0) + global_func_34() +
-        global_func_05() + global_func_15(0) + global_func_25(a: 0) + global_func_35(a: 0) + global_func_35() +
-        global_func_06() + global_func_16() + global_func_26() + global_func_36() == 0) {
+    if (global_func_04() + global_func_14(0) + global_func_24(a: 0) +
+        global_func_34(a: 0) + global_func_34() + global_func_05() +
+        global_func_15(0) + global_func_25(a: 0) + global_func_35(a: 0) +
+        global_func_35() + global_func_06() + global_func_16() +
+        global_func_26() + global_func_36() == 0) {
         return 0
     }
     return 1
 }
+
+

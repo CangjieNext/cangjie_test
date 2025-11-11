@@ -6,7 +6,7 @@
 
 // LEVEL: 0
 // (DEBUG_OPTION)EXEC: %compiler %f -g %dumpCHIRDebug
-// (Linux and DEBUG_OPTION) EXEC: sed -n '/Func @_CN7default6<main>Hv/,/Func @user.main/p' default_CHIR_Debug/"$(ls default_CHIR_Debug | awk -F'_' '{a[$1]=$2;b++}END{printf "%s_%s\n",b-1,a[b-1]}')" | compare %f
+// (Linux and DEBUG_OPTION) EXEC: sed -n '/Func @_CN7default6<main>Hv/,/Func @user.main/p' default_CHIR/"$(ls default_CHIR | awk -F'_' '{a[$1]=$2;b++}END{printf "%s_%s\n",b-1,a[b-1]}')" | compare %f
 
 main() {
     for (i in r'a'..=r'z') {

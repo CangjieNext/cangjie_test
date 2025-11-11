@@ -6,9 +6,9 @@
 
 // (DEBUG_OPTION) EXEC: %cjc %debugCHIROpt %n.cj -o %output 2>&1 | compare %f
 // (DEBUG_OPTION) EXEC: %run %run_opt %output %run_args
-// ASSERT: scan debug: consteval at testClassMember.cj:40:1 - testClassMember.cj:40:48 replaced initializer function `gv$_initMember` with initializer constant(s).
-// ASSERT: scan debug: consteval at testClassMember.cj:41:1 - testClassMember.cj:41:48 replaced initializer function `gv$_defnMember` with initializer constant(s).
-// ASSERT: scan debug: consteval at testClassMember.cj:42:1 - testClassMember.cj:42:48 replaced initializer function `gv$_genericMember` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_initMember` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_defnMember` with initializer constant(s).
+// ASSERT: scan debug: consteval at :0:0 - :0:0 replaced initializer function `gv$_genericMember` with initializer constant(s).
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

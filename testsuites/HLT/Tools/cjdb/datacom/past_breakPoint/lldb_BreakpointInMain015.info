@@ -16,19 +16,19 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_match,003_debug_match
-CJVM b,breakpoint set -n main,003_debug_match.cj:4
-CJVM c,c,-> 4
-b,b 4,003_debug_match.cj:4
-b,b 7,003_debug_match.cj:7
+CJVM b,breakpoint set -n main,003_debug_match.cj:12
+CJVM c,c,-> 12
 b,b 12,003_debug_match.cj:12
-AOT b,b 14,003_debug_match.cj:15
-CJVM b,b 14,003_debug_match.cj:14
-AOT r,r,-> 4
-n,n,-> 5
-n,n,-> 6
-n,n,-> 7
-n,n,-> 12
-n,n,-> 7
+b,b 15,003_debug_match.cj:15
+b,b 20,003_debug_match.cj:20
+AOT b,b 22,003_debug_match.cj:23
+CJVM b,b 22,003_debug_match.cj:22
+AOT r,r,-> 12
+n,n,-> 13
+n,n,-> 14
 n,n,-> 15
+n,n,-> 20
+n,n,-> 15
+n,n,-> 23
 locals,locals,scoreResult = 5
 q,q,

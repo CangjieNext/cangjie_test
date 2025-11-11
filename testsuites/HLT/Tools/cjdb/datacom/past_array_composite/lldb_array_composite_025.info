@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_enum,002_debug_array_enum
-b,b 29,002_debug_array_enum.cj:29
-AOT r,r,-> 29
+b,b 37,002_debug_array_enum.cj:37
+AOT r,r,-> 37
 CJVM c,c,
-n,n,-> 30
+n,n,-> 38
 locals,locals,std[.]core.Array<default.TimeUnit1>\) arrayMainEnum01 = {(\r\n|\r|\n)  \[0\] = a(\r\n|\r|\n)  \[1\] = a(\r\n|\r|\n)  \[2\] = c(\r\n|\r|\n)}
 q,q,

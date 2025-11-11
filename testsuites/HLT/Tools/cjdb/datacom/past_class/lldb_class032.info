@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_class_interface,006_debug_class_interface
-b,b 37,006_debug_class_interface.cj:37
-AOT r,r,-> 37
-CJVM c,c,-> 37
-n,n,-> 38
+b,b 45,006_debug_class_interface.cj:45
+AOT r,r,-> 45
+CJVM c,c,-> 45
+n,n,-> 46
 locals,locals,\(Int64\) data1 = 1
 q,q,

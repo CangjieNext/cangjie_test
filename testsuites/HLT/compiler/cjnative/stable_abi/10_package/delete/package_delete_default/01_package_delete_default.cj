@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 10.1
   @Scene: add
@@ -13,7 +13,7 @@
   @Object: package
   @Behavior: add/delete/modify package
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // Expect: API Incompatible & ABI Incompatible
 // DEPENDENCE: main.cj, template.cj
@@ -32,7 +32,11 @@
 
 // test package: delete default package
 public class A {
-    public func foo() {
+    public func foo () {
         return 1
     }
 }
+
+
+
+

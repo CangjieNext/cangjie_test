@@ -5,10 +5,13 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // ERRCHECK: %compiler %diag_json %f -o %output
+<<<<<<< HEAD
 // ASSERT: scan sema_upper_bound_must_be_class_or_interface
 // ASSERT: scan sema_unable_to_infer_generic_func
 // ASSERT: scan "Errors": 2,
 
+=======
+>>>>>>> upstream/dev
 class A {}
 // test tracking nested constraints
 func f<T>() where T <: A {
@@ -20,3 +23,10 @@ func f<T>() where T <: A {
 
 main() {
 }
+<<<<<<< HEAD
+=======
+
+// ASSERT: scan-1 sema_unable_to_infer_generic_func
+// ASSERT: scan-1 sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan "Errors": 2
+>>>>>>> upstream/dev

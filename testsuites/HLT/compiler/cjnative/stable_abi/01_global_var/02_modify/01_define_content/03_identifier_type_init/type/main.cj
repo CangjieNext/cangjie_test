@@ -5,13 +5,20 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
+<<<<<<< HEAD
     if (global_var_04.test() + global_var_14.test() == 0 && global_var_05 && global_var_15 && global_func_01() &&
         global_func_11() && global_func_02() is A && global_func_03() is A && global_func_04() is A && global_func_05() is A && global_func_06() is A && global_func_07() is A) {
+=======
+    if (global_var_04.test() + global_var_14.test() == 0 &&
+        global_var_05 && global_var_15 && global_func_01() && global_func_11()) {
+>>>>>>> upstream/dev
         return 0
     }
     return 1
 }
+
+

@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/flowExpr_pipeline.cj
+// EXEC: %compiler %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb flowExpr_pipeline,flowExpr_pipeline
+b,b 17,flowExpr_pipeline.cj:17
+r,r,-> 17
+ ,expr a |> f ,\(Int32\) \$\d+ = 2
+ ,expr a |> {x: Int32 => x + 1},\(Int32\) \$\d+ = 2
+ ,expr a < 0 || a > 10  |> h,\(Bool\) \$\d+ = false
+ ,expr a |> g<Int32>,\(Int32\) \$\d+ = 1
+q,q,

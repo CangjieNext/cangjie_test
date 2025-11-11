@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func005,generics_global_func005
-breakpoint,breakpoint set -l 22 -c "varr[0]==1",generics_global_func005.cj:22
-AOT r,r,-> 22
+breakpoint,breakpoint set -l 30 -c "varr[8]==9",generics_global_func005.cj:30
+AOT r,r,-> 30
 CJVM c,c,
 locals,locals,\(std.core.Range<Int32>\) vrange = 1..10 : 1
 p,p x5,\(std.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}

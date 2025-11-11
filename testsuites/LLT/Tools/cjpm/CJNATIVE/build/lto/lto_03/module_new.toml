@@ -8,7 +8,10 @@
   cjc-version = "1.0.0"
   description = "nothing here"
   name = "test"
+<<<<<<< HEAD
   organization = "cangjie"
+=======
+>>>>>>> upstream/dev
   output-type = "executable"
   version = "1.0.0"
 

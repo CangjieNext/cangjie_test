@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_debug,option_debug
-b,b 22,option_debug.cj:22
-AOT r,r,-> 22
-CJVM c,c,-> 22
+b,b 30,option_debug.cj:30
+AOT r,r,-> 30
+CJVM c,c,-> 30
 p,p optiona,\(std[.]core.Option<std.collection.HashMap<std.core.String,Bool>>\) \$[\d] = {[\S\s]*key = "aaa"[\S\s]*value = true[\S\s]*}
 locals,locals,\(std[.]core.Option<std.collection.HashMap<std.core.String,Bool>>\) optiona = {[\S\s]*key = "aaa"[\S\s]*value = true[\S\s]*}[\s\S]*
 AOT frame var,frame var optiona,\(std[.]core.Option<std.collection.HashMap<std.core.String,Bool>>\) optiona = {[\S\s]*key = "aaa"[\S\s]*value = true[\S\s]*}

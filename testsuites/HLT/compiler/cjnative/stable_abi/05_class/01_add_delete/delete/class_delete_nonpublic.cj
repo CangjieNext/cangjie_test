@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.1
   @Scene: delete
@@ -13,7 +13,7 @@
   @Object: class
   @Behavior: delete nonpublic class
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -45,7 +45,7 @@ public class Father1 {
     }
     public var v3: Int64
 
-    public open func foo1(a: Int64) {
+    open public func foo1(a: Int64) {
         10
     }
 
@@ -70,7 +70,7 @@ public class Generics1<T> {
     }
     public var _v3: Int64
 
-    public open func goo1(a: Int64) {
+    open public func goo1(a: Int64) {
         10
     }
 

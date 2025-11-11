@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../%n
-// EXEC: cd %n/pro1 && cjpm build && cd .. && %cjpm build && %cat target/.bin-cache 2>&1 | compare %f
+// EXEC: cd %n/pro1 && cjpm build && cd .. && %cjpm build && %cat target/.dep-cache 2>&1 | compare %f
 // ASSERT: scan "package": "pro1.xoo"
 // ASSERT: scan "package": "pro1.yoo"
 // ASSERT: scan "package": "pro1"

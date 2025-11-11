@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var010,generics_local_var010
-b,b 18,generics_local_var010.cj:18
-AOT r,r,-> 18
+b,b 26,generics_local_var010.cj:26
+AOT r,r,-> 26
 CJVM c,c,
 expr:expr vlist2:\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
 p,p vlist2,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}

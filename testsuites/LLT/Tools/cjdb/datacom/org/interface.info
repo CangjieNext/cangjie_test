@@ -1,0 +1,20 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/org/interface.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug interface.cj -o interface
+// EXEC: python3 cjdb_test.py interface.info
+
+test#
+cjdb,cjdb interface,interface
+b,b 17,interface.cj:17
+r,r,-> 17
+ ;p a1;\(org.default.C1\) \$\d+ = {\s+a = 1\s+}
+ ;p a2;\(org.default.C1\) \$\d+ = {\s+a = 1\s+}
+ ;locals;\(org.default.C1\) a2 = {\s+a = 1\s+}
+ ;expr a1;\(org.default.C1\) \$\d+ = {\s+a = 1\s+}
+ ;expr a2;\(org.default.C1\) \$\d+ = {\s+a = 1\s+}
+q,q,

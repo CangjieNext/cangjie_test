@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case20_3,case20_3
-b,b 9,case20_3.cj:9
-AOT r,r,-> 9
+b,b 17,case20_3.cj:17
+AOT r,r,-> 17
 CJVM c,c,
 AOT expr,expr aa,\(Int64\) \$[\d] = 1
 AOT expr~expr A1.foo<Int64>(1)~\(Int64\) \$[\d] = 1

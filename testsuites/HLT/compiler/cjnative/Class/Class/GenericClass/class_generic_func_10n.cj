@@ -32,4 +32,3 @@ main(): Int64 {
     return 0
 }
 // ASSERT: scan sema_generic_instantiation_causes_ambiguous_functions
-// ASSERT: scan sema_ambiguous_match

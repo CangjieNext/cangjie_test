@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashSet_Ins_basic,001_HashSet_Ins_basic
-b,b 24,001_HashSet_Ins_basic.cj:24
-AOT r,r,-> 24
-CJVM c,c,-> 24
+b,b 32,001_HashSet_Ins_basic.cj:32
+AOT r,r,-> 32
+CJVM c,c,-> 32
 p,p set_char,std[.]collection.HashSet<Rune>\) \$[\d] = {[\S\s]*\[1\] = 'y'[\S\s]*}
 q,q,
 

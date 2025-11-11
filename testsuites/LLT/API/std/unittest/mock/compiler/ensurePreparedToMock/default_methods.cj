@@ -6,8 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// (LLVM) EXEC: %compiler %cmp_opt -Woff=all --test %f -o %output 2>&1
-// (LLVM) EXEC-0: %run %run_opt %output %run_utest_opt %run_args 2>&1
+// EXEC: %compiler %cmp_opt -Woff=all --test %f -o %output 2>&1
+// EXEC-0: %run %run_opt %output %run_utest_opt %run_args 2>&1
 
 import std.unittest.*
 import std.unittest.testmacro.*

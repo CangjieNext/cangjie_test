@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_enum_recursion,004_debug_enum_recursion
-b,b 35,004_debug_enum_recursion.cj:35
-AOT r,r,-> 35
+b,b 43,004_debug_enum_recursion.cj:43
+AOT r,r,-> 43
 CJVM c,c,
-n,n,-> 34
-n,n,-> 38
+n,n,-> 42
+n,n,-> 46
 locals,locals,\(Int32\) howManyYears2 = 9
 q,q,

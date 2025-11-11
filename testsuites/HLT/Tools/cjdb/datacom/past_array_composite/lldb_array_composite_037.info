@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_array_record,003_debug_array_record
-b,b 48,003_debug_array_record.cj:48
-AOT r,r,-> 48
+b,b 56,003_debug_array_record.cj:56
+AOT r,r,-> 56
 CJVM c,c,
-n,n,-> 50
+n,n,-> 58
 print,print arraymainrec02[2],Rectangle2\) \$[\d]+ = {(\r|\n|\r\n)  width = 200(\r|\n|\r\n)  length = 400
 q,q,

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_alias2,generics_alias2
-b,b 139,generics_alias2.cj:139
-AOT r,r,-> 139
+b,b 147,generics_alias2.cj:147
+AOT r,r,-> 147
 CJVM c,c,
 p, p lrange1,\(std.core.Range<Int64>\) \$[\d] = 1..=10 : 1
 p, p s1.vrange1s,\(std.core.Range<Int64>\) \$[\d] = 1..=10 : 1
@@ -25,8 +25,8 @@ p, p globals_range1,\(std.core.Range<Int64>\) \$[\d] = 1..=10 : 1
 locals, locals,\(std.core.Range<Int64>\) lrange1 = 1..=10 : 1[\s\S]*\(default.S1\) s1 = {[\s\S]*vrange1s = 1..=10 : 1[\s\S]*\(default.C1\) c1 = {[\s\S]*vrange1c = 1..=10 : 1[\s\S]*
 globals, globals,\(std.core.Range<Int64>\) default::S1::vrange1 = 1..=10 : 1
 globals, globals,\(std.core.Range<Int64>\) default::globals_range1 = 1..=10 : 1
-b, b 164,generics_alias2.cj:164
-c,c,-> 164
+b, b 172,generics_alias2.cj:172
+c,c,-> 172
 p, p a,\(std.core.Range<Int64>\) \$[\d] = 1..=10 : 1
 p, p test_a,\(std.core.Range<Int64>\) \$[\d] = 1..=10 : 1
 locals, locals,\(std.core.Range<Int64>\) a = 1..=10 : 1

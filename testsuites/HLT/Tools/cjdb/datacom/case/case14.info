@@ -13,9 +13,9 @@
 
 test#
 cjdb,cjdb --no-use-colors case14,case14
-b,b 24,Breakpoint 1
-b,b 27,case14.cj:27
-AOT r,r,-> 24
+b,b 32,Breakpoint 1
+b,b 35,case14.cj:35
+AOT r,r,-> 32
 CJVM c,c,
-c,c,-> 27
+c,c,-> 35
 q,q,

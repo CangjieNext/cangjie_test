@@ -14,6 +14,8 @@
 
 import pkgs
 
+//public let a  : Int32 = pkgs.one
+//let a = pkgs.one
 
 main(): Int64 {
     let a = pkgs.one

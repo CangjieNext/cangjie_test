@@ -5,38 +5,26 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 public struct S {
-    public var a: Int64 = 10
+    public var a = 10
     public mut prop p1: Int64 {
-        get() {
-            a
-        }
-        set(value) {
-            a = value
-        }
+        get() { a }
+        set(value) { a = value }
     }
-
     @Deprecated["this prop is deprecated", strict: false]
     public mut prop p2: Int64 {
-        get() {
-            a
-        }
-        set(value) {
-            a = value
-        }
+        get() { a }
+        set(value) { a = value }
     }
-
     @Deprecated["this prop is deprecated", strict: true]
     public mut prop p3: Int64 {
-        get() {
-            a
-        }
-        set(value) {
-            a = value
-        }
+        get() { a }
+        set(value) { a = value }
     }
 }
+
+

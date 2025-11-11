@@ -9,16 +9,10 @@
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %cmp_utest_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args --no-color 2>&1 | compare %f
-// ASSERT: scan Different sizes: 0(LinkedList < Int64 >()) != 5(LinkedList < Int64 >(5, { i => i }))
-// ASSERT: scan Different elements (left - LinkedList < Int64 >(5, { i => i + 1 }), right - LinkedList < Int64 >(5, { i => i }))
-// ASSERT: scan Different elements (left - LinkedList < Int64 >(30, { i => i + 1 }), right - LinkedList < Int64 >(30, { i => i }))
 // ASSERT: scan [19]:
 // ASSERT: scan-not [20]:
 // ASSERT: scan further 10 different elements are omitted
-// ASSERT: scan Different sizes: 0(HashSet < String >()) != 5(HashSet < String >(5, { i => i.toString() }))
 // ASSERT: scan Missed elements in HashSet < String >()
-// ASSERT: scan Missed elements in HashSet < Int64 >(5, { i => i }): [5]
-// ASSERT: scan Missed elements in HashSet < Int64 >(5, { i => i + 1 }): [0]
 // ASSERT: scan-2 further 20 different elements are omitted
 
 import std.collection.*
@@ -59,3 +53,41 @@ public class Test_AssertEqual_Other_Collections {
         @Expect(set1, set2)
     }
 }
+
+
+/* SCAN-IN
+        Different sizes: 0(LinkedList < Int64 >()) != 5(LinkedList < Int64 >(5, { i =>
+    i
+}))
+*/
+ 
+/* SCAN-IN
+        Different elements (left - LinkedList < Int64 >(5, { i =>
+    i + 1
+}), right - LinkedList < Int64 >(5, { i =>
+    i
+})):
+*/
+ 
+/* SCAN-IN
+        Different elements (left - LinkedList < Int64 >(30, { i =>
+    i + 1
+}), right - LinkedList < Int64 >(30, { i =>
+    i
+})):
+*/
+ 
+/* SCAN-IN
+        Different sizes: 0(HashSet < String >()) != 5(HashSet < String >(5, { i =>
+    i.toString()
+}))
+*/
+ 
+/* SCAN-IN
+        Missed elements in HashSet < Int64 >(5, { i =>
+    i
+}): [5]
+        Missed elements in HashSet < Int64 >(5, { i =>
+    i + 1
+}): [0]
+*/

@@ -5,23 +5,25 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test extend: instance function
-interface I {}
-
-public open class Father {}
-
-public class Son <: Father & I {}
-
+interface I{}
+open public class Father {
+    public const init(){}
+}
+public class Son <: Father & I{
+    public const init(){}
+}
 interface I2 <: I {}
-
-public open class TestClass {
+public struct B <: I {
+    const init(){}
+}
+open public class TestClass {
     public const init() {}
 }
-
 extend TestClass {
     public func f1() {
         1
@@ -42,11 +44,9 @@ extend TestClass {
     protected const func pf4(): Int64 {
         pf3()
     }
-
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -54,7 +54,6 @@ extend TestClass {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -69,17 +68,14 @@ extend TestClass {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
@@ -115,6 +111,31 @@ extend TestClass {
         a.toString()
     }
 
+    public func ff1():I {
+        B()
+    }
+    protected func ff2():I {
+        B()
+    }
+    private const func ff3():I {
+        B()
+    }
+    internal const func ff4():I {
+        B()
+    }
+    private func ff5():I {
+        B()
+    }
+    internal func ff6():I {
+        B()
+    }
+    public const func pff3():I {
+        ff3();B()
+    }
+    protected const func pff4():I {
+        ff4();B()
+    }
+
     public func p1(a: Int64, b!: Int64, c!: Int64 = 1) {
         a + b + c
     }
@@ -123,6 +144,30 @@ extend TestClass {
     }
     public func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
+    }
+    private const func p4(a: Son, b!: Son, c!: Son = Son()): Father {
+        c
+    }
+    internal const func p5(a: Father, b!: Father, c!: Father = Father()): Father {
+        Son()
+    }
+    private func p6(a: Son, b!: Son, c!: Son = Son()): Father {
+        c
+    }
+    internal func p7(a: Father, b!: Father, c!: Father = Father()): Father {
+        Son()
+    }
+    private func p8(a: Son, b!: Son, c!: Son = Son()): Son {
+        c
+    }
+    internal func p9(a: Father, b!: Father, c!: Father = Father()): Son {
+        Son()
+    }
+    private const func p10(a: Son, b!: Son, c!: Son = Son()): Son {
+        c
+    }
+    internal const func p11(a: Father, b!: Father, c!: Father = Father()): Son {
+        Son()
     }
     protected func pp1(a: Int64, b!: Int64, c!: Int64 = 1) {
         a + b + c
@@ -133,9 +178,20 @@ extend TestClass {
     protected func pp3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
+
+    public const func pp4(a: Son, b!: Son, c!: Son = Son()): Son {
+        p4(a,b:b,c:c);p10(a,b:b,c:c)
+        c
+    }
+    protected const func pp5(a: Father, b!: Father, c!: Father = Father()): Father {
+        p5(a,b:b,c:c);p11(a,b:b,c:c)
+        c
+    }
 }
 
 public func global() {
     let v1 = TestClass()
     v1.f7()
 }
+
+

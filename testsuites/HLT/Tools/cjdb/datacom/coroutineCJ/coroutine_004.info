@@ -13,9 +13,9 @@
 
 test#
 cjdb,cjdb --no-use-colors coroutine_1,coroutine_1
-b,b 29,Breakpoint 1: 2 locations
-AOT r,r,-> 29
+b,b 37,Breakpoint 1: 2 locations
+AOT r,r,-> 37
 CJVM c,c,
 cjthread,cjthread list,cjthread #1 state: running name
-cjthread,cjthread backtrace,cjthread #1[\s\S]*coroutine_1.cj:29
+cjthread,cjthread backtrace,cjthread #1[\s\S]*coroutine_1.cj:37
 q,quit,

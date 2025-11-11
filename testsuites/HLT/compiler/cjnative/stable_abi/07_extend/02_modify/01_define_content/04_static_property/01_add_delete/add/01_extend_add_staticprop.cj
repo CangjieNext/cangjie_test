@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.4.1.1
   @Scene: add
@@ -13,7 +13,7 @@
   @Object: extend static prop
   @Behavior: add static prop
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -36,7 +36,6 @@ package test_stable_abi
 public class TestClass {
     public static var a: Int64 = 0
 }
-
 public struct TestStruct {
     public static var a: Int64 = 0
 }
@@ -59,10 +58,9 @@ extend TestClass {
             3
         }
     }
-
     @Frozen
     public static prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -73,16 +71,14 @@ extend TestClass {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
-    public mut static prop prop6: Int64 {
+    public static mut prop prop6: Int64 {
         get() {
             6
         }
@@ -107,14 +103,14 @@ extend TestClass {
         }
     }
 
-    public mut static prop prop10: Int64 {
+    public static mut prop prop10: Int64 {
         get() {
             10
         }
         set(v) {
         }
     }
-    public mut static prop prop11: Int64 {
+    public static mut prop prop11: Int64 {
         get() {
             11
         }
@@ -139,10 +135,9 @@ extend TestClass {
             3
         }
     }
-
     @Frozen
     public static prop f_prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -153,16 +148,14 @@ extend TestClass {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static prop _prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
-    public mut static prop _prop6: Int64 {
+    public static mut prop _prop6: Int64 {
         get() {
             6
         }
@@ -187,14 +180,14 @@ extend TestClass {
         }
     }
 
-    public mut static prop _prop10: Int64 {
+    public static mut prop _prop10: Int64 {
         get() {
             10
         }
         set(v) {
         }
     }
-    public mut static prop _prop11: Int64 {
+    public static mut prop _prop11: Int64 {
         get() {
             11
         }
@@ -222,10 +215,9 @@ extend TestStruct {
             3
         }
     }
-
     @Frozen
     public static prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -236,16 +228,14 @@ extend TestStruct {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
-    public mut static prop prop6: Int64 {
+    public static mut prop prop6: Int64 {
         get() {
             6
         }
@@ -270,14 +260,14 @@ extend TestStruct {
         }
     }
 
-    public mut static prop prop10: Int64 {
+    public static mut prop prop10: Int64 {
         get() {
             10
         }
         set(v) {
         }
     }
-    public mut static prop prop11: Int64 {
+    public static mut prop prop11: Int64 {
         get() {
             11
         }
@@ -302,10 +292,9 @@ extend TestStruct {
             3
         }
     }
-
     @Frozen
     public static prop f_prop3: Int64 {
-        get() {
+        get () {
             p_prop3
         }
     }
@@ -316,16 +305,14 @@ extend TestStruct {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static prop _prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
-    public mut static prop _prop6: Int64 {
+    public static mut prop _prop6: Int64 {
         get() {
             6
         }
@@ -350,14 +337,14 @@ extend TestStruct {
         }
     }
 
-    public mut static prop _prop10: Int64 {
+    public static mut prop _prop10: Int64 {
         get() {
             10
         }
         set(v) {
         }
     }
-    public mut static prop _prop11: Int64 {
+    public static mut prop _prop11: Int64 {
         get() {
             11
         }

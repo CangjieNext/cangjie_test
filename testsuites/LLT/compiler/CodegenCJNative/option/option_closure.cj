@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix
 // EXEC: %run %run_opt %n.%suffix
-/// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir %cmp_opt %n.cj 2>&1 | compare %f
+/// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir-to-screen %cmp_opt %n.cj 2>&1 | compare %f
 
 /// ASSERT: regex-begin %(?P<id_1>\d+) = bitcast %"record\..*"\* %o to i8\*, !dbg !\d+
 /// ASSERT: regex-next call void @llvm\.cj\.memset\.p0i8\(i8\* align 8 %(?P=id_1), i8 0, i64 24, i1 false\), !dbg !\d+

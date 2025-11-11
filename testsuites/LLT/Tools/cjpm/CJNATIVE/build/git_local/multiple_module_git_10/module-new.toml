@@ -6,8 +6,11 @@
 
 [dependencies]
   [dependencies.pro1]
+<<<<<<< HEAD
     organization = "i"
     version = "1.0.1"
+=======
+>>>>>>> upstream/dev
     git = "pro1"
     branch = "branchname"
 
@@ -19,7 +22,10 @@
   link-option = ""
   lto = ""
   name = "test"
+<<<<<<< HEAD
   organization = "cangjie"
+=======
+>>>>>>> upstream/dev
   output-type = "executable"
   src-dir = "src"
   version = "1.0.0"

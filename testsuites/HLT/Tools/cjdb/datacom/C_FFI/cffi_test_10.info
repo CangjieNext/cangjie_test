@@ -14,13 +14,13 @@
 
 test#
 cjdb,cjdb --no-use-colors cffi_test_10,cffi_test_10
-b,b 45,Breakpoint 1:[\s\S]*C_FFI_stepin.cj:45
-b,b 47,Breakpoint 2:[\s\S]*C_FFI_stepin.cj:47
-AOT r,r,-> 45
-CJVM c,c,-> 45
-s,s,-> 30
-c,c,-> 47
-s,s,-> 30
+b,b 53,Breakpoint 1:[\s\S]*C_FFI_stepin.cj:53
+b,b 55,Breakpoint 2:[\s\S]*C_FFI_stepin.cj:55
+AOT r,r,-> 53
+CJVM c,c,-> 53
+s,s,-> 38
+c,c,-> 55
+s,s,-> 38
 finish,finish,mov
-finish,finish,-> 51
+finish,finish,-> 59
 q,q,

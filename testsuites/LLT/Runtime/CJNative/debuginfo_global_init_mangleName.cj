@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir-to-screen %cmp_opt %enableCompileDebug %n.cj 2>&1 | compare %f
 // ASSERT: regex-auto distinct !DISubprogram(name: "gv$_a", linkageName: "_CGV7default1aHv"
 
 var a = [1, 2]

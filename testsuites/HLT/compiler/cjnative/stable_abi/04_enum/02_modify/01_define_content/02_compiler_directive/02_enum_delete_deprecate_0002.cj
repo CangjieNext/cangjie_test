@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 4.2.1.2.2
   @Scene: delete
@@ -13,8 +13,8 @@
   @Object: enum
   @Behavior: delete @Deprecated, strict: false
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -44,6 +44,7 @@ public enum S1 {
 enum S2 {
     | Red | Green | Blue(UInt8)
 }
+
 
 @Deprecated["this enum is deprecated", strict: false]
 public enum S3 {
@@ -110,7 +111,7 @@ public class C1 {
     const init() {
         let v3 = 0
     }
-
+    
     public const func f1() {
         let v2 = S9.Green
     }

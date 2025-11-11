@@ -1,0 +1,20 @@
+[dependencies]
+  demo = {path = "../demo"}
+
+[package]
+  cjc-version = "1.0.0"
+  name = "b"
+  organization = ""
+  description = "nothing here"
+  version = "1.0.0"
+  target-dir = ""
+  script-dir = ""
+  output-type = "dynamic"
+  src-dir = "src"
+  compile-option = ""
+  override-compile-option = ""
+  link-option = ""
+  package-configuration = {}
+
+[profile.build.combined]
+  b = "dynamic"

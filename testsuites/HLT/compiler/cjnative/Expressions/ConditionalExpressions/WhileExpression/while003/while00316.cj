@@ -21,12 +21,15 @@ class A {
 }
 
 main(): Int64 {
+    //    print("start")
     var b = 10
     while (b != 0) {
         b = b - 1
     }
+    //    print("while in func ok")
 
     var a = A()
     a.test()
+    //    print("while in class ok")
     return 0
 }

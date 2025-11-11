@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -15,3 +16,22 @@ extend Int64 {
         }
     }
 }
+=======
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package default.Extend
+
+extend Int64 {
+    prop ixy: Int64 {
+        get() {
+            return ixy
+        }
+    }
+}
+>>>>>>> upstream/dev

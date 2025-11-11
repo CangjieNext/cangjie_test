@@ -38,12 +38,5 @@ error: property must have accessors
    | |_____^
    | 
 
-error: property must implement both getter/setter of interface property 'v'
-  ==> interface_property1.cj:19:5:
-   | 
-19 |     mut static prop v: Int64 {
-   |     ^ 
-   | 
-
-2 errors generated, 2 errors printed.
+1 error generated, 1 error printed.
 */

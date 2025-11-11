@@ -5,9 +5,12 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC: %compiler %diag_json %f -o %n.%suffix 2>&1 | compare %f
+<<<<<<< HEAD
 // ASSERT: scan sema_generic_type_argument_not_match_constraint
 // ASSERT: scan sema_class_uninitialized_field
 // ASSERT: scan "Errors": 2,
+=======
+>>>>>>> upstream/dev
 
 type A<T> = Cl<T>
 
@@ -22,3 +25,10 @@ class Sub<X> {
 main() {
     return 0;
 }
+<<<<<<< HEAD
+=======
+
+// ASSERT: scan-1 sema_class_uninitialized_field
+// ASSERT: scan-1 sema_generic_type_argument_not_match_constraint
+// ASSERT: scan "Errors": 2
+>>>>>>> upstream/dev

@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 40,024_debug_variable.cj:40
-AOT r,r,-> 40
-CJVM c,c,-> 40
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 48,024_debug_variable.cj:48
+AOT r,r,-> 48
+CJVM c,c,-> 48
 set,set var_float16 = 2.999,2.99
-n,n,-> 43
+n,n,-> 51
 locals,locals,var_float16 = 2.99
 p,p var_float16,\(Float16\) \$[\d] = 2.99
 locals,locals,f_float16 = 11

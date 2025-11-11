@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
-
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 main():Int64 {
     var a = Coo(1)
@@ -22,4 +22,3 @@ class Coo{
 
     }
 }
-// ASSERT: scan parse_expected_name

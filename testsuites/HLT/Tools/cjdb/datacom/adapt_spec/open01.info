@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors open01,open01
-b,b 40,open01.cj:40
-AOT r,r,-> 40
+b,b 48,open01.cj:48
+AOT r,r,-> 48
 CJVM c,c,
 expr~expr Boo().boo<Int64>(3)~\(Int64\) \$[\d] = 1
 expr~expr Moo<Bool>().goo<Bool>(true)~\(Bool\) \$[\d] = true

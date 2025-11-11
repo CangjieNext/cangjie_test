@@ -14,15 +14,15 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_regexpbreak,001_regexpbreak
-CJVM b,breakpoint set -n main,022_debug_launch.cj:4
-CJVM c,c,-> 4
-AOT b,_regexp-break 022_debug_launch.cj:4,Breakpoint 1: where[\s\S]*022_debug_launch.cj:4
-AOT b,_regexp-break 022_debug_launch.cj:5,Breakpoint 2: where[\s\S]*022_debug_launch.cj:5
-AOT b,_regexp-break 022_debug_launch.cj:6,Breakpoint 3: where[\s\S]*022_debug_launch.cj:6
-CJVM b,_regexp-break 4,Breakpoint 2[\s\S]*022_debug_launch.cj:4
-CJVM b,_regexp-break 5,Breakpoint 3[\s\S]*022_debug_launch.cj:5
-CJVM b,_regexp-break 6,Breakpoint 4[\s\S]*022_debug_launch.cj:6
-blist,breakpoint list,022_debug_launch.cj:4
-blist,breakpoint list,022_debug_launch.cj:5
-blist,breakpoint list,022_debug_launch.cj:6
+CJVM b,breakpoint set -n main,022_debug_launch.cj:12
+CJVM c,c,-> 12
+AOT b,_regexp-break 022_debug_launch.cj:12,Breakpoint 1: where[\s\S]*022_debug_launch.cj:12
+AOT b,_regexp-break 022_debug_launch.cj:13,Breakpoint 2: where[\s\S]*022_debug_launch.cj:13
+AOT b,_regexp-break 022_debug_launch.cj:14,Breakpoint 3: where[\s\S]*022_debug_launch.cj:14
+CJVM b,_regexp-break 12,Breakpoint 2[\s\S]*022_debug_launch.cj:12
+CJVM b,_regexp-break 13,Breakpoint 3[\s\S]*022_debug_launch.cj:13
+CJVM b,_regexp-break 14,Breakpoint 4[\s\S]*022_debug_launch.cj:14
+blist,breakpoint list,022_debug_launch.cj:12
+blist,breakpoint list,022_debug_launch.cj:13
+blist,breakpoint list,022_debug_launch.cj:14
 q,q,

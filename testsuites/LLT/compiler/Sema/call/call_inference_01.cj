@@ -5,8 +5,11 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC-PIPE-1: %compiler %diag_json %f -o %output 2>&1 | compare %f
+<<<<<<< HEAD
 // ASSERT: scan-2 sema_unable_to_infer_generic_func
 // ASSERT: scan "Errors": 2,
+=======
+>>>>>>> upstream/dev
 
 class A {}
 
@@ -21,3 +24,9 @@ main(): Int64 {
     B.foo(arr[0])
     return 0
 }
+<<<<<<< HEAD
+=======
+
+// ASSERT: scan-2 sema_unable_to_infer_generic_func
+// ASSERT: scan "Errors": 2
+>>>>>>> upstream/dev

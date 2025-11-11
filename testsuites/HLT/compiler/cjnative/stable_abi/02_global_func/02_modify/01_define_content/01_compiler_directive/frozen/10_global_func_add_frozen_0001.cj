@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 2.2.1.1.10
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global func
   @Behavior: add @Frozen
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -34,52 +34,18 @@ package test_stable_abi
 // test global func: modify compiler directive
 // global func: public global func
 // modify operation: add @Frozen
-func global_func_01() {
-    0
-}
+func global_func_01() { 0 }
+func global_func_02() { 0 }
+const func global_func_03() { 0 }
+@Frozen func global_func_04() { 0 }
+@Frozen func global_func_05() { 0 }
+@Frozen const func global_func_06() { 0 }
 
-func global_func_02() {
-    0
-}
+@Frozen public func global_func_07() { 0 }
+@Frozen public func global_func_08() { 0 }
 
-const func global_func_03() {
-    0
-}
-
-@Frozen
-func global_func_04() {
-    0
-}
-
-@Frozen
-func global_func_05() {
-    0
-}
-
-@Frozen
-const func global_func_06() {
-    0
-}
-
-@Frozen
-public func global_func_07() {
-    0
-}
-
-@Frozen
-public func global_func_08() {
-    0
-}
-
-@Frozen
-public const func global_func_09() {
-    global_func_03()
-}
-
-@Frozen
-public const func global_func_10() {
-    global_func_06()
-}
+@Frozen public const func global_func_09() { global_func_03() }
+@Frozen public const func global_func_10() { global_func_06() }
 
 @Frozen
 public func global_func_11() {

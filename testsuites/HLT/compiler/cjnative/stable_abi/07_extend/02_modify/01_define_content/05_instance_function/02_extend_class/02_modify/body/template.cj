@@ -5,23 +5,19 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test extend: instance function
-interface I {}
-
-public open class Father {}
-
-public class Son <: Father & I {}
-
+interface I{}
+open public class Father {}
+public class Son <: Father & I{}
 interface I2 <: I {}
 
-public open class TestClass {
+open public class TestClass {
     public const init() {}
 }
-
 extend TestClass {
     public func f1() {
         1
@@ -46,7 +42,6 @@ extend TestClass {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -54,7 +49,6 @@ extend TestClass {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -69,17 +63,14 @@ extend TestClass {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
@@ -142,7 +133,7 @@ public func global() {
 
 public interface TestI {
     static prop propa: Int64
-    mut static prop propb: Int64
+    static mut prop propb: Int64
 }
 
 public class Foo {}
@@ -154,7 +145,7 @@ extend Foo <: TestI {
         }
     }
 
-    public mut static prop propb: Int64 {
+    public static mut prop propb: Int64 {
         get() {
             6
         }
@@ -162,7 +153,7 @@ extend Foo <: TestI {
             v
         }
     }
-    mut static prop propc: Int64 {
+    static mut prop propc: Int64 {
         get() {
             6
         }
@@ -172,12 +163,12 @@ extend Foo <: TestI {
     }
 
     @Frozen
-    public func f1() {
+    public func f1(){
         propc
     }
 
     @Frozen
-    public mut static prop propd: Int64 {
+    public static mut prop propd: Int64 {
         get() {
             6
         }
@@ -186,3 +177,5 @@ extend Foo <: TestI {
         }
     }
 }
+
+

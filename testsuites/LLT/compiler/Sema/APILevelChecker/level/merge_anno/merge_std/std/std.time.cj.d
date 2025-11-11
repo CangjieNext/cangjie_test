@@ -320,7 +320,11 @@ public struct DateTime <: ToString & Hashable & Comparable<DateTime> & Formattab
     @!APILevel[since: "12", atomicservice : true]
     public static func parse(str: String, format: String): DateTime
     
+<<<<<<< HEAD
     @Deprecated[message: "Use member funtion `public static func parse(str: String, format: String): DateTime` instead."]
+=======
+    @Deprecated[message: "Use member function `public static func parse(str: String, format: String): DateTime` instead."]
+>>>>>>> upstream/dev
     @!APILevel[since: "12", atomicservice : true]
     public static func parse(str: String, format: DateTimeFormat): DateTime
     
