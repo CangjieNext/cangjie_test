@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.1.7.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class static var
   @Behavior: class staticmember variable const to var
   @Expect: api incompatible & abi incompatible
-*/
+ */
 // LEVEL: 0
 // DEPENDENCE: ../../../main.cj, ../../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,7 +33,7 @@
 package test_stable_abi
 
 // test class: staticmember variable
-open public class Father {}
+public open class Father {}
 
 public class Son <: Father {}
 
@@ -48,7 +48,7 @@ public class CC {
     protected static let b4 = 4
     internal static var b5 = 5
     private static var b6 = 6
-    
+
     public static let c1: Father = Son()
 
     static var d1 = 1
@@ -59,8 +59,52 @@ public class CC {
     public static const func e3() {
         e1
     }
+
     @Frozen
     public func e4() {
         e2
     }
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Int64 {
+    let c0 = CC()
+    assert(CC.a1, 1)
+    assert(CC.a2, 2)
+    CC.a2 = 1
+    assert(CC.a2, 1)
+    CC.a2 = 2
+    assert(CC.a2, 2)
+    assert(CC.a3, 3)
+
+    assert(CC.b1, 1)
+    assert(CC.b2, 2)
+    CC.b2 = 22
+    assert(CC.b2, 22)
+    CC.b2 = 2
+    assert(CC.b2, 2)
+    assert(CC.b3, 3)
+    assert(CC.b4, 4)
+    assert(CC.b5, 5)
+    CC.b5 = 55
+    assert(CC.b5, 55)
+    CC.b5 = 5
+    assert(CC.b5, 5)
+
+    assert(CC.c1 is Son, true)
+
+    assert(CC.d1, 1)
+    assert(CC.d2, 1)
+
+    assert(CC.e1, 1)
+    assert(CC.e2, 2)
+    assert(CC.e3(), 1)
+    assert(c0.e4(), 2)
+    0
 }

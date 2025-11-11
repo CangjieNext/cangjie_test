@@ -61,3 +61,16 @@ open public class Generics<T, U, V> {
         return (a, b)
     }
 }
+
+public func checker(): Int64 {
+    let g1 = Generics<Int64, Int64, Int64>(101)
+    if (g1._v1 == 0 && g1._v2 == 1 && g1._v3 == 101 && g1.goo1(1) == 10 && Generics<UInt64, Int64, Int64>.goo2(10) == 100 && g1.goo3(123, 456) == (123, 456)) {
+    } else {
+        return 1
+    }
+    g1._v2 = 202
+    if (g1._v1 != 202) {
+        return 1
+    }
+    0
+}

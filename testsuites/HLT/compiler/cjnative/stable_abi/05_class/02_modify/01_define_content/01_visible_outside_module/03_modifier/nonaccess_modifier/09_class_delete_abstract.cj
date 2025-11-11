@@ -65,3 +65,20 @@ class H <: H0 {}
 open class I0 {}
 
 public class I <: I0 {}
+
+public func checker(): Int64 {
+    A()
+    B()
+    C()
+    D()
+    E()
+    F0()
+    F()
+    G0()
+    G()
+    H0()
+    H()
+    I0()
+    I()
+    0
+}

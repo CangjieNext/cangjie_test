@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.1.8.1.1
   @Scene: add
@@ -13,7 +13,7 @@
   @Object: class instance var
   @Behavior: add open class instance var
   @Expect: api compatible & abi incompatible
-*/
+ */
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -44,7 +44,7 @@ public class Version {
     }
 }
 
-open public class CC {
+public open class CC {
     public let check = 0
 
     public let a1 = 1
@@ -61,7 +61,7 @@ open public class CC {
 
     public let i1 = 1
     public var i2 = 2
-    
+
     protected let j1 = 1
     protected var j2 = 2
 
@@ -70,4 +70,52 @@ open public class CC {
 
     private let l1 = 1
     private var l2 = 2
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    let c = CC()
+    assert(c.check, 0)
+    assert(c.a1, 1)
+    assert(c.a2, 2)
+    c.a2 = 22
+    assert(c.a2, 22)
+    c.a2 = 2
+    assert(c.a2, 2)
+    assert(c.c1, 1)
+    assert(c.c2, 2)
+    c.c2 = 22
+    assert(c.c2, 22)
+    c.c2 = 2
+    assert(c.c2, 2)
+    assert(c.b1, 1)
+    assert(c.b2, 2)
+    c.b2 = 22
+    assert(c.b2, 22)
+    c.b2 = 2
+    assert(c.b2, 2)
+    assert(c.i1, 1)
+    assert(c.i2, 2)
+    c.i2 = 22
+    assert(c.i2, 22)
+    c.i2 = 2
+    assert(c.i2, 2)
+    assert(c.j1, 1)
+    assert(c.j2, 2)
+    c.j2 = 22
+    assert(c.j2, 22)
+    c.j2 = 2
+    assert(c.j2, 2)
+    assert(c.k1, 1)
+    assert(c.k2, 2)
+    c.k2 = 22
+    assert(c.k2, 22)
+    c.k2 = 2
+    assert(c.k2, 2)
 }

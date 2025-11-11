@@ -23,11 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-// ASSERT: scan Incompatible!
-// ASSERT: scan-1 [ABI] Deleted generic constraint of class visible outside the module
-// ASSERT: scan-not [API/ABI]
-// ASSERT: scan-not [API]
-// ASSERT: scan-1 [ABI]
+// TEST ABI Compatibility
+// RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
@@ -74,4 +71,19 @@ open public class Generics<T, U> where T <: Father{
     public func goo3(a: T, b: U) {
         return (a, b)
     }
+}
+
+public func checker(): Int64 {
+    let g1 = Generics<Father, Son>(101)
+    if (g1._v1 == 0 && g1._v2 == 1 && g1._v3 == 101
+        && g1.goo1(1) == 10 && Generics<Father, Son>.goo2(10) == 100 && (g1.goo3(Father(), Son()) is (Father, Son))) {
+    } else {
+        return 1
+    }
+    g1._v2 = 202
+    if (g1._v1 == 202) {
+    } else {
+        return 1
+    }
+    0
 }

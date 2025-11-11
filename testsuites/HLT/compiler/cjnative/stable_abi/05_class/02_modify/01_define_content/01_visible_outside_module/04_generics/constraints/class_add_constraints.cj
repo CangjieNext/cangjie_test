@@ -74,3 +74,18 @@ open public class Generics<T, U> where T <: Father & Son1, U <: Son {
         return (a, b)
     }
 }
+
+public func checker(): Int64 {
+    let g1 = Generics<Son1, Son>(101)
+    if (g1._v1 == 0 && g1._v2 == 1 && g1._v3 == 101
+        && g1.goo1(1) == 10 && Generics<Son1, Son>.goo2(10) == 100 && (g1.goo3(Son1(), Son()) is (Son1, Son))) {
+    } else {
+        return 1
+    }
+    g1._v2 = 202
+    if (g1._v1 == 202) {
+    } else {
+        return 1
+    }
+    0
+}

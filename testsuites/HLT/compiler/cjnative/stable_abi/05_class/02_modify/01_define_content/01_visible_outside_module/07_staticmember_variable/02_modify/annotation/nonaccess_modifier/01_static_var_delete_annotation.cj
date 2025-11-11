@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.1.7.2.1
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class static var
   @Behavior: delete annotation
   @Expect: api compatible & abi compatible
-*/
+ */
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -22,7 +22,6 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-
 
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
@@ -77,4 +76,30 @@ public class CC {
     public func f6() {
         b3
     }
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    let c0 = CC()
+    assert(CC.a1, 1)
+    assert(CC.a2, 2)
+    assert(CC.a3, 3)
+
+    assert(CC.b1, 1)
+    assert(CC.b2, 2)
+    assert(CC.b3, 3)
+
+    assert(CC.f1(), 1)
+    assert(c0.f2(), 2)
+    assert(c0.f3(), 3)
+
+    assert(CC.f4(), 1)
+    assert(c0.f5(), 2)
+    assert(c0.f6(), 3)
 }

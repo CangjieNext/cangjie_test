@@ -12,7 +12,7 @@ main() {
     A()
     B()
     C()
-    0
+    checker()
 }
 
 

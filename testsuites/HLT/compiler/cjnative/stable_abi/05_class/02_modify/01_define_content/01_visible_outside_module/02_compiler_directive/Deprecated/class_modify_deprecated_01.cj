@@ -46,4 +46,11 @@ public class D1 {}
 @Deprecated["This API will be deprecated soon"]
 public class DG1<T> {}
 
+public func checker(): Int64 {
+    B1()
+    BG1<UInt64>()
 
+    C1()
+    CG1<Int64>()
+    0
+}

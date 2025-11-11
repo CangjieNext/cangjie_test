@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.1.7.2
   @Scene: modify
@@ -13,16 +13,15 @@
   @Object: class static var
   @Behavior: modify non const value
   @Expect: api compatible & abi compatible
-*/
+ */
 // LEVEL: 0
 // (not OHOS)DEPENDENCE: main1.cj, ../../template.cj
 // (not OHOS)EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // (not OHOS)EXEC: %compiler %cmp_opt main1.cj %cmp_stable_abi_dylib -o %output
-// (not OHOS)RUN-EXEC-1: %run %run_opt %output %run_args
+// (not OHOS)RUN-EXEC-3: %run %run_opt %output %run_args
 // (not OHOS)EXEC: %rm libstable_abi.*
 // (not OHOS)EXEC: %mv test_stable_abi.cjo old.cjo
 // (not OHOS)EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-
 
 // TEST ABI Compatibility
 // (not OHOS)RUN-EXEC: %run %run_opt %output %run_args
@@ -33,7 +32,7 @@
 package test_stable_abi
 
 // test class: staticmember variable
-open public class Father {}
+public open class Father {}
 
 public class Son <: Father {}
 
@@ -48,7 +47,7 @@ public class CC {
     protected static let b4 = 40
     internal static var b5 = 50
     private static const b6 = 6
-    
+
     public static let c1: Father = Son()
 
     static const d1 = 1
@@ -59,8 +58,51 @@ public class CC {
     public static const func e3() {
         e1
     }
+
     @Frozen
     public func e4() {
         e2
     }
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    let c0 = CC()
+    assert(CC.a1, 10)
+    assert(CC.a2, 20)
+    CC.a2 = 200
+    assert(CC.a2, 200)
+    CC.a2 = 20
+    assert(CC.a2, 20)
+    assert(CC.a3, 3)
+
+    assert(CC.b1, 10)
+    assert(CC.b2, 20)
+    CC.b2 = 200
+    assert(CC.b2, 200)
+    CC.b2 = 20
+    assert(CC.b2, 20)
+    assert(CC.b3, 3)
+    assert(CC.b4, 40)
+    assert(CC.b5, 50)
+    CC.b5 = 55
+    assert(CC.b5, 55)
+    CC.b5 = 50
+    assert(CC.b5, 50)
+
+    assert(CC.c1 is Son, true)
+
+    assert(CC.d1, 1)
+    assert(CC.d2, 1)
+
+    assert(CC.e1, 1)
+    assert(CC.e2, 20)
+    assert(CC.e3(), 1)
+    assert(c0.e4(), 20)
 }

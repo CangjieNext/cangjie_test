@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.1.8.2.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance var
   @Behavior: add @Deprecated, strict: true
   @Expect: api incompatible & abi incompatible
-*/
+ */
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -22,18 +22,17 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
-// ASSERT: scan Incompatible
-// ASSERT: scan-1 [API/ABI] Added deprecated annotation to class member variable with compilation error.
-// ASSERT: scan-1 [API/ABI]
-// ASSERT: scan-not [API]
-// ASSERT: scan-not [ABI]
+// TEST ABI Compatibility
+// RUN-EXEC: %run %run_opt %output %run_args
+// TEST API Compatibility
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 package test_stable_abi
 
 // test class: staticmember variable
-open public class Father {}
+public open class Father {}
 
 public class Son <: Father {}
 
@@ -42,10 +41,15 @@ public class CC {
 
     protected var a1 = 1
     protected let a2 = 2
-    @Deprecated["this var is deprecated", strict: true] protected let a3 = 3
 
-    @Deprecated["this var is deprecated", strict: false] protected let b1 = 1
-    @Deprecated["this var is deprecated", strict: true] protected var b2 = 2
+    @Deprecated["this var is deprecated", strict: true]
+    protected let a3 = 3
+
+    @Deprecated["this var is deprecated", strict: false]
+    protected let b1 = 1
+
+    @Deprecated["this var is deprecated", strict: true]
+    protected var b2 = 2
 
     @Frozen
     public func f1() {
@@ -56,4 +60,21 @@ public class CC {
     public func f2() {
         a2
     }
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    let c = CC()
+    assert(CC.c1 is Son, true)
+    assert(c.a1, 1)
+    assert(c.a2, 2)
+    assert(c.b1, 1)
+    assert(c.f1(), 1)
+    assert(c.f2(), 2)
 }

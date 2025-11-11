@@ -38,3 +38,12 @@ private class B {}
 internal class C {}
 class D {}
 protected class E {}
+
+public func checker(): Int64 {
+    A()
+    B()
+    C()
+    D()
+    E()
+    0
+}
