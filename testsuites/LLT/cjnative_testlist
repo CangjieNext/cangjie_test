@@ -179,6 +179,18 @@ compiler/Driver/LTO/lto_test10_1.cj
 compiler/ConditionalCompilation/cfg/read_file_fail.cj
 compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
 
+# CJMP: error only when compiling to binary
+compiler/CJMP/frontend/platform_declarations/class/common_in_platform_class.cj
+compiler/CJMP/frontend/platform_declarations/struct/common_in_platform_class.cj
+compiler/CJMP/frontend/platform_declarations/class/common_in_platform_part_not_in_class.cj
+compiler/CJMP/frontend/platform_declarations/struct/common_in_platform_part_not_in_class.cj
+compiler/CJMP/frontend/platform_declarations/function/common_func_in_platformfile.cj
+compiler/CJMP/frontend/platform_declarations/class/common_in_platform_class.cj
+compiler/CJMP/frontend/matching/check_modifier_with_option/compile_both_in_platform.cj
+
+# CJMP: Correct errot about extend duplication
+LLT/compiler/CJMP/frontend/extend/negative/check_specific/direct_extension_01/direct_extension_01_05.cj
+
 # API testcases commented on 2025-10-17, need to be fixed.
 ## unittest testcases
 ### error: source file 'other.cj' doesn't exist
