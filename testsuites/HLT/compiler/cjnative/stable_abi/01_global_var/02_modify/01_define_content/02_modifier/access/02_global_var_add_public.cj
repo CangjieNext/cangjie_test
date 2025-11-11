@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 1.2.1.2.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global var
   @Behavior: modifier: non public -> public
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -44,3 +44,16 @@ private var global_var_07: Int64 = 0
 public var global_var_08: Int64 = 0
 var global_var_09: Int64 = 0
 public var global_var_10: Int64 = 0
+
+public func global_func_01() {
+    global_var_08 + global_var_10
+}
+public func global_func_02() {
+    global_var_02 + global_var_04 + global_var_06
+}
+public func global_func_03() {
+    global_var_09
+}
+public func global_func_04() {
+    global_var_05 + global_var_07
+}

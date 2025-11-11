@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.1.1
   @Scene: add
@@ -13,7 +13,7 @@
   @Object: extend
   @Behavior: add extend
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -42,21 +42,18 @@ public interface I1 {
 
 private interface I2 {}
 
-public open class C1 {}
-
+open public class C1 {}
 public class C2 {
     public const init() {}
 }
-
-public open class C3<T, U> where T <: ToString {}
-
+open public class C3<T, U> where T <: ToString {}
 public class C4 <: C1 {}
-
 public class C5<T, U> <: C3<T, U> where T <: ToString {}
 
 public struct S1 {}
-
 public struct S2<T, U> where U <: C1 {}
+
+public class C6 <: I2 {}
 
 extend C1 {
     public func f_c1() {
@@ -173,4 +170,12 @@ extend C5<Int64, I2> {
     public func unexported_foo2() {
         5
     }
+}
+
+public func global_func_01(){
+    Array<UInt64>().test_ABI_add_extend_1() == 1
+    && Array<Int64>().test_ABI_add_extend_2() == 1
+    && Array<Int64>().test_ABI_add_extend_3() == 1
+    && Array<C6>().unexported_foo1() == 1
+    && C5<Int64, I2>().unexported_foo2() == 5
 }

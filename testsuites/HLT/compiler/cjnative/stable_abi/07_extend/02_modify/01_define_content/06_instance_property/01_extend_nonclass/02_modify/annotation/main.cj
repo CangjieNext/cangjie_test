@@ -5,12 +5,15 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    if (TestStruct().prop1 == 1 && TestStruct().prop_1 == 1) {
+    if (
+        TestStruct().prop1 == 1 && TestStruct().prop_1 == 1
+    ) {
         return 0
     }
     return 1
 }
+

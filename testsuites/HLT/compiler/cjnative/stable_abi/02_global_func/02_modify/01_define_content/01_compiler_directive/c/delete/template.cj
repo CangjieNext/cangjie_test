@@ -5,36 +5,16 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test global func: modify compiler directive
-@C
-func global_func_01() {
-    0
-}
+@C func global_func_01() { 0 }
+@C func global_func_02() { 0 }
+@C const func global_func_03() { 0 }
+@C public func global_func_04() { 0 }
+public unsafe const func global_func_05() { global_func_03() }
+@Frozen public unsafe func global_func_06() { global_func_02() }
 
-@C
-func global_func_02() {
-    0
-}
 
-@C
-const func global_func_03() {
-    0
-}
-
-@C
-public func global_func_04() {
-    0
-}
-
-public unsafe const func global_func_05() {
-    global_func_03()
-}
-
-@Frozen
-public unsafe func global_func_06() {
-    global_func_02()
-}

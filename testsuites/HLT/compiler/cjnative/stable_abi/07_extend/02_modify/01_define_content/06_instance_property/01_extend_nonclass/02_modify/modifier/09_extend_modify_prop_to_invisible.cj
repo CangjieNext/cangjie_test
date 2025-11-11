@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.6.1.2.9
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance prop
   @Behavior: modify modifier changed from public to nonpublic
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -24,7 +24,8 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // ASSERT: scan Incompatible!
-// ASSERT: scan [API/ABI] xxx
+// ASSERT: scan-1 [API/ABI] Extend member property visible outside the module deleted or made private.
+// ASSERT: scan-1 [API/ABI] Deleted the modifier 'public' of the member property of the extend.
 // ASSERT: scan-2 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
@@ -59,10 +60,9 @@ extend TestStruct {
             3
         }
     }
-
     @Frozen
     prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -73,14 +73,12 @@ extend TestStruct {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
     public mut prop prop6: Int64 {
         get() {
@@ -121,5 +119,5 @@ extend TestStruct {
         set(v) {
             a = v
         }
-    }
+    } 
 }

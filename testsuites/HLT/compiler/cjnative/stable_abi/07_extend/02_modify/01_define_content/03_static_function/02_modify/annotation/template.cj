@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -80,3 +80,18 @@ extend TestClass {
         f_4()
     }
 }
+
+<<<<<<< HEAD
+public func global_func_01() {
+    TestClass.f_2() == 1
+    && TestClass.f_3() == 1
+    && TestClass.f_4() == 1
+}
+public func global_func_02() {
+    TestClass.f2() == 1
+    && TestClass.f3() == 1
+    && TestClass.f4() == 1
+}
+=======
+
+>>>>>>> upstream/dev

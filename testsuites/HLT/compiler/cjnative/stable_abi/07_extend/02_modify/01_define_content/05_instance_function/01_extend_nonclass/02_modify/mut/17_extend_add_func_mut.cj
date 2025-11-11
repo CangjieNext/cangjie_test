@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.5.1.2.17
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: add mut modifier
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -32,14 +32,12 @@
 package test_stable_abi
 
 // test extend: instance function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public struct TestStruct {
     public const init() {}
 }
-
 extend TestStruct {
     public mut func f1() {
         1
@@ -48,17 +46,16 @@ extend TestStruct {
         2
     }
 
-    mut const func f3(): Int64 {
+    const mut func f3(): Int64 {
         return 3
     }
-    public mut const func f4(): Int64 {
+    public const mut func f4(): Int64 {
         f3()
     }
 
     mut func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public mut func f6(): Int64 {
         f5()
@@ -80,7 +77,7 @@ extend TestStruct {
         11
     }
 
-    mut const func f13(): Int64 {
+    const mut func f13(): Int64 {
         return 13
     }
     public mut const func f14(): Int64 {
@@ -90,7 +87,6 @@ extend TestStruct {
     mut func f15(): Int64 {
         return 5
     }
-
     @Frozen
     public mut func f16(): Int64 {
         f15()

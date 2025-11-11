@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.3.2.1
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend static func
   @Behavior: add static func annotation
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -106,4 +106,15 @@ extend TestClass {
     public func n_2() {
         f_4()
     }
+}
+
+public func global_func_01() {
+    TestClass.f_2() == 1
+    && TestClass.f_3() == 1
+    && TestClass.f_4() == 1
+}
+public func global_func_02() {
+    TestClass.f2() == 1
+    && TestClass.f3() == 1
+    && TestClass.f4() == 1
 }

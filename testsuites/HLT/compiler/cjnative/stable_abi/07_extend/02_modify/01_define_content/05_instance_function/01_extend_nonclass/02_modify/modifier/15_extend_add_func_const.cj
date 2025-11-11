@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.5.1.2.15
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: add const modifier
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,14 +33,12 @@
 package test_stable_abi
 
 // test extend: instance function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public struct TestStruct {
     public const init() {}
 }
-
 extend TestStruct {
     public const func f1() {
         1
@@ -65,7 +63,6 @@ extend TestStruct {
     const func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public const func f6(): Int64 {
         f5()
@@ -73,7 +70,6 @@ extend TestStruct {
     const func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected const func pf6(): Int64 {
         pf5()
@@ -88,17 +84,14 @@ extend TestStruct {
     public const func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public const func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected const func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected const func pf9() {
         9
@@ -107,10 +100,10 @@ extend TestStruct {
     const func f10() {
         10
     }
-    internal const func f11() {
+    const internal func f11() {
         11
     }
-    private const func f12() {
+    const private func f12() {
         12
     }
 

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.3.2.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend static func
   @Behavior: add static func deprecated
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,12 +33,10 @@
 package test_stable_abi
 
 // test extend: static function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public class TestClass {}
-
 public struct TestStruct {}
 
 extend TestClass {
@@ -61,7 +59,6 @@ extend TestClass {
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -71,7 +68,6 @@ extend TestClass {
     public static func f7() {
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -92,7 +88,7 @@ extend TestClass {
         12
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13
     }
     public static const func f14(): Int64 {
@@ -115,6 +111,17 @@ extend TestClass {
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
+
+public func f15() {
+    f2() == 2
+    && f3() == 3
+    && f5() == 5
+    && f7() == 7
+    && f10() == 10
+    && f11() == 11
+    && f12() == 12
+}
+  
 }
 
 extend TestStruct {
@@ -137,7 +144,6 @@ extend TestStruct {
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -147,7 +153,6 @@ extend TestStruct {
     public static func f7() {
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -168,7 +173,7 @@ extend TestStruct {
         12
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13
     }
     public static const func f14(): Int64 {
@@ -191,4 +196,15 @@ extend TestStruct {
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
+
+public func f15() {
+    f2() == 2
+    && f3() == 3
+    && f5() == 5
+    && f7() == 7
+    && f10() == 10
+    && f11() == 11
+    && f12() == 12
+}
+  
 }

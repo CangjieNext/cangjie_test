@@ -5,17 +5,26 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
     let c1 = C1()
     let s1 = S1()
 
-    if (c1.f1() == 100 && c1.ff1() == 100
-        && s1.f1() == 100 && s1.ff1() == 100) {
+<<<<<<< HEAD
+    if ((c1.f1() == 100 && c1.ff1() == 100
+        && s1.f1() == 100 && s1.ff1() == 100) && global_func_01()) {
         return 0
+=======
+    if (c1.f1() == 100 && c1.ff1() == 100
+    && s1.f1() == 100 && s1.ff1() == 100) {
+        return 0        
+>>>>>>> upstream/dev
     } else {
         return 1
     }
+
 }
+
+

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 2.2.1.1.1
   @Scene: modify
@@ -13,11 +13,11 @@
   @Object: global func
   @Behavior: add @Deprecated, strict: true
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
-// DEPENDENCE: main.cj, template.cj
+// DEPENDENCE: main_01.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
-// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// EXEC: %compiler %cmp_opt main_01.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
@@ -26,7 +26,7 @@
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
-// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// EXEC: %compiler %cmp_opt main_01.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 package test_stable_abi
@@ -34,76 +34,23 @@ package test_stable_abi
 // test global func: modify compiler directive
 // global func: non public global func
 // modify operation: add @Deprecated, strict: true
-@Deprecated["this var is deprecated", strict: true]
-func global_func_01() {
-    0
-}
+@Deprecated["this var is deprecated", strict: true] func global_func_01() { 0 }
+func global_func_02() { 0 }
+const func global_func_03() { 0 }
+@Deprecated["this var is deprecated", strict: true] func global_func_04() { 0 }
+@Deprecated["this var is deprecated", strict: true] func global_func_05() { 0 }
+@Deprecated["this var is deprecated", strict: true] const func global_func_06() { 0 }
+@Deprecated["this var is deprecated", strict: false] func global_func_07() { 0 }
+@Deprecated["this var is deprecated", strict: false] func global_func_08() { 0 }
+@Deprecated["this var is deprecated", strict: false] const func global_func_09() { 0 }
 
-func global_func_02() {
-    0
-}
+public func global_func_10() { 0 }
+@Deprecated["this var is deprecated", strict: true] public func global_func_11() { 0 }
+@Deprecated["this var is deprecated", strict: false] public func global_func_12() { 0 }
 
-const func global_func_03() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: true]
-func global_func_04() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: true]
-func global_func_05() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: true]
-const func global_func_06() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: false]
-func global_func_07() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: false]
-func global_func_08() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: false]
-const func global_func_09() {
-    0
-}
-
-public func global_func_10() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: true]
-public func global_func_11() {
-    0
-}
-
-@Deprecated["this var is deprecated", strict: false]
-public func global_func_12() {
-    0
-}
-
-public const func global_func_13() {
-    global_func_03()
-}
-
-@Deprecated["this var is deprecated", strict: true]
-public const func global_func_14() {
-    global_func_06()
-}
-
-@Deprecated["this var is deprecated", strict: false]
-public const func global_func_15() {
-    global_func_09()
-}
+public const func global_func_13() { global_func_03() }
+@Deprecated["this var is deprecated", strict: true] public const func global_func_14() { global_func_06() }
+@Deprecated["this var is deprecated", strict: false] public const func global_func_15() { global_func_09() }
 
 @Frozen
 public func global_func_16() {
@@ -120,4 +67,41 @@ public func global_func_17() {
 @Deprecated["this func is deprecated", strict: false]
 public func global_func_18() {
     global_func_08()
+}
+
+public func global_func_19() {
+    global_func_01()
+}
+public func global_func_20() {
+    0
+}
+public func global_func_21() {
+    0
+}
+public func global_func_22() {
+    global_func_09()
+}
+public func global_func_23() {
+    0
+}
+public func global_func_24() {
+    0
+}
+public func global_func_30() {
+    global_func_07()
+}
+public func global_func_25() {
+    0
+}
+public func global_func_26() {
+    0
+}
+public func global_func_27() {
+    0
+}
+public func global_func_28() {
+    0
+}
+public func global_func_29() {
+    global_func_12() + global_func_15()
 }
