@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+
+
+enum E{
+    X// cjlint-ignore !G.ENU.01
+}
+// cjlint-ignore -start !G.ENU.01
+class X{}
+// cjlint-ignore -end !G.ENU.01
+main(){}
+
+

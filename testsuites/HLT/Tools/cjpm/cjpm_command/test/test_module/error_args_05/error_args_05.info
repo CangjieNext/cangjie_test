@@ -9,5 +9,5 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm test --module "" -V 2>&1 | compare %f
-// ASSERT: scan Error: the '--module' option can't be empty
+// ASSERT: scan Error: can not find the customized key 'module' in all cjpm.toml
 // ASSERT: scan Error: cjpm test failed

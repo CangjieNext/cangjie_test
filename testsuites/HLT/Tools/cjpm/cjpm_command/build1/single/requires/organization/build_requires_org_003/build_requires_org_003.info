@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // ERRCHECK:cd %n && %cjpm build %cjpm_opt
-// ASSERT: regex the path 'b' does not exist which is listed in 'dependencies' field
+// ASSERT: regex the path 'b' of module 'b' does not exist which is listed in 'dependencies' field
