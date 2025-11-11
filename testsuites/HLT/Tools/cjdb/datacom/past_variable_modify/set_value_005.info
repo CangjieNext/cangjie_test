@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/set_value/004_basevar_setvalue.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 004_basevar_setvalue.cj -o 004_basevar_setvalue%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py set_value_005.info 004_basevar_setvalue %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 004_basevar_setvalue,004_basevar_setvalue
+b,b 16,004_basevar_setvalue.cj:16
+AOT r,r,-> 16
+CJVM c,c,
+AOT expression,expression ccc,\(std.core.String\) \$[\d] = "A"
+CJVM p,p ccc,\(std\.core\.String\) \$[\d] = \"A\"
+AOT expression,expression this.aaa,\(Int64\) \$[\d] = 11
+CJVM p,p this.aaa,\(Int64\) \$[\d] = 11
+AOT expression,expression this.boolvar01,\(Bool\) \$[\d] = true
+CJVM p,p this.boolvar01,\(Bool\) \$[\d] = true
+AOT expression,expression this.name,\(std\.core\.String\) \$[\d] = \"rectangle\"
+CJVM p,p this.name,\(std\.core\.String\) \$[\d] = \"rectangle\"
+AOT expression,expression this.aaa=10,\(Unit\) \$[\d] = ()
+CJVM set,set this.aaa=10,\(Int64\) \$[\d] = 10
+AOT expression,expression this.boolvar01=false,\(Unit\) \$[\d] = ()
+CJVM set,set this.boolvar01=false,\(Bool\) \$[\d] = false
+q,q,

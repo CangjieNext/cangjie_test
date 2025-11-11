@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+import std.sync.ReentrantMutex
+
+var arr: Array<Int64> = [1,2]
+
+open class Base {
+  static func doSomething() {
+    arr = [1,2]
+  }
+}
+class Derived <: Base {
+  
+  redef static func doSomething() {
+    arr = [1,2]
+  }
+}
+
+main(){0}
+
+

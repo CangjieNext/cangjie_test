@@ -11,7 +11,7 @@
 // ERRCHECK: cd %n && %cjpm build %cjpm_opt -V -condition="cfg1"
 
 /* SCAN
-Error: unknow command '-condition=cfg1' for cjpm build
+Error: unknown command '-condition=cfg1' for cjpm build
 Error: cjpm build failed
 */
 
