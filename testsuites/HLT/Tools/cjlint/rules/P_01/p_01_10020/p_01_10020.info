@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ./src
+// EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
+// ASSERT: regex-1 :63:.*error.*? The nested synchronized objects has a different sequence than the nested synchronized objects on the line 19 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex-1 :69:.*error.*? The nested synchronized objects has a different sequence than the nested synchronized objects on the line 25 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex-1 :69:.*error.*? The nested synchronized objects has a different sequence than the nested synchronized objects on the line 33 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex-1 :77:.*error.*? The nested synchronized objects has a different sequence than the nested synchronized objects on the line 25 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex-1 :77:.*error.*? The nested synchronized objects has a different sequence than the nested synchronized objects on the line 33 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex-1 :77:.*error.*? The nested synchronized objects has a different sequence than the nested synchronized objects on the line 41 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex-1 :85:.*error.*? The nested synchronized objects has a different sequence than the nested synchronized objects on the line 33 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex-1 :85:.*error.*? The nested synchronized objects has a different sequence than the nested synchronized objects on the line 41 of the file 'test.cj', which may cause a deadlock.
+// ASSERT: regex-1 :93:.*error.*? The nested synchronized objects has a different sequence than the nested synchronized objects on the line 49 of the file 'test.cj', which may cause a deadlock.
