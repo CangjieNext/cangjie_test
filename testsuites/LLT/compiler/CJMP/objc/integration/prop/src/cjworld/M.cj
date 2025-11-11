@@ -10,7 +10,7 @@ import objc.lang.*
 
 @ObjCMirror
 open class M {
-    public mut prop foo: Int64
+    public open mut prop foo: Int64
     public mut prop bar: M1
     public init()
 }

@@ -21,6 +21,11 @@ public class A <: M {
         }
     }
 
+    public override mut prop foo: Int64 {
+        get() { 42 }
+        set(value) {}
+    }
+
     // storing M1 directly is not working right now due to escape/ARC
     private var _b_answer: Float64
     public mut prop b: M1 {
