@@ -10,4 +10,4 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm init --name test
 // ERRCHECK: cd %n && %cjpm update cangjie
-// ASSERT: scan unknow command 'cangjie' for cjpm update
+// ASSERT: scan unknown command 'cangjie' for cjpm update

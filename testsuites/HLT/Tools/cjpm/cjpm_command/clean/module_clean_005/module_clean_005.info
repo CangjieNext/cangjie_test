@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // ERRCHECK: cd %n && %cjpm clean cangjie
-// ASSERT: scan unknow command 'cangjie' for cjpm clean
+// ASSERT: scan unknown command 'cangjie' for cjpm clean

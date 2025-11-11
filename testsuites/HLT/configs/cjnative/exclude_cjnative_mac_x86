@@ -13,3 +13,6 @@ API/std/unittest/mock/test_mock_extend_cjnative.cj
 # Reflect not supported on Mac
 API/std/reflect/cjnative/findAnnotation/test_findAllAnnotations.cj
 API/std/reflect/cjnative/findAnnotation/test_getAllAnnotations.cj
+
+# 随机失败多次，影响门禁
+API/std/socket/UdpSocket/test_udp_transportation_init.cj
