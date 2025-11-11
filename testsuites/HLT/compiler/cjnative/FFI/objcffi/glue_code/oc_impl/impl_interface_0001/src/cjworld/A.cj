@@ -8,7 +8,7 @@
  
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCImpl
 public class A <: M {
@@ -19,9 +19,7 @@ public class A <: M {
         var m = M()
         m.p1 = 2
         println("p1: ${m.p1}")
-        println("p2: ${m.p2}")
         m.f1()
-        m.f2()
         m.f3()
     }
 }

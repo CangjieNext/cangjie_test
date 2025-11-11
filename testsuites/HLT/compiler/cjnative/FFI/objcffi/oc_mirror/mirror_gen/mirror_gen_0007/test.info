@@ -15,6 +15,7 @@ package cjworld
 
 import objc.foundation.NSString
 import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public struct test {

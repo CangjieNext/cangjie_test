@@ -46,10 +46,10 @@ class Test {
     @TestCase
     func testGenericParamInit() {
         @Expect(params.size, 2)
-        var genericParam = GenericParam(params[0].name, annotations: params[0].annotations, modifiers: params[0].modifiers)
+        var genericParam = GenericParam(params[0].name)
         @Expect(genericParam.name, "T1")
         @Expect(genericParam.toString(), "T1")
-        genericParam = GenericParam(params[1].name, annotations: params[1].annotations, modifiers: params[1].modifiers)
+        genericParam = GenericParam(params[1].name)
         @Expect(genericParam.name, "T2")
         @Expect(genericParam.toString(), "T2")
     }

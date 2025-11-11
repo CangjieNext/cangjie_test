@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+package cjworld
+
+import objc.lang.*
+
+@ObjCImpl
+public class A <: M2 {
+    public init() {}
+    public var v: I = M1(1)
+    public prop p: I {
+        get() {M1(2)}
+    }
+    public func g1(): I { M1(3) }
+    public func g2(a: I) {
+        println("p1: ${a.p1}")
+        a.f1()
+        a.f3()
+    }
+}
