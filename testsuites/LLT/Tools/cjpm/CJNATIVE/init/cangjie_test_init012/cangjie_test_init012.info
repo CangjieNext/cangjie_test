@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // ERRCHECK: cd %n && %cjpm init --name test --type=abcde
-// ASSERT: scan unknow command '--type=abcde' for cjpm init
+// ASSERT: scan unknown command '--type=abcde' for cjpm init

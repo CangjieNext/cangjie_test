@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+var top_a = 10
+var top_b = true
+
+func test(){
+    var a = true && !top_b
+
+    var b = true ||  !top_b
+    var c = Option<Int64>.Some(100) ??  { => !top_b; top_a } ()
+
+    var c1 = Option<Int32>.Some(100) ??  {=> !top_b; Int32(1)}()
+    var c2 = Option<Float64>.Some(100.0) ??  {=> !top_b; 1.0}()
+    var c3 = Option<Unit>.Some(()) ?? {=> !top_b; () }()
+    var c4 = Option<String>.Some("100") ??   {=> !top_b; "true"}()
+    var c5 = Option<(Float64,String)>.Some((10.0, "")) ?? {=> !top_b; (10.0, "")}()
+    var c6 = Option<Array<String>>.Some([""]) ?? {=> !top_b; [""]}()
+
+    let d = true && !top_b
+    let e = true || !top_b
+    let f = Option<Int64>.Some(100) ?? { => !top_b; top_a } ()
+}
+
+main(){
+
+}
+
+
+

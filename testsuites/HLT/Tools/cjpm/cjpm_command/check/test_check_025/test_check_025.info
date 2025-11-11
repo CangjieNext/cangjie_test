@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC-PIPE-1: cd %n && %cjpm check 2>&1 | compare %f
-// ASSERT: regex the path 'b' does not exist which is listed in 'dependencies' field
+// ASSERT: regex the path 'b' of mudule 'b' does not exist which is listed in 'dependencies' field

@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+import std.io.*
+
+func exceptionExample(path: String): Unit {
+	var file: FileStream
+	if (File.exist(path)) {
+		throw IOException("File does not exist")// cjlint-ignore !G.ERR.02
+	}
+}
+
+main(){
+	0
+}
+

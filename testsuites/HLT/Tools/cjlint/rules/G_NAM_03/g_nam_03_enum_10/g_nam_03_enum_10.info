@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ./src
+// EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
+// ASSERT: regex .*warning.*: Identifier 'i1' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias
+// ASSERT: regex .*warning.*: Identifier 'i________' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias
+// ASSERT: regex .*warning.*: Identifier 'i__' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias
+// ASSERT: regex-3 warning
