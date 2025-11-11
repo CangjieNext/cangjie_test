@@ -114,6 +114,21 @@ class Test {
         pos = content.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 19]).toArray())
     }
+
+    @TestCase
+    func testInit02() {
+        let importList = importLists[2]
+        match(importList.kind) {
+            case ImportKind.Alias => @Expect(true)
+            case _ => @Expect(false)
+        }
+        let tmp = (importList.contents as ImportAlias).getOrThrow()
+        let content = ImportAlias(tmp.prefixes, tmp.identifier, tmp.aliasName)
+        @Expect(content.prefixes, ["a", "b"])
+        @Expect(content.identifier, "testPackage")
+        @Expect(content.aliasName, "pkg")
+        @Expect(content.toString(), "a.b.testPackage as pkg")
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
