@@ -10,7 +10,7 @@ import test_stable_abi.*
 
 main() {
     unsafe {
-        if (global_func_04() + global_func_05() + global_func_06() == 0) {
+        if (global_func_04() + global_func_05() + global_func_06() + global_func_07() == 0) {
             return 0
         }
     }

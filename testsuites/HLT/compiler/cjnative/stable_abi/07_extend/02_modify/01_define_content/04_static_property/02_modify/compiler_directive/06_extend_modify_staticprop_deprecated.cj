@@ -122,6 +122,14 @@ extend TestClass {
             a = v
         }
     }
+
+public func f15() {
+    prop2 == 2
+    && prop3 == 3
+    && prop7 == 7
+    && prop8 == 8
+    && prop9 == 9
+}
 }
 
 extend TestStruct {
@@ -205,4 +213,12 @@ extend TestStruct {
             a = v
         }
     }
+
+public func f15() {
+    prop2 == 2
+    && prop3 == 3
+    && prop7 == 7
+    && prop8 == 8
+    && prop9 == 9
+}
 }

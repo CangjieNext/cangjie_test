@@ -99,3 +99,10 @@ public func global_func_06() {
 public func global_func_16() {
     global_func_12()
 }
+
+public func global_func_17() {
+    global_func_01()
+}
+public func global_func_18() {
+    global_func_11()
+}

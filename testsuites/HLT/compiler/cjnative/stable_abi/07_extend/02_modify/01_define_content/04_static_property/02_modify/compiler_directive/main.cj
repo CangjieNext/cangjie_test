@@ -19,7 +19,9 @@ main() {
         && TestStruct.prop1 == 1 && TestStruct._prop3 == 3
         && TestStruct.prop4 == 4 && TestStruct.prop6 == 6
         && TestStruct.prop10 == 10 && TestStruct.prop11 == 11
-        && TestStruct.a == -1) {
+        && TestStruct.a == -1
+        && TestStruct().f15()
+        && TestClass().f15()) {
         return 0
     } else {
         return 1

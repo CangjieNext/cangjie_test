@@ -163,3 +163,13 @@ public const func global_func_55(a!: Int32, b!: Int64) {
 public func global_func_56(a!: Int32, b!: Int64) {
     global_func_52(a: 0, b: 0)
 }
+
+public func global_func_57() {
+    global_func_11(0)
+}
+public func global_func_58() {
+    global_func_21(a: 0)
+}
+public func global_func_59() {
+    global_func_31(a: 0)
+}

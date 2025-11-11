@@ -42,3 +42,7 @@ public var global_var_03: Int64 = 0
 public func global_func_01() {
     global_var_02
 }
+
+public func global_func_02() {
+    global_var_01
+}

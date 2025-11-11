@@ -35,6 +35,8 @@ public struct S1 {}
 
 public struct S2<T, U> where U <: C1 {}
 
+public class C6 <: I2 {}
+
 extend C1 {
     public func f_c1() {
         1
@@ -75,4 +77,8 @@ extend<X, Y> S2<X, Y> {
     public func f_s2() {
         2
     }
+}
+
+public func global_func_01(){
+    true
 }

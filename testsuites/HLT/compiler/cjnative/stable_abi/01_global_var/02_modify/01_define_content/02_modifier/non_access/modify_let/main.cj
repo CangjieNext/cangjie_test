@@ -9,7 +9,7 @@
 import test_stable_abi.*
 
 main() {
-    if (global_var_03 + global_func_01() == 0) {
+    if (global_var_03 + global_func_01() + global_func_02() == 0) {
         return 0
     }
     return 1

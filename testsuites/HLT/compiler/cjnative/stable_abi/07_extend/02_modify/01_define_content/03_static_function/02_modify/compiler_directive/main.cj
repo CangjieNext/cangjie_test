@@ -24,7 +24,9 @@ unsafe main() {
         && TestStruct.g1<Int64, Int64, Son>(1, 2, Son()) == "12"
         && TestStruct.g2<Int64, String, Son>(1, "a", Son()) == "1"
         && TestStruct.p1(1, b: 2, c: 3) == 6
-        && TestStruct.p2(Son(), b: Son()) is Son && TestStruct.p3(Father(), b: Father()) is Father) {
+        && TestStruct.p2(Son(), b: Son()) is Son && TestStruct.p3(Father(), b: Father()) is Father
+        && TestStruct().f15()
+        && TestClass().f15()) {
         return 0
     } else {
         return 1

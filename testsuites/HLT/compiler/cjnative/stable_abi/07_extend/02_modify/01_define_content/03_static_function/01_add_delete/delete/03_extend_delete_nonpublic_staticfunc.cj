@@ -166,3 +166,7 @@ extend TestStruct {
         c
     }
 }
+
+public func global_func_01(){
+    true
+}

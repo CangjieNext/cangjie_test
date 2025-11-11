@@ -121,3 +121,40 @@ public func global_func_17() {
 public func global_func_18() {
     global_func_08()
 }
+
+public func global_func_19() {
+    global_func_01()
+}
+public func global_func_20() {
+    0
+}
+public func global_func_21() {
+    0
+}
+public func global_func_22() {
+    global_func_09()
+}
+public func global_func_23() {
+    0
+}
+public func global_func_24() {
+    0
+}
+public func global_func_30() {
+    global_func_07()
+}
+public func global_func_25() {
+    0
+}
+public func global_func_26() {
+    0
+}
+public func global_func_27() {
+    0
+}
+public func global_func_28() {
+    0
+}
+public func global_func_29() {
+    global_func_12() + global_func_15()
+}

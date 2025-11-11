@@ -60,6 +60,8 @@ extend Int64 <: I4 {
 
 public class Foo<T> {}
 
+class C6 <: I3 & I4{}
+
 extend<T> Foo<T> where T <: I1 {
     public func f1() {}
 }
@@ -94,4 +96,8 @@ extend<T> SS<T> where T <: I3 {
 
 extend<T> SS<T> where T <: I3 & I4 {
     public func f5() {}
+}
+
+public func global_func_01(){
+    true
 }

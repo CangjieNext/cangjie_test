@@ -15,9 +15,9 @@
   @Expect: api compatible & abi compatible
  */
 // LEVEL: 0
-// DEPENDENCE: main.cj, template.cj
+// DEPENDENCE: main_01.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
-// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// EXEC: %compiler %cmp_opt main_01.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
@@ -26,7 +26,7 @@
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
-// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// EXEC: %compiler %cmp_opt main_01.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 package test_stable_abi
@@ -51,4 +51,8 @@ public func global_func_01() {
 @Frozen
 public func global_func_02() {
     global_var_04
+}
+
+public func global_func_03() {
+    global_var_01
 }

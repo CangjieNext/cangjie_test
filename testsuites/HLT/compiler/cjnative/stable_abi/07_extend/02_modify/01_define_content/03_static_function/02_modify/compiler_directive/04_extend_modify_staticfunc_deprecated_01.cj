@@ -114,6 +114,16 @@ extend TestClass {
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
+
+public func f15() {
+    f2() == 2
+    && f3() == 3
+    && f5() == 5
+    && f10() == 10
+    && f11() == 11
+    && f12() == 12
+}
+  
 }
 
 extend TestStruct {
@@ -189,4 +199,14 @@ extend TestStruct {
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
+
+public func f15() {
+    f2() == 2
+    && f3() == 3
+    && f5() == 5
+    && f10() == 10
+    && f11() == 11
+    && f12() == 12
+}
+  
 }

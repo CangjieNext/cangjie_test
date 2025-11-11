@@ -44,3 +44,16 @@ private var global_var_07: Int64 = 0
 var global_var_08: Int64 = 0
 var global_var_09: Int64 = 0
 var global_var_10: Int64 = 0
+
+public func global_func_01() {
+    global_var_08 + global_var_10
+}
+public func global_func_02() {
+    global_var_02 + global_var_04 + global_var_06
+}
+public func global_func_03() {
+    global_var_09
+}
+public func global_func_04() {
+    global_var_05 + global_var_07
+}

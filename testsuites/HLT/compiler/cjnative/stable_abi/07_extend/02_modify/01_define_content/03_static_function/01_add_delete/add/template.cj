@@ -193,3 +193,7 @@ public class Foo<T> {}
 extend<T> Foo<T> where T <: I1 {
     public static func f1() {}
 }
+
+public func global_func_01(){
+    true
+}

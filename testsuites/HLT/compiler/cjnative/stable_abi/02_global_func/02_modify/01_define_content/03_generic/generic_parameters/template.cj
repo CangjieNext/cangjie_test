@@ -40,3 +40,10 @@ public const func global_func_06<T1, T2, T3>() {
 public func global_func_07() {
     global_func_03<A, A>()
 }
+
+public func global_func_08() {
+    global_func_02<A, A>()
+}
+public func global_func_09() {
+    global_func_01<A, A>()
+}

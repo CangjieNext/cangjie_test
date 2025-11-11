@@ -9,7 +9,7 @@
 import test_stable_abi.*
 
 main() {
-    if (TestClass.f1() == 1 && TestClass.f_1() == 1) {
+    if (TestClass.f1() == 1 && TestClass.f_1() == 1 && global_func_01() && global_func_02()) {
         return 0
     }
     return 1

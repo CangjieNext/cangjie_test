@@ -109,3 +109,7 @@ public const func global_func_16() {
 public func global_func_26() {
     global_func_22()
 }
+
+public func global_func_27() {
+    global_func_01()
+}

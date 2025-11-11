@@ -37,6 +37,8 @@ extend Int64 <: I4 {
 
 public class Foo<T> {}
 
+class C6 <: I3 & I4{}
+
 extend<T> Foo<T> where T <: I1 {
     public func f1() {}
 }
@@ -83,4 +85,17 @@ extend<T> SS<T> where T <: I4 {
 
 extend<T> SS<T> where T <: I3 & I4 {
     public func f5() {}
+}
+
+public func global_func_01(){
+    SS<I1>().f1()
+    SS<I2>().f2()
+    SS<I3>().f3()
+    Foo<I1>().f1()
+    Foo<I2>().f2()
+    Foo<I3>().f3()
+    SS<C6>().f5()
+    Foo<C6>().f5() == 5
+    && 1.foo1() == 1
+    && 2.foo2() == 2
 }

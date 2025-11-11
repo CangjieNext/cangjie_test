@@ -43,6 +43,8 @@ public interface I4 {}
 
 public class Foo<T> {}
 
+class C6 <: I3 & I4{}
+
 extend Int64 <: I4 {
     public func foo3() {
         3
@@ -61,4 +63,8 @@ extend<T> SS<T> where T <: I4 {
     public func f4() {
         4
     } // exported
+}
+
+public func global_func_01(){
+    true
 }

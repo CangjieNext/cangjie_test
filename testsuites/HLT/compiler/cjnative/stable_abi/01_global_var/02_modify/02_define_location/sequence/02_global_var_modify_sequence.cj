@@ -37,3 +37,7 @@ protected var global_var_04: Int64 = 0
 internal var global_var_03: Int64 = 0
 private var global_var_02: Int64 = 0
 public var global_var_01: Int64 = 0
+
+public func global_func_01(){
+    global_var_05
+}

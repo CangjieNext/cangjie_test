@@ -58,6 +58,8 @@ public struct S1 {}
 
 public struct S2<T, U> where U <: C1 {}
 
+public class C6 <: I2 {}
+
 extend C1 {
     public func f_c1() {
         1
@@ -173,4 +175,12 @@ extend C5<Int64, I2> {
     public func unexported_foo2() {
         5
     }
+}
+
+public func global_func_01(){
+    Array<UInt64>().test_ABI_add_extend_1() == 1
+    && Array<Int64>().test_ABI_add_extend_2() == 1
+    && Array<Int64>().test_ABI_add_extend_3() == 1
+    && Array<C6>().unexported_foo1() == 1
+    && C5<Int64, I2>().unexported_foo2() == 5
 }
