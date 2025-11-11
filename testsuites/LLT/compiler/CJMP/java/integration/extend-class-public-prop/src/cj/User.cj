@@ -14,7 +14,7 @@ public class User {
 }
 
 extend User {
-    public prop item: Int32 {
+    public prop item_3: Int32 {
         get() {
             123
         }

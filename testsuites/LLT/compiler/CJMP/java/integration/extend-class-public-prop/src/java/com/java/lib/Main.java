@@ -11,7 +11,7 @@ import cj.User;
 public class Main {
     public static void main(String[] args) {
         User user = new User();
-        System.out.println("java: " + user.getItem());
+        System.out.println("java: " + user.getItem_3());
         user.setPp(20);
         System.out.println("java: " + user.getPp());
         user.setSp(40);
