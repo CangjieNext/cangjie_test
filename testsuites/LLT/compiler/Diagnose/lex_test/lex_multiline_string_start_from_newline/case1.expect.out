@@ -1,8 +1,8 @@
-error: multi-line string may need start with newline character
+error: multi-line string must start with newline character
   ==> case1.cj:15:16:
    | 
 15 |     cangjie ${ """cangjie1}
-   |                ~~~^ excepted starting with newline character
+   |                ~~~^ expected to start with newline character
    |                |
    |                because it is in multi-line string
    | 
