@@ -9,7 +9,8 @@
 import test_stable_abi.*
 
 main() {
-    if (global_func_07() + global_func_08() + global_func_09() + global_func_10() + global_func_11() + global_func_12() == 0) {
+    if (global_func_07() + global_func_08() + global_func_09() + global_func_10() + global_func_11() + global_func_12() == 0
+    && global_func_13()) {
         return 0
     }
     return 1
