@@ -47,6 +47,21 @@ class Test {
     }
 
     @TestCase
+    func testExpr02() {
+        println(nodes[1])
+        let expr = (nodes[1] as CallExpr).getOrThrow()
+        let memberAccess = (expr.callee as MemberAccess).getOrThrow()
+        @Expect(memberAccess.base.toString(), "UInt16")
+        @Expect(memberAccess.field.toString(), "parse")
+        @Expect(memberAccess.toString(), "UInt16.parse")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        var pos = memberAccess.getDotPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 11, 3, 12]).toArray())
+        pos = memberAccess.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 17]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("member_access.cj")
         let input = String.fromUtf8(File.readFrom("member_access.cj"))
