@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 // (CJNATIVE) EXEC-PIPE: %compiler %cmp_opt %f %enableO2 -o %output 2>&1 | compare %f
 // (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
