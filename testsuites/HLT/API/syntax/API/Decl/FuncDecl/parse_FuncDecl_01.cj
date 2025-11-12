@@ -72,6 +72,9 @@ protected func func_3<T, U>(a: T, b: U): T where T <: I1<T> & I2<T>, U <: I3<U> 
     @Assert(funcdecl_3.toString(), ##"protected func func_3<T, U>(a: T, b: U): T where T <: I1<T> & I2<T>, U <: I3<U> {
     a
 }"##)
+    @Assert(funcdecl_3.toTokens().toString(), ##"protected func func_3 < T, U >(a: T, b: U): T where T <: I1 < T > & I2 < T >, U <: I3 < U > {
+    a
+}"##)
     @Assert(funcdecl_3.body.isSome())
     @Assert(funcdecl_3.body.getOrThrow().toString(), ##"{
     a

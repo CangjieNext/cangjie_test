@@ -28,6 +28,9 @@ func test_MacroDecl_01() {
     @Assert(_decl.toString(), ##"public macro M1(input: Tokens): Tokens {
     input
 }"##)
+    @Assert(_decl.toTokens().toString(), ##"public macro M1(input: Tokens): Tokens {
+    input
+}"##)
     @Assert(_decl.body.toString(), ##"{
     input
 }"##)

@@ -33,6 +33,7 @@ func test_MacroExpandExpr_01() {
     var mainDecl: MainDecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
     var expr_1: MacroExpandExpr = (mainDecl.body.nodes[0] as MacroExpandExpr).getOrThrow()
     @Expect(expr_1.toString(), ##"@M1 @M2(foo())"##)
+    @Expect(expr_1.toTokens().toString(), ##"@M1 @M2(foo())"##)
     @Assert(expr_1.calleeMacro.toString(), "M1")
     @Assert(expr_1.macroAttrs.toString(), "")
     match (expr_1.macroInputs) {

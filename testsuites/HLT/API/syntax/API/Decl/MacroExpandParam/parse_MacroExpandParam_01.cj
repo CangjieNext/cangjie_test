@@ -30,6 +30,7 @@ func test_MacroExpandParam_01() {
     @Assert(funcdecl_1.params.params.size, 3)
     let param_1: MacroExpandParam = (funcdecl_1.params.params[0] as MacroExpandParam).getOrThrow()
     @Assert(param_1.toString(), "@M1 a: Int64")
+    @Assert(param_1.toTokens().toString(), "@M1 a: Int64")
     @Assert(param_1.calleeMacro.toString(), "M1")
     @Assert(param_1.macroAttrs.toString(), "")
     match (param_1.macroInputs) {

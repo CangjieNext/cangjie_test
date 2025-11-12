@@ -50,6 +50,18 @@ public class S1<T> <: I1<T> where T <: ToString{
         return a
     }
 }"##)
+
+    @Assert(classDecl.toTokens().toString(), ##"@Deprecated["仓颉"]
+public class S1 < T > <: I1 < T > where T <: ToString {
+    public let s1: Int64 = 0
+    prop p1: Int64 {
+        get() { 0 }
+    }
+    public init() { }
+    func foo(a: T): T {
+        return a
+    }
+}"##)
     @Assert(classDecl.body.memberDecls.size, 4)
     @Assert(classDecl.body.memberDecls[0] is VarDecl)
     @Assert(classDecl.body.memberDecls[0].toString(), ##"public let s1: Int64 = 0"##)

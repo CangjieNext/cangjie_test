@@ -51,6 +51,7 @@ func test_EnumPattern_01() {
 
     var pattern_4: EnumPattern = (expr.matchCases[2].patterns[0] as EnumPattern).getOrThrow()
     @Assert(pattern_4.toString(), "p1.p0.E<Int64>.A1(1)")
+    @Assert(pattern_4.toTokens().toString(), "p1.p0.E < Int64 >.A1(1)")
     @Assert(pattern_4.enumConstructor.toString(), "A1")
     @Assert(pattern_4.enumType.getOrThrow().toString(), "p1.p0.E<Int64>")
     @Assert(pattern_4.subPatterns.toString(), "[1]")

@@ -28,6 +28,7 @@ func test_OptionalExpr_01() {
 
     var mainDecl: MainDecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
     var expr_1: MemberAccess = (mainDecl.body.nodes[0] as MemberAccess).getOrThrow()
+    @Expect(expr_1.toTokens().toString(), ##"a?.b"##)
     @Expect(expr_1.base is OptionalExpr)
     @Expect(expr_1.base.toString(), ##"a?"##)
 

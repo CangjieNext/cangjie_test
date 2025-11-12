@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+
+import stdx.syntax.*
+
+@Test
+func test_TryCatch_02() {
+    let str = ##"try {} finally {}"##
+    let res = parseText(str)
+    let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
+
+    var expr: TryCatch = (sourceNode as TryCatch).getOrThrow()
+    @Assert(expr.toString(), "try {} finally {}")
+    @Assert(expr.tryBlock.toString(), ##"{}"##)
+    @Assert(expr.catchBlocks.size, 0)
+    @Assert(expr.catchPatterns.size, 0)
+    @Assert(expr.finallyBlock.isSome())
+    @Assert(expr.finallyBlock.getOrThrow().toString(), ##"{}"##)
+    @Assert(expr.resourceSpec.size, 0)
+}

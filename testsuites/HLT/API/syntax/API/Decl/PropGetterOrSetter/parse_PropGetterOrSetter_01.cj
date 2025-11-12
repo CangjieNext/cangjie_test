@@ -33,6 +33,7 @@ func test_PropGetterOrSetter_01() {
     let prop_1 = (interfaceDecl.body.memberDecls[0] as PropDecl).getOrThrow()
     let prop_1_getter = prop_1.getter.getOrThrow()
     let prop_1_setter = prop_1.setter.getOrThrow()
+    @Assert(prop_1_getter.toTokens().toString(), "get() { 0 }")
     @Assert(prop_1_getter.block.toString(), "{0}")
     @Assert(prop_1_getter.identifier.isNone())
     @Assert(prop_1_getter.isGetter)

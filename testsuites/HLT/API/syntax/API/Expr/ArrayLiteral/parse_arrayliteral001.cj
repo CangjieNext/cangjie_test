@@ -29,7 +29,7 @@ func test_arrayliteral_001() {
     var arrayliteral = (maindecl.body.nodes[0] as ArrayLiteral).getOrThrow()
     //toString()
     @Assert(arrayliteral.toString(), "[10, 0, 0, 0]")
-
+    @Assert(arrayliteral.toTokens().toString(), "[10, 0, 0, 0]")
     //elements
     var array = arrayliteral.elements
     @Assert(array.size,4)

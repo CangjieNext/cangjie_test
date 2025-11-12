@@ -65,6 +65,7 @@ func test_EnumConstructor_01() {
 
     let c_6 = (enumDecl.body.memberDecls[5] as EnumConstructor).getOrThrow()
     @Assert(c_6.toString(), "Day(Int32, Float32, Float32)")
+    @Assert(c_6.toTokens().toString(), "Day(Int32, Float32, Float32)")
     @Assert(c_6.name, "Day")
     @Assert(c_6.paramTyAnnotations.size, 3)
     @Assert(c_6.paramTyAnnotations[0].toString(), "Int32")

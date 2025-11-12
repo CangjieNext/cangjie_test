@@ -38,6 +38,14 @@ func test_ExtendDecl_01() {
         get() {0}
     }
 }"##)
+    @Assert(extendDecl.toTokens().toString(), ##"extend < T, U > C1 < T, U > <: I1 & I2 < T > & I3 where U <: I1 & I3, T <: I1 {
+    @Deprecated["a"]
+    static func foo() { }
+    @Deprecated["b"]
+    static prop p1: Int64 {
+        get() { 0 }
+    }
+}"##)
     @Assert(extendDecl.body.memberDecls.size, 2)
     @Assert(extendDecl.body.memberDecls[0] is FuncDecl)
     @Assert(extendDecl.body.memberDecls[0].toString(), ##"@Deprecated["a"]

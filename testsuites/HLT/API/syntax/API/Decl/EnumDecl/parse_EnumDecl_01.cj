@@ -38,6 +38,14 @@ enum E1 {
     }
     func foo() {}
 }"##)
+    @Expect(enumDecl.toTokens().toString(), ##"@Deprecated["aaa"]
+enum E1 {
+    A1 | B1 | C1(Int64) | D1(Int64, String) | ...
+    prop p1: Int64 {
+        get() { 0 }
+    }
+    func foo() { }
+}"##)
     @Assert(enumDecl.body.memberDecls.size, 6)
     @Assert(enumDecl.body.memberDecls[0] is EnumConstructor)
     @Assert(enumDecl.body.memberDecls[0].toString(), ##"A1"##)

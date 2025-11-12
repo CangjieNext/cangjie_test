@@ -46,6 +46,33 @@ package a.b.ccc
 let a2 = a1 + 1
 + 1234"##
     @Assert(str.replace("\n",""), _package.toString().replace("\n",""))
+    _package.toTokens().toString() |> println
+    @Assert(_package.toTokens().toString(), ##"// file_001.cj
+ /*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package a.b.ccc
+
+let a1 = 1
++ 1
+// file_002.cj
+ /*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package a.b.ccc
+
+let a2 = a1 + 1
++ 1234"##)
     @Assert(_package.isMacroPkg, false)
     @Assert(_package.name, "a.b.ccc")
     @Assert(_package.srcFile.size, 2)

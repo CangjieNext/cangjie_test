@@ -30,6 +30,7 @@ var a = b"##))
 
     var decl_1: MacroExpandDecl = (sourcefile.topLevelDecls[0] as MacroExpandDecl).getOrThrow()
     @Assert(decl_1.toString(), ##"@p1.M1[tok1](var a = 1)"##)
+    @Assert(decl_1.toTokens().toString(), ##"@p1.M1[tok1](var a = 1)"##)
     @Assert(decl_1.calleeMacro.toString(), "p1.M1")
     @Assert(decl_1.macroAttrs.toString(), "tok1")
     match (decl_1.macroInputs) {

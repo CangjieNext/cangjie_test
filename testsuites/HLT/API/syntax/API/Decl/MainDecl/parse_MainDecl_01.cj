@@ -27,6 +27,10 @@ func test_MainDecl_01() {
     let a: Int64 = 0
     return a
 }"##)
+    @Assert(mainDecl.toTokens().toString(), ##"main(): Int64 {
+    let a: Int64 = 0
+    return a
+}"##)
     @Assert(mainDecl.body.nodes.size, 2)
     @Assert(mainDecl.params.params.size, 0)
     @Assert(mainDecl.retTyAnnotation.isSome())

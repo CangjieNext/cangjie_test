@@ -28,6 +28,7 @@ func test_StaticInit_01() {
     var staticInit: StaticInit = (classDecl.body.memberDecls[0] as StaticInit).getOrThrow()
 
     @Assert(staticInit.toString(), ##"static init() {}"##)
+    @Assert(staticInit.toTokens().toString(), ##"static init() { }"##)
     @Assert(staticInit.body.nodes.size, 0)
 
     var pos = staticInit.getInitKeyWordPos()

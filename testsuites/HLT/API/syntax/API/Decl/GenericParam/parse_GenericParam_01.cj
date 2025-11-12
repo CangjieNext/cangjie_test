@@ -26,5 +26,6 @@ func test_GenericParam_01() {
 
     @Assert(classDecl.genericParams.size, 2)
     @Assert(classDecl.genericParams[0].name, "T")
+    @Assert(classDecl.genericParams[0].toTokens().toString(), "T")
     @Assert(classDecl.genericParams[1].name, "U")
 }

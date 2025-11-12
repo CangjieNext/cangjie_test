@@ -29,6 +29,7 @@ func test_AsExpr_01() {
     var mainDecl: MainDecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
     var expr_1: AsExpr = (mainDecl.body.nodes[0] as AsExpr).getOrThrow()
     @Expect(expr_1.toString(), ##"fun() as Option<Int64>"##)
+    @Expect(expr_1.toTokens().toString(), ##"fun() as Option < Int64 >"##)
     @Expect(expr_1.srcVal.toString(), ##"fun()"##)
     @Expect(expr_1.targetTypeAnnotation is CompositeType)
     @Expect(expr_1.targetTypeAnnotation.toString(), "Option<Int64>")

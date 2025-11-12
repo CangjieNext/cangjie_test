@@ -39,6 +39,10 @@ func test_PropDecl_01() {
         get() {0}
         set(v) {}
     }"##)
+    @Assert(prop_1.toTokens().toString(), ##"public static mut prop p1: Int64 {
+    get() { 0 }
+    set(v) { }
+}"##)
     @Assert(prop_1.name, "p1")
     @Assert(prop_1.getter.getOrThrow().toString(), "get() {0}")
     @Assert(prop_1.setter.isSome())

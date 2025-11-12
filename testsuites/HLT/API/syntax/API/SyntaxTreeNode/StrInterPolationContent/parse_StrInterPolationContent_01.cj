@@ -28,6 +28,7 @@ var _a: String = "cangjie: ${a}""##))
     match (expr.strPartExprs[1]) {
         case StrInterpolation(strIPC) =>
             @Assert(strIPC.toString(), ##"${a}"##)
+            @Assert(strIPC.toTokens().toString(), ##"${ a }"##)
             @Assert(strIPC.interpolationBlock.toString(), ##"{a}"##)
         case _ => @Assert(false)
     }

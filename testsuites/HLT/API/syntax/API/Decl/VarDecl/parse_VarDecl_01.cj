@@ -46,6 +46,7 @@ protected const c: Int64 = 1"##))
 
     var vardecl_3 = (sourcefile.topLevelDecls[2] as VarDecl).getOrThrow()
     @Assert(vardecl_3.toString(), "protected const c: Int64 = 1")
+    @Assert(vardecl_3.toTokens().toString(), "protected const c: Int64 = 1")
     @Assert(vardecl_3.initializer.isSome())
     @Assert(vardecl_3.initializer.getOrThrow().toString(), "1")
     match (vardecl_3.kind) {

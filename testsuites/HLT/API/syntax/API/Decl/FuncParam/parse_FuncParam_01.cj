@@ -42,6 +42,7 @@ func test_FuncParam_01() {
 
     let param_3 = (funcdecl_1.params.params[2] as FuncParam).getOrThrow()
     @Assert(param_3.toString(), "c!: Int64 = 1")
+    @Assert(param_3.toTokens().toString(), "c!: Int64 = 1")
     @Assert(param_3.defaultValue.isSome())
     @Assert(param_3.defaultValue.getOrThrow().toString(), "1")
     @Assert(param_3.name, "c")

@@ -38,6 +38,7 @@ protected type YY = Float64"##))
     @Assert(typeAlias_1.annotations.toString(), "[]")
 
     @Assert(typeAlias_2.toString(), ##"public type Point2D = (X1, X2)"##)
+    @Assert(typeAlias_2.toTokens().toString(), ##"public type Point2D =(X1, X2)"##)
     @Assert(typeAlias_2.aliasName, "Point2D")
     @Assert(typeAlias_2.originalTyAnnotation.toString(), "(X1, X2)")
     @Assert(typeAlias_2.typeParameters.toString(), "[]")

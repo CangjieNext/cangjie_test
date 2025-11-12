@@ -24,7 +24,7 @@ func test_StructDecl_01() {
 
     var structDecl: StructDecl = (sourcefile.topLevelDecls[0] as StructDecl).getOrThrow()
     @Assert(structDecl.toString(), ##"struct S1 {}"##)
-
+    @Assert(structDecl.toTokens().toString(), ##"struct S1 { }"##)
     @Assert(structDecl.getGenericParamsCommasPos().size == 0, true)
     @Assert(structDecl.getGenericParamsLAnglePos().isNone(), true)
     @Assert(structDecl.getGenericParamsRAnglePos().isNone(), true)
