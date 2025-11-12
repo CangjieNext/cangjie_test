@@ -128,5 +128,9 @@ public func global() {
     let s1 = TestStruct()
     s1.f7()
 }
-
+public func global_func_01(){
+    let ts = TestStruct()
+    
+    ts.pp3(Father(), b: Father()) is Father
+}
 

@@ -107,6 +107,9 @@ extend TestClass {
     public const func f14(): Int64 {
         14
     }
+    public func f15(): Int64 {
+        return f12()
+    }
 
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
@@ -144,4 +147,7 @@ extend TestClass {
 public func global() {
     let v1 = TestClass()
     v1.f7()
+}
+public func global_func_01(){
+    true
 }
