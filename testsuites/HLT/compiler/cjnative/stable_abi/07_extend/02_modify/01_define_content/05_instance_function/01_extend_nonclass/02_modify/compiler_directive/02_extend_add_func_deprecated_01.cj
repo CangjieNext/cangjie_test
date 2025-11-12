@@ -116,6 +116,9 @@ extend TestStruct {
     public const func f14(): Int64 {
         14
     }
+    public func f15() {
+        f3()
+    }
     @Deprecated["This API will be deprecated soon"]
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
@@ -154,4 +157,14 @@ extend TestStruct {
 public func global() {
     let s1 = TestStruct()
     s1.f7()
+}
+
+public func global_func_01(){
+    let ts = TestStruct()
+
+    ts.pf8() == 8
+    && ts.f8() == 8
+    && ts.f2() == 2
+    && ts.f11() == 11
+    && ts.f15() == 3
 }

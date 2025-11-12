@@ -182,6 +182,9 @@ extend TestClass {
     private static func p16(a: Son, b: Father, c!: Son = Son(), d!: Father = Father()): Son {
         c
     }
+    public static func p17(a: Son, b: Father, c!: Son = Son(), d!: Father = Father()): Father {
+        p10(Son(), Father())
+    }
 }
 
 class privateClass {}
@@ -267,4 +270,18 @@ extend privateClass {
     private static func p16(a: Son, b: Father, c!: Son = Son(), d!: Father = Father()): Son {
         c
     }
+    public static func p17(a: Son, b: Father, c!: Son = Son(), d!: Father = Father()): Father {
+        p10(Son(), Father())
+    }
+}
+
+public func global_func_01(){
+    TestClass.p2(Son(), Father()) is Father
+    && TestClass.p9(Son(), Father()) is Father
+    && privateClass.p1(Son(), Father()) is Father
+    && privateClass.p2(Son(), Father()) is Father
+    && privateClass.p4() is Father
+    && privateClass.p6() is Father
+    && TestClass.p17(Son(), Father()) is Father
+    && privateClass.p17(Son(), Father()) is Father
 }

@@ -115,3 +115,9 @@ extend<T> TestStruct_unexport<T> where T <: I1 {
         42
     }
 }
+public func global_func_01(){
+    let ts = TestStruct()
+    
+    ts.foo_const_sub() is Father
+    && ts.foo_frozen_sub() is Father
+}

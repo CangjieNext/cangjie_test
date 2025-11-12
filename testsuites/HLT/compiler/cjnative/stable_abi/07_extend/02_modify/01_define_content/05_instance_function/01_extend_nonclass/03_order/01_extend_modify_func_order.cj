@@ -120,6 +120,9 @@ extend TestStruct {
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
     }
+    public func f15() {
+        f12()
+    }
     public func g2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
         a.toString()
     }
@@ -153,4 +156,9 @@ extend TestStruct {
 public func global() {
     let s1 = TestStruct()
     s1.f7()
+}
+public func global_func_01(){
+    let ts = TestStruct()
+    
+    ts.f15() == 12
 }

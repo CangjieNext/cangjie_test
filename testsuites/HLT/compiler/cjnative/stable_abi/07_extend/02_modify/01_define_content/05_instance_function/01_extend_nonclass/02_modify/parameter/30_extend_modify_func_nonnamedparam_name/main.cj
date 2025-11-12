@@ -15,9 +15,12 @@ public class Son_TestClass {
     }
 }
 main() {
+    let ts = TestStruct()
     let son_tc = Son_TestClass()
     if (
         son_tc.exported_prop2 == 1
+        && ts.foo_public(1,1,c: 1) == 4
+        && global_func_01()
     ) {
         return 0
     } else {
