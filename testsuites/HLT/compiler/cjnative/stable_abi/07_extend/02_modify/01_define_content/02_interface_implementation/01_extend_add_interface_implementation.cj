@@ -67,3 +67,8 @@ extend S1 <: I1 & I2 & I3 {
         2
     }
 }  
+
+public func global_func_01() {
+    C1().f2() == 2
+    && S1().f2() == 2
+}

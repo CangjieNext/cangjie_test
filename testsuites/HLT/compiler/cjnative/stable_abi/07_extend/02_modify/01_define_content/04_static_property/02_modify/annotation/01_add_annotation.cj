@@ -112,3 +112,10 @@ extend TestClass {
         prop_3
     }
 }
+
+public func global_func_01() {
+    TestClass.prop_2 == 1
+    && TestClass.prop_3 == 1
+    && TestClass.prop2 == 1
+    && TestClass.prop3 == 1
+}
