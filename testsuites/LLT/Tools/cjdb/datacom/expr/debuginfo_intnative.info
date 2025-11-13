@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/intnative.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug intnative.cj -o intnative
-// EXEC: python3 cjdb_test.py debuginfo_intnative.info
+// EXEC: python3 cjdb_test.py debuginfo_intnative.info %n %run_env
 
 test#
 cjdb,cjdb intnative,intnative
