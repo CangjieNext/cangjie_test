@@ -94,7 +94,7 @@ class BenchGCLight {
 @Test
 @Configure[
     minDuration: Duration.second * 0.2, 
-    warmup: 100,
+    warmup: 10,
     minBatches: 200,
     explicitGC: Heavy
 ]
@@ -102,7 +102,7 @@ class BenchGCLight {
 class BenchGCWait {
     @BeforeAll
     func before() {
-        prevGC = 0
+        prevGC = getGCCount()
     } 
 
     @Bench
@@ -115,7 +115,7 @@ class BenchGCWait {
     func after() {
         let diff = getGCCount() - prevGC
         println(diff)
-        @Assert(diff >= 95 && diff <= 140)
+        @Assert(diff >= 105 && diff <= 140)
     }
 }
 
