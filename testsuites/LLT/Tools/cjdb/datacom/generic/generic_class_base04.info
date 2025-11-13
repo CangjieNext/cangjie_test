@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/generic/%n.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
-// EXEC: python3 cjdb_test.py %n.info
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
 cjdb,cjdb generic_class_base04,generic_class_base04
