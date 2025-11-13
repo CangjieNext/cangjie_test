@@ -6,6 +6,7 @@
 
 // ERRCHECK: %compiler %f %cmp_opt
 
+
 @Annotation[target: [GlobalVariable]]
 public class APILevel {
     let a: UInt8
