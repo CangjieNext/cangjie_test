@@ -303,7 +303,7 @@ class Test {
         */
         let decl = (decls[0] as ExtendDecl).getOrThrow()
         let extendDecl = ExtendDecl(decl.body, decl.extendedTyAnnotation, decl.genericConstraints, decl.genericParams,
-                                    decl.superTyAnnotations, annotations: decl.annotations, modifiers: decl.modifiers, comments: decl.comments)
+                                    decl.superTyAnnotations, annotations: decl.annotations, comments: decl.comments)
         @Expect(extendDecl.toString(), #"// leading comment belong to extendDecl
 extend A {}"#)
         let comments = extendDecl.comments
@@ -321,7 +321,7 @@ extend A {}"#)
         let rhs = binaryExpr.rhs
         var comments = rhs.comments
         @Expect(comments.size, 1)
-        let comment = Comment(comments[0].kind, comments[0].content)
+        let comment = Comment(comments[0].content)
         @Expect(comment.content, "/* comment belong to 5 */")
         var pos = comment.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 26]).toArray())

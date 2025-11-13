@@ -123,7 +123,7 @@ class Test {
         @Expect(params.toString(), "a")
         @Expect(params.params.size, 1)
         let param = (params.params[0] as LambdaParam).getOrThrow()
-        let lambdaParam = LambdaParam(param.name, param.typeAnnotation, annotations: param.annotations, modifiers: param.modifiers)
+        let lambdaParam = LambdaParam(param.name, param.typeAnnotation)
         @Expect(lambdaParam.toString(), "a")
         @Expect(lambdaExpr.body.size, 1)
         @Expect(lambdaExpr.body[0].toString(), "a + 1")

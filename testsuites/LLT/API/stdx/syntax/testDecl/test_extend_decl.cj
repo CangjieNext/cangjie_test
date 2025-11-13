@@ -154,7 +154,7 @@ extend F {
         let decl = (decls[3] as ExtendDecl).getOrThrow()
         let extendDecl = ExtendDecl(decl.body,
                                     decl.extendedTyAnnotation, decl.genericConstraints, decl.genericParams,
-                                    decl.superTyAnnotations, annotations: decl.annotations, modifiers: decl.modifiers)
+                                    decl.superTyAnnotations, annotations: decl.annotations)
         @Expect(extendDecl.modifiers.size, 0)
         @Expect(extendDecl.extendedTyAnnotation.toString(), "D")
         @Expect(extendDecl.superTyAnnotations.size, 0)

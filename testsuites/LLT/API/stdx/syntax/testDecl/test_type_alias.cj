@@ -68,7 +68,7 @@ class Test {
     @TestCase
     func testTypeAliasInit() {
         let decl = (decls[1] as TypeAlias).getOrThrow()
-        let typeAlias = TypeAlias(decl.aliasName, decl.originalTyAnnotation, decl.typeParameters, annotations: decl.annotations, modifiers: decl.modifiers)
+        let typeAlias = TypeAlias(decl.aliasName, decl.originalTyAnnotation, decl.typeParameters, modifiers: decl.modifiers)
         @Expect(typeAlias.aliasName, "NewType")
         @Expect(typeAlias.typeParameters.size, 2)
         @Expect(typeAlias.typeParameters[0].toString(), "S")

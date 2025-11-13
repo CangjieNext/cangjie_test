@@ -279,7 +279,7 @@ public enum B {
         let nodes = enumDecl.body.memberDecls
         @Expect(nodes.size, 1)
         let constructor = (nodes[0] as EnumConstructor).getOrThrow()
-        let enumConstructor = EnumConstructor(constructor.name, constructor.paramTyAnnotations, annotations: constructor.annotations, modifiers: constructor.modifiers)
+        let enumConstructor = EnumConstructor(constructor.name, constructor.paramTyAnnotations, annotations: constructor.annotations)
         @Expect(enumConstructor.name, "Enum")
         @Expect(enumConstructor.paramTyAnnotations.size, 2)
         @Expect(enumConstructor.paramTyAnnotations[0].toString(), "Int64")

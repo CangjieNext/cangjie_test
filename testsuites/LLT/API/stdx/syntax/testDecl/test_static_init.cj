@@ -68,7 +68,7 @@ static init() {
     func testStaticInitInit() {
         let classDecl = (decls[1] as ClassDecl).getOrThrow()
         let decl = (classDecl.body.memberDecls[0] as StaticInit).getOrThrow()
-        let staticInit = StaticInit(decl.body, annotations: decl.annotations, modifiers: decl.modifiers)
+        let staticInit = StaticInit(decl.body)
         @Expect(staticInit.body.toString(), """
 {
         a = 1

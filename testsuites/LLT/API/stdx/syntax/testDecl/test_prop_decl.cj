@@ -149,7 +149,7 @@ mut prop b: Int64 {
     @TestCase
     func testPropDeclInit() {
         let decl = (decls[1] as PropDecl).getOrThrow()
-        let propDecl = PropDecl(decl.isMut, decl.getter, decl.name, decl.setter, decl.tyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        let propDecl = PropDecl(decl.getter, decl.name, decl.setter, decl.tyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
         @Expect(propDecl.name, "b")
         @Expect(propDecl.tyAnnotation.toString(), "Int64")
 
@@ -168,7 +168,7 @@ mut prop b: Int64 {
 
 
         let getter = propDecl.getter.getOrThrow()
-        let getDecl = PropGetterOrSetter(getter.block, getter.identifier, getter.isGetter, annotations: getter.annotations, modifiers: getter.modifiers)
+        let getDecl = PropGetterOrSetter(getter.block, getter.identifier, getter.isGetter, annotations: getter.annotations)
         @Expect(getDecl.identifier.isNone())
         @Expect(getDecl.isGetter, true)
         @Expect(getDecl.block.toString(), """
@@ -192,7 +192,7 @@ get() {
 
 
         let setter = propDecl.setter.getOrThrow()
-        let setDecl = PropGetterOrSetter(setter.block, setter.identifier, setter.isGetter, annotations: setter.annotations, modifiers: setter.modifiers)
+        let setDecl = PropGetterOrSetter(setter.block, setter.identifier, setter.isGetter, annotations: setter.annotations)
         @Expect(setDecl.identifier.getOrThrow().toString(), "v")
         @Expect(setDecl.isGetter, false)
         @Expect(setDecl.block.toString(), """
