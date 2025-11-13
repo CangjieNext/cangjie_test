@@ -11,6 +11,9 @@
 
 // ASSERT: scan Signal value must < 32
 // ASSERT: scan f1
+// ASSERT: scan f1
+// ASSERT: scan f1
+// ASSERT: scan f1
 
 // ASSERT: scan f2
 // ASSERT: scan f2
@@ -35,13 +38,25 @@ foreign func CJ_MCC_SignalRaise(sig: Int32): Unit
 func registerSignalHandler_oneSignal(): Unit {
     resetSignalHandler()
     let sig = Signal.SIGINT
+    let sigPipe = Signal.SIGPIPE
+    let sigAbrt = Signal.SIGABRT
+    let sigIll = Signal.SIGILL
     let f1 = {
         i: Int32 =>
             println("f1")
             return true
     }
     registerSignalHandler(sig, f1)
+    registerSignalHandler(sigPipe, f1)
+    registerSignalHandler(sigAbrt, f1)
+    registerSignalHandler(sigIll, f1)
     unsafe { CJ_MCC_SignalKill(Int32(getProcessId()), sig.value) }
+    sleep(Duration.second * 3)
+    unsafe { CJ_MCC_SignalKill(Int32(getProcessId()), sigPipe.value) }
+    sleep(Duration.second * 3)
+    unsafe { CJ_MCC_SignalKill(Int32(getProcessId()), sigAbrt.value) }
+    sleep(Duration.second * 3)
+    unsafe { CJ_MCC_SignalKill(Int32(getProcessId()), sigIll.value) }
     sleep(Duration.second * 3)
 }
 
