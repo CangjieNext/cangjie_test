@@ -35,9 +35,18 @@
 package test_stable_abi
 
 public struct Rectangle {
-    let width = 10
+    static let width = 10
+    static let a1 = 20
 
-    public func getWidth(): Int64{
+    public static func getWidth(): Int64{
         return width
+    }
+}
+
+public func f(){
+    if(Rectangle.getWidth() == 10){
+        return 0
+    }else{
+        return 1
     }
 }

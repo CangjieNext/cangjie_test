@@ -34,36 +34,14 @@
 package test_stable_abi
 
 public struct Rectangle {
-    var width = 10
-    public var a1 = 20
+    var a1 = 10
     var a2 = 20
-    public var a3 = 20
-    private var a4 = 20
-    internal var a5 = 20
-    var a6 = 20
-    protected var a7 = 20
-    public var a8 = 20
-    var a9 = 20
-    var a10 = 20
-
-    public func getWidth(): Int64{
-        return width
-    }
 }
 
-public struct S1{
-    var a1 = 20
-    public let a2 = 0
-    var a3 = 20
-    public let a4 = 0
-
-    @Frozen
-    public func geta3() {
-        return a3
-    }
-
-    @Frozen
-    public func geta4() {
-        return a4
+public func f(){
+    if(Rectangle().a1 == 10 && Rectangle().a2 == 20){
+        return 0
+    }else{
+        return 1
     }
 }

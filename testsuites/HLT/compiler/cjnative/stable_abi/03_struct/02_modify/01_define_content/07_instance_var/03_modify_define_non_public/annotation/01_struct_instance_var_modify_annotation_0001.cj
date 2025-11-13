@@ -7,11 +7,11 @@
  */
  
 /*
-  @No: 3.2.1.7.3.5
+  @No: 3.2.1.7.3.1
   @Scene: modify
   @Visibility: non public
   @Object: struct instance var
-  @Behavior: non public -> public
+  @Behavior: modify annotation
   @Expect: api compatible & abi compatible
 */
 // LEVEL: 1
@@ -30,40 +30,26 @@
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-// test struct: modify access modifier: Invisible to Visible
+// test struct: modify annotation
+
 package test_stable_abi
 
-public struct Rectangle {
-    let width = 10
-    public let a1 = 20
-    let a2 = 20
-    public let a3 = 20
-    public let a4 = 20
-    public let a5 = 20
-    let a6 = 20
-    public let a7 = 20
-    public let a8 = 20
-    let a9 = 20
-    public let a10 = 20
-
-    public func getWidth(): Int64{
-        return width
+@Annotation
+public class Version {
+    let code: String
+    const init(code: String) {
+        this.code = code
     }
 }
 
-public struct S1{
-    var a1 = 20
-    public let a2 = 0
-    var a3 = 20
-    public let a4 = 0
+public struct Rectangle {
+    let a1 = 10
+    @Version["2.1"]
+    let a2 = 20
 
-    @Frozen
-    public func geta3() {
-        return a3
-    }
+}
 
-    @Frozen
-    public func geta4() {
-        return a4
-    }
+public func f(){
+    var a = Rectangle().a1 + Rectangle().a2
+    return a
 }

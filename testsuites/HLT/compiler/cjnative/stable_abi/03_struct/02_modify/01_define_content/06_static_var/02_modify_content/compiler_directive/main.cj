@@ -9,7 +9,7 @@
 import test_stable_abi.*
 
 main() {
-    if (f() != 0) {
+    if (Rectangle1.a6 != 20 || Rectangle.a2 != 20 || f() != 0) {
         return 1
     }
 

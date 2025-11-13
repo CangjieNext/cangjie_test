@@ -33,6 +33,7 @@
 package test_stable_abi
 
 // struct类型S1是public修饰，模块外可见，会参与下游模块的编译过程
+@Deprecated["this struct is deprecated", strict: true]
 public struct S1 {
     let x: Int64 = 0
 
@@ -83,7 +84,6 @@ struct S6 {
     }
 }
 
-@Deprecated["this struct is deprecated", strict: true]
 public struct S7 {
     let x: Int64 = 0
 
@@ -208,7 +208,7 @@ struct S23 {
     public const init() {}
 }
 
-
+@Deprecated["this struct is deprecated", strict: false]
 public struct S24 {
 
      public const init() {}

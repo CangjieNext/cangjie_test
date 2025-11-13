@@ -96,7 +96,8 @@ public struct Rectangle3 {
 
 public func f(){
     var a = Rectangle.a1
-    if(a == 20){
+    var b = Rectangle1.a7
+    if(a == 20 && b == 20){
         return 0
     }else{
         return 1

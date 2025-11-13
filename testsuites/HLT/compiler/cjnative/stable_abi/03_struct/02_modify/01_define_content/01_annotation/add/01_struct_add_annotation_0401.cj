@@ -144,6 +144,6 @@ public struct S13 {
 }
 
 public func f(){
-    var a = S12().x
+    var a = S2().x + S4().getX() + S10().x + S12().x
     return a
 }

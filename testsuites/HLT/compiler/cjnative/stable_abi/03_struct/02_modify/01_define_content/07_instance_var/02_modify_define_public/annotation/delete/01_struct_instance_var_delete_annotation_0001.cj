@@ -41,50 +41,9 @@ public class Version {
     }
 }
 
-public struct S1 {
-    let x: Int64 = 0
-
-    public func getX(): Int64 {
-        return x
-    }
-}
-
-
 public struct Rectangle {
-    let width = 10
-    public let a1 = 20
-
+    public let a1 = 10
     @Version["1.1"]
     let a2 = 20
-
-    public let a3 = 20
-
-    private let a4 = 20
-    internal let a5 = 20
-    let a6 = 20
-    protected let a7 = 20
-    public let a8 = 20
-    let a9 = 20
-    let a10 = 20
-
-    public func getWidth(): Int64{
-        return width
-    }
 }
 
-public struct S2{
-    var a1 = 20
-    public let a2 = 0
-    var a3 = 20
-    public let a4 = 0
-
-    @Frozen
-    public func geta3() {
-        return a3
-    }
-
-    @Frozen
-    public func geta4() {
-        return a4
-    }
-}

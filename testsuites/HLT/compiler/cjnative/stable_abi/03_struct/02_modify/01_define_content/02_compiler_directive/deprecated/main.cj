@@ -9,7 +9,7 @@
 import test_stable_abi.*
 
 main() {
-    if (S1().getX() == 0 && f() == 0) {
+    if (S1().getX() == 0 && S7().getX() == 0 && S3().getX() == 0 && S12().getX() == 0 && f() == 0) {
         return 0
     }
     return 1

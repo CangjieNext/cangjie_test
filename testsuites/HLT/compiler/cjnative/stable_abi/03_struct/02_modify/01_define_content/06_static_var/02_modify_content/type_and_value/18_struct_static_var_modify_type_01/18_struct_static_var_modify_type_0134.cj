@@ -116,3 +116,16 @@ public struct S1 {
         return width
     }
 }
+
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func check(){
+    let s1 = S1()
+    assert(S1.a4 is Addable, true)
+    assert(S1.a8 is I, true)
+}

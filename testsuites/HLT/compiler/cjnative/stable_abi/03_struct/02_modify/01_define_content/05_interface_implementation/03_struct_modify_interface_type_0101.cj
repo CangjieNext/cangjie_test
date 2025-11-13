@@ -173,6 +173,33 @@ public struct MyInt4 <: Addable & Subtractable {
 
 }
 
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
 public func check(){
+    var s1 = MyInt()
+    var s2 = MyInt1()
+    var s3 = S2()
+    var s4 = S3()
+    var s5 = S4()
+
+    assert(s1.mul(1), 0)
+    assert(s1.sub(0), 0)
+
+    assert(s2.add(1), 1)
+    assert(s2.sub(0), 0)
+    
+    assert(s3.add(1), 1)
+    assert(s3.sub(0), 0)
+
+    assert(s4.add(1), 1)
+    assert(s4.sub(0), 0)
+
+    assert(s5.add(1), 1)
+    assert(s5.sub(0), 0)
     return 0
 }

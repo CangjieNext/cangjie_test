@@ -108,9 +108,13 @@ public struct Rectangle5 {
 }
 
 public func f(){
-    var a = Rectangle.a3
-    var b = Rectangle.a4
-    if(a == 20 && b == 20){
+    var a = Rectangle.a2
+    var b = Rectangle.a1
+    var c = Rectangle2.a7
+    var d = Rectangle.a3
+    var e = Rectangle.a4
+    var f = Rectangle4.a9
+    if(a == 20 && b == 20 && c == 20 && d == 20 && e == 20 && f ==20){
         return 0
     }else{
         return 1

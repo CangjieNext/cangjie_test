@@ -96,5 +96,11 @@ public struct Rectangle3 {
 }
 
 public func f(){
+    var a = Rectangle2.a9
+    var b = Rectangle3.a9
+    if(a == 200 && b == 20){
     return 0
+    }else{
+        return 1
+    }
 }

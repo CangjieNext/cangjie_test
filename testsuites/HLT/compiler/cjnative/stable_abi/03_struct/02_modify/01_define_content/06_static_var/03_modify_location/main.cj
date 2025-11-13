@@ -9,12 +9,9 @@
 import test_stable_abi.*
 
 main() {
-    var a: Rectangle = Rectangle()
-
-    if (a.getWidth() != 10) {
-        return 1
-    }
-
+    assert(Rectangle.a1, 20)
+    assert(Rectangle.a3, 20)
+    assert(Rectangle.a5, 20)
     return 0
 }
 

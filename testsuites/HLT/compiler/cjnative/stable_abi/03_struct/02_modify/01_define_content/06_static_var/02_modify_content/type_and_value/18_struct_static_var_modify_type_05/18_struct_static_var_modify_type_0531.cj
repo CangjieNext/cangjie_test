@@ -82,7 +82,6 @@ public struct Multiplicable <: Addable {
 }
 
 struct S1 {
-    const init() {}
     public static let a1 : Addable = Subtractable()
 
     static const a2 : Addable = Subtractable()
@@ -124,4 +123,23 @@ public struct S {
     public func getHeigh(): Int64{
         return heigh
     }
+}
+
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func check(){
+    let s1 = S1()
+    assert(S1.a1 is Addable, true)
+    assert(S1.a2 is Addable, true)
+    assert(S1.a3 is Addable, true)
+    assert(S1.a4 is Addable, true)
+    assert(S1.a5 is Multiplicable, true)
+    assert(S1.a6 is Addable, true)
+    assert(S1.a7 is Addable, true)
+    assert(S1.a8 is Addable, true)
 }
