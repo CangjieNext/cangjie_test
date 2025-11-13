@@ -11,5 +11,7 @@ Tools/
 compiler/
 regression/
 Runtime/
+Tools/cjdb/datacom/expr/
+Tools/cjdb/datacom/generic/
 
 [EXCLUDE-TEST-CASE]

@@ -12,7 +12,7 @@ test#
 cjdb,cjdb assignExpr2,assignExpr2
 b,b 15,assignExpr.cj:15
 r,r,-> 15
- ,expr a=2;a,\(Int64\) \$\d+ = 2
+ ,expr a=2;a,\(Int64\) \$\d+ = 2444
  ,expr b=3;b,\(Int64\) \$\d+ = 3
  ,expr a+=b;a,\(Int64\) \$\d+ = 5
  ,expr a-=b;a,\(Int64\) \$\d+ = 2
