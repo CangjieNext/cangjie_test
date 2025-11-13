@@ -17,6 +17,8 @@ API/stdx/zlib/compress
 API/stdx/crypto/x509/x509_test.cj
 API/stdx/logger
 compiler/Diagnose/PlatformRelated
+Tools/cjdb/datacom/expr
+Tools/cjdb/datacom/generic
 
 [EXCLUDE-TEST-CASE]
 API/std/socket/redesign/props/tcp_props_quickack.cj
