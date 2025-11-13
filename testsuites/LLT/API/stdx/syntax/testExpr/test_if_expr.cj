@@ -176,7 +176,8 @@ if (x && y + 1 > 2) {
     @TestCase
     func testIfExprInit() {
         let expr = (nodes[2] as IfExpr).getOrThrow()
-        let ifExpr = IfExpr(expr.condition, expr.elseBlock, expr.elseIf, expr.ifBlock)
+        let ifExpr = IfExpr(expr.condition, expr.elseBlock, expr, expr.ifBlock)
+        println(ifExpr.toString())
         @Expect(ifExpr.condition.toString(), "x && y + 1 > 2")
         @Expect(ifExpr.ifBlock.toString(), """
 {

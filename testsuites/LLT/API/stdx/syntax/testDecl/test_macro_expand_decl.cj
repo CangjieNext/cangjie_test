@@ -203,7 +203,7 @@ class C1 <: C2 {
     @TestCase
     func testMacroExpandDeclInit01() {
         let decl = (decls[0] as MacroExpandDecl).getOrThrow()
-        let macroExpandDecl = MacroExpandDecl(decl.calleeMacro, decl.macroAttrs, decl.macroInputs, annotations: decl.annotations, modifiers: decl.modifiers)
+        let macroExpandDecl = MacroExpandDecl(decl.calleeMacro, decl.macroAttrs, decl.macroInputs, annotations: decl.annotations)
         @Expect(macroExpandDecl.calleeMacro.toString(), "testMacro")
         @Expect(macroExpandDecl.macroAttrs.toString(), "public func")
         match (macroExpandDecl.macroInputs) {
@@ -230,7 +230,7 @@ func a() {}""")
     @TestCase
     func testMacroExpandDeclInit02() {
         let decl = (decls[1] as MacroExpandDecl).getOrThrow()
-        let macroExpandDecl = MacroExpandDecl(decl.calleeMacro, decl.macroAttrs, decl.macroInputs, annotations: decl.annotations, modifiers: decl.modifiers)
+        let macroExpandDecl = MacroExpandDecl(decl.calleeMacro, decl.macroAttrs, decl.macroInputs, annotations: decl.annotations)
         @Expect(macroExpandDecl.calleeMacro.toString(), "macroPackage.testMacro")
         @Expect(macroExpandDecl.macroAttrs.toString(), "")
         match (macroExpandDecl.macroInputs) {

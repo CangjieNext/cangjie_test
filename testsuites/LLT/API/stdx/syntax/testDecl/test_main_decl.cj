@@ -92,7 +92,7 @@ main(param1: Int64, param2: Int64): Int64 {
     @TestCase
     func testMainDeclInit01() {
         let decl = (decls[1] as MainDecl).getOrThrow()
-        let mainDecl = MainDecl(decl.body, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        let mainDecl = MainDecl(decl.body, decl.params, decl.retTyAnnotation)
         let ret = mainDecl.retTyAnnotation.getOrThrow()
         let params = mainDecl.params
 
@@ -115,12 +115,12 @@ main(param1: Int64, param2: Int64): Int64 {
     @TestCase
     func testMainDeclInit02() {
         let decl = (decls[2] as MainDecl).getOrThrow()
-        let mainDecl = MainDecl(decl.body, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        let mainDecl = MainDecl(decl.body, decl.params, decl.retTyAnnotation)
         @Expect(mainDecl.body.nodes.size, 1)
         let params = mainDecl.params
         @Expect(params.params.size, 1)
         let param = (params.params[0] as MacroExpandParam).getOrThrow()
-        let macroExpandParam = MacroExpandParam(param.calleeMacro, param.macroAttrs, param.macroInputs, annotations: param.annotations, modifiers: param.modifiers)
+        let macroExpandParam = MacroExpandParam(param.calleeMacro, param.macroAttrs, param.macroInputs, annotations: param.annotations)
         @Expect(macroExpandParam.toString(), "@M param1: Int64")
         @Expect(macroExpandParam.calleeMacro.toString(), "M")
     }

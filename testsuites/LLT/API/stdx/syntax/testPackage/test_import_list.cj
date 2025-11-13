@@ -93,7 +93,7 @@ class Test {
     @TestCase
     func testInit01() {
         let tmp = importLists[0]
-        let importList = ImportList(tmp.contents, tmp.kind, tmp.modifier)
+        let importList = ImportList(tmp.contents, tmp.modifier)
         @Expect(importList.modifier.isNone())
         @Expect(importList.toString(), "import testPackage")
         var pos = importList.getImportKeyWordPos()

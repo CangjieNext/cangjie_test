@@ -349,7 +349,7 @@ private struct MyStruct<A> {
 
         @Expect(anno.identifier, "Deprecated")
         @Expect(anno.arguments.size, 1)
-        let argument = Argument(anno.arguments[0].identifier, anno.arguments[0].isInOut, anno.arguments[0].isNamed, anno.arguments[0].value)
+        let argument = Argument(anno.arguments[0].identifier, anno.arguments[0].isInOut, anno.arguments[0].value)
         @Expect(argument.toString(), "message: \'tt\'")
         @Expect(argument.isNamed, true)
         @Expect(argument.isInOut, false)
