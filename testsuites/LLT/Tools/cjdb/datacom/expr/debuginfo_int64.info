@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/int64.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug int64.cj -o int64
-// EXEC: python3 cjdb_test.py debuginfo_int64.info
+// EXEC: python3 cjdb_test.py debuginfo_int64.info %n %run_env
 
 test#
 cjdb,cjdb int64,int64
