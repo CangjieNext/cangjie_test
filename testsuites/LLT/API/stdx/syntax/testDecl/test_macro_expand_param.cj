@@ -138,7 +138,7 @@ class Test {
     func testMacroExpandParamInit01() {
         let paramList = params.getOrThrow()
         let param = (paramList.params[0] as MacroExpandParam).getOrThrow()
-        let macroExpandParam = MacroExpandParam(param.calleeMacro, param.macroAttrs, param.macroInputs, annotations: param.annotations, modifiers: param.modifiers)
+        let macroExpandParam = MacroExpandParam(param.calleeMacro, param.macroAttrs, param.macroInputs, annotations: param.annotations)
         @Expect(macroExpandParam.calleeMacro.toString(), "testMacro")
         @Expect(macroExpandParam.macroAttrs.toString(), "public func")
         match(macroExpandParam.macroInputs) {
@@ -155,7 +155,7 @@ class Test {
     func testMacroExpandParamInit02() {
         let paramList = params.getOrThrow()
         let param = (paramList.params[1] as MacroExpandParam).getOrThrow()
-        let macroExpandParam = MacroExpandParam(param.calleeMacro, param.macroAttrs, param.macroInputs, annotations: param.annotations, modifiers: param.modifiers)
+        let macroExpandParam = MacroExpandParam(param.calleeMacro, param.macroAttrs, param.macroInputs, annotations: param.annotations)
         @Expect(macroExpandParam.calleeMacro.toString(), "macroPackage.testMacro")
         @Expect(macroExpandParam.macroAttrs.toString(), "")
         match(macroExpandParam.macroInputs) {
