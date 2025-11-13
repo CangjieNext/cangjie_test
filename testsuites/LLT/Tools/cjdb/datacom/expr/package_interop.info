@@ -7,7 +7,7 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/ohos/ark_interop  ../../basecase/expr/ohos/ark_interop/ark_interop.cj  ../../basecase/expr/ohos/main.cj
 // EXEC: cd ./ark_interop && %compiler %cmp_opt %enableCompileDebug --output-type=staticlib ark_interop.cj -o libark_interop.a
 // EXEC: %compiler %cmp_opt %enableCompileDebug main.cj --import-path ark_interop -L ark_interop -lark_interop -o %n
-// EXEC: python3 cjdb_test.py %n.info
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
 cjdb,cjdb package_interop,package_interop
