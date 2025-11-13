@@ -7,11 +7,11 @@
  */
  
 /*
-  @No: 3.2.1.7.3.8
+  @No: 3.2.1.6.2.7
   @Scene: modify
-  @Visibility: used in public @Frozen declare
-  @Object: struct instance var
-  @Behavior: modifier: var to let
+  @Visibility: public
+  @Object: struct static var
+  @Behavior: modifier: public -> non public
   @Expect: api incompatible & abi incompatible
 */
 // LEVEL: 1
@@ -24,45 +24,37 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Modified member variables' non-access modifier for struct visible outside the module.
+// ASSERT: scan-1 [API/ABI] Deleted static variable member from the struct.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 // ASSERT: scan-1 [API/ABI]
 
-// test struct: delete access modifier: Invisible to Invisible
+// test struct: modify access modifier: pubilc to not public
 package test_stable_abi
 
 public struct Rectangle {
-    let width = 10
-    public let a1 = 20
-    let a2 = 20
-    public let a3 = 20
-    private let a4 = 20
-    internal let a5 = 20
-    let a6 = 20
-    protected let a7 = 20
-    public let a8 = 20
-    let a9 = 20
-    let a10 = 20
+    static let a1 = 20
+    static let a2 = 20
+    protected static let a3 = 20
+    private static let a4 = 20
+    internal static let a5 = 20
+    static let a6 = 20
+    static let a7 = 20
+    static let a8 = 20
+    public static const a9 = 20
+    static const a10 = 20
+    public static var a11 = 20
+    static var a12 = 20
+}
 
-    public func getWidth(): Int64{
-        return width
+
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
     }
 }
 
-public struct S1{
-    var a1 = 20
-    public let a2 = 0
-    let a3 = 20
-    public let a4 = 0
-
-    @Frozen
-    public func geta3() {
-        return a3
-    }
-
-    @Frozen
-    public func geta4() {
-        return a4
-    }
+public func f(){
+    return 0
 }

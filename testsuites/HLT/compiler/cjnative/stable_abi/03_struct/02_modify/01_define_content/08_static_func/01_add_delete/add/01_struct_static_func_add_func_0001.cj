@@ -48,6 +48,14 @@ public struct Rectangle {
     }
 
     public static func getb(): Int64 {
+        return a1
+    }
+}
+
+public func f(){
+    if(Rectangle.getb() == 20){
         return 0
+    }else{
+        return 1
     }
 }

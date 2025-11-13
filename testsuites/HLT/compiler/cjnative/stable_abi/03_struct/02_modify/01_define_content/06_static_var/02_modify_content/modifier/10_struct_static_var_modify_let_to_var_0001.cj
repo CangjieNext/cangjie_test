@@ -7,11 +7,11 @@
  */
  
 /*
-  @No: 3.2.1.7.2.1
-  @Scene: add
-  @Visibility: non public
-  @Object: struct instance var
-  @Behavior: add annotation
+  @No: 3.2.1.6.2.10
+  @Scene: modify
+  @Visibility: public
+  @Object: struct static var
+  @Behavior: modifier: let -> var
   @Expect: api compatible & abi compatible
 */
 // LEVEL: 1
@@ -30,64 +30,40 @@
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-// test struct: add annotation
+// test struct: modify access modifier: let to var
 package test_stable_abi
 
-@Annotation
-public class Version {
-    let code: String
-    const init(code: String) {
-        this.code = code
-    }
-}
-
-public struct S1 {
-    let x: Int64 = 0
-
-    public func getX(): Int64 {
-        return x
-    }
-}
-
-
 public struct Rectangle {
-    let width = 10
-    public let a1 = 20
+    public static var a1 = 20
+    static let a2 = 20
+    protected static let a3 = 20
+    private static let a4 = 20
+    internal static let a5 = 20
+    static let a6 = 20
+    static let a7 = 20
+    static let a8 = 20
+    public static const a9 = 20
+    static const a10 = 20
+    public static var a11 = 20
+    static var a12 = 20
+}
 
-    @Version["1.1"]
-    let a2 = 20
 
-    @Version["1.2"]
-    public let a3 = 20
-
-    private let a4 = 20
-    internal let a5 = 20
-    let a6 = 20
-    protected let a7 = 20
-    public let a8 = 20
-
-    @Version["1.3"]
-    let a9 = 20
-    let a10 = 20
-
-    public func getWidth(): Int64{
-        return width
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
     }
 }
 
-public struct S2{
-    var a1 = 20
-    public let a2 = 0
-    var a3 = 20
-    public let a4 = 0
-
-    @Frozen
-    public func geta3() {
-        return a3
-    }
-
-    @Frozen
-    public func geta4() {
-        return a4
-    }
+public func f(){
+    assert(Rectangle.a2, 20)
+    assert(Rectangle.a3, 20)
+    assert(Rectangle.a5, 20)
+    assert(Rectangle.a6, 20)
+    assert(Rectangle.a7, 20)
+    assert(Rectangle.a8, 20)
+    assert(Rectangle.a10, 20)
+    assert(Rectangle.a12, 20)
+    return 0
 }

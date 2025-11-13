@@ -9,13 +9,11 @@
 import test_stable_abi.*
 
 main() {
-    var a: Rectangle = Rectangle()
-
-    if (a.getWidth() != 10) {
-        return 1
+    if (Rectangle.a1 == 20 && Rectangle.a9 == 20 && Rectangle.a11 == 20 && f() == 0) {
+        return 0
     }
 
-    return 0
+    return 1
 }
 
 

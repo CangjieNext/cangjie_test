@@ -208,7 +208,7 @@ struct S23 {
     public const init() {}
 }
 
-
+@Deprecated["this struct is deprecated", strict: false]
 public struct S24 {
 
      public const init() {}

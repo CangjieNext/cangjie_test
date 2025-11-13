@@ -9,6 +9,8 @@
 import test_stable_abi.*
 
 main() {
+    MyInt()
+    
     if (check() == 0) {
         return 0
     }

@@ -34,10 +34,14 @@
 package test_stable_abi
 
 public struct Rectangle {
-    let width = 10
+    static let width = 10
     static let a1 = 20
 
     static func geta(): Int64 {
-        return 0
+        return a1
     }
+}
+
+public func f(){
+    return 0
 }

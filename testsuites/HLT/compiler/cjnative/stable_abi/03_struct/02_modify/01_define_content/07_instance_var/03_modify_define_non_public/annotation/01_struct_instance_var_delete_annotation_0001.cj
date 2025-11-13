@@ -7,7 +7,7 @@
  */
  
 /*
-  @No: 3.2.1.7.2.1
+  @No: 3.2.1.7.3.1
   @Scene: delete
   @Visibility: non public
   @Object: struct instance var
@@ -42,50 +42,13 @@ public class Version {
     }
 }
 
-public struct S1 {
-    let x: Int64 = 0
-
-    public func getX(): Int64 {
-        return x
-    }
-}
-
-
 public struct Rectangle {
-    let width = 10
-    public let a1 = 20
-
+    let a1 = 10
     let a2 = 20
 
-    @Version["1.2"]
-    public let a3 = 20
-
-    private let a4 = 20
-    internal let a5 = 20
-    let a6 = 20
-    protected let a7 = 20
-    public let a8 = 20
-    let a9 = 20
-    let a10 = 20
-
-    public func getWidth(): Int64{
-        return width
-    }
 }
 
-public struct S2{
-    var a1 = 20
-    public let a2 = 0
-    var a3 = 20
-    public let a4 = 0
-
-    @Frozen
-    public func geta3() {
-        return a3
-    }
-
-    @Frozen
-    public func geta4() {
-        return a4
-    }
+public func f(){
+    var a = Rectangle().a1 + Rectangle().a2
+    return a
 }
