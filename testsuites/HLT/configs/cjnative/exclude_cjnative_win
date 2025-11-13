@@ -359,6 +359,3 @@ API/syntax
 
 # timezone file in ci not support now
 API/std/time/TimeZone/load/test_loadFromPaths.cj
-
-# temp bugfix for ci, need to be fixed
-API/std/os/env/test_getArgs/test_getArgs_005/test_getArgs_005.cj
