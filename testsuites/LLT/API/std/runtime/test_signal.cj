@@ -7,10 +7,13 @@
  */
 
 // (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f
-// (not Windows) EXEC: %set_stdx_path %run %run_opt %n.%suffix | compare %f 
+// (not Windows) EXEC-PIPE-130: %set_stdx_path %run %run_opt %n.%suffix | compare %f
 
-// ASSERT: scan Signal value must < 32
-// ASSERT: scan f1
+// ASSERT: scan Signal value must > 0 and < 32
+// ASSERT: scan handle signal: 2
+// ASSERT: scan handle signal: 13
+// ASSERT: scan handle signal: 6
+// ASSERT: scan handle signal: 4
 
 // ASSERT: scan f2
 // ASSERT: scan f2
@@ -35,13 +38,25 @@ foreign func CJ_MCC_SignalRaise(sig: Int32): Unit
 func registerSignalHandler_oneSignal(): Unit {
     resetSignalHandler()
     let sig = Signal.SIGINT
+    let sigPipe = Signal(13, "SIGPIPE")
+    let sigAbrt = Signal(6, "SIGABRT")
+    let sigIll = Signal(4, "SIGILL")
     let f1 = {
         i: Int32 =>
-            println("f1")
+            println("handle signal: ${i}")
             return true
     }
     registerSignalHandler(sig, f1)
+    registerSignalHandler(sigPipe, f1)
+    registerSignalHandler(sigAbrt, f1)
+    registerSignalHandler(sigIll, f1)
     unsafe { CJ_MCC_SignalKill(Int32(getProcessId()), sig.value) }
+    sleep(Duration.second * 3)
+    unsafe { CJ_MCC_SignalKill(Int32(getProcessId()), sigPipe.value) }
+    sleep(Duration.second * 3)
+    unsafe { CJ_MCC_SignalKill(Int32(getProcessId()), sigAbrt.value) }
+    sleep(Duration.second * 3)
+    unsafe { CJ_MCC_SignalKill(Int32(getProcessId()), sigIll.value) }
     sleep(Duration.second * 3)
 }
 
