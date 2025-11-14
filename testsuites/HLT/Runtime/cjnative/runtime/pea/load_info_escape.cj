@@ -18,7 +18,7 @@ import std.collection.*
 import std.time.*
 
 var shouldLog = true
-var blackHole: Int64 = 0
+var blackBox: Int64 = 0
 var N = 8
 
 main(args: Array<String>): Unit {
@@ -27,7 +27,7 @@ main(args: Array<String>): Unit {
 
 func measureObject(N: Int64) {
     var a = StringObject()
-    blackHole = measureBodyObject(a)
+    blackBox = measureBodyObject(a)
 
     if (shouldLog) {
         println("Computation result: ${a.a.ps.ss.a}")
@@ -37,8 +37,8 @@ func measureObject(N: Int64) {
 
     if (shouldLog) {
         println("Computation result: ${a.a.ps.ss.a}")
-        blackHole = c
-        println("Computation result: ${blackHole}")
+        blackBox = c
+        println("Computation result: ${blackBox}")
     }
 }
 
