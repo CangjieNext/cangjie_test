@@ -127,4 +127,11 @@ class Test {
         pos = vArrayType.getCommaPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 13, 1, 14]).toArray())
     }
+
+    @TestCase
+    func testInit02() {
+        let varDecl = (decls[1] as VarDecl).getOrThrow()
+        let ty = (varDecl.tyAnnotation.getOrThrow() as VArrayType).getOrThrow()
+        @AssertThrows[Exception](VArrayType(ty.elementType, -1))
+    }
 }
