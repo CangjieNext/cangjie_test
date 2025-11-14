@@ -4,13 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/match_expr/%n.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
 // EXEC: python3 cjdb_test.py %n.info
 
 test#
-cjdb,cjdb matchExpr_enum_pattern1,matchExpr_enum_pattern1
-b,b 19,matchExpr_enum_pattern1.cj:19
-r,r,-> 19
- ,expr match (c) { case Green => "Green" case Blue(3)  => "Blue" case Red  => "red" case _  => "red"},\(std.core.String\) \$\d+ = "Blue"
+cjdb,cjdb matchExpr_constant_rune,matchExpr_constant_rune
+b,b 14,matchExpr_constant_rune.cj:14
+r,r,-> 14
+ ,expr match (vrune) { case r'a' => "false"  case r'c' => "false"  case _ => "true" },\(std.core.String\) \$\d+ = "false"
 q,q,

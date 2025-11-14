@@ -4,13 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/match_expr/%n.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
 // EXEC: python3 cjdb_test.py %n.info
 
 test#
-cjdb,cjdb matchExpr_tuple_patern,matchExpr_tuple_patern
-b,b 15,matchExpr_tuple_patern.cj:15
-r,r,-> 15
- ,expr scoreResult,\(std.core.String\) \$\d+ = "Allen got 90"
+cjdb,cjdb matchExpr_type_pattern2,matchExpr_type_pattern2
+b,b 28,matchExpr_type_pattern2.cj:28
+r,r,-> 28
+ ,expr match (colorPt) {case cpt: Point => cpt.x * cpt.y case _ => 0},\(Int64\) \$\d+ = 192
 q,q,
