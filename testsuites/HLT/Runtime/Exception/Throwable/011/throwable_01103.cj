@@ -8,9 +8,9 @@
 
 // LEVEL: 1
 // DEPENDENCE: test_b.cj
-// EXEC: %compiler %cmp_opt test_b.cj %compile_lib_opt -o test.%middle
-// EXEC: %compiler %cmp_opt %f test.%middle -o %output
-// RUN-ERRCHECK: %run %run_opt %output %run_args
+// (not iOS) EXEC: %compiler %cmp_opt test_b.cj %compile_lib_opt -o test.%middle
+// (not iOS) EXEC: %compiler %cmp_opt %f test.%middle -o %output
+// (not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
 // ASSERT: regex file_global_init|test_b
 // ASSERT: scan test_b.cj:11
 
