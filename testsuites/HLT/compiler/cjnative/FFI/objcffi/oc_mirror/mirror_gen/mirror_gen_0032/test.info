@@ -1,0 +1,48 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+// LEVEL: 1
+// DEPENDENCE: test.toml test.h
+// (iOS) EXEC: ObjCInteropGen test.toml
+// (iOS) EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+package cjworld
+
+import objc.foundation.NSInteger
+import objc.foundation.NSObject
+import objc.foundation.NSUInteger
+import interoplib.objc.*
+
+@ObjCMirror
+public open class test <: NSObject {
+    public open func f1(): Int8
+    public open func f2(): Int16
+    public open func f3(): Int32
+    public open func f4(): Int64
+    public open func f5(): NSInteger
+    public open func f6(): UInt8
+    public open func f7(): UInt16
+    public open func f8(): UInt32
+    public open func f9(): UInt64
+    public open func f10(): NSUInteger
+    public open func f11(): Float32
+    public open func f12(): Float64
+    @ForeignName["g1:"] public static func g1(a: Int8): Unit
+    @ForeignName["g2:"] public static func g2(a: Int16): Unit
+    @ForeignName["g3:"] public static func g3(a: Int32): Unit
+    @ForeignName["g4:"] public static func g4(a: Int64): Unit
+    @ForeignName["g5:"] public static func g5(a: NSInteger): Unit
+    @ForeignName["g6:"] public static func g6(a: UInt8): Unit
+    @ForeignName["g7:"] public static func g7(a: UInt16): Unit
+    @ForeignName["g8:"] public static func g8(a: UInt32): Unit
+    @ForeignName["g9:"] public static func g9(a: UInt64): Unit
+    @ForeignName["g10:"] public static func g10(a: NSUInteger): Unit
+    @ForeignName["g11:"] public static func g11(a: Float32): Unit
+    @ForeignName["g12:"] public static func g12(a: Float64): Unit
+}
+*/

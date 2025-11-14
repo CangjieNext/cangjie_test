@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f
 // (CJNATIVE) EXEC: %ls lib%n.%test_suffix
 // (not CJNATIVE) EXEC: %ls %n.%dylib_suffix

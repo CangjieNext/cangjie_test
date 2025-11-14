@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (not MAC and not Windows) ERRCHECK: %compiler %cmp_opt --jobs= %f -o %output
-// (not MAC and not Windows) ASSERT: scan '--jobs' requires a non-empty value.
+// ERRCHECK: %compiler %cmp_opt --jobs= %f -o %output
+// ASSERT: scan '--jobs' requires a non-empty value.
 
 main(): Int64 {
     return 0

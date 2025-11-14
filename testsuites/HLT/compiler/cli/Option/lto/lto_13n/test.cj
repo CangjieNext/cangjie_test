@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (CJNATIVE and not MAC and not Windows) ERRCHECK: %compiler %cmp_opt --lto=aaa %f -o %output
-// (not Windows) ASSERT: scan invalid value: 'aaa'
+// (CJNATIVE) ERRCHECK: %compiler %cmp_opt --lto=aaa %f -o %output
+// ASSERT: scan invalid value: 'aaa'
 
 main(): Int64 {
     return 0

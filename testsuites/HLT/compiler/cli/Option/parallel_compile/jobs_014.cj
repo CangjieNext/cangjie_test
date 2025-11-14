@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (not MAC and not Windows) ERRCHECK: %compiler %cmp_opt --jobs0 %f -o %output
-// (not MAC and not Windows) ASSERT: scan invalid option: '--jobs0'.
+// ERRCHECK: %compiler %cmp_opt --jobs0 %f -o %output
+// ASSERT: scan invalid option: '--jobs0'.
 
 main(): Int64 {
     return 0

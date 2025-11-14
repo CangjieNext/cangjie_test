@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // EXEC: %compiler %cmp_opt %obf_all --obf-seed=100 %save_temps %f -o %output
 // EXEC: %disassembler %n.opt.bc -o obf_a.ll
 

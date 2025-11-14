@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// DEPENDENCE: pkg1.cj
+// DEPENDENCE: pkg1.cj pkg.cfg1
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg1.cj  -o pkg1.%middle
 // EXEC: %compiler %cmp_opt  pkg1.%middle  %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args

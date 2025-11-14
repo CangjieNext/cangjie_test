@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (not MAC and not Windows) ERRCHECK: %compiler %cmp_opt --apc="test" %f -o %output
-// (not MAC and not Windows) ASSERT: scan '--apc' only accepts a positive integer number as value.
+// ERRCHECK: %compiler %cmp_opt --apc="test" %f -o %output
+// ASSERT: scan '--apc' only accepts a positive integer number as value.
 
 main() {
     return 0

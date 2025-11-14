@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 0
-// (not MAC) ERRCHECK: %compiler %cmp_opt --pgo-instr-use= %f -o %output
-// (not MAC) ASSERT: scan option '--pgo-instr-use' requires some values, format: option=value or option="v1, v2..."
-// (not MAC) ASSERT: scan No such file or directory: ''.
+// ERRCHECK: %compiler %cmp_opt --pgo-instr-use= %f -o %output
+// ASSERT: scan option '--pgo-instr-use' requires some values, format: option=value or option="v1, v2..."
+// ASSERT: scan No such file or directory: ''.
 
 main() {
     return 0

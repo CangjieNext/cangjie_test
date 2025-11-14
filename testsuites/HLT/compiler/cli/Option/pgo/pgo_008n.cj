@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (not MAC) ERRCHECK: %compiler %cmp_opt --pgo-instr-use=%f %f -o %output
-// (not MAC) ASSERT: scan Not a .profdata file: 'pgo_008n.cj'
+// ERRCHECK: %compiler %cmp_opt --pgo-instr-use=%f %f -o %output
+// ASSERT: scan Not a .profdata file: 'pgo_008n.cj'
 
 main() {
     return 0

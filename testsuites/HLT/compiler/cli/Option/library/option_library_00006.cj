@@ -8,11 +8,11 @@
 
 // LEVEL: 0 
 // DEPENDENCE: test.c
-// (not Windows) EXEC: %clang %clang_opt -o libtest.%test_suffix test.c
-// (not Android and not Windows)EXEC: %export LIBRARY_PATH=./:$LIBRARY_PATH && %compiler %cmp_opt %f --library test --output %output
+// EXEC: %clang %clang_opt -o libtest.%test_suffix test.c
+// (not Android)EXEC: %export LIBRARY_PATH=./:$LIBRARY_PATH && %compiler %cmp_opt %f --library test --output %output
 // (Android)EXEC: %export LIBRARY_PATH=./:$LIBRARY_PATH && %compiler %cmp_opt %f -L ./ --library test --output %output
-// (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
-// (not Windows) ASSERT: scan Hello World
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+// ASSERT: scan Hello World
 
 foreign func printHello(): Unit
 

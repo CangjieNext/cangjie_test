@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (not MAC) ERRCHECK: %compiler %cmp_opt --pgo-instr-gen --pgo-instr-use=default.profdata %f -o %output
-// (not MAC) ASSERT: scan using both '--pgo-instr-gen' and '--pgo-instr-use' is not allowed.
+// ERRCHECK: %compiler %cmp_opt --pgo-instr-gen --pgo-instr-use=default.profdata %f -o %output
+// ASSERT: scan using both '--pgo-instr-gen' and '--pgo-instr-use' is not allowed.
 
 main() {
     return 0

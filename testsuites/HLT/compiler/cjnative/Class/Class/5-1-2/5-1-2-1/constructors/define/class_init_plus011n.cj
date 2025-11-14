@@ -27,7 +27,7 @@ class A {
 }
 
 func run(): Int64 {
-   var day :A = A()
+   var day :Day = Day()
    return 0
 }
 // ASSERT: scan parse_expected_decl

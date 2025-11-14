@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// EXEC-PIPE-1: %compiler %cmp_opt %chircc %chir2llvm %f -o %n.%suffix 2>&1 | compare %f
 
 struct GenRec {
     public let b: Int32 = 1

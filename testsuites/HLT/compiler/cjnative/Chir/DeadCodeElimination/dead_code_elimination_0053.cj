@@ -18,4 +18,4 @@ main() {
     }
     return 1
 }
-// ASSERT: scan chir_dce_unreachable_expression_hint
+// ASSERT: scan chir2_dce_unreachable_expression

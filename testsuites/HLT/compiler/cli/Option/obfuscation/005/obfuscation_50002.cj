@@ -16,7 +16,7 @@
 // (not Windows) EXEC: %disassembler %n.opt.bc -o opt.ll
 
 // (not Windows) RUN-EXEC: %run %run_opt %output %run_args
-
+// block will be much more when open obf, br is a jump llvm ir
 // (not Windows) EXEC: bash test.sh `cat obf.ll | grep -o br | wc -l` `cat opt.ll | grep -o br | wc -l`
 
 package obfuscation_50002

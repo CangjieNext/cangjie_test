@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // (not Windows) EXEC-PIPE: rm -rf dir;mkdir dir
 // (Windows) EXEC-PIPE: mkdir dir
 // (CJNATIVE) EXEC-PIPE: %compiler %cmp_opt --output-type=exe %f -o %output --output-dir ./dir

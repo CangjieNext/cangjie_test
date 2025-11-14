@@ -9,17 +9,17 @@
 // LEVEL: 1
 // EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 enum MyEnum {
-    Bb(Int32)
+    A(Int32)
 }
 
 enum AnotherEnum {
-    Bb(Int32)
+    A(Int32)
 }
 
 main(): Int64 {
-    var a = MyEnum.Bb(1)
-    var b = AnotherEnum.Bb(2)
-    let myArray0: Array<MyEnum> = [a, b, AnotherEnum.Bb(3)]
+    var a = MyEnum.A(1)
+    var b = AnotherEnum.A(2)
+    let myArray0: Array<MyEnum> = [a, b, AnotherEnum.A(3)]
     return 0
 }
 // ASSERT: scan sema_mismatched_types

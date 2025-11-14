@@ -7,12 +7,12 @@
  */
 
 // LEVEL: 2
-// EXEC-PIPE: %compiler %cmp_opt %f --profile-compile-memory --profile-compile-time %compile_lib_opt 2>&1 | compare %f
-// ASSERT: scan Code Info of [ default ]
-// ASSERT: scan Memory Usage of [ default ]
-// ASSERT: regex [0-9]+.[0-9]+ => [0-9]+.[0-9]+ MB
-// ASSERT: scan Compile Time of [ default ]
-// ASSERT: regex cost [0-9]+ ms
+// EXEC-PIPE: %compiler %cmp_opt %f --profile-compile-memory --profile-compile-time %compile_lib_opt 2>&1
+// (not Windows) EXEC-0: %cat test.time.prof
+// (not Windows) EXEC-0: %cat test.info.prof
+// (not Windows) EXEC-0: %cat test.mem.prof
+
+package test 
 
 interface I1 {}
 

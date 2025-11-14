@@ -6,9 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
-// (CJNATIVE and not MAC and not Windows) EXEC: %compiler %cmp_opt --lto=full %f -o %output
-// (CJNATIVE and not MAC and not Windows) RUN-EXEC: %run %run_opt %output %run_args
+// LEVEL: 0
+// (CJNATIVE) EXEC: %compiler %cmp_opt --lto=full %f -o %output
+// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
 
 main(): Int64 {
     return 0
