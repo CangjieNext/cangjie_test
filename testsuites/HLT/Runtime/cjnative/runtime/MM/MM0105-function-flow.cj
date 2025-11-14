@@ -67,6 +67,7 @@ class MM_flow <: Tool {
 main(): Int64 {
     var o = MM_flow()
     o.mm_testcase_main_wrapper()
+    // GC()
     o = MM_flow()
     o.mm_testcase_main_wrapper()
     print((1).toString())
