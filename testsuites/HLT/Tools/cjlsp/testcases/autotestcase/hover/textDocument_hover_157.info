@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 388,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: l01.cj\nPackage info: default.Lambda\n\n(variable) internal let r1: Int64 = {a: Int64, b: Int64 => a + b}(1, 2)\nCopyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.\rThis source file is part of the Cangjie project, licensed under Apache-2.0\rwith Runtime Library Exception.\r\rSee https://cangjie-lang.cn/pages/LICENSE for license information.\r\n"},"range": {"end": {"character": 6,"line": 9},"start": {"character": 4,"line": 9}}}}
+{"id": 388,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: l01.cj\nPackage info: default.Lambda\n\n(variable) internal let r1: Int64 = {a: Int64, b: Int64 => a + b}(1, 2)\n"},"range": {"end": {"character": 6,"line": 9},"start": {"character": 4,"line": 9}}}}

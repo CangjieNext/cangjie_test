@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 181,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "TT","range": {"end": {"character": 9,"line": 2},"start": {"character": 8,"line": 2}}},{"newText": "TT","range": {"end": {"character": 15,"line": 2},"start": {"character": 14,"line": 2}}},{"newText": "TT","range": {"end": {"character": 19,"line": 2},"start": {"character": 18,"line": 2}}}],"textDocument": {"uri": "renameProject/src/pkg/c02.cj","version": 4}}]}}
+{"id": 181,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "TT","range": {"end": {"character": 9,"line": 2},"start": {"character": 8,"line": 2}}},{"newText": "TT","range": {"end": {"character": 15,"line": 2},"start": {"character": 14,"line": 2}}},{"newText": "TT","range": {"end": {"character": 19,"line": 2},"start": {"character": 18,"line": 2}}}],"textDocument": {"uri": "renameProject/src/pkg/c02.cj","version": 3}}]}}

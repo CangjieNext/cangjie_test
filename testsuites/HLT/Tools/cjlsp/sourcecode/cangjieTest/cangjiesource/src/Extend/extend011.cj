@@ -1,12 +1,12 @@
 package default.Extend
 
-open class ClassB {}
+open class B {}
 
-extend ClassB {
+extend B {
     func f() {}
 }
 
-class D <: ClassB {
+class D <: B {
     func g() {
         f()
     }

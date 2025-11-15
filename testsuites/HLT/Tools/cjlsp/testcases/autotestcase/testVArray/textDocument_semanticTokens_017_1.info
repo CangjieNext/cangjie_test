@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../../lsp_test.py ../../../sourcecode/cangjieTest/testVArray ../../../lsp_config.txt
+// (MAC) EXEC: %python lsp_test.py textDocument_semanticTokens_017_1.info
+
+Req#
+{"jsonrpc": "2.0", "id": "0", "method": "initialize", "params": {"processId": null, "rootPath": "testVArray", "rootUri": "testVArray", "capabilities": {"workspace": {"applyEdit": true, "workspaceEdit": {}, "didChangeWatchedFiles": {}, "symbol": {}, "executeCommand": {}, "workspaceFolders": false, "configuration": false}, "textDocument": {"synchronization": {"willSave": true, "willSaveWaitUntil": true, "didSave": true}, "completion": {"completionItem": {"snippetSupport": true}}, "hover": {}, "signatureHelp": {}, "references": {}, "documentHighlight": {"dynamicRegistration": true}, "formatting": {}, "rangeFormatting": {}, "onTypeFormatting": {}, "definition": {}, "codeAction": {}, "documentLink": {}, "rename": {"prepareSupport": true}, "semanticHighlightingCapabilities": {"semanticHighlighting": true}, "callHierarchy": {}, "semanticTokens": {"tokenTypes": ["namespace", "type", "class", "enum", "interface", "struct", "typeParameter", "parameter", "variable", "property", "enumMember", "event", "function", "method", "macro", "keyword", "modifier", "comment", "string", "number", "regexp", "operator", "member", "label"], "tokenModifiers": ["declaration", "definition", "readonly", "static", "deprecated", "abstract", "async", "modification", "documentation", "defaultLibrary"], "dynamicRegistration": true}}}}}
+{"jsonrpc":"2.0","method":"initialized","params":{}}
+{"jsonrpc": "2.0", "method": "textDocument/didOpen", "params": {"textDocument": {"uri": "testVArray/src/testConst/const17.cj", "languageId": "Cangjie", "version": 1, "text": "/*\n * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.\n * This source file is part of the Cangjie project, licensed under Apache-2.0\n * with Runtime Library Exception.\n *\n * See https://cangjie-lang.cn/pages/LICENSE for license information.\n */\n\npackage default.testConst\n\n@When[os == \"Linux\"]\nconst func foo(a: Int64): Int64 {\n    let b = 6\n    if (a > 5 && (b + a) < 15) {\n        return a * a\n    }\n    return a\n}\n\n@When[os == \"Windows\"]\nconst func foo(a: Int64): Int64 {\n    let b = 6\n    if (a > 5 && (b + a) < 15) {\n        return a * a\n    }\n    return a\n}\n\n@When[os == \"macOS\"]\nconst func foo(a: Int64): Int64 {\n    let b = 6\n    if (a > 5 && (b + a) < 15) {\n        return a * a\n    }\n    return a\n}\n\n\nfunc h7() {\n    @When[os == \"Linux\"]\n    let c = foo(1)\n    @When[os == \"Windows\"]\n    let c = foo(2)\n    @When[os == \"macOS\"]\n    let c = foo(3)\n}\n"}}}
+{"jsonrpc":"2.0","id":71,"method":"textDocument/semanticTokens/full","params":{"textDocument":{"uri":"testVArray/src/testConst/const17.cj"}}}
+{"jsonrpc": "2.0", "id": 72, "method": "shutdown", "params": {}}
+{"jsonrpc": "2.0", "method": "exit", "params": {}}
+
+Rev#
+{"id": 71,"jsonrpc": "2.0","result": {"data": [29,11,3,13,0,0,4,1,17,0,1,8,1,17,0,1,8,1,17,0,0,10,1,17,0,0,4,1,17,0,1,15,1,17,0,0,4,1,17,0,2,11,1,17,0,4,5,2,13,0,6,8,1,17,0,0,4,3,13,0]}}

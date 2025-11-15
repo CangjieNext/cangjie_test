@@ -1,12 +1,12 @@
 package default.option_type
 
-class OptionC {
+class C {
     var item: Int64 = 100
 }
 
-let c = OptionC()
-let c1 = Option<OptionC>.Some(c)
-let c2 = Option<OptionC>.None
+let c = C()
+let c1 = Option<C>.Some(c)
+let c2 = Option<C>.None
 
 let r1 = c1?.item
 let r2 = c2?.item

@@ -1,14 +1,14 @@
 package default.Pattern_matching
 
 enum Foo {
-    FooA | FooB | FooC
+    A | B | C
 }
 func f1() {
-    let x = Foo.FooA
+    let x = Foo.A
     match (x) {
-        case FooA => 0
-        case FooB => 1
-        case FooC => 2
+        case A => 0
+        case B => 1
+        case C => 2
     }
 }
 

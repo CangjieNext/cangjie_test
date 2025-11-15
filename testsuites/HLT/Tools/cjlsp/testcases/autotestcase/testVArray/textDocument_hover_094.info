@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 79,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: tup18.cj\nPackage info: default.testFunctype\n\n(enum) internal enum EF\nCopyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.\rThis source file is part of the Cangjie project, licensed under Apache-2.0\rwith Runtime Library Exception.\r\rSee https://cangjie-lang.cn/pages/LICENSE for license information.\r\n"},"range": {"end": {"character": 19,"line": 4},"start": {"character": 17,"line": 4}}}}
+{"id": 79,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: tup18.cj\nPackage info: default.testFunctype\n\n(enum) internal enum EF\n"},"range": {"end": {"character": 19,"line": 4},"start": {"character": 17,"line": 4}}}}

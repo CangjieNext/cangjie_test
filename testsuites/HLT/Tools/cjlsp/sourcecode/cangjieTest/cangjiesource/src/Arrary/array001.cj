@@ -14,7 +14,7 @@ var a1 = Array<Int16>()
 var a13 = Array<String>()
 
 func test1(){
-    var arr=Array<Int8>()
+    var a=Array<Int8>()
 }
 
 /*

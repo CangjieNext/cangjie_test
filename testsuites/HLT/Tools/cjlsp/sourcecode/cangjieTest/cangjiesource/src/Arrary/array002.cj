@@ -1,7 +1,7 @@
 package default.Arrary
 
 // Array关键字、Array类型变量作为函数入参/返回值/函数默认值
-func testArr(x!: Array<Int64> = [1,2,3,4]): Array<Int64> {
+func foo(x!: Array<Int64> = [1,2,3,4]): Array<Int64> {
     var a = x
     return a
 }
@@ -9,7 +9,7 @@ func testArr(x!: Array<Int64> = [1,2,3,4]): Array<Int64> {
 var bara: (Array<Int64>)->Array<Int64> = {x:Array<Int64> => x}
 var intArray:Array<Int64> = [1,2,3,4]
 func test2(){
-    testArr()
+    foo()
     bara(intArray)
 
 }

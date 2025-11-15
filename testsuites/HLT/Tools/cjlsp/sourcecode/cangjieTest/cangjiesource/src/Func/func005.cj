@@ -5,21 +5,21 @@ interface I {
     func f2(): Unit {
         return
     }
-    static func f3(): FuncC
+    static func f3(): C
 }
 
-class FuncC <: I {
+class C <: I {
     public func f1(): Unit {}
     public func f2(): Unit {
         return
     }
-    public static func f3(): FuncC {
-        return FuncC()
+    public static func f3(): C {
+        return C()
     }
 }
 
 func main5(): Int64 {
-    var c = FuncC()
+    var c = C()
     c.f1()
     C.f3()
 

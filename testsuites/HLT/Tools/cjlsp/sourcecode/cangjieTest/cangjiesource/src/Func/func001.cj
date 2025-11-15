@@ -8,7 +8,7 @@ func foo(x: Int64, y: (Int64) -> Int64): Int64 {
     return y(x)
 }
 
-func fooString(): String {
+func foo(): String {
     return "Nothing"
 }
 

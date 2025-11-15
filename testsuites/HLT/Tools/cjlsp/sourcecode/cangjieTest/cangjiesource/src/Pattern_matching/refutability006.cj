@@ -4,7 +4,7 @@ enum E1 {
     A(Int64)
 }
 enum E2 {
-    E2B(Int64) | C(Int64)
+    B(Int64) | C(Int64)
 }
 
 func enumPat1(x: E1) {
@@ -16,7 +16,7 @@ func enumPat1(x: E1) {
 
 func enumPat2(x: E2) {
     match (x) {
-        case E2B(b) => "B(${b})"
+        case B(b) => "B(${b})"
         case C(c) => "C(${c})"
     }
 }

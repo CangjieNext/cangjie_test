@@ -5,11 +5,9 @@
 char* testfuncstacall(char* input)
 {
     char* b = "World\n";
-    uint64_t inputSize = strlen(input);
+    int inputSize = strlen(input);
     char* res = (char*)malloc(inputSize + strlen(b) + 1);
-    if (res == NULL) {
-        return NULL;
-    }
+
     strcpy(res, input);
     strcat(res, b);
     return res;

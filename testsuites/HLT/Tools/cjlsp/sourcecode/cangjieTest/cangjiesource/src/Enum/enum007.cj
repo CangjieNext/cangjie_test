@@ -4,7 +4,7 @@ enum TimeUnit7 {
     Year
 }
 
-func foot(x: TimeUnit7, y!: TimeUnit7 = Year): Int64 {
+func foo(x: TimeUnit7, y!: TimeUnit7 = Year): Int64 {
     var res = match (x) {
         case Year =>
             match (y) {

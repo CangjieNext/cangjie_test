@@ -1,14 +1,14 @@
 package default.Extend
 
-class ClassA {
+class A {
     func f() {}
 }
 
-extend ClassA {
+extend A {
     func f1() {}
 }
 
-extend ClassA {
+extend A {
     func f2() {}
 }
 
