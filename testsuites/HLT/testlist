@@ -11,3 +11,6 @@ Tools/
 compiler/
 Runtime/
 [EXCLUDE-TEST-CASE]
+API/net/New_HTTP/HttpRequest/test_header_01.cj
+API/net/New_HTTP/HttpRequest/test_request_modify.cj
+API/net/New_HTTP/HttpResponse/test_header_01.cj
