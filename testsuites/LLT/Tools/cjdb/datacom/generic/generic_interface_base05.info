@@ -12,5 +12,5 @@ test#
 cjdb,cjdb generic_interface_base05,generic_interface_base05
 b,b 23, generic_interface_base05.cj:23
 r,r,-> 23
- ,expr A<Int64>().foo1(2),\s+funcTable is nullptr
+ ,expr A<Int64>().foo1(2),\(Int64\) \$[\d] = 2
 q,q,
