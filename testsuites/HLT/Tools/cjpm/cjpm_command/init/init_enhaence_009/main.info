@@ -8,4 +8,4 @@
 
 // LEVEL: 1
 // ERRCHECK: %cjpm init --name = aaaa
-// ASSERT: scan Error: unknow command 'aaaa' for cjpm init
+// ASSERT: scan Error: unknown command 'aaaa' for cjpm init

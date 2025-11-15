@@ -8,4 +8,5 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm bench
+// EXEC: cd %n && %cjpm bench | compare %f
+// ASSERT: scan cjpm bench success

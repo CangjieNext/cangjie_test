@@ -8,4 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm test src
+// EXEC: cd %n && %cjpm test src | compare %f
+// ASSERT: regex .*PASSED.*: 3, .*SKIPPED.*: 0, .*ERROR.*: 0
+// ASSERT: scan cjpm test success
