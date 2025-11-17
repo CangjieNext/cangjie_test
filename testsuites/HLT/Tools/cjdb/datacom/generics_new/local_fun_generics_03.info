@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
-b,b 62,genericsfun_local.cj:62
-AOT r,r,-> 62
+b,b 70,genericsfun_local.cj:70
+AOT r,r,-> 70
 CJVM c,c,
 p, p gengricsvar,\(Bool\) \$[\d] = true
 p, p a,\(Bool\) \$[\d] = true

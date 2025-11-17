@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 104,list_debug.cj:104
-AOT r,r,-> 104
+b,b 112,list_debug.cj:112
+AOT r,r,-> 112
 CJVM c,c,
 p,p m_base_1,\(std[.]core.Array<Int64>\) \$[\d]
 p,p m_base_1[0],\(Int64\) \$[\d] =

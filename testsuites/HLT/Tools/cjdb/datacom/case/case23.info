@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case23,case23
-b,b 23,case23.cj:23
-AOT r,r,-> 23
+b,b 31,case23.cj:31
+AOT r,r,-> 31
 CJVM c,c,
 AOT expr:expr b:\(std.core.Array<default.thisstruct>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*b = 321[\s\S]*c = {[\s\S]*aaa = 123[\s\S]*}
 AOT expr:expr c:\(std.core.Array<default.foo>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*aaa = 123[\s\S]*}[\s\S]*\[1\] = {[\s\S]*aaa = 123[\s\S]*}

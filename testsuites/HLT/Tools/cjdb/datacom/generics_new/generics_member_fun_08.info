@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 103,Breakpoint 1:
-AOT r,r,-> 103
+b,b 111,Breakpoint 1:
+AOT r,r,-> 111
 CJVM c,c,
 p, p a,\(\(\)->Unit\) \$[\d] = 0x0000000000000000
 p, p a1,\(\(\)->Unit\) \$[\d] = 0x0000000000000000

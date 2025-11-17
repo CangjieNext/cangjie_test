@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_enum_generics,002_debug_enum_generics
-b,b 62,002_debug_enum_generics.cj:62
-AOT r,r,-> 62
+b,b 70,002_debug_enum_generics.cj:70
+AOT r,r,-> 70
 CJVM c,c,
 expr,expr m_time5,\(default.TimeUnit1<std.core.Array<default.TimeUnit1<UInt8>>>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*\[0\] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 2[\s\S]*
 expr,expr m_time10,\(Int64\) \$[\d] = 10

@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_class_top_mod_open,002_debug_class_top_mod_open
-b,b 46,002_debug_class_top_mod_open.cj:46
-AOT r,r,-> 46
-CJVM c,c,-> 46
-s,s,-> 8
-finish,finish,-> 46
-n,n,-> 47
+b,b 54,002_debug_class_top_mod_open.cj:54
+AOT r,r,-> 54
+CJVM c,c,-> 54
+s,s,-> 16
+finish,finish,-> 54
+n,n,-> 55
 locals,locals,\(Int64\) fun_num1 = 1
 q,q,

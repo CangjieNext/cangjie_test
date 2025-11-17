@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 042_debuginfun_expressions,042_debuginfun_expressions
-breakpoint,breakpoint set -l 31 -c 'expr1==false',042_debuginfun_expressions.cj:31
-AOT r,r,-> 31
+breakpoint,breakpoint set -l 39 -c 'expr1==false',042_debuginfun_expressions.cj:39
+AOT r,r,-> 39
 CJVM c,c,
-n,n,-> 33
+n,n,-> 41
 locals,locals,expr1 = true
 q,q,

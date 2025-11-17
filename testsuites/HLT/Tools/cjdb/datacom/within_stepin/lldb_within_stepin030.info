@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_stepIn_via_overLoad,001_debug_stepIn_via_overLoad
-CJVM b main,b main,001_debug_stepIn_via_overLoad.cj:11
-CJVM c,c,-> 11
-b,b 25,001_debug_stepIn_via_overLoad.cj:25
-AOT r,r,-> 25
-CJVM c,c,-> 25
-s,s,-> 102
-s,s,class Clazz_1 {[\s\S]*-> 31[\s\S]*
-finish,finish,-> 102
-finish,finish,-> 25
+CJVM b main,b main,001_debug_stepIn_via_overLoad.cj:19
+CJVM c,c,-> 19
+b,b 33,001_debug_stepIn_via_overLoad.cj:33
+AOT r,r,-> 33
+CJVM c,c,-> 33
+s,s,-> 110
+s,s,class Clazz_1 {[\s\S]*-> 39[\s\S]*
+finish,finish,-> 110
+finish,finish,-> 33
 q,q,

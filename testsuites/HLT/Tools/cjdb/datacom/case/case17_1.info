@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case17_1,case17_1
-b,b 23,case17_1.cj:23
-AOT r,r,-> 23
+b,b 31,case17_1.cj:31
+AOT r,r,-> 31
 CJVM c,c,
 AOT globals,globals,\(std.core.Array<std.core.Any>\) default::mixtuple01 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = {[\s\S]*\[0\] = 3[\s\S]*\[1\] = 4[\s\S]*}[\s\S]*}
 AOT globals,globals,\(std.collection.ArrayList<Tuple<Int64,Bool>>\) default::e1 = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = true[\s\S]*}[\s\S]*}

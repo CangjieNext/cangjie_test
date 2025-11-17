@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 137,005_debug_class_generics.cj:137
-AOT r,r,-> 137
+b,b 145,005_debug_class_generics.cj:145
+AOT r,r,-> 145
 CJVM c,c,
-n,n,-> 138
+n,n,-> 146
 locals,locals,\(default.C2<std[.]core.String,std[.]core.String>\) mc2_3 = {(\r\n|\r|\n)  width = "100"(\r\n|\r|\n)  length = "200"(\r\n|\r|\n)}
 q,q,

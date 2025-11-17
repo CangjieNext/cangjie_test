@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_001,viewVariables_Cstring_001
-b,b 53,Test_CString.cj:53
-AOT r,r,-> 53
+b,b 61,Test_CString.cj:61
+AOT r,r,-> 61
 CJVM c,c,
 p,p top_str1,\(CString\) \$[\d] = "Hello cangjie!"
 p,p top_str2,\(CString\) \$[\d] = "!@#\$\%\^\&\*\(\)\<\<\?\>"

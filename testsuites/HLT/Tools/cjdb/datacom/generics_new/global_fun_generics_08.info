@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun,genericsfun
-b,b 73,genericsfun.cj:73
-AOT r,r,-> 73
+b,b 81,genericsfun.cj:81
+AOT r,r,-> 81
 CJVM c,c,
 p, p gengricsvar5,\(CPointer<Int8>\) \$[\d] = 0x0000000000000000
 p, p f,\(CPointer<Int8>\) \$[\d] = 0x0000000000000000

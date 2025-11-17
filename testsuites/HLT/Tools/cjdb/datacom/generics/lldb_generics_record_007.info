@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 93,052_debug_record_generics.cj:93
-AOT r,r,-> 93
+b,b 101,052_debug_record_generics.cj:101
+AOT r,r,-> 101
 CJVM c,c,
-AOT n,n,-> 96
-CJVM n,n,-> 95
+AOT n,n,-> 104
+CJVM n,n,-> 103
 print,print r4.width[0],R1<UInt32>\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 print,print r4.length[0],R1<UInt32>\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 q,q,

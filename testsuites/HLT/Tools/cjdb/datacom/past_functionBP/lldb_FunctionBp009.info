@@ -16,20 +16,20 @@
 
 test#
 cjdb,cjdb --no-use-colors 014_debug_func_bp,014_debug_func_bp
-CJVM b,breakpoint set -n main,014_debug_func_bp.cj:6
-CJVM c,c,-> 6
-b,b funcbp001,014_debug_func_bp.cj:58
-b,b funcbp002,014_debug_func_bp.cj:64
-b,b funcbp003,014_debug_func_bp.cj:70
-b,b funcbp004,014_debug_func_bp.cj:78
-b,b funcbp005,014_debug_func_bp.cj:87
-b,b funcbp006,014_debug_func_bp.cj:93
-b,b funcbp008,014_debug_func_bp.cj:108
-b,b funcbp009,014_debug_func_bp.cj:112
-b,b funcbp010,014_debug_func_bp.cj:121
+CJVM b,breakpoint set -n main,014_debug_func_bp.cj:14
+CJVM c,c,-> 14
+b,b funcbp001,014_debug_func_bp.cj:66
+b,b funcbp002,014_debug_func_bp.cj:72
+b,b funcbp003,014_debug_func_bp.cj:78
+b,b funcbp004,014_debug_func_bp.cj:86
+b,b funcbp005,014_debug_func_bp.cj:95
+b,b funcbp006,014_debug_func_bp.cj:101
+b,b funcbp008,014_debug_func_bp.cj:116
+b,b funcbp009,014_debug_func_bp.cj:120
+b,b funcbp010,014_debug_func_bp.cj:129
 b,b funcbp011,Breakpoint
 AOT delete,breakpoint delete 1 2 3 4 5,5 breakpoints deleted
 CJVM delete,breakpoint delete 2 3 4 5 6,5 breakpoints deleted
-AOT r,r,-> 93
-CJVM c,c,-> 93
+AOT r,r,-> 101
+CJVM c,c,-> 101
 q,q,

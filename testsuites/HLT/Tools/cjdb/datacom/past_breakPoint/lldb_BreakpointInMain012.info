@@ -16,16 +16,16 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_cover,001_debug_cover
-CJVM b,breakpoint set -n main,001_debug_cover.cj:4
-CJVM c,c,-> 4
-b,b 5,001_debug_cover.cj:5
-b,b 7,001_debug_cover.cj:7
-AOT r,r,-> 5
-CJVM c,c,-> 5
+CJVM b,breakpoint set -n main,001_debug_cover.cj:12
+CJVM c,c,-> 12
+b,b 13,001_debug_cover.cj:13
+b,b 15,001_debug_cover.cj:15
+AOT r,r,-> 13
+CJVM c,c,-> 13
 locals,locals,var3 = 1
-c,c,-> 7
+c,c,-> 15
 locals,locals,var3 = 2
-n,n,-> 6
-n,n,-> 9
+n,n,-> 14
+n,n,-> 17
 locals,locals,var3 = 3
 q,q,

@@ -15,11 +15,11 @@
 
 test#
 cjdb,cjdb --no-use-colors setVar_external_invoke.out,setVar_external_invoke
-b,b 21,setVar_external_invoke.cj:21
-AOT r,r,-> 21
+b,b 29,setVar_external_invoke.cj:29
+AOT r,r,-> 29
 CJVM c,c,
-s,s,static func fun_s1\(par_1:X\)[\s\S]*-> 23
-n,n,-> 24
+s,s,static func fun_s1\(par_1:X\)[\s\S]*-> 31
+n,n,-> 32
 p,p var_s1,\(Int32\) \$[\d] = 12
 AOT set,set var_s1=-'A',error: unsupported expression
 CJVM set,set var_s1=-'A',error: invalid argument -'A'

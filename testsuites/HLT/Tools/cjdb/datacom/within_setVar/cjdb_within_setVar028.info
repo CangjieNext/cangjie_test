@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_setVar,002_debug_setVar
-b,b 8,002_debug_setVar.cj:8
-AOT r,r,-> 8
+b,b 16,002_debug_setVar.cj:16
+AOT r,r,-> 16
 CJVM c,c,
-s,s,func fun_1\(para_1: Int32 , para_2!: Int32 = 1\)[\s\S]*-> 30
-n,n,-> 31
+s,s,func fun_1\(para_1: Int32 , para_2!: Int32 = 1\)[\s\S]*-> 38
+n,n,-> 39
 p,p a1,\(Int32\) \$[\d] = 12
 set,set a1 =-23,\(Int32\) \$[0-9]* = -23
 p,p a1,\(Int32\) \$[\d] = -23

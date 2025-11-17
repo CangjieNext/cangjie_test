@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_while,004_debug_while
-breakpoint,breakpoint set -l 6 -c 'hundred==9',004_debug_while.cj:6
+breakpoint,breakpoint set -l 14 -c 'hundred==9',004_debug_while.cj:14
 breakpoint,breakpoint delete 1,1 breakpoints deleted
-breakpoint,breakpoint set -l 6 -c 'hundred==9',004_debug_while.cj:6
-AOT r,r,-> 6
+breakpoint,breakpoint set -l 14 -c 'hundred==9',004_debug_while.cj:14
+AOT r,r,-> 14
 CJVM c,c,
 locals,locals,hundred = 9
 q,q,

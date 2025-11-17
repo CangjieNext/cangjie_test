@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors basic_hashmap_020,basic_hashmap_020
-b,b 19,basic_hashmap_020.cj:19
-AOT r,r,-> 19
+b,b 27,basic_hashmap_020.cj:27
+AOT r,r,-> 27
 locals,locals,\(std.collection.HashMap<Bool,Unit>\) map2 = {[\s\S]*\[true\] = {[\s\S]*key = true[\s\S]*value = ()[\s\S]*}[\s\S]*\[false\] = {[\s\S]*key = false[\s\S]*
 p,p myTuple,\(Tuple<std.collection.HashMap<Int32,Int32>,std.collection.HashMap<Int32,Int32>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[1 -> 1\] = {[\s\S]*key = 1[\s\S]*value = 1[\s\S]*}[\s\S]*}[\s\S]*\[1\] = {[\s\S]*\[2 -> 2\] = {[\s\S]*key = 2[\s\S]*value = 2[\s\S]*
 expr,expr HashMap02,\(std.collection.HashMap<UIntNative,IntNative>\) \$[\d] = {[\s\S]*\[1 -> 2\] = {[\s\S]*key = 1[\s\S]*value = 2[\s\S]*

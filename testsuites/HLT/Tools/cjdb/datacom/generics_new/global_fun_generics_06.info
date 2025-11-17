@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun,genericsfun
-b,b 73,genericsfun.cj:73
-AOT r,r,-> 73
+b,b 81,genericsfun.cj:81
+AOT r,r,-> 81
 CJVM c,c,
 p, p gengricsvar,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
 p, p a,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1

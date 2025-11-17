@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 010_debug_ArrayIns_composite_class,010_debug_ArrayIns_composite_class
-b,b 92,010_debug_ArrayIns_composite_class.cj:92
-AOT r,r,-> 92
+b,b 100,010_debug_ArrayIns_composite_class.cj:100
+AOT r,r,-> 100
 CJVM c,c,
 p,p multiArr_m_d1[0..1][0],std[.]core.Array<default.C1>\) \$[\d] = {[\s\S]*\[0\] = [\s\S]*\[1\] = [\s\S]*\[2\] = 30
 p,p multiArr_m_d1[0][1],default.C1\) \$[\d] = {[\s\S]*str = "strmao"

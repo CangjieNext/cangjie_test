@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 37,063_debug_expr_class_1.cj:37
-CJVM c,c,-> 37
-AOT r,r,-> 37
+b,b 45,063_debug_expr_class_1.cj:45
+CJVM c,c,-> 45
+AOT r,r,-> 45
 expr,expr rect1.s14,std[.]collection.HashMap<Bool,UInt64>\) \$[\d] = {[\S\s]*key = true[\S\s]*value = 10[\S\s]*}
 expr,expr stu.hm,std[.]collection.HashMap<Int64,std.core.String>\) \$[\d] = {[\S\s]*key = 10[\S\s]*value = "aaaa"[\S\s]*}
 expr,expr globals_hm,std[.]collection.HashMap<std.core.String,Float64>\) \$[\d] = {[\S\s]*key = "aaaa"[\S\s]*value = 11.109999999999999[\S\s]*}

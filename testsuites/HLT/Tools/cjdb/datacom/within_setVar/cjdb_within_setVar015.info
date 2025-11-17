@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_setVar_generices,001_debug_setVar_generices
-b,b 12,001_debug_setVar_generices.cj:12
-AOT r,r,-> 12
+b,b 20,001_debug_setVar_generices.cj:20
+AOT r,r,-> 20
 CJVM c,c,
 p,p mr_ins,R1<Int16>\) \$[\d] = {(\r|\n|\r\n)  var_pri = 12(\r|\n|\r\n)  width = 12(\r|\n|\r\n)  length = 12(\r|\n|\r\n)  r_1 = -12(\r|\n|\r\n)}
 set,set mr_ins.var_pri = 32,\(Int16\) \$[\d] = 32

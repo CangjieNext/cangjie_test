@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_ArrayIns_baseType,008_debug_ArrayIns_baseType
-b,b 9,Breakpoint 1:
-AOT r,r,-> 9
+b,b 17,Breakpoint 1:
+AOT r,r,-> 17
 CJVM c,c,
 p,p arrayInt8_d,\(std[.]core.Array<std[.]core.Array<Int8>>\) \$[\d] = {[\s\S]*\[0\] = [\s\S]*
 p,p arrayInt8_d[1],\(std[.]core.Array<Int8>\) \$[\d] = {[\s\S]*\[2\] = -2

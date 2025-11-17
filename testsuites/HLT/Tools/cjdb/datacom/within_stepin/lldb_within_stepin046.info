@@ -16,12 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_stepIn_via_inherit,002_debug_stepIn_via_inherit
-CJVM b main,b main,002_debug_stepIn_via_inherit.cj:13
-CJVM c,c,-> 13
-b,b 13,002_debug_stepIn_via_inherit.cj:13
-AOT r,r,-> 13
-s,s,open class Class_sub_1 <: Clazz_1[\s\S]*-> 94[\s\S]*
-b,b 101,002_debug_stepIn_via_inherit.cj:101
-c,c,-> 101
-s,s,open class Clazz_1 [\s\S]*-> 38[\s\S]*
+CJVM b main,b main,002_debug_stepIn_via_inherit.cj:21
+CJVM c,c,-> 21
+b,b 21,002_debug_stepIn_via_inherit.cj:21
+AOT r,r,-> 21
+s,s,open class Class_sub_1 <: Clazz_1[\s\S]*-> 102[\s\S]*
+b,b 109,002_debug_stepIn_via_inherit.cj:109
+c,c,-> 109
+s,s,open class Clazz_1 [\s\S]*-> 46[\s\S]*
 q,q,

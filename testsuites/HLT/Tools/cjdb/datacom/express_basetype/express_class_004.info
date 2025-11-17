@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_express_basetype,004_express_basetype
-CJVM b,b main,053_debug_class_basetype.cj:25
-CJVM c,c,-> 25
-b,b 26,053_debug_class_basetype.cj:26
-CJVM c,c,-> 26
-AOT r,r,-> 26
+CJVM b,b main,053_debug_class_basetype.cj:33
+CJVM c,c,-> 33
+b,b 34,053_debug_class_basetype.cj:34
+CJVM c,c,-> 34
+AOT r,r,-> 34
 p,p a.var1=127,\(Int8\) \$[\d] = 127
 p,p a.var2=32767,\(Int16\) \$[\d] = 32767
 p,p a.var3=-2147483648,\(Int32\) \$[\d] = -2147483648

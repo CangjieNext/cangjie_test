@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashMap_Ins_basic,001_HashMap_Ins_basic
-b,b 9,001_HashMap_Ins_basic.cj:9
-AOT r,r,-> 9
-CJVM c,c,-> 9
+b,b 17,001_HashMap_Ins_basic.cj:17
+AOT r,r,-> 17
+CJVM c,c,-> 17
 p,p map_main_1,std[.]collection.HashMap<Int8,UInt8>\) \$[\d] = {[\S\s]*key = -76[\S\s]*value = 165[\S\s]*}
 p,p map_main_1,std[.]collection.HashMap<Int8,UInt8>\) \$[\d] = {[\S\s]*key = 2[\S\s]*value = 12[\S\s]*}
 q,q,

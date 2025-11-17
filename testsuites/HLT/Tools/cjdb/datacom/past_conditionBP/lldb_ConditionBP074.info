@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_condition_bp,045_debug_condition_bp
-breakpoint,breakpoint set -l 6 -c 'numint8==5',045_debug_condition_bp.cj:6
-AOT r,r,-> 6
+breakpoint,breakpoint set -l 14 -c 'numint8==5',045_debug_condition_bp.cj:14
+AOT r,r,-> 14
 CJVM c,c,
 locals,locals,numint8 = 5
 q,q,

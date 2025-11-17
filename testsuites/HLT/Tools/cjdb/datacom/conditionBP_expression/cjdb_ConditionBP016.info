@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_var002,generics_global_var002
-breakpoint,breakpoint set -l 13 -c "i==4",generics_global_var002.cj:13
-AOT r,r,-> 13
+breakpoint,breakpoint set -l 21 -c "i==4",generics_global_var002.cj:21
+AOT r,r,-> 21
 CJVM c,c,
 locals,locals,\(Int64\) i = 4
 expr:expr i>6:\(Bool\) \$[\d] = false

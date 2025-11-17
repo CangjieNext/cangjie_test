@@ -14,17 +14,17 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_breakpoint_able,001_breakpoint_able
-CJVM b,breakpoint set -n main,022_debug_launch.cj:4
-CJVM c,c,-> 4
-b,b 4,022_debug_launch.cj:4
-b,b 5,022_debug_launch.cj:5
-b,b 6,022_debug_launch.cj:6
+CJVM b,breakpoint set -n main,022_debug_launch.cj:12
+CJVM c,c,-> 12
+b,b 12,022_debug_launch.cj:12
+b,b 13,022_debug_launch.cj:13
+b,b 14,022_debug_launch.cj:14
 AOT bdisable,breakpoint disable 1,1 breakpoints disabled
 CJVM bdisable,breakpoint disable 2,1 breakpoints disabled
 AOT blist,breakpoint list,1:[\s\S]*disabled
 CJVM blist,breakpoint list,2:[\s\S]*disabled
-AOT r,r,-> 5
-CJVM c,c,-> 5
+AOT r,r,-> 13
+CJVM c,c,-> 13
 AOT bdisable,breakpoint disable 2 3,2 breakpoints disabled
 CJVM bdisable,breakpoint disable 3 4,2 breakpoints disabled
 AOT blist,breakpoint list,2:[\s\S]*disabled[\s\S]*3:[\s\S]*disabled

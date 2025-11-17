@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_enum_generics,002_debug_enum_generics
-b,b 56,002_debug_enum_generics.cj:56
-AOT r,r,-> 56
+b,b 64,002_debug_enum_generics.cj:64
+AOT r,r,-> 64
 CJVM c,c,
-n,n,-> 57
+n,n,-> 65
 print,print m_newc.c_time,\(default.TimeUnit2<Int64,Float64>\) \$[\d] = {(\r|\n|\r\n)  constructor = Day[\s\S]*arg_1 = 1[\s\S]*arg_2 = 2[\s\S]*arg_3 = 3[\s\S]*}
 q,q,

@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 036_debuginfun_func_recursion,036_debuginfun_func_recursion
-breakpoint,breakpoint set -l 16 -c 'a==5',036_debuginfun_func_recursion.cj:16
-AOT r,r,-> 16
+breakpoint,breakpoint set -l 24 -c 'a==5',036_debuginfun_func_recursion.cj:24
+AOT r,r,-> 24
 CJVM c,c,
-n,n,-> 8
-n,n,-> 9
+n,n,-> 16
+n,n,-> 17
 locals,locals,Functioncall009 = 15
 q,q,

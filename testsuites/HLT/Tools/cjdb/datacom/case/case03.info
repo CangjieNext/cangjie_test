@@ -15,7 +15,7 @@
 
 test#
 cjdb,cjdb --no-use-colors cj_main,cj_main
-b,b p1.cj:7,Breakpoint 1
-AOT r,r,-> 7
+b,b p1.cj:15,Breakpoint 1
+AOT r,r,-> 15
 CJVM c,c,
 q,q,

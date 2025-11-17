@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_class_top_mod_abstract,003_debug_class_top_mod_abstract
-b,b 15,003_debug_class_top_mod_abstract.cj:15
-AOT r,r,-> 15
-CJVM c,c,-> 15
-n,n,-> 16
+b,b 23,003_debug_class_top_mod_abstract.cj:23
+AOT r,r,-> 23
+CJVM c,c,-> 23
+n,n,-> 24
 locals,locals,\(Int32\) getnum = 1
 q,q,

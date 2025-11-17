@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func005,generics_local_func005
-b,b 15,generics_local_func005.cj:15
-AOT r,r,-> 15
+b,b 23,generics_local_func005.cj:23
+AOT r,r,-> 23
 CJVM c,c,
 expr:expr myMass:\(Float64\) \$[\d] = 71
 expr:expr earth:\(default.Planet\) \$[\d] = {[\s\S]*mass = 5[\s\S]*radius = 6[\s\S]*}

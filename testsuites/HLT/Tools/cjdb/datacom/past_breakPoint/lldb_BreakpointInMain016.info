@@ -16,41 +16,41 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_while,004_debug_while
-CJVM b,breakpoint set -n main,004_debug_while.cj:4
-CJVM c,c,-> 4
-b,b 4,004_debug_while.cj:4
-b,b 5,004_debug_while.cj:5
-b,b 6,004_debug_while.cj:6
-AOT b,b 7,004_debug_while.cj:8
-AOT r,r,-> 4
-c,c,-> 5
-n,n,-> 6
-n,n,-> 5
-AOT n,n,-> 5
-AOT n,n,-> 6
-c,c,-> 5
-n,n,-> 6
-c,c,-> 5
-AOT n,n,-> 6
-AOT c,c,-> 5
-n,n,-> 6
-c,c,-> 5
-AOT n,n,-> 6
-AOT c,c,-> 5
-AOT n,n,-> 6
-AOT c,c,-> 5
-AOT n,n,-> 6
-AOT c,c,-> 5
-AOT n,n,-> 6
-AOT c,c,-> 5
-AOT n,n,-> 6
-AOT c,c,-> 5
-AOT n,n,-> 8
+CJVM b,breakpoint set -n main,004_debug_while.cj:12
+CJVM c,c,-> 12
+b,b 12,004_debug_while.cj:12
+b,b 13,004_debug_while.cj:13
+b,b 14,004_debug_while.cj:14
+AOT b,b 15,004_debug_while.cj:16
+AOT r,r,-> 12
+c,c,-> 13
+n,n,-> 14
+n,n,-> 13
+AOT n,n,-> 13
+AOT n,n,-> 14
+c,c,-> 13
+n,n,-> 14
+c,c,-> 13
+AOT n,n,-> 14
+AOT c,c,-> 13
+n,n,-> 14
+c,c,-> 13
+AOT n,n,-> 14
+AOT c,c,-> 13
+AOT n,n,-> 14
+AOT c,c,-> 13
+AOT n,n,-> 14
+AOT c,c,-> 13
+AOT n,n,-> 14
+AOT c,c,-> 13
+AOT n,n,-> 14
+AOT c,c,-> 13
+AOT n,n,-> 16
 AOT locals,locals,hundred = 10
 CJVM locals,locals,hundred = 3
-AOT rerun,r,-> 4
-AOT c,c,-> 5
+AOT rerun,r,-> 12
+AOT c,c,-> 13
 AOT set,set hundred = 11,11
-AOT n,n,-> 8
+AOT n,n,-> 16
 AOT locals,locals,hundred = 11
 q,q,

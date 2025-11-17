@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 126,genericsfun_return.cj:126
-AOT r,r,-> 126
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
 CJVM c,c,
 p, p lf,\(Float16\) \$[\d] = 16.156
 p, p cvf,\(Float16\) \$[\d] = 16.156
@@ -26,8 +26,8 @@ p, p globals_vf,\(Float32\) \$[\d] = 32.3199997
 locals, locals,\(Float16\) lf = 16.156[\s\S]*\(default.S1\) s1 = {[\s\S]*vfs = 16.156[\s\S]*\(default.C1\) c1 = {[\s\S]*vfc = 64.640000000000001[\s\S]*
 globals, globals,\(Float32\) default::C1::vf = 32.3199997[\s\S]*
 globals, globals,\(Float32\) default::globals_vf = 32.3199997
-b, b 134,genericsfun_return.cj:134
-c,c,-> 134
+b, b 142,genericsfun_return.cj:142
+c,c,-> 142
 p, p c,\(Float32\) \$[\d] = 32.3199997
 p, p test_c,\(Float32\) \$[\d] = 32.3199997
 locals, locals,\(Float32\) c = 32.3199997

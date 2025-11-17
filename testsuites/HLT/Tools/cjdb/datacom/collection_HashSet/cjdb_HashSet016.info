@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashSet_Ins_basic,001_HashSet_Ins_basic
-b,b 21,001_HashSet_Ins_basic.cj:21
-AOT r,r,-> 21
-CJVM c,c,-> 21
+b,b 29,001_HashSet_Ins_basic.cj:29
+AOT r,r,-> 29
+CJVM c,c,-> 29
 p,p set_float16,std[.]collection.HashSet<Float16>\) \$[\d] = {[\S\s]*\[0\] = 6.5[\S\s]*}
 p,p set_float16,std[.]collection.HashSet<Float16>\) \$[\d] = {[\S\s]*\[1\] = 8.39[\S\s]*}
 q,q,

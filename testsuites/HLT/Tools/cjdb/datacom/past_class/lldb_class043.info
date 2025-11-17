@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_class_main_parameter,011_debug_class_main_parameter
-b,b 48,011_debug_class_main_parameter.cj:48
-AOT r,r,-> 48
-CJVM c,c,-> 48
-n,n,-> 49
+b,b 56,011_debug_class_main_parameter.cj:56
+AOT r,r,-> 56
+CJVM c,c,-> 56
+n,n,-> 57
 print,print newc2.stac2,\(Int64\) \$[\d] = 3
 print,print newc2.sta_proc2,\(Int64\) \$[\d] = 10
 q,q,

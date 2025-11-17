@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 048_debug_array_type,048_debug_array_type
-b,b 6,048_debug_array_type.cj:6
-AOT r,r,-> 6
+b,b 14,048_debug_array_type.cj:14
+AOT r,r,-> 14
 CJVM c,c,
-n,n,-> 7
+n,n,-> 15
 print,print arrayInt8,\$[\d] = {(\r\n|\r|\n)  \[0\] = 8(\r\n|\r|\n)}
 q,q,

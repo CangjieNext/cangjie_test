@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 71,Breakpoint 1:
-AOT r,r,-> 71
+b,b 79,Breakpoint 1:
+AOT r,r,-> 79
 CJVM c,c,
 p, p p1,\(Tuple<Int64,Int64>\) \$[\d] = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 16[\s\S]*
 p, p a,\(Tuple<Int64,Int64>\) \$[\d] = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 16[\s\S]*

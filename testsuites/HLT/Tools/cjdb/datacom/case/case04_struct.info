@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors string_var,string_var
-b,b 14,string_var.cj:14
-AOT r,r,-> 14
+b,b 22,string_var.cj:22
+AOT r,r,-> 22
 CJVM c,c,
-s,s,-> 2
-n,n,-> 3
-n,n,-> 1
-n,n,-> 14
+s,s,-> 10
+n,n,-> 11
+n,n,-> 9
+n,n,-> 22
 q,q,

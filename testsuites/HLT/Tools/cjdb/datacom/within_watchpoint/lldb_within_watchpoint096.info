@@ -13,6 +13,6 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-breakpoint,  breakpoint set -l 12 ,050_debug_dataType_basic.cj:12:19
+breakpoint,  breakpoint set -l 20 ,050_debug_dataType_basic.cj:20:19
 watchpoint,  watchpoint set variable -w read v2 ,Command requires a current process.
 q,q,

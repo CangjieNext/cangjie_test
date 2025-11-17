@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 057_debug_0o,057_debug_0o
-CJVM b,b main,057_debug_0o.cj:4
-CJVM c,c,-> 4
-b,b 55,057_debug_0o.cj:55
-AOT r,r,-> 55
+CJVM b,b main,057_debug_0o.cj:12
+CJVM c,c,-> 12
+b,b 63,057_debug_0o.cj:63
+AOT r,r,-> 63
 expression, expression var1z=-var1z;var1z,\(Int8\) \$[\d] = -8
 expression, expression var2z=-var2z;var2z,\(Int16\) \$[\d] = -16
 expression, expression var3z=-var3z;var3z,\(Int32\) \$[\d] = -32

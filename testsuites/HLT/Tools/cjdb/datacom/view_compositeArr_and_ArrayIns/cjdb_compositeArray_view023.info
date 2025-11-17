@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_multiArray_composite_class,005_debug_multiArray_composite_class
-b,b 106,005_debug_multiArray_composite_class.cj:106
-AOT r,r,-> 106
+b,b 114,005_debug_multiArray_composite_class.cj:114
+AOT r,r,-> 114
 CJVM c,c,
-s,s,func demofun001\(\)[\s\S]*-> 115
-n,n,-> 116
+s,s,func demofun001\(\)[\s\S]*-> 123
+n,n,-> 124
 p,p arr_fun_1[0],default.C1\) \$[\d] = {[\s\S]*length = 100
 q,q,

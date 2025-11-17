@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_array_class,008_debug_array_class
-b,b 48,008_debug_array_class.cj:48
-AOT r,r,-> 48
+b,b 56,008_debug_array_class.cj:56
+AOT r,r,-> 56
 CJVM c,c,
-n,n,-> 52
+n,n,-> 60
 print,print arraymainrec01[0],C1\) \$[\d] = {(\r\n|\r|\n)  length = 3(\r\n|\r|\n)  width = 0(\r\n|\r|\n)  diagonalLength = 0(\r\n|\r|\n)  varBool = true
 print,print arraymainrec01[0].length,\(Int32\) \$[\d] = 3
 q,q,

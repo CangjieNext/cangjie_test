@@ -17,11 +17,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_thread_select,001_thread_select
-CJVM b,breakpoint set -n main,pkgs001.cj:29
-CJVM c,c,-> 29
-AOT b,b main,Breakpoint 1: where[\s\S]*pkgs001.cj:29
-AOT r,r,-> 29
-AOT threadlist,thread list,\* thread #1[\s\S]*pkgs001.cj:29
+CJVM b,breakpoint set -n main,pkgs001.cj:37
+CJVM c,c,-> 37
+AOT b,b main,Breakpoint 1: where[\s\S]*pkgs001.cj:37
+AOT r,r,-> 37
+AOT threadlist,thread list,\* thread #1[\s\S]*pkgs001.cj:37
 CJVM threadlist,thread list,\* thread #1[\s\S]*thread #3
 threadselect,thread select,error: 'thread select' takes exactly one thread index argument
 AOT threadselect,thread select 2,\* thread #2

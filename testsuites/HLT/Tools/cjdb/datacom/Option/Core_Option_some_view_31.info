@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors Option_some_view_31,Option_some_view_31
-b,b 10,Option_some_view_31.cj:10
-AOT r,r,-> 10
-CJVM c,c,-> 10
+b,b 18,Option_some_view_31.cj:18
+AOT r,r,-> 18
+CJVM c,c,-> 18
 p,p a,\(std.core.Option<std.core.Option<default.Rectangle>>\) \$[\d] = {[\s\S]*al = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}
 locals,locals,\(std.core.Option<std.core.Option<default.Rectangle>>\) a = {[\s\S]*al = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}
 q,q,

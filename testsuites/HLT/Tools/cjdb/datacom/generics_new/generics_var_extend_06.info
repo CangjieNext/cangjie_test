@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 199,Breakpoint 1:
-AOT r,r,-> 199
+b,b 207,Breakpoint 1:
+AOT r,r,-> 207
 CJVM c,c,
 p, p a,\(IntNative\) \$[\d] = 100
 p, p a1,\(IntNative\) \$[\d] = 100

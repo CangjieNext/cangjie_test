@@ -16,12 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 044_debug_func_nobody,044_debug_func_nobody
-b,b 4,044_debug_func_nobody.cj:4
-b,b 5,044_debug_func_nobody.cj:5
+b,b 12,044_debug_func_nobody.cj:12
 b,b 13,044_debug_func_nobody.cj:13
-AOT r,r,-> 4
+b,b 21,044_debug_func_nobody.cj:21
+AOT r,r,-> 12
 CJVM c,c,
-n,n,-> 5
 n,n,-> 13
-finish,finish,-> 6
+n,n,-> 21
+finish,finish,-> 14
 q,q,

@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 010_debug_class_default,010_debug_class_default
-b,b 10,010_debug_class_default.cj:10
-AOT r,r,-> 10
-CJVM c,c,-> 10
-n,n,-> 11
+b,b 18,010_debug_class_default.cj:18
+AOT r,r,-> 18
+CJVM c,c,-> 18
+n,n,-> 19
 locals,locals,R\) r1 = {
 locals,locals,item1 = 1
 locals,locals,item2 = 3.1

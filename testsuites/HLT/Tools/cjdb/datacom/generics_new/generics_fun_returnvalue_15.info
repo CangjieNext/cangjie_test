@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 3
+// LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
 // EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
 // RUN-EXEC: python3 cjdb_test.py generics_fun_returnvalue_15.info genericsfun_return %run_env
@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 126,genericsfun_return.cj:126
-AOT r,r,-> 126
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
 CJVM c,c,
 p, p lhs,\(std.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 p, p s1.vhss,\(std.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
@@ -25,8 +25,8 @@ p, p globals_hs,\(std.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\
 locals, locals,\(std.collection.HashSet<Int64>\) lhs = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(default.S1\) s1 = {[\s\S]*vhss = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(default.C1\) c1 = {[\s\S]*vhsc = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 globals, globals,\(std.collection.HashSet<Int64>\) default::S1::vhs = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 globals, globals,\(std.collection.HashSet<Int64>\) default::globals_hs = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
-b, b 153,genericsfun_return.cj:153
-c,c,-> 153
+b, b 161,genericsfun_return.cj:161
+c,c,-> 161
 p, p f,\(std.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 p, p test_f,\(std.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 locals, locals,\(std.collection.HashSet<Int64>\) f = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*

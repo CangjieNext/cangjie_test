@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_multiArray_composite_string,004_debug_multiArray_composite_string
-b,b 21,004_debug_multiArray_composite_string.cj:21
-AOT r,r,-> 21
+b,b 29,004_debug_multiArray_composite_string.cj:29
+AOT r,r,-> 29
 CJVM c,c,
 p,p multiArr_str_d1[0][4],\(std[.]core.String\) \$[\d] = "abcdxyz"
 q,q,

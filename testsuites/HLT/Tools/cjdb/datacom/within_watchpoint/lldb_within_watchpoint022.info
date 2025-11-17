@@ -13,9 +13,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b,b 35,050_debug_dataType_basic.cj:35
-AOT r,r,-> 35
+b,b 43,050_debug_dataType_basic.cj:43
+AOT r,r,-> 43
 CJVM c,c,
-watchpoint,watchpoint set variable -w read eVar1,050_debug_dataType_basic.cj:34
-c,c,-> 37
+watchpoint,watchpoint set variable -w read eVar1,050_debug_dataType_basic.cj:42
+c,c,-> 45
 q,q,

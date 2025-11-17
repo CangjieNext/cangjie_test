@@ -14,19 +14,19 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 159,generics_var_extend.cj:159
-b,b 166,generics_var_extend.cj:166
-b,b 173,generics_var_extend.cj:173
-AOT r,r,-> 159
+b,b 167,generics_var_extend.cj:167
+b,b 174,generics_var_extend.cj:174
+b,b 181,generics_var_extend.cj:181
+AOT r,r,-> 167
 CJVM c,c,
 p, p a,\(Int8\) \$[\d] = -8
 p, p a1,\(Int8\) \$[\d] = -8
 locals, locals,\(Int8\) a = -8[\s\S]*\(Int8\) a1 = -8
-c,c,-> 166
+c,c,-> 174
 p, p a,\(UInt8\) \$[\d] = 8
 p, p a1,\(UInt8\) \$[\d] = 8
 locals, locals,\(UInt8\) a = 8[\s\S]*\(UInt8\) a1 = 8
-c,c,-> 173
+c,c,-> 181
 p, p a,\(Float16\) \$[\d] = 16.156
 p, p a1,\(Float16\) \$[\d] = 16.156
 locals, locals,\(Float16\) a = 16.156[\s\S]*\(Float16\) a1 = 16.156

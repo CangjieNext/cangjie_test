@@ -14,21 +14,21 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 109,Breakpoint 1:
-AOT r,r,-> 109
+b,b 117,Breakpoint 1:
+AOT r,r,-> 117
 CJVM c,c,
 p, p a,\(UInt8\) \$[\d] = 8
 locals, locals,\(default.S1<UInt8>\) this = {[\s\S]*s1_a = 8[\s\S]*}[\s\S]*\(UInt8\) a = 8
-c,c,-> 109
+c,c,-> 117
 p, p a,\(UInt16\) \$[\d] = 16
 locals, locals,\(default.S1<UInt16>\) this = {[\s\S]*s1_a = 16[\s\S]*}[\s\S]*\(UInt16\) a = 16
-c,c,-> 109
+c,c,-> 117
 p, p a,\(UInt32\) \$[\d] = 32
 locals, locals,\(default.S1<UInt32>\) this = {[\s\S]*s1_a = 32[\s\S]*}[\s\S]*\(UInt32\) a = 32
-c,c,-> 109
+c,c,-> 117
 p, p a,\(UInt64\) \$[\d] = 64
 locals, locals,\(default.S1<UInt64>\) this = {[\s\S]*s1_a = 64[\s\S]*}[\s\S]*\(UInt64\) a = 64
-c,c,-> 109
+c,c,-> 117
 p, p a,\(UIntNative\) \$[\d] = 100
 locals, locals,\(default.S1<UIntNative>\) this = {[\s\S]*s1_a = 100[\s\S]*}[\s\S]*\(UIntNative\) a = 100
 q,q,

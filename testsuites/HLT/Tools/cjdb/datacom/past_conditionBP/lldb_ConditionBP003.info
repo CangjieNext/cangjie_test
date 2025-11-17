@@ -16,5 +16,5 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_while,004_debug_while
-breakpoint,breakpoint set -f 005_debug_dowhile.cj -l 6 -c 'hundredo==9',no locations
+breakpoint,breakpoint set -f 005_debug_dowhile.cj -l 14 -c 'hundredo==9',no locations
 q,q,

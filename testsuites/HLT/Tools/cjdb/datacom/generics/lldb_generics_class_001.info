@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
-b,b 116,005_debug_class_generics.cj:116
-AOT r,r,-> 116
+b,b 124,005_debug_class_generics.cj:124
+AOT r,r,-> 124
 CJVM c,c,
 globals,globals,C1<Int32>\) default(::|\.)top_c1 = {(\r|\n|\r\n)  width = 10(\r|\n|\r\n)  length = 10
 q,q,

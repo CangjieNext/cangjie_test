@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashMap_Ins_basic,001_HashMap_Ins_basic
-b,b 22,001_HashMap_Ins_basic.cj:22
-AOT r,r,-> 22
-CJVM c,c,-> 22
+b,b 30,001_HashMap_Ins_basic.cj:30
+AOT r,r,-> 30
+CJVM c,c,-> 30
 p,p map_main_13,std[.]collection.HashMap<Bool,default.cla>\) \$[\d] = {[\S\s]*key = true[\S\s]*x = 6[\S\s]*}
 q,q,

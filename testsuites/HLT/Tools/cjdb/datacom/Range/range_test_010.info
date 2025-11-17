@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors range_compositeVar,range_compositeVar
-b,b 36,range_compositeVar.cj:36
-AOT r,r,-> 36
-CJVM c,c,-> 36
+b,b 44,range_compositeVar.cj:44
+AOT r,r,-> 44
+CJVM c,c,-> 44
 p,p c1,arg_1 = 0..10 : 1
 p,p c2,arg_1 = 0..=10 : 1
 p,p c3,arg_1 = 10..0 : -2

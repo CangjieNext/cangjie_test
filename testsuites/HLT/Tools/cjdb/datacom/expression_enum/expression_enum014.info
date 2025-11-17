@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 019_enum_match,019_enum_match
-b,b 7,019_enum_match.cj:7
-AOT r,r,-> 7
+b,b 15,019_enum_match.cj:15
+AOT r,r,-> 15
 CJVM c,c,
 p,p this,\(default.TimeUnit1\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 3[\s\S]*}
 p,p i,\(Int64\) \$[\d] = 1

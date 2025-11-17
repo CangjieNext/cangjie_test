@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_array_class,008_debug_array_class
-b,b 67,008_debug_array_class.cj:67
-AOT r,r,-> 67
+b,b 75,008_debug_array_class.cj:75
+AOT r,r,-> 75
 CJVM c,c,
 print,print arrayfun[0],C2\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 q,q,

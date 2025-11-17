@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_debug,option_debug
-b,b 66,option_debug.cj:66
-AOT r,r,-> 66
-CJVM c,c,-> 66
+b,b 74,option_debug.cj:74
+AOT r,r,-> 74
+CJVM c,c,-> 74
 p,p f,\(std[.]core.Option<std.core.Array<std.core.Range<Int64>>>\) \$[\d] = None
 locals,locals,\(std[.]core.Option<std.core.Array<std.core.Range<Int64>>>\) f = None[\s\S]*
 AOT frame var,frame var f,\(std[.]core.Option<std.core.Array<std.core.Range<Int64>>>\) f = None

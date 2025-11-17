@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func014,generics_local_func014
-b,b 30,generics_local_func014.cj:30
-AOT r,r,-> 30
+b,b 38,generics_local_func014.cj:38
+AOT r,r,-> 38
 CJVM c,c,
 expr:expr main_num1:\(Unit\) \$[\d] = ()
 expr:expr main_num2:\(Int32\) \$[\d] = 0

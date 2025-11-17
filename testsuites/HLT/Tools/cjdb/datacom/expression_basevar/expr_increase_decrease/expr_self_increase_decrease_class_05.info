@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 26,expr_class.cj:26
-CJVM c,c,-> 26
-AOT r,r,-> 26
+b,b 34,expr_class.cj:34
+CJVM c,c,-> 34
+AOT r,r,-> 34
 expr,expr arr8[0]--;arr8[0],\(Int8\) \$[\d] = 0
 expr,expr arr16[1]--;arr16[1],\(Int16\) \$[\d] = 1
 expr,expr arr32[2]--;arr32[2],\(Int32\) \$[\d] = 2
