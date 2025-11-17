@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_enum,002_debug_array_enum
-b,b 21,002_debug_array_enum.cj:21
-AOT r,r,-> 21
+b,b 29,002_debug_array_enum.cj:29
+AOT r,r,-> 29
 CJVM c,c,
 globals,globals,\[0\] = a
 print,print arrayTopEnum01[0],TimeUnit1\) \$[\d] = a

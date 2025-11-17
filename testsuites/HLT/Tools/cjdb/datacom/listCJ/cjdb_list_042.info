@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 180,list_debug.cj:180
-AOT r,r,-> 180
+b,b 188,list_debug.cj:188
+AOT r,r,-> 188
 CJVM c,c,
 p,p m_funcreturn_6,\$[\d] = 
 p,p m_funcreturn_6[0],\$[\d] = 

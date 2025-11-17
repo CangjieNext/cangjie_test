@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_setVar,002_debug_setVar
-b,b 10,002_debug_setVar.cj:10
-AOT r,r,-> 10
+b,b 18,002_debug_setVar.cj:18
+AOT r,r,-> 18
 CJVM c,c,
-s,s,-> 37
-n,n,-> 38
+s,s,-> 45
+n,n,-> 46
 p,p p_arr,Array<Int32>\) \$[\d] = {[\s\S]*
 set,set p_arr[0]=-45,\(Int32\) \$[0-9]* = -45
 p,p p_arr,Array<Int32>\) \$[\d] = {[\s\S]*\[0\] = -45[\s\S]*

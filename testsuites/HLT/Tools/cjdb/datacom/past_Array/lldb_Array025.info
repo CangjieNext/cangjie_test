@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 047_debug_large_array,047_debug_large_array
-b,b 39,047_debug_large_array.cj:39
-AOT r,r,-> 39
+b,b 47,047_debug_large_array.cj:47
+AOT r,r,-> 47
 CJVM c,c,
 locals,locals,b = {
 locals,locals,\[99\] = 99

@@ -16,12 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 047_debug_large_array,047_debug_large_array
-b,b 32,Breakpoint 1
-b,b 35,047_debug_large_array.cj:35
-AOT r,r,-> 32
+b,b 40,Breakpoint 1
+b,b 43,047_debug_large_array.cj:43
+AOT r,r,-> 40
 CJVM c,c,
-c,c,-> 35
-c,c,-> 35
+c,c,-> 43
+c,c,-> 43
 finish,finish,->
-AOT finish,finish,-> 32
+AOT finish,finish,-> 40
 q,q,

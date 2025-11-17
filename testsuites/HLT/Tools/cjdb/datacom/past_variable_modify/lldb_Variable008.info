@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 010_debug_func_default_arg,010_debug_func_default_arg
-CJVM b,b main,010_debug_func_default_arg.cj:4
-CJVM c,c,-> 4
-b,b 4,010_debug_func_default_arg.cj:4
-b,b 5,010_debug_func_default_arg.cj:5
+CJVM b,b main,010_debug_func_default_arg.cj:12
+CJVM c,c,-> 12
+b,b 12,010_debug_func_default_arg.cj:12
 b,b 13,010_debug_func_default_arg.cj:13
-AOT r,r,-> 4
-c,c,-> 13
+b,b 21,010_debug_func_default_arg.cj:21
+AOT r,r,-> 12
+c,c,-> 21
 locals,locals,a = 2
 p,p a,\(Int32\) \$[\d] = 2
 locals,locals,b = 2
@@ -31,10 +31,10 @@ locals,locals,a1 = 2
 p,p a1,\(Int32\) \$[\d] = 2
 locals,locals,b1 = 2
 p,p b1,\(Int32\) \$[\d] = 2
-c,c,-> 5
+c,c,-> 13
 locals,locals,Functioncall006 = 4
 p,p Functioncall006,\(Int32\) \$[\d] = 4
-c,c,-> 13
+c,c,-> 21
 locals,locals,a = 2
 p,p a,\(Int32\) \$[\d] = 2
 locals,locals,b = 1

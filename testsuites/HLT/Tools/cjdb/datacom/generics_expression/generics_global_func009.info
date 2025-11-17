@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func009,generics_global_func009
-b,b 22,generics_global_func009.cj:22
-AOT r,r,-> 22
+b,b 30,generics_global_func009.cj:30
+AOT r,r,-> 30
 CJVM c,c,
 expr:expr A2<Int64>(1):\(default.A2<Int64>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
 expr:expr bb2:\(default.A2<Int64>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}

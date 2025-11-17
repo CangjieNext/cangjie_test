@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_func_reload,011_debug_func_reload
-breakpoint,breakpoint set -l 13 -c 'a==5 && b==5',011_debug_func_reload.cj:13
-AOT r,r,-> 13
+breakpoint,breakpoint set -l 21 -c 'a==5 && b==5',011_debug_func_reload.cj:21
+AOT r,r,-> 21
 CJVM c,c,
-n,n,-> 4
-n,n,-> 5
+n,n,-> 12
+n,n,-> 13
 locals,locals,Functioncall008 = 10
 q,q,

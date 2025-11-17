@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_setVar_generices,001_debug_setVar_generices
-b,b 5,001_debug_setVar_generices.cj:5
-AOT r,r,-> 5
+b,b 13,001_debug_setVar_generices.cj:13
+AOT r,r,-> 13
 CJVM c,c,
-s,s,-> 84
-finish,finish, 5
-n,n,-> 6
+s,s,-> 92
+finish,finish, 13
+n,n,-> 14
 p,p mc_u8,C1<UInt8>\) \$[\d] = {(\r|\n|\r\n)  [\s\S]*
 set,set mc_u8.width=19,\(UInt8\) \$[0-9]* = 19
 q,q,

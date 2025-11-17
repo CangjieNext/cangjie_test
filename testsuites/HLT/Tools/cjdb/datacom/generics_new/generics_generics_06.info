@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 101,Breakpoint 1:
-AOT r,r,-> 101
+b,b 109,Breakpoint 1:
+AOT r,r,-> 109
 CJVM c,c,
-c,c,-> 101
+c,c,-> 109
 p, p a,\(default.S3<Unit>\) \$[\d] = {[\s\S]*s3_a = ()[\s\S]*}
 locals, locals,\(default.C4<default.S3<Unit>>\) this = {[\s\S]*c4_a = {[\s\S]*s3_a = ()[\s\S]*}[\s\S]*}[\s\S]*\(default.S3<Unit>\) a = {[\s\S]*s3_a = ()[\s\S]*}
 q,q,

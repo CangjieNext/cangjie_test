@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 107,list_debug.cj:107
-AOT r,r,-> 107
+b,b 115,list_debug.cj:115
+AOT r,r,-> 115
 CJVM c,c,
 p,p m_base_1_3,\(std[.]core.Array<Int32>\) \$[\d] =
 AOT p,p m_base_1_3[5],error: unsupported expression

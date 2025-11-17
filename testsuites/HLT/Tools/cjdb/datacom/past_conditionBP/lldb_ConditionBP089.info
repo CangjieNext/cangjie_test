@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 014_debug_func_bp,014_debug_func_bp
-breakpoint,breakpoint set -l 142 -c 'a==10',014_debug_func_bp.cj:142
-AOT r,r,-> 142
+breakpoint,breakpoint set -l 150 -c 'a==10',014_debug_func_bp.cj:150
+AOT r,r,-> 150
 CJVM c,c,
 locals,locals,a = 10
 locals,locals,a5 = 10
-n,n,-> 144
+n,n,-> 152
 q,q,

@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashMap_Ins_basic,001_HashMap_Ins_basic
-b,b 20,001_HashMap_Ins_basic.cj:20
-AOT r,r,-> 20
+b,b 28,001_HashMap_Ins_basic.cj:28
+AOT r,r,-> 28
 CJVM c,c,
 p,p map_main_12,std[.]collection.HashMap<default.cla,default.cla>\) \$[\d] = {[\S\s]*key = {[\S\s]*x = 1[\S\s]*}[\S\s]*value = {[\S\s]*x = 2[\S\s]*}
-n,n,-> 21
+n,n,-> 29
 p,p map_main_12,std[.]collection.HashMap<default.cla,default.cla>\) \$[\d] = {[\S\s]*key = {[\S\s]*x = 1[\S\s]*}[\S\s]*value = {[\S\s]*x = 10[\S\s]*}
 q,q,

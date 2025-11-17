@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 012_enum_class,012_enum_class
-b,b 38,012_enum_class.cj:38
-AOT r,r,-> 38
+b,b 46,012_enum_class.cj:46
+AOT r,r,-> 46
 CJVM c,c,
 p,p m_time2,\(default.TimeUnit1<default.C<default.C<Int64>>>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*c_width = 2[\s\S]*
 expr,expr m_time2,\(default.TimeUnit1<default.C<default.C<Int64>>>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*c_width = 2[\s\S]*

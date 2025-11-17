@@ -15,15 +15,15 @@
 
 test#
 cjdb,cjdb --no-use-colors debug_class_generics,debug_class_generics
-CJVM b main,b main,debug_class_generics.cj:11
-CJVM c,c,-> 11
-b,b 35,debug_class_generics.cj:35
-AOT r,r,-> 35
-CJVM c,c,-> 35
-s,s,-> 25
-finish,finish,-> 35
-s,s,-> 11
-s,s,-> 14
-finish,finish,-> 12
-finish,finish,-> 35
+CJVM b main,b main,debug_class_generics.cj:19
+CJVM c,c,-> 19
+b,b 43,debug_class_generics.cj:43
+AOT r,r,-> 43
+CJVM c,c,-> 43
+s,s,-> 33
+finish,finish,-> 43
+s,s,-> 19
+s,s,-> 22
+finish,finish,-> 20
+finish,finish,-> 43
 q,quit,

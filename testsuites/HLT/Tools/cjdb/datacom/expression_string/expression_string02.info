@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors string_class02,string_class02
-b,b 16,string_class02.cj:16
-AOT r,r,-> 16
+b,b 24,string_class02.cj:24
+AOT r,r,-> 24
 CJVM c,c,
 expr,expr a2,\(std.core.String\) \$[\d] = "012"
 expr~expr a1.main_str2~\(std.core.String\) \$[\d] = "012"

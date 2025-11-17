@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_watchpoint_within_static,052_debug_watchpoint_within_static
-b ,b 17,052_debug_watchpoint_within_static.cj:17
-r , r,-> 17
-watchpoint,watchpoint set variable -w read v_main_8,052_debug_watchpoint_within_static.cj:17
-c,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 18[\s\S]*
+b ,b 25,052_debug_watchpoint_within_static.cj:25
+r , r,-> 25
+watchpoint,watchpoint set variable -w read v_main_8,052_debug_watchpoint_within_static.cj:25
+c,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 26[\s\S]*
 q,q,

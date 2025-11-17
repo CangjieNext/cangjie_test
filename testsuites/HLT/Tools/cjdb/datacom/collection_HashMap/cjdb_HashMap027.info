@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashMap_Ins_composite,003_HashMap_Ins_composite
-b,b 33,003_HashMap_Ins_composite.cj:33
-AOT r,r,-> 33
-CJVM c,c,-> 33
+b,b 41,003_HashMap_Ins_composite.cj:41
+AOT r,r,-> 41
+CJVM c,c,-> 41
 p,p map_list_2,std[.]collection.HashMap<std[.]core.String,std[.]collection.ArrayList<std[.]collection.HashSet<std[.]core.String>>>\) \$[\d] = {[\S\s]*key = "3"[\S\s]*value = [\S\s]*key = "test_str"[\S\s]*value = [\S\s]*}
 q,q,

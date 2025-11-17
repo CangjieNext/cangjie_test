@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 62,024_debug_variable.cj:62
-AOT r,r,-> 62
-CJVM c,c,-> 62
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 70,024_debug_variable.cj:70
+AOT r,r,-> 70
+CJVM c,c,-> 70
 set,set var_char = a,error
-n,n,-> 66
+n,n,-> 74
 locals,locals,var_char = '5'
 p,p var_char,\(Rune\) \$[\d] = '5'
 locals,locals,var_charbool = true

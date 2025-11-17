@@ -14,14 +14,14 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var010,generics_local_var010
-b,b 6,generics_local_var010.cj:6
-b,b 25,generics_local_var010.cj:25
-AOT r,r,-> 6
+b,b 14,generics_local_var010.cj:14
+b,b 33,generics_local_var010.cj:33
+AOT r,r,-> 14
 CJVM c,c,
-n,n,-> 7
-n,n,-> 8
+n,n,-> 15
+n,n,-> 16
 expr:expr vInt8[0]:\(Int8\) \$[\d] = -1
-c,c,-> 25
+c,c,-> 33
 expr:expr a1:\(Int64\) \$[\d] = 2
 expr:expr a2:\(Int64\) \$[\d] = 2
 q,q,

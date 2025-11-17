@@ -15,11 +15,11 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_CFunc_09,viewVariables_CFunc_09
-b,b 91,C_FFI.cj:91
-AOT r,r,-> 91
+b,b 99,C_FFI.cj:99
+AOT r,r,-> 99
 CJVM c,c,
 p,p v5,\(Int32\) \$[\d] = 120110
-p,p CF_I,\(pkg_cffi.\(\)->Int32\) \$[\d] = 0x.*\(libviewVariables_CFunc_09.(so|dll|dylib)\`IntFromC at C_FFI.c:79\)
-p,p CF_S,\(pkg_cffi.\(\)->Int16\) \$[\d] = 0x.*\(libviewVariables_CFunc_09.(so|dll|dylib)\`shortFromC at C_FFI.c:94\)
+p,p CF_I,\(pkg_cffi.\(\)->Int32\) \$[\d] = 0x.*\(libviewVariables_CFunc_09.(so|dll|dylib)\`IntFromC at C_FFI.c:87\)
+p,p CF_S,\(pkg_cffi.\(\)->Int16\) \$[\d] = 0x.*\(libviewVariables_CFunc_09.(so|dll|dylib)\`shortFromC at C_FFI.c:102\)
 p,p (int*)(CF_I) == (int*)(CF_S),error: unsupported expression
 q,q,

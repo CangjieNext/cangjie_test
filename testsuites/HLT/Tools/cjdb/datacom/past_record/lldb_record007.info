@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_record_mod,045_debug_record_mod
-b,b 56,045_debug_record_mod.cj:56
-AOT r,r,-> 56
+b,b 64,045_debug_record_mod.cj:64
+AOT r,r,-> 64
 CJVM c,c,
-n,n,-> 57
+n,n,-> 65
 locals,locals,\(Bool\) main_bool = true
 print,print rect.varBool,\(Bool\) \$[\d] = true
 q,q,

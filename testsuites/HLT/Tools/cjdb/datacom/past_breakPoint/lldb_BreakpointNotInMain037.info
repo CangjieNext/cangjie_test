@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 043_debuginfun_notsetbp,043_debuginfun_notsetbp
-CJVM b,breakpoint set -n main,043_debuginfun_notsetbp.cj:4
-CJVM c,c,-> 4
-AOT b,b 10,043_debuginfun_notsetbp.cj:11
-CJVM b,b 11,043_debuginfun_notsetbp.cj:11
-AOT b,b 12,043_debuginfun_notsetbp.cj:14
-CJVM b,b 14,043_debuginfun_notsetbp.cj:14
-AOT r,r,-> 11
-CJVM c,c,-> 11
+CJVM b,breakpoint set -n main,043_debuginfun_notsetbp.cj:12
+CJVM c,c,-> 12
+AOT b,b 18,043_debuginfun_notsetbp.cj:19
+CJVM b,b 19,043_debuginfun_notsetbp.cj:19
+AOT b,b 20,043_debuginfun_notsetbp.cj:22
+CJVM b,b 22,043_debuginfun_notsetbp.cj:22
+AOT r,r,-> 19
+CJVM c,c,-> 19
 q,q,

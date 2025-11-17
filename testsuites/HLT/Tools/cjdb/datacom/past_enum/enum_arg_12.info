@@ -13,10 +13,10 @@
 
 test#
 cjdb,cjdb --no-use-colors enum_arg,enum_arg
-b,b 31,default(::|\.)main\(\)[\s\S]*enum_arg.cj:31
-AOT r,r,-> 31
+b,b 39,default(::|\.)main\(\)[\s\S]*enum_arg.cj:39
+AOT r,r,-> 39
 CJVM c,c,
-s,s,-> 14
+s,s,-> 22
 p,p para_2,\(default.test_RGBColor\) \$[\d] = {(\r|\n|\r\n)  constructor = Red
-n,n,-> 31|32
+n,n,-> 39|40
 q,q,

@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 067_debug_hashmap,067_debug_hashmap
-b,b 30,067_debug_hashmap.cj:30
-AOT r,r,-> 30
-CJVM c,c,-> 30
+b,b 38,067_debug_hashmap.cj:38
+AOT r,r,-> 38
+CJVM c,c,-> 38
 p,p hashmap06,\(std\.collection.HashMap<UInt16,std.collection.ArrayList<UInt32>>\) \$[\d] = {[\s\S]*\[10\] = {[\s\S]*key = 10[\s\S]*value = {[\s\S]*\[0\] = 11[\s\S]*\[1\] = 12[\s\S]*}[\s\S]*}[\s\S]*\[20\] = {[\s\S]*key = 20[\s\S]*value = {[\s\S]*\[0\] = 21[\s\S]*\[1\] = 22[\s\S]*}[\s\S]*}[\s\S]*}
 locals,locals,hashmap06 = {[\s\S]*\[10\] = {[\s\S]*key = 10[\s\S]*value = {[\s\S]*\[0\] = 11[\s\S]*\[1\] = 12[\s\S]*}[\s\S]*}[\s\S]*\[20\] = {[\s\S]*key = 20[\s\S]*value = {[\s\S]*\[0\] = 21[\s\S]*\[1\] = 22[\s\S]*}[\s\S]*}[\s\S]*}
 q,q,

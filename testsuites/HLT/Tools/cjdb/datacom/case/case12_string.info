@@ -13,9 +13,9 @@
 
 test#
 cjdb,cjdb --no-use-colors test_stepin,test_stepin
-b,b 37,test_stepin.cj:37
-AOT r,r,-> 37
+b,b 45,test_stepin.cj:45
+AOT r,r,-> 45
 CJVM c,c,
-s,s,-> 14
-finish,finish,-> 37|38
+s,s,-> 22
+finish,finish,-> 45|46
 q,q,

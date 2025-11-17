@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_generics,generics_generics
-b,b 117,Breakpoint 1:
-AOT r,r,-> 117
+b,b 125,Breakpoint 1:
+AOT r,r,-> 125
 CJVM c,c,
 p, p a,\(default.S3<Bool>\) \$[\d] = {[\s\S]*s3_a = true[\s\S]*}
 locals, locals,\(default.S2<default.S3<Bool>>\) this = {[\s\S]*s2_a = {[\s\S]*s3_a = true[\s\S]*}[\s\S]*}[\s\S]*\(default.S3<Bool>\) a = {[\s\S]*s3_a = true[\s\S]*}

@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
-b,b 13,003_HashSet_via_class.cj:13
-AOT r,r,-> 13
-CJVM c,c,-> 13
+b,b 21,003_HashSet_via_class.cj:21
+AOT r,r,-> 21
+CJVM c,c,-> 21
 p,p set_string_2,std[.]collection.HashSet<std[.]core.String>\) \$[\d] = {[\S\s]*\[0\] = "0123456789"[\S\s]*}
 p,p set_string_2,std[.]collection.HashSet<std[.]core.String>\) \$[\d] = {[\S\s]*\[3\] = "仓颉字符串测试"[\S\s]*}
 q,q,

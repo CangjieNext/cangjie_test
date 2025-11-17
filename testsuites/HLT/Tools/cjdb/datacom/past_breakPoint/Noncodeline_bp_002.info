@@ -15,9 +15,9 @@
 
 test#
 cjdb,cjdb --no-use-colors Noncodeline_bp_002,Noncodeline_bp_002
-CJVM b,b 13,Breakpoint 1: no code at [\s\S]*055_noncodeline_bp.cj:13
-CJVM b,b 18,Breakpoint 2: where = default.A.f\(\)void at [\s\S]*055_noncodeline_bp.cj:19
-CJVM c,c,-> 19
-CJVM n,n,-> 20
-CJVM b,b foo,Breakpoint 3: where = default.foo[\s\S]*055_noncodeline_bp.cj:2
+CJVM b,b 21,Breakpoint 1: no code at [\s\S]*055_noncodeline_bp.cj:21
+CJVM b,b 26,Breakpoint 2: where = default.A.f\(\)void at [\s\S]*055_noncodeline_bp.cj:27
+CJVM c,c,-> 27
+CJVM n,n,-> 28
+CJVM b,b foo,Breakpoint 3: where = default.foo[\s\S]*055_noncodeline_bp.cj:10
 q,q,

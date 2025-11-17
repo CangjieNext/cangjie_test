@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 40,expr_mix_5.cj:40
-CJVM c,c,-> 40
-AOT r,r,-> 40
+b,b 48,expr_mix_5.cj:48
+CJVM c,c,-> 48
+AOT r,r,-> 48
 expr,expr rect().array01[0]<<2+Int64(rect().height)+Int64(cc.clB.A),\(Int64\) \$[\d] = 17592186044416
 q,q,

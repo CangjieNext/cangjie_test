@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
-b,b 18,066_debug_arraylist.cj:18
-AOT r,r,-> 18
-CJVM c,c,-> 18
+b,b 26,066_debug_arraylist.cj:26
+AOT r,r,-> 26
+CJVM c,c,-> 26
 p,p arraylistInt8,\(std\.collection.ArrayList<Int8>\) \$[\d] = {[\s\S]*\[0\] = 8[\s\S]*}
 p,p arraylistInt16,\(std\.collection.ArrayList<Int16>\) \$[\d] = {[\s\S]*\[0\] = 161[\s\S]*\[1\] = 162[\s\S]*}
 p,p arraylistInt32,\(std\.collection.ArrayList<Int32>\) \$[\d] = {[\s\S]*\[0\] = 321[\s\S]*\[1\] = 322[\s\S]*\[2\] = 323[\s\S]*}

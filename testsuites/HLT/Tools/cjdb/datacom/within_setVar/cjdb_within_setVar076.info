@@ -15,11 +15,11 @@
 
 test#
 cjdb,cjdb --no-use-colors setVar_external_invoke.out,setVar_external_invoke
-b,b 25,setVar_external_invoke.cj:25
-AOT r,r,-> 25
+b,b 33,setVar_external_invoke.cj:33
+AOT r,r,-> 33
 CJVM c,c,
-s,s,static func fun_rs1\(par_1:T\)[\s\S]*-> 99
-n,n,-> 100
+s,s,static func fun_rs1\(par_1:T\)[\s\S]*-> 107
+n,n,-> 108
 p,p par_fs1,\(Int32\) \$[\d] = 100
 AOT set,set par_fs1=true,error: unsupported expression
 CJVM set,set par_fs1=true,error: invalid argument true

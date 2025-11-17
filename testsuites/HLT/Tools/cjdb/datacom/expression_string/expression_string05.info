@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors string_numberfunc05,string_numberfunc05
-b,b 5,string_numberfunc05.cj:5
-AOT r,r,-> 5
+b,b 13,string_numberfunc05.cj:13
+AOT r,r,-> 13
 CJVM c,c,
 p,p main_str12,\(std.core.String\) \$[\d] = "012"
 p,p main_str11,\(std.core.String\) \$[\d] = "This is a \\"#\\\\n"

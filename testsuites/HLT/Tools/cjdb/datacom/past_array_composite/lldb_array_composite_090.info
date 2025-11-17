@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 014_debug_array_record_class_fun,014_debug_array_record_class_fun
-b,b 47,014_debug_array_record_class_fun.cj:47
-AOT r,r,-> 47
+b,b 55,014_debug_array_record_class_fun.cj:55
+AOT r,r,-> 55
 CJVM c,c,
 locals,locals,a = 200
 print,print arr1,std[.]core.Array<Int32>\) \$[\d] = {(\r\n|\r|\n)  \[0\] = 200(\r\n|\r|\n)  \[1\] = 20(\r\n|\r|\n)  \[2\] = 30(\r\n|\r|\n)}

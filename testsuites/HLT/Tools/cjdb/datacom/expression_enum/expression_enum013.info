@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_enum_conflict,006_debug_enum_conflict
-b,b 30,006_debug_enum_conflict.cj:30
-AOT r,r,-> 30
+b,b 38,006_debug_enum_conflict.cj:38
+AOT r,r,-> 38
 CJVM c,c,
 expr,expr A,\(Int64\) \$[\d] = 0
 expr,expr F,\(p.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*

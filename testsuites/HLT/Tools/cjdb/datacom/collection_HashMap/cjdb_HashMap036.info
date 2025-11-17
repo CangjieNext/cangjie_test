@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashMap_Ins_composite,003_HashMap_Ins_composite
-b,b 44,003_HashMap_Ins_composite.cj:44
-AOT r,r,-> 44
-CJVM c,c,-> 44
+b,b 52,003_HashMap_Ins_composite.cj:52
+AOT r,r,-> 52
+CJVM c,c,-> 52
 p,p map_map_2,std[.]collection.HashMap<std[.]core.String,std[.]collection.HashMap<std[.]core.String,std[.]core.Array<std[.]core.Array<std[.]core.String>>>>\) \$[\d] = {[\S\s]*key = "map_arr"[\S\s]*key = "仓颉字符串测试[\S\s]*}
 q,q,

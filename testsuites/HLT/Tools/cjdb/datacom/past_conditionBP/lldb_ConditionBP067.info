@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 042_debuginfun_expressions,042_debuginfun_expressions
-breakpoint,breakpoint set -l 10 -c 'owni==5',042_debuginfun_expressions.cj:10
-breakpoint,breakpoint set -l 11 -c 'owni==6',042_debuginfun_expressions.cj:11
-AOT r,r,-> 10
+breakpoint,breakpoint set -l 18 -c 'owni==5',042_debuginfun_expressions.cj:18
+breakpoint,breakpoint set -l 19 -c 'owni==6',042_debuginfun_expressions.cj:19
+AOT r,r,-> 18
 CJVM c,c,
-c,c,-> 11
-n,n,-> 14
+c,c,-> 19
+n,n,-> 22
 locals,locals,owni = 5
 q,q,

@@ -18,11 +18,11 @@
 
 test#
 cjdb,cjdb --no-use-colors demangle_target,demangle_target
-AOT b,b 285,Breakpoint 1: 2 locations.
-CJVM b,b 285,demangle.cj:285
-AOT r,r,demangle_target`default::main\(\) at demangle.cj:285:20[\s\S]*-> 285
-CJVM c,c,-> 285
-s,s,demangle_target`default::main::lambda.*\(a=1\) at demangle.cj:285:39[\s\S]*-> 285
-s,s,demangle_target`default::main\(\) at demangle.cj:285:20[\s\S]*-> 285
-s,s,demangle_target`default::main\(\) at demangle.cj:286:20[\s\S]*-> 286
+AOT b,b 293,Breakpoint 1: 2 locations.
+CJVM b,b 293,demangle.cj:293
+AOT r,r,demangle_target`default::main\(\) at demangle.cj:293:20[\s\S]*-> 293
+CJVM c,c,-> 293
+s,s,demangle_target`default::main::lambda.*\(a=1\) at demangle.cj:293:39[\s\S]*-> 293
+s,s,demangle_target`default::main\(\) at demangle.cj:293:20[\s\S]*-> 293
+s,s,demangle_target`default::main\(\) at demangle.cj:294:20[\s\S]*-> 294
 q,q,

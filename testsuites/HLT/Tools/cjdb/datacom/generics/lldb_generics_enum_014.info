@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_enum_generics,002_debug_enum_generics
-b,b 23,002_debug_enum_generics.cj:23
-AOT r,r,-> 23
+b,b 31,002_debug_enum_generics.cj:31
+AOT r,r,-> 31
 CJVM c,c,
-n,n,-> 24
+n,n,-> 32
 locals,locals,E<Int64>\) a = {(\r|\n|\r\n)  constructor = A(\r|\n|\r\n)  arg_1 = 1
 q,q,

@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors Test_Lambda,Test_Lambda
-b,b 7,Test_Lambda.cj:7
-AOT r,r,-> 7
+b,b 15,Test_Lambda.cj:15
+AOT r,r,-> 15
 CJVM c,c,
 locals,locals,\(Int64\) a = 1[\s\S]*\(std[.]core.String\) b = "测试lambda[\s\S]*"[\s\S]*\(Int64\) c = -?\d+
-n,n,-> 8
+n,n,-> 16
 locals,locals,\(Int64\) a = 1[\s\S]*\(std[.]core.String\) b = "测试lambda[\s\S]*"[\s\S]*\(Int64\) c = -?\d+
 q,q,

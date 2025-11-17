@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 136,list_debug.cj:136
-AOT r,r,-> 136
+b,b 144,list_debug.cj:144
+AOT r,r,-> 144
 CJVM c,c,
 p,p m_com_1_1,
 p,p m_com_1_1[1],\$[\d] = "上山打老虎"

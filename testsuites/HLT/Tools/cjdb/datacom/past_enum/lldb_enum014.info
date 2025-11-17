@@ -16,12 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_enum_reload,003_debug_enum_reload
-b,b 23,003_debug_enum_reload.cj:23
-AOT r,r,-> 23
+b,b 31,003_debug_enum_reload.cj:31
+AOT r,r,-> 31
 CJVM c,c,
-n,n,-> 24
-n,n,-> 26
-n,n,-> 24
-n,n,-> 29
+n,n,-> 32
+n,n,-> 34
+n,n,-> 32
+n,n,-> 37
 locals,locals,\(Int32\) howManyMonths1 = 2
 q,q,

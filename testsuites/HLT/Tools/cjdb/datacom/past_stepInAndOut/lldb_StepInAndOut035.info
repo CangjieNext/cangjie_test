@@ -16,55 +16,55 @@
 
 test#
 cjdb,cjdb --no-use-colors 031_debuginfun_continue,031_debuginfun_continue
-CJVM b main,b main,031_debuginfun_continue.cj:4
-CJVM c,c,-> 4
-b,b 8,031_debuginfun_continue.cj:8
-b,b 9,031_debuginfun_continue.cj:9
-b,b 10,031_debuginfun_continue.cj:10
-b,b 11,031_debuginfun_continue.cj:11
-b,b 12,031_debuginfun_continue.cj:12
-AOT b,b 13,031_debuginfun_continue.cj:15
-AOT b,b 14,031_debuginfun_continue.cj:15
-CJVM b,b 15,031_debuginfun_continue.cj:15
-AOT r,r,-> 8
-CJVM c,c,-> 8
-finish,finish,-> 9
-n,n,-> 10
-s,s,-> 11
-finish,finish,-> 9
-n,n,-> 10
-s,s,-> 11
-finish,finish,-> 9
-n,n,-> 10
-s,s,-> 11
-finish,finish,-> 9
-n,n,-> 10
-s,s,-> 11
-finish,finish,-> 9
-n,n,-> 10
-s,s,-> 11
-finish,finish,-> 9
+CJVM b main,b main,031_debuginfun_continue.cj:12
+CJVM c,c,-> 12
+b,b 16,031_debuginfun_continue.cj:16
+b,b 17,031_debuginfun_continue.cj:17
+b,b 18,031_debuginfun_continue.cj:18
+b,b 19,031_debuginfun_continue.cj:19
+b,b 20,031_debuginfun_continue.cj:20
+AOT b,b 21,031_debuginfun_continue.cj:23
+AOT b,b 22,031_debuginfun_continue.cj:23
+CJVM b,b 23,031_debuginfun_continue.cj:23
+AOT r,r,-> 16
+CJVM c,c,-> 16
+finish,finish,-> 17
+n,n,-> 18
+s,s,-> 19
+finish,finish,-> 17
+n,n,-> 18
+s,s,-> 19
+finish,finish,-> 17
+n,n,-> 18
+s,s,-> 19
+finish,finish,-> 17
+n,n,-> 18
+s,s,-> 19
+finish,finish,-> 17
+n,n,-> 18
+s,s,-> 19
+finish,finish,-> 17
 set,set indexcontinue = 11,11
-n,n,-> 10
-s,s,-> 11
-n,n,-> 12
-n,n,-> 9
+n,n,-> 18
+s,s,-> 19
+n,n,-> 20
+n,n,-> 17
 set,set indexcontinue = 23,23
-n,n,-> 10
-s,s,-> 11
-n,n,-> 12
-n,n,-> 9
+n,n,-> 18
+s,s,-> 19
+n,n,-> 20
+n,n,-> 17
 set,set indexcontinue = 35,35
-n,n,-> 10
-s,s,-> 11
-n,n,-> 12
-n,n,-> 9
+n,n,-> 18
+s,s,-> 19
+n,n,-> 20
+n,n,-> 17
 set,set indexcontinue = 47,47
-n,n,-> 10
-s,s,-> 11
-n,n,-> 12
-n,n,-> 9
+n,n,-> 18
+s,s,-> 19
+n,n,-> 20
+n,n,-> 17
 set,set indexcontinue = 50,50
-n,n,-> 15
+n,n,-> 23
 locals,locals,indexcontinue = 50
 q,q,

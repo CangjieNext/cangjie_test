@@ -15,15 +15,15 @@
 
 test#
 cjdb,cjdb --no-use-colors setVar_external_invoke.out,setVar_external_invoke
-b,b 29,setVar_external_invoke.cj:29
-AOT r,r,-> 29
+b,b 37,setVar_external_invoke.cj:37
+AOT r,r,-> 37
 CJVM c,c,
-s,s,-> 109
-finish,finish,-> 29
-s,s,func fun_c1\(par_1:T\)[\s\S]*-> 117
-n,n,-> 118
+s,s,-> 117
+finish,finish,-> 37
+s,s,func fun_c1\(par_1:T\)[\s\S]*-> 125
+n,n,-> 126
 p,p par_c1,\(UInt16\) \$[\d] = 200
 set,set par_c1=16,\(UInt16\) \$[0-9]* = 16
 p,p par_c1,\(UInt16\) \$[\d] = 16
-finish,finish,-> 29
+finish,finish,-> 37
 q,q,

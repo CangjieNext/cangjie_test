@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 67,024_debug_variable.cj:67
-AOT r,r,-> 67
-CJVM c,c,-> 67
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 75,024_debug_variable.cj:75
+AOT r,r,-> 75
+CJVM c,c,-> 75
 set,set var_let = 2,2
-n,n,-> 70
+n,n,-> 78
 locals,locals,\(Int8\) var_int8 = 1
 p,p var_int8,\(Int8\) \$[\d] = 1
 locals,locals,\(Int64\) var_return =

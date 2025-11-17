@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var004,generics_local_var004
-breakpoint,breakpoint set -l 22 -c "s1.vcarrc2[0]==2",generics_local_var004.cj:22
-AOT r,r,-> 22
+breakpoint,breakpoint set -l 30 -c "s1.vcarrc2[8]==10",generics_local_var004.cj:30
+AOT r,r,-> 30
 CJVM c,c,
 locals,locals,\(default.S1<Int32>\) s1 = {[\s\S]*vunit = \(\)[\s\S]*vcarrc2 = {[\s\S]*\[0\] = 2[\s\S]*}
 locals,locals,\(default.C1<Bool>\) c1 = {[\s\S]*vunit = \(\)[\s\S]*vhmc = {[\s\S]*\["a" -> true\] = {[\s\S]*key = "a"[\s\S]*value = true[\s\S]*

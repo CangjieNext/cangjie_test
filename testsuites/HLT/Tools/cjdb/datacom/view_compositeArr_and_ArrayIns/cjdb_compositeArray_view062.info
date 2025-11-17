@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_ArrayIns_composite_record,011_debug_ArrayIns_composite_record
-b,b 24,011_debug_ArrayIns_composite_record.cj:24
-AOT r,r,-> 24
+b,b 32,011_debug_ArrayIns_composite_record.cj:32
+AOT r,r,-> 32
 CJVM c,c,
-s,s,-> 48
-n,n,-> 49
+s,s,-> 56
+n,n,-> 57
 q,q,

@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-AOT b,b 173,list_debug.cj:175
-CJVM b,b 175,list_debug.cj:175
-AOT r,r,-> 175
+AOT b,b 181,list_debug.cj:183
+CJVM b,b 183,list_debug.cj:183
+AOT r,r,-> 183
 CJVM c,c,
 AOT p,p m_com_4_3,\$[\d] = {[\s\S]*C2<Int32,Int32>[\s\S]*C2<Int32,Int32>
 CJVM p,p m_com_4_3,\$[\d] = {[\s\S]*default.C2<Int32,Int32>[\s\S]*default.C2<Int32,Int32>

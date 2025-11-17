@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_006,viewVariables_Cstring_006
-b,b 62,Test_CString.cj:62
-AOT r,r,-> 62
+b,b 70,Test_CString.cj:70
+AOT r,r,-> 70
 CJVM c,c,
 p, p arr_str_2,\(std[.]core.Array<CString>\) \$[\d] = {[\s\S]*? \[0\] = "\\"a/'b\\"c\\\""[\s\S]*&?\[1\] = "仓颉与C互操作_CString\(<>\)"[\s\S]*
 p, p arr_str_1,\(std[.]core.Array<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "\\"a/'b\\"c\\\""[\s\S]*\[1\] = "仓颉与C互操作_CString\(<>\)"[\s\S]*

@@ -16,12 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 010_debug_func_default_arg,010_debug_func_default_arg
-CJVM b main,b main,010_debug_func_default_arg.cj:4
-CJVM c,c,-> 4
-b,b 4,010_debug_func_default_arg.cj:4
-AOT r,r,-> 4
-s,s,-> 11
-finish,finish,-> 4
-n,n,-> 5
+CJVM b main,b main,010_debug_func_default_arg.cj:12
+CJVM c,c,-> 12
+b,b 12,010_debug_func_default_arg.cj:12
+AOT r,r,-> 12
+s,s,-> 19
+finish,finish,-> 12
+n,n,-> 13
 locals,locals,Functioncall006 = 4
 q,q,

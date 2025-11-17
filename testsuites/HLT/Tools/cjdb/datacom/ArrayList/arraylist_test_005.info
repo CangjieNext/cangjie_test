@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayList_baseVar,ArrayList_baseVar
-b,b 27,ArrayList_baseVar.cj:27
-AOT r,r,-> 27
-CJVM c,c,-> 27
+b,b 35,ArrayList_baseVar.cj:35
+AOT r,r,-> 35
+CJVM c,c,-> 35
 p,p Arrlist_bool,\(std[.]collection.ArrayList<Bool>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
 p,p Arrlist_rune,\(std[.]collection.ArrayList<Rune>\) \$[\d] = {[\s\S]*\[0\] = 'c'[\s\S]*\[6\] = 'e'[\s\S]*}
 p,p Arrlist_unit,\(std[.]collection.ArrayList<Unit>\) \$[\d] = {[\s\S]*\[0\] = \(\)[\s\S]*\[1\] = \(\)[\s\S]*}

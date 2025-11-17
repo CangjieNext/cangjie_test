@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_express_basetype,002_express_basetype
-CJVM b,b main,059_debug_jit.cj:4
-CJVM c,c,-> 4
-b,b 33,059_debug_jit.cj:33
-CJVM c,c,-> 33
-AOT r,r,-> 33
+CJVM b,b main,059_debug_jit.cj:12
+CJVM c,c,-> 12
+b,b 41,059_debug_jit.cj:41
+CJVM c,c,-> 41
+AOT r,r,-> 41
 expr,expr arr[1]/arr[0],\(Int64\) \$[\d] = 2
 expr,expr arrl[1]/arrl[0],\(Float16\) \$[\d] = 2
 expr,expr var_float16/=f_float16;var_float16,\(Float16\) \$[\d] = 0.11108

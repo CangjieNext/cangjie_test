@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-CJVM b,b main,064_debug_enum.cj:15
-CJVM c,c,-> 15
-b,b 33,064_debug_enum.cj:33
-CJVM c,c,-> 33
-AOT r,r,-> 33
+CJVM b,b main,064_debug_enum.cj:23
+CJVM c,c,-> 23
+b,b 41,064_debug_enum.cj:41
+CJVM c,c,-> 41
+AOT r,r,-> 41
 expr,expr time2,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Year\s+arg_1 = 10
 expr,expr time3,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Red\s+arg_1 = 10
 expr,expr time4,\(default.TimeUnit2\) \$[\d] = {\s+constructor = Green\s+arg_1 = 32.3199997

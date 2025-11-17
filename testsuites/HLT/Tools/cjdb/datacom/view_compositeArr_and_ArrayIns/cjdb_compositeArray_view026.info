@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_multiArray_composite_record,006_debug_multiArray_composite_record
-b,b 20,006_debug_multiArray_composite_record.cj:20
-AOT r,r,-> 20
+b,b 28,006_debug_multiArray_composite_record.cj:28
+AOT r,r,-> 28
 CJVM c,c,
-s,s,func fun_r2\(par_1:Array<R1>\) :Array<Array<R1>>[\s\S]*-> 51
-n,n,-> 52
+s,s,func fun_r2\(par_1:Array<R1>\) :Array<Array<R1>>[\s\S]*-> 59
+n,n,-> 60
 p,p par_return[0][1],default.R1\) \$[\d] = {(\r|\n|\r\n)[\s\S]*varBool = true
-finish,finish,-> 20
+finish,finish,-> 28
 q,q,

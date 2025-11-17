@@ -14,12 +14,12 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func009,generics_local_func009
-b,b 10,generics_local_func009.cj:10
-b,b 14,generics_local_func009.cj:14
-AOT r,r,-> 10
+b,b 18,generics_local_func009.cj:18
+b,b 22,generics_local_func009.cj:22
+AOT r,r,-> 18
 CJVM c,c,
 expr:expr super(30):\(default.A<Int64>\) \$[\d] = {[\s\S]*a = 30[\s\S]*}
 expr:expr this.b:\(Int64\) \$[\d] = 20
-c,c,-> 14
+c,c,-> 22
 expr:expr this(20):\(default.B<Int64>\) \$[\d] = {\s+default.A<Int64> = {\s+a = 30\s+}\s+b = 20
 q,q,

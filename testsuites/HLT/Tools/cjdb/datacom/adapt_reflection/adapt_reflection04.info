@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors enum01,enum01
-b,b 33,enum01.cj:33
-r,r,-> 33
+b,b 41,enum01.cj:41
+r,r,-> 41
 globals,globals,\(default.TimeUnit1\) default::time_1 = Year
 locals,locals,\(default.TimeUnit2\) time2 = {[\s\S]*constructor = Year[\s\S]*arg_1 = 19[\s\S]*}
 p,p time4,\(default.TimeUnit1\) \$[\d] = Year

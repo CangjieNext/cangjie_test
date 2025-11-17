@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors option_debug,option_debug
-b,b 66,option_debug.cj:66
-AOT r,r,-> 66
-CJVM c,c,-> 66
+b,b 74,option_debug.cj:74
+AOT r,r,-> 74
+CJVM c,c,-> 74
 p,p c,\(std[.]core.Option<std.collection.HashSet<Float64>>\) \$[\d] = {[\S\s]*\[0\] = 12.119999999999999[\S\s]*\[1\] = 13.130000000000001[\S\s]*}
 locals,locals,\(std[.]core.Option<std.collection.HashSet<Float64>>\) c = {[\S\s]*\[0\] = 12.119999999999999[\S\s]*\[1\] = 13.130000000000001[\S\s]*}[\s\S]*
 AOT frame var,frame var c,\(std[.]core.Option<std.collection.HashSet<Float64>>\) c = {[\S\s]*\[0\] = 12.119999999999999[\S\s]*\[1\] = 13.130000000000001[\S\s]*}
