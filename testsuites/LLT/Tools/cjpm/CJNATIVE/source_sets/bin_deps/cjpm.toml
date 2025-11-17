@@ -27,56 +27,56 @@ experimental = true
   compile-option = "-O1"
 
 [target.x86_64-unknown-linux-gnu.bin-dependencies]
-  package-option = { "dep" = "dep/target/release/dep/big/product/dep/dep.cjo" }
-  path-option = ["dep/target/release/dep/big/product/dep"]
+  package-option = { "dep" = "dep/target/release/dep/big/product/dep.cjo" }
+  path-option = ["dep/target/release/dep/big/product"]
 
 [target.x86_64-unknown-linux-gnu.debug.bin-dependencies]
-  package-option = { "dep" = "dep/target/release/dep/big/product/dep/dep.cjo" }
-  path-option = ["dep/target/release/dep/big/product/dep"]
+  package-option = { "dep" = "dep/target/release/dep/big/product/dep.cjo" }
+  path-option = ["dep/target/release/dep/big/product"]
 
 [target.aarch64-unknown-linux-gnu]
   compile-option = "-O1"
 
 [target.aarch64-unknown-linux-gnu.bin-dependencies]
-  package-option = { "dep" = "dep/target/release/dep/big/product/dep/dep.cjo" }
-  path-option = ["dep/target/release/dep/big/product/dep"]
+  package-option = { "dep" = "dep/target/release/dep/big/product/dep.cjo" }
+  path-option = ["dep/target/release/dep/big/product"]
 
 [target.aarch64-unknown-linux-gnu.debug.bin-dependencies]
-  package-option = { "dep" = "dep/target/release/dep/big/product/dep/dep.cjo" }
-  path-option = ["dep/target/release/dep/big/product/dep"]
+  package-option = { "dep" = "dep/target/release/dep/big/product/dep.cjo" }
+  path-option = ["dep/target/release/dep/big/product"]
 
 [target.x86_64-w64-mingw32]
   compile-option = "-O1"
 
 [target.x86_64-w64-mingw32.bin-dependencies]
-  package-option = { "dep" = "dep/target/release/dep/big/product/dep/dep.cjo" }
-  path-option = ["dep/target/release/dep/big/product/dep"]
+  package-option = { "dep" = "dep/target/release/dep/big/product/dep.cjo" }
+  path-option = ["dep/target/release/dep/big/product"]
 
 [target.x86_64-w64-mingw32.debug.bin-dependencies]
-  package-option = { "dep" = "dep/target/release/dep/big/product/dep/dep.cjo" }
-  path-option = ["dep/target/release/dep/big/product/dep"]
+  package-option = { "dep" = "dep/target/release/dep/big/product/dep.cjo" }
+  path-option = ["dep/target/release/dep/big/product"]
 
 [target.x86_64-apple-darwin]
   compile-option = "-O1"
 
 [target.x86_64-apple-darwin.bin-dependencies]
-  package-option = { "dep" = "dep/target/release/dep/big/product/dep/dep.cjo" }
-  path-option = ["dep/target/release/dep/big/product/dep"]
+  package-option = { "dep" = "dep/target/release/dep/big/product/dep.cjo" }
+  path-option = ["dep/target/release/dep/big/product"]
 
 [target.x86_64-apple-darwin.debug.bin-dependencies]
-  package-option = { "dep" = "dep/target/release/dep/big/product/dep/dep.cjo" }
-  path-option = ["dep/target/release/dep/big/product/dep"]
+  package-option = { "dep" = "dep/target/release/dep/big/product/dep.cjo" }
+  path-option = ["dep/target/release/dep/big/product"]
 
 [target.aarch64-apple-darwin]
   compile-option = "-O1"
 
 [target.aarch64-apple-darwin.bin-dependencies]
-  package-option = { "dep" = "dep/target/release/dep/big/product/dep/dep.cjo" }
-  path-option = ["dep/target/release/dep/big/product/dep"]
+  package-option = { "dep" = "dep/target/release/dep/big/product/dep.cjo" }
+  path-option = ["dep/target/release/dep/big/product"]
 
 [target.aarch64-apple-darwin.debug.bin-dependencies]
-  package-option = { "dep" = "dep/target/release/dep/big/product/dep/dep.cjo" }
-  path-option = ["dep/target/release/dep/big/product/dep"]
+  package-option = { "dep" = "dep/target/release/dep/big/product/dep.cjo" }
+  path-option = ["dep/target/release/dep/big/product"]
 
 [target.aarch64-linux-ohos]
 compile-option = "-B${OHOS_ROOT}/out/generic_generic_arm_64only/hisi_all_phone_standard/obj/third_party/musl/usr/lib/aarch64-linux-ohos -B${OHOS_ROOT}/prebuilts/clang/ohos/windows-x86_64/llvm/bin -L${OHOS_ROOT}/prebuilts/clang/ohos/windows-x86_64/llvm/lib/clang/15.0.4/lib/aarch64-linux-ohos -L${OHOS_ROOT}/prebuilts/clang/ohos/windows-x86_64/llvm/lib/aarch64-linux-ohos -L${OHOS_ROOT}/out/generic_generic_arm_64only/hisi_all_phone_standard/obj/third_party/musl/usr/lib/aarch64-linux-ohos -L${OHOS_ROOT}/out/generic_generic_arm_64only/hisi_all_phone_standard/thirdparty/openssl"
