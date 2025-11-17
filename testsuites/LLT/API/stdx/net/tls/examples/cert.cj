@@ -9,9 +9,7 @@
 
 import std.{fs.*, net.*}
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.common.*
+import stdx.crypto.x509.*
 
 class MyServer {
     private var currentConfig: TlsServerConfig
@@ -25,12 +23,10 @@ class MyServer {
      */
     public mut prop certificate: (Array<X509Certificate>, PrivateKey) {
         get() {
-            let (certificates, privateKey) = currentConfig.certificate.getOrThrow()
-            (certificates.map({c => (c as X509Certificate).getOrThrow()}), privateKey)
+            currentConfig.serverCertificate
         }
         set(newCertificate) {
-            let (certificates, privateKey) = newCertificate
-            currentConfig.certificate = (certificates.map({c => c}), privateKey)
+            currentConfig.serverCertificate = newCertificate
         }
     }
 

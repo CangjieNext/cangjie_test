@@ -12,8 +12,7 @@ import std.net.*
 import std.time.*
 import std.sync.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 import std.collection.*
 import std.fs.*
@@ -28,10 +27,10 @@ func runTcpServer(): (TcpServerSocket, UInt16) {
 
 func runTlsServer(server: TcpServerSocket, cipherSuite1_2: ?Array<String>, securityLevel: Int32) {
     let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_rsa.cer")))
-    let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_rsa_private_key.pem")))
+    let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_rsa_private_key.pem")))
     var serverConf = TlsServerConfig(serverCert, pkey)
     if (let Some(v) <- cipherSuite1_2) {
-        serverConf.supportedCipherSuites[V1_2] = v
+        serverConf.cipherSuitesV1_2 = v
     }
     serverConf.securityLevel = securityLevel
     try (client = server.accept()) {
@@ -54,7 +53,7 @@ func runTlsClient(port: UInt16) {
 
 @Test
 class TestTlsSercurityLevel {
-    @TestCase[ciphers in [ [ "DHE-RSA-AES256-SHA256", "DHE-RSA-CHACHA20-POLY1305" ], 
+    @TestCase[ciphers in [ [ "DHE-RSA-AES256-SHA256", "DHE-RSA-CHACHA20-POLY1305" ],
  [ "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384" ] ]]
     func testTlsDHDefault(ciphers: Array<String>): Unit {
         let (tcpServer, port) = runTcpServer()
@@ -66,7 +65,7 @@ class TestTlsSercurityLevel {
         tcpServer.close()
     }
 
-    @TestCase[ciphers in [ [ "DHE-RSA-AES256-SHA256", "DHE-RSA-CHACHA20-POLY1305" ], 
+    @TestCase[ciphers in [ [ "DHE-RSA-AES256-SHA256", "DHE-RSA-CHACHA20-POLY1305" ],
  [ "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384" ] ]]
     func testTlsDHFail(ciphers: Array<String>): Unit {
         let (tcpServer, port) = runTcpServer()

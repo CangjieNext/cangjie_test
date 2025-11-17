@@ -25,8 +25,7 @@ package tests.server
 
 import stdx.net.http.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 import stdx.encoding.url.*
 import std.io.*
@@ -46,7 +45,7 @@ class TestServer11TlsAllRightTest {
         var cfg = serverConfig()
         cfg.supportedAlpnProtocols = ["http/1.1"]
         let pem = String.fromUtf8(readToEnd(File("./files/root_rsa.cer", Read)))
-        cfg.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+        cfg.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
         cfg.clientIdentityRequired = Required
         let server = ServerBuilder().addr("127.0.0.1").port(0).tlsConfig(cfg).build()
         server.distributor.register("/hello", handler)
@@ -73,10 +72,10 @@ class TestServer11TlsAllRightTest {
 
     func sendRequest1() {
         var clientCfg = clientConfig()
-        clientCfg.supportedAlpnProtocols = ["http/1.1"]
+        clientCfg.alpnProtocolsList = ["http/1.1"]
         let pem = String.fromUtf8(readToEnd(File("./files/end_rsa.cer", Read)))
         let keyPem = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-        clientCfg.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), GeneralPrivateKey.decodeFromPem(keyPem))
+        clientCfg.clientCertificate = (X509Certificate.decodeFromPem(pem), PrivateKey.decodeFromPem(keyPem))
         let client = ClientBuilder().tlsConfig(clientCfg).build()
         let u = URL.parse("https://127.0.0.1:${port}/hello")
         let req = HttpRequestBuilder().url(u).header("Connection", "close").build()

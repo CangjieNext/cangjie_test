@@ -19,8 +19,6 @@
 package tests.server
 
 import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
 import std.unittest.*
 import std.unittest.testmacro.*
 

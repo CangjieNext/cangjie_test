@@ -10,8 +10,7 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 import std.{net.*, fs.*, io.*}
 import std.unittest.*
@@ -24,18 +23,22 @@ class TestGetlientCertificate {
         let (tcpServer, port) = runTcpServer()
         let f = spawn {
             let server = runTlsServer(tcpServer)
-            let a = server.handshakeResult.getOrThrow().peerCertificate
-            @Expect(!a.isEmpty())
-            let pemA = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
-            let clientCerA = X509Certificate.decodeFromPem(pemA)
-            @Expect((a[0] as X509Certificate).getOrThrow().encodeToDer().body.toString() == clientCerA[0].encodeToDer().body.toString())
-
-            let b = server.handshakeResult.getOrThrow().peerCertificate
-            @Expect(!b.isEmpty())
-            let pemB = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
-            let clientCerB = X509Certificate.decodeFromPem(pemB)
-            @Expect((b[0] as X509Certificate).getOrThrow().encodeToDer().body.toString() ==
-                clientCerB[0].encodeToDer().body.toString())
+            let a = server.clientCertificate
+            if (let Some(cer) <- a) {
+                let pem = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
+                let clientCer = X509Certificate.decodeFromPem(pem)
+                @Expect(cer[0].encodeToDer().body.toString() == clientCer[0].encodeToDer().body.toString())
+            } else {
+                @Expect(false)
+            }
+            let b = server.peerCertificate
+            if (let Some(cer) <- b) {
+                let pem = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
+                let clientCer = X509Certificate.decodeFromPem(pem)
+                @Expect(cer[0].encodeToDer().body.toString() == clientCer[0].encodeToDer().body.toString())
+            } else {
+                @Expect(false)
+            }
         }
         runTlsClient(port)
         f.get()
@@ -62,7 +65,7 @@ func runTlsServer(server: TcpServerSocket): TlsSocket {
 
 func runTlsClient(port: UInt16) {
     var clientCfg = clientConfig()
-    clientCfg.supportedAlpnProtocols = ["http/1.1"]
+    clientCfg.alpnProtocolsList = ["http/1.1"]
     try (clientTcp = TcpSocket("127.0.0.1", port)) {
         clientTcp.connect()
         try (client = TlsSocket.client(clientTcp, clientConfig: clientCfg)) {
@@ -75,21 +78,21 @@ func serverConfig(): TlsServerConfig {
     let pem = String.fromUtf8(readToEnd(File("./files/root_ecdsa.cer", Read)))
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
-    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
+    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
     tlsConfig.supportedAlpnProtocols = ["h2"]
     tlsConfig.clientIdentityRequired = Required
-    tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+    tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
     tlsConfig
 }
 
 func clientConfig(): TlsClientConfig {
     var tlsConfig = TlsClientConfig()
     let pem = String.fromUtf8(readToEnd(File("./files/root_ecdsa.cer", Read)))
-    tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+    tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
 
-    tlsConfig.certificate = (X509Certificate.decodeFromPem(pem0).map({c => c}), GeneralPrivateKey.decodeFromPem(pem02))
-    tlsConfig.supportedAlpnProtocols = ["h2"]
+    tlsConfig.clientCertificate = (X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+    tlsConfig.alpnProtocolsList = ["h2"]
     tlsConfig
 }

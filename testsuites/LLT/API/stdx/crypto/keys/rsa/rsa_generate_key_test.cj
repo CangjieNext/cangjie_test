@@ -9,7 +9,7 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 
 import stdx.crypto.keys.*
-import stdx.crypto.common.*
+import stdx.crypto.digest.CryptoException
 import std.math.numeric.BigInt
 
 @Test

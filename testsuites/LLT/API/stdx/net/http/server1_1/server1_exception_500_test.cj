@@ -12,8 +12,6 @@ package tests.server1_1
 import std.unittest.*
 import std.unittest.testmacro.*
 import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
 
 @Test
 class TestServer1_1500 {

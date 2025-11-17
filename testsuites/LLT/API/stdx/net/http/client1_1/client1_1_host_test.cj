@@ -19,8 +19,6 @@
 package tests.client1_1
 
 import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
 import asan.*
 import stdx.encoding.url.*
 import std.net.*

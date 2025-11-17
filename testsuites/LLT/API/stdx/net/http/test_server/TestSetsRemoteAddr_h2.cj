@@ -21,8 +21,7 @@ package tests.go_serve
 
 import stdx.net.http.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.common.*
+import stdx.crypto.x509.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import {asan.*, tlsconfig.*}

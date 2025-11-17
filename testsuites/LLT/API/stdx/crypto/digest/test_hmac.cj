@@ -12,7 +12,6 @@ import stdx.encoding.hex.*
 import std.time.*
 import std.convert.*
 import std.crypto.digest.*
-import stdx.crypto.common.*
 
 @Test
 class HMACTest {

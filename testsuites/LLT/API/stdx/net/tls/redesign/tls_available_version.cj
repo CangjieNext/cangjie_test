@@ -13,8 +13,7 @@ import std.net.*
 import std.time.*
 import std.sync.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 import std.collection.*
 import std.fs.*
@@ -29,14 +28,15 @@ func runTcpServer(): (TcpServerSocket, UInt16) {
 
 func runTlsServer(server: TcpServerSocket, version: TlsVersion): ?TlsVersion {
     let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa.cer")))
-    let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
+    let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
     var serverConf = TlsServerConfig(serverCert, pkey)
     serverConf.verifyMode = TrustAll
-    serverConf.supportedVersions = [version]
+    serverConf.minVersion = version
+    serverConf.maxVersion = version
     try (client = server.accept()) {
         try (tls = TlsSocket.server(client, serverConfig: serverConf)) {
             tls.handshake()
-            return tls.handshakeResult?.version ?? None
+            return tls.tlsVersion
         }
     }
     return Option<TlsVersion>.None
@@ -45,13 +45,14 @@ func runTlsServer(server: TcpServerSocket, version: TlsVersion): ?TlsVersion {
 func runTlsClient(port: UInt16, version: TlsVersion): ?TlsVersion {
     var clientConfig = TlsClientConfig()
     clientConfig.verifyMode = TrustAll
-    clientConfig.supportedVersions = [version]
+    clientConfig.minVersion = version
+    clientConfig.maxVersion = version
 
     try (clientTcp = TcpSocket("127.0.0.1", port)) {
         clientTcp.connect()
         try (client = TlsSocket.client(clientTcp, clientConfig: clientConfig)) {
             client.handshake()
-            return client.handshakeResult?.version ?? None
+            return client.tlsVersion
         }
     }
 

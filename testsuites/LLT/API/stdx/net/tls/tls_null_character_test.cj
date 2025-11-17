@@ -15,9 +15,7 @@
  */
 
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.keys.GeneralPrivateKey
+import stdx.crypto.x509.*
 import std.fs.*
 import std.io.*
 import std.collection.HashMap
@@ -25,22 +23,23 @@ import std.collection.HashMap
 main(): Int64 {
     var cfgC = TlsClientConfig()
     try {
-        cfgC.serverName = "oss.PMS.com\0123"
+        cfgC.domain = "oss.PMS.com\0123"
         return -5
     } catch (e: IllegalArgumentException) {
     }
     try {
-        cfgC.supportedAlpnProtocols = ["http/1.1", "h2\01"]
+        cfgC.alpnProtocolsList = ["http/1.1", "h2\01"]
         return -8
     } catch (e: IllegalArgumentException) {
     }
 
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
-    var cfgS = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
-    cfgS.supportedVersions = [V1_2, V1_3]
+    var cfgS = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+    cfgS.minVersion = V1_2
+    cfgS.maxVersion = V1_3
     try {
-        cfgC.supportedAlpnProtocols = ["http/1.1", "h2\01"]
+        cfgC.alpnProtocolsList = ["http/1.1", "h2\01"]
         return -16
     } catch (e: IllegalArgumentException) {
     }

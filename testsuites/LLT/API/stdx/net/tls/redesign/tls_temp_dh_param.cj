@@ -12,9 +12,7 @@ import std.net.*
 import std.time.*
 import std.sync.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
 import stdx.crypto.x509.*
-import stdx.crypto.common.*
 import stdx.crypto.keys.*
 import std.collection.*
 import std.fs.*
@@ -29,14 +27,15 @@ func runTcpServer(): (TcpServerSocket, UInt16) {
 
 func runTlsServer(server: TcpServerSocket, cipherSuite1_2: ?Array<String>, dh: ?DHParameters) {
     let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_rsa.cer")))
-    let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_rsa_private_key.pem")))
+    let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_rsa_private_key.pem")))
     var serverConf = TlsServerConfig(serverCert, pkey)
     if (let Some(v) <- cipherSuite1_2) {
-        serverConf.supportedCipherSuites[V1_2] = v
+        serverConf.cipherSuitesV1_2 = v
     }
     serverConf.dhParameters = dh
     serverConf.securityLevel = 0
-    serverConf.supportedVersions = [V1_2]
+    serverConf.minVersion = V1_2
+    serverConf.maxVersion = V1_2
     try (client = server.accept()) {
         try (tls = TlsSocket.server(client, serverConfig: serverConf)) {
             tls.handshake()
@@ -48,7 +47,7 @@ func runTlsClient(port: UInt16) {
     var clientConfig = TlsClientConfig()
     clientConfig.verifyMode = TrustAll
     clientConfig.securityLevel = 0
-    clientConfig.supportedCipherSuites[V1_2] = ["DHE-RSA-AES256-SHA256", "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"]
+    clientConfig.cipherSuitesV1_2 = ["DHE-RSA-AES256-SHA256", "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"]
     try (clientTcp = TcpSocket("127.0.0.1", port)) {
         clientTcp.connect()
         try (client = TlsSocket.client(clientTcp, clientConfig: clientConfig)) {
@@ -59,8 +58,8 @@ func runTlsClient(port: UInt16) {
 
 @Test
 class TestTlsDH {
-    @TestCase[ciphers in [ [ "DHE-RSA-AES256-SHA256", "DHE-RSA-CHACHA20-POLY1305" ], 
- [ "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384" ] ] 
+    @TestCase[ciphers in [ [ "DHE-RSA-AES256-SHA256", "DHE-RSA-CHACHA20-POLY1305" ],
+ [ "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384" ] ]
 ]
     func testTlsDHDefault(ciphers: Array<String>): Unit {
         let (tcpServer, port) = runTcpServer()
@@ -72,7 +71,7 @@ class TestTlsDH {
         tcpServer.close()
     }
 
-    @TestCase[ciphers in [ [ "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_DHE_RSA_WITH_AES_256_CBC_SHA256" ], 
+    @TestCase[ciphers in [ [ "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_DHE_RSA_WITH_AES_256_CBC_SHA256" ],
  [ "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384" ] ]]
     func testTlsDHTemp(ciphers: Array<String>): Unit {
         let (tcpServer, port) = runTcpServer()
@@ -91,7 +90,7 @@ hO0wAt29/EVTsPSA+s52UAQDNsmLO6l/N+4VaKCClYpI80pIaRdjq8krzlY9HRmW
 P4+4EkB+G/2N5zz4vKsGCwBhpUC109TBSQIQiA1p9pUhRr22J05+4yMCAQU=
 -----END DH PARAMETERS-----
 """
-        let derDH = GeneralDHParameters.decodeFromPem(pemString)
+        let derDH = DHParameters.decodeFromPem(pemString)
         let f = spawn {
             runTlsServer(tcpServer, ciphers, derDH)
         }
