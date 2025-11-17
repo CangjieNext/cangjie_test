@@ -5,19 +5,19 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [target.x86_64-unknown-linux-gnu.bin-dependencies]
-  path-option = ["./cmp/target/release/cmp/linux/product/cmp", "./cmp/target/release/cmp/common/product/cmp"]
+  path-option = ["./cmp/target/release/cmp/linux/product", "./cmp/target/release/cmp/common/product"]
 
 [target.aarch64-unknown-linux-gnu.bin-dependencies]
-  path-option = ["./cmp/target/release/cmp/linux/product/cmp", "./cmp/target/release/cmp/common/product/cmp"]
+  path-option = ["./cmp/target/release/cmp/linux/product", "./cmp/target/release/cmp/common/product"]
 
 [target.x86_64-w64-mingw32.bin-dependencies]
-  path-option = ["./cmp/target/release/cmp/windows/product/cmp", "./cmp/target/release/cmp/common/product/cmp"]
+  path-option = ["./cmp/target/release/cmp/windows/product", "./cmp/target/release/cmp/common/product"]
 
 [target.x86_64-apple-darwin.bin-dependencies]
-  path-option = ["./cmp/target/release/cmp/darwin/product/cmp", "./cmp/target/release/cmp/common/product/cmp"]
+  path-option = ["./cmp/target/release/cmp/darwin/product", "./cmp/target/release/cmp/common/product"]
 
 [target.aarch64-apple-darwin.bin-dependencies]
-  path-option = ["./cmp/target/release/cmp/darwin/product/cmp", "./cmp/target/release/cmp/common/product/cmp"]
+  path-option = ["./cmp/target/release/cmp/darwin/product", "./cmp/target/release/cmp/common/product"]
 
 
 [package]
