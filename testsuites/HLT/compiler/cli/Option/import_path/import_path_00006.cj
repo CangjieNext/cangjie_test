@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC-PIPE: rm -rf libs;mkdir libs
+// EXEC-PIPE: mkdir libs
 // EXEC-PIPE: %compiler %cmp_opt --import-path libs %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args
 

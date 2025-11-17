@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 0
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt --apc=0 %f -o %output 2>&1 | compare %f
-// (not MAC and not Windows) RUN-EXEC: %run %run_opt %output %run_args
-// (not MAC and not Windows) ASSERT: scan '--apc' value must be greater than 0, the compiler will use 1 as the value.
+// EXEC: %compiler %cmp_opt --apc=0 %f -o %output 2>&1 | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args
+// ASSERT: scan '--apc' value must be greater than 0, the compiler will use 1 as the value.
 
 main() {
     return 0

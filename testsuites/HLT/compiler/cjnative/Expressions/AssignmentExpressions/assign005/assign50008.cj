@@ -11,12 +11,12 @@
 
 
 
-let l_b : Int32 = 4
+let l_a : Int32 = 4
 
 enum A{
-l_b = 1 
-l_b ++
-l_b --
+l_a = 1 
+l_a ++
+l_a --
 }
 
 main(): Int64 {

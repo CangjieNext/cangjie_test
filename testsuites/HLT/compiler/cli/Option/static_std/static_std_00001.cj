@@ -6,25 +6,25 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
-// (CJNATIVE and not MAC) EXEC-PIPE: %compiler %cmp_opt %static_std %static_libs %f
-// (CJNATIVE and not OHOS and not MAC) EXEC-PIPE: ldd main 2>&1 | compare %f
-// (OHOS and not MAC) EXEC-PIPE: readelf -a main 2>&1 | compare %f
-// (not MAC) ASSERT: scan-not libcangjie-std-core.so
-// (not MAC) ASSERT: scan-not libcangjie-std-collection.so
-// (not MAC) ASSERT: scan-not libcangjie-std-convert.so
-// (not MAC) ASSERT: scan-not libcangjie-std-convert.so
-// (not MAC) ASSERT: scan-not libcangjie-std-io.so
-// (not MAC) ASSERT: scan-not libcangjie-std-log.so
-// (not MAC) ASSERT: scan-not libcangjie-std-math.so
-// (not MAC) ASSERT: scan-not libcangjie-std-posix.so
-// (not MAC) ASSERT: scan-not libcangjie-std-regex.so
-// (not MAC) ASSERT: scan-not libcangjie-std-sync.so
-// (not MAC) ASSERT: scan-not libcangjie-std-time.so
-// (not MAC) ASSERT: scan-not libcangjie-std-unicode.so
-// (not MAC) ASSERT: scan-not libcangjie-std-unittest.so
-// (not MAC) ASSERT: scan-not libcangjie-std-argopt.so
-// (not MAC) ASSERT: scan-not libcangjie-std-random.so
+// LEVEL: 0
+// (CJNATIVE) EXEC-PIPE: %compiler %cmp_opt %static_std %static_libs %f
+// (CJNATIVE and not OHOS) EXEC-PIPE: ldd main 2>&1 | compare %f
+// (OHOS) EXEC-PIPE: readelf -a main 2>&1 | compare %f
+// ASSERT: scan-not libcangjie-std-core.so
+// ASSERT: scan-not libcangjie-std-collection.so
+// ASSERT: scan-not libcangjie-std-convert.so
+// ASSERT: scan-not libcangjie-std-convert.so
+// ASSERT: scan-not libcangjie-std-io.so
+// ASSERT: scan-not libcangjie-std-log.so
+// ASSERT: scan-not libcangjie-std-math.so
+// ASSERT: scan-not libcangjie-std-posix.so
+// ASSERT: scan-not libcangjie-std-regex.so
+// ASSERT: scan-not libcangjie-std-sync.so
+// ASSERT: scan-not libcangjie-std-time.so
+// ASSERT: scan-not libcangjie-std-unicode.so
+// ASSERT: scan-not libcangjie-std-unittest.so
+// ASSERT: scan-not libcangjie-std-argopt.so
+// ASSERT: scan-not libcangjie-std-random.so
 
 import std.core.*
 import std.collection.*

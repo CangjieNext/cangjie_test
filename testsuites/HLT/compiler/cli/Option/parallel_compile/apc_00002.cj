@@ -6,9 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt --aggressive-parallel-compile %f -o %output
-// (not MAC and not Windows) RUN-EXEC: %run %run_opt %output %run_args
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt --aggressive-parallel-compile %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 main(): Int64 {
     return 0

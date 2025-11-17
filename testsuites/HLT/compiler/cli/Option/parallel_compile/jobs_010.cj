@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (not MAC and not Windows) ERRCHECK: %compiler %cmp_opt -j -1 %f -o %output
-// (not MAC and not Windows) ASSERT: scan '-j' only accepts a positive integer number as value.
+// ERRCHECK: %compiler %cmp_opt -j -1 %f -o %output
+// ASSERT: scan '-j' only accepts a positive integer number as value.
 
 main(): Int64 {
     return 0

@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 396,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: l03.cj\nPackage info: default.Lambda\n\n(function) internal func Row(r: (Data) -> Unit): Unit\nCopyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.\rThis source file is part of the Cangjie project, licensed under Apache-2.0\rwith Runtime Library Exception.\r\rSee https://cangjie-lang.cn/pages/LICENSE for license information.\r\n"},"range": {"end": {"character": 8,"line": 4},"start": {"character": 5,"line": 4}}}}
+{"id": 396,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: l03.cj\nPackage info: default.Lambda\n\n(function) internal func Row(r: (Data) -> Unit): Unit\n"},"range": {"end": {"character": 8,"line": 4},"start": {"character": 5,"line": 4}}}}

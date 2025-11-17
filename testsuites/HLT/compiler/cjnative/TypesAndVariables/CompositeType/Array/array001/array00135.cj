@@ -10,16 +10,16 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 enum MyEnum {
-    Aa(Int32)
+    A(Int32)
 }
 
 enum AnotherEnum {
-    Aa(Int32)
+    A(Int32)
 }
 
 main(): Int64 {
-    var a = MyEnum.Aa(1)
-    var b = MyEnum.Aa(2)
-    let myArray0: Array<MyEnum> = [a, b, MyEnum.Aa(3)]
+    var a = MyEnum.A(1)
+    var b = MyEnum.A(2)
+    let myArray0: Array<MyEnum> = [a, b, MyEnum.A(3)]
     return 0
 }

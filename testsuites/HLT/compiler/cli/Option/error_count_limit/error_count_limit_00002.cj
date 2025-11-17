@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // ERRCHECK: %compiler %f -o %output
 // ASSERT: scan 8 errors printed.
 

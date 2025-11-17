@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// DEPENDENCE: pkg1.cj
+// DEPENDENCE: pkg1.cj pkg.cfg1
 // EXEC-PIPE-1: %compiler %cmp_opt pkg1.cj %f -o %output 2>&1 | compare %f
 
 package pkg1

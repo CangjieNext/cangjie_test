@@ -42,4 +42,4 @@ func test6() {
 main() {
     return test1() + test2() + test3() + test4() + test5() + test6()
 }
-// ASSERT: scan chir_dce_unreachable_expression_hint
+// ASSERT: scan chir2_dce_unreachable_expression

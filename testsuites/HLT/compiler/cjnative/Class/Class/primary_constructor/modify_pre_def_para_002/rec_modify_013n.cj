@@ -14,7 +14,7 @@ import std.sync.*
 struct A {
     A(
         var a!: Bool = true,
-        private var mtx!: ReentrantMutex = ReentrantMutex(),
+        var mtx!: ReentrantMutex = ReentrantMutex(),
         var b!: Unit = synchronized(mtx) {
             a = false
         }

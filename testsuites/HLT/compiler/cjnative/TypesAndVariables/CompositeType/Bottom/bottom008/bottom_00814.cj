@@ -24,4 +24,4 @@ func test(): Int64 {
 main(): Int64 {
     return test() - 2
 }
-// ASSERT: scan chir_dce_unreachable_expression_hint
+// ASSERT: scan chir2_dce_unreachable_expression

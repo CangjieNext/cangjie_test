@@ -8,12 +8,12 @@
 
 // LEVEL: 0
 // DEPENDENCE: i_should_not_appear_in_command.txt
-// (not Windows) EXEC: mkdir '> test.log'; 
-// (not Windows) EXEC: cp -rf $CANGJIE_HOME/* '> test.log'
-// (not Windows) EXEC: CANGJIE_HOME='> test.log' PATH='> test.log/bin':$PATH %compiler %cmp_opt %f
-// (not MAC and not Windows) EXEC-PIPE-2: ls test.log 2>&1 | compare %f
+// EXEC: mkdir '> test.log'; 
+// EXEC: cp -rf $CANGJIE_HOME/* '> test.log'
+// EXEC: CANGJIE_HOME='> test.log' PATH='> test.log/bin':$PATH %compiler %cmp_opt %f
+// (not MAC ) EXEC-PIPE-2: ls test.log 2>&1 | compare %f
 // (MAC) EXEC-PIPE-1: ls test.log 2>&1 | compare %f
-// (not Windows) ASSERT: scan No such file or directory
+// ASSERT: scan No such file or directory
 
 main() {
     0

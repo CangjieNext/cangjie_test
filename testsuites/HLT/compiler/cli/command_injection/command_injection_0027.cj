@@ -8,12 +8,12 @@
 
 // LEVEL: 0
 // DEPENDENCE: i_should_not_appear_in_command.txt
-// (not Windows) EXEC: mkdir ': ls'; 
-// (not Windows) EXEC: cp -rf $CANGJIE_HOME/* ': ls'
-// (not Windows) EXEC-PIPE-1: CANGJIE_HOME=': ls' ': ls/bin/cjc' %cmp_opt %f 2>&1 | compare %f
-// (not Windows) ASSERT: scan-not i_should_not_appear_in_command
-// (not Windows) ASSERT: regex error.* Invalid cjc installation path
-// (not Windows) ASSERT: regex info.* Do not install `cjc` under a path that contains the following characters: :;
+// EXEC: mkdir ': ls'; 
+// EXEC: cp -rf $CANGJIE_HOME/* ': ls'
+// EXEC-PIPE-1: CANGJIE_HOME=': ls' ': ls/bin/cjc' %cmp_opt %f 2>&1 | compare %f
+// ASSERT: scan-not i_should_not_appear_in_command
+// ASSERT: regex error.* Invalid cjc installation path
+// ASSERT: regex info.* Do not install `cjc` under a path that contains the following characters: :;
 
 main() {
     0

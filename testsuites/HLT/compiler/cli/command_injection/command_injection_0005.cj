@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (not Windows) ERRCHECK: %compiler %cmp_opt "%f > a.txt"
-// (not Windows) ASSERT: scan invalid file or directory 'command_injection_0005.cj > a.txt'
+// ERRCHECK: %compiler %cmp_opt "%f > a.txt"
+// ASSERT: scan invalid file or directory 'command_injection_0005.cj > a.txt'
 
 main() {
     0
