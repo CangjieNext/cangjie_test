@@ -1,4 +1,0 @@
-main(): Int64 {
-    let myTuple = ((_,2))
-    return 0
-}

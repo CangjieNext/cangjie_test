@@ -1,5 +1,0 @@
-cjc -g --output-type=staticlib pkg_class/* -o pkg_class.a
-cjc -g --output-type=staticlib pkg_struct/* -o pkg_struct.a
-cjc -g --output-type=staticlib pkg_enum/* -o pkg_enum.a
-cjc -g --output-type=staticlib pkg_func/* -o pkg_func.a
-cjc -g demangle.cj pkg_class.a pkg_struct.a pkg_enum.a pkg_func.a -o demangle

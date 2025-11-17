@@ -1,4 +1,0 @@
-default.global_default newobf_var
-default.test_default() newobf_func1
-default.test_default() newobf_func2
-default.main() newobf_main

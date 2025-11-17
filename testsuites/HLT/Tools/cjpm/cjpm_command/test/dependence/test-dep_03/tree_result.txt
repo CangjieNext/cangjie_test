@@ -1,6 +1,0 @@
-/* SCAN
-|-- default
-    └── devDep0
-    └── devDep1
-cjpm tree success
-*/

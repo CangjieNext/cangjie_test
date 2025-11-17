@@ -1,8 +1,0 @@
-error: unterminated string interpolation
-  ==> case4.cj:15:15:
-   | 
-15 |     interpolation${
-   |                  ^^^ unterminated string interpolation
-   | 
-
-1 error generated, 1 error printed.

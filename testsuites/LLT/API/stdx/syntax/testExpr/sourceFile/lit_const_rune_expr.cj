@@ -1,3 +1,0 @@
-func funcLitConstRuneExpr() {
-    r'a'
-}

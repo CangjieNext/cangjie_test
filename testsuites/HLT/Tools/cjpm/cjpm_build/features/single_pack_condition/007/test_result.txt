@@ -1,3 +1,0 @@
-//ASSERT: scan user defined condition's key can not repeat
-//ASSERT: scan Invalid options. Try: 'cjc --help' for more information.
-//ASSERT: scan Error: cjpm test failed

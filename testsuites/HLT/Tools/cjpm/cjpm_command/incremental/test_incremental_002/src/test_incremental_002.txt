@@ -1,7 +1,0 @@
-package a
-
-main() {
-    var arr = [0, 1, 2, 3]
-    return arr[0]
-}
-

@@ -1,3 +1,0 @@
-func test(): Unit {
-    a?()
-}

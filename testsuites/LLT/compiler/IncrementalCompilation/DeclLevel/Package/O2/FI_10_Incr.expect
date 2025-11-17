@@ -1,3 +1,0 @@
-// ASSERT: scan The Apply node in the line:20 and the column:5, was optimized by Function Inline
-// ASSERT: scan The Apply node in the line:24 and the column:5, was optimized by Function Inline
-// ASSERT: scan incremental compilation triggered
