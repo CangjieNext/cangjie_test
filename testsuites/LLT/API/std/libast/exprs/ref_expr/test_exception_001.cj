@@ -68,9 +68,9 @@ ASTException:
  [36m==>[0m :1:1:
 
 parsing expr error.
-description: illegal, token_id: 160, token_literal_value: , fileID: 0, line: 0, column: 0
+description: illegal, token_id: 156, token_literal_value: , fileID: 0, line: 0, column: 0
 0
-description: illegal, token_id: 160, token_literal_value: , fileID: 0, line: 0, column: 0
+description: illegal, token_id: 156, token_literal_value: , fileID: 0, line: 0, column: 0
 ASTException: Illegal TokenKind, TokenKind should be LT
 ASTException: Illegal TokenKind, TokenKind should be GT
 cnt = 3
