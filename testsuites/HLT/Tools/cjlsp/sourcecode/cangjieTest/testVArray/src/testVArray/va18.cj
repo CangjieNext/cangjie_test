@@ -1,10 +1,10 @@
 package default.testVArray
 
-class MNVarry {
+class MN {
     public prop a: VArray<Int64, $2> {
         get() {
             [0, 2]
-        }
+        }git
     }
 }
 

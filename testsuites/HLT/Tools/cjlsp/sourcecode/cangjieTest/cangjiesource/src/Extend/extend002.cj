@@ -5,7 +5,7 @@ extend Foo {
     func fd() {}
 }
 
-let GLOBALF:Unit = Foo().fd()
+let a:Unit = Foo().fd()
 
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

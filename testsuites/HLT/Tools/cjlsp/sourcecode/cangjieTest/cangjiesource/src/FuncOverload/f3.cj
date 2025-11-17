@@ -1,6 +1,6 @@
 package default.FuncOverload
 
-class FuncOverloadC {
+class C {
     var a: Int64
     var b: Float64
 
@@ -15,8 +15,8 @@ class FuncOverloadC {
     }
 }
 
-var a:Int64 = FuncOverloadC(1).a
-var b:Int64 = FuncOverloadC(1, 2.2).a
+var a:Int64 = C(1).a
+var b:Int64 = C(1, 2.2).a
 
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

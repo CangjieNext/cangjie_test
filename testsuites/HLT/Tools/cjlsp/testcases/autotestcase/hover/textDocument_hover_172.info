@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 418,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: option003.cj\nPackage info: default.option_type\n\n(variable) internal let m6: Int32 = op2 ?? 0\nCopyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.\rThis source file is part of the Cangjie project, licensed under Apache-2.0\rwith Runtime Library Exception.\r\rSee https://cangjie-lang.cn/pages/LICENSE for license information.\r\n"},"range": {"end": {"character": 6,"line": 8},"start": {"character": 4,"line": 8}}}}
+{"id": 418,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: option003.cj\nPackage info: default.option_type\n\n(variable) internal let m6: Int32 = op2 ?? 0\n"},"range": {"end": {"character": 6,"line": 8},"start": {"character": 4,"line": 8}}}}

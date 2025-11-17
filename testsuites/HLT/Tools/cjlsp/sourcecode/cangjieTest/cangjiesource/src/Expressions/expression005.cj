@@ -1,13 +1,13 @@
 package default.Expressions
 
-open class Person {
+open class A {
     var aa = 2
     init() {
         this.aa = 2
     }
 }
 
-class Student <: Person {
+class B <: A {
     init() {
         this.aa = super.aa
     }

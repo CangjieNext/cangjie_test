@@ -4,7 +4,7 @@ package default.Enum
 enum Expr1 {
     | Num(Int64)
     | Add(Expr1, Expr1)
-    | Sub1(Expr1, Expr1)
+    | Sub(Expr1, Expr1)
 }
 
 var b1 = Expr1.Num(1)

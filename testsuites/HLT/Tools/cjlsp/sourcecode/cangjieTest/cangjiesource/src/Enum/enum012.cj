@@ -7,8 +7,8 @@ enum Either<T1, T2> {
     | Hour(T1, T2, T2, T2)
 }
 
-let ENUMA :Either<Int64, Float32>= Either<Int64, Float32>.Year(2)
-let ENUMA_1: Either<Int64, Float32> = Either<Int64, Float32>.Day(1, 2.2, 3.3)
+let a :Either<Int64, Float32>= Either<Int64, Float32>.Year(2)
+let a_1: Either<Int64, Float32> = Either<Int64, Float32>.Day(1, 2.2, 3.3)
 
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

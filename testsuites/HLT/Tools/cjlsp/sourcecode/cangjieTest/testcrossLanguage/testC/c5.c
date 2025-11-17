@@ -5,8 +5,8 @@
 char* my_strcat(char* dest, const char* src)
 {
     char* n = dest;
-    while(*n != 0) {++n;}
-    while((*n++ = *src++) != 0) {}
+    while(*n) ++n;
+    while(*n++ = *src++);
     return dest;
 }
 

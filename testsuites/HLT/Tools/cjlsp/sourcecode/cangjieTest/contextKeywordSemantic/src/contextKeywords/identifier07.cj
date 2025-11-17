@@ -1,9 +1,9 @@
 package default.contextKeywords
 
-func redef07(x!: Int64) {}
+func redef(x!: Int64) {}
 
 func test7() {
-    var b5 = redef07(x: 3)
+    var b5 = redef(x: 3)
 }
 
 /*

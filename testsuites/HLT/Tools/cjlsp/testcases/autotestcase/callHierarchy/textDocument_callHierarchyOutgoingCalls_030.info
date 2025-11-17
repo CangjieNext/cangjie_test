@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 261,"jsonrpc": "2.0","result": [{"fromRanges": [{"end": {"character": 14,"line": 11},"start": {"character": 12,"line": 11}}],"to": {"data": {"isKernel": false,"symbolId": "0"},"detail": "default.pkg.sub.s1.cj","kind": 12,"name": "RR()","range": {"end": {"character": 0,"line": 0},"start": {"character": 0,"line": 0}},"selectionRange": {"end": {"character": 0,"line": 0},"start": {"character": 0,"line": 0}},"uri": "testcallHierarchy/src/pkg/sub/s1.cj"}}]}
+{"id": 261,"jsonrpc": "2.0","result": [{"fromRanges": [{"end": {"character": 14,"line": 11},"start": {"character": 12,"line": 11}}],"to": {"data": {"isKernel": false,"symbolId": "7431856841067530625"},"detail": "default.pkg.sub.s1.cj","kind": 12,"name": "RR()","range": {"end": {"character": 15,"line": 4},"start": {"character": 13,"line": 4}},"selectionRange": {"end": {"character": 15,"line": 4},"start": {"character": 13,"line": 4}},"uri": "testcallHierarchy/src/pkg/sub/s1.cj"}}]}

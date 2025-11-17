@@ -8,7 +8,7 @@ extend Foo10 {
     func f4() {}
 }
 
-func test010() {
+func test() {
     let a = Foo10()
     a.f2()
     a.f3()

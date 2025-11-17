@@ -1,14 +1,14 @@
-package Is
+package default.Is
 
 interface I1 {}
 interface I2 {}
-class IsA <: I1 & I2 {}
+class A <: I1 & I2 {}
 
 func a3() {
-    let i1: IsA = IsA()
+    let i1: A = A()
     let z = i1 is I1
     let z1 = i1 is I2
-    let z2 = i1 is IsA
+    let z2 = i1 is A
 }
 
 /*

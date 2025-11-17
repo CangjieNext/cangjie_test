@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <stdio.h>
 
 void testsame2() {
     printf("Hello World testfunc1\n");

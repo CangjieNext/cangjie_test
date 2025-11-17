@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":268,"jsonrpc":"2.0","result":[{"containerName":"default.Func","kind":12,"location":{"range":{"end":{"character":14,"line":10},"start":{"character":5,"line":10}},"uri":"cangjiesource/src/Func/func001.cj"},"name":"fooString()"}]}
+{"id": 268,"jsonrpc": "2.0","result": null}

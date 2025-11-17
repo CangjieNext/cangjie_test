@@ -5,7 +5,7 @@ public class Rectange {
     protected func test1() {}
     private func test2() {}
     func test3() {}
-    public static let NUM:Int64 = 1
+    public static let num:Int64 = 1
     protected static func teststatic() {}
     private static var num1 = 1
     static var num2 = 2
@@ -14,7 +14,7 @@ public class Rectange {
 func t1() {
     var a1 = Rectange()
     a1.test1()
-    var a2 = Rectange.NUM
+    var a2 = Rectange.num
 
 }
 

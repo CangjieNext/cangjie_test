@@ -6,17 +6,17 @@ interface I1 {
 interface I2 {
     func f(a: Int32): Unit {}
 }
-open class InterfaceA {
+open class A {
     open func f(a: Int32): Unit {}
 }
 
-class InterfaceB <: InterfaceA & I1 & I2 {
+class B <: A & I1 & I2 {
     public func f(a: Int32): Unit {}
 }
 
 func main10() {
-    InterfaceA()
-    InterfaceB().f(9)
+    A()
+    B().f(9)
 
 }
 

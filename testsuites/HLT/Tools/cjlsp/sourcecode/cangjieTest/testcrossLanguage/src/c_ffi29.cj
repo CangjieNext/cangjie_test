@@ -3,11 +3,11 @@ package default
 foreign func funcconstruct(a: Int64, b: Int64): Int64
 
 enum EE {
-    EEXY(Int64, Int64)
+    XY(Int64, Int64)
 }
 
 unsafe func test29() {
-    var aa = EE.EEXY(funcconstruct(1, 2), funcconstruct(3, 4))
+    var aa = EE.XY(funcconstruct(1, 2), funcconstruct(3, 4))
 }
 
 /*

@@ -5,8 +5,8 @@ class Empty {
     Empty(a: UInt8) {}
 }
 
-let GLOBALA: UInt8 = 1
-var w1 = Empty(GLOBALA)
+let a: UInt8 = 1
+var w1 = Empty(a)
 
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
