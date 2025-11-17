@@ -115,7 +115,13 @@ extend TestStruct {
         }
     } 
 }
-
-public func global_func_01(){
-    true
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(TestStruct().exported_prop1, 1)
+    assert(TestStruct().prop2, 2)
+    assert(TestStruct().prop3, 3)
+    assert(TestStruct().prop7, 7)
+    assert(TestStruct().prop8, 8)
 }

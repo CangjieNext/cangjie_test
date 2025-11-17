@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
  
-// ASSERT: scan Compatible!
+// ASSERT: scan-full Compatible!\n
 
 package test_stable_abi
 
@@ -140,4 +140,13 @@ enum Rectangle {
         return 1
     }
 }
-
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(Red.geta() is I, true)
+    assert(Red.getb() is I, true)
+    assert(Red.getc() is Addable, true)
+    assert(Red.getd() is Subtractable, true)
+    assert(Red.gete() is Subtractable, true)
+}
