@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -13,7 +13,6 @@
 
 import std.fs.*
 import stdx.crypto.x509.*
-import stdx.crypto.common.*
 
 var sum = 0
 
@@ -84,7 +83,7 @@ class Test_X509_pemformat_decode_01 {
         let pemData = String.fromUtf8(File.readFrom("./data/root_rsa_blank.cer"))
         try {
             X509Certificate.decodeFromPem(pemData)
-        } catch (e: CryptoException) {
+        } catch (e: X509Exception) {
             @Expect(e.message.contains("Pem is empty"))
             sum += 1
         }
@@ -96,7 +95,7 @@ class Test_X509_pemformat_decode_01 {
         let pemData = String.fromUtf8(File.readFrom("./data/root_ecdsa_1.text"))
         try {
             X509Certificate.decodeFromPem(pemData)
-        } catch (e: CryptoException) {
+        } catch (e: X509Exception) {
             @Expect(e.message.contains("Failed to parse PEM"))
             sum += 1
         }
@@ -108,7 +107,7 @@ class Test_X509_pemformat_decode_01 {
         let pemData = String.fromUtf8(File.readFrom("./data/end_ecdsa_1.cer"))
         try {
             X509Certificate.decodeFromPem(pemData)
-        } catch (e: CryptoException) {
+        } catch (e: X509Exception) {
             @Expect(e.message.contains("Failed to parse base64 encoded PEM body"))
             sum += 1
         }

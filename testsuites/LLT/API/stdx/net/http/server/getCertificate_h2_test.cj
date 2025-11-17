@@ -25,8 +25,7 @@ package tests.server
 
 import stdx.net.http.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 import stdx.encoding.url.*
 import std.io.*
@@ -46,7 +45,7 @@ class TestServer11TlsAllRightTest {
     func lessTest(): Unit {
         var cfg = serverConfig()
         let pem = String.fromUtf8(readToEnd(File("./files/root_ecdsa.cer", Read)))
-        cfg.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+        cfg.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
         cfg.clientIdentityRequired = Required
         let server = ServerBuilder().addr("127.0.0.1").port(0).tlsConfig(cfg).build()
         server.distributor.register("/hello", handler)
@@ -76,7 +75,7 @@ class TestServer11TlsAllRightTest {
         var clientCfg = clientConfig()
         let pem = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
         let keyPem = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
-        clientCfg.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), GeneralPrivateKey.decodeFromPem(keyPem))
+        clientCfg.clientCertificate = (X509Certificate.decodeFromPem(pem), PrivateKey.decodeFromPem(keyPem))
         let client = ClientBuilder().tlsConfig(clientCfg).build()
         let u = URL.parse("https://127.0.0.1:${port}/hello")
         let req = HttpRequestBuilder().version(HTTP2_0).url(u).header("connection", "close").build()

@@ -11,40 +11,39 @@
 import stdx.net.tls.*
 import stdx.crypto.x509.*
 import stdx.crypto.keys.*
-import stdx.crypto.common.*
 
 @Test
 class PrivateKeyEncryptionTest {
     @TestCase[k in random()]
     func garbagePlainInput(k: Array<Byte>): Unit {
-        assertFailsWith<CryptoException> {
-            GeneralPrivateKey.decodeDer(DerBlob(k))
+        assertFailsWith<X509Exception> {
+            PrivateKey.decodeDer(DerBlob(k))
         }
     }
 
     @TestCase[k in random()]
     func garbageEncryptedInput(k: Array<Byte>): Unit {
-        assertFailsWith<CryptoException> {
-            GeneralPrivateKey.decodeDer(DerBlob(k), password: "ok")
+        assertFailsWith<X509Exception> {
+            PrivateKey.decodeDer(DerBlob(k), password: "ok")
         }
     }
 
     @TestCase
     func plainPrivateKey(): Unit {
-        checkKey(GeneralPrivateKey.decodeFromPem(PLAIN_PRIVATE_KEY))
+        checkKey(PrivateKey.decodeFromPem(PLAIN_PRIVATE_KEY))
     }
 
     @TestCase
     func encryptedPrivateKeyWithoutPassword(): Unit {
-        assertFailsWith<CryptoException> {
-            GeneralPrivateKey.decodeFromPem(ENCRYPTED_PRIVATE_KEY)
+        assertFailsWith<X509Exception> {
+            PrivateKey.decodeFromPem(ENCRYPTED_PRIVATE_KEY)
         }
     }
 
     @TestCase
     func encryptedPrivateKeyEmptyPassword(): Unit {
-        assertFailsWith<CryptoException> {
-            GeneralPrivateKey.decodeFromPem(ENCRYPTED_PRIVATE_KEY, password: "")
+        assertFailsWith<X509Exception> {
+            PrivateKey.decodeFromPem(ENCRYPTED_PRIVATE_KEY, password: "")
         }
     }
 
@@ -53,68 +52,68 @@ class PrivateKeyEncryptionTest {
         if (pass == "123") {
             return
         } // skip the correct one
-        assertFailsWith<CryptoException> {
-            GeneralPrivateKey.decodeFromPem(ENCRYPTED_PRIVATE_KEY, password: pass)
+        assertFailsWith<X509Exception> {
+            PrivateKey.decodeFromPem(ENCRYPTED_PRIVATE_KEY, password: pass)
         }
     }
 
     @TestCase
     func encryptedPrivateKeyCorrectPassword(): Unit {
-        checkKey(GeneralPrivateKey.decodeFromPem(ENCRYPTED_PRIVATE_KEY, password: "123"))
+        checkKey(PrivateKey.decodeFromPem(ENCRYPTED_PRIVATE_KEY, password: "123"))
     }
 
     @TestCase
     func encryptPrivateKey(): Unit {
-        let key = GeneralPrivateKey.decodeFromPem(PLAIN_PRIVATE_KEY)
+        let key = PrivateKey.decodeFromPem(PLAIN_PRIVATE_KEY)
 
         let encrypted = key.encodeToPem(password: "456")
 
         @Expect(encrypted.label == PemEntry.LABEL_ENCRYPTED_PRIVATE_KEY)
         @Expect(encrypted.body.getOrThrow() != key.encodeToDer())
 
-        assertFailsWith<CryptoException> {
+        assertFailsWith<X509Exception> {
             // we can't just decode it without password: it's actually encrypted
-            GeneralPrivateKey.decodeDer(encrypted.body.getOrThrow())
+            PrivateKey.decodeDer(encrypted.body.getOrThrow())
         }
-        assertFailsWith<CryptoException> {
+        assertFailsWith<X509Exception> {
             // we can't use wrong password to decode it
-            GeneralPrivateKey.decodeDer(encrypted.body.getOrThrow(), password: "123")
+            PrivateKey.decodeDer(encrypted.body.getOrThrow(), password: "123")
         }
 
-        let decrypted = GeneralPrivateKey.decodeDer(encrypted.body.getOrThrow(), password: "456")
+        let decrypted = PrivateKey.decodeDer(encrypted.body.getOrThrow(), password: "456")
         @Expect(decrypted.encodeToDer() == key.encodeToDer())
     }
 
     @TestCase
     func encryptPrivateKeyToDer(): Unit {
-        let key = GeneralPrivateKey.decodeFromPem(PLAIN_PRIVATE_KEY)
+        let key = PrivateKey.decodeFromPem(PLAIN_PRIVATE_KEY)
 
         let encrypted = key.encodeToDer(password: "456")
 
         @Expect(encrypted != key.encodeToDer())
 
-        assertFailsWith<CryptoException> {
-            GeneralPrivateKey.decodeDer(encrypted)
+        assertFailsWith<X509Exception> {
+            PrivateKey.decodeDer(encrypted)
         }
-        assertFailsWith<CryptoException> {
-            GeneralPrivateKey.decodeDer(encrypted, password: "123")
+        assertFailsWith<X509Exception> {
+            PrivateKey.decodeDer(encrypted, password: "123")
         }
 
-        let decrypted = GeneralPrivateKey.decodeDer(encrypted, password: "456")
+        let decrypted = PrivateKey.decodeDer(encrypted, password: "456")
         @Expect(decrypted.encodeToDer() == key.encodeToDer())
     }
 
     @TestCase
     func encryptPrivateKeyEmptyPassword(): Unit {
-        let key = GeneralPrivateKey.decodeFromPem(PLAIN_PRIVATE_KEY)
+        let key = PrivateKey.decodeFromPem(PLAIN_PRIVATE_KEY)
 
-        assertFailsWith<CryptoException> {
+        assertFailsWith<X509Exception> {
             key.encodeToDer(password: "")
         }
     }
 
     private func checkKey(key: PrivateKey): Unit {
-        GeneralPrivateKey.decodeDer(key.encodeToDer())
+        PrivateKey.decodeDer(key.encodeToDer())
 
         @Expect(key.toString() == "PrivateKey(185 bytes, EC 384 bits)")
         @Expect(key.encodeToPem().encode() == PLAIN_PRIVATE_KEY.replace("    ", ""))

@@ -9,7 +9,7 @@
 
 import std.{fs.*, net.*, io.*}
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 
 let certificatePath = "./files/apiserver.crt"
@@ -21,18 +21,18 @@ main() {
     let keyText = readTextFromFile(certificateKeyPath)
 
     let certificate = X509Certificate.decodeFromPem(pem)
-    let privateKey = GeneralPrivateKey.decodeFromPem(keyText)
+    let privateKey = PrivateKey.decodeFromPem(keyText)
 
     let config = TlsServerConfig(certificate, privateKey)
 
     //可选：允许恢复TLS会话
-    let sessions= TlsServerSession.fromName("my-server")
+    let sessions= TlsSessionContext.fromName("my-server")
 
     try (server = TcpServerSocket(bindAt: 8443)) {
         server.bind()
 
         server.acceptLoop {
-            clientSocket => try (tls = TlsSocket.server(clientSocket, serverConfig: config, session: sessions)) {
+            clientSocket => try (tls = TlsSocket.server(clientSocket, serverConfig: config, sessionContext: sessions)) {
                 tls.handshake()
                 let buffer = Array<Byte>(100, repeat: 0)
                 tls.read(buffer)

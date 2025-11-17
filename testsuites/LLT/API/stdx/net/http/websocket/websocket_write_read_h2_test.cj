@@ -23,7 +23,6 @@
 package tests.websocket
 
 import stdx.net.http.*
-import stdx.crypto.kit
 import stdx.encoding.url.*
 import std.net.*
 import std.unittest.*
@@ -33,7 +32,7 @@ import std.sync.*
 import std.collection.*
 import stdx.log.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import {asan.*, tlsconfig.*}
 
 @Test

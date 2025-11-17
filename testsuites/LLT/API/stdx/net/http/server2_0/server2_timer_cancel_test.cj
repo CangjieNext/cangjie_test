@@ -29,7 +29,7 @@ import std.sync.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import std.io.*
 import {asan.*, tlsconfig.*}
 

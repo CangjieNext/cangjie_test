@@ -12,8 +12,7 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 import std.sync.*
 import std.time.*
@@ -43,14 +42,14 @@ class Test_tlsserverconf_03 {
         func startServerHandshake(): Unit {
             let pem0 = String.fromUtf8(readToEnd(File("./files/apiserver.crt", Read)))
             let pem02 = String.fromUtf8(readToEnd(File("./files/apiserver.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
             serverConf.verifyMode = Default
             serverConf.clientIdentityRequired = Required
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             try {
@@ -66,10 +65,10 @@ class Test_tlsserverconf_03 {
         sleep(Duration.millisecond * 100)
         var clientConf = TlsClientConfig()
         let pemCA = String.fromUtf8(readToEnd(File("./files/apica.crt", Read)))
-        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemCA).map({c => c}))
+        clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemCA))
         let pem1 = String.fromUtf8(readToEnd(File("./files/client_taibai.crt", Read)))
         let pem12 = String.fromUtf8(readToEnd(File("./files/client_taibai.pem", Read)))
-        clientConf.certificate = (X509Certificate.decodeFromPem(pem1).map({c => c}), GeneralPrivateKey.decodeFromPem(pem12))
+        clientConf.clientCertificate = (X509Certificate.decodeFromPem(pem1), PrivateKey.decodeFromPem(pem12))
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)

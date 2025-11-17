@@ -15,7 +15,7 @@
 package tests.client1_1
 
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import std.net.*
 import std.sync.*
 import std.time.*

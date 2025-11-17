@@ -10,16 +10,13 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.keys.*
-import stdx.crypto.common.*
+import stdx.crypto.x509.*
 import std.{net.*, fs.*, io.*}
 import std.unittest.*
 import std.unittest.testmacro.*
 
 // shared session context storing sessions
-let sessionContext = TlsServerSession.fromName("abc")
+let sessionContext = TlsSessionContext.fromName("abc")
 
 @Test
 class TestGetCertsWhenResumeSession {
@@ -34,18 +31,15 @@ class TestGetCertsWhenResumeSession {
                 // establish a connection on server side
                 let server = runTlsServer(tcpServer, version)
                 // check cert
-                let cert = server.handshakeResult?.peerCertificate ?? throw Exception("certs from connection number ${i} is empty")
-                if (cert.isEmpty()) {
-                    throw Exception("certs from connection number ${i} is empty")
-                }
-                @Expect((cert[0] as X509Certificate).getOrThrow().encodeToDer().body.toString() == clientCer[0].encodeToDer().body.toString())
+                let cert = server.peerCertificate ?? throw Exception("certs from connection number ${i} is empty")
+                @Expect(cert[0].encodeToDer().body.toString() == clientCer[0].encodeToDer().body.toString())
                 // close the connection
                 server.socket.close()
                 server.close()
             }
         }
 
-        var session: ?TlsClientSession = None
+        var session: ?TlsSession = None
         for (i in 0..4) {
             // establish a connection on client side
             session = runTlsClient(port, version, session: session)
@@ -69,28 +63,27 @@ func runTcpServer(): (TcpServerSocket, UInt16) {
 func runTlsServer(server: TcpServerSocket, version: TlsVersion): TlsSocket {
     var serverConf = serverConfig()
     serverConf.supportedAlpnProtocols = ["http/1.1"]
-    serverConf.supportedVersions = [version]
+    serverConf.minVersion = version
+    serverConf.maxVersion = version
     let socket = server.accept()
-    let tlsServer = TlsSocket.server(socket, serverConfig: serverConf, session: sessionContext)
+    let tlsServer = TlsSocket.server(socket, serverConfig: serverConf, sessionContext: sessionContext)
     tlsServer.handshake()
     return tlsServer
 }
 
-func runTlsClient(port: UInt16, version: TlsVersion, session!: ?TlsClientSession = None): ?TlsClientSession {
+func runTlsClient(port: UInt16, version: TlsVersion, session!: ?TlsSession = None): ?TlsSession {
     var clientCfg = clientConfig()
-    var session_: ?TlsClientSession = None
+    var session_: ?TlsSession = None
 
-    clientCfg.supportedAlpnProtocols = ["http/1.1"]
-    clientCfg.supportedVersions = [version]
+    clientCfg.alpnProtocolsList = ["http/1.1"]
+    clientCfg.minVersion = version
+    clientCfg.maxVersion = version
     try (clientTcp = TcpSocket("127.0.0.1", port)) {
         clientTcp.connect()
         try (client = TlsSocket.client(clientTcp, clientConfig: clientCfg, session: session)) {
             client.handshake()
             client.read([1, 2, 3])
-            session_ = match (client.handshakeResult.getOrThrow().session) {
-                case Some(s) => (s as TlsClientSession).getOrThrow()
-                case _ => None
-            }
+            session_ = client.session
         }
     }
 
@@ -101,23 +94,23 @@ func serverConfig(): TlsServerConfig {
     let pem = String.fromUtf8(readToEnd(File("./files/root_ecdsa.cer", Read)))
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
-    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
+    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
     tlsConfig.supportedAlpnProtocols = ["h2"]
     tlsConfig.clientIdentityRequired = Required
-    tlsConfig.supportedVersions = [V1_3]
-    tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+    tlsConfig.minVersion = V1_3
+    tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
     tlsConfig
 }
 
 func clientConfig(): TlsClientConfig {
     var tlsConfig = TlsClientConfig()
     let pem = String.fromUtf8(readToEnd(File("./files/root_ecdsa.cer", Read)))
-    tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
+    tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem))
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
 
-    tlsConfig.certificate = (X509Certificate.decodeFromPem(pem0).map({c => c}), GeneralPrivateKey.decodeFromPem(pem02))
-    tlsConfig.supportedAlpnProtocols = ["h2"]
-    tlsConfig.supportedVersions = [V1_3]
+    tlsConfig.clientCertificate = (X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+    tlsConfig.alpnProtocolsList = ["h2"]
+    tlsConfig.minVersion = V1_3
     tlsConfig
 }

@@ -12,8 +12,7 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 import std.sync.*
 import std.time.*
@@ -40,18 +39,18 @@ class Test_tlsclientconf_07 {
             var sum = 0
             let pem0 = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
             let pem02 = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
 
             try {
-                serverConf.supportedCipherSuites[V1_2] = ["\0"]
+                serverConf.cipherSuitesV1_2 = ["\0"]
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message.contains("The TLS config property (supportedCipherSuites) cannot contain null character"))
+                @Expect(e.message.contains("The TLS config property (cipherSuitesV1_2) cannot contain null character"))
                 sum += 1
             }
             try {
-                serverConf.supportedCipherSuites[V1_3] = ["\0"]
+                serverConf.cipherSuitesV1_3 = ["\0"]
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message.contains("The TLS config property (supportedCipherSuites) cannot contain null character"))
+                @Expect(e.message.contains("The TLS config property (cipherSuitesV1_3) cannot contain null character"))
                 sum += 1
             }
             try {
@@ -68,15 +67,15 @@ class Test_tlsclientconf_07 {
         var sum = 0
 
         try {
-            clientConf.serverName = "\0"
+            clientConf.domain = "\0"
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("The TLS config property (serverName) cannot contain null character"))
+            @Expect(e.message.contains("The TLS config property (domain) cannot contain null character"))
             sum += 1
         }
         try {
-            clientConf.supportedAlpnProtocols = ["\0"]
+            clientConf.alpnProtocolsList = ["\0"]
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("The TLS config property (supportedAlpnProtocols) cannot contain null character"))
+            @Expect(e.message.contains("The TLS config property (alpnProtocolsList) cannot contain null character"))
             sum += 1
         }
 

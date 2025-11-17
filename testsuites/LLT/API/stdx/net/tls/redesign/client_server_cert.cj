@@ -12,8 +12,7 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 import std.sync.*
 import std.time.*
@@ -30,7 +29,7 @@ var tlsser = Option<TlsSocket>.None
 @Test
 class Test_tlsclientconf_01 {
     let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa.cer")))
-    let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
+    let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
 
     public override func beforeEach(): Unit {
         sum = 0
@@ -46,12 +45,13 @@ class Test_tlsclientconf_01 {
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
-            @Expect(tlsServer.certificate == serverCert)
-            @Expect(tlsServer.handshakeResult.getOrThrow().peerCertificate.isEmpty())
+            @Expect(tlsServer.serverCertificate == serverCert)
+            @Expect(tlsServer.clientCertificate == None)
+            @Expect(tlsServer.peerCertificate == None)
         }
         spawn {
             startServerHandshake()
@@ -65,9 +65,9 @@ class Test_tlsclientconf_01 {
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         tlsClient.handshake()
 
-        @Expect(tlsClient.handshakeResult.getOrThrow().peerCertificate[..1]
-            .map({c => (c as X509Certificate).getOrThrow()}) == serverCert)
-        @Expect(tlsClient.certificate.isEmpty())
+        @Expect(tlsClient.serverCertificate[..1] == serverCert)
+        @Expect(tlsClient.peerCertificate.getOrThrow()[..1] == serverCert)
+        @Expect(tlsClient.clientCertificate == None)
 
         sleep(Duration.millisecond * 1000)
         tlsClient.close()

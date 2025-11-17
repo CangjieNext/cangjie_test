@@ -18,8 +18,6 @@
 package tests.hello
 
 import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
 import stdx.log.*
 import std.time.*
 import std.sync.*

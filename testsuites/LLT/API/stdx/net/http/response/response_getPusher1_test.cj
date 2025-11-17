@@ -18,8 +18,6 @@ package tests.request
 
 import std.net.TcpSocket
 import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
 
 @Test
 class TestMethod {

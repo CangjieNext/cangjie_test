@@ -15,7 +15,7 @@
 package tests.client1_1
 
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import std.net.*
 import std.sync.*
 import std.time.*
@@ -54,7 +54,7 @@ class TestClient1_1HTTPs4 {
         }
         sleep(Duration.second)
         var cfg = clientConfig()
-        cfg.supportedAlpnProtocols = ["http/1.1"]
+        cfg.alpnProtocolsList = ["http/1.1"]
         let client = ClientBuilder().tlsConfig(cfg).build()
         client.logger.level = LogLevel.DEBUG
         // send a http request

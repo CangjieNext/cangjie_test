@@ -18,9 +18,6 @@
 package tests.client
 
 import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
-import stdx.net.tls
 import stdx.log.*
 import std.sync.*
 import std.time.*

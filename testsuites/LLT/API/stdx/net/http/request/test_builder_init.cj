@@ -21,9 +21,6 @@
 package tests.request
 
 import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
-import stdx.net.tls
 
 import std.collection.ArrayList
 import asan.*

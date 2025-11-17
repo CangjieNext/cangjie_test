@@ -14,7 +14,6 @@ import std.convert.*
 import std.crypto.digest.*
 import std.fs.*
 import stdx.crypto.x509.*
-import stdx.crypto.common.*
 import stdx.crypto.digest.*
 import std.io.*
 import std.runtime.*
@@ -164,7 +163,7 @@ vmsHmSKA0KbXWjuopibM/ldBtOufAGstgnen4FOLarSC46OFm/hsFNbqiA==
         try {
             SM2PrivateKey.decodeFromPem("")
         } catch (e: Exception) {
-            @Expect(e.message.contains("Failed to parse PEM: Pem is empty."))
+            @Expect(e.message.contains("X509 parse pem failed: Pem is empty"))
             sum += 1
         }
 
