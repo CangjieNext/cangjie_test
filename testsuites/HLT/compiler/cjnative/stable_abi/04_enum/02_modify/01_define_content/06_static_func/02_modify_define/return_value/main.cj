@@ -9,11 +9,9 @@
 import test_stable_abi.*
 
 main() {
-    let r = Rectangle.Red
-    let g = Rectangle.Green
-    let b = Rectangle.Blue(100)
-
-    return 0
+    assert(Rectangle.geta() is I, true)
+    assert(Rectangle.getb() is I, true)
+    assert(Rectangle.getc() is Addable, true)
+    assert(Rectangle.getd() is Subtractable, true)
+    assert(Rectangle.gete() is Subtractable, true)
 }
-
-

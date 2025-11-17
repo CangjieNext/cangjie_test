@@ -9,7 +9,15 @@
 import test_stable_abi.*
 
 main() {
-    return Red.getWidth() + Red.geta("test", b: -1) + Red.geta2() + Red.geta3(0, b: 0) + Red.geta5() + Red.geta6(0, 0.0) + Red.geta8() + Red.geta9(A(), B()) + Red.geta10(0, 0.0) + Red.geta11(0, 0.0) - 19
+    assert(Red.getWidth(), 11)
+    assert(Red.geta("test", b: -1), 0)
+    assert(Red.geta2(), 1)
+    assert(Red.geta3(0, b: 0), 1)
+    assert(Red.geta5(), 1)
+    assert(Red.geta6(0, 0.0), 1)
+    assert(Red.geta8(), 1)
+    assert(Red.geta9(A(), B()), 1)
+    assert(Red.geta10(0, 0.0), 1)
+    assert(Red.geta11(0, 0.0), 1)
+    check()
 }
-
-

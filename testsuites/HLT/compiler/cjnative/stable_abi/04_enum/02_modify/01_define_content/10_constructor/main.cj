@@ -9,11 +9,11 @@
 import test_stable_abi.*
 
 main() {
-    let r = RGBColor.Red
-    let g = RGBColor.Green
-    let b = RGBColor.Blue(100)
-
-    return 0
+    assert(E11.Red.g(), 1)
+    assert(E11.Green.g(), 1)
+    assert(E11.Blue(1).g(), 1)
+    assert(E21.Red.g(), 1)
+    assert(E21.Green.g(), 1)
+    assert(E21.Blue.g(), 1)
+    check()
 }
-
-

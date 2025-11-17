@@ -5,17 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
-// ASSERT: scan Compatible!
 
 import test_stable_abi.*
 
 main() {
-    let r = Rectangle.Red
-    let g = Rectangle.Green
-    let b = Rectangle.Blue(100)
-
-    return 0
+    assert(A.p1, 1)
+    assert(A.p2, 1)
+    assert(f(), 2)
+    check()
 }
-
-

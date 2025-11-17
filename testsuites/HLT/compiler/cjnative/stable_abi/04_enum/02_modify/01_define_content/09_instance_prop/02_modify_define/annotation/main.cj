@@ -9,7 +9,9 @@
 import test_stable_abi.*
 
 main() {
-    return RED.p1 + BLUE.p2 + YELLOW(1).p3
+    assert(A.p1, 1)
+    assert(A.p2, 2)
+    assert(cls().a, 3)
+    assert(f(), 10)
+    check()
 }
-
-

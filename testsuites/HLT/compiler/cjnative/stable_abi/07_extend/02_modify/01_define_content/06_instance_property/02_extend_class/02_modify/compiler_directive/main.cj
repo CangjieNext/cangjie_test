@@ -22,7 +22,13 @@ main() {
     tc.prop6 = 6
     tc.prop10 = 12345
     tc.prop11 = -1
-
+    assert(TestClass().prop1, 1)
+    assert(TestClass()._prop3, 3)
+    assert(TestClass().prop4, 4)
+    assert(TestClass().prop6, 6)
+    assert(TestClass().prop10, 10)
+    assert(TestClass().prop11, 11)
+    check()
     if (
         son_tc.exported_prop2 == 1
         && tc.prop1 == 1 && tc._prop3 == 3

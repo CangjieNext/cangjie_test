@@ -19,7 +19,7 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// EXEC: %rm libstable_abi.%dylib_suffix
+// EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
@@ -33,35 +33,26 @@
 package test_stable_abi
 
 // test enum: add enum
-public enum RGBColor {
+public enum E1 {
     | Red | Green | Blue(UInt8)
-
-    public static func printType() {
-        print("RGBColor")
-    }
+    public static func g() {1}
 }
-
-enum Testb {
+enum E2 {
     | Red | Green | Blue(UInt8)
-
-    public static func printType() {
-        print("RGBColor")
-    }
+    public static func g() {1}
 }
-
-public enum Testc {
+public enum E3 {
     | Red | Green | Blue(UInt8)
-
-    public static func printType() {
-        print("RGBColor")
-    }
+    public static func g() {1}
 }
-
-
-enum Testd {
-    | Red | Green | Blue(UInt8)
-    
-    public static func printType() {
-        print("RGBColor")
-    }
+enum E4 {
+    | Red | Green | Blue(UInt8)  
+    public static func g() {1}
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(E2.g(), 1)
+    assert(E4.g(), 1)
 }

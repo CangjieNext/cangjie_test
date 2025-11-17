@@ -52,7 +52,9 @@ unsafe main() {
     son._pp3(Father(), b: Father())
 
     let tc = TestClass()
-
+    assert(tc.p3(Father(), b: Father()) is Father, true)
+    assert(tc.p2(Son(), b: Son()) is Son, true)
+    check()
     if (
         tc.f1() == 1 && tc.f4() == 3
         && tc.f6() == 5 && global() == 7

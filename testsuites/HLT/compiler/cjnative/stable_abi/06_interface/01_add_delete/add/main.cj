@@ -9,11 +9,6 @@
 import test_stable_abi.*
 
 main() {
-    if (I1.typename() == "interface I1") {
-        0
-    } else {
-        1
-    }
+    assert(I1.g(), 1)
+    assert(I2<Int64>.g(), 1)
 }
-
-

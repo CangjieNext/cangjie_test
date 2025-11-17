@@ -9,7 +9,5 @@
 import test_stable_abi.*
 
 main() {
-    return 0
+    check()
 }
-
-

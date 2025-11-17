@@ -22,7 +22,6 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Changed return type of function visible outside the module. The new return type is not a subtype of the old return type.
@@ -163,4 +162,14 @@ enum Rectangle {
     func geta6(): Int16 {
         return 1
     }
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(Red.geta() is I, true)
+    assert(Red.getb() is I, true)
+    assert(Red.getc() is Addable, true)
+    assert(Red.getd() is Subtractable, true)
+    assert(Red.gete() is Subtractable, true)
 }

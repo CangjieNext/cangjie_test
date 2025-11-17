@@ -9,11 +9,6 @@
 import test_stable_abi.*
 
 main() {
-    let r = Rectangle.Red
-    let g = Rectangle.Green
-    let b = Rectangle.Blue(100)
-
-    return 0
+    assert(A.g1(), 1)
+    check()
 }
-
-

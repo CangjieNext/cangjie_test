@@ -24,9 +24,9 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [ABI] Changed member function's annotation of enum visible outside the module. Frozen deleted.
+// ASSERT: scan-2 [ABI] Changed member function's annotation of enum visible outside the module. Frozen deleted.
 // ASSERT: scan-not [API]
-// ASSERT: scan-1 [ABI]
+// ASSERT: scan-2 [ABI]
 // ASSERT: scan-not [API/ABI]
 
 // TEST API Compatibility
@@ -36,25 +36,18 @@
 // test enum: delete @Frozen with member function
 package test_stable_abi
 
-public enum Rectangle {
-    | Red | Green | Blue(UInt8)
-
-    public func getWidth(): Int64{
-        return 11
-    }
-
-    public func geta(): Int64 {
-        return 0
-    }
-
-    @Frozen
-    func geta1() {
-        return 0
-    }
-
-    @Frozen
-    public func geta2() {
-        let x = geta1()
-        return x
-    }
+public enum E {
+    | A
+    public func g1() {1}
+    public func g2() {1}
+    func g3() {1}
+    func g4() {1}
+}
+@Frozen public func f() {A.g3() + A.g4()}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(A.g3(), 1)
+    assert(A.g4(), 1)
 }
