@@ -59,7 +59,7 @@ main(): Int64 {
 /* SCAN-IN
 ASTException: Cannot construct the 'JumpExpr' node, TokenKind should be BREAK or CONTINUE
 ASTException: Cannot construct the 'JumpExpr' node. (Empty Input)
-description: illegal, token_id: 160, token_literal_value: , fileID: 0, line: 0, column: 0
+description: illegal, token_id: 156, token_literal_value: , fileID: 0, line: 0, column: 0
 ASTException: Illegal TokenKind, TokenKind should be BREAK or CONTINUE
 JumpExpr {
   -keyword: Token {
