@@ -80,7 +80,7 @@ public enum S7<U, T> where T <: Random {
 enum S8<U, T> where T <: Random {
     | Red | Green | Blue(UInt8)
 
-    public func getX(): Int64 {
+    public const func getX(): Int64 {
         return 11
     }
 }
@@ -88,19 +88,26 @@ enum S8<U, T> where T <: Random {
 enum S9<U, T> where T <: Random {
     | Red | Green | Blue(UInt8)
 
-    public func getX(): Int64 {
+    public const func getX(): Int64 {
         return 11
     }
 }
 
 public class C1 {
-    let v1 = S8<Float64, Random>.Red
+    public let v1 = S8<Float64, Random>.Red.getX()
 
-    const init() {
+    public const init() {
         let v3 = 0
     }
 
     public const func f1() {
-        let v2 = S9<Float64, Random>.Green
+        S9<Float64, Random>.Green.getX()
     }
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func f() {
+    assert(S8<Float64, Random>.Red.getX(), 11)
+    assert(S9<Float64, Random>.Red.getX(), 11)
 }

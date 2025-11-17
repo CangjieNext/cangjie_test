@@ -34,11 +34,18 @@
 // 删除带public修饰符的静态成员函数
 package test_stable_abi
 
-
-public enum Rectangle {
-    | Red | Green | Blue(UInt8)
-
-    static func geta(): Int64 {
-        return 0
-    }
+public enum E {
+    | A | B | C(UInt8)
+    protected static func g2() {2}
+    private static func g3() {3}
+    static func g4() {4}
+    static func g() { g3() }
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(E.g2(), 2)
+    assert(E.g(), 3)
+    assert(E.g4(), 4)
 }

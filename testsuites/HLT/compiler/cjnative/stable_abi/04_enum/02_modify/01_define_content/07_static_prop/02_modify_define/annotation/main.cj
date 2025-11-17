@@ -9,7 +9,9 @@
 import test_stable_abi.*
 
 main() {
-    return E.p1 + E.p2 + E.p3
+    assert(E1.p1, 1)
+    assert(E1.p2, 2)
+    assert(cls().a, 3)
+    assert(f(), 10)
+    check()
 }
-
-

@@ -34,30 +34,24 @@
 // 删除不带public修饰符的静态属性
 package test_stable_abi
 
-public enum Rectangle {
-    | Red | Green | Blue(UInt8)
-
-    public func getWidth(): Int64{
-        return 11
-    }
+public enum E1 {
+    | A
+    public static prop p1: Int64 {get(){1}}
 }
-
-public enum Rectangle1 {
-    AB
-    public static prop geta: Int64 {
-        get() {
-            1
-        }
-    }
-
-    public static prop getb: Int64 {
-        get() {
-            1
-        }
-    }
-
-    @Frozen
-    public func f1(){
-        getb
-    }
+enum E2 {
+    | B
+    public static prop p1: Int64 {get(){1}}
+}
+enum E3 {
+    | C
+    public static prop p1: Int64 {get(){1}}
+}
+public class cls { public var a = E2.p1 }
+@Frozen public func f() { E3.p1 }
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(E2.p1, 1)
+    assert(E3.p1, 1)
 }

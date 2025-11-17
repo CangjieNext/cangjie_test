@@ -33,12 +33,16 @@
 // test enum: delete public member function
 package test_stable_abi
 
-
-public enum Rectangle {
-    | Red | Green | Blue(UInt8)
-
-    func geta(): Int64 {
-        return 0
-    }
+public enum E {
+    | A | B | C(UInt8)
+    protected func g2() {2}
+    private func g3() {3}
+    func g4() {g3()}
 }
-
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(B.g2(), 2)
+    assert(C(1).g4(), 3)
+}

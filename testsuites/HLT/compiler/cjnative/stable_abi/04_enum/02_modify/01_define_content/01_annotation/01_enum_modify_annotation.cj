@@ -31,14 +31,32 @@
 
 package test_stable_abi
 
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
 @Annotation
-public class A {
+public class A1 {
     let name: String
     public const init(name: String) {
         this.name = name
     }
 }
-
-public enum E1 { RED }
-@A["enum22222"] public enum E2 { BLUE }
-@A["enum33333"] public enum E3 { YELLOW }
+@Annotation
+public class A2 {
+    let name: String
+    public const init(name: String) {
+        this.name = name
+    }
+}
+public enum E1 {
+    RED
+    public func g() {1}
+}
+@A1["enum22"] public enum E2 {
+    BLUE
+    public func g() {1}
+}
+@A2["enum3"] public enum E3 {
+    YELLOW
+    public func g() {1}
+}

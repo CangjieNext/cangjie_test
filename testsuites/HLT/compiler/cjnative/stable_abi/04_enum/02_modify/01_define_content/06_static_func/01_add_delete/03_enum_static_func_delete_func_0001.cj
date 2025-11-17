@@ -34,14 +34,11 @@
 // 删除不带public修饰符的静态成员函数
 package test_stable_abi
 
-public enum Rectangle {
-    | Red | Green | Blue(UInt8)
-
-    public static func getWidth(): Int64{
-        return 10
-    }
-
-    protected static func getHeight(): Int64{
-        return 10
-    }
+public enum E {
+    | A | B | C(UInt8)
+    public static func g1() {1}
 }
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {}

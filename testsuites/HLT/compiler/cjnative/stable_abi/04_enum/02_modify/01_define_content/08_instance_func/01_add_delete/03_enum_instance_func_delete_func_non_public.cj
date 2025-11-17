@@ -34,10 +34,11 @@
 // 删除不带public修饰符的实例成员函数
 package test_stable_abi
 
-public enum Rectangle {
-    | Red | Green | Blue(UInt8)
-
-    public func getWidth(): Int64{
-        return 11
-    }
+public enum E {
+    | A | B | C(UInt8)
+    public func g1() {1}
 }
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {}
