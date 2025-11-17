@@ -11,6 +11,7 @@ import test_stable_abi.*
 main() {
     if (
         TestClass.prop1 == 1 && TestClass.prop_1 == 1
+        && global_func_01()
     ) {
         return 0
     }

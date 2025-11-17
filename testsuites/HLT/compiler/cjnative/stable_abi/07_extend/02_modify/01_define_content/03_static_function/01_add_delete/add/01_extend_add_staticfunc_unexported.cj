@@ -211,3 +211,8 @@ extend<T> Foo<T> where T <: I1 {
     public static func f1() {}
     public static func f2() {}
 }
+
+public func global_func_01() {
+    Foo<Int64>.f2()
+    Int64.foo3() == 1
+}

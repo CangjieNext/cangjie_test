@@ -112,6 +112,15 @@ extend TestStruct {
     public const func f14(): Int64 {
         14
     }
+    public func f15() {
+        f3()
+    }
+    public func f16() {
+        f12()
+    }
+    public func f17() {
+        f11()
+    }
 
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
@@ -149,4 +158,19 @@ extend TestStruct {
 public func global() {
     let s1 = TestStruct()
     s1.f7()
+}
+
+public func global_func_01(){
+    let ts = TestStruct()
+
+    ts.f5() == 5
+    && ts.f2() == 2
+    && ts.pf3() == 3
+    && ts.pf6() == 5
+    && ts.f7() == 7
+    && ts.pf8() == 8
+    && ts.f10() == 10
+    && ts.f17() == 11
+    && ts.f15() == 3
+    && ts.f16() == 12
 }

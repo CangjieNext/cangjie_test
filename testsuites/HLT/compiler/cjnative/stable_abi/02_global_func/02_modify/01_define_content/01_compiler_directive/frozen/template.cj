@@ -33,4 +33,6 @@ public func global_func_12() {
     global_func_05()
 }
 
-
+public func global_func_13() {
+    global_func_01() == 0
+}

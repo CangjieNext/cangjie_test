@@ -120,3 +120,7 @@ extend<T> TestStruct_unexport<T> where T <: I1 {
         "String"
     }
 }
+public func global_func_01(){
+    TestStruct.foo_const_sub() is Father
+    && TestStruct.foo_frozen_sub() is Father
+}

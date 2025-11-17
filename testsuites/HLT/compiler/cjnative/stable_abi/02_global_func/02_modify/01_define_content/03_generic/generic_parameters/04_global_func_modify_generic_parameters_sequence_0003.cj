@@ -42,3 +42,7 @@ const func global_func_04<T1, T2>() { 0 }
 public func global_func_05<T1, T2>() { 0 }
 public const func global_func_06<T1, T2, T3>() { global_func_04<T1, T2>() }
 @Frozen public func global_func_07() { global_func_03<A, A>() }
+
+public func global_func_08() {
+    global_func_02<A, A>() == 0
+}

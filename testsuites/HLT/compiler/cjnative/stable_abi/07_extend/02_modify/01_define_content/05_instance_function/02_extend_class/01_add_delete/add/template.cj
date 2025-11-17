@@ -130,5 +130,6 @@ public func global() {
     let v1 = TestClass()
     v1.f7()
 }
-
-
+public func global_func_01(){
+    true
+}

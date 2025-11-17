@@ -117,6 +117,11 @@ extend TestClass {
             a = v
         }
     }
+    public static prop prop12: Int64 {
+        get() {
+            prop9
+        }
+    }
 }
 
 extend TestStruct {
@@ -196,4 +201,24 @@ extend TestStruct {
             a = v
         }
     }
+    public static prop prop12: Int64 {
+        get() {
+            prop9
+        }
+    }
+}
+
+public func global_var_01(){
+    TestClass.prop2 == 2
+    && TestClass.prop3 == 3
+    && TestClass.prop7 == 7
+    && TestClass.prop8 == 8
+    && TestClass.prop12 == 9
+    && TestClass.prop5 == 5
+    && TestStruct.prop2 == 2
+    && TestStruct.prop3 == 3
+    && TestStruct.prop7 == 7
+    && TestStruct.prop8 == 8
+    && TestStruct.prop12 == 9
+    && TestStruct.prop5 == 5
 }

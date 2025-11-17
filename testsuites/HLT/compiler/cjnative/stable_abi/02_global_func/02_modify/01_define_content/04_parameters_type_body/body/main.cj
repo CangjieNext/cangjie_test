@@ -11,7 +11,7 @@ import test_stable_abi.*
 main() {
     if (global_func_04() + global_func_14() + global_func_24() +
         global_func_15() + global_func_25() +
-        global_func_06() + global_func_16() + global_func_26() == 0) {
+        global_func_06() + global_func_16() + global_func_26() + global_func_27() == 0) {
         return 0
     }
     return 1

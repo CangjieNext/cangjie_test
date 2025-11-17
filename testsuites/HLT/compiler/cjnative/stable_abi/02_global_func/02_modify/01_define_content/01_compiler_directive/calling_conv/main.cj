@@ -12,7 +12,8 @@ main() {
     unsafe {
         if (global_func_10() + global_func_11() + global_func_12() +
             global_func_13() + global_func_14() + global_func_15() +
-            global_func_16() + global_func_17() + global_func_18() == 0) {
+            global_func_16() + global_func_17() + global_func_18() == 0
+            && global_func_19()) {
             return 0
         }
     }

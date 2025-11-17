@@ -24,6 +24,7 @@ unsafe main() {
         && TestStruct.g2<Int64, String, Son>(1, "a", Son()) == "1"
         && TestStruct.p1(1, b: 2, c: 3) == 6
         && TestStruct.p2(Son(), b: Son()) is Son && TestStruct.p3(Father(), b: Father()) is Father
+        && global_func_01()
     ) {
         return 0        
     } else {

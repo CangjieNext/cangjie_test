@@ -151,3 +151,18 @@ public func global() {
     let s1 = TestStruct()
     s1.f7()
 }
+
+public func global_func_01(){
+    let ts = TestStruct()
+
+    ts.f5() == 5
+    && ts.f2() == 2
+    && ts.pf3() == 3
+    && ts.pf6() == 5
+    && ts.f7() == 7
+    && ts.pf8() == 8
+    && ts.f10() == 10
+    && ts.f17() == 11
+    && ts.f15() == 3
+    && ts.f16() == 12
+}
