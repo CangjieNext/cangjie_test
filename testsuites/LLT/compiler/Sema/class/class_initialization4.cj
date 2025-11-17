@@ -19,7 +19,7 @@ error: variable 'b' is used before initialization
    |                           ^ 
    | 
 
-error: global/static variable 'b' is used before initialization during initializing 'b'
+error: global/static variable 'b' is used before initialization during initializing 'a'
   ==> class_initialization4.cj:10:29:
    | 
 10 |     public static var a = A.b
