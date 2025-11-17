@@ -68,3 +68,12 @@ extend<T> TestStruct_unexport<T> where T <: I1 {
         a + b + c + d
     }
 }
+public func global_func_01(){
+    let ts = TestStruct()
+    let foo = TestStruct_unexport<I1>()
+
+    ts.foo_const(0, 0, c: 0) == 1
+    && ts.foo_frozen(0, 0, c: 0) == 1
+    && ts.foo_nonpublic(0, 0, c: 0) == 1
+    && foo.foo_unexport(0, 0, c: 0) == 1
+}

@@ -93,3 +93,7 @@ extend<T> SS<T> where T <: I4 {
 extend<T> SS<T> where T <: I3 & I4 {
     public func f5() {}
 }
+
+public func global_func_01() {
+    true
+}

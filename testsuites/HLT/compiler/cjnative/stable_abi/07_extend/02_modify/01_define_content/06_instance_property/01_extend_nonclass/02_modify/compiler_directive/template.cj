@@ -89,6 +89,11 @@ extend TestStruct {
         set(v) {
         }
     }
+    public prop prop12: Int64 {
+        get() {
+            prop9
+        }
+    }
     public mut prop prop11: Int64 {
         get() {
             11
@@ -100,3 +105,12 @@ extend TestStruct {
 }
 
 
+public func global_func_01(){
+    let ts = TestStruct()
+
+    ts.exports.prop1 == 1
+    && ts.prop2 == 2
+    && ts.prop7 == 7
+    && ts.prop8 == 8
+    && ts.prop12 == 9
+}

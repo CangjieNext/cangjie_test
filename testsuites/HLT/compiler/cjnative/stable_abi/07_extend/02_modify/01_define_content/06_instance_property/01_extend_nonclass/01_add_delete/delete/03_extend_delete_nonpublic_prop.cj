@@ -105,3 +105,7 @@ extend TestStruct {
         }
     } 
 }
+
+public func global_func_01(){
+    true
+}

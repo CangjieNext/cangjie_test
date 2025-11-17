@@ -44,3 +44,15 @@ internal var global_var_07: Int64 = 0
 var global_var_08: Int64 = 0
 var global_var_09: Int64 = 0
 var global_var_10: Int64 = 0
+
+public func global_func_01() {
+    global_var_08 == 0
+    && global_var_10 == 0
+    && global_var_02 == 0
+    && global_var_04 == 0
+    && global_var_06 == 0
+    && global_var_09 == 0
+    && global_var_03 == 0
+    && global_var_05 == 0
+    && global_var_07 == 0
+}

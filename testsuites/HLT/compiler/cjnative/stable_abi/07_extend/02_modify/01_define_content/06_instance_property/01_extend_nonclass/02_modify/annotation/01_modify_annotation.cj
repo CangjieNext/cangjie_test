@@ -109,3 +109,10 @@ extend TestStruct {
         prop_3
     }
 }
+
+public func global_func_01(){
+    let ts = TestStruct()
+
+    ts.prop_2 == 1
+    && ts.prop_3 == 1
+}

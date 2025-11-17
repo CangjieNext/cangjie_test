@@ -80,5 +80,13 @@ extend TestClass {
         f_4()
     }
 }
+public func global_func_01(){
+    let tc = TestClass()
 
-
+    tc.f_2() == 1
+    && tc.f_3() == 1
+    && tc.f_4() == 1
+    && tc.f2() == 1
+    && tc.f3() == 1
+    && tc.f4() == 1
+}

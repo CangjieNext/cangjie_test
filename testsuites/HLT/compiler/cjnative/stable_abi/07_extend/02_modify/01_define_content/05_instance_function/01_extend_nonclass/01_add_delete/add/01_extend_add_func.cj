@@ -219,6 +219,9 @@ extend TestStruct {
     public const func add_f14(): Int64 {
         14
     }
+    public func add_f15(): Int64 {
+        return add_f12()
+    }
 
     public func add_g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
@@ -256,4 +259,36 @@ extend TestStruct {
 public func global() {
     let s1 = TestStruct()
     s1.f7()
+}
+public func global_func_01(){
+    let ts = TestStruct()
+    
+    ts.add_f2() == 2
+    && ts.add_pf3() == 3
+    && ts.add_pf4() == 3
+    && ts.add_f5() == 5
+    && ts.add_pf5() == 5
+    && ts.add_pf6() == 5
+    && ts.add_f7() == 7
+    && ts.add_pf8() == 8
+    && ts.add_f10() == 10
+    && ts.add_f11() == 11
+    && ts.add_f15() == 12
+    && ts.add_pg1("a", "b", Son()) == "ab"
+    && ts.add_pg2("a", Son(), Father()) == "a"
+    && ts.add_pp1(1, b: 2, c: 3) == 6
+    && ts.add_pp2(Son(), b: Son()) is Son 
+    && ts.add_pp3(Father(), b: Father()) is Father
+
+    && ts.add_f1() == 1
+    && ts.add_f4() == 3
+    && ts.add_f6() == 5
+    && ts.add_f8() == 8
+    && ts.add_f13() == 13
+    && ts.add_f14() == 14
+    && ts.add_g1("a", "b", Son()) == "ab"
+    && ts.add_g2("a", Son(), Father()) == "a"
+    && ts.add_p1(1, b: 2, c: 3) == 6
+    && ts.add_p2(Son(), b: Son()) is Son && ts.add_p3(Father(), b: Father()) is Father
+    && ts.add_p3(Father(), b: Father()) is Father
 }

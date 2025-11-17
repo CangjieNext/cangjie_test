@@ -38,3 +38,7 @@ func global_func_01() { 0 }
 const func global_func_02() { 0 }
 public func global_func_03() { 0 }
 @Frozen public func global_func_04() { global_func_02() }
+
+public func global_func_05() {
+    global_func_01() == 0
+}

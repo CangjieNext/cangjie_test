@@ -51,3 +51,8 @@ public const func global_func_05() { global_func_03() }
 public const func global_func_15() { global_func_13() }
 @Frozen public func global_func_06() { global_func_02() }
 @Frozen public func global_func_16() { global_func_12() }
+
+public func global_func_17() {
+    global_func_01().test() == 0
+    && global_func_11().test() == 0
+}

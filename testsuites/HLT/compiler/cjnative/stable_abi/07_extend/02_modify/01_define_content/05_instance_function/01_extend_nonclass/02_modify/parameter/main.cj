@@ -19,6 +19,7 @@ unsafe main() {
         && ts.g2<Int64, String, Son>(1, "a", Son()) == "1"
         && ts.p1(1, b: 2, c: 3) == 6
         && ts.p2(Son(), b: Son()) is Son && ts.p3(Father(), b: Father()) is Father
+        && global_func_01()
     ) {
         return 0
     } else {

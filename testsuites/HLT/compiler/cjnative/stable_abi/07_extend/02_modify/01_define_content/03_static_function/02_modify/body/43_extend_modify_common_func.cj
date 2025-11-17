@@ -123,6 +123,9 @@ extend TestClass {
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
+    public static func f15(): Int64 {
+        return f12()
+    }
 }
 
 extend TestStruct {
@@ -243,4 +246,13 @@ public class Foo<T> {}
 
 extend<T> Foo<T> where T <: I1 {
     public static func f1() {}
+}
+
+public func global_func_01(){
+    TestClass.f2() == 2
+    && TestClass.f10() != 0
+    && TestClass.f11() != 0
+    && TestStruct.f2() != 0
+    && TestStruct.f11() != 0
+    && TestClass.f15() != 0
 }

@@ -71,3 +71,7 @@ extend<T> TestStruct_unexport<T> where T <: I1 {
         a_change_name+b+c
     }
 }
+public func global_func_01(){
+    TestStruct.foo_nonpublic(1, 2) == 4
+    TestStruct_unexport<I1>.foo_unexport(1, 2) == 4
+}

@@ -31,4 +31,6 @@ public func global_func_02() {
     global_var_04
 }
 
-
+public func global_func_03() {
+    global_var_01
+}

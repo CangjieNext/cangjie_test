@@ -222,3 +222,10 @@ public class Foo<T> {}
 extend<T> Foo<T> where T <: I1 {
     public static func f1() {}
 }
+
+public func global_func_01() {
+    TestClass.f1111() == 1
+    && TestClass.f112() == 2
+    && TestStruct.f1111() == 1
+    && TestStruct.f112() == 2
+}

@@ -197,4 +197,18 @@ extend TestStruct {
             a = v
         }
     }
+    public prop aprop12: Int64 {
+        get() {
+            prop9
+        }
+    }
+}
+
+public func global_func_01(){
+    let ts = TestStruct()
+    
+    ts.aprop2 == 2
+    && ts.aprop7 == 7
+    && ts.aprop8 == 8
+    && ts.aprop12 == 9
 }

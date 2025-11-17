@@ -29,6 +29,7 @@ main() {
         && ts.prop4 == 4 && ts.prop6 == 6
         && ts.prop10 == 10 && ts.prop11 == 11
         && ts.a == -1
+        && global_func_01()
     ) {
         return 0
     } else {

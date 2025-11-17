@@ -61,3 +61,7 @@ extend S1 <: I3 & I1 {
         100
     }
 }  
+
+public func global_func_01() {
+    true
+}
