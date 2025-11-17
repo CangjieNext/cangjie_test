@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 231,"jsonrpc": "2.0","result": [{"kind": 1,"range": {"end": {"character": 24,"line":11},"start": {"character": 23,"line":11}}},{"kind": 1,"range": {"end": {"character": 20,"line":21},"start": {"character": 19,"line":21}}},{"kind": 1,"range": {"end": {"character": 15,"line":23},"start": {"character": 14,"line":23}}},{"kind": 1,"range": {"end": {"character": 25,"line":24},"start": {"character": 24,"line":24}}},{"kind": 1,"range": {"end": {"character": 15,"line":25},"start": {"character": 14,"line":25}}}]}
+{"id": 231,"jsonrpc": "2.0","result": null}

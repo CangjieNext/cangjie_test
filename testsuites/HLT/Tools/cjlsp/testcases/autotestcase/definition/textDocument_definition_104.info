@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 1059,"jsonrpc": "2.0","result": {"range": {"end": {"character": 38,"line":29},"start": {"character": 34,"line":29}},"uri": "cangjiesource/src/Lambda/l04.cj"}}
+{"id": 1059,"jsonrpc": "2.0","result": null}

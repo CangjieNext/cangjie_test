@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":742,"jsonrpc":"2.0","result":{"range":{"end":{"character":11,"line":12},"start":{"character":9,"line":12}},"uri":"cangjiesource/src/Extend/extend002.cj"}}
+{"id": 742,"jsonrpc": "2.0","result": null}

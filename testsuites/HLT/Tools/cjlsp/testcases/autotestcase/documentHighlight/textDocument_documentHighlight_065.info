@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 343,"jsonrpc": "2.0","result": [{"kind": 1,"range": {"end": {"character": 22,"line":15},"start": {"character": 19,"line":15}}}]}
+{"id": 343,"jsonrpc": "2.0","result": null}
