@@ -76,6 +76,17 @@ public class TestA {
         }
         println("==============================")
     }
+
+    @TestCase
+    func case4(): Unit {
+        let mockedFoo = unsafe { createMock<Foo>(dummyMockingCallHandler) }
+        try {
+            Foo().accessFooGeneric(mockedFoo)
+        } catch (e: Exception) {
+            println(e)
+        }
+        println("==============================")
+    }
 }
 
 /* SCAN-IN
@@ -84,5 +95,7 @@ NoMockMatchersFoundException: There are no any matchers for method _CN5other3Foo
 NoMockMatchersFoundException: There are no any matchers for method _CN5other3Foo25$pset(Class-P)$ToMock_FooHCNat3AnyE
 ==============================
 NoMockMatchersFoundException: There are no any matchers for method _CN5other3Foo18$pget()$ToMock_FooHv
+==============================
+NoMockMatchersFoundException: There are no any matchers for method _CN5other3Foo33fooGeneric(Generics-T)$ToMock_FooIG_HCNat3AnyE
 ==============================
 */
