@@ -7,7 +7,7 @@ let c1 = HashSet<Int64>([0, 1, 2])
 type v1 = HashSet<Int64>
 let c2: v1 = v1([2, 3])
 
-let TYPEA: Array<Int64> = [1, 3, 4]
+let a: Array<Int64> = [1, 3, 4]
 type BB = Array<Int64>
 
 let a2: BB = [1, 3, 4]

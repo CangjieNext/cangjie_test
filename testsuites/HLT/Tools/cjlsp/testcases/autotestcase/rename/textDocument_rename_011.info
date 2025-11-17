@@ -23,4 +23,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 129,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "bb","range": {"end": {"character": 20,"line": 7},"start": {"character": 19,"line": 7}}},{"newText": "bb","range": {"end": {"character": 13,"line": 8},"start": {"character": 12,"line": 8}}},{"newText": "bb","range": {"end": {"character": 22,"line": 15},"start": {"character": 21,"line": 15}}}],"textDocument": {"uri": "renameProject/src/pkg/c1.cj","version": 7}}]}}
+{"id": 129,"jsonrpc": "2.0","result": {"documentChanges": [{"edits": [{"newText": "bb","range": {"end": {"character": 20,"line": 7},"start": {"character": 19,"line": 7}}},{"newText": "bb","range": {"end": {"character": 13,"line": 8},"start": {"character": 12,"line": 8}}},{"newText": "bb","range": {"end": {"character": 22,"line": 15},"start": {"character": 21,"line": 15}}}],"textDocument": {"uri": "renameProject/src/pkg/c1.cj","version": 6}}]}}

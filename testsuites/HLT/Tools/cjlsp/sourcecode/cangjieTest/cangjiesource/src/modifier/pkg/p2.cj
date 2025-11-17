@@ -4,7 +4,7 @@ public struct Rect {
     public var aa: Int64= 1
     private func test2() {}
     func test3() {}
-    public static let NUM:Int64 = 1
+    public static let num:Int64 = 1
     private static var num1 = 1
     static var num2 = 2
 }
@@ -12,7 +12,7 @@ public struct Rect {
 func t2() {
     var c1 = Rect()
     c1.aa
-    var c2 = Rect.NUM
+    var c2 = Rect.num
 
 }
 

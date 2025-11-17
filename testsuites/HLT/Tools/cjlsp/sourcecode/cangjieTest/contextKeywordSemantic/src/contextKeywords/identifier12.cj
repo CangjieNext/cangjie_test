@@ -1,16 +1,16 @@
 package default.contextKeywords
 
 enum E2{
-    override12
+    override
 }
 
 enum E3<T>{
-    AB(T) |redef12(T)|abstract12(T) |XY
+    AB(T) |redef(T)|abstract(T) |XY
 }
 
 func test12(){
-    var d1 = E3<Int64>.abstract12(8)
-    var d2 = E2.override12
+    var d1 = E3<Int64>.abstract(8)
+    var d2 = E2.override
     var d3 = E3<Float64>.XY
 }
 

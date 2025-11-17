@@ -1,6 +1,6 @@
 package default.contextKeywords
 
-var abstract01 = 1
+var abstract = 1
 
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

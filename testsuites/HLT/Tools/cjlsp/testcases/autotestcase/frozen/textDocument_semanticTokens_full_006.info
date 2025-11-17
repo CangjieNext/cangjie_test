@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":29,"jsonrpc":"2.0","result":{"data":[3,12,6,13,0]}}
+{"id": 29,"jsonrpc": "2.0","result": {"data": [3,12,3,13,0]}}

@@ -1,5 +1,5 @@
-#include <cstdlib>
-#include <cstring>
+#include <stdlib.h>
+#include <string.h>
 #include <stdint-gcc.h>
 
 int8_t* get_cptrc(int8_t* a ){
@@ -7,9 +7,7 @@ int8_t* get_cptrc(int8_t* a ){
     ptrtmp[0] = 48;
     ptrtmp[1] = 48;
     ptrtmp[2] = 48;
-    if (a == nullptr) {
-        std::cout << "a" << std::endl;
-    }
+  
     return ptrtmp;
 }
 

@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 153,"jsonrpc": "2.0","result": [{"containerName": "default.FuncOverload","kind": 5,"location": {"range": {"end": {"character": 19,"line": 2},"start": {"character": 6,"line": 2}},"uri": "cangjiesource/src/FuncOverload/f3.cj"},"name": "FuncOverloadC"},{"containerName": "default.navigation","kind": 19,"location": {"range": {"end": {"character": 8,"line": 3},"start": {"character": 5,"line": 3}},"uri": "cangjiesource/src/navigation/search_navigation19.cj"},"name": "RaD<T>"}]}
+{"id": 153,"jsonrpc": "2.0","result": [{"containerName": "default.navigation","kind": 19,"location": {"range": {"end": {"character": 8,"line": 3},"start": {"character": 5,"line": 3}},"uri": "cangjiesource/src/navigation/search_navigation19.cj"},"name": "RaD<T>"}]}

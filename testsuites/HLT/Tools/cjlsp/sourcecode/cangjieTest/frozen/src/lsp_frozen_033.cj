@@ -1,7 +1,7 @@
 package frozen
 
 @Frozen
-public func foo033() :Unit{}
+public func foo() :Unit{}
 
 
 /*

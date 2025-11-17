@@ -1,6 +1,6 @@
 package default.Expressions
 
-func foo003() {
+func foo() {
     var a: Int32 = 4
     var b: Int64 = Int64(a)
     return b

@@ -1,6 +1,6 @@
 package default.Class.pkgs
 
-public open class PA {
+public open class A {
     public var a: Int64 = 1
 }
 public open class B {

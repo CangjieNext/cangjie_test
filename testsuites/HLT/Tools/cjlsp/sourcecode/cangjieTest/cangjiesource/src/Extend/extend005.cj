@@ -8,7 +8,7 @@ extend<T> Array<T> <: PrintSizeable {
     public func printSize(): Unit {}
 }
 
-let GLOBALB = Array<Int64>().printSize()
+let b = Array<Int64>().printSize()
 
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

@@ -1,13 +1,13 @@
 package default.Lambda
 
-open class LambdaA {
+open class A {
     init(a: Int64, fn: (Int64) -> Int64) {
         fn(a)
     }
     init(a: Int32) {}
     init() {}
 }
-open class LambdaB <: LambdaA {
+open class B <: A {
     init(a: Int64, fn: (Int64) -> Int64) {
         fn(a)
     }
@@ -18,8 +18,8 @@ open class LambdaB <: LambdaA {
         this(1, {i => i * i})
     }
 }
-let GLOBALC:LambdaA = LambdaA(1) {i => i * i}
-let GLOBALD:LambdaB = LambdaB(1) {iabc => iabc * iabc}
+let c:A = A(1) {i => i * i}
+let d:B = B(1) {iabc => iabc * iabc}
 let a = 1
 
 /*
