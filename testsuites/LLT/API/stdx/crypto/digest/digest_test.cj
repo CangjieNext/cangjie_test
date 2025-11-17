@@ -11,7 +11,6 @@
 import stdx.crypto.digest.*
 import std.convert.*
 import std.crypto.digest.*
-import stdx.crypto.common.*
 import stdx.encoding.hex.*
 import std.runtime.*
 import std.io.*
@@ -382,11 +381,11 @@ class Test_digest {
             "631e89cc637553ba4b9a28d0bc101b068129f6faba09e4691d218d642f099949")
     }
 
-    @TestCase[d in [ HMAC("cangjie".toArray(), HashType.SHA512), HMAC("cangjie".toArray(), { => SHA512() }), HMAC("cangjie".toArray(), HashType.SHA384), HMAC("cangjie".toArray(), { => SHA384() }), 
- HMAC("cangjie".toArray(), HashType.SHA256), HMAC("cangjie".toArray(), { => SHA256() }), 
- HMAC("cangjie".toArray(), HashType.SHA224), HMAC("cangjie".toArray(), { => SHA224() }), 
- HMAC("cangjie".toArray(), HashType.SHA1), HMAC("cangjie".toArray(), { => SHA1() }), 
- HMAC("cangjie".toArray(), HashType.MD5), HMAC("cangjie".toArray(), { => MD5() }), 
+    @TestCase[d in [ HMAC("cangjie".toArray(), HashType.SHA512), HMAC("cangjie".toArray(), { => SHA512() }), HMAC("cangjie".toArray(), HashType.SHA384), HMAC("cangjie".toArray(), { => SHA384() }),
+ HMAC("cangjie".toArray(), HashType.SHA256), HMAC("cangjie".toArray(), { => SHA256() }),
+ HMAC("cangjie".toArray(), HashType.SHA224), HMAC("cangjie".toArray(), { => SHA224() }),
+ HMAC("cangjie".toArray(), HashType.SHA1), HMAC("cangjie".toArray(), { => SHA1() }),
+ HMAC("cangjie".toArray(), HashType.MD5), HMAC("cangjie".toArray(), { => MD5() }),
  HMAC("cangjie".toArray(), HashType.SM3), HMAC("cangjie".toArray(), { => SM3() }) ]]
     func test_digest_03_HMAC(d: Digest): Unit {
         test_digest_concat(d)

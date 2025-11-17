@@ -26,7 +26,7 @@ import stdx.net.http.*
 import stdx.log.*
 import std.time.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import std.sync.*
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -39,7 +39,7 @@ class TestConnectFail {
     @TestCase
     func testConnectFail(): Unit {
         var config = clientConfig()
-        config.supportedAlpnProtocols = ["http/1.1", "h2"]
+        config.alpnProtocolsList = ["http/1.1", "h2"]
         startServer()
         let client = ClientBuilder().tlsConfig(config).build()
         var exceptionCaught = false

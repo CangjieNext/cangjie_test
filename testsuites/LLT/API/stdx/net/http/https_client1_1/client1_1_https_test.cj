@@ -15,8 +15,7 @@
 package tests.client1_1
 
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import std.net.*
 import std.sync.*
 import std.time.*
@@ -39,7 +38,7 @@ class TestClient1_1HTTPs {
         sleep(Duration.second)
         let port = (server.localAddress as IPSocketAddress)?.port ?? 0
         var cfg = clientConfig()
-        cfg.supportedAlpnProtocols = ["http/1.1"]
+        cfg.alpnProtocolsList = ["http/1.1"]
         let client = ClientBuilder().readTimeout(Duration.second).tlsConfig(cfg).build()
         client.logger.level = LogLevel.DEBUG
         // send a http request

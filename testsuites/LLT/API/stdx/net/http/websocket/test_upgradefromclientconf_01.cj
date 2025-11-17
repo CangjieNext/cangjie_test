@@ -11,7 +11,7 @@
 // EXEC: %compiler %import-cangjie-stdx  %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
 // EXEC: %compiler %import-cangjie-stdx  %cmp_opt %compile_lib_opt config/tlsconfig.cj -o tlsconfig.%middle
 // EXEC: %compiler %import-cangjie-stdx  %cmp_opt %f asan.%middle tlsconfig.%middle -o %output %cmp_utest_opt
-// RUN-EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args 
+// RUN-EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args
 /*
  * Test description:
  *      Test WebSocket
@@ -21,8 +21,7 @@
 
 import stdx.net.http.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.kit
+import stdx.crypto.x509.*
 import stdx.encoding.url.*
 import std.net.*
 import std.unittest.*
@@ -41,7 +40,7 @@ class Testupgradefromclientconf_01 {
     @TestCase
     func test_07(): Unit {
         var cfg = clientConfig()
-        cfg.supportedAlpnProtocols = ["h2"]
+        cfg.alpnProtocolsList = ["h2"]
         let client = ClientBuilder().tlsConfig(cfg).build()
         let u = URL.parse("wss://127.0.0.1:77777/webSocket")
         let websocket: WebSocket

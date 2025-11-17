@@ -11,7 +11,6 @@
 import std.net.*
 import std.sync.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
 import stdx.crypto.x509.X509Certificate
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -77,7 +76,7 @@ func runTlsClient(port: UInt16) {
         try (client = TlsSocket.client(clientTcp, clientConfig: clientConfig)) {
             client.handshake()
         } catch (e: TlsException) {
-            // Expected exception because the server interrupts handshake 
+            // Expected exception because the server interrupts handshake
         }
     }
 }

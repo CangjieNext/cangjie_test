@@ -19,7 +19,6 @@
 package tests.websocket
 
 import stdx.net.http.*
-import stdx.crypto.kit
 import stdx.encoding.url.*
 import std.net.*
 import std.unittest.*
@@ -84,7 +83,7 @@ class TestWebSocketReadFrameException {
             "HTTP/1.1 101 Switching Protocols\r\nUpgrade: Websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Accept: ${value}\r\n\r\n"
                 .toArray())
         // write a text frame, the payload data is encoded as UTF-8
-        // 10000001 00001011 
+        // 10000001 00001011
         // hello world
         let frame = Array<UInt8>(13, repeat: 0)
         frame[0] = 128 + 1

@@ -29,8 +29,7 @@ import std.sync.*
 import stdx.log.*
 import std.io.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.common.*
+import stdx.crypto.x509.*
 
 @Test
 class TestReceiveNormalBodyProvider {

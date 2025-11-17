@@ -28,7 +28,7 @@ import stdx.net.http.*
 import stdx.log.*
 import std.sync.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 import std.fs.*
 import std.time.*
@@ -86,6 +86,6 @@ class TestClientRequestNegotiate3 {
 func negotiateServerConfig(): TlsServerConfig {
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_rsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
+    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
     tlsConfig
 }

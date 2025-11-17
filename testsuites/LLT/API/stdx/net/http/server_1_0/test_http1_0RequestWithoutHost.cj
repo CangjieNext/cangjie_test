@@ -19,8 +19,6 @@
 
 import std.net.*
 import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
 import std.sync.*
 import std.time.*
 import stdx.log.*

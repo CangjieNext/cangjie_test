@@ -24,7 +24,6 @@
 package tests.websocket
 
 import stdx.net.http.*
-import stdx.crypto.kit
 import stdx.encoding.url.*
 import std.net.*
 import std.unittest.*
@@ -34,7 +33,7 @@ import std.sync.*
 import std.collection.*
 import stdx.log.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import {asan.*, tlsconfig.*}
 
 @Test
@@ -82,7 +81,7 @@ class TestWebSocketWriteAndReadCloseFramesH2 {
         } catch (e: WebSocketException) {
             @Expect(e.message, "All control frames must have a payload length of 125 bytes or less.")
         }
-        // send close frame by write() 
+        // send close frame by write()
         websocket.write(CloseWebFrame, Array<UInt8>())
         // recive close frame
         let websocketFrame2 = websocket.read()

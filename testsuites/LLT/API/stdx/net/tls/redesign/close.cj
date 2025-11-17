@@ -13,15 +13,14 @@ import std.unittest.*
 import std.unittest.testmacro.*
 import std.net.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 import std.fs.*
 
 @Test
 class TlsCloseTest {
     let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa.cer")))
-    let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
+    let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
     var serverConf = TlsServerConfig(serverCert, pkey)
     var clientConf = TlsClientConfig()
     var server: Future<TcpServerSocket> = spawn {TcpServerSocket(bindAt: IPSocketAddress("127.0.0.1", 0))}

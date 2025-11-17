@@ -12,8 +12,7 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 import std.sync.*
 import std.time.*
@@ -39,18 +38,18 @@ class Test_tlsclientconf_05 {
         //client domain set correct domain.
         func startServerHandshake(): Unit {
             let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa.cer")))
-            let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
+            let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
             var serverConf = TlsServerConfig(serverCert, pkey)
             serverConf.verifyMode = TrustAll
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
-            @Expect(tlsServer.handshakeResult.getOrThrow().serverName, "www.example.com")
+            @Expect(tlsServer.domain, "www.example.com")
         }
         spawn {
             startServerHandshake()
@@ -58,12 +57,12 @@ class Test_tlsclientconf_05 {
         sleep(Duration.millisecond * 100)
         var clientConf = TlsClientConfig()
         clientConf.verifyMode = TrustAll
-        clientConf.serverName = "www.example.com"
+        clientConf.domain = "www.example.com"
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         tlsClient.handshake()
-        @Expect(tlsClient.handshakeResult.getOrThrow().serverName, "www.example.com")
+        @Expect(tlsClient.domain, "www.example.com")
         sleep(Duration.millisecond * 1000)
         tlsClient.close()
         tcpClient.close()

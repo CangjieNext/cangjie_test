@@ -12,7 +12,6 @@
 import std.fs.*
 import stdx.crypto.x509.*
 import stdx.crypto.keys.*
-import stdx.crypto.common.*
 import std.io.*
 
 @Test
@@ -31,15 +30,15 @@ class Test_X509_certificaterequest_init {
     let ip3: IP = [8u8, 8u8, 8u8, 8u8, 8u8]
 
     let rsaPrivateKeyPem = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-    let rsaPrivateKey = GeneralPrivateKey.decodeFromPem(rsaPrivateKeyPem)
+    let rsaPrivateKey = PrivateKey.decodeFromPem(rsaPrivateKeyPem)
     let rsaPublicKeyPem = String.fromUtf8(readToEnd(File("./files/end_rsa_public_key.pem", Read)))
-    let rsaPublicKey = GeneralPublicKey.decodeFromPem(rsaPublicKeyPem)
+    let rsaPublicKey = PublicKey.decodeFromPem(rsaPublicKeyPem)
 
     let ecDer = DerBlob(File.readFrom("./files/end_ecdsa_private_key.der"))
-    let ec = GeneralPrivateKey.decodeDer(ecDer)
+    let ec = PrivateKey.decodeDer(ecDer)
 
     let dsaPem = String.fromUtf8(readToEnd(File("./files/dsa_private_key.pem", Read)))
-    let dsa = GeneralPrivateKey.decodeFromPem(dsaPem)
+    let dsa = PrivateKey.decodeFromPem(dsaPem)
 
     @TestCase
     func createCSR_01(): Unit {

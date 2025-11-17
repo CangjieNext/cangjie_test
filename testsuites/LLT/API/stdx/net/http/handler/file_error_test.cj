@@ -8,12 +8,9 @@
 // DEPENDENCE: ../../../../asan
 // EXEC: %compiler %import-cangjie-stdx  %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
 // EXEC: %compiler %import-cangjie-stdx  %cmp_opt %f asan.%middle -o %output %cmp_utest_opt
-// RUN-EXEC-PIPE-0: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args 2>&1 
+// RUN-EXEC-PIPE-0: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args 2>&1
 
 import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
-import stdx.net.tls
 import std.fs.*
 import std.collection.*
 import stdx.log.*

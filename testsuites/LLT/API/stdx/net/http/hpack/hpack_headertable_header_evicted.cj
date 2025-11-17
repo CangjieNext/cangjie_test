@@ -31,7 +31,7 @@ import std.random.*
 import stdx.log.*
 import stdx.net.http.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import {asan.*, tlsconfig.*}
 
 @Test

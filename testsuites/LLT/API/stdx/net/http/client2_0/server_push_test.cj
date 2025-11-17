@@ -24,7 +24,7 @@ package tests.client2_0
 
 import stdx.net.http.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.log.*
 import std.io.*
 import std.time.*

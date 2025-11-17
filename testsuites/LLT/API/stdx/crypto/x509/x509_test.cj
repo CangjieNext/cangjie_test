@@ -11,7 +11,6 @@
 
 import std.fs.File
 import stdx.crypto.x509.*
-import stdx.crypto.common.*
 
 @Test
 class Test_x509 {

@@ -12,8 +12,7 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 import std.sync.*
 import std.time.*
@@ -39,7 +38,7 @@ class Test_tlsserverconf_06 {
         //server and client set the AlpnProtocols h2 and http/1.1 with same sequence.
         func startServerHandshake(): Unit {
             let serverCert = X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa.cer")))
-            let pkey = GeneralPrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
+            let pkey = PrivateKey.decodeFromPem(String.fromUtf8(File.readFrom("./files/end_ecdsa_private_key.pem")))
             var serverConf = TlsServerConfig(serverCert, pkey)
             serverConf.verifyMode = TrustAll
             serverConf.supportedAlpnProtocols = ["h2", "http/1.1"]
@@ -47,12 +46,12 @@ class Test_tlsserverconf_06 {
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
-            println(tlsServer.handshakeResult.getOrThrow().alpnProtocol)
-            @Expect(tlsServer.handshakeResult.getOrThrow().alpnProtocol, "h2")
+            println(tlsServer.alpnProtocolName)
+            @Expect(tlsServer.alpnProtocolName, "h2")
         }
         spawn {
             startServerHandshake()
@@ -60,12 +59,12 @@ class Test_tlsserverconf_06 {
         sleep(Duration.millisecond * 100)
         var clientConf = TlsClientConfig()
         clientConf.verifyMode = TrustAll
-        clientConf.supportedAlpnProtocols = ["h2", "http/1.1"]
+        clientConf.alpnProtocolsList = ["h2", "http/1.1"]
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         tlsClient.handshake()
-        @Expect(tlsClient.handshakeResult.getOrThrow().alpnProtocol, "h2")
+        @Expect(tlsClient.alpnProtocolName, "h2")
         sleep(Duration.millisecond * 1000)
         tlsClient.close()
         tcpClient.close()

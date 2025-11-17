@@ -25,7 +25,7 @@ package tests.server
 
 import stdx.net.http.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.*
 import stdx.encoding.url.*
 import std.{net.*, fs.*}
 import std.unittest.*

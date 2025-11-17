@@ -18,9 +18,7 @@ internal import stdx.net.http.*
 internal import std.net.*
 internal import std.fs.*
 internal import stdx.net.tls.*
-internal import stdx.net.tls.common.*
-internal import stdx.crypto.x509.X509Certificate
-internal import stdx.crypto.keys.*
+internal import stdx.crypto.x509.{X509Certificate, PrivateKey}
 internal import {asan.*, bodyReadUtil.*}
 
 var port: UInt16 = 0
@@ -45,7 +43,7 @@ main(): Int64 {
 func serve() {
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
-    var cfg = TlsServerConfig(X509Certificate.decodeFromPem(pem0).map({c => c}), GeneralPrivateKey.decodeFromPem(pem02))
+    var cfg = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
     let server = ServerBuilder().addr("0.0.0.0").port(port).tlsConfig(cfg).build()
     server
         .distributor
