@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_array_baseType,001_debug_array_baseType
-b,b 20,001_debug_array_baseType.cj:20
-AOT r,r,-> 20
+b,b 28,001_debug_array_baseType.cj:28
+AOT r,r,-> 28
 CJVM c,c,
 print, print arrayUInt64_d[0][1..6],\(std[.]core.Array<UInt64>\) \$[\d] = {[\s\S]*? \[0\] = 42[\s\S]*&? \[4\] = 46[\s\S]*
 q,q,

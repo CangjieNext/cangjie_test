@@ -14,13 +14,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_setVar,002_debug_setVar
-b,b 8,002_debug_setVar.cj:8
-AOT r,r,-> 8
+b,b 16,002_debug_setVar.cj:16
+AOT r,r,-> 16
 CJVM c,c,
-s,s,func fun_1\(para_1: Int32 , para_2!: Int32 = 1\)[\s\S]*-> 30
-n,n,-> 31
+s,s,func fun_1\(para_1: Int32 , para_2!: Int32 = 1\)[\s\S]*-> 38
+n,n,-> 39
 p,p a1,\(Int32\) \$[\d] = 12
-watchpoint,watchpoint set variable -w read a1,002_debug_setVar.cj:30
+watchpoint,watchpoint set variable -w read a1,002_debug_setVar.cj:38
 set,set a1 =90,\(Int32\) \$[0-9]* = 90
-c,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]* 33[\s\S]*
+c,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]* 41[\s\S]*
 q,q,

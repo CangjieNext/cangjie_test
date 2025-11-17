@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 126,genericsfun_return.cj:126
-AOT r,r,-> 126
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
 CJVM c,c,
 p, p lcfun,\(default.\(\)->Unit\) \$[\d] = 0x
 p, p s1.vcfuns,\(default.\(\)->Unit\) \$[\d] = 0x
@@ -25,8 +25,8 @@ p, p globals_cfun,\(default.\(\)->Unit\) \$[\d] = 0x
 locals, locals,\(default.\(\)->Unit\) lcfun = 0x[\s\S]*\(default.S1\) s1 = {[\s\S]*vcfuns = 0x[\s\S]*\(default.C1\) c1 = {[\s\S]*vcfunc = 0x[\s\S]*
 globals, globals,\(default.\(\)->Unit\) default::S1::vcfun = 0x
 globals, globals,\(default.\(\)->Unit\) default::globals_cfun = 0x
-b, b 153,Breakpoint 2:
-c,c,-> 153
+b, b 161,Breakpoint 2:
+c,c,-> 161
 p, p b,\(default.\(\)->Unit\) \$[\d] = 0x
 p, p test_b,\(default.\(\)->Unit\) \$[\d] = 0x
 locals, locals,\(default.\(\)->Unit\) b = 0x

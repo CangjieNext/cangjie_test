@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_HashMap_Ins_array,004_HashMap_Ins_array
-b,b 43,004_HashMap_Ins_array.cj:43
-AOT r,r,-> 43
-CJVM c,c,-> 43
+b,b 51,004_HashMap_Ins_array.cj:51
+AOT r,r,-> 51
+CJVM c,c,-> 51
 p,p map_array_5,std[.]collection.HashMap<std[.]core.String,std[.]core.Array<std[.]collection.HashSet<Int32>>>\) \$[\d] = {[\S\s]*key = "0123456789abcdxyz"[\S\s]*value = [\S\s]*}
 q,q,

@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 023_enum_name,023_enum_name
-b,b 14,023_enum_name.cj:14
-AOT r,r,-> 14
+b,b 22,023_enum_name.cj:22
+AOT r,r,-> 22
 CJVM c,c,
 expr,expr t1,\(default._1<Int64>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 3[\s\S]*}
 expr,expr t2,\(default.中文<Int64>\) \$[\d] = {[\s\S]*constructor = AA[\s\S]*arg_1 = 1[\s\S]*}

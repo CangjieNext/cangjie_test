@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors VArray_basetype_011,VArray_basetype_011
-b,b 37,Breakpoint 1: where = VArray_basetype_011`default::main[\s\S]*VArray_basetype.cj:37
-AOT r,r,-> 37
-CJVM c,c,-> 37
+b,b 45,Breakpoint 1: where = VArray_basetype_011`default::main[\s\S]*VArray_basetype.cj:45
+AOT r,r,-> 45
+CJVM c,c,-> 45
 p,p vRInt64[0],\(std[.]core.Range<Int64>\) \$[\d] = 0..10 : 1
 p,p vRChar[0],\(std[.]core.Range<Rune>\) \$[\d] = 'z'..'a' : 1
 q,q,

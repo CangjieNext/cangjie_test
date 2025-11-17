@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 022_debug_launch,022_debug_launch
-b,b 4,022_debug_launch.cj:4
-AOT r,r,-> 4
+b,b 12,022_debug_launch.cj:12
+AOT r,r,-> 12
 CJVM c,c,
 rerun,r,n
-rerun,r,-> 4
+rerun,r,-> 12
 q,q,

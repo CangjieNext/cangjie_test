@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
-b,b 29,015_debug_basetype.cj:29
-AOT r,r,-> 29
+b,b 37,015_debug_basetype.cj:37
+AOT r,r,-> 37
 CJVM c,c,
 n,n,stopped
 q,q,

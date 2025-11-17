@@ -13,10 +13,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b , b 11 , 050_debug_dataType_basic.cj:11
-r , r ,-> 11
-watchpoint, watchpoint set variable -w read v1 ,050_debug_dataType_basic.cj:10
-c ,c ,-> 13
-breakpoint set , breakpoint set -l 13 -c "v1 == -128" , 050_debug_dataType_basic.cj:13
-c ,c ,-> 15
+b , b 19 , 050_debug_dataType_basic.cj:19
+r , r ,-> 19
+watchpoint, watchpoint set variable -w read v1 ,050_debug_dataType_basic.cj:18
+c ,c ,-> 21
+breakpoint set , breakpoint set -l 21 -c "v1 == -120" , 050_debug_dataType_basic.cj:21
+c ,c ,-> 23
 q,q,

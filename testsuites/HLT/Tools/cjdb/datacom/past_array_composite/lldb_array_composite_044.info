@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_array_record_parameter,004_debug_array_record_parameter
-b,b 36,004_debug_array_record_parameter.cj:36
-AOT r,r,-> 36
+b,b 44,004_debug_array_record_parameter.cj:44
+AOT r,r,-> 44
 CJVM c,c,
-n,n,-> 39
+n,n,-> 47
 locals,locals,Rectangle\) rec1 = {(\r|\n|\r\n)  namenum = 1
 print,print arraymainrec01[1],Rectangle\) \$[\d]+ = {(\r|\n|\r\n)  namenum = 1(\r|\n|\r\n)  num = 15(\r|\n|\r\n)  varBool = true(\r|\n|\r\n)  varchar = '5'(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 20(\r|\n|\r\n)  height = 100
 q,q,

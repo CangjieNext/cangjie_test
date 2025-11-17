@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 71,Breakpoint 1:
-AOT r,r,-> 71
+b,b 79,Breakpoint 1:
+AOT r,r,-> 79
 CJVM c,c,
-c,c,-> 71
+c,c,-> 79
 p, p a,\(std.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 p, p p1,\(std.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
 locals, locals,\(std.collection.HashSet<Int64>\) p1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\(std.collection.HashSet<Int64>\) a = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*

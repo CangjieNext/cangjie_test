@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 111,052_debug_record_generics.cj:111
-AOT r,r,-> 111
+b,b 119,052_debug_record_generics.cj:119
+AOT r,r,-> 119
 CJVM c,c,
-n,n,-> 113
+n,n,-> 121
 locals,locals,R4<Int8,Int8,Int8,Int16,Int16,Int32,Int32,Int64,Int64,Unit>\) r11 = {[\S\s]*num1 = 1[\S\s]*num2 = 2[\S\s]*num3 = 3[\S\s]*num4 = 4[\S\s]*num5 = 5[\S\s]*num6 = 6[\S\s]*num7 = 7[\S\s]*num8 = 8[\S\s]*num9 = 9[\S\s]*num10 = \(\)[\S\s]*}
 q,q,

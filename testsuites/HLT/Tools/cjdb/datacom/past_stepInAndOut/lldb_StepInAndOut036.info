@@ -16,17 +16,17 @@
 
 test#
 cjdb,cjdb --no-use-colors 039_debuginfun_return,039_debuginfun_return
-CJVM b main,b main,039_debuginfun_return.cj:4
-CJVM c,c,-> 4
-b,b 9,039_debuginfun_return.cj:9
-b,b 18,039_debuginfun_return.cj:18
-b,b 20,039_debuginfun_return.cj:20
-AOT r,r,-> 9
-CJVM c,c,-> 9
-s,s,-> 17
-finish,finish,-> 20
-finish,finish,-> 9
-AOT n,n,-> 11
-CJVM n,n,-> 10|11
+CJVM b main,b main,039_debuginfun_return.cj:12
+CJVM c,c,-> 12
+b,b 17,039_debuginfun_return.cj:17
+b,b 26,039_debuginfun_return.cj:26
+b,b 28,039_debuginfun_return.cj:28
+AOT r,r,-> 17
+CJVM c,c,-> 17
+s,s,-> 25
+finish,finish,-> 28
+finish,finish,-> 17
+AOT n,n,-> 19
+CJVM n,n,-> 18|19
 locals,locals,varreturnexpr = 20
 q,q,

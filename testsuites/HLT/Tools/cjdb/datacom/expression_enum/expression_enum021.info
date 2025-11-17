@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 025_enum_collection,025_enum_collection
-b,b 14,025_enum_collection.cj:14
-AOT r,r,-> 14
+b,b 22,025_enum_collection.cj:22
+AOT r,r,-> 22
 CJVM c,c,
 p,p a1,\(default.EE<Int64>\) \$[\d] = {[\s\S]*constructor = A[\s\S]*arg_1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
 p,p a2,\(default.EE<Int64>\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}

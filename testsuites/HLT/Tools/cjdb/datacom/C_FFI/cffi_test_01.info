@@ -14,17 +14,17 @@
 
 test#
 cjdb,cjdb --no-use-colors cffi_test_01,cffi_test_01
-b,b 24,Breakpoint 1:[\s\S]*C_FFI_stepin.cj:24
-AOT r,r,-> 24
-CJVM c,c,-> 24
-s,s,-> 6
-b,b 8,Breakpoint 2:[\s\S]*C_FFI_stepin.c:8
-b,b 9,Breakpoint 3:[\s\S]*C_FFI_stepin.c:9
-b,b 10,Breakpoint 4:[\s\S]*C_FFI_stepin.c:10
-c,c,-> 8
+b,b 32,Breakpoint 1:[\s\S]*C_FFI_stepin.cj:32
+AOT r,r,-> 32
+CJVM c,c,-> 32
+s,s,-> 14
+b,b 16,Breakpoint 2:[\s\S]*C_FFI_stepin.c:16
+b,b 17,Breakpoint 3:[\s\S]*C_FFI_stepin.c:17
+b,b 18,Breakpoint 4:[\s\S]*C_FFI_stepin.c:18
+c,c,-> 16
 blist,breakpoint list,1.1[\s\S]*2.1[\s\S]*3.1[\s\S]*4.1
-c,c,-> 9
-c,c,-> 10
-n,n,-> 11
-n,n,-> 12
+c,c,-> 17
+c,c,-> 18
+n,n,-> 19
+n,n,-> 20
 q,q,

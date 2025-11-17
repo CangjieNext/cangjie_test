@@ -15,12 +15,12 @@
 
 test#
 cjdb,cjdb --no-use-colors setVar_external_invoke.out,setVar_external_invoke
-b,b 33,setVar_external_invoke.cj:33
-AOT r,r,-> 33
+b,b 41,setVar_external_invoke.cj:41
+AOT r,r,-> 41
 CJVM c,c,
-s,s,func f_003\(val_f1 :Int32\)[\s\S]*-> 49
-s,s,func f_002\(val_f1 :Int32 ,para! :Int32 = Exter_C1.f_static\(\)\)[\s\S]*-> 45
-finish,finish,-> 50|49
+s,s,func f_003\(val_f1 :Int32\)[\s\S]*-> 57
+s,s,func f_002\(val_f1 :Int32 ,para! :Int32 = Exter_C1.f_static\(\)\)[\s\S]*-> 53
+finish,finish,-> 58|57
 p,p val_f1,\(Int32\) \$[\d] = 132
 set,set val_f1=-321,\(Int32\) \$[0-9]* = -321
 p,p val_f1,\(Int32\) \$[\d] = -321

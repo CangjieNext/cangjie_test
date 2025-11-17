@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_enum_cons,001_debug_enum_cons
-b,b 22,001_debug_enum_cons.cj:22
-AOT r,r,-> 22
+b,b 30,001_debug_enum_cons.cj:30
+AOT r,r,-> 30
 CJVM c,c,
-n,n,-> 21
-n,n,-> 25
+n,n,-> 29
+n,n,-> 33
 locals,locals,\(Int32\) howManyYears = 8760
 print,print howManyYears,\(Int32\) \$[\d] = 8760
 q,q,

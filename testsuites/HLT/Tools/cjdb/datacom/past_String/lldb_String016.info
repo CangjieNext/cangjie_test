@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 29,049_debug_string.cj:29
-AOT r,r,-> 29
+b,b 37,049_debug_string.cj:37
+AOT r,r,-> 37
 CJVM c,c,
-n,n,-> 30
-n,n,-> 34
+n,n,-> 38
+n,n,-> 42
 AOT p,p s333,\(std.core.String\) \$[\d] = "new s2"
 CJVM p,p s333,\(std.core.String\) \$[\d] = "new s2"
 q,q,

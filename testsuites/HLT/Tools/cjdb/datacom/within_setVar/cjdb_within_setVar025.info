@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_setVar_generices,001_debug_setVar_generices
-b,b 29,001_debug_setVar_generices.cj:29
-AOT r,r,-> 29
+b,b 37,001_debug_setVar_generices.cj:37
+AOT r,r,-> 37
 CJVM c,c,
-s,s,func f_top\(\): C1<Bool>[\s\S]*-> 131
-n,n,-> 132
+s,s,func f_top\(\): C1<Bool>[\s\S]*-> 139
+n,n,-> 140
 p,p f_c1,C1<Bool>\) \$[\d] =
 set,set f_c1.length =0,\(Bool\) \$[0-9]* = false
 p,p f_c1,C1<Bool>\) \$[\d] = {(\r|\n|\r\n)  width = true(\r|\n|\r\n)  length = false

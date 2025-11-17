@@ -17,9 +17,9 @@
 
 test#
 cjdb,cjdb --no-use-colors class_external_use,class_external_use
-b,b 13,class_external_use.cj:13
-AOT r,r,-> 13
-CJVM c,c,-> 13
+b,b 21,class_external_use.cj:21
+AOT r,r,-> 21
+CJVM c,c,-> 21
 globals,globals,C1\) default(::|\.)top_C = {(\r|\n|\r\n)  width = 5(\r|\n|\r\n)  length = 6
 print,print top_C.time,TimeUnit\) \$[\d]+ = {(\r|\n|\r\n)  constructor = Year(\r|\n|\r\n)  arg_1 = 19
 print,print top_C.newRectangle1,Rectangle_ex\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200

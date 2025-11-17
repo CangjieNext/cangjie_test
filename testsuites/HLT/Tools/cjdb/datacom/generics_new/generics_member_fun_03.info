@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_member,generics_member
-b,b 67,Breakpoint 1:
-AOT r,r,-> 67
+b,b 75,Breakpoint 1:
+AOT r,r,-> 75
 CJVM c,c,
 p, p vf1,\(Bool\) \$[\d] = true
 p, p para1,\(Bool\) \$[\d] = true

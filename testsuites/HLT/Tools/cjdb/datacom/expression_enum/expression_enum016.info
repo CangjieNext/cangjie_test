@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 020_enum_globals,020_enum_globals
-b,b 38,020_enum_globals.cj:38
-AOT r,r,-> 38
+b,b 46,020_enum_globals.cj:46
+AOT r,r,-> 46
 CJVM c,c,
 p,p t1,\(default.TimeUnit\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 5[\s\S]*}
 expr,expr t2,\(default.TimeUnit1\) \$[\d] = Year

@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
-b,b 44,066_debug_arraylist.cj:44
-AOT r,r,-> 44
-CJVM c,c,-> 44
+b,b 52,066_debug_arraylist.cj:52
+AOT r,r,-> 52
+CJVM c,c,-> 52
 p,p arraylistArray2,\(std\.collection.ArrayList<std.core.Array<Int64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*}[\s\S]*\[1\] = {[\s\S]*\[0\] = 30[\s\S]*\[1\] = 40[\s\S]*}[\s\S]*}
 locals,locals,arraylistArray2 = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*}[\s\S]*\[1\] = {[\s\S]*\[0\] = 30[\s\S]*\[1\] = 40[\s\S]*}[\s\S]*}
 q,q,

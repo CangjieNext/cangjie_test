@@ -16,14 +16,14 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 99,024_debug_variable.cj:99
-AOT r,r,-> 99
-CJVM c,c,-> 99
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 107,024_debug_variable.cj:107
+AOT r,r,-> 107
+CJVM c,c,-> 107
 set,set var_continue = 2,2
-b,b 102,024_debug_variable.cj:102
-c,c,-> 102
+b,b 110,024_debug_variable.cj:110
+c,c,-> 110
 locals,locals,var_continue = 2
 p,p var_continue,\(Int64\) \$[\d] = 2
 locals,locals,f_continue = 10

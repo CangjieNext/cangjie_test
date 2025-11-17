@@ -14,13 +14,13 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func011,generics_local_func011
-b,b 9,generics_local_func011.cj:9
-b,b 19,generics_local_func011.cj:19
-AOT r,r,-> 9
+b,b 17,generics_local_func011.cj:17
+b,b 27,generics_local_func011.cj:27
+AOT r,r,-> 17
 CJVM c,c,
 expr:expr this.width:\(Int64\) \$[\d] = 1
 expr:expr this.length:\(Float64\) \$[\d] = 2
-c,c,-> 19
+c,c,-> 27
 expr,expr mc_1,\(default.C2<Int64,Float64>\) \$[\d] = {[\s\S]*width = 1[\s\S]*length = 2[\s\S]*}
 expr,expr mc_2,\(default.C2<Int64,Float64>\) \$[\d] = {[\s\S]*width = 1[\s\S]*length = 4[\s\S]*}
 q,q,

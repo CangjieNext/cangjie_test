@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 126,genericsfun_return.cj:126
-AOT r,r,-> 126
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
 CJVM c,c,
 p, p lt,\(Tuple<Int8,UInt16>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
 p, p cvt,\(Tuple<Int8,UInt16>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
@@ -26,8 +26,8 @@ p, p globals_vt,\(Tuple<Int8,UInt16>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] =
 locals, locals,\(Tuple<Int8,UInt16>\) lt = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*\(default.S1\) s1 = {[\s\S]*vts = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*\(default.C1\) c1 = {[\s\S]*vtc = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
 globals, globals,\(Tuple<Int8,UInt16>\) default::S1::vt = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
 globals, globals,\(Tuple<Int8,UInt16>\) default::globals_vt = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
-b, b 137,genericsfun_return.cj:137
-c,c,-> 137
+b, b 145,genericsfun_return.cj:145
+c,c,-> 145
 p, p f,\(Tuple<Int8,UInt16>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
 p, p test_f,\(Tuple<Int8,UInt16>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
 locals, locals,\(Tuple<Int8,UInt16>\) f = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*

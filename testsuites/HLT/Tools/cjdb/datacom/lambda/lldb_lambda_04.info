@@ -16,10 +16,10 @@ test#
 AOT cjdb,cjdb --no-use-colors Test_Lambda,Test_Lambda
 CJVM cjdb,cjdb,cjdb
 CJVM process connect,process connect 127.0.0.1:,connected to 127.0.0.1:
-CJVM b,b 2,Test_Lambda.cj:2
+CJVM b,b 10,Test_Lambda.cj:10
 AOT b,b main,
-AOT r,r,-> 3
+AOT r,r,-> 11
 CJVM c,c,
-n,n,-> 11
+n,n,-> 19
 locals,locals,\(Unit\) test_lambda = \(\)
 q,q,

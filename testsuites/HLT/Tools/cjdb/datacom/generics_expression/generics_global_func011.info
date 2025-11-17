@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func011,generics_global_func011
-b,b 27,generics_global_func011.cj:27
-AOT r,r,-> 27
+b,b 35,generics_global_func011.cj:35
+AOT r,r,-> 35
 CJVM c,c,
 expr:expr x1:\(default.C<Int32>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
 expr:expr x2:\(default.C<Int32>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}

@@ -13,7 +13,7 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b , b 11 ,050_debug_dataType_basic.cj:11
-r , r ,-> 11
+b , b 19 ,050_debug_dataType_basic.cj:19
+r , r ,-> 19
 watchpoint,watchpoint set variable -w read para ,error: no variable named \'para\' found in this frame
 q,q,

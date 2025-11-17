@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 033_debuginfun_func_with_arg,033_debuginfun_func_with_arg
-CJVM b main,b main,033_debuginfun_func_with_arg.cj:4
-CJVM c,c,-> 4
-b,b 9,033_debuginfun_func_with_arg.cj:9
-AOT r,r,-> 9
-CJVM c,c,-> 9
-s,s,-> 14
-finish,finish,-> 9
-n,n,-> 10
+CJVM b main,b main,033_debuginfun_func_with_arg.cj:12
+CJVM c,c,-> 12
+b,b 17,033_debuginfun_func_with_arg.cj:17
+AOT r,r,-> 17
+CJVM c,c,-> 17
+s,s,-> 22
+finish,finish,-> 17
+n,n,-> 18
 locals,locals,Functioncall005 = 2
 q,q,

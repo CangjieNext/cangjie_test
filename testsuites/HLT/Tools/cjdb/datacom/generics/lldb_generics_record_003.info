@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 107,052_debug_record_generics.cj:107
-AOT r,r,-> 107
+b,b 115,052_debug_record_generics.cj:115
+AOT r,r,-> 115
 CJVM c,c,
-n,n,-> 108
+n,n,-> 116
 locals,locals,R2<Int32,Int64>\) r9 = {(\r\n|\r|\n)  width = 10(\r\n|\r|\n)  length = 20(\r\n|\r|\n)}
 q,q,

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 163,list_debug.cj:163
-AOT r,r,-> 163
+b,b 171,list_debug.cj:171
+AOT r,r,-> 171
 CJVM c,c,
 p,p m_com_2,\$[\d]+ =
 p,p m_com_2[0],\$[\d]+ = {\s+constructor = Year\s+arg_1 = 2021

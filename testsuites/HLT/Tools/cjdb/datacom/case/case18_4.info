@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case18_4,case18_4
-b,b 12,case18_4.cj:12
-AOT r,r,-> 12
+b,b 20,case18_4.cj:20
+AOT r,r,-> 20
 CJVM c,c,
 AOT expr,expr tokens,\(std.ast.Tokens\) \$[\d] = {[\s\S]*tokens = {}[\s\S]*}
 q,q,

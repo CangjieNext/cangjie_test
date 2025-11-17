@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_enum,002_debug_array_enum
-b,b 39,002_debug_array_enum.cj:39
-AOT r,r,-> 39
+b,b 47,002_debug_array_enum.cj:47
+AOT r,r,-> 47
 CJVM c,c,
 locals,locals,std[.]core.Array<default.TimeUnit1>\) arrayfun = {[\S\s]* \[0\] = a[\s\S]*
 q,q,

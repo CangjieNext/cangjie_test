@@ -15,9 +15,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 046_debug_record_mod_external_use,046_debug_record_mod_external_use
-b,b 14,046_debug_record_mod_external_use.cj:14
-AOT r,r,-> 14
+b,b 22,046_debug_record_mod_external_use.cj:22
+AOT r,r,-> 22
 CJVM c,c,
-n,n,-> 15
+n,n,-> 23
 locals,locals,main_area = 20000
 q,q,

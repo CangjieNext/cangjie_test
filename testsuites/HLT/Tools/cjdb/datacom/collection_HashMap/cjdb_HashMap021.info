@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 005_HashMap_via_class,005_HashMap_via_class
-b,b 17,005_HashMap_via_class.cj:17
-AOT r,r,-> 17
-CJVM c,c,-> 17
+b,b 25,005_HashMap_via_class.cj:25
+AOT r,r,-> 25
+CJVM c,c,-> 25
 p,p re_ins,rec_1\) \$[\d] = {[\S\s]*rec_par_1 = 21[\S\s]*map_r_2 = [\S\s]*}
 p,p re_ins.map_rm,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 19[\S\s]*value = 'n'[\S\s]*}
 p,p re_ins.map_rm,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 110[\S\s]*value = 'Q'[\S\s]*}

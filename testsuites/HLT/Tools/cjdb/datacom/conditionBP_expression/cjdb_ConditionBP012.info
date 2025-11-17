@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func012,generics_global_func012
-breakpoint,breakpoint set -l 26 -c "arr[0]==1",generics_global_func012.cj:26
+breakpoint,breakpoint set -l 34 -c "arr[0]==1",generics_global_func012.cj:34
 r,r,exited with status
-breakpoint,breakpoint set -l 26 -c "arr[0]==2",generics_global_func012.cj:26
-r,r,-> 26
+breakpoint,breakpoint set -l 34 -c "arr[0]==2",generics_global_func012.cj:34
+r,r,-> 34
 locals,locals,\(std.core.Array<Int64>\) arr = {[\s\S]*\[0\] = 2[\s\S]*\[1\] = 4[\s\S]*\[2\] = 6[\s\S]*}
 p,p res,\(Int64\) \$[\d] = 12
 expr,expr hh,\(default.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*

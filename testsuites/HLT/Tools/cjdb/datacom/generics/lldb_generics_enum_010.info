@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_enum_generics,002_debug_enum_generics
-b,b 54,002_debug_enum_generics.cj:54
-AOT r,r,-> 54
+b,b 62,002_debug_enum_generics.cj:62
+AOT r,r,-> 62
 CJVM c,c,
-n,n,-> 56
+n,n,-> 64
 locals,locals,TimeUnit1<default.Rectangle>\) m_time7 = {(\r|\n|\r\n)  constructor = Year(\r|\n|\r\n)  arg_1 = {(\r|\n|\r\n)    rec_width = 10(\r|\n|\r\n)    rec_time = {(\r|\n|\r\n)      constructor = Year(\r|\n|\r\n)      arg_1 = 10
 q,q,

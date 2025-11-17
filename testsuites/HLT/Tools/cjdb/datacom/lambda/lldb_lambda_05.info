@@ -14,22 +14,22 @@
 
 test#
 cjdb,cjdb --no-use-colors Test_Lambda,Test_Lambda
-b,b 3,Breakpoint [\d]: 2 locations.
-AOT b,b 4,Test_Lambda.cj:7
-AOT b,b 5,Test_Lambda.cj:7
-AOT b,b 6,Test_Lambda.cj:7
-AOT r,r,-> 3
+b,b 11,Breakpoint [\d]: 2 locations.
+AOT b,b 12,Test_Lambda.cj:15
+AOT b,b 13,Test_Lambda.cj:15
+AOT b,b 14,Test_Lambda.cj:15
+AOT r,r,-> 11
 CJVM c,c,
-n,n,-> 7
+n,n,-> 15
 locals,locals,\(Int64\) a = 1[\s\S]*\(std[.]core.String\) b = "测试lambda[\s\S]*"[\s\S]*\(Int64\) c = \d+
-n,n,-> 8
+n,n,-> 16
 locals,locals,\(Int64\) a = 1[\s\S]*\(std[.]core.String\) b = "测试lambda[\s\S]*"[\s\S]*\(Int64\) c = \d+
-n,n,-> 9
+n,n,-> 17
 locals,locals,\(Int64\) a = 1[\s\S]*\(std[.]core.String\) b = "测试lambda[\s\S]*"[\s\S]*\(Int64\) c = \d+
-n,n,-> 10
+n,n,-> 18
 locals,locals,\(Int64\) a = 1[\s\S]*\(std[.]core.String\) b = "测试lambda[\s\S]*"[\s\S]*\(Int64\) c = 3
-CJVM n,n,-> 2
+CJVM n,n,-> 10
 CJVM locals,locals,\(Unit\) test_lambda = \(\)
-n,n,-> 11
+n,n,-> 19
 locals,locals,\(Unit\) test_lambda = \(\)
 q,q,

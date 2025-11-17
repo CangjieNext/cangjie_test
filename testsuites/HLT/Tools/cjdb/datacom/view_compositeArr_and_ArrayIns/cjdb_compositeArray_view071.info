@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors ArrayIns_external_invoke.out,ArrayIns_external_invoke
-b,b 40,ArrayIns_external_invoke.cj:40
-AOT r,r,-> 40
+b,b 48,ArrayIns_external_invoke.cj:48
+AOT r,r,-> 48
 CJVM c,c,
 p,p multiArr_m_rgd1[1],\(std[.]core.Array<pkgs.R1<Float32>>\) \$[\d]+ = {(\r|\n|\r\n)  \[0\] = [\s\S]*
 p,p multiArr_m_rgd1[1][1],pkgs.R1<Float32>\) \$[\d]+ = {[\s\S]*  r_1 = -12

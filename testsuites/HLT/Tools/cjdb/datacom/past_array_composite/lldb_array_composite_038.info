@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_array_record,003_debug_array_record
-b,b 50,003_debug_array_record.cj:50
-AOT r,r,-> 50
+b,b 58,003_debug_array_record.cj:58
+AOT r,r,-> 58
 CJVM c,c,
-n,n,-> 51
+n,n,-> 59
 locals,locals,Rectangle1\) rec1 = {(\r|\n|\r\n)  length = 3
 print,print slicing1[0],Rectangle2\) \$[\d]+ = {(\r|\n|\r\n)  width = 200(\r|\n|\r\n)  length = 400
 q,q,

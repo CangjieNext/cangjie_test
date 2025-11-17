@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_var001,generics_global_var001
-b,b 26,generics_global_var001.cj:26
-AOT r,r,-> 26
+b,b 34,generics_global_var001.cj:34
+AOT r,r,-> 34
 CJVM c,c,
 expr:expr vctc:\(default.classtype01<Int64>\) \$[\d] = {[\s\S]*a = 10[\s\S]*}
 expr:expr vst:\(default.structtype01<Float32>\) \$[\d] = {[\s\S]*a = 1[\s\S]*}

@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_enum_reload,003_debug_enum_reload
-b,b 32,003_debug_enum_reload.cj:32
-AOT r,r,-> 32
+b,b 40,003_debug_enum_reload.cj:40
+AOT r,r,-> 40
 CJVM c,c,
 expr,expr howManyMonths,\(Int32\) \$[\d] = 3
 expr,expr howManyMonths1,\(Int32\) \$[\d] = 2

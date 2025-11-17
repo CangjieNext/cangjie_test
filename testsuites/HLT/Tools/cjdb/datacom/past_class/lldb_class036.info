@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 007_debug_class_main_mod_default,007_debug_class_main_mod_default
-b,b 37,007_debug_class_main_mod_default.cj:37
-AOT r,r,-> 37
-CJVM c,c,-> 37
-n,n,-> 38
+b,b 45,007_debug_class_main_mod_default.cj:45
+AOT r,r,-> 45
+CJVM c,c,-> 45
+n,n,-> 46
 locals,locals,C1\) newc = {(\r|\n|\r\n)  name = "afdoaidfad"(\r|\n|\r\n)  width = 1(\r|\n|\r\n)  length = 2(\r|\n|\r\n)  height = 1
 q,q,

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func012,generics_global_func012
-b,b 26,generics_global_func012.cj:26
-AOT r,r,-> 26
+b,b 34,generics_global_func012.cj:34
+AOT r,r,-> 34
 CJVM c,c,
 expr:expr arr[1]:\(Int64\) \$[\d] = 4
 expr:expr res:\(Int64\) \$[\d] = 12

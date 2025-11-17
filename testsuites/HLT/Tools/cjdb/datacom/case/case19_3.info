@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case19_3,case19_3
-b,b 12,case19_3.cj:12
-AOT r,r,-> 12
+b,b 20,case19_3.cj:20
+AOT r,r,-> 20
 CJVM c,c,
 AOT expr:expr test_lambda:\(std.core.String\) \$[\d] = "lambda"
 AOT expr:expr ad2:\(Int64\) \$[\d] = 3

@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_class_main_parameter,011_debug_class_main_parameter
-b,b 47,011_debug_class_main_parameter.cj:47
-AOT r,r,-> 47
-CJVM c,c,-> 47
-n,n,-> 48
+b,b 55,011_debug_class_main_parameter.cj:55
+AOT r,r,-> 55
+CJVM c,c,-> 55
+n,n,-> 56
 locals,locals,C1\) newc = {(\r|\n|\r\n)  pro = 5(\r|\n|\r\n)  name = "afdoaidfad"(\r|\n|\r\n)  num = 11
 q,q,

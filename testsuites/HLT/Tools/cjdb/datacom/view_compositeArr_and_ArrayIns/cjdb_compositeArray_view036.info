@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors multiArray_composite_external_invoke.out,multiArray_composite_external_invoke.out
-b,b 36,multiArray_composite_external_invoke.cj:36
-AOT r,r,-> 36
+b,b 44,multiArray_composite_external_invoke.cj:44
+AOT r,r,-> 44
 CJVM c,c,
 p,p multiArr_m_ed1[0][0..],std[.]core.Array<pkgs.TimeUnit>\) \$[\d] = {[\s\S]*  \[1\] = [\s\S]*
 p,p multiArr_m_ed1[0][1],TimeUnit\) \$[\d] = {\s+constructor = Year

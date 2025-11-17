@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case18_13,case18_13
-b,b 38,case18_13.cj:38
-AOT r,r,-> 38
+b,b 46,case18_13.cj:46
+AOT r,r,-> 46
 CJVM c,c,
 AOT expr,expr classvar02.default.Rectangle.aaa,error: unsupported expression
 CJVM expr,expr classvar02.default.Rectangle.aaa,error: variable was not declared in this scope

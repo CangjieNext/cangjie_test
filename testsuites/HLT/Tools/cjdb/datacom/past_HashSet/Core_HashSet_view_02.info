@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 068_debug_hashset,068_debug_hashset
-b,b 21,068_debug_hashset.cj:21
-AOT r,r,-> 21
-CJVM c,c,-> 21
+b,b 29,068_debug_hashset.cj:29
+AOT r,r,-> 29
+CJVM c,c,-> 29
 AOT p,p a,\(std\.collection.HashSet<Float64>\) \$[\d] = {[\s\S]*\[0\] = 10.1[\s\S]*\[1\] = 20.199999999999999[\s\S]*}
 CJVM p,p a,\(std\.collection.HashSet<Float64>\) \$[\d] = {[\s\S]*\[0\] = 10.100000[\s\S]*\[1\] = 20.200000[\s\S]*}
 AOT locals,locals,a = {[\s\S]*\[0\] = 10.1[\s\S]*\[1\] = 20.199999999999999[\s\S]*}

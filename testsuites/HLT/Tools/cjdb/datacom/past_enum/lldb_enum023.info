@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_enum_conflict,006_debug_enum_conflict
-b,b 21,006_debug_enum_conflict.cj:21
-AOT r,r,-> 21
+b,b 29,006_debug_enum_conflict.cj:29
+AOT r,r,-> 29
 CJVM c,c,
-n,n,-> 22
-n,n,-> 24
+n,n,-> 30
+n,n,-> 32
 locals,locals,\(Int64\) c = 0
 print,print b,E\) \$[\d] = A
 q,q,

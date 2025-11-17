@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors test_name,test_name
-b,b 2,case16.cj:2
-AOT r,r,-> 2
+b,b 10,case16.cj:10
+AOT r,r,-> 10
 CJVM c,c,
-AOT threadlist,thread list,\* thread #1[\s\S]*case16.cj:2:5, name = 'test_name'[\s\S]*
+AOT threadlist,thread list,\* thread #1[\s\S]*case16.cj:10:5, name = 'test_name'[\s\S]*
 q,q,

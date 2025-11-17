@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_setVar,002_debug_setVar
-b,b 6,002_debug_setVar.cj:6
-AOT r,r,-> 6
+b,b 14,002_debug_setVar.cj:14
+AOT r,r,-> 14
 CJVM c,c,
 p,p cla,Clazz_1\) \$[\d]+ = {
 set,set cla.width=-12,\(Int32\) \$[0-9]* = -12

@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_class_extend,generics_class_extend
-b,b 5,generics_class_extend.cj:5
-AOT r,r,-> 5
-n,n,-> 6
-n,n,-> 7
+b,b 13,generics_class_extend.cj:13
+AOT r,r,-> 13
+n,n,-> 14
+n,n,-> 15
 locals,locals,\(default.Pair<default.Foo,Int64>\) this = {[\s\S]*first = {}[\s\S]*second = 8[\s\S]*}[\s\S]*\(default.Foo\) a = {}[\s\S]*\(Int64\) b = 8[\s\S]*
 q,q,

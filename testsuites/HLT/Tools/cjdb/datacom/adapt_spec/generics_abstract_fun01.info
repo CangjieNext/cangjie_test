@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_abstract_fun01,generics_abstract_fun01
-b,b 25,generics_abstract_fun01.cj:25
-AOT r,r,-> 25
+b,b 33,generics_abstract_fun01.cj:33
+AOT r,r,-> 33
 CJVM c,c,
 p,p a1,\(default.AB1\) \$[\d] = {}
 expr,expr a1,\(default.AB1\) \$[\d] = {}

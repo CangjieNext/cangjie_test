@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors arrayView_external_invoke,arrayView_external_invoke
-b,b 13,arrayView_external_invoke.cj:13
-AOT r,r,-> 13
+b,b 21,arrayView_external_invoke.cj:21
+AOT r,r,-> 21
 CJVM c,c,
 print,print val_1,std[.]core.Array<std[.]core.Array<Int32>>\) \$[\d] = {[\s\S]*? \[0\] = [\s\S]*&? \[1\] = [\s\S]*}
 q,q,

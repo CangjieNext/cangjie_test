@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors VArray_basetype_015,VArray_basetype_015
-b,b 42,Breakpoint 1: where = VArray_basetype_015`default::main[\s\S]*VArray_basetype.cj:42
-AOT r,r,-> 42
-CJVM c,c,-> 42
+b,b 50,Breakpoint 1: where = VArray_basetype_015`default::main[\s\S]*VArray_basetype.cj:50
+AOT r,r,-> 50
+CJVM c,c,-> 50
 p,p vFloat16[2]=16.0,\(Float16\) \$[\d] = 16
 p,p vFloat32[2]=16.0,\(Float32\) \$[\d] = 16
 p,p vFloat64[2]=16.0,\(Float64\) \$[\d] = 16
