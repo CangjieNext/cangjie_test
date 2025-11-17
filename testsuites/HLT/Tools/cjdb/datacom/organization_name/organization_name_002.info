@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/pkgs001/src
+// (not MAC) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj -o libpkg1.%middle
+// (not MAC) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs001.cj -o pkgs001%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py organization_name_002.info pkgs001 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors pkgs001,pkgs001
+b,b 18,pkgs001.cj:18
+r,r,-> 18
+expr,expr res11,\(Int8\) \$[\d] = 12
+expr,expr res22,\(Int8\) \$[\d] = 30
+expr~expr varpkg1_001~error: unsupported expression
+expr~expr f1()~error: unsupported expression
+q,q,
