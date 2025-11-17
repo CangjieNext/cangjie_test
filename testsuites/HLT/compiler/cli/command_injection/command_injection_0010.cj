@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 0
-// (not Windows) EXEC: mkdir '`ls`'; cp %f '`ls`'
-// (not Windows) EXEC: %compiler %cmp_opt '`ls`'/%f -o '`ls`'/%output
-// (not OHOS and not Windows) RUN-EXEC: %run %run_opt '`ls`'/%output %run_args
+// EXEC: mkdir '`ls`'; cp %f '`ls`'
+// EXEC: %compiler %cmp_opt '`ls`'/%f -o '`ls`'/%output
+// (not OHOS ) RUN-EXEC: %run %run_opt '`ls`'/%output %run_args
 
 main() {
     0

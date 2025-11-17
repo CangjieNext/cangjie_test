@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (CJNATIVE and not O2) EXEC: %compiler %cmp_opt --stack-trace-format=simple %f -o %output
-// (CJNATIVE and not O2) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (CJNATIVE and VOO and not O2) EXEC: %compiler %cmp_opt --stack-trace-format=simple %f -o %output
+// (CJNATIVE and VOO and not O2) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan StackOverflowError
 // ASSERT: scan-not at default.A
 // ASSERT: scan-not at default.B

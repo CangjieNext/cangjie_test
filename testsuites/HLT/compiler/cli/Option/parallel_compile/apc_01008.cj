@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (not MAC and not Windows) ERRCHECK: %compiler %cmp_opt --apc=10000000000000 %f -o %output
-// (not MAC and not Windows) ASSERT: scan '--apc' gets an invalid number input.
+// ERRCHECK: %compiler %cmp_opt --apc=10000000000000 %f -o %output
+// ASSERT: scan '--apc' gets an invalid number input.
 
 main() {
     return 0

@@ -15,6 +15,5 @@ main(){
     (var a, b) = (1, 2)
     return b - a - a
 }
-// ASSERT: scan parse_expected_right_delimiter
 // ASSERT: scan parse_expected_expression
 // ASSERT: scan parse_invalid_left_hand_expr

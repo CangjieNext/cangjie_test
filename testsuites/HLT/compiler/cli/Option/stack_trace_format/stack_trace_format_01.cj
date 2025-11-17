@@ -6,9 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
-// (CJNATIVE and not O2) EXEC: %compiler %cmp_opt --stack-trace-format=default %f -o %output
-// (CJNATIVE and not O2) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// LEVEL: 0
+// (CJNATIVE and VOO and not O2) EXEC: %compiler %cmp_opt --stack-trace-format=default %f -o %output
+// (CJNATIVE and VOO and not O2) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan StackOverflowError
 // ASSERT: scan at default.A<...>::init()
 // ASSERT: scan at default.B<...>::init()

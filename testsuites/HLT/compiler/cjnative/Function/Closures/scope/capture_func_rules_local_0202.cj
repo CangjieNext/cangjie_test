@@ -36,5 +36,5 @@ func foo() {
     foo1() + foo2()
 }
 // ASSERT: scan sema_capture_has_shadow_variable
-// ASSERT: scan chir_dce_unreachable_expression_hint
+// ASSERT: scan chir2_dce_unreachable_expression
 // ASSERT: scan chir_dce_unused_variable

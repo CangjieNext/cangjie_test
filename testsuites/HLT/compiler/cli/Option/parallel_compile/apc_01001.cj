@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt --apc=10 %f -o %output
-// (not MAC and not Windows) RUN-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt --apc=10 %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 main() {
     return 0

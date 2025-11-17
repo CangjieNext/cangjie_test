@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (not MAC) ERRCHECK: %compiler %cmp_opt --pgo-instr-use=default.profdata %f -o %output
-// (not MAC) ASSERT: scan No such file or directory: 'default.profdata'.
+// ERRCHECK: %compiler %cmp_opt --pgo-instr-use=default.profdata %f -o %output
+// ASSERT: scan No such file or directory: 'default.profdata'.
 
 main() {
     return 0

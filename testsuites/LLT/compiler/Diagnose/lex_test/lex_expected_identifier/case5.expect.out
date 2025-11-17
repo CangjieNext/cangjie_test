@@ -8,11 +8,11 @@ error: unterminated single-line string
    | 
    # note: consider using multi-line string if you intended to include '\n' in string
 
-error: multi-line string may need start with newline character
+error: multi-line string must start with newline character
   ==> case5.cj:16:17:
    | 
 16 | "cangjie2 ${r'''}"
-   |              ~~~^ excepted starting with newline character
+   |              ~~~^ expected to start with newline character
    |              |
    |              because it is in multi-line string
    | 

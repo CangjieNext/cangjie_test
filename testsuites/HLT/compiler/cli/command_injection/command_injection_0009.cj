@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 0
-// (not Windows) EXEC: mkdir '$(ls)'; cp %f '$(ls)'
-// (not Windows) EXEC: %compiler %cmp_opt '$(ls)'/%f -o %output
-// (not Windows) RUN-EXEC: %run %run_opt %output %run_args
+// EXEC: mkdir '$(ls)'; cp %f '$(ls)'
+// EXEC: %compiler %cmp_opt '$(ls)'/%f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 main() {
     0

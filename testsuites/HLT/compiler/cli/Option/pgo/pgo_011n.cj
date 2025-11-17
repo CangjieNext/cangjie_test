@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (not MAC) ERRCHECK: %compiler %cmp_opt %f -o %output --pgo-instr-use
-// (not MAC) ASSERT: scan this Option needs a value: '--pgo-instr-use'
+// ERRCHECK: %compiler %cmp_opt %f -o %output --pgo-instr-use
+// ASSERT: scan this Option needs a value: '--pgo-instr-use'
 
 main() {
     return 0

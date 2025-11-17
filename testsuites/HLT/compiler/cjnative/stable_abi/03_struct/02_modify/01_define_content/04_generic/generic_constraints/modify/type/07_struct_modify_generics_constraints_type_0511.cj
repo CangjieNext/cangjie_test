@@ -1,0 +1,120 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+/*
+  @No: 3.2.1.4.7
+  @Scene: modify
+  @Visibility: used in public @Frozen declare
+  @Object: struct
+  @Behavior: modify generic constraints type
+  @Expect: api incompatible & abi incompatible
+*/
+// LEVEL: 1
+// DEPENDENCE: main.cj, template.cj
+// EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+// EXEC: %rm libstable_abi.%dylib_suffix
+// EXEC: %mv test_stable_abi.cjo old.cjo
+// EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
+
+// ASSERT: scan Incompatible!
+// ASSERT: scan-1 [API/ABI] Changed generic constraint of struct visible outside the module. The new type is not parent type of the old type.
+// ASSERT: scan-1 [ABI] The body of a const function or function marked with @Frozen changed.
+// ASSERT: scan-1 [ABI] Modified nonpublic member variables' type for struct visible outside the module.
+// ASSERT: scan-not [API]
+// ASSERT: scan-2 [ABI]
+// ASSERT: scan-1 [API/ABI]
+
+package test_stable_abi
+
+import std.random.*
+
+public struct Pair<T, U> {
+    let x: T
+    let y: U
+    public init(a: T, b: U) {
+        x = a
+        y = b
+    }
+    public func first(): T {
+        return x
+    }
+    public func second(): U {
+        return y
+    }
+}
+
+public struct Pair1<T, U> where T <: ToString, U <: Random {
+    let x: T
+    let y: U
+    public init(a: T, b: U) {
+        x = a
+        y = b
+    }
+    public func first(): T {
+        return x
+    }
+    public func second(): U {
+        return y
+    }
+}
+
+ struct Pair2<T, U> where T <: Random {
+    let x: T
+    let y: U
+    public init(a: T, b: U) {
+        x = a
+        y = b
+    }
+    public func first(): T {
+        return x
+    }
+    public func second(): U {
+        return y
+    }
+}
+
+struct S2<T, U> where T <: Random, U <: Random {
+    let s1: Int64 = 0
+}
+
+public struct Pair15 {
+    let x: S2<Random, Random> = S2<Random, Random>()
+}
+
+struct S3<T, U> where T <: Random, U <: Random{
+    let x: Int64 = 0
+    public const init() {}
+}
+
+
+public struct Pair3 {
+
+    public const init() {}
+    public const func getX(): Int64 {
+
+        let x: S3<Random, Random> = S3<Random, Random>()
+        return x.x
+    }
+
+}
+
+struct S12<T, U> where T <: ToString {
+    let s1: Int64 = 0
+}
+
+public struct Pair18 {
+    let x: S12<ToString, Int64> = S12<ToString, Int64>()
+
+    @Frozen
+    public func getX(): Int64 {
+        return x.s1
+    }
+}
+

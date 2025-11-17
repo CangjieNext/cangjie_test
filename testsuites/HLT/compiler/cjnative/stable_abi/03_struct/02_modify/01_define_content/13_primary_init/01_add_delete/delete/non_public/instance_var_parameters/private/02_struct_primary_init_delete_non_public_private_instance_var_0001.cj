@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.13.1.2
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: struct primary init
   @Behavior: delete non public primary init
   @Expect: api compatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -24,10 +24,11 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // ASSERT: scan Incompatible!
+// ASSERT: scan-1 [ABI] Deleted non public primary constructor with private member variable parameter.
 // ASSERT: scan-1 [ABI] Deleted instance non public variable member from the struct.
 // ASSERT: scan-not [API/ABI]
 // ASSERT: scan-not [API]
-// ASSERT: scan-1 [ABI]
+// ASSERT: scan-2 [ABI]
 // TEST API Compatibility
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
@@ -35,8 +36,6 @@
 package test_stable_abi
 
 public struct S {
-    public var a: Int64 = 1
-    public init() {
-        a = 0
-    }
+    public var a = 1
+    public init() { a = 0 }
 }

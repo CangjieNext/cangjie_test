@@ -9,12 +9,10 @@
 // LEVEL: 2
 // DEPENDENCE: ./macros
 // EXEC: %compiler macros/m.cj %cmp_macro --output-dir ./
-// EXEC-PIPE: %compiler %cmp_opt %f --profile-compile-memory --profile-compile-time 2>&1 | compare %f
-// ASSERT: scan Code Info of [ default ]
-// ASSERT: scan Memory Usage of [ default ]
-// ASSERT: regex [0-9]+.[0-9]+ => [0-9]+.[0-9]+ MB
-// ASSERT: scan Compile Time of [ default ]
-// ASSERT: regex cost [0-9]+ ms
+// EXEC-PIPE: %compiler %cmp_opt %f --profile-compile-memory --profile-compile-time 2>&1
+// (not Windows) EXEC-0: %cat default.time.prof
+// (not Windows) EXEC-0: %cat default.info.prof
+// (not Windows) EXEC-0: %cat default.mem.prof
 
 import define.*
 

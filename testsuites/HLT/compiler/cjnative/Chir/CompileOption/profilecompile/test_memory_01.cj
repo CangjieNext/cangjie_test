@@ -7,10 +7,27 @@
  */
 
 // LEVEL: 2
-// EXEC-PIPE: %compiler %cmp_opt %f --profile-compile-memory -o %output 2>&1 | compare %f
-// ASSERT: scan Code Info of [ default ]
-// ASSERT: scan Memory Usage of [ default ]
-// ASSERT: regex [0-9]+.[0-9]+ => [0-9]+.[0-9]+ MB
+// EXEC-PIPE: %compiler %cmp_opt %f --profile-compile-memory -o %output 2>&1
+// (not Windows) EXEC-0: %cat default.mem.prof | compare %f
+// (not Windows) EXEC-0: %cat default.info.prof
+// (not Windows) EXEC-1: %cat default.time.prof
+// ASSERT: regex-begin "Main Stage": {
+// ASSERT: regex-next .*"Parser": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"ConditionalCompilation": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"ImportPackages": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"MacroExpand": [0-9]+\.[0-9]+,
+// (CJNATIVE) ASSERT: regex-next .*"AST Diff": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"Semantic": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"Desugar after Sema": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"Generic Instantiation": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"Overflow Strategy": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"Perform Mangling": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"CHIR": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"CodeGen": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"Save cjo and bchir": [0-9]+\.[0-9]+,
+// (CJNATIVE) ASSERT: regex-next .*"Execute opt": [0-9]+\.[0-9]+,
+// (CJNATIVE) ASSERT: regex-next .*"Execute llc": [0-9]+\.[0-9]+,
+// (not CJNATIVE) ASSERT: regex-next .*"Execute jc": [0-9]+\.[0-9]+,
 
 interface I1 {}
 
