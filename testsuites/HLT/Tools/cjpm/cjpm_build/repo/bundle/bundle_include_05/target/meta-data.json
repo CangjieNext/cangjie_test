@@ -1,0 +1,28 @@
+{
+  "organization": "",
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "nothing here",
+  "artifact-type": "src",
+  "executable": false,
+  "authors": [],
+  "repository": "",
+  "homepage": "",
+  "documentation": "",
+  "tag": [],
+  "category": [],
+  "license": [],
+  "index": {
+    "organization": "",
+    "name": "demo",
+    "version": "1.0.0",
+    "dependencies": [],
+    "test-dependencies": [],
+    "script-dependencies": [],
+    "sha256sum": "cdcd3af9244d6054b11d80f3c39c5f5e3762ecd1e1a5c9c38cbfde32e52a2d02",
+    "yanked": false,
+    "cjc-version": "1.0.0",
+    "index-version": 1
+  },
+  "meta-version": 1
+}

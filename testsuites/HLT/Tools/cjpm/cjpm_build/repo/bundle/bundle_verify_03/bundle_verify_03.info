@@ -1,0 +1,15 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm bundle --skip-test --skip-lint 2>&1 | compare %f
+// ASSERT: scan Error: module name cannot be 'int64'
+// ASSERT: scan Error: url '`' in field 'package.repository' of current module is illegal
+// ASSERT: scan Error: cjpm bundle failed
+// ASSERT: scan Error: dependency 'aoo' from field 'dependencies' should be in format of centray repository while bundling
+// ASSERT: scan Error: dependency 'boo' from field 'target.x86_64-unknown-linux-gnu.test-dependencies' should be in format of centray repository while bundling
+// ASSERT: scan Error: dependency 'coo' from field 'target.x86_64-unknown-linux-gnu.debug.script-dependencies' should be in format of centray repository while bundling

@@ -1,0 +1,84 @@
+{
+  "bin": {
+    "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\p3\\target\\release\\p3\\p3.cjo": {
+      "package": "p3",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1762428696,
+      "dependencies": [],
+      "std-dependencies": [],
+      "features": [],
+      "testUsed": false,
+      "mockUsed": false
+    }
+  },
+  "pkg-build": {
+    "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\src": {
+      "package": "b",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1761012667,
+      "dependencies": [
+        {
+          "orPackage": "",
+          "package": "b.p1",
+          "isStd": false,
+          "imports": [
+            {
+              "file": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\src\\test.cj"
+            }
+          ]
+        }
+      ],
+      "std-dependencies": [],
+      "features": [],
+      "testUsed": false,
+      "mockUsed": false
+    },
+    "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\src\\p2": {
+      "package": "b.p2",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1761012667,
+      "dependencies": [],
+      "std-dependencies": [],
+      "features": [],
+      "testUsed": false,
+      "mockUsed": false
+    },
+    "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\src\\p1": {
+      "package": "b.p1",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1761012667,
+      "dependencies": [
+        {
+          "orPackage": "",
+          "package": "p3",
+          "isStd": false,
+          "imports": [
+            {
+              "file": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\src\\p1\\p1.cj"
+            }
+          ]
+        }
+      ],
+      "std-dependencies": [],
+      "features": [],
+      "testUsed": false,
+      "mockUsed": false
+    },
+    "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\p4\\src": {
+      "package": "p4",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1761012667,
+      "dependencies": [],
+      "std-dependencies": [],
+      "features": [],
+      "testUsed": false,
+      "mockUsed": false
+    }
+  },
+  "pkg-test": {}
+}
