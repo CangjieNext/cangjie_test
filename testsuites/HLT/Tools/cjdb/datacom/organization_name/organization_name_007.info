@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/pkgs006/src
+// (not MAC) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj -o libpkg1.%middle
+// (not MAC) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs006.cj -o pkgs006%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py organization_name_007.info pkgs006 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors pkgs006,pkgs006
+b,b 27,pkgs006.cj:27
+r,r,-> 27
+p,p pkg_enum_top,\(org.pkgs.TimeUnit1<Int8>\) \$[\d] = {[\s\S]*constructor = Month[\s\S]*arg_1 = 1[\s\S]*}
+p,p pkg_r1_top,\(org.pkgs.R1<Int32>\) \$[\d] = {[\s\S]*width = 10[\s\S]*length = 10[\s\S]*}
+expr,expr pkg_enum_f,\(org.pkgs.TimeUnit1<Int8>\) \$[\d] = {[\s\S]*constructor = Month[\s\S]*arg_1 = 2[\s\S]*}
+q,q,

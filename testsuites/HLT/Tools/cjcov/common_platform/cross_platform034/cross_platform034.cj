@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: mp reference ../../scripts/compare_html.py
+// EXEC: %compiler %cmp_opt --coverage mp/test_com.cj %compile_chir_opt -o ./
+// EXEC: %compiler %cmp_opt --coverage mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
+// EXEC: %compiler %cmp_opt --coverage cross_platform034.cj %link_cjmp -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+// EXEC: %cjcov --root=./  --html-details --output=html_output
+// EXEC: python3 compare_html.py -b reference -d html_output
+
+import mp.*
+
+main() {
+    var a1 = foo1(a:3)
+    var a2 = foo2(1,2)
+    var a3 = C1().foo3(1,2)
+    0
+}
