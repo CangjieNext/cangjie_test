@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/pkgs004/src
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs1/pkg1.cj -o libpkg1.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs2/pkg2.cj -o libpkg2.%middle
+// EXEC: %compiler %cmp_opt -g libpkg1.%middle libpkg2.%middle src/pkgs004.cj -o pkgs004%cmp_output
+// RUN-EXEC: python3 cjdb_test.py organization_name_005.info pkgs004 %run_env
+
+
+
+test#
+cjdb,cjdb --no-use-colors pkgs004,pkgs004
+b,b 19,pkgs004.cj:19
+r,r,-> 19
+s,s,pkg1.cj:11
+finish,finish,-> 19
+n,n,-> 20
+s,s,pkg2.cj:15
+finish,finish,-> 20
+n,n,-> 21
+p,p a,\(Int64\) \$[\d] = 1
+p,p b,\(Int64\) \$[\d] = 1
+q,q,

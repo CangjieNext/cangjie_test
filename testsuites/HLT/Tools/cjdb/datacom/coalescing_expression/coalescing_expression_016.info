@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/coalescing_expression/coalescing016.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g coalescing016.cj -o coalescing016%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py coalescing_expression_016.info coalescing016 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors coalescing016,coalescing016
+b,b 25,coalescing016.cj:25
+AOT r,r,-> 25
+expr,expr r1,\(std.core.Array<std.core.Array<Int64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}[\s\S]*}
+expr,expr r2,\(std.core.Array<std.core.Array<Int64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 3[\s\S]*\[1\] = 4[\s\S]*}[\s\S]*}
+expr,expr r3,\(std.core.Array<std.core.Array<default.S1>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = {[\s\S]*a = 1[\s\S]*
+expr,expr r4,\(std.core.Array<std.core.Array<default.S1>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = {[\s\S]*a = 1[\s\S]*
+q,q,

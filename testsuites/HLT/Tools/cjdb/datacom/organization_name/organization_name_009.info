@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/organization_name_002.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g  organization_name_002.cj -o organization_name_002%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py organization_name_009.info organization_name_002 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors organization_name_002,organization_name_002
+b,b 32,organization_name_002.cj:32
+r,r,-> 32
+p,p a1,\(a_b.default.C1\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
+p,p a2,\(Int64\) \$[\d] = 1
+p,p a4,\(a_b.default.E1\) \$[\d] = AB
+p,p a5,\(a_b.default.C1\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
+expr,expr a5,\(a_b.default.C1\) \$[\d] = {[\s\S]*a = 1[\s\S]*}
+q,q,
