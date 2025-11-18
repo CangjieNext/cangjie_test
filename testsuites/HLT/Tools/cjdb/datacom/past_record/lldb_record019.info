@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 047_debug_record_main_mod_public,047_debug_record_main_mod_public
-b,b 11,047_debug_record_main_mod_public.cj:11
-AOT r,r,-> 11
+b,b 19,047_debug_record_main_mod_public.cj:19
+AOT r,r,-> 19
 CJVM c,c,
-n,n,-> 12
+n,n,-> 20
 locals,locals,Rectangle\) newRectangle = {(\r|\n|\r\n)  name = "zhangsan"(\r|\n|\r\n)  age = 18
 q,q,

@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors setVar_external_invoke.out,setVar_external_invoke
-b,b 10,setVar_external_invoke.cj:10
-AOT r,r,-> 10
+b,b 18,setVar_external_invoke.cj:18
+AOT r,r,-> 18
 CJVM c,c,
 p,p newc.rectangle_Ins,Rectangle_ex\) \$[0-9]* = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100
 set,set newc.rectangle_Ins.length =-32,\(Int32\) \$[0-9]* = -32

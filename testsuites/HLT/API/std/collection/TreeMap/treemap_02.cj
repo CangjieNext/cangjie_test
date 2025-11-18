@@ -66,6 +66,7 @@ class Test_treemap_02 {
         PreData_str()
         let first = cmap_str.getOrThrow().first.getOrThrow()
         let last = cmap_str.getOrThrow().last.getOrThrow()
+        //println(cmap_str.getOrThrow().toString())
         @Expect(first[0], "0")
         @Expect(first[1], "1")
         @Expect(last[0], "99")
@@ -81,6 +82,7 @@ class Test_treemap_02 {
         }
         let first = cmap.first.getOrThrow()
         let last = cmap.last.getOrThrow()
+        //println(cmap_str.getOrThrow().toString())
         @Expect(first[0], "0")
         @Expect(first[1], "1")
         @Expect(last[0], "99")

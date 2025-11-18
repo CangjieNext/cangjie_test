@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors coroutine_6,coroutine_6
-b,b 10,coroutine_6.cj:10
-AOT r,r,-> 10
+b,b 18,coroutine_6.cj:18
+AOT r,r,-> 18
 CJVM c,c,
-cjthread,cjthread list,cjthread #2 state: pending[\s\S]*coroutine_6.cj:10
+cjthread,cjthread list,cjthread #2 state: pending[\s\S]*coroutine_6.cj:18
 cjthread,cjthread backtrace -c 2 -s 2 999,error: invalid cjthread index "999"
 q,quit,

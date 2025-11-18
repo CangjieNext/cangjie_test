@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_via_inherit,002_debug_array_via_inherit
-b,b 9,002_debug_array_via_inherit.cj:9
-AOT r,r,-> 9
+b,b 17,002_debug_array_via_inherit.cj:17
+AOT r,r,-> 17
 CJVM c,c,
 p, p v_main_2[1],std[.]core.Array<UInt64>\) \$[0-9]* = {[\s\S]*
 AOT set,set v_main_2[1][3]='B',error: unsupported expression

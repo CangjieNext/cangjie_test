@@ -16,9 +16,9 @@ import std.sync.*
 import std.net.*
 import std.collection.*
 import stdx.net.http.*
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 import stdx.net.tls
-import stdx.crypto.kit
+//import stdx.crypto.kit
 
 func response(s: Server): HttpResponse {
     let request = HttpRequestBuilder().url("http://127.0.0.1:${s.port}/dd").build()
@@ -64,7 +64,7 @@ public class Test_serve {
             s.serve()
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message, "The socket is already bound")
+            @Expect(e.message.contains("The socket is already bound"))
         }
         s.close()
         @Expect(flag, true)
@@ -85,7 +85,7 @@ public class Test_serve {
             s.serve()
         } catch (e: SocketException) {
             flag = true
-            @Expect(e.message, "Socket is already closed")
+            @Expect(e.message.contains("Socket is already closed"))
         }
         @Expect(flag, true)
     }
@@ -105,7 +105,7 @@ public class Test_serve {
             let a = s.addr
         } catch (e: SocketException) {
             flag = true
-            @Expect(e.message, "Socket is already closed")
+            @Expect(e.message.contains("Socket is already closed"))
         }
         @Expect(flag, true)
     }

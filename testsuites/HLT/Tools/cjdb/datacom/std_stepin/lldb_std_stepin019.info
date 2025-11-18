@@ -14,16 +14,16 @@
 
 test#
 cjdb,cjdb --no-use-colors std_test,std_test
-b,b 356,std_test.cj:356
-AOT r,r,-> 356
+b,b 364,std_test.cj:364
+AOT r,r,-> 364
 CJVM c,c,
-s,s,-> 357
-s,s,-> 358
-s,s,-> 359
-s,s,-> 360
-s,s,-> 361
-s,s,-> 362
-s,s,-> 363
-s,s,-> 364
+s,s,-> 365
+s,s,-> 366
+s,s,-> 367
+s,s,-> 368
 s,s,-> 369
+s,s,-> 370
+s,s,-> 371
+s,s,-> 372
+s,s,-> 377
 q,q,

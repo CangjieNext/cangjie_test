@@ -16,9 +16,9 @@ import std.sync.*
 import std.net.*
 import std.collection.*
 import stdx.net.http.*
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 import stdx.net.tls
-import stdx.crypto.kit
+//import stdx.crypto.kit
 
 @Test
 public class Test_request_check {
@@ -61,21 +61,21 @@ public class Test_request_check {
             let response = client.send(request1)
         } catch (e: HttpException) {
             cnt += 1
-            @Expect(e.message, "Chunked should not be set more than once.")
+            @Expect(e.message.contains("Chunked should not be set more than once"))
         }
 
         try {
             let response = client.send(request2)
         } catch (e: HttpException) {
             cnt += 1
-            @Expect(e.message, "The last value of transfer-encoding must be chunked.")
+            @Expect(e.message.contains("The last value of transfer-encoding must be chunked"))
         }
 
         try {
             let response = client.send(request3)
         } catch (e: HttpException) {
             cnt += 1
-            @Expect(e.message, "The last value of transfer-encoding must be chunked.")
+            @Expect(e.message.contains("The last value of transfer-encoding must be chunked"))
         }
         @Expect(cnt, 3)
 
@@ -117,21 +117,21 @@ public class Test_request_check {
             let response = client.send(request1)
         } catch (e: HttpException) {
             cnt += 1
-            @Expect(e.message, "The content-length should not be negative.")
+            @Expect(e.message.contains("The content-length should not be negative"))
         }
 
         try {
             let response = client.send(request2)
         } catch (e: HttpException) {
             cnt += 1
-            @Expect(e.message, "The content-length invalid.")
+            @Expect(e.message.contains("The content-length invalid"))
         }
 
         try {
             let response = client.send(request2)
         } catch (e: HttpException) {
             cnt += 1
-            @Expect(e.message, "The content-length invalid.")
+            @Expect(e.message.contains("The content-length invalid."))
         }
         @Expect(cnt, 3)
     }

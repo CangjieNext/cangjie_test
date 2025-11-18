@@ -18,7 +18,7 @@
 
 test#
 cjdb,cjdb --no-use-colors demangle_target,demangle_target
-b,b 9,demangle_target`default::v_top_2.* at demangle.cj:9:28
-AOT r,r,demangle_target`default::v_top_2 at demangle.cj:9:28[\s\S]*-> 9
-CJVM c,c,-> 9
+b,b 17,demangle_target`default::v_top_2.* at demangle.cj:17:28
+AOT r,r,demangle_target`default::v_top_2 at demangle.cj:17:28[\s\S]*-> 17
+CJVM c,c,-> 17
 q,q,

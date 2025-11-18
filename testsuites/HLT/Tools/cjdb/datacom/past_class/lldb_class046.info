@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 012_debug_class_init,012_debug_class_init
-b,b 45,012_debug_class_init.cj:45
-AOT r,r,-> 45
-CJVM c,c,-> 45
+b,b 53,012_debug_class_init.cj:53
+AOT r,r,-> 53
+CJVM c,c,-> 53
 locals,locals,length = 10[\s\S]* width = 10[\s\S]* perimeter = 10[\s\S]*}
 q,q,

@@ -16,9 +16,9 @@ import std.sync.*
 import std.net.*
 import std.collection.*
 import stdx.net.http.*
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 import stdx.net.tls
-import stdx.crypto.kit
+//import stdx.crypto.kit
 import stdx.encoding.url.*
 
 @Test
@@ -57,7 +57,7 @@ public class Test_readTimeout {
         let client = ClientBuilder().readTimeout(Duration.Zero).build()
         @Expect(client.readTimeout, Duration.second * 0)
         let e = @AssertThrows[HttpTimeoutException](client.get("http://127.0.0.1:${s.port}/dd"))
-        @Expect(e.message, "Client1.1 read response timeout and the connection is closed.")
+        @Expect(e.message.contains("Client1.1 read response timeout and the connection is closed"))
         client.close()
         s.close()
     }
@@ -84,7 +84,7 @@ public class Test_readTimeout {
         let client = ClientBuilder().readTimeout(Duration.nanosecond * -1).build()
         @Expect(client.readTimeout, Duration.Zero)
         let e = @AssertThrows[HttpTimeoutException](client.get("http://127.0.0.1:${s.port}/dd"))
-        @Expect(e.message, "Client1.1 read response timeout and the connection is closed.")
+        @Expect(e.message.contains("Client1.1 read response timeout and the connection is closed"))
         client.close()
         s.close()
     }

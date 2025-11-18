@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 067_debug_hashmap,067_debug_hashmap
-b,b 30,067_debug_hashmap.cj:30
-AOT r,r,-> 30
-CJVM c,c,-> 30
+b,b 38,067_debug_hashmap.cj:38
+AOT r,r,-> 38
+CJVM c,c,-> 38
 p,p hashmap04,\(std\.collection.HashMap<std.core.String,Rune>\) \$[\d] = {[\s\S]*\["aa" -> 'a'\] = {[\s\S]*key = "aa"[\s\S]*value = 'a'[\s\S]*}[\s\S]*\["bb" -> 'b'\] = {[\s\S]*key = "bb"[\s\S]*value = 'b'[\s\S]*}[\s\S]*\["cc" -> 'c'\] = {[\s\S]*key = "cc"[\s\S]*value = 'c'[\s\S]*}[\s\S]*}
 locals,locals,hashmap04 = {[\s\S]*key = "aa"[\s\S]*value = 'a'[\s\S]*}[\s\S]*\["bb" -> 'b'\] = {[\s\S]*key = "bb"[\s\S]*value = 'b'[\s\S]*}[\s\S]*\["cc" -> 'c'\] = {[\s\S]*key = "cc"[\s\S]*value = 'c'[\s\S]*}[\s\S]*}
 q,q,

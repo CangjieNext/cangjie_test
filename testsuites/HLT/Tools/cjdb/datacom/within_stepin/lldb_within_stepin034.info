@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_stepIn_via_extend,003_debug_stepIn_via_extend
-CJVM b main,b main,003_debug_stepIn_via_extend.cj:8
-CJVM c,c,-> 8
-b,b 11,003_debug_stepIn_via_extend.cj:11
-AOT r,r,-> 11
-CJVM c,c,-> 11
-s,s,func f_001\(a: UInt32, b!: UInt32 = 1\)[\s\S]*-> 58[\s\S]*
-finish,finish,-> 11
+CJVM b main,b main,003_debug_stepIn_via_extend.cj:16
+CJVM c,c,-> 16
+b,b 19,003_debug_stepIn_via_extend.cj:19
+AOT r,r,-> 19
+CJVM c,c,-> 19
+s,s,func f_001\(a: UInt32, b!: UInt32 = 1\)[\s\S]*-> 66[\s\S]*
+finish,finish,-> 19
 q,q,

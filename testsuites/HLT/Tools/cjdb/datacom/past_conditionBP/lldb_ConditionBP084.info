@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_condition_bp,045_debug_condition_bp
-breakpoint,breakpoint set -l 51 -c 'topnum==8',045_debug_condition_bp.cj:51
-AOT r,r,-> 51
+breakpoint,breakpoint set -l 59 -c 'topnum==8',045_debug_condition_bp.cj:59
+AOT r,r,-> 59
 CJVM c,c,
 locals,locals,\(Int8\) numint8 = 10
 c,c,exited with status

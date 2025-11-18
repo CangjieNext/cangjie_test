@@ -28,7 +28,7 @@ class Test_array_repeat_flatten_03 {
         @Expect(res2.repeat(2),["3","4","5","6","7","8","9","10","3","4","5","6","7","8","9","10"])
 
         let e = @AssertThrows[IllegalArgumentException](res2.repeat(0))
-        @Expect(e.message, "N is less than or equal to 0.")
+        @Expect(e.message.contains("N is less than or equal to 0."))
     }
 
     @TestCase

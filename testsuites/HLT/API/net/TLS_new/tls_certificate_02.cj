@@ -14,8 +14,7 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.common.{DerBlob, PrivateKey}
+import stdx.crypto.x509.{X509Certificate,DerBlob, PrivateKey}
 import std.sync.*
 import std.argopt.*
 import std.runtime.*

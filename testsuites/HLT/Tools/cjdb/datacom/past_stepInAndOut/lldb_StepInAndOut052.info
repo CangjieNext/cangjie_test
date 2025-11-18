@@ -16,19 +16,19 @@
 
 test#
 cjdb,cjdb --no-use-colors 037_debuginfun_lambda,037_debuginfun_lambda
-CJVM b main,b main,037_debuginfun_lambda.cj:4
-CJVM c,c,-> 4
-b,b 8,Breakpoint
-AOT b,b 9,037_debuginfun_lambda.cj:10
-CJVM b,b 9,037_debuginfun_lambda.cj:9
-b,b 10,037_debuginfun_lambda.cj:10
-AOT b,b 11,037_debuginfun_lambda.cj:12
-b,b 12,037_debuginfun_lambda.cj:12
-AOT r,r,-> 8
-CJVM c,c,-> 8
-s,s,-> 12
-s,s,-> 10
-finish,finish,-> 12
-n,n,-> 13
+CJVM b main,b main,037_debuginfun_lambda.cj:12
+CJVM c,c,-> 12
+b,b 16,Breakpoint
+AOT b,b 17,037_debuginfun_lambda.cj:18
+CJVM b,b 17,037_debuginfun_lambda.cj:17
+b,b 18,037_debuginfun_lambda.cj:18
+AOT b,b 19,037_debuginfun_lambda.cj:20
+b,b 20,037_debuginfun_lambda.cj:20
+AOT r,r,-> 16
+CJVM c,c,-> 16
+s,s,-> 20
+s,s,-> 18
+finish,finish,-> 20
+n,n,-> 21
 locals,locals,lamdba001 = 20
 q,q,

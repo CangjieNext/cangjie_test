@@ -14,16 +14,16 @@
 
 test#
 cjdb,cjdb --no-use-colors collection_HashSet_external_invoke,collection_HashSet_external_invoke
-b,b 20,collection_HashSet_external_invoke.cj:20
-AOT r,r,-> 20
-CJVM c,c,-> 20
-s,s,-> 86
-n,n,-> 87
+b,b 28,collection_HashSet_external_invoke.cj:28
+AOT r,r,-> 28
+CJVM c,c,-> 28
+s,s,-> 94
+n,n,-> 95
 p,p set_cla_fun_1,\(std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[3\] = 32[\S\s]*}
 p,p set_cla_fun_1,\(std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[4\] = 126[\S\s]*}
-b,b 89,collection_HashSet_external_define.cj:89
-c,c,-> 89
+b,b 97,collection_HashSet_external_define.cj:97
+c,c,-> 97
 p,p set_cla_fun_1,\(std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[8\] = 40[\S\s]*}
 p,p set_cla_fun_1,\(std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[4\] = 126[\S\s]*}
-finish,finish,-> 20
+finish,finish,-> 28
 q,q,

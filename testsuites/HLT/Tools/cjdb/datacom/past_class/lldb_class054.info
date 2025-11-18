@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 012_debug_class_init,012_debug_class_init
-b,b 56,012_debug_class_init.cj:56
-AOT r,r,-> 56
-CJVM c,c,-> 56
-n,n,-> 57
-n,n,-> 58
+b,b 64,012_debug_class_init.cj:64
+AOT r,r,-> 64
+CJVM c,c,-> 64
+n,n,-> 65
+n,n,-> 66
 locals,locals,\(Int32\) main_get1 = 14
 locals,locals,\(Int32\) main_get2 = 10
 q,q,

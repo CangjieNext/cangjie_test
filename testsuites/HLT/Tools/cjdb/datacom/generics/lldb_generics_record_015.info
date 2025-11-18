@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
-b,b 31,052_debug_record_generics.cj:31
-AOT r,r,-> 31
+b,b 39,052_debug_record_generics.cj:39
+AOT r,r,-> 39
 CJVM c,c,
-n,n,-> 32
+n,n,-> 40
 locals,locals,\(Int32\) funnum = 10
 q,q,

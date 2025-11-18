@@ -13,9 +13,9 @@
 
 import std.io.*
 import stdx.net.http.*
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 import stdx.net.tls
-import stdx.crypto.kit
+//import stdx.crypto.kit
 import std.net.*
 import stdx.encoding.url.*
 import std.runtime.*
@@ -39,7 +39,8 @@ main(): Int64 {
     if (str.contains("location: http://127.0.0.1:0/red") != true) {
         return 4
     }
-
+    server.close()
+    client.close()
     return 0
 }
 

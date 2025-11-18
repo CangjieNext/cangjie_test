@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
-b,b 126,genericsfun_return.cj:126
-AOT r,r,-> 126
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
 CJVM c,c,
 p, p lb,\(Bool\) \$[\d] = true
 p, p cvb,\(Bool\) \$[\d] = false
@@ -26,8 +26,8 @@ p, p globals_vb,\(Bool\) \$[\d] = true
 locals, locals,\(Bool\) lb = true[\s\S]*\(default.S1\) s1 = {[\s\S]*vbs = true[\s\S]*\(default.C1\) c1 = {[\s\S]*vbc = true[\s\S]*
 globals, globals,\(Bool\) default::S1::vb = true[\s\S]*
 globals, globals,\(Bool\) default::globals_vb = true
-b, b 137,genericsfun_return.cj:137
-c,c,-> 137
+b, b 145,genericsfun_return.cj:145
+c,c,-> 145
 p, p d,\(Bool\) \$[\d] = true
 p, p test_d,\(Bool\) \$[\d] = true
 locals, locals,\(Bool\) d = true

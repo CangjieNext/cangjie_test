@@ -12,11 +12,11 @@
 // (not MAC) RUN-EXEC: python3 cjdb_test.py case08.info case08 %run_env
 test#
 cjdb,cjdb --no-use-colors case08,case08
-b,b main,case08.cj:17
-AOT r,r,-> 17
+b,b main,case08.cj:25
+AOT r,r,-> 25
 CJVM c,c,
-AOT s,s,ClassViaOverLoad(::|\.)init\(this=pkg_class(::|\.)ClassViaOverLoad[\S\s]*case08\.cj:6
-n,n,-> 7
-n,n,-> 11
+AOT s,s,ClassViaOverLoad(::|\.)init\(this=pkg_class(::|\.)ClassViaOverLoad[\S\s]*case08\.cj:14
+n,n,-> 15
+n,n,-> 19
 AOT p,p this,\$[\d] = \{[\S\s]*width = 10[\S\s]*length = 20[\S\s]*\}
 q,q,

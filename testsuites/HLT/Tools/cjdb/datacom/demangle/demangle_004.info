@@ -18,7 +18,7 @@
 
 test#
 cjdb,cjdb --no-use-colors demangle_target,demangle_target
-b,b def_parameter_enum,where = demangle_target`default::def_parameter_enum\(pkg_enum::test_RGBColor, pkg_enum::test_RGBColor\) \+ \d+ at demangle.cj:27:5
-AOT r,r,demangle_target`default::def_parameter_enum\(enum_para=pkg_enum.test_RGBColor[\s\S]*, default_para=pkg_enum.test_RGBColor[\s\S]*\) at demangle.cj:27:5[\s\S]*-> 27
-CJVM c,c,-> 27
+b,b def_parameter_enum,where = demangle_target`default::def_parameter_enum\(pkg_enum::test_RGBColor, pkg_enum::test_RGBColor\) \+ \d+ at demangle.cj:35:5
+AOT r,r,demangle_target`default::def_parameter_enum\(enum_para=pkg_enum.test_RGBColor[\s\S]*, default_para=pkg_enum.test_RGBColor[\s\S]*\) at demangle.cj:35:5[\s\S]*-> 35
+CJVM c,c,-> 35
 q,q,

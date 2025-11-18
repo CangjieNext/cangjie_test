@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 import std.collection.*
 struct Rectt{
     static let degree: Int64
@@ -66,11 +74,3 @@ main(){
             }("test lambda\n",8,16,32,64,10,8,16,32,64,10,12.12,32.32323232,64.64646464,true,r'a',[1, 2, 3],[true, false, true],(1,2,3),hss,arr011,ArrayList1,HashMap1,rrtt,stu,TimeUnit2.Year(19))
     return 0
 }
-
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

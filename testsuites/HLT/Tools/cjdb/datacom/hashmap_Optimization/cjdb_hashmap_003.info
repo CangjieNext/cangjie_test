@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors basic_hashmap_003,basic_hashmap_003
-b,b 20,basic_hashmap_003.cj:20
-b,b 32,basic_hashmap_003.cj:32
-AOT r,r,-> 20
+b,b 28,basic_hashmap_003.cj:28
+b,b 40,basic_hashmap_003.cj:40
+AOT r,r,-> 28
 p,p this.map_11,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\s\S]*\["a" -> 1\] = {[\s\S]*key = "a"[\s\S]*value = 1[\s\S]*}[\s\S]*\["b" -> 2\] = {[\s\S]*key = "b"[\s\S]*value = 2[\s\S]*}[\s\S]*}
-AOT c,c,-> 32
+AOT c,c,-> 40
 p,p b2,\(std.collection.HashMap<Int16,UInt16>\) \$[\d] = {[\s\S]*\[-39 -> 150\] = {[\s\S]*key = -39[\s\S]*value = 150[\s\S]*}[\s\S]*\[-90 -> 1662\] = {[\s\S]*key = -90[\s\S]*value = 1662[\s\S]*}[\s\S]*\[76 -> 675\] = {[\s\S]*key = 76[\s\S]*value = 675[\s\S]*
 expr~expr a1.map_13~\(std.collection.HashMap<Float16,Int16>\) \$[\d] = {[\s\S]*\[1.2002 -> 17\] = {[\s\S]*key = 1.2002[\s\S]*value = 17[\s\S]*}[\s\S]*\[2.3008 -> 1\] = {[\s\S]*key = 2.3008[\s\S]*value = 1[\s\S]* }[\s\S]*\[5.6016 -> 3\] = {[\s\S]*key = 5.6016[\s\S]*value = 3[\s\S]*
 q,q,

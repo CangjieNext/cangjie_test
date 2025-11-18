@@ -13,13 +13,28 @@ import std.ast.*
 
 // main() {
 //     var input: Tokens = quote(
+//         for (i in a() where b(2)){
+//             c(x:y)
 //         }
 //     )
+//     let expr = parseExpr(input)
+//     if (expr.isForInExpr()) {
+//         var forExpr = expr.asForInExpr()
+//         if (forExpr.getPattern().asVarPattern().getVarDecl().getIdentifier().value != "i") {
+//             return 2
 //         }
+//         if (forExpr.getInExpr().asCallExpr().getBaseFunc().asRefExpr().getIdentifier().value != "a") {
+//             return 3
 //         }
+//         if (forExpr.getPatternGuard().getOrThrow().asCallExpr().Process.current.arguments[0].getExpr().asLitConstExpr().getLiteral().value != "2") {
+//             return 6
 //         }
+//         if (forExpr.getBody()[0].asExpr().asCallExpr().Process.current.arguments[0].getName().getOrThrow().value != "x") {
+//             return 7
 //         }
+//         return 0
 //     }
+//     return 1
 // }
 
 main() {

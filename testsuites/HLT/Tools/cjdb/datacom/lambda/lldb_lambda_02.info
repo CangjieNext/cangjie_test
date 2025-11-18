@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors Test_Lambda,Test_Lambda
-CJVM b,b 2,Test_Lambda.cj:2
-AOT b,b 3,Breakpoint [\d]: 2 locations.
-AOT r,r,-> 3
+CJVM b,b 10,Test_Lambda.cj:10
+AOT b,b 11,Breakpoint [\d]: 2 locations.
+AOT r,r,-> 11
 CJVM c,c,
 locals,locals,\(Unit\) test_lambda = \(\)
 q,q,

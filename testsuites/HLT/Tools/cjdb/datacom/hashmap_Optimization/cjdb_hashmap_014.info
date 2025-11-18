@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors basic_hashmap_014,basic_hashmap_014
-b,b 16,basic_hashmap_014.cj:16
-AOT r,r,-> 16
+b,b 24,basic_hashmap_014.cj:24
+AOT r,r,-> 24
 locals,locals,\(default.testC1\) a1 = {[\s\S]*map_a = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 42[\s\S]*
 p,p a1.map_c,\(std.collection.HashMap<default.cla,Float32>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 17.75[\s\S]*
 q,q,

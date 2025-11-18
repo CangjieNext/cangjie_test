@@ -208,7 +208,7 @@ public class VerificationFailedReportTest {
                 "[+] string1 <~> ofType<String>()",
                 "[-] string2 <~> eq(\"abc\")",
                 "[+] int1    <~> any()",
-                "[-] int2    <~> argThat { num: Int64 => num < 5 }"
+                "[-] int2    <~> argThat { num: Int64 => num < 5}"
             ]
         ) {
             callA(e, 1)

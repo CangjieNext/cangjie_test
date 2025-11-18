@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var002,generics_local_var002
-breakpoint,breakpoint set -l 48 -c "1==1",generics_local_var002.cj:48
-AOT r,r,-> 48
+breakpoint,breakpoint set -l 56 -c "9==9",generics_local_var002.cj:56
+AOT r,r,-> 56
 CJVM c,c,
 locals,locals,vhss = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}
 p,p c1,\(default.C1\) \$[\d] = {[\s\S]*vrangec = 1..10 : 1[\s\S]*vcarrc = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*

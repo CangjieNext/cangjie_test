@@ -66,13 +66,13 @@ public class Test_IPSocketAddress {
     @TestCase
     func case_ip_socketaddress_init_1_02() {
         var e = @AssertThrows[IllegalArgumentException](IPSocketAddress(Array<Byte>(), 0))
-        @Expect(e.message, "IPSocketAddress only support IPv4 and IPv6 address.")
+        @Expect(e.message.contains("IPSocketAddress only support IPv4 and IPv6 address"))
         e = @AssertThrows[IllegalArgumentException](IPSocketAddress(Array<Byte>(3, repeat: 0u8), 0))
-        @Expect(e.message, "IPSocketAddress only support IPv4 and IPv6 address.")
+        @Expect(e.message.contains("IPSocketAddress only support IPv4 and IPv6 address"))
         e = @AssertThrows[IllegalArgumentException](IPSocketAddress(Array<Byte>(5, repeat: 0u8), 0))
-        @Expect(e.message, "IPSocketAddress only support IPv4 and IPv6 address.")
+        @Expect(e.message.contains("IPSocketAddress only support IPv4 and IPv6 address"))
         e = @AssertThrows[IllegalArgumentException](IPSocketAddress(Array<Byte>(17, repeat: 0u8), 0))
-        @Expect(e.message, "IPSocketAddress only support IPv4 and IPv6 address.")
+        @Expect(e.message.contains("IPSocketAddress only support IPv4 and IPv6 address"))
     }
 
     @TestCase[str in [ 

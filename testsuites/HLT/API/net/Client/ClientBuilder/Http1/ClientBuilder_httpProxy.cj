@@ -16,9 +16,9 @@ import std.sync.*
 import std.net.*
 import std.collection.*
 import stdx.net.http.*
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 import stdx.net.tls
-import stdx.crypto.kit
+//import stdx.crypto.kit
 import stdx.log.*
 import stdx.logger.*
 import std.console.Console
@@ -133,7 +133,7 @@ public class Test_httpProxy {
             client.get("http://127.0.0.1:8080")
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message, "Failed to resolve address abc.")
+            @Expect(e.message.contains("Failed to resolve address abc"))
         }
         @Expect(flag, true)
     }
@@ -146,7 +146,7 @@ public class Test_httpProxy {
             client.get("127.0.0.1:8080")
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message, "Proxy must have http scheme.")
+            @Expect(e.message.contains("Proxy must have http scheme"))
         }
         @Expect(flag, true)
     }

@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var008,generics_local_var008
-breakpoint,breakpoint set -l 55 -c "this.s3_a==8",generics_local_var008.cj:55
-AOT r,r,-> 55
+breakpoint,breakpoint set -l 63 -c "this.s3_a==8",generics_local_var008.cj:63
+AOT r,r,-> 63
 CJVM c,c,
 locals,locals,\(default.S3<Int8>\) this = {[\s\S]*s3_a = 8[\s\S]*}
 locals,locals,\(Int8\) a = 8

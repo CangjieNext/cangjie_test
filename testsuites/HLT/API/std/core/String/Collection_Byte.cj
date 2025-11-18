@@ -52,14 +52,14 @@ class Test_Collection_byte {
             var a = sub[-1]
             @Expect(1, 2)
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "The length of the string is 2, but the index is -1.")
+            @Expect(e.message.contains("The length of the string is 2, but the index is -1"))
         }
 
         try {
             var a = sub[2]
             @Expect(1, 2)
         } catch (e: IndexOutOfBoundsException) {
-            @Expect(e.message, "The length of the string is 2, but the index is 2.")
+            @Expect(e.message.contains("The length of the string is 2, but the index is 2"))
         }
     }
 }

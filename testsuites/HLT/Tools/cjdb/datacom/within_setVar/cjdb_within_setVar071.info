@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors setVar_external_invoke.out,setVar_external_invoke
-b,b 18,setVar_external_invoke.cj:18
-AOT r,r,-> 18
+b,b 26,setVar_external_invoke.cj:26
+AOT r,r,-> 26
 CJVM c,c,
 p,p val_7,\(Int32\) \$[\d] = 3
 AOT set,set val_7=-'A',error: unsupported expression

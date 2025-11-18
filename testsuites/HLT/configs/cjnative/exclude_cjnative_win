@@ -356,3 +356,27 @@ compiler/cli/Option/pgo/pgo_004.cj
 compiler/cli/Option/pgo/pgo_005.cj
 
 Regression/External/I4AZMP.cj
+
+# need fanzihan sync code
+API/net/Client/Client/Client_send.cj
+API/net/Client/ClientBuilder/Http1/ClientBuilder_autoRedirect.cj
+API/net/Client/ClientBuilder/Http1/ClientBuilder_poolSize.cj
+API/net/Client/ClientBuilder/Http2
+API/net/New_HTTP/HttpRequest/test_connection_close.cj
+API/net/New_HTTP/HttpRequest/test_method_01.cj
+API/net/Server/ServerBuilder/Http2
+API/net/TLS_new/tls_certificate_01.cj
+API/net/TLS_new/tls_certificate_02.cj
+API/net/TLS_new/tls_certificate_03.cj
+API/net/TLS_new/tls_certificate_04.cj
+API/net/TLS_new/tls_privatekey_pwd_01.cj
+API/net/TLS_new/tls_privatekey_pwd_04.cj
+API/net/TLS_new/tls_privatekey_pwd_07.cj
+API/net/TLS_new/tls_serverconf_08.cj
+API/net/TLS_new/tlssocket_03.cj
+API/net/TLS_new/tlssocket_10.cj
+API/net/WebSocket/http1.1_websocket/websocketconf_04.cj
+API/net/WebSocket/http1.1_websocket/websocketreadwrite_01.cj
+API/net/WebSocket/http1.1_websocket/websocketreadwrite_04.cj
+
+

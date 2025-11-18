@@ -14,8 +14,8 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+//import stdx.net.tls.common.*
+import stdx.crypto.x509.{X509Certificate,PrivateKey}
 import stdx.crypto.keys.*
 import std.sync.*
 import std.time.*
@@ -42,13 +42,13 @@ class Test_tlsclientconf_08 {
     func startServerHandshake(): Unit {
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
         tcpser = Option<TcpServerSocket>.Some(tcpServer)
         tlsser = Option<TlsSocket>.Some(tlsServer)
         tlsServer.handshake()
@@ -57,13 +57,13 @@ class Test_tlsclientconf_08 {
     func startServerHandshake_err(): Unit {
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
         tcpser = Option<TcpServerSocket>.Some(tcpServer)
         tlsser = Option<TlsSocket>.Some(tlsServer)
         try {
@@ -90,7 +90,7 @@ class Test_tlsclientconf_08 {
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         let result = tlsClient.handshake()
-        match (result.version) {
+        match (tlsClient.tlsVersion) {
             case V1_2 => sum += 1
             case V1_3 => sum += 3
             case _ => ()
@@ -120,7 +120,7 @@ class Test_tlsclientconf_08 {
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         let result = tlsClient.handshake()
-        match (result.version) {
+        match (tlsClient.tlsVersion) {
             case V1_2 => sum += 1
             case V1_3 => sum += 3
             case _ => ()
@@ -150,7 +150,7 @@ class Test_tlsclientconf_08 {
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         let result = tlsClient.handshake()
-        match (result.version) {
+        match (tlsClient.tlsVersion) {
             case V1_2 => sum += 1
             case V1_3 => sum += 3
             case _ => ()
@@ -180,7 +180,7 @@ class Test_tlsclientconf_08 {
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         let result = tlsClient.handshake()
-        match (result.version) {
+        match (tlsClient.tlsVersion) {
             case V1_2 => sum += 1
             case V1_3 => sum += 3
             case _ => ()

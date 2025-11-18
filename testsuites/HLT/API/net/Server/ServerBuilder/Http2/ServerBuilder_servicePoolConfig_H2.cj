@@ -17,11 +17,11 @@ import std.sync.*
 import std.net.*
 import std.collection.*
 import stdx.net.http.*
-import stdx.crypto.kit.*
+////import stdx.crypto.kit.*
 import stdx.crypto.keys.*
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.{X509Certificate,PrivateKey}
 import std.io.*
 import std.math.*
 import std.fs.*
@@ -29,7 +29,7 @@ import std.fs.*
 public func serverConfig(): TlsServerConfig {
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_rsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
+    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
     tlsConfig.supportedAlpnProtocols = ["h2"]
     tlsConfig
 }
@@ -38,7 +38,7 @@ public func clientConfig(): TlsClientConfig {
     var tlsConfig = TlsClientConfig()
     let pem = String.fromUtf8(readToEnd(File("./files/root_rsa.cer", Read)))
     tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
-    tlsConfig.supportedAlpnProtocols = ["h2"]
+    tlsConfig.alpnProtocolsList = ["h2"]
     tlsConfig
 }
 
@@ -57,7 +57,7 @@ public class Test_servicePoolConfig_H2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "capacity should greater than 0, but got 0")
+            @Expect(e.message.contains("capacity should greater than 0, but got 0"))
         }
         @Expect(cnt, 1)
 
@@ -70,7 +70,7 @@ public class Test_servicePoolConfig_H2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "capacity should greater than 0, but got -1")
+            @Expect(e.message.contains("capacity should greater than 0, but got -1"))
         }
 
         @Expect(cnt, 2)
@@ -89,7 +89,7 @@ public class Test_servicePoolConfig_H2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "queue capacity should greater than 0, but got 0")
+            @Expect(e.message.contains("queue capacity should greater than 0, but got 0"))
         }
         @Expect(cnt, 1)
 
@@ -102,7 +102,7 @@ public class Test_servicePoolConfig_H2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "queue capacity should greater than 0, but got -1")
+            @Expect(e.message.contains("queue capacity should greater than 0, but got -1"))
         }
 
         @Expect(cnt, 2)
@@ -121,7 +121,7 @@ public class Test_servicePoolConfig_H2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "preheat size should between 0 and 1, but got 2")
+            @Expect(e.message.contains("preheat size should between 0 and 1, but got 2"))
         }
         @Expect(cnt, 1)
 
@@ -134,7 +134,7 @@ public class Test_servicePoolConfig_H2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message, "preheat size should between 0 and 10000, but got -1")
+            @Expect(e.message.contains("preheat size should between 0 and 10000, but got -1"))
         }
 
         @Expect(cnt, 2)

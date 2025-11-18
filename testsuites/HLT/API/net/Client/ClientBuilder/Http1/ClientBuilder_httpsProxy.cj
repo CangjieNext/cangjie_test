@@ -18,7 +18,7 @@ import std.net.*
 import std.collection.*
 import stdx.net.http.*
 import stdx.crypto.keys.*
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 import stdx.log.*
 import stdx.logger.*
 import std.console.Console
@@ -27,11 +27,12 @@ import stdx.net.tls.*
 import stdx.crypto.x509.X509Certificate
 import std.io.*
 import std.process.*
+import std.convert.*
 
 public func serverConfig(): TlsServerConfig {
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_rsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
+    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
     tlsConfig.supportedAlpnProtocols = ["http/1.1"]
     tlsConfig
 }
@@ -46,59 +47,79 @@ public func clientConfig(): TlsClientConfig {
 
 var client: Client = unsafe { zeroValue<Client>() }
 var server: Server = unsafe { zeroValue<Server>() }
-var proxy: Server = unsafe { zeroValue<Server>() }
 
 func startServer(): Unit {
     server = ServerBuilder().addr("127.0.0.1").port(0).tlsConfig(serverConfig()).build()
-    server
-        .distributor
-        .register(
-            "/proxys",
-            {
-                ctx =>
-                let buf = Array<UInt8>(15, repeat: 0)
-                let len = ctx.request.body.read(buf)
-                @Assert(String.fromUtf8(buf[..len]), "hello proxys")
-                ctx.responseBuilder.body("proxys ok")
-            }
-        )
+    server.distributor.register("/proxys",
+        {
+            ctx =>
+            let buf = Array<UInt8>(15, repeat: 0)
+            let len = ctx.request.body.read(buf)
+            @Assert(String.fromUtf8(buf[..len]), "hello proxys")
+            ctx.responseBuilder.body("proxys ok")
+        })
     spawn {
         server.serve()
     }
-    while (server.port == 0) {
-        sleep(Duration.millisecond)
-    }
+    while(server.port == 0) {sleep(Duration.millisecond)}
 }
 
-func startProxy(): Unit {
-    proxy = ServerBuilder().addr("127.0.0.1").port(0).tlsConfig(serverConfig()).build()
-    proxy.logger.level = LogLevel.DEBUG
-    proxy
-        .distributor
-        .register(
-            "/proxys",
-            {
-                ctx =>
-                let buf = Array<UInt8>(1024, repeat: 0)
-                var len = ctx.request.body.read(buf)
-                let req = HttpRequestBuilder()
-                    .url(ctx.request.url)
-                    .method(ctx.request.method)
-                    .setHeaders(ctx.request.headers)
-                    .body(buf[..len])
-                    .build()
-                let c = ClientBuilder().build()
-                let resp = c.send(req)
-                len = resp.body.read(buf)
-                ctx.responseBuilder.status(resp.status).setHeaders(resp.headers).body(buf[..len])
-                c.close()
+let proxyServerSocket = TcpServerSocket(bindAt: 0)
+func startProxy(serverPort: UInt16) {
+    try{
+        proxyServerSocket.bind()
+        sleep(Duration.millisecond * 200)
+        let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
+        let socket = proxyServerSocket.accept()
+        socket.readTimeout = Duration.millisecond * 100
+    
+        let buf = Array<UInt8>(500, repeat: 0)
+        sleep(Duration.millisecond * 100)
+        let i = socket.read(buf)
+        let read = String.fromUtf8(buf[0..i])
+        @Expect(read.contains("CONNECT 127.0.0.1:${serverPort} HTTP/1.1"))
+        @Expect(read.contains("host: 127.0.0.1:${serverPort}"))
+        @Expect(read.contains("user-agent: CANGJIEUSERAGENT_1_1"))
+
+        // Resolve the address and port of the target server
+        let a:Array<String> = read.split(" ")
+        let addrAndPort = a[1].split(":")
+        let realServerAddr = addrAndPort[0]
+        let realServerPort = addrAndPort[1]
+
+        let remote_socket = TcpSocket(realServerAddr,UInt16.parse(realServerPort))
+        remote_socket.connect()
+
+        socket.write("HTTP/1.1 200 Connection Established\r\n\r\n".toArray())
+
+        // Receive messages from the client and send them to the target server
+        spawn{
+            while(true){
+                let buf1 = Array<UInt8>(5000, repeat: 0)
+                let i1 = socket.read(buf1)
+                if(i1 <= 0){
+                    break
+                }else{
+                    remote_socket.write(buf1[0..i1])
+                }
             }
-        )
-    spawn {
-        proxy.serve()
-    }
-    while (proxy.port == 0) {
-        sleep(Duration.millisecond)
+        }
+        
+        spawn{
+            while(true){
+                let buf1 = Array<UInt8>(5000, repeat: 0)
+                let i1 = remote_socket.read(buf1)
+                if(i1 <= 0){
+                    break
+                }else{
+                    socket.write(buf1[0..i1])
+                }
+            }
+        }
+        sleep(Duration.second * 3)
+        proxyServerSocket.close()
+    } catch (e: Exception) {
+        proxyServerSocket.close()
     }
 }
 
@@ -155,32 +176,30 @@ public class Test_httpsProxy {
             let res = client.send(request)
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message, "Failed to resolve address abc.")
+            @Expect(e.message.contains("Failed to resolve address abc"))
         }
         @Expect(flag, true)
     }
 
     @TestCase
     func testProxy(): Unit {
-        client = ClientBuilder().httpsProxy("http://127.0.0.1:${server.port}").tlsConfig(clientConfig()).build()
-        let req = HttpRequestBuilder()
-            .url("https://127.0.0.1:${proxy.port}/proxys")
-            .version(HTTP1_1)
-            .body("hello proxys")
-            .build()
+        let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
+        client = ClientBuilder().httpsProxy("http://127.0.0.1:${port1}").tlsConfig(clientConfig()).build()
+        let req =
+            HttpRequestBuilder().url("https://127.0.0.1:${server.port}/proxys").version(HTTP1_1).body("hello proxys").
+        build()
         let resp = client.send(req)
         let buf = Array<UInt8>(15, repeat: 0)
         var len = resp.body.read(buf)
         @Assert(String.fromUtf8(buf[..len]), "proxys ok")
         client.close()
         server.close()
-        proxy.close()
     }
 }
 
 main() {
     startServer()
-    startProxy()
+    spawn {startProxy(server.port)}
     let report = Test_httpsProxy().asTestSuite().runTests()
     report.reportTo(ConsoleReporter())
     return report.failedCount + report.errorCount

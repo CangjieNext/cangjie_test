@@ -9,8 +9,8 @@
 // LEVEL: 0
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE-0: %run_stdx %output %run_utest_opt %run_args 2>&1 | compare %f
-// ASSERT: scan The content-length and transfer-encoding can not be set together.
-// ASSERT: scan Wrote body size less than declared content-length.
+// ASSERT: scan content-length and transfer-encoding can not be set together.
+// ASSERT: scan wrote body size less than declared content-length.
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.time.*
@@ -22,7 +22,7 @@ import stdx.logger.*
 import std.console.Console
 import stdx.net.http.*
 import stdx.net.tls
-import stdx.crypto.kit
+//import stdx.crypto.kit
 import stdx.encoding.url.*
 
 @Test
@@ -206,7 +206,7 @@ public class Test_send {
             let res = client.send(request)
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message, "TRACE request can not contain content.")
+            @Expect(e.message.contains("TRACE request can not contain content"))
         }
         @Expect(flag, true)
     }

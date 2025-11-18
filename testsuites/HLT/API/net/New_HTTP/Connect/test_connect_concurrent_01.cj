@@ -23,21 +23,21 @@
 
 import stdx.net.http.*
 import stdx.crypto.keys.*
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 import stdx.net.tls.*
 import std.time.*
 import std.io.*
 import std.net.*
 import std.collection.*
 import std.fs.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.{X509Certificate,PrivateKey}
 
 @Test
 class Test_Connect_Concurrent {
     func serverConfig(): TlsServerConfig {
         let pem0 = String.fromUtf8(readToEnd(File("data/end_rsa.cer", Read)))
         let pem02 = String.fromUtf8(readToEnd(File("data/end_rsa_private_key.pem", Read)))
-        var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
+        var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
         tlsConfig.supportedAlpnProtocols = ["http/1.1", "h2"]
         tlsConfig
     }
@@ -46,7 +46,7 @@ class Test_Connect_Concurrent {
         var tlsConfig = TlsClientConfig()
         let pem = String.fromUtf8(readToEnd(File("data/root_rsa.cer", Read)))
         tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
-        tlsConfig.supportedAlpnProtocols = ["http/1.1"]
+        tlsConfig.alpnProtocolsList = ["http/1.1"]
         tlsConfig
     }
 
@@ -54,7 +54,7 @@ class Test_Connect_Concurrent {
         var tlsConfig = TlsClientConfig()
         let pem = String.fromUtf8(readToEnd(File("data/root_rsa.cer", Read)))
         tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
-        tlsConfig.supportedAlpnProtocols = ["h2"]
+        tlsConfig.alpnProtocolsList = ["h2"]
         tlsConfig
     }
 

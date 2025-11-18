@@ -14,9 +14,8 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.keys.GeneralPrivateKey
+//import stdx.net.tls.common.*
+import stdx.crypto.x509.{X509Certificate,PrivateKey}
 import std.sync.*
 import std.time.*
 import std.runtime.*
@@ -40,13 +39,13 @@ class Test_tlsclientconf_05 {
     func startServerHandshake(): Unit {
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
         tcpser = Option<TcpServerSocket>.Some(tcpServer)
         tlsser = Option<TlsSocket>.Some(tlsServer)
         tlsServer.handshake()
@@ -69,7 +68,7 @@ class Test_tlsclientconf_05 {
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         let result = tlsClient.handshake()
-        @Expect(result.serverName, "")
+        @Expect(tlsClient.domain, None, "")
         tlsClient.close()
         tcpClient.close()
         tlsser.getOrThrow().close()
@@ -93,7 +92,7 @@ class Test_tlsclientconf_05 {
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         let result = tlsClient.handshake()
-        @Expect(result.serverName, "")
+        @Expect(tlsClient.domain, None, "")
         tlsClient.close()
         tcpClient.close()
         tlsser.getOrThrow().close()
@@ -117,7 +116,7 @@ class Test_tlsclientconf_05 {
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         let result = tlsClient.handshake()
-        @Expect(result.serverName, "www.example.com")
+        @Expect(tlsClient.domain, None, "www.example.com")
         tlsClient.close()
         tcpClient.close()
         tlsser.getOrThrow().close()
@@ -147,7 +146,7 @@ class Test_tlsclientconf_05 {
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         let result = tlsClient.handshake()
-        @Expect(result.serverName, "")
+        @Expect(tlsClient.domain, None, "")
         tlsClient.close()
         tcpClient.close()
         tlsser.getOrThrow().close()

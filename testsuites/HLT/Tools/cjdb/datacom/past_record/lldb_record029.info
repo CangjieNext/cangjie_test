@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_record_init,050_debug_record_init
-b,b 16,050_debug_record_init.cj:16
-b,b 17,050_debug_record_init.cj:17
-AOT r,r,-> 16
+b,b 24,050_debug_record_init.cj:24
+b,b 25,050_debug_record_init.cj:25
+AOT r,r,-> 24
 CJVM c,c,
-c,c,-> 17
+c,c,-> 25
 locals,locals,squareLength = 500
 AOT locals,locals,length = 0
 AOT locals,locals,width = 0

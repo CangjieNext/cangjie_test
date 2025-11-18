@@ -14,8 +14,8 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+//import stdx.net.tls.common.*
+import stdx.crypto.x509.{X509Certificate,PrivateKey}
 import stdx.crypto.keys.*
 import std.sync.*
 import std.time.*
@@ -44,7 +44,7 @@ class Test_tlsserverconf_04 {
         func startServerHandshake(): Unit {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
             let pemSer = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemSer).map({c => c}))
             serverConf.clientIdentityRequired = Required
@@ -53,7 +53,7 @@ class Test_tlsserverconf_04 {
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             bound.fetchAdd(1)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             try {
@@ -90,7 +90,7 @@ class Test_tlsserverconf_04 {
         func startServerHandshake(): Unit {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
             let pemSer = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemSer).map({c => c}))
             serverConf.clientIdentityRequired = Required
@@ -99,7 +99,7 @@ class Test_tlsserverconf_04 {
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             bound.fetchAdd(1)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -115,7 +115,7 @@ class Test_tlsserverconf_04 {
         clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem1).map({c => c}))
         let pem = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keyPem = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        clientConf.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), GeneralPrivateKey.decodeFromPem(keyPem))
+        clientConf.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), PrivateKey.decodeFromPem(keyPem))
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
@@ -133,7 +133,7 @@ class Test_tlsserverconf_04 {
         func startServerHandshake(): Unit {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
             let pemSer = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemSer).map({c => c}))
             serverConf.clientIdentityRequired = Optional
@@ -142,7 +142,7 @@ class Test_tlsserverconf_04 {
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             bound.fetchAdd(1)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -173,7 +173,7 @@ class Test_tlsserverconf_04 {
         func startServerHandshake(): Unit {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
             let pemSer = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemSer).map({c => c}))
             serverConf.clientIdentityRequired = Optional
@@ -182,7 +182,7 @@ class Test_tlsserverconf_04 {
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             bound.fetchAdd(1)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -198,7 +198,7 @@ class Test_tlsserverconf_04 {
         clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem1).map({c => c}))
         let pem = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keyPem = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        clientConf.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), GeneralPrivateKey.decodeFromPem(keyPem))
+        clientConf.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), PrivateKey.decodeFromPem(keyPem))
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
@@ -216,7 +216,7 @@ class Test_tlsserverconf_04 {
         func startServerHandshake(): Unit {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
             let pemSer = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemSer).map({c => c}))
             serverConf.clientIdentityRequired = Disabled
@@ -225,7 +225,7 @@ class Test_tlsserverconf_04 {
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             bound.fetchAdd(1)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -241,7 +241,7 @@ class Test_tlsserverconf_04 {
         clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem1).map({c => c}))
         let pem = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keyPem = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        clientConf.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), GeneralPrivateKey.decodeFromPem(keyPem))
+        clientConf.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), PrivateKey.decodeFromPem(keyPem))
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
@@ -259,7 +259,7 @@ class Test_tlsserverconf_04 {
         func startServerHandshake(): Unit {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
             let pemSer = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemSer).map({c => c}))
             serverConf.clientIdentityRequired = Disabled
@@ -268,7 +268,7 @@ class Test_tlsserverconf_04 {
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             bound.fetchAdd(1)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -299,7 +299,7 @@ class Test_tlsserverconf_04 {
         func startServerHandshake(): Unit {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
             let pemSer = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemSer).map({c => c}))
             serverConf.clientIdentityRequired = Optional
@@ -308,7 +308,7 @@ class Test_tlsserverconf_04 {
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             bound.fetchAdd(1)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             try {
@@ -330,7 +330,7 @@ class Test_tlsserverconf_04 {
         clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem1).map({c => c}))
         let pem = String.fromUtf8(readToEnd(File("./data/end_ecdsa_2.cer", Read)))
         let keyPem = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key_2.pem", Read)))
-        clientConf.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), GeneralPrivateKey.decodeFromPem(keyPem))
+        clientConf.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), PrivateKey.decodeFromPem(keyPem))
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
@@ -348,7 +348,7 @@ class Test_tlsserverconf_04 {
         func startServerHandshake(): Unit {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+            var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
             let pemSer = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemSer).map({c => c}))
             serverConf.clientIdentityRequired = Optional
@@ -357,7 +357,7 @@ class Test_tlsserverconf_04 {
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             bound.fetchAdd(1)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             try {
@@ -379,7 +379,7 @@ class Test_tlsserverconf_04 {
         clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem1).map({c => c}))
         let pem = String.fromUtf8(readToEnd(File("./data/end_ecdsa_2.cer", Read)))
         let keyPem = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key_2.pem", Read)))
-        clientConf.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), GeneralPrivateKey.decodeFromPem(keyPem))
+        clientConf.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), PrivateKey.decodeFromPem(keyPem))
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)

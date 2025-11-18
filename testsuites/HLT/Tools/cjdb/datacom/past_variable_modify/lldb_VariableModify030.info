@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 35,024_debug_variable.cj:35
-AOT r,r,-> 35
-CJVM c,c,-> 35
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 43,024_debug_variable.cj:43
+AOT r,r,-> 43
+CJVM c,c,-> 43
 set,set var_uint64 = 2,2
-n,n,-> 39
+n,n,-> 47
 locals,locals,var_uint64 = 2
 p,p var_uint64,\(UInt64\) \$[\d] = 2
 locals,locals,f_uint64 = 10

@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors coroutine_2,coroutine_2
-b,b 16,coroutine_2.cj:16
-AOT r,r,-> 16
+b,b 24,coroutine_2.cj:24
+AOT r,r,-> 24
 CJVM c,c,
 cjthread,cjthread list,cjthread #2 state: pending name:
 cjthread,cjthread backtrace -c 2,cjthread #1

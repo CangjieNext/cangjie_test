@@ -16,10 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_record_mod,045_debug_record_mod
-b,b 53,045_debug_record_mod.cj:53
-AOT r,r,-> 53
+b,b 61,045_debug_record_mod.cj:61
+AOT r,r,-> 61
 CJVM c,c,
-n,n,-> 54
+n,n,-> 62
 locals,locals,Rectangle2\) newRectangle = {(\r|\n|\r\n)  width = 100
 print,print newRectangle,Rectangle2\) \$[\d]+ = {(\r|\n|\r\n)  width = 100
 print,print newRectangle.length,\(Int32\) \$[\d]+ = 200

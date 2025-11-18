@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashMap_Ins_composite,003_HashMap_Ins_composite
-b,b 45,003_HashMap_Ins_composite.cj:45
-AOT r,r,-> 45
-CJVM c,c,-> 45
+b,b 53,003_HashMap_Ins_composite.cj:53
+AOT r,r,-> 53
+CJVM c,c,-> 53
 AOT p,p map_map_3,std[.]collection.HashMap<UInt32,std[.]collection.HashMap<Rune,std[.]collection.HashSet<default.cla>>>\) \$[\d] = {[\S\s]*key = 768[\S\s]*\[0\] = 0x0000[\S\s]*}
 CJVM p,p map_map_3,std[.]collection.HashMap<UInt32,std[.]collection.HashMap<Rune,std[.]collection.HashSet<default.cla>>>\) \$[\d] = {[\S\s]*key = 768[\S\s]*key = 'H'[\S\s]*\[0\] = {[\S\s]*x = 110
 CJVM p,p map_map_3,std[.]collection.HashMap<UInt32,std[.]collection.HashMap<Rune,std[.]collection.HashSet<default.cla>>>\) \$[\d] = {[\S\s]*key = 768[\S\s]*key = 'H'[\S\s]*\[1\] = {[\S\s]*x = 120

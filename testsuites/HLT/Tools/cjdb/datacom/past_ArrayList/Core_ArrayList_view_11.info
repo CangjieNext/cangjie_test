@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
-b,b 36,066_debug_arraylist.cj:36
-AOT r,r,-> 36
-CJVM c,c,-> 36
+b,b 44,066_debug_arraylist.cj:44
+AOT r,r,-> 44
+CJVM c,c,-> 44
 AOT p,p d,\(std\.collection.ArrayList<std.collection.HashSet<Float64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1\.1000000000000001[\s\S]*\[1\] = 2\.2000000000000002[\s\S]*\[2\] = 3\.2999999999999998[\s\S]*}[\s\S]*}
 CJVM p,p d,\(std\.collection.ArrayList<std.collection.HashSet<Float64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1\.100000[\s\S]*\[1\] = 2\.200000[\s\S]*\[2\] = 3\.300000[\s\S]*}[\s\S]*}
 AOT locals,locals,d = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1\.1000000000000001[\s\S]*\[1\] = 2\.2000000000000002[\s\S]*\[2\] = 3\.2999999999999998[\s\S]*}[\s\S]*}

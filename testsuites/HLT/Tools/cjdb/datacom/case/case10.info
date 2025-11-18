@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case10,case10
-b,b 19,case10.cj:19
-AOT r,r,-> 19
+b,b 27,case10.cj:27
+AOT r,r,-> 27
 CJVM c,c,
 AOT p,p test_enum_3,arg_3 = {[\S\s]*\[0\] = 18[\S\s]*\[1\] = "测试test"[\S\s]*}
 q,q,

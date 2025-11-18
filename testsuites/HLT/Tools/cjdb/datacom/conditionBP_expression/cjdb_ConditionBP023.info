@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var005,generics_local_var005
-breakpoint,breakpoint set -l 14 -c "1==1",generics_local_var005.cj:14
-AOT r,r,-> 14
+breakpoint,breakpoint set -l 22 -c "9==9",generics_local_var005.cj:22
+AOT r,r,-> 22
 CJVM c,c,
 locals,locals,\(default.RGBColor<Int32>\) r1 = Red
 locals,locals,\(default.RGBColor2<Int32,Float64>\) r3 = {(\r|\n|\r\n)  constructor = Green[\s\S]*arg_1 = 3[\s\S]*arg_2 = 1[\s\S]*}

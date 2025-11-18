@@ -70,7 +70,7 @@ class Test_Udp_TransPortation_Datagram {
                 udpsocket.send(data000)
             } catch (e: SocketException) {
                 sum += 1
-                @Expect(e.message, "Unable to send datagram larger than 65507.")
+                @Expect(e.message.contains("Unable to send datagram larger than 65507."))
             }
             @Expect(sum, 1)
         }

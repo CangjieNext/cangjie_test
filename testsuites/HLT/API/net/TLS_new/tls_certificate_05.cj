@@ -15,8 +15,7 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.common.Pem
+import stdx.crypto.x509.{X509Certificate,Pem}
 import std.sync.*
 import std.time.*
 import std.runtime.*

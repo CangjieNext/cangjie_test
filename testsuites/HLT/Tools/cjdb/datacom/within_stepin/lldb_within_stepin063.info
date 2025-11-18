@@ -17,15 +17,15 @@
 
 test#
 cjdb,cjdb --no-use-colors stepin_external_invoke,stepin_external_invoke
-CJVM b main,b main,stepin_external_invoke.cj:12
-CJVM c,c,-> 12
-b,b 18,stepin_external_invoke.cj:18
-AOT r,r,-> 18
-CJVM c,c,-> 18
-s,s,func f_001\(\): Int32[\s\S]*-> 33[\s\S]*
-b,b 37,stepin_external_invoke.cj:37
-c,c,-> 37
-s,s,static func f_static\(\)[\s\S]*-> 25[\s\S]*
-finish,finish,-> 37
-finish,finish,-> 18
+CJVM b main,b main,stepin_external_invoke.cj:20
+CJVM c,c,-> 20
+b,b 26,stepin_external_invoke.cj:26
+AOT r,r,-> 26
+CJVM c,c,-> 26
+s,s,func f_001\(\): Int32[\s\S]*-> 41[\s\S]*
+b,b 45,stepin_external_invoke.cj:45
+c,c,-> 45
+s,s,static func f_static\(\)[\s\S]*-> 33[\s\S]*
+finish,finish,-> 45
+finish,finish,-> 26
 q,q,

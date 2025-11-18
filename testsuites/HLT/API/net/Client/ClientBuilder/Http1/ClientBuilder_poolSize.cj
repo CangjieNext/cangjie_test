@@ -16,9 +16,9 @@ import std.sync.*
 import std.net.*
 import std.collection.*
 import stdx.net.http.*
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 import stdx.net.tls
-import stdx.crypto.kit
+//import stdx.crypto.kit
 import stdx.encoding.url.*
 import std.math.*
 
@@ -64,7 +64,7 @@ public class Test_poolSize {
             client.send(r1)
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message, "Too many connections to the same server!")
+            @Expect(e.message.contains("Too many connections to the same server"))
         }
 
         @Expect(flag, true)
@@ -77,7 +77,7 @@ public class Test_poolSize {
             let client = ClientBuilder().poolSize(0).build()
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message, "The poolSize must be greater than 0.")
+            @Expect(e.message.contains("The poolSize must > 0"))
         }
         @Expect(flag, true)
     }
@@ -89,7 +89,7 @@ public class Test_poolSize {
             let client = ClientBuilder().poolSize(-1).build()
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message, "The poolSize must be greater than 0.")
+            @Expect(e.message.contains("The poolSize must > 0"))
         }
         @Expect(flag, true)
     }

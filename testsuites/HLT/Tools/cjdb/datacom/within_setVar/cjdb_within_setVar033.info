@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_setVar,002_debug_setVar
-b,b 11,002_debug_setVar.cj:11
-AOT r,r,-> 11
+b,b 19,002_debug_setVar.cj:19
+AOT r,r,-> 19
 CJVM c,c,
-s,s,-> 43
-n,n,-> 44
+s,s,-> 51
+n,n,-> 52
 p,p str_1,\(std[.]core.String\) \$[\d] = "cangjie"
 set,set str_1 ="kl",error:
 q,q,

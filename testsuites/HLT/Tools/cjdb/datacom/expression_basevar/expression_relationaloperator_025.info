@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 056_debug_tuple,056_debug_tuple
-b,b 15,Breakpoint 1: where = 056_debug_tuple`default::main[\s\S]*056_debug_tuple.cj:15
-AOT r,r,-> 15
-CJVM c,c,-> 15
+b,b 23,Breakpoint 1: where = 056_debug_tuple`default::main[\s\S]*056_debug_tuple.cj:23
+AOT r,r,-> 23
+CJVM c,c,-> 23
 expression, expression tuple4[0]==tuple4[0],\(Bool\) \$[\d] = true
 q,q,

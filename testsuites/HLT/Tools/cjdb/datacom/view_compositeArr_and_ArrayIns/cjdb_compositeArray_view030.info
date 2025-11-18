@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 007_debug_multiArray_composite_enum,007_debug_multiArray_composite_enum
-b,b 51,007_debug_multiArray_composite_enum.cj:51
-AOT r,r,-> 51
+b,b 59,007_debug_multiArray_composite_enum.cj:59
+AOT r,r,-> 59
 CJVM c,c,
 p,p multiArr_m_d3[0],\(std[.]core.Array<default.TimeUnit3<Int32,UInt32>>\) \$[\d] = {\s+\[\d] = {\s+constructor = Month\s+arg_1 = -32\s+}\s+\[\d] = {\s+constructor = Year\s+arg_1 = 69[\s\S]*}
 p,p multiArr_m_d3[0][0],\(default.TimeUnit3<Int32,UInt32>\) \$[\d] = {\s+constructor = Month\s+arg_1 = -32

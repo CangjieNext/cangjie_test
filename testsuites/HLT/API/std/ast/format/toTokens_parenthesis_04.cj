@@ -16,7 +16,8 @@ main() {
     let memExpr = BinaryExpr(quote(foo(e+f).b + c))
     memExpr.leftExpr = LambdaExpr(quote({ => e1}))
     let res = memExpr.toTokens().toString()
-    if (res.contains("{ => e1 } + c")) {
+    if (res.contains("""
+{ => e1 } + c""") ) {
         return 0
     }
     return 1

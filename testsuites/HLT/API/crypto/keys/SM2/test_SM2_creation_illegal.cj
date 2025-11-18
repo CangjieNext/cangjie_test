@@ -15,7 +15,6 @@ import stdx.crypto.common.*
 import std.crypto.digest.*
 import std.random.*
 import stdx.crypto.x509.*
-import stdx.crypto.digest.CryptoException
 import stdx.crypto.digest.*
 
 @Test

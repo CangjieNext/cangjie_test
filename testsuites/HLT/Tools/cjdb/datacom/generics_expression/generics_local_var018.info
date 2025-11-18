@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var018,generics_local_var018
-b,b 10,generics_local_var018.cj:10
-AOT r,r,-> 10
+b,b 18,generics_local_var018.cj:18
+AOT r,r,-> 18
 CJVM c,c,
 expr,expr indexbreak,\(Int64\) \$[\d] = 12
 q,q,

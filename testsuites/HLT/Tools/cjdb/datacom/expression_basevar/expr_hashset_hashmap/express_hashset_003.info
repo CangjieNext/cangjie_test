@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 37,063_debug_expr_class_1.cj:37
-CJVM c,c,-> 37
-AOT r,r,-> 37
+b,b 45,063_debug_expr_class_1.cj:45
+CJVM c,c,-> 45
+AOT r,r,-> 45
 expr,expr s09,std[.]collection.HashSet<Int64>\) \$[\d] = {[\S\s]*\[0\] = 0[\S\s]*\[1\] = 1[\S\s]*\[2\] = 2[\S\s]*}
 expr,expr s09s,std[.]collection.HashSet<std.core.String>\) \$[\d] = {[\S\s]*\[0\] = "aa"[\S\s]*\[1\] = "bb"[\S\s]*}
 expr,expr globals_hsr,std[.]collection.HashSet<Rune>\) \$[\d] = {[\S\s]*\[0\] = 'a'[\S\s]*\[1\] = 'b'[\S\s]*}

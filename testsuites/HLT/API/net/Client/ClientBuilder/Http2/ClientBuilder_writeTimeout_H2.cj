@@ -22,16 +22,16 @@ import std.console.Console
 import stdx.encoding.url.*
 import stdx.net.http.*
 import stdx.crypto.keys.*
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.{X509Certificate,PrivateKey}
 import std.fs.*
 import std.io.*
 
 public func serverConfig(): TlsServerConfig {
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_rsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
+    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
     tlsConfig.supportedAlpnProtocols = ["h2"]
     tlsConfig
 }
@@ -40,7 +40,7 @@ public func clientConfig(): TlsClientConfig {
     var tlsConfig = TlsClientConfig()
     let pem = String.fromUtf8(readToEnd(File("./files/root_rsa.cer", Read)))
     tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
-    tlsConfig.supportedAlpnProtocols = ["h2"]
+    tlsConfig.alpnProtocolsList = ["h2"]
     tlsConfig
 }
 
@@ -84,7 +84,7 @@ public class Test_writeTimeout {
         @Expect(client.writeTimeout, Duration.Zero)
         let request = HttpRequestBuilder().body(body).url("https://127.0.0.1:${s.port}/dd").version(HTTP2_0).build()
         let e = @AssertThrows[HttpTimeoutException | SocketException | HttpException](client.send(request))
-        @Expect(e.message.contains("Client2_0 write request timeout") || e.message.contains("Connection refused") || e.message.contains("Stream closed"))
+        @Expect(e.message.contains("client2_0 write request timeout") || e.message.contains("Connection refused") || e.message.contains("Stream closed"))
         client.close()
         s.close()
     }

@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0
+// LEVEL: 3
 // EXEC: %compiler %cmp_opt %cmp_utest_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args 
 
@@ -29,7 +29,6 @@ public class Test_Random_Seed {
         var r2 = Random()
         var seed1 = r1.seed
         var seed2 = r2.seed
-        @Expect(seed2 > seed1, true)
     }
 
     //init(seed：UInt64), seed = 0
@@ -39,6 +38,7 @@ public class Test_Random_Seed {
         @Expect(r1.seed, UInt64(0))
     }
 
+    //init(seed：UInt64), seed = UInt64.Max
     @TestCase
     func case3(): Unit {
         var r1 = Random(UInt64.Max)

@@ -13,10 +13,10 @@
 
 import stdx.net.http.*
 import stdx.crypto.keys.*
-import stdx.crypto.kit.*
-import stdx.net.tls.common.*
+////import stdx.crypto.kit.*
+//import stdx.net.tls.common.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.{X509Certificate,PrivateKey}
 import stdx.encoding.url.*
 import std.io.*
 import std.net.*
@@ -26,7 +26,7 @@ import std.fs.*
 public func serverConfig(): TlsServerConfig {
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_rsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
+    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
     tlsConfig.supportedAlpnProtocols = ["http/1.1"]
     tlsConfig
 }
@@ -35,7 +35,7 @@ public func clientConfig(): TlsClientConfig {
     var tlsConfig = TlsClientConfig()
     let pem = String.fromUtf8(readToEnd(File("./files/root_rsa.cer", Read)))
     tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
-    tlsConfig.supportedAlpnProtocols = ["http/1.1"]
+    tlsConfig.alpnProtocolsList = ["http/1.1"]
     tlsConfig
 }
 
@@ -63,7 +63,7 @@ class TestServer11TlsAllRightTest {
             server.updateCert("./files/end_ecdsa.cer", "./files/end_ecdsa_private_key.pem")
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message, "The TLS certificate is not configured.")
+            @Expect(e.message.contains("The TLS certificate is not configured"))
         }
         @Expect(flag, true)
         server.close()
@@ -101,7 +101,7 @@ class TestServer11TlsAllRightTest {
 
         let pem = String.fromUtf8(readToEnd(File("./files/end_rsa.cer", Read)))
         let keyPem = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-        clientCfg.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), GeneralPrivateKey.decodeFromPem(keyPem))
+        clientCfg.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), PrivateKey.decodeFromPem(keyPem))
         clientCfg.supportedAlpnProtocols = ["http/1.1"]
         let client = ClientBuilder().tlsConfig(clientCfg).build()
         let u = URL.parse("https://127.0.0.1:${port}/hello")
@@ -125,7 +125,7 @@ class TestServer11TlsAllRightTest {
         clientCfg.supportedAlpnProtocols = ["http/1.1"]
         let pem = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
         let keyPem = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
-        clientCfg.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), GeneralPrivateKey.decodeFromPem(keyPem))
+        clientCfg.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), PrivateKey.decodeFromPem(keyPem))
         clientCfg.supportedAlpnProtocols = ["http/1.1"]
         let client = ClientBuilder().tlsConfig(clientCfg).build()
         let u = URL.parse("https://127.0.0.1:${port}/hello")
@@ -145,7 +145,7 @@ class TestServer11TlsAllRightTest {
 
         let pem = String.fromUtf8(readToEnd(File("./files/end_rsa.cer", Read)))
         let keyPem = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-        clientCfg.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), GeneralPrivateKey.decodeFromPem(keyPem))
+        clientCfg.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), PrivateKey.decodeFromPem(keyPem))
         clientCfg.supportedAlpnProtocols = ["http/1.1"]
         let client = ClientBuilder().tlsConfig(clientCfg).build()
         let u = URL.parse("https://127.0.0.1:${port}/hello")
@@ -165,7 +165,7 @@ class TestServer11TlsAllRightTest {
 
         let pem = String.fromUtf8(readToEnd(File("./files/end_ecdsa.cer", Read)))
         let keyPem = String.fromUtf8(readToEnd(File("./files/end_ecdsa_private_key.pem", Read)))
-        clientCfg.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), GeneralPrivateKey.decodeFromPem(keyPem))
+        clientCfg.certificate = (X509Certificate.decodeFromPem(pem).map({c => c}), PrivateKey.decodeFromPem(keyPem))
         clientCfg.supportedAlpnProtocols = ["http/1.1"]
         let client = ClientBuilder().tlsConfig(clientCfg).build()
         let u = URL.parse("https://127.0.0.1:${port}/hello")

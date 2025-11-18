@@ -12,7 +12,7 @@
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan FuncDecl
 // ASSERT: scan-5 DoWhileExpr
-// ASSERT: scan-5 Block
+// ASSERT: scan-6 Block
 // ASSERT: scan-4 ReturnExpr
 import std.ast.*
 

@@ -12,7 +12,7 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 
 import stdx.net.tls.*
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 import stdx.crypto.x509.X509Certificate
 import stdx.crypto.common.PrivateKey
 import stdx.crypto.keys.*

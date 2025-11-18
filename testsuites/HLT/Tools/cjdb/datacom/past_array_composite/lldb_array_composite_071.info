@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 010_debug_array_class_init,010_debug_array_class_init
-b,b 58,010_debug_array_class_init.cj:58
-AOT r,r,-> 58
+b,b 66,010_debug_array_class_init.cj:66
+AOT r,r,-> 66
 CJVM c,c,
-n,n,-> 59
+n,n,-> 67
 print,print arraymainrec01[0],C1\) \$[\d]+ = {(\r|\n|\r\n)  length = 50(\r|\n|\r\n)  width = 500(\r|\n|\r\n)  perimeter = 0
 q,q,

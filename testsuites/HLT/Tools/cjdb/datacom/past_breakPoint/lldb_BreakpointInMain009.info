@@ -14,10 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
-CJVM b,breakpoint set -n main,015_debug_basetype.cj:4
-CJVM c,c,-> 4
-AOT b,b 28,015_debug_basetype.cj:29
-CJVM b,b 28,015_debug_basetype.cj:28
-AOT r,r,-> 29
+CJVM b,breakpoint set -n main,015_debug_basetype.cj:12
+CJVM c,c,-> 12
+AOT b,b 36,015_debug_basetype.cj:37
+CJVM b,b 36,015_debug_basetype.cj:36
+AOT r,r,-> 37
 CJVM c,c,Process exited
 q,q,

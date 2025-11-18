@@ -15,8 +15,8 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_CPointer_10,viewVariables_CPointer_10
-b,b 66,C_FFI.cj:66
-AOT r,r,-> 66
+b,b 74,C_FFI.cj:74
+AOT r,r,-> 74
 CJVM c,c,
 p,p p_ptr,\(CPointer<Int32>\) \$[\d]+ = 0x[0-9a-f]+
 q,q,

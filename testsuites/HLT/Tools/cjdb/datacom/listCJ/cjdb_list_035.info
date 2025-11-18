@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 172,list_debug.cj:172
-AOT r,r,-> 172
+b,b 180,list_debug.cj:180
+AOT r,r,-> 180
 CJVM c,c,
 p,p m_com_4_2,\$[\d] = 
 p,p m_com_4_2[0],\$[\d] =

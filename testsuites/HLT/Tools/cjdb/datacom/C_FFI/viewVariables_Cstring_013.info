@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_013,viewVariables_Cstring_013
-b,b 68,Test_CString.cj:68
-AOT r,r,-> 68
+b,b 76,Test_CString.cj:76
+AOT r,r,-> 76
 CJVM c,c,
 p, p str_5,\(CString\) \$[\d] = "1000:>[\s\S]*
 q,q,

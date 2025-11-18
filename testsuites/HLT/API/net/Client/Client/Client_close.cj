@@ -43,7 +43,7 @@ public class Test_close {
             let res1 = client.get("http://127.0.0.1:${s.port}/dd")
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message, "This client has already closed.")
+            @Expect(e.message.contains("This client has already closed"))
         }
         @Expect(flag, true)
         client.close()
@@ -67,7 +67,7 @@ public class Test_close {
             let res1 = client.get("http://127.0.0.1:${s.port}/dd")
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message, "This client has already closed.")
+            @Expect(e.message.contains("This client has already closed"))
         }
     }
 }

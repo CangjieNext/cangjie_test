@@ -13,6 +13,19 @@
 import std.mock_test_util.*
 import std.unittest.*
 
+struct status{
+    public var seen_slash = false
+    public var in_multiline = false
+    public var seen_asterisk = false
+    public mut func initialize() {
+        this.seen_slash = false
+        this.in_multiline = false
+        this.seen_asterisk = false
+    }
+}
+
+var SINGLE_STATUS = status()
+
 struct Options<T> {
     var x: T
     init(myX: T) {
@@ -61,6 +74,7 @@ class Foo {
     }
 
     public func callMut(newX: Boo) {
+        SINGLE_STATUS.initialize()
         println("callMut is invoked")
         pool.options.mutX(newX)
     }
@@ -121,7 +135,7 @@ public class TestA {
 /* SCAN-IN
 p.get is invoked
 Actual call: options$get()
-Declared field getter: options()[NA, ND, AC, HS, mutableStruct.cj:28:9]: Struct-Options<Generics-T>
+Declared field getter: options()[NA, ND, AC, HS, mutableStruct.cj:41:9]: Struct-Options<Generics-T>
 Declared function name: options$get -> _CN7default3BarIG_E22options$get$ToMock_BarHv
 Outer decl name: Bar<default:Boo> -> _CN7default3BarIG_E
 Receiver: [doesn't implement ToString]
@@ -130,13 +144,13 @@ Boo#55
 ==============================
 p.set is invoked
 Actual call: options$get()
-Declared field getter: options()[NA, ND, AC, HS, mutableStruct.cj:28:9]: Struct-Options<Generics-T>
+Declared field getter: options()[NA, ND, AC, HS, mutableStruct.cj:41:9]: Struct-Options<Generics-T>
 Declared function name: options$get -> _CN7default3BarIG_E22options$get$ToMock_BarHv
 Outer decl name: Bar<default:Boo> -> _CN7default3BarIG_E
 Receiver: [doesn't implement ToString]
 ------------------------------
 Actual call: options$set([not ToString])
-Declared field setter: options(newValue[1, P, ND])[NA, D, AC, NA, mutableStruct.cj:28:9]: Unit
+Declared field setter: options(newValue[1, P, ND])[NA, D, AC, NA, mutableStruct.cj:41:9]: Unit
 Declared function name: options$set -> _CN7default3BarIG_E22options$set$ToMock_BarHRNY_7OptionsIG_E
 Outer decl name: Bar<default:Boo> -> _CN7default3BarIG_E
 Receiver: [doesn't implement ToString]
@@ -144,16 +158,16 @@ Receiver: [doesn't implement ToString]
 ==============================
 callMut is invoked
 Actual call: options$get()
-Declared field getter: options()[NA, ND, AC, HS, mutableStruct.cj:28:9]: Struct-Options<Generics-T>
+Declared field getter: options()[NA, ND, AC, HS, mutableStruct.cj:41:9]: Struct-Options<Generics-T>
 Declared function name: options$get -> _CN7default3BarIG_E22options$get$ToMock_BarHv
 Outer decl name: Bar<default:Boo> -> _CN7default3BarIG_E
 Receiver: [doesn't implement ToString]
 ------------------------------
 Actual call: options$set([not ToString])
-Declared field setter: options(newValue[1, P, ND])[NA, D, AC, NA, mutableStruct.cj:28:9]: Unit
+Declared field setter: options(newValue[1, P, ND])[NA, D, AC, NA, mutableStruct.cj:41:9]: Unit
 Declared function name: options$set -> _CN7default3BarIG_E22options$set$ToMock_BarHRNY_7OptionsIG_E
 Outer decl name: Bar<default:Boo> -> _CN7default3BarIG_E
 Receiver: [doesn't implement ToString]
 ------------------------------
 ==============================
- */
+*/

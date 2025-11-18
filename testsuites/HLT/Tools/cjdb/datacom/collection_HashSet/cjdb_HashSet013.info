@@ -14,9 +14,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_HashSet_Ins_basic,001_HashSet_Ins_basic
-b,b 17,001_HashSet_Ins_basic.cj:17
-AOT r,r,-> 17
-CJVM c,c,-> 17
+b,b 25,001_HashSet_Ins_basic.cj:25
+AOT r,r,-> 25
+CJVM c,c,-> 25
 p,p set_uint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[0\] = 9458[\S\s]*}
 p,p set_uint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[1\] = 625654[\S\s]*}
 p,p set_uint32,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[2\] = 12[\S\s]*}

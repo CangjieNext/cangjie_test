@@ -14,11 +14,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_express_basetype,003_express_basetype
-CJVM b,b main,053_debug_class_basetype.cj:25
-CJVM c,c,-> 25
-b,b 28,053_debug_class_basetype.cj:28
-CJVM c,c,-> 28
-AOT r,r,-> 28
+CJVM b,b main,053_debug_class_basetype.cj:33
+CJVM c,c,-> 33
+b,b 36,053_debug_class_basetype.cj:36
+CJVM c,c,-> 36
+AOT r,r,-> 36
 p,p c.varf1,\(Float16\) \$[\d] = 0.001
 p,p c.varf2,\(Float32\) \$[\d] = 0.001
 p,p c.varf3,\(Float32\) \$[\d] = 65504

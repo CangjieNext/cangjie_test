@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors override01,override01
-b,b 45,override01.cj:45
-AOT r,r,-> 45
+b,b 53,override01.cj:53
+AOT r,r,-> 53
 CJVM c,c,
 expr~expr C2().f()~\(Unit\) \$[\d] = ()
 expr~expr C2().f1()~\(default.Child\) \$[\d] = {}

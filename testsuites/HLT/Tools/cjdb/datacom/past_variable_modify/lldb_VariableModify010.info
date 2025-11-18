@@ -16,13 +16,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 15,024_debug_variable.cj:15
-AOT r,r,-> 15
-CJVM c,c,-> 15
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 23,024_debug_variable.cj:23
+AOT r,r,-> 23
+CJVM c,c,-> 23
 set,set var_int32 = 2,2
-n,n,-> 18
+n,n,-> 26
 locals,locals,var_int32 = 2
 p,p var_int32,\(Int32\) \$[\d] = 2
 locals,locals,f_int32 = 10

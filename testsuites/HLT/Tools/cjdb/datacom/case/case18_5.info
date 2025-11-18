@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors case18_5,case18_5
-b,b 11,case18_5.cj:11
-AOT r,r,-> 11
+b,b 19,case18_5.cj:19
+AOT r,r,-> 19
 CJVM c,c,
 expr,expr fut,\(Unit\) \$[\d] = ()
 q,q,

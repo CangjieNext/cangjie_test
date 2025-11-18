@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 3
+// LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/demangle/
 // (CJNATIVE) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_class/* -o libpkg_class.%test_suffix
 // (CJNATIVE) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_func/* -o libpkg_func.%test_suffix

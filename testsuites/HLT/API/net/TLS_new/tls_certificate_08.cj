@@ -14,9 +14,9 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.common.{PemEntry, DerBlob, Pem, PrivateKey}
-import stdx.crypto.keys.*
+import stdx.crypto.x509.{X509Certificate,PemEntry,DerBlob,Pem,PrivateKey}
+//import stdx.crypto.common.*
+//import stdx.crypto.keys.*
 import std.sync.*
 import std.runtime.*
 import std.unittest.*
@@ -32,12 +32,14 @@ class Test_tlscertificate_08 {
     }
     func parsePem(text: String): (Array<X509Certificate>, PrivateKey) {
         let pem = Pem.decode(text)
-        let chain = pem |> filter<PemEntry> {entry => entry.label == PemEntry.LABEL_CERTIFICATE} |>
-            map<PemEntry, X509Certificate> {entry => X509Certificate.decodeFromDer(entry.body.getOrThrow())} |>
+        let chain = pem |>
+            filter<PemEntry> { entry => entry.label == PemEntry.LABEL_CERTIFICATE } |>
+            map<PemEntry, X509Certificate> { entry => X509Certificate.decodeFromDer(entry.body.getOrThrow()) } |>
             collectArray
-        let key = (pem |> filter<PemEntry> {entry => entry.label == PemEntry.LABEL_PRIVATE_KEY} |>
-            map<PemEntry, PrivateKey> {entry => PrivateKey.decodeDer(entry.body.getOrThrow())} |> first) ?? throw Exception(
-            "No private key found in the PEM file")
+        let key = (pem |>
+            filter<PemEntry> { entry => entry.label == PemEntry.LABEL_PRIVATE_KEY } |>
+            map<PemEntry, PrivateKey> { entry => PrivateKey.decodeDer(entry.body.getOrThrow())} |>
+            first) ?? throw Exception("No private key found in the PEM file")
         if (chain.isEmpty()) {
             throw Exception("No certificates found in the PEM file")
         }

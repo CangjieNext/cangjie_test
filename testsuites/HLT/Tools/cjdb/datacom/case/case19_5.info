@@ -13,11 +13,11 @@
 
 test#
 cjdb,cjdb --no-use-colors case19_5,case19_5
-b,b 6,case19_5.cj:6
-b,b 13,case19_5.cj:13
-AOT r,r,-> 6
+b,b 14,case19_5.cj:14
+b,b 21,case19_5.cj:21
+AOT r,r,-> 14
 CJVM c,c,
 AOT expr:expr f2(1):\(Int64\) \$[\d] = 1
-c,c-> 13
+c,c-> 21
 AOT expr:expr f4<Bool>(1,true):\(Bool\) \$[\d] = true
 q,q,

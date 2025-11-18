@@ -67,7 +67,7 @@ class Test_String_runeslines {
                 @Expect(false)
             }
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid utf8 byte sequence.")
+            @Expect(e.message.contains("Invalid utf8 byte sequence"))
         }
     }
 

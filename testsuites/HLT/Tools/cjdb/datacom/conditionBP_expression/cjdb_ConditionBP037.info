@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var015,generics_local_var015
-breakpoint,breakpoint set -l 14 -c "1==1",generics_local_var015.cj:14
-AOT r,r,-> 14
+breakpoint,breakpoint set -l 22 -c "9==9",generics_local_var015.cj:22
+AOT r,r,-> 22
 CJVM c,c,
 locals,locals,\(Int64\) a = 2
 expr:expr vhmc["a"]:\(Int64\) \$[\d] = 1

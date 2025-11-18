@@ -13,8 +13,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 017_enum_where,017_enum_where
-b,b 17,017_enum_where.cj:17
-AOT r,r,-> 17
+b,b 25,017_enum_where.cj:25
+AOT r,r,-> 25
 CJVM c,c,
 expr,expr time1,\(default.Time2<default.Bar1,Int32>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = {[\s\S]*default.Foo1 = {[\s\S]*dt1 = 2[\s\S]*}[\s\S]*dt = 4[\s\S]*
 expr~expr Time2<Bar1,Int32>.Day(bar1)~\(default.Time2<default.Bar1,Int32>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = {[\s\S]*default.Foo1 = {[\s\S]*dt1 = 2[\s\S]*}[\s\S]*dt = 4[\s\S]*

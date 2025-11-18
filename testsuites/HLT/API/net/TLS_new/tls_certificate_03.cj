@@ -15,8 +15,8 @@ import std.net.*
 import std.fs.*
 import stdx.net.tls.*
 import stdx.crypto.x509.*
-import stdx.crypto.common.*
-import stdx.crypto.keys.*
+//import stdx.crypto.common.*
+//import stdx.crypto.keys.*
 import std.sync.*
 import std.runtime.*
 import std.unittest.*
@@ -36,7 +36,7 @@ class Test_tlscertificate_03 {
         let derData = DerBlob(File.readFrom("./data/root_rsa_public_key.der"))
         @Expect(derData.size,422)
         @Expect(derData.hashCode(),-6179307143943801750)
-        let derPubKey = GeneralPublicKey.decodeDer(derData)
+        let derPubKey = PublicKey.decodeDer(derData)
         let derData1  = derPubKey.encodeToDer()
         @Expect(derPubKey.toString(), "PublicKey(422 bytes)")
         @Expect(derData.size, derData1.size)
@@ -49,7 +49,7 @@ class Test_tlscertificate_03 {
         let derData = DerBlob(File.readFrom("./data/root_ecdsa.der"))
         @Expect(derData.size,571)
         @Expect(derData.hashCode(),-2258875716169435759)
-        let e = @AssertThrows[CryptoException](GeneralPublicKey.decodeDer(derData))
+        let e = @AssertThrows[X509Exception](PublicKey.decodeDer(derData))
         @Expect(e.message.contains("Failed to load public key, it's either corrupted, or the format is unsupported:"))
     }
 
@@ -59,7 +59,7 @@ class Test_tlscertificate_03 {
         let derData = DerBlob(File.readFrom("./data/end_rsa_private_key.der"))
         @Expect(derData.size,1768)
         @Expect(derData.hashCode(),5801112079858918936)
-        let e = @AssertThrows[CryptoException](GeneralPublicKey.decodeDer(derData))
+        let e = @AssertThrows[X509Exception](PublicKey.decodeDer(derData))
         @Expect(e.message.contains("Failed to load public key, it's either corrupted, or the format is unsupported:"))
     }
 }

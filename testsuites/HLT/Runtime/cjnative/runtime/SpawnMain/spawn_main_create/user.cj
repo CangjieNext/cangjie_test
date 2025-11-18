@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0
+// LEVEL: 3
 // (not Windows and not MAC) DEPENDENCE: ./main.c ../Cangjie.h
 // (not Windows and not MAC) EXEC: %compiler %cmp_opt %compile_dylib_opt %n.cj -o lib%n.%dylib_suffix
 // (not Windows and not MAC) EXEC: %clang %link-core -I../ %cffi_runtime_link -L. -l%n main.c -o %output

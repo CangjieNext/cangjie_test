@@ -16,9 +16,9 @@
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 12,049_debug_string.cj:12
-AOT r,r,-> 12
+b,b 20,049_debug_string.cj:20
+AOT r,r,-> 20
 CJVM c,c,
-n,n,-> 13
+n,n,-> 21
 locals,locals,\(std[.]core.String\) main_str6 = "仓颉字符串测试"
 q,q,

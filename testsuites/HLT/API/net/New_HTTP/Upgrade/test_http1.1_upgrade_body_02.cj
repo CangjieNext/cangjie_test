@@ -41,12 +41,12 @@ class Test_Upgrade_Body {
         try {
             client.upgrade(request1)
         } catch (e: HttpException) {
-            @Expect(e.message, "Request header must contain Upgrade header.")
+            @Expect(e.message.contains("request header must contain Upgrade header"))
         }
         try {
             client.upgrade(request2)
         } catch (e: HttpException) {
-            @Expect(e.message, "CONNECT request is not supported by upgrade.")
+            @Expect(e.message.contains("CONNECT request is not supported by upgrade"))
         }
         client.close()
     }

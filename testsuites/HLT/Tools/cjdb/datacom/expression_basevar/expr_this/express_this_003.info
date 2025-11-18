@@ -16,11 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 6,063_debug_expr_class_1.cj:6
-CJVM c,c,-> 6
-AOT r,r,-> 6
+b,b 14,063_debug_expr_class_1.cj:14
+CJVM c,c,-> 14
+AOT r,r,-> 14
 expr,expr this.s09,std[.]collection.HashSet<UInt64>\) \$[\d] = {[\S\s]*\[0\] = 0[\S\s]*\[1\] = 1[\S\s]*\[2\] = 2[\S\s]*}
-b,b 22,063_debug_expr_class_1.cj:22
-c,c,-> 22
+b,b 30,063_debug_expr_class_1.cj:30
+c,c,-> 30
 expr,expr this.hm,std[.]collection.HashMap<Int64,std.core.String>\) \$[\d] = {[\S\s]*\[10 -> "aaaa"\] = {[\S\s]*key = 10[\S\s]*value = "aaaa"[\S\s]*}*
 q,q,

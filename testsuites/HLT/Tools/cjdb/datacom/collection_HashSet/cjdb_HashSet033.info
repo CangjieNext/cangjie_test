@@ -14,13 +14,13 @@
 
 test#
 cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
-b,b 27,003_HashSet_via_class.cj:27
-AOT r,r,-> 27
-CJVM c,c,-> 27
-s,s,-> 136
+b,b 35,003_HashSet_via_class.cj:35
+AOT r,r,-> 35
+CJVM c,c,-> 35
+s,s,-> 144
 p,p par_1,std[.]collection.HashSet<Int32>\) \$[\d] = {[\S\s]*\[0\] = -74[\S\s]*}
 p,p par_1,std[.]collection.HashSet<Int32>\) \$[\d] = {[\S\s]*\[1\] = 9[\S\s]*}
 p,p par_2,std[.]collection.HashSet<Int32>\) \$[\d] = {[\S\s]*\[1\] = 59[\S\s]*}
 p,p par_2,std[.]collection.HashSet<Int32>\) \$[\d] = {[\S\s]*\[2\] = -754[\S\s]*}
-b,b 140,003_HashSet_via_class.cj:140
+b,b 148,003_HashSet_via_class.cj:148
 q,q,

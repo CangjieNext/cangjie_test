@@ -14,16 +14,16 @@
 
 test#
 cjdb,cjdb --no-use-colors viewVariables_Cstring_011,viewVariables_Cstring_011
-b,b 63,Test_CString.cj:63
-AOT r,r,-> 63
+b,b 71,Test_CString.cj:71
+AOT r,r,-> 71
 CJVM c,c,
-s,s,-> 20
-b,b 23,Test_CString.cj:23
-c,c,-> 23
-n,n,-> 24
-n,n,-> 31
+s,s,-> 28
+b,b 31,Test_CString.cj:31
+c,c,-> 31
+n,n,-> 32
+n,n,-> 39
 p,p vf_2,\(CString\) \$[\d] = "\\\"bc"
-finish,finish,-> 63
-n,n,-> 64
+finish,finish,-> 71
+n,n,-> 72
 p,p vmf_2,\(CString\) \$[\d] = "\\\"bc"
 q,q,

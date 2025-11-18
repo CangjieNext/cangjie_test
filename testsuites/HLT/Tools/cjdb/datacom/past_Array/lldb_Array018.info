@@ -16,8 +16,8 @@
 
 test#
 cjdb,cjdb --no-use-colors 048_debug_array_type,048_debug_array_type
-b,b 24,048_debug_array_type.cj:24
-AOT r,r,-> 24
+b,b 32,048_debug_array_type.cj:32
+AOT r,r,-> 32
 CJVM c,c,
 print,print arrayBool,\[0\] = false
 print,print arrayBool,arrayBool_0 = false|true

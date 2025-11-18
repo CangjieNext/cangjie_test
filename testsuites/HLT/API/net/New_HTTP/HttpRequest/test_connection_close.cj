@@ -11,8 +11,8 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 /*
- * Test description: Test Connection: close function
- * Test API: public prop close: Bool
+ * Test description: Test Connection: isPersistent function
+ * Test API: public prop isPersistent: Bool
  */
 
 import stdx.net.http.*
@@ -25,15 +25,15 @@ class Test_HttpRequestBuilder_Connection_Close {
         var req1 = HttpRequestBuilder().header("Connection", "close").build()
         var req2 = HttpRequestBuilder().header("Connection", "close").header("Connection", "close").build()
         var req3 = HttpRequestBuilder().header("Connection", "close").header("Connection", "keep-alive").build()
-        @Expect(req1.close, true)
-        @Expect(req2.close, true)
-        @Expect(req3.close, true)
+        @Expect(req1.isPersistent, false)
+        @Expect(req2.isPersistent, false)
+        @Expect(req3.isPersistent, false)
     }
 
     //默认方法：Connection: keep-alive
     @TestCase
     func test_02(): Unit {
         var req1 = HttpRequestBuilder().build()
-        @Expect(req1.close, false)
+        @Expect(req1.isPersistent, true)
     }
 }

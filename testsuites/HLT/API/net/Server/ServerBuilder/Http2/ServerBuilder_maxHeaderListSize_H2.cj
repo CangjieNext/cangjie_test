@@ -17,11 +17,11 @@ import std.sync.*
 import std.net.*
 import std.collection.*
 import stdx.net.http.*
-import stdx.crypto.kit.*
+////import stdx.crypto.kit.*
 import stdx.crypto.keys.*
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import stdx.crypto.x509.{X509Certificate,PrivateKey}
 import std.math.*
 import std.fs.*
 import stdx.log.*
@@ -32,7 +32,7 @@ import std.io.*
 public func serverConfig(): TlsServerConfig {
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_rsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
+    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
     tlsConfig.supportedAlpnProtocols = ["h2"]
     tlsConfig
 }
@@ -41,7 +41,7 @@ public func clientConfig(): TlsClientConfig {
     var tlsConfig = TlsClientConfig()
     let pem = String.fromUtf8(readToEnd(File("./files/root_rsa.cer", Read)))
     tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
-    tlsConfig.supportedAlpnProtocols = ["h2"]
+    tlsConfig.alpnProtocolsList = ["h2"]
     tlsConfig
 }
 
@@ -110,7 +110,7 @@ public class Test_ServerBuilder_maxHeaderListSize_h2 {
         try {
             client.send(request)
         } catch (e: HttpException) {
-            @Expect(e.message, "Stream closed.")
+            @Expect(e.message.contains("Stream closed."))
         }
     }
 

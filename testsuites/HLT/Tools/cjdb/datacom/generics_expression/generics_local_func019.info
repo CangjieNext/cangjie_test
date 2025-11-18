@@ -14,8 +14,8 @@
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func019,generics_local_func019
-b,b 29,generics_local_func019.cj:29
-AOT r,r,-> 29
+b,b 37,generics_local_func019.cj:37
+AOT r,r,-> 37
 CJVM c,c,
 expr:expr b:\(Int64\) \$[\d] = 6
 expr:expr b3:\(Int64\) \$[\d] = 2

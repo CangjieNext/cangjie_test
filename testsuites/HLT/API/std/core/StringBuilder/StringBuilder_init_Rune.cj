@@ -52,21 +52,21 @@ class Test_stringBuilder_init {
             let str1 = StringBuilder(r'a', -1)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The number of rune should not be negative.")
+            @Expect(e.message.contains("The number of rune should not be negative"))
         }
 
         try {
             let str2 = StringBuilder(-1)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The capacity should be positive.")
+            @Expect(e.message.contains("The capacity should be positive"))
         }
 
         try {
             let str3 = StringBuilder(0)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The capacity should be positive.")
+            @Expect(e.message.contains("The capacity should be positive"))
         }
     }
 }

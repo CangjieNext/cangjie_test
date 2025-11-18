@@ -16,16 +16,16 @@
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:6
-CJVM c,c,-> 6
-b,b 152,024_debug_variable.cj:152
-AOT r,r,-> 152
-CJVM c,c,-> 152
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 160,024_debug_variable.cj:160
+AOT r,r,-> 160
+CJVM c,c,-> 160
 set,set a = 20,20
 locals,locals,a = 20
 p,p a,\(Int64\) \$[\d] = 20
-finish,finish,-> 122
-n,n,-> 124
+finish,finish,-> 130
+n,n,-> 132
 locals,locals,f_func003 = 70
 p,p f_func003,\(Int64\) \$[\d] = 70
 q,q,

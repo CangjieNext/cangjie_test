@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
 // RUN-EXEC: %run_stdx %n.%suffix %run_utest_opt %run_args
 
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 
 @Test
 class Test_TlsVersion_Equals {

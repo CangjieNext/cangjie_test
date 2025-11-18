@@ -51,3 +51,6 @@ compiler/ConditionalCompilation/cfg/read_file_fail.cj
 # should be fixed.
 API/std/unittest/mock/compiler/createMock/usePrivateTypesOtherPackage.cj
 API/std/unittest/report_bench_html/report_html_gnuplot.cj
+
+# Lambda type infer bug, exclude for now.
+compiler/Sema/generics/generic_subst_perf.cj

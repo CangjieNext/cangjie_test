@@ -13,9 +13,9 @@
 
 test#
 cjdb,cjdb --no-use-colors case33,case33
-b,b 11,closuretype.cj:11
-AOT r,r,-> 11
-CJVM c,c,-> 11
+b,b 19,closuretype.cj:19
+AOT r,r,-> 19
+CJVM c,c,-> 19
 AOT p,p y0,\(default.\(\)->Int64\) \$[\d] = 0x[\s\S]*
 AOT p,p y1,\(default.\(Int64,Int64\)->Int64\) \$[\d] = 0x[\s\S]*
 q,q,

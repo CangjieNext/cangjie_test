@@ -73,7 +73,7 @@ class Test_HttpRequestBuilder_Method_01 {
         var methods = [" ", " TRACE", "DELETE ", "仓颉", "GET\n", "HEAD\0"]
         for (method in methods) {
             let e = @AssertThrows[HttpException](HttpRequestBuilder().method(method).build())
-            @Expect(e.message, "Method should be tokens.")
+            @Expect(e.message.contains("method should be tokens"))
         }
     }
 }

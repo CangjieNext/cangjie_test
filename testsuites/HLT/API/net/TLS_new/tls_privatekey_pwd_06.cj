@@ -19,7 +19,7 @@ import std.sync.*
 import std.runtime.*
 import std.collection.*
 import stdx.crypto.x509.X509Certificate
-import stdx.crypto.common.{DerBlob, PemEntry, Pem, PrivateKey, CryptoException}
+import stdx.crypto.x509.{DerBlob, PemEntry, Pem, PrivateKey, X509Exception}
 import stdx.crypto.keys.*
 
 var sum = 0
@@ -38,11 +38,11 @@ class Test_tlsprivatekey_pwd_06 {
     func test_01(): Unit {
         //der format of privatekey with password using encodeToPem() without password and then decode with pwd.
         let derData = DerBlob(File.readFrom("./data/enc_pkcs8_end_rsa_private_key.der"))
-        let derPriKey = GeneralPrivateKey.decodeDer(derData, password:"123")
+        let derPriKey = PrivateKey.decodeDer(derData, password:"123")
         @Expect(derPriKey.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
         let pemData1 = derPriKey.encodeToPem()
         @Expect(Pem(pemData1).encode(), pemDatatest)
-        let pemPriKey1 = GeneralPrivateKey.decodeFromPem(Pem(pemData1).encode(), password:None)
+        let pemPriKey1 = PrivateKey.decodeFromPem(Pem(pemData1).encode(), password:None)
         @Expect(pemPriKey1.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
     }
 
@@ -50,11 +50,11 @@ class Test_tlsprivatekey_pwd_06 {
     func test_02(): Unit {
         //der format of privatekey with password using encodeToPem() with pwd None and then decode with pwd.
         let derData = DerBlob(File.readFrom("./data/enc_pkcs8_end_rsa_private_key.der"))
-        let derPriKey = GeneralPrivateKey.decodeDer(derData, password:"123")
+        let derPriKey = PrivateKey.decodeDer(derData, password:"123")
         @Expect(derPriKey.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
         let pemData1 = derPriKey.encodeToPem(password: None)
         @Expect(Pem(pemData1).encode(), pemDatatest)
-        let pemPriKey1 = GeneralPrivateKey.decodeFromPem(Pem(pemData1).encode(), password:None)
+        let pemPriKey1 = PrivateKey.decodeFromPem(Pem(pemData1).encode(), password:None)
         @Expect(pemPriKey1.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
     }
 
@@ -63,11 +63,11 @@ class Test_tlsprivatekey_pwd_06 {
         //der format of privatekey with pwd using encodeToPem() with password "".
         let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))
         let derData = DerBlob(File.readFrom("./data/enc_pkcs8_end_rsa_private_key.der"))
-        let derPriKey = GeneralPrivateKey.decodeDer(derData, password:"123")
+        let derPriKey = PrivateKey.decodeDer(derData, password:"123")
         @Expect(derPriKey.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
         try {
             derPriKey.encodeToPem(password: "")
-        } catch (e:CryptoException){
+        } catch (e:X509Exception){
             @Expect(e.message.contains("Password shouldn't be empty"))
             sum += 1
         }
@@ -79,11 +79,11 @@ class Test_tlsprivatekey_pwd_06 {
         //der format of privatekey with pwd using encodeToPem() with password "\0".
         let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))
         let derData = DerBlob(File.readFrom("./data/enc_pkcs8_end_rsa_private_key.der"))
-        let derPriKey = GeneralPrivateKey.decodeDer(derData, password:"123")
+        let derPriKey = PrivateKey.decodeDer(derData, password:"123")
         @Expect(derPriKey.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
         try {
             derPriKey.encodeToPem(password: "\0")
-        } catch (e:CryptoException){
+        } catch (e:X509Exception){
             @Expect(e.message.contains("Password shouldn't contain zero byte"))
             sum += 1
         }
@@ -95,9 +95,9 @@ class Test_tlsprivatekey_pwd_06 {
         //der format of privatekey with password using encodeToPem() with password "\\" and then decode with correct pwd.
         let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))
         let derData = DerBlob(File.readFrom("./data/enc_pkcs8_end_rsa_private_key.der"))
-        let derPriKey = GeneralPrivateKey.decodeDer(derData, password:"123")
+        let derPriKey = PrivateKey.decodeDer(derData, password:"123")
         let pemData1 = derPriKey.encodeToPem(password: "\\")
-        let pemPriKey1 = GeneralPrivateKey.decodeFromPem(Pem(pemData1).encode(), password:"\\")
+        let pemPriKey1 = PrivateKey.decodeFromPem(Pem(pemData1).encode(), password:"\\")
         @Expect(pemPriKey1.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
     }
 
@@ -106,11 +106,11 @@ class Test_tlsprivatekey_pwd_06 {
         //der format of privatekey with password using encodeToPem() with password "\\" and then decode with error pwd.
         let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))
         let derData = DerBlob(File.readFrom("./data/enc_pkcs8_end_rsa_private_key.der"))
-        let derPriKey = GeneralPrivateKey.decodeDer(derData, password:"123")
+        let derPriKey = PrivateKey.decodeDer(derData, password:"123")
         let pemData1 = derPriKey.encodeToPem(password: "\\")
         try {
-            GeneralPrivateKey.decodeFromPem(Pem(pemData1).encode(), password:"456")
-        } catch (e:CryptoException) {
+            PrivateKey.decodeFromPem(Pem(pemData1).encode(), password:"456")
+        } catch (e:X509Exception) {
             @Expect(e.message.contains("Failed to load private key, the password is incorrect or the key is corrupted"))
             sum += 1
         }
@@ -122,11 +122,11 @@ class Test_tlsprivatekey_pwd_06 {
         //der format of privatekey with password using encodeToPem() with password "#" and then decode with error pwd.
         let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))
         let derData = DerBlob(File.readFrom("./data/enc_pkcs8_end_rsa_private_key.der"))
-        let derPriKey = GeneralPrivateKey.decodeDer(derData, password:"123")
+        let derPriKey = PrivateKey.decodeDer(derData, password:"123")
         let pemData1 = derPriKey.encodeToPem(password: "#")
         try {
-            GeneralPrivateKey.decodeFromPem(Pem(pemData1).encode(), password:"$")
-        } catch (e:CryptoException) {
+            PrivateKey.decodeFromPem(Pem(pemData1).encode(), password:"$")
+        } catch (e:X509Exception) {
             @Expect(e.message.contains("Failed to load private key, the password is incorrect or the key is corrupted"))
             sum += 1
         }
@@ -138,11 +138,11 @@ class Test_tlsprivatekey_pwd_06 {
         //der format of privatekey with password using encodeToPem() with password "abc" and then decode with error pwd.
         let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))
         let derData = DerBlob(File.readFrom("./data/enc_pkcs8_end_rsa_private_key.der"))
-        let derPriKey = GeneralPrivateKey.decodeDer(derData, password:"123")
+        let derPriKey = PrivateKey.decodeDer(derData, password:"123")
         let pemData1 = derPriKey.encodeToPem(password: "abc")
         try {
-            GeneralPrivateKey.decodeFromPem(Pem(pemData1).encode(), password:"abe")
-        } catch (e:CryptoException) {
+            PrivateKey.decodeFromPem(Pem(pemData1).encode(), password:"abe")
+        } catch (e:X509Exception) {
             @Expect(e.message.contains("Failed to load private key, the password is incorrect or the key is corrupted"))
             sum += 1
         }

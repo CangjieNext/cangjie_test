@@ -14,11 +14,13 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.net.http.*
+//import stdx.net.tls.common.*
 import stdx.net.tls.*
 import std.time.*
 import std.sync.*
 import std.fs.*
 import stdx.crypto.x509.*
+import stdx.crypto.keys.*
 import std.io.*
 
 @When[os == "macOS" || os == "HarmonyOS"]
@@ -34,7 +36,7 @@ class Test_Concurrent_100_connects {
     func serverConfig(protocol: String): TlsServerConfig {
         let pem0 = String.fromUtf8(readToEnd(File("data/end_rsa.cer", Read)))
         let pem02 = String.fromUtf8(readToEnd(File("data/end_rsa_private_key.pem", Read)))
-        var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
+        var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
         tlsConfig.supportedAlpnProtocols = [protocol]
         tlsConfig
     }
@@ -43,7 +45,7 @@ class Test_Concurrent_100_connects {
         var tlsConfig = TlsClientConfig()
         let pem = String.fromUtf8(readToEnd(File("data/root_rsa.cer", Read)))
         tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
-        tlsConfig.supportedAlpnProtocols = [protocol]
+        tlsConfig.alpnProtocolsList = [protocol]
         tlsConfig
     }
 

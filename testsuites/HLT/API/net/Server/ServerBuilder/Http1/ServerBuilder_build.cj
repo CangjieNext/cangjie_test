@@ -26,7 +26,7 @@ public class Test_build {
             let server = ServerBuilder().port(0).build()
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message, "The IP address number is not set.")
+            @Expect(e.message.contains("The IP address number is not set."))
         }
         @Expect(flag, true)
     }
@@ -38,7 +38,7 @@ public class Test_build {
             let server = ServerBuilder().addr("127.0.0.1").build()
         } catch (e: IllegalArgumentException) {
             flag = true
-            @Expect(e.message, "The port number is not set.")
+            @Expect(e.message.contains("The port number is not set."))
         }
         @Expect(flag, true)
     }

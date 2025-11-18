@@ -16,20 +16,20 @@
 
 test#
 cjdb,cjdb --no-use-colors 013_debug_lambda,013_debug_lambda
-CJVM b,breakpoint set -n main,013_debug_lambda.cj:4
-CJVM c,c,-> 4
-b,b 4,Breakpoint
-AOT b,b 5,013_debug_lambda.cj:6
-CJVM b,b 5,013_debug_lambda.cj:5
-AOT b,b 6,013_debug_lambda.cj:6
-CJVM b,b 5,013_debug_lambda.cj:5
-AOT b,b 7,013_debug_lambda.cj:8
-CJVM b,b 7,013_debug_lambda.cj:7
-b,b 8,013_debug_lambda.cj:8
-AOT r,r,-> 4
-c,c,-> 8
-n,n,-> 6
-n,n,-> 8
-n,n,-> 9
+CJVM b,breakpoint set -n main,013_debug_lambda.cj:12
+CJVM c,c,-> 12
+b,b 12,Breakpoint
+AOT b,b 13,013_debug_lambda.cj:14
+CJVM b,b 13,013_debug_lambda.cj:13
+AOT b,b 14,013_debug_lambda.cj:14
+CJVM b,b 13,013_debug_lambda.cj:13
+AOT b,b 15,013_debug_lambda.cj:16
+CJVM b,b 15,013_debug_lambda.cj:15
+b,b 16,013_debug_lambda.cj:16
+AOT r,r,-> 12
+c,c,-> 16
+n,n,-> 14
+n,n,-> 16
+n,n,-> 17
 locals,locals,lamdba001 = 20
 q,q,

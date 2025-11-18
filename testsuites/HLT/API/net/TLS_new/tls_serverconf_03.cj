@@ -14,10 +14,10 @@
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.*
-import stdx.crypto.common.*
-import stdx.crypto.keys.*
+//import stdx.net.tls.common.*
+import stdx.crypto.x509.{X509Certificate,PrivateKey}
+//import stdx.crypto.common.*
+//import stdx.crypto.keys.*
 import std.sync.*
 import std.time.*
 import std.runtime.*
@@ -85,16 +85,16 @@ class Test_tlsserverconf_03 {
         }
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
         serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemser).map({c => c}))
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
         let result = tlsServer.handshake()
-        match (result.version) {
+        match (tlsServer.tlsVersion) {
             case V1_2 => sum1 += 1
             case V1_3 => sum1 += 3
             case Unknown => sum1 += 5
@@ -116,21 +116,21 @@ class Test_tlsserverconf_03 {
         }
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
         try {
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(keypemser).map({c => c}))
         } catch (e: X509Exception) {
             sum1 += 1
-            @Expect(e.message, "X509Cert decode failed: No CERTIFICATE entry found in PEM file.")
+            @Expect(e.message.contains("X509Cert decode failed: No CERTIFICATE entry found in PEM file"))
         }
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
         let result = tlsServer.handshake()
-        match (result.version) {
+        match (tlsServer.tlsVersion) {
             case V1_2 => sum1 += 1
             case V1_3 => sum1 += 3
             case _ => ()
@@ -152,16 +152,16 @@ class Test_tlsserverconf_03 {
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
         let pemser1 = String.fromUtf8(readToEnd(File("./data/end_ecdsa_2.cer", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
         serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemser1).map({c => c}))
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
         let result = tlsServer.handshake()
-        match (result.version) {
+        match (tlsServer.tlsVersion) {
             case V1_2 => sum1 += 1
             case V1_3 => sum1 += 3
             case _ => ()
@@ -183,21 +183,21 @@ class Test_tlsserverconf_03 {
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
         let pemser1 = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key_2.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
         try {
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemser1).map({c => c}))
         } catch (e: X509Exception) {
             sum1 += 1
-            @Expect(e.message, "X509Cert decode failed: No CERTIFICATE entry found in PEM file.")
+            @Expect(e.message.contains("X509Cert decode failed: No CERTIFICATE entry found in PEM file"))
         }
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
+        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
         let result = tlsServer.handshake()
-        match (result.version) {
+        match (tlsServer.tlsVersion) {
             case V1_2 => sum1 += 1
             case V1_3 => sum1 += 3
             case _ => ()

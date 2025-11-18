@@ -21,9 +21,9 @@
  */
 
 import stdx.net.http.*
-import stdx.crypto.kit.*
+////import stdx.crypto.kit.*
 import stdx.crypto.keys.*
-import stdx.net.tls.common.*
+//import stdx.net.tls.common.*
 import stdx.net.tls.*
 import std.time.*
 import std.sync.*
@@ -114,7 +114,7 @@ class Test_Copy_Request_Headers {
         @Expect(req.version, newRequest.version)
         @Expect(req.bodySize, newRequest.bodySize)
         @Expect(req.form.toEncodeString(), newRequest.form.toEncodeString())
-        @Expect(req.close, newRequest.close)
+        @Expect(req.isPersistent, newRequest.isPersistent)
         @Expect(req.readTimeout, newRequest.readTimeout)
         @Expect(req.writeTimeout, newRequest.writeTimeout)
     }
