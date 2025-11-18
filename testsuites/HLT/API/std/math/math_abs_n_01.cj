@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0
+// LEVEL: 2
 // DEPENDENCE: caserunner.cj
 // EXEC: %compiler %cmp_opt %f caserunner.cj -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
