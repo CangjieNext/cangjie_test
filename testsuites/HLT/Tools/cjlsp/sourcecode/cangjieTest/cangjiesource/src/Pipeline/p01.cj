@@ -1,5 +1,7 @@
 package default.Pipeline
 
+import default.property.pkg.*
+
 open class A {
     var c1: Int32 = 1
 }
