@@ -28,3 +28,8 @@ API/net/request/request_api_15.cj
 
 # fail randomly in win
 API/net/Server/ServerBuilder/Http2/Server_request_check_H2.cj
+
+# for xiasong
+API/net/Server/ServerBuilder/Http2/ServerBuilder_maxHeaderListSize_H2.cj
+API/net/Server/ServerBuilder/Http2/ServerBuilder_httpKeepAliveTimeout_H2.cj
+API/std/os/process/test_kill/test_kill_001/test_kill_001.cj
