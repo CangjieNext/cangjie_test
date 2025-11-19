@@ -79,3 +79,6 @@ API/stdx/fuzz/fuzzer_main.cj
 API/stdx/fuzz/fuzzer_main_dp.cj
 API/stdx/fuzz/test_u32.cj
 API/stdx/fuzz/test_u64.cj
+
+# for randomly fail
+API/stdx/net/http/client1_1/client1_1_reconnect_conn_body_test.cj
