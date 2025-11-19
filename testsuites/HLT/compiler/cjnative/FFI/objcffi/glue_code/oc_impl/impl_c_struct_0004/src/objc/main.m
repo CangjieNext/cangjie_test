@@ -13,9 +13,7 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [[A alloc] init];
-        a.s.x = a.s.x + 1;
-        a.s.y = a.s.y + 1;
-        printf("in objc main, %d\n", a.s.x + a.s.y);
+        printf("in objc main, %lld\n", a.s.x + a.s.y);
     }
     return 0;
 }

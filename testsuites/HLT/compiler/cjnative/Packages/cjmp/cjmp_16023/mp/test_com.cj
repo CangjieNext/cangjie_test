@@ -12,7 +12,7 @@ common public interface I<T> {
 }
 public class A<T> <: I<T> {}
 public class B<T, K> {}
-common extend <T, K> B<T, K> where T <: I<K> {
+common extend <T, K> B<T, K> where T <: A<K> {
     public common func foo(a: T, b: K, c: K) {
         a.f(b, b)
     }

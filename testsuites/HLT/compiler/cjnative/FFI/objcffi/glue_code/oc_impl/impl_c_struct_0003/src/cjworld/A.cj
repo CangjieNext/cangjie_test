@@ -13,5 +13,8 @@ import objc.lang.*
 @ObjCImpl
 public class A <: M {
     public var s: S = S()
-    public init() {}
+    public init() {
+        s.x = 1
+        s.y = 1
+    }
 }

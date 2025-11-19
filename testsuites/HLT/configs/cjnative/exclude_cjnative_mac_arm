@@ -51,31 +51,14 @@ compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0006/
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0007/
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0008/
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0009/
-# case not support
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0010/
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0030/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0008/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0008_1/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0009/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0010/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_init_0011/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_prop_0003/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_field_0002/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_field_0007/
+# limit described in the doc
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_pointer_0014/
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_field_0014/
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0001/
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0002/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_prop_0003/
+# todo: fix
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0003/
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0004/
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0007/
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_c_struct_0009/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0001/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0002/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0003/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0004/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0005/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_c_struct_0006/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0006/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0007/
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/
 # todo: super()
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0005/
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_init_0006/
@@ -92,21 +75,6 @@ compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0005/
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0006/
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0007/
 compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0001/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0002/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0003/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0004/
-# interface
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002_1/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0004/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0006/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0007/
-# subtyping
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0013/
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0014/
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0016/
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_subtyping_0017/
 
 # cjdb
 Tools/cjdb/datacom/C_FFI/viewVariables_Cstring_009.info

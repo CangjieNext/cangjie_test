@@ -13,12 +13,12 @@
 - (id)init {
     if (self = [super init]) {
         v = [[M1 alloc] init:1];
-        _p1 = [[M1 alloc] init:2];
+        _p = [[M1 alloc] init:2];
     }
     return self;
 }
 - (id<I>)g1 {
-    return [[M1 alloc] init:3]
+    return [[M1 alloc] init:3];
 }
 - (void)g2:(id<I>)a {
     printf("p1: %lld\n", a.p1);

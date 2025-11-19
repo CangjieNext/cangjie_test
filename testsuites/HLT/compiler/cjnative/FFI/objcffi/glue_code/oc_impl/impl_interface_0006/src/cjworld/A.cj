@@ -15,8 +15,8 @@ public class A <: M2 {
     public init() {}
     public func f() {
         var m = M2()
-        println("p1: ${this.v.p1}")
-        println("p1: ${super.p.p1}")
+        println("p1: ${this.v?.p1}")
+        println("p1: ${super.p?.p1}")
         m.g2(super.g1())
     }
 }

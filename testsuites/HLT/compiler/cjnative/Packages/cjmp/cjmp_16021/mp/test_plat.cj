@@ -10,7 +10,7 @@ package mp
 platform public interface I<T> {
     platform func f(a: T, b: T) { b }
 }
-public platform func foo<T, K>(a: T, b: K, c: K) where T <: A<K> {
+public platform func foo<T, K>(a: T, b: K, c: K) where T <: I<K> {
     return a.f(b, c)
 }
 public func f2() {
