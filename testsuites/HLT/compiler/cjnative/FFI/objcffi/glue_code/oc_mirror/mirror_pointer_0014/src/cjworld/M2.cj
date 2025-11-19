@@ -9,7 +9,6 @@
 package cjworld
  
 import objc.lang.*
-import objc.lang.*
 
 @ObjCMirror
 public open class M2 {

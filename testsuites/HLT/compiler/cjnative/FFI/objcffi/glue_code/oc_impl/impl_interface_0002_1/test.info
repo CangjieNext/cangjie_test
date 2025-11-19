@@ -11,4 +11,4 @@
 // (iOSNative) EXEC: %mirror_gen test.toml
 // (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc src/objc/foundation/*.cj
 // (iOSNative) ERRCHECK: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc -L . -lobjc.foundation src/cjworld/*.cj
-// ASSERT: scan xxx
+// ASSERT: scan @ObjCImpl class must have @ObjCMirror super class

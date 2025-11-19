@@ -12,7 +12,7 @@ import objc.lang.*
 
 @ObjCImpl
 public class A <: M {
-    public mut porp v: ObjCId {
+    public mut prop v: ObjCId {
         get() { M(1) }
         set(v) { v }
     }

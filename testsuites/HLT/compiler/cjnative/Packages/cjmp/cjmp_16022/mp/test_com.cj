@@ -11,7 +11,7 @@ common public interface I<T> {
     common func f(a: T, b: T) { a }
 }
 public class A<T> <: I<T> {}
-public common class B<T, K> where T <: I<K> {
+public common class B<T, K> where T <: A<K> {
     public var a: T
     public var b: K
     public common init(a: T, b: K, c: K) {

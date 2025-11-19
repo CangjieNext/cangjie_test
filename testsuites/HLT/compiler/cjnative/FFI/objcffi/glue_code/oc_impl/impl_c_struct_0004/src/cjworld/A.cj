@@ -17,5 +17,8 @@ public class A <: M {
         get() { a }
         set(v) { a = v }
     }
-    public init() {}
+    public init() {
+        s.x = 1
+        s.y = 1
+    }
 }
