@@ -49,7 +49,6 @@ compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
 compiler/ConditionalCompilation/cfg/read_file_fail.cj
 
 # should be fixed.
-API/std/unittest/mock/compiler/createMock/usePrivateTypesOtherPackage.cj
 API/std/unittest/report_bench_html/report_html_gnuplot.cj
 API/std/libast/exprs/for_in_expr/test_exception_002.cj
 API/std/libast/exprs/jump_expr/test_exception_001.cj

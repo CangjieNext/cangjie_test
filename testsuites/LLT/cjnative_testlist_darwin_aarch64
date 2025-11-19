@@ -28,8 +28,6 @@ API/std/libast/exprs/varray_expr/test_totokens_002.cj
 API/std/libast/tokens/token_kind/test_003.cj
 API/std/unittest/custom_assertions/explicit_type_assertion.cj
 API/std/unittest/diff/complex_assert_expr.cj
-API/std/unittest/mock/compiler/ensurePreparedToMock/default_methods_interface.cj
-API/std/unittest/mock/framework/verification_failed_report_test.cj
 API/stdx/net/http/client/client_redirect_body_test.cj
 API/stdx/net/http/client/client_redirect_test.cj
 API/stdx/net/http/client1_1/client1_1_request_test.cj
