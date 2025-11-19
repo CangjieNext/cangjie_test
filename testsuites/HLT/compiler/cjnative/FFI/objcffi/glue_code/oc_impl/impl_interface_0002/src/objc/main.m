@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
         A* a = [[A alloc] init];
         a.p1 = 1;
         printf("p1: %lld\n", a.p1);
-        printf("p2: %lld\n", a.p1);
+        printf("p2: %lld\n", a.p2);
         [a f1];
         [a f2];
         [a f3];

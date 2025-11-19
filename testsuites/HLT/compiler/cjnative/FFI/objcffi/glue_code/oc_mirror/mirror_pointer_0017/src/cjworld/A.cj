@@ -9,7 +9,6 @@
 package cjworld
 
 import objc.lang.*
-import objc.lang.*
 
 public class C {}
 

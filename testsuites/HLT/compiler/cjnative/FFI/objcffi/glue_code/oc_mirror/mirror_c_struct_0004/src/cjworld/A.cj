@@ -17,8 +17,8 @@ public class A <: M {
         var m = M()
         println("in cangjie foo, ${m.s.x + m.s.y}")
         var s = S()
-        s.x = 1
-        s.y = 1
+        s.x = 2
+        s.y = 2
         m.s = s
         println("in cangjie foo, ${m.s.x + m.s.y}")
     }

@@ -11,7 +11,7 @@ common public interface I<T> {
     common func f(a: T, b: T) { a }
 }
 public class A<T> <: I<T> {}
-public common func foo<T, K>(a: T, b: K, c: K) where T <: I<K> {
+public common func foo<T, K>(a: T, b: K, c: K) where T <: A<K> {
     return a.f(b, b)
 }
 public func f1() {

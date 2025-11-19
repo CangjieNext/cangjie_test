@@ -79,11 +79,6 @@ Tools/cjlint/rules/G_OTH_03/g_oth_03_10026/g_oth_03.info
 # syntax will be supported in future
 API/syntax
 
-# cjmp is not ready.
-compiler/cjnative/Packages/cjmp/cjmp_16021/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_16022/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_16023/test.cj
-
 # timezone file in ci not support now
 API/std/time/TimeZone/load/test_loadFromPaths.cj
 
