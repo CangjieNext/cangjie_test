@@ -34,3 +34,6 @@ API/net/Server/ServerBuilder/Http2/ServerBuilder_maxHeaderListSize_H2.cj
 API/net/Client/ClientBuilder/Http2/ClientBuilder_autoRedirect_H2.cj
 API/net/Server/ServerBuilder/Http2/ServerBuilder_httpKeepAliveTimeout_H2.cj
 API/std/os/process/test_kill/test_kill_001/test_kill_001.cj
+API/net/New_HTTP/HttpRequest/test_header_01.cj
+API/net/New_HTTP/HttpRequest/test_request_modify.cj
+API/net/New_HTTP/HttpResponse/test_header_01.cj
