@@ -8,7 +8,7 @@ error: unexpected digit '9' in octal
    | 
    # note: octal may only contain digit within 0~7
 
-error: cannot start a(n) float literal with '0'
+error: cannot start a(n) integer literal with '0'
   ==> case8.cj:14:21:
    | 
 14 |     "cangjie ${0o19.12 012.a} ${0b12}"
