@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/parallel_compiling.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug parallel_compiling.cj -o parallel_compiling
-// EXEC: python3 cjdb_test.py parallel_compiling.info
+// EXEC: python3 cjdb_test.py parallel_compiling.info %n %run_env
 
 test#
 cjdb,cjdb parallel_compiling,parallel_compiling

@@ -7,7 +7,7 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/pkg/pkg.cj ../../basecase/expr/pkg/import_member_function.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug %compile_lib_opt -j1 pkg.cj -o pkg.%middle
 // EXEC: %compiler %cmp_opt %enableCompileDebug -j1 pkg.%middle import_member_function.cj -o import_member_function
-// EXEC: python3 cjdb_test.py import_member_function.info
+// EXEC: python3 cjdb_test.py import_member_function.info %n %run_env
 
 test#
 cjdb,cjdb import_member_function, import_member_function
