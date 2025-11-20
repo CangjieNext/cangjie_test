@@ -15,11 +15,6 @@ main() {
     return 0
 }
 
-@When[os == "HarmonyOS"]
-main() {
-    return 0
-}
-
 @When[os == "macOS"]
 main() {
     return 0
