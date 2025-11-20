@@ -19,4 +19,11 @@ func test(): Unit {
         case 100 where false => println("a")
         case _ => throw Exception()
     }
+
+    match {
+        case name == "hello" => println("hello")
+        // todo 支持更多情况
+
+        case _ => ()
+    }
 }

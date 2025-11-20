@@ -28,4 +28,7 @@ func test(): Unit {
     a &= b
     a |= b
     a ^= b
+    _ = b
+    (_, _, a) = f()
+    (a, b, _, _) = f()
 }

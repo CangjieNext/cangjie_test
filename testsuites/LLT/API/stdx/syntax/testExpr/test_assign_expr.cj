@@ -276,6 +276,57 @@ class Test {
     }
 
     @TestCase
+    func testAssignExpr15() {
+        let expr = (nodes[22] as AssignExpr).getOrThrow()
+        match (expr.assignOpKind) {
+            case AssignOpKind.Assign => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let lexpr = (expr.lhs as WildcardPattern).getOrThrow()
+        let rexpr = (expr.rhs as SymbolRef).getOrThrow()
+        @Expect(rexpr.name, "b")
+        @Expect(expr.toString(), "_ = b")
+
+        var pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([31, 5, 31, 10]).toArray())
+        pos = expr.getAssignOpPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([31, 7, 31, 8]).toArray())
+    }
+
+    @TestCase
+    func testAssignExpr16() {
+        let expr = (nodes[23] as AssignExpr).getOrThrow()
+        match (expr.assignOpKind) {
+            case AssignOpKind.Assign => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let lexpr = (expr.lhs as TupleLiteral).getOrThrow()
+        let elems = lexpr.elements
+        @Expect(elems.size, 3)
+        @Expect((elems[0] as WildcardPattern).getOrThrow().toString(), "_")
+        @Expect((elems[1] as WildcardPattern).getOrThrow().toString(), "_")
+        @Expect((elems[2] as SymbolRef).getOrThrow().name, "a")
+        @Expect(expr.toString(), "(_, _, a) = f()")
+    }
+
+    @TestCase
+    func testAssignExpr17() {
+        let expr = (nodes[24] as AssignExpr).getOrThrow()
+        match (expr.assignOpKind) {
+            case AssignOpKind.Assign => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let lexpr = (expr.lhs as TupleLiteral).getOrThrow()
+        let elems = lexpr.elements
+        @Expect(elems.size, 4)
+        @Expect((elems[0] as SymbolRef).getOrThrow().name, "a")
+        @Expect((elems[1] as SymbolRef).getOrThrow().name, "b")
+        @Expect((elems[2] as WildcardPattern).getOrThrow().toString(), "_")
+        @Expect((elems[3] as WildcardPattern).getOrThrow().toString(), "_")
+        @Expect(expr.toString(), "(a, b, _, _) = f()")
+    }
+
+    @TestCase
     func testAssignExprInit() {
         let expr = (nodes[21] as AssignExpr).getOrThrow()
         let assignExpr = AssignExpr(expr.assignOpKind, expr.lhs, expr.rhs)
