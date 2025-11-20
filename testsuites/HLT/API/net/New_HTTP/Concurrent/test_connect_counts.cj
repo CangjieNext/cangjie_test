@@ -23,9 +23,9 @@ import stdx.crypto.x509.*
 import stdx.crypto.keys.*
 import std.io.*
 
-@When[os == "macOS" || os == "HarmonyOS"]
+@When[os == "macOS"]
 let thread_count = 20
-@When[os != "macOS" && os != "HarmonyOS"]
+@When[os != "macOS"]
 let thread_count = 50
 
 @Test
