@@ -16,7 +16,7 @@
 import std.ffi.python.*
 import std.log.*
 
-@When[os == "Linux" || os == "HarmonyOS"]
+@When[os == "Linux"]
 let suffixOfDy = "so"
 @When[os == "macOS"]
 let suffixOfDy = "dylib"
