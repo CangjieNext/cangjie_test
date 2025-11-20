@@ -29,7 +29,7 @@ public open class C1 <: C0 {
 
 public class C2 <: C1 {
     public func hoo(): Int8 { goo() }
-    public func goo(): Int8 {
+    public open func goo(): Int8 {
         a + 2 + 1
     }
 }
