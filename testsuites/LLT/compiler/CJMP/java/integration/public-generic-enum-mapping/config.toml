@@ -1,0 +1,23 @@
+[default]
+APIStrategy = "Full"
+GenericTypeStrategy = "None"
+
+[[package]]
+name = "cj"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+excluded_apis = [
+]
+generic_object_configuration = [
+    { name = "GenericEnum", type_arguments = ["Int32", "Int64"] },
+    { name = "GenericEnum<Int32>", symbols = [
+        "printValue",
+        "setValue",
+        "value"
+    ]}
+    { name = "GenericEnum<Int64>", symbols = [
+        "printValue",
+        "setValue",
+        "value"
+    ]}
+]
