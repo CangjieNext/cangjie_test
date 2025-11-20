@@ -27,8 +27,3 @@ main() {
     print("macOS\n")
     return 0
 }
-
-@When[os == "HarmonyOS"]
-main() {
-    return 0
-}
