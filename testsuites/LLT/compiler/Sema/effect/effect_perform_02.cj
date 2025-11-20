@@ -7,7 +7,7 @@ class Eff <: Command<Int64> {}
 
 public func assertPerformed<T>(fn: ()->Int64, msg!: String = ""): Int64 where T <: Command<Int64> {
     try{
-        return fn()
+        fn()
     } handle (e: T){
         resume with 11
     }
