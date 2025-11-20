@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/metadsl.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug metadsl.cj -o %n
-// EXEC: python3 cjdb_test.py %n.info
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
 cjdb,cjdb metadsl,metadsl

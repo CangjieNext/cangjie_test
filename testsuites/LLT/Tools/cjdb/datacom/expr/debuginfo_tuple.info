@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/tuple.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug tuple.cj -o tuple
-// EXEC: python3 cjdb_test.py debuginfo_tuple.info
+// EXEC: python3 cjdb_test.py debuginfo_tuple.info %n %run_env
 
 test#
 cjdb,cjdb tuple,tuple

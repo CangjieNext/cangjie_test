@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/any.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug any.cj -o any
-// EXEC: python3 cjdb_test.py %n.info
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
 test#
 cjdb,cjdb any,any
 b,b 19,any.cj:19

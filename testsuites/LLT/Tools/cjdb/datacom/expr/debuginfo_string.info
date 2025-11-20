@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/string.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug string.cj -o string
-// EXEC: python3 cjdb_test.py debuginfo_string.info
+// EXEC: python3 cjdb_test.py debuginfo_string.info %n %run_env
 
 test#
 cjdb,cjdb string,string
