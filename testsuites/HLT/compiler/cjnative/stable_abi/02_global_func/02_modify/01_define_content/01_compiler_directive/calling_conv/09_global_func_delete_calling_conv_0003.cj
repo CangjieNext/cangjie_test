@@ -67,7 +67,7 @@ public unsafe func global_func_18() {
     global_func_08()
 }
 
-public func global_func_19() {
+public  unsafe func global_func_19() {
     global_func_01() == 0
     && global_func_07() == 0
 }

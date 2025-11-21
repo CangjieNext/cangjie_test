@@ -175,3 +175,26 @@ public func global() {
     let v1 = TestClass()
     v1.f7()
 }
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public unsafe func checker(tc: TestClass): Unit {
+    assert(tc.f1(), 1)
+    assert(tc.f4(), 3)
+    assert(tc.f6(), 5)
+    assert(tc.openfunc(), 1)
+    assert(tc.f8(), 8)
+    assert(tc.f13(), 13)
+    assert(tc.f14(), 14)
+    assert(tc.g1<Int64, Int64, Son>(1, 2, Son()), "12")
+    assert(tc.g2<Int64, String, Son>(1, "a", Son()), "1")
+    assert(tc.p1(1, b: 2, c: 3), 6)
+    assert(tc.p2(Son(), c: Son()) is Son, true)
+    assert(tc.p3(Father(), b: Father()) is Father, true)
+    assert(tc.ano1(), 1)
+}
