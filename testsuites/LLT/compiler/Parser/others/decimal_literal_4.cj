@@ -6,18 +6,18 @@ main():Unit{
 }
 
 /* SCAN
-error: cannot start a(n) integer literal with '0'
+error: cannot start a(n) integer literal with a '0' digit
  ==> decimal_literal_4.cj:4:13:
   | 
 4 |     let a = 01e2
-  |             ^ unexpected digit(s)
+  |             ^ unexpected digit
   | 
 
-error: cannot start a(n) integer literal with '0'
+error: cannot start a(n) integer literal with a '0' digit
  ==> decimal_literal_4.cj:5:13:
   | 
 5 |     let b = 01e-2
-  |             ^ unexpected digit(s)
+  |             ^ unexpected digit
   | 
 
 2 errors generated, 2 errors printed.

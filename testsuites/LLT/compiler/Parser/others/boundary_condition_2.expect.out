@@ -1,8 +1,8 @@
-error: cannot start a(n) float literal with '0'
+error: cannot start a(n) float literal with a '0' digit
  ==> boundary_condition_2.cj:6:13:
   | 
 6 |     let a = 01.2
-  |             ^ unexpected digit(s)
+  |             ^ unexpected digit
   | 
 
 1 error generated, 1 error printed.
