@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.3.1.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class primary init
   @Behavior: delete non public primary init
   @Expect: api compatible & abi compatible
-*/
+ */
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -33,5 +33,18 @@ package test_stable_abi
 
 public class S {
     public var a = 1
-    public init() { a = 0 }
+    public init() {
+        a = 0
+    }
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(s: S): Unit {
+    assert(s.a, 0)
 }

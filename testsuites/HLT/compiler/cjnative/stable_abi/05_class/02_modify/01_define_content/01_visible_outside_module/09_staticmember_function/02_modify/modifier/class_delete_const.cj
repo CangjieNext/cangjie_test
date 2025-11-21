@@ -119,3 +119,28 @@ public class TestClass {
         3
     }
 }
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public unsafe func checker(): Unit {
+    assert(TestClass.f1(), 1)
+    assert(TestClass.f4(), 3)
+    assert(TestClass.f6(), 5)
+    assert(TestClass.f7(), 7)
+    assert(TestClass.f9(), 9)
+    assert(TestClass.f13(), 13)
+    assert(TestClass.f14(), 14)
+    assert(TestClass.g1<Int64, Int64, Son>(1, 2, Son()), "12")
+    assert(TestClass.g2<Int64, String, Son>(1, "a", Son()), "1")
+    assert(TestClass.p1(1, b: 2, c: 3), 6)
+    assert(TestClass.p2(Son(), b: Son()) is Son, true)
+    assert(TestClass.p3(Father(), b: Father()) is Father, true)
+    assert(TestClass.body1(), 1)
+    assert(TestClass.body2(), 2)
+    assert(TestClass.body3(), 3)
+}

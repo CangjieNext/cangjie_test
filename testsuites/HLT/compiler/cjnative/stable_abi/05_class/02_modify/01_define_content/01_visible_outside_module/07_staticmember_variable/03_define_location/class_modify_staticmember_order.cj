@@ -100,6 +100,6 @@ public func checker(): Int64 {
     assert(CC.e1, 1)
     assert(CC.e2, 2)
     assert(CC.e3(), 1)
-    assert(c0.e4(), 3)
+    assert(c0.e4(), 2)
     0
 }

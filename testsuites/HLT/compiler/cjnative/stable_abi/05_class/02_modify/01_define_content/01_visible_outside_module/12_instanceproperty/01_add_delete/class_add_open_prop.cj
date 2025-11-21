@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.1.12.1
   @Scene: add
@@ -13,7 +13,7 @@
   @Object: class instance prop
   @Behavior: add open class instance prop
   @Expect: api compatible & abi incompatible
-*/
+ */
 // LEVEL: 0
 // DEPENDENCE: ../main.cj, ../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -43,7 +43,7 @@ public class Version {
     }
 }
 
-open public class TestClass {
+public open class TestClass {
     public var a: Int64 = 0
     public prop prop1: Int64 {
         get() {
@@ -51,7 +51,7 @@ open public class TestClass {
         }
     }
 
-    open public prop open_prop1: Int64 {
+    public open prop open_prop1: Int64 {
         get() {
             1
         }
@@ -67,7 +67,7 @@ open public class TestClass {
             2
         }
     }
-    open protected prop open_exported_prop1: Int64 {
+    protected open prop open_exported_prop1: Int64 {
         get() {
             1
         }
@@ -78,9 +78,10 @@ open public class TestClass {
             3
         }
     }
+
     @Frozen
     public prop _prop3: Int64 {
-        get () {
+        get() {
             prop3
         }
     }
@@ -91,24 +92,28 @@ open public class TestClass {
             4
         }
     }
+
     @Deprecated["This API is deprecated", strict: true]
     public prop prop5: Int64 {
         get() {
             5
         }
     }
+
     @Deprecated["This API will be deprecated soon"]
-    open public prop open_prop4: Int64 {
+    public open prop open_prop4: Int64 {
         get() {
             4
         }
     }
+
     @Deprecated["This API is deprecated", strict: true]
-    open public prop open_prop5: Int64 {
+    public open prop open_prop5: Int64 {
         get() {
             5
         }
     }
+
     @Frozen
     public mut prop prop6: Int64 {
         get() {
@@ -118,8 +123,9 @@ open public class TestClass {
             a = v
         }
     }
+
     @Frozen
-    open public mut prop open_prop6: Int64 {
+    public mut open prop open_prop6: Int64 {
         get() {
             6
         }
@@ -143,7 +149,7 @@ open public class TestClass {
             9
         }
     }
-    open protected prop open_prop7: Int64 {
+    protected open prop open_prop7: Int64 {
         get() {
             7
         }
@@ -164,14 +170,14 @@ open public class TestClass {
             a = v
         }
     }
-    open public mut prop open_prop10: Int64 {
+    public mut open prop open_prop10: Int64 {
         get() {
             10
         }
         set(v) {
         }
     }
-    open public mut prop open_prop11: Int64 {
+    public mut open prop open_prop11: Int64 {
         get() {
             11
         }
@@ -180,20 +186,20 @@ open public class TestClass {
         }
     }
 
-    open public prop prop13: Int64 {
+    public open prop prop13: Int64 {
         get() {
             13
         }
     }
 
-    open public mut prop prop14: Int64 {
+    public mut open prop prop14: Int64 {
         get() {
             14
         }
         set(v) {
             a = v
         }
-    }    
+    }
 
     @Version["1.1"]
     public prop prop12: Int64 {
@@ -202,9 +208,29 @@ open public class TestClass {
         }
     }
     @Version["1.1"]
-    open public prop open_prop12: Int64 {
+    public open prop open_prop12: Int64 {
         get() {
             12
         }
     }
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(tc: TestClass): Unit {
+    assert(tc.prop1, 1)
+    assert(tc._prop3, 3)
+    assert(tc.prop4, 4)
+    assert(tc.prop6, 6)
+    assert(tc.prop10, 10)
+    assert(tc.prop11, 11)
+    assert(tc.prop13, 13)
+    assert(tc.prop14, 14)
+    assert(tc.prop12, 12)
+    assert(tc.a, -1)
 }

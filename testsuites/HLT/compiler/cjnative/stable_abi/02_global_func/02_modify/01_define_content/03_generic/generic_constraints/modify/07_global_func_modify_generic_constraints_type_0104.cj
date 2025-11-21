@@ -37,7 +37,7 @@ package test_stable_abi
 public open class B {}
 public open class A <: B {}
 public class C <: A {}
-func global_func_01<T1, T2>() where T1 <: C, T2 <: C { 0 }
+func global_func_01<T1, T2>() where T1 <: B, T2 <: B { 0 }
 func global_func_02<T1, T2>() where T1 <: A, T2 <: A { 0 }
 const func global_func_03<T1, T2>() where T1 <: A, T2 <: A { 0 }
 public func global_func_04<T1, T2>() where T1 <: A, T2 <: A { 0 }

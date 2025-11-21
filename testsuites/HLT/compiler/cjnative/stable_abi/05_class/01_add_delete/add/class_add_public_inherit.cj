@@ -119,3 +119,40 @@ public class Son_Generics<T> <: Generics<T> {
         this._v4 = input
     }
 }
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func check<T>(f1: Father, g1: Generics<T>, t: T): Unit where T <: Equatable<T> & ToString {
+    assert(f1.v1, 0)
+    assert(f1.v2, 1)
+    assert(f1.v3, 5)
+    assert(f1.foo1(9), 10)
+    assert(Father.foo2(90), 100)
+    assert(g1._v1, 0)
+    assert(g1._v2, 1)
+    assert(g1._v3, 101)
+    assert(g1.goo1(1), 10)
+    assert(Generics<T>.goo2(10), 100)
+    assert(g1.goo3(t), t)
+
+    let s1 = Son(5)
+    assert(s1.v1, 0)
+    assert(s1.v2, 1)
+    assert(s1.v3, 5)
+    assert(s1.foo1(9), 100)
+    assert(Son.foo2(90), 1001)
+
+    let s2 = Son_Generics<T>(101)
+    assert(s2._v1, 0)
+    assert(s2._v2, 1)
+    assert(s2._v3, 101)
+    assert(s2._v4, 101)
+    assert(s2.goo1(1), 101)
+    assert(Son_Generics<T>.goo2(1), 1002)
+    assert(s2.goo3(t), t)
+}

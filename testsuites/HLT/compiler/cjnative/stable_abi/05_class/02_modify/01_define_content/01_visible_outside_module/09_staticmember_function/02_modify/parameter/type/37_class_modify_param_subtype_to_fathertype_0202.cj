@@ -230,3 +230,46 @@ class privateClass {
         p34(a, b, c)
     }
 }
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    assert(TestClass.f1(1, 2, c: 3, d: 4), 2)
+    assert(TestClass.f2(1, 2, c: 3, d: 4), 3)
+    assert(TestClass.f3(1, 2, c: 3, d: 4), 3)
+    assert(TestClass.f4(1, 2, c: 3, d: 4), 5)
+    assert(TestClass.f5(1, 2, c: 3, d: 4), 5)
+    assert(TestClass.p1(1, b: 2, c: 3, d: 4), 6)
+    assert(TestClass.p2(Son(), b: Son(), c: Son()) is Son, true)
+    assert(TestClass.p22(Son(), Son()) is Son, true)
+    assert(TestClass.p23(Son(), Son()) is Son, true)
+    assert(TestClass.p24(Son(), Son()) is Son, true)
+    assert(TestClass.p25(Son(), Son()) is Son, true)
+    assert(TestClass.p3(Father(), Father(), 1) is Father, true)
+    assert(TestClass.p32(Father(), Father(), 1) is Father, true)
+    assert(TestClass.p33(Father(), Father(), 1) is Father, true)
+    assert(TestClass.p34(Father(), Father(), 1) is Father, true)
+    assert(TestClass.p35(Father(), Father(), 1) is Father, true)
+
+    assert(B.f1(1, 2, c: 3, d: 4), 2)
+    assert(B.f2(1, 2, c: 3, d: 4), 3)
+    assert(B.f3(1, 2, c: 3, d: 4), 3)
+    assert(B.f4(1, 2, c: 3, d: 4), 5)
+    assert(B.f5(1, 2, c: 3, d: 4), 5)
+    assert(B.p1(1, b: 2, c: 3, d: 4), 6)
+    assert(B.p2(Son(), b: Son(), c: Son()) is Son, true)
+    assert(B.p22(Son(), Son()) is Son, true)
+    assert(B.p23(Son(), Son()) is Son, true)
+    assert(B.p24(Son(), Son()) is Son, true)
+    assert(B.p25(Son(), Son()) is Son, true)
+    assert(B.p3(Father(), Father(), 1) is Father, true)
+    assert(B.p32(Father(), Father(), 1) is Father, true)
+    assert(B.p33(Father(), Father(), 1) is Father, true)
+    assert(B.p34(Father(), Father(), 1) is Father, true)
+    assert(B.p35(Father(), Father(), 1) is Father, true)
+}

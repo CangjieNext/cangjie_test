@@ -75,6 +75,6 @@ public const func global_func_55(a!: Int32, b!: Int64) { global_func_53(a: 0, b:
 
 public func global_func_57() {
     global_func_11(0) == 0
-    && global_func_21(a: 0) == 0
+    && global_func_21(0) == 0
     && global_func_31(a: 0) == 0
 }

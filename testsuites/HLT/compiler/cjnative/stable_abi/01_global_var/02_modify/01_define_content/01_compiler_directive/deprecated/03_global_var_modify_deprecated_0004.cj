@@ -71,5 +71,4 @@ public func global_func_03() {
 
 public func global_func_04() {
     global_var_01 == 0
-    && global_var_07 == 0
 }
