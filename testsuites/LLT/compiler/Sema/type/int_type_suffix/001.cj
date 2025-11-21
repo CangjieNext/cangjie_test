@@ -297,26 +297,12 @@ error: unknown suffix 'f32' for number literal
    |                ^^^ unknown suffix 'f32'
    | 
 
-error: cannot start a(n) integer literal with '0_'
-  ==> 001.cj:63:15:
-   | 
-63 |     let z11 = 0_f64
-   |               ^ unexpected digit(s)
-   | 
-
 error: unknown suffix 'f64' for number literal
   ==> 001.cj:63:17:
    | 
 63 |     let z11 = 0_f64
    |                 ^^^ unknown suffix 'f64'
    | 
-
-error: cannot start a(n) integer literal with '0_'
-   ==> 001.cj:118:15:
-    | 
-118 |     let z26 = 0_f64
-    |               ^ unexpected digit(s)
-    | 
 
 error: unknown suffix 'f64' for number literal
    ==> 001.cj:118:17:
@@ -346,5 +332,5 @@ error: unknown suffix 'f64' for number literal
     |                ^^^ unknown suffix 'f64'
     | 
 
-9 errors generated, 9 errors printed.
+7 errors generated, 7 errors printed.
 */
