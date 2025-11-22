@@ -1,11 +1,3 @@
-package default
-
-main(): Int64 {
-    print("hello world\n")
-    return 0
-}
-
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -13,3 +5,11 @@ main(): Int64 {
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default
+
+main(): Int64 {
+    print("hello world\n")
+    return 0
+}
+

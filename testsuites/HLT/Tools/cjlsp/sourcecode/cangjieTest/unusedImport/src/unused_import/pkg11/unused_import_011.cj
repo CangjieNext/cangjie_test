@@ -1,7 +1,3 @@
-package unusedImport.unused_import.pkg11
-
-import stdx.{logger.JsonLogger as testJsonLogger, logger.TextLogger as testTextLogger}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -9,3 +5,7 @@ import stdx.{logger.JsonLogger as testJsonLogger, logger.TextLogger as testTextL
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package unusedImport.unused_import.pkg11
+
+import stdx.{logger.JsonLogger as testJsonLogger, logger.TextLogger as testTextLogger}

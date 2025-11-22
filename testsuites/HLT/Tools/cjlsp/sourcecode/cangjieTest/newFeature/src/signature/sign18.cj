@@ -1,9 +1,3 @@
-package default.signature
-
-func test18(){
-    var ii2 = ff13(222.0,444.0)
-}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -11,3 +5,9 @@ func test18(){
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.signature
+
+func test18(){
+    var ii2 = ff13(222.0,444.0)
+}

@@ -1,6 +1,3 @@
-package unusedImport.base_pkg3.inner
-public import unusedImport.base_pkg3.C3
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -8,3 +5,6 @@ public import unusedImport.base_pkg3.C3
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package unusedImport.base_pkg3.inner
+public import unusedImport.base_pkg3.C3

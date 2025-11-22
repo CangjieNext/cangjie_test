@@ -1,7 +1,3 @@
-package unusedImport.unused_import.pkg03
-
-internal import std.fs.File
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -9,3 +5,7 @@ internal import std.fs.File
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package unusedImport.unused_import.pkg03
+
+internal import std.fs.File
