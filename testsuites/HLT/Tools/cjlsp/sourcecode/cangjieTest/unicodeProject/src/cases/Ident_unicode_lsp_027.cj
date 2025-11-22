@@ -1,10 +1,3 @@
-package unicodeProject.cases
-
-func testcase_027() {
-    let ん = 1
-    let `_ん` = 2
-}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -12,3 +5,10 @@ func testcase_027() {
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package unicodeProject.cases
+
+func testcase_027() {
+    let ん = 1
+    let `_ん` = 2
+}

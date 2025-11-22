@@ -1,9 +1,3 @@
-package default.signature
-import default.signature.pkg.*
-
-var xx1 = C1C(true)
-var xx2 = C1C(false).sf2(5555)
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -11,3 +5,9 @@ var xx2 = C1C(false).sf2(5555)
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.signature
+import default.signature.pkg.*
+
+var xx1 = C1C(true)
+var xx2 = C1C(false).sf2(5555)

@@ -1,8 +1,3 @@
-package unusedImport.unused_import.pkg23
-
-import unusedImport.base_pkg1.{TimeUnit1 as T1,test_R4 as T2}
-
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -10,3 +5,8 @@ import unusedImport.base_pkg1.{TimeUnit1 as T1,test_R4 as T2}
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package unusedImport.unused_import.pkg23
+
+import unusedImport.base_pkg1.{TimeUnit1 as T1,test_R4 as T2}
+

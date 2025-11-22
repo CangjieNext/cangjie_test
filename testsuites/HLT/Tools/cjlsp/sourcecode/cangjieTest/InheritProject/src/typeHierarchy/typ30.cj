@@ -1,9 +1,3 @@
-package default.typeHierarchy
-
-interface BC1{}
-interface BC2 <: BC1{}
-extend Int64 <: BC1{}
-
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -11,3 +5,9 @@ extend Int64 <: BC1{}
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+
+package default.typeHierarchy
+
+interface BC1{}
+interface BC2 <: BC1{}
+extend Int64 <: BC1{}
