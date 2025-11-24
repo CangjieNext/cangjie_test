@@ -74,7 +74,7 @@ public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & To
 
 public func checker(): Unit {
     let c0 = CC()
-    assert(CC.a1, 1)
+    assert(c0.a1, 1)
     assert(c0.a2, 2)
     c0.a2 = 22
     assert(c0.a2, 22)

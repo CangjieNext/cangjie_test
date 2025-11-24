@@ -22,14 +22,13 @@ main() {
     ts.prop6 = 6
     ts.prop10 = 12345
     ts.prop11 = -1
-
+    check()
     if (
         son_tc.exported_prop2 == 1
         && ts.prop1 == 1 && ts._prop3 == 3
         && ts.prop4 == 4 && ts.prop6 == 6
         && ts.prop10 == 10 && ts.prop11 == 11
         && ts.a == -1
-        && global_func_01()
     ) {
         return 0
     } else {

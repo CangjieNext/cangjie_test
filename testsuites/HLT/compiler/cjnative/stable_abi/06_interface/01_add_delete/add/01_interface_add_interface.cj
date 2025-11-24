@@ -34,16 +34,22 @@
 package test_stable_abi
 
 // test interface: add interface
-public interface I1 {
-  public static func typename(): String {
-        "interface I1"
-    }
+public interface I1 { public static func g() {1} }
+public interface I2<T> { public static func g() {1} }
+public interface I5 { public static func g() {1} }
+public interface I6<T> { public static func g() {1} }
+interface I7 { public static func g() {1} }
+interface I8<T> { public static func g() {1} }
+interface I3 { public static func g() {1} }
+interface I4<T> { public static func g() {1} }
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
-public interface I2<T> {}
-interface I3 {}
-interface I4<T> {}
-
-public interface _I1 {}
-public interface _I2<T> {}
-interface _I3 {}
-interface _I4<T> {}
+public func check() {
+    assert(I3.g(), 1)
+    assert(I4<Int64>.g(), 1)
+    assert(I5.g(), 1)
+    assert(I6<Int64>.g(), 1)
+    assert(I7.g(), 1)
+    assert(I8<Int64>.g(), 1)
+}

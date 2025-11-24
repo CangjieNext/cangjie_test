@@ -116,7 +116,7 @@ compiler/CJMP/objc/
 compiler/CJMP/objc/compiler/multi-file/A.cj
 compiler/CJMP/objc/parser/class/objc_mirror_ctor.cj
 compiler/CJMP/objc/parser/class/objc_mirror_custom_fqname.cj
-compiler/CJMP/objc/parser/class/objc_mirror_field.cj 
+compiler/CJMP/objc/parser/class/objc_mirror_field.cj
 compiler/CJMP/objc/parser/class/objc_mirror_inheritance.cj
 compiler/CJMP/objc/parser/class/objc_mirror_method_static.cj
 compiler/CJMP/objc/parser/class/objc_mirror_open_prop.cj
@@ -165,6 +165,7 @@ compiler/Plugins/IRCheck/FoundError/found_error.cj
 API/std/runtime/test_signal.cj
 API/std/runtime/test_signal_unregister.cj
 API/std/runtime/test_signal_unregister_oneSig.cj
+API/std/unittest/new_bench/bench_explicit_gc.cj
 API/stdx/net/tls/keyless/test_keyless_config.cj
 API/stdx/net/tls/keyless/test_keyless_handshake.cj
 API/stdx/net/tls/redesign/close_concur.cj

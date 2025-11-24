@@ -163,7 +163,7 @@ public func global() {
 public func global_func_01(){
     let ts = TestStruct()
 
-    ts.f5() == 5
+    TestStruct.f5() == 5
     && ts.f2() == 2
     && ts.pf3() == 3
     && ts.pf6() == 5

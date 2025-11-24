@@ -284,7 +284,7 @@ public func global_func_01(){
     && ts.add_f4() == 3
     && ts.add_f6() == 5
     && ts.add_f8() == 8
-    && ts.add_f13() == 13
+    && unsafe{ts.add_f13()} == 13
     && ts.add_f14() == 14
     && ts.add_g1("a", "b", Son()) == "ab"
     && ts.add_g2("a", Son(), Father()) == "a"

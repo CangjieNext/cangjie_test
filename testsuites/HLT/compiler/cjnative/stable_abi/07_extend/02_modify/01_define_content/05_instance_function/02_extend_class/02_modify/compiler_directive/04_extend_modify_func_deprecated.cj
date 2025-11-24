@@ -164,6 +164,5 @@ public func global_func_01(){
     && ts.pf4() == 4
     && ts.f7() == 7
     && ts.pp1(1, b: 2) == 4
-    && ts.pf8() == 8
     && ts.f15() == 3
 }

@@ -23,6 +23,6 @@ public open class R <: NSObject {
 
 @ObjCMirror
 public open class test <: NSObject {
-    public open mut prop isFoo: ?R
+    @ForeignGetterName["isFoo"] @ForeignSetterName["setFoo:"] public open mut prop p1: ?R
 }
 */

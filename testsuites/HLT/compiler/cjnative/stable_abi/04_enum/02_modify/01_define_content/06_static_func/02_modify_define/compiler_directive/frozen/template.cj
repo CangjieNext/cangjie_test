@@ -6,36 +6,22 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
  
-// ASSERT: scan Compatible!
+// ASSERT: scan-full Compatible!\n
 
 package test_stable_abi
 
-public enum Rectangle {
-    | Red | Green | Blue(UInt8)
-
-    public static func getWidth(): Int64{
-        return 11
-    }
-
-    @Frozen
-    static func geta(): Int64 {
-        return 0
-    }
-
-    @Frozen
-    public static func getb(): Int64 {
-        return 0
-    }
-
-    @Frozen
-    static func getc(): Int64 {
-        return 0
-    }
-
-    @Frozen
-    public static func getd() {
-        let c = getc()
-        return c
-    }
+public enum E {
+    | A
+    public static func g1() {1}
+    @Frozen public static func g2() {1}
+    static func g3() {1}
+    @Frozen static func g4() {1}
 }
-
+@Frozen public func f() {E.g3() + E.g4()}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(E.g3(), 1)
+    assert(E.g4(), 1)
+}

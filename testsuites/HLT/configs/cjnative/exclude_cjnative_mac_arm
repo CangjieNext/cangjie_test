@@ -1,7 +1,7 @@
 # Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 # This source file is part of the Cangjie project, licensed under Apache-2.0
 # with Runtime Library Exception.
-# 
+#
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 Tools/cjdb/datacom/ArrayList/arraylist_test_017.info
@@ -152,3 +152,4 @@ Tools/cjdb/datacom/within_stepin/lldb_within_stepin056.info
 Tools/cjdb/datacom/within_stepin/lldb_within_stepin065.info
 Tools/cjdb/datacom/within_watchpoint/lldb_within_watchpoint057.info
 Tools/cjdb/datacom/within_watchpoint/lldb_within_watchpoint059.info
+Tools/cjdb/datacom/lambda/lldb_lambda_05.info

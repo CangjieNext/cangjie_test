@@ -129,3 +129,16 @@ public class TestClass {
         }
     }
 }
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    assert(TestClass.prop4, 4)
+    assert(TestClass.prop6, 6)
+    assert(TestClass.prop10, 10)
+    assert(TestClass.a, -1)
+}

@@ -6,98 +6,24 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
  
-// ASSERT: scan Compatible!
-
+// ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
-
-public enum Rectangle {
-    | Red | Green | Blue(UInt8)
-
-    public func getWidth(): Int64{
-        return 11
-    }
-    static prop geta1:Int64 {
-        get() {
-            println("get")
-            0
-        }
-        
-    }
-
-    public static prop geta2:Int64 {
-        get() {
-            println("get")
-            0
-        }
-        
-    }
-
-    @Deprecated["this function is deprecated", strict: false]
-    static prop geta3: Int64 {
-        get() {
-            println("get")
-            0
-        }
-        
-    }
-
-    @Deprecated["this function is deprecated", strict: false]
-    public static prop geta4: Int64 {
-        get() {
-            println("get")
-            0
-        }
-        
-    }
-
-    @Deprecated["this function is deprecated", strict: true]
-    public static prop geta5: Int64 {
-        get() {
-            println("get")
-            0
-        }
-        
-    }
+public enum E {
+    | A
+    public static prop p1: Int64 {get(){1}}
+    @Deprecated["deprecated", strict: false] public static prop p2: Int64 {get(){1}}
+    @Deprecated["deprecated", strict: true] public static prop p3: Int64 {get(){1}}
+    static prop p4: Int64 {get(){1}}
+    @Deprecated["deprecated", strict: false] static prop p5: Int64 {get(){1}}
+    @Deprecated["deprecated", strict: true] static prop p6: Int64 {get(){1}}
 }
-
-public enum Rectangle1 {
-    AB
-    public static prop geta: Int64 {
-        get() {
-            0
-        }
-    }
-
-    static prop getb: Int64 {
-        get() {
-            0
-        }
-    }
-
-    @Frozen
-    public func f1(){
-        getb
-    }
-
-    @Deprecated["this function is deprecated", strict: false]
-    public static prop getc: Int64 {
-        get() {
-            0
-        }
-    }
-
-    @Deprecated["this function is deprecated", strict: false]
-    static prop getd: Int64 {
-        get() {
-            0
-        }
-    }
-
-    @Frozen
-    public func f2(){
-        getd
-    }
+@Frozen public func f1() {E.p4 + E.p5}
+@Deprecated["deprecated", strict: true] @Frozen public func f2() {E.p3 + E.p6}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
-
-
+public func check() {
+    assert(E.p4, 1)
+    assert(E.p5, 1)
+}

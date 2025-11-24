@@ -22,7 +22,6 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Enum declaration visible outside the module deleted or made private.
@@ -33,19 +32,13 @@
 package test_stable_abi
 
 // test enum: add and delete enum
-public enum RGBColor {
+enum E2 {
     | Red | Green | Blue(UInt8)
-
-    public static func printType() {
-        print("RGBColor")
-    }
+    public static func g() {1}
 }
-
-enum Testb {
-    | Red | Green | Blue(UInt8)
-
-    public static func printType() {
-        print("RGBColor")
-    }
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
-
+public func check() {
+    assert(E2.g(), 1)
+}

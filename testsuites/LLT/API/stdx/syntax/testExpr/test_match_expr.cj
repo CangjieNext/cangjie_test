@@ -197,6 +197,37 @@ match(A.a == b) {
     }
 
     @TestCase
+    func testExpr05() {
+        let expr = (nodes[4] as MatchExpr).getOrThrow()
+        @Expect(expr.selector.isNone())
+        @Expect(expr.matchCases.size, 2)
+        let case_1 = expr.matchCases[0]
+        let case_2 = expr.matchCases[1]
+
+        @Expect(case_1.toString(), #"case name == "hello" => println("hello")
+        // todo 支持更多情况"#)
+        @Expect(case_1.body.size, 1)
+        @Expect(case_1.body[0].toString(), #"println("hello")"#)
+        @Expect(case_1.caseCond.getOrThrow().toString(), #"name == "hello""#)
+        @Expect(case_1.patternGuardCond.isNone())
+        @Expect(case_1.patterns.size, 0)
+
+        @Expect(case_2.toString(), "case _ => ()")
+        @Expect(case_2.body.size, 1)
+        @Expect(case_2.body[0].toString(), "()")
+        @Expect(case_2.caseCond.isNone())
+        @Expect(case_2.patternGuardCond.isNone())
+        @Expect(case_2.patterns.size, 1)
+        @Expect(case_2.patterns[0] is WildcardPattern)
+        @Expect(case_2.patterns[0].toString(), "_")
+
+        var pos = case_1.getDoubleArrowPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([24, 30, 24, 32]).toArray())
+        pos = case_1.getCasePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([24, 9, 24, 13]).toArray())
+    }
+
+    @TestCase
     func testMatchExprInit() {
         let expr = (nodes[1] as MatchExpr).getOrThrow()
         let matchExpr = MatchExpr(expr.matchCases, expr.selector)

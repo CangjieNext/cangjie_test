@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
@@ -70,7 +70,7 @@ public unsafe func global_func_18() {
     global_func_08()
 }
 
-public func global_func_19() {
+public unsafe  func global_func_19() {
     global_func_01() == 0
     && global_func_07() == 0
 }

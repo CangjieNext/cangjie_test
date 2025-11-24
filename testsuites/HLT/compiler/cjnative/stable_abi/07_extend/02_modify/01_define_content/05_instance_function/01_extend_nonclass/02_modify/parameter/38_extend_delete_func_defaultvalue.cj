@@ -175,7 +175,7 @@ public func global() {
 public func global_func_01(){
     let ts = TestStruct()
     
-    ts.pp1(0, b: 0) != 0
-    && ts.pp2(Son(), b: Son()) is Son
-    && ts.pp3(Father(), b: Father()) is Father
+    ts.pp1(0, b: 0, c: 0) != 0
+    && ts.pp2(Son(), b: Son(), c: Son()) is Son
+    && ts.pp3(Father(), b: Father(), c: Father()) is Father
 }

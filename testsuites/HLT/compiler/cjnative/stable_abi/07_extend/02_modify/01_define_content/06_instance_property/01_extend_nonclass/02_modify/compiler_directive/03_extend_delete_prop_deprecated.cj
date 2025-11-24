@@ -111,11 +111,6 @@ extend TestStruct {
         set(v) {
         }
     }
-    public prop prop12: Int64 {
-        get() {
-            prop9
-        }
-    }
     public mut prop prop11: Int64 {
         get() {
             11
@@ -125,15 +120,14 @@ extend TestStruct {
         }
     } 
 }
-
-
-public func global_func_01(){
-    let ts = TestStruct()
-
-    ts.exports.prop1 == 1
-    && ts.prop2 == 2
-    && ts.prop7 == 7
-    && ts.prop8 == 8
-    && ts.prop5 == 5
-    && ts.prop12 == 9
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(TestStruct().exported_prop1, 1)
+    assert(TestStruct().prop2, 2)
+    assert(TestStruct().prop3, 3)
+    assert(TestStruct().prop7, 7)
+    assert(TestStruct().prop8, 8)
+    assert(TestStruct().prop5, 5)
 }

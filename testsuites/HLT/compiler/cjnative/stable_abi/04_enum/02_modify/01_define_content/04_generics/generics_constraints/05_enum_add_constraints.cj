@@ -22,7 +22,6 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
 // ASSERT: scan Incompatible!
 // ASSERT: scan-3 [API/ABI] Added generic constraint of enum visible outside the module.
@@ -33,7 +32,7 @@
 // ASSERT: scan-3 [API/ABI]
 
 // test enum: modify generics
-// 对某个泛型参数新增⼀个约束上界 
+
 package test_stable_abi
 
 import std.random.*
@@ -79,7 +78,7 @@ public enum S7<T, U> where T <: Random, U <: Random {
 enum S8<T, U> where T <: Random, U <: Random {
     | Red | Green | Blue(UInt8)
 
-    public func getX(): Int64 {
+    public const func getX(): Int64 {
         return 11
     }
 }
@@ -87,19 +86,26 @@ enum S8<T, U> where T <: Random, U <: Random {
 enum S9<T, U> where T <: Random, U <: Random {
     | Red | Green | Blue(UInt8)
 
-    public func getX(): Int64 {
+    public const func getX(): Int64 {
         return 11
     }
 }
 
 public class C1 {
-    let v1 = S8<Random, Random>.Red
+    public let v1 = S8<Random, Random>.Red.getX()
 
-    const init() {
+    public const init() {
         let v3 = 0
     }
 
     public const func f1() {
-        let v2 = S9<Random, Random>.Green
+        S9<Random, Random>.Green.getX()
     }
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func f() {
+    assert(S8<Random, Random>.Red.getX(), 11)
+    assert(S9<Random, Random>.Red.getX(), 11)
 }

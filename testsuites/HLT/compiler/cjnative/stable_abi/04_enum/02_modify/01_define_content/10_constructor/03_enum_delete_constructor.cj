@@ -9,7 +9,7 @@
 /*
   @No: 4.2.1.10.3
   @Scene: detele
-  @Visibility: public | non publuc | used in public const declare
+  @Visibility: public | non publuc | used in @Frozen public declare
   @Object: enum
   @Behavior: delete constructor
   @Expect: api incompatible & abi incompatible
@@ -22,7 +22,6 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
 // ASSERT: scan Incompatible!
 // ASSERT: scan-6 [API/ABI] Deleted enum constructor.
@@ -34,99 +33,44 @@
 
 package test_stable_abi
 
-public enum RGBColor {
-    | Red | Green | Blue(UInt8)
-
-    public static func printType() {
-        print("RGBColor")
-    }
-}
-
-enum Testb {
-    | Red | Green | Blue(UInt8)
-
-    public static func printType() {
-        print("RGBColor")
-    }
-}
-
-public enum Testc {
-    | Red | Green | Blue(UInt8)
-    
-    public static func printType() {
-        print("RGBColor")
-    }
-}
-
-public enum S7 {
+public enum E11 {
     | Red | Blue(UInt8)
-
-    public func getX(): Int64 {
-        return 11
-    }
+    public func g() {1}
 }
-
-enum S8 {
+enum E12 {
     | Red | Blue(UInt8)
-
-    public func getX(): Int64 {
-        return 11
-    }
+    public func g() {1}
 }
-
-enum S9 {
-    | Red | Green
-
-    public func getX(): Int64 {
-        return 11
-    }
+enum E13 {
+    | Red | Blue(UInt8)
+    public func g() {1}
 }
-
-public class C1 {
-    let v1 = S8.Red
-
-    const init() {
-        let v3 = 0
-    }
-
-    public const func f1() {
-        let v2 = S9.Green
-    }
+public class C1 {public let v = E12.Red.g()}
+@Frozen public func f1() {E13.Blue(1).g()}
+public enum E21 {
+    | Red | Blue | ...
+    public func g() {1}
 }
-
-
-public enum SS7 {
-    | Red | Green | ...
-
-    public func getX(): Int64 {
-        return 11
-    }
+enum E22 {
+    | Red | Blue | ...
+    public func g() {1}
 }
-
-enum SS8 {
-    | Red | Green | ...
-
-    public func getX(): Int64 {
-        return 11
-    }
+enum E23 {
+    | Red | Blue | ...
+    public func g() {1}
 }
-
-enum SS9 {
-    | Red | Green | ...
-
-    public func getX(): Int64 {
-        return 11
-    }
+public class C2 {public let v = E22.Blue.g()}
+@Frozen public func f2() {E23.Red.g()}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
-
-public class CC1 {
-    let v1 = SS8.Red
-
-    const init() {
-        let v3 = 0
-    }
-
-    public const func f1() {
-        let v2 = SS9.Green
-    }
+public func check() {
+    assert(E12.Red.g(), 1)
+    assert(E12.Blue(1).g(), 1)
+    assert(E13.Red.g(), 1)
+    assert(E13.Blue(1).g(), 1)
+    assert(E22.Red.g(), 1)
+    assert(E22.Blue.g(), 1)
+    assert(E23.Red.g(), 1)
+    assert(E23.Blue.g(), 1)
 }

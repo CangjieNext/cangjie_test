@@ -19,7 +19,7 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// EXEC: %rm libstable_abi.%dylib_suffix
+// EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
@@ -32,16 +32,46 @@
 package test_stable_abi
 
 @Annotation
-public class A {
+public class Ann1 {
     let name: String
     public const init(name: String) {
         this.name = name
     }
 }
-
-public enum E {
-    | RED | BLUE | YELLOW(UInt8)
-    public prop p1: Int64 { get() { 0 } }
-    @A["prop22222"] public prop p2: Int64 { get() { 0 } }
-    @A["prop33333"] public prop p3: Int64 { get() { 0 } }
+@Annotation
+public class Ann2 {
+    let name: String
+    public const init(name: String) {
+        this.name = name
+    }
+}
+public enum E1 {
+    | A
+    public prop p1: Int64 {get(){1}}
+    @Ann2["f"] public prop p2: Int64 {get(){2}}
+    prop p3: Int64 {get(){3}}
+    @Ann1["f1"] prop p4: Int64 {get(){4}}
+}
+enum E2 {
+    | B
+    public prop p1: Int64 {get(){1}}
+    @Ann2["f"] public prop p2: Int64 {get(){2}}
+}
+enum E3 {
+    | C
+    public prop p1: Int64 {get(){1}}
+    @Ann1["f1"] public prop p2: Int64 {get(){2}}
+}
+public class cls {public var a = B.p1 + B.p2}
+@Frozen public func f() {A.p3 + A.p4 + C.p1 + C.p2}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(A.p3, 3)
+    assert(A.p4, 4)
+    assert(B.p1, 1)
+    assert(B.p2, 2)
+    assert(C.p1, 1)
+    assert(C.p2, 2)
 }

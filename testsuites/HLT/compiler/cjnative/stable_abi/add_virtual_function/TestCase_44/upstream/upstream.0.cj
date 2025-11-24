@@ -1,0 +1,117 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package upstream
+
+import std.reflect.*
+
+public open class UpStreamParent<T0> {
+    func UpStreamParent_instanceMemberFunction(): Unit {
+        println("UpStreamParent<${TypeInfo.of<T0>()}>.UpStreamParent_instanceMemberFunction")
+    }
+
+    static func UpStreamParent_staticMemberFunction(): Unit {
+        println("UpStreamParent<${TypeInfo.of<T0>()}>.UpStreamParent_staticMemberFunction")
+    }
+
+    prop UpStreamParent_instanceMemberProperty: Int64 {
+        get() {
+            println("UpStreamParent<${TypeInfo.of<T0>()}>.UpStreamParent_instanceMemberProperty")
+            114514i64
+        }
+    }
+
+    static prop UpStreamParent_staticMemberProperty: Int64 {
+        get() {
+            println("UpStreamParent<?>.UpStreamParent_staticMemberProperty")
+            114514i64
+        }
+    }
+}
+
+public open class UpStreamChild<T0> <: UpStreamParent<T0> {}
+
+public interface NewParent {
+    public mut func NewParent_MutInstanceMemberFunction(): Unit {
+        println("NewParent<>.NewParent_MutInstanceMemberFunction")
+    }
+
+    public func NewParent_NonMutInstanceMemberFunction(): Unit {
+        println("NewParent<>.NewParent_NonMutInstanceMemberFunction")
+    }
+
+    public static func NewParent_StaticMemberFunction(): Unit {
+        println("NewParent<>.NewParent_StaticMemberFunction")
+    }
+
+    public mut prop NewParent_MutInstanceMemberProperty: Int64 {
+        get() {
+            println("NewParent<>.NewParent_MutInstanceMemberProperty")
+            114514i64
+        }
+        set(v) {
+            println("NewParent<>.NewParent_MutInstanceMemberProperty")
+        }
+    }
+
+    public prop NewParent_NonMutInstanceMemberProperty: Int64 {
+        get() {
+            println("NewParent<>.NewParent_NonMutInstanceMemberProperty")
+            114514i64
+        }
+    }
+
+    public static prop NewParent_NonMutStaticMemberProperty: Int64 {
+        get() {
+            println("NewParent<>.NewParent_NonMutStaticMemberProperty")
+            114514i64
+        }
+    }
+
+    public mut static prop NewParent_MutStaticMemberProperty: Int64 {
+        get() {
+            println("NewParent<>.NewParent_MutStaticMemberProperty")
+            114514i64
+        }
+        set(v) {
+            println("NewParent<>.NewParent_MutStaticMemberProperty")
+        }
+    }
+}
+
+extend<T0> UpStreamParent<T0> <: NewParent {}
+
+public func checkParent<F0>(i: UpStreamParent<F0>): Unit {
+    var instance = i
+    instance.UpStreamParent_instanceMemberFunction()
+    instance.UpStreamParent_instanceMemberProperty
+    UpStreamParent<F0>.UpStreamParent_staticMemberFunction()
+    UpStreamParent<F0>.UpStreamParent_staticMemberProperty
+    instance.NewParent_MutInstanceMemberFunction()
+    instance.NewParent_NonMutInstanceMemberFunction()
+    UpStreamParent<F0>.NewParent_StaticMemberFunction()
+    instance.NewParent_MutInstanceMemberProperty
+    instance.NewParent_MutInstanceMemberProperty = 1i64
+    instance.NewParent_NonMutInstanceMemberProperty
+    UpStreamParent<F0>.NewParent_NonMutStaticMemberProperty
+    UpStreamParent<F0>.NewParent_MutStaticMemberProperty
+    UpStreamParent<F0>.NewParent_MutStaticMemberProperty = 1i64
+}
+
+public func checkChild<F0>(i: UpStreamChild<F0>): Unit {
+    var instance = i
+}
+
+public func checkStatic<P, T0>(): Unit where P <: UpStreamParent<T0> {
+    P.UpStreamParent_staticMemberFunction()
+    P.UpStreamParent_staticMemberProperty
+    P.NewParent_StaticMemberFunction()
+    P.NewParent_NonMutStaticMemberProperty
+    P.NewParent_MutStaticMemberProperty
+    P.NewParent_MutStaticMemberProperty = 1i64
+}

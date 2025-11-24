@@ -197,15 +197,15 @@ extend TestStruct {
 }
 
 public func global_func_01(){
-    TestStruct.f1() == 1
+    unsafe{TestStruct.f1()} == 1
     && TestStruct.f6() == 5
     && TestClass.f10() == 10
     && TestStruct.f10() == 10
     && TestClass.f15() == 11
-    && TestStruct.f15() == 11
+    && unsafe{TestStruct.f15()} == 11
     && TestClass.f16() == 12
     && TestStruct.f16() == 12
-    && TestClass.f2() == 2
+    && unsafe{TestClass.f2()} == 2
     && TestStruct.f2() == 2
     && TestClass.f5() == 5
     && TestStruct.f5() == 5

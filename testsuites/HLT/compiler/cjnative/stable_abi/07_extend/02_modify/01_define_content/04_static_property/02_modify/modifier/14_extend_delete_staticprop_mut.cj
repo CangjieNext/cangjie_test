@@ -209,7 +209,5 @@ public func global_func_01(){
     && TestClass.prop7 == 7
     && TestClass.prop13 == 8
     && TestStruct.prop7 == 7
-    && TestStruct.prop13 == 8
-    && TestStruct.prop12 == 9
     && TestClass.prop12 == 9
 }

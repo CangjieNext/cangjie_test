@@ -13,5 +13,4 @@ package test_stable_abi
 type Mytype1 = Int64
 public type Mytype2 = Float64
 public var a: Mytype1 = 1
-
-
+public var b: Int32 = 1

@@ -197,18 +197,19 @@ extend TestStruct {
             a = v
         }
     }
-    public prop aprop12: Int64 {
-        get() {
-            prop9
-        }
-    }
 }
-
-public func global_func_01(){
-    let ts = TestStruct()
-    
-    ts.aprop2 == 2
-    && ts.aprop7 == 7
-    && ts.aprop8 == 8
-    && ts.aprop12 == 9
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(TestStruct().aprop1, 1)
+    assert(TestStruct().aprop2, 2)
+    assert(TestStruct().aprop3, 3)
+    assert(TestStruct()._aprop3, 3)
+    assert(TestStruct().aprop4, 4)
+    assert(TestStruct().aprop6, 6)
+    assert(TestStruct().aprop7, 7)
+    assert(TestStruct().aprop8, 8)
+    assert(TestStruct().aprop10, 10)
+    assert(TestStruct().aprop11, 11)
 }

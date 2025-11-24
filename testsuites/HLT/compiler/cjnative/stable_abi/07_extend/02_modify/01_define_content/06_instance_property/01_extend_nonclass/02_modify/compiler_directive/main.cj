@@ -22,14 +22,19 @@ main() {
     ts.prop6 = 6
     ts.prop10 = 12345
     ts.prop11 = -1
-
+    assert(TestStruct().prop1, 1)
+    assert(TestStruct()._prop3, 3)
+    assert(TestStruct().prop4, 4)
+    assert(TestStruct().prop6, 6)
+    assert(TestStruct().prop10, 10)
+    assert(TestStruct().prop11, 11)
+    check()
     if (
         son_tc.exported_prop2 == 1
         && ts.prop1 == 1 && ts._prop3 == 3
         && ts.prop4 == 4 && ts.prop6 == 6
         && ts.prop10 == 10 && ts.prop11 == 11
         && ts.a == -1
-        && global_func_01()
     ) {
         return 0
     } else {

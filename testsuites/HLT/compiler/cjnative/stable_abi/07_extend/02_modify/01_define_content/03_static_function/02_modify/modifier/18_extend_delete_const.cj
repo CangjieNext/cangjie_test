@@ -92,7 +92,12 @@ extend TestClass {
     public static func f14(): Int64 {
         14
     }
-
+    public static func f15(){
+        f11()
+    }
+    public static func f16(){
+        f12()
+    }
     public static func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
     }
@@ -165,7 +170,12 @@ extend TestStruct {
     public static func f14(): Int64 {
         14
     }
-
+    public static func f15(){
+        f11()
+    }
+    public static func f16(){
+        f12()
+    }
     public static func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
     }
