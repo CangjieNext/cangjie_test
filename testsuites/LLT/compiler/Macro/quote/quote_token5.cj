@@ -1,0 +1,26 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %run %run_opt %output %run_args
+
+internal import std.ast.*
+
+main() {
+    let colon = quote($(Token(COLON)))
+    var hashed = quote($(colon))
+    for (i in 0..3) {
+        let tks = quote(data$(i)$(colon))
+        hashed.append(tks)
+    }
+    hashed.dump()
+    let result = quote(: data 0 : data 1 : data 2 :)
+    result.dump()
+    if (compareTokens(hashed, result)) {
+        return 0
+    }
+    return 1
+}
