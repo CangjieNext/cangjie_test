@@ -19,6 +19,7 @@ import std.unittest.*
 import std.unittest.testmacro.*
 import std.fs.*
 import std.io.*
+import std.regex.*
 
 @Test
 class Test_File_CopyTo {
@@ -59,14 +60,14 @@ class Test_File_CopyTo {
         try {
             copy(file, to: outputstream)
         } catch (e: FSException) {
-            @Expect(e.message, "The file does not have the read permission.")
+            @Assert(Regex("^The file `.+` does not have the read permission.$").matches(e.message))
             sum += 1
         }
         file.close()
         try {
             copy(file, to: outputstream)
         } catch (e: FSException) {
-            @Expect(e.message, "The file not opened, can not to read.")
+            @Assert(Regex("^The file `.+` not opened, can not to read.$").matches(e.message))
             sum += 1
         }
         @Expect(sum, 2)

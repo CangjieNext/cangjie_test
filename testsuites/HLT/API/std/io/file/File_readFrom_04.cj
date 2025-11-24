@@ -18,7 +18,7 @@ main() {
     try {
         var dataArray = File.readFrom(fileName)
     } catch (e: IllegalArgumentException) {
-        if (e.toString() != "IllegalArgumentException: The file path cannot be empty.") {
+        if (e.toString() != "IllegalArgumentException: The file path is empty.") {
             return 1
         }
     }

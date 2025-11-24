@@ -227,13 +227,14 @@ class DirectoryWindowsTest {
     @TestCase
     func testInputInValidCreate(): Unit {
         var countError = 0
+        var path = ./aaa/bbb"
         try {
-            Directory.create("./aaa/bbb")
+            Directory.create(path)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to create directory, parent directory: `./aaa` does not exist.")
+            @Expect(e.message,"Failed to create directory `${path}`, parent directory: `./aaa` does not exist.")
             countError++
         }
-        var path = "./data/directory/qwe"
+        path = "./data/directory/qwe"
         try {
             if (exists(path)) {
                 Directory.create(path)
@@ -242,7 +243,7 @@ class DirectoryWindowsTest {
                 Directory.create(path)
             }
         } catch (e: FSException) {
-            @Expect(e.message,"The path of directory exists.")
+            @Expect(e.message,"The path `${path}` is already exists.")
             countError++
         } finally {
             if (exists(path)) {
@@ -253,21 +254,21 @@ class DirectoryWindowsTest {
         try {
             Directory.create(path)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid path, failed to create directory.")
+            @Expect(e.message,"Invalid path `${path}`, failed to create directory.")
             countError++
         }
         path = "/"
         try {
             Directory.create(path)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid path, failed to create directory.")
+            @Expect(e.message,"Invalid path `${path}`, failed to create directory.")
             countError++
         }
         path = "./data/directory/qwe\0"
         try {
             Directory.create(path)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"Invalid path, failed to create directory.")
+            @Expect(e.message,"Invalid path `${path}`, failed to create directory.")
             countError++
         }
         path = "C://aabcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyzaabcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz_abcdefghijklmnopqrstuvwxyz"
@@ -306,23 +307,24 @@ class DirectoryWindowsTest {
     @TestCase
     func testInputInValidCreateTemp(): Unit {
         var countError = 0
+        var path = "./aaa/bbb"
         try {
-            Directory.createTemp("./aaa/bbb")
+            Directory.createTemp(path)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to canonical: the path may not exist or permission denied!")
+            @Expect(e.message,"Failed to canonical: the path `${path}` may not exist or permission denied!")
             countError++
         }
 
         try {
             Directory.createTemp("")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The rawPath is an empty string.")
             countError++
         }
         try {
             Directory.createTemp("\0")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot contain null character!")
+            @Expect(e.message,"The rawPath value [0] contains null character.")
             countError++
         }
         @Expect(countError,3)

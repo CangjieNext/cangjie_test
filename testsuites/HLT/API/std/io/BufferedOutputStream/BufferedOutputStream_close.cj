@@ -13,6 +13,7 @@ import std.unittest.*
 import std.unittest.testmacro.*
 import std.io.*
 import std.fs.*
+import std.regex.*
 
 var file = File("./test.txt", ReadWrite)
 var bis = BufferedOutputStream(file)
@@ -68,7 +69,7 @@ class Test_outputStream_close {
             readToEnd(file)
         } catch (e: FSException) {
             cnt++
-            @Expect(e.message, "The file not opened, can not to read.")
+            @Assert(Regex("^The file `.+` not opened, can not to read.$").matches(e.message))
         }
         @Expect(cnt, 1)
 

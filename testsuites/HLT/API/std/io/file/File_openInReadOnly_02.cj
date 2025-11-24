@@ -12,13 +12,14 @@
 
 import std.io.*
 import std.fs.*
+import std.regex.*
 
 main() {
     var fileName = "openInReadOnly_bcz_02.txt"
     try {
         var file1 = File(fileName, Read)
     } catch (e: FSException) {
-        if (e.toString() != "FSException: The file does not exist or permission denied!") {
+        if (!Regex("^FSException: The file `.+` does not exist or permission denied!$").matches(e.toString())) {
             return 1
         }
     }
