@@ -13,6 +13,7 @@
 
 import std.io.*
 import std.fs.*
+import std.regex.*
 
 main(): Int64 {
     var fs3 = File("./b/b_file_write_01.txt", Read)
@@ -22,6 +23,9 @@ main(): Int64 {
         ()
     } catch (e: FSException) {
         if (e.toString() != "FSException: The file does not have the write permission.") {
+            return 1
+        }
+        if (!Regex("^FSException: The file `.+` does not have the write permission.$").matches(e.toString())) {
             return 1
         }
     }

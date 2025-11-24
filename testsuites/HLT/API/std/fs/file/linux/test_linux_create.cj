@@ -36,26 +36,26 @@ class Test_File_Create {
         try {
             File.create("")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The path cannot be empty!")
+            @Expect(e.message, "The input path is empty.")
             sum += 1
         }
         try {
             File.create(Path(""))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The path cannot be empty!")
+            @Expect(e.message, "The input path is empty.")
             sum += 1
         }
         for (str in illegal_path_string) {
             try {
                 File.create(str)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The path cannot contain null character!")
+                @Expect(e.message, "The input path ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
             try {
                 File.create(Path(str))
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The path cannot contain null character!")
+                @Expect(e.message, "The input path ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
         }
@@ -90,12 +90,13 @@ class Test_File_Create {
         var sum = 0
         Directory.create("./dir001")
         @Assert(exists("./dir001"), true)
-        File.create("./dir001/a.txt").close()
-        @Assert(exists("./dir001/a.txt"), true)
+        let path = "./dir001/a.txt"
+        File.create(path).close()
+        @Assert(exists(path), true)
         try {
             File.create("./dir001/a.txt")
         } catch (e: FSException) {
-            @Expect(e.message, "The file already exists!")
+            @Expect(e.message, "The file `${path}` is already exists!")
             sum += 1
         }
         @Expect(sum, 1)
