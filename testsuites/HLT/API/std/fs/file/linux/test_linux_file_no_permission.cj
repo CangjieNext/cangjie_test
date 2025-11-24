@@ -23,6 +23,7 @@ import std.unittest.testmacro.*
 import std.fs.*
 import std.io.*
 import std.process.*
+import std.regex.*
 
 var user = Option<String>.None
 
@@ -120,7 +121,7 @@ class Test_File_No_Permission {
         try {
             file.read(buf)
         } catch (e: FSException) {
-            @Expect(e.message, "The file does not have the read permission.")
+            @Assert(Regex("^The file `.+` does not have the read permission.$").matches(e.message))
             sum += 1
         }
         file.close()
@@ -189,9 +190,9 @@ class Test_File_No_Permission {
         file.read(buf)
         @Expect(data, buf)
         try {
-            file.write(data)
+            file.writeb(data)
         } catch (e: FSException) {
-            @Expect(e.message, "The file does not have the write permission.")
+            @Assert(Regex("^The file `.+` does not have the write permission.$").matches(e.message))
             sum += 1
         }
         file.close()

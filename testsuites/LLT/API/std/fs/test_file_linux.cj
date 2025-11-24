@@ -38,7 +38,7 @@ class FileLinuxTest {
             try (file = File(fileName, Write)) {
                 file.seek(sp)
             } catch (e: FSException) {
-                @Expect(e.message,"Failed to seek: errno is 22.")
+                @Expect(e.message,"Failed to seek file `${fileName}`: errno is 22.")
                 errCount++
             }
         }
@@ -46,7 +46,7 @@ class FileLinuxTest {
             file.close()
             file.seek(Begin(0))
         } catch (e: FSException) {
-            @Expect(e.message,"The file can not seek.")
+            @Expect(e.message,"The file `${fileName}` can not seek.")
             errCount++
         }
         remove(fileName)
@@ -70,7 +70,7 @@ class FileLinuxTest {
                 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.txt"
             let file = File(oriFileName, Write)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to open the file. File name too long")
+            @Expect(e.message,"Failed to open the file `${oriFileName}`. File name too long")
             countError++
         }
         @Expect(countError,1)
