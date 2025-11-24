@@ -37,7 +37,7 @@ class TestReaponseConnection {
             .body("close test 1")
             .build()
         println(response.toString())
-        if (response.close) {
+        if (!response.isPersistent) {
             output = "close"
         }
         @Assert(output,"close")
@@ -56,7 +56,7 @@ class TestReaponseConnection {
             .addHeaders(headers)
             .body("close test 2")
             .build()
-        if (response.close) {
+        if (!response.isPersistent) {
             output = "close"
         }
         @Assert(output,"keep-alive")
@@ -74,7 +74,7 @@ class TestReaponseConnection {
             .addHeaders(headers)
             .body("close test 3")
             .build()
-        if (response.close) {
+        if (!response.isPersistent) {
             output = "close"
         }
         @Assert(output,"keep-alive")
