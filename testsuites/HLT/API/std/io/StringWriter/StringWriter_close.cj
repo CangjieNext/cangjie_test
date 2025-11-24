@@ -13,6 +13,7 @@ import std.unittest.*
 import std.unittest.testmacro.*
 import std.io.*
 import std.fs.*
+import std.regex.*
 
 var file = File("./test.txt", ReadWrite)
 var sr = StringWriter(file)
@@ -45,7 +46,7 @@ class Test_StringWriter_close {
             file.write([1u8, 2u8, 3u8])
         } catch (e: FSException) {
             cnt++
-            @Expect(e.message, "The file not opened, can not be written.")
+            @Assert(Regex("^The file `.+` not opened, can not be written.$").matches(e.message))
         }
         @Expect(cnt, 1)
 
@@ -74,7 +75,7 @@ class Test_StringWriter_close {
             file.write([1u8, 2u8, 3u8])
         } catch (e: FSException) {
             cnt++
-            @Expect(e.message, "The file not opened, can not be written.")
+            @Assert(Regex("^The file `.+` not opened, can not be written.$").matches(e.message))
         }
         @Expect(cnt, 1)
 

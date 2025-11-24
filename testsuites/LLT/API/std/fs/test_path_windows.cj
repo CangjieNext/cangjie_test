@@ -51,13 +51,13 @@ class PathWindowsTest {
         try {
             Path("").parent
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The rawPath is an empty string.")
             countError++
         }
         try {
             Path("\0").parent
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot contain null character!")
+            @Expect(e.message,"The rawPath value [0] contains null character.")
             countError++
         }
         @Expect(countError,2)
@@ -118,13 +118,13 @@ class PathWindowsTest {
         try {
             Path("").fileName
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The rawPath is an empty string.")
             countError++
         }
         try {
             Path("\0").fileName
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot contain null character!")
+            @Expect(e.message,"The rawPath value [0] contains null character.")
             countError++
         }
         @Expect(countError,2)
@@ -160,13 +160,13 @@ class PathWindowsTest {
         try {
             Path("").extensionName
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The rawPath is an empty string.")
             countError++
         }
         try {
             Path("\0").extensionName
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot contain null character!")
+            @Expect(e.message,"The rawPath value [0] contains null character.")
             countError++
         }
         @Expect(countError,2)
@@ -205,13 +205,13 @@ class PathWindowsTest {
         try {
             Path("").fileNameWithoutExtension
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The rawPath is an empty string.")
             countError++
         }
         try {
             Path("\0").fileNameWithoutExtension
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot contain null character!")
+            @Expect(e.message,"The rawPath value [0] contains null character.")
             countError++
         }
         @Expect(countError,2)
@@ -249,13 +249,13 @@ class PathWindowsTest {
         try {
             Path("").isAbsolute()
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The rawPath is an empty string.")
             countError++
         }
         try {
             Path("\0").isAbsolute()
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot contain null character!")
+            @Expect(e.message,"The rawPath value [0] contains null character.")
             countError++
         }
         @Expect(countError,2)
@@ -286,13 +286,13 @@ class PathWindowsTest {
         try {
             Path("").isRelative()
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The rawPath is an empty string.")
             countError++
         }
         try {
             Path("\0").isRelative()
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot contain null character!")
+            @Expect(e.message,"The rawPath value [0] contains null character.")
             countError++
         }
         @Expect(countError,2)
@@ -328,19 +328,19 @@ class PathWindowsTest {
         try {
             Path("\\a").join(Path("C:\\"))
         } catch (e: FSException) {
-            @Expect(e.message,"The `path` cannot be an absolute path!")
+            @Expect(e.message,"The path `/b` cannot be an absolute path!")
             countError++
         }
         try {
             Path("").join(Path(""))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The rawPath is an empty string.")
             countError++
         }
         try {
             Path("\\a").join(Path("\0"))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `path` cannot contain null character!")
+            @Expect(e.message,"The path value [0] contains null character.")
             countError++
         }
         @Expect(countError,3)
@@ -375,25 +375,27 @@ class PathWindowsTest {
         try {
             canonicalize(Path(""))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The rawPath is an empty string.")
             countError++
         }
         try {
             canonicalize("")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The rawPath is an empty string.")
             countError++
         }
+        var path = "C:\\yysssw20230926"
         try {
-            canonicalize(Path("C:\\yysssw20230926"))
+            canonicalize(Path(path))
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to canonical: the path may not exist or permission denied!")
+            @Expect(e.message,"Failed to canonical: the path `${path}` may not exist or permission denied!")
             countError++
         }
+        path = "C:\\yysssw20230926"
         try {
-            canonicalize("C:\\yysssw20230926")
+            canonicalize(path)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to canonical: the path may not exist or permission denied!")
+            @Expect(e.message,"Failed to canonical: the path `${path}` may not exist or permission denied!")
             countError++
         }
         @Expect(countError, 4)
@@ -520,14 +522,14 @@ class PathWindowsTest {
         try {
             println(path.normalize())
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, #"Path cannot contain `\??\`!"#)
+            @Expect(e.message, "Path `${path}` cannot contain `\??\`!")
             countError++
         }
 
         try {
             println(Path(#"\"#).join(Path(#"??"#)).join("b"))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, #"Path cannot contain `\??\`!"#)
+            @Expect(e.message, "Path `??` cannot contain `\??\`!")
             countError++
         }
 
