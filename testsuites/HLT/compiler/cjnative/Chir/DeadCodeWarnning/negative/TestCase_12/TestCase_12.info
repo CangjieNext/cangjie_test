@@ -13,4 +13,4 @@
 // DEPENDENCE: main.cj ../assert.cj check_compilation_output.cj
 // EXEC: %compiler %import-cangjie-stdx check_compilation_output.cj assert.cj %stdx-package %cmp_opt -o check_compilation_output.%suffix
 // EXEC: %compiler main.cj %cmp_opt > compilation_output.txt 2>&1
-// RUN-EXEC: %run_stdx check_compilation_output.%suffix compilation_output.txt
+// EXEC: %run_stdx check_compilation_output.%suffix compilation_output.txt
