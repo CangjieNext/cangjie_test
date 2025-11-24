@@ -111,9 +111,9 @@ extend TestClass {
             a = v
         }
     }
-    public static mut prop prop12: Int64 {
+    public static prop prop12: Int64 {
         get() {
-            _prop9
+            prop9
         }
     }
 }
@@ -196,9 +196,9 @@ extend TestStruct {
             a = v
         }
     }
-    public static mut prop prop12: Int64 {
+    public static prop prop12: Int64 {
         get() {
-            _prop9
+            prop9
         }
     }
 }

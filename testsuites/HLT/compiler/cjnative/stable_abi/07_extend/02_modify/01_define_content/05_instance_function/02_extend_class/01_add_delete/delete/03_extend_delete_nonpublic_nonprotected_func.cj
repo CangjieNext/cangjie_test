@@ -106,7 +106,7 @@ extend TestClass {
         14
     }
     public func f15(): Int64 {
-        return f12()
+        return 12
     }
 
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {

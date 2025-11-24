@@ -37,3 +37,4 @@ type Mytype1 = Int64
 public type Mytype2 = Float64
 type Mytype3 = Int32
 public var a: Mytype1 = 1
+public var b: Mytype3 = 1

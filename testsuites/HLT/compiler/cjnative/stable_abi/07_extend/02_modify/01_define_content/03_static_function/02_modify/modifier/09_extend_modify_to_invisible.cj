@@ -199,8 +199,7 @@ extend TestStruct {
 }
 
 public func global_func_01(){
-    TestStruct.f1() == 1
-    && TestStruct.f6() == 5
+    TestStruct.f6() == 5
     && TestClass.f10() == 10
     && TestStruct.f10() == 10
     && TestClass.f15() == 11

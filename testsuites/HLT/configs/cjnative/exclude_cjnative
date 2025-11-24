@@ -1,7 +1,7 @@
 # Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 # This source file is part of the Cangjie project, licensed under Apache-2.0
 # with Runtime Library Exception.
-# 
+#
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 # sema error, should be fixed later.
@@ -74,7 +74,7 @@ Tools/cjlint/rules/G_CON_03/g_con_03_struct_extend_imple_1001/g_con_03_struct_ex
 Tools/cjlint/rules/G_CON_03/g_con_03_struct_extend_imple_1003/g_con_03_struct_extend_imple_1003.info
 Tools/cjlint/rules/G_OTH_01/g_oth_01_10016/g_oth_01_10016.info
 Tools/cjlint/rules/G_SER_03/constraints/g_constraints_06_04/g_constraints_06_04.info
-Tools/cjlint/rules/G_OTH_03/g_oth_03_10026/g_oth_03.info 
+Tools/cjlint/rules/G_OTH_03/g_oth_03_10026/g_oth_03.info
 
 # syntax will be supported in future
 API/syntax
@@ -223,3 +223,4 @@ Tools/cjdb/datacom/within_watchpoint/lldb_within_watchpoint058.info
 Tools/cjdb/datacom/within_watchpoint/lldb_within_watchpoint059.info
 Tools/cjdb/datacom/within_watchpoint/lldb_within_watchpoint060.info
 Tools/cjdb/datacom/within_watchpoint/lldb_within_watchpoint061.info
+Tools/cjdb/datacom/lambda/lldb_lambda_05.info

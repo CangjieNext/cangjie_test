@@ -19,7 +19,7 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// EXEC: %rm libstable_abi.%dylib_suffix
+// EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
@@ -31,14 +31,32 @@
 
 package test_stable_abi
 
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
 @Annotation
-public class A {
+public class A1 {
     let name: String
     public const init(name: String) {
         this.name = name
     }
 }
-
-@A["enum1"] public enum E1 { RED }
-@A["enum2"] public enum E2 { BLUE }
-@A["enum3"] public enum E3 { YELLOW }
+@Annotation
+public class A2 {
+    let name: String
+    public const init(name: String) {
+        this.name = name
+    }
+}
+@A1["enum1"] public enum E1 {
+    RED
+    public func g() {1}
+}
+@A1["enum2"] public enum E2 {
+    BLUE
+    public func g() {1}
+}
+@A1["enum3"] public enum E3 {
+    YELLOW
+    public func g() {1}
+}

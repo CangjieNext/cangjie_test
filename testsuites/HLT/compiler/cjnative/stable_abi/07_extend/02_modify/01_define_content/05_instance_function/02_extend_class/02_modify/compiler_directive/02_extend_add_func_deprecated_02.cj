@@ -161,8 +161,7 @@ public func global() {
 public func global_func_01(){
     let ts = TestClass()
     
-    ts.f2() == 2
-    && ts.pf3() == 3
+    ts.pf3() == 3
     && ts.pf4() == 4
     && ts.f7() == 7
     && ts.pp1(1, b: 2) == 4

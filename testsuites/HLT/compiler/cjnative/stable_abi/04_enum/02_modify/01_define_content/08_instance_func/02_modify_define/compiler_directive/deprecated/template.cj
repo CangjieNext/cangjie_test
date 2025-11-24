@@ -6,53 +6,25 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
  
-// ASSERT: scan Compatible!
+// ASSERT: scan-full Compatible!\n
 
 package test_stable_abi
 
-
-public enum Rectangle {
-    | Red | Green | Blue(UInt8)
-
-    public func getWidth(): Int64{
-        return 11
-    }
-
-    func geta1() {
-        return 0
-    }
-
-    public func geta2() {
-        return 1
-    }
-
-    @Deprecated["this function is deprecated", strict: false]
-    func geta3() {
-        return 2
-    }
-
-    @Deprecated["this function is deprecated", strict: false]
-    public func geta4() {
-        return 3
-    }
-
-    @Deprecated["this function is deprecated", strict: true]
-    public func geta5() {
-        return 4
-    }
-
-    @Frozen
-    public func get5() {
-        let x = geta1()
-        return x
-    }
-
-    @Frozen
-    public func get6() {
-        let x = geta3()
-        return x
-    }
+public enum E {
+    | A
+    public func g1() {1}
+    @Deprecated["deprecated", strict: false] public func g2() {1}
+    @Deprecated["deprecated", strict: true] public func g3() {1}
+    func g4() {1}
+    @Deprecated["deprecated", strict: false] func g5() {1}
+    @Deprecated["deprecated", strict: true] func g6() {1}
 }
-
-
-
+@Frozen public func f1() {A.g4() + A.g5()}
+@Deprecated["deprecated", strict: true] @Frozen public func f2() {A.g3() + A.g6()}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(A.g4(), 1)
+    assert(A.g5(), 1)
+}

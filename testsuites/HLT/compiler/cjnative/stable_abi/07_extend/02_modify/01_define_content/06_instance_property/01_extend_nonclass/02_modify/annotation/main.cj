@@ -9,6 +9,11 @@
 import test_stable_abi.*
 
 main() {
+    assert(TestStruct().prop1, 1)
+    assert(TestStruct().n1(), 1)
+    assert(TestStruct().prop_1, 1)
+    assert(TestStruct().n_1(), 1)
+    check()
     if (
         TestStruct().prop1 == 1 && TestStruct().prop_1 == 1
     ) {

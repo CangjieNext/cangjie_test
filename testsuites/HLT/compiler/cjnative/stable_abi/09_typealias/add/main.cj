@@ -11,7 +11,7 @@ import test_stable_abi.*
 public var c : Mytype2 = 1.1
 
 main() {  
-    if (a == 1 && c == 1.1){
+    if (a == 1 && c == 1.1 && b == 1){
         return 0
     }
     return 1

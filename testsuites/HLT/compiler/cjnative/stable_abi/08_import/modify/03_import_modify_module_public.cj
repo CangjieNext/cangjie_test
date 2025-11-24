@@ -43,3 +43,4 @@ import a.p.v1
 public import b.p.v2
 
 public var v = v1 + v2
+public var m = abs(-1.0) + acos(1.0)

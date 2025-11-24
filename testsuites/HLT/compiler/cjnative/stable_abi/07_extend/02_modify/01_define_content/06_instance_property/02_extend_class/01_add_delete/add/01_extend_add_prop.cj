@@ -199,3 +199,18 @@ extend TestClass {
         }
     }
 }
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(TestClass().aprop1, 1)
+    assert(TestClass().aprop2, 2)
+    assert(TestClass().aprop3, 3)
+    assert(TestClass()._aprop3, 3)
+    assert(TestClass().aprop4, 4)
+    assert(TestClass().aprop6, 6)
+    assert(TestClass().aprop7, 7)
+    assert(TestClass().aprop8, 8)
+    assert(TestClass().aprop10, 10)
+    assert(TestClass().aprop11, 11)
+}

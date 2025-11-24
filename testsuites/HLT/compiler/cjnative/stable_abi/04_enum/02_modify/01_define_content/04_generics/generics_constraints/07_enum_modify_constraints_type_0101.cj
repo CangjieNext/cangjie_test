@@ -22,7 +22,6 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
 // ASSERT: scan Incompatible!
 // ASSERT: scan-3 [API/ABI] Changed generic constraint of enum visible outside the module. The new type is not parent type of the old type.
@@ -31,7 +30,6 @@
 // ASSERT: scan-not [API]
 // ASSERT: scan-2 [ABI]
 // ASSERT: scan-3 [API/ABI]
-// test enum: delete generics
 
 // test enum: modify generics
 // 修改某个泛型参数的上界约束A为B，B不是A的父类型
@@ -80,7 +78,7 @@ public enum S7<T, U> where T <: ToString {
 enum S8<T, U> where T <: ToString {
     | Red | Green | Blue(UInt8)
 
-    public func getX(): Int64 {
+    public const func getX(): Int64 {
         return 11
     }
 }
@@ -88,19 +86,26 @@ enum S8<T, U> where T <: ToString {
 enum S9<T, U> where T <: ToString {
     | Red | Green | Blue(UInt8)
 
-    public func getX(): Int64 {
+    public const func getX(): Int64 {
         return 11
     }
 }
 
 public class C1 {
-    let v1 = S8<ToString, Float64>.Red
+    public let v1 = S8<ToString, Float64>.Red.getX()
 
-    const init() {
+    public const init() {
         let v3 = 0
     }
 
     public const func f1() {
-        let v2 = S9<ToString, Float64>.Green
+        S9<ToString, Float64>.Green.getX()
     }
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func f() {
+    assert(S8<ToString, Float64>.Red.getX(), 11)
+    assert(S9<ToString, Float64>.Red.getX(), 11)
 }

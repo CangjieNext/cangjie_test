@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.1.9.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class static func
   @Behavior: modifier add const
   @Expect: api compatible & abi compatible
-*/
+ */
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -22,7 +22,6 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-
 
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
@@ -33,7 +32,8 @@
 package test_stable_abi
 
 // test class: staticmember function
-open public class Father {}
+public open class Father {}
+
 public class Son <: Father {}
 
 public class TestClass {
@@ -55,6 +55,7 @@ public class TestClass {
     static func f5(): Int64 {
         return 5
     }
+
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -64,6 +65,7 @@ public class TestClass {
     public static func f7() {
         7
     }
+
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -84,7 +86,7 @@ public class TestClass {
         12
     }
 
-    public static unsafe func f13(): Int64 {
+    public unsafe static func f13(): Int64 {
         return 13
     }
     public static const func f14(): Int64 {
@@ -111,6 +113,7 @@ public class TestClass {
     public static const func body1() {
         1
     }
+
     @Frozen
     public static func body2() {
         2
@@ -118,4 +121,29 @@ public class TestClass {
     public static func body3() {
         3
     }
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public unsafe func checker(): Unit {
+    assert(TestClass.f1(), 1)
+    assert(TestClass.f4(), 3)
+    assert(TestClass.f6(), 5)
+    assert(TestClass.f7(), 7)
+    assert(TestClass.f9(), 9)
+    assert(TestClass.f13(), 13)
+    assert(TestClass.f14(), 14)
+    assert(TestClass.g1<Int64, Int64, Son>(1, 2, Son()), "12")
+    assert(TestClass.g2<Int64, String, Son>(1, "a", Son()), "1")
+    assert(TestClass.p1(1, b: 2, c: 3), 6)
+    assert(TestClass.p2(Son(), b: Son()) is Son, true)
+    assert(TestClass.p3(Father(), b: Father()) is Father, true)
+    assert(TestClass.body1(), 1)
+    assert(TestClass.body2(), 2)
+    assert(TestClass.body3(), 3)
 }

@@ -9,11 +9,12 @@
 import test_stable_abi.*
 
 main() {
-    let r = MyInt.Red
-    let g = MyInt.Green
-    let b = MyInt.Blue(100)
-
-    return 0
+    f()
+    assert(E1.Red.g(), 1)
+    assert(E1.Red.f1(), 11)
+    assert(E1.Red.f2(), 2)
+    assert(E2.Red.g(), 1)
+    assert(E2.Red.f1(), 1)
+    assert(C1().v, 1)
+    assert(f1(), 1)
 }
-
-

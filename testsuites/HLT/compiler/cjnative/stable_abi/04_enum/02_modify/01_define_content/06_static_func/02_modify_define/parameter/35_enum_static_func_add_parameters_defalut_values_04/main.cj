@@ -9,7 +9,6 @@
 import test_stable_abi.*
 
 main() {
-    return 0
+    assert(RectangleA.getA(1, b: 1), 2)
+    check()
 }
-
-

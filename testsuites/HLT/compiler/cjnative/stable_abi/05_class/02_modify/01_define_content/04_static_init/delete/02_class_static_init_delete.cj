@@ -34,3 +34,14 @@ package test_stable_abi
 public class C {
     public static var v: Int64 = 10
 }
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(c: C): Unit {
+  assert(C.v, 10)
+}

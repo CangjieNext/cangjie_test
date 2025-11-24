@@ -177,5 +177,5 @@ public func global_func_01(){
     
     ts.pp1(0, b: 0) != 0
     && ts.pp2(Son(), b: Son()) is Son
-    && ts.pp3(Father(), b: Father()) is Father
+    && ts.pp3(Son(), b: Son()) is Father
 }

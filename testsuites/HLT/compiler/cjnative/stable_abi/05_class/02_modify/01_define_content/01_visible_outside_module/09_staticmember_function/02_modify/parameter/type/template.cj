@@ -2,15 +2,16 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test class: staticmember function
-open public class Father {}
+public open class Father {}
+
 public class Son <: Father {}
 
 public class TestClass {
@@ -28,6 +29,7 @@ public class TestClass {
     static func f4(a: Int64, b: Int64, c!: Int64 = 1, d!: Int64 = 1): Int64 {
         return a + 4
     }
+
     @Frozen
     public static func f5(a: Int64, b: Int64, c!: Int64 = 1, d!: Int64 = 1): Int64 {
         f4(a, b, c: 1, d: 1) + a
@@ -51,6 +53,7 @@ public class TestClass {
     static func p24(a: Son, b: Son): Son {
         b
     }
+
     @Frozen
     public static func p25(a: Son, b: Son): Son {
         p24(a, b)
@@ -70,6 +73,7 @@ public class TestClass {
     static func p34(a: Father, b: Father, c: Int64): Father {
         b
     }
+
     @Frozen
     public static func p35(a: Father, b: Father, c: Int64): Father {
         p34(a, b, c)
@@ -91,6 +95,7 @@ open class baseClass {
     static func f4(a: Int64, b: Int64, c!: Int64 = 1, d!: Int64 = 1): Int64 {
         return a + 4
     }
+
     @Frozen
     public static func f5(a: Int64, b: Int64, c!: Int64 = 1, d!: Int64 = 1): Int64 {
         f4(a, b, c: 1, d: 1) + a
@@ -114,6 +119,7 @@ open class baseClass {
     static func p24(a: Son, b: Son): Son {
         b
     }
+
     @Frozen
     public static func p25(a: Son, b: Son): Son {
         p24(a, b)
@@ -133,6 +139,7 @@ open class baseClass {
     static func p34(a: Father, b: Father, c: Int64): Father {
         b
     }
+
     @Frozen
     public static func p35(a: Father, b: Father, c: Int64): Father {
         p34(a, b, c)
@@ -158,6 +165,7 @@ class privateClass {
     static func f4(a: Int64, b: Int64, c!: Int64 = 1, d!: Int64 = 1): Int64 {
         return a + 4
     }
+
     @Frozen
     public static func f5(a: Int64, b: Int64, c!: Int64 = 1, d!: Int64 = 1): Int64 {
         f4(a, b, c: 1, d: 1) + a
@@ -181,6 +189,7 @@ class privateClass {
     static func p24(a: Son, b: Son): Son {
         b
     }
+
     @Frozen
     public static func p25(a: Son, b: Son): Son {
         p24(a, b)
@@ -200,10 +209,52 @@ class privateClass {
     static func p34(a: Father, b: Father, c: Int64): Father {
         b
     }
+
     @Frozen
     public static func p35(a: Father, b: Father, c: Int64): Father {
         p34(a, b, c)
     }
 }
 
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
 
+public func checker(): Unit {
+    assert(TestClass.f1(1, 2, c: 3, d: 4), 2)
+    assert(TestClass.f2(1, 2, c: 3, d: 4), 3)
+    assert(TestClass.f3(1, 2, c: 3, d: 4), 3)
+    assert(TestClass.f4(1, 2, c: 3, d: 4), 5)
+    assert(TestClass.f5(1, 2, c: 3, d: 4), 5)
+    assert(TestClass.p1(1, b: 2, c: 3, d: 4), 6)
+    assert(TestClass.p2(Son(), b: Son(), c: Son()) is Son, true)
+    assert(TestClass.p22(Son(), Son()) is Son, true)
+    assert(TestClass.p23(Son(), Son()) is Son, true)
+    assert(TestClass.p24(Son(), Son()) is Son, true)
+    assert(TestClass.p25(Son(), Son()) is Son, true)
+    assert(TestClass.p3(Father(), Father(), 1) is Father, true)
+    assert(TestClass.p32(Father(), Father(), 1) is Father, true)
+    assert(TestClass.p33(Father(), Father(), 1) is Father, true)
+    assert(TestClass.p34(Father(), Father(), 1) is Father, true)
+    assert(TestClass.p35(Father(), Father(), 1) is Father, true)
+
+    assert(B.f1(1, 2, c: 3, d: 4), 2)
+    assert(B.f2(1, 2, c: 3, d: 4), 3)
+    assert(B.f3(1, 2, c: 3, d: 4), 3)
+    assert(B.f4(1, 2, c: 3, d: 4), 5)
+    assert(B.f5(1, 2, c: 3, d: 4), 5)
+    assert(B.p1(1, b: 2, c: 3, d: 4), 6)
+    assert(B.p2(Son(), b: Son(), c: Son()) is Son, true)
+    assert(B.p22(Son(), Son()) is Son, true)
+    assert(B.p23(Son(), Son()) is Son, true)
+    assert(B.p24(Son(), Son()) is Son, true)
+    assert(B.p25(Son(), Son()) is Son, true)
+    assert(B.p3(Father(), Father(), 1) is Father, true)
+    assert(B.p32(Father(), Father(), 1) is Father, true)
+    assert(B.p33(Father(), Father(), 1) is Father, true)
+    assert(B.p34(Father(), Father(), 1) is Father, true)
+    assert(B.p35(Father(), Father(), 1) is Father, true)
+}

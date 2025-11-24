@@ -37,3 +37,7 @@ public class C {
         v = 20
     }
 }
+
+public func checker(): Unit {
+  
+}

@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && mkdir -p out
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %compiler %compile_shared_lib_opt %overflowOpt -p package0 %import_objc_interop -o out
+// (CJNATIVE and Linux) RUN-EXEC-0: %cd %n && %compiler %compile_shared_lib_opt %overflowOpt -p package1 %import_objc_interop --import-path out -o out
+// (CJNATIVE and Darwin) RUN-EXEC-0: %cd %n && %compiler %compile_shared_lib_opt %overflowOpt -p package1 %import_objc_interop -Lout -lpackage0 --import-path out -o out
+

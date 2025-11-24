@@ -158,3 +158,35 @@ class privateClass {
         g4()
     }
 }
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    let t = TestClass()
+    assert(TestClass.f1() is Father, true)
+    assert(TestClass.f2(Father(), Son()) is Father, true)
+    assert(TestClass.f3(Father(), Son()) is Father, true)
+    assert(TestClass.f4() is Father, true)
+    assert(TestClass.f5() is Father, true)
+    assert(TestClass.g1() is Son, true)
+    assert(TestClass.g2(Father(), Son()) is Son, true)
+    assert(TestClass.g3(Father(), Son()) is Son, true)
+    assert(TestClass.g4() is Son, true)
+    assert(TestClass.g5() is Son, true)
+
+    assert(B.f1() is Father, true)
+    assert(B.f2(Father(), Son()) is Father, true)
+    assert(B.f3(Father(), Son()) is Father, true)
+    assert(B.f4() is Father, true)
+    assert(B.f5() is Father, true)
+    assert(B.g1() is Son, true)
+    assert(B.g2(Father(), Son()) is Son, true)
+    assert(B.g3(Father(), Son()) is Son, true)
+    assert(B.g4() is Son, true)
+    assert(B.g5() is Son, true)
+}

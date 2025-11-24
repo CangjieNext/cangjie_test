@@ -95,9 +95,9 @@ extend TestClass {
             a = v
         }
     }
-    public static mut prop prop12: Int64 {
+    public static prop prop12: Int64 {
         get() {
-            _prop9
+            prop9
         }
     }
 }
@@ -180,19 +180,19 @@ extend TestStruct {
             a = v
         }
     }
-    public static mut prop prop12: Int64 {
+    public static prop prop12: Int64 {
         get() {
-            _prop9
+            prop9
         }
     }
 }
 
 public func global_func_01(){
-    TestClass._prop2 == 2
-    && TestClass._prop8 == 8
-    && TestClass._prop12 == 9
-    && TestStruct._prop7 == 7
-    && TestStruct._prop2 == 2
-    && TestStruct._prop8 == 8
-    && TestStruct._prop12 == 9
+    TestClass.prop2 == 2
+    && TestClass.prop8 == 8
+    && TestClass.prop12 == 9
+    && TestStruct.prop7 == 7
+    && TestStruct.prop2 == 2
+    && TestStruct.prop8 == 8
+    && TestStruct.prop12 == 9
 }

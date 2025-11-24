@@ -39,10 +39,10 @@ class Test {
         let body = funcDecl.body.getOrThrow()
         let expr = (body.nodes[0] as ReturnExpr).getOrThrow()
         @Expect(expr.retVal.isNone())
-        @Expect(expr.toString(), "return")
+        @Expect(expr.toString(), "return // return nothing")
 
         var pos = expr.nodePos
-        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 5, 6, 11]).toArray())
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 5, 6, 29]).toArray())
         pos = expr.getReturnKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 5, 6, 11]).toArray())
     }
