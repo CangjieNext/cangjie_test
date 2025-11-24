@@ -20,7 +20,7 @@ main() {
         var b = remove(fileName)
     } catch (e: FSException) {
         println(e.message)
-        if (!e.toString().contains("file or directory")) {
+        if (!e.toString().contains("Failed to remove")) {
             return 3
         }
     }

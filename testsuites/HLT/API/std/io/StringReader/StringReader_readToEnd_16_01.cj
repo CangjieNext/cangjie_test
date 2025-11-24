@@ -14,6 +14,7 @@
 import std.io.*
 import std.fs.*
 import std.collection.*
+import std.regex.*
 
 main() {
     var inputStream = File("./test_readToEnd_16_01.txt", ReadWrite)
@@ -24,7 +25,7 @@ main() {
         var ret = strReader.readToEnd()
         sb.append(ret)
     } catch (e: FSException) {
-        if (e.message != "The file not opened, can not to read.") {
+        if (!Regex("^FSException: The file `.+` not opened, can not to read.$").matches(e.toString())) {
             return 1
         }
     }

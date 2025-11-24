@@ -3241,3 +3241,8 @@ compiler/Sema/effect/resume_unit.cj
 compiler/Sema/effect/resume_with.cj
 compiler/Sema/interface/abstract_function2.cj
 compiler/Sema/lookup/bugfix2.cj
+API/std/fs/test_directory_linux.cj
+API/std/fs/test_file_linux.cj
+API/std/fs/test_file_unix.cj
+API/stdx/syntax/testParse/test_parse_file.cj
+API/stdx/syntax/testParse/test_parse_package.cj

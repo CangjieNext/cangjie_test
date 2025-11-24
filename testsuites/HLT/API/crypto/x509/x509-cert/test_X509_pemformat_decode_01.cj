@@ -128,7 +128,7 @@ class Test_X509_pemformat_decode_01 {
         try {
             X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./data/end_ecdsa_3.cer")))
         } catch (e: FSException) {
-            @Expect(e.message.contains("The file does not exist or permission denied"))
+            @Expect(e.message.contains("does not exist or permission denied"))
             sum += 1
         }
         @Expect(sum, 1)

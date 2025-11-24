@@ -14,6 +14,7 @@
 import std.io.*
 import std.fs.*
 import std.collection.*
+import std.regex.*
 
 main() {
     var inputStream = File("./test_read_10_01.txt", ReadWrite)
@@ -38,8 +39,8 @@ main() {
             }
         }
     } catch (e: FSException) {
-        if (e.message != "The file not opened, can not to read.") {
-            return 2
+        if (!Regex("^FSException: The file `.+` not opened, can not to read.$").matches(e.toString())) {
+            return 1
         }
     }
     if (sb.toString() != "ABCDEFGHI") {

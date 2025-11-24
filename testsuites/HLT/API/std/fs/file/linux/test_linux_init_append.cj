@@ -30,6 +30,7 @@ import std.unittest.*
 import std.unittest.testmacro.*
 import std.fs.*
 import std.io.*
+import std.regex.*
 
 @Test
 class Test_Init_Append {
@@ -60,14 +61,14 @@ class Test_Init_Append {
         try {
             var file = File("", OpenMode.Append)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The file path cannot be empty.")
+            @Expect(e.message, "The file path is empty.")
             sum += 1
         }
         for (str in illegal_str) {
             try {
                 var file = File(str, OpenMode.Append)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The file path cannot contain null character.")
+                @Expect(e.message, "The file path value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
         }
@@ -97,7 +98,7 @@ class Test_Init_Append {
         try {
             file.seek(SeekPosition.Begin(0))
         } catch (e: FSException) {
-            @Expect(e.message, "The file can not seek.")
+            @Assert(Regex("^The file `.+` can not seek.$").matches(e.message))
             sum += 1
         }
         file.close()
@@ -129,7 +130,7 @@ class Test_Init_Append {
         try {
             file.read(buf)
         } catch (e: FSException) {
-            @Expect(e.message, "The file does not have the read permission.")
+            @Assert(Regex("^The file `.+` does not have the read permission.$").matches(e.message))
             sum += 1
         }
         file.close()

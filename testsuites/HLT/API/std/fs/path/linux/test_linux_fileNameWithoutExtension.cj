@@ -45,14 +45,14 @@ class Test_Path_FileNameWithoutExtension {
         try {
             Path("").fileNameWithoutExtension
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The `rawPath` cannot be an empty string!")
+            @Expect(e.message, "The rawPath is an empty string.")
             sum += 1
         }
         for (str in illegal_path_string) {
             try {
                 Path(str).fileNameWithoutExtension
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The `rawPath` cannot contain null character!")
+                @Expect(e.message, "The rawPath value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
         }
