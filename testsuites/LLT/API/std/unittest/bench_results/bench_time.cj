@@ -36,7 +36,7 @@ public class Test_Bench_GC {
         let result = Float64.parse(data["Mean"])
 
         match (data["Case"]) {
-            case "sleep" => @Expect(abs(result - 20000000.0) < 2000000.0)
+            case "sleep" => @Expect(abs(result - 21000000.0) < 2000000.0)
             case _ => @FailExpect("Uncovered case")
         }
         

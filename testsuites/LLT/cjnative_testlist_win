@@ -74,8 +74,6 @@ API\std\time\timezone\test_local1_1.cj
 API\std\time\timezone\test_local1_4.cj
 API/stdx/crypto/x509/x509_test.cj
 API/stdx/logger/logger_test.cj
-API/std/unittest/new_bench/bench_explicit_gc.cj
-
 
 #cjdb CI
 Tools/cjdb/datacom/expr/arrayList2.info
