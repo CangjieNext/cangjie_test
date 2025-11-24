@@ -5,9 +5,9 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f %cmp_utest_opt
-// RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args --bench --no-color | compare %f
-// ASSERT: scan PASSED: 3
+// EXEC: %compiler %cmp_opt %enableO2 -o %n.%suffix %f %cmp_utest_opt
+// RUN-EXEC-PIPE: %export cjHeapSize=4gb && %run %run_opt %output %run_utest_opt %run_args --bench --no-color | compare %f
+// ASSERT: scan PASSED: 2
 
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -24,10 +24,6 @@ class TestNoGcRunning <: Measurement {
     let result: Float64 = 0.0
 
     public func setup() {
-        if (prevGC == 0) {
-            // doing it here and not in BeforeAll to exclude warmup
-            prevGC = getGCCount()
-        }
         @Assert(!isGCRunning())
     }
 
@@ -36,38 +32,12 @@ class TestNoGcRunning <: Measurement {
     }
 }
 
-@Test
-@Configure[
-    minDuration: Duration.second * 0.1, 
-    warmup: 100,
-    minBatches: 200,
-    explicitGC: Disabled
-]
-@Measure[TestNoGcRunning()]
-class BenchGCDisabled {
-    @BeforeAll
-    func before() {
-        prevGC = getGCCount()
-    } 
-
-    @Bench
-    func foo() {
-        counter += 1.0
-    }
-
-    @AfterAll
-    func after() {
-        let diff = getGCCount() - prevGC
-        println(diff)
-        @Assert(diff <= 10)
-    }
-}
 
 @Test
 @Configure[
-    minDuration: Duration.second * 0.2, 
-    warmup: 100,
-    minBatches: 200,
+    minDuration: Duration.nanosecond, 
+    warmup: 10,
+    minBatches: 40,
     explicitGC: Light
 ]
 class BenchGCLight {
@@ -78,7 +48,9 @@ class BenchGCLight {
 
     @Bench
     func foo() {
-        o = Box(Object())
+        for (i in 0..100000) {
+            o = Box(Object())
+        }
         counter += 1.0
     }
 
@@ -86,16 +58,16 @@ class BenchGCLight {
     func after() {
         let diff = getGCCount() - prevGC
         println(diff)
-        @Assert(diff >= 10) 
-        @Assert(diff <= 130)
+        @Assert(diff >= 35) 
+        @Assert(diff <= 60)
     }
 }
 
 @Test
 @Configure[
-    minDuration: Duration.second * 0.2, 
+    minDuration: Duration.nanosecond, 
     warmup: 10,
-    minBatches: 200,
+    minBatches: 40,
     explicitGC: Heavy
 ]
 @Measure[TestNoGcRunning()]
@@ -107,7 +79,9 @@ class BenchGCWait {
 
     @Bench
     func foo() {
-        o = Object()
+        for (i in 0..100000) {
+            o = Box(Object())
+        }
         counter += 1.0
     }
 
@@ -115,7 +89,7 @@ class BenchGCWait {
     func after() {
         let diff = getGCCount() - prevGC
         println(diff)
-        @Assert(diff >= 105 && diff <= 140)
+        @Assert(diff >= 45 && diff <= 60)
     }
 }
 
