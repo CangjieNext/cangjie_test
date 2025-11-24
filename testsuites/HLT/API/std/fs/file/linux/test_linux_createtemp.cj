@@ -19,6 +19,7 @@
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.fs.*
+import std.regex.*
 
 @Test
 class Test_File_CreateTemp {
@@ -75,7 +76,7 @@ class Test_File_CreateTemp {
             try {
                 File.createTemp(str)
             } catch (e: FSException) {
-                @Expect(e.message, "Failed to canonical: the path may not exist or permission denied!")
+                @Expect(e.message, "Failed to canonical: the path `${str}` may not exist or permission denied!")
                 sum += 1
             }
         }
@@ -83,7 +84,7 @@ class Test_File_CreateTemp {
         try {
             File.createTemp("./file01")
         } catch (e: FSException) {
-            @Expect(e.message, "Failed to create the temporary file!")
+            @Assert(Regex("^Failed to create the temporary file `.+`.$").matches(e.message))
             sum += 1
         }
         @Expect(sum, 3)
