@@ -32,6 +32,7 @@ import std.unittest.*
 import std.unittest.testmacro.*
 import std.fs.*
 import std.io.*
+import std.regex.*
 
 @Test
 class Test_Init_Open {
@@ -56,14 +57,14 @@ class Test_Init_Open {
         try {
             var file = File("", ReadWrite)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The file path cannot be empty.")
+            @Expect(e.message, "The file path is empty.")
             sum += 1
         }
         for (str in illegal_str) {
             try {
                 var file = File(str, ReadWrite)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The file path cannot contain null character.")
+                @Expect(e.message, "The file path value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
         }
@@ -127,7 +128,7 @@ class Test_Init_Open {
         try {
             file.read(buf)
         } catch (e: FSException) {
-            @Expect(e.message, "The file not opened, can not to read.")
+            @Assert(Regex("^The file `.+` not opened, can not to read.$").matches(e.message))
             sum += 1
         }
         @Expect(sum, 1)
