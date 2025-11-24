@@ -58,6 +58,3 @@ compiler/CJMP/objc/integration/objc_impl/ctor_super
 ## objc (no working @ForeignName checks for constructors and methods in @ObjCImpl)
 compiler/CJMP/objc/sema/objc_impl_illegal_missing_foreigname_ctor.cj
 compiler/CJMP/objc/sema/objc_impl_illegal_missing_foreigname_method.cj
-
-# unittest
-API/std/unittest/new_bench/bench_explicit_gc.cj
