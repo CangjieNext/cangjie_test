@@ -60,3 +60,7 @@ name = 3
 src-dir = "./common"
 features = []
 product = false
+
+[[source-set]]
+src-dir = ""
+features = []
