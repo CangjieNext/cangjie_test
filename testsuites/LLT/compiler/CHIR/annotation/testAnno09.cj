@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (not Darwin)LEVEL: 0
-// (not Darwin)EXEC: %compiler %cmp_opt %n.cj -o %output
+// (not Darwin)EXEC: %compiler %cmp_opt %enableO2 %n.cj -o %output
 // (not Darwin)EXEC: %run %output 2>&1 | compare %f
 
 internal import std.reflect.*
