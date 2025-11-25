@@ -14,7 +14,7 @@ import pkga.mymap
 import pkga.pkghash
 
 main(): Int64 {
-    var a : mymapanew<String, Int64> = pkghashanew(10)
+    var a : mymapanew = pkghashanew(10)
     return a.size
 }
 
