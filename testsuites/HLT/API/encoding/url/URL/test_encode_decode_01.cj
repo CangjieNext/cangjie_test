@@ -6,12 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// EXEC: %compiler  %import-cangjie-stdx  %cmp_opt -o %n.%suffix %f %cmp_utest_opt
-// EXEC:%set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
-
 // LEVEL: 0
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output
-// RUN-EXEC: %run_stdx %output %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 
 import stdx.encoding.url.*
 import std.collection.*
