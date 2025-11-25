@@ -1,6 +1,6 @@
 // (DEBUG_OPTION) EXEC: %compiler %f %dumpCHIRDebug -o %n.%suffix
 // (DEBUG_OPTION) EXEC: %run %run_opt %n.%suffix
-// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/[0-9]*\_CreateVTableAndUpdateFuncCall.chirtxt | compare %f
+// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/[0-9]*\_Canonicalization.chirtxt | compare %f
 // (not Windows and DEBUG_OPTION) ASSERT: scan-4 Apply(ThisType: Class-_CN7default1AE&, @_CN7default1IIG_E4testHG_
 
 interface I<T> {
