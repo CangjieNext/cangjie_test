@@ -1,0 +1,16 @@
+{
+  "bin": {},
+  "pkg-build": {
+    "E:\\cangjie_test_suite\\cangjie_test\\testsuites\\HLT\\API\\std\\reflect\\qwe\\src": {
+      "package": "qwe",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1764063987,
+      "dependencies": [],
+      "std-dependencies": [],
+      "testUsed": false,
+      "mockUsed": false
+    }
+  },
+  "pkg-test": {}
+}
