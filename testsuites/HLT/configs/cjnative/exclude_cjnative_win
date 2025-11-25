@@ -372,4 +372,9 @@ API/net/New_HTTP/HttpResponse/test_header_01.cj
 Tools/cjdb/datacom/lambda/lldb_lambda_05.info
 
 API/std/io/file/File_create_03.cj
+<<<<<<< HEAD
 >>>>>>> efd66d70c9 (fix: optimize exceptions of std.fs)
+=======
+API/std/fs/file/linux/test_linux_file_no_permission.cj
+API/std/io/StringReader/StringReader_readln_13_01.cj
+>>>>>>> 09d4a73997 (fix: optimize exceptions of std.fs)

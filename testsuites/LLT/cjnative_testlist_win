@@ -78,6 +78,8 @@ API/std/fs/test_file_linux.cj
 API/std/fs/test_file_unix.cj
 API/stdx/syntax/testParse/test_parse_file.cj
 API/stdx/syntax/testParse/test_parse_package.cj
+API/std/fs/test_directory_windows.cj
+API/std/fs/test_path_windows.cj
 
 # API testcases commented on 2025-11-03, need to be fixed.
 ## fuzzer testcases (libclang_rt.fuzzer_no_main.a: No Such file or directory)
