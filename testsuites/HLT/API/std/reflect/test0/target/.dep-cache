@@ -1,0 +1,27 @@
+{
+  "bin": {},
+  "pkg-build": {
+    "E:\\cangjie_test_suite\\cangjie_test\\testsuites\\HLT\\API\\std\\reflect\\test0\\src": {
+      "package": "test0",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1764060096,
+      "dependencies": [],
+      "std-dependencies": [
+        {
+          "orPackage": "",
+          "package": "std.reflect",
+          "isStd": true,
+          "imports": [
+            {
+              "file": "E:\\cangjie_test_suite\\cangjie_test\\testsuites\\HLT\\API\\std\\reflect\\test0\\src\\main.cj"
+            }
+          ]
+        }
+      ],
+      "testUsed": false,
+      "mockUsed": false
+    }
+  },
+  "pkg-test": {}
+}
