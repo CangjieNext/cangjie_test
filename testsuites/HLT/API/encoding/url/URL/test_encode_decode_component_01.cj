@@ -19,7 +19,7 @@ import std.unittest.testmacro.*
 class URLEncodeComponent {
     @TestCase
     public func encodeComponent01(): Unit {
-        let str = "hello123"
+        let str = "hello123HELLOW"
         let str_right = URL.encodeComponent(str)
         @Assert(str, str_right)
     }
