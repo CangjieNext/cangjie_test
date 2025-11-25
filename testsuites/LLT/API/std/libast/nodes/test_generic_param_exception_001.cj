@@ -62,17 +62,17 @@ main(): Int64 {
 
 /* SCAN
 3
-description: less, token_id: 53, token_literal_value: <, fileID: 10, line: 253, column: 34
+description: less, token_id: 53, token_literal_value: <, fileID: 13, line: 253, column: 34
 Illegal TokenKind, TokenKind should be LT
-description: greater, token_id: 54, token_literal_value: >, fileID: 10, line: 255, column: 34
+description: greater, token_id: 54, token_literal_value: >, fileID: 13, line: 255, column: 34
 Illegal TokenKind, TokenKind should be GT
-description: less, token_id: 53, token_literal_value: <, fileID: 10, line: 253, column: 34
+description: less, token_id: 53, token_literal_value: <, fileID: 13, line: 253, column: 34
 description: and, token_id: 16, token_literal_value: &&, fileID: 1, line: 52, column: 66
-description: comma, token_id: 1, token_literal_value: ,, fileID: 10, line: 291, column: 17
+description: comma, token_id: 1, token_literal_value: ,, fileID: 13, line: 291, column: 17
 description: or, token_id: 17, token_literal_value: ||, fileID: 1, line: 52, column: 78
-description: comma, token_id: 1, token_literal_value: ,, fileID: 10, line: 291, column: 17
+description: comma, token_id: 1, token_literal_value: ,, fileID: 13, line: 291, column: 17
 description: newline, token_id: 143, token_literal_value: \n, fileID: 1, line: 52, column: 89
-description: greater, token_id: 54, token_literal_value: >, fileID: 10, line: 255, column: 34
+description: greater, token_id: 54, token_literal_value: >, fileID: 13, line: 255, column: 34
 cnt = 2
 */
 

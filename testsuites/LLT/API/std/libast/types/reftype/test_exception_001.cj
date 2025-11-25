@@ -57,7 +57,7 @@ Cannot construct the 'RefType' node.
 parsing type error.
 description: less, token_id: 53, token_literal_value: <, fileID: 1, line: 33, column: 38
 description: greater, token_id: 54, token_literal_value: >, fileID: 1, line: 33, column: 44
-description: colon, token_id: 28, token_literal_value: :, fileID: 24, line: 23, column: 33
+description: colon, token_id: 28, token_literal_value: :, fileID: 27, line: 23, column: 33
 Illegal TokenKind, TokenKind should be COMMA
 cnt = 3
 */

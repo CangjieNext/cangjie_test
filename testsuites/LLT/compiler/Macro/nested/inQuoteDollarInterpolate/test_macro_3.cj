@@ -15,7 +15,7 @@ main(): Int64 {
 /* SCAN
 description: integer_literal, token_id: 139, token_literal_value: 1, fileID: 1, line: 10, column: 19
 description: add, token_id: 12, token_literal_value: +, fileID: 1, line: 10, column: 21
-description: integer_literal, token_id: 139, token_literal_value: 1, fileID: 23, line: 40, column: 26
+description: integer_literal, token_id: 139, token_literal_value: 1, fileID: 26, line: 40, column: 26
 */
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
