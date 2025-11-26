@@ -89,7 +89,7 @@ class TestHttpRequestBuilderInit {
         @Expect(req.version, newRequest.version)
         @Expect(req.bodySize, newRequest.bodySize)
         @Expect(req.form.toEncodeString(), newRequest.form.toEncodeString())
-        @Expect(req.close, newRequest.close)
+        @Expect(req.isPersistent, newRequest.isPersistent)
         @Expect(req.readTimeout, newRequest.readTimeout)
         @Expect(req.writeTimeout, newRequest.writeTimeout)
     }
