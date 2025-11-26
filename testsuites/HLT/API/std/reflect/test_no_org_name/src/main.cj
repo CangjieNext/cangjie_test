@@ -283,21 +283,22 @@ public func testClassInstanceFunction(): Unit {
         [TypeInfo.of<Int64>(), TypeInfo.get("test0.GenericClassWithConstraints<Int64,String,Bool>"),
             TypeInfo.get("test0.NonGenericClass")])
     foo.apply(instance, [])
-    let ins = tp.getInstanceFunction("instanceMemberFunction",
-        [TypeInfo.of<GenericStruct<Int64, String, Bool>>(),
-            TypeInfo.of<Array<GenericClassWithConstraints<Int64, String, Bool>>>()])
-    let r = ins.apply(instance,
-        [StructTypeInfo.get("test0.GenericStruct<Int64>").getConstructor([TypeInfo.of<Int64>()]).apply([666])])
-    let intVa = (r as Int64).getOrThrow()
-    println("intVa = ${intVa}")
-    let result = insta.apply(instance,
-        [114514, ClassTypeInfo.get("test0.GenericClassWithConstraints<Int64,String,Bool>").getConstructor().apply(),
-            ClassTypeInfo.get("test0.NonGenericClass").getConstructor().apply()])
-    let intvalue = (result as Int64).getOrThrow()
-    println("intvalue = ${intvalue}")
-    ClassTypeInfo.get("test0.NonGenericClass").name |> println
-    PackageInfo.get("test0").name |> println
-    TypeInfo.get("test0.NonGenericClass").name |> println
+    bug("") {
+        let ins = tp.getInstanceFunction("instanceMemberFunction",
+            [TypeInfo.of<GenericStruct<Int64, String, Bool>>(),
+                TypeInfo.of<Array<GenericClassWithConstraints<Int64, String, Bool>>>()])
+        let r = ins.apply(instance,
+            [StructTypeInfo.get("test0.GenericStruct<Int64>").getConstructor([TypeInfo.of<Int64>()]).apply([666])])
+        let intVa = (r as Int64).getOrThrow()
+        println("intVa = ${intVa}")
+    }
+    bug("generic constraint") {
+        let result = insta.apply(instance,
+            [114514, ClassTypeInfo.get("test0.GenericClassWithConstraints<Int64,String,Bool>").getConstructor().apply(),
+                ClassTypeInfo.get("test0.NonGenericClass").getConstructor().apply()])
+        let intvalue = (result as Int64).getOrThrow()
+        println("intvalue = ${intvalue}")
+    }
 }
 
 public func testStruct(): Unit {
@@ -422,12 +423,15 @@ public func testStructInstanceFunction(): Unit {
             ClassTypeInfo.get("test0.NonGenericStruct").getConstructor().apply()])
     let intvalue = (result as Int64).getOrThrow()
     println("intvalue = ${intvalue}")
-    ClassTypeInfo.get("test0.NonGenericStruct").name |> println
-    PackageInfo.get("test0").name |> println
-    TypeInfo.get("test0.NonGenericStruct").name |> println
+}
+
+public func testPackageInfo(): Unit {
+    assert(PackageInfo.get("test0").name, "test0")
+    assert(PackageInfo.get("test0").qualifiedName, "test0")
 }
 
 main(): Unit {
     testClass()
     testStruct()
+    testPackageInfo()
 }
