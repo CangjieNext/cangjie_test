@@ -159,3 +159,11 @@ public macro M13(input: Tokens) {
         @InnerM2(let class 1)
     )
 }
+
+public macro M14(input: Tokens) {
+    println("M14")
+    return quote(
+        @InnerM
+        $input
+    )
+}
