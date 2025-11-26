@@ -354,9 +354,6 @@ compiler/cli/Option/pgo/pgo_005.cj
 
 Regression/External/I4AZMP.cj
 
-# syntax will be supported in future
-API/syntax
-
 # timezone file in ci not support now
 API/std/time/TimeZone/load/test_loadFromPaths.cj
 

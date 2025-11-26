@@ -76,9 +76,6 @@ Tools/cjlint/rules/G_OTH_01/g_oth_01_10016/g_oth_01_10016.info
 Tools/cjlint/rules/G_SER_03/constraints/g_constraints_06_04/g_constraints_06_04.info
 Tools/cjlint/rules/G_OTH_03/g_oth_03_10026/g_oth_03.info
 
-# syntax will be supported in future
-API/syntax
-
 # timezone file in ci not support now
 API/std/time/TimeZone/load/test_loadFromPaths.cj
 
