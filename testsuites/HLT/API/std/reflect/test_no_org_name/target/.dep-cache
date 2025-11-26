@@ -23,57 +23,5 @@
       "mockUsed": false
     }
   },
-  "pkg-test": {
-    "E:\\cangjie_test_suite\\cangjie_test\\testsuites\\HLT\\API\\std\\reflect\\test_no_org_name\\src": {
-      "package": "test0",
-      "isMacro": false,
-      "accessLevel": "public",
-      "timeStamp": 1764069035,
-      "dependencies": [],
-      "std-dependencies": [
-        {
-          "orPackage": "",
-          "package": "std.reflect",
-          "isStd": true,
-          "imports": [
-            {
-              "file": "E:\\cangjie_test_suite\\cangjie_test\\testsuites\\HLT\\API\\std\\reflect\\test_no_org_name\\src\\main.cj"
-            }
-          ]
-        },
-        {
-          "orPackage": "",
-          "package": "std.unittest",
-          "isStd": true,
-          "imports": [
-            {
-              "file": "E:\\cangjie_test_suite\\cangjie_test\\testsuites\\HLT\\API\\std\\reflect\\test_no_org_name\\src\\main.cj"
-            }
-          ]
-        },
-        {
-          "orPackage": "",
-          "package": "std.unittest.common",
-          "isStd": true,
-          "imports": [
-            {
-              "file": "E:\\cangjie_test_suite\\cangjie_test\\testsuites\\HLT\\API\\std\\reflect\\test_no_org_name\\src\\main.cj"
-            }
-          ]
-        },
-        {
-          "orPackage": "",
-          "package": "std.unittest.testmacro",
-          "isStd": true,
-          "imports": [
-            {
-              "file": "E:\\cangjie_test_suite\\cangjie_test\\testsuites\\HLT\\API\\std\\reflect\\test_no_org_name\\src\\main.cj"
-            }
-          ]
-        }
-      ],
-      "testUsed": true,
-      "mockUsed": false
-    }
-  }
+  "pkg-test": {}
 }
