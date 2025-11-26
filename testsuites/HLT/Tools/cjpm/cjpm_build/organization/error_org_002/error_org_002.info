@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
+// (not Windows)ASSERT: scan Error: the 'name' field '_cj#_demo_1::test' in ./cjpm.toml is wrong, the example is 'cjDemo'
+// (Windows)ASSERT: scan Error: the 'name' field '_cj#_demo_1::test' in .\cjpm.toml is wrong, the example is 'cjDemo'
+// ASSERT: scan Error: cjpm build failed
