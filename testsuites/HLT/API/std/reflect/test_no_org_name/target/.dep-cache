@@ -1,11 +1,11 @@
 {
   "bin": {},
   "pkg-build": {
-    "E:\\cangjie_test_suite\\cangjie_test\\testsuites\\HLT\\API\\std\\reflect\\test_no_org_name\\src": {
+    "/home/pentium/cangjie_test_suite/cangjie_test/testsuites/HLT/API/std/reflect/test_no_org_name/src": {
       "package": "test0",
       "isMacro": false,
       "accessLevel": "public",
-      "timeStamp": 1764069145,
+      "timeStamp": 1764183879,
       "dependencies": [],
       "std-dependencies": [
         {
@@ -14,7 +14,7 @@
           "isStd": true,
           "imports": [
             {
-              "file": "E:\\cangjie_test_suite\\cangjie_test\\testsuites\\HLT\\API\\std\\reflect\\test_no_org_name\\src\\main.cj"
+              "file": "/home/pentium/cangjie_test_suite/cangjie_test/testsuites/HLT/API/std/reflect/test_no_org_name/src/main.cj"
             }
           ]
         }

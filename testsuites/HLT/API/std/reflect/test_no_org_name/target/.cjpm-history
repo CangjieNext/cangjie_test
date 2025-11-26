@@ -8,7 +8,7 @@
         "platformPaths": [
           {
             "_0": "package.src-dir",
-            "_1": "E:\\cangjie_test_suite\\cangjie_test\\testsuites\\HLT\\API\\std\\reflect\\test_no_org_name\\src"
+            "_1": "/home/pentium/cangjie_test_suite/cangjie_test/testsuites/HLT/API/std/reflect/test_no_org_name/src"
           }
         ]
       },
