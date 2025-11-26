@@ -24,7 +24,15 @@ public class C<T0, T1, T2> where T1 <: ToString {
 
 // 无泛型约束的泛型class
 public class C1<T0, T1, T2> {
-    public C1(public let v0: T0, public let v1: T1, public let v2: T2) {}
+    public C1(public var v0: T0, public let v1: T1, public let v2: T2) {}
+    public mut prop p0: T0 {
+        get() {
+            v0
+        }
+        set(v) {
+            v0 = v
+        }
+    }
     public func foo(): Unit {
         println("C<${TypeInfo.of<T0>()},${TypeInfo.of<T1>()},${TypeInfo.of<T2>()}>.foo")
     }
@@ -67,6 +75,43 @@ public func testGenricFunc(): Unit {
 
 public func testClass(): Unit {
     println("testClass=====")
+    // testClassInstanceFunction()
+    testClassInstanceVariable()
+    testClassInstanceProperty()
+}
+
+public func testClassStaticFunction(): Unit {
+}
+
+// 测试泛型class的泛型实例属性
+public func testClassInstanceProperty(): Unit {
+    let c = ClassTypeInfo.get("test0.C1<Int64,String,test0.F>")
+    let instance = c
+        .getConstructor([TypeInfo.of<Int64>(), TypeInfo.of<String>(), ClassTypeInfo.of(F())])
+        .apply([111, "hello", F()])
+    let instanceProperty = c.getInstanceProperty("p0")
+    // 读属性
+    println("instanceProperty.getValue(instance) = ${instanceProperty.getValue(instance) as Int64}")
+    // 写属性
+    instanceProperty.setValue(instance, 666)
+    // 再次读属性
+    println("instanceProperty.getValue(instance) = ${instanceProperty.getValue(instance) as Int64}")
+}
+
+// 测试泛型class的泛型实例变量
+public func testClassInstanceVariable(): Unit {
+    let c = ClassTypeInfo.get("test0.C1<Int64,String,test0.F>")
+    let i = c.getInstanceVariable("v0")
+    let instance = C1<Int64, String, F>(114514, "hello", F())
+    // 读取泛型实例成员变量
+    println("v0 = ${(i.getValue(instance) as Int64)}")
+    // 写入泛型实例成员变量
+    i.setValue(instance, 666)
+    // 再次读取泛型实例成员变量
+    println("v0 = ${(i.getValue(instance) as Int64)}")
+}
+
+public func testClassInstanceFunction(): Unit {
     let tp = ClassTypeInfo.get("test0.C<Int64,test0.C<Int64,String,Bool>,test0.F>")
     let c = tp.getConstructor()
     let instance = c.apply()
@@ -100,7 +145,7 @@ public func testStruct(): Unit {
 }
 
 main(): Unit {
-    testGenricFunc()
-    // testClass()
+    // testGenricFunc()
+    testClass()
     // testStruct()
 }
