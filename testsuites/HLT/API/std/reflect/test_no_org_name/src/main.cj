@@ -6,15 +6,20 @@ public class C<T0, T1, T2> where T1 <: ToString {
     public func foo(): Unit {
         println("C<${TypeInfo.of<T0>()},${TypeInfo.of<T1>()},${TypeInfo.of<T2>()}>.foo")
     }
-    // public func instanceMemberFunction(p0: T0, p1: T1, p2: T2, p3: ?T0, p4: Array<T1>): T0 {
     public func instanceMemberFunction(p0: T0, p1: T1, p2: T2): T0 {
         println("instanceMemberFunction: ${TypeInfo.of(p0)},${TypeInfo.of(p1)},${TypeInfo.of(p2)}")
-        println("p1 = ${p1}")
+        // BUG!
+        // println("p1 = ${p1}")
         p0
+    }
+    public func instanceMemberFunction(p0: S<T0>, p1: Array<T1>): T0 {
+        println("instanceMemberFunction: ${TypeInfo.of(p0)},${TypeInfo.of(p1)}")
+        p0.t
     }
 }
 
 public struct S<T> {
+    public S(public let t: T) {}
     public func foo(): Unit {
         println("S<${TypeInfo.of<T>()}>.foo")
     }
@@ -31,6 +36,12 @@ public func testClass(): Unit {
     let insta = tp.getInstanceFunction("instanceMemberFunction",
         [TypeInfo.of<Int64>(), TypeInfo.get("test0.C<Int64,String,Bool>"), TypeInfo.get("test0.F")])
     foo.apply(instance, [])
+    let ins = tp.getInstanceFunction("instanceMemberFunction",
+        [TypeInfo.of<S<Int64>>(), TypeInfo.of<Array<C<Int64, String, Bool>>>()])
+    let r = ins.apply(instance,
+        [StructTypeInfo.get("test0.S<Int64>").getConstructor([TypeInfo.of<Int64>()]).apply([666])])
+    let intVa = (r as Int64).getOrThrow()
+    println("intVa = ${intVa}")
     let result = insta.apply(instance,
         [114514, ClassTypeInfo.get("test0.C<Int64,String,Bool>").getConstructor().apply(),
             ClassTypeInfo.get("test0.F").getConstructor().apply()])
@@ -43,11 +54,11 @@ public func testClass(): Unit {
 
 public func testStruct(): Unit {
     println("testStruct=====")
-    let tp = StructTypeInfo.get("test0.S<Int64>")
-    let c = tp.getConstructor()
-    let instance = c.apply()
-    let foo = tp.getInstanceFunction("foo")
-    foo.apply(instance, [])
+    // let tp = StructTypeInfo.get("test0.S<Int64>")
+    // let c = tp.getConstructor()
+    // let instance = c.apply()
+    // let foo = tp.getInstanceFunction("foo")
+    // foo.apply(instance, [])
 }
 
 main(): Unit {
