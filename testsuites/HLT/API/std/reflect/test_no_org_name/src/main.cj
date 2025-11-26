@@ -2,6 +2,7 @@ package test0
 
 import std.reflect.*
 
+// 带有泛型约束的泛型class
 public class C<T0, T1, T2> where T1 <: ToString {
     public func foo(): Unit {
         println("C<${TypeInfo.of<T0>()},${TypeInfo.of<T1>()},${TypeInfo.of<T2>()}>.foo")
@@ -16,6 +17,32 @@ public class C<T0, T1, T2> where T1 <: ToString {
         println("instanceMemberFunction: ${TypeInfo.of(p0)},${TypeInfo.of(p1)}")
         p0.t
     }
+    public func genericInstanceFunction<F0, F1>(p0: C<F0, Int64, F1>): Unit {
+        println("genericInstanceFunction: ${ClassTypeInfo.of(p0)}")
+    }
+}
+
+// 无泛型约束的泛型class
+public class C1<T0, T1, T2> {
+    public C1(public let v0: T0, public let v1: T1, public let v2: T2) {}
+    public func foo(): Unit {
+        println("C<${TypeInfo.of<T0>()},${TypeInfo.of<T1>()},${TypeInfo.of<T2>()}>.foo")
+    }
+    public func instanceMemberFunction(p0: T0, p1: T1, p2: T2): T0 {
+        println("instanceMemberFunction: ${TypeInfo.of(p0)},${TypeInfo.of(p1)},${TypeInfo.of(p2)}")
+        // BUG!
+        // println("p1 = ${p1}")
+        p0
+    }
+    public func instanceMemberFunction(p0: S<T0>, p1: Array<T1>): T0 {
+        println("instanceMemberFunction: ${TypeInfo.of(p0)},${TypeInfo.of(p1)}")
+        p0.t
+    }
+    // 同时使用到类型泛型和函数泛型
+    public func genericInstanceFunction<F0, F1>(p0: C1<F0, Int64, T0>): Int64 {
+        println("genericInstanceFunction: ${ClassTypeInfo.of(p0)}")
+        114514
+    }
 }
 
 public struct S<T> {
@@ -26,6 +53,17 @@ public struct S<T> {
 }
 
 public class F {}
+
+public func testGenricFunc(): Unit {
+    let c = ClassTypeInfo.get("test0.C1<Int64,String,test0.F>")
+    let i = c
+        .getConstructor([TypeInfo.of<Int64>(), TypeInfo.of<String>(), ClassTypeInfo.of(F())])
+        .apply([111, "hello", F()])
+    let r = c
+        .getInstanceFunctions("genericInstanceFunction")[0]
+        .apply(i, [TypeInfo.of<Int64>(), TypeInfo.of<String>()], [C1<Int64, Int64, Int64>(1, 2, 3)])
+    (r as Int64) |> println
+}
 
 public func testClass(): Unit {
     println("testClass=====")
@@ -62,6 +100,7 @@ public func testStruct(): Unit {
 }
 
 main(): Unit {
-    testClass()
-    testStruct()
+    testGenricFunc()
+    // testClass()
+    // testStruct()
 }
