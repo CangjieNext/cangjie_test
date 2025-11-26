@@ -92,7 +92,7 @@ class DirectoryLinuxTest {
             remove(dirname01, recursive: true)
             Directory.isEmpty(FileInfo(dirname01).path)
         } catch (e: FSException) {
-            @Expect(e.message,"The path `./data/directory/yur` does not exist.")
+            @Expect(e.message,"The input path `./data/directory/yur` does not exist.")
             countError++
         }
         try {
@@ -104,7 +104,7 @@ class DirectoryLinuxTest {
             remove(dirname02, recursive: true)
             Directory.isEmpty(dirname02)
         } catch (e: FSException) {
-            @Expect(e.message, "The path `mytestdir0001` does not exist.")
+            @Expect(e.message, "The input path `mytestdir0001` does not exist.")
             countError++
         }
         @Expect(countError,2)
@@ -162,13 +162,8 @@ class DirectoryLinuxTest {
         for (fi in fileInfos where fi.isSymbolicLink()) {
             set.add(fi.path.fileName)
         }
-        if (!set.contains("real_link")) {
-            @Expect(false)
-        }
-        if (!set.contains("fake_link")) {
-            @Expect(false)
-        }
-        @Expect(true)
+        @Expect(set.contains("real_link"))
+        @Expect(set.contains("fake_link"))
     }
 
     /*
@@ -304,7 +299,7 @@ class DirectoryLinuxTest {
                 Directory.create(path)
             }
         } catch (e: FSException) {
-            @Expect(e.message,"The path `${path}` is already exists.")
+            @Expect(e.message,"The input path `${path}` is already exists.")
             countError++
         } finally {
             if (exists(path)) {
@@ -343,7 +338,7 @@ class DirectoryLinuxTest {
         try {
             Directory.create(path)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to create directory `${path}`: \"File name too long\".")
+            @Expect(e.message,"Failed to create directory `${path}` return -36: \"File name too long\".")
             countError++
         }
         path = "//"
@@ -387,7 +382,7 @@ class DirectoryLinuxTest {
         try {
             Directory.createTemp(path)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to canonical: the path `${path}` may not exist or permission denied!")
+            @Expect(e.message,"Failed to canonical: the input path `${path}` may not exist or permission denied!")
             countError++
         }
 

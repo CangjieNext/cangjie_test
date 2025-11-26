@@ -52,7 +52,7 @@ class Test_Path_FileName {
             try {
                 Path(str).fileName
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The rawPath value ${unsafe { str.rawData() }} contains null character.")
+                @Expect(e.message, "The path value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
         }
