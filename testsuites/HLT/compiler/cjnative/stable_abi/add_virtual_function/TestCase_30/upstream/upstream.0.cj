@@ -6,30 +6,54 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package upstream
+package abc
 
 import std.reflect.*
 
-public open class UpStreamParent<T0> <: NewParent<T0> {
-    func UpStreamParent_instanceMemberFunction(): Unit {
-        println("UpStreamParent<${TypeInfo.of<T0>()}>.UpStreamParent_instanceMemberFunction")
+public interface UpStreamParent<T0> {
+    func UpStreamParent_NonMutInstanceMemberFunction(): Unit {
+        println("UpStreamParent<${TypeInfo.of<T0>()}>.UpStreamParent_NonMutInstanceMemberFunction")
+    }
+
+    mut func UpStreamParent_MutInstanceMemberFunction(): Unit {
+        println("UpStreamParent<${TypeInfo.of<T0>()}>.UpStreamParent_MutInstanceMemberFunction")
     }
 
     static func UpStreamParent_staticMemberFunction(): Unit {
         println("UpStreamParent<${TypeInfo.of<T0>()}>.UpStreamParent_staticMemberFunction")
     }
 
-    prop UpStreamParent_instanceMemberProperty: Int64 {
+    prop UpStreamParent_NonMutInstanceMemberProperty: Int64 {
         get() {
-            println("UpStreamParent<${TypeInfo.of<T0>()}>.UpStreamParent_instanceMemberProperty")
+            println("UpStreamParent<${TypeInfo.of<T0>()}>.UpStreamParent_NonMutInstanceMemberProperty")
             114514i64
         }
     }
 
-    static prop UpStreamParent_staticMemberProperty: Int64 {
+    mut prop UpStreamParent_MutInstanceMemberProperty: Int64 {
         get() {
-            println("UpStreamParent<?>.UpStreamParent_staticMemberProperty")
+            println("UpStreamParent<${TypeInfo.of<T0>()}>.UpStreamParent_MutInstanceMemberProperty")
             114514i64
+        }
+        set(v) {
+            println("UpStreamParent<${TypeInfo.of<T0>()}>.UpStreamParent_MutInstanceMemberProperty")
+        }
+    }
+
+    static prop UpStreamParent_NonMutStaticMemberProperty: Int64 {
+        get() {
+            println("UpStreamParent<?>.UpStreamParent_NonMutStaticMemberProperty")
+            114514i64
+        }
+    }
+
+    mut static prop UpStreamParent_MutStaticMemberProperty: Int64 {
+        get() {
+            println("UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty")
+            114514i64
+        }
+        set(v) {
+            println("UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty")
         }
     }
 }
@@ -84,32 +108,37 @@ public interface NewParent<T0> {
     }
 }
 
+extend<T0> UpStreamChild<T0> <: NewParent<T0> {}
+
 public func checkParent<F0>(i: UpStreamParent<F0>): Unit {
     var instance = i
-    instance.UpStreamParent_instanceMemberFunction()
-    instance.UpStreamParent_instanceMemberProperty
+    instance.UpStreamParent_NonMutInstanceMemberFunction()
+    instance.UpStreamParent_MutInstanceMemberFunction()
+    instance.UpStreamParent_NonMutInstanceMemberProperty
+    instance.UpStreamParent_MutInstanceMemberProperty
+    instance.UpStreamParent_MutInstanceMemberProperty = 1i64
     UpStreamParent<F0>.UpStreamParent_staticMemberFunction()
-    UpStreamParent<F0>.UpStreamParent_staticMemberProperty
-    instance.NewParent_MutInstanceMemberFunction()
-    instance.NewParent_NonMutInstanceMemberFunction()
-    UpStreamParent<F0>.NewParent_StaticMemberFunction()
-    instance.NewParent_MutInstanceMemberProperty
-    instance.NewParent_MutInstanceMemberProperty = 1i64
-    instance.NewParent_NonMutInstanceMemberProperty
-    UpStreamParent<F0>.NewParent_NonMutStaticMemberProperty
-    UpStreamParent<F0>.NewParent_MutStaticMemberProperty
-    UpStreamParent<F0>.NewParent_MutStaticMemberProperty = 1i64
+    UpStreamParent<F0>.UpStreamParent_NonMutStaticMemberProperty
+    UpStreamParent<F0>.UpStreamParent_MutStaticMemberProperty
+    UpStreamParent<F0>.UpStreamParent_MutStaticMemberProperty = 1i64
 }
 
 public func checkChild<F0>(i: UpStreamChild<F0>): Unit {
     var instance = i
+    instance.UpStreamParent_NonMutInstanceMemberFunction()
+    instance.UpStreamParent_MutInstanceMemberFunction()
+    UpStreamChild<F0>.UpStreamParent_staticMemberFunction()
+    instance.UpStreamParent_NonMutInstanceMemberProperty
+    instance.UpStreamParent_MutInstanceMemberProperty
+    instance.UpStreamParent_MutInstanceMemberProperty = 1i64
+    UpStreamChild<F0>.UpStreamParent_NonMutStaticMemberProperty
+    UpStreamChild<F0>.UpStreamParent_MutStaticMemberProperty
+    UpStreamChild<F0>.UpStreamParent_MutStaticMemberProperty = 1i64
 }
 
 public func checkStatic<P, T0>(): Unit where P <: UpStreamParent<T0> {
     P.UpStreamParent_staticMemberFunction()
-    P.UpStreamParent_staticMemberProperty
-    P.NewParent_StaticMemberFunction()
-    P.NewParent_NonMutStaticMemberProperty
-    P.NewParent_MutStaticMemberProperty
-    P.NewParent_MutStaticMemberProperty = 1i64
+    P.UpStreamParent_NonMutStaticMemberProperty
+    P.UpStreamParent_MutStaticMemberProperty
+    P.UpStreamParent_MutStaticMemberProperty = 1i64
 }

@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package upstream
+package abc.edf
 
 import std.reflect.*
 
@@ -61,7 +61,7 @@ public interface UpStreamParent<T0, T1> {
     }
 }
 
-public interface UpStreamChild<T0, T1> <: UpStreamParent<T0, T1> & NewParent<T0> {}
+public struct UpStreamChild<T0, T1> <: UpStreamParent<T0, T1> {}
 
 public interface NewParent<T0> {
     public mut func NewParent_MutInstanceMemberFunction(): Unit {
@@ -135,15 +135,6 @@ public func checkChild<F0, F1>(i: UpStreamChild<F0, F1>): Unit {
     UpStreamChild<F0, F1>.UpStreamParent_NonMutStaticMemberProperty
     UpStreamChild<F0, F1>.UpStreamParent_MutStaticMemberProperty
     UpStreamChild<F0, F1>.UpStreamParent_MutStaticMemberProperty = 1i64
-    instance.NewParent_MutInstanceMemberFunction()
-    instance.NewParent_NonMutInstanceMemberFunction()
-    UpStreamChild<F0, F1>.NewParent_StaticMemberFunction()
-    instance.NewParent_MutInstanceMemberProperty
-    instance.NewParent_MutInstanceMemberProperty = 1i64
-    instance.NewParent_NonMutInstanceMemberProperty
-    UpStreamChild<F0, F1>.NewParent_NonMutStaticMemberProperty
-    UpStreamChild<F0, F1>.NewParent_MutStaticMemberProperty
-    UpStreamChild<F0, F1>.NewParent_MutStaticMemberProperty = 1i64
 }
 
 public func checkStatic<P, T0, T1>(): Unit where P <: UpStreamParent<T0, T1> {

@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package upstream
+package abc.edf
 
 import std.reflect.*
 
@@ -58,7 +58,7 @@ public interface UpStreamParent<T0> <: NewParent<T0> {
     }
 }
 
-public interface UpStreamChild<T0, T1> <: UpStreamParent<T1> {}
+public open class UpStreamChild<T0> <: UpStreamParent<T0> {}
 
 public interface NewParent<T0> {
     public mut func NewParent_MutInstanceMemberFunction(): Unit {
@@ -130,17 +130,17 @@ public func checkParent<F0>(i: UpStreamParent<F0>): Unit {
     UpStreamParent<F0>.NewParent_MutStaticMemberProperty = 1i64
 }
 
-public func checkChild<F0, F1>(i: UpStreamChild<F0, F1>): Unit {
+public func checkChild<F0>(i: UpStreamChild<F0>): Unit {
     var instance = i
     instance.UpStreamParent_NonMutInstanceMemberFunction()
     instance.UpStreamParent_MutInstanceMemberFunction()
-    UpStreamChild<F0, F1>.UpStreamParent_staticMemberFunction()
+    UpStreamChild<F0>.UpStreamParent_staticMemberFunction()
     instance.UpStreamParent_NonMutInstanceMemberProperty
     instance.UpStreamParent_MutInstanceMemberProperty
     instance.UpStreamParent_MutInstanceMemberProperty = 1i64
-    UpStreamChild<F0, F1>.UpStreamParent_NonMutStaticMemberProperty
-    UpStreamChild<F0, F1>.UpStreamParent_MutStaticMemberProperty
-    UpStreamChild<F0, F1>.UpStreamParent_MutStaticMemberProperty = 1i64
+    UpStreamChild<F0>.UpStreamParent_NonMutStaticMemberProperty
+    UpStreamChild<F0>.UpStreamParent_MutStaticMemberProperty
+    UpStreamChild<F0>.UpStreamParent_MutStaticMemberProperty = 1i64
 }
 
 public func checkStatic<P, T0>(): Unit where P <: UpStreamParent<T0> {
