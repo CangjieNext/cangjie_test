@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // ERRCHECK:cd %n && %cjpm update
-// ASSERT: regex the 'name' field ' 1fjgk' in .[/|\\]cjpm.toml is wrong, the example is 'cjDemo'
+// ASSERT: regex the 'name' field ' 1fjgk' in 'package' field at .[/|\\]cjpm.toml is wrong, the example is 'cjDemo'

@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // ERRCHECK:cd %n && %cjpm update
-// ASSERT: regex the 'name' field '1_AZ___123' in 'dependencies' field at .[/|\\]cjpm.toml is wrong, the example is 'cjDemo'
+// ASSERT: regex the name of dependency '1_AZ___123' in 'dependencies' field at .[/|\\]cjpm.toml is wrong, the example is 'cjDemo'

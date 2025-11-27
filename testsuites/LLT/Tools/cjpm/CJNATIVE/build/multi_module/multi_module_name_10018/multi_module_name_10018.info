@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // ERRCHECK: cd %n && %cjpm build
-// ASSERT: regex Error: the 'name' field '`date`' in 'dependencies' field at .*cjpm.toml is wrong, the example is 'cjDemo'
+// ASSERT: regex Error: the name of dependency '`date`' in 'dependencies' field at .*cjpm.toml is wrong, the example is 'cjDemo' or 'cjOrg::cjDemo'

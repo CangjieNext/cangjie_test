@@ -9,6 +9,6 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %export AAA=-g && %export version=0.41.1 && %cjpm build %cjpm_opt -V 2>&1 | compare %f
-// ASSERT: regex Error: the 'cjc-version' field '\${version}' in .[/|\\]cjpm.toml is wrong, the example is '1.0.0'
+// ASSERT: regex Error: the 'cjc-version' field '\${version}' in 'package' field at .[/|\\]cjpm.toml is wrong, the example is '1.0.0'
 // ASSERT: scan cjpm build failed
 
