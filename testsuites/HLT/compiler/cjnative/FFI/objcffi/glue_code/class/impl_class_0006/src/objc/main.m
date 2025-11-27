@@ -14,8 +14,8 @@ int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [[A alloc] init: 10];
         A* a0 = [a foo: 12];
-        signed char value = [a0 getValue];
-        NSLog(@"value = %hhd\n", value);
+        signed char result = [a0 getValue];
+        NSLog(@"result = %hhd\n", value);
     }
     return 0;
 }
