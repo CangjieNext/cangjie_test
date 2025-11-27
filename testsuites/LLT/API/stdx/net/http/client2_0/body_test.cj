@@ -79,6 +79,20 @@ class TestBody {
         asanGC()
     }
 
+    @TestCase
+    func testAbortBody(): Unit {
+		let req = HttpRequestBuilder()
+			.version(HTTP2_0)
+			.url("https://127.0.0.1:${server.port}/hd2")
+			.body(RandomBody())
+			.build()
+		let resp = client.send(req)
+		let buf = Array<UInt8>(128, repeat: 0)
+		resp.close()
+
+		println("close body ok")
+    }
+
     func startServer(): Unit {
         server.logger.level = LogLevel.TRACE
         server
@@ -88,6 +102,9 @@ class TestBody {
         spawn {
             server.serve()
         }
+        client.close()
+        server.close()
+        asanGC()
     }
 }
 

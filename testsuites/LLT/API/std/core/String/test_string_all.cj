@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt %run_args 
+// RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt %run_args
 
 import std.collection.*
 import std.math.*
@@ -912,6 +912,30 @@ class StringTest {
         let trim1 = str1.trimStart(r'@')
         let trim2 = str2.trimEnd(r'$')
         @Expect(trim1.equalsIgnoreAsciiCase(trim2))
+    }
+
+    @TestCase
+    func test_checkUtf8Encoding() {
+        var array: Array<Byte> = [0XE4, 0XB8, 0XAD, 0XE5]
+        @Expect(String.checkUtf8Encoding(array), false)
+
+        array = "cangjie仓颉".toArray()
+        @Expect(String.checkUtf8Encoding(array[..8]), false)
+    }
+
+    @TestCase
+    func testUnsafeCreate() {
+        var array = "0123456789abcde".toArray()
+        @Expect(unsafe { String.withRawData(array) }, "0123456789abcde")
+        array = [0XE4, 0XB8, 0XAD, 0XE5]
+        let string = unsafe { String.fromUtf8Unchecked(array) }
+
+        try {
+            string.compare("abc")
+        } catch(e:IllegalArgumentException) {
+            @Expect(e.message, "Invalid utf8 byte sequence")
+        }
+        ()
     }
 }
 
