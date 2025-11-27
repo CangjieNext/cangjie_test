@@ -227,11 +227,11 @@ class DirectoryWindowsTest {
     @TestCase
     func testInputInValidCreate(): Unit {
         var countError = 0
-        var path = ./aaa/bbb"
+        var path = "./aaa/bbb"
         try {
             Directory.create(path)
         } catch (e: FSException) {
-            @Expect(e.message,"Failed to create directory `${path}`, parent directory: `./aaa` does not exist.")
+            @Expect(e.message,"Failed to create directory `${path}`, parent directory `./aaa` does not exist.")
             countError++
         }
         path = "./data/directory/qwe"

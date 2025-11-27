@@ -522,14 +522,14 @@ class PathWindowsTest {
         try {
             println(path.normalize())
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Path `${path}` cannot contain `\??\`!")
+            @Expect(e.message, "Path `${path}` cannot contain `\\??\\`!")
             countError++
         }
 
         try {
             println(Path(#"\"#).join(Path(#"??"#)).join("b"))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Path `??` cannot contain `\??\`!")
+            @Expect(e.message, "Path `??` cannot contain `\\??\\`!")
             countError++
         }
 

@@ -176,10 +176,3 @@ compiler/CJMP/java/integration/non-public-enum/non-public-enum.info
 compiler/CJMP/java/integration/non-public-struct/non-public-struct.info
 compiler/Driver/options/help/test_showall.cj
 compiler/Sema/this/thisfuncchain.cj
-API/std/fs/test_directory_linux.cj
-API/std/fs/test_file_linux.cj
-API/std/fs/test_file_unix.cj
-API/stdx/syntax/testParse/test_parse_file.cj
-API/stdx/syntax/testParse/test_parse_package.cj
-API/std/fs/test_directory_windows.cj
-API/std/fs/test_path_windows.cj
