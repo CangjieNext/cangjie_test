@@ -6,16 +6,17 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-#import "A.h"
+// #import "A.h"
+#import "B.h"
 #import <Foundation/Foundation.h>
 
 int main(int argc, char** argv) {
     @autoreleasepool {
-        A* a = [[A alloc] init];
+        // A* a = [[A alloc] init];
         B* b = [[B alloc] init];
-        float resultA = [a foo: 114.514];
+        // float resultA = [a foo: 114.514];
         double resultB = [b foo: 114.514];
-        NSLog(@"resultA = %f\n", resultA);
+        // NSLog(@"resultA = %f\n", resultA);
         NSLog(@"resultB = %f\n", resultB);
     }
     return 0;
