@@ -1556,6 +1556,7 @@ compiler/CJMP/java/integration/multi-package/mirror_inherit_mirror/abstract_clas
 compiler/CJMP/java/integration/nested-classes/test.cj
 compiler/CJMP/java/integration/non-public-enum/non-public-enum.info
 compiler/CJMP/java/integration/non-public-struct/non-public-struct.info
+<<<<<<< HEAD
 compiler/CJMP/java/integration/public-enum-with-private/public-enum-with-private.info
 compiler/CJMP/java/integration/public-struct-mapping/public-struct-mapping.info
 compiler/CJMP/java/integration/public-struct-private-member/public-struct-private-member.info
@@ -3252,3 +3253,7 @@ API/stdx/syntax/testParse/test_parse_package.cj
 API/std/fs/test_directory_windows.cj
 API/std/fs/test_path_windows.cj
 >>>>>>> 09d4a73997 (fix: optimize exceptions of std.fs)
+=======
+compiler/Driver/options/help/test_showall.cj
+compiler/Sema/this/thisfuncchain.cj
+>>>>>>> 11dfd2dc67 (fix: optimize std.fs exception)
