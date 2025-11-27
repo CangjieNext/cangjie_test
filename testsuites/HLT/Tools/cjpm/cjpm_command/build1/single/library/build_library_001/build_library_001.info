@@ -9,4 +9,4 @@
 // LEVEL:0
 // DEPENDENCE: ../%n
 // ERRCHECK:cd %n && %cjpm build %cjpm_opt
-// ASSERT:regex the 'output-type' field in .[/|\\]cjpm.toml is wrong, optional value are 'static[/|\\]dynamic[/|\\]executable'.
+// ASSERT:regex the 'output-type' field in 'package' field at .[/|\\]cjpm.toml is wrong, optional value are 'static[/|\\]dynamic[/|\\]executable'.
