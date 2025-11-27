@@ -7,18 +7,20 @@
  */
 
  package com::abc
-import abc.edf.*
+import abc.*
 import std.reflect.*
-public enum DownStreamTypeInheritingUpStreamChild <:UpStreamChild<String, Bool>  {
-| A
+public class DownStreamTypeInheritingUpStreamChild <:UpStreamChild<Float64> {
+~init() {
 }
-public enum DownStreamTypeInheritingUpStreamParent <:UpStreamParent<String, Bool>  {
-| A
+}
+public class DownStreamTypeInheritingUpStreamParent <:UpStreamParent<Float64> {
+~init() {
+}
 }
 main(): Unit{
-let child = DownStreamTypeInheritingUpStreamChild.A
+let child = DownStreamTypeInheritingUpStreamChild()
 checkChild(child)
-let parent = DownStreamTypeInheritingUpStreamParent.A
+let parent = DownStreamTypeInheritingUpStreamParent()
 checkParent(parent)
-checkStatic<DownStreamTypeInheritingUpStreamParent, String, Bool>()
+checkStatic<DownStreamTypeInheritingUpStreamParent, Float64>()
 }

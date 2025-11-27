@@ -6,14 +6,14 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
- package com::pkg2
-import com::pkga.*
+ package com::abc
+import abc.*
 import std.reflect.*
-public class DownStreamTypeInheritingUpStreamChild <:UpStreamChild<Float64> {
+public class DownStreamTypeInheritingUpStreamChild <:UpStreamChild<String, Bool> {
 ~init() {
 }
 }
-public interface DownStreamTypeInheritingUpStreamParent <:UpStreamParent<Float64> {
+public interface DownStreamTypeInheritingUpStreamParent <:UpStreamParent<String, Bool> {
 }
 public class ParentClass <:DownStreamTypeInheritingUpStreamParent {
 ~init() {
@@ -24,5 +24,5 @@ let child = DownStreamTypeInheritingUpStreamChild()
 checkChild(child)
 let parent = ParentClass()
 checkParent(parent)
-checkStatic<DownStreamTypeInheritingUpStreamParent, Float64>()
+checkStatic<DownStreamTypeInheritingUpStreamParent, String, Bool>()
 }

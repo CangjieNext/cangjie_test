@@ -7,14 +7,20 @@
  */
 
  package com::abc
-import abc.edf.*
+import abc.*
 import std.reflect.*
-public struct DownStreamTypeInheritingUpStreamParent  <:UpStreamParent<Float64> {
+public class DownStreamTypeInheritingUpStreamChild <:UpStreamChild<String, Bool> {
+~init() {
+}
+}
+public class DownStreamTypeInheritingUpStreamParent <:UpStreamParent<String, Bool> {
+~init() {
+}
 }
 main(): Unit{
-let child = UpStreamChild<Float64>()
+let child = DownStreamTypeInheritingUpStreamChild()
 checkChild(child)
 let parent = DownStreamTypeInheritingUpStreamParent()
 checkParent(parent)
-checkStatic<DownStreamTypeInheritingUpStreamParent, Float64>()
+checkStatic<DownStreamTypeInheritingUpStreamParent, String, Bool>()
 }

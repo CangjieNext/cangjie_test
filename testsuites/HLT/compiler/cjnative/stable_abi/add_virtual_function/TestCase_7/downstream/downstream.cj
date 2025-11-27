@@ -6,8 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
- package com::pkg2
-import abc.edf.*
+ package com::abc
+import abc.*
 import std.reflect.*
 public class DownStreamTypeInheritingUpStreamChild <:UpStreamChild<Float64> {
 ~init() {

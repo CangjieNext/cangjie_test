@@ -6,21 +6,19 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
- package com::pkg2
-import abc.edf.*
+ package com::abc
+import abc.*
 import std.reflect.*
-public class DownStreamTypeInheritingUpStreamChild <:UpStreamChild<String, Bool> {
-~init() {
+public interface DownStreamTypeInheritingUpStreamParent <:UpStreamParent<Float64> {
 }
-}
-public class DownStreamTypeInheritingUpStreamParent <:UpStreamParent<String, Bool> {
+public class ParentClass <:DownStreamTypeInheritingUpStreamParent {
 ~init() {
 }
 }
 main(): Unit{
-let child = DownStreamTypeInheritingUpStreamChild()
+let child = UpStreamChild<Float64>()
 checkChild(child)
-let parent = DownStreamTypeInheritingUpStreamParent()
+let parent = ParentClass()
 checkParent(parent)
-checkStatic<DownStreamTypeInheritingUpStreamParent, String, Bool>()
+checkStatic<DownStreamTypeInheritingUpStreamParent, Float64>()
 }

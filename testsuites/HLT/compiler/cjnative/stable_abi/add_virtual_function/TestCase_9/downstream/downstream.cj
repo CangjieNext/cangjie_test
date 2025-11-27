@@ -7,18 +7,22 @@
  */
 
  package com::abc
-import com::pkga.*
+import abc.*
 import std.reflect.*
-public interface DownStreamTypeInheritingUpStreamParent <:UpStreamParent<String, Bool> {
+public class DownStreamTypeInheritingUpStreamChild <:UpStreamChild<Float64> {
+~init() {
+}
+}
+public interface DownStreamTypeInheritingUpStreamParent <:UpStreamParent<Float64> {
 }
 public class ParentClass <:DownStreamTypeInheritingUpStreamParent {
 ~init() {
 }
 }
 main(): Unit{
-let child = UpStreamChild<String, Bool>()
+let child = DownStreamTypeInheritingUpStreamChild()
 checkChild(child)
 let parent = ParentClass()
 checkParent(parent)
-checkStatic<DownStreamTypeInheritingUpStreamParent, String, Bool>()
+checkStatic<DownStreamTypeInheritingUpStreamParent, Float64>()
 }

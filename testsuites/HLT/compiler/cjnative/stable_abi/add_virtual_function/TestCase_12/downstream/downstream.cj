@@ -6,19 +6,25 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
- package com::pkg2
-import com::pkga.*
+ package com::abc
+import abc.*
 import std.reflect.*
-public enum DownStreamTypeInheritingUpStreamChild <:UpStreamChild<Float64>  {
-| A
+public interface DownStreamTypeInheritingUpStreamChild <:UpStreamChild<Float64> {
 }
-public enum DownStreamTypeInheritingUpStreamParent <:UpStreamParent<Float64>  {
-| A
+public class ChildClass <:DownStreamTypeInheritingUpStreamChild {
+~init() {
+}
+}
+public interface DownStreamTypeInheritingUpStreamParent <:UpStreamParent<Float64> {
+}
+public class ParentClass <:DownStreamTypeInheritingUpStreamParent {
+~init() {
+}
 }
 main(): Unit{
-let child = DownStreamTypeInheritingUpStreamChild.A
+let child = ChildClass()
 checkChild(child)
-let parent = DownStreamTypeInheritingUpStreamParent.A
+let parent = ParentClass()
 checkParent(parent)
 checkStatic<DownStreamTypeInheritingUpStreamParent, Float64>()
 }

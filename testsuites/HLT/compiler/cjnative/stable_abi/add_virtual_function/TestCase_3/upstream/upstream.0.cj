@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
- package com::pkga
+ package abc
 import std.reflect.*
 public interface UpStreamParent<T0> {
 func UpStreamParent_NonMutInstanceMemberFunction(): Unit  {
@@ -58,34 +58,34 @@ println("UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty")
 }
 
 }
-public open class UpStreamChild<T0> <:UpStreamParent<T0> & NewParent<T0> {
+public struct UpStreamChild<T0>  <:UpStreamParent<T0> & NewParent {
 }
-public interface NewParent<T0> {
+public interface NewParent {
 public mut func NewParent_MutInstanceMemberFunction(): Unit  {
-println("NewParent<${TypeInfo.of<T0>()}>.NewParent_MutInstanceMemberFunction")
+println("NewParent<>.NewParent_MutInstanceMemberFunction")
 }
 
 public func NewParent_NonMutInstanceMemberFunction(): Unit  {
-println("NewParent<${TypeInfo.of<T0>()}>.NewParent_NonMutInstanceMemberFunction")
+println("NewParent<>.NewParent_NonMutInstanceMemberFunction")
 }
 
 public static func NewParent_StaticMemberFunction(): Unit  {
-println("NewParent<${TypeInfo.of<T0>()}>.NewParent_StaticMemberFunction")
+println("NewParent<>.NewParent_StaticMemberFunction")
 }
 
 public mut  prop NewParent_MutInstanceMemberProperty: Int64 {
 get() {
-println("NewParent<${TypeInfo.of<T0>()}>.NewParent_MutInstanceMemberProperty")
+println("NewParent<>.NewParent_MutInstanceMemberProperty")
 114514i64
 }
 set(v){
-println("NewParent<${TypeInfo.of<T0>()}>.NewParent_MutInstanceMemberProperty")
+println("NewParent<>.NewParent_MutInstanceMemberProperty")
 }
 }
 
 public  prop NewParent_NonMutInstanceMemberProperty: Int64 {
 get() {
-println("NewParent<${TypeInfo.of<T0>()}>.NewParent_NonMutInstanceMemberProperty")
+println("NewParent<>.NewParent_NonMutInstanceMemberProperty")
 114514i64
 }
 
@@ -93,7 +93,7 @@ println("NewParent<${TypeInfo.of<T0>()}>.NewParent_NonMutInstanceMemberProperty"
 
 static public  prop NewParent_NonMutStaticMemberProperty: Int64 {
 get() {
-println("NewParent<?>.NewParent_NonMutStaticMemberProperty")
+println("NewParent<>.NewParent_NonMutStaticMemberProperty")
 114514i64
 }
 
@@ -101,11 +101,11 @@ println("NewParent<?>.NewParent_NonMutStaticMemberProperty")
 
 static public mut  prop NewParent_MutStaticMemberProperty: Int64 {
 get() {
-println("NewParent<?>.NewParent_MutStaticMemberProperty")
+println("NewParent<>.NewParent_MutStaticMemberProperty")
 114514i64
 }
 set(v){
-println("NewParent<?>.NewParent_MutStaticMemberProperty")
+println("NewParent<>.NewParent_MutStaticMemberProperty")
 }
 }
 

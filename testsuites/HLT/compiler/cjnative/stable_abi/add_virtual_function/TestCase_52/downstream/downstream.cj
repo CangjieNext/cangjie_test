@@ -6,10 +6,10 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
- package com::pkg2
+ package com::abc
 import abc.*
 import std.reflect.*
-public class DownStreamTypeInheritingUpStreamChild <:UpStreamChild<String, Bool> {
+public class DownStreamTypeInheritingUpStreamChild <:UpStreamChild<Float64> {
 ~init() {
 }
 }

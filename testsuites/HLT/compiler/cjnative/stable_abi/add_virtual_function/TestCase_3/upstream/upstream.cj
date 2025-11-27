@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
- package com::pkga
+ package abc
 import std.reflect.*
 public interface UpStreamParent<T0> {
 func UpStreamParent_NonMutInstanceMemberFunction(): Unit  {
@@ -58,7 +58,7 @@ println("UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty")
 }
 
 }
-public open class UpStreamChild<T0> <:UpStreamParent<T0> {
+public struct UpStreamChild<T0>  <:UpStreamParent<T0> {
 }
 public func checkParent<F0>(i: UpStreamParent<F0>): Unit   {
 var instance = i
