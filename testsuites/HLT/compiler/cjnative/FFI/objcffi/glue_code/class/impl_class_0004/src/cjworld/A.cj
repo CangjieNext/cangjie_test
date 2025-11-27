@@ -10,21 +10,21 @@ package cjworld
 
 import objc.lang.*
 
-public class A {
-    public init() {
-    }
-    public func foo(p0: Float32): Float32 {
-        println("A.foo")
-        println("p0 = ${p0}")
-        p0 + 1.0
-    }
-}
-
 public class B {
     public init() {
     }
     public func foo(p0: Float64): Float64 {
         println("B.foo")
+        println("p0 = ${p0}")
+        p0 + 1.0
+    }
+}
+
+public class A {
+    public init() {
+    }
+    public func foo(p0: Float32): Float32 {
+        println("A.foo")
         println("p0 = ${p0}")
         p0 + 1.0
     }
