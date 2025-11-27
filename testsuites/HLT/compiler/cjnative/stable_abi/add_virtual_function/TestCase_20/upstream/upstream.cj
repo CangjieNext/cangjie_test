@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package abc.edf
+package upstream
 
 import std.reflect.*
 
@@ -58,7 +58,7 @@ public interface UpStreamParent<T0> {
     }
 }
 
-public open class UpStreamChild<T0> <: UpStreamParent<T0> {}
+public interface UpStreamChild<T0> <: UpStreamParent<T0> {}
 
 public func checkParent<F0>(i: UpStreamParent<F0>): Unit {
     var instance = i

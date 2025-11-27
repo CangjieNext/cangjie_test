@@ -2,29 +2,28 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
- package abc::cde
-import abc.edf.*
+package downstream
+
+import upstream.*
 import std.reflect.*
-public interface DownStreamTypeInheritingUpStreamChild <:UpStreamChild<Float64> {
+
+public class DownStreamTypeInheritingUpStreamChild <: UpStreamChild<Float64> {
+    ~init() {
+    }
 }
-public class ChildClass <:DownStreamTypeInheritingUpStreamChild {
-~init() {
+
+public enum DownStreamTypeInheritingUpStreamParent <: UpStreamParent<Float64> {
+    | A
 }
-}
-public interface DownStreamTypeInheritingUpStreamParent <:UpStreamParent<Float64> {
-}
-public class ParentClass <:DownStreamTypeInheritingUpStreamParent {
-~init() {
-}
-}
-main(): Unit{
-let child = ChildClass()
-checkChild(child)
-let parent = ParentClass()
-checkParent(parent)
-checkStatic<DownStreamTypeInheritingUpStreamParent, Float64>()
+
+main(): Unit {
+    let child = DownStreamTypeInheritingUpStreamChild()
+    checkChild(child)
+    let parent = DownStreamTypeInheritingUpStreamParent.A
+    checkParent(parent)
+    checkStatic<DownStreamTypeInheritingUpStreamParent, Float64>()
 }
