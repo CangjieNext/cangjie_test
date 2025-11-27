@@ -6,12 +6,14 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package cjworld
+#import "A.h"
+#import <Foundation/Foundation.h>
 
-import objc.lang.*
-
-public class A {
-    public init() {
-        println("in cangjie init")
+int main(int argc, char** argv) {
+    @autoreleasepool {
+        A* a = [[A alloc] init];
+        long long result = [a foo: 12345];
+        NSLog(@"result = %lld\n", result);
     }
+    return 0;
 }

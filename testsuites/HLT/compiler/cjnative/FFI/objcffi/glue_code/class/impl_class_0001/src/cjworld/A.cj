@@ -6,12 +6,14 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-#import "A.h"
-#import <Foundation/Foundation.h>
+package cjworld
 
-int main(int argc, char** argv) {
-    @autoreleasepool {
-        A* a = [[A alloc] init];
+import objc.lang.*
+
+public class A {
+    public func foo(p0: Int64): Int64 {
+        println("A.foo")
+        println("p0 = ${p0}")
+        p0 + 1
     }
-    return 0;
 }
