@@ -1,0 +1,22 @@
+{
+  "packageInformation": {
+    "demo.aoo": {
+      "rootPackageName": "demo",
+      "fileNameHash": "2414829262303083493",
+      "timeStamp": 1762154609,
+      "isBuilt": true,
+      "exeName": "",
+      "hasSubPkgs": true
+    },
+    "demo": {
+      "rootPackageName": "demo",
+      "fileNameHash": "-6419421898196841968",
+      "timeStamp": 1762154609,
+      "isBuilt": true,
+      "exeName": "",
+      "hasSubPkgs": true
+    }
+  },
+  "jsonHash": "5295501132530512024",
+  "rootPackageName": "demo"
+}

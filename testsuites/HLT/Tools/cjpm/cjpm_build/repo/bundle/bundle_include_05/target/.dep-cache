@@ -1,0 +1,28 @@
+{
+  "bin": {},
+  "pkg-build": {},
+  "pkg-test": {
+    "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\repo\\bundle\\bundle_include_05\\src\\aoo": {
+      "package": "demo.aoo",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1762316676,
+      "dependencies": [],
+      "std-dependencies": [],
+      "features": [],
+      "testUsed": false,
+      "mockUsed": false
+    },
+    "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\repo\\bundle\\bundle_include_05\\src": {
+      "package": "demo",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1762316676,
+      "dependencies": [],
+      "std-dependencies": [],
+      "features": [],
+      "testUsed": false,
+      "mockUsed": false
+    }
+  }
+}

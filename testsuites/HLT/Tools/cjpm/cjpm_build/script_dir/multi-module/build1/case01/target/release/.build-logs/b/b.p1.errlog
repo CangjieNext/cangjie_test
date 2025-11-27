@@ -1,0 +1,9 @@
+warning[0m: unused import 'p3.*'
+ ==> C:\cangjie\cjpm_code\cangjie_test\testsuites\HLT\Tools\cjpm\cjpm_build\script_dir\multi-module\build1\case01\src\p1\p1.cj:9:1:
+  | 
+9 | internal import p3.*
+  | ^^^^^^^^^^^^^^^^^^^^ unused import
+  | 
+  # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+1 warning generated, 1 warning printed.

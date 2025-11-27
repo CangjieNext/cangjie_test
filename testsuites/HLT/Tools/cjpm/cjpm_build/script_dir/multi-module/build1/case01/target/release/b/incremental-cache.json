@@ -1,0 +1,30 @@
+{
+  "packageInformation": {
+    "b.p2": {
+      "rootPackageName": "b",
+      "fileNameHash": "6184580139257181325",
+      "timeStamp": 1759974291,
+      "isBuilt": true,
+      "exeName": "",
+      "hasSubPkgs": false
+    },
+    "b": {
+      "rootPackageName": "b",
+      "fileNameHash": "-114120221994141442",
+      "timeStamp": 1760770088,
+      "isBuilt": true,
+      "exeName": "main",
+      "hasSubPkgs": true
+    },
+    "b.p1": {
+      "rootPackageName": "b",
+      "fileNameHash": "858088938786757157",
+      "timeStamp": 1759974291,
+      "isBuilt": true,
+      "exeName": "",
+      "hasSubPkgs": false
+    }
+  },
+  "jsonHash": "-3434647553153567586",
+  "rootPackageName": "b"
+}

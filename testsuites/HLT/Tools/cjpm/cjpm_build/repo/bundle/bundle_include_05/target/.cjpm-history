@@ -1,0 +1,84 @@
+{
+  "resolves": [
+    {
+      "rootPackageName": "demo",
+      "modulePath": ".",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": [
+          {
+            "sourceSetDir": "src",
+            "srcDir": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\repo\\bundle\\bundle_include_05\\src",
+            "features": [],
+            "product": true,
+            "outputSuffix": "."
+          }
+        ]
+      },
+      "fullName": "demo",
+      "isMacroPackage": false,
+      "output-type": "dynamic",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [],
+      "std-requires": [],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    },
+    {
+      "rootPackageName": "demo",
+      "modulePath": ".",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": [
+          {
+            "sourceSetDir": "src",
+            "srcDir": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\repo\\bundle\\bundle_include_05\\src\\aoo",
+            "features": [],
+            "product": true,
+            "outputSuffix": "src\\product"
+          }
+        ]
+      },
+      "fullName": "demo.aoo",
+      "isMacroPackage": false,
+      "output-type": "dynamic",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [],
+      "std-requires": [],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    }
+  ],
+  "binDeps": {},
+  "crossBinDeps": {}
+}

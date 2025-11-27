@@ -1,0 +1,22 @@
+{
+  "packageInformation": {
+    "dem": {
+      "rootPackageName": "dem",
+      "fileNameHash": "3509455236872272448",
+      "timeStamp": 1762506709,
+      "isBuilt": true,
+      "exeName": "",
+      "hasSubPkgs": true
+    },
+    "dem.aoo": {
+      "rootPackageName": "dem",
+      "fileNameHash": "4783588460270376922",
+      "timeStamp": 1762506709,
+      "isBuilt": true,
+      "exeName": "",
+      "hasSubPkgs": true
+    }
+  },
+  "jsonHash": "2508030892613330632",
+  "rootPackageName": "dem"
+}
