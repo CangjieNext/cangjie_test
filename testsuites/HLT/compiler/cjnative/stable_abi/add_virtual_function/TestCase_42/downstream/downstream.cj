@@ -7,7 +7,7 @@
  */
 
  package com::pkg2
-import upstream.*
+import abc.edf.*
 import std.reflect.*
 public class DownStreamTypeInheritingUpStreamChild <:UpStreamChild<String, Bool> {
 ~init() {

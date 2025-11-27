@@ -7,7 +7,7 @@
  */
 
  package com::abc
-import upstream.*
+import abc.edf.*
 import std.reflect.*
 public enum DownStreamTypeInheritingUpStreamChild <:UpStreamChild<String, Bool>  {
 | A

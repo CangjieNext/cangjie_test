@@ -7,7 +7,7 @@
  */
 
  package abc::cde
-import upstream.*
+import abc.*
 import std.reflect.*
 public class DownStreamTypeInheritingUpStreamChild <:UpStreamChild<String, Bool> {
 ~init() {

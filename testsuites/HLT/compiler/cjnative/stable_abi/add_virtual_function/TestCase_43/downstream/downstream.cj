@@ -7,7 +7,7 @@
  */
 
  package com::pkg2
-import upstream.*
+import com::pkga.*
 import std.reflect.*
 public interface DownStreamTypeInheritingUpStreamParent <:UpStreamParent<Float64> {
 }

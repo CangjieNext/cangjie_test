@@ -7,7 +7,7 @@
  */
 
  package abc::cde
-import upstream.*
+import abc.edf.*
 import std.reflect.*
 public interface DownStreamTypeInheritingUpStreamChild <:UpStreamChild<Float64> {
 }

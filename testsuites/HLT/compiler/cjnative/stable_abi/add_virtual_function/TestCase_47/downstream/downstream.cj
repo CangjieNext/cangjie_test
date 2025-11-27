@@ -7,7 +7,7 @@
  */
 
  package abc::cde
-import upstream.*
+import abc.edf.*
 import std.reflect.*
 public enum DownStreamTypeInheritingUpStreamParent <:UpStreamParent<Float64>  {
 | A
