@@ -495,7 +495,7 @@ API/syntax/parseFunc/parseText/Decl/FuncDecl/parseText_FuncDecl_01.cj
 API/syntax/parseFunc/parseText/Decl/InterfaceDecl/parseText_InterfaceDecl_01.cj
 API/syntax/parseFunc/parseText/Decl/InterfaceDecl/parseText_InterfaceDecl_02.cj
 API/syntax/parseFunc/parseText/Decl/MacroDecl/parseText_MacroDecl_01.cj
-API/syntax/parseFunc/parseText/Decl/MainDecl/parseText_MainDecl_01.cjdb_within_setVar033
+API/syntax/parseFunc/parseText/Decl/MainDecl/parseText_MainDecl_01.cj
 API/syntax/parseFunc/parseText/Decl/StaticInit/parseText_StaticInit_01.cj
 API/syntax/parseFunc/parseText/Decl/StructDecl/parseText_StructDecl_01.cj
 API/syntax/parseFunc/parseText/Decl/StructDecl/parseText_StructDecl_02.cj
