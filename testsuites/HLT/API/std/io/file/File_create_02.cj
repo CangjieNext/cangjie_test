@@ -20,7 +20,7 @@ main() {
     try {
         var file1 = File.create(fileName)
     } catch (e: FSException) {
-        if (e.toString() != "FSException: The file `${fileName}` is already exists!") {
+        if (e.toString() != "FSException: The file `${fileName}` is already exists.") {
             return 1
         }
     }

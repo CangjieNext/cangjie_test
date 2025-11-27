@@ -61,14 +61,14 @@ class Test_Init_Append {
         try {
             var file = File("", OpenMode.Append)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The file path is empty.")
+            @Expect(e.message, "The input path is empty.")
             sum += 1
         }
         for (str in illegal_str) {
             try {
                 var file = File(str, OpenMode.Append)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The file path value ${unsafe { str.rawData() }} contains null character.")
+                @Expect(e.message, "The input path value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
         }
@@ -84,7 +84,7 @@ class Test_Init_Append {
                 var file = File(Path(str), OpenMode.Append)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
                 sum += 1
             }
         }

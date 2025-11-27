@@ -49,13 +49,13 @@ class Test_File_Create {
             try {
                 File.create(str)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The input path ${unsafe { str.rawData() }} contains null character.")
+                @Expect(e.message, "The input path value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
             try {
                 File.create(Path(str))
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The input path ${unsafe { str.rawData() }} contains null character.")
+                @Expect(e.message, "The input path value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
         }
@@ -71,14 +71,14 @@ class Test_File_Create {
                 File.create(str)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
                 sum += 1
             }
             try {
                 File.create(Path(str))
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
                 sum += 1
             }
         }
@@ -96,7 +96,7 @@ class Test_File_Create {
         try {
             File.create("./dir001/a.txt")
         } catch (e: FSException) {
-            @Expect(e.message, "The file `${path}` is already exists!")
+            @Expect(e.message, "The file `${path}` is already exists.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -131,7 +131,7 @@ class Test_File_Create {
         try {
             File.create("./dir002/a.txt")
         } catch (e: FSException) {
-            @Expect(e.message, "The path `./dir002` does not exist.")
+            @Expect(e.message, "The input path 'parent' `./dir002` does not exist.")
             sum += 1
         }
         @Expect(sum, 1)
