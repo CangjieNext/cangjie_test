@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package upstream
+package abc
 
 import std.reflect.*
 
@@ -61,7 +61,7 @@ public interface UpStreamParent<T0, T1> {
     }
 }
 
-public struct UpStreamChild<T0, T1> <: UpStreamParent<T0, T1> {}
+public open class UpStreamChild<T0, T1> <: UpStreamParent<T0, T1> {}
 
 public interface NewParent<T0> {
     public mut func NewParent_MutInstanceMemberFunction(): Unit {
@@ -110,6 +110,8 @@ public interface NewParent<T0> {
         }
     }
 }
+
+extend<T0, T1> UpStreamChild<T0, T1> <: NewParent<T1> {}
 
 public func checkParent<F0, F1>(i: UpStreamParent<F0, F1>): Unit {
     var instance = i

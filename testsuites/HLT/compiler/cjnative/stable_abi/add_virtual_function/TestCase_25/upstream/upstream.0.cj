@@ -6,11 +6,11 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package upstream
+package abc.edf
 
 import std.reflect.*
 
-public interface UpStreamParent<T0> {
+public interface UpStreamParent<T0> <: NewParent<T0> {
     func UpStreamParent_NonMutInstanceMemberFunction(): Unit {
         println("UpStreamParent<${TypeInfo.of<T0>()}>.UpStreamParent_NonMutInstanceMemberFunction")
     }
@@ -58,7 +58,7 @@ public interface UpStreamParent<T0> {
     }
 }
 
-public struct UpStreamChild<T0> <: UpStreamParent<T0> {}
+public struct UpStreamChild<T0, T1> <: UpStreamParent<T1> {}
 
 public interface NewParent<T0> {
     public mut func NewParent_MutInstanceMemberFunction(): Unit {
@@ -119,19 +119,28 @@ public func checkParent<F0>(i: UpStreamParent<F0>): Unit {
     UpStreamParent<F0>.UpStreamParent_NonMutStaticMemberProperty
     UpStreamParent<F0>.UpStreamParent_MutStaticMemberProperty
     UpStreamParent<F0>.UpStreamParent_MutStaticMemberProperty = 1i64
+    instance.NewParent_MutInstanceMemberFunction()
+    instance.NewParent_NonMutInstanceMemberFunction()
+    UpStreamParent<F0>.NewParent_StaticMemberFunction()
+    instance.NewParent_MutInstanceMemberProperty
+    instance.NewParent_MutInstanceMemberProperty = 1i64
+    instance.NewParent_NonMutInstanceMemberProperty
+    UpStreamParent<F0>.NewParent_NonMutStaticMemberProperty
+    UpStreamParent<F0>.NewParent_MutStaticMemberProperty
+    UpStreamParent<F0>.NewParent_MutStaticMemberProperty = 1i64
 }
 
-public func checkChild<F0>(i: UpStreamChild<F0>): Unit {
+public func checkChild<F0, F1>(i: UpStreamChild<F0, F1>): Unit {
     var instance = i
     instance.UpStreamParent_NonMutInstanceMemberFunction()
     instance.UpStreamParent_MutInstanceMemberFunction()
-    UpStreamChild<F0>.UpStreamParent_staticMemberFunction()
+    UpStreamChild<F0, F1>.UpStreamParent_staticMemberFunction()
     instance.UpStreamParent_NonMutInstanceMemberProperty
     instance.UpStreamParent_MutInstanceMemberProperty
     instance.UpStreamParent_MutInstanceMemberProperty = 1i64
-    UpStreamChild<F0>.UpStreamParent_NonMutStaticMemberProperty
-    UpStreamChild<F0>.UpStreamParent_MutStaticMemberProperty
-    UpStreamChild<F0>.UpStreamParent_MutStaticMemberProperty = 1i64
+    UpStreamChild<F0, F1>.UpStreamParent_NonMutStaticMemberProperty
+    UpStreamChild<F0, F1>.UpStreamParent_MutStaticMemberProperty
+    UpStreamChild<F0, F1>.UpStreamParent_MutStaticMemberProperty = 1i64
 }
 
 public func checkStatic<P, T0>(): Unit where P <: UpStreamParent<T0> {
@@ -139,4 +148,8 @@ public func checkStatic<P, T0>(): Unit where P <: UpStreamParent<T0> {
     P.UpStreamParent_NonMutStaticMemberProperty
     P.UpStreamParent_MutStaticMemberProperty
     P.UpStreamParent_MutStaticMemberProperty = 1i64
+    P.NewParent_StaticMemberFunction()
+    P.NewParent_NonMutStaticMemberProperty
+    P.NewParent_MutStaticMemberProperty
+    P.NewParent_MutStaticMemberProperty = 1i64
 }

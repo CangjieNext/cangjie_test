@@ -1,7 +1,3 @@
-UpStreamParent<Float64>.UpStreamParent_instanceMemberFunction
-UpStreamParent<Float64>.UpStreamParent_instanceMemberProperty
-UpStreamParent<Float64>.UpStreamParent_staticMemberFunction
-UpStreamParent<?>.UpStreamParent_staticMemberProperty
 NewParent<Float64>.NewParent_MutInstanceMemberFunction
 NewParent<Float64>.NewParent_NonMutInstanceMemberFunction
 NewParent<Float64>.NewParent_StaticMemberFunction
@@ -11,9 +7,9 @@ NewParent<Float64>.NewParent_NonMutInstanceMemberProperty
 NewParent<?>.NewParent_NonMutStaticMemberProperty
 NewParent<?>.NewParent_MutStaticMemberProperty
 NewParent<?>.NewParent_MutStaticMemberProperty
+UpStreamParent<Float64>.UpStreamParent_instanceMemberFunction
+UpStreamParent<Float64>.UpStreamParent_instanceMemberProperty
 UpStreamParent<Float64>.UpStreamParent_staticMemberFunction
 UpStreamParent<?>.UpStreamParent_staticMemberProperty
-NewParent<Float64>.NewParent_StaticMemberFunction
-NewParent<?>.NewParent_NonMutStaticMemberProperty
-NewParent<?>.NewParent_MutStaticMemberProperty
-NewParent<?>.NewParent_MutStaticMemberProperty
+UpStreamParent<Float64>.UpStreamParent_staticMemberFunction
+UpStreamParent<?>.UpStreamParent_staticMemberProperty

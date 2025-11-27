@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package upstream
+package abc
 
 import std.reflect.*
 
@@ -34,7 +34,7 @@ public open class UpStreamParent<T0> {
     }
 }
 
-public open class UpStreamChild<T0> <: UpStreamParent<Float64> {}
+public open class UpStreamChild<T0> <: UpStreamParent<T0> {}
 
 public func checkParent<F0>(i: UpStreamParent<F0>): Unit {
     var instance = i

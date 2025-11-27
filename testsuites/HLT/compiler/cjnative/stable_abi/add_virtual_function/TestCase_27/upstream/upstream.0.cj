@@ -6,11 +6,11 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package upstream
+package abc
 
 import std.reflect.*
 
-public interface UpStreamParent<T0> {
+public interface UpStreamParent<T0> <: NewParent<Float64> {
     func UpStreamParent_NonMutInstanceMemberFunction(): Unit {
         println("UpStreamParent<${TypeInfo.of<T0>()}>.UpStreamParent_NonMutInstanceMemberFunction")
     }
@@ -58,7 +58,7 @@ public interface UpStreamParent<T0> {
     }
 }
 
-public open class UpStreamChild<T0> <: UpStreamParent<T0> {}
+public struct UpStreamChild<T0> <: UpStreamParent<Float64> {}
 
 public interface NewParent<T0> {
     public mut func NewParent_MutInstanceMemberFunction(): Unit {
@@ -108,8 +108,6 @@ public interface NewParent<T0> {
     }
 }
 
-extend<T0> UpStreamChild<T0> <: NewParent<T0> {}
-
 public func checkParent<F0>(i: UpStreamParent<F0>): Unit {
     var instance = i
     instance.UpStreamParent_NonMutInstanceMemberFunction()
@@ -121,6 +119,15 @@ public func checkParent<F0>(i: UpStreamParent<F0>): Unit {
     UpStreamParent<F0>.UpStreamParent_NonMutStaticMemberProperty
     UpStreamParent<F0>.UpStreamParent_MutStaticMemberProperty
     UpStreamParent<F0>.UpStreamParent_MutStaticMemberProperty = 1i64
+    instance.NewParent_MutInstanceMemberFunction()
+    instance.NewParent_NonMutInstanceMemberFunction()
+    UpStreamParent<F0>.NewParent_StaticMemberFunction()
+    instance.NewParent_MutInstanceMemberProperty
+    instance.NewParent_MutInstanceMemberProperty = 1i64
+    instance.NewParent_NonMutInstanceMemberProperty
+    UpStreamParent<F0>.NewParent_NonMutStaticMemberProperty
+    UpStreamParent<F0>.NewParent_MutStaticMemberProperty
+    UpStreamParent<F0>.NewParent_MutStaticMemberProperty = 1i64
 }
 
 public func checkChild<F0>(i: UpStreamChild<F0>): Unit {
@@ -141,4 +148,8 @@ public func checkStatic<P, T0>(): Unit where P <: UpStreamParent<T0> {
     P.UpStreamParent_NonMutStaticMemberProperty
     P.UpStreamParent_MutStaticMemberProperty
     P.UpStreamParent_MutStaticMemberProperty = 1i64
+    P.NewParent_StaticMemberFunction()
+    P.NewParent_NonMutStaticMemberProperty
+    P.NewParent_MutStaticMemberProperty
+    P.NewParent_MutStaticMemberProperty = 1i64
 }
