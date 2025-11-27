@@ -81,13 +81,13 @@ class PathLinuxTest {
         try {
             Path("").parent
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The path is empty.")
             countError++
         }
         try {
             Path("\0").parent
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot contain null character!")
+            @Expect(e.message,"The path value [0] contains null character.")
             countError++
         }
         @Expect(countError,2)
@@ -128,13 +128,13 @@ class PathLinuxTest {
         try {
             Path("").fileName
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The path is empty.")
             countError++
         }
         try {
             Path("\0").fileName
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot contain null character!")
+            @Expect(e.message,"The path value [0] contains null character.")
             countError++
         }
         @Expect(countError,2)
@@ -176,13 +176,13 @@ class PathLinuxTest {
         try {
             Path("").extensionName
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The path is empty.")
             countError++
         }
         try {
             Path("\0").extensionName
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot contain null character!")
+            @Expect(e.message,"The path value [0] contains null character.")
             countError++
         }
         @Expect(countError,2)
@@ -221,13 +221,13 @@ class PathLinuxTest {
         try {
             Path("").fileNameWithoutExtension
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The path is empty.")
             countError++
         }
         try {
             Path("\0").fileNameWithoutExtension
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot contain null character!")
+            @Expect(e.message,"The path value [0] contains null character.")
             countError++
         }
         @Expect(countError,2)
@@ -259,13 +259,13 @@ class PathLinuxTest {
         try {
             Path("").isAbsolute()
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The path is empty.")
             countError++
         }
         try {
             Path("\0").isAbsolute()
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot contain null character!")
+            @Expect(e.message,"The path value [0] contains null character.")
             countError++
         }
         @Expect(countError,2)
@@ -297,13 +297,13 @@ class PathLinuxTest {
         try {
             Path("").isRelative()
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The path is empty.")
             countError++
         }
         try {
             Path("\0").isRelative()
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot contain null character!")
+            @Expect(e.message,"The path value [0] contains null character.")
             countError++
         }
         @Expect(countError,2)
@@ -353,19 +353,19 @@ class PathLinuxTest {
         try {
             Path("/a").join(Path("/b"))
         } catch (e: FSException) {
-            @Expect(e.message,"The `path` cannot be an absolute path!")
+            @Expect(e.message,"The input path `/b` cannot be an absolute path!")
             countError++
         }
         try {
             Path("").join(Path(""))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `rawPath` cannot be an empty string!")
+            @Expect(e.message,"The path is empty.")
             countError++
         }
         try {
             Path("/a").join(Path("\0"))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"The `path` cannot contain null character!")
+            @Expect(e.message,"The input path value [0] contains null character.")
             countError++
         }
         @Expect(countError,3)

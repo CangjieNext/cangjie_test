@@ -44,11 +44,12 @@ class Test {
     @TestCase
     func testNotExisted() {
         var count = 0
+        let path = "sourceFile/file.cj"
         try {
-            let node = parseFile("sourceFile/file.cj")
+            let node = parseFile(path)
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: Failed to canonical: the path may not exist or permission denied!")
+            @Expect(e.message, "IOException: Failed to canonical: the input path `${path}` may not exist or permission denied!")
         }
         @Expect(count, 1)
     }
@@ -80,11 +81,12 @@ class Test {
     @TestCase
     func testNotRealFile() {
         var count = 0
+        let path = "sourceFile/test_file_ln.cj"
         try {
-            let node = parseFile("sourceFile/test_file_ln.cj")
+            let node = parseFile(path)
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: Failed to canonical: \"No such file or directory\".")
+            @Expect(e.message, "IOException: Failed to canonical path `${path}` return -2: \"No such file or directory\".")
         }
         @Expect(count, 1)
     }

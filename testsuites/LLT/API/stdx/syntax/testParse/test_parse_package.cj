@@ -8,6 +8,7 @@
 
 import stdx.syntax.*
 import std.fs.*
+import std.regex.*
 
 @Test
 class Test {
@@ -40,11 +41,12 @@ class Test {
     @TestCase
     func testNotExisted() {
         var count = 0
+        let path = "sourceFile/parse_dir/file"
         try {
-            let node = parsePackage("sourceFile/parse_dir/file")
+            let node = parsePackage(path)
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: The path `sourceFile/parse_dir/file` does not exist.")
+            @Expect(e.message, "IOException: The input path `${path}` does not exist.")
         }
         @Expect(count, 1)
     }
@@ -52,11 +54,12 @@ class Test {
     @TestCase
     func testIsFile() {
         var count = 0
+        let path = "sourceFile/parse_dir/test_file/test_file.cj"
         try {
-            let node = parsePackage("sourceFile/parse_dir/test_file/test_file.cj")
+            let node = parsePackage(path)
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: The path 'sourceFile/parse_dir/test_file/test_file.cj' is not a directory!")
+            @Expect(e.message, "IOException: The input path `${path}` is not a directory.")
         }
         @Expect(count, 1)
     }
@@ -80,7 +83,7 @@ class Test {
             let node = parsePackage("sourceFile/parse_dir/test_file_ln")
         } catch (e: Exception) {
             count += 1
-            @Expect(e.message, "IOException: Failed to canonical: \"No such file or directory\".")
+            @Assert(Regex("^IOException: Failed to canonical path `.*` return -2: \"No such file or directory\".$").matches(e.message))
         }
         @Expect(count, 1)
     }
