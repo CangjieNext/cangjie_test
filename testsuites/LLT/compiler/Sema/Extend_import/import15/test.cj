@@ -18,15 +18,5 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN
-error: no matching function declaration for function call 'contains'
-  ==> test.cj:17:12:
-   | 
-17 |     a.foos.contains(Foo("1"))
-   |            ^ 
-   | 
-note: to use the following extension, import 'Class-ArrayList<Generics-T>'
-   ==> (package std.collection)array_list.cj:757:1:
 
-1 error generated, 1 error printed.
-*/
+// ASSERT: scan error: no matching function declaration for function call 'contains'

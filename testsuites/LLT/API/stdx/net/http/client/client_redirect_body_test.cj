@@ -56,7 +56,7 @@ class TestClientRedirect2 {
                     ctx =>
                     let buf = Array<UInt8>(10, repeat: 0)
                     var len = ctx.request.body.read(buf)
-                    @Assert(String.fromUtf8(buf[..len]), "hello")
+                    @Assert(len, 0) //Request redirected to get should not include a body
                 }
             )
         server.distributor.register("/hd", RedirectHandler("/", 308))

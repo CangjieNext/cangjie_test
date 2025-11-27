@@ -88,7 +88,7 @@ class TestClientRedirect {
                     @Assert(ctx.request.method, "GET")
                     let buf = Array<UInt8>(10, repeat: 0)
                     let len = ctx.request.body.read(buf)
-                    @Assert(String.fromUtf8(buf[..len]), "hello")
+                    @Assert(String.fromUtf8(len, 0)) // Request redirected to get should not include a body
                     ctx.responseBuilder.body("hello")
                 }
             )
