@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // (not Windows) ERRCHECK: cd %n && %cjpm build -V
-// (not Windows) ASSERT: scan Error: the '$(touch "OOPS_INJECTION!")' contains illegal characters in ./cjpm.toml
+// (not Windows) ASSERT: scan Error: the '$(touch "OOPS_INJECTION!")' contains illegal characters in 'package' field at ./cjpm.toml
