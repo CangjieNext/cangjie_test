@@ -8,12 +8,15 @@
 
 #import "A.h"
 #import <Foundation/Foundation.h>
+#import <stdint.h>
+#import <float.h>
+#import <math.h>
 
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [[A alloc] init: ];
-        // [a foo: 12];
-        [a bar: 12];
+        [a foo: INT8_MAX : INT16_MAX : INT32_MAX : INT64_MAX : UINT8_MAX : UINT16_MAX : UINT32_MAX : UINT64_MAX : FLT_MAX : DBL_MAX : true];
+        [a bar: INT8_MIN : INT16_MIN : INT32_MIN : INT64_MIN : UINT8_MIN : UINT16_MIN : UINT32_MIN : UINT64_MIN : FLT_MIN : DBL_MIN : false];
     }
     return 0;
 }
