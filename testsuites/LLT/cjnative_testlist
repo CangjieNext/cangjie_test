@@ -3270,6 +3270,18 @@ compiler/Sema/effect/resume_with.cj
 compiler/Sema/interface/abstract_function2.cj
 compiler/Sema/lookup/bugfix2.cj
 
+# feature org name unavailable on this branch
+compiler/Package/org
+compiler/DeMangle/Organization
+compiler/Mangle/Organization
+compiler/Parser/new_package/new_package_err_9.cj
+compiler/Parser/new_package/new_package_err_10.cj
+compiler/Sema/unusedImport/unusedImport001/unused019/unused019.cj
+compiler/CodegenCJNative/compitability/org_name/main.cj
+compiler/Diagnose/parse_test/parse_expected_identifier/org_with_backquote.cj
+API/std/reflect/organizationName.cj
+API/std/reflect/organizationName02.cj
+
 # java is not ready.
 compiler/CJMP/java/compiler/escape_checks/class_member_variables.cj
 compiler/CJMP/java/compiler/escape_checks/enum_constructor_params.cj
