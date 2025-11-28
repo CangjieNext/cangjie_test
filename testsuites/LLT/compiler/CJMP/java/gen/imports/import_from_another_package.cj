@@ -6,9 +6,8 @@
 
 // (CJNATIVE and not Windows) DEPENDENCE: ./lib
 // (CJNATIVE and not Windows) EXEC: %compiler %cmp_opt -Woff=all -p lib %compile_shared_lib_opt
-// (CJNATIVE and not Windows) EXEC: %mkdir java-gen
 // (CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop -L.
-// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./java-gen/A.java | compare %f
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./A.java | compare %f
 
 /* SCAN-IN
 import java.cj.mirrors.String;

@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop -L.
-// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./java-gen/A.java | compare %f
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./A.java | compare %f
 
 /* SCAN-IN
 import other.Cla$s;
