@@ -46,6 +46,11 @@ compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0041/
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0042/
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0051/
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0052/
+# objcffi class not support multi file.
+compiler/cjnative/FFI/objcffi/glue_code/class/impl_class_0002
+compiler/cjnative/FFI/objcffi/glue_code/class/impl_class_0004
+
+
 # limit described in the doc
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_pointer_0014/
 compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_prop_0003/

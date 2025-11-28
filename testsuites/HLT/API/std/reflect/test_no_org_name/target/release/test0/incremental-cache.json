@@ -2,9 +2,9 @@
   "packageInformation": {
     "test0": {
       "rootPackageName": "test0",
-      "fileNameHash": "-2867207212740767324",
-      "timeStamp": 1764194457,
-      "isBuilt": true,
+      "fileNameHash": "6435257919299887268",
+      "timeStamp": 1764206439,
+      "isBuilt": false,
       "exeName": "main",
       "hasSubPkgs": false
     }

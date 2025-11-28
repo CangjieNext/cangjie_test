@@ -428,6 +428,7 @@ public func testStructInstanceFunction(): Unit {
 public func testPackageInfo(): Unit {
     assert(PackageInfo.get("test0").name, "test0")
     assert(PackageInfo.get("test0").qualifiedName, "test0")
+    // assert(PackageInfo.get("test0").organizationName, "")
 }
 
 main(): Unit {

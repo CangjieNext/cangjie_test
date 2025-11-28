@@ -26,4 +26,9 @@ public class A {
         println("p9 = ${p9}")
         println("p10 = ${p10}")
     }
+    public func bar(p0: Int8, p1: Int16): Unit {
+        println("A.foo")
+        println("p0 = ${p0}")
+        println("p1 = ${p1}")
+    }
 }

@@ -1,17 +1,9 @@
-[33mwarning[0m: unused variable:'blue'
- [36m==>[0m /home/pentium/cangjie_test_suite/cangjie_test/testsuites/HLT/API/std/reflect/test_no_org_name/src/main.cj:8:5:
-  [36m| [0m
-[36m8[0m [36m| [0mlet blue = "\u{001B}[34m"[0m
-  [36m| [0m    [33m^^^^ unused variable[0m
-  [36m| [0m
-  [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
+error[0m: 'organizationName' is not a member of class 'PackageInfo'
+   ==> E:\cangjie_test_suite\cangjie_test\testsuites\HLT\API\std\reflect\test_no_org_name\src\main.cj:431:37:
+    | 
+431 |     assert(PackageInfo.get("test0").organizationName, "test0")
+    |                                     ^^^^^^^^^^^^^^^^ 
+    | 
 
-[33mwarning[0m: unused variable:'f'
-  [36m==>[0m /home/pentium/cangjie_test_suite/cangjie_test/testsuites/HLT/API/std/reflect/test_no_org_name/src/main.cj:21:31:
-   [36m| [0m
-[36m21[0m [36m| [0mpublic func bug(note: String, f: () -> Unit): Unit {[0m
-   [36m| [0m                              [33m^ unused variable[0m
-   [36m| [0m
-   [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-2 warnings generated, 2 warnings printed.
+1 error generated, 1 error printed.
+Error: failed to compile package `test0`, return code is 1
