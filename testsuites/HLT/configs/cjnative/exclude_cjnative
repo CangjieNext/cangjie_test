@@ -96,3 +96,6 @@ compiler/cjnative/Packages/cjmp/cjmp_14003/test.cj
 
 # timezone file in ci not support now
 API/std/time/TimeZone/load/test_loadFromPaths.cj
+
+# feature org name unavailable on this branch
+API/std/ast/orgName
