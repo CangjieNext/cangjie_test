@@ -222,19 +222,6 @@ API/std/time/TimeZone/load/test_loadFromPaths.cj
 API/std/socket/UdpSocket/test_udp_transportation_init.cj
 # objcffi not support call mut func
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0022/
-# objcffi not support multi file
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0003/
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0004/
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0015/
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0016/
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0020/
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0021/
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0031/
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0032/
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0041/
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0042/
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0051/
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0052/
 # limit described in the doc
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_pointer_0014/
 compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_prop_0003/
