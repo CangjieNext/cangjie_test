@@ -100,3 +100,9 @@ API/std/time/TimeZone/load/test_loadFromPaths.cj
 API/std/io/file/File_create_03.cj
 API/std/fs/file/linux/test_linux_file_no_permission.cj
 API/std/io/StringReader/StringReader_readln_13_01.cj
+
+# feature org name unavailable on this branch
+API/std/ast/orgName
+compiler/cjnative/Extend/operator/define/operator_def_18.cj
+regression/testcase_485.cj
+regression/testcase_86/operator_def_18.cj
