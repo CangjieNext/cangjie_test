@@ -74,9 +74,6 @@ compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0006/
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0007/
 compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0001/
 
-# cjdb
-Tools/cjdb/datacom/lambda/lldb_lambda_05.info
-
 API/std/io/file/File_create_03.cj
 API/std/fs/file/linux/test_linux_file_no_permission.cj
 API/std/io/StringReader/StringReader_readln_13_01.cj
