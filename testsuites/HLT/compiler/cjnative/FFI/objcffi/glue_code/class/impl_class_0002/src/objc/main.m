@@ -13,7 +13,7 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [[A alloc] init];
-        B* b = [[B alloc] init];
+        B* b = [[B alloc] init: 114514];
         long long result = [a foo: b];
         NSLog(@"result = %lld\n", result);
     }
