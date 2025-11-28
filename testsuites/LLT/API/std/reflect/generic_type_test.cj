@@ -7,8 +7,31 @@
  */
 // (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // (CJNATIVE) RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt %run_args 2>&1
+
+package foo
 import std.reflect.*
 import std.collection.*
+
+class NestedGenericC1<T> {
+    public var value: T
+    public init(val: T) {
+        this.value = val
+    }
+}
+class NestedGenericC2<U> {
+    public var value: U
+    public init(val: U) {
+        this.value = val
+    }
+}
+class NestedGenericC<T, U> {
+    public var first: T
+    public var second: U
+    public init(f: T, s: U) {
+        this.first = f
+        this.second = s
+    }
+}
 
 @Test
 class GenericTypeInfoTest {
@@ -24,5 +47,15 @@ class GenericTypeInfoTest {
         @Expect(TypeInfo.of(arr), t1)
         @Expect(TypeInfo.of(arr), t2)
         @Expect(TypeInfo.of(arr), t3)
+    }
+
+    @TestCase
+    func typeInfoParsesNestedGenericArgsForLocalTypes(): Unit {
+        let typeName =
+            "foo.NestedGenericC<foo.NestedGenericC1<Int64>, foo.NestedGenericC2<String>>"
+        let fromName = TypeInfo.get(typeName)
+        let fromType = TypeInfo.of<NestedGenericC<NestedGenericC1<Int64>, NestedGenericC2<String>>>()
+        @Expect(fromName, fromType)
+        @Expect(fromName.qualifiedName, typeName)
     }
 }
