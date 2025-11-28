@@ -24,9 +24,9 @@ public class A {
         println("p5 = ${p5 == UInt16.Max}")
         println("p6 = ${p6 == UInt32.Max}")
         println("p7 = ${p7 == UInt64.Max}")
-        println("p8 = ${p8}")
-        println("p9 = ${p9}")
-        println("p10 = ${p10}")
+        println("p8 = ${p8 > 0}")
+        println("p9 = ${p9 > 0}")
+        println("p10 = ${p10 == true}")
     }
     public func bar(p0: Int8, p1: Int16, p2: Int32, p3: Int64, p4: UInt8, p5: UInt16, p6: UInt32, p7: UInt64,
         p8: Float32, p9: Float64, p10: Bool): Unit {
@@ -39,8 +39,8 @@ public class A {
         println("p5 = ${p5 == UInt16.Min}")
         println("p6 = ${p6 == UInt32.Min}")
         println("p7 = ${p7 == UInt64.Min}")
-        println("p8 = ${p8}")
-        println("p9 = ${p9}")
-        println("p10 = ${p10}")
+        println("p8 = ${p8 == false}")
+        println("p9 = ${p9 == 0.0}")
+        println("p10 = ${p10 == 0.0}")
     }
 }
