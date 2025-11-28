@@ -39,8 +39,8 @@ public class A {
         println("p5 = ${p5 == UInt16.Min}")
         println("p6 = ${p6 == UInt32.Min}")
         println("p7 = ${p7 == UInt64.Min}")
-        println("p8 = ${p8 == false}")
+        println("p8 = ${p8 == 0.0}")
         println("p9 = ${p9 == 0.0}")
-        println("p10 = ${p10 == 0.0}")
+        println("p10 = ${p10 == false}")
     }
 }
