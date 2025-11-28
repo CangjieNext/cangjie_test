@@ -59,6 +59,11 @@ compiler/Sema/generics/generic_subst_perf.cj
 API/std/unittest/macro_test_no_remove_mod.cj
 compiler/Macro/sema/cfunc.cj
 
+## for OpenHarmony-6.0
+compiler/CJMP
+compiler/Sema/Extend/common_specific
+compiler/Sema/redefinition/private_func/04_diff_filee_extend
+compiler/Package/feature
 ## CJMP testcases
 compiler/CJMP/frontend/matching/class/matching_rules/member_level/prop_abstractness/common_abstract_prop_in_abstract_class.cj
 compiler/CJMP/frontend/matching/class/matching_rules/member_level/prop_abstractness/common_open_prop_in_abstract_class.cj
@@ -3241,3 +3246,4 @@ compiler/Sema/effect/resume_unit.cj
 compiler/Sema/effect/resume_with.cj
 compiler/Sema/interface/abstract_function2.cj
 compiler/Sema/lookup/bugfix2.cj
+
