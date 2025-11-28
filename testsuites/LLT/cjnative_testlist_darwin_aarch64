@@ -24,6 +24,11 @@ compiler/Macro/sema/cfunc.cj
 compiler/Macro/inout/inout_m4.cj
 compiler/Macro/inout/inout_m3.cj
 
+## for OpenHarmony-6.0
+compiler/CJMP
+compiler/Sema/Extend/common_specific
+compiler/Sema/redefinition/private_func/04_diff_filee_extend
+compiler/Package/feature
 ## CJMP testcases
 compiler/CJMP/frontend/common_declarations/class/abstract_class/function_without_body_and_common_abstract.cj
 compiler/CJMP/frontend/common_declarations/class/class_and_member_matching_rules/member_func_without_common_and_abstract_modifier_in_common_abstract_class.cj

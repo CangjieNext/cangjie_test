@@ -96,5 +96,8 @@ compiler/cjnative/Packages/cjmp/cjmp_12010/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_13002/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_14003/test.cj
 
+## for OpenHarmony-6.0
+Tools/cjpm/source_set
+
 # timezone file in ci not support now
 API/std/time/TimeZone/load/test_loadFromPaths.cj
