@@ -36,5 +36,5 @@
 foreign func clock(): Int32 
 
 main() {
-    println(clock())
+    println(unsafe {clock()})
 }

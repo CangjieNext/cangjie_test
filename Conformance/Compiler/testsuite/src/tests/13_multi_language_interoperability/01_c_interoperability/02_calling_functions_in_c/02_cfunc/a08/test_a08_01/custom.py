@@ -4,31 +4,13 @@
 # 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-import os
-import sys
+def my_handler(self, test, result):
+  if 'Finishing Canjie application' not in str(result.stdout):
+    result.stdout += b'Output is wrong'
+    test.result = 'failed'
 
-if os.name == 'nt':
-    shared_lib_ext = '.dll'
-    cc_shared_flags = '-shared -Wl,--export-all-symbols'
-    cjc_linking_option = f'-L {output_dir} --output-type=exe'
-else:
-    shared_lib_ext = '.so' 
-    cc_shared_flags = '-shared -fPIC'
-    cjc_linking_option = f'-L {output_dir} --output-type=exe'
+on_compile(cjc(f' -p {source_dir}',
+               option = '--output-type=cbc' if self.cfg.is_jet else '--output-type=exe',
+               output = output_bin))
+on_execute(cj(output_bin), handler=my_handler)
 
-if self.cfg.is_jet:
-    cjc_linking_option = '--output-type=cbc'
-
-lib_name = f'libfunc{shared_lib_ext}'
-lib_path = os.path.join(output_dir, lib_name)
-
-on_compile(f'{self.cfg.cc} '
-           f'{self.cfg.cc_flags} '
-           f'{cc_shared_flags} '
-           f'"{os.path.join(source_dir, "test.c")}" '
-           f'-o "{lib_path}"')
-
-cjc_options = f'-p "{source_dir}" -lfunc {cjc_linking_option}'
-
-on_compile(cjc(cjc_options, output=output_bin))
-on_execute(cj(output_bin))

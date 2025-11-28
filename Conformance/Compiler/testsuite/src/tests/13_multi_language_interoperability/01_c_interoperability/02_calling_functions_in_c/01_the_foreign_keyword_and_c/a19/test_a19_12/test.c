@@ -20,7 +20,7 @@ const char *func_01(const char *fmt, ...) {
     va_start(args, fmt);
     char result[LEN];
     size_t length = 0;
-    memset_s(result, LEN, 0, LEN);
+    memset(result, LEN, 0);
     while (*fmt != '\0') {
         if (*fmt == '%') {
             ++fmt;
