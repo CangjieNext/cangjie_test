@@ -18,12 +18,14 @@ interoplib_objc=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjna
 objc_lang=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative/libobjc.lang.dylib
 cjworld=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcjworld.dylib
 foundation=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libobjc.foundation.dylib
+dep=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libdep.dylib
 
 rm -rf ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative
 find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
   -maxdepth 1 \
   -name "*.dylib" \
   -not -name "libobjc.foundation.dylib" \
+  -not -name "libdep.dylib" \
   -delete
 find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
   -maxdepth 1 \
@@ -70,6 +72,15 @@ if [ -f "libobjc.foundation.dylib" ]; then
     install_name_tool -change `otool -L ${foundation} | grep 'libinteroplib.objc.dylib' | awk '{print $1}'` @rpath/libinteroplib.objc.dylib ${foundation}
     install_name_tool -change `otool -L ${foundation} | grep 'libobjc.lang.dylib' | awk '{print $1}'` @rpath/libobjc.lang.dylib ${foundation}
     codesign --sign - ${foundation}
+fi
+if [ -f "libdep.dylib" ]; then
+    cp libdep.dylib ${dep}
+    install_name_tool -id @rpath/libdep.dylib ${dep}
+    install_name_tool -change `otool -L ${cjworld} | grep 'libdep.dylib' | awk '{print $1}'` @rpath/libdep.dylib ${cjworld}
+    install_name_tool -change `otool -L ${dep} | grep 'libinteroplib.common.dylib' | awk '{print $1}'` @rpath/libinteroplib.common.dylib ${dep}
+    install_name_tool -change `otool -L ${dep} | grep 'libinteroplib.objc.dylib' | awk '{print $1}'` @rpath/libinteroplib.objc.dylib ${dep}
+    install_name_tool -change `otool -L ${dep} | grep 'libobjc.lang.dylib' | awk '{print $1}'` @rpath/libobjc.lang.dylib ${dep}
+    codesign --sign - ${dep}
 fi
 
 set -e
