@@ -3241,3 +3241,6 @@ compiler/Sema/effect/resume_unit.cj
 compiler/Sema/effect/resume_with.cj
 compiler/Sema/interface/abstract_function2.cj
 compiler/Sema/lookup/bugfix2.cj
+
+# feature org name unavailable on this branch
+compiler/Package/org
