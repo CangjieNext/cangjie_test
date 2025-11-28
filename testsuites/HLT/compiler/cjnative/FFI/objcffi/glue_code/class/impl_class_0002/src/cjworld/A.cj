@@ -15,7 +15,7 @@ public class A {
 
     }
     public func foo(p0: B): Int64 {
-        println("A.foo")
+        print("A.foo\n", flush: true)
         p0.v
     }
 }
