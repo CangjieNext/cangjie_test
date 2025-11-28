@@ -19,10 +19,10 @@ test#
 cjdb,cjdb --no-use-colors pkgs004,pkgs004
 b,b 19,pkgs004.cj:19
 r,r,-> 19
-s,s,pkg1.cj:11
+s,s,pkg1.cj:12
 finish,finish,-> 19
 n,n,-> 20
-s,s,pkg2.cj:15
+s,s,pkg2.cj:16
 finish,finish,-> 20
 n,n,-> 21
 p,p a,\(Int64\) \$[\d] = 1

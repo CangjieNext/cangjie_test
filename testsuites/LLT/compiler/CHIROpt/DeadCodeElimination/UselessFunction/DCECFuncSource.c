@@ -3,11 +3,10 @@
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
-// EXEC: %compiler %f -o %output %diag_json 2>&1 | compare %f
 
-main() {
-    let _ = 000.a
+#include <math.h>
+#include "DCECFuncHeader.h"
+
+void wrapper(uint8_t buf[]) {
+    changer(buf);
 }
-
-// ASSERT: scan lex_cannot_start_with_digit
-// ASSERT: scan "Errors": 1,

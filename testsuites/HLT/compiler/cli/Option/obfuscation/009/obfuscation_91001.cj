@@ -18,10 +18,13 @@
 public var global_default: Int64 = 1
 
 public func test_default() {
+    print(1)
+    print(2)
 }
 
 main() {
     print(global_default)
+    test_default()
     test_default()
     return 0
 }

@@ -9,7 +9,7 @@
 // LEVEL: 3
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm test -V 2>&1 | compare %f
-// (Windows) ASSERT: scan --link-options -lcrypt32
+// (Windows) ASSERT: scan --link-options -lcrypt
 // (not MAC and not Windows) ASSERT: scan --link-options -ldl
 // (MAC) ASSERT: scan --link-options -ldl
 // ASSERT: scan cjpm test success

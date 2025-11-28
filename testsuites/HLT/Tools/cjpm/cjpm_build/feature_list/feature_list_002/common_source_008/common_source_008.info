@@ -9,5 +9,5 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build 2>&1 | compare %f
-// ASSERT: scan "features":["_123.os.a"]
-// ASSERT: scan cjpm build success
+// ASSERT: scan feature `_123.os.a` should be either builtin (like `os.linux`) or start with `user.packageName.`
+// ASSERT: scan cjpm build failed

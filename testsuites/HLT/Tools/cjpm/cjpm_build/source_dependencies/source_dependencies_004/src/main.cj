@@ -10,10 +10,8 @@ package test
 
 import dep.aoo.*
 import dep.coo.*
-import dep2.test
 
 main(): Int64 {
     println(aoo-coo)
-    test()
     return 0
 }

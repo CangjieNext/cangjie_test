@@ -7,25 +7,25 @@ main():Unit{
 }
 
 /* SCAN
-error: cannot start a(n) float literal with '0'
+error: cannot start a(n) float literal with a '0' digit
  ==> float_literal_1.cj:4:13:
   | 
 4 |     let a = 01.2
-  |             ^ unexpected digit(s)
+  |             ^ unexpected digit
   | 
 
-error: cannot start a(n) float literal with '0'
+error: cannot start a(n) float literal with a '0' digit
  ==> float_literal_1.cj:5:13:
   | 
 5 |     let b = 01.2e2
-  |             ^ unexpected digit(s)
+  |             ^ unexpected digit
   | 
 
-error: cannot start a(n) float literal with '0'
+error: cannot start a(n) float literal with a '0' digit
  ==> float_literal_1.cj:6:13:
   | 
 6 |     let c = 01.2e-2
-  |             ^ unexpected digit(s)
+  |             ^ unexpected digit
   | 
 
 3 errors generated, 3 errors printed.

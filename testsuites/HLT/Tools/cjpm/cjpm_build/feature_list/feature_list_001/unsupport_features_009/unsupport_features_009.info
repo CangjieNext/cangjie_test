@@ -9,5 +9,5 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run 2>&1 | compare %f
-// ASSERT: scan hello
-// ASSERT: scan cjpm run finished
+// ASSERT: scan feature `a123` should be either builtin (like `os.linux`) or start with `user.packageName.`
+// ASSERT: scan cjpm run failed

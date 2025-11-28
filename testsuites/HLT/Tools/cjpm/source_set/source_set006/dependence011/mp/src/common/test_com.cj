@@ -11,6 +11,6 @@ package mp
 import mp1.*
 
 public common func f(): Int64 {
-    println(f1() + f2())
+    println(f1())
     0
 }

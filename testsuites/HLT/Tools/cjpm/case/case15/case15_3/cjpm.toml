@@ -50,3 +50,5 @@
   [target.aarch64-apple-darwin.bin-dependencies]
     path-option = ["${CANGJIE_STDX_PATH}"]
 
+
+

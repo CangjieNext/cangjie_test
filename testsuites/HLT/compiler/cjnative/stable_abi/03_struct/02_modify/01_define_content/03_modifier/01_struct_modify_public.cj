@@ -42,6 +42,10 @@ struct S1 {
 
 struct S2 {
     let x: Int64 = 0
+
+    public func getX(): Int64 {
+        return x
+    }
 }
 
 

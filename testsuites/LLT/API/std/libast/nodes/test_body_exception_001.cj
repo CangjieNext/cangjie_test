@@ -40,9 +40,9 @@ main(): Int64 {
 
 /* SCAN
 1
-description: l_curl, token_id: 6, token_literal_value: {, fileID: 10, line: 449, column: 34
+description: l_curl, token_id: 6, token_literal_value: {, fileID: 13, line: 449, column: 34
 Illegal TokenKind, TokenKind should be LCURL
-description: r_curl, token_id: 7, token_literal_value: }, fileID: 10, line: 451, column: 34
+description: r_curl, token_id: 7, token_literal_value: }, fileID: 13, line: 451, column: 34
 Illegal TokenKind, TokenKind should be RCURL
 cnt = 2
 */

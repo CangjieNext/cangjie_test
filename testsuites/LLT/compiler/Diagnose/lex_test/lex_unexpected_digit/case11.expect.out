@@ -46,13 +46,6 @@ error: illegal float number suffix 'f7'
    | 
    # note: float literal type suffix can only be 'f16', 'f32', 'f64'
 
-error: cannot start a(n) integer literal with '0'
-  ==> case11.cj:19:10:
-   | 
-19 |     var f = 0d12a
-   |             ^ unexpected digit(s)
-   | 
-
 error: unexpected digit 'd' in decimal
   ==> case11.cj:19:11:
    | 
@@ -63,4 +56,4 @@ error: unexpected digit 'd' in decimal
    | 
    # note: decimal may only contain digit within 0~9
 
-7 errors generated, 7 errors printed.
+6 errors generated, 6 errors printed.

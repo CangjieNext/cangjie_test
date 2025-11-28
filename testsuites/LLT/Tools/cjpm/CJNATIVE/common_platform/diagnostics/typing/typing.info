@@ -29,3 +29,4 @@
 // ASSERT: scan-1 Error at `cjpm.toml:source-set.1.features`: field type error. Expected type is `array[qname]`
 // ASSERT: scan-1 Error at `cjpm.toml:source-set.1.product`: field type error. Expected type is `boolean`
 // ASSERT: scan-1 Error at `cjpm.toml:source-set.2.name`: field type error. Expected type is `string`
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.3.src-dir`: value of type `path` cannot be empty

@@ -22,7 +22,7 @@ main(): Int64 {
 }
 
 /* SCAN
-description: upperbound, token_id: 135, token_literal_value: <:, fileID: 10, line: 337, column: 35
+description: upperbound, token_id: 135, token_literal_value: <:, fileID: 13, line: 337, column: 35
 Illegal TokenKind, TokenKind should be BITAND
 cnt = 1
 */

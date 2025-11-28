@@ -37,38 +37,38 @@ class Test_Path_Join {
         try {
             Path("").join("a")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The rawPath is an empty string.")
+            @Expect(e.message, "The path is empty.")
             sum += 1
         }
         try {
             Path("").join(Path("a"))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The rawPath is an empty string.")
+            @Expect(e.message, "The path is empty.")
             sum += 1
         }
         for (str in illegal_path_string) {
             try {
                 Path(str).join("a")
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The rawPath value ${unsafe { str.rawData() }} contains null character.")
+                @Expect(e.message, "The path value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
             try {
                 Path(str).join(Path("a"))
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The rawPath value ${unsafe { str.rawData() }} contains null character.")
+                @Expect(e.message, "The path value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
             try {
                 Path("/a").join(str)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The path value ${unsafe { str.rawData() }} contains null character.")
+                @Expect(e.message, "The input path value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
             try {
                 Path("/a").join(Path(str))
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The path value ${unsafe { str.rawData() }} contains null character.")
+                @Expect(e.message, "The input path value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
         }
@@ -82,13 +82,13 @@ class Test_Path_Join {
             try {
                 Path("/a").join(str)
             } catch (e: FSException) {
-                @Expect(e.message, "The path `${str}` cannot be an absolute path!")
+                @Expect(e.message, "The input path `${str}` cannot be an absolute path!")
                 sum += 1
             }
             try {
                 Path("./a").join(Path(str))
             } catch (e: FSException) {
-                @Expect(e.message, "The path `${str}` cannot be an absolute path!")
+                @Expect(e.message, "The input path `${str}` cannot be an absolute path!")
                 sum += 1
             }
         }
