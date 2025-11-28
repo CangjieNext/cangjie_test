@@ -13,3 +13,5 @@ regression/
 Runtime/
 
 [EXCLUDE-TEST-CASE]
+## for OpenHarmony-6.0
+Tools/cjpm/source_set
