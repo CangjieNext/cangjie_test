@@ -9,4 +9,4 @@
 // LEVEL: 0
 // DEPENDENCE: ../%n
 // EXEC-PIPE: cd %n && %cjpm -v 2>&1 | compare %f
-// ASSERT: regex Cangjie Package Manager: 1.*.*
+// ASSERT: regex Cangjie Project Manager: 1.*.*

@@ -9,7 +9,7 @@
 // LEVEL: 0
 // DEPENDENCE: ../%n
 // EXEC-PIPE: cd %n && %cjpm --help 2>&1 | compare %f
-// ASSERT: scan Cangjie Package Manager
+// ASSERT: scan Cangjie Project Manager
 // ASSERT: scan Usage:
 // ASSERT: scan cjpm [subcommand] [option]
 // ASSERT: scan Available subcommands:
