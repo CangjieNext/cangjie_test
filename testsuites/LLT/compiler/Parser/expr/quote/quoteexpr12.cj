@@ -8,7 +8,7 @@
 // EXEC:%frontendCompiler %cmp_opt %n.cj -o %output 2>&1 | compare %f
 
 internal import std.ast.*
-// ASSERT: scan error: unterminated raw string
+// ASSERT: scan error: unterminated single-line string
 // ASSERT: regex-not core dumped
 // ASSERT: regex-not Internal Compiler Error
 main(): Int64 {
