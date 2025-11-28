@@ -11,6 +11,7 @@ Description:
 Implemented driver for compilation & execution hw.c test
 '''
 
+import os
 from os.path import join
 
 def my_handler(self, test, result):
@@ -18,7 +19,29 @@ def my_handler(self, test, result):
     result.stdout += b'Output is wrong'
     test.result = 'failed'
 
-on_compile(cc(option='-shared -fPIC', source=join(source_dir, 'foo.c'), output=join(output_dir, 'libfoo.so')))
-on_compile(cjc(option = '--output-type=cbc' if self.cfg.is_jet else f'-L {output_dir} --output-type=exe', source=f'-p "{source_dir}" -lfoo',
-           output=output_bin))
-on_execute(cj(output_bin), output_contains='foo')
+# 平台相关的配置
+if os.name == 'nt':
+    shared_lib_ext = '.dll'
+    cc_shared_flags = '-shared -Wl,--export-all-symbols'
+    lib_name = 'libfoo.dll'
+else:
+    shared_lib_ext = '.so'
+    cc_shared_flags = '-shared -fPIC'
+    lib_name = 'libfoo.so'
+
+lib_path = join(output_dir, lib_name)
+
+# 编译共享库
+on_compile(cc(option=cc_shared_flags, source=join(source_dir, 'foo.c'), output=lib_path))
+
+# 配置cjc链接选项
+if self.cfg.is_jet:
+    cjc_linking_option = '--output-type=cbc'
+else:
+    cjc_linking_option = f'-L {output_dir} --output-type=exe'
+
+# 编译主程序
+on_compile(cjc(option=cjc_linking_option, source=f'-p "{source_dir}" -lfoo', output=output_bin))
+
+# 执行测试
+on_execute(cj(output_bin), output_contains='foo', handler=my_handler)

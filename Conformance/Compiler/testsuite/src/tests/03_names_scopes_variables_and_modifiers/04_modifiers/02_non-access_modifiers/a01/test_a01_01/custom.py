@@ -19,7 +19,6 @@ def my_handler(self, test, result):
     result.stdout += b'Output is wrong'
     test.result = 'failed'
 
-# 平台相关的配置
 if os.name == 'nt':
     shared_lib_ext = '.dll'
     cc_shared_flags = '-shared -Wl,--export-all-symbols'
@@ -31,17 +30,13 @@ else:
 
 lib_path = join(output_dir, lib_name)
 
-# 编译共享库
 on_compile(cc(option=f'{cc_shared_flags}', source=join(source_dir, 'hw.c'), output=lib_path))
 
-# 配置cjc链接选项
 if self.cfg.is_jet:
     cjc_linking_option = '--output-type=cbc'
 else:
     cjc_linking_option = f'-L {output_dir} --output-type=exe'
 
-# 编译主程序
 on_compile(cjc(option=cjc_linking_option, source=f'-p "{source_dir}" -lhw', output=output_bin))
 
-# 执行测试
 on_execute(cj(output_bin), output_contains='Hello world!', handler=my_handler)
