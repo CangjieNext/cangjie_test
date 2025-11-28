@@ -7,6 +7,7 @@
  */
 
 #import "A.h"
+#import "B.h"
 #import <Foundation/Foundation.h>
 
 int main(int argc, char** argv) {
