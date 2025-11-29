@@ -284,10 +284,6 @@ Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP012.info
 Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP019.info
 Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP020.info
 Tools/cjdb/datacom/expression_basevar/express_fun_001.info
-Tools/cjdb/datacom/expression_enum/expression_enum005.info
-Tools/cjdb/datacom/expression_enum/expression_enum012.info
-Tools/cjdb/datacom/expression_enum/expression_enum013.info
-Tools/cjdb/datacom/expression_enum/expression_enum023.info
 Tools/cjdb/datacom/expression_string/expression_string06.info
 Tools/cjdb/datacom/flow_expression/composition001.info
 Tools/cjdb/datacom/flow_expression/composition002.info

@@ -58,10 +58,6 @@ Tools/cjdb/datacom/enhance_breakPoint/breakpoint_able_002.info
 Tools/cjdb/datacom/enhance_breakPoint/breakpoint_set_006.info
 Tools/cjdb/datacom/enhance_breakPoint/regexpbreak_006.info
 Tools/cjdb/datacom/expression_basevar/express_fun_001.info
-Tools/cjdb/datacom/expression_enum/expression_enum005.info
-Tools/cjdb/datacom/expression_enum/expression_enum012.info
-Tools/cjdb/datacom/expression_enum/expression_enum013.info
-Tools/cjdb/datacom/expression_enum/expression_enum023.info
 Tools/cjdb/datacom/expression_string/expression_string06.info
 Tools/cjdb/datacom/flow_expression/
 Tools/cjdb/datacom/generics_expression/generics_global_func004.info
