@@ -14,22 +14,6 @@ CJNATIVE/cross_compile
 CJNATIVE/build/lint
 CJNATIVE/test/Coverage
 
-# 跨平台用例，待验证
-CJNATIVE/common_platform/basic/
-CJNATIVE/common_platform/common_only_dep/
-CJNATIVE/common_platform/common_part_debug/
-CJNATIVE/common_platform/copt_passing/
-CJNATIVE/common_platform/foreign_func_bind/
-CJNATIVE/common_platform/import_path_passing/
-CJNATIVE/common_platform/with_subpackages/
-CJNATIVE/common_platform/ot_exe
-CJNATIVE/common_platform/ot_static
-CJNATIVE/source_sets/bin_deps/
-CJNATIVE/source_sets/bugfixes/library/
-CJNATIVE/source_sets/custom_source_set_tests/
-CJNATIVE/source_sets/duplicate_features/
-CJNATIVE/source_sets/multiple_dirs_test/
-CJNATIVE/source_sets/not_all_common_specified/
-CJNATIVE/source_sets/switch_sets/
-CJNATIVE/source_sets/tests_in_common/
-CJNATIVE/source_sets/tests_in_source_sets/
+# 跨平台能力已禁止，不支持
+CJNATIVE/common_platform/
+CJNATIVE/source_sets/
