@@ -16,4 +16,7 @@ public class A {
         println("A.foo")
         A(value)
     }
+    public func getValue(): Int64 {
+        this.value
+    }
 }
