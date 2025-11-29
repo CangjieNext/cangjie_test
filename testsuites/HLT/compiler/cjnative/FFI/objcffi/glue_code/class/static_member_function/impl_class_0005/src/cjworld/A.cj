@@ -11,14 +11,9 @@ package cjworld
 import objc.lang.*
 
 public class A {
-    public A(public let value: Int64) {
-    }
-    public func foo(p0: Int64): A {
+    public A(public let value: Int64) {}
+    public static func foo(value: Int64): A {
         println("A.foo")
-        println("p0 = ${p0}")
-        A(p0)
-    }
-    public func getValue(): Int64 {
-        this.value
+        A(value)
     }
 }

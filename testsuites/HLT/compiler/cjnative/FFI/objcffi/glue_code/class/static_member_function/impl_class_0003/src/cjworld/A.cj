@@ -11,10 +11,7 @@ package cjworld
 import objc.lang.*
 
 public class A {
-    public init() {
-
-    }
-    public func foo(p0: Bool): Unit {
+    public static func foo(p0: Bool): Unit {
         println("A.foo")
         println("p0 = ${p0}")
     }

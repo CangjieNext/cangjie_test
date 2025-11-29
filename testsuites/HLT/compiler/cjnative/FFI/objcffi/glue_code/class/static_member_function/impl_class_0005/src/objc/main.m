@@ -11,8 +11,7 @@
 
 int main(int argc, char** argv) {
     @autoreleasepool {
-        A* a = [[A alloc] init: 114514];
-        A* a0 = [a foo: 666];
+        A* a0 = [A foo: 666];
         long long value = [a0 getValue];
         NSLog(@"value = %lld\n", value);
     }
