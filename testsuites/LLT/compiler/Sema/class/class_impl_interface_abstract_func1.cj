@@ -23,7 +23,7 @@ error: class 'A' missing abstract modifier, otherwise abstract function or prope
 13 | class A <: I {
    | ^ 
    | 
-note: unimplemented interface function a
+note: unimplemented interface function `a`
   ==> class_impl_interface_abstract_func1.cj:10:5:
    | 
 10 |     func a(a: Int32): Int32

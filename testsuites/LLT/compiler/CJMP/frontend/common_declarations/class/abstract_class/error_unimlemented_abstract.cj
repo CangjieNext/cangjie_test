@@ -23,7 +23,7 @@ error: class 'B' missing abstract modifier, otherwise abstract function or prope
 10 | public class B <: A {} // `goo` is not implemented here
    | ^ 
    | 
-note: unimplemented abstract function goo
+note: unimplemented abstract function `goo`
  ==> c/c.cj:7:5:
   | 
 7 |     public common abstract func goo(): String

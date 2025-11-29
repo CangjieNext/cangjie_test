@@ -24,31 +24,31 @@ error: implementation of function or property is needed in 'extend C'
 14 | extend C<A, B> <: I<A> & I<B> {}
    | ^ 
    | 
-note: unimplemented interface function foo1, of type: (Class-A) -> Int64
+note: unimplemented interface function `foo1`, of type: (Class-A) -> Int64
  ==> extend_instantiated_type_14_err.cj:4:5:
   | 
 4 |     func foo1(a:T):Int64
   |     ^ 
   | 
-note: unimplemented interface function foo1, of type: (Class-B) -> Int64
+note: unimplemented interface function `foo1`, of type: (Class-B) -> Int64
  ==> extend_instantiated_type_14_err.cj:4:5:
   | 
 4 |     func foo1(a:T):Int64
   |     ^ 
   | 
-note: unimplemented interface function foo2, of type: (Class-A) -> Int64
+note: unimplemented interface function `foo2`, of type: (Class-A) -> Int64
  ==> extend_instantiated_type_14_err.cj:5:5:
   | 
 5 |     func foo2(a:T):Int64
   |     ^ 
   | 
-note: unimplemented interface function foo2, of type: (Class-B) -> Int64
+note: unimplemented interface function `foo2`, of type: (Class-B) -> Int64
  ==> extend_instantiated_type_14_err.cj:5:5:
   | 
 5 |     func foo2(a:T):Int64
   |     ^ 
   | 
-note: unimplemented interface function foo3
+note: unimplemented interface function `foo3`
  ==> extend_instantiated_type_14_err.cj:6:5:
   | 
 6 |     func foo3():Int64

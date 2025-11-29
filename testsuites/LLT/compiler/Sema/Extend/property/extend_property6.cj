@@ -25,7 +25,7 @@ error: implementation of function or property is needed in 'extend A'
 15 | extend A <: Foo {}
    | ^ 
    | 
-note: unimplemented interface property v1
+note: unimplemented interface property `v1`
   ==> extend_property6.cj:12:5:
    | 
 12 |     prop v1: Int64

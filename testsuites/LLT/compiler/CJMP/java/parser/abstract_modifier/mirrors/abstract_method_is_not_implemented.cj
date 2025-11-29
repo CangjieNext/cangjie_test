@@ -20,7 +20,7 @@ error: class 'CImpl' missing abstract modifier, otherwise abstract function or p
 12 | class CImpl <: C {
    | ^ 
    | 
-note: unimplemented abstract function foo
+note: unimplemented abstract function `foo`
  ==> abstract_method_is_not_implemented.cj:8:5:
   | 
 8 |     public abstract func foo(): Unit

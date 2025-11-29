@@ -61,7 +61,7 @@ error: class 'C2' missing abstract modifier, otherwise abstract function or prop
 19 | class C2 <: I1 {}
    | ^ 
    | 
-note: unimplemented interface function foo
+note: unimplemented interface function `foo`
   ==> interface_implement_invalid_2.cj:14:5:
    | 
 14 |     func foo(): Base

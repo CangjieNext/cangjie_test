@@ -29,7 +29,7 @@ error: implementation of function or property is needed in 'extend A'
 23 | extend<T> A<T> <: I where T <: C1 {}
    | ^ 
    | 
-note: unimplemented interface function f
+note: unimplemented interface function `f`
   ==> implement_in_strict.cj:10:5:
    | 
 10 |     func f(): Unit

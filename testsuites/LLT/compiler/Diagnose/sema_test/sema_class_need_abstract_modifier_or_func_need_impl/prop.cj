@@ -17,7 +17,7 @@ error: class 'A' missing abstract modifier, otherwise abstract function or prope
 6 | class A <: C1 {
   | ^ 
   | 
-note: unimplemented abstract property a
+note: unimplemented abstract property `a`
  ==> prop.cj:4:5:
   | 
 4 |     public mut prop a: Int64

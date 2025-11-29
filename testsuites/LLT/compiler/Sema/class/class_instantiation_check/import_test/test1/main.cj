@@ -36,7 +36,7 @@ error: class 'C1' missing abstract modifier, otherwise abstract function or prop
 19 | class C1 <: I1<Int32> {}
    | ^ 
    | 
-note: unimplemented interface function i1
+note: unimplemented interface function `i1`
   ==> (package pkga)pkga.cj:11:5:
 
 error: class 'C2' missing abstract modifier, otherwise abstract function or property should be implemented
@@ -45,9 +45,9 @@ error: class 'C2' missing abstract modifier, otherwise abstract function or prop
 21 | open class C2<T> <: I1<T> {}
    | ^ 
    | 
-note: unimplemented interface function i1
+note: unimplemented interface function `i1`
   ==> (package pkga)pkga.cj:10:5:
-note: unimplemented interface function i1
+note: unimplemented interface function `i1`
   ==> (package pkga)pkga.cj:11:5:
 
 error: class 'C3' missing abstract modifier, otherwise abstract function or property should be implemented
@@ -56,7 +56,7 @@ error: class 'C3' missing abstract modifier, otherwise abstract function or prop
 23 | class C3 <: I3<Int32> {}
    | ^ 
    | 
-note: unimplemented interface function i1
+note: unimplemented interface function `i1`
   ==> (package pkga)pkga.cj:11:5:
 
 error: class 'C4' missing abstract modifier, otherwise abstract function or property should be implemented
@@ -65,7 +65,7 @@ error: class 'C4' missing abstract modifier, otherwise abstract function or prop
 25 | class C4 <: C2<Int32> {}
    | ^ 
    | 
-note: unimplemented interface function i1
+note: unimplemented interface function `i1`
   ==> (package pkga)pkga.cj:11:5:
 
 error: generic instantiation 'I1<Int32>' causes ambiguous function 'i1'

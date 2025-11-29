@@ -33,13 +33,13 @@ error: implementation of function or property is needed in 'extend I3'
 18 | extend I3 <: I2 {}
    | ^ 
    | 
-note: unimplemented interface property a
+note: unimplemented interface property `a`
   ==> generic_call_static_impl05.cj:10:5:
    | 
 10 |     mut static prop a: Int64
    |     ^ 
    | 
-note: unimplemented interface function f
+note: unimplemented interface function `f`
   ==> generic_call_static_impl05.cj:11:5:
    | 
 11 |     static func f(): Unit

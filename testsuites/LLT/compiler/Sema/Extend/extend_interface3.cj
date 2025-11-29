@@ -24,7 +24,7 @@ error: implementation of function or property is needed in 'extend A'
 16 | extend A <: I {
    | ^ 
    | 
-note: unimplemented interface function foo
+note: unimplemented interface function `foo`
   ==> extend_interface3.cj:13:5:
    | 
 13 |     func foo(): Unit

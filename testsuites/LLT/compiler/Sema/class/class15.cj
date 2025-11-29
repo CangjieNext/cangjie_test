@@ -38,7 +38,7 @@ error: class 'C' missing abstract modifier, otherwise abstract function or prope
 20 | public class C <: B {
    | ^ 
    | 
-note: unimplemented abstract function a
+note: unimplemented abstract function `a`
   ==> class15.cj:10:5:
    | 
 10 |     public func a(): Int64

@@ -40,7 +40,7 @@ error: implementation of function or property is needed in 'extend A'
 15 | extend<T> A<Int64, T> <: ToString {
    | ^ 
    | 
-note: unimplemented interface function toString
+note: unimplemented interface function `toString`
   ==> (package std.core)to_string.cj:18:5:
 
 1 error generated, 1 error printed.

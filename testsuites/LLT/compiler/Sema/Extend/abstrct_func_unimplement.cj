@@ -21,7 +21,7 @@ error: implementation of function or property is needed in 'extend C'
 15 | extend C <: I {}
    | ^ 
    | 
-note: unimplemented interface function f
+note: unimplemented interface function `f`
   ==> abstrct_func_unimplement.cj:10:5:
    | 
 10 |     static func f(): Int64

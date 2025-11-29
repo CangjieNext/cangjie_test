@@ -32,7 +32,7 @@ error: class 'A' missing abstract modifier, otherwise abstract function or prope
 13 | class A <: I {}
    | ^ 
    | 
-note: unimplemented interface function f2
+note: unimplemented interface function `f2`
   ==> abstract_function2.cj:10:5:
    | 
 10 |     static func f2(a!: Int64, b!: Int64): Int64
@@ -45,7 +45,7 @@ error: class 'B' missing abstract modifier, otherwise abstract function or prope
 17 | class B {
    | ^ 
    | 
-note: unimplemented abstract function a
+note: unimplemented abstract function `a`
   ==> abstract_function2.cj:18:5:
    | 
 18 |     static func a(): Unit

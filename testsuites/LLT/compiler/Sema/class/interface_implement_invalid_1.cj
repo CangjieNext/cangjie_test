@@ -39,7 +39,7 @@ error: class 'C2' missing abstract modifier, otherwise abstract function or prop
 17 | class C2 <: I2 {}
    | ^ 
    | 
-note: unimplemented interface function foo
+note: unimplemented interface function `foo`
   ==> interface_implement_invalid_1.cj:10:5:
    | 
 10 |     func foo(): Int64
@@ -52,7 +52,7 @@ error: class 'C3' missing abstract modifier, otherwise abstract function or prop
 19 | class C3 <: I2 {
    | ^ 
    | 
-note: unimplemented interface function foo
+note: unimplemented interface function `foo`
   ==> interface_implement_invalid_1.cj:10:5:
    | 
 10 |     func foo(): Int64

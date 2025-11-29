@@ -31,7 +31,7 @@ error: class 'B' missing abstract modifier, otherwise abstract function or prope
 15 | public class B <: A & IChild {}
    | ^ 
    | 
-note: unimplemented interface function some
+note: unimplemented interface function `some`
   ==> (package a)testa.cj:10:5:
 
 1 error generated, 1 error printed.
