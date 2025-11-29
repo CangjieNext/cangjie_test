@@ -7,7 +7,7 @@
  */
  
 // LEVEL: 3 
-// DESCRIPTION: 多个class定义在不同文件中，不存在依赖
+// DESCRIPTION: 构造函数存在函数重载
 // DEPENDENCE: src
 // (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %enable_objc_cjmapping src/cjworld/*.cj
 // (iOS) EXEC: xcrun codesign --sign - libcjworld.dylib
@@ -15,5 +15,7 @@
 // (iOS) EXEC: install_name_tool -change /Users/p_cangjieci/jenkins/workspace/MapleLangMergeRequest/Cangjie_build_cjmp_cjnative_darwin_aarch64_ios/cj-interop/objc/samples/objc_cangjie_isl/build/libinteroplib.objc.dylib @rpath/libinteroplib.objc.dylib libcjworld.dylib
 // (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
 // (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan A.A 123
 // ASSERT: scan A.init
-// ASSERT: scan B.init
+// ASSERT: scan A.init(true,114.514000,10)
+// ASSERT: scan A.init(666,114.514000)
