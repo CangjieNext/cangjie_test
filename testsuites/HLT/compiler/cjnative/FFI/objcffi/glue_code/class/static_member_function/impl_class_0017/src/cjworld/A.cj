@@ -11,13 +11,13 @@ package cjworld
 import objc.lang.*
 
 public class A {
-    public func foo() {
+    public static func foo() {
         println("A.foo")
     }
-    public func foo(p0: Bool, p1: Float32, p2: Int8) {
+    public static func foo(p0: Bool, p1: Float32, p2: Int8) {
         println("A.foo(${p0},${p1},${p2})")
     }
-    public func foo(p0: Int32, p1: Float64) {
+    public static func foo(p0: Int32, p1: Float64) {
         println("A.foo(${p0},${p1})")
     }
 }

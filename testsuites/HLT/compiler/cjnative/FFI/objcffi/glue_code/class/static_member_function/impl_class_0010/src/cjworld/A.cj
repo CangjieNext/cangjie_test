@@ -11,10 +11,7 @@ package cjworld
 import objc.lang.*
 
 public class A {
-    public init() {
-        println("A.init")
-    }
-    public func foo(): Unit {
+    public static func foo(): Unit {
         println("A.foo")
     }
 }

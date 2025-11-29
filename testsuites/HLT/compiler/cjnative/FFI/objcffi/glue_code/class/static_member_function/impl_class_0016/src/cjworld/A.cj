@@ -15,7 +15,7 @@ public class A {
     public init() {
         println("A.init")
     }
-    public func foo(p0: A): Int64 {
+    public static func foo(p0: A): Int64 {
         println("A.foo")
         p0.v
     }

@@ -13,37 +13,37 @@ import std.math.*
 import std.math.numeric.*
 
 public class A {
-    public func getInt8(): Int8 {
+    public static func getInt8(): Int8 {
         Int8.Max
     }
-    public func getInt16(): Int16 {
+    public static func getInt16(): Int16 {
         Int16.Max
     }
-    public func getInt32(): Int32 {
+    public static func getInt32(): Int32 {
         Int32.Max
     }
-    public func getInt64(): Int64 {
+    public static func getInt64(): Int64 {
         Int64.Max
     }
-    public func getUInt8(): UInt8 {
+    public static func getUInt8(): UInt8 {
         UInt8.Max
     }
-    public func getUInt16(): UInt16 {
+    public static func getUInt16(): UInt16 {
         UInt16.Max
     }
-    public func getUInt32(): UInt32 {
+    public static func getUInt32(): UInt32 {
         UInt32.Max
     }
-    public func getUInt64(): UInt64 {
+    public static func getUInt64(): UInt64 {
         UInt64.Max
     }
-    public func getFloat32(): Float32 {
+    public static func getFloat32(): Float32 {
         Float32.Max
     }
-    public func getFloat64(): Float64 {
+    public static func getFloat64(): Float64 {
         Float64.Max
     }
-    public func getBool(): Bool {
+    public static func getBool(): Bool {
         true
     }
 }

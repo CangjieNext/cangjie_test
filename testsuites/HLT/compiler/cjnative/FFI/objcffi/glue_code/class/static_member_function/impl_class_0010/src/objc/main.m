@@ -11,9 +11,7 @@
 
 int main(int argc, char** argv) {
     @autoreleasepool {
-        A* a = [[A alloc] init];
-        [a foo];
-        
+        [A foo];
     }
     return 0;
 }
