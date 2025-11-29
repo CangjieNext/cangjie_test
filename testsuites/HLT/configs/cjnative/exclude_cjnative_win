@@ -365,3 +365,9 @@ API/std/time/TimeZone/load/test_loadFromPaths.cj
 
 # 930: dev merge main
 API\std\os\env\test_getArgs\test_getArgs_005\test_getArgs_005.cj
+
+
+# cjmp is not supported.
+compiler/cjnative/Packages/cjmp/
+Tools/cjpm/source_set/
+Tools/cjdb/datacom/cross_platform/
