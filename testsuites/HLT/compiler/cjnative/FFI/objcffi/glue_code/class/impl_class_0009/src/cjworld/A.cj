@@ -18,8 +18,8 @@ public class A {
         println("A.init")
         this.value = 123
     }
-    public init(p0: Bool) {
-        println("A.init(${p0})")
+    public init(p0: Bool, p1: Float32, p2: Int8) {
+        println("A.init(${p0},${p1},${p2})")
         this.value = 123
     }
     public init(p0: Int32, p1: Float64) {
