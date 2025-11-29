@@ -15,9 +15,17 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [[A alloc] init];
-        // [a foo: INT8_MAX : INT16_MAX : INT32_MAX : INT64_MAX : UINT8_MAX : UINT16_MAX : UINT32_MAX : UINT64_MAX : FLT_MAX : DBL_MAX : true];
-        // [a bar: INT8_MIN : INT16_MIN : INT32_MIN : INT64_MIN : 0 : 0 : 0 : 0 : FLT_MIN : DBL_MIN : false];
-        NSLog(@"result = %d", [a getInt8] == INT8_MAX);
+        NSLog(@"getInt8=%d", [a getInt8] == INT8_MAX);
+        NSLog(@"getInt16=%d", [a getInt16] == INT16_MAX);
+        NSLog(@"getInt32=%d", [a getInt32] == INT32_MAX);
+        NSLog(@"getInt64=%d", [a getInt64] == INT64_MAX);
+        NSLog(@"getUInt8=%d", [a getUInt8] == UINT8_MAX);
+        NSLog(@"getUInt16=%d", [a getUInt16] == UINT16_MAX);
+        NSLog(@"getUInt32=%d", [a getUInt32] == UINT32_MAX);
+        NSLog(@"getUInt64=%d", [a getUInt64] == UINT64_MAX);
+        NSLog(@"getFloat32=%d", [a getFloat32] > 0.0);
+        NSLog(@"getFloat64=%d", [a getFloat64] > 0.0);
+        NSLog(@"getBool=%d", [a getBool] == true);
     }
     return 0;
 }
