@@ -12,9 +12,9 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a0 = [[A alloc] init: 123];
-        A* a0 = [[A alloc] init];
-        A* a0 = [[A alloc] init: true];
-        A* a0 = [[A alloc] init: 666: 114.514];
+        A* a1 = [[A alloc] init];
+        A* a2 = [[A alloc] init: true];
+        A* a3 = [[A alloc] init: 666: 114.514];
     }
     return 0;
 }
