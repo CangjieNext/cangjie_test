@@ -14,7 +14,7 @@ import std.math.numeric.*
 
 public class A {
     public init(p0: Int8, p1: Int16, p2: Int32, p3: Int64, p4: UInt8, p5: UInt16, p6: UInt32, p7: UInt64,
-        p8: Float32, p9: Float64, p10: Bool): Unit {
+        p8: Float32, p9: Float64, p10: Bool) {
         println("A.init")
         println("p0 = ${p0 == Int8.Max}")
         println("p1 = ${p1 == Int16.Max}")
