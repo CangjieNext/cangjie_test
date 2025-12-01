@@ -38,3 +38,10 @@ int global_func4(M *p0, int p1, float p2) {
     [p0 mFoo];
     return 114;
 }
+
+// named params with default values.
+int global_func4(M *p0, int p1, float p2) {
+    printf("global_func4, p1 = %d, p2 = %f\n", p1, p2);
+    [p0 mFoo];
+    return 114;
+}

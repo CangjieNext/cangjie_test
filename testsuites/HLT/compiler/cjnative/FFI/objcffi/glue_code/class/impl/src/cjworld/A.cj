@@ -24,13 +24,12 @@ public open func aFoo0(p0: ?M): ?M {
         global_func1(p0)
         global_func2(p0, 114514, 114.514)
         global_func3(p0: p0, p1: 114514, p2: 114.514)
+        // 传参顺序颠倒
+        ax 
+        global_func3(p2: 114.514, p1: 114514, p0: p0)
         global_func4(p0: p0)
     } else {
         println("aFoo0 None")
     }
     println("global_func() = ${global_func()}")
     println("global_func0(114514) = ${global_func0(114514)}")
-    p0
-}
-
-}
