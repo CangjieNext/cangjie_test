@@ -23,4 +23,5 @@ int y;
 - (NSObject<P> *)mFoo2:(NSObject<P> *)p0;
 - (M*)mFoo3:(M*)p0;
 - (id<P>)mFoo4:(id<P>)p0;
+- (M**)mFoo5:(M**)p0;
 @end

@@ -34,4 +34,8 @@ return self;
     NSLog(@"mFoo4");
     return p0;
 }
+- (M**)mFoo5:(M**)p0 {
+    NSLog(@"mFoo5");
+    return p0;
+}
 @end
