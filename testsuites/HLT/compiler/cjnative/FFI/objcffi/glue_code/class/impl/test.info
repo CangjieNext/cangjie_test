@@ -15,7 +15,7 @@
 // 在普通仓颉代码中调用
 // DEPENDENCE: src test.toml
 // (iOSNative) EXEC: %mirror_gen test.toml
-// (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc src/objc/G.m -o libg.so
+// (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc src/objc/G.m -o libg.dylib
 // (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc src/objc/foundation/*.cj
 // (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc -L . -lg -lobjc.foundation src/cjworld/*.cj
 // (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
