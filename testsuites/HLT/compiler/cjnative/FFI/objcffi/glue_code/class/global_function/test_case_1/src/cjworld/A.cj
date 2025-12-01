@@ -15,10 +15,10 @@ public init() {
 public open func foo(): Unit  {
 var p = M()
 println("in cangjie foo")
-// global_foo()
+global_foo()
 }
 
 }
 
-// @ObjCMirror
-// public func global_foo(): Unit
+@ObjCMirror
+public func global_foo(): Unit
