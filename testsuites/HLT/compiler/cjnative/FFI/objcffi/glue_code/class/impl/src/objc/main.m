@@ -19,7 +19,7 @@ M *m = [[M alloc] init];
 [a aFoo0: m];
 [a aFoo0: nil];
 
-global_func();
+printf("global_func() = %d\n", global_func());
 }
 
 return 0;
