@@ -18,4 +18,3 @@ int y;
 
 @end
 
-void global_func();
