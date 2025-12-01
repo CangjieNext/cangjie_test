@@ -18,5 +18,16 @@ return self;
 - (void)mFoo {
     NSLog(@"mFoo");
 }
-
+- (struct S*)mFoo1:(struct S*)p0 {
+    NSLog(@"mFoo1");
+    return p0;
+}
+- (P*)mFoo2:(P*)p0 {
+    NSLog(@"mFoo2");
+    return p0;
+}
+- (M*)mFoo3:(M*)p0 {
+    NSLog(@"mFoo3");
+    return p0;
+}
 @end
