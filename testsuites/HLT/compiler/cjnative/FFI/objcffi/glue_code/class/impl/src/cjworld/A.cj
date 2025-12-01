@@ -21,6 +21,7 @@ public open func aFoo0(p0: ?M): ?M {
     if (let Some(m) <- p0) {
         println("aFoo0 Some")
         m.mFoo()
+        global_func1(p0)
     } else {
         println("aFoo0 None")
     }
