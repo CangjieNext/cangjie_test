@@ -14,6 +14,9 @@ A* a= [[A alloc] init];
 printf("in objc main, %d\n", 114514);
 [a mFoo];
 [a pFoo];
+
+M *m = [[M alloc] init];
+[a aFoo0: m];
 }
 
 return 0;
