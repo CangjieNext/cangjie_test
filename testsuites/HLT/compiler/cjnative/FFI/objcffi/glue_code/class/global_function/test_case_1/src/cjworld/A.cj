@@ -15,6 +15,7 @@ public init() {
 public open func foo(): Unit  {
 var p = M().goo()
 println("in cangjie foo")
+global_foo()
 }
 
 }
@@ -31,3 +32,6 @@ public init()
 public open func goo(): S  
 
 }
+
+@ObjCMirror
+public func global_foo(): Unit

@@ -7,6 +7,11 @@
  */
 
 #import "M.h"
+
+void global_foo() {
+    NSLog(@"global_foo");
+}
+
 @implementation M
 - (id)init{
 self = [super init];
