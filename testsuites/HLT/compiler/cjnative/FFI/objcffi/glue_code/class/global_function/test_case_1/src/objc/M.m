@@ -14,3 +14,7 @@ return self;
 }
 
 @end
+
+void global_func() {
+    
+}
