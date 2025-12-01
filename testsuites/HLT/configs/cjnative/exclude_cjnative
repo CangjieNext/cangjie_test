@@ -275,30 +275,16 @@ API/std/time/TimeZone/load/test_loadFromPaths.cj
 API/std/socket/UdpSocket/test_udp_transportation_init.cj
 
 # cjdb fail in ci
-Tools/cjdb/datacom/adapt_reflection/adapt_reflection06.info
-Tools/cjdb/datacom/case/case18.info
-Tools/cjdb/datacom/case/case18_10.info
-Tools/cjdb/datacom/case/case18_4.info
-Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP004.info
-Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP012.info
-Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP019.info
-Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP020.info
 Tools/cjdb/datacom/expression_basevar/express_fun_001.info
 Tools/cjdb/datacom/expression_enum/expression_enum005.info
 Tools/cjdb/datacom/expression_enum/expression_enum012.info
 Tools/cjdb/datacom/expression_enum/expression_enum013.info
 Tools/cjdb/datacom/expression_enum/expression_enum023.info
-Tools/cjdb/datacom/expression_string/expression_string06.info
-Tools/cjdb/datacom/flow_expression/composition001.info
-Tools/cjdb/datacom/flow_expression/composition002.info
-Tools/cjdb/datacom/flow_expression/composition005.info
-Tools/cjdb/datacom/flow_expression/composition012.info
-Tools/cjdb/datacom/generics_expression/generics_global_func004.info
-Tools/cjdb/datacom/generics_expression/generics_global_func012.info
-Tools/cjdb/datacom/generics_expression/generics_local_func012.info
-Tools/cjdb/datacom/generics_expression/generics_local_func014.info
+Tools/cjdb/datacom/adapt_reflection/adapt_reflection06.info
+Tools/cjdb/datacom/case/case18_4.info
+Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP019.info
+#array/arraylist
 Tools/cjdb/datacom/generics_expression/generics_local_var001_2.info
-Tools/cjdb/datacom/generics_expression/generics_local_var002.info
 
 API/std/io/file/File_create_03.cj
 API/std/fs/file/linux/test_linux_file_no_permission.cj
