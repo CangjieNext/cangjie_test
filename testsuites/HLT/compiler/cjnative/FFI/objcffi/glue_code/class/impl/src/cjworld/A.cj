@@ -22,6 +22,7 @@ public open func aFoo0(p0: ?M): ?M {
         println("aFoo0 Some")
         m.mFoo()
         global_func1(p0)
+        global_func2(p0, 114514, 114.514)
     } else {
         println("aFoo0 None")
     }
