@@ -31,7 +31,7 @@ public open func aFoo0(p0: ?M): ?M {
         println("缺省拥有默认值的形参")
         global_func4(p0: p0)
         println("protocol类型传参")
-        global_func5(p0)
+        global_func5(m as P)
     } else {
         println("aFoo0 None")
     }
