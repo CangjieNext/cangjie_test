@@ -27,16 +27,20 @@ open class A1<M0, M1, M2> {}
 
 extend<T0, T1, T2> A1<T0, T1, T2> <: I<T1, T2, T0> where T0 <: Into<T0>, T1 <: Into<T1>, T2 <: Into<T2> {}
 
-open class A2 <: A1<Int64, String, Bool> {
+// 子类不override
+open class A2 <: A1<Int64, String, Bool> {}
+
+// 子类override
+open class A3 <: A1<Int64, String, Bool> {
     // 带默认实现的实例成员函数
     public override func test(p0: String, p1!: Bool, p2!: Int64): (Int64, String, Bool) {
-        println("A2<${TypeInfo.of<String>()},${TypeInfo.of<Bool>()},${TypeInfo.of<Int64>()}>.test")
+        println("A3<${TypeInfo.of<String>()},${TypeInfo.of<Bool>()},${TypeInfo.of<Int64>()}>.test")
         (p2, p0, p1)
     }
     // 带默认实现的实例成员属性
     public override prop test1: (Int64, String, Bool) {
         get() {
-            println("A2<${TypeInfo.of<String>()},${TypeInfo.of<Bool>()},${TypeInfo.of<Int64>()}>.test1")
+            println("A3<${TypeInfo.of<String>()},${TypeInfo.of<Bool>()},${TypeInfo.of<Int64>()}>.test1")
             (Int64.into(), String.into(), Bool.into())
         }
     }
@@ -83,8 +87,37 @@ public func testStaticFunc(): Unit {
     println("r2 = ${r2}")
 }
 
+public func testInstancecFuncA3(): Unit {
+    let a = A3()
+    let (r0, r1, r2) = a.test("hello", p1: true, p2: 114514)
+    println("r0 = ${r0}")
+    println("r1 = ${r1}")
+    println("r2 = ${r2}")
+}
+
+public func testInstancecPropA3(): Unit {
+    let a = A3()
+    let (r0, r1, r2) = a.test1
+    println("r0 = ${r0}")
+    println("r1 = ${r1}")
+    println("r2 = ${r2}")
+}
+
+public func testStaticFuncA3(): Unit {
+    let (r0, r1, r2) = A3.test0("hello", p1: true, p2: 114514)
+    println("r0 = ${r0}")
+    println("r1 = ${r1}")
+    println("r2 = ${r2}")
+}
+
 main(): Unit {
+    // A2
     testInstancecFunc()
     testStaticFunc()
     testInstancecProp()
+
+    // A3
+    testInstancecFuncA3()
+    testStaticFuncA3()
+    testInstancecPropA3()
 }
