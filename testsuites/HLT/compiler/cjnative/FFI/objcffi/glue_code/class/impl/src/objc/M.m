@@ -22,7 +22,7 @@ return self;
     NSLog(@"mFoo1");
     return p0;
 }
-- (P*)mFoo2:(P*)p0 {
+- (NSObject<P> *)mFoo2:(NSObject<P> *)p0 {
     NSLog(@"mFoo2");
     return p0;
 }
