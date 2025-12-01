@@ -13,11 +13,12 @@ interface I<N0, N1, N2> where N0 <: Into<N0>, N1 <: Into<N1>, N2 <: Into<N2> {
     // 带默认实现的实例成员属性
     prop test1: (N2, N0, N1) {
         get() {
+            println("I<${TypeInfo.of<N0>()},${TypeInfo.of<N1>()},${TypeInfo.of<N2>()}>.test1")
             (N2.into(), N0.into(), N1.into())
         }
     }
     static func test0(p0: N0, p1!: N1, p2!: N2): (N2, N0, N1) {
-        println("I<${TypeInfo.of<N0>()},${TypeInfo.of<N1>()},${TypeInfo.of<N2>()}>.test")
+        println("I<${TypeInfo.of<N0>()},${TypeInfo.of<N1>()},${TypeInfo.of<N2>()}>.test0")
         (p2, p0, p1)
     }
 }
