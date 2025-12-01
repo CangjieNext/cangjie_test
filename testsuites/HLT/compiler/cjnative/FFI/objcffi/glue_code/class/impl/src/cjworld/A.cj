@@ -19,7 +19,10 @@ println("in cangjie foo")
 
 public open func aFoo0(p0: ?M): ?M {
     if (let Some(m) <- p0) {
+        println("aFoo0 Some")
         m.mFoo()
+    } else {
+        println("aFoo0 None")
     }
     p0
 }
