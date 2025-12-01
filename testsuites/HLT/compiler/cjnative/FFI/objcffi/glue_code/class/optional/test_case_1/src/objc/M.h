@@ -15,5 +15,6 @@ int y;
 };
 @interface M :NSObject 
 - (id)init;
+- (void)foo: (int *)p
 
 @end
