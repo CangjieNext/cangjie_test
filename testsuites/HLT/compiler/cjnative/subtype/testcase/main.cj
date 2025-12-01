@@ -1,9 +1,18 @@
 import std.reflect.*
 
-interface I<N0, N1, N2> {
+interface Into<T> {
+    static func into(): T
+}
+
+interface I<N0, N1, N2> where N0 <: Into<N0>, N1 <: Into<N1>, N2 <: Into<N2> {
     func test(p0: N0, p1!: N1, p2!: N2): (N2, N0, N1) {
         println("I<${TypeInfo.of<N0>()},${TypeInfo.of<N1>()},${TypeInfo.of<N2>()}>.test")
         (p2, p0, p1)
+    }
+    prop test1: (N2, N0, N1) {
+        get() {
+            (N2.into(), N0.into(), N1.into())
+        }
     }
     static func test0(p0: N0, p1!: N1, p2!: N2): (N2, N0, N1) {
         println("I<${TypeInfo.of<N0>()},${TypeInfo.of<N1>()},${TypeInfo.of<N2>()}>.test")
@@ -13,9 +22,27 @@ interface I<N0, N1, N2> {
 
 open class A1<M0, M1, M2> {}
 
-extend<T0, T1, T2> A1<T0, T1, T2> <: I<T1, T2, T0> {}
+extend<T0, T1, T2> A1<T0, T1, T2> <: I<T1, T2, T0> where T0 <: Into<T0>, T1 <: Into<T1>, T2 <: Into<T2> {}
 
 open class A2 <: A1<Int64, String, Bool> {}
+
+extend String <: Into<String> {
+    public static func into(): String {
+        "hello"
+    }
+}
+
+extend Int64 <: Into<Int64> {
+    public static func into(): Int64 {
+        114514
+    }
+}
+
+extend Bool <: Into<Bool> {
+    public static func into(): Bool {
+        true
+    }
+}
 
 public func testInstancecFunc(): Unit {
     let a = A2()
