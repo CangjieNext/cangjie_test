@@ -19,5 +19,5 @@ AOT r,r,-> 21
 expr,expr l1,\(default.\(Int64\)->Float64\) \$[\d] = 0x[\s\S]*
 expr,expr l2,\(default.\(Int64\)->Float64\) \$[\d] = 0x[\s\S]*
 expr,expr l3,\(default.\(Float64\)->Float64\) \$[\d] = 0x[\s\S]*
-expr;expr f~>h1<Float64>;\(default.\(Int64\)->Float64\) \$[\d] = 0x[\s\S]*
+expr;expr f~>h1<Float64>;\(expr.\(Int64\)->Float64\) \$[\d] = 0x[\s\S]*
 q,q,
