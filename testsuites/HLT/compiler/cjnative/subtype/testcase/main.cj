@@ -5,10 +5,12 @@ interface Into<T> {
 }
 
 interface I<N0, N1, N2> where N0 <: Into<N0>, N1 <: Into<N1>, N2 <: Into<N2> {
+    // 带默认实现的实例成员函数
     func test(p0: N0, p1!: N1, p2!: N2): (N2, N0, N1) {
         println("I<${TypeInfo.of<N0>()},${TypeInfo.of<N1>()},${TypeInfo.of<N2>()}>.test")
         (p2, p0, p1)
     }
+    // 带默认实现的实例成员属性
     prop test1: (N2, N0, N1) {
         get() {
             (N2.into(), N0.into(), N1.into())
@@ -52,6 +54,14 @@ public func testInstancecFunc(): Unit {
     println("r2 = ${r2}")
 }
 
+public func testInstancecProp(): Unit {
+    let a = A2()
+    let (r0, r1, r2) = a.test1
+    println("r0 = ${r0}")
+    println("r1 = ${r1}")
+    println("r2 = ${r2}")
+}
+
 public func testStaticFunc(): Unit {
     let (r0, r1, r2) = A2.test0("hello", p1: true, p2: 114514)
     println("r0 = ${r0}")
@@ -62,4 +72,5 @@ public func testStaticFunc(): Unit {
 main(): Unit {
     testInstancecFunc()
     testStaticFunc()
+    testInstancecProp()
 }
