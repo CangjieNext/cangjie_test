@@ -16,7 +16,13 @@ int y;
 - (void)pFoo;
 @end
 
-@interface M :NSObject <P>
+@interface M :NSObject <P> {
+    struct S* v0;
+    NSObject<P> *v1;
+    M* v2;
+    id<P> v3;
+    M** v4;
+}
 - (id)init;
 - (void)mFoo;
 - (struct S*)mFoo1:(struct S*)p0;
@@ -24,4 +30,6 @@ int y;
 - (M*)mFoo3:(M*)p0;
 - (id<P>)mFoo4:(id<P>)p0;
 - (M**)mFoo5:(M**)p0;
+
+@property (nonatomic, readwrite) (struct S*)p0;
 @end
