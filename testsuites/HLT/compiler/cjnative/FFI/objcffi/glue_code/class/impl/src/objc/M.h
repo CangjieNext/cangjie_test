@@ -32,4 +32,7 @@ int y;
 - (M**)mFoo5:(M**)p0;
 
 @property (nonatomic, readwrite) struct S* p0;
+@property (nonatomic, readwrite) NSObject<P> * p1;
+@property (nonatomic, readwrite) M* p2;
+@property (nonatomic, readwrite) id<P> p3;
 @end
