@@ -22,4 +22,3 @@ println("in cangjie foo")
 
 // @ObjCMirror
 // public func global_foo(): Unit
--
