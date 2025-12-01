@@ -24,6 +24,7 @@ public open func aFoo0(p0: ?M): ?M {
     } else {
         println("aFoo0 None")
     }
+    println("global_func() = ${global_func()}")
     p0
 }
 

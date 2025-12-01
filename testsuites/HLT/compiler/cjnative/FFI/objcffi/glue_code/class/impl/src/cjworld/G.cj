@@ -3,4 +3,4 @@
 import objc.lang.*
 
 @ObjCMirror
-public func global_func(): Unit
+public func global_func(): Int32

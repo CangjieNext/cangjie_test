@@ -1,5 +1,4 @@
-#import <Foundation/Foundation.h>
 
-void global_func() {
-    NSLog(@"global_func");
+int global_func() {
+    return 123;
 }

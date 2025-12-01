@@ -1,1 +1,1 @@
-void global_func();
+int global_func();
