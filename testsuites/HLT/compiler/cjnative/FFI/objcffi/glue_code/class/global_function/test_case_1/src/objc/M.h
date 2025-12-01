@@ -17,5 +17,3 @@ int y;
 - (id)init;
 
 @end
-
-void global_foo();

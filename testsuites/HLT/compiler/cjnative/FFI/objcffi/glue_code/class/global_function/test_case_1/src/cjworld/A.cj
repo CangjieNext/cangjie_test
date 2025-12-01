@@ -13,12 +13,21 @@ public class A <:M {
 public init() {
 }
 public open func foo(): Unit  {
-var p = M()
+var p = M().goo()
 println("in cangjie foo")
-global_foo()
 }
 
 }
+@C
+public struct S  {
+public var x: Int32 = 0i32
 
+public var y: Int32 = 0i32
+
+}
 @ObjCMirror
-public func global_foo(): Unit
+public open class M {
+public init() 
+public open func goo(): S  
+
+}
