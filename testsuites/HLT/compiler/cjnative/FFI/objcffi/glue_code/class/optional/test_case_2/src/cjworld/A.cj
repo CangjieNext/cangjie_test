@@ -13,7 +13,7 @@ public class A <:M {
 public init() {
 }
 public open func foo(): Unit  {
-var p = M().goo()
+var p = M()
 println("in cangjie foo")
 }
 
