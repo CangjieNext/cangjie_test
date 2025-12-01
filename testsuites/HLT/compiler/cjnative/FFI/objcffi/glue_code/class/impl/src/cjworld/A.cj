@@ -25,6 +25,7 @@ public open func aFoo0(p0: ?M): ?M {
         println("aFoo0 None")
     }
     println("global_func() = ${global_func()}")
+    println("global_func0(114514) = ${global_func0(114514)}")
     p0
 }
 

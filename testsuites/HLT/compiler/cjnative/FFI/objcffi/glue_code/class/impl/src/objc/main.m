@@ -18,6 +18,8 @@ printf("in objc main, %d\n", 114514);
 M *m = [[M alloc] init];
 [a aFoo0: m];
 [a aFoo0: nil];
+
+global_func();
 }
 
 return 0;
