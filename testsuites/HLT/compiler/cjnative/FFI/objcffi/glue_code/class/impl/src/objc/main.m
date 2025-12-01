@@ -21,7 +21,7 @@ M *m = [[M alloc] init];
 [a aFoo0: nil];
 
 printf("oc global_func() = %d\n", global_func());
-printf("oc global_func0() = %d\n", global_func0());
+printf("oc global_func0() = %d\n", global_func0(123));
 }
 
 return 0;
