@@ -1,0 +1,130 @@
+[33mwarning[0m: unused variable:'result'
+  [36m==>[0m E:\cangjie_test_suite\cangjie_test\testsuites\HLT\API\std\reflect\reflect_std\src\main.cj:26:17:
+   [36m| [0m
+[36m26[0m [36m| [0m            let result = f.apply(114514) as String[0m
+   [36m| [0m                [33m^ unused variable[0m
+   [36m| [0m
+   [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
+[34mnote[0m: the warning occurs after the macro is expanded
+  [36m==>[0m E:\cangjie_test_suite\cangjie_test\testsuites\HLT\API\std\reflect\reflect_std\src\main.cj:9:1:
+   [36m| [0m
+[36m9[0m  [36m| [0m  @Test[0m
+   [36m| [0m [34m_[0m[34m^[0m
+[36m10[0m [36m| [0m[34m|[0m public class TestStdReflect {[0m
+   [36m| [0m[34m|[0m ...[0m
+[36m43[0m [36m| [0m[34m|[0m }[0m
+   [36m| [0m[34m|[0m[34m_[0m[34m^[0m
+   [36m| [0m
+[34mnote[0m: the code after the macro is expanded as follows
+    [36m| [0m
+    [36m| [0m  /* 9.1 */@Attribute[TEST_GENERATED] class TestStdReflect <: TestClass {[0m
+    [36m| [0m [34m_[0m[34m^[0m
+    [36m| [0m[34m|[0m /* 9.2 */    @Attribute[TestCase_0][0m
+    [36m| [0m[34m|[0m /* 9.3 */    func testString(): Unit {[0m
+    [36m| [0m[34m|[0m /* 9.4 */        let s = StructTypeInfo.of("xxx")[0m
+    [36m| [0m[34m|[0m /* 9.5 */        expectEqual("s.name", "\"String\"", s.name, "String")[0m
+    [36m| [0m[34m|[0m /* 9.6 */        let f = s.getStaticFunction("fromUtf8", TypeInfo.of(Array < UInt8 >()))[0m
+    [36m| [0m[34m|[0m /* 9.7 */        let result = f.apply(s, Array < UInt8 >(3, repeat: 76)) as String[0m
+    [36m| [0m[34m|[0m /* 9.8 */        expectEqual("result.getOrThrow()", "\"LLL\"", result.getOrThrow(), "LLL")[0m
+    [36m| [0m[34m|[0m /* 9.9 */    }[0m
+    [36m| [0m[34m|[0m /* 9.10 */    [0m
+    [36m| [0m[34m|[0m /* 9.11 */    @Attribute[TestCase_1][0m
+    [36m| [0m[34m|[0m /* 9.12 */    func testToString(): Unit {[0m
+    [36m| [0m[34m|[0m /* 9.13 */        let i = InterfaceTypeInfo.of < ToString >()[0m
+    [36m| [0m[34m|[0m /* 9.14 */        let f = i.getInstanceFunction("toString")[0m
+    [36m| [0m[34m|[0m /* 9.15 */        try {[0m
+    [36m| [0m[34m|[0m /* 9.16 */            let result = f.apply(114514) as String[0m
+    [36m| [0m[34m|[0m /* 9.17 */            assertEqual("false", "true", false, true)[0m
+    [36m| [0m[34m|[0m /* 9.18 */        } catch(e: InvocationTargetException) {[0m
+    [36m| [0m[34m|[0m /* 9.19 */            expectEqual("e.message", "\"The abstract function cannot be applied.\"", e.message, "The abstract function cannot be applied.")[0m
+    [36m| [0m[34m|[0m /* 9.20 */        }[0m
+    [36m| [0m[34m|[0m /* 9.21 */    }[0m
+    [36m| [0m[34m|[0m /* 9.22 */    [0m
+    [36m| [0m[34m|[0m /* 9.23 */    @Attribute[TestCase_2][0m
+    [36m| [0m[34m|[0m /* 9.24 */    func testToString0(): Unit {[0m
+    [36m| [0m[34m|[0m /* 9.25 */        let instance = ArrayList < String >()[0m
+    [36m| [0m[34m|[0m /* 9.26 */        let i = ClassTypeInfo.of(instance)[0m
+    [36m| [0m[34m|[0m /* 9.27 */        let r = i.instanceFunctions |> map { c: InstanceFunctionInfo => c.name } |> collectArray[0m
+    [36m| [0m[34m|[0m /* 9.28 */        expectEqual("r.toString()", "\"xxxx\"", r.toString(), "xxxx")[0m
+    [36m| [0m[34m|[0m /* 9.29 */    }[0m
+    [36m| [0m[34m|[0m /* 9.30 */    [0m
+    [36m| [0m[34m|[0m /* 9.31 */    init() {[0m
+    [36m| [0m[34m|[0m /* 9.32 */    }[0m
+    [36m| [0m[34m|[0m /* 9.33 */    private func classConfiguration(): Configuration {[0m
+    [36m| [0m[34m|[0m /* 9.34 */        let configuration = Configuration()[0m
+    [36m| [0m[34m|[0m /* 9.35 */        [0m
+    [36m| [0m[34m|[0m /* 9.36 */        return configuration[0m
+    [36m| [0m[34m|[0m /* 9.37 */    }[0m
+    [36m| [0m[34m|[0m /* 9.38 */    public override func asTestSuite(): TestSuite {[0m
+    [36m| [0m[34m|[0m /* 9.39 */        [0m
+    [36m| [0m[34m|[0m /* 9.40 */        let suiteConfiguration = classConfiguration()[0m
+    [36m| [0m[34m|[0m /* 9.41 */        let suiteBuilder = TestSuite.builder("TestStdReflect").configure(suiteConfiguration)[0m
+    [36m| [0m[34m|[0m /* 9.42 */        [0m
+    [36m| [0m[34m|[0m /* 9.43 */        { => let caseConfig = Configuration()[0m
+    [36m| [0m[34m|[0m /* 9.44 */            [0m
+    [36m| [0m[34m|[0m /* 9.45 */            let testStringTestFunc = { => testString();() }[0m
+    [36m| [0m[34m|[0m /* 9.46 */            suiteBuilder.add([0m
+    [36m| [0m[34m|[0m /* 9.47 */            UnitTestCase.create([0m
+    [36m| [0m[34m|[0m /* 9.48 */            "testString",[0m
+    [36m| [0m[34m|[0m /* 9.49 */            configuration: caseConfig,[0m
+    [36m| [0m[34m|[0m /* 9.50 */            body: testStringTestFunc[0m
+    [36m| [0m[34m|[0m /* 9.51 */            )[0m
+    [36m| [0m[34m|[0m /* 9.52 */            )[0m
+    [36m| [0m[34m|[0m /* 9.53 */            [0m
+    [36m| [0m[34m|[0m /* 9.54 */        }()[0m
+    [36m| [0m[34m|[0m /* 9.55 */        [0m
+    [36m| [0m[34m|[0m /* 9.56 */        [0m
+    [36m| [0m[34m|[0m /* 9.57 */        { => let caseConfig = Configuration()[0m
+    [36m| [0m[34m|[0m /* 9.58 */            [0m
+    [36m| [0m[34m|[0m /* 9.59 */            let testToStringTestFunc = { => testToString();() }[0m
+    [36m| [0m[34m|[0m /* 9.60 */            suiteBuilder.add([0m
+    [36m| [0m[34m|[0m /* 9.61 */            UnitTestCase.create([0m
+    [36m| [0m[34m|[0m /* 9.62 */            "testToString",[0m
+    [36m| [0m[34m|[0m /* 9.63 */            configuration: caseConfig,[0m
+    [36m| [0m[34m|[0m /* 9.64 */            body: testToStringTestFunc[0m
+    [36m| [0m[34m|[0m /* 9.65 */            )[0m
+    [36m| [0m[34m|[0m /* 9.66 */            )[0m
+    [36m| [0m[34m|[0m /* 9.67 */            [0m
+    [36m| [0m[34m|[0m /* 9.68 */        }()[0m
+    [36m| [0m[34m|[0m /* 9.69 */        [0m
+    [36m| [0m[34m|[0m /* 9.70 */        [0m
+    [36m| [0m[34m|[0m /* 9.71 */        { => let caseConfig = Configuration()[0m
+    [36m| [0m[34m|[0m /* 9.72 */            [0m
+    [36m| [0m[34m|[0m /* 9.73 */            let testToString0TestFunc = { => testToString0();() }[0m
+    [36m| [0m[34m|[0m /* 9.74 */            suiteBuilder.add([0m
+    [36m| [0m[34m|[0m /* 9.75 */            UnitTestCase.create([0m
+    [36m| [0m[34m|[0m /* 9.76 */            "testToString0",[0m
+    [36m| [0m[34m|[0m /* 9.77 */            configuration: caseConfig,[0m
+    [36m| [0m[34m|[0m /* 9.78 */            body: testToString0TestFunc[0m
+    [36m| [0m[34m|[0m /* 9.79 */            )[0m
+    [36m| [0m[34m|[0m /* 9.80 */            )[0m
+    [36m| [0m[34m|[0m /* 9.81 */            [0m
+    [36m| [0m[34m|[0m /* 9.82 */        }()[0m
+    [36m| [0m[34m|[0m /* 9.83 */        [0m
+    [36m| [0m[34m|[0m /* 9.84 */        return suiteBuilder.build()[0m
+    [36m| [0m[34m|[0m /* 9.85 */    }[0m
+    [36m| [0m[34m|[0m /* 9.86 */    private func inheritedFromClassAnnotatedByTestTemplate < T >(): TestSuite where T <: TestClass {[0m
+    [36m| [0m[34m|[0m /* 9.87 */        throw Exception("Unreachable code")[0m
+    [36m| [0m[34m|[0m /* 9.88 */    }[0m
+    [36m| [0m[34m|[0m /* 9.89 */}[0m
+    [36m| [0m[34m|[0m /* 9.90 */[0m
+    [36m| [0m[34m|[0m /* 9.91 */[0m
+    [36m| [0m[34m|[0m /* 9.92 */interface TestPackageExtension_TestStdReflect {[0m
+    [36m| [0m[34m|[0m /* 9.93 */    func registerTestStdReflect(): Unit[0m
+    [36m| [0m[34m|[0m /* 9.94 */}[0m
+    [36m| [0m[34m|[0m /* 9.95 */extend TestPackage <: TestPackageExtension_TestStdReflect {[0m
+    [36m| [0m[34m|[0m /* 9.96 */    @Attribute[TEST_REGISTER][0m
+    [36m| [0m[34m|[0m /* 9.97 */    public func registerTestStdReflect() {[0m
+    [36m| [0m[34m|[0m /* 9.98 */        registerSuite({ => TestStdReflect().asTestSuite() })[0m
+    [36m| [0m[34m|[0m /* 9.99 */    }[0m
+    [36m| [0m[34m|[0m /* 9.100 */}[0m
+    [36m| [0m[34m|[0m /* 9.101 */[0m
+    [36m| [0m[34m|[0m[34m_[0m[34m__________^[0m
+    [36m| [0m
+[34mnote[0m: which is expanded as follows
+   [36m| [0m
+   [36m| [0m/* 9.16 */            let result = f.apply(114514) as String[0m
+   [36m| [0m                          [34m^^^^^^ [0m
+   [36m| [0m
+
+1 warning generated, 1 warning printed.

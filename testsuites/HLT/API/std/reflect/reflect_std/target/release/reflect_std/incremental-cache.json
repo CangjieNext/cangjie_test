@@ -1,0 +1,14 @@
+{
+  "packageInformation": {
+    "reflect_std": {
+      "rootPackageName": "reflect_std",
+      "fileNameHash": "3975376165372017870",
+      "timeStamp": 1764594705,
+      "isBuilt": true,
+      "exeName": "main",
+      "hasSubPkgs": true
+    }
+  },
+  "jsonHash": "1197740234034067926",
+  "rootPackageName": "reflect_std"
+}

@@ -28,7 +28,7 @@ public class ClassC <: I {}
 
 public struct S0 <: I {}
 
-extend Int64 <: I {}
+extend Int64 <:  I {}
 
 @Test
 class Test {

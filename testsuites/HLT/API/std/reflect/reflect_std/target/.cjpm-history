@@ -1,18 +1,10 @@
 {
   "resolves": [
     {
-      "rootPackageName": "qwe",
+      "rootPackageName": "reflect_std",
       "modulePath": ".",
-      "packagePath": {
-        "commonPaths": [],
-        "platformPaths": [
-          {
-            "_0": "package.src-dir",
-            "_1": "E:\\cangjie_test_suite\\cangjie_test\\testsuites\\HLT\\API\\std\\reflect\\qwe\\src"
-          }
-        ]
-      },
-      "fullName": "qwe",
+      "packagePath": "E:\\cangjie_test_suite\\cangjie_test\\testsuites\\HLT\\API\\std\\reflect\\reflect_std\\src",
+      "fullName": "reflect_std",
       "isMacroPackage": false,
       "output-type": "executable",
       "compile-option": "",
@@ -21,12 +13,17 @@
       "link-option": "",
       "native-link-option": "",
       "requires": [],
-      "std-requires": [],
+      "std-requires": [
+        "std.collection",
+        "std.reflect",
+        "std.unittest",
+        "std.unittest.common",
+        "std.unittest.testmacro"
+      ],
       "c_libs": {},
-      "cross_c_libs": {},
       "hasTestFiles": false,
       "hasProdFiles": true,
-      "hasTestsInProdFiles": false,
+      "hasTestsInProdFiles": true,
       "accessLevel": "public"
     }
   ],
