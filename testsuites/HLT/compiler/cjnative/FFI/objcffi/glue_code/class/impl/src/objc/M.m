@@ -30,4 +30,8 @@ return self;
     NSLog(@"mFoo3");
     return p0;
 }
+- (id<P>)mFoo4:(id<P>)p0 {
+    NSLog(@"mFoo4");
+    return p0;
+}
 @end
