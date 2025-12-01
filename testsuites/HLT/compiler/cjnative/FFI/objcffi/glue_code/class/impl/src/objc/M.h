@@ -21,7 +21,7 @@ int y;
     NSObject<P> *v1;
     M* v2;
     id<P> v3;
-    M** v4;
+    // M** v4;
 }
 - (id)init;
 - (void)mFoo;
@@ -31,5 +31,5 @@ int y;
 - (id<P>)mFoo4:(id<P>)p0;
 - (M**)mFoo5:(M**)p0;
 
-@property (nonatomic, readwrite) (struct S*)p0;
+@property (nonatomic, readwrite) struct S* p0;
 @end
