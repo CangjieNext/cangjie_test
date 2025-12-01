@@ -9,21 +9,18 @@
 #import <Foundation/Foundation.h>
 struct S  {
 int x;
-
 int y;
-
 };
 
 @protocol P <NSObject>
 - (void)pFoo;
-- (struct S*)mFoo1:(struct S*)p0;
-- (NSObject<P> *)mFoo2:(NSObject<P> *)p0;
-- (M*)mFoo3:(M*)p0;
-- (id<P>)mFoo4:(id<P>)p0;
 @end
 
 @interface M :NSObject <P>
 - (id)init;
 - (void)mFoo;
-
+- (struct S*)mFoo1:(struct S*)p0;
+- (NSObject<P> *)mFoo2:(NSObject<P> *)p0;
+- (M*)mFoo3:(M*)p0;
+- (id<P>)mFoo4:(id<P>)p0;
 @end
