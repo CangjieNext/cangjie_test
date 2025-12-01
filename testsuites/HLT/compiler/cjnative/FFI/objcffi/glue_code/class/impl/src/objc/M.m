@@ -12,5 +12,11 @@
 self = [super init];
 return self;
 }
+- (void)pFoo {
+    NSLog(@"pFoo");
+}
+- (void)mFoo {
+    NSLog(@"mFoo");
+}
 
 @end

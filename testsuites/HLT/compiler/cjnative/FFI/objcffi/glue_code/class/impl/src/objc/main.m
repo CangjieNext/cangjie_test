@@ -12,6 +12,8 @@ int main(int argc, char** argv) {
 @autoreleasepool {
 A* a= [[A alloc] init];
 printf("in objc main, %d\n", 114514);
+[a mFoo];
+[a pFoo];
 }
 
 return 0;

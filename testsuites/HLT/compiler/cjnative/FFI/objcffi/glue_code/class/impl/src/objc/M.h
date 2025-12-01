@@ -13,7 +13,13 @@ int x;
 int y;
 
 };
-@interface M :NSObject 
+
+@protocol P <NSObject>
+- (void)pFoo;
+@end
+
+@interface M :NSObject <P>
 - (id)init;
+- (void)mFoo;
 
 @end
