@@ -13,29 +13,29 @@ self = [super init];
 return self;
 }
 - (void)pFoo {
-    printf("pFoo\n");
+    NSLog(@"pFoo");
 }
 - (void)mFoo {
-    printf(@"mFoo\n");
+    NSLog(@"mFoo");
 }
 - (struct S*)mFoo1:(struct S*)p0 {
-    printf(@"mFoo1\n");
+    NSLog(@"mFoo1");
     return p0;
 }
 - (NSObject<P> *)mFoo2:(NSObject<P> *)p0 {
-    printf(@"mFoo2\n");
+    NSLog(@"mFoo2");
     return p0;
 }
 - (M*)mFoo3:(M*)p0 {
-    printf(@"mFoo3\n");
+    NSLog(@"mFoo3");
     return p0;
 }
 - (id<P>)mFoo4:(id<P>)p0 {
-    printf(@"mFoo4\n");
+    NSLog(@"mFoo4");
     return p0;
 }
 - (M**)mFoo5:(M**)p0 {
-    printf(@"mFoo5\n");
+    NSLog(@"mFoo5");
     return p0;
 }
 @end
