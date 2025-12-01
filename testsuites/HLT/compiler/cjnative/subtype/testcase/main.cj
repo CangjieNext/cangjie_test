@@ -27,7 +27,20 @@ open class A1<M0, M1, M2> {}
 
 extend<T0, T1, T2> A1<T0, T1, T2> <: I<T1, T2, T0> where T0 <: Into<T0>, T1 <: Into<T1>, T2 <: Into<T2> {}
 
-open class A2 <: A1<Int64, String, Bool> {}
+open class A2 <: A1<Int64, String, Bool> {
+    // 带默认实现的实例成员函数
+    public override func test(p0: String, p1!: Bool, p2!: Int64): (Int64, String, Bool) {
+        println("A2<${TypeInfo.of<String>()},${TypeInfo.of<Bool>()},${TypeInfo.of<Int64>()}>.test")
+        (p2, p0, p1)
+    }
+    // 带默认实现的实例成员属性
+    public override prop test1: (Int64, String, Bool) {
+        get() {
+            println("A2<${TypeInfo.of<String>()},${TypeInfo.of<Bool>()},${TypeInfo.of<Int64>()}>.test1")
+            (Int64.into(), String.into(), Bool.into())
+        }
+    }
+}
 
 extend String <: Into<String> {
     public static func into(): String {
