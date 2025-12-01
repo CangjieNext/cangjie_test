@@ -5,11 +5,18 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
-// LEVEL: 3 
+
+// Level: 1
+// Description:
+// 测试@ObjCMirror修饰仓颉全局函数定义的场景
+// 全局函数拥有1个形参
+// 全局函数的返回类型为int
+// 全局函数的可见性修饰符为public
+// 在普通仓颉代码中调用
 // DEPENDENCE: src test.toml
-// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc -L . src/cjworld/*.cj
+// (iOSNative) EXEC: %mirror_gen test.toml
+// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc src/objc/foundation/*.cj
+// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc -L . -lobjc.foundation src/cjworld/*.cj
 // (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
 // (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan in objc initWithA, a: 1
-// ASSERT: scan in objc initWithA1, a: 1
+// ASSERT: scan in objc main, 114514

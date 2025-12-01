@@ -12,9 +12,5 @@
 self = [super init];
 return self;
 }
-- (void)foo:(int *)p {
-    int value = *p;
-    NSLog(@"value = %d", value);
-}
 
 @end
