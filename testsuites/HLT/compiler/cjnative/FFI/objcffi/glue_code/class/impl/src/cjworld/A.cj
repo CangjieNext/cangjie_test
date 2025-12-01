@@ -21,6 +21,7 @@ public open func aFoo0(p0: ?M): ?M {
     if (let Some(m) <- p0) {
         m.mFoo()
     }
+    p0
 }
 
 }
