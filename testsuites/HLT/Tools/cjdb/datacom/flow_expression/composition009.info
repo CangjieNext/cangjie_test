@@ -20,5 +20,5 @@ expr,expr a1,\(default.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*
 expr,expr a2,\(default.\(Bool\)->Int64\) \$[\d] = 0x[\s\S]*
 expr,expr a3,\(default.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*
 expr,expr a4,\(default.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*
-expr:expr S1<Int64>().f1~>S1<Int64>().f1:\(default.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*
+expr:expr S1<Int64>().f1~>S1<Int64>().f1:\(expr.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*
 q,q,
