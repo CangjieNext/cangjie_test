@@ -1,3 +1,5 @@
+#import "M.h"
+
 // 0 args
 int global_func() {
     return 123;
