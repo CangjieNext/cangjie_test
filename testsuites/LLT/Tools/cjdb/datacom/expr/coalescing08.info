@@ -12,4 +12,5 @@ test#
 cjdb,cjdb coalescing08,coalescing08
 b,b 27,coalescing08.cj:27
 r,r,-> 27
+ ,expr v2??C1(),\(default.C1\) \$\d+ = {}
 q,q,
