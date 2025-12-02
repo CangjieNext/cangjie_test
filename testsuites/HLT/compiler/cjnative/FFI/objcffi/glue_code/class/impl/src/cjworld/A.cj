@@ -47,5 +47,6 @@ public class A <: M {
             println("aFoo1 Some")
             p.pFoo()
         }
+        p0
     }
 }
