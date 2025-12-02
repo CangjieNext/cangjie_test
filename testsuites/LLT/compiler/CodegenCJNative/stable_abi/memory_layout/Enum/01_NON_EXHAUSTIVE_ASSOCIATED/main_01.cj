@@ -13,9 +13,12 @@
 // ASSERT: regex %"ObjLayout\.default:EA:2" = type { i32, i64 }
 // ASSERT: regex %enum\.Common = type { i8 addrspace\(1\)\* }
 // ASSERT: regex @"default:EA\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EA_layout_id>[0-9]+)
-// ASSERT: regex @"default:EA:0\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EA_Case1_layout_id>[0-9]+)
-// ASSERT: regex @"default:EA:1\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EA_Case2_layout_id>[0-9]+)
-// ASSERT: regex @"default:EA:2\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EA_Case3_layout_id>[0-9]+)
+// (not Windows)ASSERT: regex @"default:EA:0\.ti" = linkonce_odr global %TypeInfo {.*}, !RelatedType !(?P<EA_Case1_layout_id>[0-9]+)
+// (not Windows)ASSERT: regex @"default:EA:1\.ti" = linkonce_odr global %TypeInfo {.*}, !RelatedType !(?P<EA_Case2_layout_id>[0-9]+)
+// (not Windows)ASSERT: regex @"default:EA:2\.ti" = linkonce_odr global %TypeInfo {.*}, !RelatedType !(?P<EA_Case3_layout_id>[0-9]+)
+// (Windows)ASSERT: regex @"default:EA:0\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EA_Case1_layout_id>[0-9]+)
+// (Windows)ASSERT: regex @"default:EA:1\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EA_Case2_layout_id>[0-9]+)
+// (Windows)ASSERT: regex @"default:EA:2\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EA_Case3_layout_id>[0-9]+)
 // ASSERT: regex !(?P=EA_layout_id) = !{!"enum\.Common"}
 // ASSERT: regex !(?P=EA_Case1_layout_id) = !{!"ObjLayout\.default:EA:0"}
 // ASSERT: regex !(?P=EA_Case2_layout_id) = !{!"ObjLayout\.default:EA:1"}

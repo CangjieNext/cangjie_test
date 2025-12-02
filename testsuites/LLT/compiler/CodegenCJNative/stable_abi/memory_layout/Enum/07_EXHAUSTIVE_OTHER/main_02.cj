@@ -13,9 +13,12 @@
 // ASSERT: regex %"ObjLayout\.default:EXHAUSTIVE_OTHER:2" = type { i32, i8 addrspace\(1\)\* }
 // ASSERT: regex %enum\.Common = type { i8 addrspace\(1\)\* }
 // ASSERT: regex @"default:EXHAUSTIVE_OTHER\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EXHAUSTIVE_OTHER_layout_id>[0-9]+)
-// ASSERT: regex @"default:EXHAUSTIVE_OTHER:0\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EXHAUSTIVE_OTHER_A_layout_id>[0-9]+)
-// ASSERT: regex @"default:EXHAUSTIVE_OTHER:1\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EXHAUSTIVE_OTHER_B_layout_id>[0-9]+)
-// ASSERT: regex @"default:EXHAUSTIVE_OTHER:2\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EXHAUSTIVE_OTHER_C_layout_id>[0-9]+)
+// (not Windows)ASSERT: regex @"default:EXHAUSTIVE_OTHER:0\.ti" = linkonce_odr global %TypeInfo {.*}, !RelatedType !(?P<EXHAUSTIVE_OTHER_A_layout_id>[0-9]+)
+// (not Windows)ASSERT: regex @"default:EXHAUSTIVE_OTHER:1\.ti" = linkonce_odr global %TypeInfo {.*}, !RelatedType !(?P<EXHAUSTIVE_OTHER_B_layout_id>[0-9]+)
+// (not Windows)ASSERT: regex @"default:EXHAUSTIVE_OTHER:2\.ti" = linkonce_odr global %TypeInfo {.*}, !RelatedType !(?P<EXHAUSTIVE_OTHER_C_layout_id>[0-9]+)
+// (Windows)ASSERT: regex @"default:EXHAUSTIVE_OTHER:0\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EXHAUSTIVE_OTHER_A_layout_id>[0-9]+)
+// (Windows)ASSERT: regex @"default:EXHAUSTIVE_OTHER:1\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EXHAUSTIVE_OTHER_B_layout_id>[0-9]+)
+// (Windows)ASSERT: regex @"default:EXHAUSTIVE_OTHER:2\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<EXHAUSTIVE_OTHER_C_layout_id>[0-9]+)
 // ASSERT: regex !(?P=EXHAUSTIVE_OTHER_layout_id) = !{!"enum\.Common"}
 // ASSERT: regex !(?P=EXHAUSTIVE_OTHER_A_layout_id) = !{!"ObjLayout\.default:EXHAUSTIVE_OTHER:0"}
 // ASSERT: regex !(?P=EXHAUSTIVE_OTHER_B_layout_id) = !{!"ObjLayout\.default:EXHAUSTIVE_OTHER:1"}

@@ -11,7 +11,8 @@
 // ASSERT: regex %"ObjLayout\.default:E1:0" = type { i32, i8 addrspace\(1\)\*, i64 }
 // ASSERT: regex %enum\.Common = type { i8 addrspace\(1\)\* }
 // ASSERT: regex @"default:E1\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<E1_layout_id>[0-9]+)
-// ASSERT: regex @"default:E1:0\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<E1_A_layout_id>[0-9]+)
+// (not Windows)ASSERT: regex @"default:E1:0\.ti" = linkonce_odr global %TypeInfo {.*}, !RelatedType !(?P<E1_A_layout_id>[0-9]+)
+// (Windows)ASSERT: regex @"default:E1:0\.ti" = global %TypeInfo {.*}, !RelatedType !(?P<E1_A_layout_id>[0-9]+)
 // ASSERT: regex !(?P=E1_layout_id) = !{!"enum\.Common"}
 // ASSERT: regex !(?P=E1_A_layout_id) = !{!"ObjLayout\.default:E1:0"}
 
