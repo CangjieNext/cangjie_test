@@ -22,6 +22,8 @@ M *m = [[M alloc] init];
 
 printf("oc global_func() = %d\n", global_func());
 printf("oc global_func0() = %d\n", global_func0(123));
+
+[m aFoo1 m];
 }
 
 return 0;
