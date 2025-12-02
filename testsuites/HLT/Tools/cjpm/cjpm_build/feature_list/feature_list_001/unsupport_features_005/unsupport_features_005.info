@@ -9,5 +9,14 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run 2>&1 | compare %f
-// ASSERT: scan unknown suffix 'os' for number literal
+/* SCAN
+error: unknown suffix 'os' for number literal
+ ==> src/main.cj:9:13:
+  | 
+9 | features { 1os.windows }
+  |             ^^ unknown suffix 'os'
+  | 
+
+1 error generated, 1 error printed.
+*/
 // ASSERT: scan cjpm run failed

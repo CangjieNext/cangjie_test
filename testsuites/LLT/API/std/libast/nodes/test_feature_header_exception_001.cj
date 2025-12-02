@@ -16,15 +16,21 @@ main(): Int64 {
 
     try {
         let featuresDirective = FeaturesDirective()
+        let nonProduct = Annotation(quote(@NonProduct))
+        featuresDirective.annotations = ArrayList<Annotation>([nonProduct])
         featuresDirective.keyword = Token(TokenKind.FEATURES)
-        featuresDirective.commas = quote(,)
+        let featuresSet = FeaturesSet()
         let f1 = FeatureId()
-        f1.identifiers = quote(os Mac)
+        f1.identifiers = quote(os linux)
         f1.dots = quote(.)
         let f2 = FeatureId()
-        f2.identifiers = quote(os Linux)
+        f2.identifiers = quote(os darwin)
         f2.dots = quote(.)
-        featuresDirective.content = ArrayList<FeatureId>([f1, f2])
+        featuresSet.lCurl = Token(TokenKind.LCURL)
+        featuresSet.content = ArrayList<FeatureId>([f1, f2])
+        featuresSet.commas = quote(,)
+        featuresSet.rCurl = Token(TokenKind.RCURL)
+        featuresDirective.featuresSet = featuresSet
         featuresDirective.dump()
     } catch (e: ASTException) {
         println(e.message)
@@ -37,50 +43,65 @@ main(): Int64 {
 /* SCAN
 Cannot construct the 'FeaturesDirective' node.
 FeaturesDirective {
+  -annotation: 0, Annotation {
+    -identifier: NonProduct
+  }
   -keyword: Token {
     value: "features"
     kind: FEATURES
-    pos: 19: 37
+    pos: 21: 37
   }
-  -featureId: FeatureId {
+  -featuresSet: FeaturesSet {
+    -lCurl: Token {
+      value: "{"
+      kind: LCURL
+      pos: 29: 29
+    }
+    -FeatureId: FeatureId {
       -identifier: Token {
         value: "os"
         kind: IDENTIFIER
-        pos: 22: 32
+        pos: 24: 32
       }
       -dot: Token {
         value: "."
         kind: DOT
-        pos: 23: 25
+        pos: 25: 25
       }
       -identifier: Token {
-        value: "Mac"
+        value: "linux"
         kind: IDENTIFIER
-        pos: 22: 35
+        pos: 24: 35
       }
     }
-    -comma: Token {
+    -comma: : Token {
       value: ","
       kind: COMMA
-      pos: 20: 42
+      pos: 31: 36
     }
-  -featureId: FeatureId {
+    -FeatureId: FeatureId {
       -identifier: Token {
         value: "os"
         kind: IDENTIFIER
-        pos: 25: 32
+        pos: 27: 32
       }
       -dot: Token {
         value: "."
         kind: DOT
-        pos: 26: 25
+        pos: 28: 25
       }
       -identifier: Token {
-        value: "Linux"
+        value: "darwin"
         kind: IDENTIFIER
-        pos: 25: 35
+        pos: 27: 35
       }
     }
+    -rCurl: Token {
+      value: "}"
+      kind: RCURL
+      pos: 32: 29
+    }
+  }
 }
 cnt = 1
 */
