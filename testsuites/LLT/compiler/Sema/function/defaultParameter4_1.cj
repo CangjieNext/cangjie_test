@@ -49,17 +49,11 @@ error: undeclared identifier 'c'
    |     ^ 
    | 
 
-error: missing argument for parameter list '(Int32, Int32)' in call
-  ==> defaultParameter4_1.cj:22:9:
+error: missing argument prefix 'arg0:' or 'b:' for named parameter
+  ==> defaultParameter4_1.cj:22:10:
    | 
 22 |     foo1(1)
-   |         ^^^ expected 2 arguments, found 1
-   | 
-note: found candidate
-  ==> defaultParameter4_1.cj:13:6:
-   | 
-13 | func foo1(arg0!: Int32, b!: Int32 = arg0 + 1) {
-   |      ^^^^ 
+   |          ^ 
    | 
 
 4 errors generated, 4 errors printed.
