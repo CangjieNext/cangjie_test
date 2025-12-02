@@ -8,24 +8,16 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
-// () RUN-EXEC: %run %run_opt %output %run_args
-// (g)RUN-EXEC-1: %run %run_opt %output %run_args 
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+// (OHOS) ASSERT: scan hello ohos
+// (not OHOS) ASSERT: scan hello native
 
-@When[!debug]
-struct T {
-    func test() {
-        return 0
-    }
+@When[env != "ohos"]
+main(): Unit {
+    println("hello native")
 }
 
-@When[debug]
-struct T {
-    func test() {
-        return 1
-    }
-}
-
-main() {
-    var a = T()
-    return a.test()
+@When[env == "ohos"]
+main(): Unit {
+    println("hello ohos")
 }
