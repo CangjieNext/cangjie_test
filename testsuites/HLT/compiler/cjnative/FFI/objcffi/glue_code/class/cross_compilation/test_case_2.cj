@@ -12,8 +12,6 @@
 // (OHOS) ASSERT: scan positive
 // (not OHOS) ASSERT: scan negative
 
-import std.collection.*
-
 @When[os == "Linux"]
 main(): Unit {
     println("positive")
