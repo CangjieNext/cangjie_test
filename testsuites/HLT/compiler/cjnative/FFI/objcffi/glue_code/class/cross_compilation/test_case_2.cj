@@ -12,7 +12,6 @@
 // (OHOS) ASSERT: scan positive
 // (not OHOS) ASSERT: scan negative
 
-import std.reflect.*
 import std.collection.*
 
 @When[os == "Linux"]
