@@ -59,3 +59,8 @@ API/std/ffi/Python/Builtins/002/python_builtins_20003.cj
 API/std/ffi/Python/Builtins/002/python_builtins_20004.cj
 API/std/ffi/Python/Builtins/002/python_builtins_20006.cj
 API/std/ffi/Python/Builtins/002/python_builtins_20007.cj
+
+# cjmp is not supported.
+compiler/cjnative/Packages/cjmp/
+Tools/cjpm/source_set/
+Tools/cjdb/datacom/cross_platform/

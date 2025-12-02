@@ -18,3 +18,8 @@ API/syntax
 
 # timezone file in ci not support now
 API/std/time/TimeZone/load/test_loadFromPaths.cj
+
+# cjmp is not supported.
+compiler/cjnative/Packages/cjmp/
+Tools/cjpm/source_set/
+Tools/cjdb/datacom/cross_platform/

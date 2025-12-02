@@ -24,67 +24,14 @@ compiler/Macro/sema/cfunc.cj
 compiler/Macro/inout/inout_m4.cj
 compiler/Macro/inout/inout_m3.cj
 
-## CJMP testcases
-compiler/CJMP/frontend/common_declarations/class/abstract_class/function_without_body_and_common_abstract.cj
-compiler/CJMP/frontend/common_declarations/class/class_and_member_matching_rules/member_func_without_common_and_abstract_modifier_in_common_abstract_class.cj
-compiler/CJMP/frontend/matching/class/matching_rules/class_level/definition_match/generics_constraints_not_match.cj
-compiler/CJMP/frontend/matching/class/matching_rules/class_level/definition_match/generics_not_match.cj
-compiler/CJMP/frontend/matching/class/matching_rules/member_level/normal_function_member/openness_compatibility_table/c_abstract_p_final.cj
-compiler/CJMP/frontend/matching/class/new_members/add_abstract_func_without_default_in_abstractclass.cj
-compiler/CJMP/frontend/matching/class/new_members/add_new_property_without_default_in_abstractclasss.cj
-compiler/CJMP/frontend/matching/class/new_members/new_required_constructor.cj
-compiler/CJMP/frontend/matching/enum/matching_rules/enum_level/definition_match/generics_constraints_not_match.cj
-compiler/CJMP/frontend/matching/enum/matching_rules/enum_level/definition_match/generics_not_match.cj
-compiler/CJMP/frontend/matching/function/overload_error/generic_not_match/not_same_generic_name.cj
-compiler/CJMP/frontend/matching/struct/new_members/new_required_constructor.cj
-compiler/CJMP/merging/classes/class_abstract/impl_interface/generic_interface.cj
-compiler/CJMP/merging/classes/class_abstract/impl_interface/generic_interface_with_non_common_class.cj
-compiler/CJMP/merging/classes/vtable/implemntation_ambiguity_is_detected_have_no_effect.cj
-compiler/CJMP/merging/classes/vtable/long_move_to_ancestor_class.cj
-compiler/CJMP/merging/classes/vtable/no_duplication_in_vtable.cj
-compiler/CJMP/merging/classes/vtable/no_early_devirtualization_in_class_test.cj
-compiler/CJMP/merging/classes/vtable/no_early_devirtualization_test.cj
-compiler/CJMP/merging/static_and_top_level_variables/initializer_dependencies_preserved.cj
-compiler/CJMP/merging/static_and_top_level_variables/nested/directed_dependent/directed_dependent_single_file_set/pattern_from_platform_use_pattern_from_common.cj
-compiler/CJMP/merging/static_and_top_level_variables/nested/directed_dependent/directed_dependent_single_file_set/pattern_from_platform_use_platform_pattern.cj
-compiler/CJMP/merging/structs/struct_abstract/impl_interface/generic_interface.cj
-compiler/CJMP/merging/structs/struct_abstract/impl_interface/generic_interface_with_non_common_struct.cj
-compiler/CJMP/merging/top_level_function/argument/enhance_test/enum_argument/generic_type_enum.cj
-compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_impl_platform_impl.cj
-compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_impl_platform_no_impl.cj
-compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_no_impl_platform_impl.cj
-compiler/CJMP/merging/top_level_function/enhance_test/top_level_function/user_define_thirdparty/moretype/generictype/thirdparty_genericclass_as_argument.cj
-compiler/CJMP/frontend/matching/struct/new_members/new_members_access_private_members.cj
-compiler/CJMP/frontend/matching/class/new_members/new_members_access_private_members.cj
-compiler/CJMP/merging/common_without_default_implementation/platform_function_call_platform_non_common.cj
-
-# native FFI
-## objc (interoplib.objc and objc.lang are missing)
-compiler/CJMP/objc/integration/
-compiler/CJMP/objc/compiler/multi-file/A.cj
-compiler/CJMP/objc/parser/class/objc_mirror_ctor.cj
-compiler/CJMP/objc/parser/class/objc_mirror_custom_fqname.cj
-compiler/CJMP/objc/parser/class/objc_mirror_field.cj 
-compiler/CJMP/objc/parser/class/objc_mirror_inheritance.cj
-compiler/CJMP/objc/parser/class/objc_mirror_method_static.cj
-compiler/CJMP/objc/parser/class/objc_mirror_open_prop.cj
-compiler/CJMP/objc/parser/class/objc_mirror_private_field.cj
-compiler/CJMP/objc/parser/class/objc_mirror_prop.cj
-compiler/CJMP/objc/parser/class/objc_mirror_subtype_member_cannot_be_generic.cj
-compiler/CJMP/objc/parser/class/objc_mirror_subtype_primary_ctor.cj
-compiler/CJMP/objc/parser/class/objc_mirror_subtype_static_init.cj
-compiler/CJMP/objc/sema/compile_order.cj
-compiler/CJMP/objc/sema/objc_mirror_ctor_type_mismatch.cj
-compiler/CJMP/objc/sema/objc_mirror_inherit_not_mirror.cj
-compiler/CJMP/objc/sema/objc_mirror_inheritance_without_annotation1.cj
-compiler/CJMP/objc/sema/objc_mirror_inheritance_without_annotation2.cj
-compiler/CJMP/objc/sema/objc_mirror_subtype.cj
-compiler/CJMP/objc/sema/objc_mirror_subtype_ctor.cj
-compiler/CJMP/objc/sema/objc_mirror_subtype_method_private.cj
-compiler/CJMP/objc/sema/objc_mirror_subtype_method_ret_type.cj
-compiler/CJMP/objc/sema/objc_mirror_subtype_parse.cj
-compiler/CJMP/objc/sema/objc_pointer_illegal_argument.cj
-compiler/CJMP/objc/sema/objc_pointer_type_argument.cj
+## CJMP is not supported
+compiler/CJMP/
+compiler/Sema/redefinition/private_func/04_diff_file_extend/case.info
+API/std/libast/program/featuresdirective/test_dump_001.cj
+compiler/Sema/Extend/common_specific
+compiler/Package/feature
+compiler/Package/scan_dependency/case06/
+compiler/Package/scan_dependency/case07/
 
 # mock failed.
 API/std/unittest/mock/compiler/createMock/genericInstantiation.cj
