@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features os.ohos
+features {os.ohos}
 package test.pkg
 
 public func f1(){}
