@@ -13,7 +13,6 @@ public open class P {
 }
 
 public class S <: P {
-    @When[env == "ohos"]
     public func foo(): Unit {
         println("positive")
     }
