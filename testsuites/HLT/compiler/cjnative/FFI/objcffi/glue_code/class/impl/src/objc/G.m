@@ -12,10 +12,10 @@ int global_func0(int p0) {
     return p0;
 }
 
-int global_func1(M *p0) {
+M * global_func1(M *p0) {
     printf("global_func1\n");
     [p0 mFoo];
-    return 114;
+    return p0;
 }
 
 // multi params.
@@ -40,8 +40,8 @@ int global_func4(M *p0, int p1, float p2) {
 }
 
 // named params with default values.
-int global_func5(id<P> p0) {
+id<P> global_func5(id<P> p0) {
     printf("global_func5\n");
     [p0 pFoo];
-    return 114;
+    return p0;
 }
