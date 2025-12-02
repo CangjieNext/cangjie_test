@@ -9,5 +9,16 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run 2>&1 | compare %f
-// ASSERT: scan expected a feature name after keyword 'features', found literal '123'
+/*
+error: expected an identifier after this, found literal '123'
+ ==> src/main.cj:9:12:
+  | 
+9 | features { 123 }
+  |          ~ ^^^ expected an identifier here
+  |          |
+  |          after this
+  | 
+
+1 error generated, 1 error printed.
+*/
 // ASSERT: scan cjpm run failed

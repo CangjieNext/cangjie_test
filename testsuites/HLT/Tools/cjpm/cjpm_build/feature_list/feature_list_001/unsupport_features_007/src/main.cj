@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features os.abc
+features { os.abc }
 package test
 
 main(): Int64 {
