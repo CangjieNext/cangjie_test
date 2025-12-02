@@ -6,15 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+#import "P.h"
 #import <Foundation/Foundation.h>
 struct S  {
 int x;
 int y;
 };
-
-@protocol P <NSObject>
-- (void)pFoo;
-@end
 
 @interface M :NSObject <P> {
     struct S* v0;
