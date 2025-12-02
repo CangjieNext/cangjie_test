@@ -7,5 +7,5 @@
 // DEPENDENCE: ../%n
 // EXEC-0: cd %n/pro1 && %cjpm build && cd .. && %cjpm build -V 2>&1 | compare %f
 // ASSERT: scan-2 --output-type=exe
-// ASSERT: scan-2 -lpro1.xoo
+// ASSERT: scan-1 -lpro1.xoo
 // ASSERT: scan-1 cjpm build success
