@@ -6,18 +6,10 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 2
+// Level: 1
+// Description:
+// DEPENDENCE: main.cj
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
-// (OHOS) ASSERT: scan hello ohos
-// (not OHOS) ASSERT: scan hello native
-
-@When[env != "ohos"]
-main(): Unit {
-    println("hello native")
-}
-
-@When[env == "ohos"]
-main(): Unit {
-    println("hello ohos")
-}
+// (OHOS) ASSERT: scan positive
+// (not OHOS) ASSERT: scan negative

@@ -6,12 +6,6 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 2
-// EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
-// (OHOS) ASSERT: scan positive
-// (not OHOS) ASSERT: scan negative
-
 public open class P {
     public open func foo(): Unit {
         println("negative")
@@ -19,8 +13,8 @@ public open class P {
 }
 
 public class S <: P {
-    @When[os == "Linux"]
-    public override func foo(): Unit {
+    @When[env == "ohos"]
+    public func foo(): Unit {
         println("positive")
     }
 }
