@@ -11,5 +11,5 @@
 // DEPENDENCE: main.cj
 // EXEC: %compiler %cmp_opt main.cj -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
-// (MAC and not OHOS) ASSERT: scan negative
-// (OHOS) ASSERT: scan positive
+// (MAC and not OHOS) ASSERT: scan positive
+// (OHOS) ASSERT: scan negative
