@@ -12,12 +12,19 @@
 // (OHOS) ASSERT: scan positive
 // (not OHOS) ASSERT: scan negative
 
-@When[os == "Linux"]
-main(): Unit {
-    println("positive")
+open class P {
+    open func foo(): Unit {
+        println("negative")
+    }
 }
 
-@When[!(os == "Linux")]
+class S <: P {
+    @When[os == "Linux"]
+    override func foo(): Unit {
+        println("positive")
+    }
+}
+
 main(): Unit {
-    println("negative")
+    S().foo()
 }
