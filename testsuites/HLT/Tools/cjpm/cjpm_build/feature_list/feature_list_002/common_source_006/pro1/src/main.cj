@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features os.ios
+features {os.ios}
 package pro1
 
 public let x: Int32 = 24

@@ -9,5 +9,14 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run 2>&1 | compare %f
-// ASSERT: scan expected an identifier after this, found '`abc`'
+/* SCAN
+error: escaped identifier with backticks '`abc`' is now allowed
+ ==> src/main.cj:9:12:
+  | 
+9 | features { `abc` }
+  |            ^^^^^ don't use backticks here
+  | 
+
+1 error generated, 1 error printed.
+/*
 // ASSERT: scan cjpm run failed

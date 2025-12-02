@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features os.linux,user.a1.a2,user.os.windows
+features {os.linux,user.a1.a2,user.os.windows}
 package test.pkg
 
 public func f1(){}
