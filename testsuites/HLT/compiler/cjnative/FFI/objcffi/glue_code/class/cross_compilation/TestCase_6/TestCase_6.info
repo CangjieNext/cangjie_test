@@ -9,7 +9,7 @@
 // Level: 1
 // Description:
 // DEPENDENCE: main.cj
-// EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler %cmp_opt main.cj -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // (OHOS) ASSERT: scan positive
 // (not OHOS) ASSERT: scan negative
