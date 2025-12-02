@@ -12,15 +12,15 @@
 // (OHOS) ASSERT: scan positive
 // (not OHOS) ASSERT: scan negative
 
-open class P {
-    open func foo(): Unit {
+public open class P {
+    public open func foo(): Unit {
         println("negative")
     }
 }
 
-class S <: P {
+public class S <: P {
     @When[os == "Linux"]
-    override func foo(): Unit {
+    public override func foo(): Unit {
         println("positive")
     }
 }
