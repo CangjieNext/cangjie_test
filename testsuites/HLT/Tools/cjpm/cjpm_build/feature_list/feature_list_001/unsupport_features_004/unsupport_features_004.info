@@ -9,4 +9,16 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run 2>&1 | compare %f
+/* SCAN
+error: expected declaration, found 'feature'
+ ==> src/main.cj:9:1:
+  | 
+9 | feature { os.windows }
+  | ^^^^^^^ expected declaration here
+  | 
+  # note: only declarations or macro expressions can be used in the top-level
+  # help: did you mean 'features'?
+
+1 error generated, 1 error printed.
+*/
 // ASSERT: scan cjpm run failed

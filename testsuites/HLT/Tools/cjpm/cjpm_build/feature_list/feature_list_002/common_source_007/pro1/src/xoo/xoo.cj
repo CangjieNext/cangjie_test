@@ -1,4 +1,4 @@
-features user.pro1.aa
+features {user.pro1.aa}
 
 package pro1.xoo
 
