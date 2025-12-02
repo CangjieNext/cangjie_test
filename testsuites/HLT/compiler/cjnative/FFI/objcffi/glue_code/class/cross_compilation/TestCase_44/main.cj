@@ -13,7 +13,7 @@ public open class P {
 }
 
 public class S <: P {
-    @When[arch != "xxxx" && env == "ohos"]
+    @When[os == "Linux" && arch == "aarch64" && env == "android"]
     public func foo(): Unit {
         println("positive")
     }
