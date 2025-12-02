@@ -49,4 +49,14 @@ public class A <: M {
         }
         p0
     }
+    public open func aFoo2(p0: M): M {
+        println("aFoo2")
+        p0.mFoo()
+        p0
+    }
+    public open func aFoo3(p0: P): P {
+        println("aFoo3")
+        p0.pFoo()
+        p0
+    }
 }

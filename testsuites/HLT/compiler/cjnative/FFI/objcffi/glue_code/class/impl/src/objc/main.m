@@ -24,6 +24,8 @@ printf("oc global_func() = %d\n", global_func());
 printf("oc global_func0() = %d\n", global_func0(123));
 
 [a aFoo1: m];
+[a aFoo2: m];
+[a aFoo3: m];
 }
 
 return 0;
