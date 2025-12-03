@@ -11,7 +11,7 @@
  */
 
 #include "MetaTransform.h"
-#include "cangjie/CHIR/CHIRBuilder.h"
+#include "cangjie/CHIR/IR/CHIRBuilder.h"
 
 #include <iostream>
 
