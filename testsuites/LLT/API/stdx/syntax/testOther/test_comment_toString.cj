@@ -124,6 +124,100 @@ ffffff
         @Expect(comments[1].content, ##"// line comment1"##)
     }
 
+    @TestCase
+    func testMatchExpr01() {
+        let funcDecl = (decls[4] as FuncDecl).getOrThrow()
+        let nodes = funcDecl.body.getOrThrow().nodes
+        let matchExpr = (nodes[1] as MatchExpr).getOrThrow()
+        let matchCase = (matchExpr.matchCases[0] as MatchCase).getOrThrow()
+        @Expect(matchCase.toString(), ##"case 1 =>
+        // comment on 1
+        1
+        // comment on ()
+        () // comment on matchCase"##)
+        let body = matchCase.body
+        var litConstExpr = (body[0] as LitConstExpr).getOrThrow()
+        @Expect(litConstExpr.toString(), ##"// comment on 1
+        1"##)
+        var comments = litConstExpr.comments
+        @Expect(comments.size, 1)
+        @Expect(comments[0].content, ##"// comment on 1"##)
+
+        let bodyNode = body[1]
+        comments = bodyNode.comments
+        @Expect(comments.size, 1)
+        @Expect(comments[0].content, ##"// comment on ()"##)
+
+        comments = matchCase.comments
+        @Expect(comments.size, 1)
+        @Expect(comments[0].content, ##"// comment on matchCase"##)
+    }
+
+    @TestCase
+    func testMatchExpr02() {
+        let funcDecl = (decls[4] as FuncDecl).getOrThrow()
+        let nodes = funcDecl.body.getOrThrow().nodes
+        var matchExpr = (nodes[2] as MatchExpr).getOrThrow()
+        var matchCase = (matchExpr.matchCases[1] as MatchCase).getOrThrow()
+        var comments = matchCase.comments
+        @Expect(comments.size, 1)
+        @Expect(comments[0].content, ##"/*
+             * comment on matchCase
+             */"##)
+
+        matchExpr = (nodes[3] as MatchExpr).getOrThrow()
+        matchCase = (matchExpr.matchCases[0] as MatchCase).getOrThrow()
+        comments = matchCase.comments
+        @Expect(comments.size, 1)
+        @Expect(comments[0].content, ##"// hello"##)
+
+        matchExpr = (nodes[4] as MatchExpr).getOrThrow()
+        matchCase = (matchExpr.matchCases[0] as MatchCase).getOrThrow()
+        comments = matchCase.comments
+        @Expect(comments.size, 1)
+        @Expect(comments[0].content, ##"// hello"##)
+
+        matchExpr = (nodes[5] as MatchExpr).getOrThrow()
+        matchCase = (matchExpr.matchCases[0] as MatchCase).getOrThrow()
+        let caseCond = matchCase.caseCond.getOrThrow()
+        comments = caseCond.comments
+        @Expect(comments.size, 1)
+        @Expect(comments[0].content, ##"/* comment */"##)
+    }
+
+    @TestCase
+    func testEnumDecl01() {
+        /*
+        enum E1
+        {
+            | B1 /* block comment1 */ (/* block comment2 */T/* block comment3 */, /* block comment4 */R/* block comment5 */) // comment
+        }
+        */
+        let enumDecl = (decls[5] as EnumDecl).getOrThrow()
+        let constructor = (enumDecl.body.memberDecls[0] as EnumConstructor).getOrThrow()
+        @Expect(constructor.toString(), ##"B1 /* block comment1 */ (/* block comment2 */T/* block comment3 */, /* block comment4 */R/* block comment5 */) // comment"##)
+        let comments = constructor.comments
+        @Expect(comments.size, 2)
+        @Expect(comments[0].content, ##"/* block comment1 */"##)
+        @Expect(comments[1].content, ##"// comment"##)
+    }
+
+    @TestCase
+    func testEnumDecl02() {
+        /*
+        enum E {
+            // comment
+            | Enum
+            | A
+            | B
+        }
+        */
+        let enumDecl = (decls[6] as EnumDecl).getOrThrow()
+        let comments = enumDecl.body.comments
+        @Expect(comments.size, 1)
+        @Expect(comments[0].content, ##"// comment"##)
+    }
+
     
     @TestCase
     func testFileToString() {
