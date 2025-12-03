@@ -38,3 +38,42 @@ func a() {
         // TODO
     }
 }
+
+func b() {
+    {
+        =>
+        @synmmetry[] func spawnCoroutine() {
+            // 等待
+            crdRegistrationMgr.waitForInitialSync()
+            autoApiServiceRegistrationController.run()
+        }
+        spawn {spawnCoroutine()}
+    }()
+
+    match {
+        case 1 =>
+        // comment on 1
+        1
+        // comment on ()
+        () // comment on matchCase
+        case _ => 1
+    }
+
+    match (this) {
+        case RSA => ()
+        case RSA_X931
+            /*
+             * comment on pattern
+             */
+            => 1
+        case _ => 1
+    }
+
+    match (a) {
+        case _ => () // hello
+    }
+
+    match {
+        case _ => () // hello
+    }
+}
