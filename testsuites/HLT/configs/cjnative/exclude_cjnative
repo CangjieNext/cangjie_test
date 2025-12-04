@@ -274,15 +274,6 @@ API/std/time/TimeZone/load/test_loadFromPaths.cj
 # fail in ci env
 API/std/socket/UdpSocket/test_udp_transportation_init.cj
 
-# cjdb fail in ci
-Tools/cjdb/datacom/expression_basevar/express_fun_001.info
-Tools/cjdb/datacom/expression_enum/expression_enum005.info
-Tools/cjdb/datacom/expression_enum/expression_enum012.info
-Tools/cjdb/datacom/expression_enum/expression_enum013.info
-Tools/cjdb/datacom/expression_enum/expression_enum023.info
-Tools/cjdb/datacom/adapt_reflection/adapt_reflection06.info
-Tools/cjdb/datacom/case/case18_4.info
-Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP019.info
 #array/arraylist
 Tools/cjdb/datacom/generics_expression/generics_local_var001_2.info
 
