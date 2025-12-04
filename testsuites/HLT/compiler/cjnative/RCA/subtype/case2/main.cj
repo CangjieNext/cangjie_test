@@ -16,6 +16,7 @@ public enum MyOption<T> {
 }
 
 public interface IA<T> {
+    // 静态成员函数
     static func foo(a: T, b: String, c: MyOption<String>): MyOption<T>
     static func foo(a: T, b: String): MyOption<T> {
         println("ccc")
