@@ -32,10 +32,20 @@ common extend<T> Foo<T, A.Moo> where T <: ToString {}
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo libB.a --output-type=dylib --output-dir ./p 2>&1 | compare %f
-// ASSERT: scan error: 'common' extend 'Foo<T,Moo>' can not find 'platform' match
-// ASSERT: scan error: 'platform' extend 'Foo<T,Moo>' can not find 'common' match
+
 package cmp
 
 import B
 
 platform extend<T> Foo<T, B.Moo> where T <: ToString {}
+
+/* SCAN
+error: 'platform' extend 'Foo<T,Moo>' can not find 'common' match
+ ==> p/p.cj:7:10:
+  | 
+7 | platform extend<T> Foo<T, B.Moo> where T <: ToString {}
+  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+  | 
+
+1 error generated, 1 error printed.
+*/

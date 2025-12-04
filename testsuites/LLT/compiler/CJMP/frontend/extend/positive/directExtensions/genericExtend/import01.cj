@@ -51,7 +51,7 @@ public func runCommonFromB() {
 }
  
 // SEPARATE-FILE: p/pb.cj
-// EXEC-0: %compiler %noColor --experimental p/pb.cj ./c/b.chir --common-part-cjo=./c/b.cjo --import-path=./p --output-type=dylib --output-dir=./p
+// EXEC-0: %compiler  --dump-chir %noColor --experimental p/pb.cj ./c/b.chir --common-part-cjo=./c/b.cjo --import-path=./p --output-type=dylib --output-dir=./p
 package b
  
 import a.*

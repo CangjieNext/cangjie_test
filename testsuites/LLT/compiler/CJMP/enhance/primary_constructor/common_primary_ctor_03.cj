@@ -10,7 +10,6 @@ package cmp
 
 
 public common class A {
-  public common A(common public var a: Int64) {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -21,7 +20,7 @@ public common class A {
 package cmp
 
 public platform class A {
-    public platform A(platform public var a: Int64) {}
+    public A( public var a: Int64) {}
 }
 
 

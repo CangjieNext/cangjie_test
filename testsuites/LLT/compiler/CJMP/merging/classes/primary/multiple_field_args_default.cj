@@ -10,11 +10,7 @@ package cmp
 
 import std.random.*
 
-public common class A {
-    public common A(common let a: Int64, common let b: Random, common let c: Array<Int64>) {
-        println("[common] A.A(${a}, ${b.nextInt64() * 0 + 42}, ${c[0]})")
-    }
-}
+public common class A {}
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
@@ -23,7 +19,7 @@ package cmp
 import std.random.*
 
 public platform class A {
-    public platform A(platform let a: Int64, platform let b: Random, platform let c: Array<Int64>) {
+    public A(let a: Int64, let b: Random, let c: Array<Int64>) {
         println("[platform] A.A(${a}, ${b.nextInt64() * 0 + 42}, ${c[0]})")
     }
 }

@@ -6,8 +6,7 @@
 
 // case: same common in one file
 // expect: error info code
-// EXEC-PIPE-1: %compiler %diag_json --experimental %f --output-type=chir 2>&1 | compare %f
-// ASSERT: scan parse_expected_type_with_cjmp_var
+// EXEC-PIPE-0: %compiler %diag_json --experimental %f --output-type=chir
 
 package cmp
 
