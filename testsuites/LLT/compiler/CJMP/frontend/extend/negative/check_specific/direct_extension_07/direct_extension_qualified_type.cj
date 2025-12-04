@@ -104,9 +104,6 @@ error: 'platform' function 'foo2' can not find 'common' match
    | |_____^
    | 
 
-error: 'common' extend 'A<T>' can not find 'platform' match
-  ==> mp/test_comm.cj:25:8:
-
 error: 'platform' extend '' can not find 'common' match
   ==> mp/test_plat.cj:4:10:
    | 
@@ -118,5 +115,5 @@ error: 'platform' extend '' can not find 'common' match
    | |_^
    | 
 
-8 errors generated, 8 errors printed.
+7 errors generated, 7 errors printed.
 */

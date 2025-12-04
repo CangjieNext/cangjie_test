@@ -10,12 +10,10 @@ package cmp
 public abstract common class A{}
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
+// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  2>&1 | compare %f
+// ASSERT: scan sema_cjmp_non_platform_abstract_member_in_platform_class
+
 package cmp 
 public abstract platform class A{
     public abstract prop foo: Int32
 }
-
-/*SCAN
-CANT ADD NEW ABSTRACT PROP IN PLATFORM ABSTRACT CLASS
-*/

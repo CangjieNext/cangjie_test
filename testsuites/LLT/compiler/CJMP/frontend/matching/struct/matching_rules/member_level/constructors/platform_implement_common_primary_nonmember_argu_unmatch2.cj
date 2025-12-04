@@ -5,16 +5,12 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // SEPARATE-FILE: c/c.cj
-// EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
+// EXEC-0: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c  2>&1 | compare %f
+
+
 package cmp
 
 public common struct A {
     common A(p!:Int32=1){}
 }
-// SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
-// ASSERT: scan parse_platform_function_parameter_cannot_have_default_value
-package cmp
-public platform struct A{
-    platform A(p!:Int32=1){}
-}
+// ASSERT: scan parse_illegal_modifier_in_scope

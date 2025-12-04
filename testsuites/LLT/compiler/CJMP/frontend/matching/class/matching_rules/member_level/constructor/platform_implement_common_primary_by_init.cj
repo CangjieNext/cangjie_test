@@ -5,7 +5,9 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // SEPARATE-FILE: c/c.cj
-// EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
+// EXEC-0: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
+// ASSERT: scan parse_illegal_modifier_in_scope
+
 package cmp
 
 public common class A {
@@ -13,14 +15,5 @@ public common class A {
     common A(p:Int32)
     {
         this.p=1
-    }
-}
-// SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
-// ASSERT: scan sema_platform_init_common_primary_constructor
-package cmp
-public platform class A{
-    platform init(p:Int32){
-        this.p=p
     }
 }
