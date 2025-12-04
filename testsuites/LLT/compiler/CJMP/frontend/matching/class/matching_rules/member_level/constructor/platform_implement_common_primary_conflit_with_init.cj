@@ -10,17 +10,17 @@ package cmp
 
 public common class A {
     let p:Int32
-    common A(p:Int32){this.p=p}
+    common init(p:Int32){this.p=p}
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan sema_overload_conflicts
 package cmp
 public platform class A{
-    init(p:Int32){
+    A(p:Int32){
         this.p=p
     }
-    platform A(p:Int32)
+    platform init(p:Int32)
     {
         this.p=p
     }

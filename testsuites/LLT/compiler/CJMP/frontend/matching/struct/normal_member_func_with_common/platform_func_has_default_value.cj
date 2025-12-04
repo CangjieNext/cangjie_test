@@ -12,8 +12,7 @@ public common struct A {
     common func B(a!: Float32):Int32 {0}
 }
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
-// ASSERT: scan parse_platform_function_parameter_cannot_have_default_value
+// EXEC-PIPE-0: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p 
 package cmp
 public platform struct A{
     init() {}

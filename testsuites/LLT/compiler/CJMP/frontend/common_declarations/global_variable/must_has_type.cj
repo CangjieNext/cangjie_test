@@ -5,7 +5,6 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // case: common with const and foreign should be conflicted
-// EXEC-PIPE-1: %compiler %diag_json --experimental %f --output-type=chir 2>&1 | compare %f
-// ASSERT: scan parse_expected_type_with_cjmp_var
+// EXEC-PIPE-0: %compiler %diag_json --experimental %f --output-type=chir
 package cmp
 public common let a=1

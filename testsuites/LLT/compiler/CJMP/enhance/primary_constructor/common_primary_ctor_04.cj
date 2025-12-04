@@ -11,7 +11,7 @@ package cmp
 
 public common class A {
   common public var a: Int64
-  public common init(a: Int64) { this.a = a }
+  public init(a: Int64) { this.a = a }
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -22,7 +22,7 @@ public common class A {
 package cmp
 
 public platform class A {
-    public platform A(platform public var a: Int64) {}
+    platform public var a: Int64
 }
 
 
