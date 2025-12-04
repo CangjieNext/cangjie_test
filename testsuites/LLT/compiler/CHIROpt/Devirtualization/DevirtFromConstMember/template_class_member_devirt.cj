@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC-PIPE-0: %compiler %debugCHIROpt %enableO2 -Woff all %f -o %n.%suffix 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %debugCHIROpt %enableDevirtualization -Woff all %f -o %n.%suffix 2>&1 | compare %f
 // EXEC-PIPE-0: %run %run_opt %output %run_args
 // (not Windows) ASSERT: scan [Devirtualization] The function call to foo at [37,9] was optimized.
 // (not Windows) ASSERT: scan [Devirtualization] The function call to foo at [43,5] was optimized.
@@ -41,4 +41,5 @@ class Test2 {
 main() {
     let t = Test2()
     t.b.foo()
+    t.hoo()
 }
