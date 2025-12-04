@@ -16,7 +16,7 @@ main(): Int64 {
 
     try {
         let program = Program()
-        program.featuresDirective = FeaturesDirective(quote(features os.Harmony))
+        program.featuresDirective = FeaturesDirective(quote(features {os.Harmony}))
         program.packageHeader = PackageHeader(quote(package a))
         program.importLists = ArrayList<ImportList>([ImportList(quote(import b)), ImportList(quote(import c))])
         program.decls = ArrayList<Decl>([FuncDecl(quote(func d(e: f): g))])
@@ -39,23 +39,35 @@ Program {
         kind: FEATURES
         pos: 19: 61
       }
-      -featureId: FeatureId {
+      -featuresSet: FeaturesSet {
+        -lCurl: Token {
+          value: "{"
+          kind: LCURL
+          pos: 19: 70
+        }
+        -FeatureId: FeatureId {
           -identifier: Token {
             value: "os"
             kind: IDENTIFIER
-            pos: 19: 70
+            pos: 19: 71
           }
           -dot: Token {
             value: "."
             kind: DOT
-            pos: 19: 72
+            pos: 19: 73
           }
           -identifier: Token {
             value: "Harmony"
             kind: IDENTIFIER
-            pos: 19: 73
+            pos: 19: 74
           }
         }
+        -rCurl: Token {
+          value: "}"
+          kind: RCURL
+          pos: 19: 81
+        }
+      }
     }
   -packageHeader: PackageHeader {
       -keywordP: Token {

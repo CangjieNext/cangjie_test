@@ -1,4 +1,4 @@
-features os.Harmony, os.Mac, os.Linux
+features { os.Harmony, os.Mac, os.Linux }
 public let c = "c"
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
