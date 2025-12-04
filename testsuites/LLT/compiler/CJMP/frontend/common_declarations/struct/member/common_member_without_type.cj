@@ -7,7 +7,8 @@
 // case: a common class without explicit constructors and has instance is error
 // SEPARATE-FILE: c/c.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
-// ASSERT: scan parse_expected_type_with_cjmp_var
+// ASSERT: scan parse_expected_one_of_type_or_initializer
+
 package cmp
 
 common class Foo {

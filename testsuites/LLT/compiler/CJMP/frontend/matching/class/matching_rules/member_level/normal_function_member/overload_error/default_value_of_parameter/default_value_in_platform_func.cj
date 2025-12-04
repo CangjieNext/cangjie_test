@@ -15,7 +15,8 @@ common class A {
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
-// ASSERT: scan parse_platform_function_parameter_cannot_have_default_value
+// ASSERT: scan sema_cjmp_parameter_default_value_both_sides
+// ASSERT: scan sema_not_matched
 package cmp
 
 platform class A {
