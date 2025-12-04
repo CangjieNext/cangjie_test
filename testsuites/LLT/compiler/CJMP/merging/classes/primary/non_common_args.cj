@@ -11,7 +11,7 @@ package cmp
 import std.random.*
 
 public common class A {
-    public A(a: Int64, b: Random, c: Array<Int64>) {
+    public init(a: Int64, b: Random, c: Array<Int64>) {
         println("[common] A.A(${a}, ${b.nextInt64() * 0 + 42}, ${c[0]})")
     }
 }

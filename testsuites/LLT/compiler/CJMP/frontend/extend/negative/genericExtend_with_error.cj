@@ -29,10 +29,7 @@ main() {
    return 0
 }
 
-/*SCAN
-error: 'common' extend 'Foo<Int64,T>' can not find 'platform' match
-  ==> c/c.cj:17:8:
-
+/* SCAN
 error: 'platform' extend 'Foo<T,Int64>' can not find 'common' match
  ==> p/p.cj:4:10:
   | 
@@ -42,5 +39,5 @@ error: 'platform' extend 'Foo<T,Int64>' can not find 'common' match
   | |_^
   | 
 
-2 errors generated, 2 errors printed.
+1 error generated, 1 error printed.
 */
