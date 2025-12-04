@@ -1,4 +1,4 @@
-features os.Harmony
+features { os.harmony }
 package src
 
 main() {
@@ -10,4 +10,3 @@ main() {
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
-

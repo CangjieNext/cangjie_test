@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features _123.os.a
+features {_123.os.a}
 package test
 
 main(): Int64 {

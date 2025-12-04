@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features a.b.c,b.c.d,d.e.f
+features {a.b.c,b.c.d,d.e.f}
 package test
 
 main(): Int64 {
