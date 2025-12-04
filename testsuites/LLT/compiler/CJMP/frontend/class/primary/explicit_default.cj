@@ -10,7 +10,7 @@
 package cmp
 
 public common class A {
-    public common A(x: Int64) {
+    public A(x: Int64) {
         println("[common] A.A(${x})")
     }
 }

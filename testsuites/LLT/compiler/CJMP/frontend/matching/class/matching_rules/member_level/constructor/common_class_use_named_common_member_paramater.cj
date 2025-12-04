@@ -9,7 +9,7 @@
 package cmp
 
 public common class A {
-    public common A(public common var p!:Int32){}
+    public A(public var p!:Int32){}
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
@@ -18,7 +18,6 @@ public common class A {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 public platform class A{
-    public platform A(public platform var p!:Int32){}
 }
 main(){
     let a=A(p:1)

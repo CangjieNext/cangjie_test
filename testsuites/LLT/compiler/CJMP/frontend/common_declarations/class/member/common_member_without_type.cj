@@ -6,11 +6,11 @@
 
 // SEPARATE-FILE: c/c.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
-// ASSERT: scan parse_expected_type_with_cjmp_var
+// ASSERT: scan parse_expected_one_of_type_or_initializer
+
 package cmp
 
 public common class A {
     public common let y
    
 }
-
