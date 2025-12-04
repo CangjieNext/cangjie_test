@@ -23,7 +23,7 @@ package cmp
 import std.random.*
 
 public platform class A {
-    public platform A() {
+    public platform init() {
         println("[platform] A.A()")
     }
 }

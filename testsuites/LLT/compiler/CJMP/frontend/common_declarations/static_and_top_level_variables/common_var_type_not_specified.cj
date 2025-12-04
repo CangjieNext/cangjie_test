@@ -6,8 +6,7 @@
 
 // SEPARATE-FILE: c/c.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental %n.cj --output-type=chir -o %output 2>&1 | compare %f
-// ASSERT: scan parse_expected_type_with_cjmp_var
-package cmp
+
 
 common let a
-
+// ASSERT: scan parse_var_must_be_initialized
