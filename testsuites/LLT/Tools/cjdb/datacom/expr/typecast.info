@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/typecast.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug typecast.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb typecast,typecast
+b,b 13,typecast.cj:13
+r,r,13
+ ,expr 1 as Int64 ,\(std.core.Option<Int64>\) \$\d+ = 1
+ ,expr 1 as String ,\(std.core.Option<std.core.String>\) \$\d+ = None
+ ,expr true as Int64 ,\(std.core.Option<Int64>\) \$\d+ = None
+~expr [1,2,3] as Array<Int64>~\(std.core.Option<std.core.Array<Int64>>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = 2
+q,q,
