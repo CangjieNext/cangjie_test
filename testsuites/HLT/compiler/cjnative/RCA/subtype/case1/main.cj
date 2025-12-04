@@ -2,6 +2,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
+// 使用MyOption而不是Option
 public enum MyOption<T> {
     | Some(T)
     | None
