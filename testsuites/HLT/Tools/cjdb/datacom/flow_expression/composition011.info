@@ -19,5 +19,5 @@ AOT r,r,-> 43
 expr,expr a1,\(default.\(Bool\)->Bool\) \$[\d] = 0x[\s\S]*
 expr,expr a2,\(default.\(Float32\)->Bool\) \$[\d] = 0x[\s\S]*
 expr,expr a3,\(default.\(UInt32\)->UInt32\) \$[\d] = 0x[\s\S]*
-expr:expr C1.f2~>E1.AB.f1<Bool>:\(expr.\(Float32\)->Bool\) \$[\d] = 0x[\s\S]*
+expr:expr C1.f2~>E1.AB.f1<Bool>:\(\(Float32\)->Bool\) \$[\d] = 0x[\s\S]*
 q,q,

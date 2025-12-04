@@ -20,5 +20,5 @@ expr,expr a1,\(default.\(Bool\)->Bool\) \$[\d] = 0x[\s\S]*
 expr,expr a2,\(default.\(UInt32\)->UInt32\) \$[\d] = 0x[\s\S]*
 expr,expr b1,\(default.\(Int8\)->Int8\) \$[\d] = 0x[\s\S]*
 expr,expr b2,\(default.\(Int8\)->Int8\) \$[\d] = 0x[\s\S]*
-expr:expr E1.AB.f2~>E1.AB.f1<Bool>:\(expr.\(Bool\)->Bool\) \$[\d] = 0x[\s\S]*
+expr:expr E1.AB.f2~>E1.AB.f1<Bool>:\(\(Bool\)->Bool\) \$[\d] = 0x[\s\S]*
 q,q,

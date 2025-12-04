@@ -20,5 +20,5 @@ expr,expr l1,\(default.\(Int64\)->Float64\) \$[\d] = 0x[\s\S]*
 expr,expr l2,\(default.\(Int64\)->Float64\) \$[\d] = 0x[\s\S]*
 expr,expr l3,\(default.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*
 expr,expr l4,\(default.\(Int64\)->Float64\) \$[\d] = 0x[\s\S]*
-expr;expr {x:Int64=>x}~>{x:Int64=>x}~>{x:Int64=>1};\(expr.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*
+expr;expr {x:Int64=>x}~>{x:Int64=>x}~>{x:Int64=>1};\(\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*
 q,q,

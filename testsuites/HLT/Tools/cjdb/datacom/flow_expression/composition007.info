@@ -22,5 +22,5 @@ expr,expr b3,\(default.\(Bool\)->Bool\) \$[\d] = 0x[\s\S]*
 expr,expr c1,\(default.\(Int64\)->Bool\) \$[\d] = 0x[\s\S]*
 expr,expr c2,\(default.\(Float32\)->Bool\) \$[\d] = 0x[\s\S]*
 expr,expr c3,\(default.\(Bool\)->Bool\) \$[\d] = 0x[\s\S]*
-expr:expr S1.f2~>a2.f3:\(expr.\(Float32\)->Bool\) \$[\d] = 0x[\s\S]*
+expr:expr S1.f2~>a2.f3:\(\(Float32\)->Bool\) \$[\d] = 0x[\s\S]*
 q,q,

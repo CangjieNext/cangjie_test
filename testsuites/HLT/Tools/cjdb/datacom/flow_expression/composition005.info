@@ -20,5 +20,5 @@ expr,expr b1,\(default.\(default.C1\)->default.C1\) \$[\d] = 0x[\s\S]*
 expr,expr b2,\(default.\(default.S1\)->default.S1\) \$[\d] = 0x[\s\S]*
 expr,expr b3,\(default.\(default.E1\)->default.E1\) \$[\d] = 0x[\s\S]*
 expr,expr b4,\(default.\(default.I1\)->default.I1\) \$[\d] = 0x[\s\S]*
-expr:expr f3~>f3:\(expr.\(default.E1\)->default.E1\) \$[\d] = 0x[\s\S]*
+expr:expr f3~>f3:\(\(default.E1\)->default.E1\) \$[\d] = 0x[\s\S]*
 q,q,

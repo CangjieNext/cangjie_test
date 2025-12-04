@@ -18,5 +18,5 @@ b,b 22,composition001.cj:22
 AOT r,r,-> 22
 expr,expr fg,\(default.\(Int64\)->Float64\) \$[\d] = 0x[\s\S]*
 expr,expr fg2,\(default.\(Float64\)->Float64\) \$[\d] = 0x[\s\S]*
-expr:expr f~>g:\(expr.\(Int64\)->Float64\) \$[\d] = 0x[\s\S]*
+expr:expr f~>g:\(\(Int64\)->Float64\) \$[\d] = 0x[\s\S]*
 q,q,
