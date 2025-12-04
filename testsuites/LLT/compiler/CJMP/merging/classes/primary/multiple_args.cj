@@ -11,7 +11,7 @@ package cmp
 import std.random.*
 
 public common class A {
-    public common A(a: Int64, b: Random, c: Array<Int64>)
+    public common init(a: Int64, b: Random, c: Array<Int64>)
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -21,7 +21,7 @@ package cmp
 import std.random.*
 
 public platform class A {
-    public platform A(a: Int64, b: Random, c: Array<Int64>) {
+    public platform init(a: Int64, b: Random, c: Array<Int64>) {
         println("[platform] A.A(${a}, ${b.nextInt64() * 0 + 42}, ${c[0]})")
     }
 }

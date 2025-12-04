@@ -9,7 +9,7 @@
 package cmp
 
 public common class A {
-    public common A() {
+    public common init() {
         println("[common] A.A()")
     }
 }
@@ -19,7 +19,7 @@ public common class A {
 package cmp
 
 public platform class A {
-    public platform A() {
+    public platform init() {
         println("[platform] A.A()")
     }
 }
