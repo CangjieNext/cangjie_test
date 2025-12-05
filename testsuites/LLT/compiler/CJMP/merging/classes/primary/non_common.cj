@@ -11,7 +11,7 @@ package cmp
 import std.random.*
 
 public common class A {
-    public A() {
+    public init() {
         println("[common] A.A()")
     }
 }
