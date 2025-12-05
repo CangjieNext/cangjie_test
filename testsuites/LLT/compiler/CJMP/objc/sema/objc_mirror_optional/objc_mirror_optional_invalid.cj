@@ -5,23 +5,28 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
-// ASSERT: scan error: unexpected annotation '@ObjCOptional' on var
+// ASSERT: scan error: unexpected annotation '@ObjCOptional' on prop
 // ASSERT: scan error: unexpected annotation '@ObjCOptional' on class
-// ASSERT: scan error: @ObjCOptional method must be declared within '@ObjCMirror' class
+// ASSERT: scan error: @ObjCOptional method must be declared within '@ObjCMirror' interface
 // ASSERT: scan 3 errors generated, 3 errors printed
 
 import objc.lang.*
 
 @ObjCMirror
-public class M {
-    init()
-
-    @ObjCOptional // must be func
-    var a: UInt64
+public interface I {
+    @ObjCOptional // unexpected annotation '@ObjCOptional' on prop
+    prop a: UInt64
 }
 
-@ObjCOptional // must be func
-public class B {
-    @ObjCOptional // must be inside @ObjCMirror class
-    func foo(): Unit
+@ObjCOptional // unexpected annotation '@ObjCOptional' on class
+public class M {
+    init() {}
+}
+
+@ObjCMirror
+public class N {
+    init()
+
+    @ObjCOptional // @ObjCOptional method must be declared within '@ObjCMirror' interface
+    func bar(): Unit
 }
