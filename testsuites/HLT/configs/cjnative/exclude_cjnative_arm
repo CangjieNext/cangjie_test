@@ -10,9 +10,6 @@ API/std/os/process/test_getgroups/test_getgroups_001/test_getgroups_001.cj
 # testcase is not correct.
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 
-# mock error, call an abstract function
-API/std/unittest/mock/test_mock_extend_cjnative.cj
-
 # testcase should be fixed.
 Tools/cjdb/datacom/C_FFI/viewVariables_Cstring_002.info
 
