@@ -9,10 +9,7 @@
 import objc.lang.*
 
 @ObjCMirror
-public class M {
-    init()
-
-    @ForeignName["foo"]
+public interface M {
     @ObjCOptional
     func foo(): Unit
 }

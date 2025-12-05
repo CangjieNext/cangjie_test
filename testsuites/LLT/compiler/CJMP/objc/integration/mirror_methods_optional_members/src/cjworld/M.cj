@@ -12,15 +12,17 @@ import objc.lang.*
 type PrimitiveType = Float64
 
 @ObjCMirror
-open class M {
+interface K {
+    @ObjCOptional
+    func unimplemented(): Unit
+    @ObjCOptional
+    func implemented(): Unit
+}
+
+@ObjCMirror
+open class M <: K {
     @ForeignName["init"]
     public init()
 
-    @ObjCOptional
-    @ForeignName["implemented"]
     public func implemented(): Unit
-
-    @ObjCOptional
-    @ForeignName["unimplemented"]
-    public func unimplemented(): Unit
 }
