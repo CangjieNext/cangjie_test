@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package cjworld
+
+import objc.lang.*
+
+@ObjCImpl
+public class A <: M {
+    public init() {
+    }
+    public open func foo(): Unit {
+        println("in cangjie foo")
+        let a = A()
+        let result = global_func(p2: 114.514, p1: 114514, p0: p0)
+        println("cj result = ${result}")
+    }
+}
