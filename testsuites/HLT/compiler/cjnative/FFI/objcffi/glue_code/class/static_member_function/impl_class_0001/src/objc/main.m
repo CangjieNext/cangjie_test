@@ -12,7 +12,7 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         long long result = [A foo: 12345];
-        NSLog(@"result = %lld\n", result);
+        printf("result = %lld\n", result);
     }
     return 0;
 }

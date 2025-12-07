@@ -14,17 +14,17 @@
 
 int main(int argc, char** argv) {
     @autoreleasepool {
-        NSLog(@"getInt8=%d", [A getInt8] == INT8_MAX);
-        NSLog(@"getInt16=%d", [A getInt16] == INT16_MAX);
-        NSLog(@"getInt32=%d", [A getInt32] == INT32_MAX);
-        NSLog(@"getInt64=%d", [A getInt64] == INT64_MAX);
-        NSLog(@"getUInt8=%d", [A getUInt8] == UINT8_MAX);
-        NSLog(@"getUInt16=%d", [A getUInt16] == UINT16_MAX);
-        NSLog(@"getUInt32=%d", [A getUInt32] == UINT32_MAX);
-        NSLog(@"getUInt64=%d", [A getUInt64] == UINT64_MAX);
-        NSLog(@"getFloat32=%d", [A getFloat32] > 0.0);
-        NSLog(@"getFloat64=%d", [A getFloat64] > 0.0);
-        NSLog(@"getBool=%d", [A getBool] == true);
+        printf("getInt8=%d", [A getInt8] == INT8_MAX);
+        printf("getInt16=%d", [A getInt16] == INT16_MAX);
+        printf("getInt32=%d", [A getInt32] == INT32_MAX);
+        printf("getInt64=%d", [A getInt64] == INT64_MAX);
+        printf("getUInt8=%d", [A getUInt8] == UINT8_MAX);
+        printf("getUInt16=%d", [A getUInt16] == UINT16_MAX);
+        printf("getUInt32=%d", [A getUInt32] == UINT32_MAX);
+        printf("getUInt64=%d", [A getUInt64] == UINT64_MAX);
+        printf("getFloat32=%d", [A getFloat32] > 0.0);
+        printf("getFloat64=%d", [A getFloat64] > 0.0);
+        printf("getBool=%d", [A getBool] == true);
     }
     return 0;
 }

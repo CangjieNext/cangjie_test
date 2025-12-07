@@ -12,7 +12,7 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [[A alloc] init];
-        NSLog(@"result = %lld", [a foo: a]);
+        printf("result = %lld", [a foo: a]);
     }
     return 0;
 }

@@ -16,8 +16,8 @@ int main(int argc, char** argv) {
         B* b = [[B alloc] init];
         float resultA = [a foo: 114.514];
         double resultB = [b foo: 114.514];
-        NSLog(@"resultA = %f\n", resultA);
-        NSLog(@"resultB = %f\n", resultB);
+        printf("resultA = %f\n", resultA);
+        printf("resultB = %f\n", resultB);
     }
     return 0;
 }

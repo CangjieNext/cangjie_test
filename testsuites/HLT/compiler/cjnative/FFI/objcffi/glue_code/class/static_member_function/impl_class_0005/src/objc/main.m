@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
     @autoreleasepool {
         A* a0 = [A foo: 666];
         long long value = [a0 getValue];
-        NSLog(@"value = %lld\n", value);
+        printf("value = %lld\n", value);
     }
     return 0;
 }

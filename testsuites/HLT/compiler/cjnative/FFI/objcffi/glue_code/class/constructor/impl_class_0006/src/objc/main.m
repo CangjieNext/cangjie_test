@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
         A* a = [[A alloc] init: 10];
         A* a0 = [a foo: 12];
         signed char result = [a0 getValue];
-        NSLog(@"result = %hhd\n", result);
+        printf("result = %hhd\n", result);
     }
     return 0;
 }

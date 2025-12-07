@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
         A* a = [[A alloc] init];
         B* b = [[B alloc] init: 114514];
         long long result = [a foo: b];
-        NSLog(@"result = %lld\n", result);
+        printf("result = %lld\n", result);
     }
     return 0;
 }
