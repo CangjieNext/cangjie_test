@@ -21,6 +21,6 @@
 in cangjie foo
 global_func 123
 cj result = 123
-global_func 123
-oc result = 123
+global_func 233
+oc result = 233
 */
