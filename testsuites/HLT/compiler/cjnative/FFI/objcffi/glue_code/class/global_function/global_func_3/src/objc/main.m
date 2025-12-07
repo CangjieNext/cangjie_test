@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
 @autoreleasepool {
 A* a= [[A alloc] init];
 [a foo];
-int result = global_func(233);
+int result = global_func(a, 233, 2.33);
 printf("oc result = %d\n", result);
 }
 
