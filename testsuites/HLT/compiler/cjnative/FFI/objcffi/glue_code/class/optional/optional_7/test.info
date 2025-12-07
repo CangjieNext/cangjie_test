@@ -19,5 +19,5 @@
 // (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 /* SCAN-IN
 p0.isSome() = true
-pFoo
+mFoo3
 */
