@@ -18,6 +18,6 @@ public class A <: M {
         println("in cangjie foo")
         let m = M()
         let result = global_func(m)
-        println("cj result = ${result}")
+        m.mFoo()
     }
 }

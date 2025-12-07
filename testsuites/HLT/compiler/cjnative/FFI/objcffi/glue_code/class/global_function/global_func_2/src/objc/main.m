@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
 A* a= [[A alloc] init];
 [a foo];
 int result = global_func(233);
-printf("oc result = %d\n", result);
+[result mFoo];
 }
 
 return 0;
