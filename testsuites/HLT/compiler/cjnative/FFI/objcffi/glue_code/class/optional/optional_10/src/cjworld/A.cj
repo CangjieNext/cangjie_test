@@ -17,6 +17,8 @@ public class A <: M {
     public open func aFoo(p0: M): M {
         let a = A()
         p0.mFoo3(a)
-        p0
+        let pm = PM()
+        let result = p0.pFoo(pm)
+        result?.pmFoo()
     }
 }
