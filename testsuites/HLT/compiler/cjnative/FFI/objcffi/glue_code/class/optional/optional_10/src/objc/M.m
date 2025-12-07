@@ -14,6 +14,7 @@ return self;
 }
 - (M*)pFoo:(M*)p0 {
     printf("pFoo\n");
+    return p0;
 }
 - (void)mFoo {
     printf("mFoo\n");
