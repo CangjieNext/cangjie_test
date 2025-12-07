@@ -12,4 +12,4 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt b.cj -L. -la -o libb.%dylib_suffix
 // EXEC: %compiler %cmp_opt %compile_dylib_opt c.cj -L. -la -o libc.%dylib_suffix
 // EXEC-PIPE: %compiler %cmp_opt d.cj -L. -la -lb -lc -o %output 2>&1 | compare %f
-// ASSERT: scan 
+// ASSERT: scan-not sema_unused_import
