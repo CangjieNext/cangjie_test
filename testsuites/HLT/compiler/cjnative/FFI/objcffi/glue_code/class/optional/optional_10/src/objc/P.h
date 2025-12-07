@@ -1,8 +1,10 @@
 #import <Foundation/Foundation.h>
 
-
-@interface M;
+@interface PM :NSObject
+- (id)init;
+- (void)pmFoo;
+@end
 
 @protocol P <NSObject>
-- (M*)pFoo:(M*)p0;
+- (PM*)pFoo:(PM*)p0;
 @end

@@ -8,7 +8,6 @@
 
 // Level: 1
 // Description:
-// 测试@ObjCMirror修饰仓颉全局函数定义的场景
 // @ObjCMirror class成员函数形参struct S*, 返回类型struct S*
 // DEPENDENCE: src test.toml
 // (iOSNative) EXEC: %mirror_gen test.toml
