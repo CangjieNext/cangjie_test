@@ -19,7 +19,7 @@
 // (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 /* SCAN-IN
 in cangjie foo
-global_func, p1 = 314, p2 = 3.140000
+global_func, p1 = 666, p2 = 6.660000
 mFoo
 cj result = 114
 global_func, p1 = 233, p2 = 2.330000
