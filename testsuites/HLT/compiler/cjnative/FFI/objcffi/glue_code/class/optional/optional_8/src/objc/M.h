@@ -29,6 +29,6 @@ int y;
 
 @property (nonatomic, readwrite) struct S* p0;
 @property (nonatomic, readwrite) NSObject<P> * p1;
-@property (nonatomic, readwrite) nonnull M* p2;
+@property (nonatomic, readwrite, nonnull) M* p2;
 @property (nonatomic, readwrite) id<P> p3;
 @end
