@@ -13,8 +13,8 @@ int main(int argc, char** argv) {
 @autoreleasepool {
 A* a= [[A alloc] init];
 [a foo];
-int result = global_func(233);
-[result mFoo];
+M* result = global_func(a);
+[result pFoo];
 }
 
 return 0;
