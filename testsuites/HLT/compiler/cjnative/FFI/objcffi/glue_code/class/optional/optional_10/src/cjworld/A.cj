@@ -20,8 +20,8 @@ public class A <: M {
         let pm = PM()
         let result = p0.pFoo(pm)
         result?.pmFoo()
-        p0.pp2 = a
-        p0.pp2.mFoo()
+        p0.pp2 = pm
+        p0.pp2.pmFoo()
         p0
     }
 }
