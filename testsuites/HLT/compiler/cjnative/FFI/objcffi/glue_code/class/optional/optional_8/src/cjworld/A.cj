@@ -14,10 +14,11 @@ import objc.lang.*
 public class A <: M {
     public init() {
     }
-    public open func aFoo(p0: ?M): ?M {
+    public open func aFoo(p0: M): M {
         println("p0.isSome() = ${p0.isSome()}")
         let a = A()
-        p0?.mFoo3(a)
+        let result = p0.mFoo3(a)
+        result.mFoo()
         p0
     }
 }
