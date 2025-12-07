@@ -17,7 +17,7 @@ public class A <: M {
     public open func foo(): Unit {
         println("in cangjie foo")
         let a = A()
-        let result = global_func(p0: p0)
+        let result = global_func(p0: a)
         println("cj result = ${result}")
     }
 }
