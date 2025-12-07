@@ -13,13 +13,13 @@ self = [super init];
 return self;
 }
 - (void)pFoo {
-    printf("pFoo");
+    printf("pFoo\n");
 }
 - (void)mFoo {
-    printf("mFoo");
+    printf("mFoo\n");
 }
 - (struct S*)mFoo1:(struct S*)p0 {
-    printf("mFoo1");
+    printf("mFoo1\n");
     return p0;
 }
 - (NSObject<P> *)mFoo2:(NSObject<P> *)p0 {
