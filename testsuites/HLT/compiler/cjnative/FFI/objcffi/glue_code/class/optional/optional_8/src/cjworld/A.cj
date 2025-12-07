@@ -18,6 +18,9 @@ public class A <: M {
         let a = A()
         let result = p0.mFoo3(a)
         result.mFoo()
+        p0.p2 = a
+        let result0 = p0.p2
+        result0.mFoo()
         p0
     }
 }
