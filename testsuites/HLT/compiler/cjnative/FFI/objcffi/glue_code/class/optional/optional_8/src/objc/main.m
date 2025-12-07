@@ -15,5 +15,7 @@ A* a= [[A alloc] init];
 [a aFoo: a];
 }
 
+printf("test_end\n");
+
 return 0;
 }

@@ -15,7 +15,6 @@ public class A <: M {
     public init() {
     }
     public open func aFoo(p0: M): M {
-        println("p0.isSome() = ${p0.isSome()}")
         let a = A()
         let result = p0.mFoo3(a)
         result.mFoo()
