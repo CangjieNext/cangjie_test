@@ -11,21 +11,8 @@
 #import <Foundation/Foundation.h>
 int main(int argc, char** argv) {
 @autoreleasepool {
-A* a= [[A alloc] init];
-printf("in objc main, %d\n", 114514);
-[a mFoo];
-[a pFoo];
-
-M *m = [[M alloc] init];
-[a aFoo0: m];
-[a aFoo0: nil];
-
-printf("oc global_func() = %d\n", global_func());
-printf("oc global_func0() = %d\n", global_func0(123));
-
-[a aFoo1: m];
-[a aFoo2: m];
-[a aFoo3: m];
+int result = global_func();
+printf("oc result = %d\n", result);
 }
 
 return 0;
