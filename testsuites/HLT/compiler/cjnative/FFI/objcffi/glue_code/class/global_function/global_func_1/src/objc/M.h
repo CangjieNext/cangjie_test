@@ -18,7 +18,6 @@ int y;
     NSObject<P> *v1;
     M* v2;
     id<P> v3;
-    // M** v4;
 }
 - (id)init;
 - (void)mFoo;

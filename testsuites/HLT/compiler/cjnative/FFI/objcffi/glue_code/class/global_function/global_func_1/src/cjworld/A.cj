@@ -15,21 +15,8 @@ public class A <: M {
     public init() {
     }
     public open func foo(): Unit {
-        var p = M()
         println("in cangjie foo")
-        println("aFoo0 Some")
-        println("global_func() = ${global_func()}")
-        println("global_func0(114514) = ${global_func0(114514)}")
-        println("class类型传参")
-        global_func1(p0)
-        global_func2(p0, 114514, 114.514)
-        println("传参顺序正常")
-        global_func3(p0: p0, p1: 114514, p2: 114.514)
-        println("传参顺序颠倒")
-        global_func3(p2: 114.514, p1: 114514, p0: p0)
-        println("缺省拥有默认值的形参")
-        global_func4(p0: p0)
-        println("protocol类型传参")
-        global_func5(m as P)
+        let result = global_func(114514)
+        println("cj result = ${result}")
     }
 }
