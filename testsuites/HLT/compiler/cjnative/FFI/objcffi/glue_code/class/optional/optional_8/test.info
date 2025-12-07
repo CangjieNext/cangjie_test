@@ -9,7 +9,7 @@
 // Level: 1
 // Description:
 // 测试@ObjCMirror修饰仓颉全局函数定义的场景
-// @ObjCMirror class成员函数形参struct S*, 返回类型struct S*
+// @ObjCMirror class成员函数形参nonnull M*, 返回类型nonnull M*
 // DEPENDENCE: src test.toml
 // (iOSNative) EXEC: %mirror_gen test.toml
 // (iOSNative and not iOS) EXEC: %clang %clang_opt_objc --shared -Isrc/objc src/objc/G.m -o libg.dylib
@@ -19,5 +19,6 @@
 // (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 /* SCAN-IN
 mFoo3
+mFoo
 test_end
 */
