@@ -11,6 +11,8 @@
 #import <Foundation/Foundation.h>
 int main(int argc, char** argv) {
 @autoreleasepool {
+A* a= [[A alloc] init];
+[a foo];
 int result = global_func();
 printf("oc result = %d\n", result);
 }
