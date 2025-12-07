@@ -14,11 +14,6 @@ import objc.lang.*
 public class A <: M {
     public init() {
     }
-    public open func foo(): Unit {
-        var p = M()
-        println("in cangjie foo")
-    }
-
     public open func aFoo0(p0: ?M): ?M {
         if (let Some(m) <- p0) {
             println("aFoo0 Some")
@@ -39,24 +34,6 @@ public class A <: M {
         }
         println("global_func() = ${global_func()}")
         println("global_func0(114514) = ${global_func0(114514)}")
-        p0
-    }
-    public open func aFoo1(p0: ?P): ?P {
-        println("aFoo1")
-        if (let Some(p) <- p0) {
-            println("aFoo1 Some")
-            p.pFoo()
-        }
-        p0
-    }
-    public open func aFoo2(p0: M): M {
-        println("aFoo2")
-        p0.mFoo()
-        p0
-    }
-    public open func aFoo3(p0: P): P {
-        println("aFoo3")
-        p0.pFoo()
         p0
     }
 }
