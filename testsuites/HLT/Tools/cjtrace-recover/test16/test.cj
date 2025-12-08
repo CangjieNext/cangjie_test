@@ -14,8 +14,8 @@
 // (not g and not OHOS) EXEC-PIPE: %cjtrace_recover -f stack_obf.log -m default.obf.map 2>&1 | compare %f
 // (not g and not OHOS) ASSERT: regex ArithmeticException: Divided by zero!
 // (not g and not OHOS) ASSERT: regex a\(SOURCE:0\)
-// (not g and not OHOS) ASSERT: regex-not at default\.test.*obfuscation.*
-// (not g and not OHOS) ASSERT: regex-not at default\.main.*obfuscation.*
+// (not g and not OHOS) ASSERT: regex-not at default\.test
+// (not g and not OHOS) ASSERT: regex-not at default\.main
 
 class A {
     var a = 0
