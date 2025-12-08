@@ -9,4 +9,5 @@
 - (PM*)pFoo:(PM*)p0;
 @property (nonatomic, readwrite) struct S* pp0;
 @property (nonatomic, readwrite) PM* pp2;
+@property (nonatomic, readwrite, copy) int pp3;
 @end
