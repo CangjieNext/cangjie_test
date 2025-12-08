@@ -12,7 +12,7 @@
 self = [super init];
 return self;
 }
-- (M*)pFoo:(M*)p0 {
+- (PM*)pFoo:(PM*)p0 {
     printf("pFoo\n");
     return p0;
 }
