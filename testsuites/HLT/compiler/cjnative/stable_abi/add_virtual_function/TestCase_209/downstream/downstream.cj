@@ -16,6 +16,7 @@ public struct DownStreamTypeInheritingUpStreamChild <: UpStreamChild<Float64> {}
 public struct DownStreamTypeInheritingUpStreamParent <: UpStreamParent<Float64> {}
 
 main(): Unit {
+    println("begin")
     let child = DownStreamTypeInheritingUpStreamChild()
     checkChild(child)
     let parent = DownStreamTypeInheritingUpStreamParent()

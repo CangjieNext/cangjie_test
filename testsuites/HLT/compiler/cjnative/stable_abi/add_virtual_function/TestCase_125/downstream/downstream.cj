@@ -26,6 +26,7 @@ public class ParentClass <: DownStreamTypeInheritingUpStreamParent {
 }
 
 main(): Unit {
+    println("begin")
     let child = ChildClass()
     checkChild(child)
     let parent = ParentClass()

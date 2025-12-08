@@ -73,7 +73,7 @@ public interface NewParent<T0> {
         }
     }
 
-    public mut static prop NewParent_MutStaticMemberProperty: Int64 {
+    public static mut prop NewParent_MutStaticMemberProperty: Int64 {
         get() {
             println("NewParent<?>.NewParent_MutStaticMemberProperty")
             114514i64
