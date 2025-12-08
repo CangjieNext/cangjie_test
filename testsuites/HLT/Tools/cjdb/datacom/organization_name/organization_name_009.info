@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/organization_name_002.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g  organization_name_002.cj -o organization_name_002%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py organization_name_009.info organization_name_002 %run_env
+// () EXEC: %compiler %cmp_opt -g  organization_name_002.cj -o organization_name_002%cmp_output
+// () RUN-EXEC: python3 cjdb_test.py organization_name_009.info organization_name_002 %run_env
 
 
 test#

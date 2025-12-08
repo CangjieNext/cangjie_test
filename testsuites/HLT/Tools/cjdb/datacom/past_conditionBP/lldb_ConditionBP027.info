@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/006_debug_break.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 006_debug_break.cj -o 006_debug_break%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP027.info 006_debug_break %run_env
+// ( not windows) EXEC: %compiler %cmp_opt -g 006_debug_break.cj -o 006_debug_break%cmp_output
+// ( not windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP027.info 006_debug_break %run_env
 
 
 

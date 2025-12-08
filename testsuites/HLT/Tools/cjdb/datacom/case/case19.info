@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case19/case19.cj
-// (CJNATIVE and Linux) EXEC: %compiler %cmp_opt -g case19.cj -o case19%cmp_output
-// (CJNATIVE and Linux) EXEC: python3 cjdb_test.py case19.info case19 %run_env
+// (CJNATIVELinux) EXEC: %compiler %cmp_opt -g case19.cj -o case19%cmp_output
+// (CJNATIVELinux) EXEC: python3 cjdb_test.py case19.info case19 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case19,case19

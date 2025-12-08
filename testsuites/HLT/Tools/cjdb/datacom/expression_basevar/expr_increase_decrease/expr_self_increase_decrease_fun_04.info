@@ -8,8 +8,8 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/expression/expr_func.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g expr_func.cj -o 001_express_basetype%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py expr_self_increase_decrease_fun_04.info 001_express_basetype %run_env
+// () EXEC: %compiler %cmp_opt -g expr_func.cj -o 001_express_basetype%cmp_output
+// () RUN-EXEC: python3 cjdb_test.py expr_self_increase_decrease_fun_04.info 001_express_basetype %run_env
 
 
 

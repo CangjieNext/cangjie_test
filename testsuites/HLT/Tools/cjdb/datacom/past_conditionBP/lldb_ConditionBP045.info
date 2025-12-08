@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/013_debug_lambda.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 013_debug_lambda.cj -o 013_debug_lambda%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP045.info 013_debug_lambda %run_env
+// ( not windows) EXEC: %compiler %cmp_opt -g 013_debug_lambda.cj -o 013_debug_lambda%cmp_output
+// ( not windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP045.info 013_debug_lambda %run_env
 
 
 
