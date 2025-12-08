@@ -47,7 +47,7 @@ public interface UpStreamParent<T0> {
         }
     }
 
-    mut static prop UpStreamParent_MutStaticMemberProperty: Int64 {
+    static mut prop UpStreamParent_MutStaticMemberProperty: Int64 {
         get() {
             println("UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty")
             114514i64
@@ -97,7 +97,7 @@ public interface NewParent {
         }
     }
 
-    public mut static prop NewParent_MutStaticMemberProperty: Int64 {
+    public static mut prop NewParent_MutStaticMemberProperty: Int64 {
         get() {
             println("NewParent<>.NewParent_MutStaticMemberProperty")
             114514i64
