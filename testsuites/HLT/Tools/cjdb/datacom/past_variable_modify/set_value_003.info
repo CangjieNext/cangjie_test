@@ -8,8 +8,8 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/set_value/003_basevar_setvalue.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 003_basevar_setvalue.cj -o 003_basevar_setvalue%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py set_value_003.info 003_basevar_setvalue %run_env
+// EXEC: %compiler %cmp_opt -g 003_basevar_setvalue.cj -o 003_basevar_setvalue%cmp_output
+// RUN-EXEC: python3 cjdb_test.py set_value_003.info 003_basevar_setvalue %run_env
 
 
 test#

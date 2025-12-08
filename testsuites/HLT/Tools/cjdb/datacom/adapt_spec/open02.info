@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/open02.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g open02.cj -o open02%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py open02.info open02 %run_env %port_num
+// ( not Windows) EXEC: %compiler %cmp_opt -g open02.cj -o open02%cmp_output
+// ( not Windows) RUN-EXEC: python3 cjdb_test.py open02.info open02 %run_env %port_num
 
 test#
 cjdb,cjdb --no-use-colors open02,open02

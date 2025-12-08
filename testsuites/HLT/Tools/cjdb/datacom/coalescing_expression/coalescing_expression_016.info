@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/coalescing_expression/coalescing016.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g coalescing016.cj -o coalescing016%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py coalescing_expression_016.info coalescing016 %run_env
+// EXEC: %compiler %cmp_opt -g coalescing016.cj -o coalescing016%cmp_output
+// RUN-EXEC: python3 cjdb_test.py coalescing_expression_016.info coalescing016 %run_env
 
 
 test#

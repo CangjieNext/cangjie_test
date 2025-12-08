@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/020_enum_globals.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 020_enum_globals.cj -o 020_enum_globals%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum016.info 020_enum_globals %run_env
+// ( not Windows) EXEC: %compiler %cmp_opt -g 020_enum_globals.cj -o 020_enum_globals%cmp_output
+// ( not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum016.info 020_enum_globals %run_env
 
 test#
 cjdb,cjdb --no-use-colors 020_enum_globals,020_enum_globals

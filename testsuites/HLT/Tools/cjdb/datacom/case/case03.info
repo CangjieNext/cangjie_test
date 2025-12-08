@@ -8,10 +8,10 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case03/p1.cj ../../basecase/case/case03/cj_main.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt %compile_lib_opt -g p1.cj -o p1.%middle
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g cj_main.cj p1.%middle -o cj_main%cmp_output
-// (not MAC and not Windows) EXEC: cj_pwd=`realpath p1.cj`;sed -i "s;b p1.cj:7;b ${cj_pwd}:7;g" case03.info
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py case03.info cj_main %run_env
+// ( not Windows) EXEC: %compiler %cmp_opt %compile_lib_opt -g p1.cj -o p1.%middle
+// ( not Windows) EXEC: %compiler %cmp_opt -g cj_main.cj p1.%middle -o cj_main%cmp_output
+// ( not Windows) EXEC: cj_pwd=`realpath p1.cj`;sed -i "s;b p1.cj:7;b ${cj_pwd}:7;g" case03.info
+// ( not Windows) RUN-EXEC: python3 cjdb_test.py case03.info cj_main %run_env
 
 test#
 cjdb,cjdb --no-use-colors cj_main,cj_main

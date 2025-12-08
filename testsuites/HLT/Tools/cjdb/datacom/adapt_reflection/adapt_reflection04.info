@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_reflection/enum01.cj
-// (CJNATIVE and not MAC) EXEC: %compiler %cmp_opt -g --disable-reflection enum01.cj -o enum01%cmp_output
-// (CJNATIVE and not MAC) RUN-EXEC: python3 cjdb_test.py adapt_reflection04.info enum01 %run_env
+// (CJNATIVE ) EXEC: %compiler %cmp_opt -g --disable-reflection enum01.cj -o enum01%cmp_output
+// (CJNATIVE ) RUN-EXEC: python3 cjdb_test.py adapt_reflection04.info enum01 %run_env
 
 test#
 cjdb,cjdb --no-use-colors enum01,enum01

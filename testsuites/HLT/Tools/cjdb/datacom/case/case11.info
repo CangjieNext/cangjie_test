@@ -8,8 +8,8 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case11/case11.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g case11.cj -o case11%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py case11.info case11 %run_env
+// EXEC: %compiler %cmp_opt -g case11.cj -o case11%cmp_output
+// RUN-EXEC: python3 cjdb_test.py case11.info case11 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case11,case11

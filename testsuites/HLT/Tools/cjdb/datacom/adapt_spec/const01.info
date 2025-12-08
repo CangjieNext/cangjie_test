@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/const01.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g const01.cj -o const01%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py const01.info const01 %run_env
+// ( not Windows) EXEC: %compiler %cmp_opt -g const01.cj -o const01%cmp_output
+// ( not Windows) RUN-EXEC: python3 cjdb_test.py const01.info const01 %run_env
 
 test#
 cjdb,cjdb --no-use-colors const01,const01

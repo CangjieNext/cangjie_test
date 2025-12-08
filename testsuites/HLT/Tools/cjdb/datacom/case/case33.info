@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/debug_Enhanced/closuretype.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g closuretype.cj -o case33%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py case33.info case33 %run_env
+// EXEC: %compiler %cmp_opt -g closuretype.cj -o case33%cmp_output
+// RUN-EXEC: python3 cjdb_test.py case33.info case33 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case33,case33

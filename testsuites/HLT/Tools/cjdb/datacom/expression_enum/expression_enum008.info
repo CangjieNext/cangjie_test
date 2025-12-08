@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/018_enum_return.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 018_enum_return.cj -o 018_enum_return%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum008.info 018_enum_return %run_env
+// ( not Windows) EXEC: %compiler %cmp_opt -g 018_enum_return.cj -o 018_enum_return%cmp_output
+// ( not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum008.info 018_enum_return %run_env
 
 test#
 cjdb,cjdb --no-use-colors 018_enum_return,018_enum_return

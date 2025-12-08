@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/generics_abstract_fun02.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_abstract_fun02.cj -o generics_abstract_fun02%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_abstract_fun02.info generics_abstract_fun02 %run_env
+// ( not Windows) EXEC: %compiler %cmp_opt -g generics_abstract_fun02.cj -o generics_abstract_fun02%cmp_output
+// ( not Windows) RUN-EXEC: python3 cjdb_test.py generics_abstract_fun02.info generics_abstract_fun02 %run_env
 
 test#
 cjdb,cjdb --no-use-colors generics_abstract_fun02,generics_abstract_fun02

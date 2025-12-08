@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/026_enum_generics_lambda.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 026_enum_generics_lambda.cj -o 026_enum_generics_lambda%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum022.info 026_enum_generics_lambda %run_env
+// ( not Windows) EXEC: %compiler %cmp_opt -g 026_enum_generics_lambda.cj -o 026_enum_generics_lambda%cmp_output
+// ( not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum022.info 026_enum_generics_lambda %run_env
 
 test#
 cjdb,cjdb --no-use-colors 026_enum_generics_lambda,026_enum_generics_lambda
