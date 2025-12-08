@@ -1,22 +1,23 @@
-UpStreamParent<Float64>.UpStreamParent_NonMutInstanceMemberFunction
-UpStreamParent<Float64>.UpStreamParent_MutInstanceMemberFunction
-UpStreamParent<Float64>.UpStreamParent_staticMemberFunction
-UpStreamParent<Float64>.UpStreamParent_NonMutInstanceMemberProperty
-UpStreamParent<Float64>.UpStreamParent_MutInstanceMemberProperty
-UpStreamParent<Float64>.UpStreamParent_MutInstanceMemberProperty
-UpStreamParent<?>.UpStreamParent_NonMutStaticMemberProperty
-UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty
-UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty
-UpStreamParent<Float64>.UpStreamParent_NonMutInstanceMemberFunction
-UpStreamParent<Float64>.UpStreamParent_MutInstanceMemberFunction
-UpStreamParent<Float64>.UpStreamParent_NonMutInstanceMemberProperty
-UpStreamParent<Float64>.UpStreamParent_MutInstanceMemberProperty
-UpStreamParent<Float64>.UpStreamParent_MutInstanceMemberProperty
-UpStreamParent<Float64>.UpStreamParent_staticMemberFunction
-UpStreamParent<?>.UpStreamParent_NonMutStaticMemberProperty
-UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty
-UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty
-UpStreamParent<Float64>.UpStreamParent_staticMemberFunction
-UpStreamParent<?>.UpStreamParent_NonMutStaticMemberProperty
-UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty
-UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty
+// ASSERT: scan-begin begin
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_NonMutInstanceMemberFunction
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_MutInstanceMemberFunction
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_staticMemberFunction
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_NonMutInstanceMemberProperty
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_MutInstanceMemberProperty
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_MutInstanceMemberProperty
+// ASSERT: scan-next UpStreamParent<?>.UpStreamParent_NonMutStaticMemberProperty
+// ASSERT: scan-next UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty
+// ASSERT: scan-next UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_NonMutInstanceMemberFunction
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_MutInstanceMemberFunction
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_NonMutInstanceMemberProperty
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_MutInstanceMemberProperty
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_MutInstanceMemberProperty
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_staticMemberFunction
+// ASSERT: scan-next UpStreamParent<?>.UpStreamParent_NonMutStaticMemberProperty
+// ASSERT: scan-next UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty
+// ASSERT: scan-next UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_staticMemberFunction
+// ASSERT: scan-next UpStreamParent<?>.UpStreamParent_NonMutStaticMemberProperty
+// ASSERT: scan-next UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty
+// ASSERT: scan-next UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty
