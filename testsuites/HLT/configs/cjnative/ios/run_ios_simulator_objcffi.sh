@@ -83,6 +83,8 @@ if [ -f "libdep.dylib" ]; then
     codesign --sign - ${dep}
 fi
 
+# bash ${CANGJIE_TEST}/testsuites/HLT/configs/cjnative/ios/set_embed_and_sign.sh ${XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST}
+
 set -e
 ret=255
 if [ -z ${XCODE_DEVICE_UDID_OF_CANGJIE_IOS_TEST} ]; then
