@@ -8,7 +8,7 @@
 
 // Level: 1
 // Description:
-// @ObjCMirror class成员函数形参struct S*, 返回类型struct S*
+// @ObjCImpl静态成员函数形参class类型，传入Some
 // DEPENDENCE: src test.toml
 // (iOSNative) EXEC: %mirror_gen test.toml
 // (iOSNative and not iOS) EXEC: %clang %clang_opt_objc --shared -Isrc/objc src/objc/G.m -o libg.dylib
