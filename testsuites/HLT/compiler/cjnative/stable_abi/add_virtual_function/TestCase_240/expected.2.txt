@@ -1,3 +1,4 @@
+/* SCAN-IN
 UpStreamParent<String,Bool>.UpStreamParent_NonMutInstanceMemberFunction
 UpStreamParent<String,Bool>.UpStreamParent_MutInstanceMemberFunction
 UpStreamParent<String,Bool>.UpStreamParent_staticMemberFunction
@@ -20,3 +21,4 @@ UpStreamParent<String,Bool>.UpStreamParent_staticMemberFunction
 UpStreamParent<?,?>.UpStreamParent_NonMutStaticMemberProperty
 UpStreamParent<?,?>.UpStreamParent_MutStaticMemberProperty
 UpStreamParent<?,?>.UpStreamParent_MutStaticMemberProperty
+*/
