@@ -7,6 +7,7 @@
 
 WORKSPACE=$(cd `dirname $0`; pwd)
 XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST=${WORKSPACE}/objc_ffi_test/objc_ffi_test.xcodeproj
+bash ${CANGJIE_TEST}/testsuites/HLT/configs/cjnative/ios/set_embed_and_sign.sh ${XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST}
 XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST=${XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST}/../objc_ffi_test
 XCODE_SCHEME_OF_CANGJIE_IOS_TEST=objc_ffi_test
 XCODE_BUNDLE_ID_OF_CANGJIE_IOS_TEST=test.objc-ffi-test
