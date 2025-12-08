@@ -17,3 +17,8 @@ API/syntax
 API/std/time/TimeZone/load/test_loadFromPaths.cj
 
 Tools/cjdb/datacom/lambda/lldb_lambda_05.info
+
+# MacOS does not support reflect yet, these test cases for compatibility require reflect so disabled for now.
+compiler/cjnative/stable_abi/package_name
+compiler/cjnative/stable_abi/add_instance_member_variable
+compiler/cjnative/stable_abi/add_virtual_function
