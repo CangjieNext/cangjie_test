@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+// LEVEL: 3 
+// DESCRIPTION: 实例成员函数，多个形参
+// DEPENDENCE: src
+// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %enable_objc_cjmapping src/cjworld/*.cj
+// (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
+// (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan A.foo p0 = true
+// ASSERT: scan A.foo p1 = true
+// ASSERT: scan A.foo p2 = true
+// ASSERT: scan A.foo p3 = true
+// ASSERT: scan A.foo p4 = true
+// ASSERT: scan A.foo p5 = true
+// ASSERT: scan A.foo p6 = true
+// ASSERT: scan A.foo p7 = true
+// ASSERT: scan A.foo p8 = true
+// ASSERT: scan A.foo p9 = true
+// ASSERT: scan A.foo p10 = true
+// ASSERT: scan A.bar p0 = true
+// ASSERT: scan A.bar p1 = true
+// ASSERT: scan A.bar p2 = true
+// ASSERT: scan A.bar p3 = true
+// ASSERT: scan A.bar p4 = true
+// ASSERT: scan A.bar p5 = true
+// ASSERT: scan A.bar p6 = true
+// ASSERT: scan A.bar p7 = true
+// ASSERT: scan A.bar p8 = true
+// ASSERT: scan A.bar p9 = true
+// ASSERT: scan A.bar p10 = true
