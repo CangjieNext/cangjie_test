@@ -16,6 +16,7 @@ public enum DownStreamTypeInheritingUpStreamParent <: UpStreamParent<String, Boo
 }
 
 main(): Unit {
+    println("begin")
     let child = UpStreamChild<String, Bool>()
     checkChild(child)
     let parent = DownStreamTypeInheritingUpStreamParent.A

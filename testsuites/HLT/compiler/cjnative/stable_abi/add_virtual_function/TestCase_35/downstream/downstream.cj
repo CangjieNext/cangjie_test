@@ -22,6 +22,7 @@ public class DownStreamTypeInheritingUpStreamParent <: UpStreamParent<String, Bo
 }
 
 main(): Unit {
+    println("begin")
     let child = DownStreamTypeInheritingUpStreamChild()
     checkChild(child)
     let parent = DownStreamTypeInheritingUpStreamParent()

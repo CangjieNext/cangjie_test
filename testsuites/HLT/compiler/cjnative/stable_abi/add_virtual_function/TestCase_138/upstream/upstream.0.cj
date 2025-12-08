@@ -47,7 +47,7 @@ public interface UpStreamParent<T0> {
         }
     }
 
-    mut static prop UpStreamParent_MutStaticMemberProperty: Int64 {
+    static mut prop UpStreamParent_MutStaticMemberProperty: Int64 {
         get() {
             println("UpStreamParent<?>.UpStreamParent_MutStaticMemberProperty")
             114514i64
@@ -93,7 +93,7 @@ public interface UpStreamParent<T0> {
         }
     }
 
-    public mut static prop New_MutStaticMemberProperty: Int64 {
+    public static mut prop New_MutStaticMemberProperty: Int64 {
         get() {
             println("UpStreamParent<?>.New_MutStaticMemberProperty")
             114514i64
@@ -113,7 +113,7 @@ public open class UpStreamChild<T0> <: UpStreamParent<T0> {
         println("UpStreamChild<${TypeInfo.of<T0>()}>.New_StaticMemberFunction")
     }
 
-    public mut open prop New_MutInstanceMemberProperty: Int64 {
+    public open mut prop New_MutInstanceMemberProperty: Int64 {
         get() {
             println("UpStreamChild<${TypeInfo.of<T0>()}>.New_MutInstanceMemberProperty")
             114514i64
@@ -137,7 +137,7 @@ public open class UpStreamChild<T0> <: UpStreamParent<T0> {
         }
     }
 
-    public mut static prop New_MutStaticMemberProperty: Int64 {
+    public static mut prop New_MutStaticMemberProperty: Int64 {
         get() {
             println("UpStreamChild<?>.New_MutStaticMemberProperty")
             114514i64

@@ -14,6 +14,7 @@ import std.reflect.*
 public struct DownStreamTypeInheritingUpStreamParent <: UpStreamParent<Float64> {}
 
 main(): Unit {
+    println("begin")
     let child = UpStreamChild<String, Bool>()
     checkChild(child)
     let parent = DownStreamTypeInheritingUpStreamParent()
