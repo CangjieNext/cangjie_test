@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/017_enum_where.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 017_enum_where.cj -o 017_enum_where%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum007.info 017_enum_where %run_env
+// ( and not Windows) EXEC: %compiler %cmp_opt -g 017_enum_where.cj -o 017_enum_where%cmp_output
+// ( and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum007.info 017_enum_where %run_env
 
 test#
 cjdb,cjdb --no-use-colors 017_enum_where,017_enum_where

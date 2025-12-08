@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_reflection/class02.cj
-// (CJNATIVE and not MAC) EXEC: %compiler %cmp_opt -g --disable-reflection class02.cj -o class02%cmp_output
-// (CJNATIVE and not MAC) RUN-EXEC: python3 cjdb_test.py adapt_reflection02.info class02 %run_env
+// (CJNATIVE and ) EXEC: %compiler %cmp_opt -g --disable-reflection class02.cj -o class02%cmp_output
+// (CJNATIVE and ) RUN-EXEC: python3 cjdb_test.py adapt_reflection02.info class02 %run_env
 
 test#
 cjdb,cjdb --no-use-colors class02,class02

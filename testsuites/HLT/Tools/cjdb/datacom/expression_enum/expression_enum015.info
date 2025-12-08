@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/009_debug_enum_result.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 009_debug_enum_result.cj -o 009_debug_enum_result%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum015.info 009_debug_enum_result %run_env
+// ( and not Windows) EXEC: %compiler %cmp_opt -g 009_debug_enum_result.cj -o 009_debug_enum_result%cmp_output
+// ( and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum015.info 009_debug_enum_result %run_env
 
 test#
 cjdb,cjdb --no-use-colors 009_debug_enum_result,009_debug_enum_result

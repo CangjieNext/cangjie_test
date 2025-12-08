@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/026_debuginfun_if.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 026_debuginfun_if.cj -o 026_debuginfun_if%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP052.info 026_debuginfun_if %run_env
+// ( and not Windows) EXEC: %compiler %cmp_opt -g 026_debuginfun_if.cj -o 026_debuginfun_if%cmp_output
+// ( and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP052.info 026_debuginfun_if %run_env
 
 
 

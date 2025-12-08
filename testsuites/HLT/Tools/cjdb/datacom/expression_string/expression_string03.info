@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/String/string_para03.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g string_para03.cj -o string_para03%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_string03.info string_para03 %run_env
+// ( and not Windows) EXEC: %compiler %cmp_opt -g string_para03.cj -o string_para03%cmp_output
+// ( and not Windows) RUN-EXEC: python3 cjdb_test.py expression_string03.info string_para03 %run_env
 
 
 test#

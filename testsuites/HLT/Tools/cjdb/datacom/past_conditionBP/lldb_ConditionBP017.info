@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/004_debug_while.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 004_debug_while.cj -o 004_debug_while%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP017.info 004_debug_while %run_env
+// ( and not Windows) EXEC: %compiler %cmp_opt -g 004_debug_while.cj -o 004_debug_while%cmp_output
+// ( and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP017.info 004_debug_while %run_env
 
 
 
