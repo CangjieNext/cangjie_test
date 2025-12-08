@@ -19,6 +19,7 @@ public class ParentClass <: DownStreamTypeInheritingUpStreamParent {
 }
 
 main(): Unit {
+    println("begin")
     let child = UpStreamChild<Float64>()
     checkChild(child)
     let parent = ParentClass()
