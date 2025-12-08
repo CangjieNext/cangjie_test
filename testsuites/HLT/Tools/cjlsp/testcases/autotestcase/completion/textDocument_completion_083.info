@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 1341,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "throw","insertText": "throw","insertTextFormat": 1,"kind": 14,"label": "throw","sortText": "464000"},{"deprecated": false,"detail": "","documentation": "","filterText": "throwing","insertText": "throwing","insertTextFormat": 1,"kind": 14,"label": "throwing","sortText": "485000"}]}
+{"id": 1341,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "throw","insertText": "throw","insertTextFormat": 1,"kind": 14,"label": "throw","sortText": "464000"}]}
