@@ -1,15 +1,16 @@
-NewParent<String>.NewParent_MutInstanceMemberFunction
-NewParent<String>.NewParent_NonMutInstanceMemberFunction
-NewParent<String>.NewParent_StaticMemberFunction
-NewParent<String>.NewParent_MutInstanceMemberProperty
-NewParent<String>.NewParent_MutInstanceMemberProperty
-NewParent<String>.NewParent_NonMutInstanceMemberProperty
-NewParent<?>.NewParent_NonMutStaticMemberProperty
-NewParent<?>.NewParent_MutStaticMemberProperty
-NewParent<?>.NewParent_MutStaticMemberProperty
-UpStreamParent<String,Bool>.UpStreamParent_instanceMemberFunction
-UpStreamParent<String,Bool>.UpStreamParent_instanceMemberProperty
-UpStreamParent<String,Bool>.UpStreamParent_staticMemberFunction
-UpStreamParent<?,?>.UpStreamParent_staticMemberProperty
-UpStreamParent<String,Bool>.UpStreamParent_staticMemberFunction
-UpStreamParent<?,?>.UpStreamParent_staticMemberProperty
+// ASSERT: scan-begin begin
+// ASSERT: scan-next NewParent<String>.NewParent_MutInstanceMemberFunction
+// ASSERT: scan-next NewParent<String>.NewParent_NonMutInstanceMemberFunction
+// ASSERT: scan-next NewParent<String>.NewParent_StaticMemberFunction
+// ASSERT: scan-next NewParent<String>.NewParent_MutInstanceMemberProperty
+// ASSERT: scan-next NewParent<String>.NewParent_MutInstanceMemberProperty
+// ASSERT: scan-next NewParent<String>.NewParent_NonMutInstanceMemberProperty
+// ASSERT: scan-next NewParent<?>.NewParent_NonMutStaticMemberProperty
+// ASSERT: scan-next NewParent<?>.NewParent_MutStaticMemberProperty
+// ASSERT: scan-next NewParent<?>.NewParent_MutStaticMemberProperty
+// ASSERT: scan-next UpStreamParent<String,Bool>.UpStreamParent_instanceMemberFunction
+// ASSERT: scan-next UpStreamParent<String,Bool>.UpStreamParent_instanceMemberProperty
+// ASSERT: scan-next UpStreamParent<String,Bool>.UpStreamParent_staticMemberFunction
+// ASSERT: scan-next UpStreamParent<?,?>.UpStreamParent_staticMemberProperty
+// ASSERT: scan-next UpStreamParent<String,Bool>.UpStreamParent_staticMemberFunction
+// ASSERT: scan-next UpStreamParent<?,?>.UpStreamParent_staticMemberProperty

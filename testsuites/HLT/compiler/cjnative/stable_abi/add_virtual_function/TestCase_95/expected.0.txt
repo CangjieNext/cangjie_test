@@ -1,6 +1,7 @@
-UpStreamParent<String,Bool>.UpStreamParent_instanceMemberFunction
-UpStreamParent<String,Bool>.UpStreamParent_instanceMemberProperty
-UpStreamParent<String,Bool>.UpStreamParent_staticMemberFunction
-UpStreamParent<?,?>.UpStreamParent_staticMemberProperty
-UpStreamParent<String,Bool>.UpStreamParent_staticMemberFunction
-UpStreamParent<?,?>.UpStreamParent_staticMemberProperty
+// ASSERT: scan-begin begin
+// ASSERT: scan-next UpStreamParent<String,Bool>.UpStreamParent_instanceMemberFunction
+// ASSERT: scan-next UpStreamParent<String,Bool>.UpStreamParent_instanceMemberProperty
+// ASSERT: scan-next UpStreamParent<String,Bool>.UpStreamParent_staticMemberFunction
+// ASSERT: scan-next UpStreamParent<?,?>.UpStreamParent_staticMemberProperty
+// ASSERT: scan-next UpStreamParent<String,Bool>.UpStreamParent_staticMemberFunction
+// ASSERT: scan-next UpStreamParent<?,?>.UpStreamParent_staticMemberProperty
