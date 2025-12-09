@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features os.windows,os.linux,os.hos
+features {os.windows,os.linux,os.hos}
 package test
 
 import pro1.*
