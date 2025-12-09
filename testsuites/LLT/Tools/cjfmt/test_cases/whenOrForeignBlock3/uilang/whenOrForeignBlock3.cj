@@ -6,12 +6,6 @@
 
 @CallingConv[CDECL]
 foreign {
-    func foo3(): Unit
-    func foo4(): Unit
-}
-
-@CallingConv[STDCALL]
-foreign {
-    func foo5(): Unit
-    func foo6(): Unit
+    func foo1(): Unit
+    func foo2(): Unit
 }

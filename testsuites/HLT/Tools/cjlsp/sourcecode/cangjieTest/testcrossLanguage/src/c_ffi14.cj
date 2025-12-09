@@ -7,9 +7,9 @@
  */
 
 package default
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 foreign func testfuncstacall(fmt: CString): CString
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 foreign func fflushOutstdcall(): Unit
 
 
