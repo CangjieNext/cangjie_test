@@ -12,7 +12,7 @@
 // EXEC: %compiler %cmp_opt %ffic_opt -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 func cptr(a: CPointer<Int8>): CPointer<Int8> {
     var b: CPointer<Int8> = a
@@ -20,7 +20,7 @@ func cptr(a: CPointer<Int8>): CPointer<Int8> {
     return b
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 foreign {
     func get_cptr(cb: CFunc<(CPointer<Int8>) -> CPointer<Int8>>): CPointer<Int8>
 

@@ -23,7 +23,7 @@ struct teststructtmp {
     }
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 func cstruct(a: teststructtmp): teststructtmp {
     var b: teststructtmp = a
@@ -31,7 +31,7 @@ func cstruct(a: teststructtmp): teststructtmp {
     return b
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 foreign func get_cstruct(cb: CFunc<(teststructtmp) -> teststructtmp>): teststructtmp
 
 unsafe main(): Int64 {

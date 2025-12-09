@@ -30,7 +30,7 @@
 
 import utils.assert.Assert
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 foreign func func_01(x: Int16): Int16
 
 main() {

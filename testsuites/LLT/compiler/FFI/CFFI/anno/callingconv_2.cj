@@ -10,7 +10,7 @@
 func foo1() {}
 
 @C
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 func foo2() {}
 
 main() {}
