@@ -11,7 +11,7 @@
 // ASSERT: regex duration is
 /* ASSERT: regex (null) */
 
-@CallingConv[STDCALL] // Can be omitted in default.
+@CallingConv[CDECL] // Can be omitted in default.
 foreign func clock(): Int32
 
 foreign func atexit(cb: CFunc<(CString)->Unit>, ...) : Int32
