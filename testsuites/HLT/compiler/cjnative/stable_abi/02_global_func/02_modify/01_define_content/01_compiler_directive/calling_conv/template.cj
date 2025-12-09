@@ -43,19 +43,19 @@ const func global_func_06() {
     0
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 func global_func_07() {
     0
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 func global_func_08() {
     0
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 const func global_func_09() {
     0
@@ -72,7 +72,7 @@ public func global_func_11() {
     0
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 public func global_func_12() {
     0
