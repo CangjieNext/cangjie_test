@@ -13,7 +13,7 @@ package myType
 @A3[false, "b"]
 @A4[1.2, "q", p2: "hello", p3: 14]
 @Configure[explicitGC: ExplicitGcType.Heavy]
-@TestCase[rune in [ r',', r'!', r'"', r'#', r'$', r'%', r'\'', r'(', r')', r'*', r'+', r'-', r'.', r'-', r'/' ]]
+@TestCase[rune in [r',', r'!', r'"', r'#', r'$', r'%', r'\'', r'(', r')', r'*', r'+', r'-', r'.', r'-', r'/']]
 public class A0 {
     @A0
     @A1[12]
