@@ -22,14 +22,11 @@ error: unexpected digit 'a' in decimal
    | 
    # note: decimal may only contain digit within 0~9
 
-error: unexpected digit 'a' in decimal
+error: expected decimal digit, found 'a'
   ==> case3.cj:16:18:
    | 
 16 |     var c = 0x12.12pac
-   |                    ~^ unexpected digit
-   |                    |
-   |                    because the exponent part base is decimal
+   |                     ^ expected decimal digit
    | 
-   # note: decimal may only contain digit within 0~9
 
 3 errors generated, 3 errors printed.
