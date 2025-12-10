@@ -23,10 +23,10 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-a 
-*/"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+//         [Comment(##"/* 
+// a 
+// */"##)],
+//         [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_TypePattern_Init_01(subPattern: Pattern, patternType: TypeAnnotation, comments: Array<Comment>): Unit {

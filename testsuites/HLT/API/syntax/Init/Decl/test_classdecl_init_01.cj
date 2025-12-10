@@ -19,8 +19,8 @@ import stdx.syntax.*
         (parseText("mut func foo(): ?(Int64, Int64) { None }").node.getOrThrow() as FuncDecl).getOrThrow()])
     ],
     genericConstraints in [
-        None,
-        GenericConstraints([GenericConstraint(CompositeType("T", [], []), [CompositeType("I1", [], [])])]),
+        None
+       // GenericConstraints([GenericConstraint(CompositeType("T", [], []), [CompositeType("I1", [], [])])]),
     ],
     genericParams in [
         [],
@@ -38,8 +38,8 @@ import stdx.syntax.*
         [CompositeType("I1", [], []), CompositeType("I2", [], [])]
     ],
     annotations in [
-        [],
-        [Annotation([Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
+       // [],
+        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
     ],
     modifiers in [
         [],
@@ -47,7 +47,7 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
     ccc
 */"##)]
     ]
@@ -59,4 +59,50 @@ func test_ClassDecl_Init_01(body: Body, genericConstraints: Option<GenericConstr
         modifiers: modifiers, comments: comments)
     println(ClassDecl.toString())
     println()
+}
+
+@Test[
+    body in [
+        Body([]),
+        Body([(parseText("static var a = 1").node.getOrThrow() as VarDecl).getOrThrow(),
+        (parseText("mut func foo(): ?(Int64, Int64) { None }").node.getOrThrow() as FuncDecl).getOrThrow()])
+    ],
+    genericConstraints in [
+       // None,
+        GenericConstraints([GenericConstraint(CompositeType("T", [], []), [CompositeType("I1", [], [])])])
+    ],
+    genericParams in [
+        [],
+        (parseText("class A1<U> {}").node.getOrThrow() as ClassDecl).getOrThrow().genericParams,
+        // (parseText("class A1<T, U> {}").node.getOrThrow() as ClassDecl).getOrThrow().genericParams,
+        // [GenericParam("T")]
+    ],
+    name in [
+        "C1",
+        "CCCCCCC"
+    ],
+    superTyAnnotations in [
+        [],
+        [CompositeType("I1", [], [])],
+        [CompositeType("I1", [], []), CompositeType("I2", [], [])]
+    ],
+    annotations in [
+        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
+    ],
+    modifiers in [
+        [],
+        [Modifier(ModifierKind.Public), Modifier(ModifierKind.Open)]
+    ],
+    comments in [
+        [], 
+        [Comment(##"/* 
+    ccc
+*/"##)]
+    ]
+]
+func test_ClassDecl_Init_02(body: Body, genericConstraints: Option<GenericConstraints>, genericParams: Array<GenericParam>,
+        name: String, superTyAnnotations: Array<TypeAnnotation>, annotations: Array<Annotation>,
+        modifiers: Array<Modifier>, comments: Array<Comment>): Unit {
+    @AssertThrows[Exception](ClassDecl(body, genericConstraints, genericParams, name, superTyAnnotations, annotations: annotations,
+        modifiers: modifiers, comments: comments))
 }

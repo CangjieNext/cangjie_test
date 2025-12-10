@@ -36,23 +36,22 @@ let decls = parseFile("macroexpanddecl_01.cj").node.getOrThrow().topLevelDecls.m
     ],
     annotations in [
         [],
-        [Annotation([Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.AtExcl)]
+        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.AtExcl)]
     ],
-    modifiers in [
-        [],
-        // [Modifier(ModifierKind.Public)]
-    ],
+    // modifiers in [
+    //     [],
+    //     // [Modifier(ModifierKind.Public)]
+    // ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
-    ]
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
+     ]
 ]
 func test_MacroExpandDecl_Init_01(calleeMacro: Expr, macroAttrs: Tokens, macroInputs: MacroExpandInput, annotations: Array<Annotation>,
-    modifiers: Array<Modifier>, comments: Array<Comment>): Unit {
-    let MacroExpandDecl = MacroExpandDecl(calleeMacro, macroAttrs, macroInputs, annotations: annotations,
-        modifiers: modifiers, comments: comments)
+     comments: Array<Comment>): Unit {
+    let MacroExpandDecl = MacroExpandDecl(calleeMacro, macroAttrs, macroInputs, annotations: annotations, comments: comments)
     println(MacroExpandDecl.toString())
     println()
 }

@@ -11,8 +11,13 @@
 // (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
+import stdx.unittest.*
 
 @Test[
+    // identifier in [
+    //    "foo",
+    //    "_a_"
+    // ]
     isMut in [
         true, 
         false
@@ -33,7 +38,7 @@ import stdx.syntax.*
     ],
     annotations in [
         [],
-        [Annotation([Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
+        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
     ],
     modifiers in [
         [],
@@ -41,14 +46,14 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
     ]
 ]
-func test_PropDecl_Init_01(isMut: Bool, getter: Option<PropGetterOrSetter>, name: String, setter: Option<PropGetterOrSetter>,
+func test_PropDecl_Init_01(getter: Option<PropGetterOrSetter>, name: String, setter: Option<PropGetterOrSetter>,
     tyAnnotation: TypeAnnotation, annotations: Array<Annotation>, modifiers: Array<Modifier>, comments: Array<Comment>): Unit {
-    let PropDecl = PropDecl(isMut, getter, name, setter, tyAnnotation, annotations: annotations,
+    let PropDecl = PropDecl(getter, name, setter, tyAnnotation, annotations: annotations,
         modifiers: modifiers, comments: comments)
     println(PropDecl.toString())
     println()

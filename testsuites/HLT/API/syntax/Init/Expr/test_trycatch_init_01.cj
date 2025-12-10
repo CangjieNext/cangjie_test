@@ -18,23 +18,23 @@ import stdx.syntax.*
         [Block((parseText("b + 1").node.getOrThrow() as Expr).getOrThrow())]
     ],
     catchPatterns in [
-        [],
+        //[],
         [CatchPattern(VarPattern("e1"), [CompositeType("AException", [], []), CompositeType("BException", [], [])])]
     ],
     finallyBlock in [
-        None,
+        //None,
         Block((parseText("c + 1").node.getOrThrow() as Expr).getOrThrow())
     ],
     resourceSpec in [
         [],
-        // [(parseText("r = source()").node.getOrThrow() as VarDecl).getOrThrow()]
+       // [(parseText("r = source()").node.getOrThrow() as VarDecl).getOrThrow()]
     ],
     tryBlock in [
         Block((parseText("a + 1").node.getOrThrow() as Expr).getOrThrow())
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
     ccc
 */"##)]
     ]

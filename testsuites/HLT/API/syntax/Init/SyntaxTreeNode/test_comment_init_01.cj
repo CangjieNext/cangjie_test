@@ -24,23 +24,19 @@ import stdx.syntax.*
 ]
 func test_Comment_Init_01(pairs: (CommentKind, String)): Unit {
     let (kind, content) = pairs
-    let Comment = Comment(kind, content)
+    let Comment = Comment(content)
     println(Comment.toString())
     println()
 }
 
 @Test[
     pairs in [
-        (CommentKind.Block, "// a"),
-        (CommentKind.Line, "/* a */"),
-        (CommentKind.Block, "/** a */"),
-        (CommentKind.Document, ##"/*
-    a
-*/"##),
-        (CommentKind.Line, "/a"),
+        (CommentKind.Block,##"// a
+"##),
+        (CommentKind.Line, "/*/"),
     ]
 ]
 func test_Comment_Init_02(pairs: (CommentKind, String)): Unit {
     let (kind, content) = pairs
-    @AssertThrows[Exception](Comment(kind, content))
+    @AssertThrows[Exception](Comment(content))
 }

@@ -23,23 +23,23 @@ import stdx.syntax.*
     ],
     annotations in [
         [],
-        [Annotation([Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
+        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
     ],
-    modifiers in [
-        [],
-        // [Modifier(ModifierKind.Public)]
-    ],
+    // modifiers in [
+    //     [],
+    //     // [Modifier(ModifierKind.Public)]
+    // ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
     ]
 ]
 func test_LambdaParam_Init_01(name: String, typeAnnotation: Option<TypeAnnotation>, 
-    annotations: Array<Annotation>, modifiers: Array<Modifier>, comments: Array<Comment>): Unit {
+    annotations: Array<Annotation>, comments: Array<Comment>): Unit {
     let LambdaParam = LambdaParam(name, typeAnnotation, annotations: annotations,
-        modifiers: modifiers, comments: comments)
+     comments: comments)
     println(LambdaParam.toString())
     println()
 }

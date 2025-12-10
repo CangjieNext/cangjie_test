@@ -39,10 +39,10 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_AssignExpr_Init_01(assignOpKind: AssignOpKind, lhs: Expr, rhs: Expr, comments: Array<Comment>): Unit {

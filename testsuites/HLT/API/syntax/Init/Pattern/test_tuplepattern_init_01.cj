@@ -14,16 +14,16 @@ import stdx.syntax.*
 
 @Test[
     subPatterns in [
-        [],
+       // [],
         [ConstPattern(LitConstExpr(LitConstKind.BoolLiteral, "true"))],
         [ConstPattern(LitConstExpr(LitConstKind.BoolLiteral, "false")), ConstPattern(LitConstExpr(LitConstKind.FloatLiteral, "0.1f32"))]
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-a 
-*/"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+//         [Comment(CommentKind.Block, ##"/* 
+// a 
+// */"##)],
+//         [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
     ]
 ]
 func test_TuplePattern_Init_01(subPatterns: Array<Pattern>, comments: Array<Comment>): Unit {
@@ -31,3 +31,24 @@ func test_TuplePattern_Init_01(subPatterns: Array<Pattern>, comments: Array<Comm
     println(TuplePattern.toString())
     println()
 }
+
+@Test[
+    subPatterns in [
+       [],
+        // [ConstPattern(LitConstExpr(LitConstKind.BoolLiteral, "true"))],
+        // [ConstPattern(LitConstExpr(LitConstKind.BoolLiteral, "false")), ConstPattern(LitConstExpr(LitConstKind.FloatLiteral, "0.1f32"))]
+    ],
+    comments in [
+        [], 
+//         [Comment(CommentKind.Block, ##"/* 
+// a 
+// */"##)],
+//         [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+    ]
+]
+func test_TuplePattern_Init_02(subPatterns: Array<Pattern>, comments: Array<Comment>): Unit {
+    @AssertThrows[Exception](TuplePattern(subPatterns, comments: comments))
+    
+}
+
+

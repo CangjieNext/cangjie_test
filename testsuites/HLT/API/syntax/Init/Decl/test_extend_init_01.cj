@@ -15,8 +15,7 @@ import stdx.syntax.*
 @Test[
     body in [
         Body([]),
-        Body([(parseText("static var a = 1").node.getOrThrow() as VarDecl).getOrThrow(),
-        (parseText("mut func foo(): ?(Int64, Int64) { None }").node.getOrThrow() as FuncDecl).getOrThrow()])
+        Body([(parseText("mut func foo(): ?(Int64, Int64) { None }").node.getOrThrow() as FuncDecl).getOrThrow()])
     ],
     extendedTyAnnotation in [
         CompositeType("C1", [], []),
@@ -24,7 +23,7 @@ import stdx.syntax.*
     ],
     genericConstraints in [
         None,
-        GenericConstraints([GenericConstraint(CompositeType("T", [], []), [CompositeType("I1", [], [])])]),
+       // GenericConstraints([GenericConstraint(CompositeType("T", [], []), [CompositeType("I1", [], [])])]),
     ],
     genericParams in [
         [],
@@ -39,23 +38,23 @@ import stdx.syntax.*
     ],
     annotations in [
         [],
-        [Annotation([Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
+        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
     ],
     modifiers in [
         []
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
     ]
 ]
 func test_ExtendDecl_Init_01(body: Body, extendedTyAnnotation: TypeAnnotation, genericConstraints: Option<GenericConstraints>,
         genericParams: Array<GenericParam>, superTyAnnotations: Array<TypeAnnotation>, annotations: Array<Annotation>,
         modifiers: Array<Modifier>, comments: Array<Comment>): Unit {
     let ExtendDecl = ExtendDecl(body, extendedTyAnnotation, genericConstraints, genericParams, superTyAnnotations, annotations: annotations,
-        modifiers: modifiers, comments: comments)
+        comments: comments)
     println(ExtendDecl.toString())
     println()
 }

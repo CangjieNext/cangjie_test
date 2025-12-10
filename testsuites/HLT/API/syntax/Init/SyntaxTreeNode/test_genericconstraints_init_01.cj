@@ -23,7 +23,7 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
     ccc
 */"##)]
     ]
@@ -32,4 +32,20 @@ func test_GenericConstraints_Init_01(constraints: Array<GenericConstraint>, comm
     let GenericConstraints = GenericConstraints(constraints, comments: comments)
     println(GenericConstraints.toString())
     println()
+}
+
+@Test[
+    constraints in [
+        [],
+       
+    ],
+    comments in [
+        [], 
+        [Comment(##"/* 
+    ccc
+*/"##)]
+    ]
+]
+func test_GenericConstraints_Init_02(constraints: Array<GenericConstraint>, comments: Array<Comment>): Unit {
+    @AssertThrows[Exception](GenericConstraints(constraints, comments: comments))
 }

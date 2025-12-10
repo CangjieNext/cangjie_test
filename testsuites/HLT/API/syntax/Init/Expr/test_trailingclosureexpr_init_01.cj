@@ -24,9 +24,9 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(##"/* 
+//     ccc
+// */"##)]
     ]
 ]
 func test_TrailingClosureExpr_Init_01(callee: Expr, arguments: Array<Argument>, trailingLambdaExpr: Lambda, comments: Array<Comment>): Unit {

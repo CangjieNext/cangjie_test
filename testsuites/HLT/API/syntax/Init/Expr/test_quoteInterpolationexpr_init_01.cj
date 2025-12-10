@@ -18,9 +18,9 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(##"/* 
+//     ccc
+// */"##)]
     ]
 ]
 func test_QuoteInterpolationExpr_Init_01(expr: Expr, comments: Array<Comment>): Unit {

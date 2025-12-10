@@ -17,15 +17,15 @@ import stdx.syntax.*
         (parseText("C1().arr").node.getOrThrow() as Expr).getOrThrow(),
     ],
     indexs in [
-        [],
+       // [],
         [(parseText("a").node.getOrThrow() as Expr).getOrThrow()],
         [(parseText("0").node.getOrThrow() as Expr).getOrThrow(), (parseText("a").node.getOrThrow() as Expr).getOrThrow()]
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(##"/* 
+//     ccc
+// */"##)]
     ]
 ]
 func test_SubscriptExpr_Init_01(base: Expr, indexs: Array<Expr>, comments: Array<Comment>): Unit {

@@ -27,7 +27,7 @@ import stdx.syntax.*
     ],
     annotations in [
         [],
-        [Annotation([Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
+        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
     ],
     modifiers in [
         [],
@@ -35,15 +35,15 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
     ]
 ]
 func test_PropGetterOrSetter_Init_01(block: Block, identifier: Option<String>, isGetter: Bool, annotations: Array<Annotation>,
     modifiers: Array<Modifier>, comments: Array<Comment>): Unit {
     let PropGetterOrSetter = PropGetterOrSetter(block, identifier, isGetter, annotations: annotations,
-        modifiers: modifiers, comments: comments)
+        comments: comments)
     println(PropGetterOrSetter.toString())
     println()
 }

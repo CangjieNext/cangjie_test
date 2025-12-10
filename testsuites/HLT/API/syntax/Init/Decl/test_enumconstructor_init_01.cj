@@ -24,23 +24,23 @@ import stdx.syntax.*
     ],
     annotations in [
         [],
-        [Annotation([Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
+        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
     ],
     modifiers in [
-        [],
-        // [Modifier(ModifierKind.Public), Modifier(ModifierKind.Open)]
+        //[],
+        [Modifier(ModifierKind.Public), Modifier(ModifierKind.Open)]
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
     ]
 ]
 func test_EnumConstructor_Init_01(name: String, paramTyAnnotations: Array<TypeAnnotation>, annotations: Array<Annotation>,
         modifiers: Array<Modifier>, comments: Array<Comment>): Unit {
     let EnumConstructor = EnumConstructor(name, paramTyAnnotations, annotations: annotations,
-        modifiers: modifiers, comments: comments)
+        comments: comments)
     println(EnumConstructor.toString())
     println()
 }

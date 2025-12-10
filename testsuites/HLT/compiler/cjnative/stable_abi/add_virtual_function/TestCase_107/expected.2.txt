@@ -1,6 +1,0 @@
-UpStreamParent<String,Bool>.UpStreamParent_instanceMemberFunction
-UpStreamParent<String,Bool>.UpStreamParent_instanceMemberProperty
-UpStreamParent<String,Bool>.UpStreamParent_staticMemberFunction
-UpStreamParent<?,?>.UpStreamParent_staticMemberProperty
-UpStreamParent<String,Bool>.UpStreamParent_staticMemberFunction
-UpStreamParent<?,?>.UpStreamParent_staticMemberProperty

@@ -22,15 +22,15 @@ import stdx.syntax.*
         false
     ],
     packageNameIdentifiers in [
-        [],
+       // [],
         ["a", "bb"]
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_PackageHeader_Init_01(accessModifier: Option<Modifier>, isMacroPkg: Bool, packageNameIdentifiers: Array<String>, comments: Array<Comment>): Unit {

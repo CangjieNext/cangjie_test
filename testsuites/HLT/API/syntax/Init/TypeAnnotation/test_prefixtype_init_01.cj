@@ -23,10 +23,10 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_PrefixType_Init_01(base: TypeAnnotation, prefixOp: PrefixTypeOpKind, comments: Array<Comment>): Unit {

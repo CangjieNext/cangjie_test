@@ -15,12 +15,12 @@ import stdx.syntax.*
 @Test[
     body in [
         None,
-        // Block([]),
-        // Block([parseText("a + 1").node.getOrThrow(), parseText("return").node.getOrThrow()])
+        Block([]),
+        Block([parseText("a + 1").node.getOrThrow(), parseText("return").node.getOrThrow()])
     ],
     genericConstraints in [
         None,
-        // GenericConstraints([GenericConstraint(CompositeType("T", [], []), [CompositeType("I1", [], [])])]),
+        GenericConstraints([GenericConstraint(CompositeType("T", [], []), [CompositeType("I1", [], [])])]),
     ],
     kind in [
         FuncKind.Foreign
@@ -29,10 +29,10 @@ import stdx.syntax.*
         "foo"
     ],
     genericParams in [
-        [],
-        // (parseText("class A1<T> {}").node.getOrThrow() as ClassDecl).getOrThrow().genericParams,
-        // (parseText("class A1<T, U> {}").node.getOrThrow() as ClassDecl).getOrThrow().genericParams,
-        // [GenericParam("T")]
+       // [],
+        (parseText("class A1<T> {}").node.getOrThrow() as ClassDecl).getOrThrow().genericParams,
+        (parseText("class A1<T, U> {}").node.getOrThrow() as ClassDecl).getOrThrow().genericParams,
+        [GenericParam("T")]
     ],
     params in [
         (parseText("func foo(a: Int64)").node.getOrThrow() as FuncDecl).getOrThrow().params
@@ -43,7 +43,7 @@ import stdx.syntax.*
     ],
     annotations in [
         [],
-        [Annotation([Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
+        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
     ],
     modifiers in [
         [],
@@ -51,9 +51,9 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(##"/* 
+//     ccc
+// */"##)]
     ]
 ]
 func test_FuncDecl_Init_01(body: Option<Block>, genericConstraints: Option<GenericConstraints>, genericParams: Array<GenericParam>,

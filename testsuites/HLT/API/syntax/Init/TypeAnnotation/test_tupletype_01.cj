@@ -25,10 +25,10 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_TupleType_Init_01(labels: Array<String>, elements: Array<TypeAnnotation>, comments: Array<Comment>): Unit {
@@ -50,10 +50,10 @@ func test_TupleType_Init_01(labels: Array<String>, elements: Array<TypeAnnotatio
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_TupleType_Init_02(labels: Array<String>, elements: Array<TypeAnnotation>, comments: Array<Comment>): Unit {

@@ -22,6 +22,7 @@ public class DownStreamTypeInheritingUpStreamParent <: UpStreamParent<Float64> {
 }
 
 main(): Unit {
+    println("begin")
     let child = DownStreamTypeInheritingUpStreamChild()
     checkChild(child)
     let parent = DownStreamTypeInheritingUpStreamParent()

@@ -36,7 +36,7 @@ let decls = (parseFile("macroexpandexpr_01.cj").node.getOrThrow().topLevelDecls[
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
     ccc
 */"##)]
     ]

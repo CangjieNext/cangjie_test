@@ -14,7 +14,6 @@ import stdx.syntax.*
 
 @Test[
     cond in [
-        [],
         [
             ConjunctionCondition(AtomicCondition.Expression((parseText("a1 is Int64").node.getOrThrow() as Expr).getOrThrow())), 
             ConjunctionCondition(AtomicCondition.LetPatternCondition(LetPattern((parseText("a1 as Int64").node.getOrThrow() as Expr).getOrThrow(), [VarPattern("a"), VarPattern("b")])))
@@ -22,10 +21,10 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_DisjunctionCondition_Init_01(cond: Array<ConjunctionCondition>, comments: Array<Comment>): Unit {

@@ -15,10 +15,10 @@ import stdx.syntax.*
 @Test[
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_WildcardPattern_Init_01(comments: Array<Comment>): Unit {

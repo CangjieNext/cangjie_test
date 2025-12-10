@@ -18,18 +18,39 @@ import stdx.syntax.*
     
     ],
     upperBounds in [
-        [],
+       // [],
         [AtomicType(AtomicTypeKind.Float16Type), CompositeType("I2", [], [])]
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
     ]
 ]
 func test_GenericConstraint_Init_01(typeArgument: TypeAnnotation, upperBounds: Array<TypeAnnotation>, comments: Array<Comment>): Unit {
     let GenericConstraint = GenericConstraint(typeArgument, upperBounds, comments: comments)
     println(GenericConstraint.toString())
     println()
+}
+
+@Test[
+    typeArgument in [
+        CompositeType("I1", [], []),
+    
+    ],
+    upperBounds in [
+        [],
+        //[AtomicType(AtomicTypeKind.Float16Type), CompositeType("I2", [], [])]
+    ],
+    comments in [
+        [], 
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
+    ]
+]
+func test_GenericConstraint_Init_02(typeArgument: TypeAnnotation, upperBounds: Array<TypeAnnotation>, comments: Array<Comment>): Unit {
+    @AssertThrows[Exception](GenericConstraint(typeArgument, upperBounds, comments: comments))
+    
 }

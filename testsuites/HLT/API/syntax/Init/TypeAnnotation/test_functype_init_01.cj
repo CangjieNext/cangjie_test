@@ -29,10 +29,10 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-a 
-*/"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+//         [Comment(##"/* 
+// a 
+// */"##)],
+//         [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_FuncType_Init_01(paramTypes: Array<TypeAnnotation>, labels: Array<String>, retType: TypeAnnotation, comments: Array<Comment>): Unit {

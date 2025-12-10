@@ -25,13 +25,35 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
     ]
 ]
 func test_ImportMulti_Init_01(prefixes: Array<String>, contents: Array<ImportContent>, comments: Array<Comment>): Unit {
     let ImportMulti = ImportMulti(prefixes, contents, comments: comments)
     println(ImportMulti.toString())
     println()
+}
+
+@Test[
+    prefixes in [
+        [],
+        ["p1"],
+        ["p1", "p2"]
+    ],
+    contents in [
+        [],
+        // [ImportAlias(["p1"], "foo", "a1" )],
+        // [ImportAlias([], "foo", "a1" ), ImportAll(["p1", "p2"]), ImportSingle(["p1", "p3"], "bbb")]
+    ],
+    comments in [
+        [], 
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
+    ]
+]
+func test_ImportMulti_Init_02(prefixes: Array<String>, contents: Array<ImportContent>, comments: Array<Comment>): Unit {
+    @AssertThrows[Exception](ImportMulti(prefixes, contents, comments: comments))
 }

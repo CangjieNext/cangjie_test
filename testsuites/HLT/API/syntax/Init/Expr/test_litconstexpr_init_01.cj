@@ -22,10 +22,10 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_LitConstExpr_Init_01(pairs: (LitConstKind, String), comments: Array<Comment>): Unit {
@@ -33,24 +33,4 @@ func test_LitConstExpr_Init_01(pairs: (LitConstKind, String), comments: Array<Co
     let LitConstExpr = LitConstExpr(kind, rawValue, comments: comments)
     println(LitConstExpr.toString())
     println()
-}
-
-@Test[
-    pairs in [
-        (LitConstKind.BoolLiteral, "aaa"),
-        (LitConstKind.FloatLiteral, "1"),
-        (LitConstKind.IntergerLiteral, "-0.1f32"),
-        (LitConstKind.RuneLiteral, "aaaaaaa仓颉"),
-        (LitConstKind.UnitLiteral, "a")
-    ],
-    comments in [
-        [], 
-        [Comment(CommentKind.Block, ##"/* 
-a 
-*/"##)]
-    ]
-]
-func test_LitConstExpr_Init_02(pairs: (LitConstKind, String), comments: Array<Comment>): Unit {
-    let (kind, rawValue) = pairs
-    @AssertThrows[Exception](LitConstExpr(kind, rawValue, comments: comments))
 }

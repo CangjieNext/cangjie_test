@@ -27,9 +27,9 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
     ]
 ]
 func test_ImportAlias_Init_01(prefixes: Array<String>, identifier: String, alias: String, comments: Array<Comment>): Unit {

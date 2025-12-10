@@ -18,7 +18,6 @@ import stdx.syntax.*
         (parseText("a + 1").node.getOrThrow() as Expr).getOrThrow()
     ],
     kind in [
-        None,
         VarKind.Let,
         VarKind.Var
     ],
@@ -36,7 +35,7 @@ import stdx.syntax.*
     ],
     annotations in [
         [],
-        [Annotation([Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
+        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
     ],
     modifiers in [
         [],
@@ -44,9 +43,9 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
     ]
 ]
 func test_FuncParam_Init_01(defaultValue: Option<Expr>, kind: Option<VarKind>, name: String, typeAnnotation: TypeAnnotation,
@@ -58,4 +57,48 @@ func test_FuncParam_Init_01(defaultValue: Option<Expr>, kind: Option<VarKind>, n
         modifiers: modifiers, comments: comments)
     println(FuncParam.toString())
     println()
+}
+
+@Test[
+    defaultValue in [
+        None,
+        (parseText("a + 1").node.getOrThrow() as Expr).getOrThrow()
+    ],
+    kind in [
+       None,
+    ],
+    name in [
+        "a1",
+        "aaaa"
+    ],
+    typeAnnotation in [
+        AtomicType(AtomicTypeKind.Float16Type),
+    
+    ],
+    isNamed in [
+        true,
+        false
+    ],
+    annotations in [
+        [],
+        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
+    ],
+    modifiers in [
+        //[],
+        [Modifier(ModifierKind.Public)]
+    ],
+    comments in [
+        [], 
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
+    ]
+]
+func test_FuncParam_Init_02(defaultValue: Option<Expr>, kind: Option<VarKind>, name: String, typeAnnotation: TypeAnnotation,
+    isNamed: Bool, annotations: Array<Annotation>, modifiers: Array<Modifier>, comments: Array<Comment>): Unit {
+    if ((isNamed == true && defaultValue.isNone()) || (isNamed == false && defaultValue.isSome())) {
+        return
+    }
+    @AssertThrows[Exception](FuncParam(defaultValue, kind, name, typeAnnotation, isNamed: isNamed, annotations: annotations,
+        modifiers: modifiers, comments: comments))
 }

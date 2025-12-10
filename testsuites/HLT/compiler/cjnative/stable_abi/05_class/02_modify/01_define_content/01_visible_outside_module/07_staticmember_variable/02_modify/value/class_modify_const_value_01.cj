@@ -23,11 +23,14 @@
 // (not OHOS)EXEC: %mv test_stable_abi.cjo old.cjo
 // (not OHOS)EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-// (not OHOS)ASSERT: scan Incompatible!
-// (not OHOS)ASSERT: scan-3 [ABI] Modified static constant variables' initial value for class visible outside the module.
-// (not OHOS)ASSERT: scan-not [API/ABI]
-// (not OHOS)ASSERT: scan-not [API]
-// (not OHOS)ASSERT: scan-3 [ABI]
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
+// ASSERT: scan Incompatible!
+// ASSERT: scan-3 [ABI] Modified static constant variables' initial value for class visible outside the module.
+// ASSERT: scan-not [API/ABI]
+// ASSERT: scan-not [API]
+// ASSERT: scan-3 [ABI]
 // TEST API Compatibility
 // (not OHOS)EXEC: %compiler %cmp_opt main2.cj %cmp_stable_abi_dylib -o %output
 // (not OHOS)RUN-EXEC-1: %run %run_opt %output %run_args

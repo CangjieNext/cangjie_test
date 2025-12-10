@@ -28,19 +28,19 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Document, "/** a */")],
-        [Comment(CommentKind.Line, "// a")],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Block, ##"/* 
+        [Comment("/** a */")],
+        [Comment("// a")],
+        [Comment("//1"), Comment(##"/* 
 a 
 */"##)]
     ]
 ]
 func test_Argument_Init_01(identifier_pair: (Option<String>, Bool), isInOut: Bool, value: ?Expr, comments: Array<Comment>): Unit {
     let (identifier, isNamed) = identifier_pair
-    let Argument = Argument(identifier, isInOut, isNamed, value.getOrThrow(), comments: comments)
+    let Argument = Argument(identifier, isInOut, value.getOrThrow(), comments: comments)
     println(Argument.toString())
     println()
 }
@@ -61,17 +61,20 @@ func test_Argument_Init_01(identifier_pair: (Option<String>, Bool), isInOut: Boo
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Document, "/** a */")],
-        [Comment(CommentKind.Line, "// a")],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Block, ##"/* 
+        [Comment( "/** a */")],
+        [Comment("// a")],
+        [Comment("//1"), Comment(##"/* 
 a 
 */"##)]
     ]
 ]
 func test_Argument_Init_02(identifier_pair: (Option<String>, Bool), isInOut: Bool, value: ?Expr, comments: Array<Comment>): Unit {
     let (identifier, isNamed) = identifier_pair
-    @AssertThrows[Exception](Argument(identifier, isInOut, isNamed, value.getOrThrow(), comments: comments))
+    let Argument = Argument(identifier, isInOut, value.getOrThrow(), comments: comments)
+    println(Argument.toString())
+    println()
+
 }

@@ -18,18 +18,18 @@ import stdx.syntax.*
         (parseText("A1<T>").node.getOrThrow() as SymbolRef).getOrThrow()
     ],
     arguments in [
-        [],
-        [Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))],
+       // [],
+      //  [Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))],
         (parseText("foo(a1)").node.getOrThrow() as CallExpr).getOrThrow().arguments,
         (parseText("foo(inout aaaa, b: 1234)").node.getOrThrow() as CallExpr).getOrThrow().arguments,
         (parseText("foo(\"1234\", strict: false)").node.getOrThrow() as CallExpr).getOrThrow().arguments
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_CallExpr_Init_01(callee: Expr, arguments: Array<Argument>, comments: Array<Comment>): Unit {

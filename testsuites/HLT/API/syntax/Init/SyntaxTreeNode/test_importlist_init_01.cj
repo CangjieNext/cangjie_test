@@ -19,12 +19,12 @@ import stdx.syntax.*
         ImportSingle(["p1", "p3"], "bbb"),
         ImportMulti(["a1"], [ImportAlias(["pp1"], "ffoo", "a1" )])
     ],
-    kind in [
-        ImportKind.Alias,
-        ImportKind.All,
-        ImportKind.Multi,
-        ImportKind.Single 
-    ],
+    // kind in [
+    //     ImportKind.Alias,
+    //     ImportKind.All,
+    //     ImportKind.Multi,
+    //     ImportKind.Single 
+    // ],
     modifier in [
         None,
         Modifier(ModifierKind.Public),
@@ -32,16 +32,49 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
     ]
 ]
-func test_ImportList_Init_01(contents: ImportContent, kind: ImportKind, modifier: Option<Modifier>, comments: Array<Comment>): Unit {
+func test_ImportList_Init_01(contents: ImportContent, modifier: Option<Modifier>, comments: Array<Comment>): Unit {
     // match (kind) {
     //     xxx
     // }
-    let ImportList = ImportList(contents, kind, modifier, comments: comments)
+    let ImportList = ImportList(contents, modifier, comments: comments)
     println(ImportList.toString())
     println()
+}
+
+@Test[
+    contents in [
+        ImportAlias(["p1"], "foo", "a1" ),
+        ImportAll(["p1", "p2"]),
+        ImportSingle(["p1", "p3"], "bbb"),
+        ImportMulti(["a1"], [ImportAlias(["pp1"], "ffoo", "a1" )])
+    ],
+    // kind in [
+    //     ImportKind.Alias,
+    //     ImportKind.All,
+    //     ImportKind.Multi,
+    //     ImportKind.Single 
+    // ],
+    modifier in [
+        // None,
+        // Modifier(ModifierKind.Public),
+        Modifier(ModifierKind.Open)
+    ],
+    comments in [
+        [], 
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
+    ]
+]
+func test_ImportList_Init_02(contents: ImportContent, modifier: Option<Modifier>, comments: Array<Comment>): Unit {
+    // match (kind) {
+    //     xxx
+    // }
+    @AssertThrows[Exception](ImportList(contents, modifier, comments: comments))
+    
 }

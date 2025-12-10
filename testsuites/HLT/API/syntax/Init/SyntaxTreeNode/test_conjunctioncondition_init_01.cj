@@ -14,7 +14,7 @@ import stdx.syntax.*
 
 @Test[
     cond in [
-        [],
+        //[],
         [
             AtomicCondition.Expression((parseText("a1 is Int64").node.getOrThrow() as Expr).getOrThrow()), 
             AtomicCondition.LetPatternCondition(LetPattern((parseText("a1 as Int64").node.getOrThrow() as Expr).getOrThrow(), [VarPattern("a"), VarPattern("b")]))
@@ -22,14 +22,35 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment( "// 2")]
     ]
 ]
 func test_ConjunctionCondition_Init_01(cond: Array<AtomicCondition>, comments: Array<Comment>): Unit {
     let ConjunctionCondition = ConjunctionCondition(cond, comments: comments)
     println(ConjunctionCondition.toString())
     println()
+}
+
+@Test[
+    cond in [
+        [],
+        // [
+        //     AtomicCondition.Expression((parseText("a1 is Int64").node.getOrThrow() as Expr).getOrThrow()), 
+        //     AtomicCondition.LetPatternCondition(LetPattern((parseText("a1 as Int64").node.getOrThrow() as Expr).getOrThrow(), [VarPattern("a"), VarPattern("b")]))
+        // ]
+    ],
+    comments in [
+        [], 
+        [Comment(##"/* 
+a 
+*/"##)],
+        [Comment("//1"), Comment( "// 2")]
+    ]
+]
+func test_ConjunctionCondition_Init_02(cond: Array<AtomicCondition>, comments: Array<Comment>): Unit {
+    @AssertThrows[Exception](ConjunctionCondition(cond, comments: comments))
+   
 }

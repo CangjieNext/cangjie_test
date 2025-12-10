@@ -17,13 +17,13 @@ import stdx.syntax.*
         [],
     ],
     params in [
-        // (parseText("func foo(a: Int64)").node.getOrThrow() as FuncDecl).getOrThrow().params,
+        (parseText("func foo(a: Int64)").node.getOrThrow() as FuncDecl).getOrThrow().params,
         ParameterList(LambdaParam("a1", None)),
         ParameterList(LambdaParam("b1", AtomicType(AtomicTypeKind.Float16Type)))
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
     ccc
 */"##)]
     ]

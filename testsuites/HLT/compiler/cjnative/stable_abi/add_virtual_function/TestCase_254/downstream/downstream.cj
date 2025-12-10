@@ -20,6 +20,7 @@ public enum DownStreamTypeInheritingUpStreamParent <: UpStreamParent<Float64> {
 }
 
 main(): Unit {
+    println("begin")
     let child = DownStreamTypeInheritingUpStreamChild.A
     checkChild(child)
     let parent = DownStreamTypeInheritingUpStreamParent.A

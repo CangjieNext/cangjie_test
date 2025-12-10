@@ -37,14 +37,48 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-a 
-*/"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+//         [Comment(CommentKind.Block, ##"/* 
+// a 
+// */"##)],
+//         [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
     ]
 ]
 func test_LitConstStrExpr_Init_01(kind: LitConstKind, rawValue: String, delimiterNum: Int64, isSingleQuote: Bool, strKind: LitConstStrKind, strPartExprs: Array<StrLiteralPart>, comments: Array<Comment>): Unit {
     let LitConstStrExpr = LitConstStrExpr(kind, rawValue, delimiterNum, isSingleQuote, strKind, strPartExprs, comments: comments)
     println(LitConstStrExpr.toString())
     println()
+}
+
+@Test[
+    kind in [ LitConstKind.StringLiteral ],
+    rawValue in [
+        "a",
+        "_a"
+    ],
+    delimiterNum in [
+         0, 
+        //1, 10
+    ],
+    isSingleQuote in [
+        true,
+        false
+    ],
+    strKind in [
+        LitConstStrKind.MultiLineRawString,
+    ],
+    strPartExprs in [
+        [],
+        (parseText(##""abcd${a}${b}ccc${c}d""##).node.getOrThrow() as LitConstStrExpr).getOrThrow().strPartExprs
+    ],
+    comments in [
+        [], 
+//         [Comment(CommentKind.Block, ##"/* 
+// a 
+// */"##)],
+//         [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+    ]
+]
+func test_LitConstStrExpr_Init_02(kind: LitConstKind, rawValue: String, delimiterNum: Int64, isSingleQuote: Bool, strKind: LitConstStrKind, strPartExprs: Array<StrLiteralPart>, comments: Array<Comment>): Unit {
+    @AssertThrows[Exception](LitConstStrExpr(kind, rawValue, delimiterNum, isSingleQuote, strKind, strPartExprs, comments: comments))
+    
 }

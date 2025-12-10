@@ -26,7 +26,7 @@ import stdx.syntax.*
     ],
     annotations in [
         [],
-        [Annotation([Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
+        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
     ],
     modifiers in [
         [],
@@ -34,15 +34,14 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
     ]
 ]
-func test_MainDecl_Init_01(body: Block, params: ParameterList, retTyAnnotation: Option<TypeAnnotation>, annotations: Array<Annotation>,
-    modifiers: Array<Modifier>, comments: Array<Comment>): Unit {
-    let MainDecl = MainDecl(body, params, retTyAnnotation, annotations: annotations,
-        modifiers: modifiers, comments: comments)
+func test_MainDecl_Init_01(body: Block, params: ParameterList, retTyAnnotation: Option<TypeAnnotation>, comments: Array<Comment>): Unit {
+    let MainDecl = MainDecl(body, params, retTyAnnotation, comments: comments)
+
     println(MainDecl.toString())
     println()
 }

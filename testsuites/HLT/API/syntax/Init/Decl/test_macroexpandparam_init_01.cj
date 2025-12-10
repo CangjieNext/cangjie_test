@@ -34,7 +34,7 @@ let decls = ((parseFile("macroexpandparam_01.cj").node.getOrThrow().topLevelDecl
     ],
     annotations in [
         [],
-        [Annotation([Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.AtExcl)]
+        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.AtExcl)]
     ],
     modifiers in [
         [],
@@ -42,15 +42,15 @@ let decls = ((parseFile("macroexpandparam_01.cj").node.getOrThrow().topLevelDecl
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-    ccc
-*/"##)]
+//         [Comment(CommentKind.Block, ##"/* 
+//     ccc
+// */"##)]
     ]
 ]
 func test_MacroExpandParam_Init_01(calleeMacro: Expr, macroAttrs: Tokens, macroInputs: MacroExpandInput, annotations: Array<Annotation>,
     modifiers: Array<Modifier>, comments: Array<Comment>): Unit {
     let MacroExpandParam = MacroExpandParam(calleeMacro, macroAttrs, macroInputs, annotations: annotations,
-        modifiers: modifiers, comments: comments)
+        comments: comments)
     println(MacroExpandParam.toString())
     println()
 }

@@ -18,21 +18,40 @@ import stdx.syntax.*
         WildcardPattern()
     ],
     exceptionType in [
-        [],
+        // [],
         [CompositeType("AException", [], [])],
         [CompositeType("AException", [], []), CompositeType("BException", [], [])]
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_CatchPattern_Init_01(pattern: Pattern, exceptionType: Array<TypeAnnotation>, comments: Array<Comment>): Unit {
     let CatchPattern = CatchPattern(pattern, exceptionType, comments: comments)
     println(CatchPattern.toString())
     println()
+}
+
+@Test[
+    pattern in [
+        VarPattern("e1"),
+    ],
+    exceptionType in [
+        [],
+    ],
+    comments in [
+        [], 
+        [Comment(##"/* 
+a 
+*/"##)],
+        [Comment("//1"), Comment("// 2")]
+    ]
+]
+func test_CatchPattern_Init_02(pattern: Pattern, exceptionType: Array<TypeAnnotation>, comments: Array<Comment>): Unit {
+    @AssertThrows[Exception](CatchPattern(pattern, exceptionType, comments: comments))
 }
 

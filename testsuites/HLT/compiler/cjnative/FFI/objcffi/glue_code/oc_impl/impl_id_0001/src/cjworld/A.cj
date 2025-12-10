@@ -13,6 +13,6 @@ import objc.lang.*
 @ObjCImpl
 public class A <: M {
     public func f(): ObjCId {
-        return M()
+        return M(1)
     }
 }

@@ -19,7 +19,7 @@ AOT r,r,-> 28
 CJVM c,c,
 expr:expr a1:\(Bool\) \$[\d] = true
 expr:expr a2:\(Rune\) \$[\d] = 'f'
-expr:expr a3.get(1):error: unsupported expression
+expr:expr a3.get(1):\(std.core.Option<UInt8>\) \$[\d] = 97
 expr:expr a5:\(Tuple<Bool,Bool>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
 expr:expr a5[0]:\(Bool\) \$[\d] = true
 expr:expr foo<Bool>(x1):\(Bool\) \$[\d] = true

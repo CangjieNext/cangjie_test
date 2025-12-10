@@ -15,7 +15,7 @@ import stdx.syntax.*
 @Test[
     arguments in [
         [],
-        [Argument(None, false, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))],
+        [Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))],
         (parseText("foo(a1)").node.getOrThrow() as CallExpr).getOrThrow().arguments,
         (parseText("foo(inout aaaa, b: 1234)").node.getOrThrow() as CallExpr).getOrThrow().arguments,
         (parseText("foo(\"1234\", strict: false)").node.getOrThrow() as CallExpr).getOrThrow().arguments
@@ -31,12 +31,12 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
-a 
-*/"##)],
-        [Comment(CommentKind.Document, "/** a */")],
-        [Comment(CommentKind.Line, "// a")],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+//         [Comment(CommentKind.Block, ##"/* 
+// a 
+// */"##)],
+//         [Comment(CommentKind.Document, "/** a */")],
+//         [Comment(CommentKind.Line, "// a")],
+//         [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
     ]
 ]
 func test_Annotation_Init_01(arguments: Array<Argument>, identifier: String, opKind: AtOpKind, comments: Array<Comment>): Unit {

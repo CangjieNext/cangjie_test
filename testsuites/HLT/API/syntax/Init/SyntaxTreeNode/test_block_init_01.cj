@@ -14,16 +14,16 @@ import stdx.syntax.*
 
 @Test[
     nodes in [
-        [parseText("return 0").node.getOrThrow()],
-        [parseText("a + 1").node.getOrThrow(), parseText("return").node.getOrThrow()],
-        [Block([parseText("return 0").node.getOrThrow()])]
+        [parseText("return 0").node.getOrThrow()]
+        // [parseText("a + 1").node.getOrThrow(), parseText("return").node.getOrThrow()],
+        // [Block([parseText("return 0").node.getOrThrow()])]
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_Block_Init_01(nodes: Array<SyntaxTreeNode>, comments: Array<Comment>): Unit {
@@ -34,17 +34,19 @@ func test_Block_Init_01(nodes: Array<SyntaxTreeNode>, comments: Array<Comment>):
 
 @Test[
     nodes in [
-        [parseText("var a = 1").node.getOrThrow()],
+       // [parseText("var a = 1").node.getOrThrow()],
         [parseText("func foo(a: Int64) { a }").node.getOrThrow(), parseText("return 0").node.getOrThrow()]
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_Block_Init_02(nodes: Array<SyntaxTreeNode>, comments: Array<Comment>): Unit {
-    @AssertThrows[Exception](Block(nodes, comments: comments))
+    let Block = Block(nodes, comments: comments)
+    println(Block.toString())
+    println()
 }

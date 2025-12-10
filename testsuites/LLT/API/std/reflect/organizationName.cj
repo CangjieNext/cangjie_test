@@ -11,7 +11,22 @@
 // (CJNATIVE) EXEC: %compiler -Woff all %cmp_opt %f -g -o %output %cmp_utest_opt
 // (CJNATIVE) RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt %run_args 2>&1
 
+package my_org::pkg1
+
 import std.reflect.*
+
+public class C<T> {
+    public func foo(): Unit {
+        println("C<${TypeInfo.of<T>()}>.foo")
+    }
+}
+
+public class F {
+    public func bar(): Unit {
+        println("F.bar")
+    }
+}
+
 
 
 @Test
@@ -26,4 +41,10 @@ class TestOrganizationName {
         let info = PackageInfo.load("organization/withOrg/target/release/myPkg@myOrg/libmyPkg@myOrg.so")
         @Expect(info.organizationName, "myOrg")
     }
+
+    @TestCase
+    func testQualifiedName() {
+        @Assert(ClassTypeInfo.get("my_org::pkg1.C<Int64>").toString(), "my_org::pkg1.C<Int64>")
+    }
+
 }

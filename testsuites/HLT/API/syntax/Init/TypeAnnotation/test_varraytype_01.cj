@@ -24,10 +24,10 @@ import stdx.syntax.*
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(##"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_VArrayType_Init_01(elementType: TypeAnnotation, size: Int64, comments: Array<Comment>): Unit {
@@ -48,10 +48,10 @@ func test_VArrayType_Init_01(elementType: TypeAnnotation, size: Int64, comments:
     ],
     comments in [
         [], 
-        [Comment(CommentKind.Block, ##"/* 
+        [Comment(#"/* 
 a 
 */"##)],
-        [Comment(CommentKind.Line, "//1"), Comment(CommentKind.Line, "// 2")]
+        [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_VArrayType_Init_02(elementType: TypeAnnotation, size: Int64, comments: Array<Comment>): Unit {
