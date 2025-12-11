@@ -40,7 +40,9 @@ class TestProxy {
 	let proxyServerSocket = TcpServerSocket(bindAt: 0)
     @TestCase
     func proxy(): Unit {
-        let server = startServer1()
+        let sc = SyncCounter(1)
+        let server = startServer1(sc)
+        sc.waitUntilZero()
 
 		spawn { startProxy(server.port) }
 
@@ -63,7 +65,7 @@ class TestProxy {
 		asanGC()
 	}
 
-    func startServer1(): Server {
+    func startServer1(sc: SyncCounter): Server {
         var transportCfg = TransportConfig()
         transportCfg.readBufferSize = 8192
         var cfg = serverConfig()
@@ -75,6 +77,7 @@ class TestProxy {
                     .tlsConfig(cfg)
                     .headerTableSize(10 * 1024)
                     .maxRequestHeaderSize(1024 * 1024)
+                    .afterBind({=> sc.dec()})
                     .build()
         server.distributor.register("", {httpContext =>
             httpContext.responseBuilder.body("Hello!")
@@ -82,7 +85,7 @@ class TestProxy {
         spawn {
             server.serve()
         }
-        sleep(Duration.millisecond*100)
+        sleep(Duration.millisecond * 100)
         return server
 	}
 
@@ -93,8 +96,8 @@ class TestProxy {
             sleep(Duration.millisecond * 200)
             let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
             let socket = proxyServerSocket.accept()
-            socket.readTimeout = Duration.millisecond * 100
-        
+            socket.readTimeout = Duration.second * 10
+
             let buf = Array<UInt8>(500, repeat: 0)
             sleep(Duration.millisecond * 100)
             let i = socket.read(buf)
@@ -126,7 +129,7 @@ class TestProxy {
                     }
                 }
             }
-            
+
             spawn{
                 while(true){
                     let buf1 = Array<UInt8>(5000, repeat: 0)
