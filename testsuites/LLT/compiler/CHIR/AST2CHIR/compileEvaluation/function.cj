@@ -6,7 +6,7 @@
 
 // LEVEL: 0
 // (DEBUG_OPTION)EXEC-PIPE-0: %frontendCompiler %enableCompileDebug %dumpCHIRDebug  %f -o %n.%suffix 2>&1
-// (DEBUG_OPTION)EXEC-PIPE-0:  %cat %n\_CHIR_Debug/[0-9]*\_AST\_CHIR.chir | compare %f
+// (DEBUG_OPTION)EXEC-PIPE-0:  %cat %n\_CHIR/[0-9]*\_AST\_CHIR.chir | compare %f
 // ASSERT: regex \[compileTimeVal\].*Func.*dec
 // ASSERT: regex \[compileTimeVal\].*h_LOCAL_1
 const func dec(x: Int64) {

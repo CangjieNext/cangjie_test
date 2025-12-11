@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir %cmp_opt %clang_opt %n.cj 2>&1 | compare %f
+// (DEBUG_OPTION)EXEC: %frontendCompiler %dump-ir-to-screen %cmp_opt %clang_opt %n.cj 2>&1 | compare %f
 
 // ASSERT: regex-not @llvm.used
 

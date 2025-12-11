@@ -7,7 +7,7 @@
 // DEPENDENCE: pkg.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg.cj -o pkg.%middle
 // EXEC-PIPE-0: %frontendCompiler %dumpCHIRDebug -Woff all %f -o %n.%suffix
-// (not Windows and DEBUG_OPTION) EXEC: %cat %n\_CHIR_Debug/[0-9]*\_RemoveUnusedImports.chir 2>&1 | compare %f
+// (not Windows and DEBUG_OPTION) EXEC: %cat %n\_CHIR/[0-9]*\_RemoveUnusedImports.chir 2>&1 | compare %f
 
 import pkg.A
 

@@ -6,7 +6,7 @@
 
 // EXEC-PIPE-0: %compiler %enableCompileDebug %disInst %dumpCHIRDebug  %f -o %n.%suffix
 // RUN-EXEC-0: %run %run_opt %output %run_args
-// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR_Debug/0\_AST\_CHIR.chir | %grep Apply | compare %f
+// (not Windows and DEBUG_OPTION) EXEC-PIPE-0: %cat %n\_CHIR/0\_AST\_CHIR.chir | %grep Apply | compare %f
 // (not Windows and DEBUG_OPTION) ASSERT: regex Apply\(.*Struct-_CN7default2S2E::@_CN7default2S210staticFoo2IG_HG_\<Generic-_CN7default5test3IG_HG_E1TE\> : \(Generic-_CN7default5test3IG_HG_E1TE\) -> Int64, %[0-9]+\)
 // (not Windows and DEBUG_OPTION) ASSERT: regex Apply\(.*Struct-_CN7default2S1IG_E<Bool>::@_CN7default2S1IG_E10staticFoo1Hv : \(\) -> Int64\)
 

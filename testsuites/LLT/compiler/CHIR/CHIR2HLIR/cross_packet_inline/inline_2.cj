@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir %enableO2 %f 2>&1 | compare %f
+// (CJNATIVE and DEBUG_OPTION) EXEC-PIPE: %frontendCompiler %dump-ir-to-screen %enableO2 %f 2>&1 | compare %f
 // (CJNATIVE and DEBUG_OPTION) ASSERT: regex @llvm.sqrt.f64
 // (CJNATIVE and DEBUG_OPTION) ASSERT: regex-not declare double @"_CN11std.math4sqrtEd"(double) gc "cangjie"
 

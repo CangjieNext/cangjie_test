@@ -7,11 +7,11 @@
 
 // (Linux and DEBUG_OPTION) EXEC: %mkdir mockmodule/modules/linux_aarch64_cjnative
 // (Linux and DEBUG_OPTION) EXEC: %cpdir $CANGJIE_HOME/modules/linux_x86_64_cjnative/* mockmodule/modules/linux_aarch64_cjnative
-// (Linux and DEBUG_OPTION) EXEC-PIPE-0: CANGJIE_HOME=./mockmodule %frontendCompiler %dump-ir --target=aarch64-linux-gnu %f -o %n.%middle 2>&1 | compare %f
+// (Linux and DEBUG_OPTION) EXEC-PIPE-0: CANGJIE_HOME=./mockmodule %frontendCompiler %dump-ir-to-screen --target=aarch64-linux-gnu %f -o %n.%middle 2>&1 | compare %f
 
 // (Windows and DEBUG_OPTION) EXEC: %mkdir .\mockmodule\modules\windows_aarch64_cjnative
 // (Windows and DEBUG_OPTION) EXEC: %cpdir %CANGJIE_HOME%\modules\windows_x86_64_cjnative\* .\mockmodule\modules\windows_aarch64_cjnative
-// (Windows and DEBUG_OPTION) EXEC-PIPE-0: set CANGJIE_HOME=.\mockmodule && %frontendCompiler %dump-ir --target=aarch64-windows-gnu %f -o %n.%middle 2>&1 | compare %f
+// (Windows and DEBUG_OPTION) EXEC-PIPE-0: set CANGJIE_HOME=.\mockmodule && %frontendCompiler %dump-ir-to-screen --target=aarch64-windows-gnu %f -o %n.%middle 2>&1 | compare %f
 
 // ASSERT: regex-not byval
 // (not WithApc) ASSERT: regex-not zext
