@@ -33,14 +33,14 @@ error: cannot reference 'B'(level: 15) which higher than level of the current sc
    |     ^^^ 
    | 
 
-error: cannot reference 'foo'(level: 29) which higher than level of the current scope(level: 2)
+error: cannot reference 'C'(level: 26) which higher than level of the current scope(level: 2)
   ==> merge2.cj:17:5:
    | 
 17 |     C.A.foo()
    |     ^^^^^^^^^ 
    | 
 
-error: cannot reference 'foo'(level: 29) which higher than level of the current scope(level: 2)
+error: cannot reference 'C'(level: 26) which higher than level of the current scope(level: 2)
   ==> merge2.cj:18:5:
    | 
 18 |     C.B(1).foo()
