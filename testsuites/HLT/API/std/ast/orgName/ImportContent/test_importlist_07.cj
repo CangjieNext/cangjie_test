@@ -7,15 +7,14 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %cmp_opt %use_ast %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run %run_opt %output %run_args
+// ERRCHECK: %compiler %cmp_opt %use_ast %f -o %output %cmp_utest_opt
+// ASSERT: scan lex_cannot_start_with_digit
 
 import std.ast.*
 
-var input: Tokens = quote(public import 000::ast.userdefine)
+
 
 @Test
 func test_importList() {
-    @AssertThrows[ParseASTException](parseProgram(input))
-    @AssertThrows[ASTException](ImportList(input))
+    var input: Tokens = quote(public import 000::ast.userdefine)
 }

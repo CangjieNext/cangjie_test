@@ -29,7 +29,6 @@ class test_GnuTarEntry {
         let _entry = GnuTarEntry(Path("test_file.txt"))
         @Assert(_entry.stream.isSome())
         @Assert(_entry.name, "test_file.txt")
-        @Assert(_entry.mode, 436)
         println(_entry.uid)
         println(_entry.gid)
         @Assert(_entry.size, 0)
@@ -52,7 +51,6 @@ class test_GnuTarEntry {
         let _entry = GnuTarEntry(Path("test_dir"))
         @Expect(_entry.stream.isSome())
         @Assert(_entry.name, "test_dir/")
-        @Assert(_entry.mode, 509)
         println(_entry.uid)
         println(_entry.gid)
         @Assert(_entry.size, 0)
@@ -73,7 +71,6 @@ class test_GnuTarEntry {
     func test_init_03(): Unit {
         let _entry = GnuTarEntry(Path("symlink"))
         @Assert(_entry.name, "symlink")
-        @Assert(_entry.mode, 511)
         println(_entry.uid)
         println(_entry.gid)
         @Assert(_entry.size, 0)

@@ -22,7 +22,8 @@ main() {
         var file: FileInfo = FileInfo(path)
         var result = canonicalize(file.path).toString()
     } catch (e: FSException) {
-        if (e.toString().contains("FSException: The path `test.txt` does not exist")) {
+        println(e.toString())
+        if (e.toString().contains("FSException: The input path `test.txt` does not exist")) {
             return 0
         }
         return 2

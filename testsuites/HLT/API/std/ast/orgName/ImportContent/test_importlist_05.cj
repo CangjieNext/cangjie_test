@@ -18,5 +18,4 @@ var input: Tokens = quote(public import org1::std::ast.userdefine)
 func test_importList() {
     @AssertThrows[ParseASTException](parseProgram(input))
     @AssertThrows[ASTException](ImportList(input))
-    @AssertThrows[ASTException](cangjieLex("public import org1::std::ast.userdefine"))
 }

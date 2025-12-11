@@ -26,7 +26,7 @@ main() {
         var file: FileInfo = FileInfo(path)
         var result = canonicalize(file.path).toString()
     } catch (e: FSException) {
-        if (e.toString().contains("FSException: The path `//mydic//mydic2/test.txt` does not exist")) {
+        if (e.toString().contains("FSException: The input path `//mydic//mydic2/test.txt` does not exist")) {
             return 0
         }
         return 2
@@ -43,7 +43,7 @@ main() {
         var file: FileInfo = FileInfo(path)
         var result = canonicalize(file.path).toString()
     } catch (e: FSException) {
-        if (e.toString().contains("FSException: The path `\\mydic\\mydic2\\test.txt` does not exist")) {
+        if (e.toString().contains("FSException: The input path `\\mydic\\mydic2\\test.txt` does not exist")) {
             return 0
         }
         return 2

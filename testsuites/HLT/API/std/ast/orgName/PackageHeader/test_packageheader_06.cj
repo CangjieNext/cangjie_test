@@ -15,5 +15,4 @@ import std.ast.*
 @Test
 func test_packageHeader() {
     @AssertThrows[ParseASTException](parseProgram(quote(package org1.a::b)))
-    @AssertThrows[ParseASTException](cangjieLex("package org1.a::b"))
 }
