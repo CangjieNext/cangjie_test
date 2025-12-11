@@ -10,8 +10,8 @@
 // DEPENDENCE: mock.c
 
 // EXEC: %clang %clang_opt -Wno-deprecated-declarations -lssl -lcrypto -o mock.%dylib_suffix mock.c
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt -l:mock.%dylib_suffix -L. -o %n.%suffix %f
-// RUN-EXEC: export CJ_KEYLESS_DEBUG=1 && %set_stdx_path %run_stdx %run_opt %n.%suffix %run_utest_opt %run_args -Woff all
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt -Woff all -l:mock.%dylib_suffix -lssl -lcrypto -L. -o %n.%suffix %f
+// RUN-EXEC: %export CJ_KEYLESS_DEBUG=1 && %set_stdx_path %run_opt %n.%suffix %run_utest_opt %run_args -Woff all
 
 import std.fs.{File, OpenMode}
 import std.net.{TcpServerSocket, TcpSocket}
@@ -155,8 +155,8 @@ class Test_TLS_Keyless_RSA_Server_TLS_1_2 {
     var port: UInt16 = 18048
     let pem = readTextFromFile("./certs/server2_rsa.crt")
     let certificate = X509Certificate.decodeFromPem(pem)
-    let signFunc: KeylessSignCallback = mockSignRsa
-    let decryptFunc: KeylessDecryptCallback = mockDecrypt 
+    let signFunc: KeylessSignFunc = mockSignRsa
+    let decryptFunc: KeylessDecryptFunc = mockDecrypt 
 
     public override func beforeEach(): Unit {
         port += 1
@@ -240,7 +240,7 @@ class Test_TLS_Keyless_RSA_Server_TLS_1_2 {
 
     @TestCase
     func test_keyless_decrypt(): Unit {
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper()
@@ -251,7 +251,7 @@ class Test_TLS_Keyless_RSA_Server_TLS_1_2 {
     @TestCase
     func test_keyless_no_cert(): Unit {
         try {
-            KeylessTlsServerConfig([], signFunc, keylessDecryptCallback: decryptFunc)
+            KeylessTlsServerConfig([], signFunc, decryptCallback: decryptFunc)
         } catch (e: IllegalArgumentException) {
             @Expect(e.message.contains("empty"))
         }
@@ -262,7 +262,7 @@ class Test_TLS_Keyless_RSA_Server_TLS_1_2 {
         func invalidSignFunc(_: Array<Byte>): Array<Byte> {
             return []
         }
-            let config = KeylessTlsServerConfig(certificate, invalidSignFunc, keylessDecryptCallback: decryptFunc)
+            let config = KeylessTlsServerConfig(certificate, invalidSignFunc, decryptCallback: decryptFunc)
             let f = serverWrapper(config)
             sleep(Duration.millisecond * 100)
             clientWrapper()
@@ -275,7 +275,7 @@ class Test_TLS_Keyless_RSA_Server_TLS_1_2 {
         func invalidDecryptFunc(_: Array<Byte>): Array<Byte> {
             return []
         }
-            let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: invalidDecryptFunc)
+            let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: invalidDecryptFunc)
             let f = serverWrapper(config)
             sleep(Duration.millisecond * 100)
             clientWrapper()
@@ -287,7 +287,7 @@ class Test_TLS_Keyless_RSA_Server_TLS_1_2 {
     func test_keyless_certificate(): Unit {
         let pem = readTextFromFile("./certs/server_ecc.crt")
         let certificate = X509Certificate.decodeFromPem(pem)
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper()
@@ -328,7 +328,7 @@ class Test_TLS_Keyless_RSA_Server_TLS_1_2 {
             return s.handshakeResult
         }
 
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         config.supportedAlpnProtocols = ["http/1.1", "h2"]
         let f = spawn {
             return startServerHandshakeAlpn(config)
@@ -372,7 +372,7 @@ class Test_TLS_Keyless_RSA_Server_TLS_1_2 {
             return s.handshakeResult
         }
 
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         config.supportedAlpnProtocols = ["http/1.1"]
         let f = spawn {
             try {
