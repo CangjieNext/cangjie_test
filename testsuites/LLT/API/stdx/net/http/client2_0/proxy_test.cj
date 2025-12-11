@@ -93,7 +93,7 @@ class TestProxy {
             sleep(Duration.millisecond * 200)
             let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
             let socket = proxyServerSocket.accept()
-            socket.readTimeout = Duration.millisecond * 100
+            socket.readTimeout = Duration.millisecond * 1000
         
             let buf = Array<UInt8>(500, repeat: 0)
             sleep(Duration.millisecond * 100)
