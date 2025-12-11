@@ -1,0 +1,17 @@
+// DEPENDENCE: hide.cj ../level/apilevel.cj
+// EXEC: %compiler %cmp_opt %compile_lib_opt hide.cj apilevel.cj -o hide.%middle
+// ERRCHECK: %compiler %cmp_opt hide.%middle %n.cj -o %n.%suffix -Woff all --cfg=APILevel_level=20
+
+@!labels.Hide
+@!labels.Hide
+public class A {}
+
+@!labels.APILevel[since: "21"]
+public class B {}
+
+func foo() {
+    B()
+}
+
+/* SCAN
+*/
