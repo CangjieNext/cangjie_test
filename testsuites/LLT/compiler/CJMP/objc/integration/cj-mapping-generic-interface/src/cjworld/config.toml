@@ -1,0 +1,23 @@
+[default]
+APIStrategy = "Full"
+GenericTypeStrategy = "None"
+
+[[package]]
+name = "cjworld"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+excluded_apis = [
+]
+generic_object_configuration = [
+    { name = "GenericInterface", type_arguments = ["Int32", "Float64"] },
+    { name = "GenericInterface<Int32>", symbols = [
+        "argretGenericFunc",
+        "setValue",
+        "getValue"
+    ]}
+    { name = "GenericInterface<Float64>", symbols = [
+        "argretGenericFunc",
+        "setValue",
+        "getValue"
+    ]}
+]
