@@ -83,7 +83,7 @@ class ThreadTest {
      */
     @TestCase
     func testThreadState(): Unit {
-        @Expect(Thread.currentThread.state == ThreadState.Running)
+        @Expect(Thread.currentThread.state.toString() == ThreadState.Running.toString())
         let future = spawn {
             while (true) {
                 sleep(Duration.millisecond * 100)
@@ -93,10 +93,10 @@ class ThreadTest {
             }
         }
         sleep(Duration.millisecond * 10)
-        @Expect(future.thread.state == ThreadState.Pending)
+        @Expect(future.thread.state.toString() == ThreadState.Pending.toString())
         future.cancel()
         sleep(1 * Duration.second)
-        @Expect(future.thread.state == ThreadState.Terminated)
+        @Expect(future.thread.state.toString() == ThreadState.Terminated.toString())
     }
 
     /*

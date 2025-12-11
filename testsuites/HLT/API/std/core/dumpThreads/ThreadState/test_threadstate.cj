@@ -19,14 +19,4 @@ class Test_ThreadState {
         @Assert(ThreadState.Pending.toString(), "Pending")
         @Assert(ThreadState.Terminated.toString(), "Terminated")
     }
-
-    @TestCase
-    func test_equals() {
-        @Assert(ThreadState.Ready == ThreadState.Ready)
-        @Assert(ThreadState.Running == ThreadState.Running)
-        @Assert(ThreadState.Pending == ThreadState.Pending)
-        @Assert(ThreadState.Terminated == ThreadState.Terminated)
-        @Assert(ThreadState.Ready != ThreadState.Pending)
-        @Assert(ThreadState.Pending != ThreadState.Terminated)
-    }
 }
