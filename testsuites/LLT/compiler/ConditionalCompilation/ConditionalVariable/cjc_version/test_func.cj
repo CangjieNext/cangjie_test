@@ -10,7 +10,7 @@
 
 package b
 
-@When[cjc_version >= "0.17.3"]
+@When[cjc_version >= "0.0.1"]
 func sayHi() {
     print("Hi!\n")
 }

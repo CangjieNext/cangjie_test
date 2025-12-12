@@ -9,7 +9,7 @@
 
 package b
 
-@When[cjc_version >= "0.17.3"]
+@When[cjc_version >= "0.0.1"]
 type i32 = Int32
 
 main(): Int64 {
