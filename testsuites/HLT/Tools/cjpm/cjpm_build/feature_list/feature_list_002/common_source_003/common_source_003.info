@@ -9,5 +9,5 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build 2>&1 | compare %f
-// ASSERT: scan {"package":"test","isMacro":false,"accessLevel":"public","dependencies":[],"features":["a.b.c","b.c.d","d.e.f"]}
+// ASSERT: scan {"package":"test","isMacro":false,"accessLevel":"public","dependencies":[],"features":["a.b.c","b.c.d","d.e.f"],"product":true}
 // ASSERT: scan cjpm build failed

@@ -10,7 +10,7 @@ package test
 
 import std.collection.*
 
-features os.windows
+features { os.windows }
 
 main(): Int64 {
     println("hello")
