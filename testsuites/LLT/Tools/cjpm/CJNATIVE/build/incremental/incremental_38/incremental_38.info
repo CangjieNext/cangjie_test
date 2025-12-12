@@ -6,9 +6,9 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -i && touch src/a/a.cj && %cjpm build -i -V 2>&1 | compare %f
-// ASSERT: scan-3 Compiling package
-// ASSERT: scan Compiling package `default.a`
-// ASSERT: scan Compiling package `default`:
-// ASSERT: scan Compiling package `default.b`
+// ASSERT: scan-1 Compiling package `default.a`
+// ASSERT: scan-not Compiling package `default.b`
 // ASSERT: scan-not Compiling package `default.c`
+// ASSERT: scan-not Compiling package `default.d`
+// ASSERT: scan-not Compiling package `default`
 // ASSERT: scan cjpm build success
