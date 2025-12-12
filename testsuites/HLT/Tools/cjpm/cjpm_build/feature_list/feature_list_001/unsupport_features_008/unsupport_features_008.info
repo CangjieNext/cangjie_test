@@ -10,4 +10,5 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run 2>&1 | compare %f
 // ASSERT: scan expected declaration, found 'features'
+// ASSERT: scan 1 error generated, 1 error printed.
 // ASSERT: scan cjpm run failed
