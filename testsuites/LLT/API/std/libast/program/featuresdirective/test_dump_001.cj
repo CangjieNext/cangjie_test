@@ -3,7 +3,7 @@
 
 import std.ast.*
 main() {
-    let tk = quote(features os.Mac)
+    let tk = quote(features {os.linux,os.darwin})
     let parsed = parseProgram(tk)
     parsed.dump()
 }
@@ -15,23 +15,57 @@ Program {
         kind: FEATURES
         pos: 6: 20
       }
-      -featureId: FeatureId {
+      -featuresSet: FeaturesSet {
+        -lCurl: Token {
+          value: "{"
+          kind: LCURL
+          pos: 6: 29
+        }
+        -FeatureId: FeatureId {
           -identifier: Token {
             value: "os"
             kind: IDENTIFIER
-            pos: 6: 29
+            pos: 6: 30
           }
           -dot: Token {
             value: "."
             kind: DOT
-            pos: 6: 31
-          }
-          -identifier: Token {
-            value: "Mac"
-            kind: IDENTIFIER
             pos: 6: 32
           }
+          -identifier: Token {
+            value: "linux"
+            kind: IDENTIFIER
+            pos: 6: 33
+          }
         }
+        -comma: : Token {
+          value: ","
+          kind: COMMA
+          pos: 6: 38
+        }
+        -FeatureId: FeatureId {
+          -identifier: Token {
+            value: "os"
+            kind: IDENTIFIER
+            pos: 6: 39
+          }
+          -dot: Token {
+            value: "."
+            kind: DOT
+            pos: 6: 41
+          }
+          -identifier: Token {
+            value: "darwin"
+            kind: IDENTIFIER
+            pos: 6: 42
+          }
+        }
+        -rCurl: Token {
+          value: "}"
+          kind: RCURL
+          pos: 6: 48
+        }
+      }
     }
   -packageHeader: PackageHeader {
       -modifier: Token {

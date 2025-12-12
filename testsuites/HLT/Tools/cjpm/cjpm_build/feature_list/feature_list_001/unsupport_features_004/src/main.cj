@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-feature os.windows
+feature { os.windows }
 package test
 
 main(): Int64 {

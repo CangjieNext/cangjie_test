@@ -9,5 +9,6 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run 2>&1 | compare %f
-// ASSERT: scan expected a feature name after keyword 'features', found keyword 'package'
+// ASSERT: scan expected {, found keyword 'package'
+// ASSERT: scan 3 errors generated, 3 errors printed.
 // ASSERT: scan cjpm run failed

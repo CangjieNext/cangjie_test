@@ -9,5 +9,6 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run 2>&1 | compare %f
-// ASSERT: scan expected an identifier after '.' in qualified name, found keyword 'package'
+// ASSERT: scan expected an identifier after this, found '}'
+// ASSERT: scan 1 error generated, 1 error printed.
 // ASSERT: scan cjpm run failed
