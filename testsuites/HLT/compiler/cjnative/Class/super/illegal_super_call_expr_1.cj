@@ -11,6 +11,9 @@
 
 open class A {
     let x: A
+    func getX(): A {
+        this.x
+    }
     public A(x: A) {
         this.x = x
     }
@@ -18,7 +21,8 @@ open class A {
 
 class B <: A {
     public B() {
-        super(this.x)
+        // 访问实例成员函数
+        super(this.getX())
     }
 }
 

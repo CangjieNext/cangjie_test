@@ -9,14 +9,15 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-public interface IA<T> {
-    func foo(a: T, b: String, c: Option<String>): Option<T>
+public abstract class IA<T> {
+    public func foo(a: T, b: String, c: Option<String>): Option<T>
     func foo(a: T, b: String): Option<T> {
         println("ccc")
         foo(a, b, Option<String>.None)
     }
 }
 
+// abstract class-class non-static
 public class CA<T> <: IA<CA<T>> {
     public func foo(a: CA<T>, b: String, _: Option<String>): Option<CA<T>> {
         return Option<CA<T>>.Some(a)
