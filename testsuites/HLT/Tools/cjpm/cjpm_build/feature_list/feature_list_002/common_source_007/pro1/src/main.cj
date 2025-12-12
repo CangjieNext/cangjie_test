@@ -6,5 +6,5 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features user.a.b.c.d
+features {user.a.b.c.d}
 package pro1

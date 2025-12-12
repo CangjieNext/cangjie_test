@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features a123
+features { a123 }
 
 package test
 
