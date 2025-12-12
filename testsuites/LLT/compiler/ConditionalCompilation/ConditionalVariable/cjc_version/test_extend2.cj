@@ -11,7 +11,7 @@ package b
 
 class A {}
 
-@When[cjc_version <= "0.17.2"]
+@When[cjc_version <= "0.0.0"]
 extend A {
     public func me() {
         print("Hi!\n")
