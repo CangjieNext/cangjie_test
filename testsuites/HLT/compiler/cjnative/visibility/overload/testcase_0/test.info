@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+// LEVEL: 0
+// DESCRIPTION: 考虑import而来的函数的shadow当前作用域中的，预期互不冲突编译成功
+// DEPENDENCE: a.cj b.cj c.cj sub.cj main.cj
+// EXEC: %compiler %cmp_opt %compile_lib_opt sub.cj -o libsub.%middle
+// EXEC: %compiler %cmp_opt a.cj b.cj c.cj main.cj -L . -lsub -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan a.p, 1
+// ASSERT: scan a.sub.p, 2
+// ASSERT: scan c.p, 3
