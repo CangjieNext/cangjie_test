@@ -10,8 +10,8 @@
 // ASSERT: scan sema_assignment_of_member_variable_cannot_use_this_or_super
 
 open class A {
-    let x: A
-    public A(x: A) {
+    let x: Int64
+    public A(x: Int64) {
         this.x = x
     }
 }
@@ -25,6 +25,5 @@ class B <: A {
 main(): Int64 {
     let b = B()
     let a = b.x
-    let aa = a.x
     return 0
 }
