@@ -7,7 +7,7 @@
 // EXEC: %compiler %n.cj
 // ERRCHECK: %compiler %enableCompileDebug %n.cj %diag_json
 
-@When[cjc_version >= "0.52.1" && !debug]
+@When[cjc_version >= "0.0.1" && !debug]
 let a = 1
 
 main() {

@@ -9,7 +9,7 @@
 
 package b
 
-@When[cjc_version <= "0.17.2"]
+@When[cjc_version <= "0.0.0"]
 interface mi {}
 
 class mc <: mi {}
