@@ -32,8 +32,7 @@ Options:
   -o, --output <value>        Specify product name or output directory when compiling a package
   --output-dir <value>        Specify output directory (it affects '--output' option)
   --output-javagen-dir <value>
-                              Specify output directory for generated @JavaImpl java classes. This option is deprecated because it does not reconstruct folders based on class packages; all generated classes are placed in the specified folder. Use --export-java-path instead.
-  --export-java-path <value>  Specify output directory for generated @JavaImpl java classes. It reconstructs folders based on class packages, class com.java.T will have path <specified_dir>/com/java/T.java
+                              Specify output directory for javagen
   --no-prelude                Not import cangjie std.core package by default, only applicable when compiling std.core
   --enable-interop-cjmapping  enable cj data structure mapping for interop (Experimental)
   --static                    Statically link cangjie library

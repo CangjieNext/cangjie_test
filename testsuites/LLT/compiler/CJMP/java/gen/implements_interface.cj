@@ -4,8 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+// (CJNATIVE and not Windows) EXEC: %mkdir java-gen
 // (CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop -L.
-// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./C2.java | compare %f
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./java-gen/C2.java | compare %f
 // (CJNATIVE and not Windows) ASSERT: regex public class C2 implements I2, I3 {|public class C2 implements I3, I2 {
 
 /* SCAN-IN

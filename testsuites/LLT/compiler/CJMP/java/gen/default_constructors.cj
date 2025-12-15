@@ -4,8 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+// (CJNATIVE and not Windows) EXEC: %mkdir java-gen
 // (CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop -L.
-// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./CangjieInvoke_Father.java | compare %f
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./java-gen/CangjieInvoke_Father.java | compare %f
 
 /* SCAN-IN
 import static cangjie.lang.LibraryLoader.loadLibrary;

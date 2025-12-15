@@ -4,8 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+// (CJNATIVE and not Windows) EXEC: %mkdir java-gen
 // (CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop -L.
-// (CJNATIVE and not Windows) EXEC: %ls  | compare %f
+// (CJNATIVE and not Windows) EXEC: %ls ./java-gen/ | compare %f
 // (CJNATIVE and not Windows) ASSERT: regex-not M.java
 // (CJNATIVE and not Windows) ASSERT: regex A.java
 
