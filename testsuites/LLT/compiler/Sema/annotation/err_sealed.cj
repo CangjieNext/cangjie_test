@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// ERRCHECK: %compiler %cmp_opt %f -o %output | compare %f
 
 @Annotation
 public sealed class A { const init() {} }

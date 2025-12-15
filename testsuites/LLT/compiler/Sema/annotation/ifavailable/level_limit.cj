@@ -7,7 +7,7 @@
 // DEPENDENCE: level_syscap_check/canIUse.cj level_syscap_check/device_info.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt device_info.cj -o device_info.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt canIUse.cj -o canIUse.%middle
-// ERRCHECK: %compiler %cmp_opt %diag_json %f device_info.%middle canIUse.%middle
+// ERRCHECK: %compiler %cmp_opt %diag_json %f device_info.%middle canIUse.%middle | compare %f
 // ASSERT: scan-3 sema_ifavailable_level_limit
 
 import ohos.base.canIUse

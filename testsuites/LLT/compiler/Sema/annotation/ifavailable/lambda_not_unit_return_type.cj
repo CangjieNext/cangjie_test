@@ -7,7 +7,7 @@
 // DEPENDENCE: level_syscap_check/canIUse.cj level_syscap_check/device_info.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt device_info.cj -o device_info.%middle
 // EXEC: %compiler %f device_info.%middle -o %output
-// EXEC: %run %run_opt %output %run_args
+// EXEC: %run %run_opt %output %run_args | compare %f
 
 import ohos.device_info.DeviceInfo
 

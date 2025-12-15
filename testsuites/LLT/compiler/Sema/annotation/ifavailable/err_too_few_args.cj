@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %f %cmp_opt
+// ERRCHECK: %compiler %f %cmp_opt | compare %f
 
 func f1() {
     @IfAvailable(APILevel:11, { => println(0) })
