@@ -1,4 +1,4 @@
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// ERRCHECK: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 // TIMEOUT: 5
 
 const func myTarget(x: Int64) {

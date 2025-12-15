@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %f %cmp_opt
+// ERRCHECK: %compiler %f %cmp_opt 2>&1 | compare %f
 
 func mem() {}
 
