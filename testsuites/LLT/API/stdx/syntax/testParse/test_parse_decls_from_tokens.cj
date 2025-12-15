@@ -456,6 +456,28 @@ class F {
 }""")
     }
 }
+
+let _quote = quote(
+    class A {
+        let x = 1
+    }
+)
+
+@Test
+func test_RefreshPos() {
+    let res = parseTokens(_quote, refreshPos: false)
+    let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
+    var classDecl: ClassDecl = (sourceNode as ClassDecl).getOrThrow()
+    
+    @Assert(classDecl.toString(), ##"class A {
+        let x = 1
+    }"##)
+    @Assert(classDecl.nodePos.fileName, "")
+    @Assert(classDecl.nodePos.filePath, "")
+
+    var pos = classDecl.nodePos
+    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [461i32, 5i32, 463i32, 6i32])
+}
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
