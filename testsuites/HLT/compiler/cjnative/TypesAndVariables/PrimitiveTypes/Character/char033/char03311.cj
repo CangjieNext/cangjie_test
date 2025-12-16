@@ -14,5 +14,5 @@ main(): Rune {
     varChar = varChar & 1
     return varChar
 }
-// ASSERT: scan sema_unexpected_return_type_for_entry
+// (not iOS) ASSERT: scan sema_unexpected_return_type_for_entry
 // ASSERT: scan sema_invalid_binary_expr

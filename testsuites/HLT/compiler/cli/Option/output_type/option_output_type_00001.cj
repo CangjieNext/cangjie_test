@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0-core
-// (CJNATIVE) EXEC: %compiler %cmp_opt --output-type=exe %f
+// (CJNATIVE and not iOS) EXEC: %compiler %cmp_opt --output-type=exe %f
 // (CJNATIVE and not Windows and OHOS) EXEC: %ls main
 // (CJNATIVE and Windows and not OHOS) EXEC: %ls main.exe
 

@@ -27,7 +27,7 @@ func check<T>(action: () -> T) where T <: ToString {
     }
 }
 
-main(): Int32 {
+main(): Int64 {
     let MIN_INT64: Int64 = f1()
     let MIN_INT32: Int32 = -0x8000_0000
     let MIN_INT16: Int16 = -0x8000

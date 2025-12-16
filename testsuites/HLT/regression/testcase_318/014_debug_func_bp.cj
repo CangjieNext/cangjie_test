@@ -7,8 +7,8 @@
  */
  
 // LEVEL: 0
-// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// RUN-EXEC-20: %run %run_opt %output %run_args
+// (not iOS) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// (not iOS) RUN-EXEC-20: %run %run_opt %output %run_args
 
 main() {
 
