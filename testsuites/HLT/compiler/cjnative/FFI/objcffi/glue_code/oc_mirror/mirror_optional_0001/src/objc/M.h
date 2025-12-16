@@ -10,9 +10,13 @@
 
 @protocol I
 @optional
-- (void)f;
+- (void)f1;
+@optional
++ (void)f2;
 @end
 
 @interface M : NSObject <I>
 - (id)init;
+- (void)f1;
++ (void)f2;
 @end
