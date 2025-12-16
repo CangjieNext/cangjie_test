@@ -73,3 +73,6 @@ API/std/socket/UdpSocket/test_udp_transportation_init.cj
 API/std/io/file/File_create_03.cj
 API/std/fs/file/linux/test_linux_file_no_permission.cj
 API/std/io/StringReader/StringReader_readln_13_01.cj
+
+# c/s
+compiler/cjnative/Packages/cjmp/cjmp_17005

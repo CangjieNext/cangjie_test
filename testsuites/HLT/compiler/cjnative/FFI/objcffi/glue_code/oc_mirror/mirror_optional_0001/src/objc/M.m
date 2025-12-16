@@ -9,7 +9,7 @@
 #import "M.h"
 
 @implementation M
-- (id)init {
-    return [super init];
-}
+- (id)init { return [super init]; }
+- (void)f1 { printf("in oc f1\n"); }
++ (void)f2 { printf("in oc f2\n"); }
 @end
