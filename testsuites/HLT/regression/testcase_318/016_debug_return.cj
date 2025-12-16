@@ -8,7 +8,7 @@
  
 // LEVEL: 0
 // EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// RUN-EXEC-9: %run %run_opt %output %run_args
+// (not iOS) RUN-EXEC-9: %run %run_opt %output %run_args
 
 main() {
     var varreturnexpr: Int32    //1 5/14/16

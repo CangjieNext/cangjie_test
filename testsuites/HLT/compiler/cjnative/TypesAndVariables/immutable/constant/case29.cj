@@ -9,8 +9,8 @@
 // LEVEL: 1
 // ERRCHECK: %compiler %cmp_opt %f -o %output
 
-const func test(a: Int16) {
-    const b: Int16 = a
+const func test(a: Int64) {
+    const b: Int64 = a
     return b
 }
 

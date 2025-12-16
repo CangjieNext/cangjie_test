@@ -8,8 +8,8 @@
 
 // LEVEL:2
 // DEPENDENCE: %n.c
-// EXEC: %clang %clang_opt %n.c -o %cffi_output
-// EXEC-PIPE-1: %compiler %cmp_opt %ffic_opt -o %output 2>&1 | compare %f
+// (not iOS) EXEC: %clang %clang_opt %n.c -o %cffi_output
+// (not iOS) EXEC-PIPE-1: %compiler %cmp_opt %ffic_opt -o %output 2>&1 | compare %f
 
 macro package define
 

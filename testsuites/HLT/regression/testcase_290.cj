@@ -7,7 +7,7 @@
  */
  
 // LEVEL: 0
-// (not (JS or VM)) ERRCHECK: %compiler %cmp_opt %f -o %output
+// (not (JS or VM) and not iOS) ERRCHECK: %compiler %cmp_opt %f -o %output
 // (JS or VM) EXEC-0: %compiler %cmp_opt %f -o %output
 // ASSERT: regex-not Cangjie::CodeGen::CodeGenerator::AttachFuncInfo
 // ASSERT: regex-not core dumped

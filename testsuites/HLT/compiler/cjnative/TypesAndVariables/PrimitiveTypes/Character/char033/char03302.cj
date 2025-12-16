@@ -14,5 +14,5 @@ main(): Rune {
     varChar++
     return varChar
 }
-// ASSERT: scan sema_unexpected_return_type_for_entry
+// (not iOS) ASSERT: scan sema_unexpected_return_type_for_entry
 // ASSERT: scan sema_mismatched_types

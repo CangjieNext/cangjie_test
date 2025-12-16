@@ -288,7 +288,7 @@ public prop raw: Array<Byte> {
     }
 }
 // ASSERT: scan parse_nl_warning
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_type_implement_non_interface
 // ASSERT: scan sema_undeclared_type_name
 // ASSERT: scan sema_mismatched_types

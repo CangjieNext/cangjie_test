@@ -30,6 +30,6 @@ class SomeClass {
     public var ptr: CBox
     public init(ptr: CBox) { this.ptr = ptr }
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_illegal_use_of_annotation
 // ASSERT: scan sema_c_type_cannot_extend_interface

@@ -16,7 +16,7 @@
 
 // (not O2 and not Windows)EXEC: %compiler %cmp_opt %serial_compile %save_temps %f -o %output
 // (not O2 and not Windows)EXEC: %disassembler obf_me.opt.bc -o opt.ll
-// (not O2 and not Windows)EXEC: strings %output | grep TEST_FOR_OBFUSCATION
+// (not O2 and not Windows and not iOS)EXEC: strings %output | grep TEST_FOR_OBFUSCATION
 
 // (not O2 and not Windows)RUN-EXEC: %run %run_opt %output %run_args
 

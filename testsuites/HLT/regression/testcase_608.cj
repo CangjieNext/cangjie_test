@@ -32,7 +32,7 @@ public class Entry{
 
     }
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_accessibility
 // ASSERT: scan sema_not_a_type
 

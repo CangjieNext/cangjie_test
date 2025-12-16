@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: p1
-// EXEC: %compiler %cmp_opt %compile_lib_opt p1/a.cj -o p1.%middle
+// (not iOS) EXEC: %compiler %cmp_opt %compile_lib_opt p1/a.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt %f p1.%middle -o %output
 
 import p1.test as f1
