@@ -10,14 +10,14 @@
 @implementation M
 - (id) init {
     if (self = [super init]) {
-        printf("objc: M init()\n");
+        printf("objc:  M init()\n");
     }
 
     return self;
 }
 
-- (void) implemented {
-    printf("objc: implemented called\n");
+- (void) mirrorMethod {
+    printf("objc:  mirrorMethod        called\n");
 }
 
 @end

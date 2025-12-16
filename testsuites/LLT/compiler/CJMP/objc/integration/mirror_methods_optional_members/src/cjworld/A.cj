@@ -10,20 +10,48 @@ import interoplib.objc.*
 import objc.lang.*
 
 @ObjCImpl
-public class A <: M {
+public open class A <: M {
     public init() {
         super()
     }
 
+    public func aMirrorSuper() {
+        println("cj:    A.mirrorSuper()     called")
+        super.mirrorMethod()
+    }
+
+    public func implALogic() {
+        println("cj:    implALogic          called")
+    }
+}
+
+@ObjCImpl
+public class A2 <: A {
+    public init() {
+        super()
+    }
+
+    public func a2MirrorSuper() {
+        println("cj:    A2.mirrorSuper()    called")
+        super.mirrorMethod()
+    }
+
+    public func a2aMirrorSuper() {
+        println("cj:    A2.A.mirrorSuper()  called")
+        super.aMirrorSuper()
+    }
+
+    public func implA2Logic() {
+        println("cj:    implA2Logic()       called")
+    }
+
     @ForeignName["runFromCJ"]
-    public static func runFromCJ(): Unit {
-        let m = M()
-        m.implemented()
-        try {
-            m.unimplemented()
-        } catch (e: ObjCOptionalMethodUnimplementedException) {
-            println("cj: caught ObjCOptionalMethodUnimplementedException!")
-        }
+    public func runFromCJ(): Unit {
+        implA2Logic()
+        a2aMirrorSuper()
+        a2MirrorSuper()
+        mirrorMethod()
+        aMirrorSuper()
     }
 }
 

@@ -5,13 +5,14 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 #import "A.h"
+#import "A2.h"
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
 
 int main(int argc, char** argv) {
     @autoreleasepool {
-        [A runFromCJ];
-        [A runFromCJ];
+        [[[A2 alloc] init] runFromCJ];
+        // [[A alloc] init];
     }
     return 0;
 }

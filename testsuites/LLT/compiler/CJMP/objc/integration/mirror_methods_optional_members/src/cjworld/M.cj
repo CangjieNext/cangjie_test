@@ -13,14 +13,7 @@ type PrimitiveType = Float64
 
 @ObjCMirror
 open class M {
-    @ForeignName["init"]
     public init()
 
-    @ObjCOptional
-    @ForeignName["implemented"]
-    public func implemented(): Unit
-
-    @ObjCOptional
-    @ForeignName["unimplemented"]
-    public func unimplemented(): Unit
+    public func mirrorMethod(): Unit
 }

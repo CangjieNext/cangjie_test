@@ -5,9 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 #import <Foundation/Foundation.h>
-#import "K.h"
 
-@interface M : NSObject <K>
+@interface M : NSObject
 - (id)init;
-- (void) implemented;
+- (void) mirrorMethod;
 @end
