@@ -9,7 +9,7 @@ filters = { include = ["NS.+", "int.*"] }
 package-name = "objc.foundation"
 
 [[packages]]
-filters = { include = "M" }
+filters = { include = ["M", "I"] }
 package-name = "cjworld"
 
 [output-roots.default]

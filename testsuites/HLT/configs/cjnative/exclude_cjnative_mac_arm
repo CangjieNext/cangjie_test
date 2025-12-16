@@ -98,7 +98,6 @@ compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0004/
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0005/
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0006/
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0007/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0001/
 
 API/std/io/file/File_create_03.cj
 API/std/fs/file/linux/test_linux_file_no_permission.cj
@@ -108,3 +107,6 @@ API/std/io/StringReader/StringReader_readln_13_01.cj
 compiler/cjnative/stable_abi/package_name
 compiler/cjnative/stable_abi/add_instance_member_variable
 compiler/cjnative/stable_abi/add_virtual_function
+
+# c/s
+compiler/cjnative/Packages/cjmp/cjmp_17005
