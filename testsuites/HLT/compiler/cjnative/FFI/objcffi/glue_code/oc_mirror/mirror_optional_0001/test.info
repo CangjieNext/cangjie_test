@@ -13,4 +13,7 @@
 // (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc -L . -lobjc.foundation src/cjworld/*.cj
 // (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
 // (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan xxx
+// ASSERT: scan in oc f1
+// ASSERT: scan in oc f2
+// ASSERT: scan in cj f1
+// ASSERT: scan in cj f2

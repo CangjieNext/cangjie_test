@@ -58,7 +58,6 @@ compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0004/
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0005/
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0006/
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_id_0007/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0001/
 
 API/std/io/file/File_create_03.cj
 API/std/fs/file/linux/test_linux_file_no_permission.cj
@@ -73,3 +72,6 @@ compiler/cjnative/stable_abi/add_virtual_function
 Tools/cjdb/datacom/cross_platform/cross_platform032.info
 Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
 Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj
+
+# c/s
+compiler/cjnative/Packages/cjmp/cjmp_17005
