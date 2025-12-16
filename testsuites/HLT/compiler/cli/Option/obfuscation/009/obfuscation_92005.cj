@@ -8,8 +8,11 @@
 
 // LEVEL: 0
 // (not g) EXEC: %compiler %cmp_opt %obf_layout %no_obf_line_number %f -o %output
-// (not g) RUN-ERRCHECK: %run %run_opt %output %run_args
-// (not g) ASSERT: scan (SOURCE:0)
+// (not g and not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
+// (not g and iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// (not g and not iOS) ASSERT: scan (SOURCE:27)
+// (not g and iOS) ASSERT: scan (SOURCE:36)
+// (not g) ASSERT: scan-not (SOURCE:0)
 
 class A {
     var a = 0

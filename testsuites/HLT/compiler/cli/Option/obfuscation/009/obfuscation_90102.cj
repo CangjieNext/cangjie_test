@@ -12,7 +12,8 @@
 // (not O2 and not g) EXEC: cat default.obf.map | compare %f
 // (not O2 and not g) ASSERT: regex .*default.*cls.*test.*A.*
 // (not O2 and not g) ASSERT: regex .*default.*cls.*<init>.*A.*
-// (not O2 and not g) ASSERT: regex .*default.*<main>.*A.*
+// (not O2 and not g and not iOS) ASSERT: regex .*default.*<main>.*A.*
+// (not O2 and not g and iOS) ASSERT: regex .*default.*cj_main.*A.*
 
 class cls {
     static func test() {

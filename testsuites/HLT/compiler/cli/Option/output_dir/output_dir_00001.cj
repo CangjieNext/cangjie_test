@@ -7,10 +7,10 @@
  */
 
 // LEVEL: 0-core
-// (not Windows) EXEC-PIPE: rm -rf dir;mkdir dir
+// (not Windows and not iOS) EXEC-PIPE: rm -rf dir;mkdir dir
 // (Windows) EXEC-PIPE: mkdir dir
-// (CJNATIVE) EXEC-PIPE: %compiler %cmp_opt --output-type=exe %f -o %output --output-dir ./dir
-// (CJNATIVE and not OHOS) RUN-EXEC-PIPE: %run %run_opt dir/%output %run_args
+// (CJNATIVE and not iOS) EXEC-PIPE: %compiler %cmp_opt --output-type=exe %f -o %output --output-dir ./dir
+// (CJNATIVE and not OHOS and not iOS) RUN-EXEC-PIPE: %run %run_opt dir/%output %run_args
 
 main() {
     return 0

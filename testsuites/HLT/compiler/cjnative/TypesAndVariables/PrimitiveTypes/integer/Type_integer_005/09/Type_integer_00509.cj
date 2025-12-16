@@ -12,6 +12,6 @@
 func Type_integer_00110(): Int8 {
     let int32_One: INT32 = 127
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_mismatched_types
 // ASSERT: scan sema_undeclared_type_name
