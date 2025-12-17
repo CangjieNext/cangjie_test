@@ -13,14 +13,12 @@ generic_object_configuration = [
     { name = "GenericStruct<Float64>", symbols = [
         "getValue",
         "GenericStruct",
-        "value",
         "setValue"
     ]},
 
     { name = "GenericStruct<Int32>", symbols = [
         "getValue",
         "GenericStruct",
-        "value",
         "setValue"
     ]}
 ]
