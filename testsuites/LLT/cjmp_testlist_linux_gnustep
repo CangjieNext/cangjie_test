@@ -8,3 +8,6 @@
 compiler/CJMP/refgluecode/objc-uses-cj
 
 [EXCLUDE-TEST-CASE]
+
+#temporary excluded: interoplib is not yet in Cangjie SDK for linux x86
+compiler/CJMP/refgluecode
