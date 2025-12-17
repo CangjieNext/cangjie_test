@@ -2,7 +2,7 @@ package genericStruct
 
 import interoplib.interop.*
 
-public class GenericStruct<T> where T <: ToString {
+public struct GenericStruct<T> where T <: ToString {
 
     private var value: T
     public GenericStruct(v: T) {
@@ -15,6 +15,6 @@ public class GenericStruct<T> where T <: ToString {
     }
 
     public func setValue(t: T) {
-        value = t
+        t
     }
 }
