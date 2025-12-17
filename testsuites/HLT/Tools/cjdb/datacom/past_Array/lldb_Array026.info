@@ -20,5 +20,5 @@ AOT r,r,-> 40
 CJVM c,c,
 c,c,-> 43
 CJVM n,n,-> 43
-AOT n,n,-> T
+AOT n,n,->T
 q,q,
