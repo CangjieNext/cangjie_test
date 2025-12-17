@@ -17,7 +17,7 @@ test#
 cjdb,cjdb --no-use-colors cross_platform030,cross_platform030
 b,b cross_platform030.cj:14,cross_platform030.cj:14
 r,r,-> 14
-s,s,test_plat.cj:19
+s,s,test_plat.cj:19|20
 finish,finish,-> 14
 p,p a,\(mp.Foo\) \$[\d] = {[\s\S]*v = 0[\s\S]*}
 q,q,
