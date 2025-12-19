@@ -38,7 +38,7 @@ func test_ClassDecl_03() {
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
     var classDecl: ClassDecl = (sourceNode as ClassDecl).getOrThrow()
     @Assert(classDecl.toString(), ##"@When[os == "Linux"]
-internal class C1  < T, U > <: I1  < U > & I2  < T, U > & I3  < T > where T <: I1  < T > & I3  < T >, U <: I2  < T, T > {
+internal class C1 < T, U > <: I1 < U > & I2 < T, U > & I3 < T > where T <: I1 < T > & I3 < T >, U <: I2 < T, T > {
     static let s1: Int64
     static init() {
         s1 = 1
@@ -51,7 +51,7 @@ internal class C1  < T, U > <: I1  < U > & I2  < T, U > & I3  < T > where T <: I
         get() { 0 }
     }
     public init() { }
-    func foo  < S >(a: T, b: S): T {
+    func foo < S >(a: T, b: S): T {
         return a
     }
     ~init() { }
@@ -76,7 +76,7 @@ internal class C1  < T, U > <: I1  < U > & I2  < T, U > & I3  < T > where T <: I
     @Assert(classDecl.body.memberDecls[5] is FuncDecl)
     @Assert(classDecl.body.memberDecls[5].toString(), ##"public init() { }"##)
     @Assert(classDecl.body.memberDecls[6] is FuncDecl)
-    @Assert(classDecl.body.memberDecls[6].toString(), ##"func foo  < S >(a: T, b: S): T {
+    @Assert(classDecl.body.memberDecls[6].toString(), ##"func foo < S >(a: T, b: S): T {
         return a
     }"##)
     @Assert(classDecl.body.memberDecls[7] is FuncDecl)

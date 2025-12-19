@@ -21,7 +21,7 @@ import objc.lang.*
 public interface test <: NSObjectProtocol {
     func f1(): Unit
     static func f2(): Unit
-    // @ObjCOptional
+    @ObjCOptional
     func f3(): Unit
 }
 */

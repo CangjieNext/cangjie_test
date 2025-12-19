@@ -8,9 +8,10 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (not iOS) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan ArithmeticException
-// ASSERT: scan throwable_20039.cj:25
+// ASSERT: scan throwable_20039.cj:26
 
 var temp = 1
 

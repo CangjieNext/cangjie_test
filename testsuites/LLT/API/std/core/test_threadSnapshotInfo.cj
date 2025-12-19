@@ -24,7 +24,7 @@ class ThreadSnapshotInfoTest {
         let threadInfo: ThreadSnapshot = ThreadSnapshot.dumpCurrentThread()
         @Expect(threadInfo.id,thread.id)
         @Expect(threadInfo.name,newName)
-        @Expect(threadInfo.state == ThreadState.Running)
+        @Expect(threadInfo.state.toString() == ThreadState.Running.toString())
         @Expect(threadInfo.stackTrace.size > 0)
     }
 
@@ -58,7 +58,7 @@ class ThreadSnapshotInfoTest {
             if (threadInfoData.id != Thread.currentThread.id) {
                 @Expect(threadInfoData.id, future.thread.id)
                 @Expect(threadInfoData.name, "test")
-                @Expect(threadInfoData.state != ThreadState.Terminated)
+                @Expect(threadInfoData.state.toString() != ThreadState.Terminated.toString())
                 @Expect(threadInfoData.stackTrace.size > 0)
             }
         }
@@ -68,7 +68,7 @@ class ThreadSnapshotInfoTest {
         @Expect(threadInfoArray2.size, 1)
         @Expect(threadInfoArray2[0].id, Thread.currentThread.id)
         @Expect(threadInfoArray2[0].name, newName)
-        @Expect(threadInfoArray2[0].state == ThreadState.Running)
+        @Expect(threadInfoArray2[0].state.toString() == ThreadState.Running.toString())
         @Expect(threadInfoArray2[0].stackTrace.size > 0)
     }
 }

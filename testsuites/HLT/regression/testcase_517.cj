@@ -7,7 +7,7 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) ERRCHECK: %compiler %cmp_opt %f -o %output
+// (CJNATIVE and not iOS) ERRCHECK: %compiler %cmp_opt %f -o %output
 // (CJNATIVE) ASSERT: regex-not Internal Compiler Error
 
 // (not CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output

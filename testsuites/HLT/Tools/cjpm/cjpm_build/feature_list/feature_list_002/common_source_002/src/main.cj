@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features user.default11.ab
+features {user.default11.ab}
 package test
 
 main(): Int64 {

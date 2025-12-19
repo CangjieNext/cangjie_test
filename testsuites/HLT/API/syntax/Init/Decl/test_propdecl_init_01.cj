@@ -17,13 +17,13 @@ import stdx.unittest.*
     // identifier in [
     //    "foo",
     //    "_a_"
-    // ]
+    // ],
     isMut in [
         true, 
         false
     ],
     getter in [
-        None,
+        //None,
         PropGetterOrSetter(Block([]), None, true)
     ],
     name in [
@@ -31,7 +31,7 @@ import stdx.unittest.*
     ],
     setter in [
         None,
-        PropGetterOrSetter(Block([]), "v", true)
+        PropGetterOrSetter(Block([]), "v", false)
     ],
     tyAnnotation in [
         AtomicType(UnitType)

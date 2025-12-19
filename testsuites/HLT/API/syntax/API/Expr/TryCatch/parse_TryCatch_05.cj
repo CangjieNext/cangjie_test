@@ -15,5 +15,7 @@ import stdx.syntax.*
 
 @Test
 func test_TryCatch_05() {
-    @AssertThrows[Exception](parseFile("./TryCatch_05.cj"))
+    let file = parseFile("./TryCatch_05.cj")
+    @Expect(file.node.isNone())
+    @Expect(file.diags.size > 0)
 }

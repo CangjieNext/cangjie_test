@@ -19,7 +19,7 @@ func test_SymbolRef_03() {
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
 
     var _expr: SymbolRef = (sourceNode as SymbolRef).getOrThrow()
-    @Expect(_expr.toString(), ##"foo  < T, U >"##)
+    @Expect(_expr.toString(), ##"foo < T, U >"##)
     @Assert(_expr.name, "foo")
     @Assert(_expr.typeArguments.size, 2)
     @Assert(_expr.typeArguments.toString(), "[T, U]")

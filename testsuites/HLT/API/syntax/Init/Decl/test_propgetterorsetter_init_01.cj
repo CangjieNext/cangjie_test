@@ -18,11 +18,11 @@ import stdx.syntax.*
         Block([parseText("a + 1").node.getOrThrow(), parseText("a = b").node.getOrThrow()])
     ],
     identifier in [
-        None,
+        //None,
         "vvv"
     ],
     isGetter in [
-        true,
+        false,
         false
     ],
     annotations in [

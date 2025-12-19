@@ -6,9 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package com.pkg2
+package com::pkg2
 
-import com.pkga.*
+import com::pkga.*
 import std.reflect.*
 
 public interface DownStreamTypeInheritingUpStreamParent <: UpStreamParent<Float64> {}

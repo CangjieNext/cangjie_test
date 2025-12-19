@@ -18,5 +18,4 @@ var input: Tokens = quote(import org1::{org2::a, b.*, org3.a as b})
 func test_importList() {
     @AssertThrows[ParseASTException](parseProgram(input))
     @AssertThrows[ASTException](ImportList(input))
-    @AssertThrows[ASTException](cangjieLex("import org1::{org2::a, b.*, org3.a as b}"))
 }

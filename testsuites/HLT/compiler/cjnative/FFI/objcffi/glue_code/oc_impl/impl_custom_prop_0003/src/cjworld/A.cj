@@ -16,7 +16,7 @@ public class A <: M {
     public init() {}
     @ForeignName["p1"]
     @ForeignGetterName["get_p"]
-    @ForeignSetterName["set_p"]
+    @ForeignSetterName["set_p:"]
     public mut prop p: Int64 {
         get() {a}
         set(v) {a=v}

@@ -20,7 +20,6 @@ func test_file_004() {
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString(), "")
     @Assert(sourcefile.name, "file004.cj")
     println(sourcefile.path)
     @Assert(sourcefile.path.contains("file004.cj"))

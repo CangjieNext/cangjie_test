@@ -17,9 +17,9 @@ import stdx.syntax.*
         [],
     ],
     params in [
-        (parseText("func foo(a: Int64)").node.getOrThrow() as FuncDecl).getOrThrow().params,
-        ParameterList(LambdaParam("a1", None)),
-        ParameterList(LambdaParam("b1", AtomicType(AtomicTypeKind.Float16Type)))
+       // (parseText("func foo(a: Int64)").node.getOrThrow() as FuncDecl).getOrThrow().params,
+        ParameterList(LambdaParam("a1", None), hasParen:false),
+        ParameterList(LambdaParam("b1", AtomicType(AtomicTypeKind.Float16Type)), hasParen:false)
     ],
     comments in [
         [], 

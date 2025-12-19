@@ -8,7 +8,8 @@
 
 // LEVEL: 0
 // (not g) EXEC: %compiler %cmp_opt %obf_layout %no_obf_source_path %obf_line_number %f -o %output
-// (not g) RUN-ERRCHECK: %run %run_opt %output %run_args
+// (not g and not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
+// (not g and iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // (not g) ASSERT: regex (.*obfuscation_92003.cj:0)
 // (not g) ASSERT: scan-not SOURCE
 

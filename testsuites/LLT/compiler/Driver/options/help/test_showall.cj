@@ -47,7 +47,7 @@ Options:
   --profile-compile-time      Print time spent of all phases in the compilation
   --profile-compile-memory    Print memory usage of all phases in the compilation
   --enable-eh                 Enables experimental support for effect handlers (Experimental)
-  --dump-ast                  Dump human ast when compiling for debug
+  --dump-ast                  Dump human readable AST when compiling for debug
   --dump-chir                 Dump human readable CHIR when compiling for debug
   --dump-ir                   Dump human readable IR
   --dump-all                  Dump all of AST, CHIR, IR

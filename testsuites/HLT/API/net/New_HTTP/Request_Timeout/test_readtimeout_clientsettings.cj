@@ -54,7 +54,7 @@ class Test_ReadTimeout_In_Client {
 
     func startServer(cfg: TlsServerConfig): Unit {
         let server = ServerBuilder().addr("127.0.0.1").tlsConfig(cfg).port(0).build()
-        server.distributor.register("/wait", {_ => Sleep(Duration.second * 2)})
+        server.distributor.register("/wait", {_ => Sleep(Duration.second * 5)})
         spawn {
             server.serve()
         }

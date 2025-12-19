@@ -20,7 +20,7 @@ func test_StructDecl_06() {
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
 
     var structDecl: StructDecl = (sourceNode as StructDecl).getOrThrow()
-    @Expect(structDecl.toString(), ##"internal struct s1  < T > <: I1 & I2  < T > & I3 {
+    @Expect(structDecl.toString(), ##"internal struct s1 < T > <: I1 & I2 < T > & I3 {
 }"##)
     @Assert(structDecl.body.memberDecls.size, 0)
 
@@ -32,7 +32,7 @@ func test_StructDecl_06() {
     @Assert(structDecl.genericParams[0].toString(), "T")
     @Assert(structDecl.superTyAnnotations.size, 3)
     @Assert(structDecl.superTyAnnotations[0].toString(), "I1")
-    @Assert(structDecl.superTyAnnotations[1].toString(), "I2  < T >")
+    @Assert(structDecl.superTyAnnotations[1].toString(), "I2 < T >")
     @Assert(structDecl.superTyAnnotations[2].toString(), "I3")
     @Assert(structDecl.annotations.size, 0)
 }

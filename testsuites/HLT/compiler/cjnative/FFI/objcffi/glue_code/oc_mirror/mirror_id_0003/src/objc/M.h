@@ -13,6 +13,6 @@
 @property int64_t a;
 - (id)init;
 - (id)init:(int64_t)a;
-- (id)f;
+- (nonnull M*)f;
 
 @end

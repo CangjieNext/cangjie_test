@@ -11,9 +11,9 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %compiler %cmp_opt %f -o %output_no_obf
 // cannot find.
-// RUN-EXEC-1: strings %output | grep TEST_FOR_OBF_STRING
+// (not iOS) RUN-EXEC-1: strings %output | grep TEST_FOR_OBF_STRING
 // can find.
-// RUN-EXEC: strings %output_no_obf | grep TEST_FOR_OBF_STRING
+// (not iOS) RUN-EXEC: strings %output_no_obf | grep TEST_FOR_OBF_STRING
 
 main() {
     var a = "TEST_FOR_OBF_STRING"

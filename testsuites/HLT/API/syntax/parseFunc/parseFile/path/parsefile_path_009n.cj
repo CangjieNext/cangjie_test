@@ -16,5 +16,5 @@ import stdx.syntax.*
 @Test
 func test_filepath_009() {
     let e = @AssertThrows[Exception](parseFile("file/abc.cj"))
-    @Assert(e.message, "IOException: Failed to canonical: the path may not exist or permission denied!")
+    @Assert(e.message.contains("may not exist or permission denied"))
 }

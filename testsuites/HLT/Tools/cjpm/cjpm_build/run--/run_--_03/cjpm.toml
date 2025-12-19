@@ -32,3 +32,7 @@ p4 = {path = "p4"}
 
 [target.aarch64-apple-darwin.bin-dependencies]
   path-option = ["p3/target/release/p3"]
+
+[target.aarch64-linux-ohos.bin-dependencies]
+  path-option = ["p3/target/release/p3"]
+  

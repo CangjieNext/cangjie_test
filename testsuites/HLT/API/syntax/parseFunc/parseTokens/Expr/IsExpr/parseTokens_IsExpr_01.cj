@@ -24,10 +24,10 @@ func test_IsExpr_01() {
     let res_3 = parseTokens(_quote_3)
 
     var expr_1: IsExpr = (res_1.node.getOrThrow() as IsExpr).getOrThrow()
-    @Expect(expr_1.toString(), ##"fun() is Option  < Int64 >"##)
+    @Expect(expr_1.toString(), ##"fun() is Option < Int64 >"##)
     @Expect(expr_1.srcVal.toString(), ##"fun()"##)
     @Expect(expr_1.targetTypeAnnotation is CompositeType)
-    @Expect(expr_1.targetTypeAnnotation.toString(), "Option  < Int64 >")
+    @Expect(expr_1.targetTypeAnnotation.toString(), "Option < Int64 >")
 
     var expr_2: IsExpr = (res_2.node.getOrThrow() as IsExpr).getOrThrow()
     @Expect(expr_2.toString(), ##"a.b is ?? T"##)

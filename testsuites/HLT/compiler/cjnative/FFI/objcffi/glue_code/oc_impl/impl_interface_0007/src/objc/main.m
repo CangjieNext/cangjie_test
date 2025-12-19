@@ -12,8 +12,8 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [[A alloc] init];
-        printf("p1, %lld\n", a->v.p1);
-        printf("p1, %lld\n", a.p.p1);
+        printf("p1: %lld\n", a->v.p1);
+        printf("p1: %lld\n", a.p.p1);
         [a g2:[a g1]];
     }
     return 0;

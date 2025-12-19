@@ -28,7 +28,7 @@ func test_EnumDecl_02() {
     var enumDecl: EnumDecl = (sourceNode as EnumDecl).getOrThrow()
 
     @Expect(enumDecl.toString(), ##"@Deprecated["aaa", strict: true]
-public enum E1  < T > <: I1  < T > & I2 where T <: ToString {
+public enum E1 < T > <: I1 < T > & I2 where T <: ToString {
     A1 | B1 | C1(T) | D1(Int64, T) | ...
     static prop p1:?T {
         get() { none }
@@ -61,7 +61,7 @@ public enum E1  < T > <: I1  < T > & I2 where T <: ToString {
     @Assert(enumDecl.genericParams.size, 1)
     @Assert(enumDecl.genericParams[0].toString(), ##"T"##)
     @Assert(enumDecl.superTyAnnotations.size, 2)
-    @Assert(enumDecl.superTyAnnotations[0].toString(), ##"I1  < T >"##)
+    @Assert(enumDecl.superTyAnnotations[0].toString(), ##"I1 < T >"##)
     @Assert(enumDecl.superTyAnnotations[1].toString(), ##"I2"##)
     @Assert(enumDecl.annotations.size, 1)
     @Assert(enumDecl.annotations[0].toString(), ##"@Deprecated["aaa", strict: true]"##)

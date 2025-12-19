@@ -10,7 +10,8 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // (Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 1>log.txt && bash -c "dos2unix log.txt" && bash -c "cat log.txt" | compare %f
-// (CJNATIVE) ASSERT: scan-2 2
+// (CJNATIVE and not iOS) ASSERT: scan-2 2
+// (CJNATIVE and iOS) ASSERT: scan-2 3
 // (not CJNATIVE) ASSERT: scan-2 1
 
 import std.sync.SyncCounter

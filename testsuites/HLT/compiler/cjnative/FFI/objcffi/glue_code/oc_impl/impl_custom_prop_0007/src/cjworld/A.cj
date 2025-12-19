@@ -14,7 +14,7 @@ import objc.lang.*
 public class A <: M {
     public var a = 1
     public init() {}
-    @ForeignSetterName["set_p"]
+    @ForeignSetterName["set_p:"]
     public mut prop p: Int64 {
         get() {a}
         set(v) {a=v}

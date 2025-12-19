@@ -15,5 +15,7 @@ import stdx.syntax.*
 
 @Test
 func test_MacroDecl_03() {
-    @AssertThrows[Exception](parseFile("./MacroDecl_03.cj"))
+    let file = parseFile("./MacroDecl_03.cj")
+    @Expect(file.node.isNone())
+    @Expect(file.diags.size > 0)
 }

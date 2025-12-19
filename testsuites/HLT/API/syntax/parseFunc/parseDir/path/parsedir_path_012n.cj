@@ -20,6 +20,6 @@ func test_dirpath_012() {
     fileinfo.setReadable(false)
     @Expect(fileinfo.canRead(), false)
     let e = @AssertThrows[Exception](parsePackage("./dir002"))
-    @Assert(e.message, "IOException: Failed to get number of subFiles in directory.")
+    @Assert(e.message.contains("IOException: Failed to get number of subFiles in directory"))
     fileinfo.setReadable(true)
 }

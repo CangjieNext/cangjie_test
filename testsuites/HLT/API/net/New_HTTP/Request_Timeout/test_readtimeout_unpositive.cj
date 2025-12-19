@@ -54,7 +54,7 @@ class Test_ReadTimeout_Https_Http {
 
     func startServer(cfg: TlsServerConfig): Unit {
         let server = ServerBuilder().addr("127.0.0.1").tlsConfig(cfg).port(0).build()
-        server.distributor.register("/quick", {_ => sleep(Duration.millisecond * 100)})
+        server.distributor.register("/quick", {_ => sleep(Duration.millisecond * 5000)})
         spawn {
             server.serve()
         }

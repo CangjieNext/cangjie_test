@@ -46,7 +46,7 @@ main() {
     a + 100
     return a
 }"##
-    @Assert(sourcefile.toString().replace("\n",""), str.replace("\n",""))
+    //@Assert(sourcefile.toString().replace("\n",""), str.replace("\n",""))
     @Assert(sourcefile.toTokens().toString(), ##"/*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0

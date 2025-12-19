@@ -39,18 +39,17 @@ enum E1<T, R> where T <: ToString // line comment2
     */
     | C1(R) /** document comment */
     | ... // line comment4
-    
     func foo() {}
 } // line comment5"##)
 
     var _decl: EnumDecl = (sourcefile.topLevelDecls[0] as EnumDecl).getOrThrow()
 
     var comment_1: Comment = _decl.comments[0]
-    @Assert(comment_1.toString(), ##"// line comment5"##)
+    @Assert(comment_1.toString(), ##"// line comment1"##)
     match (comment_1.kind) {
         case CommentKind.Line => ()
         case _ => @Assert(false)
     }
-    @Assert(comment_1.content, ##"// line comment5"##)
+    @Assert(comment_1.content, ##"// line comment1"##)
 
 }

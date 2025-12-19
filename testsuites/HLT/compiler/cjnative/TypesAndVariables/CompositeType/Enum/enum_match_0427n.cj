@@ -28,5 +28,6 @@ main(): Int64 {
     return run()
 }
 // ASSERT: scan parse_expected_character
-// ASSERT: scan parse_unexpected_declaration_in_scope
+// (not iOS) ASSERT: scan parse_unexpected_declaration_in_scope
+// (iOS) ASSERT: scan parse_illegal_modifier_in_scope
 // ASSERT: scan parse_expected_right_delimiter

@@ -30,7 +30,7 @@ public struct S1<T> <: I1<T> where T <: ToString{
 
     var structDecl: StructDecl = (sourceNode as StructDecl).getOrThrow()
     @Assert(structDecl.toString(), ##"@Deprecated["aaa"]
-public struct S1  < T > <: I1  < T > where T <: ToString {
+public struct S1 < T > <: I1 < T > where T <: ToString {
     public let s1: Int64 = 0
     prop p1: Int64 {
         get() { 0 }
@@ -60,7 +60,7 @@ public struct S1  < T > <: I1  < T > where T <: ToString {
     @Assert(structDecl.genericParams.size, 1)
     @Assert(structDecl.genericParams[0].toString(), "T")
     @Assert(structDecl.superTyAnnotations.size, 1)
-    @Assert(structDecl.superTyAnnotations[0].toString(), "I1  < T >")
+    @Assert(structDecl.superTyAnnotations[0].toString(), "I1 < T >")
     @Assert(structDecl.annotations.size, 1)
     @Assert(structDecl.annotations[0].toString(), ##"@Deprecated["aaa"]"##)
 }

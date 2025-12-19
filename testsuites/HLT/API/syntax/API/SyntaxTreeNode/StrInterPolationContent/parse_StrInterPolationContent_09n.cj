@@ -15,5 +15,7 @@ import stdx.syntax.*
 
 @Test
 func test_StrInterpolationContent_09() {
-    @AssertThrows[Exception](parseFile("./StrInterPolationContent_09.cj"))
+    let file = parseFile("./StrInterPolationContent_09.cj")
+    @Expect(file.node.isNone())
+    @Expect(file.diags.size > 0)
 }

@@ -31,14 +31,14 @@ public struct a_b<T, U> <: S1<T, U> where T <: ToString, U <: ToString{
 
     var structDecl: StructDecl = (sourceNode as StructDecl).getOrThrow()
     @Assert(structDecl.toString(), ##"@When[backend == "linux"]
-public struct a_b  < T, U > <: S1  < T, U > where T <: ToString, U <: ToString {
+public struct a_b < T, U > <: S1 < T, U > where T <: ToString, U <: ToString {
     public let s1: Int64
     mut prop p1: Int64 {
         get() { 0 }
         set(v) { }
     }
     public init() { s1 = 0 }
-    func foo  < S >(a: T): T {
+    func foo < S >(a: T): T {
         return a
     }
 }"##)
@@ -53,7 +53,7 @@ public struct a_b  < T, U > <: S1  < T, U > where T <: ToString, U <: ToString {
     @Assert(structDecl.body.memberDecls[2] is FuncDecl)
     @Assert(structDecl.body.memberDecls[2].toString(), ##"public init() { s1 = 0 }"##)
     @Assert(structDecl.body.memberDecls[3] is FuncDecl)
-    @Assert(structDecl.body.memberDecls[3].toString(), ##"func foo  < S >(a: T): T {
+    @Assert(structDecl.body.memberDecls[3].toString(), ##"func foo < S >(a: T): T {
         return a
     }"##)
 
@@ -66,7 +66,7 @@ public struct a_b  < T, U > <: S1  < T, U > where T <: ToString, U <: ToString {
     @Assert(structDecl.genericParams[0].toString(), "T")
     @Assert(structDecl.genericParams[1].toString(), "U")
     @Assert(structDecl.superTyAnnotations.size, 1)
-    @Assert(structDecl.superTyAnnotations[0].toString(), "S1  < T, U >")
+    @Assert(structDecl.superTyAnnotations[0].toString(), "S1 < T, U >")
     @Assert(structDecl.annotations.size, 1)
     @Assert(structDecl.annotations[0].toString(), ##"@When[backend == "linux"]"##)
 }

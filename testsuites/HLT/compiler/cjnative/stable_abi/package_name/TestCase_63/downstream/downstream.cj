@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package abc.cde
+package abc::cde
 
 import abc.edf.*
 import std.reflect.*

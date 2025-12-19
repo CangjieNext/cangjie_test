@@ -23,7 +23,7 @@ func test_FuncDecl_05() {
     let res_1 = parseTokens(_quote_1)
     var funcdecl_1 = (res_1.node.getOrThrow() as FuncDecl).getOrThrow()
 
-    @Expect(funcdecl_1.toString(), ##"func foo  < T >(a: T) {
+    @Expect(funcdecl_1.toString(), ##"func foo < T >(a: T) {
     func goo() {
         return 1
     }

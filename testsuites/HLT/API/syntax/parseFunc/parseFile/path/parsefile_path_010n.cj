@@ -16,5 +16,5 @@ import stdx.syntax.*
 @Test
 func test_filepath_010() {
     let e = @AssertThrows[Exception](parseFile("./file/file001.cj\0"))
-    @Assert(e.message, "IOException: The `rawPath` cannot contain null character!")
+    @Assert(e.message.contains("contains null character"))
 }

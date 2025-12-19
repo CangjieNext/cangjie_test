@@ -8,7 +8,7 @@
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 
 # syntax will be supported in future
-API/syntax
+API/syntax/visit/ASTRewriter/test_rewriter_02.cj
 
 # timezone file in ci not support now
 API/std/time/TimeZone/load/test_loadFromPaths.cj

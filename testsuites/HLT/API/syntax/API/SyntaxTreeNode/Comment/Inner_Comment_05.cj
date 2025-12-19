@@ -16,6 +16,5 @@ enum E1<T, R> where T <: ToString // line comment2
     */
     | C1(R) /** document comment */
     | ... // line comment4
-    
     func foo() {}
 } // line comment5

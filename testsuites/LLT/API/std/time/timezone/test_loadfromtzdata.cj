@@ -179,7 +179,7 @@ class LoadFromTZDataTest {
             TimeZone.loadFromTZData("", baseTZif)
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
 
         let testArr: Array<UInt8> = [0, 12, 20, 127, 128, 255]

@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm 2>&1 | compare %f
-// ASSERT: scan Cangjie Package Manager
+// ASSERT: scan Cangjie Project Manager

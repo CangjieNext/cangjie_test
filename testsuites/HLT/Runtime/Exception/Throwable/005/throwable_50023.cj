@@ -8,8 +8,10 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: regex init
+// (not iOS) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOS) ASSERT: scan Init Image fail!
+// (not iOS) ASSERT: regex init
 
 class A <: Exception {}
 

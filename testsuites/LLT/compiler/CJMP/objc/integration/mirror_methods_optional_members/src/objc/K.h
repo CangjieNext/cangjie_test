@@ -8,6 +8,6 @@
 
 @protocol K
 @optional
-// - (void) unimplemented;
+- (void) unimplemented;
 - (void) implemented;
 @end

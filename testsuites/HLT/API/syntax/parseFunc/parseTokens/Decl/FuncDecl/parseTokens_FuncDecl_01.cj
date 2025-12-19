@@ -71,7 +71,7 @@ func test_FuncDecl_01() {
     @Assert(funcdecl_2.annotations.toString(), "[]")
 
     var funcdecl_3 = (res_3.node.getOrThrow() as FuncDecl).getOrThrow()
-    @Assert(funcdecl_3.toString(), ##"protected func func_3  < T, U >(a: T, b: U): T where T <: I1  < T > & I2  < T >, U <: I3  < U > {
+    @Assert(funcdecl_3.toString(), ##"protected func func_3 < T, U >(a: T, b: U): T where T <: I1 < T > & I2 < T >, U <: I3 < U > {
     a
 }"##)
     @Assert(funcdecl_3.body.isSome())
@@ -79,7 +79,7 @@ func test_FuncDecl_01() {
     a
 }"##)
     @Assert(funcdecl_3.genericConstraints.isSome())
-    @Assert(funcdecl_3.genericConstraints.getOrThrow().toString(), "where T <: I1  < T > & I2  < T >, U <: I3  < U >")
+    @Assert(funcdecl_3.genericConstraints.getOrThrow().toString(), "where T <: I1 < T > & I2 < T >, U <: I3 < U >")
     @Assert(funcdecl_3.genericParams.size, 2)
     @Assert(funcdecl_3.genericParams[0].toString(), "T")
     @Assert(funcdecl_3.genericParams[1].toString(), "U")

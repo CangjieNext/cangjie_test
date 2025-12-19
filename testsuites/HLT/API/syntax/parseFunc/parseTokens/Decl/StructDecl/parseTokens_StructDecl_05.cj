@@ -14,7 +14,7 @@ import stdx.syntax.*
 
 @Test
 func test_StructDecl_05() {
-    let _quote = quote(protected struct MyStruct<A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z> <: I1 & I2  where T <: I1<T> & I2<T> {
+    let _quote = quote(protected struct MyStruct<A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z> <: I1 & I2  where T <: I1 <T> & I2 <T> {
     public var s1: T
     mut prop p1: ?Int64 {
         get() { None }
@@ -29,14 +29,14 @@ func test_StructDecl_05() {
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
 
     var structDecl: StructDecl = (sourceNode as StructDecl).getOrThrow()
-    @Expect(structDecl.toString(), ##"protected struct MyStruct  < A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z > <: I1 & I2 where T <: I1  < T > & I2  < T > {
+    @Expect(structDecl.toString(), ##"protected struct MyStruct < A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z > <: I1 & I2 where T <: I1 < T > & I2 < T > {
     public var s1: T
     mut prop p1:?Int64 {
         get() { None }
         set(v) { }
     }
     public MyStruct(a: T) { s1 = a }
-    func foo  < S >(a!: T): T {
+    func foo < S >(a!: T): T {
         return a
     }
 }"##)
@@ -51,7 +51,7 @@ func test_StructDecl_05() {
     @Assert(structDecl.body.memberDecls[2] is FuncDecl)
     @Assert(structDecl.body.memberDecls[2].toString(), ##"public MyStruct(a: T) { s1 = a }"##)
     @Assert(structDecl.body.memberDecls[3] is FuncDecl)
-    @Assert(structDecl.body.memberDecls[3].toString(), ##"func foo  < S >(a!: T): T {
+    @Assert(structDecl.body.memberDecls[3].toString(), ##"func foo < S >(a!: T): T {
         return a
     }"##)
 
@@ -59,7 +59,7 @@ func test_StructDecl_05() {
     @Assert(structDecl.modifiers.size, 1)
     @Assert(structDecl.modifiers[0].toString(), "protected")
     @Assert(structDecl.genericConstraints.isSome())
-    @Assert(structDecl.genericConstraints.getOrThrow().toString(), "where T <: I1  < T > & I2  < T >")
+    @Assert(structDecl.genericConstraints.getOrThrow().toString(), "where T <: I1 < T > & I2 < T >")
     @Assert(structDecl.genericParams.size, 26)
     @Assert(structDecl.genericParams[0].toString(), "A")
     @Assert(structDecl.genericParams[25].toString(), "Z")

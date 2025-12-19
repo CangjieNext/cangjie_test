@@ -8,7 +8,8 @@
 
 // LEVEL: 0
 // (not g) EXEC: %compiler %cmp_opt %obf_layout %obf_line_number %obf_source_path %f -o %output
-// (not g) RUN-ERRCHECK: %run %run_opt %output %run_args
+// (not g and not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
+// (not g and iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // (not g) ASSERT: scan (SOURCE:0)
 
 class A {

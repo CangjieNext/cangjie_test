@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 
@@ -456,10 +464,25 @@ class F {
 }""")
     }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+
+let _quote = quote(
+    class A {
+        let x = 1
+    }
+)
+
+@Test
+func test_RefreshPos() {
+    let res = parseTokens(_quote, refreshPos: false)
+    let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
+    var classDecl: ClassDecl = (sourceNode as ClassDecl).getOrThrow()
+    
+    @Assert(classDecl.toString(), ##"class A {
+        let x = 1
+    }"##)
+    @Assert(classDecl.nodePos.fileName, "")
+    @Assert(classDecl.nodePos.filePath, "")
+
+    var pos = classDecl.nodePos
+    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([469, 5, 471, 6]).toArray())
+}

@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // (not g) EXEC: %compiler %cmp_opt %obf_layout %f -o %output
-// (not g) RUN-EXEC-1: %run %run_opt %output %run_args > stack_obf.log 2>&1
-// (not g and not OHOS) ERRCHECK: %cjtrace_recover stack_obf.log -m default.obf.map
+// (not g and not iOS) RUN-EXEC-1: %run %run_opt %output %run_args > stack_obf.log 2>&1
+// (not g and not OHOS and not iOS) ERRCHECK: %cjtrace_recover stack_obf.log -m default.obf.map
 // (not g and not OHOS) ASSERT: scan Error: invalid option 'stack_obf.log'
 // (not g and not OHOS) ASSERT: scan Try: 'cjtrace-recover -h' for more information.
 

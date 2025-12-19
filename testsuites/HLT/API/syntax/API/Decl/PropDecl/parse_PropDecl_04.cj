@@ -15,5 +15,7 @@ import stdx.syntax.*
 
 @Test
 func test_PropDecl_04() {
-    @AssertThrows[Exception](parseFile("./PropDecl_04.cj"))
+    let file = parseFile("./PropDecl_04.cj")
+    @Expect(file.node.isNone())
+    @Expect(file.diags.size > 0)
 }

@@ -194,9 +194,12 @@ class TestClient1_1Request {
     let proxyServerSocket = TcpServerSocket(bindAt: 0)
     @TestCase
     func client1_1HttpsRequestProxy(): Unit {
-        let server = serverPacketCapture6()
-        spawn { proxyserverPacketCapture(server.port) }
-        sleep(Duration.millisecond * 100)
+        let sc1 = SyncCounter(1)
+        let server = serverPacketCapture6(sc1)
+        sc1.waitUntilZero()
+        let sc2 = SyncCounter(1)
+        spawn { proxyserverPacketCapture(server.port, sc2) }
+        sc2.waitUntilZero()
         let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
         let port2 = server.port
         var cfg = clientConfig()
@@ -212,14 +215,13 @@ class TestClient1_1Request {
         server.close()
     }
 
-    func proxyserverPacketCapture(serverPort: UInt16) {
+    func proxyserverPacketCapture(serverPort: UInt16, sc: SyncCounter) {
         try{
             proxyServerSocket.bind()
-            sleep(Duration.millisecond * 100)
+            sc.dec()
             let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
             let socket = proxyServerSocket.accept()
-            socket.readTimeout = Duration.millisecond * 100
-        
+            socket.readTimeout = Duration.second * 10
             let buf = Array<UInt8>(500, repeat: 0)
             let i = socket.read(buf)
             let read = String.fromUtf8(buf[0..i])
@@ -250,7 +252,7 @@ class TestClient1_1Request {
                     }
                 }
             }
-            
+
             spawn{
                 while(true){
                     let buf1 = Array<UInt8>(5000, repeat: 0)
@@ -269,7 +271,7 @@ class TestClient1_1Request {
         }
     }
 
-    func serverPacketCapture6():Server {
+    func serverPacketCapture6(sc: SyncCounter): Server {
         var transportCfg = TransportConfig()
         transportCfg.readBufferSize = 8192
         var cfg = serverConfig()
@@ -281,6 +283,7 @@ class TestClient1_1Request {
                     .tlsConfig(cfg)
                     // .headerTableSize(10 * 1024)
                     // .maxRequestHeaderSize(1024 * 1024)
+                    .afterBind({=> sc.dec()})
                     .build()
         server.distributor.register("", {httpContext =>
             httpContext.responseBuilder.body("Hello!")
@@ -288,19 +291,21 @@ class TestClient1_1Request {
         spawn {
             server.serve()
         }
-        sleep(Duration.millisecond*100)
         return server
     }
 
-    
+
     let realServerSocket1 = TcpServerSocket(bindAt: 0)
     let proxyServerSocket1 = TcpServerSocket(bindAt: 0)
     // https url with proxy
     @TestCase
     func client1_1HttpsRequestProxy2(): Unit {
-        spawn { serverPacketCapture5() }
-        spawn { proxyserverPacketCapture1() }
-        sleep(Duration.millisecond * 100)
+        let sc1 = SyncCounter(1)
+        spawn { serverPacketCapture5(sc1) }
+        sc1.waitUntilZero()
+        let sc2 = SyncCounter(1)
+        spawn { proxyserverPacketCapture1(sc2) }
+        sc2.waitUntilZero()
         let port1 = (proxyServerSocket1.localAddress as IPSocketAddress)?.port ?? 0
         let port2 = (realServerSocket1.localAddress as IPSocketAddress)?.port ?? 0
         var cfg = clientConfig()
@@ -318,15 +323,15 @@ class TestClient1_1Request {
         asanGC()
     }
 
-    func proxyserverPacketCapture1() {
-        try{
+    func proxyserverPacketCapture1(sc: SyncCounter) {
+        try {
             proxyServerSocket1.bind()
-            sleep(Duration.millisecond * 100)
+            sc.dec()
             let serverPort = (realServerSocket1.localAddress as IPSocketAddress)?.port ?? 0
             let port1 = (proxyServerSocket1.localAddress as IPSocketAddress)?.port ?? 0
             let socket = proxyServerSocket1.accept()
-            socket.readTimeout = Duration.millisecond * 100
-        
+            socket.readTimeout = Duration.second * 10
+
             let buf = Array<UInt8>(500, repeat: 0)
             let i = socket.read(buf)
             let read = String.fromUtf8(buf[0..i])
@@ -357,7 +362,7 @@ class TestClient1_1Request {
                     }
                 }
             }
-            
+
             spawn{
                 while(true){
                     let buf1 = Array<UInt8>(5000, repeat: 0)
@@ -376,23 +381,23 @@ class TestClient1_1Request {
         }
     }
 
-    func serverPacketCapture5() {
+    func serverPacketCapture5(sc: SyncCounter) {
         var cfg = serverConfig()
         cfg.supportedAlpnProtocols = ["http/1.1"]
         try {
             realServerSocket1.bind()
-            sleep(Duration.millisecond * 100)
-            
+            sc.dec()
+
             let port1 = (proxyServerSocket1.localAddress as IPSocketAddress)?.port ?? 0
             let port2 = (realServerSocket1.localAddress as IPSocketAddress)?.port ?? 0
-            
+
             let socket = realServerSocket1.accept()
             let server = TlsSocket.server(socket, serverConfig: cfg)
             server.handshake()
             let buf = Array<UInt8>(2000, repeat: 0)
             let i1 = server.read(buf)
             server.write("HTTP/1.1 204 no content\r\nconnection: close\r\n\r\n".toArray())
-            
+
             server.close()
             realServerSocket1.close()
         } catch (e: Exception) {

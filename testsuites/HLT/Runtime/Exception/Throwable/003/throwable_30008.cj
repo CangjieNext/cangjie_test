@@ -8,9 +8,11 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (not iOS) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOS) ASSERT: scan Init Image fail!
 // (CJNATIVE and O2) ASSERT: scan-not lambda
-// (not (CJNATIVE and O2)) ASSERT: regex lambda
+// (not (CJNATIVE and O2) and not iOS) ASSERT: regex lambda
 
 var test = {
     =>

@@ -15,12 +15,23 @@ public open class NSObject {
 
 @ObjCImpl
 public class K <: NSObject {
+    let fp: ObjCBlock<(Float64) -> Float64>
+    mut prop fProp: ObjCBlock<(Float64) -> Float64> {
+        get() { M().fPtr() }
+        set(x) {}
+    }
+
     public init() {
         super()
+        fp = M().fPtr()
     }
     @ForeignName["mapF:"]
     public func mapF(f: ObjCBlock<(Float64) -> Float64>): Float64 {
         return f.call(3.14)
+    }
+    @ForeignName["returnF:"]
+    public func returnF(f: ObjCBlock<(Float64) -> Float64>): ObjCBlock<(Float64) -> Float64> {
+        return f
     }
 }
 

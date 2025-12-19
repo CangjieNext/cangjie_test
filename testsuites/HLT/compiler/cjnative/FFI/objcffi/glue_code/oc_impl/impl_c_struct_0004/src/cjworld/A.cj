@@ -18,7 +18,9 @@ public class A <: M {
         set(v) { a = v }
     }
     public init() {
-        s.x = 1
-        s.y = 1
+        var s1 = S()
+        s1.x = 1
+        s1.y = 1
+        s = s1
     }
 }

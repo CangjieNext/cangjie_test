@@ -23,7 +23,7 @@ func test_EnumDecl_04() {
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
     var enumDecl: EnumDecl = (sourceNode as EnumDecl).getOrThrow()
 
-    @Expect(enumDecl.toString(), ##"internal enum E1  < A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z > {
+    @Expect(enumDecl.toString(), ##"internal enum E1 < A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z > {
     | A1 | B1(Int64)
     | C1(T) | D1(U, T)
 }"##)

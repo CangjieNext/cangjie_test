@@ -11,7 +11,6 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         [A runFromCJ];
-        [A runFromCJ];
     }
     return 0;
 }

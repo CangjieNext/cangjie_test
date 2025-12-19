@@ -21,7 +21,7 @@
     return self;
 }
 
-+ (id)f {
++ (nonnull M*)f {
     return [[M alloc] init: 1];
 }
 

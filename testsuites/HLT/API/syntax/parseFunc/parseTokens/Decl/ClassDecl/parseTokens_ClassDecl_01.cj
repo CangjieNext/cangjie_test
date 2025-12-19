@@ -31,7 +31,7 @@ func test_ClassDecl_01() {
     var classDecl: ClassDecl = (sourceNode as ClassDecl).getOrThrow()
     
     @Assert(classDecl.toString(), ##"@Deprecated["仓颉"]
-public class S1  < T > <: I1  < T > where T <: ToString {
+public class S1 < T > <: I1 < T > where T <: ToString {
     public let s1: Int64 = 0
     prop p1: Int64 {
         get() { 0 }
@@ -61,7 +61,7 @@ public class S1  < T > <: I1  < T > where T <: ToString {
     @Assert(classDecl.genericParams.size, 1)
     @Assert(classDecl.genericParams[0].toString(), "T")
     @Assert(classDecl.superTyAnnotations.size, 1)
-    @Assert(classDecl.superTyAnnotations[0].toString(), "I1  < T >")
+    @Assert(classDecl.superTyAnnotations[0].toString(), "I1 < T >")
     @Assert(classDecl.annotations.size, 1)
     @Assert(classDecl.annotations[0].toString(), ##"@Deprecated["仓颉"]"##)
 
@@ -76,12 +76,12 @@ public class S1  < T > <: I1  < T > where T <: ToString {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 8i32, 2i32, 13i32])
     @Assert(classDecl.getGenericParamsCommasPos().size, 0)
     pos = classDecl.getGenericParamsLAnglePos().getOrThrow()
-    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 18i32, 2i32, 19i32])
+    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 17i32, 2i32, 18i32])
     pos = classDecl.getGenericParamsRAnglePos().getOrThrow()
-    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 22i32, 2i32, 23i32])
+    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 21i32, 2i32, 22i32])
     pos = classDecl.getIdentifierPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 14i32, 2i32, 16i32])
     @Assert(classDecl.getSuperTyAnnotationsBitAndsPos().size, 0)
     pos = classDecl.getUpperBoundPos().getOrThrow()
-    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 24i32, 2i32, 26i32])
+    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 23i32, 2i32, 25i32])
 }

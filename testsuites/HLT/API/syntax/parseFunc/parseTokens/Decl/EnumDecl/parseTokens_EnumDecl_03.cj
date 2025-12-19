@@ -27,13 +27,13 @@ func test_EnumDecl_03() {
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
     var enumDecl: EnumDecl = (sourceNode as EnumDecl).getOrThrow()
 
-    @Expect(enumDecl.toString(), ##"protected enum E1  < T, U > <: S1  < T, U > {
+    @Expect(enumDecl.toString(), ##"protected enum E1 < T, U > <: S1 < T, U > {
     A1 | B1(Int64) | C1(T) | D1(U, T)
     mut prop p1:?T {
         get() { none }
         set(v) { }
     }
-    static func foo  < S >() { }
+    static func foo < S >() { }
 }"##)
     @Assert(enumDecl.body.memberDecls.size, 6)
     @Assert(enumDecl.body.memberDecls[0] is EnumConstructor)
@@ -51,7 +51,7 @@ func test_EnumDecl_03() {
         set(v) { }
     }"##)
     @Assert(enumDecl.body.memberDecls[5] is FuncDecl)
-    @Assert(enumDecl.body.memberDecls[5].toString(), ##"static func foo  < S >() { }"##)
+    @Assert(enumDecl.body.memberDecls[5].toString(), ##"static func foo < S >() { }"##)
 
     @Assert(enumDecl.name, "E1")
     @Assert(enumDecl.isNonExhaustive, false)
@@ -62,6 +62,6 @@ func test_EnumDecl_03() {
     @Assert(enumDecl.genericParams[0].toString(), ##"T"##)
     @Assert(enumDecl.genericParams[1].toString(), ##"U"##)
     @Assert(enumDecl.superTyAnnotations.size, 1)
-    @Assert(enumDecl.superTyAnnotations[0].toString(), ##"S1  < T, U >"##)
+    @Assert(enumDecl.superTyAnnotations[0].toString(), ##"S1 < T, U >"##)
     @Assert(enumDecl.annotations.size, 0)
 }

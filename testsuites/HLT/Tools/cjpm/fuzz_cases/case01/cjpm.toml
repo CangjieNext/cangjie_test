@@ -35,3 +35,6 @@
 
 [target.x86_64-apple-darwin.bin-dependencies]
   path-option=["${CANGJIE_STDX_PATH}"]
+
+[target.aarch64-linux-ohos.bin-dependencies]
+  path-option=["${CANGJIE_STDX_PATH}"]

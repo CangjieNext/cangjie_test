@@ -36,19 +36,7 @@ func test_dir_001() {
 
     let _package: Package = res.node.getOrThrow()
     let str = ##"// file_001.cj
-package a.b.ccc
-
-let a1 = 1
-+ 1
-// file_002.cj
-package a.b.ccc
-
-let a2 = a1 + 1
-+ 1234"##
-    @Assert(str.replace("\n",""), _package.toString().replace("\n",""))
-    _package.toTokens().toString() |> println
-    @Assert(_package.toTokens().toString(), ##"// file_001.cj
- /*
+/*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
@@ -60,6 +48,35 @@ package a.b.ccc
 
 let a1 = 1
 + 1
+// file_002.cj
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package a.b.ccc
+
+let a2 = a1 + 1
++ 1234"##
+    @Assert(str.replace("\n",""), _package.toString().replace("\n",""))
+    _package.toTokens().toString() |> println
+    @Assert(_package.toTokens().toString(), ##"
+// file_001.cj
+ /*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package a.b.ccc
+
+let a1 = 1
++ 1 
 // file_002.cj
  /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
@@ -79,7 +96,15 @@ let a2 = a1 + 1
     let file1 = _package.srcFile[0]
     let file2 = _package.srcFile[1]
 
-    let str1 = ##"package a.b.ccc
+    let str1 = ##"/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package a.b.ccc
 
 let a1 = 1
 + 1"##
@@ -95,7 +120,15 @@ let a1 = 1
     @Assert(pkgHeader.packageNameIdentifiers, ["a", "b", "ccc"])
     @Assert(file1.topLevelDecls.size, 1)
 
-    let str2 = ##"package a.b.ccc
+    let str2 = ##"/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package a.b.ccc
 
 let a2 = a1 + 1
 + 1234"##

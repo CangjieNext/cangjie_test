@@ -63,4 +63,6 @@ class TestII <: TestI {
 main() {
     let xx: Test2 = Test2()
     xx.b.foo()
+
+    TestII().hoo()
 }

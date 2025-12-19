@@ -22,7 +22,7 @@
 }
 
 + (int64_t)f:(id)a {
-    return ((M) a).a;
+    return ((M*) a).a;
 }
 
 @end

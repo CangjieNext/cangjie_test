@@ -8,9 +8,11 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: regex Exception in thread "main" java.lang.Exception|An exception has occurred
-// ASSERT: scan throwable_30001.cj:15
+// (not iOS) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOS) ASSERT: scan Init Image fail!
+// (not iOS) ASSERT: regex Exception in thread "main" java.lang.Exception|An exception has occurred
+// (not iOS) ASSERT: scan throwable_30001.cj:17
 var a = if (true) {
     throw Exception();
     0

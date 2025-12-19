@@ -15,5 +15,7 @@ import stdx.syntax.*
 
 @Test
 func test_ImportList_09() {
-    @AssertThrows[Exception](parseFile("./ImportList_09.cj"))
+    let file = parseFile("./ImportList_09.cj")
+    @Expect(file.node.isNone())
+    @Expect(file.diags.size > 0)
 }

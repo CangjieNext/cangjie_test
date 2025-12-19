@@ -81,42 +81,42 @@ class LoadTest {
             TimeZone.load("")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
 
         try {
             TimeZone.load(longStr + "a")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
 
         try {
             TimeZone.load("a..b")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
 
         try {
             TimeZone.load("a\0b")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
 
         try {
             TimeZone.load("/ab")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
 
         try {
             TimeZone.load("\\ab")
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
 
         try {

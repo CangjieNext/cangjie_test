@@ -24,7 +24,7 @@ func test_EnumDecl_05() {
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
     var enumDecl: EnumDecl = (sourceNode as EnumDecl).getOrThrow()
 
-    @Expect(enumDecl.toString(), ##"private enum My_Enum  < T, U > <: I1  < T > & I2  < T > & I3  < T > where T <: I1  < T >, U <: I2  < T > & I1  < U > {
+    @Expect(enumDecl.toString(), ##"private enum My_Enum < T, U > <: I1 < T > & I2 < T > & I3 < T > where T <: I1 < T >, U <: I2 < T > & I1 < U > {
     A1(T, T)
     | B1(T, U) |
     C1(U, U) | ...
@@ -42,13 +42,13 @@ func test_EnumDecl_05() {
     @Assert(enumDecl.modifiers.size, 1)
     @Assert(enumDecl.modifiers[0].toString(), "private")
     @Assert(enumDecl.genericConstraints.isSome())
-    @Assert(enumDecl.genericConstraints.getOrThrow().toString(), ##"where T <: I1  < T >, U <: I2  < T > & I1  < U >"##)
+    @Assert(enumDecl.genericConstraints.getOrThrow().toString(), ##"where T <: I1 < T >, U <: I2 < T > & I1 < U >"##)
     @Assert(enumDecl.genericParams.size, 2)
     @Assert(enumDecl.genericParams[0].toString(), ##"T"##)
     @Assert(enumDecl.genericParams[1].toString(), ##"U"##)
     @Assert(enumDecl.superTyAnnotations.size, 3)
-    @Assert(enumDecl.superTyAnnotations[0].toString(), ##"I1  < T >"##)
-    @Assert(enumDecl.superTyAnnotations[1].toString(), ##"I2  < T >"##)
-    @Assert(enumDecl.superTyAnnotations[2].toString(), ##"I3  < T >"##)
+    @Assert(enumDecl.superTyAnnotations[0].toString(), ##"I1 < T >"##)
+    @Assert(enumDecl.superTyAnnotations[1].toString(), ##"I2 < T >"##)
+    @Assert(enumDecl.superTyAnnotations[2].toString(), ##"I3 < T >"##)
     @Assert(enumDecl.annotations.size, 0)
 }

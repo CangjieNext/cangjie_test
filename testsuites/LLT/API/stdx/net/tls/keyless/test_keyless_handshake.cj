@@ -10,8 +10,8 @@
 // DEPENDENCE: mock.c
 
 // EXEC: %clang %clang_opt -Wno-deprecated-declarations -lssl -lcrypto -o mock.%dylib_suffix mock.c
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt -l:mock.%dylib_suffix -L. -o %n.%suffix %f
-// RUN-EXEC: export CJ_KEYLESS_DEBUG=1 && %set_stdx_path %run_stdx %run_opt %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt -lssl -lcrypto -l:mock.%dylib_suffix -L. -o %n.%suffix %f
+// RUN-EXEC: %export CJ_KEYLESS_DEBUG=1 && %set_stdx_path %run_opt %n.%suffix %run_utest_opt %run_args
 
 import std.fs.{File, OpenMode}
 import std.net.{TcpServerSocket, TcpSocket}
@@ -218,9 +218,9 @@ class Test_TLS_Keyless_ECC_Server_TLS_1_2 {
             clientSocket.close()
         }
 
-        let signFunc: KeylessSignCallback = mocksign
-        let decryptFunc: KeylessDecryptCallback = mockDecrypt
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let signFunc: KeylessSignFunc = mocksign
+        let decryptFunc: KeylessDecryptFunc = mockDecrypt
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper(startClientHandshake)
@@ -244,9 +244,9 @@ class Test_TLS_Keyless_ECC_Server_TLS_1_2 {
             clientSocket.close()
         }
 
-        let signFunc: KeylessSignCallback = mocksign
-        let decryptFunc: KeylessDecryptCallback = mockDecrypt
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let signFunc: KeylessSignFunc = mocksign
+        let decryptFunc: KeylessDecryptFunc = mockDecrypt
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper(startClientHandshake)
@@ -269,9 +269,9 @@ class Test_TLS_Keyless_ECC_Server_TLS_1_2 {
             tlsClient.close()
             clientSocket.close()
         }
-        let signFunc: KeylessSignCallback = mocksign
-        let decryptFunc: KeylessDecryptCallback = mockDecrypt
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let signFunc: KeylessSignFunc = mocksign
+        let decryptFunc: KeylessDecryptFunc = mockDecrypt
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper(startClientHandshake)
@@ -294,9 +294,9 @@ class Test_TLS_Keyless_ECC_Server_TLS_1_2 {
             tlsClient.close()
             clientSocket.close()
         }
-        let signFunc: KeylessSignCallback = mocksign
-        let decryptFunc: KeylessDecryptCallback = mockDecrypt
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let signFunc: KeylessSignFunc = mocksign
+        let decryptFunc: KeylessDecryptFunc = mockDecrypt
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper(startClientHandshake)
@@ -374,9 +374,9 @@ class Test_TLS_Keyless_ECC_Server_TLS_1_3 {
             clientSocket.close()
         }
 
-        let signFunc: KeylessSignCallback = mocksign
-        let decryptFunc: KeylessDecryptCallback = mockDecrypt
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let signFunc: KeylessSignFunc = mocksign
+        let decryptFunc: KeylessDecryptFunc = mockDecrypt
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper(startClientHandshake)
@@ -400,9 +400,9 @@ class Test_TLS_Keyless_ECC_Server_TLS_1_3 {
             tlsClient.close()
             clientSocket.close()
         }
-        let signFunc: KeylessSignCallback = mocksign
-        let decryptFunc: KeylessDecryptCallback = mockDecrypt
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let signFunc: KeylessSignFunc = mocksign
+        let decryptFunc: KeylessDecryptFunc = mockDecrypt
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper(startClientHandshake)
@@ -425,9 +425,9 @@ class Test_TLS_Keyless_ECC_Server_TLS_1_3 {
             tlsClient.close()
             clientSocket.close()
         }
-        let signFunc: KeylessSignCallback = mocksign
-        let decryptFunc: KeylessDecryptCallback = mockDecrypt
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let signFunc: KeylessSignFunc = mocksign
+        let decryptFunc: KeylessDecryptFunc = mockDecrypt
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper(startClientHandshake)
@@ -450,9 +450,9 @@ class Test_TLS_Keyless_ECC_Server_TLS_1_3 {
             tlsClient.close()
             clientSocket.close()
         }
-        let signFunc: KeylessSignCallback = mocksign
-        let decryptFunc: KeylessDecryptCallback = mockDecrypt
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let signFunc: KeylessSignFunc = mocksign
+        let decryptFunc: KeylessDecryptFunc = mockDecrypt
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper(startClientHandshake)
@@ -528,9 +528,9 @@ class Test_TLS_Keyless_RSA_Server_TLS_1_2 {
             tlsClient.close()
             clientSocket.close()
         }
-        let signFunc: KeylessSignCallback = mocksign
-        let decryptFunc: KeylessDecryptCallback = mockDecrypt
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let signFunc: KeylessSignFunc = mocksign
+        let decryptFunc: KeylessDecryptFunc = mockDecrypt
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper(startClientHandshake)
@@ -553,9 +553,9 @@ class Test_TLS_Keyless_RSA_Server_TLS_1_2 {
             tlsClient.close()
             clientSocket.close()
         }
-        let signFunc: KeylessSignCallback = mocksign
-        let decryptFunc: KeylessDecryptCallback = mockDecrypt
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let signFunc: KeylessSignFunc = mocksign
+        let decryptFunc: KeylessDecryptFunc = mockDecrypt
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper(startClientHandshake)
@@ -579,9 +579,9 @@ class Test_TLS_Keyless_RSA_Server_TLS_1_2 {
             clientSocket.close()
         }
 
-        let signFunc: KeylessSignCallback = mocksign
-        let decryptFunc: KeylessDecryptCallback = mockDecrypt
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let signFunc: KeylessSignFunc = mocksign
+        let decryptFunc: KeylessDecryptFunc = mockDecrypt
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper(startClientHandshake)
@@ -604,9 +604,9 @@ class Test_TLS_Keyless_RSA_Server_TLS_1_2 {
             tlsClient.close()
             clientSocket.close()
         }
-        let signFunc: KeylessSignCallback = mocksign
-        let decryptFunc: KeylessDecryptCallback = mockDecrypt
-        let config = KeylessTlsServerConfig(certificate, signFunc, keylessDecryptCallback: decryptFunc)
+        let signFunc: KeylessSignFunc = mocksign
+        let decryptFunc: KeylessDecryptFunc = mockDecrypt
+        let config = KeylessTlsServerConfig(certificate, signFunc, decryptCallback: decryptFunc)
         let f = serverWrapper(config)
         sleep(Duration.millisecond * 100)
         clientWrapper(startClientHandshake)

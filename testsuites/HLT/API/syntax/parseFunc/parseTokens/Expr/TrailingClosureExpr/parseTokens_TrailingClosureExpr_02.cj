@@ -19,8 +19,8 @@ func test_TrailingClosureExpr_02() {
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
 
     var expr_1: TrailingClosureExpr = (sourceNode as TrailingClosureExpr).getOrThrow()
-    @Expect(expr_1.toString(), ##"foo  < T > { i * i }"##)
+    @Expect(expr_1.toString(), ##"foo < T > { i * i }"##)
     @Assert(expr_1.arguments.size, 0)
-    @Expect(expr_1.callee.toString(), ##"foo  < T >"##)
+    @Expect(expr_1.callee.toString(), ##"foo < T >"##)
     @Assert(expr_1.trailingLambdaExpr.toString(), ##"{ i * i }"##)
 }

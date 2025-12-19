@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package com.pkg2
+package com::pkg2
 
 import abc.edf.*
 import std.reflect.*

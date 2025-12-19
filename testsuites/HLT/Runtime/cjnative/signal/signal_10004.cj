@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: sig.c sigcxx.cpp sigcxx.h
-// (not Windows) EXEC: %clang++ -c %clang_opt sigcxx.cpp -o lib%n.cpp.cfile.%dylib_suffix
-// (not Windows) EXEC: %clang -c %clang_opt sig.c -o lib%n.c.cfile.%dylib_suffix
+// (not Windows) EXEC: %clang++ -c %clang_opt sigcxx.cpp -o lib%n.cpp.cfile.%cffi_suffix
+// (not Windows) EXEC: %clang -c %clang_opt sig.c -o lib%n.c.cfile.%cffi_suffix
 // (not Windows) EXEC: %compiler -L. -l%n.c.cfile -l%n.cpp.cfile %f %cmp_opt -o %output
 // (not Windows) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT:scan signal success 2

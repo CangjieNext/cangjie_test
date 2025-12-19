@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @protocol I
-@property (assign) int64_t p1;
-@property (readonly) int64_t p2;
+@property (readwrite) int64_t p1;
+@property (readwrite) int64_t p2;
 - (void)f1;
 @required
 - (void)f2;
@@ -23,6 +23,6 @@
 - (id)init:(int64_t)a;
 - (void)f1;
 - (void)f3;
-@property (assign) int64_t p1;
+@property (readwrite) int64_t p1;
 
 @end

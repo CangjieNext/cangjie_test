@@ -49,7 +49,7 @@ func test_MemberAccess_01() {
     @Assert(expr_4.field.toString(), "b1")
 
     var expr_5 = (res_5.node.getOrThrow() as MemberAccess).getOrThrow()
-    @Assert(expr_5.base.toString(), "a  < T >()")
+    @Assert(expr_5.base.toString(), "a < T >()")
     @Assert(expr_5.field.toString(), "b1")
 
     var expr_6 = (res_6.node.getOrThrow() as MemberAccess).getOrThrow()

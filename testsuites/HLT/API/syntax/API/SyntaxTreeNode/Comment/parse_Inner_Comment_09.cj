@@ -58,7 +58,7 @@ main(/* block comment1 */ args: Array<String>) // line comment1
     }
 
     let lamb1 = { /* block comment2 */ => }
-    let lamb2 = { /* block comment2 */ a => 
+    let lamb2 = { /* block comment2 */ a =>
         a + 1 // line comment9
     }
     let lamb3 = { /* block comment3 */ a: Int64, /* block comment4 */ b: Int64 => // line comment10

@@ -6,9 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package abc.cde
+package abc::cde
 
-import com.pkga.*
+import com::pkga.*
 import std.reflect.*
 
 public class DownStreamTypeInheritingUpStreamChild <: UpStreamChild<Float64> {

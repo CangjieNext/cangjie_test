@@ -18,5 +18,4 @@ extend<T> A<T> /* block comment1 */ where T <: I1 {
             // line comment3
         }
     }
-    
 } // line comment4

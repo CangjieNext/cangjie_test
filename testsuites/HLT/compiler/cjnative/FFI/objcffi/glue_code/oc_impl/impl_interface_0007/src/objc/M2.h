@@ -17,6 +17,6 @@
 - (id)init;
 - (id<I>)g1;
 - (void)g2:(id<I>)a;
-@property (assign) id<I> p;
+@property (readwrite) id<I> p;
 
 @end

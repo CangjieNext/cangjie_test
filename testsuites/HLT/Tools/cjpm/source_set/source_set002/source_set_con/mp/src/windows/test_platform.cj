@@ -6,14 +6,14 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features user.mp.windowsorlinux
+features { user.mp.windowsorlinux }
 package mp
 
 public platform func f1(): Int64 {
     0
 }
 
-@When[cjc_version >= "0.60.4"]
+@When[cjc_version >= "0.0.1"]
 public platform func f2(): Int64 {
     1
 }

@@ -54,7 +54,7 @@ class Test_loadFromPaths {
         try {
             let zone = TimeZone.loadFromPaths("", tzpath)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Invalid timezone id.")
+            @Assert(e.message.contains("Invalid timezone id"))
             flag = true
         }
         @Expect(flag, true)
@@ -68,7 +68,7 @@ class Test_loadFromPaths {
         try {
             let zone = TimeZone.loadFromPaths(id, tzpath)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Invalid timezone id.")
+            @Assert(e.message.contains("Invalid timezone id"))
             flag = true
         }
         @Expect(flag, true)

@@ -13,7 +13,7 @@ import objc.lang.*
 @ObjCImpl
 public class A <: M {
     public func test() {
-        var m = M.f(M(1))
-        println("a: ${m.a}")
+        var a = M.f(M(1))
+        println("a: ${a}")
     }
 }

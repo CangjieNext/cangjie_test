@@ -39,3 +39,6 @@
   "org2::pro0" = {path = "pro0"}
   pro1 = {path = "pro1"}
 
+[target.aarch64-linux-ohos.dependencies]
+  "org2::pro0" = {path = "pro0"}
+  pro1 = {path = "pro1"}

@@ -24,7 +24,7 @@ func test_MainDecl_02() {
     var mainDecl = (sourceNode as MainDecl).getOrThrow()
     @Assert(mainDecl.body.nodes.size, 1)
     @Assert(mainDecl.params.params.size, 1)
-    @Assert(mainDecl.params.params[0].toString(), "args: Array  < String >")
+    @Assert(mainDecl.params.params[0].toString(), "args: Array < String >")
     @Assert(mainDecl.retTyAnnotation.isNone())
     @Assert(mainDecl.modifiers.toString(), "[]")
 }

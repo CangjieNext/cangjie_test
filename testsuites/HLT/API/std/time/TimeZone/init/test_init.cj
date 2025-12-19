@@ -64,7 +64,7 @@ class Test_init {
         try {
             let zone = TimeZone("", Duration.Zero)
         } catch (e: IllegalArgumentException) {
-            @Assert(e.message, "Invalid timezone id.")
+            @Assert(e.message.contains("Invalid timezone id"))
             flag = true
         }
         @Assert(flag, true)

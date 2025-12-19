@@ -15,5 +15,7 @@ import stdx.syntax.*
 
 @Test
 func test_StaticInit_05() {
-    @AssertThrows[Exception](parseFile("./StaticInit_05.cj"))
+    let file = parseFile("./StaticInit_05.cj")
+    @Expect(file.node.isNone())
+    @Expect(file.diags.size > 0)
 }

@@ -16,5 +16,5 @@ import stdx.syntax.*
 @Test
 func test_dirpath_010() {
     let e = @AssertThrows[Exception](parsePackage("./dir003\0"))
-    @Assert(e.message, "IOException: The path cannot contain null character!")
+    @Assert(e.message.contains("contains null character"))
 }

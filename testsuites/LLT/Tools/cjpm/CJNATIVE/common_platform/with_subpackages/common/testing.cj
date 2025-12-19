@@ -4,6 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+@NonProduct
+features {}
 package testing
 
 import testing.utils.*

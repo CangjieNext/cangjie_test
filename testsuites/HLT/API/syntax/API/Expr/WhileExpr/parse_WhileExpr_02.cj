@@ -22,20 +22,20 @@ func test_WhileExpr_02() {
 
     let sourcefile: SourceFile = res.node.getOrThrow()
     @Assert(sourcefile.toString().contains(##"main() {
-    while (let a <- 1 && a > 0) {
-        print(a)
+    while (let a <- 1 && a > 0) { // ok
+        print(a) // ok
         break
     }
 }"##))
 
     var mainDecl: MainDecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
     var expr_1: WhileExpr = (mainDecl.body.nodes[0] as WhileExpr).getOrThrow()
-    @Assert(expr_1.toString(), ##"while (let a <- 1 && a > 0) {
-        print(a)
+    @Assert(expr_1.toString(), ##"while (let a <- 1 && a > 0) { // ok
+        print(a) // ok
         break
     }"##)
-    @Assert(expr_1.body.toString(), ##"{
-        print(a)
+    @Assert(expr_1.body.toString(), ##"{ // ok
+        print(a) // ok
         break
     }"##)
     @Assert(expr_1.condition.toString(), ##"let a <- 1 && a > 0"##)

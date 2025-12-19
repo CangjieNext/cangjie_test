@@ -8,8 +8,8 @@
 
 // LEVEL: 1
 // DEPENDENCE: define_macro.cj
-// EXEC: %compiler %cmp_macro define_macro.cj
-// EXEC: %compiler %cmp_opt %compile_dylib_opt  %f -o %output
+// (not iOS) EXEC: %compiler %cmp_macro define_macro.cj
+// (not iOS) EXEC: %compiler %cmp_opt %compile_dylib_opt  %f -o %output
 
 macro package test
 

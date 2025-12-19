@@ -25,7 +25,7 @@ public interface I1<T> <: S1<T> where T <: I2<T> {
     var interfaceDecl: InterfaceDecl = (sourceNode as InterfaceDecl).getOrThrow()
     interfaceDecl.toString() |> println
     @Expect(interfaceDecl.toString(), ##"@Deprecated["aaa"]
-public interface I1  < T > <: S1  < T > where T <: I2  < T > {
+public interface I1 < T > <: S1 < T > where T <: I2 < T > {
     mut prop p1: Int64
     func foo(): Int64
 }"##)
@@ -37,11 +37,11 @@ public interface I1  < T > <: S1  < T > where T <: I2  < T > {
 
     @Assert(interfaceDecl.name, "I1")
     @Assert(interfaceDecl.genericConstraints.isSome())
-    @Assert(interfaceDecl.genericConstraints.getOrThrow().toString(), "where T <: I2  < T >")
+    @Assert(interfaceDecl.genericConstraints.getOrThrow().toString(), "where T <: I2 < T >")
     @Assert(interfaceDecl.genericParams.size, 1)
     @Assert(interfaceDecl.genericParams[0].toString(), "T")
     @Assert(interfaceDecl.superTyAnnotations.size, 1)
-    @Assert(interfaceDecl.superTyAnnotations[0].toString(), "S1  < T >")
+    @Assert(interfaceDecl.superTyAnnotations[0].toString(), "S1 < T >")
     @Assert(interfaceDecl.annotations.size, 1)
     @Assert(interfaceDecl.annotations[0].toString(), ##"@Deprecated["aaa"]"##)
 }

@@ -82,7 +82,7 @@ class BaseTest {
             TimeZone("", (7 * Duration.hour) + (30 * Duration.minute))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
     }
 

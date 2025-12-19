@@ -1,4 +1,5 @@
-features os.Harmony, os.Mac, os.Linux
+@NonProduct
+features { os.Harmony, os.Mac, os.Linux }
 package src
 public let a = "a"
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

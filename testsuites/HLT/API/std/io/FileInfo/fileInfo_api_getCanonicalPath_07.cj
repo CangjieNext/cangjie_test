@@ -19,7 +19,8 @@ main() {
         var file: FileInfo = FileInfo(path)
         var result = canonicalize(file.path).toString()
     } catch (e: FSException | IllegalArgumentException) {
-        if (e.toString().contains("The path cannot be empty")) {
+        println(e.toString())
+        if (e.toString().contains("The input path is empty")) {
             return 0
         }
         return 2

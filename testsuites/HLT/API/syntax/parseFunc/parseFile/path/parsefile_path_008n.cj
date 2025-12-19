@@ -16,5 +16,5 @@ import stdx.syntax.*
 @Test
 func test_filepath_008() {
     let e = @AssertThrows[Exception](parseFile(""))
-    @Assert(e.message, "IOException: The `rawPath` cannot be an empty string!")
+    @Assert(e.message.contains("IOException: The input path is empty"))
 }

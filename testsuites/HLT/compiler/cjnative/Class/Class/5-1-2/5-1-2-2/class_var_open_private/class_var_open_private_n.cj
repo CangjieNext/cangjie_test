@@ -15,5 +15,5 @@ package class_var_open_private
 class Data <: Base {
     public var res: Int64 = one
 }
-// ASSERT: scan sema_missing_entry
-// ASSERT: scan sema_invalid_access_control
+// (not iOS) ASSERT: scan sema_missing_entry
+// ASSERT: scan sema_undeclared_identifier

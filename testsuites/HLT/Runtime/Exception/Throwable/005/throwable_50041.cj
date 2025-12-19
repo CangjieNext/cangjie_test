@@ -8,9 +8,11 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: regex default.*C.*test
-// (not O2) ASSERT: scan throwable_50041.cj:20
+// (not iOS) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOS) ASSERT: scan Init Image fail!
+// (not iOS) ASSERT: regex default.*C.*test
+// (not O2 and not iOS) ASSERT: scan throwable_50041.cj:22
 class A <: Exception {}
 
 class B <: Exception {}

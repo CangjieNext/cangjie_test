@@ -12,10 +12,8 @@ extend Int64 {
 
 main() {
     if (true) {
-        return 0x1.
-        foo()
+        return 0x1.foo()
     } else {
-        return 0X1.
-        foo()
+        return 0X1.foo()
     }
 }

@@ -16,5 +16,5 @@ import stdx.syntax.*
 @Test
 func test_dirpath_009() {
     let e = @AssertThrows[Exception](parsePackage(""))
-    @Assert(e.message, "IOException: The path cannot be empty!")
+    @Assert(e.message.contains("IOException: The input path is empty"))
 }

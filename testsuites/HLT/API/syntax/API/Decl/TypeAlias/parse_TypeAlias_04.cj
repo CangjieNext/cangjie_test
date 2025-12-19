@@ -15,5 +15,7 @@ import stdx.syntax.*
 
 @Test
 func test_TypeAlias_04() {
-    @AssertThrows[Exception](parseFile("./TypeAlias_04.cj"))
+    let file = parseFile("./TypeAlias_04.cj")
+    @Expect(file.node.isNone())
+    @Expect(file.diags.size > 0)
 }

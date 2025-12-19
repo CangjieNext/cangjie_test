@@ -6,5 +6,5 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm -v aaa 2>&1 | compare %f
-// ASSERT: scan Cangjie Package Manager
+// ASSERT: scan Cangjie Project Manager
 // ASSERT: scan cjpm doesn't do job in show usage mode

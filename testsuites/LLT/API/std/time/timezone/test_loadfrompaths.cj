@@ -74,7 +74,7 @@ class LoadFromPathsTest {
             TimeZone.loadFromPaths("", [zoneinfoPath])
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
 
         try {
@@ -88,7 +88,7 @@ class LoadFromPathsTest {
             TimeZone.loadFromPaths(longStr + "a", [zoneinfoPath])
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
 
         try {

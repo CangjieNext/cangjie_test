@@ -15,5 +15,7 @@ import stdx.syntax.*
 
 @Test
 func test_ExtendDecl_02() {
-    @AssertThrows[Exception](parseFile("./ExtendDecl_02.cj"))
+    let file= parseFile("./ExtendDecl_02.cj")
+    @Expect(file.node.isNone())
+    @Expect(file.diags.size > 0)
 }

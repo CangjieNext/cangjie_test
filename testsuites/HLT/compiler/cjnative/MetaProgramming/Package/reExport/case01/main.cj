@@ -8,10 +8,10 @@
 
 // LEVEL: 2
 // DEPENDENCE: define.cj common.cj
-// EXEC: %compiler %cmp_opt %compile_lib_opt common.cj -o common.%middle
-// EXEC: %compiler %cmp_opt %cmp_macro define.cj common.%middle
-// EXEC: %compiler %cmp_opt %f common.%middle -o %output
-// RUN-EXEC: %run %run_opt %output %run_args
+// (not iOS) EXEC: %compiler %cmp_opt %compile_lib_opt common.cj -o common.%middle
+// (not iOS) EXEC: %compiler %cmp_opt %cmp_macro define.cj common.%middle
+// (not iOS) EXEC: %compiler %cmp_opt %f common.%middle -o %output
+// (not iOS) RUN-EXEC: %run %run_opt %output %run_args
 import M.*
 
 main() {

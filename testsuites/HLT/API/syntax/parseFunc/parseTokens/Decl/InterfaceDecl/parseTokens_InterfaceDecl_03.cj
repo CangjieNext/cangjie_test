@@ -20,19 +20,19 @@ func test_InterfaceDecl_03() {
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
 
     var interfaceDecl: InterfaceDecl = (sourceNode as InterfaceDecl).getOrThrow()
-    @Expect(interfaceDecl.toString(), ##"protected interface I1  < T, U > <: I2 & I3  < T > where T <: C1  < T, Int64 >, U <: C2 & C3  < T > & ToString {
+    @Expect(interfaceDecl.toString(), ##"protected interface I1 < T, U > <: I2 & I3 < T > where T <: C1 < T, Int64 >, U <: C2 & C3 < T > & ToString {
 }"##)
     @Assert(interfaceDecl.body.memberDecls.size, 0)
 
     @Assert(interfaceDecl.name, "I1")
     @Assert(interfaceDecl.genericConstraints.isSome())
-    @Assert(interfaceDecl.genericConstraints.getOrThrow().toString(), "where T <: C1  < T, Int64 >, U <: C2 & C3  < T > & ToString")
+    @Assert(interfaceDecl.genericConstraints.getOrThrow().toString(), "where T <: C1 < T, Int64 >, U <: C2 & C3 < T > & ToString")
     @Assert(interfaceDecl.genericParams.size, 2)
     @Assert(interfaceDecl.genericParams[0].toString(), "T")
     @Assert(interfaceDecl.genericParams[1].toString(), "U")
     @Assert(interfaceDecl.superTyAnnotations.size, 2)
     @Assert(interfaceDecl.superTyAnnotations[0].toString(), "I2")
-    @Assert(interfaceDecl.superTyAnnotations[1].toString(), "I3  < T >")
+    @Assert(interfaceDecl.superTyAnnotations[1].toString(), "I3 < T >")
     @Assert(interfaceDecl.annotations.size, 0)
     @Assert(interfaceDecl.modifiers.toString(), ##"[protected]"##)
 }

@@ -165,13 +165,10 @@ compiler/Plugins/IRCheck/FoundError/found_error.cj
 API/std/runtime/test_signal.cj
 API/std/runtime/test_signal_unregister.cj
 API/std/runtime/test_signal_unregister_oneSig.cj
-API/stdx/net/tls/keyless/test_keyless_config.cj
-API/stdx/net/tls/keyless/test_keyless_handshake.cj
 API/stdx/net/tls/redesign/close_concur.cj
 compiler/CJMP/java/integration/config-struct-public-func-hidden/config-struct-public-func-hidden.info
 compiler/CJMP/java/integration/config-struct-public-struct-hidden/config-struct-public-func-hidden.info
 compiler/CJMP/java/integration/non-public-class-without-override/non-public-class-without-override.info
 compiler/CJMP/java/integration/non-public-enum/non-public-enum.info
 compiler/CJMP/java/integration/non-public-struct/non-public-struct.info
-compiler/Driver/options/help/test_showall.cj
 compiler/Sema/this/thisfuncchain.cj

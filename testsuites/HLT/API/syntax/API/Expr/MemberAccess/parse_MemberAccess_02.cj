@@ -15,5 +15,7 @@ import stdx.syntax.*
 
 @Test
 func test_MemberAccess_02() {
-    @AssertThrows[Exception](parseFile("./MemberAccess_02.cj"))
+    let file = parseFile("./MemberAccess_02.cj")
+    @Expect(file.node.isNone())
+    @Expect(file.diags.size > 0)
 }

@@ -6,4 +6,4 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-extend ArrayList <: PathElementValueListExpansion where T <: PathElementValue {}
+extend<T> ArrayList<T> <: PathElementValueListExpansion<T> where T <: PathElementValue {}

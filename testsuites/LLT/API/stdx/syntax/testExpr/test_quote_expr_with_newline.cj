@@ -63,3 +63,17 @@ func test_QuoteExpr_With_NewLine() {
     @Assert(_decl.params.toString(), "(input:Tokens)")
     @Assert(_decl.retTyAnnotation.getOrThrow().toString(), "Tokens")
 }
+
+@Test
+func test_QuoteExpr_With_ParseTokens() {
+    let x = quote(
+class A {
+    let x = 1
+}
+    )
+    let node = parseTokens(x).node.getOrThrow()
+    let tks = quote($(node))
+    @Assert(tks.toString(), ##"class A {
+    let x = 1
+}"##)
+}

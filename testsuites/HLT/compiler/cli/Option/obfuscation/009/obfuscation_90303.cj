@@ -13,7 +13,8 @@
 // (not O2) EXEC: cat default.obf.map | compare %f
 // ASSERT: regex .*default.*test_default.*
 // ASSERT: regex .*default.*global_default.*
-// ASSERT: regex .*default.*<main>.*
+// (not iOS) ASSERT: regex .*default.*<main>.*
+// (iOS) ASSERT: regex .*default.*cj_main.*
 
 public var global_default: Int64 = 1
 

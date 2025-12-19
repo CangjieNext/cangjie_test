@@ -4,4 +4,6 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+@NonProduct
+features {}
 package tests_in_source_sets

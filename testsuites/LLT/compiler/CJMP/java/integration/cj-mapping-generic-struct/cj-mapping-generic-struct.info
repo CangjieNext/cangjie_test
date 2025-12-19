@@ -3,15 +3,15 @@
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
- 
+
 // (CJNATIVE and not Windows) DEPENDENCE: ../%n
 // (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop %enable_java_cjmapping --import-interop-cj-package-config-path src/cj/config.toml --output-javagen-dir=src/java/cj
 // (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/com/java/lib/*.java src/java/cj/GenericStruct*.java -h ./ -d ./
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && %java %cp_cj_loader_java_interop -Djava.library.path./ com.java.lib.Main 2>& 1 | compare %f
- 
+
 /* SCAN-IN
 10.110000
-21.920000
+10.110000
 20
-35
+20
 */

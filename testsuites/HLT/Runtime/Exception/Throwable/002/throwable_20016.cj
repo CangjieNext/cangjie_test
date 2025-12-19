@@ -8,11 +8,13 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan-not before!
-// (not (CJNATIVE and O2)) ASSERT: regex init
-// (not (CJNATIVE and O2)) ASSERT: regex default.*B
-// (not O2) ASSERT: scan throwable_20016.cj:23
+// (not iOS) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOS) ASSERT: scan Init Image fail!
+// (not iOS) ASSERT: scan-not before!
+// (not (CJNATIVE and O2) and not iOS) ASSERT: regex init
+// (not (CJNATIVE and O2) and not iOS) ASSERT: regex default.*B
+// (not O2 and not iOS) ASSERT: scan throwable_20016.cj:25
 
 class A <: Exception {}
 
