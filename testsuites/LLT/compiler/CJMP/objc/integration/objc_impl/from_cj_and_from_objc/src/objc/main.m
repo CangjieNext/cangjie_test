@@ -4,11 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (CJNATIVE and not Windows) EXEC-PIPE-1: %frontendCompiler %cmp_opt %diag_json %f -o %output %compile_shared_lib_opt 2>& 1 | compare %f
-// ASSERT: scan parse_objc_impl_cannot_be_open
+#import "A.h"
+#import <Foundation/Foundation.h>
 
-@ObjCMirror
-open class M {}
-
-@ObjCImpl
-open class I <: M {}
+int main(int argc, char** argv) {
+    @autoreleasepool {
+        printf("objc: main\n");
+        A* a = [[A alloc] init];
+        printf("objc: main end\n");
+    }
+    return 0;
+}
