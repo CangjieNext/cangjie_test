@@ -4,22 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
+package cjworld
 
-// ASSERT: scan error: @ObjCImpl class cannot be open
 import objc.lang.*
-
-@ObjCImpl
-public class K <: N {
-    init() {}
-}
-
-@ObjCImpl
-public open class N <: M {
-    init() {}
-}
 
 @ObjCMirror
 public open class M {
-    init()
+    public var a: Int64
+    public var b: Float64
+    @ForeignName["initWithA:andB:"]
+    init(a: Int64, b: Float64)
 }

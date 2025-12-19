@@ -16,7 +16,7 @@ public class A <: M {
     }
 
     private static var primitiveField: Int64 = 0
-    public prop primitive: Int64 { 
+    public prop primitive: Int64 {
         get() {
             print("c: A.primitive.get()\n", flush: true)
             value
