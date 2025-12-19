@@ -28,33 +28,13 @@ API/std/process/darwin
 API/std/process/unix
 API/std/time/
 
-## objc (Assertion failed)
-compiler/CJMP/objc/integration/cstruct
-compiler/CJMP/objc/integration/cstruct_pointer
-
 ## @C-struct tests are disabled for now as currently LLVM IR generated for functions returning structs is invalid for darwin-aarch64 platform
 compiler/CJMP/objc/sema/objc_cstruct_impl.cj
 compiler/CJMP/objc/sema/objc_struct_illegal.cj
-
-## objc (no @ForeignName checks)
-compiler/CJMP/objc/sema/foreign_name/objc_impl_ctor_with_params_no_foreign_name.cj
-
-## objc (omit @ForeignName for func members with one argument)
-compiler/CJMP/objc/parser/class/objc_impl/ctor.cj
 
 ## objc (no named arguments checks)
 compiler/CJMP/objc/sema/objc_impl/ctor_args_named.cj
 compiler/CJMP/objc/sema/objc_impl/ctor_arg_default.cj
 
-## objc (no calls to super)
-compiler/CJMP/objc/integration/mirror_super
-
-# objc (no calls to super)
-compiler/CJMP/objc/integration/mirror_super/
-
-## objc (incorrect constructors merging between mirror <: impl & super calls in impls are not implemented)
-compiler/CJMP/objc/integration/objc_impl/ctor_super
-
-## objc (no working @ForeignName checks for constructors and methods in @ObjCImpl)
-compiler/CJMP/objc/sema/objc_impl_illegal_missing_foreigname_ctor.cj
-compiler/CJMP/objc/sema/objc_impl_illegal_missing_foreigname_method.cj
+## objc (incorrect constructors merging between mirror <: impl)
+#compiler/CJMP/objc/integration/objc_impl/ctor_super
