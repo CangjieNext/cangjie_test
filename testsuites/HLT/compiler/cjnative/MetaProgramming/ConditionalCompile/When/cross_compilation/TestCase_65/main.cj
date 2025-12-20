@@ -10,26 +10,28 @@
 // Description:
 // DEPENDENCE: main.cj
 // EXEC: %compiler %cmp_opt main.cj -o %output
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
-// (MAC and not OHOS) ASSERT: scan positive
-// (Windows and not OHOS) ASSERT: scan negative
-// (not Windows and not MAC and not OHOS and arm) ASSERT: scan negative
-// (not Windows and not MAC and not OHOS and x86) ASSERT: scan negative
-// (OHOS) ASSERT: scan negative
+// (MAC and arm and not OHOS and not Android and not iOS) RUN-EXEC-1: %run %run_opt %output %run_args
+// (MAC and x86 and not OHOS and not Android and not iOS) RUN-EXEC-1: %run %run_opt %output %run_args
+// (iOS and arm and not OHOS) RUN-EXEC-1: %run %run_opt %output %run_args
+// (iOS and x86 and not OHOS) RUN-EXEC-1: %run %run_opt %output %run_args
+// (Windows and not OHOS) RUN-EXEC-1: %run %run_opt %output %run_args
+// (not Windows and not MAC and not OHOS and arm) RUN-EXEC-1: %run %run_opt %output %run_args
+// (not Windows and not MAC and not OHOS and x86) RUN-EXEC-1: %run %run_opt %output %run_args
+// (OHOS) RUN-EXEC-1: %run %run_opt %output %run_args
 
 public open class P {
-    public open func foo(): Unit {
-        println("negative")
+    public open func foo(): Int64 {
+        1i64
     }
 }
 
 public class S <: P {
-    @When[os != "Linux" && arch != "x86_64" && env != "android"]
-    public func foo(): Unit {
-        println("positive")
+    @When[os == "Linux" && arch != "aarch64" && env == "ohos"]
+    public func foo(): Int64 {
+        0i64
     }
 }
 
-main(): Unit {
+main(): Int64 {
     S().foo()
 }
