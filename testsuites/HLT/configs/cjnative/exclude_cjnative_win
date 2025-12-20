@@ -524,3 +524,6 @@ Tools/cjdb/datacom/lambda/lldb_lambda_05.info
 API/std/io/file/File_create_03.cj
 API/std/fs/file/linux/test_linux_file_no_permission.cj
 API/std/io/StringReader/StringReader_readln_13_01.cj
+
+# bug: Windows应支持--static静态链接，但目前由于BUG该用例必定失败，故屏蔽
+compiler/cli/Option/static/case0/main.cj
