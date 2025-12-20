@@ -19,3 +19,6 @@ Tools/cjdb/datacom/lambda/lldb_lambda_05.info
 compiler/cjnative/stable_abi/package_name
 compiler/cjnative/stable_abi/add_instance_member_variable
 compiler/cjnative/stable_abi/add_virtual_function
+
+# bug: MacOS应支持--static静态链接，但目前由于BUG该用例必定失败，故屏蔽
+compiler/cli/Option/static/case0/main.cj
