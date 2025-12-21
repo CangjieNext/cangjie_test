@@ -18,5 +18,6 @@ struct C{
     public func foo2():Unit{
         common var a:Int32=1
     }
+    public init() {}
 }
 

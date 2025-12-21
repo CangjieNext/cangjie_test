@@ -11,6 +11,7 @@ package cmp
 public common struct A {
     private let b:Float32 = 0.1
     common func a(): Int32{0}
+    init() {}
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
@@ -19,7 +20,6 @@ public common struct A {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 public platform struct A{
-    init() {}
     platform func a(): Int32{0}
     func c(): Float32 {println(b);b}
 }

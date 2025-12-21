@@ -15,13 +15,13 @@ public common struct A {
     common prop b: Int32{
         get(){0}
     }
+    init() {}
 }
 // SEPARATE-FILE: p/p.cj
 // ERRCHECK: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan-2 sema_platform_has_different_modifier
 package cmp
 public platform struct A{
-    init() {}
     platform prop a:Int32 {
         get(){0}
     }

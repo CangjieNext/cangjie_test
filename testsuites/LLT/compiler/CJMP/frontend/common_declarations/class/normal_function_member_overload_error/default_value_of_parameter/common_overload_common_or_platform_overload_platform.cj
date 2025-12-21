@@ -12,6 +12,7 @@ package cmp
 common class A {
   public common func foo(input!: Int64 = 1): Unit
   public common func foo(input!: Int64): Unit
+  init() {}
 }
 
 

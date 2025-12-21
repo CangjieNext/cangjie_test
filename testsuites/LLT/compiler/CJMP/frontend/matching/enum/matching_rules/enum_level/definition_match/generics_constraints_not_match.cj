@@ -21,6 +21,4 @@ public platform enum RGBColor<T>where T<:O2 {
     RED(T) | GREEN(T) | BLUE(T)
 }
 
-/* SCAN
-error: 
-*/
+// ASSERT: scan error: the constraint of type parameter is not looser than parent's constraint

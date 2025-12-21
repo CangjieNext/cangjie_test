@@ -12,6 +12,7 @@ public abstract common class A{
     public abstract prop b: Int32 { get(){ 2 } } // error, `abstract` can have body
     public open prop c: Int32 { get(){ 2 } }  // ok, default function neither common nor abstract 
     public prop d: Int32 { get(){ 2 } } // ok, default function neither common nor abstract 
+    public init() {}
 }
 
 /* SCAN

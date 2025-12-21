@@ -13,5 +13,6 @@ public common struct A {
     common prop a: Int32 {
         common get(){0}
     }
+    A() {}
 }
 

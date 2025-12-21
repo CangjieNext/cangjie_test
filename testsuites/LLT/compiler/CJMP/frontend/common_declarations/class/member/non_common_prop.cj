@@ -20,6 +20,7 @@ common class Foo {
             a = value
         }
     }
+    init() {}
 }
 
 
