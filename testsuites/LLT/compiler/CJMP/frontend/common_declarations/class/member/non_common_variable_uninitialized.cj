@@ -12,6 +12,7 @@ package cmp
 
 public common class A0 {
     static let y0: String
+    init() {}
 }
 
 public common class B0 {
@@ -26,6 +27,7 @@ public common class C0 {
 
 public common class A1 {
     let y3: String
+    init() {}
 }
 
 public common class B1 {

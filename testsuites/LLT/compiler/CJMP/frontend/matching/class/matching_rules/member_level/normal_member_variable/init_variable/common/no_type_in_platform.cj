@@ -9,6 +9,7 @@
 package cmp
 
 public common class A {
+    init(){}
     public common var a:Int32
 }
 // SEPARATE-FILE: p/p.cj
@@ -18,5 +19,4 @@ public common class A {
 package cmp
 public platform class A{
     public platform var a=1
-    init(){}
 }

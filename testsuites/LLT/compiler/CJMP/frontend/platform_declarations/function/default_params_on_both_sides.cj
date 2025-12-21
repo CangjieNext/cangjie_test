@@ -11,7 +11,7 @@ package cmp
 public common func testFunc1(x!: Int64 = 10, y!: String = "common"): String
 
 common class A{
-  public common func testFunc2(a: Int64, b!: Float64 = 3.14): Float64
+  public common func testFunc2(a: Int64, b!: Float64 = 3.14): Float64; init() {}
 }
 
 // SEPARATE-FILE: p/p.cj

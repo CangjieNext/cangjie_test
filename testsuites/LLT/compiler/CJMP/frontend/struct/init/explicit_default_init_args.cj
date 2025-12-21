@@ -13,6 +13,7 @@ public common struct A {
     public common init(x: Int64) {
         println("[common] A.init(${x})")
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj

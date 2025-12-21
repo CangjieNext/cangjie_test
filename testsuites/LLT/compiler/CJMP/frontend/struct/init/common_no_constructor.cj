@@ -9,7 +9,7 @@
 // ASSERT: scan sema_no_match_constructor
 package cmp
 
-public common struct A {}
+public common struct A { private init(v: Int64) { println(v) } }
 
 func useA() {
     let a = A()

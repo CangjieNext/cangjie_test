@@ -14,7 +14,7 @@ common interface B {
 
 public common class A <: B {
     func f() {}
-   
+    init() {}
 }
 
 /* SCAN

@@ -10,4 +10,5 @@ package cmp
 
 public abstract class A {
     public open func b(): Int // it's correct combination. spec 6.1.2.4 Member functions in the class
+    public init() {}
 }

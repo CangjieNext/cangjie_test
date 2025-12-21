@@ -11,7 +11,9 @@ package cmp
 interface SuperI {}
 interface I <: SuperI {}
  
-common class A<T> {}
+common class A<T> {
+    init() {}
+}
 
 common class B<T> {
     common func f(item: T): T {
@@ -19,10 +21,15 @@ common class B<T> {
         return item
     }
     func f2(item: T) { f(item) }
+    init() {}
 }
 
-common class C<T> where T <: I {} 
-common class D<T> where T <: I {} 
+common class C<T> where T <: I {
+    init() {}
+} 
+common class D<T> where T <: I {
+    init() {}
+} 
  
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output 

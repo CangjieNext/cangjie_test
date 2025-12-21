@@ -11,5 +11,6 @@ package cmp
 
 public class A {
     common func a():Int{0}
+    public init() {}
 }
 
