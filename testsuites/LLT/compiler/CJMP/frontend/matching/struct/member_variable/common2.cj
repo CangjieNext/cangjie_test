@@ -10,13 +10,13 @@ package cmp
 
 public common struct A {
     common let a: Int32
+    init() {}
 }
 // SEPARATE-FILE: p/p.cj
 // ERRCHECK: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan sema_platform_has_different_type
 package cmp
 public platform struct A{
-    init() {}
     platform let a: Float32 = 1.0
 }
 

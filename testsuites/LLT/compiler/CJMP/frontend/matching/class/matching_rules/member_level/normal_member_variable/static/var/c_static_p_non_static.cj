@@ -10,6 +10,7 @@ package cmp
 
 public common class A {
     static common var a:Int = 1
+    init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -18,7 +19,6 @@ public common class A {
 package cmp
 
 public platform class A {
-    init(){}
     platform var a:Int = 1
 }
 

@@ -9,19 +9,19 @@
 package cmp
 interface interfaceA {}
 interface interfaceB {}
-public common open class A <: interfaceA {
+public common open class A <: interfaceA { init() {}
 }
 
-public common open class B <: interfaceA {
+public common open class B <: interfaceA { init() {}
 }
 
-public common class C <: interfaceA & interfaceB {
+public common class C <: interfaceA & interfaceB { init() {}
 }
 
-public common class D <: interfaceA & interfaceB {
+public common class D <: interfaceA & interfaceB { init() {}
 }
 
-public common class E <: A {
+public common class E <: A { init() {}
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
@@ -29,22 +29,17 @@ public common class E <: A {
 package cmp
 
 public platform open class A <: interfaceB {
-   init(){}
 }
 
 public platform open class B <: interfaceA & interfaceB {
-   init(){}
 }
 
 public platform class C <: interfaceA {
-   init(){}
 }
 
 public platform class D <: interfaceB & interfaceA {
-   init(){}
 }
 
 public platform class E <: B {
-   init(){}
 }
 

@@ -10,6 +10,7 @@ package cmp
 
 common struct A {
   public common func foo(): Int32
+  init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -18,7 +19,6 @@ common struct A {
 package cmp
 
 platform struct A {
-  init(){}
   public platform func foo(): Unit {
     println("platform foo")
   }

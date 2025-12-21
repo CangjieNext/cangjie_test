@@ -14,9 +14,11 @@ common func foo<T>(): Unit{}
 
 common class A0 {
     common func foo<T>(): Unit{}
+    init() {}
 }
 
 common class A1<T> {
     common func foo(): Unit{}
+    init() {}
 }
 

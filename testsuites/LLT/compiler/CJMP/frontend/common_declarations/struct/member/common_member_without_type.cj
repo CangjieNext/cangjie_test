@@ -11,7 +11,8 @@
 
 package cmp
 
-common class Foo {
+common struct Foo {
     private common var a
     public common var b: Int = 1
+    init() {}
 }

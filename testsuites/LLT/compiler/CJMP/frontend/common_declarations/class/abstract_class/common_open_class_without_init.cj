@@ -6,12 +6,13 @@
 
 // SEPARATE-FILE: c/c.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
-// ASSERT: scan sema_common_open_class_no_init
-// ASSERT: scan sema_no_non_param_constructor_in_super_class
+// ASSERT: scan parse_cjmp_in_common_ctor_required
 package cmp
 
 // no error
-public common open class A { }
+public common open class A { 
+    public init() {}
+}
 
 // report error
 public common open class B { }

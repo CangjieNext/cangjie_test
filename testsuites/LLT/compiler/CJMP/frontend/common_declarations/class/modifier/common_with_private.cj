@@ -12,11 +12,11 @@ package cmp
 
 
 common class A {
-    common private let name:String
+    common private var name:String
     common init(name:String){
         this.name = name;
     }
-
+    init() {}
 }
 
 /* SCAN

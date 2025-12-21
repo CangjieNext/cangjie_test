@@ -10,6 +10,7 @@ package cmp
 
 common class A {
   public common func goo(input!: Int64=1): Int64
+  init() {}
 }
 
 

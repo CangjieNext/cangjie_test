@@ -10,6 +10,7 @@ package cmp
 
 public common class A {
     common static let a: String
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj

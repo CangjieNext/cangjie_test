@@ -8,7 +8,7 @@
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
 common struct A{
-    public common func foo(): Unit
+    public common func foo(): Unit; init() {}
 }
 
 

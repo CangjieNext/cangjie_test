@@ -10,7 +10,7 @@ package cmp
 public open class O1{}
 public open class O2{}
 public common class A <T> where T <: O1  {
-    
+   init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -18,7 +18,7 @@ public common class A <T> where T <: O1  {
 package cmp
 
 public platform class A <T> where T <: O2 {
-   init(){}
+
 }
 /* SCAN-IN
 error: 

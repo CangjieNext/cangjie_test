@@ -10,5 +10,6 @@
 // ASSERT: scan sema_no_match_constructor
 package cmp
 common struct C{
+    private init() {}
 }
 func new() { C() }
