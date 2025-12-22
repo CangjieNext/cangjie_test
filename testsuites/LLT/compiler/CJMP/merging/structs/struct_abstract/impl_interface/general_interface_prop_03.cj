@@ -13,5 +13,5 @@ package cmp
 public interface I1 {
     prop p: Int64
 }
-public common struct S1 <: I1 {}
+public common struct S1 <: I1 {init(){}}
 

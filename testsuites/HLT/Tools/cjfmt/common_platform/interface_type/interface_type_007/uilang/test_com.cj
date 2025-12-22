@@ -35,4 +35,5 @@ public common class MyInt <: Calculable {
     public common func div(other: Int64): Int64 {
         value / other
     }
+    public init() {}
 }

@@ -11,7 +11,7 @@ package cmp
 
 common interface I1 {}
 public common struct S2 <: I1 {
-
+  public init(){}
 }
 
 
@@ -21,7 +21,6 @@ public common struct S2 <: I1 {
 package cmp
 platform interface I1 {}
 public platform struct S2 <: I1 {
-  public init(){}
 }
 
 // SEPARATE-FILE: m_common.cj

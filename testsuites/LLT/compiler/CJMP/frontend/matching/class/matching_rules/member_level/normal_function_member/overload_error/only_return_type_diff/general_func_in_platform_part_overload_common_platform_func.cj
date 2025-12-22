@@ -10,6 +10,7 @@ package cmp
 
 common class A {
   public common func foo(input: Int64): Unit
+  init() {}
 }
 
 
@@ -19,7 +20,6 @@ common class A {
 package cmp
 
 platform class A {
-  init(){}
   public func foo(input: Int64): Int64 {0}
 
   public platform func foo(input: Int64): Unit {}

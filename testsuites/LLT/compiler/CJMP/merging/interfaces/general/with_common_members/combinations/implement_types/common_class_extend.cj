@@ -28,7 +28,7 @@ extend A <: I {
     public func foo7(): Unit { println("foo7 of A in common") }
 }
 
-common class B {}
+common class B {init() {}}
 
 public func runCommon() {
     let a = A()
@@ -57,7 +57,6 @@ public platform interface I {
 public platform class A {}
 
 platform class B {
-    public init() {}
 }
 
 extend B <: I {

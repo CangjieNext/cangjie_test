@@ -9,7 +9,7 @@
 package cmp
 
 public common class A {
-
+    public A() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -17,7 +17,6 @@ public common class A {
 package cmp
 
 public platform class A {
-    public A(){}
     public init(input:String){}
 }
 

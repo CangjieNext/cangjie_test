@@ -13,7 +13,9 @@ public common interface I<T> {
     func f(a:T): T { a }
 }
 
-public common class C {}
+public common class C {
+    public init() {}
+}
 
 common extend C <: I<Int64> {
     public common prop p: Int64 { get(){0} }

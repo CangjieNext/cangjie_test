@@ -6,8 +6,7 @@
 
 // SEPARATE-FILE: c/c.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
-// ASSERT: scan sema_cannot_assign_to_immutable
-// ASSERT: scan sema_common_static_let_cant_be_initialized_in_static_init
+// ASSERT: scan sema_common_assign_to_common_immutable_in_ctor
 package cmp
 
 public common class A {

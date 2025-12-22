@@ -9,10 +9,8 @@
 package cmp
 
 common struct A {
-    common let a: Int64
-    init(a: Int64) {
-        this.a = a
-    }
+    common let a: Int64 = 10
+    public init() {}
 }
 
 // SEPARATE-FILE: p/p.cj

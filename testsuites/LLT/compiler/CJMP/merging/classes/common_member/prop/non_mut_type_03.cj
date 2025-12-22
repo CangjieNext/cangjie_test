@@ -24,6 +24,7 @@ common class A {
             GeneralClass()
         }
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -34,7 +35,6 @@ common class A {
 package cmp
 
 platform class A {
-    init() {}
     platform prop testProp: GeneralClass {
         get() {
             println("platform")

@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0
+// LEVEL: 3
 // DEPENDENCE: mp reference ../../scripts/compare_html.py
 // EXEC: %compiler %cmp_opt --coverage mp/test_com.cj %compile_chir_opt -o ./
 // EXEC: %compiler %cmp_opt --coverage mp/test_plat.cj %compile_dylib_opt_cjmp -o ./

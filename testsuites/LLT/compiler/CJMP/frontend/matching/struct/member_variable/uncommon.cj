@@ -10,10 +10,10 @@ package cmp
 
 public common struct A {
     let a: Int32 = 0
+    init() {}
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p
 package cmp
 public platform struct A{
-    init() {}
 }

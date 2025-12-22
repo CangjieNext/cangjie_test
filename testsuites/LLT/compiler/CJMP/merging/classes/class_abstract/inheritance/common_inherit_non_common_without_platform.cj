@@ -10,7 +10,7 @@ package cmp
 
 
 public open  class C1 {
-
+    public init() {}
 }
 public common class C2 <: C1 {
     public init(){}

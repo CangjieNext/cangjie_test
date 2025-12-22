@@ -23,6 +23,7 @@ common struct A {
         }
         set(v) {}
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -33,7 +34,6 @@ common struct A {
 package cmp
 
 platform struct A {
-    init() {}
     platform func f(): Int64 {
         return 1
     }

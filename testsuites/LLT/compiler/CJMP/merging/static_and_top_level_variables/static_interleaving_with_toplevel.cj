@@ -22,6 +22,8 @@ public common class A {
     public static common let d: String = "1000"
 
     public static common let e: Int = 10000
+
+    public init() {}
 }
 
 func hoo() {
@@ -32,6 +34,7 @@ public common let f: Int = hoo()
 
 public common class B {
     public static common var g: Int = 1000000
+    public init() {}
 }
 
 public func printC() {

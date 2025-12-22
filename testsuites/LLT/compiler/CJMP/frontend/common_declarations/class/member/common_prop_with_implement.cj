@@ -18,7 +18,7 @@ public common class A {
             y=value
         }
     }
-
+    init() {}
    
 }
 /*SCAN

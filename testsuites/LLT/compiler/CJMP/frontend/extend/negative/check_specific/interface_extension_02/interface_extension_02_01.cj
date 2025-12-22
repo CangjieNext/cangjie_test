@@ -11,7 +11,7 @@ package cmp
 common interface I1 {}
 common interface I2 {}
 common interface I3 {}
-common class Foo{}
+common class Foo{ init() {} }
 
 common extend Foo <: I1 & I2 & I3 {}
 

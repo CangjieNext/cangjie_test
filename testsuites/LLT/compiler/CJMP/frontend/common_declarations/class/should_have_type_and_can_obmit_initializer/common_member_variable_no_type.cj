@@ -14,5 +14,6 @@ package cmp
 common class A {
     common let a = 1
     common var b = 1
+    init() {}
 }
 

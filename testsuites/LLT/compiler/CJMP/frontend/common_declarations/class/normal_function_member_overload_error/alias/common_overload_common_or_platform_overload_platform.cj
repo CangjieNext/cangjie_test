@@ -12,7 +12,7 @@ package cmp
 type Boolean = Bool
 common class A {
   public common func foo(input: Bool): Unit
-
+  init() {}
   public common func foo(input: Boolean): Unit
 }
 
