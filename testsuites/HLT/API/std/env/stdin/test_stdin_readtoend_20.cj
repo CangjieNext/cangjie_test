@@ -9,7 +9,7 @@
 // LEVEL: 0
 // DEPENDENCE: stdin_read.txt
 // EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
-// RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt %run_args < stdin_read.txt 2>&1
+// (not iOS) RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt %run_args < stdin_read.txt 2>&1
 
 import std.env.*
 

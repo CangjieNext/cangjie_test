@@ -130,7 +130,7 @@ class Test_Dir_Move_Copy {
             try {
                 copy(dirpaths[1], to: dirpaths[0], overwrite: true)
             } catch (e: FSException) {
-                @Expect(e.message, "Failed to copy `${dirpaths[1]}` to `${dirpaths[0]}`!")
+                @Expect(e.message, "Failed to copy sourceDirPath `${dirpaths[1]}` to destinationDirPath `${dirpaths[0]}`.")
                 sum += 1
             }
             @Expect(sum, 2)

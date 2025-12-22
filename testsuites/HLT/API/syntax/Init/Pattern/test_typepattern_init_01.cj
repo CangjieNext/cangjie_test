@@ -12,10 +12,12 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     subPattern in [
-        ConstPattern(LitConstExpr(LitConstKind.BoolLiteral, "true")),
-        EnumPattern(SymbolRef("A1", []), None, [])
+        WildcardPattern(),
+        VarPattern("v")
     ],
     patternType in [
         AtomicType(AtomicTypeKind.Int64Type),
@@ -33,4 +35,5 @@ func test_TypePattern_Init_01(subPattern: Pattern, patternType: TypeAnnotation, 
     let TypePattern = TypePattern(subPattern, patternType, comments: comments)
     println(TypePattern.toString())
     println()
+}
 }

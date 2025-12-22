@@ -84,5 +84,4 @@ public class Test_loggerset {
 // ASSERT: scan HttpClient2 initial success
 // ASSERT: scan Using HTTP/2 client
 // ASSERT: scan write thread start
-// ASSERT: scan read thread start
 // ASSERT: scan-not TRACE

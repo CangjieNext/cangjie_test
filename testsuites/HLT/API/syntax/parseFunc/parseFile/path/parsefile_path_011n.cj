@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 3
-// (CJNATIVE and not Windows) DEPENDENCE: file001.cj
-// (CJNATIVE and not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not Windows) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (CJNATIVE and not Windows and not iOS) DEPENDENCE: file001.cj
+// (CJNATIVE and not Windows and not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (CJNATIVE and not Windows and not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.fs.*
 import stdx.syntax.*

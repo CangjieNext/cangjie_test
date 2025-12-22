@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE: %run %run_opt %output @ % - _ = + [ ] { } : , . / %run_args | compare %f
+// (not iOS) RUN-EXEC-PIPE: %run %run_opt %output @ % - _ = + [ ] { } : , . / %run_args | compare %f
 // ASSERT: scan @ % - _ = + [ ] { } : , . /
 
 import std.process.*

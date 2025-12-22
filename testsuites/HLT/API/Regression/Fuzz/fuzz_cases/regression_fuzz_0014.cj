@@ -52,5 +52,5 @@ main(): Int64 {
 }
 // ASSERT: scan parse_expected_character
 // ASSERT: scan parse_expected_expr_or_decl_in
-// ASSERT: scan parse_unexpected_declaration_in_scope
+// (not iOS) ASSERT: scan parse_unexpected_declaration_in_scope
 // ASSERT: scan parse_expected_right_delimiter

@@ -8,14 +8,14 @@
 
 // LEVEL: 2
 // DEPENDENCE: Lambda_03.cj
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
 func test_Lambda_03() {
-    let file = parseFile("./Lambda_03.cj")
+    let file= parseFile("./Lambda_03.cj")
     @Expect(file.node.isNone())
     @Expect(file.diags.size > 0)
 }

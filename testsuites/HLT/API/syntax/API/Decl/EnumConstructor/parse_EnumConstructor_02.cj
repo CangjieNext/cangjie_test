@@ -15,5 +15,7 @@ import stdx.syntax.*
 
 @Test
 func test_EnumConstructor_02() {
-    @AssertThrows[Exception](parseFile("./EnumConstructor_02.cj"))
+    let file= parseFile("./EnumConstructor_02.cj")
+    @Expect(file.node.isNone())
+    @Expect(file.diags.size > 0)
 }

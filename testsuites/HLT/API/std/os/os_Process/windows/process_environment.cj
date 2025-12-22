@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE: echo_environment.sh
-// (not Windows) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows) RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
+// (not iOS and not Windows) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS and not Windows) RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
 // (not Windows) ASSERT: scan set_environment_success!
 import std.collection.*
 import std.posix.*

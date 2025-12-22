@@ -9,8 +9,8 @@
 // LEVEL: 2
 // DEPENDENCE: ./../../../asan
 // EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// EXEC-PIPE: %compiler %cmp_opt %n.cj asan.%middle -o %n.%suffix
-// RUN-EXEC-PIPE: %run %run_opt %n.%suffix %run_args
+// EXEC-PIPE: %compiler %cmp_opt %n.cj asan.%middle -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args
 // TIMEOUT: 1000
 
 import std.sync.*

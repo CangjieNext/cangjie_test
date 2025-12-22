@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %cmp_opt %use_ast %f -o %output
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// (not iOS) EXEC: %compiler %cmp_opt %use_ast %f -o %output
+// (not iOS) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // (Windows and not OHOS) ASSERT: regex description: newline, token_id: [0-9]*, token_literal_value: \\n, fileID: 1, line: 20, column: 14
 // (not Windows and not MAC or OHOS) ASSERT: regex description: newline, token_id: [0-9]*, token_literal_value: \\n, fileID: 1, line: 42, column: 14
 // (MAC and not OHOS)ASSERT: regex description: newline, token_id: [0-9]*, token_literal_value: \\n, fileID: 1, line: 64, column: 14
