@@ -10,8 +10,10 @@
 package cmp
 common class C{
     private common func foo():Unit
+    init() {}
 }
 common struct D{
     private common func foo():Unit
     public common func goo():Unit
+    init() {}
 }

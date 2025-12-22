@@ -8,6 +8,7 @@
 // EXEC-PIPE-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
 package cmp
 @C common struct C{
+    init() {}
 }
 /* SCAN
 */

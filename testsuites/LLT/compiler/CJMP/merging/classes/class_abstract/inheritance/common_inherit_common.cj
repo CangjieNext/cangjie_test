@@ -13,7 +13,7 @@ public open common class C1 {
   public init(){}
 }
 public common class C2 <: C1 {
-
+  public init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -23,7 +23,6 @@ package cmp
 public open platform class C1 {
 }
 public platform class C2 <: C1 {
-  public init(){}
 }
 
 // SEPARATE-FILE: m_common.cj

@@ -13,6 +13,7 @@ public common abstract class A {
     public abstract func b(): Int{0} // error, abstract can't have body
     public common abstract func c(): Int{0} // error, abstract can't have body
     public func d(): Int {0} // it has body, so it's simple function, neither common nor abstract
+    public init() {}
 }
 
 /* SCAN

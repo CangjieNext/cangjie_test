@@ -11,6 +11,7 @@ package cmp
 public common class A {
     public static let a: Int = 1
     public static let aa: Int = 11
+    public init(a_: Int64) {}
 }
 
 // SEPARATE-FILE: p/p.cj

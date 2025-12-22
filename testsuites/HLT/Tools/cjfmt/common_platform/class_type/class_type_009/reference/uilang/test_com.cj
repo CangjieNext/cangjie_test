@@ -11,7 +11,7 @@ package mp
 common public open class A {
     private var valueX = 0
     private static var valueY = 0
-
+    public init() {}
     common public open prop x: Int64
 
     common public static mut prop y: Int64
@@ -20,7 +20,7 @@ common public open class A {
 common public class B <: A {
     private var valueX2 = 0
     private static var valueY2 = 0
-
+    public init() { super() }
     common public override prop x: Int64
 
     common public static redef mut prop y: Int64

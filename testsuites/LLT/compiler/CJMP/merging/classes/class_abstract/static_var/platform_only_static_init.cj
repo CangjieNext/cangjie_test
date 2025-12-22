@@ -9,8 +9,7 @@
 package cmp
 
 public common class A {
-
-
+    public init(a: Int64) {}
 }
 
 // SEPARATE-FILE: p/p.cj

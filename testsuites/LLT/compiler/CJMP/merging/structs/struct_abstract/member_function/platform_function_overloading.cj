@@ -8,9 +8,7 @@
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
  public common struct A {
-    
-
-    
+    public init(){}
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
@@ -30,7 +28,6 @@ package cmp
         println(b)
 
     }
-    public init(){}
 
 }
 main() {

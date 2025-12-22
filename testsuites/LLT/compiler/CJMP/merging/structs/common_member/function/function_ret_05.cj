@@ -22,6 +22,7 @@ common struct A {
         println("common")
         GeneralEnumElemt
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -32,7 +33,6 @@ common struct A {
 package cmp
 
 platform struct A {
-    init() {}
     platform func testFunc(): GeneralEnum {
         println("platform")
         GeneralEnumElemt

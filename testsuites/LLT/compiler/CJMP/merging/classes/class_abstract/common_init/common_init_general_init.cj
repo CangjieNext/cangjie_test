@@ -9,7 +9,7 @@
 package cmp
 
 public common class A {
-    public let a:Int64
+    public var a:Int64
     public common init(){
         a = 0
     }

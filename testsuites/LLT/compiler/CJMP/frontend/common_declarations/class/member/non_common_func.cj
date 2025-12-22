@@ -10,7 +10,7 @@ package cmp
 
 public common class A {
     func f() {}
-   
+    init() {}
 }
 
 /* SCAN

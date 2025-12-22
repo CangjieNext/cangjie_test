@@ -12,7 +12,7 @@ public common class A {
     public common let a: Int = 10
     private let b: Int = a * 2
     public common let c: Int = b * 2
-    
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -22,7 +22,5 @@ package cmp
 
 public platform class A {
     public platform let a: Int = c * 2
-
-    init() {}
 }
 

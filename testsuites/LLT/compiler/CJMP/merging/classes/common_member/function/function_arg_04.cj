@@ -18,6 +18,7 @@ common class A {
     common func testFunc2(s: GeneralStruct): Unit {
         println("common")
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -28,7 +29,6 @@ common class A {
 package cmp
 
 platform class A {
-    init() {}
     platform func testFunc(s: GeneralStruct): Unit {
         println("platform")
     }

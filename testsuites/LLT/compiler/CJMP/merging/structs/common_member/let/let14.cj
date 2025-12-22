@@ -5,36 +5,11 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // SEPARATE-FILE: c/c.cj
-// EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
+// EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c
+// ASSERT: scan sema_class_uninitialized_field
 package cmp
 
 common struct A {
     common let a: Int64
-    init(a: Int64) {
-        this.a = a
-    }
+    init() {}
 }
-
-// SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
-// (CJNATIVE and Linux)RUN-EXEC-PIPE-0: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
-// (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
-// (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
-package cmp
-
-platform struct A {
-    platform let a: Int64
-    init() {
-        a = 0
-    }
-}
-
-main() : Unit {
-    println(A().a)
-    println(A(1).a)
-}
-
-/* SCAN
-0
-1
-*/

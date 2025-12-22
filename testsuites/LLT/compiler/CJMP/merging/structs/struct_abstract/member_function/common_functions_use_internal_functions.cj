@@ -9,6 +9,7 @@
 package cmp
 
  public common struct A {
+    public init(){}
 
 }
 
@@ -24,7 +25,6 @@ public platform struct A {
     internal func goo():Unit{
         println("from goo common")
    }
-    public init(){}
 }
 
 // SEPARATE-FILE: m_common.cj

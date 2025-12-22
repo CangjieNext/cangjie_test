@@ -10,12 +10,12 @@ package cmp
 
 public common struct A {
     common let a: Int32
+    init() {}
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 package cmp
 public platform struct A{
-    init() {}
     platform let a: Int32 = 1
 }
 /*SCAN

@@ -15,6 +15,7 @@ public enum B{
 }
 common class C {
     public common func foo(input: A): Unit
+    init() {}
 }
 
 
@@ -23,7 +24,6 @@ common class C {
 // ASSERT: scan-2 sema_not_matched
 package cmp
 platform class C {
-    init(){}
     public platform func foo(input: B): Unit {
         println("platform foo")
     }

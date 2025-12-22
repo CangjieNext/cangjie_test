@@ -12,6 +12,7 @@ public abstract common class A{
     public abstract prop b: Int32
     public common abstract prop c: Int32
     public prop d: Int32
+    public init() {}
 }
 
 /* SCAN

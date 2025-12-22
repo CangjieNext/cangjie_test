@@ -15,6 +15,7 @@ common struct A {
             println("common")
         }
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -25,7 +26,6 @@ common struct A {
 package cmp
 
 platform struct A {
-    init() {}
     platform func testFunc(f: () -> Unit): Unit {
         f()
     }
