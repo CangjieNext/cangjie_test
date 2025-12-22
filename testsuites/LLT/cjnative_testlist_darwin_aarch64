@@ -40,9 +40,6 @@ compiler/CJMP/objc/sema/objc_struct_illegal.cj
 compiler/CJMP/objc/sema/objc_impl/ctor_args_named.cj
 compiler/CJMP/objc/sema/objc_impl/ctor_arg_default.cj
 
-## objc (recursive ctor call)
-compiler/CJMP/objc/integration/impl_inherit_from_impl
-
 ## objc (weird parser fails)
 compiler/CJMP/objc/parser/class/objc_impl/can_be_open.cj
 compiler/CJMP/objc/parser/class/objc_impl/ctor.cj
