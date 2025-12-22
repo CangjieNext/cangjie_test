@@ -9,6 +9,7 @@
 package cmp
 common class A{
     public common func foo(): Unit
+    public init() {}
 }
 
 

@@ -12,6 +12,7 @@ common var x  = 1
 common var y = 33
 common class A {
     common public var a = 1
+    public init() {}
 }
 // SEPARATE-FILE: p.cj
 // EXEC-0: %compiler %noColor --experimental p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output

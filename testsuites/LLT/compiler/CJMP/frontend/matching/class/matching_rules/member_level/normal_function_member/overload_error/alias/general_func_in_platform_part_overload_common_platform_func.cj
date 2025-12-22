@@ -11,6 +11,7 @@ package cmp
 type Boolean = Bool
 common class A {
   public common func foo(input: Bool): Unit
+  init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -19,7 +20,6 @@ common class A {
 package cmp
 
 platform class A {
-  init(){}
   public func foo(input: Boolean): Unit {}
   public platform func foo(input: Bool): Unit {}
 }

@@ -7,7 +7,7 @@
 // case: a common class without explicit constructors and has instance is error
 // SEPARATE-FILE: c/c.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
-// ASSERT: scan sema_no_match_constructor
+// ASSERT: scan parse_cjmp_in_common_ctor_required
 package cmp
 common class C{
 }

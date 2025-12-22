@@ -9,7 +9,8 @@
 package cmp
 
 common struct A {
-    common let a: Int64
+    common let a: Int64 = 10
+    public init(a_: Int64) {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -25,4 +26,3 @@ platform struct A {
 main() : Unit {
     A()
 }
-

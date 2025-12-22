@@ -20,6 +20,7 @@ public common class A {
     // y -> x BUT x CAN BE INITIALIZED ONLY AFTER c.cj INITIALIZED,
     // SO, THERE IS CIRCULAR DEPENDENCY THAT CAN BE DETECTED ONLY WHEN COMPILING PLATFORM
     public static var y = x
+    public init() {}
 }
  
 // SEPARATE-FILE: p/p.cj

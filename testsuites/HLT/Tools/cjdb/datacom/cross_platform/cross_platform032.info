@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0
+// LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/cross_platform/cross_platform032/mp ../../basecase/cross_platform/cross_platform032/cross_platform032.cj
 // (CJNATIVE) EXEC: %compiler %cmp_opt -g mp/test_com.cj %compile_chir_opt -o ./
 // (CJNATIVE) EXEC: %compiler %cmp_opt -g mp/test_plat.cj %compile_dylib_opt_cjmp -o ./

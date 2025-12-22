@@ -8,8 +8,9 @@
 // EXEC-PIPE-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
 package cmp
 
-common class Foo {
+common struct Foo {
     private common var a:Int64
+    init() {}
 }
 /*SCAN
 */

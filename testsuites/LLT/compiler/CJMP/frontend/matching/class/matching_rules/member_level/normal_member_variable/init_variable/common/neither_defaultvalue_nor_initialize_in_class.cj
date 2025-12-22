@@ -10,6 +10,7 @@ package cmp
 
 public common class A {
     public common var a:Int32
+    init(v: Int64) { println(v) }
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f

@@ -17,6 +17,7 @@ open public class C2 {
     public func f2():Unit{
         println(222)
     }
+    public init() {}
 }
 
 public open common class C3 <: C2 & I1 {

@@ -10,7 +10,7 @@
 package cmp
 
 
-common class Foo{ }
+common class Foo{ init() {} }
 common extend Foo {
    common public func f1():Unit {}
 }

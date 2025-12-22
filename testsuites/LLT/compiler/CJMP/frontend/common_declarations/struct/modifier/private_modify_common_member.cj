@@ -13,6 +13,7 @@ common struct C{
     private var c:Int64 = 1
     private func foo(){0}
     private common func goo():Int32
+    private init() {}
 }
 /* SCAN
 */

@@ -18,7 +18,9 @@ public common interface I3 {
     open common func f3(): Unit
 }
 
-public common class Foo {}
+public common class Foo {
+    public init() {}
+}
 
 common extend Foo <: I1 & I2 & I3 {
     public common func f1(): Unit {}

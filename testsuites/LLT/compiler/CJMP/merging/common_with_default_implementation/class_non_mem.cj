@@ -8,7 +8,9 @@
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
 
-public common class A {}
+public common class A {
+  public init() {}
+}
 
 // SEPARATE-FILE: p.cj
 // EXEC-0: %compiler %noColor --experimental p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output

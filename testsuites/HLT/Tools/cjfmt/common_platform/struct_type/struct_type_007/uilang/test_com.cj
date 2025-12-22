@@ -11,4 +11,5 @@ package mp
 public common struct S1 {
     public mut common func g():Int64
     public mut common operator func +(rhs:S2): S2
+    public init() {}
 }

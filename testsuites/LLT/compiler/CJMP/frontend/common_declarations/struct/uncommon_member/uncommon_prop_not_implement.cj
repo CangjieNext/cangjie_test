@@ -14,6 +14,7 @@ common class Foo {
     private var a = 0
     mut prop b: Int64{}
     prop c:Int64{}
+    init() {}
 }
 
 

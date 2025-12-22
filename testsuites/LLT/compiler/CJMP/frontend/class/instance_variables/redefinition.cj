@@ -10,6 +10,7 @@ package cmp
 
 public common class A {
     public common let x: Int = 2
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj

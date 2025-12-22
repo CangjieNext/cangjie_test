@@ -9,6 +9,7 @@
 package cmp
 
 public common class C {
+    public init(){}
 }
 
 public common func testFunc(): Unit {
@@ -21,8 +22,6 @@ public common func testFunc(): Unit {
 package cmp
 
 public platform class C {
-    public init(){}
-
     public platform func testFunc(): Unit {
         println("3")
    }

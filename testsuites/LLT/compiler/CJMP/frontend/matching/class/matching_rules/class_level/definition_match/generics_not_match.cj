@@ -9,7 +9,7 @@
 package cmp
 
 public common class A<T> {
-    
+   init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -17,7 +17,7 @@ public common class A<T> {
 package cmp
 
 public platform class A<G> {
-   init(){}
+
 }
 /* SCAN
 error: 

@@ -13,6 +13,7 @@ public open class Base{
 public common class A <: Base{
     public common let a:Int32
     public common func foo():Unit
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -20,6 +21,6 @@ public common class A <: Base{
 // ASSERT: scan-2 sema_not_matched
 package cmp
 public platform class A<:Base{
-    init(){a=1}
+
 }
 

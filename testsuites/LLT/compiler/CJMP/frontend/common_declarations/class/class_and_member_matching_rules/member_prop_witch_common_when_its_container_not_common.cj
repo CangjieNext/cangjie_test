@@ -13,5 +13,6 @@ public common class A {
     common prop a:Int{
         get(){0}
     }
+    public init() {}
 }
 
