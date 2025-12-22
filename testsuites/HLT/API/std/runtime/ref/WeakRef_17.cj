@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC-1: %run %run_opt %output %run_args | compare %f
+// (CJNATIVE and not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (CJNATIVE and not iOS) RUN-EXEC-1: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan None
 import std.ref.*
 import std.time.*

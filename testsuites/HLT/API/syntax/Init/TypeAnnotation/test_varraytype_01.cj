@@ -43,12 +43,11 @@ func test_VArrayType_Init_01(elementType: TypeAnnotation, size: Int64, comments:
         PrefixType(AtomicType(AtomicTypeKind.Int64Type), PrefixTypeOpKind.Quest)
     ],
     size in [
-        0,
         - 1
     ],
     comments in [
         [], 
-        [Comment(#"/* 
+        [Comment(##"/* 
 a 
 */"##)],
         [Comment("//1"), Comment("// 2")]

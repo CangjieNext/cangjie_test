@@ -9,7 +9,8 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt -o %output %f
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan Out of memory
+// (not iOS) ASSERT: scan Out of memory
+// (iOS) ASSERT: scan OutOfMemoryError
 
 import std.io.*
 import std.math.*

@@ -9,8 +9,8 @@
 // LEVEL: 0
 // DEPENDENCE: ./../../../asan
 // EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// EXEC-PIPE: %compiler %import-cangjie-stdx %cmp_opt %n.cj asan.%middle -o %n.%suffix %cmp_utest_opt
-// RUN-EXEC-PIPE: %run_stdx %n.%suffix %run_utest_opt %run_args
+// EXEC-PIPE: %compiler %import-cangjie-stdx %cmp_opt %n.cj asan.%middle -o %output %cmp_utest_opt
+// RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.encoding.url.*
 import std.collection.*

@@ -8,7 +8,8 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %cmp_utest_opt %f -o %output
-// RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args --no-color 2>&1 | compare %f
+// (not iOS) RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args --no-color 2>&1 | compare %f
+// (iOS) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args --no-color 2>&1 | compare %f
 // ASSERT: scan Expect Failed: `(UInt64(0) == 1u64)`
 // ASSERT: scan Expect Failed: `(Int8(0) == - 1i8)`
 // ASSERT: scan delta: -1.0000000827404e-11

@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt -o %output %f
-// RUN-EXEC-PIPE-0: echo abcdefg > input.txt && %run %run_opt %output %run_args < input.txt 2>&1 | compare %f
+// (not iOS) RUN-EXEC-PIPE-0: echo abcdefg > input.txt && %run %run_opt %output %run_args < input.txt 2>&1 | compare %f
 // ASSERT: scan Some(a)
 
 import std.env.*

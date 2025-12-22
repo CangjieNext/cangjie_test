@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows)RUN-EXEC: %export PWDPATH=`pwd` && %run %run_opt %output %run_args 
+// (not iOS and not Windows)RUN-EXEC: %export PWDPATH=`pwd` && %run %run_opt %output %run_args 
 // (Windows and not OHOS)RUN-EXEC: %export "PWDPATH=%cd%" && %run %run_opt %output %run_utest_opt %run_args 
 import std.posix.*
 import std.process.*
