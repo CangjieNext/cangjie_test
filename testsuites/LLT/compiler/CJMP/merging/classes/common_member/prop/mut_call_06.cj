@@ -24,6 +24,7 @@ common class A {
         }
         set(v) {}
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -34,8 +35,6 @@ common class A {
 package cmp
 
 platform class A {
-    init() {}
-    
     platform mut prop p: Int64 {
         get() {
             println("get prop p")

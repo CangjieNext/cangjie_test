@@ -9,6 +9,7 @@
 package cmp
 
 public common struct S {
+    public init(){}
 }
 
 public func testFunc(): Unit {
@@ -23,7 +24,6 @@ public func testFunc(): Unit {
 package cmp
 
 public platform struct S {
-    public init(){}
 
     public func testFunc(): Unit {
         println("1")

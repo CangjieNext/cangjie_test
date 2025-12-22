@@ -10,6 +10,7 @@ package cmp
 
 common struct A {
     common var a: Int64
+    init(a_: Int64) { a = a_ }
 }
 
 // SEPARATE-FILE: p/p.cj

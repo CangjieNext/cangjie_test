@@ -34,6 +34,7 @@ open class B <: I {
 }
 
 common class BB <: B {
+    init(){}
     public common func foo1(): Unit { println("foo1 of BB in common") }
     public common func foo4(): Unit { println("foo4 of BB in common") }
 }
@@ -66,7 +67,6 @@ platform class AA <: A {
     public platform func foo4(): Unit { println("foo4 of AA in platform") }
 }
 platform class BB <: B {
-    init() {}
 }
 
 public func run() {

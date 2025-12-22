@@ -10,7 +10,7 @@ package cmp
 
 public common class A {
     public var a: Int = 0
-
+    public common init()
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -19,7 +19,7 @@ package cmp
 
 public platform class A {
 
-    public  init() {
+    public platform init() {
         this.a = 1
     }
 }

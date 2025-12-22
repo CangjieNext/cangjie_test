@@ -29,6 +29,7 @@ public class AA <: A {
 }
 
 open common class B <: I {
+    init(){}
     public open func foo1(): Unit { println("foo1 of B in common") }
     public open func foo4(): Unit { println("foo4 of B in common") }
 }
@@ -59,7 +60,6 @@ public platform interface I {
 public open platform class A <: I {}
 
 open platform class B <: I {
-    public init() {}
 }
 
 class BB <: B {

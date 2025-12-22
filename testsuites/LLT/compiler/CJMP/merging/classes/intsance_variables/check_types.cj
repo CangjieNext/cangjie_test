@@ -13,6 +13,7 @@ public common class A <: ToString {
     public common let b: ?ToString = x()
 
     public common func toString(): String
+    public init() {}
 }
 
 common func x(): A
@@ -28,8 +29,6 @@ public platform class A <: ToString {
     public platform func toString(): String {
         return "A"
     }
-
-    public init() {}
 }
 
 platform func x(): A {

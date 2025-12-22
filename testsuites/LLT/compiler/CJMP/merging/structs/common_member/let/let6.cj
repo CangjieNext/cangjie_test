@@ -9,7 +9,8 @@
 package cmp
 
 common struct A {
-    common let a: Int64
+    common let a: Int64 = 30
+    init(a_: Int64){}
 }
 
 // SEPARATE-FILE: p/p.cj

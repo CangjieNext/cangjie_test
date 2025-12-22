@@ -13,4 +13,5 @@ package cmp
 common struct A{
     foreign common func foo():Unit
     const common func goo():Unit{}
+    init() {}
 }

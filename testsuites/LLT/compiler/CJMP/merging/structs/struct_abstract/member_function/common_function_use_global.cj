@@ -13,7 +13,8 @@ public common struct A {
    public func foo():Unit{
         println("from foo common")
         println(a)
-   }   
+   }
+    public init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -21,7 +22,6 @@ public common struct A {
 package cmp
 
 public platform struct A {
-    public init(){}
 }
 
 // SEPARATE-FILE: m_common.cj

@@ -11,6 +11,7 @@ package cmp
 common struct A {
     common let a: Int64 = 0
     common let b: Int64 = a + 1
+    public init() {}
 }
 
 // SEPARATE-FILE: p/p.cj

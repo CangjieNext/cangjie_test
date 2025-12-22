@@ -16,5 +16,6 @@ public common struct A {
     {
         this.p=1
     }
+    init() {}
 }
 

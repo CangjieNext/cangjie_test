@@ -32,6 +32,7 @@ common class A {
             v()
         }
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -42,7 +43,6 @@ common class A {
 package cmp
 
 platform class A {
-    init() {}
     platform mut prop testProp: funcType {
         get() {
             println("platform")

@@ -5,8 +5,9 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // case: common function even with default implementation must have return type
-// EXEC-PIPE-1: %compiler %diag_json --experimental %f --output-type=chir 2>&1 | compare %f
-// ASSERT: scan parse_common_function_must_have_return_type
+// EXEC-PIPE-0: %compiler %diag_json --experimental %f --output-type=chir 2>&1 | compare %f
+/* SCAN
+*/
 
 package cmp
 

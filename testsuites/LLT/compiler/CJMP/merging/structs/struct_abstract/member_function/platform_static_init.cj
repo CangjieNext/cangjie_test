@@ -9,7 +9,7 @@
 package cmp
 
  public common struct A {
-
+    public init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -21,8 +21,7 @@ public platform struct A {
     static init() {
         degree = 180
     }
-    public init(){}
-}
+    }
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor -j8 m_common.cj --import-path=./p -L./p -lcmp -o %output

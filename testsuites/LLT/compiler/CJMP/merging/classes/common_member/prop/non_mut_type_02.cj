@@ -22,6 +22,7 @@ common class A {
             ""
         }
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -32,7 +33,6 @@ common class A {
 package cmp
 
 platform class A {
-    init() {}
     platform prop testProp: String {
         get() {
             println("platform")

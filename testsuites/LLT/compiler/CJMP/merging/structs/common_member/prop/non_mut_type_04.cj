@@ -24,6 +24,7 @@ common struct A {
             GeneralStruct()
         }
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -34,7 +35,6 @@ common struct A {
 package cmp
 
 platform struct A {
-    init() {}
     platform prop testProp: GeneralStruct {
         get() {
             println("platform")

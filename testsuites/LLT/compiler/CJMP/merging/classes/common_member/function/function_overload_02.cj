@@ -15,6 +15,7 @@ common class A {
     func testFunc(i: Int64): Unit {
         println("overload common")
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -25,7 +26,6 @@ common class A {
 package cmp
 
 platform class A {
-    init() {}
     platform func testFunc(): Unit {
         println("platform")
     }

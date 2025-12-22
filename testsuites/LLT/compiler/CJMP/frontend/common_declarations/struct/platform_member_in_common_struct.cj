@@ -9,6 +9,7 @@
 package cmp
 common struct C{
     platform func a():Int32 {}
+    init() {}
 }
 /* SCAN
 error: platform declaration must be defined in platform package part

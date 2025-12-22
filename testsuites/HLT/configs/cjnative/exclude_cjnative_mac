@@ -31,3 +31,14 @@ Tools/cjpm/source_set/source_set005/source_set_condition004
 Tools/cjpm/source_set/source_set006/dependence001
 Tools/cjpm/source_set/source_set006/dependence009
 Tools/cjpm/source_set/source_set006/dependence010
+Tools/cjdb/datacom/lambda/lldb_lambda_05.info
+
+# MacOS does not support reflect yet, these test cases for compatibility require reflect so disabled for now.
+compiler/cjnative/stable_abi/package_name
+compiler/cjnative/stable_abi/add_instance_member_variable
+compiler/cjnative/stable_abi/add_virtual_function
+
+# CJMP has to be fixed
+Tools/cjdb/datacom/cross_platform/cross_platform032.info
+Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
+Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj

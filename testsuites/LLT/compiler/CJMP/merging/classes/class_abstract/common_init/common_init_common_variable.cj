@@ -9,7 +9,7 @@
 package cmp
 
 public common class A {
-    public common let a:Int64
+    public common var a:Int64
     public common init(){
         a = 1
     }
@@ -21,7 +21,7 @@ public common class A {
 package cmp
 
 public platform class A {
-    public platform let a:Int64
+    public platform var a:Int64
 }
 
 

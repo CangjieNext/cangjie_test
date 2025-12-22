@@ -9,6 +9,7 @@
 package cmp
 
 public common struct A {
+    public init(){}
   
 }
 

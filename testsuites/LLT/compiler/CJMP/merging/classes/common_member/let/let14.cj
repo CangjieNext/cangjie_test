@@ -5,7 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // SEPARATE-FILE: c/c.cj
-// EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
+// EXEC-1: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
+// ASSERT: scan cannot assign to immutable value
 package cmp
 
 common class A {
@@ -14,27 +15,3 @@ common class A {
         this.a = a
     }
 }
-
-// SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
-// (LLVM and Linux)RUN-EXEC-PIPE-0: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
-// (LLVM and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
-// (LLVM and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
-package cmp
-
-platform class A {
-    platform let a: Int64
-    init() {
-        a = 0
-    }
-}
-
-main() : Unit {
-    println(A().a)
-    println(A(1).a)
-}
-
-/* SCAN
-0
-1
-*/

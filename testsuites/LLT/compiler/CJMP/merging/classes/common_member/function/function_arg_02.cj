@@ -16,6 +16,7 @@ common class A {
     common func testFunc2(a1: Int64, a2: Int64, a3: Int64, a4: Int64, a5: Int64, a6: Int64, a7: Int64, a8: Int64, a9: Int64, a10: Int64, a11: Int64, a12: Int64, a13: Int64, a14: Int64, a15: Int64, a16: Int64, a17: Int64, a18: Int64): Unit {
         println("common")
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -26,7 +27,6 @@ common class A {
 package cmp
 
 platform class A {
-    init() {}
     platform func testFunc(a1: Int64, a2: Int64, a3: Int64, a4: Int64, a5: Int64, a6: Int64, a7: Int64, a8: Int64, a9: Int64, a10: Int64, a11: Int64, a12: Int64, a13: Int64, a14: Int64, a15: Int64, a16: Int64, a17: Int64, a18: Int64): Unit {
         println("platform")
     }

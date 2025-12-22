@@ -10,6 +10,7 @@ package cmp
 
 public common struct A {
     public common var a: Int64
+    public init(n: Int64) { a = n }
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output

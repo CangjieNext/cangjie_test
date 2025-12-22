@@ -10,6 +10,7 @@ package cmp
 
 public common class A {
     public common var a: Int64
+    public init(v: Int64) { a = v }
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output

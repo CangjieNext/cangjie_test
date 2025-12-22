@@ -9,7 +9,8 @@
 package cmp
 
 common struct A {
-    common let a: Int64
+    common let a: Int64 = 5
+    common init()
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -21,7 +22,7 @@ package cmp
 
 platform struct A {
     platform let a: Int64
-    init() {
+    platform init() {
         a = 0
     }
 }

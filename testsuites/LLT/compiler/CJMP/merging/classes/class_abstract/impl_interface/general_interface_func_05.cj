@@ -14,6 +14,7 @@ public interface I1 {
 }
 public common class C1 <: I1 {
     public common func F1() : UInt64
+    public init() {}
 }
 
 
@@ -23,7 +24,6 @@ public common class C1 <: I1 {
 package cmp
 
 public platform class C1 <: I1 {
-    public init(){}
     public platform func F1() : UInt64 {
         println("platform")
         return 0

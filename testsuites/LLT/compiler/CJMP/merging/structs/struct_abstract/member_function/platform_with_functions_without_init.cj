@@ -9,8 +9,7 @@
 package cmp
 
  public common struct A {
-
-    
+    public init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -18,7 +17,6 @@ package cmp
 package cmp
 
 public platform struct A {
-    public init() {}
     public func foo():Unit{
         println("from foo common")
     }

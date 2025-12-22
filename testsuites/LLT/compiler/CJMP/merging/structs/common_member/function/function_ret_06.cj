@@ -22,6 +22,7 @@ common struct A {
         println("common")
         ArrayList<GeneralStruct>()
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -34,7 +35,6 @@ package cmp
 import std.collection.*
 
 platform struct A {
-    init() {}
     platform func testFunc(): ArrayList<GeneralStruct> {
         println("platform")
         ArrayList<GeneralStruct>()

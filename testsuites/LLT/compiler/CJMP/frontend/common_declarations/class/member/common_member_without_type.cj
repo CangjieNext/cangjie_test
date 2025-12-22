@@ -12,5 +12,5 @@ package cmp
 
 public common class A {
     public common let y
-   
+    init() {}
 }

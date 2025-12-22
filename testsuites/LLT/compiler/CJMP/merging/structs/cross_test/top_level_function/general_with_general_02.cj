@@ -12,6 +12,7 @@ public common struct S {
     public func testFunc(): Unit {
         println("1")
     }
+    public init(){}
 }
 
 public func testFunc(): Unit {
@@ -26,7 +27,6 @@ public func testFunc(): Unit {
 package cmp
 
 public platform struct S {
-    public init(){}
 }
 
 main(): Unit {

@@ -19,6 +19,7 @@ common class A {
     func testFunc1(): Unit {
         testFunc(0)
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -29,7 +30,6 @@ common class A {
 package cmp
 
 platform class A {
-    init() {}
 }
 
 main() : Unit {

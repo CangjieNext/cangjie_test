@@ -12,5 +12,6 @@ package cmp
 public common class A {
     public common let a: Int
     public common let b: Int = a + 10
+    init() {}
 }
 

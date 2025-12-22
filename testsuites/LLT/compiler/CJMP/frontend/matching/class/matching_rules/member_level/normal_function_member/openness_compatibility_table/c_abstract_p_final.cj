@@ -10,6 +10,7 @@ package cmp
 
 public abstract common class A {
     public abstract common func B(): Int64
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj

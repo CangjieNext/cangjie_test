@@ -9,7 +9,7 @@
 package cmp
 
  public common class A {
-
+    public init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -24,7 +24,6 @@ public platform class A {
     private func goo():Unit{
         println("from goo common")
    }
-    public init(){}
 }
 
 // SEPARATE-FILE: m_common.cj

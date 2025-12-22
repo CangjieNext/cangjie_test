@@ -10,6 +10,7 @@ package cmp
 
 public common class A {
     public common let a: Int
+    public init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -20,7 +21,6 @@ public platform class A {
     public platform let a: Int = 3
     public let b: Int = 2
 
-    public init() {}
 }
 
 // SEPARATE-FILE: m_common.cj

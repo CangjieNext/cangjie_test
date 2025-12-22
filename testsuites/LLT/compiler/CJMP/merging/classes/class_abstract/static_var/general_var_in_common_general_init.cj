@@ -11,5 +11,6 @@ package cmp
 
 common class A {
     static var a: Int64
+    public init() {}
 }
 

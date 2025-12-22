@@ -26,6 +26,7 @@ public common struct A <: I {
 }
 
 common struct B <: I {
+    public init() {}
     public common func foo1(): Unit { println("foo1 of B in common") }
     public common func foo4(): Unit { println("foo4 of B in common") }
 }
@@ -59,7 +60,6 @@ public platform struct A <: I {
 }
 
 platform struct B <: I {
-    public init() {}
     public platform func foo1(): Unit { println("foo1 of B in platform") }
     public platform func foo4(): Unit { println("foo4 of B in platform") }
     public func foo7(): Unit { println("foo7 of B in platform") }

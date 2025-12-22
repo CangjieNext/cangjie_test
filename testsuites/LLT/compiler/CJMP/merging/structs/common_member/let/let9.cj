@@ -9,9 +9,8 @@
 package cmp
 
 common struct A {
-    common let a: Int64
+    common let a: Int64 = 99
     common init() {
-        a = 1
     }
 }
 

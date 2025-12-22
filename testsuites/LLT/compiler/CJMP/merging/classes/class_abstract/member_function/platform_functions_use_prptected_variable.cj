@@ -9,7 +9,7 @@
 package cmp
 
  public common class A {
-
+    public init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -22,7 +22,6 @@ public platform class A {
         println("from foo platform ${a}")
 
    }
-    public init(){}
 }
 
 // SEPARATE-FILE: m_common.cj

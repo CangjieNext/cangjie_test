@@ -12,10 +12,12 @@ common func foo(): Unit{}
 
 common class A0 {
     common func foo(): Unit{}
+    init() {}
 }
 
 common class A1 {
     common func foo(): Unit{}
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj

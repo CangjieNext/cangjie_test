@@ -9,7 +9,8 @@
 package cmp
 
 public abstract common class A {
-    public abstract common prop B: Int64
+  public abstract common prop B: Int64
+  init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -28,5 +29,8 @@ error: 'platform' property modifier is not match 'common' modifier
   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
 
-1 error generated, 1 error printed.
+error: 'common' property 'B' can not find 'platform' match
+ ==> c/c.cj:9:3:
+
+2 errors generated, 2 errors printed.
 */

@@ -31,7 +31,7 @@ open class B <: I {
     public func foo4(): Unit { println("foo4 of B in platform") }
 }
 
-common class BB <: B {}
+common class BB <: B {init(){}}
 
 public func runCommon() {
     let a = AA()
@@ -58,7 +58,6 @@ public platform interface I {
 
 platform class AA <: A {}
 platform class BB <: B {
-    init() {}
 }
 
 public func run() {

@@ -26,6 +26,7 @@ common struct A {
             println("error")
         }
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -36,7 +37,6 @@ common struct A {
 package cmp
 
 platform struct A {
-    init() {}
     platform mut prop testProp: Int64 {
         get() {
             println("get prop")

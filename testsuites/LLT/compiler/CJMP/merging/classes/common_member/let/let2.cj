@@ -6,10 +6,12 @@
 
 // SEPARATE-FILE: c/c.cj
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
+
 package cmp
 
 common class A {
     common let a: Int64
+    common init()
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -19,7 +21,7 @@ package cmp
 
 platform class A {
     platform let a: Int64
-    init() {}
+    platform init() {}
 }
 
 main() : Unit {

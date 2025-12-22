@@ -15,5 +15,6 @@ public interface I1 {
 }
 
 public common struct S1 <: I1 {
+    public init() {}
 }
 

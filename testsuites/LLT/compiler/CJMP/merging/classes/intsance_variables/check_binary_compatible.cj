@@ -11,6 +11,7 @@ package cmp.platform
 public common class A {
     public common let a: Int64
     public common let b: Int64
+    public init() {}
 }
 
 // SEPARATE-FILE: c/c1.cj
@@ -34,8 +35,6 @@ public platform class A {
     public let a1: Int64 = b * 2
     public platform let a: Int64 = a1 * 2;
     public let c: Int64 = a * 2
-
-    public init() {}
 }
 
 // SEPARATE-FILE: m_common.cj

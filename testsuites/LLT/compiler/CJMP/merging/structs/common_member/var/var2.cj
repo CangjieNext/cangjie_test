@@ -9,17 +9,17 @@
 package cmp
 
 common struct A {
-    common var a: Int64
+    common var a: Int64 = 10
+    public init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output 2>&1 | compare %f
-// ASSERT: scan sema_class_uninitialized_field
+// ASSERT: scan chir_class_uninitialized_field
 package cmp
 
 platform struct A {
     platform var a: Int64
-    init() {}
 }
 
 main() : Unit {

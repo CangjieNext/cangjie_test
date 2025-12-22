@@ -22,6 +22,7 @@ public common class C1 <: I1 {
             println("common set")
         }
     }
+    public init() {}
 }
 
 
@@ -31,7 +32,6 @@ public common class C1 <: I1 {
 package cmp
 
 public platform class C1 <: I1 {
-  public init(){}
 }
 
 // SEPARATE-FILE: m_common.cj

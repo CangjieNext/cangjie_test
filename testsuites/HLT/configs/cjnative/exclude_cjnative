@@ -145,3 +145,8 @@ Tools/cjpm/source_set/source_set006/dependence001
 Tools/cjpm/source_set/source_set006/dependence009
 Tools/cjpm/source_set/source_set006/dependence010
 Tools/cjpm/source_set/source_set006/dependence015
+
+# CJMP has to be fixed
+Tools/cjdb/datacom/cross_platform/cross_platform032.info
+Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
+Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj

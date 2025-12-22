@@ -13,5 +13,7 @@ package cmp
 public interface I1 {
     prop p: Int64
 }
-public common class C1 <: I1 {}
+public common class C1 <: I1 {
+    public init() {}
+}
 

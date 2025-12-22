@@ -11,6 +11,7 @@ package cmp
 common abstract class A {
    open public abstract common func f1(): Unit
    open public abstract common func f2(): Unit
+   public init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -21,8 +22,6 @@ common abstract class A {
 package cmp
 
 platform abstract class A {
-    public init() {}
-
     open public abstract platform func f1(): Unit
     open public abstract platform func f2(): Unit
 }

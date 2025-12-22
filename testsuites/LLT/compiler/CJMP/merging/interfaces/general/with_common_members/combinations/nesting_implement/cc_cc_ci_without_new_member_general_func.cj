@@ -28,11 +28,12 @@ public common class AA <: A {
 }
 
 open common class B <: I {
+    init() {}
     public func foo1(): Unit { println("foo1 of B in common") }
     public func foo4(): Unit { println("foo4 of B in common") }
 }
 
-common class BB <: B {}
+common class BB <: B { init(){} }
 
 public func runCommon() {
     let a = AA()
@@ -62,11 +63,9 @@ public platform class AA <: A {}
 public open platform class A <: I {}
 
 open platform class B <: I {
-    public init() {}
 }
 
 platform class BB <: B {
-    public init() {}
 }
 
 public func run() {

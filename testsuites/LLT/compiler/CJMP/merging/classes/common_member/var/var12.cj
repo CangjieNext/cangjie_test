@@ -10,6 +10,7 @@ package cmp
 
 common class A {
     common var a: Int64 = 1
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -20,7 +21,6 @@ common class A {
 package cmp
 
 platform class A {
-    init() {}
 }
 
 main() : Unit {

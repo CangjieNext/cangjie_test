@@ -82,10 +82,28 @@ compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_leve
 compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_impl_platform_no_impl.cj
 compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_no_impl_platform_impl.cj
 compiler/CJMP/merging/top_level_function/enhance_test/top_level_function/user_define_thirdparty/moretype/generictype/thirdparty_genericclass_as_argument.cj
+compiler/CJMP/merging/structs/struct_abstract/instance_variable/variables_all_init.cj
+compiler/CJMP/enhance/common_instance_var_members/common_var_with_initializer_00.cj
+compiler/CJMP/enhance/common_instance_var_members/common_var_with_initializer_03.cj
+compiler/CJMP/enhance/common_instance_var_members/common_var_with_initializer_04.cj
+compiler/CJMP/enhance/common_instance_var_members/common_var_with_initializer_05.cj
+compiler/CJMP/enhance/common_instance_var_members/common_var_with_initializer_06.cj
+compiler/CJMP/enhance/primary_constructor/platform_primary_ctor_01.cj
+compiler/CJMP/enhance/primary_constructor/common_primary_ctor_03.cj
+compiler/CJMP/merging/structs/common_member/function/function_ret_09.cj
+compiler/CJMP/merging/classes/primary/multiple_field_args.cj
+compiler/CJMP/merging/classes/primary/multiple_field_args_default.cj
+compiler/CJMP/merging/classes/intsance_variables/checks_platform_unint_ctr.cj
+compiler/CJMP/merging/structs/struct_abstract/instance_variable/platform_decls_add.cj
+compiler/CJMP/merging/structs/struct_abstract/instance_variable/general_var_in_platform_general_init.cj
+compiler/CJMP/merging/structs/struct_abstract/instance_variable/platform_decls_add_2_variables.cj
+compiler/CJMP/merging/structs/struct_abstract/instance_variable/platform_decls_add_init_common_var.cj
+compiler/CJMP/merging/structs/struct_abstract/instance_variable/variables_all_init.cj
 
 ## syntax testcases
 API/stdx/syntax/testParse/test_parse_decls_from_text.cj
 API/stdx/syntax/testParse/test_parse_exprs_from_text.cj
+
 # daignose is changed
 compiler/Sema/interface/interface_property/interface_property1.cj
 compiler/Sema/Extend/property/property_mut_immut_mismatch.cj

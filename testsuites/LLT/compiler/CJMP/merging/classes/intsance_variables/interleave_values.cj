@@ -15,6 +15,7 @@ public common class A {
     public common let c: Int64 = b * 2
     public let f: Int64 = c * 3 + e * 4
     public common let g: Int64 = 1000
+    public init() { }
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -27,8 +28,6 @@ public platform class A {
     public platform let e: Int64 = 1000000
     public let h: Int64 = g * 5
     public let i: Int64 = 10000000
-
-    public init() { }
 }
 
 // SEPARATE-FILE: m_common.cj

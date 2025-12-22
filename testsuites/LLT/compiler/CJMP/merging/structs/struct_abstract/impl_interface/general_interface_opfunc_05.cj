@@ -14,6 +14,7 @@ public interface I1 {
 }
 public common struct S1 <: I1 {
     public common operator func ==(i: I1) : Bool
+    public init(){}
 }
 
 
@@ -23,7 +24,6 @@ public common struct S1 <: I1 {
 package cmp
 
 public platform struct S1 <: I1 {
-    public init(){}
     public platform operator func ==(i: I1) : Bool {
         println("platform")
         return true

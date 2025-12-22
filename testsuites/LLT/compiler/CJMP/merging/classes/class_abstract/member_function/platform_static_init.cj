@@ -9,7 +9,7 @@
 package cmp
 
  public common class A {
-
+    public init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -21,7 +21,6 @@ public platform class A {
     static init() {
         degree = 180
     }
-    public init(){}
 }
 
 // SEPARATE-FILE: m_common.cj

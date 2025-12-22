@@ -22,6 +22,7 @@ common class A {
         println("common")
         ArrayList<GeneralClass>()
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -34,7 +35,6 @@ package cmp
 import std.collection.*
 
 platform class A {
-    init() {}
     platform func testFunc(): ArrayList<GeneralClass> {
         println("platform")
         ArrayList<GeneralClass>()

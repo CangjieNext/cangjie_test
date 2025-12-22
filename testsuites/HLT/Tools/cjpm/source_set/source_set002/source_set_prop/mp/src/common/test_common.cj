@@ -14,6 +14,7 @@ public common class A {
             1
         }
     }
+    public init() {}
 }
 
 public func test_com(): Unit {

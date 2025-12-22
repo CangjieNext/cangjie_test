@@ -14,6 +14,7 @@ public interface I1 {
 }
 public common struct S1 <: I1 {
     public common prop p: Int64
+    public init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -24,7 +25,6 @@ public common struct S1 <: I1 {
 package cmp
 
 public platform struct S1 <: I1 {
-    public init(){}
 
     public platform prop p: Int64 {
         get() {

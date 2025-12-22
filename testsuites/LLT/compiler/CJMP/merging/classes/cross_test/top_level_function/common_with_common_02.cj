@@ -12,6 +12,7 @@ public common class C {
     public common func testFunc(): Unit {
         println("1")
     }
+    public init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -20,7 +21,6 @@ public common class C {
 package cmp
 
 public platform class C {
-    public init(){}
 }
 
 public platform func testFunc(): Unit {

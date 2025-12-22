@@ -9,7 +9,7 @@
 package cmp
 
 public common struct A {
-    public common  let a:Int64
+    public common  var a:Int64
     public common init(x:Int64){
         a = x
     }
@@ -20,7 +20,7 @@ public common struct A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 public platform struct A {
-    public platform  let a:Int64
+    public platform  var a:Int64
     public platform init(x:Int64){
         a = x
         println("platform")
