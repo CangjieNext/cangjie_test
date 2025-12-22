@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/match_expr/%n.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
@@ -12,5 +12,5 @@ test#
 cjdb,cjdb matchExpr_enum_pattern,matchExpr_enum_pattern
 b,b 17,matchExpr_enum_pattern.cj:17
 r,r,-> 17
- ,expr match (c) { case Green => "Green" case Blue  => "Blue" case Red  => "red"},\(std.core.String\) \$\d+ = "red"
+ ,expr match (c) {case Green => "Green" case Blue => "Blue" case Red => "red"},\(std.core.String\) \$\d+ = "red"
 q,q,

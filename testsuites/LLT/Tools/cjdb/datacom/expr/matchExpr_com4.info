@@ -4,13 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/match_expr/%n.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
 // EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
-cjdb,cjdb matchExpr_constant_patern,matchExpr_constant_patern
-b,b 17,matchExpr_constant_patern.cj:17
-r,r,-> 17
- ,expr match (score) {case 0 => "zero" case 10 => "fail" case 70 => "good" case 90 => "excellent" case _ => "not a valid score"},\(std.core.String\) \$\d+ = "excellent"
+cjdb,cjdb matchExpr_com4,matchExpr_com4
+b,b 23,matchExpr_com4.cj:23
+r,r,-> 23
+ #expr match (a) {case (_, v: I) => v.get()  case _ => 0}#\(Int64\) \$\d+ = 12
 q,q,

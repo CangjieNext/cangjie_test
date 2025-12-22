@@ -12,16 +12,8 @@ open class Point {
         this.y = y
     }
 }
-class ColoredPoint <: Point {
-    var color: String = "green"
-    init(x: Int64, y: Int64, color: String) {
-        super(x, y)
-        this.color = color
-    }
-}
 main() {
     let normalPt = Point(5, 10)
-    let colorPt = ColoredPoint(8, 24, "red")
     var rectangleArea1: Int64 = match (normalPt) {
         case _: Point => normalPt.x * normalPt.y
         case _ => 0
