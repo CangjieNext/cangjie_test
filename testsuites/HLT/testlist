@@ -13,3 +13,6 @@ regression/
 Runtime/
 
 [EXCLUDE-TEST-CASE]
+cjdb/datacom/cross_platform/cross_platform032.info
+cjcov/common_platform/cross_platform021/cross_platform021.cj
+cjcov/common_platform/cross_platform028/cross_platform028.cj

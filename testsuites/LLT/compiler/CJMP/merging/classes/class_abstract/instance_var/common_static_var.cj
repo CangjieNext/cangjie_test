@@ -10,6 +10,7 @@ package cmp
 
 public common class A {
     public static let a:Int64 = 0
+    public init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -17,7 +18,6 @@ public common class A {
 package cmp
 
 public platform class A {
-    public init() {}
 }
 
 // SEPARATE-FILE: m_common.cj

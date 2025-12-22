@@ -12,6 +12,7 @@ struct GeneralStruct {}
 
 common struct A {
     common func testFunc(c: GeneralStruct): Unit
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -20,7 +21,6 @@ common struct A {
 package cmp
 
 platform struct A {
-    init() {}
 }
 
 main() : Unit {

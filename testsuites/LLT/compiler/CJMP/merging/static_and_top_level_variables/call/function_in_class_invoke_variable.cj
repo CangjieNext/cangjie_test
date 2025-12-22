@@ -8,7 +8,7 @@
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
 public common var a:Int32=1
-public common class B{}
+public common class B{public init(){}}
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
@@ -27,7 +27,6 @@ public platform class B{
     public func goo(arg:Int32):Unit{
         println(arg)
     }
-    public init(){}
 }
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor -j8 m_common.cj --import-path=./p -L./p -lcmp -o %output

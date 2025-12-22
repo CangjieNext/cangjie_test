@@ -11,6 +11,7 @@ package cmp
 public common abstract class A {
     public open func a(): Int{0} // Ok, default open function, neither common nor abstract
     public open func b(): Int // ERROR: missing body
+    public init() {}
 }
 
 /* SCAN

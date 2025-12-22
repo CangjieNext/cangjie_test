@@ -11,5 +11,6 @@ package cmp
 
 common class A {
     common var a
+    init(){}
 }
 

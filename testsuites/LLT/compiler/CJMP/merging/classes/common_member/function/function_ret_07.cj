@@ -15,6 +15,7 @@ common class A {
         println("common")
         GeneralClass()
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -23,7 +24,6 @@ common class A {
 package cmp
 
 platform class A {
-    init() {}
     platform func testFunc(): Int64 {
         println("platform")
         1

@@ -14,5 +14,6 @@ public interface I1 {
     operator func ==(i: I1) : Bool
 }
 public common class C1 <: I1 {
+    public init() {}
 }
 

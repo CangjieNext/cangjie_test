@@ -10,6 +10,7 @@ package cmp
 
 public common class A {
     common let a:Int32
+    public init() {}
     
 }
 // SEPARATE-FILE: p/p.cj

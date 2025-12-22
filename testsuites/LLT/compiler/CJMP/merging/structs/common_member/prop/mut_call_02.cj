@@ -16,6 +16,7 @@ common struct A {
         }
         set(v) {}
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -26,7 +27,6 @@ common struct A {
 package cmp
 
 platform struct A {
-    init() {}
     platform var a: Int64 = 1
     platform mut prop testProp: Int64 {
         get() {

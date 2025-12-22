@@ -11,6 +11,8 @@ package cmp
 public common struct A {
     public let a: Int = 1
     public let aa: Int = 11
+    public init() {}
+
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -20,8 +22,7 @@ package cmp
 public platform struct A {
     public let b: Int = 2
     public let bb: Int = 22
-
-    public init() {}
+    public init(a_: Int64) {}
 }
 
 // SEPARATE-FILE: m_common.cj

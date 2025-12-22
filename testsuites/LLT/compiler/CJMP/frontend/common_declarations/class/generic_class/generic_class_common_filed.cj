@@ -13,6 +13,7 @@ package cmp
 interface I<T>{}
 common class Container<T> <:I<T>{
   common var item:?T = Option<T>.None 
+  init() {}
 }
 common extend<T> Container<T> {
   common func setItem(newItem:T):Unit 

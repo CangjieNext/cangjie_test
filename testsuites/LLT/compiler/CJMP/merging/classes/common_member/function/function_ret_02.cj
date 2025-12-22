@@ -20,6 +20,7 @@ common class A {
         println("common")
         GeneralClass()
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -30,7 +31,6 @@ common class A {
 package cmp
 
 platform class A {
-    init() {}
     platform func testFunc(): GeneralClass {
         println("platform")
         GeneralClass()

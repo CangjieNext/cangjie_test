@@ -8,7 +8,7 @@
 // EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
 // ASSERT: scan parse_platform_in_non_platform_file
 package cmp
-common class Foo{ 
+common class Foo{ init() {}
 }
 common extend Foo {
    platform func f():Unit {}

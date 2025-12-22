@@ -15,11 +15,13 @@ common public struct A {
     common public func f(a: Int64): Int64 {
         f()
     }
+    public init() {}
 }
 
 common protected struct A2 {
     common protected func f(): Int64
     common private static func f2(): Int64
+    public init() {}
 }
 
 public func test_com() {

@@ -8,7 +8,7 @@
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
 
-common abstract class A {
+common abstract class A { init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -16,7 +16,7 @@ common abstract class A {
 package cmp
 
 platform abstract class A {
-    init() {}
+
     abstract public prop testProp: Int
 }
 

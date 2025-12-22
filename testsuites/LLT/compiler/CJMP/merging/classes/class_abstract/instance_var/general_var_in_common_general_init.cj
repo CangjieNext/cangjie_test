@@ -11,5 +11,6 @@ package cmp
 
 common class A {
     var a: Int64
+    init() {}
 }
 

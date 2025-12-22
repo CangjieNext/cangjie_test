@@ -9,12 +9,12 @@
 package cmp
 
 open common class B {
-
+    init() {}
 }
 
 public common class A <: B {
     func f() {}
-   
+    init() {}
 }
 
 /* SCAN

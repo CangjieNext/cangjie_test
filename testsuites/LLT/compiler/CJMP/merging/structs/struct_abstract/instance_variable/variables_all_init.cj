@@ -10,7 +10,7 @@ package cmp
 
 public common struct A {
     public var a: Int = 0
-
+    public init(a_: Int64) {}
 }
 
 // SEPARATE-FILE: p/p.cj

@@ -11,6 +11,7 @@ public interface A{}
 public class B<:A{}
 common class C {
     public common func foo(input: A): Unit
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -19,7 +20,6 @@ common class C {
 package cmp
 
 platform class C {
-    init(){}
     public platform func foo(input: B): Unit {
         println("platform foo")
     }

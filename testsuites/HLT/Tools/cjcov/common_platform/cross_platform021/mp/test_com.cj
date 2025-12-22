@@ -10,7 +10,9 @@ package mp
 
 public common interface I<T> {}
 
-public common class C {}
+public common class C {
+    public init() {}
+}
 
 common extend C <: I<Int64> {
     public common func f(a: Int64): Int64

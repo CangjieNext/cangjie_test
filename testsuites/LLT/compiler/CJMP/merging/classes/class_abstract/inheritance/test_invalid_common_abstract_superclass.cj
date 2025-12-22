@@ -8,8 +8,8 @@
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
 
-common sealed abstract class A {}
-common open class C<:A {}
+common sealed abstract class A { init(){} }
+common open class C<:A { public init() {} }
 
 // SEPARATE-FILE: p.cj
 // EXEC-0: %compiler %noColor --experimental p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output  2>&1 | compare %f
