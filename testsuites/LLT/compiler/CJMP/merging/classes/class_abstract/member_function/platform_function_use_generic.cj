@@ -10,7 +10,7 @@ package cmp
 
 
 public common class A {
-
+    public init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -21,7 +21,6 @@ public platform class A {
     public func foo<T>(a:T):T{
     return a
    }   
-    public init(){}
 }
 
 // SEPARATE-FILE: m_common.cj

@@ -10,6 +10,6 @@
 // ASSERT: scan parse_common_function_must_have_return_type
 package cmp
 
-common class Foo {
+common struct Foo {
     public common func foo()
 }

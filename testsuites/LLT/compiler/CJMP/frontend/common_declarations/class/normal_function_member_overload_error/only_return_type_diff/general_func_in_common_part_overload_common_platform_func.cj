@@ -9,9 +9,9 @@
 // ASSERT: scan sema_overload_conflicts
 package cmp
 common class A {
-public func foo(input: Int64): Unit {}
-
-public common func foo(input: Int64): Int64
+    public func foo(input: Int64): Unit {}
+    init() {}
+    public common func foo(input: Int64): Int64
 }
 
 

@@ -12,4 +12,5 @@ package cmp
 
 common class A {
     common static let a
+    init() {}
 }

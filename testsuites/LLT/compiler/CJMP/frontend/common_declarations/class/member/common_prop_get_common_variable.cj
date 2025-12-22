@@ -12,7 +12,7 @@ public common class A {
     private  common var y:Int64
     mut common prop b:Int64{
     }
-
+    init() {}
    
 }
 /*SCAN

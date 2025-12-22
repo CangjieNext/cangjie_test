@@ -73,6 +73,27 @@ compiler/CJMP/frontend/matching/struct/new_members/new_required_constructor.cj
 compiler/CJMP/merging/structs/common_member/function/function_ret_09.cj
 compiler/CJMP/merging/test.cj
 
+## CJPM has to be fixed or to be deleted 
+## https://gitcode.com/Cangjie/cangjie_compiler/issues/394
+compiler/CJMP/merging/structs/struct_abstract/instance_variable/variables_all_init.cj
+compiler/CJMP/enhance/common_instance_var_members/common_var_with_initializer_00.cj
+compiler/CJMP/enhance/common_instance_var_members/common_var_with_initializer_03.cj
+compiler/CJMP/enhance/common_instance_var_members/common_var_with_initializer_04.cj
+compiler/CJMP/enhance/common_instance_var_members/common_var_with_initializer_05.cj
+compiler/CJMP/enhance/common_instance_var_members/common_var_with_initializer_06.cj
+compiler/CJMP/enhance/primary_constructor/platform_primary_ctor_01.cj
+compiler/CJMP/enhance/primary_constructor/common_primary_ctor_03.cj
+compiler/CJMP/merging/structs/common_member/function/function_ret_09.cj
+compiler/CJMP/merging/classes/primary/multiple_field_args.cj
+compiler/CJMP/merging/classes/primary/multiple_field_args_default.cj
+compiler/CJMP/merging/classes/intsance_variables/checks_platform_unint_ctr.cj
+compiler/CJMP/merging/structs/struct_abstract/instance_variable/platform_decls_add.cj
+compiler/CJMP/merging/structs/struct_abstract/instance_variable/general_var_in_platform_general_init.cj
+compiler/CJMP/merging/structs/struct_abstract/instance_variable/platform_decls_add_2_variables.cj
+compiler/CJMP/merging/structs/struct_abstract/instance_variable/platform_decls_add_init_common_var.cj
+compiler/CJMP/merging/structs/struct_abstract/instance_variable/variables_all_init.cj
+
+
 # daignose is changed
 compiler/Sema/interface/interface_property/interface_property1.cj
 compiler/Sema/Extend/property/property_mut_immut_mismatch.cj

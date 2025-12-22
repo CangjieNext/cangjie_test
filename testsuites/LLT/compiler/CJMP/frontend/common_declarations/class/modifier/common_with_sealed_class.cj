@@ -12,7 +12,7 @@ package cmp
 
 
 common sealed abstract class A {
-       
+    init() {}
 }
 
 /* SCAN

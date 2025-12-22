@@ -12,18 +12,21 @@ import std.collection.*
 
 public common abstract class Animal {
     public common func run(): String
+    public init() {}
 }
 
 public common class Dog <: Animal {
     public common func run(): String {
         return "dog run"
     }
+    public init() {}
 }
 
 public common class Fox <: Animal {
     public common func run(): String {
         return "fox run"
     }
+    public init() {}
 }
 
 public common class Zoo<T> where T <: Animal {
@@ -31,6 +34,6 @@ public common class Zoo<T> where T <: Animal {
     public common func addAnimal(a: T) {
         animals.add(a)
     }
-
+    public init() {}
     public common func allAnimalRuns():Unit
 }

@@ -10,6 +10,7 @@ package cmp
 
 common struct A {
     common var a: Int64 = 1
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -21,7 +22,6 @@ package cmp
 
 platform struct A {
     platform var a: Int64 = 0
-    init() {}
 }
 
 main() : Unit {

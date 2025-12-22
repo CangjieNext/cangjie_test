@@ -11,10 +11,12 @@ package mp
 public common abstract class C1 {
     public common func f1(): Int64
     public common prop p1: Int64
+    public init() {}
 }
 
 public common class C2 {
     public common mut prop p1: Int64
+    public init() {}
 }
 
 public func test_com() { A() }

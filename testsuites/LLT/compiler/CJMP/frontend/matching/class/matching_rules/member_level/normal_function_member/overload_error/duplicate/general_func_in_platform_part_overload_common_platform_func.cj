@@ -10,6 +10,7 @@ package cmp
 
 common class A {
   public common func foo(input: Int64): Unit
+  init() {}
 }
 
 
@@ -18,7 +19,6 @@ common class A {
 // ASSERT: scan sema_overload_conflicts
 package cmp
 platform class A {
-  init(){}
   public func foo(input: Int64): Unit {}
   public platform func foo(input: Int64): Unit {}
 }

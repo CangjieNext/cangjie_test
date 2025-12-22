@@ -11,7 +11,5 @@ package cmp
 
 public common enum RGBColor {
     RED|GREEN|BLUE
-    public common func foo(){
-        println("common foo")
-    } 
+    public common func foo()
 }

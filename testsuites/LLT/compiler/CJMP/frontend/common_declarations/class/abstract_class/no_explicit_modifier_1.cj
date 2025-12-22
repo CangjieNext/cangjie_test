@@ -13,6 +13,7 @@ public abstract common class A {
     public common func foo2(): Unit
     public func foo3(): Unit
     public common abstract func foo4(): Unit
+    public init() {}
 }
 
 /* SCAN

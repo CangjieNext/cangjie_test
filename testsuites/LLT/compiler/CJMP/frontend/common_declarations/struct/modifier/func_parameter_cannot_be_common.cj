@@ -11,5 +11,6 @@
 package cmp
 common struct C{
     public func foo(common let a:Int32):Int32 {}
+    init() {}
 }
 

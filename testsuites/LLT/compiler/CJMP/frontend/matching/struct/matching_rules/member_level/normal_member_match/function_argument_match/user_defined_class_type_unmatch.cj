@@ -11,6 +11,7 @@ public struct A{}
 public struct B{}
 common struct C {
   public common func foo(input: A): Unit
+  init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -19,7 +20,6 @@ common struct C {
 package cmp
 
 platform struct C {
-init(){}
 public platform func foo(input: B): Unit {
   println("platform foo")
 }

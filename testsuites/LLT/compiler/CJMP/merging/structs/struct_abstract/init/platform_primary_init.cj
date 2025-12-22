@@ -9,7 +9,7 @@
 package cmp
 
 public common struct A {
-
+    public init(a: Int64) {}
 }
 
 // SEPARATE-FILE: p/p.cj

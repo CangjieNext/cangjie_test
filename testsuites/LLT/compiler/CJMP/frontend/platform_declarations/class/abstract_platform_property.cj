@@ -10,6 +10,7 @@ package cmp
 
 common abstract class A {
     open public common abstract mut prop value: Int64
+    public init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -20,8 +21,6 @@ common abstract class A {
 package cmp
 
 platform abstract class A {
-    public init() {}
-
     open public platform abstract mut prop value: Int64 
 
     public func show(): Unit {

@@ -17,6 +17,7 @@ public open common class C1 {
   }
 }
 public common class C2 <: C1 {
+  public init() {}
   public common func foo(x:Int64,y!:Int64 = 100):Unit{
         println("C2")
         println(x)
@@ -36,7 +37,6 @@ public platform class C2 <: C1 {
         println(y)
         println(x)
   }
-  public init(){}
 }
 
 // SEPARATE-FILE: m_common.cj

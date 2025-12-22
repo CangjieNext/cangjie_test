@@ -9,7 +9,9 @@
 // ASSERT: scan parse_platform_in_non_platform_file
 package cmp
 
-public common class A {}
+public common class A {
+    init() {}
+}
 public platform class B {}
 
 

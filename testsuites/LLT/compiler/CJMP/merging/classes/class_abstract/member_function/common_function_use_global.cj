@@ -13,7 +13,8 @@ public common class A {
    public func foo():Unit{
         println("from foo common")
         println(a)
-   }   
+   }
+   public init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -21,7 +22,6 @@ public common class A {
 package cmp
 
 public platform class A {
-    public init(){}
 }
 
 // SEPARATE-FILE: m_common.cj

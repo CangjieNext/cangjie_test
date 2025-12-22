@@ -15,5 +15,6 @@ common class A {
     common func testFunc(): GeneralClass {
         GeneralClass()
     }
+    init() {}
 }
 
