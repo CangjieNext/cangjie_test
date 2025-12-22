@@ -9,7 +9,7 @@
 // LEVEL: 1
 // DEPENDENCE: stdin_readtoend.txt
 // EXEC: %compiler %cmp_opt -o %output %f
-// RUN-EXEC-PIPE-0: %run %run_opt %output %run_args < stdin_readtoend.txt 2>&1 | compare %f
+// (not iOS) RUN-EXEC-PIPE-0: %run %run_opt %output %run_args < stdin_readtoend.txt 2>&1 | compare %f
 // ASSERT: scan 
 // ASSERT: scan \\0
 // ASSERT: scan 12232548359

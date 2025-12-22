@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %cmp_utest_opt %f -o %output
-// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// (not iOS) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.core.*
 import std.sync.*

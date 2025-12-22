@@ -29,7 +29,9 @@ import std.posix.*
 
 @When[os == "macOS"]
 let flag = 7
-@When[os != "macOS"]
+@When[os != "iOS"]
+let flag = 7
+@When[os != "Linux"]
 let flag = 8
 var ser = Option<UnixServerSocket>.None
 var bound = AtomicUInt16(0)
@@ -151,6 +153,8 @@ class Test_Unix_Connect_Timeout {
 
         var client2 = UnixSocket("./testsocket/socket")
         let e = @AssertThrows[SocketException](client2.connect())
+        println("e.message.toString()")
+        println(e.message.toString())
         @Expect(e.message.contains("connect"))
         ser.getOrThrow().close()
     }

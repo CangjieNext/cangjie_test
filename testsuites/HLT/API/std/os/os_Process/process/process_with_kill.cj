@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// (not Windows) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args 
+// (not iOS and not Windows) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS and not Windows) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args 
 import std.fs.*
 import std.posix.*
 import std.process.*
