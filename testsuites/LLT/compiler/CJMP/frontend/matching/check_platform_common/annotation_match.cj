@@ -24,9 +24,9 @@ package cmp
 public common func f2(): Int64
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
-// ASSERT: scan-3 sema_platform_has_different_annotation
-// ASSERT: scan-5 sema_not_matched
+// EXEC-PIPE-1: %compiler %diag_json --error-count-limit=20 --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
+// ASSERT: scan-5 sema_platform_has_different_annotation
+// ASSERT: scan-6 sema_not_matched
 package cmp
 public platform let v0: Int64 = 1
 
