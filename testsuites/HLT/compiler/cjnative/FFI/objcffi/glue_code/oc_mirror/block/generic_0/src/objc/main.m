@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+#import "A.h"
+#import <Foundation/Foundation.h>
+int main(int argc, char** argv) {
+    @autoreleasepool {
+        A* a= [[A alloc] init];
+        [a foo];
+        // OC定义的block
+        void (^completionBlock)(void) = ^{
+            printf("Block executed!\n");
+        };
+        // 将OC定义的block传参到cj侧
+        [a f0: completionBlock];
+        printf("in main\n");
+        // 从cj侧传回来一个cj侧通过ObjCBlock实例化的block
+        void (^b)(void) = [a getCJBlock];
+        // 并在oc侧调用这个block
+        b();
+        // 调用仓颉init，传入block实例
+        A *a1 = [[A alloc] init: ^{printf("p0\n");}: ^{printf("p1\n");}: ^{printf("p2\n");}];
+    }
+
+    return 0;
+}
