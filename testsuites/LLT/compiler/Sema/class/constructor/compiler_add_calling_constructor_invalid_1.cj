@@ -21,7 +21,7 @@ main() {
 }
 
 /* SCAN
-error: there is no non-parameter constructor in super class, please invoke super call explicitly
+error: there is no non-parameter constructor with @~local this in super class, please invoke super call explicitly
   ==> compiler_add_calling_constructor_invalid_1.cj:15:12:
    | 
 15 |     public init() {

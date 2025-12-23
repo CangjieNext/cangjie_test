@@ -18,7 +18,7 @@ open class Tree {
 class Tree_None <: Tree {}
 
 /* SCAN
-error: there is no non-parameter constructor in super class, please invoke super call explicitly
+error: there is no non-parameter constructor with @~local this in super class, please invoke super call explicitly
   ==> class_init_default_constructor10.cj:18:7:
    | 
 18 | class Tree_None <: Tree {}

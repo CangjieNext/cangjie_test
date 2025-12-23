@@ -1,0 +1,628 @@
+{
+    "msg": "OK",
+    "code": 0,
+    "data": {
+      "waybillSegmentDisplayList": [
+        {
+          "segmentModule": {
+            "displayInfo": {
+              "showFilterOption": 1
+            },
+            "templateId": "seg-0001"
+          },
+          "segmentComboUnitId": "720349763405273267"
+        }
+      ],
+      "logicModules": [],
+      "hasMore": false,
+      "appendRecommendReason": "{}",
+      "compatibleData": {
+        "list": [
+          {
+            "templateType": 2,
+            "senderAddress": "石家庄高新区中山东路832号摩托城B座38号",
+            "deliveryDistance": 3696,
+            "groupGatherType": 0,
+            "cityId": 130100,
+            "crowdDesignateOverTime": 0,
+            "grabTime": 0,
+            "backupPhoneMark": "",
+            "deliveryWayType": 2002,
+            "recipientLng": 114625396,
+            "senderName": "薯之缘·砂锅麻酱土豆粉（裕华店）",
+            "lastFourNum": "",
+            "ctime": 1764724530,
+            "recipientName": "爱***(先生)",
+            "id": 1764724530622273500,
+            "partInActivityList": [
+              {
+                "reward": "0.25",
+                "extension": {
+                  "riderLabelCodes": "[9022]"
+                },
+                "actId": "1812736251565740798",
+                "actType": 2,
+                "labelName": "1天全天收入加速卡",
+                "hitExpansion": false,
+                "labelCode": "6101"
+              }
+            ],
+            "invoiceTitle": "",
+            "newRecipientAddress": "御江景城-5号楼-1单元(17层**)",
+            "waybillMark": 0,
+            "riderManageType": 17,
+            "buyerPhoneMark": "",
+            "recipientAddressChanged": 0,
+            "backupPhone": "",
+            "deprivacyHandoverPointPhone": "",
+            "redPacket": 0,
+            "tteHandoverPointPhone": "",
+            "queryIncomeStatus": 0,
+            "urgentDeliveryView": {
+              "urgentMoney": 0,
+              "urgentExpectedTime": 1764727888,
+              "minRemainTime": 0,
+              "urgentDelivery": 0
+            },
+            "foodCabinetIntent": 0,
+            "forbidCall": 0,
+            "hardStar": 0,
+            "status": 10,
+            "waybillGroupId": 720349832905274000,
+            "fulfilmentPlan": {
+              "mtdd": 0
+            },
+            "logisticOrderExtensionView": {
+              "shippingInfo": {}
+            },
+            "queryIncomeDetailStatus": 0,
+            "assembleGroupId": "",
+            "prebookType": 0,
+            "waybillTagV2": {},
+            "senderLng": 114607156,
+            "poiId": "27471311",
+            "encryptHandoverPointPhone": "",
+            "platformOrderId": "301889833048993234",
+            "recipientAddress": "御江景城-5号楼-1单元(17层**)",
+            "privilegeDesignate": 0,
+            "receiveGoodsCheckInGray": 0,
+            "deprivacyBuyerPhone": "",
+            "utime": 1764724837,
+            "controlView": {
+              "hideOrderDifficulty4Grab": 0,
+              "hideIncome4Waiting": 1,
+              "hideOrderDifficulty4Assign": 0
+            },
+            "fullHardStar": 0,
+            "doVoiceMonitor": 0,
+            "privacyPhone": "15690354722,4258",
+            "extFields": {
+              "structuredAddress": "中山东路832号摩托城B座38号",
+              "flowDirection": 0,
+              "existsAoiRecipientPoint": 0,
+              "riderMaxWaybillNum": 0,
+              "aoiClosed": 0,
+              "upWaybillNum": 0,
+              "needUpStairs": 1,
+              "refuseDispatchRule": 1,
+              "crowdDesignateFreeReject": 0
+            },
+            "ruipao": 0,
+            "fetchProtocol": {
+              "crawlMode": 1,
+              "source": 5
+            },
+            "expectDeliveredSecond": 0,
+            "subsidyTimeWaybillTagsDesc": "",
+            "isDirectDelivery": 0,
+            "showRemarkForWaitingPage": 0,
+            "priorityDeliveryView": {
+              "priorityDeliveryFlag": 0,
+              "priorityDeliveryFee": 0,
+              "priorityDeliveryTime": 0
+            },
+            "isRecommend": 0,
+            "dianfuMoney": 0,
+            "fee": 0,
+            "similarGroup": 0,
+            "riderAssessTime": {
+              "latestFetchTime": 0,
+              "isProAssessTime": 0,
+              "earliestDeliveryTime": 0,
+              "latestDeliveryTime": 1764727468,
+              "earliestFetchTime": 0,
+              "countDownEndTime": 0
+            },
+            "turningCode": 0,
+            "saveOrderStatus": 0,
+            "templateId": 2,
+            "areaBusinessType": 2,
+            "errandOrderPagePoiSource": 0,
+            "fetchTime": 0,
+            "recipientLat": 38055812,
+            "routeTaskId": 0,
+            "handoverPointPhoneMark": "",
+            "isPrivilege": 0,
+            "wmDeliveryWayType": 1005,
+            "expectDeliveredTime": 1764726988,
+            "hideRefundContent": 1,
+            "transWaybillData": {
+              "transferDeadline": 0,
+              "transferStatus": -1,
+              "showAcceptTransferBtn": 0,
+              "startTransferStatus": 0,
+              "transferInitiatorType": 0,
+              "transferEnable": 0,
+              "transferAvailable": 0,
+              "transferInitiator": 0,
+              "confirmedFlag": 0
+            },
+            "recipientHideFullAddress": "御江景城-5号楼-1单元(17层**)",
+            "preferenceWaybill": 0,
+            "buyerPhone": "",
+            "deliveredTime": 0,
+            "senderHideFullAddress": "",
+            "deprivacyBackupPhone": "",
+            "noSendVerificationCodeFlag": 0,
+            "isOpenCustomerPhoneProtectForCrowdsource": 1,
+            "acceptType": 0,
+            "canNotRefuseDesignate": 0,
+            "waybillTagV2Degrade": false,
+            "bmPkgId": "1764724530637273096",
+            "income": 1.4,
+            "senderLat": 38042494,
+            "booked": false,
+            "upperWaybillLimit": 0,
+            "activityIncomeTotal": "0",
+            "waybillTipList": [],
+            "recipientPhoneChanged": 0,
+            "remark": "多加麻酱，多加冬瓜 多加麻酱，多加冬瓜谢谢谢谢谢谢谢谢谢",
+            "notSameWay": 0,
+            "newSenderAddress": "中山东路832号摩托城B座38号",
+            "resourceInfo": "{}",
+            "systemTime": 1764724855,
+            "newSenderName": "薯之缘·砂锅麻酱土豆粉（裕华店）",
+            "newRecipientName": "爱***(先生)",
+            "planPayAmount": 0,
+            "poiSeq": "",
+            "waybillViewId": "1764724530622273458",
+            "buyerPhoneEncDegrade": 0,
+            "fetchDistance": 2243,
+            "tteBackupPhone": "",
+            "convertType": 0,
+            "platformId": 1,
+            "recipientNameChanged": 0,
+            "tteBuyerPhone": "",
+            "cancelTime": 0,
+            "dispatchGroupId": "720349832905273973",
+            "deliveryAreaId": 2344,
+            "similarGroupIncome": 0
+          },
+          {
+            "templateType": 2,
+            "senderAddress": "石家庄市裕华区槐安路谈固东街交口永辉超市小马店东侧3号商铺",
+            "deliveryDistance": 4700,
+            "groupGatherType": 0,
+            "cityId": 130100,
+            "crowdDesignateOverTime": 0,
+            "grabTime": 0,
+            "backupPhoneMark": "",
+            "deliveryWayType": 2002,
+            "recipientLng": 114598808,
+            "senderName": "鱼你的青春·下饭酸菜鱼（石家庄裕华店）",
+            "lastFourNum": "",
+            "ctime": 1764723622,
+            "recipientName": "赵**(女士)",
+            "id": 1764723622878273000,
+            "partInActivityList": [
+              {
+                "reward": "0.5",
+                "extension": {
+                  "riderLabelCodes": "[9022]"
+                },
+                "actId": "1812736251565773420",
+                "actType": 2,
+                "labelName": "1天全天收入加速卡",
+                "hitExpansion": false,
+                "labelCode": "6101"
+              }
+            ],
+            "invoiceTitle": "",
+            "newRecipientAddress": "石家庄科技职业学院新校区美团外卖柜",
+            "waybillMark": 0,
+            "riderManageType": 17,
+            "buyerPhoneMark": "",
+            "recipientAddressChanged": 0,
+            "backupPhone": "",
+            "deprivacyHandoverPointPhone": "",
+            "redPacket": 0,
+            "tteHandoverPointPhone": "",
+            "queryIncomeStatus": 0,
+            "urgentDeliveryView": {
+              "urgentMoney": 0,
+              "urgentExpectedTime": 1764728100,
+              "minRemainTime": 0,
+              "urgentDelivery": 0
+            },
+            "foodCabinetIntent": 0,
+            "forbidCall": 0,
+            "hardStar": 0,
+            "status": 10,
+            "waybillGroupId": 720349728005273100,
+            "fulfilmentPlan": {
+              "mtdd": 0
+            },
+            "logisticOrderExtensionView": {
+              "shippingInfo": {}
+            },
+            "queryIncomeDetailStatus": 0,
+            "assembleGroupId": "",
+            "prebookType": 0,
+            "waybillTagV2": {},
+            "senderLng": 114572669,
+            "poiId": "24502702",
+            "encryptHandoverPointPhone": "",
+            "platformOrderId": "301889821315627647",
+            "recipientAddress": "石家庄科技职业学院新校区美团外卖柜",
+            "privilegeDesignate": 0,
+            "receiveGoodsCheckInGray": 0,
+            "deprivacyBuyerPhone": "",
+            "utime": 1764724687,
+            "controlView": {
+              "hideOrderDifficulty4Grab": 0,
+              "hideIncome4Waiting": 1,
+              "hideOrderDifficulty4Assign": 0
+            },
+            "fullHardStar": 0,
+            "doVoiceMonitor": 0,
+            "privacyPhone": "17692166844,8917",
+            "extFields": {
+              "structuredAddress": "槐安路谈固东街交口永辉超市小马店东侧3号商铺",
+              "flowDirection": 0,
+              "existsAoiRecipientPoint": 0,
+              "riderMaxWaybillNum": 0,
+              "aoiClosed": 1,
+              "upWaybillNum": 0,
+              "refuseDispatchRule": 1,
+              "crowdDesignateFreeReject": 0
+            },
+            "ruipao": 0,
+            "fetchProtocol": {
+              "crawlMode": 1,
+              "source": 5
+            },
+            "expectDeliveredSecond": 0,
+            "subsidyTimeWaybillTagsDesc": "",
+            "isDirectDelivery": 0,
+            "showRemarkForWaitingPage": 0,
+            "priorityDeliveryView": {
+              "priorityDeliveryFlag": 0,
+              "priorityDeliveryFee": 0,
+              "priorityDeliveryTime": 0
+            },
+            "isRecommend": 0,
+            "dianfuMoney": 0,
+            "fee": 0,
+            "similarGroup": 0,
+            "riderAssessTime": {
+              "latestFetchTime": 0,
+              "isProAssessTime": 0,
+              "earliestDeliveryTime": 1764726600,
+              "latestDeliveryTime": 1764727680,
+              "earliestFetchTime": 0,
+              "countDownEndTime": 0
+            },
+            "turningCode": 0,
+            "saveOrderStatus": 0,
+            "templateId": 2,
+            "areaBusinessType": 2,
+            "errandOrderPagePoiSource": 0,
+            "fetchTime": 0,
+            "recipientLat": 37999755,
+            "routeTaskId": 0,
+            "handoverPointPhoneMark": "",
+            "isPrivilege": 0,
+            "wmDeliveryWayType": 2002,
+            "expectDeliveredTime": 1764727200,
+            "hideRefundContent": 1,
+            "transWaybillData": {
+              "transferDeadline": 0,
+              "transferStatus": -1,
+              "showAcceptTransferBtn": 0,
+              "startTransferStatus": 0,
+              "transferInitiatorType": 0,
+              "transferEnable": 0,
+              "transferAvailable": 0,
+              "transferInitiator": 0,
+              "confirmedFlag": 0
+            },
+            "recipientHideFullAddress": "石家庄科技职业学院新校区美团外卖柜",
+            "preferenceWaybill": 0,
+            "buyerPhone": "",
+            "deliveredTime": 0,
+            "senderHideFullAddress": "",
+            "deprivacyBackupPhone": "",
+            "noSendVerificationCodeFlag": 0,
+            "isOpenCustomerPhoneProtectForCrowdsource": 1,
+            "acceptType": 0,
+            "canNotRefuseDesignate": 0,
+            "waybillTagV2Degrade": false,
+            "bmPkgId": "1764723622178273088",
+            "income": 1.4,
+            "senderLat": 38023633,
+            "booked": true,
+            "upperWaybillLimit": 0,
+            "activityIncomeTotal": "0",
+            "waybillTipList": [],
+            "recipientPhoneChanged": 0,
+            "remark": "",
+            "notSameWay": 0,
+            "newSenderAddress": "槐安路谈固东街交口永辉超市小马店东侧3号商铺",
+            "resourceInfo": "{}",
+            "systemTime": 1764724855,
+            "newSenderName": "鱼你的青春·下饭酸菜鱼（石家庄裕华店）",
+            "newRecipientName": "赵**(女士)",
+            "planPayAmount": 0,
+            "poiSeq": "",
+            "waybillViewId": "1764723622878273052",
+            "buyerPhoneEncDegrade": 0,
+            "fetchDistance": 4340,
+            "tteBackupPhone": "",
+            "convertType": 0,
+            "platformId": 1,
+            "recipientNameChanged": 0,
+            "tteBuyerPhone": "",
+            "cancelTime": 0,
+            "dispatchGroupId": "720349728005273117",
+            "deliveryAreaId": 2344,
+            "similarGroupIncome": 0
+          },
+          {
+            "templateType": 2,
+            "senderAddress": "河北省石家庄市长安区中山东路751号白佛口朝晖苑小区北京红缨幼儿园地下负一层8区东南",
+            "deliveryDistance": 3889,
+            "groupGatherType": 0,
+            "cityId": 130100,
+            "crowdDesignateOverTime": 0,
+            "grabTime": 0,
+            "backupPhoneMark": "",
+            "deliveryWayType": 2002,
+            "recipientLng": 114584121,
+            "senderName": "乐购达超市（长安万达店）",
+            "lastFourNum": "",
+            "ctime": 1764724596,
+            "recipientName": "徐**(先生)",
+            "id": 1764724596622273500,
+            "partInActivityList": [
+              {
+                "reward": "0.5",
+                "extension": {
+                  "riderLabelCodes": "[9022]"
+                },
+                "actId": "1812736251565773420",
+                "actType": 2,
+                "labelName": "1天全天收入加速卡",
+                "hitExpansion": false,
+                "labelCode": "6101"
+              }
+            ],
+            "invoiceTitle": "",
+            "newRecipientAddress": "旭辉公元一号地(旭辉公园1号地9号楼2单元7层**)",
+            "waybillMark": 0,
+            "riderManageType": 17,
+            "buyerPhoneMark": "",
+            "recipientAddressChanged": 0,
+            "backupPhone": "",
+            "deprivacyHandoverPointPhone": "",
+            "redPacket": 0,
+            "tteHandoverPointPhone": "",
+            "queryIncomeStatus": 0,
+            "urgentDeliveryView": {
+              "urgentMoney": 0,
+              "urgentExpectedTime": 1764727773,
+              "minRemainTime": 0,
+              "urgentDelivery": 0
+            },
+            "foodCabinetIntent": 0,
+            "forbidCall": 0,
+            "hardStar": 0,
+            "status": 10,
+            "waybillGroupId": 720349745405273200,
+            "fulfilmentPlan": {
+              "mtdd": 0
+            },
+            "logisticOrderExtensionView": {
+              "shippingInfo": {}
+            },
+            "queryIncomeDetailStatus": 0,
+            "assembleGroupId": "",
+            "prebookType": 0,
+            "waybillTagV2": {},
+            "senderLng": 114579653,
+            "poiId": "28325063",
+            "encryptHandoverPointPhone": "",
+            "platformOrderId": "301889832273308959",
+            "recipientAddress": "旭辉公元一号地(旭辉公园1号地9号楼2单元7层**)",
+            "privilegeDesignate": 0,
+            "receiveGoodsCheckInGray": 0,
+            "deprivacyBuyerPhone": "",
+            "utime": 1764724747,
+            "controlView": {
+              "hideOrderDifficulty4Grab": 0,
+              "hideIncome4Waiting": 1,
+              "hideOrderDifficulty4Assign": 0
+            },
+            "fullHardStar": 0,
+            "doVoiceMonitor": 0,
+            "privacyPhone": "17692142436,2010",
+            "extFields": {
+              "flowDirection": 0,
+              "existsAoiRecipientPoint": 0,
+              "riderMaxWaybillNum": 0,
+              "aoiClosed": 0,
+              "upWaybillNum": 0,
+              "refuseDispatchRule": 1,
+              "crowdDesignateFreeReject": 0
+            },
+            "ruipao": 0,
+            "fetchProtocol": {
+              "crawlMode": 1,
+              "source": 5
+            },
+            "expectDeliveredSecond": 0,
+            "subsidyTimeWaybillTagsDesc": "",
+            "isDirectDelivery": 0,
+            "showRemarkForWaitingPage": 0,
+            "priorityDeliveryView": {
+              "priorityDeliveryFlag": 0,
+              "priorityDeliveryFee": 0,
+              "priorityDeliveryTime": 0
+            },
+            "isRecommend": 0,
+            "dianfuMoney": 0,
+            "fee": 0,
+            "similarGroup": 0,
+            "riderAssessTime": {
+              "latestFetchTime": 0,
+              "isProAssessTime": 0,
+              "earliestDeliveryTime": 0,
+              "latestDeliveryTime": 1764727353,
+              "earliestFetchTime": 0,
+              "countDownEndTime": 0
+            },
+            "turningCode": 0,
+            "saveOrderStatus": 0,
+            "templateId": 2,
+            "areaBusinessType": 2,
+            "errandOrderPagePoiSource": 0,
+            "fetchTime": 0,
+            "recipientLat": 38072132,
+            "routeTaskId": 0,
+            "handoverPointPhoneMark": "",
+            "isPrivilege": 0,
+            "wmDeliveryWayType": 4001,
+            "expectDeliveredTime": 1764726873,
+            "hideRefundContent": 1,
+            "transWaybillData": {
+              "transferDeadline": 0,
+              "transferStatus": -1,
+              "showAcceptTransferBtn": 0,
+              "startTransferStatus": 0,
+              "transferInitiatorType": 0,
+              "transferEnable": 0,
+              "transferAvailable": 0,
+              "transferInitiator": 0,
+              "confirmedFlag": 0
+            },
+            "recipientHideFullAddress": "旭辉公元一号地(旭辉公园1号地9号楼2单元7层**)",
+            "preferenceWaybill": 0,
+            "buyerPhone": "oUEqig/uYXsMGBT8AtTioQ==",
+            "deliveredTime": 0,
+            "senderHideFullAddress": "",
+            "deprivacyBackupPhone": "",
+            "noSendVerificationCodeFlag": 0,
+            "isOpenCustomerPhoneProtectForCrowdsource": 1,
+            "acceptType": 0,
+            "canNotRefuseDesignate": 0,
+            "waybillTagV2Degrade": false,
+            "bmPkgId": "1764724596091273105",
+            "income": 1.4,
+            "senderLat": 38044834,
+            "booked": false,
+            "upperWaybillLimit": 0,
+            "activityIncomeTotal": "0",
+            "waybillTipList": [],
+            "recipientPhoneChanged": 0,
+            "remark": "",
+            "notSameWay": 0,
+            "newSenderAddress": "河北省石家庄市长安区中山东路751号白佛口朝晖苑小区北京红缨幼儿园地下负一层8区东南",
+            "resourceInfo": "{}",
+            "systemTime": 1764724855,
+            "newSenderName": "乐购达超市（长安万达店）",
+            "newRecipientName": "徐**(先生)",
+            "planPayAmount": 0,
+            "poiSeq": "",
+            "waybillViewId": "1764724596622273450",
+            "buyerPhoneEncDegrade": 0,
+            "fetchDistance": 3430,
+            "tteBackupPhone": "",
+            "convertType": 0,
+            "platformId": 1,
+            "recipientNameChanged": 0,
+            "tteBuyerPhone": "",
+            "cancelTime": 0,
+            "dispatchGroupId": "720349745405273158",
+            "deliveryAreaId": 2344,
+            "similarGroupIncome": 0
+          }
+        ]
+      }
+    },
+    
+    "waybillComboDisplayList": [
+        {
+          "comboUnitId": "720349832905273973",
+          "displayInfo": {
+            "waybillOperateUnitList": [
+              {
+                "displayInfo": {
+                  "waybillTaskDisplayInfo": {
+                    "displayInfo": [
+                      {
+                        "fetchDeliveryDistanceModule": {
+                          "displayInfo": {
+                            "fetchDistance": {
+                              "normalText": "{2.2|text-style-13-0004}{\nkm|text-style-11-0001}"
+                            },
+                            "deliveryDistance": {
+                              "normalText": "{3.6|text-style-13-0004}{\nkm|text-style-11-0001}"
+                            },
+                            "eventHandle": {
+                              "moduleId": "event-operate-openTaskListMap",
+                              "params": {}
+                            }
+                          },
+                          "templateId": "d-1001"
+                        },
+                        "deliveryAddressModule": {
+                          "displayInfo": {
+                            "subTitle": {
+                              "normalStyle": "text-style-21-0001"
+                            },
+                            "bottomOperations": [],
+                            "title": {
+                              "normalText": "{御江景城-5号楼-1单元(17层**)|text-style-17-0001}",
+                              "normalStyle": "text-style-21-0001"
+                            },
+                            "desc": {
+                              "normalStyle": "text-style-14-0003"
+                            }
+                          },
+                          "templateId": "i-0001"
+                        },
+                        "waybillId": "1764724530622273458",
+                        "fetchAddressModule": {
+                          "displayInfo": {
+                            "bottomOperations": [],
+                            "title": {
+                              "normalText": "{薯之缘·砂锅麻酱土豆粉（裕华店）|text-style-21-0001}",
+                              "normalStyle": "text-style-21-0001"
+                            },
+                            "desc": {
+                              "normalText": "{中山东路832号摩托城B座38号|text-style-14-0003}",
+                              "normalStyle": "text-style-14-0003"
+                            }
+                          },
+                          "templateId": "i-0001"
+                        }
+                      }
+                    ],
+                    "templateId": "d00001"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }   
