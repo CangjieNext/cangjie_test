@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     pairs in [
         (LitConstKind.BoolLiteral, "true"),
         (LitConstKind.BoolLiteral, "false"),
@@ -33,4 +35,5 @@ func test_LitConstExpr_Init_01(pairs: (LitConstKind, String), comments: Array<Co
     let LitConstExpr = LitConstExpr(kind, rawValue, comments: comments)
     println(LitConstExpr.toString())
     println()
+}
 }

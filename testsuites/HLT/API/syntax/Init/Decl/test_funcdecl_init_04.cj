@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     body in [
         None,
         Block([]),
@@ -65,4 +67,5 @@ func test_FuncDecl_Init_01(body: Option<Block>, genericConstraints: Option<Gener
         modifiers: modifiers, comments: comments)
     println(FuncDecl.toString())
     println()
+}
 }

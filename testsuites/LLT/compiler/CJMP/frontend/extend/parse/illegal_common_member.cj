@@ -9,7 +9,7 @@
 
 
 package cmp
-class Foo{ 
+class Foo{ init() {}
 }
 extend Foo {
    common func f():Unit {}

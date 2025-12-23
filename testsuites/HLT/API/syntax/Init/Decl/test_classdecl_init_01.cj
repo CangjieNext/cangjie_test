@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     body in [
         Body([]),
         Body([(parseText("static var a = 1").node.getOrThrow() as VarDecl).getOrThrow(),
@@ -60,8 +62,11 @@ func test_ClassDecl_Init_01(body: Body, genericConstraints: Option<GenericConstr
     println(ClassDecl.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     body in [
         Body([]),
         Body([(parseText("static var a = 1").node.getOrThrow() as VarDecl).getOrThrow(),
@@ -105,4 +110,5 @@ func test_ClassDecl_Init_02(body: Body, genericConstraints: Option<GenericConstr
         modifiers: Array<Modifier>, comments: Array<Comment>): Unit {
     @AssertThrows[Exception](ClassDecl(body, genericConstraints, genericParams, name, superTyAnnotations, annotations: annotations,
         modifiers: modifiers, comments: comments))
+}
 }

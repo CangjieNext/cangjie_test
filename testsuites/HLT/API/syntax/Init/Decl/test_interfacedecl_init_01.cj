@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     body in [
         Body([]),
         Body([(parseText("mut func foo(): ?(Int64, Int64) { None }").node.getOrThrow() as FuncDecl).getOrThrow()])
@@ -58,4 +60,5 @@ func test_InterfaceDecl_Init_01(body: Body, genericConstraints: Option<GenericCo
         modifiers: modifiers, comments: comments)
     println(InterfaceDecl.toString())
     println()
+}
 }

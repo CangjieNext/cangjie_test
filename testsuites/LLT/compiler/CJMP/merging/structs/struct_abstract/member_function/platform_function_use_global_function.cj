@@ -12,7 +12,7 @@ public func aoo(){
     println("from aoo func")
 }
 public common struct A {
-
+    public init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -24,7 +24,6 @@ public platform struct A {
     println("from foo platform")
     aoo()
    }   
-    public init(){}
 }
 
 // SEPARATE-FILE: m_common.cj

@@ -6,6 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+// Level: 1
+// Description:
+// overload among enum instance member functions.
+// EXEC-PIPE-1: %compiler main.cj %cmp_opt 2>&1 | compare %f
+// ASSERT: scan sema_generic_type_without_type_argument
+
 package packageA
 
 enum E<T> {
@@ -14,7 +20,9 @@ enum E<T> {
     | C
 }
 
-interface Interface {
+enum Enum {
+    | B
+
     func f(p: Int64) {
     }
 
@@ -29,10 +37,14 @@ interface Interface {
 
     func f(p: String) {
     }
+
+    func f(p: Rune) {
+    }
+
+    func f(p: Int32) {
+    }
 }
 
-class ChildClass <: Interface {}
-
 main(): Unit {
-    ChildClass().f(A is Int64)
+    Enum.B.f(A is Float64)
 }

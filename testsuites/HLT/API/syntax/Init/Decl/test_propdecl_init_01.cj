@@ -13,7 +13,9 @@
 import stdx.syntax.*
 import stdx.unittest.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     // identifier in [
     //    "foo",
     //    "_a_"
@@ -57,4 +59,5 @@ func test_PropDecl_Init_01(getter: Option<PropGetterOrSetter>, name: String, set
         modifiers: modifiers, comments: comments)
     println(PropDecl.toString())
     println()
+}
 }

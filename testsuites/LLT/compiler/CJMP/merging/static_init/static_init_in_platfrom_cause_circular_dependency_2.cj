@@ -14,6 +14,7 @@ public common class A {
     // y -> foo -> _foo
     // SO: c.cj -> p.cj
     public static var x: Int = foo()
+    init(a: Int64) {}
 }
  
 // SEPARATE-FILE: p/p.cj

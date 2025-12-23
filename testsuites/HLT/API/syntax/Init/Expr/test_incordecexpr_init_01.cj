@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     kind in [
         IncOrDecOpKind.Decr,
         IncOrDecOpKind.Incr
@@ -33,4 +35,5 @@ func test_IncOrDecExpr_Init_01(kind: IncOrDecOpKind, operand: Expr, comments: Ar
     let IncOrDecExpr = IncOrDecExpr(kind, operand, comments: comments)
     println(IncOrDecExpr.toString())
     println()
+}
 }

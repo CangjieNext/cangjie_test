@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     defaultValue in [
         None,
         (parseText("a + 1").node.getOrThrow() as Expr).getOrThrow()
@@ -58,8 +60,11 @@ func test_FuncParam_Init_01(defaultValue: Option<Expr>, kind: Option<VarKind>, n
     println(FuncParam.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     defaultValue in [
         None,
         (parseText("a + 1").node.getOrThrow() as Expr).getOrThrow()
@@ -101,4 +106,5 @@ func test_FuncParam_Init_02(defaultValue: Option<Expr>, kind: Option<VarKind>, n
     }
     @AssertThrows[Exception](FuncParam(defaultValue, kind, name, typeAnnotation, isNamed: isNamed, annotations: annotations,
         modifiers: modifiers, comments: comments))
+}
 }

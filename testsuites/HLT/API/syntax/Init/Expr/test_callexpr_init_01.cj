@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     callee in [
         (parseText("A.foo").node.getOrThrow() as MemberAccess).getOrThrow(),
         (parseText("A1<T>").node.getOrThrow() as SymbolRef).getOrThrow()
@@ -37,8 +39,7 @@ func test_CallExpr_Init_01(callee: Expr, arguments: Array<Argument>, comments: A
     println(CallExpr.toString())
     println()
 }
-
-@Test
 func test_CallExpr_Init_02(): Unit {
     @AssertThrows[Exception](CallExpr((parseText("A()").node.getOrThrow() as CallExpr).getOrThrow(), []))
+}
 }

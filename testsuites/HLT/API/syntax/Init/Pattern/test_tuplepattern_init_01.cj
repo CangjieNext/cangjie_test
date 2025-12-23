@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     subPatterns in [
        // [],
         [ConstPattern(LitConstExpr(LitConstKind.BoolLiteral, "true"))],
@@ -31,8 +33,11 @@ func test_TuplePattern_Init_01(subPatterns: Array<Pattern>, comments: Array<Comm
     println(TuplePattern.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     subPatterns in [
        [],
         // [ConstPattern(LitConstExpr(LitConstKind.BoolLiteral, "true"))],
@@ -52,3 +57,4 @@ func test_TuplePattern_Init_02(subPatterns: Array<Pattern>, comments: Array<Comm
 }
 
 
+}

@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     callee in [
         (parseText("foo").node.getOrThrow() as Expr).getOrThrow()
     ],
@@ -33,4 +35,5 @@ func test_TrailingClosureExpr_Init_01(callee: Expr, arguments: Array<Argument>, 
     let TrailingClosureExpr = TrailingClosureExpr(callee, arguments, trailingLambdaExpr, comments: comments)
     println(TrailingClosureExpr.toString())
     println()
+}
 }

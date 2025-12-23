@@ -1,0 +1,16 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/match_expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb matchExpr_enum_pattern2,matchExpr_enum_pattern2
+b,b 18,matchExpr_enum_pattern2.cj:18
+r,r,-> 18
+ ,expr match (c) {case Green => "Green" case Blue(3) => "Blue" case _ => "red"},\(std.core.String\) \$\d+ = "Blue"
+q,q,

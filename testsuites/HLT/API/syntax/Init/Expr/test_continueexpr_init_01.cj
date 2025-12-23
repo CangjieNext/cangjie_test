@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     comments in [
         [], 
         [Comment(##"/* 
@@ -25,4 +27,5 @@ func test_ContinueExpr_Init_01(comments: Array<Comment>): Unit {
     let ContinueExpr = ContinueExpr(comments: comments)
     println(ContinueExpr.toString())
     println()
+}
 }

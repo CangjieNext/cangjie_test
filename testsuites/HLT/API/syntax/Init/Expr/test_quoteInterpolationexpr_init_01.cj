@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     expr in [
         (parseText("quote(aaa)").node.getOrThrow() as QuoteExpr).getOrThrow(),
     ],
@@ -27,4 +29,5 @@ func test_QuoteInterpolationExpr_Init_01(expr: Expr, comments: Array<Comment>): 
     let QuoteInterpolationExpr = QuoteInterpolationExpr(expr, comments: comments)
     println(QuoteInterpolationExpr.toString())
     println()
+}
 }

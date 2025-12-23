@@ -11,6 +11,7 @@ public common class I{
     public common prop a: Int32 {
         get(){0}
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj

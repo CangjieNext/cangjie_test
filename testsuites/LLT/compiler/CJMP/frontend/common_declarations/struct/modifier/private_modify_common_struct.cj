@@ -8,8 +8,10 @@
 // ASSERT: scan-2 parse_conflict_modifier
 package cmp
 private common struct C{
+    public init() {}
 }
 
 common private struct D{
+    private init() {}
 }
 

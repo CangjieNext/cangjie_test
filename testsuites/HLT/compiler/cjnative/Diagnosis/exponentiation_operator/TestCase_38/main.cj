@@ -6,6 +6,11 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+// Level: 1
+// Description:
+// 2i64 ** 2u64, left operand expression is of type Int64, right operand expression is of type UInt64.
+// EXEC: %compiler main.cj %cmp_opt
+
 package packageA
 
 main(): Unit {

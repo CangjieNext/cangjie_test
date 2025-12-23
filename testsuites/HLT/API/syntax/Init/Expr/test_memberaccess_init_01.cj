@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     base in [
         (parseText("foo()").node.getOrThrow() as Expr).getOrThrow()
     ],
@@ -31,4 +33,5 @@ func test_MemberAccess_Init_01(base: Expr, field: SymbolRef, comments: Array<Com
     let MemberAccess = MemberAccess(base, field, comments: comments)
     println(MemberAccess.toString())
     println()
+}
 }

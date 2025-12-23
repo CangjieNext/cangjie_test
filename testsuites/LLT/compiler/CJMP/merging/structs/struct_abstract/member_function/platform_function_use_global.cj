@@ -10,7 +10,7 @@ package cmp
 
 public let a = "common"
 public common struct A {
-
+    public init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -22,7 +22,6 @@ public platform struct A {
     println("from foo platform")
     println(a)
    }   
-    public init(){}
 }
 
 // SEPARATE-FILE: m_common.cj

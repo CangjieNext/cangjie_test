@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     catchBlocks in [
         // [],
         [Block((parseText("b + 1").node.getOrThrow() as Expr).getOrThrow())]
@@ -44,4 +46,5 @@ func test_TryCatch_Init_01(catchBlocks: Array<Block>, catchPatterns: Array<Catch
     let TryCatch = TryCatch(catchBlocks, catchPatterns, finallyBlock, resourceSpec, tryBlock, comments: comments)
     println(TryCatch.toString())
     println()
+}
 }

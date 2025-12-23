@@ -11,5 +11,6 @@ package cmp
 
 common struct A {
     common let a
+    public init() {}
 }
 

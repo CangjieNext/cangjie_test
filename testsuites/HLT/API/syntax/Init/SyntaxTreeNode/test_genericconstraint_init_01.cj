@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     typeArgument in [
         CompositeType("I1", [], []),
     
@@ -33,8 +35,11 @@ func test_GenericConstraint_Init_01(typeArgument: TypeAnnotation, upperBounds: A
     println(GenericConstraint.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     typeArgument in [
         CompositeType("I1", [], []),
     
@@ -53,4 +58,5 @@ func test_GenericConstraint_Init_01(typeArgument: TypeAnnotation, upperBounds: A
 func test_GenericConstraint_Init_02(typeArgument: TypeAnnotation, upperBounds: Array<TypeAnnotation>, comments: Array<Comment>): Unit {
     @AssertThrows[Exception](GenericConstraint(typeArgument, upperBounds, comments: comments))
     
+}
 }

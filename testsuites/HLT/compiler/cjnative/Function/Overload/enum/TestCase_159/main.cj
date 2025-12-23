@@ -6,6 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+// Level: 1
+// Description:
+// overload among interface instance member functions.
+// EXEC-PIPE-1: %compiler main.cj %cmp_opt 2>&1 | compare %f
+// ASSERT: scan sema_generic_type_without_type_argument
+
 package packageA
 
 enum E<T> {
@@ -14,21 +20,25 @@ enum E<T> {
     | C
 }
 
-class ExtendedClass {}
-
-extend ExtendedClass {
+interface Interface {
     func f(p: Int64) {
     }
+
     func f(p: Float64) {
     }
+
     func f(p: Bool) {
     }
+
     func f(p: Unit) {
     }
+
     func f(p: String) {
     }
 }
 
+class ChildClass <: Interface {}
+
 main(): Unit {
-    ExtendedClass().f(A is UInt16)
+    ChildClass().f(A is Float64)
 }

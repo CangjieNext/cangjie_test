@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     contents in [
         ImportAlias(["p1"], "foo", "a1" ),
         ImportAll(["p1", "p2"]),
@@ -45,8 +47,11 @@ func test_ImportList_Init_01(contents: ImportContent, modifier: Option<Modifier>
     println(ImportList.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     contents in [
         ImportAlias(["p1"], "foo", "a1" ),
         ImportAll(["p1", "p2"]),
@@ -77,4 +82,5 @@ func test_ImportList_Init_02(contents: ImportContent, modifier: Option<Modifier>
     // }
     @AssertThrows[Exception](ImportList(contents, modifier, comments: comments))
     
+}
 }

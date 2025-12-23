@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     srcVal in [
         LitConstExpr(LitConstKind.IntergerLiteral, "123"),
         ParenExpr(AsExpr(LitConstExpr(LitConstKind.IntergerLiteral, "123"), AtomicType(Int64Type)))
@@ -32,4 +34,5 @@ func test_AsExpr_Init_01(srcVal: Expr, targetTypeAnnotation: TypeAnnotation, com
     let AsExpr = AsExpr(srcVal, targetTypeAnnotation, comments: comments)
     println(AsExpr.toString())
     println()
+}
 }

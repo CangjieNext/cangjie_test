@@ -6,6 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+// Level: 1
+// Description:
+// overload among global functions.
+// EXEC-PIPE-1: %compiler main.cj %cmp_opt 2>&1 | compare %f
+// ASSERT: scan sema_generic_type_without_type_argument
+
 package packageA
 
 enum E<T> {
@@ -14,27 +20,27 @@ enum E<T> {
     | C
 }
 
+func f(p: Int64) {
+}
+
+func f(p: Bool) {
+}
+
+func f(p: Float64) {
+}
+
+func f(p: Unit) {
+}
+
+func f(p: String) {
+}
+
+func f(p: Rune) {
+}
+
+func f(p: Int32) {
+}
+
 main(): Unit {
-    func f(p: Int64) {
-    }
-
-    func f(p: Bool) {
-    }
-
-    func f(p: Float64) {
-    }
-
-    func f(p: Unit) {
-    }
-
-    func f(p: String) {
-    }
-
-    func f(p: Rune) {
-    }
-
-    func f(p: Int32) {
-    }
-
-    f(A is Int8)
+    f(A is String)
 }

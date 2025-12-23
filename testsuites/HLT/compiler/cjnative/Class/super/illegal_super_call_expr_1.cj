@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+// LEVEL: 2
+// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// ASSERT: scan sema_assignment_of_member_variable_cannot_use_this_or_super
+
+open class A {
+    let x: A
+    func getX(): A {
+        this.x
+    }
+    public A(x: A) {
+        this.x = x
+    }
+}
+
+class B <: A {
+    public B() {
+        // 访问实例成员函数
+        super(this.getX())
+    }
+}
+
+main(): Int64 {
+    let b = B()
+    let a = b.x
+    let aa = a.x
+    return 0
+}

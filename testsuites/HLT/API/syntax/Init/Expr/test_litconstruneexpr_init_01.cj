@@ -12,10 +12,12 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     pairs in [
         (LitConstKind.RuneLiteral, "a"),
-        (LitConstKind.RuneLiteral, "è¿™")
+        (LitConstKind.RuneLiteral, "è¿")
     ],
     isSingleQuote in [
         true,
@@ -34,4 +36,5 @@ func test_LitConstRuneExpr_Init_01(pairs: (LitConstKind, String), isSingleQuote:
     let LitConstRuneExpr = LitConstRuneExpr(kind, rawValue, isSingleQuote, comments: comments)
     println(LitConstRuneExpr.toString())
     println()
+}
 }

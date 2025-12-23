@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     base in [
         AtomicType(AtomicTypeKind.Int64Type),
         (parseText("let a: (Int32, A) = C1()").node.getOrThrow() as VarDecl).getOrThrow().tyAnnotation.getOrThrow(),
@@ -33,4 +35,5 @@ func test_PrefixType_Init_01(base: TypeAnnotation, prefixOp: PrefixTypeOpKind, c
     let PrefixType = PrefixType(base, prefixOp, comments: comments)
     println(PrefixType.toString())
     println()
+}
 }

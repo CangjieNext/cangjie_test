@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     body in [
         Body([]),
         Body([(parseText("mut func foo(): ?(Int64, Int64) { None }").node.getOrThrow() as FuncDecl).getOrThrow()])
@@ -65,4 +67,5 @@ func test_EnumDecl_Init_01(body: Body, constructor: Array<EnumConstructor>, gene
         modifiers: modifiers, comments: comments)
     println(EnumDecl.toString())
     println()
+}
 }

@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     subType in [
         AtomicType(AtomicTypeKind.Int64Type),
         (parseText("let a: (Int32, A) = C1()").node.getOrThrow() as VarDecl).getOrThrow().tyAnnotation.getOrThrow()
@@ -29,4 +31,5 @@ func test_ParenType_Init_01(subType: TypeAnnotation, comments: Array<Comment>): 
     let ParenType = ParenType(subType, comments: comments)
     println(ParenType.toString())
     println()
+}
 }

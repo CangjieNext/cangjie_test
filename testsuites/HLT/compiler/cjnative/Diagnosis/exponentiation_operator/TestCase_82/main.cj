@@ -6,6 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+// Level: 1
+// Description:
+// 2.400000f32 ** 2i16, left operand expression is of type Float32, right operand expression is of type Int16.
+// EXEC-PIPE-1: %compiler main.cj %cmp_opt 2>&1 | compare %f
+// ASSERT: scan sema_invalid_binary_expr
+
 package packageA
 
 main(): Unit {

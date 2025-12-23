@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     tokensOrRefExpr in [
         [],
         (parseText("quote(aaa)").node.getOrThrow() as QuoteExpr).getOrThrow().tokensOrRefExpr,
@@ -33,4 +35,5 @@ func test_QuoteExpr_Init_01(tokensOrRefExpr: Array<QuoteExprContent>, comments: 
     let QuoteExpr = QuoteExpr(tokensOrRefExpr, comments: comments)
     println(QuoteExpr.toString())
     println()
+}
 }

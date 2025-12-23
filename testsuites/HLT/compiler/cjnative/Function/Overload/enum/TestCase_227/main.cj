@@ -6,6 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+// Level: 1
+// Description:
+// overload among class constructors.
+// EXEC-PIPE-1: %compiler main.cj %cmp_opt 2>&1 | compare %f
+// ASSERT: scan sema_generic_type_without_type_argument
+
 package packageA
 
 enum E<T> {
@@ -14,7 +20,7 @@ enum E<T> {
     | C
 }
 
-struct Struct {
+class Class {
     init(p: Int64) {
     }
     init(p: Bool) {
@@ -32,5 +38,5 @@ struct Struct {
 }
 
 main(): Unit {
-    Struct(A is Int64)
+    Class(A is Int32)
 }

@@ -39,7 +39,19 @@ type Mytype1 = Int64
 type Mytype = Int32
 public type Mytype3 = Float64
 public type Mytype4 = Float32
-public var a: Mytype1 = 1
-public var b: Mytype = 2
-public var c: Mytype3 = 1.1
-public var d: Mytype4 = 2.2
+public func f1(){
+    var a: Mytype1 = 1
+    return 1
+}
+public func f2(){
+    var b: Mytype = 2
+    return 2
+}
+public func f3(){
+    var c: Mytype3 = 1.1
+    return 1.1
+}
+public func f4(){
+    var d: Mytype4 = 2.2
+    return 2.2
+}

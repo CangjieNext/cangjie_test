@@ -12,7 +12,7 @@ package cmp
 
 
 common open class A {
-       
+    init() {}
 }
 
 /* SCAN

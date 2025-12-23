@@ -4,6 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+// case: platform decls inherit @Deprecated from common decls. No error for platform if @Deprecated is used on common.
 // SEPARATE-FILE: c/c.cj
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
@@ -11,9 +12,9 @@ package cmp
 
 @Deprecated public common func f0(): Int64 { 1 }
 
-@Deprecated public common class A {}
+@Deprecated public common class A { A(){} }
 
-@Deprecated public common struct B {}
+@Deprecated public common struct B { B(){}}
 
 @Deprecated public common interface I {}
 
@@ -25,8 +26,11 @@ public common func f2(): Int64
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
-// ASSERT: scan-3 sema_platform_has_different_annotation
-// ASSERT: scan-5 sema_not_matched
+// ASSERT: scan-4 sema_not_matched
+// ASSERT: scan 'platform' function 'f1' can not find 'common' match
+// ASSERT: scan 'platform' function 'f2' can not find 'common' match
+// ASSERT: scan 'common' function 'f1' can not find 'platform' match
+// ASSERT: scan 'common' function 'f2' can not find 'platform' match
 package cmp
 public platform let v0: Int64 = 1
 

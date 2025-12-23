@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     body in [
         Block([]),
         Block([parseText("a + 1").node.getOrThrow(), parseText("return").node.getOrThrow()])
@@ -48,4 +50,5 @@ func test_MacroDecl_Init_01(body: Block, name: String, params: ParameterList, re
         modifiers: modifiers, comments: comments)
     println(MacroDecl.toString())
     println()
+}
 }

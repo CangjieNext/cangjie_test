@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     accessModifier in [
         None,
         Modifier(ModifierKind.Public)
@@ -37,4 +39,5 @@ func test_PackageHeader_Init_01(accessModifier: Option<Modifier>, isMacroPkg: Bo
     let PackageHeader = PackageHeader(accessModifier, isMacroPkg, packageNameIdentifiers, comments: comments)
     println(PackageHeader.toString())
     println()
+}
 }

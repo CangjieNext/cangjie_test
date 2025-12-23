@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     body in [
         Body([]),
         Body([(parseText("mut func foo(): ?(Int64, Int64) { None }").node.getOrThrow() as FuncDecl).getOrThrow()])
@@ -57,4 +59,5 @@ func test_ExtendDecl_Init_01(body: Body, extendedTyAnnotation: TypeAnnotation, g
         comments: comments)
     println(ExtendDecl.toString())
     println()
+}
 }

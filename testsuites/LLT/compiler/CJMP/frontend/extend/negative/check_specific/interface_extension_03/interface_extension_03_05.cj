@@ -13,7 +13,7 @@ common interface I2 {}
 common interface I3 {}
 interface I4 {}
 
-common class Foo {}
+common class Foo { init() {} }
 
 common extend Foo {}
 common extend Foo <: I1 & I2 {}

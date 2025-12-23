@@ -39,13 +39,13 @@ package test_stable_abi
 
 // test global func: modify compiler directive
 // global func: global func is used in @Frozen global func
-// modify operation: add @CallingConv[STDCALL]
+// modify operation: add @CallingConv[CDECL]
 @C
 func global_func_01() {
     0
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 func global_func_02() {
     0
@@ -74,19 +74,19 @@ const func global_func_06() {
     0
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 func global_func_07() {
     0
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 func global_func_08() {
     0
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 const func global_func_09() {
     0
@@ -103,7 +103,7 @@ public func global_func_11() {
     0
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 public func global_func_12() {
     0

@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     memberDecls in [
         [],
         [(parseText("static var a = 1").node.getOrThrow() as VarDecl).getOrThrow()],
@@ -30,4 +32,5 @@ func test_Body_Init_01(memberDecls: Array<Decl>, comments: Array<Comment>): Unit
     let Body = Body(memberDecls, comments: comments)
     println(Body.toString())
     println()
+}
 }

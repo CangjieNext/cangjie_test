@@ -12,4 +12,5 @@ common struct Foo {
     private var a = 0
     mut common prop b: Int64{}
     common prop c:Int64{}
+    init() {}
 }

@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     cond in [
         //[],
         [
@@ -33,8 +35,11 @@ func test_ConjunctionCondition_Init_01(cond: Array<AtomicCondition>, comments: A
     println(ConjunctionCondition.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     cond in [
         [],
         // [
@@ -53,4 +58,5 @@ a
 func test_ConjunctionCondition_Init_02(cond: Array<AtomicCondition>, comments: Array<Comment>): Unit {
     @AssertThrows[Exception](ConjunctionCondition(cond, comments: comments))
    
+}
 }

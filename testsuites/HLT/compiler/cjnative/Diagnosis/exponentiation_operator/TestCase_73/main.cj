@@ -6,6 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+// Level: 1
+// Description:
+// 2u64 ** 2i32, left operand expression is of type UInt64, right operand expression is of type Int32.
+// EXEC-PIPE-1: %compiler main.cj %cmp_opt 2>&1 | compare %f
+// ASSERT: scan sema_invalid_binary_expr
+
 package packageA
 
 main(): Unit {

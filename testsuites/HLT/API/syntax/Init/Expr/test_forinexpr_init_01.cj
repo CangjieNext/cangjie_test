@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     body in [
         Block(),
         Block([(parseText("return 1").node.getOrThrow() as Expr).getOrThrow()]),
@@ -40,4 +42,5 @@ func test_ForInExpr_Init_01(body: Block, expr: Expr, pattern: Pattern, patternGu
     let ForInExpr = ForInExpr(body, expr, pattern, patternGuard, comments: comments)
     println(ForInExpr.toString())
     println()
+}
 }

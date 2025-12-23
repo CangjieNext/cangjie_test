@@ -13,5 +13,6 @@ package cmp
 
 common abstract class A {
     static common let a = 1
+    init() {}
 }
 

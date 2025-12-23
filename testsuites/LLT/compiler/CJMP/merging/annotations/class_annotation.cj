@@ -14,6 +14,7 @@ public class AA{
 }
 @AA
 public common class A {
+    public init() {}
 }
 
 // SEPARATE-FILE: p/p.cj

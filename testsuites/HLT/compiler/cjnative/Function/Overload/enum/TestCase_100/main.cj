@@ -6,6 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+// Level: 1
+// Description:
+// overload among struct instance member functions.
+// EXEC-PIPE-1: %compiler main.cj %cmp_opt 2>&1 | compare %f
+// ASSERT: scan sema_generic_type_without_type_argument
+
 package packageA
 
 enum E<T> {
@@ -14,9 +20,7 @@ enum E<T> {
     | C
 }
 
-enum Enum {
-    | B
-
+struct Struct {
     func f(p: Bool) {
     }
 
@@ -40,5 +44,5 @@ enum Enum {
 }
 
 main(): Unit {
-    Enum.B.f(A is Int16)
+    Struct().f(A is Float32)
 }

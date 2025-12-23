@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     matchCases in [
         // [],
         [MatchCase([VarPattern("x"), VarPattern("y")], None, None, [parseText("()").node.getOrThrow()])]
@@ -33,4 +35,5 @@ func test_MatchExpr_Init_01(matchCases: Array<MatchCase>, selector: Option<Expr>
     let MatchExpr = MatchExpr(matchCases, selector, comments: comments)
     println(MatchExpr.toString())
     println()
+}
 }

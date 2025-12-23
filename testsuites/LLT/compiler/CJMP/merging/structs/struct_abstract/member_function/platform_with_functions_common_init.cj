@@ -10,7 +10,6 @@ package cmp
 
  public common struct A {
    public init(){}
- 
 }
 
 // SEPARATE-FILE: p/p.cj

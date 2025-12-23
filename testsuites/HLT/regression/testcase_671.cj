@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // (not iOS) ASSERT: regex OverflowException: The result would be less than UInt64.Min.
-// (iOS) ASSERT: scan Init Image fail!
+// (iOS) ASSERT: scan Failed to InitCJLibrary
 
 
 

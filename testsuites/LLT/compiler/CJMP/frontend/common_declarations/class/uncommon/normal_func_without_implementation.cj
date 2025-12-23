@@ -12,4 +12,5 @@
 package cmp
 common class C{
     func foo():Unit
+    init() {}
 }

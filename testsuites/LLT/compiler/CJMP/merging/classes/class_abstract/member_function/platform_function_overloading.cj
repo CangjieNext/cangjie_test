@@ -8,8 +8,7 @@
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
  public common class A {
-    
-
+    public init(){}
     
 }
 // SEPARATE-FILE: p/p.cj
@@ -30,7 +29,6 @@ package cmp
         println(b)
 
     }
-    public init(){}
 
 }
 main() {

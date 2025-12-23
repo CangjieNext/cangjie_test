@@ -12,6 +12,8 @@ private let aInit: Int = 1
 
 public common class A {
     public let a: Int = aInit + 1
+    public init() {}
+
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -20,8 +22,6 @@ package cmp
 
 public platform class A {
     public let b: Int = 3
-
-    public init() {}
 }
 
 // SEPARATE-FILE: m_common.cj

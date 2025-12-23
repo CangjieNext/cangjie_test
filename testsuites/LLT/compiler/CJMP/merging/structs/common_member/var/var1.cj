@@ -11,5 +11,6 @@ package cmp
 
 common struct A {
     common var a
+    public init() {}
 }
 

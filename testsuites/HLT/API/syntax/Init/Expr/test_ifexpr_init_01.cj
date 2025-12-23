@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     condition in [
         (parseText("if (a && b || c) { a1 + 1 } else { b1 }").node.getOrThrow() as IfExpr).getOrThrow().condition
     ],
@@ -40,4 +42,5 @@ func test_IfExpr_Init_01(condition: DisjunctionCondition, elseBlock: Option<Bloc
     let IfExpr = IfExpr(condition, elseBlock, elseIf, ifBlock, comments: comments)
     println(IfExpr.toString())
     println()
+}
 }

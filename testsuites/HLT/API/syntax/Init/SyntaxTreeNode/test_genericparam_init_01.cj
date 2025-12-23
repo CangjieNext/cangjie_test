@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     name in [
         "T",
         "RRR"
@@ -28,4 +30,5 @@ func test_GenericParam_Init_01(name: String, comments: Array<Comment>): Unit {
     let GenericParam = GenericParam(name, comments: comments)
     println(GenericParam.toString())
     println()
+}
 }

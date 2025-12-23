@@ -6,6 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+// Level: 1
+// Description:
+// overload among enum static member functions.
+// EXEC-PIPE-1: %compiler main.cj %cmp_opt 2>&1 | compare %f
+// ASSERT: scan sema_generic_type_without_type_argument
+
 package packageA
 
 enum E<T> {
@@ -14,13 +20,31 @@ enum E<T> {
     | C
 }
 
-interface Interface {
+enum Enum {
+    | B
+
     static func f(p: Int64) {
+    }
+
+    static func f(p: Bool) {
+    }
+
+    static func f(p: Float64) {
+    }
+
+    static func f(p: Unit) {
+    }
+
+    static func f(p: String) {
+    }
+
+    static func f(p: Rune) {
+    }
+
+    static func f(p: Int32) {
     }
 }
 
-class ChildClass <: Interface {}
-
 main(): Unit {
-    ChildClass.f(A is UInt16)
+    Enum.f(A is Int8)
 }

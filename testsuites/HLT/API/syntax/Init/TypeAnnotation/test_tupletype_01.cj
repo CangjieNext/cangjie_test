@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     labels in [
         [],
         ["a"],
@@ -39,8 +41,11 @@ func test_TupleType_Init_01(labels: Array<String>, elements: Array<TypeAnnotatio
     println(TupleType.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     labels in [
         []
     ],
@@ -60,4 +65,5 @@ func test_TupleType_Init_02(labels: Array<String>, elements: Array<TypeAnnotatio
     let TupleType = TupleType(labels, elements, comments: comments)
     println(TupleType.toString())
     println()
+}
 }

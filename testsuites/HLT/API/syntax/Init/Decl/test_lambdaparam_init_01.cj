@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     name in [
         "a1",
         "aaaa"
@@ -42,4 +44,5 @@ func test_LambdaParam_Init_01(name: String, typeAnnotation: Option<TypeAnnotatio
      comments: comments)
     println(LambdaParam.toString())
     println()
+}
 }

@@ -6,6 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+// Level: 1
+// Description:
+// overload among local functions.
+// EXEC-PIPE-1: %compiler main.cj %cmp_opt 2>&1 | compare %f
+// ASSERT: scan sema_generic_type_without_type_argument
+
 package packageA
 
 enum E<T> {
@@ -14,7 +20,7 @@ enum E<T> {
     | C
 }
 
-class Class {
+main(): Unit {
     func f(p: Bool) {
     }
 
@@ -35,8 +41,6 @@ class Class {
 
     func f(p: Int32) {
     }
-}
 
-main(): Unit {
-    Class().f(A is Int16)
+    f(A is String)
 }

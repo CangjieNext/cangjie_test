@@ -9,6 +9,7 @@
 package cmp
 common class A {
   public common func foo(input!: Int64): Unit
+  init() {}
 }
 
 
@@ -17,7 +18,6 @@ common class A {
 // ASSERT: scan sema_platform_has_different_parameter
 package cmp
 platform class A {
-  init() {}
   public platform func foo(input: Int64): Unit {}
 }
 
