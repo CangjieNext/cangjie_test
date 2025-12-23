@@ -10,4 +10,5 @@
 // DEPENDENCE: mp
 // EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
 // ERRCHECK: %compiler %cmp_opt mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
-// ASSERT: scan parse_platform_function_parameter_cannot_have_default_value
+// ASSERT: scan sema_cjmp_parameter_default_value_both_sides
+// ASSERT: scan sema_not_matched

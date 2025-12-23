@@ -12,7 +12,18 @@ interface IA {}
 common extend Int64 <: IA {}
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p  2>&1 | compare %f
 package cmp
 
 extend Int64 <: IA {}
+
+/* SCAN
+error: interface 'Interface-IA' has been implemented by 'Int64', please remove it
+ ==> p/p.cj:4:17:
+  | 
+4 | extend Int64 <: IA {}
+  |                 ^^ 
+  | 
+
+1 error generated, 1 error printed.
+*/
