@@ -14,8 +14,8 @@ import stdx.syntax.*
 
 @Test[
     subPattern in [
-        ConstPattern(LitConstExpr(LitConstKind.BoolLiteral, "true")),
-        EnumPattern(SymbolRef("A1", []), None, [])
+        WildcardPattern(),
+        VarPattern("A1")
     ],
     patternType in [
         AtomicType(AtomicTypeKind.Int64Type),
