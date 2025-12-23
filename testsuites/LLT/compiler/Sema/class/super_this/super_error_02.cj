@@ -18,7 +18,7 @@ class Test<T> <: Base {
 }
 
 /* SCAN
-error: there is no non-parameter constructor in super class, please invoke super call explicitly
+error: there is no non-parameter constructor with @~local this in super class, please invoke super call explicitly
   ==> super_error_02.cj:16:7:
    | 
 16 | class Test<T> <: Base {

@@ -16,7 +16,7 @@ open class A {
 class B <: A {}
 
 /* SCAN
-error: there is no non-parameter constructor in super class, please invoke super call explicitly
+error: there is no non-parameter constructor with @~local this in super class, please invoke super call explicitly
   ==> class_init_default_constructor4.cj:16:7:
    | 
 16 | class B <: A {}
