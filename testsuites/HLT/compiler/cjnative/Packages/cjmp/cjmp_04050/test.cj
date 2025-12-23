@@ -11,4 +11,3 @@
 // EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
 // ERRCHECK: %compiler %cmp_opt mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
 // ASSERT: scan-1 sema_class_uninitialized_field
-// ASSERT: scan-1 sema_platform_primary_unmatched_var_decl

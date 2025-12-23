@@ -11,7 +11,7 @@ package mp
 public common class A {
     public var a = 1
     public func f() { 0 }
-    public common A(a: Int64) { this.a = a + 2 }
+    public common init(a: Int64) { this.a = a + 2 }
 }
 public func test_com() { A(0).a + A(0).f() }
 

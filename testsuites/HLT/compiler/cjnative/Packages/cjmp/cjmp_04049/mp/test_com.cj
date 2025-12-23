@@ -9,7 +9,8 @@
 package mp
 
 public common class A {
-    public common A(public common var a!: Int64 = 0) {}
+    public common var a: Int64
+    public common init(a!: Int64 = 0) {this.a = a}
 }
 public func test_com() { A().a }
 
