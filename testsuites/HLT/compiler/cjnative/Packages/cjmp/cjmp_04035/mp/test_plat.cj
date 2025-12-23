@@ -9,7 +9,7 @@
 package mp
 
 public platform class A {
-    public platform A()
+    public platform init()
 }
 public func test_plat() { A().a + A().f() }
 
