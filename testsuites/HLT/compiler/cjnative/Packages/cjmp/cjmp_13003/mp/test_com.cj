@@ -8,4 +8,6 @@
 
 package mp
 
-public common abstract class C1 {}
+public common abstract class C1 {
+    init(){}
+}

@@ -8,8 +8,7 @@
  
 // LEVEL: 0
 // DEPENDENCE: mp
-// ERRCHECK: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
-// ASSERT: scan parse_missing_body
+// EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
 
 import mp.*
 
