@@ -8,8 +8,8 @@
  
 // LEVEL: 0
 // DEPENDENCE: ./data
-// EXEC: %compiler %import-cangjie-stdx  %cmp_opt %cmp_utest_opt -o %n.%suffix %f
-// RUN-EXEC: %run_stdx %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx  %cmp_opt %cmp_utest_opt -o %output %f
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.net.*
 import std.fs.*

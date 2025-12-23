@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix  %f %cmp_utest_opt
-// RUN-EXEC: %run_stdx %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %output  %f %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.fs.*
 import stdx.crypto.x509.*
@@ -129,7 +129,8 @@ class Test_X509_certreq_pem_decode_01 {
         try {
             X509CertificateRequest.decodeFromPem(String.fromUtf8(File.readFrom("./data/end_ecdsa_3.cer")))
         } catch (e: FSException) {
-            @Expect(e.message.contains("The file does not exist or permission denied"))
+            println(e.message.toString())
+            @Expect(e.message.contains("does not exist or permission denied"))
             sum += 1
         }
         @Expect(sum, 1)

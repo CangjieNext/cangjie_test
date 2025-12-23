@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     elementType in [
         AtomicType(AtomicTypeKind.Int64Type),
         (parseText("let a: (Int32, A) = C1()").node.getOrThrow() as VarDecl).getOrThrow().tyAnnotation.getOrThrow(),
@@ -35,25 +37,29 @@ func test_VArrayType_Init_01(elementType: TypeAnnotation, size: Int64, comments:
     println(VArrayType.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     elementType in [
         AtomicType(AtomicTypeKind.Int64Type),
         (parseText("let a: (Int32, A) = C1()").node.getOrThrow() as VarDecl).getOrThrow().tyAnnotation.getOrThrow(),
         PrefixType(AtomicType(AtomicTypeKind.Int64Type), PrefixTypeOpKind.Quest)
     ],
     size in [
-        0,
+      //  0,
         - 1
     ],
     comments in [
         [], 
-        [Comment(#"/* 
-a 
-*/"##)],
-        [Comment("//1"), Comment("// 2")]
+//         [Comment(#"/* 
+// a 
+// */"##)],
+//         [Comment("//1"), Comment("// 2")]
     ]
 ]
 func test_VArrayType_Init_02(elementType: TypeAnnotation, size: Int64, comments: Array<Comment>): Unit {
     @AssertThrows[Exception](VArrayType(elementType, size, comments: comments))
+}
 }

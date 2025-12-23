@@ -24,7 +24,7 @@ class Test_HardLink {
     func create_illegal_02() {
         File.create("./tempfile").close()
         let e = @AssertThrows[IllegalArgumentException](HardLink.create("temp", to: "./tempfile\0"))
-        @Expect(e.message, "The path 'link' or 'to' cannot contain null character!")
+        @Expect(e.message, "The input path 'to' value [46, 47, 116, 101, 109, 112, 102, 105, 108, 101, 0] contains null character.")
         remove("./tempfile")
     }
 
@@ -32,7 +32,7 @@ class Test_HardLink {
     func create_illegal_03() {
         File.create("./tempfile").close()
         let e = @AssertThrows[IllegalArgumentException](HardLink.create("", to: "./tempfile"))
-        @Expect(e.message, "The path 'link' or 'to' cannot be empty!")
+        @Expect(e.message, "The input path 'link' is empty.")
         remove("./tempfile")
     }
 

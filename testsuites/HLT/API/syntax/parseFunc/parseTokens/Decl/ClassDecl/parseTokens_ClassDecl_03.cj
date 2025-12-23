@@ -84,14 +84,14 @@ internal class C1 < T, U > <: I1 < U > & I2 < T, U > & I3 < T > where T <: I1 < 
 
     @Assert(classDecl.name, "C1")
     @Assert(classDecl.genericConstraints.isSome())
-    @Assert(classDecl.genericConstraints.getOrThrow().toString(), "where T <: I1  < T > & I3  < T >, U <: I2  < T, T >")
+    @Assert(classDecl.genericConstraints.getOrThrow().toString(), "where T <: I1 < T > & I3 < T >, U <: I2 < T, T >")
     @Assert(classDecl.genericParams.size, 2)
     @Assert(classDecl.genericParams[0].toString(), "T")
     @Assert(classDecl.genericParams[1].toString(), "U")
     @Assert(classDecl.superTyAnnotations.size, 3)
-    @Assert(classDecl.superTyAnnotations[0].toString(), "I1  < U >")
-    @Assert(classDecl.superTyAnnotations[1].toString(), "I2  < T, U >")
-    @Assert(classDecl.superTyAnnotations[2].toString(), "I3  < T >")
+    @Assert(classDecl.superTyAnnotations[0].toString(), "I1 < U >")
+    @Assert(classDecl.superTyAnnotations[1].toString(), "I2 < T, U >")
+    @Assert(classDecl.superTyAnnotations[2].toString(), "I3 < T >")
     @Assert(classDecl.annotations.size, 1)
     @Assert(classDecl.annotations[0].toString(), ##"@When[os == "Linux"]"##)
 
@@ -99,18 +99,18 @@ internal class C1 < T, U > <: I1 < U > & I2 < T, U > & I3 < T > where T <: I1 < 
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 10i32, 2i32, 15i32])
     @Assert(classDecl.getGenericParamsCommasPos().size, 1)
     pos = classDecl.getGenericParamsCommasPos()[0]
-    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 23i32, 2i32, 24i32])
+    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 22i32, 2i32, 23i32])
     pos = classDecl.getGenericParamsLAnglePos().getOrThrow()
-    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 20i32, 2i32, 21i32])
+    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 19i32, 2i32, 20i32])
     pos = classDecl.getGenericParamsRAnglePos().getOrThrow()
-    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 27i32, 2i32, 28i32])
+    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 26i32, 2i32, 27i32])
     pos = classDecl.getIdentifierPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 16i32, 2i32, 18i32])
     @Assert(classDecl.getSuperTyAnnotationsBitAndsPos().size, 2)
     pos = classDecl.getSuperTyAnnotationsBitAndsPos()[0]
-    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 42i32, 2i32, 43i32])
+    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 40i32, 2i32, 41i32])
     pos = classDecl.getSuperTyAnnotationsBitAndsPos()[1]
-    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 57i32, 2i32, 58i32])
+    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 54i32, 2i32, 55i32])
     pos = classDecl.getUpperBoundPos().getOrThrow()
-    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 29i32, 2i32, 31i32])
+    @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 28i32, 2i32, 30i32])
 }

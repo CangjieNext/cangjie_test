@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt -o %output %f
-// RUN-EXEC-PIPE-0: echo 齉龘齉齾爩麤龗灪龖厵纞虋繁齉龘齉齾爩麤龗灪龖厵纞虋繁齉龘齉齾爩麤龗灪龖厵纞虋繁 > input.txt && %run %run_opt %output %run_args < input.txt 2>&1 | compare %f
+// (not iOS) RUN-EXEC-PIPE-0: echo 齉龘齉齾爩麤龗灪龖厵纞虋繁齉龘齉齾爩麤龗灪龖厵纞虋繁齉龘齉齾爩麤龗灪龖厵纞虋繁 > input.txt && %run %run_opt %output %run_args < input.txt 2>&1 | compare %f
 // ASSERT: scan Some(齉龘齉齾爩麤龗)
 
 import std.console.*

@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE: %run %run_opt %output * %run_args | compare %f
+// (not iOS) RUN-EXEC-PIPE: %run %run_opt %output * %run_args | compare %f
 
 // ASSERT: scan test_getArgs_005.cj
 

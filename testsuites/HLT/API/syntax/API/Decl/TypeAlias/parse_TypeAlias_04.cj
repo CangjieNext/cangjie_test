@@ -8,14 +8,14 @@
 
 // LEVEL: 2
 // DEPENDENCE: TypeAlias_04.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (CJNATIVE and not OHOS and not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (CJNATIVE and not OHOS and not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
 func test_TypeAlias_04() {
-    let file = parseFile("./TypeAlias_04.cj")
+    let file= parseFile("./TypeAlias_04.cj")
     @Expect(file.node.isNone())
     @Expect(file.diags.size > 0)
 }

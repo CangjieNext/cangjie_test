@@ -9,8 +9,8 @@
 // LEVEL: 2
 // DEPENDENCE: ./files
 // (not Windows) EXEC: ulimit -n 10000
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  -o %n.%suffix %f
-// RUN-EXEC: %export cjHeapSize=16GB && %export JETVMPROP=-Xmx16G && %run_stdx %n.%suffix %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  -o %output %f
+// RUN-EXEC: %export cjHeapSize=16GB && %export JETVMPROP=-Xmx16G && %run_stdx %output %run_args
 
 import std.time.*
 import std.io.*

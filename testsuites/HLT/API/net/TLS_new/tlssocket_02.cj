@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: ./data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
-// RUN-EXEC: %run_stdx %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %output %f %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.net.*
 import std.fs.*
@@ -51,7 +51,7 @@ class Test_tlssocketconf_02 {
         try {
             String.fromUtf8(readToEnd(File("./end_ecdsa.cer", Read)))
         } catch (e: FSException) {
-            @Expect(e.message.contains("The file does not exist or permission denied"))
+            @Expect(e.message.contains("does not exist or permission denied"))
             sum += 1
         }
         @Expect(sum, 1)
