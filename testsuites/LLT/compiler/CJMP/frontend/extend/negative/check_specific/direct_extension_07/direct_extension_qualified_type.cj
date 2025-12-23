@@ -70,6 +70,20 @@ error: undeclared type name 'A'
   |                        ^ 
   | 
 
+error: undeclared identifier 'mp1'
+  ==> mp/test_plat.cj:14:12:
+   | 
+14 |     return mp1.A<Int64>().foo1(B<Int64>(1)) + mp1.A<B<Int64>>.foo2(B<Int64>(1))
+   |            ^ 
+   | 
+
+error: undeclared identifier 'mp1'
+  ==> mp/test_plat.cj:14:47:
+   | 
+14 |     return mp1.A<Int64>().foo1(B<Int64>(1)) + mp1.A<B<Int64>>.foo2(B<Int64>(1))
+   |                                               ^ 
+   | 
+
 error: 'platform' function 'foo1' can not find 'common' match
  ==> mp/test_plat.cj:5:5:
   | 
@@ -99,20 +113,6 @@ error: 'platform' extend '' can not find 'common' match
    | | ...
 11 | | }
    | |_^
-   | 
-
-error: undeclared identifier 'mp1'
-  ==> mp/test_plat.cj:14:12:
-   | 
-14 |     return mp1.A<Int64>().foo1(B<Int64>(1)) + mp1.A<B<Int64>>.foo2(B<Int64>(1))
-   |            ^ 
-   | 
-
-error: undeclared identifier 'mp1'
-  ==> mp/test_plat.cj:14:47:
-   | 
-14 |     return mp1.A<Int64>().foo1(B<Int64>(1)) + mp1.A<B<Int64>>.foo2(B<Int64>(1))
-   |                                               ^ 
    | 
 
 7 errors generated, 7 errors printed.

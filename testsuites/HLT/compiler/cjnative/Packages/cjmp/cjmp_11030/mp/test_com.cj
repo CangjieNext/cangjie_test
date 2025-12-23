@@ -10,6 +10,7 @@ package mp
 
 public interface I {}
 
-public common class C {}
-
+public common class C {
+    init(){}
+}
 common extend C <: I {}

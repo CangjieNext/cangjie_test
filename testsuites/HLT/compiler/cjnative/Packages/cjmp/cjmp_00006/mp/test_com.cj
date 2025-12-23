@@ -10,7 +10,7 @@ package mp
 
 public common class A {
     public var a = 1
-    public common A(a: Int64)
+    public common init(a: Int64)
 }
 public func test_com() { A(0).a }
 
