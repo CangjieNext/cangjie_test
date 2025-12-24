@@ -17,5 +17,3 @@ public class A <: M {
         println("in cangjie init")
     }
 }
-
-

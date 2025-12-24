@@ -42,7 +42,6 @@ Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
 Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj
 
 # c/s
-compiler/cjnative/Packages/cjmp/cjmp_17005
 compiler/cjnative/Packages/cjmp/cjmp_18009_1
 compiler/cjnative/Packages/cjmp/cjmp_18014
 compiler/cjnative/Packages/cjmp/cjmp_18015
