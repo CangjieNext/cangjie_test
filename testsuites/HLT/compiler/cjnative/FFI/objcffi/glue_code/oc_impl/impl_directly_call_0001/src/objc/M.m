@@ -2,20 +2,26 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
-package cjworld
- 
-import objc.lang.*
 
-@ObjCMirror
-public open class M {
-    @ForeignName["init"]
-    public init()
-    @ForeignName["initWithA:"]
-    public init(a: Int64)
+#import "M.h"
+
+@implementation M
+
+- (id)init {
+    self = [super init];
+    return self;
+}
+- (id)init:(int64_t)a {
+    if (self = [super init]) {
+        printf("in oc, %lld\n", a);
+    }
+    return self;
+}
+- (void)f {
+    printf("in oc, f\n");
 }
 
-
+@end

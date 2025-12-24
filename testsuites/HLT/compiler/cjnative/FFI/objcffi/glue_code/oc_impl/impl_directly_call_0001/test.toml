@@ -5,18 +5,18 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
  
 [[packages]]
-filters = { include = ["NS.+", "int64_t"] }
+filters = { include = ["NS.+", "int.*"] }
 package-name = "objc.foundation"
 
 [[packages]]
-filters = { include = ["M.*", "I"] }
+filters = { include = "M" }
 package-name = "cjworld"
 
 [output-roots.default]
 path = "src"
 
 [sources.all]
-paths = ["src/objc/M1.h"]
+paths = ["src/objc/M.h"]
 
 [sources-mixins.default]
 sources = [".*"]

@@ -7,16 +7,7 @@
  */
 
 #import <Foundation/Foundation.h>
-
-@protocol I
-@property (assign) int64_t p1;
-@property (readonly) int64_t p2;
-- (void)f1;
-@required
-- (void)f2;
-@optional
-- (void)f3;
-@end
+#import "I.h"
 
 @interface M1 : NSObject <I>
 

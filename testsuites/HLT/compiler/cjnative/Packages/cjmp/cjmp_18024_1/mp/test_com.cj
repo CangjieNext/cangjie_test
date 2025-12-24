@@ -8,4 +8,4 @@
 
 package mp
 
-public common func f(a!: Int64) {a}
+public common func f(a!: Int64 = 1) {a}

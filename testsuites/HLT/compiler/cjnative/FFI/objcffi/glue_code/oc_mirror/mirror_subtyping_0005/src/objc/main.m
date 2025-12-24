@@ -13,7 +13,7 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a1 = [[A alloc] init];
-        A* a2 = [[A alloc] initWithA:1];
+        A* a2 = [[M alloc] initWithA:1];
     }
     return 0;
 }
