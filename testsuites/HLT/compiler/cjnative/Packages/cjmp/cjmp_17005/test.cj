@@ -10,23 +10,14 @@
 // DEPENDENCE: mp
 // EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
 // EXEC: %compiler %cmp_opt mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
-// EXEC: %compiler %cmp_opt %f %link_cjmp -o %output
-// RUN-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt %f %link_cjmp --dy-std -o %output
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan NoneValueException
+// ASSERT: scan mp.g2()
+// ASSERT: scan mp.a
 
 import mp.*
 
 main() {
-    try {
-        a
-    } catch(e: NoneValueException) {
-        var func_stack = ""
-        for (ele in e.getStackTrace()) {
-            func_stack += ele.methodName
-        }
-        println(func_stack)
-        if (func_stack.contains("g2()amain()")) {
-            return 0
-        }
-    }
-    return 1
+    return 0
 }
