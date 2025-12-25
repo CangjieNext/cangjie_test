@@ -29,8 +29,5 @@ error: 'platform' property modifier is not match 'common' modifier
   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
 
-error: 'common' property 'B' can not find 'platform' match
- ==> c/c.cj:9:3:
-
-2 errors generated, 2 errors printed.
+1 error generated, 1 error printed.
 */

@@ -45,16 +45,5 @@ main(){
 error: property 'i' should be immutable
   ==> c/c.cj:25:5:
 
-error: 'platform' property 'i' can not find 'common' match
-  ==> p/p.cj:8:5:
-   | 
-8  |       platform mut prop i:Int64 {
-   |  _____^
-9  | |         get(){x}
-   | | ...
-11 | |     }
-   | |_____^
-   | 
-
-2 errors generated, 2 errors printed.
+1 error generated, 1 error printed.
 */

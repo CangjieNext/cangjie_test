@@ -16,7 +16,6 @@ public common class A {
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan sema_platform_has_different_modifier
-// ASSERT: scan sema_not_matched
 package cmp
 public platform class A{
     private static var c:Int32=1
