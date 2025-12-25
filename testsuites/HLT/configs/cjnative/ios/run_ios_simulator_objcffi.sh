@@ -16,6 +16,7 @@ XCODE_DEVICE_TYPE_OF_CANGJIE_IOS_TEST=simulator
 interoplib_common=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative/libinteroplib.common.dylib
 interoplib_objc=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative/libinteroplib.objc.dylib
 objc_lang=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative/libobjc.lang.dylib
+interoplib_objclib=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative/libinteroplib.objclib.dylib
 cjworld=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcjworld.dylib
 foundation=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libobjc.foundation.dylib
 dep=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libdep.dylib
@@ -56,6 +57,7 @@ codesign() {
 install_name_tool -id @rpath/libinteroplib.common.dylib ${interoplib_common}
 install_name_tool -id @rpath/libinteroplib.objc.dylib ${interoplib_objc}
 install_name_tool -id @rpath/libobjc.lang.dylib ${objc_lang}
+install_name_tool -id @rpath/libinteroplib.objclib.dylib ${interoplib_objclib}
 install_name_tool -id @rpath/libcjworld.dylib ${cjworld}
 install_name_tool -change `otool -L ${interoplib_objc} | grep 'libinteroplib.common.dylib' | awk '{print $1}'` @rpath/libinteroplib.common.dylib ${interoplib_objc}
 install_name_tool -change `otool -L ${objc_lang} | grep 'libinteroplib.common.dylib' | awk '{print $1}'` @rpath/libinteroplib.common.dylib ${objc_lang}
