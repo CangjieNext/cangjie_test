@@ -11,5 +11,5 @@ import java.lang.JObject
 
 @JavaMirror["com.java.lib.MyObject"]
 open class MyObject <: JObject {
-    public init()
+    public init(a:Int32)
 }
