@@ -15,6 +15,7 @@ API/std/process/unix
 API/std/time/
 compiler/CJMP/objc/
 compiler/Diagnose/PlatformRelated
+compiler/Driver/PlatformRelated
 
 [EXCLUDE-TEST-CASE]
 
