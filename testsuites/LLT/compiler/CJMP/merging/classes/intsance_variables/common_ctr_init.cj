@@ -5,14 +5,15 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // SEPARATE-FILE: c/c.cj
-// EXEC-1: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
-// ASSERT: scan 'common' let field 'a' cannot be assigned in constructor
+// EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
 
 public common class A {
-    public common let a: Int
-
+    public common var a: Int
     public init() {
         a = 10
     }
 }
+
+/* SCAN
+*/

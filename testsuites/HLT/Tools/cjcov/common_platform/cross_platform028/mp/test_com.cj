@@ -14,5 +14,5 @@ public common interface I {
 
 public common struct Foo <: I {
     public mut common func f(): Unit {}
-    public init() {}
+    public common init()
 }

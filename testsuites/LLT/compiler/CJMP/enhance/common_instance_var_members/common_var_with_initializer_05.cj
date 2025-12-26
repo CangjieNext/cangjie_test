@@ -9,14 +9,23 @@
 package cmp
 
 public common class A {
-    common let a:Int32
-    init() { a = 1 }
+    common var a:Int32
+    public init(a_: Int32) { a = a_ }
+    
 }
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
-// ASSERT: scan sema_not_matched
+// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
+// (CJNATIVE and Linux)RUN-EXEC-PIPE-0: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
+// (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
+// (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 public platform class A{
+    platform var a: Int32
+    init() { a = 1 }
 }
-
-
+main(){
+    println(A().a)
+}
+/* SCAN
+1
+*/

@@ -8,7 +8,9 @@
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
 
-common struct A {}
+common struct A {
+    common init()
+}
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
@@ -19,7 +21,7 @@ package cmp
 
 platform struct A {
     var a: Int64
-    init() {
+    platform init() {
         a = 0
     }
 }

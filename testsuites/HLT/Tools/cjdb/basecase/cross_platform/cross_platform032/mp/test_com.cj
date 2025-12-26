@@ -16,7 +16,7 @@ public common abstract class Animal {
 }
 
 public common class Dog <: Animal { 
-    public init() {}
+    public init() {} 
 }
 
 public common class Zoo<T> where T <: Animal {

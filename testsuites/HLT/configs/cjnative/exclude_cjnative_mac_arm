@@ -65,11 +65,6 @@ compiler/cjnative/stable_abi/package_name
 compiler/cjnative/stable_abi/add_instance_member_variable
 compiler/cjnative/stable_abi/add_virtual_function
 
-# CJMP has to be fixed
-Tools/cjdb/datacom/cross_platform/cross_platform032.info
-Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
-Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj
-
 # c/s
 compiler/cjnative/Packages/cjmp/cjmp_18009_1
 compiler/cjnative/Packages/cjmp/cjmp_18014

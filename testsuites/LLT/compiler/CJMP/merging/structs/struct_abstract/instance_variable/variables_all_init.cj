@@ -18,7 +18,7 @@ public common struct A {
 package cmp
 
 public platform struct A {
-    public var b: Int
+    public var b: Int = 10
 
     public  init() {
         this.a = 1

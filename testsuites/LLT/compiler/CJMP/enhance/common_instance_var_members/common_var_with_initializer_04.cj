@@ -5,25 +5,11 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // SEPARATE-FILE: c/c.cj
-// EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
+// EXEC-1: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
+// ASSERT: scan 'common' let field 'a' cannot be assigned in constructor
 package cmp
 
 public common class A {
-    common let a:Int32
+    common let a: Int32
     init() { a = 1 }
 }
-// SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
-// (CJNATIVE and Linux)RUN-EXEC-PIPE-0: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
-// (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
-// (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
-package cmp
-public platform class A{
-    platform let a: Int32
-}
-main(){
-    println(A().a)
-}
-/* SCAN
-1
-*/

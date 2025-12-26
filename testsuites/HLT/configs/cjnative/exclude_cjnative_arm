@@ -22,8 +22,3 @@ API/std/time/TimeZone/load/test_loadFromPaths.cj
 API/std/io/file/File_create_03.cj
 API/std/fs/file/linux/test_linux_file_no_permission.cj
 API/std/io/StringReader/StringReader_readln_13_01.cj
-
-# CJMP has to be fixed
-Tools/cjdb/datacom/cross_platform/cross_platform032.info
-Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
-Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj

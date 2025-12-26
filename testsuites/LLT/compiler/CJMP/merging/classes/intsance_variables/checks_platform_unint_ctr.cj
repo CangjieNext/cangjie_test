@@ -9,7 +9,10 @@
 package cmp
 
 public common class A {
-    public common let a: Int
+    public common var a: Int
+    public init(a_: Int64) {
+        a = a_
+    }
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -21,4 +24,3 @@ public platform class A {
     public platform let a: Int
     public init() {}
 }
-
