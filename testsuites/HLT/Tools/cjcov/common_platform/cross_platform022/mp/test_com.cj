@@ -12,6 +12,7 @@ public interface I<T> {}
 
 common public class C {
     common public func f1(): Int64
+    public init() {}
 }
 
 common extend C <: I<Int64> {

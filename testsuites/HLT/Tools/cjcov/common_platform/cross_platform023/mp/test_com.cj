@@ -15,6 +15,7 @@ public common class C {
     public static func f2() {
         var b = 2
     }
+    public init() {}
 }
 
 common extend C {

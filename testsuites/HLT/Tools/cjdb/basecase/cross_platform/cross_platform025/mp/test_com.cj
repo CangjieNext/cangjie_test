@@ -9,6 +9,7 @@
 package mp
 
 public common class C {
+    public init(){}
     public func f1(){
         var a = 1
     }

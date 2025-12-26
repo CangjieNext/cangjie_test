@@ -14,4 +14,5 @@ common public interface I1 {
 
 common struct S1 <: I1 {
     common public mut func f1(): Int64
+    init() {}
 }

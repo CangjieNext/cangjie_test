@@ -16,7 +16,9 @@ common protected class A2 {
     common public init()
 }
 
-common public abstract class C1 {}
+common public abstract class C1 {
+    public init(){}
+}
 
 public func test_com() {
     A()
