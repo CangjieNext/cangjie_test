@@ -15,7 +15,7 @@ public open common class A {
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
-// ASSERT: scan sema_open_abstract_platform_can_not_replace_open_common
+// ASSERT: scan sema_platform_has_different_modifier
 package cmp
 
 public abstract platform class A {
