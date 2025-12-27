@@ -6,7 +6,7 @@
 
 // SEPARATE-FILE: c/c.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
-// ASSERT: scan parse_cjmp_outdecl_miss_match
+// ASSERT: scan parse_illegal_modifier_in_scope
 
 package cmp
 
