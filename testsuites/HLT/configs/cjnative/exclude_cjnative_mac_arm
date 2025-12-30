@@ -37,16 +37,6 @@ compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_struct_0022/
 # limit described in the doc
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_pointer_0014/
 compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_prop_0003/
-# mirrorgen error Int64 -> int64_t
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_func_pointer_0005
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_func_pointer_0011
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_func_pointer_0012
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_func_pointer_0017
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_func_pointer_0005
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_func_pointer_0011
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_func_pointer_0012
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_func_pointer_0017
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/global_function/global_func_7/test.info
 # mirrorgen error Option<M> -> M
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_func_pointer_0007
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_func_pointer_0008
@@ -62,15 +52,14 @@ compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0004/test.info
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/test.info
 # run failed
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_objcinit_0005/test.info
-# toml failed
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/toml/toml_0001/test.info
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/toml/toml_0004/test.info
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/toml/toml_0005/test.info
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/toml/toml_0015/test.info
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/toml/toml_0023/test.info
 # run failed
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0012/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0023/test.info
+# cj generic
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_generic_0002
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_generic_0005
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_generic_0006
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_generic_0019
 
 API/std/io/file/File_create_03.cj
 API/std/fs/file/linux/test_linux_file_no_permission.cj
