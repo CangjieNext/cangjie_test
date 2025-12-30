@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01 {
+    @TestCase
 func test_varrayliteral_001() {
     let _quote = quote(VArray<Int64, \$5>(repeat: 0))
     let res = parseTokens(_quote)
@@ -27,4 +29,5 @@ func test_varrayliteral_001() {
     @Assert(varrayliteral.argument.value.toString(), "0")
     @Assert(varrayliteral.argument.isInOut, false)
     @Assert(varrayliteral.argument.identifier.getOrThrow().toString(), "repeat")
+}
 }
