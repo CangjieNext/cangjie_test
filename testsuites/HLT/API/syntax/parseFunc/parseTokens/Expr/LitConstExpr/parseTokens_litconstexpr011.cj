@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01 {
+    @TestCase
 func test_litconstexpr_011() {
     let _quote = quote(r'\u{4f60}')
     let res = parseTokens(_quote)
@@ -28,4 +30,5 @@ func test_litconstexpr_011() {
         case LitConstKind.RuneLiteral => ()
         case _ => @Assert(false)
     }
+}
 }

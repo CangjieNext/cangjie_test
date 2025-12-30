@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MacroDecl_04() {
     let _quote = quote(public macro Prop(input:Tokens):Tokens {
     let v = parseDecl(input)
@@ -59,4 +61,5 @@ func test_MacroDecl_04() {
     @Assert(_decl.modifiers.toString(), ##"[public]"##)
     @Assert(_decl.params.params.toString(), "[input: Tokens]")
     @Assert(_decl.retTyAnnotation.getOrThrow().toString(), "Tokens")
+}
 }
