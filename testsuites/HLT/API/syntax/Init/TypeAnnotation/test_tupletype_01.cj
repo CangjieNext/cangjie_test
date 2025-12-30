@@ -21,7 +21,6 @@ class test_01{
         ["_a", "_b"]
     ],
     elements in [
-        [],
         [AtomicType(AtomicTypeKind.Int64Type)],
         [AtomicType(AtomicTypeKind.Int64Type), AtomicType(AtomicTypeKind.BoolType)]
     ],

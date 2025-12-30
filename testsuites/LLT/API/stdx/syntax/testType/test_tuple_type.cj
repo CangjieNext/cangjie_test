@@ -166,6 +166,11 @@ class Test {
         @Expect(tupleType.getLabelsPos().size, 0)
         @Expect(tupleType.getColonsPos().size, 0)
     }
+
+    @TestCase
+    func testInit02() {
+        @AssertThrows[Exception](TupleType([], []))
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
