@@ -1,5 +1,5 @@
 // DEPENDENCE: src
-// EXEC:%compiler %cmp_opt %compile_lib_opt %pkg_opt src
+// EXEC-PIPE-0:%compiler %cmp_opt --experimental --output-type=chir %pkg_opt src
 // EXEC: %compiler --scan-dependency src.cjo 2>&1 | compare %f
 // ASSERT: scan {"package":"src","isMacro":false,"accessLevel":"public","dependencies":[],"features":["os.Harmony","os.Linux","os.Mac"],"product":false}
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
@@ -7,4 +7,3 @@
 // with Runtime Library Exception.
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
-
