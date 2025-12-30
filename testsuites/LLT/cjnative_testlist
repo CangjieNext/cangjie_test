@@ -81,9 +81,9 @@ compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_leve
 compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_no_impl_platform_impl.cj
 compiler/CJMP/merging/top_level_function/enhance_test/top_level_function/user_define_thirdparty/moretype/generictype/thirdparty_genericclass_as_argument.cj
 
-## syntax testcases 
- API/stdx/syntax/testParse/test_parse_decls_from_text.cj 
- API/stdx/syntax/testParse/test_parse_exprs_from_text.cj
+## syntax testcases
+API/stdx/syntax/testParse/test_parse_decls_from_text.cj
+API/stdx/syntax/testParse/test_parse_exprs_from_text.cj
 # daignose is changed
 compiler/Sema/interface/interface_property/interface_property1.cj
 compiler/Sema/Extend/property/property_mut_immut_mismatch.cj
