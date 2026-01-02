@@ -1,0 +1,20 @@
+[default]
+APIStrategy = "Full"
+GenericTypeStrategy = "None"
+
+[[package]]
+name = "UNNAMED"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+excluded_apis = []
+generic_object_configuration = [
+	{ name = "CangjieInterface", type_arguments = ["Int", "Int8", "Int16", "Int32", "Int64", "UInt16", "Float32", "Float64"] },
+	{ name = "CangjieInterface<Int>", symbols = ["instanceMemberFunction"] },
+	{ name = "CangjieInterface<Int8>", symbols = ["instanceMemberFunction"] },
+	{ name = "CangjieInterface<Int16>", symbols = ["instanceMemberFunction"] },
+	{ name = "CangjieInterface<Int32>", symbols = ["instanceMemberFunction"] },
+	{ name = "CangjieInterface<Int64>", symbols = ["instanceMemberFunction"] },
+	{ name = "CangjieInterface<UInt16>", symbols = ["instanceMemberFunction"] },
+	{ name = "CangjieInterface<Float32>", symbols = ["instanceMemberFunction"] },
+	{ name = "CangjieInterface<Float64>", symbols = ["instanceMemberFunction"] },
+]
