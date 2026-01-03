@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_binaryexpr_001() {
     let str = ##"e1??e2"##
     let res = parseText(str)
@@ -35,4 +37,5 @@ func test_binaryexpr_001() {
     }
     var pos = binaryexpr.getOperatorPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 3i32, 1i32, 5i32])
+}
 }

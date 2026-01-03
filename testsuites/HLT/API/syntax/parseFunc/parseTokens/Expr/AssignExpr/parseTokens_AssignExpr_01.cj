@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_AssignExpr_01() {
     let _quote_1 = quote(e1 = e2)
     let res_1 = parseTokens(_quote_1)
@@ -115,4 +117,5 @@ func test_AssignExpr_01() {
 
     var pos = expr_1.getAssignOpPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 4i32, 1i32, 5i32])
+}
 }

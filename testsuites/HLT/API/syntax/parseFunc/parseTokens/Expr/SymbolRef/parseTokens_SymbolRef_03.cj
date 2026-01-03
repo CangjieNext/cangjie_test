@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_SymbolRef_03() {
     let _quote = quote(foo<T, U>)
     let res = parseTokens(_quote)
@@ -23,4 +25,5 @@ func test_SymbolRef_03() {
     @Assert(_expr.name, "foo")
     @Assert(_expr.typeArguments.size, 2)
     @Assert(_expr.typeArguments.toString(), "[T, U]")
+}
 }

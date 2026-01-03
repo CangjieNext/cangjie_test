@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     base in [
         (parseText("C1().arr").node.getOrThrow() as Expr).getOrThrow(),
     ],
@@ -32,4 +34,5 @@ func test_SubscriptExpr_Init_01(base: Expr, indexs: Array<Expr>, comments: Array
     let SubscriptExpr = SubscriptExpr(base, indexs, comments: comments)
     println(SubscriptExpr.toString())
     println()
+}
 }

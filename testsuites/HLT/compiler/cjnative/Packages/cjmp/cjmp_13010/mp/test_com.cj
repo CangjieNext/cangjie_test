@@ -9,6 +9,8 @@
 package mp
 
 public common abstract class C1 {
+    public init(){}
+
     public static func f1(): Int64
     public static prop p1: Int64
 }

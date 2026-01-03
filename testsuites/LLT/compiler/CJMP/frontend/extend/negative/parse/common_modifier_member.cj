@@ -8,7 +8,7 @@
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
 
 package cmp
-common class Foo{ 
+common class Foo{ init() {}
 }
 common extend Foo {
    KK func f():Unit {}

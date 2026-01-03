@@ -12,5 +12,6 @@ package cmp
 public class A {
     common let a:Int = 1
     common var b:Int = 1
+    public init() {}
 }
 

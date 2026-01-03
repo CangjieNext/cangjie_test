@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TypeAlias_01() {
     let str_1 = ##"type XX = Int64"##
     let res_1 = parseText(str_1)
@@ -56,4 +58,5 @@ protected type YY = Float64"##)
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 13i32, 1i32, 20i32])
     pos = typeAlias_2.getTypeAliasKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 8i32, 1i32, 12i32])
+}
 }

@@ -13,8 +13,10 @@
 
 import stdx.syntax.*
 
-// 节点和从属的父节点各不相同
+// 节点和从属的父节点各不相�
 @Test
+class test_01{
+    @TestCase
 func test_hashable_004() {
     let res = parseFile("./Hashable_01.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
@@ -35,4 +37,5 @@ func test_hashable_004() {
     @Assert(maindecl.hashCode() == maindecl.hashCode())
     @Assert(_package.hashCode() == _package.hashCode())
     @Assert(_imports.hashCode() == _imports.hashCode())
+}
 }

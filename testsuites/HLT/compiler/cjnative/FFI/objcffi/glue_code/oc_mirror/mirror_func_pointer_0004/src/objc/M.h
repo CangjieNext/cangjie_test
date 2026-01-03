@@ -14,5 +14,5 @@
     void (*fptr)(void);
 }
 - (id)init;
-- g:(void (*)(void))a;
+- (void)g:(void (*)(void))a;
 @end

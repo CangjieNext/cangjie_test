@@ -13,8 +13,10 @@
 
 import stdx.syntax.*
 
-// 节点和从属的父节点各不相同
+// 节点和从属的父节点各不相�
 @Test
+class test_01{
+    @TestCase
 func test_file_001() {
     let res = parseFile("./Equatable_01.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
@@ -35,4 +37,5 @@ func test_file_001() {
     @Assert(maindecl == maindecl)
     @Assert(_package == _package)
     @Assert(_imports == _imports)
+}
 }

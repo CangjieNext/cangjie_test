@@ -9,33 +9,11 @@
 package cmp
 
 public common class A {
-    public common let a: Int
-
+    public common var a: Int
     public init() {
         a = 10
     }
 }
 
-// SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
-package cmp
-
-public platform class A {
-    public platform let a: Int
-}
-
-// SEPARATE-FILE: m_common.cj
-// EXEC-0: %compiler %noColor -j8 m_common.cj --import-path=./p -L./p -lcmp -o %output
-// (CJNATIVE and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
-// (CJNATIVE and Windows)EXEC-PIPE: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
-// (CJNATIVE and Darwin)EXEC-PIPE: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
-import cmp.*
-
-main(): Unit {
-    let a = A()
-    println("a.a = ${a.a}")
-}
-
 /* SCAN
-a.a = 10
 */

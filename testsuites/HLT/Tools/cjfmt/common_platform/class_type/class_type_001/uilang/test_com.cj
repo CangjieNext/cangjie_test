@@ -13,11 +13,13 @@ public common class A {
     public static common var b: Int64
     private common func f(): Int64
     public common func f(a: Int64): Int64 { f() }
+    public init() {}
 }
 
 protected common class A2 {
     protected common func f(): Int64
     static private common func f2(): Int64
+    public init() {}
 }
 
 public func test_com() { A().f(0) }

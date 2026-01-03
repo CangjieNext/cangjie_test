@@ -22,6 +22,8 @@ public enum E1<T> <: I1<T> & I2 where T <: ToString{
 }"##
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumDecl_02() {
     let res = parseText(str)
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
@@ -65,4 +67,5 @@ public enum E1<T> <: I1<T> & I2 where T <: ToString{
     @Assert(enumDecl.superTyAnnotations[1].toString(), ##"I2"##)
     @Assert(enumDecl.annotations.size, 1)
     @Assert(enumDecl.annotations[0].toString(), ##"@Deprecated["aaa", strict: true]"##)
+}
 }

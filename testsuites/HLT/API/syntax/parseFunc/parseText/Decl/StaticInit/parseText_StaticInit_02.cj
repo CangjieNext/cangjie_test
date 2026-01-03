@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_StaticInit_02() {
     let str = ##"static init() { var a = 1 }"##
     let res = parseText(str)
@@ -23,4 +25,5 @@ func test_StaticInit_02() {
     @Assert(staticInit.toString(), ##"static init() { var a = 1 }"##)
     @Assert(staticInit.body.nodes.size, 1)
     @Assert(staticInit.body.nodes[0] is VarDecl)
+}
 }

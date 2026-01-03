@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TrailingClosureExpr_02() {
     let _quote = quote(foo<T>{ i * i })
     let res = parseTokens(_quote)
@@ -23,4 +25,5 @@ func test_TrailingClosureExpr_02() {
     @Assert(expr_1.arguments.size, 0)
     @Expect(expr_1.callee.toString(), ##"foo < T >"##)
     @Assert(expr_1.trailingLambdaExpr.toString(), ##"{ i * i }"##)
+}
 }

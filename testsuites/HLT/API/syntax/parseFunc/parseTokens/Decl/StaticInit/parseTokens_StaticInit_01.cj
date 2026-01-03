@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_StaticInit_01() {
     let _quote = quote(static init() {})
     let res = parseTokens(_quote)
@@ -31,4 +33,5 @@ func test_StaticInit_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 13i32, 1i32, 14i32])
     pos = staticInit.getStaticKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 7i32])
+}
 }

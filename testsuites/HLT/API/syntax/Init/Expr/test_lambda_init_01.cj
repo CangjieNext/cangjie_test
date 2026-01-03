@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     body in [
         [],
     ],
@@ -32,4 +34,5 @@ func test_Lambda_Init_01(body: Array<SyntaxTreeNode>, params: ParameterList, com
     let Lambda = Lambda(body, params, comments: comments)
     println(Lambda.toString())
     println()
+}
 }

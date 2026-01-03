@@ -8,6 +8,11 @@
 #import <stddef.h>
 #import "K.h"
 
+struct S {
+    int64_t a;
+    double b;
+};
+
 @interface N : NSObject {
 @public
     int64_t _id;

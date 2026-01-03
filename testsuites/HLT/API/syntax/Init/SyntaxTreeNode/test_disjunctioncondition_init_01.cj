@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     cond in [
         [
             ConjunctionCondition(AtomicCondition.Expression((parseText("a1 is Int64").node.getOrThrow() as Expr).getOrThrow())), 
@@ -31,4 +33,5 @@ func test_DisjunctionCondition_Init_01(cond: Array<ConjunctionCondition>, commen
     let DisjunctionCondition = DisjunctionCondition(cond, comments: comments)
     println(DisjunctionCondition.toString())
     println()
+}
 }

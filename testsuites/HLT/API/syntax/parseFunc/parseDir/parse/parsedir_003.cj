@@ -8,13 +8,15 @@
 
 // LEVEL: 1
 // DEPENDENCE: dir003
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args | compare %f
-// (CJNATIVE and not OHOS) ASSERT: scan possibly confusing line terminator
+// (CJNATIVE and not OHOS and not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (CJNATIVE and not OHOS and not iOS) RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args | compare %f
+// (CJNATIVE and not OHOS and not iOS) ASSERT: scan possibly confusing line terminator
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_dir_003() {
     let res = parsePackage("./dir003")
     var diags = res.diags
@@ -65,4 +67,5 @@ let a2 = a1 + 1 + 1234"##
     @Assert(file2.path.contains("file_002.cj"))
     @Assert(file2.pkgHeader.isNone())
     @Assert(file2.topLevelDecls.size, 1)
+}
 }

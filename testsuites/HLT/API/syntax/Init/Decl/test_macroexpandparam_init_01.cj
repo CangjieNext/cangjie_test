@@ -16,7 +16,9 @@ import stdx.syntax.*
 let decls = ((parseFile("macroexpandparam_01.cj").node.getOrThrow().topLevelDecls[0] as ClassDecl).getOrThrow().body.memberDecls[0] as FuncDecl)
             .getOrThrow().params.params.map{ _decl => (_decl as MacroExpandParam).getOrThrow()}
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     calleeMacro in [
         decls[0].calleeMacro,
         decls[1].calleeMacro,
@@ -53,4 +55,5 @@ func test_MacroExpandParam_Init_01(calleeMacro: Expr, macroAttrs: Tokens, macroI
         comments: comments)
     println(MacroExpandParam.toString())
     println()
+}
 }

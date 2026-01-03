@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TrailingClosureExpr_01() {
     let str = ##"foo{ i => i * i }"##
     let res = parseText(str)
@@ -23,4 +25,5 @@ func test_TrailingClosureExpr_01() {
     @Assert(expr_1.arguments.size, 0)
     @Assert(expr_1.callee.toString(), ##"foo"##)
     @Assert(expr_1.trailingLambdaExpr.toString(), ##"{ i => i * i }"##)
+}
 }

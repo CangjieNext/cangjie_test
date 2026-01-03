@@ -8,7 +8,7 @@
 
 package mp
 
-public common class C {}
+public common class C { public init(){} }
 
 common extend C {
     public common func f() { 0 }

@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_binaryexpr_010() {
     let str = ##"(1^(8&15))|24"##
     let res = parseText(str)
@@ -33,4 +35,5 @@ func test_binaryexpr_010() {
         case BinaryOpKind.BitOr => ()
         case _ => @Assert(false)
     }
+}
 }

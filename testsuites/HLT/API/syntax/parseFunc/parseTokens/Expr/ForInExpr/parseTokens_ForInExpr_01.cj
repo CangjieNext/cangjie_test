@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ForInExpr_01() {
     let _quote = quote(for (i in 0..100 where i % 2 == 0) {
     count++
@@ -32,4 +34,5 @@ func test_ForInExpr_01() {
     @Assert(expr_1.pattern is VarPattern)
     @Assert(expr_1.patternGuard.isSome())
     @Assert(expr_1.patternGuard.getOrThrow().toString(), "i % 2 == 0")
+}
 }

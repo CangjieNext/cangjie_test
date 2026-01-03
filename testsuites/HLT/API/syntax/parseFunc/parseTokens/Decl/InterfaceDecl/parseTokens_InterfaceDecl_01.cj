@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_InterfaceDecl_01() {
     let _quote = quote(@Deprecated["aaa"]
 public interface I1<T> <: S1<T> where T <: I2<T> {
@@ -44,4 +46,5 @@ public interface I1 < T > <: S1 < T > where T <: I2 < T > {
     @Assert(interfaceDecl.superTyAnnotations[0].toString(), "S1 < T >")
     @Assert(interfaceDecl.annotations.size, 1)
     @Assert(interfaceDecl.annotations[0].toString(), ##"@Deprecated["aaa"]"##)
+}
 }

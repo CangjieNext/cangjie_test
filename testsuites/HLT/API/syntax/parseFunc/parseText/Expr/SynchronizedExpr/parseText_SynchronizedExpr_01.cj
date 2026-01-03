@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_SynchronizedExpr_01() {
     let str_1 = ##"synchronized(m) {
     }"##
@@ -45,4 +47,5 @@ func test_SynchronizedExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 15i32, 1i32, 16i32])
     pos = expr_2.getSynchronizedKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 13i32])
+}
 }

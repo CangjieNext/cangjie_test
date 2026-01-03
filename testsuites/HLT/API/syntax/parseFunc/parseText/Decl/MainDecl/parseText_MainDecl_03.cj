@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MainDecl_03() {
     let str = ##"main() {}"##
     let res = parseText(str)
@@ -24,4 +26,5 @@ func test_MainDecl_03() {
     @Assert(mainDecl.params.params.size, 0)
     @Assert(mainDecl.retTyAnnotation.isNone())
     @Assert(mainDecl.modifiers.toString(), "[]")
+}
 }

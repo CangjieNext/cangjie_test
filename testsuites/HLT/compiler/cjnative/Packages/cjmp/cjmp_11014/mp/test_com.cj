@@ -9,6 +9,7 @@
 package mp
 
 public common struct C {
+    public init(){}
     public var v1 = 0
 }
 

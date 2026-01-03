@@ -8,12 +8,14 @@
 
 // LEVEL: 2
 // DEPENDENCE: EnumDecl_05.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (CJNATIVE and not OHOS and not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (CJNATIVE and not OHOS and not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumDecl_05() {
     let res = parseFile("./EnumDecl_05.cj")
     var diags = res.diags
@@ -54,4 +56,5 @@ func test_EnumDecl_05() {
     @Assert(enumDecl.superTyAnnotations[1].toString(), ##"I2<T>"##)
     @Assert(enumDecl.superTyAnnotations[2].toString(), ##"I3<T>"##)
     @Assert(enumDecl.annotations.size, 0)
+}
 }

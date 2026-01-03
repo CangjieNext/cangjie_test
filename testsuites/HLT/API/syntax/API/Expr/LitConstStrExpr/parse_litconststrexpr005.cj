@@ -8,12 +8,14 @@
 
 // LEVEL: 2
 // DEPENDENCE: litconststrexpr005.cj
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_litconststrexpr_005() {
     let res = parseFile("./litconststrexpr005.cj")
     var diags = res.diags
@@ -50,4 +52,5 @@ Lang'###"##)
         case LitConstStrKind.MultiLineRawString => ()
         case _ => @Assert(false)
     }
+}
 }

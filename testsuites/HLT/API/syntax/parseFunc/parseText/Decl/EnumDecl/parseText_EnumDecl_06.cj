@@ -20,6 +20,8 @@ let str = ##"enum a_b <: I1 & I2 {
 "##
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumDecl_06() {
     let res = parseText(str)
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
@@ -49,4 +51,5 @@ func test_EnumDecl_06() {
     @Assert(enumDecl.superTyAnnotations[0].toString(), ##"I1"##)
     @Assert(enumDecl.superTyAnnotations[1].toString(), ##"I2"##)
     @Assert(enumDecl.annotations.size, 0)
+}
 }

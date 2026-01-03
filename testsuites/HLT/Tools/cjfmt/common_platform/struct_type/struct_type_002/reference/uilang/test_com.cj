@@ -11,7 +11,7 @@ package mp
 common public struct A {
     common public init()
     common protected init(a: String)
-    common A()
+    A(){}
 }
 
 public func test_com() {

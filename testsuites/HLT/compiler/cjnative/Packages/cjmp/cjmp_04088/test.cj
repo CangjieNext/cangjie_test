@@ -11,6 +11,7 @@
 // ASSERT: scan sema_cannot_override
 
 public common abstract class A {
+    public init(){}
     public common func f(): Int64
 }
 public class C <: A {

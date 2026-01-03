@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_BreakExpr_01() {
     let str = ##"break"##
     let res = parseText(str)
@@ -20,4 +22,5 @@ func test_BreakExpr_01() {
 
     var _expr = (sourceNode as BreakExpr).getOrThrow()
     @Assert(_expr.toString(), "break")
+}
 }

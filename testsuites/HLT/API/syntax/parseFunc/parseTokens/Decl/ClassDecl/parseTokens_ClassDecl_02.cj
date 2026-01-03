@@ -217,6 +217,8 @@ let _quote = quote(public class CangjieInvoke <: JObject {
 })
 
 @Test
+class test_01{
+    @TestCase
 func test_ClassDecl_02() {
     let res = parseTokens(_quote)
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
@@ -425,4 +427,5 @@ func test_ClassDecl_02() {
         return 13
     }
 }"##)
+}
 }

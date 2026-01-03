@@ -11,5 +11,6 @@ package cmp
 
 common struct A {
     static var a: Int64
+    public init() {}
 }
 

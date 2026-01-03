@@ -22,4 +22,5 @@ public common class C1{
         var a2 = 1
         2
     }
+    public init() {}
 }

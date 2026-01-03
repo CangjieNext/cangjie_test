@@ -24,6 +24,11 @@ public class A <: M {
         } catch (e: ObjCOptionalMethodUnimplementedException) {
             println("cj: caught ObjCOptionalMethodUnimplementedException!")
         }
+        m.implementedWithArg(2)
+        try {
+            m.unimplementedWithArg(2)
+        } catch (e: ObjCOptionalMethodUnimplementedException) {
+            println("cj: caught ObjCOptionalMethodUnimplementedException!")
+        }
     }
 }
-

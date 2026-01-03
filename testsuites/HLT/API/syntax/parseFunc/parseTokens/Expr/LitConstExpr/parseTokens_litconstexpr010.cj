@@ -13,19 +13,19 @@
 import stdx.syntax.*
 
 @Test
-func test_litconstexpr_010() {
-    let _quote = quote(r'a')
-    let res = parseTokens(_quote)
-    let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
-
-    var litconstexpr = (sourceNode as LitConstExpr).getOrThrow()
-    //toString()
-    @Assert(litconstexpr.toString(), "r'a'")
-    //rawValue
-    @Assert(litconstexpr.rawValue, "a")
-    //kind
-    match (litconstexpr.kind) {
-        case LitConstKind.RuneLiteral => ()
-        case _ => @Assert(false)
+    func test_litconstexpr_010() {
+        let _quote = quote(r'a')
+        let res = parseTokens(_quote)
+        let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
+    
+        var litconstexpr = (sourceNode as LitConstExpr).getOrThrow()
+        //toString()
+        @Assert(litconstexpr.toString(), "r'a'")
+        //rawValue
+        @Assert(litconstexpr.rawValue, "a")
+        //kind
+        match (litconstexpr.kind) {
+            case LitConstKind.RuneLiteral => ()
+            case _ => @Assert(false)
+        }
     }
-}

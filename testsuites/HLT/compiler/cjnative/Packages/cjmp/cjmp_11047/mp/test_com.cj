@@ -14,7 +14,7 @@ public open class A {
 public class B <: A {
     public init() { a = 1 }
 }
-public common class C {}
+public common class C {public init(){}}
 
 common extend C {
     public common func f(): A { A() }

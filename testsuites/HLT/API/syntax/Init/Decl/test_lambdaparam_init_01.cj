@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     name in [
         "a1",
         "aaaa"
@@ -21,14 +23,6 @@ import stdx.syntax.*
         None,
         AtomicType(AtomicTypeKind.Float16Type),
     ],
-    annotations in [
-        [],
-        [Annotation([Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))], "MyAnno", AtOpKind.At)]
-    ],
-    // modifiers in [
-    //     [],
-    //     // [Modifier(ModifierKind.Public)]
-    // ],
     comments in [
         [], 
 //         [Comment(CommentKind.Block, ##"/* 
@@ -37,9 +31,9 @@ import stdx.syntax.*
     ]
 ]
 func test_LambdaParam_Init_01(name: String, typeAnnotation: Option<TypeAnnotation>, 
-    annotations: Array<Annotation>, comments: Array<Comment>): Unit {
-    let LambdaParam = LambdaParam(name, typeAnnotation, annotations: annotations,
-     comments: comments)
+    comments: Array<Comment>): Unit {
+    let LambdaParam = LambdaParam(name, typeAnnotation, comments: comments)
     println(LambdaParam.toString())
     println()
+}
 }

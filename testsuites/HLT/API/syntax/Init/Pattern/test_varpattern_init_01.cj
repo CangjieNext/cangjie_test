@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     name in [
         "a1",
         "RED"
@@ -29,4 +31,5 @@ func test_VarPattern_Init_01(name: String, comments: Array<Comment>): Unit {
     let VarPattern = VarPattern(name, comments: comments)
     println(VarPattern.toString())
     println()
+}
 }

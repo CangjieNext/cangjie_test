@@ -14,6 +14,8 @@ import stdx.syntax.*
 
 // now support
 @Test
+class test_01{
+    @TestCase
 func test_unsupported_decl() {
     @Assert(parseTokens(quote(prop _prop: Int64)).diags.size == 0)
     @Assert(parseTokens(quote(prop _prop: Int64 { get() {1} })).diags.size == 0)
@@ -21,4 +23,5 @@ func test_unsupported_decl() {
     get() {1} 
     set(v) {}
 })).diags.size == 0)
+}
 }

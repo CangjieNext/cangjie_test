@@ -13,6 +13,9 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MemberAccess_03() {
     @AssertThrows[Exception](parseTokens(quote(a...b1)))
+}
 }

@@ -8,7 +8,9 @@
 
 package mp
 
-public common struct C {}
+public common struct C {
+    public init(){}
+}
 
 common extend C {
     public common mut func f(): Int64 { 0 } 

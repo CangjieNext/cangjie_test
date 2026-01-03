@@ -9,10 +9,13 @@
 package mp
 public common func foo<T>(a: T, b: T) { a }
 public common class C<T, K> {
+    public init(){}
     public common func f1<T, K>() {}
 }
 public common interface I<T, K> {}
-public common struct S<T, K> {}
+public common struct S<T, K> {
+    public init(){}
+}
 public common enum E<T, K> { | E1 }
 common extend <T, K> C<T, K> {
     public common func f2<T, K>() {}

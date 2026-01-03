@@ -1,0 +1,16 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/match_expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb matchExpr_constant_float,matchExpr_constant_float
+b,b 13,matchExpr_constant_float.cj:13
+r,r,-> 13
+ ,expr match (vfloat) { case 1.1 => "true"   case _ => "false" },\(std.core.String\) \$\d+ = "false"
+q,q,

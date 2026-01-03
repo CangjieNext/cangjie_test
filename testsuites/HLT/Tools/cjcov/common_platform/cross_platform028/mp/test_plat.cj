@@ -15,4 +15,5 @@ public platform struct Foo <: I {
     public platform mut func f(): Unit {
         v += 1
     }
+    public platform init() {}
 }

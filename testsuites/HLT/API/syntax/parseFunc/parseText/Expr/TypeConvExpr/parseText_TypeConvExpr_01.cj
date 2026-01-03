@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TypeConvExpr_01() {
     let str_1 = ##"Int64(Int64(a))"##
     let res_1 = parseText(str_1)
@@ -45,4 +47,5 @@ func test_TypeConvExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 6i32, 1i32, 7i32])
     pos = expr_3.getRParenPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 22i32, 1i32, 23i32])
+}
 }

@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     patterns in [
         // [],
         [VarPattern("x"), VarPattern("y")]
@@ -41,4 +43,5 @@ func test_MatchCase_Init_01(patterns: Array<Pattern>, patternGuardCond: Option<E
     let MatchCase = MatchCase(patterns, patternGuardCond, caseCond, body, comments: comments)
     println(MatchCase.toString())
     println()
+}
 }

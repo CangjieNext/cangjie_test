@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_IfExpr_02() {
     let _quote = quote(if (a) {
     b
@@ -37,4 +39,5 @@ func test_IfExpr_02() {
     c
 }"##)
     @Assert(expr_1.elseIf.isNone())
+}
 }

@@ -19,6 +19,8 @@ let str = ##"private enum My_Enum<T, U> <: I1<T> & I2<T> & I3<T> where T <: I1<T
 }"##
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumDecl_05() {
     let res = parseText(str)
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
@@ -51,4 +53,5 @@ func test_EnumDecl_05() {
     @Assert(enumDecl.superTyAnnotations[1].toString(), ##"I2<T>"##)
     @Assert(enumDecl.superTyAnnotations[2].toString(), ##"I3<T>"##)
     @Assert(enumDecl.annotations.size, 0)
+}
 }

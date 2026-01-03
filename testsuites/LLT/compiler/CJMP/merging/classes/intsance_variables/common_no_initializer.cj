@@ -9,11 +9,8 @@
 package cmp
 
 public common class A {
-    public common let a: Int
-
-    public common init() {
-        a = 1
-    }
+    public common let a: Int = 1
+    public common init()
 }
 
 // SEPARATE-FILE: p/p.cj

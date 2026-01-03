@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_UnsafeExpr_02() {
     let str = ##"unsafe {
         let str = LibC.mallocString("abc")
@@ -30,4 +32,5 @@ func test_UnsafeExpr_02() {
         let str = LibC.mallocString("abc")
         str.free()
     }"##)
+}
 }

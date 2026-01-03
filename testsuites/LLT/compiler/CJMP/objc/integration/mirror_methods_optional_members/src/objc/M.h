@@ -10,4 +10,5 @@
 @interface M : NSObject <K>
 - (id)init;
 - (void) implemented;
+- (void) implementedWithArg: (int64_t) i;
 @end

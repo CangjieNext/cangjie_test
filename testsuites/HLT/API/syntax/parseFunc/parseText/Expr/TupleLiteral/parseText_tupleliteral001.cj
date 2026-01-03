@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_tupleliteral_001() {
     let str = ##"(1,2)"##
     let res = parseText(str)
@@ -34,4 +36,5 @@ func test_tupleliteral_001() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 2i32])
     pos = tupleliteral.getRParenPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 5i32, 1i32, 6i32])
+}
 }

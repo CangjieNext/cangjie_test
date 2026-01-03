@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_IfExpr_04() {
     let _quote = quote(if ((true || true) && let a <- 1) {})
     let res = parseTokens(_quote)
@@ -24,4 +26,5 @@ func test_IfExpr_04() {
     @Assert(expr_1.condition.toString(), ##"(true || true) && let a <- 1"##)
     @Assert(expr_1.elseBlock.isNone())
     @Assert(expr_1.elseIf.isNone())
+}
 }

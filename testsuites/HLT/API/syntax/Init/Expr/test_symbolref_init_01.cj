@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     name in [
         "A1",
         "_A2"
@@ -34,4 +36,5 @@ func test_SymbolRef_Init_01(name: String, typeArguments: Array<TypeAnnotation>, 
     let SymbolRef = SymbolRef(name, typeArguments, comments: comments)
     println(SymbolRef.toString())
     println()
+}
 }

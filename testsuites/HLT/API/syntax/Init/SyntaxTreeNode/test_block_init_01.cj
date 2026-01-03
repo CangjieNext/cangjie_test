@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     nodes in [
         [parseText("return 0").node.getOrThrow()]
         // [parseText("a + 1").node.getOrThrow(), parseText("return").node.getOrThrow()],
@@ -31,8 +33,11 @@ func test_Block_Init_01(nodes: Array<SyntaxTreeNode>, comments: Array<Comment>):
     println(Block.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     nodes in [
        // [parseText("var a = 1").node.getOrThrow()],
         [parseText("func foo(a: Int64) { a }").node.getOrThrow(), parseText("return 0").node.getOrThrow()]
@@ -49,4 +54,5 @@ func test_Block_Init_02(nodes: Array<SyntaxTreeNode>, comments: Array<Comment>):
     let Block = Block(nodes, comments: comments)
     println(Block.toString())
     println()
+}
 }

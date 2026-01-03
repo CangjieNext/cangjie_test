@@ -8,7 +8,9 @@
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
 
-common class Test {}
+common class Test {
+    init() {}
+}
 
 common enum E1 {
     | A 
@@ -19,7 +21,6 @@ common enum E1 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 platform class Test {
-    init(){}
 }
 platform enum E1 {
     | A 

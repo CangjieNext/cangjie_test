@@ -13,7 +13,10 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_unsupported_expr() {
     @AssertThrows[Exception](parseText("@M(foo())"))
     @AssertThrows[Exception](parseText("@M[a: T](a = b)"))
+}
 }

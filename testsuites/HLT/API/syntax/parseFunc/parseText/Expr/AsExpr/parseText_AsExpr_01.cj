@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_AsExpr_01() {
     let str_1 = ##"fun() as Option<Int64>"##
     let res_1 = parseText(str_1)
@@ -43,4 +45,5 @@ func test_AsExpr_01() {
 
     var pos = expr_1.getAsKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 7i32, 1i32, 9i32])
+}
 }

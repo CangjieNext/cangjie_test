@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ForInExpr_02() {
     let str = ##"for ((k, v) in map) {
     count++
@@ -30,4 +32,5 @@ func test_ForInExpr_02() {
     @Assert(expr_1.expr.toString(), ##"map"##)
     @Assert(expr_1.pattern is TuplePattern)
     @Assert(expr_1.patternGuard.isNone())
+}
 }

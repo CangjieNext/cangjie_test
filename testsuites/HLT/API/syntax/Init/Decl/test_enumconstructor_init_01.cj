@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     name in [
         "A1",
         "_RRRR"
@@ -43,4 +45,5 @@ func test_EnumConstructor_Init_01(name: String, paramTyAnnotations: Array<TypeAn
         comments: comments)
     println(EnumConstructor.toString())
     println()
+}
 }

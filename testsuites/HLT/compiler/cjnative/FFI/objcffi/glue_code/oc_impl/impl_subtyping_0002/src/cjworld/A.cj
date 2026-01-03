@@ -11,7 +11,11 @@ package cjworld
 import objc.lang.*
 
 @ObjCImpl
-public open class A <: M {}
+public open class A <: M {
+    public init() {println("in cj A")}
+}
 
 @ObjCImpl
-public class B <: A {}
+public class B <: A {
+    public init() {println("in cj B")}
+}

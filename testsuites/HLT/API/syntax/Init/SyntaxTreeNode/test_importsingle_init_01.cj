@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     prefixes in [
         [],
         ["p1"],
@@ -33,4 +35,5 @@ func test_ImportSingle_Init_01(prefixes: Array<String>, identifier: String, comm
     let ImportSingle = ImportSingle(prefixes, identifier, comments: comments)
     println(ImportSingle.toString())
     println()
+}
 }

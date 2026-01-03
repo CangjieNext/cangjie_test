@@ -12,7 +12,7 @@
 
 import stdx.syntax.*
 
-let _quote = quote(@Deprecated["仓颉"]
+let _quote = quote(@Deprecated["仓�"]
 public class S1<T> <: I1<T> where T <: ToString{
     public let s1: Int64 = 0
     prop p1: Int64 {
@@ -25,12 +25,14 @@ public class S1<T> <: I1<T> where T <: ToString{
 })
 
 @Test
+class test_01{
+    @TestCase
 func test_ClassDecl_01() {
     let res = parseTokens(_quote, refreshPos: false)
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
     var classDecl: ClassDecl = (sourceNode as ClassDecl).getOrThrow()
     
-    @Assert(classDecl.toString(), ##"@Deprecated["仓颉"]
+    @Assert(classDecl.toString(), ##"@Deprecated["仓�"]
 public class S1<T> <: I1<T> where T <: ToString{
     public let s1: Int64 = 0
     prop p1: Int64 {
@@ -63,7 +65,7 @@ public class S1<T> <: I1<T> where T <: ToString{
     @Assert(classDecl.superTyAnnotations.size, 1)
     @Assert(classDecl.superTyAnnotations[0].toString(), "I1<T>")
     @Assert(classDecl.annotations.size, 1)
-    @Assert(classDecl.annotations[0].toString(), ##"@Deprecated["仓颉"]"##)
+    @Assert(classDecl.annotations[0].toString(), ##"@Deprecated["仓�"]"##)
 
     @Assert(classDecl.nodePos.beginLine, 15)
     @Assert(classDecl.nodePos.beginColumn, 20)
@@ -84,4 +86,5 @@ public class S1<T> <: I1<T> where T <: ToString{
     @Assert(classDecl.getSuperTyAnnotationsBitAndsPos().size, 0)
     pos = classDecl.getUpperBoundPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [16i32, 20i32, 16i32, 22i32])
+}
 }

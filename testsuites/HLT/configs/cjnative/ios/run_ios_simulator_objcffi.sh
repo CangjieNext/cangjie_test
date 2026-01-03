@@ -47,40 +47,40 @@ cp objc-gen/*  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
 mkdir ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative
 cp -r $CANGJIE_HOME/runtime/lib/ios_simulator_aarch64_cjnative/*.dylib ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative/
 cp libcjworld.dylib ${cjworld}
-install_name_tool() {
-    command install_name_tool "$@" 2> >(grep -v -E '(Usage:|warning)' >&2)
-}
-codesign() {
-    command xcrun codesign "$@" 2> >(grep -v "is already signed" >&2)
-}
-install_name_tool -id @rpath/libinteroplib.common.dylib ${interoplib_common}
-install_name_tool -id @rpath/libinteroplib.objc.dylib ${interoplib_objc}
-install_name_tool -id @rpath/libobjc.lang.dylib ${objc_lang}
-install_name_tool -id @rpath/libcjworld.dylib ${cjworld}
-install_name_tool -change `otool -L ${interoplib_objc} | grep 'libinteroplib.common.dylib' | awk '{print $1}'` @rpath/libinteroplib.common.dylib ${interoplib_objc}
-install_name_tool -change `otool -L ${objc_lang} | grep 'libinteroplib.common.dylib' | awk '{print $1}'` @rpath/libinteroplib.common.dylib ${objc_lang}
-install_name_tool -change `otool -L ${objc_lang} | grep 'libinteroplib.objc.dylib' | awk '{print $1}'` @rpath/libinteroplib.objc.dylib ${objc_lang}
-install_name_tool -change `otool -L ${cjworld} | grep 'libinteroplib.common.dylib' | awk '{print $1}'` @rpath/libinteroplib.common.dylib ${cjworld}
-install_name_tool -change `otool -L ${cjworld} | grep 'libinteroplib.objc.dylib' | awk '{print $1}'` @rpath/libinteroplib.objc.dylib ${cjworld}
-install_name_tool -change `otool -L ${cjworld} | grep 'libobjc.lang.dylib' | awk '{print $1}'` @rpath/libobjc.lang.dylib ${cjworld}
-codesign --sign - ${cjworld}
+# install_name_tool() {
+#     command install_name_tool "$@" 2> >(grep -v -E '(Usage:|warning)' >&2)
+# }
+# codesign() {
+#     command xcrun codesign "$@" 2> >(grep -v "is already signed" >&2)
+# }
+# install_name_tool -id @rpath/libinteroplib.common.dylib ${interoplib_common}
+# install_name_tool -id @rpath/libinteroplib.objc.dylib ${interoplib_objc}
+# install_name_tool -id @rpath/libobjc.lang.dylib ${objc_lang}
+# install_name_tool -id @rpath/libcjworld.dylib ${cjworld}
+# install_name_tool -change `otool -L ${interoplib_objc} | grep 'libinteroplib.common.dylib' | awk '{print $1}'` @rpath/libinteroplib.common.dylib ${interoplib_objc}
+# install_name_tool -change `otool -L ${objc_lang} | grep 'libinteroplib.common.dylib' | awk '{print $1}'` @rpath/libinteroplib.common.dylib ${objc_lang}
+# install_name_tool -change `otool -L ${objc_lang} | grep 'libinteroplib.objc.dylib' | awk '{print $1}'` @rpath/libinteroplib.objc.dylib ${objc_lang}
+# install_name_tool -change `otool -L ${cjworld} | grep 'libinteroplib.common.dylib' | awk '{print $1}'` @rpath/libinteroplib.common.dylib ${cjworld}
+# install_name_tool -change `otool -L ${cjworld} | grep 'libinteroplib.objc.dylib' | awk '{print $1}'` @rpath/libinteroplib.objc.dylib ${cjworld}
+# install_name_tool -change `otool -L ${cjworld} | grep 'libobjc.lang.dylib' | awk '{print $1}'` @rpath/libobjc.lang.dylib ${cjworld}
+# codesign --sign - ${cjworld}
 if [ -f "libobjc.foundation.dylib" ]; then
     cp libobjc.foundation.dylib ${foundation}
-    install_name_tool -id @rpath/libobjc.foundation.dylib ${foundation}
-    install_name_tool -change `otool -L ${cjworld} | grep 'libobjc.foundation.dylib' | awk '{print $1}'` @rpath/libobjc.foundation.dylib ${cjworld}
-    install_name_tool -change `otool -L ${foundation} | grep 'libinteroplib.common.dylib' | awk '{print $1}'` @rpath/libinteroplib.common.dylib ${foundation}
-    install_name_tool -change `otool -L ${foundation} | grep 'libinteroplib.objc.dylib' | awk '{print $1}'` @rpath/libinteroplib.objc.dylib ${foundation}
-    install_name_tool -change `otool -L ${foundation} | grep 'libobjc.lang.dylib' | awk '{print $1}'` @rpath/libobjc.lang.dylib ${foundation}
-    codesign --sign - ${foundation}
+    # install_name_tool -id @rpath/libobjc.foundation.dylib ${foundation}
+    # install_name_tool -change `otool -L ${cjworld} | grep 'libobjc.foundation.dylib' | awk '{print $1}'` @rpath/libobjc.foundation.dylib ${cjworld}
+    # install_name_tool -change `otool -L ${foundation} | grep 'libinteroplib.common.dylib' | awk '{print $1}'` @rpath/libinteroplib.common.dylib ${foundation}
+    # install_name_tool -change `otool -L ${foundation} | grep 'libinteroplib.objc.dylib' | awk '{print $1}'` @rpath/libinteroplib.objc.dylib ${foundation}
+    # install_name_tool -change `otool -L ${foundation} | grep 'libobjc.lang.dylib' | awk '{print $1}'` @rpath/libobjc.lang.dylib ${foundation}
+    # codesign --sign - ${foundation}
 fi
 if [ -f "libdep.dylib" ]; then
     cp libdep.dylib ${dep}
-    install_name_tool -id @rpath/libdep.dylib ${dep}
-    install_name_tool -change `otool -L ${cjworld} | grep 'libdep.dylib' | awk '{print $1}'` @rpath/libdep.dylib ${cjworld}
-    install_name_tool -change `otool -L ${dep} | grep 'libinteroplib.common.dylib' | awk '{print $1}'` @rpath/libinteroplib.common.dylib ${dep}
-    install_name_tool -change `otool -L ${dep} | grep 'libinteroplib.objc.dylib' | awk '{print $1}'` @rpath/libinteroplib.objc.dylib ${dep}
-    install_name_tool -change `otool -L ${dep} | grep 'libobjc.lang.dylib' | awk '{print $1}'` @rpath/libobjc.lang.dylib ${dep}
-    codesign --sign - ${dep}
+    # install_name_tool -id @rpath/libdep.dylib ${dep}
+    # install_name_tool -change `otool -L ${cjworld} | grep 'libdep.dylib' | awk '{print $1}'` @rpath/libdep.dylib ${cjworld}
+    # install_name_tool -change `otool -L ${dep} | grep 'libinteroplib.common.dylib' | awk '{print $1}'` @rpath/libinteroplib.common.dylib ${dep}
+    # install_name_tool -change `otool -L ${dep} | grep 'libinteroplib.objc.dylib' | awk '{print $1}'` @rpath/libinteroplib.objc.dylib ${dep}
+    # install_name_tool -change `otool -L ${dep} | grep 'libobjc.lang.dylib' | awk '{print $1}'` @rpath/libobjc.lang.dylib ${dep}
+    # codesign --sign - ${dep}
 fi
 
 set -e

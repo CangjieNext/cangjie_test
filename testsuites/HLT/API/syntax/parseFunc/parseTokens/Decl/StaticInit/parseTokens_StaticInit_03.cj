@@ -13,6 +13,9 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_StaticInit_03() {
     @Assert(parseTokens(quote(static init(a: Int64) {})).diags.size > 0)
+}
 }

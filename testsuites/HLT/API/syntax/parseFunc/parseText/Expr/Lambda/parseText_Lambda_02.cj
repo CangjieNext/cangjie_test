@@ -13,6 +13,9 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Lambda_02() {
     @Assert(parseText("{ => => }").diags.size > 0)
+}
 }

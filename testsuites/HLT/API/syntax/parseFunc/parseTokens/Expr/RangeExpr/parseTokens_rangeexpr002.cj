@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_rangeexpr_002() {
     let _quote = quote(0..=10:-2)
     let res = parseTokens(_quote)
@@ -38,4 +40,5 @@ func test_rangeexpr_002() {
         case Some(v) => @Assert(v.toString(),"-2")
         case _ => @Assert(false)
     }
+}
 }

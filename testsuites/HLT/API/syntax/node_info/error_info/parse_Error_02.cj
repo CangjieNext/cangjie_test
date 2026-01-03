@@ -15,6 +15,9 @@ import std.fs.*
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_errorinfo_002() {
     @AssertThrows[Exception](parseText(String.fromUtf8(File.readFrom("./Error_01.cj"))))
+}
 }

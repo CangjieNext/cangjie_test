@@ -14,13 +14,15 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Comment_04() {
     let res = parseFile("./Comment_04.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains(##"// 仓颉语言，😊
+    @Assert(sourcefile.toString().contains(##"// 仓���，�
 
 /* ....
 line1
@@ -58,12 +60,12 @@ line3
     @Assert(sourcefile.comments.size, 4)
 
     var comment_1: Comment = sourcefile.comments[1]
-    @Assert(comment_1.toString(), ##"// 仓颉语言，😊"##)
+    @Assert(comment_1.toString(), ##"// 仓���，�"##)
     match (comment_1.kind) {
         case CommentKind.Line => ()
         case _ => @Assert(false)
     }
-    @Assert(comment_1.content, ##"// 仓颉语言，😊"##)
+    @Assert(comment_1.content, ##"// 仓���，�"##)
 
     var comment_2: Comment = sourcefile.comments[2]
     @Assert(comment_2.toString(), ##"/* ....
@@ -138,4 +140,5 @@ line3
         case _ => @Assert(false)
     }
     @Assert(comment_3.content, ##"// long line comment ............................................................................................................................................................................................................................................................................................................................................................................................................................................"##)
+}
 }

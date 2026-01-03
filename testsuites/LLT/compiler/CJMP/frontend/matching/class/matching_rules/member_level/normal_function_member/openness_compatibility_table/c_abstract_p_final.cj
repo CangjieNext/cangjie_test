@@ -10,6 +10,7 @@ package cmp
 
 public abstract common class A {
     public abstract common func B(): Int64
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -21,15 +22,12 @@ public abstract platform class A {
 }
 
 /* SCAN
-error: 'platform' function 'B' can not find 'common' match
+error: 'platform' function modifier is not match 'common' modifier
  ==> p/p.cj:5:5:
   | 
 5 |     public platform func B(): Int64 {0}
   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
 
-error: 'common' function 'B' can not find 'platform' match
- ==> c/c.cj:9:5:
-
-2 errors generated, 2 errors printed.
+1 error generated, 1 error printed.
 */

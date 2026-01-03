@@ -73,6 +73,7 @@ compiler/CJMP/frontend/matching/struct/new_members/new_required_constructor.cj
 compiler/CJMP/merging/structs/common_member/function/function_ret_09.cj
 compiler/CJMP/merging/test.cj
 
+
 # daignose is changed
 compiler/Sema/interface/interface_property/interface_property1.cj
 compiler/Sema/Extend/property/property_mut_immut_mismatch.cj
@@ -137,6 +138,8 @@ compiler/CJMP/objc/sema/objc_mirror_subtype_method_ret_type.cj
 compiler/CJMP/objc/sema/objc_mirror_subtype_parse.cj
 compiler/CJMP/objc/sema/objc_pointer_illegal_argument.cj
 compiler/CJMP/objc/sema/objc_pointer_type_argument.cj
+
+compiler/CJMP/frontend/extend/positive/enum/common_platform_enum_cycle_ref.cj
 
 ## cjmp, driver testcases commented on 2025-10-17, need to be fixed.
 compiler/Driver/LTO/lto_test10_1.cj

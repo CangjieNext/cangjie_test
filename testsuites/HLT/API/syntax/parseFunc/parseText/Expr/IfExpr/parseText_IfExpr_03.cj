@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_IfExpr_03() {
     let str = ##"if (let a <- b && a >= 0) {
     b
@@ -30,4 +32,5 @@ func test_IfExpr_03() {
     @Assert(expr_1.condition.toString(), ##"let a <- b && a >= 0"##)
     @Assert(expr_1.elseBlock.isNone())
     @Assert(expr_1.elseIf.isNone())
+}
 }

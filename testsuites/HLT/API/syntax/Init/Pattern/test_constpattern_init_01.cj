@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     litConstExpr in [
         LitConstExpr(LitConstKind.BoolLiteral, "true"),
         LitConstExpr(LitConstKind.BoolLiteral, "false"),
@@ -34,4 +36,5 @@ func test_ConstPattern_Init_01(litConstExpr: LitConstExpr, comments: Array<Comme
     let ConstPattern = ConstPattern(litConstExpr, comments: comments)
     println(ConstPattern.toString())
     println()
+}
 }

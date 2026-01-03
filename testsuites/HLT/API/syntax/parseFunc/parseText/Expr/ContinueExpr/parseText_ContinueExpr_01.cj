@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ContinueExpr_01() {
     let str = ##"continue"##
     let res = parseText(str)
@@ -20,4 +22,5 @@ func test_ContinueExpr_01() {
 
     var _expr = (sourceNode as ContinueExpr).getOrThrow()
     @Assert(_expr.toString(), "continue")
+}
 }

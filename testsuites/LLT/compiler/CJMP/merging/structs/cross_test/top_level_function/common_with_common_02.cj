@@ -12,6 +12,7 @@ public common struct S {
     public common func testFunc(): Unit {
         println("1")
     }
+    public init(){}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -20,7 +21,6 @@ public common struct S {
 package cmp
 
 public platform struct S {
-    public init(){}
 }
 
 public platform func testFunc(): Unit {

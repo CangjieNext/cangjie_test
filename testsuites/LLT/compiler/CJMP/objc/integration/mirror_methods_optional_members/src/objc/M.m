@@ -20,4 +20,7 @@
     printf("objc: implemented called\n");
 }
 
+- (void) implementedWithArg: (int64_t) i {
+    printf("objc: implemented called with %lld\n", (long long)i);
+}
 @end

@@ -14,8 +14,10 @@
 import std.fs.*
 import stdx.syntax.*
 
-// 节点的内容相同，源文件不同
+// 节点的内容相同，源文件不�
 @Test
+class test_01{
+    @TestCase
 func test_hashable_003() {
     let res_1 = parseFile("./Hashable_01.cj")
     let sourcefile_1: SourceFile = res_1.node.getOrThrow()
@@ -23,4 +25,5 @@ func test_hashable_003() {
     let sourcefile_2: SourceFile = res_2.node.getOrThrow()
     @Assert(File.readFrom("./Hashable_01.cj"), File.readFrom("./Hashable_02.cj"))
     @Assert(sourcefile_1.hashCode() != sourcefile_2.hashCode())
+}
 }

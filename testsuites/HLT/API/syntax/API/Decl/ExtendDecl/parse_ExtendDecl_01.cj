@@ -8,12 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE: ExtendDecl_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (CJNATIVE and not OHOS and not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (CJNATIVE and not OHOS and not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ExtendDecl_01() {
     let res = parseFile("./ExtendDecl_01.cj")
     var diags = res.diags
@@ -85,4 +87,5 @@ func test_ExtendDecl_01() {
     @Assert([posList[1].beginLine, posList[1].beginColumn, posList[1].endLine, posList[1].endColumn], [9i32, 37i32, 9i32, 38i32])
     pos = extendDecl.getUpperBoundPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [9i32, 23i32, 9i32, 25i32])
+}
 }

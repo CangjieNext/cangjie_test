@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_incordecexpr_004() {
     let str = ##"a--"##
     let res = parseText(str)
@@ -30,4 +32,5 @@ func test_incordecexpr_004() {
         case IncOrDecOpKind.Decr => ()
         case _ => @Assert(false)
     }
+}
 }

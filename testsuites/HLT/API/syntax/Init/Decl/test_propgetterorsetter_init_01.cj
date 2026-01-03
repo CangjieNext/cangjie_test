@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     block in [
         Block([]),
         Block([parseText("a + 1").node.getOrThrow(), parseText("a = b").node.getOrThrow()])
@@ -46,4 +48,5 @@ func test_PropGetterOrSetter_Init_01(block: Block, identifier: Option<String>, i
         comments: comments)
     println(PropGetterOrSetter.toString())
     println()
+}
 }

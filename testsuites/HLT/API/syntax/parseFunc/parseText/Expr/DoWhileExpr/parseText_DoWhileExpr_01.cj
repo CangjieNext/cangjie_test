@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_DoWhileExpr_01() {
     let str = ##"do {
     print(a)
@@ -40,4 +42,5 @@ func test_DoWhileExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 3i32])
     pos = expr_1.getWhileKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [4i32, 3i32, 4i32, 8i32])
+}
 }

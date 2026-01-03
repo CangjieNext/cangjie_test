@@ -13,11 +13,12 @@ import objc.lang.*
 @ObjCImpl
 public class A <: M2 {
     public init() {}
-    public var v: I = M1(1)
-    public prop p: I {
+    public var b: ?I = M1(1)
+    public mut prop p: ?I {
         get() {M1(2)}
+        set(v) {v}
     }
-    public func g1(): I { M1(3) }
+    public func g1(): ?I { M1(3) }
     public func g2(a: I) {
         println("p1: ${a.p1}")
         a.f1()

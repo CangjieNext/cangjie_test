@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TryCatch_01() {
     let _quote = quote(try {
     a
@@ -39,4 +41,5 @@ func test_TryCatch_01() {
     c
 }"##)
     @Assert(expr.resourceSpec.size, 0)
+}
 }

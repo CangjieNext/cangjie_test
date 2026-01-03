@@ -9,7 +9,7 @@
 package cmp
 public common class A{
     public common let A1:Int32
-    //public init(){}
+    public init(){}
 }
 public common let a:A
 public common let b:Int32
@@ -18,7 +18,6 @@ public common let b:Int32
 package cmp
 public platform class A{
     public platform let A1:Int32=1
-    public init(){}
 }
 public platform let a:A=A()
 public platform let b:Int32=a.A1

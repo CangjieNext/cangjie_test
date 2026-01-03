@@ -14,6 +14,8 @@ import std.ast.Tokens
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_QuoteExpr_03() {
     let _quote = quote(quote(var str = #"a"#))
     let res = parseTokens(_quote)
@@ -28,4 +30,5 @@ func test_QuoteExpr_03() {
             @Expect(QuoteToken.content.toString(), ##"var str = #"a"#"##)
         case _ => @Assert(false)
     }
+}
 }

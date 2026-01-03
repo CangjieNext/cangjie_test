@@ -13,7 +13,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     path in [
         "./Illegal_Comment_01.cj",
         "./Illegal_Comment_02.cj",
@@ -30,4 +32,5 @@ func test_Comment_Illegal(path: String) {
         case Error(a, b) => println(a); println(b)
         case _ => ()
     }
+}
 }

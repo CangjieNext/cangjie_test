@@ -8,5 +8,5 @@
  
 // LEVEL: 1
 // DEPENDENCE: src
-// (iOSNative) ERRCHECK: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc src/cjworld/*.cj
+// (iOSNative) ERRCHECK: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc --link-options="-install_name @rpath/libcjworld.dylib" src/cjworld/*.cj
 // ASSERT: scan method with more than one parameter must have must have @ForeignName annotation

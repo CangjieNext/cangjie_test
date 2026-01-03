@@ -13,6 +13,9 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TryCatch_05() {
     @AssertThrows[Exception](parseTokens(quote(try {})).node.getOrThrow())
+}
 }

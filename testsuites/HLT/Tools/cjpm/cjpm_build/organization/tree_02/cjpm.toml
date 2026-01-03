@@ -19,6 +19,9 @@
 [target.x86_64-unknown-linux-gnu.test-dependencies]
   "devDep::devDep" = { path = "./devDep" }
 
+[target.aarch64-unknown-linux-gnu.test-dependencies]
+  "devDep::devDep" = { path = "./devDep" }
+
 [target.x86_64-w64-mingw32.test-dependencies]
   "devDep::devDep" = { path = "./devDep" }
 

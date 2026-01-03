@@ -16,4 +16,6 @@
 /* SCAN-IN
 objc: implemented called
 cj: caught ObjCOptionalMethodUnimplementedException!
+objc: implemented called with 2
+cj: caught ObjCOptionalMethodUnimplementedException!
 */

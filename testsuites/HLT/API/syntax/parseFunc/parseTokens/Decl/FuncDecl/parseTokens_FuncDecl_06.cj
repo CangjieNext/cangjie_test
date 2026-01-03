@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_FuncDecl_06() {
     let _quote_1 = quote(@Deprecated["a"] func foo() {})
     let res_1 = parseTokens(_quote_1)
@@ -32,4 +34,5 @@ func test_FuncDecl_06() {
     @Assert(funcdecl_1.retTyAnnotation.isNone())
     @Assert(funcdecl_1.modifiers.toString(), "[]")
     @Assert(funcdecl_1.annotations.toString(), ##"[@Deprecated["a"]]"##)
+}
 }

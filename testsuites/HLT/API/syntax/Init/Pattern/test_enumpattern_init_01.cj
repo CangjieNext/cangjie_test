@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     enumConstructor in [
         SymbolRef("A1", []),
         SymbolRef("A2", [AtomicType(BoolType)])
@@ -38,4 +40,5 @@ func test_EnumPattern_Init_01(enumConstructor: SymbolRef, enumType: Option<Compo
     let EnumPattern = EnumPattern(enumConstructor, enumType, subPatterns, comments: comments)
     println(EnumPattern.toString())
     println()
+}
 }

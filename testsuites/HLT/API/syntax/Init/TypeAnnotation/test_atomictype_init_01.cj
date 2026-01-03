@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     kind in [
         BoolType,
         Float16Type,
@@ -45,4 +47,5 @@ func test_AtomicType_Init_01(kind: AtomicTypeKind, comments: Array<Comment>): Un
     let AtomicType = AtomicType(kind, comments: comments)
     println(AtomicType.toString())
     println()
+}
 }

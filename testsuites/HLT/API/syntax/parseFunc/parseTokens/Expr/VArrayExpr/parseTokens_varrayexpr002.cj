@@ -13,18 +13,18 @@
 import stdx.syntax.*
 
 @Test
-func test_varrayliteral_002() {
-    let _quote = quote(VArray<Int64, \$5>({ i => i}))
-    let res = parseTokens(_quote)
-    let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
-
-    var varrayliteral = (sourceNode as VArrayExpr).getOrThrow()
-    //toString()
-    @Assert(varrayliteral.toString(), "VArray < Int64, $5 >({ i => i })")
-
-    //argument
-    @Assert(varrayliteral.argument.toString(), "{ i => i }")
-    @Assert(varrayliteral.argument.value.toString(), "{ i => i }")
-    @Assert(varrayliteral.argument.isInOut, false)
-    @Assert(varrayliteral.argument.identifier.isNone())
-}
+    func test_varrayliteral_002() {
+        let _quote = quote(VArray<Int64, \$5>({ i => i}))
+        let res = parseTokens(_quote)
+        let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
+    
+        var varrayliteral = (sourceNode as VArrayExpr).getOrThrow()
+        //toString()
+        @Assert(varrayliteral.toString(), "VArray < Int64, $5 >({ i => i })")
+    
+        //argument
+        @Assert(varrayliteral.argument.toString(), "{ i => i }")
+        @Assert(varrayliteral.argument.value.toString(), "{ i => i }")
+        @Assert(varrayliteral.argument.isInOut, false)
+        @Assert(varrayliteral.argument.identifier.isNone())
+    }

@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     name in [
         "a",
         "_a"
@@ -38,4 +40,5 @@ func test_CompositeType_Init_01(name: String, prefixes: Array<String>, typeArgum
     let CompositeType = CompositeType(name, prefixes, typeArguments, comments: comments)
     println(CompositeType.toString())
     println()
+}
 }

@@ -8,5 +8,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC-PIPE: cd %n && cjpm update -h src 2>&1 | compare %f
+// EXEC-PIPE: cd %n && %cjpm update -h src 2>&1 | compare %f
 // ASSERT: scan Warning: cjpm doesn't do job in show usage mode

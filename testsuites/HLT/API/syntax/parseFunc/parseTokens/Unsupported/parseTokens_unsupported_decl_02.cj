@@ -14,6 +14,9 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_unsupported_decl() {
     @AssertThrows[Exception](parseTokens(quote(public C1() {})).node.getOrThrow())
+}
 }

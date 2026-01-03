@@ -11,6 +11,7 @@
 // ASSERT: scan sema_common_package_has_main
 
 public common class A {
+    public init(){}
     static var a = 0
 }
 main() { A.a }

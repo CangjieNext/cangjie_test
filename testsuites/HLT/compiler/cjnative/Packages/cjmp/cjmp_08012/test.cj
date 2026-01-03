@@ -11,7 +11,7 @@
 // ASSERT: scan-not error:
 
 
-public common class A {}
+public common class A {public init(){}}
 common extend A {
     public func f(): Int64 { 0 }
 }

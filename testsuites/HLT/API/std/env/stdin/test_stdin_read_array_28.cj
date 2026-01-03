@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt -o %output %f
-// RUN-EXEC-PIPE-0: echo a > input.txt && %run %run_opt %output %run_args < input.txt 2>&1 | compare %f
+// (not iOS) RUN-EXEC-PIPE-0: echo a > input.txt && %run %run_opt %output %run_args < input.txt 2>&1 | compare %f
 // ASSERT: scan 2
 // (not Windows or OHOS)ASSERT: scan [97, 10]
 // (Windows and not OHOS)ASSERT: scan [97, 32]

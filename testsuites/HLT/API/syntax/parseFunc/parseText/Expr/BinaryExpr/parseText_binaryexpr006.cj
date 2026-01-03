@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_binaryexpr_006() {
     let str = ##"2**UInt64(3**2)"##
     let res = parseText(str)
@@ -33,4 +35,5 @@ func test_binaryexpr_006() {
         case BinaryOpKind.Exp => ()
         case _ => @Assert(false)
     }
+}
 }

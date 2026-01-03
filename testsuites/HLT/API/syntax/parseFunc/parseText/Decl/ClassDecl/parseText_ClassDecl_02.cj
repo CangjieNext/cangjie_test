@@ -217,6 +217,8 @@ let str = ##"public class CangjieInvoke <: JObject {
 }"##
 
 @Test
+class test_01{
+    @TestCase
 func test_ClassDecl_02() {
     let res = parseText(str)
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
@@ -424,4 +426,5 @@ func test_ClassDecl_02() {
         return 13
     }
 }"##)
+}
 }

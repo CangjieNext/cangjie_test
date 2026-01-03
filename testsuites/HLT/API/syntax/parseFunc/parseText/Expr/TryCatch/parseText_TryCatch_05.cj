@@ -13,6 +13,9 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TryCatch_05() {
     @Assert(parseText("try {}").diags.size > 0)
+}
 }

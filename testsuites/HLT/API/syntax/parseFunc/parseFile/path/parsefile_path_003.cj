@@ -15,6 +15,8 @@ import std.fs.*
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_filepath_003() {
     let res = parseFile(".\\file001.cj")
     var diags = res.diags
@@ -32,4 +34,5 @@ main() {
     return a
 }"##
     @Assert(sourcefile.toString().contains(str))
+}
 }

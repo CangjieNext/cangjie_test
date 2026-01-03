@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_StructDecl_01() {
     let str = ##"struct S1 {}"##
     let res = parseText(str)
@@ -30,4 +32,5 @@ func test_StructDecl_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 7i32])
     @Assert(structDecl.getSuperTyAnnotationsBitAndsPos().size == 0, true)
     @Assert(structDecl.getUpperBoundPos().isNone(), true)
+}
 }

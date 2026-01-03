@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     body in [
         None,
         Block([]),
@@ -65,8 +67,11 @@ func test_FuncDecl_Init_01(body: Option<Block>, genericConstraints: Option<Gener
     println(FuncDecl.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     body in [
         None,
         Block([]),
@@ -117,4 +122,5 @@ func test_FuncDecl_Init_02(body: Option<Block>, genericConstraints: Option<Gener
     @AssertThrows[Exception](FuncDecl(body, genericConstraints, genericParams, kind, name, params, retTyAnnotation, annotations: annotations,
         modifiers: modifiers, comments: comments))
    
+}
 }

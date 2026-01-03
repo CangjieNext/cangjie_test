@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_FuncDecl_03() {
     let _quote_1 = quote(public init (a: Int64, b!: Int64) {
         x = a
@@ -115,4 +117,5 @@ func test_FuncDecl_03() {
     @Assert(funcdecl_4.retTyAnnotation.isNone())
     @Assert(funcdecl_4.modifiers.toString(), "[]")
     @Assert(funcdecl_4.annotations.toString(), "[]")
+}
 }

@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     assignOpKind in [
         AddAssign,
         AndAssign,
@@ -49,4 +51,5 @@ func test_AssignExpr_Init_01(assignOpKind: AssignOpKind, lhs: Expr, rhs: Expr, c
     let AssignExpr = AssignExpr(assignOpKind, lhs, rhs, comments: comments)
     println(AssignExpr.toString())
     println()
+}
 }

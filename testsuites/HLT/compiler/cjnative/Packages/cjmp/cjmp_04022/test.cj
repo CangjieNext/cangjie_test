@@ -8,7 +8,7 @@
  
 // LEVEL: 0
 // ERRCHECK: %compiler %cmp_opt %f %compile_chir_opt -o ./
-// ASSERT: scan sema_no_match_constructor
+// ASSERT: scan parse_cjmp_in_common_ctor_required
 
 public common class A {
     public static var a1 = 1

@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_binaryexpr_007() {
     let str = ##"2.0**
 3**2"##
@@ -35,4 +37,5 @@ func test_binaryexpr_007() {
         case BinaryOpKind.Exp => ()
         case _ => @Assert(false)
     }
+}
 }

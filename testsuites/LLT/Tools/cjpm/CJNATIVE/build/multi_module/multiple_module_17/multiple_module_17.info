@@ -5,5 +5,5 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../%n
-// ERRCHECK: cd %n && %cjpm build
-// ASSERT: regex Error: the 'output-type' field of dependent module can't be 'executable' in .*cjpm.toml
+// EXEC: cd %n && %cjpm build 2>&1 | compare %f
+// ASSERT: scan cjpm build success

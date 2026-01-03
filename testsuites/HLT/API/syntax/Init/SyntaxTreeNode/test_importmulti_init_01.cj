@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     prefixes in [
         [],
         ["p1"],
@@ -35,8 +37,11 @@ func test_ImportMulti_Init_01(prefixes: Array<String>, contents: Array<ImportCon
     println(ImportMulti.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     prefixes in [
         [],
         ["p1"],
@@ -56,4 +61,5 @@ func test_ImportMulti_Init_01(prefixes: Array<String>, contents: Array<ImportCon
 ]
 func test_ImportMulti_Init_02(prefixes: Array<String>, contents: Array<ImportContent>, comments: Array<Comment>): Unit {
     @AssertThrows[Exception](ImportMulti(prefixes, contents, comments: comments))
+}
 }

@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_FuncDecl_07() {
     let str_1 = ##"foreign func foo(): Unit"##
     let res_1 = parseText(str_1)
@@ -31,4 +33,5 @@ func test_FuncDecl_07() {
     @Assert(funcdecl_1.retTyAnnotation.getOrThrow().toString(), "Unit")
     @Assert(funcdecl_1.modifiers.toString(), "[]")
     @Assert(funcdecl_1.annotations.toString(), ##"[]"##)
+}
 }

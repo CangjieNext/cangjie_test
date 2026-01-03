@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_FuncDecl_02() {
     let _quote_1 = quote(func func_1(): Unit)
     let res_1 = parseTokens(_quote_1)
@@ -79,4 +81,5 @@ func test_FuncDecl_02() {
     @Assert(funcdecl_3.retTyAnnotation.getOrThrow() is AtomicType)
     @Assert(funcdecl_3.modifiers.toString(), "[mut]")
     @Assert(funcdecl_3.annotations.toString(), "[]")
+}
 }

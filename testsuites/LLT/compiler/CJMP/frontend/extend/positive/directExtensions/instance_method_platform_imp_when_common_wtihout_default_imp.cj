@@ -8,7 +8,7 @@
 // SEPARATE-FILE: c/c.cj
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
-common class Foo{ }
+common class Foo{ init() {} }
 common extend Foo {
    common public func f1():Unit
 }

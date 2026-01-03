@@ -14,10 +14,13 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_unsupported_block() {
     @AssertThrows[Exception](parseTokens(quote({})).node.getOrThrow())
     @AssertThrows[Exception](parseTokens(quote(A:)).node.getOrThrow())
     @AssertThrows[Exception](parseTokens(quote(package A)).node.getOrThrow())
     @AssertThrows[Exception](parseTokens(quote(public)).node.getOrThrow())
     @AssertThrows[Exception](parseTokens(quote(import a.*)).node.getOrThrow())
+}
 }

@@ -13,6 +13,9 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Lambda_03() {
     @Assert(parseText("{ a!: Int64 => }").diags.size > 0)
+}
 }

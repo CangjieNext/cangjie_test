@@ -13,12 +13,15 @@
 
 import stdx.syntax.*
 
-// 节点的内容相同，不是来自于同一次解析
+// 节点的内容相同，不是来自于同�次解�
 @Test
+class test_01{
+    @TestCase
 func test_equatable_002() {
     let res_1 = parseFile("./Equatable_01.cj")
     let sourcefile_1: SourceFile = res_1.node.getOrThrow()
     let res_2 = parseFile("./Equatable_01.cj")
     let sourcefile_2: SourceFile = res_2.node.getOrThrow()
     @Assert(sourcefile_1 != sourcefile_2)
+}
 }

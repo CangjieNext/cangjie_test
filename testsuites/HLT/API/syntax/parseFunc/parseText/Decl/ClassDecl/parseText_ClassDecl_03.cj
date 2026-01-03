@@ -33,6 +33,8 @@ internal class C1<T, U> <: I1<U> & I2<T, U> & I3<T> where T <: I1<T> & I3<T> , U
 }"##
 
 @Test
+class test_01{
+    @TestCase
 func test_ClassDecl_03() {
     let res = parseText(str)
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
@@ -113,4 +115,5 @@ internal class C1<T, U> <: I1<U> & I2<T, U> & I3<T> where T <: I1<T> & I3<T> , U
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 45i32, 2i32, 46i32])
     pos = classDecl.getUpperBoundPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 25i32, 2i32, 27i32])
+}
 }

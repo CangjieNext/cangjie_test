@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Inner_Comment_07() {
     let res = parseFile("./Inner_Comment_07.cj")
     var diags = res.diags
@@ -21,7 +23,7 @@ func test_Inner_Comment_07() {
 
     let sourcefile: SourceFile = res.node.getOrThrow()
     sourcefile.toString() |> println
-    @Assert(sourcefile.toString(), ##"/*
+    @Assert(sourcefile.toString().replace("/r",""), ##"/*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
@@ -46,4 +48,5 @@ func foo<T>(/** document comment1 */ a: T, /** document comment2 */ b!: Int64 = 
     return (0, a)
 } // line comment3"##)
 
+}
 }

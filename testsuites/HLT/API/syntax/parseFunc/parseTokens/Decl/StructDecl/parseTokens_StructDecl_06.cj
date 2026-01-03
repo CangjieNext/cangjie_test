@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_StructDecl_06() {
     let _quote = quote(internal struct s1<T> <: I1 & I2<T> & I3 {
 })
@@ -35,4 +37,5 @@ func test_StructDecl_06() {
     @Assert(structDecl.superTyAnnotations[1].toString(), "I2 < T >")
     @Assert(structDecl.superTyAnnotations[2].toString(), "I3")
     @Assert(structDecl.annotations.size, 0)
+}
 }

@@ -10,6 +10,9 @@ package cmp
 
 public common class A {
     public common var a:Int32
+        init(){
+        a=1
+    }
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
@@ -17,7 +20,4 @@ public common class A {
 package cmp
 public platform class A{
     public platform var a
-    init(){
-        a=1
-    }
 }

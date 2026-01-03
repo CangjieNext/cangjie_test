@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     identifier_pair in [
         ("a1", true),
         (None, false)
@@ -44,8 +46,11 @@ func test_Argument_Init_01(identifier_pair: (Option<String>, Bool), isInOut: Boo
     println(Argument.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     identifier_pair in [
         ("a1", false),
         (None, true)
@@ -77,4 +82,5 @@ func test_Argument_Init_02(identifier_pair: (Option<String>, Bool), isInOut: Boo
     println(Argument.toString())
     println()
 
+}
 }

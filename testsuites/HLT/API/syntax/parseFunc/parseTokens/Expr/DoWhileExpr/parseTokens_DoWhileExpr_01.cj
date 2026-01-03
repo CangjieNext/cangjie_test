@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_DoWhileExpr_01() {
     let _quote = quote(do {
     print(a)
@@ -31,4 +33,5 @@ func test_DoWhileExpr_01() {
     break
 }"##)
     @Assert(expr_1.condition.toString(), ##"b == cc && a > 0"##)
+}
 }

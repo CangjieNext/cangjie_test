@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_unaryexpr_002() {
     let _quote = quote(!!!!a)
     let res = parseTokens(_quote)
@@ -33,4 +35,5 @@ func test_unaryexpr_002() {
 
     var pos = unaryexpr.getOperatorPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 2i32])
+}
 }

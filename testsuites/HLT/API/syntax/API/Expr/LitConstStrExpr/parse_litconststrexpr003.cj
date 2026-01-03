@@ -8,12 +8,14 @@
 
 // LEVEL: 2
 // DEPENDENCE: litconststrexpr003.cj
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_litconststrexpr_003() {
     let res = parseFile("./litconststrexpr003.cj")
     var diags = res.diags
@@ -36,7 +38,7 @@ func test_litconststrexpr_003() {
         case LitConstKind.StringLiteral => ()
         case _ => @Assert(false)
     }
-    //delimiterNum 前后成对出现的 # 分隔符数此时应该是0
+    //delimiterNum 前后成�出现的 # 分隔符数此时应�是0
     @Assert(litconststrexpr.delimiterNum, 0)
     //isSingleQuote
     @Assert(litconststrexpr.isSingleQuote,false)
@@ -47,4 +49,5 @@ func test_litconststrexpr_003() {
         case LitConstStrKind.MultiLineString => ()
         case _ => @Assert(false)
     }
+}
 }

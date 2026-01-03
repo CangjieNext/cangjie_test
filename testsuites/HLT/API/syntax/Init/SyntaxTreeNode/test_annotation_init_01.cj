@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     arguments in [
         [],
         [Argument(None, false, LitConstExpr(LitConstKind.IntergerLiteral, "123"))],
@@ -44,8 +46,7 @@ func test_Annotation_Init_01(arguments: Array<Argument>, identifier: String, opK
     println(annotation.toString())
     println()
 }
-
-@Test
 func test_Annotation_Init_02(): Unit {
     @AssertThrows[Exception](Annotation([], "", At))
+}
 }

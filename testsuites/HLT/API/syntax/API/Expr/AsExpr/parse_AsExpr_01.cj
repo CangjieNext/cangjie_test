@@ -8,12 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE: AsExpr_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (CJNATIVE and not OHOS and not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (CJNATIVE and not OHOS and not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_AsExpr_01() {
     let res = parseFile("./AsExpr_01.cj")
     var diags = res.diags
@@ -48,4 +50,5 @@ func test_AsExpr_01() {
 
     var pos = expr_1.getAsKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 11i32, 10i32, 13i32])
+}
 }

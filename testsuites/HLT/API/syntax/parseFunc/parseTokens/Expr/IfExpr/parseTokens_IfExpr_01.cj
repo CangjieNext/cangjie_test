@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_IfExpr_01() {
     let _quote = quote(if (a) {} else if (a) {b} else {c})
     let res = parseTokens(_quote)
@@ -32,4 +34,5 @@ func test_IfExpr_01() {
     @Assert(expr_2.elseBlock.isSome())
     @Assert(expr_2.elseBlock.getOrThrow().toString(), "{ c }")
     @Assert(expr_2.elseIf.isNone())
+}
 }

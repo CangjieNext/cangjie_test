@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_InterfaceDecl_01() {
     let str = ##"@Deprecated["aaa"]
 public interface I1<T> <: S1<T> where T <: I2<T> {
@@ -56,4 +58,5 @@ public interface I1<T> <: S1<T> where T <: I2<T> {
     @Assert(interfaceDecl.getSuperTyAnnotationsBitAndsPos().size == 0, true)
     pos = interfaceDecl.getUpperBoundPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [2i32, 24i32, 2i32, 26i32])
+}
 }

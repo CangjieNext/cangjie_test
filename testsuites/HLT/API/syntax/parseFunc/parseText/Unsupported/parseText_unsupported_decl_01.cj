@@ -13,8 +13,11 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_unsupported_decl() {
     @Assert(parseText("a: Int64").diags.size > 0)
     @AssertThrows[Exception](parseText("a!: Int64"))
     @AssertThrows[Exception](parseText("a!: Int64 = 1"))
+}
 }

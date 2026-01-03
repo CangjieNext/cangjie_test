@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_incordecexpr_001() {
     let str = ##"arr++"##
     let res = parseText(str)
@@ -33,4 +35,5 @@ func test_incordecexpr_001() {
 
     var pos = incordecexpr.getOperatorPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 4i32, 1i32, 6i32])
+}
 }

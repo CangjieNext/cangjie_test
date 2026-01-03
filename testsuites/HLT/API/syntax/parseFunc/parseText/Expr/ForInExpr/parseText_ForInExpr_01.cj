@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ForInExpr_01() {
     let str = ##"for (i in 0..100 where i % 2 == 0) {
     count++
@@ -43,4 +45,5 @@ func test_ForInExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 34i32, 1i32, 35i32])
     pos = expr_1.getWhereKeyWordPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 18i32, 1i32, 23i32])
+}
 }

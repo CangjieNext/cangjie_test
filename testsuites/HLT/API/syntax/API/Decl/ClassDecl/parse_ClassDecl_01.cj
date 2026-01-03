@@ -8,19 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE: ClassDecl_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (CJNATIVE and not OHOS and not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (CJNATIVE and not OHOS and not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ClassDecl_01() {
     let res = parseFile("./ClassDecl_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains(##"@Deprecated["仓颉"]
+    @Assert(sourcefile.toString().contains(##"@Deprecated["仓�"]
 public class S1<T> <: I1<T> where T <: ToString{
     public let s1: Int64 = 0
     prop p1: Int64 {
@@ -39,7 +41,7 @@ public class S1<T> <: I1<T> where T <: ToString{
     @Assert(sourcefile.nodePos.filePath.contains("ClassDecl_01.cj"))
 
     var classDecl: ClassDecl = (sourcefile.topLevelDecls[0] as ClassDecl).getOrThrow()
-    @Assert(classDecl.toString(), ##"@Deprecated["仓颉"]
+    @Assert(classDecl.toString(), ##"@Deprecated["仓�"]
 public class S1<T> <: I1<T> where T <: ToString{
     public let s1: Int64 = 0
     prop p1: Int64 {
@@ -51,7 +53,7 @@ public class S1<T> <: I1<T> where T <: ToString{
     }
 }"##)
 
-    @Assert(classDecl.toTokens().toString(), ##"@Deprecated["仓颉"]
+    @Assert(classDecl.toTokens().toString(), ##"@Deprecated["仓�"]
 public class S1 < T > <: I1 < T > where T <: ToString {
     public let s1: Int64 = 0
     prop p1: Int64 {
@@ -84,7 +86,7 @@ public class S1 < T > <: I1 < T > where T <: ToString {
     @Assert(classDecl.superTyAnnotations.size, 1)
     @Assert(classDecl.superTyAnnotations[0].toString(), "I1<T>")
     @Assert(classDecl.annotations.size, 1)
-    @Assert(classDecl.annotations[0].toString(), ##"@Deprecated["仓颉"]"##)
+    @Assert(classDecl.annotations[0].toString(), ##"@Deprecated["仓�"]"##)
 
     @Assert(classDecl.nodePos.beginLine, 9)
     @Assert(classDecl.nodePos.beginColumn, 1)
@@ -105,4 +107,5 @@ public class S1 < T > <: I1 < T > where T <: ToString {
     @Assert(classDecl.getSuperTyAnnotationsBitAndsPos().size, 0)
     pos = classDecl.getUpperBoundPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 20i32, 10i32, 22i32])
+}
 }

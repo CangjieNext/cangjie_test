@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Lambda_01() {
     let _quote_1 = quote({ => })
     let res_1 = parseTokens(_quote_1)
@@ -103,4 +105,5 @@ func test_Lambda_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 2i32])
     pos = expr_1.getRCurlPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 6i32, 1i32, 7i32])
+}
 }

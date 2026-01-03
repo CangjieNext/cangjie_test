@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_arrayliteral_001() {
     let _quote = quote([10, 0, 0, 0])
     let res = parseTokens(_quote)
@@ -37,4 +39,5 @@ func test_arrayliteral_001() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 2i32])
     pos = arrayliteral.getRSquarePos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 13i32, 1i32, 14i32])
+}
 }

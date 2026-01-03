@@ -17,11 +17,11 @@ struct MyRecord {
     public MyRecord(var a: Int64) {}
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 foreign func AllocCStruct(): CPointer<MyRecord>
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 foreign func GetMaxFuncPtr(): CFunc<(CPointer<MyRecord>) -> (CPointer<MyRecord>)>
 
 foreign func free(cp: CPointer<MyRecord>): Unit

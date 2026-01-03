@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_binaryexpr_007() {
     let str = ##"10<<1<<1"##
     let res = parseText(str)
@@ -33,4 +35,5 @@ func test_binaryexpr_007() {
         case BinaryOpKind.LShift => ()
         case _ => @Assert(false)
     }
+}
 }

@@ -35,15 +35,20 @@ public class MyRewriter_nochange <: ASTRewriter {
 }
 
 @Test
-func test_ASTVistor_01() {
-    let filedecl = parseFile("class03.cj").node.getOrThrow()
-    let _visitor = MyVisitor_nochange()
-    _visitor.walk(filedecl)   
+class test_01{
+    @TestCase
+    func test_ASTVistor_01() {
+        let filedecl = parseFile("class03.cj").node.getOrThrow()
+        let _visitor = MyVisitor_nochange()
+        _visitor.walk(filedecl)   
+    }
 }
-
 @Test
-func test_ASTRewriter_01() {
-    let filedecl = parseFile("class03.cj").node.getOrThrow()
-    let _visitor = MyRewriter_nochange()
-    _visitor.walk(filedecl)   
+class test_02{
+    @TestCase
+    func test_ASTRewriter_01() {
+        let filedecl = parseFile("class03.cj").node.getOrThrow()
+        let _visitor = MyRewriter_nochange()
+        _visitor.walk(filedecl)   
+    }
 }

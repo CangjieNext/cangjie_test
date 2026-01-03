@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_tupleliteral_003() {
     let str = ##"(3, 3.141592, "PI")"##
     let res = parseText(str)
@@ -26,4 +28,5 @@ func test_tupleliteral_003() {
     @Assert(tuple.size,3)
     var x = tuple.get(0).getOrThrow().toString()
     @Assert(x,"3")
+}
 }

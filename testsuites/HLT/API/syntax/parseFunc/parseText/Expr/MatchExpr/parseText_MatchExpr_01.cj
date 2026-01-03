@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MatchExpr_01() {
     let str = ##"match {
     case true => ()
@@ -65,4 +67,5 @@ func test_MatchExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 6i32])
     @Assert(expr_1.getSelectorLParenPos().isNone())
     @Assert(expr_1.getSelectorRParenPos().isNone())
+}
 }

@@ -14,6 +14,9 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_unsupported_expr() {
     @Assert(parseText("a?").diags.size > 0)
+}
 }

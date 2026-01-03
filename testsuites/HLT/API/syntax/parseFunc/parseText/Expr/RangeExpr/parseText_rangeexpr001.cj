@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_rangeexpr_001() {
     let str = ##"0..10"##
     let res = parseText(str)
@@ -41,4 +43,5 @@ func test_rangeexpr_001() {
     var pos = rangeexpr.getRangeOpPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 2i32, 1i32, 4i32])
     @Assert(rangeexpr.getColonPos().isNone())
+}
 }

@@ -13,6 +13,9 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_SubscriptExpr_02() {
     @AssertThrows[Exception](parseTokens(quote(a[])).node.getOrThrow())
+}
 }

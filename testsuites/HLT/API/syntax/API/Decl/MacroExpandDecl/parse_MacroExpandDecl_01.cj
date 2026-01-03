@@ -8,13 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE: MacroExpandDecl_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (CJNATIVE and not OHOS and not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (CJNATIVE and not OHOS and not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.ast.Tokens
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MacroExpandDecl_01() {
     let res = parseFile("./MacroExpandDecl_01.cj")
     var diags = res.diags
@@ -79,4 +81,5 @@ var a = b"##)
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [9i32, 23i32, 9i32, 24i32])
     pos = decl_1.getRSquarePos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [9i32, 12i32, 9i32, 13i32])
+}
 }

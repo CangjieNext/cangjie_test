@@ -12,11 +12,15 @@ import std.collection.*
 
 public common abstract class Animal {
     public common func run(): String
+    public init() {}
 }
 
-public common class Dog <: Animal {}
+public common class Dog <: Animal {
+    public init() {}
+}
 
 public common class Zoo<T> where T <: Animal {
+    public init() {}
     public var animals: ArrayList<Animal> = ArrayList<Animal>()
     public common func addAnimal(a: T) {
         animals.add(a)

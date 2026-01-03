@@ -13,7 +13,10 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_FuncDecl_04() {
     @Assert(parseTokens(quote(private C1(a: Int64, b!: Int64, c!: Int64 = 1, public var d!: Int64, private let e!: Int64 = 3) {
     })).diags.size > 0)
+}
 }

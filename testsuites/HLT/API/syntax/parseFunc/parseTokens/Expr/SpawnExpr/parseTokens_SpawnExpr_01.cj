@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_SpawnExpr_01() {
     let _quote_1 = quote(spawn { add(1, 2) })
     let res_1 = parseTokens(_quote_1)
@@ -38,4 +40,5 @@ func test_SpawnExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 6i32, 1i32, 7i32])
     pos = expr_2.getThreadContextRParenPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 9i32, 1i32, 10i32])
+}
 }

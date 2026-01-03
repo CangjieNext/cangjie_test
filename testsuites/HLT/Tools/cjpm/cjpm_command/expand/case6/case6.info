@@ -10,7 +10,7 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %compiler %cmp_opt main.cj -o cjpm-testcase%cmp_output
 // (CJNATIVE and not Windows)EXEC-PIPE-0: cd %n && ./cjpm-testcase 2>&1 | compare %f
-// (Windows)EXEC-PIPE-1: cd %n && cjpm-testcase 2>&1 | compare %f
+// (Windows)EXEC-PIPE-1: cd %n && %cjpm-testcase 2>&1 | compare %f
 // (not CJNATIVE) EXEC-PIPE-0: cd %n && cj ./cjpm-testcase.cbc 2>&1 | compare %f
 // (not Windows) ASSERT: scan 1
 // (Windows) ASSERT: regex 'cjpm-testcase' is not recognized as an internal or external command,

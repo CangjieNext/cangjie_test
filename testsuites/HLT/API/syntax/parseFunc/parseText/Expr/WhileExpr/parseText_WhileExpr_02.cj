@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_WhileExpr_02() {
     let str = ##"while (let a <- 1 && a > 0) {
         print(a)
@@ -31,4 +33,5 @@ func test_WhileExpr_02() {
         break
     }"##)
     @Assert(expr_1.condition.toString(), ##"let a <- 1 && a > 0"##)
+}
 }

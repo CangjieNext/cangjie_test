@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Inner_Comment_04() {
     let res = parseFile("./Inner_Comment_04.cj")
     var diags = res.diags
@@ -33,4 +35,5 @@ func test_Inner_Comment_04() {
 
     var _decl: MacroExpandDecl = (sourcefile.topLevelDecls[0] as MacroExpandDecl).getOrThrow()
     @Assert(_decl.toString(), ##"@M1/* block comment1 */ [/* block comment2 */expr] /* block comment3 */var a = 1 // line comment1"##)
+}
 }

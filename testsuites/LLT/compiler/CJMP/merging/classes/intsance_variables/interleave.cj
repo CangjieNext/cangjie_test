@@ -15,6 +15,7 @@ public common class A {
     private common let c: Unit = { _: Unit => println("common A.c(b)") }(this.b)
     public let f: Unit = { _: Unit, _: Unit => println("common A.f(c, e)") }(this.c, e)
     public common let g: Unit = { => println("common A.g") }()
+    public init() { }
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -27,8 +28,6 @@ public platform class A {
     public platform let e: Unit = { => println("platform A.e") }()
     public let h: Unit = { _: Unit => println("platform A.h(g)") }(g)
     public let i: Unit = { => println("platform A.i") }()
-
-    public init() { }
 }
 
 // SEPARATE-FILE: m_common.cj

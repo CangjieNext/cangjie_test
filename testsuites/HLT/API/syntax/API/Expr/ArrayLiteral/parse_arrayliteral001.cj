@@ -8,12 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE: arrayliteral001.cj
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_arrayliteral_001() {
     let res = parseFile("./arrayliteral001.cj")
     var diags = res.diags
@@ -45,4 +47,5 @@ func test_arrayliteral_001() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 5i32, 10i32, 6i32])
     pos = arrayliteral.getRSquarePos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 17i32, 10i32, 18i32])
+}
 }

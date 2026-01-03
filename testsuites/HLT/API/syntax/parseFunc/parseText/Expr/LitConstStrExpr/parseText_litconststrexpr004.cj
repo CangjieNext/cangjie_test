@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_litconststrexpr_004() {
     let str = "###\"\nHello,\nCangjie\nLang\"###"
     let res = parseText(str)
@@ -40,4 +42,5 @@ func test_litconststrexpr_004() {
         case LitConstStrKind.MultiLineRawString => ()
         case _ => @Assert(false)
     }
+}
 }

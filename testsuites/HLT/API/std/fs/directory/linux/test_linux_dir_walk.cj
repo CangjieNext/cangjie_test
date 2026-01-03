@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// (not Windows) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows) RUN-EXEC-PIPE: touch testfile01 && touch .hidden_files_01 && mkdir -p testdir && ln -sf unexists symlink01 && ln -sf testfile01 symlink02 && ln -sf testdir symlink03 && touch unexists && %export USER=`whoami` && %run %run_opt %output %run_utest_opt %run_args | compare %f
+// (not Windows and not iOS) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (not Windows and not iOS) RUN-EXEC-PIPE: touch testfile01 && touch .hidden_files_01 && mkdir -p testdir && ln -sf unexists symlink01 && ln -sf testfile01 symlink02 && ln -sf testdir symlink03 && touch unexists && %export USER=`whoami` && %run %run_opt %output %run_utest_opt %run_args | compare %f
 // (not Windows) ASSERT: scan-2 symlink01
 // (not Windows) ASSERT: scan-2 symlink02
 // (not Windows) ASSERT: scan-2 symlink03
@@ -149,7 +149,7 @@ class Test_Dir_Iterators_Lists {
                     try {
                         call_api(path)
                     } catch (e: FSException) {
-                        @Expect(e.message, "Failed to get number of subFiles in directory.")
+                        @Expect(e.message.contains("Failed to obtain members in the directory"))
                         sum += 1
                     }
                 }

@@ -13,6 +13,9 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TypeAlias_03() {
     @Assert(parseText("type Class1<V> where V <: MyTrait = Int").diags.size > 0)
+}
 }

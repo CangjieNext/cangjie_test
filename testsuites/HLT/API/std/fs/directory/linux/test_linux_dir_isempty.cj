@@ -47,7 +47,7 @@ class Test_Dir_IsEmpty {
         try {
             Directory.isEmpty("test_isempty")
         } catch (e: FSException) {
-            @Expect(e.message, "Failed to check whether the directory is empty!")
+            @Expect(e.message, "Failed to check whether directory `test_isempty` is empty.")
             sum += 1
         }
         match (user) {

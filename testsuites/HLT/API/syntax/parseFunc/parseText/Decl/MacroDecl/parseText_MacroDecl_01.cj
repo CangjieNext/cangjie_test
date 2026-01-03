@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MacroDecl_01() {
     let str = ##"public macro M1(input: Tokens): Tokens {
     input
@@ -39,4 +41,5 @@ func test_MacroDecl_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 8i32, 1i32, 13i32])
     pos = _decl.getRetTyAnnotationColonPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 31i32, 1i32, 32i32])
+}
 }

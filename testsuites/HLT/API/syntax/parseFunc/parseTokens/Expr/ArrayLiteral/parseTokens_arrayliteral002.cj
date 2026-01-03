@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_arrayliteral_002() {
     let _quote = quote([])
     let res = parseTokens(_quote)
@@ -25,4 +27,5 @@ func test_arrayliteral_002() {
     //elements
     var array = arrayliteral.elements
     @Assert(array.size,0)
+}
 }

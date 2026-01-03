@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_FuncDecl_01() {
     let _quote_1 = quote(const func func_1() {})
     let res_1 = parseTokens(_quote_1)
@@ -95,4 +97,5 @@ func test_FuncDecl_01() {
     @Assert(funcdecl_3.retTyAnnotation.getOrThrow() is CompositeType)
     @Assert(funcdecl_3.modifiers.toString(), "[protected]")
     @Assert(funcdecl_3.annotations.toString(), "[]")
+}
 }

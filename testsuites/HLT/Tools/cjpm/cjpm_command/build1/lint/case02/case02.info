@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not MAC) EXEC: cd %n && cjpm build -l -V 2>&1 | compare %f
+// (not MAC) EXEC: cd %n && %cjpm build -l -V 2>&1 | compare %f
 // (not MAC) ASSERT: scan check codes in src: cjlint -f src 
 // (not MAC) ASSERT: scan cjpm build success

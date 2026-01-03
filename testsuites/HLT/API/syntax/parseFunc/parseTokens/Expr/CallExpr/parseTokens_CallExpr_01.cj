@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_CallExpr_01() {
     let _quote_1 = quote(foo<Int64>())
     let res_1 = parseTokens(_quote_1)
@@ -50,4 +52,5 @@ func test_CallExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 14i32, 1i32, 15i32])
     pos = expr_1.getRParenPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 15i32, 1i32, 16i32])
+}
 }

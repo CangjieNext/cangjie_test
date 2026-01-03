@@ -13,4 +13,5 @@ public common common struct A {
     public static common var b: Int64
     private static redef common func f(): Int64
     public common overide func f(a: Int64): Int64 { f() }
+    public init() {}
 }

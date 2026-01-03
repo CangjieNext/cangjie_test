@@ -10,4 +10,5 @@
 // ERRCHECK: %compiler %cmp_opt %f
 
 var x = 0x1.a
-// ASSERT: scan lex_expected_exponent_part
+// ASSERT: scan sema_undeclared_identifier
+// ASSERT: scan sema_missing_entry

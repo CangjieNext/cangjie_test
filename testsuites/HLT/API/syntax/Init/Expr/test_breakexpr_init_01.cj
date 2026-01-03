@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     comments in [
         [], 
         [Comment(##"/* 
@@ -25,4 +27,5 @@ func test_BreakExpr_Init_01(comments: Array<Comment>): Unit {
     let BreakExpr = BreakExpr(comments: comments)
     println(BreakExpr.toString())
     println()
+}
 }

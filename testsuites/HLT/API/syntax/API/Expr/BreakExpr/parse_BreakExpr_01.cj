@@ -8,12 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE: BreakExpr_01.cj
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_BreakExpr_01() {
     let res = parseFile("./BreakExpr_01.cj")
     var diags = res.diags
@@ -28,4 +30,5 @@ func test_BreakExpr_01() {
     var _expr = (maindecl.body.nodes[0] as ForInExpr).getOrThrow()
     @Assert(_expr.body.nodes[0] is BreakExpr)
     @Assert((_expr.body.nodes[0] as BreakExpr).getOrThrow().toString(), "break")
+}
 }

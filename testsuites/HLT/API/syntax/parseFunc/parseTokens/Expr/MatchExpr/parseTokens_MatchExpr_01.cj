@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MatchExpr_01() {
     let _quote = quote(match {
     case true => ()
@@ -56,4 +58,5 @@ func test_MatchExpr_01() {
     @Assert(case_3.patternGuardCond.isNone())
     @Assert(case_3.patterns.size, 1)
     @Assert(case_3.patterns[0] is WildcardPattern)
+}
 }

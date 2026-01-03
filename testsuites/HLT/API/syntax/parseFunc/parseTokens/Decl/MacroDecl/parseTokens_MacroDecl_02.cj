@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MacroDecl_02() {
     let _quote = quote(@Deprecated["a"]
 public macro M1(input: Tokens, tok: Tokens) {
@@ -34,4 +36,5 @@ public macro M1(input: Tokens, tok: Tokens) {
     @Assert(_decl.modifiers.toString(), ##"[public]"##)
     @Assert(_decl.params.params.toString(), "[input: Tokens, tok: Tokens]")
     @Assert(_decl.retTyAnnotation.isNone())
+}
 }

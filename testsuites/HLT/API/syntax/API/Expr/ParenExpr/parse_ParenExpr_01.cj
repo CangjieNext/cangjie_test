@@ -8,12 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE: ParenExpr_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (CJNATIVE and not OHOS and not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (CJNATIVE and not OHOS and not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ParenExpr_01() {
     let res = parseFile("./ParenExpr_01.cj")
     var diags = res.diags
@@ -38,4 +40,5 @@ func test_ParenExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [11i32, 5i32, 11i32, 6i32])
     pos = expr_2.getRParenPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [11i32, 9i32, 11i32, 10i32])
+}
 }

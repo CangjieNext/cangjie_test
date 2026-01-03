@@ -8,6 +8,4 @@
  
 package mp
 
-public platform class C1{
-    public init(){}
-}
+public platform class C1{}

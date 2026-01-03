@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_arrayliteral_003() {
     let str = ##"["a1", "a2", "a3"]"##
     let res = parseText(str)
@@ -27,4 +29,5 @@ func test_arrayliteral_003() {
     @Assert(array.size,3)
     var x = array.get(0).getOrThrow().toString()
     @Assert(x,"\"a1\"")
+}
 }

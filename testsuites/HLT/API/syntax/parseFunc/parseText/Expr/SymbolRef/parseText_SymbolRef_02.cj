@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_SymbolRef_02() {
     let str = ##"B1"##
     let res = parseText(str)
@@ -23,4 +25,5 @@ func test_SymbolRef_02() {
     @Assert(_expr.name, "B1")
     @Assert(_expr.typeArguments.size, 0)
     @Assert(_expr.getCommasPos().size == 0, true)
+}
 }

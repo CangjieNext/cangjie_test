@@ -9,6 +9,7 @@
 package cmp
 common class A {
     public common func goo(a:Int64,input!: Int64=1): Int64
+    init() {}
 }
 
 
@@ -20,7 +21,6 @@ common class A {
 package cmp
 
 platform class A{
-    init(){}
     public platform func goo(a:Int64,input!: Int64): Int64 {input}
 }
 main(){

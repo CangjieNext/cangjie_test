@@ -10,4 +10,6 @@
 @optional
 - (void) unimplemented;
 - (void) implemented;
+- (void) unimplementedWithArg: (int64_t) i;
+- (void) implementedWithArg: (int64_t) i;
 @end

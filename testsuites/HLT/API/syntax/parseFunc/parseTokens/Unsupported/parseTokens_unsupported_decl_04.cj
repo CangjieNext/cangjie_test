@@ -13,7 +13,10 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_unsupported_decl() {
     @AssertThrows[Exception](parseTokens(quote(@M a: Int64)))
     @AssertThrows[Exception](parseTokens(quote(@M[aaa] a!: Int64 = 1)))
+}
 }

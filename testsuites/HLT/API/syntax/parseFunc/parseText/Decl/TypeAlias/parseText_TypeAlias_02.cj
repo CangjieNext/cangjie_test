@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TypeAlias_02() {
     let str_1 = ##"type Class1<V> = GenericClassA<Int64, V>"##
     let res_1 = parseText(str_1)
@@ -50,4 +52,5 @@ func test_TypeAlias_02() {
     @Assert(typeAlias_4.aliasName, "Int")
     @Assert(typeAlias_4.originalTyAnnotation.toString(), "Int32")
     @Assert(typeAlias_4.typeParameters.toString(), "[T]")
+}
 }

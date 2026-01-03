@@ -13,7 +13,6 @@ platform public class A {
     platform protected init(a: String) {
         println(a)
     }
-    platform A() {}
 }
 
 public func test_plat() {

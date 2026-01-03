@@ -22,6 +22,7 @@ common struct A {
             ""
         }
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -32,7 +33,6 @@ common struct A {
 package cmp
 
 platform struct A {
-    init() {}
     platform prop testProp: String {
         get() {
             println("platform")

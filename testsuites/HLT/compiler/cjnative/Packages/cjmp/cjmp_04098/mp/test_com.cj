@@ -9,6 +9,7 @@
 package mp
 
 public common class A {
+    public init(){}
     public common static prop p: Int64 { get() { 1 } }
 }
 public func test_com() { A.p }

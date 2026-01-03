@@ -10,6 +10,6 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %compiler main.cj -o cjpm-test1.%suffix
 // (CJNATIVE and not Windows)EXEC-PIPE-0: cd %n && %export_expand && ./cjpm-test1.%suffix 333 2>&1 | compare %f
-// (Windows)EXEC-PIPE-0: cd %n && set "PATH=%~dp0/case7;%PATH%" && echo %PATH% && cjpm-test1.%suffix 333 2>&1 | compare %f
+// (Windows)EXEC-PIPE-0: cd %n && set "PATH=%~dp0/case7;%PATH%" && echo %PATH% && %cjpm-test1.%suffix 333 2>&1 | compare %f
 // (not CJNATIVE) EXEC-PIPE-0: cd %n && %export_expand && cj ./cjpm-test1.cbc 333 2>&1 | compare %f
 // ASSERT:scan 333

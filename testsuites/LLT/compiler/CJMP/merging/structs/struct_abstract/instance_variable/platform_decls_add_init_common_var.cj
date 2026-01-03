@@ -10,6 +10,7 @@ package cmp
 
 public common struct A {
     public var b: Int = 0
+    public common init()
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -19,7 +20,7 @@ package cmp
 public platform struct A {
     public var a: Int
 
-    public  init() {
+    public  platform init() {
         this.a = 1
         this.b = 2
     }

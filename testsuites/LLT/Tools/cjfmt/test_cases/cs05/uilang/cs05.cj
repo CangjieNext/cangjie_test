@@ -6,9 +6,15 @@
 
 package common
 
-open common class Base01 {}
-abstract common class Base02 {}
-sealed abstract common class Base03 {}
+open common class Base01 {
+    init() {}
+}
+abstract common class Base02 {
+    init() {}
+}
+sealed abstract common class Base03 {
+    init() {}
+}
 
 public open common class Rectangle {
     public common var width: Int64

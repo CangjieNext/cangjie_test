@@ -13,4 +13,5 @@ publicc common class A {
     public staticc common var b: Int64
     privatea common func f(): Int64
     publica common func f(a: Int64): Int64 { f() }
+    public init() {}
 }

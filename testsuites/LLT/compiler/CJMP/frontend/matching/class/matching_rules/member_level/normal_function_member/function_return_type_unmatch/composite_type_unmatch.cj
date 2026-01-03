@@ -10,6 +10,7 @@ package cmp
 
 common class A {
   public common func foo(): Array<Int>
+  init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -18,7 +19,6 @@ common class A {
 package cmp
 
 platform class A {
-  init(){}
   public platform func foo(): Unit {
     println("platform foo")
   }

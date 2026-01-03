@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_VarDecl_03() {
     let str_1 = ##"@Deprecated["a"] var a = 1"##
     let res_1 = parseText(str_1)
@@ -28,4 +30,5 @@ func test_VarDecl_03() {
     @Assert(vardecl_1.tyAnnotation.isNone())
     @Assert(vardecl_1.pattern is VarPattern)
     @Assert(vardecl_1.annotations.toString(), ##"[@Deprecated["a"]]"##)
+}
 }

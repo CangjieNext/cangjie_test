@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TryCatch_02() {
     let _quote = quote(try {} finally {})
     let res = parseTokens(_quote)
@@ -26,4 +28,5 @@ func test_TryCatch_02() {
     @Assert(expr.finallyBlock.isSome())
     @Assert(expr.finallyBlock.getOrThrow().toString(), ##"{ }"##)
     @Assert(expr.resourceSpec.size, 0)
+}
 }

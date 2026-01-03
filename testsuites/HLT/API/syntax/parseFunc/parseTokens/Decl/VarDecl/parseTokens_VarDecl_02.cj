@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_VarDecl_02() {
     let _quote_1 = quote(static let v1: Int64)
     let res_1 = parseTokens(_quote_1)
@@ -58,4 +60,5 @@ func test_VarDecl_02() {
     @Assert(vardecl_3.tyAnnotation.isSome())
     @Assert(vardecl_3.tyAnnotation.getOrThrow() is AtomicType)
     @Assert(vardecl_3.pattern is VarPattern)
+}
 }

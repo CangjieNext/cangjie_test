@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_WhileExpr_01() {
     let _quote = quote(while(a >= 0u32) {
     b
@@ -35,4 +37,5 @@ func test_WhileExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 16i32, 1i32, 17i32])
     pos = expr_1.getWhileKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 6i32])
+}
 }

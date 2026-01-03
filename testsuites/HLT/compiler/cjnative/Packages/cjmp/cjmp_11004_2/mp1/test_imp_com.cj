@@ -8,4 +8,4 @@
 
 package mp1
 
-public common class C {}
+public common class C {public init(){}}

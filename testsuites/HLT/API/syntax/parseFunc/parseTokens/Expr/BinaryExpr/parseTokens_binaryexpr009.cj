@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_binaryexpr_009() {
     let _quote = quote(10<<1<<1)
     let res = parseTokens(_quote)
@@ -33,4 +35,5 @@ func test_binaryexpr_009() {
         case BinaryOpKind.LShift => ()
         case _ => @Assert(false)
     }
+}
 }

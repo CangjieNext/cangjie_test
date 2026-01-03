@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     body in [
         Block(),
         Block([(parseText("return 1").node.getOrThrow() as Expr).getOrThrow()]),
@@ -33,4 +35,5 @@ func test_DoWhileExpr_Init_01(body: Block, condition: Expr, comments: Array<Comm
     let DoWhileExpr = DoWhileExpr(body, condition, comments: comments)
     println(DoWhileExpr.toString())
     println()
+}
 }

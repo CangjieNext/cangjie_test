@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_varrayliteral_001() {
     let str = ##"VArray<Int64, $5>(repeat: 0)"##
     let res = parseText(str)
@@ -32,4 +34,5 @@ func test_varrayliteral_001() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 18i32, 1i32, 19i32])
     pos = varrayliteral.getRParenPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 28i32, 1i32, 29i32])
+}
 }

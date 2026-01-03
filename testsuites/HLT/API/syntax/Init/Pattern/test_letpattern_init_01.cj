@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     expr in [
         AsExpr(LitConstExpr(LitConstKind.IntergerLiteral, "123"), AtomicType(Int64Type))
     ],
@@ -34,8 +36,11 @@ func test_LetPattern_Init_01(expr: Expr, patterns: Array<Pattern>, comments: Arr
     println(LetPattern.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     expr in [
         AsExpr(LitConstExpr(LitConstKind.IntergerLiteral, "123"), AtomicType(Int64Type))
     ],
@@ -54,4 +59,5 @@ func test_LetPattern_Init_01(expr: Expr, patterns: Array<Pattern>, comments: Arr
 ]
 func test_LetPattern_Init_02(expr: Expr, patterns: Array<Pattern>, comments: Array<Comment>): Unit {
     @AssertThrows[Exception](LetPattern(expr, patterns, comments: comments))
+}
 }

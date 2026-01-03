@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     identifier in [
         "a1",
         "RED"
@@ -29,4 +31,5 @@ func test_VarOrEnumPattern_Init_01(identifier: String, comments: Array<Comment>)
     let VarOrEnumPattern = VarOrEnumPattern(identifier, comments: comments)
     println(VarOrEnumPattern.toString())
     println()
+}
 }

@@ -51,8 +51,5 @@ error: property 'i' should have 'mut' modifier
    | |_____^
    | 
 
-error: 'common' property 'i' can not find 'platform' match
-  ==> c/c.cj:25:5:
-
-2 errors generated, 2 errors printed.
+1 error generated, 1 error printed.
 */

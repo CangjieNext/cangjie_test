@@ -33,7 +33,7 @@ public class K <: NSObject {
 }
 
 @ObjCImpl
-public class L <: NSObject {
+public class L <: M {
     public init() {
         super()
     }
@@ -41,6 +41,20 @@ public class L <: NSObject {
     @ForeignName["returnF:"]
     public func returnF(f: ObjCFunc<(Float64) -> Float64>): ObjCFunc<(Float64) -> Float64> {
         return f
+    }
+
+    @ForeignName["takeP:"]
+    public func takeP(p: ObjCFunc<(ObjCPointer<Int64>) -> S>) {}
+}
+
+@C
+public struct S {
+    var a: Int64
+    var b: Float64
+
+    init() {
+        a = 42
+        b = 3.1415
     }
 }
 

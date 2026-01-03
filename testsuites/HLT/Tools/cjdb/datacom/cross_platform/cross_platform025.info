@@ -17,10 +17,10 @@ test#
 cjdb,cjdb --no-use-colors cross_platform025,cross_platform025
 b,b cross_platform025.cj:13,cross_platform025.cj:13
 r,r,-> 13
-s,s,test_com.cj:16
+s,s,test_com.cj:17
 finish,finish,cross_platform025.cj:13
 n,n,-> 14
-s,s,test_com.cj:22
+s,s,test_com.cj:23
 finish,finish,cross_platform025.cj:14
 n,n,-> 15
 s,s,test_plat.cj:15

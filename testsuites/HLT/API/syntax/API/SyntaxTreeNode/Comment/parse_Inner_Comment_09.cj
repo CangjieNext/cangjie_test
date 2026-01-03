@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Inner_Comment_09() {
     let res = parseFile("./Inner_Comment_09.cj")
     var diags = res.diags
@@ -110,7 +112,7 @@ main(/* block comment1 */ args: Array<String>) // line comment1
     }
 
     let lamb1 = { /* block comment2 */ => }
-    let lamb2 = { /* block comment2 */ a => 
+    let lamb2 = { /* block comment2 */ a =>
         a + 1 // line comment9
     }
     let lamb3 = { /* block comment3 */ a: Int64, /* block comment4 */ b: Int64 => // line comment10
@@ -134,4 +136,5 @@ main(/* block comment1 */ args: Array<String>) // line comment1
     }
 }"##)
 
+}
 }

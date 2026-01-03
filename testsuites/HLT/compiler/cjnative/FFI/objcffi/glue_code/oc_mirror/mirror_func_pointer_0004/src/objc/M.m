@@ -15,7 +15,7 @@ void f() {printf("in oc f\n");}
     }
     return self;
 }
-- g:(void (*)(void))a {
+- (void)g:(void (*)(void))a {
     a();
 }
 @end

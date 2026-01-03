@@ -9,6 +9,7 @@
 package mp
 
 public common class A {
+    public init(){}
     public common var a: Int64
 }
 

@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     kind in [ LitConstKind.StringLiteral ],
     rawValue in [
         "a",
@@ -48,8 +50,11 @@ func test_LitConstStrExpr_Init_01(kind: LitConstKind, rawValue: String, delimite
     println(LitConstStrExpr.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     kind in [ LitConstKind.StringLiteral ],
     rawValue in [
         "a",
@@ -81,4 +86,5 @@ func test_LitConstStrExpr_Init_01(kind: LitConstKind, rawValue: String, delimite
 func test_LitConstStrExpr_Init_02(kind: LitConstKind, rawValue: String, delimiterNum: Int64, isSingleQuote: Bool, strKind: LitConstStrKind, strPartExprs: Array<StrLiteralPart>, comments: Array<Comment>): Unit {
     @AssertThrows[Exception](LitConstStrExpr(kind, rawValue, delimiterNum, isSingleQuote, strKind, strPartExprs, comments: comments))
     
+}
 }

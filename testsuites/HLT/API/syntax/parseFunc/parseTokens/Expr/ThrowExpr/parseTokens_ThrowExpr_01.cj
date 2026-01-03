@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ThrowExpr_01() {
     let _quote_1 = quote(throw Exception())
     let res_1 = parseTokens(_quote_1)
@@ -20,7 +22,7 @@ func test_ThrowExpr_01() {
     let _quote_2 = quote(throw IOException(""))
     let res_2 = parseTokens(_quote_2)
 
-    let _quote_3 = quote(throw IOException("hello, 仓颉"))
+    let _quote_3 = quote(throw IOException("hello, 仓�"))
     let res_3 = parseTokens(_quote_3)
 
     var expr_1: ThrowExpr = (res_1.node.getOrThrow() as ThrowExpr).getOrThrow()
@@ -32,9 +34,10 @@ func test_ThrowExpr_01() {
     @Assert(expr_2.throwVal.toString(), ##"IOException("")"##)
 
     var expr_3: ThrowExpr = (res_3.node.getOrThrow() as ThrowExpr).getOrThrow()
-    @Assert(expr_3.toString(), ##"throw IOException("hello, 仓颉")"##)
-    @Assert(expr_3.throwVal.toString(), ##"IOException("hello, 仓颉")"##)
+    @Assert(expr_3.toString(), ##"throw IOException("hello, 仓�")"##)
+    @Assert(expr_3.throwVal.toString(), ##"IOException("hello, 仓�")"##)
 
     var pos = expr_1.getThrowKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 6i32])
+}
 }

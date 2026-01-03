@@ -11,10 +11,12 @@ package mp
 common public struct C1 {
     common public func f1(): Int64
     common public prop p1: Int64
+    init() {}
 }
 
 common public struct C2 {
     common public mut prop p1: Int64
+    init() {}
 }
 
 public func test_com() {

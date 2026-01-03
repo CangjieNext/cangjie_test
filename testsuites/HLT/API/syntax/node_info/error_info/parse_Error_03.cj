@@ -20,6 +20,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_errorinfo_003() {
     let res = parsePackage("./dir001")
     var diags = res.diags
@@ -37,4 +39,5 @@ func test_errorinfo_003() {
         var pos = diag.codePos
         [pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn] |> println
     }
+}
 }

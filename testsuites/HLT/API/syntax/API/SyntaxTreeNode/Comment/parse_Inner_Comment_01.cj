@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Inner_Comment_01() {
     let res = parseFile("./Inner_Comment_01.cj")
     var diags = res.diags
@@ -58,4 +60,5 @@ class A {
         case _ => @Assert(false)
     }
     @Assert(comment_3.content, ##"// line comment2"##)
+}
 }

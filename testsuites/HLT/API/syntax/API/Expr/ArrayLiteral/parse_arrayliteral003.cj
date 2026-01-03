@@ -8,12 +8,14 @@
 
 // LEVEL: 2
 // DEPENDENCE: arrayliteral003.cj
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_arrayliteral_003() {
     let res = parseFile("./arrayliteral003.cj")
     var diags = res.diags
@@ -35,4 +37,5 @@ func test_arrayliteral_003() {
     @Assert(array.size,3)
     var x = array.get(0).getOrThrow().toString()
     @Assert(x,"\"a1\"")
+}
 }

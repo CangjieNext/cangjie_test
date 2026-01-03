@@ -8,7 +8,7 @@
 
 // LEVEL: 1 
 // DEPENDENCE: ../%n
-// EXEC: cd %n/pro1 && cjpm build
+// EXEC: cd %n/pro1 && %cjpm build
 // (not Windows)EXEC: cd %n && %cjpm build -j1 -g -V 2>&1 | compare %f
 // (not Windows)ASSERT: scan cjpm build success
 // (not arm  or MAC)ASSERT: scan-not -O2

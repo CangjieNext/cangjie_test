@@ -40,5 +40,5 @@
       package-option = {"pro1.xoo" = "./pro1/target/release/pro1/pro1.xoo.cjo"}
 
   [target.aarch64-linux-ohos]
-    [target.aarch64-apple-darwin.bin-dependencies]
+    [target.aarch64-linux-ohos.bin-dependencies]
       package-option = {"pro1.xoo" = "./pro1/target/release/pro1/pro1.xoo.cjo"}

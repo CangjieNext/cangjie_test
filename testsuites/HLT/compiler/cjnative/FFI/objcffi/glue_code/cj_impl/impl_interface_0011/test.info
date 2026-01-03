@@ -8,7 +8,7 @@
  
 // LEVEL: 3 
 // DEPENDENCE: src
-// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %enable_objc_cjmapping src/cjworld/*.cj
+// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %enable_objc_cjmapping --link-options="-install_name @rpath/libcjworld.dylib" src/cjworld/*.cj
 // (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
 // (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan in oc f

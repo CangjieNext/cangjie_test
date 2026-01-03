@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_tupleliteral_001() {
     let _quote = quote((1,2))
     let res = parseTokens(_quote)
@@ -26,4 +28,5 @@ func test_tupleliteral_001() {
     @Assert(tuple.size,2)
     var x = tuple.get(0).getOrThrow().toString()
     @Assert(x,"1")
+}
 }

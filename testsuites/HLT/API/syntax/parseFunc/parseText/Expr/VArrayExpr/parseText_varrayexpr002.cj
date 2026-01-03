@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_varrayliteral_002() {
     let str = ##"VArray<Int64, $5>({ i => i})"##
     let res = parseText(str)
@@ -27,4 +29,5 @@ func test_varrayliteral_002() {
     @Assert(varrayliteral.argument.value.toString(), "{ i => i}")
     @Assert(varrayliteral.argument.isInOut, false)
     @Assert(varrayliteral.argument.identifier.isNone())
+}
 }

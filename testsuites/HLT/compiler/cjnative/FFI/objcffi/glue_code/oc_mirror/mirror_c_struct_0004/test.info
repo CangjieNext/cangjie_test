@@ -9,12 +9,9 @@
 // LEVEL: 3 
 // DEPENDENCE: src test.toml
 // (iOSNative) E-EXEC: %mirror_gen test.toml
-// (iOSNative) E-EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc src/objc/foundation/*.cj
-// (iOSNative) E-EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc -L . -lobjc.foundation src/cjworld/*.cj
-// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc src/cjworld/*.cj -o libcjworld.dylib
-// (iOS) EXEC: xcrun codesign --sign - libcjworld.dylib
-// (iOS) EXEC: install_name_tool -id @rpath/libcjworld.dylib libcjworld.dylib
-// (iOS) EXEC: install_name_tool -change /Users/p_cangjieci/jenkins/workspace/MapleLangMergeRequest/Cangjie_build_cjmp_cjnative_darwin_aarch64_ios/cj-interop/objc/samples/objc_cangjie_isl/build/libinteroplib.objc.dylib @rpath/libinteroplib.objc.dylib libcjworld.dylib
+// (iOSNative) E-EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc --link-options="-install_name @rpath/libobjc.foundation.dylib" src/objc/foundation/*.cj
+// (iOSNative) E-EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc -L . -lobjc.foundation --link-options="-install_name @rpath/libcjworld.dylib" src/cjworld/*.cj
+// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc --link-options="-install_name @rpath/libcjworld.dylib" src/cjworld/*.cj -o libcjworld.dylib
 // (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
 // (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan in cangjie foo, 2

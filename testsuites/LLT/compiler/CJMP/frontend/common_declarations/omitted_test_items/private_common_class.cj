@@ -8,4 +8,5 @@
 // ASSERT: scan parse_conflict_modifier
 package cmp
 private common class C{
+    init() {}
 }

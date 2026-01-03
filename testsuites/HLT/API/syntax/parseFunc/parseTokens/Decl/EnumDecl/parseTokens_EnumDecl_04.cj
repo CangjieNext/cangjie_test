@@ -18,6 +18,8 @@ let _quote = quote(internal enum E1<A, B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V
 })
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumDecl_04() {
     let res = parseTokens(_quote)
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
@@ -47,4 +49,5 @@ func test_EnumDecl_04() {
     @Assert(enumDecl.genericParams[25].toString(), ##"Z"##)
     @Assert(enumDecl.superTyAnnotations.size, 0)
     @Assert(enumDecl.annotations.size, 0)
+}
 }

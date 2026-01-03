@@ -22,6 +22,8 @@ enum E1 {
 })
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumDecl_01() {
     let res = parseTokens(_quote)
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
@@ -59,4 +61,5 @@ enum E1 {
     @Assert(enumDecl.superTyAnnotations.size, 0)
     @Assert(enumDecl.annotations.size, 1)
     @Assert(enumDecl.annotations[0].toString(), ##"@Deprecated["aaa"]"##)
+}
 }

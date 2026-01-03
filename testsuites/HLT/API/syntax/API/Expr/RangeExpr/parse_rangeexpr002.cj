@@ -8,12 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE: rangeexpr002.cj
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_rangeexpr_002() {
     let res = parseFile("./rangeexpr002.cj")
     var diags = res.diags
@@ -47,4 +49,5 @@ func test_rangeexpr_002() {
         case Some(v) => @Assert(v.toString(),"-2")
         case _ => @Assert(false)
     }
+}
 }

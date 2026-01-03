@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     lhs in [
         LitConstExpr(LitConstKind.IntergerLiteral, "123"),
         ParenExpr(AsExpr(LitConstExpr(LitConstKind.IntergerLiteral, "123"), AtomicType(Int64Type)))
@@ -57,4 +59,5 @@ func test_BinaryExpr_Init_01(lhs: Expr, opKind: BinaryOpKind, rhs: Expr, comment
     let BinaryExpr = BinaryExpr(lhs, opKind, rhs, comments: comments)
     println(BinaryExpr.toString())
     println()
+}
 }

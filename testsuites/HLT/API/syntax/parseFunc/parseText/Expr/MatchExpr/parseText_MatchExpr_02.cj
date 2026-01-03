@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MatchExpr_02() {
     let str = ##"match(a()) {
     case true => ()
@@ -29,4 +31,5 @@ func test_MatchExpr_02() {
     @Assert(expr_1.selector.getOrThrow().toString(), "a()")
     @Assert(expr_1.matchCases.size, 2)
     @Assert(expr_1.matchCases[0].toString(), "case true => ()")
+}
 }

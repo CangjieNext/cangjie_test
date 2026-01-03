@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ParenExpr_01() {
     let str_1 = ##"(())"##
     let res_1 = parseText(str_1)
@@ -32,4 +34,5 @@ func test_ParenExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 2i32])
     pos = expr_2.getRParenPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 5i32, 1i32, 6i32])
+}
 }

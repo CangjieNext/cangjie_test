@@ -4,29 +4,40 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+// case: platform decls inherit @Deprecated from common decls. No error for platform if @Deprecated is used on common.
 // SEPARATE-FILE: c/c.cj
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
-@Deprecated public common let v0: Int64
 
-@Deprecated public common func f0(): Int64 { 1 }
+@Annotation
+public class Anno {
+    public const init() {}
+}
 
-@Deprecated public common class A {}
+@Anno public common let v0: Int64
 
-@Deprecated public common struct B {}
+@Anno public common func f0(): Int64 { 1 }
 
-@Deprecated public common interface I {}
+@Anno public common class A { A(){} }
 
-@Deprecated public common enum E { R | G | B }
+@Anno public common struct B { B(){} }
+
+@Anno public common interface I {}
+
+@Anno public common enum E { R | G | B }
 
 @Frozen public common func f1(): Int64
 
 public common func f2(): Int64
 
+common func jj(): Int
+
+@Attribute["TEST_REGISTER"] common func attrs(): Int
+
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
-// ASSERT: scan-3 sema_platform_has_different_annotation
-// ASSERT: scan-5 sema_not_matched
+// EXEC-PIPE-1: %compiler %diag_json --error-count-limit=100 --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
+// ASSERT: scan-1 sema_common_platform_annotation_not_allowed
+// ASSERT: scan-8 sema_platform_has_different_annotation
 package cmp
 public platform let v0: Int64 = 1
 
@@ -44,4 +55,6 @@ public platform func f1(): Int64 { 0 }
 
 @Frozen public platform func f2(): Int64 { 0 }
 
+@EnsurePreparedToMock platform func jj() { 0 }
 
+@Attribute[kk] platform func attrs() { 1 }

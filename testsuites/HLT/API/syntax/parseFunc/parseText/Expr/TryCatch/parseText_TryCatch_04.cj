@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TryCatch_04() {
     let str = ##"try (input = MyResource(),
     output = MyResource()) {
@@ -44,4 +46,5 @@ func test_TryCatch_04() {
     @Assert(expr.resourceSpec.size, 2)
     @Assert(expr.resourceSpec[0].toString(), "input = MyResource()")
     @Assert(expr.resourceSpec[1].toString(), "output = MyResource()")
+}
 }

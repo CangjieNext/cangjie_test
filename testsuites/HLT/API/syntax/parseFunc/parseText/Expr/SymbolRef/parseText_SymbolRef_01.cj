@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_SymbolRef_01() {
     let str = ##"b"##
     let res = parseText(str)
@@ -27,4 +29,5 @@ func test_SymbolRef_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 2i32])
     @Assert(_expr.getLAnglePos().isNone())
     @Assert(_expr.getRAnglePos().isNone())
+}
 }

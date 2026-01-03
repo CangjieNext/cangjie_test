@@ -17,7 +17,7 @@ test#
 cjdb,cjdb --no-use-colors cross_platform006,cross_platform006
 b,b cross_platform006.cj:12,cross_platform006.cj:12
 r,r,-> 12
-s,s,test_plat.cj:13
+s,s,test_com.cj:14
 locals,locals,\(Int64\) a = 0
 finish,finish,cross_platform006.cj:12
 q,q,

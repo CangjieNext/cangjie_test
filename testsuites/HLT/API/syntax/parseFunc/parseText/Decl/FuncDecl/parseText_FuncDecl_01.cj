@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_FuncDecl_01() {
     let str_1 = ##"const func func_1() {}"##
     let res_1 = parseText(str_1)
@@ -110,4 +112,5 @@ func test_FuncDecl_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 16i32, 1i32, 22i32])
     pos = funcdecl_3.getRetTyAnnotationColonPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 40i32, 1i32, 41i32])
+}
 }

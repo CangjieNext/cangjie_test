@@ -9,9 +9,6 @@
 package mp
 
 public platform struct A<T> {
-    public platform A(a: Int64) {
-        a
-    }
     public platform func f1<T>(a:T) {
         a
     }

@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     initializer in [
         None,
         parseText("a + 1").node.getOrThrow() as Expr
@@ -54,4 +56,5 @@ func test_VarDecl_Init_01(initializer: Option<Expr>, kind: VarKind, name: String
         modifiers: modifiers, comments: comments)
     println(VarDecl.toString())
     println()
+}
 }

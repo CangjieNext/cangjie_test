@@ -8,10 +8,10 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not CJNATIVE) EXEC: cd %n/pro1 && cjpm build
+// (not CJNATIVE) EXEC: cd %n/pro1 && %cjpm build
 // (not CJNATIVE) EXEC: cd %n && %cjpm build -j1 -g -V 2>&1 | compare %f
 // (not CJNATIVE) ASSERT: scan cjpm build success
 
-// EXEC: cd %n/pro1 && cjpm build
+// EXEC: cd %n/pro1 && %cjpm build
 // ERRCHECK: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
 // ASSERT: scan Error: cjpm build failed

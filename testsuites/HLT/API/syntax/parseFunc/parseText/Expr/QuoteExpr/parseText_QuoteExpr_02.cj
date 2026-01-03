@@ -14,6 +14,8 @@ import std.ast.Tokens
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_QuoteExpr_02() {
     let str_1 = ##"quote((x))"##
     let res_1 = parseText(str_1)
@@ -159,4 +161,5 @@ func test_QuoteExpr_02() {
             @Assert(QuoteToken.content.toString(), "1 + @PlusOne(x) * 2")
         case _ => @Assert(false)
     }
+}
 }

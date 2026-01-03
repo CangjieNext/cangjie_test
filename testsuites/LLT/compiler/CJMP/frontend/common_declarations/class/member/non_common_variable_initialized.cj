@@ -10,6 +10,7 @@ package cmp
 
 public common class A {
     let y:String = "common"
+    init() {}
 }
 
 /* SCAN

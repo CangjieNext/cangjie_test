@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_StructDecl_04() {
     let str = ##"@!Anno1
 private struct MyStruct<A, B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z> <: I1 & I2  where T <: I1<T> & I2<T> {
@@ -70,4 +72,5 @@ private struct MyStruct<A, B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z> <:
     @Assert(structDecl.superTyAnnotations[1].toString(), "I2")
     @Assert(structDecl.annotations.size, 1)
     @Expect(structDecl.annotations[0].toString(), ##"@!Anno1"##)
+}
 }

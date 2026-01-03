@@ -13,5 +13,5 @@
 // (Windows) EXEC: cd %n && %compiler %cmp_opt main.cj -o cjpm-test1.%suffix
 // (CJNATIVE and not Windows) EXEC-PIPE-0: cd %n && %export_expand &&  cjpm-test1 2>&1 | compare %f
 // (not CJNATIVE) EXEC-PIPE-0: cd %n && %export_expand &&  cjpm test1 2>&1 | compare %f
-// (Windows)EXEC-PIPE-0: cd %n && set "PATH=%~dp0;%PATH%" && cjpm-test1.%suffix 2>&1 | compare %f
+// (Windows)EXEC-PIPE-0: cd %n && set "PATH=%~dp0;%PATH%" && %cjpm-test1.%suffix 2>&1 | compare %f
 // ASSERT: scan 1

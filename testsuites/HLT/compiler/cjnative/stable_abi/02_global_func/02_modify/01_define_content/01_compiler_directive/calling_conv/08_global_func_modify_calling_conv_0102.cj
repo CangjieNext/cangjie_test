@@ -39,20 +39,20 @@ package test_stable_abi
 
 // test global func: modify compiler directive
 // global func: global func is used in const global var/func
-// modify operation: modify @CallingConv[STDCALL] -> @CallingConv[CDECL]
+// modify operation: modify @CallingConv[CDECL] -> @CallingConv[CDECL]
 @C func global_func_01() { 0 }
 @C func global_func_02() { 0 }
 @C const func global_func_03() { 0 }
 @CallingConv[CDECL] @C func global_func_04() { 0 }
 @CallingConv[CDECL] @C func global_func_05() { 0 }
 @CallingConv[CDECL] @C const func global_func_06() { 0 }
-@CallingConv[STDCALL] @C func global_func_07() { 0 }
-@CallingConv[STDCALL] @C func global_func_08() { 0 }
+@CallingConv[CDECL] @C func global_func_07() { 0 }
+@CallingConv[CDECL] @C func global_func_08() { 0 }
 @CallingConv[CDECL] @C const func global_func_09() { 0 }
 
 @C public func global_func_10() { 0 }
 @CallingConv[CDECL] @C public func global_func_11() { 0 }
-@CallingConv[STDCALL] @C public func global_func_12() { 0 }
+@CallingConv[CDECL] @C public func global_func_12() { 0 }
 
 public unsafe const func global_func_13() { global_func_03() }
 public unsafe const func global_func_14() { global_func_06() }

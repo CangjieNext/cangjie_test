@@ -23,4 +23,5 @@ common public struct S <: I {
     public common override func foo(): Int64 {
         return 1
     }
+    public init() {}
 }

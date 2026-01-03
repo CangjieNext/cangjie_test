@@ -11,6 +11,9 @@ package cmp
 import std.random.*
 
 public common class A {
+    public A(let a: Int64, let b: Random, let c: Array<Int64>) {
+        println("[platform] A.A(${a}, ${b.nextInt64() * 0 + 42}, ${c[0]})")
+    }
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -19,11 +22,7 @@ package cmp
 
 import std.random.*
 
-public platform class A {
-    public A(let a: Int64, let b: Random, let c: Array<Int64>) {
-        println("[platform] A.A(${a}, ${b.nextInt64() * 0 + 42}, ${c[0]})")
-    }
-}
+public platform class A {}
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor -j8 m_common.cj --import-path=./p -L./p -lcmp -o %output

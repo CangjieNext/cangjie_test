@@ -16,6 +16,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_errorinfo_001() {
     let res = parseFile("./Error_01.cj")
     var diags = res.diags
@@ -35,4 +37,5 @@ func test_errorinfo_001() {
     @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [13i32, 11i32, 13i32, 12i32])
     pos = diags[1].codePos
     @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [16i32, 15i32, 16i32, 16i32])
+}
 }

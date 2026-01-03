@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_IfExpr_01() {
     let str = ##"if (a) {} else if (a) {b} else {c}"##
     let res = parseText(str)
@@ -41,4 +43,5 @@ func test_IfExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 3i32])
     pos = expr_1.getElseKeyWordPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 11i32, 1i32, 15i32])
+}
 }

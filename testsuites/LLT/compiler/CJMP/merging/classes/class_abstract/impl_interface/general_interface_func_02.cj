@@ -14,5 +14,6 @@ public interface I1 {
     func F1() : UInt64
 }
 public common class C1 <: I1 {
+    public init() {}
 }
 

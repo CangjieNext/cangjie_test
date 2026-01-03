@@ -16,4 +16,3 @@ common struct A {
         GeneralStruct()
     }
 }
-

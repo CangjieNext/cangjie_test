@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     pattern in [
         VarPattern("e1"),
         WildcardPattern()
@@ -35,8 +37,11 @@ func test_CatchPattern_Init_01(pattern: Pattern, exceptionType: Array<TypeAnnota
     println(CatchPattern.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     pattern in [
         VarPattern("e1"),
     ],
@@ -55,3 +60,4 @@ func test_CatchPattern_Init_02(pattern: Pattern, exceptionType: Array<TypeAnnota
     @AssertThrows[Exception](CatchPattern(pattern, exceptionType, comments: comments))
 }
 
+}

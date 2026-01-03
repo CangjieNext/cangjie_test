@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Inner_Comment_05() {
     let res = parseFile("./Inner_Comment_05.cj")
     var diags = res.diags
@@ -52,4 +54,5 @@ enum E1<T, R> where T <: ToString // line comment2
     }
     @Assert(comment_1.content, ##"// line comment1"##)
 
+}
 }

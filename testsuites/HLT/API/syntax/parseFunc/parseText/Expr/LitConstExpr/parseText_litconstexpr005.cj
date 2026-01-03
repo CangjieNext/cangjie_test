@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_litconstexpr_005() {
     var litconstexpr1 = (parseText("false").node.getOrThrow() as LitConstExpr).getOrThrow()
     var litconstexpr2 = (parseText("true").node.getOrThrow() as LitConstExpr).getOrThrow()
@@ -32,4 +34,5 @@ func test_litconstexpr_005() {
         case LitConstKind.BoolLiteral => ()
         case _ => @Assert(false)
     }
+}
 }

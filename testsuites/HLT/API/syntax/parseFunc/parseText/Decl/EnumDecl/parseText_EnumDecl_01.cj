@@ -22,6 +22,8 @@ enum E1 {
 }"##
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumDecl_01() {
     let res = parseText(str)
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
@@ -77,4 +79,5 @@ enum E1 {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [3i32, 47i32, 3i32, 50i32])
     @Assert(enumDecl.getSuperTyAnnotationsBitAndsPos().size == 0, true)
     @Assert(enumDecl.getUpperBoundPos().isNone(), true)
+}
 }

@@ -8,12 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE: varrayexpr002.cj
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_varrayliteral_002() {
     let res = parseFile("./varrayexpr002.cj")
     var diags = res.diags
@@ -35,4 +37,5 @@ func test_varrayliteral_002() {
     @Assert(varrayliteral.argument.value.toString(), "{ i => i}")
     @Assert(varrayliteral.argument.isInOut, false)
     @Assert(varrayliteral.argument.identifier.isNone())
+}
 }

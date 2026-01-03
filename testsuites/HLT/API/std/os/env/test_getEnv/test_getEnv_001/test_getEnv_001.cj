@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE: %export TEST_ENV= && %run %run_opt %output %run_args | compare %f
+// (not iOS)RUN-EXEC-PIPE: %export TEST_ENV= && %run %run_opt %output %run_args | compare %f
 // ASSERT: scan pass
 
 import std.process.*

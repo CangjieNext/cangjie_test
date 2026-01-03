@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_SubscriptExpr_01() {
     let _quote_1 = quote(a[0])
     let res_1 = parseTokens(_quote_1)
@@ -56,4 +58,5 @@ func test_SubscriptExpr_01() {
     @Assert(expr_6.base.toString(), "a[0][0]")
     @Assert(expr_6.base is SubscriptExpr)
     @Assert(expr_6.indexs.toString(), "[0]")
+}
 }

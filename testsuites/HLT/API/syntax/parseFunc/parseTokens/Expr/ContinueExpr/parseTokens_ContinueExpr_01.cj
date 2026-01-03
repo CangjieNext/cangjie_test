@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ContinueExpr_01() {
     let _quote = quote(continue)
     let res = parseTokens(_quote)
@@ -20,4 +22,5 @@ func test_ContinueExpr_01() {
 
     var _expr = (sourceNode as ContinueExpr).getOrThrow()
     @Assert(_expr.toString(), "continue")
+}
 }

@@ -14,6 +14,9 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ASTVistor_01() {
     let classdecl = parseFile("class01.cj")
+}
 }

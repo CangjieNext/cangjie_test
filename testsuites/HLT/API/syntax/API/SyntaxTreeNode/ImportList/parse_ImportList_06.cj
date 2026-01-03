@@ -8,12 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE: ImportList_06.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (CJNATIVE and not OHOS and not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (CJNATIVE and not OHOS and not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ImportList_06() {
     let res = parseFile("./ImportList_06.cj")
     var diags = res.diags
@@ -54,4 +56,5 @@ import {a, b.a, c.b.a, d.c.b.a as _d_c_b_a}"##))
     }
     @Assert(import_3.modifier.isNone())
     @Expect(import_3.toString(), ##"import {a, b.a, c.b.a, d.c.b.a as _d_c_b_a}"##)
+}
 }

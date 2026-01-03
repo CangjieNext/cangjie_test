@@ -8,6 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %run cjpm build --target-dir=./temp_target && cjpm clean --target-dir=./temp_target_1
+// EXEC: cd %n && %run cjpm build --target-dir=./temp_target && %cjpm clean --target-dir=./temp_target_1
 // EXEC-PIPE-0: cd %n && %run cjpm run --skip-build --target-dir=./temp_target 2>&1 | compare %f
 // ASSERT: scan cjpm run finished

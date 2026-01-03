@@ -11,5 +11,7 @@ package mp
 public common struct A<T> {
     public common func f1<T>(a:T): T
     public common static func f2<T>(a:T): T
-    public common A(a: Int64)
+    public A(a: Int64) {
+        a
+    }
 }

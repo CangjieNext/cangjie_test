@@ -13,6 +13,7 @@ package cmp
 
 public common struct A0 {
     static let y0: String
+    init() {}
 }
 
 public common struct B0 {
@@ -27,6 +28,7 @@ public common struct C0 {
 
 public common struct A1 {
     let y3: String
+    init() {}
 }
 
 public common struct B1 {

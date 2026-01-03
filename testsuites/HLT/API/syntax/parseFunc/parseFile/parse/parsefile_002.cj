@@ -8,12 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE: file002.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (CJNATIVE and not OHOS and not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (CJNATIVE and not OHOS and not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_file_002() {
     let res = parseFile("./file002.cj")
     var diags = res.diags
@@ -37,4 +39,5 @@ private func foo() {}"##
     @Assert(pkgHeader.isMacroPkg, false)
     @Assert(pkgHeader.packageNameIdentifiers, ["longpackagename_for_just_testing_0000000001"])
     @Assert(sourcefile.topLevelDecls.size, 1)
+}
 }

@@ -14,4 +14,6 @@ common interface A {
     func foo4(): Int64
 }
 
-common public open abstract class C2 <: A {}
+common public open abstract class C2 <: A {
+    public init() {}
+}

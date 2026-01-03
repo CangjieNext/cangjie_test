@@ -98,16 +98,8 @@ public open class A <: Base {
         println("A fooRetString(Int64)")
         "hello"
     }
-    // member func with generic
-    public func fooWithGeneric<T>(x: T) {
-        println("A fooWithGeneric(T)")
-    }
 
     protected func protectedFunc() {
         println("A protectedFunc()")
     }
-}
-
-// Not supported generic decl
-public class C<T> {
 }

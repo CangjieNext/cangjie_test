@@ -13,6 +13,9 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_SubscriptExpr_02() {
     @Assert(parseText("a[]").diags.size > 0)
+}
 }

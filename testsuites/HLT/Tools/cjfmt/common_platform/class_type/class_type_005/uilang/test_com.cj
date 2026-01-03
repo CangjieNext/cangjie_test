@@ -13,11 +13,13 @@ public common class A<T> {
     public static common var b: Int64
     private common func f(): Int64
     public common func f(a: T): T { a }
+    public init() {}
 }
 
 protected common class A2<T> {
     protected common func f(): Int64
     static private common func f2<T>(): Int64
+    public init() {}
 }
 
 public func test_com() { A().f(0) }

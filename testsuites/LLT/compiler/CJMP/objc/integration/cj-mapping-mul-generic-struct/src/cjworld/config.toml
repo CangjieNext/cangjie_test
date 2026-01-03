@@ -1,0 +1,24 @@
+[default]
+APIStrategy = "Full"
+GenericTypeStrategy = "None"
+
+[[package]]
+name = "cjworld"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+excluded_apis = [
+]
+generic_object_configuration = [
+    { name = "GenericStruct", type_arguments = ["Int32, Int64", "Float64, Int32"] },
+    { name = "GenericStruct<Int32, Int64>", symbols = [
+        "GenericStruct",
+        "getValueU",
+        "getValueT"
+    ]},
+
+    { name = "GenericStruct<Float64, Int32>", symbols = [
+        "GenericStruct",
+        "getValueU",
+        "getValueT"
+    ]}
+]

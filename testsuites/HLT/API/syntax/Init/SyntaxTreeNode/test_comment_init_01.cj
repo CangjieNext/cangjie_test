@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     pairs in [
         (CommentKind.Line, "// a"),
         (CommentKind.Block, "/* a */"),
@@ -28,8 +30,11 @@ func test_Comment_Init_01(pairs: (CommentKind, String)): Unit {
     println(Comment.toString())
     println()
 }
+}
 
-@Test[
+@Test
+class test_02{
+    @TestCase[
     pairs in [
         (CommentKind.Block,##"// a
 "##),
@@ -39,4 +44,5 @@ func test_Comment_Init_01(pairs: (CommentKind, String)): Unit {
 func test_Comment_Init_02(pairs: (CommentKind, String)): Unit {
     let (kind, content) = pairs
     @AssertThrows[Exception](Comment(content))
+}
 }

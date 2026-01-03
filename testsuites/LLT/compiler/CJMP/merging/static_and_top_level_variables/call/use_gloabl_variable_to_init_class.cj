@@ -9,7 +9,8 @@
 package cmp
 public common let a:Int32=1
 public common class A{
-    public common let b:Int32
+    public common var b:Int32
+    public init(arg:Int32){b=arg}
 }
 public class B{
     public let b:Int32
@@ -20,8 +21,7 @@ public class B{
 package cmp
 public platform let a:Int32=2
 public platform class A{
-    public platform let b: Int32
-    public init(arg:Int32){b=arg}
+    public platform var b: Int32
 }
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor -j8 m_common.cj --import-path=./p -L./p -lcmp -o %output

@@ -8,5 +8,5 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC-PIPE-0: cd %n && cjpm test -V 2>&1 | compare %f
+// EXEC-PIPE-0: cd %n && %cjpm test -V 2>&1 | compare %f
 // ASSERT: scan cjpm test success

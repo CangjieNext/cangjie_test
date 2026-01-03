@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_binaryexpr_008() {
     let _quote = quote(3.14==3.15)
     let res = parseTokens(_quote)
@@ -33,4 +35,5 @@ func test_binaryexpr_008() {
         case BinaryOpKind.Equal => ()
         case _ => @Assert(false)
     }
+}
 }

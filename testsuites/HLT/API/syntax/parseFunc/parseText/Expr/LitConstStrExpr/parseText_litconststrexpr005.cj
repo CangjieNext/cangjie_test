@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_litconststrexpr_005() {
     let str = ##"###'
 Hello,
@@ -45,4 +47,5 @@ Lang'###"##)
         case LitConstStrKind.MultiLineRawString => ()
         case _ => @Assert(false)
     }
+}
 }

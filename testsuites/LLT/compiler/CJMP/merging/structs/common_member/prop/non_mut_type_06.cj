@@ -26,6 +26,7 @@ common struct A {
             testEnum
         }
     }
+    init() {}
 }
 
 // SEPARATE-FILE: p/p.cj
@@ -36,7 +37,6 @@ common struct A {
 package cmp
 
 platform struct A {
-    init() {}
     platform prop testProp: GeneralEnum {
         get() {
             println("platform")

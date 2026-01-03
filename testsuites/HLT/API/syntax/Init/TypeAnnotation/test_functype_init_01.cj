@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     paramTypes in [
         [],
         [AtomicType(AtomicTypeKind.Int64Type)],
@@ -42,4 +44,5 @@ func test_FuncType_Init_01(paramTypes: Array<TypeAnnotation>, labels: Array<Stri
     let FuncType = FuncType(paramTypes, labels, retType, comments: comments)
     println(FuncType.toString())
     println()
+}
 }

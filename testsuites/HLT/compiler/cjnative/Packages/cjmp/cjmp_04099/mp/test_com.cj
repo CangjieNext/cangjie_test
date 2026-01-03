@@ -9,6 +9,7 @@
 package mp
 
 public common class A {
+    public init(){}
     public common prop p: Int64 { get() { 1 } }
 }
 

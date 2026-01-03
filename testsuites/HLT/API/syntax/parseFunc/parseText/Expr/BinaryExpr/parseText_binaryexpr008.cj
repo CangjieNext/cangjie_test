@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_binaryexpr_007() {
     let str = ##"3.14==3.15"##
     let res = parseText(str)
@@ -33,4 +35,5 @@ func test_binaryexpr_007() {
         case BinaryOpKind.Equal => ()
         case _ => @Assert(false)
     }
+}
 }

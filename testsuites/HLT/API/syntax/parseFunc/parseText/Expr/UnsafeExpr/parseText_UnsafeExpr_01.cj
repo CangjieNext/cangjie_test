@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_UnsafeExpr_01() {
     let str = ##"unsafe { a = 1 }"##
     let res = parseText(str)
@@ -24,4 +26,5 @@ func test_UnsafeExpr_01() {
 
     var pos = expr_1.getUnsafePos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 7i32])
+}
 }

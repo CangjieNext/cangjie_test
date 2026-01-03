@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TryCatch_01() {
     let str = ##"try {
     a
@@ -56,4 +58,5 @@ func test_TryCatch_01() {
     @Assert(expr.getResourceSpecRParenPos().isNone())
     pos = expr.getTryKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 4i32])
+}
 }

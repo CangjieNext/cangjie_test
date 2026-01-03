@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_litconstexpr_009() {
     let _quote = quote(0x1p2)
     let res = parseTokens(_quote)
@@ -28,4 +30,5 @@ func test_litconstexpr_009() {
         case LitConstKind.FloatLiteral => ()
         case _ => @Assert(false)
     }
+}
 }

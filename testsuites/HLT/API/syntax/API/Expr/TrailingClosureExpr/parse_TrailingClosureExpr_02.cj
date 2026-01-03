@@ -8,12 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE: TrailingClosureExpr_02.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (CJNATIVE and not OHOS and not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (CJNATIVE and not OHOS and not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TrailingClosureExpr_02() {
     let res = parseFile("./TrailingClosureExpr_02.cj")
     var diags = res.diags
@@ -30,4 +32,5 @@ func test_TrailingClosureExpr_02() {
     @Assert(expr_1.arguments.size, 0)
     @Expect(expr_1.callee.toString(), ##"foo<T>"##)
     @Assert(expr_1.trailingLambdaExpr.toString(), ##"{ i * i }"##)
+}
 }

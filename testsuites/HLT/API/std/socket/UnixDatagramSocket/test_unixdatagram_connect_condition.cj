@@ -26,7 +26,9 @@ import std.process
 
 @When[os == "macOS"]
 let flag = true
-@When[os != "macOS"]
+@When[os == "iOS"]
+let flag = true
+@When[os == "Linux"]
 let flag = false
 var data = Array<Byte>(5000, repeat: 10)
 var sum = 0

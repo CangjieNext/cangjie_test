@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     elements in [
         [],
         [LitConstExpr(LitConstKind.IntergerLiteral, "123"), LitConstExpr(LitConstKind.IntergerLiteral, "456")],
@@ -30,4 +32,5 @@ func test_ArrayLiteral_Init_01(elements: Array<Expr>, comments: Array<Comment>):
     let ArrayLiteral = ArrayLiteral(elements, comments: comments)
     println(ArrayLiteral.toString())
     println()
+}
 }

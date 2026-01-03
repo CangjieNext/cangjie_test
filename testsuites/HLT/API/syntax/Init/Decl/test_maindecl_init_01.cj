@@ -12,7 +12,9 @@
 
 import stdx.syntax.*
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     body in [
         Block([]),
         Block([parseText("a + 1").node.getOrThrow(), parseText("return").node.getOrThrow()])
@@ -44,4 +46,5 @@ func test_MainDecl_Init_01(body: Block, params: ParameterList, retTyAnnotation: 
 
     println(MainDecl.toString())
     println()
+}
 }

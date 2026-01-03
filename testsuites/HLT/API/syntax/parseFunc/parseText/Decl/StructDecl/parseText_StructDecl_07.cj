@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_StructDecl_07() {
     let str = ##"@!Anno1
 @!Anno1
@@ -38,4 +40,5 @@ struct s1<T> <: I1<T> & I2<T> & I3<T> {
     @Assert(structDecl.superTyAnnotations[1].toString(), "I2<T>")
     @Assert(structDecl.superTyAnnotations[2].toString(), "I3<T>")
     @Assert(structDecl.annotations.size, 2)
+}
 }

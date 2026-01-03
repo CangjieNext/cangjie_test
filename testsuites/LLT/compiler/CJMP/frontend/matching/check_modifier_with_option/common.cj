@@ -6,4 +6,4 @@
 
 package cmp
 
-common class A {}
+common class A { init() {} }

@@ -10,7 +10,8 @@ package mp
 
 public import mp1.C2
 
-public common class C1{
+public common class C1 {
+    public init(){}
     public common func f1():Int64{
         return C2().a
     }

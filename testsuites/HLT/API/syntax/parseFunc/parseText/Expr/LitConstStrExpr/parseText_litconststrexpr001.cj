@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_litconststrexpr_001() {
     let str = ##"'Hello Cangjie Lang'"##
     let res = parseText(str)
@@ -46,4 +48,5 @@ func test_litconststrexpr_001() {
         case LitConstStrKind.StringLiteral => ()
         case _ => @Assert(false)
     }
+}
 }

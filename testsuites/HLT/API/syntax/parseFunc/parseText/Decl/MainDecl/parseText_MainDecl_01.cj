@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MainDecl_01() {
     let str = ##"main(): Int64 {
     let a: Int64 = 0
@@ -35,4 +37,5 @@ func test_MainDecl_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 5i32])
     pos = mainDecl.getRetTyAnnotationColonPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 7i32, 1i32, 8i32])
+}
 }

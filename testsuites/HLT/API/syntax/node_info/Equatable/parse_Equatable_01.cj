@@ -13,8 +13,10 @@
 
 import stdx.syntax.*
 
-// 节点的内容&源文件&解析方式完全相同
+// 节点的内�&源文�&解析方式完全相同
 @Test
+class test_01{
+    @TestCase
 func test_equatable_001() {
     let res_1 = parseFile("./Equatable_01.cj")
     let sourcefile_1: SourceFile = res_1.node.getOrThrow()
@@ -23,4 +25,5 @@ func test_equatable_001() {
     sourcefile_1.toString()
     sourcefile_1.hashCode()
     @Assert(sourcefile_1 == sourcefile_2)
+}
 }

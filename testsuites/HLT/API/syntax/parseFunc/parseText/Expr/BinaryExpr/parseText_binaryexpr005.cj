@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_binaryexpr_005() {
     let str = ##"a-b* (a/b)"##
     let res = parseText(str)
@@ -33,4 +35,5 @@ func test_binaryexpr_005() {
         case BinaryOpKind.Sub => ()
         case _ => @Assert(false)
     }
+}
 }

@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Comment_01() {
     let res = parseFile("./Comment_01.cj")
     var diags = res.diags
@@ -96,4 +98,5 @@ main() {}
     @Assert(comment_3.content, ##"/**
     doc comment
 */"##)
+}
 }

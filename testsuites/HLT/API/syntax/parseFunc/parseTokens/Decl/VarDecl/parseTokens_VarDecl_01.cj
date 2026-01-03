@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_VarDecl_01() {
     let _quote_1 = quote(var a = 1)
     let res_1 = parseTokens(_quote_1)
@@ -65,4 +67,5 @@ func test_VarDecl_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 18i32, 1i32, 19i32])
     pos = vardecl_3.getVarKindKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 11i32, 1i32, 16i32])
+}
 }

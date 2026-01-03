@@ -24,8 +24,11 @@ public class MyVisitor_nochange <: ASTVisitor {
 }
 
 @Test
+class test_01{
+    @TestCase
 func test_ASTVistor_01() {
     let filedecl = parseFile("class02.cj").node.getOrThrow()
     let _visitor = MyVisitor_nochange()
     _visitor.walk(filedecl)   
+}
 }

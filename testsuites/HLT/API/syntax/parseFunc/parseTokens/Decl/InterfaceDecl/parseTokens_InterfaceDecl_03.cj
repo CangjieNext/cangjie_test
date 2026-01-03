@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_InterfaceDecl_03() {
     let _quote = quote(protected interface I1<T, U> <: I2 & I3<T> where T <: C1<T, Int64>, U <: C2 & C3<T> & ToString {
 })
@@ -35,4 +37,5 @@ func test_InterfaceDecl_03() {
     @Assert(interfaceDecl.superTyAnnotations[1].toString(), "I3 < T >")
     @Assert(interfaceDecl.annotations.size, 0)
     @Assert(interfaceDecl.modifiers.toString(), ##"[protected]"##)
+}
 }

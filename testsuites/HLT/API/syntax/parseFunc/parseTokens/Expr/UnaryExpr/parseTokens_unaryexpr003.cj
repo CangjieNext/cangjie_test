@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_unaryexpr_003() {
     let _quote = quote(-!(!!a))
     let res = parseTokens(_quote)
@@ -31,4 +33,5 @@ func test_unaryexpr_003() {
         case _ => @Assert(false)
     }
 
+}
 }

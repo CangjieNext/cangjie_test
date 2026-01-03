@@ -22,6 +22,8 @@ let str = ##"protected enum E1<T, U> <: S1<T, U> {
 }"##
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumDecl_03() {
     let res = parseText(str)
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
@@ -64,4 +66,5 @@ func test_EnumDecl_03() {
     @Assert(enumDecl.superTyAnnotations.size, 1)
     @Assert(enumDecl.superTyAnnotations[0].toString(), ##"S1<T, U>"##)
     @Assert(enumDecl.annotations.size, 0)
+}
 }

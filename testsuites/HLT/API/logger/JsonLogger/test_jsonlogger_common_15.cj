@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (not OHOS)RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args && %cat jloggertest15.txt| compare %f
+// (not OHOS and not iOS)RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args && %cat jloggertest15.txt| compare %f
 // (OHOS)RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args && cat jloggertest15.txt| compare %f
 // ASSERT: regex {"time":"2024-05-25.*","level":"INFO","msg":"cangjie","age":2}
 

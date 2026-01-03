@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_SynchronizedExpr_01() {
     let _quote_1 = quote(synchronized(m) {
     })
@@ -40,4 +42,5 @@ func test_SynchronizedExpr_01() {
 }"##)
     @Assert(expr_2.structuredMutex.toString(), "m")
 
+}
 }

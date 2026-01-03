@@ -15,13 +15,13 @@
 }
 - (id)initWithA:(struct S)a {
     if (self = [super init]) {
-        printf("in objc initWithA, a: %lld\n", a.x);
+        printf("in objc initWithA, a: %d\n", a.x);
     }
     return self;
 }
 - (id)initWithA1:(struct S)a {
     if (self = [super init]) {
-        printf("in objc initWithA1, a: %lld\n", a.y);
+        printf("in objc initWithA1, a: %d\n", a.y);
     }
     return self;
 }

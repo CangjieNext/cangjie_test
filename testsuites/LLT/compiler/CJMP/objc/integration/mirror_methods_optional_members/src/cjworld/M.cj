@@ -17,6 +17,10 @@ interface K {
     func unimplemented(): Unit
     @ObjCOptional
     func implemented(): Unit
+    @ObjCOptional
+    func unimplementedWithArg(i: Int64): Unit
+    @ObjCOptional
+    func implementedWithArg(i: Int64): Unit
 }
 
 @ObjCMirror
@@ -25,4 +29,5 @@ open class M <: K {
     public init()
 
     public func implemented(): Unit
+    public func implementedWithArg(i: Int64): Unit
 }

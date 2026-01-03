@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_comment_package_01() {
     let res = parsePackage("./dir001")
     var diags = res.diags
@@ -102,4 +104,5 @@ class A {}"##
     @Assert(_pkgHeader.packageNameIdentifiers, ["default"])
     @Assert(file2.topLevelDecls.size, 1)
     @Assert(file2.comments.size, 1)
+}
 }

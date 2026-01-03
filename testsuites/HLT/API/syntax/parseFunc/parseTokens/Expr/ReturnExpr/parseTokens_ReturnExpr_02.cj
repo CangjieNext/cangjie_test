@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ReturnExpr_02() {
     let _quote = quote(return if (a) {b} else {b})
     let res = parseTokens(_quote)
@@ -22,4 +24,5 @@ func test_ReturnExpr_02() {
     @Assert(expr_3.toString(), "return if(a) { b } else { b }")
     @Expect(expr_3.retVal.isSome())
     @Expect(expr_3.retVal.getOrThrow().toString(), "if(a) { b } else { b }")
+}
 }

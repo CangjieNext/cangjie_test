@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TryCatch_03() {
     let str = ##"try {
     a
@@ -47,4 +49,5 @@ func test_TryCatch_03() {
     @Assert(expr.catchPatterns[1].toString(), "_")
     @Assert(expr.finallyBlock.isNone())
     @Assert(expr.resourceSpec.size, 0)
+}
 }

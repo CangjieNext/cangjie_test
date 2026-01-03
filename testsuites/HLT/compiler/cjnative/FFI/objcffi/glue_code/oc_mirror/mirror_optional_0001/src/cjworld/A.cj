@@ -14,4 +14,8 @@ import objc.foundation.*
 @ObjCImpl
 public class A <: M {
     public init() {}
+    public func g1() { super.f1() }
+    public static func g2() { M.f2() }
+    public func f1() { println("in cj f1") }
+    public static func f2() { println("in cj f2") }
 }
