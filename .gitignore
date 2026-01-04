@@ -13,6 +13,7 @@ build
 *.exe
 framework/
 **/cost_time.csv
+.vscode-ctags
 
 # Cangjie generated files.
 **/*.cached/*

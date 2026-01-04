@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package com.hello.world.cangjieinterophelloworld;
+package com.example.myapplication;
 
 import static org.junit.Assert.*;
 
@@ -20,7 +20,17 @@ public class MainInstrumentedTest {
   public void test00() {
     Main.main(new String[] {});
     final StringBuilder sb = new StringBuilder();
-    sb.append("xxx\n");
+    sb.append("CangjieGenericClass.init p[0] = true, p[1] = 2\n");
+    sb.append("CangjieGenericClass.instanceMemberFunction p[0] = true, p[1] = 2\n");
+    sb.append("p[0] = true, p[1] = 2\n");
+    sb.append("CangjieGenericStruct.init p[0] = true, p[1] = 2\n");
+    sb.append("CangjieGenericStruct.instanceMemberFunction p[0] = true, p[1] = 2\n");
+    sb.append("p[0] = true, p[1] = 2\n");
+    sb.append("CangjieGenericEnum.instanceMemberFunction p[0] = true, p[1] = 2\n");
+    sb.append("p[0] = true, p[1] = 2\n");
+    sb.append("JavaClassImplCangjieInterface.JavaClassImplCangjieInterface\n");
+    sb.append("JavaClassImplCangjieInterface.instanceMemberFunctionWithoutDefaultImpl\n");
+    sb.append("result = true\n");
     assertEquals(Logger.getLog(), sb.toString());
   }
 }

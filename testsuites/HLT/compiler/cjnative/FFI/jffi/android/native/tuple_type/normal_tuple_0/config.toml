@@ -1,3 +1,8 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
 [[package]]
 name = "UNNAMED"
 APIStrategy = "Full"
@@ -6,7 +11,7 @@ GenericTypeStrategy = "Partial"
 tuple_configuration = [
     "(Int, Bool)",
     "(Float32, Int32)",
-    "(Bool, Int8, Int16, Int32, Int64, UInt16, Float32, Float64)",
+    "(Bool, Int, Int8, Int16, Int32, Int64, UInt16, Float32, Float64)",
 ]
 lambda_patterns = [
 #    { signature = "(Int64, Bool) -> Int64" },
