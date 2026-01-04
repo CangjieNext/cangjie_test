@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 2
+// DEPENDENCE: generic_union.d.ts
+// EXEC: %run %hle_arkts -i generic_union.d.ts -o . --module-name="my_module"
+// EXEC-PIPE: %cat cj/generic_union/src/generic_union.cj | compare %f
+// ASSERT: scan public enum AutoGenType0 < T > where T <: JSInteropType<T> {
+// ASSERT: scan | T0(T)
+// ASSERT: scan | STRING(String)
+// ASSERT: scan public func testGenric < T >(t: T): AutoGenType0< T > where T <: JSInteropType<T> {
