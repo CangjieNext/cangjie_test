@@ -464,3 +464,15 @@ Tools/cjdb/datacom/lambda/lldb_lambda_05.info
 API/std/io/file/File_create_03.cj
 API/std/fs/file/linux/test_linux_file_no_permission.cj
 API/std/io/StringReader/StringReader_readln_13_01.cj
+
+# https://gitcode.com/Cangjie/cangjie_compiler/issues/442
+compiler/cjnative/Packages/org_name/import_decl/backtick_in_org_name_0.cj
+compiler/cjnative/Packages/org_name/import_decl/backtick_in_org_name_1.cj
+
+# https://gitcode.com/Cangjie/cangjie_compiler/issues/443
+compiler/cjnative/Packages/org_name/import_decl/invalid_colon_0.cj
+compiler/cjnative/Packages/org_name/package_decl/invalid_colon_0.cj
+compiler/cjnative/Packages/org_name/package_decl/invalid_colon_1.cj
+compiler/cjnative/Packages/org_name/package_decl/no_package_name_0.cj
+compiler/cjnative/Packages/org_name/package_decl/no_package_name_1.cj
+compiler/cjnative/Packages/org_name/package_decl/no_package_name_2.cj
