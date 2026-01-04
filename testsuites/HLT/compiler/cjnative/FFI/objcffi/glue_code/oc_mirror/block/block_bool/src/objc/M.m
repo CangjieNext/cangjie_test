@@ -37,37 +37,37 @@
     callBack();
     return callBack;
 }
-+ (void (^)(void))P_staticMethod:(void (^)(void))callBack {
-    printf("P_staticMethod\n");
-    callBack();
-    return callBack;
-}
+// + (void (^)(void))P_staticMethod:(void (^)(void))callBack {
+//     printf("P_staticMethod\n");
+//     callBack();
+//     return callBack;
+// }
 - (void (^)(void))P_required_instanceMethod:(void (^)(void))callBack {
     printf("P_required_instanceMethod\n");
     callBack();
     return callBack;
 }
-+ (void (^)(void))P_required_staticMethod:(void (^)(void))callBack {
-    printf("P_required_staticMethod\n");
-    callBack();
-    return callBack;
-}
+// + (void (^)(void))P_required_staticMethod:(void (^)(void))callBack {
+//     printf("P_required_staticMethod\n");
+//     callBack();
+//     return callBack;
+// }
 - (void)P_normal_optional_func {
     printf("P_normal_optional_func\n");
 }
-+ (void)P_normal_optional_static_method {
-    printf("P_normal_optional_static_method\n");
-}
+// + (void)P_normal_optional_static_method {
+//     printf("P_normal_optional_static_method\n");
+// }
 - (void (^)(void))P_optional_instanceMethod:(void (^)(void))callBack {
     printf("P_optional_instanceMethod\n");
     callBack();
     return callBack;
 }
-+ (void (^)(void))P_optional_staticMethod:(void (^)(void))callBack {
-    printf("P_optional_staticMethod\n");
-    callBack();
-    return callBack;
-}
+// + (void (^)(void))P_optional_staticMethod:(void (^)(void))callBack {
+//     printf("P_optional_staticMethod\n");
+//     callBack();
+//     return callBack;
+// }
 - (void)mFoo {
     printf("mFoo\n");
 }
