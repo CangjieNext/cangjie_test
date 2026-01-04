@@ -9,7 +9,7 @@
 package mp
 
 public platform func f1(): Int64 { 0 }
-@When[cjc_version >= "0.60.4"] public platform func f2(): Int64 { 0 }
+@When[cjc_version >= "0.0.1"] public platform func f2(): Int64 { 0 }
 public func test_plat() { f1() + f2() }
 
 
