@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 2
+// DEPENDENCE: a.h
+// EXEC: %run %hle_c --module-name="my_module" -i a.h -o . --clang-args=""
+// EXEC-PIPE: %cat a.cj | compare %f
+// ASSERT: scan public let data: CPointer<UInt8>
+// ASSERT: scan public init(length: Int32, data: CPointer<UInt8>)
