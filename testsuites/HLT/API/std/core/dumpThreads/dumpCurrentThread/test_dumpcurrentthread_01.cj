@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %use_ast %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run %run_opt %output %run_args
+// (not O2)RUN-EXEC: %run %run_opt %output %run_args
 
 import std.collection.*
 

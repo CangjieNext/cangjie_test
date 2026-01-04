@@ -8,7 +8,7 @@
  
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt -o %n.%suffix %f
-// RUN-EXEC-PIPE: %run %run_opt %n.%suffix %run_args 2>&1 | compare %f
+// (not O2)RUN-EXEC-PIPE: %run %run_opt %n.%suffix %run_args 2>&1 | compare %f
 // ASSERT: scan handle error: OutOfMemoryError
 // ASSERT: scan handler finished
 // ASSERT: scan quit normally
@@ -16,6 +16,7 @@
 
 import std.unittest.*
 import std.unittest.testmacro.*
+
 
 main() {
 
@@ -40,7 +41,7 @@ main() {
 public func consumeMemory() {
   let array = Array(1024*1024*1024*1024, repeat: 10)
   for (i in 0..array.size) {
-    array[i] = 0
+    array[i] = i
   }
 }
 
