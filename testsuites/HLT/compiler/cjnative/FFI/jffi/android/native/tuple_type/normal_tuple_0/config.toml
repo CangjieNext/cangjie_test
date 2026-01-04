@@ -6,7 +6,7 @@ GenericTypeStrategy = "Partial"
 tuple_configuration = [
     "(Int, Bool)",
     "(Float32, Int32)",
-    "(Bool, Int8, Int16, Int32, Int64, UInt16, Float32, Float64)",
+    "(Bool, Int, Int8, Int16, Int32, Int64, UInt16, Float32, Float64)",
 ]
 lambda_patterns = [
 #    { signature = "(Int64, Bool) -> Int64" },

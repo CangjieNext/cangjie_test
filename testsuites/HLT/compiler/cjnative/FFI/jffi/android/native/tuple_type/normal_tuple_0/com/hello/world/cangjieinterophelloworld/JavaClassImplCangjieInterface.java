@@ -13,12 +13,12 @@ public class JavaClassImplCangjieInterface implements CangjieInterface {
     public JavaClassImplCangjieInterface() {
         Logger.println("JavaClassImplCangjieInterface.JavaClassImplCangjieInterface");
     }
-    public TupleOfBoolInt8Int16Int32Int64UInt16Float32Float64 instanceMemberFunctionWithoutDefaultImpl(TupleOfBoolInt8Int16Int32Int64UInt16Float32Float64 p) {
+    public TupleOfBoolInt64Int8Int16Int32Int64UInt16Float32Float64 instanceMemberFunctionWithoutDefaultImpl(TupleOfBoolInt64Int8Int16Int32Int64UInt16Float32Float64 p) {
         Logger.println("JavaClassImplCangjieInterface.instanceMemberFunctionWithoutDefaultImpl");
-        return new TupleOfBoolInt8Int16Int32Int64UInt16Float32Float64(true, (byte) 2, (short) 3, (int) 4, (long) 5, (char) 6, (float) 7.0, (double) 8.0);
+        return new TupleOfBoolInt64Int8Int16Int32Int64UInt16Float32Float64(true, (long) 1, (byte) 2, (short) 3, (int) 4, (long) 5, (char) 6, (float) 7.0, (double) 8.0);
     }
-        public TupleOfBoolInt8Int16Int32Int64UInt16Float32Float64 staticMemberFunctionWithoutDefaultImpl(TupleOfBoolInt8Int16Int32Int64UInt16Float32Float64 p) {
+        public TupleOfBoolInt64Int8Int16Int32Int64UInt16Float32Float64 staticMemberFunctionWithoutDefaultImpl(TupleOfBoolInt64Int8Int16Int32Int64UInt16Float32Float64 p) {
         Logger.println("JavaClassImplCangjieInterface.staticMemberFunctionWithoutDefaultImpl");
-        return new TupleOfBoolInt8Int16Int32Int64UInt16Float32Float64(true, (byte) 2, (short) 3, (int) 4, (long) 5, (char) 6, (float) 7.0, (double) 8.0);
+        return new TupleOfBoolInt64Int8Int16Int32Int64UInt16Float32Float64(true, (long) 1, (byte) 2, (short) 3, (int) 4, (long) 5, (char) 6, (float) 7.0, (double) 8.0);
     }
 }
