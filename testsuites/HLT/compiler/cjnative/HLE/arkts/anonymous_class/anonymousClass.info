@@ -1,0 +1,11 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 2
+// DEPENDENCE: anonymousClass.d.ts
+// EXEC: %run %hle_arkts -i anonymousClass.d.ts -o . --module-name="my_module"
+// EXEC-PIPE: %cat cj/anonymous_class/src/anonymous_class.cj | compare %f
+// ASSERT: scan public class AnonymousClass

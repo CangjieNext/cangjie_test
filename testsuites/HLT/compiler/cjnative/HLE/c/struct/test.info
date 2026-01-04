@@ -1,0 +1,31 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 2
+// DEPENDENCE: a.h
+// EXEC: %run %hle_c --module-name="my_module" -i a.h -o . --clang-args=""
+// EXEC-PIPE: %cat a.cj | compare %f
+// ASSERT: scan public struct _cjbind_ty_1
+// ASSERT: scan public init(x: Int32, y: Int32)
+// ASSERT: scan public struct Point
+// ASSERT: scan public init(a: Int32, b: Int32, __cjbind_anon_1: _cjbind_ty_1, z: Int32)
+// ASSERT: scan public struct Person
+// ASSERT: scan public init(age: Int32)
+// ASSERT: scan public struct Point3D
+// ASSERT: scan public struct People
+// ASSERT: scan public struct S
+// ASSERT: scan public let a: VArray<Int32, $2>
+// ASSERT: scan public let b: CPointer<Int32>
+// ASSERT: scan public init(a: VArray<Int32, $2>, b: CPointer<Int32>)
+// ASSERT: scan public struct Data
+// ASSERT: scan foreign func getData(a: Int32, b: Int32): Data
+// ASSERT: scan public struct TestStruct
+// ASSERT: scan public struct _cjbind_ty_2
+// ASSERT: scan public struct _cjbind_ty_3
+// ASSERT: scan public let test1: _cjbind_ty_2
+// ASSERT: scan public let test2: _cjbind_ty_3
+// ASSERT: scan this.test1 = test1
+// ASSERT: scan this.test2 = test2
