@@ -1,0 +1,23 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 2
+// DEPENDENCE: variable.d.ts
+// EXEC: %run %hle_arkts -i variable.d.ts -o . --module-name="my_module"
+// EXEC-PIPE: %cat cj/variable/src/variable.cj | compare %f
+// ASSERT: scan public const c1 = 1.2
+// ASSERT: scan public const c2 = 1
+// ASSERT: scan public const c3 = 0x2
+// ASSERT: scan public const c4 = "str"
+// ASSERT: scan public const c5 = "123"
+// ASSERT: scan public const c6 = 0/* FIXME: Initialization is required */
+// ASSERT: scan public const c7 = 0/* FIXME: Initialization is required */
+// ASSERT: scan public const c8 = "1"
+// ASSERT: scan public const c9 = c1
+// ASSERT: scan public const j = "0.3.6"
+// ASSERT: scan public const m = "release"
+// ASSERT: scan public const DEBUG = false
+// ASSERT: scan public const o = "default"
