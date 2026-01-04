@@ -9,6 +9,6 @@
 // LEVEL: 1
 // DESCRIPTION: no package name but one more colon after double colon.
 // EXEC-PIPE-1: %compiler %cmp_opt %compile_dylib_opt %f 2>&1 | compare %f
-// ASSERT: scan expected a package name after '::' in qualified name, found '.'
+// ASSERT: scan expected a package name after '::' in qualified name, found ':'
 
 package org:::
