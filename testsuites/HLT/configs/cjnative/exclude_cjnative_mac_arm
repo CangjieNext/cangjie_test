@@ -75,3 +75,11 @@ compiler/cjnative/Packages/cjmp/cjmp_18009_1
 compiler/cjnative/Packages/cjmp/cjmp_18014
 compiler/cjnative/Packages/cjmp/cjmp_18015
 compiler/cjnative/Packages/cjmp/cjmp_18019
+
+# org name
+compiler/cjnative/Packages/org_name/import_decl/invalid_colon_0.cj
+compiler/cjnative/Packages/org_name/package_decl/invalid_colon_0.cj
+compiler/cjnative/Packages/org_name/package_decl/invalid_colon_1.cj
+compiler/cjnative/Packages/org_name/package_decl/no_package_name_0.cj
+compiler/cjnative/Packages/org_name/package_decl/no_package_name_1.cj
+compiler/cjnative/Packages/org_name/package_decl/no_package_name_2.cj
