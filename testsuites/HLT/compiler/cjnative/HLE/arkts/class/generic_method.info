@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 2
+// DEPENDENCE: generic_method.d.ts
+// EXEC: %run %hle_arkts -i generic_method.d.ts -o . --module-name="my_module"
+// EXEC-PIPE: %cat cj/generic_method/src/generic_method.cj | compare %f
+// ASSERT: scan public enum AutoGenType0 {
+// ASSERT: scan | NUMBER(Float64)
+// ASSERT: scan | STRING(String)
+// ASSERT: scan public func f < T >(p: T): AutoGenType0 where T <: JSInteropType<T> {
