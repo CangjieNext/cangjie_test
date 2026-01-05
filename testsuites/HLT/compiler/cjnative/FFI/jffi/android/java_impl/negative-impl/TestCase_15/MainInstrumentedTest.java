@@ -20,7 +20,9 @@ public class MainInstrumentedTest {
   public void test00() {
     Main.main(new String[] {});
     StringBuilder sb = new StringBuilder();
-    sb.append("in JavaClass location_return\n");
+    sb.append("driverFoo\n");
+    sb.append("cjFoo\n");
+    sb.append("cjGoo\n");
     assertEquals(Logger.getLog(), sb.toString());
   }
 }
