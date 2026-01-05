@@ -9,7 +9,7 @@
 // EXEC: %compiler %cmp_opt %compile_shared_lib_opt %disableAPC pkgB.cj -o libB.%dylib_suffix
 // EXEC: %compiler %cmp_opt %compile_shared_lib_opt %disableAPC pkgC.cj -o libC.%dylib_suffix
 // EXEC: %compiler %cmp_opt %disableAPC %f -lA -lB -lC -L . -o %output
-// RUN_EXEC: %output
+// RUN-EXEC: %output
 
 import A.*
 import B.*
