@@ -14,7 +14,7 @@
 // (Android) EXEC: %java %java_mirror_gen com.JavaClassThatImplementsJavaInterface
 // (Android) EXEC: %java %java_mirror_gen com.JavaEnum
 // (Android) EXEC: %java %java_mirror_gen com.JavaInterface
-// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj UNNAMED/src/*.cj --experimental --enable-interop-cjmapping --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
+// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj UNNAMED/src/*.cj --experimental --enable-interop-cjmapping=Java --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
 // (Android) EXEC: python3 %java_interop_runner --test-entry=MainInstrumentedTest.java --java-source-root=com
 
 package UNNAMED
