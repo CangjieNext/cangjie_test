@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01 {
+    @TestCase
     func test_litconstexpr_010() {
         let _quote = quote(r'a')
         let res = parseTokens(_quote)
@@ -29,3 +31,4 @@ import stdx.syntax.*
             case _ => @Assert(false)
         }
     }
+}

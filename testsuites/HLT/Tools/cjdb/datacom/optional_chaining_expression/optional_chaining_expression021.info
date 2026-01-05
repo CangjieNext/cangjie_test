@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/optional_chaining_expression/optional_chaining_expression021.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g optional_chaining_expression021.cj -o optional_chaining_expression021%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py optional_chaining_expression021.info optional_chaining_expression021 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors optional_chaining_expression021,optional_chaining_expression021
+b,b 43,optional_chaining_expression021.cj:43
+r,r,-> 43
+expr,expr r1,\(std.core.Option<Int64>\) \$[\d] = 1
+expr,expr r3,\(std.core.Option<Int64>\) \$[\d] = 2
+expr,expr r5,\(std.core.Option<default.E1>\) \$[\d] = A
+expr,expr r7,\(std.core.Option<default.E1>\) \$[\d] = {[\s\S]*constructor = CD[\s\S]*arg_1 = 1[\s\S]*}
+expr,expr r9,\(std.core.Option<default.E2<Bool>>\) \$[\d] = {[\s\S]*constructor = MN[\s\S]*arg_1 = true[\s\S]*}
+expr~expr aa?.item5~\(std.core.Option<default.E2<Bool>>\) \$[\d] = {[\s\S]*constructor = MN[\s\S]*arg_1 = true[\s\S]*}
+q,q,

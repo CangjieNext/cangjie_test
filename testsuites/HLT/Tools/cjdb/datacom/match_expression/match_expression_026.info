@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/match_expression/match_expression026.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g match_expression026.cj -o match_expression026%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py match_expression_026.info match_expression026 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors match_expression026,match_expression026
+b,b 19,match_expression026.cj:19
+r,r,-> 19
+expr,expr s,\(std.core.String\) \$[\d] = "matched"
+expr~expr match (tv) {case (E1.AB(r'1'), E1.CD(r'2')) => "matched" case (_, _) => "someone"}~\(std.core.String\) \$[\d] = "matched"
+q,q,

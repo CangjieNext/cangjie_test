@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/optional_chaining_expression/optional_chaining_expression020.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g optional_chaining_expression020.cj -o optional_chaining_expression020%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py optional_chaining_expression020.info optional_chaining_expression020 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors optional_chaining_expression020,optional_chaining_expression020
+b,b 29,optional_chaining_expression020.cj:29
+r,r,-> 29
+expr,expr r1,\(std.core.Option<std.collection.ArrayList<Int64>>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*
+expr,expr r3,\(std.core.Option<std.collection.HashSet<Int64>>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*
+expr,expr r5,\(std.core.Option<std.collection.HashMap<std.core.String,Int64>>\) \$[\d] = {[\s\S]*\["a" -> 0\] = {[\s\S]*key = "a"[\s\S]*value = 0[\s\S]*
+q,q,

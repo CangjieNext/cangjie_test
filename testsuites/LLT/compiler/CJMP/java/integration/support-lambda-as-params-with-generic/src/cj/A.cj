@@ -42,7 +42,12 @@ public struct S<T> {
 
 
 public interface I<T, R> {
-    func goo(v:(T)->R) : (T)->R
+    func goo(v:(T)->R, a: T) : (T)->R {
+        let b = v(a)
+        return {d:T => b}
+    }
+
+    func foo(v: (T)->R) : Unit
 }
 
 public enum TimeUnit<T> {

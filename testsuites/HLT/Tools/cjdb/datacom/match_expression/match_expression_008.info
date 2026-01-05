@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/match_expression/match_expression008.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g match_expression008.cj -o match_expression008%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py match_expression_008.info match_expression008 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors match_expression008,match_expression008
+b,b 34,match_expression008.cj:34
+r,r,-> 34
+expr,expr aa,\(Bool\) \$[\d] = true
+expr~expr match {case 1 is String => false case b1 is Base => true case _ => true}~\(Bool\) \$[\d] = true
+q,q,
