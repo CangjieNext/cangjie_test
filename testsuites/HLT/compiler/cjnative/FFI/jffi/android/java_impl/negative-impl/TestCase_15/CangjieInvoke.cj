@@ -7,6 +7,7 @@
  */
 
 // LEVEL: 3
+// DESCRIPTION: extending @JavaImpl class, extended members are not accessible from Java, but can be called in Cangjie.
 // (Android) DEPENDENCE: com MainInstrumentedTest.java  
 // (Android) EXEC: python3 %java_interop_setup
 // (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/hello/world/cangjieinterophelloworld/Logger.java
@@ -26,10 +27,19 @@ public class CangjieInvoke <: JObject {
     public init() {
         let class_01 = Init01()
     }
+    public func driverFoo(): Unit {
+        Logger.println("driverFoo")
+        this.cjFoo()
+        CangjieInvoke.cjFoo()
+    }
 }
 
 extend CangjieInvoke {
-    public func cjFoo() {}
+    public func cjFoo() {
+        Logger.println("cjFoo")
+    }
 
-    public static func cjGoo() {}
+    public static func cjGoo() {
+        Logger.println("cjGoo")
+    }
 }
