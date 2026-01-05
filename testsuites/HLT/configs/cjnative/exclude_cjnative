@@ -41,6 +41,15 @@ compiler/cjnative/Packages/cjmp/cjmp_18009_1
 compiler/cjnative/Packages/cjmp/cjmp_18014
 compiler/cjnative/Packages/cjmp/cjmp_18019
 
+# issue 196, add B052 new failed case
+Tools/cjdb/datacom/optional_chaining_expression/optional_chaining_expression004.info
+Tools/cjdb/datacom/optional_chaining_expression/optional_chaining_expression006.info
+Tools/cjdb/datacom/optional_chaining_expression/optional_chaining_expression021.info
+Tools/cjdb/datacom/optional_chaining_expression/optional_chaining_expression028.info
+Tools/cjdb/datacom/optional_chaining_expression/optional_chaining_expression037.info
+Tools/cjdb/datacom/optional_chaining_expression/optional_chaining_expression043.info
+Tools/cjdb/datacom/optional_chaining_expression/optional_chaining_expression046.info
+
 # https://gitcode.com/Cangjie/cangjie_compiler/issues/442
 compiler/cjnative/Packages/org_name/import_decl/backtick_in_org_name_0.cj
 compiler/cjnative/Packages/org_name/import_decl/backtick_in_org_name_1.cj

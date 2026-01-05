@@ -16,6 +16,7 @@ CJ: A test: 15
 5
 8.0
 5.0
+10.0
 CJ: at ctor
 CJ: S test value(a) 20
 CJ: S test: 15

@@ -18,10 +18,14 @@ public class Main {
          Int32ToInt32 cjL = a1.test(5, javaL);
          System.out.println(cjL.call(10));
 
-         Impl impl = new Impl();
+         Impl1 impl1 = new Impl1();
          Int16ToFloat64 javaL2 = b -> b * 2.000000;
-         Int16ToFloat64 l3 = impl.goo(javaL2);
+         Int16ToFloat64 l3 = impl1.goo(javaL2, (short)5);
          System.out.println(l3.call((short)5));
+
+         Impl2 impl2 = new Impl2();
+         Int16ToFloat64 l4 = impl2.goo(javaL2, (short)5);
+         System.out.println(l4.call((short)100));
 
          SInt32 a2 = new SInt32(javaL0, 5);
          Int32ToInt32 javaL1 = a -> a * 3;

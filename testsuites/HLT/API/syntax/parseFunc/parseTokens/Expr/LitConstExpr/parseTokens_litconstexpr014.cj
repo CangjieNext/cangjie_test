@@ -13,6 +13,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01 {
+    @TestCase
 func test_litconstexpr_014() {
     let _quote = quote(###'
 Hello,\n
@@ -31,4 +33,5 @@ Lang'###)
         case LitConstKind.StringLiteral => ()
         case _ => @Assert(false)
     }
+}
 }

@@ -14,6 +14,8 @@ import std.ast.Tokens
 import stdx.syntax.*
 
 @Test
+class test_01 {
+    @TestCase
 func test_QuoteExpr_01() {
     let _quote_1 = quote(quote())
     let res_1 = parseTokens(_quote_1)
@@ -106,4 +108,5 @@ s = $(str)
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 1i32, 1i32, 6i32])
     pos = expr_1.getRParenPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [1i32, 7i32, 1i32, 8i32])
+}
 }
