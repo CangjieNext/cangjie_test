@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/generic/generic_option.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug generic_option.cj -o generic_option
+// EXEC: python3 cjdb_test.py %n.info generic_option %run_env
+
+test#
+cjdb,cjdb generic_option,generic_option
+b,b 15, generic_option.cj:15
+r,r,-> 15
+ ,expr opt?.a,\(std.core.Option<Int64>\) \$\d+ = 100
+ ,expr opt_none?.a,\(std.core.Option<Int64>\) \$\d+ = None 
+q,q,
