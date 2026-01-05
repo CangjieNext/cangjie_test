@@ -1,0 +1,56 @@
+warning[0m: unused import 'stdx.crypto.x509.*'
+  ==> C:\cangjie\cjpm_code_20260105\cangjie_test\testsuites\HLT\Tools\cjpm\case\case15\case15_3\src\main.cj:11:1:
+   | 
+11 | import stdx.crypto.x509.*
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning[0m: unused import 'stdx.net.tls.*'
+  ==> C:\cangjie\cjpm_code_20260105\cangjie_test\testsuites\HLT\Tools\cjpm\case\case15\case15_3\src\main.cj:12:1:
+   | 
+12 | import stdx.net.tls.*
+   | ^^^^^^^^^^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning[0m: unused import 'stdx.net.http.*'
+  ==> C:\cangjie\cjpm_code_20260105\cangjie_test\testsuites\HLT\Tools\cjpm\case\case15\case15_3\src\main.cj:13:1:
+   | 
+13 | import stdx.net.http.*
+   | ^^^^^^^^^^^^^^^^^^^^^^ unused import
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning[0m: unused function:'loadTlsConfig'
+  ==> C:\cangjie\cjpm_code_20260105\cangjie_test\testsuites\HLT\Tools\cjpm\case\case15\case15_3\src\main.cj:24:1:
+   | 
+24 |   func loadTlsConfig(certFilePath: String, keyFilePath: String): Int64 {
+   |  _^
+25 | |     let certText = readPermFile(certFilePath)
+   | | ...
+28 | | }
+   | |_^ unused function
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning[0m: unused variable:'certText'
+  ==> C:\cangjie\cjpm_code_20260105\cangjie_test\testsuites\HLT\Tools\cjpm\case\case15\case15_3\src\main.cj:25:9:
+   | 
+25 |     let certText = readPermFile(certFilePath)
+   |         ^^^^^^^^ unused variable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning[0m: unused variable:'keyText'
+  ==> C:\cangjie\cjpm_code_20260105\cangjie_test\testsuites\HLT\Tools\cjpm\case\case15\case15_3\src\main.cj:26:9:
+   | 
+26 |     let keyText = readPermFile(keyFilePath)
+   |         ^^^^^^^ unused variable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+6 warnings generated, 6 warnings printed.
+lld: error: unable to find library -lcrypto32
+error: ""C:\\cangjie\\windows_cjpm_banben\\052\\cangjie-sdk-windows-x64-1.1.0-alpha.20251230020001\\cangjie\\third_party\\llvm\\bin\\ld.lld.exe" "-o" "C:\\cangjie\\cjpm_code_20260105\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\case\\case15\\case15_3\\target\\release\\bin\\main.exe" "--nxcompat" "--dynamicbase" "--high-entropy-va" "-m" "i386pep" "-Bdynamic" "C:\\cangjie\\windows_cjpm_banben\\052\\cangjie-sdk-windows-x64-1.1.0-alpha.20251230020001\\cangjie\\third_party\\mingw\\lib\\crt2.o" "C:\\cangjie\\windows_cjpm_banben\\052\\cangjie-sdk-windows-x64-1.1.0-alpha.20251230020001\\cangjie\\third_party\\mingw\\lib\\crtbegin.o" "C:\\cangjie\\windows_cjpm_banben\\052\\cangjie-sdk-windows-x64-1.1.0-alpha.20251230020001\\cangjie\\third_party\\mingw\\lib\\CRT_glob.o" "-LC:\\cangjie\\windows_cjpm_banben\\052\\cangjie-sdk-windows-x64-1.1.0-alpha.20251230020001\\cangjie\\third_party\\mingw\\lib\\" "-LC:\\cangjie\\windows_cjpm_banben\\windows_x86_64_cjnative\\dynamic\\stdx" "-LC:\\cangjie\\windows_cjpm_banben\\052\\cangjie-sdk-windows-x64-1.1.0-alpha.20251230020001\\cangjie\\lib\\windows_x86_64_cjnative" "-LC:\\cangjie\\windows_cjpm_banben\\052\\cangjie-sdk-windows-x64-1.1.0-alpha.20251230020001\\cangjie\\runtime\\lib\\windows_x86_64_cjnative" "-L/lib" "-L/x86_64-w64-mingw32/lib" "-LC:\\cangjie\\windows_cjpm_banben\\052\\cangjie-sdk-windows-x64-1.1.0-alpha.20251230020001\\cangjie\\third_party\\mingw\\lib\\" "C:\\cangjie\\windows_cjpm_banben\\052\\cangjie-sdk-windows-x64-1.1.0-alpha.20251230020001\\cangjie\\lib\\windows_x86_64_cjnative\\section.o" "C:\\cangjie\\windows_cjpm_banben\\052\\cangjie-sdk-windows-x64-1.1.0-alpha.20251230020001\\cangjie\\lib\\windows_x86_64_cjnative\\cjstart.o" "C:\\Users\\Ò¦ÈðÀö\\AppData\\Local\\Temp\\cangjie-tmp-DFGJUIZNVRLW-ea45b5db\\test.o" "-lstdx.net.tls" "-lstdx.net.http" "-lstdx.net.tls.common" "-lstdx.logger" "-lstdx.log" "-lstdx.encoding.url" "-lstdx.encoding.json.stream" "-lstdx.crypto.x509" "-lstdx.crypto.keys" "-lstdx.encoding.hex" "-lstdx.crypto.crypto" "-lstdx.crypto.digest" "-lstdx.crypto.common" "-lstdx.encoding.base64" "-lcrypto32" "--start-group" "-l:libcangjie-std-binary.a" "-l:libcangjie-std-collection.a" "-l:libcangjie-std-collection.concurrent.a" "-l:libcangjie-std-console.a" "-l:libcangjie-std-convert.a" "-l:libcangjie-std-core.a" "-l:libcangjie-std-crypto.cipher.a" "-l:libcangjie-std-crypto.digest.a" "-l:libcangjie-std-env.a" "-l:libcangjie-std-fs.a" "-l:libcangjie-std-io.a" "-l:libcangjie-std-math.a" "-l:libcangjie-std-math.numeric.a" "-l:libcangjie-std-net.a" "-l:libcangjie-std-overflow.a" "-l:libcangjie-std-process.a" "-l:libcangjie-std-random.a" "-l:libcangjie-std-sort.a" "-l:libcangjie-std-sync.a" "-l:libcangjie-std-time.a" "-l:libcangjie-std-unicode.a" "-l:libws2_32.a" "--end-group" "-l:libcangjie-runtime.dll" "-lclang_rt-builtins" "-lboundscheck" "-lm" "-lmsvcrt" "-lmingw32" "-lmoldname" "-lmingwex" "-lmingw32" "-lmsvcrt" "-lpthread" "-ladvapi32" "-lshell32" "-luser32" "-lkernel32" "-lmingw32" "-lmoldname" "-lmingwex" "-lmsvcrt" "C:\\cangjie\\windows_cjpm_banben\\052\\cangjie-sdk-windows-x64-1.1.0-alpha.20251230020001\\cangjie\\third_party\\mingw\\lib\\crtend.o" ": command failed (use -V to see invocation)
+Error: failed to compile package `test`, return code is 1

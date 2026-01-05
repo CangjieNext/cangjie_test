@@ -27,5 +27,5 @@ features = []
 [[source-set]]
 name = "windowsorlinux"
 src-dir = "./src/windows"
-features = ["a", "b", "c"]
+features = ["user.mp.a", "user.mp.b", "user.mp.c"]
 

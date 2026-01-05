@@ -1,0 +1,14 @@
+{
+  "packageInformation": {
+    "test": {
+      "rootPackageName": "test",
+      "fileNameHash": "207055660178581334",
+      "timeStamp": 1767600561,
+      "isBuilt": false,
+      "exeName": "main",
+      "hasSubPkgs": false
+    }
+  },
+  "jsonHash": "-4434372377799881766",
+  "rootPackageName": "test"
+}

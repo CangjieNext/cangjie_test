@@ -9,5 +9,5 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n 
 // EXEC: cd %n && %cjpm uninstall aaa --root sadsadsa 2>&1 | compare %f
-// ASSERT: scan The path `sadsadsa` does not exist.
+// ASSERT: scan Error: The uninstall root path `sadsadsa` does not exist or nothing is installed here
 // ASSERT: scan Error: cjpm uninstall failed
