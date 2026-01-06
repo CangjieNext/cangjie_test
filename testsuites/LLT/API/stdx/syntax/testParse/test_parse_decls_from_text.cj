@@ -436,4 +436,19 @@ class F {
         @Expect(decl.toString(), text)
     }
 
+    @TestCase
+    func testDeclWithSpecialChar() {
+        let text = """
+class F {
+    let a = 1 \t \f
+    var b: Int64;
+}"""
+        let decl = (parseText(text).node.getOrThrow() as ClassDecl).getOrThrow()
+        @Expect(decl.body.toString(), """
+{
+    let a = 1
+    var b: Int64
+}""")
+    }
+
 }
