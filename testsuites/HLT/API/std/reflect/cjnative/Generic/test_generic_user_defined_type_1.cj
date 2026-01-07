@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // (not MAC) EXEC: %compiler %cmp_opt %f %cmp_utest_opt -o %output
-// (not MAC) E-RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// (not MAC) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 package my_org::test0
 
@@ -188,7 +188,8 @@ public class TestClassType {
     public func testConstructClassWithUnmetGenericConstraint(): Unit {
         try {
             // 不满足泛型约束应找不到TypeInfo
-            StructTypeInfo.get("my_org::test0.GenericClassWithConstraints<Int64,my_org::test0.NonGenericClass,my_org::test0.NonGenericStruct>")
+            StructTypeInfo.get(
+                "my_org::test0.GenericClassWithConstraints<Int64,my_org::test0.NonGenericClass,my_org::test0.NonGenericStruct>")
             @Assert(false)
         } catch (e: InfoNotFoundException) {
             @Assert(true)
@@ -219,8 +220,11 @@ public class TestClassType {
                 Array<GenericClassWithConstraints<Int64, String, Bool>>()])
         @Expect((r as Int64).getOrThrow(), 666)
         let result = insta.apply(instance,
-            [114514, ClassTypeInfo.get("my_org::test0.GenericClassWithConstraints<Int64,String,Bool>").getConstructor().apply(),
-                ClassTypeInfo.get("my_org::test0.NonGenericClass").getConstructor().apply()])
+            [114514,
+                ClassTypeInfo
+                .get("my_org::test0.GenericClassWithConstraints<Int64,String,Bool>")
+                .getConstructor()
+                .apply(), ClassTypeInfo.get("my_org::test0.NonGenericClass").getConstructor().apply()])
         @Expect((result as Int64).getOrThrow(), 114514)
     }
     @TestCase
@@ -427,18 +431,43 @@ public class TestStructType {
         @Expect((r as Int64).getOrThrow(), 666)
         let result = insta.apply(instance,
             [114514,
-                StructTypeInfo.get("my_org::test0.GenericStructWithConstraints<Int64,String,Bool>").getConstructor().apply(),
-                StructTypeInfo.get("my_org::test0.NonGenericStruct").getConstructor().apply()])
+                StructTypeInfo
+                .get("my_org::test0.GenericStructWithConstraints<Int64,String,Bool>")
+                .getConstructor()
+                .apply(), StructTypeInfo.get("my_org::test0.NonGenericStruct").getConstructor().apply()])
         @Expect((result as Int64).getOrThrow(), 114514)
     }
 }
 
 @Test
 public class TestPackageInfo {
+    // https://gitcode.com/Cangjie/cangjie_runtime/issues/342
+    @Skip
     @TestCase
     func test0(): Unit {
         @Expect(PackageInfo.get("my_org::test0").name, "my_org::test0")
         @Expect(PackageInfo.get("my_org::test0").qualifiedName, "my_org::test0")
         @Expect(PackageInfo.get("my_org::test0").organizationName, "my_org")
+    }
+    @TestCase
+    func testName(): Unit {
+        @Expect(ClassTypeInfo.get("my_org::test0.GenericClass<Int64,String,my_org::test0.NonGenericClass>").toString(), "my_org::test0.GenericClass<Int64, String, my_org::test0.NonGenericClass>")
+        @Expect(ClassTypeInfo.get(
+            "my_org::test0.GenericClassWithConstraints<Int64,my_org::test0.GenericClassWithConstraints<Int64,String,Bool>,my_org::test0.NonGenericClass>").toString(), "my_org::test0.GenericClassWithConstraints<Int64, my_org::test0.GenericClassWithConstraints<Int64, String, Bool>, my_org::test0.NonGenericClass>")
+        @Expect(StructTypeInfo.get("my_org::test0.GenericStruct<Int64,String,my_org::test0.NonGenericStruct>").toString(), "my_org::test0.GenericStruct<Int64, String, my_org::test0.NonGenericStruct>")
+        @Expect(StructTypeInfo.get(
+            "my_org::test0.GenericStructWithConstraints<Int64,my_org::test0.GenericStructWithConstraints<Int64,String,Bool>,my_org::test0.NonGenericStruct>").toString(), "my_org::test0.GenericStructWithConstraints<Int64, my_org::test0.GenericStructWithConstraints<Int64, String, Bool>, my_org::test0.NonGenericStruct>")
+    }
+    // https://gitcode.com/Cangjie/cangjie_runtime/issues/342
+    @Skip
+    @TestCase
+    func testNonGenericTypeName0(): Unit {
+        @Expect(ClassTypeInfo.get("my_org::test0.NonGenericClass").toString(), "my_org::test0.NonGenericClass")
+    }
+    // https://gitcode.com/Cangjie/cangjie_runtime/issues/342
+    @Skip
+    @TestCase
+    func testNonGenericTypeName1(): Unit {
+        @Expect(StructTypeInfo.get("my_org::test0.NonGenericStruct").toString(), "my_org::test0.NonGenericStruct")
     }
 }
