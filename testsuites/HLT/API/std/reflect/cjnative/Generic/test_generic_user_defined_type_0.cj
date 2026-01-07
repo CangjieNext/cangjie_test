@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
  *
@@ -436,9 +436,26 @@ public class TestStructType {
 @Test
 public class TestPackageInfo {
     @TestCase
-    func test00(): Unit {
+    func test0(): Unit {
         @Expect(PackageInfo.get("test0").name, "test0")
         @Expect(PackageInfo.get("test0").qualifiedName, "test0")
         @Expect(PackageInfo.get("test0").organizationName, "")
+    }
+    @TestCase
+    func testName(): Unit {
+        @Expect(ClassTypeInfo.get("test0.GenericClass<Int64,String,test0.NonGenericClass>").toString(), "test0.GenericClass<Int64, String, test0.NonGenericClass>")
+        @Expect(ClassTypeInfo.get(
+            "test0.GenericClassWithConstraints<Int64,test0.GenericClassWithConstraints<Int64,String,Bool>,test0.NonGenericClass>").toString(), "test0.GenericClassWithConstraints<Int64, test0.GenericClassWithConstraints<Int64, String, Bool>, test0.NonGenericClass>")
+        @Expect(StructTypeInfo.get("test0.GenericStruct<Int64,String,test0.NonGenericStruct>").toString(), "test0.GenericStruct<Int64, String, test0.NonGenericStruct>")
+        @Expect(StructTypeInfo.get(
+            "test0.GenericStructWithConstraints<Int64,test0.GenericStructWithConstraints<Int64,String,Bool>,test0.NonGenericStruct>").toString(), "test0.GenericStructWithConstraints<Int64, test0.GenericStructWithConstraints<Int64, String, Bool>, test0.NonGenericStruct>")
+    }
+    @TestCase
+    func testNonGenericTypeName(): Unit {
+        @Expect(ClassTypeInfo.get("test0.NonGenericClass").toString(), "test0.NonGenericClass")
+    }
+    @TestCase
+    func testNonGenericTypeName1(): Unit {
+        @Expect(StructTypeInfo.get("test0.NonGenericStruct").toString(), "test0.NonGenericStruct")
     }
 }
