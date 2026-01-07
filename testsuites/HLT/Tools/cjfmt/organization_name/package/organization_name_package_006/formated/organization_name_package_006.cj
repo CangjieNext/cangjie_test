@@ -6,14 +6,16 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package org::default.a
+ package org ::  default.a
 
-import org::pkga.*
-import org::pkga.a.{C1, C2}
+ import  `org`  :: pkga.*
+
+import org ::pkga.a.{C1,
+C2}
 
 class C1 {
     var a = 1
-    public func f1(): Unit {
+    public func f1():Unit {
         println("hello")
     }
 }
