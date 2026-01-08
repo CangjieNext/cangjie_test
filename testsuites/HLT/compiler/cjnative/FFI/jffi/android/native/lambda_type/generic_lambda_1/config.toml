@@ -1,0 +1,23 @@
+[[package]]
+name = "UNNAMED"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+
+tuple_configuration = [
+    "(Int, Bool)",
+    "(Float32, Int32)",
+    "(Bool, Int8, Int16, Int32, Int64, UInt16, Float32, Float64)",
+]
+lambda_patterns = [
+	{ signature = "(Bool, Int8, Int16, Int32, Int64, UInt16, Float32, Float64) -> Unit" },
+    { signature = "(Bool, Int8, Int16, Int32, Int64, UInt16, Float32, Float64) -> Int64" },
+    { signature = "(Bool, Int8, Int16, Int32, Int64, UInt16, Float32, Float64) -> UInt16" },
+    { signature = "(Bool, Int8, Int16, Int32, Int64, UInt16, Float32, Float64) -> Float32" },
+    { signature = "(Bool, Int8, Int16, Int32, Int64, UInt16, Float32, Float64) -> Float64" },
+    { signature = "(Int64, Bool) -> Int64" },
+    { signature = "(Int32) -> Int32" },
+]
+generic_object_configuration = [
+	{ name = "CangjieClass", type_arguments = ["Int64"] },
+	{ name = "CangjieClass<Int64>", symbols = ["instanceMemberFunction", "staticMemberFunction"] },
+]
