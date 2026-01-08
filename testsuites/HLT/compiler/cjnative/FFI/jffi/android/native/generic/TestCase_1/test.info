@@ -1,0 +1,7 @@
+// Level: 1
+// Description:
+// DEPENDENCE: cjworld.cj config.toml MainInstrumentedTest.java com
+// (Android) EXEC: python3 %java_interop_setup
+// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt --import-interop-cj-package-config-path config.toml %jffi_link --experimental --enable-interop-cjmapping=Java cjworld.cj logger.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
+// (Android) EXEC: python3 %java_interop_runner --test-entry=MainInstrumentedTest.java --java-source-root=com
+
