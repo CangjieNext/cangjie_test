@@ -48,14 +48,9 @@ compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0003/test.info
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0004/test.info
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/test.info
 # run failed
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_objcinit_0005/test.info
-# run failed
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0012/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0023/test.info
 # cj generic
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_generic_0002
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_generic_0005
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_generic_0006
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_generic_0019
 
 API/std/io/file/File_create_03.cj
@@ -66,12 +61,6 @@ API/std/io/StringReader/StringReader_readln_13_01.cj
 compiler/cjnative/stable_abi/package_name
 compiler/cjnative/stable_abi/add_instance_member_variable
 compiler/cjnative/stable_abi/add_virtual_function
-
-# c/s
-compiler/cjnative/Packages/cjmp/cjmp_18009_1
-compiler/cjnative/Packages/cjmp/cjmp_18014
-compiler/cjnative/Packages/cjmp/cjmp_18015
-compiler/cjnative/Packages/cjmp/cjmp_18019
 
 # https://gitcode.com/Cangjie/cangjie_compiler/issues/442
 compiler/cjnative/Packages/org_name/import_decl/backtick_in_org_name_0.cj

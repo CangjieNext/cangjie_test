@@ -8,9 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE: mp
-// EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
-// ERRCHECK: %compiler %cmp_opt mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
-// ASSERT: scan sema_cjmp_non_platform_abstract_member_in_platform_class
+// ERRCHECK: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
+// ASSERT: scan parse_cjmp_in_common_ctor_required
 
 import mp.*
 

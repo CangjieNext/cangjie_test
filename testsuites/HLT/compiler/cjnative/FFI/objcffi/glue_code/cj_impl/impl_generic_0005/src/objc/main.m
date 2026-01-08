@@ -11,7 +11,7 @@
 
 int main(int argc, char** argv) {
     @autoreleasepool {
-        AInt64* a = [[AInt64 alloc] init: 1];
+        AInt64* a = [AInt64 E: 1];
         printf("in oc, %lld\n", [a f: 1]);
         printf("in oc, %lld\n", a.p);
     }
