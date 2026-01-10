@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 2
+// LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/composition009.cj
 // (not MAC) EXEC: %compiler %cmp_opt -g composition009.cj -o composition009%cmp_output
 // (not MAC) RUN-EXEC: python3 cjdb_test.py composition009.info composition009 %run_env
