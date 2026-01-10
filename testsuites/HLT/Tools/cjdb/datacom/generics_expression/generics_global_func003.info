@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func003.cj
 // (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func003.cj -o generics_global_func003%cmp_output
 // (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_global_func003.info generics_global_func003 %run_env

@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/pipeline009.cj
 // (not MAC) EXEC: %compiler %cmp_opt -g pipeline009.cj -o pipeline009%cmp_output
 // (not MAC) RUN-EXEC: python3 cjdb_test.py pipeline009.info pipeline009 %run_env
