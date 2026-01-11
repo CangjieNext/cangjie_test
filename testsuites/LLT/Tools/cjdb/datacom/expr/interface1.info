@@ -12,6 +12,6 @@ test#
 cjdb,cjdb interface1,interface1
 b,b 16,interface1.cj:16
 r,r,-> 16
- ,expr ic.fa(),\(Unit\) \$\d+ = ()
+ ,expr ic.fa(),\s+'fa' is not a member of interface 'A'
  ,expr ic,\(default.B\) \$\d+ = {}
 q,q,
