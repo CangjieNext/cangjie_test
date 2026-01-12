@@ -1,0 +1,43 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm build -V 
+// EXEC: cd %n  && %ls target/release/stdx 2>&1 | compare %f
+// ASSERT: regex lib-macro_stdx.actors.macros.(so|dll|dylib)
+// ASSERT: regex libstdx.encoding.a
+// (not Windows)ASSERT: regex libstdx.fuzz.a
+// ASSERT: regex libstdx.a
+// ASSERT: regex libstdx.crypto.a
+// ASSERT: regex libstdx.effect.a
+// ASSERT: regex libstdx.encoding.hex.a
+// ASSERT: regex libstdx.encoding.base64.a
+// ASSERT: regex libstdx.actors.a
+// ASSERT: regex libstdx.compress.zlib.a
+// ASSERT: regex libstdx.serialization.a
+// ASSERT: regex libstdx.unittest.a
+// ASSERT: regex libstdx.log.a
+// ASSERT: regex libstdx.logger.a
+// ASSERT: regex libstdx.unittest.data.a
+// (not Windows)ASSERT: regex libstdx.fuzz.fuzz.a
+// ASSERT: regex libstdx.serialization.serialization.a
+// ASSERT: regex libstdx.crypto.common.a
+// ASSERT: regex libstdx.encoding.json.stream.a
+// ASSERT: regex libstdx.net.a
+// ASSERT: regex libstdx.string_intern.a
+// ASSERT: regex libstdx.compress.tar.a
+// ASSERT: regex libstdx.crypto.digest.a
+// ASSERT: regex libstdx.net.tls.common.a
+// ASSERT: regex libstdx.encoding.json.a
+// ASSERT: regex libstdx.encoding.url.a
+// ASSERT: regex libstdx.compress.a
+// ASSERT: regex libstdx.crypto.crypto.a
+// ASSERT: regex libstdx.crypto.keys.a
+// ASSERT: regex libstdx.crypto.x509.a
+// ASSERT: regex libstdx.crypto.kit.a
+// ASSERT: regex libstdx.net.tls.a
+// ASSERT: regex libstdx.net.http.a

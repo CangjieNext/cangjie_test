@@ -1,0 +1,4 @@
+version = 0
+
+[requires]
+  stdx = {git = "https://gitcode.com/Cangjie/cangjie_stdx.git", commitId = "94d72f0f9fe3cfdcfd1dad1b20a61acc714b2c35", branch = "dev", output-type = "static"}
