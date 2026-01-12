@@ -106,6 +106,7 @@ Options:
     <value>=exe                 emit executable (default)
     <value>=staticlib           emit static library
     <value>=dylib               emit dynamic library
+  --compile-target <value>    Specify compile target for obj (Experimental)
   -O0                         Optimization level 0 (default)
   -O, -O1                     Optimization level 1
   -O2                         Optimization level 2
