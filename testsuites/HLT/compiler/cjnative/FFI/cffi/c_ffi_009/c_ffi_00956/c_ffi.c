@@ -51,10 +51,3 @@ teststruct testfunc2(teststruct ts)
 
     return ts;
 }
-
-int main()
-{
-    teststruct ts = {1, 1, 1, func1};
-    printf("%ld\n", sizeof(ts));
-    return 0;
-}
