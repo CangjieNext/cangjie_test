@@ -5,7 +5,7 @@
 #
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-set +e
+set -e
 
 WORKSPACE=$(cd `dirname $0`; pwd)
 if [ -z ${XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST} ]; then
@@ -43,7 +43,6 @@ done
 ar r libcangjie_main.a *.o &> /dev/null || true
 
 rm -f ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
-# To cp $1 ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
 cp libcangjie_main.a ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
 
 ret=255
@@ -69,3 +68,5 @@ else
     ret=$?
 fi
 exit ${ret}
+
+set +xe

@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DESCRIPTION: using keyword 'package' as organization name.
-// EXEC-PIPE-1: %compiler %cmp_opt %compile_dylib_opt %f 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %compile_lib_opt %f 2>&1 | compare %f
 // ASSERT: scan expected a package name after keyword 'package', found keyword 'package'
 
 package package::pkg
