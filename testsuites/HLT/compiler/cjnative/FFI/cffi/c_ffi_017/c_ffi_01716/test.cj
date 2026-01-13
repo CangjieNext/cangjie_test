@@ -18,7 +18,7 @@ foreign func cfoo2(a: CPointer<VArray<Int32, $3>>): Unit
 
 foreign func getArrayPtr(): CPointer<VArray<Int32, $3>>
 
-main() {
+main(): Int32 {
     var a: VArray<VArray<Int32, $3>, $1> = [[1, 2, 3]]
     unsafe {
         cfoo2(inout a)
