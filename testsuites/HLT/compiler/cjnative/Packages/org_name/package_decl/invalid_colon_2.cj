@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DESCRIPTION: less than two consecutive colons, 1 exactly.
-// EXEC-PIPE-1: %compiler %cmp_opt %compile_dylib_opt %f 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %compile_lib_opt %f 2>&1 | compare %f
 // ASSERT: scan parse_expected_character
 
 package org:pkg
