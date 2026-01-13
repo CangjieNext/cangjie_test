@@ -26,10 +26,11 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
+// ASSERT: scan-1 [API/ABI] Deleted public member function of struct visible outside the module.
 // ASSERT: scan-1 [API/ABI] Changed interfaces that struct implemented.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
-// ASSERT: scan-1 [API/ABI]
+// ASSERT: scan-2 [API/ABI]
 
 // test struct: modify interface
 // 修改实现接口A为B

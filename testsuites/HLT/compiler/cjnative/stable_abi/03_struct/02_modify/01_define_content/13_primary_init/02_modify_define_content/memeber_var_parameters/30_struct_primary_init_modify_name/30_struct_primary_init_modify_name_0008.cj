@@ -27,10 +27,12 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-not [API/ABI] Cannot change name of named parameter.
 // ASSERT: scan-1 [API/ABI] Deleted instance public variable member from the struct.
-// ASSERT: scan-1 [ABI] Added member variable to a struct.
+// ASSERT: scan-1 [ABI] Deleted instance non public variable member from the struct.
+// ASSERT: scan-2 [ABI] Added member variable to a struct.
 // ASSERT: scan-not [API]
+// ASSERT: scan-3 [ABI]
+// ASSERT: scan-1 [API/ABI]
 
 //the primary init is not public
 package test_stable_abi

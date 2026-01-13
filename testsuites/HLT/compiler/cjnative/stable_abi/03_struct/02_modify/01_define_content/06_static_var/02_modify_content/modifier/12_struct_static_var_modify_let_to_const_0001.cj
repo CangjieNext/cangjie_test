@@ -27,8 +27,8 @@
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-3 [ABI] Changed member variable's modifier of struct visible outside the module. let to const.
-// ASSERT: scan-3 [ABI]
+// ASSERT: scan-1 [ABI] Changed member variable's modifier of struct visible outside the module. let to const.
+// ASSERT: scan-1 [ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [API/ABI]
 

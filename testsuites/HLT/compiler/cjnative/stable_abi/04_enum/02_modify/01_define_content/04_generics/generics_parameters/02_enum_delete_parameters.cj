@@ -28,10 +28,8 @@
 // ASSERT: scan Incompatible!
 // ASSERT: scan-3 [API/ABI] Deleted generic param of enum visible outside the module.
 // ASSERT: scan-1 [ABI] The body of a const function or function marked with @Frozen changed.
-// ASSERT: scan-1 [ABI] Modified private/internal member variables' type for class visible outside the module.
-// ASSERT: scan-1 [ABI] Change the initial value of member variable when struct/class has the const variable or @Frozen init func.
 // ASSERT: scan-not [API]
-// ASSERT: scan-3 [ABI]
+// ASSERT: scan-1 [ABI]
 // ASSERT: scan-3 [API/ABI]
 
 

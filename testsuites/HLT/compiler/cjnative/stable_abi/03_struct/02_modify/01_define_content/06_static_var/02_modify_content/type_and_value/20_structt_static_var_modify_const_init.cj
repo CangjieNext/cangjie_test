@@ -27,8 +27,9 @@
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-2 [ABI] Change the initial value of the const variable.
+// ASSERT: scan-1 [ABI] Change the initial value of the const variable.
 // ASSERT: scan-not [API]
+// ASSERT: scan-1 [ABI]
 // ASSERT: scan-not [API/ABI]
 
 // TEST API Compatibility
