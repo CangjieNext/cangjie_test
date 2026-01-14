@@ -71,7 +71,6 @@ compiler/CJMP/frontend/matching/function/overload_error/generic_not_match/not_sa
 compiler/CJMP/frontend/matching/struct/new_members/new_required_constructor.cj
 compiler/CJMP/merging/classes/class_abstract/impl_interface/generic_interface.cj
 compiler/CJMP/merging/classes/class_abstract/impl_interface/generic_interface_with_non_common_class.cj
-compiler/CJMP/merging/imports/import_only_in_common.cj
 compiler/CJMP/merging/structs/struct_abstract/impl_interface/generic_interface.cj
 compiler/CJMP/merging/structs/struct_abstract/impl_interface/generic_interface_with_non_common_struct.cj
 compiler/CJMP/merging/top_level_function/argument/enhance_test/enum_argument/generic_type_enum.cj
