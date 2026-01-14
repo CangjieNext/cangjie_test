@@ -1,0 +1,44 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// EXEC: cd %n && git clone https://gitcode.com/Cangjie/cangjie_stdx.git -b dev
+// EXEC: cd %n/cangjie_stdx && %cjpm build
+// EXEC: cd %n/cangjie_stdx  && %ls target/release/stdx 2>&1 1>a.txt && mv a.txt ../ && cd .. && cat a.txt | compare %f
+// ASSERT: scan libstdx.encoding.a
+// (not Windows)ASSERT: scan libstdx.fuzz.a
+// ASSERT: scan libstdx.a
+// ASSERT: scan libstdx.crypto.a
+// ASSERT: scan libstdx.effect.a
+// ASSERT: scan libstdx.encoding.hex.a
+// ASSERT: scan libstdx.encoding.base64.a
+// ASSERT: scan libstdx.actors.a
+// ASSERT: scan libstdx.compress.zlib.a
+// ASSERT: scan libstdx.serialization.a
+// ASSERT: scan libstdx.unittest.a
+// ASSERT: scan libstdx.log.a
+// ASSERT: scan libstdx.logger.a
+// ASSERT: scan libstdx.unittest.data.a
+// (not Windows)ASSERT: scan libstdx.fuzz.fuzz.a
+// ASSERT: scan libstdx.serialization.serialization.a
+// ASSERT: regex lib-macro_stdx.actors.macros.(so|dll|dylib)
+// ASSERT: scan libstdx.crypto.common.a
+// ASSERT: scan libstdx.encoding.json.stream.a
+// ASSERT: scan libstdx.net.a
+// ASSERT: scan libstdx.string_intern.a
+// ASSERT: scan libstdx.compress.tar.a
+// ASSERT: scan libstdx.crypto.digest.a
+// ASSERT: scan libstdx.net.tls.common.a
+// ASSERT: scan libstdx.encoding.json.a
+// ASSERT: scan libstdx.encoding.url.a
+// ASSERT: scan libstdx.compress.a
+// ASSERT: scan libstdx.crypto.crypto.a
+// ASSERT: scan libstdx.crypto.keys.a
+// ASSERT: scan libstdx.crypto.x509.a
+// ASSERT: scan libstdx.crypto.kit.a
+// ASSERT: scan libstdx.net.tls.a
+// ASSERT: scan libstdx.net.http.a

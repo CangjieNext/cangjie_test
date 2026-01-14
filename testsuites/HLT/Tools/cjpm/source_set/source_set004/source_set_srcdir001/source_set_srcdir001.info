@@ -10,5 +10,5 @@
 // DEPENDENCE: ../%n
 // (CJNATIVE) EXEC: cd %n && %cjpm run| compare %f
 // (CJNATIVE) ASSERT: scan 0
-// (CJNATIVE) ASSERT: regex I run on [Windows|Linux|Darwin]
+// (CJNATIVE) ASSERT: regex I run on [Windows|Linux|Darwin|ohos]
 // (CJNATIVE) ASSERT: scan cjpm run finished
