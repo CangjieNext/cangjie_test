@@ -20,6 +20,6 @@ common class A {
 // ASSERT: scan sema_not_matched
 package cmp
 
-platform class A {
-  public platform func goo(input!: Int64=1): Int64 {input}
+specific class A {
+  public specific func goo(input!: Int64=1): Int64 {input}
 }

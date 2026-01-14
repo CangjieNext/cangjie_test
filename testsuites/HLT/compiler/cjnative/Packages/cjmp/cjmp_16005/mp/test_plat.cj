@@ -8,24 +8,24 @@
 
 package mp
 
-platform interface I<K> {
-    platform func foo<K>(a: K, b: K): K {
+specific interface I<K> {
+    specific func foo<K>(a: K, b: K): K {
         b
     }
 }
-public platform class C<K> {
-    public platform func foo<K>(a: K, b: K): K {
+public specific class C<K> {
+    public specific func foo<K>(a: K, b: K): K {
         b
     }
 }
-public platform struct S<K> {
-    public platform func foo<K>(a: K, b: K): K {
+public specific struct S<K> {
+    public specific func foo<K>(a: K, b: K): K {
         b
     }
 }
-public platform enum E<K> {
+public specific enum E<K> {
     | E1
-    public platform func foo<K>(a: K, b: K): K {
+    public specific func foo<K>(a: K, b: K): K {
         b
     }
 }

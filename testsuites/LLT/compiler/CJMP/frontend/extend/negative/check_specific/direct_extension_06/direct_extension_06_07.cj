@@ -30,4 +30,4 @@ package cmp
 
 import A
 
-platform extend<T> Foo<T, A.Aoo> where T <: ToString {}
+specific extend<T> Foo<T, A.Aoo> where T <: ToString {}

@@ -7,8 +7,8 @@
  */
 package mp
 
-public platform open class C1 {
+public specific open class C1 {
     public var v: Int64 = 1
 }
 
-public platform class C2 <: C1 {}
+public specific class C2 <: C1 {}

@@ -8,7 +8,7 @@
  
 package mp
 
-public platform interface A {
+public specific interface A {
     static func f3(): Int64 { 1 }
     func f4(): Int64 { -1 }
 }

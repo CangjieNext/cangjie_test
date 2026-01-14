@@ -28,11 +28,11 @@ common func f4<T>(): Int where T <: Rec<T>  { 4 }
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform func f1<T>(): Int where T <: I { 11 }
-platform func f2<X>(): Int where X <: Sup { 22 }
-platform func f22<X>(): Int where X <: AL { 222 }
-platform func f3<R>(): Int where R <: Rec<R> { 33 }
-platform func f4<Z>(): Int { 44 }
+specific func f1<T>(): Int where T <: I { 11 }
+specific func f2<X>(): Int where X <: Sup { 22 }
+specific func f22<X>(): Int where X <: AL { 222 }
+specific func f3<R>(): Int where R <: Rec<R> { 33 }
+specific func f4<Z>(): Int { 44 }
 
 struct S <: Rec<S> {}
  

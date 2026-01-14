@@ -9,7 +9,7 @@ package cmp
 
 import std.random.*
 
-public platform func foo(): Unit {
+public specific func foo(): Unit {
     let random = Random()
     let x = Array<Int64>(1, repeat: random.nextInt64() )
     println("Platform 'foo'" + x[0].toString())

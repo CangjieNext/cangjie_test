@@ -27,14 +27,14 @@ public common struct A {
 // EXEC-PIPE-0: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
-public platform struct A {
-    public platform let name: String = "string"
-    public platform init() {}
-    public platform prop NAME: String {
+public specific struct A {
+    public specific let name: String = "string"
+    public specific init() {}
+    public specific prop NAME: String {
         get() { name }
     }
-    public platform func foo(): Unit {}
-    public platform operator func == (_: A): Bool { true }
+    public specific func foo(): Unit {}
+    public specific operator func == (_: A): Bool { true }
 }
 
 /* SCAN

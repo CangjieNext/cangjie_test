@@ -31,7 +31,7 @@ public var x:Rectangle = Rectangle(1,1)
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-public platform struct Rectangle {
+public specific struct Rectangle {
     public mut func k() {
         height += 1
     }

@@ -21,7 +21,7 @@ public common class A {
 // EXEC-PIPE-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 @AA
-public platform class A {
+public specific class A {
     @AA
     func zoo(){}
 }

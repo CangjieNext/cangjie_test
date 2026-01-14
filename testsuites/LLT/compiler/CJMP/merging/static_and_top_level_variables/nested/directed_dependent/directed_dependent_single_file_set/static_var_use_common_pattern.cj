@@ -24,10 +24,10 @@ public common var G2: Int64 = A.X1 + 1
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform var (G1, G2): (Int64, Int64) = (100, 200)
+public specific var (G1, G2): (Int64, Int64) = (100, 200)
 
-public platform class A {
-    public static platform var X1: Int64 = G1
+public specific class A {
+    public static specific var X1: Int64 = G1
 }
 
 // SEPARATE-FILE: m_common.cj

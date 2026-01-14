@@ -20,8 +20,8 @@ common extend Foo {
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
-platform extend Foo {
-    platform func f1():Unit {println("hhh")}
+specific extend Foo {
+    specific func f1():Unit {println("hhh")}
 }
 
 

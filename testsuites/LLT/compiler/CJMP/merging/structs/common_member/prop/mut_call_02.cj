@@ -26,9 +26,9 @@ common struct A {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform struct A {
-    platform var a: Int64 = 1
-    platform mut prop testProp: Int64 {
+specific struct A {
+    specific var a: Int64 = 1
+    specific mut prop testProp: Int64 {
         get() {
             a
         }

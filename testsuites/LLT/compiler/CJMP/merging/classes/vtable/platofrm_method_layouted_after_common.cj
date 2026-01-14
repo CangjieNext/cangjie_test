@@ -54,23 +54,23 @@ public func runCommon(a: B) {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform interface I {
-    func i4(): Unit { println("I::i4 platform") }
-    platform func i3(): Unit { println("I::i3 platform") }
-    func foo5(): Unit { println("I::foo5 platform") }
-    func i5(): Unit { println("I::i5 platform") }
+public specific interface I {
+    func i4(): Unit { println("I::i4 specific") }
+    specific func i3(): Unit { println("I::i3 specific") }
+    func foo5(): Unit { println("I::foo5 specific") }
+    func i5(): Unit { println("I::i5 specific") }
 }
 
-public open platform class A <: I {
-    public platform func a2(): Unit { println("A::a2 platform") }
+public open specific class A <: I {
+    public specific func a2(): Unit { println("A::a2 specific") }
 }
 
-public platform class B <: A {
-    public platform func b3(): Unit { println("B::b3 platform") } 
-    public func b6(): Unit { println("B::b6 platform") } 
-    public platform func b5(): Unit { println("B::b5 platform") } 
-    public func foo5(): Unit { println("B::f005 platform") }
-    public platform func b2(): Unit { println("B::b2 platform") } 
+public specific class B <: A {
+    public specific func b3(): Unit { println("B::b3 specific") } 
+    public func b6(): Unit { println("B::b6 specific") } 
+    public specific func b5(): Unit { println("B::b5 specific") } 
+    public func foo5(): Unit { println("B::f005 specific") }
+    public specific func b2(): Unit { println("B::b2 specific") } 
 }
 
 public func runPlatform(a: B) {
@@ -104,17 +104,17 @@ main() {
 /* SCAN
 I::i1 common
 I::i2 common
-I::i3 platform
+I::i3 specific
 A::a1 common
-A::a2 platform
+A::a2 specific
 A::a3 common
-B::f005 platform
+B::f005 specific
 A::foo6 common
 B::b1 common
-B::b2 platform
-B::b3 platform
+B::b2 specific
+B::b3 specific
 B::b4 common
-B::b5 platform
+B::b5 specific
 */
 
 // SEPARATE-FILE: m_platform.cj
@@ -132,32 +132,32 @@ main() {
 /* SCAN
 I::i1 common
 I::i2 common
-I::i3 platform
+I::i3 specific
 A::a1 common
-A::a2 platform
+A::a2 specific
 A::a3 common
-B::f005 platform
+B::f005 specific
 A::foo6 common
 B::b1 common
-B::b2 platform
-B::b3 platform
+B::b2 specific
+B::b3 specific
 B::b4 common
-B::b5 platform
+B::b5 specific
 =
 I::i1 common
 I::i2 common
-I::i3 platform
-I::i4 platform
-I::i5 platform
+I::i3 specific
+I::i4 specific
+I::i5 specific
 A::a1 common
-A::a2 platform
+A::a2 specific
 A::a3 common
-B::f005 platform
+B::f005 specific
 A::foo6 common
 B::b1 common
-B::b2 platform
-B::b3 platform
+B::b2 specific
+B::b3 specific
 B::b4 common
-B::b5 platform
-B::b6 platform
+B::b5 specific
+B::b6 specific
 */

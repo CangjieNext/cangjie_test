@@ -8,6 +8,6 @@
  
 package mp
 
-public platform abstract class A {}
+public specific abstract class A {}
 
 

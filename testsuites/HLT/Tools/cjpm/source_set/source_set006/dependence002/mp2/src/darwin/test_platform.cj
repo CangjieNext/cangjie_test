@@ -9,7 +9,7 @@
 features { os.darwin }
 package mp2
 
-public platform func foo(): Unit {
+public specific func foo(): Unit {
     println("Hello Darwin")
 }
 

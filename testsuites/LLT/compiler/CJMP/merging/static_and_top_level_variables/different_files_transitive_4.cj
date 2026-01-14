@@ -35,7 +35,7 @@ private func getY(): Int { return getYviaZ() }
 package cmp
 
 // Y depends on X
-public platform var Y: Int = id(X)
+public specific var Y: Int = id(X)
 
 /* SCAN
 error: p.cj and c2.cj and c1.cj might have file circular dependency

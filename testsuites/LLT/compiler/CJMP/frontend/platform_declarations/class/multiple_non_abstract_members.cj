@@ -22,9 +22,9 @@ common abstract class A {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform abstract class A {
-    open public platform func f1(): Unit{}
-    open public platform func f2(): Unit{}
+specific abstract class A {
+    open public specific func f1(): Unit{}
+    open public specific func f2(): Unit{}
 }
 
 class B <: A {

@@ -8,7 +8,7 @@
  
 package mp
 
-public platform open class A {}
+public specific open class A {}
 public func test_plat() { A.f1() + A().f2() }
 
 

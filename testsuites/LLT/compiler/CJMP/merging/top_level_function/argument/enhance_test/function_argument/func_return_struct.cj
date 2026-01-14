@@ -23,9 +23,9 @@ public func goo():A{
         println("goo")
         return A()
 }
-platform func foo(arg: ()->A): Unit {
+specific func foo(arg: ()->A): Unit {
     arg()
-    println("platform")
+    println("specific")
 }
 main() {
     foo(goo)
@@ -33,5 +33,5 @@ main() {
 
 /* SCAN
 goo
-platform
+specific
 */

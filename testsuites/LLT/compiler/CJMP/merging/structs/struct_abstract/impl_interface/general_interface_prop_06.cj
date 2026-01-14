@@ -25,7 +25,7 @@ public struct S1 <: I1 {
 
     public prop p: Int64 {
         get() {
-            println("platform get")
+            println("specific get")
             1
         }
     }
@@ -37,5 +37,5 @@ main(): Unit {
 }
 
 /* SCAN
-platform get
+specific get
 */

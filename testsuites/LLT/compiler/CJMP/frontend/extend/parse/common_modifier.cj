@@ -31,17 +31,17 @@ common extend Foo {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output
 package cmp
 
-platform class Foo{ }
-platform extend Foo {
-   platform public func f1():Unit {}
-   platform func f2():Unit {}
-   platform protected func f3():Unit {}
-   platform protected func f4():Unit {f3()}
+specific class Foo{ }
+specific extend Foo {
+   specific public func f1():Unit {}
+   specific func f2():Unit {}
+   specific protected func f3():Unit {}
+   specific protected func f4():Unit {f3()}
 
-   platform static public func s1():Unit {}
-   platform static func s2():Unit {}
-   platform static protected func s3():Unit {}
-   platform static protected func s4():Unit {s3()}
+   specific static public func s1():Unit {}
+   specific static func s2():Unit {}
+   specific static protected func s3():Unit {}
+   specific static protected func s4():Unit {s3()}
 }
 
 main(){

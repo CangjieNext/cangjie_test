@@ -15,7 +15,7 @@ public common func foo(): Unit
 // ASSERT: scan module_common_part_path_is_required
 package cmp
 
-public platform func foo(): Unit {}
+public specific func foo(): Unit {}
 
 // NO: --common-part-cjo OPTION, SO ERROR IS EXPECTED
 

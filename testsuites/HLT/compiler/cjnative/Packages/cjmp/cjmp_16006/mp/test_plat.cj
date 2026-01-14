@@ -8,7 +8,7 @@
 
 package mp
 
-public platform class C<T> {
+public specific class C<T> {
 }
 public func f2() {
     var c = C<Int64>()

@@ -8,14 +8,14 @@
 
 package mp
 
-platform public enum E1 {
+specific public enum E1 {
     AB
 }
 
-platform public enum E2<T> {
+specific public enum E2<T> {
     AB | AB(T)
 }
 
-platform protected enum E3<T, R> {
+specific protected enum E3<T, R> {
     AB | AB(T, R) | ...
 }

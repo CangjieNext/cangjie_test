@@ -25,12 +25,12 @@ common func foo2(arg: VArray<Int64, $3>): Unit {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform func foo(arg: VArray<Int64, $3>): Unit {
-    println("platform")
+specific func foo(arg: VArray<Int64, $3>): Unit {
+    println("specific")
 }
 
-platform func foo1(arg: VArray<Int64, $3>): Unit {
-    println("platform")
+specific func foo1(arg: VArray<Int64, $3>): Unit {
+    println("specific")
 }
 
 main() {
@@ -41,7 +41,7 @@ main() {
 }
 
 /* SCAN
-platform
-platform
+specific
+specific
 common
 */

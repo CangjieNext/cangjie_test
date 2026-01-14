@@ -8,13 +8,13 @@
 
 package mp
 
-platform interface A {
-    platform func foo1(a: Int64): Unit {
+specific interface A {
+    specific func foo1(a: Int64): Unit {
         print(a)
     }
 }
 
-platform class C1 <: A{
-    platform func foo2(): Unit {}
+specific class C1 <: A{
+    specific func foo2(): Unit {}
     func foo4(): Int64 {}
 }

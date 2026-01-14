@@ -8,10 +8,10 @@
 
 package mp
 
-public platform class C {}
+public specific class C {}
 
-platform extend C {
-    public platform func f(): Int64 { 1 }
+specific extend C {
+    public specific func f(): Int64 { 1 }
 }
 
-platform extend C {}
+specific extend C {}

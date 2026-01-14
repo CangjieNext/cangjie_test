@@ -42,10 +42,10 @@ common class A {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform class A {
-    platform mut prop testProp: funcType {
+specific class A {
+    specific mut prop testProp: funcType {
         get() {
-            println("platform")
+            println("specific")
             {=> println("testLambda")}
         }
         set(v) {
@@ -53,9 +53,9 @@ platform class A {
             v()
         }
     }
-    platform mut prop testProp1: funcType {
+    specific mut prop testProp1: funcType {
         get() {
-            println("platform")
+            println("specific")
             {=> println("testLambda")}
         }
         set(v) {
@@ -76,11 +76,11 @@ main() : Unit {
 }
 
 /* SCAN
-platform
+specific
 testLambda
 common
 main
-platform
+specific
 testLambda
 common
 main

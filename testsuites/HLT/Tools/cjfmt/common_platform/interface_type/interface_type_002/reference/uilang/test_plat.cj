@@ -8,12 +8,12 @@
 
 package mp
 
-platform public interface I1 {
-    platform mut func f(): Int64
+specific public interface I1 {
+    specific mut func f(): Int64
 }
 
-platform struct S1 <: I1 {
-    platform public mut func f1(): Int64 {
+specific struct S1 <: I1 {
+    specific public mut func f1(): Int64 {
         1
     }
 }

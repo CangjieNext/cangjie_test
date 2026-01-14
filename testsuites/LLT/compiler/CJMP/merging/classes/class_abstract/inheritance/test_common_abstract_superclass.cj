@@ -16,8 +16,8 @@ common open class C<:A { public init() {}}
 // EXEC-PIPE:%run %output 
 package cmp
 
-platform sealed abstract class A {}
-platform open class C<:A {}
+specific sealed abstract class A {}
+specific open class C<:A {}
 
 main(): Unit {
     let a = C()

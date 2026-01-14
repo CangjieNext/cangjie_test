@@ -17,4 +17,4 @@ common extend<T, G> Foo<T, G> where T <: ToString {}
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform extend<P, Q> Foo<P, Q> where P <: ToString {}
+specific extend<P, Q> Foo<P, Q> where P <: ToString {}

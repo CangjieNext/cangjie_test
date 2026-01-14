@@ -20,7 +20,7 @@ common struct A {
 // ASSERT: scan sema_not_matched
 package cmp
 
-platform struct A {
+specific struct A {
 }
 
 main() : Unit {

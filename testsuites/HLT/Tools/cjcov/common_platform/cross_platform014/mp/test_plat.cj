@@ -9,6 +9,6 @@
 package mp
 
 @C
-public platform struct A {
-    public platform var a: Int64 = 0
+public specific struct A {
+    public specific var a: Int64 = 0
 }

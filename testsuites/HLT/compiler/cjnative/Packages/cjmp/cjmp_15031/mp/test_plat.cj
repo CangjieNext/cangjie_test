@@ -7,5 +7,5 @@
  */
 
 package mp
-platform extend <T> A<T> <: I<T> {
+specific extend <T> A<T> <: I<T> {
 }

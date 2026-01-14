@@ -29,6 +29,6 @@ package cmp
 
 import A
 
-platform extend A.Foo {
+specific extend A.Foo {
     func foo():Unit {}
 }

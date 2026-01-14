@@ -19,9 +19,9 @@ common class C {
 // ASSERT: scan-2 sema_not_matched
 package cmp
 
-platform class C {
-    public platform func foo(input: B): Unit {
-        println("platform foo")
+specific class C {
+    public specific func foo(input: B): Unit {
+        println("specific foo")
     }
 }
 

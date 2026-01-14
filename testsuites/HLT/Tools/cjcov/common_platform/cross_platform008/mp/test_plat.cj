@@ -8,13 +8,13 @@
 
 package mp
 
-public platform enum A {
+public specific enum A {
     | E
-    public platform func f1(): Int64 {
+    public specific func f1(): Int64 {
         var a = 1
         0
     }
-    public platform static func f2(): Int64 {
+    public specific static func f2(): Int64 {
         1
     }
 }

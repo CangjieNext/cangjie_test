@@ -7,8 +7,8 @@
  */
 
 package mp
-platform extend <T> A<T> <: I<T> where T <: B<Int64> {
-    public platform static func foo3() { 2 }
+specific extend <T> A<T> <: I<T> where T <: B<Int64> {
+    public specific static func foo3() { 2 }
     public static func foo4() { 1 }
 }
 public func f2() {
