@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (CJNATIVE) EXEC: cd %n && %cjpm run   --no-feature-deduce --enable-features=os.linux 2>&1 | compare %f
-// (CJNATIVE) ASSERT: scan 0
-// (CJNATIVE) ASSERT: scan I run on Linux
-// (CJNATIVE) ASSERT: scan cjpm run finished
+// EXEC: cd %n && %cjpm run   --no-feature-deduce --enable-features=os.linux 2>&1 | compare %f
+// ASSERT: scan 0
+// ASSERT: scan I run on Linux
+// ASSERT: scan cjpm run finished

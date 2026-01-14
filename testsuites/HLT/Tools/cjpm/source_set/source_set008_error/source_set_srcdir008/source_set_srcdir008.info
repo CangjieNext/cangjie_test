@@ -8,6 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (CJNATIVE) EXEC: cd %n && %cjpm run  --no-feature-deduce --enable-features=os.windows,os.windows,os..linux,os.darwin,os.ohos 2>&1 | compare %f
-// (CJNATIVE) ASSERT: scan Error: value `os..linux` should be dot-separated qname, where each part matches regex `[a-zA-Z_][a-zA-Z0-9_]*`
-// (CJNATIVE) ASSERT: scan cjpm run failed
+// EXEC: cd %n && %cjpm run  --no-feature-deduce --enable-features=os.windows,os.windows,os..linux,os.darwin,os.ohos 2>&1 | compare %f
+// ASSERT: scan Error: value `os..linux` should be dot-separated qname, where each part matches regex `[a-zA-Z_][a-zA-Z0-9_]*`
+// ASSERT: scan cjpm run failed

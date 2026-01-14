@@ -8,10 +8,10 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (CJNATIVE and not Windows and not MAC) EXEC-PIPE-1: cd %n && %cjpm run 2>&1 | compare %f
+// (not Windows and not MAC) EXEC-PIPE-1: cd %n && %cjpm run 2>&1 | compare %f
 // (Windows or MAC) EXEC-PIPE-0: cd %n && %cjpm run 2>&1 | compare %f
-// (CJNATIVE and not Windows and not MAC) ASSERT: scan feature `linux.os` should be either builtin (like `os.linux`) or start with `user.packageName.`
-// (CJNATIVE and not Windows and not MAC) ASSERT: scan cjpm run failed
+// (not Windows and not MAC) ASSERT: scan feature `linux.os` should be either builtin (like `os.linux`) or start with `user.packageName.`
+// (not Windows and not MAC) ASSERT: scan cjpm run failed
 // (Windows or MAC) ASSERT: scan 0
 // (Windows or MAC) ASSERT: regex I run on [Windows|Darwin]
 // (Windows or MAC) ASSERT: scan cjpm run finished

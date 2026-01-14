@@ -6,6 +6,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
+// EXEC: cd %n && rm -rf cangjie_stdx
 // EXEC: cd %n && git clone https://gitcode.com/Cangjie/cangjie_stdx.git -b dev
 // EXEC-1: cd %n/cangjie_stdx && %cjpm run -V 2>&1 | compare %f
 // (not Windows)ASSERT: scan Error: can not find the 'target/release/bin/main' file

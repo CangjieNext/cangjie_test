@@ -6,6 +6,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
+// EXEC: cd %n && rm -rf cangjie_stdx
 // EXEC: cd %n && git clone https://gitcode.com/Cangjie/cangjie_stdx.git -b dev
 // EXEC: cd %n/cangjie_stdx && %cjpm build
 // EXEC: cd %n/cangjie_stdx  && %ls target/release/stdx 2>&1 1>a.txt && mv a.txt ../ && cd .. && cat a.txt | compare %f
