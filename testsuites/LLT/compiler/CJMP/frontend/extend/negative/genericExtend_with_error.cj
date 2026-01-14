@@ -21,7 +21,7 @@ common extend<T> Foo<Int64,T> {
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output 2>&1 | compare %f
 package cmp
 
-platform extend<T> Foo<T,Int64> { 
+specific extend<T> Foo<T,Int64> { 
 }
 
 main() {
@@ -30,10 +30,10 @@ main() {
 }
 
 /* SCAN
-error: 'platform' extend 'Foo<T,Int64>' can not find 'common' match
+error: 'specific' extend 'Foo<T,Int64>' can not find 'common' match
  ==> p/p.cj:4:10:
   | 
-4 |   platform extend<T> Foo<T,Int64> { 
+4 |   specific extend<T> Foo<T,Int64> { 
   |  __________^
 5 | | }
   | |_^

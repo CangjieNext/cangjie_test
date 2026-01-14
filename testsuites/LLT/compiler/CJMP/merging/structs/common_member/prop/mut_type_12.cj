@@ -22,13 +22,13 @@ common struct A {
 // ASSERT: scan sema_property_have_same_declaration_in_inherit_immut
 package cmp
 
-platform struct A {
-    platform mut prop testProp: Unit {
+specific struct A {
+    specific mut prop testProp: Unit {
         get() {
-            println("platform")
+            println("specific")
         }
         set(v) {
-            println("platform")
+            println("specific")
         }
     }
 }

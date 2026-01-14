@@ -24,8 +24,8 @@ common  func foo(a:Int64,b!:Int64 =2,c!:Int64 = 3): Unit{
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform  func foo(a:Int64,b!:Int64 ,c!:Int64 ): Unit{
-    println("From platform member foo func")
+specific  func foo(a:Int64,b!:Int64 ,c!:Int64 ): Unit{
+    println("From specific member foo func")
     println(a)    
     println(b)
     println(c)
@@ -36,7 +36,7 @@ main() {
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 1
 2
 3

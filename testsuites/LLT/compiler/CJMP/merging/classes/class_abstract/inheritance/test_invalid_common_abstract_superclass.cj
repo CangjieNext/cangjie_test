@@ -15,7 +15,7 @@ common open class C<:A { public init() {} }
 // EXEC-0: %compiler %noColor --experimental p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output  2>&1 | compare %f
 package cmp
 
-platform sealed abstract class A {}
+specific sealed abstract class A {}
 open class D<:A {}
 
 main(): Unit {

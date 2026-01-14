@@ -24,18 +24,18 @@ package cmp
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
-// ASSERT: scan-3 sema_platform_has_different_modifier
+// ASSERT: scan-3 sema_specific_has_different_modifier
 package cmp
 
-public platform class A {
-    public platform func B(): Int64 {0}
+public specific class A {
+    public specific func B(): Int64 {0}
 }
 
-public open platform class B {
-    public platform func B(): Int64 {0}
+public open specific class B {
+    public specific func B(): Int64 {0}
 }
 
-public abstract platform class C {
-    public platform func B(): Int64 {0}
+public abstract specific class C {
+    public specific func B(): Int64 {0}
 }
 

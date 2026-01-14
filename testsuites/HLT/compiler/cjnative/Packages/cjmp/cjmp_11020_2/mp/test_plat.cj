@@ -9,8 +9,8 @@
  
 package mp
 
-public platform class C {}
+public specific class C {}
 
-platform extend C {
+specific extend C {
     public prop p: Int64 { get(){1} }
 }

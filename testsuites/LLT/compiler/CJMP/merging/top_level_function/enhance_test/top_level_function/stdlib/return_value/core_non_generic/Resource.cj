@@ -26,8 +26,8 @@ common  func foo(): Resource{
 package cmp
 import std.fs.File
 import std.fs.OpenMode
-platform  func foo(): Resource {
-    println("From platform member foo func")
+specific  func foo(): Resource {
+    println("From specific member foo func")
     File("/",OpenMode.Read)
 
 
@@ -38,5 +38,5 @@ main() {
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 */

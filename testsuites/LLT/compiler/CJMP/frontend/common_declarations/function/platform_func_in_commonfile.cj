@@ -3,13 +3,13 @@ package cmp
 
 public common func foo(): Unit
 
-public platform func foo(): Unit {
-     println("platform foo")
+public specific func foo(): Unit {
+     println("specific foo")
 }
 
 /* SCAN
-error: platform declaration must be defined in platform package part
- ==> platform_func_in_commonfile.cj:1:1:
+error: specific declaration must be defined in specific package part
+ ==> specific_func_in_commonfile.cj:1:1:
   | 
 1 | // EXEC-PIPE-1: %compiler %noColor --experimental %f --output-type=chir 2>&1 | compare %f
   | ^ 

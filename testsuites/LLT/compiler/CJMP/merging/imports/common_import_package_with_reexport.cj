@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information. 
 
 // NOTE:
-// This test checks reexport of reexported declaration in common part is visible in platform part.
+// This test checks reexport of reexported declaration in common part is visible in specific part.
 
 
 // SEPARATE-FILE: ./dep0/dep0.cj
@@ -32,7 +32,7 @@ public func f_in_dep() {
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
 
-// `public` required to be visible in other files(platform part)
+// `public` required to be visible in other files(specific part)
 public import dep.*
 // direct reexport should work as well as transitive
 public import std.sync.IllegalSynchronizationStateException
@@ -51,9 +51,9 @@ import dep0.b
 
 public func f2() {
     f_in_dep()
-    println("platform:${a()}") // visible because of public import in common part
-    println("platform:${IllegalSynchronizationStateException()}")
-    println("platform:${b()}")
+    println("specific:${a()}") // visible because of public import in common part
+    println("specific:${IllegalSynchronizationStateException()}")
+    println("specific:${b()}")
 }
 
 // SEPARATE-FILE: m_common.cj
@@ -86,7 +86,7 @@ dep:a
 common:a
 common:IllegalSynchronizationStateException
 dep:a
-platform:a
-platform:IllegalSynchronizationStateException
-platform:b
+specific:a
+specific:IllegalSynchronizationStateException
+specific:b
 */ 

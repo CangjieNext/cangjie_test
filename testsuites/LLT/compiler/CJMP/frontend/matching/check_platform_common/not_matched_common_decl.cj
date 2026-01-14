@@ -14,13 +14,13 @@ public common func foo(): Unit {}
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 // ASSERT: scan-5 sema_not_matched
 package cmp
-public platform class A2 {}
+public specific class A2 {}
 
-public platform struct S2 {}
+public specific struct S2 {}
 
-public platform interface I2 {}
+public specific interface I2 {}
 
-public platform enum E2 {
+public specific enum E2 {
     E
 }
 

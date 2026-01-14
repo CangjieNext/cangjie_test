@@ -8,8 +8,8 @@
  
 package mp
 
-public platform class A {
-    public platform A() {}
+public specific class A {
+    public specific A() {}
 }
 public func test_plat() { A().a + A().f() }
 

@@ -22,9 +22,9 @@ common public class A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform public class A {
-    platform public func foo(): Unit {
-        println("From platform member func")
+specific public class A {
+    specific public func foo(): Unit {
+        println("From specific member func")
     }
 }
 // SEPARATE-FILE: m.cj
@@ -41,6 +41,6 @@ main(): Unit {
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 /* SCAN
-From platform member func
+From specific member func
 From common member func koo
 */

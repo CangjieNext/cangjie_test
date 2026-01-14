@@ -8,12 +8,12 @@
 
 package mp
 
-platform public class A {}
+specific public class A {}
 
-platform protected class A2 {}
+specific protected class A2 {}
 
 public func test_plat() {
     A()
 }
 
-platform public abstract class C1 {}
+specific public abstract class C1 {}

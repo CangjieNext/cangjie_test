@@ -19,9 +19,9 @@ common class A {
 // ASSERT: scan sema_class_uninitialized_field
 package cmp
 
-platform class A {
-    platform let a: Int64
-    platform init() {}
+specific class A {
+    specific let a: Int64
+    specific init() {}
 }
 
 main() : Unit {

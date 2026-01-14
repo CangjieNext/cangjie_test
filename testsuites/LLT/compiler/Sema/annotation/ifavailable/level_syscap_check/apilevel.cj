@@ -54,7 +54,7 @@ extend String <: PermissionValue {
 public class APILevel {
     public let since: String
     public let atomicservice: Bool
-    public let crossplatform: Bool
+    public let crossspecific: Bool
     public let deprecated: ?String
     public let form: Bool
     public let permission: ?PermissionValue
@@ -62,12 +62,12 @@ public class APILevel {
     public let throwexception: Bool
     public let workerthread: Bool
     public let systemapi: Bool
-    public const init(since!: String, atomicservice!: Bool = false, crossplatform!: Bool = false,
+    public const init(since!: String, atomicservice!: Bool = false, crossspecific!: Bool = false,
         deprecated!: ?String = None, form!: Bool = false, permission!: ?PermissionValue = None,
         syscap!: String = "", throwexception!: Bool = false, workerthread!: Bool = false, systemapi!: Bool = false) {
         this.since = since
         this.atomicservice = atomicservice
-        this.crossplatform = crossplatform
+        this.crossspecific = crossspecific
         this.deprecated = deprecated
         this.form = form
         this.permission = permission

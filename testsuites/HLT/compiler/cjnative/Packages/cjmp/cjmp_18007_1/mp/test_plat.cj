@@ -8,6 +8,6 @@
 
 package mp
 
-public platform class C {
-    public platform C() {}
+public specific class C {
+    public specific C() {}
 }

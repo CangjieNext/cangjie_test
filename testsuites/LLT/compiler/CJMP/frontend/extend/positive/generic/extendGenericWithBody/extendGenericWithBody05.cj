@@ -33,14 +33,14 @@ common extend<T> Point<T> <: ToString where T <: Number<T> & ToString {
 // EXEC-0: %compiler %noColor --experimental p/p.cj ./c/a.chir --common-part-cjo=./c/a.cjo --output-type=dylib --output-dir=./p
 package a
 import std.math.*
-platform extend<T> Point<T> <: ToString where T <: Number<T> & ToString {
-    platform public operator func -(): Point<T> {
+specific extend<T> Point<T> <: ToString where T <: Number<T> & ToString {
+    specific public operator func -(): Point<T> {
         return Point(-x, -y)
     }
-    platform public operator func +(right: Point<T>): Point<T> {
+    specific public operator func +(right: Point<T>): Point<T> {
         return Point(x + right.x, y + right.y)
     }
-    platform public operator func *(right: Point<T>): Point<T> {
+    specific public operator func *(right: Point<T>): Point<T> {
         return Point(x * right.x, y * right.y)
     }
 }

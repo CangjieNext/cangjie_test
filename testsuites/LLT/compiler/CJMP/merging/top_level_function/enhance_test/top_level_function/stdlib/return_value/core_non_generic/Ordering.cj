@@ -23,8 +23,8 @@ common  func foo():Ordering     {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform  func foo():Ordering     {
-    println("From platform member foo func")
+specific  func foo():Ordering     {
+    println("From specific member foo func")
     Ordering.LT
 }
 main() {
@@ -33,5 +33,5 @@ main() {
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 */

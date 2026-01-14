@@ -9,7 +9,7 @@ package cmp
 
 import cmp.pkg1.*
 
-public platform func foo(): Unit {
-    print("platform foo: ")
+public specific func foo(): Unit {
+    print("specific foo: ")
     test()
 }

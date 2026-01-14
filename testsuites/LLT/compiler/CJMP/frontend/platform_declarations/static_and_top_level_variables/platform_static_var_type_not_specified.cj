@@ -17,7 +17,7 @@ public common class A {
 // EXEC-PIPE-0: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
-    platform static let a = "42"
+public specific class A {
+    specific static let a = "42"
 }
 

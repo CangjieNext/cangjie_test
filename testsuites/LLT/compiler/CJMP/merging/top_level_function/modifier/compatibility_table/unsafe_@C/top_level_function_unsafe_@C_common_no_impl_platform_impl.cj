@@ -14,12 +14,12 @@ common unsafe  func foo(): Unit
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output 2>&1 | compare %f
-// ASSERT: scan-1 sema_platform_has_different_annotation
+// ASSERT: scan-1 sema_specific_has_different_annotation
 package cmp
 
 @C
-platform unsafe  func foo(): Unit {
-    println("From platform member foo func")
+specific unsafe  func foo(): Unit {
+    println("From specific member foo func")
 }
 main() {
     unsafe {foo()}

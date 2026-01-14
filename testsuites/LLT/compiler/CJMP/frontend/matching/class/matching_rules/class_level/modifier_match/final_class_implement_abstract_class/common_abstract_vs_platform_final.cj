@@ -16,7 +16,7 @@ public common abstract class A {
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
-public platform class B{
+public specific class B{
     init(){}
 }
 

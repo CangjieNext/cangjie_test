@@ -25,13 +25,13 @@ common class A1 {
 // ASSERT: scan-4 sema_not_matched
 package cmp
 
-platform func foo<T>(): Unit{}
+specific func foo<T>(): Unit{}
 
-platform class A0 {
-    platform func foo<T>(): Unit{}
+specific class A0 {
+    specific func foo<T>(): Unit{}
 }
 
-platform class A1<T> {
-    platform func foo(): Unit{}
+specific class A1<T> {
+    specific func foo(): Unit{}
 }
 

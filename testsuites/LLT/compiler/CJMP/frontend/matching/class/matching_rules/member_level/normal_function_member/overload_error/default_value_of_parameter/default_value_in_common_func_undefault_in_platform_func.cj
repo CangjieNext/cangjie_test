@@ -20,8 +20,8 @@ common class A {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform class A{
-    public platform func goo(a:Int64,input!: Int64): Int64 {input}
+specific class A{
+    public specific func goo(a:Int64,input!: Int64): Int64 {input}
 }
 main(){
     let a: A = A()

@@ -35,9 +35,9 @@ common func foo(arg: A): Unit {
 package cmp
 import testImport.*
 
-platform func foo(arg: A): Unit {
+specific func foo(arg: A): Unit {
     arg.goo()
-    println("platform")
+    println("specific")
 }
 
 main() {
@@ -46,5 +46,5 @@ main() {
 
 /* SCAN
 interface A
-platform
+specific
 */

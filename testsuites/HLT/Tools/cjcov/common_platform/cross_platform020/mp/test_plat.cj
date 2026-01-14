@@ -8,14 +8,14 @@
 
 package mp
 
-public platform interface Add<T1, T2> {
-    platform operator func +(right: T1): T1 {
+public specific interface Add<T1, T2> {
+    specific operator func +(right: T1): T1 {
         right
     }
 }
 
-platform extend Rune <: Add<Rune, UInt32> {
-    public platform operator func +(right: Rune): Rune {
+specific extend Rune <: Add<Rune, UInt32> {
+    public specific operator func +(right: Rune): Rune {
         UInt32(right)
         r'C'
     }

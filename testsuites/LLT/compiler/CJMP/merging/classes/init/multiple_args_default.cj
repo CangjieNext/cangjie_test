@@ -22,9 +22,9 @@ package cmp
 
 import std.random.*
 
-public platform class A {
-    public platform init(a: Int64, b: Random, c: Array<Int64>) {
-        println("[platform] A.init(${a}, ${b.nextInt64() * 0 + 42}, ${c[0]})")
+public specific class A {
+    public specific init(a: Int64, b: Random, c: Array<Int64>) {
+        println("[specific] A.init(${a}, ${b.nextInt64() * 0 + 42}, ${c[0]})")
     }
 }
 
@@ -42,5 +42,5 @@ main(): Unit {
 }
 
 /* SCAN
-[platform] A.init(42, 42, 42)
+[specific] A.init(42, 42, 42)
 */

@@ -10,20 +10,20 @@ package mp
 
 import std.collection.*
 
-public platform abstract class Animal {
-    public platform func run(): String {
+public specific abstract class Animal {
+    public specific func run(): String {
         return "dog animal"
     }
 }
 
-public platform class Dog <: Animal {}
+public specific class Dog <: Animal {}
 
-public platform class Zoo<T> where T <: Animal {
-    public platform func addAnimal(a: T) {
+public specific class Zoo<T> where T <: Animal {
+    public specific func addAnimal(a: T) {
         animals.add(a)
     }
 
-    public platform func allAnimalRuns() {
+    public specific func allAnimalRuns() {
         for(a in animals) {
             println(a.run())
         }

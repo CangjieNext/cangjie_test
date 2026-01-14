@@ -23,8 +23,8 @@ package cmp
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform struct A {
-   public platform static mut prop a: Int64{
+public specific struct A {
+   public specific static mut prop a: Int64{
     get() {
         0
     }

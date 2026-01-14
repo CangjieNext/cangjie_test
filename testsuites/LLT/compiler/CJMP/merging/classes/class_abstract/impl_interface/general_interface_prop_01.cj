@@ -31,7 +31,7 @@ public common class C1 <: I1 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class C1 <: I1 {
+public specific class C1 <: I1 {
 }
 
 // SEPARATE-FILE: m_common.cj

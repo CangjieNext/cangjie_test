@@ -20,9 +20,9 @@ common func f3<T>(it: T): T { it }
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform func f1<T>(): Int { 11 }
-platform func f2<X>(): Int { 22 }
-platform func f3<X>(it: X): X { it }
+specific func f1<T>(): Int { 11 }
+specific func f2<X>(): Int { 22 }
+specific func f3<X>(it: X): X { it }
  
 main() {
     println(f1<Int>())

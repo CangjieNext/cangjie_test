@@ -18,8 +18,8 @@ common class A {
 // ASSERT: scan parse_expected_one_of_identifier_or_pattern
 package cmp
 
-platform class A {
-    platform var: Int64
+specific class A {
+    specific var: Int64
 }
 
 main() : Unit {

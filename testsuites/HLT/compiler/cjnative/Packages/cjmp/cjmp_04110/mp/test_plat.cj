@@ -8,8 +8,8 @@
  
 package mp
 
-public platform class A {
-    public platform mut prop p: Int64 {
+public specific class A {
+    public specific mut prop p: Int64 {
         get() { 0 }
         set(v) { v }
     }

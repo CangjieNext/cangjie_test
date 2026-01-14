@@ -7,6 +7,6 @@
 features { user.testing._1, user.testing._2 }
 package testing
 
-public platform func baz(x: Range<Int64>): String {
+public specific func baz(x: Range<Int64>): String {
     "<empty>"
 }

@@ -7,6 +7,6 @@
 features { os.windows }
 package ot_static
 
-public platform func platformId(): String { "windows id" }
+public specific func specificId(): String { "windows id" }
 
 main(): Unit { commonMain() }

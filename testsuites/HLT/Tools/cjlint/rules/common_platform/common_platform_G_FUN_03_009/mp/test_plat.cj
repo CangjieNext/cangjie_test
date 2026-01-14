@@ -8,18 +8,18 @@
 
 package mp
 
-platform enum A {
+specific enum A {
     | ELEMENT
 
-    platform func foo1(a: Int64): Unit {
+    specific func foo1(a: Int64): Unit {
         println(a)
     }
 
-    platform func foo3(): Unit {
-        println("platform")
+    specific func foo3(): Unit {
+        println("specific")
     }
     func foo5(): Int64 { 1 }
-    platform static func fooa(): Unit {
+    specific static func fooa(): Unit {
         println("hello")
     }
 }

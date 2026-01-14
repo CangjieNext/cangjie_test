@@ -19,11 +19,11 @@ public common enum EA{
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform enum EA{
+public specific enum EA{
     A (Int64)|
     B |
     C
-    public platform func getA() :Int64 {
+    public specific func getA() :Int64 {
         0
     }
 }

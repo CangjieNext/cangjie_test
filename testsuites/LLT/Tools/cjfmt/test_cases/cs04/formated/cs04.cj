@@ -6,12 +6,12 @@
 
 package cjmp
 
-platform public func foo1(): Unit {}
+specific public func foo1(): Unit {}
 
-platform public func foo2(a!: Int64): Unit {}
+specific public func foo2(a!: Int64): Unit {}
 
-platform public func foo3(a!: Int64): Unit {}
+specific public func foo3(a!: Int64): Unit {}
 
-platform public func foo5(a: Int64): Unit {
+specific public func foo5(a: Int64): Unit {
     println("hello world")
 }

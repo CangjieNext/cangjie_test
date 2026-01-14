@@ -8,15 +8,15 @@
 
 package mp
 
-public platform open class A {
+public specific open class A {
     private var valueX = 0
     private static var valueY = 0
 
-    public open platform prop x: Int64 {
+    public open specific prop x: Int64 {
         get() { valueX }
     }
 
-    public static mut platform prop y: Int64 {
+    public static mut specific prop y: Int64 {
         get() { valueY }
         set(v) {
             valueY = v
@@ -24,15 +24,15 @@ public platform open class A {
     }
 }
 
-public platform class B <: A {
+public specific class B <: A {
     private var valueX2 = 0
     private static var valueY2 = 0
 
-    public override platform prop x: Int64 {
+    public override specific prop x: Int64 {
         get() { valueX2 }
     }
 
-    public redef static mut platform prop y: Int64 {
+    public redef static mut specific prop y: Int64 {
         get() { valueY2 }
         set(v) {
             valueY2 = v

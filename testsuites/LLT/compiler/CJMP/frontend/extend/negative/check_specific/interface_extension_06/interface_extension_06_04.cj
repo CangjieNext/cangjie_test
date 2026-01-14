@@ -40,12 +40,12 @@ package cmp
 
 import A
 
-platform extend<T, G> A.Foo<T, G> where T <: A.Ioo<G, G> {
-    platform func goo<Z>(z:Z, t:A.Ioo<T,T>):Unit {
-        println("platform::goo<Z>")
+specific extend<T, G> A.Foo<T, G> where T <: A.Ioo<G, G> {
+    specific func goo<Z>(z:Z, t:A.Ioo<T,T>):Unit {
+        println("specific::goo<Z>")
     }
 
-    platform public mut prop p: A.Foo<T,T> {
+    specific public mut prop p: A.Foo<T,T> {
         get() { p }
         set(t) { }
     }

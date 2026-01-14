@@ -6,23 +6,23 @@
 
 package common
 
-platform open class Base01 {}
+specific open class Base01 {}
 
-platform abstract class Base02 {}
+specific abstract class Base02 {}
 
-platform sealed abstract class Base03 {}
+specific sealed abstract class Base03 {}
 
-platform public open class Rectangle {
-    platform public var width: Int64
-    platform protected var height: Int64
-    platform private var area: Int64
-    platform public init(width: Int64, height: Int64) {
+specific public open class Rectangle {
+    specific public var width: Int64
+    specific protected var height: Int64
+    specific private var area: Int64
+    specific public init(width: Int64, height: Int64) {
         this.width = width
         this.height = height
         this.area = this.width * this.height
     }
 
-    platform public mut prop area_: Int64 {
+    specific public mut prop area_: Int64 {
         get() {
             println("get")
             area

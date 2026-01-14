@@ -17,11 +17,11 @@ public common func foo(input: Array<Int64>): Unit
 package cmp
 
 
-public platform func foo(): Unit {
+public specific func foo(): Unit {
     println("base")
 }
 
-public platform func foo(input: Array<Int64>): Unit {
+public specific func foo(input: Array<Int64>): Unit {
     println(input)
 }
 

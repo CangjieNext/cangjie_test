@@ -17,12 +17,12 @@ public common func koo(input!: Int64): Unit
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan-6 sema_not_matched
-// ASSERT: scan sema_platform_has_different_parameter
+// ASSERT: scan sema_specific_has_different_parameter
 package cmp
 
-public platform func goo(input!: Int64): Unit {}
+public specific func goo(input!: Int64): Unit {}
 
-public platform func woo(): Unit {}
+public specific func woo(): Unit {}
 
-public platform func koo(output!: Int64): Unit {}
+public specific func koo(output!: Int64): Unit {}
 
