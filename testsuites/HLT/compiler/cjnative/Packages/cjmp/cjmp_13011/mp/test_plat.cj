@@ -8,7 +8,7 @@
 
 package mp
 
-public platform abstract class C1 {
+public specific abstract class C1 {
     public abstract func f2(): Int64
     public abstract prop p2: Int64
 }

@@ -8,14 +8,14 @@
 
 package mp
 
-public platform enum A {
+public specific enum A {
     | E | F
     | ...
-    public platform func f1(): Int64{
+    public specific func f1(): Int64{
         var a = 1
         1
     }
-    public platform prop a:Int64 {
+    public specific prop a:Int64 {
         get() {2}
     }
 }

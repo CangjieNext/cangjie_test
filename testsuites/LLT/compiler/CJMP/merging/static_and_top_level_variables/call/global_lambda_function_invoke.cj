@@ -17,13 +17,13 @@ public common let f2: () -> Unit = { => println("hello f2")}
 // SEPARATE-FILE: p/p.cj
 // EXEC-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
-public platform let a:Int64=2
+public specific let a:Int64=2
 
 public let c = 100
 
-public platform let f2: () -> Unit = { => println(a+b+c+3)}
+public specific let f2: () -> Unit = { => println(a+b+c+3)}
 
-// When merging platform there is effective circullar dependency:
+// When merging specific there is effective circullar dependency:
 // `f1` depends on `a` (c.cj -> p.cj)
 // `f2` depends on `b` (p.cj -> c.cj)
 

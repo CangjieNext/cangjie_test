@@ -20,9 +20,9 @@ common extend Foo{
 // ASSERT: scan error: function 'bar' has overload conflicts
 package cmp
 
-platform extend Foo{
+specific extend Foo{
     private func bar(){}
-    platform protected func foo():Unit {}
+    specific protected func foo():Unit {}
 }
 
 // CJMP Spec:

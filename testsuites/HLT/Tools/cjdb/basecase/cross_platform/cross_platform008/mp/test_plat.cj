@@ -8,9 +8,9 @@
 
 package mp
 
-public platform enum A {
+public specific enum A {
     | E
-    public platform func f1(): Int64 {
+    public specific func f1(): Int64 {
         var a = 1
         0
     }

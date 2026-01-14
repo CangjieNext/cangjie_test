@@ -7,8 +7,8 @@
  */
 package mp
 
-public platform interface I {
+public specific interface I {
     public prop p: Int64 { get(){1} }
 }
 
-public platform class C <: I {}
+public specific class C <: I {}

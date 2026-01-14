@@ -19,8 +19,8 @@ public common class A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
-    private platform let a_: Int = 2
+public specific class A {
+    private specific let a_: Int = 2
     public let b: Int = a_ * 3
 
     public init(_: Unit) { }

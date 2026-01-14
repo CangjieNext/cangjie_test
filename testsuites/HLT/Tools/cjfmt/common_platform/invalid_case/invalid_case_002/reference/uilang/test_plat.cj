@@ -8,8 +8,8 @@
 =
 package mp
 
-public platform unsafe struct A {
-    private platform operator func f(): Int64 { 0 }
+public specific unsafe struct A {
+    private specific operator func f(): Int64 { 0 }
     public common const var a: Int64 = 1
     unsafe static mut common var b: Int64 = 2
 }

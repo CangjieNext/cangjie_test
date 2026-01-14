@@ -7,5 +7,5 @@
  */
  
 package mp
-public platform func f() { B() }
+public specific func f() { B() }
 public func test_plat() { f().foo() }

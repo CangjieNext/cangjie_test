@@ -21,7 +21,7 @@ public class C1 <: I1 {
     public init(){}
 
     public operator func ==(i: I1) : Bool {
-        println("platform")
+        println("specific")
         return true
     }
 }
@@ -42,6 +42,6 @@ main(): Unit {
 
 
 /* SCAN
-platform
-platform
+specific
+specific
 */

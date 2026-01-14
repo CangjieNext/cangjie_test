@@ -21,7 +21,7 @@ common enum A {
 // ASSERT: scan sema_not_matched
 package cmp
 
-platform enum A {
+specific enum A {
     | TEST_ENUM
 
 }

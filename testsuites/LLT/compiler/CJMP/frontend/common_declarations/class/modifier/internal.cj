@@ -19,7 +19,7 @@ internal common class A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-internal platform class A {
+internal specific class A {
 }
 
 // SEPARATE-FILE: m_common.cj

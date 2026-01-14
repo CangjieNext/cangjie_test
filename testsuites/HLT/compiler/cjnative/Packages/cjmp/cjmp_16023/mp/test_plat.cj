@@ -7,11 +7,11 @@
  */
 
 package mp
-platform public interface I<T> {
-    platform func f(a: T, b: T) { b }
+specific public interface I<T> {
+    specific func f(a: T, b: T) { b }
 }
-platform extend <T, K> B<T, K> where T <: I<K> {
-    public platform func foo(a: T, b: K, c: K) {
+specific extend <T, K> B<T, K> where T <: I<K> {
+    public specific func foo(a: T, b: K, c: K) {
         a.f(b, c)
     }
 }

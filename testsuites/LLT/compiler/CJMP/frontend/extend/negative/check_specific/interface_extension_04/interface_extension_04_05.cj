@@ -18,7 +18,7 @@ common extend Int64 {
 // ASSERT: scan error: function 'foo' has overload conflicts
 package cmp
 
-platform extend Int64 {
+specific extend Int64 {
     func foo():Int64 {
         println("_::Int64::goo")
         return 0

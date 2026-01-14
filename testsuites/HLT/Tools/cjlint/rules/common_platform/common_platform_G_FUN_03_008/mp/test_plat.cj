@@ -8,16 +8,16 @@
 
 package mp
 
-platform class A {
-    platform static func foo1(a: Int64): Unit { println(a) }
-    platform static func foo3(): Unit { println("platform") }
+specific class A {
+    specific static func foo1(a: Int64): Unit { println(a) }
+    specific static func foo3(): Unit { println("specific") }
     func foo5(): Int64 { 1 }
     init() {}
 }
 
-platform struct S {
-    platform static func foo1(a: Int64): Unit { println(a) }
-    platform static func foo3(): Unit { println("platform") }
+specific struct S {
+    specific static func foo1(a: Int64): Unit { println(a) }
+    specific static func foo3(): Unit { println("specific") }
     func foo5(): Int64 { 1 }
     init() {}
 }

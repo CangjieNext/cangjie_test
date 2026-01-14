@@ -8,4 +8,4 @@
 
 package mp
 
-platform extend Int32 {}
+specific extend Int32 {}

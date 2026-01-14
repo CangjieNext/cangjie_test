@@ -17,15 +17,15 @@ public abstract common class A {
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
-public abstract platform class A {
-    public platform prop B: Int64 { get() { 0 } }
+public abstract specific class A {
+    public specific prop B: Int64 { get() { 0 } }
 }
 
 /* SCAN
-error: 'platform' property modifier is not match 'common' modifier
+error: 'specific' property modifier is not match 'common' modifier
  ==> p/p.cj:5:5:
   | 
-5 |     public platform prop B: Int64 { get() { 0 } }
+5 |     public specific prop B: Int64 { get() { 0 } }
   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
 

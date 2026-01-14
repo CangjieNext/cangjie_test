@@ -27,8 +27,8 @@ public common class A{
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-public platform class A {
-    private platform prop a:Int {
+public specific class A {
+    private specific prop a:Int {
         get(){b}
     }
     public func caller2(): Unit{

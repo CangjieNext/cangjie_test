@@ -13,9 +13,9 @@ common var b: Bool
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p  2>&1 | compare %f
-// ASSERT: scan-2 sema_platform_has_different_type
+// ASSERT: scan-2 sema_specific_has_different_type
 package cmp
 
-platform let a: Int = 1
-platform var b: Int = 1
+specific let a: Int = 1
+specific var b: Int = 1
 

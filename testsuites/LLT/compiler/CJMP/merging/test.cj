@@ -20,7 +20,7 @@ public func runCommon() {
 // EXEC-0: %compiler %noColor --experimental p/pa.cj ./c/a.chir --common-part-cjo=./c/a.cjo --output-type=dylib
 package a
 
-public platform open class A {
+public specific open class A {
   public var a1 = "a1"
 }
 

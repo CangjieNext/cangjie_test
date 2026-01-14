@@ -18,7 +18,7 @@ public common class A {
 // ASSERT: scan sema_redefinition
 package cmp
 
-public platform class A {
+public specific class A {
     public let x: Int = 4
     init() {}
 }

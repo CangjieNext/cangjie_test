@@ -36,29 +36,29 @@ public common let lambda_d:()->E
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-public platform class A{
-    public platform let a:Int64=1
+public specific class A{
+    public specific let a:Int64=1
     public let b:Int32=2
 }
-public platform struct B{
-    public platform let b:Int64=2
+public specific struct B{
+    public specific let b:Int64=2
 }
-public platform interface C{
-    platform func foo():Unit
+public specific interface C{
+    specific func foo():Unit
 }
-public platform class D<:C{
+public specific class D<:C{
     public func goo():Unit{
         println("class D goo")
     }
 }
-public platform enum E{
+public specific enum E{
     ONE|TWO|THREE
 }
-public platform let lambda_a:()->A={=>A()}
-public platform let lambda_b:()->B={=>B()}
-public platform let lambda_c:()->C={=>D()}
-public platform let lambda_c2:()->D={=>D()}
-public platform let lambda_d:()->E={=>ONE}
+public specific let lambda_a:()->A={=>A()}
+public specific let lambda_b:()->B={=>B()}
+public specific let lambda_c:()->C={=>D()}
+public specific let lambda_c2:()->D={=>D()}
+public specific let lambda_d:()->E={=>ONE}
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor m_common.cj --import-path=./p -L./p -lcmp -o %output
 // (CJNATIVE and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f

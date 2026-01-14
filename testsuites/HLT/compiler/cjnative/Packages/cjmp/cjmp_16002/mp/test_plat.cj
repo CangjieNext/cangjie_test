@@ -8,7 +8,7 @@
 
 package mp
 
-public platform func foo<T>(a: T, b: T): T {
+public specific func foo<T>(a: T, b: T): T {
     b
 }
 

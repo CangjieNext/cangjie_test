@@ -10,8 +10,8 @@
 // ERRCHECK: %compiler %cmp_opt %f -o %output
 // ASSERT: scan parse_illegal_modifier_in_scope
 
-public platform class A {
-    platform ~init() {}
+public specific class A {
+    specific ~init() {}
 }
 
 

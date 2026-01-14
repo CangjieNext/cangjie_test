@@ -24,8 +24,8 @@ public func testFunction(input:()->Unit) : Unit {
     input()
 }
 
-platform func foo(): Unit {
-    println("platform")
+specific func foo(): Unit {
+    println("specific")
 }
 
 main() {
@@ -34,6 +34,6 @@ main() {
 }
 
 /* SCAN
-platform
-platform
+specific
+specific
 */

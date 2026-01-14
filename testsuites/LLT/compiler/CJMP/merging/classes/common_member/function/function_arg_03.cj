@@ -28,12 +28,12 @@ common class A {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform class A {
-    platform func testFunc(c: GeneralClass): Unit {
-        println("platform")
+specific class A {
+    specific func testFunc(c: GeneralClass): Unit {
+        println("specific")
     }
-    platform func testFunc1(c: GeneralClass): Unit {
-        println("platform")
+    specific func testFunc1(c: GeneralClass): Unit {
+        println("specific")
     }
 }
 
@@ -44,7 +44,7 @@ main() : Unit {
 }
 
 /* SCAN
-platform
-platform
+specific
+specific
 common
 */

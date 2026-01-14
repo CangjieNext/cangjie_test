@@ -8,13 +8,13 @@
 
 package mp
 
-platform extend Int64 {
-    platform public prop p: Int64 {
+specific extend Int64 {
+    specific public prop p: Int64 {
         get() {
             1
         }
     }
-    platform public func f(): Int64 {
+    specific public func f(): Int64 {
         1
     }
 }

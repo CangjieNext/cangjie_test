@@ -25,7 +25,7 @@ package cmp
 
 
 public func foo(a: Int64, b: Int64): Unit{
-    println("From platform member foo func")
+    println("From specific member foo func")
     println(a)
     println(b)
 
@@ -39,7 +39,7 @@ main() {
 /* SCAN
 From common member foo func
 1
-From platform member foo func
+From specific member foo func
 1
 2
 */

@@ -26,8 +26,8 @@ common  func foo(arg: BufferedOutputStream<A>): Unit {
 package cmp
 import std.io.*
 
-platform  func foo(arg: BufferedOutputStream<A>): Unit {
-    println("From platform member foo func")
+specific  func foo(arg: BufferedOutputStream<A>): Unit {
+    println("From specific member foo func")
     
 }
 main() {
@@ -36,5 +36,5 @@ main() {
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 */

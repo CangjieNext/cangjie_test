@@ -20,18 +20,18 @@ public common interface I0 {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-public platform interface I0 {
+public specific interface I0 {
     func goo(): Unit {
-        println("goo in I0 of platform")
+        println("goo in I0 of specific")
     }
 }
 
 class A <: I0 {
     public func foo(): Unit {
-        println("foo in A of platform")
+        println("foo in A of specific")
     }
     public func goo(): Unit {
-        println("goo in A of platform")
+        println("goo in A of specific")
     }
 }
 
@@ -42,6 +42,6 @@ main() {
 }
 
 /* SCAN
-foo in A of platform
-goo in A of platform
+foo in A of specific
+goo in A of specific
 */

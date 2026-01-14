@@ -20,11 +20,11 @@ public common class CA {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform enum EA{
+public specific enum EA{
     A(CA) |
     C
 }
-public platform class CA {
+public specific class CA {
    var field : EA = EA.C
 }
 

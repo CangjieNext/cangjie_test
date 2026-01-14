@@ -8,7 +8,7 @@
  
 package mp
 
-public platform func f2(): Int64 { -1 }
+public specific func f2(): Int64 { -1 }
 public func f4(): Int64 { -1 }
 main() {
     return f1() + f2() + f3() + f4()

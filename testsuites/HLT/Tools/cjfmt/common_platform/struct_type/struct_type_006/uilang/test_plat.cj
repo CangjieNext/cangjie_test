@@ -8,6 +8,6 @@
 
 package mp
 
-internal platform struct A {
-    internal platform init() {}
+internal specific struct A {
+    internal specific init() {}
 }

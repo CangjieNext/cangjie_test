@@ -8,10 +8,10 @@
 
 package mp
 
-public platform class A{}
+public specific class A{}
 
-protected platform class A2{}
+protected specific class A2{}
 
 public func test_plat() { A() }
 
-public platform abstract class C1 {}
+public specific abstract class C1 {}

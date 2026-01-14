@@ -12,5 +12,5 @@ public common class C {}
 
 common extend C {
     public common func f1(): Int64 { 0 }
-    public platform func f2(): Int64 { 0 }
+    public specific func f2(): Int64 { 0 }
 }

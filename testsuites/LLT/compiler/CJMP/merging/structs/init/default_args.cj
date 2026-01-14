@@ -22,7 +22,7 @@ package cmp
 
 import std.random.*
 
-public platform struct A {}
+public specific struct A {}
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor -j8 m_common.cj --import-path=./c -L./p -lcmp -o %output
