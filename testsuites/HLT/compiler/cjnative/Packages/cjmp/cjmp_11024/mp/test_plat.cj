@@ -8,4 +8,4 @@
 
 package mp
 
-public platform class C {}
+public specific class C {}

@@ -8,8 +8,8 @@
 
 package mp
 
-public platform interface I {
-    public platform func f1(): Int64 {
+public specific interface I {
+    public specific func f1(): Int64 {
         1
     }
 }

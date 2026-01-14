@@ -17,8 +17,8 @@ public common class C {
 // EXEC: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class C {
-    public platform static let x: Int = 9
+public specific class C {
+    public specific static let x: Int = 9
 }
 
 // SEPARATE-FILE: m_common.cj

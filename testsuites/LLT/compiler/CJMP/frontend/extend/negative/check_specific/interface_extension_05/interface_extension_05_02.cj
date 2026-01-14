@@ -27,11 +27,11 @@ common public func int64Foo():Unit {
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 // ASSERT: scan error: function 'foo' has overload conflicts
-// ASSERT: scan error: 'platform' function 'foo' can not find 'common' match
+// ASSERT: scan error: 'specific' function 'foo' can not find 'common' match
 package cmp
 
-platform extend Int64 <: IA {
-    platform public func foo():Unit {
-        println("platform::Int64::foo")
+specific extend Int64 <: IA {
+    specific public func foo():Unit {
+        println("specific::Int64::foo")
     }
 }

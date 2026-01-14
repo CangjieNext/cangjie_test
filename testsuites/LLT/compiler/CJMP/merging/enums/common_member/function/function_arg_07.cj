@@ -23,11 +23,11 @@ common enum A {
 // ASSERT: scan sema_not_matched
 package cmp
 
-platform enum A {
+specific enum A {
     | TEST_ENUM
 
-    platform func testFunc(c: Int64): Unit {
-        println("platform")
+    specific func testFunc(c: Int64): Unit {
+        println("specific")
     }
 }
 

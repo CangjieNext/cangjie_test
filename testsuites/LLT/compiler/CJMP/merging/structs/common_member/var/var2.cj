@@ -18,8 +18,8 @@ common struct A {
 // ASSERT: scan chir_class_uninitialized_field
 package cmp
 
-platform struct A {
-    platform var a: Int64
+specific struct A {
+    specific var a: Int64
 }
 
 main() : Unit {

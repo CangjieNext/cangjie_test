@@ -9,8 +9,8 @@
 features { user.mp.windowsorlinux }
 package mp
 
-public platform class A {
-    public platform func f(): Int64 {
+public specific class A {
+    public specific func f(): Int64 {
         8
     }
 }

@@ -8,6 +8,6 @@
 
 package mp
 
-public platform class C {
-    public platform var a = 2
+public specific class C {
+    public specific var a = 2
 }

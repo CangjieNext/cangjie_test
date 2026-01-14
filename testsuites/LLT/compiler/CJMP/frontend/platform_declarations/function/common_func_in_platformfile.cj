@@ -14,7 +14,7 @@ public common func foo(): Unit
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 
-public platform func foo(): Unit {}
+public specific func foo(): Unit {}
 public common func goo(): Unit {}
 /* SCAN
 error: common declaration must be defined in common package part

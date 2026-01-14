@@ -34,13 +34,13 @@ package cmp
 
 import std.collection.*
 
-platform struct A {
-    platform func testFunc(): ArrayList<GeneralStruct> {
-        println("platform")
+specific struct A {
+    specific func testFunc(): ArrayList<GeneralStruct> {
+        println("specific")
         ArrayList<GeneralStruct>()
     }
-    platform func testFunc1(): ArrayList<GeneralStruct> {
-        println("platform")
+    specific func testFunc1(): ArrayList<GeneralStruct> {
+        println("specific")
         ArrayList<GeneralStruct>()
     }
 }
@@ -52,7 +52,7 @@ main() : Unit {
 }
 
 /* SCAN
-platform
-platform
+specific
+specific
 common
 */

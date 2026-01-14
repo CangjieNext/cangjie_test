@@ -8,11 +8,11 @@
 
 package mp
 
-public platform interface I {
+public specific interface I {
     func f(): Int64 { 1 }
 }
 
-public platform class C <: I {}
+public specific class C <: I {}
 
 public func f() {
     C().f()

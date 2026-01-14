@@ -8,17 +8,17 @@
 
 package mp
 
-platform protected interface NamedType {
+specific protected interface NamedType {
     func f1(): Int64 {
         1
     }
-    platform static func f2(): String {
+    specific static func f2(): String {
         "abc"
     }
-    platform static func typename(): String {
+    specific static func typename(): String {
         f()
     }
-    platform static func f(): String {
+    specific static func f(): String {
         "aaa"
     }
 }

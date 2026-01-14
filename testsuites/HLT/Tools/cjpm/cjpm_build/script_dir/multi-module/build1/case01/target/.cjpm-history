@@ -4,7 +4,7 @@
       "rootPackageName": "b",
       "modulePath": ".",
       "packagePath": {
-        "isMultiplatform": false,
+        "isMultispecific": false,
         "sources": [
           {
             "sourceSetDir": "src",
@@ -43,7 +43,7 @@
       "rootPackageName": "p4",
       "modulePath": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\p4",
       "packagePath": {
-        "isMultiplatform": false,
+        "isMultispecific": false,
         "sources": [
           {
             "sourceSetDir": "src",
@@ -82,7 +82,7 @@
       "rootPackageName": "b",
       "modulePath": ".",
       "packagePath": {
-        "isMultiplatform": false,
+        "isMultispecific": false,
         "sources": [
           {
             "sourceSetDir": "src",
@@ -123,7 +123,7 @@
       "rootPackageName": "b",
       "modulePath": ".",
       "packagePath": {
-        "isMultiplatform": false,
+        "isMultispecific": false,
         "sources": [
           {
             "sourceSetDir": "src",

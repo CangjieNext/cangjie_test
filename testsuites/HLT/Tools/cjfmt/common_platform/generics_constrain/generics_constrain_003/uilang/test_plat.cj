@@ -8,11 +8,11 @@
 
 package mp
 
-public platform class C<X> where X <: C<X> {
-    public platform func foo() {
+public specific class C<X> where X <: C<X> {
+    public specific func foo() {
         var a = 1
     }
-    public platform init(input: X) {
+    public specific init(input: X) {
         var b = 3
         let a: Unit = input.foo()
     }

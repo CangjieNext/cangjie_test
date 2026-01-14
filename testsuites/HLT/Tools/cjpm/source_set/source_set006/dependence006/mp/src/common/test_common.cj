@@ -12,7 +12,7 @@ package mp
 
 public common var a: Int64
 
-public platform var a:Int64 = 0
+public specific var a:Int64 = 0
 
 public func test_com(): Int64 {
     a

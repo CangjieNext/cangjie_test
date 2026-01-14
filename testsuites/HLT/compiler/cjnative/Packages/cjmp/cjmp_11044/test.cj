@@ -9,4 +9,4 @@
 // LEVEL: 0
 // DEPENDENCE: mp
 // ERRCHECK: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
-// ASSERT: scan parse_platform_in_non_platform_file
+// ASSERT: scan parse_specific_in_non_specific_file

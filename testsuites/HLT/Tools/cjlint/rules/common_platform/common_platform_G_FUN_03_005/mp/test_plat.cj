@@ -8,22 +8,22 @@
 
 package mp
 
-platform class Container<T> where T <: Comparable<T> {
-    platform var value: T
-    platform init(value: T) { this.value = value }
-    platform func get(): T { value }
-    platform func set(newValue: T): Unit { value = newValue }
-    platform func map<R>(convert: (T) -> R): Container<R> where R <: Comparable<R> {
+specific class Container<T> where T <: Comparable<T> {
+    specific var value: T
+    specific init(value: T) { this.value = value }
+    specific func get(): T { value }
+    specific func set(newValue: T): Unit { value = newValue }
+    specific func map<R>(convert: (T) -> R): Container<R> where R <: Comparable<R> {
         return Container<R>(convert(value))
     }
 }
 
-platform struct Container2<T> where T <: Comparable<T> {
-    platform var value: T
-    platform init(value: T) { this.value = value }
-    platform func get(): T { value }
-    platform func set(newValue: T): Unit { value = newValue }
-    platform func map<R>(convert: (T) -> R): Container2<R> where R <: Comparable<R> {
+specific struct Container2<T> where T <: Comparable<T> {
+    specific var value: T
+    specific init(value: T) { this.value = value }
+    specific func get(): T { value }
+    specific func set(newValue: T): Unit { value = newValue }
+    specific func map<R>(convert: (T) -> R): Container2<R> where R <: Comparable<R> {
         return Container2<R>(convert(value))
     }
 }

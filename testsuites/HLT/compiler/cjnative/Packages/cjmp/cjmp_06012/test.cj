@@ -10,8 +10,8 @@
 // ERRCHECK: %compiler %cmp_opt %f -o %output
 // ASSERT: scan parse_expected_no_modifier
 
-public platform enum A {
-    | platform E
+public specific enum A {
+    | specific E
 }
 
 

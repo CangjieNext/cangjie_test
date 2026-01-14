@@ -8,23 +8,23 @@
 
 package mp
 
-public platform interface Addable {
-    public platform func add(other: Int64): Int64{
+public specific interface Addable {
+    public specific func add(other: Int64): Int64{
         value + other
     }
 }
 
-public platform interface Subtractable {
-    public platform func sub(other: Int64): Int64{
+public specific interface Subtractable {
+    public specific func sub(other: Int64): Int64{
         value - other
     }
 }
 
-public platform interface Calculable <: Addable & Subtractable {
-    public platform func mul(other: Int64): Int64{
+public specific interface Calculable <: Addable & Subtractable {
+    public specific func mul(other: Int64): Int64{
         value * other
     }
-    public platform func div(other: Int64): Int64{
+    public specific func div(other: Int64): Int64{
         value / other
     }
 }

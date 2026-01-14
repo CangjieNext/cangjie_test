@@ -15,11 +15,11 @@ public common class C {
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p  2>&1 | compare %f
-// ASSERT: scan sema_platform_has_different_type
+// ASSERT: scan sema_specific_has_different_type
 package cmp
 
-public platform class C {
-    public platform static let x: Int32 = 9
+public specific class C {
+    public specific static let x: Int32 = 9
 }
 
 

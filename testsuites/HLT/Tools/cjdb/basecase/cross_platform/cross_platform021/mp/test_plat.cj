@@ -8,11 +8,11 @@
 
 package mp
 
-platform extend Int64{
-    public static platform func fa(): Int64 {
+specific extend Int64{
+    public static specific func fa(): Int64 {
         1
     }
-    public platform func fb(): Int64 {
+    public specific func fb(): Int64 {
         var a = 1
         var b = 2
         1

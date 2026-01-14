@@ -19,8 +19,8 @@ public common class A {
 // ASSERT: scan sema_used_before_initialization
 package cmp
 
-public platform class A {
-    public platform let b: Int64 = a * 2
-    public platform let a: Int64 = 10
+public specific class A {
+    public specific let b: Int64 = a * 2
+    public specific let a: Int64 = 10
 }
 

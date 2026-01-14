@@ -10,7 +10,7 @@
 // DEPENDENCE: ../%n
 // (CJNATIVE) EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=os.windows,os.linux,os.darwin 2>&1| compare %f
 // (CJNATIVE) ASSERT: scan-1 Cannot compile multiple product source sets
-// (CJNATIVE) ASSERT: scan-1 Source code locations for the current multiplatform project:
+// (CJNATIVE) ASSERT: scan-1 Source code locations for the current multispecific project:
 // (CJNATIVE) ASSERT: scan-1 [features: <none>]
 // (CJNATIVE) ASSERT: scan-1 [features: os.windows; product]
 // (CJNATIVE) ASSERT: scan-1 [features: os.linux; product]

@@ -15,7 +15,7 @@ public let b = a
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan chir_file_might_circular_dependency
 package cmp
-public platform let a:Int64=2
+public specific let a:Int64=2
 
 public let c = b
 

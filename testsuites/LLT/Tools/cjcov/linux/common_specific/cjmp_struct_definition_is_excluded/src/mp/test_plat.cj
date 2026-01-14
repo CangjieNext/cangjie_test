@@ -8,8 +8,8 @@
 
 package mp
 
-public platform struct A {
-    public platform A(a: Int64) {
+public specific struct A {
+    public specific A(a: Int64) {
         this.a = a
     }
 }

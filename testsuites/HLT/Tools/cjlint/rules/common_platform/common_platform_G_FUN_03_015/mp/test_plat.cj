@@ -8,11 +8,11 @@
 
 package mp
 
-platform extend<T> Container<T>{
-    platform func setItem(newItem:T){
+specific extend<T> Container<T>{
+    specific func setItem(newItem:T){
         item = newItem
     }
-    platform func getItem():?T{
+    specific func getItem():?T{
         item
     }
 }

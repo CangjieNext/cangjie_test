@@ -21,13 +21,13 @@ public common interface I0 {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-public platform interface I0 {
-    platform prop foo: String
+public specific interface I0 {
+    specific prop foo: String
 }
 
 class A <: I0 {
     public prop foo: String {
-        get() { "foo in A of platform" }
+        get() { "foo in A of specific" }
     }
 }
 
@@ -38,5 +38,5 @@ main() {
 }
 
 /* SCAN
-foo in A of platform
+foo in A of specific
 */

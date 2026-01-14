@@ -29,12 +29,12 @@ public func testFunction(arg: Int64) : Int64 {
     1
 }
 
-platform func foo(arg: (Int64) -> Int64): Unit {
-    println("platform")
+specific func foo(arg: (Int64) -> Int64): Unit {
+    println("specific")
 }
 
-platform func foo1(arg: (Int64) -> Int64): Unit {
-    println("platform")
+specific func foo1(arg: (Int64) -> Int64): Unit {
+    println("specific")
 }
 
 main() {
@@ -44,7 +44,7 @@ main() {
 }
 
 /* SCAN
-platform
-platform
+specific
+specific
 common
 */

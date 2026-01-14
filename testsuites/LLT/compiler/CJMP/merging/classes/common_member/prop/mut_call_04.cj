@@ -33,16 +33,16 @@ common class A {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform class A {
-    platform func f(): Int64 {
+specific class A {
+    specific func f(): Int64 {
         return 1
     }
 
-    platform func f1(a: Int64): Unit {
+    specific func f1(a: Int64): Unit {
         println(a)
     }
 
-    platform mut prop testProp: Int64 {
+    specific mut prop testProp: Int64 {
         get() {
             f()
         }

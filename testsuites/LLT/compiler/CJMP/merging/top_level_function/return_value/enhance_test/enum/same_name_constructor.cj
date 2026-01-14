@@ -24,8 +24,8 @@ common func foo(): RGBColor {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform func foo(): RGBColor {
-    println("platform")
+specific func foo(): RGBColor {
+    println("specific")
     Blue(1)
 }
 
@@ -37,5 +37,5 @@ main() {
 }
 
 /* SCAN
-platform
+specific
 */

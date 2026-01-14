@@ -18,7 +18,7 @@ common extend<T, U> Foo<T, U> where T <: Object, U <: Parent {}
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output
 package cmp
-platform extend<T, U> Foo<T, U> where T <: Object, U <: Parent {}
+specific extend<T, U> Foo<T, U> where T <: Object, U <: Parent {}
 
 
 main() {

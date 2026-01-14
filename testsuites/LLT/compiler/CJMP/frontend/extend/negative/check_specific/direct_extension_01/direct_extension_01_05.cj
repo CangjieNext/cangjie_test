@@ -16,5 +16,5 @@ common extend Foo{}
 // TODO::需要报错，但目前没有
 package cmp
 
-platform extend Foo{}
+specific extend Foo{}
 common extend Foo{}

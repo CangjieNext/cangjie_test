@@ -20,9 +20,9 @@ common class A {
 
 package cmp
 
-platform var x = 2
+specific var x = 2
 
-platform class A {
+specific class A {
 }
 main(){
     println(x)

@@ -19,13 +19,13 @@ common  func foo(): Array<String>
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform func foo(): Array<String> {
-    ["platform"]
+specific func foo(): Array<String> {
+    ["specific"]
 }
 main() {
     println(foo()[0])
 }
 
 /* SCAN
-platform
+specific
 */

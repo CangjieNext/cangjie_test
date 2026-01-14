@@ -19,35 +19,35 @@ public common var B2: Int = 2
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
-public platform var (A1, A2): (Int64, Int64) = (1, 1)
-public platform let (B1, B2): (Int64, Int64) = (1, 1)
+public specific var (A1, A2): (Int64, Int64) = (1, 1)
+public specific let (B1, B2): (Int64, Int64) = (1, 1)
 
 /* SCAN
-error: 'platform' 'var' can not match 'common' 'let'
+error: 'specific' 'var' can not match 'common' 'let'
  ==> p/p.cj:4:22:
   | 
-4 | public platform var (A1, A2): (Int64, Int64) = (1, 1)
+4 | public specific var (A1, A2): (Int64, Int64) = (1, 1)
   |                      ^^ 
   | 
 
-error: 'platform' 'var' can not match 'common' 'let'
+error: 'specific' 'var' can not match 'common' 'let'
  ==> p/p.cj:4:26:
   | 
-4 | public platform var (A1, A2): (Int64, Int64) = (1, 1)
+4 | public specific var (A1, A2): (Int64, Int64) = (1, 1)
   |                          ^^ 
   | 
 
-error: 'platform' 'let' can not match 'common' 'var'
+error: 'specific' 'let' can not match 'common' 'var'
  ==> p/p.cj:5:22:
   | 
-5 | public platform let (B1, B2): (Int64, Int64) = (1, 1)
+5 | public specific let (B1, B2): (Int64, Int64) = (1, 1)
   |                      ^^ 
   | 
 
-error: 'platform' 'let' can not match 'common' 'var'
+error: 'specific' 'let' can not match 'common' 'var'
  ==> p/p.cj:5:26:
   | 
-5 | public platform let (B1, B2): (Int64, Int64) = (1, 1)
+5 | public specific let (B1, B2): (Int64, Int64) = (1, 1)
   |                          ^^ 
   | 
 

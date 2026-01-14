@@ -4,7 +4,7 @@
       "rootPackageName": "p3",
       "modulePath": ".",
       "packagePath": {
-        "isMultiplatform": false,
+        "isMultispecific": false,
         "sources": [
           {
             "sourceSetDir": "src",

@@ -8,4 +8,4 @@
 
 package mp
 
-public platform func f() {2}
+public specific func f() {2}

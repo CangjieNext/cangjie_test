@@ -8,9 +8,9 @@
  
 package mp
 
-public platform interface A {
-    platform static prop p1: Int64 { get() { 1 } }
-    platform prop p2: Int64 { get() { 1 } }
+public specific interface A {
+    specific static prop p1: Int64 { get() { 1 } }
+    specific prop p2: Int64 { get() { 1 } }
 }
 public func test_plat() { C.p1 + C().p2 }
 

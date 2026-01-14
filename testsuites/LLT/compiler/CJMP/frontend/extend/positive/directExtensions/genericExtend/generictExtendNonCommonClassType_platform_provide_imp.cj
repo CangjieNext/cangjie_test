@@ -38,10 +38,10 @@ common extend<R,T> Foo<R,T> {
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p1;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p1 && %run %output 2>&1 | compare %f
 package cmp
-platform extend<R,T> Foo<R,T> {
-   platform func f1(x:R):R {x}
-   platform func f2<T>(x:T,y:R):Foo<R,T> {println("platform:p1:f2");Foo<R,T>(x)}
-   platform prop x:T {
+specific extend<R,T> Foo<R,T> {
+   specific func f1(x:R):R {x}
+   specific func f2<T>(x:T,y:R):Foo<R,T> {println("specific:p1:f2");Foo<R,T>(x)}
+   specific prop x:T {
       get(){
         filed
       }
@@ -66,9 +66,9 @@ main(){
 /* SCAN
 3
 a
-platform:p1:f2
+specific:p1:f2
 22
 b
 ddd
-platform:p1:f2
+specific:p1:f2
 */

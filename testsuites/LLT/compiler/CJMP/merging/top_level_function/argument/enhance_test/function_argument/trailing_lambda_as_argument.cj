@@ -19,14 +19,14 @@ common func foo(arg:(Int64)->Int64): Unit {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform func foo(arg:(Int64)->Int64): Unit {
+specific func foo(arg:(Int64)->Int64): Unit {
     arg(1)
-    println("platform")
+    println("specific")
 }
 main() {
     foo{i=>i+1}
 }
 
 /* SCAN
-platform
+specific
 */

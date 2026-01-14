@@ -8,19 +8,19 @@
 
 package mp
 
-platform public struct A<T> {
-    platform private func f(): Int64 {
+specific public struct A<T> {
+    specific private func f(): Int64 {
         0
     }
-    platform public var a: Int64 = 1
-    platform public static var b: Int64 = 2
+    specific public var a: Int64 = 1
+    specific public static var b: Int64 = 2
 }
 
-platform protected struct A2<T> {
-    platform protected func f(): Int64 {
+specific protected struct A2<T> {
+    specific protected func f(): Int64 {
         1
     }
-    platform private static func f2<T>(): Int64 {
+    specific private static func f2<T>(): Int64 {
         3
     }
 }

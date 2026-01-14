@@ -16,7 +16,7 @@ public common func foo(input: A): Unit
 // ASSERT: scan-2 sema_not_matched
 package cmp
 
-public platform func foo(input: B): Unit {
-    println("platform foo")
+public specific func foo(input: B): Unit {
+    println("specific foo")
 }
 

@@ -8,4 +8,4 @@
 
 package mp
 
-@B public platform func f() { 2 }
+@B public specific func f() { 2 }
