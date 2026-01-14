@@ -26,13 +26,9 @@ compiler/Macro/inout/inout_m4.cj
 compiler/Macro/inout/inout_m3.cj
 
 ## CJMP testcases
-compiler/CJMP/frontend/common_declarations/class/abstract_class/function_without_body_and_common_abstract.cj
-compiler/CJMP/frontend/common_declarations/class/class_and_member_matching_rules/member_func_without_common_and_abstract_modifier_in_common_abstract_class.cj
 compiler/CJMP/frontend/matching/class/matching_rules/class_level/definition_match/generics_constraints_not_match.cj
 compiler/CJMP/frontend/matching/class/matching_rules/class_level/definition_match/generics_not_match.cj
-compiler/CJMP/frontend/matching/class/matching_rules/member_level/normal_function_member/openness_compatibility_table/c_abstract_p_final.cj
-compiler/CJMP/frontend/matching/class/new_members/add_abstract_func_without_default_in_abstractclass.cj
-compiler/CJMP/frontend/matching/class/new_members/add_new_property_without_default_in_abstractclasss.cj
+compiler/CJMP/frontend/matching/class/matching_rules/member_level/prop/openness_compatibility/c_open_p_abstract.cj
 compiler/CJMP/frontend/matching/class/new_members/new_required_constructor.cj
 compiler/CJMP/frontend/matching/enum/matching_rules/enum_level/definition_match/generics_constraints_not_match.cj
 compiler/CJMP/frontend/matching/enum/matching_rules/enum_level/definition_match/generics_not_match.cj
@@ -40,14 +36,6 @@ compiler/CJMP/frontend/matching/function/overload_error/generic_not_match/not_sa
 compiler/CJMP/frontend/matching/struct/new_members/new_required_constructor.cj
 compiler/CJMP/merging/classes/class_abstract/impl_interface/generic_interface.cj
 compiler/CJMP/merging/classes/class_abstract/impl_interface/generic_interface_with_non_common_class.cj
-compiler/CJMP/merging/classes/vtable/implemntation_ambiguity_is_detected_have_no_effect.cj
-compiler/CJMP/merging/classes/vtable/long_move_to_ancestor_class.cj
-compiler/CJMP/merging/classes/vtable/no_duplication_in_vtable.cj
-compiler/CJMP/merging/classes/vtable/no_early_devirtualization_in_class_test.cj
-compiler/CJMP/merging/classes/vtable/no_early_devirtualization_test.cj
-compiler/CJMP/merging/static_and_top_level_variables/initializer_dependencies_preserved.cj
-compiler/CJMP/merging/static_and_top_level_variables/nested/directed_dependent/directed_dependent_single_file_set/pattern_from_platform_use_pattern_from_common.cj
-compiler/CJMP/merging/static_and_top_level_variables/nested/directed_dependent/directed_dependent_single_file_set/pattern_from_platform_use_platform_pattern.cj
 compiler/CJMP/merging/structs/struct_abstract/impl_interface/generic_interface.cj
 compiler/CJMP/merging/structs/struct_abstract/impl_interface/generic_interface_with_non_common_struct.cj
 compiler/CJMP/merging/top_level_function/argument/enhance_test/enum_argument/generic_type_enum.cj
@@ -55,9 +43,6 @@ compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_leve
 compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_impl_platform_no_impl.cj
 compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_no_impl_platform_impl.cj
 compiler/CJMP/merging/top_level_function/enhance_test/top_level_function/user_define_thirdparty/moretype/generictype/thirdparty_genericclass_as_argument.cj
-compiler/CJMP/frontend/matching/struct/new_members/new_members_access_private_members.cj
-compiler/CJMP/frontend/matching/class/new_members/new_members_access_private_members.cj
-compiler/CJMP/merging/common_without_default_implementation/platform_function_call_platform_non_common.cj
 
 # native FFI
 ## objc (interoplib.objc and objc.lang are missing)
