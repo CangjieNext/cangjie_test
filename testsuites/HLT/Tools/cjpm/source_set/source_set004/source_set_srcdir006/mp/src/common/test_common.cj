@@ -5,8 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
-@NonProduct
+ @NonProduct
 features {}
 package mp
 

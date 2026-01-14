@@ -1,0 +1,15 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// EXEC: cd %n && git clone https://gitcode.com/Cangjie/cangjie_stdx.git -b dev
+// EXEC: cd %n/cangjie_stdx && %cjpm build && cd .. && %cjpm build -V 2>&1 | compare %f
+// ASSERT: regex Compiling package `stdx.crypto`: [\s\S]*libstdx.crypto.(so|dll|dylib)
+// ASSERT: regex Compiling package `p2`: [\s\S]*libp2.(so|dll|dylib)
+// ASSERT: regex-not Compiling package `b`: .*p1\.bc.*
+// ASSERT: regex-not Compiling package `b`: .*p2\.bc.*
+// ASSERT: scan cjpm build success
