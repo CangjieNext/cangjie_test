@@ -5,11 +5,11 @@ package example.cmp
 class Foo {}
 
 common extend Foo {
-    common private func foo():Int64 { return 0 }
+    common protected func foo():Int64 { return 0 }
 }
 
 common extend Foo {
-    common private func foo(a:Int64):Int64 { return 1 }
+    common protected func foo(a:Int64):Int64 { return 1 }
 }
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
