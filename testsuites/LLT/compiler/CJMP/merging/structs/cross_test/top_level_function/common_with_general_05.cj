@@ -18,7 +18,7 @@ public common struct S {
 // ASSERT: scan sema_not_matched
 package cmp
 
-public platform struct S {
+public specific struct S {
 }
 
 public func testFunc(): Unit {

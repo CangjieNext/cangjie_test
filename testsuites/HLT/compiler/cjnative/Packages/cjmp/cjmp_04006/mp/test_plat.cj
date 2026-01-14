@@ -8,7 +8,7 @@
  
 package mp
 
-internal platform class A {}
+internal specific class A {}
 public func test_plat() { A.a1 + A().a2 }
 
 

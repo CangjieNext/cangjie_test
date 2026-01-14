@@ -40,25 +40,25 @@ package cmp
 
 public let y = 43
 
-public platform let a: Int = 2
+public specific let a: Int = 2
 
-public platform var b: Int = 20
+public specific var b: Int = 20
 
 func goo() { 200 }
 
-public platform let c: Int = goo()
+public specific let c: Int = goo()
 
-public platform let d: String = "2000"
+public specific let d: String = "2000"
 
 func doo() { 20000 }
 
-public platform let e: Int = doo()
+public specific let e: Int = doo()
 
-public platform let f: Int = 200000
+public specific let f: Int = 200000
 
 func joo() { 2000000 }
 
-public platform var g: Int = joo()
+public specific var g: Int = joo()
 
 public func printP() {
     println("${x} ${y} ${a} ${b} ${c} ${d} ${e} ${f} ${g}")

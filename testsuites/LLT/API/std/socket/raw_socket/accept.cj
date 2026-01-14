@@ -5,8 +5,8 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-// DEPENDENCE: ../socket_platform_difference.cj
-// (Unix) EXEC: %compiler %cmp_opt %f socket_platform_difference.cj -o %output %cmp_utest_opt
+// DEPENDENCE: ../socket_specific_difference.cj
+// (Unix) EXEC: %compiler %cmp_opt %f socket_specific_difference.cj -o %output %cmp_utest_opt
 // (Unix) RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt
 
 import std.net.*

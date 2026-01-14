@@ -18,7 +18,7 @@ public common func goo(a:Int64,input!: Int64=1): Int64
 package cmp
 
 
-public platform func goo(a:Int64,input!: Int64): Int64 {input}
+public specific func goo(a:Int64,input!: Int64): Int64 {input}
 main(){
     println(goo(1))
 }

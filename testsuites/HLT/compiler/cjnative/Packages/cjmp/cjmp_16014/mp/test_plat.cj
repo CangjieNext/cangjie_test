@@ -7,7 +7,7 @@
  */
 
 package mp
-public platform func foo<T>(a: T, b: T) where T <: I {
+public specific func foo<T>(a: T, b: T) where T <: I {
     return a.f() + b.f()
 }
 public func f2() {

@@ -8,6 +8,6 @@
 
 package mp
 
-public platform class C {
-    public platform func f(a!: Int64 = 1) {a}
+public specific class C {
+    public specific func f(a!: Int64 = 1) {a}
 }

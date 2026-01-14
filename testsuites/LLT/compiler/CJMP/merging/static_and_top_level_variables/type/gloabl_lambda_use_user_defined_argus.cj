@@ -36,29 +36,29 @@ public common let lambda_d:(E)->Unit
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-public platform class A{
-    public platform let a:Int64=1
+public specific class A{
+    public specific let a:Int64=1
     public let b:Int64=2
 }
-public platform struct B{
-    public platform let b:Int64=2
+public specific struct B{
+    public specific let b:Int64=2
 }
-public platform interface C{
-    platform func foo():Unit
+public specific interface C{
+    specific func foo():Unit
 }
-public platform class D<:C{
+public specific class D<:C{
     public func goo():Unit{
         println("class D goo")
     }
 }
-public platform enum E{
+public specific enum E{
     ONE|TWO|THREE
 }
-public platform let lambda_a:(A,A)->Int64={arg1:A,arg2:A=>arg1.a+arg2.b}
-public platform let lambda_b:(B)->Int64={arg1:B=>arg1.b}
-public platform let lambda_c:(C)->Unit={arg1:C=>arg1.foo()}
-public platform let lambda_c2:(D)->Unit={arg1:D=>arg1.goo()}
-public platform let lambda_d:(E)->Unit={arg1:E=>
+public specific let lambda_a:(A,A)->Int64={arg1:A,arg2:A=>arg1.a+arg2.b}
+public specific let lambda_b:(B)->Int64={arg1:B=>arg1.b}
+public specific let lambda_c:(C)->Unit={arg1:C=>arg1.foo()}
+public specific let lambda_c2:(D)->Unit={arg1:D=>arg1.goo()}
+public specific let lambda_d:(E)->Unit={arg1:E=>
         match(arg1){
             case ONE=> println("ONE")
             case TWO=> println("TWO")

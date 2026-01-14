@@ -28,10 +28,10 @@ package cmp
 
 import std.fs.*
 
-platform  func foo():File{
+specific  func foo():File{
     let filePath: Path = Path("./fs_File.cj")
     let file = File(filePath, Read) 
-    println("From platform member foo func")
+    println("From specific member foo func")
     file
 }
 main() {
@@ -40,5 +40,5 @@ main() {
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 */

@@ -27,14 +27,14 @@ common enum A {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform enum A {
+specific enum A {
     | TEST_ENUM
 
-    platform func testFunc(a1: Int64, a2: Int64, a3: Int64, a4: Int64, a5: Int64, a6: Int64, a7: Int64, a8: Int64, a9: Int64, a10: Int64, a11: Int64, a12: Int64, a13: Int64, a14: Int64, a15: Int64, a16: Int64, a17: Int64, a18: Int64): Unit {
-        println("platform")
+    specific func testFunc(a1: Int64, a2: Int64, a3: Int64, a4: Int64, a5: Int64, a6: Int64, a7: Int64, a8: Int64, a9: Int64, a10: Int64, a11: Int64, a12: Int64, a13: Int64, a14: Int64, a15: Int64, a16: Int64, a17: Int64, a18: Int64): Unit {
+        println("specific")
     }
-    platform func testFunc1(a1: Int64, a2: Int64, a3: Int64, a4: Int64, a5: Int64, a6: Int64, a7: Int64, a8: Int64, a9: Int64, a10: Int64, a11: Int64, a12: Int64, a13: Int64, a14: Int64, a15: Int64, a16: Int64, a17: Int64, a18: Int64): Unit {
-        println("platform")
+    specific func testFunc1(a1: Int64, a2: Int64, a3: Int64, a4: Int64, a5: Int64, a6: Int64, a7: Int64, a8: Int64, a9: Int64, a10: Int64, a11: Int64, a12: Int64, a13: Int64, a14: Int64, a15: Int64, a16: Int64, a17: Int64, a18: Int64): Unit {
+        println("specific")
     }
 }
 
@@ -45,7 +45,7 @@ main() : Unit {
 }
 
 /* SCAN
-platform
-platform
+specific
+specific
 common
 */

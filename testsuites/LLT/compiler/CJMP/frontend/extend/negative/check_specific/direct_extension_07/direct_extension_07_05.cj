@@ -16,6 +16,6 @@ common func foo<M, N>(m:M, n:N):Unit where M <: ToString
 // EXEC-PIPE-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1
 package cmp
 
-platform func foo<T>(x:T):Unit {}
-platform func foo<M, N>(m:M, n:N):Unit {}
+specific func foo<T>(x:T):Unit {}
+specific func foo<M, N>(m:M, n:N):Unit {}
 

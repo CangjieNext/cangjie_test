@@ -32,18 +32,18 @@ common enum A {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform enum A {
+specific enum A {
     | TEST_ENUM
 
     
-    platform prop p: Int64 {
+    specific prop p: Int64 {
         get() {
             println("get prop p")
             1
         }
     }
 
-    platform prop testProp: Int64 {
+    specific prop testProp: Int64 {
         get() {
             p
         }

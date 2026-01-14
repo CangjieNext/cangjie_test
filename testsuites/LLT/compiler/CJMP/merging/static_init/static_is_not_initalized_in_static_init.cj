@@ -18,8 +18,8 @@ public common struct A {
 // ASSERT: scan sema_type_uninitialized_static_field
 package cmp
 
-public platform struct A {
-    public platform static var x: Int64
+public specific struct A {
+    public specific static var x: Int64
     static init() {
         // LAST PLACE WHERE `x` CAN BE INITIALIZED
     }

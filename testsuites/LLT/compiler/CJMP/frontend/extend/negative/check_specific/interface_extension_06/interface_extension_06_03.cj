@@ -28,12 +28,12 @@ common extend<T, G> Foo<T, G> <: Ioo<T, T> where T <: Ioo<G, G> {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform extend<X, Y> Foo<X, Y> <: Ioo<X, X> where X <: Ioo<Y, Y> {
-    platform func goo<Z>(z:Z, x:X):Unit {
-        println("platform::goo<Z>")
+specific extend<X, Y> Foo<X, Y> <: Ioo<X, X> where X <: Ioo<Y, Y> {
+    specific func goo<Z>(z:Z, x:X):Unit {
+        println("specific::goo<Z>")
     }
 
-    platform public mut prop p: X {
+    specific public mut prop p: X {
         get() { p }
         set(t) { }
     }

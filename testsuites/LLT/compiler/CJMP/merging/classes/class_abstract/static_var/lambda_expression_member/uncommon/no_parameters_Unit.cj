@@ -18,7 +18,7 @@ public common class A {
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-public platform class A {
+public specific class A {
     public static let f2 = { => println("hello from f2");}
 }
 

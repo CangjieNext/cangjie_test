@@ -30,7 +30,7 @@ package cmp
 
 import std.random.*
 
-public platform func foo(a: A): Unit {
+public specific func foo(a: A): Unit {
     a.superF()
     a.childF()
 }

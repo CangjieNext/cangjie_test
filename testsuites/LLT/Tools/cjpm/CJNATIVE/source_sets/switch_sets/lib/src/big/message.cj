@@ -7,6 +7,6 @@
 features { user.lib.arch.big }
 package lib
 
-public platform func message(): Unit {
+public specific func message(): Unit {
 	println("BIG_MESSAGE")
 }

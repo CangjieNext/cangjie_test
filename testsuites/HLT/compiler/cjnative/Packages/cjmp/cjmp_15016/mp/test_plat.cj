@@ -7,9 +7,9 @@
  */
 
 package mp
-platform extend <T> ?T {
-    public platform func foo1(a: B<Int64>) { a.a + 1 }
-    public platform static func foo2(a: B<Int64>) { a.a + 1 }
+specific extend <T> ?T {
+    public specific func foo1(a: B<Int64>) { a.a + 1 }
+    public specific static func foo2(a: B<Int64>) { a.a + 1 }
 }
 public func f2() {
     return Some(B<Int64>(1)).foo1(B<Int64>(1)) + Option<B<Int64>>.foo2(B<Int64>(1))

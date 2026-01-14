@@ -68,35 +68,35 @@ public func passCommonA() {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform public enum A {
+specific public enum A {
     | AA
     | BB
     | CC(String)
     | CC(String, String)
 
-    platform public func foo(): Unit {
+    specific public func foo(): Unit {
         match (this) {
-            case AA => println("[platform] a.foo(): AA")
-            case BB => println("[platform] a.foo(): BB")
-            case CC(s) => println("[platform] a.foo(): CC(${s})")
-            case CC(s1, s2) => println("[platform] a.foo(): CC(${s1}, ${s2})")
+            case AA => println("[specific] a.foo(): AA")
+            case BB => println("[specific] a.foo(): BB")
+            case CC(s) => println("[specific] a.foo(): CC(${s})")
+            case CC(s1, s2) => println("[specific] a.foo(): CC(${s1}, ${s2})")
         }
     }
 
-    platform public func boo(): Unit {
+    specific public func boo(): Unit {
         match (this) {
-            case AA => println("[platform] a.boo(): AA")
-            case BB => println("[platform] a.boo(): BB")
-            case CC(s) => println("[platform] a.boo(): CC(${s})")
-            case CC(s1, s2) => println("[platform] a.boo(): CC(${s1}, ${s2})")
+            case AA => println("[specific] a.boo(): AA")
+            case BB => println("[specific] a.boo(): BB")
+            case CC(s) => println("[specific] a.boo(): CC(${s})")
+            case CC(s1, s2) => println("[specific] a.boo(): CC(${s1}, ${s2})")
         }
     }
     public func loo(): Unit {
         match (this) {
-            case AA => println("[platform] a.loo(): AA")
-            case BB => println("[platform] a.loo(): BB")
-            case CC(s) => println("[platform] a.loo(): CC(${s})")
-            case CC(s1, s2) => println("[platform] a.loo(): CC(${s1}, ${s2})")
+            case AA => println("[specific] a.loo(): AA")
+            case BB => println("[specific] a.loo(): BB")
+            case CC(s) => println("[specific] a.loo(): CC(${s})")
+            case CC(s1, s2) => println("[specific] a.loo(): CC(${s1}, ${s2})")
         }
     }
 
@@ -182,193 +182,193 @@ main(): Unit {
 /* SCAN
 passCommonA:
 receiveCommonA:
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
 selfRefCommon
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
 passPlatformA:
 receiveCommonA:
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
 receivePlatformA:
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
-[platform] a.loo(): AA
+[specific] a.loo(): AA
 receiveCommonA:
-[platform] a.foo(): BB
-[platform] a.boo(): BB
+[specific] a.foo(): BB
+[specific] a.boo(): BB
 [ common ] a.goo(): BB
 [ common ] a.koo(): BB
 receivePlatformA:
-[platform] a.foo(): BB
-[platform] a.boo(): BB
+[specific] a.foo(): BB
+[specific] a.boo(): BB
 [ common ] a.goo(): BB
 [ common ] a.koo(): BB
-[platform] a.loo(): BB
+[specific] a.loo(): BB
 receiveCommonA:
-[platform] a.foo(): CC(s)
-[platform] a.boo(): CC(s)
+[specific] a.foo(): CC(s)
+[specific] a.boo(): CC(s)
 [ common ] a.goo(): CC(s)
 [ common ] a.koo(): CC(s)
 receivePlatformA:
-[platform] a.foo(): CC(s)
-[platform] a.boo(): CC(s)
+[specific] a.foo(): CC(s)
+[specific] a.boo(): CC(s)
 [ common ] a.goo(): CC(s)
 [ common ] a.koo(): CC(s)
-[platform] a.loo(): CC(s)
+[specific] a.loo(): CC(s)
 receiveCommonA:
-[platform] a.foo(): CC(s1, s2)
-[platform] a.boo(): CC(s1, s2)
+[specific] a.foo(): CC(s1, s2)
+[specific] a.boo(): CC(s1, s2)
 [ common ] a.goo(): CC(s1, s2)
 [ common ] a.koo(): CC(s1, s2)
 receivePlatformA:
-[platform] a.foo(): CC(s1, s2)
-[platform] a.boo(): CC(s1, s2)
+[specific] a.foo(): CC(s1, s2)
+[specific] a.boo(): CC(s1, s2)
 [ common ] a.goo(): CC(s1, s2)
 [ common ] a.koo(): CC(s1, s2)
-[platform] a.loo(): CC(s1, s2)
+[specific] a.loo(): CC(s1, s2)
 selfRefCommon
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
 selfRefPlatform
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
-[platform] a.loo(): AA
+[specific] a.loo(): AA
 selfRefCommon
-[platform] a.foo(): BB
-[platform] a.boo(): BB
+[specific] a.foo(): BB
+[specific] a.boo(): BB
 [ common ] a.goo(): BB
 [ common ] a.koo(): BB
 selfRefPlatform
-[platform] a.foo(): BB
-[platform] a.boo(): BB
+[specific] a.foo(): BB
+[specific] a.boo(): BB
 [ common ] a.goo(): BB
 [ common ] a.koo(): BB
-[platform] a.loo(): BB
+[specific] a.loo(): BB
 selfRefCommon
-[platform] a.foo(): CC(s)
-[platform] a.boo(): CC(s)
+[specific] a.foo(): CC(s)
+[specific] a.boo(): CC(s)
 [ common ] a.goo(): CC(s)
 [ common ] a.koo(): CC(s)
 selfRefPlatform
-[platform] a.foo(): CC(s)
-[platform] a.boo(): CC(s)
+[specific] a.foo(): CC(s)
+[specific] a.boo(): CC(s)
 [ common ] a.goo(): CC(s)
 [ common ] a.koo(): CC(s)
-[platform] a.loo(): CC(s)
+[specific] a.loo(): CC(s)
 selfRefCommon
-[platform] a.foo(): CC(s1, s2)
-[platform] a.boo(): CC(s1, s2)
+[specific] a.foo(): CC(s1, s2)
+[specific] a.boo(): CC(s1, s2)
 [ common ] a.goo(): CC(s1, s2)
 [ common ] a.koo(): CC(s1, s2)
 selfRefPlatform
-[platform] a.foo(): CC(s1, s2)
-[platform] a.boo(): CC(s1, s2)
+[specific] a.foo(): CC(s1, s2)
+[specific] a.boo(): CC(s1, s2)
 [ common ] a.goo(): CC(s1, s2)
 [ common ] a.koo(): CC(s1, s2)
-[platform] a.loo(): CC(s1, s2)
+[specific] a.loo(): CC(s1, s2)
 passMainA:
 receiveCommonA:
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
 receivePlatformA:
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
-[platform] a.loo(): AA
+[specific] a.loo(): AA
 receiveCommonA:
-[platform] a.foo(): BB
-[platform] a.boo(): BB
+[specific] a.foo(): BB
+[specific] a.boo(): BB
 [ common ] a.goo(): BB
 [ common ] a.koo(): BB
 receivePlatformA:
-[platform] a.foo(): BB
-[platform] a.boo(): BB
+[specific] a.foo(): BB
+[specific] a.boo(): BB
 [ common ] a.goo(): BB
 [ common ] a.koo(): BB
-[platform] a.loo(): BB
+[specific] a.loo(): BB
 receiveCommonA:
-[platform] a.foo(): CC(s)
-[platform] a.boo(): CC(s)
+[specific] a.foo(): CC(s)
+[specific] a.boo(): CC(s)
 [ common ] a.goo(): CC(s)
 [ common ] a.koo(): CC(s)
 receivePlatformA:
-[platform] a.foo(): CC(s)
-[platform] a.boo(): CC(s)
+[specific] a.foo(): CC(s)
+[specific] a.boo(): CC(s)
 [ common ] a.goo(): CC(s)
 [ common ] a.koo(): CC(s)
-[platform] a.loo(): CC(s)
+[specific] a.loo(): CC(s)
 receiveCommonA:
-[platform] a.foo(): CC(s1, s2)
-[platform] a.boo(): CC(s1, s2)
+[specific] a.foo(): CC(s1, s2)
+[specific] a.boo(): CC(s1, s2)
 [ common ] a.goo(): CC(s1, s2)
 [ common ] a.koo(): CC(s1, s2)
 receivePlatformA:
-[platform] a.foo(): CC(s1, s2)
-[platform] a.boo(): CC(s1, s2)
+[specific] a.foo(): CC(s1, s2)
+[specific] a.boo(): CC(s1, s2)
 [ common ] a.goo(): CC(s1, s2)
 [ common ] a.koo(): CC(s1, s2)
-[platform] a.loo(): CC(s1, s2)
+[specific] a.loo(): CC(s1, s2)
 selfRefCommon
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
 selfRefPlatform
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
-[platform] a.loo(): AA
+[specific] a.loo(): AA
 selfRefCommon
-[platform] a.foo(): BB
-[platform] a.boo(): BB
+[specific] a.foo(): BB
+[specific] a.boo(): BB
 [ common ] a.goo(): BB
 [ common ] a.koo(): BB
 selfRefPlatform
-[platform] a.foo(): BB
-[platform] a.boo(): BB
+[specific] a.foo(): BB
+[specific] a.boo(): BB
 [ common ] a.goo(): BB
 [ common ] a.koo(): BB
-[platform] a.loo(): BB
+[specific] a.loo(): BB
 selfRefCommon
-[platform] a.foo(): CC(s)
-[platform] a.boo(): CC(s)
+[specific] a.foo(): CC(s)
+[specific] a.boo(): CC(s)
 [ common ] a.goo(): CC(s)
 [ common ] a.koo(): CC(s)
 selfRefPlatform
-[platform] a.foo(): CC(s)
-[platform] a.boo(): CC(s)
+[specific] a.foo(): CC(s)
+[specific] a.boo(): CC(s)
 [ common ] a.goo(): CC(s)
 [ common ] a.koo(): CC(s)
-[platform] a.loo(): CC(s)
+[specific] a.loo(): CC(s)
 selfRefCommon
-[platform] a.foo(): CC(s1, s2)
-[platform] a.boo(): CC(s1, s2)
+[specific] a.foo(): CC(s1, s2)
+[specific] a.boo(): CC(s1, s2)
 [ common ] a.goo(): CC(s1, s2)
 [ common ] a.koo(): CC(s1, s2)
 selfRefPlatform
-[platform] a.foo(): CC(s1, s2)
-[platform] a.boo(): CC(s1, s2)
+[specific] a.foo(): CC(s1, s2)
+[specific] a.boo(): CC(s1, s2)
 [ common ] a.goo(): CC(s1, s2)
 [ common ] a.koo(): CC(s1, s2)
-[platform] a.loo(): CC(s1, s2)
+[specific] a.loo(): CC(s1, s2)
 */
 
 // SEPARATE-FILE: m_common_only.cj
@@ -400,54 +400,54 @@ main(): Unit {
 /* SCAN
 passCommonA:
 receiveCommonA:
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
 selfRefCommon
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
 passMainA:
 receiveCommonA:
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
 selfRefCommon
-[platform] a.foo(): AA
-[platform] a.boo(): AA
+[specific] a.foo(): AA
+[specific] a.boo(): AA
 [ common ] a.goo(): AA
 [ common ] a.koo(): AA
 receiveCommonA:
-[platform] a.foo(): BB
-[platform] a.boo(): BB
+[specific] a.foo(): BB
+[specific] a.boo(): BB
 [ common ] a.goo(): BB
 [ common ] a.koo(): BB
 selfRefCommon
-[platform] a.foo(): BB
-[platform] a.boo(): BB
+[specific] a.foo(): BB
+[specific] a.boo(): BB
 [ common ] a.goo(): BB
 [ common ] a.koo(): BB
 receiveCommonA:
-[platform] a.foo(): CC(s)
-[platform] a.boo(): CC(s)
+[specific] a.foo(): CC(s)
+[specific] a.boo(): CC(s)
 [ common ] a.goo(): CC(s)
 [ common ] a.koo(): CC(s)
 selfRefCommon
-[platform] a.foo(): CC(s)
-[platform] a.boo(): CC(s)
+[specific] a.foo(): CC(s)
+[specific] a.boo(): CC(s)
 [ common ] a.goo(): CC(s)
 [ common ] a.koo(): CC(s)
 receiveCommonA:
-[platform] a.foo(): CC(s1, s2)
-[platform] a.boo(): CC(s1, s2)
+[specific] a.foo(): CC(s1, s2)
+[specific] a.boo(): CC(s1, s2)
 [ common ] a.goo(): CC(s1, s2)
 [ common ] a.koo(): CC(s1, s2)
 selfRefCommon
-[platform] a.foo(): CC(s1, s2)
-[platform] a.boo(): CC(s1, s2)
+[specific] a.foo(): CC(s1, s2)
+[specific] a.boo(): CC(s1, s2)
 [ common ] a.goo(): CC(s1, s2)
 [ common ] a.koo(): CC(s1, s2)
 */

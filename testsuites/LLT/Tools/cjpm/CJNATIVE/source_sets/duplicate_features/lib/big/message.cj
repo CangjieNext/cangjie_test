@@ -10,7 +10,7 @@ package lib
 import std.unittest.*
 import std.unittest.testmacro.*
 
-public platform func message(): Unit {
+public specific func message(): Unit {
 	println("Some example message")
 }
 

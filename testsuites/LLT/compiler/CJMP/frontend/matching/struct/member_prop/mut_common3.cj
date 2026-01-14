@@ -19,8 +19,8 @@ public common struct A {
 // ERRCHECK: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan sema_property_have_same_declaration_in_inherit_mut
 package cmp
-public platform struct A{
-    platform prop a:Int32 {
+public specific struct A{
+    specific prop a:Int32 {
         get(){0}
     }
 }

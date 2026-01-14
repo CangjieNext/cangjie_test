@@ -8,7 +8,7 @@
 
 package mp
 
-platform public func genericPrint<T>(a: T) where T <: ToString {
+specific public func genericPrint<T>(a: T) where T <: ToString {
     var a = 1
     println(a)
 }

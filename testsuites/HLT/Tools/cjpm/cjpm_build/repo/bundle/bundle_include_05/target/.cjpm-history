@@ -4,7 +4,7 @@
       "rootPackageName": "demo",
       "modulePath": ".",
       "packagePath": {
-        "isMultiplatform": false,
+        "isMultispecific": false,
         "sources": [
           {
             "sourceSetDir": "src",
@@ -43,7 +43,7 @@
       "rootPackageName": "demo",
       "modulePath": ".",
       "packagePath": {
-        "isMultiplatform": false,
+        "isMultispecific": false,
         "sources": [
           {
             "sourceSetDir": "src",

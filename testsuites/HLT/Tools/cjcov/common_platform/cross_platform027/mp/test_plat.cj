@@ -8,9 +8,9 @@
 
 package mp
 
-public platform enum A<T,R> {
+public specific enum A<T,R> {
     | M
-    public platform func f1(a: T,b: R){
+    public specific func f1(a: T,b: R){
         a
     }
 }

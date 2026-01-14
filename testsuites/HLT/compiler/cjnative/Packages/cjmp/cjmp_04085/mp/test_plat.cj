@@ -8,8 +8,8 @@
  
 package mp
 
-public platform class A <: C {
-    public platform override func f(): Int64 { 0 }
+public specific class A <: C {
+    public specific override func f(): Int64 { 0 }
 }
 public func test_plat() { A().f() }
 

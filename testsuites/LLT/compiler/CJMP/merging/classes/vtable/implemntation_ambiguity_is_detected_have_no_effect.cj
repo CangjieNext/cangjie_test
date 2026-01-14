@@ -49,12 +49,12 @@ public func getBAsI3(): I3 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform interface I {
-    platform func foo6(): Unit { println("I::foo6 platform") }
+public specific interface I {
+    specific func foo6(): Unit { println("I::foo6 specific") }
 }
 
-public platform interface I3 {
-    func foo6(): Unit { println("I3::foo platform") }
+public specific interface I3 {
+    func foo6(): Unit { println("I3::foo specific") }
 } 
 
 public func run() {
@@ -74,8 +74,8 @@ main() {
 }
 
 /* SCAN
-I3::foo platform
-I3::foo platform
+I3::foo specific
+I3::foo specific
 B::foo6 common
 B::foo6 common
 */
@@ -93,12 +93,12 @@ main() {
 
 
 /* SCAN
-I3::foo platform
-I3::foo platform
+I3::foo specific
+I3::foo specific
 B::foo6 common
 B::foo6 common
-I3::foo platform
-I3::foo platform
+I3::foo specific
+I3::foo specific
 B::foo6 common
 B::foo6 common
 */

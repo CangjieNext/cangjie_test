@@ -17,7 +17,7 @@ package cmp
 
 public func foo(input: Int64): Unit {}
 
-public platform func foo(input: Int64): Unit {}
+public specific func foo(input: Int64): Unit {}
 
 
 // PASS

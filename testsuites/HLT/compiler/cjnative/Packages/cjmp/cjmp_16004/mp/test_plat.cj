@@ -8,24 +8,24 @@
 
 package mp
 
-platform interface I {
-    platform func foo<T>(): Int64 {
+specific interface I {
+    specific func foo<T>(): Int64 {
         2
     }
 }
-public platform class C {
-    public platform func foo<T>(): Int64 {
+public specific class C {
+    public specific func foo<T>(): Int64 {
         2
     }
 }
-public platform struct S {
-    public platform func foo<T>(): Int64 {
+public specific struct S {
+    public specific func foo<T>(): Int64 {
         2
     }
 }
-public platform enum E {
+public specific enum E {
     | E1
-    public platform func foo<T>(): Int64 {
+    public specific func foo<T>(): Int64 {
         2
     }
 }

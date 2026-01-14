@@ -25,13 +25,13 @@ common extend Foo <: I3 {}
 // ASSERT: scan error: interface 'Interface-I3' has been implemented by 'Class-Foo', please remove it
 package cmp
 
-platform interface I1 {}
-platform interface I2 {}
-platform interface I3 {}
-platform class Foo {}
+specific interface I1 {}
+specific interface I2 {}
+specific interface I3 {}
+specific class Foo {}
 
-platform extend Foo {}
-platform extend Foo <: I1 & I2 {}
-platform extend Foo <: I3 {}
+specific extend Foo {}
+specific extend Foo <: I1 & I2 {}
+specific extend Foo <: I3 {}
 
 extend Foo <: I1 & I3 {}

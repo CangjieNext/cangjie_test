@@ -31,14 +31,14 @@ public common class A {
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-public platform class B {
-    public platform var b: Int64=2;
-    public platform func fb():Unit{println("hello from platform fb");}
+public specific class B {
+    public specific var b: Int64=2;
+    public specific func fb():Unit{println("hello from specific fb");}
     public func fb1() {println("hello from fb1");}
 }
-public platform class A {
-    public platform let f1: (B) -> B = { b: B => println("hello from f1 platform. I pass class B"); b}
-    public platform let f2: (C) -> C = { c: C => println("hello from f2 platform. I pass class C"); c}
+public specific class A {
+    public specific let f1: (B) -> B = { b: B => println("hello from f1 specific. I pass class B"); b}
+    public specific let f2: (C) -> C = { c: C => println("hello from f2 specific. I pass class C"); c}
 }
 
 
@@ -61,12 +61,12 @@ main(): Unit {
 }
 
 /* SCAN
-hello from f1 platform. I pass class B
+hello from f1 specific. I pass class B
 10
-hello from f1 platform. I pass class B
-hello from platform fb
-hello from f1 platform. I pass class B
+hello from f1 specific. I pass class B
+hello from specific fb
+hello from f1 specific. I pass class B
 hello from fb1
-hello from f2 platform. I pass class C
+hello from f2 specific. I pass class C
 100
 */

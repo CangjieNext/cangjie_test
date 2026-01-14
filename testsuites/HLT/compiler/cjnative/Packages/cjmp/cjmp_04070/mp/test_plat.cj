@@ -8,7 +8,7 @@
  
 package mp
 
-public platform class A {}
+public specific class A {}
 public func test_plat() { A().f() }
 
 

@@ -25,8 +25,8 @@ common func foo(): Expr {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform func foo(): Expr {
-    println("platform")
+specific func foo(): Expr {
+    println("specific")
     Add(Num(0),Num(0))
 }
 
@@ -38,5 +38,5 @@ main() {
 }
 
 /* SCAN
-platform
+specific
 */

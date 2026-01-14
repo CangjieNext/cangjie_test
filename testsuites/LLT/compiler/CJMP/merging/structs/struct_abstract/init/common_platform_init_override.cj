@@ -19,9 +19,9 @@ public common struct A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform struct A {
+public specific struct A {
     public init(x:Int64,y:String) {
-        println("[platform] A.init()")
+        println("[specific] A.init()")
     }
 }
 
@@ -37,5 +37,5 @@ main(): Unit {
 }
 
 /* SCAN
-[platform] A.init()
+[specific] A.init()
 */
