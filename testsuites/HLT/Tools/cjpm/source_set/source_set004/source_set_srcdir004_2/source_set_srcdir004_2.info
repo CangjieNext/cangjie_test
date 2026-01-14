@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (CJNATIVE) EXEC: cd %n && %cjpm run -V| compare %f
-// (CJNATIVE) ASSERT: scan 0
-// (CJNATIVE) ASSERT: regex I run on [Windows|Linux|Darwin|ohos]
-// (CJNATIVE) ASSERT: scan cjpm run finished
+// EXEC: cd %n && %cjpm run -V| compare %f
+// ASSERT: scan 0
+// ASSERT: regex I run on [Windows|Linux|Darwin|ohos]
+// ASSERT: scan cjpm run finished

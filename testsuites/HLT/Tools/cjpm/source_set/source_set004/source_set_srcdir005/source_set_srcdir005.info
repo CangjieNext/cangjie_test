@@ -8,6 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (CJNATIVE) EXEC-PIPE-1: cd %n && %cjpm run -V 2>&1 | compare %f
-// (CJNATIVE) ASSERT: scan Error: Cannot compile multiple product source sets
-// (CJNATIVE) ASSERT: scan Error: cjpm run failed
+// EXEC-PIPE-1: cd %n && %cjpm run -V 2>&1 | compare %f
+// ASSERT: scan Error: Cannot compile multiple product source sets
+// ASSERT: scan Error: cjpm run failed

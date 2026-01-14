@@ -8,6 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (CJNATIVE) EXEC: cd %n && %cjpm run  --no-feature-deduce --enable-features=os.windows,os.window,os.linux,os.darwin,os.ohos 2>&1 | compare %f
-// (CJNATIVE) ASSERT: scan  feature `os.window` should be either builtin (like `os.linux`) or start with `user.packageName.`
-// (CJNATIVE) ASSERT: scan cjpm run failed
+// EXEC: cd %n && %cjpm run  --no-feature-deduce --enable-features=os.windows,os.window,os.linux,os.darwin,os.ohos 2>&1 | compare %f
+// ASSERT: scan  feature `os.window` should be either builtin (like `os.linux`) or start with `user.packageName.`
+// ASSERT: scan cjpm run failed

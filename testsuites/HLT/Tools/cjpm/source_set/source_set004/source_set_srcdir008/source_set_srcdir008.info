@@ -8,6 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (CJNATIVE) EXEC: cd %n && %cjpm run -V 2>&1 | compare %f
-// (CJNATIVE) ASSERT: scan Package `mp` should be compiled as product, but feature header annotation `@NonProduct` is present in source code
-// (CJNATIVE) ASSERT: scan Error: cjpm run failed
+// EXEC: cd %n && %cjpm run -V 2>&1 | compare %f
+// ASSERT: scan Package `mp` should be compiled as product, but feature header annotation `@NonProduct` is present in source code
+// ASSERT: scan Error: cjpm run failed

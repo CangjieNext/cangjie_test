@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (CJNATIVE) EXEC: cd %n && %cjpm run -V 2>&1 | compare %f
+// EXEC: cd %n && %cjpm run -V 2>&1 | compare %f
 // (not MAC and not Windows and not ohos) ASSERT: scan Package `mp` should be compiled as product, but feature header annotation `@NonProduct` is present in source code
 // (not MAC and not Windows and not ohos) ASSERT: scan Error: cjpm run failed
 // (MAC or Windows or ohos) ASSERT: scan 0
