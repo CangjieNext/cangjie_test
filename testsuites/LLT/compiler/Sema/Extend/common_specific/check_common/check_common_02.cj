@@ -1,5 +1,5 @@
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --output-type=chir %f 2>&1 | compare %f
-// ASSERT: scan error: declaration 'common' extend 'Int64' has a conflicting private function 'foo'
+// ASSERT: scan-2 error: 'common' and 'private' modifier conflict on function 'foo' declaration
 
 package example.cmp
 
