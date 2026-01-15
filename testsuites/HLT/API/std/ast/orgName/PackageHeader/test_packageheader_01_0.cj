@@ -13,6 +13,8 @@
 import std.ast.*
 
 @Test
+class test_01{
+    @TestCase
 func test_packageHeader() {
     var input: Tokens = quote(package a)
     let _packageHeader = parseProgram(input).packageHeader
@@ -25,4 +27,5 @@ func test_packageHeader() {
     @Assert(_packageHeader.packageIdentifier.value, "a")
     @Assert(_packageHeader.orgName.value, "")
     @Assert(_packageHeader.orgSeparator.value, "")
+}
 }

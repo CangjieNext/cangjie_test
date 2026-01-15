@@ -13,6 +13,8 @@
 import std.ast.*
 
 @Test
+class test_01{
+    @TestCase
 func test_importContent() {
     let importContent = ImportContent()
     @AssertThrows[ASTException](importContent.prefixDots = Tokens([Token(ILLEGAL)]))
@@ -20,4 +22,5 @@ func test_importContent() {
     @AssertThrows[ASTException](importContent.lBrace = Token(RCURL))
     @AssertThrows[ASTException](importContent.rBrace = Token(LCURL))
     @AssertThrows[ASTException](importContent.orgSeparator = Token(LCURL))
+}
 }

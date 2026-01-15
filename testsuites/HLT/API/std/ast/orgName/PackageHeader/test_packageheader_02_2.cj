@@ -13,6 +13,8 @@
 import std.ast.*
 
 @Test
+class test_01{
+    @TestCase
 func test_packageHeader() {
     let _packageHeader = cangjieLex("macro package a.b.c")
     _packageHeader.dump()
@@ -26,3 +28,4 @@ func test_packageHeader() {
 // ASSERT: regex description: identifier, token_id: [0-9]+, token_literal_value: b, fileID: 0, line: 1, column: 17
 // ASSERT: regex description: dot, token_id: [0-9]+, token_literal_value: ., fileID: 0, line: 1, column: 18
 // ASSERT: regex description: identifier, token_id: [0-9]+, token_literal_value: c, fileID: 0, line: 1, column: 19
+}

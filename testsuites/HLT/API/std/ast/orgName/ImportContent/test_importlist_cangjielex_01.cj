@@ -15,6 +15,8 @@ import std.ast.*
 var input: Tokens = quote(import std.ast.a)
 
 @Test
+class test_01{
+    @TestCase
 func test_importList() {
     let tks = cangjieLex(##"import std.ast.a
 import a_a_a_a
@@ -50,4 +52,5 @@ import org_1 :: std.ast.{ a1, a.b1.*, a.c1 as c2 }
 import { a1.b1, a.*, a.c1 as c2 }
 import org_1 :: { a1.b1, a.*, a.c1 as c2 }
 import { org_1 :: a1.b1, a.*, org_1 :: a.c1 as c2 }"##)
+}
 }

@@ -13,6 +13,8 @@
 import std.ast.*
 
 @Test
+class test_01{
+    @TestCase
 func test_importContent() {
     let importContent = ImportContent()
     importContent.importKind = ImportKind.Alias
@@ -29,4 +31,5 @@ func test_importContent() {
     @Assert(importContent.identifier.value, "pkga")
     @Assert(importContent.orgName.value, "orgName")
     @Assert(importContent.orgSeparator.value, "::")
+}
 }

@@ -15,7 +15,10 @@ import std.ast.*
 var input: Tokens = quote(import {org_1::a1, a.b1.*, org_2::a.c1 as c2})
 
 @Test
+class test_01{
+    @TestCase
 func test_importList() {
     @AssertThrows[Exception](parseProgram(input).importLists[0])
     @AssertThrows[Exception](ImportList(input))
+}
 }

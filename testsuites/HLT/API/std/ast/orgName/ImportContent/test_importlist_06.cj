@@ -15,7 +15,10 @@ import std.ast.*
 var input: Tokens = quote(public import org1.std::ast.userdefine)
 
 @Test
+class test_01{
+    @TestCase
 func test_importList() {
     @AssertThrows[ParseASTException](parseProgram(input))
     @AssertThrows[ASTException](ImportList(input))
+}
 }

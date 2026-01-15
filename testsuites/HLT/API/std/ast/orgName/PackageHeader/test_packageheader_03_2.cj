@@ -15,6 +15,8 @@ package orgName :: a
 import std.ast.*
 
 @Test
+class test_01{
+    @TestCase
 func test_packageHeader() {
     let _packageHeader = cangjieLex("package orgName1::a.b")
     _packageHeader.dump()
@@ -27,3 +29,4 @@ func test_packageHeader() {
 // ASSERT: regex description: identifier, token_id: [0-9]+, token_literal_value: a, fileID: 0, line: 1, column: 19
 // ASSERT: regex description: dot, token_id: [0-9]+, token_literal_value: ., fileID: 0, line: 1, column: 20
 // ASSERT: regex description: identifier, token_id: [0-9]+, token_literal_value: b, fileID: 0, line: 1, column: 21
+}

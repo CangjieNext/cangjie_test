@@ -15,6 +15,8 @@ import std.unittest.*
 import std.unittest.testmacro.*
 
 @Test
+class test_01{
+    @TestCase
 func test_packageHeader() {
     let _packageHeader = PackageHeader()
     // _packageHeader.accessible = Token(ILLEGAL)
@@ -38,4 +40,5 @@ func test_packageHeader() {
     @Assert(_packageHeader.orgSeparator.value, "::")
     @AssertThrows[ASTException](_packageHeader.keywordM = Token(IDENTIFIER, "macro"))
     @AssertThrows[ASTException](_packageHeader.keywordP = Token(IDENTIFIER, "package"))
+}
 }

@@ -14,7 +14,9 @@ import std.ast.*
 
 var input: Tokens = quote(import org_1::std.ast.a as abcd)
 
-@Test[
+@Test
+class test_01{
+    @TestCase[
     importList in [
         parseProgram(input).importLists[0],
         ImportList(input)
@@ -43,4 +45,5 @@ func test_importList(importList: ImportList) {
     @Assert(importList.content.isImportSingle(), false)
     @Assert(importList.content.orgName.value, "org_1")
     @Assert(importList.content.orgSeparator.value, "::")
+}
 }
