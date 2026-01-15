@@ -9,7 +9,7 @@
 // LEVEL: 1
 // DEPENDENCE:../utils.cj 
 // EXEC: %compiler %cmp_opt %f utils.cj %use_ast -o %output
-// EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan IllegalArgumentException:
 // ASSERT: scan expected identifier, found '`'
 
