@@ -5,7 +5,20 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [ALL-TEST-CASE]
-CJNATIVE/
+CJNATIVE/build/build_env_var
+CJNATIVE/build/cangjie_macro_build
+CJNATIVE/build/combined
+CJNATIVE/build/foreign_requires
+CJNATIVE/build/lint
+CJNATIVE/build/macro_expansion_env
+CJNATIVE/build_script/script
+CJNATIVE/common_platform
+CJNATIVE/compile_performance
+CJNATIVE/install/local
+CJNATIVE/organization
+CJNATIVE/source_sets
+CJNATIVE/target/bin_dependencies
+CJNATIVE/test/unittest
 
 [EXCLUDE-TEST-CASE]
 # 交叉编译用例仅用于本地验证
