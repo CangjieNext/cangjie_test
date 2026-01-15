@@ -706,6 +706,17 @@ while (x && y + 1 > 3) {
     }""")
         @Expect(expr.toString(), text)
     }
+
+    @TestCase
+    func testQuoteExpr01() {
+        let text = """
+quote(
+    1
+)
+"""
+        let expr = (parseText(text).node.getOrThrow() as QuoteExpr).getOrThrow()
+        @Expect(expr.toString(), text)
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
