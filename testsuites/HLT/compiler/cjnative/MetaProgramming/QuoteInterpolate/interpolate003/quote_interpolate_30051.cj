@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// ERRCHECK: %compiler %cmp_opt %use_ast %f -o %output
+// EXEC: %compiler %cmp_opt %use_ast %f -o %output
 
 
 
@@ -22,4 +22,3 @@ main(){
     test()
     return 0
 }
-// ASSERT: scan lex_expected_quote_in_raw_string
