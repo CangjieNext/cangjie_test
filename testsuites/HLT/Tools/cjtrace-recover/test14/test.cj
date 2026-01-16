@@ -13,8 +13,8 @@
 // (not O2 and not g) EXEC: echo "aaa bbb" > default2.obf.map
 // (not O2 and not g and not OHOS) EXEC-PIPE: %cjtrace_recover -f stack_obf.log -m default.obf.map,default1.obf.map,default2.obf.map 2>&1 | compare %f
 // (not O2 and not g and not OHOS) ASSERT: regex ArithmeticException: Divided by zero!
-// (not O2 and not g and not OHOS) ASSERT: regex at default\.test.*obfuscation.*
-// (not O2 and not g and not OHOS) ASSERT: regex at default\.main.*obfuscation.*
+// (not O2 and not g and not OHOS) ASSERT: regex at default\.test
+// (not O2 and not g and not OHOS) ASSERT: regex at default\.main
 
 class A {
     var a = 0

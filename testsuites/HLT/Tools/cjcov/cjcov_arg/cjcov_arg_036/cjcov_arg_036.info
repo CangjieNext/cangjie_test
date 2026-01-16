@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: ../%n ../../scripts/compare_html.py
 // EXEC: cd %n&& cjpm init --name default&& cjpm build --coverage&& cjpm run --skip-build
 // EXEC-PIPE: cd %n&& %cjcov -x && %ls | compare %f
