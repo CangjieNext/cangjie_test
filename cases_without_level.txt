@@ -1,0 +1,2 @@
+/root/rep/cj/cangjie_test/testsuites/LLT/compiler/Parser/ar/parser_support_sealed/sealed_open.cj
+/root/rep/cj/cangjie_test/testsuites/LLT/compiler/Parser/ar/parser_support_sealed/sealed_public_open.cj
