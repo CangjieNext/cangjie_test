@@ -20,5 +20,5 @@ r,r,-> 12
 s,s,test_plat.cj:12
 n,n,-> 13
 p,p a,\(Int64\) \$[\d] = 1
-finish,finish,cross_platform002.cj:13
+finish,finish,cross_platform002.cj:12
 q,q,

@@ -10,5 +10,7 @@ package mp
 
 public common struct A {
     public var a: Int64 = 1
-    public common A(a: Int64)
+    public A(a: Int64) {
+        this.a = a
+    }
 }
