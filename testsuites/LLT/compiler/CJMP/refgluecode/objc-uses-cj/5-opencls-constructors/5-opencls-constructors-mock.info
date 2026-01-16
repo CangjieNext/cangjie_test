@@ -1,0 +1,52 @@
+// DEPENDENCE: ../../../../../../../Conformance/CJMP/RefGlueCode/_common ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/5-opencls-constructors/api ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/5-opencls-constructors/app ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/5-opencls-constructors/generated
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt _common/*.cj -o libinteroptest.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt api/*.cj -o libapi.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt generated/*.cj %import_objc_interop -L. -lapi -o libcjworld.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link %clang_link_core            generated/*.m -Igenerated -L. -lobjc -linteroplib.objclib -lcjworld -shared -o libgluecode.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link %clang_link_core -fobjc-arc app/*.m -Iapp -Igenerated -L. -lobjc -linteroptest -lapi -lcjworld -lgluecode -o main
+// (CJNATIVE and not Windows) RUN-EXEC: test -f libcjworld.dylib || cp libcjworld.%dylib_suffix libcjworld.dylib
+// (CJNATIVE and not Windows) RUN-EXEC: %run_macro ./main 2>&1 | sed 's/.* main\[[0-9]*:[0-9]*\] //g' | compare ./%f
+
+/* SCAN-IN
+ObjC: TestFooI64 STARTED[CJ]: A.init(0, 0, 2)
+
+ObjC: TestFooI64 got A(2) instance RC2: 2
+
+ObjC: TestFooI64 execute aL.fooI64:
+[CJ]: A.fooI64()
+ObjC: TestFooI64 got aL.fooI64 result (expected 4):4
+[CJ]: A.init(1, 0, 3, 4)
+
+ObjC: TestFooI64 got A(3, 4) instance RC2: 2
+
+ObjC: TestFooI64 execute aLL.fooI64:
+[CJ]: A.fooI64()
+ObjC: TestFooI64 got aLL.fooI64 result (expected 7):7
+[CJ]: A.init(2, 1, 2)
+ObjC: AA.init(2)
+
+ObjC: TestFooI64 got AA(2) instance RC2: 2
+
+ObjC: TestFooI64 execute aaL.fooI64:
+ObjC: TestFooI64 got aaL.fooI64 result (expected 42):42
+[CJ]: A.init(3, 1, 3, 4)
+ObjC: AA.init(3, 4)
+
+ObjC: TestFooI64 got AA(3, 4) instance RC2: 2
+
+ObjC: TestFooI64 execute aaLL.fooI64:
+ObjC: TestFooI64 got aaLL.fooI64 result (expected 42):42
+
+ObjC: TestFooI64 is finished, after return - the autoreleasepool (by ARC) is closed so 4 TransitionII are expected for aL, aLL, aaL and aaLL:
+ObjC: Transition II for 3 (now resetted to -1)
+ObjC: Transition II for 2 (now resetted to -1)
+ObjC: Transition II for 1 (now resetted to -1)
+ObjC: Transition II for 0 (now resetted to -1)
+
+ObjC: after TestFooI64 call cjGC, 4 TransitionIV are expected:
+[CJ]: A_fwd.~init happened (TransitionIV)
+[CJ]: A_fwd.~init happened (TransitionIV)
+[CJ]: A_fwd.~init happened (TransitionIV)
+[CJ]: A_fwd.~init happened (TransitionIV)
+ObjC: cjGC COMPLETED
+*/

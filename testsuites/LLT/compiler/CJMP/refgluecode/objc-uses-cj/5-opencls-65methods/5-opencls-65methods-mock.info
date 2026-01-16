@@ -1,0 +1,67 @@
+// DEPENDENCE: ../../../../../../../Conformance/CJMP/RefGlueCode/_common ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/5-opencls-65methods/api ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/5-opencls-65methods/app ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/5-opencls-65methods/generated
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt _common/*.cj -o libinteroptest.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt api/*.cj -o libapi.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt generated/*.cj %import_objc_interop -L. -lapi -o libcjworld.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link %clang_link_core            generated/*.m -Igenerated -L. -lobjc -linteroplib.objclib -lcjworld -shared -o libgluecode.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link %clang_link_core -fobjc-arc app/*.m -Iapp -Igenerated -L. -lobjc -linteroptest -lapi -lcjworld -lgluecode -o main
+// (CJNATIVE and not Windows) RUN-EXEC: test -f libcjworld.dylib || cp libcjworld.%dylib_suffix libcjworld.dylib
+// (CJNATIVE and not Windows) RUN-EXEC: %run_macro ./main 2>&1 | sed 's/.* main\[[0-9]*:[0-9]*\] //g' | compare ./%f
+
+/* SCAN-IN
+ObjC: TestFoo STARTED
+[CJ]: A.init(0, 9223376434901286913)
+ObjC: AA.init()
+
+ObjC: TestFoo execute aa.foo0:
+ObjC: AA.foo0()
+
+ObjC: TestFoo execute aa.foo42:
+ObjC: AA.foo42()
+
+ObjC: TestFoo execute aa.foo62 (not overridden):
+ObjC: A.foo62() about to call CJImpl_ObjC_cjworld_A_fwd_foo62
+[CJ]: foo62Impl called
+[CJ]: A.foo62()
+
+ObjC: TestFoo execute aa.foo63:
+ObjC: AA.foo63()
+
+ObjC: TestFoo execute aa.foo64:
+ObjC: AA.foo64()
+
+ObjC: TestFoo execute aa.foo65:
+ObjC: A.foo65() about to call CJImpl_ObjC_cjworld_A_fwd_foo65
+[CJ]: foo65Impl called
+[CJ]: A.foo65()
+
+ObjC: TestFoo execute aa.foo1 to test aa from CJ side:
+[CJ]: A.foo1() must not be overridden at ObjC as it is used as a test func at CJ side
+[CJ]: try foo0:
+[CJ]: foo0 is overridden - call ObjC implementation
+ObjC: AA.foo0()
+[CJ]: try foo42:
+[CJ]: foo42 is overridden - call ObjC implementation
+ObjC: AA.foo42()
+[CJ]: try foo62:
+[CJ]: foo62 is NOT overridden - call foo62Impl at CJ side
+[CJ]: foo62Impl called
+[CJ]: A.foo62()
+[CJ]: try foo63:
+[CJ]: foo63 is overridden - call ObjC implementation
+ObjC: AA.foo63()
+[CJ]: try foo64 (overridden at ObjC):
+[CJ]: foo64 may be overridden - call ObjC implementation
+ObjC: AA.foo64()
+[CJ]: try foo65 (NOT overridden at ObjC):
+[CJ]: foo65 may be overridden - call ObjC implementation
+ObjC: A.foo65() about to call CJImpl_ObjC_cjworld_A_fwd_foo65
+[CJ]: foo65Impl called
+[CJ]: A.foo65()
+
+ObjC: TestFoo is finished, after return - the autoreleasepool (by ARC) is closed so 1 TransitionII ia expected for aa:
+ObjC: Transition II for 0 (now resetted to -1)
+
+ObjC: after TestFoo call cjGC, 1 TransitionIV is expected:
+[CJ]: A_fwd.~init happened (TransitionIV)
+ObjC: cjGC COMPLETED
+*/
