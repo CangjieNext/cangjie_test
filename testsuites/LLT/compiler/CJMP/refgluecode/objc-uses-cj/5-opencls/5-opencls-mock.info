@@ -1,0 +1,77 @@
+// DEPENDENCE: ../../../../../../../Conformance/CJMP/RefGlueCode/_common ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/5-opencls/api ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/5-opencls/app ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/5-opencls/generated
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt _common/*.cj -o libinteroptest.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt api/*.cj -o libapi.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt generated/*.cj %import_objc_interop -L. -lapi -o libcjworld.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link %clang_link_core            generated/*.m -Igenerated -L. -lobjc -linteroplib.objclib -lcjworld -shared -o libgluecode.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link %clang_link_core -fobjc-arc app/*.m -Iapp -Igenerated -L. -lobjc -linteroptest -lapi -lcjworld -lgluecode -o main
+// (CJNATIVE and not Windows) RUN-EXEC: test -f libcjworld.dylib || cp libcjworld.%dylib_suffix libcjworld.dylib
+// (CJNATIVE and not Windows) RUN-EXEC: %run_macro ./main 2>&1 | sed 's/.* main\[[0-9]*:[0-9]*\] //g' | compare ./%f
+
+/* SCAN-IN
+ObjC: TestFooI32 STARTED
+[CJ]: A.init(0, 21)
+ObjC: A.init(0) self after +1 RC2: 2
+ObjC: AA.init()
+ObjC: TestFooI32 got AA instance RC2: 2
+
+ObjC: TestFooI32 execute aa.fooI32:
+ObjC: AA.fooI32() self RC: 2
+ObjC: TestFooI32 got aa.fooI32 result (expected 42):42
+[CJ]: A.fooA() returns new A()
+ObjC: A.initWithRegistryId(1) self RC1: 1
+ObjC: TestFooI32 got aa.fooA (pureA) instance RC1: 1
+
+ObjC: TestFooI32 execute pureA.fooI32:
+[CJ]: A.fooI32()
+ObjC: TestFooI32 got pureA.fooI32 result (expected 32):32
+
+ObjC: TestFooI32 is finished, after return - the autoreleasepool (by ARC) is closed so 1 TransitionII is expected for aa, and simple deallocation for pureA:
+ObjC: objc-twin of pure CJ A object is deallocated for id 1
+ObjC: Transition II for 0 (now resetted to -1)
+
+ObjC: after TestFooI32 call cjGC, 1 TransitionIV is expected:
+[CJ]: A_fwd.~init happened (TransitionIV)
+ObjC: cjGC COMPLETED
+
+ObjC: TestCallVirtual STARTED
+[CJ]: A.init(0, 21)
+ObjC: A.init(0) self after +1 RC2: 2
+ObjC: AA.init()
+ObjC: TestCallVirtual got AA instance RC2: 2
+
+ObjC: TestCallVirtual execute aa.fooVirtual:
+ObjC: AA.fooVirtual() self RC: 2, now call super.fooVirtual:
+ObjC: A.fooVirtual() self RC: 2, now call super.fooVirtual:
+[CJ]: A.fooVirtual()
+
+ObjC: TestCallVirtual execute aa.callFooVirtual:
+[CJ]: A.callFooVirtual()
+ObjC: AA.fooVirtual() self RC: 3, now call super.fooVirtual:
+ObjC: A.fooVirtual() self RC: 3, now call super.fooVirtual:
+[CJ]: A.fooVirtual()
+
+ObjC: TestCallVirtual execute pureA = aa.fooA:
+[CJ]: A.fooA() returns new A()
+ObjC: A.initWithRegistryId(1) self RC1: 1
+ObjC: TestCallVirtual got aa.fooA (pureA) instance RC1: 1
+
+ObjC: TestCallVirtual execute pureA.fooVirtual (must not call super.fooVirtual):
+ObjC: A.fooVirtual() self RC: 1, now call super.fooVirtual:
+[CJ]: A.fooVirtual()
+
+ObjC: TestCallVirtual execute pureA.callFooVirtual (must not call super.fooVirtual):
+[CJ]: A.callFooVirtual()
+[CJ]: A.fooVirtual()
+
+ObjC: TestCallVirtual execute pureA.paramA(aa):
+ObjC: AA.fooI32() self RC: 3
+[CJ]: A.paramA gets arg (a.fooI32 == 42)
+
+ObjC: TestCallVirtual is finished, after return - the autoreleasepool (by ARC) is closed so 1 TransitionII is expected for aa, and simple deallocation for pureA:
+ObjC: objc-twin of pure CJ A object is deallocated for id 1
+ObjC: Transition II for 0 (now resetted to -1)
+
+ObjC: after TestCallVirtual call cjGC, 1 TransitionIV is expected:
+[CJ]: A_fwd.~init happened (TransitionIV)
+ObjC: cjGC COMPLETED
+*/
