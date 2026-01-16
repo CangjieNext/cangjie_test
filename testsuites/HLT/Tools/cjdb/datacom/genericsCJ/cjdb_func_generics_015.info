@@ -8,11 +8,11 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/generics_debug_files/func_generics/
-// (not MAC) EXEC: %compiler %cmp_opt %compile_lib_opt -g func_generics/p1/debug_func_generics_p101.cj func_generics/p1/debug_func_generics_p102.cj -o p1.%middle
-// (not MAC) EXEC: %compiler %cmp_opt %compile_lib_opt -g func_generics/p2/debug_func_generics_p201.cj -o p2.%middle
-// (not MAC) EXEC: %compiler %cmp_opt -g func_generics/debug_func_generics.cj p1.%middle p2.%middle -o debug_func_generics%cmp_output
-// (not MAC) EXEC: cj_pwd=`realpath func_generics/debug_func_generics.cj`;sed -i "s;b 56;b ${cj_pwd}:56;g" cjdb_func_generics_015.info
-// (not MAC) EXEC: python3 cjdb_test.py cjdb_func_generics_015.info debug_func_generics %run_env
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt %compile_lib_opt -g func_generics/p1/debug_func_generics_p101.cj func_generics/p1/debug_func_generics_p102.cj -o p1.%middle
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt %compile_lib_opt -g func_generics/p2/debug_func_generics_p201.cj -o p2.%middle
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g func_generics/debug_func_generics.cj p1.%middle p2.%middle -o debug_func_generics%cmp_output
+// (not MAC and not Windows) EXEC: cj_pwd=`realpath func_generics/debug_func_generics.cj`;sed -i "s;b 56;b ${cj_pwd}:56;g" cjdb_func_generics_015.info
+// (not MAC and not Windows) EXEC: python3 cjdb_test.py cjdb_func_generics_015.info debug_func_generics %run_env
 
 test#
 cjdb,cjdb --no-use-colors debug_func_generics,debug_func_generics
