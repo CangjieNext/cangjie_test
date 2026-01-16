@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: ./
 // EXEC-PIPE: %lint -f ./  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
 // ASSERT: regex-1 .*warning.*: G.ENU.02: The enum constructor or function 'A1' is overloaded.
