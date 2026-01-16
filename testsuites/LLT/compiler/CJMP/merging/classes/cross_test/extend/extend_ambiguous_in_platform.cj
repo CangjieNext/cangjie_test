@@ -24,8 +24,8 @@ extend A <: I {}
 package cmp
 
 
-platform class A {
-     func foo(): Unit { println("foo of I in platform") }
+specific class A {
+     func foo(): Unit { println("foo of I in specific") }
 }
 
 

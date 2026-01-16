@@ -26,7 +26,7 @@ public func testFunc(): Unit {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-public platform class C {
+public specific class C {
 }
 
 main(): Unit {

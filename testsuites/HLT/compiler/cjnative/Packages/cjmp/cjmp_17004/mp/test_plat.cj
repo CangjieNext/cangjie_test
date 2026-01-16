@@ -8,8 +8,8 @@
 
 package mp
 
-public platform class C {
-    public platform func f(): Unit { g2() }
+public specific class C {
+    public specific func f(): Unit { g2() }
 }
 public func g2(): Unit {
     Option<Int64>.None.getOrThrow()

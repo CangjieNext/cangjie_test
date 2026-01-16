@@ -8,7 +8,7 @@
  
 package mp
 
-platform sealed interface A {}
+specific sealed interface A {}
 public func test_plat() { C.f1() + C().f2() }
 
 

@@ -28,9 +28,9 @@ public common struct E<T>{
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p -g
 package cmp
 
-public platform struct E<T>{
-    public platform func foo(x: T) : T {
-        println("platform::foo")
+public specific struct E<T>{
+    public specific func foo(x: T) : T {
+        println("specific::foo")
         return x
     }
 }
@@ -50,5 +50,5 @@ main() {
 }
 /* SCAN
 init
-platform::foo
+specific::foo
 */

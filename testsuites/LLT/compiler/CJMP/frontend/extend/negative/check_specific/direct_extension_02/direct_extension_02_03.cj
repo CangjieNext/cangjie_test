@@ -12,11 +12,11 @@ common extend Int64 {}
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
-// ASSERT: scan error: declaration 'platform' extend 'Int64' has a conflicting extension
+// ASSERT: scan error: declaration 'specific' extend 'Int64' has a conflicting extension
 package cmp
 
-platform extend Int64{}
-platform extend Int64{}
+specific extend Int64{}
+specific extend Int64{}
 
 // CJMP Spec:
 // 1. a common declaration may have one or more matching specific declarations in descending source sets (at most one specific per source set)

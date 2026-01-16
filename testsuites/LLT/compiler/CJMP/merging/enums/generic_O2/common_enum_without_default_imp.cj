@@ -25,9 +25,9 @@ public func f1() {
 // EXEC-0: %compiler %noColor %enableO2 --experimental p/p.cj c/mp.chir --common-part-cjo=./c/mp.cjo  --output-type=dylib -o ./
 package mp
 
-public platform enum C<T1, T2, T3> {
+public specific enum C<T1, T2, T3> {
   | E1
-  public platform func foo(a: T3, b: T3) { a }
+  public specific func foo(a: T3, b: T3) { a }
 }
 public func f2() {
     var c = E1<Int32, Float64, Int64> 

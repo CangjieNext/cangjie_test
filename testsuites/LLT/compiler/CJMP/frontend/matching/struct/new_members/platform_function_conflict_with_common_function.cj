@@ -19,9 +19,9 @@ public common struct A {
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan sema_overload_conflicts
 package cmp
-public platform struct A{
+public specific struct A{
     public func foo()
     {
-        println("platform")
+        println("specific")
     }
 }

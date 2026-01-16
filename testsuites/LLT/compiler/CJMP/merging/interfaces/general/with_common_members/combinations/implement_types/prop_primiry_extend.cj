@@ -25,7 +25,7 @@ extend Int64 <: I {
 public func runCommon() {
     let a: Int64 = 0
     println(a.foo1) // foo1 of A in common
-    println(a.foo2) // foo2 of I in platform
+    println(a.foo2) // foo2 of I in specific
     println(a.foo3) // foo3 of I in common
     println(a.foo4) // foo4 of A in common
     println(a.foo5) // foo5 of I in common
@@ -37,26 +37,26 @@ public func runCommon() {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-public platform interface I {
-    platform prop foo1: String { get() { "foo1 of I in platform" } } // ok: common open
-    platform prop foo2: String { get() { "foo2 of I in platform" } } // ok: common open
+public specific interface I {
+    specific prop foo1: String { get() { "foo1 of I in specific" } } // ok: common open
+    specific prop foo2: String { get() { "foo2 of I in specific" } } // ok: common open
 
-    prop foo6: String { get() { "foo6 of I in platform" } } // ok: open new func must have body
+    prop foo6: String { get() { "foo6 of I in specific" } } // ok: open new func must have body
 }
 
 extend Bool <: I {
-    public prop foo1: String { get() { "foo1 of B in platform" } } 
-    public prop foo4: String { get() { "foo4 of B in platform" } } 
+    public prop foo1: String { get() { "foo1 of B in specific" } } 
+    public prop foo4: String { get() { "foo4 of B in specific" } } 
 }
 
 public func run() {
     let b = true
-    println(b.foo1) // foo1 of B in platform
-    println(b.foo2) // foo2 of I in platform
+    println(b.foo1) // foo1 of B in specific
+    println(b.foo2) // foo2 of I in specific
     println(b.foo3) // foo3 of I in common
-    println(b.foo4) // foo4 of B in platform
+    println(b.foo4) // foo4 of B in specific
     println(b.foo5) // foo5 of I in common
-    println(b.foo6) // foo6 of I in platform
+    println(b.foo6) // foo6 of I in specific
 }
 
 main() {
@@ -66,14 +66,14 @@ main() {
 
 /* SCAN
 foo1 of A in common
-foo2 of I in platform
+foo2 of I in specific
 foo3 of I in common
 foo4 of A in common
 foo5 of I in common
-foo1 of B in platform
-foo2 of I in platform
+foo1 of B in specific
+foo2 of I in specific
 foo3 of I in common
-foo4 of B in platform
+foo4 of B in specific
 foo5 of I in common
-foo6 of I in platform
+foo6 of I in specific
 */

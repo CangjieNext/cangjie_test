@@ -8,14 +8,14 @@
 
 package mp
 
-public platform class A<T> {
-    public platform init(a:T) {
+public specific class A<T> {
+    public specific init(a:T) {
         a
     }
-    public platform init(a:T,b:Bool) {
+    public specific init(a:T,b:Bool) {
         a
     }
-    public platform func f1(a: T): T {
+    public specific func f1(a: T): T {
         a
     }
 }

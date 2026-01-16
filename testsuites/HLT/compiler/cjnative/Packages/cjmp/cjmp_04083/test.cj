@@ -11,5 +11,5 @@
 // EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
 // ERRCHECK: %compiler %cmp_opt mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
 // ASSERT: scan sema_ignore_open
-// ASSERT: scan sema_platform_has_different_modifier
+// ASSERT: scan sema_specific_has_different_modifier
 

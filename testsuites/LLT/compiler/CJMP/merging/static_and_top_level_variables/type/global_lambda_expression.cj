@@ -20,9 +20,9 @@ public common let f4: (Int64, Int64) -> Int64 = { a: Int64, b: Int64 => a * b }
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform let f3: (Int64, Int64) -> Int64 = { a: Int64, b: Int64 => a * b }
+public specific let f3: (Int64, Int64) -> Int64 = { a: Int64, b: Int64 => a * b }
 
-public platform let f4: (Int64, Int64) -> Int64 = { a: Int64, b: Int64 => a / b }
+public specific let f4: (Int64, Int64) -> Int64 = { a: Int64, b: Int64 => a / b }
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor m_common.cj --import-path=./c -L./p -lcmp -o %output

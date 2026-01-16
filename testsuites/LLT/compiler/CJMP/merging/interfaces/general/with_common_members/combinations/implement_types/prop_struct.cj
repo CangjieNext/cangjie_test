@@ -40,13 +40,13 @@ public struct A <: I {
 public func runCommon() {
     var a = A()
     println(a.foo1) // foo1 of A in common
-    println(a.foo2) // foo2 of I in platform
+    println(a.foo2) // foo2 of I in specific
     println(a.foo3) // foo3 of I in common
     println(a.foo4) // foo4 of A in common
     println(a.foo5) // foo5 of I in common
 
     a.foo1 = "" // foo1 of A in common
-    a.foo2 = "" // foo2 of I in platform
+    a.foo2 = "" // foo2 of I in specific
     a.foo3 = "" // foo3 of I in common
     a.foo4 = "" // foo4 of A in common
     a.foo5 = "" // foo5 of I in common
@@ -58,48 +58,48 @@ public func runCommon() {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-public platform interface I {
-    platform mut prop foo1: String {
-        get() { "foo1 of I in platform" }
-        set(v) { println("foo1 of I in platform") }
+public specific interface I {
+    specific mut prop foo1: String {
+        get() { "foo1 of I in specific" }
+        set(v) { println("foo1 of I in specific") }
     } // ok: common open
-    platform mut prop foo2: String {
-        get() { "foo2 of I in platform" }
-        set(v) { println("foo2 of I in platform") }
+    specific mut prop foo2: String {
+        get() { "foo2 of I in specific" }
+        set(v) { println("foo2 of I in specific") }
     } // ok: common open
 
     mut prop foo6: String {
-        get() { "foo6 of I in platform" }
-        set(v) { println("foo6 of I in platform") }
+        get() { "foo6 of I in specific" }
+        set(v) { println("foo6 of I in specific") }
     } // ok: open new func must have body
 }
 
 struct B <: I {
     public mut prop foo1: String {
-        get() { "foo1 of B in platform" }
-        set(v) { println("foo1 of B in platform") }
+        get() { "foo1 of B in specific" }
+        set(v) { println("foo1 of B in specific") }
     } 
     public mut prop foo4: String {
-        get() { "foo4 of B in platform" }
-        set(v) { println("foo4 of B in platform") }
+        get() { "foo4 of B in specific" }
+        set(v) { println("foo4 of B in specific") }
     } 
 }
 
 public func run() {
     var b = B()
-    println(b.foo1) // foo1 of B in platform
-    println(b.foo2) // foo2 of I in platform
+    println(b.foo1) // foo1 of B in specific
+    println(b.foo2) // foo2 of I in specific
     println(b.foo3) // foo3 of I in common
-    println(b.foo4) // foo4 of B in platform
+    println(b.foo4) // foo4 of B in specific
     println(b.foo5) // foo5 of I in common
-    println(b.foo6) // foo6 of I in platform
+    println(b.foo6) // foo6 of I in specific
 
-    b.foo1 = "" // foo1 of B in platform
-    b.foo2 = "" // foo2 of I in platform
+    b.foo1 = "" // foo1 of B in specific
+    b.foo2 = "" // foo2 of I in specific
     b.foo3 = "" // foo3 of I in common
-    b.foo4 = "" // foo4 of B in platform
+    b.foo4 = "" // foo4 of B in specific
     b.foo5 = "" // foo5 of I in common
-    b.foo6 = "" // foo6 of I in platform
+    b.foo6 = "" // foo6 of I in specific
 }
 
 main() {
@@ -109,25 +109,25 @@ main() {
 
 /* SCAN
 foo1 of A in common
-foo2 of I in platform
+foo2 of I in specific
 foo3 of I in common
 foo4 of A in common
 foo5 of I in common
 foo1 of A in common
-foo2 of I in platform
+foo2 of I in specific
 foo3 of I in common
 foo4 of A in common
 foo5 of I in common
-foo1 of B in platform
-foo2 of I in platform
+foo1 of B in specific
+foo2 of I in specific
 foo3 of I in common
-foo4 of B in platform
+foo4 of B in specific
 foo5 of I in common
-foo6 of I in platform
-foo1 of B in platform
-foo2 of I in platform
+foo6 of I in specific
+foo1 of B in specific
+foo2 of I in specific
 foo3 of I in common
-foo4 of B in platform
+foo4 of B in specific
 foo5 of I in common
-foo6 of I in platform
+foo6 of I in specific
 */

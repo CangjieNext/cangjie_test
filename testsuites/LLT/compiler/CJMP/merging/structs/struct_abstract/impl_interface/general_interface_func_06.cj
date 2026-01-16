@@ -21,7 +21,7 @@ public struct S1 <: I1 {
     public init(){}
 
     public func F1() : UInt64 {
-        println("platform")
+        println("specific")
         return 0
     }
 }
@@ -42,6 +42,6 @@ main(): Unit {
 
 
 /* SCAN
-platform
-platform
+specific
+specific
 */

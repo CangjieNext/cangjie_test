@@ -6,9 +6,9 @@
 
 pakeage cmp
 
-public platform enum A {
+public specific enum A {
     | ELEMENT
-    public platform func foo(): Unit {
-        println("I am platform")
+    public specific func foo(): Unit {
+        println("I am specific")
     }
 }

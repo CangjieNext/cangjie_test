@@ -7,7 +7,7 @@
  */
 
 package mp
-public platform func foo<T>(a: T) where T <: I3<I1, I2<I1>> & I1 & I2<I1> {
+public specific func foo<T>(a: T) where T <: I3<I1, I2<I1>> & I1 & I2<I1> {
     2
 }
 public func f2() {

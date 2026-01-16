@@ -9,7 +9,7 @@
 features { user.mp.windowsorlinux }
 package mp
 
-public platform interface I {
+public specific interface I {
     func f2(): Int64 {
         -1
     }

@@ -22,10 +22,10 @@ public common enum RGBColor {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-public platform enum RGBColor {
+public specific enum RGBColor {
     RED | GREEN | BLUE
-    public platform func foo(input1: Int64): Unit {
-        println("platform foo")
+    public specific func foo(input1: Int64): Unit {
+        println("specific foo")
     }
 }
 
@@ -33,5 +33,5 @@ main() {
     RED.foo(1)
 }
 /* SCAN-IN
-platform foo
+specific foo
 */

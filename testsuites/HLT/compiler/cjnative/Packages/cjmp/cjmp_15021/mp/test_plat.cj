@@ -7,9 +7,9 @@
  */
 
 package mp
-platform extend <T> A<T> where T <: I1 & I2<I1> & I3<I1, I2<I1>> {
-    public platform func foo1() { 2 }
-    public platform static func foo2() { 2 }
+specific extend <T> A<T> where T <: I1 & I2<I1> & I3<I1, I2<I1>> {
+    public specific func foo1() { 2 }
+    public specific static func foo2() { 2 }
 }
 public func f2() {
     return A<B>().foo1() + A<B>.foo2()

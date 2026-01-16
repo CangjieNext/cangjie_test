@@ -31,7 +31,7 @@ public func id3(x: Int) { return x }
 // NOTE:
 // Y depends on X
 // however in common part already fixed that X depends on Y
-public platform let Y: Int64 = id2(id3(id(X)))
+public specific let Y: Int64 = id2(id3(id(X)))
 
 /* SCAN
 error: p.cj and c1.cj might have file circular dependency

@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// case: platform decls inherit @Deprecated from common decls. No error for platform if @Deprecated is used on common.
+// case: specific decls inherit @Deprecated from common decls. No error for specific if @Deprecated is used on common.
 // SEPARATE-FILE: c/c.cj
 // EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
 package cmp
@@ -36,25 +36,25 @@ common func jj(): Int
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --error-count-limit=100 --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
-// ASSERT: scan-1 sema_common_platform_annotation_not_allowed
-// ASSERT: scan-8 sema_platform_has_different_annotation
+// ASSERT: scan-1 sema_common_specific_annotation_not_allowed
+// ASSERT: scan-8 sema_specific_has_different_annotation
 package cmp
-public platform let v0: Int64 = 1
+public specific let v0: Int64 = 1
 
-public platform func f0(): Int64 { 0 }
+public specific func f0(): Int64 { 0 }
 
-public platform class A {}
+public specific class A {}
 
-public platform struct B {}
+public specific struct B {}
 
-public platform interface I {}
+public specific interface I {}
 
-public platform enum E { R | G | B }
+public specific enum E { R | G | B }
 
-public platform func f1(): Int64 { 0 }
+public specific func f1(): Int64 { 0 }
 
-@Frozen public platform func f2(): Int64 { 0 }
+@Frozen public specific func f2(): Int64 { 0 }
 
-@EnsurePreparedToMock platform func jj() { 0 }
+@EnsurePreparedToMock specific func jj() { 0 }
 
-@Attribute[kk] platform func attrs() { 1 }
+@Attribute[kk] specific func attrs() { 1 }

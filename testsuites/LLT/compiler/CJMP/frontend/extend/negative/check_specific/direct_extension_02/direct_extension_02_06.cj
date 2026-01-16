@@ -13,9 +13,9 @@ common extend Int64 {
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p  2>&1 | compare %f
-// ASSERT: scan error: function foo is platform, but extend is not platform
+// ASSERT: scan error: function foo is specific, but extend is not specific
 package cmp
 
 extend Int64{
-    platform func foo():Unit {}
+    specific func foo():Unit {}
 }

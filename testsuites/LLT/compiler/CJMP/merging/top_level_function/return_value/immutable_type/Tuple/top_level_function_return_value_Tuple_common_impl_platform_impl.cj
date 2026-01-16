@@ -21,7 +21,7 @@ common func foo(): (Int32, Int32) {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform func foo():  (Int32, Int32) {
+specific func foo():  (Int32, Int32) {
     (2,2)
 }
 main() {

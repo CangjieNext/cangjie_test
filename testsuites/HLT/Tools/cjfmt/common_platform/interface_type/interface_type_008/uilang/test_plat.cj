@@ -8,24 +8,24 @@
 
 package mp
 
-public platform interface I1 {
-   public platform func f(a: Int64) {
+public specific interface I1 {
+   public specific func f(a: Int64) {
         a
    }
-   public platform static func g(a: Int64) {
+   public specific static func g(a: Int64) {
         a
    }
-   public platform func f1(a: Int64): Unit
-   public platform static func g1(a: Int64): Unit
+   public specific func f1(a: Int64): Unit
+   public specific static func g1(a: Int64): Unit
 }
 
-public platform interface I2 <: I1 {
-    public platform override func f(a: Int64) {
+public specific interface I2 <: I1 {
+    public specific override func f(a: Int64) {
        a + 1
     }
-    public platform static redef func g(a: Int64) {
+    public specific static redef func g(a: Int64) {
        a + 1
     }
-    public platform override func f1(a: Int64): Unit {}
-    public platform static redef func g1(a: Int64): Unit {}
+    public specific override func f1(a: Int64): Unit {}
+    public specific static redef func g1(a: Int64): Unit {}
 }

@@ -38,9 +38,9 @@ common func foo(arg: A):B {
 package cmp
 import testImport.*
 
-platform func foo(arg: A): B {
+specific func foo(arg: A): B {
     arg.printType()
-    println("platform")
+    println("specific")
     return B.A
 }
 
@@ -53,6 +53,6 @@ main() {
 
 /* SCAN
 Number
-platform
+specific
 word
 */

@@ -20,9 +20,9 @@ common enum EnC<T> where T <: I { A | B | C(T) }
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform enum EnA<T> { A }
-platform enum EnB<T> { A | B(T) | C }
-platform enum EnC<T> { A | B | C(T) }
+specific enum EnA<T> { A }
+specific enum EnB<T> { A | B(T) | C }
+specific enum EnC<T> { A | B | C(T) }
  
 main(){
     let _ = EnA<String>.A

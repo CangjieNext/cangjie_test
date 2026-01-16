@@ -19,7 +19,7 @@ package cmp
 
 // NOTE: type of this function is `Unit -> Nothing`
 // It's okay, because `Nothing` is subtype of `Unit`
-public platform func foo() {
+public specific func foo() {
   throw Exception()
 }
 

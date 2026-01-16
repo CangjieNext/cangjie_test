@@ -19,7 +19,7 @@ common extend<T, U> Foo1<U, T> <: Foo2<T> & Foo3<U> where U <: Object & StringBu
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output
 package cmp
-platform extend<U, T> Foo1<T, U> <: Foo2<U> & Foo3<T> where T <: Object & StringBuilder{}
+specific extend<U, T> Foo1<T, U> <: Foo2<U> & Foo3<T> where T <: Object & StringBuilder{}
 
 
 main() {
