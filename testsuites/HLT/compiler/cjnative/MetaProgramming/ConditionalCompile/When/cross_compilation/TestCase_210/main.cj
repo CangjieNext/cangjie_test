@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// Level: 1
+// Description:
+// DEPENDENCE: main.cj
+// EXEC: %compiler %cmp_opt main.cj -o %output
+// (target_aarch64 and target_mac) RUN-EXEC-1: %run %run_opt %output %run_args
+// (target_x86_64 and target_mac) RUN-EXEC: %run %run_opt %output %run_args
+// (target_aarch64 and target_ios) RUN-EXEC-1: %run %run_opt %output %run_args
+// (target_x86_64 and target_ios) RUN-EXEC-1: %run %run_opt %output %run_args
+// (target_x86_64 and target_win) RUN-EXEC-1: %run %run_opt %output %run_args
+// (target_aarch64 and target_linux) RUN-EXEC-1: %run %run_opt %output %run_args
+// (target_x86_64 and target_linux) RUN-EXEC-1: %run %run_opt %output %run_args
+// (target_aarch64 and target_ohos) RUN-EXEC-1: %run %run_opt %output %run_args
+
+public open class P {
+    public open func foo(): Int64 {
+        1i64
+    }
+}
+
+public class S <: P {
+    @When[os == "macOS" && arch != "aarch64" && env != "simulator"]
+    public func foo(): Int64 {
+        0i64
+    }
+}
+
+main(): Int64 {
+    S().foo()
+}
