@@ -8,6 +8,6 @@
  
 package mp
 
-public unsafe platform func f(): Int64 { 0 }
+public unsafe specific func f(): Int64 { 0 }
 
 

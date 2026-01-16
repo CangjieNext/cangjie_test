@@ -18,7 +18,7 @@ public common class C {
 // ASSERT: scan sema_not_matched
 package cmp
 
-public platform class C {
+public specific class C {
 }
 
 public func testFunc(): Unit {

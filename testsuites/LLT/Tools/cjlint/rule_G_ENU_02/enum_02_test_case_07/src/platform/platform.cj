@@ -6,10 +6,10 @@
 
 pakeage cmp
 
-platform enum A {
+specific enum A {
     | ELEMENT
-    platform func foo(): Unit {}
-    platform prop p: Int64 {
+    specific func foo(): Unit {}
+    specific prop p: Int64 {
         get() {1}
     }
 }

@@ -21,9 +21,9 @@ public common class A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
-    public platform var x: Int64 = 10
-    public platform let y: Int64 = x
+public specific class A {
+    public specific var x: Int64 = 10
+    public specific let y: Int64 = x
 }
 
 // SEPARATE-FILE: m_common.cj

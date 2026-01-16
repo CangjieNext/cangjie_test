@@ -17,15 +17,15 @@ public abstract common class A {
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
-public abstract platform class A {
-    public platform abstract func foo(): Int64
+public abstract specific class A {
+    public specific abstract func foo(): Int64
 }
 
 /* SCAN
-error: the member foo must have body in 'platform' A
+error: the member foo must have body in 'specific' A
  ==> p/p.cj:5:5:
   | 
-5 |     public platform abstract func foo(): Int64
+5 |     public specific abstract func foo(): Int64
   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
 

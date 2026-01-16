@@ -22,6 +22,6 @@ package cmp
 
 public common class C {}
 
-platform extend C <: I {}
+specific extend C <: I {}
 
 extend C <: I {}

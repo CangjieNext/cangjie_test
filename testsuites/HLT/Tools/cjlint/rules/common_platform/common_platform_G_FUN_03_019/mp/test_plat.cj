@@ -8,19 +8,19 @@
 
 package mp
 
-public platform func fa<T>(a:T): T {
+public specific func fa<T>(a:T): T {
     a
 }
 
-public platform func printValue1<R>(value: R): Unit  where R <: ToString {
+public specific func printValue1<R>(value: R): Unit  where R <: ToString {
     println(value)
 }
 
-public platform func printValue2<T>(value: T): Unit {
+public specific func printValue2<T>(value: T): Unit {
     println(value)
 }
 
-public platform func fb<T>(a:T,b:Int64): Int64 {
+public specific func fb<T>(a:T,b:Int64): Int64 {
     a+b
     1
 }

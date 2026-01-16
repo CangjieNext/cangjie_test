@@ -18,4 +18,4 @@ public common func foo(): Unit
 // ASSERT: scan-not Internal Compiler Error
 package cmp
 
-public platform func foo(): Unit {}
+public specific func foo(): Unit {}

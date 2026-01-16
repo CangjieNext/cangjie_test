@@ -17,7 +17,7 @@ common struct A {
 // ASSERT: scan sema_type_uninitialized_static_field
 package cmp
 
-platform struct A {
+specific struct A {
     static var a: Int64
     init() {}
 }

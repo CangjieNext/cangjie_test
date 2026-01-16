@@ -22,9 +22,9 @@ common public struct A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform public struct A {
-    platform static public func foo(): Unit {
-        println("From platform static member func")
+specific public struct A {
+    specific static public func foo(): Unit {
+        println("From specific static member func")
     }
 }
 // SEPARATE-FILE: m.cj
@@ -40,6 +40,6 @@ main(): Unit {
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 /* SCAN
-From platform static member func
+From specific static member func
 From common static member func koo
 */

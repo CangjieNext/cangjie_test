@@ -22,8 +22,8 @@ public common class C {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-public platform class C {
-    public platform func testFunc(): Unit {
+public specific class C {
+    public specific func testFunc(): Unit {
         println("3")
     }
 }

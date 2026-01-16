@@ -15,7 +15,7 @@ public common let a: Float32 = 0.1
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform let a: Float32 = 0.1
+public specific let a: Float32 = 0.1
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor m_common.cj --import-path=./c -L./p -lcmp -o %output

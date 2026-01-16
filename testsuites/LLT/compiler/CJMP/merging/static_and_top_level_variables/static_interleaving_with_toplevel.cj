@@ -47,28 +47,28 @@ package cmp
 
 public let y = 43
 
-public platform let a: Int = 2
+public specific let a: Int = 2
 
-public platform var b: Int = 20
+public specific var b: Int = 20
 
-public platform class A {
+public specific class A {
     static func goo() { 200 }
 
-    public static platform let c: Int = goo()
+    public static specific let c: Int = goo()
 
-    public static platform let d: String = "2000"
+    public static specific let d: String = "2000"
 
     static func doo() { 20000 }
 
-    public static platform let e: Int = doo()
+    public static specific let e: Int = doo()
 }
 
-public platform let f: Int = 200000
+public specific let f: Int = 200000
 
 func joo() { 2000000 }
 
-public platform class B {
-    public static platform var g: Int = joo()
+public specific class B {
+    public static specific var g: Int = joo()
 }
 
 public func printP() {

@@ -35,8 +35,8 @@ common  func foo(arg: Seekable): Unit {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 import std.io.*
-platform  func foo(arg: Seekable): Unit {
-    println("From platform member foo func")
+specific  func foo(arg: Seekable): Unit {
+    println("From specific member foo func")
     
 }
 main() {
@@ -45,5 +45,5 @@ main() {
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 */

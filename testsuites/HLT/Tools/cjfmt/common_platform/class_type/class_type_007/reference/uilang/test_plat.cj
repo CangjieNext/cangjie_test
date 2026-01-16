@@ -8,19 +8,19 @@
 
 package mp
 
-platform public open class A {
+specific public open class A {
     var a: Int64
     var b: Int64
-    platform public const init() {
+    specific public const init() {
         a = 1
         b = 2
     }
 }
 
-platform public struct S {
+specific public struct S {
     var a: Int64
     var b: Int64
-    platform public const init() {
+    specific public const init() {
         a = 1
         b = 2
     }

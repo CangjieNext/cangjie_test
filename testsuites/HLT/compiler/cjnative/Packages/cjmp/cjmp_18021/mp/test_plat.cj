@@ -8,4 +8,4 @@
 
 package mp
 
-public platform func f(a!: Int64 = 1) {a}
+public specific func f(a!: Int64 = 1) {a}

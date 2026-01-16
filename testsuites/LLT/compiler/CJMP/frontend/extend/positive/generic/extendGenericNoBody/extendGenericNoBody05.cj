@@ -19,7 +19,7 @@ common extend<T, U> Foo<U, T>where T <: Number<T>, U <: Number<U> {}
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output
 package cmp
 import std.math.*
-platform extend<T, U> Foo<U, T>where T <: Number<T>, U <: Number<U> {}
+specific extend<T, U> Foo<U, T>where T <: Number<T>, U <: Number<U> {}
 
 
 main() {

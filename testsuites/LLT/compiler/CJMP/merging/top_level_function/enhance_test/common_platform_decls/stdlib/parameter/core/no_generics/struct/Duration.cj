@@ -18,8 +18,8 @@ common func foo(arg: Duration): Unit {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform func foo(arg: Duration): Unit {
-    println("platform")
+specific func foo(arg: Duration): Unit {
+    println("specific")
 }
 
 main() {
@@ -27,5 +27,5 @@ main() {
 }
 
 /* SCAN
-platform
+specific
 */

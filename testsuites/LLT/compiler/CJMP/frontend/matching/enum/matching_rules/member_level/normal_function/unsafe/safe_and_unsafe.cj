@@ -15,11 +15,11 @@ public common enum RGBColor {
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
-// ASSERT: scan sema_platform_has_different_modifier
+// ASSERT: scan sema_specific_has_different_modifier
 package cmp
 
-public platform enum RGBColor {
+public specific enum RGBColor {
     RED | GREEN | BLUE
-    public platform unsafe func a(): Unit {}
+    public specific unsafe func a(): Unit {}
 }
 

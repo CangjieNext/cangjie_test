@@ -21,8 +21,8 @@ public common class A {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-public platform class A {
-    platform public var a: Int64
+public specific class A {
+    specific public var a: Int64
 }
 
 

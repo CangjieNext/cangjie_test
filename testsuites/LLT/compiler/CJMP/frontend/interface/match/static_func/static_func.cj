@@ -24,7 +24,7 @@ public func foo<T>() where T <: I {
 // EXEC: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform interface I {}
+public specific interface I {}
 
 public class B <: I {}
 

@@ -23,9 +23,9 @@ public func goo(arg:A):A{
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform func foo(arg: (A)->A): Unit {
+specific func foo(arg: (A)->A): Unit {
     arg(A())
-    println("platform")
+    println("specific")
 }
 main() {
     foo(goo)
@@ -33,5 +33,5 @@ main() {
 
 /* SCAN
 goo
-platform
+specific
 */

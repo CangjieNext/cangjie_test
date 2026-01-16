@@ -8,20 +8,20 @@
 
 package mp
 
-platform public struct C1 {
-    platform public func f1(): Int64 {
+specific public struct C1 {
+    specific public func f1(): Int64 {
         0
     }
-    platform public prop p1: Int64 {
+    specific public prop p1: Int64 {
         get() {
             0
         }
     }
 }
 
-platform public struct C2 {
+specific public struct C2 {
     private var a = 0
-    platform public mut prop p1: Int64 {
+    specific public mut prop p1: Int64 {
         get() {
             0
         }

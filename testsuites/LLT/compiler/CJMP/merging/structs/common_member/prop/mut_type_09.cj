@@ -25,10 +25,10 @@ common struct A {
 // ASSERT: scan sema_property_must_have_accessors
 package cmp
 
-platform struct A {
-    platform mut prop testProp: Unit {
+specific struct A {
+    specific mut prop testProp: Unit {
         set(v) {
-            println("platform")
+            println("specific")
         }
     }
 }

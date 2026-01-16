@@ -19,14 +19,14 @@ common  func foo<T>(input :T): T
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform  func foo<T>(input :T): T {
+specific  func foo<T>(input :T): T {
     return input
 }
 main() {
-    let s = foo<String>("From platform member foo func")
+    let s = foo<String>("From specific member foo func")
     println(s)
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 */

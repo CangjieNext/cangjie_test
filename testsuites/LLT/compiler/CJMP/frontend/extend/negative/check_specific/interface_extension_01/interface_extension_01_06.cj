@@ -16,5 +16,5 @@ common extend Int64 <: IA {}
 // ASSERT: scan error: interface 'Interface-IA' has been implemented by 'Int64', please remove it
 package cmp
 
-platform extend Int64 <: IA {}
+specific extend Int64 <: IA {}
 extend Int64 <: IA {}

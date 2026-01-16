@@ -19,11 +19,11 @@ public common let a: A
 // EXEC: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
-    public platform func foo(): String { "platform foo" }
+public specific class A {
+    public specific func foo(): String { "specific foo" }
 }
 
-public platform let a: A = A()
+public specific let a: A = A()
 
 // SEPARATE-FILE: m_platform.cj
 // EXEC-0: %compiler %noColor m_platform.cj --import-path=./p -L./p -lcmp -o %output
@@ -38,5 +38,5 @@ main(): Unit {
 
 
 /* SCAN
-platform foo
+specific foo
 */

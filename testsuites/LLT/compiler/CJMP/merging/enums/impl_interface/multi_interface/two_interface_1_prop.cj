@@ -30,7 +30,7 @@ common public enum A <: I1 & I2 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform public enum A <: I1 & I2 {
+specific public enum A <: I1 & I2 {
     | AA | BB
 }
 

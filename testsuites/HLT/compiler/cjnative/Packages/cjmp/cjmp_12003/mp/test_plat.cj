@@ -8,8 +8,8 @@
  
 package mp
 
-public platform class C1{
-    public platform func f1(): Int64 {
+public specific class C1{
+    public specific func f1(): Int64 {
         return C2().a
     } 
 }

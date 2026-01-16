@@ -24,10 +24,10 @@ common enum A {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform enum A {
+specific enum A {
     | TEST_ENUM
 
-    platform func testFunc(i: Int64): Unit {
+    specific func testFunc(i: Int64): Unit {
         if (i == 0) {
             testFunc(1)
             testFunc1()
@@ -36,7 +36,7 @@ platform enum A {
         }
     }
     func testFunc2(): Unit {
-        println("platform")
+        println("specific")
     }
 }
 
@@ -45,6 +45,6 @@ main() : Unit {
 }
 
 /* SCAN
-platform
+specific
 common
 */

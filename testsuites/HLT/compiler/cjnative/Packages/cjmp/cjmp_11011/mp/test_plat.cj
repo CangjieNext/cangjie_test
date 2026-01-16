@@ -8,11 +8,11 @@
 
 package mp
 
-public platform class C {}
+public specific class C {}
 
-platform extend C {
-    platform prop p: Int64 { get(){1} }
-    platform func f(): Int64 { 1 }
+specific extend C {
+    specific prop p: Int64 { get(){1} }
+    specific func f(): Int64 { 1 }
 }
 
 public func f() {

@@ -8,10 +8,10 @@
 
 package mp
 
-public platform func f1(): Unit {
+public specific func f1(): Unit {
     println("hello")
 }
 
-public platform func f3(a!:Int64): Int64 {
+public specific func f3(a!:Int64): Int64 {
     a
 }

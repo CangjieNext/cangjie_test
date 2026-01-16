@@ -8,4 +8,4 @@
 
 package mp
 
-@B public platform interface C {}
+@B public specific interface C {}

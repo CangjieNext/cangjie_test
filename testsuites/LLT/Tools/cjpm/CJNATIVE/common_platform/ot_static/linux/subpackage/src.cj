@@ -7,4 +7,4 @@
 features { os.linux }
 package ot_static.subpackage
 
-public platform func subfunc(): String { "subfunc linux" }
+public specific func subfunc(): String { "subfunc linux" }

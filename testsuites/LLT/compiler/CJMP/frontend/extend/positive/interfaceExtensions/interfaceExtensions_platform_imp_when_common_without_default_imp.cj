@@ -35,20 +35,20 @@ common extend Foo <:I1 & I2 {
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
-platform public interface I1{
+specific public interface I1{
 }
-platform public interface I2{
+specific public interface I2{
 }
-platform extend Foo <:I1 & I2 {
-    platform public func f1():Unit{println("platform::I1::f1")}
-    public static platform func f2():Int64{return 4}
-    platform mut prop i:Int64 {
+specific extend Foo <:I1 & I2 {
+    specific public func f1():Unit{println("specific::I1::f1")}
+    public static specific func f2():Int64{return 4}
+    specific mut prop i:Int64 {
         get(){x}
         set(value){
             x = value
         }
     }
-   static platform  prop z:Int64 {
+   static specific  prop z:Int64 {
      get(){5}
    }
 }
@@ -60,5 +60,5 @@ main(){
 }
 
 /* SCAN
-platform::I1::f1
+specific::I1::f1
 */

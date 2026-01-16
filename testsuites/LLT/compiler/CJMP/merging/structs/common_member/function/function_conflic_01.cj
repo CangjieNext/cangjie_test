@@ -21,9 +21,9 @@ common struct A {
 // ASSERT: scan sema_ambiguous_match
 package cmp
 
-platform struct A {
+specific struct A {
     func testFunc(): Unit {
-        println("platform")
+        println("specific")
     }
 }
 

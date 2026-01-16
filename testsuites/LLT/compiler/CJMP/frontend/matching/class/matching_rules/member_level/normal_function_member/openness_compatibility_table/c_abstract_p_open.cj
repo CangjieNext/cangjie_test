@@ -25,8 +25,8 @@ public func callFoo(a: A) {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public abstract platform class A {
-    public platform open func foo(): Int64 { 0 }
+public abstract specific class A {
+    public specific open func foo(): Int64 { 0 }
 }
 
 public class C <: A {
