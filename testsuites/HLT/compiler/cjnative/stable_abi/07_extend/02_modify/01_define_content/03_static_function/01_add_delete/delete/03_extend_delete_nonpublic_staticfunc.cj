@@ -78,6 +78,13 @@ extend TestClass {
         10
     }
 
+    private static func f12() {
+        12
+    }
+    protected static func f15(){
+        f12()
+    }
+    
     public static unsafe func f13(): Int64 {
         return 13
     }

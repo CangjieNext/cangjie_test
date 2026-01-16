@@ -27,8 +27,9 @@
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-1 [API/ABI] Changed interfaces that class implemented.
+// ASSERT: scan-1 [API] Added instance member function without default implementation of class.
 // ASSERT: scan-1 [API/ABI]
-// ASSERT: scan-not [API]
+// ASSERT: scan-1 [API]
 // ASSERT: scan-not [ABI]
 
 package test_stable_abi

@@ -26,10 +26,10 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-4 [API/ABI] Deleted interfaces that enum implemented.
+// ASSERT: scan-3 [API/ABI] Deleted interfaces that enum implemented.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
-// ASSERT: scan-4 [API/ABI]
+// ASSERT: scan-3 [API/ABI]
 
 // test enum: modify interface
 // 删除⼀个实现接⼝
