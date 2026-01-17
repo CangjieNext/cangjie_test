@@ -25,7 +25,7 @@ func test_ThrowExpr_01() {
     @Assert(sourcefile.toString().contains(##"main() {
     throw Exception()
     throw IOException("")
-    throw IOException("hello, 仓�")
+    throw IOException("hello, 仓颉")
 }"##))
 
     var mainDecl: MainDecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
@@ -38,8 +38,8 @@ func test_ThrowExpr_01() {
     @Assert(expr_2.throwVal.toString(), ##"IOException("")"##)
 
     var expr_3: ThrowExpr = (mainDecl.body.nodes[2] as ThrowExpr).getOrThrow()
-    @Assert(expr_3.toString(), ##"throw IOException("hello, 仓�")"##)
-    @Assert(expr_3.throwVal.toString(), ##"IOException("hello, 仓�")"##)
+    @Assert(expr_3.toString(), ##"throw IOException("hello, 仓颉")"##)
+    @Assert(expr_3.throwVal.toString(), ##"IOException("hello, 仓颉")"##)
 
     var pos = expr_1.getThrowKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 5i32, 10i32, 10i32])
