@@ -63,7 +63,7 @@ public class MyVisitor <: ASTVisitor {
 }
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_ASTVistor_01() {
     let classdecl = parseText(##"@Deprecated["仓颉"]

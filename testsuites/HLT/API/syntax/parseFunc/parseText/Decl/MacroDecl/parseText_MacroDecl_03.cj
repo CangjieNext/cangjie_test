@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_MacroDecl_03() {
     @AssertThrows[Exception](parseText(##"macro M1(input: Tokens, tok: Tokens): Tokens {

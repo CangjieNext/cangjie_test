@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_IfExpr_04() {
     let _quote = quote(if ((true || true) && let a <- 1) {})

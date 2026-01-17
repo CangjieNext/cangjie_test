@@ -14,7 +14,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_StrInterpolationContent_13() {
     let file = parseFile("./StrInterPolationContent_13.cj")

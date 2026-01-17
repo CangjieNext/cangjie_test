@@ -14,7 +14,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_MacroExpandParam_03() {
     let res = parseFile("./MacroExpandParam_03.cj")

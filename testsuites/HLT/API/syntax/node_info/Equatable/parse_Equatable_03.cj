@@ -14,9 +14,9 @@
 import std.fs.*
 import stdx.syntax.*
 
-// 节点的内容相同，源文件不�
+// 节点的内容相同，源文件不�
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_equatable_003() {
     let res_1 = parseFile("./Equatable_01.cj")

@@ -19,7 +19,7 @@ let str = ##"private enum My_Enum<T, U> <: I1<T> & I2<T> & I3<T> where T <: I1<T
 }"##
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_EnumDecl_05() {
     let res = parseText(str)

@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_VarDecl_02() {
     let str_1 = ##"static let v1: Int64"##

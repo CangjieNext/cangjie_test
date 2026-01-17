@@ -16,7 +16,7 @@ import stdx.syntax.*
 let decls = (parseFile("macroexpandexpr_01.cj").node.getOrThrow().topLevelDecls[0] as MainDecl).getOrThrow().body.nodes.map{ _decl => (_decl as MacroExpandExpr).getOrThrow()}
 
 @Test
-class test_01{
+class Test_01{
     @TestCase[
     calleeMacro in [
         decls[0].calleeMacro,

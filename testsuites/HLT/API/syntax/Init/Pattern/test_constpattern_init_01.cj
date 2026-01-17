@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase[
     litConstExpr in [
         LitConstExpr(LitConstKind.BoolLiteral, "true"),

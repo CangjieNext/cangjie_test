@@ -15,7 +15,7 @@ import std.ast.*
 var input: Tokens = quote(import org_a::pkgA.pkgB.pkgC.*)
 
 @Test
-class test_01{
+class Test_01{
     @TestCase[
     importList in [
         parseProgram(input).importLists[0],

@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_WhileExpr_02() {
     let _quote = quote(while (let a <- 1 && a > 0) {

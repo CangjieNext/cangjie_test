@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_FuncDecl_03() {
     let str_1 = ##"public init (a: Int64, b!: Int64) {

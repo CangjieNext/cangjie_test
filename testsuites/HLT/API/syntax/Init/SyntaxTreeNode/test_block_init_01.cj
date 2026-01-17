@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase[
     nodes in [
         [parseText("return 0").node.getOrThrow()]

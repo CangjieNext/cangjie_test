@@ -13,7 +13,7 @@
 import std.ast.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_packageHeader() {
     let _packageHeader = cangjieLex("macro package a.b.c")

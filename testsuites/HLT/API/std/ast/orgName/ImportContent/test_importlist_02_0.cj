@@ -15,7 +15,7 @@ import std.ast.*
 var input: Tokens = quote(import std.ast.a.*)
 
 @Test
-class test_01{
+class Test_01{
     @TestCase[
     importList in [
         parseProgram(input).importLists[0],
@@ -33,7 +33,7 @@ func test_importList(importList: ImportList) {
     }
     @Expect(importList.content.prefixPaths.toString(), "std ast a")
     @Assert(importList.content.prefixDots.toString(), "...")
-    @Assert(importList.content.identifier.value, "*") // 并未提供单独的字段�理*，当前只能存放在identifier�
+    @Assert(importList.content.identifier.value, "*") // 并未提供单独的字段�理*，当前只能存放在identifier�
     @Assert(importList.content.importAlias.toString(), "")
     @Assert(importList.content.lBrace.value, "")
     @Assert(importList.content.rBrace.value, "")

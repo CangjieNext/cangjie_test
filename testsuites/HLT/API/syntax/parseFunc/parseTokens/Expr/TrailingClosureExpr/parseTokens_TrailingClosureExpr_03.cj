@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_TrailingClosureExpr_03() {
     let _quote = quote(g(a: 1) {a: Int64, b: Int64 => a+ b})

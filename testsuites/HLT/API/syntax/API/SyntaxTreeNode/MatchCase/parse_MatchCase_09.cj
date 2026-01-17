@@ -15,7 +15,7 @@ import stdx.syntax.*
 
 // sema 阶�报错不拦截
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_MatchCase_09() {
     let res = parseFile("./MatchCase_09.cj")

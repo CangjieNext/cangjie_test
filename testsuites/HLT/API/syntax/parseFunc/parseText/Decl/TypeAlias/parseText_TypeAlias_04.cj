@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_TypeAlias_04() {
     @AssertThrows[Exception](parseText("type Class1<V> = Int<V> where V <: MyTrait"))

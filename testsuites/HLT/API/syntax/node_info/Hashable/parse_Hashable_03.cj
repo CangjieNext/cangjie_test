@@ -15,7 +15,7 @@ import std.fs.*
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_hashable_003() {
     let res_1 = parseFile("./Hashable_01.cj")

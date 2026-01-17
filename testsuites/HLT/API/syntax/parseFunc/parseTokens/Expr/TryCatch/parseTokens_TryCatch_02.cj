@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_TryCatch_02() {
     let _quote = quote(try {} finally {})

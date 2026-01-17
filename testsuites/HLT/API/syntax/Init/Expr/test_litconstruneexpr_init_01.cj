@@ -13,11 +13,11 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase[
     pairs in [
         (LitConstKind.RuneLiteral, "a"),
-        (LitConstKind.RuneLiteral, "è¿")
+        (LitConstKind.RuneLiteral, "ï¿½")
     ],
     isSingleQuote in [
         true,

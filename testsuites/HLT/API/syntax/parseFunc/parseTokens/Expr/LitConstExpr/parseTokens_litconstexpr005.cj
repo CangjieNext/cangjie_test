@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_litconstexpr_005() {
     var litconstexpr1 = (parseTokens(quote(false)).node.getOrThrow() as LitConstExpr).getOrThrow()

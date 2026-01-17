@@ -15,7 +15,7 @@ package orgName :: a
 import std.ast.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_packageHeader() {
     let _packageHeader = cangjieLex("package orgName1::a.b")

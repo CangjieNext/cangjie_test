@@ -14,7 +14,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_litconststrexpr_003() {
     let res = parseFile("./litconststrexpr003.cj")
@@ -38,7 +38,7 @@ func test_litconststrexpr_003() {
         case LitConstKind.StringLiteral => ()
         case _ => @Assert(false)
     }
-    //delimiterNum 前后成�出现的 # 分隔符数此时应�是0
+    //delimiterNum 前后成�出现的 # 分隔符数此时应�是0
     @Assert(litconststrexpr.delimiterNum, 0)
     //isSingleQuote
     @Assert(litconststrexpr.isSingleQuote,false)

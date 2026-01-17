@@ -20,7 +20,7 @@ let _quote = quote(enum a_b <: I1 & I2 {
 )
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_EnumDecl_06() {
     let res = parseTokens(_quote)

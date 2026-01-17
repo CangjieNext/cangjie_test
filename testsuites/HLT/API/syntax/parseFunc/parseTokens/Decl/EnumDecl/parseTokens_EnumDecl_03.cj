@@ -22,7 +22,7 @@ let _quote = quote(protected enum E1<T, U> <: S1<T, U> {
 })
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_EnumDecl_03() {
     let res = parseTokens(_quote)

@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_MacroDecl_04() {
     let _quote = quote(public macro Prop(input:Tokens):Tokens {

@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase[
     expr in [
         (parseText("quote(aaa)").node.getOrThrow() as QuoteExpr).getOrThrow(),

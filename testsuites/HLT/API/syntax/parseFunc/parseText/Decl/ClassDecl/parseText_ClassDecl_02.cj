@@ -217,7 +217,7 @@ let str = ##"public class CangjieInvoke <: JObject {
 }"##
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_ClassDecl_02() {
     let res = parseText(str)

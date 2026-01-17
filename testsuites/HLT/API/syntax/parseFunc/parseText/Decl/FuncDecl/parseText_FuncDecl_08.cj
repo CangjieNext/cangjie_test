@@ -14,7 +14,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_FuncDecl_08() {
     let str_1 = ##"unsafe func foo(): Unit {}"##

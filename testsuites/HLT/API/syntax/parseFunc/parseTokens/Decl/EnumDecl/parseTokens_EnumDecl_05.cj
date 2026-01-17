@@ -19,7 +19,7 @@ let _quote = quote(private enum My_Enum<T, U> <: I1<T> & I2<T> & I3<T> where T <
 })
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_EnumDecl_05() {
     let res = parseTokens(_quote)

@@ -20,7 +20,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_errorinfo_003() {
     let res = parsePackage("./dir001")

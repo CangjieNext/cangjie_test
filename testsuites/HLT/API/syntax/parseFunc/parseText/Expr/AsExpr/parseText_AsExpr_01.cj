@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_AsExpr_01() {
     let str_1 = ##"fun() as Option<Int64>"##

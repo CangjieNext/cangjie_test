@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_ForInExpr_03() {
     let _quote = quote(for (_ in 0..=-100:2) {

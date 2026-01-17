@@ -14,7 +14,7 @@ import std.ast.Tokens
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_QuoteExpr_03() {
     let _quote = quote(quote(var str = #"a"#))

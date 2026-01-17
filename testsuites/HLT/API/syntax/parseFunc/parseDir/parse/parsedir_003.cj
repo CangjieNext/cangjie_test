@@ -15,7 +15,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_dir_003() {
     let res = parsePackage("./dir003")

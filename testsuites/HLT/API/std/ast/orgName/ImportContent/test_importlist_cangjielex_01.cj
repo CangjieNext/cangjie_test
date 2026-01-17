@@ -15,7 +15,7 @@ import std.ast.*
 var input: Tokens = quote(import std.ast.a)
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_importList() {
     let tks = cangjieLex(##"import std.ast.a

@@ -15,7 +15,7 @@ import std.ast.Tokens
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_MacroExpandDecl_01() {
     let res = parseFile("./MacroExpandDecl_01.cj")

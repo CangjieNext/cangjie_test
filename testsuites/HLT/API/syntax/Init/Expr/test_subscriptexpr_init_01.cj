@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase[
     base in [
         (parseText("C1().arr").node.getOrThrow() as Expr).getOrThrow(),

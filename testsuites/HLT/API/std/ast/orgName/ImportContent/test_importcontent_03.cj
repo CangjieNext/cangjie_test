@@ -13,7 +13,7 @@
 import std.ast.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_importContent() {
     let importContent = ImportContent()

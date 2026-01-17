@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_MemberAccess_02() {
     @AssertThrows[Exception](parseText(".b1"))

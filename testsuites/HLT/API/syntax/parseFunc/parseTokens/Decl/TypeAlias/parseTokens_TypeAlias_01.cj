@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_TypeAlias_01() {
     let _quote_1 = quote(type XX = Int64)

@@ -13,9 +13,9 @@
 
 import stdx.syntax.*
 
-// ; 暂不��
+// ; 暂不��
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_Lambda_01() {
     let res = parseFile("./Lambda_01.cj")

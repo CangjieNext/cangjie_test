@@ -35,7 +35,7 @@ public class MyRewriter_nochange <: ASTRewriter {
 }
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
     func test_ASTVistor_01() {
         let filedecl = parseFile("class03.cj").node.getOrThrow()

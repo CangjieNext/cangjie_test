@@ -22,7 +22,7 @@ enum E1 {
 }"##
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_EnumDecl_01() {
     let res = parseText(str)

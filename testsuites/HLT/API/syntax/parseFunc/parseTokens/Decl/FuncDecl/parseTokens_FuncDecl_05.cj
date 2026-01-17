@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_FuncDecl_05() {
     let _quote_1 = quote(func foo<T>(a: T) {

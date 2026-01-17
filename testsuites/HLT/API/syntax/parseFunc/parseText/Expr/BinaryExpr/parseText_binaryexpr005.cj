@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_binaryexpr_005() {
     let str = ##"a-b* (a/b)"##

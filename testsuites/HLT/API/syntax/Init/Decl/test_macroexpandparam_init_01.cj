@@ -17,7 +17,7 @@ let decls = ((parseFile("macroexpandparam_01.cj").node.getOrThrow().topLevelDecl
             .getOrThrow().params.params.map{ _decl => (_decl as MacroExpandParam).getOrThrow()}
 
 @Test
-class test_01{
+class Test_01{
     @TestCase[
     calleeMacro in [
         decls[0].calleeMacro,

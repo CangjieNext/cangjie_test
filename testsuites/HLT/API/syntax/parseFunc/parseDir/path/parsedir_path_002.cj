@@ -15,7 +15,7 @@ import std.fs.*
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_dirpath_002() {
     let path_str = canonicalize("./dir001").toString()

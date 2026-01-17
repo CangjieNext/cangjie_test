@@ -15,10 +15,10 @@ import std.fs.*
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_filepath_005() {
-    let path_str = "./仓�"
+    let path_str = "./仓�"
     Directory.create(path_str, recursive: true)
     rename("./file", to: path_str, overwrite: true)
     let res = parseFile(path_str + "/file001.cj")

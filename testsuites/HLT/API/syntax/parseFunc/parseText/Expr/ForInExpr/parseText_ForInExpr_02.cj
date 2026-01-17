@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_ForInExpr_02() {
     let str = ##"for ((k, v) in map) {

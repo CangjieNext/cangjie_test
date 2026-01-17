@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_tupleliteral_004() {
     let _quote = quote((foo(a, b), print(1), (a, b), ({ => 1}), arr[0..(a+b):(a-b)]))

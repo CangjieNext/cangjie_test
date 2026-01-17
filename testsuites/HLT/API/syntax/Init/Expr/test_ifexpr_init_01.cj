@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase[
     condition in [
         (parseText("if (a && b || c) { a1 + 1 } else { b1 }").node.getOrThrow() as IfExpr).getOrThrow().condition

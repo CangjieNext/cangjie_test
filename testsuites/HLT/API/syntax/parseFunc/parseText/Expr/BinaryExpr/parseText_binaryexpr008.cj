@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_binaryexpr_007() {
     let str = ##"3.14==3.15"##

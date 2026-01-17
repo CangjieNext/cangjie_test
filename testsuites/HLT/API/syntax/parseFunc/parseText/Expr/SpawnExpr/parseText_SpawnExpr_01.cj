@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_SpawnExpr_01() {
     let str_1 = ##"spawn { add(1, 2) }"##

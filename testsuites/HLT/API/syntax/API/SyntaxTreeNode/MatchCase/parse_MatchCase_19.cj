@@ -14,7 +14,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_MatchCase_19() {
     let res = parseFile("./MatchCase_19.cj")

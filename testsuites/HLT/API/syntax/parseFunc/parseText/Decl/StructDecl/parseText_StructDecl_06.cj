@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_StructDecl_06() {
     let str = ##"internal struct s1<T> <: I1 & I2<T> & I3 {

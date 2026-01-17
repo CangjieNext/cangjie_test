@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_varrayliteral_001() {
     let str = ##"VArray<Int64, $5>(repeat: 0)"##

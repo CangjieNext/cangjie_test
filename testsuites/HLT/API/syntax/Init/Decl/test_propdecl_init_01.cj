@@ -14,7 +14,7 @@ import stdx.syntax.*
 import stdx.unittest.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase[
     // identifier in [
     //    "foo",

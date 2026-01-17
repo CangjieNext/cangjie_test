@@ -13,9 +13,9 @@
 
 import stdx.syntax.*
 
-// 节点的内�&源文�&解析方式完全相同
+// 节点的内�&源文�&解析方式完全相同
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_equatable_001() {
     let res_1 = parseFile("./Equatable_01.cj")

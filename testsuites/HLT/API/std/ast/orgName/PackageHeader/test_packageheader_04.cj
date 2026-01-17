@@ -15,7 +15,7 @@ import std.unittest.*
 import std.unittest.testmacro.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_packageHeader() {
     let _packageHeader = PackageHeader()

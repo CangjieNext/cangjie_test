@@ -14,7 +14,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_dirpath_009() {
     let e = @AssertThrows[Exception](parsePackage(""))

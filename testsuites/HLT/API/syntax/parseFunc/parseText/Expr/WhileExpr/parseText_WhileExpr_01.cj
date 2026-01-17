@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_WhileExpr_01() {
     let str = ##"while(a >= 0u32) {

@@ -22,7 +22,7 @@ public enum E1<T> <: I1<T> & I2 where T <: ToString{
 }"##
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_EnumDecl_02() {
     let res = parseText(str)

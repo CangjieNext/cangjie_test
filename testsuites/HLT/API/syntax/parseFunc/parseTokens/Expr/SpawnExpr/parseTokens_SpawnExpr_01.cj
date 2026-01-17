@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_SpawnExpr_01() {
     let _quote_1 = quote(spawn { add(1, 2) })

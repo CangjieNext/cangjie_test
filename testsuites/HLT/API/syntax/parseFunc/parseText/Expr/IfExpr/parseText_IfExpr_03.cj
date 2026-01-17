@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_IfExpr_03() {
     let str = ##"if (let a <- b && a >= 0) {

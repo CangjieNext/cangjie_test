@@ -14,7 +14,7 @@ import stdx.syntax.*
 
 // now support
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_unsupported_decl() {
     @Assert(parseText("prop _prop: Int64").diags.size == 0)

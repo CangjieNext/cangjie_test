@@ -13,9 +13,9 @@
 
 import stdx.syntax.*
 
-// 节点和从属的父节点各不相�
+// 节点和从属的父节点各不相�
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_file_001() {
     let res = parseFile("./Equatable_01.cj")

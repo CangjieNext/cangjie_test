@@ -15,7 +15,7 @@ import std.fs.*
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_filepath_011() {
     let fileinfo = FileInfo("./file001.cj")

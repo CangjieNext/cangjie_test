@@ -14,11 +14,11 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_unsupported_block() {
     @Assert(parseText("{}").diags.size > 0)
-    @AssertThrows[Exception](parseText("“�"))
+    @AssertThrows[Exception](parseText("“�"))
     @Assert(parseText("A:").diags.size > 0)
     @AssertThrows[Exception](parseText("package A"))
     @Assert(parseText("public").diags.size > 0)

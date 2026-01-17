@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_StaticInit_03() {
     @Assert(parseText("static init(a: Int64) {}").diags.size > 0)

@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_VarDecl_03() {
     let _quote_1 = quote(@Deprecated["a"] var a = 1)

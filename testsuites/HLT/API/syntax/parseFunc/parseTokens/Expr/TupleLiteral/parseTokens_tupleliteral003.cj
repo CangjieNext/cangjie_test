@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_tupleliteral_003() {
     let _quote = quote((3, 3.141592, "PI"))

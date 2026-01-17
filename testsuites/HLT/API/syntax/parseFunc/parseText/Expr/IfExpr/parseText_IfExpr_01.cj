@@ -13,7 +13,7 @@
 import stdx.syntax.*
 
 @Test
-class test_01{
+class Test_01{
     @TestCase
 func test_IfExpr_01() {
     let str = ##"if (a) {} else if (a) {b} else {c}"##
