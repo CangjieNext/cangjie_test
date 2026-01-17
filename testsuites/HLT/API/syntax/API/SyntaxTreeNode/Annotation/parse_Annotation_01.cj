@@ -14,14 +14,14 @@
 import stdx.syntax.*
 
 @Test
-class Test_01{
+class test_01{
     @TestCase
 func test_Annotation_01() {
     let res = parseFile("./Annotation_01.cj")
 
     let sourcefile: SourceFile = res.node.getOrThrow()
     @Expect(sourcefile.toString().contains(##"@Deprecated ["abc"] var a = 1
-@Deprecated ["abc仓颉", strict : false] var a = 2"##))
+@Deprecated ["abc浠��", strict : false] var a = 2"##))
 
     var decl_1: VarDecl = (sourcefile.topLevelDecls[0] as VarDecl).getOrThrow()
     @Assert(decl_1.toString(), ##"@Deprecated ["abc"] var a = 1"##)
@@ -31,10 +31,10 @@ func test_Annotation_01() {
     @Assert(anno_1.identifier.toString(), ##"Deprecated"##)
 
     var decl_2: VarDecl = (sourcefile.topLevelDecls[1] as VarDecl).getOrThrow()
-    @Assert(decl_2.toString(), ##"@Deprecated ["abc仓颉", strict : false] var a = 2"##)
+    @Assert(decl_2.toString(), ##"@Deprecated ["abc浠��", strict : false] var a = 2"##)
     let anno_2: Annotation = decl_2.annotations[0]
-    @Assert(anno_2.toString(), ##"@Deprecated ["abc仓颉", strict : false]"##)
-    @Assert(anno_2.arguments.toString(), ##"["abc仓颉", strict : false]"##)
+    @Assert(anno_2.toString(), ##"@Deprecated ["abc浠��", strict : false]"##)
+    @Assert(anno_2.arguments.toString(), ##"["abc浠��", strict : false]"##)
     @Assert(anno_2.identifier.toString(), ##"Deprecated"##)
 
     var pos = anno_2.getAtOpPos()

@@ -11,7 +11,6 @@
 // (CJNATIVE and not OHOS and not iOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
 // (CJNATIVE and not OHOS and not iOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-// 其他在Class 类型� Struct 类型� Interface 类型以及扩展�验证
 import stdx.syntax.*
 
 @Test

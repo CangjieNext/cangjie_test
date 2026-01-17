@@ -13,7 +13,6 @@
 
 import stdx.syntax.*
 
-// 注释暂不��
 @Test
 class Test_01{
     @TestCase

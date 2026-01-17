@@ -16,38 +16,37 @@ import stdx.syntax.*
 @Test
 class Test_01{
     @TestCase
-func test_litconststrexpr_003() {
-    let res = parseFile("./litconststrexpr003.cj")
-    var diags = res.diags
-    @Assert(diags.size, 0)
-
-    let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains("\"\"\"\nhello\"\"\""))
-    @Assert(sourcefile.name, "litconststrexpr003.cj")
-    @Assert(sourcefile.path.contains("litconststrexpr003.cj"))
-    @Assert(sourcefile.pkgHeader.isNone())
-
-    var maindecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
-    var litconststrexpr = (maindecl.body.nodes[0] as LitConstStrExpr).getOrThrow()
-    //toString()
-    @Assert(litconststrexpr.toString(), "\"\"\"\nhello\"\"\"")
-    //rawValue
-    @Assert(litconststrexpr.rawValue,"hello")
-    //kind
-    match (litconststrexpr.kind) {
-        case LitConstKind.StringLiteral => ()
-        case _ => @Assert(false)
+    func test_litconststrexpr_003() {
+        let res = parseFile("./litconststrexpr003.cj")
+        var diags = res.diags
+        @Assert(diags.size, 0)
+    
+        let sourcefile: SourceFile = res.node.getOrThrow()
+        @Assert(sourcefile.toString().contains("\"\"\"\nhello\"\"\""))
+        @Assert(sourcefile.name, "litconststrexpr003.cj")
+        @Assert(sourcefile.path.contains("litconststrexpr003.cj"))
+        @Assert(sourcefile.pkgHeader.isNone())
+    
+        var maindecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
+        var litconststrexpr = (maindecl.body.nodes[0] as LitConstStrExpr).getOrThrow()
+        //toString()
+        @Assert(litconststrexpr.toString(), "\"\"\"\nhello\"\"\"")
+        //rawValue
+        @Assert(litconststrexpr.rawValue,"hello")
+        //kind
+        match (litconststrexpr.kind) {
+            case LitConstKind.StringLiteral => ()
+            case _ => @Assert(false)
+        }
+        @Assert(litconststrexpr.delimiterNum, 0)
+        //isSingleQuote
+        @Assert(litconststrexpr.isSingleQuote,false)
+        // strPartExprs 
+        @Assert(litconststrexpr.hasInterpolation(), false)
+        // strKind 
+        match (litconststrexpr.strKind) {
+            case LitConstStrKind.MultiLineString => ()
+            case _ => @Assert(false)
+        }
     }
-    //delimiterNum 前后成�出现的 # 分隔符数此时应�是0
-    @Assert(litconststrexpr.delimiterNum, 0)
-    //isSingleQuote
-    @Assert(litconststrexpr.isSingleQuote,false)
-    // strPartExprs 
-    @Assert(litconststrexpr.hasInterpolation(), false)
-    // strKind 
-    match (litconststrexpr.strKind) {
-        case LitConstStrKind.MultiLineString => ()
-        case _ => @Assert(false)
-    }
-}
 }
