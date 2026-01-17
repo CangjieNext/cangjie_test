@@ -355,8 +355,6 @@ compiler/cli/Option/pgo/pgo_005.cj
 Regression/External/I4AZMP.cj
 
 # syntax will be supported in future
-API/syntax/parseFunc/parseText/Decl/MacroDecl/parseText_MacroDecl_01.cj
-API/syntax/parseFunc/parseText/Expr/QuoteExpr/parseText_QuoteExpr_01.cj
 API/syntax/visit/ASTRewriter/test_rewriter_02.cj
 
 API/std/io/file/File_create_03.cj
