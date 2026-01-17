@@ -3242,18 +3242,3 @@ compiler/Sema/effect/resume_unit.cj
 compiler/Sema/effect/resume_with.cj
 compiler/Sema/interface/abstract_function2.cj
 compiler/Sema/lookup/bugfix2.cj
-API/std/fs/test_directory_linux.cj
-API/std/fs/test_file_linux.cj
-API/std/fs/test_file_unix.cj
-API/stdx/syntax/testParse/test_parse_file.cj
-<<<<<<< HEAD
-API/stdx/syntax/testParse/test_parse_package.cj
-=======
-API/stdx/syntax/testParse/test_parse_package.cj
-API/std/fs/test_directory_windows.cj
-API/std/fs/test_path_windows.cj
->>>>>>> 09d4a73997 (fix: optimize exceptions of std.fs)
-=======
-compiler/Driver/options/help/test_showall.cj
-compiler/Sema/this/thisfuncchain.cj
->>>>>>> 11dfd2dc67 (fix: optimize std.fs exception)
