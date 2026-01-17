@@ -13,9 +13,9 @@
 import std.ast.*
 
 @Test
-class Test_01{
+class Test_01 {
     @TestCase
-func test_packageHeader() {
-    @AssertThrows[ParseASTException](parseProgram(quote(package org1.a::b)))
-}
+    func test_packageHeader() {
+        @AssertThrows[ParseASTException](parseProgram(quote(package org1.a::b)))
+    }
 }

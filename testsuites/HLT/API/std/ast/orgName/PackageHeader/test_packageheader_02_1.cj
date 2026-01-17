@@ -13,20 +13,19 @@
 import std.ast.*
 
 @Test
-class Test_01{
+class Test_01 {
     @TestCase
-func test_packageHeader() {
-    var input: Tokens = quote(macro package a.b.c)
-    let _packageHeader = PackageHeader(input)
-    _packageHeader.dump()
-    @Assert(_packageHeader.accessible.value, "")
-    @Assert(_packageHeader.keywordM.value, "macro")
-    @Assert(_packageHeader.keywordP.value, "package")
-    @Assert(_packageHeader.prefixPaths.toString(), "a b")
-    @Assert(_packageHeader.prefixDots.toString(), "..")
-    @Assert(_packageHeader.packageIdentifier.value, "c")
-    @Assert(_packageHeader.orgName.value, "")
-    @Assert(_packageHeader.orgSeparator.value, "")
-}
-
+    func test_packageHeader() {
+        var input: Tokens = quote(macro package a.b.c)
+        let _packageHeader = PackageHeader(input)
+        _packageHeader.dump()
+        @Assert(_packageHeader.accessible.value, "")
+        @Assert(_packageHeader.keywordM.value, "macro")
+        @Assert(_packageHeader.keywordP.value, "package")
+        @Assert(_packageHeader.prefixPaths.toString(), "a b")
+        @Assert(_packageHeader.prefixDots.toString(), "..")
+        @Assert(_packageHeader.packageIdentifier.value, "c")
+        @Assert(_packageHeader.orgName.value, "")
+        @Assert(_packageHeader.orgSeparator.value, "")
+    }
 }

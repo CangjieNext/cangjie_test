@@ -10,23 +10,23 @@
 // EXEC: %compiler %cmp_opt %use_ast %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 
-package orgName :: a
+package orgName::a
 
 import std.ast.*
 
 @Test
-class Test_01{
+class Test_01 {
     @TestCase
-func test_packageHeader() {
-    let _packageHeader = cangjieLex("package orgName1::a.b")
-    _packageHeader.dump()
-    @Assert(_packageHeader.toString(), "package orgName1 :: a.b")
-}
+    func test_packageHeader() {
+        let _packageHeader = cangjieLex("package orgName1::a.b")
+        _packageHeader.dump()
+        @Assert(_packageHeader.toString(), "package orgName1 :: a.b")
+    }
 
-// ASSERT: regex description: package, token_id: [0-9]+, token_literal_value: package, fileID: 0, line: 1, column: 1
-// ASSERT: regex description: identifier, token_id: [0-9]+, token_literal_value: orgName1, fileID: 0, line: 1, column: 9
-// ASSERT: regex description: double_colon, token_id: [0-9]+, token_literal_value: ::, fileID: 0, line: 1, column: 17
-// ASSERT: regex description: identifier, token_id: [0-9]+, token_literal_value: a, fileID: 0, line: 1, column: 19
-// ASSERT: regex description: dot, token_id: [0-9]+, token_literal_value: ., fileID: 0, line: 1, column: 20
-// ASSERT: regex description: identifier, token_id: [0-9]+, token_literal_value: b, fileID: 0, line: 1, column: 21
+    // ASSERT: regex description: package, token_id: [0-9]+, token_literal_value: package, fileID: 0, line: 1, column: 1
+    // ASSERT: regex description: identifier, token_id: [0-9]+, token_literal_value: orgName1, fileID: 0, line: 1, column: 9
+    // ASSERT: regex description: double_colon, token_id: [0-9]+, token_literal_value: ::, fileID: 0, line: 1, column: 17
+    // ASSERT: regex description: identifier, token_id: [0-9]+, token_literal_value: a, fileID: 0, line: 1, column: 19
+    // ASSERT: regex description: dot, token_id: [0-9]+, token_literal_value: ., fileID: 0, line: 1, column: 20
+    // ASSERT: regex description: identifier, token_id: [0-9]+, token_literal_value: b, fileID: 0, line: 1, column: 21
 }

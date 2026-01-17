@@ -15,35 +15,34 @@ import std.ast.*
 var input: Tokens = quote(import org_a::pkgA.*)
 
 @Test
-class Test_01{
-    @TestCase[
-    importList in [
-        parseProgram(input).importLists[0],
-        ImportList(input)
-    ]
+class Test_01 {
+    @TestCase[importList in [ 
+ parseProgram(input).importLists [ 0 ], 
+ ImportList(input) 
+ ] 
 ]
-func test_importList(importList: ImportList) {
-    @Assert(importList.modifier.value, "")
-    @Assert(importList.keywordI.value, "import")
-    @Assert(importList.isImportMulti(), false)
-    @Assert(importList.content.toTokens().toString(), "org_a :: pkgA.*")
-    match(importList.content.importKind) {
-        case ImportKind.All => ()
-        case _ => @Assert(false)
+    func test_importList(importList: ImportList) {
+        @Assert(importList.modifier.value, "")
+        @Assert(importList.keywordI.value, "import")
+        @Assert(importList.isImportMulti(), false)
+        @Assert(importList.content.toTokens().toString(), "org_a :: pkgA.*")
+        match (importList.content.importKind) {
+            case ImportKind.All => ()
+            case _ => @Assert(false)
+        }
+        @Expect(importList.content.prefixPaths.toString(), "pkgA")
+        @Assert(importList.content.prefixDots.toString(), ".")
+        @Assert(importList.content.identifier.value, "*")
+        @Assert(importList.content.importAlias.toString(), "")
+        @Assert(importList.content.lBrace.value, "")
+        @Assert(importList.content.rBrace.value, "")
+        @Assert(importList.content.items.size, 0)
+        @Assert(importList.content.commas.toString(), "")
+        @Assert(importList.content.isImportAlias(), false)
+        @Assert(importList.content.isImportAll(), true)
+        @Assert(importList.content.isImportMulti(), false)
+        @Assert(importList.content.isImportSingle(), false)
+        @Assert(importList.content.orgName.value, "org_a")
+        @Assert(importList.content.orgSeparator.value, "::")
     }
-    @Expect(importList.content.prefixPaths.toString(), "pkgA")
-    @Assert(importList.content.prefixDots.toString(), ".")
-    @Assert(importList.content.identifier.value, "*")
-    @Assert(importList.content.importAlias.toString(), "")
-    @Assert(importList.content.lBrace.value, "")
-    @Assert(importList.content.rBrace.value, "")
-    @Assert(importList.content.items.size, 0)
-    @Assert(importList.content.commas.toString(), "")
-    @Assert(importList.content.isImportAlias(), false)
-    @Assert(importList.content.isImportAll(), true)
-    @Assert(importList.content.isImportMulti(), false)
-    @Assert(importList.content.isImportSingle(), false)
-    @Assert(importList.content.orgName.value, "org_a")
-    @Assert(importList.content.orgSeparator.value, "::")
-}
 }

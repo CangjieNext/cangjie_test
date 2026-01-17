@@ -15,30 +15,30 @@ import std.unittest.*
 import std.unittest.testmacro.*
 
 @Test
-class Test_01{
+class Test_01 {
     @TestCase
-func test_packageHeader() {
-    let _packageHeader = PackageHeader()
-    // _packageHeader.accessible = Token(ILLEGAL)
-    _packageHeader.keywordM = Token(MACRO)
-    _packageHeader.keywordP = Token(PACKAGE)
-    _packageHeader.prefixPaths = Tokens([Token(IDENTIFIER, "pkg1"), Token(IDENTIFIER, "pkg2")])
-    _packageHeader.prefixDots = Tokens([Token(DOT), Token(DOT)])
-    _packageHeader.packageIdentifier = Token(IDENTIFIER, "pkga")
-    @AssertThrows[ASTException](_packageHeader.orgSeparator = Token(DOUBLE_COLON))
-    _packageHeader.orgName = Token(IDENTIFIER, "orgName")
-    // _packageHeader.orgSeparator = Token(DOUBLE_COLON)
-    @Assert(_packageHeader.toTokens().toString().replace("\r",""), "macro package orgName :: pkg1.pkg2.pkga\n")
+    func test_packageHeader() {
+        let _packageHeader = PackageHeader()
+        // _packageHeader.accessible = Token(ILLEGAL)
+        _packageHeader.keywordM = Token(MACRO)
+        _packageHeader.keywordP = Token(PACKAGE)
+        _packageHeader.prefixPaths = Tokens([Token(IDENTIFIER, "pkg1"), Token(IDENTIFIER, "pkg2")])
+        _packageHeader.prefixDots = Tokens([Token(DOT), Token(DOT)])
+        _packageHeader.packageIdentifier = Token(IDENTIFIER, "pkga")
+        @AssertThrows[ASTException](_packageHeader.orgSeparator = Token(DOUBLE_COLON))
+        _packageHeader.orgName = Token(IDENTIFIER, "orgName")
+        // _packageHeader.orgSeparator = Token(DOUBLE_COLON)
+        @Assert(_packageHeader.toTokens().toString().replace("\r",""), "macro package orgName :: pkg1.pkg2.pkga\n")
 
-    @Assert(_packageHeader.accessible.value, "public")
-    @Assert(_packageHeader.keywordM.value, "macro")
-    @Assert(_packageHeader.keywordP.value, "package")
-    @Assert(_packageHeader.prefixPaths.toString(), "pkg1 pkg2")
-    @Assert(_packageHeader.prefixDots.toString(), "..")
-    @Assert(_packageHeader.packageIdentifier.value, "pkga")
-    @Assert(_packageHeader.orgName.value, "orgName")
-    @Assert(_packageHeader.orgSeparator.value, "::")
-    @AssertThrows[ASTException](_packageHeader.keywordM = Token(IDENTIFIER, "macro"))
-    @AssertThrows[ASTException](_packageHeader.keywordP = Token(IDENTIFIER, "package"))
-}
+        @Assert(_packageHeader.accessible.value, "public")
+        @Assert(_packageHeader.keywordM.value, "macro")
+        @Assert(_packageHeader.keywordP.value, "package")
+        @Assert(_packageHeader.prefixPaths.toString(), "pkg1 pkg2")
+        @Assert(_packageHeader.prefixDots.toString(), "..")
+        @Assert(_packageHeader.packageIdentifier.value, "pkga")
+        @Assert(_packageHeader.orgName.value, "orgName")
+        @Assert(_packageHeader.orgSeparator.value, "::")
+        @AssertThrows[ASTException](_packageHeader.keywordM = Token(IDENTIFIER, "macro"))
+        @AssertThrows[ASTException](_packageHeader.keywordP = Token(IDENTIFIER, "package"))
+    }
 }
