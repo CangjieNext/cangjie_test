@@ -19,7 +19,7 @@ main(): Int64 {
         var fs1 = File.create("./b/b_04_file_01_cz.txt")
         ()
     } catch (e: FSException) {
-        if (e.toString() != "FSException: The file already exists!") {
+        if (!Regex("^FSException: The file `.+` is already exists.$").matches(e.toString())) {
             return 1
         }
     }

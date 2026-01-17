@@ -18,7 +18,7 @@ main() {
     try {
         var file1 = File.create(fileName)
     } catch (e: FSException) {
-        if (e.toString() != "FSException: The path `./a` does not exist.") {
+        if (e.toString() != "FSException: The input path 'parent' `./a` does not exist.") {
             return 1
         }
     }
