@@ -8,12 +8,13 @@
  
 import test_stable_abi.*
 
-main() {
-    let r = Rectangle.Red
-    let g = Rectangle.Green
-    let b = Rectangle.Blue(100)
-
-    return 0
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
-
-
+main() {
+    assert(Red.geta() is I, true)
+    assert(Red.getb() is I, true)
+    assert(Red.getc() is Addable, true)
+    assert(Red.getd() is Subtractable, true)
+    assert(Red.gete() is Subtractable, true)
+}

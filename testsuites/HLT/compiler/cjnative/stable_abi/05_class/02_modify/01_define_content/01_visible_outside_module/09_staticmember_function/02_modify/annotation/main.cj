@@ -11,12 +11,13 @@ import test_stable_abi.*
 main() {
     let m = S1()
     let n = S3()
-
-    if (m.getX() != 0 || n.getX() !=0) {
-        return 1
-    }
-
-    return 0
+    assert(m.getX(), 0)
+    assert(S1.geta1(), 0)
+    assert(S1.geta2(), 0)
+    assert(S1.geta3(), 0)
+    assert(n.getX(), 0)
+    assert(n.getY(), 0)
+    checker(m, n)
 }
 
 

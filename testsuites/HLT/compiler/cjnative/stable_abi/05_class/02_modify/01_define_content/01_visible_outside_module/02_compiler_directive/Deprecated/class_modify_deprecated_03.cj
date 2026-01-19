@@ -22,11 +22,13 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-2 [API/ABI] Modified class deprecated annotation with compilation error.
-// ASSERT: scan-2 [API/ABI]
+// ASSERT: scan-1 [API/ABI] Changed number of parameters of function visible outside the module.
+// ASSERT: scan-3 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 
@@ -46,3 +48,9 @@ public class CG1<T> {}
 public class D1 {}
 @Deprecated["This API is deprecated", strict: true]
 public class DG1<T> {}
+
+public func checker(b1: B1, bg1: BG1<UInt64>): Int64 {
+    B1()
+    BG1<UInt64>()
+    0
+}

@@ -9,7 +9,7 @@
 /*
   @No: 3.2.1.7.1.3
   @Scene: delete
-  @Visibility: used in public @Frozen declare
+  @Visibility: non public
   @Object: struct instance var
   @Behavior: delete non public instance member variable
   @Expect: api compatible & abi incompatible
@@ -23,12 +23,14 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Deleted public member function of struct visible outside the module.
 // ASSERT: scan-1 [ABI] Deleted instance non public variable member from the struct.
 // ASSERT: scan-not [API]
 // ASSERT: scan-1 [ABI]
-// ASSERT: scan-1 [API/ABI]
+// ASSERT: scan-not [API/ABI]
 
 // TEST API Compatibility
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -40,21 +42,22 @@ package test_stable_abi
 
 public struct Rectangle {
     let width = 10
-    let a1 = 20
 
     public func getWidth(): Int64{
+        var s = S1()
+        s.geta1()
+        s.a2
         return width
     }
 }
 
 public struct S1 {
-
+    let a1 = 20
     public let a2 = 0
     let a3 = 20
-    public let a4 = 0
 
     @Frozen
-    public func geta2() {
-        return a2
+    public func geta1() {
+        return a3
     }
 }

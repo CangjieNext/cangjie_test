@@ -11,6 +11,8 @@ import test_stable_abi.*
 unsafe main() {
     if (
         TestStruct.f1()==0
+        && TestStruct.foo_public_sub() is Father
+        && global_func_01()
     ) {
         return 0        
     } else {

@@ -11,7 +11,7 @@
   @Scene: delete
   @Visibility: public
   @Object: struct static prop
-  @Behavior: delete non public static properties
+  @Behavior: delete public static properties
   @Expect: api incompatible & abi incompatible
 */
 // LEVEL: 1
@@ -23,8 +23,9 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Deleted public member property of struct visible outside the module.
 // ASSERT: scan-not [API]
@@ -34,7 +35,6 @@
 // test struct: delete non public static properties
 // 删除带public修饰符的静态属性
 package test_stable_abi
-
 
 public struct Rectangle {
     let width = 10
@@ -69,4 +69,8 @@ public struct S1{
     public func getgeta(){
         return geta
     }
+}
+
+public func f(){
+    return 0
 }

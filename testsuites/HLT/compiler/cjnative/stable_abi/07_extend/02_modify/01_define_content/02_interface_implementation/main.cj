@@ -13,7 +13,8 @@ main() {
     let s1 = S1()
 
     if (c1.f1() == 100 && c1.ff1() == 100
-    && s1.f1() == 100 && s1.ff1() == 100) {
+    && s1.f1() == 100 && s1.ff1() == 100
+    && global_func_01()) {
         return 0        
     } else {
         return 1

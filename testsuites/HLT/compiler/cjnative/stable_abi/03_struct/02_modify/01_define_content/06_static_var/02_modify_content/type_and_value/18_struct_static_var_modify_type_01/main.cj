@@ -9,13 +9,14 @@
 import test_stable_abi.*
 
 main() {
-    var a: S1 = S1()
-
-    if (a.getWidth() != 10) {
-        return 1
-    }
-
-    return 0
+    let s1 = S1()
+    assert(S1.a1 is Addable, true)
+    assert(S1.f2() is Addable, true)
+    assert(S1.f3() is Addable, true)
+    assert(S1.a5 is Addable, true)
+    assert(S1.f6() is Addable, true)
+    assert(S1.f7() is Addable, true)
+    check()
 }
 
 

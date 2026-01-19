@@ -15,6 +15,7 @@ import std.random.*
 public struct Rectangle {
     let width = 10
     static var a = 20
+    static var b = 30
 
     public func getWidth(): Int64{
         return width
@@ -22,15 +23,17 @@ public struct Rectangle {
 
     public static mut prop geta1: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 }
 
-
-
+public func f(){
+    if(Rectangle.geta1 == 20){
+        return 0
+    }
+    return 1
+}

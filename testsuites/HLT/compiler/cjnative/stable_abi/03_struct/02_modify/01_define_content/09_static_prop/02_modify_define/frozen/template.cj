@@ -18,25 +18,20 @@ public struct Rectangle {
         return width
     }
 
-    @Frozen
     public static mut prop geta: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     static mut prop getb: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
@@ -45,9 +40,12 @@ public struct Rectangle {
 public struct S1{
     static var a = 20
     @Frozen
-    public static prop getb: Int64 {
+    public static mut prop getb: Int64 {
         get() {
             a
+        }
+        set(value) {
+            a = value
         }
     }
 
@@ -66,4 +64,10 @@ public struct S1{
     }
 }
 
-
+public func f(){
+    if(Rectangle.getb == 20 && S1.geta == 20){
+        return 0
+    }else{
+        return 1
+    }
+}

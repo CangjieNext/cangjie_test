@@ -98,5 +98,7 @@ extend TestClass {
         }
     }
 }
-
-
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {}

@@ -22,7 +22,7 @@ main() {
     tc.prop6 = 6
     tc.prop10 = 12345
     tc.prop11 = -1
-
+    check()
     if (
         son_tc.exported_prop2 == 1
         && tc.prop1 == 1 && tc._prop3 == 3

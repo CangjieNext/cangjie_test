@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Deleted instance public variable member from the struct.
 // ASSERT: scan-not [API]
@@ -33,28 +35,23 @@
 // 删除带public修饰符的实例成员变量
 package test_stable_abi
 
-
 public struct Rectangle {
     let width = 10
     let a1 = 20
 
     public func getWidth(): Int64{
+        var s = S1()
+        s.geta1()
         return width
     }
 }
 
 public struct S1 {
     let a1 = 20
-    public let a2 = 0
     let a3 = 20
 
     @Frozen
     public func geta1() {
-        return a1
-    }
-
-    @Frozen
-    public func geta2() {
-        return a2
+        return a3
     }
 }

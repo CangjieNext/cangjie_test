@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -34,36 +35,30 @@
 package test_stable_abi
 
 public struct Rectangle {
-    let width = 10
     public let a1 = 20
-    let a2 = 20
-    public let a3 = 20
+    public let a2 = 20
+    protected let a3 = 20
     private let a4 = 20
     internal let a5 = 20
     let a6 = 20
-    protected let a7 = 20
-    public let a8 = 20
-    let a9 = 20
-    public let a10 = 20
+    let a7 = 20 
+    let a8 = 20
+}
 
-    public func getWidth(): Int64{
-        return width
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
     }
 }
 
-public struct S1{
-    var a1 = 20
-    public let a2 = 0
-    var a3 = 20
-    public let a4 = 0
-
-    @Frozen
-    public func geta3() {
-        return a3
-    }
-
-    @Frozen
-    public func geta4() {
-        return a4
-    }
+public func check(){
+    var a = Rectangle()
+    assert(a.a2, 20)
+    assert(a.a3, 20)
+    assert(a.a5, 20)
+    assert(a.a6, 20)
+    assert(a.a7, 20)
+    assert(a.a8, 20)
+    return 0
 }

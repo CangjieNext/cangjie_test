@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Deleted static variable member from the struct.
 // ASSERT: scan-not [API]
@@ -32,6 +34,7 @@
 // test struct: delete public static member variable
 // 删除带public修饰符的静态成员变量
 package test_stable_abi
+
 
 public struct Rectangle {
     let width = 10
@@ -49,4 +52,8 @@ public struct Rectangle1 {
     public func getWidth(): Int64{
         return width
     }
+}
+
+public func f(){
+    return 0
 }

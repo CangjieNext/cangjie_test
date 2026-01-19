@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -32,7 +33,6 @@
 
 // test struct: delete access modifier: Invisible to Invisible
 package test_stable_abi
-
 
 public struct Rectangle {
     static let width = 10
@@ -44,110 +44,90 @@ public struct Rectangle {
 
     public static mut prop geta1: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     static mut prop geta2: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     public static mut prop geta3: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     static mut prop geta4: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     static mut prop geta5: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     static mut prop geta6: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     static mut prop geta7: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     public static mut prop geta8: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     static mut prop geta9: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     static mut prop geta10: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
@@ -208,7 +188,6 @@ public struct S1{
         getf
     }
 
-
     public static prop getc: Int64 {
         get() {
             c
@@ -225,4 +204,22 @@ public struct S1{
     public func f4(){
         getd
     }
+}
+
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func check(){
+    assert(Rectangle.geta4, 20)
+    assert(Rectangle.geta5, 20)
+    assert(Rectangle.geta6, 20)
+    assert(Rectangle.geta7, 20)
+    assert(Rectangle.geta9, 20)
+    assert(Rectangle.geta10, 20)
+    assert(S1.getc, 20)
+    return 0
 }

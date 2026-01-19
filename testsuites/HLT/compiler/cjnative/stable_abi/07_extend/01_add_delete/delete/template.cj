@@ -83,3 +83,7 @@ extend<T> SS<T> where T <: I3 & I4 {
     public func f5() {}
 }
 
+public func global_func_01() {
+    Int64(0).foo1() == 1
+    && Int64(0).foo2() == 2
+}

@@ -19,11 +19,12 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// EXEC: %rm libstable_abi.%dylib_suffix
+// EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -33,51 +34,18 @@
 // test enum: add @Frozen
 package test_stable_abi
 
-public enum Rectangle {
-    | Red | Green | Blue(UInt8)
-
-    public func getWidth(): Int64{
-        return 11
-    }
-
-    @Frozen
-    public prop geta: Int64 {
-        get() {
-            println("get")
-            0
-        }
-        
-    }
-
-    @Frozen
-    prop getb: Int64 {
-        get() {
-            println("get")
-            0
-        }
-        
-    }
+public enum E {
+    | A
+    @Frozen public prop p1: Int64 {get(){1}}
+    @Frozen public prop p2: Int64 {get(){1}}
+    @Frozen prop p3: Int64 {get(){1}}
+    @Frozen prop p4: Int64 {get(){1}}
 }
-
-public enum S1{
-    AB
-
-    @Frozen
-    public prop geta: Int64 {
-        get() {
-            0
-        }
-    }
-
-    @Frozen
-    prop getb: Int64 {
-        get() {
-           0
-        }
-    }
-
-    @Frozen
-    public func f1(){
-        getb
-    }
+@Frozen public func f() {A.p3 + A.p4}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(A.p3, 1)
+    assert(A.p4, 1)
 }

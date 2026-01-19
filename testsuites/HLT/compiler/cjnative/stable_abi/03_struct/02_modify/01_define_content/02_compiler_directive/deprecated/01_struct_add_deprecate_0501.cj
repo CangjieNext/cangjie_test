@@ -24,7 +24,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -94,28 +95,28 @@ public struct S7 {
     }
 }
 
-@Deprecated["this struct is deprecated", strict: false]
 struct S8 {
     let x: Int64 = 0
 }
 
-@Deprecated["this struct is deprecated", strict: false]
 public struct S9 {
     let x: S8 = S8()
 
-    @Frozen
     public func getX(): Int64 {
         return x.x
     }
 }
 
+@Deprecated["this struct is deprecated", strict: false]
 struct S10 {
     let x: Int64 = 0
 }
 
+@Deprecated["this struct is deprecated", strict: false]
 public struct S11 {
     let x: S10 = S10()
 
+    @Frozen
     public func getX(): Int64 {
         return x.x
     }
@@ -139,6 +140,7 @@ struct S13 {
 public struct S14 {
     let x: S13 = S13()
 
+    @Frozen
     public func getX(): Int64 {
         return x.x
     }
@@ -211,7 +213,7 @@ struct S23 {
     public const init() {}
 }
 
-
+@Deprecated["this struct is deprecated", strict: false]
 public struct S24 {
 
      public const init() {}
@@ -241,4 +243,9 @@ public struct S26 {
 @Deprecated["this struct is deprecated", strict: false]
 struct S27 {
     let x: Int64 = 0
+}
+
+public func f(){
+    var a = S4().getX() + S8().x + S25().x + S10().x + S2().x + S23().x + S13().x + S27().x
+    return a
 }

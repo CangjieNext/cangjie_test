@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Modified member variables' type for struct visible outside the module.
 // ASSERT: scan-1 [ABI] The body of a const function or function marked with @Frozen changed.
@@ -217,4 +219,39 @@ struct S5 {
     func f4() {
         return a4
     }
+}
+
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func check(){
+    assert(S1().f1() is Addable, true)
+    assert(S1().f2() is Addable, true)
+    assert(S1().f3() is Subtractable, true)
+    assert(S1().f4() is Addable, true)
+
+    assert(S2().f1() is Addable, true)
+    assert(S2().f2() is Addable, true)
+    assert(S2().f3() is Addable, true)
+    assert(S2().f4() is Addable, true)
+
+    assert(S3().f1() is Addable, true)
+    assert(S3().f2() is Addable, true)
+    assert(S3().f3() is Addable, true)
+    assert(S3().f4() is Addable, true)
+
+    assert(S4().f1() is Addable, true)
+    assert(S4().f2() is Addable, true)
+    assert(S4().f3() is Addable, true)
+    assert(S4().f4() is Addable, true)
+
+    assert(S5().f1() is Addable, true)
+    assert(S5().f2() is Addable, true)
+    assert(S5().f3() is Addable, true)
+    assert(S5().f4() is Addable, true)
+    return 0
 }

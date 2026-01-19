@@ -20,9 +20,14 @@ public struct Rectangle {
     }
 
     func geta(): Int64 {
-        return 0
+        return a1
     }
 }
 
-
+public func f(){
+    if(Rectangle().geta() == 20 && Rectangle().getWidth() == 10){
+        return 0
+    }
+    return 1
+}
 

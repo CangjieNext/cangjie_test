@@ -161,5 +161,3 @@ extend TestStruct {
         c
     }
 }
-
-

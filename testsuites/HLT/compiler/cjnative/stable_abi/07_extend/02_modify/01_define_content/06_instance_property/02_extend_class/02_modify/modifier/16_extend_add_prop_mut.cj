@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -138,4 +139,20 @@ extend TestClass {
             a = v
         }
     }
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    var tc = TestClass()
+    tc.exported_prop1 = 0
+    tc.prop2 = 0
+    tc.prop3 = 0
+    tc.prop7 = 0
+    tc.prop8 = 0
+    assert(tc.exported_prop1, 1)
+    assert(tc.prop2, 2)
+    assert(tc.prop3, 3)
+    assert(tc.prop7, 7)
+    assert(tc.prop8, 8)
 }

@@ -23,6 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] Added param with default value to the end of constructor.
 // ASSERT: scan-1 [ABI] Added member variable to a struct.
@@ -37,5 +40,9 @@ package test_stable_abi
 
 public struct S {
     public var a = 1
-    public S(var a1!: Int64 = 2) { a1 }
+    public S(var a1!: Int64 = 2) { a = a1 }
+}
+
+public func f(){
+    return S(a1:2).a - 2
 }

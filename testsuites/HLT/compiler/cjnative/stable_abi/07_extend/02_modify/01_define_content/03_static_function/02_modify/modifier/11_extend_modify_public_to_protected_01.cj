@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [API/ABI] Changed visibility of the member function of the extend.
 // ASSERT: scan-2 [API/ABI]
@@ -91,6 +93,12 @@ extend TestClass {
     }
     public static const func f14(): Int64 {
         14
+    }
+    public static func f15(){
+        f11()
+    }
+    public static func f16(){
+        f12()
     }
 
     public static func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
@@ -165,6 +173,12 @@ extend TestStruct {
     public static const func f14(): Int64 {
         14
     }
+    public static func f15(){
+        f11()
+    }
+    public static func f16(){
+        f12()
+    }
 
     public static func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
@@ -182,4 +196,19 @@ extend TestStruct {
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
+}
+
+public func global_func_01(){
+    TestStruct.f1() == 1
+    && TestStruct.f6() == 5
+    && TestClass.f10() == 10
+    && TestStruct.f10() == 10
+    && TestClass.f15() == 11
+    && TestStruct.f15() == 11
+    && TestClass.f16() == 12
+    && TestStruct.f16() == 12
+    && TestClass.f2() == 2
+    && TestStruct.f2() == 2
+    && TestClass.f5() == 5
+    && TestStruct.f5() == 5
 }

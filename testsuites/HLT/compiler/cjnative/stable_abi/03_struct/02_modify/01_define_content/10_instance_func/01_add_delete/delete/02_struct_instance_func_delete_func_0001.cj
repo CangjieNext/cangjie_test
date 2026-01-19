@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Deleted public member function of struct visible outside the module.
 // ASSERT: scan-not [API]
@@ -38,7 +40,11 @@ public struct Rectangle {
     static let a1 = 20
 
     func geta(): Int64 {
-        return 0
+        return a1
     }
+}
+
+public func f(){
+        return 0
 }
 

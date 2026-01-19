@@ -24,7 +24,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -34,15 +35,12 @@
 package test_stable_abi
 
 // test interface: access modifier
-public interface I1 {
-    public static func typename(): String {
-        "interface I1"
-    }
-}
-protected interface I2 {}
-internal interface I3 {}
-public interface I4 {}
-private interface I5 {}
-sealed interface I6 {} 
-public interface I7 {} 
-public sealed interface I8 {}
+public interface I1 { static func g() {1} }
+protected interface I2 { static func g() {1} }
+internal interface I3 { static func g() {1} }
+public interface I4 { static func g() {1} }
+private interface I5 { static func g() {1} }
+sealed interface I6 { static func g() {1} } 
+public interface I7 { static func g() {1} } 
+public sealed interface I8 { static func g() {1} }
+public func f() { return I2.g() + I3.g() + I4.g() + I5.g() }

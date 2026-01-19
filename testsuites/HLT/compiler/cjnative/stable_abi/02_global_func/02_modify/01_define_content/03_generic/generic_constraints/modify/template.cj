@@ -20,4 +20,6 @@ public func global_func_04<T1, T2>() where T1 <: A, T2 <: A { 0 }
 public const func global_func_05<T1, T2>() where T1 <: A, T2 <: A { global_func_03<T1, T2>() }
 @Frozen public func global_func_06() { global_func_02<A, A>() }
 
-
+public func global_func_07() {
+    global_func_01<A, A>() == 0
+}

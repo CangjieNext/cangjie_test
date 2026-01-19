@@ -16,4 +16,6 @@ public struct S {
     }
 }
 
-
+public func f(){
+    return S.a - 20
+}

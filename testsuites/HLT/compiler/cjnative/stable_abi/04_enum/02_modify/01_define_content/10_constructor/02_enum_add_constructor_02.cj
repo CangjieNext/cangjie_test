@@ -9,7 +9,7 @@
 /*
   @No: 4.2.1.10.2
   @Scene: add
-  @Visibility: public | non publuc | used in public const declare
+  @Visibility: public | non publuc | used in @Frozen public declare
   @Object: enum
   @Behavior: add constructor for non-exhausitive enum, non parameters in old enum & parameters in new enum
   @Expect: api compatible & abi incompatible
@@ -19,13 +19,16 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// EXEC: %rm libstable_abi.%dylib_suffix
+// EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-3 [ABI] Added constructor to non-exhaustive enum, and either the constructor is not at the end or the memory layout has changed.
-// ASSERT: scan-3 [ABI]
+// ASSERT: scan-2 [ABI] Added constructor to non-exhaustive enum, and either the constructor is not at the end or the memory layout has changed.
+// ASSERT: scan-2 [ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [API/ABI]
 
@@ -37,99 +40,51 @@
 
 package test_stable_abi
 
-public enum RGBColor {
+public enum E11 {
     | Red | Green | Blue(UInt8)
-
-    public static func printType() {
-        print("RGBColor")
-    }
+    public func g() {1}
 }
-
-enum Testb {
+enum E12 {
     | Red | Green | Blue(UInt8)
-
-    public static func printType() {
-        print("RGBColor")
-    }
+    public func g() {1}
 }
-
-public enum Testc {
+enum E13 {
     | Red | Green | Blue(UInt8)
-    
-    public static func printType() {
-        print("RGBColor")
-    }
+    public func g() {1}
 }
-
-public enum S7 {
-    | Red | Green | Blue(UInt8)
-
-    public func getX(): Int64 {
-        return 11
-    }
+public class C1 {public let v = E12.Red.g()}
+@Frozen public func f1() {E13.Blue(1).g()}
+public enum E21 {
+    | Red | Green | Blue | A(Int64) | ...
+    public func g() {1}
 }
-
-enum S8 {
-    | Red | Green | Blue(UInt8)
-
-    public func getX(): Int64 {
-        return 11
-    }
+enum E22 {
+    | Red | Green | Blue | A(Int64) | ...
+    public func g() {1}
 }
-
-enum S9 {
-    | Red | Green | Blue(UInt8)
-
-    public func getX(): Int64 {
-        return 11
-    }
+enum E23 {
+    | Red | Green | Blue | A(Int64) | ...
+    public func g() {1}
 }
-
-public class C1 {
-    let v1 = S8.Red
-
-    const init() {
-        let v3 = 0
-    }
-
-    public const func f1() {
-        let v2 = S9.Green
-    }
+public class C2 {public let v = E22.Blue.g()}
+@Frozen public func f2() {E23.Red.g()}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
-
-
-public enum SS7 {
-    | Red | Green | Blue | Red(Int64) | ...
-
-    public func getX(): Int64 {
-        return 11
-    }
-}
-
-enum SS8 {
-    | Red | Green | Blue | Red(Int64) | ...
-
-    public func getX(): Int64 {
-        return 11
-    }
-}
-
-enum SS9 {
-    | Red | Green | Blue | Red(Int64) | ...
-
-    public func getX(): Int64 {
-        return 11
-    }
-}
-
-public class CC1 {
-    let v1 = SS8.Red
-
-    const init() {
-        let v3 = 0
-    }
-
-    public const func f1() {
-        let v2 = SS9.Green
-    }
+public func check() {
+    assert(E12.Red.g(), 1)
+    assert(E12.Green.g(), 1)
+    assert(E12.Blue(1).g(), 1)
+    assert(E13.Red.g(), 1)
+    assert(E13.Green.g(), 1)
+    assert(E13.Blue(1).g(), 1)
+    assert(E22.Red.g(), 1)
+    assert(E22.Green.g(), 1)
+    assert(E22.Blue.g(), 1)
+    assert(E23.Red.g(), 1)
+    assert(E23.Green.g(), 1)
+    assert(E23.Blue.g(), 1)
+    assert(E21.A(1).g(), 1)
+    assert(E22.A(1).g(), 1)
+    assert(E23.A(1).g(), 1)
 }

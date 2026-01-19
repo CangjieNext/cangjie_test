@@ -22,12 +22,13 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
-// ASSERT: scan-1 [API/ABI] Deleted public/protected member function of extend or made it private when the extended type is class.
+// ASSERT: scan-2 [API/ABI] Deleted public/protected member function of extend or made it private when the extended type is class.
 // ASSERT: scan-1 [API/ABI] Deleted public member function of extend or made it private when the extended type is struct.
-// ASSERT: scan-2 [API/ABI]
+// ASSERT: scan-3 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 
@@ -176,4 +177,8 @@ extend TestStruct {
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
+}
+
+public func global_func_01() {
+    true
 }

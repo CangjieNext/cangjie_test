@@ -8,13 +8,12 @@
  
 import test_stable_abi.*
 
+class C1 <: S1 {}
+class C2 <: S2 {}
 main() {
-    if (Generics<Father, Son>.typename() == "interface Generics" ) {
+    if (I<S2, S1, Int64>.g(C2(), C1()) == 1) {
         return 0        
     } else {
         return 1
     }
-
 }
-
-

@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -60,7 +61,6 @@ public struct S1{
             a
         }
     }
-    
     public static mut prop geta: Int64 {
         get() {
             a
@@ -82,5 +82,13 @@ public struct S1{
         set(value) {
             a = value
         }
+    }
+}
+
+public func f(){
+    if(S1.getc == 20){
+        return 0
+    }else{
+        return 1
     }
 }

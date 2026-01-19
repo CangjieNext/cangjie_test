@@ -9,8 +9,5 @@
 import test_stable_abi.*
 
 main() {
-    testEnum()
-    return 0
+    check()
 }
-
-

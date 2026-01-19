@@ -22,8 +22,9 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-1 [API/ABI] Unnamed parameter cannot be made named parameter.
 // ASSERT: scan-1 [API/ABI]
@@ -118,4 +119,28 @@ public class TestClass {
     public static func body3() {
         3
     }
+}
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public unsafe func checker(): Unit {
+    assert(TestClass.f1(), 1)
+    assert(TestClass.f4(), 3)
+    assert(TestClass.f6(), 5)
+    assert(TestClass.f7(), 7)
+    assert(TestClass.f9(), 9)
+    assert(TestClass.f13(), 13)
+    assert(TestClass.f14(), 14)
+    assert(TestClass.g1<Int64, Int64, Son>(1, 2, Son()), "12")
+    assert(TestClass.g2<Int64, String, Son>(1, "a", Son()), "1")
+    assert(TestClass.p1(a: 1, b: 2, c: 3), 6)
+    assert(TestClass.p2(Son(), b: Son()) is Son, true)
+    assert(TestClass.p3(Father(), b: Father()) is Father, true)
+    assert(TestClass.body1(), 1)
+    assert(TestClass.body2(), 2)
+    assert(TestClass.body3(), 3)
 }

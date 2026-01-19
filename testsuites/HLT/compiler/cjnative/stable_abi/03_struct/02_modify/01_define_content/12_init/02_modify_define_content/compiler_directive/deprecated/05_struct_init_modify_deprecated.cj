@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -36,4 +38,8 @@ public struct S {
     public init() { a = 0 }
     @Deprecated["this init is deprecated", strict: false] public init(a1: Int64) { a = a1 }
     @Deprecated["this init is deprecated", strict: false] public init(a1: Int64, a2: Int64) { a = a1 + a2 }
+}
+
+public func f(){
+    return S(0, 0).a
 }

@@ -9,7 +9,7 @@
 import test_stable_abi.*
 
 main() {
-    return S().a
+    return S().a + f()
 }
 
 

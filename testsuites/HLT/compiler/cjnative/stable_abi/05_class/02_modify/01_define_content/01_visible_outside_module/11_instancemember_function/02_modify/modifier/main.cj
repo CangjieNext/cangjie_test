@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 import test_stable_abi.*
 
 public class Son_TestClass <: TestClass {
@@ -57,22 +57,18 @@ unsafe main() {
     son._pano1()
 
     let tc = TestClass()
-
-    if (
-        tc.f1() == 1 && tc.f4() == 3
-        && tc.f6() == 5 && global() == 7 && tc.openfunc1() == 1
-        && tc.f8() == 8 && tc.f13() == 13 && tc.f14() == 14 
-        && tc.g1<Int64, Int64, Son>(1, 2, Son()) == "12"
-        && tc.g2<Int64, String, Son>(1, "a", Son()) == "1"
-        && tc.p1(1, b: 2, c: 3) == 6 
-        && tc.p2(Son(), b: Son()) is Son && tc.p3(Father(), b: Father()) is Father
-        && tc.ano1() == 1 
-    ) {
-        return 0        
-    } else {
-        return 1
-    }
-
+    assert(tc.f1(), 1)
+    assert(tc.f4(), 3)
+    assert(tc.f6(), 5)
+    assert(tc.openfunc1(), 1)
+    assert(tc.f8(), 8)
+    assert(tc.f13(), 13)
+    assert(tc.f14(), 14)
+    assert(tc.g1<Int64, Int64, Son>(1, 2, Son()), "12")
+    assert(tc.g2<Int64, String, Son>(1, "a", Son()), "1")
+    assert(tc.p1(1, b: 2, c: 3), 6)
+    assert(tc.p2(Son(), b: Son()) is Son, true)
+    assert(tc.p3(Father(), b: Father()) is Father, true)
+    assert(tc.ano1(), 1)
+    checker(tc)
 }
-
-

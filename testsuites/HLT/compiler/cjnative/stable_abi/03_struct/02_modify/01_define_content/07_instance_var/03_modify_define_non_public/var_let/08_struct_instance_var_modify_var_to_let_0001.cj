@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Modified member variables' non-access modifier for struct visible outside the module.
 // ASSERT: scan-not [API]
@@ -33,36 +35,14 @@
 package test_stable_abi
 
 public struct Rectangle {
-    let width = 10
-    public let a1 = 20
+    let a1 = 10
     let a2 = 20
-    public let a3 = 20
-    private let a4 = 20
-    internal let a5 = 20
-    let a6 = 20
-    protected let a7 = 20
-    public let a8 = 20
-    let a9 = 20
-    let a10 = 20
-
-    public func getWidth(): Int64{
-        return width
-    }
 }
 
-public struct S1{
-    let a1 = 20
-    public let a2 = 0
-    var a3 = 20
-    public let a4 = 0
-
-    @Frozen
-    public func geta3() {
-        return a3
-    }
-
-    @Frozen
-    public func geta4() {
-        return a4
+public func f(){
+    if(Rectangle().a1 == 10 && Rectangle().a2 == 20){
+        return 0
+    }else{
+        return 1
     }
 }

@@ -23,6 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-4 [ABI] Modified nonpublic member variables' type for struct visible outside the module.
 // ASSERT: scan-4 [ABI] Change the initial value of member variable when struct/class has the const variable or @Frozen init func.
@@ -123,4 +126,18 @@ struct S5{
     internal let b:A = B()
     protected let c:A = B()
     private let d:A = B()
+}
+
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func check(){
+    assert(Rectangle1().a1, 20)
+    assert(Rectangle1().a2, 30)
+    assert(Rectangle1().a3, 40)
+    return 0
 }

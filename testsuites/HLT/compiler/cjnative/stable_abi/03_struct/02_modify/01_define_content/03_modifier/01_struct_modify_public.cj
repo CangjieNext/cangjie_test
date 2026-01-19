@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Struct declaration visible outside the module made protected or internal.
 // ASSERT: scan-not [API]
@@ -32,7 +34,7 @@
 // test struct: add access modifier: Visible to Invisible
 package test_stable_abi
 
-public struct S1 {
+struct S1 {
     let x: Int64 = 0
 
     public func getX(): Int64 {
@@ -42,16 +44,12 @@ public struct S1 {
 
 struct S2 {
     let x: Int64 = 0
-}
-
-
-public struct S3 {
-    let x: S2 = S2()
 
     public func getX(): Int64 {
-        return x.x
+        return x
     }
 }
+
 
 private struct S4 {
     let x: Int64 = 0
@@ -101,18 +99,8 @@ struct S9 {
     }
 }
 
-struct S10 {
-    let x: Int64 = 0
 
-    public func getX(): Int64 {
-        return x
-    }
-}
-
-struct S11 {
-    let x: Int64 = 0
-
-    public func getX(): Int64 {
-        return x
-    }
+public func f(){
+    var a = S2().getX() + S4().getX() + S5().getX() + S7().getX() + S6().getX() + S9().getX()
+    return a
 }

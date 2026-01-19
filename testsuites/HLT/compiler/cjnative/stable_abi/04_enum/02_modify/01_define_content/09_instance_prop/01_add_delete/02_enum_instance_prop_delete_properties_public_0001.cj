@@ -22,44 +22,55 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Deleted public member property of enum visible outside the module.
+// ASSERT: scan-2 [API/ABI] Deleted public member property of enum visible outside the module.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
-// ASSERT: scan-1 [API/ABI]
+// ASSERT: scan-2 [API/ABI]
 
 // test struct: delete non public instance properties
 // 删除带public修饰符的静态属性
 package test_stable_abi
 
-
-public enum Rectangle {
-    | Red | Green | Blue(UInt8)
-
-    public func getWidth(): Int64{
-        return 11
-    }
-
-    prop geta: Int64 {
-        get() {
-            0
-        }
-    }
+public enum E1 {
+    | A
+    protected prop p2: Int64 {get(){2}}
+    private prop p3: Int64 {get(){3}}
+    prop p4: Int64 {get(){4}}
+    func g() { p3 }
 }
-
-public enum Rectangle1 {
-    AB
-
-    public prop getb: Int64 {
-        get() {
-            1
-        }
-    }
-
-    @Frozen
-    public func f1(){
-        getb
-    }
+enum E2 {
+    | B
+    public prop p: Int64 {get(){1}}
+    protected prop p2: Int64 {get(){2}}
+    private prop p3: Int64 {get(){3}}
+    prop p4: Int64 {get(){4}}
+    func g() { p3 }
+}
+enum E3 {
+    | C
+    public prop p: Int64 {get(){1}}
+    protected prop p2: Int64 {get(){2}}
+    private prop p3: Int64 {get(){3}}
+    prop p4: Int64 {get(){4}}
+    func g() { p3 }
+}
+public class cls { public var a = B.p }
+@Frozen public func f() { C.p }
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(A.p2, 2)
+    assert(A.p4, 4)
+    assert(A.g(), 3)
+    assert(B.p2, 2)
+    assert(B.p4, 4)
+    assert(B.g(), 3)
+    assert(C.p2, 2)
+    assert(C.p4, 4)
+    assert(C.g(), 3)
 }

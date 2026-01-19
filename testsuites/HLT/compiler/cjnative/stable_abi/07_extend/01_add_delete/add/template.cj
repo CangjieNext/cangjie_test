@@ -72,4 +72,6 @@ extend<X, Y> S2<X, Y> {
     }
 }
 
-
+public func global_func_01() {
+    true
+}

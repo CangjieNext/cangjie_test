@@ -9,7 +9,7 @@
 /*
   @No: 3.2.1.9.2.7
   @Scene: add
-  @Visibility: non public
+  @Visibility: public
   @Object: struct static prop
   @Behavior: add @Frozen
   @Expect: api compatible & abi compatible
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -44,11 +45,9 @@ public struct Rectangle {
     @Frozen
     public static mut prop geta: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
@@ -56,11 +55,9 @@ public struct Rectangle {
     @Frozen
     static mut prop getb: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
@@ -69,9 +66,12 @@ public struct Rectangle {
 public struct S1{
     static var a = 20
     @Frozen
-    public static prop getb: Int64 {
+    public static mut prop getb: Int64 {
         get() {
             a
+        }
+        set(value) {
+            a = value
         }
     }
 
@@ -87,5 +87,13 @@ public struct S1{
     @Frozen
     public func getgeta(){
         return geta
+    }
+}
+
+public func f(){
+    if(Rectangle.getb == 20 && S1.geta == 20){
+        return 0
+    }else{
+        return 1
     }
 }

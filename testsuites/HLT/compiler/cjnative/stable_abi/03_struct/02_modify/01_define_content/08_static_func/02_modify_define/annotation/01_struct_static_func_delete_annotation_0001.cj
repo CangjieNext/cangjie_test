@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -42,15 +43,15 @@ public struct S1 {
     }
 
     static public func geta1() {
-        return 0
+        return 1
     }
 
     static public func geta2() {
-        return 0
+        return 2
     }
 
     static public func geta3() {
-        return 0
+        return 3
     }
 }
 

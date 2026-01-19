@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan [API/ABI] Changed the annotation '@Deprecated' of the member function of the extend.
 // ASSERT: scan-1 [API/ABI]
@@ -113,6 +115,9 @@ extend TestStruct {
     public const func f14(): Int64 {
         14
     }
+    public func f15() {
+        f3()
+    }
 
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
@@ -150,4 +155,14 @@ extend TestStruct {
 public func global() {
     let s1 = TestStruct()
     s1.f7()
+}
+
+public func global_func_01(){
+    let ts = TestStruct()
+
+    ts.pf8() == 8
+    && ts.f8() == 8
+    && ts.f2() == 2
+    && ts.f11() == 11
+    && ts.f15() == 3
 }

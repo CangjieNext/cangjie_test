@@ -75,9 +75,12 @@ public struct S1{
 public struct S2{
     static var a = 20
 
-    public static prop getb2: Int64 {
+    public static mut prop getb2: Int64 {
         get() {
             a
+        }
+        set(value) {
+            a = value
         }
     }
 
@@ -95,10 +98,20 @@ public struct S2{
         return geta
     }
 
-    static prop getb3: Int64 {
+    static mut prop getb3: Int64 {
         get() {
             a
+        }
+        set(value) {
+            a = value
         }
     }
 }
 
+public func f(){
+    if(S2.geta == 20 && S2.getb3 == 20){
+        return 0
+    }else{
+        return 1
+    }
+}
