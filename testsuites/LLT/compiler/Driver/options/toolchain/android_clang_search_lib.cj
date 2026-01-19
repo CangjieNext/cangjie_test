@@ -10,6 +10,6 @@
 // (CJNATIVE and Linux and x86) EXEC: %touch ./bin/aarch64-linux-android31-clang && %chmod +x ./bin/aarch64-linux-android31-clang
 // (CJNATIVE and Linux and x86) EXEC: %mkdir -p ./cangjie
 // (CJNATIVE and Linux and x86) EXEC: %cpdir -rf $CANGJIE_HOME/* ./cangjie
-// (CJNATIVE and Linux and x86) EXEC: %cpdir -rf ./cangjie/modules/linux_x86_64_cjnative ./cangjie/modules/linux_android31_aarch64_cjnative
+// (CJNATIVE and Linux and x86) EXEC: %cpdir -rf ./cangjie/modules/linux_x86_64_cjnative ./cangjie/modules/linux_android_aarch64_cjnative
 // (CJNATIVE and Linux and x86) EXEC: source cangjie/envsetup.sh && %compiler %cmp_opt main.cj --toolchain ./bin -o %output --verbose --target=aarch64-linux-android31 2>&1 | compare %f
 // (CJNATIVE and Linux and x86) ASSERT: regex ld.lld'.* '-L.*lib/clang/17/lib/linux'
