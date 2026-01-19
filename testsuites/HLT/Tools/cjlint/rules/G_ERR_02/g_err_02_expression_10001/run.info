@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
 // ASSERT: regex-1 :14:9: .*error.*: The 'IOException' is a sensitive exception type.
