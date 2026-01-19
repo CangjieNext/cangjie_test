@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm install --git url --skip-build 2>&1 | compare %f
-// ASSERT: scan Warning: cannot skip building while installing binary from Git, --skip-build will be ignored
+// ASSERT: scan Warning: cannot skip building while installing binary from Git or repository, --skip-build will be ignored

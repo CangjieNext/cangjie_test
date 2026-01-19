@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-features os.windows
+features { os.windows }
 package ot_static.subpackage
 
 public platform func subfunc(): String { "subfunc windows" }
