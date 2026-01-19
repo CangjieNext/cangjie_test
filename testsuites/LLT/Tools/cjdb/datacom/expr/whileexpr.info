@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/dowhile.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug dowhile.cj -o while_expr
-// EXEC: python3 cjdb_test.py %n.info
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
 cjdb,cjdb while_expr,while_expr

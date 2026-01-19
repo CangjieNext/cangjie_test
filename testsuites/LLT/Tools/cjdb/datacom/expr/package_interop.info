@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/ohos/ark_interop  ../../basecase/expr/ohos/ark_interop/ark_interop.cj  ../../basecase/expr/ohos/main.cj
+// EXEC: cd ./ark_interop && %compiler %cmp_opt %enableCompileDebug --output-type=staticlib ark_interop.cj -o libark_interop.a
+// EXEC: %compiler %cmp_opt %enableCompileDebug main.cj --import-path ark_interop -L ark_interop -lark_interop -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb package_interop,package_interop
+b,b 57,main.cj:57
+r,r,-> 57
+ expression~expr var g1: (Int64, Int64) -> Int64 = {a, b => a + b};g1(c.vc1+arr1[0],list1[0]-Int64(vi8))~\(Int64\) \$\d+ = 4
+q,q,
