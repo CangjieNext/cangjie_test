@@ -6,10 +6,10 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: ./src
-// (Windows)EXEC: xcopy %cangjieDir\tools\config .\config /E /I
-// (Windows)EXEC: xcopy %cangjieDir\modules .\modules /E /I
+// (Windows)EXEC: xcopy "%cangjieDir\tools\config" ".\config" /E /I
+// (Windows)EXEC: xcopy "%cangjieDir\modules" ".\modules" /E /I
 // (Windows)EXEC: cacls . /p everyone:f /e
 // (not Windows)EXEC: %cp -r %cangjieDir/tools/config .
 // (not Windows)EXEC: %cp -r %cangjieDir/modules .
