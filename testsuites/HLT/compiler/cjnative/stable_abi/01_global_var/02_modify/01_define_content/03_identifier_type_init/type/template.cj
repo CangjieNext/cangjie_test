@@ -27,4 +27,7 @@ public const global_var_15 = global_var_13 is A
 @Frozen public func global_func_01() { global_var_02 is A }
 @Frozen public func global_func_11() { global_var_12 is A }
 
-
+public func global_func_02() {
+    global_var_01 is I
+    && global_var_11 is I
+}

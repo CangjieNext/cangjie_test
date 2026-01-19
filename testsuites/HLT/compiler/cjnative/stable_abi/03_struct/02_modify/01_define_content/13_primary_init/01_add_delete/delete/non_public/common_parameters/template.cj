@@ -15,4 +15,6 @@ public struct S {
     S(a1: Int64) { a = a1 }
 }
 
-
+public func f(){
+    return S(0).a
+}

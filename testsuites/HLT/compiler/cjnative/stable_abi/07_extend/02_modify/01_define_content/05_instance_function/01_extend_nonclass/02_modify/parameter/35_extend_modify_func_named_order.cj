@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] Changed named parameter order of function visible outside the module.
 // ASSERT: scan-1 [ABI]
@@ -170,4 +172,12 @@ extend TestStruct {
 public func global() {
     let s1 = TestStruct()
     s1.f7()
+}
+
+public func global_func_01(){
+    let ts = TestStruct()
+    
+    ts.pp1(0, b: 0) != 0
+    && ts.pp2(Son(), b: Son()) is Son
+    && ts.pp3(Father(), b: Father()) is Father
 }

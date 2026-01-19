@@ -23,8 +23,9 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Changed return type of function visible outside the module. The new return type is not a subtype of the old return type.
 // ASSERT: scan-not [API]
@@ -120,4 +121,8 @@ extend<T> TestStruct_unexport<T> where T <: I1 {
     public static func foo_unexport():String{
         "String"
     }
+}
+public func global_func_01(){
+    TestStruct.foo_const_sub() is Father
+    && TestStruct.foo_frozen_sub() is Father
 }

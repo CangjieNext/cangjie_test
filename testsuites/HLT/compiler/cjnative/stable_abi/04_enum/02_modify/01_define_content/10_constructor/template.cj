@@ -6,105 +6,52 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
  
-// ASSERT: scan Compatible!
+// ASSERT: scan-full Compatible!\n
 
 package test_stable_abi
 
-public enum RGBColor {
+public enum E11 {
     | Red | Green | Blue(UInt8)
-
-    public static func printType() {
-        print("RGBColor")
-    }
+    public func g() {1}
 }
-
-enum Testb {
+enum E12 {
     | Red | Green | Blue(UInt8)
-
-    public static func printType() {
-        print("RGBColor")
-    }
+    public func g() {1}
 }
-
-public enum Testc {
+enum E13 {
     | Red | Green | Blue(UInt8)
-    
-    public static func printType() {
-        print("RGBColor")
-    }
+    public func g() {1}
 }
-
-public enum S7 {
-    | Red | Green | Blue(UInt8)
-
-    public func getX(): Int64 {
-        return 11
-    }
-}
-
-enum S8 {
-    | Red | Green | Blue(UInt8)
-
-    public func getX(): Int64 {
-        return 11
-    }
-}
-
-enum S9 {
-    | Red | Green | Blue(UInt8)
-
-    public func getX(): Int64 {
-        return 11
-    }
-}
-
-public class C1 {
-    let v1 = S8.Red
-
-    const init() {
-        let v3 = 0
-    }
-
-    public const func f1() {
-        let v2 = S9.Green
-    }
-}
-
-
-public enum SS7 {
+public class C1 {public let v = E12.Red.g()}
+@Frozen public func f1() {E13.Blue(1).g()}
+public enum E21 {
     | Red | Green | Blue | ...
-
-    public func getX(): Int64 {
-        return 11
-    }
+    public func g() {1}
 }
-
-enum SS8 {
+enum E22 {
     | Red | Green | Blue | ...
-
-    public func getX(): Int64 {
-        return 11
-    }
+    public func g() {1}
 }
-
-enum SS9 {
+enum E23 {
     | Red | Green | Blue | ...
-
-    public func getX(): Int64 {
-        return 11
-    }
+    public func g() {1}
 }
-
-public class CC1 {
-    let v1 = SS8.Red
-
-    const init() {
-        let v3 = 0
-    }
-
-    public const func f1() {
-        let v2 = SS9.Green
-    }
+public class C2 {public let v = E22.Blue.g()}
+@Frozen public func f2() {E23.Red.g()}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
-
-
+public func check() {
+    assert(E12.Red.g(), 1)
+    assert(E12.Green.g(), 1)
+    assert(E12.Blue(1).g(), 1)
+    assert(E13.Red.g(), 1)
+    assert(E13.Green.g(), 1)
+    assert(E13.Blue(1).g(), 1)
+    assert(E22.Red.g(), 1)
+    assert(E22.Green.g(), 1)
+    assert(E22.Blue.g(), 1)
+    assert(E23.Red.g(), 1)
+    assert(E23.Green.g(), 1)
+    assert(E23.Blue.g(), 1)
+}

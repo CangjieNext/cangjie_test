@@ -27,5 +27,3 @@ public struct Generics_S<T, U> {}
 extend<T, U> Generics_S<T, U> where T <: Father, U <: Son {
     public func foo2() {2}
 }
-
-

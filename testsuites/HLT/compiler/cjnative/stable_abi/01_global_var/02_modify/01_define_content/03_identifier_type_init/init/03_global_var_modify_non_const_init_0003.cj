@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -53,4 +55,15 @@ public func global_func_01() {
 @Frozen
 public func global_func_02() {
     global_var_04
+}
+
+public func global_func_03() {
+    global_var_01
+}
+
+public func f(){
+    if(global_var_01 == 22222 && global_var_02 == 0 && global_var_06 == 0){
+        return 0
+    }
+    return 1
 }

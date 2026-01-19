@@ -22,12 +22,14 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-1 [API/ABI] Changed interfaces that class implemented.
+// ASSERT: scan-1 [API] Added instance member function without default implementation of class.
 // ASSERT: scan-1 [API/ABI]
-// ASSERT: scan-not [API]
+// ASSERT: scan-1 [API]
 // ASSERT: scan-not [ABI]
 
 package test_stable_abi
@@ -53,3 +55,12 @@ public class C1 <: I1 & I2 {
         1
     }
 } 
+
+public func checker(): Int64 {
+    let c1 = C1()
+    if (c1.f1() == 100 && c1.ff1() == 100 && c1.f2() == 1) {
+    } else {
+        return 1
+    }
+    0
+}

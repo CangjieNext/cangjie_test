@@ -21,4 +21,9 @@ public struct S {
     }
 }
 
-
+public func f(){
+    if(S().p1 == 0 && S().p2 == 0){
+        return 0
+    }
+    return 1
+}

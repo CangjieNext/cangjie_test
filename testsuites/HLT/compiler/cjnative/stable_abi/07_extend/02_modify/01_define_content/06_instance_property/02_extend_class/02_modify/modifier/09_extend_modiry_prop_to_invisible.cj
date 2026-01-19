@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [API/ABI] Extend member property visible outside the module deleted or made private.
 // ASSERT: scan-3 [API/ABI] Changed visibility of the member property of the extend.
@@ -120,4 +122,14 @@ extend TestClass {
             a = v
         }
     }
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    var tc = TestClass()
+    assert(tc.exported_prop1, 1)
+    assert(tc.prop2, 2)
+    assert(tc.prop3, 3)
+    assert(tc.prop8, 8)
 }

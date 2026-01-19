@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -77,6 +78,13 @@ extend TestClass {
         10
     }
 
+    private static func f12() {
+        12
+    }
+    protected static func f15(){
+        f12()
+    }
+    
     public static unsafe func f13(): Int64 {
         return 13
     }
@@ -159,4 +167,8 @@ extend TestStruct {
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
+}
+
+public func global_func_01() {
+    true
 }

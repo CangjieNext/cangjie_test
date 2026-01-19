@@ -31,4 +31,13 @@ public func global_func_02() {
     global_var_04
 }
 
+public func global_func_03() {
+    global_var_01
+}
 
+public func f(){
+    if(global_var_01 == 0 && global_var_02 == 0 && global_var_06 == 0){
+        return 0
+    }
+    return 1
+}

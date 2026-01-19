@@ -22,8 +22,9 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-4 [API/ABI] Class member property visible outside the module deleted or made private.
 // ASSERT: scan-2 [API/ABI] Changed visibility of instance member properties for classes.
@@ -128,4 +129,17 @@ public class TestClass {
             12
         }
     }
+}
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    assert(TestClass.prop4, 4)
+    assert(TestClass.prop6, 6)
+    assert(TestClass.prop10, 10)
+    assert(TestClass.a, -1)
 }

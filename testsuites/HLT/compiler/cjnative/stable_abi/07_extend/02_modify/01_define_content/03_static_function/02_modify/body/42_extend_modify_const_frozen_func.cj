@@ -23,7 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-6 [ABI] The body of a const function or function marked with @Frozen changed.
 // ASSERT: scan-not [API/ABI]
@@ -138,6 +140,9 @@ extend TestClass {
     }
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
+    }
+    public static func f15(): Int64 {
+        return f12()
     }
 }
 
@@ -265,4 +270,13 @@ public class Foo<T> {}
 
 extend<T> Foo<T> where T <: I1 {
     public static func f1() {}
+}
+
+public func global_func_01(){
+    TestClass.f2() == 2
+    && TestClass.f10() != 0
+    && TestClass.f11() != 0
+    && TestStruct.f2() != 0
+    && TestStruct.f11() != 0
+    && TestClass.f15() != 0
 }

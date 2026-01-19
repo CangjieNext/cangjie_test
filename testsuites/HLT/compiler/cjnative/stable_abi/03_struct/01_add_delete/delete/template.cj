@@ -12,4 +12,6 @@ package test_stable_abi
 public struct S1 { public var a = 0 }
 struct S2 { public var a = 0 }
 
-
+public func f(){
+    return S2().a
+}

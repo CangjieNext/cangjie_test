@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -118,6 +119,16 @@ extend TestClass {
             a = v
         }
     }
+    public static prop prop12: Int64{
+        get(){
+            prop9
+        }
+    }
+    public static prop prop13: Int64{
+        get(){
+            prop8
+        }
+    }
 }
 
 extend TestStruct {
@@ -198,4 +209,25 @@ extend TestStruct {
             a = v
         }
     }
+    public static prop prop12: Int64{
+        get(){
+            prop9
+        }
+    }
+    public static prop prop13: Int64{
+        get(){
+            prop8
+        }
+    }
+}
+
+public func global_func_01(){
+    TestStruct.prop2 == 2
+    && TestClass.prop2 == 2
+    && TestClass.prop7 == 7
+    && TestClass.prop13 == 8
+    && TestStruct.prop7 == 7
+    && TestStruct.prop13 == 8
+    && TestStruct.prop12 == 9
+    && TestClass.prop12 == 9
 }

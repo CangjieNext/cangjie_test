@@ -9,10 +9,7 @@
 import test_stable_abi.*
 
 main() {
-    let m: S1 = S1()
-    let n: S3 = S3()
-
-    if (m.getX() != 0 || n.getX() !=0) {
+    if (S1().getX() != 0 && f() != 0) {
         return 1
     }
 

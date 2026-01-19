@@ -9,13 +9,13 @@
 import test_stable_abi.*
 
 main() {
-    var a: MyInt = MyInt()
-
-    if (a.add(1) != 1) {
-        return 1
+    MyInt()
+    
+    if (check() == 0) {
+        return 0
     }
 
-    return 0
+    return 1
 }
 
 

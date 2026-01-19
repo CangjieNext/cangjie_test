@@ -14,3 +14,6 @@ func global_func_01() { 0 }
 public func global_func_02() { global_func_01() }
 
 
+public func f(){
+    return 0
+}

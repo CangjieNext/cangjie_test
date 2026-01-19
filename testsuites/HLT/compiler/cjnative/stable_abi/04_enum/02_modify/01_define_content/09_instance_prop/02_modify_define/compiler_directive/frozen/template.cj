@@ -6,55 +6,22 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
  
-// ASSERT: scan Compatible!
+// ASSERT: scan-full Compatible!\n
 
 package test_stable_abi
 
-public enum Rectangle {
-    | Red | Green | Blue(UInt8)
-
-    public func getWidth(): Int64{
-        return 11
-    }
-
-    @Frozen
-    public prop geta: Int64 {
-        get() {
-            println("get")
-            0
-        }
-        
-    }
-
-    prop getb: Int64 {
-        get() {
-            println("get")
-            0
-        }
-        
-    }
+public enum E {
+    | A
+    public prop p1: Int64 {get(){1}}
+    @Frozen public prop p2: Int64 {get(){1}}
+    prop p3: Int64 {get(){1}}
+    @Frozen prop p4: Int64 {get(){1}}
 }
-
-public enum S1{
-    AB
-
-    @Frozen
-    public prop geta: Int64 {
-        get() {
-            0
-        }
-    }
-
-    @Frozen
-    prop getb: Int64 {
-        get() {
-           0
-        }
-    }
-
-    @Frozen
-    public func f1(){
-        getb
-    }
+@Frozen public func f() {A.p3 + A.p4}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
-
+public func check() {
+    assert(A.p3, 1)
+    assert(A.p4, 1)
+}

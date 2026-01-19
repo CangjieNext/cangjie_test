@@ -23,9 +23,10 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Modified struct deprecated annotation with compilation error.
-// ASSERT: scan-1 [API/ABI] Added struct deprecated annotation with compilation error.
+// ASSERT: scan-2 [API/ABI] Modified struct deprecated annotation with compilation error.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 // ASSERT: scan-2 [API/ABI]
@@ -112,6 +113,7 @@ struct S10 {
 public struct S11 {
     let x: S10 = S10()
 
+    @Frozen
     public func getX(): Int64 {
         return x.x
     }
@@ -135,6 +137,7 @@ struct S13 {
 public struct S14 {
     let x: S13 = S13()
 
+    @Frozen
     public func getX(): Int64 {
         return x.x
     }
@@ -153,7 +156,6 @@ public struct S16 {
         return x.x
     }
 }
-
 
 @Deprecated["this struct is deprecated", strict: true]
 struct S17 {
@@ -238,4 +240,8 @@ public struct S26 {
 @Deprecated["this struct is deprecated", strict: false]
 struct S27 {
     let x: Int64 = 0
+}
+
+public func f(){
+    return 0
 }

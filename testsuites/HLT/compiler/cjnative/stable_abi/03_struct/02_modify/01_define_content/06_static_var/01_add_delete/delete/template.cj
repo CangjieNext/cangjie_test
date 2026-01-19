@@ -30,3 +30,12 @@ public struct Rectangle1 {
     }
 }
 
+public func f(){
+    var a = Rectangle.a1
+    var b = Rectangle1.height
+    if(a == 20 && b == 20){
+        return 0
+    }else{
+        return 1
+    }
+}

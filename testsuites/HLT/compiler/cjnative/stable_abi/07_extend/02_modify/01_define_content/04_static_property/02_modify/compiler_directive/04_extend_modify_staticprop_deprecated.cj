@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [API/ABI] Changed the annotation '@Deprecated' of the member property of the extend visible outside the module.
 // ASSERT: scan-2 [API/ABI]
@@ -117,6 +119,11 @@ extend TestClass {
             a = v
         }
     }
+    public static prop prop12: Int64 {
+        get() {
+            prop9
+        }
+    }
 }
 
 extend TestStruct {
@@ -197,4 +204,22 @@ extend TestStruct {
             a = v
         }
     }
+    public static prop prop12: Int64 {
+        get() {
+            prop9
+        }
+    }
+}
+
+public func global_var_01(){
+    TestClass.prop2 == 2
+    && TestClass.prop3 == 3
+    && TestClass.prop7 == 7
+    && TestClass.prop8 == 8
+    && TestClass.prop12 == 9
+    && TestStruct.prop2 == 2
+    && TestStruct.prop3 == 3
+    && TestStruct.prop7 == 7
+    && TestStruct.prop8 == 8
+    && TestStruct.prop12 == 9
 }

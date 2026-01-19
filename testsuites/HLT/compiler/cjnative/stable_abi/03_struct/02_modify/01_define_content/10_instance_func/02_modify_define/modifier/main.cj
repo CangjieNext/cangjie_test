@@ -9,13 +9,13 @@
 import test_stable_abi.*
 
 main() {
-    var a: Rectangle = Rectangle()
-
-    if (a.getWidth() != 10) {
-        return 1
-    }
-
-    return 0
+    check()
+    assert(Rectangle().getWidth(), 10)
+    assert(Rectangle().geta1(), 20)
+    assert(Rectangle().geta3(), 20)
+    assert(Rectangle().geta8(), 20)
+    unsafe{ assert(Rectangle().geta11(), 20) }
+    assert(Rectangle().geta15(), 20)
 }
 
 

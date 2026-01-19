@@ -63,6 +63,9 @@ extend TestClass {
     private static func f12() {
         12
     }
+    protected static func f15(){
+        f12()
+    }
 
     public static unsafe func f13(): Int64 {
         return 13
@@ -136,6 +139,9 @@ extend TestStruct {
     private static func f12() {
         12
     }
+    protected static func f15(){
+        f12()
+    }
 
     public static unsafe func f13(): Int64 {
         return 13
@@ -162,4 +168,12 @@ extend TestStruct {
     }
 }
 
-
+public func global_func_01() {
+    TestClass.f2() == 2
+    && TestClass.f11() == 11
+    && TestClass.f15() == 12
+    && TestStruct.f2() == 2
+    && TestStruct.f10() == 10
+    && TestStruct.f11() == 11
+    &&  TestStruct.f15() == 12
+}

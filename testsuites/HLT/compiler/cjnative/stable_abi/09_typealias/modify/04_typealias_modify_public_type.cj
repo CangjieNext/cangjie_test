@@ -24,6 +24,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Public type alias modified.
 // ASSERT: scan-1 [API/ABI]
@@ -37,7 +39,19 @@ type Mytype1 = Int64
 type Mytype2= Int32
 public type Mytype3 = Float64
 public type Mytype4 = Float16
-public var a: Mytype1 = 1
-var b: Mytype2 = 2
-public var c: Mytype3 = 1.1
-var d: Mytype4 = 2.2
+public func f1(){
+    var a: Mytype1 = 1
+    return 1
+}
+public func f2(){
+    var b: Mytype2 = 2
+    return 2
+}
+public func f3(){
+    var c: Mytype3 = 1.1
+    return 1.1
+}
+public func f4(){
+    var d: Mytype4 = 2.2
+    return 2.2
+}

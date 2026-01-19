@@ -23,8 +23,9 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Changed member function's modifier of struct visible outside the module. public/const/static deleted or unsafe/mut/static added.
 // ASSERT: scan-not [API]
@@ -42,51 +43,51 @@ public struct Rectangle {
     }
 
     public static func geta1() {
-        return 0
+        return 1
     }
 
     static func geta2() {
-        return 0
+        return 2
     }
 
     public static func geta3() {
-        return 0
+        return 3
     }
 
     private static func geta4() {
-        return 0
+        return 4
     }
 
     internal static func geta5() {
-        return 0
+        return 5
     }
 
     static func geta6() {
-        return 0
+        return 6
     }
 
     protected static func geta7() {
-        return 0
+        return 7
     }
 
     public static func geta8() {
-        return 0
+        return 8
     }
 
     static func geta9() {
-        return 0
+        return 9
     }
 
     func geta10() {
-        return 0
+        return 10
     }
 
     unsafe public static func geta11() {
-        return 0
+        return 11
     }
 
     static const func geta12() {
-        return 1
+        return 12
     }
 
     @Frozen
@@ -96,7 +97,7 @@ public struct Rectangle {
     }
 
     public static const func geta14() {
-        return 0
+        return 14
     }
 
     @Frozen
@@ -106,11 +107,30 @@ public struct Rectangle {
     }
 
     static const func geta16() {
-        return 1
+        return 16
     }
 
-    public static func geta17() {
+    public static const func geta17() {
         const z = geta16()
         return z
     }
+}
+
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func check(){
+    let a = Rectangle()
+    assert(Rectangle.geta5(), 5)
+    assert(Rectangle.geta6(), 6)
+    assert(Rectangle.geta7(), 7)
+    assert(Rectangle.geta9(), 9)
+    assert(Rectangle().geta10(), 10)
+    assert(Rectangle.geta12(), 12)
+    assert(Rectangle.geta16(), 16)
+    return 0
 }

@@ -9,7 +9,7 @@
 import test_stable_abi.*
 
 main() {
-    if (a == 1 && c == 1.1){
+    if (f1() == 1 && f2() == 2 && f3() == 1.1 && f4() == 2.2){
         return 0
     }
     return 1

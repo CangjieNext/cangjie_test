@@ -23,11 +23,17 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-4 [API/ABI] Deleted default value of named parameter.
-// ASSERT: scan-4 [API/ABI]
+// ASSERT: scan-3 [ABI] Changed parameter default value of a const function or function or function marked with @Frozen.
+// ASSERT: scan-not [API/ABI]
 // ASSERT: scan-not [API]
-// ASSERT: scan-not [ABI]
+// ASSERT: scan-3 [ABI]
+// TEST API Compatibility
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 package test_stable_abi
 
@@ -171,4 +177,12 @@ extend TestStruct {
 public func global() {
     let s1 = TestStruct()
     s1.f7()
+}
+
+public func global_func_01(){
+    let ts = TestStruct()
+    
+    ts.pp1(0, b: 0) != 0
+    && ts.pp2(Son(), b: Son()) is Son
+    && ts.pp3(Father(), b: Father()) is Father
 }

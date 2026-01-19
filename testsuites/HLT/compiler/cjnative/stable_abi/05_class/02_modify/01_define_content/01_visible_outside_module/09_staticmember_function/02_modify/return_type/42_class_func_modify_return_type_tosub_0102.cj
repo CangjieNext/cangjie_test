@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.1.9.2.42
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance func
   @Behavior: modify return type tosub
   @Expect: api compatible & abi incompatible
-*/
+ */
 // LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,6 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [ABI] The body of a const function or function marked with @Frozen changed.
 // ASSERT: scan-not [API/ABI]
@@ -35,7 +38,8 @@
 package test_stable_abi
 
 // test class: instancemember function
-open public class Father {}
+public open class Father {}
+
 public class Son <: Father {}
 
 public class TestClass {
@@ -53,6 +57,7 @@ public class TestClass {
     static func f4(): Father {
         Father()
     }
+
     @Frozen
     public static func f5(): Father {
         f4()
@@ -72,6 +77,7 @@ public class TestClass {
     static func g4(): Son {
         Son()
     }
+
     @Frozen
     public static func g5(): Son {
         g4()
@@ -93,6 +99,7 @@ open class baseClass {
     static func f4(): Father {
         Father()
     }
+
     @Frozen
     public static func f5(): Father {
         f4()
@@ -112,6 +119,7 @@ open class baseClass {
     static func g4(): Son {
         Son()
     }
+
     @Frozen
     public static func g5(): Son {
         g4()
@@ -137,6 +145,7 @@ class privateClass {
     static func f4(): Father {
         Father()
     }
+
     @Frozen
     public static func f5(): Father {
         f4()
@@ -156,8 +165,41 @@ class privateClass {
     static func g4(): Son {
         Son()
     }
+
     @Frozen
     public static func g5(): Son {
         g4()
     }
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    let t = TestClass()
+    assert(TestClass.f1() is Father, true)
+    assert(TestClass.f2(Father(), Son()) is Father, true)
+    assert(TestClass.f3(Father(), Son()) is Father, true)
+    assert(TestClass.f4() is Father, true)
+    assert(TestClass.f5() is Father, true)
+    assert(TestClass.g1() is Son, true)
+    assert(TestClass.g2(Father(), Son()) is Son, true)
+    assert(TestClass.g3(Father(), Son()) is Son, true)
+    assert(TestClass.g4() is Son, true)
+    assert(TestClass.g5() is Son, true)
+
+    assert(B.f1() is Father, true)
+    assert(B.f2(Father(), Son()) is Father, true)
+    assert(B.f3(Father(), Son()) is Father, true)
+    assert(B.f4() is Father, true)
+    assert(B.f5() is Father, true)
+    assert(B.g1() is Son, true)
+    assert(B.g2(Father(), Son()) is Son, true)
+    assert(B.g3(Father(), Son()) is Son, true)
+    assert(B.g4() is Son, true)
+    assert(B.g5() is Son, true)
 }

@@ -90,6 +90,9 @@ extend TestStruct {
     public const func f14(): Int64 {
         14
     }
+    public func f15() {
+        f12()
+    }
 
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
@@ -128,5 +131,21 @@ public func global() {
     let s1 = TestStruct()
     s1.f7()
 }
-
-
+public func global_func_01() {
+    let s1 = TestStruct()
+    
+    s1.f2() == 2
+    && s1.pf3() == 3
+    && s1.pf4() == 3
+    && s1.pf5() == 5
+    && s1.pf6() == 5
+    && s1.pf8() == 8
+    && s1.f10() == 10
+    && s1.f11() == 11
+    && s1.f15() == 12
+    && s1.pg1("a", "b", Son()) == "ab"
+    && s1.pg2("a", Son(), Father()) == "a"
+    && s1.pp1(1, b: 2, c: 3) == 6
+    && s1.pp2(Son(), b: Son()) is Son && s1.pp3(Father(), b: Father()) is Father
+    && s1.pp3(Father(), b: Father()) is Father
+}

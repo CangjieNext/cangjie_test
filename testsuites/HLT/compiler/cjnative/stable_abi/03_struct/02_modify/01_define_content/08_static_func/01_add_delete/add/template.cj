@@ -24,5 +24,6 @@ public struct Rectangle {
     }
 }
 
-
-
+public func f(){
+    return 0
+}

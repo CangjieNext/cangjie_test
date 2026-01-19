@@ -30,3 +30,6 @@ public struct Rectangle1 {
     }
 }
 
+public func f(){
+    return 0
+}

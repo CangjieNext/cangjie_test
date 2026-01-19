@@ -13,4 +13,6 @@ public struct S {
     public var a = 0
 }
 
-
+public func f(){
+    return 0
+}

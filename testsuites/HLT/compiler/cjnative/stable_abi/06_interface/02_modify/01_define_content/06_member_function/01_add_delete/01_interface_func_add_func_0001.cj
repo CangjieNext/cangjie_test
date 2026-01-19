@@ -12,7 +12,7 @@
   @Visibility: public
   @Object: interface func
   @Behavior: add func
-  @Expect: api compatible & abi incompatible
+  @Expect: api incompatible & abi compatible
 */
 
 // LEVEL: 1
@@ -24,31 +24,29 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare %f
 // ASSERT: scan Incompatible
-// ASSERT: scan-1 [ABI] Added member function of interface.
+// ASSERT: scan-1 [API] Added member function without a default implementation if interface.
 // ASSERT: scan-not [API/ABI]
-// ASSERT: scan-not [API]
-// ASSERT: scan-1 [ABI]
+// ASSERT: scan-1 [API]
+// ASSERT: scan-not [ABI]
 package test_stable_abi
 
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
 public interface I1 {
-    public static func typename(): String {
-        "interface I1"
-    }
-
-    public static func testOne(): Unit {
-
-    }
-
-    public static func testFour(): Unit {
-
-    }
-
-    public func testTwo(): Unit {
-        
-    }
-
-    public static func testThree(): String {
-          "interface testThree"
-    }
+    static func g1() {1}
+    func g2() {1}
+}
+public interface I2 {
+    static func g1(): Int64
+    func g2(): Int64
+    static func g3(): Int64
+}
+public class C1 <: I1 {}
+public func f() {
+    assert(C1.g1(), 1)
 }

@@ -19,11 +19,12 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// EXEC: %rm libstable_abi.%dylib_suffix
+// EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -77,7 +78,7 @@ public enum S7<T, U> where T <: Random {
 enum S8<T, U> where T <: Random {
     | Red | Green | Blue(UInt8)
 
-    public func getX(): Int64 {
+    public const func getX(): Int64 {
         return 11
     }
 }
@@ -85,19 +86,26 @@ enum S8<T, U> where T <: Random {
 enum S9<T, U> where T <: Random {
     | Red | Green | Blue(UInt8)
 
-    public func getX(): Int64 {
+    public const func getX(): Int64 {
         return 11
     }
 }
 
 public class C1 {
-    let v1 = S8<Random, Float64>.Red
+    public let v1 = S8<Random, Float64>.Red.getX()
 
-    const init() {
+    public const init() {
         let v3 = 0
     }
 
     public const func f1() {
-        let v2 = S9<Random, Float64>.Green
+        S9<Random, Float64>.Green.getX()
     }
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func f() {
+    assert(S8<Random, Float64>.Red.getX(), 11)
+    assert(S9<Random, Float64>.Red.getX(), 11)
 }

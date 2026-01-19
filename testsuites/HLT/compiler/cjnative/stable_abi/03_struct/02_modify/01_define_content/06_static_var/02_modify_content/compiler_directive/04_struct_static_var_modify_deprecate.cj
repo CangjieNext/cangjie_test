@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Struct member modified variable deprecated annotation with compilation error.
 // ASSERT: scan-not [API]
@@ -33,12 +35,13 @@
 // modify @Deprecated: warning -> error
 package test_stable_abi
 
+
 public struct Rectangle {
     static let width = 10
     static let a1 = 20
     static public let a2 = 20
     @Deprecated["this value is deprecated", strict: true] static let a3 = 20
-    @Deprecated["this value is deprecated", strict: false] static public let a4 = 20
+    @Deprecated["this value is deprecated", strict: true] static public let a4 = 20
     @Deprecated["this value is deprecated", strict: true] static public let a5 = 20
 
     public func getWidth(): Int64{
@@ -70,7 +73,7 @@ public struct Rectangle2 {
 
 public struct Rectangle3 {
     static let width = 10
-    @Deprecated["this value is deprecated", strict: true] static public let a8 = 20
+    @Deprecated["this value is deprecated", strict: false] static public let a8 = 20
 
     public func getWidth(): Int64{
         return width
@@ -103,4 +106,7 @@ public struct Rectangle5 {
     public const func getWidth(): Int64{
         return a9
     }
+}
+public func f(){
+    return 0
 }

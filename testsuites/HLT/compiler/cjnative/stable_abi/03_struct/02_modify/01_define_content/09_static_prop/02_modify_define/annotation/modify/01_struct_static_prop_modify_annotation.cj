@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -64,9 +65,12 @@ public struct S1{
     static var a = 20
 
     @Version["1.2"]
-    public static prop getb1: Int64 {
+    public static mut prop getb1: Int64 {
         get() {
             a
+        }
+        set(value) {
+            a = value
         }
     }
     @Version["2.2"]
@@ -80,15 +84,17 @@ public struct S1{
     }
 
     @Frozen
-    @Version["2.2"]
     public func getgeta(){
         return geta
     }
 
     @Version["3.2"]
-    static prop getb2: Int64 {
+    static mut prop getb2: Int64 {
         get() {
             a
+        }
+        set(value) {
+            a = value
         }
     }
 }
@@ -121,5 +127,13 @@ public struct S2{
         get() {
             a
         }
+    }
+}
+
+public func f(){
+    if(S1.geta == 20 && S1.getb2 == 20){
+        return 0
+    }else{
+        return 1
     }
 }

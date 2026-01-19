@@ -22,8 +22,9 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-1 [API/ABI] Added generic constraint of class visible outside the module.
 // ASSERT: scan-1 [API/ABI]
@@ -73,4 +74,19 @@ open public class Generics<T, U> where T <: Father & Son1, U <: Son {
     public func goo3(a: T, b: U) {
         return (a, b)
     }
+}
+
+public func checker(): Int64 {
+    let g1 = Generics<Son1, Son>(101)
+    if (g1._v1 == 0 && g1._v2 == 1 && g1._v3 == 101
+        && g1.goo1(1) == 10 && Generics<Son1, Son>.goo2(10) == 100 && (g1.goo3(Son1(), Son()) is (Son1, Son))) {
+    } else {
+        return 1
+    }
+    g1._v2 = 202
+    if (g1._v1 == 202) {
+    } else {
+        return 1
+    }
+    0
 }

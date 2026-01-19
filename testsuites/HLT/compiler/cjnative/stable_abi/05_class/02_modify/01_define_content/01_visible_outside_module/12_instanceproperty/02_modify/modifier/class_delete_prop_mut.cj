@@ -22,8 +22,9 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-1 [API/ABI] Deleted mut attribute of member properties for classes.
 // ASSERT: scan-1 [API/ABI]
@@ -145,4 +146,23 @@ open public class TestClass {
             12
         }
     }
+}
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(tc: TestClass): Unit {
+    assert(tc.prop1, 1)
+    assert(tc._prop3, 3)
+    assert(tc.prop4, 4)
+    assert(tc.prop6, 6)
+    assert(tc.prop10, 10)
+    assert(tc.prop11, 11)
+    assert(tc.prop13, 13)
+    assert(tc.prop14, 14)
+    assert(tc.prop12, 12)
+    assert(tc.a, -1)
 }

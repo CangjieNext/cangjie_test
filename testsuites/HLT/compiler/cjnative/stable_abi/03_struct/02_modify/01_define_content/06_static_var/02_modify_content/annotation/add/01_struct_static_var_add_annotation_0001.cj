@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -40,7 +41,6 @@ public class Version {
         this.code = code
     }
 }
-
 
 
 public struct Rectangle {
@@ -75,7 +75,7 @@ public struct Rectangle1 {
 
 public struct Rectangle2 {
     static let width = 10
-     @Version["1.4"]
+    @Version["1.4"]
     static public let a8 = 20
     static let a9 = 200
     public func getWidth(): Int64{
@@ -93,5 +93,15 @@ public struct Rectangle3 {
 
     public const func getWidth(): Int64{
         return a9
+    }
+}
+
+public func f(){
+    var a = Rectangle2.a9
+    var b = Rectangle3.a9
+    if(a == 200 && b == 20){
+    return 0
+    }else{
+        return 1
     }
 }
