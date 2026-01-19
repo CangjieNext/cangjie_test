@@ -21,7 +21,6 @@ compiler/Driver/PlatformRelated
 [EXCLUDE-TEST-CASE]
 
 # exclude first.
-compiler/FFI/CFFI
 API/std/env/unix
 API/std/net/
 API/std/socket/
