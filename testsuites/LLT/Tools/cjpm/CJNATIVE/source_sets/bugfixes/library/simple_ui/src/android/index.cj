@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-features os.android
+features { os.android }
 package simple_ui 
 
 import sensor_mp.sensorcall

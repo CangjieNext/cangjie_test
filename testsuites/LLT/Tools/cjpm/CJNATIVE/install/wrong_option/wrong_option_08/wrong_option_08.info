@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm install --path . --git url 2>&1 | compare %f
-// ASSERT: scan Error: cjpm install can have at most one type of configuration between --git(from git) and --path(local project)
+// ASSERT: scan Error: cjpm install can have at most one type of configuration between name-version(from repository), --git(from git) and --path(local project)

@@ -6,6 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+@NonProduct
+features {}
 package cmp.pkg2
 
 public func f2(): String {

@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-features user.cmp.arch.big
+features { user.cmp.arch.big }
 package cmp
 
 import std.random.*

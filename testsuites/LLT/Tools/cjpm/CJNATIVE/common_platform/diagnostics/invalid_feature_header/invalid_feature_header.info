@@ -8,5 +8,7 @@
 // EXEC-PIPE-1: cd %n && %cjpm check 2>&1 | compare %f
 
 // ASSERT: scan-1 Feature header `os.linux` of package `invalid_feature_header` is different from expected `<none>`
+// ASSERT: scan-1 Feature header of package `invalid_feature_header` is missing `@NonProduct` annotation
 // ASSERT: scan-1 Feature header `os.windows` of package `invalid_feature_header` is different from expected `os.linux`
+// ASSERT: scan-1 Package `invalid_feature_header` should be compiled as product, but feature header annotation `@NonProduct` is present in source code
 // ASSERT: scan-1 Error: cjpm check failed
