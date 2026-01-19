@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build 2>&1 | compare %f
-// ASSERT: scan only one of 'git' or 'path' fields can exist
+// ASSERT: scan only one of 'git' or 'path' or 'version' fields can exist

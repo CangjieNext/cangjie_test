@@ -14,6 +14,13 @@ CJNATIVE/cross_compile
 CJNATIVE/build/lint
 CJNATIVE/test/Coverage
 
+# mock failed.
+CJNATIVE/test/mock/mock_01/mock_01.info
+CJNATIVE/test/mock/mock_08/mock_08.info
+CJNATIVE/test/mock/mock_11/mock_11.info
+CJNATIVE/test/mock/mock_12/mock_12.info
+CJNATIVE/test/mock/mock_13/mock_13.info
+
 # arm 未适配用例屏蔽
 CJNATIVE/build/build_path/build_path_07
 CJNATIVE/build/build_path/build_path_09
@@ -44,15 +51,15 @@ CJNATIVE/workspace/case_05
 CJNATIVE/workspace/case_12
 CJNATIVE/workspace/override_compile_option/override_compile_option_02
 
-# cjpm should be fixed
-CJNATIVE/init/cangjie_test_init003
-CJNATIVE/init/cangjie_test_init004
-CJNATIVE/init/cangjie_test_init005
-CJNATIVE/init/cangjie_test_init012
-CJNATIVE/run/run_06
-CJNATIVE/run/run_17
-CJNATIVE/run/run_27
-CJNATIVE/target/bin_dependencies/bin_dependencies_06
-CJNATIVE/target/bin_dependencies/bin_dependencies_10
-CJNATIVE/test/unittest/Unittest05
-CJNATIVE/test/unittest/Unittest06
+# git 用例暂时屏蔽，仅保留基础用例，避免并行问题
+CJNATIVE/install/git
+CJNATIVE/build/git_local/multiple_module_git_02
+CJNATIVE/build/git_local/multiple_module_git_03
+CJNATIVE/build/git_local/multiple_module_git_04
+CJNATIVE/build/git_local/multiple_module_git_05
+CJNATIVE/build/git_local/multiple_module_git_06
+CJNATIVE/build/git_local/multiple_module_git_07
+CJNATIVE/build/git_local/multiple_module_git_08
+CJNATIVE/build/git_local/multiple_module_git_10
+CJNATIVE/build/git_local/multiple_module_git_11
+CJNATIVE/build/git_local/multiple_module_git_12

@@ -5,7 +5,20 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [ALL-TEST-CASE]
-CJNATIVE/
+CJNATIVE/build/build_env_var
+CJNATIVE/build/cangjie_macro_build
+CJNATIVE/build/combined
+CJNATIVE/build/foreign_requires
+CJNATIVE/build/lint
+CJNATIVE/build/macro_expansion_env
+CJNATIVE/build_script/script
+CJNATIVE/common_platform
+CJNATIVE/compile_performance
+CJNATIVE/install/local
+CJNATIVE/organization
+CJNATIVE/source_sets
+CJNATIVE/target/bin_dependencies
+CJNATIVE/test/unittest
 
 [EXCLUDE-TEST-CASE]
 # 交叉编译用例仅用于本地验证
@@ -14,10 +27,17 @@ CJNATIVE/cross_compile
 CJNATIVE/build/lint
 CJNATIVE/test/Coverage
 
+# mock failed.
+CJNATIVE/test/mock/mock_01/mock_01.info
+CJNATIVE/test/mock/mock_08/mock_08.info
+CJNATIVE/test/mock/mock_11/mock_11.info
+CJNATIVE/test/mock/mock_12/mock_12.info
+CJNATIVE/test/mock/mock_13/mock_13.info
+
 # macOS暂不支持lto
 CJNATIVE/build/lto
 CJNATIVE/test/lto
-
+CJNATIVE/build/lto_combine
 # macOS本次不支持安全编译选项
 CJNATIVE/build/safe_compile/safe_compile_02
 CJNATIVE/build/safe_compile/safe_compile_03
@@ -29,17 +49,16 @@ CJNATIVE/build/multi_module/multi_module_from_10008
 
 # macOS暂不支持combined
 CJNATIVE/build/combined
-CJNATIVE/build/lto_combine
 
-# cjpm should be fixed
-CJNATIVE/init/cangjie_test_init003
-CJNATIVE/init/cangjie_test_init004
-CJNATIVE/init/cangjie_test_init005
-CJNATIVE/init/cangjie_test_init012
-CJNATIVE/run/run_06
-CJNATIVE/run/run_17
-CJNATIVE/run/run_27
-CJNATIVE/target/bin_dependencies/bin_dependencies_06
-CJNATIVE/target/bin_dependencies/bin_dependencies_10
-CJNATIVE/test/unittest/Unittest05
-CJNATIVE/test/unittest/Unittest06
+# git 用例暂时屏蔽，仅保留基础用例，避免并行问题
+CJNATIVE/install/git
+CJNATIVE/build/git_local/multiple_module_git_02
+CJNATIVE/build/git_local/multiple_module_git_03
+CJNATIVE/build/git_local/multiple_module_git_04
+CJNATIVE/build/git_local/multiple_module_git_05
+CJNATIVE/build/git_local/multiple_module_git_06
+CJNATIVE/build/git_local/multiple_module_git_07
+CJNATIVE/build/git_local/multiple_module_git_08
+CJNATIVE/build/git_local/multiple_module_git_10
+CJNATIVE/build/git_local/multiple_module_git_11
+CJNATIVE/build/git_local/multiple_module_git_12

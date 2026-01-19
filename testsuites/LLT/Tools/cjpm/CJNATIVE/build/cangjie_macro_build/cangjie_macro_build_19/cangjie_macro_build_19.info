@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build 2>&1 | compare %f
-// ASSERT: scan expected expression or declaration, found keyword 'macro'
+// ASSERT: scan unexpected macro declaration in function body
