@@ -9,6 +9,7 @@
 package mp
 
 common sealed abstract class A {
+    public init(){}
     public static func f1() { 1 }
     public func f2() { -1 }
 }

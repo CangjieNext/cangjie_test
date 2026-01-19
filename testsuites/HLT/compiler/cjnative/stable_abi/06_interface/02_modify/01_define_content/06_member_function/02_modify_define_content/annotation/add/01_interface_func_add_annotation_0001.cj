@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -32,33 +33,25 @@
 
 package test_stable_abi
 
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
 @Annotation
 public class Version {
     let code: String
-    const init(code: String) {
-        this.code = code
-    }
+    const init(code: String) { this.code = code }
 }
-
-
-public interface I1 {
-
+public interface I {
     @Version["1.1"]
-    public static func typename(): String {
-        "interface I1"
-    }
-
-    @Version["1.2"]
-    public static func testOne(): Unit {
-
-    }
-    
-    @Version["1.3"]
-    public func testTwo(): Unit {
-        
-    }
-
-    public static func testThree(): String {
-          "interface testThree"
-    }
+    static func g1() {1}
+    @Version["1.1"]
+    func g2() {1}
+    @Version["1.1"]
+    static func g3(): Int64
+    @Version["1.1"]
+    func g4(): Int64
+}
+public class C <: I {
+    public static func g3(): Int64 {1}
+    public func g4(): Int64 {1}
 }

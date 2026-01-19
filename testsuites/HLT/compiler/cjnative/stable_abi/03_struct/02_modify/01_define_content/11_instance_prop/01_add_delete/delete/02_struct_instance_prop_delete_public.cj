@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Deleted public member property of struct visible outside the module.
 // ASSERT: scan-1 [API/ABI]
@@ -32,9 +34,16 @@
 package test_stable_abi
 
 public struct S {
-    public var a = 0
+    var a = 0
     mut prop p1: Int64 {
         get() { a }
         set(value) { a = value }
     }
+}
+
+public func f(){
+    if(S().p1 == 0){
+        return 0
+    }
+    return 1
 }

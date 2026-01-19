@@ -8,6 +8,6 @@
 
 package mp
 
-public common class C {}
+public common class C {public init(){}}
 
 common extend C {}

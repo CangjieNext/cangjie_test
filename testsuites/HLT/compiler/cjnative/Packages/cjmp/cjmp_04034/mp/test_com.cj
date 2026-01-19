@@ -11,7 +11,7 @@ package mp
 public common class A {
     public var a = 1
     public func f() { -1 }
-    public common A()
+    public common init()
 }
 public func test_com() { A().a + A().f() }
 

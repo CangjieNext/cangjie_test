@@ -51,3 +51,6 @@ public struct S1{
     }
 }
 
+public func f(){
+    return 0
+}

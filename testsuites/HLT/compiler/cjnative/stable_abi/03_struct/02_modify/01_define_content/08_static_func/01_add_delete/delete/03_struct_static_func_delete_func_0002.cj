@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -35,9 +36,18 @@
 package test_stable_abi
 
 public struct Rectangle {
-    let width = 10
+    static let width = 10
+    static let a1 = 20
 
-    public func getWidth(): Int64{
+    public static func getWidth(): Int64{
         return width
+    }
+}
+
+public func f(){
+    if(Rectangle.getWidth() == 10){
+        return 0
+    }else{
+        return 1
     }
 }

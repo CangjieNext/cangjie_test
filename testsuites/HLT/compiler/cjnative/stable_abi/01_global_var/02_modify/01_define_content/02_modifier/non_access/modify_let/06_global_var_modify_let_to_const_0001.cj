@@ -23,6 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] Modified variables' non-access modifier from let to const for class visible outside the module.
 // ASSERT: scan-not [API/ABI]
@@ -41,3 +44,7 @@ let global_var_01: Int64 = 0
 let global_var_02: Int64 = 0
 public const global_var_03: Int64 = 0
 @Frozen public func global_func_01() { global_var_02 }
+
+public func global_func_02() {
+    global_var_01 == 0
+}

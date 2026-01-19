@@ -9,7 +9,6 @@
 // LEVEL: 0
 // DEPENDENCE: mp
 // ERRCHECK: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
-// ASSERT: scan sema_common_open_class_no_init
-// ASSERT: scan sema_no_non_param_constructor_in_super_class
+// ASSERT: scan parse_cjmp_in_common_ctor_required
 
 

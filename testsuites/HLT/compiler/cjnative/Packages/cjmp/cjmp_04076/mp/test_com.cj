@@ -9,6 +9,7 @@
 package mp
 
 public common class A {
+    public init(){}
     public common func f(): Int64 { 0 }
 }
 

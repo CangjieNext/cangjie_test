@@ -10,7 +10,7 @@ import test_stable_abi.*
 
 main() {
     A()
-    0
+    checker()
 }
 
 

@@ -162,4 +162,8 @@ extend TestStruct {
     }
 }
 
+public func global_func_01(){
+    TestClass.f5() == 5
+    && TestStruct.f5() == 5
+}
 

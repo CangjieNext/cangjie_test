@@ -8,7 +8,7 @@
  
 // LEVEL: 0
 // ERRCHECK: %compiler %cmp_opt %f %compile_chir_opt -o %output
-// ASSERT: scan parse_expected_type_with_cjmp_var
+// ASSERT: scan parse_var_must_be_initialized
 
 public common var a
 

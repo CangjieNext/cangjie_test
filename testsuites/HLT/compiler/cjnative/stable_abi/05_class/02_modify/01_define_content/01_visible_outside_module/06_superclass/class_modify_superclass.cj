@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.1.6
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class
   @Behavior: class modify super class
   @Expect: api incompatible & abi incompatible
-*/
+ */
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -22,8 +22,9 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-1 [API/ABI] Changed superclasses that class inherited.
 // ASSERT: scan-1 [API/ABI]
@@ -33,18 +34,35 @@
 package test_stable_abi
 
 // test class: super class
-open public class Father1 {}
+public open class Father1 {}
 
-open public class Father2 {}
+public open class Father2 {}
 
 public class Son1 <: Father2 {
     public func f1() {
         100
     }
-}  
+}
 
 public class Son2 {
     public func f2() {
         1001
     }
-}  
+}
+
+public func checker(): Int64 {
+    let f1 = Father1()
+    let f2 = Father2()
+    let c1 = Son1()
+    let c2 = Son2()
+
+    if (c1.f1() == 100 && c2.f2() == 1001) {
+    } else {
+        return 1
+    }
+    if (c1 is Father2) {
+    } else {
+        return 1
+    }
+    0
+}

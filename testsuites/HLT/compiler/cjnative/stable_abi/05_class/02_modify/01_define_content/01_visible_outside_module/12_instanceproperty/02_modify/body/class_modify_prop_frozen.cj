@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.1.12.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance prop
   @Behavior: change body of const/@Frozen class instance prop
   @Expect: api compatible & abi incompatible
-*/
+ */
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,6 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-3 [ABI] The body of a const function or function marked with @Frozen changed.
 // ASSERT: scan-not [API/ABI]
@@ -43,7 +46,7 @@ public class Version {
     }
 }
 
-open public class TestClass {
+public open class TestClass {
     public var a: Int64 = 0
     public prop prop1: Int64 {
         get() {
@@ -67,13 +70,16 @@ open public class TestClass {
             3
         }
     }
+
     @Frozen
     public prop _prop3: Int64 {
-        get () {
+        get() {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) { 1 + 1 }
+            if (true) {
+                1 + 1
+            }
             prop3
         }
     }
@@ -84,26 +90,32 @@ open public class TestClass {
             4
         }
     }
+
     @Deprecated["This API is deprecated", strict: true]
     public prop prop5: Int64 {
         get() {
             5
         }
     }
+
     @Frozen
     public mut prop prop6: Int64 {
         get() {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) { 1 + 1 }
+            if (true) {
+                1 + 1
+            }
             6
         }
         set(v) {
             try {
                 throw Exception("")
             } catch (_) {}
-            if (true) { 1 + 1 }
+            if (true) {
+                1 + 1
+            }
             a = v
         }
     }
@@ -140,20 +152,20 @@ open public class TestClass {
         }
     }
 
-    open public prop prop13: Int64 {
+    public open prop prop13: Int64 {
         get() {
             13
         }
     }
 
-    open public mut prop prop14: Int64 {
+    public mut open prop prop14: Int64 {
         get() {
             14
         }
         set(v) {
             a = v
         }
-    }   
+    }
 
     @Version["1.1"]
     public prop prop12: Int64 {
@@ -161,4 +173,24 @@ open public class TestClass {
             12
         }
     }
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(tc: TestClass): Unit {
+    assert(tc.prop1, 1)
+    assert(tc._prop3, 3)
+    assert(tc.prop4, 4)
+    assert(tc.prop6, 6)
+    assert(tc.prop10, 10)
+    assert(tc.prop11, 11)
+    assert(tc.prop13, 13)
+    assert(tc.prop14, 14)
+    assert(tc.prop12, 12)
+    assert(tc.a, -1)
 }

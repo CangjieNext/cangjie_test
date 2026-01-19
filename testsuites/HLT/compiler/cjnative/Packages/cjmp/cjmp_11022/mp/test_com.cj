@@ -10,7 +10,7 @@ package mp
 
 public interface I {}
 
-public common class C {}
+public common class C {public init(){}}
 
 common extend C {
     private common prop p: Int64 { get(){0} }

@@ -9,6 +9,7 @@
 package mp
 
 public common class A {
+    public init(){}
     public common static var a: Int64
 }
 public func test_com() { A.a }

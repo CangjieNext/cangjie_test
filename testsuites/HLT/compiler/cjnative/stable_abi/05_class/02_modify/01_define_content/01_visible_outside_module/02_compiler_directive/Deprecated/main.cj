@@ -9,12 +9,12 @@
 import test_stable_abi.*
 
 main() {
-    B1()
-    BG1<UInt64>()
+    let b1 = B1()
+    let bg1 = BG1<UInt64>()
 
-    C1()
-    CG1<Int64>()
-    0
+    let c1 = C1()
+    let cg1 = CG1<Int64>()
+    checker(b1, bg1, c1, cg1)
 }
 
 

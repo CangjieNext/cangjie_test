@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Changed unnamed parameter order of function visible outside the module.
 // ASSERT: scan-1 [API/ABI]
@@ -69,3 +71,9 @@ const func global_func_53(a!: Int32, b!: Int64) { 0 }
 public func global_func_54(a!: Int32, b!: Int64) { 0 }
 public const func global_func_55(a!: Int32, b!: Int64) { global_func_53(a: 0, b: 0) }
 @Frozen public func global_func_56(a!: Int32, b!: Int64) { global_func_52(a: 0, b: 0) }
+
+public func global_func_57() {
+    global_func_11(0) == 0
+    && global_func_21(a: 0) == 0
+    && global_func_31(a: 0) == 0
+}

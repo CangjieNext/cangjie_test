@@ -9,9 +9,10 @@
 import test_stable_abi.*
 
 main() {
-    let m: S = S(0, 0)
+    let m : S = S(0, 0)
+    let n : S3 = S3(0, 1.2, e:1)
 
-    if (m.getWidth() != 10) {
+    if (m.getWidth() != 10 || n.a != 0) {
         return 1
     }
 

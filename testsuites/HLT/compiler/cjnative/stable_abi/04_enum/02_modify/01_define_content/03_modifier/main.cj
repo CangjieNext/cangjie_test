@@ -9,11 +9,9 @@
 import test_stable_abi.*
 
 main() {
-    let r = S1.Red
-    let g = S1.Green
-    let b = S1.Blue(100)
-
-    return 0
+    check()
+    assert(E5.g(), 15)
+    assert(E5(1).g(), 25)
 }
 
 

@@ -23,6 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] Changed member property's annotation of struct visible outside the module. Frozen deleted.
 // ASSERT: scan-not [API]
@@ -43,25 +46,20 @@ public struct Rectangle {
         return width
     }
 
-    @Frozen
     public static mut prop geta: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     static mut prop getb: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
@@ -69,9 +67,12 @@ public struct Rectangle {
 
 public struct S1{
     static var a = 20
-    public static prop getb: Int64 {
+    public static mut prop getb: Int64 {
         get() {
             a
+        }
+        set(value) {
+            a = value
         }
     }
 
@@ -87,5 +88,13 @@ public struct S1{
     @Frozen
     public func getgeta(){
         return geta
+    }
+}
+
+public func f(){
+    if(Rectangle.getb == 20 && S1.geta == 20){
+        return 0
+    }else{
+        return 1
     }
 }

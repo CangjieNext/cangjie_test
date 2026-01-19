@@ -9,6 +9,7 @@
 package mp
 
 public common abstract class A {
+    init(){}
     public common open func f(): Int64
 }
 public class C <: A {

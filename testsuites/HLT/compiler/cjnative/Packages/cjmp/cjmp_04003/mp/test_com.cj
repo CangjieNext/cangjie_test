@@ -8,6 +8,6 @@
  
 package mp
 
-public common class A1 {}
+public common class A1 {public init(){}}
 
 

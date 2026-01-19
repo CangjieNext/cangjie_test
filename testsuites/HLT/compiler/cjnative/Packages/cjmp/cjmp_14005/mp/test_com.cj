@@ -11,5 +11,7 @@ package mp
 public common interface I {}
 
 public common class C <: I {
+    public init(){}
+
     public func f(): Int64 { 0 }
 }

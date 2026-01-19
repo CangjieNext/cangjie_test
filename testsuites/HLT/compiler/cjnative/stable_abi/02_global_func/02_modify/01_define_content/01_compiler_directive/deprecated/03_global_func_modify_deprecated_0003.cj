@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [API/ABI] Modified function deprecated annotation with compilation error.
 // ASSERT: scan-2 [API/ABI]
@@ -67,4 +69,10 @@ public func global_func_17() {
 @Deprecated["this func is deprecated", strict: true]
 public func global_func_18() {
     global_func_08()
+}
+
+public func global_func_19() {
+    global_func_03() == 0
+    && global_func_01() == 0
+    && global_func_07() == 0
 }

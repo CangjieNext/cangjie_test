@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -43,16 +44,12 @@ public struct S1 {
 
 struct S2 {
     let x: Int64 = 0
-}
-
-
-public struct S3 {
-    let x: S2 = S2()
 
     public func getX(): Int64 {
-        return x.x
+        return x
     }
 }
+
 
 internal struct S4 {
     let x: Int64 = 0
@@ -69,7 +66,6 @@ protected struct S5 {
         return x
     }
 }
-
 
 struct S6 {
     let x: Int64 = 0
@@ -95,8 +91,7 @@ public struct S8 {
     }
 }
 
-
-private struct S9 {
+struct S9 {
     let x: Int64 = 0
 
     public func getX(): Int64 {
@@ -105,18 +100,7 @@ private struct S9 {
 }
 
 
-protected struct S10 {
-    let x: Int64 = 0
-
-    public func getX(): Int64 {
-        return x
-    }
-}
-
-public struct S11 {
-    let x: Int64 = 0
-
-    public func getX(): Int64 {
-        return x
-    }
+public func f(){
+    var a = S2().getX() + S4().getX() + S5().getX() + S7().getX() + S6().getX() + S9().getX()
+    return a
 }

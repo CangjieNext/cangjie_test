@@ -7,8 +7,7 @@
  */
  
 // LEVEL: 0
-// ERRCHECK: %compiler %cmp_opt %f %compile_chir_opt -o %output
-// ASSERT: scan parse_expected_type_with_cjmp_var
+// EXEC: %compiler %cmp_opt %f %compile_chir_opt 
 
 public common var a = 0
 

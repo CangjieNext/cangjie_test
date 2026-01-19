@@ -23,198 +23,37 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-2 [API/ABI] Deleted static variable member from the struct.
+// ASSERT: scan-1 [API/ABI] Deleted static variable member from the struct.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
-// ASSERT: scan-2 [API/ABI]
+// ASSERT: scan-1 [API/ABI]
 
 // test struct: modify type
 // 修改静态成员变量名
 package test_stable_abi
 
-public interface I {
-    func f(): Int64
-}
-
-public interface Addable <: I {
-    func add(other: Int64): Int64
-}
-
-public open class Subtractable <: Addable {
-
-    public open func add(other: Int64): Int64 {
-        return 0
-    }
-
-    public open func sub(other: Int64): Int64 {
-        return 0
-    }
-
-    public open func f(): Int64 {
-        return 0
-    }
-}
-
-public struct Multiplicable <: Addable {
-
-    public func add(other: Int64): Int64 {
-        return 0
-    }
-
-    public func sub(other: Int64): Int64 {
-        return 0
-    }
-
-    public func mul(other: Int64): Int64 {
-        return 0
-    }
-
-    public func f(): Int64 {
-        return 0
-    }
-}
-
-public class MyInt <: Subtractable {
-    var value = 0
-    public func add(other: Int64): Int64 {
-        value + other
-    }
-    public func sub(other: Int64): Int64 {
-        value - other
-    }
-
-    public func f(): Int64 {
-        return 0
-    }
-}
-
 public struct Rectangle {
-    static let width = 10
-    public static let a1: I = Subtractable()
-    public static let a2: I = Subtractable()
-    public static let a3 = Subtractable()
-    public static let a4 = Subtractable()
-    static let a5 = Subtractable()
-    public static let a6 = 20
-    public static var a7 = 20
-    public static const a8 = 20
+    public static let a = 20
+    static let a2 = 20
+    public static const a3 = 20
+    static const a4 = 20
+}
 
-    public func getWidth(): Int64{
-        return width
+
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
     }
 }
 
-public struct Rectangle1 {
-    static let width = 10
-    public static var a10 = 20
-    public static let a20 = 20
-
-    public func getWidth(): Int64{
-        return width
-    }
-}
-
-public struct Rectangle2 {
-    static let width = 10
-    static const a1 = 20
-
-    static init() {
-        let degree = 180
-    }
-
-    @Frozen
-    public func getWidth(): Int64{
-        return a1
-    }
-}
-
-public struct Rectangle3 {
-    static let width = 10
-    public static let a1: I = Subtractable()
-    public static let a2: Addable = Multiplicable()
-    public static let a3 = Subtractable()
-    public static let a4 = MyInt()
-    static let a5 = MyInt()
-    public static let a6 = 20
-    public static var a7 = 20
-    public static const a8 = 20
-
-    public func getWidth(): Int64{
-        return width
-    }
-}
-
-public struct Rectangle4 {
-    static let width = 10
-    static let a1: Addable = Multiplicable()
-
-    static init() {
-        let degree = 180
-    }
-
-    @Frozen
-    public func getWidth(): Addable{
-        return a1
-    }
-}
-
-public struct Rectangle5 {
-    static let width = 10
-    public static let a1: I = Subtractable()
-    public static let a2: Addable = Subtractable()
-    public static let a3 = Subtractable()
-    public static let a4 = MyInt()
-    static let a5 = MyInt()
-    public static let a6 = 20
-    public static var a7 = 20
-    public static const a8 = 20
-
-    public func getWidth(): Int64{
-        return width
-    }
-}
-
-public struct Rectangle6 {
-    static let width = 10
-    static let a3 = Subtractable()
-
-    static init() {
-        let degree = 180
-    }
-
-    @Frozen
-    public func getWidth(): Addable{
-        return a3
-    }
-}
-
-public struct Rectangle7 {
-    static let width = 10
-    public static let a1: I = Subtractable()
-    public static let a2: Addable = Subtractable()
-    public static let a3 = Subtractable()
-    public static let a4 = MyInt()
-    static let a5 = MyInt()
-    public static let a6 = 20
-    public static var a7 = 20
-    public static const a8 = 20
-
-    public func getWidth(): Int64{
-        return width
-    }
-}
-
-public struct Rectangle8 {
-    static let width = 10
-    static const a13 = 10
-
-    static init() {
-        let degree = 180
-    }
-
-    @Frozen
-    public func getWidth(): Int64{
-        return a13
-    }
+public func f(){
+    assert(Rectangle.a, 20)
+    assert(Rectangle.a2, 20)
+    assert(Rectangle.a3, 20)
+    assert(Rectangle.a4, 20)
+    return 0
 }

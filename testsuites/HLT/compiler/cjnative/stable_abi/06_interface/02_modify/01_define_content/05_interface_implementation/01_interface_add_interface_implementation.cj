@@ -24,7 +24,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -33,25 +34,8 @@
 
 package test_stable_abi
 
-// test interface: interface implementation
-public interface I1 <: Father_I1 {
-    public func f1(): Int64 {0}
-    public func _f1(): Int64
-    public static func typename(): String {
-        "interface I1"
-    }
-}
-public interface I2 <: Father_I2 {
-    public func f2(): Int64 {1}
-    public static func typename(): String {
-        "interface I2"
-    }
-}
-public interface I3 <: Father_I1 & Father_I2 {
-    public static func typename(): String {
-        "interface I3"
-    }
-}
-
-public interface Father_I1 {}
-public interface Father_I2 {}
+public interface I1 { static func g1() {1} }
+public interface I2 { static func g2() {1} }
+public interface I3 { static func g3() {1} }
+public interface I4 <: I1 & I2 & I3 { static func g4() {1} }
+public func f() { I4.g3() }

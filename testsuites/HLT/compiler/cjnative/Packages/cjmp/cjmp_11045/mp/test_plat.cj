@@ -8,7 +8,7 @@
 
 package mp
 
-public common class C {}
+public common class C {public init(){}}
 
 platform extend C <: I {}
 

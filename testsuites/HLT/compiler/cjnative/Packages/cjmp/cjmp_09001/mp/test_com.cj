@@ -9,6 +9,7 @@
 package mp
 
 public common class A<T> {
+    public init(){}
     public func f(a: T): T { a }
 }
 

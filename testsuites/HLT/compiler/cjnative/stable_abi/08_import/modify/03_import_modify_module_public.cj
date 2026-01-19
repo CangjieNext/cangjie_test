@@ -27,6 +27,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt p1.%middle q.%middle p2.%middle %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] Added import statement or changed modifier of an existing one.
 // ASSERT: scan-1 [API/ABI] Deleted import statement or changed modifier of an existing one.
@@ -43,3 +45,4 @@ import a.p.v1
 public import b.p.v2
 
 public var v = v1 + v2
+public var m = abs(-1.0) + acos(1.0)

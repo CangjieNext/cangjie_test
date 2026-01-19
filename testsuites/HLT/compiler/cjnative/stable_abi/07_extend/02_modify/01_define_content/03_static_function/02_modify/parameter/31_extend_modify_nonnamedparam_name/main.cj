@@ -11,6 +11,10 @@ import test_stable_abi.*
 unsafe main() {
     if (
         TestStruct.f1()==0
+        && foo1() == 4
+        && foo2() == 4
+        && TestStruct.foo_public(1, 2) == 4
+        && global_func_01()
     ) {
         return 0        
     } else {

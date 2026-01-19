@@ -22,11 +22,10 @@ public struct S {
     public let width = 10
 
     public S(b: Int64, let height: Int64) {
-        a = b
+        a = b + height
     }
 
     public func getWidth(): Int64 {
         return width
     }
 }
-

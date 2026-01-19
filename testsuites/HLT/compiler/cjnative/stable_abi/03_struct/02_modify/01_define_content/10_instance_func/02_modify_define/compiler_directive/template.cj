@@ -17,6 +17,7 @@ public struct Rectangle {
     public func getWidth(): Int64{
         return width
     }
+
     func geta1() {
         return 0
     }
@@ -53,5 +54,17 @@ public struct Rectangle {
     }
 }
 
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
 
+public func check(){
+    assert(Rectangle().geta1(), 0)
+    assert(Rectangle().geta3(), 2)
+    assert(Rectangle().geta4(), 3)
+    return 0
+}
 

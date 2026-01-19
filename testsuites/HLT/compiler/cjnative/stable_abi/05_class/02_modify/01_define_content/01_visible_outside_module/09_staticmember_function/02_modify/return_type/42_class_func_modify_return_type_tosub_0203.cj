@@ -23,6 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] The body of a const function or function marked with @Frozen changed.
 // ASSERT: scan-not [API/ABI]
@@ -160,4 +163,35 @@ class privateClass {
     public static func g5(): Son {
         g4()
     }
+}
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    let t = TestClass()
+    assert(TestClass.f1() is Father, true)
+    assert(TestClass.f2(Father(), Son()) is Father, true)
+    assert(TestClass.f3(Father(), Son()) is Father, true)
+    assert(TestClass.f4() is Father, true)
+    assert(TestClass.f5() is Father, true)
+    assert(TestClass.g1() is Son, true)
+    assert(TestClass.g2(Father(), Son()) is Son, true)
+    assert(TestClass.g3(Father(), Son()) is Son, true)
+    assert(TestClass.g4() is Son, true)
+    assert(TestClass.g5() is Son, true)
+
+    assert(B.f1() is Father, true)
+    assert(B.f2(Father(), Son()) is Father, true)
+    assert(B.f3(Father(), Son()) is Father, true)
+    assert(B.f4() is Father, true)
+    assert(B.f5() is Father, true)
+    assert(B.g1() is Son, true)
+    assert(B.g2(Father(), Son()) is Son, true)
+    assert(B.g3(Father(), Son()) is Son, true)
+    assert(B.g4() is Son, true)
+    assert(B.g5() is Son, true)
 }

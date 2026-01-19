@@ -6,11 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
  
-// ASSERT: scan Compatible!
+// ASSERT: scan-full Compatible!\n
 
 package test_stable_abi
-
-import std.random.*
 
 public class A {}
 
@@ -21,7 +19,7 @@ public enum Rectangle {
         return 11
     }
 
-    public const static func getA(a: Random, b!: Int64, c!: Int64 = 1): Int64 {
+    public const static func getA(a: Int64, b!: Int64, c!: Int64 = 1): Int64 {
         let x = RectangleB.Red
         return b + c
     }
@@ -35,7 +33,7 @@ enum RectangleB {
     }
 
     @Frozen
-    public static func getA(a: Random, b!: Int64, c!: Int64 = 1): Int64 {
+    public static func getA(a: Int64, b!: Int64, c!: Int64 = 1): Int64 {
         let x = getC(1, b:1)
         return b + c
     }
@@ -57,5 +55,13 @@ enum RectangleB {
         return b + c
     }
 }
-
-
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(RectangleB.getA(1, b: 1), 2)
+    assert(RectangleB.getB(1, b: 1), 2)
+    assert(RectangleB.getC(1, b: 1), 2)
+    assert(RectangleB.getD(1, b: 1), 2)
+    assert(RectangleB.getE(1, b: 1), 2)
+}

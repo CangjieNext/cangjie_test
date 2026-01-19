@@ -12,6 +12,8 @@ open class C {
     public static func f(): Int64 { 1 }
 }
 public common class A <: C {
+    public init(){}
+
     public common static func f(): Int64
 }
 public func test_com() { A.f() }

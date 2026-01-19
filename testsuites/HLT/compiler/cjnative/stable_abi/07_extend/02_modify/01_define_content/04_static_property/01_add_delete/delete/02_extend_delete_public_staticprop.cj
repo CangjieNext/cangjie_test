@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Extend member property visible outside the module deleted or made private.
 // ASSERT: scan-1 [API/ABI]
@@ -111,6 +113,11 @@ extend TestClass {
             a = v
         }
     }
+    public static prop prop12: Int64 {
+        get() {
+            prop9
+        }
+    }
 }
 
 extend TestStruct {
@@ -191,4 +198,13 @@ extend TestStruct {
             a = v
         }
     }
+    public static prop prop12: Int64 {
+        get() {
+            prop9
+        }
+    }
+}
+
+public func global_func_01(){
+    true
 }

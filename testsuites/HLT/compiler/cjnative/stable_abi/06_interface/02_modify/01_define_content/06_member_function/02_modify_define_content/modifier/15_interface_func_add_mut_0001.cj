@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Added the modifier 'mut' of the member function/property of the interface.
 // ASSERT: scan-not [API]
@@ -31,36 +33,14 @@
 
 package test_stable_abi
 
-public interface I1 {
-    public static func typename(): String {
-        "interface I1"
-    }
-
-    public func testOne(): Unit {
-
-    }
-
-    public func testTwo(): Unit {
-        
-    }
-
-    public mut func testThree(): String {
-          "interface testThree"
-    }
-
-    public static func testFour(): String {
-          "interface testFour"
-    }
-
-    public const func testFive(): String {
-          "interface testFive"
-    }
-
-    unsafe public func testSix(): String {
-          "interface testSix"
-    }
-
-    public mut func testSeven(): String {
-          "interface testSeven"
-    }
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
+public interface I {
+    mut func g1() {1}
+    static func g2() {1}
+    const func g3() {1}
+    unsafe func g4() {1}
+    mut func g5() {1}
+}
+public class C <: I {}

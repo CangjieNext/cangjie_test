@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -43,3 +45,7 @@ const func global_func_03<T1, T2>() where T1 <: A, T2 <: A { 0 }
 public func global_func_04<T1, T2>() where T2 <: A, T1 <: A { 0 }
 public const func global_func_05<T1, T2>() where T2 <: A, T1 <: A { global_func_03<T1, T2>() }
 @Frozen public func global_func_06() { global_func_02<A, A>() }
+
+public func global_func_07() {
+    global_func_01<A, A>() == 0
+}

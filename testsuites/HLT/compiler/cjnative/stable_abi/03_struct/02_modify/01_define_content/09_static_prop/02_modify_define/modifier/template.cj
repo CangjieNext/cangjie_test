@@ -20,110 +20,90 @@ public struct Rectangle {
 
     public static mut prop geta1: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     static mut prop geta2: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     public static mut prop geta3: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     private static mut prop geta4: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     internal static mut prop geta5: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     static mut prop geta6: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     protected static mut prop geta7: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     public static mut prop geta8: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     static mut prop geta9: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
     static mut prop geta10: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
@@ -202,3 +182,19 @@ public struct S1{
     }
 }
 
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func check(){
+    assert(Rectangle.geta5, 20)
+    assert(Rectangle.geta6, 20)
+    assert(Rectangle.geta7, 20)
+    assert(Rectangle.geta9, 20)
+    assert(Rectangle.geta10, 20)
+    assert(S1.getc, 20)
+    return 0
+}

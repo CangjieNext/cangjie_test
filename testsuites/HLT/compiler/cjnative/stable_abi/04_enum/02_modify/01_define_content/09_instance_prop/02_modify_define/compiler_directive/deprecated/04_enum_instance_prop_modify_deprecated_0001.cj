@@ -22,8 +22,9 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Changed member property's annotation of enum visible outside the module. Deprecated strict added.
 // ASSERT: scan-not [API]
@@ -34,92 +35,21 @@
 // modify operation: modify @Deprecated: keep result
 package test_stable_abi
 
-
-public enum Rectangle {
-    | Red | Green | Blue(UInt8)
-
-    public func getWidth(): Int64{
-        return 11
-    }
-    prop geta1:Int64 {
-        get() {
-            println("get")
-            0
-        }
-
-    }
-
-    public prop geta2:Int64 {
-        get() {
-            println("get")
-            0
-        }
-
-    }
-
-    @Deprecated["this function is deprecated", strict: false]
-    prop geta3: Int64 {
-        get() {
-            println("get")
-            0
-        }
-
-    }
-
-    @Deprecated["this function is deprecated", strict: false]
-    public prop geta4: Int64 {
-        get() {
-            println("get")
-            0
-        }
-
-    }
-
-    @Deprecated["this function is deprecated", strict: true]
-    public prop geta5: Int64 {
-        get() {
-            println("get")
-            0
-        }
-
-    }
+public enum E {
+    | A
+    public prop p1: Int64 {get(){1}}
+    @Deprecated["deprecated", strict: true] public prop p2: Int64 {get(){1}}
+    @Deprecated["deprecated", strict: true] public prop p3: Int64 {get(){1}}
+    prop p4: Int64 {get(){1}}
+    @Deprecated["deprecated", strict: false] prop p5: Int64 {get(){1}}
+    @Deprecated["deprecated", strict: true] prop p6: Int64 {get(){1}}
 }
-
-public enum Rectangle1 {
-    AB
-    public prop geta: Int64 {
-        get() {
-            0
-        }
-    }
-
-    prop getb: Int64 {
-        get() {
-            0
-        }
-    }
-
-    @Frozen
-    public func f1(){
-        getb
-    }
-
-    @Deprecated["this function is deprecated", strict: true]
-    public prop getc: Int64 {
-        get() {
-            0
-        }
-    }
-
-    @Deprecated["this function is deprecated", strict: false]
-    prop getd: Int64 {
-        get() {
-            0
-        }
-    }
-
-    @Frozen
-    public func f2(){
-        getd
-    }
+@Frozen public func f1() {A.p4 + A.p5}
+@Deprecated["deprecated", strict: true] @Frozen public func f2() {A.p3 + A.p6}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(A.p4, 1)
+    assert(A.p5, 1)
 }

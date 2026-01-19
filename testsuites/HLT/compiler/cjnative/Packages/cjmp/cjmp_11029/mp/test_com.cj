@@ -11,6 +11,8 @@ package mp
 public interface I1 {}
 public interface I2 <: I1 {}
 
-public common class C {}
+public common class C {
+    init(){}
+}
 
 common extend C <: I1 {}

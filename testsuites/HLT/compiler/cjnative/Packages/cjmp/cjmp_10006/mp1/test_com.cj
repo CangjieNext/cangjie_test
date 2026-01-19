@@ -9,6 +9,7 @@
 package mp1
 
 public common class A {
+    public init(){}
     public func f1() { 0 }
 }
 

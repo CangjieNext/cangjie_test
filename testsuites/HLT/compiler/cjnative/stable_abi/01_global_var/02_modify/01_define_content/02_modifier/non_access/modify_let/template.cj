@@ -15,4 +15,6 @@ let global_var_02: Int64 = 0
 public let global_var_03: Int64 = 0
 @Frozen public func global_func_01() { global_var_02 }
 
-
+public func global_func_02() {
+    global_var_01 == 0
+}

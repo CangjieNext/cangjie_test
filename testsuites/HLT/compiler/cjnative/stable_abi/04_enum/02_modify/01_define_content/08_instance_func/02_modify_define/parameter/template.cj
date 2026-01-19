@@ -79,4 +79,11 @@ public enum Rectangle {
         return 1
     }
 }
-
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(Red.geta1(1, b: 1), 1)
+    assert(Red.geta4(1, 1.0), 1)
+    assert(Red.geta7(A(), B()), 1)
+}

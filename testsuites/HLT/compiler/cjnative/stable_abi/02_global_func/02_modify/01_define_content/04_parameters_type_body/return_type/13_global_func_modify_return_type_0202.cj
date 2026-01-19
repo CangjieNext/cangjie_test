@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-4 [API/ABI] Changed return type of function visible outside the module. The new return type is not a subtype of the old return type.
 // ASSERT: scan-2 [ABI] The body of a const function or function marked with @Frozen changed.
@@ -51,3 +53,8 @@ public const func global_func_05() { global_func_03() }
 public const func global_func_15() { global_func_13() }
 @Frozen public func global_func_06() { global_func_02() }
 @Frozen public func global_func_16() { global_func_12() }
+
+public func global_func_17() {
+    global_func_01().test() == 0
+    && global_func_11().test() == 0
+}

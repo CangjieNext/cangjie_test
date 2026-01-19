@@ -9,11 +9,12 @@
 import test_stable_abi.*
 
 main() {
-    if (I1.typename() == "interface I1" && I2.typename() == "interface I2") {
-        0
-    } else {
-        1
-    }
+    assert(I1.p1, 1)
+    assert(C1().p2, 1)
+    assert(I2.p1, 1)
+    assert(C2().p2, 1)
+    assert(I3.p1, 1)
+    assert(C3().p2, 1)
+    assert(I4.p1, 1)
+    assert(C4().p2, 1)
 }
-
-

@@ -27,4 +27,6 @@ public struct S {
     }
 }
 
-
+public func f(){
+    return 0
+}

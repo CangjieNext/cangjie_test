@@ -14,4 +14,6 @@ public struct S {
     public init() { a = 0 }
 }
 
-
+public func f(){
+    return 0
+}

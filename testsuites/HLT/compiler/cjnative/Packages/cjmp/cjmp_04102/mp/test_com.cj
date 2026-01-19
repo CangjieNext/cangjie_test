@@ -12,6 +12,8 @@ open class C {
     public static prop p: Int64 { get() { 1 } }
 }
 public common class A <: C {
+    public init(){}
+
     public common static prop p: Int64
 }
 public func test_com() { A.p }

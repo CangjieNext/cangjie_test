@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -106,5 +107,20 @@ public struct Rectangle5 {
     @Deprecated["this value is deprecated", strict: true]
     public const func getWidth(): Int64{
         return a9
+    }
+}
+
+public func f(){
+    var a = Rectangle.a2
+    var b = Rectangle.a1
+    var c = Rectangle2.a7
+    var d = Rectangle.a3
+    var e = Rectangle.a4
+    var f = Rectangle4.a9
+    var g = Rectangle5.a10
+    if(a == 20 && b == 20 && c == 20 && d == 20 && e == 20 && f ==20 && g == 202){
+        return 0
+    }else{
+        return 1
     }
 }

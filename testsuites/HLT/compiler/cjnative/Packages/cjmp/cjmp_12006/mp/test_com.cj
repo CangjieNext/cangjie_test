@@ -8,6 +8,7 @@
 
 package mp
 
-public common class C1{
+public common class C1 {
+    public init(){}
     public common func f1():Int64
 }

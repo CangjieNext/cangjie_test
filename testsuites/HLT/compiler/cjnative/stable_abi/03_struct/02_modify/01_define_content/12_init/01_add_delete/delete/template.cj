@@ -15,4 +15,11 @@ public struct S {
     init(a1: Int64, a2: Int64) { a = a1 + a2 }
 }
 
-
+public func f(){
+    var s1 = S(1, 2)
+    var s2 = S(a1: 3)
+    if(s1.a == 3 && s2.a == 3){
+        return 0
+    }
+    return 1
+}

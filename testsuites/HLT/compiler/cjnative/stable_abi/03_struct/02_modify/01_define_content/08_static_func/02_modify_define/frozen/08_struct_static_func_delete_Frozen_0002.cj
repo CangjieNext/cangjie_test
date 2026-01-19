@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -61,13 +62,12 @@ public struct Rectangle {
         return c
     }
 
-
     static func gete(): Int64 {
         return 0
     }
 
      @Frozen
-    static func getf() {
+    public static func getf() {
         let c = gete()
         return c
     }
@@ -75,9 +75,16 @@ public struct Rectangle {
     static func getg() {
         return 0
     }
-    
  
     public static func geth() {
         return 0
+    }
+}
+
+public func f(){
+    if(Rectangle.getg() == 0 && Rectangle.gete() == 0 && Rectangle.geta() == 0 && Rectangle.getc() == 0){
+        return 0
+    }else{
+        return 1
     }
 }

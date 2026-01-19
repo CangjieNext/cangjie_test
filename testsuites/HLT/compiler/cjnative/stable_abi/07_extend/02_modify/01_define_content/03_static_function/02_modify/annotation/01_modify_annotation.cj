@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -102,4 +103,13 @@ extend TestClass {
     public func n_2() {
         f_4()
     }
+}
+
+public func global_func_01() {
+    TestClass.f_2() == 1
+    && TestClass.f_3() == 1
+    && TestClass.f_4() == 1
+    && TestClass.f2() == 1
+    && TestClass.f3() == 1
+    && TestClass.f4() == 1
 }

@@ -1,0 +1,7 @@
+// ASSERT: scan-begin begin
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_instanceMemberFunction
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_instanceMemberProperty
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_staticMemberFunction
+// ASSERT: scan-next UpStreamParent<?>.UpStreamParent_staticMemberProperty
+// ASSERT: scan-next UpStreamParent<Float64>.UpStreamParent_staticMemberFunction
+// ASSERT: scan-next UpStreamParent<?>.UpStreamParent_staticMemberProperty

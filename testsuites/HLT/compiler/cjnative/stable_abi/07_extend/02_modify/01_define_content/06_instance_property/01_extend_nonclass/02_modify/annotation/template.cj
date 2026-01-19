@@ -87,5 +87,12 @@ extend TestStruct {
         prop_3
     }
 }
-
-
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(TestStruct().prop2, 1)
+    assert(TestStruct().prop3, 1)
+    assert(TestStruct().prop_2, 1)
+    assert(TestStruct().prop_3, 1)
+}

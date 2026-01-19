@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Changed member function's annotation of struct visible outside the module. Deprecated strict added.
 // ASSERT: scan-not [API]
@@ -40,6 +42,7 @@ public struct Rectangle {
     public func getWidth(): Int64{
         return width
     }
+
     func geta1() {
         return 0
     }
@@ -74,5 +77,19 @@ public struct Rectangle {
         let x = geta3()
         return x
     }
+}
+
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func check(){
+    assert(Rectangle().geta1(), 0)
+    assert(Rectangle().geta3(), 2)
+    assert(Rectangle().geta4(), 3)
+    return 0
 }
 

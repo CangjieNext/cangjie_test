@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [API/ABI] Changed member function's modifier of struct visible outside the module. public/const/static deleted or unsafe/mut/static added.
 // ASSERT: scan-not [API]
@@ -34,6 +36,7 @@ package test_stable_abi
 
 public struct Rectangle {
     static let width = 10
+    let a = 20
 
     public const init() {}
 
@@ -42,51 +45,51 @@ public struct Rectangle {
     }
 
     public func geta1() {
-        return 0
+        return a
     }
 
     mut func geta2() {
-        return 0
+        return a
     }
 
     public func geta3() {
-        return 0
+        return a
     }
 
     private func geta4() {
-        return 0
+        return a
     }
 
     internal func geta5() {
-        return 0
+        return a
     }
 
     func geta6() {
-        return 0
+        return a
     }
 
     protected func geta7() {
-        return 0
+        return a
     }
 
     public func geta8() {
-        return 0
+        return a
     }
 
     func geta9() {
-        return 0
+        return a
     }
 
     func geta10() {
-        return 0
+        return a
     }
 
     unsafe public func geta11() {
-        return 0
+        return a
     }
 
     public mut func geta12() {
-        return 0
+        return a
     }
 
     @Frozen
@@ -96,7 +99,7 @@ public struct Rectangle {
     }
 
     const func geta14() {
-        return 0
+        return a
     }
 
     public const func geta15() {
@@ -105,7 +108,7 @@ public struct Rectangle {
     }
 
     mut func geta16() {
-        return 0
+        return a
     }
 
     @Frozen
@@ -113,4 +116,23 @@ public struct Rectangle {
         let x = geta16()
         return x
     }
+}
+
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func check(){
+    var r = Rectangle()
+    assert(r.geta2(), 20)
+    assert(r.geta5(), 20)
+    assert(r.geta6(), 20)
+    assert(r.geta7(), 20)
+    assert(r.geta9(), 20)
+    assert(r.geta10(), 20)
+    assert(r.geta14(), 20)
+    return 0
 }

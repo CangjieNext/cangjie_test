@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -168,4 +169,12 @@ extend C5<Int64, I2> {
     public func unexported_foo2() {
         5
     }
+}
+
+public func global_func_01() {
+    Array<UInt64>().test_ABI_add_extend_1() == 1
+    && Array<Int64>().test_ABI_add_extend_2() == 1
+    && Array<C2>().test_ABI_add_extend_3() == 1
+    && Array<I2>().unexported_foo1() == 1
+    && C5<Int64, I2>().unexported_foo2() == 5
 }

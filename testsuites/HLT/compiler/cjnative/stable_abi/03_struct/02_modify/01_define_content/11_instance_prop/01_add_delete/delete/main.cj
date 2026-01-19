@@ -11,7 +11,7 @@ import test_stable_abi.*
 main() {
     var a = S()
     a.p2 = 0
-    return a.p2
+    return a.p2 + f()
 }
 
 
