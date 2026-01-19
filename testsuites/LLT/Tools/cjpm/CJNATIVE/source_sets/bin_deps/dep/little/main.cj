@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-features user.dep.arch.little
+features { user.dep.arch.little }
 package dep
 
 public func niceFunction() {

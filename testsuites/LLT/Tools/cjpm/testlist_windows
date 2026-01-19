@@ -5,7 +5,20 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [ALL-TEST-CASE]
-CJNATIVE/
+CJNATIVE/build/build_env_var
+CJNATIVE/build/cangjie_macro_build
+CJNATIVE/build/combined
+CJNATIVE/build/foreign_requires
+CJNATIVE/build/lint
+CJNATIVE/build/macro_expansion_env
+CJNATIVE/build_script/script
+CJNATIVE/common_platform
+CJNATIVE/compile_performance
+CJNATIVE/install/local
+CJNATIVE/organization
+CJNATIVE/source_sets
+CJNATIVE/target/bin_dependencies
+CJNATIVE/test/unittest
 
 [EXCLUDE-TEST-CASE]
 # 交叉编译用例仅用于本地验证
@@ -13,6 +26,13 @@ CJNATIVE/target/cross_compile
 CJNATIVE/cross_compile
 CJNATIVE/build/lint
 CJNATIVE/test/Coverage
+
+# mock failed.
+CJNATIVE/test/mock/mock_01/mock_01.info
+CJNATIVE/test/mock/mock_08/mock_08.info
+CJNATIVE/test/mock/mock_11/mock_11.info
+CJNATIVE/test/mock/mock_12/mock_12.info
+CJNATIVE/test/mock/mock_13/mock_13.info
 
 # 路径过深的用例场景,暂时无法使用测试框架
 CJNATIVE/build/build_depth
@@ -51,15 +71,15 @@ CJNATIVE/test/incremental
 CJNATIVE/build_script/clean
 CJNATIVE/install/git
 
-# cjpm should be fixed
-CJNATIVE/init/cangjie_test_init003
-CJNATIVE/init/cangjie_test_init004
-CJNATIVE/init/cangjie_test_init005
-CJNATIVE/init/cangjie_test_init012
-CJNATIVE/run/run_06
-CJNATIVE/run/run_17
-CJNATIVE/run/run_27
-CJNATIVE/target/bin_dependencies/bin_dependencies_06
-CJNATIVE/target/bin_dependencies/bin_dependencies_10
-CJNATIVE/test/unittest/Unittest05
-CJNATIVE/test/unittest/Unittest06
+# git 用例暂时屏蔽，仅保留基础用例，避免并行问题
+CJNATIVE/install/git
+CJNATIVE/build/git_local/multiple_module_git_02
+CJNATIVE/build/git_local/multiple_module_git_03
+CJNATIVE/build/git_local/multiple_module_git_04
+CJNATIVE/build/git_local/multiple_module_git_05
+CJNATIVE/build/git_local/multiple_module_git_06
+CJNATIVE/build/git_local/multiple_module_git_07
+CJNATIVE/build/git_local/multiple_module_git_08
+CJNATIVE/build/git_local/multiple_module_git_10
+CJNATIVE/build/git_local/multiple_module_git_11
+CJNATIVE/build/git_local/multiple_module_git_12

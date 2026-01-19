@@ -17,8 +17,8 @@
   package-configuration = {}
 
 [dependencies]
-othermp = { path = "./othermp", version = "1.0.0" }
-mp = { path = "./mp", version = "1.0.0" }
+othermp = { path = "./othermp" }
+mp = { path = "./mp" }
 
 [profile]
   experimental = true
