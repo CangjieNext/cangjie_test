@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: ../%n
 // EXEC: cd %n && gcc test01.c -shared -fPIC -o pro/libtest01.%test_suffix
 // EXEC: cd %n && %cjpm build | compare %f
