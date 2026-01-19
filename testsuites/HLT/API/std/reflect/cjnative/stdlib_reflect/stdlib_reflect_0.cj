@@ -86,6 +86,18 @@ class TestStdCoreReflection {
         let t = InterfaceTypeInfo.get("std.core.Hashable")
         @Expect(t.toString(), "Hashable")
     }
+    // enum type.
+    @TestCase
+    func enumType(): Unit {
+        let t = EnumTypeInfo.get("std.core.Option<std.core.Option<Box<String>>>")
+        @Expect(t.toString(), "Option<Option<Box<String>>>")
+    }
+    // function type.
+    @TestCase
+    func functionType(): Unit {
+        let t = FunctionTypeInfo.of(println<Int64>)
+        @Expect(t.toString(), "Closure<(Int64)->Unit>")
+    }
 }
 
 // reflection for package `std.core` with out `std.core` qualifier.
