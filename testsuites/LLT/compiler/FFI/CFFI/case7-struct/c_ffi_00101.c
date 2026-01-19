@@ -4,15 +4,18 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 #include <stdio.h>
+#include <stdbool.h>
 
-typedef struct {
+typedef struct
+{
     long long x;
     long long y;
     long long z;
 } BiggerStruct;
 
 /// This type will do not RVO.
-typedef struct {
+typedef struct
+{
     int a;
 } SmallerStruct;
 
@@ -153,4 +156,202 @@ BiggerStruct PassStructToCangjie2(int a)
     p.z = 7;
     printf("pass struct to CJ : x -> %lld , y -> %lld , z -> %lld\n", p.x, p.y, p.z);
     return p;
+}
+
+SmallerStruct PassInt8ToSmaller(signed char v)
+{
+    printf("PassInt8ToSmaller: %d\n", v);
+    SmallerStruct s;
+    s.a = (int)v;
+    return s;
+}
+
+SmallerStruct PassInt16ToSmaller(short v)
+{
+    printf("PassInt16ToSmaller: %d\n", v);
+    SmallerStruct s;
+    s.a = (int)v;
+    return s;
+}
+
+SmallerStruct PassInt32ToSmaller(int v)
+{
+    printf("PassInt32ToSmaller: %d\n", v);
+    SmallerStruct s;
+    s.a = v;
+    return s;
+}
+
+SmallerStruct PassInt64ToSmaller(long long v)
+{
+    printf("PassInt64ToSmaller: %lld\n", v);
+    SmallerStruct s;
+    s.a = (int)v;
+    return s;
+}
+
+SmallerStruct PassUInt8ToSmaller(unsigned char v)
+{
+    printf("PassUInt8ToSmaller: %u\n", v);
+    SmallerStruct s;
+    s.a = (int)v;
+    return s;
+}
+
+SmallerStruct PassUInt16ToSmaller(unsigned short v)
+{
+    printf("PassUInt16ToSmaller: %u\n", v);
+    SmallerStruct s;
+    s.a = (int)v;
+    return s;
+}
+
+SmallerStruct PassUInt32ToSmaller(unsigned int v)
+{
+    printf("PassUInt32ToSmaller: %u\n", v);
+    SmallerStruct s;
+    s.a = (int)v;
+    return s;
+}
+
+SmallerStruct PassUInt64ToSmaller(unsigned long long v)
+{
+    printf("PassUInt64ToSmaller: %llu\n", v);
+    SmallerStruct s;
+    s.a = (int)v;
+    return s;
+}
+
+SmallerStruct PassFloat32ToSmaller(float v)
+{
+    printf("PassFloat32ToSmaller: %f\n", v);
+    SmallerStruct s;
+    s.a = (int)v;
+    return s;
+}
+
+SmallerStruct PassFloat64ToSmaller(double v)
+{
+    printf("PassFloat64ToSmaller: %lf\n", v);
+    SmallerStruct s;
+    s.a = (int)v;
+    return s;
+}
+
+SmallerStruct PassBoolToSmaller(bool v)
+{
+    printf("PassBoolToSmaller: %d\n", v);
+    SmallerStruct s;
+    s.a = (int)v;
+    return s;
+}
+
+BiggerStruct PassInt8ToBigger(signed char v)
+{
+    printf("PassInt8ToBigger: %d\n", v);
+    BiggerStruct s;
+    s.x = v;
+    s.y = v;
+    s.z = v;
+    return s;
+}
+
+BiggerStruct PassInt16ToBigger(short v)
+{
+    printf("PassInt16ToBigger: %d\n", v);
+    BiggerStruct s;
+    s.x = v;
+    s.y = v;
+    s.z = v;
+    return s;
+}
+
+BiggerStruct PassInt32ToBigger(int v)
+{
+    printf("PassInt32ToBigger: %d\n", v);
+    BiggerStruct s;
+    s.x = v;
+    s.y = v;
+    s.z = v;
+    return s;
+}
+
+BiggerStruct PassInt64ToBigger(long long v)
+{
+    printf("PassInt64ToBigger: %lld\n", v);
+    BiggerStruct s;
+    s.x = v;
+    s.y = v;
+    s.z = v;
+    return s;
+}
+
+BiggerStruct PassUInt8ToBigger(unsigned char v)
+{
+    printf("PassUInt8ToBigger: %u\n", v);
+    BiggerStruct s;
+    s.x = v;
+    s.y = v;
+    s.z = v;
+    return s;
+}
+
+BiggerStruct PassUInt16ToBigger(unsigned short v)
+{
+    printf("PassUInt16ToBigger: %u\n", v);
+    BiggerStruct s;
+    s.x = v;
+    s.y = v;
+    s.z = v;
+    return s;
+}
+
+BiggerStruct PassUInt32ToBigger(unsigned int v)
+{
+    printf("PassUInt32ToBigger: %u\n", v);
+    BiggerStruct s;
+    s.x = v;
+    s.y = v;
+    s.z = v;
+    return s;
+}
+
+BiggerStruct PassUInt64ToBigger(unsigned long long v)
+{
+    printf("PassUInt64ToBigger: %llu\n", v);
+    BiggerStruct s;
+    s.x = v;
+    s.y = v;
+    s.z = v;
+    return s;
+}
+
+BiggerStruct PassFloat32ToBigger(float v)
+{
+    printf("PassFloat32ToBigger: %f\n", v);
+    BiggerStruct s;
+    s.x = (long long)v;
+    s.y = (long long)v;
+    s.z = (long long)v;
+    return s;
+}
+
+BiggerStruct PassFloat64ToBigger(double v)
+{
+    printf("PassFloat64ToBigger: %lf\n", v);
+    BiggerStruct s;
+    s.x = (long long)v;
+    s.y = (long long)v;
+    s.z = (long long)v;
+    return s;
+}
+
+BiggerStruct PassBoolToBigger(bool v)
+{
+    printf("PassBoolToBigger: %d\n", v);
+    BiggerStruct s;
+    s.x = (long long)v;
+    s.y = (long long)v;
+    s.z = (long long)v;
+    return s;
 }
