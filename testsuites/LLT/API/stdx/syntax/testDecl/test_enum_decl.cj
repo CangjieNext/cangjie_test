@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/enum_decl.cj
 // (not Windows) EXEC: dos2unix enum_decl.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -292,9 +299,6 @@ EnumB""")
         
         pos = decl.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([45, 7, 46, 10]).toArray())
-    let info: TypeInfo = TypeInfo.of(nodes[4])
-    println(nodes[4])
-    println(info)
 
         constructor = (nodes[4] as EnumConstructor).getOrThrow()
         @Expect(constructor.name, "EnumE")
@@ -430,6 +434,13 @@ public enum B {
     }
 
     @TestCase
+    func testEnumConstructorInit01() {
+        let enumConstructor = EnumConstructor("EnumA", Array<TypeAnnotation>())
+        @Expect(enumConstructor.name, "EnumA")
+        @Expect(enumConstructor.toString(), "EnumA")
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("enum_decl.cj")
         let input = String.fromUtf8(File.readFrom("enum_decl.cj"))
@@ -437,11 +448,3 @@ public enum B {
         @Expect(file.toString(), input)
     }
 }
-
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

@@ -17,7 +17,7 @@ class test_01{
     @TestCase[
     subPatterns in [
        // [],
-        [ConstPattern(LitConstExpr(LitConstKind.BoolLiteral, "true"))],
+        [ConstPattern(LitConstExpr(LitConstKind.BoolLiteral, "true")), ConstPattern(LitConstExpr(LitConstKind.FloatLiteral, "0.1f32"))],
         [ConstPattern(LitConstExpr(LitConstKind.BoolLiteral, "false")), ConstPattern(LitConstExpr(LitConstKind.FloatLiteral, "0.1f32"))]
     ],
     comments in [

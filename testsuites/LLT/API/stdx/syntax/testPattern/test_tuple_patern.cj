@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/tuple_pattern.cj
 // (not Windows) EXEC: dos2unix tuple_pattern.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -86,11 +93,10 @@ class Test {
         pos = tuplePattern.getCommasPos()[0]
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 4]).toArray())
     }
+
+    @TestCase
+    func testInit02() {
+        let varPattern = VarPattern("i")
+        @AssertThrows[Exception](TuplePattern([varPattern]))
+    }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

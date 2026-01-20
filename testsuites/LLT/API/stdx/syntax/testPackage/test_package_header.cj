@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/packageHeader
 // (not Windows) EXEC: find packageHeader -type f -exec dos2unix {} \;
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -196,12 +203,14 @@ class Test {
         var pos = packageHeader.getMacroKeyWordPos().getOrThrow()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
     }
-}
 
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+    @TestCase
+    func testPackageHeaderInit04() {
+        let packageHeader = PackageHeader(Modifier(ModifierKind.Public), false, ["stdx", "syntax"])
+        @Expect(packageHeader.isMacroPkg, false)
+        @Expect(packageHeader.toString(), "public package stdx.syntax")
+
+        var pos = packageHeader.getDotsPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 20, 1, 21]).toArray())
+    }
+}
