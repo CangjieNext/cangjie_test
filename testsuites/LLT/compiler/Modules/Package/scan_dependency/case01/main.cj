@@ -10,4 +10,4 @@
 // EXEC: %compiler %cmp_opt %pkg_opt pkg %compile_lib_opt -o pkg.%middle
 // EXEC: %compiler %cmp_opt --scan-dependency pkg.cjo  2>&1 | compare %f
 
-// ASSERT: scan {"package":"pkg","isMacro":false,"accessLevel":"public","dependencies":[{"package":"mod.pkg02","isStd":false,"imports":[{"file":"a.cj","begin":{"line":10,"column":1},"end":{"line":10,"column":28}}]},{"package":"pkg01","isStd":false,"imports":[{"file":"a.cj","begin":{"line":9,"column":1},"end":{"line":9,"column":24}}]}],"features":[],"product":true}
+// ASSERT: scan {"package":"pkg","isMacro":false,"accessLevel":"public","dependencies":[{"package":"mod.pkg02","isStd":false,"imports":[{"file":"a.cj","begin":{"line":10,"column":1},"end":{"line":10,"column":28}}]},{"package":"pkg01","isStd":false,"imports":[{"file":"a.cj","begin":{"line":9,"column":1},"end":{"line":9,"column":24}}]}],"std-dependencies":[{"std.core":[]}],"features":[],"product":true}
