@@ -8,20 +8,20 @@
 
 package mp
 
-platform public abstract class C1 {
-    platform public func f1(): Int64 {
+specific public abstract class C1 {
+    specific public func f1(): Int64 {
         0
     }
-    platform public prop p1: Int64 {
+    specific public prop p1: Int64 {
         get() {
             0
         }
     }
 }
 
-platform public class C2 {
+specific public class C2 {
     private var a = 0
-    platform public mut prop p1: Int64 {
+    specific public mut prop p1: Int64 {
         get() {
             0
         }

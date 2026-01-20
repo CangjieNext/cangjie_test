@@ -6,7 +6,7 @@
 
 // SEPARATE-FILE: c/c.cj
 // (CJNATIVE and Linux)EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
-package cmp.platform
+package cmp.specific
 
 public common class A {
     public common let a: Int64
@@ -18,7 +18,7 @@ public common class A {
 // (CJNATIVE and Linux)EXEC-0: %compiler %noColor --experimental c/c1.cj --import-path=./c --output-type=dylib --output-dir ./p
 package cmp.other
 
-import cmp.platform.*
+import cmp.specific.*
 
 public func foo(a: A) {
     println("a = ${a.a}")
@@ -26,21 +26,21 @@ public func foo(a: A) {
 }
 
 // SEPARATE-FILE: p/p.cj
-// (CJNATIVE and Linux)EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.platform.chir --common-part-cjo=./c/cmp.platform.cjo --output-type=dylib --output-dir ./p
-package cmp.platform
+// (CJNATIVE and Linux)EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.specific.chir --common-part-cjo=./c/cmp.specific.cjo --output-type=dylib --output-dir ./p
+package cmp.specific
 
-public platform class A {
+public specific class A {
     public let b1: Int64 = 1
-    public platform let b: Int64 = b1 * 2
+    public specific let b: Int64 = b1 * 2
     public let a1: Int64 = b * 2
-    public platform let a: Int64 = a1 * 2;
+    public specific let a: Int64 = a1 * 2;
     public let c: Int64 = a * 2
 }
 
 // SEPARATE-FILE: m_common.cj
-// (CJNATIVE and Linux)EXEC-0: %compiler %noColor -j8 m_common.cj --import-path=./p -L./p -lcmp.platform -lcmp.other -o %output
+// (CJNATIVE and Linux)EXEC-0: %compiler %noColor -j8 m_common.cj --import-path=./p -L./p -lcmp.specific -lcmp.other -o %output
 // (CJNATIVE and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
-import cmp.platform.*
+import cmp.specific.*
 import cmp.other.*
 
 main(): Unit {

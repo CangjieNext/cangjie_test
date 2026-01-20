@@ -8,10 +8,10 @@
 
 package mp
 
-public platform func f2(): Unit {
+public specific func f2(): Unit {
     println("world")
 }
 
-public platform func printValue1<T>(value: T): Unit  where T <: ToString {
+public specific func printValue1<T>(value: T): Unit  where T <: ToString {
     println(value)
 }

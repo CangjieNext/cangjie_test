@@ -22,9 +22,9 @@ package cmp
 
 import std.random.*
 
-public platform struct A {
+public specific struct A {
     public init() {
-        println("[platform] A.init()")
+        println("[specific] A.init()")
     }
 }
 
@@ -44,5 +44,5 @@ main(): Unit {
 
 /* SCAN
 [common] A.init(42, 42, 42)
-[platform] A.init()
+[specific] A.init()
 */

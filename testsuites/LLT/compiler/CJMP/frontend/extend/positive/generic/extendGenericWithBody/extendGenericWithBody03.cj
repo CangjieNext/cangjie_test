@@ -38,8 +38,8 @@ common extend<T, U> Foo<T, U> {
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
-platform extend<T, U> Foo<T, U> {
-    platform public mut prop a: T {
+specific extend<T, U> Foo<T, U> {
+    specific public mut prop a: T {
         get() {
             x
         }
@@ -47,7 +47,7 @@ platform extend<T, U> Foo<T, U> {
             x = value
         }
     }
-    platform public mut prop b: U {
+    specific public mut prop b: U {
         get() {
             y
         }
@@ -55,7 +55,7 @@ platform extend<T, U> Foo<T, U> {
             y = value
         }
     }
-    platform public static mut prop c : Int64 {
+    specific public static mut prop c : Int64 {
         get() {
             z + z
         }

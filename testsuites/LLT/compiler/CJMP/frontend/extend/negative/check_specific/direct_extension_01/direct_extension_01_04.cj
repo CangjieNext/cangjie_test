@@ -15,4 +15,4 @@ common extend Foo{}
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform extend Foo{}
+specific extend Foo{}

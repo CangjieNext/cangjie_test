@@ -26,10 +26,10 @@ public open common class C2 <: C1 {
 // ASSERT: scan chir_class_uninitialized_field
 package cmp
 
-public open platform class C1 {
+public open specific class C1 {
 }
 
-public open platform class C2<:C1{
+public open specific class C2<:C1{
     public let py:Int64 
     public init(i:Int64){
         super()

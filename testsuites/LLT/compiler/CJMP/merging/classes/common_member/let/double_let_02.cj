@@ -19,9 +19,9 @@ common class A {
 // ASSERT: scan sema_used_before_initialization
 package cmp
 
-platform class A {
+specific class A {
     let c = a + b
-    platform let a: Int64 = 1
+    specific let a: Int64 = 1
 }
 
 main() : Unit {

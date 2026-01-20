@@ -19,8 +19,8 @@ public func boo() {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform func foo(): Unit {
-    println("platform foo")
+public specific func foo(): Unit {
+    println("specific foo")
 }
 
 public func goo() {
@@ -39,8 +39,8 @@ main(): Unit {
     boo()
 }
 /* SCAN
-platform foo
-call from boo: platform foo
+specific foo
+call from boo: specific foo
 */
 
 // SEPARATE-FILE: m_platform.cj
@@ -56,8 +56,8 @@ main(): Unit {
 
 
 /* SCAN
-platform foo
-call from boo: platform foo
-call from goo: platform foo
-call from boo: platform foo
+specific foo
+call from boo: specific foo
+call from goo: specific foo
+call from boo: specific foo
 */

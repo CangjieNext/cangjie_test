@@ -7,13 +7,13 @@
  */
 
 package mp
-public platform func foo<T, K>() {}
-public platform class C<T, K> {
-    public platform func f1<T, K>() {}
+public specific func foo<T, K>() {}
+public specific class C<T, K> {
+    public specific func f1<T, K>() {}
 }
-public platform interface I<T, K> {}
-public platform struct S<T, K> {}
-public platform enum E<T, K> { | E1 }
-platform extend <T, K> C<T, K> {
-    public platform func f2<T, K>() {}
+public specific interface I<T, K> {}
+public specific struct S<T, K> {}
+public specific enum E<T, K> { | E1 }
+specific extend <T, K> C<T, K> {
+    public specific func f2<T, K>() {}
 }

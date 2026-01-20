@@ -6,17 +6,17 @@
 
 package common
 
-public platform struct Rectangle {
-    public platform var width: Int64
-    protected platform var height: Int64
-    private platform var area: Int64
-    public platform init(width: Int64, height: Int64) {
+public specific struct Rectangle {
+    public specific var width: Int64
+    protected specific var height: Int64
+    private specific var area: Int64
+    public specific init(width: Int64, height: Int64) {
         this.width = width
         this.height = height
         this.area = this.width * this.height
     }
     
-    public mut platform prop area_: Int64 {
+    public mut specific prop area_: Int64 {
         get() {
             println("get")
             area

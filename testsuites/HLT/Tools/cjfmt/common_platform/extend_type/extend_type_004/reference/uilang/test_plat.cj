@@ -8,6 +8,6 @@
 
 package mp
 
-platform public class C {}
+specific public class C {}
 
-platform extend C {}
+specific extend C {}

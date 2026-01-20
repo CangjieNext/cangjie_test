@@ -25,10 +25,10 @@ common class A {
 // ASSERT: scan sema_property_have_same_declaration_in_inherit_mut
 package cmp
 
-platform class A {
-    platform prop testProp: Unit {
+specific class A {
+    specific prop testProp: Unit {
         get() {
-            println("platform")
+            println("specific")
         }
     }
 }

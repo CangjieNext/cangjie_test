@@ -21,9 +21,9 @@ public func test_com() { A().v }
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
+public specific class A {
 
-    private platform init(a: Int64) { v = a + 1 }
+    private specific init(a: Int64) { v = a + 1 }
 }
 
 public func test_plat() { A().v }

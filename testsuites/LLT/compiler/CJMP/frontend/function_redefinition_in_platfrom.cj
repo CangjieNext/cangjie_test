@@ -15,7 +15,7 @@ public common func foo(a: Array<Int>): Unit
 // ASSERT: scan sema_overload_conflicts
 package cmp
 
-public platform func foo(a: Array<Int>): Unit {
+public specific func foo(a: Array<Int>): Unit {
     for (x in a) {
         println("Int: ${x}")
     }

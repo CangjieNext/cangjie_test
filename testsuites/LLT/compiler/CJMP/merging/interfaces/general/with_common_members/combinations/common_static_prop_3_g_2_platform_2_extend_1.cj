@@ -24,7 +24,7 @@ public class A <: I {
 
 public func runCommon() {
     println(A.foo1) // foo1 of A in common
-    println(A.foo2) // foo2 of I in platform
+    println(A.foo2) // foo2 of I in specific
     println(A.foo3) // foo3 of I in common
     println(A.foo4) // foo4 of A in common
     println(A.foo5) // foo5 of I in common
@@ -36,32 +36,32 @@ public func runCommon() {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-public platform interface I {
-    platform static prop foo1: String { get() { "foo1 of I in platform" } } // ok: common open
-    platform static prop foo2: String { get() { "foo2 of I in platform" } } // ok: common open
+public specific interface I {
+    specific static prop foo1: String { get() { "foo1 of I in specific" } } // ok: common open
+    specific static prop foo2: String { get() { "foo2 of I in specific" } } // ok: common open
 
-    static prop foo6: String { get() { "foo6 of I in platform" } } // ok: open new func must have body
+    static prop foo6: String { get() { "foo6 of I in specific" } } // ok: open new func must have body
 }
 
 class B <: I {
-    public static prop foo1: String { get() { "foo1 of B in platform" } } 
-    public static prop foo4: String { get() { "foo4 of B in platform" } } 
+    public static prop foo1: String { get() { "foo1 of B in specific" } } 
+    public static prop foo4: String { get() { "foo4 of B in specific" } } 
 }
 
 public func run() {
     println(A.foo1) // foo1 of A in common
-    println(A.foo2) // foo2 of I in platform
+    println(A.foo2) // foo2 of I in specific
     println(A.foo3) // foo3 of I in common
     println(A.foo4) // foo4 of A in common
     println(A.foo5) // foo5 of I in common
-    println(A.foo6) // foo6 of I in platform
+    println(A.foo6) // foo6 of I in specific
 
-    println(B.foo1) // foo1 of B in platform
-    println(B.foo2) // foo2 of I in platform
+    println(B.foo1) // foo1 of B in specific
+    println(B.foo2) // foo2 of I in specific
     println(B.foo3) // foo3 of I in common
-    println(B.foo4) // foo4 of B in platform
+    println(B.foo4) // foo4 of B in specific
     println(B.foo5) // foo5 of I in common
-    println(B.foo6) // foo6 of I in platform
+    println(B.foo6) // foo6 of I in specific
 }
 
 main() {
@@ -71,20 +71,20 @@ main() {
 
 /* SCAN
 foo1 of A in common
-foo2 of I in platform
+foo2 of I in specific
 foo3 of I in common
 foo4 of A in common
 foo5 of I in common
 foo1 of A in common
-foo2 of I in platform
+foo2 of I in specific
 foo3 of I in common
 foo4 of A in common
 foo5 of I in common
-foo6 of I in platform
-foo1 of B in platform
-foo2 of I in platform
+foo6 of I in specific
+foo1 of B in specific
+foo2 of I in specific
 foo3 of I in common
-foo4 of B in platform
+foo4 of B in specific
 foo5 of I in common
-foo6 of I in platform
+foo6 of I in specific
 */

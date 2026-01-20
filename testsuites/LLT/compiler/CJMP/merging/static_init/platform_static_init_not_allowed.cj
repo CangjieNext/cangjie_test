@@ -17,7 +17,7 @@ public common class A {
 // ASSERT: scan parse_cjmp_static_init
 package cmp
 
-public platform class A {
-    platform static init() {}
+public specific class A {
+    specific static init() {}
 }
 

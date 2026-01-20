@@ -8,11 +8,11 @@
 
 package mp
 
-public platform struct A {
-    public platform prop a:Int64 {
+public specific struct A {
+    public specific prop a:Int64 {
         get(){1}
     }
-    public platform mut prop b:Int64 {
+    public specific mut prop b:Int64 {
         get(){1}
         set(v){}
     }

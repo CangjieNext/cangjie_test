@@ -26,8 +26,8 @@ package cmp
 
 import std.fs.*
 
-platform  func foo():Directory{
-    println("From platform member foo func")
+specific  func foo():Directory{
+    println("From specific member foo func")
     Directory()
 }
 main() {
@@ -36,5 +36,5 @@ main() {
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 */

@@ -16,11 +16,11 @@ public common class A {
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan sema_overload_conflicts
 package cmp
-public platform class A{
+public specific class A{
     A(p:Int32){
         this.p=p
     }
-    platform init(p:Int32)
+    specific init(p:Int32)
     {
         this.p=p
     }

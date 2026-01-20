@@ -18,12 +18,12 @@ private func goo() {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform func foo(): Unit {
+public specific func foo(): Unit {
     hoo()
 }
 
 private func hoo() {
-    println("platform hoo")
+    println("specific hoo")
 }
 
 // SEPARATE-FILE: m.cj
@@ -39,5 +39,5 @@ main(): Unit {
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 /* SCAN
-platform hoo
+specific hoo
 */

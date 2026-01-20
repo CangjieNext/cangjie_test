@@ -25,10 +25,10 @@ public func f1() {
 // EXEC-0: %compiler %noColor %enableO2 --experimental p/p.cj c/mp.chir --common-part-cjo=./c/mp.cjo  --output-type=dylib -o ./
 package mp
 
-public platform struct C<T1, T2, T3> {
-    public platform func foo(a: T1, b: T1) { b }
-    public platform func foo(a: T2, b: T2) { b }
-    public platform func foo(a: T3, b: T3) { b }
+public specific struct C<T1, T2, T3> {
+    public specific func foo(a: T1, b: T1) { b }
+    public specific func foo(a: T2, b: T2) { b }
+    public specific func foo(a: T3, b: T3) { b }
 }
 public func f2() {
     var c = C<Int32, Float64, Int64>()

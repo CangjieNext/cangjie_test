@@ -14,9 +14,9 @@ public common struct A {
 }
 // SEPARATE-FILE: p/p.cj
 // ERRCHECK: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
-// ASSERT: scan sema_platform_has_different_type
+// ASSERT: scan sema_specific_has_different_type
 package cmp
-public platform struct A{
-    platform let a: Int64 = 1
+public specific struct A{
+    specific let a: Int64 = 1
 }
 

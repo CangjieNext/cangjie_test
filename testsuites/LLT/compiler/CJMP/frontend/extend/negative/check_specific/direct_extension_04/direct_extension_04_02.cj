@@ -25,13 +25,13 @@ public func readF() {
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
-// ASSERT: scan error: 'platform' property modifier is not match 'common' modifier
+// ASSERT: scan error: 'specific' property modifier is not match 'common' modifier
 package cmp
 
-platform extend Foo{
-    platform private prop f: String { 
+specific extend Foo{
+    specific private prop f: String { 
         get() {
-            return "platform::extend::Foo::prop::f"
+            return "specific::extend::Foo::prop::f"
         }
     }
 }

@@ -38,16 +38,16 @@ common class D<T> where T <: I {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform class A<T> {}
+specific class A<T> {}
 
-platform class B<T> {
-    platform func f(item: T): T {
+specific class B<T> {
+    specific func f(item: T): T {
       item
     }
 }
 
-platform class C<T> where T <: SuperI  {}
-platform class D<T> {}
+specific class C<T> where T <: SuperI  {}
+specific class D<T> {}
 
 extend String <: I {}
 extend Int <: I {}

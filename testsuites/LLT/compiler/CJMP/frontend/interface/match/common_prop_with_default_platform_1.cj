@@ -23,11 +23,11 @@ class A <: I0 {
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output 2>&1 | compare %f
-// ASSERT: scan sema_platform_member_must_have_implementation
+// ASSERT: scan sema_specific_member_must_have_implementation
 package cmp
 
-public platform interface I0 {
-    platform prop foo: String
+public specific interface I0 {
+    specific prop foo: String
 }
 
 main() {

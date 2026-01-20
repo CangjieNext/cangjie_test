@@ -6,4 +6,4 @@
 
 package cmp
 
-platform class A {}
+specific class A {}

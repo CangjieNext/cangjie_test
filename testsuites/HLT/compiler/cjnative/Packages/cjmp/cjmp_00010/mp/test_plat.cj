@@ -8,7 +8,7 @@
  
 package mp
 
-public platform struct A {
+public specific struct A {
     public func f2(): Int64 { -1 }
 }
 public func test_plat() { A().f2() }

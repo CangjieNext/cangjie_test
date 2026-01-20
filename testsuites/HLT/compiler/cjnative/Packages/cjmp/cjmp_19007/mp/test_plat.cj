@@ -8,4 +8,4 @@
 
 package mp
 
-public platform var a = 2
+public specific var a = 2

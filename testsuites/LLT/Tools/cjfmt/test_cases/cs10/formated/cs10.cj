@@ -6,12 +6,12 @@
 
 package cmp
 
-platform public interface I1 {}
+specific public interface I1 {}
 
-platform sealed interface I2 {}
+specific sealed interface I2 {}
 
-platform interface A {
-    platform public func foo1(a: Int64): Unit
+specific interface A {
+    specific public func foo1(a: Int64): Unit
 }
 
-platform public open abstract class C2 <: A {}
+specific public open abstract class C2 <: A {}

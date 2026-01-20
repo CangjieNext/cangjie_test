@@ -22,9 +22,9 @@ common class A {
 // ASSERT: scan sema_not_matched
 package cmp
 
-platform class A {
-    platform func testFunc(c: Int64): Unit {
-        println("platform")
+specific class A {
+    specific func testFunc(c: Int64): Unit {
+        println("specific")
     }
 }
 

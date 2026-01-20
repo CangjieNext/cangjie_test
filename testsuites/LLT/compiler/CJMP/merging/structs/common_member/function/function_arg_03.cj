@@ -28,12 +28,12 @@ common struct A {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform struct A {
-    platform func testFunc(c: GeneralStruct): Unit {
-        println("platform")
+specific struct A {
+    specific func testFunc(c: GeneralStruct): Unit {
+        println("specific")
     }
-    platform func testFunc1(c: GeneralStruct): Unit {
-        println("platform")
+    specific func testFunc1(c: GeneralStruct): Unit {
+        println("specific")
     }
 }
 
@@ -44,7 +44,7 @@ main() : Unit {
 }
 
 /* SCAN
-platform
-platform
+specific
+specific
 common
 */

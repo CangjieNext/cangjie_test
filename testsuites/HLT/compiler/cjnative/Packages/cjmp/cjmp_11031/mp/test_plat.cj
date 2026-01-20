@@ -10,11 +10,11 @@ package mp
 
 public interface I2 {}
 
-public platform class C {}
+public specific class C {}
 
-platform extend C <: I1 {
-    public platform prop p1: Int64 { get(){1} }
-    public platform func f1(): Int64 { 1 }
+specific extend C <: I1 {
+    public specific prop p1: Int64 { get(){1} }
+    public specific func f1(): Int64 { 1 }
 }
 
 extend C <: I2 {

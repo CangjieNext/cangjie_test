@@ -34,11 +34,11 @@ common enum B <: I {
 public func runCommon() {
     let a = A.TEST_ENUM
     a.foo1() // foo1 of A in common
-    a.foo2() // foo2 of I in platform
+    a.foo2() // foo2 of I in specific
     a.foo3() // foo3 of I in common
     a.foo4() // foo4 of A in common
     a.foo5() // foo5 of I in common
-    a.foo7() // foo7 of A in platform
+    a.foo7() // foo7 of A in specific
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
@@ -47,44 +47,44 @@ public func runCommon() {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-public platform interface I {
-    platform func foo1(): Unit { println("foo1 of I in platform") } // ok: common open
-    // platform func foo2(): Unit // error: common open abstract
-    platform func foo2(): Unit { println("foo2 of I in platform") } // ok: common open
+public specific interface I {
+    specific func foo1(): Unit { println("foo1 of I in specific") } // ok: common open
+    // specific func foo2(): Unit // error: common open abstract
+    specific func foo2(): Unit { println("foo2 of I in specific") } // ok: common open
 
-    func foo6(): Unit { println("foo6 of I in platform") } // ok: open new func must have body
+    func foo6(): Unit { println("foo6 of I in specific") } // ok: open new func must have body
 }
 
-public platform enum A <: I {
+public specific enum A <: I {
     | TEST_ENUM
-    public platform func foo7(): Unit { println("foo7 of A in platform") }
+    public specific func foo7(): Unit { println("foo7 of A in specific") }
 }
 
-platform enum B <: I {
+specific enum B <: I {
     | TEST_ENUM
-    public platform func foo1(): Unit { println("foo1 of B in platform") }
-    public platform func foo4(): Unit { println("foo4 of B in platform") }
-    public func foo7(): Unit { println("foo7 of B in platform") }
+    public specific func foo1(): Unit { println("foo1 of B in specific") }
+    public specific func foo4(): Unit { println("foo4 of B in specific") }
+    public func foo7(): Unit { println("foo7 of B in specific") }
 }
 
 public func run() {
     let a = A.TEST_ENUM
     a.foo1() // foo1 of A in common
-    a.foo2() // foo2 of I in platform
+    a.foo2() // foo2 of I in specific
     a.foo3() // foo3 of I in common
     a.foo4() // foo4 of A in common
     a.foo5() // foo5 of I in common
-    a.foo6() // foo6 of I in platform
-    a.foo7() // foo7 of A in platform
+    a.foo6() // foo6 of I in specific
+    a.foo7() // foo7 of A in specific
 
     let b = B.TEST_ENUM
-    b.foo1() // foo1 of B in platform
-    b.foo2() // foo2 of I in platform
+    b.foo1() // foo1 of B in specific
+    b.foo2() // foo2 of I in specific
     b.foo3() // foo3 of I in common
-    b.foo4() // foo4 of B in platform
+    b.foo4() // foo4 of B in specific
     b.foo5() // foo5 of I in common
-    b.foo6() // foo6 of I in platform
-    b.foo7() // foo7 of B in platform
+    b.foo6() // foo6 of I in specific
+    b.foo7() // foo7 of B in specific
 }
 
 main() {
@@ -94,23 +94,23 @@ main() {
 
 /* SCAN
 foo1 of A in common
-foo2 of I in platform
+foo2 of I in specific
 foo3 of I in common
 foo4 of A in common
 foo5 of I in common
-foo7 of A in platform
+foo7 of A in specific
 foo1 of A in common
-foo2 of I in platform
+foo2 of I in specific
 foo3 of I in common
 foo4 of A in common
 foo5 of I in common
-foo6 of I in platform
-foo7 of A in platform
-foo1 of B in platform
-foo2 of I in platform
+foo6 of I in specific
+foo7 of A in specific
+foo1 of B in specific
+foo2 of I in specific
 foo3 of I in common
-foo4 of B in platform
+foo4 of B in specific
 foo5 of I in common
-foo6 of I in platform
-foo7 of B in platform
+foo6 of I in specific
+foo7 of B in specific
 */

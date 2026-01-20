@@ -22,9 +22,9 @@ package cmp
 
 import std.random.*
 
-public platform class A {
-    public platform init() {
-        println("[platform] A.A()")
+public specific class A {
+    public specific init() {
+        println("[specific] A.A()")
     }
 }
 
@@ -42,5 +42,5 @@ main(): Unit {
 }
 
 /* SCAN
-[platform] A.A()
+[specific] A.A()
 */
