@@ -11,9 +11,9 @@ public abstract common class A{ init() {} }
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  2>&1 | compare %f
-// ASSERT: scan sema_cjmp_non_platform_abstract_member_in_platform_class
+// ASSERT: scan sema_cjmp_non_specific_abstract_member_in_specific_class
 
 package cmp 
-public abstract platform class A{
+public abstract specific class A{
     public abstract prop foo: Int32
 }

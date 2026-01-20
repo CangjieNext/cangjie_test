@@ -16,7 +16,7 @@ common public enum RGBColor {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform public enum RGBColor {
+specific public enum RGBColor {
     | Red(UInt8) | Green(UInt8) | Blue(UInt8)
 }
 

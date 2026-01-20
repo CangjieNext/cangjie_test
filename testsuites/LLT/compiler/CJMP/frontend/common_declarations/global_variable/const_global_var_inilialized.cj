@@ -38,7 +38,7 @@ public const z: Int64 = 44
 
 public const func g(): Int64 { 47 }
 
-public platform func useXmp(): Int64 {
+public specific func useXmp(): Int64 {
     x + 3
 }
 

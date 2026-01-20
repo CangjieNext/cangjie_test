@@ -6,4 +6,4 @@
 
 // DEPENDENCE: common.cj platform.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental common.cj platform.cj --output-type=chir 2>&1 | compare %f
-// ASSERT: scan parse_platform_in_non_platform_file
+// ASSERT: scan parse_specific_in_non_specific_file

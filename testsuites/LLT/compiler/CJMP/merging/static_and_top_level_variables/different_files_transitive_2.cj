@@ -32,13 +32,13 @@ public func id3(x: Int) { return x }
 // NOTE:
 // Y depends on X
 // however in common part already fixed that X depends on Y
-public platform let Y: Int64 = id2(id3(id(foo())))
+public specific let Y: Int64 = id2(id3(id(foo())))
 
 // SEPARATE-FILE: p/p2.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p1.cj p/p2.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 
-public platform func foo(): Int {
+public specific func foo(): Int {
     // now `foo` depends on `X`
     return X
 }

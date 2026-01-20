@@ -16,6 +16,6 @@ public common func foo(): Unit
 // ASSERT: scan sema_multiple_common_implementations
 package cmp
 
-public platform func foo(): Unit {}
-public platform func foo(): Unit {}
+public specific func foo(): Unit {}
+public specific func foo(): Unit {}
 

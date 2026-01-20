@@ -23,9 +23,9 @@ common  func foo():MultiOutputStream<ByteBuffer >{
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 import std.io.*
-platform  func foo():MultiOutputStream<ByteBuffer >{
+specific  func foo():MultiOutputStream<ByteBuffer >{
      
-    println("From platform member foo func")
+    println("From specific member foo func")
     MultiOutputStream(ByteBuffer())
 }
 main() {
@@ -34,5 +34,5 @@ main() {
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 */

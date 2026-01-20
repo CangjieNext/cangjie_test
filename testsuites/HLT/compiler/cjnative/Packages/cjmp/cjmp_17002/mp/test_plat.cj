@@ -8,7 +8,7 @@
 
 package mp
 
-public platform func f(): Unit {}
+public specific func f(): Unit {}
 public func g2(): Unit {
     Option<Int64>.None.getOrThrow()
     ()

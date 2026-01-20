@@ -21,6 +21,6 @@ common extend C {
 // ASSERT: scan error: redefinition of declaration 'p'
 package cmp
 
-platform extend C {
+specific extend C {
     public prop p: Int64 { get() {1} }
 }

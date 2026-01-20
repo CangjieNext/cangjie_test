@@ -8,6 +8,6 @@
 
 package mp
 
-public abstract platform class C {
+public abstract specific class C {
     public func f(): Unit
 }

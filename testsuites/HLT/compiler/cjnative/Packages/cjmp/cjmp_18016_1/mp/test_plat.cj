@@ -8,6 +8,6 @@
 
 package mp
 
-public platform sealed abstract class A {
-    public platform var a = 2
+public specific sealed abstract class A {
+    public specific var a = 2
 }

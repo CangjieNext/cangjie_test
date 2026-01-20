@@ -20,10 +20,10 @@ public common enum RGBColor {
 // ASSERT: scan sema_overload_conflicts
 package cmp
 
-public platform enum RGBColor {
+public specific enum RGBColor {
     RED | GREEN | BLUE
     public func foo(input: Int64): Int64 {0}
 
-    public platform func goo(input: Int64): Unit {}
+    public specific func goo(input: Int64): Unit {}
 }
 

@@ -19,7 +19,7 @@ public common enum EA{
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform enum EA{
+public specific enum EA{
     A |
     B |
     C

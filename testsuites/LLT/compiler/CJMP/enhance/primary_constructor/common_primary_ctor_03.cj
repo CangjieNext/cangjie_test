@@ -18,7 +18,7 @@ public common class A {
 // ASSERT: scan not all the member variables are initialized in this constructo
 package cmp
 
-public platform class A {
+public specific class A {
     public A( public var a: Int64) {}
 }
 

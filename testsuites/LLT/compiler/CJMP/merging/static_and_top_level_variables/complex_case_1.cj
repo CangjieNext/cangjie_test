@@ -32,7 +32,7 @@ package cmp
 public let b = "b"
 
 public func boo() {
-    a += " platform"
+    a += " specific"
 }
 
 func getY() {
@@ -79,10 +79,10 @@ initial
 y:defaultY
 initial
 initial common
-initial common platform
-initial common platform
+initial common specific
+initial common specific
 x:defaultX
-initial common platform
+initial common specific
 y:defaultY
 b
 b

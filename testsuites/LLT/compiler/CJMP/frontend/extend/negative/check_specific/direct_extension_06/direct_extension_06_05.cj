@@ -17,4 +17,4 @@ common extend<T> Foo<T> where T <: ToString & Hashable {}
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform extend<T> Foo<T> where T <: Hashable & ToString {}
+specific extend<T> Foo<T> where T <: Hashable & ToString {}

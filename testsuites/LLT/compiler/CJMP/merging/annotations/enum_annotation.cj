@@ -23,6 +23,6 @@ public common enum A {
 // EXEC-PIPE-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 @AA
-public platform enum A {
+public specific enum A {
         E|F
 }

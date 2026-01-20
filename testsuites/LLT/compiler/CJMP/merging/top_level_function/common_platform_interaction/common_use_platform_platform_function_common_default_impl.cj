@@ -20,8 +20,8 @@ common public func goo(): Unit{
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
-platform public func goo(): Unit{
-    println("From platform member foo func")
+specific public func goo(): Unit{
+    println("From specific member foo func")
 }
 
 main() {
@@ -29,5 +29,5 @@ main() {
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 */

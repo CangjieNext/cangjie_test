@@ -19,8 +19,8 @@ public common class A {
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
-public platform class A{
-    platform var a: Int32
+public specific class A{
+    specific var a: Int32
     init() { a = 1 }
 }
 main(){

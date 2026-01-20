@@ -8,14 +8,14 @@
 
 package mp
 
-platform public func f1(): Int64 {
+specific public func f1(): Int64 {
     1
 }
 
-platform protected func f2(): Int64 {
+specific protected func f2(): Int64 {
     2
 }
 
-platform public unsafe func fa(): Unit {
+specific public unsafe func fa(): Unit {
     println("hello")
 }

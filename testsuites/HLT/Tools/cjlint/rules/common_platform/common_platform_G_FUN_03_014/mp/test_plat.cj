@@ -8,14 +8,14 @@
 
 package mp
 
-platform extend A {
-    platform func foo1(a: Int64): Unit { println(a) }
-    platform func foo2(): Unit { println("platform") }
+specific extend A {
+    specific func foo1(a: Int64): Unit { println(a) }
+    specific func foo2(): Unit { println("specific") }
     func foo4(): Int64 { 1 }
 }
 
-platform extend Int64 {
-    platform func foo1(a: Int64): Unit {
+specific extend Int64 {
+    specific func foo1(a: Int64): Unit {
         print(a)
     }
 }

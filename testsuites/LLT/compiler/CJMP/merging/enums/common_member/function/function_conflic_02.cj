@@ -22,11 +22,11 @@ common enum A {
 // ASSERT: scan sema_ambiguous_match
 package cmp
 
-platform enum A {
+specific enum A {
     | TEST_ENUM
 
     func testFunc(): Unit {
-        println("platform")
+        println("specific")
     }
 }
 

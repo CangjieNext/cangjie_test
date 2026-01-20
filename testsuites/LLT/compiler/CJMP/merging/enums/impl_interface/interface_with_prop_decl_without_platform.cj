@@ -26,7 +26,7 @@ common public enum A <: I {
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-platform public enum A <: I {| AA | BB}
+specific public enum A <: I {| AA | BB}
 
 
 // SEPARATE-FILE: m_common.cj

@@ -22,4 +22,4 @@ public common interface I {
 // EXEC-PIPE-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 @AA
-public platform interface I {}
+public specific interface I {}

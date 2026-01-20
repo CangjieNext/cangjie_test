@@ -32,12 +32,12 @@ public common struct A {
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-public platform struct B {
-    public platform var b: Int64=2;
-    public platform func fb():Unit{println("hello from platform fb");}
+public specific struct B {
+    public specific var b: Int64=2;
+    public specific func fb():Unit{println("hello from specific fb");}
     public func fb1() {println("hello from fb1");}
 }
-public platform struct A {
+public specific struct A {
     public let f2 = { c: C=> println("hello from f2. I pass struct C"); c}
 }
 
@@ -66,7 +66,7 @@ main(): Unit {
 hello from f1. I pass struct B
 10
 hello from f1. I pass struct B
-hello from platform fb
+hello from specific fb
 hello from f1. I pass struct B
 hello from fb1
 hello from f2. I pass struct C
