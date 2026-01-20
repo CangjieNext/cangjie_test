@@ -15,8 +15,6 @@ import signal
 import random
 import socket
 
-os.environ["DYLD_LIBRARY_PATH"] = os.getenv("CANGJIE_STDX_PATH")
-
 def get_argv():
     """
     get_argv: Get arg from sys.argv
@@ -55,6 +53,10 @@ def read_execline(test_case):
     # find 'test#', split exec-cmd and debug-cmd
     test_index = lines_e.index("test#\n")
     lines_e = lines_e[test_index + 1:]
+    if "run_stdx" in lines_e:
+        os.environ["DYLD_LIBRARY_PATH"] = os.getenv("DYLD_LIBRARY_PATH")
+    else:
+        pass
     return f_e, lines_e
 
 

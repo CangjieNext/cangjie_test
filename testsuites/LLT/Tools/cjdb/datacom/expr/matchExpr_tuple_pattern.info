@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/match_expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb matchExpr_tuple_pattern,matchExpr_tuple_pattern
+b,b 15,matchExpr_tuple_pattern.cj:15
+r,r,-> 15
+ ,expr scoreResult,\(std.core.String\) \$\d+ = "Allen got 90"
+ #expr match (scoreTuple) {case ("Bob", 90) => "Bob got 90" case ("Allen", score) => "Allen got ${score}" case ("Allen", 100) | ("Bob", 100) => "Allen or Bob got 100" case (_, _) => "" }#\(std.core.String\) \$\d+ = "Allen got 90"
+q,q,

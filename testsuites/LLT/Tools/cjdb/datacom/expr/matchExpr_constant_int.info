@@ -1,0 +1,16 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/match_expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb matchExpr_constant_int,matchExpr_constant_int
+b,b 17,matchExpr_constant_int.cj:17
+r,r,-> 17
+ ,expr match (score) {case 0 => "zero" case 10 => "fail" case 70 => "good" case 90 => "excellent" case _ => "not a valid score"},\(std.core.String\) \$\d+ = "excellent"
+q,q,

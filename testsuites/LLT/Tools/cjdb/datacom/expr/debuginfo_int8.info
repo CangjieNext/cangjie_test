@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/int8.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug int8.cj -o int8
-// EXEC: python3 cjdb_test.py debuginfo_int8.info
+// EXEC: python3 cjdb_test.py debuginfo_int8.info %n %run_env
 
 test#
 cjdb,cjdb int8,int8
