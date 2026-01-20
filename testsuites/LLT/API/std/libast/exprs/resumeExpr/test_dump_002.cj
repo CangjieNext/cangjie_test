@@ -23,6 +23,11 @@ ResumeExpr {
     kind: RESUME
     pos: 6: 25
   }
+  -keywordW: Token {
+    value: "with"
+    kind: WITH
+    pos: 6: 32
+  }
   -withExpr: RefExpr {
     -identifier: Token {
       value: "bla"
@@ -36,6 +41,11 @@ ResumeExpr {
     value: "resume"
     kind: RESUME
     pos: 6: 25
+  }
+  -keywordW: Token {
+    value: "with"
+    kind: WITH
+    pos: 6: 32
   }
   -withExpr: RefExpr {
     -identifier: Token {

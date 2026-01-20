@@ -144,7 +144,7 @@ description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 43, 
 ASTException: Illegal TokenKind, TokenKind should be LPAREN
 description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 52, column: 58
 ASTException: Illegal TokenKind, TokenKind should be RPAREN
-9
+8
 MacroExpandExpr {
   -packageIdentifier: Token {
     value: "M"
@@ -169,14 +169,14 @@ MacroExpandExpr {
 }
 3
 1
-description: identifier, token_id: 137, token_literal_value: m, fileID: 1, line: 64, column: 56
+description: identifier, token_id: 137, token_literal_value: A.m, fileID: 1, line: 64, column: 56
 description: l_square, token_id: 4, token_literal_value: [, fileID: 1, line: 77, column: 56
 ASTException: Illegal TokenKind, TokenKind should be LSQUARE
 description: r_square, token_id: 5, token_literal_value: ], fileID: 1, line: 86, column: 58
 ASTException: Illegal TokenKind, TokenKind should be RSQUARE
 ASTException: Illegal TokenKind, TokenKind should be AT
-2
-9
+1
+8
 cnt = 8
  */
 /*
