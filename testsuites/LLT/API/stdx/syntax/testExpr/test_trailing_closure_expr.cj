@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/trailing_closure_expr.cj
 // (not Windows) EXEC: dos2unix trailing_closure_expr.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -81,12 +88,11 @@ class Test {
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 16]).toArray())
     }
-}
 
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+    @TestCase
+    func testInit02() {
+        let tmp = (nodes[1] as TrailingClosureExpr).getOrThrow()
+        let expr = TrailingClosureExpr(tmp.callee, tmp.arguments, tmp.trailingLambdaExpr)
+        @Expect(expr.toString(), ##"f(1, "") { a: Int64 => return a}"##)
+    }
+}
