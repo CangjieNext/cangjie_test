@@ -6,10 +6,15 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+
 // (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f
 // (not Windows) EXEC: %set_stdx_path %run %run_opt %n.%suffix | compare %f 
 
-// ASSERT: scan 0
+
+// ASSERT: scan f11
+// ASSERT: scan f12
+// ASSERT: scan f12
+
 
 import std.runtime.*
 import std.env.*
@@ -19,32 +24,30 @@ import stdx.net.http.*
 foreign func CJ_MCC_SignalKill(pid: Int32, sig: Int32): Unit
 foreign func CJ_MCC_SignalRaise(sig: Int32): Unit
 
-func unRegisterSignalHandler_mulSignal(): Unit {
-    let result = ArrayList<String>()
+
+func unRegisterSignalHandler_oneSignal(): Unit {
     resetSignalHandler()
-    let sig1 = Signal.SIGINT
-    let sig2 = Signal.SIGQUIT
-    let f1 = {
+    let sig = Signal.SIGINT
+    let f11 = {
         i: Int32 =>
-            result.add("f1")
+            println("f11")
+            return false
+    }
+    let f12 = {
+        i: Int32 =>
+            println("f12")
             return true
     }
-    let f2 = {
-        i: Int32 =>
-            result.add("f2")
-            return true
-    }
-
-    registerSignalHandler(sig1, f1)
-    registerSignalHandler(sig2, f2)
-    resetSignalHandler(sig1)
-
-    unsafe { CJ_MCC_SignalKill(Int32(getProcessId()), sig1.value) }
+    registerSignalHandler(sig, f11)
+    registerSignalHandler(sig, f12)
+    unsafe { CJ_MCC_SignalKill(Int32(getProcessId()), sig.value) }
     sleep(Duration.second * 2)
-    println(result.size)
 
+    unregisterSignalHandler(sig, f11)
+    unsafe { CJ_MCC_SignalKill(Int32(getProcessId()), sig.value) }
+    sleep(Duration.second * 2)
 }
 
 main() {
-    unRegisterSignalHandler_mulSignal()
+    unRegisterSignalHandler_oneSignal()
 }
