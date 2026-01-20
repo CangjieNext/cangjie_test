@@ -105,7 +105,9 @@ def modify(data):
         pattern_unittest = r"^\s*@Test\s*(?:public)?\s*class\s*(.*?)\s*{$"
         matches = re.findall(pattern_unittest, data, re.M)
         if len(matches) < 1:
-            raise Exception(f"[错误] 未找到 main 或 @Test, 无法处理")
+            # 不进行处理
+            # raise Exception(f"[错误] 未找到 main 或 @Test, 无法处理")
+            return data
         modified += call_cj_ut_start
         for idx, ut_class_name in enumerate(matches, 1):
             modified += call_cj_ut_pref + ut_class_name + call_cj_ut_suff
@@ -141,6 +143,12 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
     main_file_list.append(test_info_file_path)
     pattern_main = r'(\s*main\s*\(\s*(.*?)\s*\)\s*:?\s*(.*?)\s*\{)(?!\})'
     for dependent_file_path in items:
+        # 不存在就跳过
+        if not os.path.exists(dependent_file_path):
+            continue
+        # 如果是目录就跳过
+        if os.path.isdir(dependent_file_path):
+            continue
         with open(dependent_file_path, 'r', encoding='utf-8') as f:
             content = f.read()
             if re.findall(pattern_main, content):

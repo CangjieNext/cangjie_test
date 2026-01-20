@@ -34,7 +34,7 @@
 package test_stable_abi
 
 public struct S {
-    public var a = 0
+    var a = 0
     public mut prop p2: Int64 {
         get() { a }
         set(value) { a = value }
@@ -42,5 +42,8 @@ public struct S {
 }
 
 public func f(){
+    if(S().p2 == 0){
         return 0
+    }
+    return 1
 }

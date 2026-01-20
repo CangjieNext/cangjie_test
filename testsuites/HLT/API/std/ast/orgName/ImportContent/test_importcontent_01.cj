@@ -13,19 +13,22 @@
 import std.ast.*
 
 @Test
-func test_importContent() {
-    let importContent = ImportContent()
-    importContent.importKind = ImportKind.Single
-    importContent.prefixPaths = Tokens([Token(IDENTIFIER, "pkg1"), Token(IDENTIFIER, "pkg2")])
-    importContent.prefixDots = Tokens([Token(DOT), Token(DOT)])
-    importContent.identifier = Token(IDENTIFIER, "pkga")
-    @AssertThrows[ASTException](importContent.orgSeparator = Token(DOUBLE_COLON))
-    importContent.orgName = Token(IDENTIFIER, "orgName")
-    @Assert(importContent.toTokens().toString(), "orgName :: pkg1.pkg2.pkga")
+class Test_01 {
+    @TestCase
+    func test_importContent() {
+        let importContent = ImportContent()
+        importContent.importKind = ImportKind.Single
+        importContent.prefixPaths = Tokens([Token(IDENTIFIER, "pkg1"), Token(IDENTIFIER, "pkg2")])
+        importContent.prefixDots = Tokens([Token(DOT), Token(DOT)])
+        importContent.identifier = Token(IDENTIFIER, "pkga")
+        @AssertThrows[ASTException](importContent.orgSeparator = Token(DOUBLE_COLON))
+        importContent.orgName = Token(IDENTIFIER, "orgName")
+        @Assert(importContent.toTokens().toString(), "orgName :: pkg1.pkg2.pkga")
 
-    @Assert(importContent.prefixPaths.toString(), "pkg1 pkg2")
-    @Assert(importContent.prefixDots.toString(), "..")
-    @Assert(importContent.identifier.value, "pkga")
-    @Assert(importContent.orgName.value, "orgName")
-    @Assert(importContent.orgSeparator.value, "::")
+        @Assert(importContent.prefixPaths.toString(), "pkg1 pkg2")
+        @Assert(importContent.prefixDots.toString(), "..")
+        @Assert(importContent.identifier.value, "pkga")
+        @Assert(importContent.orgName.value, "orgName")
+        @Assert(importContent.orgSeparator.value, "::")
+    }
 }

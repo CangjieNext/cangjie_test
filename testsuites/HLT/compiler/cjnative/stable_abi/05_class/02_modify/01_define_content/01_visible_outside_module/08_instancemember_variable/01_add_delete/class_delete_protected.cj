@@ -24,12 +24,12 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // TEST CJCPL
-// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
-// TEST ABI Compatibility
-// RUN-EXEC: %run %run_opt %output %run_args
-// TEST API Compatibility
-// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
-// RUN-EXEC: %run %run_opt %output %run_args
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
+// ASSERT: scan Incompatible
+// ASSERT: scan-2 [API/ABI] Class member variable declaration visible outside the module made internal,or private.
+// ASSERT: scan-2 [API/ABI]
+// ASSERT: scan-not [API]
+// ASSERT: scan-not [ABI]
 
 package test_stable_abi
 

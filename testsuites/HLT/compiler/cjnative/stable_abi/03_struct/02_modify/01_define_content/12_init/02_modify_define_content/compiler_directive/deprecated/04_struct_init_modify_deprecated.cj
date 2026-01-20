@@ -39,3 +39,7 @@ public struct S {
     @Deprecated["this init is deprecated", strict: true] public init(a1: Int64) { a = a1 }
     @Deprecated["this init is deprecated", strict: true] public init(a1: Int64, a2: Int64) { a = a1 + a2 }
 }
+
+public func f(){
+    return 0
+}

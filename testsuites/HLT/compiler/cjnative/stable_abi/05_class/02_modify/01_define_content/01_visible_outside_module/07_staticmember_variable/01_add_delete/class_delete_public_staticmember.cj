@@ -69,7 +69,7 @@ public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & To
     }
 }
 
-public func checker(): Int64 {
+public func checker(): Unit {
     let c0 = CC()
     assert(CC.b1, 1)
     assert(CC.b2, 2)
@@ -94,5 +94,4 @@ public func checker(): Int64 {
     assert(CC.e2, 2)
     assert(CC.e3(), 1)
     assert(c0.e4(), 2)
-    0
 }

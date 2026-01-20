@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 3
+// LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n/libtest && %clang -c -o test.o test.c && ar -rc libtest.a test.o
 // EXEC: cd %n && %cjpm test -V 2>&1 | compare %f

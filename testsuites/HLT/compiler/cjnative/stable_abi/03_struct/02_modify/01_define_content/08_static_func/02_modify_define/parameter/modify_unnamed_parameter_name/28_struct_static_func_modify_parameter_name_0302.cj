@@ -106,8 +106,8 @@ struct S3 {
         return a
     }
 
-    const static func f2(aa:Float64, bb:B, c!:Int64, d!:Int64 = 2) {
-        return aa
+    const static func f2(a:Float64, bb:B, c!:Int64, d!:Int64 = 2) {
+        return a
     }
     public const static func f22() {
         return f2(1.1, B(), c:1, d:2)

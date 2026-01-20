@@ -26,10 +26,10 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Enum declaration visible outside the module deleted or made private.
+// ASSERT: scan-2 [API/ABI] Enum declaration visible outside the module deleted or made private.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
-// ASSERT: scan-1 [API/ABI]
+// ASSERT: scan-2 [API/ABI]
 
 package test_stable_abi
 

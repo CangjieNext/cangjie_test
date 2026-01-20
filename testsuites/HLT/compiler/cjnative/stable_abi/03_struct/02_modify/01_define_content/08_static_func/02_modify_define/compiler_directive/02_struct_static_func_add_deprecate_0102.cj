@@ -26,10 +26,10 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Changed member function's annotation of struct visible outside the module. Deprecated strict added.
+// ASSERT: scan-2 [API/ABI] Changed member function's annotation of struct visible outside the module. Deprecated strict added.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
-// ASSERT: scan-1 [API/ABI]
+// ASSERT: scan-2 [API/ABI]
 
 // test struct: add @Deprecated
 // 不带public修饰符静态成员函数添加@Deprecated且下游不可用

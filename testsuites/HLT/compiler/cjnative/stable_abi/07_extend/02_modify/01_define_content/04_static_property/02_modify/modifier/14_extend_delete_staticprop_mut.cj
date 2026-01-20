@@ -203,6 +203,16 @@ extend TestStruct {
             11
         }
     }
+    public static prop prop12: Int64{
+        get(){
+            prop9
+        }
+    }
+    public static prop prop13: Int64{
+        get(){
+            prop8
+        }
+    }
 }
 
 public func global_func_01(){

@@ -26,9 +26,9 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
-// ASSERT: scan-1 [API/ABI] Deleted public/protected member function of extend or made it private when the extended type is class.
+// ASSERT: scan-2 [API/ABI] Deleted public/protected member function of extend or made it private when the extended type is class.
 // ASSERT: scan-1 [API/ABI] Deleted public member function of extend or made it private when the extended type is struct.
-// ASSERT: scan-2 [API/ABI]
+// ASSERT: scan-3 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 

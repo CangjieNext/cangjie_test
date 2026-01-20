@@ -8,9 +8,9 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (CJNATIVE) EXEC: cd %n && %cjpm build 2>&1| compare %f
-// (CJNATIVE) ASSERT: regex Error at `cjpm.toml:source-set.0`: directory '[\s\S][\s\S]*[/|\\]src[/|\\]common1' does not exist or path is too long
-// (CJNATIVE) ASSERT: regex Error at `cjpm.toml:source-set.1`: directory '[\s\S][\s\S]*[/|\\]src[/|\\]linux1' does not exist or path is too long
-// (CJNATIVE) ASSERT: regex Error at `cjpm.toml:source-set.2`: directory '[\s\S][\s\S]*[/|\\]src[/|\\]darwin1' does not exist or path is too long
-// (CJNATIVE) ASSERT: regex Error at `cjpm.toml:source-set.3`: directory '[\s\S][\s\S]*[/|\\]src[/|\\]windows1' does not exist or path is too long
-// (CJNATIVE) ASSERT: scan cjpm build failed
+// EXEC: cd %n && %cjpm build 2>&1| compare %f
+// ASSERT: regex Error at `cjpm.toml:source-set.0`: directory '[\s\S][\s\S]*[/|\\]src[/|\\]common1' does not exist or path is too long
+// ASSERT: regex Error at `cjpm.toml:source-set.1`: directory '[\s\S][\s\S]*[/|\\]src[/|\\]linux1' does not exist or path is too long
+// ASSERT: regex Error at `cjpm.toml:source-set.2`: directory '[\s\S][\s\S]*[/|\\]src[/|\\]darwin1' does not exist or path is too long
+// ASSERT: regex Error at `cjpm.toml:source-set.3`: directory '[\s\S][\s\S]*[/|\\]src[/|\\]windows1' does not exist or path is too long
+// ASSERT: scan cjpm build failed

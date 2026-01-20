@@ -13,11 +13,14 @@
 import std.ast.*
 
 @Test
-func test_importContent() {
-    let importContent = ImportContent()
-    @AssertThrows[ASTException](importContent.prefixDots = Tokens([Token(ILLEGAL)]))
-    @AssertThrows[ASTException](importContent.commas = Tokens([Token(DOT)]))
-    @AssertThrows[ASTException](importContent.lBrace = Token(RCURL))
-    @AssertThrows[ASTException](importContent.rBrace = Token(LCURL))
-    @AssertThrows[ASTException](importContent.orgSeparator = Token(LCURL))
+class Test_01 {
+    @TestCase
+    func test_importContent() {
+        let importContent = ImportContent()
+        @AssertThrows[ASTException](importContent.prefixDots = Tokens([Token(ILLEGAL)]))
+        @AssertThrows[ASTException](importContent.commas = Tokens([Token(DOT)]))
+        @AssertThrows[ASTException](importContent.lBrace = Token(RCURL))
+        @AssertThrows[ASTException](importContent.rBrace = Token(LCURL))
+        @AssertThrows[ASTException](importContent.orgSeparator = Token(LCURL))
+    }
 }

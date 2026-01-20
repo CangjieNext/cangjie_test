@@ -16,8 +16,9 @@ public struct S {
 }
 
 public func f(){
-    var s = S(1, 2)
-    if(s.a == 3){
+    var s1 = S(1, 2)
+    var s2 = S(a1: 3)
+    if(s1.a == 3 && s2.a == 3){
         return 0
     }
     return 1

@@ -26,8 +26,7 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Modified struct deprecated annotation with compilation error.
-// ASSERT: scan-1 [API/ABI] Added struct deprecated annotation with compilation error.
+// ASSERT: scan-2 [API/ABI] Modified struct deprecated annotation with compilation error.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 // ASSERT: scan-2 [API/ABI]

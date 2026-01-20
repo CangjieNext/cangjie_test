@@ -24,9 +24,13 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // TEST CJCPL
-// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
-// TEST ABI Compatibility
-// RUN-EXEC: %run %run_opt %output %run_args
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
+// ASSERT: scan Incompatible!
+// ASSERT: scan-2 [ABI] Modified member variables' non-access modifier from let to const for class visible outside the module.
+// ASSERT: scan-not [API/ABI]
+// ASSERT: scan-not [API]
+// ASSERT: scan-2 [ABI]
 // TEST API Compatibility
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
@@ -73,7 +77,7 @@ public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & To
     }
 }
 
-public func checker(): Int64 {
+public func checker(): Unit {
     let c0 = CC()
     assert(CC.a1, 1)
     assert(CC.a2, 2)
@@ -106,5 +110,4 @@ public func checker(): Int64 {
     assert(CC.e2, 2)
     assert(CC.e3(), 1)
     assert(c0.e4(), 2)
-    0
 }

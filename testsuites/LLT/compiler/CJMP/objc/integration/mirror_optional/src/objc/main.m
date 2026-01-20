@@ -12,10 +12,8 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [[A alloc] init];
-        [a g1:42];
-        [A g2];
-        [a f1:42];
-        [A f2];
+        [a checkMemberFunc: 42];
+        [A checkStaticFunc];
     }
     return 0;
 }

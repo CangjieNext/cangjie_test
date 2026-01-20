@@ -45,22 +45,19 @@ public struct Rectangle {
     let a1 = 20
 
     public func getWidth(): Int64{
+        var s = S1()
+        s.geta1()
+        s.a2
         return width
     }
 }
 
 public struct S1 {
-    let a1 = 20
     public let a2 = 0
-    public let a4 = 0
+    let a3 = 20
 
     @Frozen
     public func geta1() {
-        return a1
-    }
-
-    @Frozen
-    public func geta2() {
-        return a2
+        return a3
     }
 }
