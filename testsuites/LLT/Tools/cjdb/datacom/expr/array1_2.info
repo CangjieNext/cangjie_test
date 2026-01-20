@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/array1.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug array1.cj -o %n
-// EXEC: python3 cjdb_test.py array1_2.info
+// EXEC: python3 cjdb_test.py array1_2.info %n %run_env
 
 test#
 cjdb,cjdb array1_2,array1_2

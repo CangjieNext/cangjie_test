@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/cross_platform/cross_platform033/mp ../../basecase/cross_platform/cross_platform033/cross_platform033.cj
+// (CJNATIVE) EXEC: %compiler %cmp_opt -g mp/test_com.cj %compile_chir_opt -o ./
+// (CJNATIVE) EXEC: %compiler %cmp_opt -g mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
+// (CJNATIVE) EXEC: %compiler %cmp_opt -g cross_platform033.cj %link_cjmp -o cross_platform033%cmp_output
+// (CJNATIVE) RUN-EXEC: python3 cjdb_test.py cross_platform033.info cross_platform033 %run_env
+
+test#
+cjdb,cjdb --no-use-colors cross_platform033,cross_platform033
+b,b cross_platform033.cj:13,cross_platform033.cj:13
+b,b cross_platform033.cj:15,cross_platform033.cj:15
+r,r,-> 13
+s,s,test_com.cj:14
+finish,finish,cross_platform033.cj:13
+c,c,-> 15
+s,s,test_com.cj:20
+finish,finish,cross_platform033.cj:15
+n,n,-> 16
+p,p b1,\(Int32\) \$[\d] = 1
+p,p b2,\(Int32\) \$[\d] = 2
+q,q,

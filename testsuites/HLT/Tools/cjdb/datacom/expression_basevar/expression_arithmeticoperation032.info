@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 3
+// LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_0o.cj
 // (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
 // (not MAC and not Windows) EXEC: python3 cjdb_test.py expression_arithmeticoperation032.info 057_debug_0o %run_env

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/pipeline008.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g pipeline008.cj -o pipeline008%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py pipeline008.info pipeline008 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors pipeline008,pipeline008
+b,b 38,pipeline008.cj:38
+AOT r,r,-> 38
+expr,expr res1,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
+expr,expr res2,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
+expr,expr res3,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}
+expr,expr res4,\(std.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}
+expr~expr a4|>f2|>f2~\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\s\S]*\["a" -> 0\] = {[\s\S]*key = "a"[\s\S]*}[\s\S]*}
+q,q,
