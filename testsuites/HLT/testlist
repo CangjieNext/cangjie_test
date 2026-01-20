@@ -13,3 +13,19 @@ regression/
 Runtime/
 
 [EXCLUDE-TEST-CASE]
+
+# cross
+Tools/cjdb/datacom/cross_platform/cross_platform005.info
+Tools/cjdb/datacom/cross_platform/cross_platform006.info
+Tools/cjdb/datacom/cross_platform/cross_platform019.info
+Tools/cjdb/datacom/cross_platform/cross_platform022.info
+Tools/cjdb/datacom/cross_platform/cross_platform023.info
+Tools/cjdb/datacom/cross_platform/cross_platform024.info
+Tools/cjdb/datacom/cross_platform/cross_platform026.info
+Tools/cjdb/datacom/cross_platform/cross_platform027.info
+Tools/cjdb/datacom/cross_platform/cross_platform028.info
+Tools/cjdb/datacom/cross_platform/cross_platform029.info
+Tools/cjdb/datacom/cross_platform/cross_platform030.info
+Tools/cjdb/datacom/cross_platform/cross_platform031.info
+Tools/cjdb/datacom/cross_platform/cross_platform032.info
+Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP020.info

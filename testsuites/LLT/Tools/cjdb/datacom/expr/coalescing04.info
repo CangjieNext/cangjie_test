@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/coalescing04.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug coalescing04.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb coalescing04,coalescing04
+b,b 37,coalescing04.cj:37
+r,r,-> 37
+ ,expr Option<Option<Int64>>.Some(Option<Int64>.Some(100)) ?? v1,\(std.core.Option<Int64>\) \$\d+ = 100
+ ,expr Option<Option<UInt64>>.Some(Option<UInt64>.Some(100)) ?? v2,\(std.core.Option<UInt64>\) \$\d+ = 100
+ ,expr Option<Option<Float64>>.Some(Option<Float64>.Some(1.2)) ?? v3,\(std.core.Option<Float64>\) \$\d+ = 1.2
+ ,expr Option<Option<Bool>>.Some(Option<Bool>.Some(false)) ?? v4,\(std.core.Option<Bool>\) \$\d+ = false
+ ,expr Option<Option<Rune>>.Some(Option<Rune>.Some(r'a')) ?? v5,\(std.core.Option<Rune>\) \$\d+ = 'a'
+ ,expr Option<Option<Unit>>.Some(Option<Unit>.Some(())) ?? v6,\(std.core.Option<Unit>\) \$\d+ = ()
+q,q,

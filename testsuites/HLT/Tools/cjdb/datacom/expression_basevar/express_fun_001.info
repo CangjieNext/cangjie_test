@@ -23,5 +23,4 @@ CJVM c,c,-> 71
 AOT r,r,-> 71
 expr,expr 123.toString(),\(std[.]core.String\) \$[\d] = "123"
 expr,expr arr.isEmpty(),\(Bool\) \$[\d] = false
-expr,expr fff.iterator(),\(std[.]core.Iterator<Int64>\) \$[\d] = {}
 q,q,

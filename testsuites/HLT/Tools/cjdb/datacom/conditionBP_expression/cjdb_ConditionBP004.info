@@ -22,7 +22,7 @@ locals,locals,\(Unit\) vunit = ()
 p,p a2,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*
 expr:expr a2:error: unsupported expression
 expr:expr a4:\(Int64\) \$[\d] = 5
-expr:expr foo(vcfunc,5):\(default.\(\)->Unit\) \$[\d] = 0x[\s\S]*
+expr:expr foo(vcfunc,5):\(\(\)->Unit\) \$[\d] = 0x[\s\S]*
 expr:expr a6+1:\(Int32\) \$[\d] = 6
 expr:expr a6+1.1:error: unsupported expression
 expr:expr foo(vunit,vunit):\(Unit\) \$[\d] = ()

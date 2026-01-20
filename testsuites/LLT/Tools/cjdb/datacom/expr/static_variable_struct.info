@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/static_variable_struct.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug static_variable_struct.cj -o %n
-// EXEC: python3 cjdb_test.py %n.info
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
 cjdb,cjdb static_variable_struct,static_variable_struct
