@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/match_expression/match_expression006.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g match_expression006.cj -o match_expression006%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py match_expression_006.info match_expression006 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors match_expression006,match_expression006
+b,b 21,match_expression006.cj:21
+r,r,-> 21
+expr,expr result,\(std.core.String\) \$[\d] = "good"
+expr~expr match{case score < 60 => "fail" case score < 70 => "pass" case score < 90 => "good" case _ => "excellent"}~\(std.core.String\) \$[\d] = "good"
+q,q,

@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_basetype.cj
 // (not MAC) EXEC: %compiler %cmp_opt -g VArray_basetype.cj -o VArray_basetype%cmp_output
 // (not MAC) RUN-EXEC: python3 cjdb_test.py expression_Variable006.info VArray_basetype %run_env

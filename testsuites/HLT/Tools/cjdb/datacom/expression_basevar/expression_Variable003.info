@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/056_debug_tuple.cj
 // (not MAC) EXEC: %compiler %cmp_opt -g 056_debug_tuple.cj -o 056_debug_tuple%cmp_output
 // (not MAC) RUN-EXEC: python3 cjdb_test.py expression_Variable003.info 056_debug_tuple %run_env

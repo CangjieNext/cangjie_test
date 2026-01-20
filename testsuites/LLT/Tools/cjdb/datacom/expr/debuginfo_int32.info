@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/int32.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug int32.cj -o int32
-// EXEC: python3 cjdb_test.py debuginfo_int32.info
+// EXEC: python3 cjdb_test.py debuginfo_int32.info %n %run_env
 
 test#
 cjdb,cjdb int32,int32

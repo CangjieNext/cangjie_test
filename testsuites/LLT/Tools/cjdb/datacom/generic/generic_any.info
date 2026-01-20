@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/generic/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -j1 -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb generic_any,generic_any
+b,b 28, generic_any.cj:28
+r,r,-> 28
+ ,expr i64,\(Int64\) \$\d+ = 55
+ ,expr str,\(std.core.String\) \$\d+ = "123"
+ ,expr arr,\(std.core.Array<Int64>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = 2
+ ,expr tup,\(Tuple<Int64,std.core.String,Bool,default.ABC>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = "123"\s+\[2\] = true
+ ,expr cls,\(default.ABC\) \$\d+ = {\s+a = 1\s+b = "123"
+ ,expr stru,\(default.BCD\) \$\d+ = {\s+a = 1\s+b = "123"
+q,q,

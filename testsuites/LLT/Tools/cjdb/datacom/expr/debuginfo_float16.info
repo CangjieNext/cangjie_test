@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/float16.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug float16.cj -o float16
-// EXEC: python3 cjdb_test.py debuginfo_float16.info
+// EXEC: python3 cjdb_test.py debuginfo_float16.info %n %run_env
 
 test#
 cjdb,cjdb float16,float16

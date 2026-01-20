@@ -1,0 +1,16 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/coalescing09.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug coalescing09.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb coalescing09,coalescing09
+b,b 34,coalescing09.cj:34
+r,r,-> 34
+ ,expr v7 ?? a3,\(std.collection.HashMap<std.core.String,Int64>\) \$\d+ = {\s+\["a0" -> 0\] = {\s+ key = "a0"\s+value = 0
+q,q,

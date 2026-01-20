@@ -7,7 +7,7 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/package1/%n.cj  ../../basecase/expr/package1/pkg.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug --output-type=staticlib pkg.cj -o pkg.a
 // EXEC: %compiler %cmp_opt %enableCompileDebug pkg.a %n.cj --import-path pkg -o %n
-// EXEC: python3 cjdb_test.py %n.info
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
 cjdb,cjdb package_main1,package_main1

@@ -1,0 +1,41 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/virtual_func/debuginfo_virtual_func_01.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_virtual_func_01.cj -o debuginfo_virtual_func_01
+// EXEC: python3 cjdb_test.py debuginfo_virtual_func_01.info debuginfo_virtual_func_01 %run_env
+
+
+test#
+cjdb,cjdb debuginfo_virtual_func_01,debuginfo_virtual_func_01
+b,b main,debuginfo_virtual_func_01.cj:30
+r,r,-> 30
+n,n,-> 31
+s,s,-> 14
+s,s,-> 15
+s,s,-> 16
+s,s,-> 14
+s,s,-> 32
+s,s,-> 26
+s,s,-> 14
+s,s,-> 15
+s,s,-> 16
+s,s,-> 14
+s,s,-> 26
+s,s,-> 27
+s,s,-> 32
+n,n,-> 33 
+n,n,-> 34
+s,s,-> 21
+s,s,-> 22
+s,s,-> 35
+s,s,-> 26
+s,s,-> 21
+s,s,-> 22
+s,s,-> 26
+s,s,-> 27
+s,s,-> 35
+q,q,
