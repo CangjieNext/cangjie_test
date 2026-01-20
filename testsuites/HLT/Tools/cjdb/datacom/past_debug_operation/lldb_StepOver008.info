@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0
+// LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/023_debug_stop.cj
 // EXEC: %compiler %cmp_opt -g 023_debug_stop.cj -o 023_debug_stop%cmp_output
 // RUN-EXEC: python3 cjdb_test.py lldb_StepOver008.info 023_debug_stop %run_env

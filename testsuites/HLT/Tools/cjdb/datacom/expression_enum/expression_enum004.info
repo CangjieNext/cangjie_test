@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/014_enum_extend.cj
 // (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 014_enum_extend.cj -o 014_enum_extend%cmp_output
 // (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum004.info 014_enum_extend %run_env

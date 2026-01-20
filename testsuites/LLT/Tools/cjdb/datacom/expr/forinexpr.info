@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/dowhile.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug dowhile.cj -o for_in
-// EXEC: python3 cjdb_test.py %n.info
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
 
 test#
 cjdb,cjdb for_in,for_in
