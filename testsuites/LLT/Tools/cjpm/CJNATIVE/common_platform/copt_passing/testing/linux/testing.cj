@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-features os.linux
+features { os.linux }
 package testing
 
 public platform func baz(x: Range<Int64>): String {

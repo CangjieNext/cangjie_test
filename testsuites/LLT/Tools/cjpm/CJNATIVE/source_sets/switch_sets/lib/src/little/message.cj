@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-features user.lib.arch.little
+features { user.lib.arch.little }
 package lib
 
 public platform func message(): Unit {

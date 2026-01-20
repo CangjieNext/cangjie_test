@@ -12,3 +12,19 @@ API/syntax
 
 # timezone file in ci not support now
 API/std/time/TimeZone/load/test_loadFromPaths.cj
+
+# exclude because of lack of features for cjmp on cjc
+Tools/cjpm/source_set/source_set001
+Tools/cjpm/source_set/source_set002/source_set_class
+Tools/cjpm/source_set/source_set002/source_set_con
+Tools/cjpm/source_set/source_set002/source_set_enum
+Tools/cjpm/source_set/source_set002/source_set_func
+Tools/cjpm/source_set/source_set002/source_set_interface
+Tools/cjpm/source_set/source_set002/source_set_prop
+Tools/cjpm/source_set/source_set002/source_set_struct
+Tools/cjpm/source_set/source_set003/source_set_identifier002
+Tools/cjpm/source_set/source_set004/source_set_srcdir001
+Tools/cjpm/source_set/source_set005/source_set_condition004
+Tools/cjpm/source_set/source_set006/dependence001
+Tools/cjpm/source_set/source_set006/dependence009
+Tools/cjpm/source_set/source_set006/dependence010

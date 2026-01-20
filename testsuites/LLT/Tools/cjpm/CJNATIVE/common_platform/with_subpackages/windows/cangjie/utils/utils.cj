@@ -4,5 +4,5 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-features os.windows
+features { os.windows }
 package testing.utils

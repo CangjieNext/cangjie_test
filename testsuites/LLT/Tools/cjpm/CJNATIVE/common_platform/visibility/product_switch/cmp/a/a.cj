@@ -6,5 +6,5 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features user.cmp.a
+features { user.cmp.a }
 package cmp
