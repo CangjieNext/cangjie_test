@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/optional_chaining_expression/optional_chaining_expression025.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g optional_chaining_expression025.cj -o optional_chaining_expression025%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py optional_chaining_expression025.info optional_chaining_expression025 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors optional_chaining_expression025,optional_chaining_expression025
+b,b 17,optional_chaining_expression025.cj:17
+r,r,-> 17
+expr,expr r1,\(std.core.Option<Int64>\) \$[\d] = 0
+expr,expr r2,\(std.core.Option<Int64>\) \$[\d] = None
+expr~expr a1?["b"]~\(std.core.Option<Int64>\) \$[\d] = 1
+q,q,

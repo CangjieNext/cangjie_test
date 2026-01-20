@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/bool.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug bool.cj -o bool
-// EXEC: python3 cjdb_test.py debuginfo_bool.info
+// EXEC: python3 cjdb_test.py debuginfo_bool.info %n %run_env
 
 test#
 cjdb,cjdb bool,bool

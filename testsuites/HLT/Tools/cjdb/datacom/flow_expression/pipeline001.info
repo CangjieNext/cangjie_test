@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/pipeline001.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g pipeline001.cj -o pipeline001%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py pipeline001.info pipeline001 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors pipeline001,pipeline001
+b,b 80,pipeline001.cj:80
+AOT r,r,-> 80
+globals,globals,\(Int8\) default::res = 2
+expr,expr res,\(Int8\) \$[\d] = 2
+expr,expr a2|>f2,\(Int16\) \$[\d] = 3
+expr,expr a3_|>f_3,\(UInt32\) \$[\d] = 4
+expr,expr res5_,\(UIntNative\) \$[\d] = 4
+q,q,
