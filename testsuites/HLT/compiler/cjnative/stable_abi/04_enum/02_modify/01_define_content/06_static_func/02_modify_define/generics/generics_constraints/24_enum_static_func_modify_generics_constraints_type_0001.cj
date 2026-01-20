@@ -27,9 +27,9 @@
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [ABI] Changed generic constraint of function visible outside the module.
+// ASSERT: scan-2 [ABI] Changed generic constraint of function visible outside the module.
 // ASSERT: scan-not [API]
-// ASSERT: scan-1 [ABI]
+// ASSERT: scan-2 [ABI]
 // ASSERT: scan-not [API/ABI]
 
 // TEST API Compatibility

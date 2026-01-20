@@ -15,6 +15,13 @@
 // (CJNATIVE and Darwin) RUN-EXEC-0: %cd %n && %clang %modules_opt %objc_arc_opt src/objc/*.m objc-gen/*.m -o out/main -Lout %cangjie_runtime_link -I../ -Isrc/objc -Iobjc-gen %include_cangjie -lcjworld -lcangjie-runtime
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n/out && ./main 2>& 1 | compare %f
 
-// ASSERT: scan-2 cj catch ObjCOptionalMethodUnimplementedException
-// ASSERT: scan in cj f1
-// ASSERT: scan in cj f2
+/* SCAN-IN
+cj: catch super.memberFuncNotImplemented ObjCOptionalMethodUnimplementedException
+objc: [m memberFuncImplemented:42]
+cj: implement memberFuncNotImplemented(42)
+cj: implement memberFuncImplemented(42)
+cj: catch M.staticFuncNotImplemented ObjCOptionalMethodUnimplementedException
+objc: [M staticFuncImplemented]
+cj: implement staticFuncNotImplemented
+cj: implement staticFuncImplemented
+*/

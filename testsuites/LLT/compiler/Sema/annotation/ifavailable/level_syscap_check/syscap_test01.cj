@@ -119,7 +119,7 @@ warning: inappropriate syscap 'B'
 50 |         f_B() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, H
+   # note: the following syscaps are supported: H, A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'C'
@@ -128,7 +128,7 @@ warning: inappropriate syscap 'C'
 51 |         f_C() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, H
+   # note: the following syscaps are supported: H, A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'D'
@@ -137,7 +137,7 @@ warning: inappropriate syscap 'D'
 52 |         f_D() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, H
+   # note: the following syscaps are supported: H, A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'E'
@@ -146,7 +146,7 @@ warning: inappropriate syscap 'E'
 53 |         f_E() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, H
+   # note: the following syscaps are supported: H, A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'F'
@@ -155,7 +155,7 @@ warning: inappropriate syscap 'F'
 54 |         f_F() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, H
+   # note: the following syscaps are supported: H, A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'G'
@@ -164,7 +164,7 @@ warning: inappropriate syscap 'G'
 55 |         f_G() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, H
+   # note: the following syscaps are supported: H, A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 error: inappropriate syscap 'I'
@@ -173,7 +173,7 @@ error: inappropriate syscap 'I'
 57 |         f_I() // error
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, B, C, ...
+   # note: the following syscaps are supported: H, A, B...
 
 warning: inappropriate syscap 'B'
   ==> syscap_test01.cj:60:9:
@@ -235,7 +235,7 @@ error: inappropriate syscap 'H'
 66 |         f_H() // error
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, B, C, ...
+   # note: the following syscaps are supported: A, B, C...
 
 error: inappropriate syscap 'I'
   ==> syscap_test01.cj:67:9:
@@ -243,7 +243,7 @@ error: inappropriate syscap 'I'
 67 |         f_I() // error
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, B, C, ...
+   # note: the following syscaps are supported: A, B, C...
 
 warning: inappropriate syscap 'B'
   ==> syscap_test01.cj:72:9:
@@ -251,7 +251,7 @@ warning: inappropriate syscap 'B'
 72 |         f_B() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: AA
+   # note: the following syscaps are supported: A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'C'
@@ -260,7 +260,7 @@ warning: inappropriate syscap 'C'
 73 |         f_C() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: AA
+   # note: the following syscaps are supported: A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'D'
@@ -269,7 +269,7 @@ warning: inappropriate syscap 'D'
 74 |         f_D() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: AA
+   # note: the following syscaps are supported: A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'E'
@@ -278,7 +278,7 @@ warning: inappropriate syscap 'E'
 75 |         f_E() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: AA
+   # note: the following syscaps are supported: A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'F'
@@ -287,7 +287,7 @@ warning: inappropriate syscap 'F'
 76 |         f_F() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: AA
+   # note: the following syscaps are supported: A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'G'
@@ -296,7 +296,7 @@ warning: inappropriate syscap 'G'
 77 |         f_G() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: AA
+   # note: the following syscaps are supported: A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 error: inappropriate syscap 'H'
@@ -305,7 +305,7 @@ error: inappropriate syscap 'H'
 78 |         f_H() // error
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: AB, C, ...
+   # note: the following syscaps are supported: A, B, C...
 
 error: inappropriate syscap 'I'
   ==> syscap_test01.cj:79:9:
@@ -313,7 +313,7 @@ error: inappropriate syscap 'I'
 79 |         f_I() // error
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: AB, C, ...
+   # note: the following syscaps are supported: A, B, C...
 
 warning: inappropriate syscap 'B'
   ==> syscap_test01.cj:82:9:
@@ -375,7 +375,7 @@ error: inappropriate syscap 'H'
 88 |         f_H() // error
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, B, C, ...
+   # note: the following syscaps are supported: A, B, C...
 
 error: inappropriate syscap 'I'
   ==> syscap_test01.cj:89:9:
@@ -383,7 +383,7 @@ error: inappropriate syscap 'I'
 89 |         f_I() // error
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, B, C, ...
+   # note: the following syscaps are supported: A, B, C...
 
 warning: inappropriate syscap 'C'
   ==> syscap_test01.cj:95:9:
@@ -391,7 +391,7 @@ warning: inappropriate syscap 'C'
 95 |         f_C() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, B
+   # note: the following syscaps are supported: B, A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'D'
@@ -400,7 +400,7 @@ warning: inappropriate syscap 'D'
 96 |         f_D() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, B
+   # note: the following syscaps are supported: B, A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'E'
@@ -409,7 +409,7 @@ warning: inappropriate syscap 'E'
 97 |         f_E() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, B
+   # note: the following syscaps are supported: B, A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'F'
@@ -418,7 +418,7 @@ warning: inappropriate syscap 'F'
 98 |         f_F() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, B
+   # note: the following syscaps are supported: B, A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 warning: inappropriate syscap 'G'
@@ -427,7 +427,7 @@ warning: inappropriate syscap 'G'
 99 |         f_G() // warning
    |         ^^^^^ 
    | 
-   # note: the following syscaps are supported: A, B
+   # note: the following syscaps are supported: B, A
    # note: this warning can be suppressed by setting the compiler option `-Woff apilevel-check`
 
 error: inappropriate syscap 'H'
@@ -436,7 +436,7 @@ error: inappropriate syscap 'H'
 100 |         f_H() // error
     |         ^^^^^ 
     | 
-    # note: the following syscaps are supported: A, BC, ...
+    # note: the following syscaps are supported: A, B, C...
 
 error: inappropriate syscap 'I'
    ==> syscap_test01.cj:101:9:
@@ -444,7 +444,7 @@ error: inappropriate syscap 'I'
 101 |         f_I() // error
     |         ^^^^^ 
     | 
-    # note: the following syscaps are supported: A, BC, ...
+    # note: the following syscaps are supported: A, B, C...
 
 warning: inappropriate syscap 'B'
    ==> syscap_test01.cj:104:9:
@@ -506,7 +506,7 @@ error: inappropriate syscap 'H'
 110 |         f_H() // error
     |         ^^^^^ 
     | 
-    # note: the following syscaps are supported: A, B, C, ...
+    # note: the following syscaps are supported: A, B, C...
 
 error: inappropriate syscap 'I'
    ==> syscap_test01.cj:111:9:
@@ -514,7 +514,7 @@ error: inappropriate syscap 'I'
 111 |         f_I() // error
     |         ^^^^^ 
     | 
-    # note: the following syscaps are supported: A, B, C, ...
+    # note: the following syscaps are supported: A, B, C...
 
 11 errors generated, 11 errors printed.
 35 warnings generated, 35 warnings printed.

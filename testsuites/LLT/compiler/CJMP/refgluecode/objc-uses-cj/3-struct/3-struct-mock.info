@@ -1,0 +1,14 @@
+// DEPENDENCE: ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/3-struct/api ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/3-struct/app ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/3-struct/generated
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt api/*.cj -o libapi.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt generated/*.cj %import_objc_interop -L. -lapi -o libcjworld.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %clang %cffi_runtime_link            generated/*.m -Igenerated -L. -lobjc -linteroplib.objclib -lcjworld -shared -o libgluecode.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %clang %cffi_runtime_link -fobjc-arc app/*.m -Iapp -Igenerated -L. -lapi -lcjworld -lgluecode -o main
+// (CJNATIVE and not Windows) RUN-EXEC: test -f libcjworld.dylib || cp libcjworld.%dylib_suffix libcjworld.dylib
+// (CJNATIVE and not Windows) RUN-EXEC: %run_macro ./main 2>&1 | sed 's/.* main\[[0-9]*:[0-9]*\] //g' | compare ./%f
+
+/* SCAN-IN
+ObjC: main v is (1, 2)
+ObjC: main w is (3, 4)
+Hello from dot (1, 2) . (3, 4) = 11
+ObjC: main got [v dot: w] = 11
+*/

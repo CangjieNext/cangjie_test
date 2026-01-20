@@ -10,13 +10,15 @@
 
 @protocol I
 @optional
-- (void) f1:(int) n;
+- (void) memberFuncNotImplemented:(int) n;
+- (void) memberFuncImplemented:(int) n;
 @optional
-+ (void) f2;
++ (void) staticFuncNotImplemented;
++ (void) staticFuncImplemented;
 @end
 
 @interface M : NSObject <I>
 - (id)init;
-- f2;
+- (void) memberFuncImplemented:(int) n;
++ (void) staticFuncImplemented;
 @end
-

@@ -141,6 +141,12 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
     main_file_list.append(test_info_file_path)
     pattern_main = r'(\s*main\s*\(\s*(.*?)\s*\)\s*:?\s*(.*?)\s*\{)(?!\})'
     for dependent_file_path in items:
+        # 不存在就跳过
+        if not os.path.exists(dependent_file_path):
+            continue
+        # 如果是目录就跳过
+        if os.path.isdir(dependent_file_path):
+            continue
         with open(dependent_file_path, 'r', encoding='utf-8') as f:
             content = f.read()
             if re.findall(pattern_main, content):

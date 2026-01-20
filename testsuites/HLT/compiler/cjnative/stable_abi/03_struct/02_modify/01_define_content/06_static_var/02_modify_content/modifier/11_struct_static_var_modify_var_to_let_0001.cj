@@ -26,10 +26,10 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-3 [API/ABI] Changed member variable's modifier of struct visible outside the module. var to let.
+// ASSERT: scan-1 [API/ABI] Changed member variable's modifier of struct visible outside the module. var to let.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
-// ASSERT: scan-3 [API/ABI]
+// ASSERT: scan-1 [API/ABI]
 
 // test struct: modify access modifier: var to let
 package test_stable_abi

@@ -7,21 +7,23 @@
 package cjworld
 
 import objc.lang.*
-// import objc.foundation.NSObject
-// import introplib.objc.*
 
 @ObjCMirror
 public interface I {
     @ObjCOptional
-    func f1(n: Int32): Unit
+    func memberFuncNotImplemented(n: Int32): Unit
     @ObjCOptional
-    static func f2(): Unit
+    func memberFuncImplemented(n: Int32): Unit
+    @ObjCOptional
+    static func staticFuncNotImplemented(): Unit
+    @ObjCOptional
+    static func staticFuncImplemented(): Unit
 }
 
 @ObjCMirror
 open class M <: I {
-    @ForeignName["init"]
     public init()
-
-    public static func f2(): Unit
+    public open func memberFuncImplemented(n: Int32): Unit
+    public static func staticFuncNotImplemented(): Unit
+    public static func staticFuncImplemented(): Unit
 }

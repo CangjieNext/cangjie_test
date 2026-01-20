@@ -9,10 +9,10 @@
 /*
   @No: 3.2.1.8.2.4
   @Scene: modify
-  @Visibility: used in public const declare
+  @Visibility: non public
   @Object: struct static func
   @Behavior: modify @Deprecated, warning -> error
-  @Expect: api incompatible & abi incompatible
+  @Expect: api compatible & abi compatible
 */
 // LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
@@ -24,12 +24,12 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
 // TEST CJCPL
-// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
-// ASSERT: scan Incompatible!
-// ASSERT: scan-2 [API/ABI] Changed member function's annotation of struct visible outside the module. Deprecated strict added.
-// ASSERT: scan-not [API]
-// ASSERT: scan-not [ABI]
-// ASSERT: scan-2 [API/ABI]
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
+// TEST ABI Compatibility
+// RUN-EXEC: %run %run_opt %output %run_args
+// TEST API Compatibility
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 // test struct: modify @Deprecated
 // modify operation: modify @Deprecated: warning -> error

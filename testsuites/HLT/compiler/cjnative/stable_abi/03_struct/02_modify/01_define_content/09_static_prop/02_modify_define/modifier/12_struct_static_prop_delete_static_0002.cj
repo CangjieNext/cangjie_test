@@ -206,6 +206,19 @@ public struct S1{
     }
 }
 
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
 public func check(){
+    assert(Rectangle.geta5, 20)
+    assert(Rectangle.geta6, 20)
+    assert(Rectangle.geta7, 20)
+    assert(Rectangle.geta9, 20)
+    assert(Rectangle.geta10, 20)
+    assert(S1.getc, 20)
     return 0
 }

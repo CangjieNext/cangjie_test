@@ -36,7 +36,7 @@
 package test_stable_abi
 
 public enum E {
-    | Red | Green | Blue(UInt8)
+    | A | B | C(UInt8)
     public static func g5() {5}
     public static func g1() {1}
     protected static func g2() {2}

@@ -26,10 +26,10 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-4 [ABI] Deleted default value of named parameter.
+// ASSERT: scan-4 [ABI] Changed parameter default value of a const function or function marked with @Frozen.
 // ASSERT: scan-4 [ABI]
 // ASSERT: scan-not [API/ABI]
-// ASSERT: scan-not [ABI]
+// ASSERT: scan-not [API]
 
 package test_stable_abi
 

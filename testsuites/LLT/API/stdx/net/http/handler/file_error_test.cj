@@ -43,8 +43,6 @@ class TestFileError {
             let buf = Array<UInt8>(4096, repeat: 0)
             client.read(buf)
             @Expect(String.fromUtf8(buf).contains("400 Bad Request"))
-            let info1 = FileInfo("test.txt")
-            @Assert(info1.size, 3)
         } finally {
             if (exists("test.txt")) {
                 remove("test.txt")

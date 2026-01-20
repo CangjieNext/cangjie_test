@@ -15,6 +15,9 @@ import std.ast.*
 
 
 @Test
+class test_01{
+    @TestCase
 func test_importList() {
     var input: Tokens = quote(public import 000::ast.userdefine)
+}
 }

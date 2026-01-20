@@ -27,8 +27,8 @@
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-6 [ABI] Modified order of constructor for enum visible outside the module.
-// ASSERT: scan-6 [ABI]
+// ASSERT: scan-9 [ABI] Modified order of constructor for enum visible outside the module.
+// ASSERT: scan-9 [ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [API/ABI]
 

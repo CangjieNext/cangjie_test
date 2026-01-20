@@ -192,3 +192,38 @@ struct S5 {
         return a
     }
 }
+
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func check(){
+    assert(S1().f1(1.2, B(), c:7, d:1), 1.2)
+    assert(S1().f2(1.2, B(), c:7, d:2), 1.2)
+    assert(S1().f3(1.2, B(), c:7, d:3), 1.2)
+    assert(S1().f4(1.2, B(), c:7, d:4), 1.2)
+
+    assert(S2().f1(1.2, B(), c:7, d:1), 1.2)
+    assert(S2().f2(1.2, B(), c:7, d:2), 1.2)
+    assert(S2().f3(1.2, B(), c:7, d:3), 1.2)
+    assert(S2().f4(1.2, B(), c:7, d:4), 1.2)
+
+    assert(S3().f1(1.2, B(), c:7, d:1), 1.2)
+    assert(S3().f2(1.2, B(), c:7, d:2), 1.2)
+    assert(S3().f3(1.2, B(), c:7, d:3), 1.2)
+    assert(S3().f4(1.2, B(), c:7, d:4), 1.2)
+
+    assert(S4().f1(1.2, B(), c:7, d:1), 1.2)
+    assert(S4().f2(1.2, B(), c:7, d:2), 1.2)
+    assert(S4().f3(1.2, B(), c:7, d:3), 1.2)
+    assert(S4().f4(1.2, B(), c:7, d:4), 1.2)
+
+    assert(S5().f1(1.2, B(), c:7, d:1), 1.2)
+    assert(S5().f2(1.2, B(), c:7, d:2), 1.2)
+    assert(S5().f3(1.2, B(), c:7, d:3), 1.2)
+    assert(S5().f4(1.2, B(), c:7, d:4), 1.2)
+    return 0
+}

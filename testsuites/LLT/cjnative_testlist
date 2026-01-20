@@ -73,6 +73,8 @@ compiler/CJMP/frontend/matching/struct/new_members/new_required_constructor.cj
 compiler/CJMP/merging/structs/common_member/function/function_ret_09.cj
 compiler/CJMP/merging/test.cj
 
+#temporary excluded: interoplib is not yet in Cangjie SDK for linux x86
+compiler/CJMP/refgluecode
 
 # daignose is changed
 compiler/Sema/interface/interface_property/interface_property1.cj
