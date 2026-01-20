@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/coalescing07.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug coalescing07.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb coalescing07,coalescing07
+b,b 35,coalescing07.cj:35
+r,r,-> 35
+ ,p r5,\(default.C2<Int64>\) \$\d+ = {\s+default.C1<Int64> = {\s+b = 1\s+}\s+b2 = 2
+ ,expr r5,\(default.C2<Int64>\) \$\d+ = {\s+default.C1<Int64> = {\s+b = 1\s+}\s+b2 = 2
+ ,p r6,\(default.C2<Int64>\) \$\d+ = {\s+default.C1<Int64> = {\s+b = 1\s+}\s+b2 = 2
+ ,expr r6,\(default.C2<Int64>\) \$\d+ = {\s+default.C1<Int64> = {\s+b = 1\s+}\s+b2 = 2
+q,q,

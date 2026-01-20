@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/uint32.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug uint32.cj -o uint32
-// EXEC: python3 cjdb_test.py debuginfo_uint32.info
+// EXEC: python3 cjdb_test.py debuginfo_uint32.info %n %run_env
 
 test#
 cjdb,cjdb uint32,uint32

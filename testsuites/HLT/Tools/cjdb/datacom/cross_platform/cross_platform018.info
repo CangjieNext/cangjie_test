@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/cross_platform/cross_platform018/mp ../../basecase/cross_platform/cross_platform018/cross_platform018.cj
+// (CJNATIVE) EXEC: %compiler %cmp_opt -g mp/test_com.cj %compile_chir_opt -o ./
+// (CJNATIVE) EXEC: %compiler %cmp_opt -g mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
+// (CJNATIVE) EXEC: %compiler %cmp_opt -g cross_platform018.cj %link_cjmp -o cross_platform018%cmp_output
+// (CJNATIVE) RUN-EXEC: python3 cjdb_test.py cross_platform018.info cross_platform018 %run_env
+
+test#
+cjdb,cjdb --no-use-colors cross_platform018,cross_platform018
+b,b cross_platform018.cj:12,cross_platform018.cj:12
+r,r,-> 12
+s,s,test_com.cj:27
+finish,finish,-> 12
+n,n,-> 13
+s,s,test_com.cj:21
+finish,finish,-> 13
+n,n,-> 14
+s,s,test_com.cj:19
+finish,finish,-> 14
+s,s,test_com.cj:30
+finish,finish,
+q,q,

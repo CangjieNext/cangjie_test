@@ -17,8 +17,8 @@ cjdb,cjdb --no-use-colors generics_local_var002,generics_local_var002
 b,b 56,generics_local_var002.cj:56
 AOT r,r,-> 56
 CJVM c,c,
-expr:expr S1.varr:error: unsupported expression
-expr:expr s1.varrs:error: unsupported expression
-expr:expr C1.vlist:error: unsupported expression
-expr:expr c1.clistc:error: unsupported expression
+expr:expr S1.varr:\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+expr:expr s1.varrs:\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+expr:expr C1.vlist:\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+expr:expr c1.vlistc:\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
 q,q,
