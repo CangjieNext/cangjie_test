@@ -7,6 +7,6 @@
 features { user.lib.arch.little }
 package lib
 
-public platform func message(): Unit {
+public specific func message(): Unit {
 	println("LITTLE_MESSAGE")
 }

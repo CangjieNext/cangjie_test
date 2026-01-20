@@ -8,23 +8,23 @@
 
 package mp
 
-platform public interface Iterable<E> {
-    platform public func iterator(): Unit {}
+specific public interface Iterable<E> {
+    specific public func iterator(): Unit {}
 }
 
-platform public interface Iterator<E> <: Iterable<E> {
-    platform public func next(a: Option<E>): Option<E> {
+specific public interface Iterator<E> <: Iterable<E> {
+    specific public func next(a: Option<E>): Option<E> {
         a
     }
 }
 
-platform public interface Collection<T> <: Iterable<T> {
-    platform public prop size: Int64 {
+specific public interface Collection<T> <: Iterable<T> {
+    specific public prop size: Int64 {
         get() {
             1
         }
     }
-    platform public func isEmpty(): Bool {
+    specific public func isEmpty(): Bool {
         true
     }
 }

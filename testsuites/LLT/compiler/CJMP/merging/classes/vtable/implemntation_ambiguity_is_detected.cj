@@ -20,11 +20,11 @@ public open class A <: I & I3 {}
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 
-public platform interface I {
+public specific interface I {
 }
 
-public platform interface I3 {
-    func foo6(): Unit { println("I3::foo platform") }
+public specific interface I3 {
+    func foo6(): Unit { println("I3::foo specific") }
 } 
 
 /* SCAN

@@ -51,17 +51,17 @@ common extend<T> Point<T> <: ToString where T <: Number<T> & ToString {
 package cmp
 import std.math.*
 import define.*
-platform extend<T> Point<T> <: ToString where T <: Number<T> & ToString {
-    platform operator func -(): Point<T> {
+specific extend<T> Point<T> <: ToString where T <: Number<T> & ToString {
+    specific operator func -(): Point<T> {
         return Point(-x, -y)
     }
-    platform operator func +(right: Point<T>): Point<T> {
+    specific operator func +(right: Point<T>): Point<T> {
         return Point(x + right.x, y + right.y)
     }
-    platform operator func *(right: Point<T>): Point<T> {
+    specific operator func *(right: Point<T>): Point<T> {
         return Point(x * right.x, y * right.y)
     }
-    platform static func calc(p1: Point<T>): Unit {
+    specific static func calc(p1: Point<T>): Unit {
         let p2 = -p1 
         @dprint(-p1)
         @dprint(p1 + p2)

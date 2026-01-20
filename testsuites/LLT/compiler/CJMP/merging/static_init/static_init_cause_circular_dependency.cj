@@ -28,11 +28,11 @@ public common class A {
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  2>&1 | compare %f
 package cmp
  
-public platform class A {
+public specific class A {
     // DEPENDENCY: x -> foo -> _foo
     // So, p.cj -> c.cj
     // BUT `static init` means that `x` initialized before `y` 
-    public platform static var x: Int = foo()
+    public specific static var x: Int = foo()
 }
 /* SCAN
 error: c.cj and p.cj might have file circular dependency

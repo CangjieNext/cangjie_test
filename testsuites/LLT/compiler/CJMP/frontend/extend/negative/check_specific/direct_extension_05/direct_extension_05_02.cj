@@ -16,6 +16,6 @@ common extend Option<Int64> {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform extend Option<Int64> {
-    platform func foo(): Unit {}
+specific extend Option<Int64> {
+    specific func foo(): Unit {}
 }

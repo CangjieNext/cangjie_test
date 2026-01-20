@@ -33,10 +33,10 @@ class CommonImplementor <: TestIface1<String> & TestIface2<Int> {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform interface TestIface1<T> {}
+specific interface TestIface1<T> {}
 
-platform interface TestIface2<T> {
-    platform func g(_: T): Unit
+specific interface TestIface2<T> {
+    specific func g(_: T): Unit
 }
 
 class PlatformImplementor <: TestIface1<String> & TestIface2<Int> {

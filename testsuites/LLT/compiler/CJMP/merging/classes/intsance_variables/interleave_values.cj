@@ -22,10 +22,10 @@ public common class A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
-    public platform let b: Int64 = 10000
+public specific class A {
+    public specific let b: Int64 = 10000
     public let d: Int64 = 100000
-    public platform let e: Int64 = 1000000
+    public specific let e: Int64 = 1000000
     public let h: Int64 = g * 5
     public let i: Int64 = 10000000
 }

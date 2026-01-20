@@ -28,8 +28,8 @@ common func foo<T>(arg: A<T>): Unit {
 package cmp
 import testImport.A
 
-platform func foo<T>(arg: A<T>): Unit {
-    println("platform")
+specific func foo<T>(arg: A<T>): Unit {
+    println("specific")
 }
 
 main() {
@@ -37,5 +37,5 @@ main() {
 }
 
 /* SCAN
-platform
+specific
 */

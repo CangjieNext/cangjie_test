@@ -26,10 +26,10 @@ common func foo(): I1 {
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
-platform interface I1 {}
-platform class C1 <: I1 {}  
-platform func foo(): I1 {
-    println("platform")
+specific interface I1 {}
+specific class C1 <: I1 {}  
+specific func foo(): I1 {
+    println("specific")
     C1()
 }
 main() {
@@ -38,5 +38,5 @@ main() {
 }
 
 /* SCAN
-platform
+specific
 */

@@ -34,9 +34,9 @@ common public enum A <: I1 & I2 {
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-platform interface I1 {}
-platform interface I2 {}
-platform public enum A <: I1 & I2 {
+specific interface I1 {}
+specific interface I2 {}
+specific public enum A <: I1 & I2 {
     | AA | BB
 }
 

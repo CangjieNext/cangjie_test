@@ -29,11 +29,11 @@ public common struct S1 <: I1 {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-public platform struct S1 <: I1 {
+public specific struct S1 <: I1 {
 
-    public platform prop p: Int64 {
+    public specific prop p: Int64 {
         get() {
-            println("platform get")
+            println("specific get")
             1
         }
     }
@@ -45,5 +45,5 @@ main(): Unit {
 }
 
 /* SCAN
-platform get
+specific get
 */

@@ -21,10 +21,10 @@ common extend Foo <: I1 & I2 & I3 {}
 
 package cmp
 
-platform interface I1 {}
-platform interface I2 {}
-platform interface I3 {}
-platform class Foo {}
+specific interface I1 {}
+specific interface I2 {}
+specific interface I3 {}
+specific class Foo {}
 
-platform extend Foo <: I1 & I2 {}
-platform extend Foo <: I3  {}
+specific extend Foo <: I1 & I2 {}
+specific extend Foo <: I3  {}

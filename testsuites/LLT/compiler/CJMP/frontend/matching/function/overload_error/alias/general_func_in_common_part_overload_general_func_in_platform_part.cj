@@ -20,5 +20,5 @@ package cmp
 
 public func foo(input: Boolean): Unit {}
 
-public platform func goo(input: Int64): Unit {}
+public specific func goo(input: Int64): Unit {}
 

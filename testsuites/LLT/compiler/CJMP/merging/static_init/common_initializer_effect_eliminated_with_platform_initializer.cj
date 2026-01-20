@@ -12,8 +12,8 @@ common func foo(msg: String): Int
 
 public common class A {
     public common static var x: Int
-    public common static var y: Int = 22 // replaced by platform
-    public common static var z: Int = foo("never") // THIS `foo` should not be called, because platform exists
+    public common static var y: Int = 22 // replaced by specific
+    public common static var z: Int = foo("never") // THIS `foo` should not be called, because specific exists
 
     static init(){
         x = 21 // This value assignged AFTER p.cj initializer is called
@@ -25,16 +25,16 @@ public common class A {
 package cmp
 
 var _foo = 21
-platform func foo(msg: String): Int {
+specific func foo(msg: String): Int {
     println("foo ${msg}")
     _foo += 1
     return _foo
 }
  
-public platform class A {
-    public platform static var x: Int = 121 // initialize, but replaced with `x = 21`
-    public platform static var y: Int = 122 // replace common
-    public platform static var z: Int = foo("platform") // initialize with 22 (called before `static init` of A)
+public specific class A {
+    public specific static var x: Int = 121 // initialize, but replaced with `x = 21`
+    public specific static var y: Int = 122 // replace common
+    public specific static var z: Int = foo("specific") // initialize with 22 (called before `static init` of A)
 }
 
 // SEPARATE-FILE: m_platform.cj
@@ -49,7 +49,7 @@ main(): Unit {
 }
 
 /* SCAN
-foo platform
+foo specific
 21
 122
 22

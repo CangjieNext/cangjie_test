@@ -14,9 +14,9 @@ common extend<R,T> Foo<R,T> {}
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
-// ASSERT: scan error: declaration 'platform' extend 'Foo<R T>' has a conflicting extension
+// ASSERT: scan error: declaration 'specific' extend 'Foo<R T>' has a conflicting extension
 package cmp
 
-platform extend<R,T> Foo<R,T> {}
+specific extend<R,T> Foo<R,T> {}
 
-platform extend<R,T> Foo<R,T> {}
+specific extend<R,T> Foo<R,T> {}

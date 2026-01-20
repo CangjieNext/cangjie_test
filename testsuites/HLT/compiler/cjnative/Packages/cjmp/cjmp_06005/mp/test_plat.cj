@@ -8,7 +8,7 @@
  
 package mp
 
-public platform enum A {
+public specific enum A {
     | E1
 }
 public func test_plat() { E1.f() + E2.f() }

@@ -9,7 +9,7 @@ package mp
 features {os.windows}
 
 
-public platform var a: Int64 = 0
+public specific var a: Int64 = 0
 
 public func test_plat(): Unit {
     a

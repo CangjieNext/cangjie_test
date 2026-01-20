@@ -8,7 +8,7 @@
  
 package mp
 
-public platform interface A {}
+public specific interface A {}
 public func test_plat() { C.p1 + C().p2 }
 
 

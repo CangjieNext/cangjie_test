@@ -8,8 +8,8 @@
  
 package mp
 
-public platform class A {
-    public platform init(a!: Int64) {}
+public specific class A {
+    public specific init(a!: Int64) {}
 }
 public func test_plat() { A().a }
 

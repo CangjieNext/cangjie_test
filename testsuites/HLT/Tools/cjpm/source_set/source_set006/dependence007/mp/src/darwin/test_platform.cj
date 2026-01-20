@@ -9,7 +9,7 @@
 features { os.darwin }
 package mp
 
-public platform var b: Int64 = 0
+public specific var b: Int64 = 0
 
 public func test_plat(): Unit {
     b

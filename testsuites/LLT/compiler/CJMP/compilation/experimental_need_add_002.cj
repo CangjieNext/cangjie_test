@@ -15,5 +15,5 @@ public common func foo(): Unit
 // ASSERT: scan "--experimental" option is required to enable experimental features.
 package cmp
 
-public platform func foo(): Unit {}
+public specific func foo(): Unit {}
 

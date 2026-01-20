@@ -22,9 +22,9 @@ public common struct S {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-public platform struct S {
+public specific struct S {
 
-    public platform func testFunc(): Unit {
+    public specific func testFunc(): Unit {
         println("3")
     }
 }

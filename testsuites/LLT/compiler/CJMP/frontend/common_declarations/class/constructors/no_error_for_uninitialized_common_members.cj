@@ -16,8 +16,8 @@ public common class A {
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan sema_class_uninitialized_field
 package cmp
-public platform class A {
-	public platform init() {}
-	public platform var a: Int64
+public specific class A {
+	public specific init() {}
+	public specific var a: Int64
 }
 

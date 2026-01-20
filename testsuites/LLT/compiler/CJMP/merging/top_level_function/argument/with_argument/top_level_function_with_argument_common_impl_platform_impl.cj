@@ -21,13 +21,13 @@ common  func foo(input :String): Unit{
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform  func foo(input :String): Unit {
+specific  func foo(input :String): Unit {
     println(input)
 }
 main() {
-    foo("From platform member foo func")
+    foo("From specific member foo func")
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 */

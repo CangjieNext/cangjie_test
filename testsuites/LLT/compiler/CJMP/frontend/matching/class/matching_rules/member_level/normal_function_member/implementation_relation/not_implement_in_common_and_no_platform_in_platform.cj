@@ -18,6 +18,6 @@ public common class A {
 // ASSERT: scan sema_not_matched
 package cmp
 
-public platform class A {
+public specific class A {
 }
 

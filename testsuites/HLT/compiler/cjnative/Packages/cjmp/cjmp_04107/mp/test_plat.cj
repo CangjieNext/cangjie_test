@@ -8,8 +8,8 @@
  
 package mp
 
-public platform class A <: C {
-    public platform override prop p: Int64 { get() { 0 } }
+public specific class A <: C {
+    public specific override prop p: Int64 { get() { 0 } }
 }
 public func test_plat() { A().p }
 

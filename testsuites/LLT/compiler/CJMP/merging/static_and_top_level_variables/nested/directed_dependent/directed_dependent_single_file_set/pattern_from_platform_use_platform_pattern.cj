@@ -16,7 +16,7 @@ public common let Y2: Int64 = 4
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform let (Y1, Y2): (Int64, Int64) = (X1, X2)
+public specific let (Y1, Y2): (Int64, Int64) = (X1, X2)
 public let (Z1, Z2): (Int64, Int64) = (Y1, Y2)
 
 // SEPARATE-FILE: m_common.cj

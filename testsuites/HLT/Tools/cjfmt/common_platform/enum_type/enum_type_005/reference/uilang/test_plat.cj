@@ -8,9 +8,9 @@
 
 package mp
 
-platform public enum E {
+specific public enum E {
     Y | X | X(Int64)
 
-    platform public operator func ()(p: Int64) {}
-    platform public operator func ()(p: Float64) {}
+    specific public operator func ()(p: Int64) {}
+    specific public operator func ()(p: Float64) {}
 }

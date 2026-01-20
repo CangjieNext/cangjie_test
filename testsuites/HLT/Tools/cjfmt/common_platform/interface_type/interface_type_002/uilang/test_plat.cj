@@ -8,10 +8,10 @@
 
 package mp
 
-public platform interface I1 {
-    mut platform func f():Int64
+public specific interface I1 {
+    mut specific func f():Int64
 }
 
-platform struct S1 <: I1{
-    public mut platform func f1():Int64 {1}
+specific struct S1 <: I1{
+    public mut specific func f1():Int64 {1}
 }

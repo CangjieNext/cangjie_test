@@ -30,10 +30,10 @@ public common class C2 <: C1 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public open platform class C1 {
+public open specific class C1 {
 }
-public platform class C2 <: C1 {
-  public platform func foo(x:Int64,y!:Int64):Unit{
+public specific class C2 <: C1 {
+  public specific func foo(x:Int64,y!:Int64):Unit{
         println(y)
         println(x)
   }

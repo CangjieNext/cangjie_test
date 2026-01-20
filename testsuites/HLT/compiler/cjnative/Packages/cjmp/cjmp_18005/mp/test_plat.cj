@@ -8,4 +8,4 @@
 
 package mp
 
-@B public platform enum C { | E }
+@B public specific enum C { | E }

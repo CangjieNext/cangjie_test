@@ -25,9 +25,9 @@ public func testFunction(input: ArrayList<String>) : ArrayList<String> {
     ArrayList<String>()
 }
 
-platform func foo(arg: (ArrayList<String>) -> ArrayList<String>): Unit {
+specific func foo(arg: (ArrayList<String>) -> ArrayList<String>): Unit {
 
-    println("platform")
+    println("specific")
 }
 
 main() {
@@ -35,5 +35,5 @@ main() {
 }
 
 /* SCAN
-platform
+specific
 */

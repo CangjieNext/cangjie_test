@@ -18,11 +18,11 @@ common func goo(): Unit
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform func foo(): Unit {
-    println("From platform member foo func")
+specific func foo(): Unit {
+    println("From specific member foo func")
 }
-platform func goo(): Unit {
-    println("From platform member goo func")
+specific func goo(): Unit {
+    println("From specific member goo func")
 }
 main() {
     foo()
@@ -30,6 +30,6 @@ main() {
 }
 
 /* SCAN
-From platform member foo func
-From platform member goo func
+From specific member foo func
+From specific member goo func
 */

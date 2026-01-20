@@ -7,7 +7,7 @@
 features { os.ohos }
 package sensor_mp
 
-public platform func sensorcall(): Unit {
+public specific func sensorcall(): Unit {
 	println("Calling sensor...")
 	println("OHOS sensorcall")
 }

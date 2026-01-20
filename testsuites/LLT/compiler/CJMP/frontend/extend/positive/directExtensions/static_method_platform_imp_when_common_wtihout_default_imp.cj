@@ -20,8 +20,8 @@ common extend Int64 {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform extend Int64 {
-   platform static public func f1():Unit {println("hhh")}
+specific extend Int64 {
+   specific static public func f1():Unit {println("hhh")}
 }
 
 main(){

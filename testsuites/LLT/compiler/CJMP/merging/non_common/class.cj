@@ -24,7 +24,7 @@ package cmp
 
 import std.random.*
 
-public platform func foo(x: Int64, random: Random, array: Array<Int64>, a: A): Unit {
+public specific func foo(x: Int64, random: Random, array: Array<Int64>, a: A): Unit {
     a.memberFunc()
     println("${x}_${random.nextInt64() % 1}_${array[0]}")
 }

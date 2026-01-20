@@ -27,9 +27,9 @@ public func runCommon() {
 // EXEC-0: %compiler %noColor --experimental p/pa.cj ./c/a.chir --common-part-cjo=./c/a.cjo --output-type=dylib --output-dir=./p
 package a
  
-platform extend<R,T> Foo<R,T> {
-  public platform prop xx:T {
-        get(){ println("platform::extend::prop:xx"); filed }
+specific extend<R,T> Foo<R,T> {
+  public specific prop xx:T {
+        get(){ println("specific::extend::prop:xx"); filed }
     }
 
 }
@@ -79,13 +79,13 @@ main() {
 }
 
 /* SCAN
-platform::extend::prop:xx
+specific::extend::prop:xx
 1
-platform::extend::prop:xx
+specific::extend::prop:xx
 2
 ===
-platform::extend::prop:xx
+specific::extend::prop:xx
 3
-platform::extend::prop:xx
+specific::extend::prop:xx
 4
 */

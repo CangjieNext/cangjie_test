@@ -8,16 +8,16 @@
 
 package mp
 
-public platform enum E1{
+public specific enum E1{
     AB
-    public platform prop p:Int64 {
+    public specific prop p:Int64 {
         get(){1}
     }
 }
 
-protected platform enum E3<T,R>{
+protected specific enum E3<T,R>{
     AB | AB(T,R)
-    public platform prop p:Int64 {
+    public specific prop p:Int64 {
         get(){2}
     }
 }

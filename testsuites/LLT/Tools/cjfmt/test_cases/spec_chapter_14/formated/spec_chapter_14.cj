@@ -265,9 +265,9 @@ func foo() {
     print("feature lion, ")
 }
 
-@When[platform == "dsp"] // "platform" is user custom conditional variable.
+@When[platform == "dsp"] // "specific" is user custom conditional variable.
 func fee() {
-    println("platform dsp")
+    println("specific dsp")
 }
 
 main() {

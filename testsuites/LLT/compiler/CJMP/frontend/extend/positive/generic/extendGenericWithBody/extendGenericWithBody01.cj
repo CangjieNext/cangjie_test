@@ -27,14 +27,14 @@ common extend<T> Foo<T> {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 import std.math.*
-platform extend<R> Foo<R> {
-    platform public func f1(): Unit {
+specific extend<R> Foo<R> {
+    specific public func f1(): Unit {
         println("Extend::Platform::f1")
     }
-    platform static public func f2() : Unit {
+    specific static public func f2() : Unit {
         println("Extend::Platform::static::f2")
     }
-    platform public func f3<R>(x : Option<R>, default : R) : R where R <: Number<R> {
+    specific public func f3<R>(x : Option<R>, default : R) : R where R <: Number<R> {
         if(let Some(y) <- x) {
             y + y
         } else {

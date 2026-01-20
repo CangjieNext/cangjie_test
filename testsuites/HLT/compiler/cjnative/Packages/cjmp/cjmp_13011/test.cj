@@ -10,7 +10,7 @@
 // DEPENDENCE: mp
 // EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
 // ERRCHECK: %compiler %cmp_opt mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
-// ASSERT: scan sema_cjmp_non_platform_abstract_member_in_platform_class
+// ASSERT: scan sema_cjmp_non_specific_abstract_member_in_specific_class
 
 import mp.*
 

@@ -20,15 +20,15 @@ package cmp
 
 import std.random.*
 
-public platform class A {
+public specific class A {
     let a: Int64
     let b: Random
     let c: Array<Int64>
-    public platform init(a_: Int64, b_: Random, c_: Array<Int64>) {
+    public specific init(a_: Int64, b_: Random, c_: Array<Int64>) {
         a = a_
         b = b_
         c = c_
-        println("[platform] A.A(${a}, ${b.nextInt64() * 0 + 42}, ${c[0]})")
+        println("[specific] A.A(${a}, ${b.nextInt64() * 0 + 42}, ${c[0]})")
     }
 }
 
@@ -46,5 +46,5 @@ main(): Unit {
 }
 
 /* SCAN
-[platform] A.A(42, 42, 42)
+[specific] A.A(42, 42, 42)
 */
