@@ -100,21 +100,3 @@ API/std/time/TimeZone/load/test_loadFromPaths.cj
 API/std/io/file/File_create_03.cj
 API/std/fs/file/linux/test_linux_file_no_permission.cj
 API/std/io/StringReader/StringReader_readln_13_01.cj
-
-# https://gitcode.com/Cangjie/cangjie_test/issues/240
-compiler/cjnative/stable_abi/add_virtual_function/TestCase_108/TestCase_108.info
-compiler/cjnative/stable_abi/add_virtual_function/TestCase_109/TestCase_109.info
-compiler/cjnative/stable_abi/add_virtual_function/TestCase_111/TestCase_111.info
-compiler/cjnative/stable_abi/add_virtual_function/TestCase_138/TestCase_138.info
-compiler/cjnative/stable_abi/add_virtual_function/TestCase_180/TestCase_180.info
-compiler/cjnative/stable_abi/add_virtual_function/TestCase_183/TestCase_183.info
-compiler/cjnative/stable_abi/add_virtual_function/TestCase_242/TestCase_242.info
-compiler/cjnative/stable_abi/add_virtual_function/TestCase_243/TestCase_243.info
-compiler/cjnative/stable_abi/add_virtual_function/TestCase_261/TestCase_261.info
-compiler/cjnative/stable_abi/add_virtual_function/TestCase_36/TestCase_36.info
-compiler/cjnative/stable_abi/add_virtual_function/TestCase_37/TestCase_37.info
-compiler/cjnative/stable_abi/add_virtual_function/TestCase_39/TestCase_39.info
-compiler/cjnative/stable_abi/add_virtual_function/TestCase_66/TestCase_66.info
-compiler/cjnative/stable_abi/package_name/TestCase_15/TestCase_15.info
-compiler/cjnative/stable_abi/package_name/TestCase_45/TestCase_45.info
-compiler/cjnative/stable_abi/package_name/TestCase_59/TestCase_59.info
