@@ -26,15 +26,20 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-8 [API/ABI] Modified enum deprecated annotation with compilation error.
+// ASSERT: scan-6 [API/ABI] Modified enum deprecated annotation with compilation error.
+// ASSERT: scan-4 [API/ABI] Enum declaration visible outside the module made protected or internal.
+// ASSERT: scan-2 [ABI] The body of a const function or function marked with @Frozen changed.
 // ASSERT: scan-not [API]
-// ASSERT: scan-not [ABI]
-// ASSERT: scan-8 [API/ABI]
+// ASSERT: scan-2 [ABI]
+// ASSERT: scan-10 [API/ABI]
 
 // test enum: modify @Deprecated
 // modify operation: 修改 @Deprecated 编译标记参数条件，使该变量在下游模块中从可⽤变为不可⽤时
 package test_stable_abi
 
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
 @Deprecated["deprecated", strict: true]
 enum E11 {
     | E1

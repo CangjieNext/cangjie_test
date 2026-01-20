@@ -27,35 +27,25 @@
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Deleted public member function of struct visible outside the module.
-// ASSERT: scan-1 [API/ABI] Deleted instance public variable member from the struct.
+// ASSERT: scan-1 [ABI] Deleted instance non public variable member from the struct.
 // ASSERT: scan-not [API]
-// ASSERT: scan-not [ABI]
-// ASSERT: scan-2 [API/ABI]
+// ASSERT: scan-1 [ABI]
+// ASSERT: scan-1 [API/ABI]
 
-// test struct: delete non public instance member variable
-// 删除带public修饰符的实例成员变量
 package test_stable_abi
-
 
 public struct Rectangle {
     let width = 10
     let a1 = 20
 
     public func getWidth(): Int64{
+        var s = S1()
+        s.a2
         return width
     }
 }
 
 public struct S1 {
     let a1 = 20
-
-    let a3 = 20
-    public let a4 = 0
-
-    @Frozen
-    public func geta1() {
-        return a1
-    }
+    public let a2 = 0
 }
-
-

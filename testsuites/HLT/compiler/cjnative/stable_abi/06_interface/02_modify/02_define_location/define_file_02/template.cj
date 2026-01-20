@@ -12,7 +12,7 @@ package test_stable_abi
 public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
     if (exp != act) { throw Exception("${exp} != ${act}") }
 }
-public interface I {
+private interface I {
     static mut prop p1: Int64 {
         get() {1}
         set(v) {v}

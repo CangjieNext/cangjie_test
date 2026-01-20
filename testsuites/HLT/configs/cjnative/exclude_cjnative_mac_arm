@@ -4,23 +4,6 @@
 #
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-Tools/cjdb/
-Tools/cjdb/datacom/ArrayList/arraylist_test_017.info
-Tools/cjdb/datacom/C_FFI/viewVariables_CFunc_07.info
-Tools/cjdb/datacom/lambda/lldb_lambda_05.info
-Tools/cjdb/datacom/lambda/lldb_lambda_10.info
-Tools/cjdb/datacom/past_HashMap/Core_HashMap_view_12.info
-Tools/cjdb/datacom/past_array_composite/lldb_array_composite_015.info
-Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointInMain026.info
-Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointNotInMain034.info
-Tools/cjdb/datacom/past_breakPoint/lldb_BreakpointNotInMain037.info
-Tools/cjdb/datacom/past_debug_operation/lldb_Continue004.info
-Tools/cjdb/datacom/past_enum/lldb_enum026.info
-Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut007.info
-Tools/cjdb/datacom/past_stepInAndOut/lldb_StepInAndOut044.info
-Tools/cjdb/datacom/past_variable_modify/lldb_VariableModify056.info
-Tools/cjdb/datacom/within_setVar/cjdb_within_setVar048.info
-Tools/cjdb/datacom/within_watchpoint/lldb_within_watchpoint055.info
 # testcase is not correct.
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 

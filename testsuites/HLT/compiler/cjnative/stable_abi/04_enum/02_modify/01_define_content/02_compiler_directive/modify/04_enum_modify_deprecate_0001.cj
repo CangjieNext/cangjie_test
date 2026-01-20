@@ -92,8 +92,6 @@ public enum E25<T> {
 public func f1() {
     assert(E2.g(), 12)
     assert(E2(1).g(), 22)
-    assert(E5.g(), 15)
-    assert(E5(1).g(), 25)
 }
 public const func f2() {
     return E3.g() + E3(1).g()
@@ -101,6 +99,4 @@ public const func f2() {
 public func check() {
     assert(E1.g(), 11)
     assert(E1(1).g(), 21)
-    assert(E5.g(), 15)
-    assert(E5(1).g(), 25)
 }

@@ -77,9 +77,3 @@ compiler/cjnative/Generics/new_generics/generics_types/generics_00038.cj
 compiler/cjnative/Generics/new_generics/generics_types/generics_00083.cj
 compiler/cjnative/Generics/new_generics/generics_types/generics_00087.cj
 compiler/cjnative/Generics/new_generics/generics_types/generics_00091.cj
-
-# https://gitcode.com/Cangjie/cangjie_test/issues/225
-compiler/cjnative/stable_abi/package_name/TestCase_15/TestCase_15.info
-compiler/cjnative/stable_abi/package_name/TestCase_45/TestCase_45.info
-compiler/cjnative/stable_abi/package_name/TestCase_59/TestCase_59.info
-compiler/cjnative/stable_abi/package_name/TestCase_65/TestCase_65.info

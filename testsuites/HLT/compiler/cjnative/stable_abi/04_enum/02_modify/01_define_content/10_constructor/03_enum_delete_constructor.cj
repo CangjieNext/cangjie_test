@@ -26,10 +26,10 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-6 [API/ABI] Deleted enum constructor.
+// ASSERT: scan-4 [API/ABI] Deleted enum constructor.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
-// ASSERT: scan-6 [API/ABI]
+// ASSERT: scan-4 [API/ABI]
 
 // 删除⼀个构造器
 

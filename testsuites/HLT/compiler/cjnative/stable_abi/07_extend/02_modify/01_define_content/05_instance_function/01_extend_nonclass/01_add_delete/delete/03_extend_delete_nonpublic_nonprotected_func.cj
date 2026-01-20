@@ -76,11 +76,18 @@ extend TestStruct {
         9
     }
 
+    private func f12() {
+        12
+    }
+    
     public unsafe func f13(): Int64 {
         return 13
     }
     public const func f14(): Int64 {
         14
+    }
+    public func f15() {
+        f12()
     }
 
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {

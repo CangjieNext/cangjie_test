@@ -40,4 +40,10 @@ src-dir = "./src/windows"
 features = ["os.windows"]
 
 
+[[source-set]]
+name = "ohos"
+src-dir = "./src/ohos"
+features = ["os.ohos"]
+
+
 
