@@ -1,0 +1,26 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/generic/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -j1 -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb generic_option,generic_option
+b,b 9, generic_option.cj:9
+r,r,-> 9
+ ,p para,\(std.core.Option<Int8>\) \$\d+ = 123
+ ,expr para,\(std.core.Option<Int8>\) \$\d+ = 123
+ ,c,-> 9
+ ,p para,\(std.core.Option<Int64>\) \$\d+ = None
+ ,expr para,\(std.core.Option<Int64>\) \$\d+ = None
+ ,c,-> 9
+ ,p para,\(std.core.Option<default.ABC>\) \$\d+ = {\s+a = 1
+ ,expr para,\(std.core.Option<default.ABC>\) \$\d+ = {\s+a = 1
+  ,c,-> 9
+ ,p para,\(std.core.Option<default.ABC>\) \$\d+ = None
+ ,expr para,\(std.core.Option<default.ABC>\) \$\d+ = None
+q,q,

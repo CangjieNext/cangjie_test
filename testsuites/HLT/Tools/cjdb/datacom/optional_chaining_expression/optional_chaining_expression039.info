@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/optional_chaining_expression/optional_chaining_expression039.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g optional_chaining_expression039.cj -o optional_chaining_expression039%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py optional_chaining_expression039.info optional_chaining_expression039 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors optional_chaining_expression039,optional_chaining_expression039
+b,b 21,optional_chaining_expression039.cj:21
+r,r,-> 21
+globals,globals,\(std.core.Option<Int64>\) default::gr3 = 2
+expr,expr r3,\(std.core.Option<Int64>\) \$[\d] = 2
+expr,expr r4,\(std.core.Option<Int64>\) \$[\d] = None
+expr~expr f1?(1)~\(std.core.Option<Int64>\) \$[\d] = 2
+q,q,

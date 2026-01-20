@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 0
 // DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/expression/expr_mix.cj
 // (not MAC) EXEC: %compiler %cmp_opt -g expr_mix.cj -o 001_express_basetype%cmp_output
 // (not MAC) RUN-EXEC: python3 cjdb_test.py expr_mix_08.info 001_express_basetype %run_env
