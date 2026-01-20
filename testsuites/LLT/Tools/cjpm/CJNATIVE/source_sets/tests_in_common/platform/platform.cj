@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-features user.tests_in_common.arch.big
+features { user.tests_in_common.arch.big }
 package tests_in_common
 
 import std.unittest.*
