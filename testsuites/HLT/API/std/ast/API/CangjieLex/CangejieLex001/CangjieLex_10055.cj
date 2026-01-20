@@ -8,7 +8,9 @@
 
 // LEVEL: 1
 // DEPENDENCE:../utils.cj
-// ERRCHECK: %compiler %cmp_opt %f utils.cj %use_ast -o %output
+// EXEC: %compiler %cmp_opt %f utils.cj %use_ast -o %output
+// RUN-EXEC-PIPE-1: %run %run_opt %output  %run_args  2>&1 | compare %f
+// ASSERT: scan IllegalArgumentException:
 
 import std.ast.*
 
@@ -17,4 +19,4 @@ main(){
     var b : Tokens = quote(#)
     return check(a,b)
 }
-// ASSERT: scan lex_expected_quote_in_raw_string
+

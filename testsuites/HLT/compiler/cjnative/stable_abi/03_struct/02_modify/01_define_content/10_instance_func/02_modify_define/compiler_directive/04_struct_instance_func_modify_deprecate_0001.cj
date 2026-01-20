@@ -78,7 +78,16 @@ public struct Rectangle {
     }
 }
 
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
 public func check(){
+    assert(Rectangle().geta1(), 0)
+    assert(Rectangle().geta3(), 2)
     return 0
 }
 

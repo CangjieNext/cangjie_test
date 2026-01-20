@@ -26,11 +26,11 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-8 [API/ABI] Added enum deprecated annotation with compilation error.
-// ASSERT: scan-3 [API/ABI] Added func deprecated annotation with compilation error.
+// ASSERT: scan-6 [API/ABI] Added enum deprecated annotation with compilation error.
+// ASSERT: scan-3 [API/ABI] Added function deprecated annotation with compilation error.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
-// ASSERT: scan-11 [API/ABI]
+// ASSERT: scan-9 [API/ABI]
 
 // test enum: add @Deprecated
 package test_stable_abi

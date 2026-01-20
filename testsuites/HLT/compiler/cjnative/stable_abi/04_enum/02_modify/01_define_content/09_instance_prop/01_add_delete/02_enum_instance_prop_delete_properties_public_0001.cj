@@ -26,10 +26,10 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Deleted public member property of enum visible outside the module.
+// ASSERT: scan-2 [API/ABI] Deleted public member property of enum visible outside the module.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
-// ASSERT: scan-1 [API/ABI]
+// ASSERT: scan-2 [API/ABI]
 
 // test struct: delete non public instance properties
 // 删除带public修饰符的静态属性

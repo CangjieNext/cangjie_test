@@ -8,5 +8,14 @@
 
 #import "M.h"
 @implementation M
+
 - (id)init { return [super init]; }
+
+- (void) memberFuncImplemented:(int) n {
+    printf("objc: [m memberFuncImplemented:%d]\n", n);
+}
+
++ (void) staticFuncImplemented {
+    printf("objc: [M staticFuncImplemented]\n");
+}
 @end

@@ -35,7 +35,6 @@
 package test_stable_abi
 
 public struct Rectangle {
-    let width = 10
     public let a1 = 20
     let a2 = 20
     public let a3 = 20
@@ -44,29 +43,6 @@ public struct Rectangle {
     let a6 = 20
     public let a7 = 20
     public let a8 = 20
-    let a9 = 20
-    public let a10 = 20
-
-    public func getWidth(): Int64{
-        return width
-    }
-}
-
-public struct S1{
-    var a1 = 20
-    public let a2 = 0
-    var a3 = 20
-    public let a4 = 0
-
-    @Frozen
-    public func geta3() {
-        return a3
-    }
-
-    @Frozen
-    public func geta4() {
-        return a4
-    }
 }
 
 public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{

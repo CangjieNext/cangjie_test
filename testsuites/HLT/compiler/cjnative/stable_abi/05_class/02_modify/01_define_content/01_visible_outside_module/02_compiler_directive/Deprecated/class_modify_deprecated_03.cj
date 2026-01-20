@@ -27,7 +27,8 @@
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-2 [API/ABI] Modified class deprecated annotation with compilation error.
-// ASSERT: scan-2 [API/ABI]
+// ASSERT: scan-1 [API/ABI] Changed number of parameters of function visible outside the module.
+// ASSERT: scan-3 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 

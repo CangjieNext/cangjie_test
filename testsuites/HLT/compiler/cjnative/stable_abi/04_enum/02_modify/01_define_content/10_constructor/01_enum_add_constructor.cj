@@ -26,10 +26,10 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-3 [API/ABI] Added constructor to exhaustive enum.
+// ASSERT: scan-2 [API/ABI] Added constructor to exhaustive enum.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
-// ASSERT: scan-3 [API/ABI]
+// ASSERT: scan-2 [API/ABI]
 
 // 给⼀个 exhausitive 的 enum类型新增⼀个构造器
 

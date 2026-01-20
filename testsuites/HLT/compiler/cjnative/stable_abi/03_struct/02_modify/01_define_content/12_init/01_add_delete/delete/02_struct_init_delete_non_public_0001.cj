@@ -39,5 +39,9 @@ public struct S {
 }
 
 public func f(){
+    var s2 = S(a1: 3)
+    if(s2.a == 3){
         return 0
+    }
+    return 1
 }

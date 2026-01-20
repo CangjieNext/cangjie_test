@@ -22,4 +22,4 @@ main(){
     test()
     return 0
 }
-// ASSERT: scan lex_expected_quote_in_raw_string
+// ASSERT: scan parse_expect_escape_dollar_token

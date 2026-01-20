@@ -172,7 +172,14 @@ open public class TestClass {
     public const init() {}
 }
 
-public func global() {
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public unsafe func checker(tc: TestClass): Unit {
     let v1 = TestClass()
     v1.f7()
 }

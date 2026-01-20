@@ -123,6 +123,16 @@ struct S5{
     private let d:C = C()
 }
 
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
 public func check(){
+    assert(Rectangle1().a1, 20)
+    assert(Rectangle1().a2, 30)
+    assert(Rectangle1().a3, 40)
     return 0
 }

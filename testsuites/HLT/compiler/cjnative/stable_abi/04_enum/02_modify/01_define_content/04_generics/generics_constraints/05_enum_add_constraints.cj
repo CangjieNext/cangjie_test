@@ -27,10 +27,8 @@
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-3 [API/ABI] Added generic constraint of enum visible outside the module.
-// ASSERT: scan-1 [ABI] Modified private/internal member variables' type for class visible outside the module.
-// ASSERT: scan-1 [ABI] Change the initial value of member variable when struct/class has the const variable or @Frozen init func.
 // ASSERT: scan-not [API]
-// ASSERT: scan-2 [ABI]
+// ASSERT: scan-not [ABI]
 // ASSERT: scan-3 [API/ABI]
 
 // test enum: modify generics

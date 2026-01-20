@@ -37,38 +37,52 @@ class TestUpload {
     let server = ServerBuilder().addr("127.0.0.1").port(0).build()
     let client = ClientBuilder().build()
 
-    @TestCase
-    func uploadSuccess(): Unit {
+    @BeforeAll
+    func setup() {
         startServer()
+    }
+
+    @AfterAll
+    func cleanup() {
+        client.close()
+        server.close()
+        asanGC()
+    }
+
+    func testUpload(uploadFilename: String, validateFilename: String) {
         let req = HttpRequestBuilder()
             .post()
             .url("http://127.0.0.1:${server.port}/upload")
             .header("content-type", "multipart/form-data; boundary=${boundary}")
-            .body(buildBodyData("upload.test"))
+            .body(buildBodyData(uploadFilename))
             .build()
         try {
             let resp = client.send(req)
             @Assert(resp.status, 200)
-            @Expect(exists("upload.test"))
+            @Expect(exists(validateFilename))
         } finally {
-            remove("upload.test")
+            remove(validateFilename)
         }
     }
 
     @TestCase
-    func uploadFail(): Unit {
-        let req = HttpRequestBuilder()
-            .post()
-            .url("http://127.0.0.1:${server.port}/upload")
-            .header("content-type", "multipart/form-data; boundary=${boundary}")
-            .body(buildBodyData("../upload.test"))
-            .build()
-        let resp = client.send(req)
-        @Assert(resp.status, 400)
-        @Expect(!exists("upload.test"))
-        client.close()
-        server.close()
-        asanGC()
+    func uploadSuccess(): Unit {
+        testUpload("upload.test", "upload.test")
+    }
+
+    @TestCase
+    func uploadWithDir1(): Unit {
+        testUpload("../upload.test", "upload.test")
+    }
+
+    @TestCase
+    func uploadWithDir2(): Unit {
+        testUpload("abc/upload.test", "upload.test")
+    }
+
+    @TestCase
+    func uploadWithDir3(): Unit {
+        testUpload("/tmp/upload.test", "upload.test")
     }
 
     func startServer(): Unit {

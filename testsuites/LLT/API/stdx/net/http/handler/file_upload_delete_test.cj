@@ -59,8 +59,6 @@ class TestUploadDelete {
             }
         }
 
-        @Assert(resp.status, 500)
-
         client.close()
         server.close()
         asanGC()

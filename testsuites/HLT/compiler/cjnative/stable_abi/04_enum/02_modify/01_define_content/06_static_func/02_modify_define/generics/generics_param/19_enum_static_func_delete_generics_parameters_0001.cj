@@ -27,8 +27,9 @@
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [API/ABI] Deleted generic param of function visible outside the module.
+// ASSERT: scan-1 [ABI] The body of a const function marked with @Frozen changed.
 // ASSERT: scan-not [API]
-// ASSERT: scan-not [ABI]
+// ASSERT: scan-1 [ABI]
 // ASSERT: scan-2 [API/ABI]
 
 // test enum: delete public function generics parameter
