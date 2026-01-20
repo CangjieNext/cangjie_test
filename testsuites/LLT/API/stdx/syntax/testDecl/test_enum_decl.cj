@@ -292,9 +292,6 @@ EnumB""")
         
         pos = decl.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([45, 7, 46, 10]).toArray())
-    let info: TypeInfo = TypeInfo.of(nodes[4])
-    println(nodes[4])
-    println(info)
 
         constructor = (nodes[4] as EnumConstructor).getOrThrow()
         @Expect(constructor.name, "EnumE")
@@ -427,6 +424,13 @@ public enum B {
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 26, 1, 27]).toArray())
         pos = enumDecl.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 3, 2]).toArray())
+    }
+
+    @TestCase
+    func testEnumConstructorInit01() {
+        let enumConstructor = EnumConstructor("EnumA", Array<TypeAnnotation>())
+        @Expect(enumConstructor.name, "EnumA")
+        @Expect(enumConstructor.toString(), "EnumA")
     }
 
     @TestCase

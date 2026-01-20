@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/try_catch.cj
 // (not Windows) EXEC: dos2unix try_catch.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -157,7 +164,7 @@ try {
     }
 
     @TestCase
-    func testTryCatchInit() {
+    func testTryCatchInit01() {
         let expr = (nodes[2] as TryCatch).getOrThrow()
         let tryCatch = TryCatch(expr.catchBlocks, expr.catchPatterns, expr.finallyBlock, expr.resourceSpec, expr.tryBlock)
         @Expect(tryCatch.tryBlock.toString(), "{}")
@@ -176,6 +183,19 @@ try {
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 26, 1, 27]).toArray())
         pos = tryCatch.getResourceSpecRParenPos().getOrThrow()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 48, 1, 49]).toArray())
+    }
+
+    @TestCase
+    func testTryCatchInit02() {
+        let expr = (nodes[3] as TryCatch).getOrThrow()
+        let tryCatch = TryCatch(expr.catchBlocks, expr.catchPatterns, expr.finallyBlock, expr.resourceSpec, expr.tryBlock)
+        @Expect(tryCatch.toString(), ##"try {
+        a
+    } catch (e: Exception | IOException) {
+        b
+    } catch (_) {
+        c
+    }"##)
     }
 
     @TestCase
@@ -206,11 +226,3 @@ try {
         @Expect(catchPattern.toString(), ##"e: ExceptionA | ExceptionB"##)
     }
 }
-
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

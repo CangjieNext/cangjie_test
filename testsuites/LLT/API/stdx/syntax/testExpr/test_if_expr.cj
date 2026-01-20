@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/if_expr.cj
 // (not Windows) EXEC: dos2unix if_expr.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -174,7 +181,7 @@ if (x && y + 1 > 2) {
     }
 
     @TestCase
-    func testIfExprInit() {
+    func testIfExprInit01() {
         let expr = (nodes[2] as IfExpr).getOrThrow()
         let ifExpr = IfExpr(expr.condition, expr.elseBlock, expr.elseIf, expr.ifBlock)
         @Expect(ifExpr.condition.toString(), "x && y + 1 > 2")
@@ -248,12 +255,12 @@ if (x && y + 1 > 2) {
         @Expect(parenCondition.toString(), "(c < 1 && let Some(d) <- f)")
         @Expect(parenCondition.cond.toString(), "c < 1 && let Some(d) <- f")
     }
-}
 
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+    @TestCase
+    func testIfExprInit02() {
+        let expr = (nodes[1] as IfExpr).getOrThrow()
+        let elseIf = (nodes[0] as IfExpr).getOrThrow()
+        let ifExpr = IfExpr(expr.condition, expr.elseBlock, elseIf, expr.ifBlock)
+        @Expect(ifExpr.toString(), "if (x == 1) {} else if (true) {} else {}")
+    }
+}

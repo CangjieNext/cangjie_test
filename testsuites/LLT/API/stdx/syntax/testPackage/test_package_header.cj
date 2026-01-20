@@ -196,6 +196,16 @@ class Test {
         var pos = packageHeader.getMacroKeyWordPos().getOrThrow()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
     }
+
+    @TestCase
+    func testPackageHeaderInit04() {
+        let packageHeader = PackageHeader(Modifier(ModifierKind.Public), false, ["stdx", "syntax"])
+        @Expect(packageHeader.isMacroPkg, false)
+        @Expect(packageHeader.toString(), "public package stdx.syntax")
+
+        var pos = packageHeader.getDotsPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 20, 1, 21]).toArray())
+    }
 }
 
 /*

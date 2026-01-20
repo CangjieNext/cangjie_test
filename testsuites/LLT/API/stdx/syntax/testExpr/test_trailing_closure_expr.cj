@@ -81,6 +81,13 @@ class Test {
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 16]).toArray())
     }
+
+    @TestCase
+    func testInit02() {
+        let tmp = (nodes[1] as TrailingClosureExpr).getOrThrow()
+        let expr = TrailingClosureExpr(tmp.callee, tmp.arguments, tmp.trailingLambdaExpr)
+        @Expect(expr.toString(), ##"f(1, "") { a: Int64 => return a}"##)
+    }
 }
 
 /*
