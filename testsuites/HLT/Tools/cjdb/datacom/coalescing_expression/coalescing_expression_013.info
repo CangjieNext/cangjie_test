@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/coalescing_expression/coalescing013.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g coalescing013.cj -o coalescing013%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py coalescing_expression_013.info coalescing013 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors coalescing013,coalescing013
+b,b 27,coalescing013.cj:27
+AOT r,r,-> 27
+expr,expr r1,\(default.C1\) \$[\d] = {}
+expr,expr r2,\(default.C1\) \$[\d] = {}
+expr,expr r3,\(default.C2\) \$[\d] = {}
+expr,expr r4,\(default.C2\) \$[\d] = {}
+q,q,

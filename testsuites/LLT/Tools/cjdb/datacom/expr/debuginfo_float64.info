@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/float64.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug float64.cj -o float64
-// EXEC: python3 cjdb_test.py debuginfo_float64.info
+// EXEC: python3 cjdb_test.py debuginfo_float64.info %n %run_env
 
 test#
 cjdb,cjdb float64,float64

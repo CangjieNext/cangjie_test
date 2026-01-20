@@ -6,7 +6,7 @@
 
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/int16.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug int16.cj -o int16
-// EXEC: python3 cjdb_test.py debuginfo_int16.info
+// EXEC: python3 cjdb_test.py debuginfo_int16.info %n %run_env
 
 test#
 cjdb,cjdb int16,int16

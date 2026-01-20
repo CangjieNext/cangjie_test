@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/coalescing_expression/coalescing002.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g coalescing002.cj -o coalescing002%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py coalescing_expression_002.info coalescing002 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors coalescing002,coalescing002
+b,b 14,coalescing002.cj:14
+AOT r,r,-> 14
+expr,expr r1,\(Bool\) \$[\d] = true
+expr~expr v2??false~\(Bool\) \$[\d] = false
+expr~expr v2??4~error: unsupported expression
+q,q,
