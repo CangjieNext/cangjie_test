@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features os.darwin
+features { os.darwin }
 package cmp
 
 public func g(s: String): Unit {

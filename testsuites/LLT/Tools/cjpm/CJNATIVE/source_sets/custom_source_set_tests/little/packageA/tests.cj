@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-features user.custom_source_set_tests.arch.little
+features { user.custom_source_set_tests.arch.little }
 package custom_source_set_tests.packageA
 
 import std.unittest.*

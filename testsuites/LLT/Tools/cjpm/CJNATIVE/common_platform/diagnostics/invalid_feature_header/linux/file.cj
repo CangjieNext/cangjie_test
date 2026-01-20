@@ -4,5 +4,6 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-features os.windows
+@NonProduct
+features { os.windows }
 package invalid_feature_header

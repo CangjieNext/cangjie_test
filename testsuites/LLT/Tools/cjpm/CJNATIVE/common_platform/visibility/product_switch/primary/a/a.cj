@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features user.primary.a
+features { user.primary.a }
 package primary
 
 import cmp.pkg1.*
