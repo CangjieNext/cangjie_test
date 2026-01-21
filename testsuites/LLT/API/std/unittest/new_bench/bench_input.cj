@@ -20,6 +20,7 @@ foreign func usleep(arg: UIntNative): UIntNative
 @Test
 class FooTest {
     @Bench[x in [ 1 ]]
+    @Configure[minDuration: Duration.second]
     func testSleep(x: Int64): Unit {
         unsafe { usleep(30000) }
     }
