@@ -16,22 +16,26 @@ import std.sync.*
 
 let WARMUP_ITERATIONS = 10
 var counter: Float64 = 0.0
-var callsCounter: Int64 = 1 // count of calls in a batch
+var callsCounter: Int64 = 0 // count of calls in a batch
 
-var batches = 0 - WARMUP_ITERATIONS // count only non-warmup measurements 
+var batches = 0 // count only non-warmup measurements 
 
 var check: () -> Bool = {=> true}
 
 class TestMeasurement <: Measurement {
+    public func setup() {
+        callsCounter = 0
+    }
+
     public func measure(): Float64 {
+        @Assert(check())
+        
         if (callsCounter != 0) {
             // count measure as batch only if bench function was called before (non-lambda-overhead measurement)
             batches++
+            callsCounter = 0
         }
 
-        callsCounter = 0
-
-        @Assert(check())
         counter
     }
 }
@@ -43,7 +47,7 @@ class FooTest {
     @AfterEach
     func afterEach() {
         println("batches = ${batches}")
-        batches = 0 - WARMUP_ITERATIONS
+        batches = 0
         counter = 0.0
     }
 
@@ -92,13 +96,23 @@ class FooTest {
     }
 }
 
+class TestMeasurement2 <: Measurement {
+    public func setup() {
+        callsCounter = 0
+    }
+
+    public func measure(): Float64 {
+        Float64(callsCounter)
+    }
+}
+ 
 class CheckBatchInputProvider <: BenchInputProvider<Unit> {
     static let BATCH_SIZE = 5
-    var counter = 0
+    var batchCounter = 0
 
     public func reset(batchSize: Int64) {
         if (batchSize == BATCH_SIZE) {
-            counter += 1
+            batchCounter += 1
         }
         @Assert(batchSize == 0 || batchSize == BATCH_SIZE)
     }
@@ -109,22 +123,25 @@ class CheckBatchInputProvider <: BenchInputProvider<Unit> {
 let checker = CheckBatchInputProvider()
 
 @Test
+@Measure[TestMeasurement2()]
 class StrategyTest {
     @Bench[x in [ checker ]]
-    @Configure[minBatches: 20, batchSize: CheckBatchInputProvider.BATCH_SIZE, warmup: 10, minDuration: Duration.second]
+    @Configure[minBatches: 20, batchSize: CheckBatchInputProvider.BATCH_SIZE, warmup: 10, minDuration: 0.5*Duration.second]
     func test5(x: Unit) {
+        callsCounter+=1
         sleep(10 * Duration.millisecond)
     }
 
     @Bench[x in [ checker ]]
     @Configure[minBatches: 20, batchSize: CheckBatchInputProvider.BATCH_SIZE, warmup: 10, minDuration: Duration.Zero]
     func test6(x: Unit) {
+        callsCounter+=1
         sleep(10 * Duration.millisecond)
     }
 
     @AfterEach
-    func check() {
-        @Assert(checker.counter, 25)
-        checker.counter = 0
+    func check(name: String) {
+        @Expect(checker.batchCounter, 34)
+        checker.batchCounter = 0
     }
 }

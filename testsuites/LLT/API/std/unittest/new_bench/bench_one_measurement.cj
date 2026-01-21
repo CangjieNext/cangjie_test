@@ -16,16 +16,15 @@ import std.time.*
 import std.sync.*
 
 var counter: Float64 = 0.0
-var callCounter = 0
 
 class TestMeasurement <: Measurement {
     let result: Float64 = 0.0
 
+    public func setup() {
+        counter = 0.0
+    }
+
     public func measure(): Float64 {
-        if (callCounter % 2 == 0) {
-            counter = 0.0
-        }
-        callCounter += 1
         counter
     }
 }
