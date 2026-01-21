@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
 // EXEC: %run %run_opt %output %run_args | compare %f
 
@@ -140,49 +148,42 @@ ASTException:
  [36m==>[0m :1:1:
 
 parsing expr error.
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 43, column: 56
+description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 51, column: 56
 ASTException: Illegal TokenKind, TokenKind should be LPAREN
-description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 52, column: 58
+description: r_paren, token_id: 3, token_literal_value: ), fileID: 1, line: 60, column: 58
 ASTException: Illegal TokenKind, TokenKind should be RPAREN
-9
+8
 MacroExpandExpr {
   -packageIdentifier: Token {
     value: "M"
     kind: IDENTIFIER
-    pos: 61: 55
+    pos: 69: 55
   }
   -identifier: Token {
     value: "M"
     kind: IDENTIFIER
-    pos: 61: 55
+    pos: 69: 55
   }
   -macroAttrs:0: Token {
     value: "attr"
     kind: IDENTIFIER
-    pos: 61: 57
+    pos: 69: 57
   }
   -macroInputs:0: Token {
     value: "input"
     kind: IDENTIFIER
-    pos: 61: 63
+    pos: 69: 63
   }
 }
 3
 1
-description: identifier, token_id: 137, token_literal_value: m, fileID: 1, line: 64, column: 56
-description: l_square, token_id: 4, token_literal_value: [, fileID: 1, line: 77, column: 56
+description: identifier, token_id: 137, token_literal_value: A.m, fileID: 1, line: 72, column: 56
+description: l_square, token_id: 4, token_literal_value: [, fileID: 1, line: 85, column: 56
 ASTException: Illegal TokenKind, TokenKind should be LSQUARE
-description: r_square, token_id: 5, token_literal_value: ], fileID: 1, line: 86, column: 58
+description: r_square, token_id: 5, token_literal_value: ], fileID: 1, line: 94, column: 58
 ASTException: Illegal TokenKind, TokenKind should be RSQUARE
 ASTException: Illegal TokenKind, TokenKind should be AT
-2
-9
+1
+8
 cnt = 8
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
