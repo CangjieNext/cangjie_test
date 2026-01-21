@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/optional_chaining_expression/optional_chaining_expression005.cj
 // (not MAC) EXEC: %compiler %cmp_opt -g optional_chaining_expression005.cj -o optional_chaining_expression005%cmp_output
 // (not MAC) RUN-EXEC: python3 cjdb_test.py optional_chaining_expression005.info optional_chaining_expression005 %run_env

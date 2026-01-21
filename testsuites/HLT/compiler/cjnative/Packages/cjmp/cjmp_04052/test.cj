@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
  
-// LEVEL: 0-core
+// LEVEL: 0
 // ERRCHECK: %compiler %cmp_opt %f -o %output
 // ASSERT: scan parse_platform_in_non_platform_file
 

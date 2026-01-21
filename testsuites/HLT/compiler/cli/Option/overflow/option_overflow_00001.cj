@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // EXEC: %compiler %cmp_opt --int-overflow=throwing %f -o %output
 // (not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
 // (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f

@@ -6,6 +6,6 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // EXEC-PIPE: %compiler %cmp_opt --version | compare %f
 // ASSERT: scan Cangjie Compiler:
