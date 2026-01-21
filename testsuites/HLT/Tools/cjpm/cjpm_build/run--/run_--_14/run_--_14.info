@@ -1,0 +1,11 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// (not Windows and not MAC)EXEC: cd %n && %cjpm run -g -V -- / * & 5 a b  "c" 2>&1 | compare %f
+// (not Windows and not MAC and not OHOS)ASSERT: scan command not found
+// (OHOS)ASSERT: scan inaccessible or not found

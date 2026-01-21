@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm run -g -V -- -- TRUE "b c" "d \"e\"" --b 2>&1 | compare %f
+// ASSERT: scan arg: '--'
+// ASSERT: scan arg: 'TRUE'
+// ASSERT: scan arg: 'b c'
+// ASSERT: scan arg: 'd "e"'
+// ASSERT: scan arg: '--b'
