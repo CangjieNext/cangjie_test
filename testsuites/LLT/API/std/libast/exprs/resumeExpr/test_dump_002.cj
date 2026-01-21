@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %enableEH %cmp_opt_chir2hlir %f -o %output
 // RUN-EXEC-PIPE-0: %run %set_stdx_path %run_opt %output %run_args 2>&1 | compare %f
 internal import std.ast.*
@@ -21,13 +29,18 @@ ResumeExpr {
   -keywordR: Token {
     value: "resume"
     kind: RESUME
-    pos: 6: 25
+    pos: 14: 25
+  }
+  -keywordW: Token {
+    value: "with"
+    kind: WITH
+    pos: 14: 32
   }
   -withExpr: RefExpr {
     -identifier: Token {
       value: "bla"
       kind: IDENTIFIER
-      pos: 6: 37
+      pos: 14: 37
     }
   }
 }
@@ -35,21 +48,19 @@ ResumeExpr {
   -keywordR: Token {
     value: "resume"
     kind: RESUME
-    pos: 6: 25
+    pos: 14: 25
+  }
+  -keywordW: Token {
+    value: "with"
+    kind: WITH
+    pos: 14: 32
   }
   -withExpr: RefExpr {
     -identifier: Token {
       value: "bla"
       kind: IDENTIFIER
-      pos: 6: 37
+      pos: 14: 37
     }
   }
 }
 */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

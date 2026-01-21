@@ -32,11 +32,6 @@ MacroExpandExpr {
     kind: IDENTIFIER
     pos: 17: 50
   }
-  -identifier: Token {
-    value: "M"
-    kind: IDENTIFIER
-    pos: 17: 50
-  }
   -macroInputs:0: Token {
     value: "class"
     kind: CLASS
