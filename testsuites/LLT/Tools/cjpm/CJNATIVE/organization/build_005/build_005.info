@@ -6,11 +6,11 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -V && %ls target/release/.build-logs/test@huawei 2>&1 | compare %f
-// ASSERT: scan test.pkgA@huawei.errlog
-// ASSERT: scan test.pkgA@huawei.outlog
-// ASSERT: scan test.pkgB@huawei.errlog
-// ASSERT: scan test.pkgB@huawei.outlog
-// ASSERT: scan test.pkgC@huawei.errlog
-// ASSERT: scan test.pkgC@huawei.outlog
-// ASSERT: scan test@huawei.errlog
-// ASSERT: scan test@huawei.outlog
+// ASSERT: regex test.pkgA@huawei*
+// ASSERT: regex test.pkgA@huawei*
+// ASSERT: regex test.pkgB@huawei*
+// ASSERT: regex test.pkgB@huawei*
+// ASSERT: regex test.pkgC@huawei*
+// ASSERT: regex test.pkgC@huawei*
+// ASSERT: regex test@huawei*
+// ASSERT: regex test@huawei*

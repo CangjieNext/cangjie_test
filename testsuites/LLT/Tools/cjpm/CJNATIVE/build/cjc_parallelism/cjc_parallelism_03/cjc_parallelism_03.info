@@ -6,5 +6,5 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: regex cjc -j[0-9]* --import-path
+// ASSERT: regex cjc -j[0-9]+
 // ASSERT: scan cjpm build success

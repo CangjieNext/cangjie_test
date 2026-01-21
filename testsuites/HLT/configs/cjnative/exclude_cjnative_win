@@ -393,3 +393,6 @@ compiler/cjnative/Packages/cjmp/cjmp_11039/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_13007/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_16007/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_16009/test.cj
+
+# file name too long
+Tools\cjpm\source_set\source_set003\source_set_identifier002
