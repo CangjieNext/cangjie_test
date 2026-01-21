@@ -45,9 +45,6 @@ compiler/cjnative/Packages/org_name/package_decl/no_package_name_0.cj
 compiler/cjnative/Packages/org_name/package_decl/no_package_name_1.cj
 compiler/cjnative/Packages/org_name/package_decl/no_package_name_2.cj
 
-# https://gitcode.com/Cangjie/cangjie_test/issues/212
-compiler/cjnative/Class/Class/superCC/modifier_0008n.cj
-
 # https://gitcode.com/Cangjie/cangjie_test/issues/211
 compiler/cjnative/Packages/cjmp/cjmp_03018/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_03019/test.cj
@@ -68,12 +65,3 @@ compiler/cjnative/Packages/cjmp/cjmp_11039/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_13007/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_16007/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_16009/test.cj
-
-# https://gitcode.com/Cangjie/cangjie_test/issues/213
-compiler/cjnative/Generics/new_generics/generics_types/generics_00012.cj
-compiler/cjnative/Generics/new_generics/generics_types/generics_00025.cj
-compiler/cjnative/Generics/new_generics/generics_types/generics_00027.cj
-compiler/cjnative/Generics/new_generics/generics_types/generics_00038.cj
-compiler/cjnative/Generics/new_generics/generics_types/generics_00083.cj
-compiler/cjnative/Generics/new_generics/generics_types/generics_00087.cj
-compiler/cjnative/Generics/new_generics/generics_types/generics_00091.cj

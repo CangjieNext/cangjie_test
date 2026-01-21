@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 3
+// LEVEL: 2
 // DEPENDENCE: ../%n
 // ERRCHECK: cd %n && %cjpm build %cjpm_opt
 // ASSERT: regex-not /usr/bin/ld: command failed

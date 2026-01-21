@@ -14,7 +14,7 @@
   @Behavior: modify type
   @Expect: api compatible & abi compatible
 */
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output

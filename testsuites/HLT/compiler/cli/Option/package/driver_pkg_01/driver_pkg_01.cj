@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: ./src
 // EXEC: %compiler %cmp_opt %compile_lib_opt %pkg_opt src/aoo -o ./aoo.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt -p src/boo -o ./boo.%middle

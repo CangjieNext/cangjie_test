@@ -6,6 +6,6 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 3
+// LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC-1: cd %n && %cjpm build %cjpm_opt
