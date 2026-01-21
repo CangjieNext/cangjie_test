@@ -32,24 +32,24 @@ let longString = "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
 
 @Test
 @Measure[TestMeasurement()]
-@Configure[minDuration: Duration.nanosecond, warmup: Duration.nanosecond]
+@Configure[minDuration: Duration.nanosecond, warmup: 1000]
 class TestConfigStrategies {
     @Bench[a in [ 1, 2 ], 
- b in [ 1, 2 ], 
- config.warmup in [ Duration.nanosecond * 2 ] 
-]
+        b in [ 1, 2 ], 
+        config.warmup in [ Duration.nanosecond * 2 ] 
+    ]
     func testSleep1(a: Int64, b: Int64): Unit {
         counter += 2.0
     }
     @Bench[a in [ 1, 2 ], 
- config.warmup in [ Duration.nanosecond * 2 ] 
-]
+        config.warmup in [ 2000 ] 
+    ]
     func testSleep2(a: Int64): Unit {
         counter += 1.0
     }
-    @Bench[config.warmup in [ Duration.nanosecond * 2 ], 
- a in [ longString ] 
-]
+    @Bench[config.warmup in [ 2000 ], 
+        a in [ longString ] 
+    ]
     func testSleep3(a: String): Unit {
         counter += 2.0
     }
@@ -59,10 +59,10 @@ class TestConfigStrategies {
     }
 
     @Strategy[a in [ longString, longString ], 
- b in [ longString ], 
- config.warmup in [ Duration.nanosecond * 2 ], 
- config.explicitGC in [ Disabled, Light ], 
-]
+        b in [ longString ], 
+        config.warmup in [ Duration.nanosecond * 2 ], 
+        config.explicitGC in [ Disabled, Light ], 
+    ]
     func strategy(a: String, b: String): String {
         a + b
     }

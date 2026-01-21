@@ -25,13 +25,14 @@ main() {
 
 /* SCAN-IN
 error: mocking features can be used only in the test mode, please pass --test compilation option to compile the package in the test mode
-  ==> withoutTest.cj:18:32:
+  ==> withoutTest.cj:18:10:
    | 
 18 |   var __ = @EnsurePreparedToMock {
-   |  ________________________________^
+   |  __________^
 19 | |     => return a();
 20 | | }
    | |_^
    | 
 
+1 error generated, 1 error printed.
 */
