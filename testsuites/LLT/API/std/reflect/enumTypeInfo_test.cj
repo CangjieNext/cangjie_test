@@ -27,7 +27,7 @@
  *          public static func get(qualifiedName: String): EnumConstructorInfo
  *          public static func of(instance: Any): EnumConstructorInfo
  *          public func apply(args: Array<Any>): Any
- *          public func getAssociatedvalues(instance: Any): ReadOnlyList<Any>
+ *          public func getAssociatedValues(instance: Any): ReadOnlyList<Any>
  *          public func findAllAnnotations<T>(): Array<T> where T <: Annotation
  *          public func findAllAnnotation<T>(): ?T where T <: Annotation
  *          public func getAllAnnotations(): Array<Annotation>
@@ -470,7 +470,7 @@ class EnumConstructorInfoTest {
             case _ => @Assert(false)
         }
 
-        let values = ctorB.getAssociatedvalues(inst)
+        let values = ctorB.getAssociatedValues(inst)
         @Expect(values.size, 2)
         @Expect(values[0] as Int64, Some(1))
         @Expect(values[1] as String, Some("ok"))
@@ -482,14 +482,14 @@ class EnumConstructorInfoTest {
         @Expect(ctorFromInst.hashCode(), ctorB.hashCode())
         @Expect(ctorFromGet.hashCode(), ctorB.hashCode())
 
-        let mismatch = @ExpectThrows[IllegalTypeException](ctorB.getAssociatedvalues(EAnno.A)).getOrThrow()
+        let mismatch = @ExpectThrows[IllegalTypeException](ctorB.getAssociatedValues(EAnno.A)).getOrThrow()
         @Expect(mismatch.message.contains("does not match"))
     }
 
     @TestCase
     func testConstructorAssociatedValuesSimple() {
         let ctor = EnumTypeInfo.get("default.E5").getConstructor("M2", argsCount: 1)
-        let values = ctor.getAssociatedvalues(E5.M2(7))
+        let values = ctor.getAssociatedValues(E5.M2(7))
         @Expect(values.size, 1)
         @Expect(values[0] as Int64, Some(7))
     }
@@ -497,7 +497,7 @@ class EnumConstructorInfoTest {
     @TestCase
     func testConstructorAssociatedValuesNoArgs() {
         let ctorA = EnumConstructorInfo.get("default.EAnno.A")
-        let values = ctorA.getAssociatedvalues(EAnno.A)
+        let values = ctorA.getAssociatedValues(EAnno.A)
         @Expect(values.size, 0)
     }
 
@@ -542,7 +542,7 @@ class EnumConstructorInfoTest {
         }
         let ctorFromInst = EnumConstructorInfo.of(inst)
         @Expect(ctorFromInst == ctorA)
-        let values = ctorA.getAssociatedvalues(inst)
+        let values = ctorA.getAssociatedValues(inst)
         @Expect(values.size, 0)
 
         let ctorC = EnumConstructorInfo.get("default.EAnno.C")
@@ -667,7 +667,7 @@ func verifyNestedNonRefCase1(values: ReadOnlyList<Any>, expectedBool: Bool, expe
     @Expect(values.size, 1)
     let innerCtor = EnumConstructorInfo.of(values[0])
     @Expect(innerCtor.name, "case1")
-    let innerValues = innerCtor.getAssociatedvalues(values[0])
+    let innerValues = innerCtor.getAssociatedValues(values[0])
     @Expect(innerValues.size, 2)
     @Expect(innerValues[0] as Bool, expectedBool)
     @Expect(innerValues[1] as Int64, expectedInt64)
@@ -681,7 +681,7 @@ func verifySelfCycleSome(values: ReadOnlyList<Any>, expectedInt64: Int64): Unit 
                 case Some(v) =>
                     let innerCtor = EnumConstructorInfo.of(v)
                     @Expect(innerCtor.name, "case2")
-                    let innerValues = innerCtor.getAssociatedvalues(v)
+                    let innerValues = innerCtor.getAssociatedValues(v)
                     @Expect(innerValues.size, 1)
                     @Expect(innerValues[0] as Int64, expectedInt64)
                 case None =>
@@ -717,7 +717,7 @@ func exerciseEnumConstructorPublicInterfaces(info: EnumTypeInfo, spec: EnumCtorS
     @Expect(EnumTypeInfo.of(instanceByInfo).qualifiedName, info.qualifiedName)
 
     let instanceByCtor = ctor.apply(spec.args)
-    let valuesByCtor = ctor.getAssociatedvalues(instanceByCtor)
+    let valuesByCtor = ctor.getAssociatedValues(instanceByCtor)
     @Expect(valuesByCtor.size, spec.args.size)
     spec.verify(valuesByCtor)
     @Expect(EnumConstructorInfo.of(instanceByCtor), ctor)
@@ -865,7 +865,7 @@ class EnumTypeInfoTests {
         @Expect(values[1] as Bool, true)
         @Expect(values[2] as Float32, 1.25f32)
 
-        let assocValues = case1.getAssociatedvalues(instance)
+        let assocValues = case1.getAssociatedValues(instance)
         @Expect(assocValues.size, 3)
         @Expect(EnumConstructorInfo.of(instance), case1)
     }
@@ -907,7 +907,7 @@ class EnumTypeInfoTests {
         @Expect(ctor1, case1)
         @Expect(values1.size, 0)
 
-        let values2 = case2.getAssociatedvalues(value2)
+        let values2 = case2.getAssociatedValues(value2)
         @Expect(values2.size, 1)
         @Expect(values2[0] as String, "payload")
     }
@@ -940,7 +940,7 @@ class EnumTypeInfoTests {
             }
         }
         let instance = case1.apply(args)
-        let values = case1.getAssociatedvalues(instance)
+        let values = case1.getAssociatedValues(instance)
         @Expect(values[0] as Bool, false)
         @Expect(values[1] as Int64, Int64(9))
 
@@ -980,7 +980,7 @@ class EnumTypeInfoTests {
         @Expect(comboCtor.parameters[0].qualifiedName, TypeInfo.of<ExhaustiveUnassociated>().qualifiedName)
         @Expect(comboCtor.parameters[1].qualifiedName, TypeInfo.of<NestedChild>().qualifiedName)
         let comboInstance = ComboEnum.case1(ExhaustiveUnassociated.B, NestedChild.B)
-        let comboValues = comboCtor.getAssociatedvalues(comboInstance)
+        let comboValues = comboCtor.getAssociatedValues(comboInstance)
         @Expect(EnumConstructorInfo.of(comboValues[0]).name, "B")
         @Expect(EnumConstructorInfo.of(comboValues[1]).name, "B")
 
@@ -1024,7 +1024,7 @@ class EnumTypeInfoTests {
         @Expect(values.size, 1)
         let innerCtor = EnumConstructorInfo.of(values[0])
         @Expect(innerCtor.name, "case1")
-        let innerValues = innerCtor.getAssociatedvalues(values[0])
+        let innerValues = innerCtor.getAssociatedValues(values[0])
         @Expect(innerValues.size, 2)
         @Expect(innerValues[0] as Bool, true)
         @Expect(innerValues[1] as Int64, Int64(7))
