@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm run -V -g --run-args "a b c" 2>&1 | compare %f
+// ASSERT: scan option '--run-args' will be removed in the future, prefer to use '--' instead
+// ASSERT: scan arg: 'a'
+// ASSERT: scan arg: 'b'
+// ASSERT: scan arg: 'c'
+// ASSERT: scan cjpm run finished

@@ -1,0 +1,51 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// (not Windows and not MAC)EXEC: cd %n && %cjpm run -g -V -- a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world a "b c" "d \"e\"" -V --run-args hello world2>&1 | compare %f
+// ASSERT: scan arg: 'a'
+// ASSERT: scan arg: 'b c'
+// ASSERT: scan arg: 'd "e"'
+// ASSERT: scan arg: '-V'
+// ASSERT: scan arg: '--run-args'
+// ASSERT: scan arg: 'hello'
+// ASSERT: scan arg: 'world'
+// ASSERT: scan arg: 'a'
+// ASSERT: scan arg: 'b c'
+// ASSERT: scan arg: 'd "e"'
+// ASSERT: scan arg: '-V'
+// ASSERT: scan arg: '--run-args'
+// ASSERT: scan arg: 'hello'
+// ASSERT: scan arg: 'world'
+// ASSERT: scan arg: 'a'
+// ASSERT: scan arg: 'b c'
+// ASSERT: scan arg: 'd "e"'
+// ASSERT: scan arg: '-V'
+// ASSERT: scan arg: '--run-args'
+// ASSERT: scan arg: 'hello'
+// ASSERT: scan arg: 'world'
+// ASSERT: scan arg: 'a'
+// ASSERT: scan arg: 'b c'
+// ASSERT: scan arg: 'd "e"'
+// ASSERT: scan arg: '-V'
+// ASSERT: scan arg: '--run-args'
+// ASSERT: scan arg: 'hello'
+// ASSERT: scan arg: 'world'
+// ASSERT: scan arg: 'a'
+// ASSERT: scan arg: 'b c'
+// ASSERT: scan arg: 'd "e"'
+// ASSERT: scan arg: '-V'
+// ASSERT: scan arg: '--run-args'
+// ASSERT: scan arg: 'hello'
+// ASSERT: scan arg: 'world'
+// ASSERT: scan arg: 'a'
+// ASSERT: scan arg: 'b c'
+// ASSERT: scan arg: 'd "e"'
+// ASSERT: scan arg: '-V'
+// ASSERT: scan arg: '--run-args'
+// ASSERT: scan arg: 'hello'
+// ASSERT: scan arg: 'world'
