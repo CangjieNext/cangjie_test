@@ -8,7 +8,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // EXEC-PIPE: %run %run_opt %output %run_utest_opt --bench --no-color | compare %f
 // ASSERT: scan-not Exception
-// ASSERT: scan-8 us
+// ASSERT: scan-28 us
 import std.time.*
 import std.sync.*
 

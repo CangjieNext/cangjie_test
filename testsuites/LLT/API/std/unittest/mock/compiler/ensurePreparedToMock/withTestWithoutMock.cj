@@ -25,13 +25,14 @@ main() {
 
 /* SCAN-IN
 error: mocking features are disabled, you can enable them by passing --mock=on compilation option explicitly, or using default mode
-  ==> withTestWithoutMock.cj:18:32:
+  ==> withTestWithoutMock.cj:18:10:
    | 
 18 |   var __ = @EnsurePreparedToMock {
-   |  ________________________________^
+   |  __________^
 19 | |     => return a();
 20 | | }
    | |_^
    | 
 
+1 error generated, 1 error printed.
 */
