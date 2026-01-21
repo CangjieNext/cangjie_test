@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: ./
 // EXEC-PIPE: %lint -f ./  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
 // ASSERT: scan-1 G.EXP.02: '1.321321321321321321321321321321321321' cannot be accurately represented in the current floating point number type.
