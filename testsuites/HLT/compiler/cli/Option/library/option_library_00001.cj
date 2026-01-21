@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: test.c
 // EXEC: %clang %clang_opt -o libtest.%test_suffix test.c
 // (CJNATIVE) EXEC: %compiler %cmp_opt %f --library test --library-path . --output %output

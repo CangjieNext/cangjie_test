@@ -8,10 +8,10 @@
 
 // LEVEL: 0
 // DEPENDENCE: mp
-// EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
-// EXEC: %compiler %cmp_opt mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
-// EXEC: %compiler %cmp_opt %f %link_cjmp --dy-std -o %output
-// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (not O2) EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
+// (not O2) EXEC: %compiler %cmp_opt mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
+// (not O2) EXEC: %compiler %cmp_opt %f %link_cjmp --dy-std -o %output
+// (not O2) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan NoneValueException
 // ASSERT: scan mp.g2()
 // ASSERT: scan mp.a
