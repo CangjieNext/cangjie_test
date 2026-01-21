@@ -1,0 +1,17 @@
+{
+  "bin": {},
+  "pkg-build": {
+    "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\p3\\src": {
+      "package": "p3",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1761012667,
+      "dependencies": [],
+      "std-dependencies": [],
+      "features": [],
+      "testUsed": false,
+      "mockUsed": false
+    }
+  },
+  "pkg-test": {}
+}
