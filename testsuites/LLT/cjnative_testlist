@@ -99,6 +99,14 @@ compiler/CJMP/merging/structs/struct_abstract/instance_variable/general_var_in_p
 compiler/CJMP/merging/structs/struct_abstract/instance_variable/platform_decls_add_2_variables.cj
 compiler/CJMP/merging/structs/struct_abstract/instance_variable/platform_decls_add_init_common_var.cj
 compiler/CJMP/merging/structs/struct_abstract/instance_variable/variables_all_init.cj
+compiler/CJMP/frontend/matching/class/matching_rules/member_level/prop/openness_compatibility/c_abstract_p_final.cj
+compiler/CJMP/frontend/matching/class/rename_common_platform_generic_class.cj
+compiler/CJMP/frontend/matching/enum/common_platform_generic_enum.cj
+compiler/CJMP/frontend/platform_declarations/function/generic_platform.cj
+compiler/CJMP/merging/interfaces/general/with_common_members/combinations/interface_implement/gc_ci_ci_with_new_member.cj
+compiler/CJMP/merging/interfaces/general/with_common_members/combinations/interface_implement/ge_ci_ci_with_new_member.cj
+compiler/CJMP/merging/interfaces/general/with_common_members/combinations/interface_implement/gs_ci_ci_with_new_member.cj
+compiler/CJMP/merging/test.cj
 
 ## syntax testcases
 API/stdx/syntax/testParse/test_parse_decls_from_text.cj
