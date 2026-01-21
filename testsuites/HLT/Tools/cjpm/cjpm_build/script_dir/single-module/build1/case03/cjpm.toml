@@ -1,0 +1,21 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[dependencies]
+
+[package]
+  cjc-version = "0.49.1"
+  compile-option = ""
+  description = "nothing here"
+  link-option = ""
+  name = "case03"
+  output-type = "executable"
+  src-dir = "src"
+  target-dir = ""
+  script-dir = "$$$$$$"
+  version = "1.0.0"
+  package-configuration = {}
+

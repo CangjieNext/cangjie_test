@@ -1,0 +1,182 @@
+{
+  "resolves": [
+    {
+      "rootPackageName": "b",
+      "modulePath": ".",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": [
+          {
+            "sourceSetDir": "src",
+            "srcDir": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\src\\p2",
+            "features": [],
+            "product": true,
+            "outputSuffix": "src\\product"
+          }
+        ]
+      },
+      "fullName": "b.p2",
+      "isMacroPackage": false,
+      "output-type": "static",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [],
+      "std-requires": [],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    },
+    {
+      "rootPackageName": "p4",
+      "modulePath": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\p4",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": [
+          {
+            "sourceSetDir": "src",
+            "srcDir": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\p4\\src",
+            "features": [],
+            "product": true,
+            "outputSuffix": "."
+          }
+        ]
+      },
+      "fullName": "p4",
+      "isMacroPackage": false,
+      "output-type": "dynamic",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [],
+      "std-requires": [],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    },
+    {
+      "rootPackageName": "b",
+      "modulePath": ".",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": [
+          {
+            "sourceSetDir": "src",
+            "srcDir": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\src\\p1",
+            "features": [],
+            "product": true,
+            "outputSuffix": "src\\product"
+          }
+        ]
+      },
+      "fullName": "b.p1",
+      "isMacroPackage": false,
+      "output-type": "static",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [
+        "p3"
+      ],
+      "std-requires": [],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    },
+    {
+      "rootPackageName": "b",
+      "modulePath": ".",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": [
+          {
+            "sourceSetDir": "src",
+            "srcDir": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\src",
+            "features": [],
+            "product": true,
+            "outputSuffix": "."
+          }
+        ]
+      },
+      "fullName": "b",
+      "isMacroPackage": false,
+      "output-type": "executable",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [
+        "b.p1"
+      ],
+      "std-requires": [],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    }
+  ],
+  "binDeps": {
+    "b": {
+      "package-requires": {
+        "p3": {
+          "isMacroPackage": false,
+          "requires": [],
+          "std-requires": [],
+          "cjPath": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\p3\\target\\release",
+          "libPath": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\script_dir\\multi-module\\build1\\case01\\p3\\target\\release\\p3",
+          "libName": "p3"
+        }
+      },
+      "packageRequiresSort": [
+        "p3"
+      ]
+    }
+  },
+  "crossBinDeps": {}
+}
