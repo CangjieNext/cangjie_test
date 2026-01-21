@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: pkg
 // (CJNATIVE) EXEC: %compiler %cmp_opt -O1 %compile_dylib_opt pkg/a.cj -o liba.%dylib_suffix
 // (CJNATIVE) EXEC: %compiler %cmp_opt -L . -la %f -o %output

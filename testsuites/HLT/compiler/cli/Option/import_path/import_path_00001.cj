@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: libs
 // (CJNATIVE) EXEC-PIPE: %compiler %cmp_opt %compile_lib_opt libs/myModule/myModule.cj -o libs/myModule/
 // (not CJNATIVE) EXEC-PIPE: %compiler %cmp_opt %compile_cbclib_opt libs/myModule/myModule.cj -o libs/myModule/

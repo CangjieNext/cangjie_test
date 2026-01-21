@@ -26,7 +26,7 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
-// ASSERT: scan-2 [API/ABI] Class member variable declaration visible outside the module made internal,or private.
+// ASSERT: scan-2 [API/ABI] Class member variable declaration visible outside the module made internal, or private.
 // ASSERT: scan-2 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]

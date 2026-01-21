@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: ../%n
 // (CJNATIVE) EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=os.windows | compare %f
 // (CJNATIVE) ASSERT: scan 2

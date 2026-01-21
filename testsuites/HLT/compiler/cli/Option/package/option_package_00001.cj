@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: pkg001
 // EXEC: %compiler %cmp_opt pkg001/*.cj %compile_lib_opt -o a.%middle
 // EXEC: %compiler %cmp_opt a.%middle %f -o %output

@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // EXEC: %compiler %cmp_opt %obf_string %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %compiler %cmp_opt %f -o %output_no_obf
