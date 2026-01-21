@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // (not MAC and not Windows) EXEC: %compiler %cmp_opt --pgo-instr-gen %f -o %output
 // (not Windows and not MAC) RUN-EXEC: %run %run_opt LLVM_PROFILE_FILE=default.profraw && %output %run_args
 // (not MAC and not Windows) EXEC: llvm-profdata merge *.profraw -o default.profdata

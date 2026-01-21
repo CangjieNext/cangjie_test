@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // EXEC: %compiler %cmp_opt --emit-chir=opt %f
 // EXEC: %chir-dis default.chir
 

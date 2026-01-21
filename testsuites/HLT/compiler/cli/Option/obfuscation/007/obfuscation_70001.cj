@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // DEPENDENCE: test.sh test.cfg
 
 // EXEC: %compiler -O2 %cmp_opt %obf_all --obf-config=test.cfg %save_temps %f -o %output

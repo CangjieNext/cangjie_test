@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // (CJNATIVE) EXEC: %compiler %cmp_opt --output-type=exe %f
 // (CJNATIVE and not Windows and OHOS) EXEC: %ls main
 // (CJNATIVE and Windows and not OHOS) EXEC: %ls main.exe

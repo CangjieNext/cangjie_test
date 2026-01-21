@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0-core
+// LEVEL: 0
 // (CJNATIVE and not MAC) EXEC-PIPE: %compiler %cmp_opt %static_std %static_libs %f
 // (CJNATIVE and not OHOS and not MAC) EXEC-PIPE: ldd main 2>&1 | compare %f
 // (OHOS and not MAC) EXEC-PIPE: readelf -a main 2>&1 | compare %f
