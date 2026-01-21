@@ -7,7 +7,7 @@
 // DEPENDENCE: add_func_define.cj
 // EXEC: %compiler %cmp_macro add_func_define.cj
 // EXEC: %run_macro %compiler %cmp_opt %f -o %output
-// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args | compare %f 2>&1 | compare %f
 
 import define.*
 
