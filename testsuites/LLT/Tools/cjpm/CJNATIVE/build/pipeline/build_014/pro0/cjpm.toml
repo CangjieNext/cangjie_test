@@ -1,0 +1,9 @@
+[package]
+cjc-version = "1.0.0"
+description = "nothing here"
+version = "1.0.0"
+name = "pro0"
+output-type = "static"
+
+[profile.build.combined]
+  pro0 = "dynamic"
