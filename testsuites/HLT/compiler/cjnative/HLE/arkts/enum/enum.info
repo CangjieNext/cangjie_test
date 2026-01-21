@@ -1,0 +1,26 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 2
+// DEPENDENCE: enum.d.ts
+// EXEC: %run %hle_arkts -i enum.d.ts -o . --module-name="my_module"
+// EXEC-PIPE: %cat cj/enum/src/enum.cj | compare %f
+// ASSERT: scan public enum Colors
+// ASSERT: scan case Red => "RED"
+// ASSERT: scan case "RED" => Red
+// ASSERT: scan case(Red, Red) => true
+// ASSERT: scan public enum Status <:
+// ASSERT: scan case 0 => Pending
+// ASSERT: scan case Pending => "Pending"
+// ASSERT: scan case(Pending, Pending) => true
+// ASSERT: scan public enum Status1 <:
+// ASSERT: scan | Pending
+// ASSERT: scan case 3 => Pending
+// ASSERT: scan case Pending => "Pending"
+// ASSERT: scan case(Pending, Pending) => true
+// ASSERT: scan public enum Response1 <:
+// ASSERT: scan public enum SystemErrorCode <:
+// ASSERT: scan public enum LegacyStatus <:
