@@ -8,21 +8,15 @@
 // EXEC: %compiler %cmp_opt -o %n.%suffix %f %cmp_utest_opt
 // EXEC: %run %run_opt %output %run_utest_opt %run_args --no-color --bench --report-format=csv-raw --report-path=./tmp
 // RUN-EXEC-PIPE: %cat ./tmp/benchmarks/bench-default.BenchClass.csv | compare %f
-
-/* SCAN-IN
-Case,Args,BatchSize,Duration,Unit,Measurement
-"foo",,"10","100.000000","a","Measurement(1, a)"
- */
-
-// SCAN-IN "foo",,"10","10.000000","b","Measurement(10, b)"
-// SCAN-IN "bar",,"10","200.000000","a","Measurement(1, a)"
-// SCAN-IN "bar",,"10","20.000000","b","Measurement(10, b)"
-
-// SCAN-IN "parameterized","true","10","300.000000","a","Measurement(1, a)"
-// SCAN-IN "parameterized","false","10","300.000000","a","Measurement(1, a)"
-
-// SCAN-IN "parameterized","true","10","30.000000","b","Measurement(10, b)"
-// SCAN-IN "parameterized","false","10","30.000000","b","Measurement(10, b)"
+// ASSERT: scan Case,Args,BatchSize,Duration,Unit,Measurement
+// ASSERT: scan "foo",,"10","100.000000","a","Measurement(1, a)"
+// ASSERT: scan "foo",,"10","10.000000","b","Measurement(10, b)"
+// ASSERT: scan "bar",,"10","200.000000","a","Measurement(1, a)"
+// ASSERT: scan "bar",,"10","20.000000","b","Measurement(10, b)"
+// ASSERT: scan "parameterized","true","10","30.000000","a","Measurement(1, a)"
+// ASSERT: scan "parameterized","false","10","30.000000","a","Measurement(1, a)"
+// ASSERT: scan "parameterized","true","10","3.000000","b","Measurement(10, b)"
+// ASSERT: scan "parameterized","false","10","3.000000","b","Measurement(10, b)"
 
 import std.unittest.*
 import std.unittest.testmacro.*
