@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix
 // EXEC-PIPE-1: %run %run_opt %n.%suffix 2>&1 | compare %f
-// ASSERT:regex default.a\(.*global_init_expect.cj:[0-9]+
+// ASSERT:regex default::a\(.*global_init_expect.cj:[0-9]+
 
 interface I1 {}
 

@@ -36,5 +36,5 @@ main() {
 foo
 An exception has occurred:
 Exception
-	 at default.foo(
+	 at default::foo(
 */

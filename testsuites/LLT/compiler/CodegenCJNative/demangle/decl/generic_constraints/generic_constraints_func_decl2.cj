@@ -8,7 +8,7 @@
 // EXEC-PIPE:%compiler %cmp_opt %compile_lib_opt A/A.cj -o A.%middle
 // EXEC-PIPE:%compiler %cmp_opt A.%middle %f -o %output
 // EXEC-PIPE-1: %run %run_opt %output 2>&1 | compare %f
-// ASSERT: scan A.sumFloat<...>(std.core::Array<...>)(
+// ASSERT: scan A::sumFloat<...>(std.core::Array<...>)(
 internal import A.*
 
 // Mangle generic function with different constraints

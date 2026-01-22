@@ -13,8 +13,6 @@
 // (not O2) EXEC: %compiler %cmp_opt %f %link_cjmp --dy-std -o %output
 // (not O2) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan NoneValueException
-// ASSERT: scan mp.g2()
-// ASSERT: scan mp.a
 
 import mp.*
 

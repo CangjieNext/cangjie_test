@@ -6,8 +6,8 @@
 
 // EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix
 // EXEC-PIPE-1: %run %run_opt %n.%suffix 2>&1 | compare %f
-// ASSERT: scan default.A::extendFunc::extendFuncInnerBar(Int64)
-// ASSERT: scan default.A::extendFunc(Int64)
+// ASSERT: scan default::A::extendFunc::extendFuncInnerBar(Int64)
+// ASSERT: scan default::A::extendFunc(Int64)
 class A {
     private func extendFunc(): Int64 {
         return 1
