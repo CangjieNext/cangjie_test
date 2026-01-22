@@ -15,8 +15,8 @@ common extend Int64 {
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p  2>&1 | compare %f
-// ASSERT: scan error: 'common' function 'foo' can not find 'platform' match
+// ASSERT: scan error: 'common' function 'foo' can not find 'specific' match
 package cmp
 
-platform extend Int64{
+specific extend Int64{
 }

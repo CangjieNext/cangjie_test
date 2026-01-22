@@ -18,14 +18,14 @@ public common class A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
-    public platform init(){
+public specific class A {
+    public specific init(){
         println("none")
     }
-    public platform init(a:Int64){
+    public specific init(a:Int64){
         println("one")
     }
-    public platform init(a:Int64,b:Int64){
+    public specific init(a:Int64,b:Int64){
         println("two")
     }
 }

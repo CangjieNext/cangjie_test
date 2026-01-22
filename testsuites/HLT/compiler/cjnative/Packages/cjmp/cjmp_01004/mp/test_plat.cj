@@ -8,7 +8,7 @@
  
 package mp
 
-public platform var a: Int64 = v
+public specific var a: Int64 = v
 public func test_plat() { a }
 
 

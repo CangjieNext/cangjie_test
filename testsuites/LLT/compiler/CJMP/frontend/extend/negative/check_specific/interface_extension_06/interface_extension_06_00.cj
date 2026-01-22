@@ -19,4 +19,4 @@ common extend<T, G> Foo<T, G> <: Ioo<T, G> {}
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform extend<X, Y> Foo<X, Y> <: Ioo<X, Y> {}
+specific extend<X, Y> Foo<X, Y> <: Ioo<X, Y> {}

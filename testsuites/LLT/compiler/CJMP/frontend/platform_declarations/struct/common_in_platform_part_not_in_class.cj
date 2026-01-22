@@ -16,8 +16,8 @@ common struct A{
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 public common func goo(): Unit {}
-platform struct A {
-    public platform func foo(): Unit {}
+specific struct A {
+    public specific func foo(): Unit {}
 }
 
 /* SCAN

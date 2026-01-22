@@ -17,11 +17,11 @@ public common class A {
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-public platform class A {
+public specific class A {
     public  let b:Int64
-    public platform init(x:Int64){
+    public specific init(x:Int64){
         b = x
-        println("platform")
+        println("specific")
     }
 
 }
@@ -42,6 +42,6 @@ main(): Unit {
 }
 
 /* SCAN
-platform
+specific
 1
 */

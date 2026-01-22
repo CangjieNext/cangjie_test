@@ -16,14 +16,14 @@ common func foo<M, N>(m:M, n:N):Unit where M <: ToString
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 
-platform func foo<T>(x:T):Unit {}
-platform func foo<M, N>(m:M, n:N):Unit where N <: ToString {}
+specific func foo<T>(x:T):Unit {}
+specific func foo<M, N>(m:M, n:N):Unit where N <: ToString {}
 
 /*SCAN
 error: the constraint of type parameter is not looser than parent's constraint
  ==> p/p.cj:5:40:
   | 
-5 | platform func foo<M, N>(m:M, n:N):Unit where N <: ToString {}
+5 | specific func foo<M, N>(m:M, n:N):Unit where N <: ToString {}
   |                                        ^^^^^^^^^^^^^^^^^^^ 
   | 
   # note: parent constraint is empty

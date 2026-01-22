@@ -27,7 +27,7 @@ package cmp
 
 import a.*
 
-public platform func showGV(): Unit {
+public specific func showGV(): Unit {
     println("${gv}")
 }
 

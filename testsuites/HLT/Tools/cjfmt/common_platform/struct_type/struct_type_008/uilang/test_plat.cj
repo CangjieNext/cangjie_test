@@ -8,23 +8,23 @@
 
 package mp
 
-internal platform struct Point {
+internal specific struct Point {
     var x: Int64 = 0
     var y: Int64 = 0
-    public platform init (a: Int64, b: Int64) {
+    public specific init (a: Int64, b: Int64) {
         x = a
         y = b
     }
 
-    public platform operator func -(): Point {
+    public specific operator func -(): Point {
         Point(-x, -y)
     }
 
-    public operator platform func +(right: Point): Point {
+    public operator specific func +(right: Point): Point {
         Point(this.x + right.x, this.y + right.y)
     }
 
-    operator platform func [](arg1: Int64, arg2: String): Int64 {
+    operator specific func [](arg1: Int64, arg2: String): Int64 {
         return 0
     }
 }

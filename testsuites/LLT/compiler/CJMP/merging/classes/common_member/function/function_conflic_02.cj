@@ -20,9 +20,9 @@ common class A {
 // ASSERT: scan sema_overload_conflicts
 package cmp
 
-platform class A {
+specific class A {
     func testFunc(): Unit {
-        println("platform")
+        println("specific")
     }
 }
 

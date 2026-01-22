@@ -22,9 +22,9 @@ public common func foo():Unit
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-public platform let a:Int64=2
+public specific let a:Int64=2
 
-public platform func foo():Unit
+public specific func foo():Unit
 {
     func nestSub (a: Int64, b: Int64) {
         a - b

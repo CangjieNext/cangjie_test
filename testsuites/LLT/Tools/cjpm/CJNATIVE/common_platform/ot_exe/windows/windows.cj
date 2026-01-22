@@ -7,6 +7,6 @@
 features { os.windows }
 package ot_exe
 
-public platform func platformId(): String { "windows" }
+public specific func specificId(): String { "windows" }
 
 main(): Unit { commonMain() }

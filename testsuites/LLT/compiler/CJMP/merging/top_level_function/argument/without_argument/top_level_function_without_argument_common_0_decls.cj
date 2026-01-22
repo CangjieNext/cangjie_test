@@ -18,12 +18,12 @@ package cmp
 package cmp
 
 func foo(): Unit {
-    println("From platform member foo func")
+    println("From specific member foo func")
 }
 main() {
     foo()
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 */

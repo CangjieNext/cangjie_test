@@ -8,15 +8,15 @@
 
 package mp
 
-platform public class C{
-    platform public func f1(): Int64 {
+specific public class C{
+    specific public func f1(): Int64 {
         var a = 1
         2
     }
 }
 
-platform extend C <: I<Int64> {
-    public platform func f(a: String): String {
+specific extend C <: I<Int64> {
+    public specific func f(a: String): String {
         a
     }
 }

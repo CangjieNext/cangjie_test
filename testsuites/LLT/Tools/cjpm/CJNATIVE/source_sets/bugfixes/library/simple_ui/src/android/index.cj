@@ -10,7 +10,7 @@ package simple_ui
 import sensor_mp.sensorcall
 import cj_res.AppRCall
 
-public platform func indexcall(): Unit {
+public specific func indexcall(): Unit {
 	println("indexAndroid")
 	AppRCall()
 	sensorcall()

@@ -8,7 +8,7 @@
  
 package mp
 
-public platform var a = 0
+public specific var a = 0
 public func test_plat() { a }
 
 

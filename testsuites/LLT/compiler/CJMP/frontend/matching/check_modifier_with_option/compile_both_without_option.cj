@@ -6,5 +6,5 @@
 
 // DEPENDENCE: common.cj platform.cj
 // EXEC-PIPE-1: %compiler %diag_json common.cj platform.cj 2>&1 | compare %f
-// ASSERT: scan parse_platform_in_non_platform_file
+// ASSERT: scan parse_specific_in_non_specific_file
 // ASSERT: scan parse_common_in_non_common_file

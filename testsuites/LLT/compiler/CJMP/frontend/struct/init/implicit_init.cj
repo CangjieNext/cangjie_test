@@ -17,5 +17,5 @@ public common struct A {
 // ASSERT: scan sema_not_matched
 package cmp
 
-public platform struct A {}
+public specific struct A {}
 

@@ -17,7 +17,7 @@ common class A {
 // ASSERT: scan sema_type_uninitialized_static_field
 package cmp
 
-platform class A {
+specific class A {
     static var a: Int64
     init() {}
 }

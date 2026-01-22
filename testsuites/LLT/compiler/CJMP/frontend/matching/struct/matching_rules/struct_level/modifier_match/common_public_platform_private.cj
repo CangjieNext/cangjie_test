@@ -14,6 +14,6 @@ public common struct A{
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 // ASSERT: scan parse_conflict_modifier
 package cmp
-private platform struct A{
+private specific struct A{
 }
 

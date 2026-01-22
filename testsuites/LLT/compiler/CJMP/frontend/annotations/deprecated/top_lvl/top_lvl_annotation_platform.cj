@@ -17,14 +17,14 @@ public common let glob: Bool = true
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
-// ASSERT: scan sema_platform_has_deprecated_annotation
+// ASSERT: scan sema_specific_has_deprecated_annotation
 package cmp
 
 @Deprecated
-public platform interface fofo {
-    platform func jojo(): Unit {}
+public specific interface fofo {
+    specific func jojo(): Unit {}
 }
 @Deprecated
-public platform func foo(): Unit {}
+public specific func foo(): Unit {}
 @Deprecated
-public platform let glob: Bool = true
+public specific let glob: Bool = true

@@ -20,7 +20,7 @@ common class A {
 // ASSERT: scan sema_not_matched
 package cmp
 
-platform class A {
+specific class A {
 }
 
 main() : Unit {

@@ -19,9 +19,9 @@ public common class A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
+public specific class A {
     public func foo():Unit{
-    println("from foo platform")
+    println("from foo specific")
     aoo()
    }   
 }
@@ -40,6 +40,6 @@ main(): Unit {
 
 
 /* SCAN
-from foo platform
+from foo specific
 from aoo func
 */

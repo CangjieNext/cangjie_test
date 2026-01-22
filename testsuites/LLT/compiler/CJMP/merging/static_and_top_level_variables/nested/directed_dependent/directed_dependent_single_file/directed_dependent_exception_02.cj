@@ -16,5 +16,5 @@ public let X: Int64 = Y
 // ASSERT: scan chir_file_might_circular_dependency
 package cmp
 
-public platform let Y: Int64 = X
+public specific let Y: Int64 = X
 

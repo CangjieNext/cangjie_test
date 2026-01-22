@@ -17,8 +17,8 @@ common func foo(): Unit {
 // ASSERT: scan sema_not_matched
 package cmp
 
-platform func foo(): Int64 {
-    println("platform")
+specific func foo(): Int64 {
+    println("specific")
     1
 }
 

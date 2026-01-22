@@ -8,8 +8,8 @@
 
 package mp
 
-public platform class C {
-    public platform init(a!: Int64 = 1) {
+public specific class C {
+    public specific init(a!: Int64 = 1) {
         this.a = a
     }
 }

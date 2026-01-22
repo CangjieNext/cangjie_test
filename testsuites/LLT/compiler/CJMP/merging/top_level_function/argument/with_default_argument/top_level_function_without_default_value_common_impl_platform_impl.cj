@@ -19,19 +19,19 @@ common  func foo(input!:String): Unit{
 // RUN-EXEC-PIPE-0: %run %output 2>&1 | compare %f
 package cmp
 
-platform  func foo(input!:String  = "platform" ): Unit {
-    println("From platform member foo func")
+specific  func foo(input!:String  = "specific" ): Unit {
+    println("From specific member foo func")
     println(input)
 }
 main() {
-    foo(input:"platform1")
+    foo(input:"specific1")
     foo()
     
 }
 
 /* SCAN
-From platform member foo func
-platform1
-From platform member foo func
-platform
+From specific member foo func
+specific1
+From specific member foo func
+specific
 */

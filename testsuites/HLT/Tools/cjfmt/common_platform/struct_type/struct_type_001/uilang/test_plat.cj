@@ -8,15 +8,15 @@
 
 package mp
 
-public platform struct A {
-    private platform func f(): Int64 { 0 }
-    public platform var a: Int64 = 1
-    public static platform var b: Int64 = 2
+public specific struct A {
+    private specific func f(): Int64 { 0 }
+    public specific var a: Int64 = 1
+    public static specific var b: Int64 = 2
 }
 
-protected platform struct A2 {
-    protected platform func f(): Int64 { 1 }
-    static private platform func f2(): Int64 { 3 }
+protected specific struct A2 {
+    protected specific func f(): Int64 { 1 }
+    static private specific func f2(): Int64 { 3 }
 }
 
 public func test_plat() { A().f(0) }

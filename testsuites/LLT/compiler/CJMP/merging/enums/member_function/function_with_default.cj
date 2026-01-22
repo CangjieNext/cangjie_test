@@ -24,7 +24,7 @@ common public enum A {
 package cmp
 
 
-platform public enum A {
+specific public enum A {
     | AA 
 }
 

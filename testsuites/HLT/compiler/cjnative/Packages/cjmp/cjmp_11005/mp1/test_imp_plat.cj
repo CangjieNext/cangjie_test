@@ -8,4 +8,4 @@
 
 package mp1
 
-platform class C {}
+specific class C {}
