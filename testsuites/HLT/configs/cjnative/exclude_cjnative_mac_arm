@@ -93,3 +93,12 @@ compiler/cjnative/Packages/cjmp/cjmp_03026/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_07008/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_13011/test.cj
 
+# feature organization name temporarily being disable on branch main
+compiler/cjnative/Packages/org_name
+
+# https://gitcode.com/Cangjie/cangjie_compiler/issues/522
+compiler/cjnative/Class/super/illegal_super_call_expr_0.cj
+compiler/cjnative/Class/super/illegal_super_call_expr_1.cj
+compiler/cjnative/Class/super/illegal_super_call_expr_2.cj
+compiler/cjnative/Class/super/illegal_super_call_expr_3.cj
+compiler/cjnative/Class/super/illegal_super_call_expr_4.cj

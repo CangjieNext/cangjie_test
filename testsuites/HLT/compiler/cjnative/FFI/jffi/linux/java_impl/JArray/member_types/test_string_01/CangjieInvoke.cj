@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE: Main.java com UNNAMED
+// (Android) EXEC: %javac com/*.java
+// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f UNNAMED/src/*.cj --output-javagen-dir=.
+// (Android) EXEC: %javac %cp_loader_jar Main.java com/*.java CangjieInvoke.java -h . -d .
+// (Android) EXEC-PIPE: %java %cp_loader_jar -Djava.library.path=. com.java.app.Main 2>&1 | compare %f
+// (Android) ASSERT: scan run java
+// (Android) ASSERT: scan instance member of JavaClass are:
+// (Android) ASSERT: scan static member of JavaClass are: 1234567890abcd
+
+package UNNAMED
+
+import interoplib.interop.*
+import java.lang.*
+
+@JavaImpl
+public class CangjieInvoke <: JObject {
+    public init() {
+        let javaclass = JavaClass()
+        println("instance member of JavaClass are: ${javaclass.aString[0].toString()}")
+        println("static member of JavaClass are: ${JavaClass.a_String[0].toString()}")
+    }
+}
