@@ -43,8 +43,6 @@ Tools/cjdb/datacom/cross_platform/cross_platform032.info
 Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
 Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj
 
-# Exclude after sync `dev` -> `main`
-compiler/cjnative/Packages/cjmp/cjmp_03026/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_07008/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_13011/test.cj
-
+# https://gitcode.com/Cangjie/cangjie_test/issues/256
+compiler/cjnative/Packages/cjmp/cjmp_16010/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_16020/test.cj

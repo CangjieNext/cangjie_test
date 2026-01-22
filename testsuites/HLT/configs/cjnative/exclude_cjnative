@@ -100,15 +100,6 @@ Tools/cjlint/rules/G_OTH_03/g_oth_03_10026/g_oth_03.info
 # syntax will be supported in future
 API/syntax
 
-# cjmp is not ready.
-compiler/cjnative/Packages/cjmp/cjmp_03025/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_07014/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_13002/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_14003/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_03006/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_09001/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_11017/test.cj
-
 # feature org name unavailable on this branch
 API/std/ast/orgName
 compiler/cjnative/Extend/operator/define/operator_def_18.cj
@@ -194,8 +185,6 @@ Tools/cjdb/datacom/cross_platform/cross_platform032.info
 Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
 Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj
 
-# Exclude after sync `dev` -> `main`
-compiler/cjnative/Packages/cjmp/cjmp_03026/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_07008/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_13011/test.cj
-
+# https://gitcode.com/Cangjie/cangjie_test/issues/256
+compiler/cjnative/Packages/cjmp/cjmp_16010/test.cj
+compiler/cjnative/Packages/cjmp/cjmp_16020/test.cj
