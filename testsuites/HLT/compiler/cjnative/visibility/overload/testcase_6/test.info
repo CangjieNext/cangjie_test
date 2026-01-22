@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+// LEVEL: 0
+// DESCRIPTION: 3个源文件分别保存拥有相同函数签名的private全局函数，每个源文件中存在若干private重载，不同源文件中存在非private全局函数的重载，预期互不冲突编译成功
+// DEPENDENCE: a.cj b.cj c.cj main.cj
+// EXEC: %compiler %cmp_opt a.cj b.cj c.cj main.cj -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan a.p, 1
+// ASSERT: scan b.p, 2
+// ASSERT: scan c.p, 3

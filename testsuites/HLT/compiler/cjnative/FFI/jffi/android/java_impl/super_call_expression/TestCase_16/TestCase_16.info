@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// Level: 1
+// Description:
+// (Android) DEPENDENCE: CangjieInvoke.cj com MainInstrumentedTest.java 
+// (Android) EXEC: python3 %java_interop_setup
+// (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
+// (Android) EXEC: %java %java_mirror_gen com.ParentClass
+// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link CangjieInvoke.cj logger.cj UNNAMED/src/*.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
+
+// (Android) EXEC: python3 %java_interop_runner --test-entry=MainInstrumentedTest.java --java-source-root=com
+// (Android) ASSERT: scan hello

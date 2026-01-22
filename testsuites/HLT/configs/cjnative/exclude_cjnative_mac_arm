@@ -93,3 +93,5 @@ compiler/cjnative/Packages/cjmp/cjmp_03026/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_07008/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_13011/test.cj
 
+# feature organization name temporarily being disable on branch main
+compiler/cjnative/Packages/org_name
