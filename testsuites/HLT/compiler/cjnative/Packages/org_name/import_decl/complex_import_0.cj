@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DESCRIPTION: alias import.
+// DEPENDENCE: upstream_package.cj root_pkg.cj sub_pkg.cj sub_sub_pkg.cj
+// EXEC: %compiler %cmp_opt %compile_dylib_opt root_pkg.cj
+// EXEC: %compiler %cmp_opt %compile_dylib_opt upstream_package.cj
+// EXEC: %compiler %cmp_opt %compile_dylib_opt sub_pkg.cj
+// EXEC: %compiler %cmp_opt %compile_dylib_opt sub_sub_pkg.cj
+// EXEC: %compiler %cmp_opt %f -L. -lmy_pkg@my_org -lmy_pkg.sub_pkg@my_org -lmy_pkg.sub_pkg.sub_sub_pkg@my_org -lmy_pkg_1@my_org -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+import my_org::my_pkg.{C as RootC, sub_pkg, sub_pkg.E, sub_pkg.C as SubC, sub_pkg.sub_sub_pkg.*}
+import my_org::{my_pkg, my_pkg_1}
+
+main(): Unit {
+    RootC().foo()
+    E.A
+    SubC().foo()
+    C().foo()
+    EE.A
+    my_pkg_1.C().foo()
+}

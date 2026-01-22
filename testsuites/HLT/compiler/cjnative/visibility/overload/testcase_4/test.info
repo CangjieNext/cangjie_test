@@ -1,0 +1,12 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+// LEVEL: 0
+// DESCRIPTION: 3个源文件分别保存拥有相同函数签名的全局函数，其中2个是private，1个是public，预期重载冲突
+// DEPENDENCE: a.cj b.cj c.cj main.cj
+// EXEC-PIPE-1: %compiler %cmp_opt a.cj b.cj c.cj main.cj -o %output 2>&1 | compare %f
+// ASSERT: scan sema_overload_conflicts
