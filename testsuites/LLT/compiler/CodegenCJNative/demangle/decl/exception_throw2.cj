@@ -8,8 +8,8 @@
 // EXEC-PIPE-1: %run %run_opt %n.%suffix 2>&1 | compare %f
 // ASSERT: scan An exception has occurred:
 // ASSERT: regex ^IndexOutOfBoundsException: full stack$
-// ASSERT: regex at default.a::lambda.\d+\(\)\(.*exception_throw2.cj:15\)$
-// ASSERT: regex at default.a\(.*exception_throw2.cj:15\)$
+// ASSERT: regex at default::a::lambda.\d+\(\)\(.*exception_throw2.cj:15\)$
+// ASSERT: regex at default::a\(.*exception_throw2.cj:15\)$
 // ASSERT: regex at default::file_global_init\(.*exception_throw2.cj:0\)$
 
 var a = {a: Int64 => throw IndexOutOfBoundsException("full stack")}(1)

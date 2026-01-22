@@ -8,7 +8,7 @@
 // EXEC-PIPE-1: %run %run_opt %n.%suffix 2>&1 | compare %f
 // ASSERT: scan An exception has occurred:
 // ASSERT: regex ^Exception: full stack$
-// ASSERT: regex at default.main\(\)\(.*exception_throw1.cj:14\)$
+// ASSERT: regex at default::main\(\)\(.*exception_throw1.cj:14\)$
 
 main(): Unit {
     throw Exception("full stack")

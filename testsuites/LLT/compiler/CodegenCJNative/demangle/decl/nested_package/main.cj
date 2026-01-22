@@ -8,7 +8,7 @@
 // EXEC-PIPE: %compiler %cmp_opt %compile_lib_opt pkg/pkg1/pkg2/a.cj -o a.%middle
 // EXEC-PIPE: %compiler %cmp_opt a.%middle %f -o %output
 // EXEC-PIPE-1: %run %run_opt %output 2>&1 | compare %f
-// ASSERT: scan pkg.pkg1.pkg2.ClassA<...>::getArray()
+// ASSERT: scan pkg.pkg1.pkg2::ClassA<...>::getArray()
 internal import pkg.pkg1.pkg2.*
 
 main() {

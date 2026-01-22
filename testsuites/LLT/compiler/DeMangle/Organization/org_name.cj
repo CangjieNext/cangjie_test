@@ -7,7 +7,7 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1| compare %f
-// ASSERT: scan at org_name::pkg_name.foo()
+// ASSERT: scan at org_name::pkg_name::foo()
 
 package org_name::pkg_name
 

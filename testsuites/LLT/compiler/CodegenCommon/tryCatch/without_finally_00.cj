@@ -37,5 +37,5 @@ An exception has occurred:
 Exception
  */
 /* SCAN-IN
-at default.foo(
+at default::foo(
  */
