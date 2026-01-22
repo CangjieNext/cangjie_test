@@ -6,6 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
+@NonProduct
+features {}
 package mp1
 
 public common func f1(): Int64 {
