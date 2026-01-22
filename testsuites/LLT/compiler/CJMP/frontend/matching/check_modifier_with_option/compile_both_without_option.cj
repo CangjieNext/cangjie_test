@@ -5,6 +5,5 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: common.cj platform.cj
-// EXEC-PIPE-1: %compiler %diag_json common.cj platform.cj 2>&1 | compare %f
-// ASSERT: scan parse_specific_in_non_specific_file
-// ASSERT: scan parse_common_in_non_common_file
+// EXEC-PIPE-1: %compiler %diag_json common.cj platform.cj --experimental --output-type=chir 2>&1 | compare %f
+// ASSERT: scan sema_redefinition

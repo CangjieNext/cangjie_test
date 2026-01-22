@@ -148,6 +148,21 @@ compiler/Driver/LTO/lto_test10_1.cj
 compiler/ConditionalCompilation/cfg/read_file_fail.cj
 compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
 
+# CJMP: error only when compiling to binary
+compiler/CJMP/frontend/platform_declarations/class/common_in_platform_class.cj
+compiler/CJMP/frontend/platform_declarations/struct/common_in_platform_class.cj
+compiler/CJMP/frontend/platform_declarations/class/common_in_platform_part_not_in_class.cj
+compiler/CJMP/frontend/platform_declarations/struct/common_in_platform_part_not_in_class.cj
+compiler/CJMP/frontend/platform_declarations/function/common_func_in_platformfile.cj
+compiler/CJMP/frontend/platform_declarations/class/common_in_platform_class.cj
+compiler/CJMP/frontend/matching/check_modifier_with_option/compile_both_in_platform.cj
+
+# CJMP: Correct errot about extend duplication
+compiler/CJMP/frontend/extend/negative/check_specific/direct_extension_01/direct_extension_01_05.cj
+
+# CJMP: AST::Attribute::SPECIFIC no longer available when compiling common part
+compiler/CJMP/merging/classes/vtable/import1.cj
+
 # API testcases commented on 2025-10-17, need to be fixed.
 ## unittest testcases
 ### error: source file 'other.cj' doesn't exist
@@ -176,4 +191,11 @@ compiler/CJMP/java/integration/config-struct-public-struct-hidden/config-struct-
 compiler/CJMP/java/integration/non-public-class-without-override/non-public-class-without-override.info
 compiler/CJMP/java/integration/non-public-enum/non-public-enum.info
 compiler/CJMP/java/integration/non-public-struct/non-public-struct.info
+compiler/Driver/options/help/test_showall.cj
 compiler/Sema/this/thisfuncchain.cj
+
+# Tech deb of multi-phase multi-parent support
+compiler/CJMP/compilation/several_parents/merging_initializers_big_case.cj
+compiler/CJMP/multiphase_compilation/3step_generic.cj
+compiler/CJMP/multiphase_compilation/non_CJMP_added_at_any_step_2.cj
+compiler/CJMP/multiphase_compilation/3step_enum.cj
