@@ -49,9 +49,3 @@ Tools/cjpm/source_set/source_set006/dependence015
 Tools/cjdb/datacom/cross_platform/cross_platform032.info
 Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
 Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj
-
-# Exclude after sync `dev` -> `main`
-compiler/cjnative/Packages/cjmp/cjmp_03026/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_07008/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_13011/test.cj
-
