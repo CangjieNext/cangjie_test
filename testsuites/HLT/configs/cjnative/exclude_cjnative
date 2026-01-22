@@ -166,13 +166,6 @@ Tools/cjpm/source_set/source_set006/dependence015
 # feature organization name temporarily being disable on branch main
 compiler/cjnative/Packages/org_name
 
-# https://gitcode.com/Cangjie/cangjie_compiler/issues/522
-compiler/cjnative/Class/super/illegal_super_call_expr_0.cj
-compiler/cjnative/Class/super/illegal_super_call_expr_1.cj
-compiler/cjnative/Class/super/illegal_super_call_expr_2.cj
-compiler/cjnative/Class/super/illegal_super_call_expr_3.cj
-compiler/cjnative/Class/super/illegal_super_call_expr_4.cj
-
 # CJMP has to be fixed
 Tools/cjdb/datacom/cross_platform/cross_platform032.info
 Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
