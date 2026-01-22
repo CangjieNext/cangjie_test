@@ -6,7 +6,7 @@
 
 // EXEC: %compiler --int-overflow=wrapping %cmp_opt %f -o %output
 // EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1| compare %f
-// ASSERT: scan at default.Interface_1743341905737_48<...>::func_1743341905737_667(Tuple<...>, Tuple<...>)
+// ASSERT: scan at default::Interface_1743341905737_48<...>::func_1743341905737_667(Tuple<...>, Tuple<...>)
 
 public sealed interface Interface_1743341905737_48<T0> {
     @Frozen

@@ -10,8 +10,8 @@
 //  EXEC: %compiler mymod/mod2/mod2.cj %compile_shared_lib_opt %output_dir_opt mymod --fobf-layout --obf-config %n.cfg --obf-sym-output-mapping b.map --obf-sym-prefix=b %save_temps_opt .
 //  EXEC: %compiler -o test -lmymod.mod1 -lmymod.mod2 %import_path_opt=mymod -Lmymod --fobf-layout --obf-config %n.cfg --obf-sym-input-mapping a.map,b.map --obf-sym-prefix=c -p . %save_temps_opt .
 //  EXEC: LD_LIBRARY_PATH=mymod:${LD_LIBRARY_PATH} ./test 2>&1 | compare ./%f
-// ASSERT: scan-not at mymod.mod1.MyException::init
-// ASSERT: scan-not mymod.mod1.my_common_func1()
-// ASSERT: scan-not mymod.mod1.MyClassA::myfunc1(Int64, Float64)
+// ASSERT: scan-not at mymod.mod1::MyException::init
+// ASSERT: scan-not mymod.mod1::my_common_func1()
+// ASSERT: scan-not mymod.mod1::MyClassA::myfunc1(Int64, Float64)
 // ASSERT: scan-not mod1.cj
 // ASSERT: scan-not test.cj

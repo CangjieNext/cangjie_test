@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix
 // EXEC-PIPE-1: %run %run_opt %n.%suffix 2>&1 | compare %f
-// ASSERT: scan default.foo(CString, std.core::Array<...>, (CString) -> CString)
+// ASSERT: scan default::foo(CString, std.core::Array<...>, (CString) -> CString)
 public func foo(str: CString, arr: Array<CString>, op!: (CString) -> CString = {p => p}): Unit {
     throw Exception("test CString")
 }

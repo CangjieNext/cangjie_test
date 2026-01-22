@@ -8,7 +8,7 @@
 // EXEC-PIPE-1: %run %run_opt %n.%suffix 2>&1 | compare %f
 
 // ASSERT: regex NoneValueException
-// ASSERT: regex default.Foo::foo_func_10::foo_func_11
+// ASSERT: regex default::Foo::foo_func_10::foo_func_11
 
 class Demo {
     public func demo_111() {

@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix
 // EXEC-PIPE-1: %run %run_opt %n.%suffix 2>&1 | compare %f
-// ASSERT: scan default.Goo<...>::foo(Int64)
+// ASSERT: scan default::Goo<...>::foo(Int64)
 class Goo<T> {
     static func foo(g: Int64): Int64 {
         throw Exception()

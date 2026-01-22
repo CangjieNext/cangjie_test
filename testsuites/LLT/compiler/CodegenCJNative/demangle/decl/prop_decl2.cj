@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix
 // EXEC-PIPE-1: %run %run_opt %n.%suffix 2>&1 | compare %f
-// ASSERT: scan default.A::poo::set(Int64)
+// ASSERT: scan default::A::poo::set(Int64)
 
 class A {
     mut prop poo: Int64 {

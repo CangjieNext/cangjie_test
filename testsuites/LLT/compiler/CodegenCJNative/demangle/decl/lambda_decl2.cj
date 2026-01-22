@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix
 // EXEC-PIPE-1: %run %run_opt %n.%suffix 2>&1 | compare %f
-// ASSERT: scan default.foo(Int64, () -> Int64)
+// ASSERT: scan default::foo(Int64, () -> Int64)
 func foo(a: Int64, b: () -> Int64): Int64 {
     throw Exception("exception")
 }

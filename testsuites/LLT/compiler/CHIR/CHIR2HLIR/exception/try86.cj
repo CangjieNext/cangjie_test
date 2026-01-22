@@ -8,7 +8,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // EXEC-PIPE-1: %run %run_opt %output 2>&1 | compare %f
 // ASSERT: scan OverflowException: sub
-// ASSERT: scan default.main()
+// ASSERT: scan default::main()
 // ASSERT: scan try86.cj:18
 
 var a = UInt16(6)
