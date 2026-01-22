@@ -8,9 +8,9 @@
 
 // LEVEL: 0
 // DEPENDENCE: p
-// (CJNATIVE and not MAC and not Windows) EXEC: %compiler %cmp_opt %compile_lib_opt --lto=thin p/a.cj -o p.%middle
-// (CJNATIVE and not MAC and not Windows) EXEC: %compiler %cmp_opt --lto=thin %f p.%middle -o %output
-// (CJNATIVE and not MAC and not Windows) RUN-EXEC: %run %run_opt %output %run_args
+// (target_linux | target_ohos) EXEC: %compiler %cmp_opt %compile_lib_opt --lto=thin p/a.cj -o p.%middle
+// (target_linux | target_ohos) EXEC: %compiler %cmp_opt --lto=thin %f p.%middle -o %output
+// (target_linux | target_ohos) RUN-EXEC: %run %run_opt %output %run_args
 
 import p.*
 

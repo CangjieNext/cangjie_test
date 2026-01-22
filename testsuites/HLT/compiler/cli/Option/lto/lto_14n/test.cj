@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// (CJNATIVE and not MAC and not Windows) ERRCHECK: %compiler %cmp_opt --lto= %f -o %output
+// (target_linux | target_ohos) ERRCHECK: %compiler %cmp_opt --lto= %f -o %output
 // (not Windows) ASSERT: scan option '--lto' requires some values, format: option=value or option="v1, v2..."
 // (not Windows) ASSERT: scan invalid value: ''
 

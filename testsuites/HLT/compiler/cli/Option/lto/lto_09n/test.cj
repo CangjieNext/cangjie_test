@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// (CJNATIVE and not MAC and not Windows) EXEC: %compiler %cmp_opt %compile_dylib_opt --lto=full %f
+// (target_linux | target_ohos) EXEC: %compiler %cmp_opt %compile_dylib_opt --lto=full %f
 
 main(): Int64 {
     return 0

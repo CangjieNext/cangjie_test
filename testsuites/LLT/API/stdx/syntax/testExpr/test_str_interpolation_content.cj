@@ -63,4 +63,12 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
     }
+
+    @TestCase
+    func testInit02() {
+        let block = Block([SymbolRef("x", []), SymbolRef("y", [])])
+        let strInterpolationContent = StrInterpolationContent(block)
+        @Expect(strInterpolationContent.interpolationBlock.toString(), "{x; y}")
+        @Expect(strInterpolationContent.toString(), ##"${x; y}"##)
+    }
 }

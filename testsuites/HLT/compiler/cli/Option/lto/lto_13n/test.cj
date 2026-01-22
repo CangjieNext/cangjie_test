@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// (CJNATIVE and not MAC and not Windows) ERRCHECK: %compiler %cmp_opt --lto=aaa %f -o %output
+// (target_linux | target_ohos) ERRCHECK: %compiler %cmp_opt --lto=aaa %f -o %output
 // (not Windows) ASSERT: scan invalid value: 'aaa'
 
 main(): Int64 {
