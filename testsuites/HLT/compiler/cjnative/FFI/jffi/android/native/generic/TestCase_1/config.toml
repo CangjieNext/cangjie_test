@@ -1,0 +1,49 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[default]
+APIStrategy = "Full"
+GenericTypeStrategy = "None"
+
+[[package]]
+name = "UNNAMED"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+excluded_apis = []
+generic_object_configuration = [
+	{ name = "CangjieClass", type_arguments = ["Bool", "Int8", "Int16", "Int32", "Int64", "Float32", "Float64"] },
+	{ name = "CangjieClass<Bool>", symbols = ["instanceMemberFunction", "CangjieClass", "init"] },
+	{ name = "CangjieClass<Int8>", symbols = ["instanceMemberFunction", "CangjieClass", "init"] },
+	{ name = "CangjieClass<Int16>", symbols = ["instanceMemberFunction", "CangjieClass", "init"] },
+	{ name = "CangjieClass<Int32>", symbols = ["instanceMemberFunction", "CangjieClass", "init"] },
+	{ name = "CangjieClass<Int64>", symbols = ["instanceMemberFunction", "CangjieClass", "init"] },
+	{ name = "CangjieClass<Float32>", symbols = ["instanceMemberFunction", "CangjieClass", "init"] },
+	{ name = "CangjieClass<Float64>", symbols = ["instanceMemberFunction", "CangjieClass", "init"] },
+	{ name = "CangjieStruct", type_arguments = ["Bool", "Int8", "Int16", "Int32", "Int64", "Float32", "Float64"] },
+	{ name = "CangjieStruct<Bool>", symbols = ["instanceMemberFunction", "CangjieStruct", "init"] },
+	{ name = "CangjieStruct<Int8>", symbols = ["instanceMemberFunction", "CangjieStruct", "init"] },
+	{ name = "CangjieStruct<Int16>", symbols = ["instanceMemberFunction", "CangjieStruct", "init"] },
+	{ name = "CangjieStruct<Int32>", symbols = ["instanceMemberFunction", "CangjieStruct", "init"] },
+	{ name = "CangjieStruct<Int64>", symbols = ["instanceMemberFunction", "CangjieStruct", "init"] },
+	{ name = "CangjieStruct<Float32>", symbols = ["instanceMemberFunction", "CangjieStruct", "init"] },
+	{ name = "CangjieStruct<Float64>", symbols = ["instanceMemberFunction", "CangjieStruct", "init"] },
+	{ name = "CangjieEnum", type_arguments = ["Bool", "Int8", "Int16", "Int32", "Int64", "Float32", "Float64"] },
+	{ name = "CangjieEnum<Bool>", symbols = ["instanceMemberFunction", "instancecMemberProperty"] },
+	{ name = "CangjieEnum<Int8>", symbols = ["instanceMemberFunction", "instancecMemberProperty"] },
+	{ name = "CangjieEnum<Int16>", symbols = ["instanceMemberFunction", "instancecMemberProperty"] },
+	{ name = "CangjieEnum<Int32>", symbols = ["instanceMemberFunction", "instancecMemberProperty"] },
+	{ name = "CangjieEnum<Int64>", symbols = ["instanceMemberFunction", "instancecMemberProperty"] },
+	{ name = "CangjieEnum<Float32>", symbols = ["instanceMemberFunction", "instancecMemberProperty"] },
+	{ name = "CangjieEnum<Float64>", symbols = ["instanceMemberFunction", "instancecMemberProperty"] },
+	{ name = "CangjieInterface", type_arguments = ["Bool", "Int8", "Int16", "Int32", "Int64", "Float32", "Float64"] },
+	{ name = "CangjieInterface<Bool>", symbols = ["instanceMemberFunction", "abstractInstanceMemberFunction"] },
+	{ name = "CangjieInterface<Int8>", symbols = ["instanceMemberFunction", "abstractInstanceMemberFunction"] },
+	{ name = "CangjieInterface<Int16>", symbols = ["instanceMemberFunction", "abstractInstanceMemberFunction"] },
+	{ name = "CangjieInterface<Int32>", symbols = ["instanceMemberFunction", "abstractInstanceMemberFunction"] },
+	{ name = "CangjieInterface<Int64>", symbols = ["instanceMemberFunction", "abstractInstanceMemberFunction"] },
+	{ name = "CangjieInterface<Float32>", symbols = ["instanceMemberFunction", "abstractInstanceMemberFunction"] },
+	{ name = "CangjieInterface<Float64>", symbols = ["instanceMemberFunction", "abstractInstanceMemberFunction"] },
+]
