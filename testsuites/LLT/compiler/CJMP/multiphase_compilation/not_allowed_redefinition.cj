@@ -12,23 +12,20 @@ common class A{
     public init() {}
 }
 
+common func foo() {}
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir 2>&1 | compare %f
 package cmp
 
-specific class A {
-    public specific func foo(): Unit {}
-    public common func goo(): Unit {}
-}
+common func foo() {}
+specific func foo() {}
 
-/* SCAN
-error: common declaration must be defined in common package part
- ==> p/p.cj:1:1:
-  | 
-1 | // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
-  | ^ 
-  | 
+/*SCAN
+error: function 'foo' has overload conflicts
+ ==> p/p.cj:5:15:
+note: conflict with the declaration
+ ==> p/p.cj:4:13:
 
 1 error generated, 1 error printed.
 */

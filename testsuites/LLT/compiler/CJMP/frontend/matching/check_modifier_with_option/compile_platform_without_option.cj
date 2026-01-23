@@ -5,5 +5,5 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: platform.cj
-// EXEC-PIPE-1: %compiler %diag_json platform.cj 2>&1 | compare %f
-// ASSERT: scan parse_specific_in_non_specific_file
+// EXEC-PIPE-1: %compiler %diag_json --output-type=dylib platform.cj 2>&1 | compare %f
+// ASSERT: scan parse_unexpected_cjmp_decl

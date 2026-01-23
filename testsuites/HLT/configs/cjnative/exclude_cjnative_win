@@ -399,3 +399,6 @@ Tools\cjpm\source_set\source_set003\source_set_identifier002
 
 # random failure
 # Tools\cjpm\stdx\stdx_c\tree_01
+
+# cjmp
+Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
