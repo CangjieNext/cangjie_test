@@ -14,3 +14,6 @@ API/syntax/visit/ASTRewriter/test_rewriter_02.cj
 compiler/cjnative/stable_abi/package_name
 compiler/cjnative/stable_abi/add_instance_member_variable
 compiler/cjnative/stable_abi/add_virtual_function
+
+# cjmp
+Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
