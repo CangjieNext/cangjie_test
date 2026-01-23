@@ -170,21 +170,3 @@ compiler/cjnative/Packages/org_name
 Tools/cjdb/datacom/cross_platform/cross_platform032.info
 Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
 Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj
-
-# https://gitcode.com/Cangjie/cangjie_test/issues/256
-compiler/cjnative/Packages/cjmp/cjmp_16010/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_16020/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_03006/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_03026/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_07008/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_09001/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_11017/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_13011/test.cj
-compiler/cjnative/Packages/cjmp/cjmp_14003/test.cj
-
-# https://gitcode.com/Cangjie/cangjie_test/issues/255
-Tools/cjcov/common_platform/cross_platform003/cross_platform003.cj
-Tools/cjcov/common_platform/cross_platform006/cross_platform006.cj
-Tools/cjcov/common_platform/cross_platform014/cross_platform014.cj
-Tools/cjcov/common_platform/cross_platform016/cross_platform016.cj
-Tools/cjcov/common_platform/cross_platform030/cross_platform030.cj

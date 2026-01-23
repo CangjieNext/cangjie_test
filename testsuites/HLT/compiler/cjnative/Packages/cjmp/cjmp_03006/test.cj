@@ -7,8 +7,7 @@
  */
  
 // LEVEL: 0
-// ERRCHECK: %compiler %cmp_opt %f %compile_chir_opt -o %output
-// ASSERT: scan parse_common_function_must_have_return_type
+// EXEC: %compiler %cmp_opt %f %compile_chir_opt
 
 public common func f() { 0 }
 
