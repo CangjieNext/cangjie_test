@@ -98,7 +98,7 @@ main(): Int64 {
 
 /* SCAN-IN
 Cannot construct the 'Annotation' node.
-description: at, token_id: 51, token_literal_value: @, fileID: 13, line: 79, column: 30
+description: at, token_id: 51, token_literal_value: @, fileID: 13, line: 81, column: 30
 Illegal TokenKind, TokenKind should be AT or AT_EXCLAMATION
 description: or, token_id: 17, token_literal_value: ||, fileID: 1, line: 35, column: 33
 1
