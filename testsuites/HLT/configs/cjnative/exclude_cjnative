@@ -30,10 +30,6 @@ Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP036.info
 Tools/cjdb/datacom/expression_enum/expression_enum006.info
 Tools/cjdb/datacom/generics_expression/generics_local_var014.info
 
-# cross
-Tools/cjdb/datacom/conditionBP_expression/cjdb_ConditionBP020.info
-Tools/cjdb/datacom/generics_expression/generics_local_var002.info
-
 # cjlint failed cases, excluded before
 Tools/cjlint/rules/G_OTH_03/g_oth_03_10002/g_oth_03_10002.info
 Tools/cjlint/rules/G_FMT_01/g_fmt_01_10001/g_fmt_01_10001.info
