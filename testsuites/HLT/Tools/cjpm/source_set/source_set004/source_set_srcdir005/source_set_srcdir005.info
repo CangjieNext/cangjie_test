@@ -8,6 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC-PIPE-1: cd %n && %cjpm run -V 2>&1 | compare %f
-// ASSERT: scan Error: Cannot compile multiple product source sets
+// EXEC-PIPE-1: cd %n && %cjpm run --enable-features=os.darwin,os.linux,os.ohos,os.windows -V 2>&1 | compare %f
+// ASSERT: scan Error: Cannot compile multiple source sets without common parent source set
 // ASSERT: scan Error: cjpm run failed

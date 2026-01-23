@@ -38,3 +38,6 @@ CJNATIVE/build/git_local/multiple_module_git_12
 # 中心仓联调用例，线下看护
 CJNATIVE/repo/download
 CJNATIVE/repo/publish
+
+# Excluded until compiler issue with `--import-path` and `CJMP` is fixed
+CJNATIVE/common_platform/merging/packages
