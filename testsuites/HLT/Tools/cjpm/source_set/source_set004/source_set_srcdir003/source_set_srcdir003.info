@@ -9,5 +9,5 @@
 // LEVEL: 0
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run -V  --no-feature-deduce --enable-features=os.windows,os.linux,os.darwin,os.ohos 2>&1 | compare %f
-// ASSERT: scan Error: Cannot compile multiple product source sets
+// ASSERT: scan Error: Cannot compile multiple source sets without common parent source set
 // ASSERT: scan Error: cjpm run failed
