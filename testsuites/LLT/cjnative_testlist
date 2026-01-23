@@ -148,6 +148,21 @@ compiler/Driver/LTO/lto_test10_1.cj
 compiler/ConditionalCompilation/cfg/read_file_fail.cj
 compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
 
+# CJMP: error only when compiling to binary
+compiler/CJMP/frontend/platform_declarations/class/common_in_platform_class.cj
+compiler/CJMP/frontend/platform_declarations/struct/common_in_platform_class.cj
+compiler/CJMP/frontend/platform_declarations/class/common_in_platform_part_not_in_class.cj
+compiler/CJMP/frontend/platform_declarations/struct/common_in_platform_part_not_in_class.cj
+compiler/CJMP/frontend/platform_declarations/function/common_func_in_platformfile.cj
+compiler/CJMP/frontend/platform_declarations/class/common_in_platform_class.cj
+compiler/CJMP/frontend/matching/check_modifier_with_option/compile_both_in_platform.cj
+
+# CJMP: Correct errot about extend duplication
+compiler/CJMP/frontend/extend/negative/check_specific/direct_extension_01/direct_extension_01_05.cj
+
+# CJMP: AST::Attribute::SPECIFIC no longer available when compiling common part
+compiler/CJMP/merging/classes/vtable/import1.cj
+
 # API testcases commented on 2025-10-17, need to be fixed.
 ## unittest testcases
 ### error: source file 'other.cj' doesn't exist
@@ -176,7 +191,64 @@ compiler/CJMP/java/integration/config-struct-public-struct-hidden/config-struct-
 compiler/CJMP/java/integration/non-public-class-without-override/non-public-class-without-override.info
 compiler/CJMP/java/integration/non-public-enum/non-public-enum.info
 compiler/CJMP/java/integration/non-public-struct/non-public-struct.info
+compiler/Driver/options/help/test_showall.cj
 compiler/Sema/this/thisfuncchain.cj
 
 # cjc --incremental-compile failed
 compiler/CodegenCJNative/incremental/cfunc/main.cj
+
+# Tech deb of multi-phase multi-parent support
+compiler/CJMP/compilation/several_parents/merging_initializers_big_case.cj
+compiler/CJMP/multiphase_compilation/3step_generic.cj
+
+compiler/CJMP/compilation/common_part_part_should_be_specified.cj
+compiler/CJMP/compilation/wrong_chir.cj
+compiler/CJMP/frontend/class/primary/primary_conflict_with_common.cj
+compiler/CJMP/frontend/class/primary/primary_conflict_with_platform.cj
+compiler/CJMP/frontend/common_declarations/class/abstract_class/abstract_modifier_only_for_cjmp_class_members.cj
+compiler/CJMP/frontend/common_declarations/class/abstract_class/error_unimlemented_abstract.cj
+compiler/CJMP/frontend/common_declarations/class/abstract_class/no_explicit_modifier_1.cj
+compiler/CJMP/frontend/common_declarations/class/abstract_class/no_explicit_modifier_2.cj
+compiler/CJMP/frontend/common_declarations/class/abstract_class/no_explicit_modifier_3.cj
+compiler/CJMP/frontend/common_declarations/class/abstract_class/no_explicit_modifier_on_property_1.cj
+compiler/CJMP/frontend/common_declarations/class/abstract_class/no_explicit_modifier_on_property_2.cj
+compiler/CJMP/frontend/common_declarations/class/abstract_class/no_explicit_modifier_on_property_3.cj
+compiler/CJMP/frontend/common_declarations/class/platform_in_common.cj
+compiler/CJMP/frontend/common_declarations/function/specific_func_in_commonfile.cj
+compiler/CJMP/frontend/common_declarations/struct/platform_member_in_common_struct.cj
+compiler/CJMP/frontend/extend/negative/check_specific/direct_extension_06/direct_extension_06_08.cj
+compiler/CJMP/frontend/extend/negative/check_specific/direct_extension_07/direct_extension_07_04.cj
+compiler/CJMP/frontend/extend/negative/check_specific/direct_extension_07/direct_extension_07_06.cj
+compiler/CJMP/frontend/extend/negative/check_specific/direct_extension_07/direct_extension_07_08.cj
+compiler/CJMP/frontend/extend/negative/check_specific/direct_extension_07/direct_extension_07_09.cj
+compiler/CJMP/frontend/extend/negative/check_specific/direct_extension_07/direct_extension_qualified_type.cj
+compiler/CJMP/frontend/extend/negative/check_specific/interface_extension_01/interface_extension_01_05.cj
+compiler/CJMP/frontend/extend/negative/check_specific/interface_extension_05/interface_extension_05_06.cj
+compiler/CJMP/frontend/extend/negative/genericExtend_with_error.cj
+compiler/CJMP/frontend/extend/negative/parse/common_modifier_member.cj
+compiler/CJMP/frontend/extend/negative/parse/common_modifier_repeat.cj
+compiler/CJMP/frontend/extend/negative/parse/illegal_common_member.cj
+compiler/CJMP/frontend/extend/negative/property/mutability00.cj
+compiler/CJMP/frontend/extend/negative/property/mutability01.cj
+compiler/CJMP/frontend/extend/negative/typeAlias_in_extend.cj
+compiler/CJMP/frontend/extend/parse/common_modifier_member.cj
+compiler/CJMP/frontend/extend/parse/common_modifier_repeat.cj
+compiler/CJMP/frontend/extend/parse/illegal_common_member.cj
+compiler/CJMP/frontend/interface/common/common_interface_func_can_not_be_abstract.cj
+compiler/CJMP/frontend/interface/common/common_interface_prop_can_not_be_abstract.cj
+compiler/CJMP/frontend/matching/check_platform_common/annotation_match_args.cj
+compiler/CJMP/frontend/matching/class/matching_rules/member_level/normal_function_member/openness_compatibility_table/c_abstract_p_final.cj
+compiler/CJMP/frontend/matching/class/matching_rules/member_level/normal_function_member/openness_compatibility_table/c_open_p_abstract.cj
+compiler/CJMP/frontend/matching/class/matching_rules/member_level/prop/openness_compatibility/c_abstract_p_final.cj
+compiler/CJMP/frontend/matching/class/matching_rules/member_level/prop/openness_compatibility/c_open_p_abstract.cj
+compiler/CJMP/frontend/platform_declarations/class/non_abstract_member_in_platform_class.cj
+compiler/CJMP/frontend/platform_declarations/class/non_platform_abstract_property_in_platform_class.cj
+compiler/CJMP/frontend/platform_declarations/function/default_params_on_both_sides.cj
+compiler/CJMP/merging/classes/class_abstract/inheritance/test_invalid_common_abstract_superclass.cj
+compiler/CJMP/merging/classes/vtable/implemntation_ambiguity_is_detected.cj
+compiler/CJMP/merging/imports/not_visible_in_platform.cj
+compiler/CJMP/merging/static_and_top_level_variables/different_files_transitive_3.cj
+compiler/CJMP/merging/static_and_top_level_variables/nested/directed_dependent/directed_dependent_single_file_set/let_vars_can_not_be_matched_with_var_pattern.cj
+compiler/CJMP/merging/static_and_top_level_variables/nested/directed_dependent/directed_dependent_single_file_set/platform_pattern_can_not_find_common_match.cj
+compiler/Sema/Extend/default_implement/multi_default_impl_07.cj
+compiler/Sema/Extend/visibility_between_extend/strict_call_loose.cj

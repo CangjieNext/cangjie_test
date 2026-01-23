@@ -12,11 +12,11 @@ common struct C{
     init() {}
 }
 /* SCAN
-error: specific declaration must be defined in specific package part
- ==> c/c.cj:1:1:
+error: function a is specific, but struct is not specific
+ ==> c/c.cj:4:5:
   | 
-1 | // EXEC-PIPE-1: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
-  | ^ 
+4 |     specific func a():Int32 {}
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
 
 1 error generated, 1 error printed.
