@@ -42,6 +42,9 @@ main(): Int64 {
 
 /* SCAN-IN
 ident(() ->,())
+traversed!
+traversed!
+traversed!
 Constructor {
   -identifier: Token {
     value: "ident"
@@ -59,7 +62,7 @@ Constructor {
 }
 description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 36, column: 43
 10
-description: identifier, token_id: 137, token_literal_value: , fileID: 13, line: 80, column: 38
+description: identifier, token_id: 137, token_literal_value: , fileID: 13, line: 82, column: 38
 cnt = 0
  */
 /*
