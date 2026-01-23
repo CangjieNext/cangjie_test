@@ -56,3 +56,6 @@ compiler/cjnative/Packages/org_name/package_decl/invalid_colon_1.cj
 compiler/cjnative/Packages/org_name/package_decl/no_package_name_0.cj
 compiler/cjnative/Packages/org_name/package_decl/no_package_name_1.cj
 compiler/cjnative/Packages/org_name/package_decl/no_package_name_2.cj
+
+# cjmp
+Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
