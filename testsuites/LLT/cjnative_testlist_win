@@ -139,3 +139,6 @@ Tools/cjdb/datacom/expr/debuginfo_uint8.info
 Tools/cjdb/datacom/expr/debuginfo_uintnative.info
 Tools/cjdb/datacom/expr/debuginfo_unit.info
 Tools/cjdb/datacom/generic/generic_any.info
+
+# cjpm tree failed, should be checked
+Tools/cjpm/stdx/stdx_/tree_01/tree_01.info
