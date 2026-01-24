@@ -77,16 +77,7 @@ compiler/CJMP/merging/test.cj
 compiler/CJMP/refgluecode
 
 # daignose is changed
-compiler/Sema/interface/interface_property/interface_property1.cj
-compiler/Sema/Extend/property/property_mut_immut_mismatch.cj
 compiler/Parser/function/missing_func_keyword.cj
-
-# printed more things.
-compiler/Sema/property/property_inherit_03.cj
-compiler/Sema/property/property_inherit_mismatch.cj
-compiler/Sema/property/property_inherit_mismatch.cj
-compiler/Sema/property/err_prop_no_get_00.cj
-compiler/Sema/property/err_prop_no_get_01.cj
 
 # need to check with test team
 API/std/libast/nodes/test_program_exception_001.cj
@@ -193,9 +184,6 @@ compiler/CJMP/java/integration/non-public-enum/non-public-enum.info
 compiler/CJMP/java/integration/non-public-struct/non-public-struct.info
 compiler/Driver/options/help/test_showall.cj
 compiler/Sema/this/thisfuncchain.cj
-
-# cjc --incremental-compile failed
-compiler/CodegenCJNative/incremental/cfunc/main.cj
 
 # Tech deb of multi-phase multi-parent support
 compiler/CJMP/compilation/several_parents/merging_initializers_big_case.cj
