@@ -177,6 +177,3 @@ compiler/CJMP/java/integration/non-public-class-without-override/non-public-clas
 compiler/CJMP/java/integration/non-public-enum/non-public-enum.info
 compiler/CJMP/java/integration/non-public-struct/non-public-struct.info
 compiler/Sema/this/thisfuncchain.cj
-
-# cjc --incremental-compile failed
-compiler/CodegenCJNative/incremental/cfunc/main.cj
