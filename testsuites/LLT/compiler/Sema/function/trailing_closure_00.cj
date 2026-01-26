@@ -23,6 +23,7 @@ error: expected declaration, found 'paCkage'
   | ^^^^^^^ expected declaration here
   | 
   # note: only declarations or macro expressions can be used in the top-level
+  # help: did you mean 'package'?
 
 error: unclosed delimiter: '{'
   ==> trailing_closure_00.cj:16:2:

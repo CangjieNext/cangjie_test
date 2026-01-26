@@ -9,4 +9,4 @@
 // LEVEL: 0
 // DEPENDENCE: pkgA
 // EXEC-PIPE: %compiler --scan-dependency -p pkgA 2>&1 | compare %f
-// ASSERT: regex {"package":"pkgA","isMacro":false,"accessLevel":"public","dependencies":\[{"package":"mod2.pkgB","orPackage":"mod2.pkgB.b","isStd":false,"imports":\[{"file":"pkgA(/|\\\\)pkgA.cj","begin":{"line":11,"column":9},"end":{"line":11,"column":20}}\]},{"package":"pkgC","isStd":false,"imports":\[{"file":"pkgA(/|\\\\)pkgA.cj","begin":{"line":11,"column":22},"end":{"line":11,"column":28}}\]}\],"features":\[\]}
+// ASSERT: regex {"package":"pkgA","isMacro":false,"accessLevel":"public","dependencies":\[{"package":"mod2.pkgB","orPackage":"mod2.pkgB.b","isStd":false,"imports":\[{"file":"pkgA(/|\\\\)pkgA.cj","begin":{"line":11,"column":9},"end":{"line":11,"column":20}}\]},{"package":"pkgC","isStd":false,"imports":\[{"file":"pkgA(/|\\\\)pkgA.cj","begin":{"line":11,"column":22},"end":{"line":11,"column":28}}\]}\],"features":\[\],"product":true}
