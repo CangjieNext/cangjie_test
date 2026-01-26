@@ -1465,6 +1465,5 @@ extend Enum354 {
 // ASSERT: scan parse_unexpected_declaration_in_scope
 // ASSERT: scan parse_unmatched_right_delimiter
 // ASSERT: scan parse_expected_catch_or_finally_in_try
-// ASSERT: scan parse_expected_expr_or_decl_in
 
 

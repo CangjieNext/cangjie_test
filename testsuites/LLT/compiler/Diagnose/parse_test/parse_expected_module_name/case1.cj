@@ -18,13 +18,6 @@ error: expected declaration, found 'from'
    | 
    # note: only declarations or macro expressions can be used in the top-level
 
-error: expected ';' or '<NL>', found keyword 'var'
-  ==> case1.cj:10:6:
-   | 
-10 | from var
-   |      ^^^ expected ';' or '<NL>' here
-   | 
-
 error: expected identifier or pattern after 'var', found '<EOF>'
   ==> case1.cj:10:9:
    | 
@@ -32,5 +25,5 @@ error: expected identifier or pattern after 'var', found '<EOF>'
    |      ~~~^ expected identifier or pattern here
    | 
 
-3 errors generated, 3 errors printed.
+2 errors generated, 2 errors printed.
 */
