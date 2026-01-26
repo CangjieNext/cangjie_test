@@ -3,61 +3,61 @@ EnumDecl {
     -keyword: Token {
       value: "public"
       kind: PUBLIC
-      pos: 17: 9
+      pos: 9: 9
     }
   }
   -keyword: Token {
     value: "enum"
     kind: ENUM
-    pos: 17: 16
+    pos: 9: 16
   }
   -identifier: Token {
     value: "test"
     kind: IDENTIFIER
-    pos: 35: 27
+    pos: 26: 27
   }
   -genericParam: GenericParam {
     -parameters: 0, T1: Token {
       value: "T1"
       kind: IDENTIFIER
-      pos: 17: 30
+      pos: 9: 30
     }
   }
   -upperBound: Token {
     value: "<:"
     kind: UPPERBOUND
-    pos: 17: 34
+    pos: 9: 34
   }
   -superTypes: 0, RefType {
     -identifier: Token {
       value: "I1"
       kind: IDENTIFIER
-      pos: 17: 37
+      pos: 9: 37
     }
   }
   -genericConstraint: 0, GenericConstraint {
     -keyword: Token {
       value: "where"
       kind: WHERE
-      pos: 17: 40
+      pos: 9: 40
     }
     -typeArgument: RefType {
       -identifier: Token {
         value: "T1"
         kind: IDENTIFIER
-        pos: 17: 46
+        pos: 9: 46
       }
     }
     -upperBound: Token {
       value: "<:"
       kind: UPPERBOUND
-      pos: 17: 49
+      pos: 9: 49
     }
     -upperBounds: 0, RefType {
       -identifier: Token {
         value: "A"
         kind: IDENTIFIER
-        pos: 17: 52
+        pos: 9: 52
       }
     }
   }
@@ -65,20 +65,20 @@ EnumDecl {
     -identifier: Token {
       value: "Year"
       kind: IDENTIFIER
-      pos: 18: 13
+      pos: 10: 13
     }
   }
   -constructors: 1, Constructor {
     -identifier: Token {
       value: "Month"
       kind: IDENTIFIER
-      pos: 19: 15
+      pos: 11: 15
     }
     -typeArguments: 0, RefType {
       -identifier: Token {
         value: "T1"
         kind: IDENTIFIER
-        pos: 19: 21
+        pos: 11: 21
       }
     }
   }
@@ -86,12 +86,12 @@ EnumDecl {
     -keyword: Token {
       value: "func"
       kind: FUNC
-      pos: 20: 13
+      pos: 12: 13
     }
     -identifier: Token {
       value: "time"
       kind: IDENTIFIER
-      pos: 20: 18
+      pos: 12: 18
     }
     -block: Block {
     }

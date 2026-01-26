@@ -4,14 +4,6 @@
 // EXEC: %diff %n.expect %n.txt
 internal import std.ast.*
 
-class MyVisitor <: Visitor {
-    public override func visit(curNode: Node) {
-        println(1)
-    }
-}
-
-let myVisitor = MyVisitor()
-
 main(): Int64 {
     let input = quote(
         public enum TimeUnit<T1> <: I1 where T1 <: A {
@@ -25,7 +17,6 @@ main(): Int64 {
         case Some(v) => v
         case None => throw Exception()
     }
-    decl.traverse(myVisitor)
 
     let output = quote($enumDecl)
     let flag = compareTokens(input, output) // libast offers compareTokens
