@@ -23,10 +23,10 @@ class Test {
     @TestCase
     func testExpr01() {
         let expr = (nodes[0] as WhileExpr).getOrThrow()
-        @Expect(expr.condition.toString(), "true")
-        @Expect(expr.body.toString(), "{}")
-        @Expect(expr.toString(), "while (true) {}")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.condition.toString().replace("\r\n", "\n"), "true")
+        @Expect(expr.body.toString().replace("\r\n", "\n"), "{}")
+        @Expect(expr.toString().replace("\r\n", "\n"), "while (true) {}")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
 
         var pos = expr.getWhileKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 10]).toArray())
@@ -41,18 +41,18 @@ class Test {
     @TestCase
     func testExpr02() {
         let expr = (nodes[1] as WhileExpr).getOrThrow()
-        @Expect(expr.condition.toString(), "x && y + 1 > 3")
-        @Expect(expr.body.toString(), """
+        @Expect(expr.condition.toString().replace("\r\n", "\n"), "x && y + 1 > 3")
+        @Expect(expr.body.toString().replace("\r\n", "\n"), """
 {
         println()
         return
     }""")
-        @Expect(expr.toString(), """
+        @Expect(expr.toString().replace("\r\n", "\n"), """
 while (x && y + 1 > 3) {
         println()
         return
     }""")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = expr.getWhileKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 10]).toArray())
         pos = expr.getCondLParenPos()
@@ -67,13 +67,13 @@ while (x && y + 1 > 3) {
     func testWhileExprInit() {
         let expr = (nodes[1] as WhileExpr).getOrThrow()
         let whileExpr = WhileExpr(expr.body, expr.condition)
-        @Expect(whileExpr.condition.toString(), "x && y + 1 > 3")
-        @Expect(whileExpr.body.toString(), """
+        @Expect(whileExpr.condition.toString().replace("\r\n", "\n"), "x && y + 1 > 3")
+        @Expect(whileExpr.body.toString().replace("\r\n", "\n"), """
 {
         println()
         return
     }""")
-        @Expect(whileExpr.toString(), """
+        @Expect(whileExpr.toString().replace("\r\n", "\n"), """
 while (x && y + 1 > 3) {
         println()
         return

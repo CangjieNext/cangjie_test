@@ -55,7 +55,7 @@ class Test{
     func testDetachTrue() {
         let rewrite = RewriteNode()
         let newNode = rewrite.walk(file.getOrThrow(), detach: true)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 package www .w .
  w. wx
 
@@ -69,7 +69,7 @@ func    foo (
     func testDetachFalse() {
         let rewrite = RewriteNode()
         let newNode = rewrite.walk(file.getOrThrow())
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 package www .w .
  w. wx
 
@@ -77,7 +77,7 @@ func    foo (
 
 ) {   0}""")
 
-        @Expect(newNode.parentNode.getOrThrow().toString(), """
+        @Expect(newNode.parentNode.getOrThrow().toString().replace("\r\n", "\n"), """
 // test_file_input1.cj
 package www .w .
  w. wx
@@ -119,7 +119,7 @@ x: Bool,
         let rewrite = ASTRewriteBinary()
         let decl = file.getOrThrow().topLevelDecls[0]
         let newNode = rewrite.walk(decl)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 main(
 
 ) : Int64{
@@ -127,7 +127,7 @@ main(
 
 }""")
 
-        @Expect(newNode.parentNode.getOrThrow().toString(), """
+        @Expect(newNode.parentNode.getOrThrow().toString().replace("\r\n", "\n"), """
 package www .w .
  w. wx
 
@@ -138,7 +138,7 @@ main(
 
 }""")
 
-        @Expect(newNode.parentNode.getOrThrow().parentNode.getOrThrow().toString(), """
+        @Expect(newNode.parentNode.getOrThrow().parentNode.getOrThrow().toString().replace("\r\n", "\n"), """
 // test_file_input1.cj
 package www .w .
  w. wx

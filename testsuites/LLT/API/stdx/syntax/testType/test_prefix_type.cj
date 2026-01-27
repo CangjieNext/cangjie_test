@@ -24,9 +24,9 @@ class Test {
         let ty = (varDecl.tyAnnotation.getOrThrow() as PrefixType).getOrThrow()
 
         @Expect(ty.base is AtomicType)
-        @Expect(ty.base.toString(), "Int16")
-        @Expect(ty.toString(), "?Int16")
-        @Expect(ty.toTokens().toString(), "?Int16")
+        @Expect(ty.base.toString().replace("\r\n", "\n"), "Int16")
+        @Expect(ty.toString().replace("\r\n", "\n"), "?Int16")
+        @Expect(ty.toTokens().toString().replace("\r\n", "\n"), "?Int16")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 14]).toArray())
@@ -40,8 +40,8 @@ class Test {
         let ty = (varDecl.tyAnnotation.getOrThrow() as PrefixType).getOrThrow()
 
         @Expect(ty.base is PrefixType)
-        @Expect(ty.base.toString(), "?Int16")
-        @Expect(ty.toString(), "??Int16")
+        @Expect(ty.base.toString().replace("\r\n", "\n"), "?Int16")
+        @Expect(ty.toString().replace("\r\n", "\n"), "??Int16")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 8, 3, 15]).toArray())
@@ -55,8 +55,8 @@ class Test {
         let ty = (varDecl.tyAnnotation.getOrThrow() as PrefixType).getOrThrow()
 
         @Expect(ty.base is CompositeType)
-        @Expect(ty.base.toString(), "String")
-        @Expect(ty.toString(), "?String")
+        @Expect(ty.base.toString().replace("\r\n", "\n"), "String")
+        @Expect(ty.toString().replace("\r\n", "\n"), "?String")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 8, 4, 15]).toArray())
@@ -69,7 +69,7 @@ class Test {
         let funcDecl = (decls[0] as FuncDecl).getOrThrow()
         let ty = (funcDecl.retTyAnnotation.getOrThrow() as PrefixType).getOrThrow()
 
-        @Expect(ty.toString(), "?Int16")
+        @Expect(ty.toString().replace("\r\n", "\n"), "?Int16")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 18, 1, 24]).toArray())
@@ -92,8 +92,8 @@ class Test {
         let prefixType = PrefixType(ty.base, ty.prefixTypeOpKind)
 
         @Expect(prefixType.base is AtomicType)
-        @Expect(prefixType.base.toString(), "Int16")
-        @Expect(prefixType.toString(), "?Int16")
+        @Expect(prefixType.base.toString().replace("\r\n", "\n"), "Int16")
+        @Expect(prefixType.toString().replace("\r\n", "\n"), "?Int16")
 
         var pos = prefixType.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())

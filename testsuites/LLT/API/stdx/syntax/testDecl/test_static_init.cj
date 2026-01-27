@@ -22,9 +22,9 @@ class Test {
     func testDecl01() {
         let classDecl = (decls[0] as ClassDecl).getOrThrow()
         let decl = (classDecl.body.memberDecls[0] as StaticInit).getOrThrow()
-        @Expect(decl.body.toString(), "{}")
-        @Expect(decl.toString(), "static init() {}")
-        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
+        @Expect(decl.body.toString().replace("\r\n", "\n"), "{}")
+        @Expect(decl.toString().replace("\r\n", "\n"), "static init() {}")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), decl.toString().replace("\r\n", "\n"))
         var pos = decl.getStaticKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 11]).toArray())
         pos = decl.getInitKeyWordPos()
@@ -41,17 +41,17 @@ class Test {
     func testDecl02() {
         let classDecl = (decls[1] as ClassDecl).getOrThrow()
         let decl = (classDecl.body.memberDecls[0] as StaticInit).getOrThrow()
-        @Expect(decl.body.toString(), """
+        @Expect(decl.body.toString().replace("\r\n", "\n"), """
 {
         a = 1
         println()
     }""")
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 static init() {
         a = 1
         println()
     }""")
-        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), decl.toString().replace("\r\n", "\n"))
         var pos = decl.getStaticKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 5, 6, 11]).toArray())
         pos = decl.getInitKeyWordPos()
@@ -69,12 +69,12 @@ static init() {
         let classDecl = (decls[1] as ClassDecl).getOrThrow()
         let decl = (classDecl.body.memberDecls[0] as StaticInit).getOrThrow()
         let staticInit = StaticInit(decl.body)
-        @Expect(staticInit.body.toString(), """
+        @Expect(staticInit.body.toString().replace("\r\n", "\n"), """
 {
         a = 1
         println()
     }""")
-        @Expect(staticInit.toString(), """
+        @Expect(staticInit.toString().replace("\r\n", "\n"), """
 static init() {
         a = 1
         println()

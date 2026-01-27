@@ -26,8 +26,8 @@ class Test {
         let pattern = (forExpr.pattern as VarPattern).getOrThrow()
 
         @Expect(pattern.name, "i")
-        @Expect(pattern.toString(), "i")
-        @Expect(pattern.toTokens().toString(), "i")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "i")
+        @Expect(pattern.toTokens().toString().replace("\r\n", "\n"), "i")
 
         var pos = pattern.nodePos
         // note: need modify after support FOR pos
@@ -49,7 +49,7 @@ class Test {
         let varPattern = VarPattern(pattern.name)
 
         @Expect(varPattern.name, "i")
-        @Expect(varPattern.toString(), "i")
+        @Expect(varPattern.toString().replace("\r\n", "\n"), "i")
 
         var pos = varPattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())

@@ -25,8 +25,8 @@ class Test {
         let whileExpr = (nodes[0] as WhileExpr).getOrThrow()
         let whileNodes = whileExpr.body.nodes
         let expr =  (whileNodes[0] as ContinueExpr).getOrThrow()
-        @Expect(expr.toString(), "continue")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.toString().replace("\r\n", "\n"), "continue")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 9, 3, 17]).toArray())
     }
@@ -42,7 +42,7 @@ class Test {
     @TestCase
     func testInit01() {
         let expr = ContinueExpr()
-        @Expect(expr.toString(), "continue")
+        @Expect(expr.toString().replace("\r\n", "\n"), "continue")
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 9]).toArray())
     }

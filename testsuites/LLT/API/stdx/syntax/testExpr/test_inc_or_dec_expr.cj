@@ -23,13 +23,13 @@ class Test {
     @TestCase
     func testIncOrDecExpr01() {
         let expr = (nodes[0] as IncOrDecExpr).getOrThrow()
-        @Expect(expr.operand.toString(), "a")
+        @Expect(expr.operand.toString().replace("\r\n", "\n"), "a")
         match (expr.kind) {
             case IncOrDecOpKind.Incr => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), "a++")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.toString().replace("\r\n", "\n"), "a++")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 8]).toArray())
@@ -40,12 +40,12 @@ class Test {
     @TestCase
     func testIncOrDecExpr02() {
         let expr = (nodes[1] as IncOrDecExpr).getOrThrow()
-        @Expect(expr.operand.toString(), "b")
+        @Expect(expr.operand.toString().replace("\r\n", "\n"), "b")
         match (expr.kind) {
             case IncOrDecOpKind.Decr => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), "b--")
+        @Expect(expr.toString().replace("\r\n", "\n"), "b--")
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 8]).toArray())
@@ -65,12 +65,12 @@ class Test {
     func testInit01() {
         let tmp = (nodes[0] as IncOrDecExpr).getOrThrow()
         let expr = IncOrDecExpr(tmp.kind, tmp.operand)
-        @Expect(expr.operand.toString(), "a")
+        @Expect(expr.operand.toString().replace("\r\n", "\n"), "a")
         match (expr.kind) {
             case IncOrDecOpKind.Incr => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), "a++")
+        @Expect(expr.toString().replace("\r\n", "\n"), "a++")
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())

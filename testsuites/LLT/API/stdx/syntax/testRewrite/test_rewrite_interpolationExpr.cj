@@ -44,7 +44,7 @@ class Test{
     func testDetachTrue() {
         let rewrite = RewriteNode()
         let newNode = rewrite.walk(decls[1], detach: true)
-        @Expect(newNode.toString(), #"var b = "num = ${x}""#)
+        @Expect(newNode.toString().replace("\r\n", "\n"), #"var b = "num = ${x}""#)
         @Expect(newNode.parentNode, None)
     }
 
@@ -52,8 +52,8 @@ class Test{
     func testDetachFalse() {
         let rewrite = RewriteNode()
         let newNode = rewrite.walk(decls[1])
-        @Expect(newNode.toString(), #"var b = "num = ${x}""#)
-        @Expect(newNode.parentNode.getOrThrow().toString(),  #"/*
+        @Expect(newNode.toString().replace("\r\n", "\n"), #"var b = "num = ${x}""#)
+        @Expect(newNode.parentNode.getOrThrow().toString().replace("\r\n", "\n"),  #"/*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.

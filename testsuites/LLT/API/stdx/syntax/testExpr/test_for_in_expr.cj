@@ -23,12 +23,12 @@ class Test {
     @TestCase
     func testExpr01() {
         let expr = (nodes[0] as ForInExpr).getOrThrow()
-        @Expect(expr.pattern.toString(), "(x, y)")
-        @Expect(expr.expr.toString(), "array")
-        @Expect(expr.body.toString(), "{}")
+        @Expect(expr.pattern.toString().replace("\r\n", "\n"), "(x, y)")
+        @Expect(expr.expr.toString().replace("\r\n", "\n"), "array")
+        @Expect(expr.body.toString().replace("\r\n", "\n"), "{}")
         @Expect(expr.patternGuard.isNone())
-        @Expect(expr.toString(), "for ((x, y) in array) {}")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.toString().replace("\r\n", "\n"), "for ((x, y) in array) {}")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = expr.getForKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 8]).toArray())
         pos = expr.getInKeyWordPos()
@@ -45,18 +45,18 @@ class Test {
     @TestCase
     func testExpr02() {
         let expr = (nodes[1] as ForInExpr).getOrThrow()
-        @Expect(expr.pattern.toString(), "i")
-        @Expect(expr.expr.toString(), "0..10")
-        @Expect(expr.body.toString(), """
+        @Expect(expr.pattern.toString().replace("\r\n", "\n"), "i")
+        @Expect(expr.expr.toString().replace("\r\n", "\n"), "0..10")
+        @Expect(expr.body.toString().replace("\r\n", "\n"), """
 {
         println(i)
     }""")
-        @Expect(expr.patternGuard.getOrThrow().toString(), "i % 2 == 1")
-        @Expect(expr.toString(), """
+        @Expect(expr.patternGuard.getOrThrow().toString().replace("\r\n", "\n"), "i % 2 == 1")
+        @Expect(expr.toString().replace("\r\n", "\n"), """
 for (i in 0..10 where i % 2 == 1) {
         println(i)
     }""")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = expr.getForKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 8]).toArray())
         pos = expr.getInKeyWordPos()
@@ -83,11 +83,11 @@ for (i in 0..10 where i % 2 == 1) {
     func testInit01() {
         let tmp = (nodes[0] as ForInExpr).getOrThrow()
         let expr = ForInExpr(tmp.body, tmp.expr, tmp.pattern, tmp.patternGuard)
-        @Expect(expr.pattern.toString(), "(x, y)")
-        @Expect(expr.expr.toString(), "array")
-        @Expect(expr.body.toString(), "{}")
+        @Expect(expr.pattern.toString().replace("\r\n", "\n"), "(x, y)")
+        @Expect(expr.expr.toString().replace("\r\n", "\n"), "array")
+        @Expect(expr.body.toString().replace("\r\n", "\n"), "{}")
         @Expect(expr.patternGuard.isNone())
-        @Expect(expr.toString(), "for ((x, y) in array) {}")
+        @Expect(expr.toString().replace("\r\n", "\n"), "for ((x, y) in array) {}")
         var pos = expr.getForKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
         pos = expr.getInKeyWordPos()

@@ -23,9 +23,9 @@ class Test {
         let funcDecl = (decls[0] as FuncDecl).getOrThrow()
         let body = funcDecl.body.getOrThrow()
         let expr = (body.nodes[0] as ReturnExpr).getOrThrow()
-        @Expect(expr.retVal.getOrThrow().toString(), "1")
-        @Expect(expr.toString(), "return 1")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.retVal.getOrThrow().toString().replace("\r\n", "\n"), "1")
+        @Expect(expr.toString().replace("\r\n", "\n"), "return 1")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 13]).toArray())
@@ -39,7 +39,7 @@ class Test {
         let body = funcDecl.body.getOrThrow()
         let expr = (body.nodes[0] as ReturnExpr).getOrThrow()
         @Expect(expr.retVal.isNone())
-        @Expect(expr.toString(), "return // return nothing")
+        @Expect(expr.toString().replace("\r\n", "\n"), "return // return nothing")
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 5, 6, 29]).toArray())
@@ -61,8 +61,8 @@ class Test {
         let body = funcDecl.body.getOrThrow()
         let tmp = (body.nodes[0] as ReturnExpr).getOrThrow()
         let expr = ReturnExpr(tmp.retVal)
-        @Expect(expr.retVal.getOrThrow().toString(), "1")
-        @Expect(expr.toString(), "return 1")
+        @Expect(expr.retVal.getOrThrow().toString().replace("\r\n", "\n"), "1")
+        @Expect(expr.toString().replace("\r\n", "\n"), "return 1")
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 9]).toArray())

@@ -19,32 +19,32 @@ func test_InterfaceDecl_01() {
     @Assert(diags.size, 0)
 
     let sourcefile : SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"@Deprecated["aaa"]
+    @Expect(sourcefile.toString().replace("\r\n", "\n").contains(##"@Deprecated["aaa"]
 public interface I1<T> <: S1<T> where T <: I2<T> {
     static mut prop p1: Int64
     func foo(): Int64
 }"##))
 
     var interfaceDecl: InterfaceDecl = (sourcefile.topLevelDecls[0] as InterfaceDecl).getOrThrow()
-    @Expect(interfaceDecl.toString(), ##"@Deprecated["aaa"]
+    @Expect(interfaceDecl.toString().replace("\r\n", "\n"), ##"@Deprecated["aaa"]
 public interface I1<T> <: S1<T> where T <: I2<T> {
     static mut prop p1: Int64
     func foo(): Int64
 }"##)
-    @Expect(parseTokens(interfaceDecl.toTokens(), refreshPos: false).node.getOrThrow().toString(), interfaceDecl.toString())
+    @Expect(parseTokens(interfaceDecl.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), interfaceDecl.toString().replace("\r\n", "\n"))
     @Assert(interfaceDecl.body.memberDecls.size, 2)
     @Assert(interfaceDecl.body.memberDecls[0] is PropDecl)
-    @Assert(interfaceDecl.body.memberDecls[0].toString(), ##"static mut prop p1: Int64"##)
+    @Assert(interfaceDecl.body.memberDecls[0].toString().replace("\r\n", "\n"), ##"static mut prop p1: Int64"##)
     @Assert(interfaceDecl.body.memberDecls[1] is FuncDecl)
-    @Assert(interfaceDecl.body.memberDecls[1].toString(), ##"func foo(): Int64"##)
+    @Assert(interfaceDecl.body.memberDecls[1].toString().replace("\r\n", "\n"), ##"func foo(): Int64"##)
 
     @Assert(interfaceDecl.name, "I1")
     @Assert(interfaceDecl.genericConstraints.isSome())
-    @Assert(interfaceDecl.genericConstraints.getOrThrow().toString(), "where T <: I2<T>")
+    @Assert(interfaceDecl.genericConstraints.getOrThrow().toString().replace("\r\n", "\n"), "where T <: I2<T>")
     @Assert(interfaceDecl.genericParams.size, 1)
-    @Assert(interfaceDecl.genericParams[0].toString(), "T")
+    @Assert(interfaceDecl.genericParams[0].toString().replace("\r\n", "\n"), "T")
     @Assert(interfaceDecl.superTyAnnotations.size, 1)
-    @Assert(interfaceDecl.superTyAnnotations[0].toString(), "S1<T>")
+    @Assert(interfaceDecl.superTyAnnotations[0].toString().replace("\r\n", "\n"), "S1<T>")
     @Assert(interfaceDecl.annotations.size, 1)
-    @Assert(interfaceDecl.annotations[0].toString(), ##"@Deprecated["aaa"]"##)
+    @Assert(interfaceDecl.annotations[0].toString().replace("\r\n", "\n"), ##"@Deprecated["aaa"]"##)
 }

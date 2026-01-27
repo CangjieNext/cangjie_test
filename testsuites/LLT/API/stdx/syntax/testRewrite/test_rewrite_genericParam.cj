@@ -43,7 +43,7 @@ class C {
     func testDetachTrue() {
         let rewrite = RewriteNode()
         let newNode = rewrite.walk(classDecl.getOrThrow(), detach: true)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 class C {
     func foo<E>(x: T): T {
         return x
@@ -57,11 +57,11 @@ class C {
         let funcDecl = (classDecl.getOrThrow().body.memberDecls[0] as FuncDecl).getOrThrow()
         let rewrite = RewriteNode()
         let newNode = rewrite.walk(funcDecl)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 func foo<E>(x: T): T {
         return x
     }""")
-        @Expect(newNode.parentNode.getOrThrow().toString(),  """
+        @Expect(newNode.parentNode.getOrThrow().toString().replace("\r\n", "\n"),  """
 {
     func foo<E>(x: T): T {
         return x

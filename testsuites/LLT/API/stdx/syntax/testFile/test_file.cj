@@ -38,7 +38,7 @@ class Test {
     func test01() {
         let input = String.fromUtf8(File.readFrom("test_file_input.cj"))
         @Expect(file?.toString(), input)
-        @Expect(skipRedundancy(file.getOrThrow().toTokens().toString()), skipRedundancy(input))
+        @Expect(skipRedundancy(file.getOrThrow().toTokens().toString().replace("\r\n", "\n")), skipRedundancy(input.replace("\r\n", "\n")))
     }
 
     @TestCase
@@ -47,7 +47,7 @@ class Test {
             @Expect(val.topLevelDecls.size, 4)
             if (let Some(fd) <- (val.topLevelDecls[0] as FuncDecl)) {
                 @Expect(fd.name, "foo")
-                @Expect(skipRedundancy(fd.toTokens().toString()), skipRedundancy(fd.toString()))
+                @Expect(skipRedundancy(fd.toTokens().toString().replace("\r\n", "\n")), skipRedundancy(fd.toString().replace("\r\n", "\n")))
             }
         } else {
             @Expect(false)

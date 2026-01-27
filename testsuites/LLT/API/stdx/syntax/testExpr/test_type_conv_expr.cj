@@ -23,15 +23,15 @@ class Test {
     @TestCase
     func testTypeConvExpr01() {
         let expr = (nodes[0] as TypeConvExpr).getOrThrow()
-        @Expect(expr.srcVal.toString(), "32")
+        @Expect(expr.srcVal.toString().replace("\r\n", "\n"), "32")
         let targetTy = (expr.targetTypeAnnotation as TypeAnnotation).getOrThrow()
         let targetType = (targetTy as AtomicType).getOrThrow()
         match (targetType.kind) {
             case Int8Type => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), "Int8(32)")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.toString().replace("\r\n", "\n"), "Int8(32)")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 13]).toArray())
@@ -53,14 +53,14 @@ class Test {
     func testInit01() {
         let tmp = (nodes[0] as TypeConvExpr).getOrThrow()
         let expr = TypeConvExpr(tmp.srcVal, tmp.targetTypeAnnotation)
-        @Expect(expr.srcVal.toString(), "32")
+        @Expect(expr.srcVal.toString().replace("\r\n", "\n"), "32")
         let targetTy = (expr.targetTypeAnnotation as TypeAnnotation).getOrThrow()
         let targetType = (targetTy as AtomicType).getOrThrow()
         match (targetType.kind) {
             case Int8Type => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), "Int8(32)")
+        @Expect(expr.toString().replace("\r\n", "\n"), "Int8(32)")
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 9]).toArray())

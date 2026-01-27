@@ -53,7 +53,7 @@ class Test{
         let rewrite = ASTRewriteModify()
         let newNode = rewrite.walk(f)
         @Expect(rewrite.count, 1)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 const func foo(a: Buffer, b: Buffer) {
    if (let Some(v) <- certificateInfo.subject) {
         rawSubject = getRawName(v)
@@ -61,7 +61,7 @@ const func foo(a: Buffer, b: Buffer) {
     let b: VArray<Int64, $5> = VArray<Int64, $5>(repeat: (1, 1))
     return 0
 }""")
-        @Expect(newNode.parentNode.getOrThrow().toString(),  """
+        @Expect(newNode.parentNode.getOrThrow().toString().replace("\r\n", "\n"),  """
 const a = 1
 
 abstract class Buffer {

@@ -16,7 +16,7 @@ import stdx.syntax.*
 public class ASTVisitorTest1 <: ASTVisitor {
     var recordStr = ""
     override public func postAction(node: SyntaxTreeNode): PostActionMode {
-        recordStr += "postAction, visit: ${node.toString()}\n"
+        recordStr += "postAction, visit: ${node.toString().replace("\r\n", "\n")}\n"
         return PostActionMode.Continue
     }
 }
@@ -24,7 +24,7 @@ public class ASTVisitorTest1 <: ASTVisitor {
 public class ASTVisitorTest2 <: ASTVisitor {
     var recordStr = ""
     override public func postAction(node: SyntaxTreeNode): PostActionMode {
-        recordStr += "postAction, visit: ${node.toString()}\n"
+        recordStr += "postAction, visit: ${node.toString().replace("\r\n", "\n")}\n"
         return match (node) {
             case v: VarDecl => 
             if (v.name == "stop") {

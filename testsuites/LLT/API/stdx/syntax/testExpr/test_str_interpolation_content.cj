@@ -31,13 +31,13 @@ class Test {
     func testExpr01() {
         let strExpr = (nodes[0] as LitConstStrExpr).getOrThrow()
         match(strExpr.strPartExprs[0]) {
-            case StrInterpolation(v) => @Expect(v.interpolationBlock.toString(), "{a.toString()}")
-                                        @Expect(v.interpolationBlock.toTokens().toString(), "{ a.toString() }")
+            case StrInterpolation(v) => @Expect(v.interpolationBlock.toString().replace("\r\n", "\n"), "{a.toString()}")
+                                        @Expect(v.interpolationBlock.toTokens().toString().replace("\r\n", "\n"), "{ a.toString() }")
                                         var pos = v.getDollarPos()
                                         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 6, 2, 7]).toArray())
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(strExpr.toString(), #""${a.toString()}abc""#)
+        @Expect(strExpr.toString().replace("\r\n", "\n"), #""${a.toString()}abc""#)
     }
 
     @TestCase
@@ -54,8 +54,8 @@ class Test {
         match(strExpr.strPartExprs[0]) {
             case StrInterpolation(v) => 
                 let strInterpolationContent = StrInterpolationContent(v.interpolationBlock)
-                @Expect(strInterpolationContent.interpolationBlock.toString(), "{a.toString()}")
-                @Expect(strInterpolationContent.toString(), ##"${a.toString()}"##)
+                @Expect(strInterpolationContent.interpolationBlock.toString().replace("\r\n", "\n"), "{a.toString()}")
+                @Expect(strInterpolationContent.toString().replace("\r\n", "\n"), ##"${a.toString()}"##)
                 var pos = strInterpolationContent.getDollarPos()
                 @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
                 pos = strInterpolationContent.nodePos

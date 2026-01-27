@@ -39,7 +39,7 @@ class Test{
         let decl = (decls[0] as ExtendDecl).getOrThrow()
         let rewrite = ASTRewriteNode()
         let newNode = rewrite.walk(decl, detach: true)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 extend<T> ArrayList<T> <: ValueException<T> where T <: Value {}""")
         @Expect(newNode.parentNode, None)
     }
@@ -49,7 +49,7 @@ extend<T> ArrayList<T> <: ValueException<T> where T <: Value {}""")
         let decl = (decls[1] as ExtendDecl).getOrThrow()
         let rewrite = ASTRewriteNode()
         let newNode = rewrite.walk(decl, detach: true)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 extend options.LogOptions <: Options {}""")
         @Expect(newNode.parentNode, None)
     }

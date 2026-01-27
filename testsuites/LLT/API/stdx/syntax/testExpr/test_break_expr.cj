@@ -23,8 +23,8 @@ class Test {
     @TestCase
     func testExpr01() {
         let expr = (nodes[0] as BreakExpr).getOrThrow()
-        @Expect(expr.toString(), "break")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.toString().replace("\r\n", "\n"), "break")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 10]).toArray())
@@ -41,7 +41,7 @@ class Test {
     @TestCase
     func testInit01() {
         let expr = BreakExpr()
-        @Expect(expr.toString(), "break")
+        @Expect(expr.toString().replace("\r\n", "\n"), "break")
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
     }
