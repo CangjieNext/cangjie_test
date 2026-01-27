@@ -24,17 +24,17 @@ class Test {
         let decl = (decls[0] as VarDecl).getOrThrow()
         let initializer = (decl.initializer).getOrThrow()
 
-        @Expect(initializer.toString(), "1")
+        @Expect(initializer.toString().replace("\r\n", "\n"), "1")
         match(decl.kind) {
             case VarKind.Let => ()
             case _ => @FailExpect("kind wrong")
         }
         @Expect(decl.name, "a")
         @Expect(decl.tyAnnotation.isNone(), true)
-        @Expect(decl.toString(), "let a = 1")
-        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
+        @Expect(decl.toString().replace("\r\n", "\n"), "let a = 1")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), decl.toString().replace("\r\n", "\n"))
         let pattern = (decl.pattern as VarPattern).getOrThrow()
-        @Expect(pattern.toString(), "a")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "a")
         @Expect(pattern.name, "a")
         var pos = decl.getVarKindKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
@@ -59,9 +59,9 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(decl.name, "b")
-        @Expect(ret.toString(), "Int64")
-        @Expect(decl.toString(), "var b: Int64")
-        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
+        @Expect(ret.toString().replace("\r\n", "\n"), "Int64")
+        @Expect(decl.toString().replace("\r\n", "\n"), "var b: Int64")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), decl.toString().replace("\r\n", "\n"))
         var pos = decl.getVarKindKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 1, 2, 4]).toArray())
         pos = decl.getTyAnnotationColonPos().getOrThrow()
@@ -78,14 +78,14 @@ class Test {
         let initializer = (decl.initializer).getOrThrow()
         let ret = decl.tyAnnotation.getOrThrow()
 
-        @Expect(initializer.toString(), "1")
+        @Expect(initializer.toString().replace("\r\n", "\n"), "1")
         match(decl.kind) {
             case VarKind.Const => ()
             case _ => @FailExpect("kind wrong")
         }
         @Expect(decl.name, "c")
-        @Expect(ret.toString(), "Int64")
-        @Expect(decl.toString(), "const c: Int64 = 1")
+        @Expect(ret.toString().replace("\r\n", "\n"), "Int64")
+        @Expect(decl.toString().replace("\r\n", "\n"), "const c: Int64 = 1")
         var pos = decl.getVarKindKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 1, 3, 6]).toArray())
         pos = decl.getTyAnnotationColonPos().getOrThrow()
@@ -102,21 +102,21 @@ class Test {
         let decl = (decls[9] as VarDecl).getOrThrow()
         let initializer = (decl.initializer).getOrThrow()
 
-        @Expect(initializer.toString(), ##"(1, "a")"##)
+        @Expect(initializer.toString().replace("\r\n", "\n"), ##"(1, "a")"##)
         match(decl.kind) {
             case VarKind.Let => ()
             case _ => @FailExpect("kind wrong")
         }
         @Expect(decl.name, "")
-        @Expect(decl.toString(), ##"let (a,b) = (1, "a")"##)
+        @Expect(decl.toString().replace("\r\n", "\n"), ##"let (a,b) = (1, "a")"##)
         let pattern = (decl.pattern as TuplePattern).getOrThrow()
-        @Expect(pattern.toString(), "(a,b)")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "(a,b)")
         @Expect(pattern.subPatterns.size, 2)
         var subPattern = (pattern.subPatterns[0] as VarPattern).getOrThrow()
-        @Expect(subPattern.toString(), "a")
+        @Expect(subPattern.toString().replace("\r\n", "\n"), "a")
         @Expect(subPattern.name, "a")
         subPattern = (pattern.subPatterns[1] as VarPattern).getOrThrow()
-        @Expect(subPattern.toString(), "b")
+        @Expect(subPattern.toString().replace("\r\n", "\n"), "b")
         @Expect(subPattern.name, "b")
     }
 
@@ -126,7 +126,7 @@ class Test {
         let decl = (decls[11] as VarDecl).getOrThrow()
         var pos = decl.nodePos
         @Expect(pos.fileName, "var_decl.cj")
-        @Expect(pos.filePath.contains("/var_decl.cj"), true)
+        @Expect(pos.filePath.contains("var_decl.cj"), true)
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([12, 1, 12, 91]).toArray())
         pos = decl.annotations[0].nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([12, 1, 12, 48]).toArray())
@@ -138,7 +138,8 @@ class Test {
         let decl = (decls[12] as VarDecl).getOrThrow()
         var pos = decl.nodePos
         @Expect(pos.fileName, "var_decl.cj")
-        @Expect(pos.filePath.contains("/var_decl.cj"), true)
+        println(pos.filePath)
+        @Expect(pos.filePath.contains("var_decl.cj"), true)
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([13, 1, 13, 61]).toArray())
         pos = decl.annotations[0].nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([13, 1, 13, 48]).toArray())
@@ -147,13 +148,13 @@ class Test {
     @TestCase
     func testVar07() {
         let decl = (decls[13] as VarDecl).getOrThrow()
-        @Expect(decl.toString(), "public const s1: Int64 = 0")
+        @Expect(decl.toString().replace("\r\n", "\n"), "public const s1: Int64 = 0")
     }
 
     @TestCase
     func testVar08() {
         let decl = (decls[14] as VarDecl).getOrThrow()
-        @Expect(decl.toString(), "public const s1: A = 1")
+        @Expect(decl.toString().replace("\r\n", "\n"), "public const s1: A = 1")
     }
 
     @TestCase
@@ -161,9 +162,9 @@ class Test {
         @Expect(decls[15] is VarDecl)
         let decl = (decls[15] as VarDecl).getOrThrow()
         @Expect(decl.name, "")
-        @Expect(decl.toString(), ##"let _ = 1"##)
+        @Expect(decl.toString().replace("\r\n", "\n"), ##"let _ = 1"##)
         let pattern = (decl.pattern as WildcardPattern).getOrThrow()
-        @Expect(pattern.toString(), "_")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "_")
     }
 
     @TestCase
@@ -172,16 +173,16 @@ class Test {
         let decl = (decls[16] as VarDecl).getOrThrow()
         let initializer = (decl.initializer).getOrThrow()
 
-        @Expect(initializer.toString(), "1")
+        @Expect(initializer.toString().replace("\r\n", "\n"), "1")
         match(decl.kind) {
             case VarKind.Var => ()
             case _ => @FailExpect("kind wrong")
         }
         @Expect(decl.name, "a")
         @Expect(decl.tyAnnotation.isNone(), true)
-        @Expect(decl.toString(), "var a = 1")
+        @Expect(decl.toString().replace("\r\n", "\n"), "var a = 1")
         let pattern = (decl.pattern as VarPattern).getOrThrow()
-        @Expect(pattern.toString(), "a")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "a")
         @Expect(pattern.name, "a")
         var pos = decl.getVarKindKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([17, 1, 17, 4]).toArray())
@@ -201,14 +202,14 @@ class Test {
         let initializer = (varDecl.initializer).getOrThrow()
         let ret = varDecl.tyAnnotation.getOrThrow()
 
-        @Expect(initializer.toString(), "1")
+        @Expect(initializer.toString().replace("\r\n", "\n"), "1")
         match(varDecl.kind) {
             case VarKind.Const => ()
             case _ => @FailExpect("kind wrong")
         }
         @Expect(varDecl.name, "c")
-        @Expect(ret.toString(), "Int64")
-        @Expect(varDecl.toString(), "const c: Int64 = 1")
+        @Expect(ret.toString().replace("\r\n", "\n"), "Int64")
+        @Expect(varDecl.toString().replace("\r\n", "\n"), "const c: Int64 = 1")
         var pos = varDecl.getVarKindKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
         pos = varDecl.getTyAnnotationColonPos().getOrThrow()
@@ -225,16 +226,16 @@ class Test {
         let varDecl = VarDecl(decl.initializer, decl.kind, decl.name, decl.pattern, decl.tyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
         let initializer = (varDecl.initializer).getOrThrow()
 
-        @Expect(initializer.toString(), "1")
+        @Expect(initializer.toString().replace("\r\n", "\n"), "1")
         match(varDecl.kind) {
             case VarKind.Let => ()
             case _ => @FailExpect("kind wrong")
         }
         @Expect(varDecl.name, "a")
         @Expect(varDecl.tyAnnotation.isNone(), true)
-        @Expect(varDecl.toString(), "let a = 1")
+        @Expect(varDecl.toString().replace("\r\n", "\n"), "let a = 1")
         let pattern = (varDecl.pattern as VarPattern).getOrThrow()
-        @Expect(pattern.toString(), "a")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "a")
         @Expect(pattern.name, "a")
     }
 

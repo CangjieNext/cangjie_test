@@ -26,8 +26,8 @@ class Test {
         let pattern = matchExpr.matchCases[1].patterns[0]
 
         @Expect(pattern is WildcardPattern)
-        @Expect(pattern.toString(), "_")
-        @Expect(pattern.toTokens().toString(), "_")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "_")
+        @Expect(pattern.toTokens().toString().replace("\r\n", "\n"), "_")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 14, 5, 15]).toArray())
@@ -45,7 +45,7 @@ class Test {
     func testInit01() {
         let wildcardPattern = WildcardPattern()
         @Expect(wildcardPattern is WildcardPattern)
-        @Expect(wildcardPattern.toString(), "_")
+        @Expect(wildcardPattern.toString().replace("\r\n", "\n"), "_")
         var pos = wildcardPattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
     }

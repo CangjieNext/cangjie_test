@@ -23,14 +23,14 @@ class Test {
     @TestCase
     func testCallExpr01() {
         let expr = (nodes[0] as CallExpr).getOrThrow()
-        @Expect(expr.callee.toString(), "foo")
+        @Expect(expr.callee.toString().replace("\r\n", "\n"), "foo")
         @Expect(expr.arguments.size, 1)
         var pos = expr.arguments[0].nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 9, 2, 12]).toArray())
         let arg0 = (expr.arguments[0].value as LitConstExpr).getOrThrow()
         @Expect(arg0.rawValue, "100")
-        @Expect(expr.toString(), "foo(100)")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.toString().replace("\r\n", "\n"), "foo(100)")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         pos = expr.getLParenPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 9]).toArray())
         pos = expr.getRParenPos()
@@ -43,7 +43,7 @@ class Test {
     @TestCase
     func testCallExpr02() {
         let expr = (nodes[1] as CallExpr).getOrThrow()
-        @Expect(expr.callee.toString(), "foo1")
+        @Expect(expr.callee.toString().replace("\r\n", "\n"), "foo1")
         @Expect(expr.arguments.size, 4)
         var pos = expr.arguments[2].getIdentifierPos().getOrThrow()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 20, 3, 27]).toArray())
@@ -57,8 +57,8 @@ class Test {
         @Expect(arg0.rawValue, "a")
         @Expect(arg1.rawValue, "b")
         @Expect(arg2.rawValue, "true")
-        @Expect(expr.toString(), #"foo1("a", "b", isEmpty: true, inout a)"#)
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.toString().replace("\r\n", "\n"), #"foo1("a", "b", isEmpty: true, inout a)"#)
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         pos = expr.getLParenPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 9, 3, 10]).toArray())
         pos = expr.getRParenPos()
@@ -75,11 +75,11 @@ class Test {
     @TestCase
     func testCallExpr04() {
         let expr = (nodes[2] as CallExpr).getOrThrow()
-        @Expect(expr.callee.toString(), "foo")
+        @Expect(expr.callee.toString().replace("\r\n", "\n"), "foo")
         @Expect(expr.arguments.size, 1)
         var pos = expr.arguments[0].nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 12, 5, 19]).toArray())
-        @Expect(expr.toString(), "foo(   inout a)")
+        @Expect(expr.toString().replace("\r\n", "\n"), "foo(   inout a)")
         pos = expr.getLParenPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 8, 5, 9]).toArray())
         pos = expr.getRParenPos()
@@ -100,13 +100,13 @@ class Test {
     func testInit01() {
         let tmp = (nodes[0] as CallExpr).getOrThrow()
         let expr = CallExpr(tmp.callee, tmp.arguments)
-        @Expect(expr.callee.toString(), "foo")
+        @Expect(expr.callee.toString().replace("\r\n", "\n"), "foo")
         @Expect(expr.arguments.size, 1)
         var pos = expr.arguments[0].nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 5, 1, 8]).toArray())
         let arg0 = (expr.arguments[0].value as LitConstExpr).getOrThrow()
         @Expect(arg0.rawValue, "100")
-        @Expect(expr.toString(), "foo(100)")
+        @Expect(expr.toString().replace("\r\n", "\n"), "foo(100)")
         pos = expr.getLParenPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 4, 1, 5]).toArray())
         pos = expr.getRParenPos()

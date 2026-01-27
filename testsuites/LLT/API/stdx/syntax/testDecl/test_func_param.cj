@@ -23,7 +23,7 @@ class Test {
 
     @TestCase
     func testType01() {
-        @Expect(params.getOrThrow().toString(), 
+        @Expect(params.getOrThrow().toString().replace("\r\n", "\n"), 
 """
 (
     a: Int64,
@@ -40,10 +40,10 @@ class Test {
         let param = (params.getOrThrow().params[0] as FuncParam).getOrThrow()
         @Expect(param.name, "a")
         @Expect(param.typeAnnotation is AtomicType)
-        @Expect(param.typeAnnotation.toString(), "Int64")
+        @Expect(param.typeAnnotation.toString().replace("\r\n", "\n"), "Int64")
         @Expect(param.defaultValue.isNone())
-        @Expect(param.toString(), "a: Int64")
-        @Expect(param.toTokens().toString(), param.toString())
+        @Expect(param.toString().replace("\r\n", "\n"), "a: Int64")
+        @Expect(param.toTokens().toString().replace("\r\n", "\n"), param.toString().replace("\r\n", "\n"))
     }
 
     @TestCase
@@ -51,9 +51,9 @@ class Test {
         let param = (params.getOrThrow().params[1] as FuncParam).getOrThrow()
         @Expect(param.name, "b")
         @Expect(param.typeAnnotation is CompositeType)
-        @Expect(param.typeAnnotation.toString(), "String")
+        @Expect(param.typeAnnotation.toString().replace("\r\n", "\n"), "String")
         @Expect(param.defaultValue.isNone())
-        @Expect(param.toString(), "b: String")
+        @Expect(param.toString().replace("\r\n", "\n"), "b: String")
     }
 
     @TestCase
@@ -61,10 +61,10 @@ class Test {
         let param = (params.getOrThrow().params[2] as FuncParam).getOrThrow()
         @Expect(param.name, "c")
         @Expect(param.typeAnnotation is FuncType)
-        @Expect(param.typeAnnotation.toString(), "(Int64) -> Int64")
+        @Expect(param.typeAnnotation.toString().replace("\r\n", "\n"), "(Int64) -> Int64")
         @Expect(param.defaultValue.isNone())
-        @Expect(param.toString(), "c: (Int64) -> Int64")
-        @Expect(param.toTokens().toString(), "c:(Int64) -> Int64")
+        @Expect(param.toString().replace("\r\n", "\n"), "c: (Int64) -> Int64")
+        @Expect(param.toTokens().toString().replace("\r\n", "\n"), "c:(Int64) -> Int64")
         var pos = param.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 5, 4, 24]).toArray())
         pos = param.getIdentifierPos()
@@ -83,9 +83,9 @@ class Test {
         let param = (params.getOrThrow().params[7] as FuncParam).getOrThrow()
         @Expect(param.name, "d")
         @Expect(param.typeAnnotation is AtomicType)
-        @Expect(param.typeAnnotation.toString(), "Int64")
+        @Expect(param.typeAnnotation.toString().replace("\r\n", "\n"), "Int64")
         @Expect(param.defaultValue.isNone())
-        @Expect(param.toString(), "d!: Int64")
+        @Expect(param.toString().replace("\r\n", "\n"), "d!: Int64")
         var pos = param.nodePos
         @Expect(pos.fileName, "func_param.cj")
         @Expect(pos.filePath.contains("func_param.cj"))
@@ -107,9 +107,9 @@ class Test {
         let param = (params.getOrThrow().params[8] as FuncParam).getOrThrow()
         @Expect(param.name, "e")
         @Expect(param.typeAnnotation is CompositeType)
-        @Expect(param.typeAnnotation.toString(), "String")
-        @Expect(param.defaultValue.getOrThrow().toString(), "\"\"")
-        @Expect(param.toString(), "e!: String = \"\"")
+        @Expect(param.typeAnnotation.toString().replace("\r\n", "\n"), "String")
+        @Expect(param.defaultValue.getOrThrow().toString().replace("\r\n", "\n"), "\"\"")
+        @Expect(param.toString().replace("\r\n", "\n"), "e!: String = \"\"")
         var pos = param.nodePos
         @Expect(pos.fileName, "func_param.cj")
         @Expect(pos.filePath.contains("func_param.cj"))
@@ -132,7 +132,7 @@ class Test {
     func testPrimaryInitParam01() {
         let decl = (decls[1] as ClassDecl).getOrThrow()
         let funcDecl = (decl.body.memberDecls[0] as FuncDecl).getOrThrow()
-        @Expect(funcDecl.params.toString(), """
+        @Expect(funcDecl.params.toString().replace("\r\n", "\n"), """
 (
         a: Int64,
         b!: Int64,
@@ -145,38 +145,38 @@ class Test {
         var param = (primaryParams[0] as FuncParam).getOrThrow()
         @Expect(param.name, "a")
         @Expect(param.typeAnnotation is AtomicType)
-        @Expect(param.typeAnnotation.toString(), "Int64")
+        @Expect(param.typeAnnotation.toString().replace("\r\n", "\n"), "Int64")
         @Expect(param.defaultValue.isNone())
         @Expect(param.kind.isNone())
-        @Expect(param.toString(), "a: Int64")
+        @Expect(param.toString().replace("\r\n", "\n"), "a: Int64")
 
         param = (primaryParams[3] as FuncParam).getOrThrow()
         @Expect(param.name, "d")
         @Expect(param.typeAnnotation is AtomicType)
-        @Expect(param.typeAnnotation.toString(), "Int64")
+        @Expect(param.typeAnnotation.toString().replace("\r\n", "\n"), "Int64")
         @Expect(param.defaultValue.isNone())
         var kind = param.kind.getOrThrow()
         match(kind) {
             case Var => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(param.modifiers.toString(), "[public]")
-        @Expect(param.toString(), "public var d!: Int64")
+        @Expect(param.modifiers.toString().replace("\r\n", "\n"), "[public]")
+        @Expect(param.toString().replace("\r\n", "\n"), "public var d!: Int64")
         var pos1 = param.getVarKindKeyWordPos().getOrThrow()
         @Expect([pos1.beginLine, pos1.beginColumn, pos1.endLine, pos1.endColumn], ArrayList<Int32>([18, 16, 18, 19]).toArray())
 
         param = (primaryParams[4] as FuncParam).getOrThrow()
         @Expect(param.name, "e")
         @Expect(param.typeAnnotation is AtomicType)
-        @Expect(param.typeAnnotation.toString(), "Int64")
-        @Expect(param.defaultValue.getOrThrow().toString(), "3")
+        @Expect(param.typeAnnotation.toString().replace("\r\n", "\n"), "Int64")
+        @Expect(param.defaultValue.getOrThrow().toString().replace("\r\n", "\n"), "3")
         kind = param.kind.getOrThrow()
         match(kind) {
             case Let => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(param.modifiers.toString(), "[private]")
-        @Expect(param.toString(), "private let e!: Int64 = 3")
+        @Expect(param.modifiers.toString().replace("\r\n", "\n"), "[private]")
+        @Expect(param.toString().replace("\r\n", "\n"), "private let e!: Int64 = 3")
 
         var pos = params.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([14, 15, 20, 6]).toArray())
@@ -213,7 +213,7 @@ class Test {
     @TestCase
     func testParam03() {
         let funcDecl = (decls[2] as FuncDecl).getOrThrow()
-        @Expect(funcDecl.params.toString(), 
+        @Expect(funcDecl.params.toString().replace("\r\n", "\n"), 
         """
 (  a: Int64,     b: String,
      c: Int64)"""
@@ -222,26 +222,26 @@ class Test {
         var param = (primaryParams[0] as FuncParam).getOrThrow()
         @Expect(param.name, "a")
         @Expect(param.typeAnnotation is AtomicType)
-        @Expect(param.typeAnnotation.toString(), "Int64")
+        @Expect(param.typeAnnotation.toString().replace("\r\n", "\n"), "Int64")
         @Expect(param.defaultValue.isNone())
         @Expect(param.kind.isNone())
-        @Expect(param.toString(), "a: Int64")
+        @Expect(param.toString().replace("\r\n", "\n"), "a: Int64")
 
         param = (primaryParams[1] as FuncParam).getOrThrow()
         @Expect(param.name, "b")
         @Expect(param.typeAnnotation is CompositeType)
-        @Expect(param.typeAnnotation.toString(), "String")
+        @Expect(param.typeAnnotation.toString().replace("\r\n", "\n"), "String")
         @Expect(param.defaultValue.isNone())
         @Expect(param.kind.isNone())
-        @Expect(param.toString(), "b: String")
+        @Expect(param.toString().replace("\r\n", "\n"), "b: String")
 
         param = (primaryParams[2] as FuncParam).getOrThrow()
         @Expect(param.name, "c")
         @Expect(param.typeAnnotation is AtomicType)
-        @Expect(param.typeAnnotation.toString(), "Int64")
+        @Expect(param.typeAnnotation.toString().replace("\r\n", "\n"), "Int64")
         @Expect(param.defaultValue.isNone())
         @Expect(param.kind.isNone())
-        @Expect(param.toString(), "c: Int64")
+        @Expect(param.toString().replace("\r\n", "\n"), "c: Int64")
 
     }
 
@@ -255,46 +255,46 @@ class Test {
         var funcParam = FuncParam(param.defaultValue, param.kind, param.name, param.typeAnnotation, isNamed: false, annotations: param.annotations, modifiers: param.modifiers)
         @Expect(funcParam.name, "a")
         @Expect(funcParam.typeAnnotation is AtomicType)
-        @Expect(funcParam.typeAnnotation.toString(), "Int64")
+        @Expect(funcParam.typeAnnotation.toString().replace("\r\n", "\n"), "Int64")
         @Expect(funcParam.defaultValue.isNone())
         @Expect(funcParam.kind.isNone())
-        @Expect(funcParam.toString(), "a: Int64")
+        @Expect(funcParam.toString().replace("\r\n", "\n"), "a: Int64")
 
         param = (primaryParams[3] as FuncParam).getOrThrow()
         funcParam = FuncParam(param.defaultValue, param.kind, param.name, param.typeAnnotation, isNamed: true, annotations: param.annotations, modifiers: param.modifiers)
         @Expect(funcParam.name, "d")
         @Expect(funcParam.typeAnnotation is AtomicType)
-        @Expect(funcParam.typeAnnotation.toString(), "Int64")
+        @Expect(funcParam.typeAnnotation.toString().replace("\r\n", "\n"), "Int64")
         @Expect(funcParam.defaultValue.isNone())
         var kind = funcParam.kind.getOrThrow()
         match(kind) {
             case Var => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(funcParam.modifiers.toString(), "[public]")
-        @Expect(funcParam.toString(), "public var d!: Int64")
+        @Expect(funcParam.modifiers.toString().replace("\r\n", "\n"), "[public]")
+        @Expect(funcParam.toString().replace("\r\n", "\n"), "public var d!: Int64")
 
         param = (primaryParams[4] as FuncParam).getOrThrow()
         funcParam = FuncParam(param.defaultValue, param.kind, param.name, param.typeAnnotation, isNamed: true, annotations: param.annotations, modifiers: param.modifiers)
         @Expect(funcParam.name, "e")
         @Expect(funcParam.typeAnnotation is AtomicType)
-        @Expect(funcParam.typeAnnotation.toString(), "Int64")
-        @Expect(funcParam.defaultValue.getOrThrow().toString(), "3")
+        @Expect(funcParam.typeAnnotation.toString().replace("\r\n", "\n"), "Int64")
+        @Expect(funcParam.defaultValue.getOrThrow().toString().replace("\r\n", "\n"), "3")
         kind = funcParam.kind.getOrThrow()
         match(kind) {
             case Let => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(funcParam.modifiers.toString(), "[private]")
-        @Expect(funcParam.toString(), "private let e!: Int64 = 3")
+        @Expect(funcParam.modifiers.toString().replace("\r\n", "\n"), "[private]")
+        @Expect(funcParam.toString().replace("\r\n", "\n"), "private let e!: Int64 = 3")
     }
 
     @TestCase
     func testParameterList01() {
         let tmp = params.getOrThrow()
         let parameterList = ParameterList(tmp.params)
-        @Expect(parameterList.toString(), "(a: Int64, b: String, c: (Int64) -> Int64, f: ?Int64, g: T.A, h: (A, Int64), i: VArray<Int64, $3>, d!: Int64, e!: String = \"\")")
-        @Expect(parameterList.params.toString(), "[a: Int64, b: String, c: (Int64) -> Int64, f: ?Int64, g: T.A, h: (A, Int64), i: VArray<Int64, $3>, d!: Int64, e!: String = \"\"]")
+        @Expect(parameterList.toString().replace("\r\n", "\n"), "(a: Int64, b: String, c: (Int64) -> Int64, f: ?Int64, g: T.A, h: (A, Int64), i: VArray<Int64, $3>, d!: Int64, e!: String = \"\")")
+        @Expect(parameterList.params.toString().replace("\r\n", "\n"), "[a: Int64, b: String, c: (Int64) -> Int64, f: ?Int64, g: T.A, h: (A, Int64), i: VArray<Int64, $3>, d!: Int64, e!: String = \"\"]")
     }
 
     @TestCase

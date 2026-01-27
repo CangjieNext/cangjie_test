@@ -22,13 +22,13 @@ class Test {
     func testDecl01() {
         let decl = (decls[0] as ExtendDecl).getOrThrow()
         @Expect(decl.modifiers.size, 0)
-        @Expect(decl.extendedTyAnnotation.toString(), "A")
+        @Expect(decl.extendedTyAnnotation.toString().replace("\r\n", "\n"), "A")
         @Expect(decl.superTyAnnotations.size, 0)
         @Expect(decl.genericParams.size, 0)
         @Expect(decl.genericConstraints.isNone())
-        @Expect(decl.body.toString(), "{}")
-        @Expect(decl.toString(), "extend A {}")
-        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
+        @Expect(decl.body.toString().replace("\r\n", "\n"), "{}")
+        @Expect(decl.toString().replace("\r\n", "\n"), "extend A {}")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), decl.toString().replace("\r\n", "\n"))
         var pos = decl.getExtendKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
         @Expect(decl.getGenericParamsLAnglePos().isNone())
@@ -44,66 +44,66 @@ class Test {
     func testDecl02() {
         let decl = (decls[1] as ExtendDecl).getOrThrow()
         @Expect(decl.modifiers.size, 0)
-        @Expect(decl.extendedTyAnnotation.toString(), "B")
+        @Expect(decl.extendedTyAnnotation.toString().replace("\r\n", "\n"), "B")
         @Expect(decl.superTyAnnotations.size, 0)
         @Expect(decl.genericParams.size, 0)
         @Expect(decl.genericConstraints.isNone())
-        @Expect(decl.body.toString(), """
+        @Expect(decl.body.toString().replace("\r\n", "\n"), """
 {
     func a() {}
 }""")
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 extend B {
     func a() {}
 }""")
-        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), decl.toString().replace("\r\n", "\n"))
     }
 
     @TestCase
     func testDecl03() {
         let decl = (decls[2] as ExtendDecl).getOrThrow()
         @Expect(decl.modifiers.size, 0)
-        @Expect(decl.extendedTyAnnotation.toString(), "C")
+        @Expect(decl.extendedTyAnnotation.toString().replace("\r\n", "\n"), "C")
         @Expect(decl.superTyAnnotations.size, 1)
-        @Expect(decl.superTyAnnotations[0].toString(), "B")
+        @Expect(decl.superTyAnnotations[0].toString().replace("\r\n", "\n"), "B")
         @Expect(decl.genericParams.size, 0)
         @Expect(decl.genericConstraints.isNone())
-        @Expect(decl.body.toString(), "{}")
-        @Expect(decl.toString(), "extend C <: B {}")
+        @Expect(decl.body.toString().replace("\r\n", "\n"), "{}")
+        @Expect(decl.toString().replace("\r\n", "\n"), "extend C <: B {}")
     }
 
     @TestCase
     func testDecl04() {
         let decl = (decls[3] as ExtendDecl).getOrThrow()
         @Expect(decl.modifiers.size, 0)
-        @Expect(decl.extendedTyAnnotation.toString(), "D")
+        @Expect(decl.extendedTyAnnotation.toString().replace("\r\n", "\n"), "D")
         @Expect(decl.superTyAnnotations.size, 0)
         @Expect(decl.genericParams.size, 1)
         @Expect(decl.genericParams[0].name, "T")
         let genericConstraints = decl.genericConstraints.getOrThrow()
         @Expect(genericConstraints.constraints.size, 1)
-        @Expect(genericConstraints.constraints[0].toString(), "T <: B")
-        @Expect(decl.body.toString(), "{}")
-        @Expect(decl.toString(), "extend<T> D where T <: B {}")
+        @Expect(genericConstraints.constraints[0].toString().replace("\r\n", "\n"), "T <: B")
+        @Expect(decl.body.toString().replace("\r\n", "\n"), "{}")
+        @Expect(decl.toString().replace("\r\n", "\n"), "extend<T> D where T <: B {}")
     }
 
     @TestCase
     func testDecl05() {
         let decl = (decls[4] as ExtendDecl).getOrThrow()
         @Expect(decl.modifiers.size, 0)
-        @Expect(decl.extendedTyAnnotation.toString(), "E")
+        @Expect(decl.extendedTyAnnotation.toString().replace("\r\n", "\n"), "E")
         @Expect(decl.superTyAnnotations.size, 2)
-        @Expect(decl.superTyAnnotations[0].toString(), "ToString")
-        @Expect(decl.superTyAnnotations[1].toString(), "Inter<S, V>")
+        @Expect(decl.superTyAnnotations[0].toString().replace("\r\n", "\n"), "ToString")
+        @Expect(decl.superTyAnnotations[1].toString().replace("\r\n", "\n"), "Inter<S, V>")
         @Expect(decl.genericParams.size, 2)
         @Expect(decl.genericParams[0].name, "S")
         @Expect(decl.genericParams[1].name, "V")
         let genericConstraints = decl.genericConstraints.getOrThrow()
         @Expect(genericConstraints.constraints.size, 2)
-        @Expect(genericConstraints.constraints[0].toString(), "S <: B")
-        @Expect(genericConstraints.constraints[1].toString(), "V <: ToString")
-        @Expect(decl.body.toString(), "{}")
-        @Expect(decl.toString(), "extend<S, V> E <: ToString & Inter<S, V> where S <: B, V <: ToString {}")
+        @Expect(genericConstraints.constraints[0].toString().replace("\r\n", "\n"), "S <: B")
+        @Expect(genericConstraints.constraints[1].toString().replace("\r\n", "\n"), "V <: ToString")
+        @Expect(decl.body.toString().replace("\r\n", "\n"), "{}")
+        @Expect(decl.toString().replace("\r\n", "\n"), "extend<S, V> E <: ToString & Inter<S, V> where S <: B, V <: ToString {}")
 
         var pos = decl.getExtendKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([11, 1, 11, 7]).toArray())
@@ -127,11 +127,11 @@ extend B {
     func testDecl06() {
         let decl = (decls[5] as ExtendDecl).getOrThrow()
         @Expect(decl.modifiers.size, 0)
-        @Expect(decl.extendedTyAnnotation.toString(), "F")
+        @Expect(decl.extendedTyAnnotation.toString().replace("\r\n", "\n"), "F")
         @Expect(decl.superTyAnnotations.size, 0)
         @Expect(decl.genericParams.size, 0)
         @Expect(decl.genericConstraints.isNone())
-        @Expect(decl.body.toString(), """
+        @Expect(decl.body.toString().replace("\r\n", "\n"), """
 {
     func testFunc(c: Int64, d: UInt32) {}
 
@@ -139,7 +139,7 @@ extend B {
         get() { return "hello" }
     }
 }""")
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 extend F {
     func testFunc(c: Int64, d: UInt32) {}
 
@@ -156,15 +156,15 @@ extend F {
                                     decl.extendedTyAnnotation, decl.genericConstraints, decl.genericParams,
                                     decl.superTyAnnotations, annotations: decl.annotations)
         @Expect(extendDecl.modifiers.size, 0)
-        @Expect(extendDecl.extendedTyAnnotation.toString(), "D")
+        @Expect(extendDecl.extendedTyAnnotation.toString().replace("\r\n", "\n"), "D")
         @Expect(extendDecl.superTyAnnotations.size, 0)
         @Expect(extendDecl.genericParams.size, 1)
         @Expect(extendDecl.genericParams[0].name, "T")
         let genericConstraints = extendDecl.genericConstraints.getOrThrow()
         @Expect(genericConstraints.constraints.size, 1)
-        @Expect(genericConstraints.constraints[0].toString(), "T <: B")
-        @Expect(extendDecl.body.toString(), "{}")
-        @Expect(extendDecl.toString(), "extend<T> D where T <: B {}")
+        @Expect(genericConstraints.constraints[0].toString().replace("\r\n", "\n"), "T <: B")
+        @Expect(extendDecl.body.toString().replace("\r\n", "\n"), "{}")
+        @Expect(extendDecl.toString().replace("\r\n", "\n"), "extend<T> D where T <: B {}")
     }
 
     @TestCase

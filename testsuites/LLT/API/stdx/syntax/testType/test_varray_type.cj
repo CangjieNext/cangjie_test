@@ -31,10 +31,10 @@ class Test {
         let ty = (varDecl.tyAnnotation.getOrThrow() as VArrayType).getOrThrow()
 
         @Expect(ty.elementType is AtomicType)
-        @Expect(ty.elementType.toString(), "Int32")
+        @Expect(ty.elementType.toString().replace("\r\n", "\n"), "Int32")
         @Expect(ty.size, 0)
-        @Expect(ty.toString(), "VArray<Int32 , $0>")
-        @Expect(ty.toTokens().toString(), "VArray < Int32, $0 >")
+        @Expect(ty.toString().replace("\r\n", "\n"), "VArray<Int32 , $0>")
+        @Expect(ty.toTokens().toString().replace("\r\n", "\n"), "VArray < Int32, $0 >")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 26]).toArray())
@@ -56,9 +56,9 @@ class Test {
         let ty = (varDecl.tyAnnotation.getOrThrow() as VArrayType).getOrThrow()
 
         @Expect(ty.elementType is TupleType)
-        @Expect(ty.elementType.toString(), "(Int32, Int32)")
+        @Expect(ty.elementType.toString().replace("\r\n", "\n"), "(Int32, Int32)")
         @Expect(ty.size, 5)
-        @Expect(ty.toString(), "VArray<(Int32, Int32), $5>")
+        @Expect(ty.toString().replace("\r\n", "\n"), "VArray<(Int32, Int32), $5>")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 8, 3, 34]).toArray())
@@ -79,7 +79,7 @@ class Test {
         let funcDecl = (decls[0] as FuncDecl).getOrThrow()
         let ty = (funcDecl.retTyAnnotation.getOrThrow() as VArrayType).getOrThrow()
 
-        @Expect(ty.toString(), "VArray<Int32, $0>")
+        @Expect(ty.toString().replace("\r\n", "\n"), "VArray<Int32, $0>")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 18, 1, 35]).toArray())
@@ -110,9 +110,9 @@ class Test {
         let vArrayType = VArrayType(ty.elementType, ty.size)
 
         @Expect(vArrayType.elementType is AtomicType)
-        @Expect(vArrayType.elementType.toString(), "Int32")
+        @Expect(vArrayType.elementType.toString().replace("\r\n", "\n"), "Int32")
         @Expect(vArrayType.size, 0)
-        @Expect(vArrayType.toString(), "VArray<Int32, $0>")
+        @Expect(vArrayType.toString().replace("\r\n", "\n"), "VArray<Int32, $0>")
 
         var pos = vArrayType.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 18]).toArray())

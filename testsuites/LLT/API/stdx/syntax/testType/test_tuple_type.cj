@@ -33,11 +33,11 @@ class Test {
         @Expect(ty.elements.size, 2)
         @Expect(ty.elements[0] is AtomicType)
         @Expect(ty.elements[1] is AtomicType)
-        @Expect(ty.elements[0].toString(), "Int16")
-        @Expect(ty.elements[1].toString(), "Int32")
+        @Expect(ty.elements[0].toString().replace("\r\n", "\n"), "Int16")
+        @Expect(ty.elements[1].toString().replace("\r\n", "\n"), "Int32")
         @Expect(ty.labels.size, 0)
-        @Expect(ty.toString(), "(Int16, Int32)")
-        @Expect(ty.toTokens().toString(), "(Int16, Int32)")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(Int16, Int32)")
+        @Expect(ty.toTokens().toString().replace("\r\n", "\n"), "(Int16, Int32)")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 22]).toArray())
@@ -61,11 +61,11 @@ class Test {
         @Expect(ty.elements[0] is AtomicType)
         @Expect(ty.elements[1] is PrefixType)
         @Expect(ty.elements[2] is TupleType)
-        @Expect(ty.elements[0].toString(), "Int16")
-        @Expect(ty.elements[1].toString(), "?Int32")
-        @Expect(ty.elements[2].toString(), "(Int32, Int32)")
+        @Expect(ty.elements[0].toString().replace("\r\n", "\n"), "Int16")
+        @Expect(ty.elements[1].toString().replace("\r\n", "\n"), "?Int32")
+        @Expect(ty.elements[2].toString().replace("\r\n", "\n"), "(Int32, Int32)")
         @Expect(ty.labels.size, 0)
-        @Expect(ty.toString(), "(Int16, ?Int32, (Int32, Int32))")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(Int16, ?Int32, (Int32, Int32))")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 8, 3, 39]).toArray())
@@ -90,12 +90,12 @@ class Test {
         @Expect(ty.elements.size, 2)
         @Expect(ty.elements[0] is AtomicType)
         @Expect(ty.elements[1] is CompositeType)
-        @Expect(ty.elements[0].toString(), "Int16")
-        @Expect(ty.elements[1].toString(), "String")
+        @Expect(ty.elements[0].toString().replace("\r\n", "\n"), "Int16")
+        @Expect(ty.elements[1].toString().replace("\r\n", "\n"), "String")
         @Expect(ty.labels.size, 2)
         @Expect(ty.labels[0], "x")
         @Expect(ty.labels[1], "y")
-        @Expect(ty.toString(), "(x: Int16, y: String)")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(x: Int16, y: String)")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 8, 4, 29]).toArray())
@@ -123,7 +123,7 @@ class Test {
         let funcDecl = (decls[0] as FuncDecl).getOrThrow()
         let ty = (funcDecl.retTyAnnotation.getOrThrow() as TupleType).getOrThrow()
 
-        @Expect(ty.toString(), "(a: Int64, b: Int64)")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(a: Int64, b: Int64)")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 18, 1, 38]).toArray())
@@ -156,10 +156,10 @@ class Test {
         @Expect(tupleType.elements.size, 2)
         @Expect(tupleType.elements[0] is AtomicType)
         @Expect(tupleType.elements[1] is AtomicType)
-        @Expect(tupleType.elements[0].toString(), "Int16")
-        @Expect(tupleType.elements[1].toString(), "Int32")
+        @Expect(tupleType.elements[0].toString().replace("\r\n", "\n"), "Int16")
+        @Expect(tupleType.elements[1].toString().replace("\r\n", "\n"), "Int32")
         @Expect(tupleType.labels.size, 0)
-        @Expect(tupleType.toString(), "(Int16, Int32)")
+        @Expect(tupleType.toString().replace("\r\n", "\n"), "(Int16, Int32)")
 
         var pos = tupleType.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 15]).toArray())

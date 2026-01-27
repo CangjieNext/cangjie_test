@@ -32,8 +32,8 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         // TODO: check arguments
-        @Expect(expr.toString(), "VArray<Int64, $5>([0, 3 ,4])")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.toString().replace("\r\n", "\n"), "VArray<Int64, $5>([0, 3 ,4])")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = expr.getLParenPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 22, 2, 23]).toArray())
         pos = expr.getRParenPos()
@@ -63,7 +63,7 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         // TODO: check arguments
-        @Expect(expr.toString(), "VArray<Int64, $5>([0, 3 ,4])")
+        @Expect(expr.toString().replace("\r\n", "\n"), "VArray<Int64, $5>([0, 3 ,4])")
         var pos = expr.getLParenPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 18, 1, 19]).toArray())
         pos = expr.getRParenPos()

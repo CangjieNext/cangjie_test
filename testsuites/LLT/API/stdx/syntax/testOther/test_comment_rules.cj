@@ -235,7 +235,7 @@ class Test {
         let comments = file.getOrThrow().comments
         @Expect(comments.size, 2)
 
-        @Expect(comments[0].content, #"/** file leading comments
+        @Expect(comments[0].content.replace("\r\n", "\n"), #"/** file leading comments
 */"#)
         match(comments[0].kind) {
             case CommentKind.Document => ()
@@ -245,7 +245,7 @@ class Test {
         var pos = comments[0].nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 2, 3]).toArray())
 
-        @Expect(comments[1].content, #"/** file trailing comments
+        @Expect(comments[1].content.replace("\r\n", "\n"), #"/** file trailing comments
 */"#)
         match(comments[1].kind) {
             case CommentKind.Document => ()

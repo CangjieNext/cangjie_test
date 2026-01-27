@@ -23,9 +23,9 @@ class Test {
     @TestCase
     func testParenExpr01() {
         let expr = (nodes[1] as ParenExpr).getOrThrow()
-        @Expect(expr.subExpr.toString(), "a + b")
-        @Expect(expr.toString(), "(a + b)")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.subExpr.toString().replace("\r\n", "\n"), "a + b")
+        @Expect(expr.toString().replace("\r\n", "\n"), "(a + b)")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 12]).toArray())
@@ -38,8 +38,8 @@ class Test {
     @TestCase
     func testParenExpr02() {
         let expr = (nodes[0] as ParenExpr).getOrThrow()
-        @Expect(expr.subExpr.toString(), "a")
-        @Expect(expr.toString(), "(a)")
+        @Expect(expr.subExpr.toString().replace("\r\n", "\n"), "a")
+        @Expect(expr.toString().replace("\r\n", "\n"), "(a)")
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 8]).toArray())
         pos = expr.getLParenPos()
@@ -60,8 +60,8 @@ class Test {
     func testInit01() {
         let tmp = (nodes[1] as ParenExpr).getOrThrow()
         let expr = ParenExpr(tmp.subExpr)
-        @Expect(expr.subExpr.toString(), "a + b")
-        @Expect(expr.toString(), "(a + b)")
+        @Expect(expr.subExpr.toString().replace("\r\n", "\n"), "a + b")
+        @Expect(expr.toString().replace("\r\n", "\n"), "(a + b)")
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 8]).toArray())
         pos = expr.getLParenPos()

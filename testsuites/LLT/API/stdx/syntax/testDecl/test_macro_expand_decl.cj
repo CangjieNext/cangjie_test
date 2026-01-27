@@ -24,18 +24,18 @@ class Test {
     @TestCase
     func testDecl01() {
         let decl = (topLevelDecls[0] as MacroExpandDecl).getOrThrow()
-        @Expect(decl.calleeMacro.toString(), "testMacro")
-        @Expect(decl.macroAttrs.toString(), "")
+        @Expect(decl.calleeMacro.toString().replace("\r\n", "\n"), "testMacro")
+        @Expect(decl.macroAttrs.toString().replace("\r\n", "\n"), "")
         match (decl.macroInputs) {
             case WithoutParens(v) =>
                 @Expect(v is ClassDecl)
-                @Expect(v.toString(), "class A {}")
+                @Expect(v.toString().replace("\r\n", "\n"), "class A {}")
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 @testMacro
 class A {}""")
-        @Expect(decl.toTokens().toString(), """
+        @Expect(decl.toTokens().toString().replace("\r\n", "\n"), """
 @testMacro
 class A { }""")
         var pos = decl.getAtPos()
@@ -51,18 +51,18 @@ class A { }""")
     @TestCase
     func testDecl02() {
         let decl = (decls[0] as MacroExpandDecl).getOrThrow()
-        @Expect(decl.calleeMacro.toString(), "testMacro")
-        @Expect(decl.macroAttrs.toString(), "public func")
+        @Expect(decl.calleeMacro.toString().replace("\r\n", "\n"), "testMacro")
+        @Expect(decl.macroAttrs.toString().replace("\r\n", "\n"), "public func")
         match (decl.macroInputs) {
             case WithoutParens(v) =>
                 @Expect(v is FuncDecl)
-                @Expect(v.toString(), "func a() {}")
+                @Expect(v.toString().replace("\r\n", "\n"), "func a() {}")
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 @testMacro[public func]
     func a() {}""")
-        @Expect(decl.toTokens().toString(), """
+        @Expect(decl.toTokens().toString().replace("\r\n", "\n"), """
 @testMacro[public func]
 func a() { }""")
         var pos = decl.getAtPos()
@@ -80,13 +80,13 @@ func a() { }""")
     @TestCase
     func testDecl03() {
         let decl = (decls[1] as MacroExpandDecl).getOrThrow()
-        @Expect(decl.calleeMacro.toString(), "macroPackage.testMacro")
-        @Expect(decl.macroAttrs.toString(), "")
+        @Expect(decl.calleeMacro.toString().replace("\r\n", "\n"), "macroPackage.testMacro")
+        @Expect(decl.macroAttrs.toString().replace("\r\n", "\n"), "")
         match (decl.macroInputs) {
-            case WithParens(v) => @Expect(v.toString(), "var b = 1")
+            case WithParens(v) => @Expect(v.toString().replace("\r\n", "\n"), "var b = 1")
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(decl.toString(), "@macroPackage.testMacro(var b = 1)")
+        @Expect(decl.toString().replace("\r\n", "\n"), "@macroPackage.testMacro(var b = 1)")
         var pos = decl.getAtPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([8, 5, 8, 6]).toArray())
         @Expect(decl.getLSquarePos().isNone())
@@ -103,84 +103,84 @@ func a() { }""")
     @TestCase
     func testDecl04() {
         var decl_1: MacroExpandDecl = (topLevelDecls[2] as MacroExpandDecl).getOrThrow()
-        @Expect(decl_1.toString(), ##"@p1.M1[tok1]( func foo(): Int64 {
+        @Expect(decl_1.toString().replace("\r\n", "\n"), ##"@p1.M1[tok1]( func foo(): Int64 {
     return 1
 })"##)
-        @Assert(decl_1.calleeMacro.toString(), "p1.M1")
-        @Assert(decl_1.macroAttrs.toString(), "tok1")
+        @Assert(decl_1.calleeMacro.toString().replace("\r\n", "\n"), "p1.M1")
+        @Assert(decl_1.macroAttrs.toString().replace("\r\n", "\n"), "tok1")
         decl_1.macroAttrs.append(Token())
         match(decl_1.macroInputs) {
             case WithParens(_) => ()
             case _ => @Assert(false)
         }
         var decl_2: MacroExpandDecl = (topLevelDecls[3] as MacroExpandDecl).getOrThrow()
-        @Assert(decl_2.toString(), ##"@M1[a: tok1, b: tok2]
+        @Assert(decl_2.toString().replace("\r\n", "\n"), ##"@M1[a: tok1, b: tok2]
 func foo<T>(a: T, b!: Int64 = 0) {
     return a
 }"##)
-        @Assert(decl_2.calleeMacro.toString(), "M1")
-        @Assert(decl_2.macroAttrs.toString(), "a: tok1, b: tok2")
+        @Assert(decl_2.calleeMacro.toString().replace("\r\n", "\n"), "M1")
+        @Assert(decl_2.macroAttrs.toString().replace("\r\n", "\n"), "a: tok1, b: tok2")
         match(decl_2.macroInputs) {
             case WithoutParens(_) => ()
             case _ => @Assert(false)
         }
 
         var decl_3: MacroExpandDecl = (topLevelDecls[4] as MacroExpandDecl).getOrThrow()
-        @Assert(decl_3.toString(), ##"@M_A_B(func foo() {})"##)
-        @Assert(decl_3.calleeMacro.toString(), "M_A_B")
-        @Assert(decl_3.macroAttrs.toString(), "")
+        @Assert(decl_3.toString().replace("\r\n", "\n"), ##"@M_A_B(func foo() {})"##)
+        @Assert(decl_3.calleeMacro.toString().replace("\r\n", "\n"), "M_A_B")
+        @Assert(decl_3.macroAttrs.toString().replace("\r\n", "\n"), "")
         match(decl_3.macroInputs) {
             case WithParens(_) => ()
             case _ => @Assert(false)
         }
 
         var decl_4: MacroExpandDecl = (topLevelDecls[5] as MacroExpandDecl).getOrThrow()
-        @Assert(decl_4.toString(), ##"@M1
+        @Assert(decl_4.toString().replace("\r\n", "\n"), ##"@M1
 func foo(a: T) : (T, T) {
     (a, a)
 }"##)
-        @Assert(decl_4.calleeMacro.toString(), "M1")
-        @Assert(decl_4.macroAttrs.toString(), "")
+        @Assert(decl_4.calleeMacro.toString().replace("\r\n", "\n"), "M1")
+        @Assert(decl_4.macroAttrs.toString().replace("\r\n", "\n"), "")
         match(decl_4.macroInputs) {
             case WithoutParens(Decl) => @Assert(Decl is FuncDecl)
             case _ => @Assert(false)
         }
 
         decl_1 = (topLevelDecls[6] as MacroExpandDecl).getOrThrow()
-        @Expect(decl_1.toString(), ##"@p1.M1[tok1](@Deprecated["a"] class C1 {
+        @Expect(decl_1.toString().replace("\r\n", "\n"), ##"@p1.M1[tok1](@Deprecated["a"] class C1 {
     public C1(var a: Int64) {}
 })"##)
-        @Assert(decl_1.calleeMacro.toString(), "p1.M1")
-        @Assert(decl_1.macroAttrs.toString(), "tok1")
+        @Assert(decl_1.calleeMacro.toString().replace("\r\n", "\n"), "p1.M1")
+        @Assert(decl_1.macroAttrs.toString().replace("\r\n", "\n"), "tok1")
         match(decl_1.macroInputs) {
             case WithParens(_) => ()
             case _ => @Assert(false)
         }
 
         decl_2 = (topLevelDecls[7] as MacroExpandDecl).getOrThrow()
-        @Expect(decl_2.toString(), ##"@M1[a: tok1, b: tok2]
+        @Expect(decl_2.toString().replace("\r\n", "\n"), ##"@M1[a: tok1, b: tok2]
 @Deprecated["a"]
 class C1<T, U> <: I1 & C2<T> where T <: I1 & I2, U <: I3 {
     public C1(var a: T, public let b: U) {}
 }"##)
-        @Assert(decl_2.calleeMacro.toString(), "M1")
-        @Assert(decl_2.macroAttrs.toString(), "a: tok1, b: tok2")
+        @Assert(decl_2.calleeMacro.toString().replace("\r\n", "\n"), "M1")
+        @Assert(decl_2.macroAttrs.toString().replace("\r\n", "\n"), "a: tok1, b: tok2")
         match(decl_2.macroInputs) {
-            case WithoutParens(Decl) => @Expect(Decl.annotations.toString(), ##"[@Deprecated["a"]]"##)
+            case WithoutParens(Decl) => @Expect(Decl.annotations.toString().replace("\r\n", "\n"), ##"[@Deprecated["a"]]"##)
             case _ => @Assert(false)
         }
 
         decl_3 = (topLevelDecls[8] as MacroExpandDecl).getOrThrow()
-        @Expect(decl_3.toString(), ##"@M_A_B(class C1 {})"##)
-        @Assert(decl_3.calleeMacro.toString(), "M_A_B")
-        @Assert(decl_3.macroAttrs.toString(), "")
+        @Expect(decl_3.toString().replace("\r\n", "\n"), ##"@M_A_B(class C1 {})"##)
+        @Assert(decl_3.calleeMacro.toString().replace("\r\n", "\n"), "M_A_B")
+        @Assert(decl_3.macroAttrs.toString().replace("\r\n", "\n"), "")
         match(decl_3.macroInputs) {
             case WithParens(_) => ()
             case _ => @Assert(false)
         }
 
         decl_4 = (topLevelDecls[9] as MacroExpandDecl).getOrThrow()
-        @Expect(decl_4.toString(), ##"@M1
+        @Expect(decl_4.toString().replace("\r\n", "\n"), ##"@M1
 @Deprecated["a"]
 class C1 <: C2 {
     init() {
@@ -190,12 +190,12 @@ class C1 <: C2 {
         return 100
     }
 }"##)
-        @Assert(decl_4.calleeMacro.toString(), "M1")
-        @Assert(decl_4.macroAttrs.toString(), "")
+        @Assert(decl_4.calleeMacro.toString().replace("\r\n", "\n"), "M1")
+        @Assert(decl_4.macroAttrs.toString().replace("\r\n", "\n"), "")
         match(decl_4.macroInputs) {
             case WithoutParens(Decl) => 
                 @Assert(Decl is ClassDecl)
-                @Expect(Decl.annotations.toString(), ##"[@Deprecated["a"]]"##)
+                @Expect(Decl.annotations.toString().replace("\r\n", "\n"), ##"[@Deprecated["a"]]"##)
             case _ => @Assert(false)
         }
     }
@@ -204,15 +204,15 @@ class C1 <: C2 {
     func testMacroExpandDeclInit01() {
         let decl = (decls[0] as MacroExpandDecl).getOrThrow()
         let macroExpandDecl = MacroExpandDecl(decl.calleeMacro, decl.macroAttrs, decl.macroInputs, annotations: decl.annotations)
-        @Expect(macroExpandDecl.calleeMacro.toString(), "testMacro")
-        @Expect(macroExpandDecl.macroAttrs.toString(), "public func")
+        @Expect(macroExpandDecl.calleeMacro.toString().replace("\r\n", "\n"), "testMacro")
+        @Expect(macroExpandDecl.macroAttrs.toString().replace("\r\n", "\n"), "public func")
         match (macroExpandDecl.macroInputs) {
             case WithoutParens(v) =>
                 @Expect(v is FuncDecl)
-                @Expect(v.toString(), "func a() {}")
+                @Expect(v.toString().replace("\r\n", "\n"), "func a() {}")
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(macroExpandDecl.toString(), """
+        @Expect(macroExpandDecl.toString().replace("\r\n", "\n"), """
 @testMacro[public func]
 func a() {}""")
         var pos = macroExpandDecl.getAtPos()
@@ -231,13 +231,13 @@ func a() {}""")
     func testMacroExpandDeclInit02() {
         let decl = (decls[1] as MacroExpandDecl).getOrThrow()
         let macroExpandDecl = MacroExpandDecl(decl.calleeMacro, decl.macroAttrs, decl.macroInputs, annotations: decl.annotations)
-        @Expect(macroExpandDecl.calleeMacro.toString(), "macroPackage.testMacro")
-        @Expect(macroExpandDecl.macroAttrs.toString(), "")
+        @Expect(macroExpandDecl.calleeMacro.toString().replace("\r\n", "\n"), "macroPackage.testMacro")
+        @Expect(macroExpandDecl.macroAttrs.toString().replace("\r\n", "\n"), "")
         match (macroExpandDecl.macroInputs) {
-            case WithParens(v) => @Expect(v.toString(), "var b = 1")
+            case WithParens(v) => @Expect(v.toString().replace("\r\n", "\n"), "var b = 1")
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(macroExpandDecl.toString(), "@macroPackage.testMacro(var b = 1)")
+        @Expect(macroExpandDecl.toString().replace("\r\n", "\n"), "@macroPackage.testMacro(var b = 1)")
         var pos = macroExpandDecl.getAtPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
         @Expect(macroExpandDecl.getLSquarePos().isNone())

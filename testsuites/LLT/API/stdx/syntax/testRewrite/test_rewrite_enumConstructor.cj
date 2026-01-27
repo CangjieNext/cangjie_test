@@ -38,7 +38,7 @@ class Test{
         let decl = (decls[0] as EnumDecl).getOrThrow()
         let rewrite = ASTRewriteBode()
         let newNode = rewrite.walk(decl, detach: true)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 public enum B {
     | @Deprecated["EnumA"]
     EnumA

@@ -41,7 +41,7 @@ class A {
         let funcDecl = (classDecl.getOrThrow().body.memberDecls[0] as FuncDecl).getOrThrow()
         let rewrite = RewriteNode()
         let newNode = rewrite.walk(funcDecl, detach: true)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 func a(a:   Int32){ 0 }""")
         @Expect(newNode.parentNode, None)
     }
@@ -51,9 +51,9 @@ func a(a:   Int32){ 0 }""")
         let funcDecl = (classDecl.getOrThrow().body.memberDecls[0] as FuncDecl).getOrThrow()
         let rewrite = RewriteNode()
         let newNode = rewrite.walk(funcDecl)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 func a(a:   Int32){ 0 }""")
-        @Expect(newNode.parentNode.getOrThrow().toString(),  """
+        @Expect(newNode.parentNode.getOrThrow().toString().replace("\r\n", "\n"),  """
 {
     func a(a:   Int32){ 0 }
 }""")

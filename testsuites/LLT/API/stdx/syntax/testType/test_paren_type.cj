@@ -24,9 +24,9 @@ class Test {
         let ty = (varDecl.tyAnnotation.getOrThrow() as ParenType).getOrThrow()
 
         @Expect(ty.subType is AtomicType)
-        @Expect(ty.subType.toString(), "Int16")
-        @Expect(ty.toString(), "(Int16)")
-        @Expect(ty.toTokens().toString(), "(Int16)")
+        @Expect(ty.subType.toString().replace("\r\n", "\n"), "Int16")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(Int16)")
+        @Expect(ty.toTokens().toString().replace("\r\n", "\n"), "(Int16)")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 15]).toArray())
@@ -42,8 +42,8 @@ class Test {
         let ty = (varDecl.tyAnnotation.getOrThrow() as ParenType).getOrThrow()
 
         @Expect(ty.subType is PrefixType)
-        @Expect(ty.subType.toString(), "?Int16")
-        @Expect(ty.toString(), "(?Int16)")
+        @Expect(ty.subType.toString().replace("\r\n", "\n"), "?Int16")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(?Int16)")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 8, 3, 16]).toArray())
@@ -59,8 +59,8 @@ class Test {
         let ty = (varDecl.tyAnnotation.getOrThrow() as ParenType).getOrThrow()
 
         @Expect(ty.subType is ParenType)
-        @Expect(ty.subType.toString(), "((Int16, Int16))")
-        @Expect(ty.toString(), "(((Int16, Int16)))")
+        @Expect(ty.subType.toString().replace("\r\n", "\n"), "((Int16, Int16))")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(((Int16, Int16)))")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 8, 4, 26]).toArray())
@@ -75,7 +75,7 @@ class Test {
         let funcDecl = (decls[0] as FuncDecl).getOrThrow()
         let ty = (funcDecl.retTyAnnotation.getOrThrow() as ParenType).getOrThrow()
 
-        @Expect(ty.toString(), "(Int64)")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(Int64)")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 18, 1, 25]).toArray())
@@ -100,8 +100,8 @@ class Test {
         let parenType = ParenType(ty.subType)
 
         @Expect(parenType.subType is AtomicType)
-        @Expect(parenType.subType.toString(), "Int16")
-        @Expect(parenType.toString(), "(Int16)")
+        @Expect(parenType.subType.toString().replace("\r\n", "\n"), "Int16")
+        @Expect(parenType.toString().replace("\r\n", "\n"), "(Int16)")
 
         var pos = parenType.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 8]).toArray())

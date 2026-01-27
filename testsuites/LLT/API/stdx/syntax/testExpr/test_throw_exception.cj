@@ -23,9 +23,9 @@ class Test {
     @TestCase
     func testExpr01() {
         let expr = (nodes[0] as ThrowExpr).getOrThrow()
-        @Expect(expr.throwVal.toString(), "Exception(\"Exception!\")")
-        @Expect(expr.toString(), "throw Exception(\"Exception!\")")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.throwVal.toString().replace("\r\n", "\n"), "Exception(\"Exception!\")")
+        @Expect(expr.toString().replace("\r\n", "\n"), "throw Exception(\"Exception!\")")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = expr.getThrowKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 10]).toArray())
         pos = expr.nodePos
@@ -35,8 +35,8 @@ class Test {
     @TestCase
     func testExpr02() {
         let expr = (nodes[1] as ThrowExpr).getOrThrow()
-        @Expect(expr.throwVal.toString(), "Exception(\"\${Exception(a)}\")")
-        @Expect(expr.toString(), "throw Exception(\"\${Exception(a)}\")")
+        @Expect(expr.throwVal.toString().replace("\r\n", "\n"), "Exception(\"\${Exception(a)}\")")
+        @Expect(expr.toString().replace("\r\n", "\n"), "throw Exception(\"\${Exception(a)}\")")
         var pos = expr.getThrowKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 10]).toArray())
     }
@@ -44,8 +44,8 @@ class Test {
     @TestCase
     func testExpr03() {
         let expr = (nodes[2] as ThrowExpr).getOrThrow()
-        @Expect(expr.throwVal.toString(), "Exception(\"\${Exception(a.b)}\")")
-        @Expect(expr.toString(), "throw Exception(\"\${Exception(a.b)}\")")
+        @Expect(expr.throwVal.toString().replace("\r\n", "\n"), "Exception(\"\${Exception(a.b)}\")")
+        @Expect(expr.toString().replace("\r\n", "\n"), "throw Exception(\"\${Exception(a.b)}\")")
         var pos = expr.getThrowKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 5, 4, 10]).toArray())
     }
@@ -54,8 +54,8 @@ class Test {
     func testThrowExprInit() {
         let expr = (nodes[2] as ThrowExpr).getOrThrow()
         let throwExpr = ThrowExpr(expr.throwVal)
-        @Expect(throwExpr.throwVal.toString(), "Exception(\"\${Exception(a.b)}\")")
-        @Expect(throwExpr.toString(), "throw Exception(\"\${Exception(a.b)}\")")
+        @Expect(throwExpr.throwVal.toString().replace("\r\n", "\n"), "Exception(\"\${Exception(a.b)}\")")
+        @Expect(throwExpr.toString().replace("\r\n", "\n"), "throw Exception(\"\${Exception(a.b)}\")")
         var pos = throwExpr.getThrowKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
     }

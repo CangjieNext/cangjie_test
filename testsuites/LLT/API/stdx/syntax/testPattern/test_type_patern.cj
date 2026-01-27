@@ -25,11 +25,11 @@ class Test {
         let matchExpr = (nodes[2] as MatchExpr).getOrThrow()
         let pattern = (matchExpr.matchCases[0].patterns[0] as TypePattern).getOrThrow()
 
-        @Expect(pattern.patternType.toString(), "Int64")
+        @Expect(pattern.patternType.toString().replace("\r\n", "\n"), "Int64")
         @Expect(pattern.subPattern is VarPattern)
-        @Expect(pattern.subPattern.toString(), "x")
-        @Expect(pattern.toString(), "x: Int64")
-        @Expect(pattern.toTokens().toString(), "x: Int64")
+        @Expect(pattern.subPattern.toString().replace("\r\n", "\n"), "x")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "x: Int64")
+        @Expect(pattern.toTokens().toString().replace("\r\n", "\n"), "x: Int64")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 14, 5, 22]).toArray())
@@ -42,10 +42,10 @@ class Test {
         let matchExpr = (nodes[3] as MatchExpr).getOrThrow()
         let pattern = (matchExpr.matchCases[0].patterns[0] as TypePattern).getOrThrow()
 
-        @Expect(pattern.patternType.toString(), "A")
+        @Expect(pattern.patternType.toString().replace("\r\n", "\n"), "A")
         @Expect(pattern.subPattern is VarPattern)
-        @Expect(pattern.subPattern.toString(), "x")
-        @Expect(pattern.toString(), "x: A")
+        @Expect(pattern.subPattern.toString().replace("\r\n", "\n"), "x")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "x: A")
     }
 
     @TestCase
@@ -62,10 +62,10 @@ class Test {
         let pattern = (matchExpr.matchCases[0].patterns[0] as TypePattern).getOrThrow()
         let typePattern = TypePattern(pattern.subPattern, pattern.patternType)
 
-        @Expect(typePattern.patternType.toString(), "Int64")
+        @Expect(typePattern.patternType.toString().replace("\r\n", "\n"), "Int64")
         @Expect(typePattern.subPattern is VarPattern)
-        @Expect(typePattern.subPattern.toString(), "x")
-        @Expect(typePattern.toString(), "x: Int64")
+        @Expect(typePattern.subPattern.toString().replace("\r\n", "\n"), "x")
+        @Expect(typePattern.toString().replace("\r\n", "\n"), "x: Int64")
 
         var pos = typePattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 9]).toArray())

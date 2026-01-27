@@ -35,7 +35,7 @@ class Test {
             case CommentKind.Line => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(comments[1].toString(), ##"//"##)
+        @Expect(comments[1].toString().replace("\r\n", "\n"), ##"//"##)
 
 
         @Expect(comments[2].content, ##"// "##)
@@ -43,24 +43,24 @@ class Test {
             case CommentKind.Line => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(comments[2].toString(), ##"// "##)
+        @Expect(comments[2].toString().replace("\r\n", "\n"), ##"// "##)
 
-        @Expect(comments[3].content, ##"/*
+        @Expect(comments[3].content.replace("\r\n", "\n"), ##"/*
 */"##)
         match (comments[3].kind) {
             case CommentKind.Block => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(comments[3].toString(), ##"/*
+        @Expect(comments[3].toString().replace("\r\n", "\n"), ##"/*
 */"##)
 
-        @Expect(comments[4].content, ##"/**
+        @Expect(comments[4].content.replace("\r\n", "\n"), ##"/**
 */"##)
         match (comments[4].kind) {
             case CommentKind.Document => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(comments[4].toString(), ##"/**
+        @Expect(comments[4].toString().replace("\r\n", "\n"), ##"/**
 */"##)
 
         @Expect(comments[5].content, ##"/**/"##)
@@ -68,14 +68,14 @@ class Test {
             case CommentKind.Block => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(comments[5].toString(), ##"/**/"##)
+        @Expect(comments[5].toString().replace("\r\n", "\n"), ##"/**/"##)
 
         @Expect(comments[6].content, ##"/***/"##)
         match (comments[6].kind) {
             case CommentKind.Document => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(comments[6].toString(), ##"/***/"##)
+        @Expect(comments[6].toString().replace("\r\n", "\n"), ##"/***/"##)
     }
 
     

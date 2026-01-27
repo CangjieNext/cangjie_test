@@ -28,8 +28,8 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(expr.rawValue, "true")
-        @Expect(expr.toString(), "true")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.toString().replace("\r\n", "\n"), "true")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         let pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 9]).toArray())
     }
@@ -42,8 +42,8 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(expr.rawValue, "1.0")
-        @Expect(expr.toString(), "1.0")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.toString().replace("\r\n", "\n"), "1.0")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         let pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 8]).toArray())
     }
@@ -56,7 +56,7 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(expr.rawValue, "123")
-        @Expect(expr.toString(), "123")
+        @Expect(expr.toString().replace("\r\n", "\n"), "123")
         let pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 5, 4, 8]).toArray())
     }
@@ -69,7 +69,7 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(expr.rawValue, "()")
-        @Expect(expr.toString(), "()")
+        @Expect(expr.toString().replace("\r\n", "\n"), "()")
         let pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([7, 5, 7, 7]).toArray())
     }
@@ -82,7 +82,7 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(expr.rawValue, "(     )")
-        @Expect(expr.toString(), "(     )")
+        @Expect(expr.toString().replace("\r\n", "\n"), "(     )")
         let pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([8, 5, 8, 12]).toArray())
     }
@@ -96,7 +96,7 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(litConstExpr.rawValue, "(     )")
-        @Expect(litConstExpr.toString(), "(     )")
+        @Expect(litConstExpr.toString().replace("\r\n", "\n"), "(     )")
         let pos = litConstExpr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 8]).toArray())
     }
@@ -110,7 +110,7 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(litConstExpr.rawValue, "1.0")
-        @Expect(litConstExpr.toString(), "1.0")
+        @Expect(litConstExpr.toString().replace("\r\n", "\n"), "1.0")
         let pos = litConstExpr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
     }
@@ -124,7 +124,7 @@ class Test {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(litConstExpr.rawValue, "123")
-        @Expect(litConstExpr.toString(), "123")
+        @Expect(litConstExpr.toString().replace("\r\n", "\n"), "123")
         let pos = litConstExpr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
     }

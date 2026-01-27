@@ -35,7 +35,7 @@ class Test {
             case CommentKind.Line => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(comments[1].toString(), ##"// aaa //bbb"##)
+        @Expect(comments[1].toString().replace("\r\n", "\n"), ##"// aaa //bbb"##)
 
 
         @Expect(comments[2].content, ##"// c"##)
@@ -43,7 +43,7 @@ class Test {
             case CommentKind.Line => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(comments[2].toString(), ##"// c"##)
+        @Expect(comments[2].toString().replace("\r\n", "\n"), ##"// c"##)
 
 
         @Expect(comments[3].content, ##"/* ddd */"##)
@@ -51,7 +51,7 @@ class Test {
             case CommentKind.Block => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(comments[3].toString(), ##"/* ddd */"##)
+        @Expect(comments[3].toString().replace("\r\n", "\n"), ##"/* ddd */"##)
 
 
         @Expect(comments[4].content, ##"/*eee*/"##)
@@ -59,17 +59,17 @@ class Test {
             case CommentKind.Block => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(comments[4].toString(), ##"/*eee*/"##)
+        @Expect(comments[4].toString().replace("\r\n", "\n"), ##"/*eee*/"##)
 
 
-        @Expect(comments[5].content, ##"/**
+        @Expect(comments[5].content.replace("\r\n", "\n"), ##"/**
 ffffff
 */"##)
         match (comments[5].kind) {
             case CommentKind.Document => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(comments[5].toString(), ##"/**
+        @Expect(comments[5].toString().replace("\r\n", "\n"), ##"/**
 ffffff
 */"##)
 
@@ -79,7 +79,7 @@ ffffff
             case CommentKind.Line => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(comments[6].toString(), ##"// ff"##)
+        @Expect(comments[6].toString().replace("\r\n", "\n"), ##"// ff"##)
 
 
         @Expect(comments[7].content, ##"// ggg"##)
@@ -87,7 +87,7 @@ ffffff
             case CommentKind.Line => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(comments[7].toString(), ##"// ggg"##)
+        @Expect(comments[7].toString().replace("\r\n", "\n"), ##"// ggg"##)
     }
 
     @TestCase
@@ -130,14 +130,14 @@ ffffff
         let nodes = funcDecl.body.getOrThrow().nodes
         let matchExpr = (nodes[1] as MatchExpr).getOrThrow()
         let matchCase = (matchExpr.matchCases[0] as MatchCase).getOrThrow()
-        @Expect(matchCase.toString(), ##"case 1 =>
+        @Expect(matchCase.toString().replace("\r\n", "\n"), ##"case 1 =>
         // comment on 1
         1
         // comment on ()
         () // comment on matchCase"##)
         let body = matchCase.body
         var litConstExpr = (body[0] as LitConstExpr).getOrThrow()
-        @Expect(litConstExpr.toString(), ##"// comment on 1
+        @Expect(litConstExpr.toString().replace("\r\n", "\n"), ##"// comment on 1
         1"##)
         var comments = litConstExpr.comments
         @Expect(comments.size, 1)
@@ -161,7 +161,7 @@ ffffff
         var matchCase = (matchExpr.matchCases[1] as MatchCase).getOrThrow()
         var comments = matchCase.comments
         @Expect(comments.size, 1)
-        @Expect(comments[0].content, ##"/*
+        @Expect(comments[0].content.replace("\r\n", "\n"), ##"/*
              * comment on matchCase
              */"##)
 
@@ -195,7 +195,7 @@ ffffff
         */
         let enumDecl = (decls[5] as EnumDecl).getOrThrow()
         let constructor = (enumDecl.body.memberDecls[0] as EnumConstructor).getOrThrow()
-        @Expect(constructor.toString(), ##"B1 /* block comment1 */ (/* block comment2 */T/* block comment3 */, /* block comment4 */R/* block comment5 */) // comment"##)
+        @Expect(constructor.toString().replace("\r\n", "\n"), ##"B1 /* block comment1 */ (/* block comment2 */T/* block comment3 */, /* block comment4 */R/* block comment5 */) // comment"##)
         let comments = constructor.comments
         @Expect(comments.size, 2)
         @Expect(comments[0].content, ##"/* block comment1 */"##)

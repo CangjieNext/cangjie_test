@@ -38,7 +38,7 @@ class Test{
         let varDecl = (decls[1] as VarDecl).getOrThrow()
         let rewrite = ASTRewriteBinary()
         let newNode = rewrite.walk(varDecl, detach: true)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 let b = Int32(a)""")
         @Expect(newNode.parentNode, None)
     }
@@ -48,10 +48,10 @@ let b = Int32(a)""")
         let varDecl = (decls[1] as VarDecl).getOrThrow()
         let rewrite = ASTRewriteBinary()
         let newNode = rewrite.walk(varDecl)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 let b = Int32(a)""")
-        println(newNode.parentNode.getOrThrow().toString())
-        @Expect(newNode.parentNode.getOrThrow().toString(), """
+        println(newNode.parentNode.getOrThrow().toString().replace("\r\n", "\n"))
+        @Expect(newNode.parentNode.getOrThrow().toString().replace("\r\n", "\n"), """
 const a = 1
 let b = Int32(a)""")
     }

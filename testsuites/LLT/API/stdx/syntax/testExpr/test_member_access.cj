@@ -23,10 +23,10 @@ class Test {
     @TestCase
     func testExpr01() {
         let expr = (nodes[0] as MemberAccess).getOrThrow()
-        @Expect(expr.base.toString(), "A")
-        @Expect(expr.field.toString(), "a")
-        @Expect(expr.toString(), "A.a")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.base.toString().replace("\r\n", "\n"), "A")
+        @Expect(expr.field.toString().replace("\r\n", "\n"), "a")
+        @Expect(expr.toString().replace("\r\n", "\n"), "A.a")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = expr.getDotPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 6, 2, 7]).toArray())
         pos = expr.nodePos
@@ -37,9 +37,9 @@ class Test {
     func testMemberAccessInit() {
         let expr = (nodes[0] as MemberAccess).getOrThrow()
         let memberAccess = MemberAccess(expr.base, expr.field)
-        @Expect(memberAccess.base.toString(), "A")
-        @Expect(memberAccess.field.toString(), "a")
-        @Expect(memberAccess.toString(), "A.a")
+        @Expect(memberAccess.base.toString().replace("\r\n", "\n"), "A")
+        @Expect(memberAccess.field.toString().replace("\r\n", "\n"), "a")
+        @Expect(memberAccess.toString().replace("\r\n", "\n"), "A.a")
         var pos = memberAccess.getDotPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 3]).toArray())
         pos = memberAccess.nodePos
@@ -51,10 +51,10 @@ class Test {
         println(nodes[1])
         let expr = (nodes[1] as CallExpr).getOrThrow()
         let memberAccess = (expr.callee as MemberAccess).getOrThrow()
-        @Expect(memberAccess.base.toString(), "UInt16")
-        @Expect(memberAccess.field.toString(), "parse")
-        @Expect(memberAccess.toString(), "UInt16.parse")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(memberAccess.base.toString().replace("\r\n", "\n"), "UInt16")
+        @Expect(memberAccess.field.toString().replace("\r\n", "\n"), "parse")
+        @Expect(memberAccess.toString().replace("\r\n", "\n"), "UInt16.parse")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = memberAccess.getDotPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 11, 3, 12]).toArray())
         pos = memberAccess.nodePos

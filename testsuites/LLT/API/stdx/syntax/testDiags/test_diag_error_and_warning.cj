@@ -50,7 +50,7 @@ class Test {
         let res = parseFile(filePath)
         @Expect(res.node.isNone())
         diags = res.diags
-        canPath = canonicalize(filePath).toString()
+        canPath = canonicalize(filePath).toString().replace("\r\n", "\n")
     }
 
     @TestCase

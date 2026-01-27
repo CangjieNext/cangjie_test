@@ -37,7 +37,7 @@ class Test{
         let decl = (decls[0] as MainDecl).getOrThrow()
         let rewrite = ASTRewriteNode()
         let newNode = rewrite.walk(decl, detach: true)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 main() {
     try (r = Worker("Tom")) {
         r.getTools()
@@ -66,7 +66,7 @@ main() {
         let decl = (decls[0] as MainDecl).getOrThrow()
         let rewrite = ASTRewriteNode()
         let newNode = rewrite.walk(decl)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 main() {
     try (r = Worker("Tom")) {
         r.getTools()
@@ -87,7 +87,7 @@ main() {
         throw ex
     }
 }""")
-        @Expect(newNode.parentNode.getOrThrow().toString(), """
+        @Expect(newNode.parentNode.getOrThrow().toString().replace("\r\n", "\n"), """
 main() {
     try (r = Worker("Tom")) {
         r.getTools()

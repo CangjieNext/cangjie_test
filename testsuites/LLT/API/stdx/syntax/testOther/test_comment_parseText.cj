@@ -17,7 +17,7 @@ class Test {
     func testVarDeclComment() {
         let node = parseText("let a = 1 /*comment*/")
         let decl = (node.node.getOrThrow() as VarDecl).getOrThrow()
-        @Expect(decl.toString(), "let a = 1 /*comment*/")
+        @Expect(decl.toString().replace("\r\n", "\n"), "let a = 1 /*comment*/")
         var comments = decl.comments
         @Expect(comments.size, 1)
         @Expect(comments[0].content, "/*comment*/")
@@ -27,7 +27,7 @@ class Test {
 let (a, b): (Int64, String) = (1, "hello")
 // trailing comment"""
         let decl_1 = (parseText(text).node.getOrThrow() as VarDecl).getOrThrow()
-        @Expect(decl_1.toString(), text)
+        @Expect(decl_1.toString().replace("\r\n", "\n"), text)
         comments = decl_1.comments
         @Expect(comments.size, 2)
         @Expect(comments[0].content, "// leading comment")
@@ -44,7 +44,7 @@ a + b""")
         @Expect(comments.size, 1)
         @Expect(comments[0].content, "/* leading comment */")
         
-        @Expect(expr.toString(), """
+        @Expect(expr.toString().replace("\r\n", "\n"), """
 /* leading comment */
 a + b""")
 

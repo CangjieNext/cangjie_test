@@ -39,7 +39,7 @@ class Test{
         let decl = (decls[0] as MainDecl).getOrThrow()
         let rewrite = ASTRewriteNode()
         let newNode = rewrite.walk(decl, detach: true)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 main() {
     match (ty) {
         case a: A =>

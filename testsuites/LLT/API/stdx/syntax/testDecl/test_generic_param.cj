@@ -24,11 +24,11 @@ class Test {
     func test01() {
         @Expect(params.size, 2)
         @Expect(params[0].name, "T1")
-        @Expect(params[0].toString(), "T1")
+        @Expect(params[0].toString().replace("\r\n", "\n"), "T1")
 
         @Expect(params[1].name, "T2")
-        @Expect(params[1].toString(), "T2")
-        @Expect(params[1].toTokens().toString(), params[1].toString())
+        @Expect(params[1].toString().replace("\r\n", "\n"), "T2")
+        @Expect(params[1].toTokens().toString().replace("\r\n", "\n"), params[1].toString().replace("\r\n", "\n"))
 
         let decl = funcDecl.getOrThrow()
         var pos = decl.getGenericParamsLAnglePos().getOrThrow()
@@ -48,10 +48,10 @@ class Test {
         @Expect(params.size, 2)
         var genericParam = GenericParam(params[0].name)
         @Expect(genericParam.name, "T1")
-        @Expect(genericParam.toString(), "T1")
+        @Expect(genericParam.toString().replace("\r\n", "\n"), "T1")
         genericParam = GenericParam(params[1].name)
         @Expect(genericParam.name, "T2")
-        @Expect(genericParam.toString(), "T2")
+        @Expect(genericParam.toString().replace("\r\n", "\n"), "T2")
     }
 
     @TestCase

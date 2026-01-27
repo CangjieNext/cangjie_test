@@ -19,7 +19,7 @@ func test_QuoteExpr_With_NewLine() {
     @Assert(diags.size, 0)
 
     let sourcefile : SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"public macro Prop(input:Tokens):Tokens {
+    @Expect(sourcefile.toString().replace("\r\n", "\n").contains(##"public macro Prop(input:Tokens):Tokens {
     let v = parseDecl(input)
     @getIdent[ident](input)
     return quote(
@@ -33,7 +33,7 @@ func test_QuoteExpr_With_NewLine() {
 }"##))
 
     var _decl: MacroDecl = (sourcefile.topLevelDecls[0] as MacroDecl).getOrThrow()
-    @Expect(_decl.toString(), ##"public macro Prop(input:Tokens):Tokens {
+    @Expect(_decl.toString().replace("\r\n", "\n"), ##"public macro Prop(input:Tokens):Tokens {
     let v = parseDecl(input)
     @getIdent[ident](input)
     return quote(
@@ -46,7 +46,7 @@ func test_QuoteExpr_With_NewLine() {
     )
 }"##)
     @Assert(_decl.name, "Prop")
-    @Expect(_decl.body.toString(), ##"{
+    @Expect(_decl.body.toString().replace("\r\n", "\n"), ##"{
     let v = parseDecl(input)
     @getIdent[ident](input)
     return quote(
@@ -58,10 +58,10 @@ func test_QuoteExpr_With_NewLine() {
         }
     )
 }"##)
-    @Assert(_decl.annotations.toString(), ##"[]"##)
-    @Assert(_decl.modifiers.toString(), ##"[public]"##)
-    @Assert(_decl.params.toString(), "(input:Tokens)")
-    @Assert(_decl.retTyAnnotation.getOrThrow().toString(), "Tokens")
+    @Assert(_decl.annotations.toString().replace("\r\n", "\n"), ##"[]"##)
+    @Assert(_decl.modifiers.toString().replace("\r\n", "\n"), ##"[public]"##)
+    @Assert(_decl.params.toString().replace("\r\n", "\n"), "(input:Tokens)")
+    @Assert(_decl.retTyAnnotation.getOrThrow().toString().replace("\r\n", "\n"), "Tokens")
 }
 
 @Test
@@ -73,7 +73,7 @@ class A {
     )
     let node = parseTokens(x).node.getOrThrow()
     let tks = quote($(node))
-    @Assert(tks.toString(), ##"class A {
+    @Assert(tks.toString().replace("\r\n", "\n"), ##"class A {
     let x = 1
 }"##)
 }

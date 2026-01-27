@@ -17,7 +17,7 @@ import std.fs.*
 public class ASTVisitorTest1 <: ASTVisitor {
     var recordStr = ""
     override public func preAction(node: SyntaxTreeNode): PreActionMode {
-        recordStr += "preAction, visit: ${node.toString()}\n"
+        recordStr += "preAction, visit: ${node.toString().replace("\r\n", "\n")}\n"
         return PreActionMode.Continue
     }
 }
@@ -25,7 +25,7 @@ public class ASTVisitorTest1 <: ASTVisitor {
 public class ASTVisitorTest2 <: ASTVisitor {
     var recordStr = ""
     override public func preAction(node: SyntaxTreeNode): PreActionMode {
-        recordStr += "preAction, visit: ${node.toString()}\n"
+        recordStr += "preAction, visit: ${node.toString().replace("\r\n", "\n")}\n"
         return match (node) {
             case v: VarDecl => PreActionMode.Skip
             case _ => PreActionMode.Continue
@@ -36,7 +36,7 @@ public class ASTVisitorTest2 <: ASTVisitor {
 public class ASTVisitorTest3 <: ASTVisitor {
     var recordStr = ""
     override public func preAction(node: SyntaxTreeNode): PreActionMode {
-        recordStr += "preAction, visit: ${node.toString()}\n"
+        recordStr += "preAction, visit: ${node.toString().replace("\r\n", "\n")}\n"
         return match (node) {
             case v: VarDecl => 
             if (v.name == "stop") {

@@ -30,7 +30,7 @@ class Test {
     func readInput(): Unit {
         let res = parseFile(filePath)
         diags = res.diags
-        canPath = canonicalize(filePath).toString()
+        canPath = canonicalize(filePath).toString().replace("\r\n", "\n")
     }
  
     @TestCase
