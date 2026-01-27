@@ -26,8 +26,8 @@ class Test {
         }
         let content = (importList.contents as ImportAll).getOrThrow()
         @Expect(content.prefixes, ["a"])
-        @Expect(content.toString(), "a.*")
-        @Expect(content.toTokens().toString(), "a.*")
+        @Expect(content.toString().replace("\r\n", "\n"), "a.*")
+        @Expect(content.toTokens().toString().replace("\r\n", "\n"), "a.*")
         var pos = content.getMulPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 10, 1, 11]).toArray())
         pos = content.nodePos
@@ -44,7 +44,7 @@ class Test {
 
         let content = (importList.contents as ImportAll).getOrThrow()
         @Expect(content.prefixes, ["a", "b"])
-        @Expect(content.toString(), "a.b.*")
+        @Expect(content.toString().replace("\r\n", "\n"), "a.b.*")
         var pos = content.getMulPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 12, 2, 13]).toArray())
     }
@@ -67,7 +67,7 @@ class Test {
         let tmp = (importList.contents as ImportAll).getOrThrow()
         let content = ImportAll(tmp.prefixes)
         @Expect(content.prefixes, ["a"])
-        @Expect(content.toString(), "a.*")
+        @Expect(content.toString().replace("\r\n", "\n"), "a.*")
         var pos = content.getMulPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 4]).toArray())
         pos = content.nodePos

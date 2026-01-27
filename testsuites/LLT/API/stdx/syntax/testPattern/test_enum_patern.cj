@@ -32,10 +32,10 @@ class Test {
         let matchExpr = (nodes[2] as MatchExpr).getOrThrow()
         let pattern = (matchExpr.matchCases[0].patterns[0] as EnumPattern).getOrThrow()
         // TestEnum
-        @Expect(pattern.enumConstructor.toString(), "A")
+        @Expect(pattern.enumConstructor.toString().replace("\r\n", "\n"), "A")
         @Expect(pattern.subPatterns.size, 1)
-        @Expect(pattern.toString(), "A(n)")
-        @Expect(pattern.toTokens().toString(), "A(n)")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "A(n)")
+        @Expect(pattern.toTokens().toString().replace("\r\n", "\n"), "A(n)")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 14, 5, 18]).toArray())
@@ -51,9 +51,9 @@ class Test {
         let matchExpr = (nodes[3] as MatchExpr).getOrThrow()
         let pattern = (matchExpr.matchCases[0].patterns[0] as EnumPattern).getOrThrow()
 
-        @Expect(pattern.enumConstructor.toString(), "B")
+        @Expect(pattern.enumConstructor.toString().replace("\r\n", "\n"), "B")
         @Expect(pattern.subPatterns.size, 2)
-        @Expect(pattern.toString(), "B(m, n)")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "B(m, n)")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([9, 14, 9, 21]).toArray())
@@ -75,9 +75,9 @@ class Test {
         if (let Some(enumType) <- pattern.enumType) {
             @Expect(enumType is CompositeType)
         }
-        @Expect(pattern.enumConstructor.toString(), "EnumElement")
+        @Expect(pattern.enumConstructor.toString().replace("\r\n", "\n"), "EnumElement")
         @Expect(pattern.subPatterns.size, 0)
-        @Expect(pattern.toString(), "A.B<T>.EnumElement")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "A.B<T>.EnumElement")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([13, 14, 13, 32]).toArray())
@@ -105,9 +105,9 @@ class Test {
         let matchExpr = (nodes[2] as MatchExpr).getOrThrow()
         let pattern = (matchExpr.matchCases[0].patterns[0] as EnumPattern).getOrThrow()
         let enumPattern = EnumPattern(pattern.enumConstructor, pattern.enumType, pattern.subPatterns)
-        @Expect(enumPattern.enumConstructor.toString(), "A")
+        @Expect(enumPattern.enumConstructor.toString().replace("\r\n", "\n"), "A")
         @Expect(enumPattern.subPatterns.size, 1)
-        @Expect(enumPattern.toString(), "A(n)")
+        @Expect(enumPattern.toString().replace("\r\n", "\n"), "A(n)")
 
         var pos = enumPattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 5]).toArray())

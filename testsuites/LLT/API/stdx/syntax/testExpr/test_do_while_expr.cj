@@ -23,10 +23,10 @@ class Test {
     @TestCase
     func testExpr01() {
         let expr = (nodes[0] as DoWhileExpr).getOrThrow()
-        @Expect(expr.condition.toString(), "true")
-        @Expect(expr.body.toString(), "{}")
-        @Expect(expr.toString(), "do {} while (true)")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.condition.toString().replace("\r\n", "\n"), "true")
+        @Expect(expr.body.toString().replace("\r\n", "\n"), "{}")
+        @Expect(expr.toString().replace("\r\n", "\n"), "do {} while (true)")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = expr.getDoKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 7]).toArray())
         pos = expr.getWhileKeyWordPos()
@@ -42,18 +42,18 @@ class Test {
     @TestCase
     func testExpr02() {
         let expr = (nodes[1] as DoWhileExpr).getOrThrow()
-        @Expect(expr.condition.toString(), "x && y + 1 > 3")
-        @Expect(expr.body.toString(), """
+        @Expect(expr.condition.toString().replace("\r\n", "\n"), "x && y + 1 > 3")
+        @Expect(expr.body.toString().replace("\r\n", "\n"), """
 {
         println()
         return
     }""")
-        @Expect(expr.toString(), """
+        @Expect(expr.toString().replace("\r\n", "\n"), """
 do {
         println()
         return
     } while (x && y + 1 > 3)""")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = expr.getDoKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 7]).toArray())
         pos = expr.getWhileKeyWordPos()
@@ -70,13 +70,13 @@ do {
     func testDoWhileInit() {
         let expr = (nodes[1] as DoWhileExpr).getOrThrow()
         let doWhileExpr = DoWhileExpr(expr.body, expr.condition)
-        @Expect(doWhileExpr.condition.toString(), "x && y + 1 > 3")
-        @Expect(doWhileExpr.body.toString(), """
+        @Expect(doWhileExpr.condition.toString().replace("\r\n", "\n"), "x && y + 1 > 3")
+        @Expect(doWhileExpr.body.toString().replace("\r\n", "\n"), """
 {
         println()
         return
     }""")
-        @Expect(doWhileExpr.toString(), """
+        @Expect(doWhileExpr.toString().replace("\r\n", "\n"), """
 do {
         println()
         return

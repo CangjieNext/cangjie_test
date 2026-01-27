@@ -27,8 +27,8 @@ class Test {
             case Int16Type => ()
             case _ => @FailExpect("The atomic kind is wrong.")
         }
-        @Expect(ty.toString(), "Int16")
-        @Expect(ty.toTokens().toString(), "Int16")
+        @Expect(ty.toString().replace("\r\n", "\n"), "Int16")
+        @Expect(ty.toTokens().toString().replace("\r\n", "\n"), "Int16")
         let pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 13]).toArray())
     }
@@ -42,7 +42,7 @@ class Test {
             case UIntNativeType => ()
             case _ => @FailExpect("The atomic kind is wrong.")
         }
-        @Expect(ty.toString(), "UIntNative")
+        @Expect(ty.toString().replace("\r\n", "\n"), "UIntNative")
         let pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 8, 3, 18]).toArray())
     }
@@ -56,7 +56,7 @@ class Test {
             case RuneType => ()
             case _ => @FailExpect("The atomic kind is wrong.")
         }
-        @Expect(ty.toString(), "Rune")
+        @Expect(ty.toString().replace("\r\n", "\n"), "Rune")
         let pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 8, 4, 12]).toArray())
     }
@@ -70,7 +70,7 @@ class Test {
             case BoolType => ()
             case _ => @FailExpect("The atomic kind is wrong.")
         }
-        @Expect(ty.toString(), "Bool")
+        @Expect(ty.toString().replace("\r\n", "\n"), "Bool")
         let pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 8, 5, 12]).toArray())
     }
@@ -84,7 +84,7 @@ class Test {
             case UnitType => ()
             case _ => @FailExpect("The atomic kind is wrong.")
         }
-        @Expect(ty.toString(), "Unit")
+        @Expect(ty.toString().replace("\r\n", "\n"), "Unit")
         let pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 8, 6, 12]).toArray())
     }
@@ -99,7 +99,7 @@ class Test {
             case ThisType => ()
             case _ => @FailExpect("The atomic kind is wrong.")
         }
-        @Expect(ty.toString(), "This")
+        @Expect(ty.toString().replace("\r\n", "\n"), "This")
         let pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([8, 15, 8, 19]).toArray())
     }
@@ -113,7 +113,7 @@ class Test {
             case Int16Type => ()
             case _ => @FailExpect("The atomic kind is wrong.")
         }
-        @Expect(ty.toString(), "Int16")
+        @Expect(ty.toString().replace("\r\n", "\n"), "Int16")
         let pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 18, 1, 23]).toArray())
     }
@@ -136,7 +136,7 @@ class Test {
             case Int16Type => ()
             case _ => @FailExpect("The atomic kind is wrong.")
         }
-        @Expect(atomicType.toString(), "Int16")
+        @Expect(atomicType.toString().replace("\r\n", "\n"), "Int16")
         let pos = atomicType.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
     }

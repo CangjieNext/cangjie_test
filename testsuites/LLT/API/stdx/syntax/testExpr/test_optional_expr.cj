@@ -24,9 +24,9 @@ class Test {
     func testOptionalExpr01() {
         let callExpr = (nodes[0] as CallExpr).getOrThrow()
         let expr = (callExpr.callee as OptionalExpr).getOrThrow()
-        @Expect(expr.base.toString(), "a")
-        @Expect(expr.toString(), "a?")
-        @Expect(expr.toTokens().toString(), "a?")
+        @Expect(expr.base.toString().replace("\r\n", "\n"), "a")
+        @Expect(expr.toString().replace("\r\n", "\n"), "a?")
+        @Expect(expr.toTokens().toString().replace("\r\n", "\n"), "a?")
 
 
         var pos = expr.nodePos
@@ -40,8 +40,8 @@ class Test {
         let callExpr = (nodes[0] as CallExpr).getOrThrow()
         let expr = (callExpr.callee as OptionalExpr).getOrThrow()
         let optionalExpr = OptionalExpr(expr.base)
-        @Expect(optionalExpr.base.toString(), "a")
-        @Expect(optionalExpr.toString(), "a?")
+        @Expect(optionalExpr.base.toString().replace("\r\n", "\n"), "a")
+        @Expect(optionalExpr.toString().replace("\r\n", "\n"), "a?")
 
         var pos = optionalExpr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 3]).toArray())

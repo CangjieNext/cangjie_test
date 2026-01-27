@@ -26,8 +26,8 @@ class Test {
         @Expect(decl.body.nodes.size, 0)
         @Expect(decl.params.params.size, 0)
         @Expect(decl.retTyAnnotation.isNone(), true)
-        @Expect(decl.toString(), "main() {}")
-        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
+        @Expect(decl.toString().replace("\r\n", "\n"), "main() {}")
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), decl.toString().replace("\r\n", "\n"))
     }
 
     @TestCase
@@ -39,10 +39,10 @@ class Test {
 
         @Expect(decl.body.nodes.size, 4)
         @Expect(params.params.size, 2)
-        @Expect(params.params[0].toString(), "param1: Int64")
-        @Expect(params.params[1].toString(), "param2: Int64")
+        @Expect(params.params[0].toString().replace("\r\n", "\n"), "param1: Int64")
+        @Expect(params.params[1].toString().replace("\r\n", "\n"), "param2: Int64")
         @Expect(ret is AtomicType)
-        @Expect(ret.toString(), "Int64")
+        @Expect(ret.toString().replace("\r\n", "\n"), "Int64")
 
         var pos = decl.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 1, 8, 2]).toArray())
@@ -68,14 +68,14 @@ class Test {
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 43, 3, 44]).toArray())
         pos = decl.body.getRCurlPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([8, 1, 8, 2]).toArray())
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 main(param1: Int64, param2: Int64): Int64 {
     1
     1 + 1
     "a"
     0
 }""")
-        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString(), decl.toString())
+        @Expect(parseTokens(decl.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), decl.toString().replace("\r\n", "\n"))
     }
 
     @TestCase
@@ -85,8 +85,8 @@ main(param1: Int64, param2: Int64): Int64 {
         let params = decl.params
         @Expect(params.params.size, 1)
         let param = (params.params[0] as MacroExpandParam).getOrThrow()
-        @Expect(param.toString(), "@M param1: Int64")
-        @Expect(param.calleeMacro.toString(), "M")
+        @Expect(param.toString().replace("\r\n", "\n"), "@M param1: Int64")
+        @Expect(param.calleeMacro.toString().replace("\r\n", "\n"), "M")
     }
 
     @TestCase
@@ -98,12 +98,12 @@ main(param1: Int64, param2: Int64): Int64 {
 
         @Expect(mainDecl.body.nodes.size, 4)
         @Expect(params.params.size, 2)
-        @Expect(params.params[0].toString(), "param1: Int64")
-        @Expect(params.params[1].toString(), "param2: Int64")
+        @Expect(params.params[0].toString().replace("\r\n", "\n"), "param1: Int64")
+        @Expect(params.params[1].toString().replace("\r\n", "\n"), "param2: Int64")
         @Expect(ret is AtomicType)
-        @Expect(ret.toString(), "Int64")
+        @Expect(ret.toString().replace("\r\n", "\n"), "Int64")
 
-        @Expect(mainDecl.toString(), """
+        @Expect(mainDecl.toString().replace("\r\n", "\n"), """
 main(param1: Int64, param2: Int64): Int64 {
     1
     1 + 1
@@ -121,8 +121,8 @@ main(param1: Int64, param2: Int64): Int64 {
         @Expect(params.params.size, 1)
         let param = (params.params[0] as MacroExpandParam).getOrThrow()
         let macroExpandParam = MacroExpandParam(param.calleeMacro, param.macroAttrs, param.macroInputs, annotations: param.annotations)
-        @Expect(macroExpandParam.toString(), "@M param1: Int64")
-        @Expect(macroExpandParam.calleeMacro.toString(), "M")
+        @Expect(macroExpandParam.toString().replace("\r\n", "\n"), "@M param1: Int64")
+        @Expect(macroExpandParam.calleeMacro.toString().replace("\r\n", "\n"), "M")
     }
 
     @TestCase
@@ -130,7 +130,7 @@ main(param1: Int64, param2: Int64): Int64 {
         let varDecl = parseText("var a = 1").node.getOrThrow()
         let funcDecl = parseText("func foo(a: Int64)").node.getOrThrow()
         let block = Block([varDecl, funcDecl])
-        @Expect(block.toString(), ##"{
+        @Expect(block.toString().replace("\r\n", "\n"), ##"{
     var a = 1
     func foo(a: Int64)
 }"##)

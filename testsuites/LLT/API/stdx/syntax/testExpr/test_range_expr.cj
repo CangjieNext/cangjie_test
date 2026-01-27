@@ -33,8 +33,8 @@ class Test {
         @Expect(endEx.rawValue, "100")
         let stepEx = (expr.step.getOrThrow() as LitConstExpr).getOrThrow()
         @Expect(stepEx.rawValue, "2")
-        @Expect(expr.toString(), "1..100:2")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.toString().replace("\r\n", "\n"), "1..100:2")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 13]).toArray())
@@ -56,7 +56,7 @@ class Test {
         let endEx = (expr.end.getOrThrow() as LitConstExpr).getOrThrow()
         @Expect(endEx.rawValue, "10")
         @Expect(expr.step.isNone())
-        @Expect(expr.toString(), "0..=10")
+        @Expect(expr.toString().replace("\r\n", "\n"), "0..=10")
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 11]).toArray())
@@ -87,7 +87,7 @@ class Test {
         @Expect(endEx.rawValue, "100")
         let stepEx = (expr.step.getOrThrow() as LitConstExpr).getOrThrow()
         @Expect(stepEx.rawValue, "2")
-        @Expect(expr.toString(), "1..100 : 2")
+        @Expect(expr.toString().replace("\r\n", "\n"), "1..100 : 2")
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 11]).toArray())

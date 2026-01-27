@@ -44,7 +44,7 @@ class Test{
     func testDetachTrue() {
         let rewrite = RewriteNode()
         let newNode = rewrite.walk(file.getOrThrow(), detach: true)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -73,11 +73,11 @@ main() { // block
     func testDetachFalse() {
         let rewrite = RewriteNode()
         let newNode = rewrite.walk(decls[3])
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 public func a0(){}""")
-println(newNode.toString())
-println(newNode.parentNode.getOrThrow().toString())
-        @Expect(newNode.parentNode.getOrThrow().toString(),  """
+println(newNode.toString().replace("\r\n", "\n"))
+println(newNode.parentNode.getOrThrow().toString().replace("\r\n", "\n"))
+        @Expect(newNode.parentNode.getOrThrow().toString().replace("\r\n", "\n"),  """
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0

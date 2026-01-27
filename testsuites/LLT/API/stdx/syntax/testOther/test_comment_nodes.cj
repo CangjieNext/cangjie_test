@@ -304,7 +304,7 @@ class Test {
         let decl = (decls[0] as ExtendDecl).getOrThrow()
         let extendDecl = ExtendDecl(decl.body, decl.extendedTyAnnotation, decl.genericConstraints, decl.genericParams,
                                     decl.superTyAnnotations, annotations: decl.annotations, comments: decl.comments)
-        @Expect(extendDecl.toString(), #"// leading comment belong to extendDecl
+        @Expect(extendDecl.toString().replace("\r\n", "\n"), #"// leading comment belong to extendDecl
 extend A {}"#)
         let comments = extendDecl.comments
         @Expect(comments.size, 1)

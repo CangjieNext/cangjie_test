@@ -48,7 +48,7 @@ class Test{
         let varDecl = (decls[0] as VarDecl).getOrThrow()
         let rewrite = ASTRewriteBinary()
         let newNode = rewrite.walk(varDecl, detach: true)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 var a = a*b""")
         @Expect(newNode.parentNode, None)
     }
@@ -58,9 +58,9 @@ var a = a*b""")
         let varDecl = (decls[0] as VarDecl).getOrThrow()
         let rewrite = ASTRewriteBinary()
         let newNode = rewrite.walk(varDecl)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 var a = a*b""")
-        @Expect(newNode.parentNode.toString(),  """
+        @Expect(newNode.parentNode.toString().replace("\r\n", "\n"),  """
 Some(var a = a*b
 var b = b + 1)""")
     }

@@ -52,7 +52,7 @@ class Test{
     func testDetachTrue() {
         let rewrite = ASTRewriteAnno()
         let newNode = rewrite.walk(file.getOrThrow(), detach: true)
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
@@ -80,12 +80,12 @@ main() { // block
     func testDetachFalse() {
         let rewrite = ASTRewriteAnno()
         let newNode = rewrite.walk(decls[0])
-        @Expect(newNode.toString(), """
+        @Expect(newNode.toString().replace("\r\n", "\n"), """
 @When[cjc_version < "1.0.1"]
 func foo() {
     println("cjc_version is less than 0.18.6")
 }""")
-        @Expect(newNode.parentNode.getOrThrow().toString(),  """
+        @Expect(newNode.parentNode.getOrThrow().toString().replace("\r\n", "\n"),  """
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0

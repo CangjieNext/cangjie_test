@@ -30,23 +30,23 @@ class Test {
     @TestCase
     func testExpr01() {
         let expr = (nodes[0] as TryCatch).getOrThrow()
-        @Expect(expr.tryBlock.toString(), """
+        @Expect(expr.tryBlock.toString().replace("\r\n", "\n"), """
 {
         var a = 1
         a += 1
     }""")
         @Expect(expr.catchPatterns.size, 1)
-        @Expect(expr.catchPatterns[0].toString(), "e: Exception")
+        @Expect(expr.catchPatterns[0].toString().replace("\r\n", "\n"), "e: Exception")
         @Expect(expr.catchBlocks.size, 1)
-        @Expect(expr.catchBlocks[0].toString(), "{}")
+        @Expect(expr.catchBlocks[0].toString().replace("\r\n", "\n"), "{}")
         @Expect(expr.finallyBlock.isNone())
         @Expect(expr.resourceSpec.size, 0)
-        @Expect(expr.toString(), """
+        @Expect(expr.toString().replace("\r\n", "\n"), """
 try {
         var a = 1
         a += 1
     } catch (e: Exception) {}""")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         @Expect(expr.getResourceSpecLParenPos().isNone())
         @Expect(expr.getResourceSpecRParenPos().isNone())
         var pos = expr.getTryKeyWordPos()
@@ -68,16 +68,16 @@ try {
     func testExpr02() {
         let expr = (nodes[1] as TryCatch).getOrThrow()
         @Expect(expr.catchPatterns.size, 2)
-        @Expect(expr.catchPatterns[0].toString(), "e: ExceptionA | ExceptionB")
-        @Expect(expr.catchPatterns[1].toString(), "e: Error")
+        @Expect(expr.catchPatterns[0].toString().replace("\r\n", "\n"), "e: ExceptionA | ExceptionB")
+        @Expect(expr.catchPatterns[1].toString().replace("\r\n", "\n"), "e: Error")
         @Expect(expr.catchBlocks.size, 2)
-        @Expect(expr.catchBlocks[0].toString(), """
+        @Expect(expr.catchBlocks[0].toString().replace("\r\n", "\n"), """
 {
         print(111)
         print(e)
     }""")
-        @Expect(expr.catchBlocks[1].toString(), "{}")
-        @Expect(expr.finallyBlock.getOrThrow().toString(), """
+        @Expect(expr.catchBlocks[1].toString().replace("\r\n", "\n"), "{}")
+        @Expect(expr.finallyBlock.getOrThrow().toString().replace("\r\n", "\n"), """
 {
         return ()
     }""")
@@ -98,7 +98,7 @@ try {
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([10, 30, 10, 40]).toArray())
 
 
-        @Expect(expr.toString(), """
+        @Expect(expr.toString().replace("\r\n", "\n"), """
 try {
         var b = 1
         b += 1
@@ -117,14 +117,14 @@ try {
     @TestCase
     func testExpr03() {
         let expr = (nodes[2] as TryCatch).getOrThrow()
-        @Expect(expr.tryBlock.toString(), "{}")
+        @Expect(expr.tryBlock.toString().replace("\r\n", "\n"), "{}")
         @Expect(expr.catchPatterns.size, 0)
         @Expect(expr.catchBlocks.size, 0)
         @Expect(expr.finallyBlock.isNone())
         @Expect(expr.resourceSpec.size, 2)
-        @Expect(expr.resourceSpec[0].toString(), "r1 = ResourceClass()")
-        @Expect(expr.resourceSpec[1].toString(), "r2 = ResourceClass()")
-        @Expect(expr.toString(), "try (r1 = ResourceClass(), r2 = ResourceClass()) {}")
+        @Expect(expr.resourceSpec[0].toString().replace("\r\n", "\n"), "r1 = ResourceClass()")
+        @Expect(expr.resourceSpec[1].toString().replace("\r\n", "\n"), "r2 = ResourceClass()")
+        @Expect(expr.toString().replace("\r\n", "\n"), "try (r1 = ResourceClass(), r2 = ResourceClass()) {}")
         var pos = expr.getTryKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([17, 5, 17, 8]).toArray())
         pos = expr.getResourceSpecLParenPos().getOrThrow()
@@ -138,27 +138,27 @@ try {
     @TestCase
     func testExpr04() {
         let expr = (nodes[3] as TryCatch).getOrThrow()
-        @Expect(expr.toString(), ##"try {
+        @Expect(expr.toString().replace("\r\n", "\n"), ##"try {
         a
     } catch (e: Exception | IOException) {
         b
     } catch (_) {
         c
     }"##)
-        @Expect(expr.tryBlock.toString(), ##"{
+        @Expect(expr.tryBlock.toString().replace("\r\n", "\n"), ##"{
         a
     }"##)
         @Expect(expr.catchBlocks.size, 2)
-        @Expect(expr.catchBlocks[0].toString(), ##"{
+        @Expect(expr.catchBlocks[0].toString().replace("\r\n", "\n"), ##"{
         b
     }"##)
-        @Expect(expr.catchBlocks[1].toString(), ##"{
+        @Expect(expr.catchBlocks[1].toString().replace("\r\n", "\n"), ##"{
         c
     }"##)
         @Expect(expr.catchPatterns.size, 2)
-        expr.catchPatterns.toString() |> println
-        @Expect(expr.catchPatterns[0].toString(), "e: Exception | IOException")
-        @Expect(expr.catchPatterns[1].toString(), "_")
+        expr.catchPatterns.toString().replace("\r\n", "\n") |> println
+        @Expect(expr.catchPatterns[0].toString().replace("\r\n", "\n"), "e: Exception | IOException")
+        @Expect(expr.catchPatterns[1].toString().replace("\r\n", "\n"), "_")
         @Expect(expr.finallyBlock.isNone())
         @Expect(expr.resourceSpec.size, 0)
     }
@@ -167,14 +167,14 @@ try {
     func testTryCatchInit01() {
         let expr = (nodes[2] as TryCatch).getOrThrow()
         let tryCatch = TryCatch(expr.catchBlocks, expr.catchPatterns, expr.finallyBlock, expr.resourceSpec, expr.tryBlock)
-        @Expect(tryCatch.tryBlock.toString(), "{}")
+        @Expect(tryCatch.tryBlock.toString().replace("\r\n", "\n"), "{}")
         @Expect(tryCatch.catchPatterns.size, 0)
         @Expect(tryCatch.catchBlocks.size, 0)
         @Expect(tryCatch.finallyBlock.isNone())
         @Expect(tryCatch.resourceSpec.size, 2)
-        @Expect(tryCatch.resourceSpec[0].toString(), "r1 = ResourceClass()")
-        @Expect(tryCatch.resourceSpec[1].toString(), "r2 = ResourceClass()")
-        @Expect(tryCatch.toString(), "try (r1 = ResourceClass(), r2 = ResourceClass()) {}")
+        @Expect(tryCatch.resourceSpec[0].toString().replace("\r\n", "\n"), "r1 = ResourceClass()")
+        @Expect(tryCatch.resourceSpec[1].toString().replace("\r\n", "\n"), "r2 = ResourceClass()")
+        @Expect(tryCatch.toString().replace("\r\n", "\n"), "try (r1 = ResourceClass(), r2 = ResourceClass()) {}")
         var pos = tryCatch.getTryKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
         pos = tryCatch.getResourceSpecLParenPos().getOrThrow()
@@ -189,7 +189,7 @@ try {
     func testTryCatchInit02() {
         let expr = (nodes[3] as TryCatch).getOrThrow()
         let tryCatch = TryCatch(expr.catchBlocks, expr.catchPatterns, expr.finallyBlock, expr.resourceSpec, expr.tryBlock)
-        @Expect(tryCatch.toString(), ##"try {
+        @Expect(tryCatch.toString().replace("\r\n", "\n"), ##"try {
         a
     } catch (e: Exception | IOException) {
         b
@@ -223,6 +223,6 @@ try {
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 15, 1, 16]).toArray())
         pos = catchPattern.exceptionType[1].nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 17, 1, 27]).toArray())
-        @Expect(catchPattern.toString(), ##"e: ExceptionA | ExceptionB"##)
+        @Expect(catchPattern.toString().replace("\r\n", "\n"), ##"e: ExceptionA | ExceptionB"##)
     }
 }

@@ -28,9 +28,9 @@ class Test {
         if (let Some(ty) <- pattern.enumType) {
             @Expect(ty.name, "TestEnum")
         }
-        @Expect(pattern.enumConstructor.toString(), "A")
-        @Expect(pattern.toString(), "TestEnum.A")
-        @Expect(pattern.toTokens().toString(), "TestEnum.A")
+        @Expect(pattern.enumConstructor.toString().replace("\r\n", "\n"), "A")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "TestEnum.A")
+        @Expect(pattern.toTokens().toString().replace("\r\n", "\n"), "TestEnum.A")
     }
 
     @TestCase
@@ -39,7 +39,7 @@ class Test {
         let pattern = (matchExpr.matchCases[0].patterns[0] as VarOrEnumPattern).getOrThrow()
 
         @Expect(pattern.identifier, "B")
-        @Expect(pattern.toString(), "B")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "B")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([9, 14, 9, 15]).toArray())
@@ -60,7 +60,7 @@ class Test {
         let varOrEnumPattern = VarOrEnumPattern(pattern.identifier)
 
         @Expect(varOrEnumPattern.identifier, "B")
-        @Expect(varOrEnumPattern.toString(), "B")
+        @Expect(varOrEnumPattern.toString().replace("\r\n", "\n"), "B")
 
         var pos = varOrEnumPattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())

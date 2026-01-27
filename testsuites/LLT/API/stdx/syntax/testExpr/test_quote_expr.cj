@@ -25,11 +25,11 @@ class Test {
         let expr = (nodes[0] as QuoteExpr).getOrThrow()
         @Expect(expr.tokensOrRefExpr.size, 1)
         match(expr.tokensOrRefExpr[0]) {
-            case TokenPart(v) => @Expect(v.toString(), "public func test(): Unit")
+            case TokenPart(v) => @Expect(v.toString().replace("\r\n", "\n"), "public func test(): Unit")
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), "quote(public func test(): Unit)")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.toString().replace("\r\n", "\n"), "quote(public func test(): Unit)")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = expr.getQuoteKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 10]).toArray())
         pos = expr.getLParenPos()
@@ -43,13 +43,13 @@ class Test {
         let expr = (nodes[1] as QuoteExpr).getOrThrow()
         @Expect(expr.tokensOrRefExpr.size, 1)
         match(expr.tokensOrRefExpr[0]) {
-            case TokenPart(v) => @Expect(v.toString(), """
+            case TokenPart(v) => @Expect(v.toString().replace("\r\n", "\n"), """
 public func test(): Unit {
         return
     }""")
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), """
+        @Expect(expr.toString().replace("\r\n", "\n"), """
 quote(public func test(): Unit {
         return
     })""")
@@ -66,14 +66,14 @@ quote(public func test(): Unit {
         let expr = (nodes[2] as QuoteExpr).getOrThrow()
         @Expect(expr.tokensOrRefExpr.size, 5)
         match(expr.tokensOrRefExpr[0]) {
-            case TokenPart(v) => @Expect(v.toString(), "public func")
+            case TokenPart(v) => @Expect(v.toString().replace("\r\n", "\n"), "public func")
                                  var pos = v.nodePos
                                  @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 11, 6, 22]).toArray())
             case _ => @FailExpect("kind wrong")
         }
         match(expr.tokensOrRefExpr[1]) {
-            case QuoteInterpolation(v) => @Expect(v.expr.toString(), "name")
-                                          @Expect(v.toString(), "\$name")
+            case QuoteInterpolation(v) => @Expect(v.expr.toString().replace("\r\n", "\n"), "name")
+                                          @Expect(v.toString().replace("\r\n", "\n"), "\$name")
                                           var pos = v.getDollarPos()
                                           @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 23, 6, 24]).toArray())
                                           pos = v.nodePos
@@ -82,12 +82,12 @@ quote(public func test(): Unit {
             case _ => @FailExpect("kind wrong")
         }
         match(expr.tokensOrRefExpr[2]) {
-            case TokenPart(v) => @Expect(v.toString(), "():")
+            case TokenPart(v) => @Expect(v.toString().replace("\r\n", "\n"), "():")
             case _ => @FailExpect("kind wrong")
         }
         match(expr.tokensOrRefExpr[3]) {
-            case QuoteInterpolation(v) => @Expect(v.expr.toString(), "function.typename")
-                                          @Expect(v.toString(), "\$(function.typename)")
+            case QuoteInterpolation(v) => @Expect(v.expr.toString().replace("\r\n", "\n"), "function.typename")
+                                          @Expect(v.toString().replace("\r\n", "\n"), "\$(function.typename)")
                                           var pos = v.getDollarPos()
                                           @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 32, 6, 33]).toArray())
                                           pos = v.getLParenPos().getOrThrow()
@@ -97,10 +97,10 @@ quote(public func test(): Unit {
             case _ => @FailExpect("kind wrong")
         }
         match(expr.tokensOrRefExpr[4]) {
-            case TokenPart(v) => @Expect(v.toString(), "{}")
+            case TokenPart(v) => @Expect(v.toString().replace("\r\n", "\n"), "{}")
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), "quote(public func \$name(): \$(function.typename) {})")
+        @Expect(expr.toString().replace("\r\n", "\n"), "quote(public func \$name(): \$(function.typename) {})")
         var pos = expr.getQuoteKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 5, 6, 10]).toArray())
         pos = expr.getLParenPos()
@@ -116,10 +116,10 @@ quote(public func test(): Unit {
         let expr = (nodes[3] as QuoteExpr).getOrThrow()
         @Expect(expr.tokensOrRefExpr.size, 1)
         match(expr.tokensOrRefExpr[0]) {
-            case TokenPart(v) => @Expect(v.toString(), ##"var str = #"aa"#"##)
+            case TokenPart(v) => @Expect(v.toString().replace("\r\n", "\n"), ##"var str = #"aa"#"##)
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), ##"quote(var str = #"aa"#)"##)
+        @Expect(expr.toString().replace("\r\n", "\n"), ##"quote(var str = #"aa"#)"##)
     }
 
     @TestCase
@@ -127,10 +127,10 @@ quote(public func test(): Unit {
         let expr = (nodes[7] as QuoteExpr).getOrThrow()
         @Expect(expr.tokensOrRefExpr.size, 1)
         match(expr.tokensOrRefExpr[0]) {
-            case TokenPart(v) => @Expect(v.toString(), #"\(\)"#)
+            case TokenPart(v) => @Expect(v.toString().replace("\r\n", "\n"), #"\(\)"#)
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), #"quote   (\(\))"#)
+        @Expect(expr.toString().replace("\r\n", "\n"), #"quote   (\(\))"#)
         var pos = expr.getQuoteKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([12, 5, 12, 10]).toArray())
         pos = expr.getLParenPos()
@@ -153,10 +153,10 @@ quote(public func test(): Unit {
         let expr = QuoteExpr(tmp.tokensOrRefExpr)
         @Expect(expr.tokensOrRefExpr.size, 1)
         match(expr.tokensOrRefExpr[0]) {
-            case TokenPart(v) => @Expect(v.toString(), "public func test(): Unit")
+            case TokenPart(v) => @Expect(v.toString().replace("\r\n", "\n"), "public func test(): Unit")
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), "quote(public func test(): Unit)")
+        @Expect(expr.toString().replace("\r\n", "\n"), "quote(public func test(): Unit)")
         var pos = expr.getQuoteKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
         pos = expr.getLParenPos()
@@ -173,7 +173,7 @@ quote(public func test(): Unit {
         match(expr.tokensOrRefExpr[0]) {
             case TokenPart(v) =>
                 let quoteToken = QuoteToken(v.content)
-                @Expect(quoteToken.toString(), "public func test(): Unit")
+                @Expect(quoteToken.toString().replace("\r\n", "\n"), "public func test(): Unit")
                 var pos = quoteToken.nodePos
                 @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 25]).toArray())
             case _ => @FailExpect("kind wrong")

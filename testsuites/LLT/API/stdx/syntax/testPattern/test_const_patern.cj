@@ -26,8 +26,8 @@ class Test {
         let pattern = (matchExpr.matchCases[0].patterns[0] as ConstPattern).getOrThrow()
 
         @Expect(pattern.litConstExpr.rawValue, "1")
-        @Expect(pattern.toString(), "1")
-        @Expect(pattern.toTokens().toString(), "1")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "1")
+        @Expect(pattern.toTokens().toString().replace("\r\n", "\n"), "1")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 14, 5, 15]).toArray())
@@ -39,7 +39,7 @@ class Test {
         let pattern = (matchExpr.matchCases[0].patterns[0] as ConstPattern).getOrThrow()
 
         @Expect(pattern.litConstExpr.rawValue, "true")
-        @Expect(pattern.toString(), "true")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "true")
     }
 
     @TestCase
@@ -57,7 +57,7 @@ class Test {
         let constPattern = ConstPattern(pattern.litConstExpr)
 
         @Expect(constPattern.litConstExpr.rawValue, "1")
-        @Expect(constPattern.toString(), "1")
+        @Expect(constPattern.toString().replace("\r\n", "\n"), "1")
 
         var pos = constPattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())

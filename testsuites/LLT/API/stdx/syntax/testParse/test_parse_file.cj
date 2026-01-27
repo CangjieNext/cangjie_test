@@ -105,7 +105,7 @@ class Test {
         let filePath = "sourceFile/test_file_gbk.cj"
         let node = parseFile(filePath)
         @Expect(node.diags.size, 2)
-        var canPath: String = canonicalize(filePath).toString()
+        var canPath: String = canonicalize(filePath).toString().replace("\r\n", "\n")
         let r = Regex("(?:\u{001b})[[0-9]*m")
         let hint_msg = "^ illegal byte in UTF-8 encoding"
  

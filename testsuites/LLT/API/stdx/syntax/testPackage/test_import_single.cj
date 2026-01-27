@@ -29,7 +29,7 @@ class Test {
         let content = (importList.contents as ImportSingle).getOrThrow()
         @Expect(content.prefixes, [])
         @Expect(content.identifier, "testPackage")
-        @Expect(content.toString(), "testPackage")
+        @Expect(content.toString().replace("\r\n", "\n"), "testPackage")
         var pos = content.getIdentifierPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 19]).toArray())
         pos = content.nodePos
@@ -47,8 +47,8 @@ class Test {
         let content = (importList.contents as ImportSingle).getOrThrow()
         @Expect(content.prefixes, ["a"])
         @Expect(content.identifier, "testPackage")
-        @Expect(content.toString(), "a.testPackage")
-        @Expect(content.toTokens().toString(), "a.testPackage")
+        @Expect(content.toString().replace("\r\n", "\n"), "a.testPackage")
+        @Expect(content.toTokens().toString().replace("\r\n", "\n"), "a.testPackage")
         var pos = content.getIdentifierPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 10, 2, 21]).toArray())
         pos = content.getPrefixesPos()[0]
@@ -67,7 +67,7 @@ class Test {
         let content = (importList.contents as ImportSingle).getOrThrow()
         @Expect(content.prefixes, ["a", "b"])
         @Expect(content.identifier, "testPackage")
-        @Expect(content.toString(), "a.b.testPackage")
+        @Expect(content.toString().replace("\r\n", "\n"), "a.b.testPackage")
         var pos = content.getIdentifierPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 12, 3, 23]).toArray())
     }
@@ -92,8 +92,8 @@ class Test {
         let content = ImportSingle(tmp.prefixes, tmp.identifier)
         @Expect(content.prefixes, ["a"])
         @Expect(content.identifier, "testPackage")
-        @Expect(content.toString(), "a.testPackage")
-        println(content.toString())
+        @Expect(content.toString().replace("\r\n", "\n"), "a.testPackage")
+        println(content.toString().replace("\r\n", "\n"))
         var pos = content.getIdentifierPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 14]).toArray())
         pos = content.getPrefixesPos()[0]

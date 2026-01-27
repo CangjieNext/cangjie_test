@@ -21,7 +21,7 @@ class Test {
         )
         let node = parseTokens(input)
         let decl = (node.node.getOrThrow() as VarDecl).getOrThrow()
-        @Expect(decl.toString(), "let a =(1 < 0)")
+        @Expect(decl.toString().replace("\r\n", "\n"), "let a =(1 < 0)")
     }
 
     @TestCase
@@ -67,7 +67,7 @@ class Test {
         @Expect(decl.name, "a")
         @Expect(decl.tyAnnotation.isNone(), true)
         let pattern = (decl.pattern as VarPattern).getOrThrow()
-        @Expect(pattern.toString(), "a")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "a")
         @Expect(pattern.name, "a")
         var pos = decl.getVarKindKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
@@ -79,7 +79,7 @@ class Test {
 
         let tokens = quote(@Deprecated["This API will be deprecated soon"] let (a, b): (Int64, String) = (1, "hello"))
         let decl_1 = (parseTokens(tokens).node.getOrThrow() as VarDecl).getOrThrow()
-        @Expect(decl_1.toString(), #"@Deprecated["This API will be deprecated soon"] let(a, b):(Int64, String) =(1, "hello")"#)
+        @Expect(decl_1.toString().replace("\r\n", "\n"), #"@Deprecated["This API will be deprecated soon"] let(a, b):(Int64, String) =(1, "hello")"#)
     }
 
     @TestCase
@@ -88,8 +88,8 @@ class Test {
         let decl = (parseTokens(tokens).node.getOrThrow() as TypeAlias).getOrThrow()
         @Expect(decl.aliasName, "NewType")
         @Expect(decl.typeParameters.size, 2)
-        @Expect(decl.typeParameters[0].toString(), "S")
-        @Expect(decl.typeParameters[1].toString(), "T")
+        @Expect(decl.typeParameters[0].toString().replace("\r\n", "\n"), "S")
+        @Expect(decl.typeParameters[1].toString().replace("\r\n", "\n"), "T")
     }
 
     @TestCase
@@ -115,7 +115,7 @@ struct F {
         @Expect(decl.superTyAnnotations.size, 0)
         @Expect(decl.genericParams.size, 0)
         @Expect(decl.genericConstraints.isNone())
-        @Expect(decl.body.toString(), """
+        @Expect(decl.body.toString().replace("\r\n", "\n"), """
 {
     let a = 1
     var b: Int64
@@ -130,7 +130,7 @@ struct F {
         get() { return "hello" }
     }
 }""")
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 struct F {
     let a = 1
     var b: Int64
@@ -155,12 +155,12 @@ static init() {
         println()
     })
         let decl = (parseTokens(tokens).node.getOrThrow() as StaticInit).getOrThrow()
-        @Expect(decl.body.toString(), """
+        @Expect(decl.body.toString().replace("\r\n", "\n"), """
 {
     a = 1
     println()
 }""")
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 static init() {
     a = 1
     println()
@@ -180,30 +180,30 @@ mut prop b: Int64 {
 })
         let decl = (parseTokens(tokens).node.getOrThrow() as PropDecl).getOrThrow()
         @Expect(decl.name, "b")
-        @Expect(decl.tyAnnotation.toString(), "Int64")
+        @Expect(decl.tyAnnotation.toString().replace("\r\n", "\n"), "Int64")
         let getter = decl.getter.getOrThrow()
         @Expect(getter.identifier.isNone())
         @Expect(getter.isGetter, true)
-        @Expect(getter.block.toString(), """
+        @Expect(getter.block.toString().replace("\r\n", "\n"), """
 {
         1
     }""")
-        @Expect(getter.toString(), """
+        @Expect(getter.toString().replace("\r\n", "\n"), """
 get() {
         1
     }""")
         let setter = decl.setter.getOrThrow()
-        @Expect(setter.identifier.getOrThrow().toString(), "v")
+        @Expect(setter.identifier.getOrThrow().toString().replace("\r\n", "\n"), "v")
         @Expect(setter.isGetter, false)
-        @Expect(setter.block.toString(), """
+        @Expect(setter.block.toString().replace("\r\n", "\n"), """
 {
         println(v)
     }""")
-        @Expect(setter.toString(), """
+        @Expect(setter.toString().replace("\r\n", "\n"), """
 set(v) {
         println(v)
     }""")
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 mut prop b: Int64 {
     get() {
         1
@@ -232,11 +232,11 @@ main(param1: Int64, param2: Int64): Int64 {
 
         @Expect(decl.body.nodes.size, 4)
         @Expect(params.params.size, 2)
-        @Expect(params.params[0].toString(), "param1: Int64")
-        @Expect(params.params[1].toString(), "param2: Int64")
+        @Expect(params.params[0].toString().replace("\r\n", "\n"), "param1: Int64")
+        @Expect(params.params[1].toString().replace("\r\n", "\n"), "param2: Int64")
         @Expect(ret is AtomicType)
-        @Expect(ret.toString(), "Int64")
-        @Expect(decl.toString(), """
+        @Expect(ret.toString().replace("\r\n", "\n"), "Int64")
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 main(param1: Int64, param2: Int64): Int64 {
     1
     1 + 1
@@ -249,13 +249,13 @@ main(param1: Int64, param2: Int64): Int64 {
     func testMacroExpandParam01() {
         let decl = (parseTokens(quote(func function(@testMacro[public func]a: Int64, @macroPackage.testMacro(b!: Int64)){})).node.getOrThrow() as FuncDecl).getOrThrow()
         let param = (decl.params.params[0] as MacroExpandParam).getOrThrow()
-        @Expect(param.calleeMacro.toString(), "testMacro")
-        @Expect(param.macroAttrs.toString(), "public func")
+        @Expect(param.calleeMacro.toString().replace("\r\n", "\n"), "testMacro")
+        @Expect(param.macroAttrs.toString().replace("\r\n", "\n"), "public func")
         match(param.macroInputs) {
-            case WithoutParens(v) => @Expect(v.toString(), "a: Int64")
+            case WithoutParens(v) => @Expect(v.toString().replace("\r\n", "\n"), "a: Int64")
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(param.toString(), "@testMacro[public func] a: Int64")
+        @Expect(param.toString().replace("\r\n", "\n"), "@testMacro[public func] a: Int64")
         @Expect(param.getLParenPos().isNone())
         @Expect(param.getRParenPos().isNone())
     }
@@ -266,13 +266,13 @@ main(param1: Int64, param2: Int64): Int64 {
         let decl = (parseTokens(tokens).node.getOrThrow() as MacroDecl).getOrThrow()
         @Expect(decl.name, "testMacro")
         let params = decl.params
-        @Expect(params.toString(), "(a: Tokens, b: Tokens)")
+        @Expect(params.toString().replace("\r\n", "\n"), "(a: Tokens, b: Tokens)")
         @Expect(params.params.size, 2)
-        @Expect(params.params[0].toString(), "a: Tokens")
-        @Expect(params.params[1].toString(), "b: Tokens")
-        @Expect(decl.retTyAnnotation.getOrThrow().toString(), "Tokens")
-        @Expect(decl.body.toString(), "{ return quote() }")
-        @Expect(decl.toString(), "public macro testMacro(a: Tokens, b: Tokens): Tokens { return quote() }")
+        @Expect(params.params[0].toString().replace("\r\n", "\n"), "a: Tokens")
+        @Expect(params.params[1].toString().replace("\r\n", "\n"), "b: Tokens")
+        @Expect(decl.retTyAnnotation.getOrThrow().toString().replace("\r\n", "\n"), "Tokens")
+        @Expect(decl.body.toString().replace("\r\n", "\n"), "{ return quote() }")
+        @Expect(decl.toString().replace("\r\n", "\n"), "public macro testMacro(a: Tokens, b: Tokens): Tokens { return quote() }")
     }
 
     @TestCase
@@ -290,17 +290,17 @@ main(param1: Int64, param2: Int64): Int64 {
 
         @Assert(interfaceDecl.body.memberDecls.size, 2)
         @Assert(interfaceDecl.body.memberDecls[0] is PropDecl)
-        @Assert(interfaceDecl.body.memberDecls[0].toString(), ##"static mut prop p1: Int64"##)
+        @Assert(interfaceDecl.body.memberDecls[0].toString().replace("\r\n", "\n"), ##"static mut prop p1: Int64"##)
         @Assert(interfaceDecl.body.memberDecls[1] is FuncDecl)
-        @Assert(interfaceDecl.body.memberDecls[1].toString(), ##"func foo(): Int64"##)
+        @Assert(interfaceDecl.body.memberDecls[1].toString().replace("\r\n", "\n"), ##"func foo(): Int64"##)
 
         @Assert(interfaceDecl.name, "I1")
         @Assert(interfaceDecl.genericConstraints.isSome())
         @Assert(interfaceDecl.genericParams.size, 1)
-        @Assert(interfaceDecl.genericParams[0].toString(), "T")
+        @Assert(interfaceDecl.genericParams[0].toString().replace("\r\n", "\n"), "T")
         @Assert(interfaceDecl.superTyAnnotations.size, 1)
         @Assert(interfaceDecl.annotations.size, 1)
-        @Assert(interfaceDecl.annotations[0].toString(), ##"@Deprecated["aaa"]"##)
+        @Assert(interfaceDecl.annotations[0].toString().replace("\r\n", "\n"), ##"@Deprecated["aaa"]"##)
     }
 
     @TestCase
@@ -313,7 +313,7 @@ main(param1: Int64, param2: Int64): Int64 {
         let funcDecl = (parseTokens(tokens).node.getOrThrow() as FuncDecl).getOrThrow()
         @Expect(funcDecl.name, "b")
         let paramList = funcDecl.params
-        @Expect(paramList.toString(), "(param1: Int64)")
+        @Expect(paramList.toString().replace("\r\n", "\n"), "(param1: Int64)")
         @Expect(paramList.params.size, 1)
         let param = (paramList.params[0] as FuncParam).getOrThrow()
         @Expect(param.name, "param1")
@@ -345,11 +345,11 @@ extend F {
 })
         let decl = (parseTokens(tokens).node.getOrThrow() as ExtendDecl).getOrThrow()
         @Expect(decl.modifiers.size, 0)
-        @Expect(decl.extendedTyAnnotation.toString(), "F")
+        @Expect(decl.extendedTyAnnotation.toString().replace("\r\n", "\n"), "F")
         @Expect(decl.superTyAnnotations.size, 0)
         @Expect(decl.genericParams.size, 0)
         @Expect(decl.genericConstraints.isNone())
-        @Expect(decl.body.toString(), """
+        @Expect(decl.body.toString().replace("\r\n", "\n"), """
 {
     func testFunc(c: Int64, d: UInt32) { }
 
@@ -357,7 +357,7 @@ extend F {
         get() { return "hello" }
     }
 }""")
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 extend F {
     func testFunc(c: Int64, d: UInt32) { }
 
@@ -381,12 +381,12 @@ public enum B {
         @Expect(decl.superTyAnnotations.size, 0)
         @Expect(decl.genericParams.size, 0)
         @Expect(decl.genericConstraints.isNone())
-        @Expect(decl.body.toString(), """
+        @Expect(decl.body.toString().replace("\r\n", "\n"), """
 {
     | Enum(Int64, A) | ...
     func a() { }
 }""")
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 public enum B {
     | Enum(Int64, A) | ...
     func a() { }
@@ -397,9 +397,9 @@ public enum B {
         let constructor = (nodes[0] as EnumConstructor).getOrThrow()
         @Expect(constructor.name, "Enum")
         @Expect(constructor.paramTyAnnotations.size, 2)
-        @Expect(constructor.paramTyAnnotations[0].toString(), "Int64")
-        @Expect(constructor.paramTyAnnotations[1].toString(), "A")
-        @Expect(constructor.toString(), "Enum(Int64, A)")
+        @Expect(constructor.paramTyAnnotations[0].toString().replace("\r\n", "\n"), "Int64")
+        @Expect(constructor.paramTyAnnotations[1].toString().replace("\r\n", "\n"), "A")
+        @Expect(constructor.toString().replace("\r\n", "\n"), "Enum(Int64, A)")
 
         @Expect(decl.getGenericParamsLAnglePos().isNone())
         @Expect(decl.getGenericParamsCommasPos().size, 0)
@@ -432,7 +432,7 @@ class F {
         @Expect(decl.superTyAnnotations.size, 0)
         @Expect(decl.genericParams.size, 0)
         @Expect(decl.genericConstraints.isNone())
-        @Expect(decl.body.toString(), """
+        @Expect(decl.body.toString().replace("\r\n", "\n"), """
 {
     let a = 1
     var b: Int64
@@ -447,7 +447,7 @@ class F {
         get() { return "hello" }
     }
 }""")
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 class F {
     let a = 1
     var b: Int64
@@ -477,7 +477,7 @@ func test_RefreshPos() {
     let sourceNode: SyntaxTreeNode = res.node.getOrThrow()
     var classDecl: ClassDecl = (sourceNode as ClassDecl).getOrThrow()
     
-    @Assert(classDecl.toString(), ##"class A {
+    @Assert(classDecl.toString().replace("\r\n", "\n"), ##"class A {
         let x = 1
     }"##)
     @Assert(classDecl.nodePos.fileName, "")

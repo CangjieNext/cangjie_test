@@ -57,8 +57,8 @@ class Test {
         let gcs1 = funcDecl1.genericConstraints.getOrThrow()
         @Expect(gcs0.constraints.size, 1)
         @Expect(gcs1.constraints.size, 1)
-        @Expect(gcs0.toString(), "where T <: ToString")
-        @Expect(gcs1.toString(), "where T <: ToString")
+        @Expect(gcs0.toString().replace("\r\n", "\n"), "where T <: ToString")
+        @Expect(gcs1.toString().replace("\r\n", "\n"), "where T <: ToString")
         @Expect((gcs0 == gcs1), false)
         @Expect((gcs0 == gcs0), true)
     }

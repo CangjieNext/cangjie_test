@@ -25,8 +25,8 @@ class Test {
         let expr = (nodes[0] as LitConstRuneExpr).getOrThrow()
         @Expect(expr.rawValue, "a")
         @Expect(expr.isSingleQuote, true)
-        @Expect(expr.toString(), "r'a'")
-        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString(), expr.toString())
+        @Expect(expr.toString().replace("\r\n", "\n"), "r'a'")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         let pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 9]).toArray())
     }
@@ -37,7 +37,7 @@ class Test {
         let litConstRuneExpr = LitConstRuneExpr(expr.kind, expr.rawValue, expr.isSingleQuote)
         @Expect(litConstRuneExpr.rawValue, "a")
         @Expect(litConstRuneExpr.isSingleQuote, true)
-        @Expect(litConstRuneExpr.toString(), "r'a'")
+        @Expect(litConstRuneExpr.toString().replace("\r\n", "\n"), "r'a'")
         let pos = litConstRuneExpr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 5]).toArray())
     }

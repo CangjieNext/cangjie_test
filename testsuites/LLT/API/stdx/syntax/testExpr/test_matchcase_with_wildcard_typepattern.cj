@@ -12,7 +12,7 @@ func test_MatchCase_17() {
     @Assert(diags.size, 0)
 
     let sourcefile : SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r\n", "\n").contains(##"main() {
     match(xxx) {
         case _: T => { => }
     }
@@ -24,15 +24,15 @@ func test_MatchCase_17() {
 
     let case_1 = expr.matchCases[0]
 
-    @Assert(case_1.toString(), ##"case _: T => { => }"##)
-    @Assert(case_1.toTokens().toString(), ##"case _: T => { => }"##)
+    @Assert(case_1.toString().replace("\r\n", "\n"), ##"case _: T => { => }"##)
+    @Assert(case_1.toTokens().toString().replace("\r\n", "\n"), ##"case _: T => { => }"##)
     @Assert(case_1.body.size, 1)
-    @Assert(case_1.body[0].toString(), ##"{ => }"##)
+    @Assert(case_1.body[0].toString().replace("\r\n", "\n"), ##"{ => }"##)
     @Assert(case_1.caseCond.isNone())
     @Assert(case_1.patternGuardCond.isNone())
     @Assert(case_1.patterns.size, 1)
     @Assert(case_1.patterns[0] is TypePattern)
-    @Assert(case_1.patterns[0].toString(), "_: T")
+    @Assert(case_1.patterns[0].toString().replace("\r\n", "\n"), "_: T")
 }
 
 /*
