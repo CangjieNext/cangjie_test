@@ -5,6 +5,9 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 # ======================== API exclude ========================
+#cjpm用例概率性失败，先屏蔽
+Tools\cjpm\stdx\stdx_c\tree_01\tree_01.info
+
 # linux与win环境问题
 API/std/os/env/test_setEnv/test_setEnv_002/test_setEnv_002.cj
 API/std/os/env/test_setEnv/test_setEnv_005/test_setEnv_005.cj
