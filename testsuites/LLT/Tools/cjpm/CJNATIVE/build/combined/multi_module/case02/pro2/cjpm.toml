@@ -18,3 +18,6 @@
   override-compile-option = ""
   link-option = ""
   package-configuration = {}
+
+[profile.build.combined]
+  pro2 = "dynamic"
