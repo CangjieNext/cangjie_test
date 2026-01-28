@@ -4,8 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE: main.cj
+// DEPENDENCE: obj_main.cj
 // EXEC: %compiler main.cj --output-type=obj -o main.o --experimental
 // EXEC: %compiler main.o -lcangjie-std-core --experimental -o %output
-// EXEC: %output %run_args | compare %f
+// EXEC: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan Hello cangjie!
