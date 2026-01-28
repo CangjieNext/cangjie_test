@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
 // EXEC: %compiler %cmp_opt_chir2hlir %coverage_opt %f -o %output
 // EXEC: %run %run_opt %output | compare %f
 
@@ -44,12 +52,11 @@ main(): Int64 {
 ident(() ->,())
 traversed!
 traversed!
-traversed!
 Constructor {
   -identifier: Token {
     value: "ident"
     kind: IDENTIFIER
-    pos: 23: 34
+    pos: 31: 34
   }
   -typeArguments: 0, FuncType {
     -ARROW: Token {
@@ -60,15 +67,8 @@ Constructor {
   -typeArguments: 1, ParenType {
     -parenthesizedType:   }
 }
-description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 36, column: 43
+description: l_paren, token_id: 2, token_literal_value: (, fileID: 1, line: 44, column: 43
 10
 description: identifier, token_id: 137, token_literal_value: , fileID: 13, line: 82, column: 38
 cnt = 0
- */
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
