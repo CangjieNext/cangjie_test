@@ -16,5 +16,8 @@
   override-compile-option = ""
   version = "1.0.0"
 
+[profile]
+build = { combined = { p2 = "dynamic" }}
+
 [package.package-configuration.p2]
 combine-all-deps = true
