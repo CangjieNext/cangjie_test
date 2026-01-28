@@ -6,6 +6,6 @@
 
 // DEPENDENCE: main.cj
 // EXEC: %compiler main.cj --output-type=obj -o main.o --experimental
-// EXEC-PIPE-1: %compiler main.o --output-type=obj --experimental -o %output  2>&1 | compare %f
 // EXEC: %compiler main.o --output-type=staticlib --experimental
+// EXEC-PIPE-1: %compiler main.o --output-type=obj --experimental -o %output  2>&1 | compare %f
 // ASSERT: scan expected at least one source code file when compiling source code
