@@ -4,6 +4,6 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-main() {
-    println("Hello cangjie!")
-}
+// DEPENDENCE: obj_main.cj
+// EXEC-PIPE: %compiler obj_main.cj --compile-target=exe -o main.o --experimental 2>&1 | compare %f
+// ASSERT: scan --compile-target only takes effect when --output-type=obj, this option will be ignored in other scenarios
