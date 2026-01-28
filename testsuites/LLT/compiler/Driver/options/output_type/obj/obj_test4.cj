@@ -4,6 +4,6 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-main() {
-    println("Hello cangjie!")
-}
+// DEPENDENCE: foo.cj
+// EXEC-PIPE-1: %compiler foo.cj --output-type=obj -o main.o --experimental 2>&1 | compare %f
+// ASSERT: scan 'main' is missing
