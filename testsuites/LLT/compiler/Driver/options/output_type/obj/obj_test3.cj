@@ -6,4 +6,6 @@
 
 // DEPENDENCE: main.cj
 // EXEC: %compiler -p . --output-type=obj -o main.o --experimental
-// EXEC: %compiler main.o --output-type=staticlib --experimental  
+// EXEC: %compiler main.o --output-type=staticlib --experimental
+// EXEC-PIPE-1: %compiler main.o -lcangjie-std-core -o %output  2>&1 | compare %f
+// ASSERT: scan compilation with input object files is currently experimental and requires the --experimental flag to be enabled
