@@ -9,4 +9,4 @@
 // LEVEL: 0
 // DEPENDENCE: pkgA
 // EXEC-PIPE: %compiler --scan-dependency -p pkgA 2>&1 | compare %f
-// ASSERT: scan {"package":"pkgA","isMacro":true,"accessLevel":"public","dependencies":[],"features":[]}
+// ASSERT: scan {"package":"pkgA","isMacro":true,"accessLevel":"public","dependencies":[],"features":[],"product":true}

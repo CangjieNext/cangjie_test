@@ -1122,6 +1122,5 @@ extend Class39 {
 // ASSERT: scan parse_illegal_modifier_in_scope
 // ASSERT: scan parse_expected_character
 // ASSERT: scan parse_expected_catch_or_finally_in_try
-// ASSERT: scan parse_expected_expr_or_decl_in
 
 
