@@ -1076,6 +1076,5 @@ extend Class_1684954629132_92 {
 // ASSERT: scan parse_expected_left_brace
 // ASSERT: scan parse_expected_character
 // ASSERT: scan parse_expected_catch_or_finally_in_try
-// ASSERT: scan parse_expected_expr_or_decl_in
 
 

@@ -27,13 +27,6 @@ error: expected declaration, found '@!'
   | 
   # note: only declarations or macro expressions can be used in the top-level
 
-error: expected ';' or '<NL>', found keyword 'struct'
- ==> bad_atexcl_builtin_annotation.cj:3:5:
-  | 
-3 | @!C struct Foo {}
-  |     ^^^^^^ expected ';' or '<NL>' here
-  | 
-
 error: expected declaration, found '@!'
  ==> bad_atexcl_builtin_annotation.cj:5:1:
   | 
@@ -80,7 +73,7 @@ error: expected ';' or '<NL>', found '@'
    |                      ^ expected ';' or '<NL>' here
    | 
 
-8 errors generated, 8 errors printed.
+7 errors generated, 7 errors printed.
 */
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

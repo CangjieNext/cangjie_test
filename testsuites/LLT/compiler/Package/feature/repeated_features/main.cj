@@ -1,35 +1,35 @@
 // EXEC: %compiler %cmp_opt %f -o %output 2>& 1| compare %f
-features os.Mac, os.Mac, os.Harmony, os.Harmony
+features { os.Mac, os.Mac, os.Harmony, os.Harmony }
 
 main() {}
 
 /* SCAN
 warning: feature is already declared
- ==> main.cj:2:18:
+ ==> main.cj:2:20:
   | 
-2 | features os.Mac, os.Mac, os.Harmony, os.Harmony
-  |                  ^^^^^^ 
+2 | features { os.Mac, os.Mac, os.Harmony, os.Harmony }
+  |                    ^^^^^^ 
   | 
   # note: this warning can be suppressed by setting the compiler option `-Woff package-import`
 note: feature 'os.Mac' previously used here
- ==> main.cj:2:10:
+ ==> main.cj:2:12:
   | 
-2 | features os.Mac, os.Mac, os.Harmony, os.Harmony
-  |          ^^^^^^ 
+2 | features { os.Mac, os.Mac, os.Harmony, os.Harmony }
+  |            ^^^^^^ 
   | 
 
 warning: feature is already declared
- ==> main.cj:2:38:
+ ==> main.cj:2:40:
   | 
-2 | features os.Mac, os.Mac, os.Harmony, os.Harmony
-  |                                      ^^^^^^^^^^ 
+2 | features { os.Mac, os.Mac, os.Harmony, os.Harmony }
+  |                                        ^^^^^^^^^^ 
   | 
   # note: this warning can be suppressed by setting the compiler option `-Woff package-import`
 note: feature 'os.Harmony' previously used here
- ==> main.cj:2:26:
+ ==> main.cj:2:28:
   | 
-2 | features os.Mac, os.Mac, os.Harmony, os.Harmony
-  |                          ^^^^^^^^^^ 
+2 | features { os.Mac, os.Mac, os.Harmony, os.Harmony }
+  |                            ^^^^^^^^^^ 
   | 
 
 2 warnings generated, 2 warnings printed.

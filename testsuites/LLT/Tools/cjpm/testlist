@@ -34,30 +34,10 @@ CJNATIVE/build/git_local/multiple_module_git_10
 CJNATIVE/build/git_local/multiple_module_git_11
 CJNATIVE/build/git_local/multiple_module_git_12
 
-# exclude because of lack of features for cjmp on cjc
-CJNATIVE/common_platform/basic
-CJNATIVE/common_platform/common_only_dep
-CJNATIVE/common_platform/common_part_debug
-CJNATIVE/common_platform/copt_passing
-CJNATIVE/common_platform/diagnostics/invalid_feature_header
-CJNATIVE/common_platform/diagnostics/scan_dep
-CJNATIVE/common_platform/foreign_func_bind
-CJNATIVE/common_platform/import_path_passing
-CJNATIVE/common_platform/ot_exe
-CJNATIVE/common_platform/ot_static
-CJNATIVE/common_platform/visibility/basic
-CJNATIVE/common_platform/visibility/common_only_pkg
-CJNATIVE/common_platform/visibility/mpp_dep
-CJNATIVE/common_platform/with_subpackages
-CJNATIVE/source_sets/always_enabled_check
-CJNATIVE/source_sets/bin_deps
-CJNATIVE/source_sets/bugfixes/library
-CJNATIVE/source_sets/builtin_mapping
-CJNATIVE/source_sets/custom_source_set_tests
-CJNATIVE/source_sets/duplicate_features
-CJNATIVE/source_sets/mapping_of_dep
-CJNATIVE/source_sets/mapping_to_dep_select
-CJNATIVE/source_sets/mapping_to_select
-CJNATIVE/source_sets/switch_sets
-CJNATIVE/source_sets/tests_in_common
-CJNATIVE/source_sets/tests_in_source_sets
+# Has to be fixed. See https://gitcode.com/Cangjie/cangjie_compiler/issues/517
+Tools/cjpm/CJNATIVE/common_platform/foreign_func_bind
+Tools/cjpm/CJNATIVE/common_platform/ot_exe
+Tools/cjpm/CJNATIVE/common_platform/ot_static
+Tools/cjpm/CJNATIVE/common_platform/visibility/product_switch
+Tools/cjpm/CJNATIVE/source_sets/bin_deps
+Tools/cjpm/CJNATIVE/source_sets/safecheck

@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-features os.windows
+features { os.windows }
 package mp2
 
 public func test_plat2(): Unit {

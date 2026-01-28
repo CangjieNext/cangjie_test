@@ -974,6 +974,7 @@ API/stdx/syntax/testFunctional/test_redtree_eq.cj
 API/stdx/syntax/testFunctional/test_redtree_hash.cj
 API/stdx/syntax/testOther/test_annotation.cj
 API/stdx/syntax/testOther/test_generic_constraints.cj
+API/stdx/syntax/testPackage/test_featuresDirective.cj
 API/stdx/syntax/testPackage/test_import_alias.cj
 API/stdx/syntax/testPackage/test_import_all.cj
 API/stdx/syntax/testPackage/test_import_list.cj

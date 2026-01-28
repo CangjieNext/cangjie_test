@@ -83,3 +83,11 @@ CJNATIVE/build/git_local/multiple_module_git_08
 CJNATIVE/build/git_local/multiple_module_git_10
 CJNATIVE/build/git_local/multiple_module_git_11
 CJNATIVE/build/git_local/multiple_module_git_12
+
+# Has to be fixed. See https://gitcode.com/Cangjie/cangjie_compiler/issues/517
+CJNATIVE/common_platform/foreign_func_bind/foreign_func_bind.info
+CJNATIVE/common_platform/ot_exe/ot_exe.info
+CJNATIVE/common_platform/ot_static/ot_static.info
+CJNATIVE/common_platform/visibility/product_switch/product_switch.info
+CJNATIVE/source_sets/bin_deps/bin_deps.info
+CJNATIVE/source_sets/safecheck/safecheck.info
