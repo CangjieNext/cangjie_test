@@ -12,4 +12,4 @@ name = "pro0"
 output-type = "static"
 
 [profile.build.combined]
-#    pro0 = "dynamic"
+    pro0 = "dynamic"
