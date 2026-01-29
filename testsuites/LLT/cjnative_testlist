@@ -125,7 +125,6 @@ compiler/Sema/property/err_prop_no_get_00.cj
 compiler/Sema/property/err_prop_no_get_01.cj
 
 # need to check with test team
-API/std/libast/nodes/test_program_exception_001.cj
 compiler/CHIR/CHIR2HLIR/package/scanDepPkg/test.cj
 compiler/CHIR/CHIR2HLIR/package/scanDepPkgNoModule/test.cj
 
@@ -137,7 +136,7 @@ API/std/unittest/mock/compiler/ensurePreparedToMock/default_methods_interface.cj
 API/std/unittest/mock/compiler/createMock/genericInstantiation.cj
 API/std/unittest/mock/framework/bench.cj
 
-compiler/Macro/inout/inout_m2.cj
+
 
 
 # native FFI
@@ -233,14 +232,6 @@ compiler/CJMP/objc/sema/objc_pointer_illegal_argument.cj
 compiler/CJMP/objc/sema/objc_pointer_type_argument.cj
 # 930: dev merge main
 API/std/core/test_package.cj
-API/std/libast/exprs/performExpr/test_dump_001.cj
-API/std/libast/exprs/performExpr/test_dump_002.cj
-API/std/libast/exprs/resumeExpr/test_dump_001.cj
-API/std/libast/exprs/resumeExpr/test_dump_002.cj
-API/std/libast/exprs/resumeExpr/test_dump_003.cj
-API/std/libast/exprs/try_expr/test_handlers_001.cj
-API/std/libast/patterns/commandtypepattern/test_dump_001.cj
-API/std/libast/patterns/commandtypepattern/test_dump_002.cj
 API/std/math/numeric/bigint/test_json.cj
 
 ## cjmp, driver testcases commented on 2025-10-17, need to be fixed.
