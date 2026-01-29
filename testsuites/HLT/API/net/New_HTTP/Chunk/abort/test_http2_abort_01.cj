@@ -152,7 +152,6 @@ class Test_Abort_01 {
             @Expect(len < 4000)
         }
 
-
         client.close()
         server.close()
     }
