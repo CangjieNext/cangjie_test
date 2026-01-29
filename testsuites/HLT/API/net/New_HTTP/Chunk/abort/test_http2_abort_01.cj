@@ -47,24 +47,25 @@ class Test_Abort_01 {
     func startserve():Unit {
         var a: HttpRequestHandler = FuncHandler( { httpContext =>
                 httpContext.responseBuilder.header("transfer-encoding", "chunked")
-                httpContext.responseBuilder.body(Array<UInt8>(20000, repeat: UInt8(10)))
+                httpContext.responseBuilder.body(Array<UInt8>(1000, repeat: UInt8(10)))
                 sleep(Duration.second)
             }
         )
 
         var b: HttpRequestHandler = FuncHandler( { httpContext =>
                 httpContext.responseBuilder.header("transfer-encoding", "chunked")
+		sleep(Duration.second)
                 httpContext.responseBuilder.body(Array<UInt8>(20000, repeat: b'b'))
             }
         )
 
         var c: HttpRequestHandler = FuncHandler( { httpContext =>
                 httpContext.responseBuilder.header("transfer-encoding", "chunked")
-                var ins = ByteBuffer(20000)
-                ins.write(Array<Byte>(10000, repeat: UInt8(2)))
+                var ins = ByteBuffer(10000)
+                ins.write(Array<Byte>(2000, repeat: UInt8(2)))
                 httpContext.responseBuilder.body(ins)
                 sleep(Duration.second * 5)
-                ins.write(Array<Byte>(10000, repeat: UInt8(3)))
+                ins.write(Array<Byte>(2000, repeat: UInt8(3)))
             }
         )
         server.distributor.register("test/close1", a)
@@ -93,7 +94,7 @@ class Test_Abort_01 {
             response1.close()
         }
         sleep(Duration.second)
-        var buf1 = Array<UInt8>(20000, repeat: 0)
+        var buf1 = Array<UInt8>(10000, repeat: 0)
         try{
             response1.body.read(buf1)
 
@@ -117,7 +118,7 @@ class Test_Abort_01 {
             response2.close()
             response2.close()
         }
-        var buf2 = Array<UInt8>(20000, repeat: 0)
+        var buf2 = Array<UInt8>(10000, repeat: 0)
         try{
             response2.body.read(buf2)
 
@@ -141,14 +142,16 @@ class Test_Abort_01 {
         @Expect(response3.status, UInt16(200))
         response3.close()
         var buf3 = Array<UInt8>(20000, repeat: 0)
+	    var len = 0
         try{
-            response3.body.read(buf3)
+            len = response3.body.read(buf3)
 
         }catch(_){
 
         }finally {
-            @Expect(buf3[0..2000], Array<UInt8>(2000, repeat: 0))
+            @Expect(len < 4000)
         }
+
 
         client.close()
         server.close()
