@@ -46,6 +46,10 @@ compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_leve
 compiler/CJMP/merging/top_level_function/enhance_test/top_level_function/user_define_thirdparty/moretype/generictype/thirdparty_genericclass_as_argument.cj
 
 # native FFI
+
+# excluded until FFI be enabled
+compiler/CJMP/objc
+
 ## objc
 ### segfault
 compiler/CJMP/objc/integration/cstruct
