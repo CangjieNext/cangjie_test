@@ -140,6 +140,11 @@ API/std/unittest/mock/framework/bench.cj
 
 
 # native FFI
+
+# excluded until FFI be enabled
+compiler/CJMP/java
+compiler/CJMP/objc
+
 ## java (broken after migration to "blue" branch)
 compiler/CJMP/java/integration/impl-implements-mirror-interface/impl-implements-mirror-interface.info
 compiler/CJMP/java/integration/mirror-abstract-class/mirror-abstract-class.info
