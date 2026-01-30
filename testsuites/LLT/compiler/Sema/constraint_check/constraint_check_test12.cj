@@ -35,56 +35,56 @@ main(): Int64 {
 }
 
 /* SCAN
-error: generic parameter 'T' cannot be used in class irrelevant upper bounds 'Struct-Array<Generics-T>'
+error: generic parameter 'T' cannot be used in not inheritable upper bounds 'Struct-Array<Generics-T>'
   ==> constraint_check_test12.cj:17:11:
    | 
 17 | func foo0<T>(a: T) where T <: Array<T> {}
    |           ^ 
    | 
 
-error: generic parameter 'T' cannot be used in class irrelevant upper bounds 'Tuple<Generics-T, Int32>'
+error: generic parameter 'T' cannot be used in not inheritable upper bounds 'Tuple<Generics-T, Int32>'
   ==> constraint_check_test12.cj:19:11:
    | 
 19 | func foo1<T>(a: T) where T <: (T, Int32) {}
    |           ^ 
    | 
 
-error: generic parameter 'T' cannot be used in class irrelevant upper bounds '(Generics-T) -> Int32'
+error: generic parameter 'T' cannot be used in not inheritable upper bounds '(Generics-T) -> Int32'
   ==> constraint_check_test12.cj:21:11:
    | 
 21 | func foo2<T>(a: T) where T <: (T) -> Int32 {}
    |           ^ 
    | 
 
-error: generic parameter 'T' cannot be used in class irrelevant upper bounds '(Int32) -> Generics-T'
+error: generic parameter 'T' cannot be used in not inheritable upper bounds '(Int32) -> Generics-T'
   ==> constraint_check_test12.cj:23:11:
    | 
 23 | func foo3<T>(a: T) where T <: (Int32) -> T {}
    |           ^ 
    | 
 
-error: generic parameter 'T' cannot be used in class irrelevant upper bounds 'Struct-L<Generics-T>'
+error: generic parameter 'T' cannot be used in not inheritable upper bounds 'Struct-L<Generics-T>'
   ==> constraint_check_test12.cj:25:11:
    | 
 25 | func foo4<T>(a: T) where T <: L<T> {}
    |           ^ 
    | 
 
-error: generic parameter 'T' cannot be used in class irrelevant upper bounds 'Enum-Option<Generics-T>'
+error: generic parameter 'T' cannot be used in not inheritable upper bounds 'Enum-Option<Generics-T>'
   ==> constraint_check_test12.cj:27:11:
    | 
 27 | func foo5<T>(a: T) where T <: Option<T> {}
    |           ^ 
    | 
 
-error: generic parameter 'T' cannot be used in class irrelevant upper bounds 'Enum-Option<Generics-U>'
+error: generic parameter 'T' cannot be used in not inheritable upper bounds 'Enum-Option<Generics-U>'
   ==> constraint_check_test12.cj:29:11:
    | 
 29 | func foo6<T, U>(a: T, b: U) where T <: Option<U>, U <: Option<T> {}
    |           ^ 
    | 
 
-error: generic parameter 'T' cannot be used in class irrelevant upper bounds '(Generics-U) -> Int32'
+error: generic parameter 'T' cannot be used in not inheritable upper bounds '(Generics-U) -> Int32'
   ==> constraint_check_test12.cj:31:11:
    | 
 31 | func foo7<T, U>(a: T, b: U) where T <: (U) -> Int32, U <: (T) -> Int32 {}
