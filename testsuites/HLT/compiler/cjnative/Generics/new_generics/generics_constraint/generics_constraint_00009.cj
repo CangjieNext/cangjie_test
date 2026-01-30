@@ -9,7 +9,7 @@
 // LEVEL: 0
 // ERRCHECK: %compiler %cmp_opt %f -o %output
 // ASSERT: scan sema_upper_bound_must_be_class_or_interface
-// ASSERT: scan sema_generic_param_exist_in_class_irrelevant_upperbound_recursively
+// ASSERT: scan sema_generic_param_exist_in_not_inheritable_upperbound_recursively
 
 class A<M> where M <: VArray<Int64, $1> {}
 

@@ -7,7 +7,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // EXEC: %run %run_opt %output %run_args
 
-class A<T0> where T0 <: A<T0> {}
+open class A<T0> where T0 <: A<T0> {}
 
 extend<T1> A<T1> {}
 

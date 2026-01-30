@@ -7,7 +7,7 @@
  */
 
 package mp
-public class A<T, K> {}
-public class B<T> {}
+public open class A<T, K> {}
+public open class B<T> {}
 interface I<T, K> {}
 common extend <T, K> A<T, K> <: I<T, K> where T <: B<T> {}

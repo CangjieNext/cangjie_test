@@ -9,9 +9,9 @@
 // LEVEL: 0
 // ERRCHECK: %compiler %cmp_opt %f -o %output
 
-class A<T> where T <: B<T> {}
+open class A<T> where T <: B<T> {}
 
-class B<T> where T <: A<T> {}
+open class B<T> where T <: A<T> {}
 
 main() {
     return 0

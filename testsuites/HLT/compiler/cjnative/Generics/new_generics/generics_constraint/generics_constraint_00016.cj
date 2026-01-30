@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-class A<T> {}
+open class A<T> {}
 
 class B<M> where M <: A<Int64> {}
 

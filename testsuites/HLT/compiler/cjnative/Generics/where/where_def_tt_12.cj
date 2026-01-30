@@ -23,5 +23,5 @@ main() {
     }
     return 0
 }
-// ASSERT: scan sema_generic_param_exist_in_class_irrelevant_upperbound_recursively
+// ASSERT: scan sema_generic_param_exist_in_not_inheritable_upperbound_recursively
 // ASSERT: scan sema_generic_type_argument_not_match_constraint

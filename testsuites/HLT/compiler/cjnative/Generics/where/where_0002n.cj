@@ -15,7 +15,7 @@ interface I2<T> where T <: A<T> {}
 
 open class A<T> where T <: B<T> {}
 
-class B<T> where T <: I1<T> {}
+open class B<T> where T <: I1<T> {}
 
 main() {
     return 0

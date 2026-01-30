@@ -11,7 +11,7 @@ func atest<T>(param: T) where T <: Array<T> {
 }
 
 /* SCAN
-error: generic parameter 'T' cannot be used in class irrelevant upper bounds 'Struct-Array<Generics-T>'
+error: generic parameter 'T' cannot be used in not inheritable upper bounds 'Struct-Array<Generics-T>'
  ==> generic_constraint9.cj:9:12:
   | 
 9 | func atest<T>(param: T) where T <: Array<T> {

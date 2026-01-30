@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-class A<T> where T <: A<T> {}
+open class A<T> where T <: A<T> {}
 
 interface B<T> where T <: B<T> {}
 

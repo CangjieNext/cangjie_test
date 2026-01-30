@@ -8,7 +8,7 @@
 
 interface I {}
 
-class A<X> {}
+open class A<X> {}
 
 extend<V> A<V> <: I where V <: I {}
 

@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-class C<X> where X <: C<X> {
+open class C<X> where X <: C<X> {
     public func foo() {}
     public init(input: X) {
         let a: Unit = input.foo()

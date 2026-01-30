@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-class A<X, Y> {}
+open class A<X, Y> {}
 
 class C<X, Y> where X <: A<(X, Y), (Y, X)>, Y <: A<(Y, X), (X, Y)> {}
 

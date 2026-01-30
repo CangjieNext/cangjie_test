@@ -7,7 +7,7 @@
 // EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix
 // EXEC: %run %run_opt %n.%suffix
 
-class A<X> {}
+open class A<X> {}
 
 interface I {}
 
