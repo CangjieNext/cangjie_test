@@ -7,5 +7,5 @@
 // LEVEL: 0
 // DEPENDENCE: ../%n
 // (not Windows and not MAC)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: scan field 'package.package-configuration.b.combine-all-deps = true' is invalid when field 'profile.build.lto' is empty
-// ASSERT: scan cjpm build failed
+// (not Windows and not MAC)ASSERT: scan field 'package.package-configuration.b.combine-all-deps = true' is invalid when field 'profile.build.lto' is empty
+// (not Windows and not MAC)ASSERT: scan cjpm build failed
