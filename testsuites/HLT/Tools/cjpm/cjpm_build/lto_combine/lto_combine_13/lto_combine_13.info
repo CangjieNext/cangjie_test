@@ -7,9 +7,9 @@
 // LEVEL: 0
 // DEPENDENCE: ../%n
 // (not Windows and not MAC)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: regex Compiling package `p1`: .*libp1.so
-// ASSERT: regex Compiling package `p2`: .*libp2.so
-// ASSERT: regex-not Compiling package `b`: .*p1\.bc.*
-// ASSERT: regex-not Compiling package `b`: .*p2\.bc.*
-// ASSERT: regex Compiling package `b`: .*libb.so
+// ASSERT: regex Compiling package `p1`: [\s\S]*libp1.so
+// ASSERT: regex Compiling package `p2`: [\s\S]*libp2.so
+// ASSERT: regex-not Compiling package `b`: [\s\S]*p1\.bc[\s\S]*
+// ASSERT: regex-not Compiling package `b`: [\s\S]*p2\.bc[\s\S]*
+// ASSERT: regex Compiling package `b`: [\s\S]*libb.so
 // ASSERT: scan cjpm build success

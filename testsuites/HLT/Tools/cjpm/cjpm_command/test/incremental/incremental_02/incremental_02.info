@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm test --no-run && touch src/koo_test/koo_test.cj
+// EXEC: cd %n && %cjpm test --no-run && %touch src/koo_test/koo_test.cj
 // EXEC: cd %n && %cjpm test --no-run -i -V 2>&1 | compare %f
 // ASSERT: scan-1 Compiling test package
 // ASSERT: scan `test.koo_test`:

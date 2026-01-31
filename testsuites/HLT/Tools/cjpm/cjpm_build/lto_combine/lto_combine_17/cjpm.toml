@@ -5,7 +5,7 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [dependencies]
-p4 = {path = "p4", version = "1.0.0"}
+p4 = {path = "p4"}
 
 [package]
   cjc-version = "1.0.0"
@@ -27,4 +27,7 @@ combine-all-deps = true
   path-option = ["p3/target/release/p3"]
 
 [target.aarch64-unknown-linux-gnu.bin-dependencies]
+  path-option = ["p3/target/release/p3"]
+
+[target.aarch64-linux-ohos.bin-dependencies]
   path-option = ["p3/target/release/p3"]

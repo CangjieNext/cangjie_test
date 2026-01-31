@@ -7,7 +7,7 @@
 // LEVEL: 0
 // DEPENDENCE: ../%n
 // (not Windows and not MAC)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: regex Compiling package `b`: .*b\.p2\.bc.*
-// ASSERT: regex Compiling package `b`: .*b\.p1\.bc.*
-// ASSERT: regex Compiling package `b`: .*--lto=full.*
-// ASSERT: scan cjpm build success
+// (not Windows and not MAC)ASSERT: regex Compiling package `b`: [\s\S]*b\.p2\.bc[\s\S]*
+// (not Windows and not MAC)ASSERT: regex Compiling package `b`: [\s\S]*b\.p1\.bc[\s\S]*
+// (not Windows and not MAC)ASSERT: regex Compiling package `b`: [\s\S]*--lto=full[\s\S]*
+// (not Windows and not MAC)ASSERT: scan cjpm build success
