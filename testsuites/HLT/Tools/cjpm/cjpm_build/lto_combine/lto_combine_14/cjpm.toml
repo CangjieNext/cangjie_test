@@ -5,9 +5,9 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [dependencies]
-p1 = {path = "p1", version = "1.0.0"}
-p2 = {path = "p2", version = "1.0.0"}
-p3 = {path = "p3", version = "1.0.0"}
+p1 = {path = "p1"}
+p2 = {path = "p2"}
+p3 = {path = "p3"}
 [package]
   cjc-version = "1.0.0"
   compile-option = ""

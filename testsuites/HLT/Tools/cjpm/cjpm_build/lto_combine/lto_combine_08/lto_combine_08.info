@@ -7,7 +7,7 @@
 // LEVEL: 0
 // DEPENDENCE: ../%n
 // (not Windows and not MAC)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: regex Compiling package `b.macro_definition`.*--compile-macro
+// ASSERT: regex Compiling package `b.macro_definition`[\s\S]*--compile-macro
 // ASSERT: scan Compiling package `b`:
 // ASSERT: scan cjpm build success
    

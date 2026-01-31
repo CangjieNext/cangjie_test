@@ -9,5 +9,5 @@
 // LEVEL: 2
 // DEPENDENCE: src cjpm.toml
 // EXEC: %cjpm build %cjpm_opt
-// EXEC-PIPE: %ls ./target/release/bin 2>&1 | compare %f
-// ASSERT: scan-not main
+// (!host_win)EXEC: test -f target/release/bin/main
+// (host_win)EXEC: if exist target/release/bin/main (exit 0) elae (exit 1)

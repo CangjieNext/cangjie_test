@@ -27,3 +27,6 @@ combine-all-deps = false
 
 [target.aarch64-unknown-linux-gnu.bin-dependencies]
   path-option = ["p3/target/release/p3"]
+
+[target.aarch64-linux-ohos.bin-dependencies]
+  path-option = ["p3/target/release/p3"]
