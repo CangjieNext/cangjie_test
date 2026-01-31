@@ -8,8 +8,8 @@
 
 // LEVEL: 3
 // (CJNATIVE)EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE and not OHOS)RUN-EXEC: %export cjHeapSize=4MB && %run %run_opt %output %run_args 2>&1 | compare %f
-// (CJNATIVE and OHOS)RUN-EXEC: %export cjHeapSize=64MB && %run %run_opt %output %run_args 2>&1 | compare %f
+// (CJNATIVE and not OHOS and not Android)RUN-EXEC: %export cjHeapSize=4MB && %run %run_opt %output %run_args 2>&1 | compare %f
+// (CJNATIVE and (OHOS or Android))RUN-EXEC: %export cjHeapSize=64MB && %run %run_opt %output %run_args 2>&1 | compare %f
 // (CJNATIVE)ASSERT: scan Out of memory
 
 import std.collection.*

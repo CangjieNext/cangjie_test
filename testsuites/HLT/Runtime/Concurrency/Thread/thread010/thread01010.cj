@@ -10,8 +10,8 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // (Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 1>log.txt && bash -c "dos2unix log.txt" && bash -c "cat log.txt" | compare %f
-// (CJNATIVE) ASSERT: scan-2 2
-// (not CJNATIVE) ASSERT: scan-2 1
+// (CJNATIVE) ASSERT: scan-2 thread id = 2
+// (not CJNATIVE) ASSERT: scan-2 thread id = 1
 
 import std.sync.SyncCounter
 
@@ -22,10 +22,10 @@ class A {
 main(): Int64 {
     let a = A()
     let fut1 = spawn {
-        println(Thread.currentThread.id)
+        println("thread id = ${Thread.currentThread.id}")
     }
     fut1.get()
     let thread1 = fut1.thread
-    println(thread1.id)
+    println("thread id = ${thread1.id}")
     return 0
 }

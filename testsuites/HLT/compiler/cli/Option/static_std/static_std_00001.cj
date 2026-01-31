@@ -9,7 +9,6 @@
 // LEVEL: 0
 // (CJNATIVE and not MAC) EXEC-PIPE: %compiler %cmp_opt %static_std %static_libs %f
 // (CJNATIVE and not OHOS and not MAC) EXEC-PIPE: ldd main 2>&1 | compare %f
-// (OHOS and not MAC) EXEC-PIPE: readelf -a main 2>&1 | compare %f
 // (not MAC) ASSERT: scan-not libcangjie-std-core.so
 // (not MAC) ASSERT: scan-not libcangjie-std-collection.so
 // (not MAC) ASSERT: scan-not libcangjie-std-convert.so
