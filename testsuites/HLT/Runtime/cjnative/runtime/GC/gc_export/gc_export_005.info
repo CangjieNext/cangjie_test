@@ -27,8 +27,8 @@
 // (Windows and OHOS) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && source gc_export_005.sh && %run %run_opt %output %run_args && cat log.txt | compare %f
 // ASSERT:scan 10
 // ASSERT:scan Heap size: 262144(KB)
-// (not OHOS) ASSERT:scan Region size: 64(KB)
-// (OHOS) ASSERT:scan Region size: 1024(KB)
+// (not OHOS and not Android) ASSERT:scan Region size: 64(KB)
+// (OHOS or Android) ASSERT:scan Region size: 1024(KB)
 // ASSERT:scan Exemption threshold: 0.80
 // ASSERT:scan Heap utilization: 0.80
 // ASSERT:scan Heap growth: 1.15

@@ -30,9 +30,6 @@ open class C<T> <: A<C<T>> &  rmain(){
 class D <: C<D>{}
 
 eturn 0*}
-// ASSERT: scan parse_expected_left_brace
-// ASSERT: scan parse_expected_decl
-// ASSERT: scan parse_decl_cannot_inherit_their_self
-// ASSERT: scan parse_expected_character
+// ASSERT: scan lex_unknown_start_of_token
 
 

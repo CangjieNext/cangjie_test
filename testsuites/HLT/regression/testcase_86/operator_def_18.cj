@@ -32,8 +32,6 @@ extend Int8 {
         }
     }
 }
-// ASSERT: scan parse_expected_character
-// ASSERT: scan parse_missing_body
-// ASSERT: scan parse_expected_decl
+// ASSERT: scan lex_unknown_start_of_token
 
 

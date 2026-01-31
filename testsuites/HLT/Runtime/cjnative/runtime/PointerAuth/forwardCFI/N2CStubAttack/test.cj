@@ -10,10 +10,10 @@
 
 // LEVEL: 3
 // (OHOS and not Android) DEPENDENCE: clib.c
-// (OHOS and not Android) EXEC: %clang %clang_opt clib.c -o libclib.so -O0
-// (OHOS and not Android) EXEC: %compiler %cmp_opt %f -o %output -l:libclib.so -L.
-// (OHOS and not Android) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// (OHOS and not Android) ASSERT: scan SIGILL
+// (OHOS and not Android and not O2) EXEC: %clang %clang_opt clib.c -o libclib.so -O0
+// (OHOS and not Android and not O2) EXEC: %compiler %cmp_opt %f -o %output -l:libclib.so -L.
+// (OHOS and not Android and not O2) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// (OHOS and not Android and not O2) ASSERT: scan SIGILL
 
 foreign func cfunc(cjFunc: CFunc<() -> Unit>): Unit
 

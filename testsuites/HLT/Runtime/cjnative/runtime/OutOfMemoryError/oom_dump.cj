@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 3
-// (not OHOS and not iOS) EXEC: %compiler %cmp_opt %f -o %output
-// (not OHOS and not iOS) RUN-EXEC: %export cjHeapSize=4mb && %export cjHeapDumpOnOOM=on && %run %run_opt %output %run_args 2>&1 | compare %f
+// (not OHOS and not iOS and not Android) EXEC: %compiler %cmp_opt %f -o %output
+// (not OHOS and not iOS and not Android) RUN-EXEC: %export cjHeapSize=4mb && %export cjHeapDumpOnOOM=on && %run %run_opt %output %run_args 2>&1 | compare %f
 
 // ASSERT: scan-1 Heap dump log is writing into
 

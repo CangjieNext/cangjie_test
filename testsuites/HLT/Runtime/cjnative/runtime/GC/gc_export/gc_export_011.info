@@ -11,5 +11,5 @@
 // EXEC: %compiler %cmp_opt %overflow_wrapping gc_export_code.cj -o %output
 // RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && %export cjHeapSize=4mb && %export cjGCThreshold=-105GB && %run %run_opt %output %run_args && cat log.txt | compare %f
 // ASSERT:scan 10
-// (not OHOS) ASSERT:scan GC Threshold: 4096(KB)
-// (OHOS) ASSERT:scan GC Threshold: 262144(KB)
+// (not OHOS and not Android) ASSERT:scan GC Threshold: 4096(KB)
+// (OHOS or Android) ASSERT:scan GC Threshold: 262144(KB)

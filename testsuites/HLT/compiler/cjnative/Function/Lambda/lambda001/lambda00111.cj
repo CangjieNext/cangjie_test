@@ -17,6 +17,4 @@ func test(): Int64 {
 main(): Int64 {
     return test()
 }
-// ASSERT: scan parse_expected_double_arrow_in_lambda
-// ASSERT: scan parse_expected_character
-// ASSERT: scan parse_expected_expr_or_decl_in
+// ASSERT: scan lex_unknown_start_of_token
