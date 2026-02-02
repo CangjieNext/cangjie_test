@@ -13,3 +13,6 @@
 // (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan in cangjie foo1
 // ASSERT: scan in cangjie foo2, 1
+// ASSERT: scan in cangjie foo(Int16, Int32), 16, 32
+// ASSERT: scan in cangjie foo(Int8, IntNative, UIntNative), 8, 128, 129
+// ASSERT: scan in cangjie foo(UInt8, UInt16, UInt32, UInt64, Float32), 9, 17, 33, 65, 3.150000

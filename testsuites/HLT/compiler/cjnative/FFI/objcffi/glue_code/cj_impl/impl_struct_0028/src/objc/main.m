@@ -13,7 +13,10 @@ int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [[A alloc] init];
         [a foo];
-        [a foo: 1];
+        [a foo :1];
+        [a foo :16 :32];
+        [a foo :8 :128 :129];
+        [a foo :9 :17 :33 :65 :3.15];
     }
     return 0;
 }

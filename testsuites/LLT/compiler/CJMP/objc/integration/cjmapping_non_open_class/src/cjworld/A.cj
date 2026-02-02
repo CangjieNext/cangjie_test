@@ -50,12 +50,13 @@ public class A {
         x + y
     }
 
-    // method with class parameter
+    // method with nonopen class parameter
     public func fooParamA(x: A): Int64 {
         println("A fooParamA(A)")
         1
     }
-    // method with class return
+
+    // method with nonopen class return
     public func fooRetA(x: Int64): A {
         println("A fooRetA(Int64)")
         A()
@@ -67,26 +68,30 @@ public class A {
     }
 
     public func fooRetB(x: Int64): B {
-        println("A fooRetA(Int64)")
+        println("A fooRetB(Int64)")
         B()
     }
 
     // Not supported members: member with open class type
     // member var
     public var a: Int64 = 0
+
     // member prop
     public prop pb: Int64 {
         get() {
             1
         }
     }
+
     // constructor with not supported param
     public init(ax: OB) {
     }
+
     // member func with not supported param
     public func fooParamOB(x: OB): Int64 {
         1
     }
+
     // member func with not supported return
     public func fooRetOB(x: Int64): OB {
         OB()

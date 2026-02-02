@@ -28,6 +28,6 @@ in oc main, ObjC call cangjie static func: r2: 1, r3: 5!A init(Int64)
 A fooRetA(Int64)
 A init()
 A fooParamA(A)
-A fooRetA(Int64)
+A fooRetB(Int64)
 A fooParamB(B)
 */
