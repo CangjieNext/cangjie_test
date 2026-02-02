@@ -87,6 +87,10 @@ enum E6<T>{
     | B
 }
 
+enum E7 {
+    A | B((Int64) -> Bool)
+}
+
 @Annotation
 public class TagA {
     const init() {}
@@ -536,7 +540,6 @@ class EnumConstructorInfoTest {
         @ExpectThrows[IllegalTypeException](EnumConstructorInfo.get("EAnno")).getOrThrow()
     }
 
-    @Skip
     @TestCase
     func testConstructorOfInvalid() {
         @ExpectThrows[IllegalTypeException](EnumConstructorInfo.of(1)).getOrThrow()
@@ -579,6 +582,13 @@ class EnumConstructorInfoTest {
         let c2 = e.getConstructor("N2", argsCount: 1)
         @Expect(c1 == c1)
         @Expect(c1 == c2, false)
+    }
+
+    @TestCase
+    func testGetWithLambda() {
+        let t1 = EnumConstructorInfo.get("default.E7.B<Closure<(Int64) -> Bool>>")
+        let t2 = EnumTypeInfo.get("default.E7").construct("B<Closure<(Int64) -> Bool>>", [{x: Int64 => x > 0}])
+        @Expect(t1, EnumConstructorInfo.of(t2))
     }
 }
 
