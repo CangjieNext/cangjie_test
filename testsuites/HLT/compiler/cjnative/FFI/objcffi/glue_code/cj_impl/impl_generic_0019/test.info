@@ -8,5 +8,5 @@
 
 // LEVEL: 3 
 // DEPENDENCE: src
-// (iOSNative) ERRCHECK: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %enable_objc_cjmapping %interop_config src/cjworld/test.toml --link-options="-install_name @rpath/libcjworld.dylib" src/cjworld/*.cj
+// (CJNATIVE and not Windows) ERRCHECK: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %enable_objc_cjmapping %interop_config src/cjworld/test.toml src/cjworld/*.cj
 // ASSERT: scan xxx
