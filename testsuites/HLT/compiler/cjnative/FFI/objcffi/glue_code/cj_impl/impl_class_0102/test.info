@@ -8,8 +8,9 @@
  
 // LEVEL: 3 
 // DEPENDENCE: src
-// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %enable_objc_cjmapping --link-options="-install_name @rpath/libcjworld.dylib" src/cjworld/*.cj
-// (iOSNative and not iOS) RUN-EXEC: %clang %cffi_runtime_link -fmodules  objc-gen/*.m -Iobjc-gen -L. -lobjc -linteroplib.objclib -lcjworld -shared -o libgluecode.%dylib_suffix
-// (iOSNative and not iOS) RUN-EXEC: %clang %cffi_runtime_link -fobjc-arc src/objc/*.m -Isrc/objc -Iobjc-gen -L. -lcjworld -lgluecode -o %output
-// (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// (CJNATIVE and not Windows) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %enable_objc_cjmapping src/cjworld/*.cj
+// (CJNATIVE and not Windows) EXEC: %clang %cangjie_runtime_link %clang_link_core %clang_link_objc_interop  objc-gen/*.m -fmodules  -Iobjc-gen -L. -lcjworld -shared -o libgluecode.%dylib_suffix
+// (CJNATIVE and not Windows) EXEC: %clang %cangjie_runtime_link %clang_link_core -fobjc-arc -L. -lgluecode src/objc/*.m -Isrc/objc -Iobjc-gen -o %output
+// (CJNATIVE and not Windows) EXEC: test -f libcjworld.dylib || cp libcjworld.%dylib_suffix libcjworld.dylib
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan-5 in cj, 1
