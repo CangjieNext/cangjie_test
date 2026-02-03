@@ -13,10 +13,20 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         S* s = [[S alloc] init];
-        A* a1 = [s f];
-        A* a2 = s.p;
-        [a1 f];
-        [a2 f];
+
+        [[s f] f];
+
+        [S.stA f];
+        [S.stConstA f];
+        [S.stP f];
+        [S.stMutP f];
+
+        [s.a f];
+        [s.implicitA f];
+        [s.constA f];
+
+        [s.p f];
+        [s.mutP f];
     }
     return 0;
 }
