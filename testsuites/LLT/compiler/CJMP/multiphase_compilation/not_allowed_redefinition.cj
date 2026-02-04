@@ -24,8 +24,16 @@ specific func foo() {}
 /*SCAN
 error: function 'foo' has overload conflicts
  ==> p/p.cj:5:15:
+  | 
+5 | specific func foo() {}
+  |               ^^^ 
+  | 
 note: conflict with the declaration
  ==> p/p.cj:4:13:
+  | 
+4 | common func foo() {}
+  |             ^^^ 
+  | 
 
 1 error generated, 1 error printed.
 */
