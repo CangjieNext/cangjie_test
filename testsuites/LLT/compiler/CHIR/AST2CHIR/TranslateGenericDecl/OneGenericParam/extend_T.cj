@@ -1,6 +1,6 @@
 // LEVEL: 0
-// EXEC: %compiler --disable-inst %f -o %output || true
-// ASSERT: scan disable instantiation, CHIR2 translation done.
+// EXEC: %compiler %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 interface I {
     func foo(): Unit

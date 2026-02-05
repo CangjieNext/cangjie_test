@@ -1,6 +1,8 @@
 // LEVEL: 0
-// EXEC: %compiler --disable-inst %f -o %output || true
-// ASSERT: scan disable instantiation, CHIR2 translation done.
+// EXEC-PIPE-1: %compiler %f -o %output 2>&1 | compare %f
+// ASSERT: scan the upper bound 'Int64' of generic parameter 'Generics-U' must be class or interface
+// ASSERT: scan the upper bound 'Int64' of generic parameter 'Generics-N' must be class or interface
+// ASSERT: scan cannot convert an integer literal to type 'Generics-N'
 
 var x: Int64 = 1
 interface I {
