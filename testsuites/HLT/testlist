@@ -13,3 +13,8 @@ regression/
 Runtime/
 
 [EXCLUDE-TEST-CASE]
+
+# cangjie_compiler issue#566
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
