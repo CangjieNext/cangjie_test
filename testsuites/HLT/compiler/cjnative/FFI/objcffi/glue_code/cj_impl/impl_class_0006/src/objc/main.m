@@ -15,6 +15,10 @@ int main(int argc, char** argv) {
         A* a0 = [a foo: 12];
         signed char result = [a0 getValue];
         printf("result = %hhd\n", result);
+        A* a1 = [[A alloc] init: 128: 129];
+        printf("result = %hhd\n", [a1 getValue]);
+        printf("result N = %zd\n", [a1 getValueN: 228]);
+        printf("result UN = %zu\n", [a1 getValueUN: 229]);
     }
     return 0;
 }

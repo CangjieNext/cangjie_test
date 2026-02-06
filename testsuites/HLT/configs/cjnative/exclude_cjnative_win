@@ -424,3 +424,8 @@ API\std\time\Time\test_parse_054.cj
 API\std\time\Time\test_parse_055.cj
 compiler\cjnative\FFI\cffi\c_ffi_005\c_ffi_00516n\c_ffi.cj
 compiler\cjnative\FFI\cffi\c_ffi_012\c_ffi_01201\c_ffi_main.cj
+
+# cjmp
+# While Cangjie toolchain for windows does not contain interop library
+# ObjectiveC interop tests should be excluded
+compiler/cjnative/FFI/objcffi/glue_code

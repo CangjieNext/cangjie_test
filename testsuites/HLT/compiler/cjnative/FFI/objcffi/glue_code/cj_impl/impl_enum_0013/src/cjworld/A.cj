@@ -13,5 +13,7 @@ import objc.lang.*
 public enum A {
     | E1
     public func f1(a: A): A {a}
+    public func implicitf1(a: A) {a}
     public func f2() {1}
+    public static func stF1(a: A): A {a}
 }
