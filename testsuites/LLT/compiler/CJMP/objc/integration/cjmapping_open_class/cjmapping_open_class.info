@@ -9,7 +9,6 @@
 // (CJNATIVE and not Windows) DEPENDENCE: ../Cangjie.h
 // (CJNATIVE and not Windows) DEPENDENCE: ../%n
 // (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %compiler %compile_shared_lib_opt %overflowOpt %enable_objc_cjmapping -p src/cjworld %import_objc_interop
-// (CJNATIVE and Linux) RUN-EXEC-0: %cd %n && sed -i "s/\.dylib/\.so/g" objc-gen/*
 // (CJNATIVE and not Windows) EXEC: %cd %n && %clang %cangjie_runtime_link %clang_link_core %clang_link_objc_interop  objc-gen/*.m -I../ -Iobjc-gen -L. -lcjworld -shared -o libgluecode.%dylib_suffix
 // (CJNATIVE and not Windows) EXEC: %cd %n && %clang %cangjie_runtime_link %clang_link_core -fobjc-arc -L. -lgluecode src/objc/*.m -Isrc/objc -I../ -Iobjc-gen -o main
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && %run %run_opt ./main %run_args 2>&1 | compare %f
