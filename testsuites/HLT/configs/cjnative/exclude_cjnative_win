@@ -422,3 +422,10 @@ compiler/cjnative/stable_abi/07_extend/01_add_delete/add/01_extend_add_extend_pu
 Tools\cjpm\stdx\stdx_c\check_01\check_01.info
 Tools\cjpm\stdx\stdx_c\tree_01\tree_01.info
 
+# https://gitcode.com/Cangjie/cangjie_test/issues/286
+Tools/cjlint/rules/organization_name/G_PKG_01/g_pkg_01_023/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10002/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10005/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10007/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10020/g_nam_01_10020.info
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10023/g_nam_01_10023.info
