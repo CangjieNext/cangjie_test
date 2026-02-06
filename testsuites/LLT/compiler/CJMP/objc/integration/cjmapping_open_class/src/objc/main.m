@@ -26,6 +26,16 @@ int main(int argc, char** argv) {
 
 		BB* b = [[BB alloc] init];
 		[b hello];
+
+		B* retB = [a1 fooRetB:1];
+		printf("in oc main, got B(non-open) as a result of fooRetB\n");
+		int64_t r4 = [a1 fooParamB:retB];
+		printf("in oc main, when this retB is used as param for fooParamB the result is %lld\n", r4);
+
+		B* sretB = [A sfooRetB:2];
+		printf("in oc main, got B(non-open) as a result of sfooRetB\n");
+		int64_t r5 = [A sfooParamB:retB];
+		printf("in oc main, when this sretB is used as param for sfooParamB the result is %lld\n", r5);
 	}
 	return 0;
 }
