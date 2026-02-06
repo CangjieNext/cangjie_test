@@ -43,3 +43,15 @@ compiler/cjnative/Packages/org_name/package_decl/no_package_name_2.cj
 
 # https://gitcode.com/Cangjie/cangjie_test/issues/315
 compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_05n.cj
+
+# cjmp
+# only this exclude file from cangjie_test repo is used for linux_x86_64
+# While Cangjie toolchain for linux_x86_64 does not contain interop library
+# ObjectiveC interop tests should be excluded
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl
+
+# cjmp
+# https://gitcode.com/Cangjie/cangjie_compiler/issues/566
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
