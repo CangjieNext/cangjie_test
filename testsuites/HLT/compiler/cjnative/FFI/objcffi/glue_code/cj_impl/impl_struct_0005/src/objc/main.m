@@ -11,7 +11,10 @@
 
 int main(int argc, char** argv) {
     @autoreleasepool {
-        A* a = [[A alloc] init:1 :3.14 :true];
+        A* a1 = [[A alloc] init:8];
+        A* a2 = [[A alloc] init:16 :32];
+        A* a3 = [[A alloc] init:1 :3.14 :true];
+        A* a4 = [[A alloc] init:9 :17 :33 :65 :128 :129 :3.15];
     }
     return 0;
 }

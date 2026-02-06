@@ -12,7 +12,12 @@ import objc.lang.*
 
 public class A {
     public static func foo(p0: Bool): Unit {
-        println("A.foo")
-        println("p0 = ${p0}")
+        println("A.foo(${p0})")
+    }
+    public static func foo(p0: Int16, p1: IntNative): Unit {
+        println("A.foo(${p0}, ${p1})")
+    }
+    public static func foo(p0: UInt8, p1: UInt16, p2: UInt32, p3: UInt64, p4: UIntNative): Unit {
+        println("A.foo(${p0}, ${p1}, ${p2}, ${p3}, ${p4})")
     }
 }

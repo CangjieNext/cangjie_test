@@ -23,8 +23,22 @@ int main(int argc, char** argv) {
     @autoreleasepool {
         id<I> a = [[M alloc] init];
         S* s = [[S alloc] init: a];
-        [s f1: a];
-        [S f2: a];
+        a = [S f2: a];
+        a = [s f1: a];
+        a = [s implicitf1: a];
+        a = [s mutf1: a];
+        [a f];
+
+        [s.i f];
+        [s.constI f];
+        [s.p f];
+        [s.mutP f];
+
+        [S initStI: a];
+        [S.stI f];
+        [S.stConstI f];
+        [S.stP f];
+        [S.stMutP f];
     }
     return 0;
 }
