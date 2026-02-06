@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
         [a3 f];
         [a4 f];
         [a5 f];
-        [a4 g];
+        [(M2*)a4 g];
         [a5 g];
     }
     return 0;

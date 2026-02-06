@@ -11,7 +11,12 @@ package cjworld
 import objc.lang.*
 
 public struct A {
-    public var a: B = B()
+    public var b: B = B()
+    public var implicitB = B()
+    public let constB: B = B()
+
+    public prop p: B {get(){b}}
+    public mut prop mutP: B {get(){b} set(v) { b = v }}
 }
 
 public struct B {

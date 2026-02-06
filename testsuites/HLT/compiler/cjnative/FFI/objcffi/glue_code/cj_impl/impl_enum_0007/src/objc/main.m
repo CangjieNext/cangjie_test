@@ -12,7 +12,17 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [A E1];
-        [a f: 1];
+        [a f8: 8];
+        [a f16: 16];
+        [a f32: 32];
+        [a f64: 64];
+        [a fN: 128];
+
+        [A stf8: 8];
+        [A stf16: 16];
+        [A stf32: 32];
+        [A stf64: 64];
+        [A stfN: 128];
     }
     return 0;
 }
