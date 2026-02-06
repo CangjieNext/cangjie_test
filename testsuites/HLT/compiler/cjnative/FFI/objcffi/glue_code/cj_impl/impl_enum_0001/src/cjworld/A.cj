@@ -12,7 +12,10 @@ import objc.lang.*
 
 public enum A {
     | E1
-    public func f() {
+    public func f(): Unit {
         println("in cj enum")
+    }
+    public func implicitf() {
+        println("in cj enum implicit")
     }
 }

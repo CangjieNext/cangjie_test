@@ -19,4 +19,7 @@ public enum A {
 public struct S {
     public init(a: A) {a.f()}
     public func f(a: A) {a.f()}
+    public func implicitF(a: A) {a.f(); a}
+    public mut func mutF(a: A): A {a.f(); a}
+    public static func stF(a: A): A {a.f(); a}
 }

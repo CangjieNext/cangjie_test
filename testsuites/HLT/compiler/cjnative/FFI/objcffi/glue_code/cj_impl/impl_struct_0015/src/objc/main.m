@@ -14,7 +14,10 @@ int main(int argc, char** argv) {
     @autoreleasepool {
         B* b = [[B alloc] init];
         A* a = [[A alloc] init];
+        b = [A stFoo: b];
+        b = [a mutFoo: b];
         [a foo: b];
+
     }
     return 0;
 }
