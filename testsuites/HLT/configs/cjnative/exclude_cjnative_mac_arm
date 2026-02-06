@@ -71,3 +71,8 @@ compiler/cjnative/Packages/cjmp/cjmp_11045/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_14006/test.cj
 compiler/cjnative/stable_abi/07_extend/01_add_delete/add/01_extend_add_extend_public.cj
 
+# cjmp
+# https://gitcode.com/Cangjie/cangjie_compiler/issues/566
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info

@@ -61,3 +61,9 @@ Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10005/test.cj
 Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10007/test.cj
 Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10020/g_nam_01_10020.info
 Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10023/g_nam_01_10023.info
+
+# cjmp
+# https://gitcode.com/Cangjie/cangjie_compiler/issues/566
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info

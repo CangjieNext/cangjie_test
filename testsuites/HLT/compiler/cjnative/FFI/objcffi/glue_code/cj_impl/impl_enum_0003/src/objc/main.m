@@ -11,8 +11,14 @@
 
 int main(int argc, char** argv) {
     @autoreleasepool {
-        A* a = [A E1: true];
-        [a f];
+        [[A EBool: true] f];
+        [[A Eu8: 1] f];
+        [[A Eu16: 1] f];
+        [[A Eu32: 1] f];
+        [[A Eu64: 1] f];
+        [[A EuN: 1] f];
+        [[A Ef32: 3.15] f];
+        [[A Ef64: 3.14] f];
     }
     return 0;
 }
