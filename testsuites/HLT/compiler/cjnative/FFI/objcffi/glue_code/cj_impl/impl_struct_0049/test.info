@@ -7,8 +7,38 @@
  */
  
 // LEVEL: 3 
+// DEPENDENCE: ../../../../../../../../../Conformance/CJMP/Cangjie.h
 // DEPENDENCE: src
-// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %enable_objc_cjmapping --link-options="-install_name @rpath/libcjworld.dylib" src/cjworld/*.cj
-// (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
-// (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// (CJNATIVE and not Windows) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %enable_objc_cjmapping src/cjworld/*.cj
+// (CJNATIVE and not Windows) EXEC: %clang %cangjie_runtime_link %clang_link_core %clang_link_objc_interop  objc-gen/*.m  -Iobjc-gen -L. -lcjworld -shared -o libgluecode.%dylib_suffix
+// (CJNATIVE and not Windows) EXEC: %clang %cangjie_runtime_link %clang_link_core -fobjc-arc -L. -lgluecode src/objc/*.m -Isrc/objc -Iobjc-gen -o %output
+// (CJNATIVE and not Windows) RUN-EXEC: test -f libcjworld.dylib || cp libcjworld.%dylib_suffix libcjworld.dylib
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan in oc main, 2
+// ASSERT: scan in cangjie getUnit()
+// ASSERT: scan in cangjie getI8(8)
+// ASSERT: scan in oc got 8
+// ASSERT: scan in cangjie getI16(16)
+// ASSERT: scan in oc got 16
+// ASSERT: scan in cangjie getI32(32)
+// ASSERT: scan in oc got 32
+// ASSERT: scan in cangjie getI64(64)
+// ASSERT: scan in oc got 64
+// ASSERT: scan in cangjie getIN(128)
+// ASSERT: scan in oc got 128
+// ASSERT: scan in cangjie getUI8(9)
+// ASSERT: scan in oc got 9
+// ASSERT: scan in cangjie getUI16(17)
+// ASSERT: scan in oc got 17
+// ASSERT: scan in cangjie getUI32(33)
+// ASSERT: scan in oc got 33
+// ASSERT: scan in cangjie getUI64(65)
+// ASSERT: scan in oc got 65
+// ASSERT: scan in cangjie getUIN(129)
+// ASSERT: scan in oc got 129
+// ASSERT: scan in cangjie getBool(true)
+// ASSERT: scan in oc got true
+// ASSERT: scan in cangjie getF32(3.150000)
+// ASSERT: scan in oc got 3.150000
+// ASSERT: scan in cangjie getF64(3.140000)
+// ASSERT: scan in oc got 3.140000

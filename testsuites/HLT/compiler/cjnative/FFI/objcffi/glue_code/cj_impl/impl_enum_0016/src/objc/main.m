@@ -12,8 +12,24 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [A E1];
-        bool v = a.p;
-        printf("in oc, %s\n", v?"true":"false");
+
+        printf("in oc, %s\n", a.p?"true":"false");
+        printf("in oc, %d\n", a.p8);
+        printf("in oc, %hd\n", a.p16);
+        printf("in oc, %d\n", a.p32);
+        printf("in oc, %lld\n", a.p64);
+        printf("in oc, %zd\n", a.pN);
+        printf("in oc, %f\n", a.pf32);
+        printf("in oc, %f\n", a.pf64);
+
+        printf("in oc st, %s\n", A.stP?"true":"false");
+        printf("in oc st, %d\n", A.stP8);
+        printf("in oc st, %hd\n", A.stP16);
+        printf("in oc st, %d\n", A.stP32);
+        printf("in oc st, %lld\n", A.stP64);
+        printf("in oc st, %zd\n", A.stPN);
+        printf("in oc st, %f\n", A.stPf32);
+        printf("in oc st, %f\n", A.stPf64);
     }
     return 0;
 }

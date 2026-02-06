@@ -42,3 +42,9 @@ compiler/cjnative/Packages/cjmp/cjmp_16009/test.cj
 # https://gitcode.com/Cangjie/cangjie_test/issues/315
 compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_05n.cj
 compiler/cjnative/Chir/CompileOption/plugin/runplugin/plugin5/runplugin.cj
+
+# cjmp
+# https://gitcode.com/Cangjie/cangjie_compiler/issues/566
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
