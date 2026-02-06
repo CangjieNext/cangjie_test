@@ -413,3 +413,8 @@ compiler\cjnative\FFI\cffi\c_ffi_099\conflict\conflict_6.cj
 compiler\cjnative\FFI\cffi\c_ffi_099\conflict\conflict_7.cj
 compiler\cjnative\FFI\cffi\c_ffi_099\conflict\conflict_8.cj
 compiler\cjnative\FFI\cffi\c_ffi_099\conflict\conflict_9.cj
+
+# cjmp
+# While Cangjie toolchain for windows does not contain interop library
+# ObjectiveC interop tests should be excluded
+compiler/cjnative/FFI/objcffi/glue_code

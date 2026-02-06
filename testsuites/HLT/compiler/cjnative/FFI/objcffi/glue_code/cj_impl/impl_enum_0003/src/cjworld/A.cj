@@ -11,7 +11,14 @@ package cjworld
 import objc.lang.*
 
 public enum A {
-    | E1(Bool)
+    | EBool(Bool)
+    | Eu8(UInt8)
+    | Eu16(UInt16)
+    | Eu32(UInt32)
+    | Eu64(UInt64)
+    | EuN(UIntNative)
+    | Ef32(Float32)
+    | Ef64(Float64)
     public func f() {
         println("in cj enum")
     }
