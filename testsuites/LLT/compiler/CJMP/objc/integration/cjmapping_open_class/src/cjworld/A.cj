@@ -59,26 +59,36 @@ public open class A <: Base {
         sfoo(x) + y
     }
 
-    // Not supported members: member with open class type
-    // method with class parameter
-    public func fooParamA(x: A): Int64 {
-        println("A fooParamA(A)")
-        1
-    }
-    // method with class return
-    public func fooRetA(x: Int64): A {
-        println("A fooRetA(Int64)")
-        A()
-    }
-
     public func fooParamB(x: B): Int64 {
         println("A fooParamB(B)")
         1
     }
 
     public func fooRetB(x: Int64): B {
-        println("A fooRetA(Int64)")
+        println("A fooRetB(Int64): get ${x}")
         B()
+    }
+
+    public static func sfooParamB(x: B): Int64 {
+        println("A sfooParamB(B)")
+        2
+    }
+
+    public static func sfooRetB(x: Int64): B {
+        println("A sfooRetB(Int64): get ${x}")
+        B()
+    }
+
+    // Not supported members: member with open class type
+    // method with open class parameter
+    public func fooParamA(x: A): Int64 {
+        println("A fooParamA(A)")
+        1
+    }
+    // method with class return
+    public func fooRetA(x: Int64): A {
+        println("A fooRetA(Int64): get ${x}")
+        A()
     }
 
     // member var
