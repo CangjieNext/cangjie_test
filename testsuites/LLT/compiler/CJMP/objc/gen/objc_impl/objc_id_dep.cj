@@ -5,7 +5,6 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and not Windows) RUN-EXEC-0: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %overflowOpt %import_objc_interop
-// (CJNATIVE and Linux) RUN-EXEC-0: sed -i "s/\.dylib/\.so/g" objc-gen/*
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./objc-gen/A.m | compare %f
 
 // ASSERT: scan-not #import "ObjCId.h"
