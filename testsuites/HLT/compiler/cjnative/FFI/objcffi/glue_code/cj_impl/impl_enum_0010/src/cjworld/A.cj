@@ -15,4 +15,7 @@ public enum A {
     public func f(a: A, b: Int64, c: Bool) {
         println("in cj enum, ${a is A}, ${b}, ${c}")
     }
+    public func f(a: Int8, b: Int16) {
+        println("in cj enum, ${a}, ${b}")
+    }
 }
