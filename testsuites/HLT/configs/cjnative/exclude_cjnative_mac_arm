@@ -56,3 +56,8 @@ compiler/cjnative/Packages/org_name/package_decl/no_package_name_0.cj
 compiler/cjnative/Packages/org_name/package_decl/no_package_name_1.cj
 compiler/cjnative/Packages/org_name/package_decl/no_package_name_2.cj
 
+# cjmp
+# https://gitcode.com/Cangjie/cangjie_compiler/issues/566
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
+compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
