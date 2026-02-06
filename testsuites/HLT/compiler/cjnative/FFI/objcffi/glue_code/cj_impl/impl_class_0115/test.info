@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+// LEVEL: 3 
+// DESCRIPTION: open class is used in struct
+// DEPENDENCE: ../../../../../../../../../Conformance/CJMP/Cangjie.h
+// DEPENDENCE: src
+// (CJNATIVE and not Windows) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %enable_objc_cjmapping src/cjworld/*.cj
+// (CJNATIVE and not Windows) EXEC: %clang %cangjie_runtime_link %clang_link_core %clang_link_objc_interop  objc-gen/*.m  -Iobjc-gen -L. -lcjworld -shared -o libgluecode.%dylib_suffix
+// (CJNATIVE and not Windows) EXEC: %clang %cangjie_runtime_link %clang_link_core -fobjc-arc -L. -lgluecode src/objc/*.m -Isrc/objc -Iobjc-gen -o %output
+// (CJNATIVE and not Windows) EXEC: test -f libcjworld.dylib || cp libcjworld.%dylib_suffix libcjworld.dylib
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// SKIPASSERT: scan in cj Opencls(11).f()
+// SKIPASSERT: scan in cj Opencls(12).f()
+// SKIPASSERT: scan in cj Opencls(13).f()
+// SKIPASSERT: scan in cj Opencls(14).f()
+// SKIPASSERT: scan in oc n.getV got 15
+// ASSERT: scan in oc n.getV got 11
+// ASSERT: scan in cj Opencls(31).f()
+// ASSERT: scan in cj Opencls(21).f()
+// ASSERT: scan in cj Opencls(666).f()
+// ASSERT: scan in cj Opencls(667).f()
+// ASSERT: scan in cj Opencls(668).f()
+// ASSERT: scan in cj Opencls(71).f()
+// ASSERT: scan in cj Opencls(91).f()
+// ASSERT: scan in cj Opencls(92).f()
+// ASSERT: scan in cj Opencls(93).f()

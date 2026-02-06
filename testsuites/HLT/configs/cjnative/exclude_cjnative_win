@@ -403,3 +403,8 @@ Tools\cjpm\source_set\source_set003\source_set_identifier002
 # flaky tests with ACCESS VIOLATION on windows
 Tools\cjpm\stdx\stdx_c\check_01\check_01.info
 Tools\cjpm\stdx\stdx_c\tree_01\tree_01.info
+
+# cjmp
+# While Cangjie toolchain for windows does not contain interop library
+# ObjectiveC interop tests should be excluded
+compiler/cjnative/FFI/objcffi/glue_code
