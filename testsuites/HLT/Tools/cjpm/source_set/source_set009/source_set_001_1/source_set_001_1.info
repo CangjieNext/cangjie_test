@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// (host_win)EXEC-PIPE-1: cd %n && %cjpm run -V  2>&1 | compare %f
+// (!host_win)EXEC: cd %n && %cjpm run -V  2>&1 | compare %f
+// (!host_win)ASSERT: regex foo:[Linux|Darwin|ohos]
+// (!host_win)ASSERT: scan cjpm run finished
+// (host_win)ASSERT: regex Error: failed to compile `.[/|\\]src[/|\\]windows[/|\\]product` part of package `mp`, return code is 1
+// (host_win)ASSERT: scan Error: cjpm run failed
