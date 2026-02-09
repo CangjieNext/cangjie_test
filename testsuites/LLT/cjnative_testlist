@@ -20,7 +20,7 @@ compiler/CHIR/RemoveRedundantRet
 compiler/CHIR/ScalarReplacementOfArray
 compiler/CHIROpt
 compiler/Parser/declFile
-compiler/IncrementalCompilation
+compiler\IncrementalCompilation\DeclLevel
 compiler/FFI/ffi_python
 
 # no perf and gnuplot
