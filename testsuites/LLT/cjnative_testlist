@@ -60,14 +60,8 @@ API/std/unittest/macro_test_no_remove_mod.cj
 compiler/Macro/sema/cfunc.cj
 
 ## CJMP testcases
-compiler/CJMP/frontend/common_declarations/enum/member_function_without_type.cj
-compiler/CJMP/frontend/common_declarations/function/return_type_even_with_implementation.cj
-compiler/CJMP/frontend/matching/class/matching_rules/class_level/definition_match/generics_constraints_not_match.cj
 compiler/CJMP/frontend/matching/class/matching_rules/class_level/definition_match/generics_not_match.cj
-compiler/CJMP/frontend/matching/class/matching_rules/member_level/prop_abstractness/common_abstract_prop_in_abstract_class.cj
-compiler/CJMP/frontend/matching/class/matching_rules/member_level/prop_abstractness/common_open_prop_in_abstract_class.cj
 compiler/CJMP/frontend/matching/class/new_members/new_required_constructor.cj
-compiler/CJMP/frontend/matching/enum/matching_rules/enum_level/definition_match/generics_constraints_not_match.cj
 compiler/CJMP/frontend/matching/enum/matching_rules/enum_level/definition_match/generics_not_match.cj
 compiler/CJMP/frontend/matching/struct/new_members/new_required_constructor.cj
 compiler/CJMP/merging/structs/common_member/function/function_ret_09.cj
@@ -188,7 +182,6 @@ compiler/CJMP/java/integration/non-public-struct/non-public-struct.info
 compiler/CJMP/compilation/several_parents/merging_initializers_big_case.cj
 compiler/CJMP/multiphase_compilation/3step_generic.cj
 compiler/CJMP/compilation/common_part_part_should_be_specified.cj
-compiler/CJMP/compilation/wrong_chir.cj
 compiler/CJMP/frontend/common_declarations/class/platform_in_common.cj
 compiler/CJMP/frontend/common_declarations/function/specific_func_in_commonfile.cj
 compiler/CJMP/frontend/extend/negative/check_specific/interface_extension_05/interface_extension_05_06.cj
