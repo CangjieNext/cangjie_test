@@ -19,18 +19,18 @@ public  common class A {
 package cmp
 
 
-public platform class A {
-    public platform A() {
+public specific class A {
+    public specific A() {
     }
 }
 
 /* SCAN
-error: unexpected modifier 'platform' on primary constructor
+error: unexpected modifier 'specific' on primary constructor
  ==> p/p.cj:6:12:
   | 
-5 | public platform class A {
+5 | public specific class A {
   |                 ~~~~~ in class
-6 |     public platform A() {
+6 |     public specific A() {
   |            ^^^^^^^^ ~ on primary constructor
   |            |
   |            unexpected modifier

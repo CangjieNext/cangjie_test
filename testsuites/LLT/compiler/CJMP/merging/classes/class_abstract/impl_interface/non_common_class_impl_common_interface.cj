@@ -20,7 +20,7 @@ public class C2 <: I1 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform interface I1 {}
+specific interface I1 {}
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor -j8 m_common.cj --import-path=./p -L./p -lcmp -o %output

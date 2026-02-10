@@ -24,9 +24,9 @@ public func boo() {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
-    public platform func foo(a!: Array<Int64>): Unit {
-        println("platform a = ${a}")
+public specific class A {
+    public specific func foo(a!: Array<Int64>): Unit {
+        println("specific a = ${a}")
     }
 }
 
@@ -45,8 +45,8 @@ main(): Unit {
 }
 
 /* SCAN
-platform a = [0]
-platform a = [1]
+specific a = [0]
+specific a = [1]
 */
 
 // SEPARATE-FILE: m_platform.cj
@@ -60,5 +60,5 @@ main(): Unit {
 }
 
 /* SCAN
-platform a = [2]
+specific a = [2]
 */

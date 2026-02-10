@@ -8,9 +8,9 @@
  
 package mp
 
-public platform class A {
+public specific class A {
     public func f2(): Int64 { 3 }
-    public platform func f(): Int64 { 0 }
+    public specific func f(): Int64 { 0 }
 }
 public func test_plat() { A().f() + A().f1() + A().f2() }
 

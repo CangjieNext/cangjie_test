@@ -16,7 +16,7 @@ func foo() {
 }
 
 public common class A {
-    public common static var x: Int = foo() // THIS `foo` should not be called, because platform exists
+    public common static var x: Int = foo() // THIS `foo` should not be called, because specific exists
     // y -> x BUT x CAN BE INITIALIZED ONLY AFTER c.cj INITIALIZED,
     // SO, THERE IS CIRCULAR DEPENDENCY THAT CAN BE DETECTED ONLY WHEN COMPILING PLATFORM
     public static var y = x
@@ -27,9 +27,9 @@ public common class A {
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
  
-public platform class A {
+public specific class A {
     // p.cj -> c.cj BECAUSE OF x -> foo -> _foo
-    public platform static var x: Int = foo()
+    public specific static var x: Int = foo()
 }
 
 /* SCAN

@@ -18,8 +18,8 @@ public common interface I {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform interface I {
-    platform func foo1(): Unit { println("I::foo1 platform") }
+public specific interface I {
+    specific func foo1(): Unit { println("I::foo1 specific") }
 }
 
 public open class A <: I {
@@ -37,5 +37,5 @@ main() {
 }
 
 /* SCAN
-I::foo1 platform
+I::foo1 specific
 */

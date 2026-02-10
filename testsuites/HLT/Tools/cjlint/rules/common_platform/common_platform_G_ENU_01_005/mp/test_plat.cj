@@ -8,5 +8,5 @@
 
 package mp
 
-platform enum D { mp | ELEMENT2 | ELEMENT3 }
-platform enum E { mp | ELEMENT2 | ELEMENT3 | ... }
+specific enum D { mp | ELEMENT2 | ELEMENT3 }
+specific enum E { mp | ELEMENT2 | ELEMENT3 | ... }

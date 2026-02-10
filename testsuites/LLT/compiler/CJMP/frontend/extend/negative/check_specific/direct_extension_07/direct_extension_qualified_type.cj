@@ -40,11 +40,11 @@ public func f1() {
 // EXEC-PIPE-1: %compiler %noColor --experimental mp/test_plat.cj -L ./mp1 -lmp1  ./mp/mp.chir --common-part-cjo=./mp/mp.cjo  --output-type=dylib --output-dir ./mp  2>&1 | compare %f
 package mp
 
-platform extend<T> mp1.A<T> {
-    public platform func foo1(a: B<Int64>) {
+specific extend<T> mp1.A<T> {
+    public specific func foo1(a: B<Int64>) {
         a.a + 1
     }
-    public platform static func foo2(a: B<Int64>) {
+    public specific static func foo2(a: B<Int64>) {
         a.a + 1
     }
 }
@@ -59,43 +59,43 @@ main() {}
 error: undeclared type name 'mp1'
  ==> mp/test_plat.cj:4:20:
   | 
-4 | platform extend<T> mp1.A<T> {
+4 | specific extend<T> mp1.A<T> {
   |                    ^ 
   | 
 
 error: undeclared type name 'A'
  ==> mp/test_plat.cj:4:24:
   | 
-4 | platform extend<T> mp1.A<T> {
+4 | specific extend<T> mp1.A<T> {
   |                        ^ 
   | 
 
-error: 'platform' function 'foo1' can not find 'common' match
+error: 'specific' function 'foo1' can not find 'common' match
  ==> mp/test_plat.cj:5:5:
   | 
-5 |       public platform func foo1(a: B<Int64>) {
+5 |       public specific func foo1(a: B<Int64>) {
   |  _____^
 6 | |         a.a + 1
 7 | |     }
   | |_____^
   | 
 
-error: 'platform' function 'foo2' can not find 'common' match
+error: 'specific' function 'foo2' can not find 'common' match
   ==> mp/test_plat.cj:8:5:
    | 
-8  |       public platform static func foo2(a: B<Int64>) {
+8  |       public specific static func foo2(a: B<Int64>) {
    |  _____^
 9  | |         a.a + 1
 10 | |     }
    | |_____^
    | 
 
-error: 'platform' extend '' can not find 'common' match
+error: 'specific' extend '' can not find 'common' match
   ==> mp/test_plat.cj:4:10:
    | 
-4  |   platform extend<T> mp1.A<T> {
+4  |   specific extend<T> mp1.A<T> {
    |  __________^
-5  | |     public platform func foo1(a: B<Int64>) {
+5  | |     public specific func foo1(a: B<Int64>) {
    | | ...
 11 | | }
    | |_^

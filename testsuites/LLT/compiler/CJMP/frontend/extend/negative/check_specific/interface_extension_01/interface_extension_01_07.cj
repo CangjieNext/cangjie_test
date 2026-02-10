@@ -17,5 +17,5 @@ package cmp
 
 interface SA{}
 
-platform extend Int64 <: IA {}
+specific extend Int64 <: IA {}
 extend Int64 <: SA {}

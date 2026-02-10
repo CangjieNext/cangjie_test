@@ -29,14 +29,14 @@ public func runCommon() {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform interface I {
-    func foo6(): Unit { println("foo6 of I in platform") }
-    func foo7(): Unit { println("foo7 of I in platform") }
+public specific interface I {
+    func foo6(): Unit { println("foo6 of I in specific") }
+    func foo7(): Unit { println("foo7 of I in specific") }
 }
 
-public open platform class A <: I2 {
-    public func foo7(): Unit { println("foo7 of A in platform") }
-    public func foo6(): Unit { println("foo6 of A in platform") }
+public open specific class A <: I2 {
+    public func foo7(): Unit { println("foo7 of A in specific") }
+    public func foo6(): Unit { println("foo6 of A in specific") }
 }
 
 public func runPlatform() {
@@ -55,8 +55,8 @@ main() {
 }
 
 /* SCAN
-foo6 of A in platform
-foo7 of A in platform
+foo6 of A in specific
+foo7 of A in specific
 */
 
 // SEPARATE-FILE: m_platform.cj
@@ -71,8 +71,8 @@ main() {
 
 
 /* SCAN
-foo6 of A in platform
-foo7 of A in platform
-foo6 of A in platform
-foo7 of A in platform
+foo6 of A in specific
+foo7 of A in specific
+foo6 of A in specific
+foo7 of A in specific
 */

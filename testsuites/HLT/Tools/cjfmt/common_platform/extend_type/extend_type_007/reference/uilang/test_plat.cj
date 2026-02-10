@@ -12,8 +12,8 @@ public interface Add<T1, T2> {
     operator func +(right: T1): T2
 }
 
-platform extend Rune <: Add<Rune, UInt32> {
-    platform public operator func +(right: Rune): UInt32 {
+specific extend Rune <: Add<Rune, UInt32> {
+    specific public operator func +(right: Rune): UInt32 {
         UInt32(this) + UInt32(right)
     }
 }

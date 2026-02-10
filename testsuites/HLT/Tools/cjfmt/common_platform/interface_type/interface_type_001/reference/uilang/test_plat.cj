@@ -8,11 +8,11 @@
 
 package mp
 
-platform public interface I1 {
-    platform func f(): Int64 {
+specific public interface I1 {
+    specific func f(): Int64 {
         1
     }
-    platform static func f2(): Int64 {
+    specific static func f2(): Int64 {
         1
     }
 }

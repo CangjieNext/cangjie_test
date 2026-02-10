@@ -8,7 +8,7 @@
  
 package mp
 
-platform sealed abstract class A {}
+specific sealed abstract class A {}
 public func test_plat() { C.f1() + C().f2() }
 
 

@@ -8,12 +8,12 @@
 
 package mp
 
-public platform interface I {}
+public specific interface I {}
 
-public platform struct Foo <: I {
+public specific struct Foo <: I {
     public var v = 0
-    public platform mut func f(): Unit {
+    public specific mut func f(): Unit {
         v += 1
     }
-    public platform init() {}
+    public specific init() {}
 }

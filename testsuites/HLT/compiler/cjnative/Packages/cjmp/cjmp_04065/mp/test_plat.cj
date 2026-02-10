@@ -8,8 +8,8 @@
  
 package mp
 
-public platform class A {
-    public platform var a: Int64 = 0
+public specific class A {
+    public specific var a: Int64 = 0
 }
 
 

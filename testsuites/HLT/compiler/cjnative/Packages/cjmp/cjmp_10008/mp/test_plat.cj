@@ -10,6 +10,6 @@ package mp
 
 import mp1.*
 
-public platform func f(): Int64 { f1() + f2() }
+public specific func f(): Int64 { f1() + f2() }
 
 

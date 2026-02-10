@@ -24,8 +24,8 @@ common  func foo(): ToString{
 package cmp
 import std.fs.File
 import std.fs.OpenMode
-platform  func foo(): ToString {
-    println("From platform member foo func")
+specific  func foo(): ToString {
+    println("From specific member foo func")
     0
 }
 main() {
@@ -34,5 +34,5 @@ main() {
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 */

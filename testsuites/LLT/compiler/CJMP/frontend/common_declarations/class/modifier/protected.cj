@@ -19,7 +19,7 @@ protected common class A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-protected platform class A {
+protected specific class A {
 }
 
 // SEPARATE-FILE: m_common.cj

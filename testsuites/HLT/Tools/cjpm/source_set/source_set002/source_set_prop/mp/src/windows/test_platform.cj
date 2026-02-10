@@ -9,8 +9,8 @@
 features { user.mp.windowsorlinux }
 package mp
 
-public platform class A {
-    public platform static prop p: Int64 {
+public specific class A {
+    public specific static prop p: Int64 {
         get() {
             0
         }

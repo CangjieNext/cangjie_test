@@ -21,10 +21,10 @@ common extend Foo {
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
-// ASSERT: scan error: 'platform' property type is not equal to 'common' type
+// ASSERT: scan error: 'specific' property type is not equal to 'common' type
 package cmp
-platform extend Foo {
-    platform prop f: Int64 {
+specific extend Foo {
+    specific prop f: Int64 {
         get() {
             println("common::extend::Foo::prop::f")
             return 0

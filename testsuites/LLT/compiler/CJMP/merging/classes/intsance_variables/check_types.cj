@@ -23,15 +23,15 @@ common func x(): A
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A <: ToString {
-    public platform let b: ?ToString = "b"
+public specific class A <: ToString {
+    public specific let b: ?ToString = "b"
 
-    public platform func toString(): String {
+    public specific func toString(): String {
         return "A"
     }
 }
 
-platform func x(): A {
+specific func x(): A {
     return A()
 }
 

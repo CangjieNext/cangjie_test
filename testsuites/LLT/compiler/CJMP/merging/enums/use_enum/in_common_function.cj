@@ -24,7 +24,7 @@ public func foo(x: TimeUnit): Unit {
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-platform public enum TimeUnit  {
+specific public enum TimeUnit  {
     | Year(UInt64)
     | Month(UInt64)
     

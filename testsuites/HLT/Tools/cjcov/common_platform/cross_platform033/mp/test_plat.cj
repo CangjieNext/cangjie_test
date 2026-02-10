@@ -8,7 +8,7 @@
  
 package mp
 
-platform sealed abstract class C1 {
-    public platform abstract func f1():Int64
-    public platform abstract prop p1:Int64
+specific sealed abstract class C1 {
+    public specific abstract func f1():Int64
+    public specific abstract prop p1:Int64
 }

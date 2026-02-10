@@ -19,10 +19,10 @@ common class A {
 // ASSERT: scan sema_overload_conflicts
 package cmp
 
-platform class A {
+specific class A {
   public func foo(input: Int64): Int64 {0}
 
-  public platform func foo(input: Int64): Unit {}
+  public specific func foo(input: Int64): Unit {}
 }
 
 

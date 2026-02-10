@@ -8,6 +8,6 @@
  
 package mp1
 
-public platform class A {}
+public specific class A {}
 
 

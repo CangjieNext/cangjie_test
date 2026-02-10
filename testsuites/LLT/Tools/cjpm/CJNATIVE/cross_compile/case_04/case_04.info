@@ -6,6 +6,6 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm init && %cjpm build --target x86_64-unknown-linux-gnu -V 2>&1 | compare %f
-// ASSERT: scan the current platform is 'x86_64-unknown-linux-gnu', the '--target' option will be ignored
+// ASSERT: scan the current specific is 'x86_64-unknown-linux-gnu', the '--target' option will be ignored
 // ASSERT: scan-1 Compiling package
 // ASSERT: scan cjpm build success

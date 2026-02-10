@@ -19,7 +19,7 @@ public common class A {
 
 package cmp
 
-public platform class A {
-    public platform init(x!: Int = 54) {}
+public specific class A {
+    public specific init(x!: Int = 54) {}
 }
 

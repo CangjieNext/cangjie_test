@@ -10,11 +10,11 @@ package mp
 
 import std.collection.*
 
-public platform  interface M {
-    public platform func foo<S>(a: S): S {
+public specific  interface M {
+    public specific func foo<S>(a: S): S {
         a
     }
-    public platform static func toString<T>(b: ArrayList<T>) where T <: ToString {
+    public specific static func toString<T>(b: ArrayList<T>) where T <: ToString {
         var res = ""
         for (s in b) {
             res += s.toString()

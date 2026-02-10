@@ -8,9 +8,9 @@
 
 package mp
 
-platform public struct A {
-    platform public init() {}
-    platform protected init(a: String) {
+specific public struct A {
+    specific public init() {}
+    specific protected init(a: String) {
         println(a)
     }
 }

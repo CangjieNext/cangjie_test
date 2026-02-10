@@ -26,12 +26,12 @@ public func runCommon() {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform interface I {
-    platform func foo6(): Unit { println("I::foo6 platform") }
+public specific interface I {
+    specific func foo6(): Unit { println("I::foo6 specific") }
 }
 
-public platform interface I2 <: I {
-    func foo6(): Unit { println("I2::foo6 platform") }
+public specific interface I2 <: I {
+    func foo6(): Unit { println("I2::foo6 specific") }
 }
 
 public func runPlatform() {
@@ -56,6 +56,6 @@ main() {
 }
 
 /* SCAN
-I2::foo6 platform
-I2::foo6 platform
+I2::foo6 specific
+I2::foo6 specific
 */

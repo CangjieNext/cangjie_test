@@ -17,7 +17,7 @@ public abstract common class A {
 // EXEC-PIPE-0: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
- sealed abstract platform class A {
-    public platform func B(): Int64 {0}
+ sealed abstract specific class A {
+    public specific func B(): Int64 {0}
 }
 

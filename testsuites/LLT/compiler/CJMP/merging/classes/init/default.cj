@@ -18,7 +18,7 @@ public common class A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {}
+public specific class A {}
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor -j8 m_common.cj --import-path=./p -L./p -lcmp -o %output

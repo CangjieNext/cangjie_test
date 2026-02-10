@@ -8,4 +8,4 @@
 
 package mp
 
-public platform struct A {}
+public specific struct A {}

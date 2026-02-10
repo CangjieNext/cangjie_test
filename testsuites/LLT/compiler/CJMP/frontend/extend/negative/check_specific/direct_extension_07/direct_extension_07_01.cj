@@ -16,5 +16,5 @@ common func foo<M, N>(m:M, n:N):Unit {}
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform func foo<T>(x:T):Unit {}
-platform func foo<M, N>(m:M, n:N):Unit {}
+specific func foo<T>(x:T):Unit {}
+specific func foo<M, N>(m:M, n:N):Unit {}

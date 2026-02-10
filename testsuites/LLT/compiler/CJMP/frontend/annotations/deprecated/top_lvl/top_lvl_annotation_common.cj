@@ -23,11 +23,11 @@ public common let glob: Bool
 // EXEC-PIPE-0: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
-public platform interface fofo {
-    platform func jojo(): Unit {}
+public specific interface fofo {
+    specific func jojo(): Unit {}
 }
-public platform func foo(): Unit {}
-public platform let glob: Bool = true
+public specific func foo(): Unit {}
+public specific let glob: Bool = true
 
 /* SCAN
 */
