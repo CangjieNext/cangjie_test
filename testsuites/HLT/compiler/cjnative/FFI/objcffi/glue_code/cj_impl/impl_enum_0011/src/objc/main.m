@@ -12,8 +12,23 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [A E1];
-        int64_t v = [a f];
-        printf("in oc, %lld\n", v);
+        printf("in oc, %d\n", [a f8]);
+        printf("in oc, %hd\n", [a f16]);
+        printf("in oc, %d\n", [a f32]);
+        printf("in oc, %lld\n", [a f64]);
+        printf("in oc, %zd\n", [a fN]);
+
+        printf("in oc implicit, %d\n", [a implicit8]);
+        printf("in oc implicit, %hd\n", [a implicit16]);
+        printf("in oc implicit, %d\n", [a implicit32]);
+        printf("in oc implicit, %lld\n", [a implicit64]);
+        printf("in oc implicit, %zd\n", [a implicitN]);
+
+        printf("in oc st, %d\n", [A stf8]);
+        printf("in oc st, %hd\n", [A stf16]);
+        printf("in oc st, %d\n", [A stf32]);
+        printf("in oc st, %lld\n", [A stf64]);
+        printf("in oc st, %zd\n", [A stfN]);
     }
     return 0;
 }

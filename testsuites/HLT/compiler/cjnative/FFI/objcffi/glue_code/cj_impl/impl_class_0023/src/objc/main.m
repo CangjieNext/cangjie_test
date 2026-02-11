@@ -18,10 +18,12 @@ int main(int argc, char** argv) {
         printf("getInt16=%d\n", [A getInt16] == INT16_MAX);
         printf("getInt32=%d\n", [A getInt32] == INT32_MAX);
         printf("getInt64=%d\n", [A getInt64] == INT64_MAX);
+        printf("getIntN=%zd\n", [A getIntN] == SSIZE_MAX);
         printf("getUInt8=%d\n", [A getUInt8] == UINT8_MAX);
         printf("getUInt16=%d\n", [A getUInt16] == UINT16_MAX);
         printf("getUInt32=%d\n", [A getUInt32] == UINT32_MAX);
         printf("getUInt64=%d\n", [A getUInt64] == UINT64_MAX);
+        printf("getUIntN=%zu\n", [A getIntUN] == SIZE_MAX);
         printf("getFloat32=%d\n", [A getFloat32] > 0.0);
         printf("getFloat64=%d\n", [A getFloat64] > 0.0);
         printf("getBool=%d\n", [A getBool] == true);
