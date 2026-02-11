@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: namespace.d.ts
-// EXEC: %run %hle_arkts -i namespace.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i namespace.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/namespace/src/namespace.cj | compare %f
 // ASSERT: scan public open class H {
