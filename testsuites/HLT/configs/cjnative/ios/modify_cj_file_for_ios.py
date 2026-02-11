@@ -13,6 +13,117 @@ import os
 from pathlib import Path
 from typing import *
 import time
+import sys
+from dataclasses import dataclass
+from typing import List, Dict, Any, Optional
+
+@dataclass
+class TestClassInfo:
+    """测试类信息"""
+    name: str
+    line_number: int
+    generics: List[str] = None
+    annotations: List[str] = None
+    
+    def __post_init__(self):
+        if self.generics is None:
+            self.generics = []
+        if self.annotations is None:
+            self.annotations = []
+
+class Parser:
+    """增强版解析器"""
+    
+    def __init__(self):
+        self.class_keywords = {'class', 'struct', 'interface'}
+        self.annotation_keywords = {'Test', 'Bench', 'Types', 'Configure', 'Expect'}
+    
+    def parse_file(self, file_path: Path) -> List[TestClassInfo]:
+        """解析文件并返回详细的测试类信息"""
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            return self.parse_content(content, file_path)
+            
+        except Exception as e:
+            print(f"解析文件出错 {file_path}: {e}")
+            return []
+    
+    def parse_content(self, content: str, file_name: str = "unknown") -> List[TestClassInfo]:
+        """解析内容并返回测试类信息"""
+        lines = content.split('\n')
+        test_classes = []
+        current_annotations = []
+        brace_stack = []
+        i = 0
+        
+        while i < len(lines):
+            line = lines[i].strip()
+            line_num = i + 1
+            
+            # 收集注解
+            if line.startswith('@'):
+                annotation = line[1:].split()[0].split('(')[0]
+                if annotation in self.annotation_keywords:
+                    current_annotations.append(annotation)
+            
+            # 查找类定义
+            elif any(line.startswith(kw + ' ') for kw in self.class_keywords):
+                # 检查是否有@Test注解
+                if 'Test' in current_annotations:
+                    # 提取类信息
+                    class_info = self.extract_class_info(line, line_num)
+                    class_info.annotations = current_annotations.copy()
+                    test_classes.append(class_info)
+                
+                # 清空当前注解（新类开始）
+                current_annotations.clear()
+            
+            # 处理花括号（跟踪嵌套）
+            for char in line:
+                if char == '{':
+                    brace_stack.append(line_num)
+                elif char == '}':
+                    if brace_stack:
+                        brace_stack.pop()
+            
+            i += 1
+        
+        return test_classes
+    
+    def extract_class_info(self, class_line: str, line_num: int) -> TestClassInfo:
+        """从类定义行提取类信息"""
+        # 移除开头的class关键字
+        class_decl = class_line.split(' ', 1)[1].strip()
+        
+        # 提取类名（处理泛型）
+        class_name = class_decl.split()[0]
+        if '<' in class_name:
+            class_name = class_name.split('<')[0]
+        
+        # 提取泛型参数
+        generics = []
+        if '<' in class_decl and '>' in class_decl:
+            generics_start = class_decl.find('<')
+            generics_end = class_decl.find('>')
+            generics_str = class_decl[generics_start+1:generics_end]
+            generics = [g.strip() for g in generics_str.split(',')]
+        
+        return TestClassInfo(
+            name=class_name,
+            line_number=line_num,
+            generics=generics
+        )
+
+def collect_test_class_name_list(content: str) -> List[str]:
+    test_class_name_list: List[str] = list()
+    parser = Parser()
+    test_class_list = parser.parse_content(content)
+    for _, class_info in enumerate(test_class_list, 1):
+        test_class_name_list.append(class_info.name)
+
+    return test_class_name_list
 
 func_cj_main = "func cj_main"
 cangjie_main_start = """
@@ -21,7 +132,7 @@ public func cangjie_main(): Unit {
     var ret = 1
     try {
 """
-call_cj_main_Int = "\n        ret = cj_main()"
+call_cj_main_Int = "\n        ret = Int64(cj_main())"
 call_cj_main_Unit = "\n        cj_main()\n        ret = 0"
 call_cj_unsafe_main_Int = "\n        ret = unsafe {cj_main()}"
 call_cj_unsafe_main_Unit = "\n        unsafe {cj_main()}\n        ret = 0"
@@ -102,14 +213,20 @@ def modify(data):
         modified = modified.replace(replaced, replaced.replace("main", func_cj_main))
         modified += call_cj_unsafe_main_Int if need_return else call_cj_unsafe_main_Unit
     else:
-        pattern_unittest = r"^\s*@Test\s*(?:public)?\s*class\s*(.*?)\s*{$"
-        matches = re.findall(pattern_unittest, data, re.M)
-        if len(matches) < 1:
-            # 不进行处理
-            # raise Exception(f"[错误] 未找到 main 或 @Test, 无法处理")
-            return data
+        # pattern_unittest = r"^\s*@Test\s*$"
+        # matches = re.findall(pattern_unittest, data, re.M)
+        # if len(matches) < 1:
+        #     # 不进行处理
+        #     # raise Exception(f"[错误] 未找到 main 或 @Test, 无法处理")
+        #     return data
         modified += call_cj_ut_start
-        for idx, ut_class_name in enumerate(matches, 1):
+        test_class_name_list: List[str] = list()
+        parser = Parser()
+        test_class_list = parser.parse_content(data)
+        for _, class_info in enumerate(test_class_list, 1):
+            test_class_name_list.append(class_info.name)
+        
+        for ut_class_name in test_class_name_list:
             modified += call_cj_ut_pref + ut_class_name + call_cj_ut_suff
         modified += call_cj_ut_end
 
@@ -118,9 +235,9 @@ def modify(data):
 
 # 根据info文件找到真正的入口main所在的那个文件的路径
 def process_info_file(test_info_file_path: Path) -> list[Path]:
-    items: List[Path] = list()
+    dependency_list: List[Path] = list()
     # 测试头所在文件也需要一起被检查是否含有main，且优先被检查所以放第一个
-    items.append(test_info_file_path)
+    dependency_list.append(test_info_file_path)
     with open(test_info_file_path, 'r', encoding='utf-8') as f:
         for line in f.readlines():
             pattern_dependence = r'^\s*//\s*DEPENDENCE\s*:\s*(.+)'
@@ -131,7 +248,7 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
                 content = content.replace('%n', test_info_file_path.stem)
                 l = re.split(r'[,\s]+', content)
                 for i in l:
-                    items.append(Path(i))
+                    dependency_list.append(Path(i))
                 # 一般一个info文件中只会有一个DEPENDENCE声明，找到第一个处理完后就可以不往下看了
                 break
             else:
@@ -142,19 +259,25 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
     main_file_list: List[Path] = list()
     main_file_list.append(test_info_file_path)
     pattern_main = r'(\s*main\s*\(\s*(.*?)\s*\)\s*:?\s*(.*?)\s*\{)(?!\})'
-    for dependent_file_path in items:
+    for dependency_path in dependency_list:
         # 不存在就跳过
-        if not os.path.exists(dependent_file_path):
+        if not dependency_path.exists():
             continue
-        # 如果是目录就跳过
-        if os.path.isdir(dependent_file_path):
-            continue
-        with open(dependent_file_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-            if re.findall(pattern_main, content):
-                # 找到main了，就是他
-                main_file_list.append(dependent_file_path)
-    
+        elif dependency_path.is_file():
+            # 这个依赖是个文件，直接读取
+            with open(dependency_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+                if re.findall(pattern_main, content):
+                    main_file_list.append(dependency_path)
+        elif dependency_path.is_dir():
+            # 这个依赖是个目录，需要遍历目录下所有文件分别读取
+            for file_path in dependency_path.rglob('*'):
+                if file_path.is_file():
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                        if re.findall(pattern_main, content):
+                            main_file_list.append(file_path)
+
     return main_file_list
     # raise Exception(f"[ERROR] 没找到拥有main的源文件")
 

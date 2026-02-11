@@ -8,12 +8,12 @@
 
 // Level: 1
 // Description:
-// DEPENDENCE: main.cj
 // EXEC: %compiler %cmp_opt main.cj -o %output
 // (target_aarch64 & target_mac) RUN-EXEC-3: %run %run_opt %output %run_args
 // (target_x86_64 & target_mac) RUN-EXEC-3: %run %run_opt %output %run_args
 // (target_aarch64 & target_ios) RUN-EXEC-3: %run %run_opt %output %run_args
-// (target_x86_64 & target_ios) RUN-EXEC: %run %run_opt %output %run_args
+// (target_x86_64 & target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
+// (target_aarch64 & target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args
 // (target_x86_64 & target_win) RUN-EXEC-3: %run %run_opt %output %run_args
 // (target_aarch64 & target_linux) RUN-EXEC-3: %run %run_opt %output %run_args
 // (target_x86_64 & target_linux) RUN-EXEC-3: %run %run_opt %output %run_args
