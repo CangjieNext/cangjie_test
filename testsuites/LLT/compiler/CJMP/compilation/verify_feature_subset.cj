@@ -22,9 +22,15 @@ package cmp
 specific func foo() { 2 }
 
 /*SCAN
-error: parent feature set must be subset of child feature set, package: 'cmp'
+error: parent feature set must be subset of child feature set, package: 'cmp', problem file: 'c/c.cj'
  ==> (package cmp)c.cj:1:1:
-  # note: Features that caused problem: 'oswindows' 
+  # note: Features that caused problem: 'os.windows' 
+note: Expected feature set must be subset of:
+ ==> p/p.cj:1:1:
+  | 
+1 | features { os.linux }
+  | ^^^^^^^^^^^^^^^^^^^^^ 
+  | 
 
 1 error generated, 1 error printed.
 */
