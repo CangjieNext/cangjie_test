@@ -25,6 +25,7 @@ API/stdx/logger
 compiler/Diagnose/PlatformRelated
 Tools/cjdb/datacom/expr
 Tools/cjdb/datacom/generic
+compiler/Driver/LTO/lto_test10_1.cj
 
 [EXCLUDE-TEST-CASE]
 API/std/socket/redesign/props/tcp_props_quickack.cj

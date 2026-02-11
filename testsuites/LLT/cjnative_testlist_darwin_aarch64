@@ -17,6 +17,7 @@ compiler/CJMP/objc/
 compiler/CJMP/refgluecode/
 compiler/Diagnose/PlatformRelated
 compiler/Driver/PlatformRelated
+compiler/Driver/LTO/lto_test11_1.cj
 
 [EXCLUDE-TEST-CASE]
 
