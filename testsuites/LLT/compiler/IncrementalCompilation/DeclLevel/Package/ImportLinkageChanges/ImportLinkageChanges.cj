@@ -2,7 +2,7 @@
 // EXEC: %cpfile pkg.old.cj pkg.inc.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt pkg.inc.cj %compile_lib_opt -o pkg.%lib_extension
 // EXEC: %cpfile pkg.new.cj pkg.inc.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt pkg.inc.cj %compile_lib_opt -o pkg.%lib_extension 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt pkg.inc.cj %compile_lib_opt -o pkg.%lib_extension 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan incremental compilation triggered
 // EXEC: %compiler %cmp_opt pkg.%lib_extension %f -o %output
 // EXEC-1: %run %run_opt %output %run_args

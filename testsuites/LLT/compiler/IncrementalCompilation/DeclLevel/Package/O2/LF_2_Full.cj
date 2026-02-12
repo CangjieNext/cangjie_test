@@ -7,9 +7,9 @@
 
 // EXEC: %rmfile %n/%n.old.cj
 // EXEC: %cpfile %n.new.cj %n/%n.old.cj
-// EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o A.%lib_extension 2>&1 | compare %n.new.cj
+// EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o A.%lib_extension 2>&1 && (cd .cached && %cat *.log) | compare %n.new.cj
 
-// EXEC: %compiler %incrementalCompile A.%lib_extension %f -o %output 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile A.%lib_extension %f -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 
 // EXEC-3: %run %run_opt %output %run_args
 

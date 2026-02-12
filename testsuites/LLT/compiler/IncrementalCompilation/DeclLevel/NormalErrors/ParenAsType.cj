@@ -1,4 +1,4 @@
-// EXEC-1: %compiler %incrementalCompile %cmp_opt -o %output %f 2>&1 | compare %f
+// EXEC-1: %compiler %incrementalCompile %cmp_opt -o %output %f 2>&1 && (cd .cached && %cat *.log) | compare %f
 func foo(): (Int64) -> () {
     { _ => () }
 }

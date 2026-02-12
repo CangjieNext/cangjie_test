@@ -1,6 +1,6 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt -Woff unused %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt %f -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan no change
 
 main(): Unit {}

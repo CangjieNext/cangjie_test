@@ -1,6 +1,6 @@
 // EXEC: %mkdir %n
 // EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o A.%lib_extension
-// EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o A.%lib_extension %incrementalCompile 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o A.%lib_extension %incrementalCompile 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan empty package, skip
 
 

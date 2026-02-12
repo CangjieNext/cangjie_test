@@ -3,7 +3,8 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan changed decls to recompile: 3
 // ASSERT: scan the changed decl after Spreading is:foo in file Deprecated_Incr.old.cj in line 6 in column 13

@@ -5,7 +5,7 @@
 // EXEC: %rmfile pkg/pkg.old.cj
 // EXEC: %move pkg/pkg.new.cj pkg/pkg.old.cj
 // EXEC: %compiler %incrementalCompile pkg/pkg.old.cj %compile_lib_opt -o pkg.%middle
-// EXEC: %compiler %incrementalCompile %cmp_opt pkg.%middle test.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %cmp_opt pkg.%middle test.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan changed decls to recompile: 3
 // ASSERT: scan the changed decl after Spreading is:a in file pkg.old.cj in line 3 in column 14
 // ASSERT: scan the changed decl after Spreading is:b in file test.cj in line 17 in column 7

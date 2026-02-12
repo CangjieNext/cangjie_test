@@ -5,7 +5,7 @@
 // EXEC: %rmfile %n.old.cj %n.o
 // EXEC: %move %n.new.cj %n.old.cj
 // EXEC: %clang -c %n.new.c -o %n.o
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj %n.o -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj %n.o -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan-not rollback
 // ASSERT: scan incremental compilation triggered
 // EXEC-2: %run %run_opt %output %run_args

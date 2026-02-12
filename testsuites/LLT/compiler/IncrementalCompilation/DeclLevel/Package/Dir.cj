@@ -5,9 +5,9 @@
 // EXEC: %compiler --import-path build/a --import-path build/b -p %n/c --output-dir build/c %incrementalCompile -Woff unused --output-type=staticlib -o libc.%lib_extension
 // EXEC: %rmfile %n/a/main.cj
 // EXEC: %move %n/a/main.new %n/a/main.cj
-// EXEC: %compiler -p %n/a --output-dir build/a %incrementalCompile -Woff unused --output-type=staticlib -o liba.%lib_extension 2>&1 | compare %n/a/main.cj
-// EXEC: %compiler --import-path build/a -p %n/b --output-dir build/b %incrementalCompile -Woff unused --output-type=staticlib -o libb.%lib_extension 2>&1 | compare %n/b/main.cj
-// EXEC: %compiler --import-path build/a --import-path build/b -p %n/c --output-dir build/c %incrementalCompile -Woff unused --output-type=staticlib -o libc.%lib_extension 2>&1 | compare %n/b/main.cj
+// EXEC: %compiler -p %n/a --output-dir build/a %incrementalCompile -Woff unused --output-type=staticlib -o liba.%lib_extension 2>&1 && (cd build && cd a && cd .cached && %cat *.log) | compare %n/a/main.cj
+// EXEC: %compiler --import-path build/a -p %n/b --output-dir build/b %incrementalCompile -Woff unused --output-type=staticlib -o libb.%lib_extension 2>&1 && (cd build && cd b && cd .cached && %cat *.log) | compare %n/b/main.cj
+// EXEC: %compiler --import-path build/a --import-path build/b -p %n/c --output-dir build/c %incrementalCompile -Woff unused --output-type=staticlib -o libc.%lib_extension 2>&1 && (cd build && cd c && cd .cached && %cat *.log) | compare %n/b/main.cj
 
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

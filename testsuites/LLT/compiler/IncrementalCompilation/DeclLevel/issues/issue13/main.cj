@@ -2,7 +2,7 @@
 // EXEC: %cpfile %n.old.cj inc.cj
 // EXEC: %compiler %incrementalCompile inc.cj -o %output
 // EXEC: %cpfile %n.new.cj inc.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile inc.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile inc.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // 闭包增量编译暂不支持，闭包所在的decl发生变动，触发重编
 // ASSERT: scan closure convert out func recompile, roll back to full compilation
 // ASSERT: scan-not core dumped

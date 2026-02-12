@@ -1,18 +1,12 @@
-// DEPENDENCE: %n.old.cj %n.new.cj
+// DEPENDENCE: %n.old.cj %n.new.cj %n.txt
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %n.txt
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
 
 // ASSERT: scan incremental compilation triggered
-// ASSERT: scan error: arithmetic operation '+' overflow
-// ASSERT: scan  ==> OverflowOrder.old.cj:5:13:
-// ASSERT: scan   | 
-// ASSERT: scan 5 |     println(a+b)
-// ASSERT: scan   |             ^^^ operation 'Int32(2147483647) + Int32(8)' would overflow
-// ASSERT: scan   | 
-// ASSERT: scan   # note: range of Int32 is -2147483648 ~ 2147483647
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

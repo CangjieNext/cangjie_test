@@ -6,7 +6,7 @@
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
 
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt -Woff unused --int-overflow=wrapping %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt -Woff unused --int-overflow=wrapping %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // EXEC-0: %run %run_opt %output %run_args
 
 // ASSERT: scan closure convert out func recompile, roll back to full compilation

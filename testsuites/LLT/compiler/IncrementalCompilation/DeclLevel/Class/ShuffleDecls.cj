@@ -4,7 +4,7 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.inc.cj -o %output
 
 // EXEC: %cpfile %n.new.cj %n.inc.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.inc.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.inc.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 
 
 // ASSERT: scan closure convert out func recompile, roll back to full compilation

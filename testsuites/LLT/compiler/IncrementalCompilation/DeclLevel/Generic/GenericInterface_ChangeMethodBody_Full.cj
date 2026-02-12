@@ -3,7 +3,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan I 7default1I<1>I GenericInterface_ChangeMethodBody_Full.old.cj 1:
 // ASSERT: scan changed decls to recompile: 9
 // ASSERT: scan the changed decl after Spreading is:I in file GenericInterface_ChangeMethodBody_Full.old.cj in line 1 in column 11

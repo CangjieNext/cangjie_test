@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.old.cj %n.new.cj
 // EXEC: %compiler %incrementalCompile %n.old.cj -o %output
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // RUN-EXEC-2: %run %run_opt %output %run_args
 // ASSERT: scan changed decls to recompile: 3
 // ASSERT: scan the changed decl after Spreading is:ExtendDecl in file DirectExtend2to1.old.cj in line 3 in column 1

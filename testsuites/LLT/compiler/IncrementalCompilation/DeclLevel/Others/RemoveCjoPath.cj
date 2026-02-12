@@ -5,7 +5,7 @@
 // (not Windows) EXEC: %rmfile .cached/*.cjo
 // (Windows) EXEC: powershell -c "rm (ls .cached | ? {$_ -match '.*\.cjo'} | % {'.cached\'+$_})"
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan rollback
 // EXEC-1: %run %run_opt %output %run_args
 

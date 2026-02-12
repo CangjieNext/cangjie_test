@@ -1,7 +1,8 @@
-// DEPENDENCE: %n.txt
+// DEPENDENCE: %n.txt %n.diag.txt
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.cj -o %output
 // EXEC: %cpfile %n.txt %n.cj
-// EXEC: %compiler %cmp_opt %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %incrementalCompile %n.cj -o %output 2>&1 | compare %n.diag.txt
+// EXEC: (cd .cached && %cat *.log) | compare %f
 
 let a: Int64 = 1
 let b: Int64 = a
@@ -15,8 +16,6 @@ main() {}
 // ASSERT: scan the changed decl after Spreading is:a
 // ASSERT: scan the changed decl after Spreading is:b
 // ASSERT: scan the changed decl after Spreading is:c
-// ASSERT: scan error: variable 'a' is used before being defined
-
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

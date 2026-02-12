@@ -2,8 +2,8 @@
 // EXEC: %compiler %f --compile-macro
 // EXEC: %compiler %incrementalCompile %n.old.cj -o %output %macro_debug
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 %macro_debug | compare %f
-// EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %n.new.cj
+// EXEC-PIPE: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 %macro_debug && (cd .cached && %cat *.log) | compare %f
+// EXEC-PIPE: %run %run_opt %output %run_args 2>&1 && (cd .cached && %cat *.log) | compare %n.new.cj
 
 macro package fm
 

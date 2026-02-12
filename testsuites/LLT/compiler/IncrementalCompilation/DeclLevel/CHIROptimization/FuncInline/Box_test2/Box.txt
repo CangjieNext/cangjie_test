@@ -2,7 +2,7 @@
 // EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.txt %n.cj
-// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // EXEC-2: %run %run_opt %output %run_args
 
 func foo(): Int64 {

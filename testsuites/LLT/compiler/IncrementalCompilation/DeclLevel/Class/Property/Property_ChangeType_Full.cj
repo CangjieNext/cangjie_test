@@ -3,7 +3,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan the changed decl after Spreading is:get in file Property_ChangeType_Full.old.cj in line 4 in column 9
 // ASSERT: scan the changed decl after Spreading is:main in file Property_ChangeType_Full.old.cj in line 7 in column 1

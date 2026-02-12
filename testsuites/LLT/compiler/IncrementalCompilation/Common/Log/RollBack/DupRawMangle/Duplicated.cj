@@ -7,8 +7,8 @@
 // EXEC: %move %n.new.cj %n.old.cj
 // EXEC-1: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output
 
-// (Linux)EXEC: cat .cached/*.log | compare %n.cj
-// (Windows)EXEC: type .cached\*.log | compare %n.cj
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+
 // ASSERT: scan illegal source code leads to duplicated raw mangle name, roll back to full compilation
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

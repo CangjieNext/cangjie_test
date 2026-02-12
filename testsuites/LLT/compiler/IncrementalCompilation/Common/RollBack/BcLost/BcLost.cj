@@ -7,7 +7,8 @@
 // (not Windows) EXEC: %rmfile .cached/*.bc
 // (Windows) EXEC: %rmfile .cached\*.bc
 // EXEC: %cpfile %n.new.cj main.cj
-// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output -j1 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output -j1 2>&1
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
 // RUN-EXEC: %run %run_opt %output %run_args
 
 // ASSERT: scan load cached bitcode file failed, roll back to full compilation

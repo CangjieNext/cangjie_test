@@ -1,10 +1,11 @@
-// DEPENDENCE: %n.old.cj %n.new.cj
+// DEPENDENCE: %n.old.cj %n.new.cj %n.txt
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-1: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
 // EXEC: %run %run_opt %output %run_args 2>&1
 
 // ASSERT:scan incremental compilation triggered

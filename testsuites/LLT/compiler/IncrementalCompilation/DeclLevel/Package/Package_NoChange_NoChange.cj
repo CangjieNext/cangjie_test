@@ -1,17 +1,17 @@
 // DEPENDENCE: %n.old.cj %n.new.cj
-// EXEC: %mkdir %n
+// EXEC: %mkdir %n && %mkdir out
 // EXEC: %cpfile %n.old.cj %n
 // EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o pkg1.%lib_extension
-// EXEC: %compiler %incrementalCompile %cmp_opt pkg1.%lib_extension %f -o %output
-// EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %incrementalCompile %cmp_opt pkg1.%lib_extension %f -o out/%output
+// EXEC: %run %run_opt out/%output %run_args
 // EXEC: %rmfile %n/%n.old.cj
 // EXEC: %move %n.new.cj %n/%n.old.cj
 // EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o pkg1.%lib_extension
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt pkg1.%lib_extension %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt pkg1.%lib_extension %f -o out/%output 2>&1 && (cd out && cd .cached && %cat *.log) | compare %f
 // ASSERT: scan-not rollback
 // ASSERT: scan-not incremental compilation triggered
 // ASSERT: scan no change
-// EXEC: %run %run_opt %output %run_args
+// EXEC: %run %run_opt out/%output %run_args
 
 internal import pkg1.*
 

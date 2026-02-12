@@ -3,6 +3,9 @@ package inc
 public class A<T> {}
 
 extend<T> A<T> where T <: ToString {
+//    public func bar(): Int32 {
+//        1
+//    }
     public func foo(): Int64 {
         3
     }

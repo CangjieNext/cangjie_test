@@ -5,7 +5,7 @@
 // EXEC: %compiler -L. -lp %incrementalCompile %f -o %output
 // EXEC: %rmfile p/%n.cj
 // EXEC: %move %n.new.cj p/%n.cj
-// EXEC: %compiler -L. -lp %incrementalCompile %f -o %output 2>&1 | compare %f
+// EXEC: %compiler -L. -lp %incrementalCompile %f -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan no change
 
 internal import p.*
