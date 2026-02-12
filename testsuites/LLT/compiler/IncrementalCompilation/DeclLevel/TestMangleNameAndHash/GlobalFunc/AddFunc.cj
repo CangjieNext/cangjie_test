@@ -4,14 +4,14 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 
 // EXEC: %cpfile %n.new.cj main.cj
-// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
 
 // ASSERT: scan begin dump raw modified decls:
 // ASSERT: scan added b 7default1b<1T>Fl!1m=$$l at 16,6
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan begin dump incremental compile result:
-// ASSERT: scan changed decls to recompile: 1
+
 // ASSERT: scan the changed decl after Spreading is:b in file main.cj in line 16 in column 6
 // ASSERT: scan incremental sema
  

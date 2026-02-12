@@ -5,17 +5,17 @@
 // EXEC: %cpfile %f %n
 // EXEC: %cpfile %n.old.cj inc
 
-// EXEC: %compiler %incrementalCompile %cmp_opt  %incrementalCompile -p inc %compile_lib_opt -o A.%lib_extension %output_dir_opt outputDir | compare Full.expect
-// EXEC: %compiler %incrementalCompile %cmp_opt  %incrementalCompile %n/%f %import_path_opt outputDir outputDir/A.%lib_extension -o %output | compare Full.expect
+// EXEC: %compiler %incrementalCompile %cmp_opt  %incrementalCompile -p inc %compile_lib_opt -o A.%lib_extension %output_dir_opt outputDir && (cd outputDir && cd .cached && %cat *.log) | compare Full.expect
+// EXEC: %compiler %incrementalCompile %cmp_opt  %incrementalCompile %n/%f %import_path_opt outputDir outputDir/A.%lib_extension -o %output && (cd .cached && %cat *.log) | compare Full.expect
 // EXEC: %run %run_opt %output %run_args
 
 // EXEC: %rmfile inc/%n.old.cj
 // EXEC: %move %n.new.cj inc/%n.old.cj
 
-// EXEC: %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt -o A.%lib_extension %output_dir_opt outputDir 2>&1 | compare Incr.expect
-// EXEC: %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt -o A.%lib_extension %output_dir_opt outputDir 2>&1 | compare NoChange.expect
+// EXEC: %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt -o A.%lib_extension %output_dir_opt outputDir 2>&1 && (cd outputDir && cd .cached && %cat *.log) | compare Incr.expect
+// EXEC: %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt -o A.%lib_extension %output_dir_opt outputDir 2>&1 && (cd outputDir && cd .cached && %cat *.log) | compare NoChange.expect
 
-// EXEC: %compiler %cmp_opt %incrementalCompile %n/%f %import_path_opt outputDir outputDir/A.%lib_extension -o %output 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %incrementalCompile %n/%f %import_path_opt outputDir outputDir/A.%lib_extension -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 
 // ASSERT: scan incremental compilation triggered
 

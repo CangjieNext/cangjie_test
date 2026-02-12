@@ -6,7 +6,7 @@
 
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC: %run_macro %compiler %cmp_opt %incrementalCompile %compile_exe_opt %macro_lib %n.old.cj -o %output 2>&1 | compare %f
+// EXEC: %run_macro %compiler %cmp_opt %incrementalCompile %compile_exe_opt %macro_lib %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // EXEC-3: %run %run_opt %output %run_args
 
 // ASSERT: scan incremental compilation triggered

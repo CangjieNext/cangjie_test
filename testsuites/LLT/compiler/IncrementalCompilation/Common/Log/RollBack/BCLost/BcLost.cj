@@ -10,8 +10,8 @@
 // EXEC: %cpfile %n.new.cj main.cj
 // EXEC-PIPE-0: %compiler -Woff all %noStackInfo --experimental --incremental-compile main.cj -o %output -j1
 
-// (Linux)EXEC: cat .cached/*.log | compare %n.cj
-// (Windows)EXEC: type .cached\*.log | compare %n.cj
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+
 
 // RUN-EXEC: %run %run_opt %output %run_args
 

@@ -7,7 +7,7 @@
 // EXEC: %rmfile p/%n.old.cj
 // EXEC: %move %n.new.cj p/%n.old.cj
 // EXEC: %compiler -p p %incrementalCompile -Woff unused --output-type=staticlib -o vici/p.%lib_extension --output-dir veni
-// EXEC-PIPE: %compiler veni/vici/p.a %f %incrementalCompile -Woff unused -o %output --output-dir vidi --import-path veni 2>&1 | compare %f
+// EXEC-PIPE: %compiler veni/vici/p.a %f %incrementalCompile -Woff unused -o %output --output-dir vidi --import-path veni 2>&1 && (cd vidi && cd .cached && %cat *.log) | compare %f
 // EXEC-1: %run %run_opt vidi/%output %run_args
 // ASSERT: scan A 1p1A<1>C Gen.old.cj 3: memory
 // ASSERT: scan IB 1p2IB<1>I Gen.old.cj 8: virtual

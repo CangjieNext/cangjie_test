@@ -10,8 +10,8 @@
 // EXEC: %rmfile inc/%n.old.cj
 // EXEC: %move %n.new.cj inc/%n.old.cj
 
-// EXEC: %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt %output_dir_opt build/inc -o A.%lib_extension 2>&1 | compare %f
-// EXEC: %compiler %import_path_opt build %cmp_opt %incrementalCompile %n/%f build/inc/A.%lib_extension -o %output 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt %output_dir_opt build/inc -o A.%lib_extension 2>&1 && (cd build && cd inc && cd .cached && %cat *.log) | compare %f
+// EXEC: %compiler %import_path_opt build %cmp_opt %incrementalCompile %n/%f build/inc/A.%lib_extension -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 
 // ASSERT: scan incremental compilation triggered
 

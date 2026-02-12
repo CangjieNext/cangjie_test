@@ -5,7 +5,7 @@
 // EXEC: %rmfile pkg/pkg.old.cj
 // EXEC: %move pkg/pkg.new.cj pkg/pkg.old.cj
 // EXEC: %compiler %incrementalCompile pkg/pkg.old.cj %compile_lib_opt -o pkg.%middle
-// EXEC: %compiler %incrementalCompile %cmp_opt pkg.%middle test.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %cmp_opt pkg.%middle test.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan incremental compile result kind: no change
 // EXEC: %run %run_opt %output %run_args
 

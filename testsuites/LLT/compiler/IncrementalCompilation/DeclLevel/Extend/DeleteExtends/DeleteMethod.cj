@@ -3,8 +3,8 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 %dumpCHIRDebug | compare %f
-// RUN-EXEC-1: %run %run_opt %output %run_args | compare %n.new.cj
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 %dumpCHIRDebug && (cd .cached && %cat *.log) | compare %f
+// RUN-EXEC-1: %run %run_opt %output %run_args && (cd .cached && %cat *.log) | compare %n.new.cj
 
 // ASSERT: scan deleted decls: 2
 // ASSERT: scan the deleted decl is:7default2A1S1pP

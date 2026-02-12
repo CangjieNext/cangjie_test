@@ -4,7 +4,8 @@
 
 // (not Windows) EXEC: %rmfile .cached/*.cgCache
 // (Windows) EXEC: %rmfile .cached\*.cgCache
-// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt %n.cj -o %output -j1 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt %n.cj -o %output -j1 2>&1
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
 // RUN-EXEC: %run %run_opt %output %run_args
 
 // ASSERT: scan-not load cached codegen info failed, roll back to full compilation

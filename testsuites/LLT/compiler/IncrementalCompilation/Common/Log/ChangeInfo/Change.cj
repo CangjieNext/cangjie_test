@@ -4,8 +4,8 @@
 // EXEC: %compiler %n.cj -Woff all --experimental --incremental-compile
 // EXEC: %move %n.txt %n.cj
 // EXEC: %compiler %n.cj -Woff all --experimental --incremental-compile
-// (Linux)EXEC: cat .cached/*.log | compare %n.cj
-// (Windows)EXEC: type .cached\*.log | compare %n.cj
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+
 var a = 0
 var b = 1
 var c = 1

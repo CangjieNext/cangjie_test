@@ -2,8 +2,8 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj --coverage -o %output
 // EXEC-1: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj --coverage -o %output | compare %n.new.cj
-// EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj --coverage -o %output && (cd .cached && %cat *.log) | compare %n.new.cj
+// EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 && (cd .cached && %cat *.log) | compare %f
 
 // ASSERT: regex error.*expected expression after \'\', found \'\.\'
 // ASSERT: regex ./*a\?\.b \?\?\.c

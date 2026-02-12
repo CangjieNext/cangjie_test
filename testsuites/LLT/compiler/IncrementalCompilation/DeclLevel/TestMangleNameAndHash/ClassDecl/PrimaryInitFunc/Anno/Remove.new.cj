@@ -1,4 +1,5 @@
 class S{
+    // @OverflowThrowing   // Annotation
     public  // Modifier
     S(public  // Modifier
     var  // a) let or var  b) is member param

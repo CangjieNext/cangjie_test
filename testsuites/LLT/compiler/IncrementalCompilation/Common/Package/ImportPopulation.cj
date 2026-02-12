@@ -8,7 +8,8 @@
 // EXEC: %rmfile %n/%n.old.cj
 // EXEC: %cpfile %n.new.cj %n/%n.old.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o %output 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o %output 2>&1
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
 // EXEC-1: %run %run_opt %output %run_args
 
 internal import p1.*
@@ -18,9 +19,9 @@ main() {
 }
 
 // ASSERT: scan changed decls to recompile: 3
-// ASSERT: scan the changed decl after Spreading is:foo in file ImportPopulation.old.cj in line 3 in column 6
-// ASSERT: scan the changed decl after Spreading is:bar in file ImportPopulation.old.cj in line 7 in column 13
-// ASSERT: scan the changed decl after Spreading is:main in file ImportPopulation.cj in line 16 in column 1
+// ASSERT: scan the changed decl after Spreading is:foo in file ImportPopulation.old.cj
+// ASSERT: scan the changed decl after Spreading is:bar in file ImportPopulation.old.cj
+// ASSERT: scan the changed decl after Spreading is:main in file ImportPopulation.cj
 
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

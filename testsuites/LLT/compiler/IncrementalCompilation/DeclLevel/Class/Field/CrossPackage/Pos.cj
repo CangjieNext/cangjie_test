@@ -3,15 +3,15 @@
 // EXEC: %mkdir %n
 // EXEC: %cpfile %n.old.cj %n
 // EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension
-// EXEC: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o %output
-// EXEC: %run %run_opt %output %run_args
+// EXEC: %mkdir out && %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o %output --output-dir out
+// EXEC: %run %run_opt out/%output %run_args
 
 // EXEC: %rmfile %n/%n.old.cj
 // EXEC: %cpfile %n.new.cj %n/%n.old.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension
 
-// EXEC-PIPE-0: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o %output 2>&1 | compare %f
-// EXEC: %run %run_opt %output %run_args
+// EXEC-PIPE-0: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o %output --output-dir out 2>&1 && (cd out && cd .cached && %cat *.log) | compare %f
+// EXEC: %run %run_opt out/%output %run_args
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan-not the changed decl after Spreading is:a
 // ASSERT: scan-not the changed decl after Spreading is:b

@@ -1,16 +1,16 @@
 // DEPENDENCE: %n.old.cj %n.new.cj Incr.expect
 // EXEC: %mkdir inc
 // EXEC: %cpfile %n.old.cj inc
-
+// EXEC: %mkdir out
 // EXEC: %compiler %incrementalCompile %cmp_opt -p inc %compile_lib_opt -o A.%lib_extension
-// EXEC: %compiler %incrementalCompile %cmp_opt %f A.%lib_extension -o %output
-// EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %incrementalCompile %cmp_opt %f A.%lib_extension -o out/%output
+// EXEC: %run %run_opt out/%output %run_args
 
 // EXEC: %rmfile inc/%n.old.cj
 // EXEC: %move %n.new.cj inc/%n.old.cj
 
-// EXEC: %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt -o A.%lib_extension 2>&1 | compare Incr.expect
-// EXEC: %compiler %cmp_opt %incrementalCompile %f A.%lib_extension -o %output 2>&1 | compare Incr.expect
+// EXEC: %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt -o A.%lib_extension 2>&1 && (cd .cached && %cat *.log) | compare Incr.expect
+// EXEC: %compiler %cmp_opt %incrementalCompile %f A.%lib_extension -o out/%output 2>&1 && (cd out && cd .cached && %cat *.log) | compare Incr.expect
 
 internal import A.*
 

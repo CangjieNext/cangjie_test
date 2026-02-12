@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.txt
-// EXEC: %compiler %optimization_level_2 %incrementalCompile %compile_hotpatch_opt %n.cj -o %output | compare %f
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %typecheck %n.cj -o %output && (cd .cached && %cat *.log) | compare %f
 // EXEC: %cpfile %n.txt %n.cj
-// EXEC: %compiler %optimization_level_2 %incrementalCompile %compile_hotpatch_opt %n.cj -o %output 2>&1
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %typecheck %n.cj -o %output 2>&1
 
 package A
 
