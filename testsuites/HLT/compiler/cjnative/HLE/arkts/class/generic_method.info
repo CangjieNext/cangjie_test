@@ -6,7 +6,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: generic_method.d.ts
-// EXEC: %run %hle_arkts -i generic_method.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i generic_method.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/generic_method/src/generic_method.cj | compare %f
 // ASSERT: scan public enum AutoGenType0 {
 // ASSERT: scan | NUMBER(Float64)
