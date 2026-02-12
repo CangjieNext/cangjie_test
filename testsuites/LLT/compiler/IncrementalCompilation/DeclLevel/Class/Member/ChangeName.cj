@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj --fchir-function-inlining -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj --fchir-function-inlining -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj --fchir-function-inlining -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 3
 // ASSERT: scan the changed decl after Spreading is:V in file ChangeName.old.cj in line 5 in column 8
 // ASSERT: scan the changed decl after Spreading is:jam in file ChangeName.old.cj in line 6 in column 17
