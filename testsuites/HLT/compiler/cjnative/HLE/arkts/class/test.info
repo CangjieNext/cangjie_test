@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: test.d.ts
-// EXEC: %run %hle_arkts -i test.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i test.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/test/src/test.cj | compare %f
 // ASSERT: scan public class PushReporter {

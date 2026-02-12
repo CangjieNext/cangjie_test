@@ -6,7 +6,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: a.h
-// EXEC: %run %hle_c --module-name="my_module" -i a.h -o . --clang-args=""
+// EXEC: %hle_c --module-name="my_module" -i a.h -o . --clang-args=""
 // EXEC-PIPE: %cat a.cj | compare %f
 // ASSERT: scan public struct OpaqueType
 // ASSERT: scan throw Exception("type should not be inited")
