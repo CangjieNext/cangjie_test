@@ -3,7 +3,7 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 %dumpCHIRDebug | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 %dumpCHIRDebug && (cd .cached && %cat *.log) | compare %f
 
 // ASSERT: scan changed decls to recompile: 5
 // ASSERT: scan the changed decl after Spreading is:A in file DupExtend02.old.cj in line 1 in column 7

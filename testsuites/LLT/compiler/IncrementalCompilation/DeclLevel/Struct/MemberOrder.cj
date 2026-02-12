@@ -3,7 +3,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan M 7default1MC MemberOrder.old.cj 57: 
 // ASSERT: scan     changed members 2:
 // ASSERT: scan          7default1MC1MYi!L1b: body 

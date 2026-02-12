@@ -1,6 +1,6 @@
 // EXEC: %compiler %incrementalCompile %n.cj -o %output
 // EXEC: %run %run_opt %output %run_args
-// EXEC: %compiler %enableConstPropagation %disableConstPropagation %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %enableConstPropagation %disableConstPropagation %incrementalCompile %n.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // EXEC: %run %run_opt %output %run_args
 
 // 编译参数虽然发生了变化，但一正一负相互抵消了，这个不会触发全量编译

@@ -3,7 +3,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan B 7default1BS VariableParameter_AddInit_Full.old.cj 4: memory
 // ASSERT: scan C 7default1CS VariableParameter_AddInit_Full.old.cj 9: memory
 // ASSERT: scan changed decls to recompile: 8

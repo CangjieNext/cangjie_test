@@ -2,7 +2,7 @@
 // EXEC: %compiler %optimization_level_2 %incrementalCompile %n.old.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %optimization_level_2 %incrementalCompile %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %optimization_level_2 %incrementalCompile %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // EXEC: %run %run_opt %output %run_args
 
 // ASSERT: scan the changed decl after Spreading is:getHeight in file StructTy.old.cj in line 2 in column 6

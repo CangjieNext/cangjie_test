@@ -3,7 +3,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan C 7default1CC SingleParent_ChangeParent_Full.old.cj 8: sig
 // ASSERT: scan changed decls to recompile: 2
 // ASSERT: scan the changed decl after Spreading is:C in file SingleParent_ChangeParent_Full.old.cj in line 8 in column 7

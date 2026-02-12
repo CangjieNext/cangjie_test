@@ -1,7 +1,7 @@
 // DEPENDENCE: common2.cj %n.new.cj
 // EXEC: %compiler %incrementalCompile common2.cj -o %output
 // EXEC: %cpfile %n.new.cj common2.cj
-// EXEC-PIPE: %compiler %incrementalCompile common2.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile common2.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
 // ASSERT: scan changed decls to recompile: 6
 // ASSERT: scan the changed decl after Spreading is:A in file common2.cj in line 1 in column 7

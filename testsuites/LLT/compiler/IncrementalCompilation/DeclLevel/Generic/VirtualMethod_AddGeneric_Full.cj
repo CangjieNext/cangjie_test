@@ -3,7 +3,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // EXEC: %run %run_opt %output %run_args
 // ASSERT: scan A 7default1AC VirtualMethod_AddGeneric_Full.old.cj 1: 
 // ASSERT: scan     added members 1: 7default1AC3foo<1T>F$$l 

@@ -1,11 +1,11 @@
 // DEPENDENCE: ./neg ./origin
-// EXEC: mkdir build
-// EXEC: cp -r origin/* build
-// EXEC: %compiler %cmp_opt %overflowOpt %incrementalCompile -p "build/src/pkg" %compile_lib_opt -j1 -o libtest_g1.a
-// EXEC: %compiler %cmp_opt %overflowOpt %incrementalCompile -p "build/src" -L. -ltest_g1 --output-type=exe -j1 -o main
-// EXEC: cp -r neg/* build
-// EXEC: %compiler %cmp_opt %overflowOpt %incrementalCompile -p "build/src/pkg" %compile_lib_opt -j1 -o libtest_g1.a
-// EXEC: %compiler %cmp_opt %overflowOpt %incrementalCompile -p "build/src" -L. -ltest_g1 --output-type=exe -j1 -o main
+// (Linux) EXEC: mkdir build
+// (Linux) EXEC: cp -r origin/* build
+// (Linux) EXEC: %compiler %cmp_opt %overflowOpt %incrementalCompile -p "build/src/pkg" %compile_lib_opt -j1 -o libtest_g1.a
+// (Linux) EXEC: %compiler %cmp_opt %overflowOpt %incrementalCompile -p "build/src" -L. -ltest_g1 --output-type=exe -j1 -o main
+// (Linux) EXEC: cp -r neg/* build
+// (Linux) EXEC: %compiler %cmp_opt %overflowOpt %incrementalCompile -p "build/src/pkg" %compile_lib_opt -j1 -o libtest_g1.a
+// (Linux) EXEC: %compiler %cmp_opt %overflowOpt %incrementalCompile -p "build/src" -L. -ltest_g1 --output-type=exe -j1 -o main
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

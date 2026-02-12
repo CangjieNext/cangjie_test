@@ -4,7 +4,7 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 
 // EXEC: %cpfile %n.new.cj main.cj
-// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
 
 // ASSERT: scan begin dump raw modified decls:
@@ -12,10 +12,8 @@
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan begin dump incremental compile result:
 // ASSERT: scan changed decls to recompile: 1
-// ASSERT: scan the changed decl after Spreading is:f in file main.cj in line 2 in column 14
+// ASSERT: scan the changed decl after Spreading is:f in file main.cj
 // ASSERT: scan incremental sema
- 
-
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

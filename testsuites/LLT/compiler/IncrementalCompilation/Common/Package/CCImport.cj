@@ -6,7 +6,8 @@
 // EXEC: %run %run_opt %output %run_args
 
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt -O2 %n.%lib_extension %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt -O2 %n.%lib_extension %n.old.cj -o %output 2>&1
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
 // EXEC: %run %run_opt %output %run_args
 
 package p1

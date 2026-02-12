@@ -1,8 +1,8 @@
 // LEVEL: 0
 // EXEC: %rmdir .cached
 // EXEC: %compiler %n.cj -Woff all --experimental --incremental-compile --coverage
-// (Linux)EXEC: cat .cached/*.log | compare %n.cj
-// (Windows)EXEC: type .cached\*.log | compare %n.cj
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+
 var a = 0
 main () { a }
 // ASSERT: scan roll back to full compilation

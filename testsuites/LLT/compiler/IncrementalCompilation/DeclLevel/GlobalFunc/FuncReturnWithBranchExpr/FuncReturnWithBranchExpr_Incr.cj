@@ -3,7 +3,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %move %n.old.cj %n.old.cj.bak
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan-not rollback
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan the changed decl after Spreading is:test in file FuncReturnWithBranchExpr_Incr.old.cj in line 1 in column 6

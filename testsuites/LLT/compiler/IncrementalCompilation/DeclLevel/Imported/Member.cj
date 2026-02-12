@@ -7,7 +7,7 @@
 // EXEC: %rmfile p/%n.old.cj
 // EXEC: %move %n.new.cj p/%n.old.cj
 // EXEC: %compiler -p p %incrementalCompile -Woff unused --output-type=staticlib -o p.%lib_extension
-// EXEC: %compiler p.a %f %incrementalCompile -Woff unused -o %output 2>&1 | compare %f
+// EXEC: %compiler p.a %f %incrementalCompile -Woff unused -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // EXEC: %run %run_opt %output %run_args
 // ASSERT: scan no change
 

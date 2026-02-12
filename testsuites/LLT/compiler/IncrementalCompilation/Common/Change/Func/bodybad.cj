@@ -1,10 +1,10 @@
-// DEPENDENCE: com.old.cj %n.new.cj
+// DEPENDENCE: com.old.cj %n.new.cj %n.diag.txt
 // EXEC: %cpfile com.old.cj %n.inc.cj
 // EXEC: %compiler %noStackInfo %incrementalCompile %n.inc.cj -o %output -Woff unused
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
-// EXEC-PIPE-1: %compiler %noStackInfo %incrementalCompile %n.inc.cj -o %output -Woff unused 2>&1 | compare %f
-// ASSERT: scan mismatched types
+// EXEC-PIPE-1: %compiler %noStackInfo %incrementalCompile %n.inc.cj -o %output -Woff unused 2>&1 | compare  %n.diag.txt
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
 
 // ASSERT: scan closure convert out func recompile, roll back to full compilation
 // ASSERT: scan changed decls to recompile: 1

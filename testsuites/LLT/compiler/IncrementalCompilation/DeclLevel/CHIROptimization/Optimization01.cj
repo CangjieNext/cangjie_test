@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.txt
 // EXEC: %compiler %incrementalCompile %cmp_opt -Woff unused %optimization_level_2 %n.cj
 // EXEC: %cpfile %n.txt %n.cj
-// EXEC: %compiler %cmp_opt -Woff unused %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt -Woff unused %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // RUN-EXEC: %run %run_opt %output
 
 func p1(): Int64 {

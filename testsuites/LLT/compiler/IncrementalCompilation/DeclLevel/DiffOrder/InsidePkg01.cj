@@ -1,7 +1,7 @@
 // DEPENDENCE: pkg01 pkg01next
 // EXEC: %compiler %incrementalCompile %cmp_opt -p pkg01
 // EXEC: %cpdir pkg01next/* pkg01
-// EXEC: %compiler %incrementalCompile %cmp_opt -p pkg01 %incrementalCompile 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %cmp_opt -p pkg01 %incrementalCompile 2>&1 && (cd .cached && %cat *.log) | compare %f
 
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan incremental sema

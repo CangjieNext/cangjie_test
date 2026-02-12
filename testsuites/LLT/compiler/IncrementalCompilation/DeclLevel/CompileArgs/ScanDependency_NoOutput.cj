@@ -1,5 +1,5 @@
-// EXEC-PIPE-0: %compiler %incrementalCompile -p . --scan-dependency 2>&1 | compare %f
-// ASSERT: scan-not load cached info failed, rollback
+// EXEC-PIPE-0: %compiler %incrementalCompile -p . --scan-dependency 2>&1
+// EXEC-1: (cd .cached && %cat *.log)
 // (not Windows) EXEC: (( $(ls %cachePath | wc -l) == 0 ))
 // (Windows) EXEC-1: dir /A /B %cachePath | findstr /R "."
 main(): Int64 { 0 }

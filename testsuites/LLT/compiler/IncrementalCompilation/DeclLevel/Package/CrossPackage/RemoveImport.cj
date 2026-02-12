@@ -1,11 +1,11 @@
 // DEPENDENCE: %n.old.cj %n.new.cj
-// EXEC: %rmdir .cached
+// EXEC: %rmdir .cached && mkdir out
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj %compile_lib_opt -o %n.%lib_extension -Woff unused
-// EXEC: %compiler %incrementalCompile %cmp_opt %f %n.%lib_extension -o %output
+// EXEC: %compiler %incrementalCompile %cmp_opt %f %n.%lib_extension -o out/%output
 // EXEC: %cpfile %n.new.cj %n.old.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj %compile_lib_opt -o %n.%lib_extension -Woff unused
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %f %n.%lib_extension -o %output 2>&1 | compare %f
-// EXEC-1: %run %run_opt %output %run_args
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %f %n.%lib_extension -o out/%output 2>&1 && (cd out && cd .cached && %cat *.log) | compare %f
+// EXEC-1: %run %run_opt out/%output %run_args
 
 import p1.*
 

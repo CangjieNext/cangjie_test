@@ -3,7 +3,7 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 %dumpCHIRDebug | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 %dumpCHIRDebug && (cd .cached && %cat *.log) | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
 // ASSERT: scan deleted 7default7Extend!l<:X3gooF$$
 // ASSERT: scan deleted l<:X

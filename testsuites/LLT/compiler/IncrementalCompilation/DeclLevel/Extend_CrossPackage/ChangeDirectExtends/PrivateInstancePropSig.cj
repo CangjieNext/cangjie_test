@@ -1,16 +1,16 @@
 // DEPENDENCE: %n.old.cj %n.new.cj
-
+// EXEC: %mkdir out
 // EXEC: %cpfile %n.old.cj lib.cj
 // EXEC: %cpfile %f main.cj
 
 // EXEC: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt %compile_lib_opt lib.cj -o A.%lib_extension
-// EXEC: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj A.%lib_extension -o %output
+// EXEC: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj A.%lib_extension -o out/%output
 
 // EXEC: %cpfile %n.new.cj lib.cj
 
 // EXEC: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt %compile_lib_opt lib.cj -o A.%lib_extension > %redirectNull
-// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj A.%lib_extension -o %output 2>&1 | compare %f
-// RUN-EXEC-2: %run %run_opt %output %run_args
+// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj A.%lib_extension -o out/%output 2>&1 && (cd out && cd .cached && %cat *.log) | compare %f
+// RUN-EXEC-2: %run %run_opt out/%output %run_args
 
 internal import inc.*
 
@@ -20,8 +20,8 @@ main() {
 
 // ASSERT: scan begin dump raw modified decls:
 // ASSERT: scan 1A<:X lib.cj 4: body 
-// ASSERT: scan     added members 1: 3inc1kP1A<:X3getF$$Int64 
-// ASSERT: scan     deleted members 1: 3inc1kP1A<:X3getF$$Int32 
+// ASSERT: scan     added members 1: 3inc1kP1A<:X3getF$$l
+// ASSERT: scan     deleted members 1: 3inc1kP1A<:X3getF$$i
 // ASSERT: scan     changed members 1:
 // ASSERT: scan          3inc7Extend!1A<:X1kP: srcuse 
 // ASSERT: scan incremental compilation triggered
@@ -33,7 +33,7 @@ main() {
 // ASSERT: scan the changed decl after Spreading is:$kget in file lib.cj in line 6 in column 9
 // ASSERT: scan the changed decl after Spreading is:main in file main.cj in line 17 in column 1
 // ASSERT: scan deleted decls: 1
-// ASSERT: scan the deleted decl is:3inc1kP1A<:X3getF$$Int32
+// ASSERT: scan the deleted decl is:3inc1kP1A<:X3getF$$i
 // ASSERT: scan incremental sema
 
 

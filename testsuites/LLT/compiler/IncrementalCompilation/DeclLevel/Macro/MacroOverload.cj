@@ -5,8 +5,8 @@
 // EXEC: %compiler %cmp_opt %f %incrementalCompile -o %output
 // EXEC: %rmfile mac/%n.old.cj
 // EXEC: %move %n.new.cj mac/%n.old.cj
-// EXEC: %compiler %cmp_opt -p mac --compile-macro %incrementalCompile 2>&1 | compare mac/%n.old.cj
-// EXEC: %compiler %cmp_opt %f %incrementalCompile -o %output 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt -p mac --compile-macro %incrementalCompile 2>&1 && (cd .cached && %cat *.log) | compare mac/%n.old.cj
+// EXEC: %compiler %cmp_opt %f %incrementalCompile -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan no change
 
 main(): Unit {}

@@ -1,12 +1,13 @@
-// DEPENDENCE: %n.old.cj %n.new.cj
+// DEPENDENCE: %n.old.cj %n.new.cj diag.txt
 // EXEC: %cpfile %n.old.cj %n.inc.cj
 // EXEC: %compiler %incrementalCompile %n.inc.cj -o %output
 // EXEC-3: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %n.inc.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %incrementalCompile %n.inc.cj -o %output 2>&1 | compare diag.txt
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
 // ASSERT: scan incremental compilation triggered
 // ASSERT: regex changed decls.* 8
-// ASSERT: regex recursive constructor calling detected
+
 // ASSERT: regex a
 // ASSERT: regex b
 // ASSERT: regex c

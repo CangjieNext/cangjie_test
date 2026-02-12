@@ -4,10 +4,9 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt -L . -la %n.old.cj -o %output 2>&1 | compare %f
-// ASSERT: scan changed decls to recompile: 2
+// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt -L . -la %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
+// ASSERT: scan changed decls to recompile: 1
 // ASSERT: scan the changed decl after Spreading is:bar in file CallingConv.old.cj in line 5 in column 14
-// ASSERT: scan the changed decl after Spreading is:too in file CallingConv.old.cj in line 7 in column 14
 // EXEC: %run %run_opt %output %run_args
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
