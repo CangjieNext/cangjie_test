@@ -1,5 +1,4 @@
-public// Modifier
-open
+public open// Modifier
 class S  // Identifier
 <T>   // Generic Param
 <: I  // Inheritance

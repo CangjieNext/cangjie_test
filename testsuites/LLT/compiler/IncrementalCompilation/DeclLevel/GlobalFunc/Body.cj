@@ -3,7 +3,7 @@
 // EXEC-1: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 
 // ASSERT: scan closure convert out func recompile, roll back to full compilation
 // ASSERT: scan the changed decl after Spreading is:foo in file Body.old.cj in line 1 in column 6

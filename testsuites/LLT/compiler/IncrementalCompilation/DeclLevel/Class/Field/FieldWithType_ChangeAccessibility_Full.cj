@@ -3,7 +3,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan A 7default1AC FieldWithType_ChangeAccessibility_Full.old.cj 1: memory
 // ASSERT: scan changed decls to recompile: 4
 // ASSERT: scan the changed decl after Spreading is:A in file FieldWithType_ChangeAccessibility_Full.old.cj in line 1 in column 7

@@ -3,7 +3,8 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan changed decls to recompile: 4
 // ASSERT: scan the changed decl after Spreading is:x in file Deprecated_Callsite.old.cj in line 1 in column 5

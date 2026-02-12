@@ -3,7 +3,7 @@
 // RUN-EXEC-5: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // RUN-EXEC-5: %run %run_opt %output %run_args
 
 // ASSERT: scan added 2E1<:2I1&2I2X at 12,1

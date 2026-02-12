@@ -3,7 +3,7 @@
 // EXEC: %compiler %incrementalCompile %n.cj libpkg1.%lib_extension --int-overflow=wrapping %cmp_opt -o %output
 // EXEC: %cpfile pkg.new.cj pkg.old.cj
 // EXEC: %compiler %incrementalCompile pkg.old.cj -Woff unused --int-overflow=wrapping %compile_lib_opt -o libpkg1.%lib_extension
-// EXEC-PIPE: %compiler %incrementalCompile %n.cj libpkg1.%lib_extension --int-overflow=wrapping %cmp_opt -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %n.cj libpkg1.%lib_extension --int-overflow=wrapping %cmp_opt -o %output 2>&1 && cat .cached/*.log | compare %f
 
 internal import inc.* 
 

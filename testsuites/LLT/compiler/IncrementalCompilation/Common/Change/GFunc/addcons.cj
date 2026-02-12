@@ -3,7 +3,8 @@
 // EXEC: %compiler %incrementalCompile %n.inc.cj -o %output -Woff unused
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %n.inc.cj -o %output -Woff unused 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %n.inc.cj -o %output -Woff unused 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan changed decls to recompile: 3
 
 
