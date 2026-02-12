@@ -22,12 +22,12 @@ common enum OptionLikeGeneric<T> {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-specific enum OptionLike {
+platform enum OptionLike {
     | LikeNone
     | LikeSome(Int32)
 }
 
-specific enum OptionLikeGeneric<T> {
+platform enum OptionLikeGeneric<T> {
     | LikeNoneGeneric
     | LikeSomeGeneric(T)
 }
