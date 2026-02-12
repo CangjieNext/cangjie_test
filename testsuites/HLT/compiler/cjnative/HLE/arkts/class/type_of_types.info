@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: type_of_types.d.ts
-// EXEC: %run %hle_arkts -i type_of_types.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i type_of_types.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/type_of_types/src/type_of_types.cj | compare %f
 // ASSERT: scan public class MessagePackage {
