@@ -5,7 +5,7 @@
 
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 4
 // ASSERT: scan the changed decl after Spreading is:VarWithPatternDecl in file VwpChangeType1.old.cj in line 1 in column 1
 // ASSERT: scan the changed decl after Spreading is:a in file VwpChangeType1.old.cj in line 1 in column 6

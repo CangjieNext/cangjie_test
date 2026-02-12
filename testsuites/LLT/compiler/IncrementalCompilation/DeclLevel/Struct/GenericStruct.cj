@@ -3,7 +3,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 
 // ASSERT: scan A 7default1A<1>S GenericStruct.old.cj 5: memory 
 // ASSERT: scan     added members 1: 7default1A<1>S1aV$$i 

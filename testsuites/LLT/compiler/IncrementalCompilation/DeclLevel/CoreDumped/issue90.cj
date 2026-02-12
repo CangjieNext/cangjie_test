@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.old.cj %n.new.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj --compile-macro
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj --compile-macro 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj --compile-macro 2>&1 && cat .cached/*.log | compare %f
 
 // ASSERT: scan package or import specs changed, roll back to full compilation
 

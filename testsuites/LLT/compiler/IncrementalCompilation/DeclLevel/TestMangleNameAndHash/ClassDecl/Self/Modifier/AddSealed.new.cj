@@ -1,6 +1,4 @@
-public// Modifier
-sealed
-abstract
+public sealed abstract // Modifier
 class S  // Identifier
 <T>   // Generic Param
 <: I  // Inheritance
@@ -16,7 +14,6 @@ public interface I{
 main() {
     0
 }
-
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

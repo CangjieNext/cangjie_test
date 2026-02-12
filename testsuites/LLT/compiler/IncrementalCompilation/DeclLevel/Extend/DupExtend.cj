@@ -3,7 +3,8 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 %dumpCHIRDebug | compare %f
+// EXEC-1: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 14
 // ASSERT: scan the changed decl after Spreading is:A in file DupExtend.old.cj in line 3 in column 7
 // ASSERT: scan the changed decl after Spreading is:ExtendDecl in file DupExtend.old.cj in line 5 in column 1
@@ -19,7 +20,6 @@
 // ASSERT: scan the changed decl after Spreading is:ExtendDecl in file to_string.cj
 // ASSERT: scan the changed decl after Spreading is:ExtendDecl in file hashable.cj
 // ASSERT: scan the changed decl after Spreading is:ExtendDecl in file comparable.cj
-// ASSERT: scan 7 errors generated, 7 errors printed.
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

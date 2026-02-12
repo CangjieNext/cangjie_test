@@ -3,7 +3,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %move p1 p1_bak
 // EXEC: %move p2 p1
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt -p p1 -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt -p p1 -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan-not rollback
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan-not no change

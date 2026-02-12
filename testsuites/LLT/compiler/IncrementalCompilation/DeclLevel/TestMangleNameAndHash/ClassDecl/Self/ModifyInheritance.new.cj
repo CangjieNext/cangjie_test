@@ -7,12 +7,9 @@ where T <: ToString   // Constraint
 
 }
 
-public interface I1{
+public interface I1{}
 
-}
-public interface I2{
-
-}
+public interface I2{}
 
 main() {
     0

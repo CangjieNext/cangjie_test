@@ -3,7 +3,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan SB 7default2SB<1>S Constriant.old.cj 19: sig 
 // ASSERT: scan SA 7default2SA<3>S Constriant.old.cj 16: sig 
 // ASSERT: scan CC 7default2CC<3>C Constriant.old.cj 13: sig 
