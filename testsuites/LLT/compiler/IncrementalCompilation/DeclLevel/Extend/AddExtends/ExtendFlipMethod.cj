@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.old.cj %n.new.cj
 // EXEC: %compiler %incrementalCompile %noStackInfo %n.old.cj -o %output
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %noStackInfo %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %noStackInfo %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // RUN-EXEC-2: %run %run_opt %output %run_args
 // ASSERT: scan incremental compile result kind: no change
 

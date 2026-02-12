@@ -1,7 +1,7 @@
 // DEPENDENCE: common.cj %n.new.cj
 // EXEC: %compiler %incrementalCompile common.cj -o %output
 // EXEC: %cpfile %n.new.cj common.cj
-// EXEC-PIPE: %compiler %incrementalCompile common.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile common.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // RUN-EXEC-1: %run %run_opt %output %run_args
 // ASSERT: scan incremental compile result kind: no change
 

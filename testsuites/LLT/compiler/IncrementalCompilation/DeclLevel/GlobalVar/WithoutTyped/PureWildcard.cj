@@ -1,5 +1,5 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt %f -o %output
-// EXEC: %compiler %incrementalCompile %cmp_opt %f %incrementalCompile -o %output 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %cmp_opt %f %incrementalCompile -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan no change
 
 var ctx: Int64 = 0

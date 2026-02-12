@@ -3,7 +3,8 @@
 // EXEC: %compiler %incrementalCompile %n.inc.cj -Woff unused -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %n.inc.cj -Woff unused -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %n.inc.cj -Woff unused -o %output 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // EXEC: %run %run_opt %output %run_args
 // ASSERT: scan the changed decl after Spreading is:A in file v2f.inc.cj in line 1 in column 12
 // ASSERT: scan the changed decl after Spreading is:a in file v2f.inc.cj in line 2 in column 14

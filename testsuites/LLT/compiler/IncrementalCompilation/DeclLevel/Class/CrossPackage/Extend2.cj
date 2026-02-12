@@ -4,7 +4,7 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt %f libp2.a libp1.a -o %output
 // EXEC: %cpfile Extend1.new.cj Extend1.old.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt Extend1.old.cj %compile_lib_opt -o libp2.a
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %f libp2.a -o %output | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %f libp2.a -o %output && cat .cached/*.log | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
 
 
