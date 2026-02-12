@@ -429,3 +429,9 @@ Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10005/test.cj
 Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10007/test.cj
 Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10020/g_nam_01_10020.info
 Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10023/g_nam_01_10023.info
+
+# cjmp multi-parent merge
+Tools/cjpm/source_set/source_set009/diamond/diamond.info
+Tools/cjpm/source_set/source_set009/source_set_002/source_set_002.info
+Tools/cjpm/source_set/source_set009/source_set_002_1/source_set_002_1.info
+Tools/cjpm/source_set/source_set009/source_set_002_4/source_set_002_4.info

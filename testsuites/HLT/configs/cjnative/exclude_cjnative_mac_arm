@@ -71,3 +71,8 @@ compiler/cjnative/Packages/cjmp/cjmp_11045/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_14006/test.cj
 compiler/cjnative/stable_abi/07_extend/01_add_delete/add/01_extend_add_extend_public.cj
 
+# cjmp multi-parent merge
+Tools/cjpm/source_set/source_set009/diamond/diamond.info
+Tools/cjpm/source_set/source_set009/source_set_002/source_set_002.info
+Tools/cjpm/source_set/source_set009/source_set_002_1/source_set_002_1.info
+Tools/cjpm/source_set/source_set009/source_set_002_4/source_set_002_4.info

@@ -191,3 +191,6 @@ compiler/CJMP/merging/classes/vtable/implemntation_ambiguity_is_detected.cj
 compiler/CJMP/merging/static_and_top_level_variables/different_files_transitive_3.cj
 compiler/Sema/Extend/default_implement/multi_default_impl_07.cj
 compiler/Sema/Extend/visibility_between_extend/strict_call_loose.cj
+
+# cjmp multi-parent merge
+Tools/cjpm/CJNATIVE/common_platform/merging/diamond/diamond.info
