@@ -21,7 +21,7 @@ public func cangjie_main(): Unit {
     var ret = 1
     try {
 """
-call_cj_main_Int = "\n        ret = cj_main()"
+call_cj_main_Int = "\n        ret = Int64(cj_main())"
 call_cj_main_Unit = "\n        cj_main()\n        ret = 0"
 call_cj_unsafe_main_Int = "\n        ret = unsafe {cj_main()}"
 call_cj_unsafe_main_Unit = "\n        unsafe {cj_main()}\n        ret = 0"
@@ -54,8 +54,9 @@ def has_return_statement(func_body: str) -> bool:
 
 def modify(data):
     pattern_cangjie_main = r'(^\s*.*\s*func\s*cangjie_main\s*\(\)\s*:?\s*.*\s*\{)'
-    if re.search(pattern_cangjie_main, data, re.M):
-        raise Exception("[错误] 已存在 cangjie_main 函数")
+    # if re.search(pattern_cangjie_main, data, re.M):
+    #     return data
+        # raise Exception("[错误] 已存在 cangjie_main 函数")
 
     modified = data + cangjie_main_start
     pattern_main = r'(^\s*main\s*\(\)\s*(?::\s*([^\s\{]+)\s*)?\{)'
@@ -118,9 +119,9 @@ def modify(data):
 
 # 根据info文件找到真正的入口main所在的那个文件的路径
 def process_info_file(test_info_file_path: Path) -> list[Path]:
-    items: List[Path] = list()
+    dependency_list: List[Path] = list()
     # 测试头所在文件也需要一起被检查是否含有main，且优先被检查所以放第一个
-    items.append(test_info_file_path)
+    dependency_list.append(test_info_file_path)
     with open(test_info_file_path, 'r', encoding='utf-8') as f:
         for line in f.readlines():
             pattern_dependence = r'^\s*//\s*DEPENDENCE\s*:\s*(.+)'
@@ -131,7 +132,7 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
                 content = content.replace('%n', test_info_file_path.stem)
                 l = re.split(r'[,\s]+', content)
                 for i in l:
-                    items.append(Path(i))
+                    dependency_list.append(Path(Path(i).name))
                 # 一般一个info文件中只会有一个DEPENDENCE声明，找到第一个处理完后就可以不往下看了
                 break
             else:
@@ -142,19 +143,25 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
     main_file_list: List[Path] = list()
     main_file_list.append(test_info_file_path)
     pattern_main = r'(\s*main\s*\(\s*(.*?)\s*\)\s*:?\s*(.*?)\s*\{)(?!\})'
-    for dependent_file_path in items:
+    for dependency_path in dependency_list:
         # 不存在就跳过
-        if not os.path.exists(dependent_file_path):
+        if not dependency_path.exists():
             continue
-        # 如果是目录就跳过
-        if os.path.isdir(dependent_file_path):
-            continue
-        with open(dependent_file_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-            if re.findall(pattern_main, content):
-                # 找到main了，就是他
-                main_file_list.append(dependent_file_path)
-    
+        elif dependency_path.is_file():
+            # 这个依赖是个文件，直接读取
+            with open(dependency_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+                if re.findall(pattern_main, content):
+                    main_file_list.append(dependency_path)
+        elif dependency_path.is_dir():
+            # 这个依赖是个目录，需要遍历目录下所有文件分别读取
+            for file_path in dependency_path.rglob('*'):
+                if file_path.is_file():
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                        if re.findall(pattern_main, content):
+                            main_file_list.append(file_path)
+
     return main_file_list
     # raise Exception(f"[ERROR] 没找到拥有main的源文件")
 
