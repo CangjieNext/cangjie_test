@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: unionTypes.d.ts
-// EXEC: %run %hle_arkts -i unionTypes.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i unionTypes.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/union_types/src/union_types.cj | compare %f
 // ASSERT: scan public class UnionTypes

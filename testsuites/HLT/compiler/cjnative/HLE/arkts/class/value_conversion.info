@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: value_conversion.d.ts
-// EXEC: %run %hle_arkts -i value_conversion.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i value_conversion.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/value_conversion/src/value_conversion.cj | compare %f
 // ASSERT: scan public class C1 {

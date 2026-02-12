@@ -6,7 +6,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: generic_union.d.ts
-// EXEC: %run %hle_arkts -i generic_union.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i generic_union.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/generic_union/src/generic_union.cj | compare %f
 // ASSERT: scan public enum AutoGenType0 < T > where T <: JSInteropType<T> {
 // ASSERT: scan | T0(T)
