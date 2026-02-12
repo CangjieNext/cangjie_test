@@ -4,7 +4,7 @@
 // EXEC: %rmfile p1/pkg1.old.cj
 // EXEC: %move p1/pkg1.new.cj p1/pkg1.old.cj
 // EXEC: %compiler %incrementalCompile %optimization_level_2 p1/pkg1.old.cj %compile_lib_opt -o pkg1.%middle
-// EXEC-PIPE-0: %compiler %incrementalCompile %optimization_level_2 %cmp_opt pkg1.%middle test2.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %optimization_level_2 %cmp_opt pkg1.%middle test2.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan the changed decl after Spreading is:f3 in file test2.cj in line 13 in column 6
 // ASSERT: scan the changed decl after Spreading is:main in file test2.cj in line 18 in column 1
 

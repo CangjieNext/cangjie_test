@@ -2,7 +2,7 @@
 // EXEC: %cpfile %n.old.cj inc.cj
 // EXEC: %compiler %incrementalCompile %compile_lib_opt inc.cj -o %output --fchir-function-inlining
 // EXEC: %cpfile %n.new.cj inc.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %compile_lib_opt inc.cj -o %output --fchir-function-inlining 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %compile_lib_opt inc.cj -o %output --fchir-function-inlining 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan incremental compilation triggered
 
 // Was IR failed. should pass

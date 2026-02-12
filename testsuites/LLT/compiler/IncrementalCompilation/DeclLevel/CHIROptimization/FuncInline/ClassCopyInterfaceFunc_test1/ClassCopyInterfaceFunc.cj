@@ -2,7 +2,7 @@
 // EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output
 // EXEC-0: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.txt %n.cj
-// EXEC-PIPE-0: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // EXEC-1: %run %run_opt %output %run_args
 
 class A{

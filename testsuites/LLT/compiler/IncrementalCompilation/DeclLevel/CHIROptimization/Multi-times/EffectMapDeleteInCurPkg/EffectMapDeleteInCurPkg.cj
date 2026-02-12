@@ -1,8 +1,8 @@
 // DEPENDENCE: %n.1 %n.2 expect1.expect expect2.expect
-// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output | compare expect1.expect
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output && (cd .cached && %cat *.log) | compare expect1.expect
 // EXEC-1: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.1 %n.cj
-// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output | compare expect2.expect
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output && (cd .cached && %cat *.log) | compare expect2.expect
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.2 %n.cj
 // EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output

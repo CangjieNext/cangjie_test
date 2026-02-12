@@ -8,7 +8,7 @@
 
 // EXEC: %rmfile %n/%n.old.cj
 // EXEC: %cpfile %n.new.cj %n/%n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension 2>&1 | compare Incr.expect
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension 2>&1 && (cd .cached && %cat *.log) | compare Incr.expect
 
 // EXEC: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o %output
 // EXEC: %run %run_opt %output %run_args

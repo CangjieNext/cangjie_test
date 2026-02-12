@@ -3,9 +3,9 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt inc.cj -o %output
 // EXEC-1: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj inc.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt inc.cj -o %output 2>&1 | compare %n.new.cj
+// EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt inc.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %n.new.cj
 // ASSERT: scan incremental compilation triggered
-// EXEC-PIPE-1: %compiler %cmp_opt inc.cj -o %output 2>&1 | compare %n.new.cj
+// EXEC-PIPE-1: %compiler %cmp_opt inc.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %n.new.cj
 
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

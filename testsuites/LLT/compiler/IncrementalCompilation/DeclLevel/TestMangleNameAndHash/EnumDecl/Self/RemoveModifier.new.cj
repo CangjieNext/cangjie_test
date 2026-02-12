@@ -1,3 +1,4 @@
+// public // Modifier
 enum E // Identifier
 <T> // Generic
 <: I1 // Implement 

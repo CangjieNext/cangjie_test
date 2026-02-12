@@ -4,7 +4,7 @@
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
 //LLDB:%compiler %incrementalCompile %cmp_opt %n.old.cj %noStackInfo -o %output
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj %noStackInfo -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj %noStackInfo -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
 // ASSERT: scan no change
 

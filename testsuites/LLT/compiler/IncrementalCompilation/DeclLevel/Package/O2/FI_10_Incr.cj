@@ -2,15 +2,15 @@
 // EXEC: %mkdir %n
 // EXEC: %cpfile %n.old.cj %n/
 // EXEC: %compiler %incrementalCompile %cmp_opt %enableO2 -p %n %compile_lib_opt -o A.%lib_extension
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %debugCHIROpt %enableO2 A.%lib_extension %f -o %output | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %debugCHIROpt %enableO2 A.%lib_extension %f -o %output && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan The Apply node in the line:20 and the column:5, was optimized by Function Inline
 // EXEC: %run %run_opt %output %run_args
 
 // EXEC: %rmfile %n/%n.old.cj
 // EXEC: %cpfile %n.new.cj %n/%n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %enableO2 -p %n %compile_lib_opt -o A.%lib_extension 2>&1 | compare Incr.expect
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %enableO2 -p %n %compile_lib_opt -o A.%lib_extension 2>&1 && (cd .cached && %cat *.log) | compare Incr.expect
 
-// EXEC: %compiler %incrementalCompile %debugCHIROpt %enableO2 %cmp_opt A.%lib_extension %f -o %output 2>&1 | compare %n.expect
+// EXEC: %compiler %incrementalCompile %debugCHIROpt %enableO2 %cmp_opt A.%lib_extension %f -o %output 2>&1 && (cd .cached && %cat *.log) | compare %n.expect
 
 // EXEC-6: %run %run_opt %output %run_args
 

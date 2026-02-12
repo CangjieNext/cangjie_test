@@ -1,6 +1,6 @@
 // EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output
 // EXEC: %run %run_opt %output %run_args
-// EXEC: %compiler %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %n.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // EXEC: %run %run_opt %output %run_args
 
 // 两次编译，编译参数不一样，会触发全量编译

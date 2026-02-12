@@ -9,8 +9,9 @@
 // EXEC: %rmfile inc/%n.old.cj
 // EXEC: %move %n.new.cj inc/%n.old.cj
 
-// EXEC: %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt -o A.%lib_extension 2>&1 | compare Incr.expect
-// EXEC: %compiler %cmp_opt %incrementalCompile %f A.%lib_extension -o %output 2>&1 | compare Incr.expect
+// EXEC: %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt -o A.%lib_extension 2>&1 && (cd .cached && %cat *.log) | compare Incr.expect
+// EXEC-1: %compiler %cmp_opt %incrementalCompile %f A.%lib_extension -o %output 2>&1
+// EXEC: (cd .cached && %cat *.log) | compare Incr.expect
 
 internal import A.*
 

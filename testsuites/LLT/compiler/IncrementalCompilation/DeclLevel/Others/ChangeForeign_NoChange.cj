@@ -3,7 +3,7 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.cj %n.o -o %output
 // EXEC-1: %run %run_opt %output %run_args
 // EXEC: %clang -c %n.new.c -o %n.o
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.cj %n.o -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.cj %n.o -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan-not rollback
 // ASSERT: scan-not incremental compilation triggered
 // ASSERT: scan no change

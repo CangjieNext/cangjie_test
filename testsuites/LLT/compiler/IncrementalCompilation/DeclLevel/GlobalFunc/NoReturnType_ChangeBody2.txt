@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %f -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.txt %f
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %f -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan-not rollback
 // EXEC-1: %run %run_opt %output %run_args
 

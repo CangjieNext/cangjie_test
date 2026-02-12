@@ -3,7 +3,7 @@
 // EXEC-3: %run %run_opt %output %run_args
 // EXEC: %move %n.old.cj %n.3rd.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
 // ASSERT: scan-not rollback
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan the changed decl after Spreading is:b in file ChangeInitAndChangeBack_Incr.old.cj in line 6 in column 9
@@ -11,7 +11,7 @@
 // EXEC-7: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.3rd.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %n.old.cj
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %n.old.cj
 // EXEC-3: %run %run_opt %output %run_args
 
 

@@ -1,6 +1,6 @@
 // EXEC: %compiler %incrementalCompile %n.cj -o %output
-// (not Windows) EXEC: %compiler %incrementalCompile %pwd/%n.cj -o %output 2>&1 | compare %f
-// (Windows) EXEC: %compiler %incrementalCompile %%cd%\%n.cj -o %output 2>&1 | compare %f
+// (not Windows) EXEC: %compiler %incrementalCompile %pwd/%n.cj -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
+// (Windows) EXEC: %compiler %incrementalCompile %%(cd%\%n.cj -o %output 2>&1 && cd .cached && %cat *.log) | compare %f
 
 // the body hash differs for relative/absolute path to the source file
 

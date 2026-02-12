@@ -1,17 +1,17 @@
 // DEPENDENCE: %n.old.cj %n.new.cj
 
-// EXEC: %mkdir %n
+// EXEC: %mkdir %n && %mkdir out
 // EXEC: %cpfile %n.old.cj %n
 // EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension
-// EXEC: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o %output
-// EXEC-9: %run %run_opt %output %run_args
+// EXEC: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o out/%output
+// EXEC-9: %run %run_opt out/%output %run_args
 
 // EXEC: %rmfile %n/%n.old.cj
 // EXEC: %cpfile %n.new.cj %n/%n.old.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension
 
-// EXEC-PIPE-0: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o %output 2>&1 | compare %f
-// EXEC-9: %run %run_opt %output %run_args
+// EXEC-PIPE-0: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o out/%output 2>&1 && (cd .cached && %cat *.log) | compare %f
+// EXEC-9: %run %run_opt out/%output %run_args
 
 // ASSERT: scan incremental compilation triggered
 

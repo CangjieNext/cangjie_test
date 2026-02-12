@@ -3,7 +3,8 @@
 // EXEC: %compiler %incrementalCompile %n.inc.cj -o %output -Woff unused
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %n.inc.cj -o %output -Woff unused 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %n.inc.cj -o %output -Woff unused 2>&1
+// EXEC: (cd .cached && %cat *.log) | compare %n.cj
 // ASSERT: scan A 7default1AC acc.inc.cj 1: srcuse 
 // ASSERT: scan B 7default1BC acc.inc.cj 5: sig 
 // ASSERT: scan C 7default1CC acc.inc.cj 13: body 
