@@ -6,7 +6,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: export_alias.d.ts
-// EXEC: %run %hle_arkts -i export_alias.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i export_alias.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/export_alias/src/export_alias.cj | compare %f
 // ASSERT: scan public enum MyNumericEnum
 // ASSERT: scan public class ExportedClass

@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: empty_interface.d.ts
-// EXEC: %run %hle_arkts -i empty_interface.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i empty_interface.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/empty_interface/src/empty_interface.cj | compare %f
 // ASSERT: scan public open class i <: e

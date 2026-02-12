@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: async_function.d.ts
-// EXEC: %run %hle_arkts -i async_function.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i async_function.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/async_function/src/async_function.cj | compare %f
 // ASSERT: scan public class ASC {
