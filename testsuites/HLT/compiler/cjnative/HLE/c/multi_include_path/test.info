@@ -6,7 +6,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: a.h b c
-// EXEC: %run %hle_c --module-name="my_module" -i a.h -o . --clang-args="-Ib -Ic"
+// EXEC: %hle_c --module-name="my_module" -i a.h -o . --clang-args="-Ib -Ic"
 // EXEC-PIPE: %cat a.cj | compare %f
 // ASSERT: scan public struct B
 // ASSERT: scan public struct C

@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: inconvertible_types.d.ts
-// EXEC: %run %hle_arkts -i inconvertible_types.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i inconvertible_types.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/inconvertible_types/src/inconvertible_types.cj | compare %f
 // ASSERT: scan public func printToConsole
