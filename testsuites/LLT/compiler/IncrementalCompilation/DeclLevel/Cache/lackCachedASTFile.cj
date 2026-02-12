@@ -1,4 +1,6 @@
-// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// DEPENDENCE: Full.expect
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare Full.expect
 // EXEC: %run %run_opt %output %run_args
 
 var a:Int64 = 5

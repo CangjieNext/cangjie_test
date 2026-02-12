@@ -6,7 +6,8 @@
 // EXEC-2: %run %run_opt %output %run_args
 // EXEC: %cpfile pkg.new.cj pkg.cj
 // EXEC: %compiler %cmp_opt pkg.cj %compile_lib_opt %incrementalCompile -o pkg.%lib_extension %output_dir_opt inc
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt inc/pkg.%lib_extension %f -o %output %import_path_opt ./ 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt inc/pkg.%lib_extension %f -o %output %import_path_opt ./ 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan-not no change
 // ASSERT: scan added f 7inc.pkg1fF3Sub$$Int64

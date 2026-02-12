@@ -2,7 +2,13 @@ package inc
 
 public open class A {}
 public interface I2 {}
-extend A <: I2 {}
+extend A <: I2 {
+//    public prop k: Int64 {
+//        get() {
+//            2
+//        }
+//    }
+}
 
 main() {
     let b = B()

@@ -1,7 +1,7 @@
 // DEPENDENCE: main.old.cj main.new.cj
 // EXEC: %compiler %incrementalCompile main.new.cj -o %output
 // EXEC: %cpfile main.old.cj main.new.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile main.new.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile main.new.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // EXEC: %run %run_opt %output %run_args
 // ASSERT: scan changed decls to recompile: 5
 // ASSERT: scan the changed decl after Spreading is:A in file main.new.cj in line 1 in column 7
