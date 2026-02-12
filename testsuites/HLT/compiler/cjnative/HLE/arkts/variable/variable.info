@@ -6,7 +6,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: variable.d.ts
-// EXEC: %run %hle_arkts -i variable.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i variable.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/variable/src/variable.cj | compare %f
 // ASSERT: scan public const c1 = 1.2
 // ASSERT: scan public const c2 = 1

@@ -6,7 +6,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: enum.d.ts
-// EXEC: %run %hle_arkts -i enum.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i enum.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/enum/src/enum.cj | compare %f
 // ASSERT: scan public enum Colors
 // ASSERT: scan case Red => "RED"

@@ -6,7 +6,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: a.h
-// EXEC: %run %hle_c --module-name="my_module" -i a.h -o . --clang-args=""
+// EXEC: %hle_c --module-name="my_module" -i a.h -o . --clang-args=""
 // EXEC-PIPE: %cat a.cj | compare %f
 // ASSERT: scan foreign func add(a: Int32, b: Float32): Int32
 // ASSERT: scan foreign func multiply(a: Int32, b: Float32): Float32
