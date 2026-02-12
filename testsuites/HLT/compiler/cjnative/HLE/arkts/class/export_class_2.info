@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: export_class_2.d.ts
-// EXEC: %run %hle_arkts -i export_class_2.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i export_class_2.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/export_class_2/src/export_class_2.cj | compare %f
 // ASSERT: scan public class AppSettings {

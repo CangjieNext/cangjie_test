@@ -6,7 +6,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: type_alias.d.ts
-// EXEC: %run %hle_arkts -i type_alias.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i type_alias.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/type_alias/src/type_alias.cj | compare %f
 // ASSERT: scan public enum ARK1 {
 // ASSERT: scan case NULL => context.null().toJSValue()
