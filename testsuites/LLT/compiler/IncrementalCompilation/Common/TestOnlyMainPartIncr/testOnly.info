@@ -11,7 +11,8 @@
 
 // EXEC: %cpfile main.new.cj ./my_pkg/main.cj
 // EXEC: %cpfile main_test.new.cj ./my_pkg/main_test.cj
-// EXEC: %compiler %cmp_opt %pkg_opt my_pkg -Woff all %enableCompileDebug %incrementalCompile %compile_lib_opt -o libtest.%lib_extension 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %pkg_opt my_pkg -Woff all %enableCompileDebug %incrementalCompile %compile_lib_opt -o libtest.%lib_extension 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.info
 // EXEC: %compiler libtest.%lib_extension %cmp_opt %pkg_opt my_pkg -Woff all %enableCompileDebug %incrementalCompile %cmp_utest_opt-only -o %output
 // RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 

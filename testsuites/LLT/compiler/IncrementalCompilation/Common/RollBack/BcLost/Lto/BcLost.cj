@@ -7,7 +7,8 @@
 // (Linux and CJNATIVE) EXEC: %rmfile .cached/*.bc
 // (Linux and CJNATIVE) EXEC: %rmfile .cached\*.bc
 // (Linux and CJNATIVE) EXEC: %cpfile %n.new.cj main.cj
-// (Linux and CJNATIVE) EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj --lto=full -o %output -j1 2>&1 | compare %f
+// (Linux and CJNATIVE) EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj --lto=full -o %output -j1 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // (Linux and CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
 
 // ASSERT: scan load cached bitcode file failed, roll back to full compilation

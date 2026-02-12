@@ -3,7 +3,7 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt -Woff unused %n.inc.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt %n.inc.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt %n.inc.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 
 // ASSERT: scan closure convert out func recompile, roll back to full compilation
 // ASSERT: scan the changed decl after Spreading is:a1

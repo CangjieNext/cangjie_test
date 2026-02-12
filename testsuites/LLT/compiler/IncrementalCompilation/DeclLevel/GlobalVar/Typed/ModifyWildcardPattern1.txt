@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %n.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.txt %n.cj
-// EXEC: %compiler %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %n.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 1
 // ASSERT: scan the changed decl after Spreading is:VarWithPatternDecl in file ModifyWildcardPattern1.cj in line 10 in column 1
 // EXEC: %run %run_opt %output %run_args

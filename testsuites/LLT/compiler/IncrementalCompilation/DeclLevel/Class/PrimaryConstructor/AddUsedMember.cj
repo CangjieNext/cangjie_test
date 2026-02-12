@@ -1,11 +1,11 @@
-// DEPENDENCE: %n.old.cj %n.new.cj
+// DEPENDENCE: %n.old.cj %n.new.cj %n.diag.txt
 // EXEC: %cpfile %n.old.cj %n.inc.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.inc.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt %n.inc.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt %n.inc.cj -o %output 2>&1 | compare %n.diag.txt
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 5
-// ASSERT: scan error: 'v' is not allowed to be used in default parameter value of the constructor
 
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

@@ -1,9 +1,10 @@
-// DEPENDENCE: %n.old.cj %n.new.cj
+// DEPENDENCE: %n.old.cj %n.new.cj %n.diag.txt
 // EXEC: %compiler %incrementalCompile %cmp_opt -Woff unused %n.old.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj -o %output 2>&1 | compare %n.diag.txt
+// EXEC: cat .cached/*.log | compare %f
 
 // ASSERT: scan changed decls to recompile: 12
 // ASSERT: scan the changed decl after Spreading is:SA in file Anno.old.cj in line 2 in column 8
@@ -18,9 +19,6 @@
 // ASSERT: scan the changed decl after Spreading is:EA in file Anno.old.cj in line 28 in column 6
 // ASSERT: scan the changed decl after Spreading is:ExtendDecl in file Anno.old.cj in line 32 in column 1
 // ASSERT: scan the changed decl after Spreading is:b in file Anno.old.cj in line 36 in column 5
-
-// ASSERT: scan 8 errors generated, 8 errors printed
-
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

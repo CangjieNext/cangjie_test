@@ -2,8 +2,8 @@
 // EXEC: %cpfile %f p1
 // EXEC: %compiler %incrementalCompile -p p1
 // EXEC: %cpdir p1 p2
-// EXEC-PIPE: %compiler %incrementalCompile -p p2 | compare %f
-// EXEC-PIPE: %compiler %incrementalCompile -p p1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile -p p2 && cat .cached/*.log | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile -p p1 && cat .cached/*.log | compare %f
 // ASSERT: scan no raw modified decls
 // ASSERT: scan incremental compile result kind: no change
 

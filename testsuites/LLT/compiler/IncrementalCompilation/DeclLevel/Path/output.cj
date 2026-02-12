@@ -1,5 +1,5 @@
 // EXEC: cjc %f %incrementalCompile -o a.%suffix
-// EXEC-PIPE: cjc %f %incrementalCompile -o b.%suffix | compare %f
+// EXEC-PIPE: cjc %f %incrementalCompile -o b.%suffix && cat .cached/*.log | compare %f
 // ASSERT: scan no change
 
 package t 

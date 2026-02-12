@@ -2,7 +2,8 @@
 // (Linux) EXEC: %rmdir .cached
 // (Linux) EXEC: %compiler %n.cj -Woff all %enableCompileDebug %incrementalCompile --output-type=staticlib --lto=thin
 // (Linux) ERRORCHECK: ls .cached/*.o
-// (Linux) EXEC: %compiler %n.cj -Woff all %enableCompileDebug %incrementalCompile --output-type=staticlib --lto=thin 2>&1 | compare %f
+// (Linux) EXEC: %compiler %n.cj -Woff all %enableCompileDebug %incrementalCompile --output-type=staticlib --lto=thin 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 
 public func foo (){}
 main () {}

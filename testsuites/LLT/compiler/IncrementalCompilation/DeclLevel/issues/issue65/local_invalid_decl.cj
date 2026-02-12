@@ -1,6 +1,7 @@
-// EXEC-PIPE-1: %compiler %cmp_opt %incrementalCompile %f 2>&1 | compare %f
+// DEPENDENCE: %n.diag.txt
+// EXEC-PIPE-1: %compiler %cmp_opt %incrementalCompile %f 2>&1 | compare %n.diag.txt
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan frontend error detected, roll back to full compilation
-// ASSERT: scan error: expected identifier or pattern after 'let', found '='
 
 main():Unit{
     let = 1
