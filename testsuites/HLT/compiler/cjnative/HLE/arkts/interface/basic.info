@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: basic.d.ts
-// EXEC: %run %hle_arkts -i basic.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i basic.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/basic/src/basic.cj | compare %f
 // ASSERT: scan public class DefaultPluginContainer <: PluginContainer

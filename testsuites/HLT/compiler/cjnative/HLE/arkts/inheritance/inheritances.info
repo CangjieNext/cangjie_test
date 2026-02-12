@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: inheritances.d.ts
-// EXEC: %run %hle_arkts -i inheritances.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i inheritances.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/inheritances/src/inheritances.cj | compare %f
 // ASSERT: scan public open class SuperClass1
