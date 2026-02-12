@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: call_signature.d.ts
-// EXEC: %run %hle_arkts -i call_signature.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i call_signature.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/call_signature/src/call_signature.cj | compare %f
 // ASSERT: scan public class ArgumentMatchers

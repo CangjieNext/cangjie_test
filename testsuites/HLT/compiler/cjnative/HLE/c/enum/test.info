@@ -6,7 +6,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: a.h
-// EXEC: %run %hle_c --module-name="my_module" -i a.h -o . --clang-args=""
+// EXEC: %hle_c --module-name="my_module" -i a.h -o . --clang-args=""
 // EXEC-PIPE: %cat a.cj | compare %f
 // ASSERT: scan public const Color_RED: Color = 0
 // ASSERT: scan public const Color_GREEN: Color = 1

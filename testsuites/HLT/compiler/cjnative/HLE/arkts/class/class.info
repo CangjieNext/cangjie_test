@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: class.d.ts
-// EXEC: %run %hle_arkts -i class.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i class.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/class/src/class.cj | compare %f
 // ASSERT: scan public class d10 {

@@ -6,6 +6,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: anonymousClass.d.ts
-// EXEC: %run %hle_arkts -i anonymousClass.d.ts -o . --module-name="my_module"
+// EXEC: %hle_arkts -i anonymousClass.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/anonymous_class/src/anonymous_class.cj | compare %f
 // ASSERT: scan public class AnonymousClass
