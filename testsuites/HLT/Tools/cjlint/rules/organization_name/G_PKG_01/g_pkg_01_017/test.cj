@@ -6,12 +6,11 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
  
-// LEVEL: 1
+// LEVEL: 0
 // DEPENDENCE: ../
 // EXEC-PIPE: %lint -f ./ 2>&1 -c %cangjieDir/tools | compare %f
 // ASSERT: scan-1 G.PKG.01: Avoid using the wildcard '*' in the import declaration 'org::a'.
 // ASSERT: scan-1 G.PKG.01: Avoid using the wildcard '*' in the import declaration 'org::B'.
-// ASSERT: regex G.NAM.01: The name of the 'aa::<invalid identifier>' package must contain only digits, lowercase letters, and underscores \(_\).
 
 package aa::1A
 

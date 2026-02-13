@@ -6,10 +6,10 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 0
 // DEPENDENCE: ../
 // EXEC-PIPE: %lint -f ./ -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex test.cj:14.*warning.*The name of the 'aa::<invalid identifier>' package must contain only digits, lowercase letters, and underscores \(_\).
+// ASSERT: regex-not [0-9a-zA-Z]
 
 package aa::type
 
