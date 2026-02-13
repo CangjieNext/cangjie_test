@@ -7,7 +7,7 @@
  */
 
 // (CJNATIVE and not Windows) DEPENDENCE: ../cjmapping_struct
-// (CJNATIVE and not Windows) RUN-EXEC-0: %cd cjmapping_struct && %compiler %compile_shared_lib_opt %overflowOpt %enable_objc_cjmapping -p src/cjworld %import_objc_interop --output-objcgen-dir=testobjcgendir
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd cjmapping_struct && %compiler %compile_shared_lib_opt %overflowOpt %enable_objc_cjmapping -p src/cjworld %import_objc_interop --objc-output-dir=testobjcgendir
 // (CJNATIVE and not Windows) EXEC-0: test -d cjmapping_struct/testobjcgendir
 // (CJNATIVE and not Windows) EXEC-0: test -f cjmapping_struct/testobjcgendir/A.h
 // (CJNATIVE and not Windows) EXEC-0: test -f cjmapping_struct/testobjcgendir/A.m

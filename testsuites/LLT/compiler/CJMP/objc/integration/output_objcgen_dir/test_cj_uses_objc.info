@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 -o out
 // (CJNATIVE and not Windows) DEPENDENCE: ../impl_methods
-// (CJNATIVE and not Windows) RUN-EXEC-0: %cd impl_methods && %compiler %compile_shared_lib_opt %overflowOpt -p src/cjworld %import_objc_interop --output-objcgen-dir=testobjcgendir
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd impl_methods && %compiler %compile_shared_lib_opt %overflowOpt -p src/cjworld %import_objc_interop --objc-output-dir=testobjcgendir
 // (CJNATIVE and not Windows) EXEC-0: test -d impl_methods/testobjcgendir
 // (CJNATIVE and not Windows) EXEC-0: test -f impl_methods/testobjcgendir/Derived.h
 // (CJNATIVE and not Windows) EXEC-0: test -f impl_methods/testobjcgendir/Derived.m
