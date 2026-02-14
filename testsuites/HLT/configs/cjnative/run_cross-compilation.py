@@ -106,20 +106,17 @@ def construct_tool_send_cmd(src, dest):
             dest=str(dest).strip(),
         )
     elif "adb" in tool:
-        if IS_WINDOWS:
-            bash_src=str(src).strip().replace("\\", "/")
-            cmd = r"bash -c 'find {bash_src} -name \"*.c\" -exec rm -rf {{}} \;' && {tool} push {src} {dest}".format(
-                tool=tool,
-                src=str(src).strip(),
-                bash_src=bash_src,
-                dest=str(dest).strip(),
-            )
-        else:
-            cmd = "{tool} push {src} {dest}".format(
-                tool=tool,
-                src=str(src).strip(),
-                dest=str(dest).strip(),
-            )
+        for root_dir_path, _, file_name_list in os.walk(src):
+            for file_name in file_name_list:
+                if file_name.endswith('.c'):
+                    file_path = os.path.join(root_dir_path, file_name)
+                    print(f'removing {file_path}')
+                    os.remove(file_path)
+        cmd = "{tool} push {src} {dest}".format(
+            tool=tool,
+            src=str(src).strip(),
+            dest=str(dest).strip(),
+        )
     else:
         cmd = ""
     return cmd
