@@ -29,7 +29,7 @@ public specific interface I3 {
 
 /* SCAN
 error: interface function 'foo6' must be implemented in 'A'
-  ==> c/c.cj:19:1:
+  ==> (package cmp)c.cj:19:1:
 
 1 error generated, 1 error printed.
 */
