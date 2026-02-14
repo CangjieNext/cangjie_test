@@ -43,7 +43,7 @@ main(){
 
 /* SCAN
 error: property 'i' should be immutable
-  ==> c/c.cj:25:5:
+  ==> (package cmp)c.cj:25:5:
 
 1 error generated, 1 error printed.
 */
