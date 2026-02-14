@@ -5,15 +5,16 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // SEPARATE-FILE: c/c.cj
-// EXEC-0: %compiler %noColor -j8 --experimental c/c.cj --output-type=chir --output-dir ./c
+// EXEC-0: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c
+package cmp
+public common enum RGBColor<T> {
+    RED(T) | GREEN(T) | BLUE(T)
+}
+
+// SEPARATE-FILE: p/p.cj
+// EXEC-PIPE: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public common struct A {
-    init(v: Int64) { println(v) }
-}
-// SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
-package cmp
-public specific struct A{
-    required init(){}
+public specific enum RGBColor<F> {
+    RED(F) | GREEN(F) | BLUE(F)
 }
