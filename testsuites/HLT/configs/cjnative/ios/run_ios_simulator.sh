@@ -5,7 +5,7 @@
 #
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-set +xe
+set -xe
 
 WORKSPACE=$(cd `dirname $0`; pwd)
 if [ -z ${XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST} ]; then
@@ -32,31 +32,33 @@ if [ -z ${IS_UNINSTALL_ON_SIMULATOR} ]; then
     IS_UNINSTALL_ON_SIMULATOR=true
 fi
 
-echo "递归提取并合并所有 .a 文件..."
+echo "recursively archiving all .a files..."
 
-# 创建临时目录
-TEMP_DIR="$(pwd)/merge_temp"
+CWD=$(pwd)
+TEMP_DIR="$CWD/merge_temp"
 mkdir -p "$TEMP_DIR"
 
-# 递归查找并处理所有 .a 文件（排除目标文件）
 find . -name "*.a" -type f | grep -v "libcangjie_main.a" | while read -r file; do
-    echo "提取: $file"
-    
-    # 在文件所在目录执行提取
+    echo "extracting archive: $file"
     (cd "$(dirname "$file")" && ls -la && ar x "$(basename "$file")" && mv *.o "$TEMP_DIR/" 2>/dev/null || true)
 done
 
-# 合并所有 .o 文件
 if [ "$(ls -A "$TEMP_DIR"/*.o 2>/dev/null)" ]; then
-    echo "合并对象文件到 libcangjie_main.a"
+    echo "archiving all object files in temp directory into libcangjie_main.a"
     ar r libcangjie_main.a "$TEMP_DIR"/*.o &> /dev/null || true
 else
-    echo "没有找到可合并的 .o 文件"
+    echo "no object files found in temp directory: $TEMP_DIR"
 fi
 
-# 清理
+if [ "$(ls -A "$CWD"/*.o 2>/dev/null)" ]; then
+    echo "archiving all object files in current working directory into libcangjie_main.a"
+    ar r libcangjie_main.a "$CWD"/*.o &> /dev/null || true
+else
+    echo "no object files found in current working directory: $CWD"
+fi
+
 rm -rf "$TEMP_DIR"
-echo "完成"
+echo "done archiving libcangjie_main.a"
 
 rm -f ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
 cp libcangjie_main.a ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
