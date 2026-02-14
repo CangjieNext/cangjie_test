@@ -11,18 +11,8 @@ package cmp
 public common func foo(): Unit
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-PIPE: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
 public specific func foo(): Unit {}
 public common func goo(): Unit {}
-/* SCAN
-error: common declaration must be defined in common package part
- ==> p/p.cj:1:1:
-  | 
-1 | // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
-  | ^ 
-  | 
-
-1 error generated, 1 error printed.
-*/
