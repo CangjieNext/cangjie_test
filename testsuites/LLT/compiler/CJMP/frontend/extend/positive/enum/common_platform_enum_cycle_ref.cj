@@ -13,7 +13,8 @@ public common enum EA{
     C
 }
 public common class CA {
-   var A : EA = EA.C
+    public common init(){}
+    var A : EA = EA.C
 }
 
 // SEPARATE-FILE: p/p.cj

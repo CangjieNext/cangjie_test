@@ -55,10 +55,10 @@ error: 'specific' function 'testFunc2' can not find 'common' match
   | 
 
 error: 'common' function 'testFunc2' can not find 'specific' match
-  ==> c/c.cj:13:3:
+  ==> (package cmp)c.cj:13:3:
 
 error: 'common' function 'testFunc1' can not find 'specific' match
- ==> c/c.cj:7:1:
+ ==> (package cmp)c.cj:7:1:
 
 6 errors generated, 6 errors printed.
 */

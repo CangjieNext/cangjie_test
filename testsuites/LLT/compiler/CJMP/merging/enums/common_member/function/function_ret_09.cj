@@ -5,8 +5,9 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // SEPARATE-FILE: c/c.cj
-// EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c
+// EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
 // ASSERT: scan parse_common_function_must_have_return_type
+
 package cmp
 
 class GeneralClass {}
@@ -14,8 +15,6 @@ class GeneralClass {}
 common enum A {
     | TEST_ENUM
 
-    common func testFunc(): GeneralClass {
-        GeneralClass()
-    }
+    common func testFunc()
 }
 

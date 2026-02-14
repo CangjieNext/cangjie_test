@@ -20,7 +20,7 @@ common extend C <: I {}
 // ASSERT: scan error: redefinition of declaration 'C'
 package cmp
 
-public common class C {}
+public common class C { init() {} }
 
 specific extend C <: I {}
 
