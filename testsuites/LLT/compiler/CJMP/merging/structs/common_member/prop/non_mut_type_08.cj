@@ -19,13 +19,13 @@ common struct A {
 
 // SEPARATE-FILE: p/p.cj
 // ERRCHECK: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
-// ASSERT: scan sema_platform_has_different_type
+// ASSERT: scan sema_specific_has_different_type
 package cmp
 
-platform struct A {
-    platform prop testProp: Int64 {
+specific struct A {
+    specific prop testProp: Int64 {
         get() {
-            println("platform")
+            println("specific")
             1
         }
     }

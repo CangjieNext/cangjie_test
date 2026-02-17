@@ -8,4 +8,4 @@
 
 package mp
 
-@B public platform class C {}
+@B public specific class C {}

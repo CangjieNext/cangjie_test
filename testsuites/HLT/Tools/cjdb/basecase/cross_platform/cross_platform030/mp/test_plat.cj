@@ -8,8 +8,8 @@
 
 package mp
 
-public platform interface I {
-    public platform mut func f(): Unit {
+public specific interface I {
+    public specific mut func f(): Unit {
         println("aa")
     }
 }

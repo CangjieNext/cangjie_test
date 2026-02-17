@@ -6,38 +6,38 @@
 
 package cmp
 
-public platform func foo(): Unit {
+public specific func foo(): Unit {
 	println(1111111111)
 }
 
-public platform class A {
-    platform var a:Int64
-    public platform A(platform public var x: Int64) {
+public specific class A {
+    specific var a:Int64
+    public specific A(specific public var x: Int64) {
 		this.a = x
 	}
 	public func foo() {
 		println(this.a)
 	}
-	public platform func foo1():Unit{
+	public specific func foo1():Unit{
 		println("111111111")
 	}
 }
 
-public platform struct B {
-    platform var a:Int64
-    public platform B(platform public var x: Int64) {
+public specific struct B {
+    specific var a:Int64
+    public specific B(specific public var x: Int64) {
 		this.a = x
 	}
 	public func foo() {
 		println(this.a)
 	}
-	public platform func foo1():Unit{
+	public specific func foo1():Unit{
 		println("111111111")
 	}
 }
 
-platform enum C {
+specific enum C {
     | cs
-    platform func foo(): Unit { println("platform") }
+    specific func foo(): Unit { println("specific") }
     func foo1(): Unit { println("111111111") }
 }

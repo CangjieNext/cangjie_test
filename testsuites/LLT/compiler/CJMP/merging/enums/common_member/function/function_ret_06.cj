@@ -35,15 +35,15 @@ package cmp
 
 import std.collection.*
 
-platform enum A {
+specific enum A {
     | TEST_ENUM
 
-    platform func testFunc(): ArrayList<GeneralClass> {
-        println("platform")
+    specific func testFunc(): ArrayList<GeneralClass> {
+        println("specific")
         ArrayList<GeneralClass>()
     }
-    platform func testFunc1(): ArrayList<GeneralClass> {
-        println("platform")
+    specific func testFunc1(): ArrayList<GeneralClass> {
+        println("specific")
         ArrayList<GeneralClass>()
     }
 }
@@ -55,7 +55,7 @@ main() : Unit {
 }
 
 /* SCAN
-platform
-platform
+specific
+specific
 common
 */

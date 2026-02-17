@@ -15,8 +15,8 @@ public common struct A {
 // EXEC-PIPE-1:: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output  2>&1 | compare %f
 // ASSERT: scan parse_illegal_modifier_in_scope
 package cmp
-public platform struct A{
-    platform A(){}
+public specific struct A{
+    specific A(){}
 }
 main():Unit
 {

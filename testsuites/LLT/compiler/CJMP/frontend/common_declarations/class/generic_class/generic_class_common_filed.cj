@@ -28,14 +28,14 @@ common extend<T> Container<T> {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
  
-platform class Container<T> <:I<T>{
-  platform var item:?T = Option<T>.None 
+specific class Container<T> <:I<T>{
+  specific var item:?T = Option<T>.None 
  
 }
  
-platform extend<T> Container<T> {
-  platform func setItem(newItem:T):Unit {item = newItem}
-  platform func getItem():?T {item}
+specific extend<T> Container<T> {
+  specific func setItem(newItem:T):Unit {item = newItem}
+  specific func getItem():?T {item}
 } 
 main(){
    var container = Container<Int64>()

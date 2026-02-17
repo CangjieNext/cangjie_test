@@ -33,8 +33,8 @@ common func foo(arg:(Int32)->Int32): (Int32)->Int32 {
 package cmp
 import testImport.*
 
-platform func foo(arg:(Int32)->Int32):(Int32)->Int32 {
-    println("platform")
+specific func foo(arg:(Int32)->Int32):(Int32)->Int32 {
+    println("specific")
     println(arg(2))
     return B
 }
@@ -45,7 +45,7 @@ main() {
 }
 
 /* SCAN
-platform
+specific
 2
 1
 */

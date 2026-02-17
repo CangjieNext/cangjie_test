@@ -7,9 +7,9 @@
  */
 
 package mp
-platform extend <K> A<K> {
-    public platform func foo1(a: K, b: K) { b }
-    public platform static func foo2(a: K, b: K) { b }
+specific extend <K> A<K> {
+    public specific func foo1(a: K, b: K) { b }
+    public specific static func foo2(a: K, b: K) { b }
 }
 public func f2() {
     return A<Int64>().foo1(1, 2) + A<Int64>.foo2(1, 2)

@@ -24,8 +24,8 @@ public func goo() {
 // EXEC: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform class A {
-  public platform func foo() {
+public specific class A {
+  public specific func foo() {
     throw Exception("Asking for landing")
   }
 }

@@ -8,13 +8,13 @@
 
 package mp
 
-platform class A {
-    platform func foo1(a: Int64): Unit {
+specific class A {
+    specific func foo1(a: Int64): Unit {
         print(a)
     }
-    platform static func foo1(): Unit {}
-    platform func foo3(): Unit {}
-    platform func foo3(a: Int64) {
+    specific static func foo1(): Unit {}
+    specific func foo3(): Unit {}
+    specific func foo3(a: Int64) {
         a
     }
 }

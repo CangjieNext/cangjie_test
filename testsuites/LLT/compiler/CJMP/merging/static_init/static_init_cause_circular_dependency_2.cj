@@ -31,10 +31,10 @@ public common class A {
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  2>&1 | compare %f
 package cmp
  
-public platform class A {
-    public platform static var x: Int = 121
-    public platform static var y: Int = 122
-    public platform static var z: Int = foo("platform") // p.cj -> c.cj
+public specific class A {
+    public specific static var x: Int = 121
+    public specific static var y: Int = 122
+    public specific static var z: Int = foo("specific") // p.cj -> c.cj
 }
 
 /* SCAN

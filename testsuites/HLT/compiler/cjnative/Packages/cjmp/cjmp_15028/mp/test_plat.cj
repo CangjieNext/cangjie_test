@@ -7,8 +7,8 @@
  */
 
 package mp
-platform extend <T> A<T> {
-    public platform mut prop p1: T {
+specific extend <T> A<T> {
+    public specific mut prop p1: T {
         get() {b}
         set(v) {b=v}
     }

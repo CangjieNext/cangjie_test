@@ -8,8 +8,8 @@
  
 package mp
 
-public platform class A {
-    public platform static func f(): Int64 { 0 }
+public specific class A {
+    public specific static func f(): Int64 { 0 }
 }
 
 

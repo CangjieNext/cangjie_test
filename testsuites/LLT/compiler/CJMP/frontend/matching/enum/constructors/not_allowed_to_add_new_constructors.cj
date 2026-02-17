@@ -17,7 +17,7 @@ public common enum RGBColor {
 // ASSERT: scan sema_not_matched
 package cmp
 
-public platform enum RGBColor {
+public specific enum RGBColor {
     RED | GREEN | BLUE | YELLOW
 }
 

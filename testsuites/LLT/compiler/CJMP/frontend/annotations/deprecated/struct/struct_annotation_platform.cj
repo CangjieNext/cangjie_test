@@ -18,21 +18,21 @@ public common struct A {
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
-// ASSERT: scan sema_platform_has_deprecated_annotation
+// ASSERT: scan sema_specific_has_deprecated_annotation
 package cmp
 
 @Deprecated
-public platform struct A {
+public specific struct A {
     @Deprecated
-    public platform let name: String = "string"
+    public specific let name: String = "string"
     @Deprecated
-    public platform init() {}
+    public specific init() {}
     @Deprecated
-    public platform prop NAME: String {
+    public specific prop NAME: String {
         get() { name }
     }
     @Deprecated
-    public platform func foo(): Unit {}
+    public specific func foo(): Unit {}
     @Deprecated
-    public platform operator func == (_: A): Bool { true }
+    public specific operator func == (_: A): Bool { true }
 }

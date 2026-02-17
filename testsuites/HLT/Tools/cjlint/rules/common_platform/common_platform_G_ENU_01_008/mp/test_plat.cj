@@ -8,6 +8,6 @@
 
 package mp
 
-platform enum B { ELEMENT1 | ELEMENT2 | ELEMENT3 }
+specific enum B { ELEMENT1 | ELEMENT2 | ELEMENT3 }
 
 class ELEMENT3 {}

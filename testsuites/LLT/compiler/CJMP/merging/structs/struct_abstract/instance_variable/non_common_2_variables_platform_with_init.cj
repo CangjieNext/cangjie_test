@@ -19,7 +19,7 @@ public common struct A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform struct A {
+public specific struct A {
     public let b: Int = 2
     public let bb: Int = 22
     public init(a_: Int64) {}

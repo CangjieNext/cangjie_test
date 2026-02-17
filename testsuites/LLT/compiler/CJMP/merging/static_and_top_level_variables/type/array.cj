@@ -19,7 +19,7 @@ package cmp
 
 public let y = 43
 
-public platform let a:Array<Int64> = [7,8,9]
+public specific let a:Array<Int64> = [7,8,9]
 
 
 // SEPARATE-FILE: m_common.cj

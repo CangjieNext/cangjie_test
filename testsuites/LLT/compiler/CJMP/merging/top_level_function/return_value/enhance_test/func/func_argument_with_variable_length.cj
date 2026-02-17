@@ -24,8 +24,8 @@ public func testFunction(arr: Array<Int64>) : Int64 {
     0
 }
 
-platform func foo(arg: (Array<Int64>) -> Int64): Unit {
-    println("platform")
+specific func foo(arg: (Array<Int64>) -> Int64): Unit {
+    println("specific")
 }
 
 main() {
@@ -33,5 +33,5 @@ main() {
 }
 
 /* SCAN
-platform
+specific
 */

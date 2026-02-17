@@ -32,8 +32,8 @@ common extend<T> Point<T> <: ToString where T <: Number<T> & ToString {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 import std.math.*
-platform extend<T> Point<T> <: ToString where T <: Number<T> & ToString {
-    platform operator func -(): Point<T> {
+specific extend<T> Point<T> <: ToString where T <: Number<T> & ToString {
+    specific operator func -(): Point<T> {
         return Point(-x, -y)
     }
 }

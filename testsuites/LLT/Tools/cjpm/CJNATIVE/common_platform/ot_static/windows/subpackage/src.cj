@@ -7,4 +7,4 @@
 features { os.windows }
 package ot_static.subpackage
 
-public platform func subfunc(): String { "subfunc windows" }
+public specific func subfunc(): String { "subfunc windows" }

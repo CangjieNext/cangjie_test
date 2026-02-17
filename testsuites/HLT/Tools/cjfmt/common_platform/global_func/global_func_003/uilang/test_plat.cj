@@ -8,10 +8,10 @@
 
 package mp
 
-public platform func f1<T>(): Int64 {
+public specific func f1<T>(): Int64 {
     1
 }
 
-protected platform func f2<T>(): Int64 {
+protected specific func f2<T>(): Int64 {
     2
 }

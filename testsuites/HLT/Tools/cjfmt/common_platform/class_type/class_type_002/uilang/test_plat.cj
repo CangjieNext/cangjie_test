@@ -8,9 +8,9 @@
 
 package mp
 
-public platform class A{
-    public platform init() {}
-    protected platform init(a:String) {
+public specific class A{
+    public specific init() {}
+    protected specific init(a:String) {
         println(a)
     }
 }

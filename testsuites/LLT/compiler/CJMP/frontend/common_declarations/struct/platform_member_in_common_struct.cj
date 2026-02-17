@@ -8,11 +8,11 @@
 // EXEC-PIPE-1: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
 package cmp
 common struct C{
-    platform func a():Int32 {}
+    specific func a():Int32 {}
     init() {}
 }
 /* SCAN
-error: platform declaration must be defined in platform package part
+error: specific declaration must be defined in specific package part
  ==> c/c.cj:1:1:
   | 
 1 | // EXEC-PIPE-1: %compiler %noColor --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f

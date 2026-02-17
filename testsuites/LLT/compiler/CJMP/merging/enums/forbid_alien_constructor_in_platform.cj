@@ -20,7 +20,7 @@ common public enum A {
 // ASSERT: scan-2 sema_not_matched
 package cmp
 
-platform public enum A {
+specific public enum A {
     | AA
     | BB
     | CC(String)

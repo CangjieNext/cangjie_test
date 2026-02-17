@@ -7,8 +7,8 @@
  */
 
 package mp
-public platform interface I<T> {
-    platform func f(a: T, b: T) { b }
+public specific interface I<T> {
+    specific func f(a: T, b: T) { b }
 }
 public func f2<T, K>(a: T, b: K, c: K) where T <: I<K> {
     return a.f(b, c)

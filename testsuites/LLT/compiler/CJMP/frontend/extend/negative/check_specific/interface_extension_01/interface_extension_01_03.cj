@@ -13,8 +13,8 @@ common extend Int64 <: IA {}
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
-// ASSERT: scan error: 'platform' extend 'Int64' can not find 'common' match
+// ASSERT: scan error: 'specific' extend 'Int64' can not find 'common' match
 package cmp
 
 interface S_IA {}
-platform extend Int64 <: IA & S_IA {}
+specific extend Int64 <: IA & S_IA {}
