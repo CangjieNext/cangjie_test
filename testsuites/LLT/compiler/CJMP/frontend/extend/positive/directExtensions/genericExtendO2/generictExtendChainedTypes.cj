@@ -27,9 +27,9 @@ public func f1() {
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor %enableO2 --experimental p/p.cj c/mp.chir --common-part-cjo=./c/mp.cjo  --output-type=dylib -o ./
 package mp
-platform extend <T> A<B<T>, Int64> {
-    public platform func foo1(a: B<Int64>) { a.a + 1 }
-    public platform static func foo2(a: B<Int64>) { a.a + 1 }
+specific extend <T> A<B<T>, Int64> {
+    public specific func foo1(a: B<Int64>) { a.a + 1 }
+    public specific static func foo2(a: B<Int64>) { a.a + 1 }
 }
 public func f2() {
     return A<B<Int64>, Int64>().foo1(B<Int64>(1)) + A<B<Int64>, Int64>.foo2(B<Int64>(1))

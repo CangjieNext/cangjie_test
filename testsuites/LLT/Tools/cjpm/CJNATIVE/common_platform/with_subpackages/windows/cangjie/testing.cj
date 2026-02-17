@@ -9,4 +9,4 @@ package testing
 
 import testing.utils.*
 
-public platform func foo(): Unit {}
+public specific func foo(): Unit {}

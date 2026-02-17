@@ -6,6 +6,6 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=os.linux | compare %f
-// ASSERT: scan-1 call from boo: platform foo: test
-// ASSERT: scan-1 I'm f2 in common without (platform)
+// ASSERT: scan-1 call from boo: specific foo: test
+// ASSERT: scan-1 I'm f2 in common without (specific)
 // ASSERT: scan-1 cjpm run finished

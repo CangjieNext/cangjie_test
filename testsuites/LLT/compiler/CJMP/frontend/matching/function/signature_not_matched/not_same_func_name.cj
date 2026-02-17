@@ -15,9 +15,9 @@ public common func foo(): Unit
 // ASSERT: scan-2 sema_not_matched
 package cmp
 
-public platform func foo2(): Unit {
+public specific func foo2(): Unit {
     println("It is not a PLATFORM function")
 }
 
-// public platform func moo() {}
+// public specific func moo() {}
 

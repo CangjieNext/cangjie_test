@@ -8,6 +8,6 @@
 
 package mp
 
-public platform func genericPrint<T>(a: T) where T <: ToString {
+public specific func genericPrint<T>(a: T) where T <: ToString {
     a
 }

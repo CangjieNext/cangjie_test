@@ -10,31 +10,31 @@ package mp
 
 import std.collection.*
 
-platform public abstract class Animal {
-    platform public func run(): String {
+specific public abstract class Animal {
+    specific public func run(): String {
         return "dog animal"
     }
 }
 
-platform public class Dog <: Animal {
-    platform public func run(): String {
+specific public class Dog <: Animal {
+    specific public func run(): String {
         return "dog run"
     }
 }
 
-platform public class Fox <: Animal {
-    platform public func run(): String {
+specific public class Fox <: Animal {
+    specific public func run(): String {
         return "fox run"
     }
 }
 
-platform public class Zoo<T> where T <: Animal {
+specific public class Zoo<T> where T <: Animal {
     public var animals: ArrayList<Animal> = ArrayList<Animal>()
-    platform public func addAnimal(a: T) {
+    specific public func addAnimal(a: T) {
         animals.add(a)
     }
 
-    platform public func allAnimalRuns() {
+    specific public func allAnimalRuns() {
         for (a in animals) {
             println(a.run())
         }

@@ -8,12 +8,12 @@
 
 package mp
 
-public platform interface I<T> {}
+public specific interface I<T> {}
 
-public platform class C {}
+public specific class C {}
 
-platform extend C <: I<Int64> {
-    public platform func f(a: Int64): Int64 {
+specific extend C <: I<Int64> {
+    public specific func f(a: Int64): Int64 {
         a
     }
 }

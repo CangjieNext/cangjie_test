@@ -18,7 +18,7 @@ common sealed abstract class A {
 // ASSERT: scan sema_cannot_inherit_sealed
 package cmp
 
-platform sealed abstract class A {}
+specific sealed abstract class A {}
 
 class B <: A {}
 

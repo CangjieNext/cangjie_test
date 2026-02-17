@@ -38,7 +38,7 @@ package cmp
 import a.*
 import b.*
 
-public platform func showGV(): Unit {
+public specific func showGV(): Unit {
     println("${ga + gb}")
 }
 

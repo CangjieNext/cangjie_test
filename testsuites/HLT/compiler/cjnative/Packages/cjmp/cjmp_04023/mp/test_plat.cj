@@ -8,6 +8,6 @@
  
 package mp
 
-public platform open class A2 <: A1 {}
+public specific open class A2 <: A1 {}
 
 

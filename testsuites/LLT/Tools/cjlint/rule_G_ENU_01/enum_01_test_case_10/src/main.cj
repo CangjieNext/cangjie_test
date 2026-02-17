@@ -13,7 +13,7 @@ main() {
 
 public enum A {
     | ELEMENT
-    public platform func foo(): Unit {
+    public specific func foo(): Unit {
         println("I am nothing")
     }
 }

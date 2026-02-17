@@ -29,8 +29,8 @@ public func testFunction(arg: RGBColor) : RGBColor {
     RGBColor.Blue(0)
 }
 
-platform func foo(arg: (RGBColor) -> RGBColor): Unit {
-    println("platform")
+specific func foo(arg: (RGBColor) -> RGBColor): Unit {
+    println("specific")
 }
 
 main() {
@@ -38,5 +38,5 @@ main() {
 }
 
 /* SCAN
-platform
+specific
 */

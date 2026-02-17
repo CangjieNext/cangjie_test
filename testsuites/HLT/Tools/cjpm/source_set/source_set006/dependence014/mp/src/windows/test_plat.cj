@@ -11,7 +11,7 @@ package mp
 
 import mp1.*
 
-public platform func f(): Int64 {
+public specific func f(): Int64 {
     println(f1() + f2())
     0
 }

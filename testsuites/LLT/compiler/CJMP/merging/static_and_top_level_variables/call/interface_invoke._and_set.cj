@@ -25,13 +25,13 @@ public common class B<:A{
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-platform interface A{
-    platform func goo():Unit
+specific interface A{
+    specific func goo():Unit
     {
         println(a)
     }
 }
-public platform class B<:A{
+public specific class B<:A{
 }
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor -j8 m_common.cj --import-path=./p -L./p -lcmp -o %output

@@ -7,12 +7,12 @@
  */
 
 package mp
-platform extend <T> A<T> {
-    public platform mut prop p1: Int64 {
+specific extend <T> A<T> {
+    public specific mut prop p1: Int64 {
         get() {2}
         set(v) {v}
     }
-    public platform static mut prop p2: Int64 {
+    public specific static mut prop p2: Int64 {
         get() {2}
         set(v) {v}
     }

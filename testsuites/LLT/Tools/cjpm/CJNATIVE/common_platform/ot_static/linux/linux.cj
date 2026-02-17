@@ -7,7 +7,7 @@
 features { os.linux }
 package ot_static
 
-public platform func withdefault(): String { "overriden default" }
-public platform func platformId(): String { "linux id" }
+public specific func withdefault(): String { "overriden default" }
+public specific func specificId(): String { "linux id" }
 
 main(): Unit { commonMain() }

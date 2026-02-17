@@ -8,7 +8,7 @@
  
 package mp
 
-public platform enum A {
+public specific enum A {
     | E
     public func f2(): Int64 { -1 }
 }

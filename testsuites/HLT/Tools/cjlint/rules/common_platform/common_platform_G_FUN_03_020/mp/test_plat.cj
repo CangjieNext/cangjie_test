@@ -8,8 +8,8 @@
 
 package mp
 
-platform struct C {}
+specific struct C {}
 
-platform func foo(a: A) {
+specific func foo(a: A) {
     println(a.a)
 }

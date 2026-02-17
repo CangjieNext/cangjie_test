@@ -24,8 +24,8 @@ public common func koo(a!: Array<Int64> = goo()): Unit {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform func koo(a!: Array<Int64>): Unit {
-     println("platform a = ${a}")
+public specific func koo(a!: Array<Int64>): Unit {
+     println("specific a = ${a}")
 }
 
 public func qoo(): Unit {
@@ -59,7 +59,7 @@ main(): Unit {
 }
 
 /* SCAN
-platform a = [0]
+specific a = [0]
 a = [0]
 a = [2]
 */

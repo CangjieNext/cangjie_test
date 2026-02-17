@@ -37,13 +37,13 @@ package cmp
 
 import B
 
-platform extend<T> Foo<T, B.Moo> where T <: ToString {}
+specific extend<T> Foo<T, B.Moo> where T <: ToString {}
 
 /* SCAN
-error: 'platform' extend 'Foo<T,Moo>' can not find 'common' match
+error: 'specific' extend 'Foo<T,Moo>' can not find 'common' match
  ==> p/p.cj:7:10:
   | 
-7 | platform extend<T> Foo<T, B.Moo> where T <: ToString {}
+7 | specific extend<T> Foo<T, B.Moo> where T <: ToString {}
   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
 

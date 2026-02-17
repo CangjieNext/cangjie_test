@@ -7,10 +7,10 @@
  */
 package mp
 
-public platform open class C1 {
+public specific open class C1 {
     public init(a: Int64) {
         v = a + 1
     }
 }
 
-public platform class C2 <: C1 {}
+public specific class C2 <: C1 {}

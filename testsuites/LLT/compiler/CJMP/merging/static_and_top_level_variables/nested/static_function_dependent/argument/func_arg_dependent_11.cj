@@ -28,14 +28,14 @@ public common let Z: Int64 = A.get(Y)
 package cmp
 
 public let U = 3
-public platform let Z: Int64 = A.get(U)
+public specific let Z: Int64 = A.get(U)
 
 // SEPARATE-FILE: p/p2.cj
 // EXEC-0: %compiler %noColor --experimental p/p1.cj p/p2.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform let Y: Int64 = A.get(Z)
-public platform let X: Int64 = A.get(Y)
+public specific let Y: Int64 = A.get(Z)
+public specific let X: Int64 = A.get(Y)
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor m_common.cj --import-path=./c -L./p -lcmp -o %output

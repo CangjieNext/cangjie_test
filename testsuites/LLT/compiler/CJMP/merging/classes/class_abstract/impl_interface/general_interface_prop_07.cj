@@ -25,11 +25,11 @@ public class C1 <: I1 {
 
     public mut prop p: Int64 {
         get() {
-            println("platform get")
+            println("specific get")
             1
         }
         set(value) {
-            println("platform set")
+            println("specific set")
         }
     }
 }
@@ -41,6 +41,6 @@ main(): Unit {
 }
 
 /* SCAN
-platform get
-platform set
+specific get
+specific set
 */

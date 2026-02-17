@@ -8,17 +8,17 @@
 
 package mp
 
-platform class A {
-    platform A() {}
-    platform init(a: String) {
+specific class A {
+    specific A() {}
+    specific init(a: String) {
         println(a)
     }
     init(a: Int64) {}
 }
 
-platform struct S {
-    platform S() {}
-    platform init(a: String) {
+specific struct S {
+    specific S() {}
+    specific init(a: String) {
         println(a)
     }
     init(a: Int64) {}

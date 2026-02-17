@@ -10,5 +10,5 @@ features { user.cmp.a }
 package cmp.pkg1
 
 public func g1(): String {
-    "platform cmp.pkg1"
+    "specific cmp.pkg1"
 }

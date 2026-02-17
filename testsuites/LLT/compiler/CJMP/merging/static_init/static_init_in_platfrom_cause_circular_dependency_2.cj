@@ -22,9 +22,9 @@ public common class A {
 package cmp
  
 let _foo = 1
-platform func foo(): Int { _foo }
+specific func foo(): Int { _foo }
 
-public platform class A {
+public specific class A {
     public static var y: Int
 
     // `static init` -> x,y

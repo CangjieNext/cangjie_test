@@ -8,6 +8,6 @@
  
 package mp
 
-public platform func f1<T>(a:T): T { a }
+public specific func f1<T>(a:T): T { a }
 
-public platform const func f():Unit { println("hello")}
+public specific const func f():Unit { println("hello")}

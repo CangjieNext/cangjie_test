@@ -8,6 +8,6 @@
  
 package mp
 
-public platform func f1<T>(a:T): T { a }
+public specific func f1<T>(a:T): T { a }
 
-protected platform func f2<T>(a:T): T { a }
+protected specific func f2<T>(a:T): T { a }

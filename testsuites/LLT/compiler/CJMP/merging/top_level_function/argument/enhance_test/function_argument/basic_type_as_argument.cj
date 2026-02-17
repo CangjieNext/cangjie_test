@@ -53,25 +53,25 @@ func goo5(arg:Float32):Float32{
     println("goo5")
     arg
 }
-platform func foo(arg: (Int32)->Int32): Unit {
+specific func foo(arg: (Int32)->Int32): Unit {
     arg(1)
-    println("platform")
+    println("specific")
 }
-platform func foo(arg: (IntNative)->IntNative): Unit {
+specific func foo(arg: (IntNative)->IntNative): Unit {
     arg(1)
-    println("platform")
+    println("specific")
 }
-platform func foo(arg: (UInt32)->UInt32): Unit {
+specific func foo(arg: (UInt32)->UInt32): Unit {
     arg(1)
-    println("platform")
+    println("specific")
 }
-platform func foo(arg: (UIntNative)->UIntNative): Unit {
+specific func foo(arg: (UIntNative)->UIntNative): Unit {
     arg(1)
-    println("platform")
+    println("specific")
 }
-platform func foo(arg: (Float32)->Float32): Unit {
+specific func foo(arg: (Float32)->Float32): Unit {
     arg(1.1)
-    println("platform")
+    println("specific")
 }
 main() {
     foo(goo1)
@@ -83,13 +83,13 @@ main() {
 
 /* SCAN
 goo1
-platform
+specific
 goo2
-platform
+specific
 goo3
-platform
+specific
 goo4
-platform
+specific
 goo5
-platform
+specific
 */

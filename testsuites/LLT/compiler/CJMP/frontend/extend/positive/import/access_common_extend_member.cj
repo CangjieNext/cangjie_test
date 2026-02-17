@@ -24,8 +24,8 @@ extend A{
 package a
 
 
-platform extend A{
-   platform public func koo():Unit{println("platform:extend")}
+specific extend A{
+   specific public func koo():Unit{println("specific:extend")}
 }
 public func run() {
     let a = A()
@@ -72,10 +72,10 @@ main() {
     runFromB()
 }
 /* SCAN
-platform:extend
+specific:extend
 extend
-platform:extend
+specific:extend
 extend
-platform:extend
+specific:extend
 extend
 */

@@ -21,7 +21,7 @@ class A <: I {
 // ASSERT: scan sema_return_type_incompatible
 package cmp
 
-public platform interface I {
+public specific interface I {
      func foo1(x: Int64): Int64 { x }
 }
 

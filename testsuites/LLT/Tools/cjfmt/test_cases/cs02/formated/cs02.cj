@@ -6,6 +6,6 @@
 
 package cmp
 
-platform public func foo(): Unit {
-    println("I am platform")
+specific public func foo(): Unit {
+    println("I am specific")
 }

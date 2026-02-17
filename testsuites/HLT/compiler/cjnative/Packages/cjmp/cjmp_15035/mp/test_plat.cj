@@ -7,4 +7,4 @@
  */
 
 package mp
-platform extend <K, T> A<T, K> {}
+specific extend <K, T> A<T, K> {}

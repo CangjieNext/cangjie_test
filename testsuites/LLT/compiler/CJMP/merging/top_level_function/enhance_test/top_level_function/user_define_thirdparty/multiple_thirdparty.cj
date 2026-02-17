@@ -30,8 +30,8 @@ common func foo(arg: A,arg2:B): Unit {
 package cmp
 import testImport.A
 import testImport2.B
-platform func foo(arg: A,arg2:B): Unit {
-    println("platform")
+specific func foo(arg: A,arg2:B): Unit {
+    println("specific")
 }
 
 main() {
@@ -39,5 +39,5 @@ main() {
 }
 
 /* SCAN
-platform
+specific
 */

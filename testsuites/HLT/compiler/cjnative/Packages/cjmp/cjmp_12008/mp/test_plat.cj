@@ -10,8 +10,8 @@ package mp
 
 public import mp1.C3
 
-public platform class C1{
-    public platform func f1():Int64{
+public specific class C1{
+    public specific func f1():Int64{
         return C3().a
     } 
 }

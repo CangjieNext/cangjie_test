@@ -8,6 +8,6 @@
 
 package mp
 
-public platform func f(a!: Int64): Int64 {
+public specific func f(a!: Int64): Int64 {
     a
 }

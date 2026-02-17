@@ -39,7 +39,7 @@ public let x4 = f4()
 package cmp
 
 // INVALID: c1 -> x2
-public platform let c1: Int = x2
+public specific let c1: Int = x2
 
 /* SCAN
 error: p_invalid_1.cj and c.cj might have file circular dependency
@@ -51,7 +51,7 @@ error: p_invalid_1.cj and c.cj might have file circular dependency
 package cmp
 
 // INVALID: c1 -> x2
-public platform let c1: Int = f2()
+public specific let c1: Int = f2()
 
 /* SCAN
 error: p_invalid_2.cj and c.cj might have file circular dependency
@@ -62,10 +62,10 @@ error: p_invalid_2.cj and c.cj might have file circular dependency
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p_invalid_3.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 
-public platform let c1: Int = x2
+public specific let c1: Int = x2
 
 // INVALID: c3 -> x4
-public platform let c3: Int = c1
+public specific let c3: Int = c1
 
 /* SCAN
 error: p_invalid_3.cj and c.cj might have file circular dependency
@@ -79,7 +79,7 @@ package cmp
 // INVALID:
 // c3 -> c1 therefore p.cj -> c.cj
 // But also x4 -> c3 therefore c.cj -> p.cj
-public platform let c3: Int = c1
+public specific let c3: Int = c1
 
 /* SCAN
 error: p_invalid_4.cj and c.cj might have file circular dependency
@@ -92,17 +92,17 @@ package cmp
 
 // VALID: c3 -> c1
 // DIFFERENT WITH PREVIOUS CASE THAT THERE IS NO `p.cj -> c.cj`
-public platform let c1: Int = 0 
-public platform let c3: Int = c1
+public specific let c1: Int = 0 
+public specific let c3: Int = c1
 // REMOVED: c3 -> x2 (it's okay)
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform let c3: Int = 42
+public specific let c3: Int = 42
 // VALID: c1 -> c3 (reversed but valid)
-public platform let c1: Int = c3 + 48
+public specific let c1: Int = c3 + 48
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor m_common.cj --import-path=./c -L./p -lcmp -o %output

@@ -8,13 +8,13 @@
 
 package mp
 
-platform public interface NamedType {
-    static platform func typename(): String {"ff"}
+specific public interface NamedType {
+    static specific func typename(): String {"ff"}
 }
 
-platform public interface I <: NamedType {
-    static platform func typename(): String {
+specific public interface I <: NamedType {
+    static specific func typename(): String {
         "abc"
     }
-    static platform func f(): String {"123"}
+    static specific func f(): String {"123"}
 }

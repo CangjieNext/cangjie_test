@@ -7,9 +7,9 @@
  */
 
 package mp
-platform extend <T> A<T> where T <: B {
-    public platform func foo1() { 2 }
-    public platform static func foo2() { 2 }
+specific extend <T> A<T> where T <: B {
+    public specific func foo1() { 2 }
+    public specific static func foo2() { 2 }
 }
 public func f2() {
     return A<B>().foo1() + A<B>.foo2()
