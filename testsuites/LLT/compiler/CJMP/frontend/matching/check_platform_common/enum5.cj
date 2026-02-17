@@ -16,6 +16,6 @@ public common enum A{
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 // ASSERT: scan sema_not_matched
 package cmp
-public platform enum A{
+public specific enum A{
     | RED 
 }

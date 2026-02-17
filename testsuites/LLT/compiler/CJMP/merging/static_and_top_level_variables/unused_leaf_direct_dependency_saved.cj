@@ -24,5 +24,5 @@ package cmp
 
 // Circular dependency must be detected. 
 // In order to do it: `f2` dependency to `x2` must be saved.
-public platform let c1: Int = f2()
+public specific let c1: Int = f2()
 

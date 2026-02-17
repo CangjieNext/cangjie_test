@@ -16,7 +16,7 @@ public common class A {
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan parse_expected_one_of_type_or_initializer
 package cmp
-public platform class A{
+public specific class A{
     public var b
 }
 

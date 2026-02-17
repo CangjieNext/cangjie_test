@@ -22,13 +22,13 @@ public common class A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
-    public platform init() {
-        println("[platform] A.init()")
+public specific class A {
+    public specific init() {
+        println("[specific] A.init()")
     }
 
-    public platform init(x: Int64) {
-        println("[platform] A.init(${x})")
+    public specific init(x: Int64) {
+        println("[specific] A.init(${x})")
     }
 }
 
@@ -45,6 +45,6 @@ main(): Unit {
 }
 
 /* SCAN
-[platform] A.init()
-[platform] A.init(42)
+[specific] A.init()
+[specific] A.init(42)
 */

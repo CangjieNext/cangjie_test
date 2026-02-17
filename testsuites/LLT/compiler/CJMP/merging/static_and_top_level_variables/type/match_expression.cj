@@ -18,10 +18,10 @@ public common let cs: String = match (c) {
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-public platform let cs: String = match (c) {
-    case 1 => "platform1"
-    case 2 => "platform2"
-    case _ => "default platform"
+public specific let cs: String = match (c) {
+    case 1 => "specific1"
+    case 2 => "specific2"
+    case _ => "default specific"
 }
 
 // SEPARATE-FILE: m_common.cj
@@ -37,7 +37,7 @@ main(): Unit {
 }
 
 /* SCAN
-platform1
+specific1
 */
 
 // Notice that the import path should be ./p

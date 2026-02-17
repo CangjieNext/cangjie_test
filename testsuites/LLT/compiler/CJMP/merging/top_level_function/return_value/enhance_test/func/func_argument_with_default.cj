@@ -25,9 +25,9 @@ public func testFunction(input!: Int64 = 1) : Int64 {
     0
 }
 
-platform func foo(arg: (Int64) -> Int64): Unit {
+specific func foo(arg: (Int64) -> Int64): Unit {
     arg(0)
-    println("platform")
+    println("specific")
 }
 
 main() {
@@ -36,5 +36,5 @@ main() {
 
 /* SCAN
 0
-platform
+specific
 */

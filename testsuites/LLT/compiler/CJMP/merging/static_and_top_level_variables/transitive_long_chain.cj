@@ -56,7 +56,7 @@ package cmp
 // In order to do it: all the dependency relations between must be saved.
 // Some of them collapsed because of not all nodes are exported.
 // So their dependencies propogates to near exported nodes. 
-public platform let c1: Int = x10
+public specific let c1: Int = x10
 
 /* SCAN
 error: p_invalid.cj and c.cj might have file circular dependency
@@ -69,7 +69,7 @@ error: p_invalid.cj and c.cj might have file circular dependency
 package cmp
 
 // This one is valid
-public platform let c1: Int = 2
+public specific let c1: Int = 2
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor m_common.cj --import-path=./c -L./p -lcmp -o %output

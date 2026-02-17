@@ -17,11 +17,11 @@ public common class A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
+public specific class A {
     public let b: Int = 2
-    public platform let a: Int
+    public specific let a: Int
 
-    public platform init() {
+    public specific init() {
         a = 4
     }
 

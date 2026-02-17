@@ -8,17 +8,17 @@
 
 package mp
 
-platform public open class A {
+specific public open class A {
     private var valueX = 0
     private static var valueY = 0
 
-    platform public open prop x: Int64 {
+    specific public open prop x: Int64 {
         get() {
             valueX
         }
     }
 
-    platform public static mut prop y: Int64 {
+    specific public static mut prop y: Int64 {
         get() {
             valueY
         }
@@ -28,17 +28,17 @@ platform public open class A {
     }
 }
 
-platform public class B <: A {
+specific public class B <: A {
     private var valueX2 = 0
     private static var valueY2 = 0
 
-    platform public override prop x: Int64 {
+    specific public override prop x: Int64 {
         get() {
             valueX2
         }
     }
 
-    platform public static redef mut prop y: Int64 {
+    specific public static redef mut prop y: Int64 {
         get() {
             valueY2
         }

@@ -17,7 +17,7 @@ public common enum RGBColor<T> where T<:O1 {
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
-public platform enum RGBColor<T>where T<:O2 {
+public specific enum RGBColor<T>where T<:O2 {
     RED(T) | GREEN(T) | BLUE(T)
 }
 

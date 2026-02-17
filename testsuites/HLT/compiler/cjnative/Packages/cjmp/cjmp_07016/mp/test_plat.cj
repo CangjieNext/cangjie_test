@@ -8,7 +8,7 @@
  
 package mp
 
-public platform interface A {
+public specific interface A {
     static prop p3: Int64
     prop p4: Int64
 }

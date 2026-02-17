@@ -18,7 +18,7 @@ public common enum E1 {
 // ASSERT: scan common_non_exaustive_platfrom_exaustive_mismatch
 package cmp
 
-public platform enum E1 {
+public specific enum E1 {
     | A 
     | B
     | ...

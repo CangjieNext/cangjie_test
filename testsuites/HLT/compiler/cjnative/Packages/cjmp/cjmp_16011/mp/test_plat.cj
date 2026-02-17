@@ -8,11 +8,11 @@
 
 package mp
 
-public platform interface I<T> {
-    public platform func foo1(a: T, b: T) { b }
-    public platform static func foo2(a: T, b: T) { b }
-    public platform prop p1: Int64 { get() {2} }
-    public platform static prop p2: Int64 { get() {2} }
+public specific interface I<T> {
+    public specific func foo1(a: T, b: T) { b }
+    public specific static func foo2(a: T, b: T) { b }
+    public specific prop p1: Int64 { get() {2} }
+    public specific static prop p2: Int64 { get() {2} }
 }
 public func f2() {
     var c = C<Int64>()

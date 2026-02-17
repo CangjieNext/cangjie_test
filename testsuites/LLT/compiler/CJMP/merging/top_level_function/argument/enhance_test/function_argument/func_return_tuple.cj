@@ -22,9 +22,9 @@ func goo():(Int32,Int32){
     println("goo")
     return (1,2)
 }
-platform func foo(arg: ()->(Int32,Int32)): Unit {
+specific func foo(arg: ()->(Int32,Int32)): Unit {
     arg()
-    println("platform")
+    println("specific")
 }
 main() {
     foo(goo)
@@ -32,5 +32,5 @@ main() {
 
 /* SCAN
 goo
-platform
+specific
 */

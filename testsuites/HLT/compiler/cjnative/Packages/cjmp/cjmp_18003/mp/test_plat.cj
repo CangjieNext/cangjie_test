@@ -8,4 +8,4 @@
 
 package mp
 
-@B public platform struct C {}
+@B public specific struct C {}

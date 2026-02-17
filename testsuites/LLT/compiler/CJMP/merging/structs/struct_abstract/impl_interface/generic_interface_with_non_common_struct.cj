@@ -20,7 +20,7 @@ public  struct S2 <: I1<Int64> {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform interface I1<T> {}
+specific interface I1<T> {}
 
 
 // SEPARATE-FILE: m_common.cj

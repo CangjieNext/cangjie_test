@@ -15,6 +15,6 @@ public common struct A {
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-0: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p 
 package cmp
-public platform struct A{
-    platform func B(a!: Float32 = 1.1):Int32{0}
+public specific struct A{
+    specific func B(a!: Float32 = 1.1):Int32{0}
 }

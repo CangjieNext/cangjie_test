@@ -8,19 +8,19 @@
 
 package mp
 
-platform enum A {
+specific enum A {
     | ELEMENT
-    platform func foo(): Unit {}
+    specific func foo(): Unit {}
 }
 
-platform enum B {
+specific enum B {
     | X1 | X2(Int64)
-    platform func foo(): Unit {}
+    specific func foo(): Unit {}
 }
 
-platform enum C {
+specific enum C {
     | X1 | mp(Int64) |...
-    platform func foo(): Unit {}
+    specific func foo(): Unit {}
 }
 
 interface X1{}

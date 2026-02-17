@@ -17,7 +17,7 @@ public common class A {
 // ASSERT: scan sema_overload_conflicts
 package cmp
  
-public platform class A {
+public specific class A {
     public init() {}
 }
  

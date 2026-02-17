@@ -35,15 +35,15 @@ public func f() {
 // EXEC-0: %compiler %noColor --experimental mp_p/p.cj mp_c/c/mp.chir --common-part-cjo=./mp_c/c/mp.cjo --output-type=dylib
 package mp
 
-public platform class C {}
+public specific class C {}
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-platform extend C {
-    public platform prop p: Int64 { get(){1} }
-    public platform func f(): Int64 { 1 }
+specific extend C {
+    public specific prop p: Int64 { get(){1} }
+    public specific func f(): Int64 { 1 }
 }
 
 // ======================
