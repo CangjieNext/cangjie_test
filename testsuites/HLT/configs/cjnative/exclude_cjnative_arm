@@ -26,9 +26,3 @@ compiler/cjnative/Packages/cjmp/cjmp_04052/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_11044/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_11045/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_14006/test.cj
-
-# cjmp
-# https://gitcode.com/Cangjie/cangjie_compiler/issues/566
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info

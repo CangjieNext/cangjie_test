@@ -8,12 +8,13 @@
 
 // Interoplib objc common code (libinterop.objclib.dylib)
 extern bool initCJRuntime(const char*);
+extern uint64_t calcOverrideMask(Class, Class, SEL*, int);
 
 // ObjC runtime functions used to calculate override-mask
 typedef struct objc_method* Method;
-extern IMP method_getImplementation(Method m);
-extern Method class_getInstanceMethod(Class cls, SEL name);
-extern id objc_getClass(const char * name);
+extern IMP method_getImplementation(Method);
+extern Method class_getInstanceMethod(Class, SEL);
+extern id objc_getClass(const char*);
 
 // CJ glue-code functions to create/lock/unlock and remove from registry the A_fwd twin object
 extern int64_t CJImpl_ObjC_cjworld_A_init(void*, uint64_t);
@@ -171,24 +172,6 @@ extern void CJImpl_ObjC_cjworld_A_fwd_foo65(int64_t);
     }
 }
 
-static uint64_t calcMask(Class baseCls, Class selfCls, SEL* methods, int len) {
-    int max = len;
-    if (max > 64) {
-        max = 64;
-    }
-
-    uint64_t mask = 0;
-    for (int i = 0; i < max; i++) {
-        SEL m = methods[i];
-        bool override = method_getImplementation(class_getInstanceMethod(baseCls, m)) != method_getImplementation(class_getInstanceMethod(selfCls, m));
-        if (override) {
-            mask |= (UINT64_C(1) << i);
-        }
-    }
-
-    return mask;
-}
-
 // For initedFromCJ-twin - @CJMirror of pure Cangjie A object, without additional RC++.
 - (id)initWithRegistryId:(int64_t)registryId {
     if (self = [super init]) {
@@ -273,7 +256,7 @@ static uint64_t calcMask(Class baseCls, Class selfCls, SEL* methods, int len) {
             @selector(foo63)
             // @selector(foo64) // there is no sense to list more than 64 methods in the list
         };
-        uint64_t overrideMask = calcMask(baseCls, selfCls, methods, len);
+        uint64_t overrideMask = calcOverrideMask(baseCls, selfCls, methods, len);
 
         self.$registryId = CJImpl_ObjC_cjworld_A_init((__bridge void*)self, overrideMask);
         self.$initedFromObjC = true;

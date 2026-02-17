@@ -411,3 +411,8 @@ Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10005/test.cj
 Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10007/test.cj
 Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10020/g_nam_01_10020.info
 Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10023/g_nam_01_10023.info
+
+# cjmp
+# While Cangjie toolchain for windows does not contain interop library
+# ObjectiveC interop tests should be excluded
+compiler/cjnative/FFI/objcffi/glue_code
