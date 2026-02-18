@@ -20,11 +20,11 @@ public common interface A {
 
 package cmp
 
-public platform interface A {
-    platform static func f1(): Int64 {
+public specific interface A {
+    specific static func f1(): Int64 {
         1 
     }
-    platform func f2(): Int64 {
+    specific func f2(): Int64 {
         1
     }
 }

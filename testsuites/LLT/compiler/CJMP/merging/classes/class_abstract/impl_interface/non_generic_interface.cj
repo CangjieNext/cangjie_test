@@ -20,7 +20,7 @@ public common class C2 <: I1<Int64> {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class C2 <: I1<Int64> {
+public specific class C2 <: I1<Int64> {
 }
 
 // SEPARATE-FILE: m_common.cj

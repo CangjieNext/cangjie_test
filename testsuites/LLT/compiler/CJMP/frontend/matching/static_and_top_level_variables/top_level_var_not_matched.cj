@@ -15,5 +15,5 @@ common let a: String
 // ASSERT: scan-2 sema_not_matched
 package cmp
 
-platform let b: String = ""
+specific let b: String = ""
 

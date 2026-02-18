@@ -8,11 +8,11 @@
 
 package mp
 
-platform public abstract class C1 {
-    platform public static func f1(): Int64 {
+specific public abstract class C1 {
+    specific public static func f1(): Int64 {
         0
     }
-    platform public static prop p1: Int64 {
+    specific public static prop p1: Int64 {
         get() {
             0
         }

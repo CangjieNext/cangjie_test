@@ -8,7 +8,7 @@
 
 package mp
 
-public platform struct S1 {
-    public mut platform func g():Int64 {1}
-    public mut platform operator func +(rhs:S2): S2 {S2()}
+public specific struct S1 {
+    public mut specific func g():Int64 {1}
+    public mut specific operator func +(rhs:S2): S2 {S2()}
 }

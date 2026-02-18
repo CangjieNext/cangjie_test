@@ -25,10 +25,10 @@ common struct A {
 // ASSERT: scan sema_property_have_same_declaration_in_inherit_mut
 package cmp
 
-platform struct A {
-    platform prop testProp: Unit {
+specific struct A {
+    specific prop testProp: Unit {
         get() {
-            println("platform")
+            println("specific")
         }
     }
 }

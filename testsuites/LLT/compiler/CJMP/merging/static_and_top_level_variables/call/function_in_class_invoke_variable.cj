@@ -20,7 +20,7 @@ public class A{
         println(arg)
     }
 }
-public platform class B{
+public specific class B{
     public func foo(arg:Int32):Unit{
         a=arg
     }

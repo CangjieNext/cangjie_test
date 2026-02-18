@@ -8,7 +8,7 @@
  
 package mp
 
-public platform abstract class A {}
+public specific abstract class A {}
 public func test_plat() { C.f1() + C().f2() }
 
 

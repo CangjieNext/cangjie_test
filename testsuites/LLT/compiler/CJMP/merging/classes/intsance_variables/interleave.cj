@@ -22,12 +22,12 @@ public common class A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
-    public platform let b: Unit = { => println("platform A.b") }()
-    private let d: Unit = { => println("platform A.d") }()
-    public platform let e: Unit = { => println("platform A.e") }()
-    public let h: Unit = { _: Unit => println("platform A.h(g)") }(g)
-    public let i: Unit = { => println("platform A.i") }()
+public specific class A {
+    public specific let b: Unit = { => println("specific A.b") }()
+    private let d: Unit = { => println("specific A.d") }()
+    public specific let e: Unit = { => println("specific A.e") }()
+    public let h: Unit = { _: Unit => println("specific A.h(g)") }(g)
+    public let i: Unit = { => println("specific A.i") }()
 }
 
 // SEPARATE-FILE: m_common.cj
@@ -43,12 +43,12 @@ main(): Unit {
 
 /* SCAN
 common A.a
-platform A.b
+specific A.b
 common A.c(b)
-platform A.d
-platform A.e
+specific A.d
+specific A.e
 common A.f(c, e)
 common A.g
-platform A.h(g)
-platform A.i
+specific A.h(g)
+specific A.i
 */

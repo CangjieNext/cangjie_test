@@ -30,8 +30,8 @@ public func foo<T>() where T <: I {
 // EXEC: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform interface I {
-    platform static prop p: Int { get() { 2 } }
+public specific interface I {
+    specific static prop p: Int { get() { 2 } }
 }
 
 public class B <: I {}

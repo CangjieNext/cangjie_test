@@ -10,4 +10,4 @@
 // DEPENDENCE: mp
 // EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
 // ERRCHECK: %compiler %cmp_opt mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
-// ASSERT: scan-2 sema_platform_member_must_have_implementation
+// ASSERT: scan-2 sema_specific_member_must_have_implementation

@@ -25,11 +25,11 @@ common extend Foo <:I1 {
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output 2>&1 | compare %f
 
 package cmp
-platform public interface I1{
+specific public interface I1{
 }
 
-platform extend Foo <:I1{
-    platform mut prop i:Int64 {
+specific extend Foo <:I1{
+    specific mut prop i:Int64 {
         get(){x}
         set(value) {x=value}
     }

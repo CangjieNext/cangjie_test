@@ -15,10 +15,10 @@ public common class A {
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
-// ASSERT: scan-1 sema_platform_has_different_modifier
+// ASSERT: scan-1 sema_specific_has_different_modifier
 package cmp
 
-public platform class A {
-    private platform func B(): Int64 {0}
+public specific class A {
+    private specific func B(): Int64 {0}
 }
 

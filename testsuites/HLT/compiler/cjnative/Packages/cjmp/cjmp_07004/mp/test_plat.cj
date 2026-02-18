@@ -8,7 +8,7 @@
  
 package mp
 
-platform sealed interface A {}
+specific sealed interface A {}
 interface I <: A {}
 
 

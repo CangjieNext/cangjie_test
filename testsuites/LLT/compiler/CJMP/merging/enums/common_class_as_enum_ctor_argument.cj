@@ -20,9 +20,9 @@ common enum E1 {
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-platform class Test {
+specific class Test {
 }
-platform enum E1 {
+specific enum E1 {
     | A 
     | B(Test)
 }

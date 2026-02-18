@@ -8,20 +8,20 @@
 
 package mp
 
-public open platform class A {
+public open specific class A {
     var a:Int64
     var b:Int64
-    public const platform init() {
+    public const specific init() {
         a = 1
         b = 2
     }
 }
 
 
-public platform struct S {
+public specific struct S {
     var a:Int64
     var b:Int64
-    public const platform init() {
+    public const specific init() {
         a = 1
         b = 2
     }

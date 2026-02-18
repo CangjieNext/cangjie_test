@@ -17,7 +17,7 @@ public common class A <T> where T <: O1  {
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
-public platform class A <T> where T <: O2 {
+public specific class A <T> where T <: O2 {
 
 }
 /* SCAN-IN

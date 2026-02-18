@@ -8,8 +8,8 @@
 
 package mp
 
-public platform struct C {}
+public specific struct C {}
 
-platform extend C {
-    public platform func f(): Int64 { 0 } 
+specific extend C {
+    public specific func f(): Int64 { 0 } 
 }

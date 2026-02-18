@@ -8,10 +8,10 @@
 
 package mp
 
-public platform struct A {
+public specific struct A {
     public func f3(): Int64 {
         -1
     }
-    public platform init(a:Int64) {}
-    public static platform func f2() {}
+    public specific init(a:Int64) {}
+    public static specific func f2() {}
 }

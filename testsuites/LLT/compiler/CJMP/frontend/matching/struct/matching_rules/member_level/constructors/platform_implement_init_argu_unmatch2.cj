@@ -16,6 +16,6 @@ public common struct A {
 // ASSERT: scan sema_cjmp_parameter_default_value_both_sides
 // ASSERT: scan sema_not_matched
 package cmp
-public platform struct A{
-    platform init(p!:Int32=1){}
+public specific struct A{
+    specific init(p!:Int32=1){}
 }

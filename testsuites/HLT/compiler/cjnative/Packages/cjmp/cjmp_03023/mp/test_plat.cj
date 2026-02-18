@@ -8,8 +8,8 @@
  
 package mp
 
-public platform func f1(): Int64 { 0 }
-@Frozen public platform func f2(): Int64 { 0 }
+public specific func f1(): Int64 { 0 }
+@Frozen public specific func f2(): Int64 { 0 }
 public func test_plat() { f1() + f2() }
 
 

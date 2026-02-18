@@ -16,14 +16,14 @@ public common class A {
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
-public platform class A {
-    public platform init(x: Int) {}
+public specific class A {
+    public specific init(x: Int) {}
 }
 
 /* SCAN-IN
-error: 'platform' constructor can not find 'common' match
+error: 'specific' constructor can not find 'common' match
 */
 
 /* SCAN-IN
-error: 'common' constructor can not find 'platform' match
+error: 'common' constructor can not find 'specific' match
 */

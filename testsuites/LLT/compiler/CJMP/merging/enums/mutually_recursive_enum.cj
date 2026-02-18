@@ -22,12 +22,12 @@ common enum E2 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform enum E1 {
+specific enum E1 {
     | A 
     | B(E2)
 }
 
-platform enum E2 {
+specific enum E2 {
     | C(E1)
     | D(E1)
 }

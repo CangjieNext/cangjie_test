@@ -49,15 +49,15 @@ public func passCommonA() {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform public class A {
-    platform public func foo(): Unit {
-        println("[platform] a.foo()")
+specific public class A {
+    specific public func foo(): Unit {
+        println("[specific] a.foo()")
     }
-    platform public func boo(): Unit {
-        println("[platform] a.boo()")
+    specific public func boo(): Unit {
+        println("[specific] a.boo()")
     }
     public func loo(): Unit {
-        println("[platform] a.loo()")
+        println("[specific] a.loo()")
     }
 
     public func selfRefPlatform(): Unit {
@@ -111,61 +111,61 @@ main(): Unit {
 /* SCAN
 passCommonA:
 receiveCommonA:
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
 selfRefCommon
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
 passPlatformA:
 receiveCommonA:
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
 receivePlatformA:
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
-[platform] a.loo()
+[specific] a.loo()
 selfRefCommon
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
 selfRefPlatform
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
-[platform] a.loo()
+[specific] a.loo()
 passMainA:
 receiveCommonA:
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
 receivePlatformA:
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
-[platform] a.loo()
+[specific] a.loo()
 selfRefCommon
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
 selfRefPlatform
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
-[platform] a.loo()
+[specific] a.loo()
 */
 
 // SEPARATE-FILE: m_common_only.cj
@@ -188,24 +188,24 @@ main(): Unit {
 /* SCAN
 passCommonA:
 receiveCommonA:
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
 selfRefCommon
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
 passMainA:
 receiveCommonA:
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
 selfRefCommon
-[platform] a.foo()
-[platform] a.boo()
+[specific] a.foo()
+[specific] a.boo()
 [common] a.goo()
 [common] a.koo()
 */

@@ -27,12 +27,12 @@ common func foo2(arg: ArrayList<Unit>): Unit {
 package cmp
 import std.collection.*
 
-platform func foo(arg: ArrayList<Unit>): Unit {
-    println("platform")
+specific func foo(arg: ArrayList<Unit>): Unit {
+    println("specific")
 }
 
-platform func foo1(arg: ArrayList<Unit>): Unit {
-    println("platform")
+specific func foo1(arg: ArrayList<Unit>): Unit {
+    println("specific")
 }
 
 main() {
@@ -42,7 +42,7 @@ main() {
 }
 
 /* SCAN
-platform
-platform
+specific
+specific
 common
 */

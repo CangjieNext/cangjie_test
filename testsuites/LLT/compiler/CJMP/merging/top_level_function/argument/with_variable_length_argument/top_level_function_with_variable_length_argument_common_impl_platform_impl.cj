@@ -25,12 +25,12 @@ common  func foo(arr: Array<Int64>): Unit{
 package cmp
 
 
-platform  func foo(arr: Array<Int64>): Unit{
+specific  func foo(arr: Array<Int64>): Unit{
     var total = 0
     for (x in arr) {
         total += x
     }
-    println("From platform member foo func")
+    println("From specific member foo func")
     println(total)
 }
 
@@ -40,6 +40,6 @@ main() {
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 6
 */

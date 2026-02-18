@@ -33,11 +33,11 @@ public open common class C3 <: C2 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform interface I1 {
+specific interface I1 {
 }
-public open platform class C2 <: I1 {
+public open specific class C2 <: I1 {
 }
-public open platform class C3 <: C2 {
+public open specific class C3 <: C2 {
 }
 
 // SEPARATE-FILE: m_common.cj

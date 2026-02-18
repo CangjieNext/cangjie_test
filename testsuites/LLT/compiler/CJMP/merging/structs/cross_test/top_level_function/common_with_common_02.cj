@@ -20,10 +20,10 @@ public common struct S {
 // ASSERT: scan sema_not_matched
 package cmp
 
-public platform struct S {
+public specific struct S {
 }
 
-public platform func testFunc(): Unit {
+public specific func testFunc(): Unit {
     println("4")
 }
 

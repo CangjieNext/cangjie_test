@@ -7,7 +7,7 @@
 features { os.linux }
 package ot_exe
 
-public platform func withdefault(): String { "overriden" }
-public platform func platformId(): String { "linux" }
+public specific func withdefault(): String { "overriden" }
+public specific func specificId(): String { "linux" }
 
 main(): Unit { commonMain() }

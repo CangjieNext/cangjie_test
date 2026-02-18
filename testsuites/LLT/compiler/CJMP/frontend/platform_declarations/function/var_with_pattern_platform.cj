@@ -14,14 +14,14 @@ enum E{
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
-// ASSERT: scan error: 'platform' variable 'X1' can not find 'common' match
-// ASSERT: scan error: 'platform' variable 'X2' can not find 'common' match
-// ASSERT: scan error: 'platform' variable with pattern can not find 'common' match
+// ASSERT: scan error: 'specific' variable 'X1' can not find 'common' match
+// ASSERT: scan error: 'specific' variable 'X2' can not find 'common' match
+// ASSERT: scan error: 'specific' variable with pattern can not find 'common' match
 package cmp
 
-public platform let (X1, X2): (Int64, Int64) = (2, 2)
+public specific let (X1, X2): (Int64, Int64) = (2, 2)
 
-public platform let _ = 1
+public specific let _ = 1
 
-public platform let A(a) = A(1)
+public specific let A(a) = A(1)
 

@@ -8,8 +8,8 @@
  
 package mp
 
-public open platform class C {
-    public platform static func foo(): Unit {
+public open specific class C {
+    public specific static func foo(): Unit {
         println("I am class C")
     }
 }

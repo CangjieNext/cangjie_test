@@ -8,9 +8,9 @@
  
 package mp
 
-public platform class A {
+public specific class A {
     public var a2: Int64 = 3
-    public platform var a: Int64 = 0
+    public specific var a: Int64 = 0
 }
 public func test_plat() { A().a + A().a1 + A().a2 }
 

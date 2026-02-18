@@ -22,11 +22,11 @@ public common class A {
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
-// ASSERT: scan sema_platform_has_different_modifier
+// ASSERT: scan sema_specific_has_different_modifier
 package cmp
-public platform class A{
+public specific class A{
     private var d:Int32=1
-    private platform mut prop b:Int32{
+    private specific mut prop b:Int32{
         get(){
             d
         }

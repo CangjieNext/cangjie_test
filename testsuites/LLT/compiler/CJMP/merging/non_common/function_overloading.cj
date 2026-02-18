@@ -9,7 +9,7 @@
 package cmp
 
 public func foo(): Unit {
-    println("platform foo")
+    println("specific foo")
 }
 
 public func foo(a: Array<Int>): Unit {
@@ -46,7 +46,7 @@ main(): Unit {
     foo(["a", "b"])
 }
 /* SCAN
-platform foo
+specific foo
 Int: 1
 Int: 42
 String: a
@@ -67,7 +67,7 @@ main(): Unit {
 
 
 /* SCAN
-platform foo
+specific foo
 Int: 3
 Int: 44
 String: b

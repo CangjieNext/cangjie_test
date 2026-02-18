@@ -8,8 +8,8 @@
 
 package mp
 
-public platform class C {}
+public specific class C {}
 
-platform extend C {
-    public platform func f(): B { B() }
+specific extend C {
+    public specific func f(): B { B() }
 }
