@@ -14,7 +14,7 @@ package cmp
 common func foo() { 1 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir p 2>&1 | compare %f
 features { os.linux }
 
 package cmp
@@ -26,9 +26,9 @@ error: parent feature set must be subset of child feature set, package: 'cmp', p
  ==> (package cmp)c.cj:1:1:
   # note: Features that caused problem: 'os.windows' 
 note: Expected feature set must be subset of:
- ==> p/p.cj:1:1:
+ ==> p/p.cj:2:1:
   | 
-1 | features { os.linux }
+2 | features { os.linux }
   | ^^^^^^^^^^^^^^^^^^^^^ 
   | 
 

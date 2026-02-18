@@ -12,7 +12,7 @@ public common func foo(): Unit
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --output-type=dylib --output-dir ./p 2>&1 | compare %f
-// ASSERT: scan module_common_part_path_is_required
+// ASSERT: scan parse_unexpected_cjmp_decl
 package cmp
 
 public specific func foo(): Unit {}
