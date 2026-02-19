@@ -8,9 +8,9 @@
  
 package mp
 
-public platform interface A {
-    platform static func f1(): Int64 { 1 }
-    platform func f2(): Int64 { 1 }
+public specific interface A {
+    specific static func f1(): Int64 { 1 }
+    specific func f2(): Int64 { 1 }
 }
 public func test_plat() { C.f1() + C().f2() }
 

@@ -16,7 +16,7 @@ public common func foo(x: Int64, random: Random, array: Array<Int64>): Unit
 package cmp
 import std.random.*
 
-public platform func foo(x: Int64, random: Random, array: Array<Int64>): Unit {
+public specific func foo(x: Int64, random: Random, array: Array<Int64>): Unit {
     println("${x}_${random.nextInt64() % 1}_${array[0]}")
 }
 

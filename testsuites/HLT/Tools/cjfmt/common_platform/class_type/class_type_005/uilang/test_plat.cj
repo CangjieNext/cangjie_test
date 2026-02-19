@@ -8,15 +8,15 @@
 
 package mp
 
-public platform class A<T> {
-    private platform func f(): Int64 { 0 }
-    public platform var a: Int64 = 1
-    public static platform var b: Int64 = 2
+public specific class A<T> {
+    private specific func f(): Int64 { 0 }
+    public specific var a: Int64 = 1
+    public static specific var b: Int64 = 2
 }
 
-protected platform class A2<T> {
-    protected platform func f(): Int64 { 1 }
-    static private platform func f2<T>(): Int64 { 3 }
+protected specific class A2<T> {
+    protected specific func f(): Int64 { 1 }
+    static private specific func f2<T>(): Int64 { 3 }
 }
 
 public func test_plat() { A().f(0) }

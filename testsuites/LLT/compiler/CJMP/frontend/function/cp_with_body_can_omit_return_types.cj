@@ -14,7 +14,7 @@ public common func f() { 1 }
 // EXEC-0: %compiler %noColor --experimental --common-part-cjo=c/cmp.cjo c/cmp.chir p/p.cj --output-type=dylib
 package cmp
  
-public platform func f() { 2 } 
+public specific func f() { 2 } 
  
 // SEPARATE-FILE: m_platform.cj
 // EXEC-0: %compiler %noColor m_platform.cj --import-path=./p -L. -lcmp -o %output

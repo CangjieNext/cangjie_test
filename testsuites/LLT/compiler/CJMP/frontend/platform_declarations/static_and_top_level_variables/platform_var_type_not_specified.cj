@@ -14,5 +14,5 @@ common let a: String
 // EXEC-PIPE-0: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform let a = "42"
+specific let a = "42"
 

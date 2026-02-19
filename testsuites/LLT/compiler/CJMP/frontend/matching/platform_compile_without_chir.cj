@@ -16,6 +16,6 @@ common class A{ A(){} }
 
 package cmp
 
-platform class A{}
+specific class A{}
 
 main() {}

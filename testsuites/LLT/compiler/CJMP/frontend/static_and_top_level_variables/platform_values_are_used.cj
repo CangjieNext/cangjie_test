@@ -22,15 +22,15 @@ public common let d: String = "1000"
 // EXEC: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform let a: Int = 2
+public specific let a: Int = 2
 
-public platform var b: Int = 20
+public specific var b: Int = 20
 
 func goo() { 200 } 
 
-public platform let c: Int = goo()
+public specific let c: Int = goo()
 
-public platform let d: String = "2000"
+public specific let d: String = "2000"
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor m_common.cj --import-path=./c -L./p -lcmp -o %output

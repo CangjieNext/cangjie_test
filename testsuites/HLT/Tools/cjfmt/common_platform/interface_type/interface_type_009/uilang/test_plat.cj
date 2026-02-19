@@ -8,19 +8,19 @@
 
 package mp
 
-public platform interface I {
-    public platform func foo(): Int64 {
+public specific interface I {
+    public specific func foo(): Int64 {
         return 0
     }
 }
-public platform enum E <: I{
+public specific enum E <: I{
     elem
-    public platform override func foo(): Int64 {
+    public specific override func foo(): Int64 {
         return 1
     }
 }
-platform public struct S <: I {
-    public platform override func foo(): Int64 {
+specific public struct S <: I {
+    public specific override func foo(): Int64 {
         return 1
     }
 }

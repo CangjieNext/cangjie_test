@@ -17,5 +17,5 @@ public common func foo(a!: Int64 = 1): Unit
 
 package cmp
 
-public platform func foo(a!: Int64 = 1): Unit {}
+public specific func foo(a!: Int64 = 1): Unit {}
 

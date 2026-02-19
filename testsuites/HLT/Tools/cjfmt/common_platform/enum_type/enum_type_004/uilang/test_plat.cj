@@ -8,14 +8,14 @@
 
 package mp
 
-public platform enum E1{
+public specific enum E1{
     AB|...
-    public platform static func f1():Int64 {1}
+    public specific static func f1():Int64 {1}
 }
 
-protected platform enum E3<T,R>{
+protected specific enum E3<T,R>{
     AB | AB(T,R) | ...
-    public platform static func f1(a:T,b:R):T {
+    public specific static func f1(a:T,b:R):T {
         var x = a
         var y = b
         a

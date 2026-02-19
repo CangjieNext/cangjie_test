@@ -18,8 +18,8 @@ common struct A {
 // ASSERT: scan sema_class_uninitialized_field
 package cmp
 
-platform struct A {
-    platform let a: Int64
+specific struct A {
+    specific let a: Int64
     init() {}
 }
 

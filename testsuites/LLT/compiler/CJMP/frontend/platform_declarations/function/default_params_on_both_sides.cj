@@ -19,45 +19,45 @@ common class A{
 
 package cmp
 
-public platform func testFunc1(x!: Int64 = 20, y!: String = "platform"): String {"a"}
+public specific func testFunc1(x!: Int64 = 20, y!: String = "specific"): String {"a"}
 
-platform class A{
-  public platform func testFunc2(a: Int64, b!: Float64 = 2.71): Float64 {1.0}
+specific class A{
+  public specific func testFunc2(a: Int64, b!: Float64 = 2.71): Float64 {1.0}
 }
 
 /* SCAN
-error: parameter default value should be on either 'common' or 'platform' side, not both
+error: parameter default value should be on either 'common' or 'specific' side, not both
  ==> p/p.cj:5:32:
   | 
-5 | public platform func testFunc1(x!: Int64 = 20, y!: String = "platform"): String {"a"}
+5 | public specific func testFunc1(x!: Int64 = 20, y!: String = "specific"): String {"a"}
   |                                ^^^^^^^^^^^^^^ 
   | 
 
-error: 'platform' function 'testFunc1' can not find 'common' match
+error: 'specific' function 'testFunc1' can not find 'common' match
  ==> p/p.cj:5:1:
   | 
-5 | public platform func testFunc1(x!: Int64 = 20, y!: String = "platform"): String {"a"}
+5 | public specific func testFunc1(x!: Int64 = 20, y!: String = "specific"): String {"a"}
   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
 
-error: parameter default value should be on either 'common' or 'platform' side, not both
+error: parameter default value should be on either 'common' or 'specific' side, not both
  ==> p/p.cj:8:44:
   | 
-8 |   public platform func testFunc2(a: Int64, b!: Float64 = 2.71): Float64 {1.0}
+8 |   public specific func testFunc2(a: Int64, b!: Float64 = 2.71): Float64 {1.0}
   |                                            ^^^^^^^^^^^^^^^^^^ 
   | 
 
-error: 'platform' function 'testFunc2' can not find 'common' match
+error: 'specific' function 'testFunc2' can not find 'common' match
  ==> p/p.cj:8:3:
   | 
-8 |   public platform func testFunc2(a: Int64, b!: Float64 = 2.71): Float64 {1.0}
+8 |   public specific func testFunc2(a: Int64, b!: Float64 = 2.71): Float64 {1.0}
   |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
 
-error: 'common' function 'testFunc2' can not find 'platform' match
+error: 'common' function 'testFunc2' can not find 'specific' match
   ==> c/c.cj:13:3:
 
-error: 'common' function 'testFunc1' can not find 'platform' match
+error: 'common' function 'testFunc1' can not find 'specific' match
  ==> c/c.cj:7:1:
 
 6 errors generated, 6 errors printed.

@@ -8,7 +8,7 @@
 
 package mp
 
-public platform func foo(): Unit {
+public specific func foo(): Unit {
     var a = 1
     println(1111111111)
 }

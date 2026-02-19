@@ -8,11 +8,11 @@
 
 package mp
 
-public platform struct A<T> {
-    public platform func f1<T>(a:T) {
+public specific struct A<T> {
+    public specific func f1<T>(a:T) {
         a
     }
-    static public platform func f2<T>(a:T) {
+    static public specific func f2<T>(a:T) {
         a
     }
 }

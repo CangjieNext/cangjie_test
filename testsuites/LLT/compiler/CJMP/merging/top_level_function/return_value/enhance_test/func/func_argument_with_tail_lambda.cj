@@ -22,8 +22,8 @@ package cmp
 
 let f1: (Int64)->Int64 = {a: Int64 => a }
 
-platform func foo(arg: (Int64) -> Int64): Unit {
-    println("platform")
+specific func foo(arg: (Int64) -> Int64): Unit {
+    println("specific")
 }
 
 main() {
@@ -31,7 +31,7 @@ main() {
 }
 
 /* SCAN
-platform
+specific
 */
 
 

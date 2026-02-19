@@ -9,14 +9,14 @@
 package mp
 
 type i64 = Int64
-public platform class C<T> {
-    public platform init() {}
-    public platform func foo1(): i64 { 2 }
-    public platform static func foo2(): i64 { 2 }
-    public platform prop p1: i64 { get() {2} }
-    public platform static prop p2: i64 { get() {2} }
-    public platform var v1: i64 = 2
-    public platform static var v2: i64 = 2
+public specific class C<T> {
+    public specific init() {}
+    public specific func foo1(): i64 { 2 }
+    public specific static func foo2(): i64 { 2 }
+    public specific prop p1: i64 { get() {2} }
+    public specific static prop p2: i64 { get() {2} }
+    public specific var v1: i64 = 2
+    public specific static var v2: i64 = 2
 }
 public func f2() {
     var c = C<i64>()

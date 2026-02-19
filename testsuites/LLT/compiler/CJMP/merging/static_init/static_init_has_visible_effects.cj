@@ -49,9 +49,9 @@ public class B {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
  
-public platform class A {
-    public platform static var x: Int = 121
-    public platform static var y: Int = 122
+public specific class A {
+    public specific static var x: Int = 121
+    public specific static var y: Int = 122
 }
  
 

@@ -19,4 +19,4 @@ common public func foo(){}
 // EXEC-PIPE-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 @AA
-public platform func foo(){}
+public specific func foo(){}

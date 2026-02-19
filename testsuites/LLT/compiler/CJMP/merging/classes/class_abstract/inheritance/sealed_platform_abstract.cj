@@ -22,8 +22,8 @@ public class B <: A {
 
 package cmp
 
-public platform sealed abstract class A {
-    public platform var x = 20
+public specific sealed abstract class A {
+    public specific var x = 20
 }
 
 

@@ -21,8 +21,8 @@ public common func testFunc(): Unit {
 // ASSERT: scan sema_not_matched
 package cmp
 
-public platform class C {
-    public platform func testFunc(): Unit {
+public specific class C {
+    public specific func testFunc(): Unit {
         println("3")
    }
 }

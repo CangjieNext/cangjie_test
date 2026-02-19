@@ -8,9 +8,9 @@
 
 package mp
 
-platform extend Int64{
-    public platform prop p: Int64 { get(){1} }
-    public platform func f(): Int64 { 1 }
+specific extend Int64{
+    public specific prop p: Int64 { get(){1} }
+    public specific func f(): Int64 { 1 }
 }
 
 public func f2() {

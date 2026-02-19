@@ -37,13 +37,13 @@ public interface I1 {
 
 }
 
-public open platform class C1 {
+public open specific class C1 {
 }
 
-public open platform class C2 <: C1 {
+public open specific class C2 <: C1 {
 }
 
-public open platform class C3<:C2 {
+public open specific class C3<:C2 {
 
 }
 

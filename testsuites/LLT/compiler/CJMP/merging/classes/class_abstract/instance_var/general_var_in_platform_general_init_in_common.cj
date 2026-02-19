@@ -17,7 +17,7 @@ common class A {
 // ASSERT: scan chir_class_uninitialized_field
 package cmp
 
-platform class A {
+specific class A {
     var a: Int64
     init(a_: Int64) {
         a = a_

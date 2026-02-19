@@ -22,13 +22,13 @@ common  func foo(): Unit{
 package cmp
 
 @C
-platform   func foo(): Unit {
-    println("From platform member foo func")
+specific   func foo(): Unit {
+    println("From specific member foo func")
 }
 main() {
     unsafe {foo()}
 }
 
 /* SCAN
-From platform member foo func
+From specific member foo func
 */

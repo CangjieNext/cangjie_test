@@ -8,15 +8,15 @@
 
 package mp
 
-platform public class C {}
+specific public class C {}
 
-platform extend C <: I {
-    platform public prop p: Int64 {
+specific extend C <: I {
+    specific public prop p: Int64 {
         get() {
             0
         }
     }
-    platform public func f(a: T): T {
+    specific public func f(a: T): T {
         a
     }
 }

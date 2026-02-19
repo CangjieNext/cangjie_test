@@ -15,6 +15,6 @@ public common enum A<T>{
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-0: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
-public platform enum A<R>{
+public specific enum A<R>{
     | RED | BLUE(R)
 }

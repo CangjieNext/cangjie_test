@@ -8,6 +8,6 @@
 
 package mp
 
-public platform class C {
-    public platform func f() {2}
+public specific class C {
+    public specific func f() {2}
 }

@@ -17,7 +17,7 @@ public common enum RGBColor {
 // ASSERT: scan common_non_exaustive_platfrom_exaustive_mismatch
 package cmp
 
-public platform enum RGBColor {
+public specific enum RGBColor {
     RED | GREEN | BLUE |...
 }
 

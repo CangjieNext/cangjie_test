@@ -17,7 +17,7 @@ common sealed interface A {
 // ASSERT: scan sema_cannot_inherit_sealed
 package cmp
 
-platform sealed interface A {}
+specific sealed interface A {}
 
 interface B <: A {}
 
