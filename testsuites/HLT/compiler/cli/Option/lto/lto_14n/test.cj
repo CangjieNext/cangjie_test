@@ -7,9 +7,15 @@
  */
 
 // LEVEL: 0
-// (target_linux | target_ohos) ERRCHECK: %compiler %cmp_opt --lto= %f -o %output
-// (not Windows) ASSERT: scan option '--lto' requires some values, format: option=value or option="v1, v2..."
-// (not Windows) ASSERT: scan invalid value: ''
+// DESCRIPTION: empty value for option --lto
+// ((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator))) EXEC-PIPE-1: %compiler %cmp_opt --lto= %f -o %output 2>&1 | compare %f
+// (host_win & target_win) ASSERT: scan Windows does not support LTO optimization.
+// (host_mac & target_mac) ASSERT: scan Darwin does not support LTO optimization.
+// (host_mac & (target_ios | target_ios_simulator)) ASSERT: scan iOS does not support LTO optimization.
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) EXEC-PIPE-1: %compiler %cmp_opt --lto= %f -o %output -V 2>&1 | compare %f
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) ASSERT: scan-not does not support
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) ASSERT: scan option '--lto' requires some values, format: option=value or option="v1, v2..."
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) ASSERT: scan invalid value: ''
 
 main(): Int64 {
     return 0
