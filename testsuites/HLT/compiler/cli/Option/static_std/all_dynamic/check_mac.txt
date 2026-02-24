@@ -1,0 +1,52 @@
+// MacOS's basic dynamic linked libraries.
+// ASSERT: scan libSystem.B.dylib
+
+// Cangjie runtime dynamic libraries.
+// ASSERT: scan @rpath/libboundscheck.dylib
+// ASSERT: scan @rpath/libcangjie-runtime.dylib
+// ASSERT: scan-not @rpath/libcangjie-dynamicLoader-opensslFFI.dylib
+
+// All of Cangjie stdlib dynamic libraries.
+// ASSERT: scan @rpath/libcangjie-std-core.dylib
+// ASSERT: scan @rpath/libcangjie-std-argopt.dylib
+// ASSERT: scan @rpath/libcangjie-std-ast.dylib
+// ASSERT: scan @rpath/libcangjie-std-binary.dylib
+// ASSERT: scan @rpath/libcangjie-std-collection.dylib
+// ASSERT: scan @rpath/libcangjie-std-collection.concurrent.dylib
+// ASSERT: scan @rpath/libcangjie-std-convert.dylib
+// ASSERT: scan @rpath/libcangjie-std-crypto.cipher.dylib
+// ASSERT: scan @rpath/libcangjie-std-crypto.digest.dylib
+// ASSERT: scan @rpath/libcangjie-std-database.sql.dylib
+// ASSERT: scan-not @rpath/libcangjie-std-deriving.dylib
+// ASSERT: scan @rpath/libcangjie-std-env.dylib
+// ASSERT: scan @rpath/libcangjie-std-fs.dylib
+// ASSERT: scan @rpath/libcangjie-std-interop.dylib
+// ASSERT: scan @rpath/libcangjie-std-io.dylib
+// ASSERT: scan @rpath/libcangjie-std-math.dylib
+// ASSERT: scan @rpath/libcangjie-std-math.numeric.dylib
+// ASSERT: scan @rpath/libcangjie-std-net.dylib
+// ASSERT: scan @rpath/libcangjie-std-objectpool.dylib
+// ASSERT: scan @rpath/libcangjie-std-overflow.dylib
+// ASSERT: scan @rpath/libcangjie-std-posix.dylib
+// ASSERT: scan @rpath/libcangjie-std-process.dylib
+// ASSERT: scan @rpath/libcangjie-std-random.dylib
+// ASSERT: scan @rpath/libcangjie-std-ref.dylib
+// ASSERT: scan @rpath/libcangjie-std-reflect.dylib
+// ASSERT: scan @rpath/libcangjie-std-regex.dylib
+// ASSERT: scan @rpath/libcangjie-std-runtime.dylib
+// ASSERT: scan @rpath/libcangjie-std-sort.dylib
+// ASSERT: scan @rpath/libcangjie-std-sync.dylib
+// ASSERT: scan @rpath/libcangjie-std-time.dylib
+// ASSERT: scan @rpath/libcangjie-std-unicode.dylib
+// ASSERT: scan @rpath/libcangjie-std-unittest.dylib
+// ASSERT: scan @rpath/libcangjie-std-unittest.mock.dylib
+// ASSERT: scan-not @rpath/libcangjie-std-unittest.mock.mockmacro.dylib
+// ASSERT: scan-not @rpath/libcangjie-std-unittest.testmacro.dylib
+// ASSERT: scan @rpath/libcangjie-std-unittest.common.dylib
+// ASSERT: scan @rpath/libcangjie-std-unittest.diff.dylib
+// ASSERT: scan @rpath/libcangjie-std-unittest.prop_test.dylib
+
+// Cangjie stdx dynamic libraries.
+
+// User's libraries.
+// ASSERT: scan libmy_utils.dylib

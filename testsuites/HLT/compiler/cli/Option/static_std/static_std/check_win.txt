@@ -1,0 +1,50 @@
+// Windows basic dynamic linked libraries.
+// ASSERT: scan msvcrt.dll
+// ASSERT: scan KERNEL32.dll
+
+// Cangjie runtime dynamic libraries.
+// ASSERT: scan-not libboundscheck.dll
+// ASSERT: scan libcangjie-runtime.dll
+
+// All of Cangjie stdlib dynamic libraries.
+// ASSERT: scan libcangjie-std-core.dll
+// ASSERT: scan libcangjie-std-argopt.dll
+// ASSERT: scan libcangjie-std-ast.dll
+// ASSERT: scan libcangjie-std-binary.dll
+// ASSERT: scan libcangjie-std-collection.dll
+// ASSERT: scan libcangjie-std-collection.concurrent.dll
+// ASSERT: scan libcangjie-std-convert.dll
+// ASSERT: scan libcangjie-std-crypto.cipher.dll
+// ASSERT: scan libcangjie-std-crypto.digest.dll
+// ASSERT: scan libcangjie-std-database.sql.dll
+// ASSERT: scan-not libcangjie-std-deriving.dll
+// ASSERT: scan libcangjie-std-env.dll
+// ASSERT: scan libcangjie-std-fs.dll
+// ASSERT: scan libcangjie-std-interop.dll
+// ASSERT: scan libcangjie-std-io.dll
+// ASSERT: scan libcangjie-std-math.dll
+// ASSERT: scan libcangjie-std-math.numeric.dll
+// ASSERT: scan libcangjie-std-net.dll
+// ASSERT: scan libcangjie-std-objectpool.dll
+// ASSERT: scan libcangjie-std-overflow.dll
+// ASSERT: scan libcangjie-std-posix.dll
+// ASSERT: scan libcangjie-std-process.dll
+// ASSERT: scan libcangjie-std-random.dll
+// ASSERT: scan libcangjie-std-ref.dll
+// ASSERT: scan libcangjie-std-reflect.dll
+// ASSERT: scan libcangjie-std-regex.dll
+// ASSERT: scan libcangjie-std-runtime.dll
+// ASSERT: scan libcangjie-std-sort.dll
+// ASSERT: scan libcangjie-std-sync.dll
+// ASSERT: scan libcangjie-std-time.dll
+// ASSERT: scan libcangjie-std-unicode.dll
+// ASSERT: scan libcangjie-std-unittest.dll
+// ASSERT: scan libcangjie-std-unittest.mock.dll
+// ASSERT: scan-not libcangjie-std-unittest.mock.mockmacro.dll
+// ASSERT: scan-not libcangjie-std-unittest.testmacro.dll
+// ASSERT: scan libcangjie-std-unittest.common.dll
+// ASSERT: scan libcangjie-std-unittest.diff.dll
+// ASSERT: scan libcangjie-std-unittest.prop_test.dll
+
+// User's libraries.
+// ASSERT: scan libmy_utils.dll
