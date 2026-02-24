@@ -1,0 +1,57 @@
+// Windows basic dynamic linked libraries.
+// ASSERT: scan linux-vdso.so
+// ASSERT: scan libm.so
+// ASSERT: scan libc.so
+
+// Cangjie runtime dynamic libraries.
+// ASSERT: scan libboundscheck.so
+// ASSERT: scan libcangjie-runtime.so
+// ASSERT: scan libcangjie-dynamicLoader-opensslFFI.so
+// ASSERT: scan libdl.so
+// ASSERT: scan libstdc++.so
+// ASSERT: scan libgcc_s.so
+// ASSERT: scan libpthread.so
+// ASSERT: scan libpcre2-8.so
+// ASSERT: scan ld-linux-x86-64.so
+
+// All of Cangjie stdlib dynamic libraries.
+// ASSERT: scan libcangjie-std-core.so
+// ASSERT: scan libcangjie-std-argopt.so
+// ASSERT: scan libcangjie-std-ast.so
+// ASSERT: scan libcangjie-std-binary.so
+// ASSERT: scan libcangjie-std-collection.so
+// ASSERT: scan libcangjie-std-collection.concurrent.so
+// ASSERT: scan libcangjie-std-convert.so
+// ASSERT: scan libcangjie-std-crypto.cipher.so
+// ASSERT: scan libcangjie-std-crypto.digest.so
+// ASSERT: scan libcangjie-std-database.sql.so
+// ASSERT: scan-not libcangjie-std-deriving.so
+// ASSERT: scan libcangjie-std-env.so
+// ASSERT: scan libcangjie-std-fs.so
+// ASSERT: scan libcangjie-std-interop.so
+// ASSERT: scan libcangjie-std-io.so
+// ASSERT: scan libcangjie-std-math.so
+// ASSERT: scan libcangjie-std-math.numeric.so
+// ASSERT: scan libcangjie-std-net.so
+// ASSERT: scan libcangjie-std-objectpool.so
+// ASSERT: scan libcangjie-std-overflow.so
+// ASSERT: scan libcangjie-std-posix.so
+// ASSERT: scan libcangjie-std-process.so
+// ASSERT: scan libcangjie-std-random.so
+// ASSERT: scan libcangjie-std-ref.so
+// ASSERT: scan libcangjie-std-reflect.so
+// ASSERT: scan libcangjie-std-regex.so
+// ASSERT: scan libcangjie-std-runtime.so
+// ASSERT: scan libcangjie-std-sort.so
+// ASSERT: scan libcangjie-std-sync.so
+// ASSERT: scan libcangjie-std-time.so
+// ASSERT: scan libcangjie-std-unicode.so
+// ASSERT: scan libcangjie-std-unittest.so
+// ASSERT: scan libcangjie-std-unittest.mock.so
+// ASSERT: scan-not libcangjie-std-unittest.mock.mockmacro.so
+// ASSERT: scan-not libcangjie-std-unittest.testmacro.so
+// ASSERT: scan libcangjie-std-unittest.common.so
+// ASSERT: scan libcangjie-std-unittest.diff.so
+// ASSERT: scan libcangjie-std-unittest.prop_test.so
+
+// Cangjie stdx dynamic libraries.
