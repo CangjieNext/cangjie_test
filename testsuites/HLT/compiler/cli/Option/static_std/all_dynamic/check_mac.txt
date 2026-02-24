@@ -1,0 +1,58 @@
+// MacOS's basic dynamic linked libraries.
+// ASSERT: scan libSystem.B.dylib
+
+// Cangjie runtime dynamic libraries.
+// ASSERT: scan @rpath/libboundscheck.so
+// ASSERT: scan @rpath/libcangjie-runtime.so
+// ASSERT: scan-not @rpath/libcangjie-dynamicLoader-opensslFFI.so
+// ASSERT: scan libdl.so
+// ASSERT: scan libstdc++.so
+// ASSERT: scan libgcc_s.so
+// ASSERT: scan libpthread.so
+// ASSERT: scan libpcre2-8.so
+// ASSERT: scan ld-linux-x86-64.so
+
+// All of Cangjie stdlib dynamic libraries.
+// ASSERT: scan @rpath/libcangjie-std-core.so
+// ASSERT: scan @rpath/libcangjie-std-argopt.so
+// ASSERT: scan @rpath/libcangjie-std-ast.so
+// ASSERT: scan @rpath/libcangjie-std-binary.so
+// ASSERT: scan @rpath/libcangjie-std-collection.so
+// ASSERT: scan @rpath/libcangjie-std-collection.concurrent.so
+// ASSERT: scan @rpath/libcangjie-std-convert.so
+// ASSERT: scan @rpath/libcangjie-std-crypto.cipher.so
+// ASSERT: scan @rpath/libcangjie-std-crypto.digest.so
+// ASSERT: scan @rpath/libcangjie-std-database.sql.so
+// ASSERT: scan-not @rpath/libcangjie-std-deriving.so
+// ASSERT: scan @rpath/libcangjie-std-env.so
+// ASSERT: scan @rpath/libcangjie-std-fs.so
+// ASSERT: scan @rpath/libcangjie-std-interop.so
+// ASSERT: scan @rpath/libcangjie-std-io.so
+// ASSERT: scan @rpath/libcangjie-std-math.so
+// ASSERT: scan @rpath/libcangjie-std-math.numeric.so
+// ASSERT: scan @rpath/libcangjie-std-net.so
+// ASSERT: scan @rpath/libcangjie-std-objectpool.so
+// ASSERT: scan @rpath/libcangjie-std-overflow.so
+// ASSERT: scan @rpath/libcangjie-std-posix.so
+// ASSERT: scan @rpath/libcangjie-std-process.so
+// ASSERT: scan @rpath/libcangjie-std-random.so
+// ASSERT: scan @rpath/libcangjie-std-ref.so
+// ASSERT: scan @rpath/libcangjie-std-reflect.so
+// ASSERT: scan @rpath/libcangjie-std-regex.so
+// ASSERT: scan @rpath/libcangjie-std-runtime.so
+// ASSERT: scan @rpath/libcangjie-std-sort.so
+// ASSERT: scan @rpath/libcangjie-std-sync.so
+// ASSERT: scan @rpath/libcangjie-std-time.so
+// ASSERT: scan @rpath/libcangjie-std-unicode.so
+// ASSERT: scan @rpath/libcangjie-std-unittest.so
+// ASSERT: scan @rpath/libcangjie-std-unittest.mock.so
+// ASSERT: scan-not @rpath/libcangjie-std-unittest.mock.mockmacro.so
+// ASSERT: scan-not @rpath/libcangjie-std-unittest.testmacro.so
+// ASSERT: scan @rpath/libcangjie-std-unittest.common.so
+// ASSERT: scan @rpath/libcangjie-std-unittest.diff.so
+// ASSERT: scan @rpath/libcangjie-std-unittest.prop_test.so
+
+// Cangjie stdx dynamic libraries.
+
+// User's libraries.
+// ASSERT: scan libmy_utils.dylib
