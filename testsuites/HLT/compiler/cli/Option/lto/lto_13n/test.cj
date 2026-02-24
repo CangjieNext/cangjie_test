@@ -7,8 +7,10 @@
  */
 
 // LEVEL: 0
-// (target_linux | target_ohos) ERRCHECK: %compiler %cmp_opt --lto=aaa %f -o %output
-// (not Windows) ASSERT: scan invalid value: 'aaa'
+// DESCRIPTION: invalid value for option --lto
+// EXEC-PIPE-1: %compiler %cmp_opt --lto=aaa %f -o %output 2>&1 | compare %f
+// ASSERT: scan-not does not support
+// ASSERT: scan invalid value: 'aaa'
 
 main(): Int64 {
     return 0
