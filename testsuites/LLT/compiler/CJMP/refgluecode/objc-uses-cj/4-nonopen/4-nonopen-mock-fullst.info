@@ -1,0 +1,23 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/4-nonopen/api ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/4-nonopen/app ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/4-nonopen/generated
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_lib_opt api/*.cj -o libapi.a
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_lib_opt generated/*.cj -o libcjworld.a
+// (CJNATIVE and not Windows) RUN-EXEC: %clang -c generated/*.m -Igenerated -o libgluecode.o
+// (CJNATIVE and not Windows) RUN-EXEC: ar rc libgluecode.a libgluecode.o
+// (COMMENT) the test is not working yet on GNUstep, so 2 steps below are OFF when not Darwin
+// (CJNATIVE and Darwin) RUN-EXEC: %clang -lc++ $CANGJIE_HOME/lib/%run_env/*.a $CANGJIE_HOME/lib/%run_env/section.o $CANGJIE_HOME/lib/%run_env/cjstart.o libapi.a libcjworld.a libgluecode.a -fobjc-arc app/*.m -Iapp -Igenerated -o main
+// (CJNATIVE and Darwin) RUN-EXEC: %run_macro ./main 2>&1 | sed 's/.* main\[[0-9]*:[0-9]*\] //g' | compare ./%f
+
+/* SCAN-IN
+ObjC: main creates instance and calls [nonOpen Foo] implemented in Cangjie:
+[CJ]: NonOpen.Foo()
+
+ObjC: main calls [restrictedHeir CallParentFoo] that should call super.Foo implemented in Cangjie:
+ObjC: RestrictedHeir.CallParentFoo()
+[CJ]: NonOpen.Foo()
+*/
