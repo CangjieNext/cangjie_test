@@ -33,7 +33,7 @@ Options:
   --output-dir <value>        Specify output directory (it affects '--output' option)
   --output-javagen-dir <value>
                               Specify output directory for javagen
-  --objc-output-dir <value>   Specify output directory for ObjC generated sources
+  --objc-output-dir <value>   Specify output directory for ObjC generated sources (Experimental)
   --no-prelude                Not import cangjie std.core package by default, only applicable when compiling std.core
   --enable-interop-cjmapping  enable cj data structure mapping for interop (Experimental)
   --static                    Statically link cangjie library
