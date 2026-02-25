@@ -79,62 +79,6 @@ Tools/cjlint/rules/G_OTH_03/g_oth_03_10026/g_oth_03.info
 # syntax will be supported in future
 API/syntax
 
-# feature org name unavailable on this branch
-API/std/ast/orgName
-compiler/cjnative/Extend/operator/define/operator_def_18.cj
-compiler/cjnative/stable_abi/package_name/TestCase_10/TestCase_10.info
-compiler/cjnative/stable_abi/package_name/TestCase_12/TestCase_12.info
-compiler/cjnative/stable_abi/package_name/TestCase_13/TestCase_13.info
-compiler/cjnative/stable_abi/package_name/TestCase_14/TestCase_14.info
-compiler/cjnative/stable_abi/package_name/TestCase_15/TestCase_15.info
-compiler/cjnative/stable_abi/package_name/TestCase_17/TestCase_17.info
-compiler/cjnative/stable_abi/package_name/TestCase_18/TestCase_18.info
-compiler/cjnative/stable_abi/package_name/TestCase_19/TestCase_19.info
-compiler/cjnative/stable_abi/package_name/TestCase_2/TestCase_2.info
-compiler/cjnative/stable_abi/package_name/TestCase_21/TestCase_21.info
-compiler/cjnative/stable_abi/package_name/TestCase_22/TestCase_22.info
-compiler/cjnative/stable_abi/package_name/TestCase_24/TestCase_24.info
-compiler/cjnative/stable_abi/package_name/TestCase_26/TestCase_26.info
-compiler/cjnative/stable_abi/package_name/TestCase_27/TestCase_27.info
-compiler/cjnative/stable_abi/package_name/TestCase_28/TestCase_28.info
-compiler/cjnative/stable_abi/package_name/TestCase_3/TestCase_3.info
-compiler/cjnative/stable_abi/package_name/TestCase_30/TestCase_30.info
-compiler/cjnative/stable_abi/package_name/TestCase_31/TestCase_31.info
-compiler/cjnative/stable_abi/package_name/TestCase_33/TestCase_33.info
-compiler/cjnative/stable_abi/package_name/TestCase_35/TestCase_35.info
-compiler/cjnative/stable_abi/package_name/TestCase_36/TestCase_36.info
-compiler/cjnative/stable_abi/package_name/TestCase_38/TestCase_38.info
-compiler/cjnative/stable_abi/package_name/TestCase_40/TestCase_40.info
-compiler/cjnative/stable_abi/package_name/TestCase_42/TestCase_42.info
-compiler/cjnative/stable_abi/package_name/TestCase_43/TestCase_43.info
-compiler/cjnative/stable_abi/package_name/TestCase_45/TestCase_45.info
-compiler/cjnative/stable_abi/package_name/TestCase_46/TestCase_46.info
-compiler/cjnative/stable_abi/package_name/TestCase_47/TestCase_47.info
-compiler/cjnative/stable_abi/package_name/TestCase_48/TestCase_48.info
-compiler/cjnative/stable_abi/package_name/TestCase_49/TestCase_49.info
-compiler/cjnative/stable_abi/package_name/TestCase_5/TestCase_5.info
-compiler/cjnative/stable_abi/package_name/TestCase_51/TestCase_51.info
-compiler/cjnative/stable_abi/package_name/TestCase_52/TestCase_52.info
-compiler/cjnative/stable_abi/package_name/TestCase_54/TestCase_54.info
-compiler/cjnative/stable_abi/package_name/TestCase_55/TestCase_55.info
-compiler/cjnative/stable_abi/package_name/TestCase_56/TestCase_56.info
-compiler/cjnative/stable_abi/package_name/TestCase_57/TestCase_57.info
-compiler/cjnative/stable_abi/package_name/TestCase_58/TestCase_58.info
-compiler/cjnative/stable_abi/package_name/TestCase_59/TestCase_59.info
-compiler/cjnative/stable_abi/package_name/TestCase_6/TestCase_6.info
-compiler/cjnative/stable_abi/package_name/TestCase_62/TestCase_62.info
-compiler/cjnative/stable_abi/package_name/TestCase_63/TestCase_63.info
-compiler/cjnative/stable_abi/package_name/TestCase_64/TestCase_64.info
-compiler/cjnative/stable_abi/package_name/TestCase_65/TestCase_65.info
-compiler/cjnative/stable_abi/package_name/TestCase_66/TestCase_66.info
-compiler/cjnative/stable_abi/package_name/TestCase_67/TestCase_67.info
-compiler/cjnative/stable_abi/package_name/TestCase_68/TestCase_68.info
-compiler/cjnative/stable_abi/package_name/TestCase_7/TestCase_7.info
-compiler/cjnative/stable_abi/package_name/TestCase_8/TestCase_8.info
-compiler/cjnative/stable_abi/package_name/TestCase_9/TestCase_9.info
-regression/testcase_485.cj
-regression/testcase_86/operator_def_18.cj
-
 # timezone file in ci not support now
 API/std/time/TimeZone/load/test_loadFromPaths.cj
 
