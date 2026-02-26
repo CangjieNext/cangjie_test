@@ -10,7 +10,10 @@
 Install a Cangjie binary.
 
 Usage:
-  cjpm install [option]
+  cjpm install [option] [name-version]
+
+Arguments:
+  name-version              select module with specified name and version from cangjie repository, e.g., aoo-1.0.0
 
 Available option:
   -h, --help                help for install

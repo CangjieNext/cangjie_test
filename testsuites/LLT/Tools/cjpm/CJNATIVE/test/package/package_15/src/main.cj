@@ -6,11 +6,19 @@
 
 package test
 
+import std.unittest.*
+import std.unittest.testmacro.*
+
 internal import pro1.xoo.*
 
-main(): Int64 {
+@Test
+func testcase() {
     let a = x
     println("aaa")
     println(a)
     return 0
+}
+
+main(): Int64 {
+    testcase()
 }
