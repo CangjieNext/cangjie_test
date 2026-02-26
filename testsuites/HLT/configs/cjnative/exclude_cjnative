@@ -92,3 +92,8 @@ compiler/cjnative/Packages/org_name
 Tools/cjdb/datacom/cross_platform/cross_platform032.info
 Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
 Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/309
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10001/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10006/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10020/g_nam_01_10020.info

@@ -376,3 +376,8 @@ Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj
 
 # long path on windows
 Tools/cjpm/source_set/source_set003/source_set_identifier002
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/309
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10001/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10006/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10020/g_nam_01_10020.info
