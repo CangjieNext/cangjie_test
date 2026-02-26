@@ -29,5 +29,5 @@ package cmp
 
 import A.Foo as newName
 
-platform extend newName {
+specific extend newName {
 }

@@ -8,14 +8,14 @@
 
 package mp
 
-platform enum Either<L, R> where L <: Equatable<L>, R <: Equatable<R> {
+specific enum Either<L, R> where L <: Equatable<L>, R <: Equatable<R> {
     | Left2(L)
     | Right2(R)
 
-    platform func goo(x:L): Unit {
+    specific func goo(x:L): Unit {
         print(x)
     }
-    platform func foo<M>(x:M): Unit{
+    specific func foo<M>(x:M): Unit{
         print(x)
     }
 }

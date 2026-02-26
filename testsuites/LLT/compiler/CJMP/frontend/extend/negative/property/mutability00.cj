@@ -25,11 +25,11 @@ common extend Foo <:I1 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output 2>&1 | compare %f
 
 package cmp
-platform public interface I1{
+specific public interface I1{
 }
 
-platform extend Foo <:I1{
-    platform prop i:Int64 {
+specific extend Foo <:I1{
+    specific prop i:Int64 {
         get(){x}
     }
 }
@@ -44,7 +44,7 @@ main(){
 error: property 'i' should have 'mut' modifier
   ==> p/p.cj:8:5:
    | 
-8  |       platform prop i:Int64 {
+8  |       specific prop i:Int64 {
    |  _____^
 9  | |         get(){x}
 10 | |     }

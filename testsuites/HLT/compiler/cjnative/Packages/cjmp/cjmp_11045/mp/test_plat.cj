@@ -10,6 +10,6 @@ package mp
 
 public common class C {public init(){}}
 
-platform extend C <: I {}
+specific extend C <: I {}
 
 extend C <: I {}

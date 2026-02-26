@@ -19,9 +19,9 @@ common struct A {
 // ASSERT: scan sema_used_before_initialization
 package cmp
 
-platform struct A {
-    platform static let b: Int64 = a + 10
-    platform static let a: Int64 = 1
+specific struct A {
+    specific static let b: Int64 = a + 10
+    specific static let a: Int64 = 1
 }
 
 main() : Unit {

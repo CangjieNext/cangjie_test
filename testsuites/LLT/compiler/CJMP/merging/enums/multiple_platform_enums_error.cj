@@ -18,11 +18,11 @@ common enum A {
 // ASSERT: scan sema_multiple_common_implementations
 package cmp
 
-platform enum A {
+specific enum A {
     | A
 }
 
-platform enum A {
+specific enum A {
     | A
 }
 

@@ -20,7 +20,7 @@ public common struct A {
 // ASSERT: scan sema_overload_conflicts
 // ASSERT: scan sema_class_uninitialized_field
 package cmp
-public platform struct A{
+public specific struct A{
     let p2:Int32
     init(p:Int32){
         this.p2=1

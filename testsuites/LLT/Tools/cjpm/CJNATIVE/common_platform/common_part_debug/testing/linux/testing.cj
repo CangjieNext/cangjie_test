@@ -7,6 +7,6 @@
 features { os.linux }
 package testing
 
-public platform func baz(x: Range<Int64>): String {
+public specific func baz(x: Range<Int64>): String {
     "<empty>"
 }

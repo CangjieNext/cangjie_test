@@ -8,11 +8,11 @@
 
 package mp
 
-public platform interface A<T> {
-    platform static func f1(a:T): T {
+public specific interface A<T> {
+    specific static func f1(a:T): T {
         a
     }
-    platform func f2(a:T): T {
+    specific func f2(a:T): T {
         a
     }
 }

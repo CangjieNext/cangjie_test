@@ -18,7 +18,7 @@ public common class A {
 // ASSERT: scan sema_missing_func_body
 package cmp
 
-public platform class A {
-    platform func B(): Int64
+public specific class A {
+    specific func B(): Int64
 }
 

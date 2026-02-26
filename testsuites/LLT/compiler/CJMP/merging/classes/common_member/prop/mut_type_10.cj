@@ -25,10 +25,10 @@ common class A {
 // ASSERT: scan sema_property_must_have_accessors
 package cmp
 
-platform class A {
-    platform mut prop testProp: Unit {
+specific class A {
+    specific mut prop testProp: Unit {
         get() {
-            println("platform")
+            println("specific")
         }
     }
 }

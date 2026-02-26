@@ -25,21 +25,21 @@ public common class E <: A { init() {}
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
-// ASSERT: scan-4 sema_platform_has_different_super_type
+// ASSERT: scan-4 sema_specific_has_different_super_type
 package cmp
 
-public platform open class A <: interfaceB {
+public specific open class A <: interfaceB {
 }
 
-public platform open class B <: interfaceA & interfaceB {
+public specific open class B <: interfaceA & interfaceB {
 }
 
-public platform class C <: interfaceA {
+public specific class C <: interfaceA {
 }
 
-public platform class D <: interfaceB & interfaceA {
+public specific class D <: interfaceB & interfaceA {
 }
 
-public platform class E <: B {
+public specific class E <: B {
 }
 

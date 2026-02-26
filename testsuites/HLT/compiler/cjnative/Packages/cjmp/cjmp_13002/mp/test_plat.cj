@@ -8,4 +8,4 @@
  
 package mp
 
-public platform open class C1 {}
+public specific open class C1 {}

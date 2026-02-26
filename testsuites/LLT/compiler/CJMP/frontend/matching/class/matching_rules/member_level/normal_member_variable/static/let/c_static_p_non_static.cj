@@ -18,7 +18,7 @@ public common class A {
 // ASSERT: scan sema_not_matched
 package cmp
 
-public platform class A {
-    platform let a:Int = 1
+public specific class A {
+    specific let a:Int = 1
 }
 

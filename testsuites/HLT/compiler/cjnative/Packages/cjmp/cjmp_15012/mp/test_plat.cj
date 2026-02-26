@@ -8,9 +8,9 @@
 
 package mp
 import mp1
-platform extend <T> mp1.A<T> {
-    public platform func foo1(a: B<Int64>) { a.a + 1 }
-    public platform static func foo2(a: B<Int64>) { a.a + 1 }
+specific extend <T> mp1.A<T> {
+    public specific func foo1(a: B<Int64>) { a.a + 1 }
+    public specific static func foo2(a: B<Int64>) { a.a + 1 }
 }
 public func f2() {
     return mp1.A<B<Int64>>().foo1(B<Int64>(1)) + mp1.A<B<Int64>>.foo2(B<Int64>(1))

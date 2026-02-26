@@ -19,4 +19,4 @@ package cmp
 
 type aliasFoo<M, N> = Foo<M, N>;
 
-platform extend<P, Q> aliasFoo<P, Q> {}
+specific extend<P, Q> aliasFoo<P, Q> {}

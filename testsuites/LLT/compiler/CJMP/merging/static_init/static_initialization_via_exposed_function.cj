@@ -31,12 +31,12 @@ public common class A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
-    public static platform func initX(): Int {
+public specific class A {
+    public static specific func initX(): Int {
         2
     }
 
-    public platform static func initYZ(): (Int, String) {
+    public specific static func initYZ(): (Int, String) {
         (42, "Text")
     } 
 }

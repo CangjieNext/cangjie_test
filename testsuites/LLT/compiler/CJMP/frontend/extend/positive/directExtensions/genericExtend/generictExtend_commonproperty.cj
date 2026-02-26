@@ -30,12 +30,12 @@ common extend<R,T> Foo<R,T> {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform extend<R,T> Foo<R,T> {
-    platform prop x1:T {    
-        get(){ println("platform::extend::prop:x"); filed }
+specific extend<R,T> Foo<R,T> {
+    specific prop x1:T {    
+        get(){ println("specific::extend::prop:x"); filed }
     }
-    platform prop x3:T {
-         get(){ println("platform::extend::prop:xx"); filed }
+    specific prop x3:T {
+         get(){ println("specific::extend::prop:xx"); filed }
      }
 }
 main() {
@@ -47,10 +47,10 @@ main() {
 }
 
 /* SCAN
-platform::extend::prop:x
+specific::extend::prop:x
 3
 common::extend::prop:xx
 3
-platform::extend::prop:xx
+specific::extend::prop:xx
 3
 */

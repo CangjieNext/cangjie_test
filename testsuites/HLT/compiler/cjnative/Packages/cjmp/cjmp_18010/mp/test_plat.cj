@@ -8,4 +8,4 @@
 
 package mp
 
-public platform func f(): B { B() }
+public specific func f(): B { B() }

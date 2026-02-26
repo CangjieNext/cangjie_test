@@ -12,12 +12,12 @@ public common func goo(arg!:Int32=a):Unit
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-public platform let a:Int32=2
+public specific let a:Int32=2
 public func foo(arg!:Int32=a):Unit
 {
     println(arg)
 }
-public platform func goo(arg!:Int32):Unit{
+public specific func goo(arg!:Int32):Unit{
     println(arg)
 }
 // SEPARATE-FILE: m_common.cj

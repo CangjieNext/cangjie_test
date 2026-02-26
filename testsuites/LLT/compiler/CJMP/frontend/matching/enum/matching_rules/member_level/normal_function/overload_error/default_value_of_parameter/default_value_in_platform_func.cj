@@ -18,8 +18,8 @@ public common enum RGBColor {
 // ASSERT: scan sema_not_matched
 package cmp
 
-public platform enum RGBColor {
+public specific enum RGBColor {
     RED | GREEN | BLUE
-    public platform func goo(input!: Int64=1): Int64 {input}
+    public specific func goo(input!: Int64=1): Int64 {input}
 }
 

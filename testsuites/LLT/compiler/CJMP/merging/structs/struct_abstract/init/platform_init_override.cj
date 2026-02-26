@@ -16,12 +16,12 @@ public common struct A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform struct A {
+public specific struct A {
     public init(x:Int64) {
-        println("[platform] A.init()")
+        println("[specific] A.init()")
     }
     public init(x:Int64,y:String) {
-        println("[platform] A.init()")
+        println("[specific] A.init()")
     }
 }
 
@@ -33,9 +33,9 @@ public platform struct A {
 import cmp.*
 
 main(): Unit {
-    let a = A(0,"platform")
+    let a = A(0,"specific")
 }
 
 /* SCAN
-[platform] A.init()
+[specific] A.init()
 */

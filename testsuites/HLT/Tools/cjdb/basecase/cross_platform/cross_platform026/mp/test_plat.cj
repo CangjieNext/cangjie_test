@@ -8,7 +8,7 @@
 
 package mp
 
-public platform func foo<T>(a:T): T {
+public specific func foo<T>(a:T): T {
     var c1 = 1
     return a
 }

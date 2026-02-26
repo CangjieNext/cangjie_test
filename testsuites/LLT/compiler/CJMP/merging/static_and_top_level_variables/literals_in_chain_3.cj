@@ -28,19 +28,19 @@ public let Z = C1 * (X + 9)
 // SEPARATE-FILE: p/p1.cj
 package cmp
 
-public platform let C1: Int = 4
+public specific let C1: Int = 4
 
 // SEPARATE-FILE: p/p2.cj
 // EXEC-0: %compiler %noColor --experimental p/p1.cj p/p2.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform let C2: Int = C1 + 10
+public specific let C2: Int = C1 + 10
 
 
 // So, the order when compiling 'common':
 // C2 -> C1, C3 -> C1
 
-// After adding platform:
+// After adding specific:
 //  C2 -> C1, C3 -> C1, C3 -> P1 ,C1 -> P1, P2 -> P1
 
 // SEPARATE-FILE: m_common.cj

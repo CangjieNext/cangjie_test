@@ -24,8 +24,8 @@ public func foo<T>() where T <: I {
 // EXEC: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform interface I {
-    platform static func f(): Int { 2 }
+public specific interface I {
+    specific static func f(): Int { 2 }
 }
 
 // SEPARATE-FILE: m_common.cj

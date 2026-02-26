@@ -28,10 +28,10 @@ extend Foo {
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
-platform public interface I1{
+specific public interface I1{
 }
 
-platform extend Foo <:I1{
+specific extend Foo <:I1{
 }
 extend Foo{
     public func f3():Unit{println("Extend::f3")}

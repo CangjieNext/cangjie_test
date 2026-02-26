@@ -8,7 +8,7 @@
  
 package mp
 
-public platform enum A {
+public specific enum A {
     | E1(Int64)
     | E2
     | E3(Int32)

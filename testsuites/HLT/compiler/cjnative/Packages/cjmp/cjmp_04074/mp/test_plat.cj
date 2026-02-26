@@ -8,8 +8,8 @@
  
 package mp
 
-public platform class A {
-    internal platform func f(): Int64 { 0 }
+public specific class A {
+    internal specific func f(): Int64 { 0 }
 }
 public func test_plat() { A().f() }
 

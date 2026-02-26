@@ -8,6 +8,6 @@
  
 package mp
 
-platform interface A {}
+specific interface A {}
 
 

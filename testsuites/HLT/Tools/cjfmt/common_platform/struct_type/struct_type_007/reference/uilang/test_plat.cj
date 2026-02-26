@@ -8,11 +8,11 @@
 
 package mp
 
-platform public struct S1 {
-    platform public mut func g(): Int64 {
+specific public struct S1 {
+    specific public mut func g(): Int64 {
         1
     }
-    platform public mut operator func +(rhs: S2): S2 {
+    specific public mut operator func +(rhs: S2): S2 {
         S2()
     }
 }

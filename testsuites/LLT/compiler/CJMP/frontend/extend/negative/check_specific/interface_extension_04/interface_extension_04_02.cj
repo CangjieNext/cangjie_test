@@ -29,10 +29,10 @@ common public func int64Foo():Unit {
 // ASSERT: scan error: a deriving member must be at least as visible as its base member
 package cmp
 
-platform interface IA {}
+specific interface IA {}
 
-platform extend Int64 <: IA {
-    platform func foo():Unit {
-        println("platform::Int64::foo")
+specific extend Int64 <: IA {
+    specific func foo():Unit {
+        println("specific::Int64::foo")
     }
 }

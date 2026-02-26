@@ -16,17 +16,17 @@ public common func foo(a: Array<String>): Unit
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform func foo(): Unit {
-    println("platform foo")
+public specific func foo(): Unit {
+    println("specific foo")
 }
 
-public platform func foo(a: Array<Int>): Unit {
+public specific func foo(a: Array<Int>): Unit {
     for (x in a) {
         println("Int: ${x}")
     }
 }
 
-public platform func foo(a: Array<String>): Unit {
+public specific func foo(a: Array<String>): Unit {
     for (x in a) {
         println("String: ${x}")
     }
@@ -43,7 +43,7 @@ main(): Unit {
     foo(["a", "b"])
 }
 /* SCAN
-platform foo
+specific foo
 Int: 1
 Int: 42
 String: a
@@ -63,7 +63,7 @@ main(): Unit {
 
 
 /* SCAN
-platform foo
+specific foo
 Int: 3
 Int: 44
 String: b

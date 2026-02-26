@@ -8,14 +8,14 @@
 
 package mp
 
-public platform class C {
-    platform public func f1(): Int64 {
+public specific class C {
+    specific public func f1(): Int64 {
         1
     }
 }
 
-platform extend C <: I<Int64> {
-    public platform func f(a: String): String {
+specific extend C <: I<Int64> {
+    public specific func f(a: String): String {
         a
     }
 }

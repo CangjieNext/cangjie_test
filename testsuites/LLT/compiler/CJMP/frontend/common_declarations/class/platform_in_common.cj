@@ -6,13 +6,13 @@
 
 // SEPARATE-FILE: c/c.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
-// ASSERT: scan parse_platform_in_non_platform_file
+// ASSERT: scan parse_specific_in_non_specific_file
 package cmp
 
 public common class A {
     init() {}
 }
-public platform class B {}
+public specific class B {}
 
 
 

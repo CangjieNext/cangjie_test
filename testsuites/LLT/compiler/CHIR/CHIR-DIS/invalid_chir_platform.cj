@@ -6,4 +6,4 @@
 
 package cmp
 
-public platform func foo(): Unit {}
+public specific func foo(): Unit {}

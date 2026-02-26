@@ -16,10 +16,10 @@ public common struct A {
 }
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
-// ASSERT: scan sema_platform_has_different_type
+// ASSERT: scan sema_specific_has_different_type
 package cmp
-public platform struct A{
-    platform prop a:Int64{
+public specific struct A{
+    specific prop a:Int64{
         get(){0}
     }
 }

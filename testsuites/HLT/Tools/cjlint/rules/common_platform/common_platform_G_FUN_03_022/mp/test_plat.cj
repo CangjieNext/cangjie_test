@@ -8,8 +8,8 @@
 
 package mp
 
-open platform class A {
-    public platform open func f(): Unit {
+open specific class A {
+    public specific open func f(): Unit {
         println("I am superclass")
     }
 }

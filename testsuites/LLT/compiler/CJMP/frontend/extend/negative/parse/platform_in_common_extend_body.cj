@@ -6,10 +6,10 @@
 
 // SEPARATE-FILE: c/c.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
-// ASSERT: scan parse_platform_in_non_platform_file
+// ASSERT: scan parse_specific_in_non_specific_file
 package cmp
 common class Foo{ init() {}
 }
 common extend Foo {
-   platform func f():Unit {}
+   specific func f():Unit {}
 }

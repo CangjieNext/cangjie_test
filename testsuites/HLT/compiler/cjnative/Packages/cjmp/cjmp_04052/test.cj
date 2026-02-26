@@ -8,11 +8,11 @@
  
 // LEVEL: 0
 // ERRCHECK: %compiler %cmp_opt %f -o %output
-// ASSERT: scan parse_platform_in_non_platform_file
+// ASSERT: scan parse_specific_in_non_specific_file
 
-public platform class A {
+public specific class A {
     public static var a: Int64
-    platform static init() {
+    specific static init() {
         a = 0
     }
 }

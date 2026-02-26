@@ -8,4 +8,4 @@
  
 package mp
 
-public platform sealed abstract class C1 {}
+public specific sealed abstract class C1 {}
