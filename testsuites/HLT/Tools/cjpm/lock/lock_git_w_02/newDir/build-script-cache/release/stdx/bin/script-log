@@ -1,0 +1,258 @@
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CANGJIE_BUILD_ARGS
+    CANGJIE_BUILD_STDLIB_WITH_COVERAGE
+    CANGJIE_BUILD_WITHOUT_EFFECT_HANDLERS
+    CANGJIE_CJPM_DIR
+
+
+Python 3.13.5
+[2026-01-17 10:38:31] [cjpm_build] [INFO] args: Namespace(build_type=release, build_stage=preBuild, jobs=0, target=None, target_lib=[], target_toolchain=None, include=[], target_sysroot=None, stdlib_coverage=False, cjpm=False, build_args=[], without_effect_handlers=False, host=None, prefix=None, func=<function build at 0x000001AABB599080>)
+[2026-01-17 10:38:31] [cjpm_build] [INFO] CJPM_DIR: C:\Users\yaoruili\AppData\Local\stdx
+[2026-01-17 10:38:31] [cjpm_build] [INFO] args.build_stage: preBuild
+[2026-01-17 10:38:31] [cjpm_build] [INFO] DEVECO_OH_NATIVE_HOME: 
+[2026-01-17 10:38:31] [cjpm_build] [INFO] begin clean...
+
+[2026-01-17 10:38:31] [cjpm_build] [INFO] end clean
+
+[2026-01-17 10:38:31] [cjpm_build] [INFO] begin clean libs...
+
+[2026-01-17 10:38:31] [cjpm_build] [INFO] end clean libs
+
+[2026-01-17 10:38:31] [cjpm_build] [INFO] begin build py----
+[2026-01-17 10:38:31] [cjpm_build] [INFO] cmake_build_dir: C:\Users\yaoruili\.cjpm\git\stdx\1fd9931f3466adc6d09c09b3ce9b508b06a970ff\build_temp\build
+[2026-01-17 10:38:31] [cjpm_build] [INFO] -- The C compiler identification is GNU 12.2.0
+[2026-01-17 10:38:32] [cjpm_build] [INFO] -- The CXX compiler identification is GNU 12.2.0
+[2026-01-17 10:38:32] [cjpm_build] [INFO] -- Detecting C compiler ABI info
+[2026-01-17 10:38:32] [cjpm_build] [INFO] -- Detecting C compiler ABI info - done
+[2026-01-17 10:38:32] [cjpm_build] [INFO] -- Check for working C compiler: C:/mingw64/bin/x86_64-w64-mingw32-gcc.exe - skipped
+[2026-01-17 10:38:32] [cjpm_build] [INFO] -- Detecting C compile features
+[2026-01-17 10:38:32] [cjpm_build] [INFO] -- Detecting C compile features - done
+[2026-01-17 10:38:32] [cjpm_build] [INFO] -- Detecting CXX compiler ABI info
+[2026-01-17 10:38:33] [cjpm_build] [INFO] -- Detecting CXX compiler ABI info - done
+[2026-01-17 10:38:33] [cjpm_build] [INFO] -- Check for working CXX compiler: C:/mingw64/bin/x86_64-w64-mingw32-g++.exe - skipped
+[2026-01-17 10:38:33] [cjpm_build] [INFO] -- Detecting CXX compile features
+[2026-01-17 10:38:33] [cjpm_build] [INFO] -- Detecting CXX compile features - done
+[2026-01-17 10:38:33] [cjpm_build] [INFO] -- Build type for the current project: Release
+[2026-01-17 10:38:33] [cjpm_build] [INFO] -- <CMAKE_AR> deterministic mode (-D) is set.
+[2026-01-17 10:38:33] [cjpm_build] [INFO] -- <CMAKE_RANLIB> deterministic mode (-D) is set.
+[2026-01-17 10:38:33] [cjpm_build] [INFO] -- Building with target=x86_64-w64-mingw32
+[2026-01-17 10:38:33] [cjpm_build] [INFO] -- Found OpenSSL: C:/Program Files/OpenSSL-Win64/lib/libcrypto.lib (found suitable version "3.6.0", minimum required is "3") found components: Crypto SSL
+[2026-01-17 10:38:33] [cjpm_build] [INFO] -- Configuring zlib library...
+[2026-01-17 10:38:35] [cjpm_build] [INFO] -- Building zlib libraries...
+[2026-01-17 10:38:37] [cjpm_build] [INFO] -- Installing zlib headers and libraries to Cangjie library source...
+[2026-01-17 10:38:37] [cjpm_build] [INFO] -- CANGJIE_CJPM_BUILD_SELF OFF
+[2026-01-17 10:38:37] [cjpm_build] [INFO] -- ---CMAKE_BINARY_DIR: C:/Users/yaoruili/.cjpm/git/stdx/1fd9931f3466adc6d09c09b3ce9b508b06a970ff/build_temp/build
+[2026-01-17 10:38:37] [cjpm_build] [INFO] -- Configuring done (6.1s)
+[2026-01-17 10:38:37] [cjpm_build] [INFO] -- Generating done (0.1s)
+[2026-01-17 10:38:37] [cjpm_build] [INFO] -- Build files have been written to: C:/Users/yaoruili/.cjpm/git/stdx/1fd9931f3466adc6d09c09b3ce9b508b06a970ff/build_temp/build
+[2026-01-17 10:38:38] [cjpm_build] [INFO] [1/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck.dir/src/snprintf_s.c.obj
+[2026-01-17 10:38:38] [cjpm_build] [INFO] [2/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck.dir/src/memset_s.c.obj
+[2026-01-17 10:38:38] [cjpm_build] [INFO] [3/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck-static.dir/src/vsnprintf_s.c.obj
+[2026-01-17 10:38:38] [cjpm_build] [INFO] [4/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck-static.dir/src/snprintf_s.c.obj
+[2026-01-17 10:38:38] [cjpm_build] [INFO] [5/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck-static.dir/src/memset_s.c.obj
+[2026-01-17 10:38:38] [cjpm_build] [INFO] [6/48] Building C object src/stdx/compress/zlib/native/CMakeFiles/stdx.compress.zlibFFI-objs.dir/zlib.c.obj
+[2026-01-17 10:38:38] [cjpm_build] [INFO] [7/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck.dir/src/vsnprintf_s.c.obj
+[2026-01-17 10:38:38] [cjpm_build] [INFO] [8/48] Building C object src/stdx/encoding/json/native/CMakeFiles/stdx.encoding.jsonFFI-objs.dir/json_string_escape.c.obj
+[2026-01-17 10:38:38] [cjpm_build] [INFO] [9/48] Building C object src/stdx/encoding/json/stream/native/CMakeFiles/stdx.encoding.json.streamFFI-objs.dir/utils.c.obj
+[2026-01-17 10:38:38] [cjpm_build] [INFO] [10/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck.dir/src/secureprintoutput_a.c.obj
+[2026-01-17 10:38:38] [cjpm_build] [INFO] [11/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck-static.dir/src/secureprintoutput_a.c.obj
+[2026-01-17 10:38:39] [cjpm_build] [INFO] [12/48] Linking C shared library bin\libboundscheck.dll
+[2026-01-17 10:38:39] [cjpm_build] [INFO] [13/48] Building C object src/stdx/compress/tar/native/CMakeFiles/stdx.compress.tarFFI-objs.dir/tar_native_win.c.obj
+[2026-01-17 10:38:39] [cjpm_build] [INFO] [14/48] Building C object src/stdx/crypto/keys/native/CMakeFiles/stdx.crypto.keysFFI-objs.dir/compat.c.obj
+[2026-01-17 10:38:39] [cjpm_build] [INFO] [15/48] Building C object src/stdx/crypto/keys/native/CMakeFiles/stdx.crypto.keysFFI-objs.dir/crypto_errors.c.obj
+[2026-01-17 10:38:39] [cjpm_build] [INFO] [16/48] Building C object src/stdx/crypto/keys/native/CMakeFiles/stdx.crypto.keysFFI-objs.dir/keys.c.obj
+[2026-01-17 10:38:39] [cjpm_build] [INFO] [17/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/alpn.c.obj
+[2026-01-17 10:38:39] [cjpm_build] [INFO] [18/48] Building C object src/stdx/crypto/x509/native/CMakeFiles/stdx.crypto.x509FFI-objs.dir/rootca.c.obj
+[2026-01-17 10:38:39] [cjpm_build] [INFO] [19/48] Building C object src/stdx/crypto/x509/native/CMakeFiles/stdx.crypto.x509FFI-objs.dir/x509_keys_certs.c.obj
+[2026-01-17 10:38:40] [cjpm_build] [INFO] [20/48] Building C object src/stdx/crypto/x509/native/CMakeFiles/stdx.crypto.x509FFI-objs.dir/der_cert.c.obj
+[2026-01-17 10:38:40] [cjpm_build] [INFO] [21/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/ciphers.c.obj
+[2026-01-17 10:38:40] [cjpm_build] [INFO] [22/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/dhparam.c.obj
+[2026-01-17 10:38:40] [cjpm_build] [INFO] [23/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/errors.c.obj
+[2026-01-17 10:38:40] [cjpm_build] [INFO] [24/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/hostname.c.obj
+[2026-01-17 10:38:40] [cjpm_build] [INFO] [25/48] Linking C static library lib\libstdx.compress.zlibFFI.a
+[2026-01-17 10:38:40] [cjpm_build] [INFO] [26/48] Linking C static library lib\libboundscheck-static.a
+[2026-01-17 10:38:40] [cjpm_build] [INFO] [27/48] Linking C static library lib\libstdx.compress.tarFFI.a
+[2026-01-17 10:38:40] [cjpm_build] [INFO] [28/48] Linking C static library lib\libstdx.encoding.jsonFFI.a
+[2026-01-17 10:38:40] [cjpm_build] [INFO] [29/48] Linking C static library lib\libstdx.crypto.keysFFI.a
+[2026-01-17 10:38:40] [cjpm_build] [INFO] [30/48] Linking C static library lib\libstdx.encoding.json.streamFFI.a
+[2026-01-17 10:38:41] [cjpm_build] [INFO] [31/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/provider.c.obj
+[2026-01-17 10:38:41] [cjpm_build] [INFO] [32/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/provider_asymcipher.c.obj
+[2026-01-17 10:38:41] [cjpm_build] [INFO] [33/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/provider_helper.c.obj
+[2026-01-17 10:38:41] [cjpm_build] [INFO] [34/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/versions.c.obj
+[2026-01-17 10:38:41] [cjpm_build] [INFO] [35/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/sessions.c.obj
+[2026-01-17 10:38:41] [cjpm_build] [INFO] [36/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/provider_keymgt.c.obj
+[2026-01-17 10:38:41] [cjpm_build] [INFO] [37/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/tls_bio.c.obj
+[2026-01-17 10:38:41] [cjpm_build] [INFO] [38/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/tls-impl.c.obj
+[2026-01-17 10:38:41] [cjpm_build] [INFO] [39/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/tls_keys_certs.c.obj
+[2026-01-17 10:38:41] [cjpm_build] [INFO] [40/48] Building C object src/stdx/dynamicLoader/CMakeFiles/cangjie-dynamicLoader-opensslFFI-objs.dir/opensslSymbols.c.obj
+[2026-01-17 10:38:42] [cjpm_build] [INFO] [41/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/provider_signature.c.obj
+[2026-01-17 10:38:42] [cjpm_build] [INFO] [42/48] Linking C static library lib\libcangjie-dynamicLoader-opensslFFI.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] [43/48] Linking C shared library bin\libcangjie-dynamicLoader-opensslFFI.dll
+[2026-01-17 10:38:42] [cjpm_build] [INFO] [44/48] Generating libstdx.crypto.x509FFI.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] [45/48] Linking C shared library bin\libstdx.crypto.keysFFI.dll
+[2026-01-17 10:38:42] [cjpm_build] [INFO] [46/48] Linking C shared library bin\libstdx.crypto.x509FFI.dll
+[2026-01-17 10:38:42] [cjpm_build] [INFO] [47/48] Linking C shared library bin\libstdx.net.tlsFFI.dll
+[2026-01-17 10:38:42] [cjpm_build] [INFO] [48/48] Generating libstdx.net.tlsFFI.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] end build
+[2026-01-17 10:38:42] [cjpm_build] [INFO] begin install targets...
+[2026-01-17 10:38:42] [cjpm_build] [INFO] installing native build...
+[2026-01-17 10:38:42] [cjpm_build] [INFO] C:\Users\yaoruili\.cjpm\git\stdx\1fd9931f3466adc6d09c09b3ce9b508b06a970ff\build_temp\build
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Install configuration: "Release"
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libboundscheck.dll
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libboundscheck-static.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.compress.zlibFFI.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.compress.tarFFI.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.crypto.keysFFI.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.crypto.keysFFI.dll.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.crypto.keysFFI.dll
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.crypto.x509FFI.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.crypto.x509FFI.dll.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.crypto.x509FFI.dll
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libcangjie-dynamicLoader-opensslFFI.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libcangjie-dynamicLoader-opensslFFI.dll.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libcangjie-dynamicLoader-opensslFFI.dll
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.encoding.jsonFFI.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.encoding.json.streamFFI.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.net.tlsFFI.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.net.tlsFFI.dll.a
+[2026-01-17 10:38:42] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.net.tlsFFI.dll
+[2026-01-17 10:38:42] [cjpm_build] [INFO] end install targets...
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CANGJIE_BUILD_ARGS
+    CANGJIE_BUILD_STDLIB_WITH_COVERAGE
+    CANGJIE_BUILD_WITHOUT_EFFECT_HANDLERS
+    CANGJIE_CJPM_DIR
+
+
+Python 3.13.5
+[2026-01-17 10:38:43] [cjpm_build] [INFO] args: Namespace(build_type=release, build_stage=preBuild, jobs=0, target=None, target_lib=[], target_toolchain=None, include=[], target_sysroot=None, stdlib_coverage=False, cjpm=False, build_args=[], without_effect_handlers=False, host=None, prefix=None, func=<function build at 0x0000026766AC9080>)
+[2026-01-17 10:38:43] [cjpm_build] [INFO] CJPM_DIR: C:\Users\yaoruili\AppData\Local\stdx
+[2026-01-17 10:38:43] [cjpm_build] [INFO] args.build_stage: preBuild
+[2026-01-17 10:38:43] [cjpm_build] [INFO] DEVECO_OH_NATIVE_HOME: 
+[2026-01-17 10:38:43] [cjpm_build] [INFO] begin clean...
+
+[2026-01-17 10:38:43] [cjpm_build] [INFO] end clean
+
+[2026-01-17 10:38:43] [cjpm_build] [INFO] begin clean libs...
+
+[2026-01-17 10:38:43] [cjpm_build] [INFO] end clean libs
+
+[2026-01-17 10:38:43] [cjpm_build] [INFO] begin build py----
+[2026-01-17 10:38:43] [cjpm_build] [INFO] cmake_build_dir: C:\Users\yaoruili\.cjpm\git\stdx\1fd9931f3466adc6d09c09b3ce9b508b06a970ff\build_temp\build
+[2026-01-17 10:38:43] [cjpm_build] [INFO] -- The C compiler identification is GNU 12.2.0
+[2026-01-17 10:38:43] [cjpm_build] [INFO] -- The CXX compiler identification is GNU 12.2.0
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Detecting C compiler ABI info
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Detecting C compiler ABI info - done
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Check for working C compiler: C:/mingw64/bin/x86_64-w64-mingw32-gcc.exe - skipped
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Detecting C compile features
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Detecting C compile features - done
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Detecting CXX compiler ABI info
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Detecting CXX compiler ABI info - done
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Check for working CXX compiler: C:/mingw64/bin/x86_64-w64-mingw32-g++.exe - skipped
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Detecting CXX compile features
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Detecting CXX compile features - done
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Build type for the current project: Release
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- <CMAKE_AR> deterministic mode (-D) is set.
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- <CMAKE_RANLIB> deterministic mode (-D) is set.
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Building with target=x86_64-w64-mingw32
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Found OpenSSL: C:/Program Files/OpenSSL-Win64/lib/libcrypto.lib (found suitable version "3.6.0", minimum required is "3") found components: Crypto SSL
+[2026-01-17 10:38:44] [cjpm_build] [INFO] -- Configuring zlib library...
+[2026-01-17 10:38:47] [cjpm_build] [INFO] -- Building zlib libraries...
+[2026-01-17 10:38:48] [cjpm_build] [INFO] -- Installing zlib headers and libraries to Cangjie library source...
+[2026-01-17 10:38:48] [cjpm_build] [INFO] -- CANGJIE_CJPM_BUILD_SELF OFF
+[2026-01-17 10:38:48] [cjpm_build] [INFO] -- ---CMAKE_BINARY_DIR: C:/Users/yaoruili/.cjpm/git/stdx/1fd9931f3466adc6d09c09b3ce9b508b06a970ff/build_temp/build
+[2026-01-17 10:38:49] [cjpm_build] [INFO] -- Configuring done (5.6s)
+[2026-01-17 10:38:49] [cjpm_build] [INFO] -- Generating done (0.1s)
+[2026-01-17 10:38:49] [cjpm_build] [INFO] -- Build files have been written to: C:/Users/yaoruili/.cjpm/git/stdx/1fd9931f3466adc6d09c09b3ce9b508b06a970ff/build_temp/build
+[2026-01-17 10:38:49] [cjpm_build] [INFO] [1/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck.dir/src/memset_s.c.obj
+[2026-01-17 10:38:49] [cjpm_build] [INFO] [2/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck.dir/src/snprintf_s.c.obj
+[2026-01-17 10:38:49] [cjpm_build] [INFO] [3/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck.dir/src/vsnprintf_s.c.obj
+[2026-01-17 10:38:49] [cjpm_build] [INFO] [4/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck-static.dir/src/memset_s.c.obj
+[2026-01-17 10:38:49] [cjpm_build] [INFO] [5/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck-static.dir/src/snprintf_s.c.obj
+[2026-01-17 10:38:49] [cjpm_build] [INFO] [6/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck-static.dir/src/vsnprintf_s.c.obj
+[2026-01-17 10:38:49] [cjpm_build] [INFO] [7/48] Building C object src/stdx/compress/zlib/native/CMakeFiles/stdx.compress.zlibFFI-objs.dir/zlib.c.obj
+[2026-01-17 10:38:49] [cjpm_build] [INFO] [8/48] Building C object src/stdx/encoding/json/native/CMakeFiles/stdx.encoding.jsonFFI-objs.dir/json_string_escape.c.obj
+[2026-01-17 10:38:49] [cjpm_build] [INFO] [9/48] Building C object src/stdx/encoding/json/stream/native/CMakeFiles/stdx.encoding.json.streamFFI-objs.dir/utils.c.obj
+[2026-01-17 10:38:49] [cjpm_build] [INFO] [10/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck-static.dir/src/secureprintoutput_a.c.obj
+[2026-01-17 10:38:49] [cjpm_build] [INFO] [11/48] Building C object third_party/boundscheck-v1.1.16/CMakeFiles/boundscheck.dir/src/secureprintoutput_a.c.obj
+[2026-01-17 10:38:50] [cjpm_build] [INFO] [12/48] Linking C shared library bin\libboundscheck.dll
+[2026-01-17 10:38:50] [cjpm_build] [INFO] [13/48] Building C object src/stdx/compress/tar/native/CMakeFiles/stdx.compress.tarFFI-objs.dir/tar_native_win.c.obj
+[2026-01-17 10:38:51] [cjpm_build] [INFO] [14/48] Building C object src/stdx/crypto/keys/native/CMakeFiles/stdx.crypto.keysFFI-objs.dir/compat.c.obj
+[2026-01-17 10:38:51] [cjpm_build] [INFO] [15/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/ciphers.c.obj
+[2026-01-17 10:38:51] [cjpm_build] [INFO] [16/48] Building C object src/stdx/crypto/x509/native/CMakeFiles/stdx.crypto.x509FFI-objs.dir/x509_keys_certs.c.obj
+[2026-01-17 10:38:51] [cjpm_build] [INFO] [17/48] Building C object src/stdx/crypto/keys/native/CMakeFiles/stdx.crypto.keysFFI-objs.dir/keys.c.obj
+[2026-01-17 10:38:51] [cjpm_build] [INFO] [18/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/alpn.c.obj
+[2026-01-17 10:38:51] [cjpm_build] [INFO] [19/48] Building C object src/stdx/crypto/x509/native/CMakeFiles/stdx.crypto.x509FFI-objs.dir/rootca.c.obj
+[2026-01-17 10:38:51] [cjpm_build] [INFO] [20/48] Building C object src/stdx/crypto/keys/native/CMakeFiles/stdx.crypto.keysFFI-objs.dir/crypto_errors.c.obj
+[2026-01-17 10:38:51] [cjpm_build] [INFO] [21/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/dhparam.c.obj
+[2026-01-17 10:38:51] [cjpm_build] [INFO] [22/48] Building C object src/stdx/crypto/x509/native/CMakeFiles/stdx.crypto.x509FFI-objs.dir/der_cert.c.obj
+[2026-01-17 10:38:51] [cjpm_build] [INFO] [23/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/errors.c.obj
+[2026-01-17 10:38:51] [cjpm_build] [INFO] [24/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/hostname.c.obj
+[2026-01-17 10:38:52] [cjpm_build] [INFO] [25/48] Linking C static library lib\libboundscheck-static.a
+[2026-01-17 10:38:52] [cjpm_build] [INFO] [26/48] Linking C static library lib\libstdx.compress.zlibFFI.a
+[2026-01-17 10:38:52] [cjpm_build] [INFO] [27/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/provider.c.obj
+[2026-01-17 10:38:52] [cjpm_build] [INFO] [28/48] Linking C static library lib\libstdx.compress.tarFFI.a
+[2026-01-17 10:38:52] [cjpm_build] [INFO] [29/48] Linking C static library lib\libstdx.crypto.keysFFI.a
+[2026-01-17 10:38:52] [cjpm_build] [INFO] [30/48] Linking C static library lib\libstdx.encoding.json.streamFFI.a
+[2026-01-17 10:38:52] [cjpm_build] [INFO] [31/48] Linking C static library lib\libstdx.encoding.jsonFFI.a
+[2026-01-17 10:38:52] [cjpm_build] [INFO] [32/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/provider_asymcipher.c.obj
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [33/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/provider_helper.c.obj
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [34/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/sessions.c.obj
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [35/48] Building C object src/stdx/dynamicLoader/CMakeFiles/cangjie-dynamicLoader-opensslFFI-objs.dir/opensslSymbols.c.obj
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [36/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/provider_keymgt.c.obj
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [37/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/tls-impl.c.obj
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [38/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/versions.c.obj
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [39/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/tls_bio.c.obj
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [40/48] Linking C static library lib\libcangjie-dynamicLoader-opensslFFI.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [41/48] Linking C shared library bin\libcangjie-dynamicLoader-opensslFFI.dll
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [42/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/tls_keys_certs.c.obj
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [43/48] Generating libstdx.crypto.x509FFI.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [44/48] Building C object src/stdx/net/tls/native/CMakeFiles/stdx.net.tlsFFI-objs.dir/provider_signature.c.obj
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [45/48] Linking C shared library bin\libstdx.crypto.keysFFI.dll
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [46/48] Linking C shared library bin\libstdx.crypto.x509FFI.dll
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [47/48] Linking C shared library bin\libstdx.net.tlsFFI.dll
+[2026-01-17 10:38:53] [cjpm_build] [INFO] [48/48] Generating libstdx.net.tlsFFI.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] end build
+[2026-01-17 10:38:53] [cjpm_build] [INFO] begin install targets...
+[2026-01-17 10:38:53] [cjpm_build] [INFO] installing native build...
+[2026-01-17 10:38:53] [cjpm_build] [INFO] C:\Users\yaoruili\.cjpm\git\stdx\1fd9931f3466adc6d09c09b3ce9b508b06a970ff\build_temp\build
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Install configuration: "Release"
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libboundscheck.dll
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libboundscheck-static.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.compress.zlibFFI.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.compress.tarFFI.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.crypto.keysFFI.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.crypto.keysFFI.dll.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.crypto.keysFFI.dll
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.crypto.x509FFI.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.crypto.x509FFI.dll.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.crypto.x509FFI.dll
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libcangjie-dynamicLoader-opensslFFI.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libcangjie-dynamicLoader-opensslFFI.dll.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libcangjie-dynamicLoader-opensslFFI.dll
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.encoding.jsonFFI.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.encoding.json.streamFFI.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.net.tlsFFI.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.net.tlsFFI.dll.a
+[2026-01-17 10:38:53] [cjpm_build] [INFO] -- Installing: C:/Users/yaoruili/AppData/Local/stdx/target/release/stdx/libstdx.net.tlsFFI.dll
+[2026-01-17 10:38:53] [cjpm_build] [INFO] end install targets...
+Python 3.13.5
+[2026-01-17 10:39:18] [cjpm_build] [INFO] args: Namespace(build_type=release, build_stage=postBuild, jobs=0, target=None, target_lib=[], target_toolchain=None, include=[], target_sysroot=None, stdlib_coverage=False, cjpm=False, build_args=[], without_effect_handlers=False, host=None, prefix=None, func=<function build at 0x0000025E14FD9080>)
+[2026-01-17 10:39:18] [cjpm_build] [INFO] CJPM_DIR: C:\Users\yaoruili\AppData\Local\stdx
+[2026-01-17 10:39:18] [cjpm_build] [INFO] args.build_stage: postBuild
+[2026-01-17 10:39:18] [cjpm_build] [INFO] DEVECO_OH_NATIVE_HOME: 
+[2026-01-17 10:39:18] [cjpm_build] [INFO] begin build py----
+[2026-01-17 10:39:18] [cjpm_build] [ERROR] Error: Directory does not exist: C:\Users\yaoruili\.cjpm\git\stdx\1fd9931f3466adc6d09c09b3ce9b508b06a970ff\target\release\stdx
+[2026-01-17 10:39:18] [cjpm_build] [INFO] skip to extract libstdx
+Python 3.13.5
+[2026-01-17 10:39:19] [cjpm_build] [INFO] args: Namespace(build_type=release, build_stage=postBuild, jobs=0, target=None, target_lib=[], target_toolchain=None, include=[], target_sysroot=None, stdlib_coverage=False, cjpm=False, build_args=[], without_effect_handlers=False, host=None, prefix=None, func=<function build at 0x00000154A7D99080>)
+[2026-01-17 10:39:19] [cjpm_build] [INFO] CJPM_DIR: C:\Users\yaoruili\AppData\Local\stdx
+[2026-01-17 10:39:19] [cjpm_build] [INFO] args.build_stage: postBuild
+[2026-01-17 10:39:19] [cjpm_build] [INFO] DEVECO_OH_NATIVE_HOME: 
+[2026-01-17 10:39:19] [cjpm_build] [INFO] begin build py----
+[2026-01-17 10:39:19] [cjpm_build] [ERROR] Error: Directory does not exist: C:\Users\yaoruili\.cjpm\git\stdx\1fd9931f3466adc6d09c09b3ce9b508b06a970ff\target\release\stdx
+[2026-01-17 10:39:19] [cjpm_build] [INFO] skip to extract libstdx

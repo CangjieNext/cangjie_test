@@ -1,0 +1,4 @@
+version = 0
+
+[requires]
+  stdx = {git = "https://gitcode.com/yaoruili/cangjie_stdx", commitId = "b662344fb4c8712ffca5a79fb48fd84edddd6a51", branch = "dev", output-type = "dynamic"}

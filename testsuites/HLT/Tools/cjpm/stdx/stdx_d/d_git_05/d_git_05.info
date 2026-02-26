@@ -10,7 +10,7 @@
 // EXEC: cd %n  && %ls target/release/stdx 2>&1 | compare %f
 // ASSERT: regex lib-macro_stdx.actors.macros.(so|dll|dylib)
 // ASSERT: regex libstdx.encoding.a
-// (not Windows)ASSERT: regex libstdx.fuzz.a
+// (not host_win)ASSERT: regex libstdx.fuzz.a
 // ASSERT: regex libstdx.a
 // ASSERT: regex libstdx.crypto.a
 // ASSERT: regex libstdx.effect.a
@@ -23,7 +23,7 @@
 // ASSERT: regex libstdx.log.a
 // ASSERT: regex libstdx.logger.a
 // ASSERT: regex libstdx.unittest.data.a
-// (not Windows)ASSERT: regex libstdx.fuzz.fuzz.a
+// (not host_win)ASSERT: regex libstdx.fuzz.fuzz.a
 // ASSERT: regex libstdx.serialization.serialization.a
 // ASSERT: regex libstdx.crypto.common.a
 // ASSERT: regex libstdx.encoding.json.stream.a
