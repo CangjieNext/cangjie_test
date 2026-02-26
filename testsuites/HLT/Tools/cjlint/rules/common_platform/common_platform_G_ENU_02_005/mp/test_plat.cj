@@ -8,10 +8,10 @@
 
 package mp
 
-public platform enum E1{
+public specific enum E1{
     A(Base)
 }
 
-public platform enum E2{
+public specific enum E2{
     A(Derived)
 }

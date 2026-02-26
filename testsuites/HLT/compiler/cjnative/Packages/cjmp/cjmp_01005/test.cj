@@ -11,6 +11,6 @@
 // ASSERT: scan parse_common_in_non_common_file
 
 public common func f(): Int64
-public platform func f(): Int64 { 0 }
+public specific func f(): Int64 { 0 }
 
 

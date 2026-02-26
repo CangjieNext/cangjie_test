@@ -8,10 +8,10 @@
 
 package mp
 
-platform public func f1<T>(a: T): T {
+specific public func f1<T>(a: T): T {
     a
 }
 
-platform protected func f2<T>(a: T): T {
+specific protected func f2<T>(a: T): T {
     a
 }

@@ -28,7 +28,7 @@ common public func int64Foo():Unit {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform extend Int64 <: IA {}
+specific extend Int64 <: IA {}
 
 
 // SEPARATE-FILE: m_common.cj

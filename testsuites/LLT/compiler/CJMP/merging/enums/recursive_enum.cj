@@ -18,7 +18,7 @@ common enum TimeUnit5 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform enum TimeUnit5 {
+specific enum TimeUnit5 {
     | Year(Int32)
     | Month(Int32, Float32)
     | Twounit(TimeUnit5, TimeUnit5)

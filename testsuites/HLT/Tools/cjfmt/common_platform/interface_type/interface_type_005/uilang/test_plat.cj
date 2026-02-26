@@ -8,9 +8,9 @@
 
 package mp
 
-platform public interface NamedType {
-    public platform prop a:Int64 {get(){1}}
-    public platform prop b:Int64 {
+specific public interface NamedType {
+    public specific prop a:Int64 {get(){1}}
+    public specific prop b:Int64 {
         get(){2}
     }
 }

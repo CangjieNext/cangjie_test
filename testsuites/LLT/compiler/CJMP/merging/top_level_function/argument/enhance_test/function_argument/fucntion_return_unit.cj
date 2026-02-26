@@ -21,9 +21,9 @@ package cmp
 func goo():Unit{
     println("goo")
 }
-platform func foo(arg: ()->Unit): Unit {
+specific func foo(arg: ()->Unit): Unit {
     arg()
-    println("platform")
+    println("specific")
 }
 main() {
     foo(goo)
@@ -31,5 +31,5 @@ main() {
 
 /* SCAN
 goo
-platform
+specific
 */

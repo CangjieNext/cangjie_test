@@ -27,10 +27,10 @@ public open common class C2 <: C1 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public open platform class C1 {
+public open specific class C1 {
 }
 
-public open platform class C2<:C1{
+public open specific class C2<:C1{
     public let py:Int64 = 22
 }
 

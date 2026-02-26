@@ -10,12 +10,12 @@ package cmp
 
 class C1 {  	
     func foo(): Unit {
-        println("From platform member foo func")
+        println("From specific member foo func")
     }
 }
 class C2 {  	
     func foo(): Unit {
-        println("From platform member foo func")
+        println("From specific member foo func")
     }
 }
 // SEPARATE-FILE: p/p.cj

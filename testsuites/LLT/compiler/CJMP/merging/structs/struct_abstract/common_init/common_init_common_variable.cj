@@ -19,8 +19,8 @@ public common struct A {
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-public platform struct A {
-    public platform var a: Int64
+public specific struct A {
+    public specific var a: Int64
 }
 
 

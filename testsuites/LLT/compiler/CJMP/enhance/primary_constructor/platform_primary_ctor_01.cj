@@ -19,8 +19,8 @@ public common class A {
 package cmp
 
 // Need report error
-public platform class A {
-    public A(platform var a: Int64) {}
+public specific class A {
+    public A(specific var a: Int64) {}
 }
 
 

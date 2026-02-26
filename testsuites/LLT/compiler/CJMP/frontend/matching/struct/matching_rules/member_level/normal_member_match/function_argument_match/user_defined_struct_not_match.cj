@@ -19,9 +19,9 @@ common struct C {
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan-2 sema_not_matched
 package cmp
-platform struct C {
-  public platform func foo(input: B): Unit {
-    println("platform foo")
+specific struct C {
+  public specific func foo(input: B): Unit {
+    println("specific foo")
   }
 }
 

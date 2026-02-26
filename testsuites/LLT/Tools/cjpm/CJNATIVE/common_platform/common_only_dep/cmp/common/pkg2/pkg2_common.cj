@@ -9,5 +9,5 @@ features {}
 package cmp.pkg2
 
 public func f2() {
-    println("I'm f2 in common without (platform)")
+    println("I'm f2 in common without (specific)")
 }

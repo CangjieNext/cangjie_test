@@ -8,8 +8,8 @@
  
 package mp
 
-public platform abstract class A {
-    public platform open func f(): Int64 { 1 }
+public specific abstract class A {
+    public specific open func f(): Int64 { 1 }
 }
 
 

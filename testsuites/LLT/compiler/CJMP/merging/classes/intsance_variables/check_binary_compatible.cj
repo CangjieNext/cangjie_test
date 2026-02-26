@@ -18,7 +18,7 @@ public common class A {
 // (LLVM and Linux)EXEC-0: %compiler %noColor --experimental c/c1.cj --import-path=./c --output-type=dylib --output-dir ./p
 package cmp.other
 
-import cmp.platform.*
+import cmp.specific.*
 
 public func foo(a: A) {
     println("a = ${a.a}")
@@ -29,11 +29,11 @@ public func foo(a: A) {
 // (LLVM and Linux)EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.platform.chir --common-part-cjo=./c/cmp.platform.cjo --output-type=dylib --output-dir ./p
 package cmp.platform
 
-public platform class A {
+public specific class A {
     public let b1: Int64 = 1
-    public platform let b: Int64 = b1 * 2
+    public specific let b: Int64 = b1 * 2
     public let a1: Int64 = b * 2
-    public platform let a: Int64 = a1 * 2;
+    public specific let a: Int64 = a1 * 2;
     public let c: Int64 = a * 2
 }
 

@@ -8,6 +8,6 @@
  
 package mp
 
-public platform class A<T> {}
+public specific class A<T> {}
 
 

@@ -24,8 +24,8 @@ public func callFromCommon(a: A) {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform abstract class A {
-    public platform prop a: Int { get() { 2 } }
+public specific abstract class A {
+    public specific prop a: Int { get() { 2 } }
 }
 
 public class C <: A {

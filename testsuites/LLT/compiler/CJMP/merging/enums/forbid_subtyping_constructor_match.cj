@@ -21,7 +21,7 @@ common public enum Ae {
 // ASSERT: scan-2 sema_not_matched
 package cmp
 
-platform public enum Ae {
+specific public enum Ae {
     | AA(B)
 }
 

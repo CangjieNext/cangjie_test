@@ -8,18 +8,18 @@
 
 package mp
 
-public open platform class A {
-    public platform init() {}
+public open specific class A {
+    public specific init() {}
 }
 
-protected open platform class A2 <: A{
-    public platform init() {}
+protected open specific class A2 <: A{
+    public specific init() {}
 }
 
-public sealed abstract platform class A3{
-    public platform init() {}
+public sealed abstract specific class A3{
+    public specific init() {}
 }
 
-sealed platform class A4{
-    public platform init() {}
+sealed specific class A4{
+    public specific init() {}
 }

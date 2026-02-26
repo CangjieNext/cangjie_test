@@ -15,5 +15,5 @@ public common func foo(): Unit
 // ASSERT: scan module_common_cjo_wrong_package
 package cmp2 // NOTE: DIFFERENT PACKAGE
 
-public platform func foo(): Unit {}
+public specific func foo(): Unit {}
 

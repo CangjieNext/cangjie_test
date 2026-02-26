@@ -17,7 +17,7 @@ public common struct A {
 // ASSERT: scan sema_overload_conflicts
 package cmp
  
-public platform struct A {
+public specific struct A {
     public init() {}
 }
  

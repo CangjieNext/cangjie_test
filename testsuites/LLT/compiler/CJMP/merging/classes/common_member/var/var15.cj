@@ -20,8 +20,8 @@ common class A {
 // ASSERT: scan sema_class_uninitialized_field
 package cmp
 
-platform class A {
-    platform var a: Int64
+specific class A {
+    specific var a: Int64
     init() {}
 }
 

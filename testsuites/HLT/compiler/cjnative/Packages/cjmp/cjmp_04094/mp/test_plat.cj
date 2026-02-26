@@ -8,9 +8,9 @@
  
 package mp
 
-public platform class A {
+public specific class A {
     public prop p2: Int64 { get() { 3 } }
-    public platform prop p: Int64 { get() { 0 } }
+    public specific prop p: Int64 { get() { 0 } }
 }
 public func test_plat() { A().p + A().p1 + A().p2 }
 

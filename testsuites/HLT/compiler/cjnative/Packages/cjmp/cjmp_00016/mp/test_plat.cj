@@ -8,7 +8,7 @@
  
 package mp
 
-platform func f(): Int64 { 0 }
+specific func f(): Int64 { 0 }
 public func test_plat() { f() }
 
 

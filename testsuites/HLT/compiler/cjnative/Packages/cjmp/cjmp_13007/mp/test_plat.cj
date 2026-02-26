@@ -8,9 +8,9 @@
 
 package mp
 
-public platform abstract class C1 {
-    public platform func f1(): Int64 { 0 }
-    public platform prop p1: Int64 { get(){0} }
+public specific abstract class C1 {
+    public specific func f1(): Int64 { 0 }
+    public specific prop p1: Int64 { get(){0} }
 }
 
 public class C3 <: C1 {

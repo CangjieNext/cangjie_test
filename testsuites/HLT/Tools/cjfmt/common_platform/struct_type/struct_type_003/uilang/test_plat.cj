@@ -8,11 +8,11 @@
 
 package mp
 
-public platform struct A{}
+public specific struct A{}
 
-public platform struct A2{}
+public specific struct A2{}
 
-public platform struct A3{}
+public specific struct A3{}
 
 public func test_plat() { A() }
 

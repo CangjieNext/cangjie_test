@@ -8,8 +8,8 @@
  
 package mp
 
-public platform class A {
-    public platform prop p: Int64
+public specific class A {
+    public specific prop p: Int64
 }
 public func test_plat() { A().p }
 
