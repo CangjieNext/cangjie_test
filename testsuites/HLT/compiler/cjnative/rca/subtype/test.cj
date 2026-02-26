@@ -1,0 +1,1 @@
+// https://gitcode.com/Cangjie/cangjie_test/pull/1005/diffs
