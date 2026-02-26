@@ -19,13 +19,31 @@ public class CB<T> {}
 @Test
 class TestOrganizationName {
     @TestCase
-    func testOrganizationName() {
+    func testOrganizationName01() {
         try {
             ClassTypeInfo.get("my_org::test0.CA")
             ClassTypeInfo.get("my_org::test0.CB<Int64>")
             println("pass")
         } catch (e: Exception) {
             @Assert(false)
+        }
+    }
+
+    @TestCase
+    func testOrganizationName02() {
+        @Expect(PackageInfo.get("my_org::test0").toString(), "my_org::test0")
+        @Expect(ClassTypeInfo.get("my_org::test0.CA").toString(), "my_org::test0.CA")
+        try {
+            PackageInfo.get("my_org/test0")
+            @Assert(false)
+        } catch (e: InfoNotFoundException) {
+            @Assert(true)
+        }
+        try {
+            ClassTypeInfo.get("my_org/test0.CA")
+            @Assert(false)
+        } catch (e: InfoNotFoundException) {
+            @Assert(true)
         }
     }
 }
