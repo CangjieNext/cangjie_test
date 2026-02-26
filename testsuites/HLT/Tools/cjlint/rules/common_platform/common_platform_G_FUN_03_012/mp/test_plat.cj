@@ -8,12 +8,12 @@
 
 package mp
 
-platform interface Entity {
-    platform prop id: String
+specific interface Entity {
+    specific prop id: String
 }
 
-platform interface Repository<T> where T <: Entity {
-    platform func save(entity: T): Unit { 
+specific interface Repository<T> where T <: Entity {
+    specific func save(entity: T): Unit { 
         print(entity)
     }
 }

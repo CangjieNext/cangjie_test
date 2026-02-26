@@ -29,8 +29,8 @@ common func foo(arg:(Int32)->Int32): Unit {
 package cmp
 import testImport.A
 
-platform func foo(arg:(Int32)->Int32): Unit {
-    println("platform")
+specific func foo(arg:(Int32)->Int32): Unit {
+    println("specific")
     println(arg(2))
 }
 
@@ -39,6 +39,6 @@ main() {
 }
 
 /* SCAN
-platform
+specific
 2
 */

@@ -8,6 +8,6 @@
  
 package mp1
 
-public platform func f1(): Int64 { 0 }
+public specific func f1(): Int64 { 0 }
 
 

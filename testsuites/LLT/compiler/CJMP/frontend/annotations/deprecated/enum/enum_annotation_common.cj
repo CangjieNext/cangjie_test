@@ -23,12 +23,12 @@ public common enum B {
 // EXEC-PIPE-0: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
-public platform enum B {
+public specific enum B {
     | ELEMENT
 
-    public platform prop unit: Unit { get() {} }
-    public platform func foo(): Unit {}
-    public platform operator func == (_: B): Bool {
+    public specific prop unit: Unit { get() {} }
+    public specific func foo(): Unit {}
+    public specific operator func == (_: B): Bool {
         return true
     }
 }

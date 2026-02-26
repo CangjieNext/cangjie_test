@@ -8,12 +8,12 @@
 
 package mp
 
-public platform enum C<T> {
+public specific enum C<T> {
     | E1(T)
-    public platform func foo1(a: T, b: T) { b }
-    public platform static func foo2(a: T, b: T) { b }
-    public platform prop p1: Int64 { get() {2} }
-    public platform static prop p2: Int64 { get() {2} }
+    public specific func foo1(a: T, b: T) { b }
+    public specific static func foo2(a: T, b: T) { b }
+    public specific prop p1: Int64 { get() {2} }
+    public specific static prop p2: Int64 { get() {2} }
 }
 public func f2() {
     E1(1).foo1(1, 2) + E1(1).p1 + C<Int64>.foo2(1, 2) + C<Int64>.p2

@@ -16,10 +16,10 @@ package cmp
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform struct A {
+public specific struct A {
    internal var a:Int64 = 0
    public func foo():Unit{
-        println("from foo platform ${a}")
+        println("from foo specific ${a}")
 
    }
 }
@@ -39,5 +39,5 @@ main(): Unit {
 
 
 /* SCAN
-from foo platform 0
+from foo specific 0
 */

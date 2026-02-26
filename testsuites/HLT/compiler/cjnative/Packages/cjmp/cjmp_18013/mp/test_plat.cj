@@ -8,11 +8,11 @@
 
 package mp
 
-public platform class A {
-    public platform var a = 2
-    public platform static var b = 2
+public specific class A {
+    public specific var a = 2
+    public specific static var b = 2
 }
-public platform struct B {
-    public platform var a = 2
-    public platform static var b = 2
+public specific struct B {
+    public specific var a = 2
+    public specific static var b = 2
 }

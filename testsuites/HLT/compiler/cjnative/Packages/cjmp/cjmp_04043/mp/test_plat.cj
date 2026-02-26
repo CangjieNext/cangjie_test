@@ -8,9 +8,9 @@
  
 package mp
 
-public platform class A {
+public specific class A {
     public var a: Int64
-    public platform init(a!: Int64) { this.a = a }
+    public specific init(a!: Int64) { this.a = a }
 }
 public func test_plat() { A(a: 0).a }
 

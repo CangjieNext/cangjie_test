@@ -19,4 +19,4 @@ package cmp
 
 type aliasToString = ToString;
 
-platform extend<T> Foo<T> where T <: aliasToString {}
+specific extend<T> Foo<T> where T <: aliasToString {}

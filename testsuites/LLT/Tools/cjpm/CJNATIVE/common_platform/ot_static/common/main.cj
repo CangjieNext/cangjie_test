@@ -10,11 +10,11 @@ package ot_static
 
 import ot_static.subpackage.subfunc
 
-public common func platformId(): String
+public common func specificId(): String
 public common func withdefault(): String { "original default" }
 
 public common func commonMain(): Unit {
-    println(platformId())
+    println(specificId())
     println(withdefault())
     println(subfunc())
 }

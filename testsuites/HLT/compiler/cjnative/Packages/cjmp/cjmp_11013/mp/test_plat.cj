@@ -9,9 +9,9 @@
  
 package mp
 
-public platform class C {}
+public specific class C {}
 
-platform extend C {
-    public platform static prop p: Int64 { get(){1} }
-    public platform static func f(): Int64 { 1 }
+specific extend C {
+    public specific static prop p: Int64 { get(){1} }
+    public specific static func f(): Int64 { 1 }
 }

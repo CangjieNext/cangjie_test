@@ -18,8 +18,8 @@ public common struct A {
 // ASSERT: scan sema_type_uninitialized_static_field
 package cmp
 
-public platform struct A {
-    // NOTE: if it's written in platform code it MUST have initializer
-    public platform static let x: Int64
+public specific struct A {
+    // NOTE: if it's written in specific code it MUST have initializer
+    public specific static let x: Int64
 }
 

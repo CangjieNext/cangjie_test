@@ -18,10 +18,10 @@ common extend Int64 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform extend Int64 {
-    platform public func f1():Unit{println("kkk")}
-    public static platform func f2():Int64{return 4}
-    platform prop i:Int64 {
+specific extend Int64 {
+    specific public func f1():Unit{println("kkk")}
+    public static specific func f2():Int64{return 4}
+    specific prop i:Int64 {
         get(){33}
     }
 }

@@ -14,7 +14,7 @@ public common let a : Int64 = 10
 // EXEC-0: %compiler %noColor -g --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform let a : Int64 = 20
+public specific let a : Int64 = 20
 
 // SEPARATE-FILE: m_platform.cj
 // EXEC-0: %compiler %noColor m_platform.cj -g --import-path=./p -L./p -lcmp -o %output

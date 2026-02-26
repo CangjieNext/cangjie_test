@@ -28,6 +28,6 @@ package cmp
 
 import A.*
 
-platform extend Foo {
-    platform func foo():Unit {}
+specific extend Foo {
+    specific func foo():Unit {}
 }

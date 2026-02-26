@@ -8,14 +8,14 @@
 
 package mp
 
-public platform struct C<T> {
-    public platform var v1: T
-    public platform static var v2: Int64 = 2
-    public platform init(a: T, b: T) { v1 = b }
-    public platform func foo1(a: T, b: T) { b }
-    public platform static func foo2(a: T, b: T) { b }
-    public platform prop p1: T { get() {v1} }
-    public platform static prop p2: Int64 { get() {2} }
+public specific struct C<T> {
+    public specific var v1: T
+    public specific static var v2: Int64 = 2
+    public specific init(a: T, b: T) { v1 = b }
+    public specific func foo1(a: T, b: T) { b }
+    public specific static func foo2(a: T, b: T) { b }
+    public specific prop p1: T { get() {v1} }
+    public specific static prop p2: Int64 { get() {2} }
 }
 public func f2() {
     var c = C<Int64>(1, 2)

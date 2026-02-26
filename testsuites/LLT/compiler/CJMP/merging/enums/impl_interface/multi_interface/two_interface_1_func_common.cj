@@ -29,10 +29,10 @@ common public enum A <: I1 & I2 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform public enum A <: I1 & I2 {
+specific public enum A <: I1 & I2 {
     | AA | BB
-    platform public override func foo(): Int64 {
-        println("from platform")
+    specific public override func foo(): Int64 {
+        println("from specific")
         return 2
     }
 }
@@ -52,5 +52,5 @@ main(): Unit {
 }
 
 /* SCAN
-from platform
+from specific
 */

@@ -8,13 +8,13 @@
 
 package mp
 
-public platform enum E1{
+public specific enum E1{
     AB
 }
-public platform enum E2<T>{
+public specific enum E2<T>{
     AB | AB(T)
 }
 
-protected platform enum E3<T,R>{
+protected specific enum E3<T,R>{
     AB | AB(T,R) |...
 }

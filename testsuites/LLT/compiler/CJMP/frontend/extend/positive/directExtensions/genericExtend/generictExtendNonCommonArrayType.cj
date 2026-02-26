@@ -41,9 +41,9 @@ common extend<R> Array<R> where R<:I {
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
-platform extend<R> Array<R> {}
+specific extend<R> Array<R> {}
 
-platform extend<R> Array<R> where R<:I{
+specific extend<R> Array<R> where R<:I{
 }
 
 

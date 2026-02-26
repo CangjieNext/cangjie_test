@@ -15,7 +15,7 @@ public common struct A { init() {} }
 // ASSERT: scan sema_not_matched
 package cmp
 
-public platform struct A {
-    public platform init() {}
+public specific struct A {
+    public specific init() {}
 }
 

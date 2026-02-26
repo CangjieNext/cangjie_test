@@ -21,7 +21,7 @@ package cmp
 
 import std.random.*
 
-public platform func execute(): Unit {
+public specific func execute(): Unit {
     let random = Random()
     let x = Array<Int64>(1, repeat: random.nextInt64() % 1)
     let res = calculate(x)

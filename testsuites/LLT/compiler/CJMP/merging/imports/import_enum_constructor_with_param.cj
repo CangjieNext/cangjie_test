@@ -21,7 +21,7 @@ public enum Enum_1769682625592_194 {
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
-public platform struct Struct_1769682625592_159<T0, T1> {}
+public specific struct Struct_1769682625592_159<T0, T1> {}
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor m_common.cj -L. -lcmp -o %output

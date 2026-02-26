@@ -8,14 +8,14 @@
 
 package mp
 
-public platform struct C {}
+public specific struct C {}
 
-platform extend C {
-    public platform mut prop p1:Int64{
+specific extend C {
+    public specific mut prop p1:Int64{
         get(){1}
         set(v){v}
     }
-    public platform mut func f1():Int64{
+    public specific mut func f1():Int64{
         v1 = 1
         1
     }

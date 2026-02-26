@@ -19,9 +19,9 @@ common extend Foo <: I1 & I2 & I3 {}
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform interface I1 {}
-platform interface I2 {}
-platform interface I3 {}
-platform class Foo {}
+specific interface I1 {}
+specific interface I2 {}
+specific interface I3 {}
+specific class Foo {}
 
-platform extend Foo <: I3 & I2 & I1 {}
+specific extend Foo <: I3 & I2 & I1 {}

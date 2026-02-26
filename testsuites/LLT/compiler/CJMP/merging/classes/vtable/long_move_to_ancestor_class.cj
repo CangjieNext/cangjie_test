@@ -33,11 +33,11 @@ public func runCommonA4(a: A4) {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public open platform class A1 {
-    public open func foo(): Unit { println("A1 platform") }
+public open specific class A1 {
+    public open func foo(): Unit { println("A1 specific") }
 }
 
-public open platform class A3 <: A2 { }
+public open specific class A3 <: A2 { }
 
 public func runPlatformA1(a: A1) {
     a.foo()
@@ -89,9 +89,9 @@ main() {
 A4 common
 A4 common
 A6 common
-A1 platform
-A1 platform
-A1 platform
+A1 specific
+A1 specific
+A1 specific
 A4 common
 A4 common
 A6 common

@@ -20,15 +20,15 @@ common enum A {
 
 // SEPARATE-FILE: p/p.cj
 // ERRCHECK: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
-// ASSERT: scan sema_platform_has_different_type
+// ASSERT: scan sema_specific_has_different_type
 package cmp
 
-platform enum A {
+specific enum A {
     | TEST_ENUM
 
-    platform prop testProp: Int64 {
+    specific prop testProp: Int64 {
         get() {
-            println("platform")
+            println("specific")
             1
         }
     }

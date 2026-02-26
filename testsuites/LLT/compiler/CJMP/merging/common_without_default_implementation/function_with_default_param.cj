@@ -24,8 +24,8 @@ public func boo() {
 package cmp
 import std.collection.*
 
-public platform func foo(a!: ArrayList<Int64>): Unit {
-    println("platform a = ${a}")
+public specific func foo(a!: ArrayList<Int64>): Unit {
+    println("specific a = ${a}")
 }
 
 public func koo() {
@@ -44,8 +44,8 @@ main(): Unit {
 }
 
 /* SCAN
-platform a = [0]
-platform a = [1]
+specific a = [0]
+specific a = [1]
 */
 
 // SEPARATE-FILE: m_platform.cj
@@ -60,6 +60,6 @@ main(): Unit {
 }
 
 /* SCAN
-platform a = [0]
-platform a = [2]
+specific a = [0]
+specific a = [2]
 */

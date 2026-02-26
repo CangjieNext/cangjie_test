@@ -18,7 +18,7 @@ public common struct A {
 // ASSERT: scan parse_missing_body
 package cmp
 
-public platform struct A {
-    platform func B(): Int64
+public specific struct A {
+    specific func B(): Int64
 }
 

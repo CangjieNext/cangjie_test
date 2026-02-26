@@ -20,7 +20,7 @@ public common class A {
 // ASSERT: scan sema_class_uninitialized_field
 package cmp
 
-public platform class A {
-    public platform let a: Int
+public specific class A {
+    public specific let a: Int
     public init() {}
 }

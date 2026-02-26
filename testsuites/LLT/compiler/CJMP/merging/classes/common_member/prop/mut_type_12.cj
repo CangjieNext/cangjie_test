@@ -22,13 +22,13 @@ common class A {
 // ASSERT: scan sema_property_have_same_declaration_in_inherit_immut
 package cmp
 
-platform class A {
-    platform mut prop testProp: Unit {
+specific class A {
+    specific mut prop testProp: Unit {
         get() {
-            println("platform")
+            println("specific")
         }
         set(v) {
-            println("platform")
+            println("specific")
         }
     }
 }

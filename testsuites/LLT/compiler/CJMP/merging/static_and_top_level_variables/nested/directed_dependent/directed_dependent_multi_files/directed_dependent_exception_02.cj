@@ -18,7 +18,7 @@ public common let Y: Int64 = 1
 // SEPARATE-FILE: p/p1.cj
 package cmp
 
-public platform let Y: Int64 = X
+public specific let Y: Int64 = X
 
 // SEPARATE-FILE: p/p2.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p1.cj p/p2.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f

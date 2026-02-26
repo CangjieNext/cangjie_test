@@ -8,8 +8,8 @@
 
 package mp
 
-public platform platform struct A {
-    private platform const func f(): Int64 { 0 }
+public specific specific struct A {
+    private specific const func f(): Int64 { 0 }
     public common operator var a: Int64 = 1
     public static mut common var b: Int64 = 2
 }
