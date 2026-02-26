@@ -374,3 +374,9 @@ Tools/cjdb/datacom/cross_platform/cross_platform032.info
 Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
 Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj
 
+# file name too long
+Tools\cjpm\source_set\source_set003\source_set_identifier002
+
+# flaky tests with ACCESS VIOLATION on windows
+Tools\cjpm\stdx\stdx_c\check_01\check_01.info
+Tools\cjpm\stdx\stdx_c\tree_01\tree_01.info
