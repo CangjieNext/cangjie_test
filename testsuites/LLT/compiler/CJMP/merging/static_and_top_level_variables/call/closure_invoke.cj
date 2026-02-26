@@ -13,7 +13,7 @@ public let b = 10
 // SEPARATE-FILE: p/p.cj
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
-public platform let a:Int64=2
+public specific let a:Int64=2
 
 public func returnAddNum(): (Int64) -> Int64 {
     let num: Int64 = a + b

@@ -8,6 +8,6 @@
 
 package mp
 
-public platform class C {
-    @B public platform func f() { 2 }
+public specific class C {
+    @B public specific func f() { 2 }
 }

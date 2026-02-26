@@ -8,14 +8,14 @@
 
 package mp
 
-public platform struct C1 {
-    public platform func f1(): Int64 { 0 }
-    public platform prop p1: Int64 { get(){0} }
+public specific struct C1 {
+    public specific func f1(): Int64 { 0 }
+    public specific prop p1: Int64 { get(){0} }
 }
 
-public platform struct C2 {
+public specific struct C2 {
     private var a = 0
-    mut public platform prop p1: Int64 {
+    mut public specific prop p1: Int64 {
         get(){0}
         set(v){a = v}
     }

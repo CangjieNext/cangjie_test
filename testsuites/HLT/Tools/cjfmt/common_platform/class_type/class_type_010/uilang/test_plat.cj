@@ -8,7 +8,7 @@
 
 package mp
 
-public platform abstract class C1 {
-    public platform static func f1(): Int64 { 0 }
-    public platform static prop p1: Int64 { get(){0} }
+public specific abstract class C1 {
+    public specific static func f1(): Int64 { 0 }
+    public specific static prop p1: Int64 { get(){0} }
 }

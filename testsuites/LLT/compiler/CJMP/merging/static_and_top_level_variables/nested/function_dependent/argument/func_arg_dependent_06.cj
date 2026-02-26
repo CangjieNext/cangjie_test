@@ -23,7 +23,7 @@ public let Z: Int64 = get(Y)
 // SEPARATE-FILE: p/p1.cj
 package cmp
 
-public platform let Y: Int64 = get(X)
+public specific let Y: Int64 = get(X)
 
 // SEPARATE-FILE: p/p2.cj
 // EXEC-0: %compiler %noColor --experimental p/p1.cj p/p2.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p

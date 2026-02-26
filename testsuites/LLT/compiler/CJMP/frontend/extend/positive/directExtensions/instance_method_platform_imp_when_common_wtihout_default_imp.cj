@@ -21,9 +21,9 @@ common extend Foo {
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
 
-platform class Foo{ }
-platform extend Foo {
-   platform public func f1():Unit {println("hhh")}
+specific class Foo{ }
+specific extend Foo {
+   specific public func f1():Unit {println("hhh")}
 }
 
 main(){

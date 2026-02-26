@@ -38,19 +38,19 @@ common extend Int64 <:I1{
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
-platform public interface I1{
+specific public interface I1{
 }
 
-platform extend Int64 <:I1{
-  platform public func f1():Unit{println("platform::Int64::extend:f1")}
+specific extend Int64 <:I1{
+  specific public func f1():Unit{println("specific::Int64::extend:f1")}
 }
 
-platform extend Foo <:I1{
-  platform public func f1():Unit{println("platform::Foo::extend:f1")}
+specific extend Foo <:I1{
+  specific public func f1():Unit{println("specific::Foo::extend:f1")}
 }
 
-platform extend Goo <:I1 {
-  platform public func f1():Unit{println("platform::Goo::extend:f1")}
+specific extend Goo <:I1 {
+  specific public func f1():Unit{println("specific::Goo::extend:f1")}
 }
 
 
@@ -61,7 +61,7 @@ main(){
 }
 
 /* SCAN
-platform::Foo::extend:f1
-platform::Goo::extend:f1
-platform::Int64::extend:f1
+specific::Foo::extend:f1
+specific::Goo::extend:f1
+specific::Int64::extend:f1
 */

@@ -16,8 +16,8 @@ public common class A {
 // ASSERT: scan parse_illegal_modifier_in_scope
 
 package cmp
-public platform class A{
-    platform A(){}
+public specific class A{
+    specific A(){}
 }
 main():Unit
 {

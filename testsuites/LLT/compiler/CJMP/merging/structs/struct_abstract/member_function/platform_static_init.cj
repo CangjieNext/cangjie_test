@@ -16,7 +16,7 @@ package cmp
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform struct A {
+public specific struct A {
     public static let degree: Int64
     static init() {
         degree = 180

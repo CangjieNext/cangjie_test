@@ -7,4 +7,4 @@
  */
 
 package mp
-platform extend <T, K> A<T, K> <: I<T, K> where T <: B<T> & B<K> {}
+specific extend <T, K> A<T, K> <: I<T, K> where T <: B<T> & B<K> {}

@@ -17,8 +17,8 @@ package cmp
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform class A {
-  public platform mut prop a: Int64{
+public specific class A {
+  public specific mut prop a: Int64{
         get() {
            0
         }

@@ -24,7 +24,7 @@ common public enum A {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-platform public enum A {
+specific public enum A {
     | AA 
 }
 

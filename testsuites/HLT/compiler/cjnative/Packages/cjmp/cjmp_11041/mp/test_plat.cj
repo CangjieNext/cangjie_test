@@ -8,9 +8,9 @@
  
 package mp
 
-public platform class C  {}
+public specific class C  {}
 
-platform extend C {
-    public platform func f(): Float64 { 1.0 }
-    public platform prop p: Float64 { get(){1.0} }
+specific extend C {
+    public specific func f(): Float64 { 1.0 }
+    public specific prop p: Float64 { get(){1.0} }
 }

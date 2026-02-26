@@ -7,8 +7,8 @@
  */
 
 package mp
-public platform class B<T> where T <: I3<I1, I2<I1>> & I1 & I2<I1> {
-    public platform var a: Int64 = 2
+public specific class B<T> where T <: I3<I1, I2<I1>> & I1 & I2<I1> {
+    public specific var a: Int64 = 2
 }
 public func f2() {
     B<A>().a

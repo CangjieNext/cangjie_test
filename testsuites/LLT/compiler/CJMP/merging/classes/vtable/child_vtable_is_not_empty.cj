@@ -36,18 +36,18 @@ public func runCommonA2(a: A2) {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform interface I {
-    func foo5(): Unit { println("I::foo5 platform") }
+public specific interface I {
+    func foo5(): Unit { println("I::foo5 specific") }
 }
 
-public open platform class A <: I {
+public open specific class A <: I {
 }
 
-public platform class A2 <: A {
-    public func foo5(): Unit { println("A2::foo5 platform") }
+public specific class A2 <: A {
+    public func foo5(): Unit { println("A2::foo5 specific") }
 }
 
-public platform class B <: I {}
+public specific class B <: I {}
 
 public class C <: I {}
 
@@ -76,8 +76,8 @@ main() {
 
 /* SCAN
 A::foo5 common
-A2::foo5 platform
-A2::foo5 platform
+A2::foo5 specific
+A2::foo5 specific
 */
 
 // SEPARATE-FILE: m_platform.cj
@@ -109,17 +109,17 @@ main() {
 
 /* SCAN
 A::foo5 common
-A2::foo5 platform
-A2::foo5 platform
+A2::foo5 specific
+A2::foo5 specific
 =
 A::foo5 common
-A2::foo5 platform
-I::foo5 platform
-I::foo5 platform
+A2::foo5 specific
+I::foo5 specific
+I::foo5 specific
 =
 A::foo5 common
-A2::foo5 platform
+A2::foo5 specific
 A::foo5 common
-A2::foo5 platform
-A2::foo5 platform
+A2::foo5 specific
+A2::foo5 specific
 */

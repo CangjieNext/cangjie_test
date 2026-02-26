@@ -8,6 +8,6 @@
  
 package mp
 
-public platform var a: Int64 = 0
+public specific var a: Int64 = 0
 
 

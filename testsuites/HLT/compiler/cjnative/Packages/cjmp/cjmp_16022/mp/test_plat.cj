@@ -7,11 +7,11 @@
  */
 
 package mp
-platform public interface I<T> {
-    platform func f(a: T, b: T) { b }
+specific public interface I<T> {
+    specific func f(a: T, b: T) { b }
 }
-public platform class B<T, K> where T <: I<K> {
-    public platform init(a: T, b: K, c: K) {
+public specific class B<T, K> where T <: I<K> {
+    public specific init(a: T, b: K, c: K) {
         this.a = a
         this.b = a.f(b, c)
     }

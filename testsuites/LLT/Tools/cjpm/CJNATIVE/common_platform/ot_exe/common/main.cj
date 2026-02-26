@@ -8,10 +8,10 @@
 features {}
 package ot_exe
 
-public common func platformId(): String
+public common func specificId(): String
 public common func withdefault(): String { "default" }
 
 public common func commonMain(): Unit {
-    println(platformId())
+    println(specificId())
     println(withdefault())
 }

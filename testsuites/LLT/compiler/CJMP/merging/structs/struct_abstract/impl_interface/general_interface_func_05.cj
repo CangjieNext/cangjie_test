@@ -23,9 +23,9 @@ public common struct S1 <: I1 {
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
-public platform struct S1 <: I1 {
-    public platform func F1() : UInt64 {
-        println("platform")
+public specific struct S1 <: I1 {
+    public specific func F1() : UInt64 {
+        println("specific")
         return 0
     }
 }
@@ -46,6 +46,6 @@ main(): Unit {
 
 
 /* SCAN
-platform
-platform
+specific
+specific
 */

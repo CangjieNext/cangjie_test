@@ -4,7 +4,7 @@
 #
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-# The following test cases works on X86_64 platform but fail on AArch64 platform currently
+# The following test cases works on X86_64 specific but fail on AArch64 specific currently
 
 # If your test cases don't work on x86_64 either, don't add your test cases here,
 # you just need to place your test cases in the corresponding testlist file.

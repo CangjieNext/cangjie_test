@@ -20,8 +20,8 @@ public common let Z2: Int64 = Y2
 // EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
-public platform let (X1, X2): (Int64, Int64) = (10, 20)
-public platform let (Z1, Z2): (Int64, Int64) = (X1, X2)
+public specific let (X1, X2): (Int64, Int64) = (10, 20)
+public specific let (Z1, Z2): (Int64, Int64) = (X1, X2)
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor m_common.cj --import-path=./c -L. -lcmp -o %output

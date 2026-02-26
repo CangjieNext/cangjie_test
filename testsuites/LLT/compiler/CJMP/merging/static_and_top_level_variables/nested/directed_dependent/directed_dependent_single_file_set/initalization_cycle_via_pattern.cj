@@ -21,7 +21,7 @@ public let A = Y
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p1.cj p/p2.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
-public platform let (X, Z): (Int64, Int64) = (A, A + 1)
+public specific let (X, Z): (Int64, Int64) = (A, A + 1)
 
 /* SCAN
 error: p1.cj and p2.cj and c.cj might have file circular dependency

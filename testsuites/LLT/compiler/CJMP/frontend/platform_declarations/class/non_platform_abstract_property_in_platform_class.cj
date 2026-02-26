@@ -15,7 +15,7 @@ common abstract class A { init() {}
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 
-platform abstract class A {
+specific abstract class A {
 
     abstract public prop testProp: Int
 }
@@ -25,7 +25,7 @@ main() : Unit {
 }
 
 /* SCAN
-error: platform abstract class 'A' cannot have non-platform abstract property
+error: specific abstract class 'A' cannot have non-specific abstract property
  ==> p/p.cj:6:5:
   | 
 6 |     abstract public prop testProp: Int

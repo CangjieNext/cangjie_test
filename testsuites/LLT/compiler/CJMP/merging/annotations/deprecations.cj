@@ -22,8 +22,8 @@ common func f3(): Unit
 // ASSERT scan-1 sema_deprecated_warning
 package cmp
 
-platform func f2(): ?TooOld { None }
-platform func f3() {}
+specific func f2(): ?TooOld { None }
+specific func f3() {}
 
 // SEPARATE-FILE: u/usage.cj
 // EXEC-PIPE-0: %compiler %diag_json --output-type=dylib --output-dir ./u -l cmp -L ./p --import-path ./p u/usage.cj 

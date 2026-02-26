@@ -6,8 +6,8 @@
 
 package cmp
 
-public platform func foo(a: Int64, b: String): Unit {
-    println("I am platform")
+public specific func foo(a: Int64, b: String): Unit {
+    println("I am specific")
     println(a)
     println(b)
 }

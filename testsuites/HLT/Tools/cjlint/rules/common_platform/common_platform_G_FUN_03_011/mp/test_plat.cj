@@ -8,11 +8,11 @@
 
 package mp
 
-platform interface A {
-    platform func foo1(a: Int64): Unit { println(a) }
-    platform func foo3(): Unit { println("platform") }
+specific interface A {
+    specific func foo1(a: Int64): Unit { println(a) }
+    specific func foo3(): Unit { println("specific") }
     func foo5(): Int64 { 1 }
-    platform static func fooa(a: Int64): Unit {
+    specific static func fooa(a: Int64): Unit {
         print(a)
     }
 }

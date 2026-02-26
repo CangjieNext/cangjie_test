@@ -20,9 +20,9 @@ common struct A {
 // ASSERT: scan-2 sema_not_matched
 package cmp
 
-platform struct A {
-    platform func testFunc(): Int64 {
-        println("platform")
+specific struct A {
+    specific func testFunc(): Int64 {
+        println("specific")
         1
     }
 }

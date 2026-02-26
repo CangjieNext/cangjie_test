@@ -20,7 +20,7 @@ package cmp
 
 // p.cj -> c.cj via Y1
 // c.cj -> p.cj via X3 -> X2
-public platform let (X1, X2): (Int64, Int64) = (Y1, Y2)
+public specific let (X1, X2): (Int64, Int64) = (Y1, Y2)
 
 /* SCAN
 error: p.cj and c.cj might have file circular dependency

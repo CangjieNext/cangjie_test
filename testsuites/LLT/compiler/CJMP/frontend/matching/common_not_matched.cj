@@ -19,5 +19,5 @@ public func foo2() {
     println("It is not a PLATFORM function")
 }
 
-// public platform func moo() {}
+// public specific func moo() {}
 

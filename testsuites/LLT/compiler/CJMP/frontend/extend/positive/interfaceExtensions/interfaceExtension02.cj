@@ -51,15 +51,15 @@ extend String {
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 package cmp
-platform public interface I1{
+specific public interface I1{
 }
 
-platform extend Foo <:I1{
+specific extend Foo <:I1{
 }
-platform extend B <:I1{
+specific extend B <:I1{
 }
 
-platform extend E<:I1 {
+specific extend E<:I1 {
 
 }
 

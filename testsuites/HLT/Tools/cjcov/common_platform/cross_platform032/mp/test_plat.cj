@@ -8,13 +8,13 @@
 
 package mp
 
-public platform class A<X, Y> {
-    public platform init(){}
+public specific class A<X, Y> {
+    public specific init(){}
 }
 
-public platform class C<X, Y> where X <: A<(X, Y), (Y, X)>, Y <: A<(Y, X), (X, Y)> {
-    public platform init(){}
-    public platform func f1(): Int64 {
+public specific class C<X, Y> where X <: A<(X, Y), (Y, X)>, Y <: A<(Y, X), (X, Y)> {
+    public specific init(){}
+    public specific func f1(): Int64 {
         1
     }
 }

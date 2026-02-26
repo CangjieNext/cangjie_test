@@ -9,9 +9,9 @@ package cmp
 
 foreign func test01(tag: CString, message: CString): Unit 
 
-platform func getInfo(): String {
+specific func getInfo(): String {
     unsafe {
-        test01(LibC.mallocCString("TEST"), LibC.mallocCString("Android platform func"))
+        test01(LibC.mallocCString("TEST"), LibC.mallocCString("Android specific func"))
     }
     "android getInfo()"
 }

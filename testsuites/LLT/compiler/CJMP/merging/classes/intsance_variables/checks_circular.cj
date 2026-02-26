@@ -19,7 +19,7 @@ public common class A {
 // ASSERT: scan chir_used_before_initialization
 package cmp
 
-public platform class A {
-    public platform let a: Int = b + 10
+public specific class A {
+    public specific let a: Int = b + 10
 }
 

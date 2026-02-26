@@ -8,20 +8,20 @@
 
 package mp
 
-public platform enum E1{
+public specific enum E1{
     AB
-    public platform func foo(): Unit {}
+    public specific func foo(): Unit {}
 }
-public platform enum E2<T>{
+public specific enum E2<T>{
     AB | AB(T)
-    public platform func foo2(): Unit {
+    public specific func foo2(): Unit {
         println("world")
     }
 }
 
-protected platform enum E3<T,R>{
+protected specific enum E3<T,R>{
     AB | AB(T,R)
-    public platform func foo(): Unit {
+    public specific func foo(): Unit {
         println("nihao")
     }
 }

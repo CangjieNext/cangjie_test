@@ -9,7 +9,7 @@ package cmp
 
 import std.random.*
 
-public platform func foo(): Unit {
+public specific func foo(): Unit {
     println("Platform B 'foo'")
 }
 
