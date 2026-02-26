@@ -7,15 +7,7 @@
  */
 
 #import <Foundation/Foundation.h>
-
-@protocol I
-@optional
-- (void) memberFuncNotImplemented:(int) n;
-- (void) memberFuncImplemented:(int) n;
-@optional
-+ (void) staticFuncNotImplemented;
-+ (void) staticFuncImplemented;
-@end
+#import "I.h"
 
 @interface M : NSObject <I>
 - (id)init;

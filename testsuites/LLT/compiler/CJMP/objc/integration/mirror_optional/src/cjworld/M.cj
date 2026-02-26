@@ -9,18 +9,6 @@ package cjworld
 import objc.lang.*
 
 @ObjCMirror
-public interface I {
-    @ObjCOptional
-    func memberFuncNotImplemented(n: Int32): Unit
-    @ObjCOptional
-    func memberFuncImplemented(n: Int32): Unit
-    @ObjCOptional
-    static func staticFuncNotImplemented(): Unit
-    @ObjCOptional
-    static func staticFuncImplemented(): Unit
-}
-
-@ObjCMirror
 open class M <: I {
     public init()
     public open func memberFuncImplemented(n: Int32): Unit

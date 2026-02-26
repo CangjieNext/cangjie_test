@@ -7,13 +7,20 @@
  */
 
 #import "A.h"
+#import "E.h"
 #import <Foundation/Foundation.h>
 
 int main(int argc, char** argv) {
     @autoreleasepool {
+        // With @protocol method declarations in descendant
         A* a = [[A alloc] init];
         [a checkMemberFunc: 42];
         [A checkStaticFunc];
+
+        // Without @protocol method declarations in descendant
+        E* e = [[E alloc] init];
+        [e checkMemberFunc: 42];
+        [E checkStaticFunc];
     }
     return 0;
 }
