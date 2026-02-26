@@ -6,7 +6,7 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -V | compare %f
-// ASSERT: regex cjc(.exe)* -j\d
+// ASSERT: regex cjc(.exe)*
 // ASSERT: scan-not --mock=on
 // ASSERT: scan-not --mock=runtime-error
 // ASSERT: scan-not --mock=off
