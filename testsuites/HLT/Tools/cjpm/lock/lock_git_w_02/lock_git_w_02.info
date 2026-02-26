@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 3
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm build
+// EXEC: cd %n && %cat cjpm.lock 2>&1 | compare %f
+// ASSERT: regex  stdx = {git = "https://gitcode.com/jiyuan_99/cangjie_stdx.git", commitId = "1fd9931f3466adc6d09c09b3ce9b508b06a970ff", branch = "stdx_cjpm_fix", output-type = "dynamic"}
+// EXEC: cd %n && %cjpm update
+// EXEC: cd %n && %cat cjpm.lock 2>&1 | compare %f
+// ASSERT: regex  stdx = {git = "https://gitcode.com/jiyuan_99/cangjie_stdx.git", commitId = "[a-zA-Z0-9]+", branch = "stdx_cjpm_fix", output-type = "dynamic"}
