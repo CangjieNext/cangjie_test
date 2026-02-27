@@ -10,7 +10,6 @@
   description = "nothing here"
   link-option = ""
   name = "default"
-  organization = "test"
   output-type = "executable"
   version = "1.0.0"
   package-configuration = { "default.b" = {output-type = "dynamic"}}

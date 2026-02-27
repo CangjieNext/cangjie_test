@@ -374,3 +374,5 @@ Tools/cjdb/datacom/cross_platform/cross_platform032.info
 Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
 Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj
 
+# long path on windows
+Tools/cjpm/source_set/source_set003/source_set_identifier002

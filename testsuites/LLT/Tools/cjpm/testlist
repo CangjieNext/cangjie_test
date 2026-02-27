@@ -11,6 +11,7 @@ CJNATIVE/
 # 交叉编译用例仅用于本地验证
 CJNATIVE/target/cross_compile
 CJNATIVE/cross_compile
+CJNATIVE/organization/cross_001
 CJNATIVE/build/lint
 CJNATIVE/test/Coverage
 
@@ -34,10 +35,12 @@ CJNATIVE/build/git_local/multiple_module_git_10
 CJNATIVE/build/git_local/multiple_module_git_11
 CJNATIVE/build/git_local/multiple_module_git_12
 
-# Has to be fixed. See https://gitcode.com/Cangjie/cangjie_compiler/issues/517
-Tools/cjpm/CJNATIVE/common_platform/foreign_func_bind
-Tools/cjpm/CJNATIVE/common_platform/ot_exe
-Tools/cjpm/CJNATIVE/common_platform/ot_static
-Tools/cjpm/CJNATIVE/common_platform/visibility/product_switch
-Tools/cjpm/CJNATIVE/source_sets/bin_deps
-Tools/cjpm/CJNATIVE/source_sets/safecheck
+# 中心仓联调用例，线下看护
+CJNATIVE/repo/download
+CJNATIVE/repo/publish
+
+# Excluded until compiler issue with `--import-path` and `CJMP` is fixed
+CJNATIVE/common_platform/merging/packages
+
+# dev 回合 main 临时屏蔽
+CJNATIVE/common_platform/merging/diamond
