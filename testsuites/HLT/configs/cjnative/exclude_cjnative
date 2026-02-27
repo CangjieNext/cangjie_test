@@ -56,3 +56,4 @@ Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10023/g_nam_01_10023.info
 compiler/cjnative/Chir/CompileOption/profilecompile/test_memory_01.cj
 compiler/cjnative/Chir/CompileOption/profilecompile/test_time_01.cj
 compiler/cjnative/Chir/Warning/unused_func_02.cj
+

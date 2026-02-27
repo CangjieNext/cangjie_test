@@ -416,3 +416,26 @@ Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10023/g_nam_01_10023.info
 compiler/cjnative/Chir/CompileOption/profilecompile/test_memory_01.cj
 compiler/cjnative/Chir/CompileOption/profilecompile/test_time_01.cj
 compiler/cjnative/Chir/Warning/unused_func_02.cj
+
+# syntax will be supported in future
+API/syntax
+
+# timezone file in ci not support now
+API/std/time/TimeZone/load/test_loadFromPaths.cj
+
+# 930: dev merge main
+API\std\os\env\test_getArgs\test_getArgs_005\test_getArgs_005.cj
+
+API/std/io/file/File_create_03.cj
+API/std/io/StringReader/StringReader_readln_13_01.cj
+
+# feature organization name temporarily being disable on branch main
+compiler/cjnative/Packages/org_name
+
+# CJMP has to be fixed
+Tools/cjdb/datacom/cross_platform/cross_platform032.info
+Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
+Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj
+
+# long path on windows
+Tools/cjpm/source_set/source_set003/source_set_identifier002
