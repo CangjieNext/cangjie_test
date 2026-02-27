@@ -124,7 +124,7 @@ func bo() {
         } ?? [], bl : n)
     }
     bu }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_undeclared_type_name
 // ASSERT: scan sema_generic_argument_no_match
 // ASSERT: scan sema_mismatched_types

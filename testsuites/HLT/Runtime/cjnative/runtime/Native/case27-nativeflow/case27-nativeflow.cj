@@ -8,7 +8,7 @@
 
 // LEVEL: 3
 // DEPENDENCE: %n.c
-// (not Windows) EXEC: %clang -c %clang_opt %n.c -o lib%n.c.cfile.%dylib_suffix
+// (not Windows) EXEC: %clang -c %clang_opt %n.c -o lib%n.c.cfile.%cffi_suffix
 // (not Windows) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt -o %output
 // (not MAC and not Windows) RUN-EXEC-PIPE-139: %export MRT_STACK_CHECK=true && %run %run_opt %output %run_args 2>&1 | compare %f
 // (MAC and not Android and not iOS) RUN-EXEC-138: %export MRT_STACK_CHECK=true && %run %run_opt %output %run_args

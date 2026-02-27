@@ -11,8 +11,8 @@
 // (Windows) EXEC: tar -xf zoneinfo.tar.gz
 // DEPENDENCE : Shanghai
 // DEPENDENCE : errorTimeZone
-// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows)RUN-EXEC: %run %run_opt %output %run_args 
+// (not iOS) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (not Windows and not iOS)RUN-EXEC: %run %run_opt %output %run_args 
 // (Windows) RUN-EXEC-PIPE-0: %export "CJ_TZPATH=%cd%/zoneinfo" && %run %run_opt %output %run_utest_opt %run_args 
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -22,6 +22,10 @@ import std.process.*
 @When[os == "macOS"]
 let resnum = 0
 @When[os == "macOS"]
+let str = "/usr/share/zoneinfo"
+@When[os == "iOS"]
+let resnum = 1
+@When[os == "iOS"]
 let str = "/usr/share/zoneinfo"
 @When[os == "Windows"]
 let resnum = 0

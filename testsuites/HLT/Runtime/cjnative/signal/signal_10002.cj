@@ -8,7 +8,7 @@
 
 // LEVEL: 3
 // DEPENDENCE: segfault.c
-// (not Windows) EXEC: %clang -c %clang_opt segfault.c -o lib%n.c.cfile.%dylib_suffix
+// (not Windows) EXEC: %clang -c %clang_opt segfault.c -o lib%n.c.cfile.%cffi_suffix
 // (not Windows) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt -o %output
 // (not MAC and not Windows) RUN-EXEC-PIPE-139: %run %run_opt %output %run_args 2>&1 | compare %f
 // (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f

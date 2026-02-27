@@ -9,6 +9,6 @@
 // LEVEL: 0
 // DEPENDENCE: mp, mp1
 // EXEC: %compiler %cmp_opt mp1/test_imp_com.cj %compile_chir_opt -o ./
-// EXEC: %compiler %cmp_opt mp1/test_imp_plat.cj mp1.chir --common-part-cjo=mp1.cjo --output-type=dylib --experimental -o ./
+// EXEC: %compiler %cmp_opt mp1/test_imp_plat.cj mp1.chir --common-part-cjo=mp1.cjo %compile_dylib_opt --experimental -o ./
 // ERRCHECK: %compiler %cmp_opt mp/test_com.cj -L . -lmp1 %compile_chir_opt -o ./
 // ASSERT: scan sema_undeclared_type_name

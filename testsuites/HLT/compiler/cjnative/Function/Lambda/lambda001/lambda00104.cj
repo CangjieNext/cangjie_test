@@ -22,4 +22,5 @@ main(): Int64 {
 }
 // ASSERT: scan parse_expected_operator_or_end
 // ASSERT: scan parse_expected_right_delimiter
-// ASSERT: scan parse_unexpected_declaration_in_scope
+// (iOS) ASSERT: scan parse_illegal_modifier_in_scope
+// (not iOS) ASSERT: scan parse_unexpected_declaration_in_scope

@@ -21,5 +21,5 @@ class Data {
         return set()
     }
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_static_function_cannot_access_non_static_member

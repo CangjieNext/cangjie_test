@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (not Windows) EXEC: %compiler %cmp_opt %f -o %output
-// (not Windows) RUN-EXEC-PIPE: a=`%run %run_opt %output %run_args` && b=`pid=$$ && ps -p $pid -o pgid=` && test $a = $b && echo $? | compare %f
+// (not iOS and not Windows) EXEC: %compiler %cmp_opt %f -o %output
+// (not iOS and not Windows) RUN-EXEC-PIPE: a=`%run %run_opt %output %run_args` && b=`pid=$$ && ps -p $pid -o pgid=` && test $a = $b && echo $? | compare %f
 // (not Windows) ASSERT: scan-not 1
 
 import std.posix.*

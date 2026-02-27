@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// (not Windows) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows) RUN-EXEC: %run %run_opt %output %run_args %run_utest_opt
+// (not iOS and not Windows) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS and not Windows) RUN-EXEC: %run %run_opt %output %run_args %run_utest_opt
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.posix.*
@@ -22,7 +22,7 @@ class Test_lseek {
         var len = lseek(fd, 0, SEEK_END)
         @Assert(len != -1, true)
         close(fd)
-        @Assert(len, 1502)
+        @Assert(len, 1526)
     }
 
     @TestCase

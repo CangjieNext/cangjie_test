@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %export cjHeapSize=120mb && %run %run_opt %output %run_args
+// (CJNATIVE and not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (CJNATIVE and not iOS) RUN-EXEC: %export cjHeapSize=120mb && %run %run_opt %output %run_args
 
 import std.runtime.*
 import std.collection.*

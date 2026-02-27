@@ -8,9 +8,10 @@
 
 // LEVEL: 3
 // DEPENDENCE: %n.c
-// EXEC: %clang -c %clang_opt %n.c -o lib%n.c.cfile.%dylib_suffix
+// EXEC: %clang -c %clang_opt %n.c -o lib%n.c.cfile.%cffi_suffix
 // EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt %overflow_wrapping -o %output
-// (not Windows and not Android and not iOS)RUN-EXEC-PIPE-134: %run %run_opt %output %run_args 2>&1 | compare %f
+// (not Windows and not Android and not iOS) RUN-EXEC-PIPE-134: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // (Windows and not OHOS) RUN-EXEC-PIPE-3: %run %run_opt %output %run_args 2>&1 | compare %f
 // (Windows and not OHOS) ASSERT:scan ThrowException fail, abort.
 // (not Windows)ASSERT:scan Two pending exceptions are thrown when a C function calls Cangjie function. Program will abort.

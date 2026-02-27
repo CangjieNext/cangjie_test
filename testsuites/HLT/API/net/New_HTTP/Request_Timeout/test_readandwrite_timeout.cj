@@ -62,6 +62,7 @@ class Test_readTimeout_writeTimeout {
         let server = ServerBuilder().addr("127.0.0.1").tlsConfig(cfg).port(0).build()
         server.distributor.register("/quick", {
             ctx => ctx.request.body.read(Array<UInt8>(1024 * 1024, repeat: 0))
+            Sleep(Duration.second)
         })
         server
             .distributor

@@ -12,7 +12,7 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [[A alloc] init];
-        [a foo];
+        printf("in objc main, %lld\n", [a foo]);
     }
     return 0;
 }

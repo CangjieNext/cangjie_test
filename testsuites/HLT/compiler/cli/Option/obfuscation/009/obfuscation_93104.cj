@@ -7,11 +7,11 @@
  */
 
 // LEVEL: 0
-// (not g) EXEC: %compiler %cmp_opt %obf_layout %obf_line_number %f -o %output
-// (not g) RUN-EXEC-1: %run %run_opt %output %run_args > stack_obf.log 2>&1
+// (not g and not iOS) EXEC: %compiler %cmp_opt %obf_layout %obf_line_number %f -o %output
+// (not g and not iOS) RUN-EXEC-1: %run %run_opt %output %run_args > stack_obf.log 2>&1
 // (not g and not MAC and not OHOS) EXEC: %sed -i "s/(/a(/g" stack_obf.log
-// (MAC and not OHOS) EXEC: %sed -i "" "s/(/a(/g" stack_obf.log
-// (not g and not OHOS) EXEC-PIPE: %cjtrace_recover -f stack_obf.log -m default.obf.map 2>&1 | compare %f
+// (MAC and not OHOS and not iOS) EXEC: %sed -i "" "s/(/a(/g" stack_obf.log
+// (not g and not OHOS and not iOS) EXEC-PIPE: %cjtrace_recover -f stack_obf.log -m default.obf.map 2>&1 | compare %f
 // (not g and not OHOS) ASSERT: regex ArithmeticException: Divided by zero!
 // (not g and not OHOS) ASSERT: regex a\(SOURCE:0\)
 // (not g and not OHOS) ASSERT: regex-not at default\.test.*obfuscation.*

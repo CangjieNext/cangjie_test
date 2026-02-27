@@ -7,7 +7,8 @@
  */
 
 // LEVEL: 2
-// ERRCHECK: %compiler %cmp_opt %f -o %output 
+// (not target_ios) ERRCHECK: %compiler %cmp_opt %f -o %output 
+// (target_ios) EXEC: %compiler %cmp_opt %f -o %output 
 
 macro package A
 
@@ -20,4 +21,4 @@ public macro a1(x: Tokens, y: Tokens) {
 public macro a2(x: Tokens, y: Tokens) {
     quote(0)
 }
-// ASSERT: scan sema_missing_entry
+// (not target_ios) ASSERT: scan sema_missing_entry

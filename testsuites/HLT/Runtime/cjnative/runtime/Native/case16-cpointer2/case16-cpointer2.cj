@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: %n.cpp
-// (not Windows) EXEC: %clang -c %clang_opt %n.cpp -o lib%n.cpp.cfile.%dylib_suffix
+// (not Windows) EXEC: %clang -c %clang_opt %n.cpp -o lib%n.cpp.cfile.%cffi_suffix
 // (not Windows) EXEC: %compiler -L. -l%n.cpp.cfile %f %cmp_opt %overflow_wrapping -o %output
 // (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 /* SCAN-IN
@@ -92,45 +92,47 @@ struct SmallerStruct3 {
     }
 }
 
-unsafe main() {
-    var b: CPointer<BiggerStruct> = AllocCStruct()
-    let bigger = b.read()
-    if (bigger.x == 1 && bigger.y == 2 && bigger.z == 3) {
-        println("primary type is right.")
+main() {
+    unsafe{
+        var b: CPointer<BiggerStruct> = AllocCStruct()
+        let bigger = b.read()
+        if (bigger.x == 1 && bigger.y == 2 && bigger.z == 3) {
+            println("primary type is right.")
+        }
+
+        if (bigger.ptr.read() == 5) {
+            println("ptr type is right.")
+        }
+
+        var s: CPointer<SmallerStruct> = CPointer<SmallerStruct>(b)
+        let smaller = s.read()
+        var condition1 = smaller.x1 == 1 && smaller.y1 == 2 && smaller.z1 == 3
+        var condition2 = smaller.x2 == 0 && smaller.y2 == 0 && smaller.z2 == 0
+        if (condition1 && condition2) {
+            println("cast type is right.")
+        }
+
+        var s2: CPointer<SmallerStruct2> = CPointer<SmallerStruct2>(b)
+        let smaller2 = s2.read()
+        var condition = smaller2.x == 1 && smaller2.x2 == 0 && smaller2.y == 2 && smaller2.z == 3 && smaller2.z2 == 0
+        if (condition) {
+            println("cast type2 is right.")
+        }
+
+        var s3: CPointer<SmallerStruct3> = CPointer<SmallerStruct3>(b)
+        let smaller3 = s3.read()
+        var condition3 = smaller3.x == 1 && smaller3.y1 == 2 && smaller3.y2 == 0 && smaller3.z == 3
+        if (condition3) {
+            println("cast type3 is right.")
+        }
+
+        FreeCStruct(b)
+
+        var emptr: CPointer<Int32> = CPointer<Int32>()
+        println(emptr.isNull().toString())
+
+        `func`()
+
+        return 0
     }
-
-    if (bigger.ptr.read() == 5) {
-        println("ptr type is right.")
-    }
-
-    var s: CPointer<SmallerStruct> = CPointer<SmallerStruct>(b)
-    let smaller = s.read()
-    var condition1 = smaller.x1 == 1 && smaller.y1 == 2 && smaller.z1 == 3
-    var condition2 = smaller.x2 == 0 && smaller.y2 == 0 && smaller.z2 == 0
-    if (condition1 && condition2) {
-        println("cast type is right.")
-    }
-
-    var s2: CPointer<SmallerStruct2> = CPointer<SmallerStruct2>(b)
-    let smaller2 = s2.read()
-    var condition = smaller2.x == 1 && smaller2.x2 == 0 && smaller2.y == 2 && smaller2.z == 3 && smaller2.z2 == 0
-    if (condition) {
-        println("cast type2 is right.")
-    }
-
-    var s3: CPointer<SmallerStruct3> = CPointer<SmallerStruct3>(b)
-    let smaller3 = s3.read()
-    var condition3 = smaller3.x == 1 && smaller3.y1 == 2 && smaller3.y2 == 0 && smaller3.z == 3
-    if (condition3) {
-        println("cast type3 is right.")
-    }
-
-    FreeCStruct(b)
-
-    var emptr: CPointer<Int32> = CPointer<Int32>()
-    println(emptr.isNull().toString())
-
-    `func`()
-
-    return 0
 }
