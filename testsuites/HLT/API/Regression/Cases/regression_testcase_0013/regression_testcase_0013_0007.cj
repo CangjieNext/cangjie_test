@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// EXEC-PIPE: %compiler %cmp_opt %n.cj -o %n.%suffix
-// RUN-EXEC-PIPE: %run %run_opt %n.%suffix
+// EXEC-PIPE: %compiler %cmp_opt %n.cj -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output
 // TIMEOUT: 1000
 
 import std.sync.*

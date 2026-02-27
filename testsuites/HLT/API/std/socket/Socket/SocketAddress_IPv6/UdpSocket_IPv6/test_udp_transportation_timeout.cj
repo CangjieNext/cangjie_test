@@ -31,7 +31,9 @@ var udp = Option<UdpSocket>.None
 var addr00 = IPSocketAddress("0.0.0.0", 0)
 @When[os == "macOS"]
 let flag = "Failed to write data 40: Message too long."
-@When[os != "macOS"]
+@When[os == "iOS"]
+let flag = "Failed to write data 40: Message too long."
+@When[os == "Linux"]
 let flag = "Connection refused"
 
 @Test

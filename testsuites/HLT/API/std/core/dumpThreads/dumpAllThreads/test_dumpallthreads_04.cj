@@ -13,7 +13,7 @@
 import std.unittest.*
 import std.unittest.testmacro.*
 
-main() {
+main():Unit {
     let _thread = spawn { 
         while (true) {
             if (Thread.currentThread.hasPendingCancellation) {
