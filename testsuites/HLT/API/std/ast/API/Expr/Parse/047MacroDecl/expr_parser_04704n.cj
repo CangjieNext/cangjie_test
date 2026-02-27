@@ -8,8 +8,8 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-1: %run %run_opt %output %run_args
-// ASSERT: scan macro declaration must be modified with 'public'
+// (not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
+// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 
 import std.ast.*
 
@@ -18,3 +18,7 @@ main() {
     let macroDecl = parseDecl(macroTokens)
     return 0
 }
+
+/* SCAN-IN
+[31merror[0m: macro declaration must be modified with 'public'
+ */

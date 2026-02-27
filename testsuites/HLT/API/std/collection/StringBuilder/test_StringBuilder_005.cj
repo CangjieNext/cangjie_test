@@ -7,12 +7,12 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f
-// RUN-EXEC: %run %run_opt %n.%suffix %run_args
+// EXEC: %compiler %cmp_opt -o %output %f
+// RUN-EXEC: %run %run_opt %output %run_args
 
 import std.math.*
 
-func test(arr: Array<Rune>, str: String): Int32 {
+func test(arr: Array<Rune>, str: String): Int64 {
     var strb1 = StringBuilder(arr)
     var strb2 = StringBuilder(str)
     var str1 = strb1.toString()
@@ -24,8 +24,8 @@ func test(arr: Array<Rune>, str: String): Int32 {
     }
 }
 
-main(): Int32 {
-    var res: Int32 = 0
+main(): Int64 {
+    var res: Int64 = 0
     var values: Array<Array<Rune>> = [Array<Rune>(), [r' '], [r' ', r' ', r' ', r' '], [r'!', r'@', r'#', r'$'],
         [r'\t', r'\0', r'\"', r'\t'], [r'A', r'B', r'C', r'D'], [r'1', r'2', r'3', r'4'], [r'懿', r'贰', r'叁', r'肆'],
         [r'，', r'！', r'？', r'。'], [r'!', r'A', r'G', r'2', r'3', r'f', r'$', r'L', r';', r'\'']]

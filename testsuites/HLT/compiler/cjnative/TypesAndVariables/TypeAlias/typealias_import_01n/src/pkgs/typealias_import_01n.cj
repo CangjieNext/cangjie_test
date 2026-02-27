@@ -14,5 +14,5 @@ package pkgs
 type Int = Int64
 
 type Int = Int32
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_redefinition

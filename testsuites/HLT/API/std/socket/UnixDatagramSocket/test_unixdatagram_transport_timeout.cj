@@ -78,6 +78,7 @@ class Test_Unixdatagram_Transporttimeout {
             }
         } catch (e: SocketException) {
             sum += 1
+            println(e.message.toString())
             @Expect(e.message.contains(str0), true)
         }
         try {
@@ -86,6 +87,7 @@ class Test_Unixdatagram_Transporttimeout {
             }
         } catch (e: SocketException) {
             sum += 1
+            
             @Expect(e.message.contains("Connection refused"), true)
         }
         @Expect(sum, 2)

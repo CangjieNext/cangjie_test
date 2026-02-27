@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-ERRCHECK: %run %run_opt %output %run_args
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: regex An exception has occurred:
 // ASSERT: scan ParseASTException
 // ASSERT: scan parsing expr error

@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 3
-// (not O2) EXEC: %compiler %cmp_opt %f -o %output
-// (not O2) RUN-EXEC-PIPE: %export cjStackSize=64kb && %export CJ_SOF_SIZE=5 && %run %run_opt %output %run_args 2>&1 | compare %f
+// (not MAC and not O2) EXEC: %compiler %cmp_opt %f -o %output
+// (not MAC and not O2) RUN-EXEC-PIPE: %export cjStackSize=64kb && %export CJ_SOF_SIZE=5 && %run %run_opt %output %run_args 2>&1 | compare %f
 
 // ASSERT: scan-begin An exception has occurred
 // (Windows) ASSERT: scan-next

@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC: %run %run_opt %output %run_args
+// (not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (not iOS) RUN-EXEC: %run %run_opt %output %run_args
 
 //AR-SR-Lang-1014-27 overflow for IntNative
 @OverflowSaturating

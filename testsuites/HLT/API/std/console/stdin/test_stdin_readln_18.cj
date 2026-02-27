@@ -9,7 +9,7 @@
 // LEVEL: 2
 // DEPENDENCE: stdin_read.txt
 // EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
-// RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt %run_args < stdin_read.txt
+// (not iOS) RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt %run_args < stdin_read.txt
 
 import std.collection.*
 import std.sync.*

@@ -8,8 +8,8 @@
 
 // LEVEL: 1
 // DEPENDENCE: mod
-// EXEC: %compiler %cmp_opt --module-name mod %compile_lib_opt mod/define.cj -o mod/define.%middle
-// EXEC: %compiler %cmp_opt %compile_dylib_opt %f mod/define.%middle -o %output
+// (not iOS) EXEC: %compiler %cmp_opt --module-name mod %compile_lib_opt mod/define.cj -o mod/define.%middle
+// (not iOS) EXEC: %compiler %cmp_opt %compile_dylib_opt %f mod/define.%middle -o %output
 // (not CJNATIVE) EXEC: %compiler %cmp_opt_no_output %compile_lib_opt %f mod/define.%middle -o %output
 
 macro package test

@@ -11,9 +11,7 @@
 @implementation M
 
 - (id)init {
-    if (self = [super init]) {
-        printf("in objc init\n");
-    }
+    self = [super init];
     return self;
 }
 

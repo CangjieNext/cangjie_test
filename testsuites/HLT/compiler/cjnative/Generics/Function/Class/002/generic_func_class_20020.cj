@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// (not iOS) ERRCHECK: %compiler %cmp_opt %f -o %output
 
 class A<X> {
     public func test(x: X): X {

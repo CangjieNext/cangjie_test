@@ -9,4 +9,4 @@
 // LEVEL: 0
 // DEPENDENCE: mp
 // ERRCHECK: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
-// ASSERT: scan parse_specific_in_non_specific_file
+// ASSERT: scan function f2 is specific, but extend is not specific

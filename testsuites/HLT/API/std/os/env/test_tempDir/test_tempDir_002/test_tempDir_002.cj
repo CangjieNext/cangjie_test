@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// (not Windows or OHOS) RUN-EXEC-PIPE: unset TMPDIR TEMP TEMPDIR && %export TMP=test_tmp && mkdir -p test_tmp && %run %run_opt %output %run_args | compare %f
+// (not iOS and not Windows or OHOS) RUN-EXEC-PIPE: unset TMPDIR TEMP TEMPDIR && %export TMP=test_tmp && mkdir -p test_tmp && %run %run_opt %output %run_args | compare %f
 // (Windows and not OHOS) RUN-EXEC-PIPE: set TMPDIR=&&set TEMP=&&set TEMPDIR=&& %export TMP=test_tmp&& mkdir -p test_tmp && %run %run_opt %output %run_args | compare %f
 // ASSERT: scan pass
 

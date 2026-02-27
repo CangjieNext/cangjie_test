@@ -56,6 +56,7 @@
             <filteritem type="filename" name="pkg1.jar" desc="cjpm测试需要, 完成检查"/>
             <filteritem type="filename" name="*.png" desc="PNG图片文件, 完成检查"/>
             <filteritem type="filename" name="*.jpg" desc="PNG图片文件, 完成检查"/>
+            <filteritem type="filename" name="*.zip" desc="压缩文件用于压缩解压功能测试, 完成检查"/>
 		</filefilter>	
         </filefilterlist>
 		<licensematcherlist>

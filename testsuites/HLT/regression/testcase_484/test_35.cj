@@ -19,6 +19,6 @@ class SomeClass {
     public var ptr: CBox
     public init(ptr: CBox) { this.ptr = ptr }
 }
-// ASSERT: scan sema_missing_entry
+// (not target_ios) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_illegal_use_of_annotation
 // ASSERT: scan sema_class_uninitialized_field

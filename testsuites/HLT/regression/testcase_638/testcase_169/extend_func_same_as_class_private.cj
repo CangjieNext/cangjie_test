@@ -7,8 +7,8 @@
  */
  
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix
-// RUN-EXEC: %run %run_opt %n.%suffix
+// EXEC: %compiler %cmp_opt %n.cj -o %output
+// RUN-EXEC: %run %run_opt %output
 
 class A<T> {
     private func foo(): Int64 { return 1 }

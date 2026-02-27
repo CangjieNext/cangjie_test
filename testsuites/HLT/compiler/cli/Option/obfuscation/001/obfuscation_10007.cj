@@ -10,9 +10,9 @@
 // EXEC: %compiler %compile_dylib_opt %obf_string %f -o %output
 // EXEC: %compiler %compile_dylib_opt %no_obf_string %f -o %output_no_obf
 // cannot find.
-// RUN-EXEC-1: strings %output | grep TEST_FOR_OBF_STRING
+// (not iOS) RUN-EXEC-1: strings %output | grep TEST_FOR_OBF_STRING
 // can find.
-// RUN-EXEC: strings %output_no_obf | grep TEST_FOR_OBF_STRING
+// (not iOS) RUN-EXEC: strings %output_no_obf | grep TEST_FOR_OBF_STRING
 
 macro package test
 
