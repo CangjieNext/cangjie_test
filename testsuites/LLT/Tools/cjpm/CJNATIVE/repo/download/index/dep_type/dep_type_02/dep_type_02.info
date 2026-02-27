@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
+// ASSERT: scan Error: no available artifact of module 'test_repo_7' could match all requirements from these modules:
+// ASSERT: regex - 'pro1' from '.*[/|\\]pro1[/|\\]cjpm.toml', which requirement for 'test_repo_7' is '1.0.0' with output-type = static
+// ASSERT: regex - 'pro2' from '.*[/|\\]pro2[/|\\]cjpm.toml', which requirement for 'test_repo_7' is '1.0.0' with output-type = dynamic
+// ASSERT: scan Error: cjpm build failed

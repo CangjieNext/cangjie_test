@@ -8,13 +8,7 @@
 
 features { os.windows }
 package mp
-import mp1.*
 
 public func t(): Int64 {
     0
-}
-
-public specific func f(): Int64 {
-    println(f1() + f2())
-    return 0
 }

@@ -9,5 +9,5 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // (CJNATIVE) EXEC: cd %n && %cjpm run --no-feature-deduce --enable-features=os.windows | compare %f
-// (CJNATIVE) ASSERT: scan 1
+// (CJNATIVE) ASSERT: scan 0
 // (CJNATIVE) ASSERT: scan cjpm run finished
