@@ -22,7 +22,7 @@ import std.time.*
 import std.sync.*
 import std.fs.*
 
-@When[os == "macOS"]
+@When[os == "macOS" || os == "iOS"]
 let flag = 10
 @When[os != "macOS"]
 let flag = 11

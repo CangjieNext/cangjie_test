@@ -24,7 +24,7 @@ import std.net.*
 import std.time.*
 import std.sync.*
 
-@When[os == "macOS"]
+@When[os == "macOS" || os == "iOS"]
 let flag = false
 @When[os != "macOS"]
 let flag = true

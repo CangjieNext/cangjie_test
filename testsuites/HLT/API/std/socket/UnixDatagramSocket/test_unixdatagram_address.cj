@@ -25,9 +25,9 @@ import std.fs.*
 import std.posix.*
 import std.process
 
-@When[os == "macOS"]
+@When[os == "macOS" || os == "iOS"]
 let root_path = "/private/tmp/"
-@When[os != "macOS"]
+@When[os != "macOS" && os != "iOS"]
 let root_path = "/tmp/"
 var data = Array<Byte>(5000, repeat: 10)
 var sum = 0

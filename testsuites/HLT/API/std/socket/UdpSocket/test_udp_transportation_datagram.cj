@@ -24,10 +24,10 @@ import std.net.*
 import std.time.*
 import std.sync.*
 
-@When[os == "macOS"]
+@When[os == "macOS" || os == "iOS"]
 let (flag, data_size) = (true, 200)
 
-@When[os != "macOS"]
+@When[os != "macOS" && os != "iOS"]
 let (flag, data_size) = (false, 32000)
 
 var udp = Option<UdpSocket>.None

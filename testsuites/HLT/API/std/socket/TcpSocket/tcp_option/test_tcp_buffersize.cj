@@ -26,9 +26,9 @@ import std.sync.*
 var port = AtomicUInt16(0)
 var ser = Option<TcpServerSocket>.None
 var bound = AtomicUInt16(0)
-@When[os == "macOS"]
+@When[os == "macOS" || os == "iOS"]
 let flag = true
-@When[os != "macOS"]
+@When[os != "macOS" && os != "iOS"]
 let flag = false
 
 @Test
