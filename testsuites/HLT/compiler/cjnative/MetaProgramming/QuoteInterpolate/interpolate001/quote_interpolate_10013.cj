@@ -19,5 +19,5 @@ public macro test(input: Tokens): Tokens {
     x.dump()
     return quote(0)
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_undeclared_identifier

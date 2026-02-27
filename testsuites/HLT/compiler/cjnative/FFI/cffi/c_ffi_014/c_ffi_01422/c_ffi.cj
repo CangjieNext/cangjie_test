@@ -12,7 +12,7 @@
 // EXEC: %compiler %cmp_opt %ffic_opt -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 foreign {
     func cstrfunc(p: CPointer<Int8>): CPointer<Int8>
 

@@ -27,7 +27,7 @@
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare template.cj
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare %f
 // ASSERT: scan Incompatible
-// ASSERT: scan-2 [API] Added member property without a default implementation if interface.
+// ASSERT: scan-2 [API] Added member property without a default implementation of interface.
 // ASSERT: scan-not [API/ABI]
 // ASSERT: scan-2 [API]
 // ASSERT: scan-not [ABI]

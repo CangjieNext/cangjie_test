@@ -7,6 +7,6 @@
  */
 
 // LEVEL: 2
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// (not iOS) ERRCHECK: %compiler %cmp_opt %f -o %output
 // ASSERT: scan sema_missing_entry
 

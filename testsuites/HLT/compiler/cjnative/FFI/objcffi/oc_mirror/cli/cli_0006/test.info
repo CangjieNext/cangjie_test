@@ -7,5 +7,5 @@
  */
  
 // LEVEL: 1
-// (iOS) ERRCHECK: %mirror_gen test.toml
+// (iOSNative) ERRCHECK: %mirror_gen test.toml
 // ASSERT: scan TOML file `test.toml` doesn't exist

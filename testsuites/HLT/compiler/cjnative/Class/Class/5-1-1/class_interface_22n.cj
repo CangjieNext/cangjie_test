@@ -28,7 +28,7 @@ class Data <: Basec & Basec1 & Basei {
     public var resc1: Int64 = two
     public var resi: Int64 = getNum()
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_illegal_multi_inheritance
 // ASSERT: scan sema_illegal_usage_of_super_member
 // ASSERT: scan sema_illegal_usage_of_member

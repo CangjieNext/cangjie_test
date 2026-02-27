@@ -13,13 +13,3 @@
 - (id)init;
 
 @end
-
-
-@interface M1 : NSObject
-
-{
-    @public
-    int64_t a;
-}
-
-@end

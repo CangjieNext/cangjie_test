@@ -11,7 +11,7 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 
 open class Base {
-    protected open func foo(parm1: Int32): Sun {
+    protected open func foo(parm1: Int64): Sun {
         var obj = Sun()
         obj.a = parm1 + 2
         return obj
@@ -19,7 +19,7 @@ open class Base {
 }
 
 class Data <: Base {
-    protected func foo(parm1: Int32): Moon {
+    protected func foo(parm1: Int64): Moon {
         var obj = Moon()
         obj.a = parm1 + 3
         return obj
@@ -27,7 +27,7 @@ class Data <: Base {
 }
 
 open class Sun {
-    var a: Int32 = 2
+    var a: Int64 = 2
 }
 
 class Moon <: Sun {}
