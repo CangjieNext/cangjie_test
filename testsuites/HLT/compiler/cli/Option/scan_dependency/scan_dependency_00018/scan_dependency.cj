@@ -11,5 +11,5 @@
 // EXEC-PIPE: %compiler -p mod2/src/pkgB  %compile_lib_opt -o mod2/pkgB.o
 // EXEC-PIPE: %compiler -p pkgA --import-path mod2 %compile_lib_opt
 // EXEC-PIPE: %compiler --scan-dependency pkgA.cjo 2>&1 | compare %f
-// ASSERT: scan {"package":"pkgA","isMacro":false,"accessLevel":"public","dependencies":[{"package":"mod2.pkgB","isStd":false,"imports":[{"file":"pkgA.cj","begin":{"line":11,"column":1},"end":{"line":11,"column":19}}]}],"features":[],"product":true}
+// ASSERT: scan {"package":"pkgA","isMacro":false,"accessLevel":"public","dependencies":[{"package":"mod2.pkgB","isStd":false,"imports":[{"file":"pkgA.cj","begin":{"line":11,"column":1},"end":{"line":11,"column":19}}]}],"std-dependencies":[{"std.core":[]}],"features":[],"product":true}
 

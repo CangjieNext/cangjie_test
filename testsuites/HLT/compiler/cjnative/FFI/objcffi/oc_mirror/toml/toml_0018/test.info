@@ -8,5 +8,5 @@
  
 // LEVEL: 1
 // DEPENDENCE: test.toml
-// (iOS) EXEC-PIPE: %mirror_gen test.toml 2>&1 | compare %f
-// ASSERT: scan No output files are generated
+// (iOSNative) ERRCHECK: %mirror_gen test.toml
+// ASSERT: scan No input files

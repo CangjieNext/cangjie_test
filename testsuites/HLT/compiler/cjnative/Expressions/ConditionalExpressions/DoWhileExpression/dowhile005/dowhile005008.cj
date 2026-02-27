@@ -11,7 +11,7 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 
 func foo() {
-    var a: Int32
+    var a: Int64
     do {
         if (true) {
             a = 1

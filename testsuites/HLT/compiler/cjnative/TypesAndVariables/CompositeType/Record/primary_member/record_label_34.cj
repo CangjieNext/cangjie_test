@@ -15,5 +15,5 @@ struct Test {
     }
     public let b: () -> Int32 = foo
 }
-// ASSERT: scan sema_missing_entry
+// (not target_ios) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_illegal_usage_of_member

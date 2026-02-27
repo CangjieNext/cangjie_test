@@ -9,7 +9,8 @@
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args && cat exp.txt| compare %f
-// (CJNATIVE) ASSERT: scan id: 2, name: test, exception: Exception: a base exception
+// (CJNATIVE and not iOS) ASSERT: scan id: 2, name: test, exception: Exception: a base exception
+// (CJNATIVE and iOS) ASSERT: scan id: 3, name: test, exception: Exception: a base exception
 // (not CJNATIVE) ASSERT: scan id: 1, name: test, exception: Exception: a base exception
 // ASSERT: scan Exception: a base exception
 

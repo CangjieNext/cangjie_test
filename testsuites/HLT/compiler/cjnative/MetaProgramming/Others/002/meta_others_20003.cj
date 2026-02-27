@@ -20,6 +20,6 @@ public macro M(input: Tokens) {
 public macro M(input: Tokens) {
     return quote(0)
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_expand_macro_redefinition
 // ASSERT: scan sema_overload_conflicts

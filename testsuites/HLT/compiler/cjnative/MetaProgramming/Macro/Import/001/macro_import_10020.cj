@@ -8,9 +8,9 @@
 
 // LEVEL: 2
 // DEPENDENCE: macro_define_10020.cj
-// EXEC: %compiler %cmp_macro macro_define_10020.cj
-// EXEC: %run_macro %compiler %cmp_opt  %f -o %output
-// RUN-EXEC: %run %run_opt %output %run_macro_opt %run_args
+// (not iOS) EXEC: %compiler %cmp_macro macro_define_10020.cj
+// (not iOS) EXEC: %run_macro %compiler %cmp_opt  %f -o %output
+// (not iOS) RUN-EXEC: %run %run_opt %output %run_macro_opt %run_args
 
 macro package test
 

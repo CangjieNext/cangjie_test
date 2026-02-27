@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: mp, mp1
-// EXEC: %compiler %cmp_opt mp1/test_imp.cj --output-type=dylib -o ./
+// EXEC: %compiler %cmp_opt mp1/test_imp.cj %compile_dylib_opt -o ./
 // EXEC: %compiler %cmp_opt mp/test_com.cj -L . -lmp1 %compile_chir_opt -o ./
 // EXEC: %compiler %cmp_opt mp/test_plat.cj -L . -lmp1 %compile_dylib_opt_cjmp -o ./
 // EXEC: %compiler %cmp_opt %f %link_cjmp -o %output

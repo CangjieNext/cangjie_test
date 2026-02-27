@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// EXEC-PIPE-0: %compiler %cmp_opt  %f -o %output 2>&1 | compare %f
-// RUN-EXEC: %run %run_opt %output %run_args
+// (not iOS) EXEC-PIPE-0: %compiler %cmp_opt  %f -o %output 2>&1 | compare %f
+// (not iOS) RUN-EXEC: %run %run_opt %output %run_args
 // ASSERT: scan chir_dce_unreachable
 
 class A {

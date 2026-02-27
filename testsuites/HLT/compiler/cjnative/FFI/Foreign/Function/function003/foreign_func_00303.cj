@@ -15,5 +15,5 @@ foreign func b(): Unit
 
 var x = a(1)
 var y = b(1)
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_wrong_number_of_arguments

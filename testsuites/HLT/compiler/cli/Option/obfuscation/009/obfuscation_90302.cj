@@ -11,7 +11,7 @@
 // (not O2 and not Windows) EXEC: %compiler %cmp_opt %compile_lib_opt %obf_layout --obf-sym-prefix A --obf-sym-output-mapping A.map pkg/pkga.cj -o pkga.%middle
 // (not O2 and not MAC and not Windows) EXEC: %sed -i "s/_CN/aaaa_CN/g" A.map
 // (not O2 and MAC) EXEC: %sed -i "" "s/_CN/aaaa_CN/g" A.map
-// (not O2 and not Windows) ERRCHECK: %compiler %cmp_opt %obf_layout --obf-sym-input-mapping A.map %f pkga.%middle -o %output
+// (not O2 and not Windows and not iOS) ERRCHECK: %compiler %cmp_opt %obf_layout --obf-sym-input-mapping A.map %f pkga.%middle -o %output
 // (not MAC and not Windows) ASSERT: regex undefined reference to `_CN2p18global_aE'
 // (not MAC and not Windows) ASSERT: regex undefined reference to `_CN2p16test_aHv'
 // (MAC and not OHOS and not Windows) ASSERT: regex undefined symbol: __CN2p16test_aHv

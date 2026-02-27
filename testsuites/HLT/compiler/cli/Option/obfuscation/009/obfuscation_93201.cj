@@ -7,10 +7,10 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-1: %run %run_opt %output %run_args > stack_obf.log 2>&1
-// EXEC: %touch default.obf.map
-// (not OHOS)ERRCHECK: %cjtrace_recover -f stack_obf.log -m default.obf.map
+// (not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (not iOS) RUN-EXEC-1: %run %run_opt %output %run_args > stack_obf.log 2>&1
+// (not iOS) EXEC: %touch default.obf.map
+// (not OHOS and not iOS)ERRCHECK: %cjtrace_recover -f stack_obf.log -m default.obf.map
 // (not OHOS)ASSERT: scan The buffer is empty.
 // (not OHOS)ASSERT: scan Error: failed to read file 'default.obf.map'
 

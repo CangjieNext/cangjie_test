@@ -8,5 +8,5 @@
  
 // LEVEL: 1
 // DEPENDENCE: test.toml
-// (iOS) ERRCHECK: %mirror_gen test.toml
+// (iOSNative) ERRCHECK: %mirror_gen test.toml
 // ASSERT: scan TOML file `test.toml` is recursive

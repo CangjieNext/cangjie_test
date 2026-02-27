@@ -1,27 +1,17 @@
 # Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 # This source file is part of the Cangjie project, licensed under Apache-2.0
 # with Runtime Library Exception.
-# 
+#
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 # testcase is not correct.
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 
-# syntax will be supported in future
-API/syntax
-
-# timezone file in ci not support now
-API/std/time/TimeZone/load/test_loadFromPaths.cj
-
-# feature organization name temporarily being disable on branch main
-compiler/cjnative/Packages/org_name
+# issue 198: syntax rewriter not support
+API/syntax/visit/ASTRewriter/test_rewriter_02.cj
 
 # MacOS does not support reflect yet, these test cases for compatibility require reflect so disabled for now.
 compiler/cjnative/stable_abi/package_name
 compiler/cjnative/stable_abi/add_instance_member_variable
 compiler/cjnative/stable_abi/add_virtual_function
 
-# CJMP has to be fixed
-Tools/cjdb/datacom/cross_platform/cross_platform032.info
-Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
-Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj

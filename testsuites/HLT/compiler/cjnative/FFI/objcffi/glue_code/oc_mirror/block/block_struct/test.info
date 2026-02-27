@@ -1,0 +1,55 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// Level: 1
+// Description:
+// 测试block类型，涉及struct S
+// DEPENDENCE: src test.toml
+// (iOSNative) EXEC: %mirror_gen test.toml
+// (iOSNative and not iOS) EXEC: %clang --shared  -fobjc-arc -framework Foundation -lobjc -Isrc/objc src/objc/G.m -o libdep.dylib
+// (iOSNative and iOS) EXEC: xcrun --sdk iphonesimulator %clang -fobjc-arc -framework Foundation -lobjc -Wl,-install_name,@rpath/libdep.dylib --target=arm64-apple-ios17.0-simulator --sysroot=$(xcrun --show-sdk-path --sdk iphonesimulator) --shared -Isrc/objc src/objc/G.m -o libdep.dylib
+// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc --link-options="-install_name @rpath/libobjc.foundation.dylib" src/objc/foundation/*.cj
+// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc -L . -ldep -lobjc.foundation --link-options="-install_name @rpath/libcjworld.dylib" src/cjworld/*.cj
+// (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
+// (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOSNative) ASSERT: scan-begin p0, s.x = 1, s.y = 2
+// (iOSNative) ASSERT: scan-next p1
+// (iOSNative) ASSERT: scan-next p2
+// (iOSNative) ASSERT: scan-next in cangjie foo
+// (iOSNative) ASSERT: scan-next global_func1
+// (iOSNative) ASSERT: scan-next Block executed!
+// (iOSNative) ASSERT: scan-next global_func
+// (iOSNative) ASSERT: scan-next Block executed!
+// (iOSNative) ASSERT: scan-next invoking oc class's instance method, passing in block
+// (iOSNative) ASSERT: scan-next instanceMethod
+// (iOSNative) ASSERT: scan-next Block executed!
+// (iOSNative) ASSERT: scan-next invoking oc class's static method, passing in block
+// (iOSNative) ASSERT: scan-next staticMethod
+// (iOSNative) ASSERT: scan-next Block executed!
+// (iOSNative) ASSERT: scan-next instanceVariable0
+// (iOSNative) ASSERT: scan-next instanceVariable1, input = 123
+// (iOSNative) ASSERT: scan-next instanceProperty0
+// (iOSNative) ASSERT: scan-next instanceProperty1, input = 3.140000
+// (iOSNative) ASSERT: scan-next invoking protocol's instance method implemented by interface
+// (iOSNative) ASSERT: scan-next P_instanceMethod
+// (iOSNative) ASSERT: scan-next Block executed!
+// (iOSNative) ASSERT: scan-next invoking protocol's static method implemented by interface
+// (iOSNative) ASSERT: scan-next invoking protocol's required instance method implemented by interface
+// (iOSNative) ASSERT: scan-next P_required_instanceMethod
+// (iOSNative) ASSERT: scan-next Block executed!
+// (iOSNative) ASSERT: scan-next invoking protocol's required static method implemented by interface
+// (iOSNative) ASSERT: scan-next invoking protocol's optional instance method implemented by interface
+// (iOSNative) ASSERT: scan-next P_normal_optional_func
+// (iOSNative) ASSERT: scan-next invoking protocol's optional static method implemented by interface
+// (iOSNative) ASSERT: scan-next returning from A.f0
+// (iOSNative) ASSERT: scan-next in main
+// (iOSNative) ASSERT: scan-next A_instanceFunction begin
+// (iOSNative) ASSERT: scan-next A_instanceFunction.lambda 123
+// (iOSNative) ASSERT: scan-next A_instanceFunction.lambda 124
+// (iOSNative) ASSERT: scan-next A.A_instanceVariable0
+// (iOSNative) ASSERT: scan-next A.A_instanceProperty0

@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: %n.cpp
-// (not Windows) EXEC: %clang -c %clang_opt %n.cpp -o lib%n.cpp.cfile.%dylib_suffix
+// (not Windows) EXEC: %clang -c %clang_opt %n.cpp -o lib%n.cpp.cfile.%cffi_suffix
 // (not Windows) EXEC: %compiler -L. -l%n.cpp.cfile %f %cmp_opt %overflow_wrapping -o %output
 // (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 /* SCAN-IN
@@ -129,194 +129,196 @@ foreign func passCPtrFloat32(a: CPointer<Float32>): CPointer<Float32>
 
 foreign func passCPtrFloat64(a: CPointer<Float64>): CPointer<Float64>
 
-unsafe main() {
-    var iptr: CPointer<Float32> = unsafe { getCPtrInt() }
-    println(33.toString())
+main() {
+    unsafe{
+        var iptr: CPointer<Float32> = unsafe { getCPtrInt() }
+        println(33.toString())
 
-    if (iptr.isNotNull()) {
-        println(44.toString())
-    }
+        if (iptr.isNotNull()) {
+            println(44.toString())
+        }
 
-    var aa = iptr + 1
+        var aa = iptr + 1
 
-    if (aa.read() == 3.5) {
-        println(19980324.toString())
-    }
+        if (aa.read() == 3.5) {
+            println(19980324.toString())
+        }
 
-    if ((aa + 1).read() == 3.6) {
-        println(1998.toString())
-    }
+        if ((aa + 1).read() == 3.6) {
+            println(1998.toString())
+        }
 
-    if ((aa - 1).read() == 3.4) {
-        println(19971107.toString())
-    }
+        if ((aa - 1).read() == 3.4) {
+            println(19971107.toString())
+        }
 
-    var retV = iptr.read()
-    if (retV == 3.4) {
-        println(8968.toString())
-    }
+        var retV = iptr.read()
+        if (retV == 3.4) {
+            println(8968.toString())
+        }
 
-    if (iptr.read() == iptr.read(1)) {
-        println(8968.toString())
-    }
+        if (iptr.read() == iptr.read(1)) {
+            println(8968.toString())
+        }
 
-    iptr.write(4.4)
+        iptr.write(4.4)
 
-    unsafe { PassCPointerToC(iptr) }
+        unsafe { PassCPointerToC(iptr) }
 
-    if (iptr.isNotNull()) {
-        println(55.toString())
-    }
+        if (iptr.isNotNull()) {
+            println(55.toString())
+        }
 
-    if (iptr.read() == 4.4) {
-        println(8968.toString())
-    }
+        if (iptr.read() == 4.4) {
+            println(8968.toString())
+        }
 
-    iptr.write(5.5)
+        iptr.write(5.5)
 
-    if (iptr.read() == 5.5) {
-        println(8968.toString())
-    }
+        if (iptr.read() == 5.5) {
+            println(8968.toString())
+        }
 
-    iptr.write(0, 6.6)
-    if (iptr.read() == 6.6) {
-        println(85.toString())
-    }
+        iptr.write(0, 6.6)
+        if (iptr.read() == 6.6) {
+            println(85.toString())
+        }
 
-    if (iptr.read(0) == 6.6) {
-        println(58.toString())
-    }
+        if (iptr.read(0) == 6.6) {
+            println(58.toString())
+        }
 
-    iptr.write(1, 6.6)
-    if (iptr.read(1) == 6.6) {
-        println(66.toString())
-    }
+        iptr.write(1, 6.6)
+        if (iptr.read(1) == 6.6) {
+            println(66.toString())
+        }
 
-    if (iptr.read(1) == aa.read()) {
-        println(77.toString())
-    }
+        if (iptr.read(1) == aa.read()) {
+            println(77.toString())
+        }
 
-    var fromCVoid = unsafe { getCPtrVoid() }
-    var fromCBool = unsafe { getCPtrBool() }
-    var fromCChar = unsafe { getCPtrChar() }
+        var fromCVoid = unsafe { getCPtrVoid() }
+        var fromCBool = unsafe { getCPtrBool() }
+        var fromCChar = unsafe { getCPtrChar() }
 
-    var fromCInt8 = unsafe { getCPtrInt8() }
-    var fromCInt16 = unsafe { getCPtrInt16() }
-    var fromCInt32 = unsafe { getCPtrInt32() }
-    var fromCInt64 = unsafe { getCPtrInt64() }
+        var fromCInt8 = unsafe { getCPtrInt8() }
+        var fromCInt16 = unsafe { getCPtrInt16() }
+        var fromCInt32 = unsafe { getCPtrInt32() }
+        var fromCInt64 = unsafe { getCPtrInt64() }
 
-    var fromCUInt8 = unsafe { getCPtrUInt8() }
-    var fromCUInt16 = unsafe { getCPtrUInt16() }
-    var fromCUInt32 = unsafe { getCPtrUInt32() }
-    var fromCUInt64 = unsafe { getCPtrUInt64() }
+        var fromCUInt8 = unsafe { getCPtrUInt8() }
+        var fromCUInt16 = unsafe { getCPtrUInt16() }
+        var fromCUInt32 = unsafe { getCPtrUInt32() }
+        var fromCUInt64 = unsafe { getCPtrUInt64() }
 
-    var fromCFloat32 = unsafe { getCPtrFloat32() }
-    var fromCFloat64 = unsafe { getCPtrFloat64() }
+        var fromCFloat32 = unsafe { getCPtrFloat32() }
+        var fromCFloat64 = unsafe { getCPtrFloat64() }
 
-    if (fromCVoid.read() == ()) {
-        println(1.toString())
-    }
+        if (fromCVoid.read() == ()) {
+            println(1.toString())
+        }
 
-    if (fromCBool.read() == true) {
-        println(2.toString())
-    }
+        if (fromCBool.read() == true) {
+            println(2.toString())
+        }
 
-    if (fromCChar.read() == Int8(UInt32(r'a'))) {
-        println(3.toString())
-    }
+        if (fromCChar.read() == Int8(UInt32(r'a'))) {
+            println(3.toString())
+        }
 
-    if (fromCInt8.read() == 127) {
-        println(4.toString())
-    }
+        if (fromCInt8.read() == 127) {
+            println(4.toString())
+        }
 
-    if (fromCInt16.read() == 32767) {
-        println(5.toString())
-    }
+        if (fromCInt16.read() == 32767) {
+            println(5.toString())
+        }
 
-    if (fromCInt32.read() == 2147483647) {
-        println(6.toString())
-    }
+        if (fromCInt32.read() == 2147483647) {
+            println(6.toString())
+        }
 
-    if (fromCInt64.read() == 9223372036854775807) {
-        println(7.toString())
-    }
+        if (fromCInt64.read() == 9223372036854775807) {
+            println(7.toString())
+        }
 
-    if (fromCUInt8.read() == 127 * 2 + 1) {
-        println(8.toString())
-    }
+        if (fromCUInt8.read() == 127 * 2 + 1) {
+            println(8.toString())
+        }
 
-    if (fromCUInt16.read() == 32767 * 2 + 1) {
-        println(9.toString())
-    }
+        if (fromCUInt16.read() == 32767 * 2 + 1) {
+            println(9.toString())
+        }
 
-    if (fromCUInt32.read() == 2147483647 * 2 + 1) {
-        println(10.toString())
-    }
+        if (fromCUInt32.read() == 2147483647 * 2 + 1) {
+            println(10.toString())
+        }
 
-    if (fromCUInt64.read() == UInt64(9223372036854775807) * 2 + 1) {
-        println(11.toString())
-    }
+        if (fromCUInt64.read() == UInt64(9223372036854775807) * 2 + 1) {
+            println(11.toString())
+        }
 
-    if (fromCFloat32.read() == 3.8) {
-        println(12.toString())
-    }
+        if (fromCFloat32.read() == 3.8) {
+            println(12.toString())
+        }
 
-    if (fromCFloat64.read() == 3.8) {
-        println(13.toString())
-    }
+        if (fromCFloat64.read() == 3.8) {
+            println(13.toString())
+        }
 
-    if (unsafe { passCPtrVoid(fromCVoid).read() != fromCVoid.read() }) {
-        return 1
-    }
+        if (unsafe { passCPtrVoid(fromCVoid).read() != fromCVoid.read() }) {
+            return 1
+        }
 
-    if (unsafe { passCPtrBool(fromCBool).read() != fromCBool.read() }) {
-        return 1
-    }
-    if (unsafe { passCPtrChar(fromCChar).read() != fromCChar.read() }) {
-        return 1
-    }
-    if (unsafe { passCPtrInt8(fromCInt8).read() != fromCInt8.read() }) {
-        return 1
-    }
-    if (unsafe { passCPtrInt16(fromCInt16).read() != fromCInt16.read() }) {
-        return 1
-    }
-    if (unsafe { passCPtrInt32(fromCInt32).read() != fromCInt32.read() }) {
-        return 1
-    }
-    if (unsafe { passCPtrInt64(fromCInt64).read() != fromCInt64.read() }) {
-        return 1
-    }
-    if (unsafe { passCPtrUInt8(fromCUInt8).read() != fromCUInt8.read() }) {
-        return 1
-    }
-    if (unsafe { passCPtrUInt16(fromCUInt16).read() != fromCUInt16.read() }) {
-        return 1
-    }
-    if (unsafe { passCPtrUInt32(fromCUInt32).read() != fromCUInt32.read() }) {
-        return 1
-    }
-    if (unsafe { passCPtrUInt64(fromCUInt64).read() != fromCUInt64.read() }) {
-        return 1
-    }
-    if (unsafe { passCPtrFloat32(fromCFloat32).read() != fromCFloat32.read() }) {
-        return 1
-    }
-    if (unsafe { passCPtrFloat64(fromCFloat64).read() != fromCFloat64.read() }) {
-        return 1
-    }
+        if (unsafe { passCPtrBool(fromCBool).read() != fromCBool.read() }) {
+            return 1
+        }
+        if (unsafe { passCPtrChar(fromCChar).read() != fromCChar.read() }) {
+            return 1
+        }
+        if (unsafe { passCPtrInt8(fromCInt8).read() != fromCInt8.read() }) {
+            return 1
+        }
+        if (unsafe { passCPtrInt16(fromCInt16).read() != fromCInt16.read() }) {
+            return 1
+        }
+        if (unsafe { passCPtrInt32(fromCInt32).read() != fromCInt32.read() }) {
+            return 1
+        }
+        if (unsafe { passCPtrInt64(fromCInt64).read() != fromCInt64.read() }) {
+            return 1
+        }
+        if (unsafe { passCPtrUInt8(fromCUInt8).read() != fromCUInt8.read() }) {
+            return 1
+        }
+        if (unsafe { passCPtrUInt16(fromCUInt16).read() != fromCUInt16.read() }) {
+            return 1
+        }
+        if (unsafe { passCPtrUInt32(fromCUInt32).read() != fromCUInt32.read() }) {
+            return 1
+        }
+        if (unsafe { passCPtrUInt64(fromCUInt64).read() != fromCUInt64.read() }) {
+            return 1
+        }
+        if (unsafe { passCPtrFloat32(fromCFloat32).read() != fromCFloat32.read() }) {
+            return 1
+        }
+        if (unsafe { passCPtrFloat64(fromCFloat64).read() != fromCFloat64.read() }) {
+            return 1
+        }
 
-    fromCFloat32.write(3.5)
+        fromCFloat32.write(3.5)
 
-    var res = unsafe { PassCPointerToC(fromCFloat32) }
+        var res = unsafe { PassCPointerToC(fromCFloat32) }
 
-    if (fromCFloat32.read() == 3.5) {
-        println(88.toString())
+        if (fromCFloat32.read() == 3.5) {
+            println(88.toString())
+        }
+
+        if (res) {
+            println(99.toString())
+        }
+        FreeAllPointer()
+        return 0
     }
-
-    if (res) {
-        println(99.toString())
-    }
-    FreeAllPointer()
-    return 0
 }

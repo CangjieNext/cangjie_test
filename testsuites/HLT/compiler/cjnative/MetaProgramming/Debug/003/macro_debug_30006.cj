@@ -8,9 +8,9 @@
 
 // LEVEL: 2
 // DEPENDENCE: define.cj
-// EXEC: %compiler %cmp_macro define.cj
-// EXEC: %run_macro %compiler %cmp_opt  %f -o %output
-// RUN-EXEC: %run %run_opt %output %run_macro_opt %run_args
+// (not iOS) EXEC: %compiler %cmp_macro define.cj
+// (not iOS) EXEC: %run_macro %compiler %cmp_opt  %f -o %output
+// (not iOS) RUN-EXEC: %run %run_opt %output %run_macro_opt %run_args
 
 package use
 

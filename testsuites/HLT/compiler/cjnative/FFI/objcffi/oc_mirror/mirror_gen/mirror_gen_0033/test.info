@@ -8,13 +8,14 @@
  
 // LEVEL: 1
 // DEPENDENCE: test.toml test.h
-// (iOS) EXEC: ObjCInteropGen test.toml
-// (iOS) EXEC: %cat test.cj | compare %f
+// (iOSNative) EXEC: %mirror_gen test.toml
+// (iOSNative) EXEC: %cat test.cj | compare %f
 /* SCAN-IN
 package cjworld
 
 import objc.foundation.NSObject
 import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class test <: NSObject {
