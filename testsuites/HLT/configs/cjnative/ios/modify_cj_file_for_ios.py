@@ -54,8 +54,9 @@ def has_return_statement(func_body: str) -> bool:
 
 def modify(data):
     pattern_cangjie_main = r'(^\s*.*\s*func\s*cangjie_main\s*\(\)\s*:?\s*.*\s*\{)'
-    # if re.search(pattern_cangjie_main, data, re.M):
-    #     return data
+    # 如果将被modify的文件中已经存在cangjie_main入口则不再进行任何处理，直接返回，也不报错
+    if re.search(pattern_cangjie_main, data, re.M):
+        return data
         # raise Exception("[错误] 已存在 cangjie_main 函数")
 
     modified = data + cangjie_main_start
@@ -157,10 +158,14 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
             # 这个依赖是个目录，需要遍历目录下所有文件分别读取
             for file_path in dependency_path.rglob('*'):
                 if file_path.is_file():
-                    with open(file_path, 'r', encoding='utf-8') as f:
-                        content = f.read()
-                        if re.findall(pattern_main, content):
-                            main_file_list.append(file_path)
+                    try:
+                        with open(file_path, 'r', encoding='utf-8') as f:
+                            content = f.read()
+                            if re.findall(pattern_main, content):
+                                main_file_list.append(file_path)
+                    except Exception as e:
+                        # 如果读取失败就不对这个文件进行确认了
+                        pass
 
     return main_file_list
     # raise Exception(f"[ERROR] 没找到拥有main的源文件")
