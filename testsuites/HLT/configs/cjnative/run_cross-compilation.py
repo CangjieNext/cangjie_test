@@ -7,7 +7,6 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 import argparse
-import shutil
 import logging
 import os
 import platform

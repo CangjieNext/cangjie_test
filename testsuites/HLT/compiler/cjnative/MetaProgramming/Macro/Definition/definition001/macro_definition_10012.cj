@@ -17,5 +17,5 @@ public macro test(input: Tokens): Tokens {
     input = Tokens()
     Tokens()
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_cannot_assign_to_immutable

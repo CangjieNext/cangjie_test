@@ -27,7 +27,7 @@
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-3 [ABI] Changed parameter default value of a const function or function or function marked with @Frozen.
+// ASSERT: scan-3 [ABI] Changed parameter default value of a const function or function marked with @Frozen.
 // ASSERT: scan-not [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-3 [ABI]

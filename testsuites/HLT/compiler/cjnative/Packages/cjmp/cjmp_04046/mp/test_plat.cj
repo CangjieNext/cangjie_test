@@ -9,7 +9,7 @@
 package mp
 
 public specific class A {
-    public specific A(public common var a!: Int64) {}
+    public A(public common var a!: Int64) {}
 }
 public func test_plat() { A(a: 0).a }
 

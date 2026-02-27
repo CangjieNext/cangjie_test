@@ -13,15 +13,19 @@
 // EXEC: cat default.obf.map | compare %f
 // ASSERT: regex .*default.*test_default.*newobf_func.*
 // ASSERT: regex .*default.*global_default.*newobf_var.*
-// ASSERT: regex .*default.*<main>.*newobf_main.*
+// (not iOS) ASSERT: regex .*default.*<main>.*newobf_main.*
+// (iOS) ASSERT: regex .*default.*cj_main.*newobf_main.*
 
 public var global_default: Int64 = 1
 
 public func test_default() {
+    print(1)
+    print(2)
 }
 
 main() {
     print(global_default)
+    test_default()
     test_default()
     return 0
 }

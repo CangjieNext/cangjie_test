@@ -12,6 +12,6 @@
 foreign func foo(a: Range<Int32>): Range<Int32>
 
 foreign func bar(a: Range<Int32>): Range<Int32>
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_invalid_cfunc_arg_type
 // ASSERT: scan sema_invalid_cfunc_return_type

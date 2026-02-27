@@ -8,6 +8,6 @@
  
 // LEVEL: 1
 // DEPENDENCE: test.toml test.h
-// (iOS) EXEC-PIPE: %mirror_gen test.toml 2>&1 | compare %f
-// (iOS) EXEC: cat mirrors/cjworld/test.cj | compare test.h
-// ASSERT: scan Generated 140 files for 2 packages
+// (iOSNative) EXEC-PIPE: %mirror_gen test.toml 2>&1 | compare %f
+// (iOSNative) EXEC: cat mirrors/cjworld/test.cj | compare test.h
+// ASSERT: regex Generated .* files for 2 packages

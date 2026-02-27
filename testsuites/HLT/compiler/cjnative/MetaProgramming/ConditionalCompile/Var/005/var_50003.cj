@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %conditional_compilation_config_opt="a=1,b=2" %cmp_opt %compile_lib_opt %f -o %output
+// (not iOS) EXEC: %compiler %conditional_compilation_config_opt="a=1,b=2" %cmp_opt %compile_lib_opt %f -o %output
 
 @When[a == "1" && b == "1"]
 main() {

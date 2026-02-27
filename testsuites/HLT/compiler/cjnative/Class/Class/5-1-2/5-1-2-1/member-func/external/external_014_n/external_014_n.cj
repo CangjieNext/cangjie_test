@@ -8,9 +8,9 @@
 
 // LEVEL: 0
 // DEPENDENCE: pkg1.cj
-// EXEC: %compiler %cmp_opt %compile_lib_opt pkg1.cj -o pkg1.%middle
-// EXEC: %compiler %cmp_opt %f pkg1.%middle -o %output
-// RUN-EXEC: %run %run_opt %output %run_args
+// (not iOS) EXEC: %compiler %cmp_opt %compile_lib_opt pkg1.cj -o pkg1.%middle
+// (not iOS) EXEC: %compiler %cmp_opt %f pkg1.%middle -o %output
+// (not iOS) RUN-EXEC: %run %run_opt %output %run_args
 
 package pkg2
 

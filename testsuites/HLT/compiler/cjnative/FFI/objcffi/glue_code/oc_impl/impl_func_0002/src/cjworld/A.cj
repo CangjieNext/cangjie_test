@@ -8,12 +8,12 @@
  
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCImpl
 public class A <: M {
     public init() {}
-    public func foo() {
-        B().goo()
+    public func foo(): Int64 {
+        return 123
     }
 }

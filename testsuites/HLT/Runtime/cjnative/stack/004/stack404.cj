@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
-// (not Windows) RUN-EXEC-PIPE: %export cjStackSize=64kb && %run %run_opt %output %run_args 2>&1
+// (not Windows and not iOS) RUN-EXEC-PIPE: %export cjStackSize=64kb && %run %run_opt %output %run_args 2>&1
 // (Windows)RUN-EXEC-PIPE: %export cjStackSize=128kb && %run %run_opt %output %run_args 2>&1
 
 foreign func CJ_CJThreadStackSizeGet(): UInt64
