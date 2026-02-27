@@ -28,7 +28,7 @@
 // ASSERT: scan Incompatible!
 // ASSERT: scan-4 [API/ABI] Deleted enum constructor.
 // ASSERT: scan-2 [API/ABI] Added constructor to exhaustive enum.
-// ASSERT: scan-2 [ABI] Added constructor to non-exhaustive enum,and either the constructor is not at the end or the memory layout has changed.
+// ASSERT: scan-2 [ABI] Added constructor to non-exhaustive enum, and either the constructor is not at the end or the memory layout has changed.
 // ASSERT: scan-not [API]
 // ASSERT: scan-2 [ABI]
 // ASSERT: scan-6 [API/ABI]

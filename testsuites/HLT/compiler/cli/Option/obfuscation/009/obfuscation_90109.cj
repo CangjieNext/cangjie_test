@@ -11,7 +11,8 @@
 // (not O2) RUN-EXEC: %run %run_opt %output %run_args
 // (not O2) EXEC: cat default.obf.map | compare %f
 // ASSERT: regex .*default.*test.*前.*
-// ASSERT: regex .*default.*<main>.*前.*
+// (not iOS) ASSERT: regex .*default.*<main>.*前.*
+// (iOS) ASSERT: regex .*default.*cj_main.*前.*
 
 func test() {
 }

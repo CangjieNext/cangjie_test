@@ -8,7 +8,8 @@
 
 // LEVEL: 1
 // ERRCHECK: %compiler %cmp_opt %f -o %output
-// (CJNATIVE) ASSERT: scan LLVM ERROR: The stacksize of default::main() exceeds cangjie max stacksize(2GB).
+// (CJNATIVE and not iOS) ASSERT: scan LLVM ERROR: The stacksize of default::main() exceeds cangjie max stacksize(2GB).
+// (CJNATIVE and iOS) ASSERT: scan LLVM ERROR: The stacksize of default::cj_main() exceeds cangjie max stacksize(2GB).
 
 main(): Int64 {
     var varr: VArray<Int64, $9223372036854775807> = VArray<Int64, $9223372036854775807> {i => i + 1}

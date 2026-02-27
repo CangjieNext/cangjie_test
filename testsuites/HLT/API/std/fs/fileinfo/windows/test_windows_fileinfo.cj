@@ -65,15 +65,15 @@ class Test_FileInfo {
             try {
                 var fileinfo = FileInfo(str)
             } catch (e: FSException | IllegalArgumentException) {
-                println("1===========${e.message}")
-                @Expect(e.message.contains("The input path `${str}` does not exist") || e.message.contains("The input path is empty") || e.message.contains("contains null character"))
+                println(e.message)
+                @Expect(e.message.contains("The path `${str}` does not exist") || e.message.contains("The path cannot"))
                 sum += 1
             }
             try {
                 var fileinfo = FileInfo(Path(str))
             } catch (e: FSException | IllegalArgumentException) {
-                println("2===========${e.message}")
-                @Expect(e.message.contains("The input path `${str}` does not exist") || e.message.contains("The input path is empty") || e.message.contains("contains null character"))
+                println(e.message)
+                @Expect(e.message.contains("The path `${str}` does not exist") || e.message.contains("The path cannot"))
                 sum += 1
             }
         }

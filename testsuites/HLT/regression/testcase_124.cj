@@ -7,8 +7,8 @@
  */
  
 // LEVEL: 0
-// (not VM) ERRCHECK: %compiler %cmp_opt %f -o %output
-// (not VM) ASSERT: regex-not Cangjie::CodeGen::CodeGenerator::GenerateAllInitFunctions
+// (not VM and not iOS) ERRCHECK: %compiler %cmp_opt %f -o %output
+// (not VM and not iOS) ASSERT: regex-not Cangjie::CodeGen::CodeGenerator::GenerateAllInitFunctions
 
 
 

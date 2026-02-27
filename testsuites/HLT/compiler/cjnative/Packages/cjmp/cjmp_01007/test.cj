@@ -9,6 +9,6 @@
 // LEVEL: 0
 // DEPENDENCE: mp
 // ERRCHECK: %compiler %cmp_opt mp/test_com.cj mp/test_plat.cj %compile_chir_opt -o ./
-// ASSERT: scan specific declaration must be defined in specific package part
+// ASSERT: scan sema_redefinition
 
 

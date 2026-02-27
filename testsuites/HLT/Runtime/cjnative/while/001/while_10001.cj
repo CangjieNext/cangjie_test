@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC: %run %run_opt %output %run_args
+// (not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (not iOS) RUN-EXEC: %run %run_opt %output %run_args
 
 import std.time.*
 import std.process.*

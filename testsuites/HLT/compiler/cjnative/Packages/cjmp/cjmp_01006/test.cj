@@ -9,6 +9,6 @@
 // LEVEL: 0
 // DEPENDENCE: mp
 // ERRCHECK: %compiler %cmp_opt mp/test_com.cj mp/test_plat.cj %compile_dylib_opt -o ./
-// ASSERT: scan common declaration must be defined in common package part
+// ASSERT: scan parse_unexpected_cjmp_decl
 
 

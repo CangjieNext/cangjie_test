@@ -8,7 +8,9 @@
 
 package mp
 
-public common class C {}
+public common class C {
+    common init(){}
+}
 
 common extend C {
     public common func f1(): Int64 { 0 }

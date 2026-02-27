@@ -82,8 +82,7 @@ class Test_DumpCurrentThread {
         }
         _thread_info.toString() |> println
         @Assert(_thread_info.stackTrace[0].toString().contains("std.core.ThreadSnapshot::dumpCurrentThread"))
-        println("=====================${_thread_info.stackTrace[1].toString()}")
-        @Assert(_thread_info.stackTrace[1].toString().contains("default.Test_DumpCurrentThread"))
+        @Assert(_thread_info.stackTrace[1].toString().contains("default.Test_DumpCurrentThread::getFromInvoking::foo"))
         @Assert(_thread_info.toString().contains("ThreadSnapshot(id=${_thread_info.id}, name=, state=Running)"))
         @Assert(_thread_info.toString().contains("stack trace"))
     }

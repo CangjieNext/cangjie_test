@@ -8,7 +8,7 @@
 
 // LEVEL: 3
 // DEPENDENCE: sigfpe.c
-// (not Windows) EXEC: %clang %clang_opt sigfpe.c -o lib%n.c.cfile.%dylib_suffix
+// (not Windows) EXEC: %clang %clang_opt sigfpe.c -o lib%n.c.cfile.%cffi_suffix
 // (not Windows) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt -o %output
 // (not arm and not MAC and not Windows) RUN-EXEC-PIPE-136: %run %run_opt %output %run_args 2>&1 | compare %f
 // (MAC) RUN-EXEC: %run %run_opt %output %run_args

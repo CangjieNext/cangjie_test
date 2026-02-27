@@ -1,0 +1,21 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[default]
+APIStrategy = "Full"
+GenericTypeStrategy = "None"
+
+[[package]]
+name = "cjworld"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+excluded_apis = []
+generic_object_configuration = [
+    {name = "A", type_arguments = ["Int64", "Bool", "Float64"]},
+    {name = "A<Int64>", symbols = ["f"]}
+    {name = "A<Bool>", symbols = ["f"]}
+    {name = "A<Float64>", symbols = ["f"]}
+]

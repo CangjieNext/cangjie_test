@@ -70,7 +70,7 @@ func startProxy(serverPort : UInt16): Unit {
         sleep(Duration.millisecond * 200)
         let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
         let socket = proxyServerSocket.accept()
-        socket.readTimeout = Duration.millisecond * 800
+        socket.readTimeout = Duration.millisecond * 100
     
         let buf = Array<UInt8>(500, repeat: 0)
         sleep(Duration.millisecond * 100)

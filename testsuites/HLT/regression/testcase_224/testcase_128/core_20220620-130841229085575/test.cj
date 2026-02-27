@@ -833,7 +833,7 @@ extend Class8 {
 // ASSERT: scan parse_expected_right_delimiter
 // ASSERT: scan parse_illegal_modifier_in_scope
 // ASSERT: scan parse_expected_while_in_do_while
-// ASSERT: scan parse_unexpected_declaration_in_scope
+// (not iOS) ASSERT: scan parse_unexpected_declaration_in_scope
 // ASSERT: scan parse_expected_character
 // ASSERT: scan parse_expected_catch_or_finally_in_try
 

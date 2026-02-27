@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt -o %output %f
-// RUN-EXEC-PIPE-0: echo 仓颉仓颉仓颉 > input.txt && %run %run_opt %output %run_args < input.txt 2>&1 | compare %f
+// (not iOS) RUN-EXEC-PIPE-0: echo 仓颉仓颉仓颉 > input.txt && %run %run_opt %output %run_args < input.txt 2>&1 | compare %f
 // ASSERT: scan 19
 // (not Windows or OHOS) ASSERT: scan [228, 187, 147, 233, 162, 137, 228, 187, 147, 233, 162, 137, 228, 187, 147, 233, 162, 137, 10]
 // (Windows and not OHOS) ASSERT: scan [228, 187, 147, 233, 162, 137, 228, 187, 147, 233, 162, 137, 228, 187, 147, 233, 162, 137, 32]

@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// EXEC-PIPE: %compiler %cmp_opt %n.cj -o %n.%suffix %cmp_utest_opt
-// RUN-EXEC-PIPE: %run %run_opt %n.%suffix %run_utest_opt %run_args
+// EXEC-PIPE: %compiler %cmp_opt %n.cj -o %output %cmp_utest_opt
+// RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args
 
 import std.regex.*
 import std.unittest.*

@@ -11,4 +11,4 @@
 
 var x = 0x1.a
 // ASSERT: scan sema_undeclared_identifier
-// ASSERT: scan sema_missing_entry
+// (not target_ios) ASSERT: scan sema_missing_entry

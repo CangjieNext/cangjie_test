@@ -10,4 +10,4 @@
 // DEPENDENCE: mp
 // EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
 // ERRCHECK: %compiler %cmp_opt mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
-// ASSERT: scan parse_common_in_non_common_file
+// ASSERT: scan unexpected modifier 'common' on variable declaration in primary constructor

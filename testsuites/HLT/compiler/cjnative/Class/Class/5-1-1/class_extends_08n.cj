@@ -21,6 +21,6 @@ class Data <: Base & Base1 {
     public var res: Int32 = one
     public var res1: Int32 = two
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_illegal_multi_inheritance
 // ASSERT: scan sema_illegal_usage_of_super_member

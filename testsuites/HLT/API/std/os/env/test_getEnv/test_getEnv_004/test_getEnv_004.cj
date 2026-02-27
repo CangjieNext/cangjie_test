@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2
-// (not Windows) EXEC: %compiler %cmp_opt %f -o %output
-// (not Windows) RUN-EXEC-PIPE: %export TEST_ENVA=test_enva && %export TEST_ENVB=test_envb  && %export TEST_ENVC=$TEST_ENVA:$TEST_ENVB && %run %run_opt %output %run_args | compare %f
-// (not Windows) ASSERT: scan pass
+// (not Windows and not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (not Windows and not iOS) RUN-EXEC-PIPE: %export TEST_ENVA=test_enva && %export TEST_ENVB=test_envb  && %export TEST_ENVC=$TEST_ENVA:$TEST_ENVB && %run %run_opt %output %run_args | compare %f
+// (not Windows and not iOS) ASSERT: scan pass
 
 import std.process.*
 

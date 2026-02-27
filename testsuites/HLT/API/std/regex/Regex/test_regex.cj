@@ -9,8 +9,8 @@
 // LEVEL: 1
 // DEPENDENCE: ./../../asan
 // EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// EXEC-PIPE: %compiler %cmp_opt %n.cj asan.%middle -o %n.%suffix %cmp_utest_opt
-// RUN-EXEC-PIPE: %run %run_opt %n.%suffix %run_utest_opt %run_args
+// EXEC-PIPE: %compiler %cmp_opt %n.cj asan.%middle -o %output %cmp_utest_opt
+// RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args
 
 import std.regex.*
 import std.unittest.*

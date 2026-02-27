@@ -9,14 +9,14 @@ filters = { include = ["NS.+"] }
 package-name = "objc.foundation"
 
 [[packages]]
-filters = { include = "M" }
+filters = { include = ["M1", "M2"] }
 package-name = "cjworld"
 
 [output-roots.default]
 path = "src"
 
 [sources.all]
-paths = ["src/objc/M.h"]
+paths = ["src/objc/M1.h", "src/objc/M2.h"]
 
 [sources-mixins.default]
 sources = [".*"]

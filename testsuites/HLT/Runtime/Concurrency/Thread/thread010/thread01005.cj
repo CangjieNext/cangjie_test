@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+// (not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (not iOS) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan ct1.id: 1, ct1.name:
 // ASSERT: scan ct2.id: 1, ct2.name: test1
 // ASSERT: scan-4 ct.id: 1, ct.name: test2

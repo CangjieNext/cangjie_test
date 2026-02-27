@@ -28,3 +28,5 @@ func Foo(a: Int64, b: String, A!: Int64 = x, A!: String = y): String {
     return (a + A).toString() + b + B
 }
 // ASSERT: scan sema_need_named_argument
+// ASSERT: scan sema_redefinition
+// ASSERT: scan sema_undeclared_identifier

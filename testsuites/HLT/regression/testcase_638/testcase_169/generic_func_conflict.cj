@@ -20,5 +20,5 @@ extend C {
 extend C {
    static func f<X>(a: X) {}
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_extend_member_cannot_shadow

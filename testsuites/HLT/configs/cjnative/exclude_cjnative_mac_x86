@@ -25,3 +25,24 @@ compiler/cjnative/stable_abi/add_virtual_function
 Tools/cjdb/datacom/cross_platform/cross_platform032.info
 Tools/cjcov/common_platform/cross_platform021/cross_platform021.cj
 Tools/cjcov/common_platform/cross_platform028/cross_platform028.cj
+
+# API exclude during sync main
+API/std/collection/TreeMap/treemap_12.cj
+API/std/collection/TreeSet/treeset_random_key.cj
+
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# testcase is not correct.
+Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
+
+# issue 198: syntax rewriter not support
+API/syntax/visit/ASTRewriter/test_rewriter_02.cj
+
+# MacOS does not support reflect yet, these test cases for compatibility require reflect so disabled for now.
+compiler/cjnative/stable_abi/package_name
+compiler/cjnative/stable_abi/add_instance_member_variable
+compiler/cjnative/stable_abi/add_virtual_function

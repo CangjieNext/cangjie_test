@@ -94,7 +94,6 @@ class Test_tlsprivatekey_pwd_11 {
             @Expect(sum, 1)
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
-            tcpser = Option<TcpServerSocket>.Some(tcpServer)
             bound.fetchAdd(1)
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
@@ -110,8 +109,6 @@ class Test_tlsprivatekey_pwd_11 {
         clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
-        tcpser.getOrThrow().close()
-        tcpClient.close()
     }
 
     @TestCase

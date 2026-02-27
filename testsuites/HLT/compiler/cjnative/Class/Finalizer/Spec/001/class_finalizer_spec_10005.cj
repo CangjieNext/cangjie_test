@@ -16,5 +16,5 @@ class SomeType5 {
         GlobalVar = this
     }
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_use_this_as_an_expression_in_func
