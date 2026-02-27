@@ -1,0 +1,83 @@
+{
+  "bin": {},
+  "pkg-build": {
+    "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\organization\\build_001\\src\\pkgC": {
+      "package": "huawei::test.pkgC",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1761883330,
+      "dependencies": [
+        {
+          "orPackage": "",
+          "package": "huawei::test.pkgB",
+          "isStd": false,
+          "imports": [
+            {
+              "file": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\organization\\build_001\\src\\pkgC\\pkgC.cj"
+            }
+          ]
+        }
+      ],
+      "std-dependencies": [],
+      "features": [],
+      "testUsed": false,
+      "mockUsed": false
+    },
+    "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\organization\\build_001\\src\\pkgA": {
+      "package": "huawei::test.pkgA",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1761883330,
+      "dependencies": [],
+      "std-dependencies": [],
+      "features": [],
+      "testUsed": false,
+      "mockUsed": false
+    },
+    "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\organization\\build_001\\src\\pkgB": {
+      "package": "huawei::test.pkgB",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1761883330,
+      "dependencies": [
+        {
+          "orPackage": "",
+          "package": "huawei::test.pkgA",
+          "isStd": false,
+          "imports": [
+            {
+              "file": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\organization\\build_001\\src\\pkgB\\pkgB.cj"
+            }
+          ]
+        }
+      ],
+      "std-dependencies": [],
+      "features": [],
+      "testUsed": false,
+      "mockUsed": false
+    },
+    "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\organization\\build_001\\src": {
+      "package": "huawei::test",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1761883330,
+      "dependencies": [
+        {
+          "orPackage": "",
+          "package": "huawei::test.pkgC",
+          "isStd": false,
+          "imports": [
+            {
+              "file": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\organization\\build_001\\src\\main.cj"
+            }
+          ]
+        }
+      ],
+      "std-dependencies": [],
+      "features": [],
+      "testUsed": false,
+      "mockUsed": false
+    }
+  },
+  "pkg-test": {}
+}
