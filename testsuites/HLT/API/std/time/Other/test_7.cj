@@ -6,24 +6,20 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
-// EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC: %run %run_opt %output %run_args | compare %f
-
-/* SCAN
-February
-December
-February
-December*/
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.time.*
 import std.math.*
 
-main(): Int64 {
-    println(Month.of(1) + 1)
-    println(Month.of(1) + (-1))
-    println(Month.of(1) - (-1))
-    println(Month.of(1) - 1)
-
-    return 0
+@Test
+class Test_7 {
+    @TestCase
+    func testCase0(): Unit {
+        @Expect(Month.of(1) + 1, Month.February)
+        @Expect(Month.of(1) + (-1), Month.December)
+        @Expect(Month.of(1) - (-1), Month.February)
+        @Expect(Month.of(1) - 1, Month.December)
+    }
 }
