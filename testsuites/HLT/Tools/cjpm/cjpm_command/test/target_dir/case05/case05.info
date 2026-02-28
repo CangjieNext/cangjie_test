@@ -8,5 +8,5 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC-PIPE-0: cd %n && %run cjpm test --target-dir=./temp_target_0 -V 2>&1 | compare %f
+// EXEC-PIPE-0: cd %n && %run %cjpm test --target-dir=./temp_target_0 -V 2>&1 | compare %f
 // ASSERT: regex -o .*temp_target_0[/|\\]release[/|\\]unittest_bin[/|\\]

@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC-PIPE-1: cd %n && %cjpm check 2>&1 | compare %f
-// ASSERT: regex the 'output-type' field in .[/|\\]cjpm.toml is wrong, optional value are 'static[/|\\]dynamic[/|\\]executable'
+// ASSERT: regex the 'output-type' field in 'package' field at .[/|\\]cjpm.toml is wrong, optional value are 'static[/|\\]dynamic[/|\\]executable'

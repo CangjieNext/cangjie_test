@@ -1,12 +1,12 @@
 # Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 # This source file is part of the Cangjie project, licensed under Apache-2.0
 # with Runtime Library Exception.
-# 
+#
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [dependencies]
-  b2 = {path = "../b2", version = "1.0.0"}
-  b3 = {path = "../b3", version = "1.0.0"}
+  b2 = {path = "../b2"}
+  b3 = {path = "../b3"}
 
 [package]
   cjc-version = "0.25.3"

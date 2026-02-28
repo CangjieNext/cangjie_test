@@ -8,5 +8,5 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %run cjpm test -V 2>&1 | compare %f
+// EXEC: cd %n && %run %cjpm test -V 2>&1 | compare %f
 // ASSERT: regex target[/|\\]release[/|\\]unittest_bin

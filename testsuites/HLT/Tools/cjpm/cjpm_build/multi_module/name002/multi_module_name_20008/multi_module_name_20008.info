@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // ERRCHECK:cd %n && %cjpm build %cjpm_opt
-// ASSERT: regex Error: the 'name' field in 'dependencies' field at .*cjpm.toml can't be empty
+// ASSERT: regex Error: the name of dependency in 'dependencies' field at .*cjpm.toml can't be empty

@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC-PIPE-1: cd %n && %cjpm check 2>&1 | compare %f
-// ASSERT: regex the 'cjc-version' field in .[/|\\]cjpm.toml can't be empty
+// ASSERT: regex the 'cjc-version' field in 'package' field at .[/|\\]cjpm.toml can't be empty

@@ -49,4 +49,9 @@
       path-option = []
       package-option = {xoo = "$DIR/xoo.cjo"}
 
+  [target.aarch64-linux-ohos]
+    [target.aarch64-linux-ohos.bin-dependencies]
+      path-option = []
+      package-option = {xoo = "$DIR/xoo.cjo"}
+
   aarch64-hm-gnu = {compile-option = "-B/opt/RTOS_V2X/301.1.0/arm64le_hm_pro/bin -B/opt/RTOS_V2X/301.1.0/arm64le_hm_pro/sdk/usr/lib -L/opt/RTOS_V2X/301.1.0/arm64le_hm_pro/gnu64/aarch64-hongmeng-musl/lib64"}
