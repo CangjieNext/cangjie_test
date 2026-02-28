@@ -792,3 +792,8 @@ API/std/reflect/cjnative/enum_type/test_org_name.cj
 API/compress/ParamCheck/test_archive_param_check.cj
 API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
 API/std/ast/API/Expr/Parse/047MacroDecl/expr_parser_04704n.cj
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/309
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10001/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10006/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10020/g_nam_01_10020.info

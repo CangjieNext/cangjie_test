@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // ERRCHECK:cd %n && %cjpm update
-// ASSERT: regex the 'version' field in .[/|\\]cjpm.toml can't be empty
+// ASSERT: regex the 'version' field in 'package' field at .[/|\\]cjpm.toml can't be empty

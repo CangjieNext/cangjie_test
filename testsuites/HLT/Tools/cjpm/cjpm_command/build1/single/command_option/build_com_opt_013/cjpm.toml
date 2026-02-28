@@ -48,3 +48,8 @@
     [target.aarch64-apple-darwin.bin-dependencies]
       path-option = []
       package-option = {pro1 = "pp/pro1/pro1.cjo"}
+
+   [target.aarch64-linux-ohos]
+    [target.aarch64-linux-ohos.bin-dependencies]
+      path-option = []
+      package-option = {abc = "pp/pro1/pro1.cjo"}
