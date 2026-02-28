@@ -9,7 +9,7 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args | compare %f
-
+// ASSERT: scan []
 import std.core.*
 
 main() {
@@ -17,6 +17,3 @@ main() {
     println(a1.split("d", removeEmpty: true))
     0
 }
-
-/* SCAN
-[]*/
