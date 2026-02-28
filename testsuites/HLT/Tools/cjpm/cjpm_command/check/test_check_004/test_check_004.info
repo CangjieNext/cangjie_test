@@ -9,4 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC-PIPE-1: cd %n && %cjpm check 2>&1 | compare %f
-// ASSERT: regex the 'name' field 'a￥1' in 'dependencies' field at .[/|\\]cjpm.toml is wrong, the example is 'cjDemo'
+// ASSERT: regex the name of dependency 'a￥1' in 'dependencies' field at .[/|\\]cjpm.toml is wrong, the example is 'cjDemo'

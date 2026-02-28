@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // ERRCHECK:cd %n && %cjpm build %cjpm_opt
-// ASSERT: regex Error: the 'name' field '`_1_AZ___123`' in 'dependencies' field at .*cjpm.toml is wrong, the example is 'cjDemo'
+// ASSERT: regex Error: the name of dependency '`_1_AZ___123`' in 'dependencies' field at .*cjpm.toml is wrong, the example is 'cjDemo'

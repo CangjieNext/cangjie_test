@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not Windows)EXEC-PIPE: cd %n && cjpm build && str=`grep -r "\"output-type\": \"static\"" target/.cjpm-history` && if [ -n "$str" ]; then echo "pass";fi | compare %f
-// (Windows) EXEC-PIPE: cd %n && cjpm build && set str="findstr static target/.cjpm-history" && if %str% neq ""( echo pass ) | compare %f
+// (not Windows)EXEC-PIPE: cd %n && %cjpm build && str=`grep -r "\"output-type\": \"static\"" target/.cjpm-history` && if [ -n "$str" ]; then echo "pass";fi | compare %f
+// (Windows) EXEC-PIPE: cd %n && %cjpm build && set str="findstr static target/.cjpm-history" && if %str% neq ""( echo pass ) | compare %f
 // ASSERT: scan pass

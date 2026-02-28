@@ -19,7 +19,7 @@
   package-configuration = {}
 
 [target.x86_64-w64-mingw32]
-  compile-option = "-O0"
+  compile-option = "-O1"
 
 [target.cjvm.dependencies]
   compile-option = "-O1"
