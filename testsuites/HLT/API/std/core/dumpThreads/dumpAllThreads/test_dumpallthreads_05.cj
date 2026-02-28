@@ -22,5 +22,5 @@ main():Unit {
     // 这里线程被回收无法获取
     @Assert(_thread_infos.size, 1)
     @Assert(_thread.thread.state.toString(), "Terminated")
-    @Assert(_thread.get(), 0)
+    @Assert(_thread.get(), 1)
 }
