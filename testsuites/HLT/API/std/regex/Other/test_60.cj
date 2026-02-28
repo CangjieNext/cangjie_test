@@ -11,6 +11,11 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
 // EXEC: %compiler %cmp_opt asan.%middle %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+// ASSERT: scan res is testabc2abc3abc4abc5
+// ASSERT: scan res is testtestabc3abc4abc5
+// ASSERT: scan res is testtesttestabc4abc5
+// ASSERT: scan res is testtesttesttestabc5
+// ASSERT: scan res is abc1abc2testabc4abc5
 
 import asan.*
 import std.regex.*
@@ -37,10 +42,3 @@ main(): Int64 {
     asanGC()
     return 0
 }
-
-/* SCAN
-res is testabc2abc3abc4abc5
-res is testtestabc3abc4abc5
-res is testtesttestabc4abc5
-res is testtesttesttestabc5
-res is abc1abc2testabc4abc5*/
