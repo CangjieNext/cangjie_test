@@ -5,7 +5,7 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [dependencies]
-  a33 = {path = "../a33", version = "1.0.0"}
+  a33 = {path = "../a33"}
 
 [package]
   cjc-version = "0.25.3"

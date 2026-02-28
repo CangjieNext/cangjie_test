@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm tree 2>&1 | compare %f
+// ASSERT: scan org2::test
+// ASSERT: scan org2::pro0.zoo
+// ASSERT: scan org2::test.aoo
+// ASSERT: scan org2::test.boo
+// ASSERT: scan pro1.xoo
+// ASSERT: scan pro1.yoo
+// ASSERT: scan pro1
+// ASSERT: scan org2::pro0
+// ASSERT: scan cjpm tree success

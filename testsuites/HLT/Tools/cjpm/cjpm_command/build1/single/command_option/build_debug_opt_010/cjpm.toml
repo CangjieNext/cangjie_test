@@ -5,8 +5,8 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [dependencies]
-  m1 = {path = "./m1", version = "1.0.0"}
-  m2 = {path = "./m2", version = "1.0.0"}
+  m1 = {path = "./m1"}
+  m2 = {path = "./m2"}
 
 [package]
   cjc-version = "0.27.2"

@@ -1,2 +1,2 @@
-// ASSERT: regex Error: the customized key 'cfg 1' in .[/|\\]cjpm.toml is wrong, the example is 'cfg_1'
+// ASSERT: regex Error: the customized key 'cfg 1' in 'package' field at .[/|\\]cjpm.toml is wrong, the example is 'cfg_1'
 // ASSERT: scan-1 Error: cjpm test failed
