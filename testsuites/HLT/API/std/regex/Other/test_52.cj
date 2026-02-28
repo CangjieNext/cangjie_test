@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -11,6 +11,11 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
 // EXEC: %compiler %cmp_opt asan.%middle %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args | compare %f
+// ASSERT: scan res is 1
+// ASSERT: scan res is +1
+// ASSERT: scan res is -1.1
+// ASSERT: scan res is 0.12
+// ASSERT: scan res is +9
 
 import asan.*
 import std.regex.*
@@ -27,10 +32,3 @@ main(): Int64 {
     asanGC()
     return 0
 }
-
-/* SCAN
-res is 1
-res is +1
-res is -1.1
-res is 0.12
-res is +9*/

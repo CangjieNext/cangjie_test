@@ -7,11 +7,12 @@
  */
 
 // LEVEL: 0
-// (not Windows) EXEC-PIPE: rm -rf dir;mkdir dir
-// (Windows) EXEC-PIPE: mkdir dir
-// EXEC-PIPE: %compiler %cmp_opt %compile_dylib_opt %f --output-dir ./dir
-// (CJNATIVE) EXEC-PIPE: %ls dir/lib%n.%test_suffix dir/default.cjo
-// (not CJNATIVE) EXEC-PIPE: %ls dir/%n.%dylib_suffix dir/default.cjo
+// EXEC: %mkdir dir
+// EXEC: %compiler %cmp_opt %compile_dylib_opt %f --output-dir ./dir
+// (!host_win) EXEC: test -f dir/lib%n.%test_suffix
+// (!host_win) EXEC: test -f dir/default.cjo
+// (host_win) EXEC: if exist dir/lib%n.%test_suffix (exit 0) else (exit 1)
+// (host_win) EXEC: if exist dir/default.cjo (exit 0) else (exit 1)
 
 func test() {
     return 0

@@ -9,40 +9,23 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args | compare %f
+// ASSERT: scan [a, b, c]
+// ASSERT: scan [a, w, c]
+// ASSERT: scan [ , ., \]
+// ASSERT: scan []
+// ASSERT: scan [a, 3]
 
 import std.core.*
+import std.collection.*
 
-main() {
+main(): Unit {
     var a = "abc"
-    for (i in a.runes()) {
-        print(i)
-    }
-    println()
+    println(a.runes() |> collectArray)
     var a1 = String([r'a', r'\u{77}', r'c'])
-    for (i in a1.runes()) {
-        print(i)
-    }
-    println()
+    println(a1.runes() |> collectArray)
     var a2 = String([r' ', r'.', r'\\'])
-    for (i in a2.runes()) {
-        print(i)
-    }
-    println()
+    println(a2.runes() |> collectArray)
     var a3 = ""
-    for (i in a3.runes()) {
-        print(i)
-    }
-
-    println()
-    for (i in "a3".runes()) {
-        print(i)
-    }
-    0
+    println(a3.runes() |> collectArray)
+    println("a3".runes() |> collectArray)
 }
-
-/* SCAN
-abc
-awc
- .\
-
-a3*/
