@@ -9,7 +9,11 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC: cd %n/devDep && git init && git add . && git -c user.name='name' -c user.email='' commit -am "foo"
-// EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm test -V src && %ls target/release 2>&1 | compare %f
-// EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm check 2>&1 | compare check_result.txt
-// EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm tree 2>&1 | compare tree_result.txt
+// (MAC)EXEC: cd %n && %git_dir_prefix%n && %git_dir_suffix %cjpm test -V src && %ls target/release 2>&1 | compare %f
+// (MAC)EXEC: cd %n && %git_dir_prefix%n && %git_dir_suffix %cjpm check 2>&1 | compare check_result.txt
+// (MAC)EXEC: cd %n && %git_dir_prefix%n && %git_dir_suffix %cjpm tree 2>&1 | compare tree_result.txt
+
+// (not MAC)EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm test -V src && %ls target/release 2>&1 | compare %f
+// (not MAC)EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm check 2>&1 | compare check_result.txt
+// (not MAC)EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm tree 2>&1 | compare tree_result.txt
 // ASSERT: scan devDep

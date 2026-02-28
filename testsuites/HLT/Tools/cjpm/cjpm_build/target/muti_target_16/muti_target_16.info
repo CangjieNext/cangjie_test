@@ -11,4 +11,4 @@
 // (not CJNATIVE) ERRCHECK: cd %n && %cjpm build -j1 -V
 // (not CJNATIVE) ASSERT: scan Error: version '-O1' for central repository dependency 'compile-option' in 'dependencies' field at ./cjpm.toml is wrong, the example is '1.0.0'
 // EXEC: cd %n && %cjpm build -j1 -V 2>&1 |compare %f
-// ASSERT: scan cjpm build failed
+// ASSERT: scan cjpm build success

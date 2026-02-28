@@ -8,6 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n/pro2 && git init && git add . && git -c user.name='test' commit -am "foo" && cd .. && %git_dir_prefix%n%git_dir_suffix %cjpm build %cjpm_opt 2>&1 | compare %f
+// (MAC)EXEC: cd %n/pro2 && git init && git add . && git -c user.name='test' commit -am "foo" && cd .. && %git_dir_prefix%n && %git_dir_suffix %cjpm build %cjpm_opt 2>&1 | compare %f
+// (not MAC)EXEC: cd %n/pro2 && git init && git add . && git -c user.name='test' commit -am "foo" && cd .. && %git_dir_prefix%n%git_dir_suffix %cjpm build %cjpm_opt 2>&1 | compare %f
 // ASSERT: scan cjpm build success
 

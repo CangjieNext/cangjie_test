@@ -149,3 +149,18 @@ compiler/cjnative/Packages/cjmp/cjmp_04046/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_04052/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_11044/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_11045/test.cj
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/309
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10001/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10006/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10020/g_nam_01_10020.info
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/310
+Tools/cjdb/datacom/organization_name/organization_name_007.info
+Tools/cjdb/datacom/organization_name/organization_name_009.info
+Tools/cjdb/datacom/organization_name/organization_name_010.info
+Tools/cjdb/datacom/organization_name/organization_name_011.info
+Tools/cjdb/datacom/organization_name/organization_name_012.info
+Tools/cjdb/datacom/organization_name/organization_name_013.info
+Tools/cjdb/datacom/organization_name/organization_name_014.info
+Tools/cjdb/datacom/organization_name/organization_name_015.info

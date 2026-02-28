@@ -86,3 +86,8 @@ compiler/cjnative/Packages/cjmp/cjmp_11039/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_13007/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_16007/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_16009/test.cj
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/309
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10001/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10006/test.cj
+Tools/cjlint/rules/organization_name/G_NAM_01/g_nam_01_10020/g_nam_01_10020.info

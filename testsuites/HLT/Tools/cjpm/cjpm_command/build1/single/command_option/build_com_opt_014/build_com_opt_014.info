@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC-PIPE: cd %n && cjpm build && ls target/release/test/ 2>&1 | compare %f
+// EXEC-PIPE: cd %n && %cjpm build && ls target/release/test/ 2>&1 | compare %f
 // (CJNATIVE) ASSERT: regex libtest.[so|dll]
 // (not CJNATIVE) ASSERT: scan test.cbc

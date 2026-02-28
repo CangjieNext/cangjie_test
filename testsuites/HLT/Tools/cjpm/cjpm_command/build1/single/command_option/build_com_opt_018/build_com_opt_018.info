@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC-PIPE-1: cd %n && cjpm build 2>&1 | compare %f
+// EXEC-PIPE-1: cd %n && %cjpm build 2>&1 | compare %f
 // ASSERT: regex m1[/|\\]cjpm.toml is wrong, optional value are 'static[/|\\]dynamic[/|\\]executable'
 // ASSERT: regex m2[/|\\]cjpm.toml is wrong, optional value are 'static[/|\\]dynamic[/|\\]executable'
