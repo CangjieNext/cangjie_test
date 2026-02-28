@@ -6,10 +6,10 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// (CJNATIVE and not OHOS) LEVEL: 1
-// (CJNATIVE and not OHOS) DEPENDENCE: CMakeLists.txt, ./src
-// (CJNATIVE and not OHOS) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
-// (CJNATIVE and not OHOS) EXEC: %compiler %cmp_opt %f --plugin=./output/libplugin1.%dylib_suffix -o %output
+// LEVEL: 1
+// (!target_ohos) DEPENDENCE: CMakeLists.txt, ./src
+// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
+// (!target_ohos) EXEC: %compiler %cmp_opt %f --plugin=./output/libplugin1.%host_dylib_suffix -o %output
 
 package a.b.c
 
