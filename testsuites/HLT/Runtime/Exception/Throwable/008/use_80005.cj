@@ -11,9 +11,9 @@ package use
 
 import define.*
 
-var b = print("b!")
+var b = print("b global init")
 
 main() {
-    print("success")
+    print("main func")
     0
 }

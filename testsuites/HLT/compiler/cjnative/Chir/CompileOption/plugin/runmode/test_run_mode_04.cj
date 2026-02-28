@@ -6,12 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// (CJNATIVE and not OHOS) LEVEL: 2
-// (CJNATIVE and not OHOS) DEPENDENCE: ../runplugin/plugin1, ../runplugin/plugin3
-// (CJNATIVE and not OHOS) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin1/build && cd plugin1/build && cmake .. && make clean && make && make install
-// (CJNATIVE and not OHOS) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin3/build && cd plugin3/build && cmake .. && make clean && make && make install
-// (CJNATIVE and not OHOS) EXEC-PIPE-1: %compiler %cmp_opt %f --plugin=./plugin1/output/libplugin1.%dylib_suffix --plugin=./plugin3/output/libplugin3.%dylib_suffix -o %output 2>&1 | compare %f
-// (CJNATIVE and not OHOS) ASSERT: scan not_a_valid_plugin
+// LEVEL: 2
+// (!target_ohos) DEPENDENCE: ../runplugin/plugin1, ../runplugin/plugin3
+// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin1/build && cd plugin1/build && cmake .. && make clean && make && make install
+// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin3/build && cd plugin3/build && cmake .. && make clean && make && make install
+// (!target_ohos) EXEC-PIPE-1: %compiler %cmp_opt %f --plugin=./plugin1/output/libplugin1.%host_dylib_suffix --plugin=./plugin3/output/libplugin3.%host_dylib_suffix -o %output 2>&1 | compare %f
+// (!target_ohos) ASSERT: scan not_a_valid_plugin
 
 /*
     description：含有非法插件会导致直接编译报错
