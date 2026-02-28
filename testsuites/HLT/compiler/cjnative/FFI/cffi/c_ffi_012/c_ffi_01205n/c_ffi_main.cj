@@ -7,19 +7,15 @@
  */
 
 // LEVEL:2
-// DEPENDENCE: pkg cfg.json cfg-main.json c_ffi.c
-// (not Windows) EXEC: %clang %clang_opt c_ffi.c -o libc_ffi.%test_suffix
-// (not Windows) EXEC: %sed %sed_opt "s!cangjieCFFI_path!%cstring_cjo!g" cfg.json
-// (not Windows) EXEC: %sed %sed_opt "s!cangjieCFFI_path!%cstring_cjo!g" cfg-main.json
-// ((OHOS or not MAC) and not Windows) EXEC: %compiler %cmp_opt %pkg_compile pkg/pkg.cj -o libpkg.%test_suffix
-// ((OHOS or not MAC) and not Windows) ERRCHECK: %compiler %cmp_opt %f %pkg_link -o %output --dy-std
-// ((OHOS or not MAC) and not Windows) ASSERT: scan undefined reference
-// (not OHOS and MAC) ERRCHECK: %compiler %cmp_opt %pkg_compile pkg/pkg.cj -o libpkg.%test_suffix
-// (not OHOS and MAC) ASSERT: scan undefined symbol
-// (not CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %pkg_compile pkg/pkg.cj -o libpkg.cbc
-// (not CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %f libpkg.pdba -o %output
-// (not CJNATIVE and not Windows) RUN-ERRCHECK: %set LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH && %run --cbc-path . %output %run_args
-// (not CJNATIVE and not Windows) ASSERT: scan Unsatisfied link: pkg.testfunc
+// DEPENDENCE: pkg c_ffi.c
+// (!host_win) EXEC: %clang %clang_opt c_ffi.c -o libc_ffi.%test_suffix
+// (!(host_win | host_mac)) EXEC: %compiler %cmp_opt --output-type=dylib -L. -lc_ffi pkg/pkg.cj -o libpkg.%test_suffix
+// (!(host_win | host_mac)) EXEC-PIPE-1: %compiler %cmp_opt %f -L. -lc_ffi -lpkg -o %output --dy-std 2>&1 | compare %f
+// (host_mac) EXEC-PIPE-1: %compiler %cmp_opt --output-type=dylib -L. -lc_ffi pkg/pkg.cj -o libpkg.%test_suffix 2>&1 | compare %f
+
+// (!(host_win | host_mac)) ASSERT: scan undefined reference
+// (host_mac) ASSERT: scan undefined symbol
+// (!host_win) ASSERT: regex-not no position error occurred
 
 import pkg.*
 
@@ -30,4 +26,3 @@ unsafe main(): Int64 {
     }
     return 0
 }
-// (not Windows) ASSERT: regex-not no position error occurred
