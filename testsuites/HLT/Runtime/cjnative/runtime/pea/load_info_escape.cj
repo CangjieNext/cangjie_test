@@ -21,7 +21,7 @@ var shouldLog = true
 var blackBox: Int64 = 0
 var N = 8
 
-main(args: Array<String>): Unit {
+main(): Unit {
     measureObject(N)
 }
 

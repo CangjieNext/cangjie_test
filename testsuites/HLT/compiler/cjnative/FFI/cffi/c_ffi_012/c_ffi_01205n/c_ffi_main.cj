@@ -7,19 +7,32 @@
  */
 
 // LEVEL:2
-// DEPENDENCE: pkg cfg.json cfg-main.json c_ffi.c
-// (not Windows) EXEC: %clang %clang_opt c_ffi.c -o libc_ffi.%test_suffix
-// (not Windows) EXEC: %sed %sed_opt "s!cangjieCFFI_path!%cstring_cjo!g" cfg.json
-// (not Windows) EXEC: %sed %sed_opt "s!cangjieCFFI_path!%cstring_cjo!g" cfg-main.json
-// ((OHOS or not MAC) and not Windows) EXEC: %compiler %cmp_opt %pkg_compile pkg/pkg.cj -o libpkg.%test_suffix
-// ((OHOS or not MAC) and not Windows) ERRCHECK: %compiler %cmp_opt %f %pkg_link -o %output --dy-std
-// ((OHOS or not MAC) and not Windows) ASSERT: scan undefined reference
-// (not OHOS and MAC) ERRCHECK: %compiler %cmp_opt %pkg_compile pkg/pkg.cj -o libpkg.%test_suffix
-// (not OHOS and MAC) ASSERT: scan undefined symbol
-// (not CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %pkg_compile pkg/pkg.cj -o libpkg.cbc
-// (not CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %f libpkg.pdba -o %output
-// (not CJNATIVE and not Windows) RUN-ERRCHECK: %set LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH && %run --cbc-path . %output %run_args
-// (not CJNATIVE and not Windows) ASSERT: scan Unsatisfied link: pkg.testfunc
+// DEPENDENCE: pkg c_ffi.c
+
+// build c library.
+// (host_mac) EXEC: %clang %clang_opt c_ffi.c -o libc_ffi.%test_suffix
+// (host_linux) EXEC: %clang %clang_opt c_ffi.c -o libc_ffi.%test_suffix
+// (host_win) EXEC: %clang %clang_opt c_ffi.c -o libc_ffi.%test_suffix
+
+// build pkg library, linking c library.
+// it would succeed for host_mac target_android
+// (host_mac & target_android) EXEC: %compiler %cmp_opt %compile_dylib_opt -L. -lc_ffi pkg/pkg.cj -o libpkg.%test_suffix
+// (host_linux & target_android) EXEC: %compiler %cmp_opt %compile_dylib_opt -L. -lc_ffi pkg/pkg.cj -o libpkg.%test_suffix
+
+// it would fail for host_mac target_mac
+// (host_mac & target_mac) EXEC-PIPE-1: %compiler %cmp_opt %compile_dylib_opt -L. -lc_ffi pkg/pkg.cj -o libpkg.%test_suffix 2>&1 | compare %f
+// (host_mac & target_mac) ASSERT: scan undefined symbol: _testfunc
+
+// (host_linux & target_linux) EXEC: %compiler %cmp_opt %compile_dylib_opt -L. -lc_ffi pkg/pkg.cj -o libpkg.%test_suffix
+
+// build main executable, linking both c library & pkg library.
+// it would fail for host_mac target_android.
+// (host_mac & target_android) EXEC-PIPE-1: %compiler %cmp_opt -L. -lc_ffi -lpkg %f -o %output --dy-std 2>&1 | compare %f
+// (host_linux & target_linux) EXEC-PIPE-1: %compiler %cmp_opt -L. -lc_ffi -lpkg %f -o %output --dy-std 2>&1 | compare %f
+// (host_linux & target_linux) ASSERT: scan undefined reference to `testfunc'
+
+// (host_mac & target_android) ASSERT: scan undefined reference due to --no-allow-shlib-undefined: testfunc
+// ASSERT: regex-not no position error occurred
 
 import pkg.*
 
@@ -30,4 +43,3 @@ unsafe main(): Int64 {
     }
     return 0
 }
-// (not Windows) ASSERT: regex-not no position error occurred

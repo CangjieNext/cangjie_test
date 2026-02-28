@@ -6,9 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0 EXCLUDE DTS2025091609699
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f %cmp_utest_opt -o %output
-// (CJNATIVE) EXEC: %run %run_opt %output %run_utest_opt %run_args
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 package testsuite_mock
 
