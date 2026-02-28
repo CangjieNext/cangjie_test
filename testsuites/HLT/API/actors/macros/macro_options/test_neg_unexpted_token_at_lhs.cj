@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// RUN-EXEC-PIPE-1: %compiler %import-cangjie-stdx %cmp_opt %stdx-package %f -o %output %cmp_utest_opt 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %import-cangjie-stdx %cmp_opt %stdx-package %f -o %output %cmp_utest_opt 2>&1 | compare %f
 
 import stdx.actors.*
 import stdx.actors.macros.*
