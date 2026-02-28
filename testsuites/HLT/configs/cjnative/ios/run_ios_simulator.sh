@@ -64,6 +64,7 @@ rm -f ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
 cp libcangjie_main.a ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
 
 ret=255
+echo "ENABLE? = $IOS_LOG_STDOUT"
 if [ -z ${XCODE_DEVICE_UDID_OF_CANGJIE_IOS_TEST} ]; then
     if [ -z "${XCODE_SIMULATOR_NAME_OF_CANGJIE_IOS_TEST}" ]; then
         XCODE_SIMULATOR_NAME_OF_CANGJIE_IOS_TEST="iPhone 15"
