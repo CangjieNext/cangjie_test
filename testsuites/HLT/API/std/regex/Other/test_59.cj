@@ -11,13 +11,11 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
 // EXEC: %compiler %cmp_opt asan.%middle %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args | compare %f
-
-/* SCAN
-res is abc1
-res is abc2
-res is abc3
-res is abc1
-res is abc3*/
+// ASSERT: scan res is abc1
+// ASSERT: scan res is abc2
+// ASSERT: scan res is abc3
+// ASSERT: scan res is abc1
+// ASSERT: scan res is abc3
 
 import std.regex.*
 import asan.*
