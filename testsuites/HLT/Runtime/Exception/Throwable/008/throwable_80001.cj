@@ -11,7 +11,8 @@
 // EXEC: %compiler %cmp_opt %f %compile_lib_opt -o define.%middle
 // EXEC: %compiler %cmp_opt use_80001.cj define.%middle -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan An exception has occurred
+// (!(target_ios | target_ios_simulator)) ASSERT: scan An exception has occurred
+// (target_ios | target_ios_simulator) ASSERT: scan exception:define:A
 // (not O2) ASSERT: scan throwable_80001.cj:22
 
 package define

@@ -8,7 +8,7 @@
  
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %stdx-library-path %link-eh %f -o %output
-// RUN-ERRCHECK: %run_stdx %output %run_args
+// RUN-EXEC-PIPE-1: %run_stdx %output %run_args 2>&1 | compare %f
 // ASSERT: scan UnhandledCommand: Unhandled command
 
 import stdx.effect.*
