@@ -7,8 +7,8 @@
  */
 
 // LEVEL:2
-// EXEC: %compiler %cmp_opt %f -o %n.%suffix
-// RUN-EXEC-PIPE: %run %run_opt %n.%suffix 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output 2>&1 | compare %f
 // ASSERT: scan 10, 20
 
 @C
