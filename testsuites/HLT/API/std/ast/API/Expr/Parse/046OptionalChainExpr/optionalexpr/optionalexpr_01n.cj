@@ -8,8 +8,11 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-ERRCHECK: %run %run_opt %output %run_args
-// ASSERT: regex error.*expected expression after \'\?\', found \'<EOF>\'
+// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// (!target_ios_simulator) ASSERT: regex error.*expected expression after \'\?\', found \'<EOF>\'
+// (target_ios_simulator) EXEC: %cat ios_sim.log | compare %f
+// (target_ios_simulator) ASSERT: scan ParseASTException
+
 import std.ast.*
 
 let opTokens = quote(a?.b?)
