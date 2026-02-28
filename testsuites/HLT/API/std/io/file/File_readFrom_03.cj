@@ -12,15 +12,18 @@
 
 import std.io.*
 import std.fs.*
+import std.env.*
+import std.unittest.*
+import std.unittest.common.*
+import std.unittest.testmacro.*
 
-main() {
-    var fileName = "./readFrom_no_exit_12.txt"
-    try {
-        var dataArray = File.readFrom(fileName)
-    } catch (e: FSException) {
-        if (e.toString() != "FSException: The file does not exist or permission denied!") {
-            return 1
-        }
+@Test
+class File_readFrom_03 {
+    @TestCase
+    func testCase0(): Unit {
+        let fileName = "./readFrom_no_exit_12.txt"
+        let filePath = getWorkingDirectory().join(fileName)
+        let e = @AssertThrows[FSException](File.readFrom(fileName))
+        @Assert(e.toString(), "FSException: The file `${filePath}` does not exist or permission denied!")
     }
-    return 0
 }
