@@ -9,8 +9,8 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args | compare %f
-// ASSERT: scan 15263
-// ASSERT: scan-not 4
+// ASSERT: scan test1test5test2test6test3
+// ASSERT: scan-not test4
 
 func test() {
     try {
@@ -19,30 +19,30 @@ func test() {
         } catch (_) {
             throw Exception()
         } finally {
-            print(1);
+            print("test1");
             return 1
         }
     } catch (_) {
-        print(5)
+        print("test5")
         try {
             throw Exception()
         } catch (_) {
             throw Exception()
         } finally {
-            print(2);
+            print("test2");
             return 5
         }
     } finally {
-        print(6)
+        print("test6")
         try {
             throw Exception()
         } catch (_) {
             throw Exception()
         } finally {
-            print(3);
+            print("test3");
             return 10
         }
-        print(4);
+        print("test4");
     }
 }
 

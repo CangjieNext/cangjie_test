@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE: %export TMP=test_tmp&& %export TMPDIR=test_tmpdir&& %export TEMP=test_temp&& %export TEMPDIR=test_tempdir&& mkdir -p test_tmpdir test_temp test_tempdir && %run %run_opt %output %run_args | compare %f
+// (not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (not iOS) RUN-EXEC-PIPE: %export TMP=test_tmp&& %export TMPDIR=test_tmpdir&& %export TEMP=test_temp&& %export TEMPDIR=test_tempdir&& mkdir -p test_tmpdir test_temp test_tempdir && %run %run_opt %output %run_args | compare %f
 // ASSERT: scan pass
 
 import std.process.*

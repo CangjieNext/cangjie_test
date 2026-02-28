@@ -8,5 +8,5 @@
  
 // LEVEL: 1
 // DEPENDENCE: test.toml
-// (iOS) ERRCHECK: %mirror_gen test.toml
+// (iOSNative) ERRCHECK: %mirror_gen test.toml
 // ASSERT: scan unescaped control characters other than TAB (U+0009) are explicitly prohibited

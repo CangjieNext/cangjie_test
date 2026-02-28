@@ -16,7 +16,7 @@
  */
 
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output
-// RUN-EXEC: %run_stdx %n.%suffix %run_args
+// RUN-EXEC: %run_stdx %output %run_args
 
 import std.io.*
 import stdx.net.http.*

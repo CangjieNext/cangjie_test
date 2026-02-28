@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args 
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args 
 
 import std.fs.*
 
@@ -24,7 +24,7 @@ class Test_HardLink {
     func create_illegal_02() {
         File.create("./tempfile").close()
         let e = @AssertThrows[IllegalArgumentException](HardLink.create("temp", to: "./tempfile\0"))
-        @Expect(e.message.contains("contains null character"))
+        @Expect(e.message, "The input path 'to' value [46, 47, 116, 101, 109, 112, 102, 105, 108, 101, 0] contains null character.")
         remove("./tempfile")
     }
 

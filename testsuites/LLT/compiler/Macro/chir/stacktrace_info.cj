@@ -23,4 +23,4 @@ main() {
 
 // the line number at the top of stacktrace should be 16, not 14
 
-// ASSERT: regex at default.foo().*stacktrace_info.cj:16
+// ASSERT: regex at default::foo().*stacktrace_info.cj:16

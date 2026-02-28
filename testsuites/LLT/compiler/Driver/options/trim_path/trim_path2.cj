@@ -6,8 +6,8 @@
 
 // EXEC: %compiler %cmp_opt %trimpath_opt %pwd %f -o %output
 // EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-//  ASSERT: scan at default.main()(trim_path2.cj:13)
-// (not CJNATIVE) ASSERT: scan at default.main(trim_path2.cj:13)
+//  ASSERT: scan at default::main()(trim_path2.cj:13)
+// (not CJNATIVE) ASSERT: scan at default::main(trim_path2.cj:13)
 
 main() {
     throw Exception()

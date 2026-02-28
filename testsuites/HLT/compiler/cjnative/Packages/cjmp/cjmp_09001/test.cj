@@ -13,11 +13,8 @@
 // EXEC: %compiler %cmp_opt %f %link_cjmp -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-
 import mp.*
 
 main() {
     return A<Int64>().f(0)
 }
-
-

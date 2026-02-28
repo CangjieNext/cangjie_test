@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: %n.c
-// (not Windows) EXEC: %clang -c %clang_opt %n.c -o lib%n.c.cfile.%dylib_suffix
+// (not Windows) EXEC: %clang -c %clang_opt %n.c -o lib%n.c.cfile.%cffi_suffix
 // (not Windows) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt %overflow_wrapping -o %output
 // (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 /* SCAN-IN
@@ -48,15 +48,17 @@ struct SmallFloatStruct {
     }
 }
 
-unsafe main() {
-    var aaa: SmallStruct = SmallStruct(1, 2)
-    var bbb = PassStructToC_6S(aaa)
-    println(bbb.x.toString())
-    println(bbb.y.toString())
+main() {
+    unsafe {
+        var aaa: SmallStruct = SmallStruct(1, 2)
+        var bbb = PassStructToC_6S(aaa)
+        println(bbb.x.toString())
+        println(bbb.y.toString())
 
-    var ccc: SmallFloatStruct = SmallFloatStruct(1.0, 2.0)
-    var ddd = PassFloatStructToC_6S(ccc)
-    println(ddd.x.toString())
-    println(ddd.y.toString())
-    return 0
+        var ccc: SmallFloatStruct = SmallFloatStruct(1.0, 2.0)
+        var ddd = PassFloatStructToC_6S(ccc)
+        println(ddd.x.toString())
+        println(ddd.y.toString())
+        return 0
+    }
 }

@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt -o %output %f
-// RUN-EXEC-PIPE-0: echo 仓颉test > input.txt && %run %run_opt %output %run_args < input.txt 2>&1 | compare %f
+// (not iOS) RUN-EXEC-PIPE-0: echo 仓颉test > input.txt && %run %run_opt %output %run_args < input.txt 2>&1 | compare %f
 // (not Windows or OHOS)ASSERT: scan Some(仓颉test)
 // (Windows and not OHOS)ASSERT: scan Some(仓颉test  )
 import std.console.*

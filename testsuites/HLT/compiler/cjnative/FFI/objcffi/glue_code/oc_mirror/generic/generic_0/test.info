@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// Level: 1
+// Description:
+// 测试@ObjCMirror修饰仓颉全局函数定义的场景
+// 一入参class实例，返回类型class实例
+// DEPENDENCE: src test.toml
+// (iOSNative) EXEC: %mirror_gen test.toml
+// (iOSNative and not iOS) EXEC: %clang --shared  -fobjc-arc -framework Foundation -lobjc -Isrc/objc src/objc/G.m -o libdep.dylib
+// (iOSNative and iOS) EXEC: xcrun --sdk iphonesimulator %clang -fobjc-arc -framework Foundation -lobjc -Wl,-install_name,@rpath/libdep.dylib --target=arm64-apple-ios17.0-simulator --sysroot=$(xcrun --show-sdk-path --sdk iphonesimulator) --shared -Isrc/objc src/objc/G.m -o libdep.dylib
+// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc --link-options="-install_name @rpath/libobjc.foundation.dylib" src/objc/foundation/*.cj
+// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc -L . -ldep -lobjc.foundation --link-options="-install_name @rpath/libcjworld.dylib" src/cjworld/*.cj
+// (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
+// (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// (iOSNative) ASSERT: scan-begin cj testGenerics
+// (iOSNative) ASSERT: scan-next mFoo
+// (iOSNative) ASSERT: scan-next printContentType
+// (iOSNative) ASSERT: scan-next mFoo
+// (iOSNative) ASSERT: scan-next testBox
+// (iOSNative) ASSERT: scan-next typecast in oc side success
+// (iOSNative) ASSERT: scan-next mFoo

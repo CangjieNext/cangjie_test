@@ -8,5 +8,10 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
+<<<<<<< HEAD:testsuites/HLT/Tools/cjpm/source_set/005/condition001/condition001.info
 // (CJNATIVE) EXEC: cd %n && %cjpm run 2>&1 | compare %f
 // (CJNATIVE) ASSERT: scan cjpm run finished
+=======
+// EXEC: cd %n && %cjpm run 2>&1 | compare %f
+// ASSERT: scan cjpm run failed
+>>>>>>> upstream/main:testsuites/HLT/Tools/cjpm/source_set/source_set004/source_set_srcdir009/source_set_srcdir009.info

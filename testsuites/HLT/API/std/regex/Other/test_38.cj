@@ -8,9 +8,9 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../asan
-// EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// EXEC: %compiler %cmp_opt asan.%middle %f -o %output
-// RUN-ERRCHECK: %run %run_opt %output %run_args
+// (not iOS) EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
+// (not iOS) EXEC: %compiler %cmp_opt asan.%middle %f -o %output
+// (not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
 // ASSERT: scan NoneValueException
 
 import std.regex.*

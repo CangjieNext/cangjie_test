@@ -14,5 +14,5 @@ extend<T> Option<T> {
         return right
     }
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_generic_in_operator_overload

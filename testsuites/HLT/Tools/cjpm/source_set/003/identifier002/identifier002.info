@@ -8,7 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
+<<<<<<< HEAD:testsuites/HLT/Tools/cjpm/source_set/003/identifier002/identifier002.info
 // (CJNATIVE) EXEC: cd %n && %cjpm run | compare %f
 // (CJNATIVE) ASSERT: scan 0
 // (CJNATIVE) ASSERT: regex I run on [Windows|Linux|Darwin]
 // (CJNATIVE) ASSERT: scan cjpm run finished
+=======
+// EXEC: cd %n && %cjpm run| compare %f
+// ASSERT: scan 0
+// ASSERT: regex I run on [Windows|Linux|Darwin|ohos]
+// ASSERT: scan cjpm run finished
+>>>>>>> upstream/main:testsuites/HLT/Tools/cjpm/source_set/source_set004/source_set_srcdir001/source_set_srcdir001.info

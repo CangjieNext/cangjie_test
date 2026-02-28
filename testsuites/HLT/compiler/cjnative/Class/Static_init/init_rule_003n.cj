@@ -8,7 +8,8 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-ERRCHECK: %run %run_opt %output %run_args
+// (not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
+// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan IndexOutOfBoundsException
 
 class cls {

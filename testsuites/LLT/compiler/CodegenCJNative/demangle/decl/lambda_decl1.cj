@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %f -o %n.%suffix
 // EXEC-PIPE-1: %run %run_opt %n.%suffix 2>&1 | compare %f
-// ASSERT: scan default.foo()
+// ASSERT: scan default::foo()
 func foo() {
     throw Exception("exception")
 }

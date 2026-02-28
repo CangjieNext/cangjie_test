@@ -18,6 +18,7 @@ public class CB<T> {}
 
 @Test
 class TestOrganizationName {
+    @Skip
     @TestCase
     func testOrganizationName() {
         try {

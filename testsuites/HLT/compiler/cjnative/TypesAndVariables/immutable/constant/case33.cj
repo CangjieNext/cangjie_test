@@ -10,16 +10,16 @@
 // ERRCHECK: %compiler %cmp_opt %f -o %output
 class A {
     const A() {}
-    const func test(a: Int16) {
-        const c: Int16 = 1
-        const b: Int16 = c
+    const func test(a: Int64) {
+        const c: Int64 = 1
+        const b: Int64 = c
         return b
     }
 }
 
 main() {
     var a = A()
-    var temp: Int16 = 1
+    var temp: Int64 = 1
     const c = a.test(temp)
     return a.test(1)
 }

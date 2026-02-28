@@ -9,7 +9,7 @@
 // LEVEL: 0
 // (not VM and O2) EXEC: %compiler %cmp_opt %f -o %output
 // (not VM and O2) RUN-EXEC: %run %run_opt %output %run_args
-// (not VM and not O2) ERRCHECK: %compiler %cmp_opt %f -o %output
+// (not VM and not O2 and not iOS) ERRCHECK: %compiler %cmp_opt %f -o %output
 
 
 

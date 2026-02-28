@@ -1,3 +1,9 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 [ALL-TEST-CASE]
 LLVM/FFI/cffi
 API/std/env/windows
@@ -17,6 +23,8 @@ API/stdx/zlib/compress
 API/stdx/crypto/x509/x509_test.cj
 API/stdx/logger
 compiler/Diagnose/PlatformRelated
+Tools/cjdb/datacom/expr
+Tools/cjdb/datacom/generic
 
 [EXCLUDE-TEST-CASE]
 API/std/socket/redesign/props/tcp_props_quickack.cj
@@ -70,6 +78,65 @@ API\std\time\timezone\test_base.cj
 API\std\time\timezone\test_load.cj
 API\std\time\timezone\test_local1_1.cj
 API\std\time\timezone\test_local1_4.cj
+
+#cjdb CI
+Tools/cjdb/datacom/expr/arrayList2.info
+Tools/cjdb/datacom/expr/coalescing02.info
+Tools/cjdb/datacom/expr/coalescing03.info
+Tools/cjdb/datacom/expr/coalescing04.info
+Tools/cjdb/datacom/expr/coalescing05.info
+Tools/cjdb/datacom/expr/coalescing06.info
+Tools/cjdb/datacom/expr/compoundExpr_lambda.info
+Tools/cjdb/datacom/expr/dateTime_base2.info
+Tools/cjdb/datacom/expr/debuginfo_float16.info
+Tools/cjdb/datacom/expr/enum.info
+Tools/cjdb/datacom/expr/enum5.info
+Tools/cjdb/datacom/expr/exception.info
+Tools/cjdb/datacom/expr/exprafterlocals.info
+Tools/cjdb/datacom/expr/flowExpr_composition.info
+Tools/cjdb/datacom/expr/flowExpr_composition2.info
+Tools/cjdb/datacom/expr/func2.info
+Tools/cjdb/datacom/expr/interface.info
+Tools/cjdb/datacom/expr/interface4.info
+Tools/cjdb/datacom/expr/iterator.info
+Tools/cjdb/datacom/expr/lambda.info
+Tools/cjdb/datacom/expr/lambda2.info
+Tools/cjdb/datacom/expr/lambda3.info
+Tools/cjdb/datacom/expr/lambda4.info
+Tools/cjdb/datacom/expr/lambda6.info
+Tools/cjdb/datacom/expr/lambda7.info
+Tools/cjdb/datacom/expr/lambda8.info
+Tools/cjdb/datacom/expr/lambda9.info
+Tools/cjdb/datacom/expr/localfunc.info
+Tools/cjdb/datacom/expr/localfunc3.info
+Tools/cjdb/datacom/expr/localvar.info
+Tools/cjdb/datacom/expr/package_combine2.info
+Tools/cjdb/datacom/expr/package_main1.info
+Tools/cjdb/datacom/expr/try_exception.info
+Tools/cjdb/datacom/generic/generic_class_base06.info
+Tools/cjdb/datacom/generic/generic_class_base07.info
+Tools/cjdb/datacom/generic/generic_class_member_field01.info
+Tools/cjdb/datacom/generic/generic_class_member_field02.info
+Tools/cjdb/datacom/generic/generic_func02.info
+Tools/cjdb/datacom/generic/generic_struct_member_field01.info
+Tools/cjdb/datacom/expr/debuginfo_bool.info
+Tools/cjdb/datacom/expr/debuginfo_char.info
+Tools/cjdb/datacom/expr/debuginfo_float32.info
+Tools/cjdb/datacom/expr/debuginfo_float64.info
+Tools/cjdb/datacom/expr/debuginfo_int16.info
+Tools/cjdb/datacom/expr/debuginfo_int32.info
+Tools/cjdb/datacom/expr/debuginfo_int64.info
+Tools/cjdb/datacom/expr/debuginfo_int8.info
+Tools/cjdb/datacom/expr/debuginfo_intnative.info
+Tools/cjdb/datacom/expr/debuginfo_string.info
+Tools/cjdb/datacom/expr/debuginfo_tuple.info
+Tools/cjdb/datacom/expr/debuginfo_uint16.info
+Tools/cjdb/datacom/expr/debuginfo_uint32.info
+Tools/cjdb/datacom/expr/debuginfo_uint64.info
+Tools/cjdb/datacom/expr/debuginfo_uint8.info
+Tools/cjdb/datacom/expr/debuginfo_uintnative.info
+Tools/cjdb/datacom/expr/debuginfo_unit.info
+Tools/cjdb/datacom/generic/generic_any.info
 
 # API testcases commented on 2025-11-03, need to be fixed.
 ## fuzzer testcases (libclang_rt.fuzzer_no_main.a: No Such file or directory)

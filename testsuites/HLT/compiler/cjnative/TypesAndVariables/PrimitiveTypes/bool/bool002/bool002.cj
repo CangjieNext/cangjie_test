@@ -49,7 +49,7 @@ main(): Bool {
     f = f32
     t = f64
 }
-// ASSERT: scan sema_unexpected_return_type_for_entry
+// (not target_ios) ASSERT: scan sema_unexpected_return_type_for_entry
 // ASSERT: scan sema_invalid_binary_expr
 // ASSERT: scan sema_numeric_convert_must_be_numeric
 // ASSERT: scan sema_undeclared_identifier

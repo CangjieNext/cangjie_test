@@ -7,8 +7,8 @@
  */
  
 // LEVEL: 0
-// ERRCHECK: %compiler %cmp_opt %f -o %output
-// ASSERT: scan parse_common_in_non_common_file
+// ERRCHECK: %compiler %cmp_opt %compile_chir_opt %f -o %output
+// ASSERT: scan sema_overload_conflicts
 
 public common func f(): Int64
 public specific func f(): Int64 { 0 }

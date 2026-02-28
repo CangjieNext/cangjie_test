@@ -31,7 +31,9 @@ var udp = Option<UdpSocket>.None
 var addr00 = IPSocketAddress("0.0.0.0", 0)
 @When[os == "macOS"]
 let flag = "Failed to write data 40: Message too long."
-@When[os != "macOS"]
+@When[os == "iOS"]
+let flag = "Failed to write data 40: Message too long."
+@When[os == "Linux"]
 let flag = "Connection refused"
 
 @Test
@@ -65,6 +67,9 @@ class Test_Udp_TransPortation_Timeout {
             }
         } catch (e: SocketException) {
             sum += 1
+            print("1111111111111111111")
+            print(e.message.toString())
+            print("222222222222222222")
             @Expect(e.message.contains(flag))
         }
         try {
@@ -73,6 +78,9 @@ class Test_Udp_TransPortation_Timeout {
             }
         } catch (e: SocketException) {
             sum += 1
+            print("3333333333333333333")
+            print(e.message.toString())
+            print("4444444444444444444")
             @Expect(e.message.contains(flag))
         }
 

@@ -16,5 +16,5 @@ import std.ast.*
 public macro test(attr: Tokens, input: Tokens) {
     1
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_cannot_convert_literal

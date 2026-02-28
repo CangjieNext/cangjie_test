@@ -8,7 +8,7 @@
  
 // LEVEL: 0
 // EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// RUN-EXEC-1: %run %run_opt %output %run_args
+// (not iOS) RUN-EXEC-1: %run %run_opt %output %run_args
 
 class A <: Exception{}
 

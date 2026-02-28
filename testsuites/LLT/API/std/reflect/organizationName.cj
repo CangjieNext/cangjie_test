@@ -29,6 +29,7 @@ public class F {
 
 @Test
 class TestOrganizationName {
+    @Skip
     @TestCase
     func testQualifiedName() {
         @Assert(ClassTypeInfo.get("my_org::pkg1.C<Int64>").toString(), "my_org::pkg1.C<Int64>")

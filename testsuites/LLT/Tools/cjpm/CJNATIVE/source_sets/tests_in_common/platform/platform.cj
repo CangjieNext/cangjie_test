@@ -7,7 +7,4 @@
 features { user.tests_in_common.arch.big }
 package tests_in_common
 
-import std.unittest.*
-import std.unittest.testmacro.*
-
 func randomFunc(): Unit { }

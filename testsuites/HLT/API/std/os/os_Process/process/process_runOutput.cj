@@ -172,6 +172,7 @@ class Test_runOutput {
     func test_err_check(): Unit {
         let (exitCode, out, err) = Process.runOutput("ls", "abcd")
         @Expect(String.fromUtf8(out),"")
+        println(String.fromUtf8(err))
         @Expect(String.fromUtf8(err).contains(ret))
     }
 
