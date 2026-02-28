@@ -6,12 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// (CJNATIVE and not OHOS) LEVEL: 2
-// (CJNATIVE and not OHOS) DEPENDENCE: CMakeLists.txt, ./src
-// (CJNATIVE and not OHOS) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && %mkdir "仓颉" && cd build && cmake .. && make clean && make && make install
-// (CJNATIVE and not OHOS) EXEC: %mv ./output/libmyplugin1.%dylib_suffix ./仓颉
-// (CJNATIVE and not OHOS) EXEC-PIPE: %compiler %cmp_opt %f --plugin=./仓颉/libmyplugin1.%dylib_suffix -o %output | compare %f
-// (CJNATIVE and not OHOS) ASSERT: regex Found [0-9]+ funcs
+// LEVEL: 2
+// (!target_ohos) DEPENDENCE: CMakeLists.txt, ./src
+// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && %mkdir "仓颉" && cd build && cmake .. && make clean && make && make install
+// (!target_ohos) EXEC: %mv ./output/libmyplugin1.%host_dylib_suffix ./仓颉
+// (!target_ohos) EXEC-PIPE: %compiler %cmp_opt %f --plugin=./仓颉/libmyplugin1.%host_dylib_suffix -o %output | compare %f
+// (!target_ohos) ASSERT: regex Found [0-9]+ funcs
 
 import std.collection.*
 
