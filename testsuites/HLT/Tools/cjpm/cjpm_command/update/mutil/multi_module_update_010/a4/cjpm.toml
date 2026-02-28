@@ -5,15 +5,15 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [dependencies]
-  a0 = {path = "../a0", version = "1.0.0"}
-  a1 = {path = "../a1", version = "1.0.0"}
-  a2 = {path = "../a2", version = "1.0.0"}
-  a3 = {path = "../a3", version = "1.0.0"}
-  a5 = {path = "../a5", version = "1.0.0"}
-  a6 = {path = "../a6", version = "1.0.0"}
-  a7 = {path = "../a7", version = "1.0.0"}
-  a8 = {path = "../a8", version = "1.0.0"}
-  a9 = {path = "../a9", version = "1.0.0"}
+  a0 = {path = "../a0"}
+  a1 = {path = "../a1"}
+  a2 = {path = "../a2"}
+  a3 = {path = "../a3"}
+  a5 = {path = "../a5"}
+  a6 = {path = "../a6"}
+  a7 = {path = "../a7"}
+  a8 = {path = "../a8"}
+  a9 = {path = "../a9"}
 
 [package]
   cjc-version = "0.25.1"
