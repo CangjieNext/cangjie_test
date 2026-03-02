@@ -4,7 +4,7 @@
 # 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-[dependencies.x86_64-unknown-linux-gnu]
+[dependencies]
  pro1={path="./pro1"}
  pro2={path="./pro2"}
 [test-dependencies]
