@@ -6,6 +6,7 @@
 
 [dependencies]
   b = {path = "./b"}
+  c = {path = "./c"}
 
 [package]
   cjc-version = "0.25.1"
