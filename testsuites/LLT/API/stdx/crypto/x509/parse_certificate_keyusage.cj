@@ -10,7 +10,7 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 
 import std.fs.*
-import stdx.crypto.x509.*
+import cangjie_stdx::crypto.x509.*
 
 @Test
 class Test_X509_cert_keyusage {

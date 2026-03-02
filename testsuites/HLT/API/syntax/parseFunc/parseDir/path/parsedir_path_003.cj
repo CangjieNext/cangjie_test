@@ -12,7 +12,7 @@
 // (Windows) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.fs.*
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 @Test
 class test_01{

@@ -1,6 +1,6 @@
 // EXEC: %compiler %enableEH %cmp_opt %f -o %output
 // EXEC: %run %set_stdx_path %run_opt %output %run_args 2>&1 | compare %f
-import stdx.effect.Command
+import cangjie_stdx::effect.Command
 
 class Effect <: Command<String> {}
 

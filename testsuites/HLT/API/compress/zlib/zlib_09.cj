@@ -11,7 +11,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
-import stdx.compress.zlib.*
+import cangjie_stdx::compress.zlib.*
 import std.io.*
 import std.fs.*
 

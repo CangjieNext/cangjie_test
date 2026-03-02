@@ -8,7 +8,7 @@
 // EXEC: %compiler  %import-cangjie-stdx  %cmp_opt %f %cmp_utest_opt -o %output
 // EXEC-PIPE:%set_stdx_path %run %run_opt %output %run_utest_opt %run_args
 
- import stdx.encoding.json.*
+ import cangjie_stdx::encoding.json.*
 
 let ja = JsonValue.fromStr(##"[null, true, [123, false], {"key1": " ", "key2": "\\a"}]"##).asArray()
 let jt = JsonValue.fromStr(##"[null, true, [123, false], {"key1": " ", "key2": "\\a&"}]"##).asArray()

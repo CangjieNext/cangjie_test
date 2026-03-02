@@ -15,7 +15,7 @@
  * Test API: public func status(status: UInt16): HttpResponseBuilder
  */
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 @Test
 class Test_HttpResponse_Status_01 {

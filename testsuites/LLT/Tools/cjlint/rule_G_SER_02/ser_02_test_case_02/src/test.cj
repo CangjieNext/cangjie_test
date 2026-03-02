@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-internal import stdx.serialization.serialization.*
+internal import cangjie_stdx::serialization.serialization.*
 
 class MySerializeDemo01 <: Serializable<MySerializeDemo01> {
     var value01: Int64

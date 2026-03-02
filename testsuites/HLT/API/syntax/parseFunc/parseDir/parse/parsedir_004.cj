@@ -13,7 +13,7 @@
 // ASSERT: scan possibly confusing line terminator
 
 import std.fs.*
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 @Test
 class test_01{

@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 package aoo
-internal import stdx.*
+internal import cangjie_stdx::*
 main() {
     println("hello world")
     return 0

@@ -8,9 +8,9 @@
 import std.env.*
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.net.*
-import stdx.log.*
+import cangjie_stdx::log.*
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package -Woff all  %f -o %output %cmp_utest_opt 
 // RUN-EXEC-PIPE-0: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
 

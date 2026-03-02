@@ -13,7 +13,7 @@ Int32 is signed: true
 UInt32 is signed: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let int32Type = IntType.getInt32()

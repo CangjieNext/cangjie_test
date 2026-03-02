@@ -6,9 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-import stdx.logger.*
+import cangjie_stdx::logger.*
 import std.console.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.console.*
 
 class A{

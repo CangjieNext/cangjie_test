@@ -6,8 +6,8 @@
 
 package asp.host
 
-import stdx.net.http.*
-import stdx.encoding.url.URL
+import cangjie_stdx::net.http.*
+import cangjie_stdx::encoding.url.URL
 import std.convert.Parsable
 
 class WebServer {

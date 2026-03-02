@@ -4,9 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-internal import stdx.serialization.serialization.*
+internal import cangjie_stdx::serialization.serialization.*
 internal import std.math.*
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 
 class abc <: Serializable<abc>{
     static var name: String = "abcde"

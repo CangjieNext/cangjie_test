@@ -11,9 +11,9 @@ package tests.server1_1
 
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls
+import cangjie_stdx::crypto.kit
 
 @Test
 class TestServer1_1500 {

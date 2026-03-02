@@ -11,8 +11,8 @@
 // RUN-EXEC-PIPE: %run_stdx %output %run_args 2>&1 | compare %f
 // ASSERT: scan age: 123, name: zhangsan, score: 100.0
 
-import stdx.serialization.serialization.*
-import stdx.encoding.json.*
+import cangjie_stdx::serialization.serialization.*
+import cangjie_stdx::encoding.json.*
 
 class Abc <: Serializable<Abc> & ToString {
     var name: String = "Abcde"

@@ -10,7 +10,7 @@
 // EXEC:%set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan test_init_ok test_add_ok test_add2_ok test_add3_ok test_get_ok test_getItem_ok test_toString_ok test_toJsonString_ok
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main(): Int64 {
     var buf: Array<JsonValue> = [creatJsonValue(-3, 3, "apple")]

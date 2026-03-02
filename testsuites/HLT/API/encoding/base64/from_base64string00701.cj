@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
-import stdx.encoding.base64.*
+import cangjie_stdx::encoding.base64.*
 
 func matchResult<T>(x: Option<T>, default: T): T {
     var result = match (x) {

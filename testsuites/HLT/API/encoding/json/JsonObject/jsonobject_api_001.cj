@@ -10,7 +10,7 @@
 // DEPENDENCE: create_jsonobject_data.cj
 // EXEC-PIPE: %compiler %import-cangjie-stdx %cmp_opt %f create_jsonobject_data.cj -o %output
 // RUN-EXEC-PIPE: %run_stdx %output %run_args
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main(): Int64 {
     var init1 = JsonObject()

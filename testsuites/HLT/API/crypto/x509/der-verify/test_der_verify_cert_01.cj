@@ -13,8 +13,8 @@
 // (Windows and OHOS)RUN-EXEC: dos2unix "./data/root_ecdsa_1.text" &&  dos2unix "./data/root_ecdsa.cer" && %run %run_opt %output %run_utest_opt %run_args
 
 import std.fs.*
-import stdx.crypto.x509.*
-import stdx.crypto.common.*
+import cangjie_stdx::crypto.x509.*
+import cangjie_stdx::crypto.common.*
 
 var sum = 0
 @When[os != "Windows"]

@@ -23,10 +23,10 @@
 import std.sync.*
 import std.time.*
 import std.fs.*
-import stdx.log.*
-import stdx.net.http.*
-import stdx.net.tls.*
-import stdx.crypto.x509.*
+import cangjie_stdx::log.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::crypto.x509.*
 import {asan.*, tlsconfig.*}
 import std.math.*
 

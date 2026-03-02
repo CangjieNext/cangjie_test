@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt %stdx-library-path %link-eh %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
-import stdx.effect.*
+import cangjie_stdx::effect.*
 
 class Eff <: Command<Int64> {}
 var v = 0

@@ -9,7 +9,7 @@
 // LEVEL: 2
 import std.io.*
 import std.fs.*
-import stdx.compress.zlib.*
+import cangjie_stdx::compress.zlib.*
 
 public func compressCj(srcpath: String, descpath: String, wrap: WrapType, compressLevel: CompressLevel, bufLen: Int64) : Unit{
     var inputStream: ByteBuffer = ByteBuffer()

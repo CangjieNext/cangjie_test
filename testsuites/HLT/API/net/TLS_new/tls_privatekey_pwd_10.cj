@@ -13,14 +13,14 @@
 
 import std.net.*
 import std.fs.*
-import stdx.net.tls.*
-import stdx.net.tls.common.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
 import std.sync.*
 import std.runtime.*
 import std.collection.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.common.{DerBlob, PemEntry, Pem, PrivateKey, CryptoException}
-import stdx.crypto.keys.*
+import cangjie_stdx::crypto.x509.X509Certificate
+import cangjie_stdx::crypto.common.{DerBlob, PemEntry, Pem, PrivateKey, CryptoException}
+import cangjie_stdx::crypto.keys.*
 var sum = 0
 
 @Test

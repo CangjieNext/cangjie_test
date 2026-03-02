@@ -13,8 +13,8 @@
 import std.io.*
 import std.fs.*
 import std.net.*
-import stdx.net.http.*
-import stdx.net.tls.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
 import std.sync.*
 import std.runtime.*
 import std.argopt.*

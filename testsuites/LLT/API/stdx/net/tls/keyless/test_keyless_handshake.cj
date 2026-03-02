@@ -9,16 +9,16 @@
 // DEPENDENCE: certs
 // DEPENDENCE: mock.c
 
-// EXEC: %clang %clang_opt -Wno-deprecated-declarations -lssl -lcrypto -o mock.%dylib_suffix mock.c
+// EXEC: %clang %clang_opt -Wno-deprecated-declarations -fPIE -lssl -lcrypto -o mock.%dylib_suffix mock.c
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt -lssl -lcrypto -l:mock.%dylib_suffix -L. -o %n.%suffix %f
 // RUN-EXEC: %export CJ_KEYLESS_DEBUG=1 && %set_stdx_path %run_opt %n.%suffix %run_utest_opt %run_args
 
 import std.fs.{File, OpenMode}
 import std.net.{TcpServerSocket, TcpSocket}
-import stdx.crypto.x509.{X509Certificate}
-import stdx.crypto.keys.*
-import stdx.net.tls.*
-import stdx.net.tls.common.*
+import cangjie_stdx::crypto.x509.{X509Certificate}
+import cangjie_stdx::crypto.keys.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
 import std.io.*
 import std.unittest.*
 import std.unittest.testmacro.*

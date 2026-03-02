@@ -8,9 +8,9 @@
 // EXEC: %compiler %import-cangjie-stdx  %cmp_opt -o %n.%suffix %f
 
 import std.{fs.*, net.*, io.*}
-import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.keys.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::crypto.x509.X509Certificate
+import cangjie_stdx::crypto.keys.*
 
 let certificatePath = "./files/apiserver.crt"
 let certificateKeyPath = "./files/apiserver.pem"

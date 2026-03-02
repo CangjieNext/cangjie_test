@@ -2,7 +2,7 @@
 // EXEC-0: %set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan {"key1":"value1"}{"key2":"value2"}
 
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 main() {
     let result1: JsonValue = JsonValue.fromStr(#"{"key1": "value1"}"#)
     let result2 = JsonValue.fromStr(#"{"key2": "value2"}"#)

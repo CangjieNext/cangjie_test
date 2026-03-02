@@ -29,7 +29,7 @@
 import std.runtime.*
 import std.env.*
 import std.collection.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 
 foreign func CJ_MCC_SignalKill(pid: Int32, sig: Int32): Unit

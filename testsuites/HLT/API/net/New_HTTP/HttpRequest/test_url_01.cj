@@ -16,8 +16,8 @@
  *           public func url(url: URL): HttpRequestBuilder
  */
 
-import stdx.net.http.*
-import stdx.encoding.url.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::encoding.url.*
 
 @Test
 class Test_HttpRequestBuilder_Url_01 {

@@ -7,7 +7,7 @@
 // (Linux and CJNATIVE) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output --lto=full
 // (Linux and CJNATIVE) RUN-EXEC: %set_stdx_path %run %run_opt %output %run_args
 
-internal import stdx.encoding.base64.*
+internal import cangjie_stdx::encoding.base64.*
 
 main(): Int64 {
     var arr: Array<UInt8> = [77, 97, 110]

@@ -4,8 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-internal import stdx.encoding.json.*
-internal import stdx.net.http.*
+internal import cangjie_stdx::encoding.json.*
+internal import cangjie_stdx::net.http.*
 internal import std.console.*
 internal import std.collection.*
 var cond = true

@@ -13,7 +13,7 @@
  *      test null character
  */
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main(): Int64 {
     let str01 = "\"\\u0000\""

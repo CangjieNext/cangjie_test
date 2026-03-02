@@ -18,7 +18,7 @@ Int32 == NothingType: false
 Int32 == RuneType: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let int32Type1 = IntType.getInt32()

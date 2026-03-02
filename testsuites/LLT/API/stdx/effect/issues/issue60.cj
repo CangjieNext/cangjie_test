@@ -11,7 +11,7 @@
 // RUN-EXEC: %run %set_stdx_path %output
 
 
-import stdx.effect.*
+import cangjie_stdx::effect.*
 
 class Eff <: Command<Unit> {}
 var v: Option<Int64> = None

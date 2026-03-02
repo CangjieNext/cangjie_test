@@ -25,7 +25,7 @@
  *          public operator func [](key: String): JsonValue
  */
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main(): Int64 {
     var jsonStr = "[[]]"

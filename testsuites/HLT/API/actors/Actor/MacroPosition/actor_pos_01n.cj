@@ -10,8 +10,8 @@
 // ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // ASSERT: scan @Actor macro: class declaration cannot be abstract nor open nor sealed.
 
-import stdx.actors.*
-import stdx.actors.macros.*
+import cangjie_stdx::actors.*
+import cangjie_stdx::actors.macros.*
 
 @Actor
 sealed class MyActor {}

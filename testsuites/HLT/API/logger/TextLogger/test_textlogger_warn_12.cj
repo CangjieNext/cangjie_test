@@ -26,9 +26,9 @@ import std.io.*
 import std.console.Console
 import std.fs.*
 import std.collection.*
-import stdx.encoding.json.stream.*
-import stdx.log.*
-import stdx.logger.*
+import cangjie_stdx::encoding.json.stream.*
+import cangjie_stdx::log.*
+import cangjie_stdx::logger.*
 
 @Test
 class Test_textlogger_warn_12 {

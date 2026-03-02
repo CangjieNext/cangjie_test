@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 0
-import stdx.serialization.serialization.*
+import cangjie_stdx::serialization.serialization.*
 import std.math.*
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 class A <: Serializable<A> {
     public var fieldTemp1: Int8

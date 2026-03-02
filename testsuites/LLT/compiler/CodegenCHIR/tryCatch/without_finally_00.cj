@@ -7,7 +7,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // EXEC-PIPE-1: %set_stdx_path %run %run_opt %output %run_args 2>&1| compare %f
 
-internal import stdx.crypto.crypto.*
+internal import cangjie_stdx::crypto.crypto.*
 
 func foo() {
     eprintln("foo")

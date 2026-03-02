@@ -21,18 +21,18 @@
  */
 package tests.client1_1
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import {asan.*, tlsconfig.*}
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 import std.net.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.time.*
 import std.sync.*
-import stdx.log.*
+import cangjie_stdx::log.*
 import std.io.*
-import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::crypto.x509.X509Certificate
 import std.convert.*
 
 @Test

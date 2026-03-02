@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-import stdx.serialization.serialization.*
+import cangjie_stdx::serialization.serialization.*
 
 open class fatherclass1 {}
 open class fatherclass2 <: fatherclass1 {}

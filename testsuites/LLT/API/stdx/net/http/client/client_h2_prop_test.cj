@@ -17,10 +17,10 @@
 
 package tests.client
 
-import stdx.net.http.*
-import stdx.log.*
-import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import cangjie_stdx::net.http.*
+import cangjie_stdx::log.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::crypto.x509.X509Certificate
 import std.unittest.*
 import std.unittest.testmacro.*
 

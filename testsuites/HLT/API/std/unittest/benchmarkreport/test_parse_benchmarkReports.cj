@@ -12,7 +12,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt %f -o %output
 // RUN-EXEC: %run_stdx test_report_combination.%suffix %run_args %run_utest_opt --bench --report-format=Csv-Raw --report-path=./csv-raw && %run %run_opt test_report_combination.%suffix %run_args %run_utest_opt --bench --report-format=Csv --report-path=./csv &&  %run %run_opt %output  %run_utest_opt %run_argsimport std.collection.*
 import std.collection.*
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 
 @Test
 public class Test_Report_Parse {

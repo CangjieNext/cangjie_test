@@ -11,7 +11,7 @@
 // EXEC-PIPE: %compiler %import-cangjie-stdx %cmp_opt  %f create_jsonarray_data.cj -o %output
 // RUN-EXEC-PIPE: %run_stdx %output %run_args
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 import std.collection.*
 
 main(): Int64 {

@@ -16,7 +16,7 @@
 import std.fs.*
 import std.convert.*
 import std.collection.*
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 
 @Test
 public class Time_Bench_Assertion {

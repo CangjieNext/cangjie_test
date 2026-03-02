@@ -6,8 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-import stdx.log.*
-import stdx.net.http.*
+import cangjie_stdx::log.*
+import cangjie_stdx::net.http.*
 import std.io.*
 import std.regex.*
 

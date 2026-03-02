@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-import stdx.logger.*
+import cangjie_stdx::logger.*
 import std.posix.*
 import std.regex.*
 import std.console.*

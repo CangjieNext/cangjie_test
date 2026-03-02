@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 internal import std.collection.*
 
 class Testjsonstring {

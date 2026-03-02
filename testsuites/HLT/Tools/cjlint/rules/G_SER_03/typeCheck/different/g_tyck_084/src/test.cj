@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-import stdx.serialization.serialization.{Serializable, DataModel, DataModelStruct, Field, field}
+import cangjie_stdx::serialization.serialization.{Serializable, DataModel, DataModelStruct, Field, field}
 
 class MySerialize <: Serializable<MySerialize> {
     public static var value: Array<String> = ["2","3"]

@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 internal import std.io.*
-internal import stdx.net.http.*
+internal import cangjie_stdx::net.http.*
 internal import std.regex.*
 
 class A{

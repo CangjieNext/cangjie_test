@@ -17,11 +17,11 @@
 
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.collection.*
 import std.sync.*
 import std.time.*
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 
 @Test
 class Test_CookieJar_StoreCookies_01 {

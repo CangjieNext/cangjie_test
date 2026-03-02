@@ -13,8 +13,8 @@
 
 import std.net.*
 import std.fs.*
-import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::crypto.x509.X509Certificate
 import std.sync.*
 import std.time.*
 import std.runtime.*

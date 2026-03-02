@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 var cookie = Cookie("name", "", httpOnly: false)
 var cookie1 = Cookie("name", "79ab", httpOnly: true)

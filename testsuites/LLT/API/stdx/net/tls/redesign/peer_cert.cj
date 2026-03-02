@@ -9,10 +9,10 @@
 // EXEC: %compiler %import-cangjie-stdx  %cmp_opt %cmp_utest_opt -o %n.%suffix %f
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 
-import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.keys.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::crypto.x509.X509Certificate
+import cangjie_stdx::crypto.keys.*
 import std.{net.*, fs.*, io.*}
 import std.unittest.*
 import std.unittest.testmacro.*

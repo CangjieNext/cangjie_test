@@ -20,7 +20,7 @@
 package tests.request
 
 import std.collection.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 @Test
 class TestTrailer {

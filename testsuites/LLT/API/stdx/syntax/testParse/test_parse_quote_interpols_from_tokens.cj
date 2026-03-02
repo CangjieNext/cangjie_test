@@ -8,7 +8,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt_chir2hlir %f -o %output
 // EXEC: %set_stdx_path %run %run_opt %output %run_args 2>&1 | compare %f
 
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 import std.collection.ArrayList
 
 main() {

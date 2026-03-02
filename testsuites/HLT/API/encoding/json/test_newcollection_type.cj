@@ -12,7 +12,7 @@
 
 import std.collection.*
 import std.io.*
-import stdx.encoding.json.stream.*
+import cangjie_stdx::encoding.json.stream.*
 
 @Test
 class Test_Json_Collection {

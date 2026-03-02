@@ -8,7 +8,7 @@
 // EXEC: %set_stdx_path %run %run_opt %output
 
 package problem
-public import stdx.encoding.json.*
+public import cangjie_stdx::encoding.json.*
 
 public class JsonTypeMismatch <: Exception {
     public init(expectType: String, actualType: String) {

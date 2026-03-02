@@ -11,7 +11,7 @@
 // RUN-ERRCHECK: %run_stdx %output %run_args
 // ASSERT: scan UnhandledCommand: Unhandled command
 
-import stdx.effect.*
+import cangjie_stdx::effect.*
 
 class Eff <: Command<Int64> {}
 

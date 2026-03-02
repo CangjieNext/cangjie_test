@@ -14,7 +14,7 @@
 
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 
 @Test
 class Test_Steps {

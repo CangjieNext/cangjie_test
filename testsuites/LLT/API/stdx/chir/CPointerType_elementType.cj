@@ -13,7 +13,7 @@ C pointer type: CPointer<Int32>
 Element type: Int32
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let intType = IntType.getInt32()

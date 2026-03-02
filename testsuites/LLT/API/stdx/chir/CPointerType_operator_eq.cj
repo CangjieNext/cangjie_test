@@ -16,7 +16,7 @@ CPointer<Int32> == RefType: false
 CPointer<Int32> == BoolType: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let intType = IntType.getInt32()

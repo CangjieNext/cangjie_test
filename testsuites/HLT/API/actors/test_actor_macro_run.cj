@@ -10,8 +10,8 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE-0: %run_stdx %output %run_utest_opt %run_args 2>&1
 
-import stdx.actors.*
-import stdx.actors.macros.*
+import cangjie_stdx::actors.*
+import cangjie_stdx::actors.macros.*
 
 @Actor
 class MyActor {

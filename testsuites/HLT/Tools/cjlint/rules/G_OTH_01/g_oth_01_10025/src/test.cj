@@ -10,7 +10,7 @@ macro package test
 
 import std.ast.*
 import std.console.*
-import stdx.logger.SimpleLogger
+import cangjie_stdx::logger.SimpleLogger
 
 public macro M1(input: Tokens): Tokens {
     var str:String = "Login success ,user is and ~!@#$%^&*()_+{ppasswd123}|[]\\-=`:\"?><,./ is"

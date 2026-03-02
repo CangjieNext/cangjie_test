@@ -8,7 +8,7 @@
 
 package default
 //调用标准库函数
-import stdx.encoding.base64.*
+import cangjie_stdx::encoding.base64.*
 
 func matchResult<T>(x: Option<T>, default: T): T {
     var result = match (x) {

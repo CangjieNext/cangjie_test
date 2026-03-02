@@ -12,7 +12,7 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 // sema 阶�报错不拦截
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 @Test
 class test_01{

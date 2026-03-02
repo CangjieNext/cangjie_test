@@ -23,14 +23,14 @@
 
 package tests.cookie
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.net.*
 import std.collection.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.time.*
-import stdx.log.*
-import stdx.encoding.url.*
+import cangjie_stdx::log.*
+import cangjie_stdx::encoding.url.*
 import std.sync.*
 
 @Test

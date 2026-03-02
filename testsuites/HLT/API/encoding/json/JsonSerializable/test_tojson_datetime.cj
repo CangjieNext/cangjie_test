@@ -11,7 +11,7 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 
 import std.time.*
-import stdx.encoding.json.stream.*
+import cangjie_stdx::encoding.json.stream.*
 import std.io.*
 
 class writer <: ToString {

@@ -7,7 +7,7 @@
 package b
 
 internal import p2.*
-internal import stdx.*
+internal import cangjie_stdx::*
 
 main(): Int64 {
 

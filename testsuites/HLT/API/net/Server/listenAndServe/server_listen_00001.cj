@@ -11,10 +11,10 @@
 // (not Windows) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.net.*
-import stdx.net.http.*
-import stdx.net.tls.common.*
-import stdx.net.tls
-import stdx.crypto.kit
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::net.tls
+import cangjie_stdx::crypto.kit
 
 @Test
 class Test_server_listen_00001 {

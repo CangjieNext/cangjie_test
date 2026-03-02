@@ -8,8 +8,8 @@
 // EXEC: %compiler  %import-cangjie-stdx  %cmp_opt -o %n.%suffix %f
 // EXEC:%set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan "\\n" "dd\\rca" "sd\\fsx"
-import stdx.encoding.json.*
-import stdx.serialization.serialization.*
+import cangjie_stdx::encoding.json.*
+import cangjie_stdx::serialization.serialization.*
 
 main() {
     let s = "\n".serialize().toJson().toString()

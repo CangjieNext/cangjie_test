@@ -11,7 +11,7 @@
 package demo_eh
 
 import pkg_eh.*
-import stdx.effect.Command
+import cangjie_stdx::effect.Command
 
 main() {
     @Foo()

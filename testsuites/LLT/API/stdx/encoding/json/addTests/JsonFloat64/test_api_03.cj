@@ -9,7 +9,7 @@
 // EXEC:%set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan 3
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main(): Int64 {
     var jv: JsonFloat = JsonFloat(12.90)
