@@ -1,0 +1,14 @@
+{
+  "packageInformation": {
+    "inner_dep": {
+      "rootPackageName": "inner_dep",
+      "fileNameHash": "400414902501484733",
+      "timeStamp": 1768901105,
+      "isBuilt": true,
+      "exeName": "",
+      "hasSubPkgs": false
+    }
+  },
+  "jsonHash": "-4618400734568887176",
+  "rootPackageName": "inner_dep"
+}
