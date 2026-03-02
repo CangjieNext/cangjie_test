@@ -15,10 +15,10 @@
 
 import std.fs.{File, OpenMode}
 import std.net.{TcpServerSocket, TcpSocket}
-import stdx.crypto.x509.{X509Certificate}
-import stdx.crypto.keys.*
-import stdx.net.tls.*
-import stdx.net.tls.common.*
+import cangjie_stdx::crypto.x509.{X509Certificate}
+import cangjie_stdx::crypto.keys.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
 import std.io.*
 import std.unittest.*
 import std.unittest.testmacro.*

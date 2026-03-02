@@ -12,7 +12,7 @@
 
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.compress.tar.*
+import cangjie_stdx::compress.tar.*
 import std.fs.*
 import std.collection.*
 import std.sort.*

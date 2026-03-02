@@ -1,5 +1,5 @@
 // ERRCHECK: %compiler %enableEH %cmp_opt %f -o %output %diag_json
-import stdx.effect.Command
+import cangjie_stdx::effect.Command
 
 // Was ICE, should report error
 func foo(a: Array<Int64>) : Int64 {1}

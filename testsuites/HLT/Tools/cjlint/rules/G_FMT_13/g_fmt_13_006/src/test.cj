@@ -9,7 +9,7 @@
 package test
 // Example Technologies Co., Ltd. 2024-2024. All rights reserved.
 
-internal import stdx.log.*
+internal import cangjie_stdx::log.*
 main() {
     println("hello world")
 }

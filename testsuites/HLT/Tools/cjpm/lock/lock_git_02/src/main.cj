@@ -6,7 +6,7 @@
 
 package b
 
-internal import stdx.*
+internal import cangjie_stdx::*
 main() {
     print("hello world\n")
 }

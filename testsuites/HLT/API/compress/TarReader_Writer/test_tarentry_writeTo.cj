@@ -12,7 +12,7 @@
 
 import std.fs.*
 import std.io.*
-import stdx.compress.tar.*
+import cangjie_stdx::compress.tar.*
 
 @Test
 class test_TarEntry_WriteTo {

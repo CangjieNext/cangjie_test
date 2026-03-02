@@ -10,8 +10,8 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args 
 
-import stdx.actors.*
-import stdx.actors.macros.*
+import cangjie_stdx::actors.*
+import cangjie_stdx::actors.macros.*
 
 @Actor
 public class MyActor<T> {

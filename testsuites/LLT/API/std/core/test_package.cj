@@ -10,13 +10,13 @@
 // ASSERT: scan pass01 pass02
 
 import stdx
-import stdx.compress
-import stdx.crypto
-import stdx.encoding
-import stdx.net
-import stdx.serialization
-import stdx.log
-import stdx.logger
+import cangjie_stdx::compress
+import cangjie_stdx::crypto
+import cangjie_stdx::encoding
+import cangjie_stdx::net
+import cangjie_stdx::serialization
+import cangjie_stdx::log
+import cangjie_stdx::logger
 import std.crypto as stdcrypto
 import std.database
 

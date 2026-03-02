@@ -17,7 +17,7 @@
 
 package tests.body
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.unittest.*
 import std.unittest.testmacro.*
 

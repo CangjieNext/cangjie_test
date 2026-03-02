@@ -8,7 +8,7 @@
 package bodyReadUtil
 
 import std.collection.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 public func readAll(size: Int64, response: HttpResponse): String {
     let buf = Array<UInt8>(size, repeat: 0)

@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 
 main(): Int64 {
     var i = "http://www.examplenet.com:8989/file%20one%26two"

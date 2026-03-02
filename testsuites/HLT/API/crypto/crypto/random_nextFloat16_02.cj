@@ -9,7 +9,7 @@
 // LEVEL: 2
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args
-import stdx.crypto.crypto.*
+import cangjie_stdx::crypto.crypto.*
 import std.collection.*
 
 main() {

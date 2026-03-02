@@ -10,11 +10,11 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 import std.io.*
 import std.collection.*
-import stdx.serialization.serialization.*
-import stdx.encoding.json.stream.*
+import cangjie_stdx::serialization.serialization.*
+import cangjie_stdx::encoding.json.stream.*
 
 @Test
 public class Test_json_01 {

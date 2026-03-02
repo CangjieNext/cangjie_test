@@ -10,8 +10,8 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-import stdx.syntax.*
-import stdx.unittest.*
+import cangjie_stdx::syntax.*
+import cangjie_stdx::unittest.*
 
 @Test
 class test_01{

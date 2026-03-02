@@ -10,8 +10,8 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %output %f %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-import stdx.crypto.kit.DefaultCryptoKit
-import stdx.crypto.common.*
+import cangjie_stdx::crypto.kit.DefaultCryptoKit
+import cangjie_stdx::crypto.common.*
 
 @Test
 class Test_GetGlobalCryptoKit_01 {

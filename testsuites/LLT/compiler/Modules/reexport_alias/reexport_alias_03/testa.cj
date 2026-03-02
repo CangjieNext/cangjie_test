@@ -6,6 +6,6 @@
 
 package pkg1
 
-public import stdx.encoding.json.stream.{JsonSerializable as JsonStreamSerializableOuter}
+public import cangjie_stdx::encoding.json.stream.{JsonSerializable as JsonStreamSerializableOuter}
 
 func foo(a: JsonStreamSerializableOuter) {}

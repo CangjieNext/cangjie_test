@@ -6,6 +6,6 @@
 
 package asp.host
 
-import stdx.net.http.HttpContext
+import cangjie_stdx::net.http.HttpContext
 
 public type RequestDelegate = (HttpContext) -> Unit

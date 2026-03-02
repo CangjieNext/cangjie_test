@@ -10,7 +10,7 @@
 // ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output
 
 
-import stdx.encoding.json
+import cangjie_stdx::encoding.json
 main() : Int64 {
 
     var jsonstr="""
@@ -19,7 +19,7 @@ main() : Int64 {
 }
     """IPE: %compiler %cmp_opt %f -o %output
 
-import stdx.encoding.json
+import cangjie_stdx::encoding.json
 main() : Int64 {
 
     var jsonstr="""

@@ -6,8 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-import stdx.log.*
-import stdx.logger.SimpleLogger
+import cangjie_stdx::log.*
+import cangjie_stdx::logger.SimpleLogger
 import std.io.OutputStream
 import std.console.*
 

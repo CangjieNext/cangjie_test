@@ -5,5 +5,5 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 internal import std.console.*
-internal import stdx.log.*
+internal import cangjie_stdx::log.*
 main(){}

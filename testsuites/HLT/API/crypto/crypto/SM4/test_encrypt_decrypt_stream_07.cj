@@ -11,15 +11,15 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 
-import stdx.crypto.crypto.*
-import stdx.crypto.digest.*
-import stdx.crypto.common.*
-import stdx.encoding.base64.toBase64String
-import stdx.encoding.base64.*
+import cangjie_stdx::crypto.crypto.*
+import cangjie_stdx::crypto.digest.*
+import cangjie_stdx::crypto.common.*
+import cangjie_stdx::encoding.base64.toBase64String
+import cangjie_stdx::encoding.base64.*
 import std.fs.*
 import std.io.*
-import stdx.encoding.hex.fromHexString
-import stdx.encoding.hex.toHexString
+import cangjie_stdx::encoding.hex.fromHexString
+import cangjie_stdx::encoding.hex.toHexString
 
 @Test
 class Test_encrypt_decrypt_stream_07 {

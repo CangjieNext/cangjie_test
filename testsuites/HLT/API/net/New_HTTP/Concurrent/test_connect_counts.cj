@@ -13,14 +13,14 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt asan.%middle %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-import stdx.net.http.*
-import stdx.net.tls.common.*
-import stdx.net.tls.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::net.tls.*
 import std.time.*
 import std.sync.*
 import std.fs.*
-import stdx.crypto.x509.*
-import stdx.crypto.keys.*
+import cangjie_stdx::crypto.x509.*
+import cangjie_stdx::crypto.keys.*
 import std.io.*
 
 @When[os == "macOS"]

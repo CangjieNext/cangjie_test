@@ -1,6 +1,6 @@
 // ERRCHECK: %compiler %enableEH %cmp_opt %f -o %output %diag_json
 
-import stdx.effect.Command
+import cangjie_stdx::effect.Command
 
 main():Int64 {
     try {

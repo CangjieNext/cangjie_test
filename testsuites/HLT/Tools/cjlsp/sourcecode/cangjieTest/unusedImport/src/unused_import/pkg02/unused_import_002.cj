@@ -8,4 +8,4 @@
 
 package unusedImport.unused_import.pkg02
 
-private import stdx.net.tls
+private import cangjie_stdx::net.tls

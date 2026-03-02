@@ -9,7 +9,7 @@
 // EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt
  
  
-import stdx.encoding.json.stream.*
+import cangjie_stdx::encoding.json.stream.*
 import std.io.{ByteBuffer, readToEnd}
  
 /**

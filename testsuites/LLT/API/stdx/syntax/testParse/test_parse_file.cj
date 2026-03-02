@@ -12,7 +12,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 import std.fs.*
 import std.regex.*
 import std.collection.ArrayList

@@ -9,7 +9,7 @@
 package test
 
 internal import std.collection.HashMap
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 internal import std.time.*
 internal import test.cache.*
 

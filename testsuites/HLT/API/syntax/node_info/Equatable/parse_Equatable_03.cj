@@ -12,7 +12,7 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 
 import std.fs.*
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 // 节点的内容相同，源文件不�
 @Test

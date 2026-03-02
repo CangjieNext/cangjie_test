@@ -19,7 +19,7 @@ end
 
 package AOP_demo1
 
-import stdx.aspectCJ.*
+import cangjie_stdx::aspectCJ.*
 
 public enum AnnotatedClass {
     | A

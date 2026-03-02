@@ -15,8 +15,8 @@
 
 package tests.client2_0
 
-import stdx.net.http.*
-import stdx.log.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::log.*
 import std.time.*
 import std.sync.*
 import {asan.*, tlsconfig.*}

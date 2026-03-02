@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 let str = ##"private enum My_Enum<T, U> <: I1<T> & I2<T> & I3<T> where T <: I1<T>, U<: I2<T> & I1<U> {
     A1(T, T) 

@@ -8,8 +8,8 @@ internal import std.regex.*
 internal import std.core.*
 internal import std.process.*
 internal import std.console.*
-internal import stdx.net.http.*
-internal import stdx.encoding.url.*
+internal import cangjie_stdx::net.http.*
+internal import cangjie_stdx::encoding.url.*
 internal import std.net.*
 
 func outputString(param: String) {}

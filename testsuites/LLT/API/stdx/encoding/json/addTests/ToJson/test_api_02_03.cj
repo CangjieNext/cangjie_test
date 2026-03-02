@@ -7,8 +7,8 @@
  */
 // ERRCHECK: %compiler  %import-cangjie-stdx  %cmp_opt %stdx-package -o %n.%suffix %f
 
-import stdx.serialization.serialization.*
-import stdx.encoding.json.*
+import cangjie_stdx::serialization.serialization.*
+import cangjie_stdx::encoding.json.*
 
 main() {
     var str: String = "test String"

@@ -13,7 +13,7 @@
 
 package AOP_demo1
 
-import stdx.aspectCJ.*
+import cangjie_stdx::aspectCJ.*
 
 @ReplaceFuncBody[packageName: "AOP_demo1", className: "", methodName: "wovenFunction1", isStatic: false,
     recursive: false]

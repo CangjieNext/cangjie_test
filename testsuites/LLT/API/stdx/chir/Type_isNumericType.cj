@@ -14,7 +14,7 @@ Float32 is numeric type: true
 Bool is numeric type: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let intType = IntType.getInt32()

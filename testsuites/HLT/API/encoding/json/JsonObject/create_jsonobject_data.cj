@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 0
-import stdx.serialization.serialization.*
+import cangjie_stdx::serialization.serialization.*
 import std.math.*
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 internal import std.collection.*
 
 class A <: Serializable<A> {

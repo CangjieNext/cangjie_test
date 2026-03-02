@@ -11,7 +11,7 @@
 // ASSERT: scan-not stack trace
 
 internal import std.collection.*
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 
 var Map_Len = 1 << 10
 

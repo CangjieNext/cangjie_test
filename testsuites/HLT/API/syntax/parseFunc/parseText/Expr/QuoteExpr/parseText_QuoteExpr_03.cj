@@ -11,7 +11,7 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.ast.Tokens
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 @Test
 class test_01{

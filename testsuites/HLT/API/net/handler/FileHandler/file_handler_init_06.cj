@@ -13,7 +13,7 @@
 // (not Windows) RUN-EXEC: %run_stdx %output %run_args
 
 import std.fs.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 main(): Int64 {
     var ss = canonicalize(Path("./data/")).toString()

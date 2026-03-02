@@ -17,7 +17,7 @@
 
 package tests.request
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 @Test
 class TestTrailer {

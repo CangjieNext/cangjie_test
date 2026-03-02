@@ -14,8 +14,8 @@ import std.unittest.testmacro.*
 import std.collection.*
 import std.convert.*
 import std.unittest.common.*
-import stdx.unittest.data.*
-import stdx.serialization.serialization.*
+import cangjie_stdx::unittest.data.*
+import cangjie_stdx::serialization.serialization.*
 
 class Person <: Serializable<Person> & ToString & Equatable<Person> {
     Person(let n: UInt64, let name: String, let age: UInt32) {}

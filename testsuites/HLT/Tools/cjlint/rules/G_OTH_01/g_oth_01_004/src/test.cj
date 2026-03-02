@@ -7,7 +7,7 @@
  */
 
 import std.console.*
-import stdx.logger.*
+import cangjie_stdx::logger.*
 
 class A<T> {
 }

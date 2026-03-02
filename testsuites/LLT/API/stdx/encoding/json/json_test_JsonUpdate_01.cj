@@ -8,7 +8,7 @@
 // EXEC: %compiler  %import-cangjie-stdx  %cmp_opt -o %n.%suffix %f
 // EXEC:%set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan pass01 pass02 pass03 pass04 pass05 pass06 pass07 pass08 pass09
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 func deserialize_string(str: String): String {
     return JsonValue.fromStr(str).asString().getValue()

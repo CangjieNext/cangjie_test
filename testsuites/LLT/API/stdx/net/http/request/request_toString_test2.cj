@@ -17,14 +17,14 @@
 
 package tests.request
 
-import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
-import stdx.encoding.url.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls
+import cangjie_stdx::crypto.kit
+import cangjie_stdx::encoding.url.*
 import std.net.TcpSocket
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.log.*
+import cangjie_stdx::log.*
 
 @Test
 class TestToString2 {

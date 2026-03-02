@@ -10,12 +10,12 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt  %f -o %output
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-import stdx.crypto.keys.*
-import stdx.crypto.common.*
+import cangjie_stdx::crypto.keys.*
+import cangjie_stdx::crypto.common.*
 import std.crypto.digest.*
 import std.random.*
-import stdx.crypto.x509.*
-import stdx.crypto.digest.*
+import cangjie_stdx::crypto.x509.*
+import cangjie_stdx::crypto.digest.*
 
 @Test
 public class Test_SM2PrivateKey_Illegal {

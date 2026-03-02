@@ -15,12 +15,12 @@ import std.time.*
 import std.sync.*
 import std.net.*
 import std.collection.*
-import stdx.log.*
-import stdx.logger.*
+import cangjie_stdx::log.*
+import cangjie_stdx::logger.*
 import std.console.Console
-import stdx.net.http.*
-import stdx.net.tls
-import stdx.encoding.url.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls
+import cangjie_stdx::encoding.url.*
 
 @Test
 public class Test_connect {

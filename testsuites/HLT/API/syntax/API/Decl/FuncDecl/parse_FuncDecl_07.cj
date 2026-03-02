@@ -12,7 +12,7 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 // FuncDecl不支持互操作函数
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 @Test
 class test_01{

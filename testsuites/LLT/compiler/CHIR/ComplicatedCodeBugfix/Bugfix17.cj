@@ -4,7 +4,7 @@
 // ASSERT: regex-not core dumped
 // ASSERT: regex-not stack trace
 
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 internal import std.collection.*
 
 main() {

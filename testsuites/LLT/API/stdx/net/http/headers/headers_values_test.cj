@@ -18,7 +18,7 @@
 
 package tests.headers
 
-import stdx.net.http.HttpHeaders
+import cangjie_stdx::net.http.HttpHeaders
 import std.collection.ArrayList
 
 @Test

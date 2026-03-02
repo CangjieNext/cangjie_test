@@ -8,7 +8,7 @@
 // EXEC: %compiler  %import-cangjie-stdx  %cmp_opt -o %n.%suffix %f
 // EXEC:%set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan pass01 pass02 pass03 pass04 pass05
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main() {
     var jv01: JsonValue = JsonNull()

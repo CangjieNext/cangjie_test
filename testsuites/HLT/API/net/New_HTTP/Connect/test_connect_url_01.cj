@@ -19,8 +19,8 @@
  *                           : (HttpResponse, ?StreamingSocket)
  */
 
-import stdx.net.http.*
-import stdx.encoding.url.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::encoding.url.*
 import std.net.*
 
 @Test

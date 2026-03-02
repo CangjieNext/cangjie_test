@@ -7,7 +7,7 @@
  */
 
 import std.io.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 var B: HttpResponse = ClientBuilder().build().get("http://127.0.0.1:10245/goo")
 func foo(a:HttpResponse){
   return a

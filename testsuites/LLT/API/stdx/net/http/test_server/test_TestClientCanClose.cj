@@ -13,8 +13,8 @@
  */
 package tests.go_server
 
-import stdx.net.http.*
-import stdx.net.tls.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
 import std.net.TcpSocket
 import std.unittest.*
 import std.unittest.testmacro.*

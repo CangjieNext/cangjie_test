@@ -11,8 +11,8 @@
 // RUN-EXEC: %run_stdx %output %run_args
 
 //Brief:限制T <: Serializable<T>，实例化为基础类型，Int64
-import stdx.encoding.json.*
-import stdx.serialization.serialization.*
+import cangjie_stdx::encoding.json.*
+import cangjie_stdx::serialization.serialization.*
 
 func serialize<T>(obj: Array<T>): String where T <: Serializable<T> {
     return obj.serialize().toJson().toString()

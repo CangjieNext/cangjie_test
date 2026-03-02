@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 internal import std.console.*
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 
 func foo<T>() {
     func test<T>() {

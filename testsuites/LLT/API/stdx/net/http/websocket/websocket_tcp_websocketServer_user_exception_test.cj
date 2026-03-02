@@ -16,17 +16,17 @@
  */
 package tests.websocket
 
-import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
-import stdx.encoding.url.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls
+import cangjie_stdx::crypto.kit
+import cangjie_stdx::encoding.url.*
 import std.net.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.time.*
 import std.sync.*
 import std.collection.*
-import stdx.log.*
+import cangjie_stdx::log.*
 
 @Test
 class TestTcpWebSocketServerUserFuncException {

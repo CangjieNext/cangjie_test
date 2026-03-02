@@ -12,7 +12,7 @@
 
 import std.ast.Tokens
 import std.collection.ArrayList
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 @Test
 func test_QuoteExpr_02() {

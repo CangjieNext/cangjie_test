@@ -5,8 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 internal import std.{console.*, fs.*, io.*}
-internal import stdx.log.*
-internal import stdx.logger.*
+internal import cangjie_stdx::log.*
+internal import cangjie_stdx::logger.*
 
 open class MyLogger <: Logger {
   public mut prop level: LogLevel {

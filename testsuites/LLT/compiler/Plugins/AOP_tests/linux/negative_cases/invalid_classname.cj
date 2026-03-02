@@ -11,7 +11,7 @@
 
 package AOP_demo1
 
-import stdx.aspectCJ.*
+import cangjie_stdx::aspectCJ.*
 
 @ReplaceFuncBody[packageName: "AOP_demo1", className: "xxx", methodName: "wovenFunction", isStatic: false, recursive: false]
 public func annotatedFunction(p0: () -> Unit): Unit {

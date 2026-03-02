@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-import stdx.log.*
+import cangjie_stdx::log.*
 
 let a = 1
 

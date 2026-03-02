@@ -8,9 +8,9 @@
 
 package test
 
-import stdx.crypto.x509.*
-import stdx.net.tls.*
-import stdx.net.http.*
+import cangjie_stdx::crypto.x509.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.http.*
 import std.fs.{File, OpenMode}
 import std.io.*
 

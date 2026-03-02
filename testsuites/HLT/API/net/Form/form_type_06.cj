@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 
 var form1 = Form("\n=\t&\b\r=\'\"")
 

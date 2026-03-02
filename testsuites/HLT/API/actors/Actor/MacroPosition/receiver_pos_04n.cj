@@ -10,8 +10,8 @@
 // ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // ASSERT: scan @Receiver macro: receiver method 'foo' must have explicit return type.
 
-import stdx.actors.*
-import stdx.actors.macros.*
+import cangjie_stdx::actors.*
+import cangjie_stdx::actors.macros.*
 
 open class Father<T> {}
 

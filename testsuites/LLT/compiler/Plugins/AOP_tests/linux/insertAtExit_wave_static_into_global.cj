@@ -10,7 +10,7 @@
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
-import stdx.aspectCJ.*
+import cangjie_stdx::aspectCJ.*
 import std.time.DateTime
 
 public struct SA {

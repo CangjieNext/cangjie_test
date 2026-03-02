@@ -11,7 +11,7 @@
 
 package AOP_demo1
 
-import stdx.aspectCJ.*
+import cangjie_stdx::aspectCJ.*
 
 public class AnnotatedClass {
     @InsertAtEntry[packageName: "AOP_demo1", className: "AnnotatedClass", methodName: "wovenFunction", isStatic: false, funcTypeStr: "(std.core.String)->std.core.String", recursive: false]

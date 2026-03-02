@@ -7,7 +7,7 @@
  */
 
 package test
-internal import stdx.log.*
+internal import cangjie_stdx::log.*
 main() {
     println("hello world")
 }

@@ -9,7 +9,7 @@
 // 版权所有 (c) 华为技术有限公司 2024-2024
 
 package test
-internal import stdx.log.*
+internal import cangjie_stdx::log.*
 main() {
     println("hello world")
 }

@@ -17,7 +17,7 @@ import std.sync.*
 import std.fs.*
 import std.convert.*
 import std.collection.*
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 import std.math.*
 import std.runtime.*
 

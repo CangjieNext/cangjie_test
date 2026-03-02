@@ -14,7 +14,7 @@
 
 import std.io.*
 import std.fs.*
-import stdx.compress.zlib.*
+import cangjie_stdx::compress.zlib.*
 
 class testZlib {
     public var inputStream: ByteBuffer

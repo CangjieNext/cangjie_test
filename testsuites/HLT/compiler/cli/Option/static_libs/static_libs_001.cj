@@ -14,7 +14,7 @@
 // ASSERT: scan-not libcangjie-std-math.so
 
 import std.math.*
-import stdx.encoding.base64.*
+import cangjie_stdx::encoding.base64.*
 
 main() {
     var a = lcm(-3, 5)

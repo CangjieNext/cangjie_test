@@ -13,7 +13,7 @@
 // ASSERT: scan-not stack trace
 
 import std.collection.ArrayList
-import stdx.effect.Command
+import cangjie_stdx::effect.Command
 
 class Get <: Command<Int64> {}
 

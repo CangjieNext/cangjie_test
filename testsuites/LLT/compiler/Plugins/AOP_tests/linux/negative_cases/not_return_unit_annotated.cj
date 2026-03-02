@@ -9,7 +9,7 @@
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
-import stdx.aspectCJ.*
+import cangjie_stdx::aspectCJ.*
 import std.time.DateTime
 
 @InsertAtEntry[packageName: "default", className: "", methodName: "printCurrentTime", isStatic: false, funcTypeStr: "(std.core.String)->std.core.String", recursive: false]

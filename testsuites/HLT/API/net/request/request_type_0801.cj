@@ -11,7 +11,7 @@
 // RUN-EXEC-PIPE: %run_stdx %output %run_args | compare %f
 // ASSERT: scan case pass
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.io.*
 
 main(): Int64 {

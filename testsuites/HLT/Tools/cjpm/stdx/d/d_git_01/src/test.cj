@@ -7,7 +7,7 @@
 package b
 
 internal import p2.*
-internal import stdx.*
+internal import cangjie_stdx::*
 
 func test(): Int64 {
     print("hello world\n")

@@ -9,7 +9,7 @@
 // ASSERT: scan call f
 
 internal import std.collection.*
-internal import stdx.serialization.serialization.*
+internal import cangjie_stdx::serialization.serialization.*
 
 interface I<T> <: Serializable<T> {
     func f(): Unit
