@@ -6,6 +6,6 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-package c
+package coo
 
 public var c: Int64 = 1
