@@ -4,8 +4,6 @@
 # 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-[dependencies]
-  a = {}
 
 [package]
   cjc-version = "0.25.3"
