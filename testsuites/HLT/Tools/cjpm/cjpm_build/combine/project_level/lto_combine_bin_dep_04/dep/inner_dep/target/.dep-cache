@@ -1,0 +1,22 @@
+{
+  "bin": {},
+  "pkg-build": {
+    "C:\\cangjie\\c_c_2\\c_t\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\combine\\module_level\\combine_bin_dep_04\\dep\\inner_dep\\src": {
+      "package": "inner_dep",
+      "isMacro": false,
+      "accessLevel": "public",
+      "timeStamp": 1769054878,
+      "dependencies": [],
+      "std-dependencies": [
+        {
+          "std.core": []
+        }
+      ],
+      "features": [],
+      "product": true,
+      "testUsed": false,
+      "mockUsed": false
+    }
+  },
+  "pkg-test": {}
+}
