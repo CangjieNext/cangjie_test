@@ -5,8 +5,8 @@
 
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile --compile-macro %n.old.cj 2>&1 | compare %n.old.cj
-// EXEC: %run_macro %compiler %incrementalCompile %cmp_opt %compile_exe_opt %macro_lib %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile --compile-macro %n.old.cj 2>&1 && cat .cached/*.log | compare %n.old.cj
+// EXEC: %run_macro %compiler %incrementalCompile %cmp_opt %compile_exe_opt %macro_lib %f -o %output 2>&1 && cat .cached/*.log | compare %f
 
 // ASSERT: scan no change
 

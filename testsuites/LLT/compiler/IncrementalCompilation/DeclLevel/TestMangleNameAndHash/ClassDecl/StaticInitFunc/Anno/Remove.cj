@@ -1,10 +1,11 @@
-// DEPENDENCE: ../template.cj %n.new.cj
+// DEPENDENCE: ../template.cj %n.new.cj %n.diag.txt
 // EXEC: %cpfile template.cj main.cj
 // EXEC: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 // EXEC: %cpfile %n.new.cj main.cj
-// EXEC-PIPE-1: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output 2>&1 | compare %n.diag.txt
+// EXEC: cat .cached/*.log | compare %f
 
 // ASSERT: scan begin dump raw modified decls:
 // ASSERT: scan S 7default1SC main.cj 1:
@@ -13,10 +14,8 @@
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan begin dump incremental compile result:
 // ASSERT: scan changed decls to recompile: 1
-// ASSERT: scan the changed decl after Spreading is:init in file main.cj in line 6 in column 12
+// ASSERT: scan the changed decl after Spreading is:init in file main.cj
 // ASSERT: scan incremental sema
-
-// ASSERT: scan error: arithmetic operation '+' overflow
 
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

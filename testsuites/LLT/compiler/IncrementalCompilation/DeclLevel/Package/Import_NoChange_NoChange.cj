@@ -4,7 +4,7 @@
 // EXEC: %compiler %cmp_opt -p %n %compile_lib_opt -o A.%lib_extension
 // EXEC: %compiler %incrementalCompile %cmp_opt A.%lib_extension %n.old.cj -o %output
 // EXEC: %run %run_opt %output %run_args
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt A.%lib_extension %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt A.%lib_extension %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan-not rollback
 // ASSERT: scan-not incremental compilation triggered
 // ASSERT: scan no change

@@ -2,15 +2,15 @@
 // EXEC: %mkdir %n
 // EXEC: %cpfile %n.old.cj %n/
 // EXEC: %compiler %incrementalCompile %cmp_opt %enableO2 -p %n %compile_lib_opt -o A.%lib_extension
-// EXEC: %compiler %incrementalCompile %cmp_opt %debugCHIROpt %enableO2 A.%lib_extension %f -o %output | compare %f
+// EXEC: %compiler %incrementalCompile %cmp_opt %debugCHIROpt %enableO2 A.%lib_extension %f -o %output && cat .cached/*.log | compare %f
 // ASSERT: scan [ConstPropagation] The Load at [LF_2_Incr.cj,20,5] has been rewrited to a constant
 // EXEC: %run %run_opt %output %run_args
 
 // EXEC: %rmfile %n/%n.old.cj
 // EXEC: %cpfile %n.new.cj %n/%n.old.cj
-// EXEC: %compiler %incrementalCompile %cmp_opt %enableO2 -p %n %compile_lib_opt -o A.%lib_extension 2>&1 | compare %n.new.cj
+// EXEC: %compiler %incrementalCompile %cmp_opt %enableO2 -p %n %compile_lib_opt -o A.%lib_extension 2>&1 && cat .cached/*.log | compare %n.new.cj
 
-// EXEC: %compiler %incrementalCompile %debugCHIROpt %enableO2 %cmp_opt A.%lib_extension %f -o %output 2>&1 | compare %n.expect
+// EXEC: %compiler %incrementalCompile %debugCHIROpt %enableO2 %cmp_opt A.%lib_extension %f -o %output 2>&1 && cat .cached/*.log | compare %n.expect
 
 // EXEC-3: %run %run_opt %output %run_args
 

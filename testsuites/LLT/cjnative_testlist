@@ -20,8 +20,58 @@ compiler/CHIR/RemoveRedundantRet
 compiler/CHIR/ScalarReplacementOfArray
 compiler/CHIROpt
 compiler/Parser/declFile
-compiler/IncrementalCompilation
 compiler/FFI/ffi_python
+
+# The following cases are for testing the incremental compilation, and they are not expected to pass in the CI environment, so they are temporarily excluded. They will be fixed and re-enabled later.
+compiler/IncrementalCompilation/DeclLevel/CHIROptimization/ConstPropagationAndFuncInline2.cj
+compiler/IncrementalCompilation/DeclLevel/CHIROptimization/End2End/InterfaceDefault/inter_1.cj
+compiler/IncrementalCompilation/DeclLevel/CHIROptimization/End2End/InterfaceDefault/inter_2.cj
+compiler/IncrementalCompilation/DeclLevel/Class/Constructor/InlinableCtorDefaultParam.cj
+compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/ChangeDirectExtends/PubStaticPropSig.cj
+compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/ChangeInterfaceExtends/PrivateInstancePropSig.cj
+compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/ChangeInterfaceExtends/PubStaticPropSig.cj
+compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/AddExtends/ExtendFlipMethod.cj
+compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/ChangeDirectExtends/PrivateInstancePropSig.cj
+# need --no-stack-info
+compiler/IncrementalCompilation/DeclLevel/Class/Member/ResortInstanceFunc1.cj
+compiler/IncrementalCompilation/DeclLevel/Class/Field/CrossPackage/Pos2.cj
+compiler/IncrementalCompilation/DeclLevel/Class/Member/ResortProp1.cj
+compiler/IncrementalCompilation/DeclLevel/Class/Member/ResortStaticFunc1.cj
+compiler/IncrementalCompilation/DeclLevel/Class/Member/ResortStaticProp1.cj
+compiler/IncrementalCompilation/DeclLevel/Class/Member/ResortStaticVariable1.cj
+compiler/IncrementalCompilation/DeclLevel/Class/VirFunc/ResortFunc2.cj
+compiler/IncrementalCompilation/DeclLevel/Class/VirFunc/ResortProp2.cj
+compiler/IncrementalCompilation/DeclLevel/Enum/Member_Resort1.cj
+compiler/IncrementalCompilation/DeclLevel/Enum/Prop_Resort1.cj
+compiler/IncrementalCompilation/DeclLevel/Enum/StaticMember_Resort2.cj
+compiler/IncrementalCompilation/DeclLevel/Extend/AddExtends/ExtendFlipMethod.cj
+compiler/IncrementalCompilation/DeclLevel/Extend/AddExtends/ResortMethod2.cj
+compiler/IncrementalCompilation/DeclLevel/Extend/ResortMethod.cj
+compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/AddExtends/ResortMethod2.cj
+compiler/IncrementalCompilation/DeclLevel/OnlyDebugMode/ChangeLineNumber_NoChange.cj
+compiler/IncrementalCompilation/DeclLevel/OnlyDebugMode/Enum_AddComments_NoChange.cj
+compiler/IncrementalCompilation/DeclLevel/OnlyDebugMode/ExprPositionNonDebug_NoChange.cj
+compiler/IncrementalCompilation/DeclLevel/OnlyDebugMode/ExtendMethod_ChangeLineNumber_NoChange.cj
+compiler/IncrementalCompilation/DeclLevel/OnlyDebugMode/GenericFunc_AddComments_NoChange.cj
+compiler/IncrementalCompilation/DeclLevel/OnlyDebugMode/MutProp_ResortGetterSetter_NoChange.cj
+compiler/IncrementalCompilation/DeclLevel/OnlyDebugMode/StaticVariables_ChangeLine_NoChange.cj
+compiler/IncrementalCompilation/DeclLevel/OnlyDebugMode/Struct_Variable_Method_Resort_NoChange.cj
+compiler/IncrementalCompilation/DeclLevel/Package/ChangePackageAstPosition_NoChange.cj
+compiler/IncrementalCompilation/DeclLevel/Package/ChangePackageNameColumn_NoChange.cj
+compiler/IncrementalCompilation/DeclLevel/Struct/MemberOrder2.cj
+# Alias impl is changed
+compiler/IncrementalCompilation/DeclLevel/Extend_CrossPackage/PolluteAliasExtend.cj
+# incr ice 12
+compiler/IncrementalCompilation/DeclLevel/TypeAlias/TypeAlias_LoadCache02/TypeAlias_LoadCache02.cj
+# chir_debug
+compiler/IncrementalCompilation/DeclLevel/Package/O2/FI_10_Incr.cj
+compiler/IncrementalCompilation/DeclLevel/Package/O2/FI_1_Incr.cj
+compiler/IncrementalCompilation/DeclLevel/Package/O2/FI_2_Incr.cj
+compiler/IncrementalCompilation/DeclLevel/Package/O2/FI_5_Incr.cj
+compiler/IncrementalCompilation/DeclLevel/Package/O2/FI_9_Incr.cj
+compiler/IncrementalCompilation/DeclLevel/Package/O2/LF_1_Incr.cj
+compiler/IncrementalCompilation/DeclLevel/Package/O2/LF_2_Incr.cj
+# end of incr testcases
 
 # no perf and gnuplot
 API/std/unittest/new_bench/bench_perf.cj

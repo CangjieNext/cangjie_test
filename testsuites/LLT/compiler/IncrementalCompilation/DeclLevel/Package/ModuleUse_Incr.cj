@@ -6,7 +6,7 @@
 // EXEC: %run %run_opt def/%output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt m1/A.%lib_extension %n.old.cj -o %output 2>&1 --output-dir def | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt m1/A.%lib_extension %n.old.cj -o %output 2>&1 --output-dir def && cat def/.cached/*.log | compare %f
 // ASSERT: scan-not load cached info failed, rollback
 // ASSERT: scan incremental compilation triggered
 // EXEC-1: %run %run_opt def/%output %run_args

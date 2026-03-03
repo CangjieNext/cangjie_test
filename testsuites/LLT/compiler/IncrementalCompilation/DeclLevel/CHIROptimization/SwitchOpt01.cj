@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt %optimization_level_2 -Woff unused %n.cj -o %output
 // RUN-EXEC: %run %run_opt %output
 // EXEC: %cpfile %n.txt %n.cj
-// EXEC: %compiler %cmp_opt -Woff unused %optimization_level_2 %incrementalCompile %n.cj -o %output | compare %f
+// EXEC: %compiler %cmp_opt -Woff unused %optimization_level_2 %incrementalCompile %n.cj -o %output && cat .cached/*.log | compare %f
 // RUN-EXEC: %run %run_opt %output
 // ASSERT: scan incremental compilation triggered
 

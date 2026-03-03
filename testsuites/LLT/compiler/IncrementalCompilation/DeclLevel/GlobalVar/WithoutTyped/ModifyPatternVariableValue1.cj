@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %n.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.txt %n.cj
-// EXEC: %compiler %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %n.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 3
 // ASSERT: scan the changed decl after Spreading is:VarWithPatternDecl in file ModifyPatternVariableValue1.cj in line 12 in column 1
 // ASSERT: scan the changed decl after Spreading is:a in file ModifyPatternVariableValue1.cj in line 12 in column 6

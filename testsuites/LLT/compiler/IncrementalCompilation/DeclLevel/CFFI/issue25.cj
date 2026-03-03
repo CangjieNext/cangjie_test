@@ -6,7 +6,8 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt A.%lib_extension %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt A.%lib_extension %n.old.cj -o %output 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // EXEC: %run %run_opt %output %run_args
 // ASSERT: scan changed decls to recompile: 1
 // ASSERT: scan the changed decl after Spreading is:main in file issue25.old.cj in line 3 in column 1
