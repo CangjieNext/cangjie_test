@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan the changed decl after Spreading is:A in file ChangeOverflowStrategy_Incr.old.cj in line 3 in column 5
 // ASSERT: scan the changed decl after Spreading is:foo in file ChangeOverflowStrategy_Incr.old.cj in line 12 in column 6
