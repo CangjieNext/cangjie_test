@@ -2,7 +2,7 @@
 // EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output
 // RUN-EXEC-6: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.txt %n.cj
-// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output | compare expect1.expect
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output && cat .cached/*.log | compare expect1.expect
 // RUN-EXEC-9: %run %run_opt %output %run_args
 
 let g: Int32 = 2

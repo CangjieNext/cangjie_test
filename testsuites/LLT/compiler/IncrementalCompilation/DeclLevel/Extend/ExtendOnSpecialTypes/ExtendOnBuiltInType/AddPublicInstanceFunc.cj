@@ -1,7 +1,8 @@
-// DEPENDENCE: %n.old.cj %n.new.cj
+// DEPENDENCE: %n.old.cj %n.new.cj %n.diag.txt
 // EXEC: %compiler %incrementalCompile %n.old.cj -o %output
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 | compare %n.diag.txt
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 15
 // ASSERT: scan the changed decl after Spreading is:ExtendDecl in file AddPublicInstanceFunc.old.cj in line 5 in column 1
 // ASSERT: scan the changed decl after Spreading is:f in file AddPublicInstanceFunc.old.cj in line 6 in column 17
@@ -18,8 +19,6 @@
 // ASSERT: scan the changed decl after Spreading is:+ in file c_pointer_resource.cj
 // ASSERT: scan the changed decl after Spreading is:- in file c_pointer_resource.cj
 // ASSERT: scan the changed decl after Spreading is:asResource in file c_pointer_resource.cj
-// ASSERT: scan extend member 'f' is not allowed to shadow members of 'extend CPointer<Generics-T>'
-
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

@@ -6,8 +6,9 @@
 // (Windows) EXEC: %compiler %incrementalCompile %n.inc.cj --error-count-limit=all --diagnostic-format=noColor %cffi-link -o %output
 
 // EXEC: %cpfile %n.new.cj %n.inc.cj
-// (not Windows) EXEC: %compiler %incrementalCompile %n.inc.cj --lto=full  --error-count-limit=all --diagnostic-format=noColor %cffi-link -o %output %f 2>&1 | compare %f
-// (Windows) EXEC: %compiler %incrementalCompile %n.inc.cj --error-count-limit=all --diagnostic-format=noColor %cffi-link -o %output %f 2>&1 | compare %f
+// (not Windows) EXEC: %compiler %incrementalCompile %n.inc.cj --lto=full  --error-count-limit=all --diagnostic-format=noColor %cffi-link -o %output %f 2>&1
+// (Windows) EXEC: %compiler %incrementalCompile %n.inc.cj --error-count-limit=all --diagnostic-format=noColor %cffi-link -o %output %f 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

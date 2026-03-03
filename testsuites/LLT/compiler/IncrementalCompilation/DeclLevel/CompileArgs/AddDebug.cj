@@ -1,8 +1,8 @@
 // EXEC: %compiler %incrementalCompile %f -o %output
 // EXEC: %run %run_opt %output %run_args
-// EXEC: %compiler %f %incrementalCompile -g -o %output 2>&1 | compare %f
+// EXEC: %compiler %f %incrementalCompile -g -o %output 2>&1 && cat .cached/*.log | compare %f
 // EXEC: %run %run_opt %output %run_args
-// EXEC: %compiler %f %incrementalCompile -o %output 2>&1 | compare %f
+// EXEC: %compiler %f %incrementalCompile -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan incremental compile result kind: rollback
 // EXEC: %run %run_opt %output %run_args
 

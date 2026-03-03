@@ -1,6 +1,6 @@
 // EXEC: %compiler %incrementalCompile -O2 -O0 %n.cj -o %output
 // EXEC: %run %run_opt %output %run_args
-// EXEC: %compiler %incrementalCompile -O0 -O2 %n.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile -O0 -O2 %n.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // EXEC: %run %run_opt %output %run_args
 
 // O0和O2是相互矛盾的编译选项，后面的会覆盖前面的

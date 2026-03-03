@@ -8,6 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %cmp_utest_opt %f -o %output
+// EXEC: cat %f
 // (not iOS) RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args --no-color 2>&1 | compare %f
 // (iOS) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args --no-color 2>&1 | compare %f
 // ASSERT: scan Expect Failed: `(UInt64(0) == 1u64)`

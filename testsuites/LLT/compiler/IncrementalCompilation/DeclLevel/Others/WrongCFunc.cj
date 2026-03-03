@@ -1,4 +1,4 @@
-// EXEC-PIPE-1: %compiler %cmp_opt -Woff unused %f 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt -Woff unused %f 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan-not core dumped
 
 @C

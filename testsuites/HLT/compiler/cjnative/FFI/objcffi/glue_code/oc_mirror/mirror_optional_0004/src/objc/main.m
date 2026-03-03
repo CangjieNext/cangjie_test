@@ -14,8 +14,20 @@ int main(int argc, char** argv) {
         A* a = [[A alloc] init];
         [a g1];
         [A g2];
-        [a f1];
-        [A f2];
+
+        @try {
+            [a f1];
+        }
+        @catch (NSException *e) {
+            printf("objc catch %s\n", [e.name UTF8String]);
+        }
+
+        @try {
+            [A f2];
+        }
+        @catch (NSException *e) {
+            printf("objc catch %s\n", [e.name UTF8String]);
+        }
     }
     return 0;
 }

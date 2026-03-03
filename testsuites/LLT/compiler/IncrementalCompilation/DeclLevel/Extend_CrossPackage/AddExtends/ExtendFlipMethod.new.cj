@@ -11,7 +11,11 @@ extend<T> A<T> where T <: ToString {
     }
 }
 
-extend<T> A<T> where T <: ToString {}
+extend<T> A<T> where T <: ToString {
+//    public func bar(): Int32 {
+//        1
+//    }
+}
 
 main() {
     let a = A<Int32>()

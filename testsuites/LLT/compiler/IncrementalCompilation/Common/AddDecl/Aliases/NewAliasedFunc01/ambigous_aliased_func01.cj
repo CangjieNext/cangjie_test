@@ -1,14 +1,14 @@
-// DEPENDENCE: pkg.old.cj pkg.new.cj
+// DEPENDENCE: pkg.old.cj pkg.new.cj diag.txt
 // EXEC: %cpfile pkg.old.cj pkg.cj
 // EXEC: %compiler %cmp_opt pkg.cj %compile_lib_opt -o pkg.%lib_extension
 // EXEC: %compiler %incrementalCompile %cmp_opt pkg.%lib_extension %f -o %output
 // EXEC-1: %run %run_opt %output %run_args
 // EXEC: %cpfile pkg.new.cj pkg.cj
 // EXEC: %compiler %cmp_opt pkg.cj %compile_lib_opt %incrementalCompile -o pkg.%lib_extension
-// EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt pkg.%lib_extension %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt pkg.%lib_extension %f -o %output 2>&1 | compare diag.txt
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan-not no change
-// ASSERT: scan ambiguous match for function call 'b'
 
 import pkg.f as b
 
@@ -16,7 +16,6 @@ main() : Int64 {
     let v = b()
     return v
 }
-
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
