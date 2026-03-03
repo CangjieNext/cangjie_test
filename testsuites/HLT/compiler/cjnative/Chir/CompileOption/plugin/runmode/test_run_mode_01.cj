@@ -7,12 +7,12 @@
  */
 
 // LEVEL: 1
-// (!target_ohos) DEPENDENCE: ../runplugin/plugin1, ../runplugin/plugin2
-// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin1/build && cd plugin1/build && cmake .. && make clean && make && make install
-// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin2/build && cd plugin2/build && cmake .. && make clean && make && make install
-// (!target_ohos) EXEC-PIPE: %compiler %cmp_opt %f --plugin=./plugin1/output/libplugin1.%host_dylib_suffix --plugin=./plugin2/output/libplugin2.%host_dylib_suffix --plugin=./plugin1/output/libplugin1.%host_dylib_suffix -o %output | compare %f
-// (!target_ohos) ASSERT: scan-2 Found 1 Packages
-// (!target_ohos) ASSERT: scan Found 1 Funcs
+// (!(host_win | target_ohos)) DEPENDENCE: ../runplugin/plugin1, ../runplugin/plugin2
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin1/build && cd plugin1/build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin2/build && cd plugin2/build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC-PIPE: %compiler %cmp_opt %f --plugin=./plugin1/output/libplugin1.%host_dylib_suffix --plugin=./plugin2/output/libplugin2.%host_dylib_suffix --plugin=./plugin1/output/libplugin1.%host_dylib_suffix -o %output | compare %f
+// (!(host_win | target_ohos)) ASSERT: scan-2 Found 1 Packages
+// (!(host_win | target_ohos)) ASSERT: scan Found 1 Funcs
 
 /*
     description：加载不同功能的合法插件

@@ -7,10 +7,10 @@
  */
 
 // LEVEL: 2
-// (!target_ohos) DEPENDENCE: CMakeLists.txt, ./src, const.cj
-// (!target_ohos) EXEC: %compiler %cmp_opt %compile_dylib_opt const.cj -o libsourcecode.%dylib_suffix
-// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
-// (!target_ohos) EXEC: %compiler %cmp_opt %f -L. -lsourcecode %enableConstPropagation --plugin=./output/libmyplugin1.%host_dylib_suffix -o %output
+// (!(host_win | target_ohos)) DEPENDENCE: CMakeLists.txt, ./src, const.cj
+// (!(host_win | target_ohos)) EXEC: %compiler %cmp_opt %compile_dylib_opt const.cj -o libsourcecode.%dylib_suffix
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC: %compiler %cmp_opt %f -L. -lsourcecode %enableConstPropagation --plugin=./output/libmyplugin1.%host_dylib_suffix -o %output
 
 import sourcecode.*
 

@@ -1,7 +1,8 @@
 // DEPENDENCE: pkg.cj pkg2.cj NoChange.expect
 
 // EXEC: %compiler %incrementalCompile %cmp_opt %compile_lib_opt pkg.cj pkg2.cj
-// EXEC: %compiler %incrementalCompile %cmp_opt %compile_lib_opt pkg2.cj pkg.cj 2>&1 | compare NoChange.expect
+// EXEC: %compiler %incrementalCompile %cmp_opt %compile_lib_opt pkg2.cj pkg.cj 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare NoChange.expect
 
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

@@ -5,8 +5,8 @@
 // EXEC: %run %run_opt %output %run_args
 
 // EXEC: %cpfile %n.new.cj %n.inc.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile --compile-macro %n.inc.cj %output 2>&1 | compare Incr.expect.txt
-// EXEC-PIPE-1: %run_macro %compiler %cmp_opt %incrementalCompile %compile_exe_opt %macro_lib %f -o %output  2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile --compile-macro %n.inc.cj %output 2>&1 && cat .cached/*.log | compare Incr.expect.txt
+// EXEC-PIPE-1: %run_macro %compiler %cmp_opt %incrementalCompile %compile_exe_opt %macro_lib %f -o %output  2>&1 && cat .cached/*.log | compare %f
 // ASSERT: regex-auto undeclared identifier 'M' 
 
 import define.*

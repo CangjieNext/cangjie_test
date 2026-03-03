@@ -6,7 +6,7 @@
 // EXEC: %cpfile %n.new.cj %n.old.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj %compile_lib_opt -o libp1.%lib_extension
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.p2.cj %compile_lib_opt -o libp2.%lib_extension
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %f libp2.%lib_extension libp1.%lib_extension -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %f libp2.%lib_extension libp1.%lib_extension -o %output 2>&1 && cat .cached/*.log | compare %f
 
 // ASSERT: scan no raw modified decls
 // ASSERT: scan incremental compile result kind: no change

@@ -1,12 +1,14 @@
 // DEPENDENCE: pkg.cj Full.expect NoChange.expect
 // EXEC: %mkdir inc outputDir1
 // EXEC: %cpfile pkg.cj inc
-// EXEC: %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt --output-dir outputDir1 -o A.%lib_extension 2>&1 | compare Full.expect
+// EXEC: %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt --output-dir outputDir1 -o A.%lib_extension 2>&1
+// (Linux)EXEC: cat outputDir1/.cached/*.log | compare Full.expect
 // EXEC: %compiler %cmp_opt %incrementalCompile %f outputDir1/A.%lib_extension --import-path outputDir1 -o %output
 // EXEC-5: %run %run_opt %output %run_args
 
 // EXEC: %cpdir outputDir1 outputDir2
-// EXEC: %compiler %cmp_opt %incrementalCompile %f outputDir2/A.%lib_extension --import-path outputDir2 -o %output | compare NoChange.expect
+// EXEC: %compiler %cmp_opt %incrementalCompile %f outputDir2/A.%lib_extension --import-path outputDir2 -o %output
+// (Linux)EXEC: cat .cached/*.log | compare NoChange.expect
 // EXEC-5: %run %run_opt %output %run_args
 
 internal import inc.foo

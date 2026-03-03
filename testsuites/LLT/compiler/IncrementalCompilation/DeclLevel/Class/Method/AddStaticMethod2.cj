@@ -3,7 +3,7 @@
 // EXEC-2: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 4
 // ASSERT: scan the changed decl after Spreading is:Child in file AddStaticMethod2.old.cj in line 13 in column 14
 // ASSERT: scan the changed decl after Spreading is:test in file AddStaticMethod2.old.cj in line 14 in column 30

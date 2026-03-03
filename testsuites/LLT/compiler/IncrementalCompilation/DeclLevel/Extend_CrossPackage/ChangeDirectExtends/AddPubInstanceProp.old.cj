@@ -1,7 +1,13 @@
 package inc
 
 public open class A {}
-extend A {}
+extend A {
+//    public prop k: Int64 {
+//        get() {
+//            2
+//        }
+//    }
+}
 
 main() {
     let b = B()

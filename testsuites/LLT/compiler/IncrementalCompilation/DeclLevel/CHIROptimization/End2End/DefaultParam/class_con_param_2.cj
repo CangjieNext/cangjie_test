@@ -5,7 +5,7 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 
 // EXEC: %cpfile %n.new.cj main.cj
-// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt %optimization_level_2 main.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt %optimization_level_2 main.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // RUN-EXEC-1: %run %run_opt %output %run_args
 
 // ASSERT: scan begin dump raw modified decls:

@@ -8,7 +8,8 @@ class S
     !  // is named
     :Int64  // param type
     = 1  // initializer
-    ) 
+    )
+//    :Int64 // RetType
     where T <: ToString // Generic Constraint
     {
         3   // a) body change with type, b) body change without type
