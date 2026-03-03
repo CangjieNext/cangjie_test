@@ -1,0 +1,428 @@
+From bdfe172ceaa7d2a9dad0f941639a8b207b510ff2 Mon Sep 17 00:00:00 2001
+From: ymh-coder <1097379599@qq.com>
+Date: Tue, 3 Mar 2026 11:19:35 +0800
+Subject: [PATCH] test:add windows memory case
+
+---
+ .../memory_test1/cjpm.toml                    | 17 ++++++
+ .../memory_test1/memory_test1.info            | 11 ++++
+ .../memory_test1/src/analytics/report.cj      | 10 ++++
+ .../memory_test1/src/config/settings.cj       |  5 ++
+ .../memory_test1/src/course/schedule.cj       |  7 +++
+ .../memory_test1/src/db/connection.cj         | 10 ++++
+ .../memory_test1/src/finance/wallet.cj        |  8 +++
+ .../memory_test1/src/library/book_manager.cj  |  8 +++
+ .../memory_test1/src/main.cj                  | 54 +++++++++++++++++++
+ .../memory_test1/src/models/product.cj        | 19 +++++++
+ .../memory_test1/src/notify/sender.cj         |  7 +++
+ .../memory_test1/src/security/auth.cj         |  8 +++
+ .../memory_test1/src/services/order.cj        | 27 ++++++++++
+ .../memory_test1/src/user/profile.cj          | 11 ++++
+ .../memory_test1/src/utils/hepler.cj          |  7 +++
+ .../memory_test1/src/utils/logger.cj          | 15 ++++++
+ .../memory_test1/src/utils/math.cj            | 13 +++++
+ testsuites/LLT/Tools/cjpm/test.cfg            |  1 +
+ testsuites/LLT/Tools/cjpm/test_windows.cfg    |  4 +-
+ 19 files changed, 241 insertions(+), 1 deletion(-)
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/cjpm.toml
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/memory_test1.info
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/analytics/report.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/config/settings.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/course/schedule.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/db/connection.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/finance/wallet.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/library/book_manager.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/main.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/models/product.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/notify/sender.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/security/auth.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/services/order.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/user/profile.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/utils/hepler.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/utils/logger.cj
+ create mode 100644 testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/utils/math.cj
+
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/cjpm.toml b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/cjpm.toml
+new file mode 100644
+index 0000000000..8afae663eb
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/cjpm.toml
+@@ -0,0 +1,17 @@
++[package]
++  cjc-version = "1.0.1"
++  name = "demo"
++  description = "nothing here"
++  version = "1.0.0"
++  target-dir = ""
++  src-dir = ""
++  output-type = "executable"
++  compile-option = ""
++  override-compile-option = ""
++  link-option = ""
++  package-configuration = {}
++
++[dependencies]
++[profile]
++  [profile.build]
++    performance_analysis=true
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/memory_test1.info b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/memory_test1.info
+new file mode 100644
+index 0000000000..2a5d6cb532
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/memory_test1.info
+@@ -0,0 +1,11 @@
++// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
++// This source file is part of the Cangjie project, licensed under Apache-2.0
++// with Runtime Library Exception.
++//
++// See https://cangjie-lang.cn/pages/LICENSE for license information.
++
++// DEPENDENCE: ../%n
++// EXEC-PIPE-0: cd %n && %cjpm build
++// (Windows) EXEC: cd %n && %cat target\release\performance_analysis\memory_cost.json | findstr /r /c:\":[ ][ ]*-[0-9]\" >nul && echo MEMORY_COST_NON_NEG_FAIL || echo MEMORY_COST_NON_NEG_PASS" | compare %f
++// (Linux)   EXEC: cd %n && cat target/release/performance_analysis/memory_cost.json | grep -q "\":[ ]*-[0-9]" && echo MEMORY_COST_NON_NEG_FAIL || echo MEMORY_COST_NON_NEG_PASS" | compare %f
++// ASSERT: scan-not MEMORY_COST_NON_NEG_FAIL
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/analytics/report.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/analytics/report.cj
+new file mode 100644
+index 0000000000..f177c00c2d
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/analytics/report.cj
+@@ -0,0 +1,10 @@
++package demo.analytics
++import demo.finance.*
++import demo.library.*
++public class DailyReport {
++    public func generate(): Unit {
++        println("=== 生成今日校园日报 ===")
++        println("财务系统状态: 正常")
++        println("图书馆状态: 正常")
++    }
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/config/settings.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/config/settings.cj
+new file mode 100644
+index 0000000000..2505816654
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/config/settings.cj
+@@ -0,0 +1,5 @@
++package demo.config
++public class AppConfig {
++    public static let VERSION = "2.0.0"
++    public static let DEBUG_MODE = true
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/course/schedule.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/course/schedule.cj
+new file mode 100644
+index 0000000000..bbb1c59d7c
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/course/schedule.cj
+@@ -0,0 +1,7 @@
++package demo.course
++
++public class CourseManager {
++    public func printSchedule(): Unit {
++        println("[Course] 今日课程：仓颉编程语言进阶")
++    }
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/db/connection.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/db/connection.cj
+new file mode 100644
+index 0000000000..83a17fffcf
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/db/connection.cj
+@@ -0,0 +1,10 @@
++package demo.db
++import demo.config.*
++
++public class Database {
++    public func connect(): Unit {
++        if (AppConfig.DEBUG_MODE) {
++            println("[DB] Connecting to Dev Database...")
++        }
++    }
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/finance/wallet.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/finance/wallet.cj
+new file mode 100644
+index 0000000000..ca6240b53b
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/finance/wallet.cj
+@@ -0,0 +1,8 @@
++package demo.finance
++import demo.user.*
++
++public class CampusCard {
++    public func charge(student: Student, amount: Float64): Unit {
++        println("[Finance] ${student.name} 充值了 ${amount} 元")
++    }
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/library/book_manager.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/library/book_manager.cj
+new file mode 100644
+index 0000000000..5de2ffae81
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/library/book_manager.cj
+@@ -0,0 +1,8 @@
++package demo.library
++import demo.user.*
++
++public class LibrarySystem {
++    public func borrowBook(student: Student, bookName: String): Unit {
++        println("[Library] ${student.name} 借阅了《${bookName}》")
++    }
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/main.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/main.cj
+new file mode 100644
+index 0000000000..bdb5e60b8f
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/main.cj
+@@ -0,0 +1,54 @@
++package demo
++// 导入业务包和数据包
++import demo.services.*
++import demo.models.*
++// 注意：虽然 main 没有直接用 utils，但通过其他包间接使用了
++
++import demo.config.*
++import demo.db.*
++import demo.security.*
++import demo.user.*
++import demo.finance.*
++import demo.library.*
++import demo.notify.*
++import demo.analytics.*
++
++main(): Int64 {
++    println("=== 欢迎来到仓颉在线商店 ===")
++
++    // 1. 创建一个商品 (来自 models 包)
++    let myPhone = Product("Cangjie Phone Pro", 5999.0)
++
++    // 2. 实例化服务 (来自 services 包)
++    let service = OrderService()
++
++    // 3. 执行业务逻辑
++    service.createOrder(myPhone, 2)
++
++    println("正在启动 SmartCampus 系统 V${AppConfig.VERSION}...")
++
++    // 1. 初始化基础设施
++    let db = Database()
++    db.connect()
++    
++    let auth = AuthManager()
++    auth.login("Admin")
++
++    // 2. 创建业务对象
++    let student = Student("张三", "S1001")
++    let notifier = Notifier()
++
++    // 3. 执行业务流程
++    // 财务
++    let card = CampusCard()
++    card.charge(student, 100.0)
++    notifier.sendSMS("您的校园卡充值成功")
++
++    // 图书馆
++    let lib = LibrarySystem()
++    lib.borrowBook(student, "仓颉编程指南")
++
++    // 4. 生成报表
++    let report = DailyReport()
++    return 0
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/models/product.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/models/product.cj
+new file mode 100644
+index 0000000000..a4cebc5af6
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/models/product.cj
+@@ -0,0 +1,19 @@
++package demo.models
++
++// 导入工具包，虽然这里没用到，但演示可以跨包引用
++import demo.utils.* 
++
++public class Product {
++    public var name: String
++    public var price: Float64
++
++    public init(name: String, price: Float64) {
++        this.name = name
++        this.price = price
++    }
++
++    public func showDetails(): Unit {
++        // 使用 utils 包的功能
++        Logger.info("商品详情: ${name} - 价格: ¥${price}")
++    }
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/notify/sender.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/notify/sender.cj
+new file mode 100644
+index 0000000000..9417ad4480
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/notify/sender.cj
+@@ -0,0 +1,7 @@
++package demo.notify
++
++public class Notifier {
++    public func sendSMS(msg: String): Unit {
++        println("[SMS] Sending: ${msg}")
++    }
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/security/auth.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/security/auth.cj
+new file mode 100644
+index 0000000000..7f6eec9717
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/security/auth.cj
+@@ -0,0 +1,8 @@
++package demo.security
++
++public class AuthManager {
++    public func login(username: String): Bool {
++        println("[Security] User ${username} logged in.")
++        return true
++    }
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/services/order.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/services/order.cj
+new file mode 100644
+index 0000000000..5cdfd71279
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/services/order.cj
+@@ -0,0 +1,27 @@
++ package demo.services
++
++ // 导入其他两个包
++import demo.models.*
++import demo.utils.*
++
++public class OrderService {
++    
++    // 模拟下单过程
++    public func createOrder(product: Product, quantity: Int64): Unit {
++        Logger.info("正在处理订单...")
++        
++        if (quantity <= 0) {
++            Logger.error("购买数量必须大于 0")
++            return
++        }
++
++        let total = product.price * Float64(quantity)
++        
++        Logger.info("--------------------")
++        Logger.info("订单创建成功!")
++        product.showDetails() // 调用 models 中的方法
++        Logger.info("购买数量: ${quantity}")
++        Logger.info("应付总额: ¥${total}")
++        Logger.info("--------------------")
++    }
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/user/profile.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/user/profile.cj
+new file mode 100644
+index 0000000000..e2d625e3a5
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/user/profile.cj
+@@ -0,0 +1,11 @@
++package demo.user
++
++public class Student {
++    public var name: String
++    public var id: String
++    
++    public init(name: String, id: String) {
++        this.name = name
++        this.id = id
++    }
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/utils/hepler.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/utils/hepler.cj
+new file mode 100644
+index 0000000000..2134290f96
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/utils/hepler.cj
+@@ -0,0 +1,7 @@
++package demo.utils
++
++import std.time.*
++
++public func generateId(): String {
++    return "ID_" + DateTime.now().toString()
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/utils/logger.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/utils/logger.cj
+new file mode 100644
+index 0000000000..39d4e30878
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/utils/logger.cj
+@@ -0,0 +1,15 @@
++package demo.utils
++
++
++
++// 提供一个公共的日志类
++public class Logger {
++    // 静态函数，方便直接调用
++    public static func info(msg: String): Unit {
++        println("[INFO] ${msg}")
++    }
++
++    public static func error(msg: String): Unit {
++        println("[ERROR] *** ${msg} ***")
++    }
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/utils/math.cj b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/utils/math.cj
+new file mode 100644
+index 0000000000..7e1a655780
+--- /dev/null
++++ b/testsuites/LLT/Tools/cjpm/CJNATIVE/compile_performance/memory_test1/src/utils/math.cj
+@@ -0,0 +1,13 @@
++package demo.utils
++
++// 定义一个 public 函数，这样才能被其他包访问
++public func add(a: Int64, b: Int64): Int64 {
++    return a + b
++}
++
++// 定义一个 public 类
++public class Greeter {
++    public func sayHello(): Unit {
++        println("Hello from Utils Package!")
++    }
++}
+\ No newline at end of file
+diff --git a/testsuites/LLT/Tools/cjpm/test.cfg b/testsuites/LLT/Tools/cjpm/test.cfg
+index aad69f3a5a..7868af211d 100644
+--- a/testsuites/LLT/Tools/cjpm/test.cfg
++++ b/testsuites/LLT/Tools/cjpm/test.cfg
+@@ -9,6 +9,7 @@
+ [condition]
+   condition=
+     VOO
++    Linux
+ [internal-var]
+   cjpm = cjpm
+   compiler = cjc
+diff --git a/testsuites/LLT/Tools/cjpm/test_windows.cfg b/testsuites/LLT/Tools/cjpm/test_windows.cfg
+index 73508aa7d7..2d943258ae 100644
+--- a/testsuites/LLT/Tools/cjpm/test_windows.cfg
++++ b/testsuites/LLT/Tools/cjpm/test_windows.cfg
+@@ -42,4 +42,6 @@
+   run_utest_opt = %%utest_no_progress
+   utest_no_progress = --no-progress
+ [description]
+-  title = Cjpm CJNATIVE Test
+\ No newline at end of file
++  title = Cjpm CJNATIVE Test
++[condition]
++  condition = Windows
+\ No newline at end of file
+-- 
+2.52.0.windows.1
+
