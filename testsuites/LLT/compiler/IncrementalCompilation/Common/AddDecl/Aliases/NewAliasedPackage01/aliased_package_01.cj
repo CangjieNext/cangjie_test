@@ -5,7 +5,8 @@
 // EXEC-1: %run %run_opt %output %run_args
 // EXEC: %cpfile pkg.new.cj pkg.cj
 // EXEC: %compiler %cmp_opt pkg.cj %compile_lib_opt %incrementalCompile -o pkg.%lib_extension
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt pkg.%lib_extension %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt pkg.%lib_extension %f -o %output 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan-not no change
 // EXEC-1: %run %run_opt %output %run_args

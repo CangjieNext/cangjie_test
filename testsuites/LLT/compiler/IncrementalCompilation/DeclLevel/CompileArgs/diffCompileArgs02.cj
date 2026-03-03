@@ -1,6 +1,6 @@
 // EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output
 // EXEC: %run %run_opt %output %run_args
-// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // EXEC: %run %run_opt %output %run_args
 
 // 两次编译，只有--incremental-compile参数发生了有无的变化，一次有，一次没有，不会触发全量编译

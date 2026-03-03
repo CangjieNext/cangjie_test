@@ -7,8 +7,8 @@
 
 // EXEC: %rmfile %n/%n.old.cj
 // EXEC: %cpfile %n.new.cj %n/%n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension | compare %n.new.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension && cat .cached/*.log | compare %n.new.cj
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o %output 2>&1 && cat .cached/*.log | compare %f
 // EXEC: %run %run_opt %output %run_args
 
 internal import p1.*

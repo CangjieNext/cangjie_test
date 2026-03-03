@@ -4,7 +4,7 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt %f liba.%lib_extension -o %output -O2
 // EXEC: %cpfile %n.new.cj %n.old.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj %compile_lib_opt -o liba.%lib_extension -O2
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %f liba.%lib_extension -o %output -O2 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %f liba.%lib_extension -o %output -O2 2>&1 && cat .cached/*.log | compare %f
 
 // ASSERT: scan-not the changed decl after Spreading is:bar in file extra_unit.old.cj
 // ASSERT: scan-not the changed decl after Spreading is:main in file extra_unit.cj

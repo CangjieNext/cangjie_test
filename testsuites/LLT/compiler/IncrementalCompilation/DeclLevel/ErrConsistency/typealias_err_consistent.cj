@@ -3,10 +3,11 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt inc.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj inc.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt inc.cj -o %output 2>&1 | compare %n.new.cj
+// EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt inc.cj -o %output 2>&1 | compare %f
 
-// EXEC-PIPE-1: %compiler %cmp_opt inc.cj -o %output 2>&1 | compare %n.new.cj
+// EXEC-PIPE-1: %compiler %cmp_opt inc.cj -o %output 2>&1 | compare %f
 
+// ASSERT: scan error: type argument's number does not match type parameter's number
 
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
