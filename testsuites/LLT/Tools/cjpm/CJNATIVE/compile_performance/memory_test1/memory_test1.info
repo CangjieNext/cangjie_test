@@ -1,0 +1,11 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-PIPE-0: cd %n && %cjpm build
+// (Windows) EXEC: cd %n && %cat target\release\performance_analysis\memory_cost.json | findstr /r /c:\":[ ][ ]*-[0-9]\" >nul && echo MEMORY_COST_NON_NEG_FAIL || echo MEMORY_COST_NON_NEG_PASS" | compare %f
+// (Linux)   EXEC: cd %n && cat target/release/performance_analysis/memory_cost.json | grep -q "\":[ ]*-[0-9]" && echo MEMORY_COST_NON_NEG_FAIL || echo MEMORY_COST_NON_NEG_PASS" | compare %f
+// ASSERT: scan-not MEMORY_COST_NON_NEG_FAIL
