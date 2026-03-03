@@ -1,7 +1,8 @@
 // DEPENDENCE: %n.old.cj %n.new.cj
 // EXEC: %compiler %incrementalCompile %noStackInfo %cmp_opt %n.old.cj -o %output %compile_lib_opt
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %noStackInfo %cmp_opt %n.old.cj -o %output %compile_lib_opt 2>&1 | compare %f
+// EXEC-1: %compiler %incrementalCompile %noStackInfo %cmp_opt %n.old.cj -o %output %compile_lib_opt 2>&1
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan 1 order changed decl(s).
 // ASSERT: scan order change 2p13fooM6Tokens
 

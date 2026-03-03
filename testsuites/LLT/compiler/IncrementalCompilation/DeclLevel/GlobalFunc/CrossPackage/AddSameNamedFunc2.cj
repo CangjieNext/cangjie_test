@@ -1,15 +1,15 @@
 // DEPENDENCE: %n.pkg.cj %n.txt
-
+// EXEC: %mkdir out
 // EXEC: %mkdir %n
 // EXEC: %cpfile %n.pkg.cj %n
 // EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension
-// EXEC: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o %output
-// EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o out/%output
+// EXEC: %run %run_opt out/%output %run_args
 
 // EXEC: %cpfile %n.txt %n.cj
 
-// EXEC: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o %output 2>&1 | compare %f
-// EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o out/%output 2>&1 && cat out/.cached/*.log | compare %f
+// EXEC: %run %run_opt out/%output %run_args
 
 import inc
 

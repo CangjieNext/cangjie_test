@@ -1,5 +1,6 @@
 class S
 {
+    // @OverflowThrowing // Annotation
     static 
     public // Modifier
     func get  // Identifier

@@ -9,11 +9,12 @@
 // LEVEL: 1
 // EXEC-PIPE: %compiler %cmp_opt  %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args  | compare %f
-// ASSERT: scan-begin 1.0
-// ASSERT: scan-next 10.0
-// ASSERT: scan-next 100.0
+// ASSERT: scan-begin 1.000000
+// ASSERT: scan-next 10.000000
+// ASSERT: scan-next 100.000000
 // ASSERT: scan-next 1.00000010.000000100.000000
 // ASSERT: scan-end
+
 import std.collection.*
 import std.math.*
 

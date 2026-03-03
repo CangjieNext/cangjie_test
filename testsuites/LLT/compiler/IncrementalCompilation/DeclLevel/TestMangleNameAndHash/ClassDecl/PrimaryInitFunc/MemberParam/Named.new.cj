@@ -4,7 +4,9 @@ class S{
     S(public  // Modifier
     var  // a) let or var  b) is member param
     a  // identifier
+    // !    // is named 
     :Int64  // type
+    // = 1  // initializer
     ) {
         0  // body
     }

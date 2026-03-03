@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 1
-// (!target_ohos) DEPENDENCE: CMakeLists.txt, ./src
-// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
-// (!target_ohos) EXEC: %compiler %cmp_opt %f --plugin=./output/libplugin1.%host_dylib_suffix -o %output
+// (!(host_win | target_ohos)) DEPENDENCE: CMakeLists.txt, ./src
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC: %compiler %cmp_opt %f --plugin=./output/libplugin1.%host_dylib_suffix -o %output
 
 package a.b.c
 
