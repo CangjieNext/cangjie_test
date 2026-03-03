@@ -5,7 +5,7 @@
 
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %noStackInfo %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %noStackInfo %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 
 // ASSERT: scan order change 7default1CC1bV$$l
 // ASSERT: scan changed decls to recompile: 1

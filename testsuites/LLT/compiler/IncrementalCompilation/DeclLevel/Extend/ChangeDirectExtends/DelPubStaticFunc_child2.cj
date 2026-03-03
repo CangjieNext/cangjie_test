@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %n.old.cj -o %output
 // RUN-EXEC-2: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // RUN-EXEC-1: %run %run_opt %output %run_args
 // ASSERT: scan changed decls to recompile: 4
 // ASSERT: scan the changed decl after Spreading is:A in file DelPubStaticFunc_child2.old.cj in line 1 in column 19

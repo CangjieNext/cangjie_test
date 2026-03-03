@@ -5,7 +5,7 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt inc.cj pkg2.%middle pkg1.%middle -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj inc.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt inc.cj pkg2.%middle pkg1.%middle -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt inc.cj pkg2.%middle pkg1.%middle -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan changed decls to recompile: 1
 // RUN-EXEC: %run %run_opt %output %run_args
