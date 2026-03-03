@@ -20,7 +20,7 @@ class MyTestSuite {
     @TestCase
     @Timeout[Duration.second]
     func failing() {
-        while (true) {}
+        sleep(Duration.second * 3)
     }
 }
 
@@ -31,7 +31,6 @@ main() {
         {
             info =>
                 print("Timeout in ${info.suiteName}.${info.groupName}.${info.caseName} :(", flush: true)
-                Process.current.exit(1)
         }
     )
     MyTestSuite().asTestSuite().runTests(conf).reportTo(ConsoleReporter())

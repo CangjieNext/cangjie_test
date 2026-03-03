@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.old.cj %n.new.cj
 // EXEC: %compiler %incrementalCompile %n.old.cj -o %output
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
 // ASSERT: scan changed decls to recompile: 1
 // ASSERT: scan the changed decl after Spreading is:joo in file PrivateStaticFuncBody.old.cj in line 3 in column 27

@@ -3,7 +3,7 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt -O2 --fast-math  --fchir-constant-propagation --fchir-devirtualization --fno-chir-constant-propagation --fno-chir-function-inlining --fno-chir-devirtualization inc.cj -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj inc.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt -O2 --fast-math  --fchir-constant-propagation --fchir-devirtualization --fno-chir-constant-propagation --fno-chir-function-inlining --fno-chir-devirtualization inc.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt -O2 --fast-math  --fchir-constant-propagation --fchir-devirtualization --fno-chir-constant-propagation --fno-chir-function-inlining --fno-chir-devirtualization inc.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan incremental compilation triggered
 // EXEC: %compiler %cmp_opt inc.cj -o %output
 // RUN-EXEC: %run %run_opt %output %run_args

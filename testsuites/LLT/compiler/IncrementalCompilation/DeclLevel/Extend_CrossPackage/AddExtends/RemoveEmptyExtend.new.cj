@@ -4,6 +4,8 @@ public class A {
     public static var a: Int32 = 5
 }
 
+// extend A {}
+
 extend A {
     public static func me(): Int64 {
         func me() {
