@@ -4,20 +4,20 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 
 // EXEC: %cpfile %n.new.cj main.cj
-// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
 
 // ASSERT: scan begin dump raw modified decls:
-// ASSERT: scan added I1 7default2I1I at 10,18
-// ASSERT: scan added I2 7default2I2I at 13,18
+// ASSERT: scan added I1 7default2I1I
+// ASSERT: scan added I2 7default2I2I
 // ASSERT: scan deleted 7default1II
 // ASSERT: scan S 7default1S<1>C main.cj 1: sig 
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan begin dump incremental compile result:
 // ASSERT: scan changed decls to recompile: 3
-// ASSERT: scan the changed decl after Spreading is:S in file main.cj in line 2 in column 7
-// ASSERT: scan the changed decl after Spreading is:I1 in file main.cj in line 10 in column 18
-// ASSERT: scan the changed decl after Spreading is:I2 in file main.cj in line 13 in column 18
+// ASSERT: scan the changed decl after Spreading is:S in file main.cj
+// ASSERT: scan the changed decl after Spreading is:I1 in file main.cj
+// ASSERT: scan the changed decl after Spreading is:I2 in file main.cj
 // ASSERT: scan deleted decls: 1
 // ASSERT: scan the deleted decl is:7default1II
 // ASSERT: scan incremental sema

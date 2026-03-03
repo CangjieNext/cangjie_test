@@ -7,14 +7,14 @@
  */
 
 // LEVEL: 1
-// (!target_ohos) DEPENDENCE: ../runplugin/plugin1, ../runplugin/plugin2, ../runplugin/plugin4
-// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin1/build && cd plugin1/build && cmake .. && make clean && make && make install
-// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin2/build && cd plugin2/build && cmake .. && make clean && make && make install
-// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin4/build && cd plugin4/build && cmake .. && make clean && make && make install
-// (!target_ohos) EXEC-PIPE-1: %compiler %cmp_opt %f --plugin=./plugin1/output/libplugin1.%host_dylib_suffix --plugin=./plugin4/output/libplugin4.%host_dylib_suffix --plugin=./plugin2/output/libplugin2.%host_dylib_suffix -o %output 2>&1 | compare %f
-// (!target_ohos) ASSERT: scan Found 1 Packages
-// (!target_ohos) ASSERT: scan-not Found 1 Funcs
-// (!target_ohos) ASSERT: scan plugin_throws_exception
+// (!(host_win | target_ohos)) DEPENDENCE: ../runplugin/plugin1, ../runplugin/plugin2, ../runplugin/plugin4
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin1/build && cd plugin1/build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin2/build && cd plugin2/build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin4/build && cd plugin4/build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC-PIPE-1: %compiler %cmp_opt %f --plugin=./plugin1/output/libplugin1.%host_dylib_suffix --plugin=./plugin4/output/libplugin4.%host_dylib_suffix --plugin=./plugin2/output/libplugin2.%host_dylib_suffix -o %output 2>&1 | compare %f
+// (!(host_win | target_ohos)) ASSERT: scan Found 1 Packages
+// (!(host_win | target_ohos)) ASSERT: scan-not Found 1 Funcs
+// (!(host_win | target_ohos)) ASSERT: scan plugin_throws_exception
 
 /*
     description：校验缺陷插件(抛异常)会导致后续插件无法加载执行

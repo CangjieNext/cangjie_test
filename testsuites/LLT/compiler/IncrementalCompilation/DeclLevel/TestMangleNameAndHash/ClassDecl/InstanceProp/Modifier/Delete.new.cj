@@ -1,4 +1,5 @@
 class S{
+    // public  //Modifier
     mut
     prop size  // Identifier
     :Int64  // Type

@@ -9,7 +9,7 @@
 // (Windows) EXEC: %cpfile %n.new1.cj p1\b.cj
 // (not Windows) EXEC: %cpfile %n.new1.cj p1/b.cj
 // (Windows) EXEC: %compiler a.cj p1\b.cj %incrementalCompile -o %output 2>&1
-// (not Windows) EXEC: %compiler a.cj p1/b.cj %incrementalCompile -o %output 2>&1 | compare %f
+// (not Windows) EXEC: %compiler a.cj p1/b.cj %incrementalCompile -o %output 2>&1 && cat .cached/*.log | compare %f
 // RUN-EXEC-1: %run %run_opt %output %run_args
 
 // ASSERT: scan changed decls to recompile: 1

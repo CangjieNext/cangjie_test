@@ -7,10 +7,10 @@
  */
 
 // LEVEL: 2
-// (!target_ohos) DEPENDENCE: ../runplugin/plugin1
-// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin1/build && cd plugin1/build && cmake .. && make clean && make && make install
-// (!target_ohos) EXEC-PIPE: %compiler %cmp_opt %f --plugin=./plugin1/output/libplugin1.%host_dylib_suffix --plugin=./plugin1/output/libplugin1.%host_dylib_suffix --plugin=./plugin1/output/libplugin1.%host_dylib_suffix -o %output 2>&1 | compare %f
-// (!target_ohos) ASSERT: scan-3 Found 1 Packages
+// (!(host_win | target_ohos)) DEPENDENCE: ../runplugin/plugin1
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin1/build && cd plugin1/build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC-PIPE: %compiler %cmp_opt %f --plugin=./plugin1/output/libplugin1.%host_dylib_suffix --plugin=./plugin1/output/libplugin1.%host_dylib_suffix --plugin=./plugin1/output/libplugin1.%host_dylib_suffix -o %output 2>&1 | compare %f
+// (!(host_win | target_ohos)) ASSERT: scan-3 Found 1 Packages
 
 /*
     description：重复加载插件

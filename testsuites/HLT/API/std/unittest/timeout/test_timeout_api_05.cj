@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
+// RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
 // ASSERT: scan MyTestSuite.default.failing
 
 import std.unittest.*
@@ -20,7 +20,7 @@ class MyTestSuite {
     @TestCase
     @Timeout[Duration.second]
     func failing() {
-        while (true) {}
+        sleep(Duration.second * 3)
     }
 }
 
@@ -31,7 +31,6 @@ main() {
         {
             info =>
                 print("Timeout in ${info.suiteName}.${info.groupName}.${info.caseName} :(", flush: true)
-                Process.current.exit(1)
         }
     )
     MyTestSuite().asTestSuite().runTests(conf).reportTo(ConsoleReporter())

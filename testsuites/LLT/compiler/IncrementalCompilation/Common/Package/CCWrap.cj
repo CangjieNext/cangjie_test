@@ -9,7 +9,8 @@
 // EXEC: %cpfile %n.p1.new.cj %n/%n.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt -O2 -p %n %compile_lib_opt -o %n.%lib_extension
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt -O2 %n.%lib_extension %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt -O2 %n.%lib_extension %n.old.cj -o %output 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // EXEC: %run %run_opt %output %run_args
 
 // ASSERT: scan the changed decl after Spreading is:main in file CCWrap.old.cj in line 3 in column 1

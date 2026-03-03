@@ -1,6 +1,7 @@
 public // Modifier
 var // var, let or const
 (x, y) // Identifier
+// : (Int64, Int64) // Type
 = (11, 12) // a) init change with type; b) init change without type
 
 main(): Int64 { 0 }

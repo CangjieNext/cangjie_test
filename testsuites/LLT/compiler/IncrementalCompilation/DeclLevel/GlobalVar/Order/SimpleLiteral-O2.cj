@@ -3,7 +3,7 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt %enableCompileDebug SimpleLiteral.old.cj -O2 -o %output
 // EXEC-0: %run %run_opt %output %run_args
 // EXEC: %cpfile SimpleLiteral.new.cj SimpleLiteral.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %enableCompileDebug SimpleLiteral.old.cj -O2 -o %output %dumpCHIRDebug 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %enableCompileDebug SimpleLiteral.old.cj -O2 -o %output %dumpCHIRDebug 2>&1 && cat .cached/*.log | compare %f
 // EXEC: compare SimpleLiteral.chirtxt <SimpleLiteral-O2_CHIR/0_AST_CHIR.chirtxt
 // ASSERT: scan changed decls to recompile: 1
 // ASSERT: scan the changed decl after Spreading is:main
