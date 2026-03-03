@@ -4,7 +4,7 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj libp1.%lib_extension -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj libp1.%lib_extension -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 4
 // ASSERT: scan the changed decl after Spreading is:A1 in file AddExtend.old.cj in line 5 in column 14
 // ASSERT: scan the changed decl after Spreading is:A2 in file AddExtend.old.cj in line 6 in column 15

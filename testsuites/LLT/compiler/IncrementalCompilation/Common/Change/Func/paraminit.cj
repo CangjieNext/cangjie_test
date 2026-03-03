@@ -1,10 +1,10 @@
-// DEPENDENCE: com.old.cj %n.new.cj
+// DEPENDENCE: com.old.cj %n.new.cj %n.diag.txt
 // EXEC: %cpfile com.old.cj %n.inc.cj
 // EXEC: %compiler %incrementalCompile %n.inc.cj -o %output -Woff unused
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %n.inc.cj -o %output -Woff unused 2>&1 | compare %f
-// ASSERT: scan mismatched types
+// EXEC-PIPE-1: %compiler %incrementalCompile %n.inc.cj -o %output -Woff unused 2>&1 | compare %n.diag.txt
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan changed decls to recompile: 2
 // ASSERT: scan the changed decl after Spreading is:foo in file paraminit.inc.cj in line 1 in column 6
 // ASSERT: scan the changed decl after Spreading is:foo in file paraminit.inc.cj in line 4 in column 6

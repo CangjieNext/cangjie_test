@@ -3,11 +3,11 @@
 // EXEC: %cpfile %f %n
 // EXEC: %compiler %cmp_opt -p %n %compile_lib_opt -o pkg1.%lib_extension %incrementalCompile
 // EXEC: %rmfile %n/%f
-// EXEC: %compiler %cmp_opt -p %n %compile_lib_opt -o pkg1.%lib_extension %incrementalCompile 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt -p %n %compile_lib_opt -o pkg1.%lib_extension %incrementalCompile 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan empty package, skip
 // ASSERT: scan-not no change
 // EXEC: %cpfile %f %n
-// EXEC: %compiler %cmp_opt -p %n %compile_lib_opt -o pkg1.%lib_extension %incrementalCompile 2>&1 | compare %n.info
+// EXEC: %compiler %cmp_opt -p %n %compile_lib_opt -o pkg1.%lib_extension %incrementalCompile 2>&1 && cat .cached/*.log | compare %n.info
 
 package pkg1
 func foo(): Int64 { 0 }

@@ -1,17 +1,17 @@
 // DEPENDENCE: %n.old.cj %n.new.cj
-
+// EXEC: %mkdir out
 // EXEC: %cpfile %n.old.cj lib.cj
 // EXEC: %cpfile %f main.cj
 
 // EXEC: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt %compile_lib_opt lib.cj -o A.%lib_extension
-// EXEC: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj A.%lib_extension -o %output
-// RUN-EXEC-1: %run %run_opt %output %run_args
+// EXEC: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj A.%lib_extension -o out/%output
+// RUN-EXEC-1: %run %run_opt out/%output %run_args
 
 // EXEC: %cpfile %n.new.cj lib.cj
 
 // EXEC: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt %compile_lib_opt lib.cj -o A.%lib_extension > %redirectNull
-// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj A.%lib_extension -o %output 2>&1 | compare %f
-// RUN-EXEC-2: %run %run_opt %output %run_args
+// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj A.%lib_extension -o out/%output 2>&1 && cat out/.cached/*.log | compare %f
+// RUN-EXEC-2: %run %run_opt out/%output %run_args
 
 internal import inc.*
 

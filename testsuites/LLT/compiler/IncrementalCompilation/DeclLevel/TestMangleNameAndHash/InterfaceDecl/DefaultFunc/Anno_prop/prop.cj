@@ -2,7 +2,7 @@
 // EXEC: %cpfile %n.old.cj %n.test.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.test.cj -o %output
 // EXEC: %cpfile %n.new.cj %n.test.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.test.cj -o %output | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.test.cj -o %output && cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 5
 // ASSERT: scan the changed decl after Spreading is:C1 in file prop.test.cj in line 28 in column 23
 // ASSERT: scan the changed decl after Spreading is:c1_p3 in file prop.test.cj in line 33 in column 17
