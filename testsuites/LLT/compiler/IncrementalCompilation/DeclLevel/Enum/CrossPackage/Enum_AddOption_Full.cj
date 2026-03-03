@@ -1,4 +1,4 @@
-// DEPENDENCE: %n.old.cj %n.new.cj
+// DEPENDENCE: %n.old.cj %n.new.cj %n.diag.txt
 
 // EXEC: %mkdir %n
 // EXEC: %cpfile %n.old.cj %n
@@ -10,8 +10,9 @@
 // EXEC: %cpfile %n.new.cj %n/%n.old.cj
 // EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension 2>&1
 
-// EXEC-PIPE-1: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o %output 2>&1 | compare %f
-// ASSERT: scan error: non-exhaustive patterns
+// EXEC-PIPE-1: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o %output 2>&1 | compare %n.diag.txt
+// EXEC: cat .cached/*.log | compare %f
+
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan the changed decl after Spreading is:foo
 // ASSERT: scan the changed decl after Spreading is:main

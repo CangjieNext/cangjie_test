@@ -3,7 +3,7 @@
 // RUN-EXEC-1: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // RUN-EXEC-2: %run %run_opt %output %run_args
 
 // ASSERT: scan A 7default1AC AddExtendMethod.old.cj 4: body

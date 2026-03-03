@@ -1,4 +1,4 @@
-// DEPENDENCE: %n.old.cj %n.new.cj
+// DEPENDENCE: %n.old.cj %n.new.cj %n.diag.txt
 
 // EXEC: %mkdir %n
 // EXEC: %cpfile %n.cj %n
@@ -8,13 +8,12 @@
 
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %n.old.cj -o %output 2>&1 | compare %n.diag.txt
+// EXEC: cat .cached/*.log | compare %f
 
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan the changed decl after Spreading is:foo
 // ASSERT: scan the changed decl after Spreading is:useType
-// ASSERT: scan error: 'ABC' is not a type
-// ASSERT: scan error: type argument's number does not match type parameter's number
 
 package inc
 

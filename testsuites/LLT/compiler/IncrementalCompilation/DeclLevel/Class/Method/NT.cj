@@ -3,7 +3,7 @@
 // EXEC-1: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj %enableCompileDebug -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj %enableCompileDebug -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan the changed decl after Spreading is:a in file NT.old.cj in line 15 in column 10
 // ASSERT: scan the changed decl after Spreading is:main in file NT.old.cj in line 20 in column 1
 // ASSERT: scan the changed decl after Spreading is:a in file NT.old.cj in line 5 in column 10

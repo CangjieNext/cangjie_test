@@ -8,9 +8,9 @@
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
 
-// (Linux) EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt --error-count-limit=all --diagnostic-format=noColor -O1 --fast-math --fchir-function-inlining --fno-chir-devirtualization --fobf-string --fobf-cf-flatten --fno-obf-layout --fno-obf-const --fno-obf-cf-flatten --fobf-layout --fobf-cf-bogus --fobf-const --fno-obf-cf-bogus --fobf-all %n.old.cj -o %output 2>&1 | compare %f
-// (Darwin) EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt --error-count-limit=all --diagnostic-format=noColor -O1 --fast-math --fchir-function-inlining --fno-chir-devirtualization %n.old.cj -o %output 2>&1 | compare %f
-// (Windows) EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt --error-count-limit=all --diagnostic-format=noColor -O1 --fast-math --fchir-function-inlining --fno-chir-devirtualization %n.old.cj -o %output 2>&1 | compare %f
+// (Linux) EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt --error-count-limit=all --diagnostic-format=noColor -O1 --fast-math --fchir-function-inlining --fno-chir-devirtualization --fobf-string --fobf-cf-flatten --fno-obf-layout --fno-obf-const --fno-obf-cf-flatten --fobf-layout --fobf-cf-bogus --fobf-const --fno-obf-cf-bogus --fobf-all %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
+// (Darwin) EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt --error-count-limit=all --diagnostic-format=noColor -O1 --fast-math --fchir-function-inlining --fno-chir-devirtualization %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
+// (Windows) EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt --error-count-limit=all --diagnostic-format=noColor -O1 --fast-math --fchir-function-inlining --fno-chir-devirtualization %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // EXEC-1: %run %run_opt %output %run_args
 
 
