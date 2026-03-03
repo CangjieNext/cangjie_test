@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %n.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.txt %n.cj
-// EXEC: %compiler %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %n.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan incremental compilation triggered
 // EXEC: %run %run_opt %output %run_args
 

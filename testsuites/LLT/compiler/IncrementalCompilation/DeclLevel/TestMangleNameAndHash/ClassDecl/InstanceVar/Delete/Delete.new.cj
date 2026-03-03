@@ -1,5 +1,9 @@
 class S{
-
+    // public  // Modifier
+    // var  // var, let, const
+    // a  // Identifier
+    // :Int64  // Type
+    // = 1  // Init, a) init with type    b) init without type
 }
 
 main() {

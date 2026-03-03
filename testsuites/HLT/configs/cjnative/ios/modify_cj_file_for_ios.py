@@ -19,17 +19,24 @@ cangjie_main_start = """
 @C
 public func cangjie_main(): Unit {
     var ret = 1
-    try {
-"""
+    try {"""
 call_cj_main_Int = "\n        ret = Int64(cj_main())"
 call_cj_main_Unit = "\n        cj_main()\n        ret = 0"
 call_cj_unsafe_main_Int = "\n        ret = unsafe {cj_main()}"
 call_cj_unsafe_main_Unit = "\n        unsafe {cj_main()}\n        ret = 0"
 
-call_cj_ut_start = """\n        let testPackage = TestPackage(@sourcePackage())"""
-call_cj_ut_pref = "\n        testPackage.registerSuite({ => "
-call_cj_ut_suff = "().asTestSuite() })"
-call_cj_ut_end = "\n        ret = entryMain(testPackage)\n        if (ret != 0) { ret = 1 }"
+call_cj_ut_start = """
+\tlet config = Configuration()
+\tlet testGroupBuilder = TestGroup.builder(@sourcePackage())
+"""
+call_cj_ut_pref = "\n\ttestGroupBuilder.add("
+call_cj_ut_suff = "().asTestSuite())"
+call_cj_ut_end = """
+\tlet testGroup = testGroupBuilder.build()
+\tlet testReport = testGroup.runTests(config)
+\ttestReport.reportTo(ConsoleReporter(colored: false))
+\tret = testReport.errorCount + testReport.failedCount
+\tif (ret != 0) { ret = 1 }"""
 cangjie_main_end = """
     } catch (e: Exception) {
         ret = 1

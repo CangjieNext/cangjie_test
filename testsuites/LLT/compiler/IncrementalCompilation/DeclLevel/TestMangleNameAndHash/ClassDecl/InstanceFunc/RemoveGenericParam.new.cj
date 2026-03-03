@@ -3,12 +3,14 @@ class S
     @OverflowThrowing // Annotation
     public // Modifier
     func get  // Identifier
+//    <T> // Generic
     (a  // Param name
     !  // is named
     :Int64  // param type
     = 1  // initializer
     ) 
     :Int64 // RetType
+//    where T <: ToString // Generic Constraint
     {
         0   // a) body change with type, b) body change without type
     }
