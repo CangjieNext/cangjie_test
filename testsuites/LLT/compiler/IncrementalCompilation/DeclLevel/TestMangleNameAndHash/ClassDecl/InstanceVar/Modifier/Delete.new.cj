@@ -1,4 +1,5 @@
 class S{
+    // public  // Modifier
     var  // var, let, const
     a  // Identifier
     :Int64  // Type

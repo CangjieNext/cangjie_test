@@ -26,10 +26,18 @@ call_cj_main_Unit = "\n        cj_main()\n        ret = 0"
 call_cj_unsafe_main_Int = "\n        ret = unsafe {cj_main()}"
 call_cj_unsafe_main_Unit = "\n        unsafe {cj_main()}\n        ret = 0"
 
-call_cj_ut_start = """\n        let testPackage = TestPackage(@sourcePackage())"""
-call_cj_ut_pref = "\n        testPackage.registerSuite({ => "
+call_cj_ut_start = """\n        
+let config = Configuration()
+let testGroup = TestGroup.builder(@sourcePackage())
+"""
+call_cj_ut_pref = "\n        testGroup.add("
 call_cj_ut_suff = "().asTestSuite() })"
-call_cj_ut_end = "\n        ret = entryMain(testPackage)\n        if (ret != 0) { ret = 1 }"
+call_cj_ut_end = """
+let testReport = testGroup.runTests(config)
+testReport.reportTo(ConsoleReporter(colored: false))
+ret = testReport.errorCount + testReport.failedCount
+if (ret != 0) { ret = 1 }
+"""
 cangjie_main_end = """
     } catch (e: Exception) {
         ret = 1
