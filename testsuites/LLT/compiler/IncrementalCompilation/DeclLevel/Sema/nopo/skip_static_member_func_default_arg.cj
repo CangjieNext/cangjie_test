@@ -6,7 +6,7 @@
 // EXEC: %cpfile %n.new.cj %n.old.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.old.cj %compile_lib_opt -o liba.%lib_extension -O2
 // EXEC: %compiler %incrementalCompile %cmp_opt %f %compile_lib_opt -o libb.%lib_extension liba.%lib_extension -O2
-// EXEC: %compiler %incrementalCompile %cmp_opt %n.next.cj %compile_lib_opt -o libc.%lib_extension libb.%lib_extension liba.%lib_extension -O2 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %cmp_opt %n.next.cj %compile_lib_opt -o libc.%lib_extension libb.%lib_extension liba.%lib_extension -O2 2>&1 && cat .cached/*.log | compare %f
 
 package b
 import a.*

@@ -3,8 +3,9 @@ class S{
     public  // Modifier
     S(
     a  // identifier
-        // is named 
+    // !    // is named 
     :Int64  // type
+    // = 1  // initializer
     ) {
         0  // body
     }

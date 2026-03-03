@@ -6,7 +6,7 @@
 // RUN-EXEC-1: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt libp1.%lib_extension %n.old.cj -o %output | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt libp1.%lib_extension %n.old.cj -o %output && cat .cached/*.log | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
 // ASSERT: scan changed decls to recompile: 3
 // ASSERT: scan the changed decl after Spreading is:A in file DeleteExtendMethod6.pkg.cj in line 6 in column 14
