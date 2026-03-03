@@ -2,6 +2,7 @@ class S{
     static const a:Int8 = 127
     static const b:Int8 = 29
 
+    // @OverflowWrapping   // Annotation
     const  // Modifier
     static init(
     ){

@@ -1,7 +1,8 @@
 // (Linux and CJNATIVE) EXEC: %rmdir .cached
 // (Linux and CJNATIVE) EXEC: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt %n.cj --lto=full -o %output
 // (Linux and CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (Linux and CJNATIVE) EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt %n.cj --lto=full -o %output 2>&1 | compare %f
+// (Linux and CJNATIVE) EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt %n.cj --lto=full -o %output 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // (Linux and CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
 
 // ASSERT: scan no change

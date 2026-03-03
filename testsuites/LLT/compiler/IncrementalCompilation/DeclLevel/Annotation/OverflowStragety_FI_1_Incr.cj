@@ -4,7 +4,8 @@
 
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC: %compiler %incrementalCompile %cmp_opt %debugCHIROpt %enableFuncInlining %n.old.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %cmp_opt %debugCHIROpt %enableFuncInlining %n.old.cj -o %output 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // EXEC-1: %run %run_opt %output %run_args 2>&1
 
 // ASSERT: scan incremental compilation triggered

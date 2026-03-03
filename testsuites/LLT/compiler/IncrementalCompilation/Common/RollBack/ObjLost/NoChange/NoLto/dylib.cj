@@ -3,7 +3,8 @@
 // EXEC: %compiler %n.cj -Woff all %enableCompileDebug %incrementalCompile --output-type=dylib
 // (Linux) EXEC: %rmfile .cached/*.o
 // (Windows) EXEC: powershell -c "rm .cached/*.o"
-// EXEC: %compiler %n.cj -Woff all %enableCompileDebug %incrementalCompile --output-type=dylib 2>&1 | compare %f
+// EXEC: %compiler %n.cj -Woff all %enableCompileDebug %incrementalCompile --output-type=dylib 2>&1
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 
 public func foo (){}
 
