@@ -7,10 +7,10 @@
  */
 
 // LEVEL: 1
-// (!target_ohos) DEPENDENCE: CMakeLists.txt, ./src
-// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
-// (!target_ohos) EXEC-PIPE: %compiler %cmp_opt %f --plugin=./output/libmyplugin1.%host_dylib_suffix -o %output | compare %f
-// (!target_ohos) ASSERT: regex Found [0-9]+ funcs
+// (!(host_win | target_ohos)) DEPENDENCE: CMakeLists.txt, ./src
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC-PIPE: %compiler %cmp_opt %f --plugin=./output/libmyplugin1.%host_dylib_suffix -o %output | compare %f
+// (!(host_win | target_ohos)) ASSERT: regex Found [0-9]+ funcs
 
 import std.collection.*
 

@@ -7,7 +7,7 @@
 // EXEC-4: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.3rd.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // EXEC-5: %run %run_opt %output %run_args
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan the changed decl after Spreading is:main in file ChangeTwo_Incr.old.cj in line 7 in column 1

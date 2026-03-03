@@ -3,7 +3,7 @@
 // EXEC: %compiler %incrementalCompile --lto=full inc.cj -o %output
 // EXEC: %run %run_opt %output
 // EXEC: %cpfile %n.new.cj inc.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile --lto=full inc.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile --lto=full inc.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // EXEC: %run %run_opt %output
 // 闭包增量编译暂不支持，闭包所在的decl发生变动，触发重编
 // ASSERT: scan closure convert out func recompile, roll back to full compilation

@@ -2,7 +2,7 @@
 // EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.txt %n.cj
-// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output | compare expect1.expect
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output && cat .cached/*.log | compare expect1.expect
 // EXEC: %run %run_opt %output %run_args | compare expect2.expect
 
 func foo(): Unit {

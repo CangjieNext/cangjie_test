@@ -1,25 +1,10 @@
-// DEPENDENCE: %n.old.cj %n.new.cj
+// DEPENDENCE: %n.old.cj %n.new.cj %n.diag.txt
 // EXEC: %compiler %incrementalCompile %n.old.cj -o %output
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 %cmp_opt | compare %f
-/* SCAN-IN
-illegal source code leads to duplicated raw mangle name, roll back to full compilation
-full sema
-error: function 'foo' has overload conflicts
- ==> AddPrivateInstanceFunc_conflict.old.cj:5:18:
-  | 
-5 |     private func foo(): Int64 { 18 }
-  |                  ^^^ 
-  | 
-note: conflict with the declaration
- ==> AddPrivateInstanceFunc_conflict.old.cj:4:10:
-  | 
-4 |     func foo(): Int64 { 15 }
-  |          ^^^ 
-  | 
-
-1 error generated, 1 error printed.
-*/
+// EXEC-PIPE-1: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 %cmp_opt | compare %n.diag.txt
+// EXEC: cat .cached/*.log | compare %f
+// ASSERT: scan illegal source code leads to duplicated raw mangle name, roll back to full compilation
+// ASSERT: scan full sema
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

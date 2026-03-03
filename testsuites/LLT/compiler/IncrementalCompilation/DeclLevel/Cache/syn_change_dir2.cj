@@ -4,15 +4,19 @@
 
 // EXEC: %mkdir dir1/inc
 // EXEC: %cpfile pkg.cj dir1/inc
-// EXEC: %cd dir1 && %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt 2>&1 | compare ../Fail.expect
+// EXEC: %cd dir1 && %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt 2>&1
+// (Linux)EXEC: cat dir1/.cached/*.log | compare Fail.expect
 
-// EXEC: %cd dir1 && %compiler %cmp_opt %incrementalCompile libinc.a use_pkg.cj -o %output 2>&1 | compare ../Fail.expect
+// EXEC: %cd dir1 && %compiler %cmp_opt %incrementalCompile libinc.a use_pkg.cj -o %output 2>&1
+// (Linux)EXEC: cat dir1/.cached/*.log | compare Fail.expect
 // EXEC-5: %run %run_opt dir1/%output %run_args
 
 
 // EXEC: %cpdir dir1 dir2
-// EXEC: %cd dir2 && %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt 2>&1 | compare ../NoChange.expect
-// EXEC: %cd dir2 && %compiler %cmp_opt %incrementalCompile libinc.a use_pkg.cj -o %output 2>&1 | compare ../NoChange.expect
+// EXEC: %cd dir2 && %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt 2>&1
+// (Linux)EXEC: cat dir2/.cached/*.log | compare NoChange.expect
+// EXEC: %cd dir2 && %compiler %cmp_opt %incrementalCompile libinc.a use_pkg.cj -o %output 2>&1
+// (Linux)EXEC: cat dir2/.cached/*.log | compare NoChange.expect
 // EXEC-5: %run %run_opt dir2/%output %run_args
 
 

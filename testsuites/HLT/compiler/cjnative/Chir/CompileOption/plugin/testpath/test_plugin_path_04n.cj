@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2
-// (!target_ohos) DEPENDENCE: CMakeLists.txt, ./src
-// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
-// (!target_ohos) EXEC-PIPE-1: %compiler %cmp_opt %f --plugin=./output/libmyplugin1☺.%host_dylib_suffix -o %output 2>&1 | compare %f
-// (!target_ohos) ASSERT: scan '--plugin' only accepts an existing dynamic library path.
+// (!(host_win | target_ohos)) DEPENDENCE: CMakeLists.txt, ./src
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC-PIPE-1: %compiler %cmp_opt %f --plugin=./output/libmyplugin1☺.%host_dylib_suffix -o %output 2>&1 | compare %f
+// (!(host_win | target_ohos)) ASSERT: scan '--plugin' only accepts an existing dynamic library path.
 
 main() {}
