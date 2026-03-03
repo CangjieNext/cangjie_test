@@ -74,4 +74,14 @@ class ExclusiveScopeTest {
         }
         @Assert(g == ())
     }
+
+    @TestCase
+    func testNestCall() {
+        let g = exclusiveScope { =>
+            exclusiveScope {
+                return 10
+            }
+        }
+        @Assert(g == 10)
+    }
 }
