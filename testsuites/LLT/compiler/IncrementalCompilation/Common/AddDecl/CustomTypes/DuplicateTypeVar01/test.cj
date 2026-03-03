@@ -1,13 +1,12 @@
-// DEPENDENCE: ../%n.old.cj %n.new.cj
+// DEPENDENCE: ../%n.old.cj %n.new.cj diag.txt
 // EXEC: %cpfile %n.old.cj %n.inc.cj
 // EXEC: %compiler %incrementalCompile %n.inc.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %n.inc.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %incrementalCompile %n.inc.cj -o %output 2>&1 | compare diag.txt
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan-not incremental compile result kind
 // ASSERT: regex changed decls.* 1
-// ASSERT: regex redefinition of declaration 'ga'
-
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

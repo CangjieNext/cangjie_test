@@ -3,6 +3,7 @@ class S{
     static const b:Int8 = 29
 
     @OverflowWrapping   // Annotation
+    // const  // Modifier
     static init(
     ){
         let res: Int8 = a + b  // body

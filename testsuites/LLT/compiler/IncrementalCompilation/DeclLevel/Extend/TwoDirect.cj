@@ -1,5 +1,5 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt %f -o %output
-// EXEC: %compiler %incrementalCompile %cmp_opt %f -o %output %incrementalCompile 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile %cmp_opt %f -o %output %incrementalCompile 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan no change
 // ASSERT: scan-not found duplicating decl, rollback
 

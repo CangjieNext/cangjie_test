@@ -3,7 +3,7 @@
 // EXEC-0: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan the changed decl after Spreading is:run in file UseCachedInstantiatedDecl_Incr.old.cj in line 15 in column 6
 // ASSERT: scan the changed decl after Spreading is:main in file UseCachedInstantiatedDecl_Incr.old.cj in line 24 in column 1

@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %n.cj -o %output
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.txt %n.cj
-// EXEC-PIPE-0: %compiler %incrementalCompile %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %incrementalCompile %n.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan the changed decl after Spreading is:a in file ModifyLambdaVariableValue2.cj in line 11 in column 5
 // EXEC-1: %run %run_opt %output %run_args

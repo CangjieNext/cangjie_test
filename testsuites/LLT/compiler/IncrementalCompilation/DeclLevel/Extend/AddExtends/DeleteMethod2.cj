@@ -1,21 +1,13 @@
-// DEPENDENCE: common2.cj %n.new.cj
+// DEPENDENCE: common2.cj %n.new.cj %n.diag.txt
 // EXEC: %compiler %incrementalCompile common2.cj -o %output
 // EXEC: %cpfile %n.new.cj common2.cj
-// EXEC-PIPE-1: %compiler %cmp_opt %incrementalCompile common2.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %incrementalCompile common2.cj -o %output 2>&1 | compare %n.diag.txt
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 3
 // ASSERT: scan the changed decl after Spreading is:A in file common2.cj in line 1 in column 7
 // ASSERT: scan the changed decl after Spreading is:ExtendDecl in file common2.cj in line 13 in column 1
 // ASSERT: scan the changed decl after Spreading is:boxuse in file common2.cj in line 23 in column 6
-/* SCAN-IN
-error: 'bar' is not a member of class 'A'
-  ==> common2.cj:25:27:
-   | 
-25 |     (a as A).getOrThrow().bar()
-   |                           ^^^ 
-   | 
 
-1 error generated, 1 error printed.
-*/
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
