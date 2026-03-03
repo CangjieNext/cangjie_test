@@ -3,8 +3,8 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %f
-// EXEC: %run %run_opt %output %run_args | compare %n.new.cj
+// EXEC-PIPE: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
+// EXEC: %run %run_opt %output %run_args && cat .cached/*.log | compare %n.new.cj
 // ASSERT: scan A 7default1AC DeleteFinalizer.old.cj 1: body
 // ASSERT: scan changed decls to recompile: 1
 // ASSERT: scan the changed decl after Spreading is:A in file DeleteFinalizer.old.cj in line 1 in column 7

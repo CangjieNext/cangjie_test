@@ -1,11 +1,11 @@
 // DEPENDENCE: %n.1 %n.2 expect1.expect expect2.expect expect3.expect
-// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output | compare expect1.expect
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output && cat .cached/*.log | compare expect1.expect
 // EXEC-1: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.1 %n.cj
-// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output | compare expect2.expect
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output && cat .cached/*.log | compare expect2.expect
 // EXEC-1: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.2 %n.cj
-// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output | compare expect3.expect
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output && cat .cached/*.log | compare expect3.expect
 // EXEC-1: %run %run_opt %output %run_args
 
 private let a: Int32 = 1

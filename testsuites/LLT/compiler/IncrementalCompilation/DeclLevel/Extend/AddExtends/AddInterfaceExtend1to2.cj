@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.old.cj %n.new.cj
 // EXEC: %compiler %incrementalCompile %n.old.cj -o %output
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 %cmp_opt | compare %f
+// EXEC-PIPE-1: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 %cmp_opt && cat .cached/*.log | compare %f
 /* SCAN-IN
 error: interface 'Interface-I1' has been implemented by 'Struct-A', please remove it
   ==> AddInterfaceExtend1to2.old.cj:14:13:

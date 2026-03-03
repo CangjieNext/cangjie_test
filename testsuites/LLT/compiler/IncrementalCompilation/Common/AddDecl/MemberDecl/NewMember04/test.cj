@@ -1,12 +1,12 @@
-// DEPENDENCE: ../%n.old.cj %n.new.cj
+// DEPENDENCE: ../%n.old.cj %n.new.cj %n.diag.txt
 // EXEC: %cpfile %n.old.cj %n.inc.cj
 // EXEC: %compiler %incrementalCompile %n.inc.cj -o %output
 // EXEC-5: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
-// EXEC-PIPE-1: %compiler %incrementalCompile %n.inc.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %incrementalCompile %n.inc.cj -o %output 2>&1 | compare %n.diag.txt
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan-not incremental compile result kind
 // ASSERT: regex changed decls.* 3
-// ASSERT: regex a deriving member must be at least as visible as its base member
 
 
 

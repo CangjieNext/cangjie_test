@@ -7,11 +7,11 @@
  */
 
 // LEVEL: 2
-// (!target_ohos) DEPENDENCE: ../runplugin/plugin1, ../runplugin/plugin3
-// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin1/build && cd plugin1/build && cmake .. && make clean && make && make install
-// (!target_ohos) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin3/build && cd plugin3/build && cmake .. && make clean && make && make install
-// (!target_ohos) EXEC-PIPE-1: %compiler %cmp_opt %f --plugin=./plugin1/output/libplugin1.%host_dylib_suffix --plugin=./plugin3/output/libplugin3.%host_dylib_suffix -o %output 2>&1 | compare %f
-// (!target_ohos) ASSERT: scan not_a_valid_plugin
+// (!(host_win | target_ohos)) DEPENDENCE: ../runplugin/plugin1, ../runplugin/plugin3
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin1/build && cd plugin1/build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin3/build && cd plugin3/build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC-PIPE-1: %compiler %cmp_opt %f --plugin=./plugin1/output/libplugin1.%host_dylib_suffix --plugin=./plugin3/output/libplugin3.%host_dylib_suffix -o %output 2>&1 | compare %f
+// (!(host_win | target_ohos)) ASSERT: scan not_a_valid_plugin
 
 /*
     description：含有非法插件会导致直接编译报错

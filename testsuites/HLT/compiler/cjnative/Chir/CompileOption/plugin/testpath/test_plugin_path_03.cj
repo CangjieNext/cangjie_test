@@ -8,9 +8,9 @@
 
 // LEVEL: 1
 // DEPENDENCE: CMakeLists.txt, ./src
-// (Windows) EXEC: set plugin_lsp_suffix=dll.a && %mkdir build && cd build && cmake .. && make clean && make && make install
-// (Windows) EXEC-PIPE: %compiler %cmp_opt %f --plugin=.\output\libmyplugin1.dll -o %output | compare %f
-// (Windows) ASSERT: regex Found [0-9]+ funcs
+// (host_win & !target_ohos) EXEC: set plugin_lsp_suffix=dll.a && %mkdir build && cd build && cmake .. && make clean && make && make install
+// (host_win & !target_ohos) EXEC-PIPE: %compiler %cmp_opt %f --plugin=.\output\libmyplugin1.dll -o %output | compare %f
+// (host_win & !target_ohos) ASSERT: regex Found [0-9]+ funcs
 
 import std.collection.*
 
