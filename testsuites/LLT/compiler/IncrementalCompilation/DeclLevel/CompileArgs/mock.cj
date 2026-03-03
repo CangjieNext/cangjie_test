@@ -1,5 +1,5 @@
 // EXEC: %compiler %incrementalCompile %n.cj -o %output --mock=on
-// EXEC: %compiler %incrementalCompile %n.cj -o %output --mock=on | compare %f
+// EXEC: %compiler %incrementalCompile %n.cj -o %output --mock=on && cat .cached/*.log | compare %f
 // ASSERT: scan enable mock, roll back to full compilation
 
 main() {}

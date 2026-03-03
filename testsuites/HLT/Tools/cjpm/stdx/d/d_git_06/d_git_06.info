@@ -1,0 +1,44 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 3
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm build -V 
+// EXEC: cd %n  && %ls target/release/stdx 2>&1 | compare %f
+// ASSERT: regex libstdx.encoding.(so|dll|dylib)
+// (not host_win)ASSERT: regex libstdx.fuzz.(so|dll|dylib)
+// ASSERT: regex libstdx.(so|dll|dylib)
+// ASSERT: regex libstdx.crypto.(so|dll|dylib)
+// ASSERT: regex libstdx.effect.(so|dll|dylib)
+// ASSERT: regex libstdx.encoding.hex.(so|dll|dylib)
+// ASSERT: regex libstdx.encoding.base64.(so|dll|dylib)
+// ASSERT: regex libstdx.actors.(so|dll|dylib)
+// ASSERT: regex libstdx.compress.zlib.(so|dll|dylib)
+// ASSERT: regex libstdx.serialization.(so|dll|dylib)
+// ASSERT: regex libstdx.unittest.(so|dll|dylib)
+// ASSERT: regex libstdx.log.(so|dll|dylib)
+// ASSERT: regex libstdx.logger.(so|dll|dylib)
+// ASSERT: regex libstdx.unittest.data.(so|dll|dylib)
+// (not host_win)ASSERT: regex libstdx.fuzz.fuzz.(so|dll|dylib)
+// ASSERT: regex libstdx.serialization.serialization.(so|dll|dylib)
+// ASSERT: regex libstdx.crypto.common.(so|dll|dylib)
+// ASSERT: regex libstdx.encoding.json.stream.(so|dll|dylib)
+// ASSERT: regex libstdx.net.(so|dll|dylib)
+// ASSERT: regex libstdx.string_intern.(so|dll|dylib)
+// ASSERT: regex libstdx.compress.tar.(so|dll|dylib)
+// ASSERT: regex libstdx.crypto.digest.(so|dll|dylib)
+// ASSERT: regex libstdx.net.tls.common.(so|dll|dylib)
+// ASSERT: regex libstdx.encoding.json.(so|dll|dylib)
+// ASSERT: regex libstdx.encoding.url.(so|dll|dylib)
+// ASSERT: regex libstdx.compress.(so|dll|dylib)
+// ASSERT: regex libstdx.crypto.crypto.(so|dll|dylib)
+// ASSERT: regex libstdx.crypto.keys.(so|dll|dylib)
+// ASSERT: regex libstdx.crypto.x509.(so|dll|dylib)
+// ASSERT: regex libstdx.crypto.kit.(so|dll|dylib)
+// ASSERT: regex libstdx.net.tls.(so|dll|dylib)
+// ASSERT: regex libstdx.net.http.(so|dll|dylib)
+
+

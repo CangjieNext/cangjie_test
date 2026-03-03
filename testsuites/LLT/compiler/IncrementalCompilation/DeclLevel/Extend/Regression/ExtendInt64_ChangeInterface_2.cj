@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %n.old.cj -o %output
 // RUN-EXEC-0: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.old.cj
-// EXEC-PIPE: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // RUN-EXEC-1: %run %run_opt %output %run_args
 
 // ASSERT: scan changed decls to recompile: 9

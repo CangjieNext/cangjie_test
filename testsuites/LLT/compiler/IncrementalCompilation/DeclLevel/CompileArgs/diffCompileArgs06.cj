@@ -1,6 +1,6 @@
 // EXEC: %compiler %incrementalCompile -O2 -O2 %n.cj -o %output
 // EXEC: %run %run_opt %output %run_args
-// EXEC: %compiler %incrementalCompile -O2 %n.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %incrementalCompile -O2 %n.cj -o %output 2>&1 && cat .cached/*.log | compare %f
 // EXEC: %run %run_opt %output %run_args
 
 // 同一个参数，重复写，不算编译参数发生变化
