@@ -21,6 +21,10 @@ func id<T>(x: T): T {
     x
 }
 
+func idMyObject(x: MyObject): MyObject { x }
+func idImpl(x: Impl): Impl { x }
+func idJString(x: JString): JString { x }
+
 @JavaImpl
 public class Impl <: MyObject {
     public init(value: Int64) {
@@ -30,16 +34,16 @@ public class Impl <: MyObject {
 
     public init(value: MyObject) {
         // JavaMirror argument
-        super(id(value))
+        super(idMyObject(value))
     }
 
     public init(value: Impl) {
         // JavaImpl argument
-        super(id(value))
+        super(idImpl(value))
     }
 
     public init(value: JString) {
         // String
-        super(id(value))
+        super(idJString(value))
     }
 }

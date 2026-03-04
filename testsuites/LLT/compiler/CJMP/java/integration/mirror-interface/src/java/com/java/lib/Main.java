@@ -9,7 +9,7 @@ package com.java.lib;
 public class Main {
 
     public static void main(String[] args) {
-        var i = new Impl();
+        Impl i = new Impl();
         // i.foo(i.foo());
 
     }

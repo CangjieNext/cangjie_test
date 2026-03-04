@@ -6,7 +6,7 @@
  
 Java interoperation tests
 
-This directory contains tests for cangjie-native (llvm) interoperating with java.
+This directory contains tests for cangjie-native (CJNATIVE) interoperating with java.
 
 ## Run note
 
