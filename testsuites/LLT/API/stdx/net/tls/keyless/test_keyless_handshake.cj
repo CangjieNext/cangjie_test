@@ -9,7 +9,7 @@
 // DEPENDENCE: certs
 // DEPENDENCE: mock.c
 
-// EXEC: %clang %clang_opt -Wno-deprecated-declarations -lssl -lcrypto -o mock.%dylib_suffix mock.c
+// EXEC: %clang %clang_opt -Wno-deprecated-declarations -fPIE -lssl -lcrypto -o mock.%dylib_suffix mock.c
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt -lssl -lcrypto -l:mock.%dylib_suffix -L. -o %n.%suffix %f
 // RUN-EXEC: %export CJ_KEYLESS_DEBUG=1 && %set_stdx_path %run_opt %n.%suffix %run_utest_opt %run_args
 
