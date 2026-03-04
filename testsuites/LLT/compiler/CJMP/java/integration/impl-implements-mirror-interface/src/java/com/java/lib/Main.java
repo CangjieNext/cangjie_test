@@ -9,7 +9,7 @@ package com.java.lib;
 
 public class Main {
     public static void main(String[] args) {
-        var c2 = new C2();
+        C2 c2 = new C2();
         c2.test();
     }
 }

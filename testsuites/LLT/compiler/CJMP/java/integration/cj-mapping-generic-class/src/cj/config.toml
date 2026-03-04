@@ -1,0 +1,26 @@
+[default]
+APIStrategy = "Full"
+GenericTypeStrategy = "None"
+
+[[package]]
+name = "genericClass"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+excluded_apis = [
+]
+generic_object_configuration = [
+    { name = "GenericClass", type_arguments = ["Int8", "Int16"] },
+    { name = "GenericClass<Int8>", symbols = [
+        "getValue",
+        "GenericClass",
+        "value",
+        "setValue"
+    ]},
+
+    { name = "GenericClass<Int16>", symbols = [
+        "getValue",
+        "genericClass",
+        "value",
+        "setValue"
+    ]}
+]

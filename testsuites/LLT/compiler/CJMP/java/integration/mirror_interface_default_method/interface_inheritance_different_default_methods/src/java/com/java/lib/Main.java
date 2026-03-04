@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("JAVA: start");
-        var i = new Impl();
+        Impl i = new Impl();
         i.f();
         i.g();
         System.out.println("JAVA: end");

@@ -1,0 +1,35 @@
+[default]
+APIStrategy = "Full"
+GenericTypeStrategy = "None"
+
+[[package]]
+name = "cj"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+excluded_apis = [
+]
+generic_object_configuration = [
+    { name = "A", type_arguments = ["Int32", "Float64"] },
+    { name = "A<Int32>", symbols = [
+        "foo",
+        "goo",
+        "doo"
+    ]},
+    { name = "A<Float64>", symbols = [
+        "foo",
+        "goo",
+        "doo"
+    ]},
+
+    { name = "B", type_arguments = ["Int32, Int32", "Int16, Float64"] },
+    { name = "B<Int32, Int32>", symbols = [
+        "foo",
+        "goo",
+        "doo"
+    ]},
+    { name = "B<Int16, Float64>", symbols = [
+        "foo",
+        "goo",
+        "doo"
+    ]},
+]
