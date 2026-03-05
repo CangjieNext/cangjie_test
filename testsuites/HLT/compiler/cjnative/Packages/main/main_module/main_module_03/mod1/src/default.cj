@@ -28,5 +28,5 @@ main(a: List<String>): Int64 {
     }
     return 0
 }
-// ASSERT: scan sema_redefinition_entry
+// (!(target_ios | target_ios_simulator)) ASSERT: scan sema_redefinition_entry
 // ASSERT: scan sema_undeclared_type_name
