@@ -27,15 +27,12 @@ public class Derived <: Base {
     public redef static func arg0(): Bool {
         false
     }
-    @ForeignName["primitive1WithArg0:"]
     public redef static func primitive1(i: Int64): Int64 {
         return i * 2;
     }
-    @ForeignName["primitive2WithArg0:withArg1:"]
     public redef static func primitive2(i: Int64, f: Float32): Int64 {
         return Int64(f) + i + 28;
     }
-    @ForeignName["primitive3WithArg0:withArg1:withArg2:"]
     public redef static func primitive3(i: Int64, f: Float32, b: Bool): Int64 {
         return Int64(f) + i + (if (b) { 4 } else { -4 });
     }

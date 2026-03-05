@@ -10,14 +10,13 @@
 
 /* SCAN-IN
 - (id)initWithM:(M*)m {
-    if (self = [super init]) {
-        self.$registryId = CJImpl_ObjC_cjworld_A_initWithM_PuCN7cjworld1ME((__bridge void*)self, (__bridge_retained void*)m);
-    } 
+    self.$registryId = -1;
+    self = (__bridge_transfer A*)CJImpl_ObjC_cjworld_A_initWithM_PuCN7cjworld1ME((__bridge void*)self, (__bridge_retained void*)m);
 */
 
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class M {

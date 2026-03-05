@@ -6,14 +6,14 @@
 
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class M {
     @ForeignName["initWithB:"]
     init(b: Bool)
-    @ForeignName["initWithM:andB"]
+    @ForeignName["initWithM:andB:"]
     init(m: M, b: Bool)
-    @ForeignName["initWithA:andM"]
+    @ForeignName["initWithA:andM:"]
     init(a: M, m: M)
 }

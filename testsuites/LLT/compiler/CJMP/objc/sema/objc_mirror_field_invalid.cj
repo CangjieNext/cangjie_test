@@ -9,7 +9,6 @@
 // ASSERT: scan 6 errors generated, 6 errors printed
 
 import objc.lang.*
-import interoplib.objc.*
 
 class A {}
 

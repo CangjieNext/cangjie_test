@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+// (CJNATIVE and not Windows) DEPENDENCE: ../../Cangjie.h
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && mkdir -p out
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %compiler %compile_shared_lib_opt %overflowOpt %enable_objc_cjmapping -p src/cjworld %import_objc_interop -o out
+// (CJNATIVE and Linux) RUN-EXEC-0: %cd %n && sed -i "s/\.dylib/\.so/g" objc-gen/*
+// (CJNATIVE and Linux) RUN-EXEC-0: %cd %n && %clang %objc_flags %objc_base_libs %objc_arc_opt src/objc/*.m objc-gen/*.m -o out/main -Lout %cangjie_runtime_link -I../ -Isrc/objc -Iobjc-gen %include_cangjie -lcjworld -lcangjie-runtime -ldl
+// (CJNATIVE and Darwin) RUN-EXEC-0: %cd %n && %clang %modules_opt %objc_arc_opt src/objc/*.m objc-gen/*.m -o out/main -Lout %cangjie_runtime_link -I../ -Isrc/objc -Iobjc-gen %include_cangjie -lcjworld -lcangjie-runtime
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n/out  && ./main 2>& 1 | compare %f
+// ASSERT: scan-2 in cj enum
