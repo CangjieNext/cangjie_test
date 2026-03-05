@@ -17,11 +17,12 @@
 // RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 /* SCAN-IN
+============================================================
+begin dump raw modified decls:
 deleted 6my_pkg5newVOC
 deleted 6my_pkg5newVOC8toStringF$$Struct-String
 M 11my_pkg$test1MC main_test.cj 6: 
-    changed members 5:
-         11my_pkg$test1MC11asTestSuiteF$$9TestSuite: body 
+    changed members 4:
          11my_pkg$test1MC18classConfigurationF$$13Configuration: body 
          11my_pkg$test1MC41inheritedFromClassAnnotatedByTestTemplate<1T>F$$9TestSuite: body 
          11my_pkg$test1MC5testAF$$: body 
@@ -29,12 +30,28 @@ M 11my_pkg$test1MC main_test.cj 6:
 11TestPackage<:22TestPackageExtension_MX main_test.cj 6: 
     changed members 1:
          11my_pkg$test7Extend!11TestPackage<:22TestPackageExtension_MX9registerMF$$: body 
-11my_pkg$test11$test.entryF$$INITIAL: body
+11my_pkg$test11$test.entryF$$INITIAL: body 
+============================================================
+closure convert out func recompile: 11my_pkg$test1MC11asTestSuiteF$$9TestSuite
+changed decls to recompile: 9
+the changed decl after Spreading is:TestPackage in file api.cj in line 461 in column 14
+the changed decl after Spreading is:$test.entry in file main_test.cj in line 0 in column 0
+the changed decl after Spreading is:asTestSuite in file main_test.cj in line 6 in column 102
+the changed decl after Spreading is:testA in file main_test.cj in line 6 in column 768
+the changed decl after Spreading is:init in file main_test.cj in line 6 in column 928
+the changed decl after Spreading is:classConfiguration in file main_test.cj in line 6 in column 978
+the changed decl after Spreading is:inheritedFromClassAnnotatedByTestTemplate in file main_test.cj in line 6 in column 1154
+the changed decl after Spreading is:ExtendDecl in file main_test.cj in line 6 in column 1457
+the changed decl after Spreading is:registerM in file main_test.cj in line 6 in column 1570
+deleted decls: 2
+the deleted decl is:6my_pkg5newVOC
+the deleted decl is:6my_pkg5newVOC8toStringF$$Struct-String
+closure convert out func recompile, roll back to full compilation
+incremental compile result kind: rollback
+full sema
+incremental cjo saving
+[CachedMangleMap] empty
+[CachedMangleMap] empty
+[CHIR Effect Map] START
+[CHIR Effect Map] END
 */
-
-
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
-// This source file is part of the Cangjie project, licensed under Apache-2.0
-// with Runtime Library Exception.
-//
-// See https://cangjie-lang.cn/pages/LICENSE for license information.
