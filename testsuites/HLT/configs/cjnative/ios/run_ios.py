@@ -240,10 +240,17 @@ def main():
                     sys.stdout.write(sys_log_content)
                     sys.stdout.write(com_out)
                     sys.stderr.write(com_err)
-                    print('Exception been thrown during image initialization.')
                     if args.uninstall:
                         uninstall_app(args.device_type, udid, args.bundle_id)
                     sys.exit(1)
+                elif 'CJNatvie Handle signal: 11.' in sys_log_content:
+                    # 发生了段错误，SIGSEFV(11) -> 139
+                    sys.stdout.write(sys_log_content)
+                    sys.stdout.write(com_out)
+                    sys.stderr.write(com_err)
+                    if args.uninstall:
+                        uninstall_app(args.device_type, udid, args.bundle_id)
+                    sys.exit(139)
                 else:
                     # 其他未知原因
                     raise Exception(f"Error: The 'cj_main_return_start' and 'cj_main_return_end' were not found, please check cangjie main function!")
