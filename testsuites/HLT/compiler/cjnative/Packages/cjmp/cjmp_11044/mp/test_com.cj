@@ -9,7 +9,7 @@
 package mp
 
 public common class C {
-    common init(){}
+    common onot(){}
 }
 
 common extend C {
