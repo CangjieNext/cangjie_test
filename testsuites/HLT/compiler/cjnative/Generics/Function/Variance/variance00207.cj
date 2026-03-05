@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -35,9 +35,12 @@ func assert<T>(input: T): Int32 {
 }
 
 @Test
-func test_variance_nested_tuples() {
-    let tuples: ((Father, Father), ((Child, Father), (Father, Father))) = ((ChildChild(), Child()), ((ChildChild(),
-                Father()), (ChildChild(), Child())))
-    assert<((Father, Father), ((Child, Father), (Father, Father)))>(tuples)
-    assert<((Father, Father), ((Father, Father), (Father, Father)))>(tuples)
+class TestVariance {
+    @TestCase
+    func test_variance_nested_tuples() {
+        let tuples: ((Father, Father), ((Child, Father), (Father, Father))) = ((ChildChild(), Child()), ((ChildChild(),
+                    Father()), (ChildChild(), Child())))
+        assert<((Father, Father), ((Child, Father), (Father, Father)))>(tuples)
+        assert<((Father, Father), ((Father, Father), (Father, Father)))>(tuples)
+    }
 }
