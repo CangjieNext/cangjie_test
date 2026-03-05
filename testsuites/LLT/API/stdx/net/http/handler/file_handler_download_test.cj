@@ -16,11 +16,11 @@
  */
 package tests.handler
 
-import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls
+import cangjie_stdx::crypto.kit
 import std.fs.*
-import stdx.log.*
+import cangjie_stdx::log.*
 import std.sync.*
 import std.time.*
 import asan.*

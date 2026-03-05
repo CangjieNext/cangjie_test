@@ -8,7 +8,7 @@
 
 import std.log.*
 import std.io.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 func foo(a:HttpResponse){
   return a
 }

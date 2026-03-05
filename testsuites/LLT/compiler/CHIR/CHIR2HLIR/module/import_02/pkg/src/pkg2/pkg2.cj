@@ -6,7 +6,7 @@
 
 package pkg2
 
-internal import stdx.log.*
+internal import cangjie_stdx::log.*
 
 public func foo() {
     0

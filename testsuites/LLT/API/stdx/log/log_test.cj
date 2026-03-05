@@ -14,7 +14,7 @@ import std.io.{OutputStream, BufferedOutputStream}
 import std.console.Console
 import std.fs.*
 import std.collection.{HashMap, ArrayList, TreeMap}
-import stdx.log.*
+import cangjie_stdx::log.*
 import std.unittest.*
 import std.unittest.testmacro.*
 

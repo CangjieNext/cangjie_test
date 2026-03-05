@@ -7,7 +7,7 @@
  */
 // ERRCHECK: %compiler  %import-cangjie-stdx  %cmp_opt %stdx-package  -o %n.%suffix %f
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main(): Int64 {
     // init() 非法参数

@@ -24,12 +24,12 @@
 package tests.client
 
 import std.io.*
-import stdx.net.http.*
-import stdx.log.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::log.*
 import std.sync.*
-import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.keys.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::crypto.x509.X509Certificate
+import cangjie_stdx::crypto.keys.*
 import std.fs.*
 import std.time.*
 import std.unittest.*

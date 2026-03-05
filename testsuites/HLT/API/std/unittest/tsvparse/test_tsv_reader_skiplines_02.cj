@@ -16,7 +16,7 @@
 // ASSERT: scan [ ERROR  ] CASE: test03
 
 import std.collection.*
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 
 @Test
 public class Test_Tsv_Reader_Skip_Lines {

@@ -12,11 +12,11 @@
 import std.net.*
 import std.fs.*
 import std.io.*
-import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.net.http.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.keys.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::crypto.x509.X509Certificate
+import cangjie_stdx::crypto.keys.*
 
 @Test
 class Test_CustomVerify {

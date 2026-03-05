@@ -13,7 +13,7 @@
 // ASSERT: scan-1 REASON: Test case body was never executed. Provided strategy has zero elements.
 
 import std.collection.*
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 
 @Test
 public class Test_Csv_Reader_Skip_Lines {

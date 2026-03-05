@@ -9,8 +9,8 @@
 // EXEC:%set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan pass
 
-import stdx.serialization.serialization.*
-import stdx.encoding.json.*
+import cangjie_stdx::serialization.serialization.*
+import cangjie_stdx::encoding.json.*
 
 main() {
     var jv: JsonValue = JsonObject()

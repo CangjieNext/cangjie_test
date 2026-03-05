@@ -10,13 +10,13 @@
 // (not Windows)EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output %cmp_utest_opt
 // (not Windows)RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 import std.*
-import stdx.crypto.*
-import stdx.compress.*
-import stdx.encoding.*
-import stdx.net.*
-import stdx.log.*
-import stdx.logger.*
-import stdx.serialization.*
+import cangjie_stdx::crypto.*
+import cangjie_stdx::compress.*
+import cangjie_stdx::encoding.*
+import cangjie_stdx::net.*
+import cangjie_stdx::log.*
+import cangjie_stdx::logger.*
+import cangjie_stdx::serialization.*
 import std.math.numeric.*
 
 @Test

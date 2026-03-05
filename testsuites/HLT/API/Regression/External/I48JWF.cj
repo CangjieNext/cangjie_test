@@ -10,8 +10,8 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f  -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
-import stdx.serialization.serialization.*
-import stdx.encoding.json.*
+import cangjie_stdx::serialization.serialization.*
+import cangjie_stdx::encoding.json.*
 
 main() {
     JsonValue.fromStr("1")

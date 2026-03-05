@@ -14,7 +14,7 @@ import std.unittest.testmacro.*
 import std.collection.any
 import std.collection.map
 import std.collection.ArrayList
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 
 class IterableDataStrategy<T> <: DataStrategy<T> & DataProvider<T> {
     IterableDataStrategy(let data: Array<T>) {}

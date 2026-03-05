@@ -10,8 +10,8 @@
 // ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // ASSERT: scan-6 Macro options: priority must be an integer literal inside the range [1..10].
 
-import stdx.actors.*
-import stdx.actors.macros.*
+import cangjie_stdx::actors.*
+import cangjie_stdx::actors.macros.*
 
 open class Father {}
 

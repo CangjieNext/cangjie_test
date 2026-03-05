@@ -19,7 +19,7 @@
 
 package tests.response
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.collection.ArrayList
 
 @Test

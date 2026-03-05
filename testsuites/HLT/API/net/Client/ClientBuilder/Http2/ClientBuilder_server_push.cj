@@ -11,13 +11,13 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE-0: %run_stdx %output %run_utest_opt %run_args 2>&1 | compare %f
 
-import stdx.net.http.*
-import stdx.crypto.keys.*
-import stdx.net.tls.common.*
-import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
-import stdx.log.*
-import stdx.logger.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::crypto.keys.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::crypto.x509.X509Certificate
+import cangjie_stdx::log.*
+import cangjie_stdx::logger.*
 import std.console.Console
 import std.io.*
 import std.time.*

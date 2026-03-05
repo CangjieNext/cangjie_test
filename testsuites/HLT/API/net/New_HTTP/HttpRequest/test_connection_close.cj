@@ -15,7 +15,7 @@
  * Test API: public prop isPersistent: Bool
  */
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 @Test
 class Test_HttpRequestBuilder_Connection_Close {

@@ -13,7 +13,7 @@ BoolType is bool type: true
 Int32 is bool type: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let boolType = BoolType.get()

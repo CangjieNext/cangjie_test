@@ -17,7 +17,7 @@ CStringType == UnitType: false
 CStringType == RuneType: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let cStringType1 = CStringType.get()

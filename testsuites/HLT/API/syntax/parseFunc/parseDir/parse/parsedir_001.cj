@@ -14,7 +14,7 @@
 // ASSERT: scan let a1 = 1
 // ASSERT: scan let a2 = a1 + 1
 
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 @Test
 class test_01{

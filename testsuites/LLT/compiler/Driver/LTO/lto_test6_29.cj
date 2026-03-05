@@ -7,7 +7,7 @@
 // (Linux and CJNATIVE) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output --lto=full
 // (Linux and CJNATIVE) RUN-EXEC: %set_stdx_path %run %run_opt %output %run_args
 
-internal import stdx.encoding.url.*
+internal import cangjie_stdx::encoding.url.*
 
 main() {
     var i = "http://other.example.com/%2F/%2F/?query=123"

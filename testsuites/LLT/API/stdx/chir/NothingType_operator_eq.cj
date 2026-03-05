@@ -17,7 +17,7 @@ NothingType == UnitType: false
 NothingType == RuneType: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let nothingType1 = NothingType.get()

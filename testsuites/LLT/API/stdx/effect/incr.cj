@@ -12,7 +12,7 @@
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
-import stdx.effect.Command
+import cangjie_stdx::effect.Command
 import std.collection.{HashMap, HashSet, ArrayList}
 
 type ID = Int64

@@ -17,7 +17,7 @@ BoolType == NothingType: false
 BoolType == RuneType: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let boolType1 = BoolType.get()

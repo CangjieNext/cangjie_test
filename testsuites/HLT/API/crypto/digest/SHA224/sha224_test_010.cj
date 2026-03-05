@@ -10,10 +10,10 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o  %output %f
 // RUN-EXEC: %run_stdx %output %run_args 
 
-import stdx.crypto.digest.*
+import cangjie_stdx::crypto.digest.*
 import std.convert.*
 import std.crypto.digest.*
-import stdx.encoding.hex.*
+import cangjie_stdx::encoding.hex.*
 
 main() {
     var sha224Instance = SHA224()

@@ -8,7 +8,7 @@
 
 package unusedImport.unused_import.pkg14
 
-internal import stdx.{encoding.json.JsonBool as myJsonBool, net.http.Server as myServer}
+internal import cangjie_stdx::{encoding.json.JsonBool as myJsonBool, net.http.Server as myServer}
 
 func test14() {
     var x = myJsonBool(false)

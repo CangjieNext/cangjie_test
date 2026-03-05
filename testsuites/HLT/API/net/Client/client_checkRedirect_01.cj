@@ -13,10 +13,10 @@
 // ASSERT: scan HttpException: Redirect loop exceed 10 times.
 
 import std.io.*
-import stdx.net.http.*
-import stdx.net.tls.common.*
-import stdx.net.tls
-import stdx.crypto.kit
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::net.tls
+import cangjie_stdx::crypto.kit
 import std.net.*
 import std.runtime.*
 import std.argopt.*

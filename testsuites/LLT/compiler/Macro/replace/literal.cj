@@ -2,7 +2,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_macro macro_test.cj
 // ERRCHECK: %run_macro %set_stdx_path %compiler %import-cangjie-stdx %cmp_opt  %f -o %output
 
-import stdx.serialization.serialization.*
+import cangjie_stdx::serialization.serialization.*
 import test.*
 
 @callTest

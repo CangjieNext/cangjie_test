@@ -7,7 +7,7 @@
 package serializers
 
 internal import std.convert.*
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 internal import std.io.*
 internal import std.collection.*
 internal import types.*

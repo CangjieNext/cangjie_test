@@ -7,7 +7,7 @@
  */
 
 import std.console.*
-import stdx.logger.*
+import cangjie_stdx::logger.*
 
 struct S<T> {
     static let STR:String = "Login success ,user is and ~!@#$%^&*()_+{key}|[]\\-=`:\"?><,./ is"

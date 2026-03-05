@@ -9,8 +9,8 @@
 // LEVEL: 1
 // ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt -o %output %f
 
-import stdx.crypto.keys.*
-import stdx.crypto.digest.*
+import cangjie_stdx::crypto.keys.*
+import cangjie_stdx::crypto.digest.*
 import std.crypto.digest.*
 import std.fs.*
 

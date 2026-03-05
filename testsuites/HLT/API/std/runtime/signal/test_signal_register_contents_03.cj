@@ -15,7 +15,7 @@ import std.runtime.*
 import std.posix.*
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 let signal: Int32 = 1
 var server = ServerBuilder().addr("127.0.0.1").port(0).build()

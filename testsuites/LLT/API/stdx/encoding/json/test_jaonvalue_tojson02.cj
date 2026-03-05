@@ -9,7 +9,7 @@
 // EXEC:%set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan true
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 func deserialize_string(str: String): String {
     return JsonValue.fromStr(str).asString().getValue()

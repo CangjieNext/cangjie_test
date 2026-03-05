@@ -11,7 +11,7 @@
 // (not Windows)RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.fs.*
-import stdx.compress.tar.*
+import cangjie_stdx::compress.tar.*
 
 @Test
 class test_UstarTarEntry {

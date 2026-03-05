@@ -12,8 +12,8 @@
 // ASSERT: scan @Receiver macro: receiver method 'goo' cannot be static nor open nor overriding another function.
 // ASSERT: scan @Receiver macro: receiver method 'soo' cannot be static nor open nor overriding another function.
 
-import stdx.actors.*
-import stdx.actors.macros.*
+import cangjie_stdx::actors.*
+import cangjie_stdx::actors.macros.*
 
 open class Father<T> {
     func soo(): Int64 {

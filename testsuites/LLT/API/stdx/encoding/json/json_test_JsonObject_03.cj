@@ -8,7 +8,7 @@
 // EXEC: %compiler  %import-cangjie-stdx  %cmp_opt -o %n.%suffix %f
 // EXEC-PIPE:%set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan pass01 pass02 pass03 pass04
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 import std.collection.*
 
 main() {

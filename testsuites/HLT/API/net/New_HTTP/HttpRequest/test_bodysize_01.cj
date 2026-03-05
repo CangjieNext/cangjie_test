@@ -15,7 +15,7 @@
  * Test API: public prop bodySize: Option<Int64>
  */
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.io.*
 
 public class test_inputStream <: InputStream {

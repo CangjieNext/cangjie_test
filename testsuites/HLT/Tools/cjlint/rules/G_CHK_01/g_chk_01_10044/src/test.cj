@@ -6,10 +6,10 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-import stdx.log.*
-import stdx.net.http.*
+import cangjie_stdx::log.*
+import cangjie_stdx::net.http.*
 import std.io.*
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 
 main(): Int64 {
   var rep = HttpResponseBuilder().build()

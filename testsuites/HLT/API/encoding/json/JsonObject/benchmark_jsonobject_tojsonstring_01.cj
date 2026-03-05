@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %output %f %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output --bench %run_args
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 import std.runtime.*
 
 @Test

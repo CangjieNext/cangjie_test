@@ -13,7 +13,7 @@
 // (not Windows) RUN-EXEC: %run_stdx %output %run_args
 // (not Windows) EXEC: %chmod +r ./data
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 main(): Int64 {
     FileHandler("./data")

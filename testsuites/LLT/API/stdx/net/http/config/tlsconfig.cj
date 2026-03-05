@@ -8,10 +8,10 @@
 package tlsconfig
 
 import std.fs.*
-import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.keys.GeneralPrivateKey
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::crypto.x509.X509Certificate
+import cangjie_stdx::crypto.keys.GeneralPrivateKey
 import std.io.*
 
 public func serverConfig(): TlsServerConfig {

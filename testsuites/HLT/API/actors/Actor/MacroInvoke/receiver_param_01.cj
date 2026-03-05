@@ -10,8 +10,8 @@
 // ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // ASSERT: scan priority option can only be used inside @Actor[enableReceiverPriority: true].
 
-import stdx.actors.*
-import stdx.actors.macros.*
+import cangjie_stdx::actors.*
+import cangjie_stdx::actors.macros.*
 
 open class Father {}
 

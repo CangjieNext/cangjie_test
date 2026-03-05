@@ -9,7 +9,7 @@
 // RUN-EXEC-PIPE-0:%set_stdx_path %run %run_opt %output %run_args 
 
 import std.io.*
-import stdx.encoding.json.stream.*
+import cangjie_stdx::encoding.json.stream.*
 import std.collection.*
 
 @Test

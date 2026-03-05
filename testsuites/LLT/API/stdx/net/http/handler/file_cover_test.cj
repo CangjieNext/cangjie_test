@@ -5,10 +5,10 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.fs.*
 import std.collection.*
-import stdx.log.*
+import cangjie_stdx::log.*
 import std.sync.*
 import std.time.*
 

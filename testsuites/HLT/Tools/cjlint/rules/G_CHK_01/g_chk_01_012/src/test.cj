@@ -7,7 +7,7 @@
  */
 
 import std.io.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 var a: HttpResponse = ClientBuilder().build().get("http://127.0.0.1:10245/foo")
 class A<T> {

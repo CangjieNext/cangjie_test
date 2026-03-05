@@ -13,7 +13,7 @@ NothingType is Nothing type: true
 Int32 is Nothing type: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let nothingType = NothingType.get()

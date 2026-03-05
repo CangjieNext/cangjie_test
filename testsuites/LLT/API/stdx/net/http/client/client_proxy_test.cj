@@ -17,8 +17,8 @@
 
 package tests.client
 
-import stdx.net.http.*
-import stdx.log.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::log.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.process.*

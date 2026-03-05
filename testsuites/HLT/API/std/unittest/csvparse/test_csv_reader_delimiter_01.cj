@@ -24,7 +24,7 @@
 // ASSERT: scan [ ERROR  ] CASE: test09
 
 import std.collection.*
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 
 @Test
 public class Test_Csv_Reader_Delimiter {

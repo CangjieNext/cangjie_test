@@ -10,7 +10,7 @@
  */
 package websocketUtil
 
-import stdx.encoding.base64.*
+import cangjie_stdx::encoding.base64.*
 
 class SHA1 {
     var data: Array<UInt8> = Array<UInt8>(64, {_ => 0})

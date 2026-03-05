@@ -20,7 +20,7 @@
  *      public func upgrade(ctx: HttpContext): StreamingSocket
  */
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 @Test
 class Test_Upgrade_Body {

@@ -8,9 +8,9 @@
 // EXEC: %compiler %import-cangjie-stdx  %cmp_opt -o %n.%suffix %f
 
 import std.{fs.*, net.*}
-import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::crypto.x509.X509Certificate
 
 main() {
     var config = TlsClientConfig()

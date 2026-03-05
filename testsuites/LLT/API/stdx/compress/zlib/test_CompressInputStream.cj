@@ -10,7 +10,7 @@
 // EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args
 
 import std.collection.*
-import stdx.compress.zlib.*
+import cangjie_stdx::compress.zlib.*
 import std.io.ByteBuffer
 import std.fs.*
 

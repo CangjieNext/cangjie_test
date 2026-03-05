@@ -12,8 +12,8 @@
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
-import stdx.actors.*
-import stdx.actors.macros.*
+import cangjie_stdx::actors.*
+import cangjie_stdx::actors.macros.*
 
 @Actor
 public class Counter {

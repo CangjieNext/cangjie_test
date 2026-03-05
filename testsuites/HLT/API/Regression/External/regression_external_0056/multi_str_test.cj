@@ -14,7 +14,7 @@
 import mytest.MSTR
 
 @MSTR(
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 main(){
     return 0
 }

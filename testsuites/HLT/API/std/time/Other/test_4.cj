@@ -13,7 +13,7 @@
 // ASSERT: scan Invalid utf8 byte sequence.
 
 import std.time.*
-import stdx.encoding.base64.*
+import cangjie_stdx::encoding.base64.*
 
 var a = 0
 

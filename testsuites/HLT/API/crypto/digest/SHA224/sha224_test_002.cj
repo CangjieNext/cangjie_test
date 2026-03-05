@@ -9,10 +9,10 @@
 // LEVEL: 0
 // EXEC-PIPE-1: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output 2>&1 | compare %f
 
-import stdx.crypto.digest.*
+import cangjie_stdx::crypto.digest.*
 import std.convert.*
 import std.crypto.digest.*
-import stdx.encoding.hex.*
+import cangjie_stdx::encoding.hex.*
 
 main() {
     var chr: Rune = 'c'

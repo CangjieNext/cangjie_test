@@ -8,7 +8,7 @@
 
 package a
 
-import stdx.serialization.serialization.*
+import cangjie_stdx::serialization.serialization.*
 
 class People <: Serializable<People> {
     var name: String

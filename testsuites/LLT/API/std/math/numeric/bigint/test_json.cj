@@ -10,7 +10,7 @@
 
 import std.math.numeric.*
 import std.math.numeric.*
-import stdx.encoding.json.stream.*
+import cangjie_stdx::encoding.json.stream.*
 import std.io.*
 
 @Test

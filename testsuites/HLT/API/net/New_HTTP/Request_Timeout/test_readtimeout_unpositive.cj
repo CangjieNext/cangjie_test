@@ -20,15 +20,15 @@
  *      public func readTimeout(timeout: Duration): HttpRequestBuilder
  */
 
-import stdx.net.http.*
-import stdx.crypto.kit.*
-import stdx.crypto.keys.*
-import stdx.net.tls.common.*
-import stdx.net.tls.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::crypto.kit.*
+import cangjie_stdx::crypto.keys.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::net.tls.*
 import std.time.*
 import std.sync.*
 import std.fs.*
-import stdx.crypto.x509.*
+import cangjie_stdx::crypto.x509.*
 import std.io.*
 
 @Test

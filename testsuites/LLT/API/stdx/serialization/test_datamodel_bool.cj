@@ -9,8 +9,8 @@
 // EXEC:  %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
 // EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args
 
-import stdx.serialization.serialization.*
-import stdx.encoding.json.*
+import cangjie_stdx::serialization.serialization.*
+import cangjie_stdx::encoding.json.*
 import std.convert.*
 import std.convert.*
 import std.io.*

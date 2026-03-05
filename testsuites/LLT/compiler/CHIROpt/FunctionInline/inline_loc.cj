@@ -9,7 +9,7 @@
 // ERRCHECK: %set_stdx_path %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: regex inline_loc\.cj:29
 
-import stdx.encoding.json.stream.*
+import cangjie_stdx::encoding.json.stream.*
 import std.io.*
 
 class abc {

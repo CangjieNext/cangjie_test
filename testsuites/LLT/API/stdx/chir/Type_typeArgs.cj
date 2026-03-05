@@ -12,7 +12,7 @@
 Number of type arguments: 0
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let intType = IntType.getInt32()

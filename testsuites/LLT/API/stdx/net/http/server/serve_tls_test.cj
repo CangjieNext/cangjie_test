@@ -13,11 +13,11 @@
 // EXEC: %compiler %import-cangjie-stdx  %cmp_opt %f asan.%middle tlsconfig.%middle -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE-0: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
 
-import stdx.net.http.*
-import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
-import stdx.log.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::crypto.x509.X509Certificate
+import cangjie_stdx::log.*
 import std.io.*
 import std.net.*
 import std.time.*

@@ -8,7 +8,7 @@
 // EXEC: %compiler  %import-cangjie-stdx  %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC:%set_stdx_path %run %run_opt %output %run_utest_opt
 
-import stdx.encoding.json.stream.{JsonWriter, WriteConfig}
+import cangjie_stdx::encoding.json.stream.{JsonWriter, WriteConfig}
 import std.io.ByteBuffer
 import std.random.Random
 import std.time.DateTime

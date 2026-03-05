@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %pkg_opt ./src libweb.%middle
 
 internal import web.*
-internal import stdx.net.http.*
+internal import cangjie_stdx::net.http.*
 internal import std.time.*
 internal import std.io.*
 

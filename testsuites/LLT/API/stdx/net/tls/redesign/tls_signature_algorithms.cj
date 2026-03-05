@@ -10,12 +10,12 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args
 import std.net.*
 import std.sync.*
-import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::crypto.x509.X509Certificate
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.crypto.digest.HashType
+import cangjie_stdx::crypto.digest.HashType
 
 let SIGNATURE_ALGORITHMS = [
     SignatureScheme(ECDSA_SECP384R1_SHA384),

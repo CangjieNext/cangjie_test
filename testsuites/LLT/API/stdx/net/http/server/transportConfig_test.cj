@@ -18,10 +18,10 @@
 
 package tests.server
 
-import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
-import stdx.net.tls
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls
+import cangjie_stdx::crypto.kit
+import cangjie_stdx::net.tls
 import std.net.*
 
 @Test

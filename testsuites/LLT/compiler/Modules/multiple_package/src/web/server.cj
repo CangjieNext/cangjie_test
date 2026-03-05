@@ -6,7 +6,7 @@
 
 package web
 
-internal import stdx.net.http.*
+internal import cangjie_stdx::net.http.*
 internal import std.time.*
 internal import std.net.*
 

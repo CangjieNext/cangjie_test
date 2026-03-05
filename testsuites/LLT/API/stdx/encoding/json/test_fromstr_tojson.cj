@@ -8,7 +8,7 @@
 // EXEC: %compiler  %import-cangjie-stdx  %cmp_opt -o %n.%suffix %f
 // EXEC:%set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan pass01 pass02
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main() {
     var str01 = JsonValue.fromStr("[\"a\", \"b\"]").toString()

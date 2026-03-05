@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 internal import std.sync.*
-internal import stdx.serialization.serialization.*
+internal import cangjie_stdx::serialization.serialization.*
 
 var a1 = b()
 var a3 : Int32 = 34

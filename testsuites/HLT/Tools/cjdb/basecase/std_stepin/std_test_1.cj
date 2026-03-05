@@ -7,27 +7,27 @@
  */
 
 import std.ast.*
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.regex.*
-import stdx.serialization.serialization.*
+import cangjie_stdx::serialization.serialization.*
 import std.sync.*
-import stdx.compress.zlib.*
-import stdx.encoding.base64.*
+import cangjie_stdx::compress.zlib.*
+import cangjie_stdx::encoding.base64.*
 import std.convert.*
 import std.sort.*
 import std.posix.*
 
 import std.convert.*
-import stdx.encoding.hex.*
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.hex.*
+import cangjie_stdx::encoding.json.*
 import std.fs.*
 import std.io.*
-import stdx.log.*
+import cangjie_stdx::log.*
 import std.math.*
 import std.net.*
-import stdx.net.tls.*
+import cangjie_stdx::net.tls.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.time.*

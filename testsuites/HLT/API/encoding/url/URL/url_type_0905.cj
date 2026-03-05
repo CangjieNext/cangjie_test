@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 
 main(): Int64 {
     var i = "http1.:////!$&-ab:12!$&@www.example.com:14/a/b@/a?1@=3b#@17"

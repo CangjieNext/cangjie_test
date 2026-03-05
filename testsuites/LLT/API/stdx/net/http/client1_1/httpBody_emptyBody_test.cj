@@ -20,7 +20,7 @@
 
 package tests.client1_1
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import asan.*
 import std.io.*
 import std.unittest.*

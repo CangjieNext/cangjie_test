@@ -20,7 +20,7 @@ package tests.headers
 
 import std.collection.*
 import std.io.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 @Test
 class TestHeadersClone {

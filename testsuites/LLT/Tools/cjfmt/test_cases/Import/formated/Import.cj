@@ -7,8 +7,8 @@
 internal import UI.Foundation.* //ABC
 internal import test.bottomContent // ABC
 internal import test.*
-internal import stdx.stdx.*
-internal import stdx.stdx.collection as cl // ABC
+internal import cangjie_stdx::stdx.*
+internal import cangjie_stdx::stdx.collection as cl // ABC
 
 public class listState07 <: State {
     var list: Array<MyClass07>

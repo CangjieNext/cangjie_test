@@ -17,7 +17,7 @@
 
 package tests.headers
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 @Test
 class TestHttpHeadersValueAdd {

@@ -13,7 +13,7 @@
 // ASSERT: scan possibly confusing line terminator between '1' and '+'
 // ASSERT: scan expected type name here
 
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 @Test
 class test_01{

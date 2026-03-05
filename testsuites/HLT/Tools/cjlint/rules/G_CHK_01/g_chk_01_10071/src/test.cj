@@ -7,7 +7,7 @@
  */
 
 import std.console.*
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 extend Int64 {
     static func test<T>() {

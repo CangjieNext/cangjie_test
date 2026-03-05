@@ -13,8 +13,8 @@
 
 
 
-import stdx.net.http
-import stdx.net.tls.*
+import cangjie_stdx::net.http
+import cangjie_stdx::net.tls.*
 import std.io
 import std.net
 var port: UInt16 = 0

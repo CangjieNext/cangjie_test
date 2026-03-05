@@ -17,7 +17,7 @@
 // ASSERT: scan [14, 6, 14, 7]
 // ASSERT: scan [11, 11, 11, 12]
 
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 @Test
 class test_01{

@@ -10,7 +10,7 @@
 // EXEC:%set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan test_init_ok test_toString_ok test_toJsonString_ok test_empty_containsKey_ok test_put_ok test_containsKey_ok test_error_containsKey_ok test_get_ok test_get_ok test_getFields_ok test_toString_ok test_toJosnString_ok
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 import std.collection.*
 
 main(): Int64 {

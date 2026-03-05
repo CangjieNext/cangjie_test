@@ -12,8 +12,8 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.fs.*
-import stdx.crypto.x509.*
-import stdx.crypto.common.*
+import cangjie_stdx::crypto.x509.*
+import cangjie_stdx::crypto.common.*
 
 var sum = 0
 

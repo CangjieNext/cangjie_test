@@ -7,7 +7,7 @@
  */
 
 import std.collection.HashMap
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 import std.time.*
 import std.runtime.*
 import std.argopt.*

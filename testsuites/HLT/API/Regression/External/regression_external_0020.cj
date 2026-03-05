@@ -13,10 +13,10 @@
 // RUN-EXEC: %run_stdx %output %run_args
 
 import std.io.*
-import stdx.net.http.*
-import stdx.net.tls.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
 import std.net.*
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 import asan.*
 
 var port: UInt16 = 0

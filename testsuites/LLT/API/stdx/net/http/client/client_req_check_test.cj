@@ -19,9 +19,9 @@
 
 package tests.client
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.net.*
-import stdx.encoding.base64.*
+import cangjie_stdx::encoding.base64.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.time.*
