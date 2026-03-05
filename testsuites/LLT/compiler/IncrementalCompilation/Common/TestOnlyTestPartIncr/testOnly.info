@@ -32,7 +32,7 @@ M 11my_pkg$test1MC main_test.cj 6:
          11my_pkg$test7Extend!11TestPackage<:22TestPackageExtension_MX9registerMF$$: body 
 11my_pkg$test11$test.entryF$$INITIAL: body 
 ============================================================
-closure convert out func recompile: 11my_pkg$test1MC11asTestSuiteF$$9TestSuite
+closure convert out func recompile: 11my_pkg$test7Extend!11TestPackage<:22TestPackageExtension_MX9registerMF$$
 changed decls to recompile: 9
 the changed decl after Spreading is:TestPackage in file api.cj in line 461 in column 14
 the changed decl after Spreading is:$test.entry in file main_test.cj in line 0 in column 0
