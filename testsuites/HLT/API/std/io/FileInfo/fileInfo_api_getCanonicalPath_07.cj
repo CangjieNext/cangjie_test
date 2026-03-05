@@ -7,23 +7,18 @@
  */
 
 // LEVEL: 1
-// EXEC-PIPE: %compiler %cmp_opt -o %output %f
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// DESCRIPTION:
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.io.*
 import std.fs.*
 
-main() {
-    var path: String = ""
-    try {
-        var file: FileInfo = FileInfo(path)
-        var result = canonicalize(file.path).toString()
-    } catch (e: FSException | IllegalArgumentException) {
-        println(e.toString())
-        if (e.toString().contains("The input path is empty")) {
-            return 0
-        }
-        return 2
+@Test
+class TestFileInfo {
+    @TestCase
+    func testCase0(): Unit {
+        let e = @AssertThrows[IllegalArgumentException](canonicalize(""))
+        @Expect(e.toString(), "IllegalArgumentException: The input path is empty.")
     }
-    return 1
 }
