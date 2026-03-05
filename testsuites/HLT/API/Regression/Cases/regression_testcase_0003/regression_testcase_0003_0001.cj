@@ -101,6 +101,6 @@ func measure(w: Int64, N: Int64): Unit {
     }
 }
 
-main(args: Array<String>): Unit {
+main(): Unit {
     measure(8, 1000000)
 }
