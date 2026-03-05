@@ -11,8 +11,8 @@
 // RUN-EXEC-PIPE: %run_stdx %output %run_args 2>&1 | compare %f
 // ASSERT: scan ["a","b"]
 
-import stdx.serialization.serialization.*
-import stdx.encoding.json.*
+import cangjie_stdx::serialization.serialization.*
+import cangjie_stdx::encoding.json.*
 
 main() {
     print(JsonValue.fromStr("[\"a\", \"b\"]").toString())

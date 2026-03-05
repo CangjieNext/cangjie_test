@@ -12,7 +12,7 @@
 // RUN-EXEC-PIPE-1: %run_stdx  %output %run_utest_opt %run_args --no-color  2>&1 | compare %f
 // ASSERT: scan [ ERROR  ] CASE: test03
 import std.collection.*
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 
 @Test
 public class Test_Csv_Reader_Skip_Lines {

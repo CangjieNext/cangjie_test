@@ -14,9 +14,9 @@
 
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.encoding.json.*
-import stdx.serialization.serialization.*
-import stdx.unittest.data.*
+import cangjie_stdx::encoding.json.*
+import cangjie_stdx::serialization.serialization.*
+import cangjie_stdx::unittest.data.*
 
 class User <: Serializable<User> & ToString {
     User(let name: String, let age: Int64) {}

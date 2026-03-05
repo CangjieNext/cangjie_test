@@ -7,12 +7,12 @@
  */
  // EXEC:  %compiler %import-cangjie-stdx  %cmp_opt %f -o %output %cmp_utest_opt
 // EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args
-import stdx.crypto.digest.*
-import stdx.encoding.hex.*
+import cangjie_stdx::crypto.digest.*
+import cangjie_stdx::encoding.hex.*
 import std.time.*
 import std.convert.*
 import std.crypto.digest.*
-import stdx.crypto.common.*
+import cangjie_stdx::crypto.common.*
 
 @Test
 class HMACTest {

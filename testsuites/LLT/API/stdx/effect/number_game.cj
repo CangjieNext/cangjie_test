@@ -16,7 +16,7 @@ import std.random.Random
 import std.convert.Parsable
 import std.collection.ArrayList
 import std.console.Console
-import stdx.effect.Command
+import cangjie_stdx::effect.Command
 import std.core
 
 class Readln <: Command<String> {

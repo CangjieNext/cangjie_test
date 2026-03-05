@@ -10,16 +10,16 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %cmp_utest_opt %f -o %output
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-import stdx.net.http.*
-import stdx.net.tls.common.*
-import stdx.net.tls
-import stdx.crypto.kit
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::net.tls
+import cangjie_stdx::crypto.kit
 import std.time.*
 import std.sync.*
 import std.collection.*
 import std.net.*
-import stdx.log.*
-import stdx.logger.*
+import cangjie_stdx::log.*
+import cangjie_stdx::logger.*
 import std.console.Console
 
 var port = UInt16(0)

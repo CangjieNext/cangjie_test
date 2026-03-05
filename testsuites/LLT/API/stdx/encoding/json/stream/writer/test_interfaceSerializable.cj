@@ -9,7 +9,7 @@
 // RUN-EXEC:%set_stdx_path %run %run_opt %output %run_utest_opt
 
 import std.io.*
-import stdx.encoding.json.stream.*
+import cangjie_stdx::encoding.json.stream.*
 import std.collection.*
 import std.collection.concurrent.ConcurrentHashMap
 import std.math.*

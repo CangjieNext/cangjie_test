@@ -13,3 +13,4 @@ regression/
 Runtime/
 
 [EXCLUDE-TEST-CASE]
+Tools/cjpm/stdx/d

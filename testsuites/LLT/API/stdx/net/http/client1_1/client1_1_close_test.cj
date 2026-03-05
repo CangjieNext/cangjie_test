@@ -20,15 +20,15 @@
  */
 package tests.client1_1
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import {asan.*, bodyReadUtil.*}
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 import std.net.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.time.*
 import std.sync.*
-import stdx.log.*
+import cangjie_stdx::log.*
 
 @Test
 class TestClient1_1Close {

@@ -21,10 +21,10 @@
 
 package tests.go_serve
 
-import stdx.net.http.*
-import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.common.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::crypto.x509.X509Certificate
+import cangjie_stdx::crypto.common.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import {asan.*, tlsconfig.*}

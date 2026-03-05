@@ -11,12 +11,12 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
-import stdx.net.http.*
-import stdx.net.tls.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
 import std.time.*
 import std.fs.*
-import stdx.log.*
-import stdx.logger.*
+import cangjie_stdx::log.*
+import cangjie_stdx::logger.*
 import std.console.Console
 
 @When[os == "Windows"]

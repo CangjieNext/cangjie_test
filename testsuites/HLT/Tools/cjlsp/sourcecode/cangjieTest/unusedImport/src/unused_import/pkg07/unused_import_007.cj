@@ -8,4 +8,4 @@
 
 package unusedImport.unused_import.pkg07
 
-internal import {stdx.log.*, stdx.encoding.*}
+internal import {cangjie_stdx::log.*, cangjie_stdx::encoding.*}

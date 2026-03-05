@@ -9,7 +9,7 @@
 // EXEC:%set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan test_getValue_ok test_toString_ok test_toJsonString_ok
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main(): Int64 {
     //init getValue toString toJsonString

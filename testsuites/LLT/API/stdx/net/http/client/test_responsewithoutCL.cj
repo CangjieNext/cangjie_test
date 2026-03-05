@@ -26,9 +26,9 @@
 import std.net.*
 import std.time.*
 import std.sync.*
-import stdx.net.http.*
-import stdx.log.*
-import stdx.encoding.json.stream.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::log.*
+import cangjie_stdx::encoding.json.stream.*
 import std.collection.*
 import asan.*
 

@@ -7,7 +7,7 @@
 internal import std.posix.*
 internal import std.regex.*
 internal import std.io.*
-internal import stdx.net.http.*
+internal import cangjie_stdx::net.http.*
 
 class A{
     func foo(){

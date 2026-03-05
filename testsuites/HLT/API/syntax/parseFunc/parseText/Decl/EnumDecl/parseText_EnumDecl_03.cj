@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 let str = ##"protected enum E1<T, U> <: S1<T, U> {
     A1 | B1(Int64) | C1(T) | D1(U, T)

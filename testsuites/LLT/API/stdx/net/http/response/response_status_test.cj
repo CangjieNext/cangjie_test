@@ -23,7 +23,7 @@
 
 package tests.response
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 @Test
 class TestReaponseStatus {

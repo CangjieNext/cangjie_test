@@ -8,7 +8,7 @@
 // EXEC: %compiler %import-cangjie-stdx  %cmp_opt %f -o %output --test
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
 
-import stdx.log.*
+import cangjie_stdx::log.*
 import std.time.DateTime
 import std.collection.{HashMap, TreeMap}
 

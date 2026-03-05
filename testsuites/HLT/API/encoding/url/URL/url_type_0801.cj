@@ -11,7 +11,7 @@
 // RUN-EXEC-PIPE: %run_stdx %output %run_args | compare %f
 // ASSERT: scan case pass
 
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 
 main(): Int64 {
     try {

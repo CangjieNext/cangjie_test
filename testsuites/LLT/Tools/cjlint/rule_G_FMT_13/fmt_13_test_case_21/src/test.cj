@@ -6,5 +6,5 @@
 
 package test
 internal import std.console.*
-internal import stdx.log.*
+internal import cangjie_stdx::log.*
 main(){}

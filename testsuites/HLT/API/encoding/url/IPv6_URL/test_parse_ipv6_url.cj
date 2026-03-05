@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt  %f -o %output
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 
 @Test
 public class Test_IPv6_Cangjie_Httpconnection {

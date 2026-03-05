@@ -7,7 +7,7 @@
 package asp.config
 
 import std.fs.{exists, File}
-import stdx.encoding.json.{JsonValue, JsonObject, JsonArray, JsonKind}
+import cangjie_stdx::encoding.json.{JsonValue, JsonObject, JsonArray, JsonKind}
 import std.collection.{HashMap, HashSet, collectArray, enumerate}
 
 /*

@@ -17,8 +17,8 @@
  */
 
 import std.collection.*
-import stdx.net.http.*
-import stdx.encoding.url.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::encoding.url.*
 
 @Test
 class Test_HttpRequest_Modify {

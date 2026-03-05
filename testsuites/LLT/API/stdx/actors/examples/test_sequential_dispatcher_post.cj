@@ -12,7 +12,7 @@
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
-import stdx.actors.*
+import cangjie_stdx::actors.*
 
 main() {
   let seqDispatcher = SequentialDispatcher()

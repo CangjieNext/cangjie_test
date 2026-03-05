@@ -6,7 +6,7 @@
 
 package types
 
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 internal import std.collection.*
 
 public class NestedInteger {

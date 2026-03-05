@@ -7,7 +7,7 @@
  */
 
 import std.console.*
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 func test<T>() {
     var v0 = Console.stdIn.readln().getOrThrow()

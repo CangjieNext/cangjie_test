@@ -11,17 +11,17 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt %f -o %output
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-import stdx.net.http.*
-import stdx.net.tls.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
 import std.io.*
 import std.fs.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.net.*
 import std.collection.*
-import stdx.crypto.keys.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
+import cangjie_stdx::crypto.keys.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::crypto.x509.X509Certificate
 
 public func serverConfig(protocol: String): TlsServerConfig {
     let pem0 = String.fromUtf8(readToEnd(File("data/end_rsa.cer", Read)))

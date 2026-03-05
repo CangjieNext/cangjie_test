@@ -16,7 +16,7 @@
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
-import stdx.effect.*
+import cangjie_stdx::effect.*
 
 public class GetDepth <: Command<Int64> {
     public func defaultImpl(): Int64 {

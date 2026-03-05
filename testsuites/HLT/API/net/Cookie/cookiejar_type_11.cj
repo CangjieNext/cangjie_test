@@ -10,9 +10,9 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.collection.*
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 import std.time.*
 
 var cookiejar = CookieJar.createDefaultCookieJar(ArrayList<String>(["com"]), true)

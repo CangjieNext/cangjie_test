@@ -10,17 +10,17 @@
 import std.io.*
 import std.time.*
 import std.convert.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.net.*
-import stdx.log.*
-import stdx.logger.*
+import cangjie_stdx::log.*
+import cangjie_stdx::logger.*
 import std.console.Console
 import std.fs.*
-import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.keys.GeneralPrivateKey
-import stdx.crypto.common.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::crypto.x509.X509Certificate
+import cangjie_stdx::crypto.keys.GeneralPrivateKey
+import cangjie_stdx::crypto.common.*
 
 var server: Server = unsafe { zeroValue<Server>() }
 

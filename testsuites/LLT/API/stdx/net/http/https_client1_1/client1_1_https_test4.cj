@@ -14,16 +14,16 @@
 // RUN-EXEC-PIPE-0: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
 package tests.client1_1
 
-import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::crypto.x509.X509Certificate
 import std.net.*
 import std.sync.*
 import std.time.*
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.net.http.*
-import stdx.encoding.url.*
-import stdx.log.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::encoding.url.*
+import cangjie_stdx::log.*
 import {asan.*, tlsconfig.*}
 
 @Test

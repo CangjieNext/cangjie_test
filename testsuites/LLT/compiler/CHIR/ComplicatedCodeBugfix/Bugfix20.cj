@@ -3,7 +3,7 @@
 
 
 
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 
 func encodeValue(tag: String, input: Bool) {
     mapv(tag, false)

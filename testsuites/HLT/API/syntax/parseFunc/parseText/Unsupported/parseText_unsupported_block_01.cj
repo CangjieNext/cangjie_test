@@ -11,14 +11,14 @@
 // RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args 2>&1 | compare %f
 // ASSERT: scan-not Decl Not Supported in Libast Yet
 
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 @Test
 class test_01{
     @TestCase
 func test_unsupported_block() {
     @Assert(parseText("{}").diags.size > 0)
-    @AssertThrows[Exception](parseText("“�"))
+    @AssertThrows[Exception](parseText("“�"))
     @Assert(parseText("A:").diags.size > 0)
     @AssertThrows[Exception](parseText("package A"))
     @Assert(parseText("public").diags.size > 0)

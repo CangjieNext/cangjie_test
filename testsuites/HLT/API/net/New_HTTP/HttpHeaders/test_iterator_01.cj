@@ -19,7 +19,7 @@
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.collection.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 @Test
 class Test_Iterator_01 {

@@ -19,13 +19,13 @@
 
 package tests.client
 
-import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
-import stdx.log.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls
+import cangjie_stdx::crypto.kit
+import cangjie_stdx::log.*
 import std.time.*
 import std.sync.*
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 import std.collection.*
 import std.unittest.*
 import std.unittest.testmacro.*

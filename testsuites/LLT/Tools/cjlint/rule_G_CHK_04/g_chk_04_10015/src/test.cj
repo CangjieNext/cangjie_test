@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 internal import std.fs.*
-internal import stdx.net.http.*
+internal import cangjie_stdx::net.http.*
 internal import std.regex.*
 internal import std.io.*
 

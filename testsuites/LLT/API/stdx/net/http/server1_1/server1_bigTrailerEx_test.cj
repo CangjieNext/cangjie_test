@@ -18,8 +18,8 @@
 
 package tests.server1_1
 
-import stdx.net.http.*
-import stdx.net.tls.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
 import std.net.TcpSocket
 
 @Test

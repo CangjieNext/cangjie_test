@@ -11,9 +11,9 @@
 // RUN-EXEC-PIPE: %run_stdx %output %run_args 2>&1 | compare %f
 // ASSERT: scan "\\n"
 
-import stdx.serialization.serialization.*
+import cangjie_stdx::serialization.serialization.*
 import std.io.*
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main() {
     let s = "\n".serialize().toJson().toString()

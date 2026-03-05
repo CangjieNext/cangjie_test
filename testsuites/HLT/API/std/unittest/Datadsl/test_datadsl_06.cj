@@ -14,8 +14,8 @@
 
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.encoding.json.*
-import stdx.unittest.data.*
+import cangjie_stdx::encoding.json.*
+import cangjie_stdx::unittest.data.*
 
 @Test[x in json("data.json")]
 func testMe(x: String): Unit {

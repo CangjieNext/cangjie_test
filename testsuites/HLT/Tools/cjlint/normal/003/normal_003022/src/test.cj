@@ -6,9 +6,9 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-import stdx.log.*
+import cangjie_stdx::log.*
 import std.io.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 func foo(a:HttpResponse){
   return a

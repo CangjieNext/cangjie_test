@@ -10,11 +10,11 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt %run_args
 
 import std.fs.*
-import stdx.crypto.x509.*
-import stdx.crypto.keys.*
-import stdx.crypto.common.*
-import stdx.net.tls.*
-import stdx.net.tls.common.*
+import cangjie_stdx::crypto.x509.*
+import cangjie_stdx::crypto.keys.*
+import cangjie_stdx::crypto.common.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
 
 var sum = 0
 

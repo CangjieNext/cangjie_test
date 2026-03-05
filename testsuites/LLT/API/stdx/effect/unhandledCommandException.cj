@@ -15,7 +15,7 @@
 // ASSERT: scan-not stack trace
 
 
-import stdx.effect.{Command, UnhandledCommandException}
+import cangjie_stdx::effect.{Command, UnhandledCommandException}
 
 class Get <: Command<Unit> {}
 

@@ -15,13 +15,13 @@
  * Test API: public prop remoteAddr: String
  */
 
-import stdx.net.http.*
-import stdx.net.tls.common.*
-import stdx.net.tls
-import stdx.crypto.kit
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::net.tls
+import cangjie_stdx::crypto.kit
 import std.time.*
 import std.sync.*
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 
 var port = UInt16(0)
 var server = ServerBuilder().addr("127.0.0.1").port(0).build()

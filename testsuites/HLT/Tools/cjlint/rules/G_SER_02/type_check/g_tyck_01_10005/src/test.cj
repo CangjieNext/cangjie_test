@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-import stdx.serialization.serialization.*
+import cangjie_stdx::serialization.serialization.*
 import a.*
 
 class MySerializeDemo04 <: a1 & Serializable<MySerializeDemo04> {

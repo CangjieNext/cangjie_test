@@ -11,8 +11,8 @@
 // RUN-EXEC: %run_stdx %output %run_args 
 
 import std.collection.*
-import stdx.actors.*
-import stdx.actors.macros.*
+import cangjie_stdx::actors.*
+import cangjie_stdx::actors.macros.*
 
 // 相同优先级： 按照调用顺序
 

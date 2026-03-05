@@ -17,7 +17,7 @@ UnitType == NothingType: false
 UnitType == RuneType: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let unitType1 = UnitType.get()

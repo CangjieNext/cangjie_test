@@ -16,7 +16,7 @@
 // RUN-EXEC: %run_stdx  %output %run_utest_opt %run_args
 
 import std.collection.*
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 
 @Test
 public class Test_Csv_Reader_Packed_Elements {

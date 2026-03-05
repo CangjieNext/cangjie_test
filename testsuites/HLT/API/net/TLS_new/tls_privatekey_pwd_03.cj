@@ -13,13 +13,13 @@
 // (Windows and OHOS)RUN-EXEC: dos2unix "./data/end_rsa_private_key.pem" && dos2unix "./data/enc_pkcs8_end_rsa_private_key.pem" && %run_stdx %output %run_utest_opt %run_args
 import std.net.*
 import std.fs.*
-import stdx.net.tls.*
+import cangjie_stdx::net.tls.*
 import std.sync.*
 import std.runtime.*
 import std.collection.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.common.{DerBlob, PemEntry, Pem, PrivateKey, CryptoException}
-import stdx.crypto.keys.*
+import cangjie_stdx::crypto.x509.X509Certificate
+import cangjie_stdx::crypto.common.{DerBlob, PemEntry, Pem, PrivateKey, CryptoException}
+import cangjie_stdx::crypto.keys.*
 var sum = 0
 @When[os != "Windows"]
 let pemDatatest = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))

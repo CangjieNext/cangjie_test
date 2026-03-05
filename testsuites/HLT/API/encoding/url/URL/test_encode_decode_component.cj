@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 import std.collection.*
 import std.unittest.*
 import std.unittest.testmacro.*

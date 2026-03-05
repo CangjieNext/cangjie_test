@@ -8,8 +8,8 @@
 // EXEC: %compiler %import-cangjie-stdx  %cmp_opt  -o %n.%suffix %f %cmp_utest_opt
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 
-import stdx.crypto.keys.*
-import stdx.crypto.digest.*
+import cangjie_stdx::crypto.keys.*
+import cangjie_stdx::crypto.digest.*
 import std.convert.*
 import std.crypto.digest.*
 

@@ -11,7 +11,7 @@ package test
  * 华为技术有限公司 2024-2024
  */
 
-internal import stdx.log.*
+internal import cangjie_stdx::log.*
 main() {
     println("hello world")
 }

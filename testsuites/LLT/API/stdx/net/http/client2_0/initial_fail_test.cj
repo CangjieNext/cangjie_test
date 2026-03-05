@@ -20,16 +20,16 @@
 
 package tests.client2_0
 
-import stdx.net.http.*
-import stdx.crypto.kit
-import stdx.log.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::crypto.kit
+import cangjie_stdx::log.*
 import std.io.*
 import std.time.*
 import std.net.*
 import std.sync.*
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.url.*
 import asan.*
 
 @Test

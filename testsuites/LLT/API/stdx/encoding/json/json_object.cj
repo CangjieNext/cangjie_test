@@ -21,7 +21,7 @@
  *           }
  */
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main() {
     try {

@@ -14,14 +14,14 @@
 
 import std.time.*
 import std.io.*
-import stdx.net.http.*
-import stdx.net.tls.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
 import std.net.*
 import std.sync.*
 import std.argopt.*
 import std.runtime.*
-import stdx.log.*
-import stdx.logger.*
+import cangjie_stdx::log.*
+import cangjie_stdx::logger.*
 import std.console.Console
 import std.collection.*
 

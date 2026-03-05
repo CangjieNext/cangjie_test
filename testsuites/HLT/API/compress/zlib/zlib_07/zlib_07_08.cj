@@ -14,7 +14,7 @@
 // (not Mac and not OHOS)RUN-EXEC: %diff zlib_1M.txt zlib_1M_08_Cj_Compress_javaDe.txt
 
 import std.io.*
-import stdx.compress.zlib.*
+import cangjie_stdx::compress.zlib.*
 
 main() {
     compressCj("./zlib_1M.txt", "./zlib_1M_08_Cj_Compress", DeflateFormat, BestCompression, 1024)

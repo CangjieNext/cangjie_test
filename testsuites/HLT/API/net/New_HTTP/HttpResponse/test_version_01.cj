@@ -15,7 +15,7 @@
  * Test API: public func version(version: Protocol): HttpResponseBuilder
  */
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 @Test
 class Test_HttpResponse_Version_01 {

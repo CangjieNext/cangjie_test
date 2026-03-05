@@ -13,7 +13,7 @@
 // (Windows and OHOS)RUN-EXEC: dos2unix "./data/end_ecdsa_certreq.pem" && dos2unix "./data/end_rsa_certreq.pem" && %run %run_opt %output %run_utest_opt %run_args
 
 import std.fs.*
-import stdx.crypto.x509.*
+import cangjie_stdx::crypto.x509.*
 
 var sum = 0
 @When[os != "Windows"]

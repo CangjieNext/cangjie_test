@@ -13,7 +13,7 @@ Int32 is reference type: false
 Int32& is reference type: true
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let intType = IntType.getInt32()

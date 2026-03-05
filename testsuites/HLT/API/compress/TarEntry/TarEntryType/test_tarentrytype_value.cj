@@ -10,8 +10,8 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-import stdx.compress.*
-import stdx.compress.tar.*
+import cangjie_stdx::compress.*
+import cangjie_stdx::compress.tar.*
 
 @Test
 class test_TarEntryType {

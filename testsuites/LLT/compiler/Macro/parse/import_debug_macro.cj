@@ -5,7 +5,7 @@
 import define.*
 
 @Same(
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 main() {
     return 0
 }
@@ -15,7 +15,7 @@ main() {
 error: expected declaration, found keyword 'import'
  ==> import_debug_macro.cj:8:1:
   | 
-8 | import stdx.net.http.*
+8 | import cangjie_stdx::net.http.*
   | ^^^^^^ expected declaration here
   | 
   # note: only declarations or macro expressions can be used in the top-level
@@ -24,7 +24,7 @@ note: the code after the macro is expanded as follows
    | 
 7  |   /* ===== Emitted by MacroCall @Same in import_debug_macro.cj:7:1 ===== */
    |  _^
-8  | | /* 7.1 */import stdx.net.http.*
+8  | | /* 7.1 */import cangjie_stdx :: net.http.*
    | | ...
 13 | | /* ===== End of the Emit ===== */
    | |_________________________________^
@@ -34,7 +34,7 @@ note: the error occurs after the macro is expanded
    | 
 7  |   @Same(
    |  _^
-8  | | import stdx.net.http.*
+8  | | import cangjie_stdx::net.http.*
    | | ...
 12 | | )
    | |_^

@@ -8,4 +8,4 @@
 
 package unusedImport.unused_import.pkg11
 
-import stdx.{logger.JsonLogger as testJsonLogger, logger.TextLogger as testTextLogger}
+import cangjie_stdx::{logger.JsonLogger as testJsonLogger, logger.TextLogger as testTextLogger}

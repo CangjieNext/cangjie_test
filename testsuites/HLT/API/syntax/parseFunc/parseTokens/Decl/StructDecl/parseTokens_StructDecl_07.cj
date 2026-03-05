@@ -12,7 +12,7 @@
 
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 main() {
     let _quote = quote(@!Anno1

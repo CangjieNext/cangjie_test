@@ -11,11 +11,11 @@
 import std.net.*
 import std.time.*
 import std.sync.*
-import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.*
-import stdx.crypto.common.*
-import stdx.crypto.keys.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::crypto.x509.*
+import cangjie_stdx::crypto.common.*
+import cangjie_stdx::crypto.keys.*
 import std.collection.*
 import std.fs.*
 

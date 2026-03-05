@@ -20,8 +20,8 @@ import std.unittest.testmacro.*
 import std.time.*
 import std.sync.*
 import std.collection.*
-import stdx.net.http.*
-import stdx.encoding.url.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::encoding.url.*
 
 @Test
 class Test_CookieJar_GetCookies_01 {

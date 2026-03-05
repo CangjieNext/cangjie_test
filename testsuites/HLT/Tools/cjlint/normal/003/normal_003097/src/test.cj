@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-import stdx.serialization.serialization.*
+import cangjie_stdx::serialization.serialization.*
 // cjlint-ignore -start !G.SER.01 !G.SER.02
 class People <: Serializable<People> {
     var name: String

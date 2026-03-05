@@ -1,7 +1,7 @@
 // EXEC: %compiler %enableEH %cmp_opt %f -o %output 2>&1 | compare %f
 // EXEC: %run %set_stdx_path %run_opt %output
 
-import stdx.effect.Command
+import cangjie_stdx::effect.Command
 class Eff <: Command<String> {}
 
 main():Int64 {

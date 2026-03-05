@@ -22,9 +22,9 @@
 
 package tests.client2_0
 
-import stdx.net.http.*
-import stdx.log.*
-import stdx.net.tls.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::log.*
+import cangjie_stdx::net.tls.*
 import std.net.*
 import std.time.*
 import std.sync.*

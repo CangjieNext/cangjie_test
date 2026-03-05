@@ -6,7 +6,7 @@
 
 package asp.host
 
-import stdx.net.http.HttpContext
+import cangjie_stdx::net.http.HttpContext
 
 public interface Middleware {
     func invoke(context: HttpContext, next: () -> Unit): Unit

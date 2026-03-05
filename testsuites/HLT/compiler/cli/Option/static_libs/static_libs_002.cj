@@ -14,7 +14,7 @@
 
 import std.ast.*
 import std.math.*
-import stdx.encoding.base64.*
+import cangjie_stdx::encoding.base64.*
 
 main() {
     var a = lcm(-3, 5)

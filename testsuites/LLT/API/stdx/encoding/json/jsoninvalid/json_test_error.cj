@@ -11,7 +11,7 @@
 // ASSERT: scan error31
 
 import std.fs.*
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main() {
     var num: Int64 = 0

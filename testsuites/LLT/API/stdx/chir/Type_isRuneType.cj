@@ -13,7 +13,7 @@ RuneType is Rune type: true
 Int32 is Rune type: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let runeType = RuneType.get()

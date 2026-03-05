@@ -17,7 +17,7 @@
 
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 @Test
 class Test_Cookie_Secure_01 {

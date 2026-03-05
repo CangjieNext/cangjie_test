@@ -9,7 +9,7 @@
 // EXEC: %compiler %import-cangjie-stdx  %cmp_opt %f -o %n.%suffix %cmp_utest_opt
 // RUN-EXEC-PIPE-0: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 public class RewriteNode <: ASTRewriter {
     override public func rewrite(node: SyntaxTreeNode): SyntaxTreeNode {
