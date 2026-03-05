@@ -16,6 +16,8 @@ public func foo2(_: Int64) {
 main() {
     var _ = 1
     foo(1)
+    foo1(a: 2)
+    foo2(3)
     return 0
 }
 

@@ -20,11 +20,33 @@ main() {
 }
 
 /* SCAN
+warning: unused function:'foo'
+  ==> testDCENothing1.cj:10:1:
+   | 
+10 |   public func foo(a: Nothing) {
+   |  _^
+11 | |     a
+12 | | }
+   | |_^ unused function
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 warning: unreachable function 
   ==> testDCENothing1.cj:10:17:
    | 
 10 | public func foo(a: Nothing) {
    |                 ^ function with parameter of nothing type will never be executed
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unused function:'goo'
+  ==> testDCENothing1.cj:14:1:
+   | 
+14 |   func goo(a: Nothing) {
+   |  _^
+15 | |     a
+16 | | }
+   | |_^ unused function
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
@@ -36,5 +58,5 @@ warning: unreachable function
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-2 warnings generated, 2 warnings printed.
+4 warnings generated, 4 warnings printed.
 */

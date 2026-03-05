@@ -28,6 +28,8 @@ class A {
 
 main() {
     var a = A()
+    A.a = 1
+    a.b = 2
     if (a.b == 4) {
         print("${a.b}")
         return 0

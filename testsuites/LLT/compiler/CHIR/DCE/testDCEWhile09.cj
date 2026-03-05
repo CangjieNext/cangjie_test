@@ -27,6 +27,7 @@ public func test1() {
 
 main() {
     test()
+    test1()
     return 0
 }
 

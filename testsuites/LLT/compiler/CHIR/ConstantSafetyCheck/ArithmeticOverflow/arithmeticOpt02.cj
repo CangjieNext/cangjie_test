@@ -28,7 +28,10 @@ public func arithmeticOpt01() {
     var a8: Int64 = INT64_MIN / (-1)
 }
 
-main() {}
+main() {
+    arithmeticOpt01()
+    0
+}
 
 /* SCAN
 warning: unused variable:'a1'

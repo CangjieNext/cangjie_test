@@ -6,7 +6,7 @@
 
 // EXEC-PIPE: %compiler %cmp_opt -o %n.%suffix %f 2>&1 | compare %f
 
-// ASSERT: scan-not deprecated
+// ASSERT: scan-not is deprecated
 
 @Deprecated
 func foo() {}

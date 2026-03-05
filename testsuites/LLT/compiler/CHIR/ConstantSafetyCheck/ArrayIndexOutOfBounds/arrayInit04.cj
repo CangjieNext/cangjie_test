@@ -13,7 +13,10 @@ public func arrayInit01() {
     var a2 = a1[5]
 }
 
-main() {}
+main() {
+     arrayInit01()
+     0
+}
 
 /* SCAN
 warning: unused variable:'a2'

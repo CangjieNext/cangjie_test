@@ -7,9 +7,12 @@
 // EXEC-PIPE: %compiler %cmp_opt -o %n.%suffix %f 2>&1 | compare %f
 
 // ASSERT: scan-not error
-// ASSERT: scan-not warning
+// ASSERT: scan warning: function 'foo' is deprecated. Some words.
 
 @Deprecated[message: "Some words"]
 func foo() {}
 
-main(): Unit {}
+main(): Unit {
+    foo()
+    0
+}

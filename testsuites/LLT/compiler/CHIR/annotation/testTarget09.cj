@@ -91,7 +91,18 @@ public enum E {
 
 }
 
-main() {}
+main() {
+    let b = B()
+    b.b(1)
+    b.bb
+    let d = D()
+    d.b(1)
+    d.bb
+    let ex = E.x
+    ex.b(1)
+    ex.bb
+    0
+}
 
 /* SCAN
 error: '@A' not applicable to member property

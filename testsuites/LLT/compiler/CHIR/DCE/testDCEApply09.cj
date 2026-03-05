@@ -18,6 +18,18 @@ main() {
 }
 
 /* SCAN
+warning: unused function:'test'
+  ==> testDCEApply09.cj:10:1:
+   | 
+10 |   func test(a: Int64) {
+   |  _^
+11 | |     println("func")
+   | | ...
+13 | | }
+   | |_^ unused function
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 warning: unused variable:'a'
   ==> testDCEApply09.cj:10:11:
    | 
@@ -44,5 +56,5 @@ warning: unreachable 'call'
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-3 warnings generated, 3 warnings printed.
+4 warnings generated, 4 warnings printed.
 */

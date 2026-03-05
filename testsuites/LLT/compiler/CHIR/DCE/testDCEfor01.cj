@@ -16,6 +16,7 @@ public func foo() {
 }
 
 main() {
+    foo()
     0
 }
 

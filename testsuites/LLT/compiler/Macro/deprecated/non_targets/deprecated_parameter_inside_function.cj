@@ -6,7 +6,7 @@
 
 // EXEC-PIPE: %compiler %cmp_opt -o %n.%suffix %f 2>&1 | compare %f 
 
-// ASSERT: scan-not warning
+// ASSERT: scan-not is deprecated
 // ASSERT: scan-not error
 
 // NOTE: param usage inside function should not trigger warning

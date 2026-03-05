@@ -32,6 +32,8 @@ main() {
         print("${a.a.b}\n")
         return 0
     }
+    a.a = B()
+    a.f()
     return 1
 }
 

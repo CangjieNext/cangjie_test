@@ -9,7 +9,10 @@ public func arrayShortcut01() {
     } 
 }
 
-main() {}
+main() {
+    arrayShortcut01()
+    0
+}
 
 /* SCAN
 warning: unreachable block in 'if' expression

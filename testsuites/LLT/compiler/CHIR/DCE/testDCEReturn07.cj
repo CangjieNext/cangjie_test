@@ -14,6 +14,8 @@ public func test() {
 }
 
 main() {
+    test()
+    0
 }
 
 /* SCAN

@@ -19,7 +19,11 @@ public func arrayShortcut02() {
     b[a]
 }
 
-main() {}
+main() {
+    arrayShortcut01()
+    arrayShortcut02()
+    0
+}
 
 /* SCAN
 warning: unreachable expression

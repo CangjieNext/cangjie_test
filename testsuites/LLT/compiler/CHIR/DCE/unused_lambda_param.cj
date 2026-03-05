@@ -21,6 +21,7 @@ func f(a: Int64, b!: Int64 = 2) {
 
 main(): Int64 {
     g()
+    f(1, b: 2)
     return 0
 }
 
