@@ -8,7 +8,7 @@
 // EXEC: %compiler  %import-cangjie-stdx  %cmp_opt %f --test -o %output
 // EXEC-PIPE:%set_stdx_path %run %run_opt %output %run_args
 
-import stdx.encoding.json.stream.*
+import cangjie_stdx::encoding.json.stream.*
 import std.io.*
 import std.collection.*
 

@@ -19,13 +19,13 @@
  */
 package tests.handler
 
-import stdx.net.http.*
-import stdx.encoding.url.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::encoding.url.*
 import std.net.*
 import std.sync.*
-import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
-import stdx.log.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::crypto.x509.X509Certificate
+import cangjie_stdx::log.*
 import std.time.*
 import std.unittest.*
 import std.unittest.testmacro.*

@@ -13,9 +13,9 @@
 // (Windows and OHOS)RUN-EXEC: dos2unix "./data/root_ecdsa.pem" && dos2unix "./data/root_ecdsa.cer" && %run_stdx %output %run_utest_opt %run_args
 import std.net.*
 import std.fs.*
-import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
-import stdx.crypto.common.{DerBlob, PrivateKey}
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::crypto.x509.X509Certificate
+import cangjie_stdx::crypto.common.{DerBlob, PrivateKey}
 import std.sync.*
 import std.time.*
 import std.runtime.*

@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-internal import stdx.serialization.serialization.*
+internal import cangjie_stdx::serialization.serialization.*
 
 open class MySerializeTestcaseSup648 <: Serializable<MySerializeTestcase648> {
     public open func serialize() {

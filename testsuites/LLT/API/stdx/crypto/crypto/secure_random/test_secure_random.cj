@@ -7,7 +7,7 @@
  */
 // EXEC:  %compiler %import-cangjie-stdx  %cmp_opt %f -o %output %cmp_utest_opt
 // EXEC: %set_stdx_path %run %run_opt %output %run_utest_opt
-import stdx.crypto.crypto.*
+import cangjie_stdx::crypto.crypto.*
 
 @Test
 class SecureRandomTest {

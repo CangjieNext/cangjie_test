@@ -40,7 +40,7 @@ Reference type: Int32&&
 After stripping refs: Int32
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     // ===== Type.toString() tests =====

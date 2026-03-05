@@ -7,7 +7,7 @@
 // (Linux and CJNATIVE) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output --lto=full
 // (Linux and CJNATIVE) RUN-EXEC: %set_stdx_path %run %run_opt %output %run_args
 
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 
 main() {
     var strO = ##"{"name":"Tom","age":"18","version":"0.1.1"}"##

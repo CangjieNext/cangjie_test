@@ -14,9 +14,9 @@
 
 package tests.go_server
 
-import stdx.net.http.*
-import stdx.net.tls.*
-import stdx.encoding.json.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::encoding.json.*
 import std.unittest.*
 import std.unittest.testmacro.*
 

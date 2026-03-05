@@ -7,7 +7,7 @@
  */
 package example
 
-internal import stdx.encoding.url.*
+internal import cangjie_stdx::encoding.url.*
 internal import std.sort.*
 
 class Article {

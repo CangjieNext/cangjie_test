@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 internal import std.sync.*
-internal import stdx.serialization.serialization.*
+internal import cangjie_stdx::serialization.serialization.*
 
 var m4 = ReentrantMutex()
 var gVar1 : Int32 = 23

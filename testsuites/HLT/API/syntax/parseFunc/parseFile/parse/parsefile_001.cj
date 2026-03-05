@@ -12,7 +12,7 @@
 // RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args | compare %f
 // ASSERT: scan possibly confusing line terminator
 
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 @Test
 class test_01{

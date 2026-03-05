@@ -25,7 +25,7 @@
 // ASSERT: scan-next case05:[(name0, name1), (age0, age1), (gender0, gender1)]
 
 import std.collection.*
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 
 @Test
 public class Test_Tsv_Reader_Header {

@@ -5,8 +5,8 @@
 // ASSERT: scan 123
 
  
-internal import stdx.encoding.json.JsonValue
-internal import stdx.serialization.serialization.{DataModel, DataModelException, DataModelStruct, Serializable,
+internal import cangjie_stdx::encoding.json.JsonValue
+internal import cangjie_stdx::serialization.serialization.{DataModel, DataModelException, DataModelStruct, Serializable,
     DataModelString, DataModelSeq}
  
 public interface Custom {

@@ -13,9 +13,9 @@ import std.collection.*
 import std.sort.SortExtension
 import std.fs.{File, Path}
 import std.unittest.common.*
-import stdx.unittest.data.*
-import stdx.serialization.serialization.*
-import stdx.encoding.json.*
+import cangjie_stdx::unittest.data.*
+import cangjie_stdx::serialization.serialization.*
+import cangjie_stdx::encoding.json.*
 
 @Test
 class Test_csv_parser {

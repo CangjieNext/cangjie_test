@@ -18,7 +18,7 @@ Float32 == NothingType: false
 Float32 == RuneType: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let float32Type1 = FloatType.getFloat32()

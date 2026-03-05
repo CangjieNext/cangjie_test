@@ -14,8 +14,8 @@
 
 import std.fs.*
 import std.io.*
-import stdx.compress.*
-import stdx.compress.tar.*
+import cangjie_stdx::compress.*
+import cangjie_stdx::compress.tar.*
 
 let illegalFiles = [
     ("空字符串非法", "", { => IllegalArgumentException("The input path is empty.")}),

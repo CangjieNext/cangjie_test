@@ -16,8 +16,8 @@
 
 package tests.go_serve
 
-import stdx.net.http.*
-import stdx.net.tls.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
 import bodyReadUtil.*
 import std.unittest.*
 import std.unittest.testmacro.*

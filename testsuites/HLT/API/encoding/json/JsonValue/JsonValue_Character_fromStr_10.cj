@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output
 // RUN-EXEC-PIPE: %run_stdx %output %run_args
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main(): Int64 {
     var jsonstrBefore = "{\"name\":\"app\'le\"}"

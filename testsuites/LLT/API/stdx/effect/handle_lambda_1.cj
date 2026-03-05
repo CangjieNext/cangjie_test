@@ -11,7 +11,7 @@
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
-import stdx.effect.Command
+import cangjie_stdx::effect.Command
 
 class Eff <: Command<Int64> { Eff() {} }
 

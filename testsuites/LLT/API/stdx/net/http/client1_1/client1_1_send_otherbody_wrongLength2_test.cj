@@ -16,15 +16,15 @@
  */
 package tests.client1_1
 
-import stdx.net.http.*
-import stdx.encoding.url.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::encoding.url.*
 import std.net.*
 import std.collection.*
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.sync.*
 import std.time.*
-import stdx.log.*
+import cangjie_stdx::log.*
 import std.io.*
 
 @Test

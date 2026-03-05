@@ -7,7 +7,7 @@
 package asp.host
 
 import std.fs.{File, exists}
-import stdx.net.http.{HttpContext, HttpHeaders}
+import cangjie_stdx::net.http.{HttpContext, HttpHeaders}
 
 public class DefaultFilesMiddleware <: Middleware {
     private let _files: Array<String> = ["index.html", "index.htm", "default.html", "default.htm"]

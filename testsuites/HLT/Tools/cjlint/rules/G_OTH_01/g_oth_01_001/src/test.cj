@@ -7,7 +7,7 @@
  */
 
 import std.console.*
-import stdx.logger.*
+import cangjie_stdx::logger.*
 
 let STR:String = "Login success ,user is and ~!@#$%^&*()_+{ppasswd}|[]\\-=`:\"?><,./ is"
 let tmp = { => SimpleLogger(Console.stdOut).debug(STR) }

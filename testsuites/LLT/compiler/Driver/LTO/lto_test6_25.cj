@@ -14,13 +14,13 @@
 // ASSERT: scan Server.get.1====Server.get.2\n200
 
 internal import std.io.*
-internal import stdx.net.http.*
+internal import cangjie_stdx::net.http.*
 internal import std.net.*
 internal import std.fs.*
-internal import stdx.net.tls.*
-internal import stdx.net.tls.common.*
-internal import stdx.crypto.x509.X509Certificate
-internal import stdx.crypto.keys.*
+internal import cangjie_stdx::net.tls.*
+internal import cangjie_stdx::net.tls.common.*
+internal import cangjie_stdx::crypto.x509.X509Certificate
+internal import cangjie_stdx::crypto.keys.*
 internal import {asan.*, bodyReadUtil.*}
 
 var port: UInt16 = 0

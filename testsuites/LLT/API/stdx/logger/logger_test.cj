@@ -13,8 +13,8 @@ import std.io.{OutputStream, BufferedOutputStream}
 import std.console.Console
 import std.fs.*
 import std.collection.{HashMap, ArrayList, TreeMap}
-import stdx.log.*
-import stdx.logger.*
+import cangjie_stdx::log.*
+import cangjie_stdx::logger.*
 import std.unittest.*
 import std.unittest.testmacro.*
 

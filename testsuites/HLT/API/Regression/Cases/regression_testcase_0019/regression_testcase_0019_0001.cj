@@ -11,11 +11,11 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %output %f
 
 import std.io.*
-import stdx.net.http.*
-import stdx.net.tls.*
-import stdx.net.tls.common.*
-import stdx.crypto.x509.*
-import stdx.crypto.keys.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
+import cangjie_stdx::crypto.x509.*
+import cangjie_stdx::crypto.keys.*
 import std.net.*
 import std.sync.*
 import std.fs.*

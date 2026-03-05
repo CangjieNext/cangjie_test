@@ -8,7 +8,7 @@
 // EXEC: %set_stdx_path %run %run_opt %output %run_args
 // ASSERT: scan Some(abc)
 
-internal import stdx.encoding.json.stream.*
+internal import cangjie_stdx::encoding.json.stream.*
 internal import std.io.ByteBuffer
 
 class A<T> {

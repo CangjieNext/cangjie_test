@@ -10,8 +10,8 @@
 // ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // ASSERT: scan Macro options: an option must be in the form of 'option1: value1, option2: value2'.
 
-import stdx.actors.*
-import stdx.actors.macros.*
+import cangjie_stdx::actors.*
+import cangjie_stdx::actors.macros.*
 
 open class Father {}
 

@@ -11,8 +11,8 @@
 // RUN-EXEC: %run_stdx %output %run_args
 
 import std.process.*
-import stdx.net.http.*
-import stdx.net.tls.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
 import std.convert.*
 import std.net.*
 import std.collection.*

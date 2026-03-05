@@ -13,13 +13,13 @@
 
 import std.net.*
 import std.fs.*
-import stdx.net.tls.*
+import cangjie_stdx::net.tls.*
 import std.sync.*
 import std.runtime.*
 import std.collection.*
-import stdx.crypto.x509.{X509Certificate, X509Exception}
-import stdx.crypto.common.*
-import stdx.crypto.keys.GeneralPrivateKey
+import cangjie_stdx::crypto.x509.{X509Certificate, X509Exception}
+import cangjie_stdx::crypto.common.*
+import cangjie_stdx::crypto.keys.GeneralPrivateKey
 
 var sum = 0
 

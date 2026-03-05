@@ -14,10 +14,10 @@
 // ASSERT: scan Caused by: CryptoException
 // ASSERT: scan Caused by: UrlSyntaxException: UrlSyntaxException!
 
-import stdx.encoding.json.*
-import stdx.crypto.x509.*
-import stdx.compress.zlib.*
-import stdx.encoding.url.*
+import cangjie_stdx::encoding.json.*
+import cangjie_stdx::crypto.x509.*
+import cangjie_stdx::compress.zlib.*
+import cangjie_stdx::encoding.url.*
 import std.unittest.*
 import std.unittest.testmacro.*
 

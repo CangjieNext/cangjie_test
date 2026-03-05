@@ -11,8 +11,8 @@
 // RUN-EXEC: %run_stdx %output %run_args 
 
 import std.collection.*
-import stdx.actors.*
-import stdx.actors.macros.*
+import cangjie_stdx::actors.*
+import cangjie_stdx::actors.macros.*
 
 // 执行中的低优先级任务不受队列中后续任务影响
 

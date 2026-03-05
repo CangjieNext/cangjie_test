@@ -15,8 +15,8 @@ import std.time.*
 import std.sync.*
 import std.net.*
 import std.collection.*
-import stdx.net.http.*
-import stdx.encoding.url.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::encoding.url.*
 
 @Test
 public class Test_writeTimeout {

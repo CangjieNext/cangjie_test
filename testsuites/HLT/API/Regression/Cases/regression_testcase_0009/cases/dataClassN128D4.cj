@@ -6,8 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-public import stdx.serialization.serialization.*
-public import stdx.encoding.json.*
+public import cangjie_stdx::serialization.serialization.*
+public import cangjie_stdx::encoding.json.*
 
 class A1N128D4 <: Serializable<A1N128D4> {
     public var Variable1: A2N128D4

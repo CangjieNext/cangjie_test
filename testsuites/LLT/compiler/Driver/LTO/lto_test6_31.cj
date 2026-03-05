@@ -7,9 +7,9 @@
 // (Linux and CJNATIVE) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output --lto=full
 // (Linux and CJNATIVE) RUN-EXEC: %set_stdx_path %run %run_opt %output %run_args
 
-internal import stdx.serialization.serialization.*
+internal import cangjie_stdx::serialization.serialization.*
 internal import std.math.*
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 
 class Abc <: Serializable<Abc> {
     var name: String = "Abcde"

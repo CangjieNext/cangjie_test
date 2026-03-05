@@ -12,7 +12,7 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.fs.*
-import stdx.crypto.x509.*
+import cangjie_stdx::crypto.x509.*
 
 @Test
 class Test_X509_pem_cert_resolution_06 {

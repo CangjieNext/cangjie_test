@@ -28,10 +28,10 @@ import std.unittest.testmacro.*
 import std.time.*
 import std.sync.*
 import std.random.*
-import stdx.log.*
-import stdx.net.http.*
-import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import cangjie_stdx::log.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::crypto.x509.X509Certificate
 import {asan.*, tlsconfig.*}
 
 @Test

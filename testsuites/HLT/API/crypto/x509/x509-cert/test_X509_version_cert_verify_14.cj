@@ -12,7 +12,7 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.fs.File
-import stdx.crypto.x509.*
+import cangjie_stdx::crypto.x509.*
 import std.time.DateTime
 
 var sum = 0

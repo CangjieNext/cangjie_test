@@ -6,8 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-internal import stdx.serialization.serialization.DataModel
-internal import stdx.encoding.json.{JsonValue, ToJson}
+internal import cangjie_stdx::serialization.serialization.DataModel
+internal import cangjie_stdx::encoding.json.{JsonValue, ToJson}
 
 var reps = 5
 var nums: Array<Int64> = [8, 64, 128]

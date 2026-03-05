@@ -15,7 +15,7 @@ import std.time.*
 import std.sync.*
 import std.net.*
 import std.collection.*
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 
 @Test
 public class Test_build {

@@ -10,8 +10,8 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %output %f %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-import stdx.net.tls.*
-import stdx.net.tls.common.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
 
 @Test
 class Test_GetGlobalTlsKit_03 {

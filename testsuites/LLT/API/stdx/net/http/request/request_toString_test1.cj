@@ -17,7 +17,7 @@
 
 package tests.request
 
-import stdx.net.http.{HttpRequestBuilder, Protocol}
+import cangjie_stdx::net.http.{HttpRequestBuilder, Protocol}
 
 @Test
 class TestToString1 {

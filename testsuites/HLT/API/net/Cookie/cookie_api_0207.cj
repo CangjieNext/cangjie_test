@@ -10,7 +10,7 @@
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
-import stdx.net.http.*
+import cangjie_stdx::net.http.*
 import std.time.*
 
 var time1 = DateTime.ofUTC(year: 2022, month: January, dayOfMonth: 19)

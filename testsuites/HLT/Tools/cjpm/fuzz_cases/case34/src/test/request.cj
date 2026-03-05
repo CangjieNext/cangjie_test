@@ -8,7 +8,7 @@
 
 package dts4284.test
 
-internal import stdx.net.http.{HttpRequestBuilder as HttpRequest}
+internal import cangjie_stdx::net.http.{HttpRequestBuilder as HttpRequest}
 
 public class HttpRequestBuilder {
     public var request: Int64

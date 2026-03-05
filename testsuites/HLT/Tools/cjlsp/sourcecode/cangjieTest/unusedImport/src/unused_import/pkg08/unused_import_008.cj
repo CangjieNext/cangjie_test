@@ -8,7 +8,7 @@
 
 package unusedImport.unused_import.pkg08
 
-import {stdx.log.*, stdx.encoding.*}
+import {cangjie_stdx::log.*, cangjie_stdx::encoding.*}
 import {unusedImport.base_pkg1.*, unusedImport.base_pkg2.base_pkg2_inner.*}
 
 abstract class C8 <: Logger {}

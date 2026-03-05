@@ -7,8 +7,8 @@
  */
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package %f -o %output
 
-import stdx.actors.*
-import stdx.actors.macros.*
+import cangjie_stdx::actors.*
+import cangjie_stdx::actors.macros.*
 
 interface I {
     func foo(): Int64

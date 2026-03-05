@@ -12,7 +12,7 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_utest_opt %run_args
 
 import std.ast.Tokens
-import stdx.syntax.*
+import cangjie_stdx::syntax.*
 
 @Test
 func test_QuoteExpr_01() {

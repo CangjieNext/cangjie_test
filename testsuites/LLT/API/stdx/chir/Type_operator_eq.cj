@@ -21,7 +21,7 @@ cptr1 == cptr2: true
 cptr1 == cptr3: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     // Compare same IntType instances

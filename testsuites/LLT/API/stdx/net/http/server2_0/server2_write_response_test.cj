@@ -32,9 +32,9 @@
  */
 package tests.server2_0
 
-import stdx.net.http.*
-import stdx.net.tls.*
-import stdx.crypto.x509.X509Certificate
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::crypto.x509.X509Certificate
 import std.time.*
 import std.sync.*
 import std.collection.*

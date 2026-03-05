@@ -13,9 +13,9 @@
 // (Windows and OHOS)RUN-EXEC: dos2unix "./data/root_rsa_simple.cer" &&  dos2unix "./data/root_ecdsa.cer" &&  dos2unix "./data/root_ecdsa.der" && dos2unix "./data/root_rsa.der" && %run %run_opt %output %run_utest_opt %run_args
 
 import std.fs.*
-import stdx.crypto.x509.*
-import stdx.crypto.common.*
-import stdx.crypto.keys.*
+import cangjie_stdx::crypto.x509.*
+import cangjie_stdx::crypto.common.*
+import cangjie_stdx::crypto.keys.*
 
 var sum = 0
 @When[os != "Windows"]

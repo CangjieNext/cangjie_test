@@ -9,7 +9,7 @@
 // (CJNATIVE and not Windows) EXEC: ldd %output
 // EXEC-PIPE:%set_stdx_path %run %run_opt %output %run_utest_opt %run_args
 
-import stdx.encoding.json.stream.*
+import cangjie_stdx::encoding.json.stream.*
 import std.io.*
 import std.collection.*
 

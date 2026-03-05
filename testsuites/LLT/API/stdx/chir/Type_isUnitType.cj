@@ -13,7 +13,7 @@ UnitType is Unit type: true
 Int32 is Unit type: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let unitType = UnitType.get()

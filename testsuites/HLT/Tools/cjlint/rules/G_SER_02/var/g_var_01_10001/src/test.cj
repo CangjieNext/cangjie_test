@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-import stdx.serialization.serialization.*
+import cangjie_stdx::serialization.serialization.*
 
 class MySerializeDemo <: Serializable<MySerializeDemo> {
     public static var value01 : Int32 = 0

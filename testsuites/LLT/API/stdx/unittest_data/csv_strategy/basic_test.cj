@@ -12,7 +12,7 @@
 import std.unittest.*
 import std.unittest.testmacro.*
 import std.collection.*
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 
 @Test
 class Test_csv_strategy_basic {

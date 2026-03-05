@@ -8,7 +8,7 @@
 // EXEC:  %compiler  %import-cangjie-stdx  %cmp_opt %f -o %output %cmp_utest_opt
 // EXEC:%set_stdx_path %run %run_opt %output %run_utest_opt
 
-import stdx.encoding.base64.*
+import cangjie_stdx::encoding.base64.*
 import std.unittest.*
 
 func matchResult<T>(x: Option<T>, default: T): T {

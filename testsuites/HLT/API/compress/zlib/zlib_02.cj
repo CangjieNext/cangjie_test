@@ -15,7 +15,7 @@ import std.io.*
 import std.random.*
 import std.unittest.*
 import std.unittest.testmacro.*
-import stdx.compress.zlib.*
+import cangjie_stdx::compress.zlib.*
 
 class testZlib {
     private var src: Array<UInt8>

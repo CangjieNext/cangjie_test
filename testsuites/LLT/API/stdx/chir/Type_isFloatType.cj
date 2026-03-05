@@ -13,7 +13,7 @@ Float32 is float type: true
 Int32 is float type: false
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let floatType = FloatType.getFloat32()

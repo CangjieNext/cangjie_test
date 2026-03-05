@@ -10,9 +10,9 @@
 // DEPENDENCE: create_jsonarray_data.cj
 // EXEC-PIPE: %compiler %import-cangjie-stdx %cmp_opt create_jsonarray_data.cj  %f -o %output
 // RUN-EXEC-PIPE: %run_stdx %output %run_args
-import stdx.serialization.serialization.*
+import cangjie_stdx::serialization.serialization.*
 import std.math.*
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 
 main(): Int64 {
     var init1 = JsonArray()

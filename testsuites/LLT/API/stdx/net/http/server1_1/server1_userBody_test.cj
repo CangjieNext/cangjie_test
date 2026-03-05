@@ -18,11 +18,11 @@
 
 package tests.server1_1
 
-import stdx.net.http.*
-import stdx.net.tls
-import stdx.crypto.kit
-import stdx.net.tls
-import stdx.crypto.kit
+import cangjie_stdx::net.http.*
+import cangjie_stdx::net.tls
+import cangjie_stdx::crypto.kit
+import cangjie_stdx::net.tls
+import cangjie_stdx::crypto.kit
 
 import std.net.TcpSocket
 import std.io.InputStream

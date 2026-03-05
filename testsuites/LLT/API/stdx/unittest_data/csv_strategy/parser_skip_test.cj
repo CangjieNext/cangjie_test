@@ -12,7 +12,7 @@
 import std.collection.*
 import std.sort.SortExtension
 import std.fs.{File, Path}
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 
 @Test
 class Test_csv_parser {

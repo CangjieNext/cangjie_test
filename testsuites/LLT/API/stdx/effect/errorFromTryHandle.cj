@@ -14,7 +14,7 @@
 // ASSERT: scan-not stack trace
 
 
-import stdx.effect.Command
+import cangjie_stdx::effect.Command
 
 class Get <: Command<String> {}
 

@@ -14,7 +14,7 @@
 // ASSERT: scan [ ERROR  ] CASE: test02
 
 import std.collection.*
-import stdx.unittest.data.*
+import cangjie_stdx::unittest.data.*
 
 @Test
 public class Test_Csv_Reader_Skip_Lines {

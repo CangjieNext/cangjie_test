@@ -17,8 +17,8 @@
  */
 package tests.cookie
 
-import stdx.net.http.*
-import stdx.encoding.url.*
+import cangjie_stdx::net.http.*
+import cangjie_stdx::encoding.url.*
 import std.collection.*
 import std.unittest.*
 import std.unittest.testmacro.*

@@ -11,8 +11,8 @@
 // RUN-EXEC: %run_stdx %output %run_args 
 
 import std.collection.*
-import stdx.actors.*
-import stdx.actors.macros.*
+import cangjie_stdx::actors.*
+import cangjie_stdx::actors.macros.*
 
 // 测试@Receiver修饰用法：被指定的函数含有各种类型参数，修饰init等
 

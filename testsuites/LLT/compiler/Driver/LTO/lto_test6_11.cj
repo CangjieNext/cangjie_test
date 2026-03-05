@@ -9,8 +9,8 @@
 // (Linux and CJNATIVE) ASSERT: scan INFO INFO 打印出来！
 
 internal import std.console.*
-internal import stdx.log.*
-internal import stdx.logger.*
+internal import cangjie_stdx::log.*
+internal import cangjie_stdx::logger.*
 
 main(): Int64 {
     let logger: SimpleLogger = SimpleLogger(Console.stdOut)

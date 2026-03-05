@@ -8,7 +8,7 @@
 
 package test.extendtest
 
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 internal import std.collection.*
 
 /* 转 json 接口 */

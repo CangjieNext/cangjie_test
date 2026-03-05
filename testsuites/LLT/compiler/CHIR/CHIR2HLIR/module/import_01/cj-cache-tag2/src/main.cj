@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 internal import std.collection.HashMap
-internal import stdx.encoding.json.*
+internal import cangjie_stdx::encoding.json.*
 internal import std.time.*
 internal import cache.*
 

@@ -10,7 +10,7 @@
 // EXEC:%set_stdx_path %run %run_opt %output %run_args | compare %f
 // ASSERT: scan pass1 pass2 pass3 pass4 pass5 pass6 pass7 pass8 pass9 pass10 pass11
 
-import stdx.encoding.json.*
+import cangjie_stdx::encoding.json.*
 import std.collection.*
 
 main(): Int64 {

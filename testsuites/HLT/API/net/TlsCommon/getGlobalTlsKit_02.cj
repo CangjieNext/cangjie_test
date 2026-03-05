@@ -11,8 +11,8 @@
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.net.*
-import stdx.net.tls.*
-import stdx.net.tls.common.*
+import cangjie_stdx::net.tls.*
+import cangjie_stdx::net.tls.common.*
 
 class myTlsKit <: TlsKit {
     let defaultTlsKit = DefaultTlsKit()

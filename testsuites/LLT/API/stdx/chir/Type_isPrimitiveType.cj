@@ -13,7 +13,7 @@ Int32 is primitive type: true
 Bool is primitive type: true
 */
 
-import stdx.chir.*
+import cangjie_stdx::chir.*
 
 main() {
     let intType = IntType.getInt32()
