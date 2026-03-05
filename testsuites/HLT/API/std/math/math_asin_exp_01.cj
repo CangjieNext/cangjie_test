@@ -2,42 +2,28 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
 // LEVEL: 2
 // DEPENDENCE: caserunner.cj
-// EXEC: %compiler %cmp_opt %f caserunner.cj -o %output
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args| compare %f
-// ASSERT: scan-not AssertionError
-// ASSERT: scan-not Exception
-// ASSERT: scan-begin Float16:x<-1:throw exception
-// ASSERT: scan-next Float16:x>1:throw exception
-// ASSERT: scan-next Float16:x=-inf16:throw exception
-// ASSERT: scan-next Float16:x=inf16:throw exception
+// EXEC: %compiler %cmp_opt %f caserunner.cj -o %output %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+
 import std.math.*
 
-main() {
-    try {
-        var m1 = asin(Float16(-1.1))
-    } catch (e: IllegalArgumentException) {
+@Test
+class TestMath {
+    @TestCase
+    func testCase0(): Unit {
         println("Float16:x<-1:throw exception")
-    }
-    try {
-        var m2 = asin(Float16(1.1))
-    } catch (e: IllegalArgumentException) {
+        @ExpectThrows[IllegalArgumentException](asin(Float16(-1.1)))
         var m1 = println("Float16:x>1:throw exception")
-    }
-    try {
-        var m3 = asin(Float16(-inf16))
-    } catch (e: IllegalArgumentException) {
+        @ExpectThrows[IllegalArgumentException](asin(Float16(1.1)))
         println("Float16:x=-inf16:throw exception")
-    }
-    try {
-        var m4 = asin(Float16(inf16))
-    } catch (e: IllegalArgumentException) {
+        @ExpectThrows[IllegalArgumentException](asin(Float16(-inf16)))
         println("Float16:x=inf16:throw exception")
+        @ExpectThrows[IllegalArgumentException](asin(Float16(inf16)))
     }
-    return 0
 }
