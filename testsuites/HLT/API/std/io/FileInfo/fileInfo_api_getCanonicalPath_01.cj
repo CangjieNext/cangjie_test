@@ -6,35 +6,28 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
-// EXEC-PIPE: %touch test.txt
-// EXEC-PIPE: %compiler %cmp_opt -o %output %f
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.io.*
 import std.posix.*
 import std.fs.*
 
-@When[os == "Windows"]
-main() {
-    var curdir = getcwd()
-    var path: String = curdir + "\\test.txt"
-    var file: FileInfo = FileInfo(path)
-    var result = canonicalize(file.path).toString()
-    if (path != result) {
-        return 1
-    }
-    return 0
-}
-
 @When[os != "Windows"]
-main() {
-    var curdir = getcwd()
-    var path: String = curdir + "/test.txt"
-    var file: FileInfo = FileInfo(path)
-    var result = canonicalize(file.path).toString()
-    if (path != result) {
-        return 1
+const sep = "/"
+@When[os == "Windows"]
+const sep = "\\"
+
+@Test
+class TestFileInfo {
+    @TestCase
+    func testCase0(): Unit {
+        let fileName = "test.txt"
+        let filePath = getcwd() + sep + fileName
+        File.create(filePath)
+        // 文件绝对路径
+        let fileInfo = FileInfo(filePath)
+        @Expect(canonicalize(fileInfo.path).toString(), filePath)
     }
-    return 0
 }

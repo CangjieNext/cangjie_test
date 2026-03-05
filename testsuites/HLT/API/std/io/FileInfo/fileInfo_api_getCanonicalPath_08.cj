@@ -6,38 +6,39 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
-// (not Windows or OHOS) EXEC: rm -rf test/mydic/;rm -rf test/path/
-// EXEC: %compiler %cmp_opt -o %output %f
-// (not Windows or OHOS)RUN-EXEC: mkdir -p "test/mydic/" && mkdir -p "test/path/" && %touch "test/mydic/test.txt" && %run %run_opt %output %run_args
-// (Windows and not OHOS)EXEC: mkdir -p test/mydic/ && mkdir test/path/ && %touch test/mydic/test.txt && %run %run_opt %output %run_args
+// LEVEL: 0
+// DESCRIPTION: testing ..
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.io.*
 import std.posix.*
 import std.fs.*
 
 @When[os != "Windows"]
-main() {
-    var path: String = "test/path/../mydic/test.txt"
-    var curdir = getcwd()
-    var exppath: String = curdir + "/test/mydic/test.txt"
-    var dir1: FileInfo = FileInfo(path)
-    var result = canonicalize(dir1.path).toString()
-    if (result != exppath) {
-        return 1
-    }
-    return 0
-}
-
+const sep = "/"
 @When[os == "Windows"]
-main() {
-    var path: String = "test\\path\\..\\mydic\\test.txt"
-    var curdir = getcwd()
-    var exppath: String = curdir + "\\test\\mydic\\test.txt"
-    var dir1: FileInfo = FileInfo(path)
-    var result = canonicalize(dir1.path).toString()
-    if (result != exppath) {
-        return 1
+const sep = "\\"
+
+@Test
+class TestFileInfo {
+    @TestCase
+    func testCase0(): Unit {
+        let firstDirPath = "test" + sep + "first"
+        removeIfExists(firstDirPath, recursive: true)
+        Directory.create(firstDirPath, recursive: true)
+
+        let secondDirPath = "test" + sep + "second"
+        removeIfExists(secondDirPath, recursive: true)
+        Directory.create(secondDirPath, recursive: true)
+
+        // create a file in second dir.
+        const fileName = "test.txt"
+        let filePath = secondDirPath + sep + fileName
+        File.create(filePath)
+
+        let complexFilePath = "test" + sep + "first" + sep + ".." + sep + "second" + sep + fileName
+        let fileInfo = FileInfo(complexFilePath)
+        @Expect(canonicalize(fileInfo.path).toString(), getcwd() + sep + secondDirPath + sep + fileName)
     }
-    return 0
 }

@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0 
-// DEPENDENCE: test.sh
+// DEPENDENCE: check.py
 
 // (not Windows) EXEC: %compiler %cmp_opt %serial_compile %obf_cf_bogus %save_temps %f -o %output
 // (not Windows) EXEC: %disassembler %n.opt.bc -o obf.ll
@@ -17,7 +17,7 @@
 
 // (not Windows) RUN-EXEC: %run %run_opt %output %run_args
 
-// (not Windows) EXEC: bash test.sh `cat obf.ll | grep -o br | wc -l` `cat opt.ll | grep -o br | wc -l`
+// (not Windows) EXEC: %python check.py `cat obf.ll | grep -o br | wc -l` `cat opt.ll | grep -o br | wc -l`
 
 package obfuscation_50002
 
