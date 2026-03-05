@@ -1,0 +1,29 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+package cjworld
+
+import objc.lang.*
+
+@ObjCMirror
+public interface I {
+    @ObjCOptional
+    func memberFuncNotImplemented(n: Int32): Unit
+    @ObjCOptional
+    func memberFuncImplemented(n: Int32): Unit
+    @ObjCOptional
+    static func staticFuncNotImplemented(): Unit
+    @ObjCOptional
+    static func staticFuncImplemented(): Unit
+}
+
+@ObjCMirror
+open class M <: I {
+    public init()
+    public open func memberFuncImplemented(n: Int32): Unit
+    public static func staticFuncNotImplemented(): Unit
+    public static func staticFuncImplemented(): Unit
+}

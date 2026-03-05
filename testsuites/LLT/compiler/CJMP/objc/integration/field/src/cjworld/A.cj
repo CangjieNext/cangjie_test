@@ -6,7 +6,7 @@
 
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCImpl
 public class A <: M {
@@ -16,6 +16,10 @@ public class A <: M {
         println("cj: A()")
         cjField = 123
         foo = 42
+        println("cj: ${foo}")
+        println("cj: ${super.foo}")
+        super.foo = 43
         bar = M1(3.14)
+        println("cj: ${super.bar.answer}")
     }
 }

@@ -7,7 +7,7 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-0: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
 // ASSERT: scan-not error
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class M {
@@ -36,10 +36,9 @@ public class A <: M {
     @ForeignName["ImplImplOptionRet"]
     public func ImplImplOptionRet(): Option<A> { None }
 
-    // TODO: current limitation due to the problems with CHIR checks
-    // @ForeignName["ImplMirrorOptionArg"]
-    // public func ImplMirrorOptionArg(x: Option<M>): Unit {}
+    @ForeignName["ImplMirrorOptionArg"]
+    public func ImplMirrorOptionArg(x: Option<M>): Unit {}
 
-    // @ForeignName["ImplImplOptionArg"]
-    // public func ImplNonCompatibleOptionTypeArg(x: Option<A>): Unit {}
+    @ForeignName["ImplImplOptionArg"]
+    public func ImplNonCompatibleOptionTypeArg(x: Option<A>): Unit {}
 }

@@ -6,7 +6,7 @@
 
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCImpl
 public class A <: K {
@@ -14,7 +14,6 @@ public class A <: K {
         super()
     }
 
-    @ForeignName["getNumber"]
     public func getNumber(): Int32 {
         return 42
     }

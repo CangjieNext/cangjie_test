@@ -13,58 +13,36 @@ API/std/posix/
 API/std/process/darwin
 API/std/process/unix
 API/std/time/
-compiler/CJMP/objc
+compiler/CJMP/objc/
+compiler/CJMP/refgluecode/
 compiler/Diagnose/PlatformRelated
 compiler/Driver/PlatformRelated
+compiler/Driver/LTO/lto_test11_1.cj
 
 [EXCLUDE-TEST-CASE]
 
-# Need to be fixed.
-# 非 CJMP 用例在分析， sema error
-API/std/unittest/macro_test_no_remove_mod.cj
-compiler/Macro/sema/cfunc.cj
-compiler/Macro/inout/inout_m4.cj
-compiler/Macro/inout/inout_m3.cj
+# exclude first.
+compiler/FFI/CFFI
+API/std/env/unix
+API/std/net/
+API/std/socket/
+API/std/posix/
+API/std/process/darwin
+API/std/process/unix
+API/std/time/
 
-## CJMP testcases
-compiler/CJMP/frontend/matching/class/matching_rules/class_level/definition_match/generics_constraints_not_match.cj
-compiler/CJMP/frontend/matching/class/matching_rules/class_level/definition_match/generics_not_match.cj
-compiler/CJMP/frontend/matching/class/matching_rules/member_level/prop/openness_compatibility/c_open_p_abstract.cj
-compiler/CJMP/frontend/matching/class/new_members/new_required_constructor.cj
-compiler/CJMP/frontend/matching/enum/matching_rules/enum_level/definition_match/generics_constraints_not_match.cj
-compiler/CJMP/frontend/matching/enum/matching_rules/enum_level/definition_match/generics_not_match.cj
-compiler/CJMP/frontend/matching/function/overload_error/generic_not_match/not_same_generic_name.cj
-compiler/CJMP/frontend/matching/struct/new_members/new_required_constructor.cj
-compiler/CJMP/merging/classes/class_abstract/impl_interface/generic_interface.cj
-compiler/CJMP/merging/classes/class_abstract/impl_interface/generic_interface_with_non_common_class.cj
-compiler/CJMP/merging/structs/struct_abstract/impl_interface/generic_interface.cj
-compiler/CJMP/merging/structs/struct_abstract/impl_interface/generic_interface_with_non_common_struct.cj
-compiler/CJMP/merging/top_level_function/argument/enhance_test/enum_argument/generic_type_enum.cj
-compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_impl_platform_impl.cj
-compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_impl_platform_no_impl.cj
-compiler/CJMP/merging/top_level_function/argument/with_generic_argument/top_level_function_with_generic_argument_common_no_impl_platform_impl.cj
-compiler/CJMP/merging/top_level_function/enhance_test/top_level_function/user_define_thirdparty/moretype/generictype/thirdparty_genericclass_as_argument.cj
-
-# native FFI
-## objc
-### segfault
+## objc (Assertion failed)
 compiler/CJMP/objc/integration/cstruct
-### wrong test configuration
-compiler/CJMP/objc/integration/mirror_super
-### wrong args for static members
-compiler/CJMP/objc/integration/impl_methods
-compiler/CJMP/objc/integration/objc_impl/prop
-compiler/CJMP/objc/integration/prop
-### super calls not implemented
-compiler/CJMP/objc/integration/objc_impl/ctor_super
-### @ForeignName issues
-compiler/CJMP/objc/parser/class/objc_impl/ctor.cj
-compiler/CJMP/objc/sema/foreign_name/objc_impl_ctor_with_params_no_foreign_name.cj
-compiler/CJMP/objc/sema/objc_impl_illegal_missing_foreigname_method.cj
-compiler/CJMP/objc/sema/objc_impl_illegal_missing_foreigname_ctor.cj
-### default and named args not supported
-compiler/CJMP/objc/sema/objc_impl/ctor_arg_default.cj
-compiler/CJMP/objc/sema/objc_impl/ctor_args_named.cj
+compiler/CJMP/objc/integration/cstruct_pointer
 
-# mock failed.
-API/std/unittest/mock/compiler/createMock/genericInstantiation.cj
+## objc @C-struct tests are disabled for now as currently LLVM IR generated for functions returning structs is invalid for darwin-aarch64 platform
+compiler/CJMP/objc/sema/objc_cstruct_impl.cj
+compiler/CJMP/objc/sema/objc_struct_illegal.cj
+
+## objc (no named arguments checks)
+compiler/CJMP/objc/sema/objc_impl/ctor_args_named.cj
+compiler/CJMP/objc/sema/objc_impl/ctor_arg_default.cj
+
+## objc (weird parser fails)
+compiler/CJMP/objc/parser/class/objc_impl/can_be_open.cj
+compiler/CJMP/objc/parser/class/objc_impl/ctor.cj
