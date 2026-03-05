@@ -6,6 +6,10 @@
 # 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+# TODO:
+# - 暂不支持main有入参
+# - 暂不支持@Test func
+
 import argparse
 import re
 import sys
