@@ -2,23 +2,21 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
 // LEVEL: 0
-// DEPENDENCE: test.sh
+// DEPENDENCE: check.py
+// (!host_win) EXEC: %compiler %cmp_opt %serial_compile %obf_cf_bogus %save_temps %f -o %output
+// (!host_win) RUN-EXEC: %run %run_opt %output %run_args
+// (!host_win) EXEC: %disassembler %n.opt.bc -o obf.ll
 
-// (not Windows) EXEC: %compiler %cmp_opt %serial_compile %obf_cf_bogus %save_temps %f -o %output
-// (not Windows) EXEC: %disassembler %n.opt.bc -o obf.ll
+// (!host_win) EXEC: %compiler %cmp_opt %serial_compile %save_temps %f -o %output
+// (!host_win) RUN-EXEC: %run %run_opt %output %run_args
+// (!host_win) EXEC: %disassembler %n.opt.bc -o opt.ll
 
-// (not Windows) EXEC: %compiler %cmp_opt %serial_compile %save_temps %f -o %output
-// (not Windows) EXEC: %disassembler %n.opt.bc -o opt.ll
-
-// (not Windows) RUN-EXEC: %run %run_opt %output %run_args
-
-// (not OHOS and not Windows)RUN-EXEC: bash test.sh `cat obf.ll | grep -o br | wc -l` `cat opt.ll | grep -o br | wc -l`
-// (OHOS)RUN-EXEC: sh test.sh `cat obf.ll | grep -o br | wc -l` `cat opt.ll | grep -o br | wc -l`
+// (!host_win) EXEC: %python check.py `cat obf.ll | grep -o br | wc -l` `cat opt.ll | grep -o br | wc -l`
 
 package obfuscation_50001
 
