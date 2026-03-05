@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC: %compiler %cmp_opt %enableO2 -o %n.%suffix %f %cmp_utest_opt
-// RUN-EXEC-PIPE: %export cjHeapSize=16gb && %run %run_opt %output %run_utest_opt %run_args --bench --no-color | compare %f
+// RUN-EXEC-PIPE: cjHeapSize=16gb && %run %run_opt %output %run_utest_opt %run_args --bench --no-color | compare %f
 // ASSERT: scan PASSED: 2
 
 import std.unittest.*
