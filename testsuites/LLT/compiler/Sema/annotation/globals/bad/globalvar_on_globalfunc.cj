@@ -36,7 +36,12 @@ class M {
     var t = 3
 }
 
-main() {}
+main() {
+    foo()
+    bar()
+    M().bar()
+    0
+}
 
 /* SCAN
 error: '@APILevel' not applicable to global function

@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // LEVEL: 0
 // EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
@@ -28,109 +34,48 @@ public func arithmeticOpt01() {
     var a8: Int64 = INT64_MIN / (-1)
 }
 
-main() {}
+main() {
+    arithmeticOpt01()
+    0
+}
 
 /* SCAN
 warning: unused variable:'a1'
-  ==> arithmeticOpt02.cj:18:9:
+  ==> arithmeticOpt02.cj:24:9:
    | 
-18 |     var a1: Int8 = INT8_MAX * 10
+24 |     var a1: Int8 = INT8_MAX * 10
    |         ^^ unused variable
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 error: arithmetic operation '*' overflow
-  ==> arithmeticOpt02.cj:18:20:
+  ==> arithmeticOpt02.cj:24:20:
    | 
-18 |     var a1: Int8 = INT8_MAX * 10
+24 |     var a1: Int8 = INT8_MAX * 10
    |                    ^^^^^^^^^^^^^ operation 'Int8(127) * Int8(10)' would overflow
    | 
    # note: range of Int8 is -128 ~ 127
 
 warning: unused variable:'a2'
-  ==> arithmeticOpt02.cj:19:9:
+  ==> arithmeticOpt02.cj:25:9:
    | 
-19 |     var a2: Int8 = INT8_MIN / (-1)
+25 |     var a2: Int8 = INT8_MIN / (-1)
    |         ^^ unused variable
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 error: arithmetic operation '/' overflow
-  ==> arithmeticOpt02.cj:19:20:
+  ==> arithmeticOpt02.cj:25:20:
    | 
-19 |     var a2: Int8 = INT8_MIN / (-1)
+25 |     var a2: Int8 = INT8_MIN / (-1)
    |                    ^^^^^^^^^^^^^^^ operation 'Int8(-128) / Int8(-1)' would overflow
    | 
    # note: range of Int8 is -128 ~ 127
 
 warning: unused variable:'a3'
-  ==> arithmeticOpt02.cj:21:9:
-   | 
-21 |     var a3: Int16 = INT16_MAX * 10
-   |         ^^ unused variable
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-error: arithmetic operation '*' overflow
-  ==> arithmeticOpt02.cj:21:21:
-   | 
-21 |     var a3: Int16 = INT16_MAX * 10
-   |                     ^^^^^^^^^^^^^^ operation 'Int16(32767) * Int16(10)' would overflow
-   | 
-   # note: range of Int16 is -32768 ~ 32767
-
-warning: unused variable:'a4'
-  ==> arithmeticOpt02.cj:22:9:
-   | 
-22 |     var a4: Int16 = INT16_MIN / (-1)
-   |         ^^ unused variable
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-error: arithmetic operation '/' overflow
-  ==> arithmeticOpt02.cj:22:21:
-   | 
-22 |     var a4: Int16 = INT16_MIN / (-1)
-   |                     ^^^^^^^^^^^^^^^^ operation 'Int16(-32768) / Int16(-1)' would overflow
-   | 
-   # note: range of Int16 is -32768 ~ 32767
-
-warning: unused variable:'a5'
-  ==> arithmeticOpt02.cj:24:9:
-   | 
-24 |     var a5: Int32 = INT32_MAX * 10
-   |         ^^ unused variable
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-error: arithmetic operation '*' overflow
-  ==> arithmeticOpt02.cj:24:21:
-   | 
-24 |     var a5: Int32 = INT32_MAX * 10
-   |                     ^^^^^^^^^^^^^^ operation 'Int32(2147483647) * Int32(10)' would overflow
-   | 
-   # note: range of Int32 is -2147483648 ~ 2147483647
-
-warning: unused variable:'a6'
-  ==> arithmeticOpt02.cj:25:9:
-   | 
-25 |     var a6: Int32 = INT32_MIN / (-1)
-   |         ^^ unused variable
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-
-error: arithmetic operation '/' overflow
-  ==> arithmeticOpt02.cj:25:21:
-   | 
-25 |     var a6: Int32 = INT32_MIN / (-1)
-   |                     ^^^^^^^^^^^^^^^^ operation 'Int32(-2147483648) / Int32(-1)' would overflow
-   | 
-   # note: range of Int32 is -2147483648 ~ 2147483647
-
-warning: unused variable:'a7'
   ==> arithmeticOpt02.cj:27:9:
    | 
-27 |     var a7: Int64 = INT64_MAX * 10
+27 |     var a3: Int16 = INT16_MAX * 10
    |         ^^ unused variable
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
@@ -138,15 +83,15 @@ warning: unused variable:'a7'
 error: arithmetic operation '*' overflow
   ==> arithmeticOpt02.cj:27:21:
    | 
-27 |     var a7: Int64 = INT64_MAX * 10
-   |                     ^^^^^^^^^^^^^^ operation 'Int64(9223372036854775807) * Int64(10)' would overflow
+27 |     var a3: Int16 = INT16_MAX * 10
+   |                     ^^^^^^^^^^^^^^ operation 'Int16(32767) * Int16(10)' would overflow
    | 
-   # note: range of Int64 is -9223372036854775808 ~ 9223372036854775807
+   # note: range of Int16 is -32768 ~ 32767
 
-warning: unused variable:'a8'
+warning: unused variable:'a4'
   ==> arithmeticOpt02.cj:28:9:
    | 
-28 |     var a8: Int64 = INT64_MIN / (-1)
+28 |     var a4: Int16 = INT16_MIN / (-1)
    |         ^^ unused variable
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
@@ -154,7 +99,71 @@ warning: unused variable:'a8'
 error: arithmetic operation '/' overflow
   ==> arithmeticOpt02.cj:28:21:
    | 
-28 |     var a8: Int64 = INT64_MIN / (-1)
+28 |     var a4: Int16 = INT16_MIN / (-1)
+   |                     ^^^^^^^^^^^^^^^^ operation 'Int16(-32768) / Int16(-1)' would overflow
+   | 
+   # note: range of Int16 is -32768 ~ 32767
+
+warning: unused variable:'a5'
+  ==> arithmeticOpt02.cj:30:9:
+   | 
+30 |     var a5: Int32 = INT32_MAX * 10
+   |         ^^ unused variable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+error: arithmetic operation '*' overflow
+  ==> arithmeticOpt02.cj:30:21:
+   | 
+30 |     var a5: Int32 = INT32_MAX * 10
+   |                     ^^^^^^^^^^^^^^ operation 'Int32(2147483647) * Int32(10)' would overflow
+   | 
+   # note: range of Int32 is -2147483648 ~ 2147483647
+
+warning: unused variable:'a6'
+  ==> arithmeticOpt02.cj:31:9:
+   | 
+31 |     var a6: Int32 = INT32_MIN / (-1)
+   |         ^^ unused variable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+error: arithmetic operation '/' overflow
+  ==> arithmeticOpt02.cj:31:21:
+   | 
+31 |     var a6: Int32 = INT32_MIN / (-1)
+   |                     ^^^^^^^^^^^^^^^^ operation 'Int32(-2147483648) / Int32(-1)' would overflow
+   | 
+   # note: range of Int32 is -2147483648 ~ 2147483647
+
+warning: unused variable:'a7'
+  ==> arithmeticOpt02.cj:33:9:
+   | 
+33 |     var a7: Int64 = INT64_MAX * 10
+   |         ^^ unused variable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+error: arithmetic operation '*' overflow
+  ==> arithmeticOpt02.cj:33:21:
+   | 
+33 |     var a7: Int64 = INT64_MAX * 10
+   |                     ^^^^^^^^^^^^^^ operation 'Int64(9223372036854775807) * Int64(10)' would overflow
+   | 
+   # note: range of Int64 is -9223372036854775808 ~ 9223372036854775807
+
+warning: unused variable:'a8'
+  ==> arithmeticOpt02.cj:34:9:
+   | 
+34 |     var a8: Int64 = INT64_MIN / (-1)
+   |         ^^ unused variable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+error: arithmetic operation '/' overflow
+  ==> arithmeticOpt02.cj:34:21:
+   | 
+34 |     var a8: Int64 = INT64_MIN / (-1)
    |                     ^^^^^^^^^^^^^^^^ operation 'Int64(-9223372036854775808) / Int64(-1)' would overflow
    | 
    # note: range of Int64 is -9223372036854775808 ~ 9223372036854775807
@@ -162,10 +171,3 @@ error: arithmetic operation '/' overflow
 8 errors generated, 8 errors printed.
 8 warnings generated, 8 warnings printed.
 */
-
-
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
-// This source file is part of the Cangjie project, licensed under Apache-2.0
-// with Runtime Library Exception.
-//
-// See https://cangjie-lang.cn/pages/LICENSE for license information.

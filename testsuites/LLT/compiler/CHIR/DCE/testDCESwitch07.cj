@@ -18,6 +18,7 @@ class A {
 }
 
 main() {
+    A().test()
     return 0
 }
 

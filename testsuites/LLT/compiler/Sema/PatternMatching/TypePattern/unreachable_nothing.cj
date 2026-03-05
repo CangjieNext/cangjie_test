@@ -15,7 +15,7 @@ func f(x: Int64) {
 }
 
 main() {
-    f(return 0) // function not translate here, no unused function warning
+    f(return 0)
 }
 
 /* SCAN
@@ -27,15 +27,27 @@ warning: unreachable pattern
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
+warning: unused function:'f'
+  ==> unreachable_nothing.cj:10:1:
+   | 
+10 |   func f(x: Int64) {
+   |  _^
+11 | |     match (x) {
+   | | ...
+15 | | }
+   | |_^ unused function
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 warning: unreachable 'call'
   ==> unreachable_nothing.cj:18:5:
    | 
-18 |     f(return 0) // function not translate here, no unused function warning
+18 |     f(return 0)
    |     ^ ~~~~~~~~ any code following this expression is unreachable
    |     |
    |     unreachable 'call'
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-2 warnings generated, 2 warnings printed.
+3 warnings generated, 3 warnings printed.
 */

@@ -20,6 +20,7 @@ class A <: I {
 }
 
 main() {
+    A().foo()
     return 0
 }
 

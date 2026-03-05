@@ -63,7 +63,15 @@ public enum E {
 
 }
 
-main() {}
+main() {
+    let b = B()
+    b.b(1)
+    let d = D()
+    d.b(1)
+    let ex = E.x
+    ex.b(1)
+    0
+}
 
 /* SCAN
 error: '@A' not applicable to parameter

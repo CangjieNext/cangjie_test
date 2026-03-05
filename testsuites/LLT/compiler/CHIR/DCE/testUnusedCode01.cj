@@ -42,6 +42,8 @@ public func test2() {
 main() {
     a()
     test1()
+    test2()
+    b()
     return 0
 }
 

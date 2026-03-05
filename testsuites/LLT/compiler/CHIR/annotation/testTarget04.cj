@@ -57,7 +57,12 @@ public enum E {
 
 }
 
-main() {}
+main() {
+    B().b()
+    D().b()
+    E.x.b()
+    0
+}
 
 /* SCAN
 error: '@A' not applicable to member function

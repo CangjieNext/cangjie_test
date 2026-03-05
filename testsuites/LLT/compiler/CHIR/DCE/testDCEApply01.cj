@@ -25,6 +25,17 @@ main() {
 }
 
 /* SCAN
+warning: unused function:'a'
+  ==> testDCEApply01.cj:12:5:
+   | 
+12 |       func a(b: Int64): Int64 {
+   |  _____^
+13 | |         return 1
+14 | |     }
+   | |_____^ unused function
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
 warning: unused variable:'b'
   ==> testDCEApply01.cj:12:12:
    | 
@@ -43,5 +54,5 @@ warning: unreachable 'call'
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
-2 warnings generated, 2 warnings printed.
+3 warnings generated, 3 warnings printed.
 */
