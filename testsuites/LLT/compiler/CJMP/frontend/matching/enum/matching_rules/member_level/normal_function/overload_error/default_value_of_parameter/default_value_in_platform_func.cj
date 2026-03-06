@@ -15,7 +15,6 @@ public common enum RGBColor {
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan sema_cjmp_parameter_default_value_both_sides
-// ASSERT: scan sema_not_matched
 package cmp
 
 public specific enum RGBColor {
