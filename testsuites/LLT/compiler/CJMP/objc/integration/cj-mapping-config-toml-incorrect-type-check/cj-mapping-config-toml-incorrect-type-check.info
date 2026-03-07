@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+// (CJNATIVE and not Windows) DEPENDENCE: ../Cangjie.h
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && mkdir -p out
+// (CJNATIVE and not Windows) RUN-EXEC-1: %cd %n && %compiler %compile_shared_lib_opt %overflowOpt %enable_objc_cjmapping -p src/cjworld %import_objc_interop --import-interop-cj-package-config-path src/cjworld/config.toml -o out
+// ASSERT: scan Error: Invalid type detected in package 'cjworld' configuration
+// ASSERT: scan Invalid type: 'Lobg'
+// ASSERT: scan Supported types (Exist difference between Java and Objc): Bool, Float64, Float32, Float16, UInt64, UInt32, UInt16, UIntNative, UInt8, IntNative, Int8, Int64, Boolean, Int32, Unit, Int16, Int
+// ASSERT: scan error: Instance configuration 'config.toml' has incorrect format.

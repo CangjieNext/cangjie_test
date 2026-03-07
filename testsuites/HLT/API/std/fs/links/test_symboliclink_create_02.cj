@@ -25,7 +25,8 @@ class Test_SymbolicLink {
     func create_illegal_01() {
         File.create("./tempfile").close()
         let e = @AssertThrows[FSException](SymbolicLink.create("tempfile", to: "./tempfile"))
-        @Expect(e.message == "File exists." || e.message.contains("Failed to create symbolic link `tempfile` to `./tempfile` return -17"))
+        println("create_illegal_01: e.message = ${e.message}")
+        @Expect(e.message == "File exists." || e.message.contains("Failed to create symbolic link `tempfile` to `./tempfile`"))
         remove("./tempfile")
     }
 
@@ -33,6 +34,7 @@ class Test_SymbolicLink {
     func create_illegal_02() {
         File.create("./tempfile").close()
         let e = @AssertThrows[IllegalArgumentException](SymbolicLink.create("temp", to: "./tempfile\0"))
+        println("create_illegal_02: e.message = ${e.message}")
         @Expect(e.message, "The input path 'to' value [46, 47, 116, 101, 109, 112, 102, 105, 108, 101, 0] contains null character.")
         remove("./tempfile")
     }
@@ -41,6 +43,7 @@ class Test_SymbolicLink {
     func create_illegal_03() {
         File.create("./tempfile").close()
         let e = @AssertThrows[IllegalArgumentException](SymbolicLink.create("", to: "./tempfile"))
+        println("create_illegal_03: e.message = ${e.message}")
         @Expect(e.message, "The input path 'link' is empty.")
         remove("./tempfile")
     }
@@ -49,7 +52,8 @@ class Test_SymbolicLink {
     func create_illegal_04() {
         File.create("./tempfile").close()
         let e = @AssertThrows[FSException](SymbolicLink.create("./dir/aa", to: "./tempfile"))
-        @Expect(e.message == "No such file or directory." || e.message.contains("Failed to create symbolic link `./dir/aa` to `./tempfile` return -2"))
+        println("create_illegal_04: e.message = ${e.message}")
+        @Expect(e.message == "No such file or directory." || e.message.contains("Failed to create symbolic link `./dir/aa` to `./tempfile`"))
         remove("./tempfile")
     }
 

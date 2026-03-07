@@ -20,4 +20,19 @@ public class F <: K {
     public func pingF() {
         println("cj: pingF called")
     }
+
+    @ForeignName["returnOption"]
+    public func returnOption(): Option<F> {
+        println("cj: F.returnOption() called")
+        return this
+    }
+
+    @ForeignName["optionParam"]
+    public func optionParam(p: Option<F>): Unit {
+        print("cj: F.optionParam() called")
+        match (p) {
+            case Some(_) => print(" - Some\n")
+            case None => print(" - None\n")
+        }
+    }
 }

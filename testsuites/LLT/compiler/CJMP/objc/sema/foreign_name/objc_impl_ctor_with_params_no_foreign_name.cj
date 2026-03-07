@@ -5,9 +5,9 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f %diag_json -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
-// ASSERT: scan-2 parse_objc_impl_member_must_have_foreign_name
+// ASSERT: scan sema_objc_ctor_must_have_foreign_name
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class M {

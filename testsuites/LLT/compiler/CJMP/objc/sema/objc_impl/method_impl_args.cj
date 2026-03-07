@@ -46,19 +46,15 @@ public open class Base {
 public class Derived <: Base {
     public init() {}
 
-    @ForeignName["impl1WithArg0:"]
     public override func impl1(arg0: ImplBox): Int64 {
         return -arg0.value
     }
-    @ForeignName["impl2WithArg0:withArg1:"]
     public override func impl2(arg0: ImplBox, arg1: ImplBox): Int64 {
         return -(arg0.value + arg1.value)
     }
-    @ForeignName["impl3WithArg0:withArg1:withArg2:"]
     public override func impl3(arg0: ImplBox, arg1: ImplBox, arg2: ImplBox): Int64 {
         return -(arg0.value + arg1.value + arg2.value)
     }
-    @ForeignName["returnImpl:"]
     public open func returnImpl(box: ImplBox): ImplBox {
         return box;
     }

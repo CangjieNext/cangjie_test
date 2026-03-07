@@ -8,7 +8,6 @@
 
 // ASSERT: scan error: @ObjCMirror declaration cannot have static initializer
 
-import interoplib.objc.*
 import objc.lang.*
 
 @ObjCMirror

@@ -65,42 +65,32 @@ public class Derived <: Base {
     public override func arg0(): Bool {
         false
     }
-    @ForeignName["primitive1WithArg0:"]
     public override func primitive1(i: Int64): Int64 {
         return i * 2;
     }
-    @ForeignName["primitive2WithArg0:withArg1:"]
     public override func primitive2(i: Int64, f: Float32): Int64 {
         return Int64(f) + i + 28;
     }
-    @ForeignName["primitive3WithArg0:withArg1:withArg2:"]
     public override func primitive3(i: Int64, f: Float32, b: Bool): Int64 {
         return Int64(f) + i + (if (b) { 4 } else { -4 });
     }
 
-
-    @ForeignName["mirror1WithArg0:"]
     public override func mirror1(arg0: Box): Int64 {
         return -arg0.value
     }
-    @ForeignName["mirror2WithArg0:withArg1:"]
     public override func mirror2(arg0: Box, arg1: Box): Int64 {
         return -(arg0.value + arg1.value)
     }
-    @ForeignName["mirror3WithArg0:withArg1:withArg2:"]
     public override func mirror3(arg0: Box, arg1: Box, arg2: Box): Int64 {
         return -(arg0.value + arg1.value + arg2.value)
     }
 
-    @ForeignName["impl1WithArg0:"]
     public override func impl1(arg0: ImplBox): Int64 {
         return -arg0.value
     }
-    @ForeignName["impl2WithArg0:withArg1:"]
     public override func impl2(arg0: ImplBox, arg1: ImplBox): Int64 {
         return -(arg0.value + arg1.value)
     }
-    @ForeignName["impl3WithArg0:withArg1:withArg2:"]
     public override func impl3(arg0: ImplBox, arg1: ImplBox, arg2: ImplBox): Int64 {
         return -(arg0.value + arg1.value + arg2.value)
     }
@@ -118,11 +108,9 @@ public class Derived <: Base {
         return -(arg0.value + arg1.value + arg2.value)
     }
 
-    @ForeignName["returnMirror:"]
     public open func returnMirror(box: Box): Box {
         return box;
     }
-    @ForeignName["returnImpl:"]
     public open func returnImpl(box: ImplBox): ImplBox {
         return box;
     }

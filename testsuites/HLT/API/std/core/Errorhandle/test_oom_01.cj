@@ -7,11 +7,11 @@
  */
  
 // LEVEL: 1
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f
-// (not O2)RUN-EXEC-PIPE: %run %run_opt %n.%suffix %run_args 2>&1 | compare %f
-// ASSERT: scan handle error: OutOfMemoryError
-// ASSERT: scan handler finished
-// ASSERT: scan quit normally
+// (not O2 and not target_ohos)EXEC: %compiler %cmp_opt -o %n.%suffix %f
+// (not O2 and not target_ohos)RUN-EXEC-PIPE: %run %run_opt %n.%suffix %run_args 2>&1 | compare %f
+// (not O2 and not target_ohos)ASSERT: scan handle error: OutOfMemoryError
+// (not O2 and not target_ohos)ASSERT: scan handler finished
+// (not O2 and not target_ohos)ASSERT: scan quit normally
 
 
 import std.unittest.*

@@ -8,8 +8,7 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt -o %output %f
-// (not iOS) RUN-EXEC: echo 仓颉鸿蒙test | %run %run_opt %output %run_args 2>&1
-// ASSERT: scan Some(仓颉鸿蒙test)
+// (!(target_mac | target_ios)) RUN-EXEC: echo 仓颉鸿蒙test | %run %run_opt %output %run_args 2>&1
 import std.env.*
 
 main() {

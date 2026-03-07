@@ -1,0 +1,44 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop %enable_java_cjmapping --import-interop-cj-package-config-path src/cj/config.toml --output-javagen-dir=src/java/cj
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/com/java/lib/*.java src/java/cj/*.java -h ./ -d ./
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && %java %cp_cj_loader_java_interop -Djava.library.path./ com.java.lib.Main 2>& 1 | compare %f
+
+/* SCAN
+Java: AInt32Impl goo()!1
+CJ: A foo()!
+1
+Java: AInt32Impl goo()!1
+Java: AInt32Impl doo()!
+2
+Java: AInt32Impl koo()!
+3
+Java: AFloat64Impl foo()!
+0.5
+Java: AFloat64Impl goo()!1.0
+Java: AFloat64Impl doo()!
+3.0
+Java: AFloat64Impl koo()!
+8
+Java: BInt32Int32Impl foo()!4
+Java: BInt32Int32Impl goo()!2
+Java: BInt32Int32Impl doo()!
+4
+Java: BInt16Float64Impl doo()!
+3.0
+CJ: B foo()!
+Java: BInt16Float64Impl goo()!3
+1.0
+Java: BInt16Float64Impl doo()!
+3.0
+3
+Java: BInt16Float64Impl test()!
+Java: BInt16Float64Impl doo()!
+5.0
+CJ: B foo()!
+*/

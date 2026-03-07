@@ -17,8 +17,11 @@
 objc: [M init]
 objc: [M1 initWithAnswer: 100500.100500]
 cj: A()
+cj: 42
+cj: 42
 objc: [M1 initWithAnswer: 3.140000]
-objc: value of foo: 42
+cj: 3.140000
+objc: value of foo: 43
 objc: value of bar->answer: 3.140000
 objc: value of cjField: 123
 */

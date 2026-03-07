@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 3
-// (not Windows) EXEC: %compiler %cmp_opt %cmp_utest_opt %f -o %output
-// (not Windows) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// (!(target_win | target_ios)) EXEC: %compiler %cmp_opt %cmp_utest_opt %f -o %output
+// (!(target_win | target_ios)) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.runtime.*
 

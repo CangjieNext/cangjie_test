@@ -5,11 +5,11 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
-// ASSERT: scan-2 error: return type of Objective-C mirror method must be Objective-C compatible
-// ASSERT: scan-2 error: param type of Objective-C mirror method must be Objective-C compatible
-// ASSERT: scan 4 errors generated, 4 errors printed
+// ASSERT: scan-3 error: return type of Objective-C mirror method must be Objective-C compatible
+// ASSERT: scan-3 error: param type of Objective-C mirror method must be Objective-C compatible
+// ASSERT: scan 6 errors generated, 6 errors printed
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public class M {
@@ -26,6 +26,12 @@ public class M {
 
     @ForeignName["NonCompatibleOptionTypeArg"]
     public func NonCompatibleOptionTypeArg(x: Option<A>): Unit
+
+    @ForeignName["NestedOptionArg"]
+    public func NestedOptionArg(x: Option<Option<M>>): Unit
+
+    @ForeignName["NestedOptionRet"]
+    public func NestedOptionRet(): Option<Option<M>>
 }
 
 public class A {}

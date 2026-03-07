@@ -10,18 +10,24 @@
 
 /* SCAN-IN
 - (A*)p {
+    if (self.$registryId == -1) {
+        [NSException raise: @"Use before Cangjie counterpart is initialized" format: @"selector `%@` is overriden in Cangjie and cannot be used before Cangjie counterpart is initialized", NSStringFromSelector(_cmd)];
+    }
     return (__bridge A*)CJImpl_ObjC_cjworld_A_p_get(self.$registryId);
 }
 */
 /* SCAN-IN
 - (void)setP:(A*)value {
+    if (self.$registryId == -1) {
+        [NSException raise: @"Use before Cangjie counterpart is initialized" format: @"selector `%@` is overriden in Cangjie and cannot be used before Cangjie counterpart is initialized", NSStringFromSelector(_cmd)];
+    }
      CJImpl_ObjC_cjworld_A_p_set(self.$registryId, (__bridge void*)value);
 }
 */
 
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class M {
@@ -36,6 +42,6 @@ public class A <: M {
         }
         set(value) {
 
-        } 
+        }
     }
 }

@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2
-// (not Windows) EXEC: %compiler %cmp_opt %f -o %output
-// (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
-// (not Windows and not MAC) ASSERT: scan-23 hello, cangjie
+// (!(target_win | target_ios)) EXEC: %compiler %cmp_opt %f -o %output
+// (!(target_win | target_ios)) RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
+// (!(target_win | target_mac)) ASSERT: scan-23 hello, cangjie
 // (MAC) ASSERT: scan-21 hello, cangjie
 
 import std.env.*

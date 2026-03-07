@@ -8,7 +8,6 @@
 
 // ASSERT: scan error: ObjCPointer can only be used with Objective-C compatible types
 
-import interoplib.objc.*
 import objc.lang.*
 
 func foo(): ObjCPointer<String> {

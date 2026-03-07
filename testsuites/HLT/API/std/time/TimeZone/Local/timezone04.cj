@@ -25,11 +25,11 @@ import std.time.*
 
 @When[os == "Windows"]
 let expect = getLocalByOffset()
-@When[os != "macOS"]
+@When[os == "Linux"]
 let expect = TimeZone.load("Europe/Moscow")
 @When[os == "iOS"]
 let expect = getLocalByOffset()
-@When[os != "Linux"]
+@When[os == "macOS"]
 let expect = TimeZone.load("Europe/Moscow")
 
 @Test
