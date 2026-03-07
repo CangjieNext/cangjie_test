@@ -1,0 +1,17 @@
+common.cfg
+- common_windows.cfg
+    - windows_x64-windows_x64/basic.cfg
+        - windows_x64-windows_x64/O2.cfg
+        - windows_x64-windows_x64/static_O2.cfg
+    - windows_x64-ohos_aarch64/basic.cfg
+        - windows_x64-ohos_aarch64/O2.cfg
+        - windows_x64-ohos_aarch64/static_O2.cfg
+    - windows_x64-android_aarch64/basic.cfg
+        - windows_x64-android_aarch64/android26.cfg
+            - windows_x64-android_aarch64/android26_O2.cfg
+            - windows_x64-android_aarch64/android26_static_O2.cfg
+        - windows_x64-android_aarch64/android31.cfg
+            - windows_x64-android_aarch64/android31_O2.cfg
+            - windows_x64-android_aarch64/android31_static_O2.cfg
+- common_linux.cfg
+- common_mac.cfg
