@@ -1,0 +1,37 @@
+common.cfg
+- common_windows.cfg
+    - windows_x64-windows_x64/basic.cfg
+        - windows_x64-windows_x64/O2.cfg
+        - windows_x64-windows_x64/static_O2.cfg
+    - windows_x64-ohos_aarch64/basic.cfg
+        - windows_x64-ohos_aarch64/O2.cfg
+        - windows_x64-ohos_aarch64/static_O2.cfg
+    - windows_x64-android_aarch64/basic.cfg
+        - windows_x64-android_aarch64/android26.cfg
+            - windows_x64-android_aarch64/android26_O2.cfg
+            - windows_x64-android_aarch64/android26_static_O2.cfg
+        - windows_x64-android_aarch64/android31.cfg
+            - windows_x64-android_aarch64/android31_O2.cfg
+            - windows_x64-android_aarch64/android31_static_O2.cfg
+- common_linux.cfg
+    - linux_aarch64-linux_aarch64/basic.cfg
+        - linux_aarch64-linux_aarch64/O2.cfg
+        - linux_aarch64-linux_aarch64/g.cfg
+        - linux_aarch64-linux_aarch64/static_O2.cfg
+    - linux_x64-linux_x64/basic.cfg
+        - linux_x64-linux_x64/O2.cfg
+        - linux_x64-linux_x64/g.cfg
+        - linux_x64-linux_x64/static_O2.cfg
+- common_mac.cfg
+    - mac_aarch64-android_aarch64/basic.cfg
+        - mac_aarch64-android_aarch64/android26.cfg
+            - mac_aarch64-android_aarch64/android26_O2.cfg
+            - mac_aarch64-android_aarch64/android26_static_O2.cfg
+        - mac_aarch64-android_aarch64/android31.cfg
+            - mac_aarch64-android_aarch64/android31_O2.cfg
+            - mac_aarch64-android_aarch64/android31_static_O2.cfg
+    - mac_aarch64-ios_simulator_aarch64/basic.cfg
+        - mac_aarch64-ios_simulator_aarch64/O2.cfg
+        - mac_aarch64-ios_simulator_aarch64/objcffi_O2.cfg
+        - mac_aarch64-ios_simulator_aarch64/static_O2.cfg
+        - mac_aarch64-ios_simulator_aarch64/stdx_syntax.cfg
