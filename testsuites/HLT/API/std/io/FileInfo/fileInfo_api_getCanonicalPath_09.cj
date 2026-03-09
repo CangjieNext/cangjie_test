@@ -2,43 +2,35 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
 // LEVEL: 1
-// (not Windows) EXEC-PIPE:rm -rf test/path; mkdir -p test/path
-// (Windows) EXEC-PIPE:mkdir -p test/path
-// EXEC-PIPE:%touch test/path/test.txt
-// EXEC-PIPE: %compiler %cmp_opt -o %output %f
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// DESCRIPTION: testing .
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.io.*
 import std.posix.*
 import std.fs.*
 
 @When[os != "Windows"]
-main() {
-    var path: String = "test/./path/test.txt"
-    var curdir = getcwd()
-    var exppath: String = curdir + "/test/path/test.txt"
-    var dir1: FileInfo = FileInfo(path)
-    var result = canonicalize(dir1.path).toString()
-    if (result != exppath) {
-        return 1
-    }
-    return 0
-}
-
+const sep = "/"
 @When[os == "Windows"]
-main() {
-    var path: String = "test\\.\\path\\test.txt"
-    var curdir = getcwd()
-    var exppath: String = curdir + "\\test\\path\\test.txt"
-    var dir1: FileInfo = FileInfo(path)
-    var result = canonicalize(dir1.path).toString()
-    if (result != exppath) {
-        return 1
+const sep = "\\"
+
+@Test
+class TestFileInfo {
+    @TestCase
+    func testCase0(): Unit {
+        let dirPath = "test" + sep + "." + sep + "path"
+        removeIfExists(dirPath, recursive: true)
+        Directory.create(dirPath, recursive: true)
+        let fileName = "test.txt"
+        let filePath = dirPath + sep + fileName
+        File.create(filePath)
+        let fileInfo = FileInfo(filePath)
+        @Expect(canonicalize(fileInfo.path).toString(), getcwd() + sep + "test" + sep + "path" + sep + fileName)
     }
-    return 0
 }
