@@ -9,15 +9,13 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../asan
 // EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// EXEC: %compiler %cmp_opt asan.%middle %f -o %output
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+// EXEC: %compiler %cmp_opt %cmp_utest_opt asan.%middle %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
-/* SCAN
-res is aAA
-res is bBB
-res is cCC*/
 import std.regex.*
 import asan.*
+import std.unittest.*
+import std.unittest.testmacro.*
 
 main(): Int64 {
     var pattern = #"^.[a-c].$"#
@@ -28,9 +26,9 @@ cCC"""
     var regex = Regex(pattern, RegexOption().multiLine().ignoreCase())
     var matcher = Matcher(regex, str)
     var res = matcher.findAll().getOrThrow()
-    for (i in res) {
-        println("res is ${i.matchString()}")
-    }
+    @Assert(res[0].matchString(), "aAA")
+    @Assert(res[1].matchString(), "bBB")
+    @Assert(res[2].matchString(), "cCC")
     asanGC()
     return 0
 }
