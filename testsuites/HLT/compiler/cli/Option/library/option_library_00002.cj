@@ -8,11 +8,13 @@
 
 // LEVEL: 0
 // DEPENDENCE: test.c
-// EXEC: %clang %clang_opt -o libtest.%test_suffix test.c && ls
-// ERRCHECK: %compiler %cmp_opt %f --library test --output %output
+// (target_ios | target_ios_simulator) EXEC: %clang %clang_opt -o test.o test.c && ar rcs libtest.%test_suffix test.o && ls
+// (!(target_ios | target_ios_simulator)) EXEC: %clang %clang_opt -o libtest.%test_suffix test.c && ls
+// (!(target_ios | target_ios_simulator)) EXEC-PIPE-1: %compiler %cmp_opt %f --library test --output %output 2>&1 | compare %f
+// (target_ios | target_ios_simulator) EXEC: %compiler %cmp_opt %f --library test --output %output
 // (target_linux) ASSERT: scan cannot find -ltest
-// (target_mac & !target_ohos & !target_android) ASSERT: scan library not found for -ltest
-// (target_win | target_ohos | target_android) ASSERT: scan unable to find library -ltest
+// (target_mac) ASSERT: scan library not found for -ltest
+// (target_android | target_ohos) ASSERT: scan unable to find library -ltest
 
 foreign func printHello(): Unit
 
