@@ -11,10 +11,7 @@
 // EXEC: %clang %clang_opt c_ffi.c -o libc_ffi.%test_suffix
 // EXEC: %compiler %cmp_opt %pkg_compile pkg/pkg.cj -o libpkg.%test_suffix
 // EXEC: %compiler %cmp_opt %f %pkg_link -o %output
-// RUN-EXEC: %set LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH && %run %output %run_args
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %pkg_compile pkg/pkg.cj -o libpkg.cbc
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f libpkg.pdba -o %output
-// (not CJNATIVE) RUN-EXEC: %set LD_LIBRARY_PATH=./:$LD_LIBRARY_PATH && %run --cbc-path . %output %run_args
+// RUN-EXEC: %run %output %run_args
 
 import pkg.*
 
