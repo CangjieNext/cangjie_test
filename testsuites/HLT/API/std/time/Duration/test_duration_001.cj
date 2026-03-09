@@ -7,10 +7,8 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %cmp_opt %cmp_opt %f -o %output
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
-// ASSERT: scan-not Exception
-// ASSERT: scan-not 1
+// EXEC: %compiler %cmp_opt %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args
 
 import std.time.*
 import std.collection.*
@@ -31,11 +29,11 @@ let maxSecond = MAX_INT64
 let maxMinute = MAX_INT64 / 60
 let maxHour = MAX_INT64 / 3600
 let maxDay = MAX_INT64 / 86400
-//@Test
-class TestDuration {
 
+@Test
+class TestDuration {
     // 验证无参的初始化函数生成的duration默认为1
-    // @TestCase
+    @TestCase
     public func testDuration0(): Int64 {
         let constructors0: HashMap<String, Duration> = HashMap<String, Duration>(
             [
@@ -71,7 +69,7 @@ class TestDuration {
     }
 
     // 验证超过范围的duration生成会抛出异常
-    // @TestCase
+    @TestCase
     public func testDuration1(): Int64 {
         var result = 0
         let unit = [Duration.minute, Duration.hour, Duration.day]
@@ -90,7 +88,7 @@ class TestDuration {
     }
 
     // 验证成员函数的功能正确性
-    // @TestCase
+    @TestCase
     public func testDuration2(): Int64 {
         let durationNanoSecond = Duration.nanosecond * (-3600000000000)
         let durationMicroSecond = Duration.microsecond * 3600000000
@@ -111,7 +109,7 @@ class TestDuration {
     }
 
     // 验证运算符重载在运算溢出时能正常抛异常
-    // @TestCase
+    @TestCase
     public func testDuration3(): Int64 {
         let nano = Duration.nanosecond * (-1)
         var result = 0
@@ -144,7 +142,7 @@ class TestDuration {
     }
 
     // 验证运算符重载计算正确性
-    // @TestCase
+    @TestCase
     public func testDuration4(): Int64 {
         let durationNanoSecond = Duration.Zero
         let durationMicroSecond = Duration.microsecond * minMicrosecond
@@ -192,7 +190,7 @@ class TestDuration {
     }
 
     // 验证toString方法的功能正确性
-    // @TestCase
+    @TestCase
     public func testDuration5(): Int64 {
         let durationZero = Duration.Zero
         let durationHour = Duration.hour
@@ -267,11 +265,4 @@ func assertEqule(msg: String, expected: Duration, actual: Duration): Bool {
         return true
     }
     return false
-}
-
-main(): Int64 {
-    let cases: TestDuration = TestDuration()
-    return cases.testDuration3()
-    cases.testDuration0() | cases.testDuration1() | cases.testDuration2() | cases.testDuration3() | cases
-        .testDuration4() | cases.testDuration5()
 }
