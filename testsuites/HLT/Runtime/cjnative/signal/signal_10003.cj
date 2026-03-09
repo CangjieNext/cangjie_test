@@ -8,11 +8,10 @@
 
 // LEVEL: 3
 // DEPENDENCE: sigfpe.c
-// (not Windows) EXEC: %clang %clang_opt sigfpe.c -o lib%n.c.cfile.%cffi_suffix
-// (not Windows) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt -o %output
-// (not arm and not MAC and not Windows) RUN-EXEC-PIPE-136: %run %run_opt %output %run_args 2>&1 | compare %f
-// (MAC) RUN-EXEC: %run %run_opt %output %run_args
-// (not Windows) ASSERT:scan catched unhandled SIGFPE (Floating point exception) from native frame
+// (!host_win) EXEC: %clang %clang_opt -O0 -Wall -Wextra -fsanitize=undefined sigfpe.c -o lib%n.c.cfile.%cffi_suffix
+// (!host_win) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt -o %output
+// (!host_win) RUN-EXEC-PIPE-136: %run %run_opt %output %run_args 2>&1 | compare %f
+// (!host_win) ASSERT:scan catched unhandled SIGFPE (Floating point exception) from native frame
 
 foreign func foo(): Unit
 
