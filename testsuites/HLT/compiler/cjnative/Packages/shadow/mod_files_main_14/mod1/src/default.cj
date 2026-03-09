@@ -8,7 +8,7 @@
 
 import p1.foo
 
-main(x: Array<String>): Int64 {
+main(): Int64 {
     var a = foo(Int8(1))
     if (a != 11) {
         return 1

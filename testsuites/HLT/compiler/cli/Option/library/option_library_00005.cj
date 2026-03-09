@@ -8,13 +8,13 @@
 
 // LEVEL: 0
 // DEPENDENCE: test.c
-// (not Windows) EXEC: %clang %clang_opt -o libtest.%test_suffix test.c
-// (not Windows) EXEC: rm -rf abc;mkdir abc
-// (not Windows) EXEC: mv libtest.%test_suffix abc
-// (CJNATIVE) EXEC-PIPE: %compiler %cmp_opt %f --library test --library-path ./abc --output %output
-// (CJNATIVE and not MAC and not Windows or OHOS) RUN-EXEC: %export LD_LIBRARY_PATH=./abc/:$LD_LIBRARY_PATH && %run %run_opt %output %run_args | compare %f
-// (MAC and not OHOS and not Windows) RUN-EXEC: %export DYLD_LIBRARY_PATH=./abc/:$DYLD_LIBRARY_PATH && %run %run_opt %output %run_args | compare %f
-// (not Windows) ASSERT: scan Hello World
+// (!host_win) EXEC: %clang %clang_opt -o libtest.%test_suffix test.c
+// (!host_win) EXEC: rm -rf abc; mkdir abc
+// (!host_win) EXEC: mv libtest.%test_suffix abc
+// (!host_win) EXEC: %compiler %cmp_opt %f --library test --library-path ./abc --output %output
+// (target_ohos | target_android | target_linux) RUN-EXEC-PIPE: %run %export LD_LIBRARY_PATH=./abc/:$LD_LIBRARY_PATH && %run_opt %output %run_args | compare %f
+// (target_mac) RUN-EXEC-PIPE: %run %export DYLD_LIBRARY_PATH=./abc/:$DYLD_LIBRARY_PATH && %run_opt %output %run_args | compare %f
+// (!host_win) ASSERT: scan Hello World
 
 foreign func printHello(): Unit
 
