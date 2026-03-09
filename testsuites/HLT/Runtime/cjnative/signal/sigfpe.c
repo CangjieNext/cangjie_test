@@ -7,9 +7,11 @@
  */
 
 #include <stdio.h>
+
 int foo(){
    int a = 0;
    int b = 1;
-   a = b / a;
+   int res = b / a;
+   printf("res = %d\n", res);
    return 0;
 }
