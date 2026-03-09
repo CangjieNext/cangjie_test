@@ -37,5 +37,5 @@ let resolveMapList = [
     ResolveMapStruct(Float64.Inf * -1.0, "YamlFloatTag", ["-.inf", "-.Inf", "-.INF"]),
     ResolveMapStruct("<<", "YamlMergeTag", ["<<"])
 ]
-// (not target_ios) ASSERT: scan sema_missing_entry
+// (!(target_ios | target_ios_simulator)) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_generic_type_without_type_argument
