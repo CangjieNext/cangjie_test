@@ -2,13 +2,13 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC: %run %run_opt %output  %run_args
+// RUN-EXEC: %run %run_opt %output %run_args
 
 func foo(): Int64 {
     var c = 0
@@ -22,7 +22,7 @@ func foo(): Int64 {
     }
     return c - 2
 }
- 
+
 main(): Int64 {
     var c = 0
     for (a in [1, 2, 3]) {
@@ -35,20 +35,3 @@ main(): Int64 {
     }
     return c - 2
 }
- 
-/*
-main() {
-  var c = 0
-  for (a in [1, 2, 3 ]) {
-    c++
-    match(a){
-      case 1 => continue
-      case 2 => break
-      case _ => return ()
-    }
-  }
-  return c - 2
-}
- 
-compile error, correct according to spec, but strange
- */

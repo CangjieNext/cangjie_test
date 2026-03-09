@@ -6,6 +6,10 @@
 # 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+# TODO:
+# - 暂不支持main有入参
+# - 暂不支持@Test
+
 import argparse
 import re
 import sys
@@ -150,7 +154,7 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
     # 逐个文件打开确认是否包含main
     main_file_list: List[Path] = list()
     main_file_list.append(test_info_file_path)
-    pattern_main = r'(\s*main\s*\(\s*(.*?)\s*\)\s*:?\s*(.*?)\s*\{)(?!\})'
+    pattern_main = r'(^\s*main\s*\(\s*(.*?)\s*\)\s*:?\s*(.*?)\s*\{)(?!\})'
     for dependency_path in dependency_list:
         # 不存在就跳过
         if not dependency_path.exists():
