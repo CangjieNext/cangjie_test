@@ -2,12 +2,17 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
 // LEVEL: 1
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// (!(target_ios | target_ios_simulator)) ASSERT: scan sema_unexpected_return_type_for_entry
+// ASSERT: scan sema_invalid_binary_expr
+// ASSERT: scan sema_numeric_convert_must_be_numeric
+// ASSERT: scan sema_undeclared_identifier
+// ASSERT: scan sema_mismatched_types
 
 main(): Bool {
     var t: Bool = true
@@ -49,8 +54,3 @@ main(): Bool {
     f = f32
     t = f64
 }
-// (not target_ios) ASSERT: scan sema_unexpected_return_type_for_entry
-// ASSERT: scan sema_invalid_binary_expr
-// ASSERT: scan sema_numeric_convert_must_be_numeric
-// ASSERT: scan sema_undeclared_identifier
-// ASSERT: scan sema_mismatched_types
