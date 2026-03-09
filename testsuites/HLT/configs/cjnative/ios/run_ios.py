@@ -236,14 +236,29 @@ def main():
                     cangjie_runtime_log_lines = (line.rstrip('\n') for line in f if '[CANGJIE:RUNTIME]' in line)
                     sys_log_content = '\n'.join(cangjie_runtime_log_lines)
                 if 'Init Image fail! exception occurrence when init image' in sys_log_content:
-                    # 确实是全局抛出异常导致的，退出码改为1，并将日志内容输出到标准输出流
+                    # 全局静态初始化过程中抛出异常，退出码改为1，并将日志内容输出到标准输出流
                     sys.stdout.write(sys_log_content)
                     sys.stdout.write(com_out)
                     sys.stderr.write(com_err)
-                    print('Exception been thrown during image initialization.')
                     if args.uninstall:
                         uninstall_app(args.device_type, udid, args.bundle_id)
                     sys.exit(1)
+                elif 'CJNative Handle signal: 11.' in sys_log_content:
+                    # SIGSEGV(11) -> 139
+                    sys.stdout.write(sys_log_content)
+                    sys.stdout.write(com_out)
+                    sys.stderr.write(com_err)
+                    if args.uninstall:
+                        uninstall_app(args.device_type, udid, args.bundle_id)
+                    sys.exit(139)
+                elif 'CJNative Handle signal: 6.' in sys_log_content:
+                    # SIGABRT(6) -> 134
+                    sys.stdout.write(sys_log_content)
+                    sys.stdout.write(com_out)
+                    sys.stderr.write(com_err)
+                    if args.uninstall:
+                        uninstall_app(args.device_type, udid, args.bundle_id)
+                    sys.exit(134)
                 else:
                     # 其他未知原因
                     raise Exception(f"Error: The 'cj_main_return_start' and 'cj_main_return_end' were not found, please check cangjie main function!")
