@@ -2,12 +2,12 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt  %f -o %output %cmp_utest_opt
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.posix.*
@@ -15,6 +15,11 @@ import std.io.*
 import std.fs.*
 import std.collection.*
 import std.process.*
+
+@When[os == "Windows"]
+const sep = "\\"
+@When[os != "Windows"]
+const sep = "/"
 
 // create A TEST DIR TO TEST FOR PLATFORM ADAPTION
 var pwd_path: String = Process.current.workingDirectory.toString()
@@ -69,97 +74,50 @@ func deleteTestDirInPwd(): Bool {
     return true
 }
 
-@When[os == "Windows"]
-main(): Int64 {
-    var test_dir: String = createAndGetTestDirInPwd()
-    if (test_dir.size <= 0) {
-        if (test_path0.size >= maxPathLength) {
-            return 1
-        }
-        if (exists(test_path0)) {
-            deleteTestDirInPwd()
-        }
-        return 1
-    }
-
-    // restore Environment
-    if (exists(test_dir + "/" + "/tmp/dir1")) {
-        remove(test_dir + "/" + "/tmp/dir1", recursive: true)
-    }
-
-    // Round 1 create Directory dir1 and sub_dir1
-    Directory.create(test_dir + "/" + "/tmp/dir1")
-    @Assert(exists(test_dir + "/" + "/tmp/dir1"),true)
-
-    Directory.create(test_dir + "/" + "/tmp/dir1/sub_dir1")
-    @Assert(exists(test_dir + "/" + "/tmp/dir1/sub_dir1"),true)
-    var (num_Dirs1, num_Files1) = getDirsAndFiles(test_dir + "\\" + "\\tmp\\dir1")
-    if (num_Dirs1.size != 1) {
-        return 1
-    }
-    if (num_Dirs1[0].path.toString() != test_dir + "\\" + "\\tmp\\dir1\\sub_dir1") {
-        return 1
-    }
-    if (num_Files1.size != 0) {
-        return 1
-    }
-    remove(test_dir + "/" + "/tmp/dir1", recursive: true)
-    if (exists(test_dir + "\\" + "\\tmp\\dir1")) {
-        return 1
-    }
-    return 0
-}
-
-@When[os != "Windows"]
-main(): Int64 {
-    var test_dir: String = createAndGetTestDirInPwd()
-    if (test_dir.size <= 0) {
-        if (test_path0.size >= maxPathLength) {
-            return 1
-        }
-        if (exists(test_path0)) {
-            deleteTestDirInPwd()
-        }
-        return 1
-    }
-
-    // restore Environment
-    if (exists(test_dir + "/" + "/tmp/dir1")) {
-        remove(test_dir + "/" + "/tmp/dir1", recursive: true)
-    }
-
-    // Round 1 create Directory dir1 and sub_dir1
-    Directory.create(test_dir + "/" + "/tmp/dir1")
-
-    Directory.create(test_dir + "/" + "/tmp/dir1/sub_dir1")
-    var (num_Dirs1, num_Files1) = getDirsAndFiles(test_dir + "/" + "/tmp/dir1")
-    if (num_Dirs1.size != 1) {
-        return 1
-    }
-    if (num_Dirs1[0].path.toString() != test_dir + "/" + "/tmp/dir1/sub_dir1") {
-        return 1
-    }
-    if (num_Files1.size != 0) {
-        return 1
-    }
-    remove(test_dir + "/" + "/tmp/dir1", recursive: true)
-    if (exists(test_dir + "/" + "/tmp/dir1")) {
-        return 1
-    }
-    return 0
-}
-
 func getDirsAndFiles(path: String): (ArrayList<FileInfo>, ArrayList<FileInfo>) {
     let dirs = ArrayList<FileInfo>()
     let files = ArrayList<FileInfo>()
     Directory.walk(path) {
         info =>
-        if (info.isRegular()) {
-            files.add(info)
-        } else if (info.isDirectory()) {
-            dirs.add(info)
-        }
-        true
+            if (info.isRegular()) {
+                files.add(info)
+            } else if (info.isDirectory()) {
+                dirs.add(info)
+            }
+            true
     }
     return (dirs, files)
+}
+
+@Test
+class TestDirectory {
+    @AfterAll
+    func clean(): Unit {
+        if (exists(test_path0)) {
+            deleteTestDirInPwd()
+        }
+    }
+    @TestCase
+    func testCase00(): Unit {
+        let test_dir = createAndGetTestDirInPwd()
+        @Assert(test_dir.size > 0)
+
+        // restore Environment
+        if (exists(test_dir + "/" + "/tmp/dir1")) {
+            remove(test_dir + "/" + "/tmp/dir1", recursive: true)
+        }
+
+        // Round 1 create Directory dir1 and sub_dir1
+        Directory.create(test_dir + "/" + "/tmp/dir1")
+        @Assert(exists(test_dir + "/" + "/tmp/dir1"))
+
+        Directory.create(test_dir + "/" + "/tmp/dir1/sub_dir1")
+        @Assert(exists(test_dir + "/" + "/tmp/dir1/sub_dir1"))
+        let (num_Dirs1, num_Files1) = getDirsAndFiles(test_dir + sep * 2 + "tmp" + sep + "dir1")
+        @Expect(num_Dirs1.size == 1)
+        @Expect(num_Dirs1[0].path.toString() == test_dir + sep * 2 + "tmp" + sep + "dir1" + sep + "sub_dir1")
+        @Expect(num_Files1.size == 0)
+        remove(test_dir + "/" + "/tmp/dir1", recursive: true)
+        @Expect(exists(test_dir + sep * 2 + "tmp" + "dir1"), false)
+    }
 }
