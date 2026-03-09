@@ -2,51 +2,30 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
-// (not Windows) EXEC-PIPE: rm -rf mydic/mydic2/;mkdir -p mydic/mydic2/
-// (Windows) EXEC-PIPE: mkdir -p mydic/mydic2/
-// EXEC-PIPE: %touch mydic/mydic2/test.txt
-// EXEC-PIPE: %compiler %cmp_opt -o %output %f
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.io.*
 import std.posix.*
 import std.fs.*
 
 @When[os != "Windows"]
-main() {
-    var path: String = "//mydic//mydic2/test.txt"
-    var curdir = getcwd()
-    var exppath: String = curdir + "/mydic/mydic2/test.txt"
-    try {
-        var file: FileInfo = FileInfo(path)
-        var result = canonicalize(file.path).toString()
-    } catch (e: FSException) {
-        if (e.toString().contains("FSException: The input path `//mydic//mydic2/test.txt` does not exist")) {
-            return 0
-        }
-        return 2
-    }
-    return 1
-}
-
+const sep = "/"
 @When[os == "Windows"]
-main() {
-    var path: String = "\\mydic\\mydic2\\test.txt"
-    var curdir = getcwd()
-    var exppath: String = curdir + "\\mydic\\mydic2\\test.txt"
-    try {
-        var file: FileInfo = FileInfo(path)
-        var result = canonicalize(file.path).toString()
-    } catch (e: FSException) {
-        if (e.toString().contains("FSException: The input path `\\mydic\\mydic2\\test.txt` does not exist")) {
-            return 0
-        }
-        return 2
+const sep = "\\"
+
+@Test
+class TestFileInfo {
+    @TestCase
+    func testCase0(): Unit {
+        let dirPath = sep * 2 + "my_dir" + sep * 2 + "my_dir_2"
+        let filePath = dirPath + sep * 2 + "test.txt"
+        let e = @AssertThrows[FSException](FileInfo(filePath))
+        @Expect(e.toString(), "FSException: The input path `${filePath}` does not exist.")
     }
-    return 1
 }

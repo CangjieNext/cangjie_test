@@ -6,6 +6,10 @@
 # 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+# TODO:
+# - 暂不支持main有入参
+# - 暂不支持@Test func
+
 import argparse
 import re
 import sys
@@ -150,7 +154,7 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
     # 逐个文件打开确认是否包含main
     main_file_list: List[Path] = list()
     main_file_list.append(test_info_file_path)
-    pattern_main = r'(\s*main\s*\(\s*(.*?)\s*\)\s*:?\s*(.*?)\s*\{)(?!\})'
+    pattern_main = r'(^\s*main\s*\(\s*(.*?)\s*\)\s*:?\s*(.*?)\s*\{)(?!\})'
     for dependency_path in dependency_list:
         # 不存在就跳过
         if not dependency_path.exists():
@@ -216,9 +220,30 @@ def main():
 
     process_file(Path(args.input), Path(args.output))
 
+def prepare_parser() -> None:
+    import subprocess
+    import tempfile
+    temp_dir = tempfile.gettempdir()
+    helper_exe_file_path = os.path.join(temp_dir, 'helper')
+    print(helper_exe_file_path)
+    if os.path.exists(helper_exe_file_path):
+        return
+    
+    parser_src_file_path = Path(__file__).parent.resolve().joinpath('helper.cj')
+    cangjie_dynamic_stdx_path = Path(os.environ['CANGJIE_STDX_PATH']).parent.parent.joinpath('dynamic/stdx')
+    print('cangjie_dynamic_stdx_path = {}'.format(cangjie_dynamic_stdx_path))
+    cmd = [
+        'cjc', parser_src_file_path,
+        '--import-path', cangjie_dynamic_stdx_path,
+        '-L', cangjie_dynamic_stdx_path,
+        '-l', 'stdx.syntax',
+        '-o', helper_exe_file_path
+    ]
+    subprocess.run(cmd)
 
 if __name__ == '__main__':
     try:
+        prepare_parser()
         main()
     except Exception as e:
         print_log(str(e))

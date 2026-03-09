@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %n.%suffix 
-// RUN-EXEC: %run %run_opt %n.%suffix %run_args
+// EXEC: %compiler %cmp_opt %f -o %output 
+// RUN-EXEC: %run %run_opt %output %run_args
 
 class Test {
     public var i: Int32

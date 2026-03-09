@@ -8,11 +8,13 @@
 
 // LEVEL: 3
 // DEPENDENCE: sigfpe.c
-// (not Windows) EXEC: %clang %clang_opt sigfpe.c -o lib%n.c.cfile.%cffi_suffix
-// (not Windows) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt -o %output
-// (not arm and not MAC and not Windows) RUN-EXEC-PIPE-136: %run %run_opt %output %run_args 2>&1 | compare %f
-// (MAC) RUN-EXEC: %run %run_opt %output %run_args
-// (not Windows) ASSERT:scan catched unhandled SIGFPE (Floating point exception) from native frame
+// (!host_win) EXEC: %clang %clang_opt sigfpe.c -o lib%n.c.cfile.%cffi_suffix
+// (!host_win) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt -o %output
+// (!host_win & !(target_mac | target_ios | target_ios_simulator)) RUN-EXEC-PIPE-136: %run %run_opt %output %run_args 2>&1 | compare %f
+// (!host_win & !(target_mac | target_ios | target_ios_simulator)) ASSERT: scan catched unhandled SIGFPE (Floating point exception) from native frame
+// when targeting MacOS & iOS, FPE would not be signaled.
+// (!host_win & (target_mac | target_ios | target_ios_simulator)) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// (!host_win & (target_mac | target_ios | target_ios_simulator)) ASSERT: scan res = 0
 
 foreign func foo(): Unit
 
