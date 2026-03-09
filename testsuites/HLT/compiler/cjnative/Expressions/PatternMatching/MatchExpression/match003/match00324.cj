@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %cmp_opt %f -o %n.%suffix
-// RUN-EXEC: %run %run_opt %n.%suffix
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output
 
 func test(): Int64 {
     var i: Int32 = 1
