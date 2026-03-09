@@ -8,12 +8,13 @@
 
 // LEVEL: 2
 // DEPENDENCE: date_formatter_01.c
-// (Windows) DEPENDENCE: ../zoneinfo.tar.gz
-// (Windows) EXEC: tar -xf zoneinfo.tar.gz
-// EXEC: %clang %clang_opt date_formatter_01.c -o libdate_formatter_01.%test_suffix
+// (target_win) DEPENDENCE: ../zoneinfo.tar.gz
+// (target_win) EXEC: tar -xf zoneinfo.tar.gz
+// ((target_ios | target_ios_simulator)) EXEC: %clang %clang_opt -c date_formatter_01.c
+// (!(target_ios | target_ios_simulator)) EXEC: %clang %clang_opt date_formatter_01.c -o libdate_formatter_01.%test_suffix
 // EXEC: %compiler %cmp_opt -L . -l date_formatter_01 %f -o %output
-// (Windows) RUN-EXEC-PIPE-0: %export "CJ_TZPATH=%cd%/zoneinfo" && %run %run_opt %output %run_args | compare %f
-// (not Windows)RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+// (target_win) RUN-EXEC-PIPE-0: %export "CJ_TZPATH=%cd%/zoneinfo" && %run %run_opt %output %run_args | compare %f
+// (!target_win) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan-not Failure
 // ASSERT: scan-not Exception
 
