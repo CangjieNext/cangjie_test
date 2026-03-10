@@ -1,0 +1,44 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[dependencies]
+
+[package]
+  cjc-version = "1.0.0"
+  compile-option = ""
+  description = "nothing here"
+  link-option = ""
+  name = "coo"
+  output-type = "dynamic"
+  override-compile-option = ""
+  version = "1.0.0"
+
+[profile.build.combined]
+ coo = "dynamic"
+
+[target.x86_64-unknown-linux-gnu.bin-dependencies]
+  path-option = ["dep/target/release/dep"]
+
+
+[target.aarch64-unknown-linux-gnu.bin-dependencies]
+  path-option = ["dep/target/release/dep"]
+
+ 
+[target.x86_64-w64-mingw32.bin-dependencies]
+  path-option = ["dep/target/release/dep"]
+ 
+ 
+[target.x86_64-apple-darwin.bin-dependencies]
+  path-option = ["dep/target/release/dep"]
+ 
+ 
+[target.aarch64-apple-darwin.bin-dependencies]
+  path-option = ["dep/target/release/dep"]
+
+ 
+[target.aarch64-linux-ohos.bin-dependencies]
+  path-option = ["dep/target/release/dep"]
+

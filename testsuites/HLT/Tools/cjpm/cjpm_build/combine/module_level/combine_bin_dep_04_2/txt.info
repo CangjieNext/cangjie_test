@@ -1,0 +1,16 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+
+// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[/|\\]release[/|\\]b[/|\\] -lb.aoo
+// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[/|\\]release[/|\\][\s\S]* -ldep1
+// ASSERT: regex-not Compiling package `b`: [\s\S]*-L.*target[/|\\]release[/|\\]b[/|\\] -lb.coo
+// ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]* -lb.boo[\s\S]*--link-options=--no-whole-archive.*
+// ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]*-lb.coo[\s\S]*--link-options=--no-whole-archive.*
+// ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]* -ldep[\s\S]*--link-options=--no-whole-archive.*
+// ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]* -ldep.aoo[\s\S]*--link-options=--no-whole-archive.*
+// ASSERT: regex Compiling package `b`: [\s\S]*libb.(so|dll)
+// ASSERT: scan cjpm build success

@@ -1,0 +1,48 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[profile]
+experimental = true
+
+[dependencies]
+
+[package]
+  cjc-version = "1.0.0"
+  compile-option = ""
+  description = "nothing here"
+  link-option = ""
+  name = "tests_in_source_sets"
+  output-type = "dynamic"
+  override-compile-option = ""
+  target-dir = ""
+  version = "1.0.0"
+  package-configuration = {}
+
+
+[[feature]]
+name = "user.tests_in_source_sets.arch.big1"
+mapping = []
+
+[[feature]]
+name = "user.tests_in_source_sets.arch.little"
+mapping = []
+
+
+[[source-set]]
+name = "common"
+src-dir = "./common"
+features = []
+
+[[source-set]]
+name = "big"
+src-dir = "./big"
+features = ["user.tests_in_source_sets.arch.big1"]
+
+[[source-set]]
+name = "little"
+src-dir = "./little"
+features = ["user.tests_in_source_sets.arch.little"]
+
