@@ -8,8 +8,10 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-ERRCHECK: %run %run_opt %output %run_args
-// ASSERT: regex error.*expected expression after \'\?\', found \'\]\'
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (!(target_ios | target_ios_simulator)) ASSERT: regex error.*expected expression after \'\?\', found \'\]\'
+// (target_ios | target_ios_simulator) ASSERT: scan ParseASTException
+
 import std.ast.*
 
 let opTokens = quote(a?[b?])

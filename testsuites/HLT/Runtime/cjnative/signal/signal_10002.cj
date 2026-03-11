@@ -8,12 +8,11 @@
 
 // LEVEL: 3
 // DEPENDENCE: segfault.c
-// (not Windows) EXEC: %clang -c %clang_opt segfault.c -o lib%n.c.cfile.%cffi_suffix
-// (not Windows) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt -o %output
-// (not MAC and not Windows) RUN-EXEC-PIPE-139: %run %run_opt %output %run_args 2>&1 | compare %f
-// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// (MAC and not iOS) RUN-EXEC-139: %run %run_opt %output %run_args
-// (not Windows) ASSERT:scan SIGSEGV
+// (!host_win) EXEC: %clang -c %clang_opt segfault.c -o lib%n.c.cfile.%cffi_suffix
+// (!host_win) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt -o %output
+// (!host_win) RUN-EXEC-PIPE-139: %run %run_opt %output %run_args 2>&1 | compare %f
+// (!host_win & target_android) ASSERT: scan Segmentation fault
+// (!host_win & !target_android) ASSERT: scan SIGSEGV
 
 foreign func foo(): Unit
 
