@@ -10,7 +10,8 @@
 // DEPENDENCE: date_formatter_02.c
 // (Windows) DEPENDENCE: ../zoneinfo.tar.gz
 // (Windows) EXEC: tar -xf zoneinfo.tar.gz
-// EXEC: %clang %clang_opt date_formatter_02.c -o libdate_formatter_02.%test_suffix
+// ((target_ios | target_ios_simulator)) EXEC: %clang %clang_opt -c date_formatter_02.c
+// (!(target_ios | target_ios_simulator)) EXEC: %clang %clang_opt date_formatter_02.c -o libdate_formatter_02.%test_suffix
 // EXEC: %compiler %cmp_opt -L . -l date_formatter_02 %f -o %output
 // (Windows) RUN-EXEC-PIPE-0: %export "CJ_TZPATH=%cd%/zoneinfo" && %run %run_opt %output %run_args | compare %f
 // (not Windows)RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
