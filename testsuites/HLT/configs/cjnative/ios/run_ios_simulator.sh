@@ -7,6 +7,11 @@
 
 set -xe
 
+# 暂时禁止stdout/stderr
+exec 3>&1
+exec 4>&2
+exec >/dev/null 2>&1
+
 WORKSPACE=$(cd `dirname $0`; pwd)
 if [ -z ${XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST} ]; then
     XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST=${WORKSPACE}/xcode_project_of_cangjie_ios_test/test_cangjie_ios_175.xcodeproj
@@ -62,6 +67,10 @@ echo "done archiving libcangjie_main.a"
 
 rm -f ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
 cp libcangjie_main.a ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
+
+# 重新开启stdou/stderr
+exec 1>&3
+exec 2>&4
 
 ret=255
 if [ -z ${XCODE_DEVICE_UDID_OF_CANGJIE_IOS_TEST} ]; then
