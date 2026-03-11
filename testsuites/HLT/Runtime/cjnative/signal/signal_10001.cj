@@ -7,11 +7,10 @@
  */
 
 // LEVEL: 3
-// (not Windows) EXEC: %compiler %f %cmp_opt -o %output
-// (not MAC and not Windows) RUN-EXEC-PIPE-134: %run %run_opt %output %run_args 2>&1 | compare %f
-// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// (MAC and not iOS) RUN-EXEC-134: %run %run_opt %output %run_args
-// (not Windows) ASSERT:scan SIGABRT
+// (!host_win) EXEC: %compiler %f %cmp_opt -o %output
+// (!host_win) RUN-EXEC-PIPE-134: %run %run_opt %output %run_args 2>&1 | compare %f
+// (!host_win & target_android) ASSERT: scan Aborted
+// (!host_win & !target_android) ASSERT: scan SIGABRT
 
 foreign func abort(): Unit
 
