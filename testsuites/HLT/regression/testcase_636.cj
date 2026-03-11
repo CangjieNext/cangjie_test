@@ -9,12 +9,13 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// (not MAC) ASSERT: regex OverflowException
-// (MAC) ASSERT: regex StackOverflowError
+// (!target_mac) ASSERT: regex OverflowException: mul
+// (target_mac) ASSERT: regex StackOverflowError
 
 // The actual result could either be OverflowException or StackOverflowError,
 // depends on the stack size, so it's better to fix stack size and make the
 // output stable in all aspects
+
 func factorial(n: Int64): Int64 {
     if (n == 1) {
         return 1;
