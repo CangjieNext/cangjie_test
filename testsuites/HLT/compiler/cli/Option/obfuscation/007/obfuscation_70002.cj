@@ -7,20 +7,20 @@
  */
 
 // LEVEL: 0
-// DEPENDENCE: test.sh test.cfg
+// DEPENDENCE: check.py test.cfg
 
 // obf_all with cfg.
-// (not Windows) EXEC: %compiler %cmp_opt %obf_all --obf-seed 100 --obf-level 9 --obf-config=test.cfg %save_temps %f -o %output
-// (not Windows) EXEC: %disassembler obf_me.opt.bc -o opt.ll
-// (not Windows) RUN-EXEC: %run %run_opt %output %run_args
+// (!host_win) EXEC: %compiler %cmp_opt %obf_all --obf-seed 100 --obf-level 9 --obf-config=test.cfg %save_temps %f -o %output
+// (!host_win) EXEC: %disassembler obf_me.opt.bc -o opt.ll
+// (!host_win) RUN-EXEC: %run %run_opt %output %run_args
 
 // obf_all without cfg.
-// (not Windows) EXEC: %compiler %cmp_opt %obf_all --obf-seed 100 --obf-level 9 %save_temps %f -o %output
-// (not Windows) EXEC: %disassembler obf_me.opt.bc -o obf.ll
-// (not Windows) RUN-EXEC: %run %run_opt %output %run_args
+// (!host_win) EXEC: %compiler %cmp_opt %obf_all --obf-seed 100 --obf-level 9 %save_temps %f -o %output
+// (!host_win) EXEC: %disassembler obf_me.opt.bc -o obf.ll
+// (!host_win) RUN-EXEC: %run %run_opt %output %run_args
 
 // obf cf bogus
-// (not OHOS and not Windows) EXEC: bash test.sh `cat obf.ll | grep -o br | wc -l` `cat opt.ll | grep -o br | wc -l`
+// (!host_win) EXEC: %python check.py `cat obf.ll | grep -o br | wc -l` `cat opt.ll | grep -o br | wc -l`
 
 package obf_me
 
