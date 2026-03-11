@@ -71,9 +71,9 @@ def modify(data):
         # raise Exception("[错误] 已存在 cangjie_main 函数")
 
     modified = data + cangjie_main_start
-    pattern_main = r'^(main\s*\(\)\s*(?::\s*([^\s\{]+)\s*)?\{)'
+    pattern_main = r'(^\s*main\s*\(\)\s*(?::\s*([^\s\{]+)\s*)?\{)'
     matches_main = re.findall(pattern_main, data, re.M)
-    pattern_unsafe_main = r'^(unsafe\s*main\s*\(\)\s*(?::\s*([^\s\{]+)\s*)?\{)'
+    pattern_unsafe_main = r'(^\s*unsafe\s*main\s*\(\)\s*(?::\s*([^\s\{]+)\s*)?\{)'
     matches_unsafe_main = re.findall(pattern_unsafe_main, data, re.M)
 
     if len(matches_main) + len(matches_unsafe_main) > 1:
@@ -143,6 +143,7 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
                 # %n为测试头所在文件的不带后缀名的文件名
                 content = content.replace('%n', test_info_file_path.stem)
                 l = re.split(r'[,\s]+', content)
+                print_log('l = {}'.format(l))
                 for i in l:
                     dependency_list.append(Path(Path(i).name))
                 # 一般一个info文件中只会有一个DEPENDENCE声明，找到第一个处理完后就可以不往下看了
@@ -151,21 +152,27 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
                 # 该行没有DEPENDENCE，继续看下一行
                 pass
 
+
+    print_log('dependency_list = {}'.format(dependency_list))
     # 逐个文件打开确认是否包含main
     main_file_list: List[Path] = list()
     main_file_list.append(test_info_file_path)
-    pattern_main = r'^(main\s*\(\s*(.*?)\s*\)\s*:?\s*(.*?)\s*\{)(?!\})'
+    # pattern_main = r'(^\s*main\s*\(\s*(.*?)\s*\)\s*:?\s*(.*?)\s*\{)(?!\})'
+    pattern_main = r'(^\s*main\s*\(\)\s*(?::\s*([^\s\{]+)\s*)?\{)'
     for dependency_path in dependency_list:
         # 不存在就跳过
         if not dependency_path.exists():
             continue
         elif dependency_path.is_file():
+            print_log('reading {}'.format(dependency_path))
             # 这个依赖是个文件，直接读取
             try:
                 with open(dependency_path, 'r', encoding='utf-8') as f:
                     content = f.read()
-                    if re.findall(pattern_main, content):
-                        main_file_list.append(dependency_path)
+                    print_log('content = {}'.format(content))
+                    # if re.findall(pattern_main, content):
+                        # main_file_list.append(dependency_path)
+                    main_file_list.append(dependency_path)
             except Exception as e:
                 # 如果读取失败就不对这个文件进行确认了
                 pass
@@ -176,8 +183,9 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
                     try:
                         with open(file_path, 'r', encoding='utf-8') as f:
                             content = f.read()
-                            if re.findall(pattern_main, content):
-                                main_file_list.append(file_path)
+                            # if re.findall(pattern_main, content):
+                            #     main_file_list.append(file_path)
+                            main_file_list.append(file_path)
                     except Exception as e:
                         # 如果读取失败就不对这个文件进行确认了
                         pass
