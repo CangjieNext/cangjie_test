@@ -10,17 +10,6 @@ package com;
 
 import com.example.myapplication.Logger;
 
-interface I1 {
-  public I1 foo();
-
-  public int goo(I1 a);
-
-  public static int bar() {
-    Logger.println("in I1 bar");
-    return 1;
-  }
-}
-
 public class JavaClass implements I1 {
   public JavaClass() {
     Logger.println("in JavaClass Init");
