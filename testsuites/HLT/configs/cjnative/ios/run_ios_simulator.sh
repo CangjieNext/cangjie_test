@@ -5,7 +5,7 @@
 #
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-set -xe
+set +xe
 
 WORKSPACE=$(cd `dirname $0`; pwd)
 if [ -z ${XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST} ]; then
@@ -32,33 +32,33 @@ if [ -z ${IS_UNINSTALL_ON_SIMULATOR} ]; then
     IS_UNINSTALL_ON_SIMULATOR=true
 fi
 
-echo "recursively archiving all .a files..."
+# echo "recursively archiving all .a files..."
 
 CWD=$(pwd)
 TEMP_DIR="$CWD/merge_temp"
 mkdir -p "$TEMP_DIR"
 
 find . -name "*.a" -type f | grep -v "libcangjie_main.a" | while read -r file; do
-    echo "extracting archive: $file"
+    # echo "extracting archive: $file"
     (cd "$(dirname "$file")" && ls -la && ar x "$(basename "$file")" && mv *.o "$TEMP_DIR/" 2>/dev/null || true)
 done
 
 if [ "$(ls -A "$TEMP_DIR"/*.o 2>/dev/null)" ]; then
-    echo "archiving all object files in temp directory into libcangjie_main.a"
+    # echo "archiving all object files in temp directory into libcangjie_main.a"
     ar r libcangjie_main.a "$TEMP_DIR"/*.o &> /dev/null || true
-else
-    echo "no object files found in temp directory: $TEMP_DIR"
+# else
+#     echo "no object files found in temp directory: $TEMP_DIR"
 fi
 
 if [ "$(ls -A "$CWD"/*.o 2>/dev/null)" ]; then
-    echo "archiving all object files in current working directory into libcangjie_main.a"
+    # echo "archiving all object files in current working directory into libcangjie_main.a"
     ar r libcangjie_main.a "$CWD"/*.o &> /dev/null || true
-else
-    echo "no object files found in current working directory: $CWD"
+# else
+#     echo "no object files found in current working directory: $CWD"
 fi
 
 rm -rf "$TEMP_DIR"
-echo "done archiving libcangjie_main.a"
+# echo "done archiving libcangjie_main.a"
 
 rm -f ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
 cp libcangjie_main.a ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
@@ -85,4 +85,5 @@ else
     fi
     ret=$?
 fi
+
 exit ${ret}

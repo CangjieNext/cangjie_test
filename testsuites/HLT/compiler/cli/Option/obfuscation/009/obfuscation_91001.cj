@@ -13,8 +13,8 @@
 // EXEC: cat default.obf.map | compare %f
 // ASSERT: regex .*default.*test_default.*newobf_func.*
 // ASSERT: regex .*default.*global_default.*newobf_var.*
-// (not iOS) ASSERT: regex .*default.*<main>.*newobf_main.*
-// (iOS) ASSERT: regex .*default.*cj_main.*newobf_main.*
+// due to the fact that when targeting iOS, there would be no main, this item would not be checked.
+// (!(target_ios | target_ios_simulator)) ASSERT: regex .*default.*<main>.*newobf_main.*
 
 public var global_default: Int64 = 1
 
