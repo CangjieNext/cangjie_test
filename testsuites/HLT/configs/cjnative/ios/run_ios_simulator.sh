@@ -6,6 +6,7 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 set -xe
+exec >/dev/null 2>&1
 
 WORKSPACE=$(cd `dirname $0`; pwd)
 if [ -z ${XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST} ]; then

@@ -223,6 +223,11 @@ def main():
             raise Exception(f"Failed to run app: '{run_app_cmd}', return code: {return_code}!")
         com_out = com_out.replace('\r\n', '\n').replace('\r', '\n')
         com_err = com_err.replace('\r\n', '\n').replace('\r', '\n')
+        
+        # 读取日志内容
+        with open('ios_sim.log', 'r', encoding='utf-8') as f:
+            cangjie_runtime_log_lines = (line.rstrip('\n') for line in f if '[CANGJIE:RUNTIME]' in line)
+            sys_log_content = '\n'.join(cangjie_runtime_log_lines)
 
         if not args.objcffi:
             if "cj_main_return_start" in com_out and "cj_main_return_end" in com_out:
@@ -231,39 +236,21 @@ def main():
                 com_out = com_out.split("cj_main_return_start")[0] + com_out.split("cj_main_return_end")[1]
             else:
                 # 如果没有找到cj_main_return_start/cj_main_return_end可能是因为全局抛出异常导致的
-                # 读取日志内容
-                with open('ios_sim.log', 'r', encoding='utf-8') as f:
-                    cangjie_runtime_log_lines = (line.rstrip('\n') for line in f if '[CANGJIE:RUNTIME]' in line)
-                    sys_log_content = '\n'.join(cangjie_runtime_log_lines)
                 if 'Init Image fail! exception occurrence when init image' in sys_log_content:
                     # 全局静态初始化过程中抛出异常，退出码改为1，并将日志内容输出到标准输出流
-                    sys.stdout.write(sys_log_content)
-                    sys.stdout.write(com_out)
-                    sys.stderr.write(com_err)
-                    if args.uninstall:
-                        uninstall_app(args.device_type, udid, args.bundle_id)
-                    sys.exit(1)
+                    return_code = 1
                 elif 'CJNative Handle signal: 11.' in sys_log_content:
                     # SIGSEGV(11) -> 139
-                    sys.stdout.write(sys_log_content)
-                    sys.stdout.write(com_out)
-                    sys.stderr.write(com_err)
-                    if args.uninstall:
-                        uninstall_app(args.device_type, udid, args.bundle_id)
-                    sys.exit(139)
+                    return_code = 139
                 elif 'CJNative Handle signal: 6.' in sys_log_content:
                     # SIGABRT(6) -> 134
-                    sys.stdout.write(sys_log_content)
-                    sys.stdout.write(com_out)
-                    sys.stderr.write(com_err)
-                    if args.uninstall:
-                        uninstall_app(args.device_type, udid, args.bundle_id)
-                    sys.exit(134)
+                    return_code = 134
                 else:
                     # 其他未知原因
                     raise Exception(f"Error: The 'cj_main_return_start' and 'cj_main_return_end' were not found, please check cangjie main function!")
         sys.exit(return_code)
     finally:
+        sys.stdout.write(sys_log_content)
         sys.stdout.write(com_out)
         sys.stderr.write(com_err)
         if args.uninstall:
