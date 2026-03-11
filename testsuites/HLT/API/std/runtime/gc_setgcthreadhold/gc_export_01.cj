@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output 
-// (CJNATIVE) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT:scan The threshold must be greater than 0.
+// EXEC: %compiler %cmp_opt %f -o %output 
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan The threshold must be greater than 0.
 
 import std.runtime.*
 
