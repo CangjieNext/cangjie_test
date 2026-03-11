@@ -416,3 +416,11 @@ compiler\cjnative\FFI\cffi\c_ffi_099\conflict\conflict_9.cj
 compiler\cli\Option\library\option_library_00001.cj
 compiler\cli\Option\library\option_library_00002.cj
 compiler\cli\Option\library\option_library_00004.cj
+API\std\time\Time\test_parse_050.cj
+API\std\time\Time\test_parse_051.cj
+API\std\time\Time\test_parse_052.cj
+API\std\time\Time\test_parse_053.cj
+API\std\time\Time\test_parse_054.cj
+API\std\time\Time\test_parse_055.cj
+compiler\cjnative\FFI\cffi\c_ffi_005\c_ffi_00516n\c_ffi.cj
+compiler\cjnative\FFI\cffi\c_ffi_012\c_ffi_01201\c_ffi_main.cj
