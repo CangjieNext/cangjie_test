@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../impl-method-static-java
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd impl-method-static-java && cjc %compile_shared_lib_opt -p src/cj %import_java_interop_st --output-javagen-dir=src/java/cj
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd impl-method-static-java && %javac %cp_cj_loader_java_interop src/java/com/java/lib/Main.java src/java/cj/Impl.java -h ./ -d ./
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd impl-method-static-java && %run_macro %java %cp_cj_loader_java_interop -Djava.library.path./ com.java.lib.Main 2>& 1 | compare %f
+
+/* SCAN-IN
+cangjie: Impl.foo()
+*/
