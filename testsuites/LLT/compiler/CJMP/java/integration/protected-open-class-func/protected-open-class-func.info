@@ -1,4 +1,4 @@
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
 // with Runtime Library Exception.
 //
@@ -9,6 +9,8 @@
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && %cat ./src/java/cj/A.java | grep 'protected' |  compare %f
 
 /* SCAN-IN
+    protected A(int i) {
+    protected native long initCJObjecti(long overrideMask, int i);
     protected void foo() {
     protected native void foo(long self);
 */
