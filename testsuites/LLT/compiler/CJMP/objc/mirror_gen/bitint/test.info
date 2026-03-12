@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+// DEPENDENCE: test.h
+// EXEC: ObjCInteropGen %test_toml
+// EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+@C
+public struct M {
+    public var a: UInt8 /*unsigned _BitInt(1)*/ = 0
+    public var b: Int8 /*_BitInt(2)*/ = 0
+    public var c: Int64 /*_BitInt(64)*/ = 0
+    public var d: ObjCInt128 /*_BitInt(100)*/ = ObjCInt128()
+}
+*/
