@@ -72,7 +72,7 @@ error: 'fnc' doesn't support mocking, please be sure that its package 'default' 
   ==> main_test.cj:22:9:
    | 
 22 |     @On(fnc()).returns(54)
-   |         ^ 
+   |         ^^^^^ 
    | 
 */
 
@@ -81,7 +81,7 @@ error: 'cnst' doesn't support mocking, please be sure that its package 'default'
   ==> main_test.cj:28:9:
    | 
 28 |     @On(cnst).returns(54)
-   |         ^ 
+   |         ^^^^ 
    | 
 */
 
@@ -90,7 +90,7 @@ error: 'vr' doesn't support mocking, please be sure that its package 'default' i
   ==> main_test.cj:34:9:
    | 
 34 |     @On(vr).returns(54)
-   |         ^ 
+   |         ^^ 
    | 
 */
 
@@ -99,7 +99,7 @@ error: 'vr' doesn't support mocking, please be sure that its package 'default' i
   ==> main_test.cj:40:9:
    | 
 40 |     @On(vr = _).doesNothing()
-   |         ^ 
+   |         ^^^^ 
    | 
 */
 
@@ -108,7 +108,7 @@ error: 'fnc' doesn't support mocking, please be sure that its package 'default' 
   ==> main_test.cj:47:9:
    | 
 47 |     @On(C.fnc()).returns(54)
-   |         ^ 
+   |         ^^^^^^^ 
    | 
 */
 
@@ -117,7 +117,7 @@ error: 'cnst' doesn't support mocking, please be sure that its package 'default'
   ==> main_test.cj:53:9:
    | 
 53 |     @On(C.cnst).returns(54)
-   |         ^ 
+   |         ^^^^^^ 
    | 
 */
 
@@ -126,7 +126,7 @@ error: 'vr' doesn't support mocking, please be sure that its package 'default' i
   ==> main_test.cj:59:9:
    | 
 59 |     @On(C.vr).returns(54)
-   |         ^ 
+   |         ^^^^ 
    | 
 */
 
@@ -135,6 +135,6 @@ error: 'vr' doesn't support mocking, please be sure that its package 'default' i
   ==> main_test.cj:65:9:
    | 
 65 |     @On(C.vr = _).doesNothing()
-   |         ^ 
+   |         ^^^^^^ 
    | 
 */
