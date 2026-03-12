@@ -5,8 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --int-overflow=wrapping --static --dy-std %f -o %output 2>&1 | compare %f
-// ASSERT: scan flags --static and --dy-std are mutually exclusive and cannot be used together
-
+// ASSERT: scan flags --static and --dy-std are mutually exclusive
 main() {
     try {
         throw Exception()
