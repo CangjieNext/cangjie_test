@@ -14,7 +14,6 @@
   compile-option = ""
   #override-compile-option = "-V"
   link-option = ""
-  package-configuration = {}
 
 [profile]
  experimental = true
