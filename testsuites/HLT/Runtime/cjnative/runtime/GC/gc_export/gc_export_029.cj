@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %overflow_wrapping %f -o %output
-// (not OHOS and not iOS) RUN-EXEC-PIPE: %export MRT_LOG_LEVEL=i && %run %run_opt %output %run_args | compare %f
+// (!target_oho & !target_android & !target_ios & !target_ios_simulator) RUN-EXEC-PIPE: %export MRT_LOG_LEVEL=i && %run %run_opt %output %run_args | compare %f
 // ASSERT:scan gcThreshold is set to 234234234 KB.
 
 import std.runtime.*

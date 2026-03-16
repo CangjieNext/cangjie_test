@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: test.toml
 // (iOSNative) ERRCHECK: %mirror_gen test.toml
-// ASSERT: scan cannot redefine existing array 'imports'
+// ASSERT: scan Multiple same key: imports

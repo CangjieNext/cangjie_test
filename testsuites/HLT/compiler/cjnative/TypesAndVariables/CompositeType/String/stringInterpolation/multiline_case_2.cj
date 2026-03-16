@@ -2,15 +2,13 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args| compare %f
-// ASSERT: scan-begin test_hello
-// ASSERT: scan-next world
+// RUN-EXEC: %run %run_opt %output %run_args
 
 main(): Int64 {
     var s1 = """
@@ -20,6 +18,11 @@ is multiline"""
 hello
 world"""
     let s2 = "test_${s1}"
-    print(s2)
-    return 0
+    if (s2 == """
+test_hello
+world""") {
+        0
+    } else {
+        1
+    }
 }

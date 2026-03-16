@@ -22,8 +22,8 @@ import java.lang.*
 @JavaImpl
 public class CangjieInvoke <: JObject {
     public init() {
-        let ref_01 = ref01()
-        let ref_02 = ref02()
+        let ref_01 = Ref01()
+        let ref_02 = Ref02()
         let class_01 = ReturnType()
         class_01.foo(ref_01)
         class_01.goo(ref_02)

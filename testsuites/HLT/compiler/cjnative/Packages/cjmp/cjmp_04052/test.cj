@@ -8,7 +8,7 @@
  
 // LEVEL: 0
 // ERRCHECK: %compiler %cmp_opt %f -o %output
-// ASSERT: scan parse_specific_in_non_specific_file
+// ASSERT: scan parse_unexpected_cjmp_decl
 
 public specific class A {
     public static var a: Int64

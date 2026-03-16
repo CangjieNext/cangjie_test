@@ -6,8 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// (CJNATIVE and not OHOS) LEVEL: 2
-// (CJNATIVE and not OHOS) ERRCHECK: %compiler %cmp_opt %f --plugin=../ -o %output
-// (CJNATIVE and not OHOS) ASSERT: scan '--plugin' only accepts an existing dynamic library path.
+// LEVEL: 2
+// (!(host_win | target_ohos)) EXEC-PIPE-1: %compiler %cmp_opt %f --plugin=../ -o %output 2>&1 | compare %f
+// (!(host_win | target_ohos)) ASSERT: scan '--plugin' only accepts an existing dynamic library path.
 
 main() {}
