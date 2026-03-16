@@ -22,7 +22,7 @@ public class A extends M {
 
     long self;
 
-    A() {
+    public A() {
         super(1);
         self = initCJObject();
     }
@@ -33,7 +33,7 @@ public class A extends M {
 
     public native long initCJObject();
 
-    A(long x) {
+    public A(long x) {
         super(x, x);
         self = initCJObjectl(x);
     }
@@ -102,11 +102,11 @@ public open class M {
 
 @JavaImpl["A"]
 public class A <: M {
-    init() {
+    public init() {
         super(1)
         println("Hello from Cangjie!")
     }
-    init(x: Int) {
+    public init(x: Int) {
         super(x, x)
     }
 

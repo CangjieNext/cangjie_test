@@ -40,7 +40,7 @@ public class A extends M {
         super();
     }
 
-    public native long initCJObjectll(long x, long y);
+    native long initCJObjectll(long x, long y);
 
     A() {
         super(superC3A0(), superC3A1());
@@ -51,7 +51,7 @@ public class A extends M {
         super(superC3A0(), superC3A1());
     }
 
-    public native long initCJObject();
+    native long initCJObject();
 
     public static native A superC3A0();
     public static native M superC3A1();
@@ -64,7 +64,7 @@ public class A extends M {
         super(superC4A0());
     }
 
-    public native long initCJObjecti(int x);
+    native long initCJObjecti(int x);
 
     public static native A superC4A0();
     public void f(M arg) {
