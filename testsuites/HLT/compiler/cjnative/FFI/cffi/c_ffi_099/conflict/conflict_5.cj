@@ -10,7 +10,7 @@
 // DEPENDENCE: foo.c
 // EXEC: %clang %clang_opt foo.c -o %cffi_output
 // EXEC: %compiler %cmp_opt %ffic_opt -o %output
-// RUN-EXEC-PIPE: %set LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH %run %run_opt %output %run_args | compare %f
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan hello
 
 package test

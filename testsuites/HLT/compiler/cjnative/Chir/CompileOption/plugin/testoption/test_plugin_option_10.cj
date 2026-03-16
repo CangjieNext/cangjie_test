@@ -6,11 +6,11 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// (CJNATIVE and not OHOS) LEVEL: 2
-// (CJNATIVE and not OHOS) DEPENDENCE: CMakeLists.txt, ./src, const.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %cmp_opt %compile_dylib_opt const.cj -o libsourcecode.%dylib_suffix
-// (CJNATIVE and not OHOS) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
-// (CJNATIVE and not OHOS) EXEC: %compiler %cmp_opt %f -L. -lsourcecode %enableConstPropagation --plugin=./output/libmyplugin1.%dylib_suffix -o %output
+// LEVEL: 2
+// (!(host_win | target_ohos)) DEPENDENCE: CMakeLists.txt, ./src, const.cj
+// (!(host_win | target_ohos)) EXEC: %compiler %cmp_opt %compile_dylib_opt const.cj -o libsourcecode.%dylib_suffix
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC: %compiler %cmp_opt %f -L. -lsourcecode %enableConstPropagation --plugin=./output/libmyplugin1.%host_dylib_suffix -o %output
 
 import sourcecode.*
 

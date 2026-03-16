@@ -7,11 +7,11 @@
  */
 
 // LEVEL: 0
-// (not g and not OHOS and not iOS) EXEC: %compiler %cmp_opt %obf_layout %f -o %output
-// (not g and not OHOS and not iOS) RUN-EXEC: %run %run_opt %output %run_args > stack_obf.log 2>&1
-// (not g and not OHOS and not iOS) ERRCHECK: %cjtrace_recover -f stack_obf.log -m default.obf.map
-// (not g and not OHOS) ASSERT: scan The buffer is empty.
-// (not g and not OHOS) ASSERT: scan Error: failed to read file 'stack_obf.log'
+// (!g & !target_ohos & !target_android & !target_ios & !target_ios_simulator) EXEC: %compiler %cmp_opt %obf_layout %f -o %output
+// (!g & !target_ohos & !target_android & !target_ios & !target_ios_simulator) RUN-EXEC: %run %run_opt %output %run_args > stack_obf.log 2>&1
+// (!g & !target_ohos & !target_android & !target_ios & !target_ios_simulator) ERRCHECK: %cjtrace_recover -f stack_obf.log -m default.obf.map
+// (!g & !target_ohos & !target_android & !target_ios & !target_ios_simulator) ASSERT: scan The buffer is empty.
+// (!g & !target_ohos & !target_android & !target_ios & !target_ios_simulator) ASSERT: scan Error: failed to read file 'stack_obf.log'
 
 class A {
     var a = 1

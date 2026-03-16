@@ -8,31 +8,31 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
-// (Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 1>log.txt && bash -c "dos2unix log.txt" && bash -c "cat log.txt" | compare %f
-// (not iOS) ASSERT: scan-2 1
-// ASSERT: scan-2 2
-// ASSERT: scan-2 3
-// (iOS) ASSERT: scan-2 4
+// (!host_win) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// (host_win) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 1>log.txt && bash -c "dos2unix log.txt" && bash -c "cat log.txt" | compare %f
+// (!target_ios & !target_ios_simulator) ASSERT: scan-2 thread id = 1
+// ASSERT: scan-2 thread id = 2
+// ASSERT: scan-2 thread id = 3
+// (target_ios | target_ios_simulator) ASSERT: scan-2 thread id = 4
 
 import std.sync.SyncCounter
 
 main(): Int64 {
     let ct = Thread.currentThread
     let fut1 = spawn {
-        println(Thread.currentThread.id)
-        println(ct.id)
+        println("thread id = ${Thread.currentThread.id}")
+        println("thread id = ${ct.id}")
     }
 
     let fut2 = spawn {
-        println(Thread.currentThread.id)
-        println(ct.id)
+        println("thread id = ${Thread.currentThread.id}")
+        println("thread id = ${ct.id}")
     }
     fut1.get()
     fut2.get()
 
-    println(fut1.thread.id)
-    println(fut2.thread.id)
+    println("thread id = ${fut1.thread.id}")
+    println("thread id = ${fut2.thread.id}")
 
     return 0
 }

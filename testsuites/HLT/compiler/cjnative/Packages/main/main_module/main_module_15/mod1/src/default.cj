@@ -8,18 +8,10 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../../mod1
-// (CJNATIVE) EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src/p2 -o pB.o %compile_lib_opt
-// (CJNATIVE) EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src/p1 -o pA.o %compile_lib_opt
-// (CJNATIVE) EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src -o ./ pA.o pB.o
-
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src/p2 -o pB.bc %compile_lib_opt
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src/p1 -o pA.bc %compile_lib_opt
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src -o ./ pB.bc pA.bc
-
-// (JS) EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src/p2 -o p2.js %compile_lib_opt
-// (JS) EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src/p1 -o p1.js %compile_lib_opt
-// (JS) EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src
-// RUN-EXEC: %run_pkg %run_opt %main %run_args
+// EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src/p2 -o libpB.%middle %compile_lib_opt
+// EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src/p1 -o libpA.%middle %compile_lib_opt
+// EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src -o ./ libpA.%middle libpB.%middle
+// RUN-EXEC: %run %run_opt %main %run_args
 
 package d
 

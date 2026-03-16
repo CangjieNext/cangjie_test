@@ -10,4 +10,4 @@
 // DEPENDENCE: mp
 // EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
 // ERRCHECK: %compiler %cmp_opt mp/test_plat.cj %compile_dylib_opt_cjmp -o ./
-// ASSERT: scan-1 parse_common_in_non_common_file
+// ASSERT: scan redefinition of declaration 'C'

@@ -6,15 +6,15 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// (CJNATIVE and not OHOS) LEVEL: 2
-// (CJNATIVE and not OHOS) DEPENDENCE: ../runplugin/plugin1, ../runplugin/plugin2
-// (CJNATIVE and not OHOS) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin1/build && cd plugin1/build && cmake .. && make clean && make && make install
-// (CJNATIVE and not OHOS) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin2/build && cd plugin2/build && cmake .. && make clean && make && make install
-// (CJNATIVE and not OHOS) EXEC: %mv ./plugin1/output/libplugin1.%dylib_suffix ./
-// (CJNATIVE and not OHOS) EXEC: %mv ./plugin2/output/libplugin2.%dylib_suffix ./
-// (CJNATIVE and not OHOS) EXEC-PIPE: %compiler %cmp_opt %f --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin1.%dylib_suffix --plugin=libplugin2.%dylib_suffix --plugin=libplugin1.%dylib_suffix -o %output | compare %f
-// (CJNATIVE and not OHOS) ASSERT: scan-19 Found 1 Packages
-// (CJNATIVE and not OHOS) ASSERT: scan Found 1 Funcs
+// LEVEL: 2
+// (!(host_win | target_ohos)) DEPENDENCE: ../runplugin/plugin1, ../runplugin/plugin2
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin1/build && cd plugin1/build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir plugin2/build && cd plugin2/build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC: %mv ./plugin1/output/libplugin1.%host_dylib_suffix ./
+// (!(host_win | target_ohos)) EXEC: %mv ./plugin2/output/libplugin2.%host_dylib_suffix ./
+// (!(host_win | target_ohos)) EXEC-PIPE: %compiler %cmp_opt %f --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix --plugin=libplugin2.%host_dylib_suffix --plugin=libplugin1.%host_dylib_suffix -o %output | compare %f
+// (!(host_win | target_ohos)) ASSERT: scan-19 Found 1 Packages
+// (!(host_win | target_ohos)) ASSERT: scan Found 1 Funcs
 
 /*
     description：校验加载的插件数量

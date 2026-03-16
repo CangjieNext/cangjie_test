@@ -8,11 +8,10 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
-// (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
-// (Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 1>log.txt && bash -c "dos2unix log.txt" && bash -c "cat log.txt" | compare %f
-// (CJNATIVE and not iOS) ASSERT: scan-2 2
-// (CJNATIVE and iOS) ASSERT: scan-2 3
-// (not CJNATIVE) ASSERT: scan-2 1
+// (!host_win) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// (host_win) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 1>log.txt && bash -c "dos2unix log.txt" && bash -c "cat log.txt" | compare %f
+// (!target_ios & !target_ios_simulator) ASSERT: scan-2 thread id = 2
+// (target_ios | target_ios_simulator) ASSERT: scan-2 thread id = 3
 
 import std.sync.SyncCounter
 
@@ -23,10 +22,10 @@ class A {
 main(): Int64 {
     let a = A()
     let fut1 = spawn {
-        println(Thread.currentThread.id)
+        println("thread id = ${Thread.currentThread.id}")
     }
     fut1.get()
     let thread1 = fut1.thread
-    println(thread1.id)
+    println("thread id = ${thread1.id}")
     return 0
 }
