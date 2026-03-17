@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: main.cj my_utils.cj
+// EXEC: %compiler %cmp_opt my_utils.cj --output-type=dylib
+// EXEC: %compiler %cmp_opt -Woff=all -L. -lmy_utils main.cj --dy-std --import-path %cangjie-dynamic-stdx-path -L %cangjie-dynamic-stdx-path -lstdx.encoding.json -o %output
+// RUN-EXEC: %run_stdx %run_opt %output %run_args
+// EXEC-PIPE: %check-dylib-dep %output | compare %f
+
+// (target_linux) ASSERT: scan-not libboundscheck.so
+// (target_linux) ASSERT: scan-not libcangjie-runtime.so
+// (target_linux) ASSERT: scan-not libcangjie-dynamicLoader-opensslFFI.so
+// (target_linux) ASSERT: scan-not libdl.so
+// (target_linux) ASSERT: scan-not libpthread.so
+// (target_linux) ASSERT: scan-not libpcre2-8.so
+// (target_linux) ASSERT: scan-not libmy_utils.so
+
+// (target_mac) ASSERT: scan-not @rpath/libboundscheck.dylib
+// (target_mac) ASSERT: scan-not @rpath/libcangjie-runtime.dylib
+// (target_mac) ASSERT: scan-not @rpath/libcangjie-dynamicLoader-opensslFFI.dylib
+// (target_mac) ASSERT: scan-not libmy_utils.dylib
+
+// (target_win) ASSERT: scan-not libboundscheck.dll
+// (target_win) ASSERT: scan-not libmy_utils.dll
+
+
+// Windows平台上必带有的动态库
+// (target_win) ASSERT: scan msvcrt.dll
+// (target_win) ASSERT: scan KERNEL32.dll
+
+// 动态链接标准库时仓颉runtime将被动态链接
+// (target_win) ASSERT: scan libcangjie-runtime.dll
+
