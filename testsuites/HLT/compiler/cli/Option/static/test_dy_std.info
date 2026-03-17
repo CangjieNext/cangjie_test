@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: main.cj my_utils.cj
+// EXEC: %compiler %cmp_opt my_utils.cj --output-type=dylib
+// EXEC: %compiler %cmp_opt -Woff=all -L. -lmy_utils main.cj --dy-std --import-path %cangjie-dynamic-stdx-path -L %cangjie-dynamic-stdx-path -lstdx.encoding.json -o %output
+// RUN-EXEC: %run_stdx %run_opt %output %run_args
+// EXEC-PIPE: %check-dylib-dep %output | compare %f
+
+// 用户库将被动态链接
+// (target_win) ASSERT: scan libmy_utils.dll
+// (target_linux) ASSERT: scan libmy_utils.so
+// (target_mac) ASSERT: scan libmy_utils.dylib
+
+// boundscheck将被动态链接
+// (target_linux) ASSERT: scan libboundscheck.so
+// (target_mac) ASSERT: scan @rpath/libboundscheck.dylib
+// (target_win) ASSERT: scan libboundscheck.dll
+
+// Windows平台上必带有的动态库
+// (target_win) ASSERT: scan msvcrt.dll
+// (target_win) ASSERT: scan KERNEL32.dll
+
+// MacOS平台必带有的动态库
+
+// Linux平台必带有的动态库
+// (target_linux) ASSERT: scan libdl.so
+// (target_linux) ASSERT: scan libpthread.so
+
+// 动态链接标准库时仓颉runtime将被动态链接
+// (target_linux) ASSERT: scan libcangjie-runtime.so
+// (target_mac) ASSERT: scan @rpath/libcangjie-runtime.dylib
+// (target_win) ASSERT: scan libcangjie-runtime.dll
+
+// stdx库被动态链接
+// (target_linux) ASSERT: scan libstdx.encoding.json.so
+// (target_mac) ASSERT: scan @rpath/libstdx.encoding.json.dylib
+// (target_win) ASSERT: scan libstdx.encoding.json.dll
