@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../Cangjie.h cj cpp java
+// EXEC: mkdir -p build/classes
+// EXEC: mkdir -p build/lib
+// EXEC: cp %cangjie-home/runtime/lib/linux_x86_64_cjnative/libcangjie-runtime.so build/lib
+// EXEC: cp %cangjie-home/runtime/lib/linux_x86_64_cjnative/libsecurec.so build/lib
+// EXEC: clang++ -std=c++17 -fPIC -shared cpp/call_cangjie.cpp -Icpp -I %java-home/include -I %java-home/include/linux -o build/lib/libjni_native.so -Lbuild/lib -lcangjie-runtime -lsecurec -pthread
+// EXEC: %compiler cj/javaCallcj.cj --output-type=dylib --output-dir build/lib -Lbuild/lib -ljni_native
+// EXEC: javac -d build/classes java/*.java
+// RUN-EXEC: %export LD_LIBRARY_PATH=build/lib:$LD_LIBRARY_PATH && java -Djava.library.path=build/lib -cp build/classes Main
