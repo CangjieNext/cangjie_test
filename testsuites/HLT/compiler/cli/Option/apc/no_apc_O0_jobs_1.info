@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DESC: 测试基础场景：不指定--apc，O0优化时默认开启后端并行，并行度由--jobs=N控制，当N=1时后端并行度为1
+// DEPENDENCE: gen_src.py check.py
+// EXEC: %python gen_src.py
+// EXEC: %compiler %cmp_opt --dump-ir main.cj -O0 --jobs 1 -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+// 当前，目标平台为Windows或MacOS或iOS时，不支持开启后端并行
+// (target_win | target_mac) EXEC: %python check.py --dir_path "%n"_IR/3_GenTypeInfos --expected_count 1
+// (target_ios | target_ios_simulator) EXEC: %python check.py --dir_path libcangjie_main_IR/3_GenTypeInfos --expected_count 1
+
+// 目标平台为Linux或OHOS或Android时，支持开启后端并行，不过此处并行度为1
+// (target_linux | target_ohos | target_android) EXEC: %python check.py --dir_path "%n"_IR/3_GenTypeInfos --expected_count 1
