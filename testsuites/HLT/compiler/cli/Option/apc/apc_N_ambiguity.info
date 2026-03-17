@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DESC: 测试基础场景：不支持"--apc N"的命令行写法，仅支持"--apc=N"或"--apc"
+// DEPENDENCE: gen_src.py check.py
+// EXEC: %python gen_src.py
+// EXEC-PIPE-1: %compiler %cmp_opt --dump-ir main.cj --apc 5 -o %output 2>&1 | compare %f
+// ASSERT: scan invalid file or directory '5'
+// ASSERT: scan Invalid options.
