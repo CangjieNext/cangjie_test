@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: main.cj
+// EXEC: cjc main.cj --import-path %cangjie_stdx_path/dynamic/stdx -L%cangjie_stdx_path/dynamic/stdx -lstdx.crypto.keys -lstdx.crypto.digest -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+// EXEC-PIPE: nm -A %output | compare %f
+// ASSERT: scan-not d2i_X509
