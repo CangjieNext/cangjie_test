@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: gen_src.py check.py
+// EXEC: %python gen_src.py
+// EXEC: %compiler %cmp_opt --dump-ir main.cj --apc=5 -g -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+// 当前Windows和MacOS平台不支持开启后端并行
+// (host_win | host_mac | host_ohos) EXEC: %python check.py --dir_path apc_not_affect_g_0_IR/3_GenTypeInfos --expected_count 1
+// 只有Linux平台支持开启后端并行
+// (host_linux) EXEC: %python check.py --dir_path apc_not_affect_g_0_IR/3_GenTypeInfos --expected_count 5
