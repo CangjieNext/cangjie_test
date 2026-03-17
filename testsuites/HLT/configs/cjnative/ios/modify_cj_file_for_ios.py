@@ -132,6 +132,8 @@ def modify(data):
 # 根据info文件找到真正的入口main所在的那个文件的路径
 def process_info_file(test_info_file_path: Path) -> list[Path]:
     dependency_list: List[Path] = list()
+    cj_files = list(test_info_file_path.parent.glob('*.cj'))
+    dependency_list.extend(cj_files)
     # 测试头所在文件也需要一起被检查是否含有main，且优先被检查所以放第一个
     dependency_list.append(test_info_file_path)
     with open(test_info_file_path, 'r', encoding='utf-8') as f:
