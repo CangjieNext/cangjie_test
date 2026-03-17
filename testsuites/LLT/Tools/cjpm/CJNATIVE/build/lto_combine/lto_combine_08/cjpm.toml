@@ -17,7 +17,6 @@
   src-dir = "src"
   target-dir = ""
   version = "1.0.0"
-  package-configuration = {}
 
 [profile]
   build = { incremental = true, lto = "full", combined = { b = "dynamic" }}
