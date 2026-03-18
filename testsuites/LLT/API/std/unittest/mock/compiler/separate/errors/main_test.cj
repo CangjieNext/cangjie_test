@@ -99,7 +99,7 @@ error: 'vr' doesn't support mocking, please be sure that its package 'default' i
   ==> main_test.cj:40:9:
    | 
 40 |     @On(vr = _).doesNothing()
-   |         ^^^^ 
+   |         ^ 
    | 
 */
 
@@ -135,6 +135,6 @@ error: 'vr' doesn't support mocking, please be sure that its package 'default' i
   ==> main_test.cj:65:9:
    | 
 65 |     @On(C.vr = _).doesNothing()
-   |         ^^^^^^ 
+   |         ^ 
    | 
 */
