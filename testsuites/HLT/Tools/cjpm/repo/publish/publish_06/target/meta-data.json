@@ -1,0 +1,28 @@
+{
+  "organization": "",
+  "name": "dem",
+  "version": "1.0.0",
+  "description": "nothing here",
+  "artifact-type": "src",
+  "executable": false,
+  "authors": [],
+  "repository": "",
+  "homepage": "",
+  "documentation": "",
+  "tag": [],
+  "category": [],
+  "license": [],
+  "index": {
+    "organization": "",
+    "name": "dem",
+    "version": "1.0.0",
+    "dependencies": [],
+    "test-dependencies": [],
+    "script-dependencies": [],
+    "sha256sum": "d1c5a15dba4a10873cce19d2b77912b6a954f091299f8ad0582fd0e21810e2a4",
+    "yanked": false,
+    "cjc-version": "1.0.0",
+    "index-version": 1
+  },
+  "meta-version": 1
+}

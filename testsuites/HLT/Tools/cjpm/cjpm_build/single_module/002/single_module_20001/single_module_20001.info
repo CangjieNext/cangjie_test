@@ -8,4 +8,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build %cjpm_opt
+// EXEC-PIPE-1: cd %n && %cjpm build %cjpm_opt 2>&1 | compare %f
+// ASSERT: scan Error: cjpm build failed
