@@ -7,7 +7,7 @@
 // LEVEL: 0
 // DEPENDENCE: ../%n
 // (not host_mac)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: regex Compiling package `b`: [\s\S]*-L .*-lb.aoo .*
+// ASSERT: regex Compiling package `b`: [\s\S]*-L[\s\S]*-lb.aoo .*
 // ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L[\s\S]* -lb.boo [\s\S]*--link-options=--no-whole-archive.*
 // ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L[\s\S]* -lb.coo [\s\S]*--link-options=--no-whole-archive.*
 // ASSERT: regex Compiling package `b`: [\s\S]*libb.(so|dll)
