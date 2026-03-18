@@ -1,0 +1,16 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[package]
+  cjc-version = "1.0.0"
+  name = "add_demo_test"
+  description = "add two Int64 numbers"
+  version = "1.3.0"
+  output-type = "dynamic"
+  authors = ["yrl","Tom","Tom","Tom","Tom","Tom","Tom","Tom","Tom"]
+  homepage = "https://www.baidu.com/index.php?tn=75144485_4_dg&ch=1"
+  documentation = "https://www.baidu.com/index.php?tn=75144485_4_dg&ch=1"
+  category = ["network", "Database Driver","security"]

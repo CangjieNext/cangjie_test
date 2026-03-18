@@ -12,5 +12,9 @@ internal import coo.*
 func test(): Int64 {
     print("hello world\n")
     println(ppa)
+    println(ppcoo)
     return 0
+}
+main(): Int64 {
+    test()
 }

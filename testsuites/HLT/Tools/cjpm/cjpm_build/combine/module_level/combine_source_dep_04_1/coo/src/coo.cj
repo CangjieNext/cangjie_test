@@ -8,6 +8,7 @@ package coo
 internal import dep.aoo.*
 internal import dep.coo.*
 
+public var ppcoo = 2
 main(): Int64 {
     return coo - aoo
 }
