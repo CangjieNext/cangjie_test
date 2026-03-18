@@ -9,10 +9,11 @@
 // LEVEL: 3 
 // DEPENDENCE: ../../../../../../../../../Conformance/CJMP/Cangjie.h
 // DEPENDENCE: src
-// (CJNATIVE and not Windows) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %enable_objc_cjmapping src/dep/*.cj
-// (CJNATIVE and not Windows) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %enable_objc_cjmapping src/cjworld/*.cj -L. -ldep
-// (CJNATIVE and not Windows) EXEC: %clang %cangjie_runtime_link %clang_link_core %clang_link_objc_interop  objc-gen/*.m  -Iobjc-gen -L. -lcjworld -shared -o libgluecode.%dylib_suffix
-// (CJNATIVE and not Windows) EXEC: %clang %cangjie_runtime_link %clang_link_core -fobjc-arc -L. -lgluecode src/objc/*.m -Isrc/objc -Iobjc-gen -o %output
+// (CJNATIVE and iOS) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc --link-options="-install_name @rpath/libdep.dylib" %enable_objc_cjmapping src/dep/*.cj
+// (CJNATIVE and not Windows and not iOS) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc  %enable_objc_cjmapping src/dep/*.cj
+// (CJNATIVE and not Windows) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %ins_nm_cjworld %enable_objc_cjmapping src/cjworld/*.cj -L. -ldep
+// (CJNATIVE and not Windows and not iOS) EXEC: %clang %cangjie_runtime_link %clang_link_core %clang_link_objc_interop  objc-gen/*.m  -Iobjc-gen -L. -lcjworld -shared -o libgluecode.%dylib_suffix
+// (CJNATIVE and not Windows and not iOS) EXEC: %clang %cangjie_runtime_link %clang_link_core -fobjc-arc -L. -lgluecode src/objc/*.m -Isrc/objc -Iobjc-gen -o %output
 // (CJNATIVE and not Windows) RUN-EXEC: test -f libdep.dylib     || cp libdep.%dylib_suffix     libdep.dylib
 // (CJNATIVE and not Windows) RUN-EXEC: test -f libcjworld.dylib || cp libcjworld.%dylib_suffix libcjworld.dylib
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
