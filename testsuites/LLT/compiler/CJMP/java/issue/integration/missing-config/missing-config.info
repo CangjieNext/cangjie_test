@@ -1,0 +1,20 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// Test case for issue: Compiler crashes when lambda_patterns, tuple_configuration, 
+// or generic_object_configuration is missing for a package with APIStrategy = "Full"
+// Expected behavior: Compiler should report errors instead of crashing
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-1: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop %enable_java_cjmapping --import-interop-cj-package-config-path src/cj/config.toml --output-javagen-dir=src/java/cj 2>& 1 | compare %f
+
+/* SCAN-IN
+error: function type '(Int64) -> Int64' used in Java interop must be configured in lambda_patterns
+
+error: tuple type 'Tuple<Int64, Int64>' used in Java interop must be configured in tuple_configuration
+
+error: generic type 'Generic' used in Java interop must be configured in generic_object_configuration
+*/

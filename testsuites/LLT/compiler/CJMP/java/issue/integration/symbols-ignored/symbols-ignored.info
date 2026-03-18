@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// Test case for issue: Constructor is mirrored even when not listed in symbols
+// When generic_object_configuration has type_arguments but no symbols entry,
+// no members should be mirrored (including constructor)
+// NOTE: This test currently FAILS because the compiler succeeds and mirrors constructor even without symbols.
+// After the compiler is fixed, this test should PASS.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop %enable_java_cjmapping --import-interop-cj-package-config-path src/cj/config.toml --output-javagen-dir=src/java/cj 2>& 1 | compare %f
+
+/* SCAN-IN
+warning: unused import 'interoplib.interop.*'
+*/

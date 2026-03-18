@@ -1,0 +1,26 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test case for issue: Constructor is mirrored even when not listed in symbols
+# G<Int64> has no symbols entry - should not mirror any members
+# H<Bool> has symbols entry with only "init" - should only mirror constructor
+
+[default]
+APIStrategy = "Full"
+GenericTypeStrategy = "None"
+
+[[package]]
+name = "generic"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+generic_object_configuration = [
+    # G<Int64> - no symbols entry, should not mirror any members
+    { name = "G", type_arguments = ["Int64"] },
+    
+    # H<Bool> - only init in symbols, should only mirror constructor
+    { name = "H", type_arguments = ["Bool"] },
+    { name = "H<Bool>", symbols = ["init"] },
+]
