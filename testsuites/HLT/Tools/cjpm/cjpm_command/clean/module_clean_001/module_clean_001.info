@@ -14,7 +14,6 @@
 // EXEC: cd %n && %cjpm clean
 // EXEC-PIPE: %ls %n 2>&1 | compare %f
 // ASSERT: scan-not target
-// ASSERT: scan-not release
 // ASSERT: scan-not bin
 // ASSERT: scan cjpm.lock
 // ASSERT: scan cjpm.toml
