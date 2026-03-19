@@ -1,0 +1,13 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC-0: cd %n && %cjpm run 2>&1 | compare %f
+// ASSERT: scan Error: no available artifact of module 'test_repo_1' could match all requirements from these modules:
+// ASSERT: scan which requirement for 'test_repo_1' is '1.0.0'
+// ASSERT: scan which requirement for 'test_repo_1' is '1.0.0'
+// ASSERT: scan Error: cjpm run failed
