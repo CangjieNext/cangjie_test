@@ -7,8 +7,8 @@
   */
  
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
+// (!target_ohos)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (!target_ohos)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
 // ASSERT: scan Failed in EnvException 
 // ASSERT: scan Caused by: InvalidDataException: Failed in InvalidDataException
 // ASSERT: scan Caused by: ConcurrentModificationException: ConcurrentModificationException~

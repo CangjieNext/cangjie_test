@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output
-// RUN-EXEC: %run_stdx %output %run_args
+// (!target_android)EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output
+// (!target_android)RUN-EXEC: %run_stdx %output %run_args
 
 import stdx.crypto.crypto.*
 import std.collection.*

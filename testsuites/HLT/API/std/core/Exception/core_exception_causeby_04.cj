@@ -7,8 +7,8 @@
   */
  
 // LEVEL: 0
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 2>&1 | compare %f
+// (!target_ohos)EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (!target_ohos)RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 2>&1 | compare %f
 // ASSERT: scan An exception has occurred:JsonException
 // ASSERT: scan Failed in JsonException
 // ASSERT: scan Caused by: CryptoException

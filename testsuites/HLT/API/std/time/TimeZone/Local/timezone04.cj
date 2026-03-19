@@ -29,8 +29,10 @@ let expect = getLocalByOffset()
 let expect = TimeZone.load("Europe/Moscow")
 @When[os == "iOS"]
 let expect = getLocalByOffset()
-@When[os == "Linux"]
+@When[os == "Linux" && env != "ohos"]
 let expect = TimeZone.load("Europe/Moscow")
+@When[os == "Linux" && env == "ohos"]
+let expect = TimeZone.load("Asia/Shanghai")
 
 @Test
 class LocalTest {

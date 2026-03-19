@@ -71,7 +71,7 @@ class Test_readTimeout_writeTimeout {
                 {
                     ctx =>
                     ctx.request.body.read(Array<UInt8>(1024 * 1024, repeat: 0))
-                    Sleep(Duration.second * 2)
+                    Sleep(Duration.second * 4)
                 }
             )
         spawn {

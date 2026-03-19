@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE: files
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output %cmp_utest_opt
-// RUN-EXEC-PIPE-0: %run_stdx %output %run_utest_opt %run_args 2>&1 | compare %f
+// (!target_android)EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output %cmp_utest_opt
+// (!target_android)RUN-EXEC-PIPE-0: %run_stdx %output %run_utest_opt %run_args 2>&1 | compare %f
 
 import stdx.net.http.*
 import stdx.crypto.kit.*

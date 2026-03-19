@@ -18,22 +18,30 @@ import std.time.*
 
 // 测试 TZ 和 CJ_TZPATH 环境变量设置正确的情形
 // 类unix系统可以不设置CJ_TZPATH，仅设置TZ
+@When[env != "ohos"]
+let expect = "Europe/Moscow"
+@When[env != "ohos"]
+let offset= "2023-03-30T00:00:00+03:00"
+@When[env == "ohos"]
+let expect = "Asia/Shanghai"
+@When[env == "ohos"]
+let offset= "2023-03-30T00:00:00+08:00"
 
 @Test
 class LocalTest {
     let timeZone = TimeZone.Local
     @TestCase
     func TimeZoneToString(): Unit {
-        @Expect(timeZone.toString(), "Europe/Moscow")
-        @Expect(timeZone.id, "Europe/Moscow")
+        @Expect(timeZone.toString(), expect)
+        @Expect(timeZone.id, expect)
     }
 
     let dateTime = DateTime.of(year: 2023, month: March, dayOfMonth: 30, hour: 0, minute: 0, second: 0, nanosecond: 0,
         timeZone: timeZone)
     @TestCase
     func BuildDateTime(): Unit {
-        @Expect(dateTime.toString(), "2023-03-30T00:00:00+03:00")
+        @Expect(dateTime.toString(), offset)
         @Expect(dateTime.zone, timeZone)
-        @Expect(dateTime.zoneId, "Europe/Moscow")
+        @Expect(dateTime.zoneId, expect)
     }
 }
