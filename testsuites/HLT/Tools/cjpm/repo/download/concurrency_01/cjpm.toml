@@ -1,0 +1,56 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+[dependencies]
+  restdemo = "1.0.0"
+  "org::add_demo" = "1.0.0"
+  test_repo_7 = "2.0.0"
+  test_repo_5 = "1.0.0"
+  test_repo_4 = "1.0.0"
+  test_repo_3 = "1.0.0"
+  test_repo_1 = "1.0.0"
+  test_output_2 = "1.0.0"
+  test_output_1 = "1.0.2"
+  dem_test = "1.0.0"
+   "org2::test_repo_6" = "(,)"
+
+[package]
+  cjc-version = "1.0.0"
+  compile-option = ""
+  description = "nothing here"
+  link-option = ""
+  name = "test"
+  organization = "org2"
+  output-type = "executable"
+  src-dir = "src"
+  target-dir = ""
+  version = "1.0.0"
+  package-configuration = {}
+  scripts = {}
+
+[replace]
+  test_repo_7 = "1.0.0"
+
+[target.x86_64-unknown-linux-gnu.dependencies]
+  "org2::pro0" = {path = "pro0"}
+  pro1 = {path = "pro1"}
+
+[target.aarch64-unknown-linux-gnu.dependencies]
+  "org2::pro0" = {path = "pro0"}
+  pro1 = {path = "pro1"}
+
+[target.x86_64-w64-mingw32.dependencies]
+  "org2::pro0" = {path = "pro0"}
+  pro1 = {path = "pro1"}
+  
+
+[target.x86_64-apple-darwin.dependencies]
+  "org2::pro0" = {path = "pro0"}
+  pro1 = {path = "pro1"}
+
+[target.aarch64-apple-darwin.dependencies]
+  "org2::pro0" = {path = "pro0"}
+  pro1 = {path = "pro1"}
+

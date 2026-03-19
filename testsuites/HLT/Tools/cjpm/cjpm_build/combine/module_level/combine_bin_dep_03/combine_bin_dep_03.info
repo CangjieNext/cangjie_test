@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 0
+// LEVEL: 1
 // DEPENDENCE: ../%n
 // (not host_mac)EXEC: cd %n/dep && %cjpm build
 // (not host_mac)EXEC: cd %n/dep1 && %cjpm build
