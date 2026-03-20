@@ -10,5 +10,6 @@ import b.aoo.*
 
 main() {
     print("hello world\n")
+    print(ppa)
     return 0
 }

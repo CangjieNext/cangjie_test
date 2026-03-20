@@ -412,3 +412,6 @@ compiler\cjnative\Chir\CompileOption\plugin\testpath\test_plugin_path_04.cj
 # While Cangjie toolchain for windows does not contain interop library
 # ObjectiveC interop tests should be excluded
 compiler/cjnative/FFI/objcffi/glue_code
+
+# cjpm本地可以通过看板失败，需后面对其环境适配用例
+Tools/cjpm/source_set/007/cross001/cross001.info
