@@ -48,3 +48,6 @@ compiler/cjnative/Chir/CompileOption/plugin/runplugin/plugin5/runplugin.cj
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
+
+# cjpm mac bug
+Tools/cjpm/repo
