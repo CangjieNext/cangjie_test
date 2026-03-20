@@ -279,7 +279,16 @@ class classTypeInfoTest {
 
         let drinkFunc2 = a.getStaticFunction("drink")
         @Expect(drinkFunc2.name, "drink")
+
+        var value = Some(20)
+        var instance = A()
+        ClassTypeInfo.of<A>().instanceVariables.toArray()[0].setValue(instance, value)
+        @Expect(instance.id, Some(20))
     }
+}
+
+public class A {
+    public var id: ?Int64 = 10
 }
 
 public open class Animal {
