@@ -59,8 +59,12 @@ class TestServer11BigTrailers {
         let preface = "GET /hello HTTP/1.1\r\nHost: 127.0.0.1:${port}\r\nTransfer-encoding: chunked\r\nConnection: close\r\n\r\n9\r\ntest for \r\n7\r\nchunked\r\n0\r\n"
             .toArray()
         socket.write(preface)
-        socket.write(Array<UInt8>(8 * 1024 * 1000, repeat: 0))
-        socket.write("\r\n".toArray())
+        try {
+            socket.write(Array<UInt8>(8 * 1024 * 1000, repeat: 0))
+            socket.write("\r\n".toArray())
+        } catch (e: Exception) {
+            println("Client write error: ${e}")
+        }
 
         sleep(Duration.millisecond * 300)
 

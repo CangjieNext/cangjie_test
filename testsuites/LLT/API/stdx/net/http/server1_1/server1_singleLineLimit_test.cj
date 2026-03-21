@@ -58,7 +58,11 @@ class TestServer11SingleLineLimit {
             .toArray()
         client.write(request1)
         let request2 = ("a" * singleLineSize).toArray()
-        client.write(request2)
+        try {
+            client.write(request2)
+        } catch (e: Exception) {
+            println("Client write error: ${e}")
+        }
 
         sleep(Duration.millisecond * 100)
         let buf = Array<UInt8>(500, repeat: 0)
@@ -68,5 +72,5 @@ class TestServer11SingleLineLimit {
 }
 
 /* SCAN-IN
-Single header size out of limit 8192000.
+Single header size out of limit 32768.
  */

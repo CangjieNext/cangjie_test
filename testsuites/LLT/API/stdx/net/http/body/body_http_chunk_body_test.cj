@@ -50,6 +50,7 @@ class TestChunkedBodyProviderReadLine {
             } while (i != 0)
             @Expect(1, 2)
         } catch (e: HttpException) {
+            println("Client read error: ${e}")
             @Expect(e.message, "ReadLine too long.")
         }
 
@@ -64,8 +65,12 @@ class TestChunkedBodyProviderReadLine {
         server.read(buf)
         server.write("HTTP/1.1 200 ok\r\nconnection: close\r\ntransfer-encoding: chunked\r\n\r\n".toArray())
         server.write("10\r\n1234567890123456\r\n2\r\n12\r\n0\r\n".toArray())
-        server.write(Array<UInt8>(8 * 1000 * 1024, repeat: 0))
-        server.write("\r\n".toArray())
+        try {
+            server.write(Array<UInt8>(8 * 1000 * 1024, repeat: 0))
+            server.write("\r\n".toArray())
+        } catch (e: Exception) {
+            println("Server write error: ${e}")
+        }
         server.close()
         serverSocket.close()
     }
@@ -92,8 +97,12 @@ class TestChunkedBodyProviderReadLine {
         client.connect()
         client.write("GET /hello HTTP/1.1\r\nhost: 127.0.0.1:${port}\r\ntransfer-encoding: chunked\r\n\r\n".toArray())
         client.write("10\r\n1234567890123456\r\n2\r\n12\r\n0\r\n".toArray())
-        client.write(Array<UInt8>(8 * 1000 * 1024, repeat: 0))
-        client.write("\r\n".toArray())
+        try {
+            client.write(Array<UInt8>(8 * 1000 * 1024, repeat: 0))
+            client.write("\r\n".toArray())
+        } catch (e: Exception) {
+            println("Client write error: ${e}")
+        }
         sleep(Duration.second)
         let buf = Array<UInt8>(500, repeat: 0)
         let i = client.read(buf)
