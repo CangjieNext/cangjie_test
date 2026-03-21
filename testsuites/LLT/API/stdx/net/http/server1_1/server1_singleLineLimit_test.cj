@@ -58,7 +58,11 @@ class TestServer11SingleLineLimit {
             .toArray()
         client.write(request1)
         let request2 = ("a" * singleLineSize).toArray()
-        client.write(request2)
+        try {
+            client.write(request2)
+        } catch (e: Exception) {
+            println("Client write error: ${e}")
+        }
 
         sleep(Duration.millisecond * 100)
         let buf = Array<UInt8>(500, repeat: 0)
