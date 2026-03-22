@@ -11,7 +11,12 @@ public class JBase {
        System.out.println("Java got: " + arg);
        return arg;
     }
+
     public String GetJString() {
+        return "foo";
+    }
+
+    public String GetJStringOption() {
         return "foo";
     }
 }

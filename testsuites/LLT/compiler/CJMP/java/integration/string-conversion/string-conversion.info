@@ -14,13 +14,25 @@
 [Java]PrintString: String from cj to JavaMirror super call
 [Java]PrintString: String from cj to cj
 String from cj to cj
-Calling from CjExe
 === Java ===
 [Java]PrintString: String from cj to JavaMirror call
 [Java]PrintString: String from cj to JavaMirror static call
 Java got: arg
-GetArgJString(arg): arg
-GetJString(): foo
 [Java]PrintString: String from cj to JavaMirror super call
 [Java]PrintString: Calling from CjExe
+String
+field
+String
+null
+foobar
+[Java]GetArgStringOpt: GetArgStringOpt
+[Java]GetArgStringOpt: 
+[Java]GetArgStringOpt: null
+GetArgJString(arg): arg
+GetJString(): foo
+GetJStringOption(): Some(foo)
+Calling from CjExe
+GetArgStringOpt(arg): Some(cjExe: GetArgStringOpt)
+GetArgStringOpt(arg): Some()
+GetArgStringOpt(arg): None
 */

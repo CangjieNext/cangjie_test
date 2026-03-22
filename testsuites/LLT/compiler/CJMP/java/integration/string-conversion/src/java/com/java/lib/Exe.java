@@ -20,4 +20,12 @@ public class Exe {
     public static void PrintStringStatic(String s) {
         System.out.println("[Java]PrintString: " + s);
     }
+
+    public String GetOptString() {
+        return "foobar";
+    }
+
+    public void GetArgStringOpt(String arg) {
+        System.out.println("[Java]GetArgStringOpt: " + arg);
+    }
 }

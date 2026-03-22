@@ -14,6 +14,18 @@ public class Main {
         e.PrintString("From java main to cj");
         CjExe cjExe = new CjExe(true);
         cjExe.PrintString1("Calling from CjExe");
+        System.out.println(cjExe.GetString(true));
+        System.out.println(cjExe.GetString(false));
+        System.out.println(cjExe.GetStringOption());
+        System.out.println(cjExe.GetStringOptionNone());
+        cjExe.GetArgStringOpt("cjExe: GetArgStringOpt");
+        cjExe.GetArgStringOpt("");
+        cjExe.GetArgStringOpt(null);
+
+        System.out.println(e.GetOptString());
+        e.GetArgStringOpt("GetArgStringOpt");
+        e.GetArgStringOpt("");
+        e.GetArgStringOpt(null);
    }
 }
 
