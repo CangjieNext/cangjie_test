@@ -1,0 +1,20 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/ark_interop_lambda_debug_info/ohos/ark_interop  ../basecase/ark_interop_lambda_debug_info/ohos/ark_interop/ark_interop.cj  ../basecase/ark_interop_lambda_debug_info/main.cj
+// EXEC: cd ./ohos/ark_interop && %compiler %cmp_opt %enableCompileDebug --output-type=staticlib ark_interop.cj -o libark_interop.a
+// EXEC: %compiler %cmp_opt %enableCompileDebug -Woff unused main.cj --import-path ohos/ark_interop -L ohos/ark_interop -lark_interop -o ark_interop_lambda_debug_info
+// EXEC: python3 cjdb_test.py ark_interop_lambda_debug_info.info ark_interop_lambda_debug_info %run_env
+
+
+test#
+cjdb,cjdb ark_interop_lambda_debug_info,ark_interop_lambda_debug_info
+b,b 18,main.cj:18
+r,r,-> 18
+s,s,-> 11
+s,s,-> 15
+n,n,-> 16
+q,q,
