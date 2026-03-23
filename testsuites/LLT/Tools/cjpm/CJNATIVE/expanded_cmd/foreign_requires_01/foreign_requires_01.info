@@ -6,7 +6,7 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01%dylib && gcc test02.c -shared -fPIC -o libtest02%dylib && %cjpm build -o cjpm-expanded
-// EXEC: cd %n && %add_exe_path && %cjpm expanded 2>&1 | compare %f
+// EXEC: cd %n && %add_exe_path && %set_path_prefix=.%set_path_suffix && cjpm expanded 2>&1 | compare %f
 // ASSERT: scan aaa
 // ASSERT: scan bbb
 // ASSERT: scan hello world
