@@ -31,7 +31,7 @@ specific extend Int64 {
 // EXEC-0: %compiler  main.cj --import-path=./p -L./p -lcmp -o %output 
 // (CJNATIVE and Linux)RUN-EXEC-PIPE-0: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p;%PATH% && %run %output 2>&1 | compare %f
-// (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
+// (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH:./p && %run %output 2>&1 | compare %f
 import cmp.*
 extend Int64 {
     public func f1():Unit {println("gg")}
