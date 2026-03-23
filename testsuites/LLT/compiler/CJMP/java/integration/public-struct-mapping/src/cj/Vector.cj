@@ -32,4 +32,8 @@ public struct Vector {
     public static func hello(v: Vector): Unit {
         print("cj: Hello from static func in cj.Vector (${v.x}, ${v.y})\n", flush: true)
     }
+
+    public operator func + (v: Vector) {
+        v
+    }
 }

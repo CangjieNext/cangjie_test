@@ -13,4 +13,5 @@ import interoplib.interop.*
 public interface A {
     func foo() : Unit
     func goo(a : Int32) : Int32
+    operator func +(_: Int32): Int32
 }
