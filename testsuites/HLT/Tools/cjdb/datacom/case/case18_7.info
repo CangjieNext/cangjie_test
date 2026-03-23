@@ -19,7 +19,7 @@ b,b 50,Breakpoint 3:
 AOT r,r,-> 22
 CJVM c,c,
 expr,expr testVT,\(Bool\) \$[\d] = true
-n,n,
+n,n,-> 23
 expr,expr testVT,\(Bool\) \$[\d] = false
 c,c,-> 36
 expr,expr test,\(Bool\) \$[\d] = false
