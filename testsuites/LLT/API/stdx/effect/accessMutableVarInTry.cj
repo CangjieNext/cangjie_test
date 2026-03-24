@@ -7,7 +7,7 @@
  */
 
 // EXEC-PIPE-1: %compiler %enableEH %core_cmp_opt  %f -o %output 2>&1 | compare %f
-// ASSERT: scan lambda capturing mutable variables needs to be called directly
+// ASSERT: scan 'try'-'handle' expressions cannot capture mutable variables; consider using 'let' or boxing
 // ASSERT: scan 2 errors generated, 2 errors printed
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
