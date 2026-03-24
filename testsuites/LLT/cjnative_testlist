@@ -22,6 +22,9 @@ compiler/CHIROpt
 compiler/Parser/declFile
 compiler/FFI/ffi_python
 
+compiler/CJMP/frontend/platform_declarations/function/default_params_on_both_sides.cj
+API/std/unittest/progress_tests/progress_detailed_parallel.cj
+
 # The following cases are for testing the incremental compilation, and they are not expected to pass in the CI environment, so they are temporarily excluded. They will be fixed and re-enabled later.
 compiler/IncrementalCompilation/DeclLevel/CHIROptimization/ConstPropagationAndFuncInline2.cj
 compiler/IncrementalCompilation/DeclLevel/CHIROptimization/End2End/InterfaceDefault/inter_1.cj

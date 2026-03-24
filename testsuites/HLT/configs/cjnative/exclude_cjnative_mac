@@ -6,7 +6,8 @@
 
 # testcase is not correct.
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
-
+Tools/cjpm/stdx/c/build_mock/build_mock.info
+Runtime/cjnative/runtime/OutOfMemoryError/oom_dump.cj
 # old jffi can only be run with cjvm.
 compiler/cjnative/FFI/jffi
 

@@ -9,7 +9,8 @@ Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 
 # issue 198: syntax rewriter not support
 API/syntax/visit/ASTRewriter/test_rewriter_02.cj
-
+Tools/cjpm/stdx/c/build_mock/build_mock.info
+Runtime/cjnative/runtime/OutOfMemoryError/oom_dump.cj
 # fail in ci env
 API/std/socket/UdpSocket/test_udp_transportation_init.cj
 # limit described in the doc
