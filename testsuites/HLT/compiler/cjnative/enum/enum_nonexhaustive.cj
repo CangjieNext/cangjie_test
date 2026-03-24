@@ -6,8 +6,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %enableO2 %f -o %n.%suffix
-// EXEC: %run %run_opt %n.%suffix 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan BBB999
 
 class C <: ToString {
@@ -35,4 +35,3 @@ main() {
     f(E<C>.B(C()))
     return 0
 }
-
