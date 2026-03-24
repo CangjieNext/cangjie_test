@@ -7,6 +7,8 @@
 # testcase is not correct.
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 
+Tools/cjpm/stdx/c/build_mock/build_mock.info
+
 # pffi should run with Python-ffi version
 API/std/ffi/Python
 # old jffi can only be run with cjvm.
@@ -43,6 +45,7 @@ compiler/cjnative/Packages/org_name/package_decl/no_package_name_2.cj
 
 # https://gitcode.com/Cangjie/cangjie_test/issues/315
 compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_05n.cj
+Runtime/cjnative/runtime/OutOfMemoryError/oom_dump.cj
 
 # cjmp
 # only this exclude file from cangjie_test repo is used for linux_x86_64
