@@ -195,10 +195,10 @@ def main():
         
         # The cmd with console output
         # old version:
-        # run_app_cmd = [
-        #     "xcrun", "simctl", "launch", "--console-pty", "--terminate-running-process",
-        #     udid, args.bundle_id, "--workspace", workspace
-        # ]
+        run_app_cmd = [
+            "xcrun", "simctl", "launch", "--console-pty", "--terminate-running-process",
+            udid, args.bundle_id, "--workspace", workspace
+        ]
         # new version with syslog:
         run_app_cmd = [
             'bash', '-c',
