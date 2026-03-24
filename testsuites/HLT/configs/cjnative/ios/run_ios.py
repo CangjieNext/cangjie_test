@@ -195,15 +195,16 @@ def main():
         
         # The cmd with console output
         # old version:
-        # run_app_cmd = [
-        #     "xcrun", "simctl", "launch", "--console-pty", "--terminate-running-process",
-        #     udid, args.bundle_id, "--workspace", workspace
-        # ]
+        run_app_cmd = [
+            "xcrun", "simctl", "launch", "--console-pty", "--terminate-running-process",
+            udid, args.bundle_id, "--workspace", workspace
+        ]
         # new version with syslog:
         run_app_cmd = [
             'bash', '-c',
-            f'xcrun simctl spawn {udid} log stream --style syslog --level info &> ios_sim.log & '
-            f'SIMCTL_CHILD_MRT_LOG_LEVEL=i xcrun simctl launch --console-pty --terminate-running-process {udid} {args.bundle_id} --workspace {workspace}'
+            f'xcrun simctl spawn {udid} log stream --style syslog --level info &> ios_sim.log & LOG_PID=$!; '
+            f'SIMCTL_CHILD_MRT_LOG_LEVEL=i xcrun simctl launch --console-pty --terminate-running-process {udid} {args.bundle_id} --workspace {workspace}; '
+            'kill -TERM $LOG_PID 2>/dev/null || true'
         ]
     else:
         # Install to device
