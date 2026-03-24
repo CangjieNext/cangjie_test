@@ -21,12 +21,12 @@ foundation=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libobjc.foundation.dy
 dep=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libdep.dylib
 
 rm -rf ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_x86_64_cjnative
-find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
-  -maxdepth 1 \
-  -name "*.dylib" \
-  -not -name "libobjc.foundation.dylib" \
-  -not -name "libdep.dylib" \
-  -delete
+# find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
+#   -maxdepth 1 \
+#   -name "*.dylib" \
+#   -not -name "libobjc.foundation.dylib" \
+#   -not -name "libdep.dylib" \
+#   -delete
 find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
   -maxdepth 1 \
   -name "*.m" \
@@ -38,6 +38,7 @@ find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
   -maxdepth 1 \
   -name "*.h" \
   -not -name "AppDelegate.h" \
+  -not -name "Cangjie.h" \
   -not -name "SceneDelegate.h" \
   -not -name "ViewController.h" \
   -delete
