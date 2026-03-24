@@ -38,6 +38,7 @@ find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
   -maxdepth 1 \
   -name "*.h" \
   -not -name "AppDelegate.h" \
+  -not -name "Cangjie.h" \
   -not -name "SceneDelegate.h" \
   -not -name "ViewController.h" \
   -delete
@@ -87,10 +88,10 @@ set -e
 ret=255
 if [ -z ${XCODE_DEVICE_UDID_OF_CANGJIE_IOS_TEST} ]; then
     if [ -z "${XCODE_SIMULATOR_NAME_OF_CANGJIE_IOS_TEST}" ]; then
-        XCODE_SIMULATOR_NAME_OF_CANGJIE_IOS_TEST="iPhone 15"
+        XCODE_SIMULATOR_NAME_OF_CANGJIE_IOS_TEST="iPhone 17"
     fi
     if [ -z ${XCODE_OS_VERSION_OF_CANGJIE_IOS_TEST} ]; then
-        XCODE_OS_VERSION_OF_CANGJIE_IOS_TEST=17.5
+        XCODE_OS_VERSION_OF_CANGJIE_IOS_TEST=26.0.1
     fi
     python3 ${WORKSPACE}/run_ios.py --objcffi --project-path ${XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST} --scheme ${XCODE_SCHEME_OF_CANGJIE_IOS_TEST} --bundle-id ${XCODE_BUNDLE_ID_OF_CANGJIE_IOS_TEST} --configuration ${XCODE_CONFIGUARTION_OF_CANGJIE_IOS_TEST} --uninstall --device-type ${XCODE_DEVICE_TYPE_OF_CANGJIE_IOS_TEST} --simulator-name "${XCODE_SIMULATOR_NAME_OF_CANGJIE_IOS_TEST}" --os-version ${XCODE_OS_VERSION_OF_CANGJIE_IOS_TEST}
     ret=$?
