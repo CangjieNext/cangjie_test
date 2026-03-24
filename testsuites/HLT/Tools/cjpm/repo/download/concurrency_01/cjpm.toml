@@ -3,6 +3,8 @@
 # with Runtime Library Exception.
 #
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
+[global]
+  strict-tls = false
 [dependencies]
   restdemo = "1.0.0"
   "org::add_demo" = "1.0.0"
