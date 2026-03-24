@@ -38,6 +38,7 @@ find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
   -maxdepth 1 \
   -name "*.h" \
   -not -name "AppDelegate.h" \
+  -not -name "Cangjie.h" \
   -not -name "SceneDelegate.h" \
   -not -name "ViewController.h" \
   -delete
