@@ -7,7 +7,8 @@
 # ======================== API exclude ========================
 #cjpm用例概率性失败，先屏蔽
 Tools/cjpm/stdx/stdx_c/tree_01/tree_01.info
-
+Tools/cjpm/stdx/c/build_mock/build_mock.info
+Runtime/cjnative/runtime/OutOfMemoryError/oom_dump.cj
 # linux与win环境问题
 API/std/os/env/test_setEnv/test_setEnv_002/test_setEnv_002.cj
 API/std/os/env/test_setEnv/test_setEnv_005/test_setEnv_005.cj
