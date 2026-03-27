@@ -6,7 +6,7 @@
 
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 // =========================================================
 // Enum Definition: Enum with recursive construction (Expr)
