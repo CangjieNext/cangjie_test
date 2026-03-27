@@ -8,6 +8,8 @@
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 
 Tools/cjpm/stdx/c/build_mock/build_mock.info
+Tools/cjpm/stdx/c/check_01/check_01.info
+Tools/cjpm/stdx/c/tree_01/tree_01.info
 
 # pffi should run with Python-ffi version
 API/std/ffi/Python
