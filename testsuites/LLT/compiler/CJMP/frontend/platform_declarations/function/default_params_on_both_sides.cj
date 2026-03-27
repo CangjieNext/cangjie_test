@@ -27,38 +27,25 @@ specific class A{
 
 /* SCAN
 error: parameter default value should be on either 'common' or 'specific' side, not both
- ==> p/p.cj:5:32:
-  | 
-5 | public specific func testFunc1(x!: Int64 = 20, y!: String = "specific"): String {"a"}
-  |                                ^^^^^^^^^^^^^^ 
-  | 
-
-error: 'specific' function 'testFunc1' can not find 'common' match
- ==> p/p.cj:5:1:
-  | 
-5 | public specific func testFunc1(x!: Int64 = 20, y!: String = "specific"): String {"a"}
-  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
-  | 
-
-error: parameter default value should be on either 'common' or 'specific' side, not both
  ==> p/p.cj:8:44:
   | 
 8 |   public specific func testFunc2(a: Int64, b!: Float64 = 2.71): Float64 {1.0}
-  |                                            ^^^^^^^^^^^^^^^^^^ 
+  |                                            ^ 
   | 
 
-error: 'specific' function 'testFunc2' can not find 'common' match
- ==> p/p.cj:8:3:
+error: parameter default value should be on either 'common' or 'specific' side, not both
+ ==> p/p.cj:5:32:
   | 
-8 |   public specific func testFunc2(a: Int64, b!: Float64 = 2.71): Float64 {1.0}
-  |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+5 | public specific func testFunc1(x!: Int64 = 20, y!: String = "specific"): String {"a"}
+  |                                ^ 
   | 
 
-error: 'common' function 'testFunc2' can not find 'specific' match
-  ==> (package cmp)c.cj:13:3:
+error: parameter default value should be on either 'common' or 'specific' side, not both
+ ==> p/p.cj:5:48:
+  | 
+5 | public specific func testFunc1(x!: Int64 = 20, y!: String = "specific"): String {"a"}
+  |                                                ^ 
+  | 
 
-error: 'common' function 'testFunc1' can not find 'specific' match
- ==> (package cmp)c.cj:7:1:
-
-6 errors generated, 6 errors printed.
+3 errors generated, 3 errors printed.
 */
