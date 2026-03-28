@@ -100,16 +100,16 @@ class Test_Json_Stress {
     @TestCase
     func test_multi_array(): Unit {
         let w = writer()
-        for (i in 0..1000) {
+        for (i in 0..99) {
             w.jw.startArray()
-        }
-        for (i in 0..1000) {
-            w.jw.endArray()
         }
 
         try {
-            w.jw.endArray()
+            w.jw.startArray()
         } catch (_: IllegalStateException) {
+            for (i in 0..99) {
+                w.jw.endArray()
+            }
             return
         }
         @Assert(false)
@@ -118,18 +118,18 @@ class Test_Json_Stress {
     @TestCase
     func test_multi_Object(): Unit {
         let w = writer()
-        for (i in 0..1000) {
+        for (i in 0..99) {
             w.jw.startObject()
             w.jw.writeName("")
         }
         w.jw.writeValue("")
-        for (i in 0..1000) {
-            w.jw.endObject()
-        }
 
         try {
-            w.jw.endObject()
+            w.jw.startObject()
         } catch (_: IllegalStateException) {
+            for (i in 0..99) {
+                w.jw.endObject()
+            }
             return
         }
         @Assert(false)
