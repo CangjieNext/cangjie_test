@@ -14,7 +14,7 @@
   src-dir = ""
   target-dir = ""
   version = "1.0.0"
-  package-configuration = {}
+
 
 [dependencies]
 [profile.build.combined]
