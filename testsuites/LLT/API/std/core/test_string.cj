@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt %run_args 
+// RUN-EXEC-PIPE-0: export cjHeapSize=12gb && %run %run_opt %output %run_utest_opt %run_args 
 
 import std.collection.*
 import std.math.*
@@ -923,6 +923,130 @@ class StringTest {
         let trim2 = str2.trimEnd(r'$')
         @Expect(trim1.equalsIgnoreAsciiCase(trim2))
     }
+
+    @TestCase
+    func test_operatorMultiply_overflowCheck(): Unit {
+        let baseStr = "a" * 1048576
+        try {
+            let _ = baseStr * 5000
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message, "The size of String is too large.")
+        }
+    }
+
+    @TestCase
+    func test_padStart_emptyPadding(): Unit {
+        let str = "test"
+        try {
+            str.padStart(10, padding: "")
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message, "padding string cannot be empty")
+        }
+    }
+
+    @TestCase
+    func test_padEnd_emptyPadding(): Unit {
+        let str = "test"
+        try {
+            str.padEnd(10, padding: "")
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message, "padding string cannot be empty")
+        }
+    }
+
+    @TestCase
+    func test_padStart_overflowCheck(): Unit {
+        let padding = "a" * 1048576
+        let str = "test"
+        try {
+            str.padStart(Int64.Max, padding: padding)
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message, "The size of String is too large.")
+        }
+    }
+
+    @TestCase
+    func test_padEnd_overflowCheck(): Unit {
+        let padding = "a" * 1048576
+        let str = "test"
+        try {
+            str.padEnd(Int64.Max, padding: padding)
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message, "The size of String is too large.")
+        }
+    }
+
+    @TestCase
+    func test_join_overflowCheck(): Unit {
+        let largeStr = "a" * 10485760
+        let strArray = Array<String>(500, { _ => largeStr })
+        try {
+            let _ = String.join(strArray, delimiter: "-")
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message, "The size of String is too large.")
+        }
+    }
+
+    @TestCase
+    func test_join_delimiterOverflowCheck(): Unit {
+        let str = "test"
+        let largeDelimiter = "a" * 10485760
+        let strArray = Array<String>(500, { _ => str })
+        try {
+            let _ = String.join(strArray, delimiter: largeDelimiter)
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message, "The size of String is too large.")
+        }
+    }
+
+    @TestCase
+    func test_replace_overflowCheck(): Unit {
+        let baseStr = "a" * 1048576
+        let largeReplacement = "b" * 10485760
+        try {
+            let _ = baseStr.replace("a", largeReplacement)
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message, "The size of String is too large.")
+        }
+    }
+
+    @TestCase
+    func test_replace_insertString_overflowCheck(): Unit {
+        let baseStr = "a" * 1048576
+        let largeInsert = "b" * 4096
+        try {
+            let _ = baseStr.replace("", largeInsert)
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message, "The size of String is too large.")
+        }
+    }
+
+    @TestCase
+    func test_replace_shorterReplacement_noOverflow(): Unit {
+        let baseStr = "aaaa" * 1024
+        let shorterReplacement = "b"
+        let result = baseStr.replace("aaaa", shorterReplacement)
+        @Expect(result.size, 1024)
+    }
+
+    @TestCase
+    func test_replace_sameLength_noOverflow(): Unit {
+        let baseStr = "aaaa" * 1024
+        let sameLengthReplacement = "bbbb"
+        let result = baseStr.replace("aaaa", sameLengthReplacement)
+        @Expect(result.size, baseStr.size)
+        @Expect(result, "bbbb" * 1024)
+    }
+
 }
 
 func interatorToArray(iterator: Iterator<String>, size: Int64): Array<String> {
