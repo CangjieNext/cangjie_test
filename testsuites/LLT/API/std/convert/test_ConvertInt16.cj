@@ -52,7 +52,7 @@ class ConvertInt16Test {
         let testVars: Array<(String, Int, String)> = [("", 3, "The string is empty."),
             ("32768", 2, "The part of value convert failed."), ("-32769", 2, "The part of value convert failed."),
             ("0o1", 8, "The part of value convert failed."), ("0x1", 16, "The part of value convert failed."),
-            ("+32", 37, "The radix out of range."), ("-", 2, "The value part is empty.")]
+            ("+32", 10, "Starting with \"+\" is illegal in Int16."), ("-", 2, "The value part is empty.")]
 
         for (testVar in testVars) {
             try {
@@ -81,7 +81,7 @@ class ConvertInt16Test {
     @TestCase
     func tryParseRadix(): Unit {
         let testVars: Array<(String, Int, Int16)> = [("0xf", 16, 0), ("-0b0001_1000", 2, 0), ("0o30", 8, 0),
-            ("-24", 10, -24), ("", 10, 0), ("+12", 10, 12), ("-4nw", 33, -5147), ("4kl", 35, 5621)]
+            ("-24", 10, -24), ("", 10, 0), ("+12", 10, 0), ("-4nw", 33, -5147), ("4kl", 35, 5621)]
 
         for (testVar in testVars) {
             var ret: Option<Int16> = Int16.tryParse(testVar[0], radix: testVar[1])

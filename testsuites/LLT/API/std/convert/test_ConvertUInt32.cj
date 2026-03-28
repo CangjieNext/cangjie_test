@@ -25,7 +25,7 @@ class ConvertUInt32Test {
     @TestCase
     func parseRadix(): Unit {
         let testVars: Array<(String, Int, UInt32)> = [("1111111", 2, 127), ("1333", 4, 127), ("1fj8b183", 22, 4294967295),
-            ("0", 10, 0), ("+148", 9, 125)]
+            ("0", 10, 0), ]
         for (testVar in testVars) {
             @Expect(UInt32.parse(testVar[0], radix:testVar[1]), testVar[2])
         }
@@ -51,7 +51,7 @@ class ConvertUInt32Test {
         let testVars: Array<(String, Int, String)> = [("", 3, "The string is empty."),
             ("4294967296", 2, "The part of value convert failed."), ("-1", 2, "Starting with \"-\" is illegal in UInt32."),
             ("0o1", 8, "The part of value convert failed."), ("0x1", 16, "The part of value convert failed."),
-            ("+32", 37, "The radix out of range."), ("+", 2, "The value part is empty.")]
+            ("+32", 10, "Starting with \"+\" is illegal in UInt32."), ("+", 2, "Starting with \"+\" is illegal in UInt32.")]
 
         for (testVar in testVars) {
             try {
@@ -81,7 +81,7 @@ class ConvertUInt32Test {
     @TestCase
     func tryParseRadix(): Unit {
         let testVars: Array<(String, Int, UInt32)> = [("0xf", 16, 0), ("-0b0001_1000", 2, 0), ("0o30", 8, 0),
-            ("-24", 10, 0), ("00012", 10, 12), ("", 10, 0), ("+12", 10, 12), ("-bc", 17, 0), ("pkk6g", 36, 42949672)]
+            ("-24", 10, 0), ("00012", 10, 12), ("", 10, 0), ("+12", 10, 0), ("-bc", 17, 0), ("pkk6g", 36, 42949672)]
 
         for (testVar in testVars) {
             var ret: Option<UInt32> = UInt32.tryParse(testVar[0], radix: testVar[1])
