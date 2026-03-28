@@ -21,11 +21,11 @@ func matchResult<T>(x: Option<T>, default: T): T {
 }
 
 main(): Int64 {
-    var opt1 = fromBase64String("TW==")
+    var opt1 = fromBase64String("TQ==")
     var opt2 = fromBase64String("Ua==")
     var res1 = matchResult<Array<UInt8>>(opt1, Array<UInt8>())
     var res2 = matchResult<Array<UInt8>>(opt2, Array<UInt8>())
-    if (res1[0] == 77 && res2[0] == 81) {
+    if (res1[0] == 77 && res2.size == 0) {
         return 0
     }
     return 1
