@@ -892,4 +892,35 @@ class HashMapTest {
             @Expect(map1[k], v)
         }
     }
+
+    @TestCase
+    func hashMixingWithSimilarHashCodes(): Unit {
+        var map: HashMap<Int64, String> = HashMap<Int64, String>()
+        map.add(0x0000000100000001, "a")
+        map.add(0x0000000200000002, "b")
+        map.add(0x0000000300000003, "c")
+        map.add(0x0000000400000004, "d")
+        map.add(0x0000000500000005, "e")
+        @Expect(map.size, 5)
+        @Expect(map.get(0x0000000100000001), Some("a"))
+        @Expect(map.get(0x0000000200000002), Some("b"))
+        @Expect(map.get(0x0000000300000003), Some("c"))
+        @Expect(map.get(0x0000000400000004), Some("d"))
+        @Expect(map.get(0x0000000500000005), Some("e"))
+    }
+
+    @TestCase
+    func hashMixingWithLowBitsSame(): Unit {
+        var map: HashMap<Int64, String> = HashMap<Int64, String>()
+        var keys = [0x1111111100000001, 0x2222222200000001, 0x3333333300000001, 
+                    0x4444444400000001, 0x5555555500000001, 0x6666666600000001,
+                    0x7777777700000001, 0x0111111100000001]
+        for (key in keys) {
+            map.add(key, "v${key}")
+        }
+        @Expect(map.size, 8)
+        for (key in keys) {
+            @Expect(map.contains(key), true)
+        }
+    }
 }
