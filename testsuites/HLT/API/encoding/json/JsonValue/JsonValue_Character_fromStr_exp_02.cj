@@ -17,7 +17,7 @@ main(): Int64 {
     try {
         var jv = JsonValue.fromStr(jsonstrBefore)
     } catch (e: Exception) {
-        if (e.toString().contains("JsonException: the json data is Non-standard")
+        if (e.toString().contains("JsonException: The json data is Non-standard")
             && e.toString().contains("Parse Error: [Line]: 1, [Pos]: 14, [Error]: Unexpected character: 'l'.")) {
             return 0
         }

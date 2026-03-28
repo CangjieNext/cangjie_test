@@ -21,7 +21,7 @@ main() {
         try {
             var jv: JsonValue = JsonValue.fromStr(str)
         } catch (e: JsonException) {
-            if (e.toString().contains("the json data is Non-standard, please check")) {
+            if (e.toString().contains("The json data is Non-standard, please check")) {
                 num++
             }
             if (e.toString().contains("Json String is empty!")) {
