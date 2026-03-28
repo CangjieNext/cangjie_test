@@ -445,4 +445,30 @@ class LinkedListTest {
         @Expect(collectArray(list5.iterator().intersperse("*")), ["a", "*", "b", "*", "c"])
         @Expect(collectArray(list5.iterator()), ["a", "b", "c"])
     }
+
+    @TestCase
+    func nodeValueModificationTriggersVersionChange(): Unit {
+        var list: LinkedList<Int64> = LinkedList<Int64>([1, 2, 3])
+        var node = list.nodeAt(1).getOrThrow()
+        @Expect(node.value, 2)
+        node.value = 20
+        @Expect(node.value, 20)
+        @Expect(list.size, 3)
+    }
+
+    @TestCase
+    func iteratorDetectsValueModification(): Unit {
+        var list: LinkedList<Int64> = LinkedList<Int64>([1, 2, 3])
+        var iter = list.iterator()
+        var first = iter.next()
+        @Expect(first, Some(1))
+        list.firstNode.getOrThrow().value = 10
+        var exceptionThrown = false
+        try {
+            var second = iter.next()
+        } catch (e: ConcurrentModificationException) {
+            exceptionThrown = true
+        }
+        @Expect(exceptionThrown, true)
+    }
 }
