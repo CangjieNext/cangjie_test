@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC: %compiler  %import-cangjie-stdx  %cmp_opt -V %f %cmp_utest_opt -o %output
-// (CJNATIVE and not Windows) EXEC: ldd %output
+// (CJNATIVE and Linux) EXEC: ldd %output
 // EXEC-PIPE:%set_stdx_path %run %run_opt %output %run_utest_opt %run_args
 
 import stdx.encoding.json.stream.*

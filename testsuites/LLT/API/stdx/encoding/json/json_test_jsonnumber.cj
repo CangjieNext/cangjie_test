@@ -31,7 +31,7 @@ public class JsonNumberTest {
             JsonValue.fromStr(jsonStr)
             @Expect(false)
         } catch (e: JsonException) {
-            @Expect(e.message, ##"the json data is Non-standard, please check:
+            @Expect(e.message, ##"The json data is Non-standard, please check:
 Parse Error: [Line]: 1, [Pos]: 4, [Error]: Unexpected character: '2'."##)
         }
     }
@@ -55,7 +55,7 @@ Parse Error: [Line]: 1, [Pos]: 4, [Error]: Unexpected character: '2'."##)
             JsonValue.fromStr(jsonStr)
             @Expect(false)
         } catch (e: JsonException) {
-            @Expect(e.message, ##"the json data is Non-standard, please check:
+            @Expect(e.message, ##"The json data is Non-standard, please check:
 Parse Error: [Line]: 1, [Pos]: 4, [Error]: Unexpected character: '8'."##)
         }
     }
@@ -79,7 +79,7 @@ Parse Error: [Line]: 1, [Pos]: 4, [Error]: Unexpected character: '8'."##)
             JsonValue.fromStr(jsonStr)
             @Expect(false)
         } catch (e: JsonException) {
-            @Expect(e.message, ##"the json data is Non-standard, please check:
+            @Expect(e.message, ##"The json data is Non-standard, please check:
 Parse Error: [Line]: 1, [Pos]: 4, [Error]: Unexpected character: 'g'."##)
         }
     }

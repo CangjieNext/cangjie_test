@@ -16,7 +16,7 @@ main() {
         JsonValue.fromStr("     ")
     } catch (e: JsonException) {
         if (e.message ==
-            ##"the json data is Non-standard, please check:
+            ##"The json data is Non-standard, please check:
 Parse Error: [Line]: 1, [Pos]: 1, [Error]: Unexpected character: ' '."##) {
             println("pass")
         }
