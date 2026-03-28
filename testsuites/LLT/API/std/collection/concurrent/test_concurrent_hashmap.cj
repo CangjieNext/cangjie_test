@@ -339,4 +339,35 @@ class ConcurrentHashMapTest {
             }
         }
     }
+
+    @TestCase
+    func testHashMixingWithSimilarHashCodes(): Unit {
+        var cmap = ConcurrentHashMap<Int64, String>()
+        cmap.put(0x0000000100000001, "a")
+        cmap.put(0x0000000200000002, "b")
+        cmap.put(0x0000000300000003, "c")
+        cmap.put(0x0000000400000004, "d")
+        cmap.put(0x0000000500000005, "e")
+        @Expect(cmap.size, 5)
+        @Expect(cmap.get(0x0000000100000001), Some("a"))
+        @Expect(cmap.get(0x0000000200000002), Some("b"))
+        @Expect(cmap.get(0x0000000300000003), Some("c"))
+        @Expect(cmap.get(0x0000000400000004), Some("d"))
+        @Expect(cmap.get(0x0000000500000005), Some("e"))
+    }
+
+    @TestCase
+    func testHashMixingWithLowBitsSame(): Unit {
+        var cmap = ConcurrentHashMap<Int64, String>()
+        var keys = [0x1111111100000001, 0x2222222200000001, 0x3333333300000001, 
+                    0x4444444400000001, 0x5555555500000001, 0x6666666600000001,
+                    0x7777777700000001, 0x0111111100000001]
+        for (key in keys) {
+            cmap.put(key, "v${key}")
+        }
+        @Expect(cmap.size, 8)
+        for (key in keys) {
+            @Expect(cmap.contains(key), true)
+        }
+    }
 }

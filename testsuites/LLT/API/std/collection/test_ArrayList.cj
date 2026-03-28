@@ -818,4 +818,16 @@ class ArrayListTest {
         var arr2 = arr1[0..=0]
         @Expect(arr2.toString(), "[aaa]")
     }
+
+    @TestCase
+    func arrayListIteratorOverflowCheck(): Unit {
+        var list: ArrayList<Int64> = ArrayList<Int64>([1, 2, 3, 4, 5])
+        var iter = list.iterator()
+        @Expect(iter.next(), Some(1))
+        @Expect(iter.next(), Some(2))
+        @Expect(iter.next(), Some(3))
+        @Expect(iter.next(), Some(4))
+        @Expect(iter.next(), Some(5))
+        @Expect(iter.next(), None)
+    }
 }

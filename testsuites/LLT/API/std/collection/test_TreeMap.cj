@@ -701,4 +701,21 @@ class TreeMapTest {
         @Expect(map1 != map3)
         @Expect(map2 != map4)
     }
+
+    @TestCase
+    func treeMapNodeIdentityTest(): Unit {
+        var map: TreeMap<Int64, String> = TreeMap<Int64, String>()
+        map.add(1, "a")
+        map.add(2, "b")
+        map.add(3, "c")
+        @Expect(map.size, 3)
+        @Expect(map.get(1), Some("a"))
+        @Expect(map.get(2), Some("b"))
+        @Expect(map.get(3), Some("c"))
+        map.remove(2)
+        @Expect(map.size, 2)
+        @Expect(map.get(2), None)
+        map.add(1, "updated")
+        @Expect(map.get(1), Some("updated"))
+    }
 }
