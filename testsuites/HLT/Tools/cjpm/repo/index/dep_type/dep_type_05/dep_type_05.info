@@ -11,6 +11,6 @@
 // EXEC-0: cd %n/test_output_1 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
 // EXEC-0: cd %n/test_output_2 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
 // EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: regex libtest_repo_7.(so|dll)
+// ASSERT: regex libtest_repo_7.(so|dll|dylib)
 // ASSERT: scan-not libtest_repo_7.a
 // ASSERT: scan cjpm build success

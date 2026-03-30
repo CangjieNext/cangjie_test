@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f
-// (host_win) EXEC: if exist lib%n.%test_suffix (exit 0) else (exit 1)
-// (!host_win) EXEC: test -f lib%n.%test_suffix
+// (CJNATIVE) EXEC: %ls lib%n.%test_suffix
+// (not CJNATIVE) EXEC: %ls %n.%dylib_suffix
 
 main(): Int64 {
     return run()

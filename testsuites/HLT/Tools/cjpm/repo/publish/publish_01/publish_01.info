@@ -7,9 +7,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (host_mac)EXEC: cd %n/add_demo && %repo_sed '' "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
-// (not host_mac)EXEC: cd %n/add_demo && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
-// (host_mac)EXEC: cd %n/del_demo && %repo_sed '' "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
-// (not host_mac)EXEC: cd %n/del_demo && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/del_demo && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
 // EXEC-0: cd %n/add_demo && %cjpm bundle --skip-test --skip-lint && %cjpm publish
 // EXEC-0: cd %n/del_demo && %cjpm bundle --skip-test --skip-lint && %cjpm publish
