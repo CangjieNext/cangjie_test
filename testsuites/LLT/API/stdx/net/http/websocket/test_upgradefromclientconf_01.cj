@@ -43,14 +43,19 @@ class Testupgradefromclientconf_01 {
         var cfg = clientConfig()
         cfg.supportedAlpnProtocols = ["h2"]
         let client = ClientBuilder().tlsConfig(cfg).build()
-        let u = URL.parse("wss://127.0.0.1:77777/webSocket")
-        let websocket: WebSocket
-        let respHeaders: HttpHeaders
         try {
-            (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u, version: HTTP2_0)
-            websocket.closeConn()
-        } catch (e: HttpException) {
-            @Expect(e.message, "Invalid url address or proxy address.")
+            let u = URL.parse("wss://127.0.0.1:77777/webSocket")
+            let websocket: WebSocket
+            let respHeaders: HttpHeaders
+            try {
+                (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u, version: HTTP2_0)
+                websocket.closeConn()
+            } catch (e: HttpException) {
+                @Expect(e.message, "Invalid url address or proxy address.")
+                sum += 1
+            }
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message.contains("Port out of range"))
             sum += 1
         }
         @Expect(sum, 1)
