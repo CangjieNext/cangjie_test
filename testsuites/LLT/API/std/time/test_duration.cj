@@ -297,4 +297,22 @@ public class DurationTest {
         @Expect(getDuration(-1, -2, -4, -3, -1, -5, -10).toString(), "-1d2h4m3s1ms5us10ns")
         @Expect(getDuration(5, 3, 0, 7, 6, 0, 0).toString(), "5d3h7s6ms")
     }
+
+    @TestCase
+    func operationDivideLargeDivisor(): Unit {
+        let largeDivisor: Int64 = 0x1_0000_0000
+        let dur = Duration.second * 100 + Duration.nanosecond * 500000000
+        let result = dur / largeDivisor
+        @Expect(result.toNanoseconds(), 23)
+        
+        let dur3 = Duration.second * 1000
+        let divisor3: Int64 = 1000
+        let result3 = dur3 / divisor3
+        @Expect(result3, Duration.second)
+        
+        let dur4 = Duration.second * 100000
+        let divisor4: Int64 = 0x1_0000_0001
+        let result4 = dur4 / divisor4
+        @Expect(result4.toNanoseconds() > 0, true)
+    }
 }
