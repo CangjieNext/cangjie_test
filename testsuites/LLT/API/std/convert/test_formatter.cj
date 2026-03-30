@@ -535,4 +535,216 @@ class FormatterTest {
         }
         @Expect(false)
     }
+
+    @TestCase
+    func formatWidthOverflow(): Unit {
+        let largeWidthInputs: Array<String> = ["999999999", "1000000000", "999999999999"]
+        for (fmt in largeWidthInputs) {
+            var caught = false
+            try {
+                var result = Int64(1).format(fmt)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                // Print actual error message for debugging
+                println("Actual error message for format '${fmt}': ${e.message}")
+                caught = true
+            } catch (e: OutOfMemoryError) {
+                caught = true
+            }
+            @Assert(caught)
+        }
+    }
+
+    @TestCase
+    func formatPrecisionOverflow(): Unit {
+        let largePrecisionInputs: Array<String> = [".999999999b", ".1000000000x", ".500o"]
+        for (fmt in largePrecisionInputs) {
+            var caught = false
+            try {
+                var result = Int64(1).format(fmt)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("350"))
+                caught = true
+            } catch (e: OutOfMemoryError) {
+                caught = true
+            }
+            @Assert(caught)
+        }
+    }
+
+    @TestCase
+    func formatPrecisionBoundary350(): Unit {
+        let result = Float64(1.0).format(".350e")
+        @Assert(result.size > 0)
+
+        let result2 = Float64(1.0).format(".350")
+        @Assert(result2.size > 0)
+
+        let result3 = Float64(1.0).format(".350g")
+        @Assert(result3.size > 0)
+
+        let result4 = Int64(1).format(".350b")
+        @Assert(result4.size > 0)
+    }
+
+    @TestCase
+    func formatFloatPrecisionOverflow(): Unit {
+        let largePrecisionFloatInputs: Array<String> = [".999999999999999999e", ".100000000000000000E", ".999999999999999999g"]
+        for (fmt in largePrecisionFloatInputs) {
+            var caught = false
+            try {
+                var result = Float64(1.0).format(fmt)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("350"))
+                caught = true
+            } catch (e: OutOfMemoryError) {
+                caught = true
+            }
+            @Assert(caught)
+        }
+    }
+
+    @TestCase
+    func formatFloatPrecisionExceedsMaxFloatPrecision(): Unit {
+        let mediumPrecisionFloatInputs: Array<String> = [".351e", ".500E", ".1000g"]
+        for (fmt in mediumPrecisionFloatInputs) {
+            var caught = false
+            try {
+                var result = Float64(1.0).format(fmt)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("350"))
+                @Assert(e.message.contains("exceeds maximum"))
+                caught = true
+            }
+            @Assert(caught)
+        }
+    }
+
+    @TestCase
+    func formatWidthOnlyNoSpecifier(): Unit {
+        @Expect(Int64(42).format("10"), "        42")
+        @Expect(Int64(42).format("5"), "   42")
+        @Expect(Int64(42).format("012"), "000000000042")
+        @Expect(Int64(-42).format("5"), "  -42")
+    }
+
+    @TestCase
+    func formatPrecisionOnlyNoSpecifier(): Unit {
+        @Expect(Int64(42).format(".5"), "00042")
+        @Expect(Int64(42).format(".10"), "0000000042")
+    }
+
+    @TestCase
+    func formatWidthAndPrecisionNoSpecifier(): Unit {
+        @Expect(Int64(42).format("10.5"), "     00042")
+        @Expect(Int64(42).format("8.8"), "00000042")
+    }
+
+    @TestCase
+    func escapeControlCharactersEsc(): Unit {
+        var countError = 0
+        try {
+            let arr: Array<Byte> = [0x1B]
+            let escChar = String.fromUtf8(arr)
+            Int64(42).format(escChar + "[2J")
+        } catch (e: IllegalArgumentException) {
+            @Assert(e.message.contains("\\x1b"))
+            countError++
+        }
+        @Expect(countError, 1)
+    }
+
+    @TestCase
+    func escapeControlCharactersC0(): Unit {
+        var countError = 0
+        try {
+            let arr: Array<Byte> = [0x07]
+            let bellChar = String.fromUtf8(arr)
+            Int64(42).format(bellChar + "d")
+        } catch (e: IllegalArgumentException) {
+            println("Actual error message for C0: ${e.message}")
+            @Assert(e.message.contains("\\x07"))
+            countError++
+        }
+        @Expect(countError, 1)
+    }
+
+    @TestCase
+    func escapeControlCharactersDel(): Unit {
+        var countError = 0
+        try {
+            let arr: Array<Byte> = [0x7F]
+            let delChar = String.fromUtf8(arr)
+            Int64(42).format(delChar + "d")
+        } catch (e: IllegalArgumentException) {
+            @Assert(e.message.contains("\\x7f"))
+            countError++
+        }
+        @Expect(countError, 1)
+    }
+
+    @TestCase
+    func formatNaN(): Unit {
+        let nanVal = Float64.NaN
+        let negNan = -Float64.NaN
+
+        let result1 = nanVal.format("")
+        @Assert(!result1.contains("--"))
+        @Assert(result1 == "nan" || result1 == "NaN")
+
+        let result2 = negNan.format("")
+        @Assert(!result2.contains("--"))
+        @Assert(result2 == "-nan" || result2 == "-NaN" || result2 == "nan" || result2 == "NaN")
+
+        let result3 = nanVal.format("10")
+        @Assert(!result3.contains("--"))
+
+        let result4 = negNan.format("10")
+        @Assert(!result4.contains("--"))
+
+        let result5 = nanVal.format(".2g")
+        @Assert(!result5.contains("--"))
+
+        let result6 = negNan.format(".2g")
+        @Assert(!result6.contains("--"))
+
+        let result7 = nanVal.format("10.2e")
+        @Assert(!result7.contains("--"))
+
+        let result8 = negNan.format("10.2e")
+        @Assert(!result8.contains("--"))
+
+        let result9 = nanVal.format("10.2g")
+        @Assert(!result9.contains("--"))
+
+        let result10 = negNan.format("10.2g")
+        @Assert(!result10.contains("--"))
+    }
+
+    @TestCase
+    func formatNaNFloat32(): Unit {
+        let nanVal = Float32.NaN
+        let negNan = -Float32.NaN
+
+        let result1 = nanVal.format("")
+        @Assert(!result1.contains("--"))
+
+        let result2 = negNan.format("")
+        @Assert(!result2.contains("--"))
+    }
+
+    @TestCase
+    func formatNaNFloat16(): Unit {
+        let nanVal = Float16.NaN
+        let negNan = -Float16.NaN
+
+        let result1 = nanVal.format("")
+        @Assert(!result1.contains("--"))
+
+        let result2 = negNan.format("")
+        @Assert(!result2.contains("--"))
+    }
 }

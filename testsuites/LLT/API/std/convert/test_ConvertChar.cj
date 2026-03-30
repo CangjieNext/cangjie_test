@@ -43,6 +43,58 @@ class ConvertRuneTest {
     }
 
     @TestCase
+    func parseInvalidUnicodeCodePoint(): Unit {
+        let invalidCodePoints: Array<String> = [
+            "'\\u{D800}'",
+            "'\\u{DFFF}'",
+            "'\\u{D801}'",
+            "'\\u{DBFF}'",
+            "'\\u{DC00}'",
+            "'\\u{110000}'",
+            "'\\u{FFFFFF}'",
+            "'\\u{FFFFFFFF}'"
+        ]
+
+        for (input in invalidCodePoints) {
+            var exceptionThrown = false
+            try {
+                var _ = Rune.parse(input)
+            } catch (e: IllegalArgumentException) {
+                exceptionThrown = true
+                @Assert(e.message, "Fail to convert to Rune.")
+            }
+            @Expect(exceptionThrown, true)
+        }
+    }
+
+    @TestCase
+    func parseValidUnicodeCodePoint(): Unit {
+        let validCodePoints: Array<(String, Rune)> = [
+            ("'\\u{41}'", r'A'),
+            ("'\\u{4E2D}'", r'中'),
+            ("'\\u{10FFFF}'", Rune(0x10FFFF))
+        ]
+
+        for ((input, expected) in validCodePoints) {
+            @Expect(Rune.parse(input), expected)
+        }
+    }
+
+    @TestCase
+    func tryParseInvalidUnicodeCodePoint(): Unit {
+        let invalidCodePoints: Array<String> = [
+            "'\\u{D800}'",
+            "'\\u{DFFF}'",
+            "'\\u{110000}'"
+        ]
+
+        for (input in invalidCodePoints) {
+            let result = Rune.tryParse(input)
+            @Expect(result.isNone(), true)
+        }
+    }
+
+    @TestCase
     func tryParse(): Unit {
         let testVars: Array<(String, Rune)> = [("'a'", r'a'), ("'5'", r'5'), ("'\''", r'\''), ("'\\n'", r'\n'),
             ("''", r'\0'), ("'\\u4e25'", r'\0'), ("'\\u6211'", r'\0')]

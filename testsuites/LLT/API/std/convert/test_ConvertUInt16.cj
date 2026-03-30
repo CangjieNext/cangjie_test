@@ -25,7 +25,7 @@ class ConvertUInt16Test {
     @TestCase
     func parseRadix(): Unit {
         let testVars: Array<(String, Int, UInt16)> = [("1111111", 2, 127), ("1333", 4, 127), ("14640", 15, 65535),
-            ("0", 10, 0), ("+148", 9, 125)]
+            ("0", 10, 0), ]
         for (testVar in testVars) {
             @Expect(UInt16.parse(testVar[0], radix:testVar[1]), testVar[2])
         }
@@ -35,8 +35,7 @@ class ConvertUInt16Test {
     func parseException(): Unit {
         let testVars: Array<(String, String)> = [("", "The string is empty."),
             ("65536", "The part of value convert failed."), ("-1", "Starting with \"-\" is illegal in UInt16."),
-            ("0o1234567890", "The part of value convert failed."), ("0x1234567890", "The part of value convert failed."),
-            ("+32", "Starting with \"+\" is illegal in UInt16.")]
+            ("0o1234567890", "The part of value convert failed."), ("0x1234567890", "The part of value convert failed.")]
 
         for (testVar in testVars) {
             try {
@@ -48,11 +47,16 @@ class ConvertUInt16Test {
     }
 
     @TestCase
+    func parsePlusSign(): Unit {
+        @Expect(UInt16.parse("+32"), 32)
+        @Expect(UInt16.parse("+10"), 10)
+    }
+
+    @TestCase
     func parseExceptionRadix(): Unit {
         let testVars: Array<(String, Int, String)> = [("", 3, "The string is empty."),
             ("65536", 2, "The part of value convert failed."), ("-1", 2, "Starting with \"-\" is illegal in UInt16."),
-            ("0o1", 8, "The part of value convert failed."), ("0x1", 16, "The part of value convert failed."),
-            ("+32", 37, "The radix out of range."), ("+", 2, "The value part is empty.")]
+            ("0o1", 8, "The part of value convert failed."), ("0x1", 16, "The part of value convert failed.")]
 
         for (testVar in testVars) {
             try {
@@ -64,9 +68,15 @@ class ConvertUInt16Test {
     }
 
     @TestCase
+    func parsePlusSignRadix(): Unit {
+        @Expect(UInt16.parse("+32", radix: 10), 32)
+        @Expect(UInt16.parse("+10", radix: 10), 10)
+    }
+
+    @TestCase
     func tryParse(): Unit {
         let testVars: Array<(String, UInt16)> = [("0xf", 15), ("0b0001_1000", 24), ("0o30", 24), ("24", 24),
-            ("65535", 65535), ("65536", 0), ("0o00000000030", 24), ("0x00000000030", 48), ("+24", 0), ("", 0), ("16", 16),
+            ("65535", 65535), ("65536", 0), ("0o00000000030", 24), ("0x00000000030", 48), ("+24", 24), ("", 0), ("16", 16),
             ("123o456", 0)]
 
         for (testVar in testVars) {

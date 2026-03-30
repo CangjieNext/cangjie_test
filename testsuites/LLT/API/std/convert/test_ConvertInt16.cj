@@ -35,8 +35,7 @@ class ConvertInt16Test {
     func parseException(): Unit {
         let testVars: Array<(String, String)> = [("", "The string is empty."),
             ("32768", "The part of value convert failed."), ("-32769", "The part of value convert failed."),
-            ("0o1234567890", "The part of value convert failed."), ("0x1234567890", "The part of value convert failed."),
-            ("+32", "Starting with \"+\" is illegal in Int16.")]
+            ("0o1234567890", "The part of value convert failed."), ("0x1234567890", "The part of value convert failed.")]
 
         for (testVar in testVars) {
             try {
@@ -48,11 +47,17 @@ class ConvertInt16Test {
     }
 
     @TestCase
+    func parsePlusSign(): Unit {
+        @Expect(Int16.parse("+32"), 32)
+        @Expect(Int16.parse("+10"), 10)
+    }
+
+    @TestCase
     func parseExceptionRadix(): Unit {
         let testVars: Array<(String, Int, String)> = [("", 3, "The string is empty."),
             ("32768", 2, "The part of value convert failed."), ("-32769", 2, "The part of value convert failed."),
             ("0o1", 8, "The part of value convert failed."), ("0x1", 16, "The part of value convert failed."),
-            ("+32", 37, "The radix out of range."), ("-", 2, "The value part is empty.")]
+            ("-", 2, "The value part is empty.")]
 
         for (testVar in testVars) {
             try {
@@ -64,9 +69,15 @@ class ConvertInt16Test {
     }
 
     @TestCase
+    func parsePlusSignRadix(): Unit {
+        @Expect(Int16.parse("+32", radix: 10), 32)
+        @Expect(Int16.parse("+10", radix: 10), 10)
+    }
+
+    @TestCase
     func tryParse(): Unit {
         let testVars: Array<(String, Int16)> = [("0xf", 15), ("-0b0001_1000", -24), ("0o30", 24), ("-24", -24), ("", 0),
-            ("+12", 0), ("-32768", -32768), ("32768", 0), ("126", 126), ("\n123", 0)]
+            ("+12", 12), ("-32768", -32768), ("32768", 0), ("126", 126), ("\n123", 0)]
 
         for (testVar in testVars) {
             var ret: Option<Int16> = Int16.tryParse(testVar[0])

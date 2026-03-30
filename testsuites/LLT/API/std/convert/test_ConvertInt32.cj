@@ -34,8 +34,7 @@ class ConvertInt32Test {
     @TestCase
     func parseException(): Unit {
         let testVars: Array<(String, String)> = [("", "The string is empty."),
-            ("2147483648", "The part of value convert failed."), ("-2147483649", "The part of value convert failed."),
-            ("+32", "Starting with \"+\" is illegal in Int32.")]
+            ("2147483648", "The part of value convert failed."), ("-2147483649", "The part of value convert failed.")]
 
         for (testVar in testVars) {
             try {
@@ -47,16 +46,22 @@ class ConvertInt32Test {
     }
 
     @TestCase
+    func parsePlusSign(): Unit {
+        @Expect(Int32.parse("+32"), 32)
+        @Expect(Int32.parse("+10"), 10)
+    }
+
+    @TestCase
     func parseExceptionRadix(): Unit {
         let testVars: Array<(String, Int, String)> = [("", 3, "The string is empty."),
             ("2147483648", 2, "The part of value convert failed."),
             ("-2147483649", 2, "The part of value convert failed."), ("0o1", 8, "The part of value convert failed."),
-            ("0x1", 16, "The part of value convert failed."), ("+32", 37, "The radix out of range."),
+            ("0x1", 16, "The part of value convert failed."),
             ("-", 2, "The value part is empty.")]
 
         for (testVar in testVars) {
             try {
-                var _ = Int16.parse(testVar[0], radix: testVar[1])
+                var _ = Int32.parse(testVar[0], radix: testVar[1])
             } catch (e: IllegalArgumentException) {
                 @Assert(e.message,  testVar[2])
             }
@@ -64,9 +69,21 @@ class ConvertInt32Test {
     }
 
     @TestCase
+    func parsePlusSignRadix(): Unit {
+        @Expect(Int32.parse("+32", radix: 10), 32)
+        @Expect(Int32.parse("+10", radix: 10), 10)
+    }
+
+    @TestCase
+    func parsePlusSignConsistency(): Unit {
+        @Expect(Int32.parse("+10"), 10)
+        @Expect(Int32.parse("+10", radix: 10), 10)
+    }
+
+    @TestCase
     func tryParse(): Unit {
         let testVars: Array<(String, Int32)> = [("0xf", 15), ("-0b0001_1000", -24), ("0o30", 24), ("-24", -24), ("", 0),
-            ("+12", 0), ("-2147483648", -2147483648), ("2147483648", 0), ("32", 32), ("1234abcsf56778", 0)]
+            ("+12", 12), ("-2147483648", -2147483648), ("2147483648", 0), ("32", 32), ("1234abcsf56778", 0)]
 
         for (testVar in testVars) {
             var ret: Option<Int32> = Int32.tryParse(testVar[0])

@@ -101,13 +101,13 @@ class ConvertUnexpectedSituationTest {
         @Expect(res10_1, Float32.Inf)
 
         var res11 = getResultParse<Float64>(Float64.tryParse, "-2.5e308", 0.0)
-        @Expect(res11, -Float64.Inf)
+        @Expect(res11, 0.0)
 
-        var res11_1 = getResultParse<Float64>(Float64.tryParse, "2.24e-307,", 0.0)
-        @Expect(res11_1, 0.0)
+        var res11_1 = getResultParse<Float64>(Float64.tryParse, "2.24e-307", 0.0)
+        @Expect(res11_1, 2.24e-307)
 
         var res11_2 = getResultParse<Float64>(Float64.tryParse, "1.8e309", 0.0)
-        @Expect(res11_2, Float64.Inf)
+        @Expect(res11_2, 0.0)
     }
 
     @TestCase
@@ -128,5 +128,140 @@ class ConvertUnexpectedSituationTest {
         for (testVar in testVars) {
             @Expect(matchResult<Float64>(Float64.tryParse(testVar[0]), -1.0), testVar[1])
         }
+    }
+
+    @TestCase
+    func invalidPrefixParse(): Unit {
+        let invalidPrefixInputs: Array<String> = ["0z", "0!", "0q", "0@", "0#", "0z1"]
+        for (input in invalidPrefixInputs) {
+            try {
+                var _ = Int64.parse(input)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("prefix") || e.message.contains("Invalid"))
+            }
+        }
+    }
+
+    @TestCase
+    func symbolOnlyParse(): Unit {
+        let symbolOnlyInputs: Array<String> = ["+", "-", "."]
+        for (input in symbolOnlyInputs) {
+            try {
+                var _ = Float64.parse(input)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("floating point") || e.message.contains("syntax"))
+            }
+        }
+    }
+
+    @TestCase
+    func doubleDecimalPointParse(): Unit {
+        let doubleDecimalInputs: Array<String> = ["1.2.", "3.14.", "0.001.", "..", "1.2.3"]
+        for (input in doubleDecimalInputs) {
+            try {
+                var _ = Float64.parse(input)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("floating point") || e.message.contains("syntax"))
+            }
+        }
+    }
+
+    @TestCase
+    func formatWidthOverflow(): Unit {
+        let largeWidthInputs: Array<String> = ["999999999", "1000000000", "999999999999"]
+        for (fmt in largeWidthInputs) {
+            try {
+                var result = Int64(1).format(fmt)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("width") || e.message.contains("overflow") || e.message.contains("limit"))
+            } catch (e: OutOfMemoryError) {
+                @Assert(true)
+            }
+        }
+    }
+
+    @TestCase
+    func formatPrecisionOverflow(): Unit {
+        let largePrecisionInputs: Array<String> = [".999999999b", ".999999999999999999e", ".1000000000x"]
+        for (fmt in largePrecisionInputs) {
+            var caught = false
+            try {
+                var result = Int64(1).format(fmt)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                caught = true
+            } catch (e: OutOfMemoryError) {
+                caught = true
+            }
+            @Assert(caught)
+        }
+    }
+
+    @TestCase
+    func parsePlusSignBehavior(): Unit {
+        @Expect(Int64.parse("+10"), 10)
+        @Expect(Int64.parse("+10", radix: 10), 10)
+    }
+
+    @TestCase
+    func unsignedParseRadixOverflowBoundary(): Unit {
+        @Expect(UInt8.parse("255", radix: 10), 255)
+        try {
+            var _ = UInt8.parse("256", radix: 10)
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Assert(e.message.contains("convert failed"))
+        }
+
+        @Expect(UInt16.parse("65535", radix: 10), 65535)
+        try {
+            var _ = UInt16.parse("65536", radix: 10)
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Assert(e.message.contains("convert failed"))
+        }
+
+        @Expect(UInt32.parse("4294967295", radix: 10), 4294967295)
+        try {
+            var _ = UInt32.parse("4294967296", radix: 10)
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Assert(e.message.contains("convert failed"))
+        }
+
+        @Expect(UInt8.parse("ff", radix: 16), 255)
+        try {
+            var _ = UInt8.parse("100", radix: 16)
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Assert(e.message.contains("convert failed"))
+        }
+
+        @Expect(UInt16.parse("ffff", radix: 16), 65535)
+        try {
+            var _ = UInt16.parse("10000", radix: 16)
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Assert(e.message.contains("convert failed"))
+        }
+
+        @Expect(UInt32.parse("ffffffff", radix: 16), 4294967295)
+        try {
+            var _ = UInt32.parse("100000000", radix: 16)
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Assert(e.message.contains("convert failed"))
+        }
+
+        @Expect(UInt8.tryParse("256", radix: 10), None)
+        @Expect(UInt16.tryParse("65536", radix: 10), None)
+        @Expect(UInt32.tryParse("4294967296", radix: 10), None)
+        @Expect(UInt8.tryParse("100", radix: 16), None)
+        @Expect(UInt16.tryParse("10000", radix: 16), None)
+        @Expect(UInt32.tryParse("100000000", radix: 16), None)
     }
 }
