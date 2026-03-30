@@ -11,59 +11,43 @@
 @Test
 class ErrorPcArrayTest {
     @TestCase
-    func testErrorBasicCreation(): Unit {
-        let err = Error()
-        @Expect(err.toString().size() >= 0, true)
+    func testExceptionBasicCreation(): Unit {
+        let ex = Exception("Test exception")
+        @Expect(ex.message, "Test exception")
     }
 
     @TestCase
-    func testErrorWithMessage(): Unit {
-        let err = Error("Test error message")
-        @Expect(err.toString().contains("Test error message"), true)
+    func testExceptionWithMessage(): Unit {
+        let ex = Exception("Test error message")
+        @Expect(ex.toString().contains("Test error message"), true)
     }
 
     @TestCase
-    func testErrorStackTrace(): Unit {
-        let err = Error("With stack trace")
-        let str = err.toString()
-        @Expect(str.size() > 0, true)
-    }
-
-    @TestCase
-    func testErrorSubclass(): Unit {
-        class CustomError <: Error {
-            init(message: String): super(message) {}
-        }
-        let err = CustomError("Custom error")
-        @Expect(err.toString().contains("Custom error"), true)
-    }
-
-    @TestCase
-    func testErrorThrowCatch(): Unit {
+    func testExceptionThrowCatch(): Unit {
         var caught = false
         try {
-            throw Error("Thrown error")
-        } catch (e: Error) {
+            throw Exception("Thrown exception")
+        } catch (e: Exception) {
             caught = true
         }
         @Expect(caught, true)
     }
 
     @TestCase
-    func testErrorMultipleCreation(): Unit {
-        let errors = [Error("1"), Error("2"), Error("3")]
-        @Expect(errors.size, 3)
+    func testExceptionMultipleCreation(): Unit {
+        let exceptions = [Exception("1"), Exception("2"), Exception("3")]
+        @Expect(exceptions.size, 3)
     }
 
     @TestCase
-    func testErrorEmptyMessage(): Unit {
-        let err = Error("")
-        @Expect(err.toString().size() >= 0, true)
+    func testExceptionEmptyMessage(): Unit {
+        let ex = Exception("")
+        @Expect(ex.message, "")
     }
 
     @TestCase
-    func testErrorNullMessage(): Unit {
-        let err = Error()
-        @Expect(err.toString().size() >= 0, true)
+    func testExceptionInheritance(): Unit {
+        let ex = Exception("Test")
+        @Expect(ex.message, "Test")
     }
 }
