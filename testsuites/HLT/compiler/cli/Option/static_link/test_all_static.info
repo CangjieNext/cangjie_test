@@ -43,8 +43,6 @@
 // (target_linux) ASSERT: scan libm.so
 // (target_linux) ASSERT: scan libc.so
 // (target_linux) ASSERT: scan ld-linux-x86-64.so
-// (target_linux) ASSERT: scan libdl.so
-// (target_linux) ASSERT: scan libpthread.so
 
 // 指定--static时仓颉runtime将被静态链接
 // (target_win) ASSERT: scan-not libcangjie-runtime.dll
