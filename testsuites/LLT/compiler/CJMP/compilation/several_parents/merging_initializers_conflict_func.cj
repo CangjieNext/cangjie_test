@@ -39,6 +39,7 @@ public specific func foo() {3}
 // NOTE: DIAMOND CHILD
 // SEPARATE-FILE: child/child.cj
 // EXEC: %compiler %noColor --experimental child/child.cj p1/cmp.chir p2/cmp.chir --common-part-cjo=p1/cmp.cjo --common-part-cjo=p2/cmp.cjo --output-type=dylib 2>&1 | compare %f
+package cmp
 
 /* SCAN
 error: function 'foo' has overload conflicts

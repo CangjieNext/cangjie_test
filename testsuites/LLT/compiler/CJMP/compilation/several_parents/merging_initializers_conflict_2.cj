@@ -43,6 +43,8 @@ public let x = 3
 // NOTE: DIAMOND CHILD
 // SEPARATE-FILE: child/child.cj
 // EXEC: %compiler %noColor --experimental child/child.cj p1/cmp.chir p2/cmp.chir --common-part-cjo=p1/cmp.cjo --common-part-cjo=p2/cmp.cjo --output-type=dylib 2>&1 | compare %f
+features { p1, p2 }
+package cmp
 
 /* SCAN
 error: redefinition of declaration 'x'
