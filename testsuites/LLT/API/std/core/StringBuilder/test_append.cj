@@ -186,4 +186,28 @@ class AppendTest {
         sb.append("123456")
         @Expect(res, str)
     }
+
+    @TestCase
+    func appendInt64Min(): Unit {
+        sb.reset()
+        sb.append(Int64.Min)
+        @Expect(sb.toString(), "-9223372036854775808")
+        @Expect(sb.size, 20)
+    }
+
+    @TestCase
+    func appendInt64Max(): Unit {
+        sb.reset()
+        sb.append(Int64.Max)
+        @Expect(sb.toString(), "9223372036854775807")
+        @Expect(sb.size, 19)
+    }
+
+    @TestCase
+    func appendUInt64Max(): Unit {
+        sb.reset()
+        sb.append(UInt64.Max)
+        @Expect(sb.toString(), "18446744073709551615")
+        @Expect(sb.size, 20)
+    }
 }
