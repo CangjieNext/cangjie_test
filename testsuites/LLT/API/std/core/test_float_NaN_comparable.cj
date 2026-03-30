@@ -101,4 +101,34 @@ class ComparableTest {
         ComparableTest.testNaN(Float64.Max, Float64.NaN)
         ComparableTest.testNaN(Float64.Inf, Float64.NaN)
     }
+
+    static func testCompareNaN<T>(number: T, NaN: T) where T <: Comparable<T> {
+        @Expect(NaN.compare(NaN) == Ordering.EQ)
+        @Expect(NaN.compare(number) == Ordering.GT)
+        @Expect(number.compare(NaN) == Ordering.LT)
+    }
+
+    @TestCase
+    func testFloat16Compare(): Unit {
+        ComparableTest.testCompareNaN(Float16.Max, Float16.NaN)
+        ComparableTest.testCompareNaN(Float16.Inf, Float16.NaN)
+        ComparableTest.testCompareNaN(Float16(0.0), Float16.NaN)
+        ComparableTest.testCompareNaN(-Float16.Inf, Float16.NaN)
+    }
+
+    @TestCase
+    func testFloat32Compare(): Unit {
+        ComparableTest.testCompareNaN(Float32.Max, Float32.NaN)
+        ComparableTest.testCompareNaN(Float32.Inf, Float32.NaN)
+        ComparableTest.testCompareNaN(Float32(0.0), Float32.NaN)
+        ComparableTest.testCompareNaN(-Float32.Inf, Float32.NaN)
+    }
+
+    @TestCase
+    func testFloat64Compare(): Unit {
+        ComparableTest.testCompareNaN(Float64.Max, Float64.NaN)
+        ComparableTest.testCompareNaN(Float64.Inf, Float64.NaN)
+        ComparableTest.testCompareNaN(Float64(0.0), Float64.NaN)
+        ComparableTest.testCompareNaN(-Float64.Inf, Float64.NaN)
+    }
 }
