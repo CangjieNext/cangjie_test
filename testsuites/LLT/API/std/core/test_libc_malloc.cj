@@ -59,4 +59,15 @@ class LibCMallocTest {
         }
         @Expect(exceptionThrown, true)
     }
+
+    @TestCase
+    func testMallocZeroCountThrowsException(): Unit {
+        var exceptionThrown = false
+        try {
+            let ptr = LibC.malloc<Int64>(count: 0)
+        } catch (e: IllegalArgumentException) {
+            exceptionThrown = true
+        }
+        @Expect(exceptionThrown, true)
+    }
 }
