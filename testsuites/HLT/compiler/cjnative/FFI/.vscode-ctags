@@ -1,0 +1,1738 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/pentium/cangjie_test/testsuites/HLT/compiler/cjnative/FFI/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+A	cffi/c_ffi_015/c_ffi_01537/test.c	/^struct A {$/;"	s	file:
+A	cffi/c_ffi_017/c_ffi_01729/test.c	/^struct A {$/;"	s	file:
+A	cffi/c_ffi_017/c_ffi_01730/test.c	/^struct A {$/;"	s	file:
+A	cffi/c_ffi_017/c_ffi_01731/test.c	/^struct A {$/;"	s	file:
+A	cffi/c_ffi_017/c_ffi_01732/test.c	/^struct A {$/;"	s	file:
+A	cffi/c_ffi_017/c_ffi_01733/test.c	/^struct A {$/;"	s	file:
+AllocCPointer	cffi/c_ffi_011/c_ffi_01135/c_ffi_01135.c	/^int* AllocCPointer()$/;"	f	typeref:typename:int *
+AllocCPointer	cffi/c_ffi_011/c_ffi_01137/c_ffi_01137.c	/^char* AllocCPointer()$/;"	f	typeref:typename:char *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00739/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00740/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00741/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00742/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00743/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00744/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00745/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00746/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00747/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00748/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00749/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00750/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00751/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00752/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00756/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00776/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00781/c_ffi.c	/^teststruct* AllocCStruct()$/;"	f	typeref:typename:teststruct *
+AllocCStruct	cffi/c_ffi_007/c_ffi_00787/c_ffi.c	/^MyStruct* AllocCStruct()$/;"	f	typeref:typename:MyStruct *
+AllocCStruct	cffi/c_ffi_011/c_ffi_01134/c_ffi_01134.c	/^MyStruct* AllocCStruct()$/;"	f	typeref:typename:MyStruct *
+AllocCStruct	cffi/c_ffi_011/c_ffi_01136/c_ffi_01136.c	/^struct MyStruct AllocCStruct()$/;"	f	typeref:struct:MyStruct
+AllocCStruct	cffi/c_ffi_014/c_ffi_01405/c_ffi.c	/^MyStruct* AllocCStruct()$/;"	f	typeref:typename:MyStruct *
+AllocCStruct	cffi/c_ffi_014/c_ffi_01409/c_ffi.c	/^MyStruct* AllocCStruct()$/;"	f	typeref:typename:MyStruct *
+AllocCStruct	cffi/c_ffi_014/c_ffi_01423/c_ffi.c	/^MyStruct* AllocCStruct()$/;"	f	typeref:typename:MyStruct *
+CCC_except_table0	cffi/c_ffi_099/conflict/foo.c	/^void CCC_except_table0()$/;"	f	typeref:typename:void
+CCC_except_table1	cffi/c_ffi_099/conflict/foo.c	/^void CCC_except_table1()$/;"	f	typeref:typename:void
+CCC_except_table2	cffi/c_ffi_099/conflict/foo.c	/^void CCC_except_table2()$/;"	f	typeref:typename:void
+CCC_except_table3	cffi/c_ffi_099/conflict/foo.c	/^void CCC_except_table3()$/;"	f	typeref:typename:void
+Data	cffi/cstruct/as_class_member/test.c	/^struct Data$/;"	s	file:
+Func	cffi/c_ffi_009/c_ffi_00955/c_ffi.c	/^typedef int64_t (*Func)(int64_t, int64_t);$/;"	t	typeref:typename:int64_t (*)(int64_t,int64_t)	file:
+GetDoublePtr	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^void** GetDoublePtr()$/;"	f	typeref:typename:void **
+GetDoublePtr	cffi/c_ffi_009/c_ffi_00942/c_ffi.c	/^void** GetDoublePtr()$/;"	f	typeref:typename:void **
+GetDoublePtr	cffi/c_ffi_009/c_ffi_00951/c_ffi.c	/^void** GetDoublePtr()$/;"	f	typeref:typename:void **
+GetMaxFuncPtr	cffi/c_ffi_007/c_ffi_00787/c_ffi.c	/^compare GetMaxFuncPtr()$/;"	f	typeref:typename:compare
+GetMaxFuncPtr	cffi/c_ffi_011/c_ffi_01134/c_ffi_01134.c	/^compare GetMaxFuncPtr()$/;"	f	typeref:typename:compare
+GetMaxFuncPtr	cffi/c_ffi_011/c_ffi_01135/c_ffi_01135.c	/^compare GetMaxFuncPtr()$/;"	f	typeref:typename:compare
+GetMaxFuncPtr	cffi/c_ffi_011/c_ffi_01137/c_ffi_01137.c	/^compare GetMaxFuncPtr()$/;"	f	typeref:typename:compare
+GetMaxFuncPtr	cffi/c_ffi_014/c_ffi_01405/c_ffi.c	/^compare GetMaxFuncPtr()$/;"	f	typeref:typename:compare
+GetMaxFuncPtr	cffi/c_ffi_014/c_ffi_01409/c_ffi.c	/^compare GetMaxFuncPtr()$/;"	f	typeref:typename:compare
+GetMaxFuncPtr	cffi/c_ffi_014/c_ffi_01423/c_ffi.c	/^compare GetMaxFuncPtr()$/;"	f	typeref:typename:compare
+MCC_ThrowException	cffi/c_ffi_099/conflict/foo.c	/^void MCC_ThrowException()$/;"	f	typeref:typename:void
+MRT_NewSem	cffi/c_ffi_099/conflict/foo.c	/^void MRT_NewSem()$/;"	f	typeref:typename:void
+MallocWithZero	cffi/c_ffi_009/c_ffi_00917/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00921/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00922/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00923/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00924/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00929/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00930/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00931/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00932/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00942/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00946/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00947/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00951/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00952/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00965/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00966/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00967/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+MallocWithZero	cffi/c_ffi_009/c_ffi_00968/c_ffi.c	/^void* MallocWithZero(size_t size)$/;"	f	typeref:typename:void *
+Max	cffi/c_ffi_007/c_ffi_00787/c_ffi.c	/^MyStruct* Max(MyStruct* x) {$/;"	f	typeref:typename:MyStruct *
+Max	cffi/c_ffi_011/c_ffi_01134/c_ffi_01134.c	/^MyStruct* Max(MyStruct* x) {$/;"	f	typeref:typename:MyStruct *
+Max	cffi/c_ffi_011/c_ffi_01135/c_ffi_01135.c	/^int* Max(int* x)$/;"	f	typeref:typename:int *
+Max	cffi/c_ffi_011/c_ffi_01137/c_ffi_01137.c	/^char* Max(char* x) {$/;"	f	typeref:typename:char *
+Max	cffi/c_ffi_014/c_ffi_01405/c_ffi.c	/^MyStruct* Max(MyStruct* x)$/;"	f	typeref:typename:MyStruct *
+Max	cffi/c_ffi_014/c_ffi_01409/c_ffi.c	/^MyStruct* Max(MyStruct* x)$/;"	f	typeref:typename:MyStruct *
+Max	cffi/c_ffi_014/c_ffi_01423/c_ffi.c	/^MyStruct* Max(MyStruct* x)$/;"	f	typeref:typename:MyStruct *
+MyStruct	cffi/c_ffi_007/c_ffi_00787/c_ffi.c	/^} MyStruct;$/;"	t	typeref:struct:__anone3e1385b0108	file:
+MyStruct	cffi/c_ffi_011/c_ffi_01134/c_ffi_01134.c	/^} MyStruct;$/;"	t	typeref:struct:__anon5f5f0ae10108	file:
+MyStruct	cffi/c_ffi_011/c_ffi_01136/c_ffi_01136.c	/^struct MyStruct{$/;"	s	file:
+MyStruct	cffi/c_ffi_014/c_ffi_01405/c_ffi.c	/^} MyStruct;$/;"	t	typeref:struct:__anonfaf6660d0108	file:
+MyStruct	cffi/c_ffi_014/c_ffi_01409/c_ffi.c	/^} MyStruct;$/;"	t	typeref:struct:__anoncce82a110108	file:
+MyStruct	cffi/c_ffi_014/c_ffi_01423/c_ffi.c	/^} MyStruct;$/;"	t	typeref:struct:__anon1a12a64d0108	file:
+PassInt32PointerToCangjie	cffi/c_ffi_009/c_ffi_00969/c_ffi.c	/^int32_t* PassInt32PointerToCangjie()$/;"	f	typeref:typename:int32_t *
+PassInt32PointerToCangjie	cffi/c_ffi_009/c_ffi_00970/c_ffi.c	/^int32_t* PassInt32PointerToCangjie()$/;"	f	typeref:typename:int32_t *
+S	cffi/c_ffi_017/c_ffi_01717/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01718/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01719/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01720/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01721/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01722/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01723/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01724/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01725/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01726/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01727/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01728/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01729/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01730/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01731/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01732/test.c	/^struct S {$/;"	s	file:
+S	cffi/c_ffi_017/c_ffi_01733/test.c	/^struct S {$/;"	s	file:
+S	objcffi/glue_code/oc_impl/impl_c_struct_0001/src/objc/M.h	/^struct S {$/;"	s
+S	objcffi/glue_code/oc_impl/impl_c_struct_0002/src/objc/M.h	/^struct S {$/;"	s
+S	objcffi/glue_code/oc_impl/impl_c_struct_0003/src/objc/M.h	/^struct S {$/;"	s
+S	objcffi/glue_code/oc_impl/impl_c_struct_0004/src/objc/M.h	/^struct S {$/;"	s
+S	objcffi/glue_code/oc_impl/impl_c_struct_0005/src/objc/M.h	/^struct S {$/;"	s
+S	objcffi/glue_code/oc_impl/impl_func_pointer_0009/src/objc/M.h	/^struct S {$/;"	s
+S	objcffi/glue_code/oc_impl/impl_func_pointer_0016/src/objc/M.h	/^struct S {$/;"	s
+S	objcffi/glue_code/oc_mirror/block/block_block/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/block/block_bool/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/block/block_class/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/block/block_numberic/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/block/block_pointer/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/block/block_protocol/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/block/block_struct/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/block/block_void/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/generic/generic_0/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/global_function/global_func_0/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/global_function/global_func_1/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/global_function/global_func_2/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/global_function/global_func_3/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/global_function/global_func_4/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/global_function/global_func_5/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/global_function/global_func_6/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/global_function/global_func_7/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/mirror_c_struct_0001/src/objc/M.h	/^} S;$/;"	t	typeref:struct:__anon5f670daf0108
+S	objcffi/glue_code/oc_mirror/mirror_c_struct_0002/src/objc/M.h	/^} S;$/;"	t	typeref:struct:__anon9aa747500108
+S	objcffi/glue_code/oc_mirror/mirror_c_struct_0003/src/objc/M.h	/^} S;$/;"	t	typeref:struct:__anond5e780f10108
+S	objcffi/glue_code/oc_mirror/mirror_c_struct_0004/src/objc/M.h	/^} S;$/;"	t	typeref:struct:__anon1127ba920108
+S	objcffi/glue_code/oc_mirror/mirror_c_struct_0005/src/objc/M.h	/^} S;$/;"	t	typeref:struct:__anon4c67f4330108
+S	objcffi/glue_code/oc_mirror/mirror_c_struct_0006/src/objc/M.h	/^} S;$/;"	t	typeref:struct:__anon87a82dd40108
+S	objcffi/glue_code/oc_mirror/mirror_c_struct_0007/src/objc/M.h	/^} S;$/;"	t	typeref:struct:__anonc2e867750108
+S	objcffi/glue_code/oc_mirror/mirror_c_struct_0008/src/objc/M.h	/^} S;$/;"	t	typeref:struct:__anonfe28a1160108
+S	objcffi/glue_code/oc_mirror/mirror_func_pointer_0009/src/objc/M.h	/^struct S {$/;"	s
+S	objcffi/glue_code/oc_mirror/mirror_func_pointer_0016/src/objc/M.h	/^struct S {$/;"	s
+S	objcffi/glue_code/oc_mirror/mirror_objcinit_0005/src/objc/M.h	/^struct S {$/;"	s
+S	objcffi/glue_code/oc_mirror/optional/optional_0/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/optional/optional_1/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/optional/optional_10/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/optional/optional_11/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/optional/optional_12/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/optional/optional_13/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/optional/optional_2/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/optional/optional_3/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/optional/optional_4/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/optional/optional_5/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/optional/optional_7/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/optional/optional_8/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/glue_code/oc_mirror/optional/optional_9/src/objc/M.h	/^struct S  {$/;"	s
+S	objcffi/oc_mirror/mirror_gen/mirror_gen_0008/test.h	/^} S;$/;"	t	typeref:struct:__anon26528ea50108
+S	objcffi/oc_mirror/mirror_gen/mirror_gen_0009/test.h	/^} S;$/;"	t	typeref:struct:__anon129463860108
+S	objcffi/oc_mirror/mirror_gen/mirror_gen_0024/test.h	/^} S;$/;"	t	typeref:struct:__anon5e441d230108
+S	objcffi/oc_mirror/mirror_gen/mirror_gen_0026/test.h	/^} S;$/;"	t	typeref:struct:__anon36c7c6e50108
+S	objcffi/oc_mirror/mirror_gen/mirror_gen_0027/test.h	/^} S;$/;"	t	typeref:struct:__anon23099bc60108
+__anon01c52fd30108	cffi/c_ffi_007/c_ffi_00743/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon1018737b0108	cffi/c_ffi_009/c_ffi_00956/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon1127ba920108	objcffi/glue_code/oc_mirror/mirror_c_struct_0004/src/objc/M.h	/^typedef struct {$/;"	s
+__anon129463860108	objcffi/oc_mirror/mirror_gen/mirror_gen_0009/test.h	/^typedef struct {$/;"	s
+__anon1608152c0108	cffi/c_ffi_014/c_ffi_01413/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon18cc4dd10108	cffi/c_ffi_007/c_ffi_00741/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon1a12a64d0108	cffi/c_ffi_014/c_ffi_01423/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon1cd6def20108	cffi/c_ffi_007/c_ffi_00751/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon23099bc60108	objcffi/oc_mirror/mirror_gen/mirror_gen_0027/test.h	/^typedef struct {$/;"	s
+__anon231500580108	cffi/c_ffi_009/c_ffi_00944/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon26528ea50108	objcffi/oc_mirror/mirror_gen/mirror_gen_0008/test.h	/^typedef struct {$/;"	s
+__anon271f91790108	cffi/c_ffi_009/c_ffi_00954/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon28f692550108	cffi/c_ffi_007/c_ffi_00781/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon36c7c6e50108	objcffi/oc_mirror/mirror_gen/mirror_gen_0026/test.h	/^typedef struct {$/;"	s
+__anon3a10b9c40108	objcffi/oc_mirror/mirror_gen/mirror_gen_0007/test.h	/^typedef struct {$/;"	s
+__anon483364d80108	cffi/c_ffi_007/c_ffi_00748/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon4c67f4330108	objcffi/glue_code/oc_mirror/mirror_c_struct_0005/src/objc/M.h	/^typedef struct {$/;"	s
+__anon51233c540108	cffi/c_ffi_009/c_ffi_00940/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon552dcd750108	cffi/c_ffi_009/c_ffi_00950/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon5c764a310108	cffi/c_ffi_014/c_ffi_01418/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon5e441d230108	objcffi/oc_mirror/mirror_gen/mirror_gen_0024/test.h	/^typedef struct {$/;"	s
+__anon5f3a82d60108	cffi/c_ffi_007/c_ffi_00746/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon5f5f0ae10108	cffi/c_ffi_011/c_ffi_01134/c_ffi_01134.c	/^typedef struct{$/;"	s	file:
+__anon5f670daf0108	objcffi/glue_code/oc_mirror/mirror_c_struct_0001/src/objc/M.h	/^typedef struct {$/;"	s
+__anon634513f70108	cffi/c_ffi_007/c_ffi_00756/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon6578a43c0108	cffi/c_ffi_009/c_ffi_00939/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon6b5a36390108	cffi/c_ffi_007/c_ffi_00776/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon70600ed70108	cffi/c_ffi_009/c_ffi_00907/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon737d682f0108	cffi/c_ffi_014/c_ffi_01416/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon7641a0d40108	cffi/c_ffi_007/c_ffi_00744/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon8494e47c0108	cffi/c_ffi_009/c_ffi_00957/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon87a82dd40108	objcffi/glue_code/oc_mirror/mirror_c_struct_0006/src/objc/M.h	/^typedef struct {$/;"	s
+__anon8a84862d0108	cffi/c_ffi_014/c_ffi_01414/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon8d48bed20108	cffi/c_ffi_007/c_ffi_00742/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon91534ff30108	cffi/c_ffi_007/c_ffi_00752/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon979171590108	cffi/c_ffi_009/c_ffi_00945/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon9aa747500108	objcffi/glue_code/oc_mirror/mirror_c_struct_0002/src/objc/M.h	/^typedef struct {$/;"	s
+__anon9b9c027a0108	cffi/c_ffi_009/c_ffi_00955/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anon9c10fcff0108	cffi/c_ffi_008/c_ffi_00821n/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anona18ba42b0108	cffi/c_ffi_014/c_ffi_01412/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anona44fdcd00108	cffi/c_ffi_007/c_ffi_00740/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anona85a6df10108	cffi/c_ffi_007/c_ffi_00750/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anonae988f570108	cffi/c_ffi_009/c_ffi_00943/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anonb2a320780108	cffi/c_ffi_009/c_ffi_00953/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anonb8a544b80108	cffi/c_ffi_007/c_ffi_00739/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anonbcafd5d90108	cffi/c_ffi_007/c_ffi_00749/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anonc2e867750108	objcffi/glue_code/oc_mirror/mirror_c_struct_0007/src/objc/M.h	/^typedef struct {$/;"	s
+__anoncce82a110108	cffi/c_ffi_014/c_ffi_01409/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anond3b6f3d70108	cffi/c_ffi_007/c_ffi_00747/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anond5e780f10108	objcffi/glue_code/oc_mirror/mirror_c_struct_0003/src/objc/M.h	/^typedef struct {$/;"	s
+__anone3e1385b0108	cffi/c_ffi_007/c_ffi_00787/c_ffi.c	/^typedef struct{$/;"	s	file:
+__anone7f9d9300108	cffi/c_ffi_014/c_ffi_01417/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anoneabe11d50108	cffi/c_ffi_007/c_ffi_00745/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anonfaf6660d0108	cffi/c_ffi_014/c_ffi_01405/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anonfbe39dd60108	cffi/c_ffi_009/c_ffi_00906/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anonfe28a1160108	objcffi/glue_code/oc_mirror/mirror_c_struct_0008/src/objc/M.h	/^typedef struct {$/;"	s
+__anonff00f72e0108	cffi/c_ffi_014/c_ffi_01415/c_ffi.c	/^typedef struct {$/;"	s	file:
+__anonffee2ef70108	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^typedef struct {$/;"	s	file:
+a	cffi/c_ffi_007/c_ffi_00787/c_ffi.c	/^    long long a;$/;"	m	struct:__anone3e1385b0108	typeref:typename:long long	file:
+a	cffi/c_ffi_008/c_ffi_00823n/c_ffi.c	/^bool* a;$/;"	v	typeref:typename:bool *
+a	cffi/c_ffi_009/c_ffi_00917/c_ffi.c	/^    int32_t a;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+a	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^    int32_t a;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+a	cffi/c_ffi_011/c_ffi_01134/c_ffi_01134.c	/^    long long a;$/;"	m	struct:__anon5f5f0ae10108	typeref:typename:long long	file:
+a	cffi/c_ffi_014/c_ffi_01405/c_ffi.c	/^    long long a;$/;"	m	struct:__anonfaf6660d0108	typeref:typename:long long	file:
+a	cffi/c_ffi_014/c_ffi_01409/c_ffi.c	/^    long long a;$/;"	m	struct:__anoncce82a110108	typeref:typename:long long	file:
+a	cffi/c_ffi_014/c_ffi_01423/c_ffi.c	/^    long long a;$/;"	m	struct:__anon1a12a64d0108	typeref:typename:long long	file:
+a	cffi/c_ffi_017/c_ffi_01717/test.c	/^    int8_t a[3];$/;"	m	struct:S	typeref:typename:int8_t[3]	file:
+a	cffi/c_ffi_017/c_ffi_01718/test.c	/^    uint8_t a[3];$/;"	m	struct:S	typeref:typename:uint8_t[3]	file:
+a	cffi/c_ffi_017/c_ffi_01719/test.c	/^    int16_t a[3];$/;"	m	struct:S	typeref:typename:int16_t[3]	file:
+a	cffi/c_ffi_017/c_ffi_01720/test.c	/^    uint16_t a[3];$/;"	m	struct:S	typeref:typename:uint16_t[3]	file:
+a	cffi/c_ffi_017/c_ffi_01721/test.c	/^    int32_t a[3];$/;"	m	struct:S	typeref:typename:int32_t[3]	file:
+a	cffi/c_ffi_017/c_ffi_01722/test.c	/^    uint32_t a[3];$/;"	m	struct:S	typeref:typename:uint32_t[3]	file:
+a	cffi/c_ffi_017/c_ffi_01723/test.c	/^    int64_t a[3];$/;"	m	struct:S	typeref:typename:int64_t[3]	file:
+a	cffi/c_ffi_017/c_ffi_01724/test.c	/^    uint64_t a[3];$/;"	m	struct:S	typeref:typename:uint64_t[3]	file:
+a	cffi/c_ffi_017/c_ffi_01725/test.c	/^    float a[3];$/;"	m	struct:S	typeref:typename:float[3]	file:
+a	cffi/c_ffi_017/c_ffi_01726/test.c	/^    double a[3];$/;"	m	struct:S	typeref:typename:double[3]	file:
+a	cffi/c_ffi_017/c_ffi_01727/test.c	/^    bool a[3];$/;"	m	struct:S	typeref:typename:bool[3]	file:
+a	cffi/c_ffi_017/c_ffi_01728/test.c	/^    char *a[3];$/;"	m	struct:S	typeref:typename:char * [3]	file:
+a	cffi/c_ffi_017/c_ffi_01729/test.c	/^    int a;$/;"	m	struct:A	typeref:typename:int	file:
+a	cffi/c_ffi_017/c_ffi_01729/test.c	/^    struct A a[3];$/;"	m	struct:S	typeref:struct:A[3]	file:
+a	cffi/c_ffi_017/c_ffi_01730/test.c	/^    int a;$/;"	m	struct:A	typeref:typename:int	file:
+a	cffi/c_ffi_017/c_ffi_01730/test.c	/^    struct A* a[3];$/;"	m	struct:S	typeref:struct:A * [3]	file:
+a	cffi/c_ffi_017/c_ffi_01731/test.c	/^    int a;$/;"	m	struct:A	typeref:typename:int	file:
+a	cffi/c_ffi_017/c_ffi_01731/test.c	/^    struct A *a[3];$/;"	m	struct:S	typeref:struct:A * [3]	file:
+a	cffi/c_ffi_017/c_ffi_01732/test.c	/^    int a;$/;"	m	struct:A	typeref:typename:int	file:
+a	cffi/c_ffi_017/c_ffi_01732/test.c	/^    struct A *a[3];$/;"	m	struct:S	typeref:struct:A * [3]	file:
+a	cffi/c_ffi_017/c_ffi_01733/test.c	/^    int a;$/;"	m	struct:A	typeref:typename:int	file:
+a	cffi/c_ffi_017/c_ffi_01733/test.c	/^    struct A a[1][3];$/;"	m	struct:S	typeref:struct:A[1][3]	file:
+a	cffi/cstruct/as_class_member/test.c	/^    int32_t a;$/;"	m	struct:Data	typeref:typename:int32_t	file:
+a1	cffi/c_ffi_017/c_ffi_01730/test.c	/^struct A a1 = {1};$/;"	v	typeref:struct:A
+a1	cffi/c_ffi_017/c_ffi_01731/test.c	/^struct A a1 = {1};$/;"	v	typeref:struct:A
+a1	cffi/c_ffi_017/c_ffi_01732/test.c	/^struct A a1 = {1};$/;"	v	typeref:struct:A
+a2	cffi/c_ffi_017/c_ffi_01730/test.c	/^struct A a2 = {2};$/;"	v	typeref:struct:A
+a2	cffi/c_ffi_017/c_ffi_01731/test.c	/^struct A a2 = {2};$/;"	v	typeref:struct:A
+a2	cffi/c_ffi_017/c_ffi_01732/test.c	/^struct A a2 = {2};$/;"	v	typeref:struct:A
+a3	cffi/c_ffi_017/c_ffi_01730/test.c	/^struct A a3 = {3};$/;"	v	typeref:struct:A
+a3	cffi/c_ffi_017/c_ffi_01731/test.c	/^struct A a3 = {3};$/;"	v	typeref:struct:A
+a3	cffi/c_ffi_017/c_ffi_01732/test.c	/^struct A a3 = {3};$/;"	v	typeref:struct:A
+a4	cffi/c_ffi_017/c_ffi_01730/test.c	/^struct A a4 = {4};$/;"	v	typeref:struct:A
+a4	cffi/c_ffi_017/c_ffi_01731/test.c	/^struct A a4 = {4};$/;"	v	typeref:struct:A
+a4	cffi/c_ffi_017/c_ffi_01732/test.c	/^struct A a4 = {4};$/;"	v	typeref:struct:A
+addr	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^    void* addr;$/;"	m	struct:teststruct	typeref:typename:void *	file:
+addrlen	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^    int addrlen;$/;"	m	struct:teststruct	typeref:typename:int	file:
+b	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00917/c_ffi.c	/^    int32_t b;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+b	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^    int32_t b;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+b	cffi/c_ffi_009/c_ffi_00921/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00925/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00933/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00935/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00965/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00966/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00967/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/c_ffi_009/c_ffi_00968/c_ffi.c	/^    bool b;$/;"	m	struct:teststruct	typeref:typename:bool	file:
+b	cffi/cstruct/as_class_member/test.c	/^    int32_t b;$/;"	m	struct:Data	typeref:typename:int32_t	file:
+c	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^    char c;$/;"	m	struct:teststruct	typeref:typename:char	file:
+c	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^    char c;$/;"	m	struct:teststruct	typeref:typename:char	file:
+c	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^    char c;$/;"	m	struct:teststruct	typeref:typename:char	file:
+c	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^    char c;$/;"	m	struct:teststruct	typeref:typename:char	file:
+c	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^    char c;$/;"	m	struct:teststruct	typeref:typename:char	file:
+c	cffi/c_ffi_009/c_ffi_00917/c_ffi.c	/^    int32_t c;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+c	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^    int32_t c;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+c	cffi/c_ffi_009/c_ffi_00921/c_ffi.c	/^    uint32_t c;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+c	cffi/c_ffi_009/c_ffi_00925/c_ffi.c	/^    char c;$/;"	m	struct:teststruct	typeref:typename:char	file:
+c	cffi/c_ffi_009/c_ffi_00929/c_ffi.c	/^    uint32_t c;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+c	cffi/c_ffi_009/c_ffi_00933/c_ffi.c	/^    char c;$/;"	m	struct:teststruct	typeref:typename:char	file:
+c	cffi/c_ffi_009/c_ffi_00965/c_ffi.c	/^    uint32_t c;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+canonname	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^    char* canonname;$/;"	m	struct:teststruct	typeref:typename:char *	file:
+canonname	cffi/c_ffi_009/c_ffi_00942/c_ffi.c	/^    char* canonname;$/;"	m	struct:teststruct	typeref:typename:char *	file:
+cfoo1	cffi/c_ffi_017/c_ffi_01701/test.c	/^void cfoo1(int *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01702n/test.c	/^void cfoo1(int *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01703/test.c	/^void cfoo1(int *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01704n/test.c	/^void cfoo1(int *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01705/test.c	/^void cfoo1(int* a)$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01706n/test.c	/^void cfoo1(int* a)$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01707n/test.c	/^void cfoo1(int *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01708/test.c	/^void cfoo1(int *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01709/test.c	/^void cfoo1(int *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01710/test.c	/^void cfoo1(int** a)$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01711/test.c	/^void cfoo1(int **a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01712/test.c	/^void cfoo1(int **a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01713n/test.c	/^void cfoo1(int **a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01714n/test.c	/^void cfoo1(int** a)$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01715/test.c	/^void cfoo1(int** a)$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01716/test.c	/^void cfoo1(int **a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01717/test.c	/^void cfoo1(int8_t *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01718/test.c	/^void cfoo1(uint8_t* a)$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01719/test.c	/^void cfoo1(int16_t *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01720/test.c	/^void cfoo1(uint16_t *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01721/test.c	/^void cfoo1(int32_t* a)$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01722/test.c	/^void cfoo1(uint32_t *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01723/test.c	/^void cfoo1(int64_t *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01724/test.c	/^void cfoo1(uint64_t* a)$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01725/test.c	/^void cfoo1(float *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01726/test.c	/^void cfoo1(double *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01727/test.c	/^void cfoo1(bool* a)$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01728/test.c	/^void cfoo1(char **a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01729/test.c	/^void cfoo1(struct A *a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01730/test.c	/^void cfoo1(struct A** a)$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01731/test.c	/^void cfoo1(struct A **a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01732/test.c	/^void cfoo1(struct A **a) {$/;"	f	typeref:typename:void
+cfoo1	cffi/c_ffi_017/c_ffi_01733/test.c	/^void cfoo1(struct A a[1][4])$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01701/test.c	/^void cfoo2(int a[3]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01702n/test.c	/^void cfoo2(int a[3]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01703/test.c	/^void cfoo2(int a[3]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01704n/test.c	/^void cfoo2(int a[3]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01705/test.c	/^void cfoo2(int a[3])$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01706n/test.c	/^void cfoo2(int a[3])$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01707n/test.c	/^void cfoo2(int a[3]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01708/test.c	/^void cfoo2(int a[3]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01709/test.c	/^void cfoo2(int a[3]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01710/test.c	/^void cfoo2(int a[1][3])$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01711/test.c	/^void cfoo2(int a[1][3]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01712/test.c	/^void cfoo2(int a[1][3]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01713n/test.c	/^void cfoo2(int a[1][3]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01714n/test.c	/^void cfoo2(int a[1][3])$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01715/test.c	/^void cfoo2(int a[1][3])$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01716/test.c	/^void cfoo2(int a[1][3]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01717/test.c	/^void cfoo2(int8_t a[4]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01718/test.c	/^void cfoo2(uint8_t a[4])$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01719/test.c	/^void cfoo2(int16_t a[4]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01720/test.c	/^void cfoo2(uint16_t a[4]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01721/test.c	/^void cfoo2(int32_t a[4])$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01722/test.c	/^void cfoo2(uint32_t a[4]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01723/test.c	/^void cfoo2(int64_t a[4]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01724/test.c	/^void cfoo2(uint64_t a[4])$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01725/test.c	/^void cfoo2(float a[4]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01726/test.c	/^void cfoo2(double a[4]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01727/test.c	/^void cfoo2(bool a[4])$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01728/test.c	/^void cfoo2(char *a[4]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01729/test.c	/^void cfoo2(struct A a[4]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01730/test.c	/^void cfoo2(struct A* a[4])$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01731/test.c	/^void cfoo2(struct A *a[4]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01732/test.c	/^void cfoo2(struct A *a[4]) {$/;"	f	typeref:typename:void
+cfoo2	cffi/c_ffi_017/c_ffi_01733/test.c	/^void cfoo2(struct A a[1][4])$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01717/test.c	/^void cfoo3(int8_t *a) {$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01718/test.c	/^void cfoo3(uint8_t* a)$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01719/test.c	/^void cfoo3(int16_t *a) {$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01720/test.c	/^void cfoo3(uint16_t *a) {$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01721/test.c	/^void cfoo3(int32_t* a)$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01722/test.c	/^void cfoo3(uint32_t *a) {$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01723/test.c	/^void cfoo3(int64_t *a) {$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01724/test.c	/^void cfoo3(uint64_t* a)$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01725/test.c	/^void cfoo3(float *a) {$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01726/test.c	/^void cfoo3(double *a) {$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01727/test.c	/^void cfoo3(bool* a)$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01728/test.c	/^void cfoo3(char **a) {$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01729/test.c	/^void cfoo3(struct A *a) {$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01730/test.c	/^void cfoo3(struct A** a)$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01731/test.c	/^void cfoo3(struct A **a) {$/;"	f	typeref:typename:void
+cfoo3	cffi/c_ffi_017/c_ffi_01732/test.c	/^void cfoo3(struct A **a) {$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01717/test.c	/^void cfoo4(int8_t a[4]) {$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01718/test.c	/^void cfoo4(uint8_t a[4])$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01719/test.c	/^void cfoo4(int16_t a[4]) {$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01720/test.c	/^void cfoo4(uint16_t a[4]) {$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01721/test.c	/^void cfoo4(int32_t a[4])$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01722/test.c	/^void cfoo4(uint32_t a[4]) {$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01723/test.c	/^void cfoo4(int64_t a[4]) {$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01724/test.c	/^void cfoo4(uint64_t a[4])$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01725/test.c	/^void cfoo4(float a[4]) {$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01726/test.c	/^void cfoo4(double a[4]) {$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01727/test.c	/^void cfoo4(bool a[4])$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01728/test.c	/^void cfoo4(char *a[4]) {$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01729/test.c	/^void cfoo4(struct A a[4]) {$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01730/test.c	/^void cfoo4(struct A* a[4])$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01731/test.c	/^void cfoo4(struct A *a[4]) {$/;"	f	typeref:typename:void
+cfoo4	cffi/c_ffi_017/c_ffi_01732/test.c	/^void cfoo4(struct A *a[4]) {$/;"	f	typeref:typename:void
+compare	cffi/c_ffi_007/c_ffi_00787/c_ffi.c	/^typedef MyStruct*(*compare)(MyStruct*);$/;"	t	typeref:typename:MyStruct * (*)(MyStruct *)	file:
+compare	cffi/c_ffi_011/c_ffi_01134/c_ffi_01134.c	/^typedef MyStruct*(*compare)(MyStruct*);$/;"	t	typeref:typename:MyStruct * (*)(MyStruct *)	file:
+compare	cffi/c_ffi_011/c_ffi_01135/c_ffi_01135.c	/^typedef int* (*compare)(int*);$/;"	t	typeref:typename:int * (*)(int *)	file:
+compare	cffi/c_ffi_011/c_ffi_01136/c_ffi_01136.c	/^typedef struct MyStruct(*compare)(struct MyStruct);$/;"	t	typeref:struct:MyStruct (*)(struct MyStruct)	file:
+compare	cffi/c_ffi_011/c_ffi_01137/c_ffi_01137.c	/^typedef char*(*compare)(char*);$/;"	t	typeref:typename:char * (*)(char *)	file:
+compare	cffi/c_ffi_014/c_ffi_01405/c_ffi.c	/^typedef MyStruct* (*compare)(MyStruct*);$/;"	t	typeref:typename:MyStruct * (*)(MyStruct *)	file:
+compare	cffi/c_ffi_014/c_ffi_01409/c_ffi.c	/^typedef MyStruct* (*compare)(MyStruct*);$/;"	t	typeref:typename:MyStruct * (*)(MyStruct *)	file:
+compare	cffi/c_ffi_014/c_ffi_01423/c_ffi.c	/^typedef MyStruct* (*compare)(MyStruct*);$/;"	t	typeref:typename:MyStruct * (*)(MyStruct *)	file:
+cstrfunc	cffi/c_ffi_014/c_ffi_01404/c_ffi.c	/^char* cstrfunc(char* a)$/;"	f	typeref:typename:char *
+cstrfunc	cffi/c_ffi_014/c_ffi_01422/c_ffi.c	/^char* cstrfunc(char* a)$/;"	f	typeref:typename:char *
+d	cffi/c_ffi_009/c_ffi_00917/c_ffi.c	/^    int32_t d;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+d	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^    int32_t d;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+e	cffi/c_ffi_009/c_ffi_00917/c_ffi.c	/^    int32_t e;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+e	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^    int32_t e;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+f32	cffi/c_ffi_007/c_ffi_00741/c_ffi.c	/^    float f32;$/;"	m	struct:__anon18cc4dd10108	typeref:typename:float	file:
+f32	cffi/c_ffi_007/c_ffi_00745/c_ffi.c	/^    float f32;$/;"	m	struct:__anoneabe11d50108	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00923/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00924/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00927/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00928/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00932/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00936/c_ffi.c	/^    float f32;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32	cffi/c_ffi_009/c_ffi_00950/c_ffi.c	/^    float f32;$/;"	m	struct:__anon552dcd750108	typeref:typename:float	file:
+f32a	cffi/c_ffi_009/c_ffi_00931/c_ffi.c	/^    float f32a;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32a	cffi/c_ffi_009/c_ffi_00946/c_ffi.c	/^    float f32a;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32a	cffi/c_ffi_009/c_ffi_00948/c_ffi.c	/^    float f32a;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32b	cffi/c_ffi_009/c_ffi_00931/c_ffi.c	/^    float f32b;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32b	cffi/c_ffi_009/c_ffi_00946/c_ffi.c	/^    float f32b;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32b	cffi/c_ffi_009/c_ffi_00948/c_ffi.c	/^    float f32b;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32c	cffi/c_ffi_009/c_ffi_00946/c_ffi.c	/^    float f32c;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32c	cffi/c_ffi_009/c_ffi_00948/c_ffi.c	/^    float f32c;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32d	cffi/c_ffi_009/c_ffi_00946/c_ffi.c	/^    float f32d;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f32d	cffi/c_ffi_009/c_ffi_00948/c_ffi.c	/^    float f32d;$/;"	m	struct:teststruct	typeref:typename:float	file:
+f64	cffi/c_ffi_007/c_ffi_00741/c_ffi.c	/^    double f64;$/;"	m	struct:__anon18cc4dd10108	typeref:typename:double	file:
+f64	cffi/c_ffi_007/c_ffi_00745/c_ffi.c	/^    double f64;$/;"	m	struct:__anoneabe11d50108	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^    double f64;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^    double f64;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^    double f64;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^    double f64;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^    double f64;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^    double f64;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^    double f64;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^    double f64;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^    double f64;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00924/c_ffi.c	/^    double f64;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00928/c_ffi.c	/^    double f64;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00932/c_ffi.c	/^    double f64;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00936/c_ffi.c	/^    double f64;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64	cffi/c_ffi_009/c_ffi_00953/c_ffi.c	/^    double f64;$/;"	m	struct:__anonb2a320780108	typeref:typename:double	file:
+f64a	cffi/c_ffi_009/c_ffi_00947/c_ffi.c	/^    double f64a;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64a	cffi/c_ffi_009/c_ffi_00949/c_ffi.c	/^    double f64a;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64b	cffi/c_ffi_009/c_ffi_00947/c_ffi.c	/^    double f64b;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64b	cffi/c_ffi_009/c_ffi_00949/c_ffi.c	/^    double f64b;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64c	cffi/c_ffi_009/c_ffi_00947/c_ffi.c	/^    double f64c;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64c	cffi/c_ffi_009/c_ffi_00949/c_ffi.c	/^    double f64c;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64d	cffi/c_ffi_009/c_ffi_00947/c_ffi.c	/^    double f64d;$/;"	m	struct:teststruct	typeref:typename:double	file:
+f64d	cffi/c_ffi_009/c_ffi_00949/c_ffi.c	/^    double f64d;$/;"	m	struct:teststruct	typeref:typename:double	file:
+family	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^    int family;$/;"	m	struct:teststruct	typeref:typename:int	file:
+fflushOut	cffi/c_ffi_006/c_ffi.c	/^void fflushOut(){$/;"	f	typeref:typename:void
+fflushOut	cffi/c_ffi_006/c_ffi_00605/c_ffi.c	/^void fflushOut(){$/;"	f	typeref:typename:void
+fflushOut	cffi/c_ffi_006/c_ffi_00606/c_ffi.c	/^void fflushOut(){$/;"	f	typeref:typename:void
+fflushOut	cffi/c_ffi_006/c_ffi_00607/c_ffi.c	/^void fflushOut(){$/;"	f	typeref:typename:void
+fflushOut	cffi/c_ffi_006/c_ffi_00618/c_ffi.c	/^void fflushOut(){$/;"	f	typeref:typename:void
+fflushOut	cffi/c_ffi_006/c_ffi_00619/c_ffi.c	/^void fflushOut(){$/;"	f	typeref:typename:void
+fflushOut	cffi/c_ffi_014/c_ffi_01401/c_ffi.c	/^void fflushOut()$/;"	f	typeref:typename:void
+fflushOut	cffi/c_ffi_014/c_ffi_01403/c_ffi.c	/^void fflushOut(){$/;"	f	typeref:typename:void
+fflushOut	cffi/c_ffi_014/c_ffi_01410/c_ffi.c	/^void fflushOut(){$/;"	f	typeref:typename:void
+fflushOut	cffi/c_ffi_014/c_ffi_01411/c_ffi.c	/^void fflushOut(){$/;"	f	typeref:typename:void
+fflushOut	cffi/c_ffi_014/c_ffi_01419/c_ffi.c	/^void fflushOut()$/;"	f	typeref:typename:void
+fflushOut	cffi/c_ffi_014/c_ffi_01421/c_ffi.c	/^void fflushOut(){$/;"	f	typeref:typename:void
+flags	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^    int flags;$/;"	m	struct:teststruct	typeref:typename:int	file:
+foo	cffi/c_ffi_012/c_ffi_01203n/c_ffi.c	/^int8_t foo(){$/;"	f	typeref:typename:int8_t
+foo	cffi/c_ffi_012/c_ffi_01206n/c_ffi.c	/^int8_t foo(){$/;"	f	typeref:typename:int8_t
+for_keeping_some_types	cffi/c_ffi_099/conflict/foo.c	/^void for_keeping_some_types()$/;"	f	typeref:typename:void
+func1	cffi/c_ffi_009/c_ffi_00954/c_ffi.c	/^int64_t func1(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func1	cffi/c_ffi_009/c_ffi_00955/c_ffi.c	/^int64_t func1(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func1	cffi/c_ffi_009/c_ffi_00956/c_ffi.c	/^int64_t func1(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func1	cffi/c_ffi_009/c_ffi_00957/c_ffi.c	/^int64_t func1(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func1	cffi/c_ffi_011/c_ffi_01176/c_ffi.c	/^bool func1(bool a, bool b)$/;"	f	typeref:typename:bool
+func1	cffi/c_ffi_011/c_ffi_01177/c_ffi.c	/^double func1(double a, double b)$/;"	f	typeref:typename:double
+func1	cffi/c_ffi_011/c_ffi_01178/c_ffi.c	/^char* func1(char* a, char* b)$/;"	f	typeref:typename:char *
+func1	cffi/c_ffi_011/c_ffi_01179/c_ffi.c	/^int8_t* func1(int8_t* a, int8_t* b)$/;"	f	typeref:typename:int8_t *
+func1	cffi/c_ffi_011/c_ffi_01180/c_ffi.c	/^struct teststruct func1(struct teststruct a, struct teststruct b)$/;"	f	typeref:struct:teststruct
+func1	cffi/c_ffi_011/c_ffi_01181/c_ffi.c	/^int64_t func1(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func1	cffi/c_ffi_011/c_ffi_01182/c_ffi.c	/^double func1(double a, double b)$/;"	f	typeref:typename:double
+func1	cffi/c_ffi_011/c_ffi_01183/c_ffi.c	/^char* func1(char* a, char* b)$/;"	f	typeref:typename:char *
+func1	cffi/c_ffi_011/c_ffi_01184/c_ffi.c	/^int8_t* func1(int8_t* a, int8_t* b)$/;"	f	typeref:typename:int8_t *
+func1	cffi/c_ffi_011/c_ffi_01185/c_ffi.c	/^struct teststruct1 func1(struct teststruct1 a, struct teststruct1 b)$/;"	f	typeref:struct:teststruct1
+func1	cffi/c_ffi_011/c_ffi_01186/c_ffi.c	/^bool func1(bool a, bool b)$/;"	f	typeref:typename:bool
+func1	cffi/c_ffi_011/c_ffi_01187/c_ffi.c	/^double func1(double a, double b)$/;"	f	typeref:typename:double
+func1	cffi/c_ffi_011/c_ffi_01188/c_ffi.c	/^char* func1(char* a, char* b)$/;"	f	typeref:typename:char *
+func1	cffi/c_ffi_011/c_ffi_01189/c_ffi.c	/^int8_t* func1(int8_t* a, int8_t* b)$/;"	f	typeref:typename:int8_t *
+func1	cffi/c_ffi_011/c_ffi_01190/c_ffi.c	/^struct teststruct func1(struct teststruct a, struct teststruct b)$/;"	f	typeref:struct:teststruct
+func1	cffi/c_ffi_014/c_ffi_01412/c_ffi.c	/^int64_t func1(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func1	cffi/c_ffi_014/c_ffi_01413/c_ffi.c	/^int64_t func1(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func1	cffi/c_ffi_014/c_ffi_01414/c_ffi.c	/^int64_t func1(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func1	cffi/c_ffi_014/c_ffi_01415/c_ffi.c	/^int64_t func1(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func1	cffi/c_ffi_014/c_ffi_01416/c_ffi.c	/^int64_t func1(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func1	cffi/c_ffi_014/c_ffi_01417/c_ffi.c	/^int64_t func1(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func1	cffi/c_ffi_014/c_ffi_01418/c_ffi.c	/^int64_t func1(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func2	cffi/c_ffi_009/c_ffi_00954/c_ffi.c	/^int64_t func2(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func2	cffi/c_ffi_009/c_ffi_00955/c_ffi.c	/^int64_t func2(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func2	cffi/c_ffi_009/c_ffi_00956/c_ffi.c	/^int64_t func2(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func2	cffi/c_ffi_009/c_ffi_00957/c_ffi.c	/^int64_t func2(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func2	cffi/c_ffi_014/c_ffi_01412/c_ffi.c	/^int64_t func2(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func2	cffi/c_ffi_014/c_ffi_01413/c_ffi.c	/^int64_t func2(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func2	cffi/c_ffi_014/c_ffi_01414/c_ffi.c	/^int64_t func2(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func2	cffi/c_ffi_014/c_ffi_01415/c_ffi.c	/^int64_t func2(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func2	cffi/c_ffi_014/c_ffi_01416/c_ffi.c	/^int64_t func2(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func2	cffi/c_ffi_014/c_ffi_01417/c_ffi.c	/^int64_t func2(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+func2	cffi/c_ffi_014/c_ffi_01418/c_ffi.c	/^int64_t func2(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+getArrayPtr	cffi/c_ffi_017/c_ffi_01701/test.c	/^int *getArrayPtr() {$/;"	f	typeref:typename:int *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01702n/test.c	/^int *getArrayPtr() {$/;"	f	typeref:typename:int *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01703/test.c	/^int *getArrayPtr() {$/;"	f	typeref:typename:int *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01704n/test.c	/^int *getArrayPtr() {$/;"	f	typeref:typename:int *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01705/test.c	/^int* getArrayPtr()$/;"	f	typeref:typename:int *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01706n/test.c	/^int* getArrayPtr()$/;"	f	typeref:typename:int *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01707n/test.c	/^int *getArrayPtr() {$/;"	f	typeref:typename:int *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01708/test.c	/^int *getArrayPtr() {$/;"	f	typeref:typename:int *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01709/test.c	/^int *getArrayPtr() {$/;"	f	typeref:typename:int *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01710/test.c	/^int** getArrayPtr()$/;"	f	typeref:typename:int **
+getArrayPtr	cffi/c_ffi_017/c_ffi_01711/test.c	/^int **getArrayPtr() {$/;"	f	typeref:typename:int **
+getArrayPtr	cffi/c_ffi_017/c_ffi_01712/test.c	/^int **getArrayPtr() {$/;"	f	typeref:typename:int **
+getArrayPtr	cffi/c_ffi_017/c_ffi_01713n/test.c	/^int **getArrayPtr() {$/;"	f	typeref:typename:int **
+getArrayPtr	cffi/c_ffi_017/c_ffi_01714n/test.c	/^int** getArrayPtr()$/;"	f	typeref:typename:int **
+getArrayPtr	cffi/c_ffi_017/c_ffi_01715/test.c	/^int** getArrayPtr()$/;"	f	typeref:typename:int **
+getArrayPtr	cffi/c_ffi_017/c_ffi_01716/test.c	/^int **getArrayPtr() {$/;"	f	typeref:typename:int **
+getArrayPtr	cffi/c_ffi_017/c_ffi_01717/test.c	/^int8_t *getArrayPtr() {$/;"	f	typeref:typename:int8_t *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01718/test.c	/^uint8_t* getArrayPtr()$/;"	f	typeref:typename:uint8_t *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01719/test.c	/^int16_t *getArrayPtr() {$/;"	f	typeref:typename:int16_t *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01720/test.c	/^uint16_t *getArrayPtr() {$/;"	f	typeref:typename:uint16_t *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01721/test.c	/^int32_t* getArrayPtr()$/;"	f	typeref:typename:int32_t *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01722/test.c	/^uint32_t *getArrayPtr() {$/;"	f	typeref:typename:uint32_t *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01723/test.c	/^int64_t *getArrayPtr() {$/;"	f	typeref:typename:int64_t *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01724/test.c	/^uint64_t* getArrayPtr()$/;"	f	typeref:typename:uint64_t *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01725/test.c	/^float *getArrayPtr() {$/;"	f	typeref:typename:float *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01726/test.c	/^double *getArrayPtr() {$/;"	f	typeref:typename:double *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01727/test.c	/^bool* getArrayPtr()$/;"	f	typeref:typename:bool *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01728/test.c	/^char **getArrayPtr() {$/;"	f	typeref:typename:char **
+getArrayPtr	cffi/c_ffi_017/c_ffi_01729/test.c	/^struct A *getArrayPtr() {$/;"	f	typeref:struct:A *
+getArrayPtr	cffi/c_ffi_017/c_ffi_01730/test.c	/^struct A** getArrayPtr()$/;"	f	typeref:struct:A **
+getArrayPtr	cffi/c_ffi_017/c_ffi_01731/test.c	/^struct A **getArrayPtr() {$/;"	f	typeref:struct:A **
+getArrayPtr	cffi/c_ffi_017/c_ffi_01732/test.c	/^struct A **getArrayPtr() {$/;"	f	typeref:struct:A **
+getArrayPtr	cffi/c_ffi_017/c_ffi_01733/test.c	/^struct A** getArrayPtr()$/;"	f	typeref:struct:A **
+getCPointer	cffi/c_ffi_007/c_ffi_00778/c_ffi.c	/^int32_t* getCPointer() {$/;"	f	typeref:typename:int32_t *
+getCPointer	cffi/c_ffi_007/c_ffi_00779/c_ffi.c	/^float* getCPointer()$/;"	f	typeref:typename:float *
+getCPointer	cffi/c_ffi_007/c_ffi_00780/c_ffi.c	/^uint32_t* getCPointer() {$/;"	f	typeref:typename:uint32_t *
+getCPointer	cffi/c_ffi_007/c_ffi_00781/c_ffi.c	/^teststruct* getCPointer() {$/;"	f	typeref:typename:teststruct *
+getCPointer	cffi/c_ffi_007/c_ffi_00782/c_ffi.c	/^uint32_t* getCPointer()$/;"	f	typeref:typename:uint32_t *
+getCPointer	cffi/c_ffi_007/c_ffi_00783/c_ffi.c	/^uint32_t* getCPointer() {$/;"	f	typeref:typename:uint32_t *
+getCPointer	cffi/c_ffi_007/c_ffi_00784/c_ffi.c	/^uint32_t* getCPointer() {$/;"	f	typeref:typename:uint32_t *
+getCPointer	cffi/c_ffi_007/c_ffi_00785/c_ffi.c	/^uint32_t* getCPointer()$/;"	f	typeref:typename:uint32_t *
+getCPointer1	cffi/c_ffi_007/c_ffi_00781/c_ffi.c	/^teststruct* getCPointer1() {$/;"	f	typeref:typename:teststruct *
+getCPtrVoid	cffi/c_ffi_011/c_ffi_01196/c_ffi.c	/^void* getCPtrVoid()$/;"	f	typeref:typename:void *
+getCPtrVoid	cffi/c_ffi_011/c_ffi_01197/c_ffi.c	/^void* getCPtrVoid()$/;"	f	typeref:typename:void *
+getCPtrVoid	cffi/c_ffi_011/c_ffi_0119903/c_ffi.c	/^void* getCPtrVoid()$/;"	f	typeref:typename:void *
+getCPtrVoid	cffi/c_ffi_011/c_ffi_0119904/c_ffi.c	/^void* getCPtrVoid()$/;"	f	typeref:typename:void *
+getData	cffi/cstruct/as_class_member/test.c	/^struct Data getData(int32_t a, int32_t b)$/;"	f	typeref:struct:Data
+get_cptr	cffi/c_ffi_011/c_ffi_01124/c_ffi.c	/^int8_t* get_cptr(int8_t*(*ptr)(int8_t*) ){$/;"	f	typeref:typename:int8_t *
+get_cptr	cffi/c_ffi_011/c_ffi_01127/c_ffi.c	/^int8_t* get_cptr(int8_t*(*ptr)(int8_t*) ){$/;"	f	typeref:typename:int8_t *
+get_cptr	cffi/c_ffi_011/c_ffi_01142/c_ffi.c	/^void* get_cptr(void*(*ptr)(int8_t*) ){$/;"	f	typeref:typename:void *
+get_cptr	cffi/c_ffi_011/c_ffi_01143/c_ffi.c	/^void* get_cptr(void*(*ptr)(int8_t*) ){$/;"	f	typeref:typename:void *
+get_cptr	cffi/c_ffi_011/c_ffi_01144/c_ffi.c	/^void get_cptr(void(*ptr)(int8_t*) ){$/;"	f	typeref:typename:void
+get_cptr	cffi/c_ffi_011/c_ffi_01145/c_ffi.c	/^void get_cptr(void(*ptr)(int8_t*) ){$/;"	f	typeref:typename:void
+get_cptr	cffi/c_ffi_011/c_ffi_01168/c_ffi.c	/^int8_t* get_cptr(int8_t*(*ptr)(int8_t*) ){$/;"	f	typeref:typename:int8_t *
+get_cptr	cffi/c_ffi_011/c_ffi_01174/c_ffi.c	/^int8_t* get_cptr(int8_t*(*ptr)(int8_t*) ){$/;"	f	typeref:typename:int8_t *
+get_cptr	cffi/c_ffi_011/c_ffi_01179/c_ffi.c	/^void *get_cptr()$/;"	f	typeref:typename:void *
+get_cptr	cffi/c_ffi_011/c_ffi_01184/c_ffi.c	/^void* get_cptr()$/;"	f	typeref:typename:void *
+get_cptr	cffi/c_ffi_011/c_ffi_01189/c_ffi.c	/^void *get_cptr()$/;"	f	typeref:typename:void *
+get_cptr	cffi/c_ffi_011/c_ffi_01196/c_ffi.c	/^void* get_cptr(void*(*ptr)(void*)) {$/;"	f	typeref:typename:void *
+get_cptr	cffi/c_ffi_011/c_ffi_01197/c_ffi.c	/^void* get_cptr(void*(*ptr)(void*)) {$/;"	f	typeref:typename:void *
+get_cptr	cffi/c_ffi_011/c_ffi_0119903/c_ffi.c	/^void* get_cptr(void*(*ptr)(void*)) {$/;"	f	typeref:typename:void *
+get_cptr	cffi/c_ffi_011/c_ffi_0119904/c_ffi.c	/^void* get_cptr(void*(*ptr)(void*)) {$/;"	f	typeref:typename:void *
+get_cptr	cffi/c_ffi_014/c_ffi_01406/c_ffi.c	/^int8_t* get_cptr(int8_t*(*ptr)(int8_t*) ){$/;"	f	typeref:typename:int8_t *
+get_cptr	cffi/c_ffi_014/c_ffi_01424/c_ffi.c	/^int8_t* get_cptr(int8_t*(*ptr)(int8_t*) ){$/;"	f	typeref:typename:int8_t *
+get_cptr1	cffi/c_ffi_011/c_ffi_0119905/c_ffi.c	/^int8_t* get_cptr1(int8_t*(*ptr1)(int8_t*) ){$/;"	f	typeref:typename:int8_t *
+get_cptr1	cffi/c_ffi_011/c_ffi_0119906/c_ffi.c	/^int8_t* get_cptr1(int8_t*(*ptr1)(int8_t*) ){$/;"	f	typeref:typename:int8_t *
+get_cptr1	cffi/c_ffi_011/c_ffi_0119907/c_ffi.c	/^int8_t* get_cptr1(int8_t* (*ptr1)(int8_t*))$/;"	f	typeref:typename:int8_t *
+get_cptr1	cffi/c_ffi_011/c_ffi_0119908/c_ffi.c	/^int8_t* get_cptr1(int8_t*(*ptr1)(int8_t*) ){$/;"	f	typeref:typename:int8_t *
+get_cptr2	cffi/c_ffi_011/c_ffi_0119905/c_ffi.c	/^int8_t* get_cptr2(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr2	cffi/c_ffi_011/c_ffi_0119906/c_ffi.c	/^int8_t* get_cptr2(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr2	cffi/c_ffi_011/c_ffi_0119907/c_ffi.c	/^int8_t* get_cptr2(int8_t* (*ptr1)(int8_t*), int8_t* (*ptr2)(int8_t*))$/;"	f	typeref:typename:int8_t *
+get_cptr2	cffi/c_ffi_011/c_ffi_0119908/c_ffi.c	/^int8_t* get_cptr2(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr3	cffi/c_ffi_011/c_ffi_0119905/c_ffi.c	/^int8_t* get_cptr3(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr3	cffi/c_ffi_011/c_ffi_0119906/c_ffi.c	/^int8_t* get_cptr3(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr3	cffi/c_ffi_011/c_ffi_0119907/c_ffi.c	/^int8_t* get_cptr3(int8_t* (*ptr1)(int8_t*), int8_t* (*ptr2)(int8_t*))$/;"	f	typeref:typename:int8_t *
+get_cptr3	cffi/c_ffi_011/c_ffi_0119908/c_ffi.c	/^int8_t* get_cptr3(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr4	cffi/c_ffi_011/c_ffi_0119905/c_ffi.c	/^int8_t* get_cptr4(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*), int8_t*(*ptr3)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr4	cffi/c_ffi_011/c_ffi_0119906/c_ffi.c	/^int8_t* get_cptr4(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*), int8_t*(*ptr3)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr4	cffi/c_ffi_011/c_ffi_0119907/c_ffi.c	/^int8_t* get_cptr4(int8_t* (*ptr1)(int8_t*), int8_t* (*ptr2)(int8_t*), int8_t* (*ptr3)(int8_t*))$/;"	f	typeref:typename:int8_t *
+get_cptr4	cffi/c_ffi_011/c_ffi_0119908/c_ffi.c	/^int8_t* get_cptr4(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*), int8_t*(*ptr3)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr5	cffi/c_ffi_011/c_ffi_0119905/c_ffi.c	/^int8_t* get_cptr5(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*), int8_t*(*ptr3)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr5	cffi/c_ffi_011/c_ffi_0119906/c_ffi.c	/^int8_t* get_cptr5(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*), int8_t*(*ptr3)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr5	cffi/c_ffi_011/c_ffi_0119907/c_ffi.c	/^int8_t* get_cptr5(int8_t* (*ptr1)(int8_t*), int8_t* (*ptr2)(int8_t*), int8_t* (*ptr3)(int8_t*))$/;"	f	typeref:typename:int8_t *
+get_cptr5	cffi/c_ffi_011/c_ffi_0119908/c_ffi.c	/^int8_t* get_cptr5(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*), int8_t*(*ptr3)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr6	cffi/c_ffi_011/c_ffi_0119905/c_ffi.c	/^int8_t* get_cptr6(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*), int8_t*(*ptr3)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr6	cffi/c_ffi_011/c_ffi_0119906/c_ffi.c	/^int8_t* get_cptr6(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*), int8_t*(*ptr3)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cptr6	cffi/c_ffi_011/c_ffi_0119907/c_ffi.c	/^int8_t* get_cptr6(int8_t* (*ptr1)(int8_t*), int8_t* (*ptr2)(int8_t*), int8_t* (*ptr3)(int8_t*))$/;"	f	typeref:typename:int8_t *
+get_cptr6	cffi/c_ffi_011/c_ffi_0119908/c_ffi.c	/^int8_t* get_cptr6(int8_t*(*ptr1)(int8_t*), int8_t*(*ptr2)(int8_t*), int8_t*(*ptr3)(int8_t*)){$/;"	f	typeref:typename:int8_t *
+get_cstr	cffi/c_ffi_007/c_ffi_00786/c_ffi.c	/^char* get_cstr(char* a, char* b) {$/;"	f	typeref:typename:char *
+get_cstr	cffi/c_ffi_011/c_ffi_01123/c_ffi.c	/^char* get_cstr(char*(*ptr)(char*, char*) ){$/;"	f	typeref:typename:char *
+get_cstr	cffi/c_ffi_011/c_ffi_01126/c_ffi.c	/^char* get_cstr(char*(*ptr)(char*, char*) ){$/;"	f	typeref:typename:char *
+get_cstr	cffi/c_ffi_011/c_ffi_01167/c_ffi.c	/^char* get_cstr(char*(*ptr)(char*, char*) ){$/;"	f	typeref:typename:char *
+get_cstr	cffi/c_ffi_011/c_ffi_01173/c_ffi.c	/^char* get_cstr(char*(*ptr)(char*, char*) ){$/;"	f	typeref:typename:char *
+get_cstr	cffi/c_ffi_011/c_ffi_01178/c_ffi.c	/^void* get_cstr()$/;"	f	typeref:typename:void *
+get_cstr	cffi/c_ffi_011/c_ffi_01183/c_ffi.c	/^void *get_cstr()$/;"	f	typeref:typename:void *
+get_cstr	cffi/c_ffi_011/c_ffi_01188/c_ffi.c	/^void *get_cstr()$/;"	f	typeref:typename:void *
+get_cstruct	cffi/c_ffi_011/c_ffi_01125/c_ffi.c	/^struct teststruct get_cstruct(struct teststruct (*ptr)(struct teststruct)){$/;"	f	typeref:struct:teststruct
+get_cstruct	cffi/c_ffi_011/c_ffi_01128/c_ffi.c	/^struct teststruct get_cstruct(struct teststruct (*ptr)(struct teststruct)){$/;"	f	typeref:struct:teststruct
+get_cstruct	cffi/c_ffi_011/c_ffi_01169/c_ffi.c	/^struct teststruct get_cstruct(struct teststruct (*ptr)(struct teststruct))$/;"	f	typeref:struct:teststruct
+get_cstruct	cffi/c_ffi_011/c_ffi_01175/c_ffi.c	/^struct teststruct get_cstruct(struct teststruct (*ptr)(struct teststruct))$/;"	f	typeref:struct:teststruct
+get_cstruct	cffi/c_ffi_011/c_ffi_01180/c_ffi.c	/^void *get_cstruct()$/;"	f	typeref:typename:void *
+get_cstruct	cffi/c_ffi_011/c_ffi_01185/c_ffi.c	/^void *get_cstruct()$/;"	f	typeref:typename:void *
+get_cstruct	cffi/c_ffi_011/c_ffi_01190/c_ffi.c	/^void* get_cstruct()$/;"	f	typeref:typename:void *
+get_cstruct	cffi/c_ffi_014/c_ffi_01407/c_ffi.c	/^struct teststruct get_cstruct(struct teststruct (*ptr)(struct teststruct))$/;"	f	typeref:struct:teststruct
+get_cstruct	cffi/c_ffi_014/c_ffi_01408/c_ffi.c	/^struct teststruct get_cstruct(struct teststruct (*ptr)(struct teststruct))$/;"	f	typeref:struct:teststruct
+get_cstruct	cffi/c_ffi_014/c_ffi_01425/c_ffi.c	/^struct teststruct get_cstruct(struct teststruct (*ptr)(struct teststruct))$/;"	f	typeref:struct:teststruct
+getcstr	cffi/c_ffi_014/c_ffi_01404/c_ffi.c	/^char* getcstr()$/;"	f	typeref:typename:char *
+getcstr	cffi/c_ffi_014/c_ffi_01422/c_ffi.c	/^char* getcstr()$/;"	f	typeref:typename:char *
+getptr	cffi/c_ffi_010/c_ffi_01006n/c_ffi.c	/^int16_t* getptr() {$/;"	f	typeref:typename:int16_t *
+getptr	cffi/c_ffi_010/c_ffi_01007n/c_ffi.c	/^int16_t* getptr()$/;"	f	typeref:typename:int16_t *
+has_invoke_core_global_init	cffi/c_ffi_099/conflict/foo.c	/^void has_invoke_core_global_init()$/;"	f	typeref:typename:void
+has_invoke_test_global_init	cffi/c_ffi_099/conflict/foo.c	/^void has_invoke_test_global_init()$/;"	f	typeref:typename:void
+i16	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00921/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00925/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00929/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00933/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00941/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00956/c_ffi.c	/^    int16_t i16;$/;"	m	struct:__anon1018737b0108	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00957/c_ffi.c	/^    int16_t i16;$/;"	m	struct:__anon8494e47c0108	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00965/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00966/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00967/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i16	cffi/c_ffi_009/c_ffi_00968/c_ffi.c	/^    int16_t i16;$/;"	m	struct:teststruct	typeref:typename:int16_t	file:
+i32	cffi/c_ffi_007/c_ffi_00742/c_ffi.c	/^    int32_t i32;$/;"	m	struct:__anon8d48bed20108	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00922/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00924/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00926/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00928/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00930/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i32	cffi/c_ffi_009/c_ffi_00934/c_ffi.c	/^    int32_t i32;$/;"	m	struct:teststruct	typeref:typename:int32_t	file:
+i64	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^    int64_t i64;$/;"	m	struct:teststruct	typeref:typename:int64_t	file:
+i64	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^    int64_t i64;$/;"	m	struct:teststruct	typeref:typename:int64_t	file:
+i64	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^    int64_t i64;$/;"	m	struct:teststruct	typeref:typename:int64_t	file:
+i64	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^    int64_t i64;$/;"	m	struct:teststruct	typeref:typename:int64_t	file:
+i64	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^    int64_t i64;$/;"	m	struct:teststruct	typeref:typename:int64_t	file:
+i64	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^    int64_t i64;$/;"	m	struct:teststruct	typeref:typename:int64_t	file:
+i64	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^    int64_t i64;$/;"	m	struct:teststruct	typeref:typename:int64_t	file:
+i64	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^    int64_t i64;$/;"	m	struct:teststruct	typeref:typename:int64_t	file:
+i64	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^    int64_t i64;$/;"	m	struct:teststruct	typeref:typename:int64_t	file:
+i64	cffi/c_ffi_009/c_ffi_00922/c_ffi.c	/^    int64_t i64;$/;"	m	struct:teststruct	typeref:typename:int64_t	file:
+i64	cffi/c_ffi_009/c_ffi_00926/c_ffi.c	/^    int64_t i64;$/;"	m	struct:teststruct	typeref:typename:int64_t	file:
+i64	cffi/c_ffi_009/c_ffi_00934/c_ffi.c	/^    int64_t i64;$/;"	m	struct:teststruct	typeref:typename:int64_t	file:
+i64	cffi/c_ffi_009/c_ffi_00956/c_ffi.c	/^    int64_t i64;$/;"	m	struct:__anon1018737b0108	typeref:typename:int64_t	file:
+i64	cffi/c_ffi_009/c_ffi_00957/c_ffi.c	/^    int64_t i64;$/;"	m	struct:__anon8494e47c0108	typeref:typename:int64_t	file:
+i8	cffi/c_ffi_007/c_ffi_00739/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anonb8a544b80108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_007/c_ffi_00740/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anona44fdcd00108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_007/c_ffi_00743/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon01c52fd30108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_007/c_ffi_00744/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon7641a0d40108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_007/c_ffi_00746/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon5f3a82d60108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_007/c_ffi_00747/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anond3b6f3d70108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_007/c_ffi_00748/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon483364d80108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_007/c_ffi_00749/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anonbcafd5d90108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_007/c_ffi_00750/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anona85a6df10108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_007/c_ffi_00751/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon1cd6def20108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_007/c_ffi_00752/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon91534ff30108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_007/c_ffi_00756/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon634513f70108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_007/c_ffi_00776/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon6b5a36390108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_007/c_ffi_00781/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon28f692550108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_008/c_ffi_00821n/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon9c10fcff0108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00906/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anonfbe39dd60108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00907/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon70600ed70108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00921/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00925/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00929/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00933/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00943/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anonae988f570108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00944/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon231500580108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00945/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon979171590108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00952/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00954/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon271f91790108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00956/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon1018737b0108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00957/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon8494e47c0108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00965/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00966/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00967/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_009/c_ffi_00968/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_011/c_ffi_01125/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_011/c_ffi_01128/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_011/c_ffi_01169/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_011/c_ffi_01175/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_011/c_ffi_01180/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_011/c_ffi_01185/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_011/c_ffi_01185/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct1	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_011/c_ffi_01190/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_014/c_ffi_01407/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_014/c_ffi_01408/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_014/c_ffi_01412/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anona18ba42b0108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_014/c_ffi_01413/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon1608152c0108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_014/c_ffi_01414/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon8a84862d0108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_014/c_ffi_01415/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anonff00f72e0108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_014/c_ffi_01416/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon737d682f0108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_014/c_ffi_01417/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anone7f9d9300108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_014/c_ffi_01418/c_ffi.c	/^    int8_t i8;$/;"	m	struct:__anon5c764a310108	typeref:typename:int8_t	file:
+i8	cffi/c_ffi_014/c_ffi_01425/c_ffi.c	/^    int8_t i8;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+instanceVariable0	objcffi/glue_code/oc_mirror/block/block_pointer/src/objc/M.h	/^    void (^instanceVariable0)(void);$/;"	v	typeref:typename:void (^)(void)
+instanceVariable1	objcffi/glue_code/oc_mirror/block/block_block/src/objc/M.h	/^    int (^instanceVariable1)(int input);$/;"	v	typeref:typename:int (^)(int input)
+instanceVariable1	objcffi/glue_code/oc_mirror/block/block_bool/src/objc/M.h	/^    int (^instanceVariable1)(int input);$/;"	v	typeref:typename:int (^)(int input)
+instanceVariable1	objcffi/glue_code/oc_mirror/block/block_class/src/objc/M.h	/^    int (^instanceVariable1)(int input);$/;"	v	typeref:typename:int (^)(int input)
+instanceVariable1	objcffi/glue_code/oc_mirror/block/block_numberic/src/objc/M.h	/^    int (^instanceVariable1)(int input);$/;"	v	typeref:typename:int (^)(int input)
+instanceVariable1	objcffi/glue_code/oc_mirror/block/block_pointer/src/objc/M.h	/^    int (^instanceVariable1)(int input);$/;"	v	typeref:typename:int (^)(int input)
+instanceVariable1	objcffi/glue_code/oc_mirror/block/block_protocol/src/objc/M.h	/^    int (^instanceVariable1)(int input);$/;"	v	typeref:typename:int (^)(int input)
+instanceVariable1	objcffi/glue_code/oc_mirror/block/block_struct/src/objc/M.h	/^    int (^instanceVariable1)(int input);$/;"	v	typeref:typename:int (^)(int input)
+instanceVariable1	objcffi/glue_code/oc_mirror/block/block_void/src/objc/M.h	/^    int (^instanceVariable1)(int input);$/;"	v	typeref:typename:int (^)(int input)
+k	cffi/c_ffi_011/c_ffi_01136/c_ffi_01136.c	/^    int64_t k;$/;"	m	struct:MyStruct	typeref:typename:int64_t	file:
+m	cffi/c_ffi_011/c_ffi_01136/c_ffi_01136.c	/^    int64_t m;$/;"	m	struct:MyStruct	typeref:typename:int64_t	file:
+main	cffi/c_ffi_009/c_ffi_00957/c_ffi.c	/^int main()$/;"	f	typeref:typename:int
+main	cffi/c_ffi_012/c_ffi_01202n/c_ffi.c	/^int main(){$/;"	f	typeref:typename:int
+main	cffi/c_ffi_012/c_ffi_01205n/c_ffi.c	/^int main(){$/;"	f	typeref:typename:int
+my_strcat	cffi/c_ffi_014/c_ffi_01404/c_ffi.c	/^char* my_strcat(char* dest, const char* src)$/;"	f	typeref:typename:char *
+my_strcat	cffi/c_ffi_014/c_ffi_01422/c_ffi.c	/^char* my_strcat(char* dest, const char* src)$/;"	f	typeref:typename:char *
+n	cffi/c_ffi_011/c_ffi_01136/c_ffi_01136.c	/^    int64_t n;$/;"	m	struct:MyStruct	typeref:typename:int64_t	file:
+nativeFun	cffi/c_ffi_013/c_ffi_01301/c_ffi.c	/^int32_t nativeFun(int32_t (*callback)())$/;"	f	typeref:typename:int32_t
+nativeFun	cffi/c_ffi_013/c_ffi_01302/c_ffi.c	/^double nativeFun(double (*callback)(double, double, double, double, double, double, double, doub/;"	f	typeref:typename:double
+nativeFun	cffi/c_ffi_013/c_ffi_01303/c_ffi.c	/^int32_t nativeFun(int32_t (*callback)())$/;"	f	typeref:typename:int32_t
+nativeFun	cffi/c_ffi_013/c_ffi_01304/c_ffi.c	/^int64_t nativeFun(int64_t (*callback)())$/;"	f	typeref:typename:int64_t
+nativeFun	cffi/c_ffi_013/c_ffi_01305/c_ffi.c	/^int32_t nativeFun(int32_t (*callback)(int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int3/;"	f	typeref:typename:int32_t
+nativeFun	cffi/c_ffi_013/c_ffi_01306/c_ffi.c	/^void nativeFun(void (*callback)(int64_t, double, int64_t, double, int64_t, double, int64_t, doub/;"	f	typeref:typename:void
+nativeFun	cffi/c_ffi_013/c_ffi_01307/c_ffi.c	/^void nativeFun()$/;"	f	typeref:typename:void
+nativeFun	cffi/c_ffi_013/c_ffi_01308/c_ffi.c	/^int32_t nativeFun(int32_t (*callback)(int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int3/;"	f	typeref:typename:int32_t
+next	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^    struct teststruct* next;$/;"	m	struct:teststruct	typeref:struct:teststruct *	file:
+next	cffi/c_ffi_009/c_ffi_00942/c_ffi.c	/^    struct teststruct* next;$/;"	m	struct:teststruct	typeref:struct:teststruct *	file:
+next	cffi/c_ffi_009/c_ffi_00951/c_ffi.c	/^    struct teststruct* next;$/;"	m	struct:teststruct	typeref:struct:teststruct *	file:
+num	cffi/c_ffi_009/c_ffi_00951/c_ffi.c	/^    int8_t num;$/;"	m	struct:teststruct	typeref:typename:int8_t	file:
+p0	objcffi/glue_code/oc_mirror/block/block_block/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/block/block_bool/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/block/block_class/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/block/block_numberic/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/block/block_pointer/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/block/block_protocol/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/block/block_struct/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/block/block_void/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/generic/generic_0/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/global_function/global_func_0/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/global_function/global_func_1/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/global_function/global_func_2/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/global_function/global_func_3/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/global_function/global_func_4/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/global_function/global_func_5/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/global_function/global_func_6/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/global_function/global_func_7/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/optional/optional_0/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/optional/optional_1/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/optional/optional_10/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/optional/optional_11/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/optional/optional_12/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/optional/optional_13/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/optional/optional_2/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/optional/optional_3/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/optional/optional_4/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/optional/optional_5/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/optional/optional_7/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/optional/optional_8/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+p0	objcffi/glue_code/oc_mirror/optional/optional_9/src/objc/M.h	/^@property (nonatomic, readwrite) struct S* p0;$/;"	v	typeref:struct:S *
+pf32	cffi/c_ffi_009/c_ffi_00950/c_ffi.c	/^    float* pf32;$/;"	m	struct:__anon552dcd750108	typeref:typename:float *	file:
+pf64	cffi/c_ffi_009/c_ffi_00953/c_ffi.c	/^    double* pf64;$/;"	m	struct:__anonb2a320780108	typeref:typename:double *	file:
+pp0	objcffi/glue_code/oc_mirror/optional/optional_10/src/objc/P.h	/^@property (nonatomic, readwrite) struct S* pp0;$/;"	v	typeref:struct:S *
+println	cffi/c_ffi_099/conflict/foo.c	/^static inline void println(char* msg)$/;"	f	typeref:typename:void	file:
+protocol	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^    int protocol;$/;"	m	struct:teststruct	typeref:typename:int	file:
+ptr	cffi/c_ffi_009/c_ffi_00907/c_ffi.c	/^    char* ptr;$/;"	m	struct:__anon70600ed70108	typeref:typename:char *	file:
+ptrbool	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^    bool* ptrbool;$/;"	m	struct:__anonffee2ef70108	typeref:typename:bool *	file:
+ptrchar	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^    char* ptrchar;$/;"	m	struct:__anonffee2ef70108	typeref:typename:char *	file:
+ptrf32	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^    float* ptrf32;$/;"	m	struct:__anonffee2ef70108	typeref:typename:float *	file:
+ptrf64	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^    double* ptrf64;$/;"	m	struct:__anonffee2ef70108	typeref:typename:double *	file:
+ptrfunc	cffi/c_ffi_010/c_ffi_01006n/c_ffi.c	/^int16_t* ptrfunc(int16_t* p) {$/;"	f	typeref:typename:int16_t *
+ptrfunc	cffi/c_ffi_010/c_ffi_01007n/c_ffi.c	/^int16_t* ptrfunc(int16_t* p)$/;"	f	typeref:typename:int16_t *
+ptri16	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^    int16_t* ptri16;$/;"	m	struct:__anonffee2ef70108	typeref:typename:int16_t *	file:
+ptri32	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^    int32_t* ptri32;$/;"	m	struct:__anonffee2ef70108	typeref:typename:int32_t *	file:
+ptri64	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^    int64_t* ptri64;$/;"	m	struct:__anonffee2ef70108	typeref:typename:int64_t *	file:
+ptri8	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^    int8_t* ptri8;$/;"	m	struct:__anonffee2ef70108	typeref:typename:int8_t *	file:
+ptrui16	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^    uint16_t* ptrui16;$/;"	m	struct:__anonffee2ef70108	typeref:typename:uint16_t *	file:
+ptrui32	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^    uint32_t* ptrui32;$/;"	m	struct:__anonffee2ef70108	typeref:typename:uint32_t *	file:
+ptrui64	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^    uint64_t* ptrui64;$/;"	m	struct:__anonffee2ef70108	typeref:typename:uint64_t *	file:
+ptrui8	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^    uint8_t* ptrui8;$/;"	m	struct:__anonffee2ef70108	typeref:typename:uint8_t *	file:
+pui16	cffi/c_ffi_009/c_ffi_00941/c_ffi.c	/^    uint16_t* pui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t *	file:
+pui8	cffi/c_ffi_009/c_ffi_00940/c_ffi.c	/^    uint8_t* pui8;$/;"	m	struct:__anon51233c540108	typeref:typename:uint8_t *	file:
+ready	cffi/c_ffi_013/c_ffi_01307/c_ffi.c	/^volatile int ready;$/;"	v	typeref:typename:volatile int
+ret	cffi/c_ffi_017/c_ffi_01701/test.c	/^int ret[3];$/;"	v	typeref:typename:int[3]
+ret	cffi/c_ffi_017/c_ffi_01702n/test.c	/^int ret[3];$/;"	v	typeref:typename:int[3]
+ret	cffi/c_ffi_017/c_ffi_01703/test.c	/^int ret[3];$/;"	v	typeref:typename:int[3]
+ret	cffi/c_ffi_017/c_ffi_01704n/test.c	/^int ret[3];$/;"	v	typeref:typename:int[3]
+ret	cffi/c_ffi_017/c_ffi_01705/test.c	/^int ret[3] = {1, 2, 3};$/;"	v	typeref:typename:int[3]
+ret	cffi/c_ffi_017/c_ffi_01706n/test.c	/^int ret[3] = {1, 2, 3};$/;"	v	typeref:typename:int[3]
+ret	cffi/c_ffi_017/c_ffi_01707n/test.c	/^int ret[3] = {1, 2, 3};$/;"	v	typeref:typename:int[3]
+ret	cffi/c_ffi_017/c_ffi_01708/test.c	/^int ret[3];$/;"	v	typeref:typename:int[3]
+ret	cffi/c_ffi_017/c_ffi_01709/test.c	/^int ret[3];$/;"	v	typeref:typename:int[3]
+ret	cffi/c_ffi_017/c_ffi_01710/test.c	/^int ret[1][3] = {{1, 2, 3}};$/;"	v	typeref:typename:int[1][3]
+ret	cffi/c_ffi_017/c_ffi_01711/test.c	/^int ret[1][3] = {{1, 2, 3}};$/;"	v	typeref:typename:int[1][3]
+ret	cffi/c_ffi_017/c_ffi_01712/test.c	/^int ret[1][3] = {{1, 2, 3}};$/;"	v	typeref:typename:int[1][3]
+ret	cffi/c_ffi_017/c_ffi_01713n/test.c	/^int ret[1][3] = {{1, 2, 3}};$/;"	v	typeref:typename:int[1][3]
+ret	cffi/c_ffi_017/c_ffi_01714n/test.c	/^int ret[1][3] = {{1, 2, 3}};$/;"	v	typeref:typename:int[1][3]
+ret	cffi/c_ffi_017/c_ffi_01715/test.c	/^int ret[1][3] = {{1, 2, 3}};$/;"	v	typeref:typename:int[1][3]
+ret	cffi/c_ffi_017/c_ffi_01716/test.c	/^int ret[1][3] = {{1, 2, 3}};$/;"	v	typeref:typename:int[1][3]
+ret	cffi/c_ffi_017/c_ffi_01717/test.c	/^int8_t ret[4] = {1, 2, 3, 4};$/;"	v	typeref:typename:int8_t[4]
+ret	cffi/c_ffi_017/c_ffi_01718/test.c	/^uint8_t ret[4] = {1, 2, 3, 4};$/;"	v	typeref:typename:uint8_t[4]
+ret	cffi/c_ffi_017/c_ffi_01719/test.c	/^int16_t ret[4] = {1, 2, 3, 4};$/;"	v	typeref:typename:int16_t[4]
+ret	cffi/c_ffi_017/c_ffi_01720/test.c	/^uint16_t ret[4] = {1, 2, 3, 4};$/;"	v	typeref:typename:uint16_t[4]
+ret	cffi/c_ffi_017/c_ffi_01721/test.c	/^int32_t ret[4] = {1, 2, 3, 4};$/;"	v	typeref:typename:int32_t[4]
+ret	cffi/c_ffi_017/c_ffi_01722/test.c	/^uint32_t ret[4] = {1, 2, 3, 4};$/;"	v	typeref:typename:uint32_t[4]
+ret	cffi/c_ffi_017/c_ffi_01723/test.c	/^int64_t ret[4] = {1, 2, 3, 4};$/;"	v	typeref:typename:int64_t[4]
+ret	cffi/c_ffi_017/c_ffi_01724/test.c	/^uint64_t ret[4] = {1, 2, 3, 4};$/;"	v	typeref:typename:uint64_t[4]
+ret	cffi/c_ffi_017/c_ffi_01725/test.c	/^float ret[4] = {1.0, 2.0, 3.0, 4.0};$/;"	v	typeref:typename:float[4]
+ret	cffi/c_ffi_017/c_ffi_01726/test.c	/^double ret[4] = {1.0, 2.0, 3.0, 4.0};$/;"	v	typeref:typename:double[4]
+ret	cffi/c_ffi_017/c_ffi_01727/test.c	/^bool ret[4] = {true, true, true, true};$/;"	v	typeref:typename:bool[4]
+ret	cffi/c_ffi_017/c_ffi_01728/test.c	/^char* ret[4] = {"0", "1", "2", "3"};$/;"	v	typeref:typename:char * [4]
+ret	cffi/c_ffi_017/c_ffi_01729/test.c	/^struct A ret[4] = {{1}, {2}, {3}, {4}};$/;"	v	typeref:struct:A[4]
+ret	cffi/c_ffi_017/c_ffi_01730/test.c	/^struct A* ret[4] = {&a1, &a2, &a3, &a4};$/;"	v	typeref:struct:A * [4]
+ret	cffi/c_ffi_017/c_ffi_01731/test.c	/^struct A *ret[4] = {&a1, &a2, &a3, &a4};$/;"	v	typeref:struct:A * [4]
+ret	cffi/c_ffi_017/c_ffi_01732/test.c	/^struct A *ret[4] = {&a1, &a2, &a3, &a4};$/;"	v	typeref:struct:A * [4]
+ret	cffi/c_ffi_017/c_ffi_01733/test.c	/^struct A ret[1][4] = {{{1}, {2}, {3}, {4}}};$/;"	v	typeref:struct:A[1][4]
+setReady	cffi/c_ffi_013/c_ffi_01307/c_ffi.c	/^void setReady()$/;"	f	typeref:typename:void
+socktype	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^    int socktype;$/;"	m	struct:teststruct	typeref:typename:int	file:
+str	cffi/c_ffi_006/c_ffi_00601/c_ffi.c	/^char* str = "Hello World\\n";$/;"	v	typeref:typename:char *
+str	cffi/c_ffi_006/c_ffi_00632/c_ffi.c	/^char* str = "Hello World\\n";$/;"	v	typeref:typename:char *
+str	cffi/c_ffi_007/c_ffi_00718/c_ffi.c	/^char* str[] = {"cang", "jie"};$/;"	v	typeref:typename:char * []
+str	cffi/c_ffi_007/c_ffi_00758/c_ffi.c	/^char* str[] = {"cang", "jie"};$/;"	v	typeref:typename:char * []
+str	cffi/c_ffi_007/c_ffi_00759/c_ffi.c	/^char* str[] = {"cang", "jie"};$/;"	v	typeref:typename:char * []
+str	cffi/c_ffi_007/c_ffi_00760/c_ffi.c	/^char* str[] = {"cang", "jie"};$/;"	v	typeref:typename:char * []
+str	cffi/c_ffi_007/c_ffi_00761/c_ffi.c	/^char* str[] = {"cang", "jie"};$/;"	v	typeref:typename:char * []
+str	cffi/c_ffi_007/c_ffi_00762/c_ffi.c	/^char* str[] = {"cang", "jie"};$/;"	v	typeref:typename:char * []
+str	cffi/c_ffi_007/c_ffi_00763/c_ffi.c	/^char* str[] = {"cang", "jie"};$/;"	v	typeref:typename:char * []
+str	cffi/c_ffi_007/c_ffi_00764/c_ffi.c	/^char* str[] = {"cang", "jie"};$/;"	v	typeref:typename:char * []
+str	cffi/c_ffi_007/c_ffi_00766/c_ffi.c	/^char* str[] = {"cang", "jie"};$/;"	v	typeref:typename:char * []
+str	cffi/c_ffi_008/c_ffi_00821n/c_ffi.c	/^    char* str;$/;"	m	struct:__anon9c10fcff0108	typeref:typename:char *	file:
+str	cffi/c_ffi_009/c_ffi_00906/c_ffi.c	/^    char* str;$/;"	m	struct:__anonfbe39dd60108	typeref:typename:char *	file:
+str	cffi/c_ffi_009/c_ffi_00939/c_ffi.c	/^    char* str;$/;"	m	struct:__anon6578a43c0108	typeref:typename:char *	file:
+str	cffi/c_ffi_009/c_ffi_00943/c_ffi.c	/^    char* str;$/;"	m	struct:__anonae988f570108	typeref:typename:char *	file:
+str	cffi/c_ffi_009/c_ffi_00944/c_ffi.c	/^    char* str;$/;"	m	struct:__anon231500580108	typeref:typename:char *	file:
+str	cffi/c_ffi_009/c_ffi_00945/c_ffi.c	/^    char* str;$/;"	m	struct:__anon979171590108	typeref:typename:char *	file:
+struct1	cffi/c_ffi_007/c_ffi_00740/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00741/c_ffi.c	/^teststruct struct1 = {1.0, 1.0};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00742/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00743/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00744/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00745/c_ffi.c	/^teststruct struct1 = {1.0, 1.0};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00746/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00747/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00748/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00749/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00750/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00751/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00752/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00756/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00776/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct1	cffi/c_ffi_007/c_ffi_00781/c_ffi.c	/^teststruct struct1 = {1, 1};$/;"	v	typeref:typename:teststruct
+struct2	cffi/c_ffi_007/c_ffi_00781/c_ffi.c	/^teststruct struct2 = {1, 1};$/;"	v	typeref:typename:teststruct
+test	cffi/c_ffi_015/c_ffi_01522/test.c	/^int64_t test(int64_t* a) {$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01525/test.c	/^int64_t test(bool* a) {$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01526/test.c	/^int8_t test(int8_t* a)$/;"	f	typeref:typename:int8_t
+test	cffi/c_ffi_015/c_ffi_01527/test.c	/^int16_t test(int16_t* a) {$/;"	f	typeref:typename:int16_t
+test	cffi/c_ffi_015/c_ffi_01528/test.c	/^int32_t test(int32_t* a) {$/;"	f	typeref:typename:int32_t
+test	cffi/c_ffi_015/c_ffi_01529/test.c	/^uint8_t test(uint8_t* a)$/;"	f	typeref:typename:uint8_t
+test	cffi/c_ffi_015/c_ffi_01530/test.c	/^uint16_t test(uint16_t* a) {$/;"	f	typeref:typename:uint16_t
+test	cffi/c_ffi_015/c_ffi_01531/test.c	/^uint32_t test(uint32_t* a) {$/;"	f	typeref:typename:uint32_t
+test	cffi/c_ffi_015/c_ffi_01532/test.c	/^uint64_t test(uint64_t* a)$/;"	f	typeref:typename:uint64_t
+test	cffi/c_ffi_015/c_ffi_01533/test.c	/^float test(float* a) {$/;"	f	typeref:typename:float
+test	cffi/c_ffi_015/c_ffi_01534/test.c	/^double test(double* a) {$/;"	f	typeref:typename:double
+test	cffi/c_ffi_015/c_ffi_01535/test.c	/^int64_t test(int64_t** a)$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01537/test.c	/^int64_t test(struct A* a) {$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01539/test.c	/^int64_t test(int64_t (**a) ()) {$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01540/test.c	/^int64_t test(int64_t* a)$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01541/test.c	/^int64_t test(int64_t* a) {$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01543/test.c	/^int64_t test(int64_t* a) {$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01544/test.c	/^int64_t test(int64_t* a)$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01545/test.c	/^int64_t test(int64_t* a) {$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01546/test.c	/^int64_t test(int64_t* a) {$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01547/test.c	/^int64_t test(int64_t* a)$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01548/test.c	/^int64_t test(int64_t* a) {$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01549/test.c	/^int64_t test(int64_t* a) {$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01551/test.c	/^int64_t test(int64_t* a)$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01557/test.c	/^int64_t test(int64_t* a) {$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_015/c_ffi_01559/test.c	/^int64_t test(int64_t* a) {$/;"	f	typeref:typename:int64_t
+test	cffi/c_ffi_016/c_ffi_01601/test.c	/^char* test(char* s)$/;"	f	typeref:typename:char *
+test	cffi/c_ffi_016/c_ffi_01602/test.c	/^char* test(char* s) {$/;"	f	typeref:typename:char *
+test	cffi/c_ffi_016/c_ffi_01603/test.c	/^char* test(char* s) {$/;"	f	typeref:typename:char *
+test	cffi/c_ffi_016/c_ffi_01604/test.c	/^char* test(char* s)$/;"	f	typeref:typename:char *
+test	cffi/c_ffi_016/c_ffi_01606/test.c	/^int64_t* test(int64_t* s) {$/;"	f	typeref:typename:int64_t *
+test	cffi/c_ffi_016/c_ffi_01607/test.c	/^int64_t* test(int64_t* s) {$/;"	f	typeref:typename:int64_t *
+test	cffi/c_ffi_016/c_ffi_01608/test.c	/^int64_t* test(int64_t* s)$/;"	f	typeref:typename:int64_t *
+test	cffi/c_ffi_017/c_ffi_01717/test.c	/^void test(struct S *s) {$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01718/test.c	/^void test(struct S* s)$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01719/test.c	/^void test(struct S *s) {$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01720/test.c	/^void test(struct S *s) {$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01721/test.c	/^void test(struct S* s)$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01722/test.c	/^void test(struct S *s) {$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01723/test.c	/^void test(struct S *s) {$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01724/test.c	/^void test(struct S* s)$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01725/test.c	/^void test(struct S *s) {$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01726/test.c	/^void test(struct S *s) {$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01727/test.c	/^void test(struct S* s)$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01728/test.c	/^void test(struct S *s) {$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01729/test.c	/^void test(struct S *s) {$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01730/test.c	/^void test(struct S* s, int _)$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01731/test.c	/^void test(struct S *s, int n) {$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01732/test.c	/^void test(struct S *s, int _) {$/;"	f	typeref:typename:void
+test	cffi/c_ffi_017/c_ffi_01733/test.c	/^void test(struct S* s, int n)$/;"	f	typeref:typename:void
+test	objcffi/oc_mirror/mirror_gen/mirror_gen_0007/test.h	/^} test;$/;"	t	typeref:struct:__anon3a10b9c40108
+test_global_init	cffi/c_ffi_099/conflict/foo.c	/^void test_global_init()$/;"	f	typeref:typename:void
+testfunc	cffi/c_ffi_005/c_ffi_00501/c_ffi.c	/^void testfunc()$/;"	f	typeref:typename:void
+testfunc	cffi/c_ffi_005/c_ffi_00502/c_ffi.c	/^bool testfunc(bool a, bool b) {$/;"	f	typeref:typename:bool
+testfunc	cffi/c_ffi_005/c_ffi_00503/c_ffi.c	/^char testfunc(char a) {$/;"	f	typeref:typename:char
+testfunc	cffi/c_ffi_005/c_ffi_00504/c_ffi.c	/^int8_t testfunc(int8_t a)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_005/c_ffi_00505/c_ffi.c	/^uint8_t testfunc(uint8_t a) {$/;"	f	typeref:typename:uint8_t
+testfunc	cffi/c_ffi_005/c_ffi_00506/c_ffi.c	/^int16_t testfunc(int16_t a, int16_t b) {$/;"	f	typeref:typename:int16_t
+testfunc	cffi/c_ffi_005/c_ffi_00507/c_ffi.c	/^uint16_t testfunc(uint16_t a, uint16_t b)$/;"	f	typeref:typename:uint16_t
+testfunc	cffi/c_ffi_005/c_ffi_00508/c_ffi.c	/^int32_t testfunc(int32_t a, int32_t b) {$/;"	f	typeref:typename:int32_t
+testfunc	cffi/c_ffi_005/c_ffi_00509/c_ffi.c	/^uint32_t testfunc(uint32_t a, uint32_t b) {$/;"	f	typeref:typename:uint32_t
+testfunc	cffi/c_ffi_005/c_ffi_00510/c_ffi.c	/^int64_t testfunc(int64_t a, int64_t b)$/;"	f	typeref:typename:int64_t
+testfunc	cffi/c_ffi_005/c_ffi_00511/c_ffi.c	/^uint64_t testfunc(uint64_t a, uint64_t b) {$/;"	f	typeref:typename:uint64_t
+testfunc	cffi/c_ffi_005/c_ffi_00512/c_ffi.c	/^float testfunc(float a, float b) {$/;"	f	typeref:typename:float
+testfunc	cffi/c_ffi_005/c_ffi_00513/c_ffi.c	/^double testfunc(int64_t a, double b)$/;"	f	typeref:typename:double
+testfunc	cffi/c_ffi_005/c_ffi_00516n/c_ffi.c	/^void testfunc()$/;"	f	typeref:typename:void
+testfunc	cffi/c_ffi_005/c_ffi_00517/c_ffi.c	/^int8_t testfunc(int8_t a)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_005/c_ffi_00518/c_ffi.c	/^size_t testfunc(size_t a) {$/;"	f	typeref:typename:size_t
+testfunc	cffi/c_ffi_005/c_ffi_00519/c_ffi.c	/^int8_t testfunc(int8_t a) {$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_005/c_ffi_00520/c_ffi.c	/^int16_t testfunc(int16_t a)$/;"	f	typeref:typename:int16_t
+testfunc	cffi/c_ffi_005/c_ffi_00521/c_ffi.c	/^int32_t testfunc(int32_t a) {$/;"	f	typeref:typename:int32_t
+testfunc	cffi/c_ffi_005/c_ffi_00522/c_ffi.c	/^int32_t testfunc(int32_t a) {$/;"	f	typeref:typename:int32_t
+testfunc	cffi/c_ffi_006/c_ffi.c	/^char* testfunc(char* input) {$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_006/c_ffi_00601/c_ffi.c	/^char* testfunc() {$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_006/c_ffi_00602/c_ffi.c	/^char* testfunc(char* input)$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_006/c_ffi_00603/c_ffi.c	/^char* testfunc(char* a, char* b) {$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_006/c_ffi_00604/c_ffi.c	/^char* testfunc(char* a, char* b, char* c, int num1, int num2) {$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_006/c_ffi_00605/c_ffi.c	/^char* testfunc(char* input)$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_006/c_ffi_00606/c_ffi.c	/^char* testfunc(char* input) {$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_006/c_ffi_00607/c_ffi.c	/^char* testfunc(char* input) {$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_006/c_ffi_00618/c_ffi.c	/^int testfunc(char* input)$/;"	f	typeref:typename:int
+testfunc	cffi/c_ffi_006/c_ffi_00619/c_ffi.c	/^void testfunc(char* a, char* b) {$/;"	f	typeref:typename:void
+testfunc	cffi/c_ffi_006/c_ffi_00620/c_ffi.c	/^int testfunc(char* a, char* b, char* c, char* d, char* e) {$/;"	f	typeref:typename:int
+testfunc	cffi/c_ffi_006/c_ffi_00621n/c_ffi.c	/^int testfunc(char* input) {$/;"	f	typeref:typename:int
+testfunc	cffi/c_ffi_006/c_ffi_00632/c_ffi.c	/^char* testfunc()$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_006/c_ffi_00634/c_ffi.c	/^char* testfunc() {$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_007/c_ffi_00701/c_ffi.c	/^void* testfunc()$/;"	f	typeref:typename:void *
+testfunc	cffi/c_ffi_007/c_ffi_00702/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_007/c_ffi_00703/c_ffi.c	/^char* testfunc() {$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_007/c_ffi_00704/c_ffi.c	/^int8_t* testfunc()$/;"	f	typeref:typename:int8_t *
+testfunc	cffi/c_ffi_007/c_ffi_00704n/c_ffi.c	/^int8_t* testfunc() {$/;"	f	typeref:typename:int8_t *
+testfunc	cffi/c_ffi_007/c_ffi_00705/c_ffi.c	/^int16_t* testfunc() {$/;"	f	typeref:typename:int16_t *
+testfunc	cffi/c_ffi_007/c_ffi_00706/c_ffi.c	/^int32_t* testfunc() {$/;"	f	typeref:typename:int32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00707/c_ffi.c	/^int64_t* testfunc()$/;"	f	typeref:typename:int64_t *
+testfunc	cffi/c_ffi_007/c_ffi_00708/c_ffi.c	/^uint8_t* testfunc() {$/;"	f	typeref:typename:uint8_t *
+testfunc	cffi/c_ffi_007/c_ffi_00708n/c_ffi.c	/^uint8_t* testfunc() {$/;"	f	typeref:typename:uint8_t *
+testfunc	cffi/c_ffi_007/c_ffi_00709/c_ffi.c	/^uint16_t* testfunc() {$/;"	f	typeref:typename:uint16_t *
+testfunc	cffi/c_ffi_007/c_ffi_00710/c_ffi.c	/^uint32_t* testfunc()$/;"	f	typeref:typename:uint32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00711/c_ffi.c	/^uint64_t* testfunc() {$/;"	f	typeref:typename:uint64_t *
+testfunc	cffi/c_ffi_007/c_ffi_00712/c_ffi.c	/^int8_t** testfunc() {$/;"	f	typeref:typename:int8_t **
+testfunc	cffi/c_ffi_007/c_ffi_00713/c_ffi.c	/^float* testfunc()$/;"	f	typeref:typename:float *
+testfunc	cffi/c_ffi_007/c_ffi_00714/c_ffi.c	/^double* testfunc() {$/;"	f	typeref:typename:double *
+testfunc	cffi/c_ffi_007/c_ffi_00716/c_ffi.c	/^uint32_t* testfunc()$/;"	f	typeref:typename:uint32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00717/c_ffi.c	/^int8_t* testfunc(int8_t* ptr) {$/;"	f	typeref:typename:int8_t *
+testfunc	cffi/c_ffi_007/c_ffi_00718/c_ffi.c	/^char** testfunc() {$/;"	f	typeref:typename:char **
+testfunc	cffi/c_ffi_007/c_ffi_00719n/c_ffi.c	/^int8_t* testfunc()$/;"	f	typeref:typename:int8_t *
+testfunc	cffi/c_ffi_007/c_ffi_00720/c_ffi.c	/^uint32_t* testfunc()$/;"	f	typeref:typename:uint32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00721/c_ffi.c	/^uint32_t* testfunc() {$/;"	f	typeref:typename:uint32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00722/c_ffi.c	/^uint32_t* testfunc() {$/;"	f	typeref:typename:uint32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00723/c_ffi.c	/^uint32_t* testfunc()$/;"	f	typeref:typename:uint32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00724/c_ffi.c	/^uint32_t* testfunc() {$/;"	f	typeref:typename:uint32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00725/c_ffi.c	/^uint32_t* testfunc() {$/;"	f	typeref:typename:uint32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00726/c_ffi.c	/^uint32_t* testfunc()$/;"	f	typeref:typename:uint32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00727/c_ffi.c	/^uint32_t* testfunc() {$/;"	f	typeref:typename:uint32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00728/c_ffi.c	/^int16_t* testfunc() {$/;"	f	typeref:typename:int16_t *
+testfunc	cffi/c_ffi_007/c_ffi_00729/c_ffi.c	/^int16_t* testfunc()$/;"	f	typeref:typename:int16_t *
+testfunc	cffi/c_ffi_007/c_ffi_00730/c_ffi.c	/^uint32_t* testfunc() {$/;"	f	typeref:typename:uint32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00731/c_ffi.c	/^uint32_t* testfunc() {$/;"	f	typeref:typename:uint32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00732/c_ffi.c	/^int32_t* testfunc()$/;"	f	typeref:typename:int32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00733/c_ffi.c	/^int8_t* testfunc() {$/;"	f	typeref:typename:int8_t *
+testfunc	cffi/c_ffi_007/c_ffi_00734/c_ffi.c	/^int16_t* testfunc() {$/;"	f	typeref:typename:int16_t *
+testfunc	cffi/c_ffi_007/c_ffi_00735/c_ffi.c	/^uint16_t* testfunc()$/;"	f	typeref:typename:uint16_t *
+testfunc	cffi/c_ffi_007/c_ffi_00736/c_ffi.c	/^uint32_t* testfunc() {$/;"	f	typeref:typename:uint32_t *
+testfunc	cffi/c_ffi_007/c_ffi_00737/c_ffi.c	/^int8_t* testfunc() {$/;"	f	typeref:typename:int8_t *
+testfunc	cffi/c_ffi_007/c_ffi_00738/c_ffi.c	/^int8_t* testfunc()$/;"	f	typeref:typename:int8_t *
+testfunc	cffi/c_ffi_007/c_ffi_00739/c_ffi.c	/^teststruct* testfunc() {$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00740/c_ffi.c	/^teststruct* testfunc() {$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00741/c_ffi.c	/^teststruct* testfunc()$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00742/c_ffi.c	/^teststruct* testfunc() {$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00743/c_ffi.c	/^teststruct* testfunc() {$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00744/c_ffi.c	/^teststruct* testfunc()$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00745/c_ffi.c	/^teststruct* testfunc() {$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00746/c_ffi.c	/^teststruct* testfunc() {$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00747/c_ffi.c	/^teststruct* testfunc()$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00748/c_ffi.c	/^teststruct* testfunc() {$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00749/c_ffi.c	/^teststruct* testfunc() {$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00750/c_ffi.c	/^teststruct* testfunc()$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00751/c_ffi.c	/^teststruct* testfunc() {$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00752/c_ffi.c	/^teststruct* testfunc() {$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00754/c_ffi.c	/^float* testfunc()$/;"	f	typeref:typename:float *
+testfunc	cffi/c_ffi_007/c_ffi_00755/c_ffi.c	/^float* testfunc() {$/;"	f	typeref:typename:float *
+testfunc	cffi/c_ffi_007/c_ffi_00756/c_ffi.c	/^teststruct* testfunc() {$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00757/c_ffi.c	/^double* testfunc()$/;"	f	typeref:typename:double *
+testfunc	cffi/c_ffi_007/c_ffi_00758/c_ffi.c	/^char** testfunc() {$/;"	f	typeref:typename:char **
+testfunc	cffi/c_ffi_007/c_ffi_00759/c_ffi.c	/^char** testfunc() {$/;"	f	typeref:typename:char **
+testfunc	cffi/c_ffi_007/c_ffi_00760/c_ffi.c	/^char** testfunc()$/;"	f	typeref:typename:char **
+testfunc	cffi/c_ffi_007/c_ffi_00761/c_ffi.c	/^char** testfunc() {$/;"	f	typeref:typename:char **
+testfunc	cffi/c_ffi_007/c_ffi_00762/c_ffi.c	/^char** testfunc() {$/;"	f	typeref:typename:char **
+testfunc	cffi/c_ffi_007/c_ffi_00763/c_ffi.c	/^char** testfunc()$/;"	f	typeref:typename:char **
+testfunc	cffi/c_ffi_007/c_ffi_00764/c_ffi.c	/^char** testfunc() {$/;"	f	typeref:typename:char **
+testfunc	cffi/c_ffi_007/c_ffi_00765/c_ffi.c	/^float* testfunc() {$/;"	f	typeref:typename:float *
+testfunc	cffi/c_ffi_007/c_ffi_00766/c_ffi.c	/^char** testfunc()$/;"	f	typeref:typename:char **
+testfunc	cffi/c_ffi_007/c_ffi_00767/c_ffi.c	/^float* testfunc() {$/;"	f	typeref:typename:float *
+testfunc	cffi/c_ffi_007/c_ffi_00768/c_ffi.c	/^float* testfunc() {$/;"	f	typeref:typename:float *
+testfunc	cffi/c_ffi_007/c_ffi_00769/c_ffi.c	/^float* testfunc()$/;"	f	typeref:typename:float *
+testfunc	cffi/c_ffi_007/c_ffi_00770/c_ffi.c	/^float* testfunc() {$/;"	f	typeref:typename:float *
+testfunc	cffi/c_ffi_007/c_ffi_00771/c_ffi.c	/^uint64_t* testfunc() {$/;"	f	typeref:typename:uint64_t *
+testfunc	cffi/c_ffi_007/c_ffi_00772/c_ffi.c	/^uint64_t* testfunc()$/;"	f	typeref:typename:uint64_t *
+testfunc	cffi/c_ffi_007/c_ffi_00773/c_ffi.c	/^uint64_t* testfunc() {$/;"	f	typeref:typename:uint64_t *
+testfunc	cffi/c_ffi_007/c_ffi_00774/c_ffi.c	/^uint64_t* testfunc() {$/;"	f	typeref:typename:uint64_t *
+testfunc	cffi/c_ffi_007/c_ffi_00775/c_ffi.c	/^int8_t** testfunc()$/;"	f	typeref:typename:int8_t **
+testfunc	cffi/c_ffi_007/c_ffi_00776/c_ffi.c	/^teststruct* testfunc() {$/;"	f	typeref:typename:teststruct *
+testfunc	cffi/c_ffi_007/c_ffi_00788/c_ffi.c	/^void testfunc(void (*a)(double, double))$/;"	f	typeref:typename:void
+testfunc	cffi/c_ffi_007/c_ffi_00789/c_ffi.c	/^char* testfunc() {$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_008/c_ffi_00801/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00801n/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00802n/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00803n/c_ffi.c	/^bool* testfunc()$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00804n/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00805n/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00806/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00807n/c_ffi.c	/^bool* testfunc()$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00808n/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00809n/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00810/c_ffi.c	/^bool* testfunc()$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00811/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00812n/c_ffi.c	/^bool* testfunc()$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00813/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00814/c_ffi.c	/^bool* testfunc()$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00815/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00816/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00817/c_ffi.c	/^bool* testfunc()$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00817/c_ffi.cpp	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00818/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00819/c_ffi.c	/^int8_t testfunc() {$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_008/c_ffi_00820/c_ffi.c	/^bool* testfunc()$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00821n/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00822n/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00823n/c_ffi.c	/^bool* testfunc(bool* ptr)$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00824/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00825/c_ffi.c	/^bool* testfunc() {$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_008/c_ffi_00826/c_ffi.c	/^bool* testfunc()$/;"	f	typeref:typename:bool *
+testfunc	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00917/c_ffi.c	/^struct teststruct* testfunc(int32_t n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^struct teststruct** testfunc(int n, struct teststruct** ppst)$/;"	f	typeref:struct:teststruct **
+testfunc	cffi/c_ffi_009/c_ffi_00921/c_ffi.c	/^struct teststruct* testfunc(int32_t n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00922/c_ffi.c	/^struct teststruct* testfunc(int32_t n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00923/c_ffi.c	/^struct teststruct* testfunc(int32_t n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00924/c_ffi.c	/^struct teststruct* testfunc(int32_t n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00925/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00926/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00927/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00928/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00929/c_ffi.c	/^struct teststruct* testfunc(int8_t n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00930/c_ffi.c	/^struct teststruct* testfunc(int32_t n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00931/c_ffi.c	/^struct teststruct* testfunc(int32_t n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00932/c_ffi.c	/^struct teststruct* testfunc(int32_t n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00933/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00934/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00935/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00936/c_ffi.c	/^int8_t testfunc(struct teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00942/c_ffi.c	/^struct teststruct** testfunc(char* str, struct teststruct **ppst)$/;"	f	typeref:struct:teststruct **
+testfunc	cffi/c_ffi_009/c_ffi_00946/c_ffi.c	/^struct teststruct* testfunc(float n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00947/c_ffi.c	/^struct teststruct* testfunc(double n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00948/c_ffi.c	/^int8_t testfunc(struct teststruct ts)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00949/c_ffi.c	/^int8_t testfunc(struct teststruct ts)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_009/c_ffi_00951/c_ffi.c	/^struct teststruct** testfunc(int8_t num, struct teststruct** ppst)$/;"	f	typeref:struct:teststruct **
+testfunc	cffi/c_ffi_009/c_ffi_00952/c_ffi.c	/^struct teststruct* testfunc(int n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00954/c_ffi.c	/^    int64_t (*testfunc)(int64_t a, int64_t b);$/;"	m	struct:__anon271f91790108	typeref:typename:int64_t (*)(int64_t a,int64_t b)	file:
+testfunc	cffi/c_ffi_009/c_ffi_00955/c_ffi.c	/^    Func testfunc;$/;"	m	struct:__anon9b9c027a0108	typeref:typename:Func	file:
+testfunc	cffi/c_ffi_009/c_ffi_00956/c_ffi.c	/^    int64_t (*testfunc)(int64_t a, int64_t b);$/;"	m	struct:__anon1018737b0108	typeref:typename:int64_t (*)(int64_t a,int64_t b)	file:
+testfunc	cffi/c_ffi_009/c_ffi_00957/c_ffi.c	/^    int64_t (*testfunc)(int64_t a, int64_t b);$/;"	m	struct:__anon8494e47c0108	typeref:typename:int64_t (*)(int64_t a,int64_t b)	file:
+testfunc	cffi/c_ffi_009/c_ffi_00965/c_ffi.c	/^    int8_t (*testfunc)(int8_t i8a, int8_t i8b);$/;"	m	struct:teststruct	typeref:typename:int8_t (*)(int8_t i8a,int8_t i8b)	file:
+testfunc	cffi/c_ffi_009/c_ffi_00965/c_ffi.c	/^struct teststruct* testfunc(int32_t n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00966/c_ffi.c	/^    int8_t (*testfunc)(int8_t i8a, int8_t i8b);$/;"	m	struct:teststruct	typeref:typename:int8_t (*)(int8_t i8a,int8_t i8b)	file:
+testfunc	cffi/c_ffi_009/c_ffi_00966/c_ffi.c	/^struct teststruct* testfunc(int n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00967/c_ffi.c	/^    int8_t (*testfunc)(int8_t i8a, int8_t i8b);$/;"	m	struct:teststruct	typeref:typename:int8_t (*)(int8_t i8a,int8_t i8b)	file:
+testfunc	cffi/c_ffi_009/c_ffi_00967/c_ffi.c	/^struct teststruct* testfunc(int n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_009/c_ffi_00968/c_ffi.c	/^    int8_t (*testfunc)(int8_t i8a, int8_t i8b);$/;"	m	struct:teststruct	typeref:typename:int8_t (*)(int8_t i8a,int8_t i8b)	file:
+testfunc	cffi/c_ffi_009/c_ffi_00968/c_ffi.c	/^struct teststruct* testfunc(int n, struct teststruct* pst)$/;"	f	typeref:struct:teststruct *
+testfunc	cffi/c_ffi_011/c_ffi_01101/c_ffi.c	/^extern bool testfunc(bool (*a)(bool, bool)) {$/;"	f	typeref:typename:bool
+testfunc	cffi/c_ffi_011/c_ffi_01102/c_ffi.c	/^extern int8_t testfunc(int8_t (*a)(int8_t, int8_t)) {$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_011/c_ffi_01103/c_ffi.c	/^extern uint8_t testfunc(uint8_t (*a)(uint8_t, uint8_t))$/;"	f	typeref:typename:uint8_t
+testfunc	cffi/c_ffi_011/c_ffi_01104/c_ffi.c	/^extern int16_t testfunc(int16_t (*a)(int16_t, int16_t)) {$/;"	f	typeref:typename:int16_t
+testfunc	cffi/c_ffi_011/c_ffi_01105/c_ffi.c	/^extern uint16_t testfunc(uint16_t (*a)(uint16_t, uint16_t)) {$/;"	f	typeref:typename:uint16_t
+testfunc	cffi/c_ffi_011/c_ffi_01106/c_ffi.c	/^extern int32_t testfunc(int32_t (*a)(int32_t, int32_t))$/;"	f	typeref:typename:int32_t
+testfunc	cffi/c_ffi_011/c_ffi_01107/c_ffi.c	/^extern uint32_t testfunc(uint32_t (*a)(uint32_t, uint32_t)) {$/;"	f	typeref:typename:uint32_t
+testfunc	cffi/c_ffi_011/c_ffi_01108/c_ffi.c	/^extern int64_t testfunc(int64_t (*a)(int64_t, int64_t)) {$/;"	f	typeref:typename:int64_t
+testfunc	cffi/c_ffi_011/c_ffi_01109/c_ffi.c	/^extern uint64_t testfunc(uint64_t (*a)(uint64_t, uint64_t))$/;"	f	typeref:typename:uint64_t
+testfunc	cffi/c_ffi_011/c_ffi_01110/c_ffi.c	/^extern float testfunc(float (*a)(float, float)) {$/;"	f	typeref:typename:float
+testfunc	cffi/c_ffi_011/c_ffi_01111/c_ffi.c	/^extern double testfunc(double (*a)(double, double)) {$/;"	f	typeref:typename:double
+testfunc	cffi/c_ffi_011/c_ffi_01112/c_ffi.c	/^extern bool testfunc(bool (*a)(bool, bool))$/;"	f	typeref:typename:bool
+testfunc	cffi/c_ffi_011/c_ffi_01113/c_ffi.c	/^extern int8_t testfunc(int8_t (*a)(int8_t, int8_t)) {$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_011/c_ffi_01114/c_ffi.c	/^extern uint8_t testfunc(uint8_t (*a)(uint8_t, uint8_t)) {$/;"	f	typeref:typename:uint8_t
+testfunc	cffi/c_ffi_011/c_ffi_01115/c_ffi.c	/^extern int16_t testfunc(int16_t (*a)(int16_t, int16_t))$/;"	f	typeref:typename:int16_t
+testfunc	cffi/c_ffi_011/c_ffi_01116/c_ffi.c	/^extern uint16_t testfunc(uint16_t (*a)(uint16_t, uint16_t)) {$/;"	f	typeref:typename:uint16_t
+testfunc	cffi/c_ffi_011/c_ffi_01117/c_ffi.c	/^extern int32_t testfunc(int32_t (*a)(int32_t, int32_t)) {$/;"	f	typeref:typename:int32_t
+testfunc	cffi/c_ffi_011/c_ffi_01118/c_ffi.c	/^extern uint32_t testfunc(uint32_t (*a)(uint32_t, uint32_t))$/;"	f	typeref:typename:uint32_t
+testfunc	cffi/c_ffi_011/c_ffi_01119/c_ffi.c	/^extern int64_t testfunc(int64_t (*a)(int64_t, int64_t)) {$/;"	f	typeref:typename:int64_t
+testfunc	cffi/c_ffi_011/c_ffi_01120/c_ffi.c	/^extern uint64_t testfunc(uint64_t (*a)(uint64_t, uint64_t)) {$/;"	f	typeref:typename:uint64_t
+testfunc	cffi/c_ffi_011/c_ffi_01121/c_ffi.c	/^extern float testfunc(float (*a)(float, float))$/;"	f	typeref:typename:float
+testfunc	cffi/c_ffi_011/c_ffi_01122/c_ffi.c	/^extern double testfunc(double (*a)(double, double)) {$/;"	f	typeref:typename:double
+testfunc	cffi/c_ffi_011/c_ffi_01129n/c_ffi.c	/^extern int8_t testfunc(int8_t (*a)(int8_t, int8_t)) {$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_011/c_ffi_01130n/c_ffi.c	/^extern int8_t testfunc(int8_t (*a)(int8_t, int8_t))$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_011/c_ffi_01131n/c_ffi.c	/^extern int8_t testfunc(int8_t (*a)(int8_t, int8_t)) {$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_011/c_ffi_01132n/c_ffi.c	/^extern int8_t testfunc(int8_t (*a)(int8_t, int8_t)) {$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_011/c_ffi_01133n/c_ffi.c	/^extern int8_t testfunc(int8_t (*a)(int8_t, int8_t))$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_011/c_ffi_01138/c_ffi.c	/^extern void testfunc(void (*a)(uint16_t, uint16_t))$/;"	f	typeref:typename:void
+testfunc	cffi/c_ffi_011/c_ffi_01139/c_ffi.c	/^extern void testfunc(void (*a)(double, double)) {$/;"	f	typeref:typename:void
+testfunc	cffi/c_ffi_011/c_ffi_01140/c_ffi.c	/^extern void testfunc(void (*a)(uint16_t, uint16_t)) {$/;"	f	typeref:typename:void
+testfunc	cffi/c_ffi_011/c_ffi_01141/c_ffi.c	/^extern void testfunc(void (*a)(double, double))$/;"	f	typeref:typename:void
+testfunc	cffi/c_ffi_011/c_ffi_01165/c_ffi.c	/^extern bool testfunc(bool (*a)(bool, bool)) {$/;"	f	typeref:typename:bool
+testfunc	cffi/c_ffi_011/c_ffi_01166/c_ffi.c	/^extern float testfunc(float (*a)(float, float))$/;"	f	typeref:typename:float
+testfunc	cffi/c_ffi_011/c_ffi_01170/c_ffi.c	/^extern int64_t testfunc(int64_t (*a)(int64_t, int64_t)) {$/;"	f	typeref:typename:int64_t
+testfunc	cffi/c_ffi_011/c_ffi_01171/c_ffi.c	/^extern int64_t testfunc(int64_t (*a)(int64_t, int64_t)) {$/;"	f	typeref:typename:int64_t
+testfunc	cffi/c_ffi_011/c_ffi_01172/c_ffi.c	/^extern float testfunc(float (*a)(float, float))$/;"	f	typeref:typename:float
+testfunc	cffi/c_ffi_011/c_ffi_01176/c_ffi.c	/^void *testfunc()$/;"	f	typeref:typename:void *
+testfunc	cffi/c_ffi_011/c_ffi_01177/c_ffi.c	/^void *testfunc()$/;"	f	typeref:typename:void *
+testfunc	cffi/c_ffi_011/c_ffi_01181/c_ffi.c	/^void* testfunc()$/;"	f	typeref:typename:void *
+testfunc	cffi/c_ffi_011/c_ffi_01182/c_ffi.c	/^void *testfunc()$/;"	f	typeref:typename:void *
+testfunc	cffi/c_ffi_011/c_ffi_01186/c_ffi.c	/^void *testfunc()$/;"	f	typeref:typename:void *
+testfunc	cffi/c_ffi_011/c_ffi_01187/c_ffi.c	/^void* testfunc()$/;"	f	typeref:typename:void *
+testfunc	cffi/c_ffi_011/c_ffi_01194/c_ffi.c	/^extern void testfunc(void (*a)(double, double)) {$/;"	f	typeref:typename:void
+testfunc	cffi/c_ffi_011/c_ffi_01198/c_ffi.c	/^extern void testfunc(void (*a)(void)) {$/;"	f	typeref:typename:void
+testfunc	cffi/c_ffi_012/c_ffi_01201/c_ffi.c	/^int8_t testfunc(int8_t a, int8_t b){$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_012/c_ffi_01201n/c_ffi.c	/^extern int8_t testfunc(int8_t a, int8_t b)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_012/c_ffi_01202n/c_ffi.c	/^int8_t testfunc(int8_t a, int8_t b){$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_012/c_ffi_01203n/c_ffi.c	/^int8_t testfunc(int8_t a, int8_t b){$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_012/c_ffi_01204n/c_ffi.c	/^extern int8_t testfunc(int8_t a, int8_t b)$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_012/c_ffi_01205n/c_ffi.c	/^int8_t testfunc(int8_t a, int8_t b){$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_012/c_ffi_01206n/c_ffi.c	/^int8_t testfunc(int8_t a, int8_t b){$/;"	f	typeref:typename:int8_t
+testfunc	cffi/c_ffi_014/c_ffi_01401/c_ffi.c	/^char* testfunc(char* input)$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_014/c_ffi_01403/c_ffi.c	/^char* testfunc(char* input)$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_014/c_ffi_01410/c_ffi.c	/^char* testfunc()$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_014/c_ffi_01411/c_ffi.c	/^char* testfunc()$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_014/c_ffi_01412/c_ffi.c	/^    int64_t (*testfunc)(int64_t a, int64_t b);$/;"	m	struct:__anona18ba42b0108	typeref:typename:int64_t (*)(int64_t a,int64_t b)	file:
+testfunc	cffi/c_ffi_014/c_ffi_01413/c_ffi.c	/^    int64_t (*testfunc)(int64_t a, int64_t b);$/;"	m	struct:__anon1608152c0108	typeref:typename:int64_t (*)(int64_t a,int64_t b)	file:
+testfunc	cffi/c_ffi_014/c_ffi_01414/c_ffi.c	/^    int64_t (*testfunc)(int64_t a, int64_t b);$/;"	m	struct:__anon8a84862d0108	typeref:typename:int64_t (*)(int64_t a,int64_t b)	file:
+testfunc	cffi/c_ffi_014/c_ffi_01415/c_ffi.c	/^    int64_t (*testfunc)(int64_t a, int64_t b);$/;"	m	struct:__anonff00f72e0108	typeref:typename:int64_t (*)(int64_t a,int64_t b)	file:
+testfunc	cffi/c_ffi_014/c_ffi_01416/c_ffi.c	/^    int64_t (*testfunc)(int64_t a, int64_t b);$/;"	m	struct:__anon737d682f0108	typeref:typename:int64_t (*)(int64_t a,int64_t b)	file:
+testfunc	cffi/c_ffi_014/c_ffi_01417/c_ffi.c	/^    int64_t (*testfunc)(int64_t a, int64_t b);$/;"	m	struct:__anone7f9d9300108	typeref:typename:int64_t (*)(int64_t a,int64_t b)	file:
+testfunc	cffi/c_ffi_014/c_ffi_01418/c_ffi.c	/^    int64_t (*testfunc)(int64_t a, int64_t b);$/;"	m	struct:__anon5c764a310108	typeref:typename:int64_t (*)(int64_t a,int64_t b)	file:
+testfunc	cffi/c_ffi_014/c_ffi_01419/c_ffi.c	/^char* testfunc(char* input)$/;"	f	typeref:typename:char *
+testfunc	cffi/c_ffi_014/c_ffi_01421/c_ffi.c	/^char* testfunc(char* input)$/;"	f	typeref:typename:char *
+testfunc1	cffi/c_ffi_005/c_ffi_00514/c_ffi.c	/^void testfunc1() {$/;"	f	typeref:typename:void
+testfunc1	cffi/c_ffi_005/c_ffi_00515/c_ffi.c	/^int64_t testfunc1(int64_t a, int64_t b) {$/;"	f	typeref:typename:int64_t
+testfunc1	cffi/c_ffi_005/c_ffi_00523/c_ffi.c	/^int32_t testfunc1(int32_t a)$/;"	f	typeref:typename:int32_t
+testfunc1	cffi/c_ffi_005/c_ffi_00524/c_ffi.c	/^int32_t testfunc1(int32_t a) {$/;"	f	typeref:typename:int32_t
+testfunc1	cffi/c_ffi_005/c_ffi_00525/c_ffi.c	/^int32_t testfunc1(int32_t a) {$/;"	f	typeref:typename:int32_t
+testfunc1	cffi/c_ffi_007/c_ffi_00715/c_ffi.c	/^int8_t* testfunc1() {$/;"	f	typeref:typename:int8_t *
+testfunc1	cffi/c_ffi_007/c_ffi_00790/c_ffi.c	/^float* testfunc1() {$/;"	f	typeref:typename:float *
+testfunc1	cffi/c_ffi_007/c_ffi_00791/c_ffi.c	/^float* testfunc1()$/;"	f	typeref:typename:float *
+testfunc1	cffi/c_ffi_008/c_ffi_00829/c_ffi.c	/^bool* testfunc1() {$/;"	f	typeref:typename:bool *
+testfunc1	cffi/c_ffi_008/c_ffi_00830/c_ffi.c	/^bool* testfunc1() {$/;"	f	typeref:typename:bool *
+testfunc1	cffi/c_ffi_008/c_ffi_00831/c_ffi.c	/^bool* testfunc1()$/;"	f	typeref:typename:bool *
+testfunc1	cffi/c_ffi_008/c_ffi_00832/c_ffi.c	/^bool* testfunc1() {$/;"	f	typeref:typename:bool *
+testfunc1	cffi/c_ffi_008/c_ffi_00833/c_ffi.c	/^bool* testfunc1() {$/;"	f	typeref:typename:bool *
+testfunc1	cffi/c_ffi_008/c_ffi_00834/c_ffi.c	/^bool* testfunc1()$/;"	f	typeref:typename:bool *
+testfunc1	cffi/c_ffi_008/c_ffi_00835/c_ffi.c	/^int8_t testfunc1(int8_t num_arg, ...) {$/;"	f	typeref:typename:int8_t
+testfunc1	cffi/c_ffi_008/c_ffi_00836/c_ffi.c	/^uint16_t testfunc1(uint16_t num_arg, ...) {$/;"	f	typeref:typename:uint16_t
+testfunc1	cffi/c_ffi_008/c_ffi_00837/c_ffi.c	/^int32_t testfunc1(int32_t num_arg, ...)$/;"	f	typeref:typename:int32_t
+testfunc1	cffi/c_ffi_008/c_ffi_00838/c_ffi.c	/^uint64_t testfunc1(uint64_t num_arg, ...) {$/;"	f	typeref:typename:uint64_t
+testfunc1	cffi/c_ffi_008/c_ffi_00839/c_ffi.c	/^int64_t testfunc1(int64_t num_arg, ...) {$/;"	f	typeref:typename:int64_t
+testfunc1	cffi/c_ffi_008/c_ffi_00840/c_ffi.c	/^float testfunc1(int64_t num_arg, ...)$/;"	f	typeref:typename:float
+testfunc1	cffi/c_ffi_008/c_ffi_00841/c_ffi.c	/^int testfunc1(char* str_arg, int num_arg, ...)$/;"	f	typeref:typename:int
+testfunc1	cffi/c_ffi_008/c_ffi_00842/c_ffi.c	/^int testfunc1(char* str_arg1, char* str_arg2, ...) {$/;"	f	typeref:typename:int
+testfunc1	cffi/c_ffi_008/c_ffi_00843/c_ffi.c	/^int testfunc1(char* str_arg1, char* str_arg2, ...)$/;"	f	typeref:typename:int
+testfunc1	cffi/c_ffi_008/c_ffi_00844/c_ffi.c	/^int testfunc1(char* str_arg1, char* str_arg2, ...) {$/;"	f	typeref:typename:int
+testfunc1	cffi/c_ffi_008/c_ffi_00845/c_ffi.c	/^int testfunc1(char* str_arg1, char* str_arg2, ...) {$/;"	f	typeref:typename:int
+testfunc1	cffi/c_ffi_008/c_ffi_00846/c_ffi.c	/^int testfunc1(char* str_arg1, char* str_arg2, ...)$/;"	f	typeref:typename:int
+testfunc1	cffi/c_ffi_009/c_ffi_00906/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00907/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00939/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00940/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00941/c_ffi.c	/^struct teststruct testfunc1()$/;"	f	typeref:struct:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00943/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00944/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00945/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00950/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00953/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00954/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00955/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00956/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_009/c_ffi_00957/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_011/c_ffi_0119901/c_ffi.c	/^extern void testfunc1(void (*a)(double, double)) {$/;"	f	typeref:typename:void
+testfunc1	cffi/c_ffi_014/c_ffi_01412/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_014/c_ffi_01413/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_014/c_ffi_01414/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_014/c_ffi_01415/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_014/c_ffi_01416/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_014/c_ffi_01417/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc1	cffi/c_ffi_014/c_ffi_01418/c_ffi.c	/^teststruct testfunc1()$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_005/c_ffi_00514/c_ffi.c	/^void testfunc2() {$/;"	f	typeref:typename:void
+testfunc2	cffi/c_ffi_005/c_ffi_00515/c_ffi.c	/^int64_t testfunc2(int64_t a, int64_t b) {$/;"	f	typeref:typename:int64_t
+testfunc2	cffi/c_ffi_005/c_ffi_00523/c_ffi.c	/^int32_t testfunc2(int32_t a, int32_t b)$/;"	f	typeref:typename:int32_t
+testfunc2	cffi/c_ffi_005/c_ffi_00524/c_ffi.c	/^int32_t testfunc2(int32_t a, int32_t b) {$/;"	f	typeref:typename:int32_t
+testfunc2	cffi/c_ffi_005/c_ffi_00525/c_ffi.c	/^int32_t testfunc2(int32_t a, int32_t b) {$/;"	f	typeref:typename:int32_t
+testfunc2	cffi/c_ffi_007/c_ffi_00715/c_ffi.c	/^int8_t* testfunc2(int8_t* ptr) {$/;"	f	typeref:typename:int8_t *
+testfunc2	cffi/c_ffi_007/c_ffi_00790/c_ffi.c	/^double* testfunc2() {$/;"	f	typeref:typename:double *
+testfunc2	cffi/c_ffi_007/c_ffi_00791/c_ffi.c	/^double* testfunc2()$/;"	f	typeref:typename:double *
+testfunc2	cffi/c_ffi_008/c_ffi_00829/c_ffi.c	/^bool* testfunc2() {$/;"	f	typeref:typename:bool *
+testfunc2	cffi/c_ffi_008/c_ffi_00830/c_ffi.c	/^bool* testfunc2() {$/;"	f	typeref:typename:bool *
+testfunc2	cffi/c_ffi_008/c_ffi_00831/c_ffi.c	/^bool* testfunc2()$/;"	f	typeref:typename:bool *
+testfunc2	cffi/c_ffi_008/c_ffi_00832/c_ffi.c	/^bool* testfunc2() {$/;"	f	typeref:typename:bool *
+testfunc2	cffi/c_ffi_008/c_ffi_00833/c_ffi.c	/^bool* testfunc2() {$/;"	f	typeref:typename:bool *
+testfunc2	cffi/c_ffi_008/c_ffi_00834/c_ffi.c	/^bool* testfunc2()$/;"	f	typeref:typename:bool *
+testfunc2	cffi/c_ffi_008/c_ffi_00835/c_ffi.c	/^int8_t testfunc2(int8_t num_arg1, int8_t num_arg2, ...) {$/;"	f	typeref:typename:int8_t
+testfunc2	cffi/c_ffi_008/c_ffi_00836/c_ffi.c	/^uint16_t testfunc2(uint16_t num_arg1, uint16_t num_arg2, ...) {$/;"	f	typeref:typename:uint16_t
+testfunc2	cffi/c_ffi_008/c_ffi_00837/c_ffi.c	/^int32_t testfunc2(int32_t num_arg1, int32_t num_arg2, ...)$/;"	f	typeref:typename:int32_t
+testfunc2	cffi/c_ffi_008/c_ffi_00838/c_ffi.c	/^uint64_t testfunc2(uint64_t num_arg1, uint64_t num_arg2, ...) {$/;"	f	typeref:typename:uint64_t
+testfunc2	cffi/c_ffi_008/c_ffi_00839/c_ffi.c	/^int64_t testfunc2(int64_t num_arg1, int64_t num_arg2, ...) {$/;"	f	typeref:typename:int64_t
+testfunc2	cffi/c_ffi_008/c_ffi_00840/c_ffi.c	/^float testfunc2(float num_arg1, int64_t num_arg2, ...)$/;"	f	typeref:typename:float
+testfunc2	cffi/c_ffi_008/c_ffi_00842/c_ffi.c	/^int testfunc2(char* str_arg1, ...) {$/;"	f	typeref:typename:int
+testfunc2	cffi/c_ffi_008/c_ffi_00843/c_ffi.c	/^int testfunc2(char* str_arg1, ...)$/;"	f	typeref:typename:int
+testfunc2	cffi/c_ffi_008/c_ffi_00844/c_ffi.c	/^int testfunc2(char* str_arg1, ...) {$/;"	f	typeref:typename:int
+testfunc2	cffi/c_ffi_008/c_ffi_00845/c_ffi.c	/^int testfunc2(char* str_arg1, ...) {$/;"	f	typeref:typename:int
+testfunc2	cffi/c_ffi_008/c_ffi_00846/c_ffi.c	/^int testfunc2(char* str_arg1, ...)$/;"	f	typeref:typename:int
+testfunc2	cffi/c_ffi_009/c_ffi_00906/c_ffi.c	/^int8_t testfunc2(teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc2	cffi/c_ffi_009/c_ffi_00907/c_ffi.c	/^int8_t testfunc2(teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc2	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^int8_t testfunc2(teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc2	cffi/c_ffi_009/c_ffi_00939/c_ffi.c	/^teststruct testfunc2(teststruct st)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_009/c_ffi_00940/c_ffi.c	/^teststruct testfunc2(teststruct st)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_009/c_ffi_00941/c_ffi.c	/^struct teststruct testfunc2(struct teststruct st)$/;"	f	typeref:struct:teststruct
+testfunc2	cffi/c_ffi_009/c_ffi_00943/c_ffi.c	/^int8_t testfunc2(teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc2	cffi/c_ffi_009/c_ffi_00944/c_ffi.c	/^int8_t testfunc2(teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc2	cffi/c_ffi_009/c_ffi_00945/c_ffi.c	/^int8_t testfunc2(teststruct st)$/;"	f	typeref:typename:int8_t
+testfunc2	cffi/c_ffi_009/c_ffi_00950/c_ffi.c	/^teststruct testfunc2(teststruct ts)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_009/c_ffi_00953/c_ffi.c	/^teststruct testfunc2(teststruct ts)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_009/c_ffi_00954/c_ffi.c	/^teststruct testfunc2(teststruct ts)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_009/c_ffi_00955/c_ffi.c	/^teststruct testfunc2(teststruct ts)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_009/c_ffi_00956/c_ffi.c	/^teststruct testfunc2(teststruct ts)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_009/c_ffi_00957/c_ffi.c	/^teststruct testfunc2(teststruct ts)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_011/c_ffi_0119901/c_ffi.c	/^extern void testfunc2(void (*a)(double, double)) {$/;"	f	typeref:typename:void
+testfunc2	cffi/c_ffi_014/c_ffi_01412/c_ffi.c	/^teststruct testfunc2(teststruct ts)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_014/c_ffi_01413/c_ffi.c	/^teststruct testfunc2(teststruct ts)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_014/c_ffi_01414/c_ffi.c	/^teststruct testfunc2(teststruct ts)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_014/c_ffi_01415/c_ffi.c	/^teststruct testfunc2(teststruct ts)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_014/c_ffi_01416/c_ffi.c	/^teststruct testfunc2(teststruct ts)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_014/c_ffi_01417/c_ffi.c	/^teststruct testfunc2(teststruct ts)$/;"	f	typeref:typename:teststruct
+testfunc2	cffi/c_ffi_014/c_ffi_01418/c_ffi.c	/^teststruct testfunc2(teststruct ts)$/;"	f	typeref:typename:teststruct
+testfunc3	cffi/c_ffi_005/c_ffi_00523/c_ffi.c	/^int32_t testfunc3(int32_t a, int32_t b)$/;"	f	typeref:typename:int32_t
+testfunc3	cffi/c_ffi_005/c_ffi_00524/c_ffi.c	/^int32_t testfunc3(int32_t a, int32_t b) {$/;"	f	typeref:typename:int32_t
+testfunc3	cffi/c_ffi_005/c_ffi_00525/c_ffi.c	/^int32_t testfunc3(int32_t a, int32_t b) {$/;"	f	typeref:typename:int32_t
+testfunc3	cffi/c_ffi_008/c_ffi_00829/c_ffi.c	/^bool* testfunc3() {$/;"	f	typeref:typename:bool *
+testfunc3	cffi/c_ffi_008/c_ffi_00830/c_ffi.c	/^bool* testfunc3() {$/;"	f	typeref:typename:bool *
+testfunc3	cffi/c_ffi_008/c_ffi_00831/c_ffi.c	/^bool* testfunc3()$/;"	f	typeref:typename:bool *
+testfunc3	cffi/c_ffi_008/c_ffi_00832/c_ffi.c	/^bool* testfunc3() {$/;"	f	typeref:typename:bool *
+testfunc3	cffi/c_ffi_008/c_ffi_00833/c_ffi.c	/^bool* testfunc3() {$/;"	f	typeref:typename:bool *
+testfunc3	cffi/c_ffi_008/c_ffi_00834/c_ffi.c	/^bool* testfunc3()$/;"	f	typeref:typename:bool *
+testfunc3	cffi/c_ffi_011/c_ffi_0119901/c_ffi.c	/^extern void testfunc3(void (*a)(double, double)) {$/;"	f	typeref:typename:void
+testfunc4	cffi/c_ffi_005/c_ffi_00523/c_ffi.c	/^int32_t testfunc4(int32_t a, int32_t b)$/;"	f	typeref:typename:int32_t
+testfunc4	cffi/c_ffi_005/c_ffi_00524/c_ffi.c	/^int32_t testfunc4(int32_t a, int32_t b) {$/;"	f	typeref:typename:int32_t
+testfunc4	cffi/c_ffi_005/c_ffi_00525/c_ffi.c	/^int32_t testfunc4(int32_t a, int32_t b) {$/;"	f	typeref:typename:int32_t
+testfunc4	cffi/c_ffi_008/c_ffi_00829/c_ffi.c	/^bool* testfunc4() {$/;"	f	typeref:typename:bool *
+testfunc4	cffi/c_ffi_008/c_ffi_00830/c_ffi.c	/^bool* testfunc4() {$/;"	f	typeref:typename:bool *
+testfunc4	cffi/c_ffi_008/c_ffi_00831/c_ffi.c	/^bool* testfunc4()$/;"	f	typeref:typename:bool *
+testfunc4	cffi/c_ffi_008/c_ffi_00832/c_ffi.c	/^bool* testfunc4() {$/;"	f	typeref:typename:bool *
+testfunc4	cffi/c_ffi_008/c_ffi_00833/c_ffi.c	/^bool* testfunc4() {$/;"	f	typeref:typename:bool *
+testfunc4	cffi/c_ffi_008/c_ffi_00834/c_ffi.c	/^bool* testfunc4()$/;"	f	typeref:typename:bool *
+testfunc5	cffi/c_ffi_008/c_ffi_00829/c_ffi.c	/^bool* testfunc5() {$/;"	f	typeref:typename:bool *
+testfunc5	cffi/c_ffi_008/c_ffi_00830/c_ffi.c	/^bool* testfunc5() {$/;"	f	typeref:typename:bool *
+testfunc5	cffi/c_ffi_008/c_ffi_00831/c_ffi.c	/^bool* testfunc5()$/;"	f	typeref:typename:bool *
+testfunc5	cffi/c_ffi_008/c_ffi_00832/c_ffi.c	/^bool* testfunc5() {$/;"	f	typeref:typename:bool *
+testfunc5	cffi/c_ffi_008/c_ffi_00833/c_ffi.c	/^bool* testfunc5() {$/;"	f	typeref:typename:bool *
+testfunc5	cffi/c_ffi_008/c_ffi_00834/c_ffi.c	/^bool* testfunc5()$/;"	f	typeref:typename:bool *
+testfunc6	cffi/c_ffi_008/c_ffi_00830/c_ffi.c	/^bool* testfunc6() {$/;"	f	typeref:typename:bool *
+testfunc6	cffi/c_ffi_008/c_ffi_00831/c_ffi.c	/^bool* testfunc6()$/;"	f	typeref:typename:bool *
+testfunc6	cffi/c_ffi_008/c_ffi_00832/c_ffi.c	/^bool* testfunc6() {$/;"	f	typeref:typename:bool *
+testfunc6	cffi/c_ffi_008/c_ffi_00833/c_ffi.c	/^bool* testfunc6() {$/;"	f	typeref:typename:bool *
+testfunc6	cffi/c_ffi_008/c_ffi_00834/c_ffi.c	/^bool* testfunc6()$/;"	f	typeref:typename:bool *
+testfunc7	cffi/c_ffi_008/c_ffi_00830/c_ffi.c	/^bool* testfunc7() {$/;"	f	typeref:typename:bool *
+testfunc7	cffi/c_ffi_008/c_ffi_00831/c_ffi.c	/^bool* testfunc7()$/;"	f	typeref:typename:bool *
+testfunc7	cffi/c_ffi_008/c_ffi_00832/c_ffi.c	/^bool* testfunc7() {$/;"	f	typeref:typename:bool *
+testfunc7	cffi/c_ffi_008/c_ffi_00833/c_ffi.c	/^bool* testfunc7() {$/;"	f	typeref:typename:bool *
+testfunc7	cffi/c_ffi_008/c_ffi_00834/c_ffi.c	/^bool* testfunc7()$/;"	f	typeref:typename:bool *
+testfunc8	cffi/c_ffi_008/c_ffi_00830/c_ffi.c	/^bool* testfunc8() {$/;"	f	typeref:typename:bool *
+testfunc8	cffi/c_ffi_008/c_ffi_00831/c_ffi.c	/^bool* testfunc8()$/;"	f	typeref:typename:bool *
+testfunc8	cffi/c_ffi_008/c_ffi_00832/c_ffi.c	/^bool* testfunc8() {$/;"	f	typeref:typename:bool *
+testfunc8	cffi/c_ffi_008/c_ffi_00833/c_ffi.c	/^bool* testfunc8() {$/;"	f	typeref:typename:bool *
+testfunc8	cffi/c_ffi_008/c_ffi_00834/c_ffi.c	/^bool* testfunc8()$/;"	f	typeref:typename:bool *
+teststruct	cffi/c_ffi_007/c_ffi_00739/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anonb8a544b80108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00740/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anona44fdcd00108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00741/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon18cc4dd10108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00742/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon8d48bed20108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00743/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon01c52fd30108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00744/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon7641a0d40108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00745/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anoneabe11d50108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00746/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon5f3a82d60108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00747/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anond3b6f3d70108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00748/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon483364d80108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00749/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anonbcafd5d90108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00750/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anona85a6df10108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00751/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon1cd6def20108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00752/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon91534ff30108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00756/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon634513f70108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00776/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon6b5a36390108	file:
+teststruct	cffi/c_ffi_007/c_ffi_00781/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon28f692550108	file:
+teststruct	cffi/c_ffi_008/c_ffi_00821n/c_ffi.c	/^}teststruct;$/;"	t	typeref:struct:__anon9c10fcff0108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00906/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anonfbe39dd60108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00907/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon70600ed70108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00916/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anonffee2ef70108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00917/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00918/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00921/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00922/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00923/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00924/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00925/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00926/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00927/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00928/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00929/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00930/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00931/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00932/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00933/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00934/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00935/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00936/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00939/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon6578a43c0108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00940/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon51233c540108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00941/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00942/c_ffi.c	/^struct teststruct$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00943/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anonae988f570108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00944/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon231500580108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00945/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon979171590108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00946/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00947/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00948/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00949/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00950/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon552dcd750108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00951/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00952/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00953/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anonb2a320780108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00954/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon271f91790108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00955/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon9b9c027a0108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00956/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon1018737b0108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00957/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon8494e47c0108	file:
+teststruct	cffi/c_ffi_009/c_ffi_00965/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00966/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00967/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_009/c_ffi_00968/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_011/c_ffi_01125/c_ffi.c	/^struct teststruct{$/;"	s	file:
+teststruct	cffi/c_ffi_011/c_ffi_01128/c_ffi.c	/^struct teststruct{$/;"	s	file:
+teststruct	cffi/c_ffi_011/c_ffi_01169/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_011/c_ffi_01175/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_011/c_ffi_01180/c_ffi.c	/^struct teststruct{$/;"	s	file:
+teststruct	cffi/c_ffi_011/c_ffi_01185/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_011/c_ffi_01190/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_014/c_ffi_01407/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_014/c_ffi_01408/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct	cffi/c_ffi_014/c_ffi_01412/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anona18ba42b0108	file:
+teststruct	cffi/c_ffi_014/c_ffi_01413/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon1608152c0108	file:
+teststruct	cffi/c_ffi_014/c_ffi_01414/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon8a84862d0108	file:
+teststruct	cffi/c_ffi_014/c_ffi_01415/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anonff00f72e0108	file:
+teststruct	cffi/c_ffi_014/c_ffi_01416/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon737d682f0108	file:
+teststruct	cffi/c_ffi_014/c_ffi_01417/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anone7f9d9300108	file:
+teststruct	cffi/c_ffi_014/c_ffi_01418/c_ffi.c	/^} teststruct;$/;"	t	typeref:struct:__anon5c764a310108	file:
+teststruct	cffi/c_ffi_014/c_ffi_01425/c_ffi.c	/^struct teststruct {$/;"	s	file:
+teststruct1	cffi/c_ffi_011/c_ffi_01185/c_ffi.c	/^struct teststruct1 {$/;"	s	file:
+ui16	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00921/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00925/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00929/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00941/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00965/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00966/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00967/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui16	cffi/c_ffi_009/c_ffi_00968/c_ffi.c	/^    uint16_t ui16;$/;"	m	struct:teststruct	typeref:typename:uint16_t	file:
+ui32	cffi/c_ffi_007/c_ffi_00742/c_ffi.c	/^    uint32_t ui32;$/;"	m	struct:__anon8d48bed20108	typeref:typename:uint32_t	file:
+ui32a	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^    uint32_t ui32a;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32a	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^    uint32_t ui32a;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32a	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^    uint32_t ui32a;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32a	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^    uint32_t ui32a;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32a	cffi/c_ffi_009/c_ffi_00966/c_ffi.c	/^    uint32_t ui32a;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32a	cffi/c_ffi_009/c_ffi_00967/c_ffi.c	/^    uint32_t ui32a;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32a	cffi/c_ffi_009/c_ffi_00968/c_ffi.c	/^    uint32_t ui32a;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32b	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^    uint32_t ui32b;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32b	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^    uint32_t ui32b;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32b	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^    uint32_t ui32b;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32b	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^    uint32_t ui32b;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32b	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^    uint32_t ui32b;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32b	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^    uint32_t ui32b;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32b	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^    uint32_t ui32b;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32b	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^    uint32_t ui32b;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32b	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^    uint32_t ui32b;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32b	cffi/c_ffi_009/c_ffi_00922/c_ffi.c	/^    uint32_t ui32b;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32b	cffi/c_ffi_009/c_ffi_00926/c_ffi.c	/^    uint32_t ui32b;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui32b	cffi/c_ffi_009/c_ffi_00930/c_ffi.c	/^    uint32_t ui32b;$/;"	m	struct:teststruct	typeref:typename:uint32_t	file:
+ui64	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^    uint64_t ui64;$/;"	m	struct:teststruct	typeref:typename:uint64_t	file:
+ui64	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^    uint64_t ui64;$/;"	m	struct:teststruct	typeref:typename:uint64_t	file:
+ui64	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^    uint64_t ui64;$/;"	m	struct:teststruct	typeref:typename:uint64_t	file:
+ui64	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^    uint64_t ui64;$/;"	m	struct:teststruct	typeref:typename:uint64_t	file:
+ui64	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^    uint64_t ui64;$/;"	m	struct:teststruct	typeref:typename:uint64_t	file:
+ui64	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^    uint64_t ui64;$/;"	m	struct:teststruct	typeref:typename:uint64_t	file:
+ui64	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^    uint64_t ui64;$/;"	m	struct:teststruct	typeref:typename:uint64_t	file:
+ui64	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^    uint64_t ui64;$/;"	m	struct:teststruct	typeref:typename:uint64_t	file:
+ui64	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^    uint64_t ui64;$/;"	m	struct:teststruct	typeref:typename:uint64_t	file:
+ui64	cffi/c_ffi_009/c_ffi_00923/c_ffi.c	/^    uint64_t ui64;$/;"	m	struct:teststruct	typeref:typename:uint64_t	file:
+ui64	cffi/c_ffi_009/c_ffi_00927/c_ffi.c	/^    uint64_t ui64;$/;"	m	struct:teststruct	typeref:typename:uint64_t	file:
+ui64	cffi/c_ffi_009/c_ffi_00935/c_ffi.c	/^    uint64_t ui64;$/;"	m	struct:teststruct	typeref:typename:uint64_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00739/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anonb8a544b80108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00740/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anona44fdcd00108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00743/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon01c52fd30108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00744/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon7641a0d40108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00746/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon5f3a82d60108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00747/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anond3b6f3d70108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00748/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon483364d80108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00749/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anonbcafd5d90108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00750/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anona85a6df10108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00751/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon1cd6def20108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00752/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon91534ff30108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00756/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon634513f70108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00776/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon6b5a36390108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_007/c_ffi_00781/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon28f692550108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_008/c_ffi_00821n/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon9c10fcff0108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00901/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00902/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00903/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00904n/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00905n/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00906/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anonfbe39dd60108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00907/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon70600ed70108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00911n/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00912n/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00913n/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00914n/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00921/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00925/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00929/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00933/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00939/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon6578a43c0108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00940/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon51233c540108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00941/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00943/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anonae988f570108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00944/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon231500580108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00945/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:__anon979171590108	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00965/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00966/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00967/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_009/c_ffi_00968/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_011/c_ffi_01125/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_011/c_ffi_01128/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_011/c_ffi_01169/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_011/c_ffi_01175/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_011/c_ffi_01180/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_011/c_ffi_01185/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_011/c_ffi_01185/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct1	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_011/c_ffi_01190/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_014/c_ffi_01407/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_014/c_ffi_01408/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+ui8	cffi/c_ffi_014/c_ffi_01425/c_ffi.c	/^    uint8_t ui8;$/;"	m	struct:teststruct	typeref:typename:uint8_t	file:
+v0	objcffi/glue_code/oc_mirror/block/block_block/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/block/block_bool/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/block/block_class/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/block/block_numberic/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/block/block_pointer/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/block/block_protocol/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/block/block_struct/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/block/block_void/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/generic/generic_0/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/global_function/global_func_0/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/global_function/global_func_1/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/global_function/global_func_2/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/global_function/global_func_3/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/global_function/global_func_4/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/global_function/global_func_5/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/global_function/global_func_6/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/global_function/global_func_7/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/optional/optional_0/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/optional/optional_1/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/optional/optional_10/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/optional/optional_11/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/optional/optional_12/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/optional/optional_13/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/optional/optional_2/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/optional/optional_3/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/optional/optional_4/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/optional/optional_5/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/optional/optional_7/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/optional/optional_8/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v0	objcffi/glue_code/oc_mirror/optional/optional_9/src/objc/M.h	/^    struct S* v0;$/;"	v	typeref:struct:S *
+v1	objcffi/glue_code/oc_mirror/block/block_block/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/block/block_bool/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/block/block_class/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/block/block_numberic/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/block/block_pointer/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/block/block_protocol/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/block/block_struct/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/block/block_void/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/generic/generic_0/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/global_function/global_func_0/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/global_function/global_func_1/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/global_function/global_func_2/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/global_function/global_func_3/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/global_function/global_func_4/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/global_function/global_func_5/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/global_function/global_func_6/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/global_function/global_func_7/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/optional/optional_0/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/optional/optional_1/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/optional/optional_10/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/optional/optional_11/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/optional/optional_12/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/optional/optional_13/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/optional/optional_2/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/optional/optional_3/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/optional/optional_4/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/optional/optional_5/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/optional/optional_7/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/optional/optional_8/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v1	objcffi/glue_code/oc_mirror/optional/optional_9/src/objc/M.h	/^    NSObject<P> *v1;$/;"	v	typeref:typename:NSObject<P> *
+v2	objcffi/glue_code/oc_mirror/block/block_block/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/block/block_bool/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/block/block_class/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/block/block_numberic/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/block/block_pointer/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/block/block_protocol/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/block/block_struct/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/block/block_void/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/generic/generic_0/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/global_function/global_func_0/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/global_function/global_func_1/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/global_function/global_func_2/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/global_function/global_func_3/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/global_function/global_func_4/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/global_function/global_func_5/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/global_function/global_func_6/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/global_function/global_func_7/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/optional/optional_0/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/optional/optional_1/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/optional/optional_10/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/optional/optional_11/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/optional/optional_12/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/optional/optional_13/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/optional/optional_2/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/optional/optional_3/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/optional/optional_4/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/optional/optional_5/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/optional/optional_7/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/optional/optional_8/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v2	objcffi/glue_code/oc_mirror/optional/optional_9/src/objc/M.h	/^    M* v2;$/;"	v	typeref:typename:M *
+v3	objcffi/glue_code/oc_mirror/block/block_block/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/block/block_bool/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/block/block_class/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/block/block_numberic/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/block/block_pointer/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/block/block_protocol/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/block/block_struct/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/block/block_void/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/generic/generic_0/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/global_function/global_func_0/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/global_function/global_func_1/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/global_function/global_func_2/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/global_function/global_func_3/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/global_function/global_func_4/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/global_function/global_func_5/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/global_function/global_func_6/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/global_function/global_func_7/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/optional/optional_0/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/optional/optional_1/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/optional/optional_10/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/optional/optional_11/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/optional/optional_12/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/optional/optional_13/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/optional/optional_2/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/optional/optional_3/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/optional/optional_4/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/optional/optional_5/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/optional/optional_7/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/optional/optional_8/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+v3	objcffi/glue_code/oc_mirror/optional/optional_9/src/objc/M.h	/^    id<P> v3;$/;"	v	typeref:typename:id<P>
+x	cffi/c_ffi_015/c_ffi_01537/test.c	/^    int64_t x;$/;"	m	struct:A	typeref:typename:int64_t	file:
+x	objcffi/glue_code/oc_impl/impl_c_struct_0001/src/objc/M.h	/^    int64_t x;$/;"	m	struct:S	typeref:typename:int64_t
+x	objcffi/glue_code/oc_impl/impl_c_struct_0002/src/objc/M.h	/^    int64_t x;$/;"	m	struct:S	typeref:typename:int64_t
+x	objcffi/glue_code/oc_impl/impl_c_struct_0003/src/objc/M.h	/^    int64_t x;$/;"	m	struct:S	typeref:typename:int64_t
+x	objcffi/glue_code/oc_impl/impl_c_struct_0004/src/objc/M.h	/^    int64_t x;$/;"	m	struct:S	typeref:typename:int64_t
+x	objcffi/glue_code/oc_impl/impl_c_struct_0005/src/objc/M.h	/^    int64_t x;$/;"	m	struct:S	typeref:typename:int64_t
+x	objcffi/glue_code/oc_impl/impl_func_pointer_0009/src/objc/M.h	/^    int64_t x;$/;"	m	struct:S	typeref:typename:int64_t
+x	objcffi/glue_code/oc_impl/impl_func_pointer_0016/src/objc/M.h	/^    int64_t x;$/;"	m	struct:S	typeref:typename:int64_t
+x	objcffi/glue_code/oc_mirror/block/block_block/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/block/block_bool/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/block/block_class/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/block/block_numberic/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/block/block_pointer/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/block/block_protocol/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/block/block_struct/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/block/block_void/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/generic/generic_0/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/global_function/global_func_0/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/global_function/global_func_1/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/global_function/global_func_2/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/global_function/global_func_3/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/global_function/global_func_4/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/global_function/global_func_5/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/global_function/global_func_6/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/global_function/global_func_7/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/mirror_c_struct_0001/src/objc/M.h	/^    int x;$/;"	m	struct:__anon5f670daf0108	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/mirror_c_struct_0002/src/objc/M.h	/^    int x;$/;"	m	struct:__anon9aa747500108	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/mirror_c_struct_0003/src/objc/M.h	/^    int x;$/;"	m	struct:__anond5e780f10108	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/mirror_c_struct_0004/src/objc/M.h	/^    int x;$/;"	m	struct:__anon1127ba920108	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/mirror_c_struct_0005/src/objc/M.h	/^    int x;$/;"	m	struct:__anon4c67f4330108	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/mirror_c_struct_0006/src/objc/M.h	/^    int x;$/;"	m	struct:__anon87a82dd40108	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/mirror_c_struct_0007/src/objc/M.h	/^    int x;$/;"	m	struct:__anonc2e867750108	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/mirror_c_struct_0008/src/objc/M.h	/^    int x;$/;"	m	struct:__anonfe28a1160108	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/mirror_func_pointer_0009/src/objc/M.h	/^    int64_t x;$/;"	m	struct:S	typeref:typename:int64_t
+x	objcffi/glue_code/oc_mirror/mirror_func_pointer_0016/src/objc/M.h	/^    int64_t x;$/;"	m	struct:S	typeref:typename:int64_t
+x	objcffi/glue_code/oc_mirror/mirror_objcinit_0005/src/objc/M.h	/^    int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/optional/optional_0/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/optional/optional_1/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/optional/optional_10/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/optional/optional_11/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/optional/optional_12/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/optional/optional_13/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/optional/optional_2/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/optional/optional_3/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/optional/optional_4/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/optional/optional_5/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/optional/optional_7/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/optional/optional_8/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/glue_code/oc_mirror/optional/optional_9/src/objc/M.h	/^int x;$/;"	m	struct:S	typeref:typename:int
+x	objcffi/oc_mirror/mirror_gen/mirror_gen_0007/test.h	/^    int x;$/;"	m	struct:__anon3a10b9c40108	typeref:typename:int
+y	objcffi/glue_code/oc_impl/impl_c_struct_0001/src/objc/M.h	/^    int64_t y;$/;"	m	struct:S	typeref:typename:int64_t
+y	objcffi/glue_code/oc_impl/impl_c_struct_0002/src/objc/M.h	/^    int64_t y;$/;"	m	struct:S	typeref:typename:int64_t
+y	objcffi/glue_code/oc_impl/impl_c_struct_0003/src/objc/M.h	/^    int64_t y;$/;"	m	struct:S	typeref:typename:int64_t
+y	objcffi/glue_code/oc_impl/impl_c_struct_0004/src/objc/M.h	/^    int64_t y;$/;"	m	struct:S	typeref:typename:int64_t
+y	objcffi/glue_code/oc_impl/impl_c_struct_0005/src/objc/M.h	/^    int64_t y;$/;"	m	struct:S	typeref:typename:int64_t
+y	objcffi/glue_code/oc_impl/impl_func_pointer_0009/src/objc/M.h	/^    int64_t y;$/;"	m	struct:S	typeref:typename:int64_t
+y	objcffi/glue_code/oc_impl/impl_func_pointer_0016/src/objc/M.h	/^    int64_t y;$/;"	m	struct:S	typeref:typename:int64_t
+y	objcffi/glue_code/oc_mirror/block/block_block/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/block/block_bool/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/block/block_class/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/block/block_numberic/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/block/block_pointer/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/block/block_protocol/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/block/block_struct/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/block/block_void/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/generic/generic_0/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/global_function/global_func_0/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/global_function/global_func_1/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/global_function/global_func_2/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/global_function/global_func_3/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/global_function/global_func_4/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/global_function/global_func_5/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/global_function/global_func_6/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/global_function/global_func_7/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/mirror_c_struct_0001/src/objc/M.h	/^    int y;$/;"	m	struct:__anon5f670daf0108	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/mirror_c_struct_0002/src/objc/M.h	/^    int y;$/;"	m	struct:__anon9aa747500108	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/mirror_c_struct_0003/src/objc/M.h	/^    int y;$/;"	m	struct:__anond5e780f10108	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/mirror_c_struct_0004/src/objc/M.h	/^    int y;$/;"	m	struct:__anon1127ba920108	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/mirror_c_struct_0005/src/objc/M.h	/^    int y;$/;"	m	struct:__anon4c67f4330108	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/mirror_c_struct_0006/src/objc/M.h	/^    int y;$/;"	m	struct:__anon87a82dd40108	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/mirror_c_struct_0007/src/objc/M.h	/^    int y;$/;"	m	struct:__anonc2e867750108	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/mirror_c_struct_0008/src/objc/M.h	/^    int y;$/;"	m	struct:__anonfe28a1160108	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/mirror_func_pointer_0009/src/objc/M.h	/^    int64_t y;$/;"	m	struct:S	typeref:typename:int64_t
+y	objcffi/glue_code/oc_mirror/mirror_func_pointer_0016/src/objc/M.h	/^    int64_t y;$/;"	m	struct:S	typeref:typename:int64_t
+y	objcffi/glue_code/oc_mirror/mirror_objcinit_0005/src/objc/M.h	/^    int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/optional/optional_0/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/optional/optional_1/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/optional/optional_10/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/optional/optional_11/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/optional/optional_12/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/optional/optional_13/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/optional/optional_2/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/optional/optional_3/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/optional/optional_4/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/optional/optional_5/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/optional/optional_7/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/optional/optional_8/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/glue_code/oc_mirror/optional/optional_9/src/objc/M.h	/^int y;$/;"	m	struct:S	typeref:typename:int
+y	objcffi/oc_mirror/mirror_gen/mirror_gen_0007/test.h	/^    NSString* y;$/;"	m	struct:__anon3a10b9c40108	typeref:typename:NSString *
