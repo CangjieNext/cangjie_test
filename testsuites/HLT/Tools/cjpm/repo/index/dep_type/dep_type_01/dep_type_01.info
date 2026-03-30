@@ -7,6 +7,6 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
 // EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: regex libtest_repo_7.(so|dll)
+// ASSERT: regex libtest_repo_7.(so|dll|dylib)
 // ASSERT: scan-not libtest_repo_7.a
 // ASSERT: scan cjpm build success
