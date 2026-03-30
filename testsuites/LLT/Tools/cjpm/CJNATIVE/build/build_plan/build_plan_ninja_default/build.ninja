@@ -1,0 +1,28 @@
+ninja_required_version = 1.3
+builddir = /home/huawei/newrepos/dev/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/build/build_plan/build_ninja_01/target/release
+TARGET_DIR = /home/huawei/newrepos/dev/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/build/build_plan/build_ninja_01/target/release
+cjc = cjc
+
+rule compile
+  command = $env_vars $cjc $pkg_path $import_paths $cjc_flags $custom_options $link_args $output_config_flags $output $link_flags
+  description = Compiling $meta_pkg [$meta_src_set]
+
+# Build entries
+
+# ========================================
+# Compile: test_ninja
+# Target: x86_64-unknown-linux-gnu
+# Debug: false
+# Mock: false
+# OutputType: executable
+# SourceSet: 
+# ========================================
+build $TARGET_DIR/bin/main: compile -p$ /home/huawei/newrepos/dev/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/build/build_plan/build_ninja_01/src |
+  pkg_path = /home/huawei/newrepos/dev/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/build/build_plan/build_ninja_01/src
+  import_paths = --import-path=$TARGET_DIR
+  cjc_flags = --no-sub-pkg --output-dir=$TARGET_DIR/bin/
+  output_config_flags = --output-type=exe
+  output = -o=main
+  meta_pkg = test_ninja
+
+default $TARGET_DIR/bin/main

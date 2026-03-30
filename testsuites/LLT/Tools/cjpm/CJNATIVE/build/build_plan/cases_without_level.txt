@@ -1,0 +1,1 @@
+/home/huawei/newrepos/dev/cangjie_test/testsuites/LLT/Tools/cjpm/CJNATIVE/build/build_plan/build_plan_infer_ninja/build_plan_infer_ninja.info
