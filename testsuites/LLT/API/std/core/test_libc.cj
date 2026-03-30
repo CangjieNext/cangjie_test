@@ -16,10 +16,10 @@ public class TestMalloc {
         try {
             let c = LibC.malloc<Int64>(count: Int64.Max)
             @Assert(c.isNull())
-        } catch (_: OverflowException) {
+        } catch (_: IllegalMemoryException) {
             overflow = true
         }
 
-        @Assert(!overflow)
+        @Assert(overflow)
     }
 }
