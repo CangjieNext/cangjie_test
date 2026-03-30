@@ -50,7 +50,7 @@ public class JsonReaderSecurityRegressionTest {
             reader.readValue<Float64>()
             @Assert(false)
         } catch (e: IllegalStateException) {
-            @Expect(e.message, "Invalid float dectected.")
+            @Expect(e.message, "Invalid float detected.")
         }
     }
 
