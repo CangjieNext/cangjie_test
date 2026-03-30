@@ -9,9 +9,9 @@
 // LEVEL: 0
 // DEPENDENCE: p
 // ((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator))) EXEC-PIPE-1: %compiler %cmp_opt %compile_lib_opt --lto=thin p/a.cj -o p.%middle 2>&1 | compare %f
-// (host_win & target_win) ASSERT: scan Windows does not support LTO optimization.
-// (host_mac & target_mac) ASSERT: scan Darwin does not support LTO optimization.
-// (host_mac & (target_ios | target_ios_simulator)) ASSERT: scan iOS does not support LTO optimization.
+// (host_win & target_win) ASSERT: scan Windows does not support LTO.
+// (host_mac & target_mac) ASSERT: scan Darwin does not support LTO.
+// (host_mac & (target_ios | target_ios_simulator)) ASSERT: scan iOS does not support LTO.
 // (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) EXEC-PIPE: %compiler %cmp_opt %compile_lib_opt --lto=thin p/a.cj -o p.%middle -V 2>&1 | compare %f
 // (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) ASSERT: scan-not does not support
 // (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) ASSERT: scan --cangjie-lto
