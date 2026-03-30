@@ -216,4 +216,18 @@ public class JsonStringTest {
         var reader = JsonReader(bas)
         @Expect(reader.peek(), None)
     }
+
+    @TestCase
+    func jsonstringRejectUnquoted(): Unit {
+        let jsonStr = ##"abc"##
+        var bas = ByteBuffer()
+        unsafe { bas.write(jsonStr.rawData()) }
+        var reader = JsonReader(bas)
+        try {
+            reader.readValue<String>()
+            @Expect(false)
+        } catch (e: IllegalStateException) {
+            @Expect(e.message, "Character not expected: 'a'.")
+        }
+    }
 }
