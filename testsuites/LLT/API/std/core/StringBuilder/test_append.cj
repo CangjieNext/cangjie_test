@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// EXEC: %run %run_opt %output %run_utest_opt
+// EXEC: export cjHeapSize=12gb && %run %run_opt %output %run_utest_opt
 
 import std.time.*
 import std.math.*
@@ -185,5 +185,42 @@ class AppendTest {
         sb.reset()
         sb.append("123456")
         @Expect(res, str)
+    }
+
+    @TestCase
+    func appendInt64Min(): Unit {
+        sb.reset()
+        sb.append(Int64.Min)
+        @Expect(sb.toString(), "-9223372036854775808")
+        @Expect(sb.size, 20)
+    }
+
+    @TestCase
+    func appendInt64Max(): Unit {
+        sb.reset()
+        sb.append(Int64.Max)
+        @Expect(sb.toString(), "9223372036854775807")
+        @Expect(sb.size, 19)
+    }
+
+    @TestCase
+    func appendUInt64Max(): Unit {
+        sb.reset()
+        sb.append(UInt64.Max)
+        @Expect(sb.toString(), "18446744073709551615")
+        @Expect(sb.size, 20)
+    }
+
+    @TestCase
+    func appendNearMaxCapacity(): Unit {
+        sb.reset()
+        let chunkSize: Int64 = 256 * 1024 * 1024
+        let iterations: Int64 = 10
+        let totalSize = chunkSize * iterations
+        let chunk = "a" * chunkSize
+        for (i in 0..iterations) {
+            sb.append(chunk)
+        }
+        @Expect(sb.size, totalSize)
     }
 }
