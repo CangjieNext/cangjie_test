@@ -14,4 +14,3 @@ public common class A {}
 func useA() {
     let a = A()
 }
-
