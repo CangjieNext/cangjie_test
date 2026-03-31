@@ -215,8 +215,10 @@ def run_cmd(stage, cmd, work_dir, timeout):
         com_out = com_out.replace('\r\n', '\n')
         com_err = com_err.replace('\r\n', '\n')
         if "code_start" in com_out and "err_start\n" in com_out:
+            return_code = com_out.split("code_start")[1].split("err_start")[0]
             com_out = (com_out.split("code_start")[0] + com_out.split("err_start\n")[1])
         elif "code_start" in com_out and "err_start" in com_out:
+            return_code = com_out.split("code_start")[1].split("err_start")[0]
             com_out = (com_out.split("code_start")[0] + com_out.split("err_start")[1])
         if "code_start" in com_err and "err_start\n" in com_err:
             com_err = (com_err.split("code_start")[0] + com_err.split("err_start\n")[1])

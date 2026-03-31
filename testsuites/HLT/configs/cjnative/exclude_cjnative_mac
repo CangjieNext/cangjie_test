@@ -54,3 +54,8 @@ compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
 
 # cjpm mac bug
 Tools/cjpm/repo
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/334
+API/openssl/dynamic_link_openssl.cj
+API/openssl/static_link_openssl_extract.cj
+API/openssl/static_link_openssl_no_extract.cj

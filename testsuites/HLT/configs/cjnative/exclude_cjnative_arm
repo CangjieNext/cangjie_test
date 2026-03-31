@@ -32,3 +32,8 @@ compiler/cjnative/Packages/cjmp/cjmp_14006/test.cj
 
 # https://gitcode.com/Cangjie/cangjie_test/issues/315
 compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_05n.cj
+
+# https://gitcode.com/Cangjie/cangjie_test/issues/334
+Runtime/cjnative/runtime/exclusiveScope/testcase0/test.info
+Runtime/cjnative/runtime/exclusiveScope/testcase1/test.info
+compiler/cli/Option/static_link/test_all_static.info
