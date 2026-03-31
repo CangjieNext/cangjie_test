@@ -8,6 +8,8 @@
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt 
 
+import std.sync.AtomicInt64
+
 @Test
 class AtexitTest {
     @TestCase

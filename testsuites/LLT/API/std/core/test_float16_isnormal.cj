@@ -42,13 +42,13 @@ class Float16IsNormalTest {
 
     @TestCase
     func testIsNormalPositiveInfinity(): Unit {
-        let f = Float16.POSITIVE_INFINITY
+        let f = Float16.Inf
         @Expect(f.isNormal(), false)
     }
 
     @TestCase
     func testIsNormalNegativeInfinity(): Unit {
-        let f = Float16.NEGATIVE_INFINITY
+        let f = -Float16.Inf
         @Expect(f.isNormal(), false)
     }
 
@@ -92,7 +92,7 @@ class Float16IsNormalTest {
 
     @TestCase
     func testIsNormalNonNormalValues(): Unit {
-        let nonNormalValues = [Float16(0.0), Float16.NaN, Float16.POSITIVE_INFINITY, Float16.NEGATIVE_INFINITY]
+        let nonNormalValues = [Float16(0.0), Float16.NaN, Float16.Inf, -Float16.Inf]
         for (f in nonNormalValues) {
             @Expect(f.isNormal(), false)
         }

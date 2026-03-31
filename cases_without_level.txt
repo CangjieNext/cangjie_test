@@ -1,0 +1,1 @@
+/home/fangwusheng/std/cangjie_test_4871/testsuites/LLT/API/std/core/test_future_clear_handle.cj

@@ -25,7 +25,7 @@ class CPointerMinusOverflowTest {
         unsafe {
             let ptr = LibC.malloc<Int64>(count: 10)
             let newPtr = ptr - 0
-            @Expect(newPtr, ptr)
+            @Expect(newPtr.toUIntNative(), ptr.toUIntNative())
             LibC.free(ptr)
         }
     }

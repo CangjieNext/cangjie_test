@@ -18,7 +18,7 @@ class ThreadStateTest {
         thread.start()
         
         let state = thread.state
-        @Expect(state == ThreadState.Runnable || state == ThreadState.Blocked, true)
+        @Expect(state == ThreadState.Running || state == ThreadState.Pending, true)
         
         thread.join()
         
@@ -29,7 +29,7 @@ class ThreadStateTest {
     @TestCase
     func testMainThreadState(): Unit {
         let state = Thread.current.state
-        @Expect(state == ThreadState.Runnable || state == ThreadState.Blocked, true)
+        @Expect(state == ThreadState.Running || state == ThreadState.Pending, true)
     }
 
     @TestCase
@@ -81,6 +81,6 @@ class ThreadStateTest {
         }
         
         let state = thread.state
-        @Expect(state == ThreadState.New || state == ThreadState.Terminated, true)
+        @Expect(state == ThreadState.Ready || state == ThreadState.Terminated, true)
     }
 }
