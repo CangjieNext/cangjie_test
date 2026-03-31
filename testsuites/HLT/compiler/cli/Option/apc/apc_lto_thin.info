@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DESC: 测试基础场景：当开启LTO=thin时，不支持开启后端并行
+// DEPENDENCE: gen_src.py check.py
+// EXEC: %python gen_src.py
+// 开启APC，同时开启LTO=thin
+// (target_linux | target_android | target_ohos) EXEC-PIPE: %compiler %cmp_opt --dump-ir main.cj --lto=thin --apc=5 -o %output 2>&1 | compare %f
+// (target_linux | target_android | target_ohos) RUN-EXEC: %run %run_opt %output %run_args
+// 以下目标平台将报错不支持LTO
+// (target_win | target_mac | target_ios | target_ios_simulator) EXEC-PIPE-1: %compiler %cmp_opt --dump-ir main.cj --lto=thin --apc=5 -o %output 2>&1 | compare %f
+
+// 当前，目标平台为Windows或MacOS或iOS时，不支持开启后端并行，同时报错不支持LTO
+// (target_win) ASSERT: scan '--apc' is not supported when targeting windows.
+// (target_win) ASSERT: scan Windows does not support LTO.
+// (target_mac) ASSERT: scan '--apc' is not supported when targeting darwin.
+// (target_mac) ASSERT: scan Darwin does not support LTO.
+// (target_ios | target_ios_simulator) ASSERT: scan '--apc' is not supported when targeting ios.
+// (target_ios | target_ios_simulator) ASSERT: scan iOS does not support LTO.
+
+// 目标平台为Linux或OHOS或Android时，支持开启后端并行，但由于开启LTO，导致APC无效
+// (target_linux | target_ohos | target_android) EXEC: %python check.py --dir_path "%n"_IR/3_GenTypeInfos --expected_count 1
+// (target_linux | target_ohos | target_android) ASSERT: scan
