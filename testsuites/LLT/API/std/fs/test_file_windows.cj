@@ -297,4 +297,29 @@ class FileWindowsTest {
         }
         @Expect(countError,1)
     }
+
+    /*
+     * Test description: Test fs::canonicalize
+     * Test API:
+     * public func canonicalize(path: String): Path
+     */
+    @TestCase
+    func testCanonicalize(): Unit {
+        let baseDir = "D:/temp/test_long_path/subdir0/subdir1/subdir2/subdir3/subdir4/subdir5/subdir6/subdir7/subdir8/subdir9/subdir10/subdir11/subdir12/subdir13/subdir14/subdir15/subdir16/subdir17/subdir18/subdir19/subdir20/subdir21/subdir22/subdir23/subdir24"
+        removeIfExists(baseDir, recursive: true)
+        // 创建目录
+        Directory.create(baseDir, recursive: true)
+
+        // 创建一个测试文件,使得整个路径长度为256，这样ddos路径就是260，再加上末尾空，就是261，超过了预期值
+        let testFile = "${baseDir}/testtttttttttt.txt"
+        File.create(testFile)
+
+        // 尝试规范化 - 期望不发生异常
+        try {
+            let canonicalPath = canonicalize(testFile)
+        } finally {
+            // 清理
+            removeIfExists("D:/temp/test_long_path", recursive: true)
+        }
+    }
 }
