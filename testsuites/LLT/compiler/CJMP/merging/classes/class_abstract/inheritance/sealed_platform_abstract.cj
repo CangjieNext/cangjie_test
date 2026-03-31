@@ -17,7 +17,7 @@ public class B <: A {
 }
 
 // SEPARATE-FILE: p.cj
-// EXEC-0: %compiler %noColor --experimental p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
+// EXEC-0: %compiler %noColor --experimental p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
 // EXEC-PIPE: %run %output
 
 package cmp

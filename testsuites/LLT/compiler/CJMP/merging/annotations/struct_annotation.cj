@@ -18,7 +18,7 @@ public common struct A {
 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
+// EXEC-PIPE-0: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 @AA
 public specific struct A {

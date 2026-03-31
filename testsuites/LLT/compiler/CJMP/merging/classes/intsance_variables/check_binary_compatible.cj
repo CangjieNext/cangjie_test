@@ -26,7 +26,7 @@ public func foo(a: A) {
 }
 
 // SEPARATE-FILE: p/p.cj
-// (CJNATIVE and Linux)EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.specific.chir --common-part-cjo=./c/cmp.specific.cjo --output-type=dylib --output-dir ./p
+// (CJNATIVE and Linux)EXEC-0: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.specific.chir --common-part-cjo=./c/cmp.specific.cjo --output-type=dylib --output-dir ./p
 package cmp.specific
 
 public specific class A {

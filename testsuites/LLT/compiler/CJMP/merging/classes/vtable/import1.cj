@@ -36,7 +36,7 @@ public func runCommon() {
 }
 
 // SEPARATE-FILE: p/pa.cj
-// EXEC-0: %compiler %noColor --experimental p/pa.cj ./c/a.chir --common-part-cjo=./c/a.cjo --output-type=dylib --output-dir=./p
+// EXEC-0: %compiler %noColor --experimental p/pa.cj --common-part-chir=./c/a.chir --common-part-cjo=./c/a.cjo --output-type=dylib --output-dir=./p
 package a
 
 public specific interface I {
@@ -91,7 +91,7 @@ public func runCommonFromB() {
 }
 
 // SEPARATE-FILE: p/pb.cj
-// EXEC-0: %compiler %noColor --experimental p/pb.cj ./c/b.chir --common-part-cjo=./c/b.cjo --import-path=./p --output-type=dylib --output-dir=./p
+// EXEC-0: %compiler %noColor --experimental p/pb.cj --common-part-chir=./c/b.chir --common-part-cjo=./c/b.cjo --import-path=./p --output-type=dylib --output-dir=./p
 package b
 
 import a.*

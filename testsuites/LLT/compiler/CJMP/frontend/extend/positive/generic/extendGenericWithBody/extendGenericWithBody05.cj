@@ -30,7 +30,7 @@ common extend<T> Point<T> <: ToString where T <: Number<T> & ToString {
 
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj ./c/a.chir --common-part-cjo=./c/a.cjo --output-type=dylib --output-dir=./p
+// EXEC-0: %compiler %noColor --experimental p/p.cj --common-part-chir=./c/a.chir --common-part-cjo=./c/a.cjo --output-type=dylib --output-dir=./p
 package a
 import std.math.*
 specific extend<T> Point<T> <: ToString where T <: Number<T> & ToString {
