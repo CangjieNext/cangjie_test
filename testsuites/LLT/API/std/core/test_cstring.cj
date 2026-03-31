@@ -159,6 +159,31 @@ class CStringTest {
     }
 
     @TestCase
+    func cstringNullEquals(): Unit {
+        var nullStr1 = CString(CPointer<UInt8>())
+        var nullStr2 = CString(CPointer<UInt8>())
+
+        @Expect(nullStr1.equals(nullStr1), true)
+        @Expect(nullStr2.equals(nullStr2), true)
+        @Expect(nullStr1.equals(nullStr2), true)
+        @Expect(nullStr2.equals(nullStr1), true)
+
+        @Expect(nullStr1.equalsLower(nullStr1), true)
+        @Expect(nullStr2.equalsLower(nullStr2), true)
+        @Expect(nullStr1.equalsLower(nullStr2), true)
+        @Expect(nullStr2.equalsLower(nullStr1), true)
+
+        unsafe {
+            var nonNullStr = LibC.mallocCString("test")
+            @Expect(nullStr1.equals(nonNullStr), false)
+            @Expect(nonNullStr.equals(nullStr1), false)
+            @Expect(nullStr1.equalsLower(nonNullStr), false)
+            @Expect(nonNullStr.equalsLower(nullStr1), false)
+            LibC.free(nonNullStr)
+        }
+    }
+
+    @TestCase
     func cstringSlice(): Unit {
         unsafe {
             var string: CString = LibC.mallocCString("cangjie仓颉")
