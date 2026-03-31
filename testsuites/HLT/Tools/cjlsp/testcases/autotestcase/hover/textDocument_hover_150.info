@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 369,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: i01.cj\nPackage info: default.Is\n\n(class) internal open class Base_new\n"},"range": {"end": {"character": 32,"line":27},"start": {"character": 24,"line":27}}}}
+{"id": 369,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: i01.cj\nPackage info: default.Is\n\ninternal open class Base_new\n"},"range": {"end": {"character": 32,"line":27},"start": {"character": 24,"line":27}}}}

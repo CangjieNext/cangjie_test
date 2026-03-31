@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 190,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c04.cj\nPackage info: default.Composition\n\n(function) internal func h_4<T>(x: T): T\n"},"range": {"end": {"character": 13,"line":18},"start": {"character": 10,"line":18}}}}
+{"id": 190,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c04.cj\nPackage info: default.Composition\n\ninternal func h_4<T>(x: T): T\n"},"range": {"end": {"character": 13,"line":18},"start": {"character": 10,"line":18}}}}

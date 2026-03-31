@@ -23,4 +23,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 929,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "hh_2","insertText": "hh_2","insertTextFormat": 1,"kind": 2,"label": "hh_2","sortText": "280000"},{"deprecated": false,"detail": "(function) internal func hh_2<T>(x: T): T","documentation": "","filterText": "hh_2","insertText": "hh_2<${1:T}>(${3:x: T})","insertTextFormat": 2,"kind": 2,"label": "hh_2<T>(x: T)","sortText": "280000"}]}
+{"id": 929,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "hh_2","insertText": "hh_2","insertTextFormat": 1,"kind": 2,"label": "hh_2","sortText": "280000"},{"deprecated": false,"detail": "internal func hh_2<T>(x: T): T","documentation": "","filterText": "hh_2","insertText": "hh_2<${1:T}>(${3:x: T})","insertTextFormat": 2,"kind": 2,"label": "hh_2<T>(x: T)","sortText": "280000"}]}

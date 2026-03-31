@@ -19,6 +19,6 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 8,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a2.cj\nPackage info: default.Any\n\n(variable) var ii1: AA = AA()\n"},"range": {"end": {"character": 11,"line":17},"start": {"character": 8,"line":17}}}}
+{"id": 8,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a2.cj\nPackage info: default.Any\n\nvar ii1: AA = AA()\n"},"range": {"end": {"character": 11,"line":17},"start": {"character": 8,"line":17}}}}
 
 

@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 71,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a03.cj\nPackage info: default.As\n\n(class) internal class A <: I1 & I2\n"},"range": {"end": {"character": 12,"line":15},"start": {"character": 11,"line":15}}}}
+{"id": 71,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a03.cj\nPackage info: default.As\n\ninternal class A <: I1 & I2\n"},"range": {"end": {"character": 12,"line":15},"start": {"character": 11,"line":15}}}}

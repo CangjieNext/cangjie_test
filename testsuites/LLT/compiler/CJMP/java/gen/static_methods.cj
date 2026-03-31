@@ -19,7 +19,7 @@ public class A extends M {
 
     long self;
 
-    A() {
+    public A() {
         super(1);
         self = initCJObject();
     }
@@ -30,7 +30,7 @@ public class A extends M {
 
     public native long initCJObject();
 
-    A(long f, int x) {
+    public A(long f, int x) {
         super(superC3A0P0P1(f, x));
         self = initCJObjectli(f, x);
     }
@@ -42,7 +42,7 @@ public class A extends M {
     public native long initCJObjectli(long f, int x);
 
     public static native long superC3A0P0P1(long f, int x);
-    A(long f) {
+    public A(long f) {
         super(superC4A0P0(f));
         self = initCJObjectl(f);
     }
@@ -105,7 +105,7 @@ public open class M {
 
 @JavaImpl["A"]
 public class A <: M {
-    init() {
+    public init() {
         super(1)
         println("Hello from Cangjie!")
     }
@@ -118,11 +118,11 @@ public class A <: M {
         f * 3
     }
 
-    init(f: Int64, x: Int32) {
+    public init(f: Int64, x: Int32) {
         super(fieldInitStatic(f, x))
     }
 
-    init(f: Int64) {
+    public init(f: Int64) {
         super(fieldInitStatic(f))
     }
 }

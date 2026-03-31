@@ -15,7 +15,7 @@
   output-type = "static"
   src-dir = "src"
   target-dir = ""
-  version = ""
+  version = "1.0.0"
   package-configuration = {}
 
 [target]

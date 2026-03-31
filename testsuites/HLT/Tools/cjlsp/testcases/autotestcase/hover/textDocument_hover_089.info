@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 195,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c12.cj\nPackage info: default.Composition\n\n// In class Foo\n(function) public static func f(a: Int64): Int64\n"},"range": {"end": {"character": 15,"line":25},"start": {"character": 14,"line":25}}}}
+{"id": 195,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c12.cj\nPackage info: default.Composition\n\n// In class Foo\npublic static func f(a: Int64): Int64\n"},"range": {"end": {"character": 15,"line":25},"start": {"character": 14,"line":25}}}}

@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 245,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: enum014.cj\nPackage info: default.Enum\n\n// In enum Expr1\n(enum_construct) Expr1.Num(Int64)\n"},"range": {"end": {"character": 28,"line":18},"start": {"character": 25,"line":18}}}}
+{"id": 245,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: enum014.cj\nPackage info: default.Enum\n\n// In enum Expr1\nExpr1.Num(Int64)\n"},"range": {"end": {"character": 28,"line":18},"start": {"character": 25,"line":18}}}}

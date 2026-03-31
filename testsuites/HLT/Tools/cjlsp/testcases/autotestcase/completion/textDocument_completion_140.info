@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 2274,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "inter","insertText": "inter","insertTextFormat": 1,"kind": 2,"label": "inter","sortText": ""},{"deprecated": false,"detail": "(function) public static func inter(a: Int64): Int64","documentation": "","filterText": "inter","insertText": "inter(${1:a: Int64})","insertTextFormat": 2,"kind": 2,"label": "inter(a: Int64)","sortText": ""}]}
+{"id": 2274,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "inter","insertText": "inter","insertTextFormat": 1,"kind": 2,"label": "inter","sortText": ""},{"deprecated": false,"detail": "public static func inter(a: Int64): Int64","documentation": "","filterText": "inter","insertText": "inter(${1:a: Int64})","insertTextFormat": 2,"kind": 2,"label": "inter(a: Int64)","sortText": ""}]}

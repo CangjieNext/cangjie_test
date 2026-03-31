@@ -21,4 +21,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 424,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(class) open class E2 <: A2<Int32>","documentation": "","filterText": "E2","insertText": "E2","insertTextFormat": 1,"kind": 7,"label": "E2","sortText": ""}]}
+{"id": 424,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "open class E2 <: A2<Int32>","documentation": "","filterText": "E2","insertText": "E2","insertTextFormat": 1,"kind": 7,"label": "E2","sortText": ""}]}

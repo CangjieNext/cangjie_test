@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 412,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: option001.cj\nPackage info: default.option_type\n\n(variable) internal let v3: Option<Option<Option<Int64>>> = 12\n"},"range": {"end": {"character": 6,"line": 12},"start": {"character": 4,"line": 12}}}}
+{"id": 412,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: option001.cj\nPackage info: default.option_type\n\ninternal let v3: Option<Option<Option<Int64>>> = 12\n"},"range": {"end": {"character": 6,"line": 12},"start": {"character": 4,"line": 12}}}}

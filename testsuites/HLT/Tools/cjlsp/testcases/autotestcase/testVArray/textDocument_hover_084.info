@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 19,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: tup02.cj\nPackage info: default.testFunctype\n\n(variable) internal let bb1: Tuple<Int64, Int64> = (1, 2)\n"},"range": {"end": {"character": 7,"line":10},"start": {"character": 4,"line":10}}}}
+{"id": 19,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: tup02.cj\nPackage info: default.testFunctype\n\ninternal let bb1: Tuple<Int64, Int64> = (1, 2)\n"},"range": {"end": {"character": 7,"line":10},"start": {"character": 4,"line":10}}}}

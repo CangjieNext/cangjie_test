@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 312,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: func001.cj\nPackage info: default.Func\n\n(function) internal func maain(): Int64\n"},"range": {"end": {"character": 10,"line":22},"start": {"character": 5,"line":22}}}}
+{"id": 312,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: func001.cj\nPackage info: default.Func\n\ninternal func maain(): Int64\n"},"range": {"end": {"character": 10,"line":22},"start": {"character": 5,"line":22}}}}

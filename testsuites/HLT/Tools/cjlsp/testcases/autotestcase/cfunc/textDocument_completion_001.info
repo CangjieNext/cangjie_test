@@ -24,4 +24,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":180,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"(BuiltInType) public Type CFunc<T>","documentation":"","filterText":"CFunc","insertText":"CFunc<${1:()} -> ${2:Unit}>","insertTextFormat":2,"kind":7,"label":"CFunc<T>","sortText":"220000"}]}
+{"id":180,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"public Type CFunc<T>","documentation":"","filterText":"CFunc","insertText":"CFunc<${1:()} -> ${2:Unit}>","insertTextFormat":2,"kind":7,"label":"CFunc<T>","sortText":"220000"}]}

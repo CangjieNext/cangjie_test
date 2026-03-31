@@ -22,4 +22,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 1668,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "add","insertText": "add","insertTextFormat": 1,"kind": 2,"label": "add","sortText": "423333"},{"deprecated": false,"detail": "(function) func add(a: Int32, b: Int32): Int32","documentation": "","filterText": "add","insertText": "add(${1:a: Int32}, ${2:b: Int32})","insertTextFormat": 2,"kind": 2,"label": "add(a: Int32, b: Int32)","sortText": "423333"}]}
+{"id": 1668,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "add","insertText": "add","insertTextFormat": 1,"kind": 2,"label": "add","sortText": "423333"},{"deprecated": false,"detail": "func add(a: Int32, b: Int32): Int32","documentation": "","filterText": "add","insertText": "add(${1:a: Int32}, ${2:b: Int32})","insertTextFormat": 2,"kind": 2,"label": "add(a: Int32, b: Int32)","sortText": "423333"}]}

@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 39,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: array003.cj\nPackage info: default.Arrary\n\n(class) internal class DataClass\nArray\u5173\u952e\u5b57\u3001Array\u7c7b\u578b\u53d8\u91cf\u5e94\u7528\u4e8eclass\u3001record\u3001enum\u5185\u90e8\n"},"range": {"end": {"character": 15,"line":11},"start": {"character": 6,"line":11}}}}
+{"id": 39,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: array003.cj\nPackage info: default.Arrary\n\ninternal class DataClass\nArray\u5173\u952e\u5b57\u3001Array\u7c7b\u578b\u53d8\u91cf\u5e94\u7528\u4e8eclass\u3001record\u3001enum\u5185\u90e8\n"},"range": {"end": {"character": 15,"line":11},"start": {"character": 6,"line":11}}}}

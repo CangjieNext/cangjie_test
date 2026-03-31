@@ -11,9 +11,9 @@
 // (not CJNATIVE and not MAC) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=cbclib  test_dynamicloading.cj -o test.dynamicloading.cbc
 // (not CJNATIVE and not MAC) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=cbclib  test1_dynamicloading_1.cj -o test1.dynamicloading_1.cbc
 // (not CJNATIVE and not MAC) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=cbclib  test2_dynamicloading_2.cj -o test2.dynamicloading_2.cbc
-// (CJNATIVE) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=dylib  test_dynamicloading.cj -o test.dynamicloading.%test_suffix
-// (CJNATIVE) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=dylib  test1_dynamicloading_1.cj -o test1.dynamicloading_1.%test_suffix
-// (CJNATIVE) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=dylib  test2_dynamicloading_2.cj -o test2.dynamicloading_2.%test_suffix
+// (CJNATIVE) EXEC: cd module_case1 && %compiler %cmp_opt %compile_library  test_dynamicloading.cj -o test.dynamicloading.%test_suffix
+// (CJNATIVE) EXEC: cd module_case1 && %compiler %cmp_opt %compile_library  test1_dynamicloading_1.cj -o test1.dynamicloading_1.%test_suffix
+// (CJNATIVE) EXEC: cd module_case1 && %compiler %cmp_opt %compile_library  test2_dynamicloading_2.cj -o test2.dynamicloading_2.%test_suffix
 // (not MAC) EXEC: %compiler %cmp_opt %f -o %output
 // (not MAC) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1
 

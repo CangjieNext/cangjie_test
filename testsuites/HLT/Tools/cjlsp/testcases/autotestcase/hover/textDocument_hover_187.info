@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 445,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: record2.cj\nPackage info: default.Struct\n\n(variable) let name2: String\n"},"range": {"end": {"character": 12,"line":11},"start": {"character": 7,"line":11}}}}
+{"id": 445,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: record2.cj\nPackage info: default.Struct\n\nlet name2: String\n"},"range": {"end": {"character": 12,"line":11},"start": {"character": 7,"line":11}}}}

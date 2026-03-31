@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 186,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c01.cj\nPackage info: default.Composition\n\n(function) internal func g_1(x: Float32): Int32\n"},"range": {"end": {"character": 19,"line":18},"start": {"character": 16,"line":18}}}}
+{"id": 186,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c01.cj\nPackage info: default.Composition\n\ninternal func g_1(x: Float32): Int32\n"},"range": {"end": {"character": 19,"line":18},"start": {"character": 16,"line":18}}}}

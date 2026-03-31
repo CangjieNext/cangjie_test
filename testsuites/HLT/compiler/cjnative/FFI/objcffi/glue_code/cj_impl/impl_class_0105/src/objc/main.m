@@ -27,6 +27,10 @@ int main(int argc, char** argv) {
         A* a4 = [[M2 alloc] init: 1];
         M2* a5 = [[M2 alloc] init];
         A* a6 = [[A alloc] init];
+
+        A* inited2 = [[A alloc] init: 3.15: 3.14];
+        A* inited4 = [[A alloc] init: 8: 16: 32: 128];
+        A* inited6 = [[A alloc] init: true: 9: 17: 33: 65: 129];
     }
     return 0;
 }

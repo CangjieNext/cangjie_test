@@ -22,4 +22,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":1555,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"(class) class CC1","documentation":"","filterText":"CC1","insertText":"CC1","insertTextFormat":1,"kind":7,"label":"CC1","sortText":""},{"deprecated":false,"detail":"(class) class CC17","documentation":"","filterText":"CC17","insertText":"CC17","insertTextFormat":1,"kind":7,"label":"CC17","sortText":""}]}
+{"id":1555,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"class CC1","documentation":"","filterText":"CC1","insertText":"CC1","insertTextFormat":1,"kind":7,"label":"CC1","sortText":""},{"deprecated":false,"detail":"class CC17","documentation":"","filterText":"CC17","insertText":"CC17","insertTextFormat":1,"kind":7,"label":"CC17","sortText":""}]}

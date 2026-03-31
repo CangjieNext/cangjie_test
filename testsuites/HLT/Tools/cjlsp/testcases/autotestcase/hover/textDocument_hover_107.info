@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 237,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: enum007.cj\nPackage info: default.Enum\n\n(enum) internal enum TimeUnit7\n"},"range": {"end": {"character": 22,"line": 14},"start": {"character": 13,"line": 14}}}}
+{"id": 237,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: enum007.cj\nPackage info: default.Enum\n\ninternal enum TimeUnit7\n"},"range": {"end": {"character": 22,"line": 14},"start": {"character": 13,"line": 14}}}}

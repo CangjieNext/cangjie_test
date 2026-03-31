@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 1636,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "bar","insertText": "bar","insertTextFormat": 1,"kind": 2,"label": "bar","sortText": ""},{"deprecated": false,"detail": "(function) internal static func bar(x: Int64): Int64","documentation": "","filterText": "bar","insertText": "bar(${1:x: Int64})","insertTextFormat": 2,"kind": 2,"label": "bar(x: Int64)","sortText": ""}]}
+{"id": 1636,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "bar","insertText": "bar","insertTextFormat": 1,"kind": 2,"label": "bar","sortText": ""},{"deprecated": false,"detail": "internal static func bar(x: Int64): Int64","documentation": "","filterText": "bar","insertText": "bar(${1:x: Int64})","insertTextFormat": 2,"kind": 2,"label": "bar(x: Int64)","sortText": ""}]}

@@ -7,12 +7,12 @@
  */
 
 // LEVEL: 0
-// (not iOS) EXEC: %compiler %cmp_opt %f -o %output
-// (not iOS) RUN-EXEC-1: %run %run_opt %output %run_args > stack_obf.log 2>&1
-// (not iOS) EXEC: %touch default.obf.map
-// (not OHOS and not iOS)ERRCHECK: %cjtrace_recover -f stack_obf.log -m default.obf.map
-// (not OHOS)ASSERT: scan The buffer is empty.
-// (not OHOS)ASSERT: scan Error: failed to read file 'default.obf.map'
+// (!target_ios & !target_ios_simulator) EXEC: %compiler %cmp_opt %f -o %output
+// (!target_ios & !target_ios_simulator) RUN-EXEC-1: %run %run_opt %output %run_args > stack_obf.log 2>&1
+// (!target_ohos & !target_android & !target_ios & !target_ios_simulator) EXEC: %touch default.obf.map
+// (!target_ohos & !target_android & !target_ios & !target_ios_simulator)ERRCHECK: %cjtrace_recover -f stack_obf.log -m default.obf.map
+// (!target_ohos & !target_android & !target_ios & !target_ios_simulator)ASSERT: scan The buffer is empty.
+// (!target_ohos & !target_android & !target_ios & !target_ios_simulator)ASSERT: scan Error: failed to read file 'default.obf.map'
 
 class A {
     var a = 0

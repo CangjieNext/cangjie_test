@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 107,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: va04.cj\nPackage info: default.testVArray\n\n(variable) internal var b4: VArray<VArray<Int64, $2>, $2> = [[1, 2], [3, 4]]\n"},"range": {"end": {"character": 6,"line":13},"start": {"character": 4,"line":13}}}}
+{"id": 107,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: va04.cj\nPackage info: default.testVArray\n\ninternal var b4: VArray<VArray<Int64, $2>, $2> = [[1, 2], [3, 4]]\n"},"range": {"end": {"character": 6,"line":13},"start": {"character": 4,"line":13}}}}

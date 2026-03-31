@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 109,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c3.cj\nPackage info: default.ClassInitPara\n\n// In class C1\n(function) internal func init(a: Int32, fn: (Int32) -> Int32, b: Int64)\n"},"range": {"end": {"character": 6,"line":18},"start": {"character": 4,"line":18}}}}
+{"id": 109,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c3.cj\nPackage info: default.ClassInitPara\n\n// In class C1\ninternal func init(a: Int32, fn: (Int32) -> Int32, b: Int64)\n"},"range": {"end": {"character": 6,"line":18},"start": {"character": 4,"line":18}}}}

@@ -23,4 +23,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
- {"id": 802,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(variable) internal var a: T","documentation": "","filterText": "a","insertText": "a","insertTextFormat": 1,"kind": 6,"label": "a","sortText": ""},{"deprecated": false,"detail": "(variable) internal var b: U","documentation": "","filterText": "b","insertText": "b","insertTextFormat": 1,"kind": 6,"label": "b","sortText": ""}]}
+ {"id": 802,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "internal var a: T","documentation": "","filterText": "a","insertText": "a","insertTextFormat": 1,"kind": 6,"label": "a","sortText": ""},{"deprecated": false,"detail": "internal var b: U","documentation": "","filterText": "b","insertText": "b","insertTextFormat": 1,"kind": 6,"label": "b","sortText": ""}]}

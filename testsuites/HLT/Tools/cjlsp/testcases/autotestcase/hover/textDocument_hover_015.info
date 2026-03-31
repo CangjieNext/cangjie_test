@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 33,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: array002.cj\nPackage info: default.Arrary\n\n(variable) var a: Array<Int64> = x\n"},"range": {"end": {"character": 9,"line":12},"start": {"character": 8,"line":12}}}}
+{"id": 33,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: array002.cj\nPackage info: default.Arrary\n\nvar a: Array<Int64> = x\n"},"range": {"end": {"character": 9,"line":12},"start": {"character": 8,"line":12}}}}

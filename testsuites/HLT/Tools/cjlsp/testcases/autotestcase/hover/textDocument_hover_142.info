@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 352,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: f8.cj\nPackage info: default.FuncOverload\n\n// In class Sub\n(function) public func init()\n"},"range": {"end": {"character": 9,"line":23},"start": {"character": 6,"line":23}}}}
+{"id": 352,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: f8.cj\nPackage info: default.FuncOverload\n\n// In class Sub\npublic func init()\n"},"range": {"end": {"character": 9,"line":23},"start": {"character": 6,"line":23}}}}

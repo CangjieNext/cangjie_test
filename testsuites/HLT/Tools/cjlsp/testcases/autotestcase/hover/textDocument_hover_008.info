@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 20,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a4.cj\nPackage info: default.Any\n\n// In class C8_2\n(function) public func init()\n"},"range": {"end": {"character": 10,"line":16},"start": {"character": 6,"line":16}}}}
+{"id": 20,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a4.cj\nPackage info: default.Any\n\n// In class C8_2\npublic func init()\n"},"range": {"end": {"character": 10,"line":16},"start": {"character": 6,"line":16}}}}

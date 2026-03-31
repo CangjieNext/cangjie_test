@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":476,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"base14","insertText":"base14","insertTextFormat":1,"kind":2,"label":"base14","sortText":"286667"},{"deprecated":false,"detail":"(function) internal func base14(): myStruct14","documentation":"","filterText":"base14","insertText":"base14()","insertTextFormat":1,"kind":2,"label":"base14()","sortText":"286667"}]}
+{"id":476,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"base14","insertText":"base14","insertTextFormat":1,"kind":2,"label":"base14","sortText":"286667"},{"deprecated":false,"detail":"internal func base14(): myStruct14","documentation":"","filterText":"base14","insertText":"base14()","insertTextFormat":1,"kind":2,"label":"base14()","sortText":"286667"}]}

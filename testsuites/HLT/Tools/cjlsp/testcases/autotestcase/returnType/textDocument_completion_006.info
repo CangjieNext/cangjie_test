@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":225,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"base06","insertText":"base06","insertTextFormat":1,"kind":2,"label":"base06","sortText":"286667"},{"deprecated":false,"detail":"(function) internal func base06(): Rune","documentation":"","filterText":"base06","insertText":"base06()","insertTextFormat":1,"kind":2,"label":"base06()","sortText":"286667"}]}
+{"id":225,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"base06","insertText":"base06","insertTextFormat":1,"kind":2,"label":"base06","sortText":"286667"},{"deprecated":false,"detail":"internal func base06(): Rune","documentation":"","filterText":"base06","insertText":"base06()","insertTextFormat":1,"kind":2,"label":"base06()","sortText":"286667"}]}

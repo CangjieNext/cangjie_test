@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":502,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"base15","insertText":"base15","insertTextFormat":1,"kind":2,"label":"base15","sortText":"286667"},{"deprecated":false,"detail":"(function) internal func base15(): Myenum","documentation":"","filterText":"base15","insertText":"base15()","insertTextFormat":1,"kind":2,"label":"base15()","sortText":"286667"}]}
+{"id":502,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"base15","insertText":"base15","insertTextFormat":1,"kind":2,"label":"base15","sortText":"286667"},{"deprecated":false,"detail":"internal func base15(): Myenum","documentation":"","filterText":"base15","insertText":"base15()","insertTextFormat":1,"kind":2,"label":"base15()","sortText":"286667"}]}

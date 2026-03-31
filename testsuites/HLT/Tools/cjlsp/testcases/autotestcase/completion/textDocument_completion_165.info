@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 2719,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(variable) let cdab: Int1","documentation": "","filterText": "cdab","insertText": "cdab","insertTextFormat": 1,"kind": 6,"label": "cdab","sortText": ""}]}
+{"id": 2719,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "let cdab: Int1","documentation": "","filterText": "cdab","insertText": "cdab","insertTextFormat": 1,"kind": 6,"label": "cdab","sortText": ""}]}

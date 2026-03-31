@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 264,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: exception002.cj\nPackage info: default.exception\n\n// In class R\n(function) public func isClosed(): Bool\n"},"range": {"end": {"character": 15,"line":21},"start": {"character": 7,"line":21}}}}
+{"id": 264,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: exception002.cj\nPackage info: default.exception\n\n// In class R\npublic func isClosed(): Bool\n"},"range": {"end": {"character": 15,"line":21},"start": {"character": 7,"line":21}}}}

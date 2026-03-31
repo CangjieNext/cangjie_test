@@ -56,6 +56,7 @@ class TestLocalProxy {
 		let client = ClientBuilder()
 			.tlsConfig(cfg)
 			.httpsProxy("http://127.0.0.1:${port1}")
+			.httpProxy("http://133.0.0.1:80")
 			.build()
 		let req = HttpRequestBuilder()
 			.version(HTTP2_0)

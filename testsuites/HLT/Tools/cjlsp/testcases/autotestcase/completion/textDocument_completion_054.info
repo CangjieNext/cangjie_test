@@ -21,4 +21,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 795,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(function) func init(a: T, b: U)","documentation": "","filterText": "C7<T, U>","insertText": "C7<${1:T}, ${2:U}>(${4:a: T}, ${5:b: U})","insertTextFormat": 2,"kind": 3,"label": "C7<T, U>(a: T, b: U)","sortText": ""},{"deprecated": false,"detail": "(class) class C7<T, U>","documentation": "","filterText": "C7","insertText": "C7<${1:T}, ${2:U}>","insertTextFormat": 2,"kind": 7,"label": "C7<T, U>","sortText": ""}]}
+{"id": 795,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "func init(a: T, b: U)","documentation": "","filterText": "C7<T, U>","insertText": "C7<${1:T}, ${2:U}>(${4:a: T}, ${5:b: U})","insertTextFormat": 2,"kind": 3,"label": "C7<T, U>(a: T, b: U)","sortText": ""},{"deprecated": false,"detail": "class C7<T, U>","documentation": "","filterText": "C7","insertText": "C7<${1:T}, ${2:U}>","insertTextFormat": 2,"kind": 7,"label": "C7<T, U>","sortText": ""}]}

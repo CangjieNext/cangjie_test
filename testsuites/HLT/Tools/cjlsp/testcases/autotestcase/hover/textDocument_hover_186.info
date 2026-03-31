@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 444,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: record2.cj\nPackage info: default.Struct\n\n// In struct C2\n(function) internal func init(name2: String, annotation2: String, nn!: Bool = true)\n"},"range": {"end": {"character": 6,"line":11},"start": {"character": 4,"line":11}}}}
+{"id": 444,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: record2.cj\nPackage info: default.Struct\n\n// In struct C2\ninternal func init(name2: String, annotation2: String, nn!: Bool = true)\n"},"range": {"end": {"character": 6,"line":11},"start": {"character": 4,"line":11}}}}

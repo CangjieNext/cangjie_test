@@ -259,7 +259,7 @@ class UrlTest {
             URL.parse("http://[1000::1]:qq")
             @Expect(false)
         } catch (e: Exception) {
-            @Expect(e.message, "Invalid url part. Input = qq.")
+            @Expect(e.message, "Port must contain digits only. Input = qq.")
         }
     }
 
@@ -328,12 +328,115 @@ class UrlTest {
  "file://renyi123@shiw_odemimailea/nihao", 
  "http5+://~1abc@www~.bai~du.com:98/a/b~79123?asd21~=~Ab#:Ab9!$&-8a", 
  "http://www.xinhuanet.com#%232%E4%BD%A0Ab%25", 
- "http://121www.asd12.%E4%BD%A0com%40:789ad@110.8.8.10:50", 
  "http5+://*+,9_Ab:2a_4*+,@www.example.com:78/a/b" ] 
 ]
     func urlParse_1(str: String): Unit {
         var url = URL.parse(str)
         @Expect(url.toString(), str)
+    }
+
+    @TestCase
+    func urlParse_1_encoded_at_in_userinfo(): Unit {
+        // H-10 Security Fix: Reject encoded @ (%40) in userinfo to prevent authority confusion
+        // URL like http://user%40evil.com@host.com could confuse downstream parsers
+        try {
+            URL.parse("http://121www.asd12.%E4%BD%A0com%40:789ad@110.8.8.10:50")
+            @Expect(false)
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message.contains("encoded '@'") || e.message.contains("invalid encoding"))
+        }
+    }
+
+    @TestCase
+    func urlParse_M1_path_normalization(): Unit {
+        // M-1 Security Fix: Normalize path dot-segments for absolute URIs
+        // RFC 3986 Section 5.2.4 - remove . and .. segments
+        var url = URL.parse("http://example.com/a/b/../../secret")
+        @Expect(url.path, "/secret")
+        @Expect(url.rawPath, "/secret")
+
+        url = URL.parse("http://example.com/a/./b/../c")
+        @Expect(url.path, "/a/c")
+        @Expect(url.rawPath, "/a/c")
+
+        url = URL.parse("http://example.com/../../../etc/passwd")
+        @Expect(url.path, "/etc/passwd")
+
+        url = URL.parse("http://example.com/a/b/c/./../../d")
+        @Expect(url.path, "/a/d")
+    }
+
+    @TestCase
+    func urlParse_M2_null_byte_rejection(): Unit {
+        // M-2 Security Fix: Reject null byte (%00) in URL components
+        // Null bytes can truncate C-style strings causing security issues
+        try {
+            URL.parse("http://example.com/path%00evil")
+            @Expect(false)
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message.contains("Null byte") || e.message.contains("null"))
+        }
+
+        try {
+            URL.parse("http://user%00name@example.com/")
+            @Expect(false)
+        } catch (e: UrlSyntaxException) {
+            // Null byte in userinfo is caught as invalid encoding
+            @Expect(e.message.contains("Null byte") || e.message.contains("invalid encoding"))
+        }
+
+        try {
+            URL.parse("http://example.com/%00")
+            @Expect(false)
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message.contains("Null byte") || e.message.contains("null"))
+        }
+    }
+
+    @TestCase
+    func urlParse_M3_control_chars_in_hostname(): Unit {
+        // M-3 Security Fix: Reject control characters in decoded hostname
+        // Prevent CRLF injection via hostname
+        try {
+            // Use a hostname without colon to avoid IPv6 parsing
+            URL.parse("http://example%0D%0Aevil.com/")
+            @Expect(false)
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message.contains("control") || e.message.contains("Invalid hostname"))
+        }
+
+        try {
+            URL.parse("http://example%0A.com/")
+            @Expect(false)
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message.contains("control") || e.message.contains("Invalid hostname"))
+        }
+
+        try {
+            URL.parse("http://example%1F.com/")
+            @Expect(false)
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message.contains("control") || e.message.contains("Invalid hostname"))
+        }
+    }
+
+    @TestCase
+    func urlParse_M4_backslash_rejection(): Unit {
+        // M-4 Security Fix: Reject backslash in URL
+        // Many servers treat \ as /, causing path traversal issues
+        try {
+            URL.parse("http://example.com/path\\..\\secret")
+            @Expect(false)
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message.contains("Backslash") || e.message.contains("not allowed"))
+        }
+
+        try {
+            URL.parse("http://example.com/a\\b\\c")
+            @Expect(false)
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message.contains("Backslash") || e.message.contains("not allowed"))
+        }
     }
 
     @TestCase[str in [ "http5+://[2001:010F:001A:121B::0010]:8080", 
@@ -359,11 +462,19 @@ class UrlTest {
         url = URL.parse("MaIlTo:webmaster@cangjie.org")
         @Expect(url.toString(), "mailto:webmaster@cangjie.org")
 
-        url = URL.parse("http://192.168.0.2:/foo")
-        @Expect(url.toString(), "http://192.168.0.2/foo")
+        try {
+            URL.parse("http://192.168.0.2:/foo")
+            @Expect(false)
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message, "Port cannot be empty. Input = .")
+        }
 
-        url = URL.parse("http://[fe80::1]:/")
-        @Expect(url.toString(), "http://[fe80::1]/")
+        try {
+            URL.parse("http://[fe80::1]:/")
+            @Expect(false)
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message, "Port cannot be empty. Input = .")
+        }
 
         url = URL.parse("http://hello.%e4%b8%96%e7%95%8c.com/foo")
         @Expect(url.toString(), "http://hello.%E4%B8%96%E7%95%8C.com/foo")

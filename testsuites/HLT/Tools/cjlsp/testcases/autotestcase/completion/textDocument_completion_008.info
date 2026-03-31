@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 162,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(variable) let dabc: Array<Array<Array<Array<Int64>>>> = [c]","documentation": "","filterText": "dabc","insertText": "dabc","insertTextFormat": 1,"kind": 6,"label": "dabc","sortText": "430000"}]}
+{"id": 162,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "let dabc: Array<Array<Array<Array<Int64>>>> = [c]","documentation": "","filterText": "dabc","insertText": "dabc","insertTextFormat": 1,"kind": 6,"label": "dabc","sortText": "430000"}]}

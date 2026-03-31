@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 2109,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(variable) internal var item: Int64 = 100","documentation": "","filterText": "item","insertText": "item","insertTextFormat": 1,"kind": 6,"label": "item","sortText": ""}]}
+{"id": 2109,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "internal var item: Int64 = 100","documentation": "","filterText": "item","insertText": "item","insertTextFormat": 1,"kind": 6,"label": "item","sortText": ""}]}

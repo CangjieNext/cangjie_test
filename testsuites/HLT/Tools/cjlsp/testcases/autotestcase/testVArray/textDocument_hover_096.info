@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 90,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: tup21.cj\nPackage info: default.testFunctype\n\n(class) internal class AC\n"},"range": {"end": {"character": 22,"line":18},"start": {"character": 20,"line":18}}}}
+{"id": 90,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: tup21.cj\nPackage info: default.testFunctype\n\ninternal class AC\n"},"range": {"end": {"character": 22,"line":18},"start": {"character": 20,"line":18}}}}

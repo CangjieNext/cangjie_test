@@ -28,7 +28,7 @@ public class A extends M {
         super();
     }
 
-    public native long initCJObject();
+    native long initCJObject();
 
     @Override
     public boolean equals(Object obj) {

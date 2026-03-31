@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 2372,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(variable) public mut open var i: Int64","documentation": "","filterText": "i","insertText": "i","insertTextFormat": 1,"kind": 6,"label": "i","sortText": "340000"},{"deprecated": false,"detail": "(variable) internal mut var ii: Int64","documentation": "","filterText": "ii","insertText": "ii","insertTextFormat": 1,"kind": 6,"label": "ii","sortText": "400000"}]}
+{"id": 2372,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "public mut open var i: Int64","documentation": "","filterText": "i","insertText": "i","insertTextFormat": 1,"kind": 6,"label": "i","sortText": "340000"},{"deprecated": false,"detail": "internal mut var ii: Int64","documentation": "","filterText": "ii","insertText": "ii","insertTextFormat": 1,"kind": 6,"label": "ii","sortText": "400000"}]}

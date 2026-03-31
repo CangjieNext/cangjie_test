@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 96,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c1.cj\nPackage info: default.ClassInitPara\n\n// In class Test\n(function) internal func init(a!: Bool)\n"},"range": {"end": {"character": 8,"line":13},"start": {"character": 4,"line":13}}}}
+{"id": 96,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c1.cj\nPackage info: default.ClassInitPara\n\n// In class Test\ninternal func init(a!: Bool)\n"},"range": {"end": {"character": 8,"line":13},"start": {"character": 4,"line":13}}}}

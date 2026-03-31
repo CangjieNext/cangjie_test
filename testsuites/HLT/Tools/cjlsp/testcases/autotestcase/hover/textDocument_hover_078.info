@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 150,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c8.cj\nPackage info: default.ClassInitPara\n\n(variable) internal var r2: Unit = r1.f1()\n"},"range": {"end": {"character": 6,"line":20},"start": {"character": 4,"line":20}}}}
+{"id": 150,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c8.cj\nPackage info: default.ClassInitPara\n\ninternal var r2: Unit = r1.f1()\n"},"range": {"end": {"character": 6,"line":20},"start": {"character": 4,"line":20}}}}

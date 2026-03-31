@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 388,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: l01.cj\nPackage info: default.Lambda\n\n(variable) internal let r1: Int64 = {a: Int64, b: Int64 => a + b}(1, 2)\n"},"range": {"end": {"character": 6,"line": 17},"start": {"character": 4,"line": 17}}}}
+{"id": 388,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: l01.cj\nPackage info: default.Lambda\n\ninternal let r1: Int64 = {a: Int64, b: Int64 => a + b}(1, 2)\n"},"range": {"end": {"character": 6,"line": 17},"start": {"character": 4,"line": 17}}}}

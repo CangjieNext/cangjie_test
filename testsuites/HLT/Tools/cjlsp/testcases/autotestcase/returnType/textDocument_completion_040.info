@@ -21,4 +21,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":129,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"g","insertText":"g","insertTextFormat":1,"kind":2,"label":"g","sortText":"220000"},{"deprecated":false,"detail":"(function) public mut func g(): Unit","documentation":"","filterText":"g","insertText":"g()","insertTextFormat":1,"kind":2,"label":"g()","sortText":"220000"}]}
+{"id":129,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"g","insertText":"g","insertTextFormat":1,"kind":2,"label":"g","sortText":"220000"},{"deprecated":false,"detail":"public mut func g(): Unit","documentation":"","filterText":"g","insertText":"g()","insertTextFormat":1,"kind":2,"label":"g()","sortText":"220000"}]}

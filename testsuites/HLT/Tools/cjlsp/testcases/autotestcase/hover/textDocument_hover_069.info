@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 132,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c5.cj\nPackage info: default.ClassInitPara\n\n(variable) let length: Int64\n"},"range": {"end": {"character": 34,"line":34},"start": {"character": 28,"line":34}}}}
+{"id": 132,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c5.cj\nPackage info: default.ClassInitPara\n\nlet length: Int64\n"},"range": {"end": {"character": 34,"line":34},"start": {"character": 28,"line":34}}}}

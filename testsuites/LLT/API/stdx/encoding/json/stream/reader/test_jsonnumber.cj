@@ -244,7 +244,12 @@ public class JsonNumberTest {
         unsafe { bas.write(jsonStr.rawData()) }
         var reader = JsonReader(bas)
         @Expect(reader.peek(), JsonToken.JsonNumber)
-        @Expect(reader.readValue<Float64>(), Float64.Inf)
+        try {
+            reader.readValue<Float64>()
+            @Assert(false)
+        } catch (_: IllegalStateException) {
+            return
+        }
     }
 
     @TestCase
@@ -254,7 +259,12 @@ public class JsonNumberTest {
         unsafe { bas.write(jsonStr.rawData()) }
         var reader = JsonReader(bas)
         @Expect(reader.peek(), JsonToken.JsonNumber)
-        @Expect(reader.readValue<Float64>(), -Float64.Inf)
+        try {
+            reader.readValue<Float64>()
+            @Assert(false)
+        } catch (_: IllegalStateException) {
+            return
+        }
     }
 
     @TestCase

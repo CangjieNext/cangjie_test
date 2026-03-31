@@ -32,4 +32,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":228,"jsonrpc":"2.0","result":[{"deprecated":true,"detail":"(variable) public static let y: Int64","documentation":"","filterText":"y","insertText":"y","insertTextFormat":1,"kind":6,"label":"y","sortText":"300000"}]}
+{"id":228,"jsonrpc":"2.0","result":[{"deprecated":true,"detail":"public static let y: Int64","documentation":"","filterText":"y","insertText":"y","insertTextFormat":1,"kind":6,"label":"y","sortText":"300000"}]}

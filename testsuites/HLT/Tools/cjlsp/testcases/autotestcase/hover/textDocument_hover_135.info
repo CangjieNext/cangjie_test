@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 330,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: func005.cj\nPackage info: default.Func\n\n// In interface I\n(function) public open func f2(): Unit\n"},"range": {"end": {"character": 11,"line":12},"start": {"character": 9,"line":12}}}}
+{"id": 330,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: func005.cj\nPackage info: default.Func\n\n// In interface I\npublic open func f2(): Unit\n"},"range": {"end": {"character": 11,"line":12},"start": {"character": 9,"line":12}}}}

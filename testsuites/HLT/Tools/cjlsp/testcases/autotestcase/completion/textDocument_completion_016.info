@@ -24,4 +24,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":292,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"Int64","insertText":"Int64","insertTextFormat":1,"kind":14,"label":"Int64","sortText":""},{"deprecated":false,"detail":"","documentation":"","filterText":"UInt64","insertText":"UInt64","insertTextFormat":1,"kind":14,"label":"UInt64","sortText":""},{"deprecated":false,"detail":"(interface) interface I4","documentation":"","filterText":"I4","insertText":"I4","insertTextFormat":1,"kind":8,"label":"I4","sortText":""}]}
+{"id":292,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"Int64","insertText":"Int64","insertTextFormat":1,"kind":14,"label":"Int64","sortText":""},{"deprecated":false,"detail":"","documentation":"","filterText":"UInt64","insertText":"UInt64","insertTextFormat":1,"kind":14,"label":"UInt64","sortText":""},{"deprecated":false,"detail":"interface I4","documentation":"","filterText":"I4","insertText":"I4","insertTextFormat":1,"kind":8,"label":"I4","sortText":""}]}

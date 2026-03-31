@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 194,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c12.cj\nPackage info: default.Composition\n\n(class) internal open class Foo\n"},"range": {"end": {"character": 13,"line":25},"start": {"character": 10,"line":25}}}}
+{"id": 194,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c12.cj\nPackage info: default.Composition\n\ninternal open class Foo\n"},"range": {"end": {"character": 13,"line":25},"start": {"character": 10,"line":25}}}}

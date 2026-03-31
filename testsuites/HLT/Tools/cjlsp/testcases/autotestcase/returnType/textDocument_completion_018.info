@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 580,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "base18","insertText": "base18","insertTextFormat": 1,"kind": 2,"label": "base18","sortText": "286667"},{"deprecated": false,"detail": "(function) internal func base18(): HashMap<Int64, Int64>","documentation": "","filterText": "base18","insertText": "base18()","insertTextFormat": 1,"kind": 2,"label": "base18()","sortText": "286667"}]}
+{"id": 580,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "base18","insertText": "base18","insertTextFormat": 1,"kind": 2,"label": "base18","sortText": "286667"},{"deprecated": false,"detail": "internal func base18(): HashMap<Int64, Int64>","documentation": "","filterText": "base18","insertText": "base18()","insertTextFormat": 1,"kind": 2,"label": "base18()","sortText": "286667"}]}

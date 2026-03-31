@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 1193,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(enum_construct) TimeUnit2.Day(Int32)","documentation": "","filterText": "Day","insertText": "Day(${1:Int32})","insertTextFormat": 2,"kind": 2,"label": "TimeUnit2.Day(Int32)","sortText": ""},{"deprecated": false,"detail": "(enum_construct) TimeUnit2.Day(Int32, Int32)","documentation": "","filterText": "Day","insertText": "Day(${1:Int32}, ${2:Int32})","insertTextFormat": 2,"kind": 2,"label": "TimeUnit2.Day(Int32, Int32)","sortText": ""}]}
+{"id": 1193,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "TimeUnit2.Day(Int32)","documentation": "","filterText": "Day","insertText": "Day(${1:Int32})","insertTextFormat": 2,"kind": 2,"label": "TimeUnit2.Day(Int32)","sortText": ""},{"deprecated": false,"detail": "TimeUnit2.Day(Int32, Int32)","documentation": "","filterText": "Day","insertText": "Day(${1:Int32}, ${2:Int32})","insertTextFormat": 2,"kind": 2,"label": "TimeUnit2.Day(Int32, Int32)","sortText": ""}]}

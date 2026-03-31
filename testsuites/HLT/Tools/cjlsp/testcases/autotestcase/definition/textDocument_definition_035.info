@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 226,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: class00101.cj\nPackage info: default.Class\n\n// In class Data1\n(variable) internal let d: String = \"hello\"\n"},"range": {"end": {"character": 22,"line":36},"start": {"character": 21,"line":36}}}}
+{"id": 226,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: class00101.cj\nPackage info: default.Class\n\n// In class Data1\ninternal let d: String = \"hello\"\n"},"range": {"end": {"character": 22,"line":36},"start": {"character": 21,"line":36}}}}

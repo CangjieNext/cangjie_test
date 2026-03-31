@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 438,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: p12.cj\nPackage info: default.Pipeline\n\n(variable) internal let m2: C12 = C12()\n"},"range": {"end": {"character": 17,"line":22},"start": {"character": 15,"line":22}}}}
+{"id": 438,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: p12.cj\nPackage info: default.Pipeline\n\ninternal let m2: C12 = C12()\n"},"range": {"end": {"character": 17,"line":22},"start": {"character": 15,"line":22}}}}

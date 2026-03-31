@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 15,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a3.cj\nPackage info: default.Any\n\n(variable) var j: Any = A_7()\n"},"range": {"end": {"character": 9,"line":21},"start": {"character": 8,"line":21}}}}
+{"id": 15,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a3.cj\nPackage info: default.Any\n\nvar j: Any = A_7()\n"},"range": {"end": {"character": 9,"line":21},"start": {"character": 8,"line":21}}}}

@@ -19,10 +19,10 @@ main(): Int64 {
     let s1 = URL.parse(i1)
     var d = s.toString()
     var d1 = s1.toString()
-    if (d != "http1.://!$&-ab:12!$&@www.example.com:14/a///b@/a?1@=3b#@//17") {
+    if (d != "http1.://!$&-ab:12!$&@www.example.com:14/a/b@/a?1@=3b#@//17") {
         return 1
     }
-    if (d1 != "http1.://!$&-ab:12!$&@www.example.com:14/a///b@/a?1@//=3b") {
+    if (d1 != "http1.://!$&-ab:12!$&@www.example.com:14/a/b@/a?1@//=3b") {
         return 2
     }
     if (s.hostName != "www.example.com" && s.port != "14") {

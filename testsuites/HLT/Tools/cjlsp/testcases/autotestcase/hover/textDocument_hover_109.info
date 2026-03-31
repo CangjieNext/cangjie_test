@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 242,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: enum014.cj\nPackage info: default.Enum\n\n(enum) internal enum Expr1\n\u9012\u5f52\n"},"range": {"end": {"character": 15,"line":13},"start": {"character": 10,"line":13}}}}
+{"id": 242,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: enum014.cj\nPackage info: default.Enum\n\ninternal enum Expr1\n\u9012\u5f52\n"},"range": {"end": {"character": 15,"line":13},"start": {"character": 10,"line":13}}}}

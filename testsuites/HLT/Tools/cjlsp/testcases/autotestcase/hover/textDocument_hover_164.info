@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 401,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: m1.cj\nPackage info: default.mutFunc\n\n// In interface I\n(function) public mut open func f(): Unit\n"},"range": {"end": {"character": 14,"line":25},"start": {"character": 13,"line":25}}}}
+{"id": 401,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: m1.cj\nPackage info: default.mutFunc\n\n// In interface I\npublic mut open func f(): Unit\n"},"range": {"end": {"character": 14,"line":25},"start": {"character": 13,"line":25}}}}

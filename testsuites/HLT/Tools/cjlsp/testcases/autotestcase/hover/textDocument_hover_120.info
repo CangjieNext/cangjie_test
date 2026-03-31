@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 272,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: expression001.cj\nPackage info: default.Expressions\n\n(variable) let xab: Int64 = 100\n"},"range": {"end": {"character": 11,"line":12},"start": {"character": 8,"line":12}}}}
+{"id": 272,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: expression001.cj\nPackage info: default.Expressions\n\nlet xab: Int64 = 100\n"},"range": {"end": {"character": 11,"line":12},"start": {"character": 8,"line":12}}}}

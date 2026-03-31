@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 131,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "fhj","insertText": "fhj","insertTextFormat": 1,"kind": 2,"label": "fhj","sortText": ""},{"deprecated": false,"detail": "(function) internal func fhj(): Unit","documentation": "","filterText": "fhj","insertText": "fhj()","insertTextFormat": 1,"kind": 2,"label": "fhj()","sortText": ""}]}
+{"id": 131,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "fhj","insertText": "fhj","insertTextFormat": 1,"kind": 2,"label": "fhj","sortText": ""},{"deprecated": false,"detail": "internal func fhj(): Unit","documentation": "","filterText": "fhj","insertText": "fhj()","insertTextFormat": 1,"kind": 2,"label": "fhj()","sortText": ""}]}

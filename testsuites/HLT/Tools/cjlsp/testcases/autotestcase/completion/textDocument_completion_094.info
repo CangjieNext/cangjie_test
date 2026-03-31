@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":1568,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"(variable) let ixy: Int64","documentation":"","filterText":"ixy","insertText":"ixy","insertTextFormat":1,"kind":6,"label":"ixy","sortText":""}]}
+{"id":1568,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"let ixy: Int64","documentation":"","filterText":"ixy","insertText":"ixy","insertTextFormat":1,"kind":6,"label":"ixy","sortText":""}]}

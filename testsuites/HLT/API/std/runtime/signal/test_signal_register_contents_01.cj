@@ -9,7 +9,7 @@
 // LEVEL: 2
 // (not Windows) EXEC: %compiler %cmp_opt %f -o %output
 // (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
-// (not Windows) ASSERT: scan-1 CJNatvie Handle signal: 1
+// (not Windows) ASSERT: scan-1 CJNative Handle signal: 1
 
 import std.env.*
 import std.runtime.*

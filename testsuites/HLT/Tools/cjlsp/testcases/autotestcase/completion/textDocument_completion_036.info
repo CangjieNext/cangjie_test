@@ -22,4 +22,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 539,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(variable) public var b: Int64","documentation": "","filterText": "b","insertText": "b","insertTextFormat": 1,"kind": 6,"label": "b","sortText": ""}]}
+{"id": 539,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "public var b: Int64","documentation": "","filterText": "b","insertText": "b","insertTextFormat": 1,"kind": 6,"label": "b","sortText": ""}]}

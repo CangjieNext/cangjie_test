@@ -10,7 +10,7 @@ import java.lang.*
 
 @JavaMirror["com.java.lib.MyObject"]
 public open class MyObject {
-    public static mut prop base: Int64
+    public static var base: Int64
 
     public init(arg0: Int64)
 

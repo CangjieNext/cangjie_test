@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 57,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: array010.cj\nPackage info: default.Arrary\n\n(variable) internal let a111: Array<Rune> = Array<Rune>(1, {i => r'a'})\n"},"range": {"end": {"character": 8,"line":20},"start": {"character": 4,"line":20}}}}
+{"id": 57,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: array010.cj\nPackage info: default.Arrary\n\ninternal let a111: Array<Rune> = Array<Rune>(1, {i => r'a'})\n"},"range": {"end": {"character": 8,"line":20},"start": {"character": 4,"line":20}}}}

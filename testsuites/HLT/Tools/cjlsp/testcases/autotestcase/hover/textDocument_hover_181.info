@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 433,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: p01.cj\nPackage info: default.Pipeline\n\n(variable) internal let ab: A = A()\n"},"range": {"end": {"character": 33,"line": 14},"start": {"character": 31,"line": 14}}}}
+{"id": 433,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: p01.cj\nPackage info: default.Pipeline\n\ninternal let ab: A = A()\n"},"range": {"end": {"character": 33,"line": 14},"start": {"character": 31,"line": 14}}}}

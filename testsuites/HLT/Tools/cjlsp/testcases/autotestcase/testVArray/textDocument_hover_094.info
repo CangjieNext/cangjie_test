@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 79,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: tup18.cj\nPackage info: default.testFunctype\n\n(enum) internal enum EF\n"},"range": {"end": {"character": 19,"line": 12},"start": {"character": 17,"line": 12}}}}
+{"id": 79,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: tup18.cj\nPackage info: default.testFunctype\n\ninternal enum EF\n"},"range": {"end": {"character": 19,"line": 12},"start": {"character": 17,"line": 12}}}}

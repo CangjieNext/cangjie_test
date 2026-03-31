@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 815,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: extend011.cj\nPackage info: default.Extend\n\n(variable) let x: D = D()\n"},"range": {"end": {"character": 5,"line":26},"start": {"character": 4,"line":26}}}}
+{"id": 815,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: extend011.cj\nPackage info: default.Extend\n\nlet x: D = D()\n"},"range": {"end": {"character": 5,"line":26},"start": {"character": 4,"line":26}}}}

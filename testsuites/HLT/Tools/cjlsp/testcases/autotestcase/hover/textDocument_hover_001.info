@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 4,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a1.cj\nPackage info: default.Any\n\n(interface) internal interface I3 extends Any\n"},"range": {"end": {"character": 12,"line":17},"start": {"character": 10,"line":17}}}}
+{"id": 4,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a1.cj\nPackage info: default.Any\n\ninternal interface I3 extends Any\n"},"range": {"end": {"character": 12,"line":17},"start": {"character": 10,"line":17}}}}

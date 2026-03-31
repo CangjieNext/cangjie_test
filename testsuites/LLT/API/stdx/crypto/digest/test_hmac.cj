@@ -116,6 +116,22 @@ class HMACTest {
      * public func finish(): Array<Byte>
      */
     @TestCase
+    func testEmptyWriteAndFinish(): Unit {
+        var algorithm: HashType = HashType.SHA512
+        var key: Array<UInt8> = "cangjie".toArray()
+        var data: Array<UInt8> = "".toArray()
+        var hmac = HMAC(key, algorithm)
+        hmac.write(data)
+        var md: Array<Byte> = hmac.finish()
+        @Expect(toHexString(md), "9f2db16a60e93df5bbe22021b81018281f122c21e5d871a699953bce91fd7e59e1f0f0efd04bf5eadaafdaf8372aa6297bf3b2a51fc8f86c3e25caca0f15b5fa")
+    }
+    
+    /*
+     * Test API:
+     * public func write(buffer: Array<Byte>): Unit
+     * public func finish(): Array<Byte>
+     */
+    @TestCase
     func testWriteAndFinish(): Unit {
         var algorithm: HashType = HashType.SHA512
         var key: Array<UInt8> = "cangjie".toArray()
@@ -182,19 +198,6 @@ class HMACTest {
             "testInvlidWriteAndFinish_02",
             caseException02,
             "HMAC finish failed, digest calculation has been completed."
-        )
-
-        var caseException03: ?Exception = None
-        try {
-            var hmac3 = HMAC(key, algorithm)
-            hmac3.write([])
-        } catch (e: CryptoException) {
-            caseException03 = e
-        }
-        anomalyAssert(
-            "testInvlidWriteAndFinish_03",
-            caseException03,
-            "The data cannot be empty."
         )
     }
 

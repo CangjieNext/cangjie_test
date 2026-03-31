@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 78,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a04.cj\nPackage info: default.As\n\n(variable) let ii1: A4 = A4()\n"},"range": {"end": {"character": 16,"line":21},"start": {"character": 13,"line":21}}}}
+{"id": 78,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a04.cj\nPackage info: default.As\n\nlet ii1: A4 = A4()\n"},"range": {"end": {"character": 16,"line":21},"start": {"character": 13,"line":21}}}}

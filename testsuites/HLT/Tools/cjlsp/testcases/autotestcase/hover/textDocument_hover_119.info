@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 268,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: exception007.cj\nPackage info: default.exception\n\n(variable) let lastElement: Int32 = arrayTest[3]\n"},"range": {"end": {"character": 23,"line":13},"start": {"character": 12,"line":13}}}}
+{"id": 268,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: exception007.cj\nPackage info: default.exception\n\nlet lastElement: Int32 = arrayTest[3]\n"},"range": {"end": {"character": 23,"line":13},"start": {"character": 12,"line":13}}}}

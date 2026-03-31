@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":189,"jsonrpc":"2.0","result":{"contents":{"language":"Cangjie","value":"Declared in: annotation.cj\nPackage info: std.core\n\n(BuiltInType) public Type CFunc<T>\n"},"range":{"end":{"character":19,"line":12},"start":{"character":14,"line":12}}}}
+{"id":189,"jsonrpc":"2.0","result":{"contents":{"language":"Cangjie","value":"Declared in: annotation.cj\nPackage info: std.core\n\npublic Type CFunc<T>\n"},"range":{"end":{"character":19,"line":12},"start":{"character":14,"line":12}}}}

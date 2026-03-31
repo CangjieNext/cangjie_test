@@ -16,17 +16,17 @@
 
 using namespace Cangjie;
 
-struct MyPlugin : MetaTransform<CHIR::Func> {
+struct MyPlugin : MetaTransform<CHIR::Function> {
    MyPlugin(CHIR::CHIRBuilder& builder) : builder(builder)
    {
    }
-   void Run(CHIR::Func& func);
+   void Run(CHIR::Function& func);
    CHIR::CHIRBuilder& builder;
    size_t cnt = 0;
 };
 
 // 实现 plugin
-void MyPlugin::Run(CHIR::Func& func)
+void MyPlugin::Run(CHIR::Function& func)
 {
    ++cnt;
    std::cout << "Found " << cnt << " funcs" << std::endl;

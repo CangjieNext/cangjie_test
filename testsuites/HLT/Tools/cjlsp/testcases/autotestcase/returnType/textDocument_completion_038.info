@@ -26,4 +26,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":106,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"printSize","insertText":"printSize","insertTextFormat":1,"kind":2,"label":"printSize","sortText":"315556"},{"deprecated":false,"detail":"(function) public func printSize(): Unit","documentation":"","filterText":"printSize","insertText":"printSize()","insertTextFormat":1,"kind":2,"label":"printSize()","sortText":"315556"}]}
+{"id":106,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"printSize","insertText":"printSize","insertTextFormat":1,"kind":2,"label":"printSize","sortText":"315556"},{"deprecated":false,"detail":"public func printSize(): Unit","documentation":"","filterText":"printSize","insertText":"printSize()","insertTextFormat":1,"kind":2,"label":"printSize()","sortText":"315556"}]}

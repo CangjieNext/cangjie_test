@@ -13,6 +13,7 @@ int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [A E1];
         [a f];
+        [a implicitf];
     }
     return 0;
 }

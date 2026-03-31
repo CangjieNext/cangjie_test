@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":812,"jsonrpc":"2.0","result":{"contents":{"language":"Cangjie","value":"Declared in: Ident_unicode_lsp_006.cj\nPackage info: unicodeProject.cases\n\n(function) internal func \u6d4b\ud2b8(a_006: Rune): Rune\n"},"range":{"end":{"character":8,"line":10},"start":{"character":6,"line":10}}}}
+{"id":812,"jsonrpc":"2.0","result":{"contents":{"language":"Cangjie","value":"Declared in: Ident_unicode_lsp_006.cj\nPackage info: unicodeProject.cases\n\ninternal func \u6d4b\ud2b8(a_006: Rune): Rune\n"},"range":{"end":{"character":8,"line":10},"start":{"character":6,"line":10}}}}

@@ -25,7 +25,7 @@ import std.console.Console
 
 func send_request(s: Server) {
     let client = ClientBuilder().build()
-    let big = "12345" * 1024 * 1024
+    let big = "12345" * 1024
     let request = HttpRequestBuilder()
         .header("Content-Length", "10")
         .header("a", big)

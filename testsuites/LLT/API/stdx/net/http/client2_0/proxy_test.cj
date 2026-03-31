@@ -53,7 +53,7 @@ class TestProxy {
         cfg.supportedAlpnProtocols = ["h2"]
 		let client = ClientBuilder()
 			.tlsConfig(cfg)
-			.httpsProxy("http://127.0.0.1:${port1}")
+			.httpsProxy("http://user:password@127.0.0.1:${port1}")
 			.build()
 		let req = HttpRequestBuilder()
 			.version(HTTP2_0)
@@ -102,6 +102,7 @@ class TestProxy {
             let i = socket.read(buf)
             let read = String.fromUtf8(buf[0..i])
             @Expect(read.contains("CONNECT 127.0.0.1:${serverPort} HTTP/1.1"))
+            @Expect(read.contains("proxy-authorization: Basic dXNlcjpwYXNzd29yZA==\r\n"))
             @Expect(read.contains("host: 127.0.0.1:${serverPort}"))
             @Expect(read.contains("user-agent: CANGJIEUSERAGENT_1_1"))
 

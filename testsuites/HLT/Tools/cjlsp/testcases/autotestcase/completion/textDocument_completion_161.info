@@ -24,4 +24,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 2633,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(enum_construct) Option<T>.None","documentation": "","filterText": "None","insertText": "None","insertTextFormat": 1,"kind": 6,"label": "Option<T>.None","sortText": "750000"},{"deprecated": false,"detail": "(enum_construct) Option<T>.Some(T)","documentation": "","filterText": "Some","insertText": "Some(${1:T})","insertTextFormat": 2,"kind": 2,"label": "Option<T>.Some(T)","sortText": "750000"}]}
+{"id": 2633,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "Option<T>.None","documentation": "","filterText": "None","insertText": "None","insertTextFormat": 1,"kind": 6,"label": "Option<T>.None","sortText": "750000"},{"deprecated": false,"detail": "Option<T>.Some(T)","documentation": "","filterText": "Some","insertText": "Some(${1:T})","insertTextFormat": 2,"kind": 2,"label": "Option<T>.Some(T)","sortText": "750000"}]}

@@ -19,7 +19,7 @@ public class A extends M {
 
     long self;
 
-    A() {
+    public A() {
         super(1);
         self = initCJObject();
     }
@@ -30,7 +30,7 @@ public class A extends M {
 
     public native long initCJObject();
 
-    A(long x) {
+    public A(long x) {
         super(x, x);
         self = initCJObjectl(x);
     }
@@ -92,25 +92,25 @@ public open class M {
 
 @JavaImpl["A"]
 public class A <: M {
-    init() {
+    public init() {
         super(1)
         println("Hello from Cangjie!")
     }
-    init(x: Int) {
+    public init(x: Int) {
         super(x, x)
         let a = JArray<Int64>(3)
         a[1]
         a[0] = -22
     }
 
-    func p(o: JArray<A>) {
+    public func p(o: JArray<A>) {
         var a = JArray<A>(33)
         a[1]
         a[22] = A()
         a = o
     }
 
-    func r(o: JArray<UInt16>): Unit {
+    public func r(o: JArray<UInt16>): Unit {
         JArray<Bool>(12)
     }
 }

@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 259,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: exception.cj\nPackage info: std.core\n\n(class) public open class Exception <: ToString\n"},"range": {"end": {"character": 39,"line":10},"start": {"character": 30,"line":10}}}}
+{"id": 259,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: exception.cj\nPackage info: std.core\n\npublic open class Exception <: ToString\n"},"range": {"end": {"character": 39,"line":10},"start": {"character": 30,"line":10}}}}

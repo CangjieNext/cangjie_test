@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 21,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a4.cj\nPackage info: default.Any\n\n(variable) var x: Any = C8_1()\n"},"range": {"end": {"character": 9,"line":15},"start": {"character": 8,"line":15}}}}
+{"id": 21,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a4.cj\nPackage info: default.Any\n\nvar x: Any = C8_1()\n"},"range": {"end": {"character": 9,"line":15},"start": {"character": 8,"line":15}}}}

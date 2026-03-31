@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 89,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: tup21.cj\nPackage info: default.testFunctype\n\n// In class AC\n(function) internal func init(aa: (HH: AC, MM: Int64) -> Int64)\n"},"range": {"end": {"character": 15,"line":18},"start": {"character": 13,"line":18}}}}
+{"id": 89,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: tup21.cj\nPackage info: default.testFunctype\n\n// In class AC\ninternal func init(aa: (HH: AC, MM: Int64) -> Int64)\n"},"range": {"end": {"character": 15,"line":18},"start": {"character": 13,"line":18}}}}

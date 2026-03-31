@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 63,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a01.cj\nPackage info: default.As\n\n(variable) let base1_new: Base1 = Base1()\n"},"range": {"end": {"character": 27,"line":27},"start": {"character": 18,"line":27}}}}
+{"id": 63,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: a01.cj\nPackage info: default.As\n\nlet base1_new: Base1 = Base1()\n"},"range": {"end": {"character": 27,"line":27},"start": {"character": 18,"line":27}}}}

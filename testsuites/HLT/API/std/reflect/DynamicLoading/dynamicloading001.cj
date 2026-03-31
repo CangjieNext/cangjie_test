@@ -9,7 +9,7 @@
 // LEVEL: 0 
 // DEPENDENCE: module_case1
 // (not CJNATIVE and not MAC) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=cbclib  test_dynamicloading.cj -o test.dynamicloading.cbc
-// (CJNATIVE) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=dylib  test_dynamicloading.cj -o test.dynamicloading.so
+// (CJNATIVE) EXEC: cd module_case1 && %compiler %cmp_opt %compile_library  test_dynamicloading.cj -o test.dynamicloading.so
 // (not MAC) EXEC: %compiler %cmp_opt %f -o %output
 // (not MAC) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // (not CJNATIVE and not MAC) ASSERT: scan IllegalArgumentException

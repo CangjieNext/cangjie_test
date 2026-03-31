@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 230,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: enum001.cj\nPackage info: default.Enum\n\n(variable) var time: TimeUnit = TimeUnit.Day(3)\n"},"range": {"end": {"character": 12,"line":19},"start": {"character": 8,"line":19}}}}
+{"id": 230,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: enum001.cj\nPackage info: default.Enum\n\nvar time: TimeUnit = TimeUnit.Day(3)\n"},"range": {"end": {"character": 12,"line":19},"start": {"character": 8,"line":19}}}}

@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 336,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: func006.cj\nPackage info: default.Func\n\n(function) func add(a: Int32, b: Int32): Int32\n"},"range": {"end": {"character": 12,"line":11},"start": {"character": 9,"line":11}}}}
+{"id": 336,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: func006.cj\nPackage info: default.Func\n\nfunc add(a: Int32, b: Int32): Int32\n"},"range": {"end": {"character": 12,"line":11},"start": {"character": 9,"line":11}}}}

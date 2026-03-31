@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 389,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: l01.cj\nPackage info: default.Lambda\n\n(variable) let a: Int64\n"},"range": {"end": {"character": 11,"line":17},"start": {"character": 10,"line":17}}}}
+{"id": 389,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: l01.cj\nPackage info: default.Lambda\n\nlet a: Int64\n"},"range": {"end": {"character": 11,"line":17},"start": {"character": 10,"line":17}}}}

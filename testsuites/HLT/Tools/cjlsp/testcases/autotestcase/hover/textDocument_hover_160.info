@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 394,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: l03.cj\nPackage info: default.Lambda\n\n(function) internal func Row(r: (Data) -> Unit): Unit\n"},"range": {"end": {"character": 8,"line": 12},"start": {"character": 5,"line": 12}}}}
+{"id": 394,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: l03.cj\nPackage info: default.Lambda\n\ninternal func Row(r: (Data) -> Unit): Unit\n"},"range": {"end": {"character": 8,"line": 12},"start": {"character": 5,"line": 12}}}}

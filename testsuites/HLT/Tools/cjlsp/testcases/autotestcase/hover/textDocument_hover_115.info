@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 251,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: enum01.cj\nPackage info: default.Enum_operator_overload\n\n// In enum Time21\n(function) internal func +(right: Time21): Time21\n"},"range": {"end": {"character": 19,"line":13},"start": {"character": 18,"line":13}}}}
+{"id": 251,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: enum01.cj\nPackage info: default.Enum_operator_overload\n\n// In enum Time21\ninternal func +(right: Time21): Time21\n"},"range": {"end": {"character": 19,"line":13},"start": {"character": 18,"line":13}}}}

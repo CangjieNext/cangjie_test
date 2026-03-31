@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 340,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: f2.cj\nPackage info: default.FuncOverload\n\n(function) internal func hh(a: Int64, b!: Float64): Unit\n"},"range": {"end": {"character": 7,"line":17},"start": {"character": 5,"line":17}}}}
+{"id": 340,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: f2.cj\nPackage info: default.FuncOverload\n\ninternal func hh(a: Int64, b!: Float64): Unit\n"},"range": {"end": {"character": 7,"line":17},"start": {"character": 5,"line":17}}}}

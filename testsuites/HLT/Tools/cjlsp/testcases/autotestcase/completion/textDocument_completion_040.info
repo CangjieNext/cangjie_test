@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 597,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(variable) internal let v1: Int64","documentation": "","filterText": "v1","insertText": "v1","insertTextFormat": 1,"kind": 6,"label": "v1","sortText": ""}]}
+{"id": 597,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "internal let v1: Int64","documentation": "","filterText": "v1","insertText": "v1","insertTextFormat": 1,"kind": 6,"label": "v1","sortText": ""}]}

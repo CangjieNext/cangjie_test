@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 260,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: exception001.cj\nPackage info: default.exception\n\n(class) internal open class FatherException <: Exception\n"},"range": {"end": {"character": 39,"line":17},"start": {"character": 24,"line":17}}}}
+{"id": 260,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: exception001.cj\nPackage info: default.exception\n\ninternal open class FatherException <: Exception\n"},"range": {"end": {"character": 39,"line":17},"start": {"character": 24,"line":17}}}}

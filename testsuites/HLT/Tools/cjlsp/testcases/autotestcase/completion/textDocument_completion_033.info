@@ -22,4 +22,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 509,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(variable) internal static var a: A7 = A7()","documentation": "","filterText": "a","insertText": "a","insertTextFormat": 1,"kind": 6,"label": "a","sortText": ""}]}
+{"id": 509,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "internal static var a: A7 = A7()","documentation": "","filterText": "a","insertText": "a","insertTextFormat": 1,"kind": 6,"label": "a","sortText": ""}]}

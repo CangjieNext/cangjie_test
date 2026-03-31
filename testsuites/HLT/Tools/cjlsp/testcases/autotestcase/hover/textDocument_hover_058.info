@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 115,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c3.cj\nPackage info: default.ClassInitPara\n\n(variable) internal let t2: C1 = C1({i => i * i})\n"},"range": {"end": {"character": 6,"line":24},"start": {"character": 4,"line":24}}}}
+{"id": 115,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c3.cj\nPackage info: default.ClassInitPara\n\ninternal let t2: C1 = C1({i => i * i})\n"},"range": {"end": {"character": 6,"line":24},"start": {"character": 4,"line":24}}}}

@@ -23,4 +23,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":1395,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"return","insertText":"return","insertTextFormat":1,"kind":14,"label":"return","sortText":""},{"deprecated":false,"detail":"(interface) public interface GreaterOrEqual<T>","documentation":"","filterText":"GreaterOrEqual","insertText":"GreaterOrEqual<${1:T}>","insertTextFormat":2,"kind":8,"label":"GreaterOrEqual<T>","sortText":""}]}
+{"id":1395,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"return","insertText":"return","insertTextFormat":1,"kind":14,"label":"return","sortText":""},{"deprecated":false,"detail":"public interface GreaterOrEqual<T>","documentation":"","filterText":"GreaterOrEqual","insertText":"GreaterOrEqual<${1:T}>","insertTextFormat":2,"kind":8,"label":"GreaterOrEqual<T>","sortText":""}]}

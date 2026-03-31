@@ -6,13 +6,14 @@
 
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan 100
+// ASSERT: scan 255
 
 @OverflowWrapping
 main() {
     var f: Float64 = 563.0
     try {
         var x = UInt8(f)
+        println(x)
     } catch (e: Exception) {
         println(100)
     }

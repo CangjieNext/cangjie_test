@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 381,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: i03.cj\nPackage info: default.Is\n\n(variable) let i1: IsA = IsA()\n"},"range": {"end": {"character": 15,"line":18},"start": {"character": 13,"line":18}}}}
+{"id": 381,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: i03.cj\nPackage info: default.Is\n\nlet i1: IsA = IsA()\n"},"range": {"end": {"character": 15,"line":18},"start": {"character": 13,"line":18}}}}

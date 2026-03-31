@@ -29,9 +29,6 @@ public open class JBase {
     @ForeignName["id"]
     public let myIdLet: Int32
 
-    @ForeignName["id"]
-    public mut prop myId: Int32
-
     @ForeignName["getClassName"]
     public static func myGetClassName(): String
 
@@ -94,23 +91,23 @@ public class Main <: JObject {
         print("cj: Main()\n", flush: true)
 
         let jb = JBase()
-        println(jb.myId)
+        println(jb.myIdVar)
         println(JBase.myGetClassName())
         println(jb.myGetName())
 
         let jd = JDer()
-        println(jd.myId)
+        println(jd.myIdVar)
         println(JDer.myGetClassName())
         println(jd.myGetName())
 
         let jdd = JDerDer()
-        println(jdd.myId)
+        println(jdd.myIdVar)
         println(JDerDer.myGetClassName())
         println(jdd.myGetName())
 
         let jddd = JDerDerDer()
-        jddd.myId = 54
-        println(jddd.myId)
+        jddd.myIdVar = 54
+        println(jddd.myIdVar)
         println(JDerDerDer.myGetClassName())
         println(jddd.myGetName())
 

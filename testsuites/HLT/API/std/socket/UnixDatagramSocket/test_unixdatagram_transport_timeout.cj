@@ -19,9 +19,9 @@ import std.fs.*
 import std.posix.*
 import std.process
 
-@When[os == "macOS"]
+@When[os == "macOS" || os == "iOS"]
 let str0 = "Connection reset by peer"
-@When[os != "macOS"]
+@When[os != "macOS" && os != "iOS"]
 let str0 = "Connection refused"
 var data = Array<Byte>(5000, repeat: 10)
 var unixdatagram = Option<UnixDatagramSocket>.None

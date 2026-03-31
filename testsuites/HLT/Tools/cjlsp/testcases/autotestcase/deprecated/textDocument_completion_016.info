@@ -25,4 +25,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":111,"jsonrpc":"2.0","result":[{"deprecated":true,"detail":"type Name_A = String","documentation":"","filterText":"Name_A","insertText":"Name_A","insertTextFormat":1,"kind":7,"label":"Name_A","sortText":"596087"},{"deprecated":false,"detail":"(variable) let name: Nam = \"hello cangjie\"","documentation":"","filterText":"name","insertText":"name","insertTextFormat":1,"kind":6,"label":"name","sortText":"380000"}]}
+{"id":111,"jsonrpc":"2.0","result":[{"deprecated":true,"detail":"type Name_A = String","documentation":"","filterText":"Name_A","insertText":"Name_A","insertTextFormat":1,"kind":7,"label":"Name_A","sortText":"596087"},{"deprecated":false,"detail":"let name: Nam = \"hello cangjie\"","documentation":"","filterText":"name","insertText":"name","insertTextFormat":1,"kind":6,"label":"name","sortText":"380000"}]}

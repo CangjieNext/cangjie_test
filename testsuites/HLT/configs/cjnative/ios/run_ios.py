@@ -194,9 +194,16 @@ def main():
         run_cmd(["xcrun", "simctl", "install", udid, app_path])
         
         # The cmd with console output
+        # old version:
+        # run_app_cmd = [
+        #     "xcrun", "simctl", "launch", "--console-pty", "--terminate-running-process",
+        #     udid, args.bundle_id, "--workspace", workspace
+        # ]
+        # new version with syslog:
         run_app_cmd = [
-            "xcrun", "simctl", "launch", "--console-pty", "--terminate-running-process",
-            udid, args.bundle_id, "--workspace", workspace
+            'bash', '-c',
+            f'xcrun simctl spawn {udid} log stream --style syslog --level info &> ios_sim.log & '
+            f'SIMCTL_CHILD_MRT_LOG_LEVEL=i xcrun simctl launch --console-pty --terminate-running-process {udid} {args.bundle_id} --workspace {workspace}'
         ]
     else:
         # Install to device
@@ -209,21 +216,43 @@ def main():
     # Run App
     com_out = ""
     com_err = ""
+    sys_log_content = ""
     try:
         return_code, com_out, com_err = run_app(run_app_cmd)
         if return_code != 0:
             raise Exception(f"Failed to run app: '{run_app_cmd}', return code: {return_code}!")
         com_out = com_out.replace('\r\n', '\n').replace('\r', '\n')
         com_err = com_err.replace('\r\n', '\n').replace('\r', '\n')
+        
+        # 读取日志内容
+        with open('ios_sim.log', 'r', encoding='utf-8') as f:
+            cangjie_runtime_log_lines = (line.rstrip('\n') for line in f if '[CANGJIE:RUNTIME]' in line)
+            # 过滤掉这一句
+            cangjie_runtime_log_lines = [line for line in cangjie_runtime_log_lines if 'signpost functions all loaded successfully' not in line]
+            sys_log_content = '\n'.join(cangjie_runtime_log_lines)
+
         if not args.objcffi:
             if "cj_main_return_start" in com_out and "cj_main_return_end" in com_out:
                 com_out=re.sub(rf"{args.bundle_id}: [0-9]+\n?", "", com_out)
                 return_code = int(com_out.split("cj_main_return_start")[1].split("cj_main_return_end")[0])
                 com_out = com_out.split("cj_main_return_start")[0] + com_out.split("cj_main_return_end")[1]
             else:
-                raise Exception(f"Error: The 'cj_main_return_start' and 'cj_main_return_end' were not found, please check cangjie main function!")
+                # 如果没有找到cj_main_return_start/cj_main_return_end可能是因为全局抛出异常导致的
+                if 'Init Image fail! exception occurrence when init image' in sys_log_content:
+                    # 全局静态初始化过程中抛出异常，退出码改为1，并将日志内容输出到标准输出流
+                    return_code = 1
+                elif 'CJNative Handle signal: 11.' in sys_log_content:
+                    # SIGSEGV(11) -> 139
+                    return_code = 139
+                elif 'CJNative Handle signal: 6.' in sys_log_content:
+                    # SIGABRT(6) -> 134
+                    return_code = 134
+                else:
+                    # 其他未知原因
+                    raise Exception(f"unknown condition occurred.")
         sys.exit(return_code)
     finally:
+        sys.stdout.write(sys_log_content)
         sys.stdout.write(com_out)
         sys.stderr.write(com_err)
         if args.uninstall:

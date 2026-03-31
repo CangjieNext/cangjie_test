@@ -24,15 +24,15 @@ import std.fs.*
 import std.posix.*
 import std.process
 
-@When[os == "macOS"]
+@When[os == "macOS" || os == "iOS"]
 let str_arr = ["Connection reset by peer", "Connection refused", "Connection reset by peer", "Message too long",
     "Connection reset by peer", "Message too long", "Connection reset by peer", "Message too long"]
-@When[os == "macOS"]
+@When[os == "macOS" || os == "iOS"]
 let flag = true
-@When[os != "macOS"]
+@When[os != "macOS" && os != "iOS"]
 let str_arr = ["Connection refused", "Connection refused", "Message too long", "Message too long", "Connection refused",
     "Connection refused", "Connection refused", "Connection refused"]
-@When[os != "macOS"]
+@When[os != "macOS" && os != "iOS"]
 let flag = false
 var data = Array<Byte>(5000, repeat: 10)
 var unixdatagram = Option<UnixDatagramSocket>.None

@@ -32,4 +32,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":53,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"(class) class Rectangle36","documentation":"","filterText":"Rectangle36","insertText":"Rectangle36","insertTextFormat":1,"kind":7,"label":"Rectangle36","sortText":"540000"},{"deprecated":false,"detail":"(function) func init(h: Int64)","documentation":"","filterText":"Rectangle36","insertText":"Rectangle36(${1:h: Int64})","insertTextFormat":2,"kind":3,"label":"Rectangle36(h: Int64)","sortText":"540000"}]}
+{"id":53,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"class Rectangle36","documentation":"","filterText":"Rectangle36","insertText":"Rectangle36","insertTextFormat":1,"kind":7,"label":"Rectangle36","sortText":"540000"},{"deprecated":false,"detail":"func init(h: Int64)","documentation":"","filterText":"Rectangle36","insertText":"Rectangle36(${1:h: Int64})","insertTextFormat":2,"kind":3,"label":"Rectangle36(h: Int64)","sortText":"540000"}]}

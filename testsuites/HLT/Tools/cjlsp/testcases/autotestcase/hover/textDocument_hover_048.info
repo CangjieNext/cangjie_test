@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 102,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c2.cj\nPackage info: default.ClassInitPara\n\n// In class Point\n(variable) internal var x: Int32 = 1\naaaaaaaaa\n"},"range": {"end": {"character": 9,"line":12},"start": {"character": 8,"line":12}}}}
+{"id": 102,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c2.cj\nPackage info: default.ClassInitPara\n\n// In class Point\ninternal var x: Int32 = 1\naaaaaaaaa\n"},"range": {"end": {"character": 9,"line":12},"start": {"character": 8,"line":12}}}}

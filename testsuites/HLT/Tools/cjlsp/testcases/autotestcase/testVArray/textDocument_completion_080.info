@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 153,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "fc","insertText": "fc","insertTextFormat": 1,"kind": 2,"label": "fc","sortText": ""},{"deprecated": false,"detail": "(function) internal func fc(): Unit","documentation": "","filterText": "fc","insertText": "fc()","insertTextFormat": 1,"kind": 2,"label": "fc()","sortText": ""}]}
+{"id": 153,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "fc","insertText": "fc","insertTextFormat": 1,"kind": 2,"label": "fc","sortText": ""},{"deprecated": false,"detail": "internal func fc(): Unit","documentation": "","filterText": "fc","insertText": "fc()","insertTextFormat": 1,"kind": 2,"label": "fc()","sortText": ""}]}

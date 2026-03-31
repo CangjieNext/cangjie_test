@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 416,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: option003.cj\nPackage info: default.option_type\n\n(variable) internal let m2: Int32 = op2.getOrThrow()\n"},"range": {"end": {"character": 6,"line":11},"start": {"character": 4,"line":11}}}}
+{"id": 416,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: option003.cj\nPackage info: default.option_type\n\ninternal let m2: Int32 = op2.getOrThrow()\n"},"range": {"end": {"character": 6,"line":11},"start": {"character": 4,"line":11}}}}

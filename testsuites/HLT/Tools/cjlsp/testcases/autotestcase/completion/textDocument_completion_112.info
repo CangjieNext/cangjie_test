@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":1836,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"(class) open class Base_new","documentation":"","filterText":"Base_new","insertText":"Base_new","insertTextFormat":1,"kind":7,"label":"Base_new","sortText":""}]}
+{"id":1836,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"open class Base_new","documentation":"","filterText":"Base_new","insertText":"Base_new","insertTextFormat":1,"kind":7,"label":"Base_new","sortText":""}]}

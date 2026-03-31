@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 278,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: expression005.cj\nPackage info: default.Expressions\n\n(class) internal open class Person\n"},"range": {"end": {"character": 23,"line":19},"start": {"character": 18,"line":19}}}}
+{"id": 278,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: expression005.cj\nPackage info: default.Expressions\n\ninternal open class Person\n"},"range": {"end": {"character": 23,"line":19},"start": {"character": 18,"line":19}}}}

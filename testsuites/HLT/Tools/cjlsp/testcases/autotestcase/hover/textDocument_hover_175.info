@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 439,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: p12.cj\nPackage info: default.Pipeline\n\n// In class C12\n(function) internal func h1(a: Int64): Unit\n"},"range": {"end": {"character": 20,"line": 21},"start": {"character": 18,"line": 21}}}}
+{"id": 439,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: p12.cj\nPackage info: default.Pipeline\n\n// In class C12\ninternal func h1(a: Int64): Unit\n"},"range": {"end": {"character": 20,"line": 21},"start": {"character": 18,"line": 21}}}}

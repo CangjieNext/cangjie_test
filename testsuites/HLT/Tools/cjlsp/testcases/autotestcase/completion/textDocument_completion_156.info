@@ -23,4 +23,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":2506,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"(variable) let p2 = -p1","documentation":"","filterText":"p2","insertText":"p2","insertTextFormat":1,"kind":6,"label":"p2","sortText":""}]}
+{"id":2506,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"let p2 = -p1","documentation":"","filterText":"p2","insertText":"p2","insertTextFormat":1,"kind":6,"label":"p2","sortText":""}]}

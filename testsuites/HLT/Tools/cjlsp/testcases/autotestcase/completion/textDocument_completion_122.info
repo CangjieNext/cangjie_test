@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 1984,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(variable) public static let NUM: Int64","documentation": "","filterText": "NUM","insertText": "NUM","insertTextFormat": 1,"kind": 6,"label": "NUM","sortText": "420000"}]}
+{"id": 1984,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "public static let NUM: Int64","documentation": "","filterText": "NUM","insertText": "NUM","insertTextFormat": 1,"kind": 6,"label": "NUM","sortText": "420000"}]}

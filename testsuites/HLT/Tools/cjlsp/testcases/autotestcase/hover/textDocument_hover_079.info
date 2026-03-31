@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 154,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c9.cj\nPackage info: default.ClassInitPara\n\n(variable) internal let GLOBALA: UInt8 = 1\n"},"range": {"end": {"character": 11,"line": 15},"start": {"character": 4,"line": 15}}}}
+{"id": 154,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c9.cj\nPackage info: default.ClassInitPara\n\ninternal let GLOBALA: UInt8 = 1\n"},"range": {"end": {"character": 11,"line": 15},"start": {"character": 4,"line": 15}}}}

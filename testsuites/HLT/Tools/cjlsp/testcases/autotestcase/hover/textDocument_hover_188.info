@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 446,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: string.cj\nPackage info: std.core\n\n(struct) public struct String\n"},"range": {"end": {"character": 20,"line":11},"start": {"character": 14,"line":11}}}}
+{"id": 446,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: string.cj\nPackage info: std.core\n\npublic struct String\n"},"range": {"end": {"character": 20,"line":11},"start": {"character": 14,"line":11}}}}

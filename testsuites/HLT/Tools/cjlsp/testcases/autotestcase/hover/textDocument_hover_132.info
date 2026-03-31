@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 315,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: func001.cj\nPackage info: default.Func\n\n(function) internal func foo(x: Int64, y: (Int64) -> Int64): Int64\n"},"range": {"end": {"character": 8,"line":14},"start": {"character": 5,"line":14}}}}
+{"id": 315,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: func001.cj\nPackage info: default.Func\n\ninternal func foo(x: Int64, y: (Int64) -> Int64): Int64\n"},"range": {"end": {"character": 8,"line":14},"start": {"character": 5,"line":14}}}}

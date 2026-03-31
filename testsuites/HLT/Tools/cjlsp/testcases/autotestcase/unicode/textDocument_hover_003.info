@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":802,"jsonrpc":"2.0","result":{"contents":{"language":"Cangjie","value":"Declared in: Ident_unicode_lsp_004.cj\nPackage info: unicodeProject.cases\n\n// In class \u6587\u660e\n(function) public func init()\n"},"range":{"end":{"character":14,"line":16},"start":{"character":12,"line":16}}}}
+{"id":802,"jsonrpc":"2.0","result":{"contents":{"language":"Cangjie","value":"Declared in: Ident_unicode_lsp_004.cj\nPackage info: unicodeProject.cases\n\n// In class \u6587\u660e\npublic func init()\n"},"range":{"end":{"character":14,"line":16},"start":{"character":12,"line":16}}}}

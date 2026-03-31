@@ -21,4 +21,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":118,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"area","insertText":"area","insertTextFormat":1,"kind":2,"label":"area","sortText":"310000"},{"deprecated":false,"detail":"(function) public func area(): Int64","documentation":"","filterText":"area","insertText":"area()","insertTextFormat":1,"kind":2,"label":"area()","sortText":"310000"}]}
+{"id":118,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"area","insertText":"area","insertTextFormat":1,"kind":2,"label":"area","sortText":"310000"},{"deprecated":false,"detail":"public func area(): Int64","documentation":"","filterText":"area","insertText":"area()","insertTextFormat":1,"kind":2,"label":"area()","sortText":"310000"}]}

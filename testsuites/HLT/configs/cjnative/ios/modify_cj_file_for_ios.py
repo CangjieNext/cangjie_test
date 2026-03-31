@@ -6,6 +6,10 @@
 # 
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+# TODO:
+# - 暂不支持main有入参
+# - 暂不支持@Test
+
 import argparse
 import re
 import sys
@@ -19,17 +23,24 @@ cangjie_main_start = """
 @C
 public func cangjie_main(): Unit {
     var ret = 1
-    try {
-"""
+    try {"""
 call_cj_main_Int = "\n        ret = Int64(cj_main())"
 call_cj_main_Unit = "\n        cj_main()\n        ret = 0"
 call_cj_unsafe_main_Int = "\n        ret = unsafe {cj_main()}"
 call_cj_unsafe_main_Unit = "\n        unsafe {cj_main()}\n        ret = 0"
 
-call_cj_ut_start = """\n        let testPackage = TestPackage(@sourcePackage())"""
-call_cj_ut_pref = "\n        testPackage.registerSuite({ => "
-call_cj_ut_suff = "().asTestSuite() })"
-call_cj_ut_end = "\n        ret = entryMain(testPackage)\n        if (ret != 0) { ret = 1 }"
+call_cj_ut_start = """
+\tlet config = Configuration()
+\tlet testGroupBuilder = TestGroup.builder(@sourcePackage())
+"""
+call_cj_ut_pref = "\n\ttestGroupBuilder.add("
+call_cj_ut_suff = "().asTestSuite())"
+call_cj_ut_end = """
+\tlet testGroup = testGroupBuilder.build()
+\tlet testReport = testGroup.runTests(config)
+\ttestReport.reportTo(ConsoleReporter(colored: false))
+\tret = testReport.errorCount + testReport.failedCount
+\tif (ret != 0) { ret = 1 }"""
 cangjie_main_end = """
     } catch (e: Exception) {
         ret = 1
@@ -121,6 +132,8 @@ def modify(data):
 # 根据info文件找到真正的入口main所在的那个文件的路径
 def process_info_file(test_info_file_path: Path) -> list[Path]:
     dependency_list: List[Path] = list()
+    cj_files = list(test_info_file_path.parent.glob('*.cj'))
+    dependency_list.extend(cj_files)
     # 测试头所在文件也需要一起被检查是否含有main，且优先被检查所以放第一个
     dependency_list.append(test_info_file_path)
     with open(test_info_file_path, 'r', encoding='utf-8') as f:
@@ -132,6 +145,7 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
                 # %n为测试头所在文件的不带后缀名的文件名
                 content = content.replace('%n', test_info_file_path.stem)
                 l = re.split(r'[,\s]+', content)
+                print_log('l = {}'.format(l))
                 for i in l:
                     dependency_list.append(Path(Path(i).name))
                 # 一般一个info文件中只会有一个DEPENDENCE声明，找到第一个处理完后就可以不往下看了
@@ -140,21 +154,27 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
                 # 该行没有DEPENDENCE，继续看下一行
                 pass
 
+
+    print_log('dependency_list = {}'.format(dependency_list))
     # 逐个文件打开确认是否包含main
     main_file_list: List[Path] = list()
     main_file_list.append(test_info_file_path)
-    pattern_main = r'(\s*main\s*\(\s*(.*?)\s*\)\s*:?\s*(.*?)\s*\{)(?!\})'
+    # pattern_main = r'(^\s*main\s*\(\s*(.*?)\s*\)\s*:?\s*(.*?)\s*\{)(?!\})'
+    pattern_main = r'(^\s*main\s*\(\)\s*(?::\s*([^\s\{]+)\s*)?\{)'
     for dependency_path in dependency_list:
         # 不存在就跳过
         if not dependency_path.exists():
             continue
         elif dependency_path.is_file():
+            print_log('reading {}'.format(dependency_path))
             # 这个依赖是个文件，直接读取
             try:
                 with open(dependency_path, 'r', encoding='utf-8') as f:
                     content = f.read()
-                    if re.findall(pattern_main, content):
-                        main_file_list.append(dependency_path)
+                    print_log('content = {}'.format(content))
+                    # if re.findall(pattern_main, content):
+                        # main_file_list.append(dependency_path)
+                    main_file_list.append(dependency_path)
             except Exception as e:
                 # 如果读取失败就不对这个文件进行确认了
                 pass
@@ -165,8 +185,9 @@ def process_info_file(test_info_file_path: Path) -> list[Path]:
                     try:
                         with open(file_path, 'r', encoding='utf-8') as f:
                             content = f.read()
-                            if re.findall(pattern_main, content):
-                                main_file_list.append(file_path)
+                            # if re.findall(pattern_main, content):
+                            #     main_file_list.append(file_path)
+                            main_file_list.append(file_path)
                     except Exception as e:
                         # 如果读取失败就不对这个文件进行确认了
                         pass

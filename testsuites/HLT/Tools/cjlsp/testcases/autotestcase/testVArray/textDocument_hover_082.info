@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 5,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: const01.cj\nPackage info: default.testConst\n\n(variable) internal const an2: Int64 = 1\n"},"range": {"end": {"character": 10,"line":12},"start": {"character": 7,"line":12}}}}
+{"id": 5,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: const01.cj\nPackage info: default.testConst\n\ninternal const an2: Int64 = 1\n"},"range": {"end": {"character": 10,"line":12},"start": {"character": 7,"line":12}}}}

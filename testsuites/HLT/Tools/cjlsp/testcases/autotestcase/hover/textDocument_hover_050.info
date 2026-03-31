@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 104,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c2.cj\nPackage info: default.ClassInitPara\n\n(class) public class ColoredPoint <: Point\n"},"range": {"end": {"character": 25,"line":22},"start": {"character": 13,"line":22}}}}
+{"id": 104,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c2.cj\nPackage info: default.ClassInitPara\n\npublic class ColoredPoint <: Point\n"},"range": {"end": {"character": 25,"line":22},"start": {"character": 13,"line":22}}}}

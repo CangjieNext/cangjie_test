@@ -19,7 +19,7 @@ public class A extends Cla$s.Inner {
 
     long self;
 
-    A() {
+    public A() {
         super();
         self = initCJObject();
     }
@@ -98,7 +98,7 @@ public open class OtherInnerInner {
 
 @JavaImpl["A"]
 public class A <: OtherInner {
-    init() {
+    public init() {
         super()
         println("Hello from Cangjie!")
     }

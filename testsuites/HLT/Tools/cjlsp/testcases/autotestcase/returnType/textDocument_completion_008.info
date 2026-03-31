@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":286,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"base08","insertText":"base08","insertTextFormat":1,"kind":2,"label":"base08","sortText":"286667"},{"deprecated":false,"detail":"(function) internal func base08(): Tuple<Int64, Float64>","documentation":"","filterText":"base08","insertText":"base08()","insertTextFormat":1,"kind":2,"label":"base08()","sortText":"286667"}]}
+{"id":286,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"base08","insertText":"base08","insertTextFormat":1,"kind":2,"label":"base08","sortText":"286667"},{"deprecated":false,"detail":"internal func base08(): Tuple<Int64, Float64>","documentation":"","filterText":"base08","insertText":"base08()","insertTextFormat":1,"kind":2,"label":"base08()","sortText":"286667"}]}

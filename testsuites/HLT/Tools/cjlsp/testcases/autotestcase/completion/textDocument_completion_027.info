@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":436,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"(class) class Baase3","documentation":"","filterText":"Baase3","insertText":"Baase3","insertTextFormat":1,"kind":7,"label":"Baase3","sortText":""}]}
+{"id":436,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"class Baase3","documentation":"","filterText":"Baase3","insertText":"Baase3","insertTextFormat":1,"kind":7,"label":"Baase3","sortText":""}]}

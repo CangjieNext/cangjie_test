@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 405,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: m1.cj\nPackage info: default.mutFunc\n\n// In struct A\n(function) internal mut func h(): Unit\n"},"range": {"end": {"character": 14,"line":17},"start": {"character": 13,"line":17}}}}
+{"id": 405,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: m1.cj\nPackage info: default.mutFunc\n\n// In struct A\ninternal mut func h(): Unit\n"},"range": {"end": {"character": 14,"line":17},"start": {"character": 13,"line":17}}}}

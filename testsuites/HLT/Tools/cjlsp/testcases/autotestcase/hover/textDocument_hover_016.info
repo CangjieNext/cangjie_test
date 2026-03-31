@@ -19,5 +19,5 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 34,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: array002.cj\nPackage info: default.Arrary\n\n(variable) let x: Array<Int64>\n"},"range": {"end": {"character": 14,"line": 11},"start": {"character": 13,"line": 11}}}}
+{"id": 34,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: array002.cj\nPackage info: default.Arrary\n\nlet x: Array<Int64>\n"},"range": {"end": {"character": 14,"line": 11},"start": {"character": 13,"line": 11}}}}
 

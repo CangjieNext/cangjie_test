@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":94,"jsonrpc":"2.0","result":[{"deprecated":true,"detail":"(enum_construct) Color.Blue(UInt8)","documentation":"","filterText":"Blue","insertText":"Blue(${1:UInt8})","insertTextFormat":2,"kind":2,"label":"Color.Blue(UInt8)","sortText":"540000"},{"deprecated":false,"detail":"(enum_construct) Color.RED","documentation":"","filterText":"RED","insertText":"RED","insertTextFormat":1,"kind":6,"label":"Color.RED","sortText":"513333"}]}
+{"id":94,"jsonrpc":"2.0","result":[{"deprecated":true,"detail":"Color.Blue(UInt8)","documentation":"","filterText":"Blue","insertText":"Blue(${1:UInt8})","insertTextFormat":2,"kind":2,"label":"Color.Blue(UInt8)","sortText":"540000"},{"deprecated":false,"detail":"Color.RED","documentation":"","filterText":"RED","insertText":"RED","insertTextFormat":1,"kind":6,"label":"Color.RED","sortText":"513333"}]}

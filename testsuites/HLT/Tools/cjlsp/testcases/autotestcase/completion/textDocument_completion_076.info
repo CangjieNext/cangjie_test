@@ -30,4 +30,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 1179,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(variable) let howManyHours: Int64 = match (r1) {\r\n    case Year => 365 * 24\r\n    case Month => 30 * 24\r\n    case Day => 24\r\n    case Hour1 => 1\r\n}","documentation": "","filterText": "howManyHours","insertText": "howManyHours","insertTextFormat": 1,"kind": 6,"label": "howManyHours","sortText": "616667"}]}
+{"id": 1179,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "let howManyHours: Int64 = match (r1) {\r\n    case Year => 365 * 24\r\n    case Month => 30 * 24\r\n    case Day => 24\r\n    case Hour1 => 1\r\n}","documentation": "","filterText": "howManyHours","insertText": "howManyHours","insertTextFormat": 1,"kind": 6,"label": "howManyHours","sortText": "616667"}]}

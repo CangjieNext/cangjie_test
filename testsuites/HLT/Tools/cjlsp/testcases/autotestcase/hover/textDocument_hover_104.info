@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 228,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: enum001.cj\nPackage info: default.Enum\n\n// In enum TimeUnit\n(enum_construct) TimeUnit.Year\n"},"range": {"end": {"character": 8,"line":12},"start": {"character": 4,"line":12}}}}
+{"id": 228,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: enum001.cj\nPackage info: default.Enum\n\n// In enum TimeUnit\nTimeUnit.Year\n"},"range": {"end": {"character": 8,"line":12},"start": {"character": 4,"line":12}}}}

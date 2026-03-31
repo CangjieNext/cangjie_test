@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 287,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: extend002.cj\nPackage info: default.Extend\n\n(class) internal class Foo\n"},"range": {"end": {"character": 10,"line":11},"start": {"character": 7,"line":11}}}}
+{"id": 287,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: extend002.cj\nPackage info: default.Extend\n\ninternal class Foo\n"},"range": {"end": {"character": 10,"line":11},"start": {"character": 7,"line":11}}}}

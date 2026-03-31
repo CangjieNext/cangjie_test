@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 196,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c12.cj\nPackage info: default.Composition\n\n(variable) let a: Int64\n"},"range": {"end": {"character": 21,"line":25},"start": {"character": 20,"line":25}}}}
+{"id": 196,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c12.cj\nPackage info: default.Composition\n\nlet a: Int64\n"},"range": {"end": {"character": 21,"line":25},"start": {"character": 20,"line":25}}}}

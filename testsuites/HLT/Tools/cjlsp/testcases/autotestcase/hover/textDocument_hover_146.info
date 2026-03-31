@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 362,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: interface00106.cj\nPackage info: default.Interface\n\n(class) internal class InterfaceB <: InterfaceA & I1 & I2\n"},"range": {"end": {"character": 16,"line":20},"start": {"character": 6,"line":20}}}}
+{"id": 362,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: interface00106.cj\nPackage info: default.Interface\n\ninternal class InterfaceB <: InterfaceA & I1 & I2\n"},"range": {"end": {"character": 16,"line":20},"start": {"character": 6,"line":20}}}}

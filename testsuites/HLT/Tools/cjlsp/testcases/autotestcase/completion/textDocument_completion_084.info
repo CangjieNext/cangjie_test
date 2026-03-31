@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 17,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "(variable) let xab = 100","documentation": "","filterText": "xab","insertText": "xab","insertTextFormat": 1,"kind": 6,"label": "xab","sortText": ""}]}
+{"id": 17,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "let xab = 100","documentation": "","filterText": "xab","insertText": "xab","insertTextFormat": 1,"kind": 6,"label": "xab","sortText": ""}]}

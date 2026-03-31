@@ -22,4 +22,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":145,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"printType","insertText":"printType","insertTextFormat":1,"kind":2,"label":"printType","sortText":"322222"},{"deprecated":false,"detail":"(function) public static func printType(): Unit","documentation":"","filterText":"printType","insertText":"printType()","insertTextFormat":1,"kind":2,"label":"printType()","sortText":"322222"}]}
+{"id":145,"jsonrpc":"2.0","result":[{"deprecated":false,"detail":"","documentation":"","filterText":"printType","insertText":"printType","insertTextFormat":1,"kind":2,"label":"printType","sortText":"322222"},{"deprecated":false,"detail":"public static func printType(): Unit","documentation":"","filterText":"printType","insertText":"printType()","insertTextFormat":1,"kind":2,"label":"printType()","sortText":"322222"}]}

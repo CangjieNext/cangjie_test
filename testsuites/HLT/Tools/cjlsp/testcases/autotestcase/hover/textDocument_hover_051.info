@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 105,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c2.cj\nPackage info: default.ClassInitPara\n\n(variable) internal let s2: ColoredPoint = ColoredPoint(8, 24, \"red\")\n"},"range": {"end": {"character": 6,"line":32},"start": {"character": 4,"line":32}}}}
+{"id": 105,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: c2.cj\nPackage info: default.ClassInitPara\n\ninternal let s2: ColoredPoint = ColoredPoint(8, 24, \"red\")\n"},"range": {"end": {"character": 6,"line":32},"start": {"character": 4,"line":32}}}}

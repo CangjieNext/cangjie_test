@@ -28,7 +28,7 @@ public class A extends M {
         super(1);
     }
 
-    public native long initCJObject();
+    native long initCJObject();
 
     A(long x) {
         super(x, x);
@@ -39,7 +39,7 @@ public class A extends M {
         super(x, x);
     }
 
-    public native long initCJObjectl(long x);
+    native long initCJObjectl(long x);
 
     @Override
     public boolean equals(Object obj) {

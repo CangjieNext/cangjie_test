@@ -22,4 +22,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 1022,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "f","insertText": "f","insertTextFormat": 1,"kind": 2,"label": "f","sortText": ""},{"deprecated": false,"detail": "(function) public static func f(a: Int64): Int64","documentation": "","filterText": "f","insertText": "f(${1:a: Int64})","insertTextFormat": 2,"kind": 2,"label": "f(a: Int64)","sortText": ""}]}
+{"id": 1022,"jsonrpc": "2.0","result": [{"deprecated": false,"detail": "","documentation": "","filterText": "f","insertText": "f","insertTextFormat": 1,"kind": 2,"label": "f","sortText": ""},{"deprecated": false,"detail": "public static func f(a: Int64): Int64","documentation": "","filterText": "f","insertText": "f(${1:a: Int64})","insertTextFormat": 2,"kind": 2,"label": "f(a: Int64)","sortText": ""}]}
