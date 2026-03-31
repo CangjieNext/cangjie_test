@@ -21,7 +21,7 @@ common struct A {
 }
 
 // SEPARATE-FILE: p/p.cj
-// ERRCHECK: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
+// ERRCHECK: %compiler %diag_json --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
 // ASSERT: scan sema_property_must_have_accessors
 package cmp
 

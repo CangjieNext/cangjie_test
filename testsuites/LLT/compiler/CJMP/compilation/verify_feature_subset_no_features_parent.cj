@@ -14,7 +14,7 @@ package cmp
 common func foo() { 1 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir p
+// EXEC-0: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir p
 features { child.feature }
 
 package cmp
@@ -28,7 +28,7 @@ package cmp2
 common func foo1() { 1 }
 
 // SEPARATE-FILE: p/p2.cj
-// EXEC-0: %compiler %noColor --experimental p/p2.cj c/cmp2.chir --common-part-cjo=./c/cmp2.cjo --import-path=./p/ --output-type=chir --output-dir p
+// EXEC-0: %compiler %noColor --experimental p/p2.cj --common-part-chir=c/cmp2.chir --common-part-cjo=./c/cmp2.cjo --import-path=./p/ --output-type=chir --output-dir p
 features { child.feature }
 package cmp2
 

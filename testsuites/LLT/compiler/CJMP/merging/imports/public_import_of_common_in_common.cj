@@ -32,13 +32,13 @@ public func f() {
 // ======================
 
 // SEPARATE-FILE: mp_p/p.cj
-// EXEC-0: %compiler %noColor --experimental mp_p/p.cj mp_c/c/mp.chir --common-part-cjo=./mp_c/c/mp.cjo --output-type=dylib
+// EXEC-0: %compiler %noColor --experimental mp_p/p.cj --common-part-chir=mp_c/c/mp.chir --common-part-cjo=./mp_c/c/mp.cjo --output-type=dylib
 package mp
 
 public specific class C {}
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
+// EXEC-0: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
 specific extend C {

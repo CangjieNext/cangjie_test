@@ -12,7 +12,7 @@ common sealed abstract class A { init(){} }
 common open class C<:A { public init() {} }
 
 // SEPARATE-FILE: p.cj
-// EXEC-0: %compiler %noColor --experimental p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output  2>&1 | compare %f
+// EXEC-0: %compiler %noColor --experimental p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output  2>&1 | compare %f
 package cmp
 
 specific sealed abstract class A {}

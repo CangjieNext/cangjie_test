@@ -14,7 +14,7 @@ package cmp
 common func foo() { 1 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir p 2>&1 | compare %f
 features { }
 
 package cmp
@@ -45,7 +45,7 @@ package cmp2
 common func foo() { 1 }
 
 // SEPARATE-FILE: p/p2.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p2.cj c/cmp2.chir --common-part-cjo=./c/cmp2.cjo --output-type=chir --output-dir p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p2.cj --common-part-chir=c/cmp2.chir --common-part-cjo=./c/cmp2.cjo --output-type=chir --output-dir p 2>&1 | compare %f
 package cmp2
 
 specific func foo() { 2 }

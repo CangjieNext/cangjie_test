@@ -21,7 +21,7 @@ public common var G1: Int64 = 1
 public common var G2: Int64 = A.X1 + 1
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
+// EXEC-0: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
 public specific var (G1, G2): (Int64, Int64) = (100, 200)

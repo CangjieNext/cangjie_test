@@ -14,7 +14,7 @@ public common func foo() {
 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
+// EXEC: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
 // NOTE: type of this function is `Unit -> Nothing`
