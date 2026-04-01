@@ -24,7 +24,7 @@ public let X: RGBColor = Red(1)
 public common let Y: RGBColor = X
 
 // SEPARATE-FILE: p/p1.cj
-// EXEC-0: %compiler %noColor --experimental p/p1.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
+// EXEC-0: %compiler %noColor --experimental p/p1.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
 public specific let Y: RGBColor = Blue(2)

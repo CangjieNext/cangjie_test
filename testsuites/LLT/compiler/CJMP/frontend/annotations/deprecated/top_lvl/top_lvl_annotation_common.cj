@@ -20,7 +20,7 @@ public common let glob: Bool
 
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-0: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
+// EXEC-PIPE-0: %compiler %diag_json --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
 public specific interface fofo {

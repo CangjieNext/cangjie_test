@@ -12,7 +12,7 @@ public common let Y: Int64 = 2
 public let X: Int64 = Y
 
 // SEPARATE-FILE: p/p1.cj
-// EXEC-0: %compiler %noColor --experimental p/p1.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
+// EXEC-0: %compiler %noColor --experimental p/p1.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
 public specific let Y: Int64 = 1

@@ -14,7 +14,7 @@ import std.unittest.testmacro.*
 @UnittestOption[Int](qwe)
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
 public func foo() {
@@ -36,7 +36,7 @@ error: undeclared identifier 'Configuration'
 */
 
 // SEPARATE-FILE: p/p1.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p1.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p1.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
 @UnittestOption[Int](zxc)

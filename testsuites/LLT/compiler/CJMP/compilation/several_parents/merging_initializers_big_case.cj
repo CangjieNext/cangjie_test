@@ -24,33 +24,33 @@ public let a = "a"
 public common let x = "x_a"
 
 // SEPARATE-FILE: b/b.cj
-// EXEC: %compiler %noColor --experimental b/b.cj a/cmp.chir --common-part-cjo=./a/cmp.cjo --output-type=chir --output-dir=b
+// EXEC: %compiler %noColor --experimental b/b.cj --common-part-chir=a/cmp.chir --common-part-cjo=./a/cmp.cjo --output-type=chir --output-dir=b
 package cmp
 
 public let b = "b"
 
 // SEPARATE-FILE: c/c.cj
-// EXEC: %compiler %noColor --experimental c/c.cj a/cmp.chir --common-part-cjo=./a/cmp.cjo --output-type=chir --output-dir=c
+// EXEC: %compiler %noColor --experimental c/c.cj --common-part-chir=a/cmp.chir --common-part-cjo=./a/cmp.cjo --output-type=chir --output-dir=c
 package cmp
 
 public let c = "c"
 public specific let x = "x_c"
 
 // SEPARATE-FILE: d/d.cj
-// EXEC: %compiler %noColor --experimental d/d.cj b/cmp.chir c/cmp.chir --common-part-cjo=b/cmp.cjo --common-part-cjo=c/cmp.cjo --output-type=chir --output-dir=d
+// EXEC: %compiler %noColor --experimental d/d.cj --common-part-chir=b/cmp.chir c/cmp.chir --common-part-cjo=b/cmp.cjo --common-part-cjo=c/cmp.cjo --output-type=chir --output-dir=d
 package cmp
 
 public let d = "d"
 
 // SEPARATE-FILE: e/e.cj
-// EXEC: %compiler %noColor --experimental e/e.cj a/cmp.chir --common-part-cjo=./a/cmp.cjo --output-type=chir --output-dir=e
+// EXEC: %compiler %noColor --experimental e/e.cj --common-part-chir=a/cmp.chir --common-part-cjo=./a/cmp.cjo --output-type=chir --output-dir=e
 package cmp
 
 public let e = "e"
 public common let z = "z_e"
 
 // SEPARATE-FILE: f/f.cj
-// EXEC: %compiler %noColor --experimental f/f.cj e/cmp.chir --common-part-cjo=./e/cmp.cjo --output-type=chir --output-dir=f
+// EXEC: %compiler %noColor --experimental f/f.cj --common-part-chir=e/cmp.chir --common-part-cjo=./e/cmp.cjo --output-type=chir --output-dir=f
 package cmp
 
 public let f = "f"
@@ -59,13 +59,13 @@ public common let y = "y_f"
 public specific let z = "z_f"
 
 // SEPARATE-FILE: g/g.cj
-// EXEC: %compiler %noColor --experimental g/g.cj e/cmp.chir --common-part-cjo=./e/cmp.cjo --output-type=chir --output-dir=g
+// EXEC: %compiler %noColor --experimental g/g.cj --common-part-chir=e/cmp.chir --common-part-cjo=./e/cmp.cjo --output-type=chir --output-dir=g
 package cmp
 
 public let g = "g"
 
 // SEPARATE-FILE: h/h.cj
-// EXEC: %compiler %noColor --experimental h/h.cj d/cmp.chir f/cmp.chir g/cmp.chir --common-part-cjo=d/cmp.cjo --common-part-cjo=f/cmp.cjo --common-part-cjo=g/cmp.cjo --output-type=dylib
+// EXEC: %compiler %noColor --experimental h/h.cj --common-part-chir=d/cmp.chir f/cmp.chir --common-part-chir=g/cmp.chir --common-part-cjo=d/cmp.cjo --common-part-cjo=f/cmp.cjo --common-part-cjo=g/cmp.cjo --output-type=dylib
 package cmp
 
 public let h = "h"

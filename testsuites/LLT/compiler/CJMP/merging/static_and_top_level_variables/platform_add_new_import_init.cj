@@ -22,7 +22,7 @@ func square(x: Int64): Int64 {
 public let gv: Int64 = square(2 + 3) 
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor -g --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --import-path=./p --output-type=dylib --output-dir ./p
+// EXEC-0: %compiler %noColor -g --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --import-path=./p --output-type=dylib --output-dir ./p
 package cmp
 
 import a.*

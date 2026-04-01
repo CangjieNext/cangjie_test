@@ -12,7 +12,7 @@ public common enum RGBColor<T> {
 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
+// EXEC-PIPE: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
 public specific enum RGBColor<F> {

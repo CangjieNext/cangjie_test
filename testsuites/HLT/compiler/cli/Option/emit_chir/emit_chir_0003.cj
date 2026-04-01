@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt --emit-chir=opt %f
-// EXEC: %mv default.chir default.a
+// EXEC: %mv --common-part-chir=default.chir default.a
 // EXEC: %chir-dis default.a
 
 main() {

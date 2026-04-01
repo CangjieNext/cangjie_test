@@ -25,7 +25,7 @@ common extend<T, G> Foo<T, G> <: Ioo<T, T> where T <: Ioo<G, G> {
 
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
+// EXEC-0: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
 specific extend<X, Y> Foo<X, Y> <: Ioo<X, X> where X <: Ioo<Y, Y> {
