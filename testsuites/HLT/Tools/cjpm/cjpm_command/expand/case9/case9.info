@@ -9,7 +9,6 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %compiler main.cj -o cjpm-test1.%suffix
-// (CJNATIVE and not Windows)EXEC-PIPE-1: cd %n && %export_expand && ./cjpm-test1.%suffix 333 test 2>&1 | compare %f
-// (not CJNATIVE) EXEC-PIPE-1: cd %n && %export_expand && cj ./cjpm-test1.cbc 333 test 2>&1 | compare %f
+// (not Windows)EXEC-PIPE-1: cd %n && %export_expand && ./cjpm-test1.%suffix 333 test 2>&1 | compare %f
 // (Windows)EXEC-PIPE-1: cd %n &&  set "PATH=%~dp0;%PATH%" && ./cjpm-test1.%suffix 333 test 2>&1 | compare %f
 // ASSERT: scan IndexOutOfBoundsException: index: 10, size: 2

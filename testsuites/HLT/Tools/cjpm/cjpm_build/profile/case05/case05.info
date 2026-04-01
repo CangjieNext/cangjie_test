@@ -8,9 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (CJNATIVE and not Windows and not MAC) EXEC-PIPE-1: cd %n && %cjpm build -V 2>&1 | compare %f
+// (not Windows and not MAC) EXEC-PIPE-1: cd %n && %cjpm build -V 2>&1 | compare %f
 // (Windows and not MAC) EXEC-PIPE-0: cd %n && %cjpm build -V 2>&1 | compare %f
-// (not CJNATIVE and not MAC) EXEC-PIPE-0: cd %n && %cjpm build -V 2>&1 | compare %f
-// (CJNATIVE and not Windows and not MAC) ASSERT: regex Error: the 'lto' field in ./cjpm.toml is wrong, optional value are 'thin/full'
-// (not CJNATIVE and not MAC) ASSERT: scan cjpm build success
+// (not Windows and not MAC) ASSERT: regex Error: the 'lto' field in ./cjpm.toml is wrong, optional value are 'thin/full'
 // (Windows and not MAC) ASSERT: scan cjpm build success

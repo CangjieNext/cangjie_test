@@ -8,5 +8,5 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (CJNATIVE and not MAC) EXEC: cd %n && %cjpm build --target=x86_64-w64-mingw32
-// (CJNATIVE and not MAC) ASSERT: scan cjpm build success
+// (not MAC) EXEC: cd %n && %cjpm build --target=x86_64-w64-mingw32
+// (not MAC) ASSERT: scan cjpm build success

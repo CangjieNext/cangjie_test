@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 0
-// (not CJNATIVE) ERRCHECK: %compiler %cmp_opt %f -o %output
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
+
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 public interface A {
     mut func test<T>(x: T): T {

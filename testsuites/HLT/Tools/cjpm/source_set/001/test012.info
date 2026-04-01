@@ -8,5 +8,5 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../001
-// (CJNATIVE) EXEC: cd 001 && %cjpm test | compare %f
-// (CJNATIVE) ASSERT: scan cjpm test success
+// EXEC: cd 001 && %cjpm test | compare %f
+// ASSERT: scan cjpm test success

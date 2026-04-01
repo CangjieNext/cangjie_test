@@ -10,6 +10,5 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
 // ASSERT: scan cjpm build success
-// (not CJNATIVE or MAC or Windows)ASSERT: scan-1 -O2
 // (x86 and  not Windows)ASSERT: scan -O2 -O1
 // (arm and not Windows and not MAC )ASSERT: scan -O2 -O2

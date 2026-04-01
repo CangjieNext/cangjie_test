@@ -8,5 +8,5 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (CJNATIVE and Android) EXEC: cd %n && %cjpm build --target=aarch64-linux-android31
-// (CJNATIVE and Android) ASSERT: scan cjpm build success
+// (Android) EXEC: cd %n && %cjpm build --target=aarch64-linux-android31
+// (Android) ASSERT: scan cjpm build success

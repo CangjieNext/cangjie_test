@@ -16,7 +16,7 @@
 // ASSERT: regex-next .*"ConditionalCompilation": [0-9]+\.[0-9]+,
 // ASSERT: regex-next .*"ImportPackages": [0-9]+\.[0-9]+,
 // ASSERT: regex-next .*"MacroExpand": [0-9]+\.[0-9]+,
-// (CJNATIVE) ASSERT: regex-next .*"AST Diff": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"AST Diff": [0-9]+\.[0-9]+,
 // ASSERT: regex-next .*"Semantic": [0-9]+\.[0-9]+,
 // ASSERT: regex-next .*"Desugar after Sema": [0-9]+\.[0-9]+,
 // ASSERT: regex-next .*"Generic Instantiation": [0-9]+\.[0-9]+,
@@ -25,9 +25,8 @@
 // ASSERT: regex-next .*"Save cjo": [0-9]+\.[0-9]+,
 // ASSERT: regex-next .*"CHIR": [0-9]+\.[0-9]+,
 // ASSERT: regex-next .*"CodeGen": [0-9]+\.[0-9]+,
-// (CJNATIVE) ASSERT: regex-next .*"Execute opt": [0-9]+\.[0-9]+,
-// (CJNATIVE) ASSERT: regex-next .*"Execute llc": [0-9]+\.[0-9]+,
-// (not CJNATIVE) ASSERT: regex-next .*"Execute jc": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"Execute opt": [0-9]+\.[0-9]+,
+// ASSERT: regex-next .*"Execute llc": [0-9]+\.[0-9]+,
 
 interface I1 {
 }

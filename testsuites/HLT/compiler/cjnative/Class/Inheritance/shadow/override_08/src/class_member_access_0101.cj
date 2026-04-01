@@ -20,5 +20,4 @@ class Data <: Base {
 main(): Int64 {
     return 0
 }
-// (not CJNATIVE) ASSERT: scan sema_invalid_access_control
-// (CJNATIVE) ASSERT: scan sema_undeclared_identifier
+// ASSERT: scan sema_undeclared_identifier

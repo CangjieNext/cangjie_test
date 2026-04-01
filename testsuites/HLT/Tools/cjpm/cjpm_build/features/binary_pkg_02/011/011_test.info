@@ -10,12 +10,8 @@
 // DEPENDENCE: ../011
 // EXEC: cd 011/pro1 && mkdir -p target/pro1
 // EXEC: %export CANGJIE_PATH=011/pro1/target/pro1/:$CANGJIE_PATH
-// (CJNATIVE) EXEC: %compiler --import-path 011/pro1/target -p "011/pro1/src/zoo" --module-name pro1 %compile_lib_opt -o 011/pro1/target/pro1/libpro1.xoo.a
-// (CJNATIVE) EXEC: %compiler --import-path 011/pro1/target -p "011/pro1/src/yoo" --module-name pro1 %compile_lib_opt -o 011/pro1/target/pro1/libpro1.zoo.a
-// (CJNATIVE) EXEC: %compiler --import-path 011/pro1/target -p "011/pro1/src/xoo" --module-name pro1 %compile_lib_opt -o 011/pro1/target/pro1/libpro1.yoo.a
-
-// (not CJNATIVE) EXEC: %compiler --import-path 011/pro1/target -p "011/pro1/src/zoo" --module-name pro1 --output-type=cbclib -o 011/pro1/target/pro1/pro1.xoo.cbc
-// (not CJNATIVE) EXEC: %compiler --import-path 011/pro1/target -p "011/pro1/src/yoo" 011/pro1/target/pro1/pro1.xoo.pdba --module-name pro1 --output-type=cbclib -o 011/pro1/target/pro1/pro1.zoo.cbc
-// (not CJNATIVE) EXEC: %compiler --import-path 011/pro1/target -p "011/pro1/src/xoo" 011/pro1/target/pro1/pro1.xoo.pdba 011/pro1/target/pro1/pro1.zoo.pdba --module-name pro1 --output-type=cbclib -o 011/pro1/target/pro1/pro1.yoo.cbc
+// EXEC: %compiler --import-path 011/pro1/target -p "011/pro1/src/zoo" --module-name pro1 %compile_lib_opt -o 011/pro1/target/pro1/libpro1.xoo.a
+// EXEC: %compiler --import-path 011/pro1/target -p "011/pro1/src/yoo" --module-name pro1 %compile_lib_opt -o 011/pro1/target/pro1/libpro1.zoo.a
+// EXEC: %compiler --import-path 011/pro1/target -p "011/pro1/src/xoo" --module-name pro1 %compile_lib_opt -o 011/pro1/target/pro1/libpro1.yoo.a
 
 // EXEC: cd 011/ && %cjpm build && %cjpm test 2>&1 | compare test_result.txt

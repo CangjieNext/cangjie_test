@@ -9,7 +9,7 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
-// (not CJNATIVE) RUN-EXEC-PIPE: export JETVMPROP=-Djet.cj.use.fibers && %run %run_opt %output %run_args 2>&1 | compare %f
+
 // ASSERT: scan num = 5\n
 
 var result = 0..10

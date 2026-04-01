@@ -12,8 +12,6 @@
 // (arm and  not MAC)EXEC: cd %n && %cjpm build -j1 -g -V 2>&1 | compare %f
 // (arm and  not MAC)ASSERT: scan cjpm build success
 // (arm and  not MAC)ASSERT: scan -O2
-// (arm and not CJNATIVE) ERRCHECK: cd %n && %cjpm build -j1 -V
-// (arm and not CJNATIVE) ASSERT: scan cjpm build failed
 
 // (not arm or MAC)ERRCHECK: cd %n && %cjpm build -j1 -V
 // (not arm or MAC)ASSERT: scan Error: cjpm build failed
