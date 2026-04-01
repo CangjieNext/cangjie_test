@@ -297,4 +297,80 @@ class UnicodeRuneTest {
         @Expect(r"\u{0069}".toUpperCase(op), r"\u{0130}")
         @Expect(r"\u{0049}".toUpperCase(op), r"\u{0049}")
     }
+
+    @TestCase
+    func caseConversionWithLargeOffset(): Unit {
+        @Expect(r"\u{025C}".toUpperCase(), r"\u{A7AB}")
+        @Expect(r"\u{0261}".toUpperCase(), r"\u{A7AC}")
+        @Expect(r"\u{0265}".toUpperCase(), r"\u{A78D}")
+        @Expect(r"\u{023A}".toLowerCase(), r"\u{2C65}")
+        @Expect(r"\u{13A0}".toLowerCase(), r"\u{AB70}")
+        @Expect(r"\u{10A0}".toLowerCase(), r"\u{2D00}")
+        @Expect(r"\u{1C88}".toUpperCase(), r"\u{A64A}")
+        @Expect(r"\u{1D79}".toUpperCase(), r"\u{A77D}")
+    }
+
+    @TestCase
+    func specialUnicodeCaseConversionNoPanic(): Unit {
+        @Expect(Rune(0x00DF).toUpperCase(), Rune(0x00DF))
+        @Expect(Rune(0x00DF).toTitleCase(), Rune(0x00DF))
+        @Expect(Rune(0xFB01).toUpperCase(), Rune(0xFB01))
+        @Expect(Rune(0xFB01).toTitleCase(), Rune(0xFB01))
+        @Expect(Rune(0x1F80).toUpperCase(), Rune(0x1F80))
+        @Expect(Rune(0x1F80).toTitleCase(), Rune(0x1F88))
+        @Expect(Rune(0x1FBC).toLowerCase(), Rune(0x1FB3))
+        @Expect(Rune(0x1FBC).toTitleCase(), Rune(0x1FBC))
+    }
+
+    @TestCase
+    func lithuaniaSpecialCaseConversionNoPanic(): Unit {
+        @Expect(Rune(0x0049).toLowerCase(CasingOption.LT), Rune(0x0069))
+        @Expect(Rune(0x004A).toLowerCase(CasingOption.LT), Rune(0x006A))
+        @Expect(Rune(0x012E).toLowerCase(CasingOption.LT), Rune(0x012F))
+        @Expect(Rune(0x00CC).toLowerCase(CasingOption.LT), Rune(0x00EC))
+        @Expect(Rune(0x00CD).toLowerCase(CasingOption.LT), Rune(0x00ED))
+        @Expect(Rune(0x0128).toLowerCase(CasingOption.LT), Rune(0x0129))
+    }
+
+    @TestCase
+    func unicode14CaseMapping(): Unit {
+        @Expect(Rune(0xA7B8).toLowerCase(), Rune(0xA7B9))
+        @Expect(Rune(0xA7B9).toUpperCase(), Rune(0xA7B8))
+        @Expect(Rune(0xA7B9).toTitleCase(), Rune(0xA7B8))
+        @Expect(Rune(0xA7BA).toLowerCase(), Rune(0xA7BB))
+        @Expect(Rune(0xA7BB).toUpperCase(), Rune(0xA7BA))
+        @Expect(Rune(0xA7BB).toTitleCase(), Rune(0xA7BA))
+        @Expect(Rune(0xA7BC).toLowerCase(), Rune(0xA7BD))
+        @Expect(Rune(0xA7BD).toUpperCase(), Rune(0xA7BC))
+        @Expect(Rune(0xA7BD).toTitleCase(), Rune(0xA7BC))
+        @Expect(Rune(0xA7BE).toLowerCase(), Rune(0xA7BF))
+        @Expect(Rune(0xA7BF).toUpperCase(), Rune(0xA7BE))
+        @Expect(Rune(0xA7BF).toTitleCase(), Rune(0xA7BE))
+        @Expect(Rune(0xA7C0).toLowerCase(), Rune(0xA7C1))
+        @Expect(Rune(0xA7C1).toUpperCase(), Rune(0xA7C0))
+        @Expect(Rune(0xA7C1).toTitleCase(), Rune(0xA7C0))
+        @Expect(Rune(0xA7C2).toLowerCase(), Rune(0xA7C3))
+        @Expect(Rune(0xA7C3).toUpperCase(), Rune(0xA7C2))
+        @Expect(Rune(0xA7C3).toTitleCase(), Rune(0xA7C2))
+    }
+
+    @TestCase
+    func unicode14SpecialCaseMapping(): Unit {
+        @Expect(Rune(0xA7C4).toLowerCase(), Rune(0xA794))
+        @Expect(Rune(0xA7C4).toTitleCase(), Rune(0xA7C4))
+        @Expect(Rune(0xA7C5).toLowerCase(), Rune(0x0282))
+        @Expect(Rune(0xA7C5).toTitleCase(), Rune(0xA7C5))
+        @Expect(Rune(0xA7C6).toLowerCase(), Rune(0x1D8E))
+        @Expect(Rune(0xA7C6).toTitleCase(), Rune(0xA7C6))
+    }
+
+    @TestCase
+    func unicode15CaseMapping(): Unit {
+        @Expect(Rune(0xA7C7).toLowerCase(), Rune(0xA7C8))
+        @Expect(Rune(0xA7C8).toUpperCase(), Rune(0xA7C7))
+        @Expect(Rune(0xA7C8).toTitleCase(), Rune(0xA7C7))
+        @Expect(Rune(0xA7C9).toLowerCase(), Rune(0xA7CA))
+        @Expect(Rune(0xA7CA).toUpperCase(), Rune(0xA7C9))
+        @Expect(Rune(0xA7CA).toTitleCase(), Rune(0xA7C9))
+    }
 }

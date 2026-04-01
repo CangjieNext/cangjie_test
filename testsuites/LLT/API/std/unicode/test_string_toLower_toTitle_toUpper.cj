@@ -250,9 +250,9 @@ let Sigma_Case_Lower: Array<String> = [
 let CasingOptionOfAll: Array<CasingOption> = [CasingOption.TR, CasingOption.AZ, CasingOption.LT, CasingOption.Other]
 let LithuaniaSpecialCharacters = HashMap<UInt32, Array<UInt32>>(
     [
-        (0x0049, [0x0069, 0x0307]),
-        (0x004A, [0x006A, 0x0307]),
-        (0x012E, [0x012F, 0x0307]),
+        (0x0049, [0x0069]),
+        (0x004A, [0x006A]),
+        (0x012E, [0x012F]),
         (0x00CC, [0x0069, 0x0307, 0x0300]),
         (0x00CD, [0x0069, 0x0307, 0x0301]),
         (0x0128, [0x0069, 0x0307, 0x0303])
@@ -420,7 +420,7 @@ class UnicodeStringTest {
     @TestCase
     func toUpperTitleAndLowerWithAZTR(): Unit {
         var op = CasingOption.TR
-        @Expect("\u{0130}".toLower(op), "\u{0069}\u{0307}")
+        @Expect("\u{0130}".toLower(op), "\u{0069}")
         @Expect("\u{0049}".toLower(op), "\u{0131}")
         @Expect("\u{0049}\u{0307}".toLower(op), "\u{0069}")
 
@@ -433,7 +433,7 @@ class UnicodeStringTest {
         @Expect("\u{0069}".toTitle(op), "\u{0130}")
 
         op = CasingOption.AZ
-        @Expect("\u{0130}".toLower(op), "\u{0069}\u{0307}")
+        @Expect("\u{0130}".toLower(op), "\u{0069}")
         @Expect("\u{0049}".toLower(op), "\u{0131}")
         @Expect("\u{0049}\u{0307}".toLower(op), "\u{0069}")
 
@@ -444,5 +444,173 @@ class UnicodeStringTest {
         @Expect("\u{0130}".toTitle(op), "\u{0130}")
         @Expect("\u{0049}".toTitle(op), "\u{0049}")
         @Expect("\u{0069}".toTitle(op), "\u{0130}")
+    }
+
+    @TestCase
+    func greekSigmaWithGreekExtended(): Unit {
+        // HIGH-01b: sigma 后跟希腊扩展块字母
+        // 希腊扩展块字母是希腊字母，所以 Σ 后跟希腊扩展块应该转换为 σ
+        @Expect("Σἀ".toLower(), "σἀ")
+        @Expect("Σἁ".toLower(), "σἁ")
+        @Expect("Σἂ".toLower(), "σἂ")
+        // σ 和 ς 保持不变
+        @Expect("σἀ".toLower(), "σἀ")
+        @Expect("σἁ".toLower(), "σἁ")
+        @Expect("σἂ".toLower(), "σἂ")
+    }
+
+    @TestCase
+    func greekSigmaPrecedingLetter(): Unit {
+        // HIGH-01c: sigma 前面有字母字符时
+        // Σ 后面没有希腊字母（字符串末尾），所以应该转换为 ς
+        @Expect("αΣ".toLower(), "ας")
+        @Expect("βΣ".toLower(), "βς")
+        @Expect("γΣ".toLower(), "γς")
+        // σ 和 ς 保持不变
+        @Expect("ασ".toLower(), "ασ")
+        @Expect("βσ".toLower(), "βσ")
+        @Expect("γσ".toLower(), "γσ")
+    }
+
+    @TestCase
+    func greekSigmaContextRules(): Unit {
+        // 综合测试：sigma 上下文规则
+        // sigma 后面有希腊字母 → σ
+        @Expect("σα".toLower(), "σα")
+        @Expect("σβ".toLower(), "σβ")
+        @Expect("Σα".toLower(), "σα")
+        @Expect("Σβ".toLower(), "σβ")
+        
+        // sigma 在字符串末尾且前面有 cased 字母 → ς，否则 → σ
+        @Expect("Σ".toLower(), "σ")
+        // σ 和 ς 保持不变
+        @Expect("σ".toLower(), "σ")
+        @Expect("ς".toLower(), "ς")
+        
+        // sigma 后面有非希腊字符 → σ（前面无 cased 字母时不使用 final sigma）
+        @Expect("Σa".toLower(), "σa")
+        @Expect("Σ1".toLower(), "σ1")
+        // σ 和 ς 保持不变
+        @Expect("σa".toLower(), "σa")
+        @Expect("σ1".toLower(), "σ1")
+        
+        // sigma 后面有标点符号 → σ（前面无 cased 字母时不使用 final sigma）
+        @Expect("Σ.".toLower(), "σ.")
+        @Expect("Σ,".toLower(), "σ,")
+        // σ 和 ς 保持不变
+        @Expect("σ.".toLower(), "σ.")
+        @Expect("σ,".toLower(), "σ,")
+        
+        // σσ 和 ςς 保持不变
+        @Expect("σσ".toLower(), "σσ")
+        @Expect("ςς".toLower(), "ςς")
+    }
+    
+    @TestCase
+    func greekSigmaWithCombiningMarksAndGreekExtended(): Unit {
+        // 组合测试：组合标记 + 希腊扩展块
+        // Σ 后面有希腊扩展块字母 → σ（跳过组合标记）
+        @Expect("Σ\u{0301}ἀ".toLower(), "σ\u{0301}ἀ")
+        // Σ 后面只有组合标记 → σ（无 cased 前缀字母，不使用 final sigma）
+        @Expect("Σ\u{0301}".toLower(), "σ\u{0301}")
+        @Expect("αΣ\u{0301}".toLower(), "ας\u{0301}")
+        // σ 和 ς 保持不变
+        @Expect("σ\u{0301}".toLower(), "σ\u{0301}")
+        @Expect("ασ\u{0301}".toLower(), "ασ\u{0301}")
+    }
+
+    @TestCase
+    func turkishIDotWithCombiningMarks(): Unit {
+        // MEDIUM-02a: 土耳其语 I-dot 处理需要跳过中间的组合标记
+        // I 后面跟着组合标记再跟 U+0307 (DOT ABOVE) 应该跳过组合标记找到 DOT ABOVE
+        var op = CasingOption.TR
+        // I + 组合标记 + DOT ABOVE → i（跳过组合标记找到 DOT ABOVE，跳过所有相关字符）
+        @Expect("\u{0049}\u{0301}\u{0307}".toLower(op), "\u{0069}\u{0301}")
+        @Expect("\u{0049}\u{0300}\u{0307}".toLower(op), "\u{0069}\u{0300}")
+        @Expect("\u{0049}\u{0302}\u{0307}".toLower(op), "\u{0069}\u{0302}")
+        // I + 组合标记（无 DOT ABOVE）→ ı（跳过组合标记，没找到 DOT ABOVE）
+        @Expect("\u{0049}\u{0301}".toLower(op), "\u{0131}\u{0301}")
+        @Expect("\u{0049}\u{0300}".toLower(op), "\u{0131}\u{0300}")
+        // I + DOT ABOVE → i（原有行为，确保不破坏）
+        @Expect("\u{0049}\u{0307}".toLower(op), "\u{0069}")
+        // I 无 DOT ABOVE → ı（原有行为，确保不破坏）
+        @Expect("\u{0049}".toLower(op), "\u{0131}")
+
+        op = CasingOption.AZ
+        // 阿塞拜疆语同样规则
+        @Expect("\u{0049}\u{0301}\u{0307}".toLower(op), "\u{0069}\u{0301}")
+        @Expect("\u{0049}\u{0300}\u{0307}".toLower(op), "\u{0069}\u{0300}")
+        @Expect("\u{0049}\u{0301}".toLower(op), "\u{0131}\u{0301}")
+        @Expect("\u{0049}\u{0307}".toLower(op), "\u{0069}")
+        @Expect("\u{0049}".toLower(op), "\u{0131}")
+    }
+
+    @TestCase
+    func turkishIDotWithNonCombiningChars(): Unit {
+        let s = "Iז̇"
+        @Expect(s, "Iז̇")
+        @Expect(s.toArray().toString(), "[73, 215, 150, 204, 135]")
+        @Expect(s.toLower(), "iז̇")
+        @Expect(s.toLower(CasingOption.TR), "ıז̇")
+        @Expect("ıז̇", "ıז̇")
+        @Expect("iז", "iז")
+    }
+
+    @TestCase
+    func specialUnicodeCaseConversionNoPanic(): Unit {
+        // HIGH-03: 验证 SPECIAL_UNICODE_MAP 查找不会 panic
+        // 测试特殊 Unicode 字符的大小写转换
+        // ß (0x00DF) -> toUpper: "SS", toTitle: "Ss"
+        @Expect(Rune(0x00DF).toString().toUpper(), "SS")
+        @Expect(Rune(0x00DF).toString().toTitle(), "Ss")
+        // ﬁ (0xFB01) -> toUpper: "FI", toTitle: "Fi"
+        @Expect(Rune(0xFB01).toString().toUpper(), "FI")
+        @Expect(Rune(0xFB01).toString().toTitle(), "Fi")
+        // ᾀ (0x1F80) -> toUpper: "ἈΙ", toTitle: "ᾈ" (0x1F88)
+        @Expect(Rune(0x1F80).toString().toUpper(), "\u{1F08}\u{0399}")
+        @Expect(Rune(0x1F80).toString().toTitle(), "\u{1F88}")
+        @Expect(Rune(0x1FBC).toString().toLower(), Rune(0x1FB3).toString())
+        @Expect(Rune(0x1FBC).toString().toTitle(), Rune(0x1FBC).toString())
+    }
+
+    @TestCase
+    func lithuaniaSpecialCaseConversionNoPanic(): Unit {
+        // HIGH-03: 验证 LITHUANIA_SPECIAL_RUNE 查找不会 panic
+        // 测试立陶宛语特殊字符的大小写转换
+        // 立陶宛语规则：I/J/Į 需要 More_Above 条件才添加 dot above，独立字符返回普通小写
+        @Expect(Rune(0x0049).toString().toLower(CasingOption.LT), "\u{0069}")
+        @Expect(Rune(0x004A).toString().toLower(CasingOption.LT), "\u{006A}")
+        @Expect(Rune(0x012E).toString().toLower(CasingOption.LT), "\u{012F}")
+        // Ì/Í/ĩ 有无条件的 lt 映射，始终添加 dot above
+        @Expect(Rune(0x00CC).toString().toLower(CasingOption.LT), "\u{0069}\u{0307}\u{0300}")
+        @Expect(Rune(0x00CD).toString().toLower(CasingOption.LT), "\u{0069}\u{0307}\u{0301}")
+        @Expect(Rune(0x0128).toString().toLower(CasingOption.LT), "\u{0069}\u{0307}\u{0303}")
+    }
+
+    @TestCase
+    func toLowerShouldKeepStandaloneSigmaAsStandardSigma(): Unit {
+        assertEqual("\"σ\"", "\"Σ\".toLower()", "σ", "Σ".toLower())
+    }
+
+    @TestCase
+    func toLowerShouldUseFinalSigmaAtEndOfGreekWord(): Unit {
+        assertEqual("\"ος\"", "\"ΟΣ\".toLower()", "ος", "ΟΣ".toLower())
+    }
+
+    @TestCase
+    func toLowerShouldNotUseFinalSigmaWithoutCasedPrefix(): Unit {
+        assertEqual("\" σ\"", "\" Σ\".toLower()", " σ", " Σ".toLower())
+    }
+
+    @TestCase
+    func toLowerShouldSkipDotAboveForTurkishLocale(): Unit {
+        assertEqual("\"i\"", "\"İ\".toLower(CasingOption.TR)", "i", "İ".toLower(CasingOption.TR))
+        assertEqual("\"ı\"", "\"I\".toLower(CasingOption.TR)", "ı", "I".toLower(CasingOption.TR))
+    }
+
+    @TestCase
+    func toLowerShouldPreserveLithuanianDotAboveRules(): Unit {
+        assertEqual("\"i\"", "\"I\".toLower(CasingOption.LT)", "i", "I".toLower(CasingOption.LT))
+        assertEqual("\"i̇̀\"", "\"Ì\".toLower(CasingOption.LT)", "i̇̀", "Ì".toLower(CasingOption.LT))
     }
 }
