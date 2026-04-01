@@ -49,7 +49,7 @@ let x9 = x8
 public let x10 = x9
 
 // SEPARATE-FILE: p/p_invalid.cj
-// (CJNATIVE and Linux)EXEC-PIPE-1: %compiler %noColor --experimental p/p_invalid.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// (CJNATIVE and Linux)EXEC-PIPE-1: %compiler %noColor --experimental p/p_invalid.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 
 // Circular dependency must be detected: c1 <-> x10.
@@ -65,7 +65,7 @@ error: p_invalid.cj and c.cj might have file circular dependency
 
 
 // SEPARATE-FILE: p/p_valid.cj
-// EXEC-0: %compiler %noColor --experimental p/p_valid.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
+// EXEC-0: %compiler %noColor --experimental p/p_valid.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
 // This one is valid

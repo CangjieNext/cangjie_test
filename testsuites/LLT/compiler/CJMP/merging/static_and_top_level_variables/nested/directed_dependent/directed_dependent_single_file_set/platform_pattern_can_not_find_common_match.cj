@@ -9,7 +9,7 @@
 package cmp
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
 public specific let (X1, X2): (Int64, Int64) = (1, 2)

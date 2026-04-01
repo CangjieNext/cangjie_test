@@ -15,7 +15,7 @@ public let f1 = { =>println(a+b+3)}
 
 public common let f2: () -> Unit = { => println("hello f2")}
 // SEPARATE-FILE: p/p.cj
-// EXEC-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-1: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 public specific let a:Int64=2
 

@@ -13,7 +13,7 @@ public func f(): UInt16 {
 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental --common-part-cjo=c/cmp.cjo c/cmp.chir p/p.cj --output-type=dylib
+// EXEC-0: %compiler %noColor --experimental --common-part-cjo=c/cmp.cjo --common-part-chir=c/cmp.chir p/p.cj --output-type=dylib
 package cmp
  
 // SEPARATE-FILE: m_platform.cj

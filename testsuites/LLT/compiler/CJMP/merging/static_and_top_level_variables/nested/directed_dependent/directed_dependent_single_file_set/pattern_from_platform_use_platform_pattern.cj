@@ -13,7 +13,7 @@ public common let Y1: Int64 = 3
 public common let Y2: Int64 = 4
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
+// EXEC-0: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
 public specific let (Y1, Y2): (Int64, Int64) = (X1, X2)

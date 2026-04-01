@@ -13,7 +13,7 @@ common func foo<M, N>(m:M, n:N):Unit where M <: Hashable
 
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 
 specific func foo<T>(x:T):Unit {}

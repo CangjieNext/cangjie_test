@@ -7,7 +7,7 @@
  */
  
 // LEVEL: 0
-// ERRCHECK: %compiler %cmp_opt %f test.chir -o %output
+// ERRCHECK: %compiler %cmp_opt %f --common-part-chir=test.chir -o %output
 // ASSERT: scan No such file or directory: 'test.chir'.
 
 main() {

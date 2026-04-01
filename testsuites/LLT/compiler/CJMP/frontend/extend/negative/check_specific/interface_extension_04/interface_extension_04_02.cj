@@ -25,7 +25,7 @@ common public func int64Foo():Unit {
 
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 // ASSERT: scan error: a deriving member must be at least as visible as its base member
 package cmp
 

@@ -13,7 +13,7 @@ public common class A {
 }
 
 // SEPARATE-FILE: p.cj
-// EXEC-0: %compiler %noColor --experimental p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
+// EXEC-0: %compiler %noColor --experimental p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
 // RUN-EXEC-PIPE-0:  %run %output
 package cmp
 

@@ -15,7 +15,7 @@ public common struct A {
     init() {}
 }
 // SEPARATE-FILE: p/p.cj
-// ERRCHECK: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
+// ERRCHECK: %compiler %diag_json --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib  --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan sema_property_have_same_declaration_in_inherit_immut
 package cmp
 public specific struct A{

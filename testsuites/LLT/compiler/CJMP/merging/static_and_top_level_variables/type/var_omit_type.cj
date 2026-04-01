@@ -15,7 +15,7 @@ common class A {
     public init() {}
 }
 // SEPARATE-FILE: p.cj
-// EXEC-0: %compiler %noColor --experimental p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
+// EXEC-0: %compiler %noColor --experimental p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
 // EXEC-PIPE:%run %output 2>&1 | compare %f
 
 package cmp
