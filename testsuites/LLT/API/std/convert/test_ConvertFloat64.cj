@@ -25,6 +25,16 @@ class ConvertFloat64Test {
     }
 
     @TestCase
+    func parseWithTrailingSpacesOver17Digits(): Unit {
+        @Expect(Float64.parse("123456789012345678 "), 123456789012345678.0)
+        @Expect(Float64.parse(" 123456789012345678"), 123456789012345678.0)
+        @Expect(Float64.parse(" 123456789012345678 "), 123456789012345678.0)
+        @Expect(Float64.parse("123456789012345678.9 "), 123456789012345678.9)
+        @Expect(Float64.parse(" 123456789012345678.9"), 123456789012345678.9)
+        @Expect(Float64.parse(" 123456789012345678.9 "), 123456789012345678.9)
+    }
+
+    @TestCase
     func parseException(): Unit {
         let testVars: Array<(String, String)> = [("", "The string is empty."),
             ("0xP", "The string does not comply with the floating point number syntax."),

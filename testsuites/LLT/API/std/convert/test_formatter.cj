@@ -535,4 +535,40 @@ class FormatterTest {
         }
         @Expect(false)
     }
+
+    @TestCase
+    func inputValidInt64LargePrecision(): Unit {
+        var caseItem: Int64 = 1
+        var result = caseItem.format(".400")
+        @Expect(result.size, 400)
+        @Expect(result.startsWith("000"), true)
+        @Expect(result.endsWith("001"), true)
+    }
+
+    @TestCase
+    func inputValidUInt64LargePrecision(): Unit {
+        var caseItem: UInt64 = 1
+        var result = caseItem.format(".400")
+        @Expect(result.size, 400)
+        @Expect(result.startsWith("000"), true)
+        @Expect(result.endsWith("001"), true)
+    }
+
+    @TestCase
+    func inputValidInt32LargePrecision(): Unit {
+        var caseItem: Int32 = 123
+        var result = caseItem.format(".500")
+        @Expect(result.size, 500)
+        @Expect(result.startsWith("000"), true)
+        @Expect(result.endsWith("123"), true)
+    }
+
+    @TestCase
+    func inputValidUInt32LargePrecision(): Unit {
+        var caseItem: UInt32 = 456
+        var result = caseItem.format(".600")
+        @Expect(result.size, 600)
+        @Expect(result.startsWith("000"), true)
+        @Expect(result.endsWith("456"), true)
+    }
 }
