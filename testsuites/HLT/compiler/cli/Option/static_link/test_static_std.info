@@ -16,7 +16,7 @@
 // libboundscheck
 // (target_linux) ASSERT: scan libboundscheck.so
 // (target_mac) ASSERT: scan @rpath/libboundscheck.dylib
-// (target_win) ASSERT: scan-not libboundscheck.dll
+// (target_win) ASSERT: scan libboundscheck.dll
 
 // dynamic loader for openssl.
 // (target_linux) ASSERT: scan-not libcangjie-dynamicLoader-opensslFFI.so
@@ -26,7 +26,7 @@
 
 // Windows平台上必带有的动态库
 // (target_win) ASSERT: scan msvcrt.dll
-// (target_win) ASSERT: scan KERNEL32.dll
+// (target_win) ASSERT: scan KERNEL32.DLL
 
 // Mac平台上必带有的动态库
 // (target_mac) ASSERT: scan libSystem.B.dylib

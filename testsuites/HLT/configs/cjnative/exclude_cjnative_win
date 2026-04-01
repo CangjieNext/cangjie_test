@@ -417,11 +417,3 @@ compiler/cjnative/FFI/objcffi/glue_code
 
 # cjpm本地可以通过看板失败，需后面对其环境适配用例
 Tools/cjpm/source_set/007/cross001/cross001.info
-
-# https://gitcode.com/Cangjie/cangjie_test/issues/334
-API/openssl/dynamic_link_openssl.cj
-API/openssl/static_link_openssl_extract.cj
-API/openssl/static_link_openssl_no_extract.cj
-compiler/cli/Option/static_link/test_all_static.info
-compiler/cli/Option/static_link/test_dy_std.info
-compiler/cli/Option/static_link/test_static_std.info
