@@ -195,6 +195,46 @@ class RuneExtensionTest {
             caseException03 = e
         }
         anomalyAssert("testInvalidFromUtf8_03", caseException03, "Invalid unicode scalar value.")
+
+        // Test 5-byte UTF-8 sequence (0xF8 = 0b11111000) - should be rejected
+        var arr5Byte: Array<UInt8> = [0b11111000, 0b10000000, 0b10000000, 0b10000000, 0b10000000]
+        var caseException04: ?Exception = None
+        try {
+            Rune.fromUtf8(arr5Byte, 0)
+        } catch (e: IllegalArgumentException) {
+            caseException04 = e
+        }
+        anomalyAssert("testInvalidFromUtf8_5byte_0xF8", caseException04, "Invalid unicode scalar value.")
+
+        // Test 5-byte UTF-8 sequence (0xFB = 0b11111011) - should be rejected
+        var arr5Byte2: Array<UInt8> = [0b11111011, 0b10000000, 0b10000000, 0b10000000, 0b10000000]
+        var caseException05: ?Exception = None
+        try {
+            Rune.fromUtf8(arr5Byte2, 0)
+        } catch (e: IllegalArgumentException) {
+            caseException05 = e
+        }
+        anomalyAssert("testInvalidFromUtf8_5byte_0xFB", caseException05, "Invalid unicode scalar value.")
+
+        // Test 6-byte UTF-8 sequence (0xFC = 0b11111100) - should be rejected
+        var arr6Byte: Array<UInt8> = [0b11111100, 0b10000000, 0b10000000, 0b10000000, 0b10000000, 0b10000000]
+        var caseException06: ?Exception = None
+        try {
+            Rune.fromUtf8(arr6Byte, 0)
+        } catch (e: IllegalArgumentException) {
+            caseException06 = e
+        }
+        anomalyAssert("testInvalidFromUtf8_6byte_0xFC", caseException06, "Invalid unicode scalar value.")
+
+        // Test 6-byte UTF-8 sequence (0xFD = 0b11111101) - should be rejected
+        var arr6Byte2: Array<UInt8> = [0b11111101, 0b10000000, 0b10000000, 0b10000000, 0b10000000, 0b10000000]
+        var caseException07: ?Exception = None
+        try {
+            Rune.fromUtf8(arr6Byte2, 0)
+        } catch (e: IllegalArgumentException) {
+            caseException07 = e
+        }
+        anomalyAssert("testInvalidFromUtf8_6byte_0xFD", caseException07, "Invalid unicode scalar value.")
     }
 
     /*
@@ -256,6 +296,62 @@ class RuneExtensionTest {
             "testInvalidRuneExtension_01",
             caseException01,
             "Byte index 5 is not a Rune boundary, it is inside '￿'."
+        )
+
+        // Test 5-byte UTF-8 leading byte (0xF8 = 0b11111000)
+        var arr5Byte: Array<UInt8> = [0b11111000, 0b10000000, 0b10000000, 0b10000000, 0b10000000]
+        var caseException02: ?Exception = None
+        try {
+            Rune.utf8Size(arr5Byte, 0)
+        } catch (e: IllegalArgumentException) {
+            caseException02 = e
+        }
+        anomalyAssert(
+            "testInvalidUtf8Size_5byte_0xF8",
+            caseException02,
+            "Invalid UTF-8 character."
+        )
+
+        // Test 5-byte UTF-8 leading byte (0xFB = 0b11111011)
+        var arr5Byte2: Array<UInt8> = [0b11111011, 0b10000000, 0b10000000, 0b10000000, 0b10000000]
+        var caseException03: ?Exception = None
+        try {
+            Rune.utf8Size(arr5Byte2, 0)
+        } catch (e: IllegalArgumentException) {
+            caseException03 = e
+        }
+        anomalyAssert(
+            "testInvalidUtf8Size_5byte_0xFB",
+            caseException03,
+            "Invalid UTF-8 character."
+        )
+
+        // Test 6-byte UTF-8 leading byte (0xFC = 0b11111100)
+        var arr6Byte: Array<UInt8> = [0b11111100, 0b10000000, 0b10000000, 0b10000000, 0b10000000, 0b10000000]
+        var caseException04: ?Exception = None
+        try {
+            Rune.utf8Size(arr6Byte, 0)
+        } catch (e: IllegalArgumentException) {
+            caseException04 = e
+        }
+        anomalyAssert(
+            "testInvalidUtf8Size_6byte_0xFC",
+            caseException04,
+            "Invalid UTF-8 character."
+        )
+
+        // Test 6-byte UTF-8 leading byte (0xFD = 0b11111101)
+        var arr6Byte2: Array<UInt8> = [0b11111101, 0b10000000, 0b10000000, 0b10000000, 0b10000000, 0b10000000]
+        var caseException05: ?Exception = None
+        try {
+            Rune.utf8Size(arr6Byte2, 0)
+        } catch (e: IllegalArgumentException) {
+            caseException05 = e
+        }
+        anomalyAssert(
+            "testInvalidUtf8Size_6byte_0xFD",
+            caseException05,
+            "Invalid UTF-8 character."
         )
     }
 
