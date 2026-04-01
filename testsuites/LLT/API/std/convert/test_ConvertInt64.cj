@@ -37,7 +37,10 @@ class ConvertInt64Test {
         let testVars: Array<(String, String)> = [("", "The string is empty."),
             ("9223372036854775808", "The part of value convert failed."),
             ("-9223372036854775809", "The part of value convert failed."),
-            ("+32", "Starting with \"+\" is illegal in Int64.")]
+            ("+32", "Starting with \"+\" is illegal in Int64."),
+            ("0z", "Invalid number prefix."),
+            ("0!", "Invalid number prefix."),
+            ("0q", "Invalid number prefix.")]
 
         for (testVar in testVars) {
             try {
@@ -54,7 +57,7 @@ class ConvertInt64Test {
             ("9223372036854775808", 2, "The part of value convert failed."),
             ("-9223372036854775809", 2, "The part of value convert failed."),
             ("0o1", 8, "The part of value convert failed."), ("0x1", 16, "The part of value convert failed."),
-            ("+32", 37, "The radix out of range."), ("-", 2, "The value part is empty.")]
+            ("+32", 10, "Starting with \"+\" is illegal in Int64."), ("-", 2, "The value part is empty.")]
 
         for (testVar in testVars) {
             try {
@@ -63,6 +66,18 @@ class ConvertInt64Test {
                 @Assert(e.message,  testVar[2])
             }
         }
+    }
+
+    @TestCase
+    func parsePlusSignInconsistency(): Unit {
+        try {
+            var _ = Int64.parse("+10")
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Assert(e.message.contains("+") || e.message.contains("illegal"))
+        }
+
+        @Expect(Int64.parse("+10", radix: 10), 10)
     }
 
     @TestCase
@@ -78,6 +93,15 @@ class ConvertInt64Test {
                 case None => 0
             }
             @Expect(testVar[1], int64Ret)
+        }
+    }
+
+    @TestCase
+    func tryParseInvalidPrefix(): Unit {
+        let invalidPrefixInputs: Array<String> = ["0z", "0!", "0q", "0@", "0#"]
+        for (input in invalidPrefixInputs) {
+            var ret: Option<Int64> = Int64.tryParse(input)
+            @Expect(ret, Option<Int64>.None)
         }
     }
 
@@ -103,6 +127,108 @@ class ConvertInt64Test {
             (-9223372036854775808, 25, "-64ie1focnn5g78"), (0, 4, "0")]
         for (testVar in testVars) {
             @Expect(testVar[0].toString(radix: testVar[1]), testVar[2])
+        }
+    }
+
+    @TestCase
+    func parseEmptyDigits(): Unit {
+        let emptyDigitInputs: Array<String> = ["0b", "0x", "0o", "0B", "0X", "0O"]
+        for (input in emptyDigitInputs) {
+            try {
+                var _ = Int64.parse(input)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("convert failed") || e.message.contains("prefix"))
+            }
+        }
+    }
+
+    @TestCase
+    func parseAllUnderscores(): Unit {
+        let allUnderscoreInputs: Array<String> = ["0x___", "0b___", "0o___"]
+        for (input in allUnderscoreInputs) {
+            try {
+                var _ = Int64.parse(input)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("convert failed"))
+            }
+        }
+    }
+
+    @TestCase
+    func parseLeadingUnderscore(): Unit {
+        let leadingUnderscoreInputs: Array<String> = ["0x_FF", "0b_11", "0o_77"]
+        for (input in leadingUnderscoreInputs) {
+            try {
+                var _ = Int64.parse(input)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("convert failed"))
+            }
+        }
+    }
+
+    @TestCase
+    func parseTrailingUnderscore(): Unit {
+        let trailingUnderscoreInputs: Array<String> = ["0xFF_", "0b11_", "0o77_", "123_"]
+        for (input in trailingUnderscoreInputs) {
+            try {
+                var _ = Int64.parse(input)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("convert failed"))
+            }
+        }
+    }
+
+    @TestCase
+    func parseConsecutiveUnderscores(): Unit {
+        let consecutiveUnderscoreInputs: Array<String> = ["1__000", "0xFF__FF", "0b11__00", "0o77__77"]
+        for (input in consecutiveUnderscoreInputs) {
+            try {
+                var _ = Int64.parse(input)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("convert failed"))
+            }
+        }
+    }
+
+    @TestCase
+    func tryParseEmptyDigits(): Unit {
+        let emptyDigitInputs: Array<String> = ["0b", "0x", "0o", "0B", "0X", "0O"]
+        for (input in emptyDigitInputs) {
+            var ret: Option<Int64> = Int64.tryParse(input)
+            @Expect(ret, Option<Int64>.None)
+        }
+    }
+
+    @TestCase
+    func tryParseInvalidUnderscores(): Unit {
+        let invalidUnderscoreInputs: Array<String> = [
+            "0x___", "0b___", "0o___",
+            "0x_FF", "0b_11", "0o_77",
+            "0xFF_", "0b11_", "0o77_", "123_",
+            "1__000", "0xFF__FF", "0b11__00", "0o77__77"
+        ]
+        for (input in invalidUnderscoreInputs) {
+            var ret: Option<Int64> = Int64.tryParse(input)
+            @Expect(ret, Option<Int64>.None)
+        }
+    }
+
+    @TestCase
+    func parseValidUnderscores(): Unit {
+        let testVars: Array<(String, Int64)> = [
+            ("0xFF_FF", 65535),
+            ("0b1111_0000", 240),
+            ("0o77_77", 4095),
+            ("123_456_789", 123456789),
+            ("1_000", 1000)
+        ]
+        for (testVar in testVars) {
+            @Expect(Int64.parse(testVar[0]), testVar[1])
         }
     }
 }

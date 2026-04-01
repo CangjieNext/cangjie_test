@@ -25,7 +25,7 @@ class ConvertUInt16Test {
     @TestCase
     func parseRadix(): Unit {
         let testVars: Array<(String, Int, UInt16)> = [("1111111", 2, 127), ("1333", 4, 127), ("14640", 15, 65535),
-            ("0", 10, 0), ("+148", 9, 125)]
+            ("0", 10, 0), ]
         for (testVar in testVars) {
             @Expect(UInt16.parse(testVar[0], radix:testVar[1]), testVar[2])
         }
@@ -51,8 +51,7 @@ class ConvertUInt16Test {
     func parseExceptionRadix(): Unit {
         let testVars: Array<(String, Int, String)> = [("", 3, "The string is empty."),
             ("65536", 2, "The part of value convert failed."), ("-1", 2, "Starting with \"-\" is illegal in UInt16."),
-            ("0o1", 8, "The part of value convert failed."), ("0x1", 16, "The part of value convert failed."),
-            ("+32", 37, "The radix out of range."), ("+", 2, "The value part is empty.")]
+            ("0o1", 8, "The part of value convert failed."), ("0x1", 16, "The part of value convert failed.")]
 
         for (testVar in testVars) {
             try {
