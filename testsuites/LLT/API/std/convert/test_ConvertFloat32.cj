@@ -27,13 +27,36 @@ class ConvertFloat32Test {
     @TestCase
     func parseException(): Unit {
         let testVars: Array<(String, String)> = [("", "The string is empty."),
-            ("3.1 4", "The string does not comply with the floating point number syntax.")]
+            ("   ", "The string does not comply with the floating point number syntax."),
+            ("\t\t", "The string does not comply with the floating point number syntax."),
+            ("\n", "The string does not comply with the floating point number syntax."),
+            (" \t\n ", "The string does not comply with the floating point number syntax."),
+            ("3.1 4", "The string does not comply with the floating point number syntax."),
+            ("+", "The string does not comply with the floating point number syntax."),
+            ("-", "The string does not comply with the floating point number syntax."),
+            (".", "The string does not comply with the floating point number syntax."),
+            (" + ", "The string does not comply with the floating point number syntax."),
+            (" - ", "The string does not comply with the floating point number syntax."),
+            (" . ", "The string does not comply with the floating point number syntax.")]
 
         for (testVar in testVars) {
             try {
                 var _ = Float32.parse(testVar[0])
             } catch (e: IllegalArgumentException) {
                 @Assert(e.message, testVar[1])
+            }
+        }
+    }
+
+    @TestCase
+    func parseDoubleDecimalPoint(): Unit {
+        let doubleDecimalInputs: Array<String> = ["1.2.", "3.14.", "0.001.", "..", "1.2.3", "1..2", "1.2.3.4"]
+        for (input in doubleDecimalInputs) {
+            try {
+                var _ = Float32.parse(input)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("floating point") || e.message.contains("syntax"))
             }
         }
     }
@@ -52,6 +75,15 @@ class ConvertFloat32Test {
                 case None => 0.0
             }
             @Expect(testVar[1], float32Ret)
+        }
+    }
+
+    @TestCase
+    func tryParseWhitespace(): Unit {
+        let whitespaceInputs: Array<String> = ["   ", "\t\t", "\n", " \t\n ", "\r\n"]
+        for (input in whitespaceInputs) {
+            var ret: Option<Float32> = Float32.tryParse(input)
+            @Assert(ret.isNone())
         }
     }
 }

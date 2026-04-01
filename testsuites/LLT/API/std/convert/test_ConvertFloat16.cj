@@ -27,7 +27,17 @@ class ConvertFloat16Test {
     @TestCase
     func parseException(): Unit {
         let testVars: Array<(String, String)> = [("", "The string is empty."),
-            ("3.1 4", "The string does not comply with the floating point number syntax.")]
+            ("   ", "The string does not comply with the floating point number syntax."),
+            ("\t\t", "The string does not comply with the floating point number syntax."),
+            ("\n", "The string does not comply with the floating point number syntax."),
+            (" \t\n ", "The string does not comply with the floating point number syntax."),
+            ("3.1 4", "The string does not comply with the floating point number syntax."),
+            ("+", "The string does not comply with the floating point number syntax."),
+            ("-", "The string does not comply with the floating point number syntax."),
+            (".", "The string does not comply with the floating point number syntax."),
+            (" + ", "The string does not comply with the floating point number syntax."),
+            (" - ", "The string does not comply with the floating point number syntax."),
+            (" . ", "The string does not comply with the floating point number syntax.")]
 
         for (testVar in testVars) {
             try {
@@ -52,6 +62,15 @@ class ConvertFloat16Test {
                 case None => 0.0
             }
             @Expect(testVar[1], float16Ret)
+        }
+    }
+
+    @TestCase
+    func tryParseWhitespace(): Unit {
+        let whitespaceInputs: Array<String> = ["   ", "\t\t", "\n", " \t\n ", "\r\n"]
+        for (input in whitespaceInputs) {
+            var ret: Option<Float16> = Float16.tryParse(input)
+            @Assert(ret.isNone())
         }
     }
 }
