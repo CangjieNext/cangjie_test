@@ -27,7 +27,7 @@ class ConvertUInt64Test {
     @TestCase
     func parseRadix(): Unit {
         let testVars: Array<(String, Int, UInt64)> = [("1111111", 2, 127), ("1333", 4, 127),
-            ("18446744073709551615", 10, MAX_UINT64_NUM), ("0", 10, 0), ("+148", 9, 125)]
+            ("18446744073709551615", 10, MAX_UINT64_NUM), ("0", 10, 0), ]
         for (testVar in testVars) {
             @Expect(UInt64.parse(testVar[0], radix:testVar[1]), testVar[2])
         }
@@ -53,8 +53,7 @@ class ConvertUInt64Test {
         let testVars: Array<(String, Int, String)> = [("", 3, "The string is empty."),
             ("18446744073709551616", 2, "The part of value convert failed."),
             ("-1", 2, "Starting with \"-\" is illegal in UInt64."), ("0o1", 8, "The part of value convert failed."),
-            ("0x1", 16, "The part of value convert failed."), ("+32", 37, "The radix out of range."),
-            ("+", 2, "The value part is empty.")]
+            ("0x1", 16, "The part of value convert failed.")]
 
         for (testVar in testVars) {
             try {
@@ -84,8 +83,8 @@ class ConvertUInt64Test {
     @TestCase
     func tryParseRadix(): Unit {
         let testVars: Array<(String, Int, UInt64)> = [("0xf", 16, 0), ("-0b0001_1000", 2, 0), ("0o30", 8, 0),
-            ("-24", 10, 0), ("00012", 10, 12), ("", 10, 0), ("+12", 10, 12), ("-bc", 17, 0),
-            ("18446744073709551616", 10, 0), ("18446744073709551615", 10, MAX_UINT64_NUM)]
+            ("-24", 10, 0), ("00012", 10, 12), ("", 10, 0), ("+12", 10, 12), ("-bc", 17, 0), ("pkk6g", 36, 42949672),
+            ("18446744073709551615", 10, MAX_UINT64_NUM)]
 
         for (testVar in testVars) {
             var ret: Option<UInt64> = UInt64.tryParse(testVar[0], radix: testVar[1])

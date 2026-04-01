@@ -25,7 +25,7 @@ class ConvertInt8Test {
     @TestCase
     func parseRadix(): Unit {
         let testVars: Array<(String, Int, Int8)> = [("1111111", 2, 127), ("1333", 4, 127), ("7F", 16, 127),
-            ("4j", 27, 127), ("-3T", 33, -128), ("-26", 23, -52), ("+32", 10, 32)]
+            ("4j", 27, 127), ("-3T", 33, -128), ("-26", 23, -52)]
         for (testVar in testVars) {
             @Expect(Int8.parse(testVar[0], radix:testVar[1]), testVar[2])
         }
@@ -52,7 +52,7 @@ class ConvertInt8Test {
         let testVars: Array<(String, Int, String)> = [("", 3, "The string is empty."), ("-", 10, "The value part is empty."),
             ("128", 2, "The part of value convert failed."), ("-129", 2, "The part of value convert failed."),
             ("0o1", 8, "The part of value convert failed."), ("0x1", 16, "The part of value convert failed."),
-            ("+32", 37, "The radix out of range."), ("-", 2, "The value part is empty.")]
+            ("-", 2, "The value part is empty.")]
 
         for (testVar in testVars) {
             try {

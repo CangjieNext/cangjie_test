@@ -51,16 +51,28 @@ class ConvertInt32Test {
         let testVars: Array<(String, Int, String)> = [("", 3, "The string is empty."),
             ("2147483648", 2, "The part of value convert failed."),
             ("-2147483649", 2, "The part of value convert failed."), ("0o1", 8, "The part of value convert failed."),
-            ("0x1", 16, "The part of value convert failed."), ("+32", 37, "The radix out of range."),
+            ("0x1", 16, "The part of value convert failed."), ("+32", 10, "Starting with \"+\" is illegal in Int32."),
             ("-", 2, "The value part is empty.")]
 
         for (testVar in testVars) {
             try {
-                var _ = Int16.parse(testVar[0], radix: testVar[1])
+                var _ = Int32.parse(testVar[0], radix: testVar[1])
             } catch (e: IllegalArgumentException) {
                 @Assert(e.message,  testVar[2])
             }
         }
+    }
+
+    @TestCase
+    func parsePlusSignInconsistency(): Unit {
+        try {
+            var _ = Int32.parse("+10")
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Assert(e.message.contains("+") || e.message.contains("illegal"))
+        }
+
+        @Expect(Int32.parse("+10", radix: 10), 10)
     }
 
     @TestCase
