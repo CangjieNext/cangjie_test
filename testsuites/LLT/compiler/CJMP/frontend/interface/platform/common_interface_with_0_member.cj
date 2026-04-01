@@ -12,7 +12,7 @@ package cmp
 public common interface I0 {}
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output 2>&1 | compare %f
 // ASSERT: scan parse_specific_member_must_have_implementation
 package cmp
 

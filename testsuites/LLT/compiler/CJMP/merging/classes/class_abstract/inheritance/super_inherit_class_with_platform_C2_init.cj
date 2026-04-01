@@ -22,7 +22,7 @@ public open common class C2 <: C1 {
 
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p  2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p  2>&1 | compare %f
 // ASSERT: scan chir_class_uninitialized_field
 package cmp
 

@@ -11,7 +11,7 @@ public common let a:Int32=1
 public common func A(arg:Int32):Unit
 protected common func c(ARG:Int32):Unit
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
+// EXEC-0: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 public specific let a:Int32=2
 public specific func A(arg:Int32):Unit{println(arg)}

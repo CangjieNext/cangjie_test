@@ -13,7 +13,7 @@ common struct A{
 
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 
+// EXEC-PIPE: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 
 package cmp
 public common func goo(): Unit {}
 specific struct A {

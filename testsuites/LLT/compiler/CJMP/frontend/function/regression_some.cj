@@ -15,7 +15,7 @@ public func f() {
 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental --common-part-cjo=c/cmp.cjo c/cmp.chir p/p.cj -o %output
+// EXEC-0: %compiler %noColor --experimental --common-part-cjo=c/cmp.cjo --common-part-chir=c/cmp.chir p/p.cj -o %output
 // EXEC-PIPE: %run %output 2>&1 | compare %f
 package cmp
  

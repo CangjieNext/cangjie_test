@@ -11,7 +11,7 @@ package cmp
 public common func foo(): Unit
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj --common-part-chir=c/cmp.chir --output-type=dylib --output-dir ./p 2>&1 | compare %f
 // ASSERT: scan parse_unexpected_cjmp_decl
 package cmp
 

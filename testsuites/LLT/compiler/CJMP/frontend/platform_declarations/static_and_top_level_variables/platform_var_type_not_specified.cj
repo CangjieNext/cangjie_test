@@ -11,7 +11,7 @@ package cmp
 common let a: String
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-0: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
+// EXEC-PIPE-0: %compiler %diag_json --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
 specific let a = "42"

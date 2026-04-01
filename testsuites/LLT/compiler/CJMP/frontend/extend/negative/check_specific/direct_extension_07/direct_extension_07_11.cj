@@ -12,7 +12,7 @@ common func foo<T, G>(t:T, g:G):Unit where T <: ToString, G <: Hashable
 
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
+// EXEC-0: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
 specific func foo<M, N>(m:M, n:N):Unit where N <: Hashable, M <: ToString {}

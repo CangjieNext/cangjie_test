@@ -120,6 +120,7 @@ Options:
   --import-path <value>       Add .cjo search path
   --plugin <value>            Specify the dynamic library path of compiler plugin
   --common-part-cjo <value>   Add .cjo path for common part of package (Experimental)
+  --common-part-chir <value>  Add .chir file of package common part (Experimental)
   --incremental-compile       Enable incremental compilation. (Experimental)
   --save-temps <value>        Save intermediate compilation results. <value>: path to save temp files.
   -Woff, --warn-off <value>   Suppress a specific group of warning

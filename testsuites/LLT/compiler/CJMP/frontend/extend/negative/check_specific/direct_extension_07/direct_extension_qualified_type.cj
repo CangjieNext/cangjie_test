@@ -37,7 +37,7 @@ public func f1() {
 }
 
 // SEPARATE-FILE: mp/test_plat.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental mp/test_plat.cj -L ./mp1 -lmp1  ./mp/mp.chir --common-part-cjo=./mp/mp.cjo  --output-type=dylib --output-dir ./mp  2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental mp/test_plat.cj -L ./mp1 -lmp1  --common-part-chir=./mp/mp.chir --common-part-cjo=./mp/mp.cjo  --output-type=dylib --output-dir ./mp  2>&1 | compare %f
 package mp
 
 specific extend<T> mp1.A<T> {
