@@ -10,10 +10,10 @@
 // DESCRIPTION: 静态成员函数形参类型为非open class
 // DEPENDENCE: ../../../../../../../../../Conformance/CJMP/Cangjie.h
 // DEPENDENCE: src
-// (CJNATIVE and not Windows) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %ins_nm_cjworld %enable_objc_cjmapping src/cjworld/*.cj
-// (CJNATIVE and not Windows and not iOS) EXEC: %clang %cangjie_runtime_link %clang_link_core %clang_link_objc_interop  objc-gen/*.m  -Iobjc-gen -L. -lcjworld -shared -o libgluecode.%dylib_suffix
-// (CJNATIVE and not Windows and not iOS) EXEC: %clang %cangjie_runtime_link %clang_link_core -fobjc-arc -L. -lgluecode src/objc/*.m -Isrc/objc -Iobjc-gen -o %output
-// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// (not Windows) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %ins_nm_cjworld %enable_objc_cjmapping src/cjworld/*.cj
+// (not Windows and not iOS) EXEC: %clang %cangjie_runtime_link %clang_link_core %clang_link_objc_interop  objc-gen/*.m  -Iobjc-gen -L. -lcjworld -shared -o libgluecode.%dylib_suffix
+// (not Windows and not iOS) EXEC: %clang %cangjie_runtime_link %clang_link_core -fobjc-arc -L. -lgluecode src/objc/*.m -Isrc/objc -Iobjc-gen -o %output
+// (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan A.init
 // ASSERT: scan A.foo
 // ASSERT: scan result = 123

@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (CJNATIVE and not Windows and not arm) EXEC: cd %n && %cjpm build -g -j1 -V 2>&1 | compare %f
+// (not Windows and not arm) EXEC: cd %n && %cjpm build -g -j1 -V 2>&1 | compare %f
 // (Windows and not arm) EXEC: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
 // (not arm)ASSERT: scan cjpm build success
 // (Windows and not arm) ASSERT: scan --strip-all

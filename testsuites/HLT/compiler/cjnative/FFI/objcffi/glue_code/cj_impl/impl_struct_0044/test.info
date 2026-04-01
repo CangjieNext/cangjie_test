@@ -8,5 +8,5 @@
  
 // LEVEL: 3 
 // DEPENDENCE: src
-// (CJNATIVE and not Windows) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %ins_nm_cjworld %enable_objc_cjmapping src/cjworld/*.cj
-// (CJNATIVE and not Windows) EXEC-1: grep -r "prop_p" objc-gen/
+// (not Windows) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %ins_nm_cjworld %enable_objc_cjmapping src/cjworld/*.cj
+// (not Windows) EXEC-1: grep -r "prop_p" objc-gen/

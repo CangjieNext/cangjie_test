@@ -11,16 +11,13 @@
 // EXEC: cd %n/pro1 && mkdir -p target/pro1
 // EXEC: %export CANGJIE_PATH=%n/pro1/target/pro1/:$CANGJIE_PATH
 
-// (CJNATIVE) EXEC: %compiler --import-path %n/pro1/target -p "%n/pro1/src/zoo" --module-name pro1 %compile_lib_opt -o %n/pro1/target/pro1/libpro1.xoo.a
-// (CJNATIVE) EXEC: %compiler --import-path %n/pro1/target -p "%n/pro1/src/yoo" --module-name pro1 %compile_lib_opt -o %n/pro1/target/pro1/libpro1.zoo.a
-// (CJNATIVE) EXEC: %compiler --import-path %n/pro1/target -p "%n/pro1/src/xoo" --module-name pro1 %compile_lib_opt -o %n/pro1/target/pro1/libpro1.yoo.a
+// EXEC: %compiler --import-path %n/pro1/target -p "%n/pro1/src/zoo" --module-name pro1 %compile_lib_opt -o %n/pro1/target/pro1/libpro1.xoo.a
+// EXEC: %compiler --import-path %n/pro1/target -p "%n/pro1/src/yoo" --module-name pro1 %compile_lib_opt -o %n/pro1/target/pro1/libpro1.zoo.a
+// EXEC: %compiler --import-path %n/pro1/target -p "%n/pro1/src/xoo" --module-name pro1 %compile_lib_opt -o %n/pro1/target/pro1/libpro1.yoo.a
 
-// (not CJNATIVE) EXEC: %compiler --import-path %n/pro1/target -p "%n/pro1/src/zoo" --module-name pro1 --output-type=cbclib -o %n/pro1/target/pro1/pro1.xoo.cbc
-// (not CJNATIVE) EXEC: %compiler --import-path %n/pro1/target -p "%n/pro1/src/yoo" %n/pro1/target/pro1/pro1.xoo.pdba --module-name pro1 --output-type=cbclib -o %n/pro1/target/pro1/pro1.zoo.cbc
-// (not CJNATIVE) EXEC: %compiler --import-path %n/pro1/target -p "%n/pro1/src/xoo" %n/pro1/target/pro1/pro1.xoo.pdba %n/pro1/target/pro1/pro1.zoo.pdba --module-name pro1 --output-type=cbclib -o %n/pro1/target/pro1/pro1.yoo.cbc
 
 // EXEC: cd %n/ && %cjpm build 2>&1 | compare %f
-// (CJNATIVE and not MAC and not Windows) ASSERT: scan undefined reference to `_CGP8pro1.zooilHv'
-// (CJNATIVE and not MAC and not Windows) ASSERT: scan undefined reference to `_CN8pro1.zoo1zE'
-// (CJNATIVE and not MAC and not Windows) ASSERT: scan cjpm build failed
+// (not MAC and not Windows) ASSERT: scan undefined reference to `_CGP8pro1.zooilHv'
+// (not MAC and not Windows) ASSERT: scan undefined reference to `_CN8pro1.zoo1zE'
+// (not MAC and not Windows) ASSERT: scan cjpm build failed
 // (Windows or MAC) ASSERT: scan cjpm build success

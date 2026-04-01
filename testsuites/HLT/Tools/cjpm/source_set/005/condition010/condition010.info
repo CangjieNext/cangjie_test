@@ -8,8 +8,8 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (CJNATIVE) EXEC: cd %n && %cjpm run 2>&1| compare %f
-// (CJNATIVE) ASSERT: scan-1 Error at `cjpm.toml:package.always-enabled-features.0`: feature `user.mp.windows` is not declared by dependency `mp`
-// (CJNATIVE) ASSERT: scan-1 Error at `cjpm.toml:package.always-enabled-features.1`: feature `user.mp.linux` is not declared by dependency `mp`
-// (CJNATIVE) ASSERT: scan-1 Error at `cjpm.toml:package.always-enabled-features.2`: feature `user.mp.darwin` is not declared by dependency `mp`
-// (CJNATIVE) ASSERT: scan cjpm run failed
+// EXEC: cd %n && %cjpm run 2>&1| compare %f
+// ASSERT: scan-1 Error at `cjpm.toml:package.always-enabled-features.0`: feature `user.mp.windows` is not declared by dependency `mp`
+// ASSERT: scan-1 Error at `cjpm.toml:package.always-enabled-features.1`: feature `user.mp.linux` is not declared by dependency `mp`
+// ASSERT: scan-1 Error at `cjpm.toml:package.always-enabled-features.2`: feature `user.mp.darwin` is not declared by dependency `mp`
+// ASSERT: scan cjpm run failed

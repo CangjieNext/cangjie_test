@@ -15,7 +15,6 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkgs044001e/pkgs044001e.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkgs044001f/pkgs044001f.cj
 // EXEC: %compiler %cmp_opt %f libpkgs044001f.%middle libpkgs044001e.%middle libpkgs044001d.%middle libpkgs044001c.%middle libpkgs044001b.%middle libpkgs044001a.%middle -o %output
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f pkgs044001a.%middle pkgs044001b.%middle pkgs044001c.%middle pkgs044001d.%middle pkgs044001e.%middle pkgs044001f.%middle -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 import pkgs044001f

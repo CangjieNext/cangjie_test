@@ -10,8 +10,6 @@
 // DEPENDENCE: test20001.cj main.cj
 // EXEC: %compiler test20001.cj %compile_lib_opt
 // EXEC: %compiler %f %cmp_macro libtest20001.a
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %compile_cbclib_opt test20001.cj  
-// (not CJNATIVE) EXEC: %compiler %cmp_macro %f --import-path ./ test20001.pdba
 // EXEC: %run_macro %compiler %cmp_opt  main.cj -o %output
 // RUN-EXEC: %run %run_opt %output %run_macro_opt %run_args
 

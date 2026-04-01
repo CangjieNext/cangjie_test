@@ -8,13 +8,10 @@
 
 // LEVEL: 2
 // DEPENDENCE: macro_define_20004.cj main_20004.cj
-// (CJNATIVE) EXEC: %compiler %cmp_macro macro_define_20004.cj
-// (CJNATIVE) EXEC: %compiler %f %cmp_macro
-// (CJNATIVE) EXEC: %compiler %cmp_opt  main_20004.cj -o %output
+// EXEC: %compiler %cmp_macro macro_define_20004.cj
+// EXEC: %compiler %f %cmp_macro
+// EXEC: %compiler %cmp_opt  main_20004.cj -o %output
 
-// (not CJNATIVE) EXEC: %compiler %cmp_macro macro_define_20004.cj
-// (not CJNATIVE) EXEC: %compiler %f %macro_opt
-// (not CJNATIVE) EXEC: %compiler %cmp_opt main_20004.cj -o %output
 
 // RUN-EXEC: %run %run_opt %output %run_args
 

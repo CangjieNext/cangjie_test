@@ -12,7 +12,7 @@
 // EXEC-0: cd %n && %cjpm check && %cjpm build -V 2>&1 | compare %f
 // ASSERT: regex workspace_test_7[/|\\]aoo
 // ( not MAC) ASSERT: scan --strip-all
-// (not CJNATIVE) ASSERT: scan-not --strip-all
+
 // ASSERT: scan cjpm build success
 // ASSERT: scan-not workspace_test_1/boo
 // ASSERT: scan-not workspace_test_1/coo

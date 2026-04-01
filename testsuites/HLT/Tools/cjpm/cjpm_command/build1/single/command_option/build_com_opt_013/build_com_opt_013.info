@@ -8,7 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (CJNATIVE and not Windows) EXEC-PIPE: cd %n && %compiler -p pp/pro1 --output-type=staticlib -o pp/pro1/ && %cjpm build %cjpm_opt && str=`grep -r "\"output-type\": \"executable\"" target/.cjpm-history` && if [ -n "$str" ]; then echo "pass";fi | compare %f
-// (not CJNATIVE)  EXEC-PIPE: cd %n && %compiler -p pp/pro1 --output-type=cbclib -o pp/pro1/pro1.cbc && %cjpm build %cjpm_opt && str=`grep -r "\"output-type\": \"executable\"" target/.cjpm-history` && if [ -n "$str" ]; then echo "pass";fi | compare %f
+// (not Windows) EXEC-PIPE: cd %n && %compiler -p pp/pro1 --output-type=staticlib -o pp/pro1/ && %cjpm build %cjpm_opt && str=`grep -r "\"output-type\": \"executable\"" target/.cjpm-history` && if [ -n "$str" ]; then echo "pass";fi | compare %f
 // (Windows) EXEC-PIPE: cd %n && %compiler -p pp/pro1 --output-type=staticlib -o pp/pro1/ && %cjpm build %cjpm_opt && set str="findstr executable target/.cjpm-history" && if %str% neq ""( echo pass ) | compare %f
 // ASSERT: scan pass

@@ -10,13 +10,9 @@
 // DEPENDENCE: ../006
 // EXEC: cd 006/pro1 && mkdir -p target/pro1
 // EXEC: %export CANGJIE_PATH=006/pro1/target/pro1/:$CANGJIE_PATH
-// (CJNATIVE) EXEC: %compiler --import-path 006/pro1/target -p "006/pro1/src/zoo" --module-name pro1 %compile_lib_opt -o 006/pro1/target/pro1/libpro1.xoo.a
-// (CJNATIVE) EXEC: %compiler --import-path 006/pro1/target -p "006/pro1/src/yoo" --module-name pro1 %compile_lib_opt -o 006/pro1/target/pro1/libpro1.zoo.a
-// (CJNATIVE) EXEC: %compiler --import-path 006/pro1/target -p "006/pro1/src/xoo" --module-name pro1 %compile_lib_opt -o 006/pro1/target/pro1/libpro1.yoo.a
-
-// (not CJNATIVE) EXEC: %compiler --import-path 006/pro1/target -p "006/pro1/src/zoo" --module-name pro1 %compile_lib_opt -o 006/pro1/target/pro1/pro1.xoo.bc
-// (not CJNATIVE) EXEC: %compiler --import-path 006/pro1/target -p "006/pro1/src/yoo" --module-name pro1 %compile_lib_opt -o 006/pro1/target/pro1/pro1.zoo.bc
-// (not CJNATIVE) EXEC: %compiler --import-path 006/pro1/target -p "006/pro1/src/xoo" --module-name pro1 %compile_lib_opt -o 006/pro1/target/pro1/pro1.yoo.bc
+// EXEC: %compiler --import-path 006/pro1/target -p "006/pro1/src/zoo" --module-name pro1 %compile_lib_opt -o 006/pro1/target/pro1/libpro1.xoo.a
+// EXEC: %compiler --import-path 006/pro1/target -p "006/pro1/src/yoo" --module-name pro1 %compile_lib_opt -o 006/pro1/target/pro1/libpro1.zoo.a
+// EXEC: %compiler --import-path 006/pro1/target -p "006/pro1/src/xoo" --module-name pro1 %compile_lib_opt -o 006/pro1/target/pro1/libpro1.yoo.a
 
 
 // EXEC: %cp 006/test_result.txt .

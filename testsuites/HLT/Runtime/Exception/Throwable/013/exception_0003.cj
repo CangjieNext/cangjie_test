@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %export cjHeapSize=4MB && %run %run_opt %output %run_args 2>&1| compare %f
-// (CJNATIVE) ASSERT: scan Out of memory
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %export cjHeapSize=4MB && %run %run_opt %output %run_args 2>&1| compare %f
+// ASSERT: scan Out of memory
 
 import std.collection.*
 import std.sync.*
