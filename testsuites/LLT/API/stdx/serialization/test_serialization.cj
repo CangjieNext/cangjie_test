@@ -664,6 +664,21 @@ class SerializableTest {
         var ddd: abc = abc.deserialize(DataModel.fromJson(JsonValue.fromStr(bbb)))
         @Expect(ddd.name == "gaoshiyuan" && ddd.age == 456)
     }
+
+    /*
+     * Test description: Test Float64 Deserialize
+     *
+     */
+    @TestCase
+    func testFloat64DeserializeOverMaxSafeInt(): Unit {
+        var exception: ?Exception = None
+        try {
+            Float64.deserialize(DataModelInt(9007199254740992))
+        } catch (e: DataModelException) {
+            exception = e
+        }
+        anomalyAssert("testFloat64DeserializeOverMaxSafeInt", exception, "Integer value 9007199254740992 exceeds Float64 safe integer range [-9007199254740991, 9007199254740991].")
+    }
 }
 
 class Abc <: Serializable<Abc> & ToString {
