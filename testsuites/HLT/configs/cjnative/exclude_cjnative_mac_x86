@@ -16,8 +16,3 @@ API/syntax/visit/ASTRewriter/test_rewriter_02.cj
 compiler/cjnative/stable_abi/package_name
 compiler/cjnative/stable_abi/add_instance_member_variable
 compiler/cjnative/stable_abi/add_virtual_function
-
-# https://gitcode.com/Cangjie/cangjie_test/issues/334
-API/openssl/dynamic_link_openssl.cj
-API/openssl/static_link_openssl_extract.cj
-API/openssl/static_link_openssl_no_extract.cj
