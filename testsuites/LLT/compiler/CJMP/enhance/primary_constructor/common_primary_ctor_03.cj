@@ -14,7 +14,7 @@ public common class A {
 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
+// EXEC-1: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
 // ASSERT: scan not all the member variables are initialized in this constructo
 package cmp
 

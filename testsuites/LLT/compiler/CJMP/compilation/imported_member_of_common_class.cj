@@ -19,7 +19,7 @@ common public class SomeClass {
 common public func call_in_package(context:SomeClass) : Unit
 
 // SEPARATE-FILE: p/settings.cj
-// EXEC-0: %compiler %noColor --experimental p/settings.cj c/cjmp.settings.chir --common-part-cjo=./c/cjmp.settings.cjo --output-type=staticlib --output-dir ./p
+// EXEC-0: %compiler %noColor --experimental p/settings.cj --common-part-chir=c/cjmp.settings.chir --common-part-cjo=./c/cjmp.settings.cjo --output-type=staticlib --output-dir ./p
 features { os.linux }
 package cjmp.settings
 
@@ -50,7 +50,7 @@ import cjmp.settings.*
 common public func call_in_other_package(context:SomeClass): Unit
 
 // SEPARATE-FILE: p/function.cj
-// EXEC-0: %compiler %noColor --experimental p/function.cj c/cjmp.function.chir --common-part-cjo=./c/cjmp.function.cjo --import-path=./p  -L ./p -lcjmp.settings --output-type=dylib --output-dir ./p
+// EXEC-0: %compiler %noColor --experimental p/function.cj --common-part-chir=c/cjmp.function.chir --common-part-cjo=./c/cjmp.function.cjo --import-path=./p  -L ./p -lcjmp.settings --output-type=dylib --output-dir ./p
 features { os.linux }
 package cjmp.function
 

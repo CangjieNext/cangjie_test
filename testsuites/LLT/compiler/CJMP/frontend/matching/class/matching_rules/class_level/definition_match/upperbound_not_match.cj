@@ -24,7 +24,7 @@ public common class D <: interfaceA & interfaceB { init() {}
 public common class E <: A { init() {}
 }
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %diag_json --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 // ASSERT: scan-4 sema_specific_has_different_super_type
 package cmp
 

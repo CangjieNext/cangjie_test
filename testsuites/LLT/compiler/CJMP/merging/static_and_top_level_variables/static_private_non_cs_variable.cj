@@ -21,7 +21,7 @@ public common class A {
 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj --output-type=dylib --common-part-cjo=cmp.cjo cmp.chir
+// EXEC-0: %compiler %noColor --experimental p/p.cj --output-type=dylib --common-part-cjo=cmp.cjo --common-part-chir=cmp.chir
 package cmp
 
 // SEPARATE-FILE: main.cj

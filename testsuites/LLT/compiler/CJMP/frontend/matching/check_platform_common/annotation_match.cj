@@ -35,7 +35,7 @@ common func jj(): Int
 @Attribute["TEST_REGISTER"] common func attrs(): Int
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %diag_json --error-count-limit=100 --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %diag_json --error-count-limit=100 --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 // ASSERT: scan-1 sema_common_specific_annotation_not_allowed
 // ASSERT: scan-8 sema_specific_has_different_annotation
 package cmp

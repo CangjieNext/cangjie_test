@@ -22,7 +22,7 @@ public func f1() {
 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor %enableO2 --experimental p/p.cj c/mp.chir --common-part-cjo=./c/mp.cjo  --output-type=dylib -o ./
+// EXEC-0: %compiler %noColor %enableO2 --experimental p/p.cj --common-part-chir=c/mp.chir --common-part-cjo=./c/mp.cjo  --output-type=dylib -o ./
 package mp
 
 public specific class C<T1, T2, T3> {
