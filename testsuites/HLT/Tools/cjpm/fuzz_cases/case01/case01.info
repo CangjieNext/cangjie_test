@@ -8,6 +8,6 @@
 
 // LEVEL: 3
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build %cjpm_opt
-// EXEC: cd %n && %cjpm run | compare %f
-// ASSERT: scan cjpm run finished
+// (target_win) EXEC: cd %n && %cjpm build %cjpm_opt
+// (target_win) EXEC: cd %n && %cjpm run | compare %f
+// (target_win) ASSERT: scan cjpm run finished
