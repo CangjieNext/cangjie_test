@@ -12,7 +12,7 @@ public let (X1, X2): (Int64, Int64) = (1, 2)
 public let (X3, (X4, X5)) = (3, (4, 5))
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
+// EXEC-0: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib
 package cmp
 
 // SEPARATE-FILE: m_common.cj

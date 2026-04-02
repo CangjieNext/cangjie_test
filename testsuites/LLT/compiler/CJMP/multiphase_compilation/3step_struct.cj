@@ -24,7 +24,7 @@ public common struct A {
 }
 
 // SEPARATE-FILE: p1/p1.cj
-// EXEC-0: %compiler %noColor --experimental p1/p1.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-dir=p1 --output-type=chir
+// EXEC-0: %compiler %noColor --experimental p1/p1.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-dir=p1 --output-type=chir
 package cmp
 
 public specific struct A {
@@ -42,7 +42,7 @@ public specific struct A {
 }
 
 // SEPARATE-FILE: p2/p2.cj
-// EXEC-0: %compiler %noColor --experimental p2/p2.cj p1/cmp.chir --common-part-cjo=./p1/cmp.cjo --output-type=dylib
+// EXEC-0: %compiler %noColor --experimental p2/p2.cj --common-part-chir=p1/cmp.chir --common-part-cjo=./p1/cmp.cjo --output-type=dylib
 package cmp
 
 public specific struct A {

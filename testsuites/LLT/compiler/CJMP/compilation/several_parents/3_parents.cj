@@ -29,7 +29,7 @@ public func c() {
 
 // NOTE:PARENT 1
 // SEPARATE-FILE: p1/p1.cj
-// EXEC: %compiler %noColor --experimental p1/p1.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir=p1
+// EXEC: %compiler %noColor --experimental p1/p1.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir=p1
 package cmp
 
 public specific func foo() {
@@ -42,7 +42,7 @@ public func p1() {
 
 // NOTE:PARENT 2
 // SEPARATE-FILE: p2/p2.cj
-// EXEC: %compiler %noColor --experimental p2/p2.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir=p2
+// EXEC: %compiler %noColor --experimental p2/p2.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir=p2
 package cmp
 
 public specific func foo() {
@@ -55,7 +55,7 @@ public func p2() {
 
 // NOTE:PARENT 3
 // SEPARATE-FILE: p3/p3.cj
-// EXEC: %compiler %noColor --experimental p3/p3.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir=p3
+// EXEC: %compiler %noColor --experimental p3/p3.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir=p3
 package cmp
 
 public specific func foo() {
@@ -67,7 +67,7 @@ public func p3() {
 }
 // NOTE: DIAMOND CHILD
 // SEPARATE-FILE: child/child.cj
-// EXEC: %compiler %noColor --experimental child/child.cj p1/cmp.chir p2/cmp.chir p3/cmp.chir --common-part-cjo=p1/cmp.cjo --common-part-cjo=p2/cmp.cjo --common-part-cjo=p3/cmp.cjo --output-type=dylib
+// EXEC: %compiler %noColor --experimental child/child.cj --common-part-chir=p1/cmp.chir --common-part-chir=p2/cmp.chir --common-part-chir=p3/cmp.chir --common-part-cjo=p1/cmp.cjo --common-part-cjo=p2/cmp.cjo --common-part-cjo=p3/cmp.cjo --output-type=dylib
 package cmp
 
 public specific func foo() {

@@ -28,7 +28,7 @@ public common let z = 30
 
 // NOTE:PARENT 1
 // SEPARATE-FILE: p1/p1.cj
-// EXEC: %compiler %noColor --experimental p1/p1.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir=p1
+// EXEC: %compiler %noColor --experimental p1/p1.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir=p1
 package cmp
 
 public let c = 3
@@ -36,7 +36,7 @@ public specific let y = 201
 
 // NOTE:PARENT 2
 // SEPARATE-FILE: p2/p2.cj
-// EXEC: %compiler %noColor --experimental p2/p2.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir=p2
+// EXEC: %compiler %noColor --experimental p2/p2.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=chir --output-dir=p2
 package cmp
 
 public specific let z = 302
@@ -45,7 +45,7 @@ public let d = 4
 
 // NOTE: DIAMOND CHILD
 // SEPARATE-FILE: child/child.cj
-// EXEC: %compiler %noColor --experimental child/child.cj p1/cmp.chir p2/cmp.chir --common-part-cjo=p1/cmp.cjo --common-part-cjo=p2/cmp.cjo --output-type=dylib
+// EXEC: %compiler %noColor --experimental child/child.cj --common-part-chir=p1/cmp.chir --common-part-chir=p2/cmp.chir --common-part-cjo=p1/cmp.cjo --common-part-cjo=p2/cmp.cjo --output-type=dylib
 package cmp
 
 public specific let y = 2000

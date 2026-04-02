@@ -28,7 +28,7 @@ common class CAC<T> {
 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %diag_json --experimental --common-part-cjo=c/cmp.cjo c/cmp.chir p/p.cj --output-type=dylib
+// EXEC-0: %compiler %diag_json --experimental --common-part-cjo=c/cmp.cjo --common-part-chir=c/cmp.chir p/p.cj --output-type=dylib
 package cmp
  
 public specific func faf(fafParam!: Range<Int>) { fafParam }

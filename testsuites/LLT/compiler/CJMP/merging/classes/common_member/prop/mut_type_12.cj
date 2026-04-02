@@ -18,7 +18,7 @@ common class A {
 }
 
 // SEPARATE-FILE: p/p.cj
-// ERRCHECK: %compiler %diag_json --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
+// ERRCHECK: %compiler %diag_json --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo -o %output
 // ASSERT: scan sema_property_have_same_declaration_in_inherit_immut
 package cmp
 

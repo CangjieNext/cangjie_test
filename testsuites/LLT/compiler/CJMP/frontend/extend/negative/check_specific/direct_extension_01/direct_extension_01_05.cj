@@ -12,7 +12,7 @@ class Foo {}
 common extend Foo{}
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
+// EXEC-1: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 // TODO::需要报错，但目前没有
 package cmp
 

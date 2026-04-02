@@ -44,7 +44,7 @@ public func fc() {
 }
 
 // SEPARATE-FILE: p/p2.cj
-// EXEC-0: %compiler %noColor --experimental p/p1.cj p/p2.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo -L. -ldep --output-type=dylib
+// EXEC-0: %compiler %noColor --experimental p/p1.cj p/p2.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo -L. -ldep --output-type=dylib
 package cmp
 
 import dep.d

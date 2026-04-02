@@ -11,7 +11,7 @@ package cmp
 common extend Int64 {}
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 // ASSERT: scan error: declaration 'specific' extend 'Int64' has a conflicting extension
 package cmp
 

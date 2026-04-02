@@ -21,7 +21,7 @@ package cmp
 public specific let Y: Int64 = X
 
 // SEPARATE-FILE: p/p2.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p1.cj p/p2.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p1.cj p/p2.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 
 /* SCAN
