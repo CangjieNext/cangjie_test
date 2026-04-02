@@ -23,5 +23,8 @@
 import std.math.*
 
 main() {
+    round(0.01f16)
+    round(0.01f32)
+    round(0.01f64)
     0
 }

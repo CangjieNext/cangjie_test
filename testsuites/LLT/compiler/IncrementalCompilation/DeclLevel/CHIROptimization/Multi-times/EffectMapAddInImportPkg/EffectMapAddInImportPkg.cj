@@ -16,6 +16,7 @@
 internal import pkg.*
 
 main() {
+    foo3()
     foo2()
 }
 
