@@ -1,0 +1,130 @@
+diff --git a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0002/test.info b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0002/test.info
+index 42079f9420..87b059a2e4 100644
+--- a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0002/test.info
++++ b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_id_0002/test.info
+@@ -13,4 +13,4 @@
+ // (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc -L . -lobjc.foundation --link-options="-install_name @rpath/libcjworld.dylib" src/cjworld/*.cj
+ // (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
+ // (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+-// ASSERT: scan a: None
++// ASSERT: scan a: Some(1)
+diff --git a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/src/objc/M.h b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/src/objc/I.h
+similarity index 100%
+rename from testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/src/objc/M.h
+rename to testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/src/objc/I.h
+diff --git a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/src/objc/M.m b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/src/objc/I.m
+similarity index 95%
+rename from testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/src/objc/M.m
+rename to testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/src/objc/I.m
+index 4c697e6855..90b05ace99 100644
+--- a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/src/objc/M.m
++++ b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/src/objc/I.m
+@@ -6,4 +6,4 @@
+  * See https://cangjie-lang.cn/pages/LICENSE for license information.
+  */
+ 
+-#import "M.h"
++#import "I.h"
+diff --git a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/test.toml b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/test.toml
+index ecf4fd8c1c..70607bedf1 100644
+--- a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/test.toml
++++ b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0002/test.toml
+@@ -16,7 +16,7 @@ package-name = "cjworld"
+ path = "src"
+ 
+ [sources.all]
+-paths = ["src/objc/M.h"]
++paths = ["src/objc/I.h"]
+ 
+ [sources-mixins.default]
+ sources = [".*"]
+diff --git a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/src/objc/M.h b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/src/objc/I2.h
+similarity index 100%
+rename from testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/src/objc/M.h
+rename to testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/src/objc/I2.h
+diff --git a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/src/objc/M.m b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/src/objc/I2.m
+similarity index 94%
+rename from testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/src/objc/M.m
+rename to testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/src/objc/I2.m
+index 4c697e6855..2aaf7d0153 100644
+--- a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/src/objc/M.m
++++ b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/src/objc/I2.m
+@@ -6,4 +6,4 @@
+  * See https://cangjie-lang.cn/pages/LICENSE for license information.
+  */
+ 
+-#import "M.h"
++#import "I2.h"
+diff --git a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/test.toml b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/test.toml
+index b1d578fa89..a53a3a728c 100644
+--- a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/test.toml
++++ b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/test.toml
+@@ -16,7 +16,7 @@ package-name = "cjworld"
+ path = "src"
+ 
+ [sources.all]
+-paths = ["src/objc/M.h"]
++paths = ["src/objc/I2.h"]
+ 
+ [sources-mixins.default]
+ sources = [".*"]
+diff --git a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/src/objc/M.h b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/src/objc/I.h
+similarity index 100%
+rename from testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/src/objc/M.h
+rename to testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/src/objc/I.h
+diff --git a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/src/objc/M.m b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/src/objc/I.m
+similarity index 95%
+rename from testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/src/objc/M.m
+rename to testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/src/objc/I.m
+index 4c697e6855..90b05ace99 100644
+--- a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_interface_0003/src/objc/M.m
++++ b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/src/objc/I.m
+@@ -6,4 +6,4 @@
+  * See https://cangjie-lang.cn/pages/LICENSE for license information.
+  */
+ 
+-#import "M.h"
++#import "I.h"
+diff --git a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/test.toml b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/test.toml
+index ef4a53306e..c6f98eca6d 100644
+--- a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/test.toml
++++ b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/test.toml
+@@ -16,7 +16,7 @@ package-name = "cjworld"
+ path = "src"
+ 
+ [sources.all]
+-paths = ["src/objc/M.h"]
++paths = ["src/objc/I.h"]
+ 
+ [sources-mixins.default]
+ sources = [".*"]
+diff --git a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/src/objc/M.h b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/src/objc/I.h
+similarity index 100%
+rename from testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/src/objc/M.h
+rename to testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/src/objc/I.h
+diff --git a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/src/objc/M.m b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/src/objc/I.m
+similarity index 95%
+rename from testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/src/objc/M.m
+rename to testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/src/objc/I.m
+index 4c697e6855..90b05ace99 100644
+--- a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0005/src/objc/M.m
++++ b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/src/objc/I.m
+@@ -6,4 +6,4 @@
+  * See https://cangjie-lang.cn/pages/LICENSE for license information.
+  */
+ 
+-#import "M.h"
++#import "I.h"
+diff --git a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/test.toml b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/test.toml
+index ef4a53306e..c6f98eca6d 100644
+--- a/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/test.toml
++++ b/testsuites/HLT/compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_optional_0006/test.toml
+@@ -16,7 +16,7 @@ package-name = "cjworld"
+ path = "src"
+ 
+ [sources.all]
+-paths = ["src/objc/M.h"]
++paths = ["src/objc/I.h"]
+ 
+ [sources-mixins.default]
+ sources = [".*"]
