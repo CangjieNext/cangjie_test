@@ -473,7 +473,7 @@ class StringTest {
         try {
             string.padStart(-1, padding: "abc")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "negative totalWidth")
+            @Expect(e.message, "Negative totalWidth.")
         }
         @Expect(string.padStart(string.size -1, padding:"abc"), string)
         @Expect(string.padStart(string.size + 1, padding:"abc"), "abcCangJie仓颉")
@@ -483,7 +483,7 @@ class StringTest {
         try {
             string.padEnd(-1, padding: "abc")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "negative totalWidth")
+            @Expect(e.message, "Negative totalWidth.")
         }
         @Expect(string.padEnd(string.size + 1, padding:"abc"), "CangJie仓颉abc")
         @Expect(string.padEnd(string.size + 2, padding:"abc"), "CangJie仓颉abc")
