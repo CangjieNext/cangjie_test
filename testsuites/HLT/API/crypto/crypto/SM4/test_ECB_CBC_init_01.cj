@@ -30,13 +30,13 @@ class Test_ECB_CBC_init_01 {
 
     @TestCase
     func test_ECB_init_03(): Unit {
-        let e = @AssertThrows[CryptoException](SM4(OperationMode.ECB,'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
+        let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100, iv: "1234567".toArray()))
         @Expect(e.message, "Invalid tag size.")
     }
 
     @TestCase
     func test_ECB_init_04(): Unit {
-        let e = @AssertThrows[CryptoException](SM4(OperationMode.ECB,'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
+        let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17, iv: "1234567".toArray()))
         @Expect(e.message, "Invalid tag size.")
     }
 
@@ -97,13 +97,13 @@ class Test_ECB_CBC_init_01 {
 
     @TestCase
     func test_CBC_init_10(): Unit {
-        let e = @AssertThrows[CryptoException](SM4(OperationMode.CBC,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
+        let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
         @Expect(e.message, "Invalid tag size.")
     }
 
     @TestCase
     func test_CBC_init_11(): Unit {
-        let e = @AssertThrows[CryptoException](SM4(OperationMode.CBC,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
+        let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
         @Expect(e.message, "Invalid tag size.")
     }
 

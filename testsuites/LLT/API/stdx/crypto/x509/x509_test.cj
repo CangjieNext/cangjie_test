@@ -24,6 +24,15 @@ class Test_x509 {
     }
 
     @TestCase
+    func test_empty_pem(): Unit {
+        try {
+            Pem.decode("-----BEGIN -----\n-----END -----\n")
+        } catch (e: CryptoException) {
+            @Expect(e.message.contains("PEM file body cannot be empty"))
+        }
+    }
+
+    @TestCase
     func test_root(): Unit {
         let certificates = X509Certificate.systemRootCerts()
         println("The number is: ${certificates.size}")
