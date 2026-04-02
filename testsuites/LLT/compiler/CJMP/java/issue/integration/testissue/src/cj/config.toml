@@ -1,0 +1,8 @@
+[[package]]
+name = "testissue"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+generic_object_configuration = [ { name = "G", type_arguments = [ "Int64" ] },
+                                 { name = "H", type_arguments = [ "Bool" ] },
+                                 { name = "H<Bool>", symbols = [ "init" ] },
+                               ]

@@ -1,0 +1,28 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// Test case for issue #663: In GenericTypeStrategy = "Partial" mode, constructors
+// are mirrored even when not listed in the symbols configuration.
+//
+// Expected behavior (after fix):
+// 1. OnlyInit<Int64> has symbols = ["init"], so should have public constructor
+// 2. AllSymbols<Int64> has symbols = ["init", "getValue", "setValue"], so should have all
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop %enable_java_cjmapping --import-interop-cj-package-config-path src/cj/config.toml --output-javagen-dir=src/java/cj
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/com/java/lib/*.java src/java/cj/AllSymbols*.java src/java/cj/OnlyInit*.java -h ./ -d ./
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && %java %cp_cj_loader_java_interop -Djava.library.path=./ com.java.lib.Main 2>& 1 | compare %f
+
+/* SCAN-IN
+Test 1: OnlyInitInt64 (symbols = [init])
+  OnlyInitInt64: Constructor works
+  OnlyInitInt64: Methods should not be accessible
+
+Test 2: AllSymbolsInt64 (symbols = [init, getValue, setValue])
+  AllSymbolsInt64: Constructor works
+  AllSymbolsInt64: getValue() = 1
+  AllSymbolsInt64: After setValue(600), getValue() = 600
+*/

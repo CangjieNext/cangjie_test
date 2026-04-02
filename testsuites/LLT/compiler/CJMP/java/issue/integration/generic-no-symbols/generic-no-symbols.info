@@ -1,0 +1,30 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// Test case for issue #663: In GenericTypeStrategy = "Partial" mode, constructors
+// are mirrored even when not listed in the symbols configuration.
+//
+// Expected behavior (after fix):
+// GenericDefault<Int64> has NO symbols config, so should NOT have public constructor
+//
+// This test verifies that GenericDefaultInt64 does NOT have a public constructor,
+// which should cause a compilation error.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop %enable_java_cjmapping --import-interop-cj-package-config-path src/cj/config.toml --output-javagen-dir=src/java/cj
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/com/java/lib/*.java src/java/cj/GenericDefault*.java -h ./ -d ./ 2>& 1 | compare %f
+
+/* SCAN-IN
+src/java/com/java/lib/Main.java:14: error: constructor GenericDefaultInt64 in class GenericDefaultInt64 cannot be applied to given types;
+        GenericDefaultInt64 obj = new GenericDefaultInt64();
+                                  ^
+  required: long,$$NativeConstructorMarker
+  found:    no arguments
+  reason: actual and formal argument lists differ in length
+Note: src/java/cj/GenericDefaultInt64.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error
+*/

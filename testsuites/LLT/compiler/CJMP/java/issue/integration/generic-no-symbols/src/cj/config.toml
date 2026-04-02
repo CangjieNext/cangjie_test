@@ -1,0 +1,7 @@
+[[package]]
+name = "issue"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+generic_object_configuration = [ 
+    { name = "GenericDefault", type_arguments = [ "Int64" ] },
+]

@@ -1,0 +1,10 @@
+[[package]]
+name = "issue"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+generic_object_configuration = [ 
+    { name = "OnlyInit", type_arguments = [ "Int64" ] },
+    { name = "OnlyInit<Int64>", symbols = [ "init" ] },
+    { name = "AllSymbols", type_arguments = [ "Int64" ] },
+    { name = "AllSymbols<Int64>", symbols = [ "init", "getValue", "setValue" ] },
+]

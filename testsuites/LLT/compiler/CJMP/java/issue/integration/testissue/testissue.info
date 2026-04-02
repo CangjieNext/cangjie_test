@@ -1,0 +1,31 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// Test case for issue #663: In GenericTypeStrategy = "Partial" mode, constructors
+// are mirrored even when not listed in the symbols configuration.
+//
+// Expected behavior (after fix):
+// 1. G<Int64> has NO symbols config, so should NOT have public constructor
+// 2. H<Bool> has symbols = ["init"], so should have public constructor
+//
+// This test verifies that GInt64 does NOT have a public constructor,
+// which should cause a compilation error.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop %enable_java_cjmapping --import-interop-cj-package-config-path src/cj/config.toml --output-javagen-dir=src/java
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/*.java -h ./ -d ./ 2>& 1 | compare %f
+
+/* SCAN-IN
+src/java/Main.java:21: error: constructor GInt64 in class GInt64 cannot be applied to given types;
+        GInt64 obj = new GInt64();
+                     ^
+  required: long,$$NativeConstructorMarker
+  found:    no arguments
+  reason: actual and formal argument lists differ in length
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error
+*/
