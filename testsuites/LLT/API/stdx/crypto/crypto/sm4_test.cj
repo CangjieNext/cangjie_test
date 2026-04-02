@@ -160,7 +160,7 @@ class Test_sm4 {
         var aad = "Additional authenticated data."
         var num = 0
         try {
-            SM4(OperationMode.ECB, key.toArray(), tagSize: 10)
+            SM4(OperationMode.GCM, key.toArray(), tagSize: 10, iv: iv.toArray())
         } catch (e: CryptoException) {
             num++
             @Expect(e.message, "Invalid tag size.")

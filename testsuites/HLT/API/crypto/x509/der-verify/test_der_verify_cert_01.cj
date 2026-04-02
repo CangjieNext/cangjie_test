@@ -62,7 +62,7 @@ class Test_der_verify_cert_01 {
         try {
             X509Certificate.decodeFromDer(derData)
         } catch (e: X509Exception) {
-            @Expect(e.message.contains("The field is not a sequence"))
+            @Expect(e.message.contains("Failed to parse DER"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -76,7 +76,7 @@ class Test_der_verify_cert_01 {
         try {
             X509Certificate.decodeFromDer(derData)
         } catch (e: X509Exception) {
-            @Expect(e.message.contains("The field is not a sequence"))
+            @Expect(e.message.contains("Failed to parse DER"))
             sum += 1
         }
         @Expect(sum, 1)

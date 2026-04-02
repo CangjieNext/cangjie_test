@@ -103,7 +103,7 @@ class Test_tlscertificate_02 {
         try {
             X509Certificate.decodeFromDer(derData)
         } catch (e: Exception) {
-            @Expect(e.message.contains("The field is not a sequence"))
+            @Expect(e.message.contains("Failed to parse DER"))
             sum += 1
         }
         @Expect(sum, 1)

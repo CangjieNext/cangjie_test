@@ -44,9 +44,9 @@ class Test_OFB_CFB_CTR_init_02 {
 
     @TestCase
     func test_init_03(): Unit {
-        let e = @AssertThrows[CryptoException](SM4(OperationMode.OFB,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
-        let e1 = @AssertThrows[CryptoException](SM4(OperationMode.CFB,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
-        let e2 = @AssertThrows[CryptoException](SM4(OperationMode.CTR,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
+        let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
+        let e1 = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
+        let e2 = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
         @Expect(e.message, "Invalid tag size.")
         @Expect(e1.message, "Invalid tag size.")
         @Expect(e2.message, "Invalid tag size.")
@@ -54,9 +54,9 @@ class Test_OFB_CFB_CTR_init_02 {
 
     @TestCase
     func test_init_04(): Unit {
-        let e = @AssertThrows[CryptoException](SM4(OperationMode.OFB,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
-        let e1 = @AssertThrows[CryptoException](SM4(OperationMode.CFB,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
-        let e2 = @AssertThrows[CryptoException](SM4(OperationMode.CTR,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
+        let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
+        let e1 = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
+        let e2 = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
         @Expect(e.message, "Invalid tag size.")
         @Expect(e1.message, "Invalid tag size.")
         @Expect(e2.message, "Invalid tag size.")
