@@ -10,34 +10,58 @@
 
 @Test
 class ThreadStateTest {
+    private func isRunningOrReadyOrPending(state: ThreadState): Bool {
+        match (state) {
+            case Running => true
+            case Ready => true
+            case Pending => true
+            case _ => false
+        }
+    }
+
+    private func isTerminated(state: ThreadState): Bool {
+        match (state) {
+            case Terminated => true
+            case _ => false
+        }
+    }
+
+    private func isReadyOrTerminated(state: ThreadState): Bool {
+        match (state) {
+            case Ready => true
+            case Terminated => true
+            case _ => false
+        }
+    }
+
     @TestCase
     func testThreadStateBasic(): Unit {
-        let thread = Thread {
-            Thread.sleep(Duration.millisecond * 100)
+        let future = spawn {
+            sleep(Duration.millisecond * 100)
         }
-        thread.start()
+        let thread = future.thread
         
         let state = thread.state
-        @Expect(state == ThreadState.Runnable || state == ThreadState.Blocked, true)
+        @Expect(isRunningOrReadyOrPending(state), true)
         
-        thread.join()
+        future.get()
         
         let finalState = thread.state
-        @Expect(finalState, ThreadState.Terminated)
+        @Expect(isTerminated(finalState), true)
     }
 
     @TestCase
     func testMainThreadState(): Unit {
-        let state = Thread.current.state
-        @Expect(state == ThreadState.Runnable || state == ThreadState.Blocked, true)
+        let state = Thread.currentThread.state
+        @Expect(isRunningOrReadyOrPending(state), true)
     }
 
     @TestCase
     func testConcurrentStateAccess(): Unit {
-        let thread = Thread {
-            Thread.sleep(Duration.millisecond * 200)
+        let future = spawn {
+            sleep(Duration.millisecond * 200)
         }
-        thread.start()
+        let thread = future.thread
         
         let accessCount = 10
         let threads = Array<Future<Unit>>(accessCount, { _ => spawn { return } })
@@ -53,34 +77,38 @@ class ThreadStateTest {
             threads[i].get()
         }
         
-        thread.join()
-        @Expect(thread.state, ThreadState.Terminated)
+        future.get()
+        @Expect(isTerminated(thread.state), true)
     }
 
     @TestCase
     func testStateAfterTermination(): Unit {
-        let thread = Thread {
+        let future = spawn {
             return
         }
-        thread.start()
-        thread.join()
+        let thread = future.thread
+        
+        future.get()
         
         let state1 = thread.state
         let state2 = thread.state
         let state3 = thread.state
         
-        @Expect(state1, ThreadState.Terminated)
-        @Expect(state2, ThreadState.Terminated)
-        @Expect(state3, ThreadState.Terminated)
+        @Expect(isTerminated(state1), true)
+        @Expect(isTerminated(state2), true)
+        @Expect(isTerminated(state3), true)
     }
 
     @TestCase
     func testUnstartedThreadState(): Unit {
-        let thread = Thread {
-            return
+        let future = spawn {
+            sleep(Duration.millisecond * 500)
         }
+        let thread = future.thread
         
         let state = thread.state
-        @Expect(state == ThreadState.New || state == ThreadState.Terminated, true)
+        @Expect(isRunningOrReadyOrPending(state) || isTerminated(state), true)
+        
+        future.get()
     }
 }

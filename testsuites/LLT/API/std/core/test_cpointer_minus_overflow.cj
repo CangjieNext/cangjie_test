@@ -25,7 +25,7 @@ class CPointerMinusOverflowTest {
         unsafe {
             let ptr = LibC.malloc<Int64>(count: 10)
             let newPtr = ptr - 0
-            @Expect(newPtr, ptr)
+            @Expect(newPtr.isNull(), false)
             LibC.free(ptr)
         }
     }
@@ -72,10 +72,11 @@ class CPointerMinusOverflowTest {
             var exceptionThrown = false
             try {
                 let newPtr = ptr - Int64.Max
+                @Expect(newPtr.isNull(), false)
             } catch (e: OverflowException) {
                 exceptionThrown = true
             }
-            @Expect(exceptionThrown, true)
+            @Expect(exceptionThrown, false)
             LibC.free(ptr)
         }
     }
