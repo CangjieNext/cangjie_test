@@ -11,8 +11,8 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg1/a.cj -o pkg1.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg2/b.cj pkg1.%middle -o pkg2.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg3/c.cj pkg1.%middle pkg2.%middle -o pkg3.%middle
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f pkg3.%middle pkg2.%middle pkg1.%middle -o %output
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f pkg1.%middle pkg2.%middle pkg3.%middle -o %output
+// EXEC: %compiler %cmp_opt %f pkg3.%middle pkg2.%middle pkg1.%middle -o %output
+
 // RUN-EXEC: %run %run_opt %output %run_args
 
 import pkg3.*

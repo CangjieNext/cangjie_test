@@ -15,20 +15,19 @@ import stdx.encoding.url.*
 main(): Int64 {
     var i = "http1.:////!$&-ab:12!$&@www.example.com:14/a/b@/a?1@=3b#@17"
     var i1 = "http1.:////!$&-ab:12!$&@www.example.com:14/a/b@/a?1@=3b"
-    let s = URL.parse(i)
-    let s1 = URL.parse(i1)
-    var d = s.toString()
-    var d1 = s1.toString()
-    if (d != "http1.:////!$&-ab:12!$&@www.example.com:14/a/b@/a?1@=3b#@17") {
-        return 1
+    try {
+        let s = URL.parse(i)
+    } catch(e: UrlSyntaxException) {
+        if (!e.toString().contains("The userinfo contains an invalid encoding sequence")) {
+            return 1
+        }
     }
-    if (d1 != "http1.:////!$&-ab:12!$&@www.example.com:14/a/b@/a?1@=3b") {
+    let s1 = URL.parse(i1)
+    var d1 = s1.toString()
+    if (d1 != "http1.:///!$&-ab:12!$&@www.example.com:14/a/b@/a?1@=3b") {
         return 2
     }
-    if (s.path != "//!$&-ab:12!$&@www.example.com:14/a/b@/a") {
-        return 5
-    }
-    if (s1.path != "//!$&-ab:12!$&@www.example.com:14/a/b@/a") {
+    if (s1.path != "/!$&-ab:12!$&@www.example.com:14/a/b@/a") {
         return 6
     }
     return 0

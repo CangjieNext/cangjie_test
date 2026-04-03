@@ -10,7 +10,6 @@
 // DEPENDENCE: multi_str_macro.cj
 // EXEC: %compiler %cmp_macro multi_str_macro.cj
 // EXEC: %run_macro %compiler %cmp_opt  %f -o %output
-// (not CJNATIVE) EXEC: %run_macro %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_macro_opt %run_args
 
 import mytest.*

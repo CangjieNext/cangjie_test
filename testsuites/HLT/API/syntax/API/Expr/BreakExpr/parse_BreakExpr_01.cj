@@ -14,13 +14,15 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_BreakExpr_01() {
     let res = parseFile("./BreakExpr_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains(##"for (i in arr) {
+    @Assert(sourcefile.toString().replace("\r","").contains(##"for (i in arr) {
         break
     }"##))
 
@@ -28,4 +30,5 @@ func test_BreakExpr_01() {
     var _expr = (maindecl.body.nodes[0] as ForInExpr).getOrThrow()
     @Assert(_expr.body.nodes[0] is BreakExpr)
     @Assert((_expr.body.nodes[0] as BreakExpr).getOrThrow().toString(), "break")
+}
 }

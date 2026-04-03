@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2 
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE) RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
-// (CJNATIVE) ASSERT: scan REASON: After 171 generation steps and 1 reduction steps
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
+// ASSERT: scan REASON: After 171 generation steps and 1 reduction steps
 
 import std.unittest.*
 import std.unittest.testmacro.*

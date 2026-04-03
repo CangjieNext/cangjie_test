@@ -8,25 +8,27 @@
 
 // LEVEL: 1
 // DEPENDENCE: EnumDecl_04.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumDecl_04() {
     let res = parseFile("./EnumDecl_04.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"internal enum E1<A, B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z> {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"internal enum E1<A, B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z> {
     | A1 | B1(Int64)
     | C1(T) | D1(U, T)
 }"##))
 
     var enumDecl: EnumDecl = (sourcefile.topLevelDecls[0] as EnumDecl).getOrThrow()
-    @Expect(enumDecl.toString(), ##"internal enum E1<A, B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z> {
+    @Expect(enumDecl.toString().replace("\r",""), ##"internal enum E1<A, B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z> {
     | A1 | B1(Int64)
     | C1(T) | D1(U, T)
 }"##)
@@ -50,4 +52,5 @@ func test_EnumDecl_04() {
     @Assert(enumDecl.genericParams[25].toString(), ##"Z"##)
     @Assert(enumDecl.superTyAnnotations.size, 0)
     @Assert(enumDecl.annotations.size, 0)
+}
 }

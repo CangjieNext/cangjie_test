@@ -8,19 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE: ExtendDecl_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ExtendDecl_01() {
     let res = parseFile("./ExtendDecl_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"extend<T, U> C1<T, U> <: I1 & I2<T> & I3 where U <: I1 & I3, T <: I1{
+    @Expect(sourcefile.toString().replace("\r","").contains(##"extend<T, U> C1<T, U> <: I1 & I2<T> & I3 where U <: I1 & I3, T <: I1{
     @Deprecated["a"]
     static func foo() {}
     @Deprecated["b"]
@@ -30,7 +32,7 @@ func test_ExtendDecl_01() {
 }"##))
 
     var extendDecl: ExtendDecl = (sourcefile.topLevelDecls[0] as ExtendDecl).getOrThrow()
-    @Assert(extendDecl.toString(), ##"extend<T, U> C1<T, U> <: I1 & I2<T> & I3 where U <: I1 & I3, T <: I1{
+    @Assert(extendDecl.toString().replace("\r",""), ##"extend<T, U> C1<T, U> <: I1 & I2<T> & I3 where U <: I1 & I3, T <: I1{
     @Deprecated["a"]
     static func foo() {}
     @Deprecated["b"]
@@ -38,12 +40,20 @@ func test_ExtendDecl_01() {
         get() {0}
     }
 }"##)
+    @Assert(extendDecl.toTokens().toString().replace("\r",""), ##"extend < T, U > C1 < T, U > <: I1 & I2 < T > & I3 where U <: I1 & I3, T <: I1 {
+    @Deprecated["a"]
+    static func foo() { }
+    @Deprecated["b"]
+    static prop p1: Int64 {
+        get() { 0 }
+    }
+}"##)
     @Assert(extendDecl.body.memberDecls.size, 2)
     @Assert(extendDecl.body.memberDecls[0] is FuncDecl)
-    @Assert(extendDecl.body.memberDecls[0].toString(), ##"@Deprecated["a"]
+    @Assert(extendDecl.body.memberDecls[0].toString().replace("\r",""), ##"@Deprecated["a"]
     static func foo() {}"##)
     @Assert(extendDecl.body.memberDecls[1] is PropDecl)
-    @Assert(extendDecl.body.memberDecls[1].toString(), ##"@Deprecated["b"]
+    @Assert(extendDecl.body.memberDecls[1].toString().replace("\r",""), ##"@Deprecated["b"]
     static prop p1: Int64 {
         get() {0}
     }"##)
@@ -77,4 +87,5 @@ func test_ExtendDecl_01() {
     @Assert([posList[1].beginLine, posList[1].beginColumn, posList[1].endLine, posList[1].endColumn], [9i32, 37i32, 9i32, 38i32])
     pos = extendDecl.getUpperBoundPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [9i32, 23i32, 9i32, 25i32])
+}
 }

@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_rangeexpr_002() {
     let res = parseFile("./rangeexpr002.cj")
     var diags = res.diags
@@ -47,4 +49,5 @@ func test_rangeexpr_002() {
         case Some(v) => @Assert(v.toString(),"-2")
         case _ => @Assert(false)
     }
+}
 }

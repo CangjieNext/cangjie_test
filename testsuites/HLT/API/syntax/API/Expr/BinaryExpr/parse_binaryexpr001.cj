@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_binaryexpr_001() {
     let res = parseFile("./binaryexpr001.cj")
     var diags = res.diags
@@ -43,4 +45,5 @@ func test_binaryexpr_001() {
     }
     var pos = binaryexpr.getOperatorPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 7i32, 10i32, 9i32])
+}
 }

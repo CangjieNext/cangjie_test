@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: AsExpr_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_AsExpr_01() {
     let res = parseFile("./AsExpr_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     fun() as Option<Int64>
     a.b as ??T
     a as (C1, C2)
@@ -29,6 +31,7 @@ func test_AsExpr_01() {
     var mainDecl: MainDecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
     var expr_1: AsExpr = (mainDecl.body.nodes[0] as AsExpr).getOrThrow()
     @Expect(expr_1.toString(), ##"fun() as Option<Int64>"##)
+    @Expect(expr_1.toTokens().toString(), ##"fun() as Option < Int64 >"##)
     @Expect(expr_1.srcVal.toString(), ##"fun()"##)
     @Expect(expr_1.targetTypeAnnotation is CompositeType)
     @Expect(expr_1.targetTypeAnnotation.toString(), "Option<Int64>")
@@ -47,4 +50,5 @@ func test_AsExpr_01() {
 
     var pos = expr_1.getAsKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 11i32, 10i32, 13i32])
+}
 }

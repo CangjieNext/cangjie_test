@@ -23,5 +23,4 @@ main(): Int64 {
     A().foo()
     return A().plus(A(), A()) - 2
 }
-// (not CJNATIVE) ASSERT: scan sema_extend_member_cannot_shadow
-// (CJNATIVE) ASSERT: scan sema_not_member_of
+// ASSERT: scan sema_not_member_of
