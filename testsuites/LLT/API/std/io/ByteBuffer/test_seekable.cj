@@ -109,4 +109,55 @@ public class SeekAbleTest {
         bs.seek(Current(4096))
         bs.write("success".toArray())
     }
+
+    @TestCase
+    func seekTestMax(): Unit {
+        let buffer = ByteBuffer()
+
+        // 1. 先写入一些数据，让 start 可以移动
+        buffer.write("Hello".toArray())
+
+        // 2. seek 到一个较大的位置（但不是最大）
+        // 注意：seek 会改变 start 和 _length
+        buffer.seek(Begin(100))
+
+        // 3. 再 seek 一个大的 offset，尝试触发溢出
+        // 如果 start = 100, offset = Int64.Max - 50
+        // start + offset = Int64.Max + 50，溢出变成负数
+        try {
+            let largeOffset = Int64.Max - 50
+            buffer.seek(Current(largeOffset))
+
+            // 4. 检查状态是否损坏
+            // 如果溢出，start 可能是负数或很小的值
+            // 后续操作可能异常
+
+            // 5. 尝试写入数据
+            buffer.write("test".toArray())
+        } catch (e: IOException) {
+            @Expect("Can't seek beyond the maximum position of the stream.", e.message)
+        }
+    }
+
+    @TestCase
+    func seekTestMaxLength(): Unit {
+        let malicious = MaliciousStream()
+        let data = readToEnd(malicious)
+    }
+}
+
+class MaliciousStream <: InputStream & Seekable {
+    public prop length: Int64 {
+        get() {
+            return Int64.Max // 直接返回极大值
+        }
+    }
+
+    public func read(buffer: Array<Byte>): Int64 {
+        return 0 // 不实际读取数据
+    }
+
+    public func seek(sp: SeekPosition): Int64 {
+        return 0
+    }
 }
