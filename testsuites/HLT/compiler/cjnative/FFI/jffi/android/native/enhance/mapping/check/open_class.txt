@@ -1,0 +1,5 @@
+// ASSERT: scan
+// ASSERT: scan
+// ASSERT: scan
+// ASSERT: scan
+// ASSERT: scan

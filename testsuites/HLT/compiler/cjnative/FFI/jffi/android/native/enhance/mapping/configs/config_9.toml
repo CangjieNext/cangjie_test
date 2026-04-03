@@ -1,0 +1,9 @@
+[default]
+APIStrategy = "Full"
+[[package]]
+name = "cjworld"
+APIStrategy = "Full"
+included_apis = [
+]
+excluded_apis = [
+]
