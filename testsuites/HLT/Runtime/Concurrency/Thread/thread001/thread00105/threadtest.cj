@@ -9,7 +9,7 @@
 // LEVEL: 3
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) RUN-EXEC: export JETVMPROP=-Djet.cj.use.fibers && %run %run_opt %output %run_args
+
 
 import std.sync.*
 import std.collection.*

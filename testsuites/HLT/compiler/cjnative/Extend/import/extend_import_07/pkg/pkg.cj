@@ -20,5 +20,5 @@ import pkgb.I
 main(): Int64 {
     return A().plus(A(), A()) - 2
 }
-// (not CJNATIVE) ASSERT: scan sema_no_match_function_declaration_for_call
-// (CJNATIVE) ASSERT: scan sema_not_member_of
+
+// ASSERT: scan sema_not_member_of

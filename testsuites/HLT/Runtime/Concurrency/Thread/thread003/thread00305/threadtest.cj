@@ -9,7 +9,6 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt  %f -o %output
 // RUN-EXEC-PIPE: %export CANGJIE_MAX_CONCURRENCY=1 && %run %run_opt %output %run_args 2>&1 | compare %f
-// (not CJNATIVE) RUN-EXEC-PIPE: export JETVMPROP=-Djet.cj.use.fibers && %export CANGJIE_MAX_CONCURRENCY=1 && %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan result = 1\n
 // ASSERT: scan-not Exception
 
