@@ -8,12 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE: ImportList_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ImportList_01() {
     let res = parseFile("./ImportList_01.cj")
     var diags = res.diags
@@ -21,7 +23,7 @@ func test_ImportList_01() {
 
     let sourcefile: SourceFile = res.node.getOrThrow()
     sourcefile.toString()
-    @Assert(sourcefile.toString().contains(##"public import a.*
+    @Assert(sourcefile.toString().replace("\r","").contains(##"public import a.*
 import A.B.C.D.E.F.G.H.*
 private import a as pkgA
 internal import a.b.c.d.e.f.g as x1
@@ -62,4 +64,5 @@ internal import a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z"##))
     var importLists1 = sourcefile.importLists[0]
     var pos = importLists1.getImportKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [9i32, 8i32, 9i32, 14i32])
+}
 }

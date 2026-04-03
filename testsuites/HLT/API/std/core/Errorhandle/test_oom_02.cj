@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 1
-// (not O2 and not target_ohos)EXEC: %compiler %cmp_opt -o %n.%suffix %f
-// (not O2 and not target_ohos)EXEC: %run %run_opt %n.%suffix %run_args 2>&1 | compare %f
-// (not O2 and not target_ohos)ASSERT: scan throws an error in the error handler: OutOfMemoryError
+// EXEC: %compiler %cmp_opt -o %n.%suffix %f
+// (not O2)EXEC: %run %run_opt %n.%suffix %run_args 2>&1 | compare %f
+// ASSERT: scan throws an error in the error handler: OutOfMemoryError
 
 
 main() {

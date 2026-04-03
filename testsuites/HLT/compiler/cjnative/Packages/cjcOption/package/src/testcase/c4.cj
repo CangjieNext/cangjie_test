@@ -11,6 +11,6 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt %pkg_opt testcase/a/ -o ./ %compile_lib_opt
 // EXEC: %compiler %cmp_opt %compile_lib_opt %pkg_opt testcase/b/ -o ./ %compile_lib_opt
 // EXEC: %compiler %cmp_opt %compile_lib_opt %f libtestcase.a.%middle libtestcase.b.%middle -o %output
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %compile_lib_opt %f testcase.a.%middle testcase.b.%middle -o %output
+
 
 package testcase

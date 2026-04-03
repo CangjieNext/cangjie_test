@@ -10,8 +10,8 @@
 // DEPENDENCE: pkgA
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkgA/A.cj -o pkgA.%middle
 // EXEC: %compiler %cmp_opt %f pkgA.%middle -o %output
-// (CJNATIVE) RUN-EXEC-1: %run %run_opt %output %run_args
-// (not CJNATIVE) RUN-EXEC-0: %run %run_opt %output %run_args
+// RUN-EXEC-1: %run %run_opt %output %run_args
+
 
 import pkgA.*
 

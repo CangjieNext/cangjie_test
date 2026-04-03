@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_incordecexpr_001() {
     let res = parseFile("./incordecexpr001.cj")
     var diags = res.diags
@@ -41,4 +43,5 @@ func test_incordecexpr_001() {
 
     var pos = incordecexpr.getOperatorPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 8i32, 10i32, 10i32])
+}
 }

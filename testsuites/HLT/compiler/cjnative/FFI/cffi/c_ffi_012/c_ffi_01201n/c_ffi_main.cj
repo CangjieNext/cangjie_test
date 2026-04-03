@@ -13,8 +13,6 @@
 // (not Windows) EXEC: %sed %sed_opt "s!cangjieCFFI_path!%cstring_cjo!g" cfg-main.json
 // (not Windows) EXEC: %compiler %cmp_opt %pkg_compile pkg/pkg.cj -o libpkg.%test_suffix
 // (not Windows) ERRCHECK: %compiler %cmp_opt %f %pkg_link -o %output
-// (not CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %pkg_compile pkg/pkg.cj -o libpkg.cbc
-// (not CJNATIVE and not Windows) ERRCHECK: %compiler %cmp_opt %f libpkg.pdba -o %output
 
 import pkg
 

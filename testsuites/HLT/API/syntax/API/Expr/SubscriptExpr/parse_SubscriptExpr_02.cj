@@ -14,6 +14,11 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_SubscriptExpr_02() {
-    @AssertThrows[Exception](parseFile("./SubscriptExpr_02.cj"))
+    let file= parseFile("./SubscriptExpr_02.cj")
+    @Expect(file.node.isNone())
+    @Expect(file.diags.size > 0)
+}
 }

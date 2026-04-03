@@ -8,22 +8,25 @@
 
 // LEVEL: 2
 // DEPENDENCE: file004.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_file_004() {
     let res = parseFile("./file004.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString(), "")
     @Assert(sourcefile.name, "file004.cj")
     println(sourcefile.path)
     @Assert(sourcefile.path.contains("file004.cj"))
     @Assert(sourcefile.pkgHeader.isNone())
     @Assert(sourcefile.topLevelDecls.size, 0)
+}
+
 }

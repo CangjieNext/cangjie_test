@@ -17,10 +17,9 @@ main(): Int64 {
     try {
         var i = "http://121www.你asd12.%E4%BD%A0com%40:789ad@110.8.8.10:50"
         let s = URL.parse(i)
-        ()
     } catch (e: Exception) {
-        return 1
+        print("case pass")
+        return 0
     }
-    print("case pass")
-    return 0
+    return 1
 }

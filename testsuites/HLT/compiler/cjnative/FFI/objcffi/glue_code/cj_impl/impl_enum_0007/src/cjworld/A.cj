@@ -12,7 +12,16 @@ import objc.lang.*
 
 public enum A {
     | E1
-    public func f(a: Int64) {
-        println("in cj enum, ${a}")
-    }
+
+    public func getI8(a: Int8) { println("in cj enum, ${a}") }
+    public func getI16(a: Int16) { println("in cj enum, ${a}") }
+    public func getI32(a: Int32) { println("in cj enum, ${a}") }
+    public func getI64(a: Int64) { println("in cj enum, ${a}") }
+    public func getIN(a: IntNative) { println("in cj enum, ${a}") }
+
+    public static func stGetI8(a: Int8) { println("in cj enum st, ${a}") }
+    public static func stGetI16(a: Int16) { println("in cj enum st, ${a}") }
+    public static func stGetI32(a: Int32) { println("in cj enum st, ${a}") }
+    public static func stGetI64(a: Int64) { println("in cj enum st, ${a}") }
+    public static func stGetIN(a: IntNative) { println("in cj enum st, ${a}") }
 }
