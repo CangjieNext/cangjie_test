@@ -15,4 +15,10 @@ public enum A {
     public static func f() {
         println("in cj enum")
     }
+    public static func f(a: A, b: Int64, c: Bool) {
+        println("in cj enum, ${a is A}, ${b}, ${c}")
+    }
+    public static func f(a: Int8, b: Int16) {
+        println("in cj enum, ${a}, ${b}")
+    }
 }

@@ -11,11 +11,11 @@ package cjworld
 import objc.lang.*
 
 public struct A {
-    public prop p: B {
-        get() {
-            B()
-        }
-    }
+    public static var stB: B = B()
+    public static var stConstB: B = B()
+
+    public static prop stP: B {get(){stB}}
+    public static mut prop stMutP: B {get(){stB} set(v) { stB = v }}
 }
 
 public struct B {

@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 1
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 
 class A {
     var a: VArray<Int64, $3> = [1, 2, 3]

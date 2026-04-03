@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (CJNATIVE) RUN-EXEC-3: %run %run_opt %output %run_args
+
+// RUN-EXEC-3: %run %run_opt %output %run_args
 
 interface I1 {
     static func test1(): Int64 {

@@ -14,4 +14,8 @@ public open class A {
     public open func f() {
         println("in cj")
     }
+
+    public func testOverridden(): Unit {
+        f()
+    }
 }

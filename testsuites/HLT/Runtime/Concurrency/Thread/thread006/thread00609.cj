@@ -8,7 +8,6 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC-PIPE-9: export JETVMPROP="-Djet.cj.use.fibers -Djet.fiber.carrier.count=0" && %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan Warning: Property setting -Djet.fiber.carrier.count is ignored: specified value must be greater than zero
 // ASSERT: scan Failed to set property jet.fiber.carrier.count
 
