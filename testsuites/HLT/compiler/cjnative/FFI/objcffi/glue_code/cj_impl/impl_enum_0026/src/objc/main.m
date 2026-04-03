@@ -14,6 +14,9 @@ int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [A E1];
         S* s = [[S alloc] init: a];
+        a = [S stF: a];
+        a = [s mutF: a];
+        a = [s implicitF: a];
         [s f: a];
     }
     return 0;

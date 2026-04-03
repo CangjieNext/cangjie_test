@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler %f %macro_opt
-// (not CJNATIVE) EXEC: %compiler %f %macro_opt 
+ 
 
 macro package use
 

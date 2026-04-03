@@ -8,27 +8,32 @@
 
 // LEVEL: 0
 // DEPENDENCE: MacroDecl_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MacroDecl_01() {
     let res = parseFile("./MacroDecl_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"public macro M1(input: Tokens): Tokens {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"public macro M1(input: Tokens): Tokens {
     input
 }"##))
 
     var _decl: MacroDecl = (sourcefile.topLevelDecls[0] as MacroDecl).getOrThrow()
-    @Assert(_decl.toString(), ##"public macro M1(input: Tokens): Tokens {
+    @Assert(_decl.toString().replace("\r",""), ##"public macro M1(input: Tokens): Tokens {
     input
 }"##)
-    @Assert(_decl.body.toString(), ##"{
+    @Assert(_decl.toTokens().toString().replace("\r",""), ##"public macro M1(input: Tokens): Tokens {
+    input
+}"##)
+    @Assert(_decl.body.toString().replace("\r",""), ##"{
     input
 }"##)
     @Assert(_decl.name, "M1")
@@ -43,4 +48,5 @@ func test_MacroDecl_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 8i32, 10i32, 13i32])
     pos = _decl.getRetTyAnnotationColonPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 31i32, 10i32, 32i32])
+}
 }

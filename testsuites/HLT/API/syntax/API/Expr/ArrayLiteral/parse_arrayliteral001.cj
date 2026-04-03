@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_arrayliteral_001() {
     let res = parseFile("./arrayliteral001.cj")
     var diags = res.diags
@@ -29,7 +31,7 @@ func test_arrayliteral_001() {
     var arrayliteral = (maindecl.body.nodes[0] as ArrayLiteral).getOrThrow()
     //toString()
     @Assert(arrayliteral.toString(), "[10, 0, 0, 0]")
-
+    @Assert(arrayliteral.toTokens().toString(), "[10, 0, 0, 0]")
     //elements
     var array = arrayliteral.elements
     @Assert(array.size,4)
@@ -45,4 +47,5 @@ func test_arrayliteral_001() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 5i32, 10i32, 6i32])
     pos = arrayliteral.getRSquarePos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 17i32, 10i32, 18i32])
+}
 }

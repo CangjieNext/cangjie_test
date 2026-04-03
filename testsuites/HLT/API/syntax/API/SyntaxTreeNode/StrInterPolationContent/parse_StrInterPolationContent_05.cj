@@ -8,12 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE: StrInterPolationContent_05.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_StrInterpolationContent_05() {
     let res = parseFile("./StrInterPolationContent_05.cj")
     var diags = res.diags
@@ -30,4 +32,5 @@ func test_StrInterpolationContent_05() {
             @Assert(strIPC.interpolationBlock.toString(), ##"{T.a}"##)
         case _ => @Assert(false)
     }
+}
 }

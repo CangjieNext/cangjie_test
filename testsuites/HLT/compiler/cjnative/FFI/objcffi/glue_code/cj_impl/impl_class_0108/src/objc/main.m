@@ -14,10 +14,10 @@
 @implementation M1
 @end
 @interface M2 : A
-- (void)f:(int64_t)p1:(bool)p2;
+- (void)f:(int64_t)p1:(BOOL)p2;
 @end
 @implementation M2
-- (void)f:(int64_t)p1:(bool)p2 { printf("in oc, %lld, %s\n", p1, p2?"true":"false"); }
+- (void)f:(int64_t)p1:(BOOL)p2 { printf("in oc, %lld, %s\n", p1, p2?"true":"false"); }
 @end
 int main(int argc, char** argv) {
     @autoreleasepool {

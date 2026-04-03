@@ -8,20 +8,22 @@
 
 // LEVEL: 2
 // DEPENDENCE: MatchCase_11.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-// sema 阶段报错不拦截
+// sema 阶�报错不拦截
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MatchCase_11() {
     let res = parseFile("./MatchCase_11.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     match(123) {
         case x | x  => ()
     }
@@ -42,4 +44,5 @@ func test_MatchCase_11() {
     @Assert(case_1.patterns[0].toString(), "x")
     @Assert(case_1.patterns[1] is VarOrEnumPattern)
     @Assert(case_1.patterns[1].toString(), "x")
+}
 }

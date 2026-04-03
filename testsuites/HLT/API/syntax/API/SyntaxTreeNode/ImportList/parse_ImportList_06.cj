@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: ImportList_06.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ImportList_06() {
     let res = parseFile("./ImportList_06.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"import A.B.C.D.E.F.G.H.*
+    @Expect(sourcefile.toString().replace("\r","").contains(##"import A.B.C.D.E.F.G.H.*
 import {
     std.time,
 }
@@ -43,7 +45,7 @@ import {a, b.a, c.b.a, d.c.b.a as _d_c_b_a}"##))
         case _ => @Assert(false)
     }
     @Assert(import_2.modifier.isNone())
-    @Expect(import_2.toString(), ##"import {
+    @Expect(import_2.toString().replace("\r",""), ##"import {
     std.time,
 }"##)
 
@@ -54,4 +56,5 @@ import {a, b.a, c.b.a, d.c.b.a as _d_c_b_a}"##))
     }
     @Assert(import_3.modifier.isNone())
     @Expect(import_3.toString(), ##"import {a, b.a, c.b.a, d.c.b.a as _d_c_b_a}"##)
+}
 }

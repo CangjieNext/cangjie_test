@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_arrayliteral_004() {
     let res = parseFile("./arrayliteral004.cj")
     var diags = res.diags
@@ -35,4 +37,5 @@ func test_arrayliteral_004() {
     @Assert(array.size,1)
     var x = array.get(0).getOrThrow().toString()
     @Assert(x,"(1,2)")
+}
 }
