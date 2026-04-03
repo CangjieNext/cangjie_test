@@ -8,23 +8,25 @@
 
 // LEVEL: 1
 // DEPENDENCE: InterfaceDecl_03.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_InterfaceDecl_03() {
     let res = parseFile("./InterfaceDecl_03.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"protected interface I1<T, U> <: I2 & I3<T> where T <: C1<T, Int64>, U <: C2 & C3<T> & ToString {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"protected interface I1<T, U> <: I2 & I3<T> where T <: C1<T, Int64>, U <: C2 & C3<T> & ToString {
 }"##))
 
     var interfaceDecl: InterfaceDecl = (sourcefile.topLevelDecls[0] as InterfaceDecl).getOrThrow()
-    @Expect(interfaceDecl.toString(), ##"protected interface I1<T, U> <: I2 & I3<T> where T <: C1<T, Int64>, U <: C2 & C3<T> & ToString {
+    @Expect(interfaceDecl.toString().replace("\r",""), ##"protected interface I1<T, U> <: I2 & I3<T> where T <: C1<T, Int64>, U <: C2 & C3<T> & ToString {
 }"##)
     @Assert(interfaceDecl.body.memberDecls.size, 0)
 
@@ -39,4 +41,5 @@ func test_InterfaceDecl_03() {
     @Assert(interfaceDecl.superTyAnnotations[1].toString(), "I3<T>")
     @Assert(interfaceDecl.annotations.size, 0)
     @Assert(interfaceDecl.modifiers.toString(), ##"[protected]"##)
+}
 }

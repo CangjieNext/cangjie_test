@@ -8,11 +8,9 @@
 
 // LEVEL: 2
 // DEPENDENCE: define_30004.cj main_30004.cj
-// (CJNATIVE) EXEC: %compiler define_30004.cj %macro_opt -o define_30004.%test_suffix
-// (CJNATIVE) ERRCHECK: %compiler %f %macro_opt -L. -l:define_30004.%test_suffix -o use.%test_suffix
+// EXEC: %compiler define_30004.cj %macro_opt -o define_30004.%test_suffix
+// ERRCHECK: %compiler %f %macro_opt -L. -l:define_30004.%test_suffix -o use.%test_suffix
 
-// (not CJNATIVE) EXEC: %compiler define_30004.cj %macro_opt
-// (not CJNATIVE) ERRCHECK: %compiler %f %macro_opt 
 
 // ASSERT: scan macro's call and definition can not in one package
 

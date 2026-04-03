@@ -40,7 +40,7 @@ public class Test_IPv6_URL_Init {
         "0000:0000:0000:0000:0000:0000:0000:0000:0001"
     ]
 
-    var ports = ["0", "8080", "65535"]
+    var ports = ["1", "8080", "65535"]
     var paths = ["/dd", "/d/d", "/d/a/c/../../b", "/a/a////b../b", "/a/b/c/"]
     var querys = ["?q=query+string&sort=date&limit=10"]
     var fragments = ["#section-2"]

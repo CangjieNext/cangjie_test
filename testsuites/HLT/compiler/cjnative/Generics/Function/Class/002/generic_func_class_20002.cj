@@ -24,5 +24,5 @@ class B <: A {
 main() {
     0
 }
-// (not CJNATIVE) ASSERT: scan sema_invalid_generic_function_in_class
-// (CJNATIVE) ASSERT: scan sema_cannot_override
+
+// ASSERT: scan sema_cannot_override

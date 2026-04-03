@@ -8,20 +8,22 @@
 
 // LEVEL: 0
 // DEPENDENCE: MacroExpandDecl_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.ast.Tokens
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MacroExpandDecl_01() {
     let res = parseFile("./MacroExpandDecl_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"@p1.M1[tok1](var a = 1)
+    @Expect(sourcefile.toString().replace("\r","").contains(##"@p1.M1[tok1](var a = 1)
 @M1[a: tok1, b: tok2]
 var a = [1]
 @M_A_B(var a = 1)
@@ -30,6 +32,7 @@ var a = b"##))
 
     var decl_1: MacroExpandDecl = (sourcefile.topLevelDecls[0] as MacroExpandDecl).getOrThrow()
     @Assert(decl_1.toString(), ##"@p1.M1[tok1](var a = 1)"##)
+    @Assert(decl_1.toTokens().toString(), ##"@p1.M1[tok1](var a = 1)"##)
     @Assert(decl_1.calleeMacro.toString(), "p1.M1")
     @Assert(decl_1.macroAttrs.toString(), "tok1")
     match (decl_1.macroInputs) {
@@ -38,7 +41,7 @@ var a = b"##))
     }
 
     var decl_2: MacroExpandDecl = (sourcefile.topLevelDecls[1] as MacroExpandDecl).getOrThrow()
-    @Assert(decl_2.toString(), ##"@M1[a: tok1, b: tok2]
+    @Assert(decl_2.toString().replace("\r",""), ##"@M1[a: tok1, b: tok2]
 var a = [1]"##)
     @Assert(decl_2.calleeMacro.toString(), "M1")
     @Assert(decl_2.macroAttrs.toString(), "a: tok1, b: tok2")
@@ -57,7 +60,7 @@ var a = [1]"##)
     }
 
     var decl_4: MacroExpandDecl = (sourcefile.topLevelDecls[3] as MacroExpandDecl).getOrThrow()
-    @Assert(decl_4.toString(), ##"@M1
+    @Assert(decl_4.toString().replace("\r",""), ##"@M1
 var a = b"##)
     @Assert(decl_4.calleeMacro.toString(), "M1")
     @Assert(decl_4.macroAttrs.toString(), "")
@@ -78,4 +81,5 @@ var a = b"##)
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [9i32, 23i32, 9i32, 24i32])
     pos = decl_1.getRSquarePos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [9i32, 12i32, 9i32, 13i32])
+}
 }

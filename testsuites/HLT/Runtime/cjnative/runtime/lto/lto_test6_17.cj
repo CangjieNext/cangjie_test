@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 3
-// (Linux and CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output --lto=full %cmp_utest_opt
-// (Linux and CJNATIVE) RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
-// (Linux and CJNATIVE) ASSERT: scan Summary: TOTAL: 1
+// (Linux) EXEC: %compiler %cmp_opt %f -o %output --lto=full %cmp_utest_opt
+// (Linux) RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
+// (Linux) ASSERT: scan Summary: TOTAL: 1
 
 import std.unittest.* //testfame
 import std.unittest.testmacro.* //macro_Defintion

@@ -22,13 +22,13 @@ main(): Int64 {
     if (d != "a////b@/a?1@=3b#@17") {
         return 1
     }
-    if (d1 != "http1.://!$&-ab:12!$&@www.example.com:14////a/b@/a?1@=3b") {
+    if (d1 != "http1.://!$&-ab:12!$&@www.example.com:14/a/b@/a?1@=3b") {
         return 2
     }
     if (s.path != "a////b@/a") {
         return 5
     }
-    if (s1.path != "////a/b@/a") {
+    if (s1.path != "/a/b@/a") {
         return 6
     }
     return 0

@@ -1,0 +1,61 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: main.cj my_utils.cj
+// EXEC: %compiler %cmp_opt my_utils.cj --static --static-std --output-type=staticlib
+// EXEC: %compiler %cmp_opt -Woff=all -L. -lmy_utils main.cj --static --static-std --import-path %cangjie-static-stdx-path -L %cangjie-static-stdx-path %cangjie-stdx-list -o %output
+// RUN-EXEC: %run_opt %output %run_args
+// EXEC-PIPE: %check-dylib-dep %output | compare %f
+
+// dynamic loader for openssl.
+// (target_linux) ASSERT: scan-not libcangjie-dynamicLoader-opensslFFI.so
+// (target_mac) ASSERT: scan-not @rpath/libcangjie-dynamicLoader-opensslFFI.dylib
+
+// libboundscheck.
+// (target_linux) ASSERT: scan-not libboundscheck.so
+// (target_mac) ASSERT: scan-not @rpath/libboundscheck.dylib
+// (target_win) ASSERT: scan-not libboundscheck.dll
+
+// 用户库
+// (target_linux) ASSERT: scan-not libmy_utils.so
+// (target_mac) ASSERT: scan-not libmy_utils.dylib
+// (target_win) ASSERT: scan-not libmy_utils.dll
+
+// 各平台上必带有的动态库
+
+// Windows平台上必带有的动态库
+// (target_win) ASSERT: scan msvcrt.dll
+// (target_win) ASSERT: scan KERNEL32.DLL
+
+// Mac平台上必带有的动态库
+// (target_mac) ASSERT: scan libSystem.B.dylib
+
+// Linux平台上必带有的动态库
+// (target_linux) ASSERT: scan linux-vdso.so
+// (target_linux) ASSERT: scan libgcc_s.so
+// (target_linux) ASSERT: scan libstdc++.so
+// (target_linux) ASSERT: scan libm.so
+// (target_linux) ASSERT: scan libc.so
+// (target_linux & target_x86_64) ASSERT: scan ld-linux-x86-64.so
+// (target_linux & target_aarch64) ASSERT: scan ld-linux-aarch64.so
+
+// 指定--static时仓颉runtime将被静态链接
+// (target_win) ASSERT: scan-not libcangjie-runtime.dll
+// (target_linux) ASSERT: scan-not libcangjie-runtime.so
+// (target_mac) ASSERT: scan-not @rpath/libcangjie-runtime.dylib
+
+// stdx库被静态链接
+// (target_linux) ASSERT: scan-not libstdx.encoding.json.so
+// (target_mac) ASSERT: scan-not @rpath/libstdx.encoding.json.dylib
+// (target_win) ASSERT: scan-not libstdx.encoding.json.dll
+
+// std库被静态链接
+// (target_linux) ASSERT: scan-not libcangjie-std-collection.so
+// (target_mac) ASSERT: scan-not @rpath/libcangjie-std-collection.dylib
+// (target_win) ASSERT: scan-not libcangjie-std-collection.dll

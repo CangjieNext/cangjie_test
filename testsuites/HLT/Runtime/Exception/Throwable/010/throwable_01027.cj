@@ -10,8 +10,6 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-// (not CJNATIVE) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
-// (not CJNATIVE) ASSERT: scan has too many parameters
 
 func test(a1: Int64, a2: Int64, a3: Int64, a4: Int64, a5: Int64, a6: Int64, a7: Int64, a8: Int64, a9: Int64, a10: Int64,
     a11: Int64, a12: Int64, a13: Int64, a14: Int64, a15: Int64, a16: Int64, a17: Int64, a18: Int64, a19: Int64,

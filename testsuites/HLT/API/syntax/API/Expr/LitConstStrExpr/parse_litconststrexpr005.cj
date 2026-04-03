@@ -14,13 +14,15 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_litconststrexpr_005() {
     let res = parseFile("./litconststrexpr005.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains("#\'\nHello,\nCangjie\nLang\'#"))
+    @Assert(sourcefile.toString().replace("\r","").contains("#\'\nHello,\nCangjie\nLang\'#"))
     @Assert(sourcefile.name, "litconststrexpr005.cj")
     @Assert(sourcefile.path.contains("litconststrexpr005.cj"))
     @Assert(sourcefile.pkgHeader.isNone())
@@ -28,12 +30,12 @@ func test_litconststrexpr_005() {
     var maindecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
     var litconststrexpr = (maindecl.body.nodes[0] as LitConstStrExpr).getOrThrow()
     //toString()
-    @Assert(litconststrexpr.toString(), ##"###'
+    @Assert(litconststrexpr.toString().replace("\r",""), ##"###'
 Hello,
 Cangjie
 Lang'###"##)
     //rawValue
-    @Assert(litconststrexpr.rawValue,"\nHello,\nCangjie\nLang")
+    @Assert(litconststrexpr.rawValue.replace("\r",""),"\nHello,\nCangjie\nLang")
     //kind
     match (litconststrexpr.kind) {
         case LitConstKind.StringLiteral => ()
@@ -50,4 +52,5 @@ Lang'###"##)
         case LitConstStrKind.MultiLineRawString => ()
         case _ => @Assert(false)
     }
+}
 }

@@ -24,5 +24,5 @@ main() {
     A()
     return 0
 }
-// (not CJNATIVE) ASSERT: scan sema_generic_function_in_interface
-// (CJNATIVE) ASSERT: scan sema_illegal_usage_of_member
+
+// ASSERT: scan sema_illegal_usage_of_member

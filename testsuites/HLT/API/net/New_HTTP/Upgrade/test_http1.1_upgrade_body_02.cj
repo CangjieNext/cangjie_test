@@ -24,7 +24,7 @@ import stdx.net.http.*
 
 @Test
 class Test_Upgrade_Body {
-    var port = 0u16
+    var port = 80u16
     var arrbody = Array<UInt8>(16 * 1024, repeat: 66)
     let client = ClientBuilder().build()
 

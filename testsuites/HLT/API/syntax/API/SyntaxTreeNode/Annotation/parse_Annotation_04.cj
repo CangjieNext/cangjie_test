@@ -8,18 +8,20 @@
 
 // LEVEL: 1
 // DEPENDENCE: Annotation_04.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Annotation_04() {
     let res = parseFile("./Annotation_04.cj")
 
     let sourcefile: SourceFile = res.node.getOrThrow()
     sourcefile.toString() |> println
-    @Expect(sourcefile.toString().contains(##"@When[os == "Linux"] var a = 1
+    @Expect(sourcefile.toString().replace("\r","").contains(##"@When[os == "Linux"] var a = 1
 @When [backend == "cjnative"] var a = 1"##))
 
     var decl_1: VarDecl = (sourcefile.topLevelDecls[0] as VarDecl).getOrThrow()
@@ -35,4 +37,5 @@ func test_Annotation_04() {
     @Assert(anno_2.toString(), ##"@When [backend == "cjnative"]"##)
     @Assert(anno_2.arguments.toString(), ##"[backend == "cjnative"]"##)
     @Assert(anno_2.identifier.toString(), ##"When"##)
+}
 }

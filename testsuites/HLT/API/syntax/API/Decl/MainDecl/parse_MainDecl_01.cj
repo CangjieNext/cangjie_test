@@ -8,22 +8,28 @@
 
 // LEVEL: 0
 // DEPENDENCE: MainDecl_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MainDecl_01() {
     let res = parseFile("./MainDecl_01.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains(##"main(): Int64 {
+    @Assert(sourcefile.toString().replace("\r","").contains(##"main(): Int64 {
     let a: Int64 = 0
     return a
 }"##))
 
     var mainDecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
-    @Assert(mainDecl.toString(), ##"main(): Int64 {
+    @Assert(mainDecl.toString().replace("\r",""), ##"main(): Int64 {
+    let a: Int64 = 0
+    return a
+}"##)
+    @Assert(mainDecl.toTokens().toString().replace("\r",""), ##"main(): Int64 {
     let a: Int64 = 0
     return a
 }"##)
@@ -36,4 +42,5 @@ func test_MainDecl_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [9i32, 1i32, 9i32, 5i32])
     pos = mainDecl.getRetTyAnnotationColonPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [9i32, 7i32, 9i32, 8i32])
+}
 }

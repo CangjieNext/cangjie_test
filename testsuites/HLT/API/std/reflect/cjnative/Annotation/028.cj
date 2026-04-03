@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../MyType
-// (not MAC) EXEC: cd ./MyType && %compiler %cmp_opt --output-type=dylib --module-name=MyType ./src/myType/*.cj -o libMyType_myType.%test_suffix
+// (not MAC) EXEC: cd ./MyType && %compiler %cmp_opt %compile_library --module-name=MyType ./src/myType/*.cj -o libMyType_myType.%test_suffix
 // (not MAC) EXEC: %compiler %cmp_opt -o %output %f --import-path . -L ./MyType -lMyType_myType %cmp_utest_opt
 // (not MAC) RUN-EXEC: %cp ./MyType/libMyType_myType.%test_suffix .&& %run %run_opt %output %run_args
 // Check that it is possible to declare an annotation with a target type

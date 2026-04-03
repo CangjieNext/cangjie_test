@@ -8,19 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE: ImportMulti_04.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ImportMulti_04() {
     let res = parseFile("./ImportMulti_04.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"import {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"import {
     std.time,
     std.fs as fileSystem,
     std.io.*,
@@ -46,4 +48,5 @@ func test_ImportMulti_04() {
             @Assert(_import_3.prefixes, ["std", "io"])
         case _ => throw Exception("parse Type wrong!")
     }
+}
 }

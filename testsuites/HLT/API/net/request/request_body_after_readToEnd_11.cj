@@ -26,6 +26,8 @@ var ser = Option<Server>.None
 
 main(): Int64 {
     let server = serve()
+    sleep(Duration.millisecond * 100)
+    port.store(server.port)
     let client = ClientBuilder().build()
     var ss = ByteBuffer()
     var requestBodyStr = """

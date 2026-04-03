@@ -12,8 +12,8 @@
 // (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // (iOS) ASSERT: scan Failed to InitCJLibrary
 // (not iOS) ASSERT: scan-not before!
-// (not (CJNATIVE and O2) and not iOS) ASSERT: regex init
-// (not (CJNATIVE and O2) and not iOS) ASSERT: regex default.*B
+// (not (O2) and not iOS) ASSERT: regex init
+// (not (O2) and not iOS) ASSERT: regex default.*B
 // (not O2 and not iOS) ASSERT: scan throwable_20016.cj:25
 
 class A <: Exception {}

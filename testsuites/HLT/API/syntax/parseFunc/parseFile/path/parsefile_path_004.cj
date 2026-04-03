@@ -8,15 +8,17 @@
 
 // LEVEL: 3
 // DEPENDENCE: file
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.fs.*
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_filepath_004() {
-    let path_str = "./aaaaa/bbbbb/cccccc/dddddd/eeee/ffffff/ddddddd/ffffff/dddddd/ffffff/ddddd/仓颉/aaaa/dddd/"
+    let path_str = "./aaaaa/bbbbb/cccccc/dddddd/eeee/ffffff/ddddddd/ffffff/dddddd/ffffff/ddddd/仓�/aaaa/dddd/"
     Directory.create(path_str, recursive: true)
     rename("./file", to: path_str, overwrite: true)
     let res = parseFile(path_str + "/file001.cj")
@@ -35,4 +37,5 @@ main() {
     return a
 }"##
     @Assert(sourcefile.toString().contains(str))
+}
 }

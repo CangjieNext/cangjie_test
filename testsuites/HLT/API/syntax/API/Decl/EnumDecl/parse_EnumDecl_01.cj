@@ -8,19 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE: EnumDecl_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumDecl_01() {
     let res = parseFile("./EnumDecl_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"@Deprecated["aaa"]
+    @Expect(sourcefile.toString().replace("\r","").contains(##"@Deprecated["aaa"]
 enum E1 {
     A1 | B1 | C1(Int64) | D1(Int64, String) | ...
     prop p1: Int64 {
@@ -30,13 +32,21 @@ enum E1 {
 }"##))
 
     var enumDecl: EnumDecl = (sourcefile.topLevelDecls[0] as EnumDecl).getOrThrow()
-    @Expect(enumDecl.toString(), ##"@Deprecated["aaa"]
+    @Expect(enumDecl.toString().replace("\r",""), ##"@Deprecated["aaa"]
 enum E1 {
     A1 | B1 | C1(Int64) | D1(Int64, String) | ...
     prop p1: Int64 {
         get() {0}
     }
     func foo() {}
+}"##)
+    @Expect(enumDecl.toTokens().toString().replace("\r",""), ##"@Deprecated["aaa"]
+enum E1 {
+    A1 | B1 | C1(Int64) | D1(Int64, String) | ...
+    prop p1: Int64 {
+        get() { 0 }
+    }
+    func foo() { }
 }"##)
     @Assert(enumDecl.body.memberDecls.size, 6)
     @Assert(enumDecl.body.memberDecls[0] is EnumConstructor)
@@ -49,7 +59,7 @@ enum E1 {
     @Assert(enumDecl.body.memberDecls[3].toString(), ##"D1(Int64, String)"##)
 
     @Assert(enumDecl.body.memberDecls[4] is PropDecl)
-    @Assert(enumDecl.body.memberDecls[4].toString(), ##"prop p1: Int64 {
+    @Assert(enumDecl.body.memberDecls[4].toString().replace("\r",""), ##"prop p1: Int64 {
         get() {0}
     }"##)
     @Assert(enumDecl.body.memberDecls[5] is FuncDecl)
@@ -80,4 +90,5 @@ enum E1 {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [11i32, 47i32, 11i32, 50i32])
     @Assert(enumDecl.getSuperTyAnnotationsBitAndsPos().size == 0, true)
     @Assert(enumDecl.getUpperBoundPos().isNone(), true)
+}
 }

@@ -9,8 +9,8 @@
 // LEVEL: 0
 // DEPENDENCE: A.cj
 // EXEC: %compiler %cmp_opt %f A.cj -o %output
-// (CJNATIVE) RUN-EXEC-1: %run %run_opt %output %run_args
-// (not CJNATIVE) RUN-EXEC-0: %run %run_opt %output %run_args
+// RUN-EXEC-1: %run %run_opt %output %run_args
+
 
 class A {}
 
