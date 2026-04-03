@@ -30,7 +30,7 @@ public class SeekAbleTest {
         @Expect(String.fromUtf8(arr[0..index]), "hello,worl")
         @Expect(bis.length, 12)
         @Expect(bis.remainLength, 0)
-        @Expect(bis.position, 12)
+        @Expect(bis.position, 10)
 
         index = bis.read(arr)
         @Expect(index, 2)
@@ -72,7 +72,7 @@ public class SeekAbleTest {
         @Expect(String.fromUtf8(arr[0..index]), "hello,worl")
         @Expect(bis.length, 12)
         @Expect(bis.remainLength, 0)
-        @Expect(bis.position, 12)
+        @Expect(bis.position, 10)
 
         index = bis.read(arr)
         @Expect(index, 2)
