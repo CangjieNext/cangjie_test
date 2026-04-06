@@ -24,5 +24,5 @@ class B<X> <: A<X> {
 main() {
     0
 }
-// (not CJNATIVE) ASSERT: scan sema_invalid_generic_function_in_class
-// (CJNATIVE) ASSERT: scan sema_missing_overridden_func
+
+// ASSERT: scan sema_missing_overridden_func

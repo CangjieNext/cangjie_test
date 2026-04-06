@@ -43,7 +43,7 @@ extend<T> A<T> <: I<T> {
 main(): Int64 {
     return 0
 }
-// (not CJNATIVE) ASSERT: scan sema_generic_function_in_interface
+
 // ASSERT: scan sema_extend_member_cannot_shadow
 // ASSERT: scan sema_overload_conflicts
 // ASSERT: scan sema_extend_duplicate_interface

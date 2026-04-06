@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 0
-// (CJNATIVE and not iOS) EXEC: %compiler %cmp_opt --output-type=exe %f
-// (CJNATIVE and not Windows and OHOS) EXEC: %ls main
-// (CJNATIVE and Windows and not OHOS) EXEC: %ls main.exe
+// (not iOS) EXEC: %compiler %cmp_opt --output-type=exe %f
+// (not Windows and OHOS) EXEC: %ls main
+// (Windows and not OHOS) EXEC: %ls main.exe
 
 main(): Int64 {
     return run()

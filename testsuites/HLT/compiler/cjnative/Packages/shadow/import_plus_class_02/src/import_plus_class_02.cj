@@ -10,7 +10,6 @@
 // DEPENDENCE: ../src
 // EXEC: %compiler %cmp_opt %compile_lib_opt src/pkga/pkga.cj -o ./pkga.%middle 
 // EXEC: %compiler %cmp_opt %compile_lib_opt src/pkgb/pkgb.cj pkga.%middle  -o ./pkgb.%middle 
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f   pkga.%middle pkgb.%middle -o %output
 // EXEC: %compiler %cmp_opt %f   pkgb.%middle pkga.%middle -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 

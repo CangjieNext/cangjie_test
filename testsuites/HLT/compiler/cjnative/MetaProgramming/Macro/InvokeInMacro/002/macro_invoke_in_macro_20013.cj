@@ -8,13 +8,11 @@
 
 // LEVEL: 2
 // DEPENDENCE: define_20013.cj main_20013.cj
-// (CJNATIVE) EXEC: %compiler %cmp_macro define_20013.cj
-// (CJNATIVE) EXEC: %compiler %f  %cmp_macro
-// (CJNATIVE) EXEC: %compiler %cmp_opt  main_20013.cj -o %output
+// EXEC: %compiler %cmp_macro define_20013.cj
+// EXEC: %compiler %f  %cmp_macro
+// EXEC: %compiler %cmp_opt  main_20013.cj -o %output
 
-// (not CJNATIVE) EXEC: %compiler %cmp_macro define_20013.cj
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f %macro_opt
-// (not CJNATIVE) EXEC: %compiler %cmp_opt main_20013.cj -o %output
+
 
 // RUN-EXEC: %run %run_opt %output %run_args
 

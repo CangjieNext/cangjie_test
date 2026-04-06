@@ -32,5 +32,5 @@ extend<T> A<T> <: I<T> {
 main(): Int64 {
     return 2
 }
-// (not CJNATIVE) ASSERT: scan sema_generic_function_in_interface
+
 // ASSERT: scan sema_invalid_this_call_outside_ctor

@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC-PIPE-0: %compiler %cmp_opt  %f -o %output 2>&1 | compare %f
-// (not CJNATIVE) EXEC: %compiler %cmp_opt  %f -o %output
+
 // RUN-EXEC: %run %run_opt %output %run_args
 // ASSERT: scan chir_dce_unused_function
 
