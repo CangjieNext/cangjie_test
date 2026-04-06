@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // DESC: 测试target为安卓时，后缀编号非法的场景
-// (target_android) EXEC-PIPE-1: %compiler --target=aarch64-linux-android&#! -B=%prebuilt-toolchain/bin --sysroot=%prebuilt-toolchain/sysroot %f -o %output 2>&1 | compare %f
+// (target_android) EXEC-PIPE-1: %compiler --target="aarch64-linux-android&#!" -B=%prebuilt-toolchain/bin --sysroot=%prebuilt-toolchain/sysroot %f -o %output 2>&1 | compare %f
 // (target_android) ASSERT: scan The OS "android" is not found or supported!
 
 main() {}
