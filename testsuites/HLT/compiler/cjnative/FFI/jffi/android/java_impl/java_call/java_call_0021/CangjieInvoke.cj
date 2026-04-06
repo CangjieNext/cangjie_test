@@ -12,7 +12,8 @@
 // (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
 // (Android) EXEC: %java %java_mirror_gen com.JavaClass
 // (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj UNNAMED/src/*.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
-// (Android) EXEC: python3 %java_interop_runner --test-entry=MainInstrumentedTest.java --java-source-root=com
+// (Android) EXEC-PIPE-1: python3 %java_interop_runner --test-entry=MainInstrumentedTest.java --java-source-root=com 2>&1 | compare %f
+// (Android) ASSERT: if (cjEntryPoint.test())
 
 package UNNAMED
 
