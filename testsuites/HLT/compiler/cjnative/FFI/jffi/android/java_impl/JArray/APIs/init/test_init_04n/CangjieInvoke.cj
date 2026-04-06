@@ -7,11 +7,11 @@
  */
 
 // LEVEL: 3
-// (Android) DEPENDENCE: com UNNAMED MainInstrumentedTest.java 
-// (Android) EXEC: python3 %java_interop_setup
-// (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
-// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj UNNAMED/src/*.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
-// (Android) EXEC: python3 %java_interop_runner --test-entry=MainInstrumentedTest.java --java-source-root=com
+// (Android) DEPENDENCE: com MainInstrumentedTest.java 
+// (Android) EXEC: %javac com/*.java %java_interop_util/Logger.java
+// (Android) EXEC: %java %java_mirror_gen com.JavaClass
+// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f %java_interop_util/logger.cj UNNAMED/src/*.cj
+// (Android) RUN-EXEC: %run %run_opt %output %run_args
 
 package UNNAMED
 
@@ -22,10 +22,10 @@ import java.lang.*
 public class CangjieInvoke <: JObject {
     public init() {
         let javaclass = JavaClass()
-        Logger.println("orginal-1 size aInt: ${javaclass.aInt.length}")
-        Logger.println("orginal-1 size arrLong: ${JavaClass.arrLong.length}")
+        Logger.println("orginal-1 size aInt: ${javaclass.aInt.getOrThrow().length}")
+        Logger.println("orginal-1 size arrLong: ${JavaClass.arrLong.getOrThrow().length}")
 
-        Logger.println("changed-1 value arrLong: ${JavaClass.arrLong[0]}, ${JavaClass.arrLong[100000]}")
+        Logger.println("changed-1 value arrLong: ${JavaClass.arrLong.getOrThrow()[0]}, ${JavaClass.arrLong.getOrThrow()[100000]}")
         var arr = JArray<Int32>(10001)
         arr[0] = 0
         arr[10000] = -2147483648

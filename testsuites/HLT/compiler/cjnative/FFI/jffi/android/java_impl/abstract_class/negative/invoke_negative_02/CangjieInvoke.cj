@@ -8,10 +8,9 @@
 
 // LEVEL: 3
 // (Android) DEPENDENCE: com MainInstrumentedTest.java 
-// (Android) EXEC: python3 %java_interop_setup
-// (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
+// (Android) EXEC: %javac com/*.java %java_interop_util/Logger.java
 // (Android) EXEC: %java %java_mirror_gen com.JavaClass
-// (Android) EXEC-PIPE-1: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj UNNAMED/src/*.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED 2>&1 | compare %f
+// (Android) EXEC-PIPE-1: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f %java_interop_util/logger.cj UNNAMED/src/*.cj 2>&1 | compare %f
 // (Android) ASSERT: scan sema_abstract_method_cannot_be_accessed_directly
 
 package UNNAMED
