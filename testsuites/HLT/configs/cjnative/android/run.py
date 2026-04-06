@@ -118,12 +118,14 @@ def build_java() -> None:
     shutil.copyfile(cangjie_dylib_file_path, os.path.join(jni_libs_dir_path, 'libUNNAMED.so'))
 
     # copying necessary dynamic libraries from Cangjie SDK.
-    cangjie_runtime_lib_dir_path = os.path.join(os.environ['CANGJIE_HOME'], 'runtime/lib/linux_android_aarch64_cjnative')
+    # cangjie_runtime_lib_dir_path = os.path.join(os.environ['CANGJIE_HOME'], 'runtime/lib/linux_android_aarch64_cjnative')
+    cangjie_runtime_lib_dir_path = os.path.join(os.environ['CANGJIE_HOME'], 'runtime/lib/linux_android32_arm_cjnative')
     for file_name in os.listdir(cangjie_runtime_lib_dir_path):
         shutil.copyfile(os.path.join(cangjie_runtime_lib_dir_path, file_name), os.path.join(jni_libs_dir_path, file_name))
 
     # copying libc++_shared.so from Android NDK.
-    ndk_dir_path = os.path.join(os.environ['OHOS_ROOT'], 'llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so')
+    # ndk_dir_path = os.path.join(os.environ['OHOS_ROOT'], 'llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so')
+    ndk_dir_path = os.path.join(os.environ['OHOS_ROOT'], 'llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/arm-linux-androideabi/libc++_shared.so')
     shutil.copyfile(ndk_dir_path, os.path.join(jni_libs_dir_path, 'libc++_shared.so'))
 
     # copying instrumented test source file.
