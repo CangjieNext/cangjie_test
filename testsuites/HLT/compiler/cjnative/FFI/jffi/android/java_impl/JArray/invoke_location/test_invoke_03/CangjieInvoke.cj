@@ -10,6 +10,8 @@
 // (Android) DEPENDENCE: com MainInstrumentedTest.java 
 // (Android) EXEC: python3 %java_interop_setup
 // (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
+// (Android) EXEC: %java %java_mirror_gen com.AbstractMirror
+// (Android) EXEC: %java %java_mirror_gen com.ImplAbstractMirror
 // (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
 // (Android) EXEC: python3 %java_interop_runner --test-entry=MainInstrumentedTest.java --java-source-root=com
 
@@ -17,34 +19,6 @@ package UNNAMED
 
 import interoplib.interop.*
 import java.lang.*
-
-@JavaMirror["com.AbstractMirror"]
-public open class AbstractMirror {
-    public mut prop aBoolean: JArray<Bool>
-
-    public mut prop aInt: JArray<Int32>
-
-    public mut static prop arrayInt: JArray<Int32>
-
-    public init(arg0: JArray<Int32>) 
-
-    public init() 
-}
-
-@JavaMirror["com.ImplAbstractMirror"]
-public open class ImplAbstractMirror <: AbstractMirror {
-    public init(arg0: JArray<Int32>) 
-
-    public open func getAInt(): JArray<Int32>
-
-    public open func setAInt(arg0: JArray<Int32>): Unit
-
-    public static func getArrayInt(): JArray<Int32>
-
-    public static func setArrayInt(arg0: JArray<Int32>): Unit
-
-    public init() 
-}
 
 @JavaImpl
 public class TestClass <: ImplAbstractMirror {
