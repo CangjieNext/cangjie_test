@@ -10,6 +10,10 @@
 // Linux native.
 // (host_linux & target_linux) EXEC: %compiler %f --import-path %cangjie-dynamic-stdx-path -L %cangjie-dynamic-stdx-path -lstdx.crypto.keys -lstdx.crypto.digest -o %output
 
+// (target_ohos) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f --import-path %cangjie-dynamic-stdx-path -L %cangjie-dynamic-stdx-path -lstdx.crypto.keys -lstdx.crypto.digest -o %output
+
+// (target_android) EXEC: %compiler %ohos_opt %f --import-path %cangjie-dynamic-stdx-path -L %cangjie-dynamic-stdx-path -lstdx.crypto.keys -lstdx.crypto.digest -o %output
+
 // MacOS native.
 // (host_mac & target_mac) EXEC: %compiler %f --import-path %cangjie-dynamic-stdx-path -L %cangjie-dynamic-stdx-path -lstdx.crypto.keys -lstdx.crypto.digest -o %output
 
