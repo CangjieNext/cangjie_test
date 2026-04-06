@@ -89,11 +89,10 @@ def construct_tool_shell_cmd(cmd):
         symbol = '\"'
     else:
         symbol = '\''
-    cmd = "{tool} shell {symbol}{cmd1} 2>/dev/null; echo code_start$?err_start;{cmd2} 1>/dev/null;{symbol}".format(
+    cmd = "{tool} shell {symbol}{cmd}{symbol}".format(
         tool=tool,
         symbol=symbol,
-        cmd1=cmd,
-        cmd2=cmd,
+        cmd=cmd,
     )
     return cmd
 
@@ -211,23 +210,8 @@ def run_case(execute_cmd, work_dir, timeout):
 def run_cmd(stage, cmd, work_dir, timeout):
     return_code, com_out, com_err = run(cmd, work_dir, timeout)
     time.sleep(2)
-    if "adb" in tool:
-        com_out = com_out.replace('\r\n', '\n')
-        com_err = com_err.replace('\r\n', '\n')
-        if "code_start" in com_out and "err_start\n" in com_out:
-            return_code = com_out.split("code_start")[1].split("err_start")[0]
-            com_out = (com_out.split("code_start")[0] + com_out.split("err_start\n")[1])
-        elif "code_start" in com_out and "err_start" in com_out:
-            return_code = com_out.split("code_start")[1].split("err_start")[0]
-            com_out = (com_out.split("code_start")[0] + com_out.split("err_start")[1])
-        if "code_start" in com_err and "err_start\n" in com_err:
-            com_err = (com_err.split("code_start")[0] + com_err.split("err_start\n")[1])
-        elif "code_start" in com_err and "err_start" in com_err:
-            com_err = (com_err.split("code_start")[0] + com_err.split("err_start")[1])
-    elif "code_start" in com_out:
-        return_code = com_out.split("code_start")[1].split("err_start")[0]
-        com_err = com_out.split("err_start")[1].replace('\r\n', '\n')
-        com_out = com_out.split("code_start")[0].replace('\r\n', '\n')
+    com_out = com_out.replace('\r\n', '\n')
+    com_err = com_err.replace('\r\n', '\n')
     return_code = str(return_code)
     log_output = logging.debug
     if return_code != "0":
@@ -237,9 +221,9 @@ def run_cmd(stage, cmd, work_dir, timeout):
         sys.stderr.write(com_err)
     log_output("execute stage: %s", stage)
     log_output("execute command: %s", cmd)
-    log_output("execute return code: %s", return_code)
-    log_output("execute out: \n%s", indent(com_out, "\t", lambda line: True))
-    log_output("execute error: \n%s", indent(com_err, "\t", lambda line: True))
+    log_output("execute exit code: %s", return_code)
+    log_output("execute stdout: \n%s", indent(com_out, "\t", lambda line: True))
+    log_output("execute stderr: \n%s", indent(com_err, "\t", lambda line: True))
     global EXIT_CODE
     if stage != "remove_file_on_remote":
         EXIT_CODE = int(return_code)
