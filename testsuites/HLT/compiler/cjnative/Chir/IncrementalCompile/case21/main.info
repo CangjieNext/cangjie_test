@@ -10,14 +10,12 @@
 // DEPENDENCE: ./new main.cj  pkgA.cj pkgB.cj
 // EXEC: %compiler %incremental_compile %compile_lib_opt %cmp_opt pkgB.cj -o libB.%middle 
 // EXEC: %compiler %incremental_compile %compile_lib_opt %cmp_opt pkgA.cj -o libA.%middle
-// (CJNATIVE) EXEC: %compiler %cmp_opt %n.cj libA.%middle libB.%middle -o %output
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %n.cj libB.%middle libA.%middle -o %output
+// EXEC: %compiler %cmp_opt %n.cj libA.%middle libB.%middle -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: %cp ./new/%n.txt %n.cj
 // EXEC: %cp ./new/pkgA.txt pkgA.cj
 // EXEC: %cp ./new/pkgB.txt pkgB.cj
 // EXEC: %compiler %compile_lib_opt %incremental_compile %cmp_opt pkgB.cj -o libB.%middle
 // EXEC: %compiler %compile_lib_opt %incremental_compile %cmp_opt pkgA.cj -o libA.%middle
-// (CJNATIVE) EXEC: %compiler %cmp_opt %incremental_compile %n.cj libA.%middle libB.%middle -o %output
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %incremental_compile %n.cj libB.%middle libA.%middle -o %output
+// EXEC: %compiler %cmp_opt %incremental_compile %n.cj libA.%middle libB.%middle -o %output
 // RUN-EXEC: %run %run_opt %output %run_args

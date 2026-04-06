@@ -8,11 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: define_30006.cj main_30006.cj
-// (CJNATIVE) EXEC: %compiler %cmp_opt define_30006.cj %macro_opt -o define_30006.%test_suffix
-// (CJNATIVE) ERRCHECK: %compiler %cmp_opt %f %macro_opt -o use.%test_suffix
-
-// (not CJNATIVE) EXEC: %compiler %macro_opt define_30006.cj %macro_opt
-// (not CJNATIVE) ERRCHECK: %compiler %f %macro_opt 
+// EXEC: %compiler %cmp_opt define_30006.cj %macro_opt -o define_30006.%test_suffix
+// ERRCHECK: %compiler %cmp_opt %f %macro_opt -o use.%test_suffix
 
 macro package use
 

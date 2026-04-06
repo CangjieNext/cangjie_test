@@ -17,5 +17,5 @@ main(): Int64 {
     let a = R().a
     return 0
 }
-// (not CJNATIVE) ASSERT: scan sema_invalid_access_function
+
 // ASSERT: scan sema_not_member_of
