@@ -10,20 +10,23 @@ package com;
 
 import com.example.myapplication.Logger;
 
-public class JavaClass {
+public abstract class C1 {
   public int v1 = 1;
+  public static int v2 = 2;
 
-  public JavaClass() {
-    Logger.println("in JavaClass Init");
+  public C1() {
+    Logger.println("in C1 init" + v1 + v2);
   }
 
-  public int location_return() {
-    Logger.println("in JavaClass location_return");
-    return 98;
+  public int goo() {
+    Logger.println("in C1 goo");
+    return v1;
   }
 
-  public int location_param() {
-    Logger.println("in JavaClass location_param:" + v1);
-    return 99;
+  public static int bar() {
+    Logger.println("in C1 bar");
+    return v2;
   }
+
+  public abstract int newoo();
 }
