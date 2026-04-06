@@ -7,9 +7,10 @@
  */
 
 // LEVEL: 3
-// (Android) DEPENDENCE: com UNNAMED MainInstrumentedTest.java 
+// (Android) DEPENDENCE: com MainInstrumentedTest.java 
 // (Android) EXEC: python3 %java_interop_setup
 // (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
+// (Android) EXEC: %java %java_mirror_gen com.JavaClass
 // (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj UNNAMED/src/*.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
 // (Android) EXEC: python3 %java_interop_runner --test-entry=MainInstrumentedTest.java --java-source-root=com
 
@@ -22,7 +23,7 @@ import java.lang.*
 public class CangjieInvoke <: JObject {
     public init() {
         let javaclass = JavaClass()
-        Logger.println("instance member of JavaClass are: ${javaclass.aString[0][1].toString()}")
-        Logger.println("static member of JavaClass are: ${JavaClass.a_String[1][0].toString()}")
+        Logger.println("instance member of JavaClass are: ${javaclass.aString.getOrThrow()[0][1].toString()}")
+        Logger.println("static member of JavaClass are: ${JavaClass.a_String.getOrThrow()[1][0].toString()}")
     }
 }
