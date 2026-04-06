@@ -226,7 +226,7 @@ def main():
         
         # 读取日志内容
         with open('ios_sim.log', 'r', encoding='utf-8') as f:
-            cangjie_runtime_log_lines = (line.rstrip('\n') for line in f if '[CANGJIE:RUNTIME]' in line)
+            cangjie_runtime_log_lines = (line.rstrip('\n') for line in f if '[CANGJIE:RUNTIME]' in line or ('Process exited:' in line and '(SpringBoard)' in line))
             # 过滤掉这一句
             cangjie_runtime_log_lines = [line for line in cangjie_runtime_log_lines if 'signpost functions all loaded successfully' not in line]
             sys_log_content = '\n'.join(cangjie_runtime_log_lines)
