@@ -13,9 +13,11 @@
 // (!target_win) RUN-EXEC-PIPE-134: %run %run_opt %output %run_args 2>&1 | compare %f
 // (target_win) RUN-EXEC-PIPE-3: %run %run_opt %output %run_args 2>&1 | compare %f
 // (target_win) ASSERT: scan ThrowException fail, abort.
-// (!target_win) ASSERT: scan Two pending exceptions are thrown when a C function calls Cangjie function. Program will abort.
-// (!target_win & !target_android) ASSERT: scan CJNative Handle signal: 6
+// (target_mac) ASSERT: scan Two pending exceptions are thrown when a C function calls Cangjie function. Program will abort.
+// (!target_win & (target_win | target_mac | target_linux)) ASSERT: scan CJNative Handle signal: 6
 // (!target_win & target_android) ASSERT: scan Aborted
+// (!target_win & target_ohos) ASSERT: scan Signal 6 (core dumped)
+// (!target_win & (target_ios | target_ios_simulator)) ASSERT: scan 
 
 @C
 public func C2CJ_Func(a: Float64): Float64 {
