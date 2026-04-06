@@ -434,6 +434,14 @@ public class TestArgParser {
         Full("test4", r'd', NoValue) {_ => println("Got test4")},
         NonOptions {v => println("Got NonOptions: ${v}")}
     ]
+    
+    var callbackExecutionOrder = ArrayList<String>()
+    var callbackExecuted = false
+    var callbackNonOptions: ?Array<String> = None
+    var callbackShortKey: ?String = None
+    var callbackLongKey: ?String = None
+    var fullSpecExecuted = ArrayList<String>()
+    
     func printArguments(arguments: ParsedArguments) {
         let options: HashMap<String, String> = HashMap<String, String>(arguments.options)
         let nonOptions = arguments.nonOptions
@@ -790,5 +798,251 @@ public class TestArgParser {
     func test_long_dash_but_shortoption(): Unit {
         var argSpecs = [Short(r"a", NoValue)]
         @ExpectThrows[ArgumentParseException](parseArguments(["--a"], argSpecs))
+    }
+
+    @TestCase
+    func test_empty_string_argument(): Unit {
+        let argSpecs = [Short(r'a', NoValue)]
+        let arguments = parseArguments(["", "-a", "value"], argSpecs)
+        @Expect(arguments.nonOptions, ["", "value"])
+        @Expect(arguments.options.get("a").isSome())
+    }
+
+    @TestCase
+    func test_empty_string_in_middle(): Unit {
+        let argSpecs = [Short(r'a', RequiredValue)]
+        let arguments = parseArguments(["-a", "", "nonopt"], argSpecs)
+        @Expect(arguments.options.get("a"), "")
+        @Expect(arguments.nonOptions, ["nonopt"])
+    }
+
+    @TestCase
+    func test_callback_execution_order(): Unit {
+        callbackExecutionOrder.clear()
+        let argSpecs = [
+            Short(r'a', NoValue) { _ => callbackExecutionOrder.add("a") },
+            Short(r'b', RequiredValue) { _ => callbackExecutionOrder.add("b") },
+            Long("test", NoValue) { _ => callbackExecutionOrder.add("test") }
+        ]
+        let arguments = parseArguments(["-a", "-b", "value", "--test"], argSpecs)
+        @Expect(arguments.options.size, 3)
+        @Expect(callbackExecutionOrder.toArray(), ["a", "b", "test"])
+    }
+
+    @TestCase
+    func test_callback_exception_handling(): Unit {
+        let argSpecs = [
+            Short(r'a', NoValue) { _ => throw Exception("Test error") }
+        ]
+        try {
+            parseArguments(["-a"], argSpecs)
+            @Assert(false)
+        } catch (e: ArgumentParseException) {
+            @Expect(e.message.contains("Callback execution failed"))
+        }
+    }
+
+    @TestCase
+    func test_non_option_callback_delayed(): Unit {
+        callbackExecuted = false
+        callbackNonOptions = None
+        let argSpecs = [
+            Short(r'a', NoValue),
+            NonOptions { args =>
+                callbackExecuted = true
+                callbackNonOptions = Some(args)
+            }
+        ]
+        let arguments = parseArguments(["-a", "file1", "file2"], argSpecs)
+        @Expect(callbackExecuted)
+        if (let Some(opts) <- callbackNonOptions) {
+            @Expect(opts, ["file1", "file2"])
+        } else {
+            @Assert(false)
+        }
+    }
+
+    @TestCase
+    func test_full_spec_option_key_unified(): Unit {
+        callbackShortKey = None
+        callbackLongKey = None
+        let argSpecs = [
+            Full("verbose", r'v', NoValue) { _ =>
+                callbackShortKey = Some("verbose")
+            },
+            Full("output", r'o', RequiredValue) { _ =>
+                callbackLongKey = Some("output")
+            }
+        ]
+        let arguments1 = parseArguments(["-v", "-o", "file"], argSpecs)
+        @Expect(arguments1.options.get("verbose").isSome())
+        @Expect(arguments1.options.get("output"), "file")
+        @Expect(callbackShortKey, "verbose")
+
+        callbackShortKey = None
+        callbackLongKey = None
+        let arguments2 = parseArguments(["--verbose", "--output=file2"], argSpecs)
+        @Expect(arguments2.options.get("verbose").isSome())
+        @Expect(arguments2.options.get("output"), "file2")
+        @Expect(callbackLongKey, "output")
+    }
+
+    @TestCase
+    func test_full_spec_with_both_forms(): Unit {
+        let argSpecs = [
+            Full("help", r'h', NoValue),
+            Full("file", r'f', RequiredValue)
+        ]
+        let arguments = parseArguments(["-h", "-f", "test.txt", "--file=another.txt"], argSpecs)
+        @Expect(arguments.options.get("help").isSome())
+        @Expect(arguments.options.get("file"), "another.txt")
+    }
+
+    @TestCase
+    func test_max_arguments_limit(): Unit {
+        let argSpecs = [Short(r'a', NoValue)]
+        var largeArgs = ArrayList<String>()
+        for (i in 0..10001) {
+            largeArgs.add("-a")
+        }
+        try {
+            parseArguments(largeArgs.toArray(), argSpecs)
+            @Assert(false)
+        } catch (e: ArgumentParseException) {
+            @Expect(e.message.contains("Too many arguments"))
+            @Expect(e.message.contains("10000"))
+        }
+    }
+
+    @TestCase
+    func test_max_arguments_limit_deprecated_api(): Unit {
+        var largeArgs = ArrayList<String>()
+        for (i in 0..10001) {
+            largeArgs.add("-a")
+        }
+        try {
+            ArgOpt(largeArgs.toArray(), "a", [])
+            @Assert(false)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message.contains("Too many arguments"))
+            @Expect(e.message.contains("10000"))
+        }
+    }
+
+    @TestCase
+    func test_combined_short_options_with_full_spec(): Unit {
+        fullSpecExecuted.clear()
+        let argSpecs = [
+            Full("verbose", r'v', NoValue) { _ => fullSpecExecuted.add("v") },
+            Full("all", r'a', NoValue) { _ => fullSpecExecuted.add("a") },
+            Full("list", r'l', NoValue) { _ => fullSpecExecuted.add("l") }
+        ]
+        let arguments = parseArguments(["-val"], argSpecs)
+        @Expect(arguments.options.get("verbose").isSome())
+        @Expect(arguments.options.get("all").isSome())
+        @Expect(arguments.options.get("list").isSome())
+        @Expect(fullSpecExecuted.toArray(), ["v", "a", "l"])
+    }
+
+    @TestCase
+    func test_full_spec_with_optional_value(): Unit {
+        let argSpecs = [
+            Full("color", r'c', OptionalValue)
+        ]
+        let arguments1 = parseArguments(["-c"], argSpecs)
+        @Expect(arguments1.options.get("color"), "")
+
+        let arguments2 = parseArguments(["-cblue"], argSpecs)
+        @Expect(arguments2.options.get("color"), "blue")
+
+        let arguments3 = parseArguments(["--color"], argSpecs)
+        @Expect(arguments3.options.get("color"), "")
+
+        let arguments4 = parseArguments(["--color=red"], argSpecs)
+        @Expect(arguments4.options.get("color"), "red")
+    }
+
+    @TestCase
+    func test_callback_with_exception_in_non_option(): Unit {
+        let argSpecs = [
+            NonOptions { _ => throw Exception("Non-option error") }
+        ]
+        try {
+            parseArguments(["file1", "file2"], argSpecs)
+            @Assert(false)
+        } catch (e: ArgumentParseException) {
+            @Expect(e.message.contains("Non-option callback execution failed"))
+        }
+    }
+
+    @TestCase
+    func test_multiple_empty_strings(): Unit {
+        let argSpecs = [Short(r'a', NoValue)]
+        let arguments = parseArguments(["", "", "-a", "", ""], argSpecs)
+        @Expect(arguments.nonOptions, ["", "", "", ""])
+        @Expect(arguments.options.get("a").isSome())
+    }
+
+    @TestCase
+    func test_deprecated_api_empty_string(): Unit {
+        let parser = ArgOpt(["", "-a", "value"], "a:", [])
+        @Expect(parser.getArg("-a"), Some("value"))
+        @Expect(parser.getUnparseArgs(), [""])
+    }
+
+    @TestCase
+    func test_full_spec_short_and_long_consistency(): Unit {
+        let argSpecs = [
+            Full("verbose", r'v', NoValue),
+            Full("output", r'o', RequiredValue)
+        ]
+        let arguments1 = parseArguments(["-v", "-o", "file.txt"], argSpecs)
+        @Expect(arguments1.options.get("verbose").isSome())
+        @Expect(arguments1.options.get("output"), "file.txt")
+
+        let arguments2 = parseArguments(["--verbose", "--output", "file.txt"], argSpecs)
+        @Expect(arguments2.options.get("verbose").isSome())
+        @Expect(arguments2.options.get("output"), "file.txt")
+
+        let arguments3 = parseArguments(["-v", "--output=file.txt"], argSpecs)
+        @Expect(arguments3.options.get("verbose").isSome())
+        @Expect(arguments3.options.get("output"), "file.txt")
+
+        let arguments4 = parseArguments(["--verbose", "-o", "file.txt"], argSpecs)
+        @Expect(arguments4.options.get("verbose").isSome())
+        @Expect(arguments4.options.get("output"), "file.txt")
+    }
+
+    @TestCase
+    func test_full_spec_combined_short_options(): Unit {
+        let argSpecs = [
+            Full("verbose", r'v', NoValue),
+            Full("all", r'a', NoValue),
+            Full("list", r'l', NoValue),
+            Full("file", r'f', RequiredValue)
+        ]
+        let arguments = parseArguments(["-val", "-f", "test.txt"], argSpecs)
+        @Expect(arguments.options.get("verbose").isSome())
+        @Expect(arguments.options.get("all").isSome())
+        @Expect(arguments.options.get("list").isSome())
+        @Expect(arguments.options.get("file"), "test.txt")
+    }
+
+    @TestCase
+    func test_full_spec_with_value_attached(): Unit {
+        let argSpecs = [
+            Full("output", r'o', RequiredValue)
+        ]
+        let arguments = parseArguments(["-ofile.txt"], argSpecs)
+        @Expect(arguments.options.get("output"), "file.txt")
+    }
+
+    @TestCase
+    func test_full_spec_optional_value_attached(): Unit {
+        let argSpecs = [
+            Full("color", r'c', OptionalValue)
+        ]
+        let arguments = parseArguments(["-cblue"], argSpecs)
+        @Expect(arguments.options.get("color"), "blue")
     }
 }
