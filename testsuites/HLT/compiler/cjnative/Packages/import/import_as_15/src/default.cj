@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: p1
-// (not iOS) EXEC: %compiler %cmp_opt %compile_lib_opt p1/a.cj -o p1.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt p1/a.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt %f p1.%middle -o %output
 
 import p1.test as f1
@@ -17,6 +17,6 @@ func f1() {
     print("this is default")
 }
 
-main() {
+main(): Unit {
     return f1()
 }
