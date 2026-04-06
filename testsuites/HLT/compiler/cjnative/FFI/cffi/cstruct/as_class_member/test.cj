@@ -8,10 +8,10 @@
 
 // LEVEL:2
 // DEPENDENCE: %n.c
-// (CJNATIVE) EXEC: %clang %clang_opt %n.c -o %cffi_output
-// (CJNATIVE) EXEC: %compiler %cmp_opt %ffic_opt -o %output
-// (CJNATIVE) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
-// (CJNATIVE) ASSERT: scan -10, 30
+// EXEC: %clang %clang_opt %n.c -o %cffi_output
+// EXEC: %compiler %cmp_opt %ffic_opt -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+// ASSERT: scan -10, 30
 
 @C
 struct CStruct {

@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // ( not Windows)RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // (Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 1>log.txt && bash -c "dos2unix log.txt" && bash -c "cat log.txt" | compare %f
-// (not CJNATIVE) RUN-EXEC-PIPE: export JETVMPROP=-Djet.cj.use.fibers && %run %run_opt %output %run_args 2>&1 | compare %f
+
 // ASSERT: scan result1 = 1\nresult2 = 1\nresult3 = 1\nresult4 = 1\nresult5 = 1\nresult6 = 1\nresult7 = 1\nresult8 = 1\nresult9 = 1.000002\nresult10 = 1.000000002\n
 // ASSERT: scan-not Exception
 
