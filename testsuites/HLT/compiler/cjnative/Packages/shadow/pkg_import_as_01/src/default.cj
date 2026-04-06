@@ -11,7 +11,6 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkga/a.cj -o pkga.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkgb/*.cj  pkga.%middle -o pkgb.%middle
 // EXEC: %compiler %cmp_opt %f pkgb.%middle pkga.%middle -o %output
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f pkga.%middle pkgb.%middle -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 import {pkgb.b1 as alias1, pkgb.b2 as alias2}

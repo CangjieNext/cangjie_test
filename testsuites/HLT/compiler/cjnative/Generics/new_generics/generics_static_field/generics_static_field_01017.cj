@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (CJNATIVE) ERRCHECK: %compiler %cmp_opt %f -o %output
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
+// ERRCHECK: %compiler %cmp_opt %f -o %output
+
 // ASSERT: scan sema_static_variable_use_generic_parameter
 
 struct S<T> {

@@ -10,7 +10,6 @@
 // DEPENDENCE: ../src
 // EXEC: %compiler %cmp_opt %pkg_opt %compile_lib_opt src/pkga/ -o ./
 // EXEC: %compiler %cmp_opt %f libpkga.%middle -o %output
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f pkga.%middle -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 import pkga
