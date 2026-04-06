@@ -16,6 +16,7 @@ import sys
 from collections import OrderedDict
 from pathlib import Path
 from textwrap import indent
+import json
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
@@ -89,12 +90,28 @@ def construct_tool_shell_cmd(cmd):
         symbol = '\"'
     else:
         symbol = '\''
-    cmd = "{tool} shell {symbol}{cmd1} 2>/dev/null; echo code_start$?err_start;{cmd2} 1>/dev/null;{symbol}".format(
+
+    json_cmd = """
+    {cmd} > stdout.txt 2> stderr.txt
+    exit_code=$?
+    
+    stdout=$(cat stdout.txt)
+    stderr=$(cat stderr.txt)
+    
+    echo '{{"stdout": "{stdout}", "stderr": "{stderr}", "exit_code": {exit_code}}}'
+    
+    """.format(cmd=cmd, stdout="$stdout", stderr="$stderr", exit_code="$exit_code")
+    cmd = "{tool} shell {symbol}{json_cmd}{symbol}".format(
         tool=tool,
         symbol=symbol,
-        cmd1=cmd,
-        cmd2=cmd,
+        json_cmd=json_cmd,
     )
+    # cmd = "{tool} shell {symbol}{cmd1} 2>/dev/null; echo code_start$?err_start;{cmd2} 1>/dev/null;{symbol}".format(
+    #     tool=tool,
+    #     symbol=symbol,
+    #     cmd1=cmd,
+    #     cmd2=cmd,
+    # )
     return cmd
 
 
@@ -214,16 +231,21 @@ def run_cmd(stage, cmd, work_dir, timeout):
     if "adb" in tool:
         com_out = com_out.replace('\r\n', '\n')
         com_err = com_err.replace('\r\n', '\n')
-        if "code_start" in com_out and "err_start\n" in com_out:
-            return_code = com_out.split("code_start")[1].split("err_start")[0]
-            com_out = (com_out.split("code_start")[0] + com_out.split("err_start\n")[1])
-        elif "code_start" in com_out and "err_start" in com_out:
-            return_code = com_out.split("code_start")[1].split("err_start")[0]
-            com_out = (com_out.split("code_start")[0] + com_out.split("err_start")[1])
-        if "code_start" in com_err and "err_start\n" in com_err:
-            com_err = (com_err.split("code_start")[0] + com_err.split("err_start\n")[1])
-        elif "code_start" in com_err and "err_start" in com_err:
-            com_err = (com_err.split("code_start")[0] + com_err.split("err_start")[1])
+        if com_out.strip().startswith("{") and com_out.strip().endswith("}"):
+            result = json.loads(com_out.strip())
+            com_out = result.get("stdout", "")
+            com_err = result.get("stderr", "")
+            return_code = str(result.get("exit_code", 1))
+        # elif "code_start" in com_out and "err_start\n" in com_out:
+        #     return_code = com_out.split("code_start")[1].split("err_start")[0]
+        #     com_out = (com_out.split("code_start")[0] + com_out.split("err_start\n")[1])
+        # elif "code_start" in com_out and "err_start" in com_out:
+        #     return_code = com_out.split("code_start")[1].split("err_start")[0]
+        #     com_out = (com_out.split("code_start")[0] + com_out.split("err_start")[1])
+        # if "code_start" in com_err and "err_start\n" in com_err:
+        #     com_err = (com_err.split("code_start")[0] + com_err.split("err_start\n")[1])
+        # elif "code_start" in com_err and "err_start" in com_err:
+        #     com_err = (com_err.split("code_start")[0] + com_err.split("err_start")[1])
     elif "code_start" in com_out:
         return_code = com_out.split("code_start")[1].split("err_start")[0]
         com_err = com_out.split("err_start")[1].replace('\r\n', '\n')
@@ -237,9 +259,9 @@ def run_cmd(stage, cmd, work_dir, timeout):
         sys.stderr.write(com_err)
     log_output("execute stage: %s", stage)
     log_output("execute command: %s", cmd)
-    log_output("execute return code: %s", return_code)
-    log_output("execute out: \n%s", indent(com_out, "\t", lambda line: True))
-    log_output("execute error: \n%s", indent(com_err, "\t", lambda line: True))
+    log_output("execute exit code: %s", return_code)
+    log_output("execute stdout: \n%s", indent(com_out, "\t", lambda line: True))
+    log_output("execute stderr: \n%s", indent(com_err, "\t", lambda line: True))
     global EXIT_CODE
     if stage != "remove_file_on_remote":
         EXIT_CODE = int(return_code)
