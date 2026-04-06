@@ -7,8 +7,10 @@
  */
 
 // LEVEL: 3
-// (Android) DEPENDENCE: com UNNAMED MainInstrumentedTest.java 
+// (Android) DEPENDENCE: com MainInstrumentedTest.java 
 // (Android) EXEC: python3 %java_interop_setup
+// (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
+// (Android) EXEC: %java %java_mirror_gen com.JavaClass
 // (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj UNNAMED/src/*.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
 // (Android) EXEC: python3 %java_interop_runner --test-entry=MainInstrumentedTest.java --java-source-root=com
 
@@ -25,6 +27,6 @@ public class CangjieInvoke <: JObject {
 
     public func test() {
         Logger.println("in CangjieInvoke Func1")
-        return JavaClass().location_return()
+        return JavaClass().location_param()
     }
 }
