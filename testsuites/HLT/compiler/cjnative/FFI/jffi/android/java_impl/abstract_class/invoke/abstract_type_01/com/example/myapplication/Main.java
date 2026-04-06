@@ -11,7 +11,7 @@ import UNNAMED.CangjieInvoke;
 
 public class Main {
   public static void main(String[] args) {
-    Logger.println("run java Main");
+    System.out.println("run java Main");
     CangjieInvoke cjEntryPoint = new CangjieInvoke();
   }
 }
