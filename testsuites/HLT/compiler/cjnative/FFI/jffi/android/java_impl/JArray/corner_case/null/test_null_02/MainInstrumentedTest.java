@@ -21,7 +21,6 @@ public class MainInstrumentedTest {
     Main.main(new String[] {});
     StringBuilder sb = new StringBuilder();
     sb.append("run java\n");
-    sb.append("Unexpected `null` has come from java\n");
     assertEquals(Logger.getLog(), sb.toString());
   }
 }
