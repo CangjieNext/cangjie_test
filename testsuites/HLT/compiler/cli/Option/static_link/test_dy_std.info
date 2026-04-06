@@ -17,6 +17,7 @@
 // (target_win) ASSERT: scan libmy_utils.dll
 // (target_linux) ASSERT: scan libmy_utils.so
 // (target_mac) ASSERT: scan libmy_utils.dylib
+// (target_android) ASSERT: scan libmy_utils.dylib
 
 // 各平台上必带有的动态库
 
