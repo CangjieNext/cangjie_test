@@ -20,7 +20,7 @@ import interoplib.interop.*
 import java.lang.*
 
 @JavaImpl
-public class CangjieInvoke <: JObject {
+public open class CangjieInvoke <: JObject {
     public init() {}
     protected func test() {
         Logger.println("run cj")
