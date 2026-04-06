@@ -7,12 +7,11 @@
  */
 
 // LEVEL: 3
-// (Android) DEPENDENCE: com UNNAMED MainInstrumentedTest.java 
-// (Android) EXEC: python3 %java_interop_setup
-// (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
-
-// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj UNNAMED/src/*.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
-// (Android) EXEC: python3 %java_interop_runner --test-entry=MainInstrumentedTest.java --java-source-root=com
+// (Android) DEPENDENCE: com MainInstrumentedTest.java
+// (Android) EXEC: %javac com/*.java %java_interop_util/Logger.java
+// (Android) EXEC: %java %java_mirror_gen com.JavaClass
+// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f %java_interop_util/logger.cj UNNAMED/src/*.cj
+// (Android) RUN-EXEC: %run %run_opt %output %run_args
 
 package UNNAMED
 
@@ -24,10 +23,8 @@ public class CangjieInvoke <: JObject {
     public init() {
         let javaclass = JavaClass()
         Logger.println(
-            "instance member of JavaClass are: ${javaclass.aBoolean[0]}, ${javaclass.aByte[0]}, ${javaclass.aShort[0]}, ${javaclass.aChar[0]}, ${javaclass.aInt[0]}, ${javaclass.aLong[0]}, ${javaclass.aFloat[0]}, ${javaclass.aDouble[0]}"
-        )
+            "instance member of JavaClass are: ${javaclass.aBoolean.getOrThrow()[0]}, ${javaclass.aByte.getOrThrow()[0]}, ${javaclass.aShort.getOrThrow()[0]}, ${javaclass.aChar.getOrThrow()[0]}, ${javaclass.aInt.getOrThrow()[0]}, ${javaclass.aLong.getOrThrow()[0]}, ${javaclass.aFloat.getOrThrow()[0]}, ${javaclass.aDouble.getOrThrow()[0]}")
         Logger.println(
-            "instance member of JavaClass are: ${JavaClass.arrBoolean[0]}, ${JavaClass.arrByte[0]}, ${JavaClass.arrShort[0]}, ${JavaClass.arrChar[0]}, ${JavaClass.arrInt[0]}, ${JavaClass.arrLong[0]}, ${JavaClass.arrFloat[0]}, ${JavaClass.arrDouble[0]}"
-        )
+            "instance member of JavaClass are: ${JavaClass.arrBoolean.getOrThrow()[0]}, ${JavaClass.arrByte.getOrThrow()[0]}, ${JavaClass.arrShort.getOrThrow()[0]}, ${JavaClass.arrChar.getOrThrow()[0]}, ${JavaClass.arrInt.getOrThrow()[0]}, ${JavaClass.arrLong.getOrThrow()[0]}, ${JavaClass.arrFloat.getOrThrow()[0]}, ${JavaClass.arrDouble.getOrThrow()[0]}")
     }
 }
