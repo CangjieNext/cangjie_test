@@ -16,7 +16,7 @@ package d
 
 import p1.*
 
-main(a: Array<String>) {
+main() {
     var aNew = a1
     var b = aNew
     0
