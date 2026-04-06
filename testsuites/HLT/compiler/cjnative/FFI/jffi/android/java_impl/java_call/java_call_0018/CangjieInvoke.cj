@@ -22,7 +22,7 @@ import java.lang.*
 @JavaImpl
 public class CangjieInvoke <: JObject {
     public init() {}
-    protected func test() {
+    public func test() {
         Logger.println("run cj")
         return JavaClass().test() || true
     }
