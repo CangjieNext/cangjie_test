@@ -7,11 +7,11 @@
  */
 
 // LEVEL: 3
-// (Android) DEPENDENCE: com UNNAMED MainInstrumentedTest.java 
-// (Android) EXEC: python3 %java_interop_setup
-// (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
-// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj UNNAMED/src/*.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
-// (Android) EXEC: python3 %java_interop_runner --test-entry=MainInstrumentedTest.java --java-source-root=com
+// (Android) DEPENDENCE: com MainInstrumentedTest.java 
+// (Android) EXEC: %javac com/*.java %java_interop_util/Logger.java
+// (Android) EXEC: %java %java_mirror_gen com.JavaClass
+// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f %java_interop_util/logger.cj UNNAMED/src/*.cj
+// (Android) RUN-EXEC: %run %run_opt %output %run_args
 
 package UNNAMED
 
@@ -25,18 +25,18 @@ public class CangjieInvoke <: JObject {
         let arr = JArray<Int32>(1)
         arr[0] = 4321
         javaclass.aInt = arr
-        Logger.println("javaclass.aInt[0]: ${javaclass.aInt[0]}")
+        Logger.println("javaclass.aInt[0]: ${javaclass.aInt.getOrThrow()[0]}")
         JavaClass.setArrayInt(arr)
-        Logger.println("JavaClass.arrayInt[0]: ${JavaClass.arrayInt[0]}")
+        Logger.println("JavaClass.arrayInt[0]: ${JavaClass.arrayInt.getOrThrow()[0]}")
 
         arr[0] = 54321
-        Logger.println("javaclass.aInt[0]: ${javaclass.aInt[0]}")
-        Logger.println("JavaClass.arrayInt[0]: ${JavaClass.arrayInt[0]}")
+        Logger.println("javaclass.aInt[0]: ${javaclass.aInt.getOrThrow()[0]}")
+        Logger.println("JavaClass.arrayInt[0]: ${JavaClass.arrayInt.getOrThrow()[0]}")
 
         var jstr = JString("hello, 仓颉")
-        javaclass.aString[1] = jstr
-        Logger.println("javaclass.aString[1]: ${javaclass.aString[1].toString()}")
+        javaclass.aString.getOrThrow()[1] = jstr
+        Logger.println("javaclass.aString[1]: ${javaclass.aString.getOrThrow()[1].getOrThrow().toString()}")
         jstr = JString("hello, world")
-        Logger.println("javaclass.aString[1]: ${javaclass.aString[1].toString()}")
+        Logger.println("javaclass.aString[1]: ${javaclass.aString.getOrThrow()[1].getOrThrow().toString()}")
     }
 }
