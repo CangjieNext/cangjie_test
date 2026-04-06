@@ -17,6 +17,8 @@
 // (target_win) ASSERT: scan libmy_utils.dll
 // (target_linux) ASSERT: scan libmy_utils.so
 // (target_mac) ASSERT: scan libmy_utils.dylib
+// (target_android) ASSERT: scan libmy_utils.so
+// (target_ohos) ASSERT: scan libmy_utils.so
 
 // 各平台上必带有的动态库
 
@@ -33,21 +35,32 @@
 // (target_linux) ASSERT: scan libstdc++.so
 // (target_linux) ASSERT: scan libm.so
 // (target_linux) ASSERT: scan libc.so
-// (target_linux) ASSERT: scan ld-linux-x86-64.so
-// (target_linux) ASSERT: scan libdl.so
-// (target_linux) ASSERT: scan libpthread.so
+// (target_linux & target_x86_64) ASSERT: scan ld-linux-x86-64.so
+// (target_linux & target_aarch64) ASSERT: scan ld-linux-aarch64.so
+
+// Android平台上必带有的动态库
+// (target_linux) ASSERT: scan libc.so
+
+// OHOS平台上必带有的动态库
+// (target_ohos) ASSERT: scan libc.so
 
 // 动态链接标准库时仓颉runtime将被动态链接
 // (target_linux) ASSERT: scan libcangjie-runtime.so
 // (target_mac) ASSERT: scan @rpath/libcangjie-runtime.dylib
 // (target_win) ASSERT: scan libcangjie-runtime.dll
+// (target_android) ASSERT: scan libcangjie-runtime.so
+// (target_ohos) ASSERT: scan libcangjie-runtime.so
 
 // stdx库被动态链接
 // (target_linux) ASSERT: scan libstdx.encoding.json.so
 // (target_mac) ASSERT: scan @rpath/libstdx.encoding.json.dylib
 // (target_win) ASSERT: scan libstdx.encoding.json.dll
+// (target_android) ASSERT: scan libstdx.encoding.json.so
+// (target_ohos) ASSERT: scan libstdx.encoding.json.so
 
 // std库被动态链接
 // (target_linux) ASSERT: scan libcangjie-std-collection.so
 // (target_mac) ASSERT: scan @rpath/libcangjie-std-collection.dylib
 // (target_win) ASSERT: scan libcangjie-std-collection.dll
+// (target_android) ASSERT: scan libcangjie-std-collection.so
+// (target_ohos) ASSERT: scan libcangjie-std-collection.so

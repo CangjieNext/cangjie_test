@@ -13,7 +13,7 @@
 // (!target_win) RUN-EXEC-PIPE-134: %run %run_opt %output %run_args 2>&1 | compare %f
 // (target_win) RUN-EXEC-PIPE-3: %run %run_opt %output %run_args 2>&1 | compare %f
 // (target_win) ASSERT: scan ThrowException fail, abort.
-// (!target_win) ASSERT: scan Two pending exceptions are thrown when a C function calls Cangjie function. Program will abort.
+// (!target_win & !target_android) ASSERT: scan Two pending exceptions are thrown when a C function calls Cangjie function. Program will abort.
 // (!target_win & !target_android) ASSERT: scan CJNative Handle signal: 6
 // (!target_win & target_android) ASSERT: scan Aborted
 
