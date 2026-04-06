@@ -8,20 +8,18 @@
 
 package com;
 
-import com.example.myapplication.Logger;
-
 public class JavaClass extends C1 {
   public JavaClass() {
-    Logger.println("in JavaClass Init");
+    System.out.println("in JavaClass Init");
   }
 
   public static int bar() {
-    Logger.println("in JavaClass bar");
+    System.out.println("in JavaClass bar");
     return 100;
   }
 
   public C1 newoo(C1 c1) {
-    Logger.println("in JavaClass new newoo");
+    System.out.println("in JavaClass new newoo");
     return new JavaClass();
   }
 }
