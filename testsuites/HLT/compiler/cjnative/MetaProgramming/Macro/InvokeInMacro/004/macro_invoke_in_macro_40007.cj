@@ -8,13 +8,11 @@
 
 // LEVEL: 2
 // DEPENDENCE: define_a_40007.cj define_b_40007.cj
-// (CJNATIVE) EXEC: %compiler define_a_40007.cj %cmp_macro
-// (CJNATIVE) EXEC: %compiler define_b_40007.cj %cmp_macro
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
+// EXEC: %compiler define_a_40007.cj %cmp_macro
+// EXEC: %compiler define_b_40007.cj %cmp_macro
+// EXEC: %compiler %cmp_opt %f -o %output
 
-// (not CJNATIVE) EXEC: %compiler define_a_40007.cj %macro_opt
-// (not CJNATIVE) EXEC: %compiler define_b_40007.cj %macro_opt
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
+
 
 // RUN-EXEC: %run %run_opt %output %run_args
 

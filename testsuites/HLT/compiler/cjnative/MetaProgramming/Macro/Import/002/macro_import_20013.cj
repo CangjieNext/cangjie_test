@@ -8,13 +8,10 @@
 
 // LEVEL: 2
 // DEPENDENCE: macro_define_20013.cj main_20013.cj
-// (CJNATIVE) EXEC: %compiler %cmp_opt %macro_opt -o libdefine.%test_suffix macro_define_20013.cj
-// (CJNATIVE) EXEC: %compiler %f %cmp_macro
-// (CJNATIVE) EXEC: %compiler %cmp_opt  -L. -ldefine main_20013.cj -o %output
+// EXEC: %compiler %cmp_opt %macro_opt -o libdefine.%test_suffix macro_define_20013.cj
+// EXEC: %compiler %f %cmp_macro
+// EXEC: %compiler %cmp_opt  -L. -ldefine main_20013.cj -o %output
 
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %compile_lib_opt macro_define_20013.cj
-// (not CJNATIVE) EXEC: %compiler %f %macro_opt
-// (not CJNATIVE) EXEC: %compiler %cmp_opt define_20013.%middle main_20013.cj -o %output
 
 // RUN-EXEC: %run %run_opt %output %run_args
 

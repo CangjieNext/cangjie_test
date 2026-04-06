@@ -16,7 +16,7 @@ package-name = "cjworld"
 path = "src"
 
 [sources.all]
-paths = ["src/objc/M.h"]
+paths = ["src/objc/I.h"]
 
 [sources-mixins.default]
 sources = [".*"]

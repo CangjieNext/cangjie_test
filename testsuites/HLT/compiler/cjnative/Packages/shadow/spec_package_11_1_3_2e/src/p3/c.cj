@@ -11,7 +11,7 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt ./p1/*.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt ./p2/*.cj p1.%middle -o p2.%middle
 // EXEC: %compiler %cmp_opt p2.%middle p1.%middle %f -o %output
-// (not CJNATIVE) EXEC: %compiler %cmp_opt p1.%middle p2.%middle %f -o %output
+
 // RUN-EXEC: %run %run_opt %output %run_args
 
 package p3
