@@ -8,8 +8,7 @@
 
 // LEVEL: 3
 // (Android) DEPENDENCE: com  
-// (Android) EXEC: python3 %java_interop_setup
-// (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
+// (Android) EXEC: %javac com/*.java %java_interop_util/Logger.java
 // (Android) EXEC: %java %java_mirror_gen com.Java03
 // (Android) EXEC-PIPE-1: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f UNNAMED/src/*.cj --output-javagen-dir=. 2>&1 | compare %f
 // (Android) ASSERT: scan sema_not_member_of
