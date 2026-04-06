@@ -24,7 +24,7 @@ public class MainInstrumentedTest {
     sb.append("in CangjieInvoke Init\n");
     sb.append("in CangjieInvoke Func foo\n");
     sb.append("result: true\n");
-    sb.append("in CangjieInvoke Func goo\n");
+    sb.append("in CanjieInvoke Func goo\n");
     sb.append("result: 123456\n");
     assertEquals(Logger.getLog(), sb.toString());
   }
