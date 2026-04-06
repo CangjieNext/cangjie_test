@@ -14,12 +14,12 @@
 // EXEC-PIPE: %check-dylib-dep %output | compare %f
 
 // libboundscheck
-// (target_linux) ASSERT: scan libboundscheck.so
+// (target_linux | target_android | target_ohos) ASSERT: scan libboundscheck.so
 // (target_mac) ASSERT: scan @rpath/libboundscheck.dylib
 // (target_win) ASSERT: scan libboundscheck.dll
 
 // dynamic loader for openssl.
-// (target_linux) ASSERT: scan-not libcangjie-dynamicLoader-opensslFFI.so
+// (target_linux | target_android | target_ohos) ASSERT: scan-not libcangjie-dynamicLoader-opensslFFI.so
 // (target_mac) ASSERT: scan-not @rpath/libcangjie-dynamicLoader-opensslFFI.dylib
 
 // 各平台上必带有的动态库
@@ -41,22 +41,28 @@
 // (target_linux) ASSERT: scan libdl.so
 // (target_linux) ASSERT: scan libpthread.so
 
+// Android平台上必带有的动态库
+// (target_linux) ASSERT: scan libc.so
+
+// OHOS平台上必带有的动态库
+// (target_ohos) ASSERT: scan libc.so
+
 // 如果是--static-std而没有--static，则仓颉runtime将被动态链接
-// (target_linux) ASSERT: scan libcangjie-runtime.so
+// (target_linux | target_android | target_ohos) ASSERT: scan libcangjie-runtime.so
 // (target_mac) ASSERT: scan @rpath/libcangjie-runtime.dylib
 // (target_win) ASSERT: scan libcangjie-runtime.dll
 
 // 用户库被静态链接
-// (target_linux) ASSERT: scan-not libmy_utils.so
+// (target_linux | target_android | target_ohos) ASSERT: scan-not libmy_utils.so
 // (target_mac) ASSERT: scan-not libmy_utils.dylib
 // (target_win) ASSERT: scan-not libmy_utils.dll
 
 // stdx库被静态链接
-// (target_linux) ASSERT: scan-not libstdx.encoding.json.so
+// (target_linux | target_android | target_ohos) ASSERT: scan-not libstdx.encoding.json.so
 // (target_mac) ASSERT: scan-not @rpath/libstdx.encoding.json.dylib
 // (target_win) ASSERT: scan-not libstdx.encoding.json.dll
     
 // std库被静态链接
-// (target_linux) ASSERT: scan-not libcangjie-std-collection.so
+// (target_linux | target_android | target_ohos) ASSERT: scan-not libcangjie-std-collection.so
 // (target_mac) ASSERT: scan-not @rpath/libcangjie-std-collection.dylib
 // (target_win) ASSERT: scan-not libcangjie-std-collection.dll
