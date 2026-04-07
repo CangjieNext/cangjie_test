@@ -17,7 +17,7 @@ error: types Int64 and Struct-String of the two lambda of this '@IfAvailable' ex
   ==> err_desugar.cj:12:5:
    | 
 12 |     @IfAvailable(level:19, { => foo() }, { => goo() })
-   |     ^ 
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
    # note: Traces:
 The types 'Int64' and 'Struct-String' do not have the smallest common supertype
