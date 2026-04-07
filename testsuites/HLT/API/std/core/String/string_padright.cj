@@ -46,7 +46,7 @@ class Test_padEnd_05 {
             var padstr = str.padEnd(-1, padding: "12")
             @Expect(1,2)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message,"negative totalWidth")
+            @Expect(e.message,"Negative totalWidth.")
         }
     }
 }
