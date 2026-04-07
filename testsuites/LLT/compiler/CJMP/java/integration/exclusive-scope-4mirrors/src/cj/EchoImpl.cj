@@ -11,19 +11,25 @@ import java.lang.*
 @JavaImpl["test.EchoImpl"]
 public class EchoImpl  {
     public init(){}
-  
+
+
+    // This test intentionally exercises different JNI interaction paths
+    // inside spawn: mirror constructor, JObject constructor, getters,
+    // setters, nullable handling, method calls and object arguments.
+    // Missing exclusiveScope wrapping in any of these paths may cause
+    // runtime failures when lightweight threads migrate between carriers.
     public func callJavaWithSpawn(): Int {
         println("Runnning  callJavaWithSpawn()")
         let res: Future<Int64> = spawn {
             println("inside spawn")
-            callJava()
+            runMirrorOps()
         }
         println("Exit callJavaWithSpawn()")
         return res.get()
     }
 
-    public func callJava(): Int {
-        println("Runnning  callJava()")
+    public func runMirrorOps(): Int {
+        println("Runnning runMirrorOps()")
         let o = JObject()
         o.toString()
         let echoMirror = EchoMirror()
@@ -40,7 +46,7 @@ public class EchoImpl  {
         let res2 = echoMirror.foo(2)
         echoMirror.goo(echoMirror)
         println(res1 + res2)
-        println("Exit callJava()")
+        println("Exit runMirrorOps()")
         return res1 + res2
     }
 }

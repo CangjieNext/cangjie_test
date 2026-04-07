@@ -12,21 +12,11 @@
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE-0: %cd %n && %java %cp_cj_loader_java_interop -Djava.library.path./ Main 2>& 1 | compare %f
 
 /* SCAN-IN
-ret from JavaImpl = 27
 ret from JavaImpl with spawn = 27
-Runnning  callJava()
-Some(String)
-String1
-Some(String1)
-String1
-Some(String1)
-None
-27
-Exit callJava()
 Runnning  callJavaWithSpawn()
 Exit callJavaWithSpawn()
 inside spawn
-Runnning  callJava()
+Runnning runMirrorOps()
 Some(String)
 String1
 Some(String1)
@@ -34,6 +24,6 @@ String1
 Some(String1)
 None
 27
-Exit callJava()
+Exit runMirrorOps()
 */
 
