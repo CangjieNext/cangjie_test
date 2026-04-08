@@ -9,7 +9,7 @@
 
 // LEVEL: 0
 // DESCRIPTION: /bin/bash -l -c "xxx"
-// (host_linux | host_mac | host_ohos) EXEC: %shell -l -c 'export ENVSETUP_DIR=%cangjie-home && export CANGJIE_HOME= && export LD_LIBRARY_PATH= && . $ENVSETUP_DIR/envsetup.sh && %compiler %cmp_opt %f -o %output && %run %run_opt %output %run_args'
+// (host_linux | host_mac | host_ohos) EXEC: %shell -l -c 'export CURRENT_DIR=$(pwd) && export ENVSETUP_DIR=%cangjie-home && export CANGJIE_HOME= && export LD_LIBRARY_PATH= && cd $ENVSETUP_DIR && . $ENVSETUP_DIR/envsetup.sh && cd $CURRENT_DIR && %compiler %cmp_opt %f -o %output && %run %run_opt %output %run_args'
 
 main(): Unit {
 
