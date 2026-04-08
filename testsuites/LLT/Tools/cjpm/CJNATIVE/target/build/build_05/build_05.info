@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: scan-1 -O1 -O2 -Woff unused --link-options -s -z now -z relro
+// ASSERT: scan-1 -O1 -O2 -Woff unused --link-options "-s -z now -z relro"
