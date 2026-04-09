@@ -7,25 +7,75 @@
 package com.java.lib;
 
 import cj.*;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Exe e = new Exe();
-        e.PrintString("From java main to cj");
-        CjExe cjExe = new CjExe(true);
-        cjExe.PrintString1("Calling from CjExe");
-        System.out.println(cjExe.GetString(true));
-        System.out.println(cjExe.GetString(false));
-        System.out.println(cjExe.GetStringOption());
-        System.out.println(cjExe.GetStringOptionNone());
-        cjExe.GetArgStringOpt("cjExe: GetArgStringOpt");
-        cjExe.GetArgStringOpt("");
-        cjExe.GetArgStringOpt(null);
 
-        System.out.println(e.GetOptString());
-        e.GetArgStringOpt("GetArgStringOpt");
-        e.GetArgStringOpt("");
-        e.GetArgStringOpt(null);
-   }
+        CjExe cjExe = new CjExe("Str", null);
+
+        // Testing Fields
+
+        System.out.println(cjExe.GetStrFieldImpl());
+
+        cjExe.SetStrFieldImpl("updated-cj");
+        System.out.println(cjExe.GetStrFieldImpl());
+
+        System.out.println(cjExe.GetNullableFieldImpl());
+
+        cjExe.SetNullableFieldImpl("abc");
+        System.out.println(cjExe.GetNullableFieldImpl());
+
+        cjExe.SetNullableFieldImpl(null);
+        System.out.println(cjExe.GetNullableFieldImpl());
+
+        // Testing Nullable Argument Impl
+
+        cjExe.AcceptNullableString("hello");
+        cjExe.AcceptNullableString("");
+        cjExe.AcceptNullableString(null);
+
+        // Testing cj to java pass
+        cjExe.PassStringsToJava();
+
+        // Testing String Roundtrip
+
+        System.out.println(cjExe.EchoString("hello"));
+        System.out.println(cjExe.EchoString(""));
+
+        // Testing Nullable String Roundtrip
+
+        System.out.println("[" + cjExe.EchoNullableString("hello") + "]");
+        System.out.println("[" + cjExe.EchoNullableString("") + "]");
+        System.out.println("[" + cjExe.EchoNullableString(null) + "]");
+
+        // Testing Arrays
+
+        System.out.println(Arrays.toString(cjExe.GetStringArray()));
+        System.out.println(Arrays.toString(
+            cjExe.EchoStringArray(new String[] {"a", "", "b"})
+        ));
+
+        System.out.println(Arrays.toString(cjExe.GetNullableStringArray()));
+        System.out.println(Arrays.toString(
+            cjExe.EchoNullableStringArray(new String[] {"a", "", null})
+        ));
+
+        System.out.println(Arrays.toString(
+            cjExe.ProcessStringArray(new String[] {"x", "", "y"})
+        ));
+
+        System.out.println(Arrays.toString(
+            cjExe.ProcessNullableStringArray(new String[] {"x", "", null})
+        ));
+
+        // Testing Impl-only String
+
+        System.out.println(cjExe.ProcessString("hello"));
+        System.out.println(cjExe.ProcessString(""));
+        System.out.println(cjExe.ProcessString(null));
+
+        System.out.println(cjExe.ProcessNonNullString("hello"));
+        System.out.println(cjExe.ProcessNonNullString(""));
+    }
 }
-
