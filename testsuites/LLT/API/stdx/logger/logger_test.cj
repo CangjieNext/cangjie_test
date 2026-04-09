@@ -178,6 +178,134 @@ public class TestLog {
         nl.close()
         logger.close()
     }
+
+    @TestCase
+    func testTextLoggerEscapeFormat(): Unit {
+        let output = TestOutputStream()
+        let tl = TextLogger(output)
+        tl.level = LogLevel.TRACE
+        setGlobalLogger(tl)
+        let logger = getGlobalLogger([("name", "test")])
+
+        logger.info("test\u{0001}injection")
+        logger.info("tab\ntest")
+        logger.info("quote\"test")
+        logger.info("backslash\\test")
+        logger.info("control\u{0002}chars\u{0003}")
+
+        let outputStr = output.toString()
+
+        @Expect(outputStr.contains("\\u0001"))
+        @Expect(!outputStr.contains("\\u{0001}"))
+        @Expect(outputStr.contains("\\n"))
+        @Expect(outputStr.contains("\\\""))
+        @Expect(outputStr.contains("\\\\"))
+        @Expect(outputStr.contains("\\u0002"))
+        @Expect(outputStr.contains("\\u0003"))
+
+        logger.close()
+    }
+
+    @TestCase
+    func testSimpleLoggerStringSlice(): Unit {
+        let output = TestOutputStream()
+        let tl = SimpleLogger(output)
+        tl.level = LogLevel.TRACE
+        setGlobalLogger(tl)
+        let logger = getGlobalLogger([("name", "test")])
+
+        let originalStr = "hello world ttt"
+        let strSlice = originalStr[6..11]
+
+        logger.info("string slice", ("slice", strSlice))
+
+        let outputStr = output.toString()
+
+        @Expect(!outputStr.contains("hello"))
+        @Expect(outputStr.contains("world"))
+        @Expect(!outputStr.contains("ttt"))
+
+        logger.close()
+    }
+
+    @TestCase
+    func testSimpleLoggerMessageInjection(): Unit {
+        let output = TestOutputStream()
+        let tl = SimpleLogger(output)
+        tl.level = LogLevel.TRACE
+        setGlobalLogger(tl)
+        let logger = getGlobalLogger([("name", "test")])
+
+        let maliciousMsg = "login success\t2026-03-26T10:00:00 FATAL system compromised"
+        logger.info(maliciousMsg)
+
+        let outputStr = output.toString()
+
+        @Expect(outputStr.contains("login success"))
+        @Expect(outputStr.contains("FATAL system compromised"))
+        @Expect(!outputStr.contains("\t"))
+        @Expect(outputStr.contains("\\t"))
+
+        logger.close()
+    }
+
+    @TestCase
+    func testLogRecordAttrMutation(): Unit {
+        let output1 = TestOutputStream()
+        let tl1 = SimpleLogger(output1)
+        tl1.level = LogLevel.TRACE
+        let logger1 = tl1.withAttrs([("source", "svc1")])
+
+        let output2 = TestOutputStream()
+        let tl2 = SimpleLogger(output2)
+        tl2.level = LogLevel.TRACE
+        let logger2 = tl2.withAttrs([("source", "svc2")])
+
+        let record = LogRecord(DateTime.now(), LogLevel.INFO, "test message", [("key", "val")])
+
+        logger1.log(record)
+        logger2.log(record)
+
+        let outputStr1 = output1.toString()
+        let outputStr2 = output2.toString()
+
+        @Expect(outputStr1.contains("svc1"))
+        @Expect(outputStr1.contains("key"))
+        @Expect(outputStr2.contains("svc2"))
+        @Expect(!outputStr2.contains("svc1"))
+
+        logger1.close()
+        logger2.close()
+    }
+
+    @TestCase
+    func testTextLoggerMemorySafety(): Unit {
+        let output = TestOutputStream()
+        let tl = TextLogger(output)
+        tl.level = LogLevel.TRACE
+        setGlobalLogger(tl)
+        let logger = getGlobalLogger([("name", "test")])
+
+        logger.info("")
+        logger.info("a")
+        logger.info("normal message")
+        logger.info("message with spaces and\ttabs")
+        logger.info("unicode: 你好世界")
+        logger.info("mixed: hello世界123")
+        logger.info("long message: " + "A" * 1000)
+
+        let now = DateTime.now()
+        logger.info("time test", ("timestamp", now))
+
+        let outputStr = output.toString()
+        @Expect(outputStr.contains("normal message"))
+        @Expect(outputStr.contains("unicode: 你好世界"))
+        @Expect(outputStr.contains("mixed: hello世界123"))
+        @Expect(outputStr.contains("long message:"))
+        @Expect(outputStr.size > 1000)
+
+        logger.close()
+    }
 }
 
 public class User {
@@ -214,4 +342,22 @@ func expensiveOperation(): String {
         }
     }
     "Some long-running operation returned"
+}
+
+class TestOutputStream <: OutputStream {
+    private let buffer = ArrayList<Byte>()
+
+    public func write(b: Byte): Unit {
+        buffer.add(b)
+    }
+
+    public func write(bytes: Array<Byte>): Unit {
+        buffer.add(all: bytes)
+    }
+
+    public func flush(): Unit {}
+
+    public func toString(): String {
+        String.fromUtf8(buffer.toArray())
+    }
 }
