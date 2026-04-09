@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+features {user.mp.a,user.mp.b,user.mp.c}
 package mp
 
 public specific var a: Int64 = 0

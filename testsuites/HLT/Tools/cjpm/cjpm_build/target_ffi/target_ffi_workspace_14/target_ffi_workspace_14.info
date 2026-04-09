@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%test_suffix && %cjpm build 2>&1 | compare %f
+// (native_compilation)EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%test_suffix && %cjpm build 2>&1 | compare %f
 // ASSERT: regex Error: parse the '.[\\|/]cjpm.toml' file failed
 // ASSERT: scan cjpm build failed

@@ -17,6 +17,15 @@
   package-configuration = {}
 
 [dependencies]
+[[feature]]
+name = "user.mp.a"
+mapping = []
+[[feature]]
+name = "user.mp.b"
+mapping = []
+[[feature]]
+name = "user.mp.c"
+mapping = []
 
 
 [[source-set]]
@@ -28,4 +37,13 @@ features = []
 name = "windowsorlinux"
 src-dir = "./src/windows"
 features = ["user.mp.a", "user.mp.b", "user.mp.c"]
+
+[[source-set]]
+name = "mac"
+src-dir = "./src/darwin"
+features = ["user.mp.a", "user.mp.b", "user.mp.c"]
+
+[[source-set]]
+name = "os.android"
+mapping = ["user.mp.a", "user.mp.b", "user.mp.c"]
 

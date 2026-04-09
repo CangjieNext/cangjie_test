@@ -8,5 +8,5 @@
 
 // LEVEL:1
 // DEPENDENCE: ../%n 
-// ERRCHECK: cd %n && %cjpm  install --git abcdefg  --list -V --root
-// ASSERT: scan Error: the '--root' option needs a value
+// (native_compilation)ERRCHECK: cd %n && %cjpm  install --git abcdefg  --list -V --root
+// (native_compilation)ASSERT: scan Error: the '--root' option needs a value
