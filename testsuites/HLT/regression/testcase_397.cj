@@ -7,7 +7,7 @@
  */
  
 // LEVEL: 0 EXCLUDE
-// (CJNATIVE) ERRCHECK: %compiler %cmp_opt %incremental_compile %f -o %output 
+// ERRCHECK: %compiler %cmp_opt %incremental_compile %f -o %output 
 
 nt64(UInt64(251))&127)..=(UInt64(UInt64(146))&127):(Int64(124)|1));
         var_1690487150522_450;

@@ -9,7 +9,6 @@
 // LEVEL: 0
 // DEPENDENCE: com
 // EXEC: %compiler %cmp_opt com/*.cj %compile_lib_opt -o com.%middle
-// (not CJNATIVE) EXEC: %compiler %compile_lib_opt com/*.cj -o com.%middle
 // EXEC: %compiler %cmp_opt -L./ test_com.cj com.%middle -o %output
 // RUN-EXEC: %run %run_opt %output
 
