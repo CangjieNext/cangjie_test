@@ -9,7 +9,6 @@
 // LEVEL: 0
 // EXEC-PIPE: mkdir c && cd c && mkdir b && cd ..
 // EXEC-PIPE: %compiler %cmp_opt %n.cj -o b/target_name --output-dir=c
-// (not CJNATIVE) EXEC-PIPE: %compiler %cmp_opt %n.cj -o b/target_name.cbc --output-dir=c
 // EXEC-PIPE: cd c/b && %ls | compare %f
 // ASSERT: scan target_name
 

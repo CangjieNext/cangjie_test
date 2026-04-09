@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%test_suffix && %cjpm run 2>&1 | compare %f
+// (native_compilation)EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%test_suffix && %cjpm run 2>&1 | compare %f
 // ASSERT: scan toml: line 24: Key 'target.x86_64-unknown-linux-gnu.ffi.c.test01.path' has already been defined.
 // ASSERT: regex Error: parse the '.[\\|/]cjpm.toml' file failed
 // ASSERT: scan cjpm run failed

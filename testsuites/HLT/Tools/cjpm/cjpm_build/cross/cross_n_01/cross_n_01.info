@@ -8,5 +8,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// ERRCHECK: cd %n && %cjpm build %cjpm_opt --target x86_64-w64-mingw32 -V
+// ERRCHECK: cd %n && %cjpm build %cjpm_opt -V
 // ASSERT: scan Error: cjpm build failed
