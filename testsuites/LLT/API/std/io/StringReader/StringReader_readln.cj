@@ -68,6 +68,7 @@ class Test_StringReader_readln {
 
     @TestCase
     func test_read() {
+        // 此用例看护，防止无限循环问题
         // 3字节 UTF-8 字符 "中" 的编码：0xE4 0xB8 0xAD
         // 但只提供前2个字节，造成截断
         let truncatedUTF8: Array<Byte> = [0xE4, 0xB8] // 缺少最后一个字节 0xAD
@@ -75,18 +76,11 @@ class Test_StringReader_readln {
         let input = ByteBuffer(truncatedUTF8)
         let reader = StringReader(input)
 
-        // 尝试读取字符，会进入 ensureAvailable 的无限循环
-        // 因为：
-        // 1. readCharFromInbuf 发现需要3字节，但只有2字节
-        // 2. ensureAvailable(3) 被调用
-        // 3. while (3 > 2) 进入循环
-        // 4. read() 返回 0（流结束）
-        // 5. BUG: if (0 < 0) 为 false，不抛异常！
-        // 6. availLen 不变，循环继续...
         try {
-            let ch = reader.read() // 无限循环！
+            let ch = reader.read() // 旧代码在这里触发死循环
             println("读到字符: ${ch}")
         } catch (e: Exception) {
+            // 期望抛出异常
             @Expect("Input stream finished in the middle of a UTF-8 sequence", e.message)
         }
     }
