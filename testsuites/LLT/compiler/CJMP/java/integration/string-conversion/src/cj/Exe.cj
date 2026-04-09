@@ -6,15 +6,31 @@
 
 package cj
 
-import java.lang.JObject
+import java.lang.*
 
 @JavaMirror["com.java.lib.Exe"]
 public open class Exe {
-    public init()
-    public static func GetJBase(): JBase
-    public static func PrintStringStatic (s: String): Unit
-    public func PrintString(s: String): Unit
-    public open func GetOptString(): ?String
-    public open func GetArgStringOpt(arg: ?String): Unit
+    public var strField: String
 
+    public var nullableField: ?String
+
+    public init()
+
+    public open func PrintString(arg0: String): Unit
+
+    public static func PrintStringStatic(arg0: String): Unit
+
+    public open func AcceptNullableString(arg0: ?String): Unit
+
+    public open func EchoString(arg0: String): String
+
+    public open func EchoNullableString(arg0: ?String): ?String
+
+    public open func GetStringArray(): ?JArray<String>
+
+    public open func EchoStringArray(arg0: ?JArray<String>): ?JArray<String>
+
+    public open func GetNullableStringArray(): ?JArray<?String>
+
+    public open func EchoNullableStringArray(arg0: ?JArray<?String>): ?JArray<?String>
 }

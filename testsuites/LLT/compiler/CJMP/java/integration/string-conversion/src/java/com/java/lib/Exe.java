@@ -6,12 +6,10 @@
 
 package com.java.lib;
 
-import cj.*;
-
 public class Exe {
-    public static JBase GetJBase() {
-        return new JBase();
-    }
+
+    public String strField = "java-field";
+    public String nullableField = null;
 
     public void PrintString(String s) {
         System.out.println("[Java]PrintString: " + s);
@@ -21,11 +19,31 @@ public class Exe {
         System.out.println("[Java]PrintString: " + s);
     }
 
-    public String GetOptString() {
-        return "foobar";
+    public void AcceptNullableString(String arg) {
+        System.out.println("[Java]AcceptNullableString: [" + arg + "]");
     }
 
-    public void GetArgStringOpt(String arg) {
-        System.out.println("[Java]GetArgStringOpt: " + arg);
+    public String EchoString(String s) {
+        return s;
+    }
+
+    public String EchoNullableString(String arg) {
+        return arg;
+    }
+
+    public String[] GetStringArray() {
+        return new String[] {"foo", "", "bar"};
+    }
+
+    public String[] EchoStringArray(String[] arg) {
+        return arg;
+    }
+
+    public String[] GetNullableStringArray() {
+        return new String[] {"foo", "", null, "bar"};
+    }
+
+    public String[] EchoNullableStringArray(String[] arg) {
+        return arg;
     }
 }
