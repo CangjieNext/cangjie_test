@@ -211,7 +211,7 @@ class FloatDefault<T> where T <: Floatable<T> & Comparable<T> & Arbitrary<T> & T
             T.GetNaN()
         ]
 
-        let SIZE = 200
+        let SIZE = 600
 
         let generated = Array<T>(SIZE, {_ => T.arbitrary(random).next()})
         let isInGenerated = {
