@@ -23,3 +23,11 @@ experimental = true
 [dependencies]
   [dependencies.mp]
     path = "./mp"
+[target.x86_64-linux-ohos]
+  compile-option = "-B=${OHOS_ROOT}/llvm/prebuilt/x86_64-linux-ohos/bin --sysroot=${OHOS_ROOT}/llvm/prebuilt/x86_64-linux-ohos/sysroot"
+
+[target.aarch64-linux-ohos]
+  compile-option = "-B=${OHOS_ROOT}/llvm/prebuilt/aarch64-linux-ohos/bin --sysroot=${OHOS_ROOT}/llvm/prebuilt/aarch64-linux-ohos/sysroot"
+
+[target.aarch64-linux-android]
+  compile-option = "-B=${OHOS_ROOT}/llvm/prebuilt/darwin-arm64/bin --sysroot=${OHOS_ROOT}/llvm/prebuilt/darwin-arm64/sysroot"

@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// (Windows) ASSERT: scan --link-options -lcrypt32
-// (not MAC and not Windows) ASSERT: scan --link-options -ldl
-// (MAC) ASSERT: scan --link-options -ldl
+// (native_compilation)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
+// (native_compilation & host_win) ASSERT: scan --link-options -lcrypt32
+// (native_compilation & !host_win & !host_mac) ASSERT: scan --link-options -ldl
+// (native_compilation & host_mac) ASSERT: scan --link-options -ldl
 // ASSERT: scan cjpm build success

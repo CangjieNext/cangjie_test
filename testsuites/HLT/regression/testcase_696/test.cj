@@ -8,9 +8,7 @@
  
 // LEVEL: 0
 // DEPENDENCE: 01
-// (CJNATIVE)EXEC: %compiler %cmp_opt --output liba1.a %pkg_opt 01/src/a1 %compile_lib_opt
-// (CJNATIVE)EXEC: %compiler %cmp_opt --output %output %pkg_opt 01/src -L. -la1
-// (not CJNATIVE)EXEC: %compiler %cmp_opt --output liba1.%middle %pkg_opt 01/src/a1 %compile_lib_opt
-// (not CJNATIVE)EXEC: %compiler %cmp_opt --output %output %pkg_opt 01/src liba1.%middle
+// EXEC: %compiler %cmp_opt --output liba1.a %pkg_opt 01/src/a1 %compile_lib_opt
+// EXEC: %compiler %cmp_opt --output %output %pkg_opt 01/src -L. -la1
 // RUN-EXEC: %run %run_opt %output %run_args
 

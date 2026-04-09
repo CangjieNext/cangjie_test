@@ -7,9 +7,9 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 
 public let var_1701185463795_9 : (Bool, UInt8, Int32, Float32, String) = ((Float32(Float32(Float32(83.0))) is Int16), UInt8(UInt8(UInt8(161))), Int32(120), Float32(Float32(1.0)), ###"8];iqjah}K"###)
 public const var_1701185463795_77 : Float64 = 28.0

@@ -8,5 +8,5 @@
 
 // LEVEL: 1 
 // DEPENDENCE: ../%n
-// EXEC-PIPE-1: cd %n && %clang test01.c %clang_opt -o libtest01.%test_suffix && gcc test02.c %clang_opt -o libtest02.%test_suffix && %cjpm build %cjpm_opt 2>&1 | compare %f
+// (native_compilation)EXEC-PIPE-1: cd %n && %clang test01.c %clang_opt -o libtest01.%test_suffix && gcc test02.c %clang_opt -o libtest02.%test_suffix && %cjpm build %cjpm_opt 2>&1 | compare %f
 // ASSERT: scan error
