@@ -8,8 +8,8 @@
 
 // LEVEL: 0 
 // DEPENDENCE: ../%n
-// EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%test_suffix && gcc test02.c -shared -fPIC -o libtest02.%test_suffix
-// EXEC-0: cd %n && %cjpm check && %cjpm build -V 2>&1 | compare %f
+// (native_compilation)EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%test_suffix && gcc test02.c -shared -fPIC -o libtest02.%test_suffix
+// (native_compilation)EXEC-0: cd %n && %cjpm check && %cjpm build -V 2>&1 | compare %f
 // ASSERT: regex workspace_test_7[/|\\]aoo
 // ( not MAC) ASSERT: scan --strip-all
 

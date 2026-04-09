@@ -8,6 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC: cd %n && gcc test01.c -shared -fPIC -o pro/libtest01.%test_suffix
-// EXEC: cd %n && %cjpm build | compare %f
+// (native_compilation)EXEC: cd %n && gcc test01.c -shared -fPIC -o pro/libtest01.%test_suffix
+// (native_compilation)EXEC: cd %n && %cjpm build | compare %f
 // ASSERT: scan cjpm build success

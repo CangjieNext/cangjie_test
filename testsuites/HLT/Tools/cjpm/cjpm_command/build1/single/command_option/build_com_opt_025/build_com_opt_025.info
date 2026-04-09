@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not Windows) EXEC-PIPE: cd %n && %clang test01.c %clang_opt -o libtest01.%test_suffix && %clang test02.c %clang_opt -o libtest02.%test_suffix && %cjpm build %cjpm_opt && %cjpm run | compare %f
-// (Windows) EXEC-PIPE: cd %n && gcc test01.c %clang_opt -o libtest01.%test_suffix && gcc test02.c %clang_opt -o libtest02.%test_suffix && %cjpm build %cjpm_opt && %cjpm run | compare %f
+// (native_compilation & !host_win) EXEC-PIPE: cd %n && %clang test01.c %clang_opt -o libtest01.%test_suffix && %clang test02.c %clang_opt -o libtest02.%test_suffix && %cjpm build %cjpm_opt && %cjpm run | compare %f
+// (native_compilation & host_win) EXEC-PIPE: cd %n && gcc test01.c %clang_opt -o libtest01.%test_suffix && gcc test02.c %clang_opt -o libtest02.%test_suffix && %cjpm build %cjpm_opt && %cjpm run | compare %f
 // ASSERT: scan pass

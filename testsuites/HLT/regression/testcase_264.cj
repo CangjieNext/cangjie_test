@@ -7,9 +7,8 @@
  */
  
 // LEVEL: 0
-// (not CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC-PIPE: %run %run_opt %output %run_args
-// (CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
+
+// ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
 
 public let var_1678028258100_55 : Array<UInt64> = [UInt64(120), UInt64(32), UInt64(53), UInt64(234), UInt64(177), UInt64(168), UInt64(190), UInt64(225), UInt64(16), UInt64(224)]
 public var var_1678028258100_59 : Int64 = Int64(UInt64(UInt8(85)))
@@ -1057,4 +1056,4 @@ extend<T0, T1, T2> Class_1678028258100_289<T0, T1, T2> {
 
 }
 
-// (CJNATIVE) ASSERT: scan sema_static_variable_use_generic_parameter
+// ASSERT: scan sema_static_variable_use_generic_parameter
