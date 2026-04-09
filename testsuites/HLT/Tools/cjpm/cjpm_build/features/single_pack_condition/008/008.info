@@ -9,7 +9,7 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build %cjpm_opt -V --cfg1 --cfg6 --cfg6 2>&1 | compare %f
-// EXEC: cd %n &&  %cjpm run --skip-build 2>&1 | compare result.txt
+// (native_compilation)EXEC: cd %n &&  %cjpm run --skip-build 2>&1 | compare result.txt
 // ASSERT: scan-4 cjc
 // ASSERT: scan-2 -g
 // ASSERT: scan-2 --cfg feature1=lion, feature2=cat

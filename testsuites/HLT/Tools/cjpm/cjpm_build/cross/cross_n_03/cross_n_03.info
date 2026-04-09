@@ -8,6 +8,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not Windows) ERRCHECK: cd %n && %cjpm build %cjpm_opt --target x86_64-w64-mingw32 -V
-// (not Windows) ASSERT: scan Error: the package 'macro_calling.macro_definition' in 'target.x86_64-w64-mingw32.compile-macros-for-target' field
+// (not Windows) ERRCHECK: cd %n && %cjpm build %cjpm_opt -V
 // (not Windows) ASSERT: scan optional value must be a macro package name

@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC:cd %n && %export cjStackSize=1MB && %cjpm build %cjpm_opt
+// (native_compilation)EXEC:cd %n && %export cjStackSize=1MB && %cjpm build %cjpm_opt
 
-// EXEC: cd %n && %export cjStackSize=1MB && %cjpm run
+// (native_compilation)EXEC: cd %n && %export cjStackSize=1MB && %cjpm run

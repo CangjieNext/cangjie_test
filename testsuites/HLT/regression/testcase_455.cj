@@ -7,9 +7,8 @@
  */
  
 // LEVEL: 0
-// (not CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC-PIPE: %run %run_opt %output %run_args
-// (CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
+
+// ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
 
 public var var_1692393285188_12 : Unit = ()
 public var var_1692393285188_28 : UInt16 = UInt16(199)
@@ -1481,4 +1480,4 @@ extend Struct_1692393285188_615 {
 
 }
 
-// (CJNATIVE) ASSERT: scan sema_static_variable_use_generic_parameter
+// ASSERT: scan sema_static_variable_use_generic_parameter
