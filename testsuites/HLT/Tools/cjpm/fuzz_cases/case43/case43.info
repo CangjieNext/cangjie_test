@@ -8,5 +8,5 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build %cjpm_opt
+// (native_compilation)EXEC: cd %n && %cjpm build %cjpm_opt
 // ASSERT: regex-not Internal Compiler Error

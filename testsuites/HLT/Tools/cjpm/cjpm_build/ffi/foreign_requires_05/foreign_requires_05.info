@@ -8,6 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC-PIPE-0: cd %n && gcc test01.c -shared -fPIC -o libtest01.%test_suffix && %cjpm build && %ls target/release/demo 2>&1 | compare %f
+// (native_compilation)EXEC-PIPE-0: cd %n && %clang %clang_opt test01.c -shared -fPIC -o libtest01.%test_suffix && %cjpm build %cjpm_opt && %ls target/release/demo 2>&1 | compare %f
+// (cross_compilation)EXEC-PIPE-0: cd %n && %clang %clang_opt test01.c -shared -fPIC -o libtest01.%test_suffix && %cjpm build %cjpm_opt && %ls target/%target_tripe/release/demo 2>&1 | compare %f
 // ASSERT: scan demo.boo
 // ASSERT: scan demo.boo

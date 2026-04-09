@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not Windows and not Mac) EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%test_suffix
-// (not Windows and not Mac) EXEC: cd %n && %cjpm build --target aarch64-hm-gnu 2>&1 | compare %f
-// (not Windows and not Mac) ASSERT: scan cjpm build failed
+// (native_compilation and not Windows and not Mac) EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%test_suffix
+// (native_compilation and not Windows and not Mac) EXEC: cd %n && %cjpm build --target aarch64-hm-gnu 2>&1 | compare %f
+// (native_compilation and not Windows and not Mac) ASSERT: scan cjpm bu

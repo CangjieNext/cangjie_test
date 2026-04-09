@@ -8,6 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build %cjpm_opt
+// (native_compilation)EXEC: cd %n && %cjpm build %cjpm_opt
 // EXEC: cd %n && %cjpm run 2>&1 | compare %f
 // ASSERT: scan I am B f()\nI am B f1()

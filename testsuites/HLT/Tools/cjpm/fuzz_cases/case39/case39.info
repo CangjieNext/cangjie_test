@@ -8,5 +8,5 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build %cjpm_opt | compare %f
+// (native_compilation)EXEC: cd %n && %cjpm build %cjpm_opt | compare %f
 // ASSERT: scan cjpm build success
