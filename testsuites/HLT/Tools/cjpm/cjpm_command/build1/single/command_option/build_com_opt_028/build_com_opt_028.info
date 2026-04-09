@@ -8,4 +8,4 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %clang test01.c %clang_opt -o libtest01.%test_suffix && %cjpm build %cjpm_opt && %cjpm run
+// (native_compilation) EXEC: cd %n && %clang test01.c %clang_opt -o libtest01.%test_suffix && %cjpm build %cjpm_opt && %cjpm run

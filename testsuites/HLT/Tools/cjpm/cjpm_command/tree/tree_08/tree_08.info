@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm tree --depth 3 --target x86_64-unknown-linux-gnu --no-tests 2>&1 | compare %f
+// EXEC: cd %n && %cjpm tree --depth 3 %cjpm_opt --no-tests 2>&1 | compare %f
 // ASSERT: scan |-- test
 // ASSERT: scan |-- pro2
 // ASSERT: scan |-- pro1

@@ -8,6 +8,6 @@
 
 // LEVEL:1
 // DEPENDENCE: ../%n 
-// EXEC: cd %n && %cjpm  build
-// EXEC: cd %n && %cjpm install --list -V 2>&1 | compare %f
-// ASSERT: scan-not cjpm_install_08
+// (native_compilation)EXEC: cd %n && %cjpm  build
+// (native_compilation)EXEC: cd %n && %cjpm install --list -V 2>&1 | compare %f
+// (native_compilation)ASSERT: scan-not cjpm_install_08

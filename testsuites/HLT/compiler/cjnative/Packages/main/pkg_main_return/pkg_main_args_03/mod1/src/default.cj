@@ -9,14 +9,14 @@
 // LEVEL: 1
 // DEPENDENCE: ../../mod1
 // EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src/p1 -o ./p1.%middle %compile_lib_opt
-// EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src ./p1.%middle -o .
-// RUN-EXEC: %run_pkg %run_opt %main %run_args
+// EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src ./p1.%middle -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 package d
 
 import p1.*
 
-main(a: Array<String>) {
+main() {
     var aNew = a1
     var b = aNew
     0
