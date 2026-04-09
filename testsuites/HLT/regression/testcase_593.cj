@@ -7,9 +7,9 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt 
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 
 const var_1710928549086_111 : Bool = true
 public let var_1710928549086_144 : (Enum_1710928549086_33, UInt8, Int16, UInt32) = (Enum_1710928549086_33.enumValue_1710928549086_36, UInt8(UInt8(Int8(116))), Int16(Int16(-98)), UInt32(UInt32(Int8(Int8(23)))))

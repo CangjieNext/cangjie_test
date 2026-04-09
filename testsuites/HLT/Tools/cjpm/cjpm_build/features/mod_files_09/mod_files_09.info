@@ -8,6 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: src cjpm.toml
-// EXEC: %cjpm build %cjpm_opt
-// EXEC-PIPE: %ls ./target/release/bin 2>&1 | compare %f
+// (native_compilation)EXEC: %cjpm build %cjpm_opt
+// (native_compilation)EXEC-PIPE: %ls ./target/release/bin 2>&1 | compare %f
 // ASSERT: scan-not main

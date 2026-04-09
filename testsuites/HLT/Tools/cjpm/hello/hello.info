@@ -8,6 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build %cjpm_opt
-// EXEC-PIPE: cd %n && %cjpm run | compare %f
+// (native_compilation)EXEC: cd %n && %cjpm build %cjpm_opt
+// (native_compilation)EXEC-PIPE: cd %n && %cjpm run | compare %f
 // ASSERT: scan Hello World by cangjie

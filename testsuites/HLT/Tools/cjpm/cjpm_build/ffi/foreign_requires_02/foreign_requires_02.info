@@ -8,5 +8,5 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%test_suffix && gcc test02.c -shared -fPIC -o pro/libtest02.%test_suffix && %cjpm build 2>&1 | compare %f
+// EXEC: cd %n && %clang %clang_opt test01.c -shared -fPIC -o libtest01.%test_suffix && %clang %clang_opt test02.c -shared -fPIC -o pro/libtest02.%test_suffix && %cjpm build %cjpm_opt 2>&1 | compare %f
 // ASSERT: scan cjpm build success

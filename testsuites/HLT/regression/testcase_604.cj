@@ -7,9 +7,9 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 
 public let var_1713260545999_179 : VArray<Unit, $9> = [(), (), (), (), (), (), (), (), ()]
 public let var_1713260545999_207 : Bool = ([UInt64(22), UInt64(34), UInt64(148), UInt64(91), UInt64(161), UInt64(90), UInt64(165), UInt64(124), UInt64(224), UInt64(31)] is Array<Class_1713260545999_17>)

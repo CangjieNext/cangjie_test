@@ -9,5 +9,5 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %export b_path=./b && %cjpm build %cjpm_opt -V
-// EXEC: cd %n && %export b_path=./b && %cjpm run
+// (native_compilation)EXEC: cd %n && %export b_path=./b && %cjpm run
 // ASSERT: scan cjpm build success

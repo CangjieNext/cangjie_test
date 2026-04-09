@@ -9,7 +9,9 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
-// ASSERT: scan-1 Compiling package `macro_calling.macro_definition_2`
-// ASSERT: scan-1 Compiling package `macro_calling.macro_definition_1`
+// (native_compilation)ASSERT: scan-1 Compiling package `macro_calling.macro_definition_2`
+// (native_compilation)ASSERT: scan-1 Compiling package `macro_calling.macro_definition_1`
+// (cross_compilation)ASSERT: scan-2 Compiling package `macro_calling.macro_definition_2`
+// (cross_compilation)ASSERT: scan-2 Compiling package `macro_calling.macro_definition_1`
 // ASSERT: scan-1 Compiling package `macro_calling`
 // ASSERT: scan cjpm build success
