@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (not Windows) EXEC: cd %n && %compiler %cmp_opt main.cj -o cjpm-test1
-// (Windows) EXEC: cd %n && %compiler %cmp_opt main.cj -o cjpm-test1.%suffix
-// (not Windows) EXEC-PIPE-0: cd %n && %export_expand &&  cjpm-test1 2>&1 | compare %f
-// (Windows)EXEC-PIPE-0: cd %n && set "PATH=%~dp0;%PATH%" && %cjpm-test1.%suffix 2>&1 | compare %f
+// (native_compilation & !host_win) EXEC: cd %n && %compiler %cmp_opt main.cj -o cjpm-test1
+// (native_compilation & host_win) EXEC: cd %n && %compiler %cmp_opt main.cj -o cjpm-test1.%suffix
+// (native_compilation & !host_win) EXEC-PIPE-0: cd %n && %export_expand &&  cjpm-test1 2>&1 | compare %f
+// (native_compilation & host_win)EXEC-PIPE-0: cd %n && set "PATH=%~dp0;%PATH%" && %cjpm-test1.%suffix 2>&1 | compare %f
 // ASSERT: scan 1
