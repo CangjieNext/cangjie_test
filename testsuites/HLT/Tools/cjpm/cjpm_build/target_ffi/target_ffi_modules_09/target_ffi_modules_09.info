@@ -8,8 +8,8 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n && gcc pro0/test01.c -shared -fPIC -o pro0/libtest01.%test_suffix && gcc pro0/test02.c -shared -fPIC -o pro0/libtest02.%test_suffix
-// EXEC: cd %n && %cjpm run
+// (native_compilation)EXEC: cd %n && gcc pro0/test01.c -shared -fPIC -o pro0/libtest01.%test_suffix && gcc pro0/test02.c -shared -fPIC -o pro0/libtest02.%test_suffix
+// (native_compilation)EXEC: cd %n && %cjpm run
 // ASSERT: scan aaa
 // ASSERT: scan bbb
 // ASSERT: scan cjpm run finished

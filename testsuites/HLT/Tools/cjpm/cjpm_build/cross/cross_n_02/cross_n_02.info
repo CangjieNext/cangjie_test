@@ -8,5 +8,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not Windows) ERRCHECK: cd %n && %cjpm build %cjpm_opt --target x86_64-w64-mingw32 -V
+// (not Windows) ERRCHECK: cd %n && %cjpm build %cjpm_opt -V
 // (not Windows) ASSERT: scan Error: can not find the package 'aaa' which is listed in 'compile-macros-for-target' field

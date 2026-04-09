@@ -7,8 +7,8 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt 
+// ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
+
 
 var var_1709934209018_16 : UInt16 = UInt16(Int8(UInt8(UInt8(129))))
 var var_1709934209018_26 : Unit = ()
@@ -870,8 +870,7 @@ class CrcCheck {
 extend Struct_1709934209018_856 {
 
 }
-// (not CJNATIVE) ASSERT: scan-1 sema_varray_cjvm_in_ref_type
-// (CJNATIVE) ASSERT: scan sema_static_variable_use_generic_parameter
+// ASSERT: scan sema_static_variable_use_generic_parameter
 
 
 
