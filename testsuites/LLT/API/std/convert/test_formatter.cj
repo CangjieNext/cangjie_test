@@ -535,4 +535,79 @@ class FormatterTest {
         }
         @Expect(false)
     }
+
+    @TestCase
+    func formatWidthOverflow(): Unit {
+        let largeWidthInputs: Array<String> = ["999999999", "1000000000", "999999999999"]
+        for (fmt in largeWidthInputs) {
+            var caught = false
+            try {
+                var result = Int64(1).format(fmt)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                // Print actual error message for debugging
+                println("Actual error message for format '${fmt}': ${e.message}")
+                caught = true
+            } catch (e: OutOfMemoryError) {
+                caught = true
+            }
+            @Assert(caught)
+        }
+    }
+
+    @TestCase
+    func formatFloatPrecisionOverflow(): Unit {
+        let largePrecisionFloatInputs: Array<String> = [".999999999999999999e", ".100000000000000000E", ".999999999999999999g"]
+        for (fmt in largePrecisionFloatInputs) {
+            var caught = false
+            try {
+                var result = Float64(1.0).format(fmt)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                println("Actual error message for format '${fmt}': ${e.message}")
+                caught = true
+            } catch (e: OutOfMemoryError) {
+                caught = true
+            }
+            @Assert(caught)
+        }
+    }
+
+    @TestCase
+    func formatFloatPrecisionExceedsMaxFloatPrecision(): Unit {
+        let mediumPrecisionFloatInputs: Array<String> = [".351e", ".500E", ".1000g"]
+        for (fmt in mediumPrecisionFloatInputs) {
+            var caught = false
+            try {
+                var result = Float64(1.0).format(fmt)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                println("Actual error message for format '${fmt}': ${e.message}")
+                @Assert(e.message.contains("precision"))
+                @Assert(e.message.contains("exceeds maximum"))
+                caught = true
+            }
+            @Assert(caught)
+        }
+    }
+
+    @TestCase
+    func formatWidthOnlyNoSpecifier(): Unit {
+        @Expect(Int64(42).format("10"), "        42")
+        @Expect(Int64(42).format("5"), "   42")
+        @Expect(Int64(42).format("012"), "000000000042")
+        @Expect(Int64(-42).format("5"), "  -42")
+    }
+
+    @TestCase
+    func formatPrecisionOnlyNoSpecifier(): Unit {
+        @Expect(Int64(42).format(".5"), "00042")
+        @Expect(Int64(42).format(".10"), "0000000042")
+    }
+
+    @TestCase
+    func formatWidthAndPrecisionNoSpecifier(): Unit {
+        @Expect(Int64(42).format("10.5"), "     00042")
+        @Expect(Int64(42).format("8.8"), "00000042")
+    }
 }

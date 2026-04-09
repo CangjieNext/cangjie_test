@@ -12,4 +12,3 @@
 // (not Windows) ASSERT: scan --warn-off all
 // ( not Windows and not MAC) ASSERT: scan --lto=full
 // (not Windows) ASSERT: scan-not --incremental-compile
-// (not CJNATIVE and not Windows or MAC) ASSERT: scan-not --lto=full

@@ -10,8 +10,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // (MAC) RUN-EXEC-PIPE: %export cjStackSize=1gb && %run %run_opt %output %run_args 2>&1 | compare %f
 // (Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 1>log.txt && bash -c "dos2unix log.txt" && bash -c "cat log.txt" | compare %f
-// (CJNATIVE and not MAC and not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
-// (not CJNATIVE)  RUN-EXEC-PIPE: %export JETVMPROP=-Djet.fiber.stack.size=512K %run %run_opt %output %run_args | compare %f
+// (not MAC and not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan result1 = 18003000\nresult2 = 18003000\nresult3 = 18003000\nresult4 = 18003000\nresult5 = 18003000\n
 // ASSERT: scan-not Exception
 

@@ -1,6 +1,6 @@
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 public enum GenericEnum<T> where T <: ToString {
     | Red(T) | Green(T) | Blue(T)

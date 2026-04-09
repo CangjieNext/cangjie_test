@@ -13,6 +13,3 @@
 // ASSERT: scan |-- pro2
 // ASSERT: scan |-- pro1
 // ASSERT: scan cjpm tree success
-
-// (not CJNATIVE) ERRCHECK: cd %n && %cjpm tree --depth 3 --target x86_64-unknown-linux-gnu --no-tests
-// (not CJNATIVE) ASSERT: scan Error: unknown command '--target' for cjpm tree

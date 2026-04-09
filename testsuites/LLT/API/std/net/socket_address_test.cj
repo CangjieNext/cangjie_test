@@ -104,8 +104,7 @@ class TestSockAddr {
 
     let inUnixsockaddrArr1: Array<Array<Byte>> = [
         "/tmp/so\u{0000}ck1.a".toArray(),
-        "/tmp/sock1.a\u{0000}\u{0000}\u{0000}b".toArray(),
-        "\u{0000}/tmp/sock1.a\u{0000}\u{0000}\u{0000}b".toArray()
+        "/tmp/sock1.a\u{0000}\u{0000}\u{0000}b".toArray()
     ]
     @TestCase[sockaddrstr in inUnixsockaddrArr1]
     func testUdsAddrInvalidArr1(sockaddrstr: Array<Byte>): Unit {

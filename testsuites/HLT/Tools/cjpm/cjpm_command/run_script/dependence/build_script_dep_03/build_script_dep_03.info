@@ -8,10 +8,10 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (CJNATIVE and x86)EXEC: cd %n && %cjpm run -V  
-// (CJNATIVE and x86)EXEC-PIPE-0: cd %n && %cat build-script-cache/release/script_dep/bin/script-log 2>&1 | compare %f
-// (CJNATIVE and x86)ASSERT: scan-4 2
-// (CJNATIVE and x86)ASSERT: scan This is stagePreBuild
-// (CJNATIVE and x86)ASSERT: scan This is stagePostBuild
-// (CJNATIVE and x86)ASSERT: scan This is stagePreRun
-// (CJNATIVE and x86)ASSERT: scan This is stagePostRun
+// (x86)EXEC: cd %n && %cjpm run -V  
+// (x86)EXEC-PIPE-0: cd %n && %cat build-script-cache/release/script_dep/bin/script-log 2>&1 | compare %f
+// (x86)ASSERT: scan-4 2
+// (x86)ASSERT: scan This is stagePreBuild
+// (x86)ASSERT: scan This is stagePostBuild
+// (x86)ASSERT: scan This is stagePreRun
+// (x86)ASSERT: scan This is stagePostRun

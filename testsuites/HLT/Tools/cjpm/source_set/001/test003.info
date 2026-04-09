@@ -9,6 +9,6 @@
 // LEVEL: 1
 // DEPENDENCE: ../001
 // (Windows) EXEC: cd 001 && %cjpm test --enable-features=os.windows | compare %f
-// (CJNATIVE and not Windows and not MAC) EXEC: cd 001 && %cjpm test --enable-features=os.linux | compare %f
-// (CJNATIVE and MAC) EXEC: cd 001 && %cjpm test --enable-features=os.darwin | compare %f
-// (CJNATIVE) ASSERT: scan cjpm test success
+// (not Windows and not MAC) EXEC: cd 001 && %cjpm test --enable-features=os.linux | compare %f
+// (MAC) EXEC: cd 001 && %cjpm test --enable-features=os.darwin | compare %f
+// ASSERT: scan cjpm test success

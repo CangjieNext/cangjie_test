@@ -312,4 +312,124 @@ public class TestEndianConvert {
         let value = Float64.readLittleEndian(n)
         @Expect(value == 12.5f64)
     }
+
+    @TestCase
+    func testUInt8WriteLittleEndianWithEmptyBuffer(): Unit {
+        try {
+            let emptyBuffer: Array<Byte> = []
+            UInt8(0x12).writeLittleEndian(emptyBuffer)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message.contains("too small"))
+        }
+    }
+
+    @TestCase
+    func testUInt8WriteBigEndianWithEmptyBuffer(): Unit {
+        try {
+            let emptyBuffer: Array<Byte> = []
+            UInt8(0x12).writeBigEndian(emptyBuffer)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message.contains("too small"))
+        }
+    }
+
+    @TestCase
+    func testUInt8ReadBigEndianWithEmptyBuffer(): Unit {
+        try {
+            let emptyBuffer: Array<Byte> = []
+            UInt8.readBigEndian(emptyBuffer)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message.contains("too small"))
+        }
+    }
+
+    @TestCase
+    func testUInt8ReadLittleEndianWithEmptyBuffer(): Unit {
+        try {
+            let emptyBuffer: Array<Byte> = []
+            UInt8.readLittleEndian(emptyBuffer)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message.contains("too small"))
+        }
+    }
+
+    @TestCase
+    func testInt8WriteLittleEndianWithEmptyBuffer(): Unit {
+        try {
+            let emptyBuffer: Array<Byte> = []
+            Int8(0x12).writeLittleEndian(emptyBuffer)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message.contains("too small"))
+        }
+    }
+
+    @TestCase
+    func testInt8WriteBigEndianWithEmptyBuffer(): Unit {
+        try {
+            let emptyBuffer: Array<Byte> = []
+            Int8(0x12).writeBigEndian(emptyBuffer)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message.contains("too small"))
+        }
+    }
+
+    @TestCase
+    func testInt8ReadBigEndianWithEmptyBuffer(): Unit {
+        try {
+            let emptyBuffer: Array<Byte> = []
+            Int8.readBigEndian(emptyBuffer)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message.contains("too small"))
+        }
+    }
+
+    @TestCase
+    func testInt8ReadLittleEndianWithEmptyBuffer(): Unit {
+        try {
+            let emptyBuffer: Array<Byte> = []
+            Int8.readLittleEndian(emptyBuffer)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message.contains("too small"))
+        }
+    }
+
+    @TestCase
+    func testBoolWriteLittleEndianWithEmptyBuffer(): Unit {
+        try {
+            let emptyBuffer: Array<Byte> = []
+            true.writeLittleEndian(emptyBuffer)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message.contains("too small"))
+        }
+    }
+
+    @TestCase
+    func testBoolWriteBigEndianWithEmptyBuffer(): Unit {
+        try {
+            let emptyBuffer: Array<Byte> = []
+            true.writeBigEndian(emptyBuffer)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message.contains("too small"))
+        }
+    }
+
+    @TestCase
+    func testBoolReadBigEndianWithEmptyBuffer(): Unit {
+        try {
+            let emptyBuffer: Array<Byte> = []
+            Bool.readBigEndian(emptyBuffer)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message.contains("too small"))
+        }
+    }
+
+    @TestCase
+    func testBoolReadLittleEndianWithEmptyBuffer(): Unit {
+        try {
+            let emptyBuffer: Array<Byte> = []
+            Bool.readLittleEndian(emptyBuffer)
+        } catch (e: IllegalArgumentException) {
+            @Expect(e.message.contains("too small"))
+        }
+    }
 }

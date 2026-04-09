@@ -8,8 +8,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not CJNATIVE) EXEC: cd %n && %cjpm build -j1 -g -V 2>&1 | compare %f
-// (not CJNATIVE) ASSERT: scan cjpm build success
-
 //  ERRCHECK: cd %n && %cjpm build
 //  ASSERT: scan Error: root package 'test' imports package 'pro1' in its source code, but it is not added as a dependency in cjpm.toml

@@ -103,8 +103,8 @@ class ConvertUnexpectedSituationTest {
         var res11 = getResultParse<Float64>(Float64.tryParse, "-2.5e308", 0.0)
         @Expect(res11, -Float64.Inf)
 
-        var res11_1 = getResultParse<Float64>(Float64.tryParse, "2.24e-307,", 0.0)
-        @Expect(res11_1, 0.0)
+        var res11_1 = getResultParse<Float64>(Float64.tryParse, "2.24e-307", 0.0)
+        @Expect(res11_1, 2.24e-307)
 
         var res11_2 = getResultParse<Float64>(Float64.tryParse, "1.8e309", 0.0)
         @Expect(res11_2, Float64.Inf)
@@ -128,5 +128,71 @@ class ConvertUnexpectedSituationTest {
         for (testVar in testVars) {
             @Expect(matchResult<Float64>(Float64.tryParse(testVar[0]), -1.0), testVar[1])
         }
+    }
+
+    @TestCase
+    func invalidPrefixParse(): Unit {
+        let invalidPrefixInputs: Array<String> = ["0z", "0!", "0q", "0@", "0#", "0z1"]
+        for (input in invalidPrefixInputs) {
+            try {
+                var _ = Int64.parse(input)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("prefix") || e.message.contains("Invalid"))
+            }
+        }
+    }
+
+    @TestCase
+    func symbolOnlyParse(): Unit {
+        let symbolOnlyInputs: Array<String> = ["+", "-", "."]
+        for (input in symbolOnlyInputs) {
+            try {
+                var _ = Float64.parse(input)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("floating point") || e.message.contains("syntax"))
+            }
+        }
+    }
+
+    @TestCase
+    func doubleDecimalPointParse(): Unit {
+        let doubleDecimalInputs: Array<String> = ["1.2.", "3.14.", "0.001.", "..", "1.2.3"]
+        for (input in doubleDecimalInputs) {
+            try {
+                var _ = Float64.parse(input)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("floating point") || e.message.contains("syntax"))
+            }
+        }
+    }
+
+    @TestCase
+    func formatWidthOverflow(): Unit {
+        let largeWidthInputs: Array<String> = ["999999999", "1000000000", "999999999999"]
+        for (fmt in largeWidthInputs) {
+            try {
+                var result = Int64(1).format(fmt)
+                @Expect(false)
+            } catch (e: IllegalArgumentException) {
+                @Assert(e.message.contains("width") || e.message.contains("overflow") || e.message.contains("limit"))
+            } catch (e: OutOfMemoryError) {
+                @Assert(true)
+            }
+        }
+    }
+
+    @TestCase
+    func parsePlusSignBehaviorDifference(): Unit {
+        try {
+            var _ = Int64.parse("+10")
+            @Expect(false)
+        } catch (e: IllegalArgumentException) {
+            @Assert(e.message.contains("+") || e.message.contains("illegal"))
+        }
+
+        @Expect(Int64.parse("+10", radix: 10), 10)
     }
 }

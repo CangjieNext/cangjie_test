@@ -260,6 +260,21 @@ public class JsonObjectTest {
     }
 
     @TestCase
+    func jsonobjectError7(): Unit {
+        let jsonStr = ##"{key: "value"}"##
+        var bas = ByteBuffer()
+        unsafe { bas.write(jsonStr.rawData()) }
+        var reader = JsonReader(bas)
+        reader.startObject()
+        try {
+            reader.readName()
+            @Expect(false)
+        } catch (e: IllegalStateException) {
+            @Expect(e.message, "The next Token is not JSON String.")
+        }
+    }
+
+    @TestCase
     func hashmap(): Unit {
         let jsonStr = ##"{"string1": "null", "string2": "true", "string3": "123.456e3"}"##
         var bas = ByteBuffer()

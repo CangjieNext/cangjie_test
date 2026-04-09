@@ -72,6 +72,9 @@ class TestReqLimitCtl {
 
     @TestCase
     func serverCtlTest(): Unit {
+        let ready = AtomicInt64(0)
+        let start = AtomicBool(false)
+        let done = AtomicInt64(0)
         let server = ServerBuilder()
             .addr("127.0.0.1")
             .port(0)
@@ -82,30 +85,65 @@ class TestReqLimitCtl {
         })
 
         spawn {server.serve()}
-        sleep(Duration.second)
+        while (server.port == 0) {
+            sleep(Duration.millisecond)
+        }
 
-        let client = ClientBuilder().build()
+        let client1 = ClientBuilder().build()
+        let client2 = ClientBuilder().build()
+        let client3 = ClientBuilder().build()
         spawn {
-            client.get("http://127.0.0.1:${server.port}/hello")
+            ready.fetchAdd(1)
+            while (!start.load()) {
+                sleep(Duration.millisecond)
+            }
+            try {
+                client1.get("http://127.0.0.1:${server.port}/hello")
+            } catch (_) {
+            } finally {
+                done.fetchAdd(1)
+            }
         }
         spawn {
-            client.get("http://127.0.0.1:${server.port}/hello")
+            ready.fetchAdd(1)
+            while (!start.load()) {
+                sleep(Duration.millisecond)
+            }
+            try {
+                client2.get("http://127.0.0.1:${server.port}/hello")
+            } catch (_) {
+            } finally {
+                done.fetchAdd(1)
+            }
         }
-        sleep(Duration.millisecond * 500) // let 2 req send to server
-
+        spawn {
+            ready.fetchAdd(1)
+            while (!start.load()) {
+                sleep(Duration.millisecond)
+            }
+            try {
+                client3.get("http://127.0.0.1:${server.port}/hello")
+            } catch (_) {
+            } finally {
+                done.fetchAdd(1)
+            }
+        }
+        while (ready.load() < 3) {
+            sleep(Duration.millisecond)
+        }
         try {
-            client.get("http://127.0.0.1:${server.port}/hello")
-        } catch (e: SocketException) {
-            return
-        } catch (e: ConnectionException) {
-            return
+            start.store(true)
+            sleep(Duration.millisecond * 1100)
+            if (done.load() <= 2) {
+                return
+            }
         } finally {
             server.close()
-            client.close()
+            client1.close()
+            client2.close()
+            client3.close()
             asanGC()
         }
-        client.close()
-        server.close()
         throw Exception("not limited")
     }
 }

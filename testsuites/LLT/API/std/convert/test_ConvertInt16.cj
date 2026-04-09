@@ -52,7 +52,7 @@ class ConvertInt16Test {
         let testVars: Array<(String, Int, String)> = [("", 3, "The string is empty."),
             ("32768", 2, "The part of value convert failed."), ("-32769", 2, "The part of value convert failed."),
             ("0o1", 8, "The part of value convert failed."), ("0x1", 16, "The part of value convert failed."),
-            ("+32", 37, "The radix out of range."), ("-", 2, "The value part is empty.")]
+            ("+32", 10, "Starting with \"+\" is illegal in Int16."), ("-", 2, "The value part is empty.")]
 
         for (testVar in testVars) {
             try {

@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 3
-// (Linux and CJNATIVE) EXEC: %compiler %cmp_opt %cmp_utest_opt --lto=full %f -o %output
-// (Linux and CJNATIVE) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// (Linux) EXEC: %compiler %cmp_opt %cmp_utest_opt --lto=full %f -o %output
+// (Linux) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.unittest.*
 import std.unittest.testmacro.*

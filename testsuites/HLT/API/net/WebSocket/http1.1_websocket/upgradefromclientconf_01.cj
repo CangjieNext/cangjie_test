@@ -219,7 +219,7 @@ class Testupgradefromclientconf_01 {
         }
 
         let client = ClientBuilder().build()
-        let u = URL.parse("ws://127.0.0.1:0/webSocket")
+        let u = URL.parse("ws://127.0.0.1:1/webSocket")
         let websocket: WebSocket
         let respHeaders: HttpHeaders
         try {
@@ -254,14 +254,14 @@ class Testupgradefromclientconf_01 {
         }
 
         let client = ClientBuilder().build()
-        let u = URL.parse("ws://127.0.0.1:77777/webSocket")
-        let websocket: WebSocket
-        let respHeaders: HttpHeaders
         try {
+            let u = URL.parse("ws://127.0.0.1:77777/webSocket")
+            let websocket: WebSocket
+            let respHeaders: HttpHeaders
             (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u)
             websocket.closeConn()
-        } catch (e: HttpException) {
-            @Expect(e.message.contains("Invalid url address or proxy"))
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message.contains("Port out of range"))
             sum += 1
         }
         @Expect(sum, 1)

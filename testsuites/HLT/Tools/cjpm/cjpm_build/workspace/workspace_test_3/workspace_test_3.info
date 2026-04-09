@@ -9,9 +9,8 @@
 // LEVEL: 1 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
-// (CJNATIVE and x86 and not Windows)ASSERT: scan-2 -g
-// (not CJNATIVE)ASSERT: scan-not -g
+// (x86 and not Windows)ASSERT: scan-2 -g
+
 // ASSERT: regex workspace_test_3[/|\\]aoo
 // ASSERT: regex workspace_test_3[/|\\]coo
 // ( not MAC)ASSERT: scan-2 --strip-all
-// (not CJNATIVE) ASSERT: scan-not --strip-all

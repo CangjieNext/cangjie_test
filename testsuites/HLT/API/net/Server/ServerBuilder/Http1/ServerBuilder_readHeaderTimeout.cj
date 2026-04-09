@@ -37,6 +37,33 @@ func send_request(s: Server) {
     return response
 }
 
+func send_partial_header_request(s: Server): Bool {
+    var socket = TcpSocket("127.0.0.1", s.port)
+    let prefix = "POST / HTTP/1.1\r\nhost: 127.0.0.1:${s.port}\r\ncontent-length: 10\r\na: "
+    let suffix = ("12345" * 1024) + "\r\n\r\n1234567890"
+    var buf = Array<UInt8>(10000, repeat: 0)
+
+    try {
+        socket.connect(timeout: Duration.second)
+        socket.write(prefix.toArray())
+        sleep(Duration.millisecond * 20)
+        try {
+            socket.write(suffix.toArray())
+        } catch (_: SocketException) {
+        }
+        let readLen = socket.read(buf)
+        if (readLen <= 0) {
+            return true
+        }
+        let response = String.fromUtf8(buf[0..readLen])
+        return response.contains("HTTP/1.1 408 Request Timeout")
+    } catch (_: SocketException | ConnectionException) {
+        return true
+    } finally {
+        socket.close()
+    }
+}
+
 @Test
 public class Test_readHeaderTimeout {
     var cnt = 0
@@ -83,11 +110,7 @@ public class Test_readHeaderTimeout {
         while (server.port == 0) {
             sleep(Duration.millisecond)
         }
-        try {
-            let response = send_request(server)
-            @Expect(response.toString().contains("HTTP/1.1 408 Request Timeout"))
-        } catch (e: SocketException) {
-        }
+        @Expect(send_partial_header_request(server), true)
         server.close()
     }
 
@@ -102,11 +125,7 @@ public class Test_readHeaderTimeout {
         while (server.port == 0) {
             sleep(Duration.millisecond)
         }
-        try {
-            let response = send_request(server)
-            @Expect(response.toString().contains("HTTP/1.1 408 Request Timeout"))
-        } catch (e: SocketException) {
-        }
+        @Expect(send_partial_header_request(server), true)
         server.close()
     }
 }

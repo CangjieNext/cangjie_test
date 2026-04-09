@@ -9,8 +9,7 @@
 // LEVEL: 0
 // DEPENDENCE: libs
 // EXEC-PIPE: %compiler %cmp_opt %compile_lib_opt libs/myModule/myModule.cj -o libs/myModule/
-// (CJNATIVE) ERRCHECK: %compiler %cmp_opt --import-path libs/myModule -L libs/myModule -l myModule.myModule %f -o %output
-// (not CJNATIVE) ERRCHECK: %compiler %cmp_opt --import-path libs/myModule -l myModule.myModule %f -o %output
+// ERRCHECK: %compiler %cmp_opt --import-path libs/myModule -L libs/myModule -l myModule.myModule %f -o %output
 
 import myModule.myModule.myModule.*
 

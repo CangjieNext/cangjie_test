@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../MyType
-// (not MAC) EXEC: cd ./MyType && %compiler %cmp_opt %compile_library --module-name=MyType ./src/myType/*.cj -o libMyType_myType.%test_suffix
+// (not MAC) EXEC: cd ./MyType && %compiler %cmp_opt %compile_dylib_opt --module-name=MyType ./src/myType/*.cj -o libMyType_myType.%test_suffix
 // (not MAC) EXEC: %compiler %cmp_opt -o %output %f
 // (not MAC) RUN-EXEC: %run %run_opt %output %run_args
 

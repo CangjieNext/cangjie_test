@@ -56,7 +56,7 @@ public func runFromB() {
 // SEPARATE-FILE: m_platform.cj
 // EXEC-0: %compiler %noColor m_platform.cj --import-path=./p -L./p -la -lb -o %output
 // EXEC-0: export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p:./c
-// (CJNATIVE and Linux)RUN-EXEC-PIPE-0: LD_LIBRARY_PATH=$LD_LIBRARY_PATH./p:./c && %run %output 2>&1 | compare %f
+// (CJNATIVE and Linux)RUN-EXEC-PIPE-0: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p:./c && %run %output 2>&1 | compare %f
 // (CJNATIVE and Windows)RUN-EXEC-PIPE-0: set PATH=./p:./c;%PATH% && %run %output 2>&1 | compare %f
 // (CJNATIVE and Darwin)RUN-EXEC-PIPE-0: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p:./c && %run %output 2>&1 | compare %f
 import a.*

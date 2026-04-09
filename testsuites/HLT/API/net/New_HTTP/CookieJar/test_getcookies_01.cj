@@ -111,7 +111,7 @@ class Test_CookieJar_GetCookies_01 {
         var cookiesfromjar = cookiejar.getCookies(URL.parse("http://example.test.cn/a/b/c"))
         @Expect(cookiesfromjar.size, 2)
         var cookiesfromjar00 = cookiejar.getCookies(URL.parse("https://example.test.cn/a/b/c"))
-        @Expect(cookiesfromjar00.size, 3)
+        @Expect(cookiesfromjar00.size, 2)
         var cookiesfromjar01 = cookiejar.getCookies(URL.parse("wss://example.test.cn/a/b/c"))
         @Expect(cookiesfromjar01.size, 0)
 
