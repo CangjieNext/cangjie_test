@@ -11,9 +11,9 @@
 // ASSERT: regex from <std.core>.*\[noSideEffect\].* @_CNatXl8hashCodeHv.* loc: "hashable.cj"-88-5
 // ASSERT: regex from <std.core>.*\[noSideEffect\].* @_CNatXd8hashCodeHv.* loc: "hashable.cj"-252-5
 // ASSERT: regex from <std.core>.*\[noSideEffect\].* @_CNat6String7compareHRNatY0_E.* loc: "string.cj"-1017-5
-// ASSERT: regex from <std.math>.*\[noSideEffect\].* @_CNbg5roundHd.* loc: "math_funcs.cj"-2161-1
-// ASSERT: regex from <std.math>.*\[noSideEffect\].* @_CNbg5roundHf.* loc: "math_funcs.cj"-2197-1
-// ASSERT: regex from <std.math>.*\[noSideEffect\].* @_CNbg5roundHDh.* loc: "math_funcs.cj"-2233-1
+// ASSERT: regex from <std.math>.*\[noSideEffect\].* @_CNbg5roundHd.* loc: "math_funcs.cj"-2197-1
+// ASSERT: regex from <std.math>.*\[noSideEffect\].* @_CNbg5roundHf.* loc: "math_funcs.cj"-2236-1
+// ASSERT: regex from <std.math>.*\[noSideEffect\].* @_CNbg5roundHDh.* loc: "math_funcs.cj"-2275-1
 // ASSERT: regex \[noSideEffect\].* Func @_CNat6StringeqHRNatY0_E.* loc: "string.cj"-1117-5
 
 import std.math.*
