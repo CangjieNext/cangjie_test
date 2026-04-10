@@ -112,21 +112,33 @@ public class SeekAbleTest {
 
     @TestCase
     func seekTestMaxLength(): Unit {
-        // 此用例看护防止OOM
+        // This test case prevents OOM.
         let malicious = MaliciousStream()
         let data = readToEnd(malicious)
+    }
+
+    @TestCase
+    func seekTest1GB(): Unit {
+        try {
+            let bs = ByteBuffer()
+            let gb = 1024 * 1024 * 1024 // 1GB
+            bs.seek(Begin(Int64(gb)))
+            bs.write("x".toArray())
+        } catch (e: Exception) {
+            @Expect(e.message, "Seek position exceeds maximum sparse distance of 100 MB.")
+        }
     }
 }
 
 class MaliciousStream <: InputStream & Seekable {
     public prop length: Int64 {
         get() {
-            return Int64.Max // 直接返回极大值
+            return Int64.Max
         }
     }
 
     public func read(buffer: Array<Byte>): Int64 {
-        return 0 // 不实际读取数据
+        return 0
     }
 
     public func seek(sp: SeekPosition): Int64 {
