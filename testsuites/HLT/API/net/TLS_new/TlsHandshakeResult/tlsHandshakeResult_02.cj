@@ -71,7 +71,7 @@ class Test_TlsHandshakeResult {
             @Expect((tlsHandshakeResult.peerCertificate[1] as X509Certificate).getOrThrow().encodeToDer().body.toString(), X509Certificate.decodeFromPem(pemSer)[0].encodeToDer().body.toString())
             @Expect(tlsHandshakeResult.session.isNone())
             @Expect(tlsHandshakeResult.alpnProtocol, "http/1.1")
-            @Expect(tlsHandshakeResult.serverName, "example.com")
+            @Expect(tlsHandshakeResult.serverName, "oss.PMS.com")
         }
         spawn {
             startServerHandshake()
@@ -87,7 +87,7 @@ class Test_TlsHandshakeResult {
         clientConf.certificate = (X509Certificate.decodeFromPem(pemSer1) |> map {i: Certificate => i} |> collectArray,
             GeneralPrivateKey.decodeFromPem(keypemser1))
         clientConf.supportedAlpnProtocols = ["http/2", "http/1.1", "h2"]
-        clientConf.serverName = "example.com"
+        clientConf.serverName = "oss.PMS.com"
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
@@ -106,7 +106,7 @@ class Test_TlsHandshakeResult {
         @Expect((tlsHandshakeResult.peerCertificate[1] as X509Certificate).getOrThrow().encodeToDer().body.toString(), X509Certificate.decodeFromPem(pem1)[0].encodeToDer().body.toString())
         @Expect(tlsHandshakeResult.session.isNone())
         @Expect(tlsHandshakeResult.alpnProtocol, "http/1.1")
-        @Expect(tlsHandshakeResult.serverName, "example.com")
+        @Expect(tlsHandshakeResult.serverName, "oss.PMS.com")
         tlsClient.close()
         tcpClient.close()
         tlsser.getOrThrow().close()

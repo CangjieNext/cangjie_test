@@ -112,12 +112,12 @@ class Test_tlsclientconf_05 {
         let pem = String.fromUtf8(readToEnd(File("./data/root_ecdsa.cer", Read)))
         var clientConf = TlsClientConfig()
         clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
-        clientConf.serverName = "www.example.com"
+        clientConf.serverName = "oss.PMS.com"
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         var tlsClient = TlsSocket.client(tcpClient, session: None, clientConfig: clientConf)
         let result = tlsClient.handshake()
-        @Expect(result.serverName, "www.example.com")
+        @Expect(result.serverName, "oss.PMS.com")
         tlsClient.close()
         tcpClient.close()
         tlsser.getOrThrow().close()
