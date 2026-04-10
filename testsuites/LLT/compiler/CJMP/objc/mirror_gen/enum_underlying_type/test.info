@@ -12,7 +12,5 @@
 /* SCAN-IN
 public type UInteger = UInt32
 
-public abstract sealed class M {
-    public static const a: UInteger = 0
-}
+public type M = UInteger
 */
