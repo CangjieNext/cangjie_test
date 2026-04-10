@@ -28,6 +28,9 @@ public open class A <: Base {
         println("A init(Int64)")
     }
 
+    // primaryctor
+    public A(xx: Int64, yy: Int64, zz: Int64) {}
+
     // instance method
     protected open override func hello() {
         println("A hello()")
