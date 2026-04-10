@@ -10,10 +10,5 @@
 // EXEC: ObjCInteropGen test.toml
 // EXEC: %cat test.cj | compare %f
 /* SCAN-IN
-public abstract sealed class M {
-    public static const a: ObjCInt128 = ObjCInt128(0, 0)
-    public static const b: ObjCInt128 = ObjCInt128(1, 0)
-    public static const c: ObjCInt128 = ObjCInt128(-1, 0)
-    public static const d: ObjCInt128 = ObjCInt128(0, 1)
-}
+public type M = ObjCInt128
 */
