@@ -18,7 +18,7 @@ main() {
 }
 
 /* SCAN
-error: cannot reference 'f11'(level: 11) which higher than level of the current scope(level: 10)
+error: cannot reference 'f11'(level: 11.0.0) which higher than level of the current scope(level: 10.0.0)
   ==> test_dep01.cj:16:5:
    | 
 16 |     f11()

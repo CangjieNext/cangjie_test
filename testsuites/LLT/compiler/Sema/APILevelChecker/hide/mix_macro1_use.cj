@@ -22,14 +22,14 @@ main() {
 }
 
 /* SCAN
-error: cannot reference 'A'(level: 21) which higher than level of the current scope(level: 20)
+error: cannot reference 'A'(level: 21.0.0) which higher than level of the current scope(level: 20.0.0)
   ==> mix_macro1_use.cj:17:5:
    | 
 17 |     A() // apilevel error
    |     ^^^ 
    | 
 
-error: cannot reference 'B'(level: 21) which higher than level of the current scope(level: 20)
+error: cannot reference 'B'(level: 21.0.0) which higher than level of the current scope(level: 20.0.0)
   ==> mix_macro1_use.cj:18:5:
    | 
 18 |     B() // apilevel error

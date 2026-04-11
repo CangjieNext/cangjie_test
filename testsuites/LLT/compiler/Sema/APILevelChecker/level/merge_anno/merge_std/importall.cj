@@ -53,7 +53,7 @@ main() {
 }
 
 /* SCAN
-error: cannot reference 'ArgOpt'(level: 12) which higher than level of the current scope(level: 11)
+error: cannot reference 'ArgOpt'(level: 12.0.0) which higher than level of the current scope(level: 11.0.0)
   ==> importall.cj:51:5:
    | 
 51 |     ArgOpt()

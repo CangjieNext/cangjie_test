@@ -18,14 +18,14 @@ main() {
 }
 
 /* SCAN
-error: cannot reference 'A'(level: 12) which higher than level of the current scope(level: 11)
+error: cannot reference 'A'(level: 12.0.0) which higher than level of the current scope(level: 11.0.0)
   ==> test1.cj:15:5:
    | 
 15 |     A()
    |     ^^^ 
    | 
 
-error: cannot reference 'foo'(level: 12) which higher than level of the current scope(level: 11)
+error: cannot reference 'foo'(level: 12.0.0) which higher than level of the current scope(level: 11.0.0)
   ==> test1.cj:16:5:
    | 
 16 |     foo()

@@ -18,7 +18,7 @@ main() {
 }
 
 /* SCAN
-error: cannot reference 'foo'(level: 3) which higher than level of the current scope(level: 2)
+error: cannot reference 'foo'(level: 3.0.0) which higher than level of the current scope(level: 2.0.0)
   ==> merge1.cj:17:5:
    | 
 17 |     foo(["1"]) // level 3

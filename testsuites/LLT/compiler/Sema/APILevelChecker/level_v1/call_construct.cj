@@ -20,7 +20,7 @@ main() {
 }
 
 /* SCAN
-error: cannot reference 'A'(level: 21) which higher than level of the current scope(level: 20)
+error: cannot reference 'A'(level: 21.0.0) which higher than level of the current scope(level: 20.0.0)
   ==> call_construct.cj:19:13:
    | 
 19 |     var a = A()

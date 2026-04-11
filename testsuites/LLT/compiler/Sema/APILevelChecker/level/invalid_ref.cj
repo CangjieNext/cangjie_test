@@ -43,28 +43,28 @@ public func koo(): Unit {
 main() {}
 
 /* SCAN
-error: cannot reference 'goo'(level: 11) which higher than level of the current scope(level: 10)
+error: cannot reference 'goo'(level: 11.0.0) which higher than level of the current scope(level: 10.0.0)
   ==> invalid_ref.cj:17:5:
    | 
 17 |     goo // error
    |     ^^^ 
    | 
 
-error: cannot reference 'hoo'(level: 12) which higher than level of the current scope(level: 10)
+error: cannot reference 'hoo'(level: 12.0.0) which higher than level of the current scope(level: 10.0.0)
   ==> invalid_ref.cj:18:5:
    | 
 18 |     hoo // error
    |     ^^^ 
    | 
 
-error: cannot reference 'hoo'(level: 12) which higher than level of the current scope(level: 11)
+error: cannot reference 'hoo'(level: 12.0.0) which higher than level of the current scope(level: 11.0.0)
   ==> invalid_ref.cj:25:5:
    | 
 25 |     hoo // error
    |     ^^^ 
    | 
 
-error: cannot reference 'hoo'(level: 12) which higher than level of the current scope(level: 11)
+error: cannot reference 'hoo'(level: 12.0.0) which higher than level of the current scope(level: 11.0.0)
   ==> invalid_ref.cj:40:5:
    | 
 40 |     hoo() // error

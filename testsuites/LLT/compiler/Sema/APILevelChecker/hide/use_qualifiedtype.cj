@@ -32,7 +32,7 @@ error: cannot be annotated with '@!Hide' more than once
    | ^^^^^^^^^^^^^^^^^ 
    | 
 
-error: cannot reference 'B'(level: 21) which higher than level of the current scope(level: 20)
+error: cannot reference 'B'(level: 21.0.0) which higher than level of the current scope(level: 20.0.0)
   ==> use_qualifiedtype.cj:23:5:
    | 
 23 |     B()

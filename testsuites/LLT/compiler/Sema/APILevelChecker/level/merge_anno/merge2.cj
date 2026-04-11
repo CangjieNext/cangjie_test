@@ -19,28 +19,28 @@ main() {
 }
 
 /* SCAN
-error: cannot reference 'A'(level: 4) which higher than level of the current scope(level: 2)
+error: cannot reference 'A'(level: 4.0.0) which higher than level of the current scope(level: 2.0.0)
   ==> merge2.cj:15:5:
    | 
 15 |     A()
    |     ^^^ 
    | 
 
-error: cannot reference 'B'(level: 15) which higher than level of the current scope(level: 2)
+error: cannot reference 'B'(level: 15.0.0) which higher than level of the current scope(level: 2.0.0)
   ==> merge2.cj:16:5:
    | 
 16 |     B()
    |     ^^^ 
    | 
 
-error: cannot reference 'C'(level: 26) which higher than level of the current scope(level: 2)
+error: cannot reference 'C'(level: 26.0.0) which higher than level of the current scope(level: 2.0.0)
   ==> merge2.cj:17:5:
    | 
 17 |     C.A.foo()
    |     ^^^^^^^^^ 
    | 
 
-error: cannot reference 'C'(level: 26) which higher than level of the current scope(level: 2)
+error: cannot reference 'C'(level: 26.0.0) which higher than level of the current scope(level: 2.0.0)
   ==> merge2.cj:18:5:
    | 
 18 |     C.B(1).foo()

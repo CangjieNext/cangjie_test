@@ -18,21 +18,21 @@ main() {
 }
 
 /* SCAN
-error: cannot reference 'aaaa'(level: 13) which higher than level of the current scope(level: 12)
+error: cannot reference 'aaaa'(level: 13.0.0) which higher than level of the current scope(level: 12.0.0)
   ==> merge3.cj:15:12:
    | 
 15 |    println(aaaa)
    |            ^^^^ 
    | 
 
-error: cannot reference 'bbbb'(level: 13) which higher than level of the current scope(level: 12)
+error: cannot reference 'bbbb'(level: 13.0.0) which higher than level of the current scope(level: 12.0.0)
   ==> merge3.cj:16:12:
    | 
 16 |    println(bbbb)
    |            ^^^^ 
    | 
 
-error: cannot reference 'cccc'(level: 13) which higher than level of the current scope(level: 12)
+error: cannot reference 'cccc'(level: 13.0.0) which higher than level of the current scope(level: 12.0.0)
   ==> merge3.cj:17:12:
    | 
 17 |    let a = cccc
