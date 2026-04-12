@@ -16,6 +16,7 @@ import sys
 from collections import OrderedDict
 from pathlib import Path
 from textwrap import indent
+import uuid
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
@@ -89,12 +90,10 @@ def construct_tool_shell_cmd(cmd):
         symbol = '\"'
     else:
         symbol = '\''
-    cmd = "{tool} shell {symbol}{cmd1} 2>/dev/null; echo code_start$?err_start;{cmd2} 1>/dev/null;{symbol}".format(
-        tool=tool,
-        symbol=symbol,
-        cmd1=cmd,
-        cmd2=cmd,
-    )
+    
+    h = '/data/local/tmp/run/{}'.format(uuid.uuid4())
+    shell_cmd = f'{cmd} 1> {h}_stdout.txt 2> {h}_stderr.txt ; echo $? > {h}_exit_code.txt ; echo $(cat {h}_stdout.txt)stderr_start$(cat {h}_stderr.txt)exit_code_start$(cat {h}_exit_code.txt)'
+    cmd = f"{tool} shell {symbol}{shell_cmd}{symbol}"
     return cmd
 
 
@@ -137,7 +136,8 @@ def construct_remote_cmd(execute_cmd, execute_case_cmd, upload_file, remote_temp
         construct_tool_send_cmd(upload_file, remote_temp_dir)
     ]
     remove_case_cmd = (
-        "rm -rf {}".format(remote_temp_dir)
+        # "rm -rf {}".format(remote_temp_dir)
+        "ls {}".format(remote_temp_dir)
     )
     execute_cmd["remove_file_on_remote"] = construct_tool_shell_cmd(remove_case_cmd)
 
@@ -211,6 +211,21 @@ def run_case(execute_cmd, work_dir, timeout):
 def run_cmd(stage, cmd, work_dir, timeout):
     return_code, com_out, com_err = run(cmd, work_dir, timeout)
     time.sleep(2)
+
+    log_output = logging.debug
+    # try:
+    com_out = com_out.replace('\r\n', '\n')
+    stderr_start = com_out.index('stderr_start')
+    exit_code_start = com_out.index('exit_code_start')
+    # stdout_content = com_out[:stderr_start]
+    # stderr_content = com_out[stderr_start + len('stderr_start'):exit_code_start]
+    # exit_code = com_out[exit_code_start + len('exit_code_start'):]
+    # com_out = stdout_content
+    # com_err = stderr_content
+    # return_code = exit_code
+    # except Exception as e:
+    #     log_output(e)
+
     if "adb" in tool:
         com_out = com_out.replace('\r\n', '\n')
         com_err = com_err.replace('\r\n', '\n')
@@ -228,8 +243,10 @@ def run_cmd(stage, cmd, work_dir, timeout):
         return_code = com_out.split("code_start")[1].split("err_start")[0]
         com_err = com_out.split("err_start")[1].replace('\r\n', '\n')
         com_out = com_out.split("code_start")[0].replace('\r\n', '\n')
+
+
+
     return_code = str(return_code)
-    log_output = logging.debug
     if return_code != "0":
         log_output = logging.error
     if stage == "run_case":
