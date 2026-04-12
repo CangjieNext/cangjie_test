@@ -23,8 +23,10 @@ func test() {
 }
 
 main() {
+    println("stdout_hello")
+    eprintln("stderr_world")
     if (Int64(test()) == 72) {
-        return 0
+        return 1
     } else {
         return 1
     }
