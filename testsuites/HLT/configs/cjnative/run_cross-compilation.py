@@ -16,6 +16,7 @@ import sys
 from collections import OrderedDict
 from pathlib import Path
 from textwrap import indent
+import uuid
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
@@ -89,12 +90,10 @@ def construct_tool_shell_cmd(cmd):
         symbol = '\"'
     else:
         symbol = '\''
-    cmd = "{tool} shell {symbol}{cmd1} 2>/dev/null; echo code_start$?err_start;{cmd2} 1>/dev/null;{symbol}".format(
-        tool=tool,
-        symbol=symbol,
-        cmd1=cmd,
-        cmd2=cmd,
-    )
+    
+    h = '/data/local/tmp/run/{}'.format(uuid.uuid4())
+    shell_cmd = f'{cmd} 1> {h}_stdout.txt 2> {h}_stderr.txt ; echo $? > {h}_exit_code.txt ; echo $(cat {h}_stdout.txt)stderr_start$(cat {h}_stderr.txt)exit_code_start$(cat {h}_exit_code.txt)'
+    cmd = f"{tool} shell {symbol}{shell_cmd}{symbol}"
     return cmd
 
 
@@ -137,7 +136,8 @@ def construct_remote_cmd(execute_cmd, execute_case_cmd, upload_file, remote_temp
         construct_tool_send_cmd(upload_file, remote_temp_dir)
     ]
     remove_case_cmd = (
-        "rm -rf {}".format(remote_temp_dir)
+        # "rm -rf {}".format(remote_temp_dir)
+        "ls {}".format(remote_temp_dir)
     )
     execute_cmd["remove_file_on_remote"] = construct_tool_shell_cmd(remove_case_cmd)
 
