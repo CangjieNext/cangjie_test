@@ -23,8 +23,12 @@ func test() {
 }
 
 main() {
+    for (i in 0..10) {
+        println("begin ${i} end")
+        eprintln("begine ${i} ende")
+    }
     if (Int64(test()) == 72) {
-        return 0
+        return 1
     } else {
         return 1
     }
