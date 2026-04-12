@@ -8,7 +8,9 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC: %run %run_opt %output %run_args
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan begin 1 end
+// ASSERT: scan begine 1 ende
 
 func test() {
     var a = "HEllO"
@@ -23,6 +25,10 @@ func test() {
 }
 
 main() {
+    for (i in 0..10) {
+        println("begin ${i} end")
+        eprintln("begine ${i} ende")
+    }
     if (Int64(test()) == 72) {
         return 0
     } else {
