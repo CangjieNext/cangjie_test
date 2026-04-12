@@ -16,6 +16,8 @@ import sys
 from collections import OrderedDict
 from pathlib import Path
 from textwrap import indent
+import uuid
+import re
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
@@ -84,17 +86,20 @@ def run(cmd, work_dir, timeout):
         process.terminate()
 
 
-def construct_tool_shell_cmd(cmd):
+def construct_tool_shell_cmd(cmd: str, remote_temp_dir: str):
     if IS_WINDOWS:
         symbol = '\"'
     else:
         symbol = '\''
-    cmd = "{tool} shell {symbol}{cmd1} 2>/dev/null; echo code_start$?err_start;{cmd2} 1>/dev/null;{symbol}".format(
-        tool=tool,
-        symbol=symbol,
-        cmd1=cmd,
-        cmd2=cmd,
-    )
+    h = '{}/{}'.format(remote_temp_dir, uuid.uuid4())
+    shell_cmd = f'{cmd} 1> {h}_stdout.txt 2> {h}_stderr.txt ; echo $? > {h}_exit_code.txt ; echo $(cat {h}_stdout.txt)stderr_start$(cat {h}_stderr.txt)exit_code_start$(cat {h}_exit_code.txt)'
+    cmd = f"{tool} shell {symbol}{shell_cmd}{symbol}"
+    # cmd = "{tool} shell {symbol}{cmd1} 2>/dev/null; echo code_start$?err_start;{cmd2} 1>/dev/null;{symbol}".format(
+    #     tool=tool,
+    #     symbol=symbol,
+    #     cmd1=cmd,
+    #     cmd2=cmd,
+    # )
     return cmd
 
 
@@ -131,15 +136,16 @@ def construct_remote_cmd(execute_cmd, execute_case_cmd, upload_file, remote_temp
         "cd {path}; chmod -R +x {path}; export PATH=$(pwd):$PATH; export LD_LIBRARY_PATH=$(pwd):$LD_LIBRARY_PATH && "
         "{execute_case_cmd}".format(path=remote_temp_dir, execute_case_cmd=execute_case_cmd)
     )
-    execute_cmd["run_case"] = construct_tool_shell_cmd(run_case_cmd)
+    execute_cmd["run_case"] = construct_tool_shell_cmd(run_case_cmd, remote_temp_dir=remote_temp_dir)
 
     execute_cmd["copy_file_to_remote"] = [
         construct_tool_send_cmd(upload_file, remote_temp_dir)
     ]
     remove_case_cmd = (
-        "rm -rf {}".format(remote_temp_dir)
+        # "rm -rf {}".format(remote_temp_dir)
+        "ls {}".format(remote_temp_dir)
     )
-    execute_cmd["remove_file_on_remote"] = construct_tool_shell_cmd(remove_case_cmd)
+    execute_cmd["remove_file_on_remote"] = construct_tool_shell_cmd(remove_case_cmd, remote_temp_dir=remote_temp_dir)
 
 
 def parse_cli():
@@ -237,9 +243,9 @@ def run_cmd(stage, cmd, work_dir, timeout):
         sys.stderr.write(com_err)
     log_output("execute stage: %s", stage)
     log_output("execute command: %s", cmd)
-    log_output("execute return code: %s", return_code)
-    log_output("execute out: \n%s", indent(com_out, "\t", lambda line: True))
-    log_output("execute error: \n%s", indent(com_err, "\t", lambda line: True))
+    log_output("execute exit code: %s", return_code)
+    log_output("execute stdout: \n%s", indent(com_out, "\t", lambda line: True))
+    log_output("execute stderr: \n%s", indent(com_err, "\t", lambda line: True))
     global EXIT_CODE
     if stage != "remove_file_on_remote":
         EXIT_CODE = int(return_code)
@@ -283,7 +289,7 @@ def main():
         local_path,
         remote_path,
     )
-    check_case = construct_tool_shell_cmd("ls /data/local/tmp/run/" + remote_path)
+    check_case = construct_tool_shell_cmd("ls /data/local/tmp/run/" + remote_path, remote_temp_dir=remote_path)
     return_code, com_out, com_err = run(check_case, ".", 10)
     if "No such file or directory" not in com_out and "No such file or directory" not in com_err:
         execute_stages["copy_file_to_remote"] = None
