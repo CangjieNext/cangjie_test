@@ -137,7 +137,8 @@ def construct_remote_cmd(execute_cmd, execute_case_cmd, upload_file, remote_temp
         construct_tool_send_cmd(upload_file, remote_temp_dir)
     ]
     remove_case_cmd = (
-        "rm -rf {}".format(remote_temp_dir)
+        # "rm -rf {}".format(remote_temp_dir)
+        "ls {}".format(remote_temp_dir)
     )
     execute_cmd["remove_file_on_remote"] = construct_tool_shell_cmd(remove_case_cmd)
 
@@ -237,9 +238,9 @@ def run_cmd(stage, cmd, work_dir, timeout):
         sys.stderr.write(com_err)
     log_output("execute stage: %s", stage)
     log_output("execute command: %s", cmd)
-    log_output("execute return code: %s", return_code)
-    log_output("execute out: \n%s", indent(com_out, "\t", lambda line: True))
-    log_output("execute error: \n%s", indent(com_err, "\t", lambda line: True))
+    log_output("execute exit code: %s", return_code)
+    log_output("execute stdout: \n%s", indent(com_out, "\t", lambda line: True))
+    log_output("execute stderr: \n%s", indent(com_err, "\t", lambda line: True))
     global EXIT_CODE
     if stage != "remove_file_on_remote":
         EXIT_CODE = int(return_code)
