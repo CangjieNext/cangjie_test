@@ -1,0 +1,770 @@
+# 内部变量介绍
+
+## append_macro_lib_opt
+
+暂无介绍
+
+## append_opt
+
+暂无介绍
+
+## append_pic_opt
+
+暂无介绍
+
+## boundscheck
+
+暂无介绍
+
+## c_compiler
+
+如果不确定用gcc还是clang，用%c_compiler
+
+## cangjie-dynamic-stdx-path
+
+暂无介绍
+
+## cangjie-home
+
+`CANGJIE_HOME` 环境变量
+
+## cangjie-repo-token
+
+暂无介绍
+
+## cangjie-static-stdx-path
+
+暂无介绍
+
+## cangjie-stdx-import-path
+
+暂无介绍
+
+## cangjie-stdx-list
+
+所有 stdx 的库链接的列表，方便用例测试头部指定链接所有 stdx 库
+
+## cangjie-stdx-package
+
+暂无介绍
+
+## cangjie-stdx-path
+
+暂无介绍
+
+## cangjieDir
+
+`CANGJIE_HOME` 环境变量
+
+## cangjieStdxPath
+
+`CANGJIE_STDX_PATH` 环境变量
+
+## cangjie_runtime_link
+
+暂无介绍
+
+## cangjie_test
+
+本地 `cangjie_test` git仓目录的绝对路径，需要用户手动设置环境变量 `CANGJIE_TEST` 指向该目录
+
+## cat
+
+暂无介绍
+
+## cffi_output
+
+暂无介绍
+
+## cffi_runtime_ld
+
+暂无介绍
+
+## cffi_runtime_link
+
+暂无介绍
+
+## cffi_runtime_link_no_elfloader
+
+暂无介绍
+
+## cffi_runtime_opt
+
+暂无介绍
+
+## cffi_std_link
+
+暂无介绍
+
+## cffi_suffix
+
+暂无介绍
+
+## check-dylib-dep
+
+暂无介绍
+
+## chir-dis
+
+暂无介绍
+
+## chmod
+
+暂无介绍
+
+## cjcov
+
+cjcov 工具
+
+## cjcpl
+
+cjcpl 工具
+
+## cjfmt
+
+cjfmt 工具
+
+## cjpm
+
+暂无介绍
+
+## cjpm_opt
+
+暂无介绍
+
+## cjtrace_recover
+
+cjtrace-recover 工具
+
+## clang
+
+如果一定要用clang，用%clang
+
+## clang_opt
+
+暂无介绍
+
+## clang_opt_objc
+
+暂无介绍
+
+## close_apc_compile
+
+是否关闭 apc 并发编译
+
+## closebuf
+
+暂无介绍
+
+## cmp_macro
+
+暂无介绍
+
+## cmp_ocffi_opt
+
+暂无介绍
+
+## cmp_opt
+
+cjc 编译选项
+
+## cmp_opt_frontend
+
+cjc-frontend 编译器前端选项
+
+## cmp_output
+
+暂无介绍
+
+## cmp_stable_abi_dylib
+
+暂无介绍
+
+## cmp_utest_opt
+
+暂无介绍
+
+## compile_chir_opt
+
+暂无介绍
+
+## compile_dylib_opt
+
+如果你确定只希望编动态库的话，用 %compile_dylib_opt
+
+## compile_dylib_opt_cjmp
+
+暂无介绍
+
+## compile_lib_opt
+
+如果确定只希望编静态库的话，则用 %compile_lib_opt
+
+## compile_lib_opt_cjmp
+
+暂无介绍
+
+## compile_library
+
+如果你希望用例中既能编动态库也能编静态库的话，就用这个变量。使用static配置文件时该变量为--output-type=staticlib；使用dynamic配置文件时该变量为--output-type=dylib
+
+## compiler
+
+cjc 编译器
+
+## compiler_frontend
+
+cjc-frontend 编译器前端
+
+## conditional_compilation_config_opt
+
+暂无介绍
+
+## cp
+
+暂无介绍
+
+## cp_loader_jar
+
+暂无介绍
+
+## cpm_bin_path
+
+暂无介绍
+
+## diff
+
+暂无介绍
+
+## disassembler
+
+暂无介绍
+
+## dump
+
+暂无介绍
+
+## dy_libs
+
+--dy-libs 编译选项
+
+## dy_std
+
+--dy-std 编译选项
+
+## dylib_suffix
+
+target平台的动态库文件后缀名
+
+## enableConstPropagation
+
+暂无介绍
+
+## enable_debug
+
+暂无介绍
+
+## enable_macro
+
+暂无介绍
+
+## enable_objc_cjmapping
+
+暂无介绍
+
+## export
+
+设置环境变量的命令，操作系统相关
+
+## export_expand
+
+暂无介绍
+
+## ffic_opt
+
+暂无介绍
+
+## gcc
+
+如果一定要用gcc，用%gcc
+
+## git_dir_prefix
+
+暂无介绍
+
+## git_dir_suffix
+
+暂无介绍
+
+## grep
+
+暂无介绍
+
+## hle_arkts
+
+hle 工具进行 ArkTS 胶水层生成
+
+## hle_c
+
+hle 工具进行 C 胶水层生成
+
+## host
+
+暂无介绍
+
+## host_cp
+
+暂无介绍
+
+## host_dylib_suffix
+
+host平台动态库文件后缀名，加上了host前缀以与dylib_suffix区分。由于绝大多数动态库文件都是用于target平台，所以target平台动态库文件后缀名就不加target前缀，以图简洁
+
+## host_library_suffix
+
+暂无介绍
+
+## host_ls
+
+暂无介绍
+
+## host_triple
+
+暂无介绍
+
+## import-cangjie-stdx
+
+暂无介绍
+
+## import-stdx-fuzz
+
+暂无介绍
+
+## incremental_compile
+
+暂无介绍
+
+## ins_nm_cjworld
+
+暂无介绍
+
+## interop_config
+
+暂无介绍
+
+## java
+
+暂无介绍
+
+## java_interop_runner
+
+暂无介绍
+
+## java_interop_setup
+
+暂无介绍
+
+## java_interop_template
+
+暂无介绍
+
+## java_interop_util
+
+暂无介绍
+
+## java_mirror_gen
+
+暂无介绍
+
+## javac
+
+暂无介绍
+
+## jffi_link
+
+暂无介绍
+
+## ldd
+
+ldd 工具
+
+## libdir
+
+暂无介绍
+
+## library_suffix
+
+如果使用%compile_library来动态决定是动态库还是静态库，则使用%library_suffix
+
+## link-core
+
+暂无介绍
+
+## link-eh
+
+暂无介绍
+
+## link_cjmp
+
+暂无介绍
+
+## link_collection
+
+暂无介绍
+
+## link_oc
+
+暂无介绍
+
+## lint
+
+cjlint 工具
+
+## ls
+
+暂无介绍
+
+## macro_debug
+
+暂无介绍
+
+## macro_lib
+
+暂无介绍
+
+## macro_lib_opt
+
+暂无介绍
+
+## macro_opt
+
+暂无介绍
+
+## main
+
+可执行文件名
+
+## middle
+
+静态库文件的后缀名
+
+## mirror_gen
+
+暂无介绍
+
+## mirror_opt
+
+暂无介绍
+
+## mkdir
+
+暂无介绍
+
+## mod_name
+
+暂无介绍
+
+## mod_opt
+
+--module-name 编译选项
+
+## mv
+
+暂无介绍
+
+## new_cjo
+
+暂无介绍
+
+## no_obf_cf_bogus
+
+暂无介绍
+
+## no_obf_cf_flatten
+
+暂无介绍
+
+## no_obf_const
+
+暂无介绍
+
+## no_obf_export
+
+暂无介绍
+
+## no_obf_layout
+
+暂无介绍
+
+## no_obf_line_number
+
+暂无介绍
+
+## no_obf_source_path
+
+暂无介绍
+
+## no_obf_string
+
+暂无介绍
+
+## null_path
+
+操作系统的黑洞文件的路径，用于丢弃不关心的输出内容
+
+## obf_all
+
+暂无介绍
+
+## obf_apply_mapping
+
+暂无介绍
+
+## obf_cf_bogus
+
+暂无介绍
+
+## obf_cf_flatten
+
+暂无介绍
+
+## obf_const
+
+暂无介绍
+
+## obf_export
+
+暂无介绍
+
+## obf_layout
+
+暂无介绍
+
+## obf_line_number
+
+暂无介绍
+
+## obf_source_path
+
+暂无介绍
+
+## obf_string
+
+暂无介绍
+
+## obf_sym_input
+
+暂无介绍
+
+## obf_sym_output
+
+暂无介绍
+
+## obf_sym_prefix
+
+暂无介绍
+
+## object_file_suffix
+
+暂无介绍
+
+## ohos_opt
+
+ohos&android的系统工具链编译选项。TODO: 拆分开区别ohos&android。
+
+## ohos_opt_pc
+
+用于cjc-frontend
+
+## old_cjo
+
+暂无介绍
+
+## openssl_path
+
+保存openssl静态库的目录的路径，需要配在环境变量中
+
+## optimization_level
+
+暂无介绍
+
+## output
+
+当 cjc 编译产物为可执行文件时，使用 %output 来自动取名
+
+## overflow_wrapping
+
+暂无介绍
+
+## pic_opt
+
+暂无介绍
+
+## pkg_compile
+
+暂无介绍
+
+## pkg_link
+
+暂无介绍
+
+## pkg_opt
+
+--package 编译选项
+
+## plugin_lsp_suffix
+
+暂无介绍
+
+## prebuilt-toolchain
+
+暂无介绍
+
+## pwd
+
+暂无介绍
+
+## python
+
+暂无介绍
+
+## repo_sed
+
+暂无介绍
+
+## rm
+
+暂无介绍
+
+## rmdir
+
+暂无介绍
+
+## run
+
+可执行文件的执行环境，一般会设置环境变量
+
+## run_args
+
+运行可执行文件时传入的参数
+
+## run_args_arg
+
+暂无介绍
+
+## run_env
+
+暂无介绍
+
+## run_macro
+
+可执行文件的执行环境，一般会设置环境变量
+
+## run_macro_opt
+
+暂无介绍
+
+## run_opt
+
+运行可执行文件时的设置
+
+## run_pkg
+
+可执行文件的执行环境，一般会设置环境变量
+
+## run_stdx
+
+可执行文件的执行环境，一般会设置环境变量，针对 STDX 设置运行时环境变量
+
+## run_utest_opt
+
+暂无介绍
+
+## sanitizer_hwasan
+
+暂无介绍
+
+## save_temps
+
+暂无介绍
+
+## sed
+
+暂无介绍
+
+## sed_opt
+
+暂无介绍
+
+## serial_compile
+
+是否开启串行编译
+
+## set
+
+暂无介绍
+
+## shell
+
+暂无介绍
+
+## source
+
+刷新环境变量的命令，操作系统相关
+
+## static_libs
+
+--static-libs 编译选项
+
+## static_std
+
+--static-std 编译选项
+
+## stdx-library-path
+
+暂无介绍
+
+## stdx-package
+
+暂无介绍
+
+## suffix
+
+可执行文件的后缀名
+
+## target
+
+暂无介绍
+
+## target_cp
+
+暂无介绍
+
+## target_ls
+
+暂无介绍
+
+## target_triple
+
+暂无介绍
+
+## test_suffix
+
+静态库文件的后缀名
+
+## touch
+
+暂无介绍
+
+## use_ast
+
+暂无介绍
+
+## use_pic_ast
+
+暂无介绍
+
+## utest_no_progress
+
+暂无介绍
+
