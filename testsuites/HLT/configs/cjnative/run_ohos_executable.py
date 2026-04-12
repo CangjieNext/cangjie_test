@@ -16,6 +16,8 @@ import sys
 from collections import OrderedDict
 from pathlib import Path
 from textwrap import indent
+import uuid
+import re
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
@@ -84,17 +86,14 @@ def run(cmd, work_dir, timeout):
         process.terminate()
 
 
-def construct_tool_shell_cmd(cmd):
+def construct_tool_shell_cmd(cmd: str, remote_temp_dir: str):
     if IS_WINDOWS:
         symbol = '\"'
     else:
         symbol = '\''
-    cmd = "{tool} shell {symbol}{cmd1} 2>/dev/null; echo code_start$?err_start;{cmd2} 1>/dev/null;{symbol}".format(
-        tool=tool,
-        symbol=symbol,
-        cmd1=cmd,
-        cmd2=cmd,
-    )
+    h = '{}/{}'.format(remote_temp_dir, uuid.uuid4())
+    shell_cmd = f'{cmd} 1> {h}_stdout.txt 2> {h}_stderr.txt ; echo exit_code_start$?exit_code_end > {h}_exit_code.txt ; cat {h}_stdout.txt ; cat {h}_exit_code.txt ; cat {h}_stderr.txt'
+    cmd = f"{tool} shell {symbol}{shell_cmd}{symbol}"
     return cmd
 
 
@@ -131,15 +130,16 @@ def construct_remote_cmd(execute_cmd, execute_case_cmd, upload_file, remote_temp
         "cd {path}; chmod -R +x {path}; export PATH=$(pwd):$PATH; export LD_LIBRARY_PATH=$(pwd):$LD_LIBRARY_PATH && "
         "{execute_case_cmd}".format(path=remote_temp_dir, execute_case_cmd=execute_case_cmd)
     )
-    execute_cmd["run_case"] = construct_tool_shell_cmd(run_case_cmd)
+    execute_cmd["run_case"] = construct_tool_shell_cmd(run_case_cmd, remote_temp_dir=remote_temp_dir)
 
     execute_cmd["copy_file_to_remote"] = [
         construct_tool_send_cmd(upload_file, remote_temp_dir)
     ]
     remove_case_cmd = (
         "rm -rf {}".format(remote_temp_dir)
+        # "ls {}".format(remote_temp_dir)
     )
-    execute_cmd["remove_file_on_remote"] = construct_tool_shell_cmd(remove_case_cmd)
+    execute_cmd["remove_file_on_remote"] = construct_tool_shell_cmd(remove_case_cmd, remote_temp_dir=remote_temp_dir)
 
 
 def parse_cli():
@@ -210,7 +210,27 @@ def run_case(execute_cmd, work_dir, timeout):
 
 def run_cmd(stage, cmd, work_dir, timeout):
     return_code, com_out, com_err = run(cmd, work_dir, timeout)
-    time.sleep(2)
+    # time.sleep(2)
+
+    if 'exit_code_start' in com_out and 'exit_code_end' in com_out:
+        com_out = com_out.replace('\r\n', '\n')
+        exit_code_start = com_out.find('exit_code_start')
+        exit_code_end = com_out.find('exit_code_end')
+        stdout_content = '{}'.format(com_out[:exit_code_start])
+        return_code = '{}'.format(com_out[exit_code_start + len('exit_code_start'):exit_code_end])
+        stderr_content = '{}'.format(com_out[exit_code_end + len('exit_code_end'):])
+        com_out = stdout_content
+        com_err = stderr_content
+        # pattern = r'^(.*?)exit_code_start(.*?)exit_code_end(.*)$'
+        # match = re.match(pattern, com_out)
+        # if match:
+        #     stdout_content, stderr_content, exit_code = match.group(1), match.group(2), match.group(3)
+        # else:
+        #     assert False
+        # com_out = stdout_content
+        # com_err = stderr_content
+        # return_code = exit_code
+
     if "adb" in tool:
         com_out = com_out.replace('\r\n', '\n')
         com_err = com_err.replace('\r\n', '\n')
@@ -226,8 +246,9 @@ def run_cmd(stage, cmd, work_dir, timeout):
             com_err = (com_err.split("code_start")[0] + com_err.split("err_start")[1])
     elif "code_start" in com_out:
         return_code = com_out.split("code_start")[1].split("err_start")[0]
-        com_err = com_out.split("err_start")[1].replace('\r\n', '\n')
-        com_out = com_out.split("code_start")[0].replace('\r\n', '\n')
+        # com_err = com_out.split("err_start")[1].replace('\r\n', '\n')
+        # com_out = com_out.split("code_start")[0].replace('\r\n', '\n')
+    
     return_code = str(return_code)
     log_output = logging.debug
     if return_code != "0":
@@ -237,9 +258,9 @@ def run_cmd(stage, cmd, work_dir, timeout):
         sys.stderr.write(com_err)
     log_output("execute stage: %s", stage)
     log_output("execute command: %s", cmd)
-    log_output("execute return code: %s", return_code)
-    log_output("execute out: \n%s", indent(com_out, "\t", lambda line: True))
-    log_output("execute error: \n%s", indent(com_err, "\t", lambda line: True))
+    log_output("execute exit code: %s", return_code)
+    log_output("execute stdout: \n%s", indent(com_out, "\t", lambda line: True))
+    log_output("execute stderr: \n%s", indent(com_err, "\t", lambda line: True))
     global EXIT_CODE
     if stage != "remove_file_on_remote":
         EXIT_CODE = int(return_code)
@@ -283,7 +304,7 @@ def main():
         local_path,
         remote_path,
     )
-    check_case = construct_tool_shell_cmd("ls /data/local/tmp/run/" + remote_path)
+    check_case = construct_tool_shell_cmd("ls /data/local/tmp/run/" + remote_path, remote_temp_dir=remote_path)
     return_code, com_out, com_err = run(check_case, ".", 10)
     if "No such file or directory" not in com_out and "No such file or directory" not in com_err:
         execute_stages["copy_file_to_remote"] = None
