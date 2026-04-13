@@ -9,5 +9,5 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build 2>&1 | compare %f
-// ASSERT: scan "features":["os.hos","os.linux","os.windows"]
+// ASSERT: scan "features":["os.linux","os.windows"]
 // ASSERT: scan cjpm build success
