@@ -231,4 +231,31 @@ class ConvertInt64Test {
             @Expect(Int64.parse(testVar[0]), testVar[1])
         }
     }
+
+    @TestCase
+    func tryParseLeadingUnderscoreDecimal(): Unit {
+        let leadingUnderscoreInputs: Array<String> = ["-_6_4_", "_2_5_4", "_1000", "-__1__"]
+        for (input in leadingUnderscoreInputs) {
+            var ret: Option<Int64> = Int64.tryParse(input)
+            @Expect(ret, Option<Int64>.None)
+        }
+    }
+
+    @TestCase
+    func tryParseTrailingUnderscoreDecimal(): Unit {
+        let trailingUnderscoreInputs: Array<String> = ["16_", "43_", "1_000_"]
+        for (input in trailingUnderscoreInputs) {
+            var ret: Option<Int64> = Int64.tryParse(input)
+            @Expect(ret, Option<Int64>.None)
+        }
+    }
+
+    @TestCase
+    func tryParseConsecutiveUnderscoreDecimal(): Unit {
+        let consecutiveUnderscoreInputs: Array<String> = ["1__0", "-3__2", "1__0__0"]
+        for (input in consecutiveUnderscoreInputs) {
+            var ret: Option<Int64> = Int64.tryParse(input)
+            @Expect(ret, Option<Int64>.None)
+        }
+    }
 }
