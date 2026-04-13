@@ -137,7 +137,8 @@ def construct_remote_cmd(execute_cmd, execute_case_cmd, upload_file, remote_temp
         construct_tool_send_cmd(upload_file, remote_temp_dir)
     ]
     remove_case_cmd = (
-        "rm -rf {}".format(remote_temp_dir)
+        # "rm -rf {}".format(remote_temp_dir)
+        "ls {}".format(remote_temp_dir)
     )
     execute_cmd["remove_file_on_remote"] = construct_tool_shell_cmd(remove_case_cmd)
 
