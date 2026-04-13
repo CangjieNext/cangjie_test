@@ -39,8 +39,9 @@ rm -rf "$ANDROID_PROJ_PATH"/app/src/main/java/com/*.class
 # copying test case java source files to android studio project.
 cp -rf "$TEST_CASE_PATH/com" "$ANDROID_PROJ_PATH/app/src/main/java"
 
-# first, clear jniLibs.
-JNI_LIB_PATH="$ANDROID_PROJ_PATH/app/src/main/jniLibs/arm64-v8a"
+# TODO: first, clear jniLibs.
+JNI_LIB_PATH="$ANDROID_PROJ_PATH/app/src/main/jniLibs/arm-v8a"
+# JNI_LIB_PATH="$ANDROID_PROJ_PATH/app/src/main/jniLibs/armeabi-v7a"
 rm -rf "$JNI_LIB_PATH"
 mkdir -p "$JNI_LIB_PATH"
 
@@ -49,8 +50,10 @@ cp "$TEST_CASE_PATH/libUNNAMED.so" "$JNI_LIB_PATH/libUNNAMED.so"
 # copying necessary dynamic libraries from Cangjie SDK.
 cp "$CANGJIE_HOME/runtime/lib/$1"/* "$JNI_LIB_PATH"
 
+# TODO: 
 # copying libc++_shared.so from Android NDK.
-cp "$OHOS_ROOT/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/$2/libc++_shared.so" "$JNI_LIB_PATH/libc++_shared.so"
+# cp "$OHOS_ROOT/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/$2/libc++_shared.so" "$JNI_LIB_PATH/libc++_shared.so"
+cp "$OHOS_ROOT/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/$2/libc++_shared.so" "$JNI_LIB_PATH/libc++_shared.so"
 
 # copying instrumented test source file.
 rm -rf "$ANDROID_PROJ_PATH/app/src/androidTest/java/com/example/myapplication"
