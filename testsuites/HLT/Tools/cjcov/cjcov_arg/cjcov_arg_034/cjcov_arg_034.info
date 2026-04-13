@@ -11,7 +11,5 @@
 // EXEC-PIPE: cd %n&& cjpm init --name default&& cjpm build --coverage&& cjpm run --skip-build
 // EXEC-PIPE: cd %n&& %cjcov --rootpath=./ -v && %ls && %ls target/release/bin | compare %f
 // ASSERT: regex 0.*.*
-// (CJNATIVE) ASSERT: scan default.gcda
-// (CJNATIVE) ASSERT: scan default.gcno
-// (not CJNATIVE) ASSERT: scan main.jcda
-// (not CJNATIVE) ASSERT: scan main.jcno
+// ASSERT: scan default.gcda
+// ASSERT: scan default.gcno

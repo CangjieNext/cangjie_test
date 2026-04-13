@@ -9,7 +9,6 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n ../../scripts/compare_html.py
 // EXEC-PIPE: cd %n && %compiler pkg1/pkg1.cj %cmp_macro
-// (CJNATIVE) EXEC-PIPE: cd %n && %compiler --coverage macro.cj --int-overflow wrapping && ./main
-// (not CJNATIVE) EXEC-PIPE: cd %n && %compiler --coverage macro.cj --int-overflow wrapping && cj main.cbc
+// EXEC-PIPE: cd %n && %compiler --coverage macro.cj --int-overflow wrapping && ./main
 // EXEC-PIPE: cd %n && %cjcov --root=./ --html-details --output=html_output
 // EXEC-PIPE: python3 compare_html.py -b %n/refrence -d %n/html_output 
