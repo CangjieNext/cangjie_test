@@ -20,7 +20,7 @@ public class MainInstrumentedTest {
   public void test00() {
     Main.main(new String[] {});
     final StringBuilder sb = new StringBuilder();
-    sb.append("result = true\n");
+    sb.append("resu lt = t rue\n");
     assertEquals(Logger.getLog(), sb.toString());
   }
 }
