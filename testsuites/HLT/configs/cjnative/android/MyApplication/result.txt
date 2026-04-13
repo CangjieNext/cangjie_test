@@ -1,0 +1,29 @@
+
+com.example.myapplication.MainInstrumentedTest:
+Error in test00(com.example.myapplication.MainInstrumentedTest):
+java.lang.UnsatisfiedLinkError: dlopen failed: library "libUNNAMED.so" not found
+	at java.lang.Runtime.loadLibrary0(Runtime.java:1097)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:1019)
+	at java.lang.System.loadLibrary(System.java:1765)
+	at cangjie.lang.LibraryLoader.loadLibrary(LibraryLoader.java:11)
+	at UNNAMED.CangjieStruct.<clinit>(CangjieStruct.java:9)
+	at com.example.myapplication.Main.main(Main.java:15)
+	at com.example.myapplication.MainInstrumentedTest.test00(MainInstrumentedTest.java:21)
+
+
+Time: 0.02
+There was 1 failure:
+1) test00(com.example.myapplication.MainInstrumentedTest)
+java.lang.UnsatisfiedLinkError: dlopen failed: library "libUNNAMED.so" not found
+	at java.lang.Runtime.loadLibrary0(Runtime.java:1097)
+	at java.lang.Runtime.loadLibrary0(Runtime.java:1019)
+	at java.lang.System.loadLibrary(System.java:1765)
+	at cangjie.lang.LibraryLoader.loadLibrary(LibraryLoader.java:11)
+	at UNNAMED.CangjieStruct.<clinit>(CangjieStruct.java:9)
+	at com.example.myapplication.Main.main(Main.java:15)
+	at com.example.myapplication.MainInstrumentedTest.test00(MainInstrumentedTest.java:21)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+
