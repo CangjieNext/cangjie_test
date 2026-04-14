@@ -9,7 +9,9 @@ Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 Tools/cjpm/stdx/c/build_mock/build_mock.info
 Tools/cjpm/stdx/c/check_01/check_01.info
 Tools/cjpm/stdx/c/tree_01/tree_01.info
-Runtime/cjnative/runtime/OutOfMemoryError/oom_dump.cj
+Tools/cjpm/cjpm_build/features/single_pack_condition/009/009_test.info
+Tools/cjpm/cjpm_build/features/single_pack_condition/002/002_test.info
+
 # old jffi can only be run with cjvm.
 compiler/cjnative/FFI/jffi
 
@@ -51,3 +53,4 @@ compiler/cjnative/Chir/CompileOption/plugin/runplugin/plugin5/runplugin.cj
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
+
