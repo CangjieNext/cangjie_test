@@ -5,8 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// (DEBUG_OPTION)EXEC: %compiler %cmp_opt %debugCHIROpt %n.cj -o %output | compare %f
-// ASSERT: scan The annotation factory function of v123
+// EXEC: %compiler %cmp_opt %f %dumpCHIRDebug
+// EXEC: %cat default_CHIR/[0-9]*_AST_CHIR.chirtxt | compare %f
 
 @Annotation
 public class A1 {
@@ -24,3 +24,5 @@ public class C0 {
 main() {
     0
 }
+
+// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default2C04v123E() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno07.cj"-20-5

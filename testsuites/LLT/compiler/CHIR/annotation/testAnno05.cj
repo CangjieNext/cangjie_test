@@ -5,11 +5,9 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// (DEBUG_OPTION)EXEC: %compiler %cmp_opt %debugCHIROpt %n.cj -o %output | compare %f
-// (CJNATIVE) ASSERT: regex The annotation factory function of A in the line .* is \_CAF7default1AE
-// (CJNATIVE) ASSERT: regex The annotation factory function of init in the line .* is \_CAF7default1B6<init>Hv
-// (not CJNATIVE) ASSERT: regex The annotation factory function of A in the line .* is \$Anno_ZN7default1AE
-// (not CJNATIVE) ASSERT: regex The annotation factory function of init in the line .* is \$Anno_ZN7default1B6<init>Ev
+// EXEC: %compiler %cmp_opt %f %dumpCHIRDebug
+// EXEC: %cat default_CHIR/[0-9]*_AST_CHIR.chirtxt | compare %f
+
 @Annotation
 public class Anno1 {
     public const init() {}
@@ -33,3 +31,6 @@ class B {
 main() {
     0
 }
+
+// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default1AE() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno05.cj"-21-1
+// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default1B6<init>Hv() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno05.cj"-26-5
