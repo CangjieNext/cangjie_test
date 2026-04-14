@@ -8,5 +8,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not Windows) ERRCHECK: cd %n && %cjpm build %cjpm_opt -V
-// (not Windows) ASSERT: scan optional value must be a macro package name
+// (cross_compilation & not Windows) ERRCHECK: cd %n && %cjpm build %cjpm_opt -V
+// (cross_compilation & not Windows) ASSERT: scan optional value must be a macro package name
