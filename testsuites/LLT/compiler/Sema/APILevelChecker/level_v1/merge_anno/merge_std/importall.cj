@@ -53,7 +53,8 @@ main() {
 
 /* SCAN
 error: cannot reference 'ArgOpt'(level: 12) which higher than level of the current scope(level: 11)
-  ==> importall.cj:50:5:   | 
+  ==> importall.cj:50:5:
+   | 
 50 |     ArgOpt()
    |     ^^^^^^^^ 
    | 
