@@ -10,8 +10,8 @@
 // DEPENDENCE: module_case1
 // EXEC: cd module_case1 && %compiler %cmp_opt %compile_dylib_opt  test_dynamicloading.cj -o test.dynamicloading.%test_suffix
 // EXEC: cd module_case1 && %compiler %cmp_opt %compile_dylib_opt  test1_dynamicloading_1.cj -o test.dynamicloading_1.%test_suffix
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output
-// (not MAC) RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args
 
 import std.reflect.*
 

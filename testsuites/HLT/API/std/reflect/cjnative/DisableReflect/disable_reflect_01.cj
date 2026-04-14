@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler --disable-reflection %cmp_opt %f -o %output
-// (not MAC) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// (not MAC) ASSERT: scan instanceVariables.size: 0
+// EXEC: %compiler --disable-reflection %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan instanceVariables.size: 0
 
 import std.reflect.*
 

@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 // 拥有 sealed 语义的 class 类型不允许被宏 @Annotation 修饰。
 import std.reflect.*
@@ -24,5 +24,5 @@ class C0 {}
 main() {
   return 0
 }
-// (not MAC) ASSERT: scan parse_unexpected_anno_on
-// (not MAC) ASSERT: scan parse_redundant_modifier
+// ASSERT: scan parse_unexpected_anno_on
+// ASSERT: scan parse_redundant_modifier
