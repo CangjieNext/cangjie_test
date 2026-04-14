@@ -9,8 +9,8 @@
 // LEVEL: 0 
 // DEPENDENCE: module_case1
 // EXEC: cd module_case1 && %compiler %cmp_opt %compile_dylib_opt  test_dynamicloading.cj -o test.dynamicloading.so
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output
-// (not MAC) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %f -o %output
+// (not Windows and not OHOS) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan IllegalArgumentException
 
 import std.reflect.*

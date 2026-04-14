@@ -8,9 +8,9 @@
 
 // LEVEL: 1 
 // DEPENDENCE: dependency
-// (not MAC) EXEC: cd dependency && %compiler %cmp_opt %compile_library  *.cj -o libdependency.%test_suffix
-// (not MAC) EXEC: %compiler %cmp_opt %f %cmp_utest_opt -o %output --import-path . -L dependency -ldependency
-// (not MAC and not OHOS) RUN-EXEC: %cp ./dependency/libdependency.%test_suffix .&& %run %run_opt %output %run_utest_opt %run_args
+// EXEC: cd dependency && %compiler %cmp_opt %compile_library  *.cj -o libdependency.%test_suffix
+// EXEC: %compiler %cmp_opt %f %cmp_utest_opt -o %output --import-path . -L dependency -ldependency
+// (not Windows and not OHOS) RUN-EXEC: %cp ./dependency/libdependency.%test_suffix .&& %run %run_opt %output %run_utest_opt %run_args
 // (Windows and OHOS) RUN-EXEC: cp ./dependency/libdependency.%test_suffix .&& %run %run_opt %output %run_utest_opt %run_args  
 package testsuite
 

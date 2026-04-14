@@ -8,10 +8,10 @@
 
 // LEVEL: 0
 // DEPENDENCE: utils enums
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -p utils
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -p enums
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %f -L . -lutils -lenums %cmp_utest_opt -o %output
-// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt %compile_lib_opt -p utils
+// EXEC: %compiler %cmp_opt %compile_lib_opt -p enums
+// EXEC: %compiler %cmp_opt %f -L . -lutils -lenums %cmp_utest_opt -o %output
+// (not Windows and not OHOS) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 package pkg
 

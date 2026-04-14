@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../MyType
-// (not MAC) EXEC: %compiler %cmp_opt -o %output %f
-// (not MAC) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt -o %output %f
+// (not Windows and not OHOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 /* SCAN
 default.S0<Int64, Bool, Rune>
 Array<Int64>

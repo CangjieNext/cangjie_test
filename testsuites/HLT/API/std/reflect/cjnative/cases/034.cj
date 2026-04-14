@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
-// (not MAC) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
+// (not Windows and not OHOS) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.reflect.*
 import std.collection.*

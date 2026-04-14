@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output
-// (not MAC) RUN-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt %f -o %output
+// (not Windows and not OHOS) RUN-EXEC: %run %run_opt %output %run_args
 
 // 对于一个被注解的对象，允许相同注解出现超过1次
 

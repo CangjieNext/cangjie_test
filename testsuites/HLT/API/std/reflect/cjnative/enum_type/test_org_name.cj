@@ -9,10 +9,10 @@
 // LEVEL: 0
 // description: 验证带有组织名的enum的反射操作
 // DEPENDENCE: utils org_enums
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -p utils
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_lib_opt -p org_enums
-// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %f -L . -lutils -lenums@org %cmp_utest_opt -o %output
-// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt %compile_lib_opt -p utils
+// EXEC: %compiler %cmp_opt %compile_lib_opt -p org_enums
+// EXEC: %compiler %cmp_opt %f -L . -lutils -lenums@org %cmp_utest_opt -o %output
+// (not Windows and not OHOS) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 package pkg
 
