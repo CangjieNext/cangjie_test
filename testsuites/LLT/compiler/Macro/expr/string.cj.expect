@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE: define.cj %f.expect
 // EXEC: %compiler %cmp_macro define.cj
 // EXEC: %run_macro %compiler %cmp_opt --debug-macro %f -o %output
@@ -7,19 +13,19 @@ import define.*
 internal import std.unittest.*
 import std.unittest.testmacro.*
 
-/* ===== Emitted by MacroCall @M0 in string.cj:10:1 ===== */
-/* 10.1 */var a = #"hello
+/* ===== Emitted by MacroCall @M0 in string.cj:16:1 ===== */
+var a = #"hello
     Cangjie"#
 /* ===== End of the Emit ===== */
 
-/* ===== Emitted by MacroCall @M in string.cj:14:1 ===== */
-/* 14.1 */var a1 = #"hello
+/* ===== Emitted by MacroCall @M in string.cj:20:1 ===== */
+var a1 = #"hello
     Cangjie"#
-/* 14.2 */
+
 /* ===== End of the Emit ===== */
 
-/* ===== Emitted by MacroCall @M0 in string.cj:18:1 ===== */
-/* 18.1 */var b = """
+/* ===== Emitted by MacroCall @M0 in string.cj:24:1 ===== */
+var b = """
     <showList color="blue">
         <file color='blue2' size="180">
             <name>Rain2</name>
@@ -29,8 +35,8 @@ import std.unittest.testmacro.*
     """
 /* ===== End of the Emit ===== */
 
-/* ===== Emitted by MacroCall @M in string.cj:28:1 ===== */
-/* 28.1 */var b1 = """
+/* ===== Emitted by MacroCall @M in string.cj:34:1 ===== */
+var b1 = """
     <showList color="blue">
         <file color='blue2' size="180">
             <name>Rain2</name>
@@ -38,15 +44,15 @@ import std.unittest.testmacro.*
         </file>
     </showList>
     """
-/* 28.2 */
+
 /* ===== End of the Emit ===== */
 
-/* ===== Emitted by MacroCall @M0 in string.cj:38:1 ===== */
-/* 38.1 */let c =[r'\t', r'\r', r'\n', r'\u{0020}', r' ', r'\'']
+/* ===== Emitted by MacroCall @M0 in string.cj:44:1 ===== */
+let c =[r'\t', r'\r', r'\n', r'\u{0020}', r' ', r'\'']
 /* ===== End of the Emit ===== */
 
-/* ===== Emitted by MacroCall @M0 in string.cj:41:1 ===== */
-/* 41.1 */let d = r'\''
+/* ===== Emitted by MacroCall @M0 in string.cj:47:1 ===== */
+let d = r'\''
 /* ===== End of the Emit ===== */
 
 main() {}

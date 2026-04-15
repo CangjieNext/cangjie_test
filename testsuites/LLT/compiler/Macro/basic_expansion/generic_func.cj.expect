@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE:  macro_define.cj %f.expect
 // EXEC: %compiler %cmp_macro macro_define.cj
 // EXEC: %run_macro %compiler %cmp_opt --debug-macro %f -o %output
@@ -8,14 +14,14 @@ import test.*
 
 class A<T> {}
 
-/* ===== Emitted by MacroCall @M in generic_func.cj:11:1 ===== */
-/* 11.1 */func f < T >(x: A < T >): A < T > {
-/* 11.2 */    return x
-/* 11.3 */}
+/* ===== Emitted by MacroCall @M in generic_func.cj:17:1 ===== */
+func f < T >(x: A < T >): A < T > {
+    return x
+}
 /* ===== End of the Emit ===== */
 
-/* ===== Emitted by MacroCall @M in generic_func.cj:17:1 ===== */
-/* 17.1 */main(): Int64 {
-/* 17.2 */    return 0
-/* 17.3 */}
+/* ===== Emitted by MacroCall @M in generic_func.cj:23:1 ===== */
+main(): Int64 {
+    return 0
+}
 /* ===== End of the Emit ===== */

@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE:  macro_define.cj %f.expect
 // EXEC: %compiler %cmp_macro macro_define.cj
 // EXEC: %run_macro %compiler %cmp_opt --debug-macro %f -o %output
@@ -6,75 +12,75 @@
 
 import test.*
 
-/* ===== Emitted by MacroCall @M in multi_var.cj:9:1 ===== */
-/* 9.1 */main(): Int64 {
-/* 9.2 */    var i1 = 1 + 1
-/* 9.3 */    var i2 = 3 - 1
-/* 9.4 */    var i3 = 2 * 1
-/* 9.5 */    var i4 = 4 / 2
-/* 9.6 */    var i5 = 5 % 3
-/* 9.7 */    var i6 = 2 << 1
-/* 9.8 */    var i7 = 2 >> 1
-/* 9.9 */    var i8 = 3 & 2
-/* 9.10 */    var i9 = 2 ^ 3
-/* 9.11 */    var i10 = 2 | 0
-/* 9.12 */    var i11 = 2 == 2 && 3 == 3
-/* 9.13 */    var i12 = 3 >= 2 || 2 >= 4
-/* 9.14 */    var i14 = 4 > 2
-/* 9.15 */    var i15 = 5 > 3
-/* 9.16 */    var i16 = 2 != 3
-/* 9.17 */    
-/* 9.18 */    var flag: Int64 = 2
-/* 9.19 */    var flag1: Int64 = 4
-/* 9.20 */    var flag2: Int64 = 1
-/* 9.21 */    var res1 = i1 == flag
-/* 9.22 */    var res2 = i2 == flag
-/* 9.23 */    var res3 = i3 == flag
-/* 9.24 */    var res4 = i4 == flag
-/* 9.25 */    var res5 = i5 == flag
-/* 9.26 */    var res6 = i6 == flag1
-/* 9.27 */    var res7 = i7 == flag2
-/* 9.28 */    var res8 = i8 == flag
-/* 9.29 */    var res9 = i9 == flag2
-/* 9.30 */    var res10 = i10 == flag
-/* 9.31 */    
-/* 9.32 */    var f1 = 1.0 + 1.0
-/* 9.33 */    var f2 = 3.0 - 1.0
-/* 9.34 */    var f3 = 2.0 * 1.0
-/* 9.35 */    var f4 = 4.0 / 2.0
-/* 9.36 */    var f6 = 2.1 == 2.1 && 3 == 3
-/* 9.37 */    var f7 = 2.2 >= 2.0 || 2 >= 4
-/* 9.38 */    var f9 = 4.0 > 2.0
-/* 9.39 */    var f10 = 5.4 > 3.0
-/* 9.40 */    var f11 = 2.4 != 3.0
-/* 9.41 */    
-/* 9.42 */    var flag3: Float64 = 2.0
-/* 9.43 */    var res11 = f1 == flag3
-/* 9.44 */    var res12 = f2 == flag3
-/* 9.45 */    var res13 = f3 == flag3
-/* 9.46 */    var res14 = f4 == flag3
-/* 9.47 */    
-/* 9.48 */    var p1 = 1.1 + 0.9
-/* 9.49 */    var p2 = 2.1 - 0.1
-/* 9.50 */    var p3 = 2.0 * 1.0
-/* 9.51 */    var p4 = 4.4 / 2.2
-/* 9.52 */    var p6 = 2.1 == 2.1 && 3.1 == 3.1
-/* 9.53 */    var p7 = 3.1 >= 2.3 || 2.3 >= 4.0
-/* 9.54 */    var p9 = 4.2 > 2.3
-/* 9.55 */    var p10 = 5.4 > 3.3
-/* 9.56 */    var p11 = 2.1 != 3.0
-/* 9.57 */    
-/* 9.58 */    var flag4: Float64 = 2.0
-/* 9.59 */    var res16 = p1 == flag4
-/* 9.60 */    var res17 = p2 == flag4
-/* 9.61 */    var res18 = p3 == flag4
-/* 9.62 */    var res19 = p4 == flag4
-/* 9.63 */    
-/* 9.64 */    let x: Float64 = 1.0 + 3.0
-/* 9.65 */    let y: Float32 = 1.0 + 3.0
-/* 9.66 */    let z: Float32 = 2.0 + 3.0
-/* 9.67 */    let w: Int32 = 2 + 3
-/* 9.68 */    
-/* 9.69 */    return 0
-/* 9.70 */}
+/* ===== Emitted by MacroCall @M in multi_var.cj:15:1 ===== */
+main(): Int64 {
+    var i1 = 1 + 1
+    var i2 = 3 - 1
+    var i3 = 2 * 1
+    var i4 = 4 / 2
+    var i5 = 5 % 3
+    var i6 = 2 << 1
+    var i7 = 2 >> 1
+    var i8 = 3 & 2
+    var i9 = 2 ^ 3
+    var i10 = 2 | 0
+    var i11 = 2 == 2 && 3 == 3
+    var i12 = 3 >= 2 || 2 >= 4
+    var i14 = 4 > 2
+    var i15 = 5 > 3
+    var i16 = 2 != 3
+    
+    var flag: Int64 = 2
+    var flag1: Int64 = 4
+    var flag2: Int64 = 1
+    var res1 = i1 == flag
+    var res2 = i2 == flag
+    var res3 = i3 == flag
+    var res4 = i4 == flag
+    var res5 = i5 == flag
+    var res6 = i6 == flag1
+    var res7 = i7 == flag2
+    var res8 = i8 == flag
+    var res9 = i9 == flag2
+    var res10 = i10 == flag
+    
+    var f1 = 1.0 + 1.0
+    var f2 = 3.0 - 1.0
+    var f3 = 2.0 * 1.0
+    var f4 = 4.0 / 2.0
+    var f6 = 2.1 == 2.1 && 3 == 3
+    var f7 = 2.2 >= 2.0 || 2 >= 4
+    var f9 = 4.0 > 2.0
+    var f10 = 5.4 > 3.0
+    var f11 = 2.4 != 3.0
+    
+    var flag3: Float64 = 2.0
+    var res11 = f1 == flag3
+    var res12 = f2 == flag3
+    var res13 = f3 == flag3
+    var res14 = f4 == flag3
+    
+    var p1 = 1.1 + 0.9
+    var p2 = 2.1 - 0.1
+    var p3 = 2.0 * 1.0
+    var p4 = 4.4 / 2.2
+    var p6 = 2.1 == 2.1 && 3.1 == 3.1
+    var p7 = 3.1 >= 2.3 || 2.3 >= 4.0
+    var p9 = 4.2 > 2.3
+    var p10 = 5.4 > 3.3
+    var p11 = 2.1 != 3.0
+    
+    var flag4: Float64 = 2.0
+    var res16 = p1 == flag4
+    var res17 = p2 == flag4
+    var res18 = p3 == flag4
+    var res19 = p4 == flag4
+    
+    let x: Float64 = 1.0 + 3.0
+    let y: Float32 = 1.0 + 3.0
+    let z: Float32 = 2.0 + 3.0
+    let w: Int32 = 2 + 3
+    
+    return 0
+}
 /* ===== End of the Emit ===== */
