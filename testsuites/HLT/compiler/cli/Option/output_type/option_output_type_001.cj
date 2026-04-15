@@ -6,6 +6,11 @@
 
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f  --output-type=exe  -o %output
+// EXEC: %ls
+// (!host_win) EXEC-1: test -f default.cjo.flag
+// (host_win) EXEC-1: if exist default.cjo.flag (exit 0) else (exit 1)
+// (!host_win) EXEC: test -f default.cjo
+// (host_win) EXEC: if exist default.cjo (exit 0) else (exit 1)
 // RUN-EXEC: %run %output  | compare %f
 // ASSERT: scan Hello cangjie!
 
