@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE: testMacro.cj test_macro_run2.cj %f.expect
 // EXEC: %compiler testMacro.cj %cmp_macro
 // EXEC: %compiler %cmp_macro %f
@@ -16,9 +22,3 @@ public macro testb(attr: Tokens) {
 public macro testbb(attr: Tokens, input: Tokens) {
     return @testa(return quote(0))
 }
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
-// This source file is part of the Cangjie project, licensed under Apache-2.0
-// with Runtime Library Exception.
-//
-// See https://cangjie-lang.cn/pages/LICENSE for license information.
-

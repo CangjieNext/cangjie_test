@@ -1,4 +1,4 @@
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
 // with Runtime Library Exception.
 //
@@ -16,8 +16,8 @@ foreign func PlusOne(ptr: CPointer<Int32>): Unit
 
 main() {
     var a: Int32 = 0
-    unsafe { PlusOne(inout /* ===== Emitted by MacroCall @M0 in inout_m3.cj:19:28 ===== *//* 19.1 */ a /* ===== End of the Emit ===== */) }
+    unsafe { PlusOne(inout /* ===== Emitted by MacroCall @M0 in inout_m3.cj:19:28 ===== */ a /* ===== End of the Emit ===== */) }
     println(a)
-    unsafe { PlusOne(inout /* ===== Emitted by MacroCall @M0 in inout_m3.cj:21:28 ===== *//* 21.1 */ a /* ===== End of the Emit ===== */) }
+    unsafe { PlusOne(inout /* ===== Emitted by MacroCall @M0 in inout_m3.cj:21:28 ===== */ a /* ===== End of the Emit ===== */) }
     println(a)
 }

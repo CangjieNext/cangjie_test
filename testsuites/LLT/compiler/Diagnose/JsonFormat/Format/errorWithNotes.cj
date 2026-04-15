@@ -30,7 +30,7 @@ main() {
                 "Location": {
                     "File": "errorWithNotes.cj.macrocall",
                     "Line": 15,
-                    "Column": 11
+                    "Column": 1
                 },
                 "MainHint": {
                     "Content": "unused function",
@@ -38,12 +38,12 @@ main() {
                         "Begin": {
                             "File": "errorWithNotes.cj.macrocall",
                             "Line": 15,
-                            "Column": 11
+                            "Column": 1
                         },
                         "End": {
                             "File": "errorWithNotes.cj.macrocall",
                             "Line": 15,
-                            "Column": 33
+                            "Column": 23
                         }
                     }
                 },

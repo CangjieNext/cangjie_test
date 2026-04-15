@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE: macro_test.cj %f.expect
 // EXEC: %compiler %cmp_macro macro_test.cj
 // EXEC: %run_macro %compiler %cmp_opt %f --debug-macro -o %output
@@ -5,15 +11,15 @@
 
 import test.*
 
-/* ===== Emitted by MacroCall @callTest in foreign_decl.cj:8:1 ===== */
-/* 8.1 */foreign func test(): Unit
+/* ===== Emitted by MacroCall @callTest in foreign_decl.cj:14:1 ===== */
+foreign func test(): Unit
 /* ===== End of the Emit ===== */
 
-/* ===== Emitted by MacroCall @callTest in foreign_decl.cj:11:1 ===== */
-/* 11.1 */func MyFunc() {
-/* 11.2 */    var counter = 0
-/* 11.3 */    return counter
-/* 11.4 */}
+/* ===== Emitted by MacroCall @callTest in foreign_decl.cj:17:1 ===== */
+func MyFunc() {
+    var counter = 0
+    return counter
+}
 /* ===== End of the Emit ===== */
 
 main(): Int64 {

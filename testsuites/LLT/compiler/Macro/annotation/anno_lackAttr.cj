@@ -6,7 +6,10 @@
 
 // DEPENDENCE: define.cj
 // EXEC: %compiler %cmp_macro define.cj
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// ERRCHECK: %compiler %cmp_opt %diag_json %f -o %output
+
+// ASSERT: scan-1 sema_wrong_number_of_arguments
+// ASSERT: scan error originates in the macro `M0` (consider using `--debug-macro` for more info)
 
 import define.M0
 
@@ -39,51 +42,3 @@ public class TodoFunction {
 }
 
 main() {}
-
-/* SCAN
-error: missing argument for parameter list '(Struct-String, Struct-String)' in call
-   | 
-   |   /* 22.10 */    @FunctionDefinition[name: 'updateTodoStatus'
-   |  ________________^
-   | | /* 22.11 */    ]
-   | |________________^ expected 2 arguments, found 1
-   | 
-note: the error occurs after the macro is expanded
-  ==> anno_lackAttr.cj:22:1:
-   | 
-22 |   @M0
-   |  _^
-23 | | public class TodoFunction {
-   | | ...
-39 | | }
-   | |_^
-   | 
-note: the code after the macro is expanded as follows
-   | 
-   |   /* 22.1 */public class TodoFunction {
-   |  _^
-   | | /* 22.2 */    @FunctionDefinition[name: 'addTodo',
-   | | /* 22.3 */    description: 'add todo'
-   | | /* 22.4 */    ]
-   | | /* 22.5 */    public func addTodo(param: String) {
-   | | /* 22.6 */        return 0
-   | | /* 22.7 */    }
-   | | /* 22.8 */    
-   | | /* 22.9 */    
-   | | /* 22.10 */    @FunctionDefinition[name: 'updateTodoStatus'
-   | | /* 22.11 */    ]
-   | | /* 22.12 */    public func update(param: String) {
-   | | /* 22.13 */        return 0
-   | | /* 22.14 */    }
-   | | /* 22.15 */}
-   | |____________^
-   | 
-note: found candidate
-  ==> anno_lackAttr.cj:15:18:
-   | 
-15 |     public const FunctionDefinition(
-   |                  ^^^^^^^^^^^^^^^^^^ 
-   | 
-
-1 error generated, 1 error printed.
-*/

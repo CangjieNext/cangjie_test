@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE:  macro_define.cj %f.expect
 // EXEC: %compiler %cmp_macro macro_define.cj
 // EXEC: %run_macro %compiler %cmp_opt --debug-macro %f -o %output
@@ -7,10 +13,10 @@
 import test.*
 import std.ast.*
 
-/* ===== Emitted by MacroCall @M in quote_in_call.cj:10:1 ===== */
-/* 10.1 */main() {
-/* 10.2 */    var input: Tokens = quote(1)
-/* 10.3 */    input.dump()
-/* 10.4 */    return 0
-/* 10.5 */}
+/* ===== Emitted by MacroCall @M in quote_in_call.cj:16:1 ===== */
+main() {
+    var input: Tokens = quote(1)
+    input.dump()
+    return 0
+}
 /* ===== End of the Emit ===== */

@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE:  macro_define.cj %f.expect
 // EXEC: %compiler %cmp_macro macro_define.cj
 // EXEC: %run_macro %compiler %cmp_opt --debug-macro %f -o %output
@@ -12,66 +18,66 @@ enum E<T> {
 
 class A_B<T> <: A<T> {}
 
-/* ===== Emitted by MacroCall @M in interface_operator.cj:15:1 ===== */
-/* 15.1 */interface A < T > {
-/* 15.2 */    operator func !(): E < Int32 > {
-/* 15.3 */        return E < Int32 >.e(1)
-/* 15.4 */    }
-/* 15.5 */    operator func -(): E < Int32 > {
-/* 15.6 */        return E < Int32 >.e(1)
-/* 15.7 */    }
-/* 15.8 */    operator func[](b: A < T >): E < Int32 > {
-/* 15.9 */        return E < Int32 >.e(1)
-/* 15.10 */    }
-/* 15.11 */    operator func *(b: A < T >): E < Int32 > {
-/* 15.12 */        return E < Int32 >.e(1)
-/* 15.13 */    }
-/* 15.14 */    operator func /(b: A < T >): E < Int32 > {
-/* 15.15 */        return E < Int32 >.e(1)
-/* 15.16 */    }
-/* 15.17 */    operator func %(b: A < T >): E < Int32 > {
-/* 15.18 */        return E < Int32 >.e(1)
-/* 15.19 */    }
-/* 15.20 */    operator func +(b: A < T >): E < Int32 > {
-/* 15.21 */        return E < Int32 >.e(1)
-/* 15.22 */    }
-/* 15.23 */    operator func -(b: A < T >): E < Int32 > {
-/* 15.24 */        return E < Int32 >.e(1)
-/* 15.25 */    }
-/* 15.26 */    operator func <<(b: A < T >): E < Int32 > {
-/* 15.27 */        return E < Int32 >.e(1)
-/* 15.28 */    }
-/* 15.29 */    operator func >>(b: A < T >): E < Int32 > {
-/* 15.30 */        return E < Int32 >.e(1)
-/* 15.31 */    }
-/* 15.32 */    operator func <(b: A < T >): E < Int32 > {
-/* 15.33 */        return E < Int32 >.e(1)
-/* 15.34 */    }
-/* 15.35 */    operator func <=(b: A < T >): E < Int32 > {
-/* 15.36 */        return E < Int32 >.e(1)
-/* 15.37 */    }
-/* 15.38 */    operator func >(b: A < T >): E < Int32 > {
-/* 15.39 */        return E < Int32 >.e(1)
-/* 15.40 */    }
-/* 15.41 */    operator func >=(b: A < T >): E < Int32 > {
-/* 15.42 */        return E < Int32 >.e(1)
-/* 15.43 */    }
-/* 15.44 */    operator func ==(b: A < T >): E < Int32 > {
-/* 15.45 */        return E < Int32 >.e(1)
-/* 15.46 */    }
-/* 15.47 */    operator func !=(b: A < T >): E < Int32 > {
-/* 15.48 */        return E < Int32 >.e(1)
-/* 15.49 */    }
-/* 15.50 */    operator func &(b: A < T >): E < Int32 > {
-/* 15.51 */        return E < Int32 >.e(1)
-/* 15.52 */    }
-/* 15.53 */    operator func ^(b: A < T >): E < Int32 > {
-/* 15.54 */        return E < Int32 >.e(1)
-/* 15.55 */    }
-/* 15.56 */    operator func |(b: A < T >): E < Int32 > {
-/* 15.57 */        return E < Int32 >.e(1)
-/* 15.58 */    }
-/* 15.59 */}
+/* ===== Emitted by MacroCall @M in interface_operator.cj:21:1 ===== */
+interface A < T > {
+    operator func !(): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func -(): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func[](b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func *(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func /(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func %(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func +(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func -(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func <<(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func >>(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func <(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func <=(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func >(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func >=(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func ==(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func !=(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func &(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func ^(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+    operator func |(b: A < T >): E < Int32 > {
+        return E < Int32 >.e(1)
+    }
+}
 /* ===== End of the Emit ===== */
 
 main(): Int64 {

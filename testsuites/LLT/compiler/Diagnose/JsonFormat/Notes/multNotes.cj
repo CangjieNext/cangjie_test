@@ -23,7 +23,7 @@ main() {
 /* SCAN-IN
                 "Notes": [
                     {
-                        "Message": "the error occurs after the macro is expanded",
+                        "Message": "the error originates in the macro `MQ` (consider using `--debug-macro` for more info)",
                         "MainHint": {
                             "Content": "",
                             "Range": {
@@ -41,26 +41,6 @@ main() {
                         },
                         "OtherHints": [],
                         "Help": null
-                    },
-                    {
-                        "Message": "the code after the macro is expanded as follows",
-                        "MainHint": {
-                            "Content": "",
-                            "Range": {
-                                "Begin": {
-                                    "File": "multNotes.cj.macrocall",
-                                    "Line": 14,
-                                    "Column": 1
-                                },
-                                "End": {
-                                    "File": "multNotes.cj.macrocall",
-                                    "Line": 19,
-                                    "Column": 34
-                                }
-                            }
-                        },
-                        "OtherHints": [],
-                        "Help": null
                     }
-                ],
+                ]
 */

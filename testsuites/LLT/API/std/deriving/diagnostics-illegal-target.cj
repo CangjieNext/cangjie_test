@@ -121,23 +121,13 @@ error: expected '{', found '('
 38 | (class z())
    |         ^ expected '{' here
    | 
-note: which is expanded as follows
-   | 
-   | /* 37.1 */class z()
-   |                  ^ 
-   | 
-note: the error occurs after the macro is expanded
+note: the error originates in the macro `Derive` (consider using `--debug-macro` for more info)
   ==> diagnostics-illegal-target.cj:37:1:
    | 
 37 |   @Derive[ToString]
    |  _^
 38 | | (class z())
    | |___________^
-   | 
-note: the code after the macro is expanded as follows
-   | 
-   | /* 37.1 */class z()
-   | ^^^^^^^^^^^^^^^^^^^ 
    | 
 
 9 errors generated, 9 errors printed.

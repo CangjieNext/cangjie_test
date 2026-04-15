@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE:  macro_define.cj %f.expect
 // EXEC: %compiler %cmp_macro macro_define.cj
 // EXEC: %run_macro %compiler %cmp_opt --debug-macro %f -o %output
@@ -19,37 +25,37 @@ main(): Int64 {
 }
 
 interface I {
-    /* ===== Emitted by MacroCall @M in interface_prop.cj:22:5 ===== */
-    /* 22.1 */mut prop m: Int64
-/* ===== End of the Emit ===== */
-    /* ===== Emitted by MacroCall @M in interface_prop.cj:24:5 ===== */
-    /* 24.1 */prop n: Int64
-/* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @M in interface_prop.cj:28:5 ===== */
+    mut prop m: Int64
+    /* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @M in interface_prop.cj:30:5 ===== */
+    prop n: Int64
+    /* ===== End of the Emit ===== */
 }
 
 class Foo {}
 
 extend Foo <: I {
-    /* ===== Emitted by MacroCall @M in interface_prop.cj:31:5 ===== */
-    /* 31.1 */public mut prop m: Int64 {
-    /* 31.2 */    get() {
-    /* 31.3 */        return 2
-    /* 31.4 */    }
-    /* 31.5 */    set(v) { }
-    /* 31.6 */}
-/* ===== End of the Emit ===== */
-    /* ===== Emitted by MacroCall @M in interface_prop.cj:38:5 ===== */
-    /* 38.1 */public prop n: Int64 {
-    /* 38.2 */    get() {
-    /* 38.3 */        return 1
-    /* 38.4 */    }
-    /* 38.5 */}
-/* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @M in interface_prop.cj:37:5 ===== */
+    public mut prop m: Int64 {
+        get() {
+            return 2
+        }
+        set(v) { }
+    }
+    /* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @M in interface_prop.cj:44:5 ===== */
+    public prop n: Int64 {
+        get() {
+            return 1
+        }
+    }
+    /* ===== End of the Emit ===== */
 }
 
-/* ===== Emitted by MacroCall @M in interface_prop.cj:46:1 ===== */
-/* 46.1 */interface Coo {
-/* 46.2 */    mut prop m: Int32
-/* 46.3 */    prop n: Int32
-/* 46.4 */}
+/* ===== Emitted by MacroCall @M in interface_prop.cj:52:1 ===== */
+interface Coo {
+    mut prop m: Int32
+    prop n: Int32
+}
 /* ===== End of the Emit ===== */

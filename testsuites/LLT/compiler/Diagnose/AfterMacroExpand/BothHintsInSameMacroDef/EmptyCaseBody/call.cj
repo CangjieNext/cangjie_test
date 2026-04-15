@@ -18,40 +18,28 @@ main() {
 }
 
 /* SCAN
-error: match case cannot be empty
-   | 
-   | /* 14.3 */        case Some(_) =>
-   |                   ~~~~           ^ match case cannot be empty
-   | 
-note: the error occurs after the macro is expanded
+error: the error originates in the macro `M1` (consider using `--debug-macro` for more info)
   ==> call.cj:14:1:
    | 
 14 | @M1()
    | ^^^^^ 
    | 
-note: the code after the macro is expanded as follows
+note: match case cannot be empty
    | 
-   |   /* 14.1 */func yo() {
-   |  _^
-   | | /* 14.2 */    match(Some(1)) {
-   | | /* 14.3 */        case Some(_) =>
-   | | /* 14.4 */        case None =>
-   | | /* 14.5 */    }
-   | | /* 14.6 */}
-   | | /* 14.7 */
-   | |__________^
+   |         case Some(_) =>
+   |         ~~~~           ^ match case cannot be empty
    | 
 
-error: match case cannot be empty
-   | 
-   | /* 14.4 */        case None =>
-   |                   ~~~~        ^ match case cannot be empty
-   | 
-note: the error occurs after the macro is expanded
+error: the error originates in the macro `M1` (consider using `--debug-macro` for more info)
   ==> call.cj:14:1:
    | 
 14 | @M1()
    | ^^^^^ 
+   | 
+note: match case cannot be empty
+   | 
+   |         case None =>
+   |         ~~~~        ^ match case cannot be empty
    | 
 
 2 errors generated, 2 errors printed.

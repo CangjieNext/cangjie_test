@@ -7,7 +7,7 @@
  */
 // RUN-EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %cmp_utest_opt 2>&1 | compare %f
 // ASSERT: scan error: 'asdf' is not a member of class 'Configuration'
-// ASSERT: scan error: mismatched types
+// ASSERT: scan mismatched types
 // ASSERT: scan expected 'Int64', found 'Struct-String'
 @Strategy[config.asdf in [ 1, 2, 3 ]]
 func test1(): Int64 {

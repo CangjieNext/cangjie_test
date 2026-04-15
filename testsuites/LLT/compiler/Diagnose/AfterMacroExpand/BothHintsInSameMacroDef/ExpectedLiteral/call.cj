@@ -18,30 +18,18 @@ main() {
 }
 
 /* SCAN
-error: expected literal after '-', found '=>'
-   | 
-   | /* 14.3 */        case - => 1
-   |                        ~ ^^ expected literal here
-   |                        |
-   |                        after this
-   | 
-note: the error occurs after the macro is expanded
+error: the error originates in the macro `M1` (consider using `--debug-macro` for more info)
   ==> call.cj:14:1:
    | 
 14 | @M1()
    | ^^^^^ 
    | 
-note: the code after the macro is expanded as follows
+note: expected literal after '-', found '=>'
    | 
-   |   /* 14.1 */func yo() {
-   |  _^
-   | | /* 14.2 */    match(Some(1)) {
-   | | /* 14.3 */        case - => 1
-   | | /* 14.4 */        case _ => 2
-   | | /* 14.5 */    }
-   | | /* 14.6 */}
-   | | /* 14.7 */
-   | |__________^
+   |         case - => 1
+   |              ~ ^^ expected literal here
+   |              |
+   |              after this
    | 
 
 1 error generated, 1 error printed.

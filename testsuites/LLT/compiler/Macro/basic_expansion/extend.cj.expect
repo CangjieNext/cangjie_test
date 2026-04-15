@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE:  macro_define.cj %f.expect
 // EXEC: %compiler %cmp_macro macro_define.cj
 // EXEC: %run_macro %compiler %cmp_opt --debug-macro %f -o %output
@@ -37,128 +43,128 @@ struct R {
 }
 
 // test extend operator func from existed interface
-/* ===== Emitted by MacroCall @M in extend.cj:40:1 ===== */
-/* 40.1 */extend R <: update < R > {
-/* 40.2 */    public operator func !(): R {
-/* 40.3 */        return R(r: !(this.r))
-/* 40.4 */    }
-/* 40.5 */    public operator func[](b: R): R {
-/* 40.6 */        return R(r: - 2)
-/* 40.7 */    }
-/* 40.8 */    public operator func -(): R {
-/* 40.9 */        return R(r: -(this.r))
-/* 40.10 */    }
-/* 40.11 */    
-/* 40.12 */    public operator func **(b: R): R {
-/* 40.13 */        var res: Int32 = 1
-/* 40.14 */        var temp: Int32 = b.r
-/* 40.15 */        while(temp > 0) {
-/* 40.16 */            res = res * this.r
-/* 40.17 */            temp = temp - 1
-/* 40.18 */        }
-/* 40.19 */        return R(r: res)
-/* 40.20 */    }
-/* 40.21 */    
-/* 40.22 */    public operator func *(b: R): R {
-/* 40.23 */        return R(r:(this.r) *(b.r))
-/* 40.24 */    }
-/* 40.25 */    public operator func /(b: R): R {
-/* 40.26 */        return R(r:(this.r) /(b.r))
-/* 40.27 */    }
-/* 40.28 */    public operator func %(b: R): R {
-/* 40.29 */        return R(r:(this.r) %(b.r))
-/* 40.30 */    }
-/* 40.31 */    
-/* 40.32 */    public operator func +(b: R): R {
-/* 40.33 */        return R(r:(this.r) +(b.r))
-/* 40.34 */    }
-/* 40.35 */    public operator func -(b: R): R {
-/* 40.36 */        return R(r:(this.r) -(b.r))
-/* 40.37 */    }
-/* 40.38 */    
-/* 40.39 */    public operator func <<(b: R): R {
-/* 40.40 */        return R(r:(this.r) <<(b.r))
-/* 40.41 */    }
-/* 40.42 */    public operator func >>(b: R): R {
-/* 40.43 */        return R(r:(this.r) >>(b.r))
-/* 40.44 */    }
-/* 40.45 */    
-/* 40.46 */    public operator func <(b: R): R {
-/* 40.47 */        if(this.r < b.r) {
-/* 40.48 */            return R(r: this.r)
-/* 40.49 */        }
-/* 40.50 */        return R(r: b.r)
-/* 40.51 */    }
-/* 40.52 */    public operator func <=(b: R): R {
-/* 40.53 */        if(this.r <= b.r) {
-/* 40.54 */            return R(r: this.r)
-/* 40.55 */        }
-/* 40.56 */        return R(r: b.r)
-/* 40.57 */    }
-/* 40.58 */    public operator func >(b: R): R {
-/* 40.59 */        if(this.r > b.r) {
-/* 40.60 */            return R(r: this.r)
-/* 40.61 */        }
-/* 40.62 */        return R(r: b.r)
-/* 40.63 */    }
-/* 40.64 */    public operator func >=(b: R): R {
-/* 40.65 */        if(this.r >= b.r) {
-/* 40.66 */            return R(r: this.r)
-/* 40.67 */        }
-/* 40.68 */        return R(r: b.r)
-/* 40.69 */    }
-/* 40.70 */    
-/* 40.71 */    public operator func ==(b: R): R {
-/* 40.72 */        if(this.r == b.r) {
-/* 40.73 */            return R(r: 1)
-/* 40.74 */        }
-/* 40.75 */        return R(r: 0)
-/* 40.76 */    }
-/* 40.77 */    public operator func !=(b: R): R {
-/* 40.78 */        if(this.r != b.r) {
-/* 40.79 */            return R(r: 1)
-/* 40.80 */        }
-/* 40.81 */        return R(r: 0)
-/* 40.82 */    }
-/* 40.83 */    
-/* 40.84 */    public operator func &(b: R): R {
-/* 40.85 */        return R(r:(this.r) &(b.r))
-/* 40.86 */    }
-/* 40.87 */    
-/* 40.88 */    public operator func ^(b: R): R {
-/* 40.89 */        return R(r:(this.r) ^(b.r))
-/* 40.90 */    }
-/* 40.91 */    
-/* 40.92 */    public operator func |(b: R): R {
-/* 40.93 */        return R(r:(this.r) |(b.r))
-/* 40.94 */    }
-/* 40.95 */}
+/* ===== Emitted by MacroCall @M in extend.cj:46:1 ===== */
+extend R <: update < R > {
+    public operator func !(): R {
+        return R(r: !(this.r))
+    }
+    public operator func[](b: R): R {
+        return R(r: - 2)
+    }
+    public operator func -(): R {
+        return R(r: -(this.r))
+    }
+    
+    public operator func **(b: R): R {
+        var res: Int32 = 1
+        var temp: Int32 = b.r
+        while(temp > 0) {
+            res = res * this.r
+            temp = temp - 1
+        }
+        return R(r: res)
+    }
+    
+    public operator func *(b: R): R {
+        return R(r:(this.r) *(b.r))
+    }
+    public operator func /(b: R): R {
+        return R(r:(this.r) /(b.r))
+    }
+    public operator func %(b: R): R {
+        return R(r:(this.r) %(b.r))
+    }
+    
+    public operator func +(b: R): R {
+        return R(r:(this.r) +(b.r))
+    }
+    public operator func -(b: R): R {
+        return R(r:(this.r) -(b.r))
+    }
+    
+    public operator func <<(b: R): R {
+        return R(r:(this.r) <<(b.r))
+    }
+    public operator func >>(b: R): R {
+        return R(r:(this.r) >>(b.r))
+    }
+    
+    public operator func <(b: R): R {
+        if(this.r < b.r) {
+            return R(r: this.r)
+        }
+        return R(r: b.r)
+    }
+    public operator func <=(b: R): R {
+        if(this.r <= b.r) {
+            return R(r: this.r)
+        }
+        return R(r: b.r)
+    }
+    public operator func >(b: R): R {
+        if(this.r > b.r) {
+            return R(r: this.r)
+        }
+        return R(r: b.r)
+    }
+    public operator func >=(b: R): R {
+        if(this.r >= b.r) {
+            return R(r: this.r)
+        }
+        return R(r: b.r)
+    }
+    
+    public operator func ==(b: R): R {
+        if(this.r == b.r) {
+            return R(r: 1)
+        }
+        return R(r: 0)
+    }
+    public operator func !=(b: R): R {
+        if(this.r != b.r) {
+            return R(r: 1)
+        }
+        return R(r: 0)
+    }
+    
+    public operator func &(b: R): R {
+        return R(r:(this.r) &(b.r))
+    }
+    
+    public operator func ^(b: R): R {
+        return R(r:(this.r) ^(b.r))
+    }
+    
+    public operator func |(b: R): R {
+        return R(r:(this.r) |(b.r))
+    }
+}
 /* ===== End of the Emit ===== */
 
 // test extend prop from existed interface
-/* ===== Emitted by MacroCall @M in extend.cj:138:1 ===== */
-/* 138.1 */interface I {
-/* 138.2 */    mut prop m: Int64
-/* 138.3 */    prop n: Int64
-/* 138.4 */}
+/* ===== Emitted by MacroCall @M in extend.cj:144:1 ===== */
+interface I {
+    mut prop m: Int64
+    prop n: Int64
+}
 /* ===== End of the Emit ===== */
 
 class Foo {}
 
-/* ===== Emitted by MacroCall @M in extend.cj:146:1 ===== */
-/* 146.1 */extend Foo <: I {
-/* 146.2 */    public mut prop m: Int64 {
-/* 146.3 */        get() {
-/* 146.4 */            return 2
-/* 146.5 */        }
-/* 146.6 */        set(v) { }
-/* 146.7 */    }
-/* 146.8 */    public prop n: Int64 {
-/* 146.9 */        get() {
-/* 146.10 */            return 1
-/* 146.11 */        }
-/* 146.12 */    }
-/* 146.13 */}
+/* ===== Emitted by MacroCall @M in extend.cj:152:1 ===== */
+extend Foo <: I {
+    public mut prop m: Int64 {
+        get() {
+            return 2
+        }
+        set(v) { }
+    }
+    public prop n: Int64 {
+        get() {
+            return 1
+        }
+    }
+}
 /* ===== End of the Emit ===== */
 
 func testcase_001(): Int64 {
@@ -175,16 +181,16 @@ func testcase_001(): Int64 {
 }
 
 // test extend a new function
-/* ===== Emitted by MacroCall @M in extend.cj:177:1 ===== */
-/* 177.1 */extend < T > Array < T > {
-/* 177.2 */    operator func ==(right: Rune): Bool {
-/* 177.3 */        if(right == r'a') {
-/* 177.4 */            return true
-/* 177.5 */        } else {
-/* 177.6 */            return false
-/* 177.7 */        }
-/* 177.8 */    }
-/* 177.9 */}
+/* ===== Emitted by MacroCall @M in extend.cj:183:1 ===== */
+extend < T > Array < T > {
+    operator func ==(right: Rune): Bool {
+        if(right == r'a') {
+            return true
+        } else {
+            return false
+        }
+    }
+}
 /* ===== End of the Emit ===== */
 
 func testcase_002(): Int64 {

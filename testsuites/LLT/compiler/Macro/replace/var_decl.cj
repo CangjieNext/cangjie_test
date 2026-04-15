@@ -1,6 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE: macro_test.cj
 // EXEC: %compiler %cmp_macro macro_test.cj
-// ERRCHECK: %run_macro %compiler %cmp_opt  %f -o %output
+// ERRCHECK: %run_macro %compiler %cmp_opt %diag_json %f -o %output
+// ASSERT: scan-1 sema_native_var_error
+// ASSERT: scan the error originates in the macro `callTest` (consider using `--debug-macro` for more info)
 
 import test.*
 
@@ -17,37 +25,3 @@ main(): Int64 {
     @callTest var (x, y) = (1, 1)
     return 0
 }
-
-/* SCAN
-error: variable can not be modified with 'foreign' and implicit @C.
-  ==> var_decl.cj:11:1:
-   | 
-11 | foreign var fva = 2
-   | ^ 
-   | 
-note: which is expanded as follows
-  | 
-  | /* 10.1 */foreign var fva = 2
-  |           ^^^^^^^^^^^^^^^^^^^ 
-  | 
-note: the error occurs after the macro is expanded
-  ==> var_decl.cj:10:1:
-   | 
-10 |   @callTest
-   |  _^
-11 | | foreign var fva = 2
-   | |___________________^
-   | 
-note: the code after the macro is expanded as follows
-  | 
-  | /* 10.1 */foreign var fva = 2
-  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
-  | 
-
-1 error generated, 1 error printed.
-*/
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
-// This source file is part of the Cangjie project, licensed under Apache-2.0
-// with Runtime Library Exception.
-//
-// See https://cangjie-lang.cn/pages/LICENSE for license information.
