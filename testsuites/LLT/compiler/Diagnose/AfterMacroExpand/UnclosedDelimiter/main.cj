@@ -20,17 +20,7 @@ main() {
 }
 
 /* SCAN
-error: expected 'catch' or 'finally' after try block, found '<EOF>'
-   | 
-   |   /* 15.6 */    let a = try {
-   |  _______________________~
-   | | /* 15.7 */        1
-   | | /* 15.8 */    }
-   | |               ~^ expected 'catch' or 'finally' here
-   | |_______________|
-   |                 
-   | 
-note: the error occurs after the macro is expanded
+error: the error originates in the macro `Callback` (consider using `--debug-macro` for more info)
   ==> main.cj:15:1:
    | 
 15 |   @Callback
@@ -39,31 +29,18 @@ note: the error occurs after the macro is expanded
 17 | | }
    | |_^
    | 
-note: the code after the macro is expanded as follows
+note: expected 'catch' or 'finally' after try block, found '<EOF>'
    | 
-   |   /* 15.1 */var a = 1
-   |  _^
-   | | /* 15.2 */
-   | | /* 15.3 */var b = 1
-   | | /* 15.4 */var c = 1
-   | | /* 15.5 */func u(): Unit {
-   | | /* 15.6 */    let a = try {
-   | | /* 15.7 */        1
-   | | /* 15.8 */    }
-   | |     /* 15.9 */
-   | |______________^
+   |       let a = try {
+   |  _____________~
+   | |         1
+   | |     }
+   | |     ~^ expected 'catch' or 'finally' here
+   | |_____|
+   |       
    | 
 
-error: unclosed delimiter: '{'
-   | 
-   | /* 15.5 */func u(): Unit {
-   |                          ~ to match this opening '{'
-   | /* 15.6 */    let a = try {
-   | /* 15.7 */        1
-   | /* 15.8 */    }
-   |                ^ expected '}' here
-   | 
-note: the error occurs after the macro is expanded
+error: the error originates in the macro `Callback` (consider using `--debug-macro` for more info)
   ==> main.cj:15:1:
    | 
 15 |   @Callback
@@ -71,6 +48,15 @@ note: the error occurs after the macro is expanded
 16 | | public func t() {
 17 | | }
    | |_^
+   | 
+note: unclosed delimiter: '{'
+   | 
+   | func u(): Unit {
+   |                ~ to match this opening '{'
+   |     let a = try {
+   |         1
+   |     }
+   |      ^ expected '}' here
    | 
 
 2 errors generated, 2 errors printed.

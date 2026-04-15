@@ -36,6 +36,6 @@ error: 'get_c_a' doesn't support mocking, please be sure that its package 'withF
   ==> separate_without_mock_support.cj:27:61:
    | 
 27 |             let stubCall = @EnsurePreparedToMock {=> return get_c_a()}
-   |                                                             ^ 
+   |                                                             ^^^^^^^^^ 
    | 
  */

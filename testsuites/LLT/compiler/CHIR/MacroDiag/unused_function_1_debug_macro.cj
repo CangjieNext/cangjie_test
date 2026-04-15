@@ -19,18 +19,18 @@ main() {
 
 /* SCAN
 warning: unused function:'foo'
-  ==> unused_function_1_debug_macro.cj.macrocall:15:11:
+  ==> unused_function_1_debug_macro.cj.macrocall:15:1:
    | 
-15 | /* 14.1 */private func foo() { }
-   |           ^^^^^^^^^^^^^^^^^^^^^^ unused function
+15 | private func foo() { }
+   | ^^^^^^^^^^^^^^^^^^^^^^ unused function
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 
 warning: unused function:'testM1'
-  ==> unused_function_1_debug_macro.cj.macrocall:16:11:
+  ==> unused_function_1_debug_macro.cj.macrocall:16:1:
    | 
-16 | /* 14.2 */private func testM1() { }
-   |           ^^^^^^^^^^^^^^^^^^^^^^^^^ unused function
+16 | private func testM1() { }
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^ unused function
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 

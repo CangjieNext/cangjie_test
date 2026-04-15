@@ -14,8 +14,8 @@ public macro car(f: Tokens): Tokens {
 }
 
 // ASSERT: scan changed decls to recompile: 3
-// ASSERT: scan the changed decl after Spreading is:P in file DebugMacro.old.cj.macrocall in line 4 in column 16
-// ASSERT: scan the changed decl after Spreading is:f in file DebugMacro.old.cj.macrocall in line 5 in column 25
+// ASSERT: scan the changed decl after Spreading is:P in file DebugMacro.old.cj.macrocall in line 4 in column 7
+// ASSERT: scan the changed decl after Spreading is:f in file DebugMacro.old.cj.macrocall in line 5 in column 16
 // ASSERT: scan the changed decl after Spreading is:foo in file DebugMacro.old.cj.macrocall in line 9 in column 6
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

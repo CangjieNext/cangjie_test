@@ -1,28 +1,34 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 package aaa
 
 import define_a.*
 import define_b.*
 
 main() {
-    /* ===== Emitted by MacroCall @testa in test_macro_run2.cj:7:5 ===== *//* 7.1 */ 0 /* ===== End of the Emit ===== */
-    /* ===== Emitted by MacroCall @testaa in test_macro_run2.cj:8:5 ===== *//* 8.1 */ 0 /* ===== End of the Emit ===== */
-    /* ===== Emitted by MacroCall @testaaa in test_macro_run2.cj:9:5 ===== *//* 9.1 */ 0 /* ===== End of the Emit ===== */
-    /* ===== Emitted by MacroCall @testAttr in test_macro_run2.cj:10:5 ===== *//* 10.1 */ 1 + 0 /* ===== End of the Emit ===== */
-    /* ===== Emitted by MacroCall @testAttr2 in test_macro_run2.cj:11:5 ===== *//* 11.1 */ 0 /* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @testa in test_macro_run2.cj:13:5 ===== */ 0 /* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @testaa in test_macro_run2.cj:14:5 ===== */ 0 /* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @testaaa in test_macro_run2.cj:15:5 ===== */ 0 /* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @testAttr in test_macro_run2.cj:16:5 ===== */ 1 + 0 /* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @testAttr2 in test_macro_run2.cj:17:5 ===== */ 0 /* ===== End of the Emit ===== */
 
-    /* ===== Emitted by MacroCall @testa in test_macro_run2.cj:13:5 ===== *//* 13.1 */ var a = 1 /* ===== End of the Emit ===== */
-    /* ===== Emitted by MacroCall @testaa in test_macro_run2.cj:14:5 ===== *//* 14.1 */ var b = 1 /* ===== End of the Emit ===== */
-    /* ===== Emitted by MacroCall @testaaa in test_macro_run2.cj:15:5 ===== *//* 15.1 */ var c = 1 /* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @testa in test_macro_run2.cj:19:5 ===== */ var a = 1 /* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @testaa in test_macro_run2.cj:20:5 ===== */ var b = 1 /* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @testaaa in test_macro_run2.cj:21:5 ===== */ var c = 1 /* ===== End of the Emit ===== */
 
-    /* ===== Emitted by MacroCall @testAttr2 in test_macro_run2.cj:17:5 ===== */
-    /* 17.1 */func firstF() {
-    /* 17.2 */    0
-    /* 17.3 */}
-/* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @testAttr2 in test_macro_run2.cj:23:5 ===== */
+    func firstF() {
+        0
+    }
+    /* ===== End of the Emit ===== */
 
-    /* ===== Emitted by MacroCall @testAttr2 in test_macro_run2.cj:22:5 ===== *//* 22.1 */ var d = 1 /* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @testAttr2 in test_macro_run2.cj:28:5 ===== */ var d = 1 /* ===== End of the Emit ===== */
 
-    /* ===== Emitted by MacroCall @testb in test_macro_run2.cj:24:5 ===== *//* 24.1 */ 0 /* ===== End of the Emit ===== */
-    /* ===== Emitted by MacroCall @testbb in test_macro_run2.cj:25:5 ===== *//* 25.1 */ 0 /* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @testb in test_macro_run2.cj:30:5 ===== */ 0 /* ===== End of the Emit ===== */
+    /* ===== Emitted by MacroCall @testbb in test_macro_run2.cj:31:5 ===== */ 0 /* ===== End of the Emit ===== */
     return 0
 }

@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE: define.cj %f.expect
 // EXEC: %compiler %cmp_macro define.cj
 // EXEC: %run_macro %compiler %cmp_opt  %f --debug-macro -o %output
@@ -5,54 +11,54 @@
 
 import define.*
 
-/* ===== Emitted by MacroCall @Operator in operator_func.cj:8:1 ===== */
-/* 8.1 */public class Pet {
-/* 8.2 */    private var name: String = "A pet"
-/* 8.3 */    
-/* 8.4 */    public init() {
-/* 8.5 */    }
-/* 8.6 */    public init(name: String) {
-/* 8.7 */        this.name = name
-/* 8.8 */    }
-/* 8.9 */    
-/* 8.10 */    public func getName()
-/* 8.11 */    {
-/* 8.12 */        return this.name
-/* 8.13 */    }
-/* 8.14 */    
-/* 8.15 */    
-/* 8.16 */    public func setName(name: String)
-/* 8.17 */    {
-/* 8.18 */        this.name = name
-/* 8.19 */    }
-/* 8.20 */    
-/* 8.21 */    
-/* 8.22 */    public func toString()
-/* 8.23 */    {
-/* 8.24 */        return "(Pet: ${name})"
-/* 8.25 */    }
-/* 8.26 */    
-/* 8.27 */    
-/* 8.28 */    public operator func >=(rhs: Pet)
-/* 8.29 */    {
-/* 8.30 */        return this.getName() >= rhs.getName()
-/* 8.31 */    }
-/* 8.32 */    
-/* 8.33 */    
-/* 8.34 */    public operator func ==(rhs: Pet)
-/* 8.35 */    {
-/* 8.36 */        return this.getName() == rhs.getName()
-/* 8.37 */    }
-/* 8.38 */    
-/* 8.39 */    
-/* 8.40 */    public operator func !=(rhs: Pet)
-/* 8.41 */    {
-/* 8.42 */        return !(this == rhs)
-/* 8.43 */    }
-/* 8.44 */    
-/* 8.45 */    
-/* 8.46 */}
-/* 8.47 */
+/* ===== Emitted by MacroCall @Operator in operator_func.cj:14:1 ===== */
+public class Pet {
+    private var name: String = "A pet"
+    
+    public init() {
+    }
+    public init(name: String) {
+        this.name = name
+    }
+    
+    public func getName()
+    {
+        return this.name
+    }
+    
+    
+    public func setName(name: String)
+    {
+        this.name = name
+    }
+    
+    
+    public func toString()
+    {
+        return "(Pet: ${name})"
+    }
+    
+    
+    public operator func >=(rhs: Pet)
+    {
+        return this.getName() >= rhs.getName()
+    }
+    
+    
+    public operator func ==(rhs: Pet)
+    {
+        return this.getName() == rhs.getName()
+    }
+    
+    
+    public operator func !=(rhs: Pet)
+    {
+        return !(this == rhs)
+    }
+    
+    
+}
+
 /* ===== End of the Emit ===== */
 
 main() {

@@ -25,45 +25,28 @@ warning: unused function:'foo'
    | ^ unused function
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-note: the warning occurs after the macro is expanded
+note: the warning originates in the macro `M2` (consider using `--debug-macro` for more info)
   ==> unused_function_2.cj:14:1:
    | 
 14 |   @M2
    |  _^
 15 | | private func foo() {}
    | |_____________________^
-   | 
-note: the code after the macro is expanded as follows
-   | 
-   |   /* 14.1 */private func foo() {
-   |  _^
-   | | /* 14.2 */}
-   | | /* 14.3 */
-   | | /* 14.4 */private func testM1() { }
-   | | /* 14.5 */
-   | |__________^
-   | 
-note: which is expanded as follows
-   | 
-   |   /* 14.1 */private func foo() {
-   |  ___________^
-   | | /* 14.2 */}
-   | |___________^
    | 
 
-warning: unused function:'testM1'
-   | 
-   | /* 14.4 */private func testM1() { }
-   |           ^^^^^^^^^^^^^^^^^^^^^^^^^ unused function
-   | 
-   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
-note: the warning occurs after the macro is expanded
+warning: the warning originates in the macro `M2` (consider using `--debug-macro` for more info)
   ==> unused_function_2.cj:14:1:
    | 
 14 |   @M2
    |  _^
 15 | | private func foo() {}
    | |_____________________^
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+note: unused function:'testM1'
+   | 
+   | private func testM1() { }
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^ unused function
    | 
 
 2 warnings generated, 2 warnings printed.

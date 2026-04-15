@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %cmp_utest_opt 2>&1 | compare %f
-// ASSERT: scan error: unable to infer generic argument of this function
+// ASSERT: scan unable to infer generic argument of this function
 // ASSERT: scan 'Struct-Array<Struct-Array<UInt8>> <: Generics-T'
 // ASSERT: scan 'Generics-T <: Struct-Array<UInt8>'
 

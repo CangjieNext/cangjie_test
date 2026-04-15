@@ -23,5 +23,5 @@ func use() {
 expected 'Int64', found 'Float64'
  */
 /* SCAN-IN
-error: mismatched types
+note: mismatched types
  */

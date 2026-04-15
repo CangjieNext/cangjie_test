@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE: define.cj %f.expect
 // EXEC: %compiler %cmp_macro define.cj
 // EXEC: %run_macro %compiler %cmp_opt %macro_parallel %f --debug-macro -o %output
@@ -5,13 +11,13 @@
 
 import define.*
 
-/* ===== Emitted by MacroCall @SAME in macro_invoke.cj:8:1 ===== */
-/* 8.1 */enum A < T > {
-/* 8.2 */    a
-/* 8.3 */    | a(T)
-/* 8.4 */    | a(T, T)
-/* 8.5 */    | b(T)
-/* 8.6 */}
+/* ===== Emitted by MacroCall @SAME in macro_invoke.cj:14:1 ===== */
+enum A < T > {
+    a
+    | a(T)
+    | a(T, T)
+    | b(T)
+}
 /* ===== End of the Emit ===== */
 
 main() {

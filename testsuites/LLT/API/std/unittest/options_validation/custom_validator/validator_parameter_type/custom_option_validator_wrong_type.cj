@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 // EXEC-PIPE-1: %compiler %cmp_opt %cmp_utest_opt -o %n.%suffix %f  2>&1 | compare %f
-// ASSERT: scan error: mismatched types
+// ASSERT: scan mismatched types
 // ASSERT: scan expected 'Struct-String', found 'Interface-Any'
 
 // NOTE: Because of validator callback checks only one concrete type

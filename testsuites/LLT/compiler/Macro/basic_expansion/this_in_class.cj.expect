@@ -1,3 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE:  macro_define.cj %f.expect
 // EXEC: %compiler %cmp_macro macro_define.cj
 // EXEC: %run_macro %compiler %cmp_opt %macro_parallel --debug-macro %f -o %output
@@ -8,24 +14,24 @@ import test.*
 
 var aa = 0
 
-/* ===== Emitted by MacroCall @M in this_in_class.cj:11:1 ===== */
-/* 11.1 */class Data {
-/* 11.2 */    Data(var a!: Int64 = 6) {
-/* 11.3 */        aa ++
-/* 11.4 */    }
-/* 11.5 */    
-/* 11.6 */    func f1(): This {
-/* 11.7 */        this
-/* 11.8 */    }
-/* 11.9 */}
+/* ===== Emitted by MacroCall @M in this_in_class.cj:17:1 ===== */
+class Data {
+    Data(var a!: Int64 = 6) {
+        aa ++
+    }
+    
+    func f1(): This {
+        this
+    }
+}
 /* ===== End of the Emit ===== */
 
-/* ===== Emitted by MacroCall @M in this_in_class.cj:23:1 ===== */
-/* 23.1 */main(): Int64 {
-/* 23.2 */    var data = Data(a: 8)
-/* 23.3 */    if(data.f1().a == 8 && aa == 1) {
-/* 23.4 */        return 0
-/* 23.5 */    }
-/* 23.6 */    return 1
-/* 23.7 */}
+/* ===== Emitted by MacroCall @M in this_in_class.cj:29:1 ===== */
+main(): Int64 {
+    var data = Data(a: 8)
+    if(data.f1().a == 8 && aa == 1) {
+        return 0
+    }
+    return 1
+}
 /* ===== End of the Emit ===== */

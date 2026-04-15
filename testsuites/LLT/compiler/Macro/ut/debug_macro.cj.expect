@@ -1,36 +1,42 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
 // DEPENDENCE: %f.expect
 // EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt --debug-macro
 // EXEC: %diff %f.expect %f.macrocall
 
-/* ===== Emitted by MacroCall @Test in debug_macro.cj:5:1 ===== */
-/* 5.1 */@Attribute[TEST_GENERATED] class A <: TestClass {
-/* 5.2 */    public override func asTestSuite(): TestSuite {
-/* 5.3 */        
-/* 5.4 */        let suiteConfiguration = classConfiguration()
-/* 5.5 */        let suiteBuilder = TestSuite.builder("A").configure(suiteConfiguration)
-/* 5.6 */        return suiteBuilder.build()
-/* 5.7 */    }
-/* 5.8 */    init() {
-/* 5.9 */    }
-/* 5.10 */    private func classConfiguration(): Configuration {
-/* 5.11 */        let configuration = Configuration()
-/* 5.12 */        
-/* 5.13 */        return configuration
-/* 5.14 */    }
-/* 5.15 */    private func inheritedFromClassAnnotatedByTestTemplate < T >(): TestSuite where T <: TestClass {
-/* 5.16 */        throw Exception("Unreachable code")
-/* 5.17 */    }
-/* 5.18 */}
-/* 5.19 */
-/* 5.20 */
-/* 5.21 */interface TestPackageExtension_A {
-/* 5.22 */    func registerA(): Unit
-/* 5.23 */}
-/* 5.24 */extend TestPackage <: TestPackageExtension_A {
-/* 5.25 */    @Attribute[TEST_REGISTER]
-/* 5.26 */    public func registerA() {
-/* 5.27 */        registerSuite({ => A().asTestSuite() })
-/* 5.28 */    }
-/* 5.29 */}
-/* 5.30 */
+/* ===== Emitted by MacroCall @Test in debug_macro.cj:11:1 ===== */
+@Attribute[TEST_GENERATED] class A <: TestClass {
+    public override func asTestSuite(): TestSuite {
+        
+        let suiteConfiguration = classConfiguration()
+        let suiteBuilder = TestSuite.builder("A").configure(suiteConfiguration)
+        return suiteBuilder.build()
+    }
+    init() {
+    }
+    private func classConfiguration(): Configuration {
+        let configuration = Configuration()
+        
+        return configuration
+    }
+    private func inheritedFromClassAnnotatedByTestTemplate < T >(): TestSuite where T <: TestClass {
+        throw Exception("Unreachable code")
+    }
+}
+
+
+interface TestPackageExtension_A {
+    func registerA(): Unit
+}
+extend TestPackage <: TestPackageExtension_A {
+    @Attribute[TEST_REGISTER]
+    public func registerA() {
+        registerSuite({ => A().asTestSuite() })
+    }
+}
+
 /* ===== End of the Emit ===== */

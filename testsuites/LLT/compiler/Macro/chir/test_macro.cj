@@ -1,4 +1,4 @@
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
 // with Runtime Library Exception.
 //
@@ -6,14 +6,10 @@
 
 // DEPENDENCE: define.cj
 // EXEC: %compiler %cmp_macro define.cj
-// EXEC: %run_macro %compiler %cmp_opt  %f -o %output 2>&1 | compare %f
-// ASSERT: scan unreachable pattern
-// ASSERT: scan the warning occurs after the macro is expanded
-// ASSERT: scan the code after the macro is expanded as follows
-// ASSERT: scan which is expanded as follows
-// ASSERT: scan unused function:'func_1'
-// ASSERT: scan the warning occurs after the macro is expanded
-// ASSERT: scan which is expanded as follows
+// EXEC: %run_macro %compiler %cmp_opt %diag_json %f -o %output 2>&1 | compare %f
+// ASSERT: scan-1 sema_unreachable_pattern
+// ASSERT: scan the warning originates in the macro `echo` (consider using `--debug-macro` for more info)
+// ASSERT: scan-1 chir_dce_unused_function
 
 import define.*
 
