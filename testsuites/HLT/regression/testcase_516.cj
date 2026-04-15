@@ -7,9 +7,9 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 
 public let var_1695692742460_21 : Enum_1695692742460_18 = Enum_1695692742460_18.enumValue_1695692742460_23(Int16(126), [(), (), (), (), (), (), (), (), (), ()], ((Int64(Int64(-50))&127)..=(Int64(Int64(28))&127):(Int64(UInt32(UInt32(158)))|1)))
 public let var_1695692742460_59 : Unit = ()

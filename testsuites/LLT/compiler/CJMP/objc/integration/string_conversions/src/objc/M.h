@@ -11,8 +11,9 @@
 @interface M : NSObject
 - (id)init;
 + (NSString*)helloAscii;
++ (NSString*)otherHelloAscii;
 + (NSString*)helloCyrillic;
-+ (NSString*)helloCyrillic;
++ (NSString*)helloCangjie;
 + (NSString*)empty;
 + (NSString*)uppercase:(NSString*)str;
 + (void)checkUpperHelloAscii:(NSString*)str;

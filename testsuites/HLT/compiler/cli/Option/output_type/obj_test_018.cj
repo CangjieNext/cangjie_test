@@ -7,8 +7,8 @@
 // LEVEL: 1
 // DEPENDENCE: foo.cj
 // EXEC: %compiler %cmp_opt foo.cj --output-type=obj --compile-target=staticlib --experimental
-// (!host_win) EXEC: test -f foo.cjo.flag
-// (host_win) EXEC: if exist foo.cjo.flag (exit 0) else (exit 1)
+// (!host_win) EXEC-1: test -f foo.cjo.flag
+// (host_win) EXEC-1: if exist foo.cjo.flag (exit 0) else (exit 1)
 // EXEC-PIPE-1: %compiler %cmp_opt foo.%object_file_suffix -lcangjie-std-core --experimental -o %output 2>&1 | compare %f
 // (host_win and target_win)ASSERT: scan ld.lld: error: undefined symbol: WinMain
 // (host_mac and target_mac)ASSERT: scan undefined symbol: _main

@@ -5,19 +5,8 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// (DEBUG_OPTION) EXEC: %compiler %cmp_opt %debugCHIROpt %n.cj -o %output | compare %f
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of CA in the line .* is _CAF7default2CAE
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of CB in the line .* is _CAF7default2CBE
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of a in the line .* is _CAF7default2CB1aK_E
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of sayHi in the line .* is _CAF7default2CB5sayHiHv
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of a in the line .* is _CAF7default2CB4setAHlE1aE
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of \$bget in the line .* is _CAF7default2CB1bE
-// (not CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of CA in the line .* is \$Anno_ZN7default2CAE
-// (not CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of CB in the line .* is \$Anno_ZN7default2CBE
-// (not CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of a in the line .* is \$Anno_ZN7default2CB1aE
-// (not CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of sayHi in the line .* is \$Anno_ZN7default2CB5sayHiEv
-// (not CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of a in the line .* is \$Anno_ZN7default2CB4setA1aS9a0c0a0b0bE
-// (not CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of \$bget in the line .* is \$Anno_ZN7default2CB1bE
+// EXEC: %compiler %cmp_opt %f %dumpCHIRDebug
+// EXEC: %cat default_CHIR/[0-9]*_AST_CHIR.chirtxt | compare %f
 
 @Annotation
 public class Anno {
@@ -49,3 +38,10 @@ public class CB {
 main() {
     0
 }
+
+// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default2CAE() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno02.cj"-16-1
+// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default2CBE() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno02.cj"-19-1
+// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default2CB1aK_E() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno02.cj"-21-5
+// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default2CB5sayHiHv() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno02.cj"-24-5
+// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default2CB4setAHlE1aE() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno02.cj"-27-15
+// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default2CB1bE() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno02.cj"-29-5

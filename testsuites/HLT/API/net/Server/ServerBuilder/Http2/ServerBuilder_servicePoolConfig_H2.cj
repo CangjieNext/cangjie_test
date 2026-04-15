@@ -156,6 +156,9 @@ public class Test_servicePoolConfig_H2 {
 
     @TestCase
     func over_size(): Unit {
+        let ready = AtomicInt64(0)
+        let start = AtomicBool(false)
+        let done = AtomicInt64(0)
         let server = ServerBuilder()
             .addr("127.0.0.1")
             .port(0)
@@ -177,46 +180,59 @@ public class Test_servicePoolConfig_H2 {
             .version(HTTP2_0)
             .build()
 
+        let client1 = ClientBuilder().tlsConfig(clientConfig()).build()
+        let client2 = ClientBuilder().tlsConfig(clientConfig()).build()
+        let client3 = ClientBuilder().tlsConfig(clientConfig()).build()
         spawn {
-            let client = ClientBuilder().tlsConfig(clientConfig()).build()
+            ready.fetchAdd(1)
+            while (!start.load()) {
+                sleep(Duration.millisecond)
+            }
             try {
-                client.send(request)
+                client1.send(request)
+            } catch (_: Exception) {
             } finally {
-                client.close()
+                done.fetchAdd(1)
             }
         }
         spawn {
-            let client = ClientBuilder().tlsConfig(clientConfig()).build()
+            ready.fetchAdd(1)
+            while (!start.load()) {
+                sleep(Duration.millisecond)
+            }
             try {
-                client.send(request)
+                client2.send(request)
+            } catch (_: Exception) {
             } finally {
-                client.close()
+                done.fetchAdd(1)
             }
         }
-        sleep(Duration.millisecond * 200)
-
-        let client = ClientBuilder().tlsConfig(clientConfig()).build()
+        spawn {
+            ready.fetchAdd(1)
+            while (!start.load()) {
+                sleep(Duration.millisecond)
+            }
+            try {
+                client3.send(request)
+            } catch (_: Exception) {
+            } finally {
+                done.fetchAdd(1)
+            }
+        }
+        while (ready.load() < 3) {
+            sleep(Duration.millisecond)
+        }
         try {
-            let res = client.send(request)
-        } catch (e: SocketException) {
-            if (e.message.contains("Connection reset by peer") || e
-                .message
-                .contains("forcibly closed by the remote host")) {
-                return // limited
-            }
-        } catch (e: ConnectionException) {
-            if (e.message.contains("Socket is closed")) {
+            start.store(true)
+            sleep(Duration.millisecond * 1100)
+            if (done.load() <= 2) {
                 return
             }
-        } catch (e: TlsException) {
-            if (e.message.contains("TLS handshake failed (client)")) {
-                return
-            }
-        } catch (e: SocketTimeoutException) {
-            return
         } finally {
-            client.close()
             server.close()
+            client1.close()
+            client2.close()
+            client3.close()
         }
         throw Exception("not limited")
     }

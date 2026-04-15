@@ -1,5 +1,5 @@
-// (not CJNATIVE) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
-// (CJNATIVE) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+
+// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 const func myTarget(x: Int64) {
     match (x) {

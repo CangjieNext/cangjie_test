@@ -18,8 +18,6 @@
 // ASSERT: regex .*main.cj.*.gcov
 // ASSERT: scan src_main.cj.html
 // ASSERT: scan index.html
-// (CJNATIVE) ASSERT: scan default.gcda
-// (CJNATIVE) ASSERT: scan default.gcno
-// (not CJNATIVE) ASSERT: scan main.jcda
-// (not CJNATIVE) ASSERT: scan main.jcno
+// ASSERT: scan default.gcda
+// ASSERT: scan default.gcno
 // EXEC-PIPE: python3 compare_html.py -b %n/refrence -d %n/dir_not_exist

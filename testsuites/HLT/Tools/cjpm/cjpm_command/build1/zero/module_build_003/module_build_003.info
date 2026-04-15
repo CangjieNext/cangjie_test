@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build %cjpm_opt -j1
-// EXEC: cd %n && %cjpm run
-// EXEC-PIPE: %ls %n 2>&1 | compare %f
-// ASSERT: scan target
-// ASSERT: scan cjpm.lock
+// (native_compilation)EXEC: cd %n && %cjpm build %cjpm_opt -j1
+// (native_compilation)EXEC: cd %n && %cjpm run
+// (native_compilation)EXEC-PIPE: %ls %n 2>&1 | compare %f
+// (native_compilation)ASSERT: scan target
+// (native_compilation)ASSERT: scan cjpm.lock

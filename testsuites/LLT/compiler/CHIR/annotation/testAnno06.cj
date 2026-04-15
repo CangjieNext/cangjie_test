@@ -5,13 +5,9 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // LEVEL: 0
-// (DEBUG_OPTION)EXEC: %compiler %cmp_opt %debugCHIROpt %n.cj -o %output | compare %f
-// (CJNATIVE) ASSERT: regex The annotation factory function of C in the line .* is \_CAF7default1CE
-// (CJNATIVE) ASSERT: regex The annotation factory function of v in the line .* is \_CAF7default1C1vK_E
-// (CJNATIVE) ASSERT: regex The annotation factory function of foo in the line .* is \_CAF7default1C3fooHi
-// (not CJNATIVE) ASSERT: regex The annotation factory function of C in the line .* is \$Anno_ZN7default1CE
-// (not CJNATIVE) ASSERT: regex The annotation factory function of v in the line .* is \$Anno_ZN7default1C1vE
-// (not CJNATIVE) ASSERT: regex The annotation factory function of foo in the line .* is \$Anno_ZN7default1C3fooEi
+// EXEC: %compiler %cmp_opt %f %dumpCHIRDebug
+// EXEC: %cat default_CHIR/[0-9]*_AST_CHIR.chirtxt | compare %f
+
 @Annotation
 public class Ann1 {
     let name: String
@@ -43,3 +39,7 @@ class C {
 main() {
     0
 }
+
+// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default1CE() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno06.cj"-29-1
+// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default1C1vK_E() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno06.cj"-31-5
+// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default1C3fooHi() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno06.cj"-34-5

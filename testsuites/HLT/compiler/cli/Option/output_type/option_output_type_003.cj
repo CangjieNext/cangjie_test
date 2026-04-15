@@ -8,8 +8,8 @@
 // DEPENDENCE: foo.cj
 // EXEC: %compiler %cmp_opt foo.cj --output-type=dylib
 // EXEC: %ls
-// (!host_win) EXEC: test -f foo.cjo.flag
-// (host_win) EXEC: if exist foo.cjo.flag (exit 0) else (exit 1)
+// (!host_win) EXEC-1: test -f foo.cjo.flag
+// (host_win) EXEC-1: if exist foo.cjo.flag (exit 0) else (exit 1)
 // (!host_win) EXEC: test -f foo.cjo
 // (host_win) EXEC: if exist foo.cjo (exit 0) else (exit 1)
 // EXEC: %compiler %cmp_opt %f --output-type=obj --compile-target=exe --experimental

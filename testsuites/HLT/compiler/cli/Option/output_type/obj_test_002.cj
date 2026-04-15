@@ -7,8 +7,8 @@
 // LEVEL: 0
 // EXEC: %compiler %cmp_opt %f  --output-type=obj  --compile-target=exe -o main.o --experimental
 // EXEC: %ls
-// (!host_win) EXEC: test -f default.cjo.flag
-// (host_win) EXEC: if exist default.cjo.flag (exit 0) else (exit 1)
+// (!host_win) EXEC-1: test -f default.cjo.flag
+// (host_win) EXEC-1: if exist default.cjo.flag (exit 0) else (exit 1)
 // EXEC: %compiler %cmp_opt main.o -lcangjie-std-core --experimental -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output 2>&1 | compare %f
 // ASSERT: scan Hello cangjie!

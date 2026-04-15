@@ -4,21 +4,11 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+
 // LEVEL: 0
-// (DEBUG_OPTION) EXEC: %compiler %cmp_opt %debugCHIROpt %n.cj -o %output | compare %f
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of IA in the line .* is \_CAF7default2IAE
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of IB in the line .* is \_CAF7default2IBE
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of sayHi in the line .* is \_CAF7default2IB5sayHiHv
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of a in the line .* is \_CAF7default2IB4setAHlE1aE
-// (CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of \$aget in the line .* is \_CAF7default2IB1aE
+// EXEC: %compiler %cmp_opt %f 2>&1 | compare %f
 
-// (not CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of IA in the line .* is \$Anno_ZN7default2IAE
-// (not CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of IB in the line .* is \$Anno_ZN7default2IBE
-// (not CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of sayHi in the line .* is \$Anno_ZN7default2IB5sayHiEv
-// (not CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of a in the line .* is \$Anno_ZN7default2IB4setA1aS9a0c0a0b0bE
-// (not CJNATIVE and DEBUG_OPTION) ASSERT: regex The annotation factory function of \$aget in the line .* is \$Anno_ZN7default2IB1aE
-
-@Annotation
+@Annotation[target: [Type]]
 public class Anno {
     public const init() {}
 }
@@ -27,7 +17,7 @@ public class Anno {
 public interface IA {}
 
 @Anno
-public interface IB {
+public abstract class IB {
     @Anno
     func sayHi(): Unit
 
@@ -40,3 +30,28 @@ public interface IB {
 main() {
     0
 }
+
+/* SCAN
+error: the visibility of an 'abstract' function must be 'public' or 'protected'
+  ==> testAnno01.cj:22:10:
+   | 
+22 |     func sayHi(): Unit
+   |          ^^^^^ 
+   | 
+
+error: the visibility of an 'abstract' function must be 'public' or 'protected'
+  ==> testAnno01.cj:24:10:
+   | 
+24 |     func setA(@Anno a: Int64): Unit
+   |          ^^^^ 
+   | 
+
+error: the visibility of an 'abstract' property must be 'public' or 'protected'
+  ==> testAnno01.cj:27:10:
+   | 
+27 |     prop a: Int64
+   |          ^ 
+   | 
+
+3 errors generated, 3 errors printed.
+*/

@@ -10,16 +10,16 @@
 // DEPENDENCE: main.cj my_utils.cj
 // EXEC: %compiler %cmp_opt my_utils.cj --output-type=staticlib
 // EXEC: %compiler %cmp_opt -Woff=all -L. -lmy_utils main.cj -lboundscheck --static-std --import-path %cangjie-static-stdx-path -L %cangjie-static-stdx-path %cangjie-stdx-list -o %output
-// RUN-EXEC: %run_opt %output %run_args
 // EXEC-PIPE: %check-dylib-dep %output | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args
 
 // libboundscheck
-// (target_linux) ASSERT: scan libboundscheck.so
+// (target_linux | target_android | target_ohos) ASSERT: scan libboundscheck.so
 // (target_mac) ASSERT: scan @rpath/libboundscheck.dylib
 // (target_win) ASSERT: scan libboundscheck.dll
 
 // dynamic loader for openssl.
-// (target_linux) ASSERT: scan-not libcangjie-dynamicLoader-opensslFFI.so
+// (target_linux | target_android | target_ohos) ASSERT: scan-not libcangjie-dynamicLoader-opensslFFI.so
 // (target_mac) ASSERT: scan-not @rpath/libcangjie-dynamicLoader-opensslFFI.dylib
 
 // 各平台上必带有的动态库
@@ -40,22 +40,30 @@
 // (target_linux & target_x86_64) ASSERT: scan ld-linux-x86-64.so
 // (target_linux & target_aarch64) ASSERT: scan ld-linux-aarch64.so
 
+// Android平台上必带有的动态库
+// (target_linux) ASSERT: scan libc.so
+
+// OHOS平台上必带有的动态库
+// (target_ohos) ASSERT: scan libc.so
+
 // 如果是--static-std而没有--static，则仓颉runtime将被动态链接
-// (target_linux) ASSERT: scan libcangjie-runtime.so
+// (target_linux | target_android | target_ohos) ASSERT: scan libcangjie-runtime.so
 // (target_mac) ASSERT: scan @rpath/libcangjie-runtime.dylib
 // (target_win) ASSERT: scan libcangjie-runtime.dll
 
 // 用户库被静态链接
-// (target_linux) ASSERT: scan-not libmy_utils.so
+// (target_linux | target_android | target_ohos) ASSERT: scan-not libmy_utils.so
 // (target_mac) ASSERT: scan-not libmy_utils.dylib
 // (target_win) ASSERT: scan-not libmy_utils.dll
 
 // stdx库被静态链接
-// (target_linux) ASSERT: scan-not libstdx.encoding.json.so
+// (target_linux | target_android | target_ohos) ASSERT: scan-not libstdx.encoding.json.so
 // (target_mac) ASSERT: scan-not @rpath/libstdx.encoding.json.dylib
 // (target_win) ASSERT: scan-not libstdx.encoding.json.dll
     
 // std库被静态链接
-// (target_linux) ASSERT: scan-not libcangjie-std-collection.so
+// (target_linux | target_android) ASSERT: scan-not libcangjie-std-collection.so
 // (target_mac) ASSERT: scan-not @rpath/libcangjie-std-collection.dylib
 // (target_win) ASSERT: scan-not libcangjie-std-collection.dll
+// ohos不支持静态链接std
+// (target_ohos) ASSERT: scan libcangjie-std-collection.so
