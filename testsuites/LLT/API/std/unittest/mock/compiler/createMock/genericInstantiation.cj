@@ -41,7 +41,14 @@ class Foo<K> {
     }
 }
 
+@When[backend != "cjnative"]
+let case1Mn = "_ZN7default3FooIR_ZN8std.core6StringE38boo<Class-PassedAnotherBar>$ToMock_FooIC_ZN7default16PassedAnotherBarEER_ZN8std.core6StringEC_ZN7default16PassedAnotherBarE"
+@When[backend == "cjnative"]
 let case1Mn = "_CN7default3FooIG_E3booIG0_HG_G0_"
+
+@When[backend != "cjnative"]
+let case2Mn = "_ZN7default3FooIR_ZN8std.core6StringE56bee<Class-PassedAnotherBar,Class-ReturnedBar>$ToMock_FooIC_ZN7default16PassedAnotherBarEC_ZN7default11ReturnedBarEER_ZN8std.core6StringEC_ZN7default16PassedAnotherBarE"
+@When[backend == "cjnative"]
 let case2Mn = "_CN7default3FooIG_E3beeIG0_G1_HG_G0_"
 
 @Test
@@ -79,13 +86,23 @@ public class TestA {
 }
 
 /* SCAN-IN
-original `boo` was called
-Return value: This is ReturnedBar (original)
+Actual call: boo<default:PassedAnotherBar>("my str 33", "This is AnotherBar")
+Declared method: boo<T>(x[1, P, ND], y[2, P, ND])[NA, ND, AC, NA, genericInstantiation.cj:34:17]: Class-ReturnedBar
+Declared function name: boo -> _CN7default3FooIG_E3booIG0_HG_G0_
+Outer decl name: Foo<std.core:String> -> _CN7default3FooIG_E
+Receiver: [doesn't implement ToString]
+------------------------------
+Return value: This is ReturnedBar (1)
 original `boo` was called
 Return value: This is ReturnedBar (original)
 ==============================
-original `bee` was called
-Return value: This is ReturnedBar (original)
+Actual call: bee<default:PassedAnotherBar, default:ReturnedBar>("my str 33", "This is AnotherBar")
+Declared method: bee<T, R>(x[1, P, ND], y[2, P, ND])[NA, ND, AC, NA, genericInstantiation.cj:38:17]: Generics-R
+Declared function name: bee -> _CN7default3FooIG_E3beeIG0_G1_HG_G0_
+Outer decl name: Foo<std.core:String> -> _CN7default3FooIG_E
+Receiver: [doesn't implement ToString]
+------------------------------
+Return value: This is ReturnedBar (2)
 original `bee` was called
 Return value: This is ReturnedBar (original)
 ==============================

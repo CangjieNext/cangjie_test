@@ -20,6 +20,8 @@ private class P {}
 class Foo {
     private func foo(p: P): Unit {}
 
+    private func fooGeneric<T>(p: T): Unit where T <: P {}
+
     private mut prop p: P {
         get() { P() }
         set(p) {}
@@ -28,6 +30,8 @@ class Foo {
     public func accessFoo(f: Foo): Unit { f.foo(P()) }
     public func accessPSet(f: Foo): Unit { f.p = P() }
     public func accessPGet(f: Foo): Unit { f.p }
+
+    public func accessFooGeneric(f: Foo): Unit { f.fooGeneric<P>(P()) }
 }
 
 @When[backend != "cjnative"]
@@ -44,6 +48,11 @@ let case2Mn = "_CN7default3Foo25$pset(Class-P)$ToMock_FooHCNat3AnyE"
 let case3Mn = "_ZN7default3Foo18$pget()$ToMock_FooEv"
 @When[backend == "cjnative"]
 let case3Mn = "_CN7default3Foo18$pget()$ToMock_FooHv"
+
+@When[backend != "cjnative"]
+let case4Mn = "_ZN7default3Foo30fooGeneric<Class-P>$ToMock_FooIC_ZN7default16$usePrivateTypes1PEEC_ZN7default16$usePrivateTypes1PE"
+@When[backend == "cjnative"]
+let case4Mn = "_CN7default3Foo33fooGeneric(Generics-T)$ToMock_FooIG_HCNat3AnyE"
 
 @Test
 public class TestA {
@@ -62,7 +71,7 @@ public class TestA {
     @TestCase
     func case2(): Unit {
         let mockedFoo = unsafe { createMock<Foo>(dummyMockingCallHandler) }
-        addMatcher(case2Mn, [], P())
+        addMatcher(case2Mn, [], ())
         Foo().accessPSet(mockedFoo)
         println("==============================")
     }
@@ -70,8 +79,16 @@ public class TestA {
     @TestCase
     func case3(): Unit {
         let mockedFoo = unsafe { createMock<Foo>(dummyMockingCallHandler) }
-        addMatcher(case3Mn, [P()], ())
+        addMatcher(case3Mn, [P()], P())
         Foo().accessPGet(mockedFoo)
+        println("==============================")
+    }
+
+    @TestCase
+    func case4(): Unit {
+        let mockedFoo = unsafe { createMock<Foo>(dummyMockingCallHandler) }
+        addMatcher(case4Mn, [P()], ())
+        Foo().accessFooGeneric(mockedFoo)
         println("==============================")
     }
 }
@@ -85,15 +102,22 @@ Receiver: [doesn't implement ToString]
 ------------------------------
 ==============================
 Actual call: $pset(Class-P)([not ToString])
-Declared method: $pset(Class-P)(p[1, P, ND])[NA, ND, AC, NA, usePrivateTypes.cj:25:9]: Interface-Any
+Declared method: $pset(Class-P)(p[1, P, ND])[NA, ND, AC, NA, usePrivateTypes.cj:27:9]: Interface-Any
 Declared function name: $pset(Class-P) -> _CN7default3Foo25$pset(Class-P)$ToMock_FooHCNat3AnyE
 Outer decl name: Foo -> _CN7default3FooE
 Receiver: [doesn't implement ToString]
 ------------------------------
 ==============================
 Actual call: $pget()()
-Declared method: $pget()()[NA, ND, AC, NA, usePrivateTypes.cj:24:9]: Interface-Any
+Declared method: $pget()()[NA, ND, AC, NA, usePrivateTypes.cj:26:9]: Interface-Any
 Declared function name: $pget() -> _CN7default3Foo18$pget()$ToMock_FooHv
+Outer decl name: Foo -> _CN7default3FooE
+Receiver: [doesn't implement ToString]
+------------------------------
+==============================
+Actual call: fooGeneric(Generics-T)<default:_CN7defaultU000000045ZxZt1PE>([not ToString])
+Declared method: fooGeneric(Generics-T)<T>(p[1, P, ND])[NA, ND, AC, NA, usePrivateTypes.cj:23:18]: Interface-Any
+Declared function name: fooGeneric(Generics-T) -> _CN7default3Foo33fooGeneric(Generics-T)$ToMock_FooIG_HCNat3AnyE
 Outer decl name: Foo -> _CN7default3FooE
 Receiver: [doesn't implement ToString]
 ------------------------------
