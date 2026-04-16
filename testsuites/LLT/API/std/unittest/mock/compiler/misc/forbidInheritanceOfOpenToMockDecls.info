@@ -220,7 +220,7 @@ error: class 'MyFoo45' missing abstract modifier, otherwise abstract function or
 111 | public open class MyFoo45<K> <: Foo19<K> {
     | ^ 
     | 
-note: unimplemented abstract function foo
+note: unimplemented abstract function 'foo'
    ==> (package declsToOpenToMock)main.cj:101:5:
 
 error: cannot override function 'foo'

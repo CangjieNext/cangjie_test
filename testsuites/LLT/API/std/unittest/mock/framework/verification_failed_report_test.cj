@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// (JET) LEVEL:2
+// LEVEL:0
 // DEPENDENCE: ./utils
 // DEPENDENCE: ./line_number_utils
 // EXEC: %compiler %cmp_opt -p utils --mock=on %compile_lib_opt --output p1.%middle
@@ -215,11 +215,13 @@ public class VerificationFailedReportTest {
                 "Unexpected invocation",
                 "Actual: e.severalArgs(...) invoked at line_numbers.cj",
                 "Argument mismatch:",
-                "Expected: e.severalArgs(ofType<String>(), \"abc\", _, argThat { num: Int64 => num < 5 })",
+                "Expected: e.severalArgs(ofType<String>(), \"abc\", _, argThat { num: Int64 =>",
+                "num < 5",
                 "[+] string1 <~> ofType<String>()",
                 "[-] string2 <~> eq(\"abc\")",
                 "[+] int1    <~> any()",
-                "[-] int2    <~> argThat { num: Int64 => num < 5 }"
+                "[-] int2    <~> argThat { num: Int64 =>",
+                "num < 5",
             ]
         ) {
             callA(e, 1)

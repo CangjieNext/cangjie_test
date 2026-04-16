@@ -77,4 +77,161 @@ public class VerifyCardinalityTest {
             Verify.that(@Called(e.a()).times(3))
         }
     }
+
+    @TestCase func testTimesCardinalityFailure(): Unit {
+        verificationFailure("TooManyInvocations") {
+            @On(e.a()).returns("").anyTimes()
+
+            e.a()
+            e.a()
+            e.a()
+
+            Verify.that(@Called(e.a()).times(2))
+        }
+    }
+
+    @TestCase func testOnceCardinalitySuccess(): Unit {
+        success {
+            @On(e.a()).returns("").anyTimes()
+            @On(e.b()).returns("").anyTimes()
+            @On(e.c()).returns("").anyTimes()
+
+            e.a()
+            e.b()
+            e.c()
+
+            Verify.that(@Called(e.c()).once())
+            Verify.that(@Called(e.b()).once())
+            Verify.that(@Called(e.a()).once())
+        }
+    }
+
+    @TestCase func testOnceCardinalityFailure(): Unit {
+        verificationFailure("TooFewInvocations") {
+            @On(e.a()).returns("").anyTimes()
+
+            Verify.that(@Called(e.a()).once())
+        }
+    }
+
+    @TestCase func testAtLeastOnceCardinalitySuccess(): Unit {
+        success {
+            @On(e.a()).returns("").anyTimes()
+            @On(e.b()).returns("").anyTimes()
+            @On(e.c()).returns("").anyTimes()
+
+            e.a()
+            e.b()
+            e.b()
+            e.b()
+            e.b()
+            e.c()
+            e.c()
+            e.c()
+            e.c()
+            e.c()
+            e.c()
+            e.c()
+
+            Verify.that(@Called(e.c()).atLeastOnce())
+            Verify.that(@Called(e.b()).atLeastOnce())
+            Verify.that(@Called(e.a()).atLeastOnce())
+        }
+    }
+
+    @TestCase func testAtLeastOnceCardinalityFailure(): Unit {
+        verificationFailure("TooFewInvocations") {
+            @On(e.a()).returns("").anyTimes()
+
+            Verify.that(@Called(e.a()).atLeastOnce())
+        }
+    }
+
+    @TestCase func testMinMaxCardinalitySuccess(): Unit {
+        success {
+            @On(e.a()).returns("").anyTimes()
+            @On(e.b()).returns("").anyTimes()
+            @On(e.c()).returns("").anyTimes()
+
+            e.a()
+            e.b()
+            e.b()
+            e.b()
+            e.b()
+            e.c()
+            e.c()
+            e.c()
+            e.c()
+            e.c()
+            e.c()
+            e.c()
+
+            Verify.that(@Called(e.a()).times(min: 1, max: 3))
+            Verify.that(@Called(e.b()).times(min: 1, max: 5))
+            Verify.that(@Called(e.c()).times(min: 5, max: 7))
+        }
+    }
+
+    @TestCase func testMinMaxCardinalityFailure(): Unit {
+        verificationFailure("TooFewInvocations") {
+            @On(e.a()).returns("").anyTimes()
+
+            e.a()
+            e.a()
+            e.a()
+
+            Verify.that(@Called(e.a()).times(min: 4, max: 10))
+        }
+    }
+
+    @TestCase func testAtLeastTimesCardinalitySuccess(): Unit {
+        success {
+            @On(e.a()).returns("").anyTimes()
+            @On(e.b()).returns("").anyTimes()
+            @On(e.c()).returns("").anyTimes()
+
+            e.a()
+            e.b()
+            e.b()
+            e.b()
+            e.b()
+            e.c()
+            e.c()
+            e.c()
+            e.c()
+            e.c()
+            e.c()
+            e.c()
+
+            Verify.that(@Called(e.a()).atLeastTimes(1))
+            Verify.that(@Called(e.b()).atLeastTimes(4))
+            Verify.that(@Called(e.c()).atLeastTimes(4))
+        }
+    }
+
+    @TestCase func testAtLeastTimesCardinalityFailure(): Unit {
+        verificationFailure("TooFewInvocations") {
+            @On(e.a()).returns("").anyTimes()
+            e.a()
+            e.a()
+            e.a()
+
+            Verify.that(@Called(e.a()).atLeastTimes(4))
+        }
+    }
+
+    @TestCase func testNeverCardinality(): Unit {
+        success {
+            @On(e.a()).returns("").anyTimes()
+
+            Verify.that(@Called(e.a()).never())
+        }
+
+        verificationFailure("TooManyInvocations") {
+            @On(e.a()).returns("").anyTimes()
+            e.a()
+
+            Verify.that(@Called(e.a()).never())
+        }
+    }
 }

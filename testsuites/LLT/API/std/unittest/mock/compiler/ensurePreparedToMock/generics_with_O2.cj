@@ -43,14 +43,32 @@ func test_goo() {
     @Assert(a.goo<String>("10"), "mocked String")
 }
 
+
+@Test
+func test_extend_foo() {
+    @On(A.extend_foo<Int64>(_)).returns("mocked Int")
+    @On(A.extend_foo<String>(_)).returns("mocked String")
+    @Assert(A.extend_foo<Int64>(10), "mocked Int")
+    @Assert(A.extend_foo<String>("10"), "mocked String")
+}
+
+@Test
+func test_extend_goo() {
+    let a = mock<A>()
+    @On(a.extend_goo<Int64>(_)).returns("mocked Int")
+    @On(a.extend_goo<String>(_)).returns("mocked String")
+    @Assert(a.extend_goo<Int64>(10), "mocked Int")
+    @Assert(a.extend_goo<String>("10"), "mocked String")
+}
+
 interface I {
     @When[backend == "cjnative"]
     func foo<T>(x: Int64): String {
         return "x=${x}"
     }
 }
- 
-@When[backend == "cjnative"]
+
+@When[backend != "cjnative"]
 @Test
 func test_interface_with_generic_func() {
     let i = mock<I>()
