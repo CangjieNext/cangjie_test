@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025-2026. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
  *
@@ -13,6 +13,7 @@ import std.io.{OutputStream, BufferedOutputStream}
 import std.console.Console
 import std.fs.*
 import std.collection.{HashMap, ArrayList, TreeMap}
+import std.sync.{AtomicBool, AtomicInt64, Mutex}
 import stdx.log.*
 import stdx.logger.*
 import std.unittest.*
@@ -284,6 +285,180 @@ public class TestLog {
         @Expect(outputStr.size > 1000)
 
         logger.close()
+    }
+
+    // Test case 1: CommonLogger withAttrs shares closed state
+    // Verifies that withAttrs() creates logger instances that share the same _state,
+    // so all clones share the same closed state (per PR #572 implementation)
+    @TestCase
+    func testCommonLoggerWithAttrsSharesClosedState(): Unit {
+        let output = TestOutputStream()
+        let tl = TextLogger(output)
+        tl.level = LogLevel.TRACE
+
+        // Create loggers via withAttrs (they share the same _state)
+        let logger1 = tl.withAttrs([("id", "1")])
+        let logger2 = tl.withAttrs([("id", "2")])
+        let logger3 = tl.withAttrs([("id", "3")])
+
+        // Initially none should be closed
+        @Expect(!tl.isClosed())
+        @Expect(!logger1.isClosed())
+        @Expect(!logger2.isClosed())
+        @Expect(!logger3.isClosed())
+
+        // Close one copy - all should share the closed state
+        logger1.close()
+
+        // All loggers share the same _state, so all should be closed
+        @Expect(tl.isClosed()) // shared _state is closed
+        @Expect(logger1.isClosed()) // logger1 is closed
+        @Expect(logger2.isClosed()) // shares _state with logger1
+        @Expect(logger3.isClosed()) // shares _state with logger1
+
+        // Test with JsonLogger as well
+        let output2 = TestOutputStream()
+        let jl = JsonLogger(output2)
+        jl.level = LogLevel.TRACE
+
+        let jlLogger1 = jl.withAttrs([("id", "1")])
+        let jlLogger2 = jl.withAttrs([("id", "2")])
+
+        @Expect(!jl.isClosed())
+        @Expect(!jlLogger1.isClosed())
+        @Expect(!jlLogger2.isClosed())
+
+        jlLogger2.close()
+
+        // All share the same _state
+        @Expect(jl.isClosed()) // shared _state is closed
+        @Expect(jlLogger1.isClosed()) // shares _state with jlLogger2
+        @Expect(jlLogger2.isClosed()) // jlLogger2 is closed
+    }
+
+    // Test case 2: CommonLogger withAttrs concurrent write safety
+    // Verifies that concurrent writes from multiple loggers (created via withAttrs, sharing the same OutputStream) don't lose data
+    @TestCase
+    func testCommonLoggerWithAttrsConcurrentWriteSafety(): Unit {
+        let output = TestOutputStream()
+        let tl = TextLogger(output)
+        tl.level = LogLevel.TRACE
+
+        let writeCount = AtomicInt64(0)
+        let expectedWrites = 100
+        let numLoggers = 5
+
+        // Create loggers via withAttrs (they share the same OutputStream)
+        let loggers = ArrayList<Logger>()
+        loggers.add(tl)
+        for (i in 1..numLoggers) {
+            loggers.add(tl.withAttrs([("thread", "${i}")]))
+        }
+
+        // Concurrently write from all loggers
+        let futures = ArrayList<Future<Unit>>()
+        for (i in 0..numLoggers) {
+            let logger = loggers[i]
+            let futures2 = spawn {
+                for (j in 0..expectedWrites / numLoggers) {
+                    logger.info("thread_${i}_msg_${j}")
+                    _ = writeCount.fetchAdd(1)
+                }
+            }
+            futures.add(futures2)
+        }
+
+        // Wait for all threads to complete
+        for (f in futures) {
+            f.get()
+        }
+
+        // Verify all writes completed
+        @Expect(writeCount.load() == expectedWrites)
+
+        // Verify output contains messages from all threads
+        let outputStr = output.toString()
+        for (i in 0..numLoggers) {
+            @Expect(outputStr.contains("thread_${i}_"))
+        }
+
+        tl.close()
+    }
+
+    // Test case 3: CommonLogger withAttrs concurrent close safety
+    // Verifies that concurrent close calls from multiple loggers (created via withAttrs, sharing the same OutputStream) don't crash
+    @TestCase
+    func testCommonLoggerWithAttrsConcurrentCloseSafety(): Unit {
+        let output = TestOutputStream()
+        let tl = TextLogger(output)
+        tl.level = LogLevel.TRACE
+
+        // Write some messages first
+        tl.info("initial message")
+
+        // Create loggers via withAttrs (they share the same OutputStream)
+        let numLoggers = 10
+        let loggers = ArrayList<Logger>()
+        loggers.add(tl)
+        for (i in 1..numLoggers) {
+            loggers.add(tl.withAttrs([("id", "${i}")]))
+        }
+
+        let closeCount = AtomicInt64(0)
+
+        // Concurrently close all loggers
+        let futures = ArrayList<Future<Unit>>()
+        for (i in 0..numLoggers) {
+            let logger = loggers[i]
+            let f = spawn {
+                logger.close()
+                _ = closeCount.fetchAdd(1)
+            }
+            futures.add(f)
+        }
+
+        // Wait for all close operations
+        for (f in futures) {
+            f.get()
+        }
+
+        // Verify all close calls completed without crashing
+        @Expect(closeCount.load() == numLoggers)
+
+        // Verify final closed state is consistent
+        @Expect(tl.isClosed())
+        for (i in 0..numLoggers) {
+            @Expect(loggers[i].isClosed())
+        }
+
+        // Verify output contains the initial message
+        let outputStr = output.toString()
+        @Expect(outputStr.contains("initial message"))
+
+        // Test with JsonLogger as well
+        let output2 = TestOutputStream()
+        let jl = JsonLogger(output2)
+        jl.level = LogLevel.TRACE
+
+        jl.info("json initial message")
+
+        let jlLogger1 = jl.withAttrs([("id", "1")])
+        let jlLogger2 = jl.withAttrs([("id", "2")])
+
+        let f1 = spawn {jlLogger1.close()}
+        let f2 = spawn {jlLogger2.close()}
+        let f3 = spawn {jl.close()}
+
+        f1.get()
+        f2.get()
+        f3.get()
+
+        @Expect(jl.isClosed())
+        @Expect(jlLogger1.isClosed())
+        @Expect(jlLogger2.isClosed())
+
+        let outputStr2 = output2.toString()
+        @Expect(outputStr2.contains("json initial message"))
     }
 }
 
