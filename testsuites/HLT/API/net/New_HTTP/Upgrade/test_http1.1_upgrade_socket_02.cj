@@ -49,9 +49,6 @@ class Test_Upgrade_Body {
         let (_, conn) = client.upgrade(request)
 
         sendRequest()
-        client.close()
-        server.close()
-
         conn?.readTimeout = Duration.second * 3
         let buf = Array<UInt8>(16 * 1024, repeat: 0)
         let allBody = ArrayList<UInt8>()
@@ -65,8 +62,10 @@ class Test_Upgrade_Body {
             }
         }
         @Expect(allBody.toArray(), arrbody)
+        client.close()
         conn?.close()
         conn?.close()
+        server.close()
     }
 
     func startServer() {
