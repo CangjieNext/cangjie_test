@@ -413,6 +413,19 @@ class SerializableTest {
     }
 
     /*
+     * Test description: Test extend Rune<: Serializable ::serialization with non-ASCII character
+     * Test API:
+     * func serialize(): DataModel
+     * static func deserialize(dm: DataModel): T
+     */
+    @TestCase
+    func testSerializableAndDeserializeRuneNonASCII(): Unit {
+        @Expect(Rune.deserialize(r'中'.serialize()),r'中')
+        @Expect(Rune.deserialize(r'あ'.serialize()),r'あ')
+        @Expect(Rune.deserialize(r'😊'.serialize()),r'😊')
+    }
+
+    /*
      * Test description: Test extend Rune<: Serializable ::serialization
      * Test API:
      * static func deserialize(dm: DataModel): T
