@@ -21,5 +21,13 @@ var a = 23
 
 main() {}
 
-// (CJNATIVE) ASSERT: scan [compilerAdd] Func @_CAF7default3fooHv() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "loc.cj"
-// (CJNATIVE) ASSERT: scan [compilerAdd] Func @_CAF7default1aE() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "loc.cj"
+// ASSERT: regex \[compilerAdd\] Func @_CAF7default3fooHv\(\): Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // loc: "loc.cj"-16-1, .*kind: annoFactory
+// ASSERT: regex \[compilerAdd\] Func @_CAF7default1aE\(\): Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // loc: "loc.cj"-19-1, .*kind: annoFactory
+
+// ASSERT: regex-begin @AnnoFactoryFunc: _CAF7default1aE
+// ASSERT: regex-next @Anno // loc: "loc.cj"-19-1, .*
+// ASSERT: regex-next .*@_CN7default1aE: Int64& = 23i // loc: "loc.cj"-20-1, .*
+
+// ASSERT: regex-begin @AnnoFactoryFunc: _CAF7default3fooHv
+// ASSERT: regex-next @Anno // loc: "loc.cj"-16-1, .*
+// ASSERT: regex-next .*Func @_CN7default3fooHv\(\): Unit // loc: "loc.cj"-17-1, .*
