@@ -6,10 +6,10 @@
 
 // EXEC: %compiler %cmp_opt %n.cj %dumpCHIRDebug
 // EXEC: %cat default_CHIR/[0-9]*_ClosureConversion.chirtxt | compare %n.cj
-// ASSERT: scan Func @_CGV7default3aaaHv() : Void
-// ASSERT: scan Func @_CGV7default3bbbHv() : Void
-// ASSERT: scan Func @_CGF7defaultU00000000IrhyTiiHv() : Void
-// ASSERT: scan Func @_CGP7defaultiiHv() : Void
+// ASSERT: scan Func @_CGV7default3aaaHv(): Void
+// ASSERT: scan Func @_CGV7default3bbbHv(): Void
+// ASSERT: scan Func @_CGF7defaultU00000000IrhyTiiHv(): Void
+// ASSERT: scan Func @_CGP7defaultiiHv(): Void
 // ASSERT: scan Void = Apply(@_CGV7default3aaaHv)
 // ASSERT: scan Void = Apply(@_CGV7default3bbbHv)
 

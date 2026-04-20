@@ -23,6 +23,6 @@ main() {
     0
 }
 
-// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default8Weekday1E() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno04.cj"-16-1
-// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default8Weekday11AKE() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno04.cj"-18-7
-// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default8Weekday11BHi() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno04.cj"-19-7
+// ASSERT: regex \[static\] \[compileTimeVal\] \[compilerAdd\] Func @_CAF7default8Weekday1E\(\): Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // loc: "testAnno04.cj"-16-1, .*kind: annoFactory
+// ASSERT: regex \[static\] \[compileTimeVal\] \[compilerAdd\] Func @_CAF7default8Weekday11AKE\(\): Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // loc: "testAnno04.cj"-18-7, .*kind: annoFactory
+// ASSERT: regex \[static\] \[compileTimeVal\] \[compilerAdd\] Func @_CAF7default8Weekday11BHi\(\): Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // loc: "testAnno04.cj"-19-7, .*kind: annoFactory

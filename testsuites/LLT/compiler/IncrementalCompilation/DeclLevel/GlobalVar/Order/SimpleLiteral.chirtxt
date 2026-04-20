@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ASSERT: scan #from <default> import [private] [imported] [noReflectInfo] [nonRecompile] @_CN7defaultU00000003D3p3C2daHv(): () -> Int64
-// ASSERT: scan #from <default> import [imported] [internal] [nonRecompile] @_CN7default1aE: Int64&
-// ASSERT: scan #from <default> import [imported] @_CGV7default2f1Hv
-// ASSERT: scan-not #from <default> import [imported] @_CN7default1aE: () -> Void // kind: globalVarInit
+// ASSERT: scan [private] [imported] [noReflectInfo] [nonRecompile] Func @_CN7defaultU00000003D3p3C2daHv(): Int64
+// ASSERT: scan [imported] [internal] [nonRecompile] @_CN7default1aE: Int64&
+// ASSERT: scan [imported] Func @_CGV7default2f1Hv
+// ASSERT: scan-not [imported] @_CN7default1aE: () -> Void // kind: globalVarInit
 
 // ASSERT: scan-begin [compilerAdd] [noReflectInfo] [noInline] [initializer] Func @_CGF7defaultU00000003D3p3CiiHv()
 // ASSERT: scan-after {

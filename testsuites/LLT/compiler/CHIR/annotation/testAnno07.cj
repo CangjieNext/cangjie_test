@@ -25,4 +25,4 @@ main() {
     0
 }
 
-// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default2C04v123E() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno07.cj"-20-5
+// ASSERT: regex \[static\] \[compileTimeVal\] \[compilerAdd\] Func @_CAF7default2C04v123E\(\): Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // loc: "testAnno07.cj"-20-5, .*kind: annoFactory

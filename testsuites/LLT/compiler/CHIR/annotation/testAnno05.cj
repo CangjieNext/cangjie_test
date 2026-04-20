@@ -32,5 +32,5 @@ main() {
     0
 }
 
-// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default1AE() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno05.cj"-21-1
-// ASSERT: scan [static] [compileTimeVal] [compilerAdd] Func @_CAF7default1B6<init>Hv() : Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // kind: annoFactory, loc: "testAnno05.cj"-26-5
+// ASSERT: regex \[static\] \[compileTimeVal\] \[compilerAdd\] Func @_CAF7default1AE\(\): Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // loc: "testAnno05.cj"-21-1, .*kind: annoFactory
+// ASSERT: regex \[static\] \[compileTimeVal\] \[compilerAdd\] Func @_CAF7default1B6<init>Hv\(\): Struct-_CNat5ArrayIG_E<Class-_CNat6ObjectE&> // loc: "testAnno05.cj"-26-5, .*kind: annoFactory
