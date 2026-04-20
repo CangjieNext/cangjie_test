@@ -69,3 +69,27 @@ public macro MtoStruct2(input: Tokens) {
 public macro MaddDecl(input: Tokens) {
     input + quote(;var a = 1)
 }
+
+public macro WeavedController(input: Tokens): Tokens {
+    quote(
+        @Bean
+        @Pointcut
+        $input
+    )
+}
+
+public macro Bean(input: Tokens): Tokens {
+    return input
+}
+
+public macro Pointcut(input: Tokens): Tokens {
+    return input
+}
+
+public macro GenerateAnnoMac(input: Tokens): Tokens { 
+    return quote(
+        @LogWithLevel[11]
+        @M0
+        $input
+    )
+}
