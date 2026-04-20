@@ -6,10 +6,10 @@
 
 // EXEC-PIPE-0: %frontendCompiler %chir2llvm %dumpCHIRDebug  %f -o %n.%suffix 2>&1
 // (not Windows) EXEC-PIPE-0: %cat %n\_CHIR/[0-9]*\_AST\_CHIR.chirtxt | %grep blackBox | compare %f
-// (not Windows) ASSERT: regex-6 Intrinsic\/blackBox<Int64>\(.*\)
-// (not Windows) ASSERT: regex-2 Intrinsic\/blackBox<Struct-_CN7default2SAE>\(.*\)
-// (not Windows) ASSERT: regex-2 Intrinsic\/blackBox<Class-_CN7default2CAE&>\(.*\)
-// (not Windows) ASSERT: regex-2 Intrinsic\/blackBox<\(\) -> Int64>\(.*\)
+// (not Windows) ASSERT: regex-6 Intrinsic\(blackBox<Int64>, .*\)
+// (not Windows) ASSERT: regex-2 Intrinsic\(blackBox<Struct-_CN7default2SAE>, .*\)
+// (not Windows) ASSERT: regex-2 Intrinsic\(blackBox<Class-_CN7default2CAE&>, .*\)
+// (not Windows) ASSERT: regex-2 Intrinsic\(blackBox<\(\) -> Int64>, .*\)
  
 import std.runtime.*
  

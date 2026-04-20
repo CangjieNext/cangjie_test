@@ -6,7 +6,7 @@
 
 // EXEC: %compiler %cmp_opt %n.cj %dumpCHIRDebug | true
 // EXEC: %cat default_CHIR/[0-9]*_ClosureConversion.chirtxt | compare %n.cj
-// ASSERT: scan Func @_CAO7default1BEK_iiHv() : Void
+// ASSERT: scan Func @_CAO7default1BEK_iiHv(): Void
 // ASSERT: scan Void = Apply(@_CAO7default1BEK_iiHv)
 
 const func myTarget(x: Int64) {
