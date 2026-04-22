@@ -17,6 +17,7 @@ cjdb,cjdb --no-use-colors std_test,std_test
 b,b 153,std_test.cj:153
 AOT r,r,-> 153
 CJVM c,c,
+AOT b,breakpoint disable,
 s,s,-> 154
 s,s,-> 155
 s,s,-> 156
