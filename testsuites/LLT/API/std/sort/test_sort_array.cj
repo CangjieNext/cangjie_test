@@ -76,6 +76,11 @@ class arraySortTest {
                 @Assert(arr[j], arr1[j])
             }
         }
+        let arr3 = [(1, 0), (1, 1), (0, 2)]
+        sort(arr3, key: {x => x[0]}, stable: true)
+        @Assert(arr3[0][1], 2)
+        @Assert(arr3[1][1], 0)
+        @Assert(arr3[2][1], 1)
     }
 
     @TestCase
