@@ -3121,3 +3121,4 @@ compiler/Parser/new_package/new_package_err_9.cj
 compiler/Parser/new_package/new_package_err_10.cj
 compiler/Sema/unusedImport/unusedImport001/unused019/unused019.cj
 compiler/CodegenCJNative/compitability/org_name/main.cj
+compiler/CodegenCJNative/option/compatible_sdk_version.cj
