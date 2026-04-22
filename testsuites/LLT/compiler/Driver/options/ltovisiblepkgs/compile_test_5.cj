@@ -1,0 +1,12 @@
+package tmp_test
+
+// LEVEL: 1
+// DEPENDENCE: lib1.cj
+// DEPENDENCE: lib2.cj
+// EXEC: %compiler %cmp_opt %compile_lib_opt --lto=full lib2.cj -o lib2.bc
+// EXEC-1: %compiler --lto-keep-pkg-visibility="lib1"  %cmp_opt %compile_shared_lib_opt lib1.cj lib2.bc -o lib.so 
+// ASSERT: regex error: --lto-keep-pkg-visibility only takes effect when lto mode is enabled
+
+main(): Int64 {
+    return 0
+}
