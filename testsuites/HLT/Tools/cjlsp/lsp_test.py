@@ -180,9 +180,9 @@ class RunTestcase:
                 expt_all_keys = list(set(expt_all_keys) - set(expt_all_keys).intersection(set(self.ignore_sort_key)))
                 expt_all_keys = sorted(expt_all_keys)
                 if len(recv_all_keys) > 0:
-                    recv_json = sorted(recv_json, key=itemgetter(*recv_all_keys))
+                    recv_json = sorted(recv_json, key=lambda x: json.dumps(x, sort_keys=True))
                 if len(expt_all_keys) > 0:
-                    expected_json = sorted(expected_json, key=itemgetter(*expt_all_keys))
+                    expected_json = sorted(expected_json, key=lambda x: json.dumps(x, sort_keys=True))
 
                 for src_list, dst_list in zip(recv_json, expected_json):
                     self.json_compare(src_list, dst_list, key)
@@ -432,6 +432,26 @@ class RunTestcase:
             uri_path = "file:///" + uri_path
         return uri_path
 
+    def replace_changes_uri_key(self, json_object):
+        """
+        将"changes"中key值换成绝对路径的uri，与uri补齐逻辑一致
+        """
+        old_keys = list(json_object.keys())
+        for key in old_keys:
+            if self.include_ignore_uri(key):
+                continue
+            if key.startswith("file://"):
+                decoded_path = urllib.parse.unquote(key[7:] if self.platform else key[8:])
+                uri_path = self.get_uri_path(decoded_path)
+            else:
+                uri_path = urllib.parse.quote(os.path.abspath(key).replace("\\", '/'))
+                uri_path = uri_path[0].lower() + uri_path[1:]
+                if self.platform:
+                    uri_path = "file://" + uri_path
+                else:
+                    uri_path = "file:///" + uri_path
+            json_object[uri_path] = json_object.pop(key)
+
     def get_multi_module_option(self, json_object):
         """
         将"multiModuleOption"中key值换成绝对路径的uri
@@ -448,8 +468,12 @@ class RunTestcase:
         :param search_key: 需要处理的key的列表
         :return: 处理后的json_object
         """
+        if isinstance(json_object, dict) and 'multiModuleOption' in json_object:
+            self.get_multi_module_option(json_object['multiModuleOption'])
         key_value_iter = ()
         if isinstance(json_object, dict):
+            if 'changes' in json_object:
+                self.replace_changes_uri_key(json_object['changes'])
             key_value_iter = (x for x in json_object.items())
         elif isinstance(json_object, list):
             key_value_iter = (x for x in enumerate(json_object))
@@ -474,8 +498,6 @@ class RunTestcase:
 
             if isinstance(value, (dict, list)):
                 self.modify_json_key(value, search_key)
-        if isinstance(json_object, dict) and 'multiModuleOption' in json_object:
-            self.get_multi_module_option(json_object['multiModuleOption'])
         return json.dumps(json_object, separators=(',', ':'))
 
     def include_ignore_uri(self, uri):
