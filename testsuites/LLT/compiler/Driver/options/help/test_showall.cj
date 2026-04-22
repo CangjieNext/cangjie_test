@@ -46,6 +46,8 @@ Options:
     <value>=full                
     <value>=thin                
   --compile-as-exe            Hide symbols from bitcode files in LTO mode, and only the package init symbols remain visible
+  --lto-keep-pkg-visibility <value>
+                              Specify packages that remain visible in LTO mode. Use "" to hide all packages
   --profile-compile-time      Print time spent of all phases in the compilation
   --profile-compile-memory    Print memory usage of all phases in the compilation
   --enable-eh                 Enables experimental support for effect handlers (Experimental)
