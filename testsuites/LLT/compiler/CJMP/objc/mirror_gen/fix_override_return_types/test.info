@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+// DEPENDENCE: ../test.toml test.h
+// EXEC: ObjCInteropGen test.toml
+// EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+@ObjCMirror
+public open class Base {
+    public open func f0(): ?Base
+    public open func f1(): Base
+    public open func f2(): ?Base
+    public open func f3(): Base
+    public open func f4(): ?Base
+    public open func f5(): Base
+}
+
+@ObjCMirror
+public open class M <: Base {
+    public open func f0(): ?Base
+    public open func f1(): Base
+    public open func f2(): ?Base
+    public open func f3(): M
+    public open func f4(): ?Base
+    public open func f5(): Base
+}
+*/
