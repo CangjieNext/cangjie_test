@@ -11,7 +11,7 @@
 // 当前使用atexit返回值是77
 // (enablefuzz and CJNATIVE and Unix) EXEC-77: %set_stdx_path %run %set_stdx_path %run_opt %n.%suffix -seed=12345 -use_cmp=1
 
-import stdx.fuzz.fuzz.*
+import stdx.fuzz.*
 
 @FastNative
 foreign func memcpy_s(dest: CPointer<UInt8>, destMax: UIntNative, src: CPointer<UInt8>, count: UIntNative): Int32

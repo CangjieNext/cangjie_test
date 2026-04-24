@@ -9,7 +9,7 @@
 // (CJNATIVE and Unix) EXEC: %clang -c -fPIC mock_libfuzzer.c -o mock_libfuzzer.o
 // (CJNATIVE and Unix) EXEC: %compiler %import-stdx-fuzz %cmp_opt -o %n.%suffix %f mock_libfuzzer.o
 // (CJNATIVE and Unix) EXEC: %set_stdx_path %run %n.%suffix
-import stdx.fuzz.fuzz.FuzzDataProvider
+import stdx.fuzz.FuzzDataProvider
 
 @FastNative
 foreign func CJ_fix_to_utf8(data: CPointer<UInt8>, dataLen: Int64): Int64

@@ -11,7 +11,7 @@
 // (CJNATIVE and Unix) EXEC: %set_stdx_path %run %n.%suffix 2>&1 | compare %f
 // (CJNATIVE and Unix) ASSERT: scan [WARNING]: Detect uncatched exception, maybe caused by bugs, exit now
 // (CJNATIVE and Unix) ASSERT: scan TRAP
-import stdx.fuzz.fuzz.*
+import stdx.fuzz.*
 
 main() {
     Fuzzer(ttt).startFuzz()
