@@ -17,7 +17,7 @@ cjdb,cjdb --no-use-colors coroutine_7,coroutine_7
 b,b 15,coroutine_7.cj:15
 AOT r,r,-> 15
 CJVM c,c,
-cjthread,cjthread list,cjthread #1 state: running
+cjthread,cjthread list,tid = 1, state
 n,n,-> 16
-cjthread,cjthread list,cjthread #1 state: running
+cjthread,cjthread list,tid = 1, state = running
 q,quit,
