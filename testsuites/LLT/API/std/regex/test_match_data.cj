@@ -64,4 +64,34 @@ public class MatcheDataTest {
         }
         asanGC()
     }
+
+    @TestCase
+    func testGroupCountShouldBeFixed() {
+        let str = "ab"
+        let r = Regex("(?<x>a)|(?<y>b)")
+        let results = r.findAll(str, group: true)
+        @Assert(results.size, 2)
+        let md1 = results[0]
+        @Assert(md1.matchString(), "a")
+        @Assert(md1.groupCount(), 2)
+        let pos0 = md1.matchPosition(0)
+        let pos1 = md1.matchPosition(1)
+        @Assert(md1.matchString(2), "")
+        let pos2 = md1.matchPosition(2)
+        let posX = md1.matchPosition("x")
+        @Assert(md1.matchString("y"), "")
+        let posY = md1.matchPosition("y")
+        let md2 = results[1]
+        @Assert(md2.matchString(), "b")
+        @Assert(md2.groupCount(), 2)
+        let pos0_b = md2.matchPosition(0)
+        @Assert(md2.matchString(1), "")
+        let pos1_b = md2.matchPosition(1)
+        @Assert(md2.matchString(2), "b")
+        let pos2_b = md2.matchPosition(2)
+        @Assert(md2.matchString("x"), "")
+        let posX_b = md2.matchPosition("x")
+        @Assert(md2.matchString("y"), "b")
+        let posY_b = md2.matchPosition("y")
+    }
 }
