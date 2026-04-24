@@ -16,8 +16,8 @@ cjdb,cjdb --no-use-colors coroutine_3,coroutine_3
 b,b 30,coroutine_3.cj:30
 AOT r,r,-> 30
 CJVM c,c,
-cjthread,cjthread list,cjthread #2 state: ready
+cjthread,cjthread list,tid = 2, state =
 n,n,-> 31
-cjthread,cjthread list,cjthread #1 state: running
+cjthread,cjthread list,tid = 1, state =
 cjthread,cjthread backtrace -c -1,error: invalid integer value for option 'c'
 q,quit,

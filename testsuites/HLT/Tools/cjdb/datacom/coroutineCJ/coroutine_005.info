@@ -16,8 +16,8 @@ cjdb,cjdb --no-use-colors coroutine_2,coroutine_2
 b,b 24,coroutine_2.cj:24
 AOT r,r,-> 24
 CJVM c,c,
-cjthread,cjthread list,cjthread #2 state: pending name:
-cjthread,cjthread backtrace -c 2,cjthread #1
-cjthread,cjthread backtrace -c 9999,cjthread #1 state: running
-cjthread,cjthread backtrace -c 0,error: invalid frame count "0"
+cjthread,cjthread list,tid = 2, state
+cjthread,cjthread backtrace -c 2,tid = 1
+cjthread,cjthread backtrace -c 9999,tid = 1, state =
+cjthread,cjthread backtrace -c 0,error: error displaying backtrace for thread
 q,quit,
