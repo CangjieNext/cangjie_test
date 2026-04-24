@@ -12,7 +12,7 @@
 // 测试fuzz主流程，当前使用atexit返回值是77
 // (CJNATIVE and Unix) EXEC-77: %set_stdx_path %run %set_stdx_path %run_opt %n.%suffix -seed=12345
 
-import stdx.fuzz.fuzz.*
+import stdx.fuzz.*
 
 main() {
     Fuzzer(ttt).startFuzz()

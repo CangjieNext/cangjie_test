@@ -9,7 +9,7 @@
 // (CJNATIVE and Unix) EXEC: %clang -c -fPIC mock_libfuzzer.c -o mock_libfuzzer.o
 // (CJNATIVE and Unix) EXEC: %compiler %import-stdx-fuzz %cmp_opt -o %n.%suffix %f mock_libfuzzer.o
 // (CJNATIVE and Unix) EXEC: %set_stdx_path %run %n.%suffix
-import stdx.fuzz.fuzz.*
+import stdx.fuzz.*
 
 main(): Int32 {
     let data = Array<UInt8>(1024, {i => UInt8(i & 0xFF)})
