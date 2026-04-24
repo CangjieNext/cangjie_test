@@ -12,7 +12,8 @@
 /* SCAN-IN
 @C
 public struct M {
-    public var a: Int8 = 0
-    public var b: Int8 = 0
+    public var x: Int8 = 0
+    public var y: Int8 = 0
+    public var z: Int8 = 0
 }
 */
