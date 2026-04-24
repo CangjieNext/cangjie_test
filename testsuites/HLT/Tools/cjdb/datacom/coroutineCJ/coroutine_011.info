@@ -21,12 +21,12 @@ s,s,-> 19
 n,n,-> 32
 n,n,-> 33
 p,p returnList[0][1],\(std[.]core.String\) \$[\d] = "Cangjie"
-cjthread,cjthread list,state:
+cjthread,cjthread list,state
 finish,finish,-> 14
 n,n,-> 16
 b,b 20,coroutine_8.cj:20
 c,c,-> 20
-cjthread,cjthread list,state: pending
+cjthread,cjthread list,state
 n,n,-> 21
 b,b func_1,p3_file.cj:38
 c,c,-> 38

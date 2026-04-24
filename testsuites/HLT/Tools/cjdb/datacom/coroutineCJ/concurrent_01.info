@@ -16,6 +16,7 @@ cjdb,cjdb --no-use-colors concurrent_01,concurrent_01
 b,b 24,concurrent_01.cj:24
 AOT r,r,-> 24
 CJVM c,c,
+AOT break,breakpoint disable,
 n,n,-> 25
 n,n,-> 26
 c,c,with status = 0
