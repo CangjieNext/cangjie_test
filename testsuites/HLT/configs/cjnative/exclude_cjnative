@@ -60,10 +60,3 @@ compiler/cjnative/FFI/objcffi/glue_code/cj_impl
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
-
-#cjdb 
-Tools/cjdb/datacom/conditionBP_expression/
-Tools/cjdb/datacom/past_conditionBP/
-Tools/cjdb/datacom/coroutineCJ/
-Tools/cjdb/datacom/case/case34.info
-Tools/cjdb/datacom/case/case32.info
