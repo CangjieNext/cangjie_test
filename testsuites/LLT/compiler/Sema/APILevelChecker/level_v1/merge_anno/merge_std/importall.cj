@@ -6,7 +6,7 @@
 
 // DEPENDENCE: ../../apilevel.cj ./std
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
-// ERRCHECK: %compiler %cmp_opt --import-path ./std/ %f apilevel.%middle --cfg=APILevel_level=11 -Woff all
+// ERRCHECK: %compiler %cmp_opt --import-path ./std/ %f apilevel.%middle --cfg=APILevel_level=31 -Woff all
 
 import std.argopt.*
 import std.ast.*
@@ -53,7 +53,7 @@ main() {
 }
 
 /* SCAN
-error: cannot reference 'ArgOpt'(level: 12) which higher than level of the current scope(level: 11)
+error: cannot reference 'ArgOpt'(level: 32) which higher than level of the current scope(level: 31)
   ==> importall.cj:51:5:
    | 
 51 |     ArgOpt()

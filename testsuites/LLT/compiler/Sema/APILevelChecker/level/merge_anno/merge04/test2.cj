@@ -7,7 +7,7 @@
 // DEPENDENCE: ../../apilevel.cj dep2.cj dep.cj.d
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.%middle dep2.cj -o dep.%middle
-// EXEC: %compiler %cmp_opt %f dep.%middle apilevel.%middle --cfg=APILevel_level=11
+// EXEC: %compiler %cmp_opt %f dep.%middle apilevel.%middle --cfg=APILevel_level=31
 
 import dep.*
 

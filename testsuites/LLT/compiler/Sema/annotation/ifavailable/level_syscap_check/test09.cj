@@ -7,17 +7,17 @@
 // DEPENDENCE: apilevel.cj canIUse.cj device_info.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt device_info.cj -o device_info.%middle
-// ERRCHECK: %compiler %noColor %cmp_opt_chir2hlir %f device_info.%middle -o %output --cfg=APILevel_level=10
+// ERRCHECK: %compiler %noColor %cmp_opt_chir2hlir %f device_info.%middle -o %output --cfg=APILevel_level=30
 
 import ohos.device_info.*
 import ohos.labels.*
 
-@APILevel[since: "19"]
+@APILevel[since: "39"]
 public func foo() {}
 
-@APILevel[since: "18"]
+@APILevel[since: "38"]
 public func goo() {
-    let a = @IfAvailable(level: 19, {=>
+    let a = @IfAvailable(level: 39, {=>
         foo()
     }, {=>
         foo()
@@ -27,7 +27,7 @@ public func goo() {
 main() {}
 
 /* SCAN
-error: cannot reference 'foo'(level: 19) which higher than level of the current scope(level: 18)
+error: cannot reference 'foo'(level: 39) which higher than level of the current scope(level: 38)
   ==> test09.cj:23:9:
    | 
 23 |         foo()

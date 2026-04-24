@@ -7,61 +7,61 @@
 package std.core
 
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public enum AnnotationKind {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     Type |
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     Parameter |
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     Init |
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     MemberProperty |
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     MemberFunction |
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     MemberVariable |
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     EnumConstructor |
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     GlobalFunction |
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     GlobalVariable |
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     Extension |
     ...
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public open class ArithmeticException <: Exception {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
 }
 
 @ConstSafe
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public struct Array<T> {
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const init()
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(size: Int64, repeat!: T)
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(size: Int64, initElement: (Int64) -> T)
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public prop first: Option<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public prop last: Option<T>
     
     /**
@@ -70,11 +70,11 @@ public struct Array<T> {
     *         or `start + len` is greater than the size of array.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func slice(start: Int64, len: Int64): Array<T>
     
     @OverflowWrapping@Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func get(index: Int64): Option<T>
     
     /**
@@ -82,7 +82,7 @@ public struct Array<T> {
     *         greater than or equal to the size of array.
     */
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func [](index: Int64): T
     
     /**
@@ -90,7 +90,7 @@ public struct Array<T> {
     *         greater than or equal to the size of array.
     */
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func [](index: Int64, value!: T): Unit
     
     /**
@@ -98,11 +98,11 @@ public struct Array<T> {
     * @throws IndexOutOfBoundsException if the `range` is invalid for this array.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func [](range: Range<Int64>): Array<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func fill(value: T): Unit
     
     /**
@@ -111,24 +111,24 @@ public struct Array<T> {
     * @throws IndexOutOfBoundsException if `range` is invalid for this array.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func [](range: Range<Int64>, value!: Array<T>): Unit
     
     /** Reverse array elements in place. */
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func reverse(): Unit
     
     /** Dummy function, used for function overloading check. */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func clone(): Array<T>
     
     /*
     * @throws IndexOutOfBoundsException if the `range` is invalid for this array.
     */
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func clone(range: Range<Int64>): Array<T>
     
     /*
@@ -138,11 +138,11 @@ public struct Array<T> {
     *         the size of `dst`, or `copyLen` is out of bounds.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func copyTo(dst: Array<T>, srcStart: Int64, dstStart: Int64, copyLen: Int64): Unit
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func copyTo(dst: Array<T>): Unit
     
     /*
@@ -153,37 +153,37 @@ public struct Array<T> {
     * returns a new array, size is `this.size + that.size`
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func concat(other: Array<T>): Array<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func swap(index1: Int64, index2: Int64): Unit
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func splitAt(mid: Int64): (Array<T>, Array<T>)
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func repeat(n: Int64): Array<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func map<R>(transform: (T) -> R): Array<R>
 }
 
 extend<T> Array<Array<T>> {
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func flatten(): Array<T>
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend<T> Array<T> <: Collection<T> {
     /** Returns an iterator over the elements in this Array in proper sequence. */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func iterator(): Iterator<T>
     
     /**
@@ -191,37 +191,37 @@ extend<T> Array<T> <: Collection<T> {
     * Only call based on 'Collection' type will use this function.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public prop size: Int64
     
     /** Returns true if this Array contains no elements. */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isEmpty(): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toArray(): Array<T>
 }
 
 extend<T> Array<T> <: ToString where T <: ToString {
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
 @ConstSafe
 extend<T> Array<T> <: Equatable<Array<T>> where T <: Equatable<T> {
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator const func ==(that: Array<T>): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator const func !=(that: Array<T>): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func contains(element: T): Bool
     
     /**
@@ -233,7 +233,7 @@ extend<T> Array<T> <: Equatable<Array<T>> where T <: Equatable<T> {
     * @throws IllegalArgumentException - If the start less than 0.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func indexOf(element: T): Option<Int64>
     
     /**
@@ -246,7 +246,7 @@ extend<T> Array<T> <: Equatable<Array<T>> where T <: Equatable<T> {
     * @throws IllegalArgumentException - If the start less than 0.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func indexOf(element: T, fromIndex: Int64): Option<Int64>
     
     /**
@@ -258,7 +258,7 @@ extend<T> Array<T> <: Equatable<Array<T>> where T <: Equatable<T> {
     * @throws IllegalArgumentException - If the start less than 0.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func indexOf(elements: Array<T>): Option<Int64>
     
     /**
@@ -270,23 +270,23 @@ extend<T> Array<T> <: Equatable<Array<T>> where T <: Equatable<T> {
     * @throws IllegalArgumentException - If the start less than 0.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func indexOf(elements: Array<T>, fromIndex: Int64): Option<Int64>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func lastIndexOf(element: T): Option<Int64>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func lastIndexOf(element: T, fromIndex: Int64): Option<Int64>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func lastIndexOf(elements: Array<T>): Option<Int64>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func lastIndexOf(elements: Array<T>, fromIndex: Int64): Option<Int64>
     
     /**
@@ -297,7 +297,7 @@ extend<T> Array<T> <: Equatable<Array<T>> where T <: Equatable<T> {
     * @return The slice of the src.
     */
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func trimStart(set: Array<T>): Array<T>
     
     /**
@@ -308,7 +308,7 @@ extend<T> Array<T> <: Equatable<Array<T>> where T <: Equatable<T> {
     * @return The slice of the src.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func trimEnd(set: Array<T>): Array<T>
     
     /**
@@ -319,7 +319,7 @@ extend<T> Array<T> <: Equatable<Array<T>> where T <: Equatable<T> {
     * @return The slice of the src.
     */
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func trimStart(predicate: (T) -> Bool): Array<T>
     
     /**
@@ -330,47 +330,47 @@ extend<T> Array<T> <: Equatable<Array<T>> where T <: Equatable<T> {
     * @return The slice of the src.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func trimEnd(predicate: (T) -> Bool): Array<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func removePrefix(prefix: Array<T>): Array<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func removeSuffix(suffix: Array<T>): Array<T>
 }
 
 /**
 * Array-based Iterator.
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class ArrayIterator<T> <: Iterator<T> {
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(data: Array<T>)
     
     /** Returns the next element in the iteration. */
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(): Option<T>
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public struct CPointerHandle<T> where T <: CType {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let pointer: CPointer<T>
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let array: Array<T>
     
     @Deprecated[message: "Use global function `public unsafe func acquireArrayRawData<T>(arr: Array<T>): CPointerHandle<T> where T <: CType` instead."]
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
     @Deprecated[message: "Use global function `public unsafe func acquireArrayRawData<T>(arr: Array<T>): CPointerHandle<T> where T <: CType` instead."]
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(ptr: CPointer<T>, arr: Array<T>)
 }
 
@@ -381,65 +381,65 @@ public struct CPointerHandle<T> where T <: CType {
 * is permitted in case of dead lock
 */
 @Frozen
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public unsafe func acquireArrayRawData<T>(arr: Array<T>): CPointerHandle<T> where T <: CType
 
 @Frozen
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public unsafe func releaseArrayRawData<T>(handle: CPointerHandle<T>): Unit where T <: CType
 
 @Intrinsic
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func intrinsicBuiltInCopyTo<T>(src: RawArray<T>, dst: RawArray<T>, srcStart: Int64, dstStart: Int64, copyLen: Int64): Unit
 
 @Intrinsic
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func arrayGet<T>(rawArr: RawArray<T>, index: Int64): T
 
 @Intrinsic
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func arraySet<T>(rawArr: RawArray<T>, index: Int64, element: T): Unit
 
 @Intrinsic
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func arraySize<T>(rawArr: RawArray<T>): Int64
 
 @Intrinsic
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func arrayClone<T>(rawArr: RawArray<T>): RawArray<T>
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class Box<T> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public var value: T
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(v: T)
 }
 
 extend<T> Box<T> <: Hashable where T <: Hashable {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
 }
 
 extend<T> Box<T> <: Comparable<Box<T>> where T <: Comparable<T> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(that: Box<T>): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(that: Box<T>): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >(that: Box<T>): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <(that: Box<T>): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >=(that: Box<T>): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <=(that: Box<T>): Bool
     
     /**
@@ -450,12 +450,12 @@ extend<T> Box<T> <: Comparable<Box<T>> where T <: Comparable<T> {
     *
     * @since 0.27.3
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(that: Box<T>): Ordering
 }
 
 extend<T> Box<T> <: ToString where T <: ToString {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
@@ -463,96 +463,96 @@ extend UInt8 {
     /**
     * Returns true if this UInt8 is in Ascii letter range.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiLetter(): Bool
     
     /**
     * Returns true if this this UInt8 is in Ascii number range.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiNumber(): Bool
     
     /**
     * Returns true if this this UInt8 is in Ascii hexadecimal range.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiHex(): Bool
     
     /**
     * Returns true if this UInt8 is in ASCII octal digit range.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiOct(): Bool
     
     /**
     * Return true if this UInt8 is in ASCII punctuation range.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiPunctuation(): Bool
     
     /**
     * Return true if this UInt8 is in ASCII graphic character range.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiGraphic(): Bool
     
     /**
     * Return true if this UInt8 is in ASCII control character range.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiControl(): Bool
     
     /**
     * Return true if this UInt8 is in ASCII number or letter range.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiNumberOrLetter(): Bool
     
     /** Returns true if this UInt8 is in Lowercase Ascii letter range. */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiLowerCase(): Bool
     
     /** Returns true if this UInt8 is in Uppercase Ascii letter range. */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiUpperCase(): Bool
     
     /** Returns true if this UInt8 is in Ascii range. */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAscii(): Bool
     
     /** 
     * Returns true if this UInt8 is whitespace.
     * whitespace include HT, LF, VT, FF, CR, SP
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiWhiteSpace(): Bool
     
     /** Returns the uppercase of this UInt8. */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toAsciiUpperCase(): UInt8
     
     /** Returns the lowercase of this UInt8. */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toAsciiLowerCase(): UInt8
 }
 
 extend<T> CPointer<T> where T <: CType {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isNull(): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isNotNull(): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toUIntNative(): UIntNative
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public unsafe func read(): T
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public unsafe func write(value: T): Unit
     
     /**
@@ -560,7 +560,7 @@ extend<T> CPointer<T> where T <: CType {
     * If the pointer is invalid, an undefined error occurs.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public unsafe func read(idx: Int64): T
     
     /**
@@ -568,101 +568,101 @@ extend<T> CPointer<T> where T <: CType {
     * If the pointer is invalid, an undefined error occurs.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public unsafe func write(idx: Int64, value: T): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public unsafe operator func +(offset: Int64): CPointer<T>
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public unsafe operator func -(offset: Int64): CPointer<T>
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func asResource(): CPointerResource<T>
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public struct CPointerResource<T> <: Resource where T <: CType {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let value: CPointer<T>
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isClosed(): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func close(): Unit
 }
 
 extend CString <: ToString {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func getChars(): CPointer<UInt8>
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isNull(): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func size(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isEmpty(): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isNotEmpty(): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func startsWith(prefix: CString): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func endsWith(suffix: CString): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func equals(rhs: CString): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func equalsLower(rhs: CString): Bool
     
     /**
     * @throws IndexOutOfBoundsException if beginIndex is greater than the size of string.
     * @throws IllegalMemoryException if memory malloc or memcpy_s fails.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func subCString(beginIndex: UIntNative): CString
     
     /*
     * @throws IndexOutOfBoundsException if beginIndex is greater than the size of string.
     * @throws IllegalMemoryException if memory malloc or memcpy_s fails.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func subCString(beginIndex: UIntNative, subLen: UIntNative): CString
     
     /*
     * @throws Exception if self is null or str is null
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(str: CString): Int32
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func asResource(): CStringResource
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public struct CStringResource <: Resource {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let value: CString
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isClosed(): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func close(): Unit
 }
 
 // All types which can be used in C FFI implicitly implement the interface,// including Int8, UInt8, Int16, UInt16, Int32, UInt32, Int64, UInt64, IntNative, UIntNative,// Float32, Float64, Bool, Unit, and all @C-modified structs.
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 sealed interface CType {
 }
 
@@ -670,73 +670,73 @@ extend Rune {
     /**
     * Returns true if this Unicode character is an Ascii letter.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiLetter(): Bool
     
     /**
     * Returns true if this Unicode character is an Ascii number.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiNumber(): Bool
     
     /**
     * Returns true if this this Rune is an Ascii hexadecimal number.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiHex(): Bool
     
     /**
     * Returns true if this Rune is an ASCII octal number.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiOct(): Bool
     
     /**
     * Return true if this Rune is an ASCII punctuation.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiPunctuation(): Bool
     
     /**
     * Return true if this Rune is an ASCII graphic character.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiGraphic(): Bool
     
     /**
     * Return true if this Rune is an ASCII control character.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiControl(): Bool
     
     /**
     * Return true if this Rune is an ASCII number or ASCII letter.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiNumberOrLetter(): Bool
     
     /** Returns true if this Unicode character is Lowercase. */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiLowerCase(): Bool
     
     /** Returns true if this Unicode character is Uppercase. */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiUpperCase(): Bool
     
     /** Returns true if this Unicode character is an Ascii code. */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAscii(): Bool
     
     /** Returns true if this Unicode character is whitespace. */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiWhiteSpace(): Bool
     
     /** Returns the uppercase of this Unicode character. */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toAsciiUpperCase(): Rune
     
     /** Returns the lowercase of this Unicode character. */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toAsciiLowerCase(): Rune
     
     /*
@@ -744,11 +744,11 @@ extend Rune {
     *         there is no valid utf8 code among `arr[0] ~ arr[index - 1]`.
     */
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func utf8Size(arr: Array<UInt8>, index: Int64): Int64
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func utf8Size(c: Rune): Int64
     
     /*
@@ -756,7 +756,7 @@ extend Rune {
     * there is no valid utf8 code among arr[0] ~ arr[index - 1].
     */
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func fromUtf8(arr: Array<UInt8>, index: Int64): (Rune, Int64)
     
     /*
@@ -764,14 +764,14 @@ extend Rune {
     *         among `arr[0] ~ arr[index - 1]`.
     */
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func getPreviousFromUtf8(arr: Array<UInt8>, index: Int64): (Rune, Int64)
     
     /*
     * @throws IllegalArgumentException if the character occupies a position beyond the array range
     */
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func intoUtf8Array(c: Rune, arr: Array<UInt8>, index: Int64): Int64
 }
 
@@ -784,7 +784,7 @@ extend Rune <: Comparable<Rune> {
     *
     * @since 0.27.3
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: Rune): Ordering
 }
 
@@ -795,35 +795,35 @@ Some collections allow duplicate elements and others do not.
 Some are ordered and others unordered.
 This interface is typically used to pass collections around and manipulate them where maximum generality is desired.
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface Collection<T> <: Iterable<T> {
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public enum Ordering {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     LT |
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     GT |
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     EQ
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface Less<T> {
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface LessOrEqual<T> {
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface GreaterOrEqual<T> {
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Ordering <: ToString {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
@@ -831,352 +831,352 @@ extend Ordering <: ToString {
 * The relationship between Orderings is: Ordering.LT < Ordering.EQ < Ordering.GT
 */
 extend Ordering <: Comparable<Ordering> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(that: Ordering): Ordering
 }
 
 extend IntNative <: Comparable<IntNative> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: IntNative): Ordering
 }
 
 extend Int64 <: Comparable<Int64> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: Int64): Ordering
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <(rhs: Int64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >(rhs: Int64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <=(rhs: Int64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >=(rhs: Int64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(rhs: Int64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(rhs: Int64): Bool
 }
 
 extend Int32 <: Comparable<Int32> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: Int32): Ordering
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <(rhs: Int32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >(rhs: Int32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <=(rhs: Int32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >=(rhs: Int32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(rhs: Int32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(rhs: Int32): Bool
 }
 
 extend Int16 <: Comparable<Int16> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: Int16): Ordering
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <(rhs: Int16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >(rhs: Int16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <=(rhs: Int16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >=(rhs: Int16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(rhs: Int16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(rhs: Int16): Bool
 }
 
 extend Int8 <: Comparable<Int8> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: Int8): Ordering
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <(rhs: Int8): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >(rhs: Int8): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <=(rhs: Int8): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >=(rhs: Int8): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(rhs: Int8): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(rhs: Int8): Bool
 }
 
 extend UIntNative <: Comparable<UIntNative> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: UIntNative): Ordering
 }
 
 extend UInt64 <: Comparable<UInt64> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: UInt64): Ordering
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <(rhs: UInt64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >(rhs: UInt64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <=(rhs: UInt64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >=(rhs: UInt64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(rhs: UInt64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(rhs: UInt64): Bool
 }
 
 extend UInt32 <: Comparable<UInt32> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: UInt32): Ordering
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <(rhs: UInt32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >(rhs: UInt32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <=(rhs: UInt32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >=(rhs: UInt32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(rhs: UInt32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(rhs: UInt32): Bool
 }
 
 extend UInt16 <: Comparable<UInt16> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: UInt16): Ordering
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <(rhs: UInt16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >(rhs: UInt16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <=(rhs: UInt16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >=(rhs: UInt16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(rhs: UInt16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(rhs: UInt16): Bool
 }
 
 extend UInt8 <: Comparable<UInt8> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: UInt8): Ordering
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <(rhs: UInt8): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >(rhs: UInt8): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <=(rhs: UInt8): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >=(rhs: UInt8): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(rhs: UInt8): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(rhs: UInt8): Bool
 }
 
 extend Float16 <: Comparable<Float16> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: Float16): Ordering
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <(rhs: Float16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >(rhs: Float16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <=(rhs: Float16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >=(rhs: Float16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(rhs: Float16): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(rhs: Float16): Bool
 }
 
 extend Float32 <: Comparable<Float32> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: Float32): Ordering
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <(rhs: Float32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >(rhs: Float32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <=(rhs: Float32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >=(rhs: Float32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(rhs: Float32): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(rhs: Float32): Bool
 }
 
 extend Float64 <: Comparable<Float64> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: Float64): Ordering
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <(rhs: Float64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >(rhs: Float64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <=(rhs: Float64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >=(rhs: Float64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(rhs: Float64): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(rhs: Float64): Bool
 }
 
 @Frozen
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func max<T>(a: T, b: T, others: Array<T>): T where T <: Comparable<T>
 
 @Frozen
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func min<T> (a: T, b: T, others: Array<T>): T where T <: Comparable<T>
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface Greater<T> {
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface Comparable<T> <: Equatable<T> & Less<T> & Greater<T> & LessOrEqual<T> & GreaterOrEqual<T> {
 }
 
@@ -1184,117 +1184,117 @@ public interface Comparable<T> <: Equatable<T> & Less<T> & Greater<T> & LessOrEq
 /**
 * Countable interface
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface Countable<T> {
 }
 
 extend IntNative <: Countable<IntNative> {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func position(): Int64
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(right: Int64): IntNative
 }
 
 extend Int64 <: Countable<Int64> {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func position(): Int64
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(right: Int64): Int64
 }
 
 extend Int32 <: Countable<Int32> {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func position(): Int64
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(right: Int64): Int32
 }
 
 extend Int16 <: Countable<Int16> {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func position(): Int64
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(right: Int64): Int16
 }
 
 extend Int8 <: Countable<Int8> {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func position(): Int64
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(right: Int64): Int8
 }
 
 extend UIntNative <: Countable<UIntNative> {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func position(): Int64
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(right: Int64): UIntNative
 }
 
 extend UInt64 <: Countable<UInt64> {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func position(): Int64
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(right: Int64): UInt64
 }
 
 extend UInt32 <: Countable<UInt32> {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func position(): Int64
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(right: Int64): UInt32
 }
 
 extend UInt16 <: Countable<UInt16> {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func position(): Int64
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(right: Int64): UInt16
 }
 
 extend UInt8 <: Countable<UInt8> {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func position(): Int64
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(right: Int64): UInt8
 }
 
 extend Rune <: Countable<Rune> {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func position(): Int64
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(right: Int64): Rune
 }
 
@@ -1304,66 +1304,66 @@ extend Rune <: Countable<Rune> {
 * Duration provides some common related methods, including static member instances of some common time intervals,
 * calculation and comparison methods of time intervals, and the like.
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public struct Duration <: ToString & Hashable & Comparable<Duration> {
     /*
     * Duration for 1 nanosecond.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static const nanosecond: Duration = Duration(0, 1)
     
     /*
     * Duration for 1 microsecond.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static const microsecond: Duration = Duration(0, 1000u32)
     
     /*
     * Duration for 1 millisecond.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static const millisecond: Duration = Duration(0, 1000000u32)
     
     /*
     * Duration for 1 second.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static const second: Duration = Duration(1, 0)
     
     /*
     * Duration for 1 minute.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static const minute: Duration = Duration(SECS_PER_MINUTE, 0)
     
     /*
     * Duration for 1 hour.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static const hour: Duration = Duration(SECS_PER_HOUR, 0)
     
     /*
     * Duration for 1 day.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static const day: Duration = Duration(SECS_PER_DAY, 0)
     
     /*
     * Duration for 0 nanosecond.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static const Zero: Duration = Duration(0, 0)
     
     /*
     * Duration for 2^63-1 seconds with 999,999,999 nanoseconds.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static const Max: Duration = Duration(MAX_INT64, MAX_NANOSECOND)
     
     /*
     * Duration for -2^63 seconds.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static const Min: Duration = Duration(MIN_INT64, 0)
     
     /**
@@ -1373,7 +1373,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @throws ArithmeticException - if the duration in nanosecond exceeds the range of 'Int64'.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toNanoseconds(): Int64
     
     /**
@@ -1383,7 +1383,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @throws ArithmeticException - if the duration in microsecond exceeds the range of 'Int64'.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toMicroseconds(): Int64
     
     /**
@@ -1393,7 +1393,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @throws ArithmeticException - if the duration in millisecond exceeds the range of 'Int64'.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toMilliseconds(): Int64
     
     /**
@@ -1401,7 +1401,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @return Int64 - Integer size in seconds, rounded up to the smaller absolute value.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toSeconds(): Int64
     
     /**
@@ -1409,7 +1409,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @return Int64 - Integer size in minutes, rounded up to the smaller absolute value.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toMinutes(): Int64
     
     /**
@@ -1417,7 +1417,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @return Int64 - Integer size in hours, rounded up to the smaller absolute value.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toHours(): Int64
     
     /**
@@ -1425,7 +1425,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @return Int64 - Integer size in days, rounded up to the smaller absolute value.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toDays(): Int64
     
     /**
@@ -1437,7 +1437,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     * If the value of a unit is 0, this item is omitted.
     * when the value of all units is 0, "0s" is returned.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
     
     /**
@@ -1445,7 +1445,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @return Int64 - Hash value of the current Duration instance.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
     /**
@@ -1455,7 +1455,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @throws ArithmeticException - If the absolute value is out of range for 'Duration'.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func abs(): Duration
     
     /**
@@ -1468,7 +1468,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @since 0.18.2
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func +(r: Duration): Duration
     
     /**
@@ -1481,7 +1481,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @since 0.18.2
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func -(r: Duration): Duration
     
     /**
@@ -1494,7 +1494,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @since 0.18.2
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func *(r: Int64): Duration
     
     /**
@@ -1508,7 +1508,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @since 0.18.2
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func *(r: Float64): Duration
     
     /**
@@ -1520,7 +1520,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     * @throws IllegalArgumentException - If the value of @p r is 0.
     * @throws ArithmeticException - If the divided value in nanoseconds is out of range for 'Duration'.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func /(r: Int64): Duration
     
     /**
@@ -1532,7 +1532,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     * @throws IllegalArgumentException - If the value of @p r is 0 or NaN(not a number).
     * @throws ArithmeticException - If the divided value in nanoseconds is out of the range for 'Duration'.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func /(r: Float64): Duration
     
     /**
@@ -1543,7 +1543,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @throws IllegalArgumentException - If @p r is Duration.Zero.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func /(r: Duration): Float64
     
     /**
@@ -1554,7 +1554,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @since 0.18.2
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(r: Duration): Bool
     
     /**
@@ -1565,7 +1565,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @since 0.18.2
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(r: Duration): Bool
     
     /**
@@ -1576,7 +1576,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @since 0.18.2
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >=(r: Duration): Bool
     
     /**
@@ -1587,7 +1587,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @since 0.18.2
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func >(r: Duration): Bool
     
     /**
@@ -1598,7 +1598,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @since 0.18.2
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <=(r: Duration): Bool
     
     /**
@@ -1609,7 +1609,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     *
     * @since 0.18.2
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func <(r: Duration): Bool
     
     /**
@@ -1618,7 +1618,7 @@ public struct Duration <: ToString & Hashable & Comparable<Duration> {
     * @param rhs - Another duration instance for comparison
     * @return Ordering - Indicating the relationship between two duration instances.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(rhs: Duration): Ordering
 }
 
@@ -1631,7 +1631,7 @@ extend Int64 {
     *
     * @throws ArithmeticException - If the multiplied value in nanoseconds is out of range for 'Duration'.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func *(r: Duration): Duration
 }
 
@@ -1644,7 +1644,7 @@ extend Float64 {
     *
     * @throws ArithmeticException - If the multiplied value in nanoseconds is out of range for 'Duration'.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func *(r: Duration): Duration
 }
 
@@ -1654,77 +1654,77 @@ extend Float64 {
 * 端序，又称字节序
 *
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public enum Endian {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     Big |
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     Little
     /**
     * 获取当前运行平台的端序
     *
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Platform: Endian
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface Equal<T> {
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface NotEqual<T> {
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface Equatable<T> <: Equal<T> & NotEqual<T> {
 }
 
 extend<T> Range<T> <: Equatable<Range<T>> where T <: Countable<T> & Comparable<T> & Equatable<T> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(that: Range<T>): Bool
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public open class Error <: ToString {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public open prop message: String
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public open func toString(): String
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public open func printStackTrace(): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public open func getStackTraceMessage(): String
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func getStackTrace(): Array<StackTraceElement>
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public open class Exception <: ToString {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public open prop message: String
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public open func toString(): String
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func printStackTrace(): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func getStackTrace(): Array<StackTraceElement>
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Float64 {
     /**
     * @brief 从 IEEE 754 二进制值转换成 Float64 值
@@ -1732,7 +1732,7 @@ extend Float64 {
     * @return Float64 值
     *
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func fromBits(bits: UInt64): Float64
     
     /**
@@ -1741,11 +1741,11 @@ extend Float64 {
     * @return UInt64 IEEE 754 二进制位表示的值
     *
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toBits(): UInt64
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Float32 {
     /**
     * @brief 从 IEEE 754 二进制值转换成 Float32 值
@@ -1753,7 +1753,7 @@ extend Float32 {
     * @return Float32 值
     *
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func fromBits(bits: UInt32): Float32
     
     /**
@@ -1762,11 +1762,11 @@ extend Float32 {
     * @return UInt32 IEEE 754 二进制位表示的值
     *
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toBits(): UInt32
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Float16 {
     /**
     * @brief 从 IEEE 754 二进制值转换成 Float16 值
@@ -1774,7 +1774,7 @@ extend Float16 {
     * @return Float16 值
     *
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func fromBits(bits: UInt16): Float16
     
     /**
@@ -1783,13 +1783,13 @@ extend Float16 {
     * @return UInt16 IEEE 754 二进制位表示的值
     *
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toBits(): UInt16
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class Future<T> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public prop thread: Thread
     
     /**
@@ -1797,7 +1797,7 @@ public class Future<T> {
     * waiting for the result of the thread corresponding to this Future<T> object.
     * @throws Exception or Error if an exception occurs in the corresponding thread.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func get(): T
     
     /**
@@ -1805,7 +1805,7 @@ public class Future<T> {
     * Returns the computed result otherwise.
     * @throws Exception or Error if an exception occurs in the corresponding thread.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func tryGet(): Option<T>
     
     /**
@@ -1816,14 +1816,14 @@ public class Future<T> {
     * If `ns <= 0`, same as `get()`.
     * @throws Exception or Error if an exception occurs in the corresponding thread.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func get(timeout: Duration): T
     
     /**
     * Mark the current future as cancelled.
     * Send a termination request to its executing thread.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func cancel(): Unit
 }
 
@@ -1832,196 +1832,196 @@ public class Future<T> {
 * Specific derived types of `ThreadContext` could affect the behavior of the thread at runtime.
 * Only for `MainThreadContext` by now.
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface ThreadContext {
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 
 
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface Hashable {
 }
 
 /**
 * The hashcode is defined as: 3 for Ordering.GT, 2 for Ordering.EQ, 1 for Ordering.LT
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Ordering <: Hashable {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Unit <: Hashable {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Bool <: Hashable {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Rune <: Hashable {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend IntNative <: Hashable {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Max: IntNative
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Min: IntNative
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Int64 <: Hashable {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Max: Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Min: Int64
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Int32 <: Hashable {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Max: Int32
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Min: Int32
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Int16 <: Hashable {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Max: Int16
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Min: Int16
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Int8 <: Hashable {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Max: Int8
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Min: Int8
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend UIntNative <: Hashable {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Max: UIntNative
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Min: UIntNative
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend UInt64 <: Hashable {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Max: UInt64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Min: UInt64
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend UInt32 <: Hashable {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Max: UInt32
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Min: UInt32
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend UInt16 <: Hashable {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Max: UInt16
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Min: UInt16
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend UInt8 <: Hashable {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Max: UInt8
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Min: UInt8
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Float64 <: Hashable {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop NaN: Float64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Inf: Float64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Max: Float64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Min: Float64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop MinDenormal: Float64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop MinNormal: Float64
     
     /**
@@ -2032,7 +2032,7 @@ extend Float64 <: Hashable {
     *
     * @since 0.17.4
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isInf(): Bool
     
     /**
@@ -2042,7 +2042,7 @@ extend Float64 <: Hashable {
     *
     * @since 0.17.4
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isNaN(): Bool
     
     /**
@@ -2053,37 +2053,37 @@ extend Float64 <: Hashable {
     *
     * @since 0.17.4
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isNormal(): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func max(a: Float64, b: Float64, others: Array<Float64>): Float64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func min(a: Float64, b: Float64, others: Array<Float64>): Float64
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Float32 <: Hashable {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop NaN: Float32
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Inf: Float32
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Max: Float32
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Min: Float32
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop MinDenormal: Float32
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop MinNormal: Float32
     
     /**
@@ -2094,7 +2094,7 @@ extend Float32 <: Hashable {
     *
     * @since 0.17.4
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isInf(): Bool
     
     /**
@@ -2104,7 +2104,7 @@ extend Float32 <: Hashable {
     *
     * @since 0.17.4
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isNaN(): Bool
     
     /**
@@ -2115,38 +2115,38 @@ extend Float32 <: Hashable {
     *
     * @since 0.17.4
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isNormal(): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func max(a: Float32, b: Float32, others: Array<Float32>): Float32
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func min(a: Float32, b: Float32, others: Array<Float32>): Float32
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Float16 <: Hashable {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop NaN: Float16
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Inf: Float16
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Max: Float16
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop Min: Float16
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop MinDenormal: Float16
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop MinNormal: Float16
     
     /**
@@ -2157,7 +2157,7 @@ extend Float16 <: Hashable {
     *
     * @since 0.17.4
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isInf(): Bool
     
     /**
@@ -2167,7 +2167,7 @@ extend Float16 <: Hashable {
     *
     * @since 0.17.4
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isNaN(): Bool
     
     /**
@@ -2178,147 +2178,147 @@ extend Float16 <: Hashable {
     *
     * @since 0.17.4
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isNormal(): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func max(a: Float16, b: Float16, others: Array<Float16>): Float16
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func min(a: Float16, b: Float16, others: Array<Float16>): Float16
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend<T> Range<T> <: Hashable where T <: Hashable & Countable<T> & Comparable<T> & Equatable<T> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface Hasher {
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public struct DefaultHasher <: Hasher {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func finish(): Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func reset(): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: Bool): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: Rune): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: Int8): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: Int16): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: Int32): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: Int64): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: UInt8): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: UInt16): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: UInt32): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: UInt64): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: Float16): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: Float32): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: Float64): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut func write(value: String): Unit
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(res!: Int64 = 0)
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public open class IllegalArgumentException <: Exception {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public open class IllegalFormatException <: IllegalArgumentException {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class IllegalMemoryException <: Exception {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class IllegalStateException <: Exception {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class IncompatiblePackageException <: Exception {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class IndexOutOfBoundsException <: Exception {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
 }
 
 /**
 * Implementing this interface allows an object to be the target of the "for-in loop" expression.
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface Iterable<E> {
 }
 
 /**
 * An iterator over a collection.
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public abstract class Iterator<T> <: Iterable<T> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(): Option<T>
     
     /*
@@ -2327,167 +2327,167 @@ public abstract class Iterator<T> <: Iterable<T> {
     * @return Iterator<T> Return Iterator<T>.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func iterator() : Iterator<T>
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend<T> Iterator<T> where T <: Equatable<T> {
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func contains(element: T): Bool
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend<T> Iterator<T> where T <: Comparable<T> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func max(): Option<T>
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func min(): Option<T>
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend<T> Iterator<T> {
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func zip<R>(it: Iterator<R>): Iterator<(T, R)>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func enumerate(): Iterator<(Int64, T)>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func filter(predicate: (T) -> Bool): Iterator<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func filterMap<R>(transform: (T) -> Option<R>): Iterator<R>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func map<R>(transform: (T) -> R): Iterator<R>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func step(count: Int64): Iterator<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func skip(count: Int64): Iterator<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func take(count: Int64): Iterator<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func concat(other: Iterator<T>): Iterator<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func inspect(action: (T) -> Unit): Iterator<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func flatMap<R>(transform: (T) -> Iterator<R>): Iterator<R>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func intersperse(separator: T): Iterator<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func all(predicate: (T) -> Bool): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func any(predicate: (T) -> Bool): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func none(predicate: (T) -> Bool): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isEmpty(): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func count(): Int64
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func forEach(action: (T) -> Unit): Unit
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func first(): Option<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func last(): Option<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func at(n: Int64): Option<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func reduce(operation: (T, T) -> T): Option<T>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func fold<R>(initial: R, operation: (R, T) -> R): R
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func sizeOf<T>(): UIntNative where T <: CType
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func alignOf<T>(): UIntNative where T <: CType
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public struct LibC {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func malloc<T>(count!: Int64 = 1): CPointer<T> where T <: CType
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static unsafe func free<T>(p: CPointer<T>): Unit where T <: CType
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static unsafe func mallocCString(str: String): CString
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static unsafe func free(cstr: CString): Unit
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class NegativeArraySizeException <: Exception {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class NoneValueException <: Exception {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface Any {
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public open class Object <: Any {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const init()
 }
 
@@ -2498,143 +2498,143 @@ public open class Object <: Any {
 *
 * @since 0.21.4
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func refEq(a: Object, b: Object): Bool
 
 // This function is only used by ArrayList type, and it is not intended to be documented in users' guide
 @Intrinsic
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public unsafe func zeroValue<T>(): T
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public enum Option<T> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     Some(T) |
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     None
     /*
     * @throws NoneValueException if the value of Option is None
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func getOrThrow(): T
     
     /*
     * @throws input Exception if the value of Option is None
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func getOrThrow(exception: ()->Exception): T
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func getOrDefault(other: ()->T): T
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isNone(): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isSome(): Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func map<R>(transform: (T)->R): Option<R>
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func filter(predicate: (T)->Bool): Option<T>
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func flatMap<R>(transform: (T)->Option<R>): Option<R>
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func ifSome<T>(o: Option<T>, action: (T) -> Unit): Unit
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func ifNone<T>(o: Option<T>, action: () -> Unit): Unit
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend<T> Option<T> <: Equatable<Option<T>> where T <: Equatable<T> {
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func ==(that: Option<T>): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public operator func !=(that: Option<T>): Bool
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend<T> Option<T> <: ToString where T <: ToString {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend<T> Option<T> <: Hashable where T <: Hashable {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend<T> Option<Option<T>> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func flatten(): Option<T>
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class OutOfMemoryError <: Error {
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class OverflowException <: ArithmeticException {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
 }
 
 @Frozen
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(str: String, flush!: Bool = false): Unit
 
 @Frozen
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(): Unit
 
 @Frozen
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(str: String): Unit
 
 // The `eprint` is used to print error message, such as exception throwing.// The message will be printed to standard error text stream rather than standard output.
 @Frozen
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func eprint(str: String, flush!: Bool = true): Unit
 
 // The `eprintln` is used to print error message, such as exception throwing.// The message will be printed to standard error text stream rather than standard output.
 @Frozen
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func eprintln(str: String): Unit
 
 @Frozen
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func eprint<T>(arg: T, flush!: Bool = false): Unit where T <: ToString
 
 @Frozen
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func eprintln<T>(arg: T): Unit where T <: ToString
 
 @Frozen
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print<T>(arg: T, flush!: Bool = false): Unit where T <: ToString
 
 @Frozen
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println<T>(arg: T): Unit where T <: ToString
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func readln(): String
 
 /**
@@ -2645,145 +2645,145 @@ public func readln(): String
 * A few temporary objects like `Array<UInt8>` and `String` are created in above process.
 * If we provide a few overloaded `print` function below, these temporary objects can be avoided.
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(b: Bool, flush!: Bool = false): Unit
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(b: Bool): Unit
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(c: Rune, flush!: Bool = false): Unit
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(c: Rune): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(f: Float16, flush!: Bool = false): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(f: Float16): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(f: Float32, flush!: Bool = false): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(f: Float32): Unit
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(f: Float64, flush!: Bool = false): Unit
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(f: Float64): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(i: Int8, flush!: Bool = false): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(i: Int16, flush!: Bool = false): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(i: Int32, flush!: Bool = false): Unit
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(i: Int64, flush!: Bool = false): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(i: UInt8, flush!: Bool = false): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(i: UInt16, flush!: Bool = false): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(i: UInt32, flush!: Bool = false): Unit
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func print(i: UInt64, flush!: Bool = false): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(i: Int8): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(i: Int16): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(i: Int32): Unit
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(i: Int64): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(i: UInt8): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(i: UInt16): Unit
 
 @OverflowWrapping
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(i: UInt32): Unit
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func println(i: UInt64): Unit
 
 @ConstSafe
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public struct Range<T> <: Iterable<T> where T <: Countable<T> & Comparable<T> & Equatable<T> {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let start: T
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let end: T
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let step: Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let hasStart: Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let hasEnd: Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let isClosed: Bool
     
     /*
     * @throws IllegalArgumentException if the value of the step is equal to zero
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const init(start: T, end: T, step: Int64, hasStart: Bool, hasEnd: Bool, isClosed: Bool)
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func iterator(): Iterator<T>
     
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const func isEmpty(): Bool
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class RangeIterator<T> <: Iterator<T> where T <: Countable<T> & Comparable<T> & Equatable<T> {
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func next(): Option<T>
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface Resource {
 }
 
@@ -2793,66 +2793,66 @@ public interface Resource {
 *
 * @param dur Sleeping duration.
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public func sleep(dur: Duration): Unit
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class SpawnException <: Exception {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class StackOverflowError <: Error {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public override func printStackTrace(): Unit
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public open class StackTraceElement {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let declaringClass: String
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let methodName: String
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let fileName: String
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public let lineNumber: Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(declaringClass: String, methodName: String, fileName: String, lineNumber: Int64)
 }
 
 @ConstSafe
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public struct String <: Collection<UInt8> & Equatable<String> & Comparable<String> & Hashable & ToString {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static const empty: String = String()
     
     /**
     * Constructors
     */// Create an empty string which is an empty sequence of character.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const init()
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(value: Array<Rune>)
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(value: Collection<Rune>)
     
     // Returns the byte at the specified index.
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func get(index: Int64): Option<UInt8>
     
     /**
@@ -2861,37 +2861,37 @@ public struct String <: Collection<UInt8> & Equatable<String> & Comparable<Strin
     *         in array `this.myData`.
     */
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toRuneArray(): Array<Rune>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toArray(): Array<UInt8>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func iterator(): Iterator<UInt8>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func runes(): Iterator<Rune>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func lines(): Iterator<String>
     
     // Returns the byte counts of this string.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public prop size: Int64
     
     // Returns true if and only if this string is an empty string.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isEmpty(): Bool
     
     /**
@@ -2900,22 +2900,22 @@ public struct String <: Collection<UInt8> & Equatable<String> & Comparable<Strin
     * return true if the string is empty.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAscii(): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func isAsciiBlank(): Bool
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func clone(): String
     
     /**
     * Use wyhash to generate a hash value for a string.
     */
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func hashCode(): Int64
     
     /**
@@ -2925,60 +2925,60 @@ public struct String <: Collection<UInt8> & Equatable<String> & Comparable<Strin
     * @return a String
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func fromUtf8(utf8Data: Array<UInt8>): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public unsafe func rawData(): Array<UInt8>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static unsafe func fromUtf8Unchecked(utf8Data: Array<UInt8>): String
     
     // Returns the index of the first occurrence of the specified byte.// Return `Option<Int64>.None` if the specified byte is absent.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func indexOf(b: UInt8): Option<Int64>
     
     // Returns the index of the first occurrence of the specified byte at or after the specified index.// Returns `Option<Int64>.None` if the specified byte is absent at or after the specified index.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func indexOf(b: UInt8, fromIndex: Int64): Option<Int64>
     
     // Returns the index of the first occurrence of the specified substring `str`.// Return `Option<Int64>.None` if `str` is absent.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func indexOf(str: String): Option<Int64>
     
     // Returns the index of the first occurrence of the specified substring `str` at or after the specified index.// Return `Option<Int64>.None` if the specified string is absent at or after the specified index.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func indexOf(str: String, fromIndex: Int64): Option<Int64>
     
     // Returns the index of the last occurrence of the specified byte.// Return `Option<Int64>.None` if specified byte is absent.
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func lastIndexOf(b: UInt8): Option<Int64>
     
     // Returns the index of the last occurrence of the specified byte at or after the specified index.// Return `Option<Int64>.None` if specified byte is absent at or after the specified index.
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func lastIndexOf(b: UInt8, fromIndex: Int64): Option<Int64>
     
     // Returns the index of the last occurrence of the specified substring `str`.// Return `Option<Int64>.None` if specified substring is absent.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func lastIndexOf(str: String): Option<Int64>
     
     // Returns the index of the last occurrence of the specified substring `str` at or after the specified index.// Return `Option<Int64>.None` if specified substring is absent at or after the specified index.// Search last substring from the beginning when 'fromIndex' is less than 0.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func lastIndexOf(str: String, fromIndex: Int64): Option<Int64>
     
     // Returns the number of non-overlapping occurrences of the given substring `str` in the string.// If `str` is an empty string, returns the number of Unicode code points in this string + 1.
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func count(str: String): Int64
     
     /**
@@ -2989,7 +2989,7 @@ public struct String <: Collection<UInt8> & Equatable<String> & Comparable<Strin
     * @throws OutOfMemoryError if failed to call `this.splitOfString`.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func split(str: String, removeEmpty!: Bool = false): Array<String>
     
     /**
@@ -2998,89 +2998,89 @@ public struct String <: Collection<UInt8> & Equatable<String> & Comparable<Strin
     * @throws OutOfMemoryError if failed to call `this.splitOfString`.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func split(str: String, maxSplits: Int64, removeEmpty!: Bool = false): Array<String>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func lazySplit(str: String, removeEmpty!: Bool = false): Iterator<String>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func lazySplit(str: String, maxSplits: Int64, removeEmpty!: Bool = false): Iterator<String>
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func replace(old: String, new: String): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toAsciiLower(): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toAsciiUpper(): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toAsciiTitle(): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func trimAscii(): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func trimAsciiStart(): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func trimAsciiEnd(): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func trimStart(set: Array<Rune>): String
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func trimEnd(set: Array<Rune>): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func trimStart(set: String): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func trimEnd(set: String): String
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func trimStart(predicate: (Rune) -> Bool): String
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func trimEnd(predicate: (Rune) -> Bool): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func removePrefix(prefix: String): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func removeSuffix(suffix: String): String
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func contains(str: String): Bool
     
     // Returns true if and only if this string starts with the given `prefix`.
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func startsWith(prefix: String): Bool
     
     // Returns true if and only if this string ends with the given `suffix`.
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func endsWith(suffix: String): Bool
     
     /**
@@ -3088,7 +3088,7 @@ public struct String <: Collection<UInt8> & Equatable<String> & Comparable<Strin
     * @throws IllegalArgumentException if `totalWidth` < 0.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func padStart(totalWidth: Int64, padding!: String = " "): String
     
     /**
@@ -3096,11 +3096,11 @@ public struct String <: Collection<UInt8> & Equatable<String> & Comparable<Strin
     * @throws IllegalArgumentException if `totalWidth` < 0.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func padEnd(totalWidth: Int64, padding!: String = " "): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func equalsIgnoreAsciiCase(that: String): Bool
     
     /**
@@ -3115,46 +3115,46 @@ public struct String <: Collection<UInt8> & Equatable<String> & Comparable<Strin
     * @since 0.27.3
     */
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func compare(str: String): Ordering
     
     // Return a string which is the result of concatenating `left` and `right`.
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const operator func +(right: String): String
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const operator func *(count: Int64): String
     
     // Returns true if and only if string `left` is less than `right` with the lexicographical order.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const operator func <(right: String): Bool
     
     // Returns true if and only if string `left` is less than or equal to `right` with the lexicographical order.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const operator func <=(right: String): Bool
     
     // Returns true if and only if string `left` is greater than `right` with the lexicographical order.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const operator func >(right: String): Bool
     
     // Returns true if and only if string `left` is greater than or equal to `right` with the lexicographical order.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const operator func >=(right: String): Bool
     
     // Returns true if and only if the two string are identical.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const operator func ==(right: String): Bool
     
     // Returns true if and only if the two string are not identical.
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const operator func !=(right: String): Bool
     
     /**
@@ -3162,7 +3162,7 @@ public struct String <: Collection<UInt8> & Equatable<String> & Comparable<Strin
     * @throws IndexOutOfBoundsException if `index` is out of bounds.
     */
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const operator func [](index: Int64): UInt8
     
     /**
@@ -3172,51 +3172,51 @@ public struct String <: Collection<UInt8> & Equatable<String> & Comparable<Strin
     * @throws IllegalArgumentException if the start or end point of the range is not the code point boundary.
     */
     @OverflowWrapping@Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public const operator func [](range: Range<Int64>): String
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func join(strArray: Array<String>, delimiter!: String = String.empty): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class StringBuilder <: ToString {
     /**
     * Constructors
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(str: String)
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(r: Rune, n: Int64)
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(value: Array<Rune>)
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(capacity: Int64)
     
     /**
     * Get UTF-8 code unit size.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public prop size: Int64
     
     /**
     * Get capacity of this instance.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public prop capacity: Int64
     
     /**
@@ -3225,26 +3225,26 @@ public class StringBuilder <: ToString {
     * @return a String managed by StringBuilder.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
     
     /**
     * @throws IllegalMemoryException if there are some system errors.
     */
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func reset(capacity!: Option<Int64> = None): Unit
     
     @OverflowWrapping@Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(r: Rune): Unit
     
     @OverflowWrapping@Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(str: String): Unit
     
     @OverflowWrapping@Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(sb: StringBuilder): Unit
     
     /*
@@ -3252,114 +3252,114 @@ public class StringBuilder <: ToString {
     *         in array "arr[i]".
     */
     @OverflowWrapping@Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func appendFromUtf8(arr: Array<UInt8>): Unit
     
     @OverflowWrapping@Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public unsafe func appendFromUtf8Unchecked(arr: Array<UInt8>): Unit
     
     @OverflowWrapping@Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(runeArr: Array<Rune>): Unit
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(cstr: CString): Unit
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append<T>(v: T): Unit where T <: ToString
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append<T>(val: Array<T>): Unit where T <: ToString
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(b: Bool): Unit
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(n: Int64): Unit
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(n: Int32): Unit
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(n: Int16): Unit
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(n: Int8): Unit
     
     @OverflowWrapping@Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(n: UInt64): Unit
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(n: UInt32): Unit
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(n: UInt16): Unit
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(n: UInt8): Unit
     
     @Frozen@OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(n: Float64): Unit
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(n: Float32): Unit
     
     @Frozen
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func append(n: Float16): Unit
     
     @Frozen@OverflowThrowing
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func reserve(additional: Int64): Unit
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class Thread {
     // If a Cangjie thread is created without a Future object,// its Thread object will be lazy-constructed.
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     static public prop currentThread: Thread
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public prop id: Int64
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public mut prop name: String
     
     /**
     * Check whether the current Cangjie thread has termination requests,
     * i.e., whether its future has been marked as cancelled.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public prop hasPendingCancellation: Bool
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public static func handleUncaughtExceptionBy(exHandler: (Thread, Exception) -> Unit): Unit
 }
 
 /**
 * ThreadLocal is used to provide thread-local variables.
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class ThreadLocal<T> {
     /**
     * Return the value of this thread-local variable in the current thread.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func get(): ?T
     
     /**
@@ -3367,16 +3367,16 @@ public class ThreadLocal<T> {
     * If None is passed as the parameter, the value of this thread-local variable
     * will be removed from the current thread.
     */
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func set(value: ?T): Unit
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class TimeoutException <: Exception {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
 }
 
@@ -3386,114 +3386,114 @@ public class TimeoutException <: Exception {
 * For primitive types, we provide standard toString implementation. For composite types
 * or user-defined types, they have to to implement toString function by themselves.
 */
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public interface ToString {
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Int64 <: ToString {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend IntNative <: ToString {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Int32 <: ToString {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Int16 <: ToString {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Int8 <: ToString {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend UInt64 <: ToString {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend UIntNative <: ToString {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend UInt32 <: ToString {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend UInt16 <: ToString {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend UInt8 <: ToString {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Float64 <: ToString {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Float32 <: ToString {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Float16 <: ToString {
     @OverflowWrapping
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Bool <: ToString {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Rune <: ToString {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 extend Unit <: ToString {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func toString(): String
 }
 
@@ -3503,12 +3503,12 @@ public type Int = Int64
 
 public type UInt = UInt64
 
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class UnsupportedException <: Exception {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init()
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(message: String)
 }
 

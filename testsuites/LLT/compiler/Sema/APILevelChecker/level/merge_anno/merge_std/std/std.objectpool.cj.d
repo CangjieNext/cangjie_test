@@ -13,15 +13,15 @@ import std.ref.*
 import std.collection.LinkedList
 
 @Deprecated
-@!APILevel[since: "12", atomicservice : true]
+@!APILevel[since: "32", atomicservice : true]
 public class ObjectPool<T> where T <: Object {
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public init(newFunc: () -> T, resetFunc!: Option<(T) -> T> = None)
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func get(): T
     
-    @!APILevel[since: "12", atomicservice : true]
+    @!APILevel[since: "32", atomicservice : true]
     public func put(item: T): Unit
 }
 

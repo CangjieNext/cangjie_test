@@ -13,16 +13,16 @@ public interface I {
 public class A {}
 
 extend A <: I {
-    @!APILevel[12]
+    @!APILevel[32]
     public func foo(): Unit
 }
 
 extend ?Int64 <: I {
-    @!APILevel[12]
+    @!APILevel[32]
     public func foo(): Unit
 }
 
 extend Int64 <: I {
-    @!APILevel[12]
+    @!APILevel[32]
     public func foo(): Unit
 }

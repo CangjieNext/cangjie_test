@@ -6,16 +6,16 @@
 
 // DEPENDENCE: apilevel.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
-// EXEC: %compiler %cmp_opt apilevel.%middle %n.cj -o %n.%suffix --cfg APILevel_level=9
+// EXEC: %compiler %cmp_opt apilevel.%middle %n.cj -o %n.%suffix --cfg APILevel_level=29
 
 import ohos.labels.*
 
-@!APILevel[since: "9"]
-@!APILevel[since: "10"]
+@!APILevel[since: "29"]
+@!APILevel[since: "30"]
 public func foo() {}
 
-@!APILevel[since: "10"]
-@!APILevel[since: "9"]
+@!APILevel[since: "30"]
+@!APILevel[since: "29"]
 public func goo() {}
 
 main() {

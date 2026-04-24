@@ -6,9 +6,9 @@
 
 package dep
 
-@!APILevel[12]
+@!APILevel[32]
 public class A<T> where T <: ToString {
 }
 
-@!APILevel[12]
+@!APILevel[32]
 public func foo<T>() where T <: ToString

@@ -8,43 +8,43 @@ package dep1
 
 import ohos.labels.APILevel
 
-@!APILevel[1]
+@!APILevel[21]
 public func foo(): Int64
-@!APILevel[2]
+@!APILevel[22]
 public func foo(a: Array<Int64>): Int64
-@!APILevel[3]
+@!APILevel[23]
 public func foo(a: Array<String>): Int64
 
-@!APILevel[4]
+@!APILevel[24]
 class A {
-    @!APILevel[5]
+    @!APILevel[25]
     init() {}
-    @!APILevel[6]
+    @!APILevel[26]
     init(a: Int64) {}
-    @!APILevel[7]
+    @!APILevel[27]
     init(a: String) {}
-    @!APILevel[8]
+    @!APILevel[28]
     public func foo(): Int64
-    @!APILevel[9]
-    public func foo(@!APILevel[10]a: Array<Int64>): Int64
-    @!APILevel[11]
-    public func foo(@!APILevel[12]a: Array<String>): Int64
+    @!APILevel[29]
+    public func foo(@!APILevel[30]a: Array<Int64>): Int64
+    @!APILevel[31]
+    public func foo(@!APILevel[32]a: Array<String>): Int64
 
-    @!APILevel[13]
+    @!APILevel[33]
     public var a = 0
-    @!APILevel[14]
+    @!APILevel[34]
     public prop b: Int64
 }
 
-@!APILevel[15]
+@!APILevel[35]
 struct B {
-    @!APILevel[16]
+    @!APILevel[36]
     init() {}
-    @!APILevel[17]
+    @!APILevel[37]
     init(a: Int64) {}
-    @!APILevel[18]
+    @!APILevel[38]
     init(a: String) {}
-    @!APILevel[19]
+    @!APILevel[39]
     public func foo(): Int64
     @!APILevel[20]
     public func foo(@!APILevel[21]a: Array<Int64>): Int64

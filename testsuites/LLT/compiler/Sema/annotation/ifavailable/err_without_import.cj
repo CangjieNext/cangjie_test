@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRCHECK: %compiler %cmp_opt %f -o %output --cfg=APILevel_level=0
+// ERRCHECK: %compiler %cmp_opt %f -o %output --cfg=APILevel_level=20
 
 main() {
-    @IfAvailable(level:19, { => println(0) }, {=>println(3)})
+    @IfAvailable(level:39, { => println(0) }, {=>println(3)})
     @IfAvailable(syscap:"AA", { => println(0) }, {=>println(3)})
 }
 
@@ -15,7 +15,7 @@ main() {
 error: import 'ohos.device_info' to use the 'IfAvailable' expression
   ==> err_without_import.cj:10:5:
    | 
-10 |     @IfAvailable(level:19, { => println(0) }, {=>println(3)})
+10 |     @IfAvailable(level:39, { => println(0) }, {=>println(3)})
    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
    # note: depend on declaration 'DeviceInfo'

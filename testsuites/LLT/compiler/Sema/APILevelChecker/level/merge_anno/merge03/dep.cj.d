@@ -6,9 +6,9 @@
 
 package dep
 
-@!APILevel[since: "12"]
+@!APILevel[since: "32"]
 public class A<T> where T <: ToString {
 }
 
-@!APILevel[since: "12"]
+@!APILevel[since: "32"]
 public func foo<T>() where T <: ToString

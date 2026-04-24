@@ -6,27 +6,27 @@
 
 // DEPENDENCE: apilevel.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
-// ERRCHECK: %compiler %cmp_opt apilevel.%middle %n.cj -o %n.%suffix --cfg=APILevel_level=11
+// ERRCHECK: %compiler %cmp_opt apilevel.%middle %n.cj -o %n.%suffix --cfg=APILevel_level=31
 
 import ohos.labels.*
 
 
 
-@!APILevel[10]
+@!APILevel[30]
 public func foo(): Unit {
     goo // error
     hoo // error
     koo // ok
 }
 
-@!APILevel[11]
+@!APILevel[31]
 public func goo(): Unit {
     foo // ok
     hoo // error
     koo // ok
 }
 
-@!APILevel[12]
+@!APILevel[32]
 public func hoo(): Unit {
     goo() // ok
     foo() // ok
@@ -43,28 +43,28 @@ public func koo(): Unit {
 main() {}
 
 /* SCAN
-error: cannot reference 'goo'(level: 11) which higher than level of the current scope(level: 10)
+error: cannot reference 'goo'(level: 31) which higher than level of the current scope(level: 30)
   ==> invalid_ref.cj:17:5:
    | 
 17 |     goo // error
    |     ^^^ 
    | 
 
-error: cannot reference 'hoo'(level: 12) which higher than level of the current scope(level: 10)
+error: cannot reference 'hoo'(level: 32) which higher than level of the current scope(level: 30)
   ==> invalid_ref.cj:18:5:
    | 
 18 |     hoo // error
    |     ^^^ 
    | 
 
-error: cannot reference 'hoo'(level: 12) which higher than level of the current scope(level: 11)
+error: cannot reference 'hoo'(level: 32) which higher than level of the current scope(level: 31)
   ==> invalid_ref.cj:25:5:
    | 
 25 |     hoo // error
    |     ^^^ 
    | 
 
-error: cannot reference 'hoo'(level: 12) which higher than level of the current scope(level: 11)
+error: cannot reference 'hoo'(level: 32) which higher than level of the current scope(level: 31)
   ==> invalid_ref.cj:40:5:
    | 
 40 |     hoo() // error

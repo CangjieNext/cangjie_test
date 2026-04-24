@@ -8,11 +8,11 @@ package dep
 
 import ohos.labels.*
 
-@!APILevel[since: "9"]
+@!APILevel[since: "29"]
 public func f9(): Unit {
 }
 
-@!APILevel[since: "11"]
+@!APILevel[since: "31"]
 public func f11(): Unit {
 }
 

@@ -6,7 +6,7 @@
 
 package dep2
 
-@!APILevel[since: "13"]
+@!APILevel[since: "33"]
 public let cccc: VArray<Int64, $5>
-@!APILevel[since: "13"]
+@!APILevel[since: "33"]
 public let (aaaa, bbbb)

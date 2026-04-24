@@ -7,7 +7,7 @@
 // DEPENDENCE: apilevel.cj dep_ok.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt dep_ok.cj -o dep_ok.%middle
-// ERRCHECK: %compiler %cmp_opt %compile_lib_opt %f apilevel.%middle dep_ok.%middle --cfg=APILevel_level=10
+// ERRCHECK: %compiler %cmp_opt %compile_lib_opt %f apilevel.%middle dep_ok.%middle --cfg=APILevel_level=30
 
 import dep.*
 
@@ -18,7 +18,7 @@ main() {
 }
 
 /* SCAN
-error: cannot reference 'f11'(level: 11) which higher than level of the current scope(level: 10)
+error: cannot reference 'f11'(level: 31) which higher than level of the current scope(level: 30)
   ==> test_dep01.cj:16:5:
    | 
 16 |     f11()

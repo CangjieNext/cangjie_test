@@ -7,7 +7,7 @@
 // DEPENDENCE: ../../apilevel.cj dep2.cj dep2.cj.d
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.%middle dep2.cj -o dep2.%middle
-// ERRCHECK: %compiler %cmp_opt %f dep2.%middle apilevel.%middle --cfg=APILevel_level=12
+// ERRCHECK: %compiler %cmp_opt %f dep2.%middle apilevel.%middle --cfg=APILevel_level=32
 
 import dep2.*
 
@@ -18,21 +18,21 @@ main() {
 }
 
 /* SCAN
-error: cannot reference 'aaaa'(level: 13) which higher than level of the current scope(level: 12)
+error: cannot reference 'aaaa'(level: 33) which higher than level of the current scope(level: 32)
   ==> merge3.cj:15:12:
    | 
 15 |    println(aaaa)
    |            ^^^^ 
    | 
 
-error: cannot reference 'bbbb'(level: 13) which higher than level of the current scope(level: 12)
+error: cannot reference 'bbbb'(level: 33) which higher than level of the current scope(level: 32)
   ==> merge3.cj:16:12:
    | 
 16 |    println(bbbb)
    |            ^^^^ 
    | 
 
-error: cannot reference 'cccc'(level: 13) which higher than level of the current scope(level: 12)
+error: cannot reference 'cccc'(level: 33) which higher than level of the current scope(level: 32)
   ==> merge3.cj:17:12:
    | 
 17 |    let a = cccc

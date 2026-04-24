@@ -8,43 +8,43 @@ package dep1
 
 import ohos.labels.APILevel
 
-@!APILevel[since: "1"]
+@!APILevel[since: "21"]
 public func foo(): Int64
-@!APILevel[since: "2"]
+@!APILevel[since: "22"]
 public func foo(a: Array<Int64>): Int64
-@!APILevel[since: "3"]
+@!APILevel[since: "23"]
 public func foo(a: Array<String>): Int64
 
-@!APILevel[since: "4"]
+@!APILevel[since: "24"]
 class A {
-    @!APILevel[since: "5"]
+    @!APILevel[since: "25"]
     init() {}
-    @!APILevel[since: "6"]
+    @!APILevel[since: "26"]
     init(a: Int64) {}
-    @!APILevel[since: "7"]
+    @!APILevel[since: "27"]
     init(a: String) {}
-    @!APILevel[since: "8"]
+    @!APILevel[since: "28"]
     public func foo(): Int64
-    @!APILevel[since: "9"]
-    public func foo(@!APILevel[since: "10"]a: Array<Int64>): Int64
-    @!APILevel[since: "11"]
-    public func foo(@!APILevel[since: "12"]a: Array<String>): Int64
+    @!APILevel[since: "29"]
+    public func foo(@!APILevel[since: "30"]a: Array<Int64>): Int64
+    @!APILevel[since: "31"]
+    public func foo(@!APILevel[since: "32"]a: Array<String>): Int64
 
-    @!APILevel[since: "13"]
+    @!APILevel[since: "33"]
     public var a = 0
-    @!APILevel[since: "14"]
+    @!APILevel[since: "34"]
     public prop b: Int64
 }
 
-@!APILevel[since: "15"]
+@!APILevel[since: "35"]
 struct B {
-    @!APILevel[since: "16"]
+    @!APILevel[since: "36"]
     init() {}
-    @!APILevel[since: "17"]
+    @!APILevel[since: "37"]
     init(a: Int64) {}
-    @!APILevel[since: "18"]
+    @!APILevel[since: "38"]
     init(a: String) {}
-    @!APILevel[since: "19"]
+    @!APILevel[since: "39"]
     public func foo(): Int64
     @!APILevel[since: "20"]
     public func foo(@!APILevel[since: "21"]a: Array<Int64>): Int64

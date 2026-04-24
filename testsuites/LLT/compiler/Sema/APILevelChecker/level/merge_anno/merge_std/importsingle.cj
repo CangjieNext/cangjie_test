@@ -6,7 +6,7 @@
 
 // DEPENDENCE: ../../apilevel.cj ./std
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
-// EXEC: %compiler %cmp_opt --import-path ./std/ %f apilevel.%middle --cfg=APILevel_level=11 -Woff all
+// EXEC: %compiler %cmp_opt --import-path ./std/ %f apilevel.%middle --cfg=APILevel_level=31 -Woff all
 
 import std.time.*
 

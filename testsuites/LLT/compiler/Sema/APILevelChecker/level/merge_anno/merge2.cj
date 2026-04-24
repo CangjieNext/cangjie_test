@@ -7,7 +7,7 @@
 // DEPENDENCE: ../apilevel.cj dep1.cj dep1.cj.d
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.%middle dep1.cj -o dep1.%middle
-// ERRCHECK: %compiler %cmp_opt %f dep1.%middle apilevel.%middle --cfg=APILevel_level=2
+// ERRCHECK: %compiler %cmp_opt %f dep1.%middle apilevel.%middle --cfg=APILevel_level=22
 
 import dep1.*
 
@@ -19,28 +19,28 @@ main() {
 }
 
 /* SCAN
-error: cannot reference 'A'(level: 4) which higher than level of the current scope(level: 2)
+error: cannot reference 'A'(level: 24) which higher than level of the current scope(level: 22)
   ==> merge2.cj:15:5:
    | 
 15 |     A()
    |     ^^^ 
    | 
 
-error: cannot reference 'B'(level: 15) which higher than level of the current scope(level: 2)
+error: cannot reference 'B'(level: 35) which higher than level of the current scope(level: 22)
   ==> merge2.cj:16:5:
    | 
 16 |     B()
    |     ^^^ 
    | 
 
-error: cannot reference 'C'(level: 26) which higher than level of the current scope(level: 2)
+error: cannot reference 'C'(level: 26) which higher than level of the current scope(level: 22)
   ==> merge2.cj:17:5:
    | 
 17 |     C.A.foo()
    |     ^^^^^^^^^ 
    | 
 
-error: cannot reference 'C'(level: 26) which higher than level of the current scope(level: 2)
+error: cannot reference 'C'(level: 26) which higher than level of the current scope(level: 22)
   ==> merge2.cj:18:5:
    | 
 18 |     C.B(1).foo()

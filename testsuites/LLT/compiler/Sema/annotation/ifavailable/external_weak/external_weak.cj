@@ -7,14 +7,14 @@
 // EXEC: %compiler %cmp_opt %compile_shared_lib_opt dep1.cj device_info.%middle apilevel.%middle -o libdep.%dylib_suffix
 // EXEC: %rmfile dep.cjo
 // EXEC: %move dep.cjo.bak dep.cjo
-// (CJNATIVE) EXEC: %compiler -ldep -L. %f device_info.%middle apilevel.%middle --cfg=APILevel_level=18 -o %output
+// (CJNATIVE) EXEC: %compiler -ldep -L. %f device_info.%middle apilevel.%middle --cfg=APILevel_level=38 -o %output
 // (CJNATIVE) EXEC: %run %run_opt %output %run_args | compare %f
 
 import dep.*
 import ohos.device_info.DeviceInfo
 
 main() {
-    @IfAvailable(level: 19, {=> A().a; func1() }, {=> func2()})
+    @IfAvailable(level: 59, {=> A().a; func1() }, {=> func2()})
     0
 }
 
