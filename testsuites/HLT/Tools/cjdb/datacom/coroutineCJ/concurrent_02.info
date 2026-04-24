@@ -15,6 +15,7 @@ test#
 cjdb,cjdb --no-use-colors concurrent_02,concurrent_02
 b,b 16,concurrent_02.cj:16
 AOT r,r,-> 16
+AOT break,breakpoint disable,
 CJVM c,c,
 n,n,-> 17
 c,c,with status = 0

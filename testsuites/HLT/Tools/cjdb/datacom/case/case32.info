@@ -16,5 +16,5 @@ cjdb,cjdb --no-use-colors case32,case32
 AOT b,b 24,Breakpoint 1: 2 locations
 AOT r,r,-> 24
 CJVM c,c,-> 24
-AOT thread,cjthread list,cjthread #[\d]+ state: ready name: spawn[\d]+
+AOT thread,cjthread list,tid = [\d]+, state =[\s\S]*name = 'spawn
 q,q,
