@@ -7,7 +7,9 @@
  */
 
 struct M {
-    char a : 1;
+    char x : 2;
     char   : 1;
-    char b : 1;
+    char y : 2;
+    char   : 1;
+    char z : 2;
 };
