@@ -9,8 +9,8 @@
 // LEVEL: 1
 // DEPENDENCE: ./data
 // DEPENDENCE: ./mock.c
-// EXEC: %clang %clang_opt -Wno-deprecated-declarations -lssl -lcrypto -o mock.%dylib_suffix mock.c
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt -l:mock.%dylib_suffix -L. -o %n.%suffix %f
+// EXEC: %clang -I %openssl_path/include -L %openssl_path %clang_opt -Wno-deprecated-declarations -lssl -lcrypto -o mock.%dylib_suffix mock.c
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %cmp_utest_opt -l:mock.%dylib_suffix -L. -o %n.%suffix %f
 // RUN-EXEC: export CJ_KEYLESS_DEBUG=1 && %run_stdx %n.%suffix %run_utest_opt %run_args
 
 import std.fs.{File, OpenMode}
