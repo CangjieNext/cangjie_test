@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args | compare %f
 // ASSERT: scan name: 123, value: [123, 456, 789]
 
