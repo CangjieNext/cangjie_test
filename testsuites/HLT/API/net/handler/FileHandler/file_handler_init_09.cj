@@ -9,7 +9,7 @@
 // LEVEL: 1
 // DEPENDENCE: ./data
 // (not Windows) EXEC: %chmod -r ./data
-// (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output
 // (not Windows) RUN-EXEC: %run_stdx %output %run_args
 // (not Windows) EXEC: %chmod +r ./data
 

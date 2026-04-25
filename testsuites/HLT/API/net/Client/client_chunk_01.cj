@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../test.cj
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output test.cj
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output test.cj
 // RUN-EXEC: %run_stdx %output %run_args
 
 import stdx.net.http.*
