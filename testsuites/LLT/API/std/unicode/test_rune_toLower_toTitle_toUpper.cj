@@ -266,7 +266,7 @@ class UnicodeRuneTest {
     @TestCase
     func toUpperTitleAndLowerWithAZTR(): Unit {
         var op = CasingOption.TR
-        @Expect(r"\u{0130}".toLowerCase(op), r"\u{0130}")
+        @Expect(r"\u{0130}".toLowerCase(op), r"\u{0069}")
         @Expect(r"\u{0131}".toLowerCase(op), r"\u{0131}")
         @Expect(r"\u{0069}".toLowerCase(op), r"\u{0069}")
         @Expect(r"\u{0049}".toLowerCase(op), r"\u{0131}")
@@ -282,7 +282,7 @@ class UnicodeRuneTest {
         @Expect(r"\u{0049}".toUpperCase(op), r"\u{0049}")
 
         op = CasingOption.AZ
-        @Expect(r"\u{0130}".toLowerCase(op), r"\u{0130}")
+        @Expect(r"\u{0130}".toLowerCase(op), r"\u{0069}")
         @Expect(r"\u{0131}".toLowerCase(op), r"\u{0131}")
         @Expect(r"\u{0069}".toLowerCase(op), r"\u{0069}")
         @Expect(r"\u{0049}".toLowerCase(op), r"\u{0131}")
