@@ -9,7 +9,6 @@
 macro package b.doo
 
 import std.ast.*
-import dep1.coo.*
 public macro TestDef_1(input: Tokens): Tokens {
     println("I'm in macro body")
     return input

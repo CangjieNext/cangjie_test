@@ -6,10 +6,10 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not host_mac)EXEC: cd %n/aoo/dep && %cjpm build
-// (not host_mac)EXEC: cd %n/coo/dep && %cjpm build
-// (not host_mac)EXEC: cd %n/coo/dep1 && %cjpm build
-// (not host_mac)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
+// (target_linux | target_win | target_android | target_ohos)EXEC: cd %n/aoo/dep && %cjpm build %cjpm_opt
+// (target_linux | target_win | target_android | target_ohos)EXEC: cd %n/coo/dep && %cjpm build %cjpm_opt
+// (target_linux | target_win | target_android | target_ohos)EXEC: cd %n/coo/dep1 && %cjpm build %cjpm_opt
+// (target_linux | target_win | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
 // ASSERT: regex Compiling package `b`: [\s\S]*-L [\s\S]* -lcoo .*
 // ASSERT: regex Compiling package `b`: [\s\S]*-L [\s\S]* -laoo .*
 // ASSERT: regex Compiling package `b`: [\s\S]*libb[\s\S]*.(dll|so)

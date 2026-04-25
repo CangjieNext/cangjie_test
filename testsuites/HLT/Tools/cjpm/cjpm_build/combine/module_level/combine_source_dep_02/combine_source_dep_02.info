@@ -6,7 +6,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not host_mac)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
+// (target_linux | target_win | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
 // ASSERT: regex Compiling package `b`: [\s\S]*-L [\s\S]* -lb.aoo .*
 // ASSERT: regex Compiling package `b`: [\s\S]*-L [\s\S]* -ldep .*
 // ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]* -lb.boo[\s\S]*--link-options=--no-whole-archive.*
