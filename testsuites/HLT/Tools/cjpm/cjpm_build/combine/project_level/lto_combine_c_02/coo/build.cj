@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 internal import std.process.*
-
+import std.env.*
 @When[os == "Linux"]
 func stagePreBuild(): Int64 {
   
@@ -26,15 +26,6 @@ func stagePreBuild(): Int64 {
     )
 }
 
-@When[os == "macOS"]
-func stagePreBuild(): Int64 {
-   
-
-    return  Process.run(
-        "gcc",
-        ["test02.c", "-shared", "-fPIC", "-o", "libtest02.dylib"]
-    )
-}
 
 @When[env == "ohos"]
 func stagePreBuild(): Int64 {
@@ -45,6 +36,77 @@ func stagePreBuild(): Int64 {
         ["test02.c", "-shared", "-fPIC", "-o", "libtest02.so"]
     )
 }
+@When[target == "aarch64-linux-android26"]
+func stagePreBuild(): Int64 {
+    let OHOS_ROOT = getVariable("OHOS_ROOT").getOrThrow()
+    let clang = "${OHOS_ROOT}/llvm/prebuilt/darwin-arm64/bin/clang"
+    
+
+    return  Process.run(
+        clang,
+        ["test02.c","--target=aarch64-linux-android26", "-shared", "-fPIC", "--sysroot=${OHOS_ROOT}/llvm/prebuilt/darwin-arm64/sysroot","-o", "libtest02.so"]
+    )
+}
+
+@When[target == "aarch64-linux-android31"]
+func stagePreBuild(): Int64 {
+    let OHOS_ROOT = getVariable("OHOS_ROOT").getOrThrow()
+    let clang = "${OHOS_ROOT}/llvm/prebuilt/darwin-arm64/bin/clang"
+   
+
+    return  Process.run(
+        clang,
+        ["test02.c","--target=aarch64-linux-android31", "-shared", "-fPIC", "--sysroot=${OHOS_ROOT}/llvm/prebuilt/darwin-arm64/sysroot","-o", "libtest02.so"]
+    )
+}
+
+@When[target == "aarch64-linux-android32"]
+func stagePreBuild(): Int64 {
+    let OHOS_ROOT = getVariable("OHOS_ROOT").getOrThrow()
+    let clang = "${OHOS_ROOT}/llvm/prebuilt/darwin-arm64/bin/clang"
+   
+
+    return  Process.run(
+        clang,
+        ["test02.c","--target=aarch64-linux-android32", "-shared", "-fPIC", "--sysroot=${OHOS_ROOT}/llvm/prebuilt/darwin-arm64/sysroot","-o", "libtest02.so"]
+    )
+}
+@When[target == "aarch64-linux-android35"]
+func stagePreBuild(): Int64 {
+    let OHOS_ROOT = getVariable("OHOS_ROOT").getOrThrow()
+    let clang = "${OHOS_ROOT}/llvm/prebuilt/darwin-arm64/bin/clang"
+   
+
+    return  Process.run(
+        clang,
+        ["test02.c","--target=aarch64-linux-android35", "-shared", "-fPIC", "--sysroot=${OHOS_ROOT}/llvm/prebuilt/darwin-arm64/sysroot","-o", "libtest02.so"]
+    )
+}
+
+@When[target == "x86_64-linux-ohos"]
+func stagePreBuild(): Int64 {
+    let OHOS_ROOT = getVariable("OHOS_ROOT").getOrThrow()
+    let clang = "${OHOS_ROOT}/llvm/prebuilt/x86_64-linux-ohos/bin/clang"
+    
+
+    return  Process.run(
+        clang,
+        ["test02.c","--target=x86_64-linux-ohos", "-shared", "-fPIC", "--sysroot=${OHOS_ROOT}/llvm/prebuilt/x86_64-linux-ohos/sysroot","-o", "libtest02.so"]
+    )
+}
+
+@When[target == "aarch64-linux-ohos"]
+func stagePreBuild(): Int64 {
+    let OHOS_ROOT = getVariable("OHOS_ROOT").getOrThrow()
+    let clang = "${OHOS_ROOT}/prebuilts/clang/ohos/darwin-aarch64/llvm/bin/clang"
+   
+
+    return  Process.run(
+        clang,
+        ["test02.c","--target=aarch64-linux-ohos", "-shared", "-fPIC", "--sysroot=${OHOS_ROOT}/out/generic_generic_arm_64only/hisi_all_phone_standard/obj/third_party/musl","-o", "libtest02.so"]
+    )
+}
+
 
 main(): Int64 {
     match (Process.current.arguments[0]) {
