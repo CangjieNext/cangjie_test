@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DESC: 用户源码中存在1个error，导致宏展开报错，未指定--debug-macro
+// 应报错提示具体是哪个宏存在问题，并且提示用户使用--debug-macro查看宏展开后的结果
+// 应提示实际报错原因，但不应该打印任何宏展开后的结果代码
+// DEPENDENCE: ../helper.py main.cj m.cj expected_error_msg.txt
+// EXEC: %compiler --compile-macro m.cj
+// EXEC-1: %compiler --diagnostic-format=noColor --error-count-limit=all main.cj -o %output > error_msg.txt 2>&1
+// EXEC: cat error_msg.txt
+// EXEC: diff error_msg.txt expected_error_msg.txt
