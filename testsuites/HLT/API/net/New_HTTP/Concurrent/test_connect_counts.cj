@@ -9,8 +9,8 @@
 // LEVEL: 2 
 // DEPENDENCE: ../data
 // DEPENDENCE: ../../../asan
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt asan.%middle %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %compile_lib_opt asan/asanGC.cj -o asan.%middle
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl asan.%middle %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.net.http.*

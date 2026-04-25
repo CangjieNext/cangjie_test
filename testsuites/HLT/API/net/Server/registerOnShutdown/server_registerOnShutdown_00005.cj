@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output
 // RUN-EXEC-PIPE: %run_stdx %output %run_args | compare %f
 // ASSERT: scan after
 // ASSERT: scan-not before
