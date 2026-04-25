@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output
 // (not Windows) RUN-EXEC-PIPE: %run_stdx %output %run_args | compare %f
 // (not Windows) ASSERT: scan 99
 
