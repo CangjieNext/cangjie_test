@@ -1,0 +1,29 @@
+warning: unused function:'foo'
+  ==> main.cj.macrocall:14:1:
+   | 
+14 |   func foo(y: Int64, x: String) {
+   |  _^
+15 | |     println("x + 1: ${x}")
+   | | ...
+17 | | }
+   | |_^ unused function
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unused variable:'y'
+  ==> main.cj.macrocall:14:10:
+   | 
+14 | func foo(y: Int64, x: String) {
+   |          ^ unused variable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+warning: unused variable:'a'
+  ==> main.cj.macrocall:16:9:
+   | 
+16 |     let a = 114514
+   |         ^ unused variable
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+3 warnings generated, 3 warnings printed.
