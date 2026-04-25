@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: file.txt
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args compare %f | compare %f
 // ASSERT: scan-not Native function error
 
