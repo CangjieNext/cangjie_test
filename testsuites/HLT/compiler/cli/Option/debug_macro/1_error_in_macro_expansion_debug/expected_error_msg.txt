@@ -1,0 +1,9 @@
+error: invalid binary operator '+' on type 'Struct-String' and 'Int64'
+  ==> main.cj.macrocall:15:25:
+   | 
+15 |     println("x + 1: ${x + 1}")
+   |                         ^ 
+   | 
+   # note: you may want to implement 'operator func +(right: Int64)' for type 'Struct-String'
+
+1 error generated, 1 error printed.
