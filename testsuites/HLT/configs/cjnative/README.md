@@ -320,6 +320,10 @@ ldd 工具
 
 暂无介绍
 
+## `link_openssl`
+
+暂无介绍
+
 ## `clang`
 
 如果一定要用clang，用%clang
@@ -699,6 +703,10 @@ STDX 根目录的绝对路径
 ## `cangjie-dynamic-stdx-path`
 
 保存动态库版本 STDX 的目录的绝对路径
+
+## `cangjie_static_extern_stdx_path`
+
+保存静态库extern版本 STDX 的目录的绝对路径
 
 ## `check-dylib-dep`
 
