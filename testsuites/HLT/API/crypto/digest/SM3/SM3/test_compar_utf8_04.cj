@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: ./sm3_utf8.txt
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl  %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.fs.*

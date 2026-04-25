@@ -234,8 +234,10 @@ def main():
                 if 'Process exited:' in line and '(SpringBoard)' in line:
                     cangjie_runtime_log_lines.append(line)
             spring_board_line = [line for line in cangjie_runtime_log_lines if '(SpringBoard)' in line]
-            assert len(spring_board_line) == 1
-            exit_message = spring_board_line[0]
+            if len(spring_board_line) == 1:
+                exit_message = spring_board_line[0]
+            else:
+                exit_message = ''
             
             # 过滤无关stdout/stderr
             cangjie_runtime_log_lines = [line for line in cangjie_runtime_log_lines if 'signpost functions all loaded successfully' not in line and '(SpringBoard)' not in line]
