@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: files
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args 
 import std.unittest.*
 import std.unittest.testmacro.*
