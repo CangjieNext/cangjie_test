@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE-0: %run_stdx %output %run_utest_opt %run_args 2>&1 | compare %f
 // ASSERT: scan Using HTTP/1.1 client
 // ASSERT: scan Client1_1 get conn new
