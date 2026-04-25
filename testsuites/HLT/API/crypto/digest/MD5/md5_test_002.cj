@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC-PIPE-1: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %import-cangjie-stdx %cmp_opt %link_openssl  %f -o %output 2>&1 | compare %f
 
 import stdx.crypto.digest.*
 import std.convert.*

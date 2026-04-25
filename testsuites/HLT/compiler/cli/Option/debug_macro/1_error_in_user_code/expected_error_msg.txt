@@ -1,0 +1,18 @@
+error: the error originates in the macro `M` (consider using `--debug-macro` for more info)
+  ==> main.cj:13:1:
+   | 
+13 |   @M
+   |  _^
+14 | | func foo(y: Int64) {
+   | | ...
+16 | | }
+   | |_^
+   | 
+   # note: you may want to implement 'operator func +(right: Struct-String)' for type 'Int64'
+note: invalid binary operator '+' on type 'Int64' and 'Struct-String'
+   | 
+   |     y + ""
+   |       ^ 
+   | 
+
+1 error generated, 1 error printed.
