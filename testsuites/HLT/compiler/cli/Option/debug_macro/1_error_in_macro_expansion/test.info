@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DESC: The error originates in user code, option `--debug-macro` not specified.
+// DEPENDENCE: ../helper.py m.cj main.cj expected_error_msg.txt
+// EXEC: %compiler --compile-macro m.cj
+// EXEC-1: %compiler --diagnostic-format=noColor --error-count-limit=all main.cj -o %output > error_msg.txt 2>&1
+// EXEC: diff expected_error_msg.txt error_msg.txt
