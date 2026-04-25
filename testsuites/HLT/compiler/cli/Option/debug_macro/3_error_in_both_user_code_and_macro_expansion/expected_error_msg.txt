@@ -1,0 +1,106 @@
+error: the error originates in the macro `M` (consider using `--debug-macro` for more info)
+  ==> main.cj:13:1:
+   | 
+13 |   @M
+   |  _^
+14 | | func foo(y: Int64) {
+   | | ...
+19 | | }
+   | |_^
+   | 
+   # note: you may want to implement 'operator func +(right: Bool)' for type 'Struct-String'
+note: invalid binary operator '+' on type 'Struct-String' and 'Bool'
+   | 
+   |     println("x + true: ${x + true}")
+   |                            ^ 
+   | 
+
+error: the error originates in the macro `M` (consider using `--debug-macro` for more info)
+  ==> main.cj:13:1:
+   | 
+13 |   @M
+   |  _^
+14 | | func foo(y: Int64) {
+   | | ...
+19 | | }
+   | |_^
+   | 
+   # note: you may want to implement 'operator func +(right: Float64)' for type 'Struct-String'
+note: invalid binary operator '+' on type 'Struct-String' and 'Float64'
+   | 
+   |     println("x + 1.0: ${x + 1.0}")
+   |                           ^ 
+   | 
+
+error: the error originates in the macro `M` (consider using `--debug-macro` for more info)
+  ==> main.cj:13:1:
+   | 
+13 |   @M
+   |  _^
+14 | | func foo(y: Int64) {
+   | | ...
+19 | | }
+   | |_^
+   | 
+   # note: you may want to implement 'operator func +(right: Int64)' for type 'Struct-String'
+note: invalid binary operator '+' on type 'Struct-String' and 'Int64'
+   | 
+   |     println("x + 1: ${x + 1}")
+   |                         ^ 
+   | 
+
+error: invalid binary operator '+' on type 'Int64' and 'Struct-String'
+  ==> main.cj:16:7:
+   | 
+16 |     y + ""
+   |       ^ 
+   | 
+   # note: you may want to implement 'operator func +(right: Struct-String)' for type 'Int64'
+note: the error originates in the macro `M` (consider using `--debug-macro` for more info)
+  ==> main.cj:13:1:
+   | 
+13 |   @M
+   |  _^
+14 | | func foo(y: Int64) {
+   | | ...
+19 | | }
+   | |_^
+   | 
+
+error: invalid binary operator '+' on type 'Int64' and 'Float64'
+  ==> main.cj:17:7:
+   | 
+17 |     y + 1.0
+   |       ^ 
+   | 
+   # note: you may want to implement 'operator func +(right: Float64)' for type 'Int64'
+note: the error originates in the macro `M` (consider using `--debug-macro` for more info)
+  ==> main.cj:13:1:
+   | 
+13 |   @M
+   |  _^
+14 | | func foo(y: Int64) {
+   | | ...
+19 | | }
+   | |_^
+   | 
+
+error: invalid binary operator '+' on type 'Int64' and 'Bool'
+  ==> main.cj:18:7:
+   | 
+18 |     y + true
+   |       ^ 
+   | 
+   # note: you may want to implement 'operator func +(right: Bool)' for type 'Int64'
+note: the error originates in the macro `M` (consider using `--debug-macro` for more info)
+  ==> main.cj:13:1:
+   | 
+13 |   @M
+   |  _^
+14 | | func foo(y: Int64) {
+   | | ...
+19 | | }
+   | |_^
+   | 
+
+6 errors generated, 6 errors printed.
