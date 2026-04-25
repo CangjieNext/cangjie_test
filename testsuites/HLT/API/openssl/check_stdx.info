@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// DEPENDENCE: check.py
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.net.tls.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.net.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.net.http.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.net.tls.common.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.net.tlsFFI.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.crypto.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.crypto.common.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.crypto.crypto.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.crypto.digest.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.crypto.keys.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.crypto.keysFFI.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.crypto.kit.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.crypto.x509.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.crypto.x509FFI.a
