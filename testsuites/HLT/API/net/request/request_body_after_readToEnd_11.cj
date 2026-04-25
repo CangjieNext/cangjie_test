@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE: ./../../asan
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f asan.%middle -o %output
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %compile_lib_opt asan/asanGC.cj -o asan.%middle
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f asan.%middle -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
 import std.io.*
