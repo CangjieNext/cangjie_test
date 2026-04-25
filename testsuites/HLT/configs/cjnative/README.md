@@ -208,6 +208,10 @@ ldd 工具
 
 --fchir-constant-propagation 选项
 
+## `syntax_extra_options`
+
+使用stdx.syntax时需要额外增加的链接选项
+
 ## `incremental_compile`
 
 开启增量编译选项
@@ -317,6 +321,10 @@ ldd 工具
 暂无介绍
 
 ## `chir-dis`
+
+暂无介绍
+
+## `link_openssl`
 
 暂无介绍
 
@@ -699,6 +707,10 @@ STDX 根目录的绝对路径
 ## `cangjie-dynamic-stdx-path`
 
 保存动态库版本 STDX 的目录的绝对路径
+
+## `cangjie_static_extern_stdx_path`
+
+保存静态库extern版本 STDX 的目录的绝对路径
 
 ## `check-dylib-dep`
 
