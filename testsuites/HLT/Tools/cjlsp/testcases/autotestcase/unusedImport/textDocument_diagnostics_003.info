@@ -18,4 +18,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
- {"jsonrpc": "2.0","method": "textDocument/publishDiagnostics","params": {"diagnostics": [{"category": 964,"code": 964,"message": "unused import 'std.fs.File', this warning can be suppressed by setting the compiler option `-Woff unused`","range": {"end": {"character": 27,"line":10},"start": {"character": 0,"line":10}},"severity": 4,"source": "Cangjie","tags": [1]}],"uri": "unusedImport/src/unused_import/pkg03/unused_import_003.cj"}}
+{"jsonrpc": "2.0","method": "textDocument/publishDiagnostics","params": {"diagnostics": [{"category": 1023,"code": 1023,"message": "unused import 'std.fs.File', this warning can be suppressed by setting the compiler option `-Woff unused`","range": {"end": {"character": 27,"line": 10},"start": {"character": 0,"line": 10}},"severity": 4,"source": "Cangjie","tags": [1]}],"uri": "unusedImport/src/unused_import/pkg03/unused_import_003.cj"}}
