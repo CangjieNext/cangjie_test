@@ -6,11 +6,10 @@
 
 package tmp_test
 
-// LEVEL: 1
-// DEPENDENCE: lib1.cj
-// DEPENDENCE: lib2.cj
+// DEPENDENCE: lib1.cj lib2.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt --lto=full lib2.cj -o lib2.bc
 // EXEC: %compiler %cmp_opt %compile_shared_lib_opt --lto=full lib1.cj lib2.bc -o lib.so --link-options --no-undefined
+// EXEC: %compiler %cmp_opt --lto=full %f lib2.bc --link-options --no-undefined
 
 main(): Int64 {
     return 0
