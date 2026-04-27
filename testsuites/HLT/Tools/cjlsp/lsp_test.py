@@ -13,7 +13,6 @@ import time
 
 import json
 import urllib.parse
-from operator import itemgetter
 import configparser
 
 # 等待log文件写完之后再读取
@@ -36,11 +35,11 @@ class RunTestcase:
         self.message_label = "Content-Length"
         self.error_key = []
         self.request_list = []
-        self.ignore_key = ["jsonrpc", "sortText", "symbolId", "category", "code"]
+        self.ignore_key = ["jsonrpc", "sortText", "symbolId", "category", "code", "codeActions"]
         # TODO：动态获取排序忽略的key
         self.ignore_sort_key = ["range", "data", 'to', 'fromRanges', 'end', 'start', 'selectionRange', 'children',
                                 'additionalTextEdits', 'edits', 'textDocument', 'parameters', 'location', "sortText",
-                                "containerName", "symbolId"]
+                                "containerName", "symbolId", "codeActions"]
         self.wait_request = ["textDocument/prepareTypeHierarchy", "textDocument/prepareCallHierarchy"]
         self.wait_response_key = {
             "textDocument/prepareTypeHierarchy": "symbolId",
@@ -180,9 +179,9 @@ class RunTestcase:
                 expt_all_keys = list(set(expt_all_keys) - set(expt_all_keys).intersection(set(self.ignore_sort_key)))
                 expt_all_keys = sorted(expt_all_keys)
                 if len(recv_all_keys) > 0:
-                    recv_json = sorted(recv_json, key=lambda x: json.dumps(x, sort_keys=True))
+                    recv_json = sorted(recv_json, key=self.get_json_sort_key)
                 if len(expt_all_keys) > 0:
-                    expected_json = sorted(expected_json, key=lambda x: json.dumps(x, sort_keys=True))
+                    expected_json = sorted(expected_json, key=self.get_json_sort_key)
 
                 for src_list, dst_list in zip(recv_json, expected_json):
                     self.json_compare(src_list, dst_list, key)
@@ -228,6 +227,23 @@ class RunTestcase:
                 if key not in this_keys:
                     each_json[key] = "##"
         return all_keys, list_json
+
+    def get_json_sort_key(self, json_object):
+        """
+        Sort by the comparable part of JSON only.
+        """
+        return json.dumps(self.remove_ignore_sort_key(json_object), sort_keys=True)
+
+    def remove_ignore_sort_key(self, json_object):
+        if isinstance(json_object, dict):
+            return {
+                key: self.remove_ignore_sort_key(value)
+                for key, value in json_object.items()
+                if key not in self.ignore_sort_key
+            }
+        if isinstance(json_object, list):
+            return [self.remove_ignore_sort_key(value) for value in json_object]
+        return json_object
 
     def write_msg(self, file_handle, message, is_json=False, use_placeholder=False):
         """
