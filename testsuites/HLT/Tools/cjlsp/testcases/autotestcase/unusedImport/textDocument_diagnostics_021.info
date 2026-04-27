@@ -18,4 +18,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"jsonrpc": "2.0","method": "textDocument/publishDiagnostics","params": {"diagnostics": [{"category": 964,"code": 964,"message": "unused import 'unusedImport.base_macro1.*', this warning can be suppressed by setting the compiler option `-Woff unused`","range": {"end": {"character": 33,"line":10},"start": {"character": 0,"line":10}},"severity": 4,"source": "Cangjie","tags": [1]}],"uri": "unusedImport/src/unused_import/pkg21/unused_import_21.cj"}}
+{"jsonrpc": "2.0","method": "textDocument/publishDiagnostics","params": {"diagnostics": [{"category": 1023,"code": 1023,"message": "unused import 'unusedImport.base_macro1.*', this warning can be suppressed by setting the compiler option `-Woff unused`","range": {"end": {"character": 33,"line": 10},"start": {"character": 0,"line": 10}},"severity": 4,"source": "Cangjie","tags": [1]},{"code": 0,"message": "Function 'test21' is declared but never used","range": {"end": {"character": 11,"line": 12},"start": {"character": 5,"line": 12}},"severity": 4,"source": "Cangjie","tags": [1]}],"uri": "unusedImport/src/unused_import/pkg21/unused_import_21.cj"}}
