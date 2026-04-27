@@ -7,9 +7,7 @@
 package tmp_test
 import lib2.*
 
-// LEVEL: 1
 // DEPENDENCE: lib2.cj
-
 // EXEC: %compiler %cmp_opt %compile_lib_opt --lto=full lib2.cj -o lib2.bc
 // EXEC-PIPE-0: %compiler --lto-keep-pkg-visibility="lib2"  %cmp_opt --lto=full %f lib2.bc 2>&1 | compare %f
 
