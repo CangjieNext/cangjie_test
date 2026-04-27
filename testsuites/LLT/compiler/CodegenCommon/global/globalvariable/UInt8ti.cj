@@ -6,7 +6,6 @@
 
 package tmp_test
 
-// LEVEL: 1
 // EXEC: %compiler %cmp_opt -O2 --lto=full %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
