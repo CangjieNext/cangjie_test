@@ -12,8 +12,8 @@
 // EXEC: cd %n && %cjpm run --skip-build 2>&1 | compare result.txt
 // ASSERT: scan-4 cjc
 // ASSERT: scan-2 -g
-// ASSERT: scan-2 --cfg feature1=lion, feature2=cat
-// ASSERT: scan-not --cfg feature1=lion, feature2=dog
-// ASSERT: scan-not --cfg feature1=tiger, feature2=cat
-// ASSERT: scan-not --cfg feature1=tiger, feature2=dog
+// ASSERT: scan-2 --cfg "feature1=lion, feature2=cat"
+// ASSERT: scan-not --cfg "feature1=lion, feature2=dog"
+// ASSERT: scan-not --cfg "feature1=tiger, feature2=cat"
+// ASSERT: scan-not --cfg "feature1=tiger, feature2=dog"
 // ASSERT: scan cjpm build success
