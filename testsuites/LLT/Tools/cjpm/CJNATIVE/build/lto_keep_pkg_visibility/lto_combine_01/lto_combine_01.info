@@ -8,5 +8,5 @@
 // EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
 // ASSERT: regex Compiling package `b`: .*b\.p2\.bc.*
 // ASSERT: regex Compiling package `b`: .*b\.p1\.bc.*
-// ASSERT: regex Compiling package `b`: .*--lto=full --lto-keep-pkg-visibility="".*
+// ASSERT: regex Compiling package `b`: .*--lto=full --lto-keep-pkg-visibility "".*
 // ASSERT: scan cjpm build success

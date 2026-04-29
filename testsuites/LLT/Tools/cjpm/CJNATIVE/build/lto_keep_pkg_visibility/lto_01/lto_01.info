@@ -7,5 +7,5 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
 // ASSERT: scan-8 --lto=full
-// ASSERT: scan-2 --lto-keep-pkg-visibility="pro0,pro1"
+// ASSERT: scan-2 --lto-keep-pkg-visibility "pro0,pro1"
 // ASSERT: scan cjpm build success

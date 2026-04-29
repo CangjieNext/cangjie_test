@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -g -V 2>&1 | compare %f
-// ASSERT: scan-1 -O1 -O2 -Woff all --link-options -s -z now -z noexecstack
+// ASSERT: scan-1 -O1 -O2 -Woff all --link-options "-s -z now -z noexecstack"
