@@ -140,7 +140,7 @@ error: missing argument prefix 'z:' for named parameter
    |              ^^^^ 
    | 
 
-error: there is no non-parameter constructor with @~local this in super class, please invoke super call explicitly
+error: there is no non-parameter constructor in super class, please invoke super call explicitly
   ==> primaryConstructor2.cj:62:12:
    | 
 62 |     public N(c: Int64) {}

@@ -9,17 +9,17 @@
 enum F {
     | B | C(String)
 
-    func foo(val: (String, String) @local!) : String @local!{
+    func foo(val: (String, String) @local?) : String @local? {
         exclave {
             let (x, y) = val
-            x+y
+            x + y
         }
     }
-    func foo(this @local!) {
+    func foo(this @local?) {
         exclave {
             match (this) {
                 case B => println("B")
-                case C(x) => let gar = x + x // should report error because x is @local!
+                case C(x) => let gar = x + "Hello" // should report error because x is @local?
             }
         }
     }

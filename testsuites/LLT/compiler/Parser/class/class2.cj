@@ -98,13 +98,6 @@ error: expected '{', found 'x'
    |              ^ expected '{' here
    | 
 
-error: expected '{', found ':'
-  ==> class2.cj:43:15:
-   | 
-43 |          get(): Int64{ 
-   |               ^ expected '{' here
-   | 
-
 error: expected ':', found '{'
   ==> class2.cj:55:23:
    | 
@@ -113,7 +106,7 @@ error: expected ':', found '{'
    | 
    # note: property declaration must declare type explicitly
 
-3 errors generated, 3 errors printed.
+2 errors generated, 2 errors printed.
 */
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

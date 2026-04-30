@@ -85,6 +85,13 @@ error: invalid binary operator '+' on type 'Float32' and 'Generics-V'
    | 
    # note: you may want to implement 'operator func +(right: Generics-V)' for type 'Float32'
 
+error: no matching function declaration for function call 'f'
+  ==> upper_bound_float_binary.cj:26:11:
+   | 
+26 |     if (c.f(1.0) < 1.999 || c.f(1.0) > 2.001) {
+   |           ^ 
+   | 
+
 error: no matching function declaration for function call 'g'
   ==> upper_bound_float_binary.cj:29:11:
    | 
@@ -106,5 +113,5 @@ error: no matching function declaration for function call 'g'
    |           ^ 
    | 
 
-9 errors generated, 9 errors printed.
+10 errors generated, 10 errors printed.
 */
