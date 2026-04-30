@@ -117,34 +117,11 @@ error: setter must contain 1 parameter
    |            ^^ expected 1 parameter inside
    | 
 
-error: duplicated 'set' in prop
-  ==> class1.cj:33:9:
-   | 
-31 |     public   mut  prop d:Int64{
-   |                   ~~~~ 
-32 |         set() {} 
-   |         ~~~~~~~~ previous one
-33 |         set() {} 
-   |         ^^^ duplicated 'set'
-   | 
-
 error: setter must contain 1 parameter
   ==> class1.cj:33:12:
    | 
 33 |         set() {} 
    |            ^^ expected 1 parameter inside
-   | 
-
-error: duplicated 'set' in prop
-  ==> class1.cj:34:9:
-   | 
-31 |     public   mut  prop d:Int64{
-   |                   ~~~~ 
-32 |         set() {} 
-33 |         set() {} 
-   |         ~~~~~~~~ previous one
-34 |         set() {} 
-   |         ^^^ duplicated 'set'
    | 
 
 error: setter must contain 1 parameter
@@ -159,17 +136,6 @@ error: setter must contain 1 parameter
    | 
 40 |         set() {}
    |            ^^ expected 1 parameter inside
-   | 
-
-error: duplicated 'set' in prop
-  ==> class1.cj:41:9:
-   | 
-39 |     public   mut  prop d:Int64{
-   |                   ~~~~ 
-40 |         set() {}
-   |         ~~~~~~~~ previous one
-41 |         set() {} 
-   |         ^^^ duplicated 'set'
    | 
 
 error: setter must contain 1 parameter
@@ -226,10 +192,10 @@ error: unclosed delimiter: '{'
    |   ^ expected '}' here
    | 
 
-17 errors generated, 17 errors printed.
+14 errors generated, 14 errors printed.
 */
 
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
 // with Runtime Library Exception.
 //

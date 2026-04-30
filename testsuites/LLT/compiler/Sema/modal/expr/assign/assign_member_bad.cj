@@ -105,6 +105,6 @@ main() {
 }
 
 // ASSERT: scan-3 "DiagKind": "sema_bad_local_assignment",
-// ASSERT: scan-7 "DiagKind": "sema_mismatched_types",
-// ASSERT: scan-1 "DiagKind": "sema_no_match_function_declaration_for_call",
-// ASSERT: scan "Errors": 11,
+// ASSERT: scan-8 "DiagKind": "sema_mismatched_types",
+// ASSERT: scan-1 "DiagKind": "sema_no_match_prop_accessor_for_call",
+// ASSERT: scan "Errors": 12,
