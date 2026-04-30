@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/coroutine/
+// EXEC: %compiler %cmp_opt -g coroutine/coroutine_20.cj -o coroutine_20%cmp_output
+// RUN-EXEC: python3 cjdb_test.py coroutine_082.info coroutine_20 %run_env
+
+test#
+cjdb,cjdb --no-use-colors coroutine_20,coroutine_20
+b,b 26,coroutine_20.cj:26
+AOT r,r,-> 26
+b,breakpoint disable,
+cjthread,cjthread list,thread #[\s\S]*state = running[\s\S]*coroutine_20.cj:26
+cjthread,cjthread select 2,-> 26
+cjthread,cjt frame var,\(std.core.String\) s1 = "Hello Cangjie Lang"
+cjthread,cjt frame var,\(Tuple<Int64,Bool>\) tuple1 = {[\s\S]*\[0\] = 8[\s\S]*\[1\] = false[\s\S]*}
+q,quit,
