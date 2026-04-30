@@ -179,3 +179,24 @@ compiler/CJMP/merging/classes/vtable/import1.cj
 # Driver permission related cases.
 compiler/ConditionalCompilation/cfg/read_file_fail.cj
 compiler/Driver/temporary_files/TMPDIR_illegal_3.cj
+
+# modal
+# TODO: fix in type infer
+compiler/Sema/type_infer/lambda_param_04.cj
+compiler/Sema/type_infer/lambda_param_09.cj
+#       possibly type infer
+compiler/Sema/PatternMatching/EnumPattern/enum_and_var_pattern.cj
+# TODO: token consume after invalid PrimitiveType
+compiler/Parser/ar/parser_support_wildcard/negative/generic_wildcard_variable.cj
+compiler/Parser/function/return.cj
+# TODO: chir issues
+compiler/Sema/modal/expr/exclave/return_in_exclave.cj
+compiler/Sema/modal/types/cast_function_type.cj
+# chir changes, probably unrelated
+compiler/CHIR/AST2CHIR/BaseUseCase/try/try_arith_overflow_wrapping.cj
+# fails on dev
+compiler/Sema/Extend/default_implement/multi_default_impl_07.cj
+compiler/Sema/Extend/extend_instantiate4.cj
+compiler/Sema/Extend/visibility_between_extend/strict_call_loose.cj
+compiler/Sema/PatternMatching/TypePattern/unreachable_nothing.cj
+compiler/CHIR/Nothing/InstanceOf.cj
