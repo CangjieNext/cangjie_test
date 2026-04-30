@@ -35,14 +35,14 @@ main(): Int64 {
 }
 
 /* SCAN
-error: there is no non-parameter constructor with @~local this in super class, please invoke super call explicitly
+error: there is no non-parameter constructor with this @~local in super class, please invoke super call explicitly
   ==> super_error_01.cj:22:12:
    | 
 22 |     public init(x: Int32) {
    |            ^^^^ 
    | 
 
-error: there is no non-parameter constructor with @~local this in super class, please invoke super call explicitly
+error: there is no non-parameter constructor with this @~local in super class, please invoke super call explicitly
   ==> super_error_01.cj:18:12:
    | 
 18 |     public Test() {
