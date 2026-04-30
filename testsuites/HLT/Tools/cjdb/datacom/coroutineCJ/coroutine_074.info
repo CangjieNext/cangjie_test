@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/coroutine/
+// EXEC: %compiler %cmp_opt -g coroutine/coroutine_18.cj -o coroutine_18%cmp_output
+// RUN-EXEC: python3 cjdb_test.py coroutine_074.info coroutine_18 %run_env
+
+test#
+cjdb,cjdb --no-use-colors coroutine_18,coroutine_18
+b,b 23,coroutine_18.cj:23
+AOT r,r,-> 23
+b,breakpoint disable,
+cjthread,cjthread list,thread #[\s\S]*state = running[\s\S]*coroutine_18.cj:23
+cjthread,cjthread select 2,thread #[\s\S]*state = running
+cjthread,cjt s,-> 39
+cjthread,cjt n,-> 40
+cjthread,cjt n,-> 41
+cjthread,cjt frame var b,\(Int64\) b = 2
+q,quit,
