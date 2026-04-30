@@ -21,5 +21,5 @@ main() {
     let b = c.my
     println(b)
 }
-// ASSERT: scan "DiagKind": "sema_no_match_function_declaration_for_call",
+// ASSERT: scan "DiagKind": "sema_no_match_prop_accessor_for_call",
 // ASSERT: scan "Errors": 1,
