@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/coroutine/
+// EXEC: %compiler %cmp_opt -g coroutine/coroutine_21.cj -o coroutine_21%cmp_output
+// RUN-EXEC: python3 cjdb_test.py coroutine_084.info coroutine_21 %run_env
+
+test#
+cjdb,cjdb --no-use-colors coroutine_21,coroutine_21
+b,b 25,coroutine_21.cj:25
+AOT r,r,-> 25
+b,breakpoint disable,
+cjthread,cjthread list,thread #[\s\S]*state = running[\s\S]*coroutine_21.cj:25
+cjthread,cjt select 5,thread #[\s\S]*state = ready
+cjthread,cjt select 6,thread #[\s\S]*state = ready
+cjthread,cjt select 2,thread #[\s\S]*state = running
+cjthread,cjt frame var,\(std.collection.HashSet<Int64>\) b = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}
+cjthread,cjt frame var,\(std.collection.ArrayList<Int64>\) a = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}
+q,quit,

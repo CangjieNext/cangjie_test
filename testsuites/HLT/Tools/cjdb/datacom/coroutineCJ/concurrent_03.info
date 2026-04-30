@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
@@ -16,6 +16,7 @@ cjdb,cjdb --no-use-colors concurrent_02,concurrent_02
 b,b 14,concurrent_02.cj:14
 AOT r,r,-> 14
 CJVM c,c,
+AOT break,breakpoint disable,
 n,n,-> 12
 n,n,-> 13
 n,n,-> 14

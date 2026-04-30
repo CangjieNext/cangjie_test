@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
@@ -17,6 +17,6 @@ cjdb,cjdb --no-use-colors coroutine_6,coroutine_6
 b,b 18,coroutine_6.cj:18
 AOT r,r,-> 18
 CJVM c,c,
-cjthread,cjthread list,cjthread #2 state: pending[\s\S]*coroutine_6.cj:18
+cjthread,cjthread list,tid = 2, state[\s\S]*
 cjthread,cjthread backtrace -c 2 -s 2 999,error: invalid cjthread index "999"
 q,quit,
