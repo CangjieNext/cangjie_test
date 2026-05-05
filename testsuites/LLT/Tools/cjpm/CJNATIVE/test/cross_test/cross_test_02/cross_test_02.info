@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm test --target="" 2>&1 | compare %f
-// ASSERT: scan the cross-compile target can't be empty
+// ASSERT: scan the value of option '--target' can't be empty

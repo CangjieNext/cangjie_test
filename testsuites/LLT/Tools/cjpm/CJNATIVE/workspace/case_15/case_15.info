@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC-0: cd %n && %cjpm init && %cjpm build --member= 2>&1 | compare %f
-// ASSERT: scan the member value can't be empty
+// ASSERT: scan the value of option '--member' can't be empty
