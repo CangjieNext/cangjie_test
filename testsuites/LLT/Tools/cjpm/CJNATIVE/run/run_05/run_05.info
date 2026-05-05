@@ -7,9 +7,15 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run -h 2>&1 | compare %f
 // ASSERT: scan Compile and run an executable product
-// ASSERT: scan --name <value>              name of the executable product to run, default to 'main'
-// ASSERT: scan --build-args <value>        the arguments to pass to the build process
-// ASSERT: scan --skip-build                skip compile, only run the executable product
-// ASSERT: scan --run-args <value>          the arguments to pass to the executable product
-// ASSERT: scan -h, --help                  help for run
-// ASSERT: scan -V, --verbose               enable verbose
+// ASSERT: scan --name <value>                   name of the executable product to run, default to 'main'
+// ASSERT: scan --build-args <value>             the arguments to pass to the build process
+// ASSERT: scan --skip-build                     skip compile, only run the executable product
+// ASSERT: scan --run-args <value>               the arguments to pass to the executable product
+// ASSERT: scan -h, --help                       display help
+// ASSERT: scan -V, --verbose                    enable verbose
+  
+  
+  
+  
+  
+  

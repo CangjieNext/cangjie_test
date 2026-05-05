@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build --jobs 2>&1 | compare %f
-// ASSERT: scan the '-j/--jobs' option requires a positive integer argument
+// ASSERT: scan the '--jobs' option needs a value
