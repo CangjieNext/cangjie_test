@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build %cjpm_opt -V --""  2>&1 | compare %f
-// ASSERT: scan Error: the length of customized key must be greater than 1
+// EXEC: cd %n && %cjpm build %cjpm_opt -V --" "  2>&1 | compare %f
+// ASSERT: scan Error: malformed long option '-- ': cannot contain whitespace characters
 // ASSERT: scan cjpm build failed
 
 
