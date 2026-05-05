@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build "--cfg 1" --cfg3 2>&1 | compare %f
-// ASSERT: scan the customized key 'cfg 1' is wrong
+// ASSERT: scan malformed long option '--cfg 1': cannot contain whitespace characters
