@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build --target-dir= 2>&1 | compare %f
-// ASSERT: scan the target directory can't be empty
+// ASSERT: scan the value of option '--target-dir' can't be empty

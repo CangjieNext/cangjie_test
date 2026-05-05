@@ -10,19 +10,19 @@
 Compile and run an executable product.
 
 Usage:
-  cjpm run [option]
+  cjpm run [option] [-- <executable-args>]
 
 Available options:
-  -h, --help                  help for run
-  --name <value>              name of the executable product to run, default to 'main'
-  --build-args <value>        the arguments to pass to the build process
-  --skip-build                skip compile, only run the executable product
-  --run-args <value>          the arguments to pass to the executable product
-  --target-dir <value>        specify target directory
-  --enable-features <value>   explicitly specify comma-separated list of features to be enabled
-  --no-feature-deduce         disables auto-enabling of features, deduced from other options, machine properties, etc.
-  -g                          enable debug version
-  -V, --verbose               enable verbose
-  --skip-script               disable script 'build.cj'
-  -- <values>                 pass all arguments after '--' to the executable product.
+  -h, --help                       display help
+  --name <value>                   name of the executable product to run, default to 'main'
+  --build-args <value>             the arguments to pass to the build process
+  --skip-build                     skip compile, only run the executable product
+  --run-args <value>               the arguments to pass to the executable product
+  --target-dir <value>             specify target directory
+  --enable-features <value>,...    explicitly specify comma-separated list of features to be enabled
+  --no-feature-deduce              disables auto-enabling of features, deduced from other options, machine properties, etc.
+  -g                               enable debug version
+  -V, --verbose                    enable verbose
+  --skip-script                    disable script 'build.cj'
+
 */

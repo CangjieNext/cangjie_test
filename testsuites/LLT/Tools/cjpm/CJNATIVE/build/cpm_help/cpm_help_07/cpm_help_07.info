@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // ERRCHECK: cd %n && %cjpm build -a
-// ASSERT: scan Error: unknown command '-a' for cjpm build
+// ASSERT: scan Error: unknown option '-a'
