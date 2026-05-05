@@ -5,5 +5,5 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../%n
-// ERRCHECK: cd %n && %cjpm build --
-// ASSERT: scan Error: the length of customized key must be greater than 1
+// EXEC-0: cd %n && %cjpm build --
+// ASSERT: scan cjpm build success

@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // ERRCHECK: cd %n && %cjpm build -o ""
-// ASSERT: scan the '--output' option needs a value
+// ASSERT: scan the value of option '-o' can't be empty

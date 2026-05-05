@@ -9,6 +9,6 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build %cjpm_opt -V "--cfg 1" 2>&1 | compare %f
-// ASSERT: scan Error: the customized key 'cfg 1' is wrong, the example is 'cfg_1'
+// ASSERT: scan Error: malformed long option '--cfg 1': cannot contain whitespace characters
 // ASSERT: scan Error: cjpm build failed
 
