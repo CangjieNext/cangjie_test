@@ -7,5 +7,5 @@
 // LEVEL: 0
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run -g --- "a b c" 2>&1 | compare %f
-// ASSERT: scan Error: unknown command '---' for cjpm run
+// ASSERT: scan Error: malformed long option '---': must start with a letter (a-z or A-Z) and may contain only letters, digits, hyphens (-), and underscores (_)
 // ASSERT: scan Error: cjpm run failed

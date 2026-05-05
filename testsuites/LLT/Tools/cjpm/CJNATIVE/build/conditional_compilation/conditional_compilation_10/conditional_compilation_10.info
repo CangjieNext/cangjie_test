@@ -6,4 +6,4 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build "-- " 2>&1 | compare %f
-// ASSERT: scan the length of customized key must be greater than 1
+// ASSERT: scan malformed long option '-- ': cannot contain whitespace characters
