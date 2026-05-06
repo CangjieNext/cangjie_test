@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -11,10 +11,14 @@
 // (Windows and not OHOS)EXEC: mkdir testdir01
 // (Windows and not OHOS)EXEC: type nul>testdir01/file
 // (Windows and not OHOS)EXEC: type nul>testdir01/.file
-// (Windows and not OHOS)EXEC: mklink symlink01 unexists 
-// (Windows and not OHOS)EXEC: mklink symlink02 testdir01/file 
+// (Windows and not OHOS)EXEC: mklink symlink01 unexists
+// (Windows and not OHOS)EXEC: mklink symlink02 testdir01/file
 // (Windows and not OHOS)EXEC: mklink symlink03 testdir01/file
-// (Windows and not OHOS)EXEC: mklink /d symlink04 testdir01 
+// (Windows and not OHOS)EXEC: mklink /d symlink04 testdir01
+// (Windows and not OHOS)EXEC: mklink .hidden_link testdir01/file
+// (Windows and not OHOS)EXEC: mklink broken_runtime_link missing_runtime_target
+// (Windows and not OHOS)EXEC: mkdir junction_target
+// (Windows and not OHOS)EXEC: mklink /J junction_link junction_target
 // (Windows and not OHOS)EXEC: type nul>unexists
 // (Windows and not OHOS)RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args | compare %f
 // (Windows and not OHOS)ASSERT: scan-2 match success
@@ -66,14 +70,22 @@ class Test_FileInfo {
                 var fileinfo = FileInfo(str)
             } catch (e: FSException | IllegalArgumentException) {
                 println(e.message)
-                @Expect(e.message.contains("The path `${str}` does not exist") || e.message.contains("The path cannot"))
+                @Expect(e.message.contains("The path `${str}` does not exist") ||
+                    e.message.contains("The input path `${str}` does not exist") ||
+                    e.message.contains("The path cannot") ||
+                    e.message.contains("The input path is empty") ||
+                    e.message.contains("contains null character"))
                 sum += 1
             }
             try {
                 var fileinfo = FileInfo(Path(str))
             } catch (e: FSException | IllegalArgumentException) {
                 println(e.message)
-                @Expect(e.message.contains("The path `${str}` does not exist") || e.message.contains("The path cannot"))
+                @Expect(e.message.contains("The path `${str}` does not exist") ||
+                    e.message.contains("The input path `${str}` does not exist") ||
+                    e.message.contains("The path cannot") ||
+                    e.message.contains("The input path is empty") ||
+                    e.message.contains("contains null character"))
                 sum += 1
             }
         }
@@ -108,6 +120,17 @@ class Test_FileInfo {
                 @Expect(time1, time2)
             }
         }
+
+        var targetInfo = FileInfo("testdir01\\file")
+        var followedLinkInfo = FileInfo("symlink02")
+        @Expect(followedLinkInfo.creationTime, targetInfo.creationTime)
+        @Expect(followedLinkInfo.lastAccessTime, targetInfo.lastAccessTime)
+        @Expect(followedLinkInfo.lastModificationTime, targetInfo.lastModificationTime)
+
+        var selfLinkInfo = FileInfo("symlink02", followSymlink: false)
+        @Expect(selfLinkInfo.creationTime, selfLinkInfo.creationTime)
+        @Expect(selfLinkInfo.lastAccessTime, selfLinkInfo.lastAccessTime)
+        @Expect(selfLinkInfo.lastModificationTime, selfLinkInfo.lastModificationTime)
     }
 
     @TestCase
@@ -122,6 +145,11 @@ class Test_FileInfo {
         var len2 = dirinfo1.size
         @Expect(fileinfo.size, data.size)
         @Expect(len2, len1 + 100)
+
+        var followedLinkInfo = FileInfo("symlink02")
+        var selfLinkInfo = FileInfo("symlink02", followSymlink: false)
+        @Expect(followedLinkInfo.size, fileinfo.size)
+        @Expect(selfLinkInfo.size != fileinfo.size, true)
     }
 
     @TestCase
@@ -129,8 +157,13 @@ class Test_FileInfo {
         var fileinfo = FileInfo("testdir01\\file")
         var hid_fileinfo = FileInfo("testdir01\\.file")
         var dirinfo = FileInfo("testdir01")
-        var linkinfo1 = FileInfo("symlink01")
-        var linkinfo2 = FileInfo("symlink02")
+        var linkinfo1 = FileInfo("symlink01", followSymlink: false)
+        var linkinfo2 = FileInfo("symlink02", followSymlink: false)
+        var pathLinkInfo = FileInfo(Path("symlink02"), followSymlink: false)
+        var followedFileLinkInfo = FileInfo("symlink02")
+        var explicitFollowedFileLinkInfo = FileInfo("symlink02", followSymlink: true)
+        var followedDirLinkInfo = FileInfo("symlink04")
+        var pathFollowedFileLinkInfo = FileInfo(Path("symlink02"))
 
         @Expect(fileinfo.isSymbolicLink(), false)
         @Expect(fileinfo.isRegular(), true)
@@ -150,16 +183,32 @@ class Test_FileInfo {
         @Expect(linkinfo2.isSymbolicLink(), true)
         @Expect(linkinfo2.isRegular(), false)
         @Expect(linkinfo2.isDirectory(), false)
+        @Expect(pathLinkInfo.isSymbolicLink(), true)
+        @Expect(pathLinkInfo.isRegular(), false)
+        @Expect(pathLinkInfo.isDirectory(), false)
+
+        @Expect(followedFileLinkInfo.isSymbolicLink(), false)
+        @Expect(followedFileLinkInfo.isRegular(), true)
+        @Expect(followedFileLinkInfo.isDirectory(), false)
+        @Expect(explicitFollowedFileLinkInfo.isSymbolicLink(), false)
+        @Expect(explicitFollowedFileLinkInfo.isRegular(), true)
+        @Expect(explicitFollowedFileLinkInfo.isDirectory(), false)
+        @Expect(followedDirLinkInfo.isSymbolicLink(), false)
+        @Expect(followedDirLinkInfo.isRegular(), false)
+        @Expect(followedDirLinkInfo.isDirectory(), true)
+        @Expect(pathFollowedFileLinkInfo.isSymbolicLink(), false)
+        @Expect(pathFollowedFileLinkInfo.isRegular(), true)
+        @Expect(pathFollowedFileLinkInfo.isDirectory(), false)
     }
 
     @TestCase
     func test_enqual_unequal(): Unit {
         var fileinfo = FileInfo("testdir01\\file")
         var dirinfo = FileInfo("testdir01")
-        var linkinfo1 = FileInfo("symlink01")
-        var linkinfo2 = FileInfo("symlink02")
-        var linkinfo3 = FileInfo("symlink03")
-        var linkinfo4 = FileInfo("symlink04")
+        var linkinfo1 = FileInfo("symlink01", followSymlink: false)
+        var linkinfo2 = FileInfo("symlink02", followSymlink: false)
+        var linkinfo3 = FileInfo("symlink03", followSymlink: false)
+        var linkinfo4 = FileInfo("symlink04", followSymlink: false)
 
         @Expect(linkinfo1 == FileInfo("unexists"), false)
         @Expect(linkinfo2 == fileinfo, false)
@@ -178,14 +227,97 @@ class Test_FileInfo {
     func test_isHidden(): Unit {
         var fileinfo = FileInfo("testdir01\\file")
         var hid_fileinfo = FileInfo("testdir01\\.file")
-        var linkinfo2 = FileInfo("symlink02")
+        var linkinfo2 = FileInfo("symlink02", followSymlink: false)
+        var hiddenLinkInfo = FileInfo(".hidden_link")
+        var hiddenSelfLinkInfo = FileInfo(".hidden_link", followSymlink: false)
         @Expect(fileinfo.isHidden(), false)
         @Expect(hid_fileinfo.isHidden(), true)
         @Expect(linkinfo2.isHidden(), false)
+        @Expect(hiddenLinkInfo.isHidden(), false)
+        @Expect(hiddenSelfLinkInfo.isHidden(), true)
 
         Directory.create(".testdir02")
         var dirinfo = FileInfo(".testdir02")
         @Expect(dirinfo.isHidden(), true)
         remove(".testdir02")
+    }
+
+    @TestCase
+    func test_symlink_permission_queries_and_setters(): Unit {
+        var targetInfo = FileInfo("testdir01\\file")
+        var followedLinkInfo = FileInfo("symlink02")
+        var selfLinkInfo = FileInfo("symlink02", followSymlink: false)
+
+        @Expect(followedLinkInfo.canRead(), targetInfo.canRead())
+        @Expect(followedLinkInfo.canWrite(), targetInfo.canWrite())
+        @Expect(followedLinkInfo.canExecute(), targetInfo.canExecute())
+        @Expect(followedLinkInfo.isReadOnly(), targetInfo.isReadOnly())
+
+        @Expect(selfLinkInfo.canRead(), true)
+        @Expect(selfLinkInfo.canWrite(), true)
+        @Expect(selfLinkInfo.canExecute(), true)
+        @Expect(selfLinkInfo.isReadOnly(), false)
+
+        @Expect(targetInfo.setWritable(false), true)
+        @Expect(targetInfo.isReadOnly(), true)
+        @Expect(followedLinkInfo.isReadOnly(), true)
+        @Expect(selfLinkInfo.isReadOnly(), false)
+        @Expect(targetInfo.setWritable(true), true)
+        @Expect(targetInfo.isReadOnly(), false)
+        @Expect(followedLinkInfo.isReadOnly(), false)
+        @Expect(selfLinkInfo.isReadOnly(), false)
+
+        @Expect(selfLinkInfo.setReadable(false), true)
+        @Expect(selfLinkInfo.setWritable(false), true)
+        @Expect(selfLinkInfo.setExecutable(false), true)
+        @Expect(targetInfo.canRead(), true)
+        @Expect(targetInfo.canWrite(), true)
+        @Expect(targetInfo.canExecute(), false)
+    }
+
+    @TestCase
+    func test_reparse_point_that_is_not_symbolic_link(): Unit {
+        var followedInfo = FileInfo("junction_link")
+        var selfInfo = FileInfo("junction_link", followSymlink: false)
+
+        @Expect(followedInfo.isDirectory(), true)
+        @Expect(followedInfo.size, 0)
+        @Expect(followedInfo.isSymbolicLink(), false)
+        @Expect(selfInfo.isSymbolicLink(), false)
+        @Expect(selfInfo.isRegular(), false)
+        @Expect(selfInfo.isDirectory(), false)
+        @Expect(selfInfo.size >= 0, true)
+        @Expect(selfInfo.canRead(), true)
+        @Expect(selfInfo.canExecute(), false)
+    }
+
+    @TestCase
+    func test_dangling_symlink_queries(): Unit {
+        var selfLinkInfo = FileInfo("broken_runtime_link", followSymlink: false)
+        @Expect(selfLinkInfo.path.fileName, "broken_runtime_link")
+        @Expect(selfLinkInfo.isSymbolicLink(), true)
+        @Expect(selfLinkInfo.isRegular(), false)
+        @Expect(selfLinkInfo.isDirectory(), false)
+        @Expect(selfLinkInfo.size >= 0, true)
+        @Expect(selfLinkInfo.isHidden(), false)
+        @Expect(selfLinkInfo.isReadOnly(), false)
+        @Expect(selfLinkInfo.canRead(), true)
+        @Expect(selfLinkInfo.canWrite(), true)
+        @Expect(selfLinkInfo.canExecute(), true)
+        @Expect(selfLinkInfo.creationTime, selfLinkInfo.creationTime)
+        @Expect(selfLinkInfo.lastAccessTime, selfLinkInfo.lastAccessTime)
+        @Expect(selfLinkInfo.lastModificationTime, selfLinkInfo.lastModificationTime)
+
+        @ExpectThrows[FSException](FileInfo("broken_runtime_link").isSymbolicLink())
+        @ExpectThrows[FSException](FileInfo("broken_runtime_link").isRegular())
+        @ExpectThrows[FSException](FileInfo("broken_runtime_link").isDirectory())
+        @ExpectThrows[FSException](FileInfo("broken_runtime_link").isReadOnly())
+        @ExpectThrows[FSException](FileInfo("broken_runtime_link").canRead())
+        @ExpectThrows[FSException](FileInfo("broken_runtime_link").canWrite())
+        @ExpectThrows[FSException](FileInfo("broken_runtime_link").canExecute())
+        @ExpectThrows[FSException](FileInfo("broken_runtime_link").size)
+        @ExpectThrows[FSException](FileInfo("broken_runtime_link").creationTime)
+        @ExpectThrows[FSException](FileInfo("broken_runtime_link").lastAccessTime)
+        @ExpectThrows[FSException](FileInfo("broken_runtime_link").lastModificationTime)
     }
 }

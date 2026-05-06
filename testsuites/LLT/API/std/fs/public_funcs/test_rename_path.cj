@@ -10,7 +10,7 @@
 // (Linux) EXEC: %mkdir dir1 && %lnfile dir1 dirlink
 // (Linux) EXEC: %mkdir dir2 && %touch dir2/ifile2
 // (Windows) EXEC: type nul > ifile && mklink filelink ifile
-// (Windows) EXEC: mkdir dir1 && mklink dirlink dir1
+// (Windows) EXEC: mkdir dir1 && mklink /d dirlink dir1
 // (Windows) EXEC: mkdir dir2 && type nul > dir2/ifile2
 // EXEC: %run %run_opt %output %run_utest_opt
 
@@ -23,18 +23,31 @@ class Test_FS_Copy {
         @Assert(!exists(Path("filelink2")))
         rename(Path("filelink"), to: Path("filelink2"))
         @Assert(!exists(Path("filelink")))
-        @Expect(FileInfo(Path("filelink2")).isSymbolicLink())
+        @Expect(FileInfo(Path("filelink2"), followSymlink: false).isSymbolicLink())
+        @Expect(FileInfo(Path("filelink2"), followSymlink: true).isRegular())
         @Expect(SymbolicLink.readFrom(Path("filelink2")).toString(), "ifile")
 
         @Assert(!exists(Path("dirlink2")))
         rename(Path("dirlink"), to: Path("dirlink2"))
         @Assert(!exists(Path("dirlink")))
-        @Expect(FileInfo(Path("dirlink2")).isSymbolicLink())
+        @Expect(FileInfo(Path("dirlink2"), followSymlink: false).isSymbolicLink())
+        @Expect(FileInfo(Path("dirlink2"), followSymlink: true).isDirectory())
         @Expect(SymbolicLink.readFrom(Path("dirlink2")).toString(), "dir1")
 
         @ExpectThrows[FSException](rename(Path("dirlink2"), to: Path("filelink2")))
         rename(Path("dirlink2"), to: Path("filelink2"), overwrite: true)
         @Assert(!exists(Path("dirlink2")))
+    }
+
+    @TestCase
+    func test_rename_created_symlink() {
+        SymbolicLink.create(Path("created_link"), to: Path("ifile"))
+        rename(Path("created_link"), to: Path("created_link2"))
+
+        @Assert(!exists(Path("created_link")))
+        @Expect(FileInfo(Path("created_link2"), followSymlink: false).isSymbolicLink())
+        @Expect(FileInfo(Path("created_link2"), followSymlink: true).isRegular())
+        @Expect(SymbolicLink.readFrom(Path("created_link2")).toString(), "ifile")
     }
 
     @TestCase

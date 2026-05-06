@@ -10,7 +10,7 @@
 // (Linux) EXEC: %mkdir dir1 && %lnfile dir1 dirlink
 // (Linux) EXEC: %mkdir dir2 && %touch dir2/ifile2
 // (Windows) EXEC: type nul > ifile && mklink filelink ifile
-// (Windows) EXEC: mkdir dir1 && mklink dirlink dir1
+// (Windows) EXEC: mkdir dir1 && mklink /d dirlink dir1
 // (Windows) EXEC: mkdir dir2 && type nul > dir2/ifile2
 // EXEC: %run %run_opt %output %run_utest_opt
 
@@ -23,18 +23,31 @@ class Test_FS_Rename {
         @Assert(!exists("filelink2"))
         rename("filelink", to: "filelink2")
         @Assert(!exists("filelink"))
-        @Expect(FileInfo("filelink2").isSymbolicLink())
+        @Expect(FileInfo("filelink2", followSymlink: false).isSymbolicLink())
+        @Expect(FileInfo("filelink2", followSymlink: true).isRegular())
         @Expect(SymbolicLink.readFrom("filelink2").toString(), "ifile")
 
         @Assert(!exists("dirlink2"))
         rename("dirlink", to: "dirlink2")
         @Assert(!exists("dirlink"))
-        @Expect(FileInfo("dirlink2").isSymbolicLink())
+        @Expect(FileInfo("dirlink2", followSymlink: false).isSymbolicLink())
+        @Expect(FileInfo("dirlink2", followSymlink: true).isDirectory())
         @Expect(SymbolicLink.readFrom("dirlink2").toString(), "dir1")
 
         @ExpectThrows[FSException](rename("dirlink2", to:"filelink2"))
         rename("dirlink2", to: "filelink2", overwrite: true)
         @Assert(!exists("dirlink2"))
+    }
+
+    @TestCase
+    func test_rename_created_symlink() {
+        SymbolicLink.create("created_link", to: "ifile")
+        rename("created_link", to: "created_link2")
+
+        @Assert(!exists("created_link"))
+        @Expect(FileInfo("created_link2", followSymlink: false).isSymbolicLink())
+        @Expect(FileInfo("created_link2", followSymlink: true).isRegular())
+        @Expect(SymbolicLink.readFrom("created_link2").toString(), "ifile")
     }
 
     @TestCase
