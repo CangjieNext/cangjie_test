@@ -5,9 +5,13 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../%n
+// (Windows)EXEC: copy NUL output
+// (Unix)EXEC: cd %n && touch output
 // EXEC: cd %n && %cjpm build && sleep 5 && touch src/main_test.cj
-// EXEC: cd %n && %cjpm build -i -V 2>&1 | compare %f
+// EXEC: cd %n && %cjpm build -i -V 2>&1 >> output
+// EXEC: cd %n && sleep 2 && touch src/main.cj && %cjpm build -i -V 2>&1 >> output
+// EXEC: cd %n && %cat output | compare %f
 // ASSERT: scan-not Compiling package `pro0.zoo`:
 // ASSERT: scan-not Compiling package `test.koo`:
-// ASSERT: scan Compiling package `test`:
-// ASSERT: scan cjpm build success
+// ASSERT: scan-1 Compiling package `test`:
+// ASSERT: scan-2 cjpm build success

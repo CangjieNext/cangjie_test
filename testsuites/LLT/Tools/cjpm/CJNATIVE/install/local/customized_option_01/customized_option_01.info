@@ -8,8 +8,8 @@
 // EXEC: cd %n && %cjpm install --root test -V --cfg1 --cfg6 2>&1 | compare %f
 // ASSERT: scan-3 Compiling package
 // ASSERT: scan-2 -g
-// ASSERT: scan-2 --cfg feature1=lion, feature2=cat
-// ASSERT: scan-not --cfg feature1=lion, feature2=dog
-// ASSERT: scan-not --cfg feature1=tiger, feature2=cat
-// ASSERT: scan-not --cfg feature1=tiger, feature2=dog
+// ASSERT: scan-2 --cfg "feature1=lion, feature2=cat"
+// ASSERT: scan-not --cfg "feature1=lion, feature2=dog"
+// ASSERT: scan-not --cfg "feature1=tiger, feature2=cat"
+// ASSERT: scan-not --cfg "feature1=tiger, feature2=dog"
 // ASSERT: scan cjpm install success

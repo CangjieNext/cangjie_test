@@ -6,6 +6,6 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm test --cfg1 --cfg6 -V %run_utest_opt 2>&1 | compare %f
-// ASSERT: scan --cfg feature1=lion, feature2=cat
+// ASSERT: scan --cfg "feature1=lion, feature2=cat"
 // ASSERT: scan -g
 // ASSERT: scan cjpm test success
