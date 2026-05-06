@@ -6,6 +6,6 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: regex Compiling package `test.*--link-options -z noexecstack -z relro -z now
+// ASSERT: regex Compiling package `test.*--link-options "-z noexecstack -z relro -z now"
 // ASSERT: scan cjpm build success
 // EXEC: cd %n && %cjpm run

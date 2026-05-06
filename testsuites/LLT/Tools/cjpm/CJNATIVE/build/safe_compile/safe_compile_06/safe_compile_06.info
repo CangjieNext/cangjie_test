@@ -6,5 +6,5 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: scan-3 --link-options -s -z now
+// ASSERT: scan-3 --link-options "-s -z now"
 // EXEC: cd %n && %set_path_prefix=build/pro0%set_path_suffix %cjpm run

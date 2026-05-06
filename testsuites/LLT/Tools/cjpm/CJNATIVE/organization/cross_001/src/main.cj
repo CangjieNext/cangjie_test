@@ -4,9 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-package test
+package huawei::test
 
-import test.pkgC.*
+import huawei::test.pkgC.*
 
 main(): Int64 {
     printC()

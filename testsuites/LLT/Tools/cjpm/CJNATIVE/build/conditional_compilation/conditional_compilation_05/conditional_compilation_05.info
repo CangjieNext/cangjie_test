@@ -6,5 +6,5 @@
 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -V --cfg1 --cfg6 2>&1 | compare %f
-// ASSERT: scan -config (feature1=lion, feature2=cat)
+// ASSERT: scan -config "(feature1=lion, feature2=cat)"
 // ASSERT: scan -g
