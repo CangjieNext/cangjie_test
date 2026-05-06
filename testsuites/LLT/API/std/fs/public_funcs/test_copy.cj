@@ -22,16 +22,26 @@ class Test_FS_Copy {
     func test_copy_link() {
         @Assert(!exists("filelink2"))
         copy("filelink", to: "filelink2")
-        @Expect(FileInfo("filelink2").isSymbolicLink())
+        @Expect(FileInfo("filelink2", followSymlink: false).isSymbolicLink())
         @Expect(SymbolicLink.readFrom("filelink2").toString(), "ifile")
 
         @Assert(!exists("dirlink2"))
         copy("dirlink", to: "dirlink2")
-        @Expect(FileInfo("dirlink2").isSymbolicLink())
+        @Expect(FileInfo("dirlink2", followSymlink: false).isSymbolicLink())
         @Expect(SymbolicLink.readFrom("dirlink2").toString(), "dir1")
 
         @ExpectThrows[FSException](copy("filelink", to:"filelink2"))
         copy("filelink", to: "filelink2", overwrite: true)
+    }
+
+    @TestCase
+    func test_copy_directory_preserves_symlink_member() {
+        SymbolicLink.create("dir1/file_member_link", to: "../ifile")
+        copy("dir1", to: "dir1_copy")
+
+        @Expect(FileInfo("dir1_copy/file_member_link", followSymlink: false).isSymbolicLink())
+        @Expect(SymbolicLink.readFrom("dir1_copy/file_member_link").toString(), "../ifile")
+        @Expect(exists("ifile"))
     }
 
     @TestCase

@@ -23,13 +23,13 @@ class Test_FS_Copy {
         @Assert(!exists(Path("filelink2")))
         rename(Path("filelink"), to: Path("filelink2"))
         @Assert(!exists(Path("filelink")))
-        @Expect(FileInfo(Path("filelink2")).isSymbolicLink())
+        @Expect(FileInfo(Path("filelink2"), followSymlink: false).isSymbolicLink())
         @Expect(SymbolicLink.readFrom(Path("filelink2")).toString(), "ifile")
 
         @Assert(!exists(Path("dirlink2")))
         rename(Path("dirlink"), to: Path("dirlink2"))
         @Assert(!exists(Path("dirlink")))
-        @Expect(FileInfo(Path("dirlink2")).isSymbolicLink())
+        @Expect(FileInfo(Path("dirlink2"), followSymlink: false).isSymbolicLink())
         @Expect(SymbolicLink.readFrom(Path("dirlink2")).toString(), "dir1")
 
         @ExpectThrows[FSException](rename(Path("dirlink2"), to: Path("filelink2")))
