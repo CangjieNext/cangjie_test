@@ -8,9 +8,11 @@
 // EXEC:  %compiler %cmp_opt %f -o %output %cmp_utest_opt
 // (Linux) EXEC: %touch ifile && %lnfile ifile filelink
 // (Linux) EXEC: %mkdir dir1 && %lnfile dir1 dirlink
+// (Linux) EXEC: %lnfile ../ifile dir1/file_member_link
 // (Linux) EXEC: %mkdir dir2 && %touch dir2/ifile2
 // (Windows) EXEC: type nul > ifile && mklink filelink ifile
-// (Windows) EXEC: mkdir dir1 && mklink dirlink dir1
+// (Windows) EXEC: mkdir dir1 && mklink /d dirlink dir1
+// (Windows) EXEC: mklink dir1\file_member_link ..\ifile
 // (Windows) EXEC: mkdir dir2 && type nul > dir2/ifile2
 // EXEC: %run %run_opt %output %run_utest_opt
 
@@ -22,16 +24,29 @@ class Test_FS_Copy {
     func test_copy_link() {
         @Assert(!exists("filelink2"))
         copy("filelink", to: "filelink2")
-        @Expect(FileInfo("filelink2").isSymbolicLink())
+        @Expect(FileInfo("filelink2", followSymlink: false).isSymbolicLink())
+        @Expect(FileInfo("filelink2", followSymlink: true).isRegular())
         @Expect(SymbolicLink.readFrom("filelink2").toString(), "ifile")
 
         @Assert(!exists("dirlink2"))
         copy("dirlink", to: "dirlink2")
-        @Expect(FileInfo("dirlink2").isSymbolicLink())
+        @Expect(FileInfo("dirlink2", followSymlink: false).isSymbolicLink())
+        @Expect(FileInfo("dirlink2", followSymlink: true).isDirectory())
         @Expect(SymbolicLink.readFrom("dirlink2").toString(), "dir1")
 
         @ExpectThrows[FSException](copy("filelink", to:"filelink2"))
         copy("filelink", to: "filelink2", overwrite: true)
+    }
+
+    @TestCase
+    func test_copy_directory_preserves_symlink_member() {
+        copy("dir1", to: "dir1_copy")
+
+        @Expect(FileInfo("dir1_copy/file_member_link", followSymlink: false).isSymbolicLink())
+        @Expect(FileInfo("dir1_copy/file_member_link", followSymlink: true).isRegular())
+        let target = SymbolicLink.readFrom("dir1_copy/file_member_link").toString()
+        @Expect(target == "../ifile" || target == "..\\ifile")
+        @Expect(exists("ifile"))
     }
 
     @TestCase

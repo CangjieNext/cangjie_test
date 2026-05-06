@@ -55,12 +55,19 @@ class Test_Fs_remove {
 
     @TestCase
     func test_symboliclink() {
-        @Assert(exists("filelink"))
-        remove(Path("filelink"))
-        @Assert(!exists("filelink"))
-        @Assert(exists("dirlink"))
-        remove(Path("dirlink"))
-        @Assert(!exists("dirlink"))
+        File.create(Path("remove_target_file")).close()
+        SymbolicLink.create(Path("remove_filelink"), to: Path("remove_target_file"))
+        @Assert(exists(Path("remove_filelink")))
+        remove(Path("remove_filelink"))
+        @Assert(!exists(Path("remove_filelink")))
+        @Assert(exists(Path("remove_target_file")))
+
+        Directory.create(Path("remove_target_dir"))
+        SymbolicLink.create(Path("remove_dirlink"), to: Path("remove_target_dir"))
+        @Assert(exists(Path("remove_dirlink")))
+        remove(Path("remove_dirlink"))
+        @Assert(!exists(Path("remove_dirlink")))
+        @Assert(exists(Path("remove_target_dir")))
     }
 
     @TestCase
