@@ -23,13 +23,13 @@ class Test_FS_Rename {
         @Assert(!exists("filelink2"))
         rename("filelink", to: "filelink2")
         @Assert(!exists("filelink"))
-        @Expect(FileInfo("filelink2").isSymbolicLink())
+        @Expect(FileInfo("filelink2", followSymlink: false).isSymbolicLink())
         @Expect(SymbolicLink.readFrom("filelink2").toString(), "ifile")
 
         @Assert(!exists("dirlink2"))
         rename("dirlink", to: "dirlink2")
         @Assert(!exists("dirlink"))
-        @Expect(FileInfo("dirlink2").isSymbolicLink())
+        @Expect(FileInfo("dirlink2", followSymlink: false).isSymbolicLink())
         @Expect(SymbolicLink.readFrom("dirlink2").toString(), "dir1")
 
         @ExpectThrows[FSException](rename("dirlink2", to:"filelink2"))

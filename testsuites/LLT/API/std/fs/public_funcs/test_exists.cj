@@ -22,6 +22,7 @@ class Test_Fs_exists {
     func test1() {
         @Expect(exists("ifile"))
         @Expect(exists("filelink"))
+        @Expect(exists("dirlink"))
         @Expect(exists("dir2"))
         @Expect(exists("dir2/ifile2"))
         @Expect(!exists("dir1/file2"))
@@ -41,10 +42,14 @@ class Test_Fs_removeIfExists {
     func test1() {
         @Expect(exists("ifile"))
         @Expect(exists("filelink"))
+        @Expect(exists("dirlink"))
         @Expect(exists("dir2"))
         @Expect(exists("dir2/ifile2"))
-        removeIfExists("ifile")
         removeIfExists("filelink")
+        @Expect(exists("ifile"))
+        removeIfExists("ifile")
+        removeIfExists("dirlink")
+        @Expect(exists("dir1"))
         @ExpectThrows[FSException](removeIfExists("dir2"))
         removeIfExists("dir2", recursive: true)
         removeIfExists("dir2/ifile2")

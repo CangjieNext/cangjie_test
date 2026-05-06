@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -125,8 +125,8 @@ class Test_FileInfo {
         var fileinfo = FileInfo("testdir01/file")
         var hid_fileinfo = FileInfo("testdir01/.file")
         var dirinfo = FileInfo("testdir01")
-        var linkinfo1 = FileInfo("symlink01")
-        var linkinfo2 = FileInfo("symlink02")
+        var linkinfo1 = FileInfo("symlink01", followSymlink: false)
+        var linkinfo2 = FileInfo("symlink02", followSymlink: false)
 
         @Expect(fileinfo.isSymbolicLink(), false)
         @Expect(fileinfo.isRegular(), true)
@@ -174,7 +174,7 @@ class Test_FileInfo {
     func test_isHidden(): Unit {
         var fileinfo = FileInfo("testdir01/file")
         var hid_fileinfo = FileInfo("testdir01/.file")
-        var linkinfo2 = FileInfo("symlink02")
+        var linkinfo2 = FileInfo("symlink02", followSymlink: false)
         @Expect(fileinfo.isHidden(), false)
         @Expect(hid_fileinfo.isHidden(), true)
         @Expect(linkinfo2.isHidden(), false)
@@ -189,7 +189,7 @@ class Test_FileInfo {
     func test_isReadOnly_setReadable(): Unit {
         var fileinfo = FileInfo("testdir01/file")
         var dirinfo = FileInfo("testdir01")
-        var linkinfo = FileInfo("symlink02")
+        var linkinfo = FileInfo("symlink02", followSymlink: false)
 
         @Expect(fileinfo.isReadOnly(), false)
         @Expect(dirinfo.isReadOnly(), false)
@@ -203,7 +203,7 @@ class Test_FileInfo {
 
         fileinfo.setExecutable(false)
         @Expect(fileinfo.isReadOnly(), true)
-        @Expect(linkinfo.isReadOnly(), true)
+        @Expect(linkinfo.isReadOnly(), false)
         fileinfo.setReadable(false)
         @Expect(fileinfo.isReadOnly(), false)
         @Expect(linkinfo.isReadOnly(), false)
@@ -219,9 +219,9 @@ class Test_FileInfo {
         var fileinfo = FileInfo("testdir01/file")
         var hid_fileinfo = FileInfo("testdir01/.file")
         var dirinfo = FileInfo("testdir01")
-        var linkinfo = FileInfo("symlink02")
+        var linkinfo = FileInfo("symlink02", followSymlink: false)
 
-        var infos: Array<FileInfo> = [fileinfo, hid_fileinfo, linkinfo, dirinfo]
+        var infos: Array<FileInfo> = [fileinfo, hid_fileinfo, dirinfo]
         for (info in infos) {
             @Expect(info.setExecutable(false), true)
             @Expect(info.canExecute(), false)
@@ -237,31 +237,39 @@ class Test_FileInfo {
             @Expect(info.setReadable(true), true)
             @Expect(info.canRead(), true)
         }
+
+        @Expect(linkinfo.setExecutable(false), true)
+        @Expect(linkinfo.setWritable(false), true)
+        @Expect(linkinfo.setReadable(false), true)
     }
 
     @TestCase
     func test_set_can_02(): Unit {
         var fileinfo = FileInfo("testdir01/file")
-        var linkinfo1 = FileInfo("symlink02")
-        var linkinfo2 = FileInfo("symlink03")
+        var linkinfo1 = FileInfo("symlink02", followSymlink: false)
+        var linkinfo2 = FileInfo("symlink03", followSymlink: false)
 
-        var infos: Array<FileInfo> = [fileinfo, linkinfo1, linkinfo2]
         @Expect(linkinfo1.setExecutable(false), true)
         @Expect(linkinfo1.setWritable(false), true)
         @Expect(linkinfo1.setReadable(false), true)
-        for (info in infos) {
-            @Expect(info.canExecute(), false)
-            @Expect(info.canWrite(), false)
-            @Expect(info.canRead(), false)
-        }
+        @Expect(fileinfo.canExecute(), true)
+        @Expect(fileinfo.canWrite(), true)
+        @Expect(fileinfo.canRead(), true)
+        @Expect(linkinfo2.canExecute(), true)
+        @Expect(linkinfo2.canWrite(), true)
+        @Expect(linkinfo2.canRead(), true)
 
         @Expect(fileinfo.setExecutable(true), true)
         @Expect(fileinfo.setWritable(true), true)
         @Expect(fileinfo.setReadable(true), true)
-        for (info in infos) {
-            @Expect(info.canExecute(), true)
-            @Expect(info.canWrite(), true)
-            @Expect(info.canRead(), true)
-        }
+        @Expect(fileinfo.canExecute(), true)
+        @Expect(fileinfo.canWrite(), true)
+        @Expect(fileinfo.canRead(), true)
+        @Expect(linkinfo1.canExecute(), true)
+        @Expect(linkinfo1.canWrite(), true)
+        @Expect(linkinfo1.canRead(), true)
+        @Expect(linkinfo2.canExecute(), true)
+        @Expect(linkinfo2.canWrite(), true)
+        @Expect(linkinfo2.canRead(), true)
     }
 }

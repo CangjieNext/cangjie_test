@@ -50,15 +50,15 @@ class Test_SymbolicLink {
         @Expect(exists("ifile"))
         @Expect(!exists("ifileS"))
         SymbolicLink.create("ifileS", to: "ifile")
-        @Expect(FileInfo("ifileS").isSymbolicLink())
+        @Expect(FileInfo("ifileS", followSymlink: false).isSymbolicLink())
 
         @Expect(!exists("dir1S"))
         SymbolicLink.create("dir1S", to: "dir1")
-        @Expect(FileInfo("dir1S").isSymbolicLink())
+        @Expect(FileInfo("dir1S", followSymlink: false).isSymbolicLink())
 
         @Expect(!exists("dir1fileS"))
         SymbolicLink.create("dir1fileS", to: "dir1/ifile")
-        @Expect(FileInfo("dir1fileS").isSymbolicLink())
+        @Expect(FileInfo("dir1fileS", followSymlink: false).isSymbolicLink())
     }
 
     @TestCase
