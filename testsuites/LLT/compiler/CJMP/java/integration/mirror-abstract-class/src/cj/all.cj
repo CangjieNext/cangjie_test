@@ -6,7 +6,6 @@
 
 package com.java.lib
 
-import java.internal.*
 import java.lang.*;
 
 @JavaMirror

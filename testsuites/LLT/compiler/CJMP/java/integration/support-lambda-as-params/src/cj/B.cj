@@ -8,7 +8,6 @@
  
 package cj
 
-import java.internal.*
 import java.lang.*
 
 public open class B {

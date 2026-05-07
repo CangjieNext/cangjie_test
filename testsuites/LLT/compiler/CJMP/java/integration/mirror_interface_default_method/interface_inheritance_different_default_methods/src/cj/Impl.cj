@@ -6,7 +6,6 @@
 
 package lib1
 
-import java.internal.*
 import java.lang.*;
 
 import dom.java.lib.I0

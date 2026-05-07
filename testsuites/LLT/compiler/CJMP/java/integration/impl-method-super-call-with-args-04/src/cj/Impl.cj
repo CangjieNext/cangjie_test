@@ -14,7 +14,6 @@ package cj
  * String: 
  */
 
-import java.internal.*
 import java.lang.*
 
 func idI2(x: I2): I2 { x }

@@ -5,8 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 package cj
- 
-import java.internal.*
+
 import java.lang.*
 import std.runtime.*
  

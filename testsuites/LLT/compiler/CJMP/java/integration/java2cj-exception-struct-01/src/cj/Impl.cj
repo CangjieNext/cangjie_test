@@ -10,7 +10,6 @@ package cj
  * Testing scenarios where exceptions are indirectly thrown 
  */
 
-import java.internal.*
 import java.lang.*
 
 func globalHello() {
