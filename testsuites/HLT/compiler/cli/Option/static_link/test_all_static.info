@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE: main.cj my_utils.cj
-// EXEC: %compiler %cmp_opt my_utils.cj --static --output-type=staticlib
-// EXEC: %compiler %cmp_opt -Woff=all -L. -lmy_utils main.cj --static --import-path %cangjie-static-stdx-path -L %cangjie-static-stdx-path %cangjie-stdx-list -o %output
+// EXEC: %compiler %extra_options %sanitizer_options %mock_options %optimization_options %debug_options my_utils.cj --static --output-type=staticlib
+// EXEC: %compiler %extra_options %sanitizer_options %mock_options %optimization_options %debug_options -Woff=all -L. -lmy_utils main.cj --static --import-path %cangjie-static-stdx-path -L %cangjie-static-stdx-path %cangjie-stdx-list -o %output
 // EXEC-PIPE: %check-dylib-dep %output | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
 
