@@ -14,7 +14,7 @@
 
 package UNNAMED
 
-import interoplib.interop.*
+import java.internal.*
 import java.lang.*
 
 public class C1 {}

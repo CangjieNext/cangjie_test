@@ -16,7 +16,7 @@
 // 超大数组，大小为 Int32.Max-2
 package UNNAMED
 
-import interoplib.interop.*
+import java.internal.*
 import java.lang.*
 
 @JavaImpl
