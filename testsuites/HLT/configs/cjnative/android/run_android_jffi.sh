@@ -83,9 +83,9 @@ adb -s "${DEVICE_ID}" install -r "$ANDROID_PROJ_PATH/app/build/outputs/apk/andro
 adb -s "$DEVICE_ID" shell am instrument -w -e junitXml "/sdcard/report.xml" "com.example.myapplication.test/androidx.test.runner.AndroidJUnitRunner" 2>&1 > result.txt
 
 # do cleaning.
-rm -rf "$ANDROID_PROJ_PATH/app/build"
-rm -rf "$ANDROID_PROJ_PATH/app/libs"
-rm -rf "$ANDROID_PROJ_PATH/app/src/main/jniLibs"
+# rm -rf "$ANDROID_PROJ_PATH/app/build"
+# rm -rf "$ANDROID_PROJ_PATH/app/libs"
+# rm -rf "$ANDROID_PROJ_PATH/app/src/main/jniLibs"
 
 cat result.txt
 
