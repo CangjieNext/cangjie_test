@@ -17,7 +17,7 @@ package cj
  *     parameter of constructor
  */
 
-import interoplib.interop.*
+import java.internal.*
 import java.lang.*
 
 var gv: Int64 = 1

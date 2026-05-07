@@ -6,7 +6,7 @@
 
 // (CJNATIVE and not Windows) EXEC-0: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop 2>& 1
 
-import interoplib.interop.*
+import java.internal.*
 import java.lang.*
 
 @JavaMirror

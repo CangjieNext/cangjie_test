@@ -6,7 +6,7 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-0: %frontendCompiler %dump-ast %cmp_opt %f -o %output %compile_shared_lib_opt 2>& 1 | compare %f
 
-import interoplib.interop.*
+import java.internal.*
 import java.lang.JObject
 
 @JavaImpl

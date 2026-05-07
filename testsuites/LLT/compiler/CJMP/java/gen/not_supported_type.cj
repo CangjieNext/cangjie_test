@@ -11,7 +11,7 @@
 
 package cjworld.theworld
 
-import interoplib.interop.*
+import java.internal.*
 import java.lang.JObject
 
 @JavaMirror["M"]

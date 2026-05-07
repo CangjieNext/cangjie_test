@@ -15,6 +15,6 @@ public struct S  {
 }
 
 /* SCAN-IN
-error: interoplib.interop must be imported to use java interoperability
+error: java.internal must be imported to use java interoperability
   ==> cj_mapping_interop_lib_not_imported_struct.cj:11:1:
 */

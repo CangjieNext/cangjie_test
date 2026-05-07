@@ -8,7 +8,7 @@
  
 package cj
  
-import interoplib.interop.*
+import java.internal.*
  
 public interface A<T> {
     func goo(v:T) : Unit

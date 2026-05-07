@@ -6,7 +6,7 @@
 
 package cj
 
-import interoplib.interop
+import java.internal
 
 public open class A {
     public init() {}

@@ -1,4 +1,4 @@
-// (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt -linteroplib.interop 2>& 1 | compare %f
+// (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt -ljava.internal 2>& 1 | compare %f
 
 
 @JavaMirror

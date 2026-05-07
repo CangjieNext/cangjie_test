@@ -13,7 +13,7 @@ package cj
  * JavaImpl: Impl
  */
 
-import interoplib.interop.*
+import java.internal.*
 import java.lang.*
 
 @JavaImpl
