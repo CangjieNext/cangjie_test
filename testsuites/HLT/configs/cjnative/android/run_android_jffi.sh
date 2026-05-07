@@ -50,7 +50,7 @@ cp "$TEST_CASE_PATH/libUNNAMED.so" "$JNI_LIB_PATH/libUNNAMED.so"
 cp "$CANGJIE_HOME/runtime/lib/$1"/* "$JNI_LIB_PATH"
 
 # copying libc++_shared.so from Android NDK.
-cp "$OHOS_ROOT/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/$2/libc++_shared.so" "$JNI_LIB_PATH/libc++_shared.so"
+# cp "$OHOS_ROOT/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/$2/libc++_shared.so" "$JNI_LIB_PATH/libc++_shared.so"
 
 # copying instrumented test source file.
 rm -rf "$ANDROID_PROJ_PATH/app/src/androidTest/java/com/example/myapplication"
@@ -83,9 +83,9 @@ adb -s "${DEVICE_ID}" install -r "$ANDROID_PROJ_PATH/app/build/outputs/apk/andro
 adb -s "$DEVICE_ID" shell am instrument -w -e junitXml "/sdcard/report.xml" "com.example.myapplication.test/androidx.test.runner.AndroidJUnitRunner" 2>&1 > result.txt
 
 # do cleaning.
-rm -rf "$ANDROID_PROJ_PATH/app/build"
-rm -rf "$ANDROID_PROJ_PATH/app/libs"
-rm -rf "$ANDROID_PROJ_PATH/app/src/main/jniLibs"
+# rm -rf "$ANDROID_PROJ_PATH/app/build"
+# rm -rf "$ANDROID_PROJ_PATH/app/libs"
+# rm -rf "$ANDROID_PROJ_PATH/app/src/main/jniLibs"
 
 cat result.txt
 
