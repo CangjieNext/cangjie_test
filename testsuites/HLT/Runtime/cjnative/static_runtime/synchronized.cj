@@ -7,7 +7,8 @@
  */
 
 // LEVEL: 0
-// (not Windows and not MAC) EXEC-PIPE-1: %compiler %cmp_opt  --static %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// ASSERT: scan parse_expected_expression
 
 import std.sync.*
 
@@ -34,4 +35,3 @@ main(): Int64 {
     print("in main, count = ${count}\n")
     return 0
 }
-// ASSERT: scan parse_expected_expression
