@@ -8,7 +8,7 @@
 
 // ASSERT: scan-not error
 
-import interoplib.interop.*
+import java.internal.*
 import java.lang.JObject
 
 class PureCangjie {

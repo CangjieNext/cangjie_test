@@ -11,7 +11,7 @@
 
 package javaapp.my
 
-import interoplib.interop.*
+import java.internal.*
 import java.lang.JObject
 
 @JavaImpl

@@ -6,7 +6,7 @@
 
 package cj
 
-import interoplib.interop.*
+import java.internal.*
 
 public struct Vector {
     public var x: Int32 = 0

@@ -11,7 +11,7 @@ package cj
  * DTS
  */
 
-import interoplib.interop.*
+import java.internal.*
 import java.lang.*
 
 func globalFunction1(p: JArray<Float32>): Int8   {

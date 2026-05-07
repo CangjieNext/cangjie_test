@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 package cj
-import interoplib.interop.*
+import java.internal.*
 
 public open class N {
     public init() {

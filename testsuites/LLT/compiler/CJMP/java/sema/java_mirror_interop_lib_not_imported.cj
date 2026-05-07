@@ -5,7 +5,7 @@ class M {
 }
 
 /* SCAN-IN
-error: interoplib.interop must be imported to use java interoperability
+error: java.internal must be imported to use java interoperability
  ==> java_mirror_interop_lib_not_imported.cj:4:1:
   | 
 4 |   class M {

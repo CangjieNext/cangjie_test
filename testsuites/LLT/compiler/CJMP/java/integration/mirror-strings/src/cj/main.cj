@@ -6,7 +6,7 @@
 
 package cj
 
-import interoplib.interop.*
+import java.internal.*
 import java.lang.JObject
 import java.lang.JString
 

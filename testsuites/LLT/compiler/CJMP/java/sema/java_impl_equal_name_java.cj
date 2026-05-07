@@ -8,7 +8,7 @@
 
 // ASSERT: scan sema_java_impl_redefinition
 
-import interoplib.interop.*
+import java.internal.*
 import java.lang.JObject
 
 @JavaImpl["A"]

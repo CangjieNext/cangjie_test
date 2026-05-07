@@ -14,7 +14,7 @@ package cj
  * String: 
  */
 
-import interoplib.interop.*
+import java.internal.*
 import java.lang.*
 
 func idI2(x: I2): I2 { x }
