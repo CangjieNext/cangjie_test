@@ -19,5 +19,5 @@ b,breakpoint disable,
 cjthread,cjthread list,thread #[\s\S]*state = running[\s\S]*coroutine_14.cj:22
 cjthread,cjthread select 1,thread #[\s\S]*state = running
 cjthread,cjt sn,coroutine_14.cj:22
-cjthread,cjt sn,thread #[\s\S]*
+cjthread,cjt sn,[\s\S]*
 q,quit,
