@@ -6,7 +6,6 @@
 
 package cj
 
-import java.internal.*
 import java.lang.*
 
 @JavaMirror["com.java.lib.Test"]

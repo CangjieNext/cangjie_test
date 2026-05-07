@@ -6,7 +6,6 @@
 
 package cj
 
-import java.internal.*
 import java.lang.*
 
 public enum GenericEnum<T> where T <: ToString {

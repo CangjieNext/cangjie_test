@@ -14,7 +14,6 @@ package cj
  * String: 
  */
 
-import java.internal.*
 import java.lang.*
 
 func id<T>(x: T): T {

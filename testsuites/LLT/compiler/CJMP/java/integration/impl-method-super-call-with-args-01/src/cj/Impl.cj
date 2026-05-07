@@ -17,7 +17,6 @@ package cj
  *     parameter of constructor
  */
 
-import java.internal.*
 import java.lang.*
 
 var gv: Int64 = 1
