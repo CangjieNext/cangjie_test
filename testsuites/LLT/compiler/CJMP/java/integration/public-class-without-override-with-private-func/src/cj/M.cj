@@ -6,7 +6,7 @@
 
 package cj
 
-import java.internal.*
+import java.lang.*
 
 public class M {
     public init() {}

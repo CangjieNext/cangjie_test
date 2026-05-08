@@ -6,7 +6,7 @@
 
 package cj
 
-import java.internal.*
+import java.lang.*
 
 interface I1 {
     func f1(): Unit

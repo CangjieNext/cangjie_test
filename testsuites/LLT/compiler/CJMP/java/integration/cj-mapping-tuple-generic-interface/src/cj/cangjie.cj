@@ -1,6 +1,6 @@
 package cjworld
 
-import java.internal.*
+import java.lang.*
 
 public interface GenericInterface<T, U> {
 

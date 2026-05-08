@@ -8,7 +8,6 @@
 
 // ASSERT: scan sema_java_impl_redefinition
 
-import java.internal.*
 import java.lang.JObject
 
 @JavaImpl["A"]

@@ -6,7 +6,6 @@
 
 package abstract
 
-import java.internal.*
 import java.lang.JObject
 
 @JavaMirror["com.java.lib.Abstract"]

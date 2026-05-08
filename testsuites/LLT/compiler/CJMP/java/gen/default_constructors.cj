@@ -63,7 +63,6 @@ public class CangjieInvoke_Father {
 
 package cjworld.theworld
 
-import java.internal.*
 import java.lang.JObject
 
 @JavaImpl

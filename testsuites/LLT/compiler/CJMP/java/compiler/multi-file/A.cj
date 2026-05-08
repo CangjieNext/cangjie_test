@@ -11,7 +11,6 @@
 
 package javaapp.my
 
-import java.internal.*
 import java.lang.JObject
 
 @JavaImpl

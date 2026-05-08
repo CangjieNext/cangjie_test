@@ -6,7 +6,7 @@
 
 package cj
 
-import java.internal.*
+import java.lang.*
 
 struct noPublicVector {
     private var x: Int32 = 0

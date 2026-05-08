@@ -10,7 +10,6 @@
 
 package n
 
-import java.internal.*
 import java.lang.JObject
 import i.I
 

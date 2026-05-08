@@ -6,7 +6,6 @@
 
 package i
 
-import java.internal.*
 import java.lang.JObject
 
 @JavaMirror

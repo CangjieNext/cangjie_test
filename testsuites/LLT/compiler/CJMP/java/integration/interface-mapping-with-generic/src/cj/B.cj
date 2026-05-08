@@ -8,7 +8,7 @@
  
 package cj
  
-import java.internal.*
+import java.lang.*
  
 public interface B<T, R> {
     func foo(v: T, r: R) : Unit {

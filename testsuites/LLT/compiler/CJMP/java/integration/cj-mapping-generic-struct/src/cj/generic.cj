@@ -1,6 +1,6 @@
 package genericStruct
 
-import java.internal.*
+import java.lang.*
 
 public struct GenericStruct<T> where T <: ToString {
 

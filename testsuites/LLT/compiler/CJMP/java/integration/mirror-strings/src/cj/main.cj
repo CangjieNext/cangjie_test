@@ -6,7 +6,6 @@
 
 package cj
 
-import java.internal.*
 import java.lang.JObject
 import java.lang.JString
 

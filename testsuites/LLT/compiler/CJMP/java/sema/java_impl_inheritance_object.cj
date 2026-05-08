@@ -8,7 +8,6 @@
 
 // ASSERT: scan-not error
 
-import java.internal.*
 import java.lang.JObject
 
 @JavaImpl

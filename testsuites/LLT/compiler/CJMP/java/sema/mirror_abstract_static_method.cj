@@ -16,7 +16,7 @@ error: function 'f' can not be abstract
    |
 */
 
-import java.internal.*
+
 import java.lang.JObject
 
 @JavaMirror

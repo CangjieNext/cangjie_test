@@ -6,7 +6,7 @@
 
 package cj
 
-import java.internal.*
+import java.lang.*
 
 protected class M {
     public init() {}

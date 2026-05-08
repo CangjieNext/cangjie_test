@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 package cj
-import java.internal.*
+import java.lang.*
 
 public open class M {
     public init() {

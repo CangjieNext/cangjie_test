@@ -8,7 +8,7 @@
  
 package cj
  
-import java.internal.*
+import java.lang.*
  
 public struct B {
     public func hoo(a : A) : Unit {

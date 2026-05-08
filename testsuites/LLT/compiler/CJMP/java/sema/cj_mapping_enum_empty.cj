@@ -6,7 +6,7 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop %enable_java_cjmapping  --output-javagen-dir=./ 2>& 1 | cat ./EmptyEnum.java 2>& 1 | compare %f 
 
-import java.internal.*
+import java.lang.*
 
 public enum EmptyEnum {}
 

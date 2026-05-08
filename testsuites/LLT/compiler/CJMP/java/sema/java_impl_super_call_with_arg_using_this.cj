@@ -8,7 +8,6 @@
 
 // ASSERT: scan sema_java_interop_not_supported
 
-import java.internal.*
 import java.lang.JObject
 
 @JavaMirror

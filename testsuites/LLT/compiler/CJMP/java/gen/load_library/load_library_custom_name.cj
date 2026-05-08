@@ -12,7 +12,6 @@
 
 package cjworld.theworld
 
-import java.internal.*
 import java.lang.JObject
 
 @JavaImpl

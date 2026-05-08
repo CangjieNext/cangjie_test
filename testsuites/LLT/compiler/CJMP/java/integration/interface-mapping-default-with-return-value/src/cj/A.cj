@@ -8,7 +8,7 @@
  
 package cj
  
-import java.internal.*
+import java.lang.*
  
 public interface A {
     func foo() : Int32 {

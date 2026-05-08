@@ -6,7 +6,6 @@
 
 package java.cj.mirrors
 
-import java.internal.*
 import java.lang.JObject
 
 @JavaMirror["java.cj.mirrors.Object"]

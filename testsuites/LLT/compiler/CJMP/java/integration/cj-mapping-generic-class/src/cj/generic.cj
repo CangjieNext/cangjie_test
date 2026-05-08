@@ -1,6 +1,6 @@
 package genericClass
 
-import java.internal.*
+import java.lang.*
 
 public class GenericClass<T> where T <: ToString {
 
