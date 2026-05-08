@@ -8,7 +8,6 @@
 
 package UNNAMED
 
-import java.internal.*
 import java.lang.*
 
 public class CangjieStruct {

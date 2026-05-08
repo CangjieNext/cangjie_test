@@ -15,7 +15,6 @@
 
 package UNNAMED
 
-import java.internal.*
 import java.lang.*
 
 let a1: ?Init01 = None

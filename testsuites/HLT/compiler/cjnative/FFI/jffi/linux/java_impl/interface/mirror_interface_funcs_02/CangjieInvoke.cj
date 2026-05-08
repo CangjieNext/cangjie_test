@@ -31,7 +31,6 @@
 
 package UNNAMED
 
-import java.internal.*
 import java.lang.*
 
 @JavaImpl

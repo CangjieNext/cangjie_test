@@ -14,7 +14,6 @@
 // 支持抽象类
 package UNNAMED
 
-import java.internal.*
 import java.lang.*
 
 @JavaImpl

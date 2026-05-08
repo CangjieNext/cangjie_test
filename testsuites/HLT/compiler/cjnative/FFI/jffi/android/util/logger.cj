@@ -7,7 +7,6 @@
  */
 package UNNAMED
 
-import java.internal.*
 import java.lang.*
 
 @JavaMirror["com.example.myapplication.Logger"]

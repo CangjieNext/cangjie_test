@@ -15,7 +15,6 @@
 // 支持接口
 package UNNAMED
 
-import java.internal.*
 import java.lang.*
 
 @JavaImpl
