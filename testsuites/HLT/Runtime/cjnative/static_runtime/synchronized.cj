@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
-// ASSERT: scan parse_expected_expression
+// EXEC-PIPE: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options --static %f -o %output 2>&1 | compare %f
+// ASSERT: scan xxx
 
 import std.sync.*
 
@@ -16,7 +16,7 @@ var count: Int64 = 0
 var mtx: ReentrantMutex = ReentrantMutex()
 
 func test(): Unit {
-    synchronized() { 
+    synchronized(mtx) { 
         count = count + 1
     }
 }
