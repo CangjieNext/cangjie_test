@@ -7,7 +7,7 @@
 package cjworld
 
 import api.*
-import interoplib.objc.*
+import objc.lang.*
 
 @C
 public func CJImpl_ObjC_api_Expr_NumInitCJObject(p1: Int64): RegistryId {

@@ -8,7 +8,6 @@
  
 package cjworld
 
-import interoplib.objc.*
 import objc.lang.*
 
 public struct C {

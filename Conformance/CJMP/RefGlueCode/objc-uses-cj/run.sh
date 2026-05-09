@@ -73,7 +73,7 @@ build_example() {
 
     # generated/*.cj + libapi => out/libcjworld.dylib
     cjc --output-type=dylib --int-overflow=wrapping generated/*.cj --import-path out -Lout -lapi -o out/ \
-        -linteroplib.common -lobjc.lang -linteroplib.objc
+        -lobjc.lang -lobjc.internal
 
     # RefGlueCode/_common/*.cj => out/libinteroptest.dylib
     cjc --output-type=dylib --int-overflow=wrapping ../../_common/*.cj -o out

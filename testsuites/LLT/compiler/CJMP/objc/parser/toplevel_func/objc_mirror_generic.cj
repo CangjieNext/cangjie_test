@@ -7,7 +7,6 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %frontendCompiler %dump-parse %cmp_opt %f -o %output %compile_shared_lib_opt 2>& 1 | compare %f
 
 import objc.lang.*
-import interoplib.objc.*
 
 @ObjCMirror
 func foo<T>(): Int64

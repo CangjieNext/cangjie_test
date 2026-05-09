@@ -11,7 +11,6 @@
 // EXEC: %cat cjworld/test.cj | compare %f
 /* SCAN-IN
 import objc.foundation.NSEnum
-import interoplib.objc.*
 import objc.lang.*
 
 @ObjCMirror

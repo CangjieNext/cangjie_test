@@ -10,7 +10,7 @@
 class M {}
 
 /* SCAN-IN
-error: interoplib.objc must be imported to use Objective-C interoperability
+error: objc.lang must be imported to use Objective-C interoperability
   ==> interop_lib_not_imported.cj:10:1:
    | 
 10 | class M {}

@@ -7,7 +7,7 @@
 package cjworld
 
 import api.*
-import interoplib.objc.*
+import objc.lang.*
 
 @C
 public func CJImpl_ObjC_cjworld_NonOpen_initCJObject(): RegistryId {

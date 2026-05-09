@@ -8,7 +8,6 @@
 // ASSERT: scan-not error
 
 import objc.lang.*
-import interoplib.objc.*
 
 @ObjCMirror
 class NSObject {
