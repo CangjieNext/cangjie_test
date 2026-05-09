@@ -17,34 +17,34 @@ extern Method class_getInstanceMethod(Class, SEL);
 extern id objc_getClass(const char*);
 
 // CJ glue-code functions to create/lock/unlock and remove from registry the A_fwd twin object
-extern int64_t CJImpl_ObjC_cjworld_A_init(void*, uint64_t);
-extern void CJImpl_ObjC_cjworld_A_lockCJObjectFwd(int64_t);
-extern void CJImpl_ObjC_cjworld_A_unlockCJObjectFwd(int64_t);
-extern void CJImpl_ObjC_cjworld_A_deleteCJObjectFwd(int64_t);
+extern int64_t CJImpl_objc_cjworld_A_init(void*, uint64_t);
+extern void CJImpl_objc_cjworld_A_lockCJObjectFwd(int64_t);
+extern void CJImpl_objc_cjworld_A_unlockCJObjectFwd(int64_t);
+extern void CJImpl_objc_cjworld_A_deleteCJObjectFwd(int64_t);
 
 // CJ glue-code function to remove from registry the pure Cangjie A twin object
-extern void CJImpl_ObjC_cjworld_A_deleteCJObject(int64_t);
+extern void CJImpl_objc_cjworld_A_deleteCJObject(int64_t);
 
 // CJ glue-code functions to be called for pure Cangjie A twin object ($initedFromObjC == false)
-extern void CJImpl_ObjC_cjworld_A_fooVirtual(int64_t);
-extern void CJImpl_ObjC_cjworld_A_callFooVirtual(int64_t);
-extern int32_t CJImpl_ObjC_cjworld_A_fooI32(int64_t);
-extern A* CJImpl_ObjC_cjworld_A_fooA(int64_t);
-extern void CJImpl_ObjC_cjworld_A_paramA(int64_t, int64_t);
+extern void CJImpl_objc_cjworld_A_fooVirtual(int64_t);
+extern void CJImpl_objc_cjworld_A_callFooVirtual(int64_t);
+extern int32_t CJImpl_objc_cjworld_A_fooI32(int64_t);
+extern A* CJImpl_objc_cjworld_A_fooA(int64_t);
+extern void CJImpl_objc_cjworld_A_paramA(int64_t, int64_t);
 
 // CJ glue-code functions to be called for Cangjie forwarder A_fwd object ($initedFromObjC == true)
-extern void CJImpl_ObjC_cjworld_A_fwd_fooVirtual(int64_t);
-extern void CJImpl_ObjC_cjworld_A_fwd_callFooVirtual(int64_t);
-extern int32_t CJImpl_ObjC_cjworld_A_fwd_fooI32(int64_t);
-extern A* CJImpl_ObjC_cjworld_A_fwd_fooA(int64_t);
-extern void CJImpl_ObjC_cjworld_A_fwd_paramA(int64_t, int64_t);
+extern void CJImpl_objc_cjworld_A_fwd_fooVirtual(int64_t);
+extern void CJImpl_objc_cjworld_A_fwd_callFooVirtual(int64_t);
+extern int32_t CJImpl_objc_cjworld_A_fwd_fooI32(int64_t);
+extern A* CJImpl_objc_cjworld_A_fwd_fooA(int64_t);
+extern void CJImpl_objc_cjworld_A_fwd_paramA(int64_t, int64_t);
 
 //@CJMirror
 @implementation A : NSObject
 
 + (void)initialize {
     if (self == [A class]) {
-        if (!initCJRuntime("libcjworld.dylib")) {
+        if (!initCJRuntime("libobjc.cjworld.dylib")) {
             exit(1);
         }
     }
@@ -70,7 +70,7 @@ extern void CJImpl_ObjC_cjworld_A_fwd_paramA(int64_t, int64_t);
         SEL methods[] = {@selector(fooVirtual), @selector(callFooVirtual), @selector(fooI32), @selector(fooA), @selector(paramA:)};
         uint64_t overrideMask = calcOverrideMask(baseCls, selfCls, methods, len);
 
-        self.$registryId = CJImpl_ObjC_cjworld_A_init((__bridge void*)self, overrideMask);
+        self.$registryId = CJImpl_objc_cjworld_A_init((__bridge void*)self, overrideMask);
         self.$initedFromObjC = true;
         [self retain]; // extra RC++
         printf("ObjC: A.init(%lld) self after +1 RC2: %ld\n", (long long) self.$registryId, CFGetRetainCount((__bridge CFTypeRef)self));
@@ -94,14 +94,14 @@ extern void CJImpl_ObjC_cjworld_A_fwd_paramA(int64_t, int64_t);
     // DistributedGC workflow is performed only for instances created (initialized) from ObjC side.
     if (self.$initedFromObjC && 1 == CFGetRetainCount((__bridge CFTypeRef)self)) {
         int64_t idToDelete = self.$registryId;
-        CJImpl_ObjC_cjworld_A_lockCJObjectFwd(idToDelete);
+        CJImpl_objc_cjworld_A_lockCJObjectFwd(idToDelete);
         if (1 == CFGetRetainCount((__bridge CFTypeRef)self)) { // ensure RC == 1 after the lock is obtained
             // TransitionII
             printf("ObjC: Transition II for %lld (now resetted to -1)\n", (long long) idToDelete);
             self.$registryId = -1;
-            CJImpl_ObjC_cjworld_A_deleteCJObjectFwd(idToDelete); // the obtained lock is released inside
+            CJImpl_objc_cjworld_A_deleteCJObjectFwd(idToDelete); // the obtained lock is released inside
         } else {
-            CJImpl_ObjC_cjworld_A_unlockCJObjectFwd(idToDelete); // CJObject is still in use, just release the obtained lock
+            CJImpl_objc_cjworld_A_unlockCJObjectFwd(idToDelete); // CJObject is still in use, just release the obtained lock
         }
     }
 }
@@ -114,7 +114,7 @@ extern void CJImpl_ObjC_cjworld_A_fwd_paramA(int64_t, int64_t);
     if (!self.$initedFromObjC) {
         printf("ObjC: objc-twin of pure CJ A object is deallocated for id %lld\n", (long long) self.$registryId);
         // The instance does not participate in DistributedGC workflow: just remove the cjObj from the registry, lock is not required.
-        CJImpl_ObjC_cjworld_A_deleteCJObject(self.$registryId);
+        CJImpl_objc_cjworld_A_deleteCJObject(self.$registryId);
     }
 #ifdef CALL_SUPER_DEALLOC
 //    [super dealloc];
@@ -124,41 +124,41 @@ extern void CJImpl_ObjC_cjworld_A_fwd_paramA(int64_t, int64_t);
 - (void)fooVirtual {
     printf("ObjC: A.fooVirtual() self RC: %ld, now call super.fooVirtual:\n", CFGetRetainCount((__bridge CFTypeRef)self));
     if (self.$initedFromObjC) {
-        CJImpl_ObjC_cjworld_A_fwd_fooVirtual(self.$registryId);
+        CJImpl_objc_cjworld_A_fwd_fooVirtual(self.$registryId);
     } else {
-        CJImpl_ObjC_cjworld_A_fooVirtual(self.$registryId);
+        CJImpl_objc_cjworld_A_fooVirtual(self.$registryId);
     }
 }
 
 - (void)callFooVirtual {
     if (self.$initedFromObjC) {
-        CJImpl_ObjC_cjworld_A_fwd_callFooVirtual(self.$registryId);
+        CJImpl_objc_cjworld_A_fwd_callFooVirtual(self.$registryId);
     } else {
-        CJImpl_ObjC_cjworld_A_callFooVirtual(self.$registryId);
+        CJImpl_objc_cjworld_A_callFooVirtual(self.$registryId);
     }
 }
 
 - (int32_t)fooI32 {
     if (self.$initedFromObjC) {
-        return CJImpl_ObjC_cjworld_A_fwd_fooI32(self.$registryId);
+        return CJImpl_objc_cjworld_A_fwd_fooI32(self.$registryId);
     } else {
-        return CJImpl_ObjC_cjworld_A_fooI32(self.$registryId);
+        return CJImpl_objc_cjworld_A_fooI32(self.$registryId);
     }
 }
 
 - (A*)fooA {
     if (self.$initedFromObjC) {
-        return CJImpl_ObjC_cjworld_A_fwd_fooA(self.$registryId);
+        return CJImpl_objc_cjworld_A_fwd_fooA(self.$registryId);
     } else {
-        return CJImpl_ObjC_cjworld_A_fooA(self.$registryId);
+        return CJImpl_objc_cjworld_A_fooA(self.$registryId);
     }
 }
 
 - (void)paramA:(A*)a {
     if (self.$initedFromObjC) {
-        CJImpl_ObjC_cjworld_A_fwd_paramA(self.$registryId, a.$registryId);
+        CJImpl_objc_cjworld_A_fwd_paramA(self.$registryId, a.$registryId);
     } else {
-        CJImpl_ObjC_cjworld_A_paramA(self.$registryId, a.$registryId);
+        CJImpl_objc_cjworld_A_paramA(self.$registryId, a.$registryId);
     }
 }
 

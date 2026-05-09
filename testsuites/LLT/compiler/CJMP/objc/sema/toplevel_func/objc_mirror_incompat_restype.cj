@@ -7,16 +7,15 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %frontendCompiler %dump-parse %cmp_opt %f -o %output %compile_shared_lib_opt 2>& 1 | compare %f
 
 import objc.lang.*
-import interoplib.objc.*
 
 @ObjCMirror
 func foo(i: Int64): String
 
 /* SCAN-IN
 error: return type of Objective-C mirror top-level function 'foo' must be Objective-C compatible
-  ==> objc_mirror_incompat_restype.cj:13:21:
+  ==> objc_mirror_incompat_restype.cj:12:21:
    | 
-13 | func foo(i: Int64): String
+12 | func foo(i: Int64): String
    |                     ^^^^^^ 
    | 
 */

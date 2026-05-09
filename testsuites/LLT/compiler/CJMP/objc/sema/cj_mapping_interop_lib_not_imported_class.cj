@@ -12,6 +12,6 @@ public class CangjieData {
 }
 
 /* SCAN-IN
-error: interoplib.objc must be imported to use Objective-C interoperability
+error: objc.lang must be imported to use Objective-C interoperability
   ==> cj_mapping_interop_lib_not_imported_class.cj:11:1:
 */

@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-package cjworld
+package objc.cjworld
 
 import api.*
-import interoplib.objc.*
+import objc.internal.*
 
 @C
 public func CJImpl_ObjC_api_Expr_NumInitCJObject(p1: Int64): RegistryId {

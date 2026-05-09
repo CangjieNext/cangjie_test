@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-package cjworld
+package objc.cjworld
 
 import api.*
-import objc.lang.*
+import objc.internal.*
 
 // When pure CJ object (A instance) needs to be passed to ObjC side the pure object itself is put into registry
 // and the CJMirror is created using initWithRegistryId constructor.
@@ -144,24 +144,24 @@ class A_fwd <: A {
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_init(obj: NativeObjCId, overrideMask: UInt64): RegistryId {
+public func CJImpl_objc_cjworld_A_init(obj: NativeObjCId, overrideMask: UInt64): RegistryId {
     let id = unsafe { putToRegistry(A_fwd(obj, overrideMask)) }
     println("[CJ]: A.init(${id}, ${overrideMask})")
     id
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_lockCJObjectFwd(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_lockCJObjectFwd(registryId: RegistryId): Unit {
     unsafe { getFromRegistryById<A_fwd>(registryId).mtx.lock() }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_unlockCJObjectFwd(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_unlockCJObjectFwd(registryId: RegistryId): Unit {
     unsafe { getFromRegistryById<A_fwd>(registryId).mtx.unlock() }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_deleteCJObjectFwd(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_deleteCJObjectFwd(registryId: RegistryId): Unit {
     unsafe {
         //println("[CJ]: A.deleteCJObjectFwd(${registryId})")
         let fwd = getFromRegistryById<A_fwd>(registryId)
@@ -172,43 +172,43 @@ public func CJImpl_ObjC_cjworld_A_deleteCJObjectFwd(registryId: RegistryId): Uni
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_deleteCJObject(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_deleteCJObject(registryId: RegistryId): Unit {
     //println("[CJ]: A.deleteCJObject(${registryId})")
     unsafe { removeFromRegistry(registryId) }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_fooVirtual(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_fooVirtual(registryId: RegistryId): Unit {
     unsafe { getFromRegistryById<A>(registryId).fooVirtual() }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_fwd_fooVirtual(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_fwd_fooVirtual(registryId: RegistryId): Unit {
     unsafe { getFromRegistryById<A_fwd>(registryId).fooVirtualImpl() }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_callFooVirtual(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_callFooVirtual(registryId: RegistryId): Unit {
     unsafe { getFromRegistryById<A>(registryId).callFooVirtual() }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_fwd_callFooVirtual(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_fwd_callFooVirtual(registryId: RegistryId): Unit {
     unsafe { getFromRegistryById<A_fwd>(registryId).callFooVirtualImpl() }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_fooI32(registryId: RegistryId): Int32 {
+public func CJImpl_objc_cjworld_A_fooI32(registryId: RegistryId): Int32 {
     unsafe { getFromRegistryById<A>(registryId).fooI32() }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_fwd_fooI32(registryId: RegistryId): Int32 {
+public func CJImpl_objc_cjworld_A_fwd_fooI32(registryId: RegistryId): Int32 {
     unsafe { getFromRegistryById<A_fwd>(registryId).fooI32Impl() }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_fooA(registryId: RegistryId): NativeObjCId {
+public func CJImpl_objc_cjworld_A_fooA(registryId: RegistryId): NativeObjCId {
     let cjA = unsafe { getFromRegistryById<A>(registryId).fooA() }
     match(cjA as A_fwd) {
         case Some(a_fwd) => a_fwd.objcObj() // to transit the ownership: at ObjC side (in A.h) A.fooA is marked with __attribute((ns_returns_retained)
@@ -217,7 +217,7 @@ public func CJImpl_ObjC_cjworld_A_fooA(registryId: RegistryId): NativeObjCId {
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_fwd_fooA(registryId: RegistryId): NativeObjCId {
+public func CJImpl_objc_cjworld_A_fwd_fooA(registryId: RegistryId): NativeObjCId {
     let cjA = unsafe { getFromRegistryById<A_fwd>(registryId).fooAImpl() }
     match(cjA as A_fwd) {
         case Some(a_fwd) => a_fwd.objcObj() // to transit the ownership: at ObjC side (in A.h) A.fooA is marked with __attribute((ns_returns_retained)
@@ -226,7 +226,7 @@ public func CJImpl_ObjC_cjworld_A_fwd_fooA(registryId: RegistryId): NativeObjCId
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_paramA(registryId: RegistryId, aRegistryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_paramA(registryId: RegistryId, aRegistryId: RegistryId): Unit {
     unsafe {
         let cjA = getFromRegistryById<A>(aRegistryId) // it's OK if cjA is actually of A_fwd type
         getFromRegistryById<A>(registryId).paramA(cjA)
@@ -234,7 +234,7 @@ public func CJImpl_ObjC_cjworld_A_paramA(registryId: RegistryId, aRegistryId: Re
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_fwd_paramA(registryId: RegistryId, aRegistryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_fwd_paramA(registryId: RegistryId, aRegistryId: RegistryId): Unit {
     unsafe {
         let cjA = getFromRegistryById<A>(aRegistryId) // it's OK if cjA is actually of A_fwd type
         getFromRegistryById<A_fwd>(registryId).paramAImpl(cjA)

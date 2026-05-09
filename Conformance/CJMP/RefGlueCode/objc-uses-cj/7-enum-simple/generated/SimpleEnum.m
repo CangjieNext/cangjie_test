@@ -24,7 +24,7 @@ static SimpleEnum* LET_Three = NULL;
 
 + (void)initialize {
     if (self == [SimpleEnum class]) {
-        if (!initCJRuntime("libcjworld.dylib")) {
+        if (!initCJRuntime("libobjc.cjworld.dylib")) {
             exit(1);
         }
 

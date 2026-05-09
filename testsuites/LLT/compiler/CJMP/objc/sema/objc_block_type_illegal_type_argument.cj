@@ -8,7 +8,6 @@
 
 // ASSERT: scan-4 error: ObjCBlock can only be used with function type over Objective-C compatible types
 
-import interoplib.objc.*
 import objc.lang.*
 
 func a(): ObjCBlock<Unit> {

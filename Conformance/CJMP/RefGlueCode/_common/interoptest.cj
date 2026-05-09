@@ -16,6 +16,6 @@ func triggerGC(): Unit {
 }
 
 @C
-public func Interoptest_cjworld_GC(): Unit {
+public func Interoptest_objc_cjworld_GC(): Unit {
     triggerGC();
 }

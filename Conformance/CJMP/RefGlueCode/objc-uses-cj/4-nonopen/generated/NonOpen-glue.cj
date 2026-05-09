@@ -4,22 +4,22 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-package cjworld
+package objc.cjworld
 
 import api.*
-import interoplib.objc.*
+import objc.internal.*
 
 @C
-public func CJImpl_ObjC_cjworld_NonOpen_initCJObject(): RegistryId {
+public func CJImpl_objc_cjworld_NonOpen_initCJObject(): RegistryId {
     unsafe { putToRegistry(NonOpen()) }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_NonOpen_Foo(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_NonOpen_Foo(registryId: RegistryId): Unit {
     unsafe { getFromRegistryById<NonOpen>(registryId).Foo() }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_NonOpen_deleteCJObject(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_NonOpen_deleteCJObject(registryId: RegistryId): Unit {
     unsafe { removeFromRegistry(registryId) }
 }

@@ -9,9 +9,9 @@
 // Interoplib objc common code (libinterop.objclib.dylib)
 extern bool initCJRuntime(const char*);
 
-extern void CJImpl_ObjC_cjworld_AnimalImpl_SayImpl(void*);
-extern void CJImpl_ObjC_cjworld_AnimalImpl_EatImpl(void*);
-extern void CJImpl_ObjC_cjworld_AnimalImpl_staticTest(void*);
+extern void CJImpl_objc_cjworld_AnimalImpl_SayImpl(void*);
+extern void CJImpl_objc_cjworld_AnimalImpl_EatImpl(void*);
+extern void CJImpl_objc_cjworld_AnimalImpl_staticTest(void*);
 
 // the default implementation of Animal interface
 //@CJMirror
@@ -19,22 +19,22 @@ extern void CJImpl_ObjC_cjworld_AnimalImpl_staticTest(void*);
 
 + (void)initialize {
     if (self == [AnimalImpl class]) {
-        if (!initCJRuntime("libcjworld.dylib")) {
+        if (!initCJRuntime("libobjc.cjworld.dylib")) {
             exit(1);
         }
     }
 }
 
 - (void)Say {
-    CJImpl_ObjC_cjworld_AnimalImpl_SayImpl((void*)[self retain]);
+    CJImpl_objc_cjworld_AnimalImpl_SayImpl((void*)[self retain]);
 }
 
 - (void)Eat {
-    CJImpl_ObjC_cjworld_AnimalImpl_EatImpl((void*)[self retain]);
+    CJImpl_objc_cjworld_AnimalImpl_EatImpl((void*)[self retain]);
 }
 
 + (void)staticTest:(id<Animal>) animal {
-    CJImpl_ObjC_cjworld_AnimalImpl_staticTest((void*)[animal retain]);
+    CJImpl_objc_cjworld_AnimalImpl_staticTest((void*)[animal retain]);
 }
 
 @end

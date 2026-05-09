@@ -31,7 +31,7 @@ static TimeUnit* LET_Year = NULL;
 
 + (void)initialize {
     if (self == [TimeUnit class]) {
-        if (!initCJRuntime("libcjworld.dylib")) {
+        if (!initCJRuntime("libobjc.cjworld.dylib")) {
             exit(1);
         }
 

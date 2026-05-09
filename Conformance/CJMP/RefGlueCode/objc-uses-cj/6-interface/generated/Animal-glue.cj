@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-package cjworld
+package objc.cjworld
 
 import api.*
-import objc.lang.*
+import objc.internal.*
 
 // to make accessible the default implementation of Animal interface
 abstract class AnimalImpl <: Animal {}
@@ -51,16 +51,16 @@ class Animal_fwd <: AnimalImpl {
 }
 
 @C
-public func CJImpl_ObjC_cjworld_AnimalImpl_SayImpl(obj: NativeObjCId): Unit {
+public func CJImpl_objc_cjworld_AnimalImpl_SayImpl(obj: NativeObjCId): Unit {
     Animal_fwd(obj).SayImpl()
 }
 
 @C
-public func CJImpl_ObjC_cjworld_AnimalImpl_EatImpl(obj: NativeObjCId): Unit {
+public func CJImpl_objc_cjworld_AnimalImpl_EatImpl(obj: NativeObjCId): Unit {
     Animal_fwd(obj).EatImpl()
 }
 
 @C
-public func CJImpl_ObjC_cjworld_AnimalImpl_staticTest(obj: NativeObjCId): Unit {
+public func CJImpl_objc_cjworld_AnimalImpl_staticTest(obj: NativeObjCId): Unit {
     AnimalImpl.staticTest(Animal_fwd(obj))
 }

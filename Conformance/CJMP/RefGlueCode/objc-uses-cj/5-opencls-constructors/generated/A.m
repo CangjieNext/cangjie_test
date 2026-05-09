@@ -17,27 +17,27 @@ extern Method class_getInstanceMethod(Class, SEL);
 extern id objc_getClass(const char*);
 
 // CJ glue-code functions to create/lock/unlock and remove from registry the A_fwd twin object
-extern int64_t CJImpl_ObjC_cjworld_A_initl(void*, uint64_t, int64_t);
-extern int64_t CJImpl_ObjC_cjworld_A_initll(void*, uint64_t, int64_t, int64_t);
-extern void CJImpl_ObjC_cjworld_A_lockCJObjectFwd(int64_t);
-extern void CJImpl_ObjC_cjworld_A_unlockCJObjectFwd(int64_t);
-extern void CJImpl_ObjC_cjworld_A_deleteCJObjectFwd(int64_t);
+extern int64_t CJImpl_objc_cjworld_A_initl(void*, uint64_t, int64_t);
+extern int64_t CJImpl_objc_cjworld_A_initll(void*, uint64_t, int64_t, int64_t);
+extern void CJImpl_objc_cjworld_A_lockCJObjectFwd(int64_t);
+extern void CJImpl_objc_cjworld_A_unlockCJObjectFwd(int64_t);
+extern void CJImpl_objc_cjworld_A_deleteCJObjectFwd(int64_t);
 
 // CJ glue-code function to remove from registry the pure Cangjie A twin object
-extern void CJImpl_ObjC_cjworld_A_deleteCJObject(int64_t);
+extern void CJImpl_objc_cjworld_A_deleteCJObject(int64_t);
 
 // CJ glue-code functions to be called for pure Cangjie A twin object ($initedFromObjC == false)
-extern int64_t CJImpl_ObjC_cjworld_A_fooI64(int64_t);
+extern int64_t CJImpl_objc_cjworld_A_fooI64(int64_t);
 
 // CJ glue-code functions to be called for Cangjie forwarder A_fwd object ($initedFromObjC == true)
-extern int64_t CJImpl_ObjC_cjworld_A_fwd_fooI64(int64_t);
+extern int64_t CJImpl_objc_cjworld_A_fwd_fooI64(int64_t);
 
 //@CJMirror
 @implementation A : NSObject
 
 + (void)initialize {
     if (self == [A class]) {
-        if (!initCJRuntime("libcjworld.dylib")) {
+        if (!initCJRuntime("libobjc.cjworld.dylib")) {
             exit(1);
         }
     }
@@ -63,7 +63,7 @@ extern int64_t CJImpl_ObjC_cjworld_A_fwd_fooI64(int64_t);
         SEL methods[] = {@selector(fooI64)};
         uint64_t overrideMask = calcOverrideMask(baseCls, selfCls, methods, len);
 
-        self.$registryId = CJImpl_ObjC_cjworld_A_initl((__bridge void*)self, overrideMask, x);
+        self.$registryId = CJImpl_objc_cjworld_A_initl((__bridge void*)self, overrideMask, x);
         self.$initedFromObjC = true;
         [self retain]; // extra RC++
     }
@@ -80,7 +80,7 @@ extern int64_t CJImpl_ObjC_cjworld_A_fwd_fooI64(int64_t);
         SEL methods[] = {@selector(fooI64)};
         uint64_t overrideMask = calcOverrideMask(baseCls, selfCls, methods, len);
 
-        self.$registryId = CJImpl_ObjC_cjworld_A_initll((__bridge void*)self, overrideMask, x, y);
+        self.$registryId = CJImpl_objc_cjworld_A_initll((__bridge void*)self, overrideMask, x, y);
         self.$initedFromObjC = true;
         [self retain]; // extra RC++
     }
@@ -103,14 +103,14 @@ extern int64_t CJImpl_ObjC_cjworld_A_fwd_fooI64(int64_t);
     // DistributedGC workflow is performed only for instances created (initialized) from ObjC side.
     if (self.$initedFromObjC && 1 == CFGetRetainCount((__bridge CFTypeRef)self)) {
         int64_t idToDelete = self.$registryId;
-        CJImpl_ObjC_cjworld_A_lockCJObjectFwd(idToDelete);
+        CJImpl_objc_cjworld_A_lockCJObjectFwd(idToDelete);
         if (1 == CFGetRetainCount((__bridge CFTypeRef)self)) { // ensure RC == 1 after the lock is obtained
             // TransitionII
             printf("ObjC: Transition II for %lld (now resetted to -1)\n", (long long) idToDelete);
             self.$registryId = -1;
-            CJImpl_ObjC_cjworld_A_deleteCJObjectFwd(idToDelete); // the obtained lock is released inside
+            CJImpl_objc_cjworld_A_deleteCJObjectFwd(idToDelete); // the obtained lock is released inside
         } else {
-            CJImpl_ObjC_cjworld_A_unlockCJObjectFwd(idToDelete); // CJObject is still in use, just release the obtained lock
+            CJImpl_objc_cjworld_A_unlockCJObjectFwd(idToDelete); // CJObject is still in use, just release the obtained lock
         }
     }
 }
@@ -123,7 +123,7 @@ extern int64_t CJImpl_ObjC_cjworld_A_fwd_fooI64(int64_t);
     if (!self.$initedFromObjC) {
         printf("ObjC: objc-twin of pure CJ A object is deallocated for id %lld\n", (long long) self.$registryId);
         // The instance does not participate in DistributedGC workflow: just remove the cjObj from the registry, lock is not required.
-        CJImpl_ObjC_cjworld_A_deleteCJObject(self.$registryId);
+        CJImpl_objc_cjworld_A_deleteCJObject(self.$registryId);
     }
 #ifdef CALL_SUPER_DEALLOC
 //    [super dealloc];
@@ -132,9 +132,9 @@ extern int64_t CJImpl_ObjC_cjworld_A_fwd_fooI64(int64_t);
 
 - (int64_t)fooI64 {
     if (self.$initedFromObjC) {
-        return CJImpl_ObjC_cjworld_A_fwd_fooI64(self.$registryId);
+        return CJImpl_objc_cjworld_A_fwd_fooI64(self.$registryId);
     } else {
-        return CJImpl_ObjC_cjworld_A_fooI64(self.$registryId);
+        return CJImpl_objc_cjworld_A_fooI64(self.$registryId);
     }
 }
 

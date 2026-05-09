@@ -4,13 +4,13 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-package cjworld
+package objc.cjworld
 
 import api.*
-import interoplib.objc.*
+import objc.internal.*
 
 @C
-public func CJImpl_ObjC_cjworld_Vector_dot(registryId: RegistryId, anotherRegistryId: RegistryId): Int64 {
+public func CJImpl_objc_cjworld_Vector_dot(registryId: RegistryId, anotherRegistryId: RegistryId): Int64 {
     unsafe {
         getFromRegistryById<Vector>(registryId).dot(
             getFromRegistryById<Vector>(anotherRegistryId)
@@ -19,28 +19,28 @@ public func CJImpl_ObjC_cjworld_Vector_dot(registryId: RegistryId, anotherRegist
 }
 
 @C
-public func CJImpl_ObjC_cjworld_Vector_initCJObject(x: Int32, y:Int32): RegistryId {
+public func CJImpl_objc_cjworld_Vector_initCJObject(x: Int32, y: Int32): RegistryId {
     unsafe {
         putToRegistry(Vector(x, y))
     }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_Vector_X_get(registryId: RegistryId): Int32 {
+public func CJImpl_objc_cjworld_Vector_X_get(registryId: RegistryId): Int32 {
     unsafe {
         getFromRegistryById<Vector>(registryId).x
     }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_Vector_Y_get(registryId: RegistryId): Int32 {
+public func CJImpl_objc_cjworld_Vector_Y_get(registryId: RegistryId): Int32 {
     unsafe {
         getFromRegistryById<Vector>(registryId).y
     }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_Vector_deleteCJObject(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_Vector_deleteCJObject(registryId: RegistryId): Unit {
     unsafe {
         removeFromRegistry(registryId)
     }

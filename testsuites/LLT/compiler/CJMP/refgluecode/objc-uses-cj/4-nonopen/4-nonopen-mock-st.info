@@ -6,10 +6,10 @@
 
 // DEPENDENCE: ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/4-nonopen/api ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/4-nonopen/app ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/4-nonopen/generated
 // (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt api/*.cj -o libapi.%dylib_suffix
-// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt generated/*.cj -L. -lapi -o libcjworld.%dylib_suffix %import_objc_interop_st
-// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link generated/*.m -Igenerated -L. -lcjworld -shared -o libgluecode.%dylib_suffix %clang_link_objc_interop_st
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt generated/*.cj -L. -lapi -o libobjc.cjworld.%dylib_suffix %import_objc_interop_st
+// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link generated/*.m -Igenerated -L. -lobjc.cjworld -shared -o libgluecode.%dylib_suffix %clang_link_objc_interop_st
 // (CJNATIVE and not Windows) RUN-EXEC: %clang -fobjc-arc app/*.m -Iapp -Igenerated -L. -lgluecode -o main
-// (CJNATIVE and not Windows) RUN-EXEC: test -f libcjworld.dylib || cp libcjworld.%dylib_suffix libcjworld.dylib
+// (CJNATIVE and not Windows) RUN-EXEC: test -f libobjc.cjworld.dylib || cp libobjc.cjworld.%dylib_suffix libobjc.cjworld.dylib
 // (CJNATIVE and not Windows) RUN-EXEC: %run_macro ./main 2>&1 | sed 's/.* main\[[0-9]*:[0-9]*\] //g' | compare ./%f
 
 /* SCAN-IN

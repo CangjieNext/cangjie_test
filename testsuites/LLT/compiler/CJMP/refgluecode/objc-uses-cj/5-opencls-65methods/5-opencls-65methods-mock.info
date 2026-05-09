@@ -1,10 +1,10 @@
 // DEPENDENCE: ../../../../../../../Conformance/CJMP/RefGlueCode/_common ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/5-opencls-65methods/api ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/5-opencls-65methods/app ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/5-opencls-65methods/generated
 // (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt _common/*.cj -o libinteroptest.%dylib_suffix
 // (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt api/*.cj -o libapi.%dylib_suffix
-// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt generated/*.cj %import_objc_interop -L. -lapi -o libcjworld.%dylib_suffix
-// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link %clang_link_core %clang_link_objc_interop generated/*.m -Igenerated -L. -lcjworld -shared -o libgluecode.%dylib_suffix
-// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link %clang_link_core -fobjc-arc app/*.m -Iapp -Igenerated -L. -lobjc -linteroptest -lapi -lcjworld -lgluecode -o main
-// (CJNATIVE and not Windows) RUN-EXEC: test -f libcjworld.dylib || cp libcjworld.%dylib_suffix libcjworld.dylib
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt generated/*.cj %import_objc_interop -L. -lapi -o libobjc.cjworld.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link %clang_link_core %clang_link_objc_interop generated/*.m -Igenerated -L. -lobjc.cjworld -shared -o libgluecode.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link %clang_link_core -fobjc-arc app/*.m -Iapp -Igenerated -L. -lobjc -linteroptest -lapi -lobjc.cjworld -lgluecode -o main
+// (CJNATIVE and not Windows) RUN-EXEC: test -f libobjc.cjworld.dylib || cp libobjc.cjworld.%dylib_suffix libobjc.cjworld.dylib
 // (CJNATIVE and not Windows) RUN-EXEC: %run_macro ./main 2>&1 | sed 's/.* main\[[0-9]*:[0-9]*\] //g' | compare ./%f
 
 /* SCAN-IN
@@ -19,7 +19,7 @@ ObjC: TestFoo execute aa.foo42:
 ObjC: AA.foo42()
 
 ObjC: TestFoo execute aa.foo62 (not overridden):
-ObjC: A.foo62() about to call CJImpl_ObjC_cjworld_A_fwd_foo62
+ObjC: A.foo62() about to call CJImpl_objc_cjworld_A_fwd_foo62
 [CJ]: foo62Impl called
 [CJ]: A.foo62()
 
@@ -30,7 +30,7 @@ ObjC: TestFoo execute aa.foo64:
 ObjC: AA.foo64()
 
 ObjC: TestFoo execute aa.foo65:
-ObjC: A.foo65() about to call CJImpl_ObjC_cjworld_A_fwd_foo65
+ObjC: A.foo65() about to call CJImpl_objc_cjworld_A_fwd_foo65
 [CJ]: foo65Impl called
 [CJ]: A.foo65()
 
@@ -54,7 +54,7 @@ ObjC: AA.foo63()
 ObjC: AA.foo64()
 [CJ]: try foo65 (NOT overridden at ObjC):
 [CJ]: foo65 may be overridden - call ObjC implementation
-ObjC: A.foo65() about to call CJImpl_ObjC_cjworld_A_fwd_foo65
+ObjC: A.foo65() about to call CJImpl_objc_cjworld_A_fwd_foo65
 [CJ]: foo65Impl called
 [CJ]: A.foo65()
 
