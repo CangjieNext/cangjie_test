@@ -128,6 +128,30 @@ class Utf8DiagnosedTest {
     }
 
     @TestCase
+    func fromUtf8DiagnosedShouldReportOverlongThreeByteSequence(): Unit {
+        let bytes: Array<Byte> = [0xE0u8, 0x80u8, 0x80u8]
+        assertUtf8ResultError(String.fromUtf8Diagnosed(bytes), expectedPrefix: "", from: 0, length: 2)
+    }
+
+    @TestCase
+    func fromUtf8DiagnosedShouldRejectUtf16SurrogateSequence(): Unit {
+        let bytes: Array<Byte> = [0xEDu8, 0xA0u8, 0x80u8]
+        assertUtf8ResultError(String.fromUtf8Diagnosed(bytes), expectedPrefix: "", from: 0, length: 2)
+    }
+
+    @TestCase
+    func fromUtf8DiagnosedShouldReportOverlongFourByteSequence(): Unit {
+        let bytes: Array<Byte> = [0xF0u8, 0x80u8, 0x80u8, 0x80u8]
+        assertUtf8ResultError(String.fromUtf8Diagnosed(bytes), expectedPrefix: "", from: 0, length: 2)
+    }
+
+    @TestCase
+    func fromUtf8DiagnosedShouldRejectCodePointBeyondUtf8Range(): Unit {
+        assertUtf8ResultError(String.fromUtf8Diagnosed([0xF4u8, 0x90u8, 0x80u8, 0x80u8]), expectedPrefix: "", from: 0, length: 2)
+        assertUtf8ResultError(String.fromUtf8Diagnosed([0xF5u8, 0x80u8, 0x80u8, 0x80u8]), expectedPrefix: "", from: 0, length: 1)
+    }
+
+    @TestCase
     func fromUtf8DiagnosedShouldReportThreeByteTruncatedTail(): Unit {
         let bytes: Array<Byte> = [0xF0u8, 0x9Fu8, 0x98u8]
         assertUtf8ResultError(String.fromUtf8Diagnosed(bytes), expectedPrefix: "", from: 0, length: 3)
