@@ -8,7 +8,7 @@
 
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 public class A<T, K, V> where T <: ToString, K <: ToString, V <: ToString {
     public init(a: T, b: K, c: V) {

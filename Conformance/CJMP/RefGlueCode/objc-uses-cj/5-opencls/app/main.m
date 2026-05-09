@@ -8,7 +8,7 @@
 #import "A.h"
 #import "AA.h"
 
-extern void Interoptest_cjworld_GC(); // provided by _common/interoptest.cj
+extern void Interoptest_objc_cjworld_GC(); // provided by _common/interoptest.cj
 
 void TestFooI32() {
 #if !__has_feature(objc_arc)
@@ -77,13 +77,13 @@ int main(int argc, char** argv) {
     TestFooI32();
 
     printf("\nObjC: after TestFooI32 call cjGC, 1 TransitionIV is expected:\n");
-    Interoptest_cjworld_GC();
+    Interoptest_objc_cjworld_GC();
     printf("ObjC: cjGC COMPLETED\n");
 
     TestCallVirtual();
 
     printf("\nObjC: after TestCallVirtual call cjGC, 1 TransitionIV is expected:\n");
-    Interoptest_cjworld_GC();
+    Interoptest_objc_cjworld_GC();
     printf("ObjC: cjGC COMPLETED\n");
 
     return 0;

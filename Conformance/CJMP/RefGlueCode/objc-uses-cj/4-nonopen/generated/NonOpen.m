@@ -9,16 +9,16 @@
 // Interoplib objc common code (libinterop.objclib.dylib)
 extern bool initCJRuntime(const char*);
 
-extern void CJImpl_ObjC_cjworld_NonOpen_deleteCJObject(int64_t);
-extern int64_t CJImpl_ObjC_cjworld_NonOpen_initCJObject();
-extern void CJImpl_ObjC_cjworld_NonOpen_Foo(int64_t);
+extern void CJImpl_objc_cjworld_NonOpen_deleteCJObject(int64_t);
+extern int64_t CJImpl_objc_cjworld_NonOpen_initCJObject();
+extern void CJImpl_objc_cjworld_NonOpen_Foo(int64_t);
 
 // @CJMirror
 @implementation NonOpen
 
 + (void)initialize {
     if (self == [NonOpen class]) {
-        if (!initCJRuntime("libcjworld.dylib")) {
+        if (!initCJRuntime("libobjc.cjworld.dylib")) {
             exit(1);
         }
     }
@@ -26,17 +26,17 @@ extern void CJImpl_ObjC_cjworld_NonOpen_Foo(int64_t);
 
 - (id)init {
     if (self = [super init]) {
-        self.$registryId = CJImpl_ObjC_cjworld_NonOpen_initCJObject();
+        self.$registryId = CJImpl_objc_cjworld_NonOpen_initCJObject();
     }
     return self;
 }
 
 - (void)dealloc {
-    CJImpl_ObjC_cjworld_NonOpen_deleteCJObject(self.$registryId);
+    CJImpl_objc_cjworld_NonOpen_deleteCJObject(self.$registryId);
 }
 
 - (void)Foo {
-    CJImpl_ObjC_cjworld_NonOpen_Foo(self.$registryId);
+    CJImpl_objc_cjworld_NonOpen_Foo(self.$registryId);
 }
 
 @end

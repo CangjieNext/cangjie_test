@@ -22,7 +22,7 @@ extern int64_t CJImpl_ObjC_api_CJEval(int64_t);
 
 + (void)initialize {
     if (self == [Expr class]) {
-        if (!initCJRuntime("libcjworld.dylib")) {
+        if (!initCJRuntime("libobjc.cjworld.dylib")) {
             exit(1);
         }
     }

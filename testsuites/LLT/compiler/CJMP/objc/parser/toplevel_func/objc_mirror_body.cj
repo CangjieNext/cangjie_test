@@ -7,7 +7,6 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %frontendCompiler %dump-parse %cmp_opt %f -o %output %compile_shared_lib_opt 2>& 1 | compare %f
 
 import objc.lang.*
-import interoplib.objc.*
 
 @ObjCMirror
 func foo(): Int64 {
@@ -16,9 +15,9 @@ func foo(): Int64 {
 
 /* SCAN-IN
 error: @ObjCMirror top-level function 'foo' cannot have body
-  ==> objc_mirror_body.cj:13:1:
+  ==> objc_mirror_body.cj:12:1:
    | 
-13 | func foo(): Int64 {
+12 | func foo(): Int64 {
    | ^ 
    | 
 */

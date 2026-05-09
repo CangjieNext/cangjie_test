@@ -71,9 +71,9 @@ build_example() {
     # api/*.cj => out/libapi.dylib
     cjc --output-type=dylib --int-overflow=wrapping api/*.cj -o out/
 
-    # generated/*.cj + libapi => out/libcjworld.dylib
+    # generated/*.cj + libapi => out/libobjc.cjworld.dylib
     cjc --output-type=dylib --int-overflow=wrapping generated/*.cj --import-path out -Lout -lapi -o out/ \
-        -linteroplib.common -lobjc.lang -linteroplib.objc
+        -lobjc.lang -lobjc.internal
 
     # RefGlueCode/_common/*.cj => out/libinteroptest.dylib
     cjc --output-type=dylib --int-overflow=wrapping ../../_common/*.cj -o out
@@ -81,14 +81,14 @@ build_example() {
     # for app code ARC is ON by default, export ARCOFF with some value to turn it OFF
     [ "test$ARCOFF" != "test" ] && ARC="" || ARC="-fobjc-arc"
 
-    # app/*.m + generated/*.m + libinteroptest + libapi + libcjworld => out/main
+    # app/*.m + generated/*.m + libinteroptest + libapi + libobjc.cjworld => out/main
     if [ "$OS_FAMILY" = "darwin" ]; then
         # ARC is always OFF for glue-code
         # use ARC_MACRO to setup if [super dealloc] should be called in CJMirror classes
         [ "test$ARCOFF" != "test" ] && ARC_MACRO="-D CALL_SUPER_DEALLOC=1" || ARC_MACRO=""
         clang -fmodules $ARC_MACRO -shared -undefined dynamic_lookup generated/*.m -o out/libgluecode.dylib -Igenerated -linteroplib.objclib -L"$CANGJIE_RUNTIME_LIB_PATH"
 
-        clang -fmodules $ARC app/*.m -o out/main -Iapp -Igenerated -Lout -linteroptest -lapi -lcjworld -lgluecode -L"$CANGJIE_RUNTIME_LIB_PATH"
+        clang -fmodules $ARC app/*.m -o out/main -Iapp -Igenerated -Lout -linteroptest -lapi -lobjc.cjworld -lgluecode -L"$CANGJIE_RUNTIME_LIB_PATH"
     else
         # ARC is always OFF for glue-code
         # shellcheck disable=SC2046
@@ -98,7 +98,7 @@ build_example() {
         # -lgnustep-corebase is not produced by gnustep-config, set it explicitly
         # shellcheck disable=SC2046
         clang $(gnustep-config --objc-flags) $(gnustep-config --base-libs) $ARC app/*.m -o out/main -Iapp -Igenerated -Lout -L"$CANGJIE_RUNTIME_LIB_PATH" \
-            -ldl -lgnustep-corebase -linteroptest -lapi -lcjworld -lgluecode
+            -ldl -lgnustep-corebase -linteroptest -lapi -lobjc.cjworld -lgluecode
     fi
 
     cd ../ > /dev/null
@@ -110,8 +110,8 @@ run_example() {
 
     cd "$1"/out
 
-    # as we load cjworld lib using full name, make a copy if needed
-    [ "$OS_FAMILY" = "linux" ] && cp libcjworld.so libcjworld.dylib
+    # as we load objc.cjworld lib using full name, make a copy if needed
+    [ "$OS_FAMILY" = "linux" ] && cp libobjc.cjworld.so libobjc.cjworld.dylib
 
     DYLD_LIBRARY_PATH="./:$CANGJIE_RUNTIME_LIB_PATH:$DYLD_LIBRARY_PATH" LD_LIBRARY_PATH="./:$CANGJIE_RUNTIME_LIB_PATH:$LD_LIBRARY_PATH" ./main
     cd - > /dev/null

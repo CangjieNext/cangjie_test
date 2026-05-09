@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-package cjworld
+package objc.cjworld
 
 import api.*
-import objc.lang.*
+import objc.internal.*
 
 // When pure CJ object (A instance) needs to be passed to ObjC side the pure object itself is put into registry
 // and the CJMirror is created using initWithRegistryId constructor.
@@ -83,31 +83,31 @@ class A_fwd <: A {
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_initl(obj: NativeObjCId, overrideMask: UInt64, x: Int64): RegistryId {
+public func CJImpl_objc_cjworld_A_initl(obj: NativeObjCId, overrideMask: UInt64, x: Int64): RegistryId {
     let id = unsafe { putToRegistry(A_fwd(obj, overrideMask, x)) }
     println("[CJ]: A.init(${id}, ${overrideMask}, ${x})")
     id
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_initll(obj: NativeObjCId, overrideMask: UInt64, x: Int64, y: Int64): RegistryId {
+public func CJImpl_objc_cjworld_A_initll(obj: NativeObjCId, overrideMask: UInt64, x: Int64, y: Int64): RegistryId {
     let id = unsafe { putToRegistry(A_fwd(obj, overrideMask, x, y)) }
     println("[CJ]: A.init(${id}, ${overrideMask}, ${x}, ${y})")
     id
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_lockCJObjectFwd(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_lockCJObjectFwd(registryId: RegistryId): Unit {
     unsafe { getFromRegistryById<A_fwd>(registryId).mtx.lock() }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_unlockCJObjectFwd(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_unlockCJObjectFwd(registryId: RegistryId): Unit {
     unsafe { getFromRegistryById<A_fwd>(registryId).mtx.unlock() }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_deleteCJObjectFwd(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_deleteCJObjectFwd(registryId: RegistryId): Unit {
     //println("[CJ]: A.deleteCJObjectFwd(${registryId})")
     let fwd = unsafe { getFromRegistryById<A_fwd>(registryId) }
     fwd.cjFinalizable = true
@@ -116,17 +116,17 @@ public func CJImpl_ObjC_cjworld_A_deleteCJObjectFwd(registryId: RegistryId): Uni
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_deleteCJObject(registryId: RegistryId): Unit {
+public func CJImpl_objc_cjworld_A_deleteCJObject(registryId: RegistryId): Unit {
     //println("[CJ]: A.deleteCJObject(${registryId})")
     unsafe { removeFromRegistry(registryId) }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_fooI64(registryId: RegistryId): Int64 {
+public func CJImpl_objc_cjworld_A_fooI64(registryId: RegistryId): Int64 {
     unsafe { getFromRegistryById<A>(registryId).fooI64() }
 }
 
 @C
-public func CJImpl_ObjC_cjworld_A_fwd_fooI64(registryId: RegistryId): Int64 {
+public func CJImpl_objc_cjworld_A_fwd_fooI64(registryId: RegistryId): Int64 {
     unsafe { getFromRegistryById<A_fwd>(registryId).fooI64Impl() }
 }

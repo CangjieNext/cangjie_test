@@ -10,9 +10,9 @@
 // EXEC: ObjCInteropGen test.toml
 // EXEC: %cat test.cj | compare %f
 /* SCAN-IN
-public type M = ObjCInt128
-public const a: M = ObjCInt128(0, 0)
-public const b: M = ObjCInt128(1, 0)
-public const c: M = ObjCInt128(-1, 0)
-public const d: M = ObjCInt128(0, 1)
+public type M = VArray<Int64, $2>
+public const a: M = [0, 0]
+public const b: M = [1, 0]
+public const c: M = [-1, 0]
+public const d: M = [0, 1]
 */

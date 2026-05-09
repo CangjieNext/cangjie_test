@@ -7,16 +7,15 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %frontendCompiler %dump-parse %cmp_opt %f -o %output %compile_shared_lib_opt 2>& 1 | compare %f
 
 import objc.lang.*
-import interoplib.objc.*
 
 @ObjCMirror
 func foo()
 
 /* SCAN-IN
 error: @ObjCMirror top-level function 'foo' must have result type explicitly specified
-  ==> objc_mirror_no_result_type.cj:13:1:
+  ==> objc_mirror_no_result_type.cj:12:1:
    | 
-13 | func foo()
+12 | func foo()
    | ^ 
    | 
 */

@@ -7,7 +7,7 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %frontendCompiler %cmp_opt %diag_json %f -o %output %compile_shared_lib_opt 2>& 1 | compare %f
 // ASSERT: scan parse_objc_init_method_must_be_in_mirror_class
 
-import interoplib.objc.*
+import objc.lang.*
 
 class RegularCangjieClass {
     @ObjCInit
