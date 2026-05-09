@@ -9,7 +9,7 @@
 // LEVEL: 2
 // DEPENDENCE: %n.cpp
 // (not Windows and not MAC) EXEC: %clang -c %clang_opt %n.cpp -o lib%n.cpp.cfile.%dylib_suffix
-// (not Windows and not MAC) EXEC: %compiler -L. -l%n.cpp.cfile %f %cmp_opt %overflow_wrapping --static -o %output
+// (not Windows and not MAC) EXEC: %compiler -L. -l%n.cpp.cfile %f %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --static %overflow_wrapping -o %output
 // (not Windows and not MAC) RUN-EXEC: unset LD_LIBRARY_PATH && %output %run_args
 
 foreign func PassCPointerToC(a: CPointer<Float32>): Bool
