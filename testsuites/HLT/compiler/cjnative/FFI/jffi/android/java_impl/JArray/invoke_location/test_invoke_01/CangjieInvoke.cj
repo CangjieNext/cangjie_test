@@ -7,11 +7,11 @@
  */
 
 // LEVEL: 3
-// (Android) DEPENDENCE: com UNNAMED MainInstrumentedTest.java 
-// (Android) EXEC: python3 %java_interop_setup
-// (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
-// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj UNNAMED/src/*.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
-// (Android) EXEC: python3 %java_interop_runner --test-entry=MainInstrumentedTest.java --java-source-root=com
+// (Android) DEPENDENCE: com MainInstrumentedTest.java 
+// (Android) EXEC: %javac com/*.java %java_interop_util/Logger.java
+// (Android) EXEC: %java %java_mirror_gen com.JavaClass
+// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f %java_interop_util/logger.cj UNNAMED/src/*.cj
+// (Android) RUN-EXEC: %run %run_opt %output %run_args
 
 package UNNAMED
 
@@ -26,18 +26,18 @@ public class CangjieInvoke <: JObject {
             arr[i] = 2 * i
         }
         let javaclass = JavaClass(arr)
-        Logger.println("original-1 instance aInt[9]: ${javaclass.aInt[9]}")
-        Logger.println("original-2 instance aInt[9]: ${javaclass.getAInt()[9]}")
+        Logger.println("original-1 instance aInt[9]: ${javaclass.aInt.getOrThrow()[9]}")
+        Logger.println("original-2 instance aInt[9]: ${javaclass.getAInt().getOrThrow()[9]}")
         let arr1 = JArray<Int32>(100)
         for (i in 0i32..30i32) {
             arr1[i] = 10 * i
         }
         javaclass.setAInt(arr1)
-        Logger.println("changed-1 instance aInt[9]: ${javaclass.aInt[9]}")
+        Logger.println("changed-1 instance aInt[9]: ${javaclass.aInt.getOrThrow()[9]}")
 
-        Logger.println("original-1 static arrayInt[9]: ${JavaClass.arrayInt[9]}")
-        Logger.println("original-2 static arrayInt[9]: ${JavaClass.getArrayInt()[9]}")
+        Logger.println("original-1 static arrayInt[9]: ${JavaClass.arrayInt.getOrThrow()[9]}")
+        Logger.println("original-2 static arrayInt[9]: ${JavaClass.getArrayInt().getOrThrow()[9]}")
         JavaClass.setArrayInt(arr1)
-        Logger.println("changed-1 instance aInt[9]: ${JavaClass.getArrayInt()[9]}")
+        Logger.println("changed-1 instance aInt[9]: ${JavaClass.getArrayInt().getOrThrow()[9]}")
     }
 }

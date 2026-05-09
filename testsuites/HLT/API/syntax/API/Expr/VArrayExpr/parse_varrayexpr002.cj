@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_varrayliteral_002() {
     let res = parseFile("./varrayexpr002.cj")
     var diags = res.diags
@@ -35,4 +37,5 @@ func test_varrayliteral_002() {
     @Assert(varrayliteral.argument.value.toString(), "{ i => i}")
     @Assert(varrayliteral.argument.isInOut, false)
     @Assert(varrayliteral.argument.identifier.isNone())
+}
 }

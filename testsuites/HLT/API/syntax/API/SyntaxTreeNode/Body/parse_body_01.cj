@@ -8,23 +8,24 @@
 
 // LEVEL: 0
 // DEPENDENCE: body_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-// 其他在Class 类型、 Struct 类型、 Interface 类型以及扩展中验证
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Body_01() {
     let res = parseFile("./body_01.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains(##"class C1 {
+    @Assert(sourcefile.toString().replace("\r","").contains(##"class C1 {
     let a: Int64 = 1
 }"##))
 
     var classdecl = (sourcefile.topLevelDecls[0] as ClassDecl).getOrThrow()
     @Assert(classdecl.body.memberDecls.size, 1)
-    @Assert(classdecl.body.toString(), ##"{
+    @Assert(classdecl.body.toString().replace("\r",""), ##"{
     let a: Int64 = 1
 }"##)
 
@@ -32,4 +33,5 @@ func test_Body_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [9i32, 10i32, 9i32, 11i32])
     pos = classdecl.body.getRCurlPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [11i32, 1i32, 11i32, 2i32])
+}
 }

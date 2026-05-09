@@ -8,12 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE: GenericConstraints_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_GenericConstraints_01() {
     let res = parseFile("./GenericConstraints_01.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
@@ -31,4 +33,5 @@ func test_GenericConstraints_01() {
     @Assert([posList[2].beginLine, posList[2].beginColumn, posList[2].endLine, posList[2].endColumn], [9i32, 80i32, 9i32, 81i32])
     var pos = genericConstraints.getWhereKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [9i32, 24i32, 9i32, 29i32])
+}
 }

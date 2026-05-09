@@ -7,9 +7,8 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) EXEC-1: %compiler %overflow_wrapping %cmp_opt %f | compare %f
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 public let var_1689107172838_11 : Enum_1689107172838_8 = Enum_1689107172838_8.defaultValue
 public var var_1689107172838_35 : Rune = r'V'

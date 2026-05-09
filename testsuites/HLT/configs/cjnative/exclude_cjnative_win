@@ -803,6 +803,21 @@ compiler/cjnative/Packages/cjmp/cjmp_04046/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_04052/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_11044/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_11045/test.cj
+API\Regression\Cases\regression_testcase_0006\regression_testcase_0006_0001.cj
+API\net\Client\ClientBuilder\Http1\ClientBuilder_httpsProxy.cj
+API\openssl\check_stdx.info
+API\std\fs\fileinfo\windows\test_windows_fileinfo.cj
+API\std\fs\links\test_hardlink_create_02.cj
+API\std\fs\links\test_symboliclink_create_02.cj
+API\std\socket\Socket\SocketAddress_IPv6\UdpSocket_IPv6\test_udp_incorrect_invocation.cj
+API\std\time\TimeZone\Local\timezone04.cj
+API\std\unittest\AssertEqual\test_assert_collection_unequal_03.cj
+API\std\unittest\GC\test_gccount_01.cj
+API\std\unittest\GC\test_gccount_02.cj
+API\std\unittest\GC\test_gccount_03.cj
+API\std\unittest\GC\test_gctime_01.cj
+API\std\unittest\GC\test_mem_measurement_01.cj
+API\std\unittest\benchmark\test_bench_newreport_01.cj
 
 # https://gitcode.com/Cangjie/cangjie_test/issues/315
 compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_05n.cj 

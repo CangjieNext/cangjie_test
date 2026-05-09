@@ -8,12 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE: ImportSingle_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ImportSingle_01() {
     let res = parseFile("./ImportSingle_01.cj")
     var diags = res.diags
@@ -32,4 +34,5 @@ func test_ImportSingle_01() {
     var importSingle = (sourcefile.importLists[0].contents as ImportSingle).getOrThrow()
     var pos = importSingle.getIdentifierPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [9i32, 8i32, 9i32, 9i32])
+}
 }

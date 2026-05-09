@@ -8,16 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE: CompositeType_02.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_CompositeType_02() {
     let res = parseFile("./CompositeType_02.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"var a1: CFunc<() -> Unit> = A()
+    @Expect(sourcefile.toString().replace("\r","").contains(##"var a1: CFunc<() -> Unit> = A()
 var a2: CFunc<(CPointer<Int8>) -> Unit> = A()"##))
 
     @Assert(sourcefile.nodePos.beginLine, 1)
@@ -48,4 +50,5 @@ var a2: CFunc<(CPointer<Int8>) -> Unit> = A()"##))
     Pos_2 = type_2.getRAnglePos().getOrThrow()
     @Assert([Pos_2.beginLine, Pos_2.beginColumn, Pos_2.endLine, Pos_2.endColumn], [10i32, 39i32, 10i32, 40i32])
     @Assert(type_2.getCommasPos().size, 0)
+}
 }

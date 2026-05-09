@@ -8,16 +8,18 @@
 
 // LEVEL: 1
 // DEPENDENCE: FuncParam_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_FuncParam_01() {
     let res = parseFile("./FuncParam_01.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"class C1 {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"class C1 {
     private C1(a: Int64, b!: Int64, c!: Int64 = 1, public var d!: ?Int64, private let e!: R = R()) {
     }
 }"##))
@@ -25,7 +27,7 @@ func test_FuncParam_01() {
     var _decl = (sourcefile.topLevelDecls[0] as ClassDecl).getOrThrow()
 
     var funcdecl_1 = (_decl.body.memberDecls[0] as FuncDecl).getOrThrow()
-    @Expect(funcdecl_1.toString(), ##"private C1(a: Int64, b!: Int64, c!: Int64 = 1, public var d!: ?Int64, private let e!: R = R()) {
+    @Expect(funcdecl_1.toString().replace("\r",""), ##"private C1(a: Int64, b!: Int64, c!: Int64 = 1, public var d!: ?Int64, private let e!: R = R()) {
     }"##)
     @Assert(funcdecl_1.params.params.size, 5)
     let param_1 = (funcdecl_1.params.params[0] as FuncParam).getOrThrow()
@@ -42,6 +44,7 @@ func test_FuncParam_01() {
 
     let param_3 = (funcdecl_1.params.params[2] as FuncParam).getOrThrow()
     @Assert(param_3.toString(), "c!: Int64 = 1")
+    @Assert(param_3.toTokens().toString(), "c!: Int64 = 1")
     @Assert(param_3.defaultValue.isSome())
     @Assert(param_3.defaultValue.getOrThrow().toString(), "1")
     @Assert(param_3.name, "c")
@@ -71,4 +74,5 @@ func test_FuncParam_01() {
     pos = param_3.getTypeAnnotationColonPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 39i32, 10i32, 40i32])
     @Assert(param_3.getVarKindKeyWordPos().isNone(), true)
+}
 }

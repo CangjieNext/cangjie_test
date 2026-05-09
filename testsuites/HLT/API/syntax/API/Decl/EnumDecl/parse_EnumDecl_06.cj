@@ -8,26 +8,28 @@
 
 // LEVEL: 2
 // DEPENDENCE: EnumDecl_06.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumDecl_06() {
     let res = parseFile("./EnumDecl_06.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"enum a_b <: I1 & I2 {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"enum a_b <: I1 & I2 {
     A1(T, T)
     | B1 (T, U) |
     C1(U, U) | D1((Int64, Int64))
 }"##))
 
     var enumDecl: EnumDecl = (sourcefile.topLevelDecls[0] as EnumDecl).getOrThrow()
-    @Expect(enumDecl.toString(), ##"enum a_b <: I1 & I2 {
+    @Expect(enumDecl.toString().replace("\r",""), ##"enum a_b <: I1 & I2 {
     A1(T, T)
     | B1 (T, U) |
     C1(U, U) | D1((Int64, Int64))
@@ -51,4 +53,5 @@ func test_EnumDecl_06() {
     @Assert(enumDecl.superTyAnnotations[0].toString(), ##"I1"##)
     @Assert(enumDecl.superTyAnnotations[1].toString(), ##"I2"##)
     @Assert(enumDecl.annotations.size, 0)
+}
 }

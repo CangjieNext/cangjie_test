@@ -25,6 +25,14 @@ int main(int argc, char** argv) {
         S* s = [[S alloc] init: a];
         [s f1: a];
         [S f2: a];
+        a = [S stResI: a];
+        a = [s resI: a];
+        [a f];
+
+// N/S        [s.varI f];
+// N/S        [s.pI f];
+        [S initStI: a];
+// N/S        [S.stI f];
     }
     return 0;
 }

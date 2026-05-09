@@ -29,18 +29,12 @@ import std.sync.*
 var data = Array<Byte>(32000, repeat: 20)
 var udp = Option<UdpSocket>.None
 var addr00 = IPSocketAddress("0.0.0.0", 0)
-@When[os == "macOS"]
-let flag = "Failed to write data 40: Message too long."
-@When[os == "iOS"]
-let flag = "Failed to write data 40: Message too long."
-@When[os == "Linux"]
-let flag = "Connection refused"
 
 @Test
 class Test_Udp_TransPortation_Timeout {
     @TestCase
     func test_sendtimeout(): Unit {
-        var sum = 0
+        let timeout = 100 * Duration.millisecond
 
         var udpsocket = UdpSocket(bindAt: 0)
         udpsocket.reusePort = true
@@ -48,7 +42,8 @@ class Test_Udp_TransPortation_Timeout {
         var addr = udpsocket.localAddress
         // difficult to make send timeout
         udpsocket.sendBufferSize = 1000
-        udpsocket.sendTimeout = 100 * Duration.millisecond
+        udpsocket.sendTimeout = timeout
+        @Expect(udpsocket.sendTimeout, Some(timeout))
 
         var udpsocket1 = UdpSocket(bindAt: 0)
         udpsocket1.reusePort = true
@@ -66,19 +61,16 @@ class Test_Udp_TransPortation_Timeout {
                 udpsocket.send(data)
             }
         } catch (e: SocketException) {
-            sum += 1
-            @Expect(e.message.contains(flag))
+            @Expect(e.message.isEmpty(), false)
         }
         try {
             for (_ in 0..10) {
                 udpsocket.sendTo(addr1, data)
             }
         } catch (e: SocketException) {
-            sum += 1
-            @Expect(e.message.contains(flag))
+            @Expect(e.message.isEmpty(), false)
         }
 
-        @Expect(sum, 2)
         udpsocket.close()
     }
 

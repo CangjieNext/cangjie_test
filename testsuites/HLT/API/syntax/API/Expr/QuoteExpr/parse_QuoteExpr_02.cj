@@ -8,13 +8,15 @@
 
 // LEVEL: 1
 // DEPENDENCE: QuoteExpr_02.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.ast.Tokens
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_QuoteExpr_02() {
     let res = parseFile("./QuoteExpr_02.cj")
     var diags = res.diags
@@ -22,7 +24,7 @@ func test_QuoteExpr_02() {
 
     let sourcefile: SourceFile = res.node.getOrThrow()
     sourcefile.toString() |> println
-    @Assert(sourcefile.toString().contains(##"main() {
+    @Assert(sourcefile.toString().replace("\r","").contains(##"main() {
     quote((x))
     quote(quote(x))
     quote($(quote(x)))
@@ -152,4 +154,5 @@ func test_QuoteExpr_02() {
             @Assert(QuoteToken.content.toString(), "1 + @PlusOne(x) * 2")
         case _ => @Assert(false)
     }
+}
 }

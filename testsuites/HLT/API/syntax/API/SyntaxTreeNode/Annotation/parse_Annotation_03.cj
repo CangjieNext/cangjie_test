@@ -8,19 +8,20 @@
 
 // LEVEL: 1 EXCLUDE
 // DEPENDENCE: Annotation_03.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
-// 当前前端缺少信息
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Annotation_03() {
     let res = parseFile("./Annotation_03.cj")
 
     let sourcefile: SourceFile = res.node.getOrThrow()
     sourcefile.toString() |> println
-    @Expect(sourcefile.toString().contains(##"@Attribute[State] var cnt = 0
+    @Expect(sourcefile.toString().replace("\r","").contains(##"@Attribute[State] var cnt = 0
 @Attribute["Binding"] var bcnt = 0"##))
 
     var decl_1: VarDecl = (sourcefile.topLevelDecls[0] as VarDecl).getOrThrow()
@@ -36,4 +37,5 @@ func test_Annotation_03() {
     @Assert(anno_2.toString(), ##"@Attribute["Binding"]"##)
     @Assert(anno_2.arguments.toString(), ##"["Binding"]"##)
     @Assert(anno_2.identifier.toString(), ##"Attribute"##)
+}
 }

@@ -9,10 +9,9 @@
 // LEVEL: 3
 // DESCRIPTION: extending @JavaImpl class, extended members are not accessible from Java, neither can it be accessed by Cangjie.
 // (Android) DEPENDENCE: com MainInstrumentedTest.java  
-// (Android) EXEC: python3 %java_interop_setup
-// (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
+// (Android) EXEC: %javac com/*.java %java_interop_util/Logger.java
 // (Android) EXEC: %java %java_mirror_gen com.Init01
-// (Android) EXEC-PIPE-1: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj UNNAMED/src/*.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED 2>&1 | compare %f
+// (Android) EXEC-PIPE-1: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f %java_interop_util/logger.cj UNNAMED/src/*.cj 2>&1 | compare %f
 // (Android) ASSERT: scan "'cjFoo' is not a member of class 'CangjieInvoke'"
 
 package UNNAMED

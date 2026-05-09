@@ -8,16 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE: MacroExpandParam_02.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MacroExpandParam_02() {
     let res = parseFile("./MacroExpandParam_02.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"class C1 {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"class C1 {
     private init(@M1 (a: Int64), @M1[x: Int64, y: T] (b!: Int64), @M1[aaa](c!: Int64 = 1)) {
     }
 }"##))
@@ -25,7 +27,7 @@ func test_MacroExpandParam_02() {
     var _decl = (sourcefile.topLevelDecls[0] as ClassDecl).getOrThrow()
 
     var funcdecl_1 = (_decl.body.memberDecls[0] as FuncDecl).getOrThrow()
-    @Expect(funcdecl_1.toString(), ##"private init(@M1 (a: Int64), @M1[x: Int64, y: T] (b!: Int64), @M1[aaa](c!: Int64 = 1)) {
+    @Expect(funcdecl_1.toString().replace("\r",""), ##"private init(@M1 (a: Int64), @M1[x: Int64, y: T] (b!: Int64), @M1[aaa](c!: Int64 = 1)) {
     }"##)
     @Assert(funcdecl_1.params.params.size, 3)
     let param_1: MacroExpandParam = (funcdecl_1.params.params[0] as MacroExpandParam).getOrThrow()
@@ -54,4 +56,5 @@ func test_MacroExpandParam_02() {
         case WithParens(Tokens) => @Expect(Tokens.toString(), ##"c!: Int64 = 1"##)
         case _ => @Assert(false)
     }
+}
 }

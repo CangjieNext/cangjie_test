@@ -8,19 +8,21 @@
 
 // LEVEL: 2
 // DEPENDENCE: CatchPattern_05.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_CatchPattern_05() {
     let res = parseFile("./CatchPattern_05.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains(##"main() {
+    @Assert(sourcefile.toString().replace("\r","").contains(##"main() {
     try {} catch (_) {}
 }"##))
 
@@ -28,4 +30,5 @@ func test_CatchPattern_05() {
     var expr: TryCatch = (mainDecl.body.nodes[0] as TryCatch).getOrThrow()
     @Assert(expr.catchPatterns.size, 1)
     @Assert(expr.catchPatterns[0].pattern is WildcardPattern)
+}
 }

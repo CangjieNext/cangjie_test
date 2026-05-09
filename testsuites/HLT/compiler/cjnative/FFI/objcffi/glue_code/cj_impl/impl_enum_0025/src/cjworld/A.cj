@@ -17,6 +17,18 @@ public enum A {
     }
 }
 public struct S {
+    public var a: A = E1
+    public var implicitA = E1
+    public let constA: A = E1
+
+    public static var stA = E1
+    public static let stConstA = E1
+
     public func f(): A {E1}
-    public prop p: A {get(){E1}}
+
+    public prop p: A {get(){a}}
+    public mut prop mutP: A {get(){a} set(v) { a = v }}
+
+    public static prop stP: A {get(){stA}}
+    public static mut prop stMutP: A {get(){stA} set(v) { stA = v }}
 }

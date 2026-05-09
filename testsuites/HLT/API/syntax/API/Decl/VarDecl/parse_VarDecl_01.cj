@@ -8,17 +8,19 @@
 
 // LEVEL: 0
 // DEPENDENCE: VarDecl_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_VarDecl_01() {
     let res = parseFile("./VarDecl_01.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
     println(sourcefile.toString())
-    @Assert(sourcefile.toString().contains(##"var a = 1
+    @Assert(sourcefile.toString().replace("\r","").contains(##"var a = 1
 public let b = 1
 protected const c: Int64 = 1"##))
 
@@ -46,6 +48,7 @@ protected const c: Int64 = 1"##))
 
     var vardecl_3 = (sourcefile.topLevelDecls[2] as VarDecl).getOrThrow()
     @Assert(vardecl_3.toString(), "protected const c: Int64 = 1")
+    @Assert(vardecl_3.toTokens().toString(), "protected const c: Int64 = 1")
     @Assert(vardecl_3.initializer.isSome())
     @Assert(vardecl_3.initializer.getOrThrow().toString(), "1")
     match (vardecl_3.kind) {
@@ -64,4 +67,5 @@ protected const c: Int64 = 1"##))
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [11i32, 18i32, 11i32, 19i32])
     pos = vardecl_3.getVarKindKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [11i32, 11i32, 11i32, 16i32])
+}
 }

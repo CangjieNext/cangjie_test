@@ -8,19 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE: MatchCase_19.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MatchCase_19() {
     let res = parseFile("./MatchCase_19.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     match(xxx) {
         case Date.Year(y) => ()
         case Date.Hour(y, m, d, h) => ()
@@ -76,4 +78,5 @@ func test_MatchCase_19() {
     @Assert(case_4.patterns[0].toString(), "pkgA.Date.Year(y)")
     @Assert(case_4.patterns[1] is EnumPattern)
     @Assert(case_4.patterns[1].toString(), "Month(y, m)")
+}
 }
