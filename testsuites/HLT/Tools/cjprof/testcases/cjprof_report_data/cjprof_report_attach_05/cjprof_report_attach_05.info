@@ -9,7 +9,7 @@
 // LEVEL: 3
 // DEPENDENCE:  ../../../script ../../../expect ../../../sourcecode/cjprof_binarytrees.cj ../cjprof_report_attach_05
 // EXEC: %compiler %cmp_opt cjprof_binarytrees.cj -o binarytrees_report_attach_04%cmp_output
-// EXEC: %python script/cjprof_record.py %input_data binarytrees_report_attach_04%cmp_output %output_data cjprofnew.res %record_pid True %run_env
-// EXEC: %python script/cjprof_report.py %input_data cjprofnew.res -o aabb
+// EXEC: %python script/cjprof_record.py --input binarytrees_report_attach_04%cmp_output --output cjprofnew.res --pid True %run_env
+// EXEC: %python script/cjprof_report.py --input cjprofnew.res -o aabb
 // EXEC-1: %python script/cjprof_test.py
 // ASSERT: scan Flamegraph not exist

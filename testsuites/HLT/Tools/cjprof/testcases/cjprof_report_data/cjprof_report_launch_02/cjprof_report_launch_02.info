@@ -9,5 +9,5 @@
 // LEVEL: 3
 // DEPENDENCE:  ../../../script ../../../sourcecode/cjprof_binarytrees.cj ../cjprof_report_launch_02
 // EXEC: %compiler %cmp_opt cjprof_binarytrees.cj -o binarytrees_report_launch_02%cmp_output
-// EXEC: %python script/cjprof_record_launch.py %input_data binarytrees_report_launch_02%cmp_output %output_data notexist.data %run_env
-// EXEC-1: %python script/cjprof_report.py %input_data notexist.data
+// EXEC: %python script/cjprof_record_launch.py --input binarytrees_report_launch_02%cmp_output --output notexist.data %run_env
+// EXEC-1: %python script/cjprof_report.py --input notexist.data

@@ -9,6 +9,6 @@
 // LEVEL: 3
 // DEPENDENCE:  ../../../script ../../../expect ../../../sourcecode/cjprof_binarytrees.cj ../cjprof_flame_launch_03
 // EXEC: %compiler %cmp_opt cjprof_binarytrees.cj -o binarytrees_flame_launch_03%cmp_output
-// EXEC: %python script/cjprof_record_launch.py %input_data binarytrees_flame_launch_03%cmp_output %output_data cjprof.data %run_env
-// EXEC: %python script/cjprof_report.py %input_data cjprof.data %output_data cjprofnew.svg
-// EXEC: %python script/cjprof_test.py %output_flamegraph cjprofnew.svg
+// EXEC: %python script/cjprof_record_launch.py --input binarytrees_flame_launch_03%cmp_output --output cjprof.data %run_env
+// EXEC: %python script/cjprof_report.py --input cjprof.data --output cjprofnew.svg
+// EXEC: %python script/cjprof_test.py --output cjprofnew.svg
