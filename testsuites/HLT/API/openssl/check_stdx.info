@@ -7,8 +7,8 @@
  */
 
 // DEPENDENCE: check.py
-// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.net.tls.a
 // EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.net.a
+// EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.net.tls.a
 // EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.net.http.a
 // EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.net.tls.common.a
 // EXEC: %python check.py %target %cangjie_static_extern_stdx_path/libstdx.net.tlsFFI.a
