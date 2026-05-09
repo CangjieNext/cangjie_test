@@ -8,16 +8,18 @@
 
 // LEVEL: 1
 // DEPENDENCE: TupleType_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TupleType_01() {
     let res = parseFile("./TupleType_01.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"var a: (Int64, Int32) = (1, 2)
+    @Expect(sourcefile.toString().replace("\r","").contains(##"var a: (Int64, Int32) = (1, 2)
 var a: (a0: Int64, b0: Int32) = (1, 2)
 var a: (a0: Int64, b0: Unit) = (1, ())
 var a: (Int64, Int64, Int64, Int64, Int64, Int64, Int64) = (1, 2, 3, 4, 5, 6, 7)"##))
@@ -107,4 +109,5 @@ var a: (Int64, Int64, Int64, Int64, Int64, Int64, Int64) = (1, 2, 3, 4, 5, 6, 7)
     @Assert([Pos_4.beginLine, Pos_4.beginColumn, Pos_4.endLine, Pos_4.endColumn], [12i32, 8i32, 12i32, 9i32])
     Pos_4 = type_4.getRParenPos()
     @Assert([Pos_4.beginLine, Pos_4.beginColumn, Pos_4.endLine, Pos_4.endColumn], [12i32, 56i32, 12i32, 57i32])
+}
 }

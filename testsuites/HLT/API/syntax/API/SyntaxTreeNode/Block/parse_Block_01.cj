@@ -8,22 +8,24 @@
 
 // LEVEL: 1
 // DEPENDENCE: Block_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Block_01() {
     let res = parseFile("./Block_01.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains(##"func foo(){
+    @Assert(sourcefile.toString().replace("\r","").contains(##"func foo(){
     { => 100}()
 }"##))
 
     var funcdecl_1 = (sourcefile.topLevelDecls[0] as FuncDecl).getOrThrow()
     let block = funcdecl_1.body.getOrThrow()
-    @Assert(block.toString(), ##"{
+    @Assert(block.toString().replace("\r",""), ##"{
     { => 100}()
 }"##)
     @Assert(block.nodes.size, 1)
@@ -33,4 +35,5 @@ func test_Block_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [9i32, 11i32, 9i32, 12i32])
     pos = block.getRCurlPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [11i32, 1i32, 11i32, 2i32])
+}
 }

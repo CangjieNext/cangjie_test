@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: DisjunctionCondition_04.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_DisjunctionCondition_04() {
     let res = parseFile("./DisjunctionCondition_04.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     if (a == b && let c <- b && c == a && true) {}
 }"##))
 
@@ -32,4 +34,5 @@ func test_DisjunctionCondition_04() {
     @Assert(condition.toString(), ##"a == b && let c <- b && c == a && true"##)
     @Expect(condition.cond.size, 1)
     @Assert(condition.cond[0].toString(), ##"a == b && let c <- b && c == a && true"##)
+}
 }

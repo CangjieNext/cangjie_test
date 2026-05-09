@@ -20,10 +20,8 @@ import std.time.*
 
 @When[os != "Linux"]
 let res_string = "2023/02/11 11:11:11 <+07>"
-@When[os == "Linux" && env != "ohos"]
+@When[os == "Linux"]
 let res_string = "2023/02/11 11:11:11 +07"
-@When[os == "Linux" && env == "ohos"]
-let res_string = "2023/02/11 11:11:11 <+07>"
 
 @Test
 class Test_toString_zone {

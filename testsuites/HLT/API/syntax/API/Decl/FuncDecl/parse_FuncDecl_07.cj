@@ -8,13 +8,15 @@
 
 // LEVEL: 2
 // DEPENDENCE: FuncDecl_07.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 // FuncDecl不支持互操作函数
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_FuncDecl_07() {
     let res = parseFile("./FuncDecl_07.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
@@ -34,4 +36,5 @@ func test_FuncDecl_07() {
     @Assert(funcdecl_1.retTyAnnotation.getOrThrow().toString(), "Unit")
     @Assert(funcdecl_1.modifiers.toString(), "[]")
     @Assert(funcdecl_1.annotations.toString(), ##"[]"##)
+}
 }

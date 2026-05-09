@@ -84,6 +84,8 @@ let func_1 = {
 main() {
     for (signal in sig_nums) {
         registerSignalHandler(Signal(signal, "${signal}"), func_1)
+    }
+    for (signal in sig_nums) {
         sendSignal(signal)
     }
     resetSignalHandler(sig_nums.map {i => Signal(i, "${i}")})

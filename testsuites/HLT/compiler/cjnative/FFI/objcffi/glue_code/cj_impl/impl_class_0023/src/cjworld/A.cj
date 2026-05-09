@@ -25,6 +25,9 @@ public class A {
     public static func getInt64(): Int64 {
         Int64.Max
     }
+    public static func getIntN(): IntNative {
+        IntNative.Max
+    }
     public static func getUInt8(): UInt8 {
         UInt8.Max
     }
@@ -36,6 +39,9 @@ public class A {
     }
     public static func getUInt64(): UInt64 {
         UInt64.Max
+    }
+    public static func getIntUN(): UIntNative {
+        UIntNative.Max
     }
     public static func getFloat32(): Float32 {
         Float32.Max

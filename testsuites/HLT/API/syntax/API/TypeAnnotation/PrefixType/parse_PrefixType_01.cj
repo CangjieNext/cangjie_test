@@ -8,16 +8,18 @@
 
 // LEVEL: 1
 // DEPENDENCE: PrefixType_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_PrefixType_01() {
     let res = parseFile("./PrefixType_01.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"var a: ?A = A()
+    @Expect(sourcefile.toString().replace("\r","").contains(##"var a: ?A = A()
 var a: ???A = A()
 var a: ?(A, B) = A()
 var a: ?(A) = A()"##))
@@ -53,4 +55,5 @@ var a: ?(A) = A()"##))
     @Assert(type_4.base.toString(), "(A)")
     var Pos_4 = type_4.getOperatorPos()
     @Assert([Pos_4.beginLine, Pos_4.beginColumn, Pos_4.endLine, Pos_4.endColumn], [12i32, 8i32, 12i32, 9i32])
+}
 }

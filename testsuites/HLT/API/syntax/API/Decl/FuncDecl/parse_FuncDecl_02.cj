@@ -8,16 +8,18 @@
 
 // LEVEL: 1
 // DEPENDENCE: FuncDecl_02.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_FuncDecl_02() {
     let res = parseFile("./FuncDecl_02.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains(##"interface I1 {
+    @Assert(sourcefile.toString().replace("\r","").contains(##"interface I1 {
     func func_1(): Unit
     static func func_2(a: Int64): ?Int64 {
         Some(0)
@@ -44,11 +46,11 @@ func test_FuncDecl_02() {
     @Assert(funcdecl_1.annotations.toString(), "[]")
 
     var funcdecl_2 = (_decl.body.memberDecls[1] as FuncDecl).getOrThrow()
-    @Assert(funcdecl_2.toString(), ##"static func func_2(a: Int64): ?Int64 {
+    @Assert(funcdecl_2.toString().replace("\r",""), ##"static func func_2(a: Int64): ?Int64 {
         Some(0)
     }"##)
     @Assert(funcdecl_2.body.isSome())
-    @Assert(funcdecl_2.body.getOrThrow().toString(), ##"{
+    @Assert(funcdecl_2.body.getOrThrow().toString().replace("\r",""), ##"{
         Some(0)
     }"##)
     @Assert(funcdecl_2.genericConstraints.isNone())
@@ -80,4 +82,5 @@ func test_FuncDecl_02() {
     @Assert(funcdecl_3.retTyAnnotation.getOrThrow() is AtomicType)
     @Assert(funcdecl_3.modifiers.toString(), "[mut]")
     @Assert(funcdecl_3.annotations.toString(), "[]")
+}
 }

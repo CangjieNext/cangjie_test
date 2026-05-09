@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: ImportList_03.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ImportList_03() {
     let res = parseFile("./ImportList_03.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"protected import a.b.c.d.e.f.g as a_b_c_d_e_f_g
+    @Expect(sourcefile.toString().replace("\r","").contains(##"protected import a.b.c.d.e.f.g as a_b_c_d_e_f_g
 protected import {
     std.time000.*,
 }
@@ -56,7 +58,7 @@ protected import a.a.a._a.a.a.a.a.a._a.a.a.a"##))
         case ModifierKind.Protected => ()
         case _ => @Assert(false)
     }
-    @Expect(import_2.toString(), ##"protected import {
+    @Expect(import_2.toString().replace("\r",""), ##"protected import {
     std.time000.*,
 }"##)
 
@@ -69,7 +71,7 @@ protected import a.a.a._a.a.a.a.a.a._a.a.a.a"##))
         case ModifierKind.Protected => ()
         case _ => @Assert(false)
     }
-    @Expect(import_3.toString(), ##"protected import std.a.b.c.d.{
+    @Expect(import_3.toString().replace("\r",""), ##"protected import std.a.b.c.d.{
     time,
     fs as fileSystem,
     io.*,
@@ -86,4 +88,5 @@ protected import a.a.a._a.a.a.a.a.a._a.a.a.a"##))
         case _ => @Assert(false)
     }
     @Expect(import_4.toString(), ##"protected import a.a.a._a.a.a.a.a.a._a.a.a.a"##)
+}
 }

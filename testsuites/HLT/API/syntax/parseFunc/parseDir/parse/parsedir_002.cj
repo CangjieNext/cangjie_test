@@ -8,12 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE: dir002
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_dir_002() {
     let res = parsePackage("./dir002")
     var diags = res.diags
@@ -55,4 +57,5 @@ func test_dir_002() {
     @Assert(_pkgHeader.isMacroPkg, true)
     @Assert(_pkgHeader.packageNameIdentifiers, ["a", "b", "ccc"])
     @Assert(file2.topLevelDecls.size, 0)
+}
 }

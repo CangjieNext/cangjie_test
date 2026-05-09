@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: files
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args 
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -63,17 +63,26 @@ func startServer(): Unit {
     }
     while(server.port == 0) {sleep(Duration.millisecond)}
 }
+
 let proxyServerSocket = TcpServerSocket(bindAt: 0)
+func waitProxyPort(): UInt16 {
+    while (true) {
+        let port = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
+        if (port != 0) {
+            return port
+        }
+        sleep(Duration.millisecond)
+    }
+    return 0
+}
+
 func startProxy(serverPort : UInt16): Unit {
      try{
         proxyServerSocket.bind()
-        sleep(Duration.millisecond * 200)
-        let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
         let socket = proxyServerSocket.accept()
-        socket.readTimeout = Duration.millisecond * 100
+        socket.readTimeout = Duration.second * 5
     
         let buf = Array<UInt8>(500, repeat: 0)
-        sleep(Duration.millisecond * 100)
         let i = socket.read(buf)
         let read = String.fromUtf8(buf[0..i])
         @Expect(read.contains("CONNECT 127.0.0.1:${serverPort} HTTP/1.1"))
@@ -90,6 +99,7 @@ func startProxy(serverPort : UInt16): Unit {
         remote_socket.connect()
 
         socket.write("HTTP/1.1 200 Connection Established\r\n\r\n".toArray())
+        socket.readTimeout = Duration.Max
 
         // Receive messages from the client and send them to the target server
         spawn{
@@ -182,7 +192,7 @@ public class Test_httpsProxy {
 
     @TestCase
     func testProxy(): Unit {
-        let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
+        let port1 = waitProxyPort()
         client = ClientBuilder().httpsProxy("http://127.0.0.1:${port1}").tlsConfig(clientConfig()).build()
         let req =
             HttpRequestBuilder().url("https://127.0.0.1:${server.port}/proxy").version(HTTP2_0).body("hello proxys").

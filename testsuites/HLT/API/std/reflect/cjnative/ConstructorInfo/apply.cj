@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../MyType
-// (not MAC) EXEC: cd ./MyType && %compiler %cmp_opt --output-type=dylib --module-name=MyType ./src/myType/*.cj -o libMyType_myType.%test_suffix
+// (not MAC) EXEC: cd ./MyType && %compiler %cmp_opt %compile_library --module-name=MyType ./src/myType/*.cj -o libMyType_myType.%test_suffix
 // (not MAC) EXEC: %compiler %cmp_opt -o %output %f --import-path . -L ./MyType -lMyType_myType %cmp_utest_opt
 // (not Windows and not MAC) RUN-EXEC: %cp ./MyType/libMyType_myType.%test_suffix .&& %run %run_opt %output %run_utest_opt %run_args
 // (Windows) chcp 65001 > nul && %cp ./MyType/libMyType_myType.%test_suffix .&& %run %run_opt %output %run_args 1>result.txt && dos2unix result.txt && cat result.txt

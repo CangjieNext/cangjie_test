@@ -19,7 +19,8 @@
 // (target_x86_64 & target_linux) RUN-EXEC-3: %run %run_opt %output %run_args
 // (target_aarch64 & target_ohos) RUN-EXEC-3: %run %run_opt %output %run_args
 // (target_aarch64 & target_android) RUN-EXEC-3: %run %run_opt %output %run_args
-// (target_x86_64 & target_android) RUN-EXEC-3: %run %run_opt %output %run_args
+// (target_aarch32 & target_android) RUN-EXEC-3: %run %run_opt %output %run_args
+// (target_x86_64 & target_android) RUN-EXEC: %run %run_opt %output %run_args
 
 public open class P {
     public open func foo(): Int64 {
@@ -28,7 +29,7 @@ public open class P {
 }
 
 public class S <: P {
-    @When[os == "macOS" && arch != "aarch64" && env == "android"]
+    @When[os != "Windows" && arch == "x86_64" && env == "android"]
     public func foo(): Int64 {
         0i64
     }
