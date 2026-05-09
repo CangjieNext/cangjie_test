@@ -7,9 +7,8 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE)ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (not CJNATIVE)EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (not CJNATIVE)RUN-EXEC: %run %run_opt %output %run_args
+// ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
+
 
 public var var_1689793813518_39 : ?Unit = Option<Unit>.None
 public let var_1689793813518_103 : Bool = (Float32(1.0) is Struct_1689793813518_55<Int8, Rune>)
@@ -555,4 +554,4 @@ extend<T0, T1> Enum_1689793813518_535<T0, T1> {
 
 }
 
-// (CJNATIVE)ASSERT: scan sema_static_variable_use_generic_parameter
+// ASSERT: scan sema_static_variable_use_generic_parameter

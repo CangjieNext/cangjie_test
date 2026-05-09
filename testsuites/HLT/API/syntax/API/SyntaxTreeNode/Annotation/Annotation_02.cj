@@ -7,5 +7,5 @@
  */
 
 @CallingConv[CDECL] foreign func rand(): Int32
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 foreign func rand0(): Int32

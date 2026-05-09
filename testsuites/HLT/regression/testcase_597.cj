@@ -7,9 +7,9 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 
 public let var_1711749266698_52 : Array<Bool> = [([false, true, true, true, false, false, false, false, false, true] is Unit), true, (Int32(Int8(Int8(96))) is Int64), true, false, false, (UInt32(Int16(57)) is Range<Int32>), false, true, false]
 public const var_1711749266698_121 : Float32 = 47.0

@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args
 
 import std.ref.*
 
@@ -19,7 +19,7 @@ class Rectangle {
         this.width = width
         this.height = height
     }
-    public func area(): Unit  {
+    public func area(): Int64  {
         width * height
     }
 }

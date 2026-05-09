@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: ImportList_05.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ImportList_05() {
     let res = parseFile("./ImportList_05.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"private import a as pkgA
+    @Expect(sourcefile.toString().replace("\r","").contains(##"private import a as pkgA
 private import std.{
     time,
     fs as fileSystem,
@@ -52,7 +54,7 @@ private import a"##))
         case ModifierKind.Private => ()
         case _ => @Assert(false)
     }
-    @Expect(import_2.toString(), ##"private import std.{
+    @Expect(import_2.toString().replace("\r",""), ##"private import std.{
     time,
     fs as fileSystem,
     io.*,
@@ -69,4 +71,5 @@ private import a"##))
         case _ => @Assert(false)
     }
     @Expect(import_3.toString(), ##"private import a"##)
+}
 }

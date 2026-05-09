@@ -8,12 +8,17 @@
 
 // LEVEL: 2
 // DEPENDENCE: PropDecl_04.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_PropDecl_04() {
-    @AssertThrows[Exception](parseFile("./PropDecl_04.cj"))
+    let file= parseFile("./PropDecl_04.cj")
+    @Expect(file.node.isNone())
+    @Expect(file.diags.size > 0)
+}
 }

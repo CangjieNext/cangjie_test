@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: PropGetterOrSetter_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_PropGetterOrSetter_01() {
     let res = parseFile("./PropGetterOrSetter_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"public interface I1 <: S1 {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"public interface I1 <: S1 {
     public static mut prop p_1: Int64 {
         get() {0}
         @Deprecated["bbbb"]
@@ -33,6 +35,7 @@ func test_PropGetterOrSetter_01() {
     let prop_1 = (interfaceDecl.body.memberDecls[0] as PropDecl).getOrThrow()
     let prop_1_getter = prop_1.getter.getOrThrow()
     let prop_1_setter = prop_1.setter.getOrThrow()
+    @Assert(prop_1_getter.toTokens().toString(), "get() { 0 }")
     @Assert(prop_1_getter.block.toString(), "{0}")
     @Assert(prop_1_getter.identifier.isNone())
     @Assert(prop_1_getter.isGetter)
@@ -52,4 +55,5 @@ func test_PropGetterOrSetter_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [11i32, 13i32, 11i32, 14i32])
     pos = prop_1_setter.getSetKeyWordPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [13i32, 9i32, 13i32, 12i32])
+}
 }

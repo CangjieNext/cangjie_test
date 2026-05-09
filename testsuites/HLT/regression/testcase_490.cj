@@ -7,9 +7,9 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 
 public let var_1694035244358_34 : (Int8, String, Int16, Bool, Class_1694035244358_7, Class_1694035244358_7, Int16, Rune) = (Int8(11), """
 ppIL6

@@ -13,15 +13,16 @@
 
 import stdx.syntax.*
 
-// ; 暂不支持
 @Test
+class test_01{
+    @TestCase
 func test_Lambda_01() {
     let res = parseFile("./Lambda_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     { => }
     { a: Int64 => a}
     { a: Int64, b: Int64 => a + b + 1}
@@ -80,7 +81,7 @@ func test_Lambda_01() {
     @Assert(expr_6.params.params[0].toString(), "_")
 
     var expr_7 = (maindecl.body.nodes[6] as Lambda).getOrThrow()
-    @Assert(expr_7.toString(), ##"{ =>
+    @Assert(expr_7.toString().replace("\r",""), ##"{ =>
         100
         1+1
         a + b1
@@ -109,4 +110,5 @@ func test_Lambda_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 5i32, 10i32, 6i32])
     pos = expr_1.getRCurlPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 10i32, 10i32, 11i32])
+}
 }

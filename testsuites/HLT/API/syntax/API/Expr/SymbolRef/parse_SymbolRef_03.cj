@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: SymbolRef_03.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_SymbolRef_03() {
     let res = parseFile("./SymbolRef_03.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     var r: R = foo<T, U>
 }"##))
 
@@ -31,4 +33,5 @@ func test_SymbolRef_03() {
     @Assert(expr_2.name, "foo")
     @Assert(expr_2.typeArguments.size, 2)
     @Assert(expr_2.typeArguments.toString(), "[T, U]")
+}
 }

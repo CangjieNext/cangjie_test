@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE-0: %run_stdx %output %run_utest_opt %run_args 2>&1 | compare %f
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -46,7 +46,8 @@ func send_partial_header_request(s: Server): Bool {
     try {
         socket.connect(timeout: Duration.second)
         socket.write(prefix.toArray())
-        sleep(Duration.millisecond * 20)
+        // Give the zero readHeaderTimeout timer enough time to fire even on slower machines.
+        sleep(Duration.millisecond * 200)
         try {
             socket.write(suffix.toArray())
         } catch (_: SocketException) {

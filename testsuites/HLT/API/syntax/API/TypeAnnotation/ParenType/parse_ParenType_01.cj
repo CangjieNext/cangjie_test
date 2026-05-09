@@ -8,16 +8,18 @@
 
 // LEVEL: 1
 // DEPENDENCE: ParenType_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ParenType_01() {
     let res = parseFile("./ParenType_01.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"var a: ((Int64, Int8)) = foo
+    @Expect(sourcefile.toString().replace("\r","").contains(##"var a: ((Int64, Int8)) = foo
 var a: (()-> Unit) = foo"##))
 
     var decl_1: VarDecl = (sourcefile.topLevelDecls[0] as VarDecl).getOrThrow()
@@ -37,4 +39,5 @@ var a: (()-> Unit) = foo"##))
     @Assert([Pos_2.beginLine, Pos_2.beginColumn, Pos_2.endLine, Pos_2.endColumn], [10i32, 8i32, 10i32, 9i32])
     Pos_2 = type_2.getRParenPos()
     @Assert([Pos_2.beginLine, Pos_2.beginColumn, Pos_2.endLine, Pos_2.endColumn], [10i32, 18i32, 10i32, 19i32])
+}
 }

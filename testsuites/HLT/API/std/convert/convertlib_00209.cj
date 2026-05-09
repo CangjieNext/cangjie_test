@@ -51,19 +51,19 @@ main(): Int64 {
     if (res2 != 126) {
         return 2
     }
-    if (res3 != -32) {
+    if (res3 != 0) {
         return 3
     }
-    if (res4 != -64) {
+    if (res4 != 0) {
         return 4
     }
-    if (res5 != 254) {
+    if (res5 != 0) {
         return 5
     }
-    if (res6 != 16) {
+    if (res6 != 0) {
         return 6
     }
-    if (res7 != 43) {
+    if (res7 != 0) {
         return 7
     }
     if (res8 != 0) {

@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
 import stdx.crypto.crypto.*

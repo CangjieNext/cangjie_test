@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: ConstPattern_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ConstPattern_01() {
     let res = parseFile("./ConstPattern_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     match(1.0) {
         case 1.0e308 | .123e2f64 | 0x.2p4 => ()
     }
@@ -39,4 +41,5 @@ func test_ConstPattern_01() {
     var pattern_3: ConstPattern = (expr.matchCases[0].patterns[2] as ConstPattern).getOrThrow()
     @Assert(pattern_3.toString(), "0x.2p4")
     @Expect(pattern_3.litConstExpr.toString(), "0x.2p4")
+}
 }
