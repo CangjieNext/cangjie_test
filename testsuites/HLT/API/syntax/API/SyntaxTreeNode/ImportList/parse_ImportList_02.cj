@@ -8,19 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE: ImportList_02.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ImportList_02() {
     let res = parseFile("./ImportList_02.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"public import a.*
+    @Expect(sourcefile.toString().replace("\r","").contains(##"public import a.*
 public import {
     std.time,
     std.fs as fileSystem,
@@ -49,9 +51,10 @@ public import {
         case ModifierKind.Public => ()
         case _ => @Assert(false)
     }
-    @Expect(import_2.toString(), ##"public import {
+    @Expect(import_2.toString().replace("\r",""), ##"public import {
     std.time,
     std.fs as fileSystem,
     std.io.*,
 }"##)
+}
 }

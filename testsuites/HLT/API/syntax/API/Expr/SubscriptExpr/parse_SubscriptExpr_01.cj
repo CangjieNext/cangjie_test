@@ -14,13 +14,15 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_SubscriptExpr_01() {
     let res = parseFile("./SubscriptExpr_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains(##"main() {
+    @Assert(sourcefile.toString().replace("\r","").contains(##"main() {
     a[0]
     a.b[a]
     a.b.c[a..b:2]
@@ -60,4 +62,5 @@ func test_SubscriptExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 6i32, 10i32, 7i32])
     pos = expr_1.getRSquarePos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 8i32, 10i32, 9i32])
+}
 }

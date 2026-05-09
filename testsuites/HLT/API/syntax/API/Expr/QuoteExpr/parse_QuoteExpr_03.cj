@@ -8,13 +8,15 @@
 
 // LEVEL: 1
 // DEPENDENCE: QuoteExpr_03.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.ast.Tokens
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_QuoteExpr_03() {
     let res = parseFile("./QuoteExpr_03.cj")
     var diags = res.diags
@@ -34,4 +36,5 @@ func test_QuoteExpr_03() {
             @Expect(QuoteToken.content.toString(), ##"var str = #"a"#"##)
         case _ => @Assert(false)
     }
+}
 }

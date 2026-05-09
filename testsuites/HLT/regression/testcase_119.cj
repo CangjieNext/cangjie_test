@@ -7,10 +7,9 @@
  */
  
 // LEVEL: 0
-// (not CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) ASSERT: scan sema_static_variable_use_generic_parameter
+
+// ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// ASSERT: scan sema_static_variable_use_generic_parameter
 
 
 interface Create<T>{

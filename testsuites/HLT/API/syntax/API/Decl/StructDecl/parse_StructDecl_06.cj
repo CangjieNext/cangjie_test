@@ -8,23 +8,25 @@
 
 // LEVEL: 2
 // DEPENDENCE: StructDecl_06.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_StructDecl_06() {
     let res = parseFile("./StructDecl_06.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"internal struct s1<T> <: I1 & I2<T> & I3 {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"internal struct s1<T> <: I1 & I2<T> & I3 {
 }"##))
 
     var structDecl: StructDecl = (sourcefile.topLevelDecls[0] as StructDecl).getOrThrow()
-    @Expect(structDecl.toString(), ##"internal struct s1<T> <: I1 & I2<T> & I3 {
+    @Expect(structDecl.toString().replace("\r",""), ##"internal struct s1<T> <: I1 & I2<T> & I3 {
 }"##)
     @Assert(structDecl.body.memberDecls.size, 0)
 
@@ -39,4 +41,5 @@ func test_StructDecl_06() {
     @Assert(structDecl.superTyAnnotations[1].toString(), "I2<T>")
     @Assert(structDecl.superTyAnnotations[2].toString(), "I3")
     @Assert(structDecl.annotations.size, 0)
+}
 }

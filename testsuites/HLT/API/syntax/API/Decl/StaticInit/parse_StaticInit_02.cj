@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: StaticInit_02.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_StaticInit_02() {
     let res = parseFile("./StaticInit_02.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"struct Struct_C1 {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"struct Struct_C1 {
     static init() { var a = 1 }
 }"##))
 
@@ -30,4 +32,5 @@ func test_StaticInit_02() {
     @Assert(staticInit.toString(), ##"static init() { var a = 1 }"##)
     @Assert(staticInit.body.nodes.size, 1)
     @Assert(staticInit.body.nodes[0] is VarDecl)
+}
 }

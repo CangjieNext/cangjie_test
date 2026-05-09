@@ -12,6 +12,8 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         [A foo: true];
+        [A foo: 16: 128];
+        [A foo: 9: 17: 33: 65: 129];
     }
     return 0;
 }
