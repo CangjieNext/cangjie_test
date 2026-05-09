@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 0
 // DEPENDENCE:  ../../../script/cjprof_heap.py ../../../sourcecode/cjprof_heap.cj ./heap_export_01.py
 // EXEC: %compiler %cmp_opt cjprof_heap.cj -o binarytrees_heap_export_01%cmp_output
 // EXEC-2: %python heap_export_01.py binarytrees_heap_export_01%cmp_output %run_env

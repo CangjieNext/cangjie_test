@@ -6,6 +6,6 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 0
 // DEPENDENCE:  ../../../script/cjprof_heap.py ./heap_analyze_03.py
 // EXEC-2: %python heap_analyze_03.py binarytrees_heap_analyze_03%cmp_output %run_env

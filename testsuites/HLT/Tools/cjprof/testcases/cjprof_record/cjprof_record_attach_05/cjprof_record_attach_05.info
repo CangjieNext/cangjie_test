@@ -9,6 +9,6 @@
 // LEVEL: 3
 // DEPENDENCE:  ../../../script ../../../expect ../../../sourcecode/cjprof_binarytrees.cj ../cjprof_record_attach_05
 // EXEC: %compiler %cmp_opt cjprof_binarytrees.cj -o binarytrees_record_attach_05%cmp_output
-// EXEC: %python script/cjprof_record.py %input_data binarytrees_record_attach_05%cmp_output -f 2000 %record_pid True %run_env
-// EXEC: %python script/cjprof_report.py %input_data cjprof.data
+// EXEC: %python script/cjprof_record.py --input binarytrees_record_attach_05%cmp_output -f 2000 --pid True %run_env
+// EXEC: %python script/cjprof_report.py --input cjprof.data
 // EXEC: %python script/cjprof_test.py

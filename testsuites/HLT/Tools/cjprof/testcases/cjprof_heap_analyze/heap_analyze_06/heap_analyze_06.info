@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1
+// LEVEL: 3
 // DEPENDENCE:  ../../../script/cjprof_heap.py ./heap_analyze_06.py ../../../sourcecode/test.cj
 // EXEC: %compiler %cmp_opt test.cj -o test%cmp_output
 // EXEC: cjprof record ./test -o heap.data

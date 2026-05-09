@@ -9,7 +9,7 @@
 // LEVEL: 3
 // DEPENDENCE:  ../../sourcecode/test.cj
 // EXEC: %compiler %cmp_opt test.cj -o test%cmp_output
-// EXEC: %cjprof_record test
-// EXEC: %cjprof_report
+// EXEC: cjprof record test
+// EXEC: cjprof report
 // ASSERT: scan Children
 // ASSERT: scan libcangjie-runtime
