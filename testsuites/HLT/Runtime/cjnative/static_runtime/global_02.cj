@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// (not Windows and not MAC) EXEC: %compiler %cmp_opt %overflow_wrapping --static %f -o %output
+// (not Windows and not MAC) EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --static %overflow_wrapping %f -o %output
 // (not Windows and not MAC) RUN-EXEC: unset LD_LIBRARY_PATH && %output %run_args
 
 open class Test {}
