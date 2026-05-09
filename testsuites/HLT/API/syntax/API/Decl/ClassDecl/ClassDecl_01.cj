@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-@Deprecated["仓颉"]
+@Deprecated["cangjie"]
 public class S1<T> <: I1<T> where T <: ToString{
     public let s1: Int64 = 0
     prop p1: Int64 {

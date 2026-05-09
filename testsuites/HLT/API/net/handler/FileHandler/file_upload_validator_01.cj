@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 
 import stdx.net.http.*
@@ -61,10 +61,11 @@ class TestFileHandler {
             .header("content-type", "multipart/form-data; boundary=${boundary}")
             .body(buildBodyData("upload1.CC"))
             .build()
+        removeIfExists("upload1.CC")    
         let resp1 = client.send(req1)
         @Assert(resp1.status, 200) //SUCCESS
         @Expect(exists("upload1.CC"))
-
+        removeIfExists("upload1.CC")
 
         let req2 = HttpRequestBuilder()
             .post()
@@ -72,12 +73,14 @@ class TestFileHandler {
             .header("content-type", "multipart/form-data; boundary=${boundary}")
             .body(buildBodyData("upload2.CC"))
             .build()
+        removeIfExists("upload2.CC")    
         let resp2 = client.send(req2)
         @Assert(resp2.status, 200) //SUCCESS
         @Expect(exists("upload2.CC"))
-
+        removeIfExists("upload2.CC")
         client.close()
         server.close()
+        
     }
 
     

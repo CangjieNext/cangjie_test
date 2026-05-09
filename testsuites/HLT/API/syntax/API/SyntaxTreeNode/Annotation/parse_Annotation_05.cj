@@ -8,18 +8,20 @@
 
 // LEVEL: 1
 // DEPENDENCE: Annotation_05.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_Annotation_05() {
     let res = parseFile("./Annotation_05.cj")
 
     let sourcefile: SourceFile = res.node.getOrThrow()
     sourcefile.toString() |> println
-    @Expect(sourcefile.toString().contains(##"@!Anno1 var a = 1
+    @Expect(sourcefile.toString().replace("\r","").contains(##"@!Anno1 var a = 1
 @!Anno1[aaaaa] var a = 1
 @!Anno1[a: "abcd", b: 1] var a = 1"##))
 
@@ -47,4 +49,5 @@ func test_Annotation_05() {
     var posList = anno_3.getCommasPos()
     @Assert(posList.size == 1, true)
     @Assert([posList[0].beginLine, posList[0].beginColumn, posList[0].endLine, posList[0].endColumn], [11i32, 18i32, 11i32, 19i32])
+}
 }

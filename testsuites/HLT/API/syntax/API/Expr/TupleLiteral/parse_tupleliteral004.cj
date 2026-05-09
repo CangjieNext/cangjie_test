@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_tupleliteral_004() {
     let res = parseFile("./tupleliteral004.cj")
     var diags = res.diags
@@ -35,4 +37,5 @@ func test_tupleliteral_004() {
     @Assert(tuple.size,5)
     var x = tuple.get(0).getOrThrow().toString()
     @Assert(x,"foo(a, b)")
+}
 }

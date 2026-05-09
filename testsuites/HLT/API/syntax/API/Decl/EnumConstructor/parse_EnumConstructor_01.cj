@@ -8,19 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE: EnumConstructor_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumConstructor_01() {
     let res = parseFile("./EnumConstructor_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"enum EE<T> {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"enum EE<T> {
     | A0
     | B_C_D
     | A1(Int64)
@@ -65,6 +67,7 @@ func test_EnumConstructor_01() {
 
     let c_6 = (enumDecl.body.memberDecls[5] as EnumConstructor).getOrThrow()
     @Assert(c_6.toString(), "Day(Int32, Float32, Float32)")
+    @Assert(c_6.toTokens().toString(), "Day(Int32, Float32, Float32)")
     @Assert(c_6.name, "Day")
     @Assert(c_6.paramTyAnnotations.size, 3)
     @Assert(c_6.paramTyAnnotations[0].toString(), "Int32")
@@ -110,4 +113,5 @@ func test_EnumConstructor_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [15i32, 10i32, 15i32, 11i32])
     pos = c_6.getParamsRParenPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [15i32, 34i32, 15i32, 35i32])
+}
 }

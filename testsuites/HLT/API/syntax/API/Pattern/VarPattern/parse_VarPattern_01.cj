@@ -8,12 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE: VarPattern_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_VarPattern_01() {
     let res = parseFile("./VarPattern_01.cj")
     var diags = res.diags
@@ -26,4 +28,5 @@ func test_VarPattern_01() {
     var expr_1: VarPattern = (_decl.pattern as VarPattern).getOrThrow()
     @Expect(expr_1.toString(), "x_1")
     @Assert(expr_1.name, "x_1")
+}
 }

@@ -12,7 +12,7 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [A E1];
-        int64_t v = [[a f1: a] f2];
+        int64_t v = [[a f1: [a implicitf1: [A stF1: a]]] f2];
         printf("in oc, %lld\n", v);
     }
     return 0;

@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %cmp_utest_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC-1: %export JETVMPROP="-Xmx8G" && %run %run_opt %output %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt %cmp_utest_opt %f -o %output
+// RUN-EXEC-1: %export JETVMPROP="-Xmx8G" && %run %run_opt %output %run_utest_opt %run_args
 // ASSERT: scan OutOfMemoryError
 
 import std.collection.*

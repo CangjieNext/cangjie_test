@@ -8,12 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE: WildcardPattern_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_WildcardPattern_01() {
     let res = parseFile("./WildcardPattern_01.cj")
     var diags = res.diags
@@ -25,4 +27,5 @@ func test_WildcardPattern_01() {
     var _decl: VarDecl = (sourcefile.topLevelDecls[0] as VarDecl).getOrThrow()
     var expr_1: WildcardPattern = (_decl.pattern as WildcardPattern).getOrThrow()
     @Assert(expr_1.toString(), "_")
+}
 }

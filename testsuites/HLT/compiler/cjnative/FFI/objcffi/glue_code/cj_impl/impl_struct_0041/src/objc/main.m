@@ -13,7 +13,10 @@
 int main(int argc, char** argv) {
     @autoreleasepool {
         A* a = [[A alloc] init];
-        printf("in oc main, %lld\n", a.p.a);
+        printf("in oc main, %lld\n", A.stB.a);
+        printf("in oc main, %lld\n", A.stConstB.a);
+        printf("in oc main, %lld\n", A.stP.a);
+        printf("in oc main, %lld\n", A.stMutP.a);
     }
     return 0;
 }

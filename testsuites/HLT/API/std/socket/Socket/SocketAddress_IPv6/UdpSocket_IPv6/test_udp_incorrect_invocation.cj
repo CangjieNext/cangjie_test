@@ -27,8 +27,6 @@ let flag = true
 let flag = true
 @When[os == "Linux"]
 let flag = false
-@When[os == "Windows"]
-let flag = false
 var sum = 0
 var data = Array<Byte>(10, repeat: 10)
 

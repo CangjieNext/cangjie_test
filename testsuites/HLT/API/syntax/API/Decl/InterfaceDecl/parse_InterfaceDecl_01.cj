@@ -8,28 +8,34 @@
 
 // LEVEL: 0
 // DEPENDENCE: InterfaceDecl_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_InterfaceDecl_01() {
     let res = parseFile("./InterfaceDecl_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    sourcefile.toString() |> println
-    @Expect(sourcefile.toString().contains(##"@Deprecated["aaa"]
+    @Expect(sourcefile.toString().replace("\r","").contains(##"@Deprecated["aaa"]
 public interface I1<T> <: S1<T> where T <: I2<T> {
     mut prop p1: Int64
     func foo(): Int64
 }"##))
 
     var interfaceDecl: InterfaceDecl = (sourcefile.topLevelDecls[0] as InterfaceDecl).getOrThrow()
-    @Expect(interfaceDecl.toString(), ##"@Deprecated["aaa"]
+    @Expect(interfaceDecl.toString().replace("\r",""), ##"@Deprecated["aaa"]
 public interface I1<T> <: S1<T> where T <: I2<T> {
+    mut prop p1: Int64
+    func foo(): Int64
+}"##)
+    @Expect(interfaceDecl.toTokens().toString().replace("\r",""), ##"@Deprecated["aaa"]
+public interface I1 < T > <: S1 < T > where T <: I2 < T > {
     mut prop p1: Int64
     func foo(): Int64
 }"##)
@@ -61,4 +67,5 @@ public interface I1<T> <: S1<T> where T <: I2<T> {
     @Assert(interfaceDecl.getSuperTyAnnotationsBitAndsPos().size == 0, true)
     pos = interfaceDecl.getUpperBoundPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 24i32, 10i32, 26i32])
+}
 }

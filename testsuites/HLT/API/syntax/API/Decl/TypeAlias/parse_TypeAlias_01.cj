@@ -8,12 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE: TypeAlias_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TypeAlias_01() {
     let res = parseFile("./TypeAlias_01.cj")
     var diags = res.diags
@@ -21,7 +23,7 @@ func test_TypeAlias_01() {
 
     let sourcefile: SourceFile = res.node.getOrThrow()
     sourcefile.toString() |> println
-    @Expect(sourcefile.toString().contains(##"type XX = Int64
+    @Expect(sourcefile.toString().replace("\r","").contains(##"type XX = Int64
 public type Point2D = (X1, X2)
 @Deprecated["aaa"]
 protected type YY = Float64"##))
@@ -38,13 +40,14 @@ protected type YY = Float64"##))
     @Assert(typeAlias_1.annotations.toString(), "[]")
 
     @Assert(typeAlias_2.toString(), ##"public type Point2D = (X1, X2)"##)
+    @Assert(typeAlias_2.toTokens().toString(), ##"public type Point2D =(X1, X2)"##)
     @Assert(typeAlias_2.aliasName, "Point2D")
     @Assert(typeAlias_2.originalTyAnnotation.toString(), "(X1, X2)")
     @Assert(typeAlias_2.typeParameters.toString(), "[]")
     @Assert(typeAlias_2.modifiers.toString(), "[public]")
     @Assert(typeAlias_2.annotations.toString(), "[]")
 
-    @Assert(typeAlias_3.toString(), ##"@Deprecated["aaa"]
+    @Assert(typeAlias_3.toString().replace("\r",""), ##"@Deprecated["aaa"]
 protected type YY = Float64"##)
     @Assert(typeAlias_3.aliasName, "YY")
     @Assert(typeAlias_3.originalTyAnnotation.toString(), "Float64")
@@ -58,4 +61,5 @@ protected type YY = Float64"##)
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 13i32, 10i32, 20i32])
     pos = typeAlias_2.getTypeAliasKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 8i32, 10i32, 12i32])
+}
 }

@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: files
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -89,6 +89,9 @@ public class Test_readTimeout {
         spawn {
             s.serve()
         }
+        while (s.port == 0) {
+            sleep(Duration.millisecond)
+        }
         let client = ClientBuilder().readTimeout(Duration.Zero).tlsConfig(clientConfig()).build()
         @Expect(client.readTimeout, Duration.second * 0)
         let request = HttpRequestBuilder().url("https://127.0.0.1:${s.port}/dd").version(HTTP2_0).build()
@@ -112,6 +115,9 @@ public class Test_readTimeout {
             )
         spawn {
             s.serve()
+        }
+        while (s.port == 0) {
+            sleep(Duration.millisecond)
         }
         let client = ClientBuilder().readTimeout(Duration.nanosecond * -1).tlsConfig(clientConfig()).build()
         @Expect(client.readTimeout, Duration.Zero)

@@ -7,9 +7,8 @@
  */
  
 // LEVEL: 0
-// (not CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC-PIPE: %run %run_opt %output %run_args
-// (CJNATIVE)  ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
+
+//  ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
 
 public let var_1668535631687_27 : Float64 = Float64(116.0)
 public let var_1668535631687_40 : Unit = ()
@@ -360,4 +359,4 @@ extend<T0, T1> Struct_1668535631687_367<T0, T1> {
 
 }
 
-// (CJNATIVE) ASSERT: scan sema_static_variable_use_generic_parameter
+// ASSERT: scan sema_static_variable_use_generic_parameter

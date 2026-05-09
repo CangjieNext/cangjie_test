@@ -26,7 +26,7 @@
 // TEST CJCPL
 // E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Deleted static variable member from the struct.
+// ASSERT: scan-1 [API/ABI] Changed static variable member's modifier of struct visible outside the module. public deleted.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 // ASSERT: scan-1 [API/ABI]

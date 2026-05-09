@@ -8,19 +8,21 @@
 
 // LEVEL: 2
 // DEPENDENCE: ClassDecl_02.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ClassDecl_02() {
     let res = parseFile("./ClassDecl_02.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"public class CangjieInvoke <: JObject {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"public class CangjieInvoke <: JObject {
     public let a1 :Any = 1
     public var a2 = 2
 
@@ -225,7 +227,7 @@ func test_ClassDecl_02() {
 }"##))
 
     var classDecl: ClassDecl = (sourcefile.topLevelDecls[0] as ClassDecl).getOrThrow()
-    @Assert(classDecl.toString(), ##"public class CangjieInvoke <: JObject {
+    @Assert(classDecl.toString().replace("\r",""), ##"public class CangjieInvoke <: JObject {
     public let a1 :Any = 1
     public var a2 = 2
 
@@ -428,4 +430,5 @@ func test_ClassDecl_02() {
         return 13
     }
 }"##)
+}
 }

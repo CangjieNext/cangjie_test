@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE-0: %run_stdx %output %run_utest_opt %run_args | compare %f
 // ASSERT: scan send request succes
 
@@ -49,9 +49,6 @@ class Test_Upgrade_Body {
         let (_, conn) = client.upgrade(request)
 
         sendRequest()
-        client.close()
-        server.close()
-
         conn?.readTimeout = Duration.second * 3
         let buf = Array<UInt8>(16 * 1024, repeat: 0)
         let allBody = ArrayList<UInt8>()
@@ -65,8 +62,10 @@ class Test_Upgrade_Body {
             }
         }
         @Expect(allBody.toArray(), arrbody)
+        client.close()
         conn?.close()
         conn?.close()
+        server.close()
     }
 
     func startServer() {

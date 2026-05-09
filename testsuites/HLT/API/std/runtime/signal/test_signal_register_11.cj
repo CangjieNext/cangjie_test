@@ -29,22 +29,29 @@ func sendSignal(sig: Int32): Unit {
     sleep(Duration.second)
 }
 
+let func_1 = {
+    i: Int32 =>
+        println("hello, cangjie${i}");
+        true
+}
+
+let func_2 = {
+    i: Int32 =>
+        println("hello, cangjie${i}");
+        true
+}
+
 main() {
     for (signal in signals) {
-        let func_1 = {
-            i: Int32 =>
-                println("hello, cangjie${i}");
-                true
-        }
         registerSignalHandler(signal, func_1)
+    }
+    for (signal in signals) {
         sendSignal(signal.value)
+    }
+    for (signal in signals) {
         unregisterSignalHandler(signal, func_1)
     }
-    registerSignalHandler(Signal.SIGHUP) {
-        i: Int32 =>
-            println("hello, cangjie${i}");
-            true
-    }
+    registerSignalHandler(Signal.SIGHUP, func_2)
     sendSignal(1)
     return 0
 }

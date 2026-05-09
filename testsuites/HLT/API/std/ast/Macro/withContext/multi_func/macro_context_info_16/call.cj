@@ -10,7 +10,6 @@
 // DEPENDENCE: define.cj pkg1.cj
 // EXEC: %compiler %compile_lib_opt pkg1.cj 
 // EXEC: %compiler %cmp_macro -L ./ -lpkg1 define.cj
-// (not CJNATIVE) EXEC: %compiler %cmp_macro pkg1.bc define.cj
 // EXEC: %run_macro %compiler %cmp_opt  %f -o %output
 
 // RUN-EXEC: %run %run_opt %output %run_args
