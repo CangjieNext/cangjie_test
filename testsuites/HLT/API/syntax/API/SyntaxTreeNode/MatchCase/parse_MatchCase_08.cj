@@ -8,19 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE: MatchCase_08.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MatchCase_08() {
     let res = parseFile("./MatchCase_08.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     match(123) {
         case x => ()
         case _ => throw Exception()
@@ -41,4 +43,5 @@ func test_MatchCase_08() {
     @Assert(case_1.patterns.size, 1)
     @Assert(case_1.patterns[0] is VarOrEnumPattern)
     @Assert(case_1.patterns[0].toString(), "x")
+}
 }

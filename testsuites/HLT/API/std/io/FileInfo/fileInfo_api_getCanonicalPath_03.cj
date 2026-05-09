@@ -25,9 +25,11 @@ class TestFileInfo {
     func testCase0(): Unit {
         let dirName = "test08"
         let dirPath = getcwd() + sep + dirName
+        removeIfExists(dirPath)
         Directory.create(dirPath)
         // 仅目录名
         let fileInfo = FileInfo(dirName)
         @Expect(canonicalize(fileInfo.path).toString(), dirPath)
+        removeIfExists(dirPath)
     }
 }

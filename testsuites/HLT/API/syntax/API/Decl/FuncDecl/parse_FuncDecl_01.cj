@@ -8,16 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE: FuncDecl_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_FuncDecl_01() {
     let res = parseFile("./FuncDecl_01.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"const func func_1() {}
+    @Expect(sourcefile.toString().replace("\r","").contains(##"const func func_1() {}
 public func func_2(a: Int64, b!: String, c!: Int64 = 0): Int64 {
     return a + c
 }
@@ -42,11 +44,11 @@ protected func func_3<T, U>(a: T, b: U): T where T <: I1<T> & I2<T>, U <: I3<U> 
     @Assert(funcdecl_1.annotations.toString(), "[]")
 
     var funcdecl_2 = (sourcefile.topLevelDecls[1] as FuncDecl).getOrThrow()
-    @Assert(funcdecl_2.toString(), ##"public func func_2(a: Int64, b!: String, c!: Int64 = 0): Int64 {
+    @Assert(funcdecl_2.toString().replace("\r",""), ##"public func func_2(a: Int64, b!: String, c!: Int64 = 0): Int64 {
     return a + c
 }"##)
     @Assert(funcdecl_2.body.isSome())
-    @Assert(funcdecl_2.body.getOrThrow().toString(), ##"{
+    @Assert(funcdecl_2.body.getOrThrow().toString().replace("\r",""), ##"{
     return a + c
 }"##)
     @Assert(funcdecl_2.genericConstraints.isNone())
@@ -69,11 +71,14 @@ protected func func_3<T, U>(a: T, b: U): T where T <: I1<T> & I2<T>, U <: I3<U> 
     @Assert(funcdecl_2.annotations.toString(), "[]")
 
     var funcdecl_3 = (sourcefile.topLevelDecls[2] as FuncDecl).getOrThrow()
-    @Assert(funcdecl_3.toString(), ##"protected func func_3<T, U>(a: T, b: U): T where T <: I1<T> & I2<T>, U <: I3<U> {
+    @Assert(funcdecl_3.toString().replace("\r",""), ##"protected func func_3<T, U>(a: T, b: U): T where T <: I1<T> & I2<T>, U <: I3<U> {
+    a
+}"##)
+    @Assert(funcdecl_3.toTokens().toString().replace("\r",""), ##"protected func func_3 < T, U >(a: T, b: U): T where T <: I1 < T > & I2 < T >, U <: I3 < U > {
     a
 }"##)
     @Assert(funcdecl_3.body.isSome())
-    @Assert(funcdecl_3.body.getOrThrow().toString(), ##"{
+    @Assert(funcdecl_3.body.getOrThrow().toString().replace("\r",""), ##"{
     a
 }"##)
     @Assert(funcdecl_3.genericConstraints.isSome())
@@ -108,4 +113,5 @@ protected func func_3<T, U>(a: T, b: U): T where T <: I1<T> & I2<T>, U <: I3<U> 
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [13i32, 16i32, 13i32, 22i32])
     pos = funcdecl_3.getRetTyAnnotationColonPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [13i32, 40i32, 13i32, 41i32])
+}
 }

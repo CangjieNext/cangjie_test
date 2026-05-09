@@ -8,19 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE: StructDecl_02.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_StructDecl_02() {
     let res = parseFile("./StructDecl_02.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"@Deprecated["aaa"]
+    @Expect(sourcefile.toString().replace("\r","").contains(##"@Deprecated["aaa"]
 public struct S1<T> <: I1<T> where T <: ToString{
     public let s1: Int64 = 0
     prop p1: Int64 {
@@ -33,7 +35,7 @@ public struct S1<T> <: I1<T> where T <: ToString{
 }"##))
 
     var structDecl: StructDecl = (sourcefile.topLevelDecls[0] as StructDecl).getOrThrow()
-    @Assert(structDecl.toString(), ##"@Deprecated["aaa"]
+    @Assert(structDecl.toString().replace("\r",""), ##"@Deprecated["aaa"]
 public struct S1<T> <: I1<T> where T <: ToString{
     public let s1: Int64 = 0
     prop p1: Int64 {
@@ -48,13 +50,13 @@ public struct S1<T> <: I1<T> where T <: ToString{
     @Assert(structDecl.body.memberDecls[0] is VarDecl)
     @Assert(structDecl.body.memberDecls[0].toString(), ##"public let s1: Int64 = 0"##)
     @Assert(structDecl.body.memberDecls[1] is PropDecl)
-    @Assert(structDecl.body.memberDecls[1].toString(), ##"prop p1: Int64 {
+    @Assert(structDecl.body.memberDecls[1].toString().replace("\r",""), ##"prop p1: Int64 {
         get() { 0 }
     }"##)
     @Assert(structDecl.body.memberDecls[2] is FuncDecl)
     @Assert(structDecl.body.memberDecls[2].toString(), ##"public init() {}"##)
     @Assert(structDecl.body.memberDecls[3] is FuncDecl)
-    @Assert(structDecl.body.memberDecls[3].toString(), ##"func foo(a: T): T {
+    @Assert(structDecl.body.memberDecls[3].toString().replace("\r",""), ##"func foo(a: T): T {
         return a
     }"##)
 
@@ -67,4 +69,5 @@ public struct S1<T> <: I1<T> where T <: ToString{
     @Assert(structDecl.superTyAnnotations[0].toString(), "I1<T>")
     @Assert(structDecl.annotations.size, 1)
     @Assert(structDecl.annotations[0].toString(), ##"@Deprecated["aaa"]"##)
+}
 }

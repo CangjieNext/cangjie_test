@@ -8,13 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE: QuoteExpr_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.ast.Tokens
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_QuoteExpr_01() {
     let res = parseFile("./QuoteExpr_01.cj")
     var diags = res.diags
@@ -22,7 +24,7 @@ func test_QuoteExpr_01() {
 
     let sourcefile: SourceFile = res.node.getOrThrow()
     sourcefile.toString() |> println
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     quote()
     quote(a)
     quote(a = b)
@@ -56,7 +58,7 @@ func test_QuoteExpr_01() {
         case _ => @Assert(false)
     }
     var expr_4: QuoteExpr = (mainDecl.body.nodes[3] as QuoteExpr).getOrThrow()
-    @Expect(expr_4.toString(), ##"quote(
+    @Expect(expr_4.toString().replace("\r",""), ##"quote(
     arr = $(intList)
     x = $(float)
     s = $(str)
@@ -109,4 +111,5 @@ func test_QuoteExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 5i32, 10i32, 10i32])
     pos = expr_1.getRParenPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 11i32, 10i32, 12i32])
+}
 }

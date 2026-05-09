@@ -8,20 +8,22 @@
 
 // LEVEL: 0
 // DEPENDENCE: MacroExpandDecl_02.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.ast.Tokens
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MacroExpandDecl_02() {
     let res = parseFile("./MacroExpandDecl_02.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"@p1.M1[tok1]( func foo(): Int64 {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"@p1.M1[tok1]( func foo(): Int64 {
     return 1
 })
 @M1[a: tok1, b: tok2]
@@ -35,7 +37,7 @@ func foo(a: T) : (T, T) {
 }"##))
 
     var decl_1: MacroExpandDecl = (sourcefile.topLevelDecls[0] as MacroExpandDecl).getOrThrow()
-    @Expect(decl_1.toString(), ##"@p1.M1[tok1]( func foo(): Int64 {
+    @Expect(decl_1.toString().replace("\r",""), ##"@p1.M1[tok1]( func foo(): Int64 {
     return 1
 })"##)
     @Assert(decl_1.calleeMacro.toString(), "p1.M1")
@@ -46,14 +48,14 @@ func foo(a: T) : (T, T) {
     }
 
     var decl_2: MacroExpandDecl = (sourcefile.topLevelDecls[1] as MacroExpandDecl).getOrThrow()
-    @Assert(decl_2.toString(), ##"@M1[a: tok1, b: tok2]
+    @Assert(decl_2.toString().replace("\r",""), ##"@M1[a: tok1, b: tok2]
 func foo<T>(a: T, b!: Int64 = 0) {
     return a
 }"##)
     @Assert(decl_2.calleeMacro.toString(), "M1")
     @Assert(decl_2.macroAttrs.toString(), "a: tok1, b: tok2")
     match (decl_2.macroInputs) {
-        case WithoutParens(Decl) => @Assert(Decl.toString(), ##"func foo<T>(a: T, b!: Int64 = 0) {
+        case WithoutParens(Decl) => @Assert(Decl.toString().replace("\r",""), ##"func foo<T>(a: T, b!: Int64 = 0) {
     return a
 }"##)
         case _ => @Assert(false)
@@ -69,7 +71,7 @@ func foo<T>(a: T, b!: Int64 = 0) {
     }
 
     var decl_4: MacroExpandDecl = (sourcefile.topLevelDecls[3] as MacroExpandDecl).getOrThrow()
-    @Assert(decl_4.toString(), ##"@M1
+    @Assert(decl_4.toString().replace("\r",""), ##"@M1
 func foo(a: T) : (T, T) {
     (a, a)
 }"##)
@@ -78,9 +80,10 @@ func foo(a: T) : (T, T) {
     match (decl_4.macroInputs) {
         case WithoutParens(Decl) =>
             @Assert(Decl is FuncDecl)
-            @Assert(Decl.toString(), ##"func foo(a: T) : (T, T) {
+            @Assert(Decl.toString().replace("\r",""), ##"func foo(a: T) : (T, T) {
     (a, a)
 }"##)
         case _ => @Assert(false)
     }
+}
 }

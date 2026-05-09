@@ -9,5 +9,5 @@
 // LEVEL: 0
 // DEPENDENCE: mp
 // EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
-// EXEC: %compiler %cmp_opt mp/test_plat.cj mp.chir --common-part-cjo=mp.cjo --experimental -o %output
+// EXEC: %compiler %cmp_opt mp/test_plat.cj --common-part-chir=mp.chir --common-part-cjo=mp.cjo --experimental -o %output
 // RUN-EXEC: %run %run_opt %output %run_args

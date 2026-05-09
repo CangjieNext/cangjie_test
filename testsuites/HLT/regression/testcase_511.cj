@@ -7,9 +7,9 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 
 public var var_1695240472202_16 : Class_1695240472202_12 = Class_1695240472202_12()
 public var var_1695240472202_110 : Array<VArray<UInt16, $4>> = [VArray<UInt16, $4>({ i => UInt16(49)}), VArray<UInt16, $4>(repeat: UInt16(UInt16(235))), VArray<UInt16, $4>({ i => UInt16(13)}), VArray<UInt16, $4>(repeat: UInt16(Int8(Int8(-116)))), VArray<UInt16, $4>({ i => UInt16(84)}), VArray<UInt16, $4>(repeat: UInt16(Int8(Int8(-2)))), VArray<UInt16, $4>(repeat: UInt16(17)), VArray<UInt16, $4>(repeat: UInt16(Int8(Int8(33)))), VArray<UInt16, $4>(repeat: UInt16(0)), VArray<UInt16, $4>(repeat: UInt16(UInt8(39)))]

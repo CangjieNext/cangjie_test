@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: PropDecl_03.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_PropDecl_03() {
     let res = parseFile("./PropDecl_03.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"public class CCC{
+    @Expect(sourcefile.toString().replace("\r","").contains(##"public class CCC{
     @Deprecated["a"]
     private static prop p1: ?Int64 {
         get() { Some(0) }
@@ -38,7 +40,7 @@ func test_PropDecl_03() {
     @Assert(classDecl.body.memberDecls.size, 2)
     let prop_1 = (classDecl.body.memberDecls[0] as PropDecl).getOrThrow()
     let prop_2 = (classDecl.body.memberDecls[1] as PropDecl).getOrThrow()
-    @Assert(prop_1.toString(), ##"@Deprecated["a"]
+    @Assert(prop_1.toString().replace("\r",""), ##"@Deprecated["a"]
     private static prop p1: ?Int64 {
         get() { Some(0) }
     }"##)
@@ -51,7 +53,7 @@ func test_PropDecl_03() {
     @Assert(prop_1.modifiers.toString(), "[private, static]")
     @Assert(prop_1.annotations.toString(), ##"[@Deprecated["a"]]"##)
 
-    @Expect(prop_2.toString(), ##"@Deprecated["a"]
+    @Expect(prop_2.toString().replace("\r",""), ##"@Deprecated["a"]
     @Frozen
     internal static mut prop p2: ?T {
         get() { none }
@@ -66,4 +68,5 @@ func test_PropDecl_03() {
     @Assert(prop_2.isMut)
     @Assert(prop_2.modifiers.toString(), "[internal, static, mut]")
     @Assert(prop_2.annotations.toString(), ##"[@Deprecated["a"], @Frozen]"##)
+}
 }

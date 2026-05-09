@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_litconstexpr_014() {
     let res = parseFile("./litconstexpr014.cj")
     var diags = res.diags
@@ -29,12 +31,13 @@ func test_litconstexpr_014() {
     var maindecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
     var litconstexpr = (maindecl.body.nodes[0] as LitConstExpr).getOrThrow()
     //toString()
-    @Assert(litconstexpr.toString(), "###'\nHello,\\n\nCangjie\nLang'###" )
+    @Assert(litconstexpr.toString().replace("\r",""), "###'\nHello,\\n\nCangjie\nLang'###" )
     //rawValue
-    @Assert(litconstexpr.rawValue, "\nHello,\\n\nCangjie\nLang" )
+    @Assert(litconstexpr.rawValue.replace("\r",""), "\nHello,\\n\nCangjie\nLang" )
     //kind
     match (litconstexpr.kind) {
         case LitConstKind.StringLiteral => ()
         case _ => @Assert(false)
     }
+}
 }

@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output --test
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt %f -o %output --test
+// RUN-EXEC: %run %run_opt %output %run_args
 
 import std.runtime.*
 import std.fs.*

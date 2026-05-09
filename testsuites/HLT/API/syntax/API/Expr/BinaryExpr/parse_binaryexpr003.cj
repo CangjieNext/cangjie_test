@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_binaryexpr_003() {
     let res = parseFile("./binaryexpr003.cj")
     var diags = res.diags
@@ -41,4 +43,5 @@ func test_binaryexpr_003() {
         case BinaryOpKind.And => ()
         case _ => @Assert(false)
     }
+}
 }

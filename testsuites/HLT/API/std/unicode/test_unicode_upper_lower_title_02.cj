@@ -420,7 +420,7 @@ class UnicodeStringTest {
     @TestCase
     func toUpperTitleAndLowerWithAZTR(): Unit {
         var op = CasingOption.TR
-        @Expect("\u{0130}".toLower(op), "\u{0069}\u{0307}")
+        @Expect("\u{0130}".toLower(op), "\u{0069}")
         @Expect("\u{0049}".toLower(op), "\u{0131}")
         @Expect("\u{0049}\u{0307}".toLower(op), "\u{0069}")
 
@@ -433,7 +433,7 @@ class UnicodeStringTest {
         @Expect("\u{0069}".toTitle(op), "\u{0130}")
 
         op = CasingOption.AZ
-        @Expect("\u{0130}".toLower(op), "\u{0069}\u{0307}")
+        @Expect("\u{0130}".toLower(op), "\u{0069}")
         @Expect("\u{0049}".toLower(op), "\u{0131}")
         @Expect("\u{0049}\u{0307}".toLower(op), "\u{0069}")
 

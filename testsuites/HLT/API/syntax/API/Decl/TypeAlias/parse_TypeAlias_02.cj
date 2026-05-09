@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: TypeAlias_02.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_TypeAlias_02() {
     let res = parseFile("./TypeAlias_02.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"type Class1<V> = GenericClassA<Int64, V>
+    @Expect(sourcefile.toString().replace("\r","").contains(##"type Class1<V> = GenericClassA<Int64, V>
 type Class2<Value, V> = GenericClassB<Int64, V>
 type Class3<Value, V> = GenericClassC<V>
 type Int<T> = Int32"##))
@@ -49,4 +51,5 @@ type Int<T> = Int32"##))
     @Assert(typeAlias_4.aliasName, "Int")
     @Assert(typeAlias_4.originalTyAnnotation.toString(), "Int32")
     @Assert(typeAlias_4.typeParameters.toString(), "[T]")
+}
 }

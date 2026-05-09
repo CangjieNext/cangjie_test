@@ -15,7 +15,7 @@
 // (iOSNative and iOS) EXEC: xcrun --sdk iphonesimulator %clang -fobjc-arc -framework Foundation -lobjc -Wl,-install_name,@rpath/libdep.dylib --target=%clang_target --sysroot=$(xcrun --show-sdk-path --sdk iphonesimulator) --shared -Isrc/objc src/objc/G.m -o libdep.dylib
 // (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc --link-options="-install_name @rpath/libobjc.foundation.dylib" src/objc/foundation/*.cj
 // (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc -L . -ldep -lobjc.foundation --link-options="-install_name @rpath/libcjworld.dylib" src/cjworld/*.cj
-// (iOSNative and not iOS) EXEC: %clang %clang_opt_objc -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
+// (iOSNative and not iOS) EXEC: %clang %clang_opt_objc %clang_link_objc_interop -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
 // (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // (iOSNative) ASSERT: scan-begin p0, v = 123
 // (iOSNative) ASSERT: scan-next p1

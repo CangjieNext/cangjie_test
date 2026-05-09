@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 1
-// (CJNATIVE) DEPENDENCE: define.cj
-// (CJNATIVE) EXEC: %compiler %cmp_macro define.cj
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// DEPENDENCE: define.cj
+// EXEC: %compiler %cmp_macro define.cj
+// EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 import std.ast.*
 import def.*

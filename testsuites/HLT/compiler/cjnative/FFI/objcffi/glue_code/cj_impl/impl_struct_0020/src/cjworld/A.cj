@@ -18,4 +18,20 @@ public struct A {
 
 public struct B {
     public var a: Int64 = 1
+
+    public var a8: Int8 = 8
+    public var a16: Int16 = 16
+    public var a32: Int32 = 32
+    public var a64: Int64 = 64
+    public var aN: IntNative = 128
+
+    public var u8: UInt8 = 9
+    public var u16: UInt16 = 17
+    public var u32: UInt32 = 33
+    public var u64: UInt64 = 65
+    public var uN: UIntNative = 129
+
+    public var aB: Bool = true
+    public var f32: Float32 = 3.15
+    public var f64: Float64 = 3.14
 }

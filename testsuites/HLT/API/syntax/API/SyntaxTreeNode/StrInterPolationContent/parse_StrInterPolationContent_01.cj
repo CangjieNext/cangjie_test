@@ -8,19 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE: StrInterPolationContent_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_StrInterpolationContent_01() {
     let res = parseFile("./StrInterPolationContent_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains(##"var a: Int64 = 1
+    @Assert(sourcefile.toString().replace("\r","").contains(##"var a: Int64 = 1
 var _a: String = "cangjie: ${a}""##))
 
     var varDecl: VarDecl = (sourcefile.topLevelDecls[1] as VarDecl).getOrThrow()
@@ -28,7 +30,9 @@ var _a: String = "cangjie: ${a}""##))
     match (expr.strPartExprs[1]) {
         case StrInterpolation(strIPC) =>
             @Assert(strIPC.toString(), ##"${a}"##)
+            @Assert(strIPC.toTokens().toString(), ##"${ a }"##)
             @Assert(strIPC.interpolationBlock.toString(), ##"{a}"##)
         case _ => @Assert(false)
     }
+}
 }

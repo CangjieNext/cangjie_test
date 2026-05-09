@@ -9,5 +9,5 @@
 main() {
     throw Exception()
     throw IOException("")
-    throw IOException("hello, 仓颉")
+    throw IOException("hello, cangjie")
 }

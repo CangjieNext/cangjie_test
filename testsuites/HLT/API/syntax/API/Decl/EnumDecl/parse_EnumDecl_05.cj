@@ -8,26 +8,28 @@
 
 // LEVEL: 2
 // DEPENDENCE: EnumDecl_05.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumDecl_05() {
     let res = parseFile("./EnumDecl_05.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"private enum My_Enum<T, U> <: I1<T> & I2<T> & I3<T> where T <: I1<T>, U<: I2<T> & I1<U> {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"private enum My_Enum<T, U> <: I1<T> & I2<T> & I3<T> where T <: I1<T>, U<: I2<T> & I1<U> {
     A1(T, T)
     | B1 (T, U) |
     C1(U, U) | ...
 }"##))
 
     var enumDecl: EnumDecl = (sourcefile.topLevelDecls[0] as EnumDecl).getOrThrow()
-    @Expect(enumDecl.toString(), ##"private enum My_Enum<T, U> <: I1<T> & I2<T> & I3<T> where T <: I1<T>, U<: I2<T> & I1<U> {
+    @Expect(enumDecl.toString().replace("\r",""), ##"private enum My_Enum<T, U> <: I1<T> & I2<T> & I3<T> where T <: I1<T>, U<: I2<T> & I1<U> {
     A1(T, T)
     | B1 (T, U) |
     C1(U, U) | ...
@@ -54,4 +56,5 @@ func test_EnumDecl_05() {
     @Assert(enumDecl.superTyAnnotations[1].toString(), ##"I2<T>"##)
     @Assert(enumDecl.superTyAnnotations[2].toString(), ##"I3<T>"##)
     @Assert(enumDecl.annotations.size, 0)
+}
 }
