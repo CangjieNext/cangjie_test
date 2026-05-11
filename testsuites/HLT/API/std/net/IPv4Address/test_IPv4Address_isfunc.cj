@@ -55,7 +55,7 @@ public class Test_IPv4Address_Is_Func {
     let Unspecified_Str = ["0.0.0.0"] //未指定
     let Loopback_Str = ["127.0.0.1"] //环回
     let LinkLocal_Str = ["169.254.1.1"] //链路本地
-    let Multicast_Str = ["224.0.0.0"] //多播
+    let Multicast_Str = ["224.0.0.0", "224.240.0.1"] //多播
     let Private_Str = ["192.168.1.1", "10.0.0.1", "172.16.0.0"] //私有
 
     let UN_GlobalUnicast_Str = ArrayList<String>(All_Str)
