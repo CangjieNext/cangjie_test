@@ -1,0 +1,19 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025-2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// EXEC: %cjprof heap -h 2>&1 | compare %f
+// ASSERT: scan Usage: cjprof heap [<options>]
+// ASSERT: scan -D, --depth <depth>   max depth to show for references, default to 10, used only with --show-reference
+// ASSERT: scan -d, --dump <pid>      dump heap into a dump file
+// ASSERT: scan -h, --help            show this help message
+// ASSERT: scan -i, --input <file>    input dump file name, default to 'cjprof.data'
+// ASSERT: scan -o, --output <file>   output dump file name, default to 'cjprof.data'
+// ASSERT: scan --show-reference[=<objnames>]
+// ASSERT: scan show objects with outgoing references
+// ASSERT: scan --incoming-reference
+// ASSERT: scan show incoming references rather than outgoings, used only with --show-reference
+// ASSERT: scan -t, --show-thread     show cangjie threads and stacks with objects references
+// ASSERT: scan -V, --verbose         print parsing logs
