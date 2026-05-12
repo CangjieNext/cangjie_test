@@ -7,9 +7,8 @@
  */
  
 // LEVEL: 0
-// (not CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC-PIPE: %run %run_opt %output %run_args
-// (CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
+
+// ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
 
 let var_1664134878122_120 : Unit = ()
 public var var_1664134878122_135 : Interface_1664134878122_72 = Class_1664134878122_66<Option<Range<UInt16>>, Option<Float32>, Rune>()
@@ -1888,4 +1887,4 @@ extend<T0, T1, T2> Class_1664134878122_66<T0, T1, T2> {
 
 }
 
-// (CJNATIVE) ASSERT: scan sema_static_variable_use_generic_parameter
+// ASSERT: scan sema_static_variable_use_generic_parameter

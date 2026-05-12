@@ -8,7 +8,8 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-ERRCHECK: %run %run_opt %output %run_args
+// (not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
+// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan RegexException: Compilation for pattern `a${1}` failed at offset 4: quantifier does not follow a repeatable item.
 
 import std.regex.*

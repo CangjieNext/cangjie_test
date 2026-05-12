@@ -24,6 +24,8 @@ main(): Int64 {
     if (Boo1().b1 != 1) {
         return 2
     }
+    //if ( pkgb.B2.b2 != 2 ){
+    //    return 3
     //}
     if (foo<B2>() != 2) {
         return 4

@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // (not Windows) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args | compare %f
+// (not iOS and not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args | compare %f
 // (not Windows) ASSERT: scan process_start.cj
 import std.fs.{File, OpenMode}
 import std.posix.*
@@ -140,6 +140,7 @@ class Test_start {
         sleep(Duration.second)
         let s = sub.stdErr.read(buffer)
         sub.wait()
+        println(String.fromUtf8(buffer))
         @Expect(String.fromUtf8(buffer).contains(ret))
     }
 

@@ -8,9 +8,9 @@
 
 // LEVEL: 2
 // (not Windows)DEPENDENCE: ../../../asan
-// (not Windows)EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// (not Windows)EXEC: %compiler %cmp_opt asan.%middle %f -o %output %cmp_utest_opt
-// (not Windows)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// (not Windows and not iOS)EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
+// (not Windows and not iOS)EXEC: %compiler %cmp_opt asan.%middle %f -o %output %cmp_utest_opt
+// (not Windows and not iOS)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 /*
  * Test description:

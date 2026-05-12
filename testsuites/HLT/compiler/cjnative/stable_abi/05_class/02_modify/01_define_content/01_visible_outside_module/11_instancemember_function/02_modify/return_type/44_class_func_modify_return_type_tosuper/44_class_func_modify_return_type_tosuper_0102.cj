@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
  
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [API/ABI] Changed return type of function visible outside the module. The new return type is not a subtype of the old return type.
 // ASSERT: scan-2 [API/ABI]
@@ -37,7 +39,7 @@ open public class Father {}
 public class Son <: Father {}
 
 public class TestClass {
-    const init() {}
+    public const init() {}
     public  func f1(): Father {
         Father()
     }
@@ -161,4 +163,35 @@ class privateClass {
     public  func g5(): Son {
         g4()
     }
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(tc: TestClass, b: B): Unit {
+    assert(tc.f1() is Father, true)
+    assert(tc.f2(Father(), Son()) is Father, true)
+    assert(tc.f3(Father(), Son()) is Father, true)
+    assert(tc.f4() is Father, true)
+    assert(tc.f5() is Father, true)
+    assert(tc.g1() is Son, true)
+    assert(tc.g2(Father(), Son()) is Son, true)
+    assert(tc.g3(Father(), Son()) is Son, true)
+    assert(tc.g4() is Son, true)
+    assert(tc.g5() is Son, true)
+
+    assert(b.f1() is Father, true)
+    assert(b.f2(Father(), Son()) is Father, true)
+    assert(b.f3(Father(), Son()) is Father, true)
+    assert(b.f4() is Father, true)
+    assert(b.f5() is Father, true)
+    assert(b.g1() is Son, true)
+    assert(b.g2(Father(), Son()) is Son, true)
+    assert(b.g3(Father(), Son()) is Son, true)
+    assert(b.g4() is Son, true)
+    assert(b.g5() is Son, true)
 }

@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [API/ABI] Modified struct deprecated annotation with compilation error.
 // ASSERT: scan-not [API]
@@ -42,13 +44,13 @@ public struct S1 {
 }
 
 // struct类型S2虽然无public修饰，模块外不可见，但也会参与下游模块的编译过程。原因在于S2用于定义S3中的x成员变量类型，产生依赖
-@Deprecated["this struct is deprecated", strict: false]
+@Deprecated["this struct is deprecated", strict: true]
 struct S2 {
     let x: Int64 = 0
 }
 
 
-@Deprecated["this struct is deprecated", strict: false]
+@Deprecated["this struct is deprecated", strict: true]
 public struct S3 {
     let x: S2 = S2()
 
@@ -110,6 +112,7 @@ struct S10 {
 public struct S11 {
     let x: S10 = S10()
 
+    @Frozen
     public func getX(): Int64 {
         return x.x
     }
@@ -124,15 +127,16 @@ public struct S12 {
     }
 }
 
-@Deprecated["this struct is deprecated", strict: true]
+@Deprecated["this struct is deprecated", strict: false]
 struct S13 {
     let x: Int64 = 0
 }
 
-@Deprecated["this struct is deprecated", strict: true]
+@Deprecated["this struct is deprecated", strict: false]
 public struct S14 {
     let x: S13 = S13()
 
+    @Frozen
     public func getX(): Int64 {
         return x.x
     }
@@ -205,7 +209,7 @@ struct S23 {
     public const init() {}
 }
 
-
+@Deprecated["this struct is deprecated", strict: false]
 public struct S24 {
 
      public const init() {}
@@ -235,4 +239,8 @@ public struct S26 {
 @Deprecated["this struct is deprecated", strict: false]
 struct S27 {
     let x: Int64 = 0
+}
+
+public func f(){
+    return 0
 }

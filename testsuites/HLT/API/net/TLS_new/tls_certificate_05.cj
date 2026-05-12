@@ -8,14 +8,15 @@
 
 // LEVEL: 1
 // DEPENDENCE: ./data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
-// (not Windows and not OHOS)RUN-EXEC: %run_stdx %n.%suffix %run_args
-// (Windows and OHOS)RUN-EXEC: dos2unix "./data/end_ecdsa.pem" && dos2unix "./data/end_ecdsa_private_key.pem" && %run_stdx %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl -o %output %f %cmp_utest_opt
+// (not Windows and not OHOS)RUN-EXEC: %run_stdx %output %run_args
+// (Windows and OHOS)RUN-EXEC: dos2unix "./data/end_ecdsa.pem" && dos2unix "./data/end_ecdsa_private_key.pem" && %run_stdx %output %run_utest_opt %run_args
 
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate,Pem}
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.common.Pem
 import std.sync.*
 import std.time.*
 import std.runtime.*

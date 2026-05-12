@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 2
+// LEVEL: 3
 // DEPENDENCE: ./benchtest
 // EXEC: %compiler %cmp_opt %cmp_utest_opt ./benchtest/time_bench_* -o time_bench.%suffix
 // RUN-EXEC: %run %run_opt time_bench.%suffix %run_args %run_utest_opt --bench --reportFormat=csv --reportPath=.

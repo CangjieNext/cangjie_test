@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 4.2.1.8.2.38
   @Scene: modify
@@ -13,18 +13,19 @@
   @Object: enum instance func
   @Behavior: modify parameters default values, non const & non @Frozen
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // Expect: API Compatible & ABI Compatible
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// EXEC: %rm libstable_abi.%dylib_suffix
+// EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -35,9 +36,7 @@
 // 修改参数的默认值
 package test_stable_abi
 
-import std.random.*
-
-public open class A {
+open public class A {
     let a: Int64 = 10
 }
 
@@ -48,11 +47,11 @@ public class B <: A {
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 
-    public func geta(a: Random, b!: Int64, c!: Int64 = 2): Int64 {
+    public func geta(a: String, b!: Int64, c!: Int64 = 1): Int64 {
         return b + c
     }
 
@@ -70,7 +69,7 @@ public enum Rectangle {
         return 1
     }
 
-    func geta4(a: Int64, b: Float64, c!: Int64 = 1, d!: Float64 = 2.2) {
+    func geta4(a: Int64, b: Float64, c!: Int64=1, d!: Float64=2.2) {
         return 1
     }
 
@@ -80,7 +79,7 @@ public enum Rectangle {
         return x
     }
 
-    public func geta6(a: Int64, b: Float64, c!: Int64 = 1, d!: Float64 = 2.2) {
+    public func geta6(a: Int64, b: Float64, c!: Int64=111, d!: Float64=2.222) {
         return 1
     }
 
@@ -97,4 +96,21 @@ public enum Rectangle {
     public func geta9(a: A, b: B) {
         return 1
     }
+
+    public const func geta10(a: Int64, b: Float64, c!: Int64=1, d!: Float64=2.2) {
+        return 1
+    }
+
+    @Frozen
+    public func geta11(a: Int64, b: Float64, c!: Int64=1, d!: Float64=2.2) {
+        return 1
+    }
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(Red.geta1(1, b: 1), 1)
+    assert(Red.geta4(1, 1.0), 1)
+    assert(Red.geta7(A(), B()), 1)
 }

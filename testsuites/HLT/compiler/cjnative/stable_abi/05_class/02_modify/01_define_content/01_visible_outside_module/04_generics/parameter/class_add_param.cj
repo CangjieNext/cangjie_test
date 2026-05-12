@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.4
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class
   @Behavior: class add generic parameter
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0 
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -22,8 +22,9 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-1 [API/ABI] Added generic param of class visible outside the module
 // ASSERT: scan-1 [API/ABI]
@@ -33,7 +34,7 @@
 package test_stable_abi
 
 // test class: generic params
-public open class Generics<T, U, V> {
+open public class Generics<T, U, V> {
     public var _v1 = 0
     public mut prop _v2: Int64 {
         get() {
@@ -45,7 +46,7 @@ public open class Generics<T, U, V> {
     }
     public var _v3: Int64
 
-    public open func goo1(a: Int64) {
+    open public func goo1(a: Int64) {
         10
     }
 
@@ -60,4 +61,17 @@ public open class Generics<T, U, V> {
     public func goo3(a: T, b: U) {
         return (a, b)
     }
+}
+
+public func checker(): Int64 {
+    let g1 = Generics<Int64, Int64, Int64>(101)
+    if (g1._v1 == 0 && g1._v2 == 1 && g1._v3 == 101 && g1.goo1(1) == 10 && Generics<UInt64, Int64, Int64>.goo2(10) == 100 && g1.goo3(123, 456) == (123, 456)) {
+    } else {
+        return 1
+    }
+    g1._v2 = 202
+    if (g1._v1 != 202) {
+        return 1
+    }
+    0
 }

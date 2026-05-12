@@ -12,14 +12,14 @@
 // EXEC: %compiler %cmp_opt %ffic_opt -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-foreign func cfoo1(a: VArray<VArray<Int32, $3>, $1>): Unit
+foreign func cfoo1(a: VArray<VArray<Int64, $3>, $1>): Unit
 
-foreign func cfoo2(a: CPointer<VArray<Int32, $3>>): Unit
+foreign func cfoo2(a: CPointer<VArray<Int64, $3>>): Unit
 
-foreign func getArrayPtr(): CPointer<VArray<Int32, $3>>
+foreign func getArrayPtr(): CPointer<VArray<Int64, $3>>
 
 main() {
-    var a: VArray<VArray<Int32, $3>, $1> = [[1, 2, 3]]
+    var a: VArray<VArray<Int64, $3>, $1> = [[1, 2, 3]]
     unsafe {
         cfoo1(inout a)
     }

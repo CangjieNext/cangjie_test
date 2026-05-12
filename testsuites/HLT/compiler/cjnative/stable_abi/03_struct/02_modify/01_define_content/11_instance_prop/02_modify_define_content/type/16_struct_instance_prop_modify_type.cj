@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.12.2.16
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: struct instance prop
   @Behavior: modify type
   @Expect: api incompatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Changed member property's return type of struct visible outside the module.
 // ASSERT: scan-1 [API/ABI]
@@ -32,17 +34,11 @@
 package test_stable_abi
 
 public interface I {}
-
 extend Int64 <: I {}
-
 public struct S {
     var a = 0
     public mut prop p1: I {
-        get() {
-            a
-        }
-        set(value) {
-            value
-        }
+        get() { a }
+        set(value) { value }
     }
 }

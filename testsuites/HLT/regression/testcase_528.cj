@@ -7,9 +7,9 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 
 public var var_1697521524265_40 : UInt32 = UInt32(239)
 public const var_1697521524265_50 : Bool = false

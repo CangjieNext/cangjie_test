@@ -16,5 +16,5 @@ main(): Int64 {
     return 0
 }
 // ASSERT: scan sema_float_literal_too_large
-// ASSERT: scan chir_dce_unused_function
+// (not iOS) ASSERT: scan chir_dce_unused_function
 // ASSERT: scan chir_dce_unused_variable

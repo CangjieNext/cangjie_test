@@ -10,18 +10,46 @@
 package test_stable_abi
 
 @Annotation
-public class A {
+public class Ann1 {
     let name: String
     public const init(name: String) {
         this.name = name
     }
 }
-
-public enum E {
-    | RED | BLUE | YELLOW(UInt8)
-    public prop p1: Int64 { get() { 0 } }
-    @A["prop2"] public prop p2: Int64 { get() { 0 } }
-    @A["prop3"] public prop p3: Int64 { get() { 0 } }
+@Annotation
+public class Ann2 {
+    let name: String
+    public const init(name: String) {
+        this.name = name
+    }
 }
-
-
+public enum E1 {
+    | A
+    public prop p1: Int64 {get(){1}}
+    @Ann1["f"] public prop p2: Int64 {get(){2}}
+    prop p3: Int64 {get(){3}}
+    @Ann1["f"] prop p4: Int64 {get(){4}}
+}
+enum E2 {
+    | B
+    public prop p1: Int64 {get(){1}}
+    @Ann1["f"] public prop p2: Int64 {get(){2}}
+}
+enum E3 {
+    | C
+    public prop p1: Int64 {get(){1}}
+    @Ann1["f"] public prop p2: Int64 {get(){2}}
+}
+public class cls {public var a = B.p1 + B.p2}
+@Frozen public func f() {A.p3 + A.p4 + C.p1 + C.p2}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(A.p3, 3)
+    assert(A.p4, 4)
+    assert(B.p1, 1)
+    assert(B.p2, 2)
+    assert(C.p1, 1)
+    assert(C.p2, 2)
+}

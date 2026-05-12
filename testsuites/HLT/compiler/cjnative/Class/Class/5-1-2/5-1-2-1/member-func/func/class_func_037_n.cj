@@ -11,13 +11,13 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 
 open class Base {
-    protected open func get(): Int32 {
+    protected open func get(): Int64 {
         return 1
     }
 }
 
 open class Data <: Base {
-    protected func get(): Int32 {
+    protected func get(): Int64 {
         return 2
     }
 }

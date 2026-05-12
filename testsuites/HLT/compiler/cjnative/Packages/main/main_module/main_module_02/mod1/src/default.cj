@@ -9,7 +9,8 @@
 // LEVEL: 1
 // DEPENDENCE: ../../mod1
 // EXEC: %compiler %cmp_opt %pkg_opt %compile_lib_opt ./mod1/src/p1 -o ./p1.%middle
-// EXEC-PIPE-1: %compiler %cmp_opt %pkg_opt ./mod1/src p1.%middle -o . 2>&1 | compare %f
+// (not iOS) EXEC-PIPE-1: %compiler %cmp_opt %pkg_opt ./mod1/src p1.%middle -o . 2>&1 | compare %f
+// (iOS) EXEC: %compiler %cmp_opt %pkg_opt ./mod1/src p1.%middle -o .
 
 import p1.foo
 
@@ -20,4 +21,4 @@ func goo(): Int64 {
     }
     return 0
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry

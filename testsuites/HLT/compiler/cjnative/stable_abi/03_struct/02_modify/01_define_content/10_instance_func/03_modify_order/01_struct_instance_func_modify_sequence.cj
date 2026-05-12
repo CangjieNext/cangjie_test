@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.10.3.1
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: struct instance func
   @Behavior: modify func sequence
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -34,13 +35,14 @@
 // 修改实例成员函数顺序
 package test_stable_abi
 
+
 public struct Rectangle {
     let width = 10
     let a1 = 20
 
-    public const init() {}
+    const public init() {}
 
-    public const func getb(a: Int64): Int64 {
+    const public func getb(a: Int64): Int64 {
         let b = a + 1
         return b
     }
@@ -56,7 +58,7 @@ public struct Rectangle {
         return b
     }
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
@@ -90,3 +92,4 @@ public struct Rectangle {
         return x
     }
 }
+

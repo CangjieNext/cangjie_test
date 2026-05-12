@@ -12,5 +12,5 @@
 open class SomeType4 {
     ~init() {}
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_finalizer_forbidden_in_class

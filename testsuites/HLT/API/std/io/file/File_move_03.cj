@@ -13,9 +13,9 @@
 import std.fs.*
 
 @When[os != "Windows"]
-let str1: String = "FSException: No such file or directory"
+let str1: String = "No such file or directory"
 @When[os == "Windows"]
-let str1: String = "FSException: The system cannot find the file specified"
+let str1: String = "The system cannot find the file specified"
 
 main() {
     var fileName1 = "./move31.txt"

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
@@ -78,6 +78,7 @@ struct S1<W> {
 
 public struct Pair4 {
     let x: S1<Int64> = S1<Int64>()
+
 }
 
 struct S2<W> {
@@ -263,3 +264,40 @@ public struct Pair20 {
         return x.s1
     }
 }
+
+
+
+
+struct S15<T, U> where T <: Random{
+    let x: Int64 = 0
+    public const init() {}
+}
+
+
+public struct Pair21 {
+
+    public const init() {}
+    public const func getX(): Int64 {
+
+        let x: S15<Random, Int64> = S15<Random, Int64>()
+        return x.x
+    }
+
+}
+
+struct S16<T, U> {
+    let x: T
+    let y: U
+    public init(a: T, b: U) {
+        x = a
+        y = b
+    }
+    public func first(): T {
+        return x
+    }
+    public func second(): U {
+        return y
+    }
+}
+
+

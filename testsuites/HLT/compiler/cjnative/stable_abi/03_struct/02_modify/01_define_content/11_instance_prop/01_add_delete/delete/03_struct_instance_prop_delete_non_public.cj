@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.11.1.3
   @Scene: delete
@@ -13,8 +13,8 @@
   @Object: struct instance prop
   @Behavior: delete instance prop
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -32,13 +34,16 @@
 package test_stable_abi
 
 public struct S {
-    public var a = 0
+    var a = 0
     public mut prop p2: Int64 {
-        get() {
-            a
-        }
-        set(value) {
-            a = value
-        }
+        get() { a }
+        set(value) { a = value }
     }
+}
+
+public func f(){
+    if(S().p2 == 0){
+        return 0
+    }
+    return 1
 }

@@ -8,13 +8,13 @@
  
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCImpl
 public class A <: M {
     public init() {}
     public open func foo() {
-        M().goo(3.1415)
+        M().goo(3.1415, 1)
         println("in cangjie foo")
     }
 }

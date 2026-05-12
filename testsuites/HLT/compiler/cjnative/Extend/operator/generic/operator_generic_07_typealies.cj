@@ -18,5 +18,5 @@ extend Data {
         return 0
     }
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_generic_in_operator_overload

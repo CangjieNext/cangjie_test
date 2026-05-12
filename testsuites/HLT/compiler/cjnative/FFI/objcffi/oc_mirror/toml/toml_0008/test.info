@@ -7,8 +7,7 @@
  */
  
 // LEVEL: 1
-// DEPENDENCE: test.toml test.h interop.cj test1.toml test2.toml
-// (iOS) EXEC: %mirror_gen --generate-definitions test.toml
-// (iOS) EXEC: cp interop.cj mirrors/objc/foundation
-// (iOS) EXEC: %compiler %compile_dylib_opt -Woff all mirrors/objc/foundation/*.cj
-// (iOS) EXEC: %compiler %compile_dylib_opt -Woff all -L . -lobjc.foundation mirrors/cjworld/*.cj
+// DEPENDENCE: test.toml test.h test1.toml test2.toml
+// (iOSNative) EXEC: %mirror_gen test.toml
+// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc mirrors/objc/foundation/*.cj
+// (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc -L . -lobjc.foundation mirrors/cjworld/*.cj

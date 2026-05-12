@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -17,7 +17,7 @@ import std.net.*
 import std.collection.*
 import stdx.net.http.*
 import stdx.net.tls
-//import stdx.crypto.kit
+import stdx.crypto.kit
 import stdx.encoding.url.*
 
 @Test
@@ -155,7 +155,7 @@ public class Test_autoRedirect {
             let res_true = client_Redirec_true.get("http://127.0.0.1:${serve.port}/dd")
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message.contains("Response missing Location header, status code: 300"))
+            @Expect(e.message, "Response missing Location header, status code: 300.")
         }
         @Expect(flag, true)
     }
@@ -297,7 +297,7 @@ public class Test_autoRedirect {
             let res_true = client_Redirec_true.get("http://127.0.0.1:${serve.port}/dd")
         } catch (e: HttpException) {
             flag = true
-            @Expect(e.message.contains("Redirect loop exceed 10 times"))
+            @Expect(e.message, "Redirect loop exceed 10 times.")
         }
         @Expect(flag, true)
     }

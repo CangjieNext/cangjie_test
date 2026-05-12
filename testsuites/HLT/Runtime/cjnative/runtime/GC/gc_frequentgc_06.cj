@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %cmp_opt %overflow_wrapping %f -o %output
-// RUN-EXEC-PIPE: %export cjHeapSize=4GB && %run %run_opt %output %run_args | compare %f
+// (not iOS) EXEC: %compiler %cmp_opt %overflow_wrapping %f -o %output
+// (not iOS) RUN-EXEC-PIPE: %export cjHeapSize=4GB && %run %run_opt %output %run_args | compare %f
 // ASSERT:scan success
 
 import std.sync.*

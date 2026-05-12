@@ -5,16 +5,16 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.9.1.2
   @Scene: delete
   @Visibility: public
   @Object: struct static prop
-  @Behavior: delete non public static properties
+  @Behavior: delete public static properties
   @Expect: api incompatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // Expect: API Incompatible & ABI Incompatible
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,8 +23,9 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Deleted public member property of struct visible outside the module.
 // ASSERT: scan-not [API]
@@ -39,11 +40,11 @@ public struct Rectangle {
     let width = 10
     static var a = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
-    mut static prop geta: Int64 {
+    static mut prop geta: Int64 {
         get() {
             a
         }
@@ -53,9 +54,9 @@ public struct Rectangle {
     }
 }
 
-public struct S1 {
+public struct S1{
     static var a = 20
-    public mut static prop geta: Int64 {
+    public static mut prop geta: Int64 {
         get() {
             a
         }
@@ -65,7 +66,11 @@ public struct S1 {
     }
 
     @Frozen
-    public func getgeta() {
+    public func getgeta(){
         return geta
     }
+}
+
+public func f(){
+    return 0
 }

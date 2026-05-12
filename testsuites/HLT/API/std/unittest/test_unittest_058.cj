@@ -44,7 +44,3 @@ class TestA {
         expectEqual("expect", "actual", expect, foo(Option<Rune>.None))
     }
 }
-
-main(): Unit {
-    let a = TestA()
-}

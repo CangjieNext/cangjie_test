@@ -22,8 +22,9 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-2 [API/ABI] Changed return type of function visible outside the module. The new return type is not a subtype of the old return type.
 // ASSERT: scan-2 [API/ABI]
@@ -216,4 +217,19 @@ extend TestClass {
 public func global() {
     let v1 = TestClass()
     v1.f7()
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(TestClass().pp3(Father(), b: Father()) is Father, true)
+    assert(TestClass().p5(Father(), b: Father()) is Father, true)
+    assert(TestClass().p7(Father(), b: Father()) is Father, true)
+    assert(TestClass().ff1() is I, true)
+    assert(TestClass().ff2() is I, true)
+    assert(TestClass().ff4() is I, true)
+    assert(TestClass().ff6() is I, true)
+    assert(TestClass().pp2(Son(), b: Son()) is Son, true)
+    assert(TestClass().p11(Father(), b: Father()) is Father, true)
+    assert(TestClass().p9(Father(), b: Father()) is Father, true)
 }

@@ -15,18 +15,18 @@ import stdx.encoding.url.*
 @Test
 public class Test_IPv6_Cangjie_Httpconnection {
     static var ipv6strs1: Array<String> = [
-        "http://[2001:DB8:0:0:8:800:200C:417A]:0/dd",
-        "http://[FF01:0:0:0:0:0:0:101]:0/dd",
-        "http://[0:0:0:0:0:0:0:1]:0/dd",
-        "http://[0:0:0:0:0:0:0:0]:0/dd",
-        "http://[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]:0/dd",
-        "http://[2001:DB8:0:0:8:800:200C:417A]:0/dd",
-        "http://[2001:DB8::8:800:200C:417A]:0/dd",
-        "http://[FF01::101]:0/dd",
-        "http://[::1]:0/dd",
-        "http://[::]:0/dd",
-        "http://[::13.1.68.3]:0/dd",
-        "http://[::FFFF:129.144.52.38]:0/dd",
+        "http://[2001:DB8:0:0:8:800:200C:417A]:1/dd",
+        "http://[FF01:0:0:0:0:0:0:101]:1/dd",
+        "http://[0:0:0:0:0:0:0:1]:1/dd",
+        "http://[0:0:0:0:0:0:0:0]:1/dd",
+        "http://[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]:1/dd",
+        "http://[2001:DB8:0:0:8:800:200C:417A]:1/dd",
+        "http://[2001:DB8::8:800:200C:417A]:1/dd",
+        "http://[FF01::101]:1/dd",
+        "http://[::1]:1/dd",
+        "http://[::]:1/dd",
+        "http://[::13.1.68.3]:1/dd",
+        "http://[::FFFF:129.144.52.38]:1/dd",
         "http://[::13.1.68.3]/dd"
     ]
 

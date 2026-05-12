@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 2.2.1.2.4
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global func
   @Behavior: modifier: add unsafe
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Function declaration visible outside the module made unsafe.
 // ASSERT: scan-1 [API/ABI]
@@ -34,27 +36,9 @@ package test_stable_abi
 // test global func: modify non access modifier: unsafe
 // global func: global func is used in @Frozen global func
 // modify operation: add unsafe
-func global_func_01() {
-    0
-}
-
-unsafe func global_func_02() {
-    0
-}
-
-const func global_func_03() {
-    0
-}
-
-public func global_func_04() {
-    0
-}
-
-public unsafe const func global_func_05() {
-    global_func_03()
-}
-
-@Frozen
-public unsafe func global_func_06() {
-    global_func_02()
-}
+func global_func_01() { 0 }
+unsafe func global_func_02() { 0 }
+const func global_func_03() { 0 }
+public func global_func_04() { 0 }
+public unsafe const func global_func_05() { global_func_03() }
+@Frozen public unsafe func global_func_06() { global_func_02() }

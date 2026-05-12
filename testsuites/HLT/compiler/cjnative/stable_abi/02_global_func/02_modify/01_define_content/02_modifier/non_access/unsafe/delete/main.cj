@@ -5,14 +5,17 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
     unsafe {
-        if (global_func_04() + global_func_05() + global_func_06() == 0) {
+        if (global_func_04() + global_func_05() + global_func_06() == 0
+        && global_func_07()) {
             return 0
         }
     }
     return 1
 }
+
+

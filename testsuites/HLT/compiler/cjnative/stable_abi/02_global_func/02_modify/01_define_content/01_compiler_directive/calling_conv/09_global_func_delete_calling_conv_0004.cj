@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -66,19 +68,19 @@ const func global_func_06() {
     0
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 func global_func_07() {
     0
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 func global_func_08() {
     0
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 const func global_func_09() {
     0
@@ -95,7 +97,7 @@ public func global_func_11() {
     0
 }
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 @C
 public func global_func_12() {
     0
@@ -126,4 +128,9 @@ public unsafe func global_func_17() {
 @Frozen
 public unsafe func global_func_18() {
     global_func_08()
+}
+
+public unsafe func global_func_19() {
+    global_func_01() == 0
+    && global_func_07() == 0
 }

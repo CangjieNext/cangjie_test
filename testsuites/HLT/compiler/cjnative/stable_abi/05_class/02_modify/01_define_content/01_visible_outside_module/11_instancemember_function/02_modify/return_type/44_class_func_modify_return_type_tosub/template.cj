@@ -2,95 +2,100 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test class: instancemember function
-open public class Father {}
+public open class Father {}
+
 public class Son <: Father {}
 
 public class TestClass {
-    const init() {}
-    public  func f1(): Father {
+    public const init() {}
+    public func f1(): Father {
         Father()
     }
 
     const func f2(a: Father, b: Son): Father {
         a
     }
-    public  const func f3(a: Father, b: Son): Father {
+    public const func f3(a: Father, b: Son): Father {
         f2(a, b)
     }
 
-     func f4(): Father {
+    func f4(): Father {
         Father()
     }
+
     @Frozen
-    public  func f5(): Father {
+    public func f5(): Father {
         f4()
     }
 
-    public  func g1(): Son {
+    public func g1(): Son {
         Son()
     }
 
-     const func g2(a: Father, b: Son): Son {
+    const func g2(a: Father, b: Son): Son {
         b
     }
-    public  const func g3(a: Father, b: Son): Son {
+    public const func g3(a: Father, b: Son): Son {
         g2(a, b)
     }
 
-     func g4(): Son {
+    func g4(): Son {
         Son()
     }
+
     @Frozen
-    public  func g5(): Son {
+    public func g5(): Son {
         g4()
     }
 }
 
 open class baseClass {
     const init() {}
-    public  func f1(): Father {
+    public func f1(): Father {
         Father()
     }
 
-     const func f2(a: Father, b: Son): Father {
+    const func f2(a: Father, b: Son): Father {
         a
     }
-    public  const func f3(a: Father, b: Son): Father {
+    public const func f3(a: Father, b: Son): Father {
         f2(a, b)
     }
 
-     func f4(): Father {
+    func f4(): Father {
         Father()
     }
+
     @Frozen
-    public  func f5(): Father {
+    public func f5(): Father {
         f4()
     }
 
-    public  func g1(): Son {
+    public func g1(): Son {
         Son()
     }
 
-     const func g2(a: Father, b: Son): Son {
+    const func g2(a: Father, b: Son): Son {
         b
     }
-    public  const func g3(a: Father, b: Son): Son {
+    public const func g3(a: Father, b: Son): Son {
         g2(a, b)
     }
 
-     func g4(): Son {
+    func g4(): Son {
         Son()
     }
+
     @Frozen
-    public  func g5(): Son {
+    public func g5(): Son {
         g4()
     }
 }
@@ -101,42 +106,74 @@ public class B <: baseClass {
 
 class privateClass {
     const init() {}
-    public  func f1(): Father {
+    public func f1(): Father {
         Father()
     }
 
-     const func f2(a: Father, b: Son): Father {
+    const func f2(a: Father, b: Son): Father {
         a
     }
-    public  const func f3(a: Father, b: Son): Father {
+    public const func f3(a: Father, b: Son): Father {
         f2(a, b)
     }
 
-     func f4(): Father {
+    func f4(): Father {
         Father()
     }
+
     @Frozen
-    public  func f5(): Father {
+    public func f5(): Father {
         f4()
     }
 
-    public  func g1(): Son {
+    public func g1(): Son {
         Son()
     }
 
-     const func g2(a: Father, b: Son): Son {
+    const func g2(a: Father, b: Son): Son {
         b
     }
-    public  const func g3(a: Father, b: Son): Son {
+    public const func g3(a: Father, b: Son): Son {
         g2(a, b)
     }
 
-     func g4(): Son {
+    func g4(): Son {
         Son()
     }
+
     @Frozen
-    public  func g5(): Son {
+    public func g5(): Son {
         g4()
     }
 }
 
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(tc: TestClass, b: B): Unit {
+    assert(tc.f1() is Father, true)
+    assert(tc.f2(Father(), Son()) is Father, true)
+    assert(tc.f3(Father(), Son()) is Father, true)
+    assert(tc.f4() is Father, true)
+    assert(tc.f5() is Father, true)
+    assert(tc.g1() is Son, true)
+    assert(tc.g2(Father(), Son()) is Son, true)
+    assert(tc.g3(Father(), Son()) is Son, true)
+    assert(tc.g4() is Son, true)
+    assert(tc.g5() is Son, true)
+
+    assert(b.f1() is Father, true)
+    assert(b.f2(Father(), Son()) is Father, true)
+    assert(b.f3(Father(), Son()) is Father, true)
+    assert(b.f4() is Father, true)
+    assert(b.f5() is Father, true)
+    assert(b.g1() is Son, true)
+    assert(b.g2(Father(), Son()) is Son, true)
+    assert(b.g3(Father(), Son()) is Son, true)
+    assert(b.g4() is Son, true)
+    assert(b.g5() is Son, true)
+}

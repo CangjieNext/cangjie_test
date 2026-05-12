@@ -9,7 +9,10 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args | compare %f
-
+// ASSERT: scan [aaa aaa aaa]
+// ASSERT: scan [aaa aaa aaa]
+// ASSERT: scan [ ,  ]
+// ASSERT: scan [,  ,  , ]
 import std.core.*
 
 main() {
@@ -19,9 +22,3 @@ main() {
     println("aaa aaa aaa".split("aaa", 10, removeEmpty: false))
     0
 }
-
-/* SCAN
-[aaa aaa aaa]
-[aaa aaa aaa]
-[ ,  ]
-[,  ,  , ]*/

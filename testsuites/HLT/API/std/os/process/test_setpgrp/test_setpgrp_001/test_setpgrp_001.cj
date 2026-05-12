@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// (not Windows) EXEC: %compiler %cmp_opt %f -o %output
-// (not Windows) RUN-EXEC: %run %run_opt %output %run_args | compare %f
+// (not iOS and not Windows) EXEC: %compiler %cmp_opt %f -o %output
+// (not iOS and not Windows) RUN-EXEC: %run %run_opt %output %run_args | compare %f
 // (not Windows) ASSERT: scan pass
 
 import std.posix.*

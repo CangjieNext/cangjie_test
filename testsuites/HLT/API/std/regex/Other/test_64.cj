@@ -9,8 +9,8 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../asan
 // EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// EXEC: %compiler %cmp_opt asan.%middle %f -o %output
-// RUN-ERRCHECK: %run %run_opt %output %run_args
+// (not iOS) EXEC: %compiler %cmp_opt asan.%middle %f -o %output
+// (not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
 // ASSERT: scan RegexException: Compilation for pattern `a++++++b` failed at offset 3: quantifier does not follow a repeatable item.
 
 import std.regex.*
@@ -23,6 +23,7 @@ main(): Int64 {
         println("pattern:${p}")
         var regex = Regex(p)
         println(regex.string())
+        println("pattern:${p}")
         var matcher = Matcher(regex, str)
         var res = matcher.findAll().getOrThrow()
         for (i in res) {

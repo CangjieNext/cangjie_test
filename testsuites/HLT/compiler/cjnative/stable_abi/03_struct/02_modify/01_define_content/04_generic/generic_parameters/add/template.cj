@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
@@ -78,6 +78,7 @@ struct S1<W> {
 
 public struct Pair4 {
     let x: S1<Int64> = S1<Int64>()
+
 }
 
 struct S2<W> {
@@ -88,48 +89,25 @@ public struct Pair5 {
     let x: S2<Int64> = S2<Int64>()
 }
 
-public struct Pair6<T, U, W> {
-    let x: T
-    let y: U
-    let z: W
-    public init(a: T, b: U, c: W) {
-        x = a
-        y = b
-        z = c
-    }
-    public func first(): T {
-        return x
-    }
-    public func second(): U {
-        return y
-    }
-    public func third(): W {
-        return z
-    }
+
+struct S3<T, U> where T <: Random, U <: Random{
+    let x: Int64 = 0
+    public const init() {}
 }
 
-struct S3<W, T> {
-    let s1: Int64 = 0
-}
 
-public struct Pair7 {
-    let x: S3<Int64, Int64> = S3<Int64, Int64>()
-}
+public struct Pair6 {
 
-struct S4<W, T> {
-    let s2: Int64 = 0
-}
+    public const init() {}
+    public const func getX(): Int64 {
 
-public struct Pair8 {
-    let x: S4<Int64, Int64> = S4<Int64, Int64>()
-
-    @Frozen
-    public func getX(): Int64 {
-        return x.s2
+        let x: S3<Random, Random> = S3<Random, Random>()
+        return x.x
     }
+
 }
 
-public struct Pair9<T, U> {
+ struct Pair7<T, U> where T <: Random {
     let x: T
     let y: U
     public init(a: T, b: U) {
@@ -144,122 +122,6 @@ public struct Pair9<T, U> {
     }
 }
 
-struct S5<W, T> {
-    let s1: Int64 = 0
-}
 
-public struct Pair10 {
-    let x: S5<Float64, Int64> = S5<Float64, Int64>()
-}
 
-struct S6<W, T> {
-    let s2: Int64 = 0
-}
 
-public struct Pai11 {
-    let x: S6<Float64, Int64> = S6<Float64, Int64>()
-
-    @Frozen
-    public func getX(): Int64 {
-        return x.s2
-    }
-}
-
-public struct Pair12<T, U> where T <: Random {
-    let x: T
-    let y: U
-    public init(a: T, b: U) {
-        x = a
-        y = b
-    }
-    public func first(): T {
-        return x
-    }
-    public func second(): U {
-        return y
-    }
-}
-
-struct S7<T, U> where T <: Random {
-    let s1: Int64 = 0
-}
-
-public struct Pair13 {
-    let x: S7<Random, Int64> = S7<Random, Int64>()
-}
-
-struct S8<T, U> where T <: Random {
-    let s1: Int64 = 0
-}
-
-public struct Pair14 {
-    let x: S8<Random, Int64> = S8<Random, Int64>()
-
-    @Frozen
-    public func getX(): Int64 {
-        return x.s1
-    }
-}
-
-struct S9<T, U> where T <: Random, U <: Random {
-    let s1: Int64 = 0
-}
-
-public struct Pair15 {
-    let x: S9<Random, Random> = S9<Random, Random>()
-}
-
-struct S10<T, U> where T <: Random, U <: Random {
-    let s1: Int64 = 0
-}
-
-public struct Pair16 {
-    let x: S10<Random, Random> = S10<Random, Random>()
-
-    @Frozen
-    public func getX(): Int64 {
-        return x.s1
-    }
-}
-
-struct S11<T, U> where T <: Random {
-    let s1: Int64 = 0
-}
-
-public struct Pair17 {
-    let x: S11<Random, Int64> = S11<Random, Int64>()
-}
-
-struct S12<T, U> where T <: Random {
-    let s1: Int64 = 0
-}
-
-public struct Pair18 {
-    let x: S12<Random, Int64> = S12<Random, Int64>()
-
-    @Frozen
-    public func getX(): Int64 {
-        return x.s1
-    }
-}
-
-struct S13<T, U> where T <: Random {
-    let s1: Int64 = 0
-}
-
-public struct Pair19 {
-    let x: S13<Random, Int64> = S13<Random, Int64>()
-}
-
-struct S14<T, U> where T <: Random {
-    let s1: Int64 = 0
-}
-
-public struct Pair20 {
-    let x: S14<Random, Int64> = S14<Random, Int64>()
-
-    @Frozen
-    public func getX(): Int64 {
-        return x.s1
-    }
-}

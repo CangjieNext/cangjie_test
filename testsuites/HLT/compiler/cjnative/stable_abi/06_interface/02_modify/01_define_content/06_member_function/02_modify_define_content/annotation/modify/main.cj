@@ -9,10 +9,8 @@
 import test_stable_abi.*
 
 main() {
-    if (I1.typename() == "interface I1" ) {
-        0
-    } else {
-        1
-    }
+    assert(I.g1(), 1)
+    assert(C().g2(), 1)
+    assert(C.g3(), 1)
+    assert(C().g4(), 1)
 }
-

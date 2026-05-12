@@ -5,23 +5,19 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test extend: instance function
-interface I {}
-
-public open class Father {}
-
-public class Son <: Father & I {}
-
+interface I{}
+open public class Father {}
+public class Son <: Father & I{}
 interface I2 <: I {}
 
-public open class TestClass {
+open public class TestClass {
     public const init() {}
 }
-
 extend TestClass {
     public func f1() {
         1
@@ -46,7 +42,6 @@ extend TestClass {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -54,7 +49,6 @@ extend TestClass {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -69,17 +63,14 @@ extend TestClass {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
@@ -100,6 +91,9 @@ extend TestClass {
     }
     public const func f14(): Int64 {
         14
+    }
+    public func f15(): Int64 {
+        return f12()
     }
 
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
@@ -138,4 +132,11 @@ extend TestClass {
 public func global() {
     let v1 = TestClass()
     v1.f7()
+}
+public func global_func_01(){
+    let tc = TestClass()
+
+    tc.f10() == 10
+    && tc.f15() == 12
+    && tc.f11() == 11
 }

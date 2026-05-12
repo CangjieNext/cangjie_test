@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// (not CJNATIVE) EXEC-1: %compiler %cmp_opt %f -o %output
+// EXEC-1: %compiler %cmp_opt %f -o %output
 
 import std.ref.*
 

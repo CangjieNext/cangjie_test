@@ -24,6 +24,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-not [API/ABI]
 // ASSERT: scan-not [API]
@@ -113,4 +115,10 @@ extend<T> TestStruct_unexport<T> where T <: I1 {
     public func foo_unexport():String{
         "String"
     }
+}
+public func global_func_01(){
+    let ts = TestStruct()
+    
+    ts.foo_const_sub() is Father
+    && ts.foo_frozen_sub() is Father
 }

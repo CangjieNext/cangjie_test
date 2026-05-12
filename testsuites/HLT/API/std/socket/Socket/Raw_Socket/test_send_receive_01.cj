@@ -24,10 +24,10 @@ import std.net.*
 import std.time.*
 import std.sync.*
 
-@When[os == "macOS"]
+@When[os == "macOS" || os == "iOS"]
 let (times, str) = (1, "Hello, cangjie server.Hello, cangjie server.")
 
-@When[os != "macOS"]
+@When[os != "macOS" && os != "iOS"]
 let (times, str) = (2, "Hello, cangjie server.")
 
 @Test

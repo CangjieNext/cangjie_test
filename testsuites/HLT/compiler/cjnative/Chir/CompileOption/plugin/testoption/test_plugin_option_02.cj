@@ -6,11 +6,11 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// (CJNATIVE and not OHOS) LEVEL: 2
-// (CJNATIVE and not OHOS) DEPENDENCE: CMakeLists.txt, ./src
-// (CJNATIVE and not OHOS) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
-// (CJNATIVE and not OHOS) EXEC-PIPE: %compiler %cmp_opt %f %dy_libs --plugin=./output/libmyplugin1.%dylib_suffix -o %output 2>&1 | compare %f
-// (CJNATIVE and not OHOS) ASSERT: scan option '--dy-libs' is deprecated and will be removed in future.
+// LEVEL: 2
+// (!(host_win | target_ohos)) DEPENDENCE: CMakeLists.txt, ./src
+// (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
+// (!(host_win | target_ohos)) EXEC-PIPE: %compiler %cmp_opt %f %dy_libs --plugin=./output/libmyplugin1.%host_dylib_suffix -o %output 2>&1 | compare %f
+// (!(host_win | target_ohos)) ASSERT: scan option '--dy-libs' is deprecated and will be removed in future.
 
 public class C1<T> where T <: ToString {}
 

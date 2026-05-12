@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.10.2.18
   @Scene: delete
@@ -13,8 +13,8 @@
   @Object: struct instance func
   @Behavior: modifier: delete mut
   @Expect: api compatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -23,70 +23,78 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] Changed member function's modifier of struct visible outside the module. mut deleted.
-// ASSERT: scan-not [API]
 // ASSERT: scan-1 [ABI]
+// ASSERT: scan-not [API]
 // ASSERT: scan-not [API/ABI]
+
+// TEST API Compatibility
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 // test struct: delete access modifier with public: mut
 package test_stable_abi
 
 public struct Rectangle {
     static let width = 10
+    let a = 20
 
     public const init() {}
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
     public func geta1() {
-        return 0
+        return a
     }
 
     func geta2() {
-        return 0
+        return a
     }
 
     public func geta3() {
-        return 0
+        return a
     }
 
     private func geta4() {
-        return 0
+        return a
     }
 
     internal func geta5() {
-        return 0
+        return a
     }
 
     func geta6() {
-        return 0
+        return a
     }
 
     protected func geta7() {
-        return 0
+        return a
     }
 
     public func geta8() {
-        return 0
+        return a
     }
 
     func geta9() {
-        return 0
+        return a
     }
 
     func geta10() {
-        return 0
+        return a
     }
 
-    public unsafe func geta11() {
-        return 0
+    unsafe public func geta11() {
+        return a
     }
 
     public func geta12() {
-        return 0
+        return a
     }
 
     @Frozen
@@ -96,7 +104,7 @@ public struct Rectangle {
     }
 
     const func geta14() {
-        return 0
+        return a
     }
 
     public const func geta15() {
@@ -105,7 +113,7 @@ public struct Rectangle {
     }
 
     mut func geta16() {
-        return 0
+        return a
     }
 
     @Frozen
@@ -113,4 +121,22 @@ public struct Rectangle {
         let x = geta16()
         return x
     }
+}
+
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func check(){
+    assert(Rectangle().geta2(), 20)
+    assert(Rectangle().geta5(), 20)
+    assert(Rectangle().geta6(), 20)
+    assert(Rectangle().geta7(), 20)
+    assert(Rectangle().geta9(), 20)
+    assert(Rectangle().geta10(), 20)
+    assert(Rectangle().geta14(), 20)
+    return 0
 }

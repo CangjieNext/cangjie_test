@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -20,3 +20,15 @@ private var global_var_07: Int64 = 0
 var global_var_08: Int64 = 0
 var global_var_09: Int64 = 0
 var global_var_10: Int64 = 0
+
+public func global_func_01() {
+    global_var_08 == 0
+    && global_var_10 == 0
+    && global_var_02 == 0
+    && global_var_04 == 0
+    && global_var_06 == 0
+    && global_var_09 == 0
+    && global_var_03 == 0
+    && global_var_05 == 0
+    && global_var_07 == 0
+}

@@ -30,13 +30,13 @@ class Test_Dir_Create {
             try {
                 Directory.create(str, recursive: false)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "Invalid path, failed to create directory.")
+                @Expect(e.message, "Invalid path `${str}`, failed to create directory.")
                 sum += 1
             }
             try {
                 Directory.create(Path(str), recursive: true)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "Invalid path, failed to create directory.")
+                @Expect(e.message, "Invalid path `${str}`, failed to create directory.")
                 sum += 1
             }
         }
@@ -47,10 +47,11 @@ class Test_Dir_Create {
     func test_recursive_1(): Unit {
         var sum = 0
         @Expect(exists("tem_dir_02"), false)
+        let dir = "tem_dir_02/dir002"
         try {
-            Directory.create("tem_dir_02/dir002")
+            Directory.create(dir)
         } catch (e: FSException) {
-            @Expect(e.message, "Failed to create directory, parent directory: `tem_dir_02` does not exist.")
+            @Expect(e.message, "Failed to create directory `${dir}`, parent directory `tem_dir_02` does not exist.")
             sum += 1
         }
         @Expect(sum, 1)

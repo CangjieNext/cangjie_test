@@ -24,4 +24,4 @@ func run(): Int64 {
 func Foo(a: Int64, b: String, A!: Int64 = 2, B!: String = "yz"): String {
     return (a + A).toString() + b + B
 }
-// ASSERT: scan sema_wrong_number_of_arguments
+// ASSERT: scan sema_need_named_argument

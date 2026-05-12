@@ -9,9 +9,7 @@
 import test_stable_abi.*
 
 main() {
-    var a: Rectangle = Rectangle()
-
-    if (a.getWidth() != 10) {
+    if (Rectangle.a2 != 20 || f() != 0) {
         return 1
     }
 

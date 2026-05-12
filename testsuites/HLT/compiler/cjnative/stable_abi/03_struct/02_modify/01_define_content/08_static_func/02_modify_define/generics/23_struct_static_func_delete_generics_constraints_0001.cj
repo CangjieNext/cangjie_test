@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.8.2.23
   @Scene: delete
@@ -13,8 +13,8 @@
   @Object: struct static func
   @Behavior: delete generics constraint
   @Expect: api compatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -24,6 +24,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] Deleted generic constraint of function visible outside the module.
 // ASSERT: scan-1 [ABI]
@@ -40,7 +43,7 @@ package test_stable_abi
 
 import std.random.*
 
-public open class A {
+open public class A {
     let a: Int64 = 10
 }
 
@@ -52,7 +55,7 @@ public struct Rectangle {
     let width = 10
     static let a1 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
@@ -107,6 +110,23 @@ public struct Rectangle {
     @Frozen
     public static func getl() {
         let x = getk()
+        return x
+    }
+
+    static func getm<T, U>(): Int64 where T <: B, U <: Random {
+        return 0
+    }
+
+    static func getn<T, U>(a: T, b: U): Int64 {
+        let A = a
+        let B = b
+        return 10 
+    }
+
+    @Frozen
+    public static func geto() {
+
+        let x = getn(10, 20)
         return x
     }
 }

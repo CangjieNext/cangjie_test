@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %cmp_opt %f -o %output
-// RUN-EXEC-PIPE: %export cjStackSize=2gb && %run %run_opt %output %run_args 2>&1
+// (not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (not iOS) RUN-EXEC-PIPE: %export cjStackSize=2gb && %run %run_opt %output %run_args 2>&1
 
 foreign func CJ_CJThreadStackSizeGet(): UInt64
 

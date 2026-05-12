@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
  
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [API/ABI] Deleted open attribute of instance member functions for classes.
 // ASSERT: scan-2 [API/ABI]
@@ -182,7 +184,25 @@ open public class TestClass {
     }
 }
 
-public func global() {
-    let v1 = TestClass()
-    v1.f7()
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public unsafe func checker(tc: TestClass): Unit {
+    assert(tc.f1(), 1)
+    assert(tc.f4(), 3)
+    assert(tc.f6(), 5)
+    assert(tc.openfunc1(), 1)
+    assert(tc.f8(), 8)
+    assert(tc.f13(), 13)
+    assert(tc.f14(), 14)
+    assert(tc.g1<Int64, Int64, Son>(1, 2, Son()), "12")
+    assert(tc.g2<Int64, String, Son>(1, "a", Son()), "1")
+    assert(tc.p1(1, b: 2, c: 3), 6)
+    assert(tc.p2(Son(), b: Son()) is Son, true)
+    assert(tc.p3(Father(), b: Father()) is Father, true)
+    assert(tc.ano1(), 1)
 }

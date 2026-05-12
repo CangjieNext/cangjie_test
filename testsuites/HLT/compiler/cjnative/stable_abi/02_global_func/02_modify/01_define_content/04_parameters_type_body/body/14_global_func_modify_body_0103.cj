@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 2.2.1.4.14
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global func
   @Behavior: modify const or @Frozen function body
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,6 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] The body of a const function or function marked with @Frozen changed.
 // ASSERT: scan-not [API/ABI]
@@ -37,63 +40,21 @@ package test_stable_abi
 // test global func: modify body
 // global func: global func is used in @Frozen global func
 // modify operation: modify @Frozen body
-func global_func_01() {
-    0
-}
+func global_func_01() { 0 }
+func global_func_02() { 0 }
+const func global_func_11() { 0 }
+const func global_func_12() { 0 }
+const func global_func_13() { 0 }
+@Frozen func global_func_21() { 0 }
+@Frozen func global_func_22() { 1;0 }
+@Frozen const func global_func_23() { 0 }
 
-func global_func_02() {
-    0
-}
+public func global_func_04() { 0 }
+public const func global_func_14() { 0 }
+@Frozen public func global_func_24() { 0 }
 
-const func global_func_11() {
-    0
-}
-
-const func global_func_12() {
-    0
-}
-
-const func global_func_13() {
-    0
-}
-
-@Frozen
-func global_func_21() {
-    0
-}
-
-@Frozen
-func global_func_22() {
-    1;
-    0
-}
-
-@Frozen
-const func global_func_23() {
-    0
-}
-
-public func global_func_04() {
-    0
-}
-
-public const func global_func_14() {
-    0
-}
-
-@Frozen
-public func global_func_24() {
-    0
-}
-
-public const func global_func_15() {
-    global_func_13()
-}
-
-@Frozen
-public const func global_func_25() {
-    global_func_23()
-}
+public const func global_func_15() { global_func_13() }
+@Frozen public const func global_func_25() { global_func_23() }
 
 @Frozen
 public func global_func_06() {
@@ -108,4 +69,8 @@ public const func global_func_16() {
 @Frozen
 public func global_func_26() {
     global_func_22()
+}
+
+public func global_func_27() {
+    global_func_01()
 }

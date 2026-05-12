@@ -35,5 +35,7 @@ main(): Int64 {
     var r = R()
     var res1 = a + a
     var res2 = c + c
+    //var res6 = r+r
+    //return (+a)+(a+a) + (+c)+(c+c) + (+r)+(r+r)
     return 0
 }

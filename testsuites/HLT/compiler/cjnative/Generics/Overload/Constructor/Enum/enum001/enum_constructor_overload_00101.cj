@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt %f -o %n.%suffix
-// RUN-EXEC: %run %run_opt %n.%suffix
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output
 
 enum A {
     a

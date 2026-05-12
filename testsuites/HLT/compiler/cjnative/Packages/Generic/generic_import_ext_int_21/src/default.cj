@@ -6,12 +6,12 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 1 EXCLUDE
+// LEVEL: 1
 // DEPENDENCE: p1
-// EXEC: %clang %clang_opt p1/native.c -o libnative.%test_suffix
+// (target_ios | target_ios_simulator) EXEC: %clang %clang_opt p1/native.c -o native.o
+// (!(target_ios | target_ios_simulator)) EXEC: %clang %clang_opt p1/native.c -o libnative.%test_suffix
 // EXEC: %compiler %cmp_opt %compile_lib_opt ./p1/*.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt  -L./ -lnative p1.%middle %f -o %output
-// (not CJNATIVE) EXEC: %compiler %cmp_opt -lnative p1.%middle %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 import p1.*

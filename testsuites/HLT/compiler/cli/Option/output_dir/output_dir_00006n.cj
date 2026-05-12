@@ -7,10 +7,10 @@
  */
 
 // LEVEL: 0
-// (not Windows) EXEC-PIPE: rm -rf dir;mkdir dir
+// (not Windows and not iOS) EXEC-PIPE: rm -rf dir;mkdir dir
 // (Windows) EXEC-PIPE: mkdir dir
-// EXEC: %compiler %cmp_opt %f -o %output --output-dir=./dir
-// (not OHOS) RUN-EXEC: %run %run_opt ./dir/%output
+// (not iOS) EXEC: %compiler %cmp_opt %f -o %output --output-dir=./dir
+// (not OHOS and not iOS) RUN-EXEC: %run %run_opt ./dir/%output
 main() {
     return 0
 }

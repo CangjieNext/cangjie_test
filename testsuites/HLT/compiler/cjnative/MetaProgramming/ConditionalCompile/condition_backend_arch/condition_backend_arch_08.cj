@@ -7,11 +7,9 @@
  */
 
 // LEVEL: 2
-// (CJNATIVE or not arm) EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE or not arm) RUN-EXEC: %run %run_opt %output %run_args
+// (not arm) EXEC: %compiler %cmp_opt %f -o %output
+// (not arm) RUN-EXEC: %run %run_opt %output %run_args
 
-// (not CJNATIVE and arm) ERRCHECK: %compiler %cmp_opt %f -o %output
-// (not CJNATIVE and arm) ASSERT: scan sema_undeclared_identifier
 
 @When[backend == "cjnative" || arch != "aarch64"]
 func test() {

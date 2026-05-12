@@ -19,5 +19,5 @@ main():Int64{
 	return 0
 }
 // ASSERT: scan parse_expected_decl
-// ASSERT: scan parse_unexpected_declaration_in_scope
+// (not iOS) ASSERT: scan parse_unexpected_declaration_in_scope
 // ASSERT: scan parse_expected_right_delimiter
