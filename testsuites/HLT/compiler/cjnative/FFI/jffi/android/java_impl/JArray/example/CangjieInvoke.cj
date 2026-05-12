@@ -7,11 +7,11 @@
  */
 
 // LEVEL: 3
-// (Android) DEPENDENCE: com UNNAMED MainInstrumentedTest.java 
-// (Android) EXEC: python3 %java_interop_setup
-// (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
-// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj UNNAMED/src/*.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
-// (Android) EXEC: python3 %java_interop_runner --test-entry=MainInstrumentedTest.java --java-source-root=com
+// (Android) DEPENDENCE: com MainInstrumentedTest.java 
+// (Android) EXEC: %javac com/*.java %java_interop_util/Logger.java
+// (Android) EXEC: %java %java_mirror_gen com.JavaClass
+// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f %java_interop_util/logger.cj UNNAMED/src/*.cj
+// (Android) RUN-EXEC: %run %run_opt %output %run_args
 
 package UNNAMED
 
@@ -40,17 +40,19 @@ public class CangjieInvoke <: JavaClass {
         Logger.println("cangjie: length of JavaClass array - " + arr1.length.toString())
 
         let arr2 = getArr()
-        Logger.println("cangjie: 1st of I64 array - " + arr2[0].toString())
-        Logger.println("cangjie: 2nd of I64 array - " + arr2[1].toString())
-        Logger.println("cangjie: 3rd of I64 array - " + arr2[2].toString())
-        arr2[2] = 73
+        Logger.println("cangjie: 1st of I64 array - " + arr2.getOrThrow()[0].toString())
+        Logger.println("cangjie: 2nd of I64 array - " + arr2.getOrThrow()[1].toString())
+        Logger.println("cangjie: 3rd of I64 array - " + arr2.getOrThrow()[2].toString())
+        arr2.getOrThrow()[2] = 73
         takeArr(arr2)
-
         let arr3 = getArr2()
-        Logger.println("cangjie: 1st of JavaClass array from Java - " + arr3[0].getInt().toString())
-        Logger.println("cangjie: 2nd of JavaClass array from Java - " + arr3[1].getInt().toString())
-        Logger.println("cangjie: 3rd of JavaClass array from Java - " + arr3[2].getInt().toString())
-        arr3[2] = JavaClass()
+        Logger.println(
+            "cangjie: 1st of JavaClass array from Java - " + arr3.getOrThrow()[0].getOrThrow().getInt().toString())
+        Logger.println(
+            "cangjie: 2nd of JavaClass array from Java - " + arr3.getOrThrow()[1].getOrThrow().getInt().toString())
+        Logger.println(
+            "cangjie: 3rd of JavaClass array from Java - " + arr3.getOrThrow()[2].getOrThrow().getInt().toString())
+        arr3.getOrThrow()[2] = JavaClass()
         takeArr2(arr3)
 
         let arr4 = this.foo()

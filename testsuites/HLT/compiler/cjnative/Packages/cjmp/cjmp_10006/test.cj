@@ -9,7 +9,7 @@
 // LEVEL: 0
 // DEPENDENCE: mp mp1
 // EXEC: %compiler %cmp_opt mp1/test_com.cj %compile_chir_opt -o ./
-// EXEC: %compiler %cmp_opt mp1/test_plat.cj mp1.chir --common-part-cjo=mp1.cjo --experimental %compile_dylib_opt -o ./
+// EXEC: %compiler %cmp_opt mp1/test_plat.cj --common-part-chir=mp1.chir --common-part-cjo=mp1.cjo --experimental %compile_dylib_opt -o ./
 // EXEC: %compiler %cmp_opt mp/test_com.cj %compile_chir_opt -o ./
 // EXEC: %compiler %cmp_opt mp/test_plat.cj -L ./ -lmp1 %compile_dylib_opt_cjmp -o ./
 // EXEC: %compiler %cmp_opt %f %link_cjmp -lmp1 -o %output

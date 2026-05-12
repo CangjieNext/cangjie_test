@@ -7,4 +7,4 @@
  */
 
 @Deprecated ["abc"] var a = 1
-@Deprecated ["abc仓颉", strict : false] var a = 2
+@Deprecated ["abccangjie", strict : false] var a = 2

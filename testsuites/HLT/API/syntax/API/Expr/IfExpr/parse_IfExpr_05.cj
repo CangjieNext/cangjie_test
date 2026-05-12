@@ -8,19 +8,21 @@
 
 // LEVEL: 2
 // DEPENDENCE: IfExpr_05.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_IfExpr_05() {
     let res = parseFile("./IfExpr_05.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains(##"main() {
+    @Assert(sourcefile.toString().replace("\r","").contains(##"main() {
     if ((let a <- true) || true) { }
 }"##))
 
@@ -31,4 +33,5 @@ func test_IfExpr_05() {
     @Assert(expr_1.condition.toString(), ##"(let a <- true) || true"##)
     @Assert(expr_1.elseBlock.isNone())
     @Assert(expr_1.elseIf.isNone())
+}
 }

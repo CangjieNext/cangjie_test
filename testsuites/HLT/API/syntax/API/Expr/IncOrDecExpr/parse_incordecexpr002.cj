@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_incordecexpr_002() {
     let res = parseFile("./incordecexpr002.cj")
     var diags = res.diags
@@ -38,4 +40,5 @@ func test_incordecexpr_002() {
         case IncOrDecOpKind.Incr => ()
         case _ => @Assert(false)
     }
+}
 }

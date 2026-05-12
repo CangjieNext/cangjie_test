@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_unaryexpr_003() {
     let res = parseFile("./unaryexpr003.cj")
     var diags = res.diags
@@ -41,4 +43,5 @@ func test_unaryexpr_003() {
 
     var pos = unaryexpr.getOperatorPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 5i32, 10i32, 6i32])
+}
 }

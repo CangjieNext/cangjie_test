@@ -19,22 +19,14 @@ import std.time.*
 
 // 测试 TZ 和 CJ_TZPATH 环境变量设置正确的情形
 // 类unix系统可以不设置CJ_TZPATH，仅设置TZ
-@When[env != "ohos"]
-let expect = "America/Mexico_City"
-@When[env != "ohos"]
-let offset= "2023-01-30T00:00:00-06:00"
-@When[env == "ohos"]
-let expect = "Asia/Shanghai"
-@When[env == "ohos"]
-let offset= "2023-01-30T00:00:00+08:00"
 
 @Test
 class LocalTest {
     let timeZone = TimeZone.Local
     @TestCase
     func TimeZoneToString(): Unit {
-        @Expect(timeZone.toString(), expect)
-        @Expect(timeZone.id, expect)
+        @Expect(timeZone.toString(), "America/Mexico_City")
+        @Expect(timeZone.id, "America/Mexico_City")
     }
 
     let standardTime = DateTime.of(year: 2023, month: January, dayOfMonth: 30, hour: 0, minute: 0, second: 0,
@@ -43,7 +35,7 @@ class LocalTest {
     func BuildStandardTime(): Unit {
         @Expect(standardTime.toString(), "2023-01-30T00:00:00-06:00")
         @Expect(standardTime.zone, timeZone)
-        @Expect(standardTime.zoneId, expect)
+        @Expect(standardTime.zoneId, "America/Mexico_City")
     }
 
     let daylightTime = DateTime.of(year: 2023, month: April, dayOfMonth: 30, hour: 0, minute: 0, second: 0,
@@ -51,6 +43,6 @@ class LocalTest {
     @TestCase
     func BuildDayligthTime(): Unit {
         @Expect(daylightTime.zone, timeZone)
-        @Expect(daylightTime.zoneId, expect)
+        @Expect(daylightTime.zoneId, "America/Mexico_City")
     }
 }

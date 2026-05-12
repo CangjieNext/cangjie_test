@@ -8,13 +8,10 @@
 
 // LEVEL: 2
 // DEPENDENCE: macro_define_20014.cj main_20014.cj
-// (CJNATIVE) EXEC: %compiler %cmp_opt %macro_opt -o libdefine.%test_suffix macro_define_20014.cj
-// (CJNATIVE) EXEC: %compiler %f %macro_opt -o %n.%test_suffix
-// (CJNATIVE) EXEC: %compiler %cmp_opt -L. -ldefine main_20014.cj -o %output 2>&1 | compare %f
+// EXEC: %compiler %cmp_opt %macro_opt -o libdefine.%test_suffix macro_define_20014.cj
+// EXEC: %compiler %f %macro_opt -o %n.%test_suffix
+// EXEC: %compiler %cmp_opt -L. -ldefine main_20014.cj -o %output 2>&1 | compare %f
 
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %macro_opt macro_define_20014.cj
-// (not CJNATIVE) EXEC: %compiler %f %macro_opt 
-// (not CJNATIVE) EXEC: %compiler %cmp_opt main_20014.cj -o %output 2>&1 | compare %f
 
 macro package test
 

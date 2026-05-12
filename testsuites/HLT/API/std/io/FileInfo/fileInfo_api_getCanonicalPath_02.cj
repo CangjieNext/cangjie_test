@@ -25,9 +25,11 @@ class TestFileInfo {
     func testCase0(): Unit {
         let fileName = "test.txt"
         let filePath = getcwd() + sep + fileName
+        removeIfExists(filePath)
         File.create(filePath)
         // 仅文件名
         let fileInfo = FileInfo(fileName)
         @Expect(canonicalize(fileInfo.path).toString(), filePath)
+        removeIfExists(filePath)
     }
 }

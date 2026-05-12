@@ -64,6 +64,7 @@ let sig_excludes: Array<Int32> = [
     28,
     29
 ]
+let sig_remains: Array<Int32> = [30, 31]
 
 func sendSignal(sig: Int32): Unit {
     kill(Int32(getProcessId()), sig)
@@ -80,13 +81,9 @@ main() {
         registerSignalHandler(Signal(signal, "${signal}"), func_1)
     }
     resetSignalHandler(sig_excludes.map {i => Signal(i, "${i}")})
-    sleep(Duration.second)
-    for (signal in sig_nums.removePrefix(sig_excludes)) {
-        spawn {
-            sendSignal(signal)
-        }
+    for (signal in sig_remains) {
+        sendSignal(signal)
     }
-    sleep(Duration.second * 3)
-    resetSignalHandler()
+    resetSignalHandler(sig_nums.map {i => Signal(i, "${i}")})
     return 0
 }

@@ -7,9 +7,9 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 
 public var var_1693353137579_48 : VArray<Unit, $5> = [(), (), (), (), ()]
 public let var_1693353137579_68 : (Bool, UInt8, UInt32, Int64, UInt64, Int64, String) = (false, UInt8(244), UInt32(145), Int64(-89), UInt64(161), Int64(Int64(-112)), """

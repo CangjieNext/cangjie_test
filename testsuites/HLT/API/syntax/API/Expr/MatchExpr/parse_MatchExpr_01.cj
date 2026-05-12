@@ -14,13 +14,15 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MatchExpr_01() {
     let res = parseFile("./MatchExpr_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     match {
         case true => ()
         case a >= b => a + b
@@ -30,7 +32,7 @@ func test_MatchExpr_01() {
 
     var maindecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
     var expr_1 = (maindecl.body.nodes[0] as MatchExpr).getOrThrow()
-    @Assert(expr_1.toString(), ##"match {
+    @Assert(expr_1.toString().replace("\r",""), ##"match {
         case true => ()
         case a >= b => a + b
         case _ => ()
@@ -73,4 +75,5 @@ func test_MatchExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 5i32, 10i32, 10i32])
     @Assert(expr_1.getSelectorLParenPos().isNone())
     @Assert(expr_1.getSelectorRParenPos().isNone())
+}
 }

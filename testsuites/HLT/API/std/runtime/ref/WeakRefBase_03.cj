@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: util.cj
-// (not CJNATIVE) EXEC-1: %compiler %cmp_opt %f util.cj -o %output
+// EXEC-1: %compiler %cmp_opt %f util.cj -o %output
 
 import std.ref.*
 

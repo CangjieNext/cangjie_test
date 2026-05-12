@@ -8,20 +8,22 @@
 
 // LEVEL: 0
 // DEPENDENCE: MacroExpandExpr_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.ast.Tokens
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_MacroExpandExpr_01() {
     let res = parseFile("./MacroExpandExpr_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     @M1 @M2(foo())
     @M1[a: T, b: U](a = b)
     @M1(if (a) {b} else {c})
@@ -33,6 +35,7 @@ func test_MacroExpandExpr_01() {
     var mainDecl: MainDecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
     var expr_1: MacroExpandExpr = (mainDecl.body.nodes[0] as MacroExpandExpr).getOrThrow()
     @Expect(expr_1.toString(), ##"@M1 @M2(foo())"##)
+    @Expect(expr_1.toTokens().toString(), ##"@M1 @M2(foo())"##)
     @Assert(expr_1.calleeMacro.toString(), "M1")
     @Assert(expr_1.macroAttrs.toString(), "")
     match (expr_1.macroInputs) {
@@ -61,7 +64,7 @@ func test_MacroExpandExpr_01() {
     }
 
     var expr_4: MacroExpandExpr = (mainDecl.body.nodes[3] as MacroExpandExpr).getOrThrow()
-    @Expect(expr_4.toString(), ##"@pkg1.pkg2.M1[aaaaaa](
+    @Expect(expr_4.toString().replace("\r",""), ##"@pkg1.pkg2.M1[aaaaaa](
         a ** b
     )"##)
     @Assert(expr_4.calleeMacro.toString(), "pkg1.pkg2.M1")
@@ -81,4 +84,5 @@ func test_MacroExpandExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [15i32, 5i32, 15i32, 6i32])
     pos = expr_4.getRSquarePos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [13i32, 25i32, 13i32, 26i32])
+}
 }

@@ -9,7 +9,6 @@
 // LEVEL: 0
 // ERRCHECK: %compiler %cmp_opt  %f -o %f
 // ASSERT: scan The input file 'test.cj' would be overwritten by the generated output.
-// (not CJNATIVE) ASSERT: scan unsupported output extension '.cj', extension '.cbc' is required
 
 main(){0}
 

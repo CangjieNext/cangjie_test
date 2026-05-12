@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: SynchronizedExpr_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_SynchronizedExpr_01() {
     let res = parseFile("./SynchronizedExpr_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Assert(sourcefile.toString().contains(##"main() {
+    @Assert(sourcefile.toString().replace("\r","").contains(##"main() {
     synchronized(m) {
     }
     synchronized(m) {
@@ -30,17 +32,17 @@ func test_SynchronizedExpr_01() {
 
     var mainDecl: MainDecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
     var expr_1: SynchronizedExpr = (mainDecl.body.nodes[0] as SynchronizedExpr).getOrThrow()
-    @Assert(expr_1.toString(), ##"synchronized(m) {
+    @Assert(expr_1.toString().replace("\r",""), ##"synchronized(m) {
     }"##)
-    @Assert(expr_1.block.toString(), ##"{
+    @Assert(expr_1.block.toString().replace("\r",""), ##"{
     }"##)
     @Assert(expr_1.structuredMutex.toString(), "m")
 
     var expr_2: SynchronizedExpr = (mainDecl.body.nodes[1] as SynchronizedExpr).getOrThrow()
-    @Assert(expr_2.toString(), ##"synchronized(m) {
+    @Assert(expr_2.toString().replace("\r",""), ##"synchronized(m) {
         foo()
     }"##)
-    @Assert(expr_2.block.toString(), ##"{
+    @Assert(expr_2.block.toString().replace("\r",""), ##"{
         foo()
     }"##)
     @Assert(expr_2.structuredMutex.toString(), "m")
@@ -51,4 +53,5 @@ func test_SynchronizedExpr_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [12i32, 19i32, 12i32, 20i32])
     pos = expr_2.getSynchronizedKeyWordPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [12i32, 5i32, 12i32, 17i32])
+}
 }

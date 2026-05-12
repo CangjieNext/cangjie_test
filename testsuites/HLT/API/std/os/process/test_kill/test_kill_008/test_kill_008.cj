@@ -34,7 +34,7 @@ unsafe func readtxt(): Int32 {
 
 unsafe main() {
     var pid: Int32 = readtxt()
-    var result1 = kill(pid, SIGQUIT)
+    var result1 = kill(pid, SIGWINCH)
 
     if (result1 == 0) {
         print(pid.toString())

@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output %cmp_utest_opt
 // RUN-EXEC: %export cjHeapSize=4GB && %run_stdx %output %run_utest_opt %run_args 
 import std.unittest.*
 import std.unittest.testmacro.*
