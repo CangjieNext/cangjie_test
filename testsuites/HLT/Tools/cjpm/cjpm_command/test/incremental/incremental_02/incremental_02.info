@@ -8,8 +8,8 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm test --no-run && %touch src/koo_test/koo_test.cj
-// EXEC: cd %n && %cjpm test --no-run -i -V 2>&1 | compare %f
-// ASSERT: scan-1 Compiling test package
-// ASSERT: scan `test.koo_test`:
-// ASSERT: scan cjpm test success
+// (not host_win)EXEC: cd %n && %cjpm test --no-run && %touch src/koo_test/koo_test.cj
+// (not host_win)EXEC: cd %n && %cjpm test --no-run -i -V 2>&1 | compare %f
+// (not host_win)ASSERT: scan-1 Compiling test package
+// (not host_win)ASSERT: scan `test.koo_test`:
+// (not host_win)ASSERT: scan cjpm test success

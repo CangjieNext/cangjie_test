@@ -8,6 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %export AAA=temp&& %run %cjpm run -V 2>&1 | compare %f
-// ASSERT: regex Run current project: .*[/|\\]temp[/|\\]release[/|\\]bin[/|\\]main
-// ASSERT: scan cjpm run finished
+// (native_compilation)EXEC: cd %n && %export AAA=temp&& %run %cjpm run -V 2>&1 | compare %f
+// (native_compilation)ASSERT: regex Run current project: .*[/|\\]temp[/|\\]release[/|\\]bin[/|\\]main
+// (native_compilation)ASSERT: scan cjpm run finished

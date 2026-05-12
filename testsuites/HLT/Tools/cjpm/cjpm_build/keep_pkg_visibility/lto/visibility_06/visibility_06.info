@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// (target_linux | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
+// ASSERT: regex Compiling package `b`: [\s\S]*[\s\S]*aoo .*
+// ASSERT: regex Compiling package `b`: [\s\S]*-L [\s\S]* -ltest02 -ltest01.*
+// ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]* -ltest02 -ltest01 --link-options=--no-whole-archive.*
+// ASSERT: regex-not Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]* -laoo --link-options=--no-whole-archive.*
+// ASSERT: regex Compiling package `b`: [\s\S]*libb.(so|dll)
+// ASSERT: scan cjpm build success
+// ASSERT: scan --lto-keep-pkg-visibility "aoo,coo"
+// (target_linux | target_android | target_ohos)EXEC: cd %n && cd %release_dir/aoo && nm libaoo.so | grep -E "T.*(testaoo1)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd %release_dir/b && nm libb.so | grep -E "T.*(testb)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd %release_dir/b && nm libb.so | grep -E "T.*(testaoo1)"
