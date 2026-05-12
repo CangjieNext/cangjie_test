@@ -13,7 +13,6 @@ import time
 
 import json
 import urllib.parse
-from operator import itemgetter
 import configparser
 
 # 等待log文件写完之后再读取
@@ -36,11 +35,11 @@ class RunTestcase:
         self.message_label = "Content-Length"
         self.error_key = []
         self.request_list = []
-        self.ignore_key = ["jsonrpc", "sortText", "symbolId", "category", "code"]
+        self.ignore_key = ["jsonrpc", "sortText", "symbolId", "category", "code", "codeActions"]
         # TODO：动态获取排序忽略的key
         self.ignore_sort_key = ["range", "data", 'to', 'fromRanges', 'end', 'start', 'selectionRange', 'children',
                                 'additionalTextEdits', 'edits', 'textDocument', 'parameters', 'location', "sortText",
-                                "containerName", "symbolId"]
+                                "containerName", "symbolId", "codeActions"]
         self.wait_request = ["textDocument/prepareTypeHierarchy", "textDocument/prepareCallHierarchy"]
         self.wait_response_key = {
             "textDocument/prepareTypeHierarchy": "symbolId",
@@ -185,9 +184,9 @@ class RunTestcase:
                 expt_all_keys = list(set(expt_all_keys) - set(expt_all_keys).intersection(set(self.ignore_sort_key)))
                 expt_all_keys = sorted(expt_all_keys)
                 if len(recv_all_keys) > 0:
-                    recv_json = sorted(recv_json, key=itemgetter(*recv_all_keys))
+                    recv_json = sorted(recv_json, key=self.get_json_sort_key)
                 if len(expt_all_keys) > 0:
-                    expected_json = sorted(expected_json, key=itemgetter(*expt_all_keys))
+                    expected_json = sorted(expected_json, key=self.get_json_sort_key)
 
                 for src_list, dst_list in zip(recv_json, expected_json):
                     self.json_compare(src_list, dst_list, key)
@@ -233,6 +232,23 @@ class RunTestcase:
                 if key not in this_keys:
                     each_json[key] = "##"
         return all_keys, list_json
+
+    def get_json_sort_key(self, json_object):
+        """
+        Sort by the comparable part of JSON only.
+        """
+        return json.dumps(self.remove_ignore_sort_key(json_object), sort_keys=True)
+
+    def remove_ignore_sort_key(self, json_object):
+        if isinstance(json_object, dict):
+            return {
+                key: self.remove_ignore_sort_key(value)
+                for key, value in json_object.items()
+                if key not in self.ignore_sort_key
+            }
+        if isinstance(json_object, list):
+            return [self.remove_ignore_sort_key(value) for value in json_object]
+        return json_object
 
     def write_msg(self, file_handle, message, is_json=False, use_placeholder=False):
         """
@@ -447,6 +463,26 @@ class RunTestcase:
             uri_path = "file:///" + uri_path
         return uri_path
 
+    def replace_changes_uri_key(self, json_object):
+        """
+        将"changes"中key值换成绝对路径的uri，与uri补齐逻辑一致
+        """
+        old_keys = list(json_object.keys())
+        for key in old_keys:
+            if self.include_ignore_uri(key):
+                continue
+            if key.startswith("file://"):
+                decoded_path = urllib.parse.unquote(key[7:] if self.platform else key[8:])
+                uri_path = self.get_uri_path(decoded_path)
+            else:
+                uri_path = urllib.parse.quote(os.path.abspath(key).replace("\\", '/'))
+                uri_path = uri_path[0].lower() + uri_path[1:]
+                if self.platform:
+                    uri_path = "file://" + uri_path
+                else:
+                    uri_path = "file:///" + uri_path
+            json_object[uri_path] = json_object.pop(key)
+
     def get_multi_module_option(self, json_object):
         """
         将"multiModuleOption"中key值换成绝对路径的uri
@@ -463,8 +499,12 @@ class RunTestcase:
         :param search_key: 需要处理的key的列表
         :return: 处理后的json_object
         """
+        if isinstance(json_object, dict) and 'multiModuleOption' in json_object:
+            self.get_multi_module_option(json_object['multiModuleOption'])
         key_value_iter = ()
         if isinstance(json_object, dict):
+            if 'changes' in json_object:
+                self.replace_changes_uri_key(json_object['changes'])
             key_value_iter = (x for x in json_object.items())
         elif isinstance(json_object, list):
             key_value_iter = (x for x in enumerate(json_object))
@@ -489,8 +529,6 @@ class RunTestcase:
 
             if isinstance(value, (dict, list)):
                 self.modify_json_key(value, search_key)
-        if isinstance(json_object, dict) and 'multiModuleOption' in json_object:
-            self.get_multi_module_option(json_object['multiModuleOption'])
         return json.dumps(json_object, separators=(',', ':'))
 
     def include_ignore_uri(self, uri):

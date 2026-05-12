@@ -18,4 +18,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[],"uri":"unusedImport/src/unused_import/pkg22/unused_import_22.cj"}}
+{"jsonrpc": "2.0","method": "textDocument/publishDiagnostics","params": {"diagnostics": [{"code": 0,"message": "Function 'func22' is declared but never used","range": {"end": {"character": 11,"line": 12},"start": {"character": 5,"line": 12}},"severity": 4,"source": "Cangjie","tags": [1]},{"code": 0,"message": "Variable 'x' is declared but never used","range": {"end": {"character": 6,"line": 13},"start": {"character": 5,"line": 13}},"severity": 4,"source": "Cangjie","tags": [1]}],"uri": "unusedImport/src/unused_import/pkg22/unused_import_22.cj"}}
