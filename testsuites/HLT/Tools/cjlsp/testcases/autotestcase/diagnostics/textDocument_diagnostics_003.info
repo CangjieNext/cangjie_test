@@ -18,5 +18,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"category":80,"code":80,"message":"undeclared identifier 'testvar'","range":{"end":{"character":13,"line":10},"start":{"character":12,"line":10}},"severity":1,"source":"Cangjie"}],"uri":"diagnosticsTest/src/var_error/diag_001.cj"}}
-
+{"jsonrpc": "2.0","method": "textDocument/publishDiagnostics","params": {"diagnostics": [{"category": 67,"code": 67,"codeActions": null,"data": {"codeActions": null},"message": "undeclared identifier 'testvar'","range": {"end": {"character": 13,"line": 10},"start": {"character": 12,"line": 10}},"severity": 1,"source": "Cangjie"}],"uri": "diagnosticsTest/src/var_error/diag_001.cj"}}
