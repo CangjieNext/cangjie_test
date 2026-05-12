@@ -10,11 +10,17 @@ import ohos.labels.APILevel
 
 @!APILevel[since: "22"]
 public interface I1 {
-	@!APILevel[since: "26"]
-	func foo() { println("in I1") }
+	@!APILevel[since: "22"]
+	func foo1() { println("foo1 in I1") }
+	@!APILevel[since: "22"]
+	func foo2() { println("foo2 in I1") }
 }
 
 
 @!APILevel[since: "22"]
 public interface I2 <: I1 {
+}
+
+@!APILevel[since: "22"]
+public abstract class C2 <: I1 {
 }

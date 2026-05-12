@@ -7,12 +7,9 @@
 // DEPENDENCE: ../apilevel.cj dep.cj dep1.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
 // EXEC: %compiler %cmp_opt %compile_shared_lib_opt dep.cj apilevel.%middle -o libdep.%dylib_suffix
-// EXEC: %move dep.cjo dep.cjo.bak
+// EXEC: %compiler -ldep -L. %f apilevel.%middle --cfg=APILevel_level=22 -o %output %dump-ir -j1
 // EXEC: %rmfile libdep.%dylib_suffix
 // EXEC: %compiler %cmp_opt %compile_shared_lib_opt dep1.cj apilevel.%middle -o libdep.%dylib_suffix
-// EXEC: %rmfile dep.cjo
-// EXEC: %move dep.cjo.bak dep.cjo
-// (CJNATIVE) EXEC: %compiler -ldep -L. %f apilevel.%middle --cfg=APILevel_level=22 -o %output %dump-ir -j1
 // (CJNATIVE) EXEC: %cat external_weak01_IR/9_EraseUselessInstsAndDecls/0-default.ll  2>&1 | compare %f
 
 import dep.*
