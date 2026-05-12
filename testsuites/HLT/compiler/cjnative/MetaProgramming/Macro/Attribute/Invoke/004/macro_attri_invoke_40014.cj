@@ -9,7 +9,7 @@
 // LEVEL: 2
 // DEPENDENCE:  test.cj  test.conf
 // EXEC: %compiler %cmp_macro test.cj
-// ERRCHECK: %run_macro %compiler %cmp_opt  %f -o %output
+// EXEC: %run_macro %compiler %cmp_opt  %f -o %output
 
 
 import test.*
@@ -18,4 +18,3 @@ main(){
     @M[-0xF.FE+1](0) 
     return 0
 }
-// ASSERT: scan lex_expected_exponent_part

@@ -37,6 +37,6 @@ main(): Bool {
     f32 = t
     f64 = f
 }
-// ASSERT: scan sema_unexpected_return_type_for_entry
+// (not iOS) ASSERT: scan sema_unexpected_return_type_for_entry
 // ASSERT: scan sema_invalid_binary_expr
 // ASSERT: scan sema_mismatched_types

@@ -5,12 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    if (I1.typename() == "interface I1" && I2.typename() == "interface I2" && G1<Int64>.typename() == "interface G1<T>" &&
-        G2<String>.typename() == "interface G2<T>") {
+    if (f() == 0 && I1.typename() == "interface I1" && I2.typename() == "interface I2" &&
+        G1<Int64>.typename() == "interface G1<T>" && G2<String>.typename() == "interface G2<T>") {
         0
     } else {
         1

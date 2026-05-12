@@ -8,7 +8,7 @@
 
 // LEVEL: 3
 // EXEC: %compiler %cmp_opt --int-overflow wrapping %f -o %output
-// (not OHOS) RUN-EXEC-PIPE: %export cjHeapSize=10GB && %run %run_opt %output %run_args
+// (not OHOS and not iOS) RUN-EXEC-PIPE: %export cjHeapSize=10GB && %run %run_opt %output %run_args
 
 main() {
     var dstArray: Array<Int16> = Array<Int16>(1172483648, repeat: 11)

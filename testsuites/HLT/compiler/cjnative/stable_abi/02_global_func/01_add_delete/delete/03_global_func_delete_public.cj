@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 2.1.3
   @Scene: delete
@@ -13,7 +13,7 @@
   @Object: global func
   @Behavior: delete public global func
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,15 +23,15 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Function declaration visible outside the module deleted or made private.
-// ASSERT: scan-1 [API/ABI]
+// ASSERT: scan-2 [API/ABI] Function declaration visible outside the module deleted or made private.
+// ASSERT: scan-2 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 
 package test_stable_abi
 
 // test global func: delete global func
-func global_func_01() {
-    0
-}
+func global_func_01() { 0 }

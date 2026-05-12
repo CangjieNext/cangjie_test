@@ -12,6 +12,7 @@
 
 /*
 func test():Int64 = match (true) {
+    case _ => return 2
 }
  */
 

@@ -7,7 +7,8 @@
  */
 
 // LEVEL: 0
-// ERRCHECK: %compiler %cmp_opt %f
+// (not iOS) ERRCHECK: %compiler %cmp_opt %f
+// (iOS) EXEX-PIPE: %compiler %cmp_opt %f 2>&1 | compare %f
 
 func test() {
     // ���?

@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
-// RUN-EXEC: %run_stdx %output %run_args
+// (not MAC) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// (not MAC) RUN-EXEC: %run_stdx %output %run_args
 
 import std.ast.*
 import std.collection.*

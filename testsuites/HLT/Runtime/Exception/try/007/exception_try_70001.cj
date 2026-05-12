@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 3
+// LEVEL: 0
 // EXEC-PIPE: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
 

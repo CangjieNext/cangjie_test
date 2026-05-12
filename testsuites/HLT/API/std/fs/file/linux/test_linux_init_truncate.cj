@@ -32,6 +32,7 @@ import std.unittest.*
 import std.unittest.testmacro.*
 import std.fs.*
 import std.io.*
+import std.regex.*
 
 @Test
 class Test_Init_Truncate {
@@ -56,14 +57,14 @@ class Test_Init_Truncate {
         try {
             File("", Read)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The file path cannot be empty.")
+            @Expect(e.message, "The input path is empty.")
             sum += 1
         }
         for (str in illegal_str) {
             try {
                 File(str, Read)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The file path cannot contain null character.")
+                @Expect(e.message, "The input path value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
         }
@@ -79,7 +80,7 @@ class Test_Init_Truncate {
                 File(Path(str), Read)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
                 sum += 1
             }
         }
@@ -124,7 +125,7 @@ class Test_Init_Truncate {
         try {
             file.read(buf)
         } catch (e: FSException) {
-            @Expect(e.message, "The file not opened, can not to read.")
+            @Assert(Regex("^The file `.+` not opened, can not to read.$").matches(e.message))
             sum += 1
         }
         @Expect(sum, 1)
@@ -144,7 +145,7 @@ class Test_Init_Truncate {
         try {
             file.read(buf)
         } catch (e: FSException) {
-            @Expect(e.message, "The file does not have the read permission.")
+            @Assert(Regex("^The file `.+` does not have the read permission.$").matches(e.message))
             sum += 1
         }
         file.close()

@@ -14,6 +14,8 @@ enum Timeunit {
 
 func test(): Int64 {
     var a = Timeunit.Year
+    //   match (Timeunit.Year(10)) {
+    //        case _ => 0
     //    }
     return 0
 }

@@ -10,7 +10,7 @@
 // DEPENDENCE: root
 // EXEC:  %compiler %cmp_opt %compile_lib_opt  ./root/B/B.cj -o b.%middle 
 // EXEC:  %compiler %cmp_opt %compile_lib_opt b.%middle ./root/A/A.cj -o a.%middle 
-// (not CJNATIVE) EXEC:  %compiler %cmp_opt b.%middle a.%middle %f -o %output
+
 // EXEC:  %compiler %cmp_opt a.%middle b.%middle %f -o %output
 // RUN-EXEC:  %run %run_opt %output %run_args
 

@@ -5,11 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    if (v == 0) {
+    m = m + acos(1.0) - Float64(v2)
+    if (v == 0 && m > 0.999999 && m < 1.000001) {
         return 0
     }
     return 1

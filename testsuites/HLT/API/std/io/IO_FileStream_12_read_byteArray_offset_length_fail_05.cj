@@ -13,6 +13,7 @@
 
 import std.io.*
 import std.fs.*
+import std.regex.*
 
 main(): Int64 {
     var fs2 = File("b_file_bcz_01.txt", Write)
@@ -21,7 +22,7 @@ main(): Int64 {
         var readnum10 = fs2.read(b.slice(2, 3))
         ()
     } catch (e: FSException) {
-        if (e.toString() != "FSException: The file does not have the read permission.") {
+        if (!Regex("^FSException: The file `.+` does not have the read permission.$").matches(e.toString())) {
             return 1
         }
     }

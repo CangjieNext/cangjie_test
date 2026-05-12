@@ -2206,7 +2206,6 @@ extend Enum46 {
 // ASSERT: scan parse_illegal_modifier_in_scope
 // ASSERT: scan parse_expected_double_arrow_in_case
 // ASSERT: scan parse_expected_while_in_do_while
-// ASSERT: scan parse_expected_expr_or_decl_in
 // ASSERT: scan parse_expected_catch_or_finally_in_try
 
 

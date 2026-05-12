@@ -8,11 +8,14 @@
  
 import test_stable_abi.*
 
-main() {
-    if (I1.typename() == "interface I1" ) {
-        0
-    } else {
-        1
-    }
+public class C2 <: I2 {
+    public static func g1(): Int64 {1}
+    public func g2(): Int64 {1}
 }
-
+main() {
+    f()
+    assert(I1.g1(), 1)
+    assert(C1().g2(), 1)
+    assert(C2.g1(), 1)
+    assert(C2().g2(), 1)
+}

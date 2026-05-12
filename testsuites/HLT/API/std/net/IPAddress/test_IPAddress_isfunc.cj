@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -40,7 +40,7 @@ public class Test_IPAddress_Is_Func {
         "192.88.99.0",
         "192.175.48.0",
         "198.18.0.0",
-        "240.0.0.0",
+        "224.0.0.0",
         "203.0.113.0",
         "198.51.100.0",
         "::ffff:0:0",
@@ -105,7 +105,7 @@ public class Test_IPAddress_Is_Func {
     let Unspecified_Str = ["0.0.0.0", "::"] //未指定
     let Loopback_Str = ["127.0.0.1", "::1"] //环回
     let LinkLocal_Str = ["fe80::1", "fe80::", "169.254.1.1"] //链路本地
-    let Multicast_Str = ["ff02::1", "240.0.0.0"] //多播
+    let Multicast_Str = ["ff02::1", "224.0.0.0"] //多播
     let Private_Str = ["192.168.1.1", "10.0.0.1", "172.16.0.0", "fc00::"] //私有
     let IPv4_Str = [
         "0.0.0.0",
@@ -122,7 +122,7 @@ public class Test_IPAddress_Is_Func {
         "192.88.99.0",
         "192.175.48.0",
         "198.18.0.0",
-        "240.0.0.0",
+        "224.0.0.0",
         "203.0.113.0",
         "198.51.100.0",
         "192.168.1.1",
@@ -149,97 +149,97 @@ public class Test_IPAddress_Is_Func {
         UN_Private_Str.removeIf({x: String => Private_Str.contains(x)})
     }
 
-    @TestCase[str in GlobalUnicast_Str 
+    @TestCase[str in GlobalUnicast_Str
 ]
     func case_isGlobalUnicast_01(str: String): Unit {
         @Expect(IPAddress.parse(str).isGlobalUnicast())
     }
 
-    @TestCase[str in UN_GlobalUnicast_Str.toArray() 
+    @TestCase[str in UN_GlobalUnicast_Str.toArray()
 ]
     func case_isGlobalUnicast_02(str: String): Unit {
         @Expect(IPAddress.parse(str).isGlobalUnicast(), false)
     }
 
-    @TestCase[str in Unspecified_Str 
+    @TestCase[str in Unspecified_Str
 ]
     func case_isUnspecified_01(str: String): Unit {
         @Expect(IPAddress.parse(str).isUnspecified())
     }
 
-    @TestCase[str in UN_Unspecified_Str.toArray() 
+    @TestCase[str in UN_Unspecified_Str.toArray()
 ]
     func case_isUnspecified_02(str: String): Unit {
         @Expect(IPAddress.parse(str).isUnspecified(), false)
     }
 
-    @TestCase[str in Loopback_Str 
+    @TestCase[str in Loopback_Str
 ]
     func case_isLoopback_01(str: String): Unit {
         @Expect(IPAddress.parse(str).isLoopback())
     }
 
-    @TestCase[str in UN_Loopback_Str.toArray() 
+    @TestCase[str in UN_Loopback_Str.toArray()
 ]
     func case_isLoopback_02(str: String): Unit {
         @Expect(IPAddress.parse(str).isLoopback(), false)
     }
 
-    @TestCase[str in LinkLocal_Str 
+    @TestCase[str in LinkLocal_Str
 ]
     func case_isLinkLocal_01(str: String): Unit {
         @Expect(IPAddress.parse(str).isLinkLocal())
     }
 
-    @TestCase[str in UN_LinkLocal_Str.toArray() 
+    @TestCase[str in UN_LinkLocal_Str.toArray()
 ]
     func case_isLinkLocal_02(str: String): Unit {
         @Expect(IPAddress.parse(str).isLinkLocal(), false)
     }
 
-    @TestCase[str in Multicast_Str 
+    @TestCase[str in Multicast_Str
 ]
     func case_isMulticast_01(str: String): Unit {
         @Expect(IPAddress.parse(str).isMulticast())
     }
 
-    @TestCase[str in UN_Multicast_Str.toArray() 
+    @TestCase[str in UN_Multicast_Str.toArray()
 ]
     func case_isMulticast_02(str: String): Unit {
         @Expect(IPAddress.parse(str).isMulticast(), false)
     }
 
-    @TestCase[str in Private_Str 
+    @TestCase[str in Private_Str
 ]
     func case_isPrivate_01(str: String): Unit {
         @Expect(IPAddress.parse(str).isPrivate())
     }
 
-    @TestCase[str in UN_Private_Str.toArray() 
+    @TestCase[str in UN_Private_Str.toArray()
 ]
     func case_isPrivate_02(str: String): Unit {
         @Expect(IPAddress.parse(str).isPrivate(), false)
     }
 
-    @TestCase[str in IPv4_Str 
+    @TestCase[str in IPv4_Str
 ]
     func case_isIPv4_01(str: String): Unit {
         @Expect(IPAddress.parse(str).isIPv4())
     }
 
-    @TestCase[str in IPv6_Str.toArray() 
+    @TestCase[str in IPv6_Str.toArray()
 ]
     func case_isIPv4_02(str: String): Unit {
         @Expect(IPAddress.parse(str).isIPv4(), false)
     }
 
-    @TestCase[str in IPv6_Str.toArray() 
+    @TestCase[str in IPv6_Str.toArray()
 ]
     func case_isIPv6_01(str: String): Unit {
         @Expect(IPAddress.parse(str).isIPv6())
     }
 
-    @TestCase[str in IPv4_Str 
+    @TestCase[str in IPv4_Str
 ]
     func case_isIPv6_02(str: String): Unit {
         @Expect(IPAddress.parse(str).isIPv6(), false)

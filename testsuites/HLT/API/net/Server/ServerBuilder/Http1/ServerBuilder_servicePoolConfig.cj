@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -16,12 +16,10 @@ import std.sync.*
 import std.net.*
 import std.collection.*
 import stdx.net.http.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls
-//import stdx.crypto.kit
+import stdx.crypto.kit
 
-var flag1 = 0
-var flag2 = 0
 @When[os == "Windows"]
 let message_str = "The socket is already bound"
 @When[os != "Windows"]
@@ -37,7 +35,7 @@ public class Test_servicePoolConfig {
             let _ = ServerBuilder().addr("127.0.0.1").port(0).servicePoolConfig(ServicePoolConfig(capacity: 0)).build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message.contains("capacity should greater than 0, but got 0"))
+            @Expect(e.message, "capacity should greater than 0, but got 0")
         }
         @Expect(cnt, 1)
 
@@ -49,7 +47,7 @@ public class Test_servicePoolConfig {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message.contains("capacity should greater than 0, but got -1"))
+            @Expect(e.message, "capacity should greater than 0, but got -1")
         }
 
         @Expect(cnt, 2)
@@ -67,7 +65,7 @@ public class Test_servicePoolConfig {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message.contains("queue capacity should greater than 0, but got 0"))
+            @Expect(e.message, "queue capacity should greater than 0, but got 0")
         }
         @Expect(cnt, 1)
 
@@ -79,7 +77,7 @@ public class Test_servicePoolConfig {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message.contains("queue capacity should greater than 0, but got -1"))
+            @Expect(e.message, "queue capacity should greater than 0, but got -1")
         }
 
         @Expect(cnt, 2)
@@ -97,7 +95,7 @@ public class Test_servicePoolConfig {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message.contains("preheat size should between 0 and 1, but got 2"))
+            @Expect(e.message, "preheat size should between 0 and 1, but got 2")
         }
         @Expect(cnt, 1)
 
@@ -105,7 +103,7 @@ public class Test_servicePoolConfig {
             let _ = ServerBuilder().addr("127.0.0.1").port(0).servicePoolConfig(ServicePoolConfig(preheat: -1)).build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message.contains("preheat size should between 0 and 10000, but got -1"))
+            @Expect(e.message, "preheat size should between 0 and 10000, but got -1")
         }
 
         @Expect(cnt, 2)
@@ -127,6 +125,9 @@ public class Test_servicePoolConfig {
 
     @TestCase
     func over_size(): Unit {
+        let ready = AtomicInt64(0)
+        let start = AtomicBool(false)
+        let done = AtomicInt64(0)
         let server = ServerBuilder()
             .addr("127.0.0.1")
             .port(0)
@@ -141,35 +142,59 @@ public class Test_servicePoolConfig {
             sleep(Duration.millisecond)
         }
 
-        let client = ClientBuilder().build()
+        let client1 = ClientBuilder().build()
+        let client2 = ClientBuilder().build()
+        let client3 = ClientBuilder().build()
         spawn {
-            flag1 = 1
-            client.get("http://127.0.0.1:${server.port}/hello")
+            ready.fetchAdd(1)
+            while (!start.load()) {
+                sleep(Duration.millisecond)
+            }
+            try {
+                client1.get("http://127.0.0.1:${server.port}/hello")
+            } catch (_) {
+            } finally {
+                done.fetchAdd(1)
+            }
         }
         spawn {
-            flag2 = 1
-            client.get("http://127.0.0.1:${server.port}/hello")
+            ready.fetchAdd(1)
+            while (!start.load()) {
+                sleep(Duration.millisecond)
+            }
+            try {
+                client2.get("http://127.0.0.1:${server.port}/hello")
+            } catch (_) {
+            } finally {
+                done.fetchAdd(1)
+            }
         }
-        while (flag1 == 0) {
+        spawn {
+            ready.fetchAdd(1)
+            while (!start.load()) {
+                sleep(Duration.millisecond)
+            }
+            try {
+                client3.get("http://127.0.0.1:${server.port}/hello")
+            } catch (_) {
+            } finally {
+                done.fetchAdd(1)
+            }
+        }
+        while (ready.load() < 3) {
             sleep(Duration.millisecond)
         }
-        while (flag2 == 0) {
-            sleep(Duration.millisecond)
-        }
-
-        sleep(Duration.millisecond * 500)
         try {
-            client.get("http://127.0.0.1:${server.port}/hello")
-        } catch (e: SocketException) {
-            if (e.message.contains("Connection reset by peer") || e
-                .message
-                .contains("forcibly closed by the remote host") || e.message.contains("Failed to read data")) {
-                return // limited
+            start.store(true)
+            sleep(Duration.millisecond * 1100)
+            if (done.load() <= 2) {
+                return
             }
-        } catch (e: ConnectionException) {
-            if (e.message.contains("Socket is closed")) {
-                return // limited
-            }
+        } finally {
+            server.close()
+            client1.close()
+            client2.close()
+            client3.close()
         }
         throw Exception("not limited")
     }

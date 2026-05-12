@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.3
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class
   @Behavior: class modifier public to nonpublic
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -22,10 +22,11 @@
 // EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
-// EXEC: %mv test_stable_abi.cjo new.cjo
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
-// ASSERT: scan-1 [API/ABI] Class declaration visible outside the module made protected or internal.
+// ASSERT: scan-1 [API/ABI] Class declaration visible outside the module deleted public.
 // ASSERT: scan-1 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
@@ -35,11 +36,16 @@ package test_stable_abi
 // test class: access modifier
 
 class A {}
-
 class B {}
-
 protected class C {}
-
 internal class D {}
-
 private class E {}
+
+public func checker(): Int64 {
+    A()
+    B()
+    C()
+    D()
+    E()
+    0
+}

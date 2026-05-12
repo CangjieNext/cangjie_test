@@ -7,37 +7,30 @@
  */
 
 // LEVEL: 1
-// EXEC-PIPE: mkdir -p mydic/mytest/
-// EXEC-PIPE: %touch mydic/mytest/test.txt
-// EXEC-PIPE: %compiler %cmp_opt -o %output %f
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// DESCRIPTION:
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.io.*
 import std.posix.*
 import std.fs.*
 
 @When[os != "Windows"]
-main() {
-    var path: String = "mydic/mytest/test.txt"
-    var curdir = getcwd()
-    var expath = curdir + "/" + path
-    var file: FileInfo = FileInfo(path)
-    var result = canonicalize(file.path).toString()
-    if (result != expath) {
-        return 1
-    }
-    return 0
-}
-
+const sep = "/"
 @When[os == "Windows"]
-main() {
-    var path: String = "mydic\\mytest\\test.txt"
-    var curdir = getcwd()
-    var expath = curdir + "\\" + path
-    var file: FileInfo = FileInfo(path)
-    var result = canonicalize(file.path).toString()
-    if (result != expath) {
-        return 1
+const sep = "\\"
+
+@Test
+class TestFileInfo {
+    @TestCase
+    func testCase0(): Unit {
+        let dirPath = "first" + sep + "second"
+        removeIfExists(dirPath, recursive: true)
+        Directory.create(dirPath, recursive: true)
+        let fileName = "test.txt"
+        let filePath = dirPath + sep + fileName
+        File.create(filePath)
+        let fileInfo = FileInfo(filePath)
+        @Expect(canonicalize(fileInfo.path).toString(), getcwd() + sep + filePath)
     }
-    return 0
 }

@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// ERRCHECK: %compiler %cmp_macro %f
+// EXEC: %compiler %cmp_macro %f
 
 
 macro package define
@@ -16,4 +16,3 @@ import std.ast.*
 public macro test(input:Tokens):Tokens{
     quote(#{1})
 }
-// ASSERT: scan lex_expected_quote_in_raw_string

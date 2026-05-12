@@ -17,6 +17,6 @@ func f1() {
     print("this is default")
 }
 
-main() {
+main(): Unit {
     return f1()
 }

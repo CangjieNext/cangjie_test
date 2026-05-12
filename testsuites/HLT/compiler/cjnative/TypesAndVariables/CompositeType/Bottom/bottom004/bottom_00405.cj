@@ -13,9 +13,11 @@ func test(): Int64 {
     throw return Exception()
 }
 
+// func foo() : Int64 = throw return Exception()
 
 main(): Int64 {
     test()
+    // foo()
     return 0
 }
 // ASSERT: scan sema_mismatched_types

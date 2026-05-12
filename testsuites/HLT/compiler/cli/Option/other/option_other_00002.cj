@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt -O2  %f -o %output
+// EXEC: %compiler %cmp_opt -O2 %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 main() {

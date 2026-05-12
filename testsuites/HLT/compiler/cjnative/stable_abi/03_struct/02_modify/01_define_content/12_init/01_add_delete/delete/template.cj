@@ -5,16 +5,21 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 public struct S {
-    public var a: Int64 = 1
-    public init(a1!: Int64 = 0) {
-        a = a1
+    public var a = 1
+    public init(a1!: Int64 = 0) { a = a1 }
+    init(a1: Int64, a2: Int64) { a = a1 + a2 }
+}
+
+public func f(){
+    var s1 = S(1, 2)
+    var s2 = S(a1: 3)
+    if(s1.a == 3 && s2.a == 3){
+        return 0
     }
-    init(a1: Int64, a2: Int64) {
-        a = a1 + a2
-    }
+    return 1
 }

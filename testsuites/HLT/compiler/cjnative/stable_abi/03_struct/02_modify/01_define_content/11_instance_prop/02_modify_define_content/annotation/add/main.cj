@@ -9,9 +9,10 @@
 import test_stable_abi.*
 main() {
     var a = S()
-    a.p1 = 10
-    a.p2 = 0
-    return a.p1 + a.p2
+    if(a.p3 == 10){
+        return 0
+    }
+    return 1
 }
 
 

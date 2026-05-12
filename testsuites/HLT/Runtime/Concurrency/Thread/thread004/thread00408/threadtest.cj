@@ -9,8 +9,8 @@
 // LEVEL: 3
 // EXEC: %compiler %cmp_opt %f -o %output
 // (MAC) RUN-EXEC-PIPE: %export cjStackSize=1gb && %run %run_opt %output %run_args | compare %f
-// (CJNATIVE and not MAC) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
-// (not CJNATIVE)  RUN-EXEC-PIPE: %export JETVMPROP=-Djet.fiber.stack.size=1M %run %run_opt %output %run_args | compare %f
+// (not MAC) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+
 // ASSERT: scan Exception1 occured: Exception
 // ASSERT: scan Exception2 occured: Exception
 // ASSERT: scan Exception3 occured: Exception

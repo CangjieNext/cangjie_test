@@ -41,26 +41,26 @@ class Test_File_ReadFrom_WriteTo {
         try {
             File.readFrom("")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The file path cannot be empty.")
+            @Expect(e.message, "The input path is empty.")
             sum += 1
         }
         try {
             File.appendTo("", data)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The file path cannot be empty.")
+            @Expect(e.message, "The input path is empty.")
             sum += 1
         }
         for (str in illegal_path_string) {
             try {
                 File.readFrom(str)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The file path cannot contain null character.")
+                @Expect(e.message, "The input path value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
             try {
                 File.appendTo(str, data)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The file path cannot contain null character.")
+                @Expect(e.message, "The input path value ${unsafe { str.rawData() }} contains null character.")
                 sum += 1
             }
         }
@@ -76,14 +76,14 @@ class Test_File_ReadFrom_WriteTo {
                 File.readFrom(str)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
                 sum += 1
             }
             try {
                 File.appendTo(str, data)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
                 sum += 1
             }
         }

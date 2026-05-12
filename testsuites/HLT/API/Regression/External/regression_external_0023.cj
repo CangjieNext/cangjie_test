@@ -13,7 +13,7 @@
 
 import std.ast.*
 
-main() {
+main(): Unit {
     let input = quote(
 func run(): Int64 {
     var x:Int32 = 10

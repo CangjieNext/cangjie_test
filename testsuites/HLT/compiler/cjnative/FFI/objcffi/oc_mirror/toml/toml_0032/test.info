@@ -8,6 +8,6 @@
  
 // LEVEL: 1
 // DEPENDENCE: test.toml test.h
-// (iOS) EXEC: %mirror_gen test.toml
-// (iOS) EXEC: %grep "test1" mirrors/cjworld/test.cj
-// (iOS) EXEC: %grep "test2" mirrors/cjworld/test.cj
+// (iOSNative) EXEC: %mirror_gen test.toml
+// (iOSNative) EXEC: %grep "test1" mirrors/cjworld/test.cj
+// (iOSNative) EXEC: %grep "test2" mirrors/cjworld/test.cj

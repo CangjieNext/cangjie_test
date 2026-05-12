@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// EXEC-PIPE-1: %compiler %cmp_opt %chircc %chir2llvm %f -o %n.%suffix 2>&1 | compare %f
+// ERRCHECK: %compiler %cmp_opt %f -o %output
 
 struct GenRec {
     public let b: Int32 = 1
@@ -19,6 +19,7 @@ struct GenRec {
         return a
     }
     //    public func bar():Int32{
+    //        foo()
     //    }
 }
 

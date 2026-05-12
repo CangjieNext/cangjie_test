@@ -8,14 +8,16 @@
  
 // LEVEL: 1
 // DEPENDENCE: test.toml test.h
-// (iOS) EXEC: ObjCInteropGen test.toml
-// (iOS) EXEC: %cat test.cj | compare %f
+// (iOSNative) EXEC: %mirror_gen test.toml
+// (iOSNative) EXEC: %cat test.cj | compare %f
 /* SCAN-IN
 package cjworld
 
 import objc.foundation.NSObject
 import objc.foundation.NSObjectProtocol
+import objc.foundation.NSString
 import interoplib.objc.*
+import objc.lang.*
 
 @ObjCMirror
 public open class A <: NSObject {
@@ -31,5 +33,11 @@ public struct S {
 
 @ObjCMirror
 public open class test <: NSObject {
+    public var a1: Int32
+    public var a2: Bool
+    public var a3: ?NSString
+    public var a4: ?A
+    public var a5: ?B
+    public var a6: S
 }
 */

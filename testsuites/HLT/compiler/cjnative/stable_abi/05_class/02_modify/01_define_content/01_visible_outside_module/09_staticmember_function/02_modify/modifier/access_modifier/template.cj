@@ -2,15 +2,16 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test class: staticmember function
-open public class Father {}
+public open class Father {}
+
 public class Son <: Father {}
 
 public class TestClass {
@@ -34,6 +35,7 @@ public class TestClass {
     static func f5(): Int64 {
         return 5
     }
+
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -65,10 +67,29 @@ public class TestClass {
     static func f9(): Int64 {
         return 9
     }
+
     @Frozen
     public static func f10(b!: Int64 = 1): Int64 {
         f9() + b
     }
 }
 
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
 
+public func checker(): Unit {
+    assert(TestClass.f1(), 1)
+    assert(TestClass.f2(), 2)
+    assert(TestClass.f3(), 3)
+    assert(TestClass.f4(), 3)
+    assert(TestClass.f5(), 5)
+    assert(TestClass.f6(), 5)
+    assert(TestClass.f7(), 7)
+    assert(TestClass.f8(), 8)
+    assert(TestClass.f9(), 9)
+    assert(TestClass.f10(), 10)
+}

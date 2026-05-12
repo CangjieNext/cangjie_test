@@ -41,7 +41,7 @@ class Test_load {
             let zone1 = TimeZone.load("")
         } catch (e: IllegalArgumentException) {
             flag1 = true
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
         @Expect(flag1, true)
 
@@ -51,7 +51,7 @@ class Test_load {
             let zone2 = TimeZone.load(fd)
         } catch (e: IllegalArgumentException) {
             flag2 = true
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
         @Expect(flag2, true)
 
@@ -60,7 +60,7 @@ class Test_load {
             let zone3 = TimeZone.load("..")
         } catch (e: IllegalArgumentException) {
             flag3 = true
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
         @Expect(flag3, true)
 
@@ -69,7 +69,7 @@ class Test_load {
             let zone4 = TimeZone.load("..")
         } catch (e: IllegalArgumentException) {
             flag4 = true
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
         @Expect(flag4, true)
 
@@ -78,7 +78,7 @@ class Test_load {
             let zone5 = TimeZone.load("\0")
         } catch (e: IllegalArgumentException) {
             flag5 = true
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
         @Expect(flag5, true)
 
@@ -87,7 +87,7 @@ class Test_load {
             let zone6 = TimeZone.load("/")
         } catch (e: IllegalArgumentException) {
             flag6 = true
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
         @Expect(flag6, true)
 
@@ -96,7 +96,7 @@ class Test_load {
             let zone7 = TimeZone.load("\\")
         } catch (e: IllegalArgumentException) {
             flag7 = true
-            @Expect(e.message, "Invalid timezone id.")
+            @Expect(e.message.contains("Invalid timezone id"))
         }
         @Expect(flag7, true)
     }

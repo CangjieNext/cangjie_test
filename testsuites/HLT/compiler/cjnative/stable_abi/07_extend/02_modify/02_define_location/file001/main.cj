@@ -5,14 +5,19 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 unsafe main() {
     let a = TestE1.XY
-    if (a.f1() == 1 && a.f4() == 3) {
+    if (
+        a.f1() == 1 && a.f4() == 3
+    ) {
         return 0
     } else {
         return 1
     }
+
 }
+
+

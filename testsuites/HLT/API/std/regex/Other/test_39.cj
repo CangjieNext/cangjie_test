@@ -10,7 +10,7 @@
 // DEPENDENCE:  ../../asan
 // EXEC: %compiler %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
 // EXEC: %compiler %cmp_opt asan.%middle %f -o %output
-// RUN-ERRCHECK: %run %run_opt %output %run_args
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan NoneValueException
 
 import std.regex.*

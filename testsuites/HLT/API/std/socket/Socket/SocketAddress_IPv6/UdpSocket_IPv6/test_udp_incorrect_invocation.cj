@@ -23,7 +23,9 @@ import std.time.*
 
 @When[os == "macOS"]
 let flag = true
-@When[os != "macOS"]
+@When[os == "iOS"]
+let flag = true
+@When[os == "Linux"]
 let flag = false
 var sum = 0
 var data = Array<Byte>(10, repeat: 10)

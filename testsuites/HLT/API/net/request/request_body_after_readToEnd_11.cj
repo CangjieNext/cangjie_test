@@ -8,15 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE: ./../../asan
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f asan.%middle -o %output
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %compile_lib_opt asan/asanGC.cj -o asan.%middle
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f asan.%middle -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
 import std.io.*
 import stdx.net.http.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls
-//import stdx.crypto.kit
+import stdx.crypto.kit
 import std.net.*
 import std.sync.*
 import asan.*
@@ -26,6 +26,8 @@ var ser = Option<Server>.None
 
 main(): Int64 {
     let server = serve()
+    sleep(Duration.millisecond * 100)
+    port.store(server.port)
     let client = ClientBuilder().build()
     var ss = ByteBuffer()
     var requestBodyStr = """

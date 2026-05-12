@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // ( not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // (Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 1>log.txt && bash -c "dos2unix log.txt" && bash -c "cat log.txt" | compare %f
-// (not CJNATIVE) RUN-EXEC-PIPE: export JETVMPROP=-Djet.cj.use.fibers && %run %run_opt %output %run_args 2>&1 | compare %f
+
 // ASSERT: scan This is a new thread\nin main thread, sum = 0\n
 
 var sum: Int32 = 0

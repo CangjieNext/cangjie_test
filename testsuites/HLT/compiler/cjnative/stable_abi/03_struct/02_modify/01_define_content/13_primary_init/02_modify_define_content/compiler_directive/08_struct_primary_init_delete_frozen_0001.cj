@@ -23,6 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] Changed init function's annotation of struct visible outside the module. Frozen deleted.
 // ASSERT: scan-not [API]
@@ -81,4 +84,8 @@ public struct S5 {
     public S5(b: Int64, let height: Int64) {
         a = b
     }
+}
+
+public func f(){
+    return 0
 }

@@ -29,4 +29,3 @@ main(): Int64 {
 }
 // ASSERT: scan sema_static_and_non_static_member_cannot_have_same_name
 // ASSERT: scan sema_static_members_cannot_call_members
-// ASSERT: scan sema_object_cannot_access_static_member

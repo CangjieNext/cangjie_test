@@ -7,10 +7,10 @@
  */
 
 // LEVEL: 0
-// EXEC-1: %compiler %cmp_opt --diagnostic-format=default %f &> test.log
-// EXEC: grep -q "\[36m.*\[0m" test.log
-// EXEC-1: %compiler %cmp_opt --diagnostic-format=noColor %f &> test.log
-// EXEC: grep -q "\[36m.*\[0m" test.log; if [ "$?" -ne "0" ]; then exit 0; else exit 1; fi
+// (not Windows) EXEC-1: %compiler %cmp_opt --diagnostic-format=default %f &> test.log
+// (not Windows) EXEC: grep -q "\[36m.*\[0m" test.log
+// (not Windows) EXEC-1: %compiler %cmp_opt --diagnostic-format=noColor %f &> test.log
+// (not Windows) EXEC: grep -q "\[36m.*\[0m" test.log; if [ "$?" -ne "0" ]; then exit 0; else exit 1; fi
 
 main() {
     aaa

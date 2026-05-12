@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: files
-// (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output %cmp_utest_opt
 // (not Windows) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -17,11 +17,11 @@ import std.sync.*
 import std.net.*
 import std.collection.*
 import stdx.net.http.*
-////import stdx.crypto.kit.*
+import stdx.crypto.kit.*
 import stdx.crypto.keys.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate,PrivateKey}
+import stdx.crypto.x509.X509Certificate
 import std.io.*
 import std.math.*
 import std.fs.*
@@ -29,7 +29,7 @@ import std.fs.*
 public func serverConfig(): TlsServerConfig {
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_rsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
     tlsConfig.supportedAlpnProtocols = ["h2"]
     tlsConfig
 }
@@ -38,7 +38,7 @@ public func clientConfig(): TlsClientConfig {
     var tlsConfig = TlsClientConfig()
     let pem = String.fromUtf8(readToEnd(File("./files/root_rsa.cer", Read)))
     tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
-    tlsConfig.alpnProtocolsList = ["h2"]
+    tlsConfig.supportedAlpnProtocols = ["h2"]
     tlsConfig
 }
 
@@ -57,7 +57,7 @@ public class Test_servicePoolConfig_H2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message.contains("capacity should greater than 0, but got 0"))
+            @Expect(e.message, "capacity should greater than 0, but got 0")
         }
         @Expect(cnt, 1)
 
@@ -70,7 +70,7 @@ public class Test_servicePoolConfig_H2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message.contains("capacity should greater than 0, but got -1"))
+            @Expect(e.message, "capacity should greater than 0, but got -1")
         }
 
         @Expect(cnt, 2)
@@ -89,7 +89,7 @@ public class Test_servicePoolConfig_H2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message.contains("queue capacity should greater than 0, but got 0"))
+            @Expect(e.message, "queue capacity should greater than 0, but got 0")
         }
         @Expect(cnt, 1)
 
@@ -102,7 +102,7 @@ public class Test_servicePoolConfig_H2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message.contains("queue capacity should greater than 0, but got -1"))
+            @Expect(e.message, "queue capacity should greater than 0, but got -1")
         }
 
         @Expect(cnt, 2)
@@ -121,7 +121,7 @@ public class Test_servicePoolConfig_H2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message.contains("preheat size should between 0 and 1, but got 2"))
+            @Expect(e.message, "preheat size should between 0 and 1, but got 2")
         }
         @Expect(cnt, 1)
 
@@ -134,7 +134,7 @@ public class Test_servicePoolConfig_H2 {
                 .build()
         } catch (e: IllegalArgumentException) {
             cnt++
-            @Expect(e.message.contains("preheat size should between 0 and 10000, but got -1"))
+            @Expect(e.message, "preheat size should between 0 and 10000, but got -1")
         }
 
         @Expect(cnt, 2)
@@ -156,6 +156,9 @@ public class Test_servicePoolConfig_H2 {
 
     @TestCase
     func over_size(): Unit {
+        let ready = AtomicInt64(0)
+        let start = AtomicBool(false)
+        let done = AtomicInt64(0)
         let server = ServerBuilder()
             .addr("127.0.0.1")
             .port(0)
@@ -177,46 +180,59 @@ public class Test_servicePoolConfig_H2 {
             .version(HTTP2_0)
             .build()
 
+        let client1 = ClientBuilder().tlsConfig(clientConfig()).build()
+        let client2 = ClientBuilder().tlsConfig(clientConfig()).build()
+        let client3 = ClientBuilder().tlsConfig(clientConfig()).build()
         spawn {
-            let client = ClientBuilder().tlsConfig(clientConfig()).build()
+            ready.fetchAdd(1)
+            while (!start.load()) {
+                sleep(Duration.millisecond)
+            }
             try {
-                client.send(request)
+                client1.send(request)
+            } catch (_: Exception) {
             } finally {
-                client.close()
+                done.fetchAdd(1)
             }
         }
         spawn {
-            let client = ClientBuilder().tlsConfig(clientConfig()).build()
+            ready.fetchAdd(1)
+            while (!start.load()) {
+                sleep(Duration.millisecond)
+            }
             try {
-                client.send(request)
+                client2.send(request)
+            } catch (_: Exception) {
             } finally {
-                client.close()
+                done.fetchAdd(1)
             }
         }
-        sleep(Duration.millisecond * 200)
-
-        let client = ClientBuilder().tlsConfig(clientConfig()).build()
+        spawn {
+            ready.fetchAdd(1)
+            while (!start.load()) {
+                sleep(Duration.millisecond)
+            }
+            try {
+                client3.send(request)
+            } catch (_: Exception) {
+            } finally {
+                done.fetchAdd(1)
+            }
+        }
+        while (ready.load() < 3) {
+            sleep(Duration.millisecond)
+        }
         try {
-            let res = client.send(request)
-        } catch (e: SocketException) {
-            if (e.message.contains("Connection reset by peer") || e
-                .message
-                .contains("forcibly closed by the remote host")) {
-                return // limited
-            }
-        } catch (e: ConnectionException) {
-            if (e.message.contains("Socket is closed")) {
+            start.store(true)
+            sleep(Duration.millisecond * 1100)
+            if (done.load() <= 2) {
                 return
             }
-        } catch (e: TlsException) {
-            if (e.message.contains("TLS handshake failed (client)")) {
-                return
-            }
-        } catch (e: SocketTimeoutException) {
-            return
         } finally {
-            client.close()
             server.close()
+            client1.close()
+            client2.close()
+            client3.close()
         }
         throw Exception("not limited")
     }

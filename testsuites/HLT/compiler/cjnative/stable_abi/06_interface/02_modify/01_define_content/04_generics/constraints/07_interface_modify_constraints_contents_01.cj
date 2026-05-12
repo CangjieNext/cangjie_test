@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 6.2.1.4.7
   @Scene: modify
@@ -13,9 +13,9 @@
   @Object: interface
   @Behavior: modify generic constraints type
   @Expect: api compatible & abi incompatible
- */
+*/
 
-// LEVEL: 0
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -24,22 +24,24 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
+// ASSERT: scan Incompatible!
+// ASSERT: scan-1 [ABI] Changed generic constraint of interface visible outside the module.
+// ASSERT: scan-not [API/ABI]
+// ASSERT: scan-not [API]
+// ASSERT: scan-1 [ABI]
 // TEST API Compatibility
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+
 package test_stable_abi
 
-// test interface: generic constraints
-public interface Father {}
-
-public interface Son <: Father {}
-
-public interface Son1 <: Father {}
-
-public interface Generics<T, U> where T <: Father, U <: Father {
-    public static func typename(): String {
-        "interface Generics"
-    }
-    public func goo3(a: T, b: U): Unit
+public interface F1 { static func g() {1} }
+public interface F2 { static func g() {1} }
+public interface S1 <: F1 {}
+public interface S2 <: S1 & F2 { static func g() {2} }
+public interface I<T1, T2, T3> where T1 <: F1 & F2, T2 <: F1 {
+    static func g(a: T1, b: T2) { 1 }
 }

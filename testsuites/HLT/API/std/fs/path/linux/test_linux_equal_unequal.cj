@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 0
-// (not Windows or OHOS)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows or OHOS)RUN-EXEC: touch file0101 && ln -s file0101 link01_F && ln -s link01_F link02_L && %run %run_opt %output %run_utest_opt %run_args 
-// (not Windows or OHOS)RUN-EXEC: rm -rf link02_L link01_F file0101
+// (not iOS and not Windows or OHOS)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS and not Windows or OHOS)RUN-EXEC: touch file0101 && ln -s file0101 link01_F && ln -s link01_F link02_L && %run %run_opt %output %run_utest_opt %run_args 
+// (not iOS and not Windows or OHOS)RUN-EXEC: rm -rf link02_L link01_F file0101
 
 /*
  * Test description: Test the Path.== , !=

@@ -12,13 +12,12 @@ package test_stable_abi
 
 public struct S {
     static let width = 10
-    static var a = 0
+    static var a = 20
    
 
     public func getWidth(): Int64{
         return width
     }
-
 
     public static mut prop p1: Int64 {
         get() { a }
@@ -36,3 +35,9 @@ public struct S {
     }
 }
 
+public func f(){
+    if(S.p3 == 20){
+        return 0
+    }
+    return 1
+}

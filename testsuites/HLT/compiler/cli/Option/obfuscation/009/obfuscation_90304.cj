@@ -19,7 +19,8 @@
 // ASSERT: regex .*p2.*global_b.*
 // ASSERT: regex .*default.*test_default.*
 // ASSERT: regex .*default.*global_default.*
-// ASSERT: regex .*default.*<main>.*
+// (not iOS) ASSERT: regex .*default.*<main>.*
+// (iOS) ASSERT: regex .*default.*<main>.*
 
 import p1.*
 import p2.*

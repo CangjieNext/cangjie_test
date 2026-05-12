@@ -12,7 +12,7 @@
   @Visibility: public
   @Object: interface func
   @Behavior: modify function parameter type 
-  @Expect: api incompatible & abi incompatible
+  @Expect: api compatible & abi incompatible
 */
 // LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
@@ -23,40 +23,34 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Changed parameter type of function visible outside the module. The new param type is not a parent type of the old param type.
-// ASSERT: scan-not [ABI]
+// ASSERT: scan-2 [ABI] Changed parameter type of function visible outside the module.
+// ASSERT: scan-2 [ABI]
 // ASSERT: scan-not [API]
-// ASSERT: scan-1 [API/ABI]
-
+// ASSERT: scan-not [API/ABI]
+// TEST API Compatibility
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 package test_stable_abi
 
-public interface I1 {
-    public static func typename(): String {
-        "interface I1"
-    }
-
-    public func testOne(a: Int64): Unit {
-
-    }
-
-     public func funcOne(): Int64
-
-     public func funcTwo(a: Int64, b: String): Int64 {
-            a
-     }
-
-      @Frozen
-     public func funcThree(a: Int64, b: Int64): Int64 {
-            a
-     }
-
-     public const func funcFour(a: Int64, b: Int64): Int64 {
-            a
-     }
-
-     public func funcFive(a!: Int64, b!: Int64): Int16 {
-            0
-     }
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
+public interface F {}
+public open class S1 <: F {}
+public class S2 <: S1 {}
+public interface I {
+    static func g01() {1}
+    static func g02(a: Int64, b: Int64) {a}
+    static func g03(a!: Int64, b!: Int64) {b}
+    static func g04(a: F) {1}
+    func g11() {1}
+    func g12(a: Int64, b: Int64) {b}
+    func g13(a!: Int64, b!: Int64) {a}
+    func g14(a: F) {1}
+}
+public class C <: I {}

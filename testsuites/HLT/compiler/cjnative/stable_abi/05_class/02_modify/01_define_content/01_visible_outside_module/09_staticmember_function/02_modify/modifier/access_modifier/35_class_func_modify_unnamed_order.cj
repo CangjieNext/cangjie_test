@@ -2,10 +2,10 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.1.9.2.35
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class static func
   @Behavior: modify unnamed parameter order
   @Expect: api incompatible & abi incompatible
-*/
+ */
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-2 [API/ABI] Changed unnamed parameter order of function visible outside the module.
 // ASSERT: scan-2 [API/ABI]
@@ -32,7 +34,8 @@
 package test_stable_abi
 
 // test class: staticmember function
-open public class Father {}
+public open class Father {}
+
 public class Son <: Father {}
 
 public class TestClass {
@@ -56,6 +59,7 @@ public class TestClass {
     static func f5(): Int64 {
         return 5
     }
+
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -87,8 +91,29 @@ public class TestClass {
     static func f9(): Int64 {
         return 9
     }
+
     @Frozen
     public static func f10(b!: Int64 = 1): Int64 {
         f9() + b
     }
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    assert(TestClass.f1(), 1)
+    assert(TestClass.f2(), 2)
+    assert(TestClass.f3(), 3)
+    assert(TestClass.f4(), 3)
+    assert(TestClass.f5(), 5)
+    assert(TestClass.f6(), 5)
+    assert(TestClass.f7(), 7)
+    assert(TestClass.f8(), 8)
+    assert(TestClass.f9(), 9)
+    assert(TestClass.f10(), 10)
 }

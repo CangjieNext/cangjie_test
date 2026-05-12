@@ -7,9 +7,9 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 
 public let var_1714039482728_23 : Class_1714039482728_5 = Class_1714039482728_5()
 public var var_1714039482728_50 : (Range<UInt8>, UInt32, Array<Int64>) = (((UInt8(UInt8(Int8(UInt8(234))))&127)..(UInt8(UInt8(Int8(Int8(-6))))&127):(Int64(Int16(UInt8(201)))|1)), UInt32(UInt16(Int16(UInt8(227)))), [Int64(-118), Int64(57), Int64(-12), Int64(-102), Int64(31), Int64(-30), Int64(81), Int64(86), Int64(-100), Int64(-49)])

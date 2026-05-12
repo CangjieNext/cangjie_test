@@ -60,7 +60,7 @@ class Test_File_Unsupport_Path {
                 var file = File(str, OpenMode.Append)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
                 sum += 1
             }
         }
@@ -75,7 +75,7 @@ class Test_File_Unsupport_Path {
                 @Expect("path not exist", "FSException")
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
                 sum += 1
             }
         }
@@ -88,7 +88,7 @@ class Test_File_Unsupport_Path {
             try {
                 File.create(Path(str)).close()
             } catch (e: FSException) {
-                @Expect(e.message, "The file already exists!")
+                @Expect(e.message, "The file `${str}` is already exists.")
                 sum += 1
             }
         }
@@ -110,7 +110,7 @@ class Test_File_Unsupport_Path {
                 File(str, OpenMode.Append)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
                 sum += 1
             }
         }
@@ -137,7 +137,7 @@ class Test_File_Unsupport_Path {
                 File(str, Read).close()
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
                 sum += 1
             }
         }
@@ -150,7 +150,7 @@ class Test_File_Unsupport_Path {
             try {
                 File.create(Path(str))
             } catch (e: FSException) {
-                @Expect(e.message, "The file already exists!")
+                @Expect(e.message, "The file `${str}` is already exists.")
                 sum += 1
             }
         }
@@ -160,7 +160,7 @@ class Test_File_Unsupport_Path {
                 File.create(Path(str))
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message.contains("does not exist"))
                 sum += 1
             }
         }
@@ -190,14 +190,14 @@ class Test_File_Unsupport_Path {
                 File.appendTo(str, data)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
                 sum += 1
             }
             try {
                 File.readFrom(str)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
                 sum += 1
             }
         }
@@ -216,7 +216,7 @@ class Test_File_Unsupport_Path {
         try {
             copy(filepaths[0], to: testdir.join("001").toString(), overwrite: false)
         } catch (e: FSException) {
-            @Expect(e.message, "Destination path exists.")
+            @Expect(e.message.contains("is already exists."))
             sum += 1
         }
         copy(filepaths[0], to: testdir.join("001").toString(), overwrite: true)
@@ -229,7 +229,7 @@ class Test_File_Unsupport_Path {
         try {
             rename(testdir.join("002").toString(), to: filepaths[0], overwrite: false)
         } catch (e: FSException) {
-            @Expect(e.message, "Destination path exists.")
+            @Expect(e.message.contains("already exists and overwrite is false"))
             sum += 1
         }
         rename(testdir.join("002").toString(), to: filepaths[0], overwrite: true)

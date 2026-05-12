@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: %n.c
-// (not Windows) EXEC: %clang -c %clang_opt %n.c -o lib%n.c.cfile.%dylib_suffix
+// (not Windows) EXEC: %clang -c %clang_opt %n.c -o lib%n.c.cfile.%cffi_suffix
 // (not Windows) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt %overflow_wrapping -o %output
 // (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 /* SCAN-IN

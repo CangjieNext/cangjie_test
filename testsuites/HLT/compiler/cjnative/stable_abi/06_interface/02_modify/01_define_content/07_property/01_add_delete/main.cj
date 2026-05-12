@@ -8,11 +8,20 @@
  
 import test_stable_abi.*
 
-main() {
-    if (I1.typename() == "interface I1" ) {
-        0
-    } else {
-        1
+public class C2 <: I2 {
+    public mut prop p1: Int64 {
+        get() {1}
+        set(v) {v}
+    }
+    public static mut prop p2: Int64 {
+        get() {1}
+        set(v) {v}
     }
 }
-
+main() {
+    f()
+    assert(C1().p1, 1)
+    assert(I1.p2, 1)
+    assert(C2().p1, 1)
+    assert(C2.p2, 1)
+}

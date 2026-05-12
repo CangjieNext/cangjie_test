@@ -8,13 +8,10 @@
 
 // LEVEL: 2
 // DEPENDENCE: define_public.cj main_30001.cj
-// (CJNATIVE) EXEC: %compiler %cmp_macro define_public.cj
-// (CJNATIVE) EXEC: %compiler %cmp_opt  %f %compile_lib_opt
-// (CJNATIVE) EXEC: %compiler %cmp_opt libdefine.a main_30001.cj -o %output
+// EXEC: %compiler %cmp_macro define_public.cj
+// EXEC: %compiler %cmp_opt  %f %compile_lib_opt
+// EXEC: %compiler %cmp_opt libdefine.a main_30001.cj -o %output
 
-// (not CJNATIVE) EXEC: %compiler %cmp_macro define_public.cj
-// (not CJNATIVE) EXEC: %compiler %cmp_opt  %f %compile_lib_opt
-// (not CJNATIVE) EXEC: %compiler %cmp_opt  define.%middle main_30001.cj -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 package define

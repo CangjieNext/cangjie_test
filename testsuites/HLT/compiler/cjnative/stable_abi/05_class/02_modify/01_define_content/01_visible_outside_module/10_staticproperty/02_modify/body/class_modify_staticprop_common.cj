@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.10.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class static prop
   @Behavior: modify body of non const/@Frozen class static prop
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -61,15 +62,14 @@ public class TestClass {
 
     static prop prop3: Int64 {
         get() {
-            var a = 1
+            var a = 1 
             a++
             3
         }
     }
-
     @Frozen
     public static prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -80,16 +80,14 @@ public class TestClass {
             4 + 1 - 1
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static prop prop5: Int64 {
         get() {
             521
         }
     }
-
     @Frozen
-    public mut static prop prop6: Int64 {
+    public static mut prop prop6: Int64 {
         get() {
             6
         }
@@ -114,7 +112,7 @@ public class TestClass {
         }
     }
 
-    public mut static prop prop10: Int64 {
+    public static mut prop prop10: Int64 {
         get() {
             10
         }
@@ -122,7 +120,7 @@ public class TestClass {
             if (true) {}
         }
     }
-    public mut static prop prop11: Int64 {
+    public static mut prop prop11: Int64 {
         get() {
             11
         }
@@ -132,11 +130,28 @@ public class TestClass {
             }
         }
     }
-
+    
     @Version["1.1"]
     public static prop prop12: Int64 {
         get() {
             12 ** 1
         }
     }
+}
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    assert(TestClass.prop1, 1)
+    assert(TestClass._prop3, 3)
+    assert(TestClass.prop4, 4)
+    assert(TestClass.prop6, 6)
+    assert(TestClass.prop10, 10)
+    assert(TestClass.prop11, 11)
+    assert(TestClass.prop12, 12)
+    assert(TestClass.a, -1)
 }

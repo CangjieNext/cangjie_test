@@ -16,6 +16,7 @@ main(): Int64 {
 func run(): Int64 {
     var res1 = Foo
     var res2 = res1()
+    // print(res2.toString()+"n")
     if (res2 == 4) {
         return 0
     }

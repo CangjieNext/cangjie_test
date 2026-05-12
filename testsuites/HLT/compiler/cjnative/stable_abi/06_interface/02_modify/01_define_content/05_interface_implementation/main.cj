@@ -5,13 +5,9 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    if (I1.typename() == "interface I1" && I2.typename() == "interface I2" && I3.typename() == "interface I3") {
-        return 0
-    } else {
-        return 1
-    }
+    return I4.g1() + I4.g2() + I4.g4() + f() - 4
 }

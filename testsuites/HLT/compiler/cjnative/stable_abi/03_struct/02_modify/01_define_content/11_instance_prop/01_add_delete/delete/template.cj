@@ -5,26 +5,25 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 public struct S {
     var a = 0
     mut prop p1: Int64 {
-        get() {
-            a
-        }
-        set(value) {
-            a = value
-        }
+        get() { a }
+        set(value) { a = value }
     }
     public mut prop p2: Int64 {
-        get() {
-            a
-        }
-        set(value) {
-            a = value
-        }
+        get() { a }
+        set(value) { a = value }
     }
+}
+
+public func f(){
+    if(S().p1 == 0 && S().p2 == 0){
+        return 0
+    }
+    return 1
 }

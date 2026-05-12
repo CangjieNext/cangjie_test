@@ -24,5 +24,5 @@ main() {
     A()
     return 0
 }
-// (not CJNATIVE) ASSERT: scan sema_generic_function_in_interface
+
 // ASSERT: scan sema_ref_not_be_type

@@ -14,7 +14,7 @@ var a: Unit = ()
 var topC = Option.Some((a, a))
 
 class A {
-    A(var b!: Int32 = match (topC) {
+    A(var b!: Int64 = match (topC) {
             case Some(((), ())) => 3
             case None => 2
         }) {

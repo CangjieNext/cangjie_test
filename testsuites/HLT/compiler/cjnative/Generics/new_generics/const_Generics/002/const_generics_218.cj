@@ -36,6 +36,7 @@ const expr5 = try {
 const expr6 = 0 is String
 const expr7 = 0.0 as Float64
 
+// const expr8 = throw Exception("")
 
 main() {
     const _expr1 = if (true) {
@@ -65,5 +66,6 @@ main() {
     const _expr6 = 0 is String
     const _expr7 = 0.0 as Float64
 
+    // const _expr8 = throw Exception("")
     0
 }

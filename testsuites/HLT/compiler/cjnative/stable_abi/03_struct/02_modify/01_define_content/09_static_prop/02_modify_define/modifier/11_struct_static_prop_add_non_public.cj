@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.9.2.11
   @Scene: add
@@ -13,8 +13,8 @@
   @Object: struct static prop
   @Behavior: modifier: keep non public
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -37,122 +38,103 @@ public struct Rectangle {
     static let width = 10
     static var a = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
-    public mut static prop geta1: Int64 {
+    public static mut prop geta1: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
-    mut static prop geta2: Int64 {
+    static mut prop geta2: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
-    public mut static prop geta3: Int64 {
+    public static mut prop geta3: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
-    private mut static prop geta4: Int64 {
+    private static mut prop geta4: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
-    internal mut static prop geta5: Int64 {
+    internal static mut prop geta5: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
-    internal mut static prop geta6: Int64 {
+    internal static mut prop geta6: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
-    protected mut static prop geta7: Int64 {
+    protected static mut prop geta7: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
-    public mut static prop geta8: Int64 {
+    public static mut prop geta8: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
-    private mut static prop geta9: Int64 {
+    private static mut prop geta9: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
-    protected mut static prop geta10: Int64 {
+    protected static mut prop geta10: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
+
 }
 
-public struct S1 {
+public struct S1{
     static var a = 20
     static var b = 20
     static var c = 20
@@ -160,7 +142,7 @@ public struct S1 {
     static var e = 20
     static var f = 20
 
-    public mut static prop geta: Int64 {
+    public static mut prop geta: Int64 {
         get() {
             a
         }
@@ -179,11 +161,11 @@ public struct S1 {
     }
 
     @Frozen
-    public func f1() {
+    public func f1(){
         getb
     }
 
-    public mut static prop gete: Int64 {
+    public static mut prop gete: Int64 {
         get() {
             e
         }
@@ -192,7 +174,7 @@ public struct S1 {
         }
     }
 
-    mut static prop getf: Int64 {
+    static mut prop getf: Int64 {
         get() {
             f
         }
@@ -202,7 +184,7 @@ public struct S1 {
     }
 
     @Frozen
-    public func f3() {
+    public func f3(){
         getf
     }
 
@@ -219,7 +201,23 @@ public struct S1 {
     }
 
     @Frozen
-    public func f4() {
+    public func f4(){
         getd
     }
+}
+
+public func assert<T>(expected:T, actual:T) : Unit where T <: Equatable<T> & ToString{
+    if(expected == actual){
+    }else{
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func check(){
+    assert(Rectangle.geta5, 20)
+    assert(Rectangle.geta6, 20)
+    assert(Rectangle.geta7, 20)
+    assert(Rectangle.geta10, 20)
+    assert(S1.getc, 20)
+    return 0
 }

@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -23,12 +23,14 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-4 [ABI] Changed parameter type of function visible outside the module.
-// ASSERT: scan-2 [ABI] Deleted public/protected instance member functions for classes.
 // ASSERT: scan-not [API/ABI]
 // ASSERT: scan-not [API]
-// ASSERT: scan-6 [ABI]
+// ASSERT: scan-4 [ABI]
 // TEST API Compatibility
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
@@ -183,4 +185,27 @@ public open class TestClass {
 public func global() {
     let v1 = TestClass()
     v1.f7()
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public unsafe func checker(tc: TestClass): Unit {
+    assert(tc.f1(), 1)
+    assert(tc.f4(), 3)
+    assert(tc.f6(), 5)
+    assert(tc.openfunc(), 1)
+    assert(tc.f8(), 8)
+    assert(tc.f13(), 13)
+    assert(tc.f14(), 14)
+    assert(tc.g1<Int64, Int64, Son>(1, 2, Son()), "12")
+    assert(tc.g2<Int64, String, Son>(1, "a", Son()), "1")
+    assert(tc.p1(1, b: 2, c: 3), 6)
+    assert(tc.p2(Son(), b: Father(), c: Son()) is Son, true)
+    assert(tc.p3(Father(), b: Father()) is Father, true)
+    assert(tc.ano1(), 1)
 }

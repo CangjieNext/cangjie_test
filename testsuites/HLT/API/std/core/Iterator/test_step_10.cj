@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f %cmp_utest_opt
-// RUN-EXEC: %run %run_opt %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.collection.*
 import std.math.*
@@ -95,56 +95,56 @@ class Test_step_10 {
             collectArray<Rune>(normalArr1.iterator().step(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Step count must be greater than 0!"))
+            @Expect(e.message,"Step count must be greater than 0!")
         }
 
         try {
             collectArray<Rune>(normalArr1.iterator().step(0))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Step count must be greater than 0"))
+            @Expect(e.message,"Step count must be greater than 0!")
         }
 
         try {
             collectArray<Int64>(normalArr2.iterator().step(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Step count must be greater than 0"))
+            @Expect(e.message,"Step count must be greater than 0!")
         }
 
         try {
             collectArray<Int64>(normalArr2.iterator().step(0))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Step count must be greater than 0"))
+            @Expect(e.message,"Step count must be greater than 0!")
         }
 
         try {
             collectArray<String>(normalArr3.iterator().step(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Step count must be greater than 0"))
+            @Expect(e.message,"Step count must be greater than 0!")
         }
 
         try {
             collectArray<String>(normalArr3.iterator().step(0))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Step count must be greater than 0"))
+            @Expect(e.message,"Step count must be greater than 0!")
         }
 
         try {
             collectArray<Float64>(normalArr4.iterator().step(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Step count must be greater than 0"))
+            @Expect(e.message,"Step count must be greater than 0!")
         }
 
         try {
             collectArray<Float64>(normalArr4.iterator().step(0))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Step count must be greater than 0"))
+            @Expect(e.message,"Step count must be greater than 0!")
         }
     }
 }
