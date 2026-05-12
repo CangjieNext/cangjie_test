@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -13,7 +13,6 @@ package test_stable_abi
 public class TestClass {
     public static var a: Int64 = 0
 }
-
 public struct TestStruct {
     public static var a: Int64 = 0
 }
@@ -36,10 +35,9 @@ extend TestClass {
             3
         }
     }
-
     @Frozen
     public static prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -50,16 +48,14 @@ extend TestClass {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
-    public mut static prop prop6: Int64 {
+    public static mut prop prop6: Int64 {
         get() {
             6
         }
@@ -84,19 +80,24 @@ extend TestClass {
         }
     }
 
-    public mut static prop prop10: Int64 {
+    public static mut prop prop10: Int64 {
         get() {
             10
         }
         set(v) {
         }
     }
-    public mut static prop prop11: Int64 {
+    public static mut prop prop11: Int64 {
         get() {
             11
         }
         set(v) {
             a = v
+        }
+    }
+    public static prop prop12: Int64 {
+        get() {
+            prop9
         }
     }
 }
@@ -119,10 +120,9 @@ extend TestStruct {
             3
         }
     }
-
     @Frozen
     public static prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -133,16 +133,14 @@ extend TestStruct {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
-    public mut static prop prop6: Int64 {
+    public static mut prop prop6: Int64 {
         get() {
             6
         }
@@ -167,14 +165,14 @@ extend TestStruct {
         }
     }
 
-    public mut static prop prop10: Int64 {
+    public static mut prop prop10: Int64 {
         get() {
             10
         }
         set(v) {
         }
     }
-    public mut static prop prop11: Int64 {
+    public static mut prop prop11: Int64 {
         get() {
             11
         }
@@ -182,4 +180,22 @@ extend TestStruct {
             a = v
         }
     }
+    public static prop prop12: Int64 {
+        get() {
+            prop9
+        }
+    }
+}
+
+public func global_var_01(){
+    TestClass.prop2 == 2
+    && TestClass.prop3 == 3
+    && TestClass.prop7 == 7
+    && TestClass.prop8 == 8
+    && TestClass.prop12 == 9
+    && TestStruct.prop2 == 2
+    && TestStruct.prop3 == 3
+    && TestStruct.prop7 == 7
+    && TestStruct.prop8 == 8
+    && TestStruct.prop12 == 9
 }

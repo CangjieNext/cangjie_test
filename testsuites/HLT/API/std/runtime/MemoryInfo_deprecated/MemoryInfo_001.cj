@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %export cjHeapSize=120mb && %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %export cjHeapSize=120mb && %run %run_opt %output %run_args
 // ASSERT: scan struct 'MemoryInfo' is deprecated. All static Properties are converted to public funtions.
 
 import std.runtime.*

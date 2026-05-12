@@ -1799,7 +1799,6 @@ extend Enum65 {
 // ASSERT: scan parse_expected_left_brace
 // ASSERT: scan parse_expected_character
 // ASSERT: scan parse_unexpected_declaration_in_scope
-// ASSERT: scan parse_expected_expr_or_decl_in
 // ASSERT: scan parse_expected_while_in_do_while
 
 

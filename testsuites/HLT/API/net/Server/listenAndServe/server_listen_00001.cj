@@ -7,14 +7,14 @@
  */
 
 // LEVEL: 0
-// (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output %cmp_utest_opt
+// (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl  %f -o %output %cmp_utest_opt
 // (not Windows) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.net.*
 import stdx.net.http.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls
-//import stdx.crypto.kit
+import stdx.crypto.kit
 
 @Test
 class Test_server_listen_00001 {

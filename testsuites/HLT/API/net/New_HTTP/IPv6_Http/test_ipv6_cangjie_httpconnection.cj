@@ -9,14 +9,14 @@
 // LEVEL: 1
 // DEPENDENCE: ../data
 // DEPENDENCE: ../../../asan
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  asan.%middle %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  %compile_lib_opt asan/asanGC.cj -o asan.%middle
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  asan.%middle %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.encoding.url.*
 import stdx.net.http.*
 import stdx.crypto.keys.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls.*
 import std.time.*
 import std.sync.*
@@ -70,7 +70,7 @@ public class Test_IPv6_Cangjie_Httpconnection {
     func serverConfig(protocol: String): TlsServerConfig {
         let pem0 = String.fromUtf8(readToEnd(File("data/end_rsa.cer", Read)))
         let pem02 = String.fromUtf8(readToEnd(File("data/end_rsa_private_key.pem", Read)))
-        var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+        var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
         tlsConfig.supportedAlpnProtocols = [protocol]
         tlsConfig
     }
@@ -79,7 +79,7 @@ public class Test_IPv6_Cangjie_Httpconnection {
         var tlsConfig = TlsClientConfig()
         let pem = String.fromUtf8(readToEnd(File("data/root_rsa.cer", Read)))
         tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
-        tlsConfig.alpnProtocolsList = [protocol]
+        tlsConfig.supportedAlpnProtocols = [protocol]
         tlsConfig
     }
 

@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: files
-// (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output %cmp_utest_opt
+// (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  %f -o %output %cmp_utest_opt
 // (not Windows) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -22,15 +22,15 @@ import std.net.*
 import std.collection.*
 import stdx.net.http.*
 import stdx.crypto.keys.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey}
+import stdx.crypto.x509.X509Certificate
 import std.fs.*
 
 public func serverConfig(): TlsServerConfig {
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_rsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
     tlsConfig.supportedAlpnProtocols = ["h2"]
     tlsConfig
 }
@@ -39,7 +39,7 @@ public func clientConfig(): TlsClientConfig {
     var tlsConfig = TlsClientConfig()
     let pem = String.fromUtf8(readToEnd(File("./files/root_rsa.cer", Read)))
     tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
-    tlsConfig.alpnProtocolsList = ["h2"]
+    tlsConfig.supportedAlpnProtocols = ["h2"]
     tlsConfig
 }
 

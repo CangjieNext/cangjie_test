@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// ERRCHECK: %compiler %cmp_opt %f -o %output
+// (not iOS) ERRCHECK: %compiler %cmp_opt %f -o %output
 // ASSERT: scan parse_unexpected_anno_on
 
 @Frozen

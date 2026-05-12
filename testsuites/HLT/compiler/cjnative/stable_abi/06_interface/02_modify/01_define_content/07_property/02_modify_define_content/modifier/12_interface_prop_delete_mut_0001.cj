@@ -23,49 +23,31 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
-// ASSERT: scan-1 [API/ABI] Deleted the modifier 'mut' of the member function/property of the interface.
-// ASSERT: scan-1 [API/ABI]
+// ASSERT: scan-2 [API/ABI] Deleted the modifier 'mut' of the member function/property of the interface.
+// ASSERT: scan-2 [API/ABI]
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
 
-
 package test_stable_abi
 
-public interface I1 {
-     public static func typename(): String {
-        "interface I1"
-    }
-
-    public static mut prop a: String {
-         get() {
-           "interface testThree"
-        }
-        set(value) {
-            "interface testThree"
-        }
-    }
-
-     public mut prop b: String {
-         get() {
-           "interface testThree"
-        }
-        set(value) {
-            "interface testThree"
-        }
-    }
-
-      public prop c: String {
-         get() {
-           "interface testThree"
-        }
-    }
-
-    public prop d: Int64 {
-         get() {
-           0
-        }
-       
-    }
-
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
+public interface I {
+    static prop p1: Int64 {
+        get() {1}
+    }
+    prop p2: Int64 {
+        get() {1}
+    }
+    static prop p3: Int64 {
+        get() {1}
+    }
+    prop p4: Int64 {
+        get() {1}
+    }
+}
+public class C <: I {}

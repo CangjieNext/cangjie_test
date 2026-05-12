@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.8.2.1
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: struct static func
   @Behavior: modify annotation
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -42,16 +43,16 @@ public struct S1 {
     }
 
     @OverflowWrapping
-    public static func geta1() {
-        return 0
+    static public func geta1() {
+        return 1
     }
 
-    public static func geta2() {
-        return 0
+    static public func geta2() {
+        return 2
     }
 
-    public static func geta3() {
-        return 0
+    static public func geta3() {
+        return 3
     }
 }
 
@@ -59,6 +60,7 @@ public struct S1 {
 struct S2 {
     let x: Int64 = 0
 }
+
 
 public struct S3 {
     let x: S2 = S2()

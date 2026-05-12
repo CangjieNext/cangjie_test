@@ -14,7 +14,7 @@
 
 foreign func testfunc(a: UIntNative, b: UIntNative): UIntNative
 
-unsafe main(): IntNative {
+unsafe main(): Int64 {
     if (testfunc(9223372036854775808, 9223372036854775809) == 18446744073709551615) {
         return 0
     }

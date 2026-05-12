@@ -5,17 +5,15 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test extend: static function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public class TestClass {}
-
 public struct TestStruct {}
 
 extend TestClass {
@@ -37,7 +35,6 @@ extend TestClass {
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -47,7 +44,6 @@ extend TestClass {
     public static func f7() {
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -68,7 +64,7 @@ extend TestClass {
         12
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13
     }
     public static const func f14(): Int64 {
@@ -91,6 +87,9 @@ extend TestClass {
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
+    public static func f15(): Int64 {
+        return f12()
+    }
 }
 
 extend TestStruct {
@@ -112,7 +111,6 @@ extend TestStruct {
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -122,7 +120,6 @@ extend TestStruct {
     public static func f7() {
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -143,7 +140,7 @@ extend TestStruct {
         12
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13
     }
     public static const func f14(): Int64 {
@@ -169,11 +166,8 @@ extend TestStruct {
 }
 
 private interface I1 {}
-
 internal interface I2 {}
-
 protected interface I3 {}
-
 public interface I4 {}
 
 extend Int64 <: I1 & I2 {
@@ -192,4 +186,13 @@ public class Foo<T> {}
 
 extend<T> Foo<T> where T <: I1 {
     public static func f1() {}
+}
+
+public func global_func_01(){
+    TestClass.f2() == 2
+    && TestClass.f10() != 0
+    && TestClass.f11() != 0
+    && TestStruct.f2() != 0
+    && TestStruct.f11() != 0
+    && TestClass.f15() != 0
 }

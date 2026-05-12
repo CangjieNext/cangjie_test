@@ -9,13 +9,10 @@
 // LEVEL: 2
 // DEPENDENCE: macro_define_20006.cj main_20006.cj
 
-// (CJNATIVE) EXEC: %compiler %cmp_macro macro_define_20006.cj
-// (CJNATIVE) EXEC: %compiler %f %cmp_macro
-// (CJNATIVE) ERRCHECK: %compiler %cmp_opt  main_20006.cj -o %output
+// EXEC: %compiler %cmp_macro macro_define_20006.cj
+// EXEC: %compiler %f %cmp_macro
+// ERRCHECK: %compiler %cmp_opt  main_20006.cj -o %output
 
-// (not CJNATIVE) EXEC: %compiler %cmp_macro macro_define_20006.cj
-// (not CJNATIVE) EXEC: %compiler %f %macro_opt
-// (not CJNATIVE) ERRCHECK: %compiler %cmp_opt main_20006.cj -o %output
 
 macro package test
 

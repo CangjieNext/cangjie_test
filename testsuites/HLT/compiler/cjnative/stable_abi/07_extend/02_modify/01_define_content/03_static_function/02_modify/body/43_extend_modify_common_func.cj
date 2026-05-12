@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.3.2.43
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend static func
   @Behavior: modify common func body
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -33,12 +34,10 @@
 package test_stable_abi
 
 // test extend: static function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public class TestClass {}
-
 public struct TestStruct {}
 
 extend TestClass {
@@ -66,7 +65,6 @@ extend TestClass {
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -79,7 +77,6 @@ extend TestClass {
         } catch (_) {}
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -100,7 +97,7 @@ extend TestClass {
         122
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13 ** 1
     }
     public static const func f14(): Int64 {
@@ -127,6 +124,9 @@ extend TestClass {
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
+    public static func f15(): Int64 {
+        return f12()
+    }
 }
 
 extend TestStruct {
@@ -134,11 +134,7 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         1
     }
 
@@ -146,11 +142,7 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         2
     }
 
@@ -164,7 +156,6 @@ extend TestStruct {
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -175,14 +166,9 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -200,18 +186,14 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         11
     }
     private static func f12() {
         12
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13
     }
     public static const func f14(): Int64 {
@@ -222,11 +204,7 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         a.toString() + b.toString()
     }
     public static func g2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
@@ -237,11 +215,7 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         a + b + c
     }
     public static func p2(a: Son, b!: Son, c!: Son = Son()): Son {
@@ -253,11 +227,8 @@ extend TestStruct {
 }
 
 private interface I1 {}
-
 internal interface I2 {}
-
 protected interface I3 {}
-
 public interface I4 {}
 
 extend Int64 <: I1 & I2 {
@@ -276,4 +247,13 @@ public class Foo<T> {}
 
 extend<T> Foo<T> where T <: I1 {
     public static func f1() {}
+}
+
+public func global_func_01(){
+    TestClass.f2() == 2
+    && TestClass.f10() != 0
+    && TestClass.f11() != 0
+    && TestStruct.f2() != 0
+    && TestStruct.f11() != 0
+    && TestClass.f15() != 0
 }

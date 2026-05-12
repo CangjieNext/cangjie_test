@@ -13,13 +13,14 @@
 
 import std.io.*
 import std.fs.*
+import std.regex.*
 
 main(): Int64 {
     try {
         var fs1 = File("./b/b_04_file_01_bcz.txt", Read)
         ()
     } catch (e: FSException) {
-        if (e.toString() != "FSException: The file does not exist or permission denied!") {
+        if (!Regex("^FSException: The file `.+` does not exist or permission denied!$").matches(e.toString())) {
             return 1
         }
     }

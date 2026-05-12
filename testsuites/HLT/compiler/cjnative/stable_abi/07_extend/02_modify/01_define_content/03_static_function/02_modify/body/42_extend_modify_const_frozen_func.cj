@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.3.2.42
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: modify const frozen func body
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-6 [ABI] The body of a const function or function marked with @Frozen changed.
 // ASSERT: scan-not [API/ABI]
@@ -36,12 +38,10 @@
 package test_stable_abi
 
 // test extend: static function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public class TestClass {}
-
 public struct TestStruct {}
 
 extend TestClass {
@@ -49,11 +49,7 @@ extend TestClass {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         1 ** 1
     }
 
@@ -78,7 +74,6 @@ extend TestClass {
         } catch (_) {}
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         try {
@@ -91,7 +86,6 @@ extend TestClass {
     public static func f7() {
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -106,11 +100,7 @@ extend TestClass {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         10
     }
     internal static func f11() {
@@ -120,23 +110,15 @@ extend TestClass {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         12
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         return 13
     }
     public static const func f14(): Int64 {
@@ -159,6 +141,9 @@ extend TestClass {
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
+    public static func f15(): Int64 {
+        return f12()
+    }
 }
 
 extend TestStruct {
@@ -166,11 +151,7 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         1
     }
 
@@ -195,7 +176,6 @@ extend TestStruct {
         } catch (_) {}
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         try {
@@ -209,14 +189,9 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -231,11 +206,7 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         10
     }
     internal static func f11() {
@@ -245,15 +216,11 @@ extend TestStruct {
         121
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         return 13
     }
     public static const func f14(): Int64 {
@@ -264,11 +231,7 @@ extend TestStruct {
         try {
             throw Exception()
         } catch (_) {}
-        if (true) {
-            1
-        } else {
-            2
-        }
+        if (true) {1} else {2}
         a.toString() + b.toString()
     }
     public static func g2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
@@ -287,11 +250,8 @@ extend TestStruct {
 }
 
 private interface I1 {}
-
 internal interface I2 {}
-
 protected interface I3 {}
-
 public interface I4 {}
 
 extend Int64 <: I1 & I2 {
@@ -310,4 +270,13 @@ public class Foo<T> {}
 
 extend<T> Foo<T> where T <: I1 {
     public static func f1() {}
+}
+
+public func global_func_01(){
+    TestClass.f2() == 2
+    && TestClass.f10() != 0
+    && TestClass.f11() != 0
+    && TestStruct.f2() != 0
+    && TestStruct.f11() != 0
+    && TestClass.f15() != 0
 }

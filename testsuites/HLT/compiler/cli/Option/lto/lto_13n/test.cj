@@ -7,7 +7,9 @@
  */
 
 // LEVEL: 0
-// (CJNATIVE and not MAC) ERRCHECK: %compiler %cmp_opt --lto=aaa %f -o %output
+// DESCRIPTION: invalid value for option --lto
+// EXEC-PIPE-1: %compiler %cmp_opt --lto=aaa %f -o %output 2>&1 | compare %f
+// ASSERT: scan-not does not support
 // ASSERT: scan invalid value: 'aaa'
 
 main(): Int64 {

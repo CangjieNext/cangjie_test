@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Changed member function's annotation of struct visible outside the module. Deprecated strict added.
 // ASSERT: scan-1 [API/ABI] Struct member added variable deprecated annotation with compilation error.
@@ -33,6 +35,7 @@
 // test struct: add @Deprecated
 // 基于 @Deprecated 的参数条件，当前struct在下游模块中不可用
 package test_stable_abi
+
 
 public struct Rectangle {
     static let width = 10
@@ -105,4 +108,8 @@ public struct Rectangle5 {
     public const func getWidth(): Int64{
         return a9
     }
+}
+
+public func f(){
+    return 0
 }

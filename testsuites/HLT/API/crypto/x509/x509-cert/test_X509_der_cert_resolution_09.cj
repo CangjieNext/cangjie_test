@@ -2,17 +2,18 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- *
+ * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
 // LEVEL: 0
 // DEPENDENCE: ../data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix  %f %cmp_utest_opt
-// RUN-EXEC: %run_stdx %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl -o %output  %f %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.fs.*
 import stdx.crypto.x509.*
+import stdx.crypto.common.*
 
 
 @Test

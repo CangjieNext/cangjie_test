@@ -21,7 +21,8 @@
 // ASSERT: regex .*default.*cls.*static_var.*
 // ASSERT: regex .*default.*cls.*static_func.*
 // ASSERT: regex .*default.*cls.*member_func.*
-// ASSERT: regex .*default.*<main>.*
+// (not iOS) ASSERT: regex .*default.*<main>.*
+// (iOS) ASSERT: regex .*default.*cj_main.*
 
 public var global_public_var: Int64 = 1
 var global_var = 1

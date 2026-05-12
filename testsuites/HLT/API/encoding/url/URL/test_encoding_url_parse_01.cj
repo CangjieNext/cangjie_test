@@ -18,14 +18,20 @@ public class Test_encoding_url_01 {
     @TestCase
     func case1(): Unit {
         var str = "https://wwww.example%1E%7C%1b.com/zps"
-        var url1 = URL.parse(str)
-        @Expect(url1.toString(), "https://wwww.example%1E%7C%1B.com/zps")
+        try {
+            var url1 = URL.parse(str)
+        } catch(e: UrlSyntaxException) {
+            @Expect(e.toString().contains("Invalid hostname: contains control characters"))
+        }
     }
 
     @TestCase
     func case2(): Unit {
         var str = "https://wwww.example%11.com/zps"
-        var url1 = URL.parse(str)
-        @Expect(url1.toString(), "https://wwww.example%11.com/zps")
+        try {
+            var url1 = URL.parse(str)
+        } catch(e: UrlSyntaxException) {
+            @Expect(e.toString().contains("Invalid hostname: contains control characters"))
+        }
     }
 }

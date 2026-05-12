@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 8.1
   @Scene: add
@@ -13,7 +13,7 @@
   @Object: import
   @Behavior: add import
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // Expect: API Compatible && ABI Incompatible
 // DEPENDENCE: main.cj, template.cj
@@ -24,6 +24,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] Added import statement or changed modifier of an existing one.
 // ASSERT: scan-not [API/ABI]
@@ -40,5 +43,5 @@ import std.collection.*
 public import std.core.*
 public import std.math.*
 
-let list = ArrayList<Int64>([-2, -1, 0, 1, 2])
-public var a = abs(list[0] + list[1] + list[2] + list[3] + list[4])
+let list = ArrayList<Int64>([-2,-1,0,1,2])
+public var a = abs(list[0] + list[1] +list[2] + list[3] + list[4])

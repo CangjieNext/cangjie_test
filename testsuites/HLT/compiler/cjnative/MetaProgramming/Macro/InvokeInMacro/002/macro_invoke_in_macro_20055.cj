@@ -8,13 +8,10 @@
 
 // LEVEL: 2
 // DEPENDENCE: define_20055.cj define_20055a.cj main_20055.cj
-// (CJNATIVE) EXEC: %compiler define_20055.cj %cmp_macro
-// (CJNATIVE) EXEC: %compiler define_20055a.cj %cmp_macro
-// (CJNATIVE) ERRCHECK: %compiler %f %cmp_macro
+// EXEC: %compiler define_20055.cj %cmp_macro
+// EXEC: %compiler define_20055a.cj %cmp_macro
+// ERRCHECK: %compiler %f %cmp_macro
 
-// (not CJNATIVE) EXEC: %compiler define_20055.cj %macro_opt
-// (not CJNATIVE) EXEC: %compiler define_20055a.cj %macro_opt
-// (not CJNATIVE) ERRCHECK: %compiler  %f %cmp_opt_no_output %macro_opt
 
 macro package use
 

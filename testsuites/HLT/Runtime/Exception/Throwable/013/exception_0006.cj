@@ -8,7 +8,7 @@
 
 // LEVEL: 3
 // EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %export cjHeapSize=4MB && %run %run_opt %output %run_args 2>&1| compare %f
+// RUN-EXEC: %export cjHeapSize=4MB && %run %run_opt %output %run_args 2>&1| compare %f
 // ASSERT: scan OutOfMemoryError
 
 import std.collection.*

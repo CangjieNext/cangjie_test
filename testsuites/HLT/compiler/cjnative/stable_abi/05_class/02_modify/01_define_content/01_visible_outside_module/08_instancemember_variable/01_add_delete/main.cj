@@ -10,13 +10,10 @@ import test_stable_abi.*
 
 main() {
     let c0 = CC()
-
-    if (c0.check == 0) {
-        return 0        
-    } else {
-        return 1
-    }
-
+    assert(c0.check, 0)
+    assert(c0.a1, 1)
+    assert(c0.a2, 2)
+    checker()
 }
 
 

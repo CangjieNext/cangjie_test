@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output %cmp_utest_opt
 // RUN-EXEC: %export cjHeapSize=4GB && %run_stdx %output %run_utest_opt %run_args 
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -60,7 +60,7 @@ public class Test_writeTimeout {
             .header("expect", "100-continue")
             .build()
         let e = @AssertThrows[HttpTimeoutException](client.send(request))
-        @Expect(e.message.contains("Client1.1 write request timeout and the connection is closed"))
+        @Expect(e.message, "Client1.1 write request timeout and the connection is closed.")
         client.close()
         s.close()
     }
@@ -89,7 +89,7 @@ public class Test_writeTimeout {
         @Expect(client.writeTimeout, Duration.Zero)
         let request = HttpRequestBuilder().body(body).url("http://127.0.0.1:${s.port}/dd").build()
         let e = @AssertThrows[HttpTimeoutException](client.send(request))
-        @Expect(e.message.contains("Client1.1 write request timeout and the connection is closed"))
+        @Expect(e.message, "Client1.1 write request timeout and the connection is closed.")
         client.close()
         s.close()
     }

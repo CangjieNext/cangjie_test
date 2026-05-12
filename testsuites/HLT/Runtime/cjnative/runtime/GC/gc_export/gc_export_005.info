@@ -20,15 +20,15 @@
 // EXEC: echo %export cjGCInterval=  >> gc_export_005.sh
 // EXEC: echo %export cjBackupGCInterval=50.0 >> gc_export_005.sh
 // EXEC: echo %export cjStackSize=10.3kb >> gc_export_005.sh
-// (not Windows) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && %source gc_export_005.sh && %run %run_opt %output %run_args && cat log.txt | compare %f
-// (Windows and not OHOS) EXEC: ren gc_export_005.sh gc_export_005.bat
-// (Windows and not OHOS) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && gc_export_005.bat && %run %run_opt %output %run_args && cat log.txt | compare %f
-// (Windows and OHOS) EXEC: dos2unix gc_export_005.sh
-// (Windows and OHOS) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && source gc_export_005.sh && %run %run_opt %output %run_args && cat log.txt | compare %f
+// (target_linux | target_android | target_mac) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && %source gc_export_005.sh && %run %run_opt %output %run_args && cat log.txt | compare %f
+// (host_win & !target_ohos) EXEC: ren gc_export_005.sh gc_export_005.bat
+// (host_win & !target_ohos) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && gc_export_005.bat && %run %run_opt %output %run_args && cat log.txt | compare %f
+// (host_win & target_ohos) EXEC: dos2unix gc_export_005.sh
+// (host_win & target_ohos) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && source gc_export_005.sh && %run %run_opt %output %run_args && cat log.txt | compare %f
 // ASSERT:scan 10
 // ASSERT:scan Heap size: 262144(KB)
-// (not OHOS) ASSERT:scan Region size: 64(KB)
-// (OHOS) ASSERT:scan Region size: 1024(KB)
+// (!target_ohos & !target_android) ASSERT:scan Region size: 64(KB)
+// (target_ohos | target_android) ASSERT:scan Region size: 1024(KB)
 // ASSERT:scan Exemption threshold: 0.80
 // ASSERT:scan Heap utilization: 0.80
 // ASSERT:scan Heap growth: 1.15
@@ -37,5 +37,5 @@
 // ASSERT:scan Garbage threshold: 0.50
 // ASSERT:scan GC interval: 150ms
 // ASSERT:scan Backup GC interval: 240s
-// (not OHOS and not MAC)ASSERT:scan Cangjie stack size: 128(KB)
-// (MAC and Windows and OHOS)ASSERT:scan Cangjie stack size: 1024(KB)
+// (!target_ohos & !target_android & !target_mac)ASSERT:scan Cangjie stack size: 128(KB)
+// (target_ohos | target_android | target_mac)ASSERT:scan Cangjie stack size: 1024(KB)

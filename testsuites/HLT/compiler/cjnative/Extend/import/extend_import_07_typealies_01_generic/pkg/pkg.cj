@@ -22,5 +22,5 @@ type TA<T> = A<T>
 main(): Int64 {
     return TA<Int64>().plus(TA<Int64>(), TA<Int64>()) - 2
 }
-// (not CJNATIVE) ASSERT: scan sema_no_match_function_declaration_for_call
-// (CJNATIVE) ASSERT: scan sema_not_member_of
+
+// ASSERT: scan sema_not_member_of

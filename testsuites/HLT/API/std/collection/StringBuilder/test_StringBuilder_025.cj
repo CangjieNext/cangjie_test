@@ -7,12 +7,12 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f
-// RUN-EXEC: %run %run_opt %n.%suffix %run_args
+// EXEC: %compiler %cmp_opt -o %output %f
+// RUN-EXEC: %run %run_opt %output %run_args
 
 import std.math.*
 
-unsafe main(): Int32 {
+unsafe main(): Int64 {
     var strb = StringBuilder([r'b', r' ', r'c', r'戸', r'E', r'@', r'。', r'a', r',', r'\''])
     var arr1: Array<UInt8> = [9, 32]
     strb.appendFromUtf8(Array<UInt8>())

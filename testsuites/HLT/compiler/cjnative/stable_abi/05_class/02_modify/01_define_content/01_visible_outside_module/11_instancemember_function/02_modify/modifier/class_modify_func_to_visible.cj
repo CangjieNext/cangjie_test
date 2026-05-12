@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.11.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance func
   @Behavior: modifier non public to public
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -33,8 +34,7 @@
 package test_stable_abi
 
 // test class: instancemember function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 @Annotation
@@ -45,7 +45,7 @@ public class Version {
     }
 }
 
-public open class TestClass {
+open public class TestClass {
     public func f1() {
         1
     }
@@ -69,7 +69,6 @@ public open class TestClass {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -77,7 +76,6 @@ public open class TestClass {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     public func pf6(): Int64 {
         pf5()
@@ -92,17 +90,14 @@ public open class TestClass {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     public func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func pf9() {
         9
@@ -170,14 +165,32 @@ public open class TestClass {
         2
     }
 
-    public open func openfunc() {
+    open public func openfunc() {
         1
     }
 
     public const init() {}
 }
 
-public func global() {
-    let v1 = TestClass()
-    v1.f7()
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public unsafe func checker(tc: TestClass): Unit {
+    assert(tc.f1(), 1)
+    assert(tc.f4(), 3)
+    assert(tc.f6(), 5)
+    assert(tc.openfunc(), 1)
+    assert(tc.f8(), 8)
+    assert(tc.f13(), 13)
+    assert(tc.f14(), 14)
+    assert(tc.g1<Int64, Int64, Son>(1, 2, Son()), "12")
+    assert(tc.g2<Int64, String, Son>(1, "a", Son()), "1")
+    assert(tc.p1(1, b: 2, c: 3), 6)
+    assert(tc.p2(Son(), b: Son()) is Son, true)
+    assert(tc.p3(Father(), b: Father()) is Father, true)
+    assert(tc.ano1(), 1)
 }

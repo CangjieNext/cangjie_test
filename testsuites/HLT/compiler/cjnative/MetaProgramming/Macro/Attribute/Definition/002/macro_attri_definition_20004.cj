@@ -25,5 +25,6 @@ public macro M(attr: Tokens, input: Tokens): Tokens {
     //foo<C>(C())
 
     //func bar(){}
+    //bar()
     return quote(0)
 }

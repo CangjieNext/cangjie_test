@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args 
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -16,9 +16,9 @@ import std.sync.*
 import std.net.*
 import std.collection.*
 import stdx.net.http.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls
-//import stdx.crypto.kit
+import stdx.crypto.kit
 import stdx.log.*
 import stdx.logger.*
 import std.console.Console
@@ -133,7 +133,7 @@ public class Test_httpProxy {
             client.get("http://127.0.0.1:8080")
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message.contains("Failed to resolve address abc"))
+            @Expect(e.message, "Failed to resolve address abc.")
         }
         @Expect(flag, true)
     }
@@ -146,7 +146,7 @@ public class Test_httpProxy {
             client.get("127.0.0.1:8080")
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message.contains("Proxy must have http scheme"))
+            @Expect(e.message, "Proxy must have http scheme.")
         }
         @Expect(flag, true)
     }

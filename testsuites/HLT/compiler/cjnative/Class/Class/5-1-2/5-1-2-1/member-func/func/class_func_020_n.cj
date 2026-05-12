@@ -11,13 +11,13 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 
 abstract class BaseA {
-    public open func get(): Int32 {
+    public open func get(): Int64 {
         return 1
     }
 }
 
 class Data <: BaseA {
-    public func get(): Int32 {
+    public func get(): Int64 {
         return 2
     }
 }

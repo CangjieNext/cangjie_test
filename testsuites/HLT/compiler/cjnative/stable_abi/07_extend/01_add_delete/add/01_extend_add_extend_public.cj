@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.1.1
   @Scene: add
@@ -13,7 +13,7 @@
   @Object: extend
   @Behavior: add extend
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -42,20 +43,15 @@ public interface I1 {
 
 private interface I2 {}
 
-public open class C1 {}
-
+open public class C1 {}
 public class C2 {
     public const init() {}
 }
-
-public open class C3<T, U> where T <: ToString {}
-
+open public class C3<T, U> where T <: ToString {}
 public class C4 <: C1 {}
-
 public class C5<T, U> <: C3<T, U> where T <: ToString {}
 
 public struct S1 {}
-
 public struct S2<T, U> where U <: C1 {}
 
 extend C1 {
@@ -173,4 +169,12 @@ extend C5<Int64, I2> {
     public func unexported_foo2() {
         5
     }
+}
+
+public func global_func_01() {
+    Array<UInt64>().test_ABI_add_extend_1() == 1
+    && Array<Int64>().test_ABI_add_extend_2() == 1
+    && Array<C2>().test_ABI_add_extend_3() == 1
+    && Array<I2>().unexported_foo1() == 1
+    && C5<Int64, I2>().unexported_foo2() == 5
 }

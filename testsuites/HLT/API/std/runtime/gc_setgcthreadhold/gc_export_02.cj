@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// (CJNATIVE) ERRCHECK: %compiler %cmp_opt %f -o %output
+// ERRCHECK: %compiler %cmp_opt %f -o %output
 // ASSERT: scan sema_exceed_num_value_range
 
 import std.runtime.*

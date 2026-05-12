@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 8.4
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: import
   @Behavior: modify import declare
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // Expect: API Compatible && ABI Compatible
 // DEPENDENCE: main.cj, template.cj, a, b
@@ -27,6 +27,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt p1.%middle q.%middle p2.%middle %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -42,3 +44,4 @@ import a.p.v1
 public import a.p.v2
 
 public var v = v1 + v2
+public var m = 1.0 + acosh(1.0) + acos(1.0)

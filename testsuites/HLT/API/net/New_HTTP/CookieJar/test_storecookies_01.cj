@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 /*
@@ -366,6 +366,10 @@ class Test_CookieJar_StoreCookies_01 {
         var cookiesfromjar = cookiejar.getCookies(URL.parse("http://a.com/a/b"))
         @Expect(cookiesfromjar.size, 0)
         var cookiesfromjar00 = cookiejar.getCookies(URL.parse("https://a.com/a/b"))
+        @Expect(cookiesfromjar00.size, 0)
+
+        cookiejar.storeCookies(URL.parse("https://a.com/a/b"), cookie0)
+        cookiesfromjar00 = cookiejar.getCookies(URL.parse("https://a.com/a/b"))
         @Expect(cookiesfromjar00.size, 1)
     }
 }

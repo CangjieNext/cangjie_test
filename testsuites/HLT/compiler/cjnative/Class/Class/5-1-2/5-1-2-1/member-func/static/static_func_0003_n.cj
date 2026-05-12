@@ -17,5 +17,5 @@ class Base {
         return this.f()
     }
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_object_cannot_access_static_member

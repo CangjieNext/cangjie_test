@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f --test
-// RUN-EXEC: %run %run_opt %n.%suffix %run_args
+// EXEC: %compiler %cmp_opt -o %output %f --test
+// RUN-EXEC: %run %run_opt %output %run_args
 
 import std.unicode.*
 import std.collection.*
@@ -420,7 +420,7 @@ class UnicodeStringTest {
     @TestCase
     func toUpperTitleAndLowerWithAZTR(): Unit {
         var op = CasingOption.TR
-        @Expect("\u{0130}".toLower(op), "\u{0069}\u{0307}")
+        @Expect("\u{0130}".toLower(op), "\u{0069}")
         @Expect("\u{0049}".toLower(op), "\u{0131}")
         @Expect("\u{0049}\u{0307}".toLower(op), "\u{0069}")
 
@@ -433,7 +433,7 @@ class UnicodeStringTest {
         @Expect("\u{0069}".toTitle(op), "\u{0130}")
 
         op = CasingOption.AZ
-        @Expect("\u{0130}".toLower(op), "\u{0069}\u{0307}")
+        @Expect("\u{0130}".toLower(op), "\u{0069}")
         @Expect("\u{0049}".toLower(op), "\u{0131}")
         @Expect("\u{0049}\u{0307}".toLower(op), "\u{0069}")
 

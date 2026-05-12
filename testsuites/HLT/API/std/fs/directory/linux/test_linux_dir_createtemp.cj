@@ -65,7 +65,7 @@ class Test_Dir_CreateTemp {
         try {
             Directory.createTemp("dir001")
         } catch (e: FSException) {
-            @Expect(e.message, "Failed to canonical: the path may not exist or permission denied!")
+            @Expect(e.message, "Failed to canonical: the input path `dir001` may not exist or permission denied!")
             sum += 1
         }
         @Expect(sum, 1)
@@ -81,7 +81,7 @@ class Test_Dir_CreateTemp {
         try {
             Directory.createTemp("dir001")
         } catch (e: FSException) {
-            @Expect(e.message, "Failed to create the temporary directory!")
+            @Expect(e.message, "Failed to create the temporary directory `dir001`!")
             sum += 1
         }
         match (user) {

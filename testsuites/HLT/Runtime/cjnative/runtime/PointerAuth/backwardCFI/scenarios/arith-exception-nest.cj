@@ -13,8 +13,8 @@
 // LEVEL: 3
 // (OHOS and not Android) DEPENDENCE: ../exploit-wrapper.cj
 // (OHOS and not Android) DEPENDENCE: ../exploit.c
-// (Windows and OHOS and not Android) EXEC: %clang -c -march=armv8+pauth -fPIC %ohos_opt --sysroot=%OHOS_ROOT%/out/generic_generic_arm_64only/hisi_all_phone_standard/obj/third_party/musl exploit.c -o exploit.o
-// (MAC and OHOS and not Android) EXEC: %clang -c -march=armv8+pauth -fPIC %ohos_opt --sysroot=${OHOS_ROOT}/out/generic_generic_arm_64only/hisi_all_phone_standard/obj/third_party/musl exploit.c -o exploit.o
+// (Windows and OHOS and not Android) EXEC: %clang -c -march=armv8+pauth -fPIC %ohos_opt --sysroot=%OHOS_ROOT%/sysroot exploit.c -o exploit.o
+// (MAC and OHOS and not Android) EXEC: %clang -c -march=armv8+pauth -fPIC %ohos_opt --sysroot=${OHOS_ROOT}/sysroot exploit.c -o exploit.o
 // (OHOS and not Android) EXEC: %compiler %cmp_opt --link-options=--export-dynamic -ldl -o %n.%suffix %f exploit-wrapper.cj exploit.o
 
 // In our test, runtime or ohos will rethrow SIGILL(6) as SIGSEGV(11),

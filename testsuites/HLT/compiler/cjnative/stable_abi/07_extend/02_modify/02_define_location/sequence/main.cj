@@ -5,15 +5,18 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
     let a = TestStruct()
     let b = TestE1.XY
-    if (a.prop1 == 1 && a.propa == 1
-        && b.prop1 == 1 && b._prop3 == 3) {
+    if (a.prop1==1 && a.propa ==1
+    && b.prop1 == 1 && b._prop3 ==3
+    ) {
         return 0
     }
     return 1
 }
+
+

@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// ERRCHECK: %compiler %cmp_opt -pgo-instr-gen %f -o %output
-// ASSERT: scan invalid option: '-pgo-instr-gen'.
+// (not MAC) ERRCHECK: %compiler %cmp_opt -pgo-instr-gen %f -o %output
+// (not MAC) ASSERT: scan invalid option: '-pgo-instr-gen'.
 
 main() {
     return 0

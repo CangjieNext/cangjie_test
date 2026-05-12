@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.5.1.2.40
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: modify func default value
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,27 +23,25 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-4 [ABI] Deleted default value of named parameter.
+// ASSERT: scan-4 [ABI] Changed parameter default value of a const function or function marked with @Frozen.
 // ASSERT: scan-4 [ABI]
 // ASSERT: scan-not [API/ABI]
-// ASSERT: scan-not [ABI]
+// ASSERT: scan-not [API]
 
 package test_stable_abi
 
 // test extend: instance function
-interface I {}
-
-public open class Father {}
-
-public class Son <: Father & I {}
-
+interface I{}
+open public class Father {}
+public class Son <: Father & I{}
 interface I2 <: I {}
 
-public open class TestClass {
+open public class TestClass {
     public const init() {}
 }
-
 extend TestClass {
     public func f1() {
         1
@@ -68,7 +66,6 @@ extend TestClass {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -76,7 +73,6 @@ extend TestClass {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -91,17 +87,14 @@ extend TestClass {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
@@ -156,25 +149,24 @@ extend TestClass {
         c
     }
 
-    private const func fa3(a!: Int64 = 11): Int64 {
+    private const func fa3(a!:Int64 = 11): Int64 {
         return 3
     }
-    public const func f4(a!: Int64 = 11): Int64 {
+    public const func f4(a!:Int64 = 11): Int64 {
         fa3()
     }
     internal const func paf3(): Int64 {
         return 3
     }
-    protected const func paf4(a!: Int64 = 11): Int64 {
+    protected const func paf4(a!:Int64 = 11): Int64 {
         paf3()
     }
 
     func fa5(): Int64 {
         return 5
     }
-
     @Frozen
-    public func f6(a!: Int64 = 11): Int64 {
+    public func f6(a!:Int64 = 11): Int64 {
         fa5()
     }
 }

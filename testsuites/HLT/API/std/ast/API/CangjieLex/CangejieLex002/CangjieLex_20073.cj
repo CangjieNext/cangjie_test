@@ -9,13 +9,15 @@
 // LEVEL: 1
 // DEPENDENCE:../utils.cj 
 // EXEC: %compiler %cmp_opt %f utils.cj %use_ast -o %output
-// RUN-EXEC: %run %run_opt %output  %run_args
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan IllegalArgumentException:
+// ASSERT: scan expected decimal digit, found '+'
 
 import std.ast.*
 
 main(){
-    var i = "-0xF.FE+1"
+    var i = "-0xF.FP+1"
     var a : Tokens = cangjieLex(i)
-    var b : Tokens = Tokens().append(Token(TokenKind.SUB, '-')).append(Token(TokenKind.FLOAT_LITERAL, "0xF.FE")).append(Token(TokenKind.ADD, "+")).append(Token(TokenKind.INTEGER_LITERAL, "1"))
+    var b : Tokens = Tokens().append(Token(TokenKind.SUB, '-')).append(Token(TokenKind.FLOAT_LITERAL, "0xF.FP")).append(Token(TokenKind.ADD, "+")).append(Token(TokenKind.INTEGER_LITERAL, "1"))
     return check(a, b)
 }

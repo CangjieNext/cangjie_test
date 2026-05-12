@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: files
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args 
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -18,7 +18,7 @@ import std.net.*
 import std.collection.*
 import stdx.net.http.*
 import stdx.crypto.keys.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.log.*
 import stdx.logger.*
 import std.console.Console
@@ -32,7 +32,7 @@ import std.convert.*
 public func serverConfig(): TlsServerConfig {
     let pem0 = String.fromUtf8(readToEnd(File("./files/end_rsa.cer", Read)))
     let pem02 = String.fromUtf8(readToEnd(File("./files/end_rsa_private_key.pem", Read)))
-    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+    var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
     tlsConfig.supportedAlpnProtocols = ["http/1.1"]
     tlsConfig
 }
@@ -71,7 +71,7 @@ func startProxy(serverPort: UInt16) {
         sleep(Duration.millisecond * 200)
         let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
         let socket = proxyServerSocket.accept()
-        socket.readTimeout = Duration.millisecond * 100
+        socket.readTimeout = Duration.second * 3
     
         let buf = Array<UInt8>(500, repeat: 0)
         sleep(Duration.millisecond * 100)
@@ -176,7 +176,7 @@ public class Test_httpsProxy {
             let res = client.send(request)
         } catch (e: Exception) {
             flag = true
-            @Expect(e.message.contains("Failed to resolve address abc"))
+            @Expect(e.message, "Failed to resolve address abc.")
         }
         @Expect(flag, true)
     }

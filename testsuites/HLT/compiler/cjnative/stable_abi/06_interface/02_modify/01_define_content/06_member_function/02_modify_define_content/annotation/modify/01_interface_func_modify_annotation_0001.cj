@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -31,32 +33,30 @@
 
 package test_stable_abi
 
-@Annotation
-public class Version {
-    let code: String
-    const init(code: String) {
-        this.code = code
-    }
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
-
-
-public interface I1 {
-
-    @Version["1.1"]
-    public static func typename(): String {
-        "interface I1"
-    }
-
-    @Version["2.2"]
-    public static func testOne(): Unit {
-
-    }
-    
-    public func testTwo(): Unit {
-        
-    }
-
-    public static func testThree(): String {
-          "interface testThree"
-    }
+@Annotation
+public class Version1 {
+    let code: String
+    const init(code: String) { this.code = code }
+}
+@Annotation
+public class Version2 {
+    let code: String
+    const init(code: String) { this.code = code }
+}
+public interface I {
+    @Version1["1.2"]
+    static func g1() {1}
+    @Version2["1.2"]
+    func g2() {1}
+    @Version1["1.2"]
+    static func g3(): Int64
+    @Version2["1.2"]
+    func g4(): Int64
+}
+public class C <: I {
+    public static func g3(): Int64 {1}
+    public func g4(): Int64 {1}
 }

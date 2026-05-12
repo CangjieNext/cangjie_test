@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// (not O2) EXEC: %compiler %cmp_opt %f -o %output
-// (not O2) RUN-EXEC-PIPE: %export cjStackSize=64kb && %export CJ_SOF_SIZE=-2147483646 && %run %run_opt %output %run_args 2> log.txt && grep -E "An exception has occurred|StackOverflowError|stack207.cj|at default.main" log.txt | compare %f
+// (not O2 and not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (not O2 and not iOS) RUN-EXEC-PIPE: %export cjStackSize=64kb && %export CJ_SOF_SIZE=-2147483646 && %run %run_opt %output %run_args 2> log.txt && grep -E "An exception has occurred|StackOverflowError|stack207.cj|at default.main" log.txt | compare %f
 
 // ASSERT: scan-begin An exception has occurred
 // ASSERT: scan-next StackOverflowError

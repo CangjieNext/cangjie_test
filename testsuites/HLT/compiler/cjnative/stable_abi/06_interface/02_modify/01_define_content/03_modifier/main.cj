@@ -5,11 +5,13 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
+class C1 <: I1 {}
+class C2 <: I7 {}
 main() {
-    if (I1.typename() == "interface I1") {
+    if (I1.g() + I6.g() + I7.g() + I8.g() + f() + C1.g() + C2.g() == 10) {
         0
     } else {
         1

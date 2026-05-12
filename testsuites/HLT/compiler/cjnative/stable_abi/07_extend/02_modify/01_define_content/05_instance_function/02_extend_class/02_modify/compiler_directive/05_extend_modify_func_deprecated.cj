@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.5.1.2.5
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: modify instance func deprecated true -> false
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -33,18 +34,14 @@
 package test_stable_abi
 
 // test extend: instance function
-interface I {}
-
-public open class Father {}
-
-public class Son <: Father & I {}
-
+interface I{}
+open public class Father {}
+public class Son <: Father & I{}
 interface I2 <: I {}
 
-public open class TestClass {
+open public class TestClass {
     public const init() {}
 }
-
 extend TestClass {
     public func f1() {
         1
@@ -69,7 +66,6 @@ extend TestClass {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -77,7 +73,6 @@ extend TestClass {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -92,17 +87,14 @@ extend TestClass {
     public func f8() {
         8
     }
-
     @Deprecated["This API will be deprecated soon"]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf9() {
         9
@@ -123,6 +115,9 @@ extend TestClass {
     }
     public const func f14(): Int64 {
         14
+    }
+    public func f15(): Int64 {
+        f3()
     }
 
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
@@ -161,4 +156,18 @@ extend TestClass {
 public func global() {
     let v1 = TestClass()
     v1.f7()
+}
+
+public func global_func_01(){
+    let ts = TestClass()
+    
+    ts.f2() == 2
+    && ts.pf3() == 3
+    && ts.pf4() == 4
+    && ts.f7() == 7
+    && ts.pp1(1, b: 2) == 4
+    && ts.pf8() == 8
+    && ts.f9() == 9
+    && ts.pf9() == 9
+    && ts.f15() == 3
 }

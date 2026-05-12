@@ -33,5 +33,7 @@ extend Int8 {
     }
 }
 // ASSERT: scan parse_expected_character
-// ASSERT: scan parse_expected_name
-// ASSERT: scan parse_expected_expr_or_decl_in
+// ASSERT: scan parse_missing_body
+// ASSERT: scan parse_expected_decl
+
+

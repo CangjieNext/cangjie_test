@@ -7,13 +7,13 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f
-// RUN-EXEC: %run %run_opt %n.%suffix %run_args
+// EXEC: %compiler %cmp_opt -o %output %f
+// RUN-EXEC: %run %run_opt %output %run_args
 
 import std.math.*
 import std.collection.*
 
-main(): Int32 {
+main(): Int64 {
     var strb4 = StringBuilder("")
     if (strb4.size != 0) {
         return 4

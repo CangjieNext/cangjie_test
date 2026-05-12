@@ -41,38 +41,38 @@ class Test_Path_Join {
         try {
             Path("").join("a")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The `rawPath` cannot be an empty string!")
+            @Expect(e.message, "The path is empty.")
             sum += 1
         }
         try {
             Path("").join(Path("a"))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The `rawPath` cannot be an empty string!")
+            @Expect(e.message, "The path is empty.")
             sum += 1
         }
         for (str in illegal_path_string) {
             try {
                 Path(str).join(".a")
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The `rawPath` cannot contain null character!")
+                @Expect(e.message.contains("contains null character"))
                 sum += 1
             }
             try {
                 Path(str).join(Path("a.b"))
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The `rawPath` cannot contain null character!")
+                @Expect(e.message.contains("contains null character"))
                 sum += 1
             }
             try {
                 Path("C:\\a").join(str)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The `path` cannot contain null character!")
+                @Expect(e.message.contains("contains null character"))
                 sum += 1
             }
             try {
                 Path("\\\\.\\C:\\a").join(Path(str))
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The `path` cannot contain null character!")
+                @Expect(e.message.contains("contains null character"))
                 sum += 1
             }
         }
@@ -86,13 +86,13 @@ class Test_Path_Join {
             try {
                 Path("C:\\a").join(str)
             } catch (e: FSException) {
-                @Expect(e.message, "The `path` cannot be an absolute path!")
+                @Expect(e.message, "The input path `${str}` cannot be an absolute path!")
                 sum += 1
             }
             try {
                 Path("\\\\?\\C:\\a").join(Path(str))
             } catch (e: FSException) {
-                @Expect(e.message, "The `path` cannot be an absolute path!")
+                @Expect(e.message, "The input path `${str}` cannot be an absolute path!")
                 sum += 1
             }
         }

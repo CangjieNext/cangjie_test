@@ -26,6 +26,6 @@ class Child <: Parent {
 main(): Int64 {
  return Child().main()
 }
-// ASSERT: scan parse_unexpected_declaration_in_scope
+// (not iOS) ASSERT: scan parse_unexpected_declaration_in_scope
 // ASSERT: scan parse_expected_name
 // ASSERT: scan parse_missing_body

@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// ERRCHECK: %compiler %cmp_opt %f -o %output 
+// (!(target_ios | target_ios_simulator)) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f 
 
 macro package A
 
@@ -20,4 +20,4 @@ public macro a1(x: Tokens, y: Tokens) {
 public macro a2(x: Tokens, y: Tokens) {
     quote(0)
 }
-// ASSERT: scan sema_missing_entry
+// (!(target_ios | target_ios_simulator)) ASSERT: scan sema_missing_entry

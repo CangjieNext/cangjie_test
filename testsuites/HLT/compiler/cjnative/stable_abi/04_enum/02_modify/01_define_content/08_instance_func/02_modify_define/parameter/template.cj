@@ -5,14 +5,11 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
-// ASSERT: scan Compatible!
-
+ 
+// ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
-import std.random.*
-
-public open class A {
+open public class A {
     let a: Int64 = 10
 }
 
@@ -23,11 +20,11 @@ public class B <: A {
 public enum Rectangle {
     | Red | Green | Blue(UInt8)
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return 11
     }
 
-    public func geta(a: Random, b!: Int64, c!: Int64 = 1): Int64 {
+    public func geta(a: String, b!: Int64, c!: Int64 = 1): Int64 {
         return b + c
     }
 
@@ -45,7 +42,7 @@ public enum Rectangle {
         return 1
     }
 
-    func geta4(a: Int64, b: Float64, c!: Int64 = 1, d!: Float64 = 2.2) {
+    func geta4(a: Int64, b: Float64, c!: Int64=1, d!: Float64=2.2) {
         return 1
     }
 
@@ -55,7 +52,7 @@ public enum Rectangle {
         return x
     }
 
-    public func geta6(a: Int64, b: Float64, c!: Int64 = 1, d!: Float64 = 2.2) {
+    public func geta6(a: Int64, b: Float64, c!: Int64=1, d!: Float64=2.2) {
         return 1
     }
 
@@ -72,4 +69,21 @@ public enum Rectangle {
     public func geta9(a: A, b: B) {
         return 1
     }
+
+    public const func geta10(a: Int64, b: Float64, c!: Int64=1, d!: Float64=2.2) {
+        return 1
+    }
+
+    @Frozen
+    public func geta11(a: Int64, b: Float64, c!: Int64=1, d!: Float64=2.2) {
+        return 1
+    }
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(Red.geta1(1, b: 1), 1)
+    assert(Red.geta4(1, 1.0), 1)
+    assert(Red.geta7(A(), B()), 1)
 }

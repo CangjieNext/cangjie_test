@@ -15,3 +15,13 @@ public class S {
 }
 
 
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(s: S): Unit {
+    assert(s.a, 0)
+}

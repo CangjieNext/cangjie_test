@@ -5,12 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test extend: instance property
-public open class TestClass {
+open public class TestClass {
     public var a: Int64 = 0
 }
 
@@ -37,10 +37,9 @@ extend TestClass {
             3
         }
     }
-
     @Frozen
     public prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -51,14 +50,12 @@ extend TestClass {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
     public mut prop prop6: Int64 {
         get() {
@@ -100,4 +97,14 @@ extend TestClass {
             a = v
         }
     }
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(TestClass().exported_prop1, 1)
+    assert(TestClass().prop2, 2)
+    assert(TestClass().prop3, 3)
+    assert(TestClass().prop7, 7)
+    assert(TestClass().prop8, 8)
 }

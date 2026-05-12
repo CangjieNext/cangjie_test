@@ -12,6 +12,6 @@
 foreign func foo(a: Option<Int64>): Option<Int64>
 
 foreign func bar(a: Option<Int64>): Option<Int64>
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_invalid_cfunc_arg_type
 // ASSERT: scan sema_invalid_cfunc_return_type

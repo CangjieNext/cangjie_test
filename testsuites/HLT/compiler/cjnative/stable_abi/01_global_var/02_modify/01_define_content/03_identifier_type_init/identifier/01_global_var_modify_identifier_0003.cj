@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 1.2.1.3.1
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global var
   @Behavior: modify identifier
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Variable declaration visible outside the module deleted or made private.
 // ASSERT: scan-1 [ABI] The body of a const function or function marked with @Frozen changed.
@@ -42,7 +44,6 @@ var global_var_05: Int64 = 0
 var global_var_0006: Int64 = 0
 const global_var_07: Int64 = 0
 public const global_var_08: Int64 = global_var_07
-
 @Frozen
 public func global_func_01() {
     global_var_0006

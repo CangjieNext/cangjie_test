@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -16,3 +16,4 @@ import a.p.v1
 public import a.p.v2
 
 public var v = v1 + v2
+public var m = abs(-1.0) + acos(1.0)

@@ -5,12 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
 
-public open class A {
+open public class A {
     let a: Int64 = 10
 }
 
@@ -22,22 +22,22 @@ public struct Rectangle {
     let width = 10
     static let a1 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
-    public static func geta(a: Int64): Int64 {
+    static public func geta(a: Int64): Int64 {
         var b = a + 1
         return b
     }
 
-    public static const func getb(a: Int64): Int64 {
+    const static public func getb(a: Int64): Int64 {
         let b = a + 1
         return b
     }
 
     @Frozen
-    public static func getc(a: Int64): Int64 {
+    static public func getc(a: Int64): Int64 {
         var b = a + 1
         return b
     }
@@ -115,11 +115,11 @@ public struct Rectangle {
         return 1
     }
 
-    public static func gett(a!: Int64 = 1) {
+    public static func gett(a!: Int64=1) {
         return a
     }
 
-    static func getu(a!: Int64 = 2) {
+    static func getu(a!: Int64=2) {
         return a + 2
     }
 
@@ -154,7 +154,7 @@ public struct Rectangle {
     }
 
     @Frozen
-    static func geta3(a!: Int64 = 2) {
+    static func geta3(a!: Int64=2) {
         return a + 4
     }
 
@@ -163,4 +163,15 @@ public struct Rectangle {
         let y = geta3(a: 1)
         return y
     }
+
+    static func getz(a: B) {
+        return a
+    }
+
+    static func geta5(a!: Int64) {
+        return a + 4
+    }
 }
+
+
+

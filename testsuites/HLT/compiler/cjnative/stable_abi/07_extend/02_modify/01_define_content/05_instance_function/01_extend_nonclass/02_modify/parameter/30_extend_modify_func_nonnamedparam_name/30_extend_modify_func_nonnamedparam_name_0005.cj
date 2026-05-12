@@ -23,10 +23,13 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-// ASSERT: scan Compatible!
-// ASSERT: scan-not [API/ABI]
-// ASSERT: scan-not [API]
-// ASSERT: scan-not [ABI]
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
+// TEST ABI Compatibility
+// RUN-EXEC: %run %run_opt %output %run_args
+// TEST API Compatibility
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 package test_stable_abi
 
 // test extend: instance function
@@ -64,4 +67,13 @@ extend<T> TestStruct_unexport<T> where T <: I1 {
     public func foo_unexport(a_change_name: Int64, b: Int64, c!:Int64, d!:Int64 = 1){
         a_change_name + b + c + d
     }
+}
+public func global_func_01(){
+    let ts = TestStruct()
+    let foo = TestStruct_unexport<I1>()
+
+    ts.foo_const(0, 0, c: 0) == 1
+    && ts.foo_frozen(0, 0, c: 0) == 1
+    && ts.foo_nonpublic(0, 0, c: 0) == 1
+    && foo.foo_unexport(0, 0, c: 0) == 1
 }

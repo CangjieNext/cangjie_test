@@ -5,8 +5,10 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 package b.p
 
 public var v1 = 0
 public var v2 = 0
+
+

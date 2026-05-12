@@ -29,7 +29,7 @@ class Test_Dir_CreateFile {
         try {
             File.create("test\0")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("The path cannot contain null character"))
+            @Expect(e.message.contains("contains null character"))
             sum += 1
         }
     }
@@ -42,7 +42,7 @@ class Test_Dir_CreateFile {
         try {
             File.create("test_temp001")
         } catch (e: FSException) {
-            @Expect(e.message, "The file already exists!")
+            @Expect(e.message, "The file `test_temp001` is already exists.")
             sum += 1
         }
         @Expect(sum, 1)

@@ -8,8 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: define_20040.cj
-// (CJNATIVE) EXEC: %compiler %cmp_opt define_20040.cj %macro_opt -o define_20040.%test_suffix
-// (not CJNATIVE) EXEC: %compiler %cmp_opt define_20040.cj %compile_lib_opt
+// EXEC: %compiler %cmp_opt define_20040.cj %macro_opt -o define_20040.%test_suffix
 // EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 

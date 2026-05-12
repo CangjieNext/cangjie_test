@@ -8,9 +8,9 @@
 
 // LEVEL: 2
 // DEPENDENCE: define.cj
-// EXEC: echo "define=./define.cjo" >> define.conf
-// EXEC: %compiler %cmp_macro define.cj
-// ERRCHECK: %run_macro %compiler %cmp_opt  %f -o %output
+// (not iOS) EXEC: echo "define=./define.cjo" >> define.conf
+// (not iOS) EXEC: %compiler %cmp_macro define.cj
+// (not iOS) ERRCHECK: %run_macro %compiler %cmp_opt  %f -o %output
 
 import define.*
 

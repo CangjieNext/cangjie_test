@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 0
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (CJNATIVE) ERRCHECK: %compiler %cmp_opt %f
+
+
+// ERRCHECK: %compiler %cmp_opt %f
 
 struct Coo<T> {
     public static func foo<V>(): Option<V> {

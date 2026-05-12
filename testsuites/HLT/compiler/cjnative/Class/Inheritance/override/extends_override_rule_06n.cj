@@ -11,14 +11,14 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 
 open class Base {
-    protected open func foo(parm1: Int32, parm2: Int32, parm3: Int32): Int32 {
+    protected open func foo(parm1: Int64, parm2: Int64, parm3: Int64): Int64 {
         let ret = parm1 + parm2 + parm3 + 1
         return ret
     }
 }
 
 class Data <: Base {
-    public func foo(parm1: Int32, parm2: Int32, parm3: Int32): Int32 {
+    public func foo(parm1: Int64, parm2: Int64, parm3: Int64): Int64 {
         let ret = parm1 + parm2 + parm3 + 2
         return ret
     }

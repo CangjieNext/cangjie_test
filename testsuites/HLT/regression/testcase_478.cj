@@ -7,9 +7,8 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) EXEC-PIPE-1: %compiler %overflow_wrapping %cmp_opt %f 2>&1 | compare %f
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 // ASSERT: scan-4 sema_varray_cjvm_in_ref_type
 

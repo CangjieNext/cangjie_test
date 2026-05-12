@@ -19,6 +19,8 @@ public func boo():Int64{
     var b: pkga.Fruit<Int64> = pkga.Fruit<Int64>(b0)
     var v1: Int64 = 2
     var v2: Int64 = 2
+//    if (pkga.a.addcolor(v2) != 2){
+//        return 1
 //    }
     if (addcolor(pkga.a,v2) != 2){
         return 1
@@ -26,6 +28,8 @@ public func boo():Int64{
     if (addcolor(b,v2) != 2){
         return 1
     }
+//    if (b.addcolor(v2) != 2){
+//        return 1
 //    }
     return 0
 }

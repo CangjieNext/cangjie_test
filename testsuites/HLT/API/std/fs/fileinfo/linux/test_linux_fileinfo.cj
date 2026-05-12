@@ -7,18 +7,18 @@
  */
 
 // LEVEL: 1
-// (not Windows or OHOS) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows or OHOS) RUN-EXEC: mkdir testdir01
-// (not Windows or OHOS) RUN-EXEC: touch testdir01/file
-// (not Windows or OHOS) RUN-EXEC: touch testdir01/.file
-// (not Windows or OHOS) RUN-EXEC: ln -s unexists symlink01
-// (not Windows or OHOS) RUN-EXEC: ln -s testdir01/file symlink02
-// (not Windows or OHOS) RUN-EXEC: ln -s testdir01/file symlink03
-// (not Windows or OHOS) RUN-EXEC: ln -s testdir01 symlink04
-// (not Windows or OHOS) RUN-EXEC: touch unexists
-// (not Windows or OHOS) RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args | compare %f
-// (not Windows or OHOS) ASSERT: scan-2 match success
-// (not Windows or OHOS) RUN-EXEC: rm -rf testdir01 symlink01 symlink02 symlink03 symlink04 unexists
+// (not iOS and not Windows or OHOS) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS and not Windows or OHOS) RUN-EXEC: mkdir testdir01
+// (not iOS and not Windows or OHOS) RUN-EXEC: touch testdir01/file
+// (not iOS and not Windows or OHOS) RUN-EXEC: touch testdir01/.file
+// (not iOS and not Windows or OHOS) RUN-EXEC: ln -s unexists symlink01
+// (not iOS and not Windows or OHOS) RUN-EXEC: ln -s testdir01/file symlink02
+// (not iOS and not Windows or OHOS) RUN-EXEC: ln -s testdir01/file symlink03
+// (not iOS and not Windows or OHOS) RUN-EXEC: ln -s testdir01 symlink04
+// (not iOS and not Windows or OHOS) RUN-EXEC: touch unexists
+// (not iOS and not Windows or OHOS) RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args | compare %f
+// (not iOS and not Windows or OHOS) ASSERT: scan-2 match success
+// (not iOS and not Windows or OHOS) RUN-EXEC: rm -rf testdir01 symlink01 symlink02 symlink03 symlink04 unexists
 
 /*
  * Test description: Test the basic function for FileInfo.apis

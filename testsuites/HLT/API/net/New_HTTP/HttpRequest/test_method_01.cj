@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt %f -o %output
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %cmp_utest_opt %f -o %output
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 /*
@@ -73,7 +73,7 @@ class Test_HttpRequestBuilder_Method_01 {
         var methods = [" ", " TRACE", "DELETE ", "仓颉", "GET\n", "HEAD\0"]
         for (method in methods) {
             let e = @AssertThrows[HttpException](HttpRequestBuilder().method(method).build())
-            @Expect(e.message.contains("Method should be tokens"))
+            @Expect(e.message, "Method should be tokens.")
         }
     }
 }

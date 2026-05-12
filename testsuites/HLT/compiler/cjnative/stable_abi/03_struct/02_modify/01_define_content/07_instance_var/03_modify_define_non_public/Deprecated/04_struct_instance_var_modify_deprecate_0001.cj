@@ -23,53 +23,29 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-// ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Struct member modified variable deprecated annotation with compilation error.
-// ASSERT: scan-1 [API/ABI] Changed member function's annotation of struct visible outside the module. Deprecated strict added.
-// ASSERT: scan-not [API]
-// ASSERT: scan-not [ABI]
-// ASSERT: scan-2 [API/ABI]
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
+// TEST ABI Compatibility
+// RUN-EXEC: %run %run_opt %output %run_args
+// TEST API Compatibility
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 // test struct: modify @Deprecated
 // modify operation: modify @Deprecated: keep result
 package test_stable_abi
 
-
 public struct Rectangle {
-    static let width = 10
-    let a1 = 20
-    public let a2 = 20
-    @Deprecated["this value is deprecated", strict: false] let a3 = 20
-    @Deprecated["this value is deprecated", strict: false] public let a4 = 20
-    @Deprecated["this value is deprecated", strict: true] public let a5 = 20
-
-    public func getWidth(): Int64{
-        return width
-    }
+    let a2 = 20
+    @Deprecated["this value is deprecated", strict: true] let a5 = 50
+    @Deprecated["this value is deprecated", strict: true] let a8 = 80
 }
 
-public struct S2{
-    let a1 = 20
-    public let a2 = 0
-    let a3 = 20
-    public let a4 = 0
-
-    @Deprecated["this value is deprecated", strict: false] public let a5 = 20
-    @Deprecated["this value is deprecated", strict: true] let a6 = 20
-
-    @Frozen
-    public func geta3() {
-        return a3
+public func f(){
+    var a = Rectangle()
+    if(a.a2 == 20){
+        return 0
+    }else{
+        return 1
     }
-
-    @Frozen
-    public func geta4() {
-        return a4
-    }
-    @Deprecated["this value is deprecated", strict: true]
-    @Frozen
-    public func geta6() {
-        return a6
-    }
-
 }

@@ -20,7 +20,7 @@ main(): Int64 {
         ()
     } catch (e: FSException) {
         if (e.toString() !=
-            "FSException: The path `/nonexist_dir/just_for_test/nonexist/b/B` does not exist.") {
+            "FSException: The input path 'parent' `/nonexist_dir/just_for_test/nonexist/b/B` does not exist.") {
             return 1
         }
     }

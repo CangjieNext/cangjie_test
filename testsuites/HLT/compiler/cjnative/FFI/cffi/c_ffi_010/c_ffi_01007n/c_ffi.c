@@ -35,17 +35,3 @@ int16_t* getptr()
     ptr[2] = 3;
     return ptr;
 }
-
-int main()
-{
-    int16_t b = -32768;
-    int16_t* ptr = &b;
-    ptr = ptrfunc(ptr);
-    printf("ptrfunc:\n");
-    printf("ptrfunc[0]: %d \n", ptr[0]);
-    printf("ptrfunc[1]: %d \n", ptr[1]);
-    printf("ptrfunc[2]: %d \n", ptr[2]);
-    free(ptr);
-    ptr = NULL;
-    return 0;
-}
