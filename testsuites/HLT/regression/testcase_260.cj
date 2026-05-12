@@ -9,8 +9,8 @@
 // LEVEL: 0
 // EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args
-// (CJNATIVE) EXEC: %compiler %cmp_opt %overflow_wrapping %enableConstPropagation %f -o %output
-// (CJNATIVE) RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt %overflow_wrapping %enableConstPropagation %f -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args
 
 
 let var_1677674093912_41 : Int32 = Int32(-63)

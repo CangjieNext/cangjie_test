@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -34,40 +35,16 @@
 package test_stable_abi
 
 public struct Rectangle {
-    static let width = 10
-    let a1 = 20
-    public let a2 = 20
-    let a3 = 20
-    public let a4 = 20
-    public let a5 = 20
-
-    public func getWidth(): Int64{
-        return width
-    }
+    let a2 = 20
+    let a5 = 50
+    let a8 = 80
 }
 
-public struct S2{
-    let a1 = 20
-    public let a2 = 0
-    let a3 = 20
-    public let a4 = 0
-
-    @Deprecated["this value is deprecated", strict: false] public let a5 = 20
-    @Deprecated["this value is deprecated", strict: false] let a6 = 20
-
-    @Frozen
-    public func geta3() {
-        return a3
+public func f(){
+    var a = Rectangle()
+    if(a.a2 == 20 && a.a5 == 50 && a.a8 == 80){
+        return 0
+    }else{
+        return 1
     }
-
-    @Frozen
-    public func geta4() {
-        return a4
-    }
-
-    @Frozen
-    public func geta6() {
-        return a6
-    }
-
 }

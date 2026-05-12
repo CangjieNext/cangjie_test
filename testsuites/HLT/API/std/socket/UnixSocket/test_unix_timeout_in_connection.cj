@@ -27,9 +27,9 @@ import std.sync.*
 import std.fs.*
 import std.posix.*
 
-@When[os == "macOS"]
+@When[os == "macOS" || os == "iOS"]
 let flag = 7
-@When[os != "macOS"]
+@When[os != "macOS" && os != "iOS"]
 let flag = 8
 var ser = Option<UnixServerSocket>.None
 var bound = AtomicUInt16(0)

@@ -88,7 +88,7 @@ class Test_Dir_Move_Copy {
         try {
             rename(dirpaths[0], to: dirpaths[1], overwrite: false)
         } catch (e: FSException) {
-            @Expect(e.message, "Destination path exists.")
+            @Expect(e.message.contains("already exists and overwrite is false"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -122,7 +122,7 @@ class Test_Dir_Move_Copy {
         try {
             copy(dirpaths[1], to: dirpaths[0], overwrite: false)
         } catch (e: FSException) {
-            @Expect(e.message, "Destination path exists.")
+            @Expect(e.message.contains("Destination path `${dirpaths[0]}` is already exists"))
             sum += 1
         }
         copy(dirpaths[1], to: dirpaths[0], overwrite: true)
@@ -143,7 +143,7 @@ class Test_Dir_Move_Copy {
         try {
             copy(dirpaths[0], to: dirpaths[0], overwrite: false)
         } catch (e: FSException) {
-            @Expect(e.message.contains("the same path"))
+            @Expect(e.message.contains("The input path 'sourcePath' `${dirpaths[0]}` and 'to' `${dirpaths[0]}` are the same path"))
             sum += 1
         }
         @Expect(sum, 1)
@@ -170,13 +170,13 @@ class Test_Dir_Move_Copy {
         try {
             copy(dirpath, to: dirpaths[0], overwrite: false)
         } catch (e: FSException) {
-            @Expect(e.message, "Destination path exists.")
+            @Expect(e.message.contains("Destination path `${dirpaths[0]}` is already exists"))
             sum += 1
         }
         try {
             copy(dirpath, to: dirpaths[0], overwrite: true)
         } catch (e: FSException) {
-            @Expect(e.message, "The `${dirpaths[0]}` is in the ${dirpath}!")
+            @Expect(e.message, "The destinationDirPath `${dirpaths[0]}` is in the sourceDirPath `${dirpath}`.")
             sum += 1
         }
         @Expect(sum, 2)
@@ -189,13 +189,13 @@ class Test_Dir_Move_Copy {
         try {
             copy(dirpath, to: dirpaths[0], overwrite: false)
         } catch (e: FSException) {
-            @Expect(e.message, "Destination path exists.")
+            @Expect(e.message.contains("Destination path `${dirpaths[0]}` is already exists"))
             sum += 1
         }
         try {
             copy(dirpath, to: dirpaths[0], overwrite: true)
         } catch (e: FSException) {
-            @Expect(e.message, "The `${dirpaths[0]}` is in the ${dirpath}!")
+            @Expect(e.message, "The destinationDirPath `${dirpaths[0]}` is in the sourceDirPath `${dirpath}`.")
             sum += 1
         }
         @Expect(sum, 2)

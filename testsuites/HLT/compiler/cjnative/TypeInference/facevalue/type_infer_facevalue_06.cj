@@ -28,6 +28,7 @@ func foo_unit(): Unit {
 
 // B103 未支持Range<Int64>类型声明
 // func foo_range(): Range<Int64>{
+//    return 1..4
 // }
 //  var e = #{1: "Aa", 2: "Bb", 3: "Cc"}    B103 不支持map类型
 

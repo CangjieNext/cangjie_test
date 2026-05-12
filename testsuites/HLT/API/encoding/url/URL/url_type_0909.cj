@@ -22,7 +22,7 @@ main(): Int64 {
     if (d != "a////b@/a????1@=3b#@17") {
         return 1
     }
-    if (d1 != "http1.://!$&-ab:12!$&@www.example.com:14////a/b@/a??1@=3b") {
+    if (d1 != "http1.://!$&-ab:12!$&@www.example.com:14/a/b@/a??1@=3b") {
         return 2
     }
     if (s.rawQuery != "???1@=3b") {

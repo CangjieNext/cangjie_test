@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.12.1.3
   @Scene: delete
@@ -13,8 +13,8 @@
   @Object: struct init
   @Behavior: delete public init
   @Expect: api incompatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Deleted public init function of struct visible outside the module.
 // ASSERT: scan-1 [API/ABI]
@@ -32,8 +34,14 @@
 package test_stable_abi
 
 public struct S {
-    public var a: Int64 = 1
-    init(a1: Int64, a2: Int64) {
-        a = a1 + a2
+    public var a = 1
+    init(a1: Int64, a2: Int64) { a = a1 + a2 }
+}
+
+public func f(){
+    var s1 = S(1, 2)
+    if(s1.a == 3){
+        return 0
     }
+    return 1
 }

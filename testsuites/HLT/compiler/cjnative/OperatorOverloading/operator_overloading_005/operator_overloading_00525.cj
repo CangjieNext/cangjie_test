@@ -166,6 +166,8 @@ main(): Int64 {
     if (!(b | a)) {
         return 27
     }
+    //    if (!(b^^a)) {
+    //        return 28
     //    }
 
     if (!(-b)) {
@@ -175,6 +177,7 @@ main(): Int64 {
         return 32
     }
     /*
+    if (!(b++)) {
         return 33
     }
     if (!(b--)) {

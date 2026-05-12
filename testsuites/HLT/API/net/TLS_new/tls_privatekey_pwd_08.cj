@@ -8,19 +8,19 @@
 
 // LEVEL: 1
 // DEPENDENCE: ./data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
-// RUN-EXEC: %run_stdx %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl -o %output %f %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import std.sync.*
 import std.time.*
 import std.runtime.*
 import std.collection.*
 import stdx.crypto.x509.X509Certificate
-import stdx.crypto.x509.{DerBlob, PemEntry, Pem, PrivateKey, X509Exception}
+import stdx.crypto.common.{DerBlob, PemEntry, Pem, PrivateKey, CryptoException}
 import stdx.crypto.keys.*
 import std.io.*
 
@@ -48,14 +48,14 @@ class Test_tlsprivatekey_pwd_08 {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_rsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/enc_pkcs8_end_rsa_private_key.pem", Read)))
             var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser),
-                PrivateKey.decodeFromPem(keypemser, password: "456"))
+                GeneralPrivateKey.decodeFromPem(keypemser, password: "456"))
             serverConf.clientIdentityRequired = Disabled
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             bound.fetchAdd(1)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -88,13 +88,13 @@ class Test_tlsprivatekey_pwd_08 {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_rsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/enc_pkcs8_end_rsa_private_key.pem", Read)))
             var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser),
-                PrivateKey.decodeFromPem(keypemser, password: "456"))
+                GeneralPrivateKey.decodeFromPem(keypemser, password: "456"))
             serverConf.clientIdentityRequired = Optional
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -125,13 +125,13 @@ class Test_tlsprivatekey_pwd_08 {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_rsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/enc_pkcs8_end_rsa_private_key.pem", Read)))
             var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser),
-                PrivateKey.decodeFromPem(keypemser, password: "456"))
+                GeneralPrivateKey.decodeFromPem(keypemser, password: "456"))
             serverConf.clientIdentityRequired = Optional
             var tcpServer = TcpServerSocket(bindAt: 0)
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -162,7 +162,7 @@ class Test_tlsprivatekey_pwd_08 {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_rsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/enc_pkcs8_end_rsa_private_key.pem", Read)))
             var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser),
-                PrivateKey.decodeFromPem(keypemser, password: "456"))
+                GeneralPrivateKey.decodeFromPem(keypemser, password: "456"))
             let pemSer = String.fromUtf8(readToEnd(File("./data/root_rsa.cer", Read)))
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemSer).map({c => c}))
             serverConf.clientIdentityRequired = Required
@@ -170,7 +170,7 @@ class Test_tlsprivatekey_pwd_08 {
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             tlsServer.handshake()
@@ -185,7 +185,7 @@ class Test_tlsprivatekey_pwd_08 {
         let pem1 = String.fromUtf8(readToEnd(File("./data/end_rsa.cer", Read)))
         let keyPem = String.fromUtf8(readToEnd(File("./data/enc_pkcs8_end_rsa_private_key.pem", Read)))
         clientConf.certificate = (X509Certificate.decodeFromPem(pem1).map({c => c}), 
-        PrivateKey.decodeFromPem(keyPem, password: "456"))
+        GeneralPrivateKey.decodeFromPem(keyPem, password: "456"))
         var tcpClient = TcpSocket("127.0.0.1", port.load())
         tcpClient.connect()
         sleep(Duration.millisecond * 500)
@@ -205,7 +205,7 @@ class Test_tlsprivatekey_pwd_08 {
             let pemser = String.fromUtf8(readToEnd(File("./data/end_rsa.cer", Read)))
             let keypemser = String.fromUtf8(readToEnd(File("./data/enc_pkcs8_end_rsa_private_key.pem", Read)))
             var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser),
-                PrivateKey.decodeFromPem(keypemser, password: "456"))
+                GeneralPrivateKey.decodeFromPem(keypemser, password: "456"))
             let pemSer = String.fromUtf8(readToEnd(File("./data/root_rsa.cer", Read)))
             serverConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pemSer).map({c => c}))
             serverConf.clientIdentityRequired = Required
@@ -213,12 +213,12 @@ class Test_tlsprivatekey_pwd_08 {
             tcpServer.bind()
             port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
             var tcpServerAccept = tcpServer.accept()
-            var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+            var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
             tcpser = Option<TcpServerSocket>.Some(tcpServer)
             tlsser = Option<TlsSocket>.Some(tlsServer)
             try {
                 tlsServer.handshake()
-            } catch (e:X509Exception) {
+            } catch (e:CryptoException) {
                 @Expect(e.message.contains("TLS handshake failed (server)"))
                 sum1 += 1
             }
@@ -235,8 +235,8 @@ class Test_tlsprivatekey_pwd_08 {
         let keyPem = String.fromUtf8(readToEnd(File("./data/enc_pkcs8_end_rsa_private_key.pem", Read)))
         try {
             clientConf.certificate = (X509Certificate.decodeFromPem(pem1).map({c => c}),
-	        PrivateKey.decodeFromPem(keyPem, password: "#$%"))
-        } catch (e: X509Exception) {
+	        GeneralPrivateKey.decodeFromPem(keyPem, password: "#$%"))
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load private key, the password is incorrect or the key is corrupted"))
             sum += 1
         }

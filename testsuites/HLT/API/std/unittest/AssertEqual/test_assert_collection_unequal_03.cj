@@ -53,3 +53,41 @@ public class Test_AssertEqual_Other_Collections {
         @Expect(set1, set2)
     }
 }
+
+
+/* SCAN-IN
+        Different sizes: 0(LinkedList < Int64 >()) != 5(LinkedList < Int64 >(5, { i =>
+    i
+}))
+*/
+ 
+/* SCAN-IN
+        Different elements (left - LinkedList < Int64 >(5, { i =>
+    i + 1
+}), right - LinkedList < Int64 >(5, { i =>
+    i
+})):
+*/
+ 
+/* SCAN-IN
+        Different elements (left - LinkedList < Int64 >(30, { i =>
+    i + 1
+}), right - LinkedList < Int64 >(30, { i =>
+    i
+})):
+*/
+ 
+/* SCAN-IN
+        Different sizes: 0(HashSet < String >()) != 5(HashSet < String >(5, { i =>
+    i.toString()
+}))
+*/
+ 
+/* SCAN-IN
+        Missed elements in HashSet < Int64 >(5, { i =>
+    i
+}): [5]
+        Missed elements in HashSet < Int64 >(5, { i =>
+    i + 1
+}): [0]
+*/

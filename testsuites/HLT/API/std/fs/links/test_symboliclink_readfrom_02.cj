@@ -57,12 +57,12 @@ class Test_SymbolicLink_ReadFrom {
     @TestCase
     func readfrom_illegal_01() {
         let e = @AssertThrows[IllegalArgumentException](SymbolicLink.readFrom("", recursive: true))
-        @Expect(e.message, "The path cannot be empty!")
+        @Expect(e.message, "The input path is empty.")
     }
 
     @TestCase
     func readfrom_illegal_02() {
         let e = @AssertThrows[IllegalArgumentException](SymbolicLink.readFrom(Path("./a\0"), recursive: true))
-        @Expect(e.message, "The path cannot contain null character!")
+        @Expect(e.message, "The input path value [46, 47, 97, 0] contains null character.")
     }
 }

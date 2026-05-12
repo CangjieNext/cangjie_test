@@ -9,7 +9,8 @@
 // LEVEL: 2
 // DEPENDENCE:  test_70005.cj
 // EXEC: %compiler %cmp_macro %f
-// EXEC-PIPE-1: %compiler %cmp_opt  test_70005.cj -o %output | compare %f
+// (not iOS)EXEC-PIPE-1: %compiler %cmp_opt  test_70005.cj -o %output | compare %f
+// (iOS)EXEC: %compiler %cmp_opt  test_70005.cj -o %output
 // ASSERT: scan pass
 
 macro package define

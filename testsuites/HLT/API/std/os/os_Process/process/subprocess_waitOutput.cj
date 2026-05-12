@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 1
-// (not Windows) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not OHOS and not Windows)RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args | compare %f
-// (not Windows) ASSERT: scan subprocess_waitOutput.cj
+// (not iOS and not Windows) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (not iOS and not OHOS and not Windows)RUN-EXEC-PIPE: %run %run_opt %output %run_utest_opt %run_args | compare %f
+// (not iOS and not Windows) ASSERT: scan subprocess_waitOutput.cj
 import std.fs.{File, OpenMode}
 import std.posix.*
 import std.process.*

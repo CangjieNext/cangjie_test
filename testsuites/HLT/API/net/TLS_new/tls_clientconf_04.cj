@@ -8,14 +8,16 @@
 
 // LEVEL: 1
 // DEPENDENCE: ./data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
-// RUN-EXEC: %run_stdx %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl -o %output %f %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-//import stdx.net.tls.common.*
-import stdx.crypto.x509.{X509Certificate, X509Exception,PrivateKey}
+import stdx.net.tls.common.*
+import stdx.crypto.x509.{X509Certificate, X509Exception}
+import stdx.crypto.common.PrivateKey
+import stdx.crypto.keys.*
 import std.sync.*
 import std.time.*
 import std.runtime.*
@@ -41,13 +43,13 @@ class Test_tlsclientconf_04 {
     func startServerHandshake(): Unit {
         let pemser = String.fromUtf8(readToEnd(File("./data/end_rsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_rsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
         tcpser = Option<TcpServerSocket>.Some(tcpServer)
         tlsser = Option<TlsSocket>.Some(tlsServer)
         tlsServer.handshake()
@@ -55,13 +57,13 @@ class Test_tlsclientconf_04 {
     func startServerHandshake_err(): Unit {
         let pemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa.cer", Read)))
         let keypemser = String.fromUtf8(readToEnd(File("./data/end_ecdsa_private_key.pem", Read)))
-        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), PrivateKey.decodeFromPem(keypemser))
+        var serverConf = TlsServerConfig(X509Certificate.decodeFromPem(pemser), GeneralPrivateKey.decodeFromPem(keypemser))
         var tcpServer = TcpServerSocket(bindAt: 0)
         tcpServer.bind()
         port.store((tcpServer.localAddress as IPSocketAddress)?.port ?? 0)
         bound.fetchAdd(1)
         var tcpServerAccept = tcpServer.accept()
-        var tlsServer = TlsSocket.server(tcpServerAccept, sessionContext: None, serverConfig: serverConf)
+        var tlsServer = TlsSocket.server(tcpServerAccept, session: None, serverConfig: serverConf)
         tcpser = Option<TcpServerSocket>.Some(tcpServer)
         tlsser = Option<TlsSocket>.Some(tlsServer)
         try {
@@ -138,7 +140,7 @@ class Test_tlsclientconf_04 {
         try {
             clientConf.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
         } catch (e: X509Exception) {
-            @Expect(e.message.contains("X509Cert decode failed: No CERTIFICATE entry found in PEM file"))
+            @Expect(e.message, "X509Cert decode failed: No CERTIFICATE entry found in PEM file.")
             sum2 += 1
         }
         var tcpClient = TcpSocket("127.0.0.1", port.load())

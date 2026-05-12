@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 6.2.1.2.1
   @Scene: modify
@@ -13,9 +13,9 @@
   @Object: interface
   @Behavior: add deprecated
   @Expect: api compatible & abi compatible
- */
+*/
 
-// LEVEL: 0
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -24,7 +24,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -40,7 +41,6 @@ public interface I1 {
         "interface I1"
     }
 }
-
 @Deprecated["This API will be deprecated soon"]
 public interface G1<T> {
     public static func typename(): String {
@@ -54,7 +54,6 @@ public interface I2 {
         "interface I2"
     }
 }
-
 @Deprecated["This API will be deprecated soon"]
 public interface G2<T> {
     public static func typename(): String {
@@ -68,10 +67,13 @@ public interface I3 {
         "interface I3"
     }
 }
-
 @Deprecated["This API is deprecated", strict: true]
 public interface G3<T> {
     public static func typename(): String {
         "interface G3<T>"
     }
+}
+
+public func f() {
+    return 0
 }

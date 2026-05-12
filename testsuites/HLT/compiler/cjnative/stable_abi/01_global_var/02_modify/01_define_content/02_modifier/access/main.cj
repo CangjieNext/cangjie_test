@@ -5,12 +5,15 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    if (global_var_01 == 0) {
+    if (global_var_01 == 0 
+    && global_func_01()) {
         return 0
     }
     return 1
 }
+
+

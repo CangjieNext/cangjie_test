@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output
 // RUN-EXEC: %run_stdx %output %run_args
 
 import stdx.net.http.*
@@ -15,9 +15,9 @@ import std.io.*
 
 main(): Int64 {
     var req = HttpRequestBuilder().method("GET").url("http://www.examplenet.com").build()
-    // var result = req.isPersistent
-    // if (result == false) {
-    //     return 1
-    // }
+    var result = req.isPersistent
+    if (result == false) {
+        return 1
+    }
     return 0
 }

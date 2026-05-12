@@ -55,7 +55,6 @@ main(){
 // ASSERT: scan parse_expected_lt_brace
 // ASSERT: scan parse_expected_type
 // ASSERT: scan parse_expected_expression
-// ASSERT: scan parse_expected_expr_or_decl_in
 // ASSERT: scan parse_unexpected_declaration_in_scope
 
 

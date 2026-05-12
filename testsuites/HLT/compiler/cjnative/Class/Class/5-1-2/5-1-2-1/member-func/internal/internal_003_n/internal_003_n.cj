@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// DEPENDENCE: pkg1.cj pkg.cfg1
+// DEPENDENCE: pkg1.cj
 // EXEC-PIPE-1: %compiler %cmp_opt pkg1.cj %f -o %output 2>&1 | compare %f
 
 package pkg1
@@ -19,5 +19,5 @@ func run(): Int64 {
     }
     return 0
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_no_match_function_declaration_for_call

@@ -5,15 +5,14 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    var a: Rectangle = Rectangle()
-
-    if (a.getWidth() != 10) {
-        return 1
+    if (Rectangle.geta == 20 && S1.getb == 20 && f() == 0) {
+        return 0
     }
-
-    return 0
+    return 1
 }
+
+

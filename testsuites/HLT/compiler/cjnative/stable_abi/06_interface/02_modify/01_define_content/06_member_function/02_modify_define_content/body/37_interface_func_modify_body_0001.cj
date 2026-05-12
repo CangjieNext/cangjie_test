@@ -23,29 +23,27 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
+
 package test_stable_abi
 
-public interface I1 {
-    public static func typename(): String {
-        "interface I1"
-    }
-
-    public func funcOne(a: Int64, b: Int64): Int64 {
-            a + b
-     }
-
-      @Frozen
-     public func funcThree(a: Int64, b: Int64): Int64 {
-            a
-     }
-
-     public const func funcFour(a: Int64, b: Int64): Int64 {
-            a
-     }
-
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
+public interface I {
+    static func g1() {2;1}
+    func g2() {2;1}
+    static const func g3() {1}
+    const func g4() {1}
+    @Frozen
+    static func g5() {1}
+    @Frozen
+    func g6() {1}
+}
+public class C <: I {}

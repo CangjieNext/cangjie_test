@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt -o %output %f
-// RUN-EXEC-PIPE-0: echo 倉罷筆畢邊賓參倉産長嘗 > input.txt && %run %run_opt %output %run_args < input.txt 2>&1 | compare %f
+// (not iOS) RUN-EXEC-PIPE-0: echo 倉罷筆畢邊賓參倉産長嘗 > input.txt && %run %run_opt %output %run_args < input.txt 2>&1 | compare %f
 // (not Windows or OHOS)ASSERT: scan Some(倉罷筆畢邊賓參倉産長嘗)
 // (Windows and not OHOS)ASSERT: scan Some(倉罷筆畢邊賓參倉産長嘗  )
 import std.env.*

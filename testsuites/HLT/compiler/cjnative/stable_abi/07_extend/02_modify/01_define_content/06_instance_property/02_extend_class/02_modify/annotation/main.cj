@@ -5,12 +5,20 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    if (TestClass().prop1 == 1 && TestClass().prop_1 == 1) {
+    assert(TestClass().prop1, 1)
+    assert(TestClass().n1(), 1)
+    assert(TestClass().prop_1, 1)
+    assert(TestClass().n_1(), 1)
+    check()
+    if (
+        TestClass().prop1 == 1 && TestClass().prop_1 == 1
+    ) {
         return 0
     }
     return 1
 }
+

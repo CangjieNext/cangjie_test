@@ -5,13 +5,17 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    if (Foo<Int64>().f4() == 4 && SS<Int64>().f4() == 4) {
+    if (Foo<Int64>().f4() == 4 && SS<Int64>().f4() == 4
+    && global_func_01()
+    ) {
         0
     } else {
         1
     }
+
 }
+

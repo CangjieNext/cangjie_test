@@ -7,10 +7,9 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) ERRCHECK: %compiler %cmp_opt %f -o %output
+// ERRCHECK: %compiler %cmp_opt %f -o %output
 
-// (not CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
+
 
 var var_1685589240996_34 : Int64 = 80
 public var var_1685589240996_48 : Int32 = Int32(-81)

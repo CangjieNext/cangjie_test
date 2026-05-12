@@ -5,18 +5,23 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test class: access modifier
 
 public class A {}
-
 class B {}
-
 protected class C {}
-
 internal class D {}
-
 private class E {}
+
+public func checker(): Int64 {
+    A()
+    B()
+    C()
+    D()
+    E()
+    0
+}

@@ -13,6 +13,7 @@
 
 import std.io.*
 import std.fs.*
+import std.regex.*
 
 main(): Int64 {
     try {
@@ -21,7 +22,7 @@ main(): Int64 {
         var readnum7 = fs3.read(b)
         ()
     } catch (e: FSException) {
-        if (e.toString() != "FSException: The file does not have the read permission.") {
+        if (!Regex("^FSException: The file `.+` does not have the read permission.$").matches(e.toString())) {
             return 1
         }
     }

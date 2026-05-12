@@ -5,12 +5,14 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
+class C1 <: S1 {}
+class C2 <: S2 {}
 main() {
-    if (Generics<Int64, Int64>.typename() == "interface Generics") {
-        return 0
+    if (I<S2, S1, Int64>.g(C2(), C1()) == 3) {
+        return 0        
     } else {
         return 1
     }

@@ -8,5 +8,5 @@
  
 // LEVEL: 1
 // DEPENDENCE: test.toml test.h
-// (iOS) ERRCHECK: %mirror_gen test.toml
+// (iOSNative) ERRCHECK: %mirror_gen test.toml
 // ASSERT: scan `packages` entry `objc.foundation` has no `output-path` specified and there are no `output-roots`

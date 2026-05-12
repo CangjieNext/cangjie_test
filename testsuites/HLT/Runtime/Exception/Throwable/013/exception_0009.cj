@@ -8,8 +8,9 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %export cjHeapSize=256MB && %run %run_opt %output %run_args 2>&1 | compare %f
-// ASSERT: scan Out of memory
+// RUN-EXEC: %export cjHeapSize=256MB && %run %run_opt %output %run_args 2>&1 | compare %f
+// (not iOS) ASSERT: scan Out of memory
+// (iOS) ASSERT: scan OutOfMemoryError
 
 import std.collection.*
 

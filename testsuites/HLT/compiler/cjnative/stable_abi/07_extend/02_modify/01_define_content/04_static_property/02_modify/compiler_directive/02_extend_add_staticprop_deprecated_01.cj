@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.4.2.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend static prop
   @Behavior: add static prop deprecated
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -36,7 +37,6 @@ package test_stable_abi
 public class TestClass {
     public static var a: Int64 = 0
 }
-
 public struct TestStruct {
     public static var a: Int64 = 0
 }
@@ -48,25 +48,22 @@ extend TestClass {
             1
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     static prop prop2: Int64 {
         get() {
             2
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     static prop prop3: Int64 {
         get() {
             3
         }
     }
-
     @Frozen
     @Deprecated["This API will be deprecated soon"]
     public static prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -77,17 +74,15 @@ extend TestClass {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
     @Deprecated["This API will be deprecated soon"]
-    public mut static prop prop6: Int64 {
+    public static mut prop prop6: Int64 {
         get() {
             6
         }
@@ -95,44 +90,44 @@ extend TestClass {
             a = v
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected static prop prop7: Int64 {
         get() {
             7
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     internal static prop prop8: Int64 {
         get() {
             8
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     private static prop prop9: Int64 {
         get() {
             9
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
-    public mut static prop prop10: Int64 {
+    public static mut prop prop10: Int64 {
         get() {
             10
         }
         set(v) {
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
-    public mut static prop prop11: Int64 {
+    public static mut prop prop11: Int64 {
         get() {
             11
         }
         set(v) {
             a = v
+        }
+    }
+    public static prop prop12: Int64 {
+        get() {
+            prop9
         }
     }
 }
@@ -144,25 +139,22 @@ extend TestStruct {
             1
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     static prop prop2: Int64 {
         get() {
             2
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     static prop prop3: Int64 {
         get() {
             3
         }
     }
-
     @Frozen
     @Deprecated["This API will be deprecated soon"]
     public static prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -173,17 +165,15 @@ extend TestStruct {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
     @Deprecated["This API will be deprecated soon"]
-    public mut static prop prop6: Int64 {
+    public static mut prop prop6: Int64 {
         get() {
             6
         }
@@ -191,39 +181,34 @@ extend TestStruct {
             a = v
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected static prop prop7: Int64 {
         get() {
             7
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     internal static prop prop8: Int64 {
         get() {
             8
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
     private static prop prop9: Int64 {
         get() {
             9
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
-    public mut static prop prop10: Int64 {
+    public static mut prop prop10: Int64 {
         get() {
             10
         }
         set(v) {
         }
     }
-
     @Deprecated["This API will be deprecated soon"]
-    public mut static prop prop11: Int64 {
+    public static mut prop prop11: Int64 {
         get() {
             11
         }
@@ -231,4 +216,22 @@ extend TestStruct {
             a = v
         }
     }
+    public static prop prop12: Int64 {
+        get() {
+            prop9
+        }
+    }
+}
+
+public func global_var_01(){
+    TestClass.prop2 == 2
+    && TestClass.prop3 == 3
+    && TestClass.prop7 == 7
+    && TestClass.prop8 == 8
+    && TestClass.prop12 == 9
+    && TestStruct.prop2 == 2
+    && TestStruct.prop3 == 3
+    && TestStruct.prop7 == 7
+    && TestStruct.prop8 == 8
+    && TestStruct.prop12 == 9
 }

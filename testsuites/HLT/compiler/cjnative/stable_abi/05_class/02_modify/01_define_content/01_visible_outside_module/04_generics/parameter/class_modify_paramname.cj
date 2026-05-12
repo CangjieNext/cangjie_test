@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -60,4 +61,18 @@ public open class Generics<R, S> {
     public func goo3(a: R, b: S) {
         return (a, b)
     }
+}
+
+public func checker(): Int64 {
+    let g1 = Generics<Int64, Int64>(101)
+    if (g1._v1 == 0 && g1._v2 == 1 && g1._v3 == 101 && g1.goo1(1) == 10 && Generics<UInt64, Int64>.goo2(10) == 100 &&
+        g1.goo3(123, 456) == (123, 456)) {
+    } else {
+        return 1
+    }
+    g1._v2 = 202
+    if (g1._v1 != 202) {
+        return 1
+    }
+    0
 }

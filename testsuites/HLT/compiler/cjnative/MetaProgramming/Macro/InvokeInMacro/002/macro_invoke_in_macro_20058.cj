@@ -9,8 +9,8 @@
 // LEVEL: 2
 // DEPENDENCE: define_20058.cj main_20058.cj
 // EXEC: %compiler %cmp_macro define_20058.cj
-// (CJNATIVE) EXEC: %compiler %f  %cmp_macro
-// (not CJNATIVE) EXEC: %compiler %f %macro_opt
+// EXEC: %compiler %f  %cmp_macro
+
 // EXEC: %compiler %cmp_opt main_20058.cj -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 

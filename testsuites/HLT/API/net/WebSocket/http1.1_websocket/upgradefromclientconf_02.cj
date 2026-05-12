@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: ./files
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 /*
  * Test description:
@@ -18,9 +18,9 @@
  */
 
 import stdx.net.http.*
-////import stdx.crypto.kit.*
+import stdx.crypto.kit.*
 import stdx.crypto.keys.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.encoding.url.*
 import std.net.*
 import std.unittest.*

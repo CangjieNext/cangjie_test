@@ -7,9 +7,9 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 
 public var var_1692650161489_19 : (Rune, Int16, Bool, Int16, VArray<Unit, $4>) = (r'4', Int16(UInt8(UInt8(102))), true, Int16(-127), VArray<Unit, $4>({ i => ()}))
 let var_1692650161489_100 : Int = Int64(-62)

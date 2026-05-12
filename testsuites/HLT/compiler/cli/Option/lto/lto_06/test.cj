@@ -8,9 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE: p
-// (CJNATIVE and not MAC) EXEC: %compiler %cmp_opt %compile_lib_opt --lto=thin p/a.cj -o p.%middle
-// (CJNATIVE and not MAC) EXEC: %compiler %cmp_opt --lto=thin %f p.%middle -o %output
-// (CJNATIVE and not MAC) RUN-EXEC: %run %run_opt %output %run_args
+// ((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator))) EXEC-PIPE-1: %compiler %cmp_opt %compile_lib_opt --lto=thin p/a.cj -o p.%middle 2>&1 | compare %f
+// (host_win & target_win) ASSERT: scan Windows does not support LTO.
+// (host_mac & target_mac) ASSERT: scan Darwin does not support LTO.
+// (host_mac & (target_ios | target_ios_simulator)) ASSERT: scan iOS does not support LTO.
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) EXEC-PIPE: %compiler %cmp_opt %compile_lib_opt --lto=thin p/a.cj -o p.%middle -V 2>&1 | compare %f
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) ASSERT: scan-not does not support
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) ASSERT: scan --cangjie-lto
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) EXEC-PIPE: %compiler %cmp_opt --lto=thin %f p.%middle -o %output -V 2>&1 | compare %f
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) RUN-EXEC: %run %run_opt %output %run_args
 
 import p.*
 

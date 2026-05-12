@@ -9,7 +9,7 @@
 // LEVEL: 2
 // EXEC-PIPE-0: %compiler %cmp_opt  %f -o %output 2>&1 | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
-// ASSERT: scan-not chir_dce_unused_function
+// ASSERT: scan chir_dce_unused_function
 
 class A {
     public func test(): Int64 {

@@ -21,6 +21,7 @@ func f(a: Int64) {}
 func f(a: Int64, b: Int64) {}
 
 main() {
+    // f(1) // error
     f(1) // ok
     E.f(1) // ok
     f(1, 2) // ok, find f(a: Int64, b: Int64)

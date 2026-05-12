@@ -9,7 +9,8 @@
 // LEVEL: 2
 // DEPENDENCE: ./csv_skiplines_01.csv
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt %f -o %output
-// RUN-EXEC-PIPE-1: %run_stdx  %output %run_utest_opt %run_args --no-color  2>&1 | compare %f
+// (not iOS) RUN-EXEC-PIPE-1: %run_stdx  %output %run_utest_opt %run_args --no-color  2>&1 | compare %f
+// (iOS) RUN-EXEC: %run_stdx  %output %run_utest_opt %run_args --no-color  2>&1 | compare %f
 // ASSERT: scan [ ERROR  ] CASE: test02
 
 import std.collection.*

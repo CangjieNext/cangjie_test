@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -142,4 +143,25 @@ public class Param_C2 {
 public class Param_C3 {
     public init(a: Father, b!: Father, c!: Father = Father()) {
     }
+}
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    assert(Public_C().v1, 1)
+    assert(Public_C(2).v1, 2)
+    assert(Protected_C().v1, 1)
+    assert(Internal_C().v1, 1)
+    assert(Private_C().v1, 1)
+    assert(Frozen_C(1).v1, 1)
+    assert(Const_C(1).v1, 1)
+    assert(Generics_C1<Int64, Int64, Son>(1, b: 1, c: Son()) is Generics_C1<Int64, Int64, Son>, true)
+    assert(Generics_C2<Int64, String, Father>(1, "", Father()) is Generics_C2<Int64, String, Father>, true)
+    assert(Param_C1(1, b: 1) is Param_C1, true)
+    assert(Param_C2(Son(), b: Son()) is Param_C2, true)
+    assert(Param_C3(Father(), b: Father()) is Param_C3, true)
 }

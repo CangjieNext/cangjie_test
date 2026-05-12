@@ -10,7 +10,7 @@
 // DEPENDENCE: A
 // EXEC:  %compiler %cmp_opt %compile_lib_opt  ./A/A.cj -o b.%middle
 // EXEC:  %compiler %cmp_opt  %compile_lib_opt b.%middle ./A/a/a.cj -o a.%middle 
-// (not CJNATIVE) ERRCHECK:  %compiler %cmp_opt b.%middle a.%middle  %f -o %output
+
 // ERRCHECK:  %compiler %cmp_opt a.%middle b.%middle %f -o %output
 // ASSERT: scan sema_undeclared_type_name
 

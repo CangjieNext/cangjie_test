@@ -5,12 +5,12 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test class: generic params
-public open class Generics<T, U> {
+open public class Generics<T, U> {
     public var _v1 = 0
     public mut prop _v2: Int64 {
         get() {
@@ -22,7 +22,7 @@ public open class Generics<T, U> {
     }
     public var _v3: Int64
 
-    public open func goo1(a: Int64) {
+    open public func goo1(a: Int64) {
         10
     }
 
@@ -37,4 +37,17 @@ public open class Generics<T, U> {
     public func goo3(a: T, b: U) {
         return (a, b)
     }
+}
+
+public func checker(): Int64 {
+    let g1 = Generics<Int64, Int64>(101)
+    if (g1._v1 == 0 && g1._v2 == 1 && g1._v3 == 101 && g1.goo1(1) == 10 && Generics<UInt64, Int64>.goo2(10) == 100 && g1.goo3(123, 456) == (123, 456)) {
+    } else {
+        return 1
+    }
+    g1._v2 = 202
+    if (g1._v1 != 202) {
+        return 1
+    }
+    0
 }

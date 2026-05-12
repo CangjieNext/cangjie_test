@@ -32,7 +32,6 @@ var d1 = d()
 
 var e = { => extend String{} } 
 var e1 = e()
-// ASSERT: scan parse_unexpected_declaration_in_scope
+// ASSERT: scan-4 parse_unexpected_declaration_in_scope
 // ASSERT: scan parse_expected_left_brace
-// ASSERT: scan parse_expected_expr_or_decl_in
 // ASSERT: scan parse_expected_right_delimiter

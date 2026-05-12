@@ -8,5 +8,5 @@
  
 // LEVEL: 1
 // DEPENDENCE: test.toml test.h
-// (iOS) EXEC: %mirror_gen test.toml
-// (iOS) EXEC-1: %ls mirrors/cjworld/test.cj
+// (iOSNative) EXEC: %mirror_gen test.toml
+// (iOSNative) EXEC-1: %ls mirrors/cjworld/test.cj

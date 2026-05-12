@@ -31,26 +31,26 @@ class Test_Dir_CreateTemp {
         try {
             Directory.createTemp("")
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The `rawPath` cannot be an empty string!")
+            @Expect(e.message, "The input path is empty.")
             sum += 1
         }
         try {
             Directory.createTemp(Path(""))
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The `rawPath` cannot be an empty string!")
+            @Expect(e.message, "The input path is empty.")
             sum += 1
         }
         for (str in illegal_path_string) {
             try {
                 Directory.createTemp(str)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message.contains("cannot contain null character"))
+                @Expect(e.message.contains("contains null character."))
                 sum += 1
             }
             try {
                 Directory.createTemp(Path(str))
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message.contains("cannot contain null character"))
+                @Expect(e.message.contains("contains null character."))
                 sum += 1
             }
         }
@@ -65,7 +65,7 @@ class Test_Dir_CreateTemp {
         try {
             Directory.createTemp(path1)
         } catch (e: FSException) {
-            @Expect(e.message, "Failed to canonical: the path may not exist or permission denied!")
+            @Expect(e.message, "Failed to canonical: the input path `${path1}` may not exist or permission denied!")
             sum += 1
         }
         @Expect(sum, 1)

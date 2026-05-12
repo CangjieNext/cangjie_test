@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-main() {
+main():Unit {
     var a = if (true) {
         return
     } else {

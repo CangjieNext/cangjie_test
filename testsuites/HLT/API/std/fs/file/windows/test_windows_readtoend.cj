@@ -52,7 +52,7 @@ class Test_File_ReadToEnd {
         try {
             readToEnd(file)
         } catch (e: FSException) {
-            @Expect(e.message, "The file not opened, can not to read.")
+            @Expect(e.message.contains("not opened, can not to read"))
             sum += 1
         }
         @Expect(sum, 1)

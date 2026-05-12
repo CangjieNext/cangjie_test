@@ -23,5 +23,5 @@ class A<X> {
 main() {
     A<Int64>()
 }
-// ASSERT: scan sema_unexpected_return_type_for_entry
+// (not iOS) ASSERT: scan sema_unexpected_return_type_for_entry
 // ASSERT: scan sema_generic_instantiation_causes_ambiguous_functions

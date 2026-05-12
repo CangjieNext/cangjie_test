@@ -7,9 +7,9 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (not CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %f %cmp_opt 
+// EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
 
 const var_1695152993762_93 : Unit = ()
 public let var_1695152993762_177 : (String, Option<(UInt32, Float32, Bool, Unit, Bool, UInt8)>, Unit, Option<(UInt32, Float32, Bool, Unit, Bool, UInt8)>) = (###"f+G$Qt|`)}"###, Option<(UInt32, Float32, Bool, Unit, Bool, UInt8)>.None, (), Option<(UInt32, Float32, Bool, Unit, Bool, UInt8)>.None)

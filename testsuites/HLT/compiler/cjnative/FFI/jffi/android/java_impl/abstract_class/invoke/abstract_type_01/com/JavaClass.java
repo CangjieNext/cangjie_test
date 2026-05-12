@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package com;
+
+import com.example.myapplication.Logger;
+
+public class JavaClass extends C1 {
+  public JavaClass() {
+    Logger.println("in JavaClass Init");
+  }
+
+  public static int bar() {
+    Logger.println("in JavaClass bar");
+    return 100;
+  }
+
+  public C1 newoo(C1 c1) {
+    Logger.println("in JavaClass new newoo");
+    return new JavaClass();
+  }
+}

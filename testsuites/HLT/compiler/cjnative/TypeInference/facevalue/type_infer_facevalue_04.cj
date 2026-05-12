@@ -46,6 +46,7 @@ hi""")
     //    var range = foo<Range<Int64>>(f)     B103 不支持Range<T>声明
     //    var res7 = 0
     //    for i in f:
+    //        res7 = res7 + i
 
     var res8 = foo<(Int32, Int32) -> Int32>(g)(2, 3)
     var res8_1 = foo<(Int32, Int32) -> Int32>({x: Int32, y: Int32 => return x + y})(2, 3)

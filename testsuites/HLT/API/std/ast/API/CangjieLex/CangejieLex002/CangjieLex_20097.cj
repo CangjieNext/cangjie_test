@@ -9,7 +9,9 @@
 // LEVEL: 1
 // DEPENDENCE:../utils.cj 
 // EXEC: %compiler %cmp_opt %f utils.cj %use_ast -o %output
-// RUN-EXEC: %run %run_opt %output  %run_args
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan IllegalArgumentException:
+// ASSERT: scan multi-line string must start with newline character
 
 import std.ast.*
 

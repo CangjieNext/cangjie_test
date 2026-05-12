@@ -8,15 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE: ./data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
-// RUN-EXEC: %run_stdx %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl -o %output %f %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
 import stdx.crypto.x509.*
-//import stdx.crypto.common.*
-//import stdx.crypto.keys.*
+import stdx.crypto.common.*
+import stdx.crypto.keys.*
 import std.sync.*
 import std.runtime.*
 import std.unittest.*
@@ -36,7 +36,7 @@ class Test_tlscertificate_04 {
         let derData = DerBlob(File.readFrom("./data/end_rsa_private_key.der"))
         @Expect(derData.size,1768)
         @Expect(derData.hashCode(),5801112079858918936)
-        let derPriKey = PrivateKey.decodeDer(derData)
+        let derPriKey = GeneralPrivateKey.decodeDer(derData)
         let derData1  = derPriKey.encodeToDer()
         @Expect(derPriKey.toString(), "PrivateKey(1768 bytes, RSA 3072 bits)")
         @Expect(derData.size, derData1.size)
@@ -49,7 +49,7 @@ class Test_tlscertificate_04 {
         let derData = DerBlob(File.readFrom("./data/root_rsa_public_key.der"))
         @Expect(derData.size,422)
         @Expect(derData.hashCode(),-6179307143943801750)
-        let e = @AssertThrows[X509Exception](PrivateKey.decodeDer(derData))
+        let e = @AssertThrows[CryptoException](GeneralPrivateKey.decodeDer(derData))
         @Expect(e.message.contains("Failed to load private key, it's either corrupted, password is wrong or the format is unsupported:"))
     }
 
@@ -59,7 +59,7 @@ class Test_tlscertificate_04 {
         let derData = DerBlob(File.readFrom("./data/root_ecdsa.der"))
         @Expect(derData.size,571)
         @Expect(derData.hashCode(),-2258875716169435759)
-        let e = @AssertThrows[X509Exception](PrivateKey.decodeDer(derData))
+        let e = @AssertThrows[CryptoException](GeneralPrivateKey.decodeDer(derData))
         @Expect(e.message.contains("Failed to load private key, it's either corrupted, password is wrong or the format is unsupported:"))
     }
 }

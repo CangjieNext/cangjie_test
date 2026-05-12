@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// Level: 1
+// Description:
+// 上游包中，父类型为interface，子类型为struct
+// 下游interface类型继承上游的父子类型
+// 修改, 父类型, 声明, 新增泛型父类型, 新增方式为<:, UpStreamChild<T0, T1> <: UpStreamParent<T1>, UpStreamParent<T0> <: NewParent<T0>
+// DEPENDENCE: upstream downstream expected.0.txt expected.1.txt
+// EXEC: %compiler %cmp_opt %compile_dylib_opt upstream/upstream.cj -o libupstream.%dylib_suffix
+// EXEC: %compiler %cmp_opt downstream/downstream.cj -L. -lupstream -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare expected.0.txt
+// EXEC: %compiler %cmp_opt %compile_dylib_opt upstream/upstream.0.cj -o libupstream.%dylib_suffix
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare expected.1.txt
+// EXEC: %compiler %cmp_opt downstream/downstream.cj -L. -lupstream -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare expected.1.txt

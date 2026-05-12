@@ -10,7 +10,7 @@
 // DEPENDENCE: A
 // EXEC:  %compiler %cmp_opt %compile_lib_opt ./A/b/b.cj -o b.%middle
 // EXEC:  %compiler %cmp_opt %compile_lib_opt b.%middle ./A/a/a.cj -o a.%middle
-// (not CJNATIVE) EXEC:  %compiler %cmp_opt b.%middle a.%middle %f -o %output
+
 // EXEC:  %compiler %cmp_opt a.%middle b.%middle %f -o %output
 // RUN-EXEC:  %run %run_opt %output %run_args
 

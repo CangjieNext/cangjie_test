@@ -19,6 +19,7 @@ import std.unittest.*
 import std.unittest.testmacro.*
 import std.fs.*
 import std.io.*
+import std.regex.*
 
 @Test
 class Test_File_ReadToEnd {
@@ -52,7 +53,7 @@ class Test_File_ReadToEnd {
         try {
             readToEnd(file)
         } catch (e: FSException) {
-            @Expect(e.message, "The file not opened, can not to read.")
+            @Assert(Regex("^The file `.+` not opened, can not to read.$").matches(e.message))
             sum += 1
         }
         @Expect(sum, 1)

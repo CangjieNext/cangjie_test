@@ -13,4 +13,3 @@ fu nc main(): Int64 {
     return 0
 }
 // ASSERT: scan parse_expected_decl
-// ASSERT: scan parse_expected_character

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.1.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend
   @Behavior: delete generics param
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Deleted generic param of class visible outside the module.
 // ASSERT: scan-1 [API/ABI] Deleted generic param of extend visible outside the module.
@@ -33,24 +35,20 @@
 package test_stable_abi
 
 // test extend: generic params
-public open class Father {}
+open public class Father {}
 
 public class Son <: Father {}
-
 public class Son1 <: Father {}
 
-public class Generics_C<U> {}
+public class Generics_C<U> {
+}
 
 extend<U> Generics_C<U> where U <: Son {
-    public func foo1() {
-        1
-    }
+    public func foo1() {1}
 }
 
 public struct Generics_S<T, U> {}
 
 extend<T, U> Generics_S<T, U> where T <: Father, U <: Son {
-    public func foo2() {
-        2
-    }
+    public func foo2() {2}
 }

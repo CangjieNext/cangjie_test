@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
@@ -13,5 +13,11 @@ main() {
     B()
     C()
     D()
-    0
+    E()
+    F0()
+    G()
+    I()
+    checker()
 }
+
+

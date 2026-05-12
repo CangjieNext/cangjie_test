@@ -8,9 +8,9 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../util/run.sh ../util/test.c ../util/cstr2int.c
-// (not Windows) EXEC: %clang %clang_opt cstr2int.c -o %cffi_output
-// (not Windows) EXEC: %compiler %cmp_opt %ffic_opt -o %output
-// (not OHOS and not Windows)RUN-EXEC-PIPE: bash run.sh "%run %run_opt %output %run_args" | compare %f
+// (not iOS and not Windows) EXEC: %clang %clang_opt cstr2int.c -o %cffi_output
+// (not iOS and not Windows) EXEC: %compiler %cmp_opt %ffic_opt -o %output
+// (not iOS and not OHOS and not Windows)RUN-EXEC-PIPE: bash run.sh "%run %run_opt %output %run_args" | compare %f
 // (not Windows) ASSERT: scan pass1
 // (not Windows) ASSERT: scan pass2
 

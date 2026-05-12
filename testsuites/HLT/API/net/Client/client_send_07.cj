@@ -8,14 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../test.cj
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output test.cj
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output test.cj
 // RUN-EXEC: %run_stdx %output %run_args
 // ASSERT: scan case pass
 
 import stdx.net.http.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls
-//import stdx.crypto.kit
+import stdx.crypto.kit
 import std.io.*
 import std.net.*
 import std.runtime.*

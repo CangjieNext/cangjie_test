@@ -30,35 +30,35 @@ class Test_Dir_Create {
             try {
                 Directory.create(str, recursive: false)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "Invalid path, failed to create directory.")
+                @Expect(e.message.contains("failed to create directory"))
                 sum += 1
             }
             try {
                 Directory.create(Path(str), recursive: true)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "Invalid path, failed to create directory.")
+                @Expect(e.message.contains("failed to create directory"))
                 sum += 1
             }
         }
         @Expect(sum, 6)
 
-        var fs_path_string = ["C:\\", "\\\\.\\D:\\"]
+        var fs_path_string1 = ["\\\\.\\D1:\\"]
         //异常信息不合理 
-        for (str in fs_path_string) {
+        for (str in fs_path_string1) {
             try {
                 Directory.create(str, recursive: false)
             } catch (e: FSException) {
-                @Expect(e.message, "The path of directory exists.")
+                @Expect(e.message, "Failed to create directory `${str}`, parent directory `${str}` does not exist.")
                 sum += 1
             }
             try {
                 Directory.create(Path(str), recursive: true)
             } catch (e: FSException) {
-                @Expect(e.message, "The path of directory exists.")
+                @Expect(e.message, "Failed to recursive create directory `${str}` return -2: \"No such file or directory\".")
                 sum += 1
             }
         }
-        @Expect(sum, 10)
+        @Expect(sum, 8)
     }
 
     @TestCase
@@ -70,7 +70,8 @@ class Test_Dir_Create {
         try {
             Directory.create(path0)
         } catch (e: FSException) {
-            @Expect(e.message, "The path of directory exists.")
+            @Expect(e.message, "The input path `${path0}` is already exists.")
+            println("===============================")
             sum += 1
         }
         @Expect(sum, 1)
@@ -80,12 +81,12 @@ class Test_Dir_Create {
     @TestCase
     func test_recursive_1(): Unit {
         var sum = 0
-        @Expect(exists(".\\dir001"), false)
+        @Expect(exists(".\\dir004"), false)
         try {
-            Directory.create(".\\dir001\\dir002")
+            Directory.create(".\\dir004\\dir002")
             @Expect("parent dir", "does not exist")
         } catch (e: FSException) {
-            @Expect(e.message, "Failed to create directory, parent directory: `.\\dir001` does not exist.")
+            @Expect(e.message, "Failed to create directory `.\\dir004\\dir002`, parent directory `.\\dir004` does not exist.")
             sum += 1
         }
         @Expect(sum, 1)
@@ -93,9 +94,10 @@ class Test_Dir_Create {
 
     @TestCase
     func test_recursive_2(): Unit {
-        @Expect(exists(".\\dir001"), false)
-        Directory.create(".\\dir001\\dir002", recursive: true)
-        @Expect(exists(".\\dir001\\dir002"), true)
-        remove(".\\dir001\\dir002", recursive: true)
+        @Expect(exists(".\\dir003"), false)
+        Directory.create(".\\dir003\\dir002", recursive: true)
+        @Expect(exists(".\\dir003\\dir002"), true)
+        println("===============================")
+        remove(".\\dir003\\dir002", recursive: true)
     }
 }

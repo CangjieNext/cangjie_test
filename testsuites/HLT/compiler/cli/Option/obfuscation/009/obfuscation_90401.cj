@@ -16,7 +16,8 @@
 // ASSERT: regex-not .*default.*cls.*static_public_func.*
 // ASSERT: regex-not .*default.*cls.*member_public_func.*
 // ASSERT: regex-not .*default.*cls.*<init>.*
-// ASSERT: regex-not .*default.*<main>.*
+// (not iOS) ASSERT: regex-not .*default.*<main>.*
+// (iOS) ASSERT: regex-not .*default.*cj_main.*
 
 public var global_public_var: Int64 = 1
 var global_var = 1

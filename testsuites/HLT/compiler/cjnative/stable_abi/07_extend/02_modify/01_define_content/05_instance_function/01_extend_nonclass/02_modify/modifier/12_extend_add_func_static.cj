@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.5.1.2.12
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: add static modifier
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-3 [API/ABI] Added the modifier 'static' of the member function of the extend.
 // ASSERT: scan-3 [API/ABI]
@@ -32,14 +34,12 @@
 package test_stable_abi
 
 // test extend: instance function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public struct TestStruct {
     public const init() {}
 }
-
 extend TestStruct {
     public static func f1() {
         1
@@ -48,7 +48,7 @@ extend TestStruct {
         2
     }
 
-    private static const func f3(): Int64 {
+    private const static func f3(): Int64 {
         return 3
     }
     public const func f4(): Int64 {
@@ -64,7 +64,6 @@ extend TestStruct {
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -72,7 +71,6 @@ extend TestStruct {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -87,17 +85,14 @@ extend TestStruct {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
@@ -118,6 +113,15 @@ extend TestStruct {
     }
     public const func f14(): Int64 {
         14
+    }
+    public func f15() {
+        f3()
+    }
+    public func f16() {
+        f12()
+    }
+    public func f17() {
+        f11()
     }
 
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
@@ -156,4 +160,19 @@ extend TestStruct {
 public func global() {
     let s1 = TestStruct()
     s1.f7()
+}
+
+public func global_func_01(){
+    let ts = TestStruct()
+
+    TestStruct.f5() == 5
+    && ts.f2() == 2
+    && ts.pf3() == 3
+    && ts.pf6() == 5
+    && ts.f7() == 7
+    && ts.pf8() == 8
+    && ts.f10() == 10
+    && ts.f17() == 11
+    && ts.f15() == 3
+    && ts.f16() == 12
 }

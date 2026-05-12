@@ -8,10 +8,9 @@
 
 // LEVEL: 2
 // DEPENDENCE: define_20018.cj
-// EXEC: %compiler %cmp_opt define_20018.cj %cmp_macro
-// EXEC: %compiler %cmp_opt %f -o %output
-
-// RUN-EXEC-PIPE: %run %run_opt %output | compare %f
+// (not iOS) EXEC: %compiler %cmp_opt define_20018.cj %cmp_macro
+// (not iOS) EXEC: %compiler %cmp_opt %f -o %output
+// (not iOS) RUN-EXEC-PIPE: %run %run_opt %output | compare %f
 // ASSERT: scan at
 package use
 

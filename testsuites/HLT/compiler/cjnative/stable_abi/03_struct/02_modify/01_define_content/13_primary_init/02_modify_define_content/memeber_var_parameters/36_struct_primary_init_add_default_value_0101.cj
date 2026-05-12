@@ -12,7 +12,7 @@
   @Visibility: public
   @Object: struct primary init
   @Behavior: add default value
-  @Expect: api compatible & abi incompatible
+  @Expect: api compatible & abi compatible
 */
 
 // LEVEL: 1
@@ -24,11 +24,13 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-// ASSERT: scan Incompatible!
-// ASSERT: scan-1 [ABI] Added member parameter default value of a const function or function marked with @Frozen.
-// ASSERT: scan-not [API/ABI] 
-// ASSERT: scan-not [API]
-// ASSERT: scan-1 [ABI]
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
+// TEST ABI Compatibility
+// RUN-EXEC: %run %run_opt %output %run_args
+// TEST API Compatibility
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 
 package test_stable_abi
@@ -68,7 +70,7 @@ public struct S3 {
         this.e = e
     }
 
-    public S3(let c: Int64, let e!: Int64 = 10) {
+    public S3(let c: Int64, let e!: Int64) {
         a = c
     }
 }
@@ -93,7 +95,7 @@ public struct S5 {
 public struct S6 {
     public var a = 1
     
-    public S6(b: Int64, let c!: Float64, let e!: Int64) {
+    public S6(b: Int64, let c!: Float64, let e!: Int64 = 10) {
         a = b
     }
 }
