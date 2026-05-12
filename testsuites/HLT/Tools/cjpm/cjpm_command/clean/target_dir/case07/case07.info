@@ -8,6 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %run %cjpm build && %cjpm clean
-// EXEC-PIPE-1: cd %n && %run %cjpm run --skip-build 2>&1 | compare %f
-// ASSERT: regex Error: can not find the '.[/|\\]temp_target[/|\\]release[/|\\]bin[/|\\]main.*' file
+// (native_compilation)EXEC: cd %n && %run %cjpm build && %cjpm clean
+// (native_compilation)EXEC-PIPE-1: cd %n && %run %cjpm run --skip-build 2>&1 | compare %f
+// (native_compilation)ASSERT: regex Error: can not find the '.[/|\\]temp_target[/|\\]release[/|\\]bin[/|\\]main.*' file
