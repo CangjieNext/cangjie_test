@@ -33,4 +33,18 @@
  
 [target.aarch64-apple-darwin]
   link-option = "-L ./libtest -ltest"
+
+[target.x86_64-linux-ohos]
+  link-option = "-L ./libtest -ltest"
+[target.aarch64-linux-ohos]
+  link-option = "-L ./libtest -ltest"
+
+[target.aarch64-linux-android26]
+  link-option = "-L ./libtest -ltest"
+[target.aarch64-linux-android31]
+  link-option = "-L ./libtest -ltest"
+[target.aarch64-linux-android32]
+  link-option = "-L ./libtest -ltest"
+[target.aarch64-linux-android35]
+  link-option = "-L ./libtest -ltest"
  

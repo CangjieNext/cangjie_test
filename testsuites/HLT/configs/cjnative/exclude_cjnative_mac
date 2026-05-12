@@ -13,6 +13,11 @@ Tools/cjpm/cjpm_build/features/single_pack_condition/009/009_test.info
 Tools/cjpm/cjpm_build/features/single_pack_condition/002/002_test.info
 Tools/cjprof
 
+# bug
+compiler/cjnative/LTO/lto_keep_pkg_visibility/test_001_1.cj
+compiler/cjnative/LTO/lto_keep_pkg_visibility/test_001_2.cj
+compiler/cjnative/LTO/lto_keep_pkg_visibility/test_001_4.cj
+
 # old jffi can only be run with cjvm.
 compiler/cjnative/FFI/jffi
 

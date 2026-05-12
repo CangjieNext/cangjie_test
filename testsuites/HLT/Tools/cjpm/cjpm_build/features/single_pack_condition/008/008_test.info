@@ -11,4 +11,5 @@
 
 
 
-// EXEC: cd 008 && %cjpm test %cjpm_opt -V --cfg1 --cfg6 --cfg6 2>&1 | compare test_result.txt
+// EXEC: cd 008 && %cjpm test %cjpm_opt -V --cfg1 --cfg6 --cfg6 2>&1 | compare %f
+// ASSERT: scan cjpm test success

@@ -6,10 +6,10 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not host_mac)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: regex Compiling package `b`: [\s\S]*-L[\s\S]*target[/|\\]release[/|\\]coo[/|\\] -lcoo .*
-// ASSERT: regex Compiling package `b`: [\s\S]*-L[\s\S]*target[/|\\]release[/|\\]boo[/|\\] -lboo .*
-// ASSERT: regex Compiling package `b`: [\s\S]*-L[\s\S]*target[/|\\]release[/|\\]aoo[/|\\] -laoo .*
-// ASSERT: regex-not Compiling package `b`: [\s\S]*-L.*target[/|\\]release[/|\\]doo[/|\\] -ldoo .*
+// (target_linux | target_win | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
+// ASSERT: regex Compiling package `b`: [\s\S]*-L[\s\S]*target[\s\S]*release[/|\\]coo[/|\\] -lcoo .*
+// ASSERT: regex Compiling package `b`: [\s\S]*-L[\s\S]*target[\s\S]*release[/|\\]boo[/|\\] -lboo .*
+// ASSERT: regex Compiling package `b`: [\s\S]*-L[\s\S]*target[\s\S]*release[/|\\]aoo[/|\\] -laoo .*
+// ASSERT: regex-not Compiling package `b`: [\s\S]*-L.*target[\s\S]*release[/|\\]doo[/|\\] -ldoo .*
 // ASSERT: regex Compiling package `b`: [\s\S]*libb.(so|dll)
 // ASSERT: scan cjpm build success
