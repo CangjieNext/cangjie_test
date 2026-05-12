@@ -6,8 +6,8 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (not Windows and not MAC)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// (not Windows and not MAC)ASSERT: regex Compiling package `b`: [\s\S]*b\.p2\.bc[\s\S]*
-// (not Windows and not MAC)ASSERT: regex Compiling package `b`: [\s\S]*b\.p1\.bc[\s\S]*
-// (not Windows and not MAC)ASSERT: regex Compiling package `b`: [\s\S]*--lto=full[\s\S]*
-// (not Windows and not MAC)ASSERT: scan cjpm build success
+// (target_linux | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
+// (target_linux | target_android | target_ohos)ASSERT: regex Compiling package `b`: [\s\S]*b\.p2\.bc[\s\S]*
+// (target_linux | target_android | target_ohos)ASSERT: regex Compiling package `b`: [\s\S]*b\.p1\.bc[\s\S]*
+// (target_linux | target_android | target_ohos)ASSERT: regex Compiling package `b`: [\s\S]*--lto=full[\s\S]*
+// (target_linux | target_android | target_ohos)ASSERT: scan cjpm build success

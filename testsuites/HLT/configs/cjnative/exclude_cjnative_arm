@@ -19,6 +19,11 @@ API/syntax/visit/ASTRewriter/test_rewriter_02.cj
 API/std/io/file/File_create_03.cj
 API/std/io/StringReader/StringReader_readln_13_01.cj
 
+# bug
+compiler/cjnative/LTO/lto_keep_pkg_visibility/test_001_1.cj
+compiler/cjnative/LTO/lto_keep_pkg_visibility/test_001_2.cj
+compiler/cjnative/LTO/lto_keep_pkg_visibility/test_001_4.cj
+
 # cjmp 
 # https://gitcode.com/Cangjie/cangjie_test/issues/265
 compiler/cjnative/Packages/cjmp/cjmp_01005/test.cj

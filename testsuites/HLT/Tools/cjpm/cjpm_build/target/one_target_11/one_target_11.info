@@ -8,7 +8,7 @@
 
 // LEVEL: 1 
 // DEPENDENCE: ../%n
-// (arm and  not MAC)EXEC: cd %n && %cjpm build -g -j1 -V 2>&1 | compare %f
-// (arm and  not MAC)ASSERT: scan cjpm build success
-// (not arm or MAC) ERRCHECK: cd %n && %cjpm build -j1 -V
-// (not arm or MAC) ASSERT: scan cjpm build failed
+// (arm and  not MAC and native_compilation)EXEC: cd %n && %cjpm build -g -j1 -V 2>&1 | compare %f
+// (arm and  not MAC and native_compilation)ASSERT: scan cjpm build success
+// (not arm or MAC and native_compilation) ERRCHECK: cd %n && %cjpm build -j1 -V
+// (not arm or MAC and native_compilation) ASSERT: scan cjpm build failed

@@ -16,3 +16,9 @@ API/syntax/visit/ASTRewriter/test_rewriter_02.cj
 compiler/cjnative/stable_abi/package_name
 compiler/cjnative/stable_abi/add_instance_member_variable
 compiler/cjnative/stable_abi/add_virtual_function
+
+
+# bug
+compiler/cjnative/LTO/lto_keep_pkg_visibility/test_001_1.cj
+compiler/cjnative/LTO/lto_keep_pkg_visibility/test_001_2.cj
+compiler/cjnative/LTO/lto_keep_pkg_visibility/test_001_4.cj
