@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -64,7 +65,7 @@ public struct Rectangle {
         return 4
     }
 
-    public static func geta6() {
+    public static const func geta6() {
         const a = geta1()
         return a
     }
@@ -93,11 +94,17 @@ public struct Rectangle {
         return 5
     }
 
-    public static func geta12() {
-
+    @Deprecated["this function is deprecated", strict: false]
+    public static const func geta12() {
         const b = geta11()
         return b
     }
-
 }
 
+public func f(){
+    if(Rectangle.geta1() == 0 && Rectangle.geta9() == 1 && Rectangle.geta3() == 2 && Rectangle.geta11() == 5){
+        return 0
+    }else{
+        return 1
+    }
+}

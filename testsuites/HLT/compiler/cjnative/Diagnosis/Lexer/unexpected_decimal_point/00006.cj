@@ -10,4 +10,5 @@
 // ERRCHECK: %compiler %cmp_opt %f
 
 var x = 0xFF.FF.p1
-// ASSERT: scan lex_expected_exponent_part
+// ASSERT: scan sema_undeclared_identifier
+// (!(target_ios | target_ios_simulator)) ASSERT: scan sema_missing_entry

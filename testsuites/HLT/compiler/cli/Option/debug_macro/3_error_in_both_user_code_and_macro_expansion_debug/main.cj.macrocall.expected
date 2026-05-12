@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package user
+
+import m.M
+
+/* ===== Emitted by MacroCall @M in main.cj:13:1 ===== */
+func foo(y: Int64, x: String) {
+    println("x + true: ${x + true}")
+    println("x + 1.0: ${x + 1.0}")
+    println("x + 1: ${x + 1}")
+    y
+    y + ""
+    y + 1.0
+    y + false
+}
+
+/* ===== End of the Emit ===== */
+
+main(): Unit {
+}

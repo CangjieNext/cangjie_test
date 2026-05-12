@@ -2,16 +2,17 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- *
+ * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
 // LEVEL: 0
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output %cmp_utest_opt
-// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl  %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 
 import stdx.crypto.crypto.*
 import stdx.crypto.digest.*
+import stdx.crypto.common.*
 
 @Test
 class Test_ECB_CBC_init_01 {
@@ -29,13 +30,13 @@ class Test_ECB_CBC_init_01 {
 
     @TestCase
     func test_ECB_init_03(): Unit {
-        let e = @AssertThrows[CryptoException](SM4(OperationMode.ECB,'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
+        let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100, iv: "1234567".toArray()))
         @Expect(e.message, "Invalid tag size.")
     }
 
     @TestCase
     func test_ECB_init_04(): Unit {
-        let e = @AssertThrows[CryptoException](SM4(OperationMode.ECB,'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
+        let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17, iv: "1234567".toArray()))
         @Expect(e.message, "Invalid tag size.")
     }
 
@@ -96,13 +97,13 @@ class Test_ECB_CBC_init_01 {
 
     @TestCase
     func test_CBC_init_10(): Unit {
-        let e = @AssertThrows[CryptoException](SM4(OperationMode.CBC,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
+        let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 100))
         @Expect(e.message, "Invalid tag size.")
     }
 
     @TestCase
     func test_CBC_init_11(): Unit {
-        let e = @AssertThrows[CryptoException](SM4(OperationMode.CBC,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
+        let e = @AssertThrows[CryptoException](SM4(OperationMode.GCM,'1234567891234567'.toArray(),iv:'1234567891234567'.toArray(),paddingMode:PaddingMode.PKCS7Padding, tagSize: 17))
         @Expect(e.message, "Invalid tag size.")
     }
 

@@ -9,10 +9,10 @@
 /*
   @No: 3.2.1.8.2.4
   @Scene: modify
-  @Visibility: used in public const declare
+  @Visibility: non public
   @Object: struct static func
   @Behavior: modify @Deprecated, warning -> error
-  @Expect: api incompatible & abi incompatible
+  @Expect: api compatible & abi compatible
 */
 // LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
@@ -23,11 +23,13 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-// ASSERT: scan Incompatible!
-// ASSERT: scan-2 [API/ABI] Changed member function's annotation of struct visible outside the module. Deprecated strict added.
-// ASSERT: scan-not [API]
-// ASSERT: scan-not [ABI]
-// ASSERT: scan-2 [API/ABI]
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
+// TEST ABI Compatibility
+// RUN-EXEC: %run %run_opt %output %run_args
+// TEST API Compatibility
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
 
 // test struct: modify @Deprecated
 // modify operation: modify @Deprecated: warning -> error
@@ -48,12 +50,12 @@ public struct Rectangle {
         return 1
     }
 
-    @Deprecated["this function is deprecated", strict: false]
+    @Deprecated["this function is deprecated", strict: true]
     static func geta3() {
         return 2
     }
 
-    @Deprecated["this function is deprecated", strict: true]
+    @Deprecated["this function is deprecated", strict: false]
     public static func geta4() {
         return 3
     }
@@ -63,17 +65,16 @@ public struct Rectangle {
         return 4
     }
 
-    public static func geta6() {
+    public static const func geta6() {
         const a = geta1()
         return a
     }
 
-    @Deprecated["this function is deprecated", strict: true]
+    @Deprecated["this function is deprecated", strict: false]
     static const func geta7() {
         return 5
     }
 
-    @Deprecated["this function is deprecated", strict: true]
     public func geta8() {
         const b = geta7()
         return b
@@ -94,10 +95,16 @@ public struct Rectangle {
     }
 
     @Deprecated["this function is deprecated", strict: true]
-    public static func geta12() {
-        @Deprecated["this function is deprecated", strict: true]
+    public static const func geta12() {
         const b = geta11()
         return b
     }
 }
 
+public func f(){
+    if(Rectangle.geta1() == 0 && Rectangle.geta9() == 1){
+        return 0
+    }else{
+        return 1
+    }
+}

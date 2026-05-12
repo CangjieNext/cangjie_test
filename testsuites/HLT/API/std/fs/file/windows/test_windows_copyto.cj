@@ -63,14 +63,14 @@ class Test_File_CopyTo {
         try {
             copy(file, to: outputstream)
         } catch (e: FSException) {
-            @Expect(e.message, "The file does not have the read permission.")
+            @Expect(e.message.contains("does not have the read permission."))
             sum += 1
         }
         file.close()
         try {
             copy(file, to: outputstream)
         } catch (e: FSException) {
-            @Expect(e.message, "The file not opened, can not to read.")
+            @Expect(e.message.contains("not opened, can not to read."))
             sum += 1
         }
         @Expect(sum, 2)

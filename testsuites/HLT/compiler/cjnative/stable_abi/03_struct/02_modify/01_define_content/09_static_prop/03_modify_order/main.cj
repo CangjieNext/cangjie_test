@@ -9,13 +9,10 @@
 import test_stable_abi.*
 
 main() {
-    var a: S = S()
-
-    if (a.getWidth() != 10) {
-        return 1
+    if (S.p1 == 20 && S.p2 == 20 && f() == 0) {
+        return 0
     }
-
-    return 0
+    return 1
 }
 
 

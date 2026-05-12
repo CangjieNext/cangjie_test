@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 1.2.1.3.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: global var
   @Behavior: modify type
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,6 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] Modified global variable type. The two types are compatible only when both are classes or interfaces types.
 // ASSERT: scan-not [API/ABI]
@@ -38,21 +41,9 @@ package test_stable_abi
 // global var: public global var
 // modify operation: struct type C <: A, modify type A -> C
 public interface I {}
-
-public interface A <: I {
-    func test() {
-        0
-    }
-}
-
-public class B <: A {
-    const init() {}
-}
-
-public struct C <: A {
-    const init() {}
-}
-
+public interface A <: I { func test() { 0 } }
+public class B <: A { const init() {} }
+public struct C <: A { const init() {} }
 var global_var_01: A = B()
 var global_var_02: A = B()
 const global_var_03: A = B()
@@ -63,13 +54,10 @@ public var global_var_04: A = B()
 public var global_var_14: C = C()
 public const global_var_05 = global_var_03 is A
 public const global_var_15 = global_var_13 is A
+@Frozen public func global_func_01() { global_var_02 is A }
+@Frozen public func global_func_11() { global_var_12 is A }
 
-@Frozen
-public func global_func_01() {
-    global_var_02 is A
-}
-
-@Frozen
-public func global_func_11() {
-    global_var_12 is A
+public func global_func_02() {
+    global_var_01 is I
+    && global_var_11 is I
 }

@@ -10,11 +10,11 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-func test(_test: Int32): Int32 {
+func test(_test: Int64): Int64 {
     return _test
 }
 
-main(): Int32 {
+main(): Int64 {
     return test(0)
 }
 

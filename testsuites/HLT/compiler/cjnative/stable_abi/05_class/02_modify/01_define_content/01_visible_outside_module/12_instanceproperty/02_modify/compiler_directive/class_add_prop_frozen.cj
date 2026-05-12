@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.12.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance prop
   @Behavior: add @Frozen compiler
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -41,44 +42,38 @@ public class Version {
     }
 }
 
-public open class TestClass {
+open public class TestClass {
     public var a: Int64 = 0
-
     @Frozen
     public prop prop1: Int64 {
         get() {
             1
         }
     }
-
     @Frozen
     protected prop exported_prop1: Int64 {
         get() {
             1
         }
     }
-
     @Frozen
     prop prop2: Int64 {
         get() {
             2
         }
     }
-
     @Frozen
     prop prop3: Int64 {
         get() {
             3
         }
     }
-
     @Frozen
     public prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
-
     @Frozen
     @Deprecated["This API will be deprecated soon"]
     public prop prop4: Int64 {
@@ -86,15 +81,14 @@ public open class TestClass {
             4
         }
     }
-
     @Frozen
+
     @Deprecated["This API is deprecated", strict: true]
     public prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
     public mut prop prop6: Int64 {
         get() {
@@ -104,28 +98,25 @@ public open class TestClass {
             a = v
         }
     }
-
     @Frozen
+
     protected prop prop7: Int64 {
         get() {
             7
         }
     }
-
     @Frozen
     internal prop prop8: Int64 {
         get() {
             8
         }
     }
-
     @Frozen
     private prop prop9: Int64 {
         get() {
             9
         }
     }
-
     @Frozen
     public mut prop prop10: Int64 {
         get() {
@@ -134,7 +125,6 @@ public open class TestClass {
         set(v) {
         }
     }
-
     @Frozen
     public mut prop prop11: Int64 {
         get() {
@@ -144,23 +134,21 @@ public open class TestClass {
             a = v
         }
     }
-
     @Frozen
-    public open prop prop13: Int64 {
+    open public prop prop13: Int64 {
         get() {
             13
         }
     }
-
     @Frozen
-    public mut open prop prop14: Int64 {
+    open public mut prop prop14: Int64 {
         get() {
             14
         }
         set(v) {
             a = v
         }
-    }
+    }   
 
     @Version["1.1"]
     @Frozen
@@ -169,4 +157,23 @@ public open class TestClass {
             12
         }
     }
+}
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(tc: TestClass): Unit {
+    assert(tc.prop1, 1)
+    assert(tc._prop3, 3)
+    assert(tc.prop4, 4)
+    assert(tc.prop6, 6)
+    assert(tc.prop10, 10)
+    assert(tc.prop11, 11)
+    assert(tc.prop13, 13)
+    assert(tc.prop14, 14)
+    assert(tc.prop12, 12)
+    assert(tc.a, -1)
 }

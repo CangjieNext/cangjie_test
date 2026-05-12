@@ -23,6 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [ABI] Changed location of private interface declaration visible outside the module.
 // ASSERT: scan-not [API/ABI]
@@ -32,19 +35,19 @@
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
-
 package test_stable_abi
 
-// test interface: modify annotation
-
-public interface I1 <: I2 {
-    public static func typename(): String {
-        "interface I1"
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+private interface I {
+    static mut prop p1: Int64 {
+        get() {1}
+        set(v) {v}
+    }
+    mut prop p2: Int64 {
+        get() {1}
+        set(v) {v}
     }
 }
-
-private interface I2 {
-    public static func typename(): String {
-        "interface I2"
-    }
-}
+public class C <: I {}

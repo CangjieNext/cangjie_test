@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// DEPENDENCE: pkg1.cj pkg.cfg1
+// DEPENDENCE: pkg1.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg1.cj -o pkg1.%middle
 // EXEC-PIPE-1: %compiler %cmp_opt %compile_lib_opt  %f -o %n.%middle 2>&1 | compare %f
 
@@ -22,5 +22,5 @@ func run(): Int64 {
     }
     return 0
 }
-// (not CJNATIVE) ASSERT: scan sema_no_match_function_declaration_for_call
-// (CJNATIVE) ASSERT: scan sema_not_member_of
+
+// ASSERT: scan sema_not_member_of

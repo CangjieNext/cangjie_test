@@ -27,6 +27,7 @@ public class Test_Time_Bench_Types {
 
     @Bench[x in strategy]
     @Types[T in<Int64, Float64>, U in<Int64, Float64, String>]
+    @Configure[minDuration: 3 * Duration.second]
     func case001<T, U>(x: ArrayList<Int64>): Unit where T <: Hashable, U <: Hashable {
         sleep(0.1 * Duration.second)
     }

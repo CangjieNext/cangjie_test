@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// (not Windows) EXEC-PIPE: %compiler %cmp_opt %f -o %output
-// (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+// (not iOS and not Windows) EXEC-PIPE: %compiler %cmp_opt %f -o %output
+// (not iOS and not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // (not Windows) ASSERT: scan-not Exception
 
 import std.posix.*

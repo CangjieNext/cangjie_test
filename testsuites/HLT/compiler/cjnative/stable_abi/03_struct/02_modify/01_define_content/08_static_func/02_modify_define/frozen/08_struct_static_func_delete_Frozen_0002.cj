@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.8.2.8
   @Scene: delete
@@ -13,8 +13,8 @@
   @Object: struct static func
   @Behavior: delete @Frozen
   @Expect: api compatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -37,7 +38,7 @@ public struct Rectangle {
     let width = 10
     static let a1 = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
@@ -59,5 +60,31 @@ public struct Rectangle {
     public static func getd() {
         let c = getc()
         return c
+    }
+
+    static func gete(): Int64 {
+        return 0
+    }
+
+     @Frozen
+    public static func getf() {
+        let c = gete()
+        return c
+    }
+
+    static func getg() {
+        return 0
+    }
+ 
+    public static func geth() {
+        return 0
+    }
+}
+
+public func f(){
+    if(Rectangle.getg() == 0 && Rectangle.gete() == 0 && Rectangle.geta() == 0 && Rectangle.getc() == 0){
+        return 0
+    }else{
+        return 1
     }
 }

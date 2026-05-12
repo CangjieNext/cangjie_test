@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -34,36 +35,31 @@
 package test_stable_abi
 
 public struct Rectangle {
-    var width = 10
     public var a1 = 20
     var a2 = 20
-    public var a3 = 20
-    private var a4 = 20
-    internal var a5 = 20
-    var a6 = 20
-    protected var a7 = 20
-    public var a8 = 20
-    var a9 = 20
-    var a10 = 20
-
-    public func getWidth(): Int64{
-        return width
-    }
-}
-
-public struct S1{
-    var a1 = 20
-    public let a2 = 0
     var a3 = 20
-    public let a4 = 0
 
     @Frozen
-    public func geta3() {
+    public func getWidth1(): Int64{
         return a3
     }
 
+    public var a4 = 20
+    var a5 = 20
+    var a6 = 20
+
     @Frozen
-    public func geta4() {
-        return a4
+    public func getWidth2(): Int64{
+        return a6
+    }
+
+}
+
+public func f(){
+    var a = Rectangle()
+    if(a.a2 == 20 && a.a3 == 20 && a.a5 == 20 && a.a6 == 20){
+        return 0
+    }else{
+        return 1
     }
 }

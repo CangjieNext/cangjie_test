@@ -18,7 +18,7 @@ main() {
     try {
         var file1 = File.create(fileName)
     } catch (e: IllegalArgumentException) {
-        if (e.toString() != "IllegalArgumentException: The path cannot be empty!") {
+        if (e.toString() != "IllegalArgumentException: The file path is empty.") {
             return 1
         }
     }

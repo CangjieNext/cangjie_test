@@ -9,8 +9,8 @@
 // LEVEL: 2
 // DEPENDENCE: ../data
 // DEPENDENCE: ../../../asan
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt asan.%middle %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %compile_lib_opt asan/asanGC.cj -o asan.%middle
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl asan.%middle %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 /*
@@ -22,9 +22,9 @@
  */
 
 import stdx.net.http.*
-////import stdx.crypto.kit.*
+import stdx.crypto.kit.*
 import stdx.crypto.keys.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls.*
 import std.time.*
 import std.sync.*
@@ -45,7 +45,7 @@ class Test_readTimeout_writeTimeout {
     func serverConfig(protocol: String): TlsServerConfig {
         let pem0 = String.fromUtf8(readToEnd(File("data/end_rsa.cer", Read)))
         let pem02 = String.fromUtf8(readToEnd(File("data/end_rsa_private_key.pem", Read)))
-        var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+        var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
         tlsConfig.supportedAlpnProtocols = [protocol]
         tlsConfig
     }
@@ -54,7 +54,7 @@ class Test_readTimeout_writeTimeout {
         var tlsConfig = TlsClientConfig()
         let pem = String.fromUtf8(readToEnd(File("data/root_rsa.cer", Read)))
         tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
-        tlsConfig.alpnProtocolsList = [protocol]
+        tlsConfig.supportedAlpnProtocols = [protocol]
         tlsConfig
     }
 
@@ -62,6 +62,7 @@ class Test_readTimeout_writeTimeout {
         let server = ServerBuilder().addr("127.0.0.1").tlsConfig(cfg).port(0).build()
         server.distributor.register("/quick", {
             ctx => ctx.request.body.read(Array<UInt8>(1024 * 1024, repeat: 0))
+            Sleep(Duration.second)
         })
         server
             .distributor
@@ -70,7 +71,8 @@ class Test_readTimeout_writeTimeout {
                 {
                     ctx =>
                     ctx.request.body.read(Array<UInt8>(1024 * 1024, repeat: 0))
-                    Sleep(Duration.second * 2)
+                    // Keep enough margin for asynchronous client timeout timers on slow environments.
+                    Sleep(Duration.second * 5)
                 }
             )
         spawn {
@@ -104,7 +106,8 @@ class Test_readTimeout_writeTimeout {
                 {
                     ctx =>
                     ctx.request.body.read(Array<UInt8>(1024 * 1024, repeat: 0))
-                    Sleep(Duration.second * 2)
+                    // Keep enough margin for asynchronous client timeout timers on slow environments.
+                    Sleep(Duration.second * 5)
                 }
             )
         spawn {
@@ -133,6 +136,9 @@ class Test_readTimeout_writeTimeout {
         } catch (e: HttpTimeoutException | HttpException) {
             @Expect(e.message.contains("timeout") || e.message.contains("Stream closed"))
         }
+
+        client.close()
+        client = ClientBuilder().readTimeout(Duration.Zero).writeTimeout(Duration.Zero).build()
 
         // 请求配置后不超时
         var req1 = HttpRequestBuilder()
@@ -185,6 +191,13 @@ class Test_readTimeout_writeTimeout {
         } catch (e: HttpTimeoutException | HttpException) {
             @Expect(e.message.contains("timeout") || e.message.contains("Stream closed"))
         }
+
+        client.close()
+        client = ClientBuilder()
+            .tlsConfig(clientconf)
+            .readTimeout(Duration.Zero)
+            .writeTimeout(Duration.Zero)
+            .build()
         // 请求配置后不超时
         var req1 = HttpRequestBuilder()
             .readTimeout(5 * Duration.second)

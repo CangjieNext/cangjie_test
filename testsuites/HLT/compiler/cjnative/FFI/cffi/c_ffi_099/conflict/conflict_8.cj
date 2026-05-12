@@ -10,6 +10,7 @@
 // DEPENDENCE: foo.c
 // EXEC: %clang %clang_opt foo.c -o %cffi_output
 // EXEC: %compiler %cmp_opt %ffic_opt -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan alpha
 // ASSERT: scan beta
 // ASSERT: scan gamma

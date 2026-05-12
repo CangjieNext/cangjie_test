@@ -9,9 +9,9 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-const func test(a: Int16) {
-    const c: Int16 = 1
-    const b: Int16 = c
+const func test(a: Int64) {
+    const c: Int64 = 1
+    const b: Int64 = c
     return b
 }
 

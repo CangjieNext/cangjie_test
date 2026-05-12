@@ -10,11 +10,6 @@ import test_stable_abi.*
 
 main() {
     let m: S = S(0, 0)
-
-    if (m.getWidth() != 10) {
-        return 1
-    }
-
-    return 0
+    return m.a
 }
 

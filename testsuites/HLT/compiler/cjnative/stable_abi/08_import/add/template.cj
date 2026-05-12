@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -13,5 +13,7 @@ package test_stable_abi
 import std.collection.*
 public import std.math.*
 
-let list = ArrayList<Int64>([-2, -1, 0, 1, 2])
-public var a: Int64 = abs(list[0] + list[1] + list[2] + list[3] + list[4])
+let list = ArrayList<Int64>([-2,-1,0,1,2])
+public var a : Int64 = abs(list[0] + list[1] +list[2] + list[3] + list[4])
+
+

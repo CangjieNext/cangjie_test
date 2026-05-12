@@ -9,13 +9,7 @@
 import test_stable_abi.*
 
 main() {
-    let m: S = S(0, 0)
-
-    if (m.getWidth() != 10) {
-        return 1
-    }
-
-    return 0
+    return S(1, 0).a + S2(1, 0).a + S4(1, 0).a + S5(1, 0).a + f() - 4
 }
 
 

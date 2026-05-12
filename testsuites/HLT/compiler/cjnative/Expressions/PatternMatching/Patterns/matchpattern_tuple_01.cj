@@ -60,6 +60,7 @@ func case04() {
     let scoreTuple = ("a", TimeUnit.Year(1.0))
     let b = ("a", 90)
     var result: String = match (scoreTuple) {
+        //case ("a",  Year(y)) => "Yes"
         case (_, _) => "None"
     }
     if (result == "Yes") {

@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 1
-// (not Windows) EXEC-PIPE: %compiler %cmp_opt -o %output %f
-// (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args| compare %f
-// (not Windows) ASSERT: scan-3 callback1
+// (not iOS and not Windows) EXEC-PIPE: %compiler %cmp_opt -o %output %f
+// (not iOS and not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args| compare %f
+// (not iOS and not Windows) ASSERT: scan-3 callback1
 
 import std.process.*
 

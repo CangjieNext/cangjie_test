@@ -2,54 +2,32 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
 // LEVEL: 2
 // DEPENDENCE: caserunner.cj
-// EXEC: %compiler %cmp_opt %f caserunner.cj -o %output
-// RUN-EXEC-PIPE: %run %run_opt %output %run_args|compare %f
-// ASSERT: scan-not AssertionError
-// ASSERT: scan-not Exception
-// ASSERT: scan-begin Float16:min is nan:throw exception
-// ASSERT: scan-next Float16:min is -nan:throw exception
-// ASSERT: scan-next Float32:min is nan:throw exception
-// ASSERT: scan-next Float32:min is -nan:throw exception
-// ASSERT: scan-next Float64:min is nan:throw exception
-// ASSERT: scan-next Float64:min is -nan:throw exception
+// EXEC: %compiler %cmp_opt %f caserunner.cj -o %output %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+
 import std.math.*
 
-main() {
-    try {
-        var m1 = clamp(Float16(-5.83), Float16(nan16), Float16(-3.45))
-    } catch (e: IllegalArgumentException) {
+@Test
+class TestMath {
+    @TestCase
+    func testCase0(): Unit {
         println("Float16:min is nan:throw exception")
-    }
-    try {
-        var m2 = clamp(Float16(-5.83), Float16(-nan16), Float16(-3.45))
-    } catch (e: IllegalArgumentException) {
+        @ExpectThrows[IllegalArgumentException](clamp(Float16(-5.83), Float16(nan16), Float16(-3.45)))
         println("Float16:min is -nan:throw exception")
-    }
-    try {
-        var m3 = clamp(Float32(5.83), Float32(nan32), Float32(9.45))
-    } catch (e: IllegalArgumentException) {
+        @ExpectThrows[IllegalArgumentException](clamp(Float16(-5.83), Float16(-nan16), Float16(-3.45)))
         println("Float32:min is nan:throw exception")
-    }
-    try {
-        var m4 = clamp(Float32(5.83), Float32(-nan32), Float32(9.45))
-    } catch (e: IllegalArgumentException) {
+        @ExpectThrows[IllegalArgumentException](clamp(Float32(5.83), Float32(nan32), Float32(9.45)))
         println("Float32:min is -nan:throw exception")
-    }
-    try {
-        var m5 = clamp(Float64(-5.83), Float64(nan64), Float64(-3.45))
-    } catch (e: IllegalArgumentException) {
+        @ExpectThrows[IllegalArgumentException](clamp(Float32(5.83), Float32(-nan32), Float32(9.45)))
         println("Float64:min is nan:throw exception")
-    }
-    try {
-        var m6 = clamp(Float64(-5.83), Float64(-nan64), Float64(-3.45))
-    } catch (e: IllegalArgumentException) {
+        @ExpectThrows[IllegalArgumentException](clamp(Float64(-5.83), Float64(nan64), Float64(-3.45)))
         println("Float64:min is -nan:throw exception")
+        @ExpectThrows[IllegalArgumentException](clamp(Float64(-5.83), Float64(-nan64), Float64(-3.45)))
     }
-    return 0
 }

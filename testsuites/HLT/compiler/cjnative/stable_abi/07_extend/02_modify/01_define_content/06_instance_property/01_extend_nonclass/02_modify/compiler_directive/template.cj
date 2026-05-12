@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -37,10 +37,9 @@ extend TestStruct {
             3
         }
     }
-
     @Frozen
     public prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -51,14 +50,12 @@ extend TestStruct {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
     public mut prop prop6: Int64 {
         get() {
@@ -99,5 +96,15 @@ extend TestStruct {
         set(v) {
             a = v
         }
-    }
+    } 
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(TestStruct().exported_prop1, 1)
+    assert(TestStruct().prop2, 2)
+    assert(TestStruct().prop3, 3)
+    assert(TestStruct().prop7, 7)
+    assert(TestStruct().prop8, 8)
 }

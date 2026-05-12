@@ -5,19 +5,19 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test interface: add interface
-public interface I1 {
-    public static func typename(): String {
-        "interface I1"
-    }
+public interface I1 { public static func g() {1} }
+public interface I2<T> { public static func g() {1} }
+interface I3 { public static func g() {1} }
+interface I4<T> { public static func g() {1} }
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
-
-public interface I2<T> {}
-
-interface I3 {}
-
-interface I4<T> {}
+public func check() {
+    assert(I3.g(), 1)
+    assert(I4<Int64>.g(), 1)
+}

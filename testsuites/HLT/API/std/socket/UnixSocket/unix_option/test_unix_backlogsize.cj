@@ -22,9 +22,9 @@ import std.time.*
 import std.sync.*
 import std.fs.*
 
-@When[os == "macOS"]
+@When[os == "macOS" || os == "iOS"]
 let flag = 10
-@When[os != "macOS"]
+@When[os != "macOS" && os != "iOS"]
 let flag = 11
 var data = Array<Byte>(4096, repeat: 10)
 

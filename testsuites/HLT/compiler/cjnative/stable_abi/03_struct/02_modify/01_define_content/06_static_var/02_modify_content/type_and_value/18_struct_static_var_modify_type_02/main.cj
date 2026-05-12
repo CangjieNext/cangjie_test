@@ -9,12 +9,6 @@
 import test_stable_abi.*
 
 main() {
-    var a: S = S()
-
-    if (a.getHeigh() != 20) {
-        return 1
-    }
-
-    return 0
+    check()
 }
 

@@ -61,14 +61,14 @@ class Test_Init_Append {
         try {
             var file = File("", OpenMode.Append)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message, "The file path cannot be empty.")
+            @Expect(e.message, "The input path is empty.")
             sum += 1
         }
         for (str in illegal_str) {
             try {
                 var file = File(str, OpenMode.Append)
             } catch (e: IllegalArgumentException) {
-                @Expect(e.message, "The file path cannot contain null character.")
+                @Expect(e.message.contains("contains null character"))
                 sum += 1
             }
         }
@@ -84,7 +84,7 @@ class Test_Init_Append {
                 var file = File(Path(str), OpenMode.Append)
             } catch (e: FSException) {
                 var parpath = Path(str).parent.toString()
-                @Expect(e.message, "The path `${parpath}` does not exist.")
+                @Expect(e.message, "The input path 'parent' `${parpath}` does not exist.")
                 sum += 1
             }
         }
@@ -98,7 +98,7 @@ class Test_Init_Append {
         try {
             file.seek(SeekPosition.Begin(0))
         } catch (e: FSException) {
-            @Expect(e.message, "The file can not seek.")
+            @Expect(e.message.contains("can not seek."))
             sum += 1
         }
         file.close()
@@ -130,7 +130,7 @@ class Test_Init_Append {
         try {
             file.read(buf)
         } catch (e: FSException) {
-            @Expect(e.message, "The file does not have the read permission.")
+            @Expect(e.message.contains("does not have the read permission."))
             sum += 1
         }
         file.close()

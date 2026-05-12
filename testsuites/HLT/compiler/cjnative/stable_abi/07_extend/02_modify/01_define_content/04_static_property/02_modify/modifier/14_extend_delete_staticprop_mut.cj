@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.4.2.14
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend static prop
   @Behavior: delete mut modifier and corresponding setter function
   @Expect: api incompatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-2 [API/ABI] Deleted 'Mut' member property of extend visible outside the module.
 // ASSERT: scan-2 [API/ABI]
@@ -35,7 +37,6 @@ package test_stable_abi
 public class TestClass {
     public static var a: Int64 = 0
 }
-
 public struct TestStruct {
     public static var a: Int64 = 0
 }
@@ -58,10 +59,9 @@ extend TestClass {
             3
         }
     }
-
     @Frozen
     public static prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -72,16 +72,14 @@ extend TestClass {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
-    public mut static prop prop6: Int64 {
+    public static mut prop prop6: Int64 {
         get() {
             6
         }
@@ -106,19 +104,29 @@ extend TestClass {
         }
     }
 
-    public mut static prop prop10: Int64 {
+    public static mut prop prop10: Int64 {
         get() {
             10
         }
         set(v) {
         }
     }
-    public mut static prop prop11: Int64 {
+    public static mut prop prop11: Int64 {
         get() {
             11
         }
         set(v) {
             a = v
+        }
+    }
+    public static prop prop12: Int64{
+        get(){
+            prop9
+        }
+    }
+    public static prop prop13: Int64{
+        get(){
+            prop8
         }
     }
 }
@@ -141,10 +149,9 @@ extend TestStruct {
             3
         }
     }
-
     @Frozen
     public static prop _prop3: Int64 {
-        get() {
+        get () {
             prop3
         }
     }
@@ -155,14 +162,12 @@ extend TestStruct {
             4
         }
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static prop prop5: Int64 {
         get() {
             5
         }
     }
-
     @Frozen
     public static prop prop6: Int64 {
         get() {
@@ -186,7 +191,7 @@ extend TestStruct {
         }
     }
 
-    public mut static prop prop10: Int64 {
+    public static mut prop prop10: Int64 {
         get() {
             10
         }
@@ -198,4 +203,23 @@ extend TestStruct {
             11
         }
     }
+    public static prop prop12: Int64{
+        get(){
+            prop9
+        }
+    }
+    public static prop prop13: Int64{
+        get(){
+            prop8
+        }
+    }
+}
+
+public func global_func_01(){
+    TestStruct.prop2 == 2
+    && TestClass.prop2 == 2
+    && TestClass.prop7 == 7
+    && TestClass.prop13 == 8
+    && TestStruct.prop7 == 7
+    && TestClass.prop12 == 9
 }

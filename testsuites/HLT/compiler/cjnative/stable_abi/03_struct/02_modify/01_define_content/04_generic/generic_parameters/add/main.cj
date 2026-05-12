@@ -5,15 +5,17 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
     var a: Pair<String, Int64> = Pair<String, Int64>("hello", 0)
 
-    if (a.first() != "hello" || a.second() != 0) {
+    if (a.first() != "hello" || a.second() !=0) {
         return 1
     }
 
     return 0
 }
+
+

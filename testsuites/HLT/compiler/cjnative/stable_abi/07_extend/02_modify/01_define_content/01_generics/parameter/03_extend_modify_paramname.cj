@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.1.3
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend
   @Behavior: modify generics paramname
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -32,24 +33,20 @@
 package test_stable_abi
 
 // test extend: generic params
-public open class Father {}
+open public class Father {}
 
 public class Son <: Father {}
-
 public class Son1 <: Father {}
 
-public class Generics_C<T1, U1> {}
+public class Generics_C<T1, U1> {
+}
 
 extend<T1, U1> Generics_C<T1, U1> where U1 <: Son {
-    public func foo1() {
-        1
-    }
+    public func foo1() {1}
 }
 
 public struct Generics_S<T0, U0> {}
 
 extend<T1, U1> Generics_S<T1, U1> where T1 <: Father, U1 <: Son {
-    public func foo2() {
-        2
-    }
+    public func foo2() {2}
 }

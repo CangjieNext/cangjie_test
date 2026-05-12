@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-2 [API/ABI] Changed return type of function visible outside the module. The new return type is not a subtype of the old return type.
 // ASSERT: scan-2 [API/ABI]
@@ -182,6 +184,9 @@ extend TestClass {
     private static func p16(a: Son, b: Father, c!: Son = Son(), d!: Father = Father()): Son {
         c
     }
+    public static func p17(a: Son, b: Father, c!: Son = Son(), d!: Father = Father()): Father {
+        p10(Son(), Father())
+    }
 }
 
 class privateClass {}
@@ -267,4 +272,18 @@ extend privateClass {
     private static func p16(a: Son, b: Father, c!: Son = Son(), d!: Father = Father()): Son {
         c
     }
+    public static func p17(a: Son, b: Father, c!: Son = Son(), d!: Father = Father()): Father {
+        p10(Son(), Father())
+    }
+}
+
+public func global_func_01(){
+    TestClass.p2(Son(), Father()) is Father
+    && TestClass.p9(Son(), Father()) is Father
+    && privateClass.p1(Son(), Father()) is Father
+    && privateClass.p2(Son(), Father()) is Father
+    && privateClass.p4() is Father
+    && privateClass.p6() is Father
+    && TestClass.p17(Son(), Father()) is Father
+    && privateClass.p17(Son(), Father()) is Father
 }

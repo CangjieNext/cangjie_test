@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// Level: 1
+// Description:
+// DEPENDENCE: CangjieEnum.cj com
+// (Android) EXEC: %compiler %cmp_opt %compile_dylib_opt %jffi_link --experimental --enable-interop-cjmapping=Java CangjieEnum.cj --output-javagen-dir .
+// (Android) EXEC: %javac %cp_loader_jar com/hello/world/cangjieinterophelloworld/Main.java CangjieEnum.java AnotherCangjieStruct.java AnotherCangjieClass.java AnotherCangjieEnum.java JavaImplClass.java -h . -d .
+// (Android) EXEC-PIPE: %java %cp_loader_jar -Djava.library.path=. com.hello.world.cangjieinterophelloworld.Main 2>&1 | compare %f
+// (Android) ASSERT: scan result = true

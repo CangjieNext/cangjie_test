@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE: ./data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
-// RUN-EXEC: %run_stdx %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl -o %output %f %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate,DerBlob, PrivateKey}
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.common.{DerBlob, PrivateKey}
 import std.sync.*
 import std.argopt.*
 import std.runtime.*
@@ -102,7 +103,7 @@ class Test_tlscertificate_02 {
         try {
             X509Certificate.decodeFromDer(derData)
         } catch (e: Exception) {
-            @Expect(e.message.contains("The field is not a sequence"))
+            @Expect(e.message.contains("Failed to parse DER"))
             sum += 1
         }
         @Expect(sum, 1)

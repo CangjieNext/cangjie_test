@@ -29,6 +29,10 @@ func run(): Int64 {
     var i14: Int64 = s.indexOf(ch1, 9223372036854775807) ?? -1
 
     print("s = " + s + "\n")
+    //    print("indexOf(r'f', -9223372036854775807)=" + Int32(i1).toString() + "\n")
+    //    print("indexOf(r'f', -9223372036854775806)=" + Int32(i2).toString() + "\n")
+    //   print("indexOf(r'f', -2)=" + Int32(i3).toString() + "\n")
+    //   print("indexOf(r'f', -1)=" + Int32(i4).toString() + "\n")
     print("indexOf(r'f', 0)=" + Int32(i5).toString() + "\n")
     print("indexOf(r'f', 1)=" + Int32(i6).toString() + "\n")
     print("indexOf(r'f', 5)=" + Int32(i7).toString() + "\n")

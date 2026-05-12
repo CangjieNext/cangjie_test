@@ -7,7 +7,9 @@
  */
 
 // LEVEL: 0
-// (CJNATIVE and not MAC) ERRCHECK: %compiler %cmp_opt --lto= %f -o %output
+// DESCRIPTION: empty value for option --lto
+// EXEC-PIPE-1: %compiler %cmp_opt --lto= %f -o %output 2>&1 | compare %f
+// ASSERT: scan-not does not support
 // ASSERT: scan option '--lto' requires some values, format: option=value or option="v1, v2..."
 // ASSERT: scan invalid value: ''
 

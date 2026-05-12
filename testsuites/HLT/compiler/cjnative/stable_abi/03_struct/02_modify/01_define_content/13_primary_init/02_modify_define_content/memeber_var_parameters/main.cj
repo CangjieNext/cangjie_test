@@ -11,7 +11,7 @@ import test_stable_abi.*
 main() {
     let m: S = S(0, 0)
 
-    if (m.getWidth() != 10) {
+    if (m.getWidth() != 10 || S3(0, e:10).a != 0 || S6(0, c:1.2, e:10).a != 0) {
         return 1
     }
 

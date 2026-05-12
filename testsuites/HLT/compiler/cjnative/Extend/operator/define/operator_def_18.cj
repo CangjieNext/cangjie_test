@@ -23,7 +23,7 @@ main() : Int64 {
 }
 
 extend Int8 {
-    public operator func ==(right:Rune)::Bool { //error: expected type
+    public operator func == (right:Rune)::Bool { //error: expected type
         if (right == 'a') {
             return true
         }else{
@@ -31,4 +31,6 @@ extend Int8 {
         }
     }
 }
-// ASSERT: scan parse_expected_name
+// ASSERT: scan parse_missing_body
+// ASSERT: scan parse_expected_decl
+

@@ -18,11 +18,11 @@ import asan.*
 main(): Int64 {
     var pattern = #"\x-1"#
     var str = "A"
-    var regex = Regex(pattern)
-    var matcher = Matcher(regex, str)
     try {
+        var regex = Regex(pattern)
+        var matcher = Matcher(regex, str)
         var res = matcher.findAll().getOrThrow()
-    } catch (e: NoneValueException) {
+    } catch (e: RegexException) {
         asanGC()
         return 0
     }

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.5.1.2.18
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: delete mut modifier
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,6 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-3 [ABI] Deleted the modifier 'mut' of the member function of the extend.
 // ASSERT: scan-not [API/ABI]
@@ -36,14 +39,12 @@
 package test_stable_abi
 
 // test extend: instance function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public struct TestStruct {
     public const init() {}
 }
-
 extend TestStruct {
     public func f1() {
         1
@@ -55,14 +56,13 @@ extend TestStruct {
     const func f3(): Int64 {
         return 3
     }
-    public mut const func f4(): Int64 {
+    public const mut func f4(): Int64 {
         f3()
     }
 
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public mut func f6(): Int64 {
         f5()
@@ -94,7 +94,6 @@ extend TestStruct {
     func f15(): Int64 {
         return 5
     }
-
     @Frozen
     public func f16(): Int64 {
         f15()

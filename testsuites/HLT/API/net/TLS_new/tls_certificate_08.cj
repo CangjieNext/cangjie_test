@@ -8,15 +8,15 @@
 
 // LEVEL: 2
 // DEPENDENCE: ./data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
-// RUN-EXEC: %run_stdx %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl -o %output %f %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.net.*
 import std.fs.*
 import stdx.net.tls.*
-import stdx.crypto.x509.{X509Certificate,PemEntry,DerBlob,Pem,PrivateKey}
-//import stdx.crypto.common.*
-//import stdx.crypto.keys.*
+import stdx.crypto.x509.X509Certificate
+import stdx.crypto.common.*
+import stdx.crypto.keys.*
 import std.sync.*
 import std.runtime.*
 import std.unittest.*
@@ -38,7 +38,7 @@ class Test_tlscertificate_08 {
             collectArray
         let key = (pem |>
             filter<PemEntry> { entry => entry.label == PemEntry.LABEL_PRIVATE_KEY } |>
-            map<PemEntry, PrivateKey> { entry => PrivateKey.decodeDer(entry.body.getOrThrow())} |>
+            map<PemEntry, PrivateKey> { entry => GeneralPrivateKey.decodeDer(entry.body.getOrThrow())} |>
             first) ?? throw Exception("No private key found in the PEM file")
         if (chain.isEmpty()) {
             throw Exception("No certificates found in the PEM file")

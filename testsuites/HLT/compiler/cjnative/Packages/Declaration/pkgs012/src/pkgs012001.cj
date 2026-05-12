@@ -10,7 +10,6 @@
 // DEPENDENCE:  module012
 // EXEC: %compiler %cmp_opt %compile_lib_opt module012/src/pkgs/pkgs.cj -o module012/  
 // EXEC: %compiler %cmp_opt %f module012/libmodule012.pkgs.%middle -o %output
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f module012/module012.pkgs.%middle -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 import module012.pkgs

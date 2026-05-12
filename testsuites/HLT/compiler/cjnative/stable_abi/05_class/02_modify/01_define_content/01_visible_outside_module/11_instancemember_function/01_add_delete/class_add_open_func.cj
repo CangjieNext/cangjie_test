@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.11.1
   @Scene: add
@@ -13,7 +13,7 @@
   @Object: class instance func
   @Behavior: add class instance func
   @Expect: api compatible & abi incompatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../main.cj, ../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,6 +23,9 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --api 2>&1 | compare template.cj
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo --abi 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-15 [ABI] Added open instance member functions for classes.
 // ASSERT: scan-not [API/ABI]
@@ -34,8 +37,7 @@
 
 package test_stable_abi
 // test class: instancemember function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 @Annotation
@@ -46,17 +48,17 @@ public class Version {
     }
 }
 
-public open class TestClass {
+open public class TestClass {
     public func f1() {
         1
     }
-    public open func open_f1() {
+    open public func open_f1() {
         1
     }
     protected func f2() {
         2
     }
-    protected open func open_f2() {
+    open protected func open_f2() {
         2
     }
 
@@ -76,7 +78,6 @@ public open class TestClass {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -84,21 +85,19 @@ public open class TestClass {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
     }
 
     @Frozen
-    public open func open_f6(): Int64 {
+    open public func open_f6(): Int64 {
         5
     }
-
     @Frozen
-    protected open func open_pf6(): Int64 {
+    open protected func open_pf6(): Int64 {
         5
-    }
+    } 
 
     // 被全局函数调用
     internal func f7(): Int64 {
@@ -109,39 +108,33 @@ public open class TestClass {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
     }
 
     @Deprecated["This API will be deprecated soon"]
-    public open func open_f8() {
+    open public func open_f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
-    public open func open_f9() {
+    open public func open_f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
-    protected open func open_pf8() {
+    open protected func open_pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
-    protected open func open_pf9() {
+    open protected func open_pf9() {
         9
     }
 
@@ -162,7 +155,7 @@ public open class TestClass {
         14
     }
 
-    public unsafe open func open_f13(): Int64 {
+    open public unsafe func open_f13(): Int64 {
         return 13
     }
 
@@ -179,16 +172,16 @@ public open class TestClass {
         a.toString()
     }
 
-    public open func open_g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
+    open public func open_g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
     }
-    public open func open_g2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
+    open public func open_g2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
         a.toString()
     }
-    protected open func open_pg1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
+    open protected func open_pg1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
         a.toString() + b.toString()
     }
-    protected open func open_pg2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
+    open protected func open_pg2<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Z <: Father {
         a.toString()
     }
 
@@ -225,22 +218,40 @@ public open class TestClass {
     }
 
     @Version["1.1"]
-    public open func open_ano1() {
+    open public func open_ano1() {
         1
     }
     @Version["1.1"]
-    protected open func open_pano1() {
+    open protected func open_pano1() {
         1
     }
 
-    public open func openfunc() {
+    open public func openfunc() {
         1
     }
 
     public const init() {}
 }
 
-public func global() {
-    let v1 = TestClass()
-    v1.f7()
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public unsafe func checker(tc: TestClass): Unit {
+    assert(tc.f1(), 1)
+    assert(tc.f4(), 3)
+    assert(tc.f6(), 5)
+    assert(tc.openfunc(), 1)
+    assert(tc.f8(), 8)
+    assert(tc.f13(), 13)
+    assert(tc.f14(), 14)
+    assert(tc.g1<Int64, Int64, Son>(1, 2, Son()), "12")
+    assert(tc.g2<Int64, String, Son>(1, "a", Son()), "1")
+    assert(tc.p1(1, b: 2, c: 3), 6)
+    assert(tc.p2(Son(), b: Son()) is Son, true)
+    assert(tc.p3(Father(), b: Father()) is Father, true)
+    assert(tc.ano1(), 1)
 }

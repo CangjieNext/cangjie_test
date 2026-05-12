@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.1.8
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend
   @Behavior: delete generics constraints
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -32,24 +33,20 @@
 package test_stable_abi
 
 // test extend: generic constraints
-public open class Father {}
+open public class Father {}
 
 public class Son <: Father {}
-
 public class Son1 <: Father {}
 
-public class Generics_C<T, U> {}
+public class Generics_C<T, U> {
+}
 
 extend<T, U> Generics_C<T, U> where U <: Son {
-    public func foo1() {
-        1
-    }
+    public func foo1() {1}
 }
 
 public struct Generics_S<T, U> {}
 
-extend<T, U> Generics_S<T, U> where U <: Son, T <: Father {
-    public func foo2() {
-        2
-    }
+extend<T, U> Generics_S<T, U> where U <: Son, T <: Father{
+    public func foo2() {2}
 }

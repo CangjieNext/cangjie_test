@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %output %f
 
 import std.io.*
 import stdx.net.http.*

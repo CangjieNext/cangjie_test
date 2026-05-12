@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.4.2.1
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend static prop
   @Behavior: delete static prop annotation
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -48,13 +49,15 @@ public class TestClass {
 }
 
 extend TestClass {
+
     public static prop prop1: Int64 {
         get() {
             1
         }
     }
 
-    mut static prop prop2: Int64 {
+
+    static mut prop prop2: Int64 {
         get() {
             1
         }
@@ -63,7 +66,8 @@ extend TestClass {
         }
     }
 
-    mut static prop prop3: Int64 {
+
+    static mut prop prop3: Int64 {
         get() {
             1
         }
@@ -77,13 +81,14 @@ extend TestClass {
         prop3
     }
 
+
     public static prop prop_1: Int64 {
         get() {
             1
         }
     }
 
-    mut static prop prop_2: Int64 {
+    static mut prop prop_2: Int64 {
         get() {
             1
         }
@@ -92,7 +97,8 @@ extend TestClass {
         }
     }
 
-    mut static prop prop_3: Int64 {
+
+    static mut prop prop_3: Int64 {
         get() {
             1
         }
@@ -105,4 +111,11 @@ extend TestClass {
     public func n_1() {
         prop_3
     }
+}
+
+public func global_func_01() {
+    TestClass.prop_2 == 1
+    && TestClass.prop_3 == 1
+    && TestClass.prop2 == 1
+    && TestClass.prop3 == 1
 }

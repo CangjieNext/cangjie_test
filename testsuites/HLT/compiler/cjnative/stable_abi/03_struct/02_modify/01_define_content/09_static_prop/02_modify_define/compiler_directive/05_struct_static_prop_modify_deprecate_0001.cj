@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.9.2.5
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: struct static prop
   @Behavior: modify @Deprecated, error -> warning
   @Expect: api compatible & abi compatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -38,110 +39,107 @@ public struct Rectangle {
     static let width = 10
     static var a = 10
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
-
-    mut static prop geta1: Int64 {
+    static mut prop geta1:Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
-    public mut static prop geta2: Int64 {
+    public static mut prop geta2:Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
+            a = value
+        }
+    }
+
+    static mut prop getb: Int64 {
+        get() {
+            a
+        }
+        set(value) {
+            a = value
+        }
+    }
+
+    @Frozen
+    public func getc1(){
+        return getb
+    }
+
+    @Deprecated["this function is deprecated", strict: false]
+    public static mut prop getc: Int64 {
+        get() {
+            a
+        }
+        set(value) {
             a = value
         }
     }
 
     @Deprecated["this function is deprecated", strict: false]
-    mut static prop geta3: Int64 {
+    static mut prop getd: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
+            a = value
+        }
+    }
+
+    @Frozen
+    public func getgetd(){
+        return getd
+    }
+
+    @Deprecated["this function is deprecated", strict: false]
+    public static mut prop gete: Int64 {
+        get() {
+            a
+        }
+        set(value) {
             a = value
         }
     }
 
     @Deprecated["this function is deprecated", strict: false]
-    public mut static prop geta4: Int64 {
+    public static mut prop geth: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
     }
 
-    @Deprecated["this function is deprecated", strict: false]
-    public mut static prop geta5: Int64 {
+    @Deprecated["this function is deprecated", strict: true]
+    static mut prop getf: Int64 {
         get() {
-            println("get")
             a
         }
         set(value) {
-            println("set")
             a = value
         }
+    }
+
+    @Frozen
+    @Deprecated["this function is deprecated", strict: true]
+    public func getgetf(){
+        return getf
     }
 }
 
-public struct S1 {
-    static var a = 20
-    public static prop getb: Int64 {
-        get() {
-            a
-        }
-    }
-
-    mut static prop geta: Int64 {
-        get() {
-            a
-        }
-        set(value) {
-            a = value
-        }
-    }
-
-    @Frozen
-    public func getgeta() {
-        return geta
-    }
-
-    @Deprecated["this function is deprecated", strict: false]
-    public static prop getc: Int64 {
-        get() {
-            a
-        }
-    }
-
-    @Deprecated["this function is deprecated", strict: false]
-    mut static prop getd: Int64 {
-        get() {
-            a
-        }
-        set(value) {
-            a = value
-        }
-    }
-
-    @Frozen
-    public func getgetd() {
-        return getd
+public func f(){
+    if(Rectangle.getb == 10 && Rectangle.getd == 10 && Rectangle.geth == 10){
+        return 0
+    }else{
+        return 1
     }
 }

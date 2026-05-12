@@ -5,20 +5,28 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
 
 public struct Rectangle {
-    let width = 10
+    static let width = 10
     static let a1 = 20
 
-    public func getWidth(): Int64 {
+    public static func getWidth(): Int64{
         return width
     }
 
     static func geta(): Int64 {
+        return a1
+    }
+}
+
+public func f(){
+    if(Rectangle.getWidth() == 10 && Rectangle.geta() == 20){
         return 0
+    }else{
+        return 1
     }
 }

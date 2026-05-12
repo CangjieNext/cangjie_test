@@ -10,7 +10,7 @@
 // DEPENDENCE: pkg1 pkg2
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg1/a.cj -o pkg1.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt pkg2/b.cj pkg1.%middle -o pkg2.%middle
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f pkg1.%middle pkg2.%middle -o %output
+
 // EXEC: %compiler %cmp_opt %f pkg2.%middle pkg1.%middle -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 

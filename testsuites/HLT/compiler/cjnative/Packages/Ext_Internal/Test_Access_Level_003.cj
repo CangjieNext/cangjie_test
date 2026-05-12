@@ -36,6 +36,8 @@ main(): Int64 {
     if (newRec1.pub_date1 != 1 || newRec1.pub_date2 != 2) {
         return 1
     }
+    //print(newRec1.pub_date1.toString() + "\n")
+    //print(newRec1.pub_date2.toString() + "\n")
 
     return 0
 }

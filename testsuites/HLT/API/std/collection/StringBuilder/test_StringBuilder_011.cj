@@ -7,12 +7,12 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f
-// RUN-EXEC: %run %run_opt %n.%suffix %run_args
+// EXEC: %compiler %cmp_opt -o %output %f
+// RUN-EXEC: %run %run_opt %output %run_args
 
 import std.math.*
 
-main(): Int32 {
+main(): Int64 {
     var strb1 = StringBuilder()
     if (strb1.size != 0) {
         return 1

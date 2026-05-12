@@ -2,17 +2,18 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- *
+ * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
 // LEVEL: 0
 // DEPENDENCE: ../data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix  %f %cmp_utest_opt
-// RUN-EXEC: %run_stdx %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl -o %output  %f %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.fs.*
 import stdx.crypto.x509.*
+import stdx.crypto.common.*
 
 var sum = 0
 
@@ -83,7 +84,7 @@ class Test_X509_pemformat_decode_01 {
         let pemData = String.fromUtf8(File.readFrom("./data/root_rsa_blank.cer"))
         try {
             X509Certificate.decodeFromPem(pemData)
-        } catch (e: X509Exception) {
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Pem is empty"))
             sum += 1
         }
@@ -95,7 +96,7 @@ class Test_X509_pemformat_decode_01 {
         let pemData = String.fromUtf8(File.readFrom("./data/root_ecdsa_1.text"))
         try {
             X509Certificate.decodeFromPem(pemData)
-        } catch (e: X509Exception) {
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to parse PEM"))
             sum += 1
         }
@@ -107,7 +108,7 @@ class Test_X509_pemformat_decode_01 {
         let pemData = String.fromUtf8(File.readFrom("./data/end_ecdsa_1.cer"))
         try {
             X509Certificate.decodeFromPem(pemData)
-        } catch (e: X509Exception) {
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to parse base64 encoded PEM body"))
             sum += 1
         }
@@ -127,7 +128,7 @@ class Test_X509_pemformat_decode_01 {
         try {
             X509Certificate.decodeFromPem(String.fromUtf8(File.readFrom("./data/end_ecdsa_3.cer")))
         } catch (e: FSException) {
-            @Expect(e.message.contains("The file does not exist or permission denied"))
+            @Expect(e.message.contains("does not exist or permission denied"))
             sum += 1
         }
         @Expect(sum, 1)

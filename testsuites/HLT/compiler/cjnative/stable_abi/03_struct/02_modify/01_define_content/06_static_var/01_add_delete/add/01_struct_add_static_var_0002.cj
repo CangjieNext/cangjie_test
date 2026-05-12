@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -33,6 +34,7 @@
 // test struct: add static member variable
 // 新增静态成员变量
 package test_stable_abi
+
 
 public struct Rectangle {
     let width = 10
@@ -52,4 +54,14 @@ public struct Rectangle1 {
     public func getWidth(): Int64{
         return width
     }
+}
+
+public func f(){
+    var a = Rectangle.height
+    if(a == 20){
+        return 0
+    }else{
+        return 1
+    }
+
 }

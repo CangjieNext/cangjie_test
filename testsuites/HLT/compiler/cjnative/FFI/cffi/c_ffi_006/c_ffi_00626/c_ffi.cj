@@ -20,52 +20,54 @@ var cstr4: CString = unsafe { LibC.mallocCString("Bye~\n") }
 
 foreign func testfunc(fmt: CString): CString
 
-unsafe main(): Int64 {
-    var cstr5: CString = testfunc(cstr1)
-    var cStr6 = unsafe { LibC.mallocCString("Hello World\n") }
-    var cStr7 = unsafe { LibC.mallocCString("World\n") }
-    var cStr8 = unsafe { LibC.mallocCString("World2") }
-    if (cstr1.isNull() || cstr2.isNull() || cstr3.isNull() || cstr4.isNull() || cstr5.isNull() || cStr6.isNull() ||
-        cStr7.isNull() || cStr8.isNull()) {
-        return 2
-    }
-    if (cstr5.equals(cStr6)) {
-        count += 1
-    }
-
-    var arr1: Array<CString> = Array<CString>()
-    arr1 = [cstr1, cstr2, cstr3, cstr4, cstr5]
-
-    var res1 = arr1.get(1).getOrThrow()
-    if (res1.equals(cStr7)) {
-        count += 1
-    }
-
-    arr1[1] = cStr8
-
-    arr1.reverse()
-
-    var res2 = arr1.get(3).getOrThrow()
-    if (res2.equals(cStr8)) {
-        count += 1
-    }
-
-    var itr = arr1.iterator()
-
+main(): Int64 {
     unsafe {
-        LibC.free(cstr1)
-        LibC.free(cstr2)
-        LibC.free(cstr3)
-        LibC.free(cstr4)
-        LibC.free(cstr5)
-        LibC.free(cStr6)
-        LibC.free(cStr7)
-        LibC.free(cStr8)
-    }
+        var cstr5: CString = testfunc(cstr1)
+        var cStr6 = unsafe { LibC.mallocCString("Hello World\n") }
+        var cStr7 = unsafe { LibC.mallocCString("World\n") }
+        var cStr8 = unsafe { LibC.mallocCString("World2") }
+        if (cstr1.isNull() || cstr2.isNull() || cstr3.isNull() || cstr4.isNull() || cstr5.isNull() || cStr6.isNull() ||
+            cStr7.isNull() || cStr8.isNull()) {
+            return 2
+        }
+        if (cstr5.equals(cStr6)) {
+            count += 1
+        }
 
-    if (count == 3) {
-        return 0
-    } else {
-        return 1
+        var arr1: Array<CString> = Array<CString>()
+        arr1 = [cstr1, cstr2, cstr3, cstr4, cstr5]
+
+        var res1 = arr1.get(1).getOrThrow()
+        if (res1.equals(cStr7)) {
+            count += 1
+        }
+
+        arr1[1] = cStr8
+
+        arr1.reverse()
+
+        var res2 = arr1.get(3).getOrThrow()
+        if (res2.equals(cStr8)) {
+            count += 1
+        }
+
+        var itr = arr1.iterator()
+
+        unsafe {
+            LibC.free(cstr1)
+            LibC.free(cstr2)
+            LibC.free(cstr3)
+            LibC.free(cstr4)
+            LibC.free(cstr5)
+            LibC.free(cStr6)
+            LibC.free(cStr7)
+            LibC.free(cStr8)
+        }
+
+        if (count == 3) {
+            return 0
+        } else {
+            return 1
+        }
     }
 }

@@ -44,6 +44,7 @@ func foo_bool(): Int64 {
     var b2 = true
     var b3 = true && true
     var b4 = false || true
+    //    var b5 = true ^^ false
     var b6 = false == false
     var b7 = true != false
     if (b1 && b2 && b3 && b4) {

@@ -11,9 +11,9 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 class A {
     const init() {}
-    const func test(a: Int16) {
-        const c: Int16 = 1
-        const b: Int16 = c
+    const func test(a: Int64) {
+        const c: Int64 = 1
+        const b: Int64 = c
         return b
     }
 }

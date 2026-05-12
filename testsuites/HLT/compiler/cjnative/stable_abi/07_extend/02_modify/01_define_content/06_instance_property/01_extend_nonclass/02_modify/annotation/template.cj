@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -86,4 +86,13 @@ extend TestStruct {
     public func n_1() {
         prop_3
     }
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(TestStruct().prop2, 1)
+    assert(TestStruct().prop3, 1)
+    assert(TestStruct().prop_2, 1)
+    assert(TestStruct().prop_3, 1)
 }

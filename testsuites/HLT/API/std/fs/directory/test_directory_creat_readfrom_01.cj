@@ -21,8 +21,8 @@ class Test_directory_creat_readfrom_01 {
         for (str in illegal_path_string) {
             let e = @AssertThrows[IllegalArgumentException](Directory.create(str, recursive: false))
             let e1 = @AssertThrows[IllegalArgumentException](Directory.create(str, recursive: true))
-            @Expect(e.message.contains("Invalid path, failed to create directory"))
-            @Expect(e1.message.contains("Invalid path, failed to create directory"))
+            @Expect(e.message.contains("Invalid path `${str}`, failed to create directory"))
+            @Expect(e1.message.contains("Invalid path `${str}`, failed to create directory"))
         }
     }
 
@@ -32,8 +32,8 @@ class Test_directory_creat_readfrom_01 {
         for (str in illegal_path_string) {
             let e = @AssertThrows[IllegalArgumentException](Directory.create(Path(str), recursive: false))
             let e1 = @AssertThrows[IllegalArgumentException](Directory.create(Path(str), recursive: true))
-            @Expect(e.message.contains("Invalid path, failed to create directory"))
-            @Expect(e1.message.contains("Invalid path, failed to create directory"))
+            @Expect(e.message.contains("Invalid path `${str}`, failed to create directory"))
+            @Expect(e1.message.contains("Invalid path `${str}`, failed to create directory"))
         }
     }
 
@@ -69,8 +69,8 @@ class Test_directory_creat_readfrom_01 {
         Directory.create("zpstest", recursive: false)
         let e = @AssertThrows[FSException](Directory.create("zpstest", recursive: false))
         let e1 = @AssertThrows[FSException](Directory.create(Path("zpstest"), recursive: false))
-        @Expect(e.message.contains("The path of directory exists"))
-        @Expect(e1.message.contains("The path of directory exists"))
+        @Expect(e.message.contains("is already exists"))
+        @Expect(e1.message.contains("is already exists"))
     }
 
     @TestCase
@@ -78,8 +78,8 @@ class Test_directory_creat_readfrom_01 {
         Directory.create("zpstest1/zpstest1", recursive: true)
         let e = @AssertThrows[FSException](Directory.create("zpstest", recursive: true))
         let e1 = @AssertThrows[FSException](Directory.create(Path("zpstest"), recursive: true))
-        @Expect(e.message.contains("The path of directory exists"))
-        @Expect(e1.message.contains("The path of directory exists"))
+        @Expect(e.message.contains("is already exists"))
+        @Expect(e1.message.contains("is already exists"))
         remove("zpstest", recursive: true)
         remove("zpstest1/zpstest1", recursive: true)
     }

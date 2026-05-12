@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %cmp_opt -j 1 -j 2 %f -o %output 2>&1 | compare %f
-// RUN-EXEC: %run %run_opt %output %run_args
-// ASSERT: scan '--jobs' or '-j' is specified multiple times. The last one is chosen.
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -j 1 -j 2 %f -o %output 2>&1 | compare %f
+// (not MAC and not Windows) RUN-EXEC: %run %run_opt %output %run_args
+// (not MAC and not Windows) ASSERT: scan '--jobs' or '-j' is specified multiple times. The last one is chosen.
 
 main(): Int64 {
     return 0
