@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // (not Windows) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (not Windows)RUN-EXEC: export HOSTNAME=`hostname` && %run %run_opt %output %run_utest_opt %run_args 
+// (not iOS and not Windows)RUN-EXEC: export HOSTNAME=`hostname` && %run %run_opt %output %run_utest_opt %run_args 
 import std.posix.*
 import std.process.*
 

@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: %n.c
-// (not Windows) EXEC: %clang -c %clang_opt %n.c -o lib%n.c.cfile.%dylib_suffix
+// (not Windows) EXEC: %clang -c %clang_opt %n.c -o lib%n.c.cfile.%cffi_suffix
 // (not Windows) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt %overflow_wrapping -o %output
 // (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 /* SCAN-IN
@@ -100,28 +100,30 @@ struct BiggerStruct {
     }
 }
 
-unsafe main() {
-    var aaa: BiggerStruct = BiggerStruct(11, 22, 33)
-    var bbb: BiggerStruct = BiggerStruct(44, 55, 66)
-    var ccc: BiggerStruct = BiggerStruct(14, 15, 16)
-    var ddd: BiggerStruct = BiggerStruct(24, 25, 26)
-    var eee: BiggerStruct = BiggerStruct(34, 35, 36)
-    var fff: BiggerStruct = BiggerStruct(44, 45, 46)
+main() {
+    unsafe{
+        var aaa: BiggerStruct = BiggerStruct(11, 22, 33)
+        var bbb: BiggerStruct = BiggerStruct(44, 55, 66)
+        var ccc: BiggerStruct = BiggerStruct(14, 15, 16)
+        var ddd: BiggerStruct = BiggerStruct(24, 25, 26)
+        var eee: BiggerStruct = BiggerStruct(34, 35, 36)
+        var fff: BiggerStruct = BiggerStruct(44, 45, 46)
 
-    var g: Int64 = 1
-    var h: Int64 = 2
-    var i: Int64 = 3
-    var j: Int64 = 4
-    var k: Int64 = 5
-    var l: Int64 = 6
-    var m: Int64 = 7
+        var g: Int64 = 1
+        var h: Int64 = 2
+        var i: Int64 = 3
+        var j: Int64 = 4
+        var k: Int64 = 5
+        var l: Int64 = 6
+        var m: Int64 = 7
 
-    PassStructToC_6S(aaa, bbb, ccc, ddd, eee, fff)
-    PassStructToC_6int(g, h, i, j, k, l, m)
-    PassStructToC_6int1S(g, h, i, j, k, l, aaa)
-    PassStructToC_1S6int(aaa, g, h, i, j, k, l)
-    PassStructToC_3int1S3int1S(g, h, i, aaa, j, k, l, bbb)
+        PassStructToC_6S(aaa, bbb, ccc, ddd, eee, fff)
+        PassStructToC_6int(g, h, i, j, k, l, m)
+        PassStructToC_6int1S(g, h, i, j, k, l, aaa)
+        PassStructToC_1S6int(aaa, g, h, i, j, k, l)
+        PassStructToC_3int1S3int1S(g, h, i, aaa, j, k, l, bbb)
 
-    CJ_1S6int(aaa, g, h, i, j, k, l)
-    return 0
+        CJ_1S6int(aaa, g, h, i, j, k, l)
+        return 0
+    }
 }

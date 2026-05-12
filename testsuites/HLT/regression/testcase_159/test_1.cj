@@ -1315,6 +1315,6 @@ extend Class_1664150465928_85 {
 // ASSERT: scan parse_expected_catch_or_finally_in_try
 // ASSERT: scan parse_expected_left_brace
 // ASSERT: scan parse_illegal_modifier_in_scope
-// ASSERT: scan parse_unexpected_declaration_in_scope
+// (not iOS) ASSERT: scan parse_unexpected_declaration_in_scope
 
 

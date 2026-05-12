@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -67,4 +68,13 @@ extend<T> TestStruct_unexport<T> where T <: I1 {
     public func foo_unexport(a: Int64, b: Int64, c!:Int64, d!:Int64 = 1){
         a + b + c + d
     }
+}
+public func global_func_01(){
+    let ts = TestStruct()
+    let foo = TestStruct_unexport<I1>()
+
+    ts.foo_const(0, 0, c: 0) == 1
+    && ts.foo_frozen(0, 0, c: 0) == 1
+    && ts.foo_nonpublic(0, 0, c: 0) == 1
+    && foo.foo_unexport(0, 0, c: 0) == 1
 }

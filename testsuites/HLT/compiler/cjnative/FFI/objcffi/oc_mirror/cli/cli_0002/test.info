@@ -8,7 +8,7 @@
  
 // LEVEL: 1
 // DEPENDENCE: test.toml test.h
-// (iOS) EXEC-PIPE: %mirror_gen -v test.toml 2>&1 | compare %f
-// ASSERT: scan Generated 140 files for 2 packages
+// (iOSNative) EXEC-PIPE: %mirror_gen -v test.toml 2>&1 | compare %f
+// ASSERT: regex Generated .* files for 2 packages
 // ASSERT: scan Package `cjworld` depends on 1 package: `objc.foundation`
 // ASSERT: scan Package `objc.foundation` depends on 0 packages

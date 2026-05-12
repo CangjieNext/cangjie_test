@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output  %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  %f -o %output  %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args 
 /*
  * Test description:
@@ -17,9 +17,9 @@
  */
 
 import stdx.net.http.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls
-//import stdx.crypto.kit
+import stdx.crypto.kit
 import stdx.encoding.url.*
 import std.net.*
 import std.unittest.*
@@ -219,7 +219,7 @@ class Testupgradefromclientconf_01 {
         }
 
         let client = ClientBuilder().build()
-        let u = URL.parse("ws://127.0.0.1:0/webSocket")
+        let u = URL.parse("ws://127.0.0.1:1/webSocket")
         let websocket: WebSocket
         let respHeaders: HttpHeaders
         try {
@@ -254,14 +254,14 @@ class Testupgradefromclientconf_01 {
         }
 
         let client = ClientBuilder().build()
-        let u = URL.parse("ws://127.0.0.1:77777/webSocket")
-        let websocket: WebSocket
-        let respHeaders: HttpHeaders
         try {
+            let u = URL.parse("ws://127.0.0.1:77777/webSocket")
+            let websocket: WebSocket
+            let respHeaders: HttpHeaders
             (websocket, respHeaders) = WebSocket.upgradeFromClient(client, u)
             websocket.closeConn()
-        } catch (e: HttpException) {
-            @Expect(e.message.contains("Invalid url address or proxy"))
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message.contains("Port out of range"))
             sum += 1
         }
         @Expect(sum, 1)

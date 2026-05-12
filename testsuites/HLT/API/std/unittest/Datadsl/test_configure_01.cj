@@ -7,12 +7,12 @@
  */
 
 // LEVEL: 2
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE) RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
-// (CJNATIVE) ASSERT: scan REASON: After 10 generation steps
-// (CJNATIVE) ASSERT: scan REASON: After 15 generation steps and 5 reduction steps
-// (CJNATIVE) ASSERT: scan REASON: After 5 generation steps
-// (CJNATIVE) ASSERT: scan REASON: After 239 generation steps
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
+// ASSERT: scan REASON: After 10 generation steps
+// ASSERT: scan REASON: After 15 generation steps and 5 reduction steps
+// ASSERT: scan REASON: After 5 generation steps
+// ASSERT: scan REASON: After 239 generation steps
 
 import std.unittest.*
 import std.unittest.testmacro.*

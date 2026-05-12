@@ -8,12 +8,15 @@
 
 // LEVEL: 3
 // DEPENDENCE: %n.c
-// (not Windows) EXEC: %clang %clang_opt %n.c -o lib%n.c.cfile.%dylib_suffix
-// (not Windows) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt %overflow_wrapping -o %output
-// (not MAC and not Windows) RUN-EXEC-PIPE-134: %run %run_opt %output %run_args 2>&1 | compare %f
-// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// (MAC and not iOS) RUN-EXEC-134: %run %run_opt %output %run_args
-// (not Windows) ASSERT:scan SIGABRT
+// (!target_win) EXEC: %clang -c %clang_opt %n.c -o lib%n.c.cfile.%cffi_suffix
+// (!target_win) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt %overflow_wrapping -o %output
+// (!target_win) RUN-EXEC-PIPE-134: %run %run_opt %output %run_args 2>&1 | compare %f
+// (target_mac | target_linux) ASSERT: scan CJNative Handle signal: 6.
+// (target_mac) ASSERT: scan Thread "" catched unhandled SIGABRT (Abort trap: 6) from native frame.
+// (target_linux) ASSERT: regex Thread ".*" catched unhandled SIGABRT \(Aborted\) from native frame.
+// (target_ohos) ASSERT: scan Signal 6 (core dumped)
+// (target_android) ASSERT: scan Aborted
+// (target_ios | target_ios_simulator) ASSERT: scan 
 
 foreign func CfooTest(): Unit
 

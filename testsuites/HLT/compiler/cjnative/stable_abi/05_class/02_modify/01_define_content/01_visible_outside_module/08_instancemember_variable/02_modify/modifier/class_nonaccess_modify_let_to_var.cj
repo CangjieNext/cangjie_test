@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 5.2.1.1.8.2
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: class instance var
   @Behavior: modifier let to var
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: ../../main.cj, ../../template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -44,7 +45,7 @@ public class Version {
 public class CC {
     public var a1 = 1
     public var a2 = 2
-
+    
     internal var b1 = 1
     internal var b2 = 2
 
@@ -57,18 +58,13 @@ public class CC {
     var e1 = 1
     var e2 = 2
 
-    @Version["1.1"]
-    public var f1 = 1
-    @Version["1.1"]
-    public var f2 = 2
+    @Version["1.1"] public var f1 = 1
+    @Version["1.1"] public var f2 = 2
 
-    @Deprecated["This variable will be deprecated soon"]
-    public var g1 = 1
-    @Deprecated["This variable is deprecated", strict: true]
-    public var g2 = 2
+    @Deprecated["This variable will be deprecated soon"] public var g1 = 1
+    @Deprecated["This variable is deprecated", strict: true] public var g2 = 2
 
     var h1 = 1
-
     @Frozen
     public func h2() {
         h1
@@ -76,4 +72,81 @@ public class CC {
 
     var x1 = 1
     private var x2 = 2
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(): Unit {
+    let c = CC()
+    assert(c.a1, 1)
+    c.a1 = 11
+    assert(c.a1, 11)
+    c.a1 = 1
+    assert(c.a1, 1)
+    assert(c.a2, 2)
+    c.a2 = 22
+    assert(c.a2, 22)
+    c.a2 = 2
+    assert(c.a2, 2)
+    assert(c.b1, 1)
+    c.b1 = 11
+    assert(c.b1, 11)
+    c.b1 = 1
+    assert(c.b1, 1)
+    assert(c.b2, 2)
+    c.b2 = 22
+    assert(c.b2, 22)
+    c.b2 = 2
+    assert(c.b2, 2)
+    assert(c.c1, 1)
+    c.c1 = 11
+    assert(c.c1, 11)
+    c.c1 = 1
+    assert(c.c1, 1)
+    assert(c.c2, 2)
+    c.c2 = 22
+    assert(c.c2, 22)
+    c.c2 = 2
+    assert(c.c2, 2)
+    assert(c.e1, 1)
+    c.e1 = 11
+    assert(c.e1, 11)
+    c.e1 = 1
+    assert(c.e1, 1)
+    assert(c.e2, 2)
+    c.e2 = 22
+    assert(c.e2, 22)
+    c.e2 = 2
+    assert(c.e2, 2)
+    assert(c.f1, 1)
+    c.f1 = 11
+    assert(c.f1, 11)
+    c.f1 = 1
+    assert(c.f1, 1)
+    assert(c.f2, 2)
+    c.f2 = 22
+    assert(c.f2, 22)
+    c.f2 = 2
+    assert(c.f2, 2)
+    assert(c.g1, 1)
+    c.g1 = 11
+    assert(c.g1, 11)
+    c.g1 = 1
+    assert(c.g1, 1)
+    assert(c.h1, 1)
+    c.h1 = 11
+    assert(c.h1, 11)
+    c.h1 = 1
+    assert(c.h1, 1)
+    assert(c.h2(), 1)
+    assert(c.x1, 1)
+    c.x1 = 11
+    assert(c.x1, 11)
+    c.x1 = 1
+    assert(c.x1, 1)
 }

@@ -7,10 +7,9 @@
  */
  
 // LEVEL: 0
-// (not CJNATIVE) EXEC: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
-// (CJNATIVE) ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
-// (CJNATIVE) ASSERT: scan sema_static_variable_use_generic_parameter
+
+// ERRCHECK: %compiler %overflow_wrapping %cmp_opt %f -o %output
+// ASSERT: scan sema_static_variable_use_generic_parameter
 
 public var var_1708280323292_18 : Int = Int64(UInt16(18))
 const var_1708280323292_48 : String = """

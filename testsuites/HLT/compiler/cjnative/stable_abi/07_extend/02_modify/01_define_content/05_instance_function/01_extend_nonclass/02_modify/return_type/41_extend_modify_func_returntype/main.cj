@@ -16,8 +16,11 @@ public class Son_TestClass {
 }
 main() {
     let son_tc = Son_TestClass()
+    let ts = TestStruct()
     if (
         son_tc.exported_prop2 == 1
+        && ts.foo_public_sub() is Father
+        && global_func_01()
     ) {
         return 0
     } else {

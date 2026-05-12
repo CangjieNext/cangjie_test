@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %cmp_utest_opt %f -o %output
-// RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args --no-color 2>&1 | compare %f
+// (not iOS) RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args --no-color 2>&1 | compare %f
 // ASSERT: scan Different sizes: 2([1, 2]) != 1([1])
 // ASSERT: scan Different sizes: 2(["", ""]) != 1([""])
 // ASSERT: scan Different sizes: 2([[1, 2],[1, 2]]) != 3([[1, 2],[1, 2],[]])

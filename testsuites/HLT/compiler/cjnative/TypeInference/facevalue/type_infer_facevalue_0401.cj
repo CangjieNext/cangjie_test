@@ -33,6 +33,7 @@ class Student<T> {
 struct Teacher<T> {
     public var th: T
     public init(x: T, y: Int32) {
+        // init()
         th = x
     }
 }
@@ -48,6 +49,7 @@ func run1(): Int64 {
     //    var range = Student<Range<Int64>>(f, 2).stu     B103 不支持Range<T>声明
     //    var res7 = 0
     //    for i in f:
+    //        res7 = res7 + i
     var res8 = Student<(Int32, Int32) -> Int32>(g, 2).stu(2, 3)
 
     var array = Student<Array<Int64>>(h, 2).stu
@@ -74,6 +76,7 @@ func run2(): Int64 {
     //    var range = Teacher<Range<Int64>>(f, 2).th     B103 不支持Range<T>声明
     //    var res7 = 0
     //    for i in f:
+    //        res7 = res7 + i
     var res8 = Teacher<(Int32, Int32) -> Int32>(g, 2).th(2, 3)
 
     var array = Teacher<Array<Int64>>(h, 2).th

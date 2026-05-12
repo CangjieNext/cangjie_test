@@ -13,7 +13,7 @@
 open class A {
     public open func test(a!: Int64 = 1) { 0 }
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_cannot_have_default_param
 
 

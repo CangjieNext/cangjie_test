@@ -7,15 +7,15 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output
 // RUN-EXEC-PIPE-1: %run_stdx %output %run_args 2>&1 | compare %f
 // ASSERT: scan Exception: registerOnShutdown
 
 import std.io.*
 import stdx.net.http.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls
-//import stdx.crypto.kit
+import stdx.crypto.kit
 import std.runtime.*
 import std.argopt.*
 

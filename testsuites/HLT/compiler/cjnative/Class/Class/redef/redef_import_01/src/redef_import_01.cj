@@ -11,7 +11,7 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt src/pkga/a.cj -o pkga.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt src/pkgb/b.cj pkga.%middle -o pkgb.%middle
 // EXEC: %compiler %cmp_opt src/%f pkgb.%middle pkga.%middle -o %output
-// (not CJNATIVE) EXEC: %compiler %cmp_opt src/%f pkga.%middle pkgb.%middle -o %output
+
 // RUN-EXEC: %run %run_opt %output %run_args
 
 import pkgb.Coo

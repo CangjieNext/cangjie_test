@@ -8,16 +8,16 @@
  
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 @ObjCImpl
 public class A <: M {
     public init() {
-        super(0)
+        super(0, 1)
         println("in cangjie init")
     }
     public func test() {
-        var m = M(1)
+        var m = M(1, 2)
         println("in cangjie test")
     }
 }

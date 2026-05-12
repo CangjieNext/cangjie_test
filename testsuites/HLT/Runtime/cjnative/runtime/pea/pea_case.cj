@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f
+// EXEC: %compiler %cmp_opt -o %output %f
 // RUN-EXEC: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan 0 1 2 3 
 

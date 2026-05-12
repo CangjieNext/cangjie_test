@@ -19,9 +19,9 @@ import std.fs.*
 import std.posix.*
 import std.process
 
-@When[os != "macOS"]
+@When[os != "macOS" && os != "iOS"]
 let b: Int64 = 0
-@When[os == "macOS"]
+@When[os == "macOS" || os == "iOS"]
 let b: Int64 = 1
 
 @When[os != "macOS"]

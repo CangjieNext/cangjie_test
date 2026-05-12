@@ -16,15 +16,15 @@
 // EXEC: echo %export cjAllocationWaitTime=0 >> gc_export_004.sh
 // EXEC: echo %export cjGarbageThreshold=-1.05 >> gc_export_004.sh
 // EXEC: echo %export cjStackSize=4mb >> gc_export_004.sh
-// (not Windows) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && %source gc_export_004.sh && %run %run_opt %output %run_args && cat log.txt | compare %f
-// (Windows and not OHOS) EXEC: ren gc_export_004.sh gc_export_004.bat
-// (Windows and not OHOS) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && gc_export_004.bat && %run %run_opt %output %run_args && cat log.txt | compare %f
-// (Windows and OHOS) EXEC: dos2unix gc_export_004.sh
-// (Windows and OHOS) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && source gc_export_004.sh && %run %run_opt %output %run_args && cat log.txt | compare %f
+// (target_linux | target_android | target_mac) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && %source gc_export_004.sh && %run %run_opt %output %run_args && cat log.txt | compare %f
+// (host_win & !target_ohos) EXEC: ren gc_export_004.sh gc_export_004.bat
+// (host_win & !target_ohos) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && gc_export_004.bat && %run %run_opt %output %run_args && cat log.txt | compare %f
+// (host_win & target_ohos) EXEC: dos2unix gc_export_004.sh
+// (host_win & target_ohos) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && source gc_export_004.sh && %run %run_opt %output %run_args && cat log.txt | compare %f
 // ASSERT:scan 10
-// (not OHOS) ASSERT:scan Heap size: 4096(KB)
-// (OHOS) ASSERT:scan Heap size: 262144(KB)
-// ASSERT:scan Region size: 4(KB)
+// (!target_ohos & !target_android) ASSERT:scan Heap size: 4096(KB)
+// (target_ohos | target_android) ASSERT:scan Heap size: 262144(KB)
+// (!target_mac) ASSERT:scan Region size: 4(KB)
 // ASSERT:scan Exemption threshold: 1.00
 // ASSERT:scan Heap utilization: 1.00
 // ASSERT:scan Allocation wait time: 1000ns

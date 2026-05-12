@@ -2,18 +2,19 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- *
+ * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
 // LEVEL: 0
 // DEPENDENCE: ../data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix  %f %cmp_utest_opt
-// (not Windows and not OHOS)RUN-EXEC: %run_stdx %n.%suffix %run_utest_opt %run_args
-// (Windows and OHOS)RUN-EXEC: dos2unix "./data/root_ecdsa_1.text" &&  dos2unix "./data/root_rsa_public_key.pem" && %run %run_opt %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl -o %output  %f %cmp_utest_opt
+// (not Windows and not OHOS)RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// (Windows and OHOS)RUN-EXEC: dos2unix "./data/root_ecdsa_1.text" &&  dos2unix "./data/root_rsa_public_key.pem" && %run %run_opt %output %run_utest_opt %run_args
 
 import std.fs.*
 import stdx.crypto.x509.*
+import stdx.crypto.common.*
 import stdx.crypto.keys.*
 import stdx.net.tls.*
 
@@ -36,7 +37,7 @@ let size_2: Int64 = 636
 let hashcode_2: Int64 = -2681732735912488094
 
 @Test
-class Test_der_verify_PublicKey_02 {
+class Test_der_verify_GeneralPublicKey_02 {
     public override func beforeEach(): Unit {
         sum = 0
     }
@@ -47,8 +48,8 @@ class Test_der_verify_PublicKey_02 {
         @Expect(derData.size, 0)
         @Expect(derData.hashCode(), 0)
         try {
-            PublicKey.decodeDer(derData)
-        } catch (e: X509Exception) {
+            GeneralPublicKey.decodeDer(derData)
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Predicate failed"))
             sum += 1
         }
@@ -61,8 +62,8 @@ class Test_der_verify_PublicKey_02 {
         @Expect(derData.size, size_1)
         @Expect(derData.hashCode(), hashcode_1)
         try {
-            PublicKey.decodeDer(derData)
-        } catch (e: X509Exception) {
+            GeneralPublicKey.decodeDer(derData)
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load public key, it's either corrupted, or the format is unsupported"))
             sum += 1
         }
@@ -75,8 +76,8 @@ class Test_der_verify_PublicKey_02 {
         @Expect(derData.size, size_2)
         @Expect(derData.hashCode(), hashcode_2)
         try {
-            PublicKey.decodeDer(derData)
-        } catch (e: X509Exception) {
+            GeneralPublicKey.decodeDer(derData)
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load public key, it's either corrupted, or the format is unsupported"))
             sum += 1
         }
@@ -89,8 +90,8 @@ class Test_der_verify_PublicKey_02 {
         @Expect(derData.size, 274)
         @Expect(derData.hashCode(), -7707562200049764554)
         try {
-            PublicKey.decodeDer(derData)
-        } catch (e: X509Exception) {
+            GeneralPublicKey.decodeDer(derData)
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load public key, it's either corrupted, or the format is unsupported"))
             sum += 1
         }
@@ -103,8 +104,8 @@ class Test_der_verify_PublicKey_02 {
         @Expect(derData.size, 1768)
         @Expect(derData.hashCode(), 5801112079858918936)
         try {
-            PublicKey.decodeDer(derData)
-        } catch (e: X509Exception) {
+            GeneralPublicKey.decodeDer(derData)
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load public key, it's either corrupted, or the format is unsupported"))
             sum += 1
         }
@@ -117,8 +118,8 @@ class Test_der_verify_PublicKey_02 {
         @Expect(derData.size, 1596)
         @Expect(derData.hashCode(), -1277195204321811497)
         try {
-            PublicKey.decodeDer(derData)
-        } catch (e: X509Exception) {
+            GeneralPublicKey.decodeDer(derData)
+        } catch (e: CryptoException) {
             @Expect(e.message.contains("Failed to load public key, it's either corrupted, or the format is unsupported"))
             sum += 1
         }
@@ -130,7 +131,7 @@ class Test_der_verify_PublicKey_02 {
         let derData = DerBlob(File.readFrom("./data/root_rsa_public_key.der"))
         @Expect(derData.size, 422)
         @Expect(derData.hashCode(), -6179307143943801750)
-        let derpub = PublicKey.decodeDer(derData)
+        let derpub = GeneralPublicKey.decodeDer(derData)
         @Expect(derpub.toString(), "PublicKey(422 bytes)")
     }
 }

@@ -24,10 +24,10 @@ import std.net.*
 import std.time.*
 import std.sync.*
 
-@When[os == "macOS"]
+@When[os == "macOS" || os == "iOS"]
 let (flag, data_size) = (true, 200)
 
-@When[os != "macOS"]
+@When[os != "macOS" && os != "iOS"]
 let (flag, data_size) = (false, 32000)
 
 var udp = Option<UdpSocket>.None
@@ -70,7 +70,7 @@ class Test_Udp_TransPortation_Datagram {
                 udpsocket.send(data000)
             } catch (e: SocketException) {
                 sum += 1
-                @Expect(e.message.contains("Unable to send datagram larger than 65507."))
+                @Expect(e.message, "Unable to send datagram larger than 65507.")
             }
             @Expect(sum, 1)
         }

@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -39,14 +41,13 @@ public class Version {
     }
 }
 
-
 public struct S {
     public var a = 1
     public let width = 10
 
     @Version["1.1"]
     public S(b: Int64, let height: Int64) {
-        a = b
+        a = b + height
     }
 
     public func getWidth(): Int64 {

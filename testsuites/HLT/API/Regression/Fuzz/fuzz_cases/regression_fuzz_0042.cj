@@ -7,8 +7,7 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler  %cmp_opt %f -o %output
-// RUN-EXEC-10: %run %run_opt %output %run_args 
+// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output -Woff all 2>&1 | compare %f
 
 import std.overflow.*
 import std.math.*
@@ -26,3 +25,5 @@ main() {
     }
     return 0
 }
+
+// ASSERT: scan "DiagKind": "sema_mismatched_types"

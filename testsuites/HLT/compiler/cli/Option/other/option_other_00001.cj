@@ -7,8 +7,7 @@
  */
 
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %cmp_opt -O0 %f -o %output
-// (not CJNATIVE) EXEC: %compiler %cmp_opt -O0 %f -o %output
+// EXEC: %compiler %cmp_opt -O0 %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 main() {

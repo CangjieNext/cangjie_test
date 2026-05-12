@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
@@ -14,7 +14,7 @@ public open class TestStruct {
     public const init() {}
 }
 
-public enum TestE1 {
+public enum TestE1{
     XY
 }
 
@@ -114,3 +114,5 @@ extend TestE1 {
         }
     }
 }
+
+

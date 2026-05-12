@@ -19,10 +19,12 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// EXEC: %rm libstable_abi.%dylib_suffix
+// EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -32,16 +34,46 @@
 package test_stable_abi
 
 @Annotation
-public class A {
+public class Ann1 {
     let name: String
     public const init(name: String) {
         this.name = name
     }
 }
-
-public enum E {
-    | RED | BLUE | YELLOW(UInt8)
-    public func f1(): Int64 { return 0 }
-    public func f2(): Int64 { return 0 }
-    @A["func3"] public func f3(): Int64 { return 0 }
+@Annotation
+public class Ann2 {
+    let name: String
+    public const init(name: String) {
+        this.name = name
+    }
+}
+public enum E1 {
+    | A
+    public func f1(): Int64 {1}
+    public func f2(): Int64 {2}
+    func f3(): Int64 {3}
+    func f4(): Int64 {4}
+}
+enum E2 {
+    | B
+    public func f1(): Int64 {1}
+    public func f2(): Int64 {2}
+}
+enum E3 {
+    | C
+    public func f1(): Int64 {1}
+    public func f2(): Int64 {2}
+}
+public class cls {public var a = B.f1() + B.f2()}
+@Frozen public func f() {A.f3() + A.f4() + C.f1() + C.f2()}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(A.f3(), 3)
+    assert(A.f4(), 4)
+    assert(B.f1(), 1)
+    assert(B.f2(), 2)
+    assert(C.f1(), 1)
+    assert(C.f2(), 2)
 }

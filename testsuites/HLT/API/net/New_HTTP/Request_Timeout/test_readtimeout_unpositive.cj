@@ -9,8 +9,8 @@
 // LEVEL: 1
 // DEPENDENCE: ../data
 // DEPENDENCE: ../../../asan
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt asan.%middle %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %compile_lib_opt asan/asanGC.cj -o asan.%middle
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl asan.%middle %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 /*
@@ -21,9 +21,9 @@
  */
 
 import stdx.net.http.*
-////import stdx.crypto.kit.*
+import stdx.crypto.kit.*
 import stdx.crypto.keys.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls.*
 import std.time.*
 import std.sync.*
@@ -39,7 +39,7 @@ class Test_ReadTimeout_Https_Http {
     func serverConfig(protocol: String): TlsServerConfig {
         let pem0 = String.fromUtf8(readToEnd(File("data/end_rsa.cer", Read)))
         let pem02 = String.fromUtf8(readToEnd(File("data/end_rsa_private_key.pem", Read)))
-        var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), PrivateKey.decodeFromPem(pem02))
+        var tlsConfig = TlsServerConfig(X509Certificate.decodeFromPem(pem0), GeneralPrivateKey.decodeFromPem(pem02))
         tlsConfig.supportedAlpnProtocols = [protocol]
         tlsConfig
     }
@@ -48,13 +48,13 @@ class Test_ReadTimeout_Https_Http {
         var tlsConfig = TlsClientConfig()
         let pem = String.fromUtf8(readToEnd(File("data/root_rsa.cer", Read)))
         tlsConfig.verifyMode = CustomCA(X509Certificate.decodeFromPem(pem).map({c => c}))
-        tlsConfig.alpnProtocolsList = [protocol]
+        tlsConfig.supportedAlpnProtocols = [protocol]
         tlsConfig
     }
 
     func startServer(cfg: TlsServerConfig): Unit {
         let server = ServerBuilder().addr("127.0.0.1").tlsConfig(cfg).port(0).build()
-        server.distributor.register("/quick", {_ => sleep(Duration.millisecond * 100)})
+        server.distributor.register("/quick", {_ => sleep(Duration.millisecond * 5000)})
         spawn {
             server.serve()
         }

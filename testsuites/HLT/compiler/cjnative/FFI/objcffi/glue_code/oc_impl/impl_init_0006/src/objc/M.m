@@ -18,7 +18,3 @@
 }
 
 @end
-
-@implementation M1
-
-@end

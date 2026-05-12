@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// RUN-ERRCHECK: %run %run_opt %output %run_args 
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
 
 func test() {
     let a = [[1, 2], [1]]

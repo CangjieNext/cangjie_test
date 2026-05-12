@@ -5,19 +5,17 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test extend: instance function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public struct TestStruct {
     public const init() {}
 }
-
 extend TestStruct {
     public func f1() {
         1
@@ -42,7 +40,6 @@ extend TestStruct {
     func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public func f6(): Int64 {
         f5()
@@ -50,7 +47,6 @@ extend TestStruct {
     func pf5(): Int64 {
         return 5
     }
-
     @Frozen
     protected func pf6(): Int64 {
         pf5()
@@ -65,17 +61,14 @@ extend TestStruct {
     public func f8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public func f9() {
         9
     }
-
     @Deprecated["This API will be deprecated soon"]
     protected func pf8() {
         8
     }
-
     @Deprecated["This API is deprecated", strict: true]
     protected func pf9() {
         9
@@ -96,6 +89,9 @@ extend TestStruct {
     }
     public const func f14(): Int64 {
         14
+    }
+    public func f15() {
+        f3()
     }
 
     public func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
@@ -134,4 +130,14 @@ extend TestStruct {
 public func global() {
     let s1 = TestStruct()
     s1.f7()
+}
+
+public func global_func_01(){
+    let ts = TestStruct()
+
+    ts.pf8() == 8
+    && ts.f8() == 8
+    && ts.f2() == 2
+    && ts.f11() == 11
+    && ts.f15() == 3
 }

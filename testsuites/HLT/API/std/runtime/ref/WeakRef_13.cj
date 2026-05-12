@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 1
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args
 
 import std.ref.*
 import std.collection.*

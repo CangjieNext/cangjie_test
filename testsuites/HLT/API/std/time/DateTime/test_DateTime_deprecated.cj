@@ -9,7 +9,7 @@
 // LEVEL: 2
 // EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 // RUN-EXEC: %run %run_opt %output %run_args
-// ASSERT: scan function 'parse' is deprecated. Use member funtion `public static func parse(str: String, format: String): DateTime` instead.
+// ASSERT: scan function 'parse' is deprecated. Use member function `public static func parse(str: String, format: String): DateTime` instead.
 
 import std.time.*
 

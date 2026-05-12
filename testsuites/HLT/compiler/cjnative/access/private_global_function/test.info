@@ -1,0 +1,5 @@
+// LEVEL: 2
+// DEPENDENCE: a.cj b.cj
+// EXEC: %compiler %cmp_opt a.cj b.cj -o %output
+// RUN-EXEC: %run %run_opt %output %run_args | compare %f
+// ASSERT: scan hello

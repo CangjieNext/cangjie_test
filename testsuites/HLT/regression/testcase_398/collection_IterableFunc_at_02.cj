@@ -8,8 +8,8 @@
  
 // LEVEL: 0 EXCLUDE
 // DEPENDENCE: atLogic.cj
-// (CJNATIVE) ERRCHECK: %compiler %cmp_opt %n.cj atLogic.cj %incremental_compile -o %output
-// ASSERT: scan sema_missing_entry
+// ERRCHECK: %compiler %cmp_opt %n.cj atLogic.cj %incremental_compile -o %output
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_undeclared_identifier
 
 

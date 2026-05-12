@@ -19,11 +19,12 @@
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
-// EXEC: %rm libstable_abi.%dylib_suffix
+// EXEC: %rm libstable_abi.*
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -34,8 +35,6 @@
 // 修改非命名参数的名称
 package test_stable_abi
 
-import std.random.*
-
 public class A {}
 
 public enum Rectangle {
@@ -45,7 +44,7 @@ public enum Rectangle {
         return 11
     }
 
-    public const static func getA(a: Random, b!: Int64, c!: Int64 = 1): Int64 {
+    public const static func getA(a: Int64, b!: Int64, c!: Int64 = 1): Int64 {
         let x = RectangleB.Red
         return b + c
     }
@@ -59,7 +58,7 @@ enum RectangleB {
     }
 
     @Frozen
-    public static func getA(a: Random, b!: Int64, c!: Int64 = 1): Int64 {
+    public static func getA(a: Int64, b!: Int64, c!: Int64 = 1): Int64 {
         let x = getC(1, b:1)
         return b + c
     }
@@ -80,4 +79,14 @@ enum RectangleB {
     static const func getE(a: Int64, b!: Int64, c!: Int64 = 1): Int64 {
         return b + c
     }
+}
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
+}
+public func check() {
+    assert(RectangleB.getA(1, b: 1), 2)
+    assert(RectangleB.getB(1, b: 1), 2)
+    assert(RectangleB.getC(1, b: 1), 2)
+    assert(RectangleB.getD(1, b: 1), 2)
+    assert(RectangleB.getE(1, b: 1), 2)
 }

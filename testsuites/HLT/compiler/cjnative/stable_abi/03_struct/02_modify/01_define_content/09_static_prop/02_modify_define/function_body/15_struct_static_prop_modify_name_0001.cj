@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.9.2.15
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: struct static prop
   @Behavior: modify properties name
   @Expect: api compatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Deleted public member property of struct visible outside the module.
 // ASSERT: scan-not [API]
@@ -37,11 +39,11 @@ public struct Rectangle {
     let width = 10
     static var a = 20
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
 
-    public mut static prop geta: Int64 {
+    static public mut prop geta: Int64 {
         get() {
             println("get")
             a + 1
@@ -53,7 +55,7 @@ public struct Rectangle {
     }
 
     @Frozen
-    public mut static prop getc: Int64 {
+    static public mut prop getc: Int64 {
         get() {
             println("get")
             a + 1
@@ -65,13 +67,13 @@ public struct Rectangle {
     }
 }
 
-public struct S1 {
+public struct S1{
     static var a = 20
     static var b = 20
     static var e = 20
     static var f = 20
 
-    public mut static prop getaa: Int64 {
+    public static mut prop getaa: Int64 {
         get() {
             a
         }
@@ -80,7 +82,7 @@ public struct S1 {
         }
     }
 
-    mut static prop getb: Int64 {
+    static mut prop getb: Int64 {
         get() {
             b
         }
@@ -90,7 +92,7 @@ public struct S1 {
     }
 
     @Frozen
-    public func f1() {
+    public func f1(){
         getb
     }
 
@@ -100,9 +102,8 @@ public struct S1 {
             e
         }
     }
-
     @Frozen
-    mut static prop getf: Int64 {
+    static mut prop getf: Int64 {
         get() {
             f
         }
@@ -112,7 +113,7 @@ public struct S1 {
     }
 
     @Frozen
-    public func f2() {
+    public func f2(){
         getf
     }
 }

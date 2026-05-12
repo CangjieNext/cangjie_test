@@ -8,14 +8,10 @@
 
 // LEVEL: 0 
 // DEPENDENCE: module_case1
-// (not CJNATIVE and not MAC) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=cbclib  test_dynamicloading.cj -o test.dynamicloading.cbc
-// (not CJNATIVE and not MAC) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=cbclib  test1_dynamicloading_1.cj -o test1.dynamicloading_1.cbc
-// (not CJNATIVE and not MAC) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=cbclib  test2_dynamicloading_2.cj -o test2.dynamicloading_2.cbc
-// (not CJNATIVE and not MAC)  EXEC: cd module_case1 && %compiler %cmp_opt --output-type=cbclib  test3_dynamicloading_3.cj -o test3.dynamicloading_3.cbc
-// (CJNATIVE) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=dylib  test_dynamicloading.cj -o test.dynamicloading.%test_suffix
-// (CJNATIVE) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=dylib  test1_dynamicloading_1.cj -o test1.dynamicloading_1.%test_suffix
-// (CJNATIVE) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=dylib  test2_dynamicloading_2.cj -o test2.dynamicloading_2.%test_suffix
-// (CJNATIVE) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=dylib  test3_dynamicloading_3.cj -o test3.dynamicloading_3.%test_suffix
+// EXEC: cd module_case1 && %compiler %cmp_opt %compile_dylib_opt  test_dynamicloading.cj -o test.dynamicloading.%test_suffix
+// EXEC: cd module_case1 && %compiler %cmp_opt %compile_dylib_opt  test1_dynamicloading_1.cj -o test1.dynamicloading_1.%test_suffix
+// EXEC: cd module_case1 && %compiler %cmp_opt %compile_dylib_opt  test2_dynamicloading_2.cj -o test2.dynamicloading_2.%test_suffix
+// EXEC: cd module_case1 && %compiler %cmp_opt %compile_dylib_opt  test3_dynamicloading_3.cj -o test3.dynamicloading_3.%test_suffix
 // (not MAC) EXEC: %compiler %cmp_opt %f -o %output
 // (not MAC) RUN-EXEC-PIPE: %run %run_opt %output %run_args
 

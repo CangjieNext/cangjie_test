@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %cmp_opt -o %n.%suffix %f %cmp_utest_opt
-// RUN-EXEC: %run %run_opt %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.collection.*
 import std.math.*
@@ -95,28 +95,28 @@ class Test_take_09 {
             collectArray<Rune>(normalArr1.iterator().take(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Take count cannot less than 0"))
+            @Expect(e.message,"Take count cannot less than 0!")
         }
 
         try {
             collectArray<Int64>(normalArr2.iterator().take(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Take count cannot less than 0"))
+            @Expect(e.message,"Take count cannot less than 0!")
         }
 
         try {
             collectArray<String>(normalArr3.iterator().take(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Take count cannot less than 0"))
+            @Expect(e.message,"Take count cannot less than 0!")
         }
 
         try {
             collectArray<Float64>(normalArr4.iterator().take(Int64.Min))
             @Expect(false)
         } catch (e: IllegalArgumentException) {
-            @Expect(e.message.contains("Take count cannot less than 0"))
+            @Expect(e.message,"Take count cannot less than 0!")
         }
     }
 }

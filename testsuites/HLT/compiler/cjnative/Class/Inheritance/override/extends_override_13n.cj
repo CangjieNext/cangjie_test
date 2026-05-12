@@ -11,11 +11,11 @@
 // RUN-EXEC: %run %run_opt %output %run_args
 
 abstract class Base {
-    protected func foo(): Int32
+    protected func foo(): Int64
 }
 
 class Data <: Base {
-    protected override func foo(): Int32 {
+    protected override func foo(): Int64 {
         return 4
     }
 }

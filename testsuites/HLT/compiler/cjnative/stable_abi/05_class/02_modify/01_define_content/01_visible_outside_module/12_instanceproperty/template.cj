@@ -2,7 +2,7 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
@@ -127,4 +127,24 @@ public open class TestClass {
             12
         }
     }
+}
+
+public func assert<T>(expected: T, actual: T): Unit where T <: Equatable<T> & ToString {
+    if (expected == actual) {
+    } else {
+        throw Exception("${expected} != ${actual}")
+    }
+}
+
+public func checker(tc: TestClass): Unit {
+    assert(tc.prop1 , 1)
+    assert(tc._prop3 , 3)
+    assert(tc.prop4 , 4)
+    assert(tc.prop6 , 6)
+    assert(tc.prop10 , 10)
+    assert(tc.prop11 , 11)
+    assert(tc.prop13 , 13)
+    assert(tc.prop14 , 14)
+    assert(tc.prop12 , 12)
+    assert(tc.a , -1)
 }

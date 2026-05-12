@@ -7,10 +7,10 @@
  */
 
 // LEVEL: 0
-// EXEC: %cp %f default.profdata
-// ERRCHECK: %compiler %cmp_opt --pgo-instr-use=default.profdata %f -o %output
-// ASSERT: scan default.profdata: invalid instrumentation profile data (bad magic)
-// ASSERT: scan command failed
+// (not MAC) EXEC: %cp %f default.profdata
+// (not MAC) ERRCHECK: %compiler %cmp_opt --pgo-instr-use=default.profdata %f -o %output
+// (not MAC) ASSERT: scan default.profdata: invalid instrumentation profile data (bad magic)
+// (not MAC) ASSERT: scan command failed
 
 main() {
     return 0

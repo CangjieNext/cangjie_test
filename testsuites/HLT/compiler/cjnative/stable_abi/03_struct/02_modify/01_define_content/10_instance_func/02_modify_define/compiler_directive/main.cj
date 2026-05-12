@@ -5,15 +5,13 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 import test_stable_abi.*
 
 main() {
-    var a: Rectangle = Rectangle()
-
-    if (a.getWidth() != 10) {
-        return 1
-    }
-
-    return 0
+    check()
+    assert(Rectangle().getWidth(), 10)
+    assert(Rectangle().geta2(), 1)
 }
+
+

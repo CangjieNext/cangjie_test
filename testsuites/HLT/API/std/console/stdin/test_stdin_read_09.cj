@@ -9,7 +9,7 @@
 // LEVEL: 1
 // DEPENDENCE: stdin_read.txt
 // EXEC: %compiler %cmp_opt -o %output %f
-// RUN-EXEC-PIPE-0: %run %run_opt %output %run_args < stdin_read.txt 2>&1 | compare %f
+// (not iOS) RUN-EXEC-PIPE-0: %run %run_opt %output %run_args < stdin_read.txt 2>&1 | compare %f
 // ASSERT: scan Some(a)
 
 import std.console.*

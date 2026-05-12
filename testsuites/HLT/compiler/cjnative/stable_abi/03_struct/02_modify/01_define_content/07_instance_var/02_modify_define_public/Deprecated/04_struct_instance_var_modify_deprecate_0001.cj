@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.7.2.4
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: struct instance var
   @Behavior: modify @Deprecated，warning -> error
   @Expect: api incompatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Struct member modified variable deprecated annotation with compilation error.
 // ASSERT: scan-not [API]
@@ -34,44 +36,11 @@
 package test_stable_abi
 
 public struct Rectangle {
-    static let width = 10
-    let a1 = 20
-    public let a2 = 20
-    @Deprecated["this value is deprecated", strict: false]
-    let a3 = 20
-    @Deprecated["this value is deprecated", strict: false]
-    public let a4 = 20
-    @Deprecated["this value is deprecated", strict: true]
-    public let a5 = 20
-
-    public func getWidth(): Int64 {
-        return width
-    }
+    public let a1 = 10
+    @Deprecated["this value is deprecated", strict: true] public let a4 = 40
+    @Deprecated["this value is deprecated", strict: true] public let a7 = 70
 }
 
-public struct S2 {
-    let a1 = 20
-    public let a2 = 0
-    let a3 = 20
-    public let a4 = 0
-
-    @Deprecated["this value is deprecated", strict: true]
-    public let a5 = 20
-    @Deprecated["this value is deprecated", strict: false]
-    let a6 = 20
-
-    @Frozen
-    public func geta3() {
-        return a3
-    }
-
-    @Frozen
-    public func geta4() {
-        return a4
-    }
-
-    @Frozen
-    public func geta6() {
-        return a6
-    }
+public func f(){
+        return 0
 }

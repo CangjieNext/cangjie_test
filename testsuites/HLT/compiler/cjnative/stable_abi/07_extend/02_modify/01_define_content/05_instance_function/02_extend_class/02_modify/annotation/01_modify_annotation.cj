@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 7.2.1.5.2.2.1
   @Scene: modify
@@ -13,7 +13,7 @@
   @Object: extend instance func
   @Behavior: modify instance func annotation
   @Expect: api compatible & abi compatible
- */
+*/
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -102,4 +103,14 @@ extend TestClass {
     public func n_2() {
         f_4()
     }
+}
+public func global_func_01(){
+    let tc = TestClass()
+
+    tc.f_2() == 1
+    && tc.f_3() == 1
+    && tc.f_4() == 1
+    && tc.f2() == 1
+    && tc.f3() == 1
+    && tc.f4() == 1
 }

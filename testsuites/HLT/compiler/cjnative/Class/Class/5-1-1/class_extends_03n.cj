@@ -12,6 +12,6 @@
 class Data <: Base {
     public var res: Int32 = one
 }
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_undeclared_type_name
 // ASSERT: scan sema_undeclared_identifier

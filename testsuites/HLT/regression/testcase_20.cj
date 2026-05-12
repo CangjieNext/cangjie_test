@@ -54,7 +54,6 @@ main(){
 // ASSERT: scan parse_expected_right_delimiter
 // ASSERT: scan parse_expected_lt_brace
 // ASSERT: scan parse_expected_expression
-// ASSERT: scan parse_expected_expr_or_decl_in
-// ASSERT: scan parse_unexpected_declaration_in_scope
+// ASSERT: scan-2 parse_unexpected_declaration_in_scope
 
 

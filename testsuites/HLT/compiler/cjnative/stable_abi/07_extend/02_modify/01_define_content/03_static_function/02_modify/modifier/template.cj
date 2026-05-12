@@ -5,17 +5,15 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan-full Compatible!\n
 package test_stable_abi
 
 // test extend: static function
-public open class Father {}
-
+open public class Father {}
 public class Son <: Father {}
 
 public class TestClass {}
-
 public struct TestStruct {}
 
 extend TestClass {
@@ -37,7 +35,6 @@ extend TestClass {
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -47,7 +44,6 @@ extend TestClass {
     public static func f7() {
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -68,11 +64,17 @@ extend TestClass {
         12
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13
     }
     public static const func f14(): Int64 {
         14
+    }
+    public static func f15(){
+        f11()
+    }
+    public static func f16(){
+        f12()
     }
 
     public static func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
@@ -112,7 +114,6 @@ extend TestStruct {
     static func f5(): Int64 {
         return 5
     }
-
     @Frozen
     public static func f6(): Int64 {
         f5()
@@ -122,7 +123,6 @@ extend TestStruct {
     public static func f7() {
         7
     }
-
     @Deprecated["This API is deprecated", strict: true]
     public static func f8() {
         8
@@ -143,11 +143,17 @@ extend TestStruct {
         12
     }
 
-    public unsafe static func f13(): Int64 {
+    public static unsafe func f13(): Int64 {
         return 13
     }
     public static const func f14(): Int64 {
         14
+    }
+    public static func f15(){
+        f11()
+    }
+    public static func f16(){
+        f12()
     }
 
     public static func g1<X, Y, Z>(a: X, b: Y, c: Z): String where X <: ToString, Y <: ToString, Z <: Son {
@@ -166,4 +172,19 @@ extend TestStruct {
     public static func p3(a: Father, b!: Father, c!: Father = Father()): Father {
         c
     }
+}
+
+public func global_func_01(){
+    TestStruct.f1() == 1
+    && TestStruct.f6() == 5
+    && TestClass.f10() == 10
+    && TestStruct.f10() == 10
+    && TestClass.f15() == 11
+    && TestStruct.f15() == 11
+    && TestClass.f16() == 12
+    && TestStruct.f16() == 12
+    && TestClass.f2() == 2
+    && TestStruct.f2() == 2
+    && TestClass.f5() == 5
+    && TestStruct.f5() == 5
 }

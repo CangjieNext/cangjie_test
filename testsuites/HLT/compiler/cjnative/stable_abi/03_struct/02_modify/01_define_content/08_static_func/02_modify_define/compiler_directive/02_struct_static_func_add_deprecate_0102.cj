@@ -23,16 +23,17 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
-// ASSERT: scan-1 [API/ABI] Changed member function's annotation of struct visible outside the module. Deprecated strict added.
+// ASSERT: scan-2 [API/ABI] Changed member function's annotation of struct visible outside the module. Deprecated strict added.
 // ASSERT: scan-not [API]
 // ASSERT: scan-not [ABI]
-// ASSERT: scan-1 [API/ABI]
+// ASSERT: scan-2 [API/ABI]
 
 // test struct: add @Deprecated
 // 不带public修饰符静态成员函数添加@Deprecated且下游不可用
 package test_stable_abi
-
 
 public struct Rectangle {
     static let width = 10
@@ -66,7 +67,7 @@ public struct Rectangle {
     }
 
     @Deprecated["this function is deprecated", strict: true]
-    public static func geta6() {
+    public static const func geta6() {
         const a = geta1()
         return a
     }
@@ -96,9 +97,16 @@ public struct Rectangle {
     }
 
     @Deprecated["this function is deprecated", strict: true]
-    public static func geta12() {
-        @Deprecated["this function is deprecated", strict: true]
+    public static const func geta12() {
         const b = geta11()
         return b
+    }
+}
+
+public func f(){
+    if(Rectangle.geta9() == 1 && Rectangle.geta3() == 2){
+    return 0
+    }else{
+        return 1
     }
 }

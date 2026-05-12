@@ -25,14 +25,14 @@ class Test_Dir_Delete {
     @TestCase
     func test_illegal(): Unit {
         var s1 = String.fromUtf8(Array<UInt8>(4096, repeat: 10))
-        var illegal_paths = ["", "\0", "C:\\\0", ".\\a\\b\0", s1]
+        var illegal_paths = ["\0", "C:\\\0", ".\\a\\b\0", s1]
         var sum = 0
         for (path in illegal_paths) {
             try {
                 remove(path)
             } catch (e: IllegalArgumentException) {
                 sum += 1
-                @Expect(e.message.contains("The path cannot"))
+                @Expect(e.message.contains("contains null character."))
             } catch (e: FSException) {
                 sum += 1
                 @Expect(e.message.contains("The system cannot find the path specified"))
@@ -41,13 +41,36 @@ class Test_Dir_Delete {
                 remove(Path(path), recursive: true)
             } catch (e: IllegalArgumentException) {
                 sum += 1
-                @Expect(e.message.contains("The path cannot"))
+                @Expect(e.message.contains("contains null character."))
             } catch (e: FSException) {
                 sum += 1
                 @Expect(e.message.contains("The system cannot find the path specified"))
             }
         }
-        @Expect(sum, 10)
+        @Expect(sum, 8)
+
+        var illegal_path = ["", s1]
+        for (path in illegal_path) {
+            try {
+                remove(path)
+            } catch (e: IllegalArgumentException) {
+                sum += 1
+                @Expect(e.message,"The input path is empty.")
+            } catch (e: FSException) {
+                sum += 1
+                @Expect(e.message.contains("The system cannot find the path specified"))
+            }
+            try {
+                remove(Path(path), recursive: true)
+            } catch (e: IllegalArgumentException) {
+                sum += 1
+                @Expect(e.message,"The input path is empty.")
+            } catch (e: FSException) {
+                sum += 1
+                @Expect(e.message.contains("The system cannot find the path specified"))
+            }
+        }
+        @Expect(sum, 12)
     }
 
     @TestCase

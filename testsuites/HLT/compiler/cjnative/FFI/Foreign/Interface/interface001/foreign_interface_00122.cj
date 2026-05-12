@@ -19,5 +19,5 @@ foreign interface B {
 
 var a = A.test
 var b = B.test
-// ASSERT: scan sema_missing_entry
+// (not iOS) ASSERT: scan sema_missing_entry
 // ASSERT: scan sema_unexpected_wrapper

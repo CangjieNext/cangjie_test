@@ -11,5 +11,6 @@ macro package define_b
 import std.ast.*
 
 public macro testb(attr: Tokens) {
+    //quote(0)
     attr
 }

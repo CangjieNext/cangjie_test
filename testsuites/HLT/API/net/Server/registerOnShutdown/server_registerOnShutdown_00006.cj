@@ -7,15 +7,15 @@
  */
 
 // LEVEL: 1
-// (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output
+// (not Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %f -o %output
 // (not Windows) RUN-EXEC-PIPE: %run_stdx %output %run_args | compare %f
 // (not Windows) ASSERT: scan 99
 
 import std.io.*
 import stdx.net.http.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls
-//import stdx.crypto.kit
+import stdx.crypto.kit
 import std.runtime.*
 import std.argopt.*
 

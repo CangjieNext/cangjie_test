@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 // ASSERT: scan Compatible!
 
 package test_stable_abi
@@ -13,7 +13,7 @@ package test_stable_abi
 public struct Rectangle {
     static let width = 10
 
-    public func getWidth(): Int64 {
+    public func getWidth(): Int64{
         return width
     }
     static const func geta1() {
@@ -39,7 +39,7 @@ public struct Rectangle {
         return 4
     }
 
-    public static func geta6() {
+    public static const func geta6() {
         const a = geta1()
         return a
     }
@@ -52,5 +52,33 @@ public struct Rectangle {
     public func geta8() {
         const b = geta7()
         return b
+    }
+
+    static func geta9() {
+        return 1
+    }
+
+    @Deprecated["this function is deprecated", strict: true]
+    static func geta10() {
+        return 4
+    }
+
+    @Deprecated["this function is deprecated", strict: true]
+    static const func geta11() {
+        return 5
+    }
+
+    @Deprecated["this function is deprecated", strict: true]
+    public static const func geta12() {
+        const b = geta11()
+        return b
+    }
+}
+
+public func f(){
+    if(Rectangle.geta1() == 0 && Rectangle.geta9() == 1 && Rectangle.geta3() == 2){
+        return 0
+    }else{
+        return 1
     }
 }

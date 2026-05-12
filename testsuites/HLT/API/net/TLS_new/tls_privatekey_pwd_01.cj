@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE: ./data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
-// RUN-EXEC: %run_stdx %n.%suffix %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl -o %output %f %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.net.*
 import std.fs.*
@@ -17,9 +17,11 @@ import stdx.net.tls.*
 import std.sync.*
 import std.runtime.*
 import std.collection.*
-import stdx.crypto.x509.{X509Certificate, PrivateKey, X509Exception}
+import stdx.crypto.x509.{X509Certificate, X509Exception}
+import stdx.crypto.common.*
+import stdx.crypto.keys.GeneralPrivateKey
 
-var sum = 0 
+var sum = 0
 
 @Test
 class Test_tlsprivatekey_pwd_01 {
@@ -30,7 +32,7 @@ class Test_tlsprivatekey_pwd_01 {
     func test_01(): Unit {
         //pem format of privatekey without password.
         let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))
-        let pemPriKey = PrivateKey.decodeFromPem(pemData)
+        let pemPriKey = GeneralPrivateKey.decodeFromPem(pemData)
         @Expect(pemPriKey.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
     }
 
@@ -38,7 +40,7 @@ class Test_tlsprivatekey_pwd_01 {
     func test_02(): Unit {
         //pem format of privatekey without password using None.
         let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))
-        let pemPriKey = PrivateKey.decodeFromPem(pemData, password:None)
+        let pemPriKey = GeneralPrivateKey.decodeFromPem(pemData, password:None)
         @Expect(pemPriKey.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
     }
 
@@ -47,8 +49,8 @@ class Test_tlsprivatekey_pwd_01 {
         //pem format of privatekey without password using "".
         let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))
         try {
-            PrivateKey.decodeFromPem(pemData, password:"")
-        } catch (e:X509Exception) {
+            GeneralPrivateKey.decodeFromPem(pemData, password:"")
+        } catch (e:CryptoException) {
             @Expect(e.message.contains("Password shouldn't be empty"))
             sum += 1
         }
@@ -60,8 +62,8 @@ class Test_tlsprivatekey_pwd_01 {
         //pem format of privatekey without password using "\0".
         let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))
         try {
-            PrivateKey.decodeFromPem(pemData, password:"\0")
-        } catch (e:X509Exception) {
+            GeneralPrivateKey.decodeFromPem(pemData, password:"\0")
+        } catch (e:CryptoException) {
             @Expect(e.message.contains("Password shouldn't contain zero byte"))
             sum += 1
         }
@@ -73,8 +75,8 @@ class Test_tlsprivatekey_pwd_01 {
         //pem format of privatekey without password using error String.
         let pemData = String.fromUtf8(File.readFrom("./data/end_rsa_private_key.pem"))
         try {
-            PrivateKey.decodeFromPem(pemData, password:"#$%abc123")
-        } catch (e:X509Exception) {
+            GeneralPrivateKey.decodeFromPem(pemData, password:"#$%abc123")
+        } catch (e:CryptoException) {
             @Expect(e.message.contains("Failed to load private key"))
             sum += 1
         }
@@ -85,7 +87,7 @@ class Test_tlsprivatekey_pwd_01 {
     func test_06(): Unit {
         //pem format of privatekey with password using correct password.
         let pemData = String.fromUtf8(File.readFrom("./data/enc_pkcs8_end_rsa_private_key.pem"))
-        let pemPriKey = PrivateKey.decodeFromPem(pemData, password:"456")
+        let pemPriKey = GeneralPrivateKey.decodeFromPem(pemData, password:"456")
         @Expect(pemPriKey.toString(), "PrivateKey(1794 bytes, RSA 3072 bits)")
     }
 
@@ -94,8 +96,8 @@ class Test_tlsprivatekey_pwd_01 {
         //pem format of privatekey with password using error password.
         let pemData = String.fromUtf8(File.readFrom("./data/enc_pkcs8_end_rsa_private_key.pem"))
         try {
-            PrivateKey.decodeFromPem(pemData, password:"123")
-        } catch (e:X509Exception){
+            GeneralPrivateKey.decodeFromPem(pemData, password:"123")
+        } catch (e:CryptoException){
             @Expect(e.message.contains("Failed to load private key, the password is incorrect or the key is corrupted"))
             sum += 1
         }
@@ -107,8 +109,8 @@ class Test_tlsprivatekey_pwd_01 {
         //pem format of privatekey with password using "".
         let pemData = String.fromUtf8(File.readFrom("./data/enc_pkcs8_end_rsa_private_key.pem"))
         try {
-            PrivateKey.decodeFromPem(pemData, password:"")
-        } catch (e:X509Exception){
+            GeneralPrivateKey.decodeFromPem(pemData, password:"")
+        } catch (e:CryptoException){
             @Expect(e.message.contains("Password shouldn't be empty"))
             sum += 1
         }
@@ -120,8 +122,8 @@ class Test_tlsprivatekey_pwd_01 {
         //pem format of privatekey with password using "\0".
         let pemData = String.fromUtf8(File.readFrom("./data/enc_pkcs8_end_rsa_private_key.pem"))
         try {
-            PrivateKey.decodeFromPem(pemData, password:"\0")
-        } catch (e:X509Exception){
+            GeneralPrivateKey.decodeFromPem(pemData, password:"\0")
+        } catch (e:CryptoException){
             @Expect(e.message.contains("Password shouldn't contain zero byte"))
             sum += 1
         }
@@ -133,8 +135,8 @@ class Test_tlsprivatekey_pwd_01 {
         //pem format of privatekey with password using "\0".
         let pemData = String.fromUtf8(File.readFrom("./data/enc_pkcs8_end_rsa_private_key.pem"))
         try {
-            PrivateKey.decodeFromPem(pemData, password:"#$abc123")
-        } catch (e:X509Exception){
+            GeneralPrivateKey.decodeFromPem(pemData, password:"#$abc123")
+        } catch (e:CryptoException){
             @Expect(e.message.contains("Failed to load private key, the password is incorrect or the key is corrupted"))
             sum += 1
         }

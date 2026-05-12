@@ -2,18 +2,18 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
- * 
+ *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
- 
+
 /*
   @No: 5.2.1.1.3.7
   @Scene: modify
   @Visibility: public
   @Object: class
-  @Behavior: class delete sealed modifier 
+  @Behavior: class delete sealed modifier
   @Expect: api compatible & abi compatible
-*/
+ */
 // LEVEL: 0
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
@@ -23,7 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
-
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
 // TEST ABI Compatibility
 // RUN-EXEC: %run %run_opt %output %run_args
 // TEST API Compatibility
@@ -36,21 +37,21 @@ package test_stable_abi
 
 public class A {}
 
-open public class B {}
+public open class B {}
 
 public abstract class C0 {}
 
-abstract public class D0 {}
+public abstract class D0 {}
 
 public class C <: C0 {}
 
 public class D <: D0 {}
 
-sealed abstract class E0 {}
+abstract sealed class E0 {}
 
 public class E <: E0 {}
 
-open public class F0 {}
+public open class F0 {}
 
 class F <: F0 {}
 
@@ -58,10 +59,25 @@ open class G0 {}
 
 public class G <: G0 {}
 
-open abstract public class H0 {}
+public abstract open class H0 {}
 
 class H <: H0 {}
 
-open abstract class I0 {}
+abstract open class I0 {}
 
 public class I <: I0 {}
+
+public func checker(): Int64 {
+    A()
+    B()
+    C()
+    D()
+    E()
+    F0()
+    F()
+    G0()
+    G()
+    H()
+    I()
+    0
+}

@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 3.2.1.11.2.2
   @Scene: modify
@@ -13,8 +13,8 @@
   @Object: struct instance prop
   @Behavior: add @Deprecated, strict: true
   @Expect: api incompatible & abi incompatible
- */
-// LEVEL: 0
+*/
+// LEVEL: 1
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -23,6 +23,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible!
 // ASSERT: scan-1 [API/ABI] Changed member property's annotation of struct visible outside the module. Deprecated strict added.
 // ASSERT: scan-1 [API/ABI]
@@ -32,35 +34,24 @@
 package test_stable_abi
 
 public struct S {
-    public var a: Int64 = 10
-
+    public var a = 10
     @Deprecated["this prop is deprecated", strict: true]
     public mut prop p1: Int64 {
-        get() {
-            a
-        }
-        set(value) {
-            a = value
-        }
+        get() { a }
+        set(value) { a = value }
     }
-
     @Deprecated["this prop is deprecated", strict: false]
     public mut prop p2: Int64 {
-        get() {
-            a
-        }
-        set(value) {
-            a = value
-        }
+        get() { a }
+        set(value) { a = value }
     }
-
     @Deprecated["this prop is deprecated", strict: true]
     public mut prop p3: Int64 {
-        get() {
-            a
-        }
-        set(value) {
-            a = value
-        }
+        get() { a }
+        set(value) { a = value }
     }
+}
+
+public func f(){
+    return 0
 }

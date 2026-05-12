@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: %n.cpp
-// (not Windows) EXEC: %clang -c %clang_opt %n.cpp -o lib%n.cpp.cfile.%dylib_suffix
+// (not Windows) EXEC: %clang -c %clang_opt %n.cpp -o lib%n.cpp.cfile.%cffi_suffix
 // (not Windows) EXEC: %compiler -L. -l%n.cpp.cfile %f %cmp_opt %overflow_wrapping -o %output
 // (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 /* SCAN-IN
@@ -150,75 +150,77 @@ let Cb1LambdaLet: CFunc<(Int32, Int32) -> Unit> = {
 }
 
 unsafe main(): Int64 {
-    var add: CFunc<(Int32, Int32) -> Int32> = getFuncPtr()
-    var bb = unsafe { add(1, 8) }
-    println(bb.toString())
-    getCangjieFuncPtr(add)
-
-    println(888.toString())
-    getCangjieFuncPtr(Add)
-
-    println(999.toString())
-    getCangjieFuncPtr(AddLambdaVar)
-
-    println(9999.toString())
-    getCangjieFuncPtr(AddLambdaLet)
-
-    println(111.toString())
-    var lmbaVar: CFunc<(Int32, Int32) -> Int32> = {
-        x, y =>
-        println(129.toString())
-        var c = unsafe { getFuncPtr() }
-        unsafe { c(x, y) }
-        var d = unsafe { getFuncPtr() }
-        unsafe { d(x, y) }
-        x + y
-    }
-
-    let lmbaLet: CFunc<(Int32, Int32) -> Int32> = {
-        x, y =>
-        println(130.toString())
-        var c = unsafe { getFuncPtr() }
-        unsafe { c(x, y) }
-        var d = unsafe { getFuncPtr() }
-        unsafe { d(x, y) }
-        x + y
-    }
-
-    if (getFuncPtr()(10, 100) != 110) {
-        println(11231.toString())
-    }
     unsafe {
-        Add(5, 2)
-        AddLambdaVar(6, 2)
-        AddLambdaLet(7, 2)
-        lmbaVar(8, 2)
-        lmbaLet(9, 2)
-    }
+        var add: CFunc<(Int32, Int32) -> Int32> = getFuncPtr()
+        var bb = unsafe { add(1, 8) }
+        println(bb.toString())
+        getCangjieFuncPtr(add)
 
-    var Cb1lmbaVar: CFunc<(Int32, Int32) -> Unit> = {
-        x, y =>
-        println("Cb1lmbaVar first:" + x.toString())
-        println("Cb1lmbaVar second:" + y.toString())
-    }
+        println(888.toString())
+        getCangjieFuncPtr(Add)
 
-    let Cb1lmbaLet: CFunc<(Int32, Int32) -> Unit> = {
-        x, y =>
-        println("Cb1lmbaLet first:" + x.toString())
-        println("Cb1lmbaLet second:" + y.toString())
-    }
-    getCangjieFuncPtr2(Cb1)
-    getCangjieFuncPtr2(Cb1LambdaVar)
-    getCangjieFuncPtr2(Cb1LambdaLet)
-    getCangjieFuncPtr2(Cb1lmbaVar)
-    getCangjieFuncPtr2(Cb1lmbaLet)
-    unsafe {
-        Cb1(5, 2)
-        Cb1LambdaVar(6, 2)
-        Cb1LambdaLet(7, 2)
-        Cb1lmbaVar(6, 2)
-        Cb1lmbaLet(7, 2)
-    }
+        println(999.toString())
+        getCangjieFuncPtr(AddLambdaVar)
 
-    return 0
+        println(9999.toString())
+        getCangjieFuncPtr(AddLambdaLet)
+
+        println(111.toString())
+        var lmbaVar: CFunc<(Int32, Int32) -> Int32> = {
+            x, y =>
+            println(129.toString())
+            var c = unsafe { getFuncPtr() }
+            unsafe { c(x, y) }
+            var d = unsafe { getFuncPtr() }
+            unsafe { d(x, y) }
+            x + y
+        }
+
+        let lmbaLet: CFunc<(Int32, Int32) -> Int32> = {
+            x, y =>
+            println(130.toString())
+            var c = unsafe { getFuncPtr() }
+            unsafe { c(x, y) }
+            var d = unsafe { getFuncPtr() }
+            unsafe { d(x, y) }
+            x + y
+        }
+
+        if (getFuncPtr()(10, 100) != 110) {
+            println(11231.toString())
+        }
+        unsafe {
+            Add(5, 2)
+            AddLambdaVar(6, 2)
+            AddLambdaLet(7, 2)
+            lmbaVar(8, 2)
+            lmbaLet(9, 2)
+        }
+
+        var Cb1lmbaVar: CFunc<(Int32, Int32) -> Unit> = {
+            x, y =>
+            println("Cb1lmbaVar first:" + x.toString())
+            println("Cb1lmbaVar second:" + y.toString())
+        }
+
+        let Cb1lmbaLet: CFunc<(Int32, Int32) -> Unit> = {
+            x, y =>
+            println("Cb1lmbaLet first:" + x.toString())
+            println("Cb1lmbaLet second:" + y.toString())
+        }
+        getCangjieFuncPtr2(Cb1)
+        getCangjieFuncPtr2(Cb1LambdaVar)
+        getCangjieFuncPtr2(Cb1LambdaLet)
+        getCangjieFuncPtr2(Cb1lmbaVar)
+        getCangjieFuncPtr2(Cb1lmbaLet)
+        unsafe {
+            Cb1(5, 2)
+            Cb1LambdaVar(6, 2)
+            Cb1LambdaLet(7, 2)
+            Cb1lmbaVar(6, 2)
+            Cb1lmbaLet(7, 2)
+        }
+
+        return 0
+    }
 }

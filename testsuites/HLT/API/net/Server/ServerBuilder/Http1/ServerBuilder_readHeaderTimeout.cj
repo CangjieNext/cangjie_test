@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 0
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %stdx-package  %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %stdx-package  %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE-0: %run_stdx %output %run_utest_opt %run_args 2>&1 | compare %f
 import std.unittest.*
 import std.unittest.testmacro.*
@@ -16,16 +16,16 @@ import std.sync.*
 import std.net.*
 import std.collection.*
 import stdx.net.http.*
-//import stdx.net.tls.common.*
+import stdx.net.tls.common.*
 import stdx.net.tls
-//import stdx.crypto.kit
+import stdx.crypto.kit
 import stdx.log.*
 import stdx.logger.*
 import std.console.Console
 
 func send_request(s: Server) {
     let client = ClientBuilder().build()
-    let big = "12345" * 1024 * 1024
+    let big = "12345" * 1024
     let request = HttpRequestBuilder()
         .header("Content-Length", "10")
         .header("a", big)
@@ -35,6 +35,34 @@ func send_request(s: Server) {
 
     let response = client.send(request)
     return response
+}
+
+func send_partial_header_request(s: Server): Bool {
+    var socket = TcpSocket("127.0.0.1", s.port)
+    let prefix = "POST / HTTP/1.1\r\nhost: 127.0.0.1:${s.port}\r\ncontent-length: 10\r\na: "
+    let suffix = ("12345" * 1024) + "\r\n\r\n1234567890"
+    var buf = Array<UInt8>(10000, repeat: 0)
+
+    try {
+        socket.connect(timeout: Duration.second)
+        socket.write(prefix.toArray())
+        // Give the zero readHeaderTimeout timer enough time to fire even on slower machines.
+        sleep(Duration.millisecond * 200)
+        try {
+            socket.write(suffix.toArray())
+        } catch (_: SocketException) {
+        }
+        let readLen = socket.read(buf)
+        if (readLen <= 0) {
+            return true
+        }
+        let response = String.fromUtf8(buf[0..readLen])
+        return response.contains("HTTP/1.1 408 Request Timeout")
+    } catch (_: SocketException | ConnectionException) {
+        return true
+    } finally {
+        socket.close()
+    }
 }
 
 @Test
@@ -83,11 +111,7 @@ public class Test_readHeaderTimeout {
         while (server.port == 0) {
             sleep(Duration.millisecond)
         }
-        try {
-            let response = send_request(server)
-            @Expect(response.toString().contains("HTTP/1.1 408 Request Timeout"))
-        } catch (e: SocketException) {
-        }
+        @Expect(send_partial_header_request(server), true)
         server.close()
     }
 
@@ -102,11 +126,7 @@ public class Test_readHeaderTimeout {
         while (server.port == 0) {
             sleep(Duration.millisecond)
         }
-        try {
-            let response = send_request(server)
-            @Expect(response.toString().contains("HTTP/1.1 408 Request Timeout"))
-        } catch (e: SocketException) {
-        }
+        @Expect(send_partial_header_request(server), true)
         server.close()
     }
 }

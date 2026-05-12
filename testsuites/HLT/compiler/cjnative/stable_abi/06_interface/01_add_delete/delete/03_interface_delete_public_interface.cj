@@ -5,7 +5,7 @@
  * 
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+ 
 /*
   @No: 6.1.3
   @Scene: delete
@@ -13,9 +13,9 @@
   @Object: interface
   @Behavior: delete public interface
   @Expect: api incompatible & abi incompatible
- */
+*/
 
-// LEVEL: 0 
+// LEVEL: 1 
 // DEPENDENCE: main.cj, template.cj
 // EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
 // EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
@@ -24,6 +24,8 @@
 // EXEC: %mv test_stable_abi.cjo old.cjo
 // EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
 
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare %f
 // ASSERT: scan Incompatible
 // ASSERT: scan-2 [API/ABI] Interface declaration visible outside the module deleted or made private.
 // ASSERT: scan-2 [API/ABI]
@@ -33,14 +35,12 @@
 package test_stable_abi
 
 // test interface: add interface
-interface I3 {
-    public static func typename(): String {
-        "interface I3"
-    }
+interface I3 { public static func g() {1} }
+interface I4<T> { public static func g() {1} }
+public func assert<T>(exp: T, act: T): Unit where T <: Equatable<T> & ToString {
+    if (exp != act) { throw Exception("${exp} != ${act}") }
 }
-
-interface I4<T> {
-    public static func typename(): String {
-        "interface I4<T>"
-    }
+public func check() {
+    assert(I3.g(), 1)
+    assert(I4<Int64>.g(), 1)
 }

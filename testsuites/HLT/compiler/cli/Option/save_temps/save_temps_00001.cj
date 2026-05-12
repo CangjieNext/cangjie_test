@@ -10,8 +10,7 @@
 // (not Windows) EXEC-PIPE: rm -rf dir;mkdir dir
 // (Windows) EXEC-PIPE: mkdir dir
 // EXEC-PIPE: %compiler %cmp_opt %f -o %output --save-temps=./dir
-// (CJNATIVE) EXEC-PIPE: %ls dir/*%n.bc dir/%n.o dir/*%n.opt.bc
-// (not CJNATIVE) EXEC-PIPE: %ls dir/%n.bc
+// EXEC-PIPE: %ls dir/*%n.bc dir/%n.o dir/*%n.opt.bc
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan Everything is great
 
