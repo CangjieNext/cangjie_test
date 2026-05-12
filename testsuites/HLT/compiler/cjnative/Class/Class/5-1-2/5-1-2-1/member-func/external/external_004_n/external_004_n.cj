@@ -22,5 +22,5 @@ func run(): Int64 {
     }
     return 0
 }
-// (not CJNATIVE) ASSERT: scan sema_no_match_function_declaration_for_call
-// (CJNATIVE) ASSERT: scan sema_not_member_of
+
+// ASSERT: scan sema_not_member_of

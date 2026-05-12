@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// (CJNATIVE) EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
-// (CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args
 // ASSERT: scan function 'SetGCThreshold' is deprecated. Use 'public func setGCThreshold(value: UInt64): Unit' instead.
 
 import std.runtime.*

@@ -140,6 +140,26 @@ compiler/cjnative/Packages/cjmp/cjmp_04046/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_04052/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_11044/test.cj
 compiler/cjnative/Packages/cjmp/cjmp_11045/test.cj
+API/net/Client/ClientBuilder/Http1/ClientBuilder_httpsProxy.cj
+API/openssl/check_stdx.info
+API/openssl/static_link_openssl_extract.cj
+API/openssl/static_link_openssl_no_extract.cj
+API/std/unittest/GC/test_gccount_01.cj
+API/std/unittest/GC/test_gccount_02.cj
+API/std/unittest/GC/test_gccount_03.cj
+API/std/unittest/GC/test_gctime_01.cj
+API/std/unittest/GC/test_mem_measurement_01.cj
+API/std/unittest/benchmark/test_bench_newreport_01.cj
+API/net/Client/ClientBuilder/Http1/ClientBuilder_httpsProxy.cj
+API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
+API/openssl/check_stdx.info
+API/openssl/static_link_openssl_no_extract.cj
+API/std/unittest/GC/test_gccount_01.cj
+API/std/unittest/GC/test_gccount_02.cj
+API/std/unittest/GC/test_gccount_03.cj
+API/std/unittest/GC/test_gctime_01.cj
+API/std/unittest/GC/test_mem_measurement_01.cj
+API/std/unittest/benchmark/test_bench_newreport_01.cj
 
 # https://gitcode.com/Cangjie/cangjie_test/issues/315
 compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_05n.cj

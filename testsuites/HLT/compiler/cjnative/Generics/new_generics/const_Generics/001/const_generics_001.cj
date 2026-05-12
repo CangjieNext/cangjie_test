@@ -7,10 +7,10 @@
  */
 
 // LEVEL: 1
-// (CJNATIVE) ERRCHECK: %compiler %cmp_opt %f -o %output
-// (CJNATIVE) ASSERT: scan sema_static_variable_use_generic_parameter
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
-// (not CJNATIVE) RUN-EXEC: %run %run_opt %output %run_args
+// ERRCHECK: %compiler %cmp_opt %f -o %output
+// ASSERT: scan sema_static_variable_use_generic_parameter
+
+
 
 class C<T> {
     static const a: String = ""

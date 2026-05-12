@@ -9,7 +9,7 @@
 // LEVEL: 0
 // (not O2) EXEC: %compiler %cmp_opt %f -o %output
 // (not O2) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// (CJNATIVE and not O2) ASSERT: regex Exception
+// (not O2) ASSERT: regex Exception
 // (not O2) ASSERT: regex test
 // (not O2) ASSERT: scan throwable_40005.cj:22
 

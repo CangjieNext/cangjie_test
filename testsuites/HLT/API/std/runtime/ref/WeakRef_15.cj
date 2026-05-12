@@ -8,8 +8,8 @@
 
 // LEVEL: 1
 // DEPENDENCE: util.cj
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f util.cj -o %output
-// (not CJNATIVE) RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt %f util.cj -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args
 
 import std.ref.*
 import std.collection.*

@@ -1,0 +1,49 @@
+error: invalid binary operator '+' on type 'Struct-String' and 'Bool'
+  ==> main.cj.macrocall:15:28:
+   | 
+15 |     println("x + true: ${x + true}")
+   |                            ^ 
+   | 
+   # note: you may want to implement 'operator func +(right: Bool)' for type 'Struct-String'
+
+error: invalid binary operator '+' on type 'Struct-String' and 'Float64'
+  ==> main.cj.macrocall:16:27:
+   | 
+16 |     println("x + 1.0: ${x + 1.0}")
+   |                           ^ 
+   | 
+   # note: you may want to implement 'operator func +(right: Float64)' for type 'Struct-String'
+
+error: invalid binary operator '+' on type 'Struct-String' and 'Int64'
+  ==> main.cj.macrocall:17:25:
+   | 
+17 |     println("x + 1: ${x + 1}")
+   |                         ^ 
+   | 
+   # note: you may want to implement 'operator func +(right: Int64)' for type 'Struct-String'
+
+error: invalid binary operator '+' on type 'Int64' and 'Struct-String'
+  ==> main.cj.macrocall:19:7:
+   | 
+19 |     y + ""
+   |       ^ 
+   | 
+   # note: you may want to implement 'operator func +(right: Struct-String)' for type 'Int64'
+
+error: invalid binary operator '+' on type 'Int64' and 'Float64'
+  ==> main.cj.macrocall:20:7:
+   | 
+20 |     y + 1.0
+   |       ^ 
+   | 
+   # note: you may want to implement 'operator func +(right: Float64)' for type 'Int64'
+
+error: invalid binary operator '+' on type 'Int64' and 'Bool'
+  ==> main.cj.macrocall:21:7:
+   | 
+21 |     y + false
+   |       ^ 
+   | 
+   # note: you may want to implement 'operator func +(right: Bool)' for type 'Int64'
+
+6 errors generated, 6 errors printed.

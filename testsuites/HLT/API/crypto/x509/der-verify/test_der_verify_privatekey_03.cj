@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../data
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %output  %f %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl -o %output  %f %cmp_utest_opt
 // (not Windows and not OHOS)RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 // (Windows and OHOS)RUN-EXEC: dos2unix "./data/root_ecdsa_1.text" &&  dos2unix "./data/end_rsa_private_key.pem" && dos2unix "./data/enc_pkcs8_end_rsa_private_key.pem" && dos2unix "./data/enc_128_end_rsa_private_key.pem" && %run %run_opt %output %run_utest_opt %run_args
 

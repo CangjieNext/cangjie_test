@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: ReturnExpr_02.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ReturnExpr_02() {
     let res = parseFile("./ReturnExpr_02.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     return if (a) {b} else {b}
 }"##))
 
@@ -29,4 +31,5 @@ func test_ReturnExpr_02() {
     @Assert(expr_3.toString(), "return if (a) {b} else {b}")
     @Expect(expr_3.retVal.isSome())
     @Expect(expr_3.retVal.getOrThrow().toString(), "if (a) {b} else {b}")
+}
 }

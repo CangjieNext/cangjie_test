@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: EnumDecl_03.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumDecl_03() {
     let res = parseFile("./EnumDecl_03.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"protected enum E1<T, U> <: S1<T, U> {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"protected enum E1<T, U> <: S1<T, U> {
     A1 | B1(Int64) | C1(T) | D1(U, T)
     mut prop p1: ?T {
         get() { none }
@@ -30,7 +32,7 @@ func test_EnumDecl_03() {
 }"##))
 
     var enumDecl: EnumDecl = (sourcefile.topLevelDecls[0] as EnumDecl).getOrThrow()
-    @Expect(enumDecl.toString(), ##"protected enum E1<T, U> <: S1<T, U> {
+    @Expect(enumDecl.toString().replace("\r",""), ##"protected enum E1<T, U> <: S1<T, U> {
     A1 | B1(Int64) | C1(T) | D1(U, T)
     mut prop p1: ?T {
         get() { none }
@@ -49,7 +51,7 @@ func test_EnumDecl_03() {
     @Assert(enumDecl.body.memberDecls[3].toString(), ##"D1(U, T)"##)
 
     @Assert(enumDecl.body.memberDecls[4] is PropDecl)
-    @Assert(enumDecl.body.memberDecls[4].toString(), ##"mut prop p1: ?T {
+    @Assert(enumDecl.body.memberDecls[4].toString().replace("\r",""), ##"mut prop p1: ?T {
         get() { none }
         set(v) {}
     }"##)
@@ -67,4 +69,5 @@ func test_EnumDecl_03() {
     @Assert(enumDecl.superTyAnnotations.size, 1)
     @Assert(enumDecl.superTyAnnotations[0].toString(), ##"S1<T, U>"##)
     @Assert(enumDecl.annotations.size, 0)
+}
 }

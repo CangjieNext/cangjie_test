@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: OptionalExpr_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_OptionalExpr_01() {
     let res = parseFile("./OptionalExpr_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     a?.b
     a?(b)
     a()?[b]
@@ -28,6 +30,7 @@ func test_OptionalExpr_01() {
 
     var mainDecl: MainDecl = (sourcefile.topLevelDecls[0] as MainDecl).getOrThrow()
     var expr_1: MemberAccess = (mainDecl.body.nodes[0] as MemberAccess).getOrThrow()
+    @Expect(expr_1.toTokens().toString(), ##"a?.b"##)
     @Expect(expr_1.base is OptionalExpr)
     @Expect(expr_1.base.toString(), ##"a?"##)
 
@@ -40,4 +43,5 @@ func test_OptionalExpr_01() {
     @Expect(expr_3.base.toString(), ##"a()?"##)
     var pos = (expr_3.base as OptionalExpr).getOrThrow().getQuestionPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [12i32, 8i32, 12i32, 9i32])
+}
 }

@@ -8,19 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE: PropDecl_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_PropDecl_01() {
     let res = parseFile("./PropDecl_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"public interface I1 <: S1 {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"public interface I1 <: S1 {
     public static mut prop p1: Int64 {
         get() {0}
         set(v) {}
@@ -35,10 +37,14 @@ func test_PropDecl_01() {
     @Assert(interfaceDecl.body.memberDecls.size, 2)
     let prop_1 = (interfaceDecl.body.memberDecls[0] as PropDecl).getOrThrow()
     let prop_2 = (interfaceDecl.body.memberDecls[1] as PropDecl).getOrThrow()
-    @Assert(prop_1.toString(), ##"public static mut prop p1: Int64 {
+    @Assert(prop_1.toString().replace("\r",""), ##"public static mut prop p1: Int64 {
         get() {0}
         set(v) {}
     }"##)
+    @Assert(prop_1.toTokens().toString().replace("\r",""), ##"public static mut prop p1: Int64 {
+    get() { 0 }
+    set(v) { }
+}"##)
     @Assert(prop_1.name, "p1")
     @Assert(prop_1.getter.getOrThrow().toString(), "get() {0}")
     @Assert(prop_1.setter.isSome())
@@ -47,7 +53,7 @@ func test_PropDecl_01() {
     @Assert(prop_1.tyAnnotation is AtomicType)
     @Assert(prop_1.isMut)
 
-    @Assert(prop_2.toString(), ##"public static prop p2: R {
+    @Assert(prop_2.toString().replace("\r",""), ##"public static prop p2: R {
         get() { R() }
     }"##)
     @Assert(prop_2.name, "p2")
@@ -67,4 +73,5 @@ func test_PropDecl_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [13i32, 5i32, 13i32, 6i32])
     pos = prop_1.getTyAnnotationColonPos()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [10i32, 30i32, 10i32, 31i32])
+}
 }

@@ -8,6 +8,6 @@
 
 package a.b.ccc 
 
-let a1 = 1 
+let a1 = 1
 + 1
 

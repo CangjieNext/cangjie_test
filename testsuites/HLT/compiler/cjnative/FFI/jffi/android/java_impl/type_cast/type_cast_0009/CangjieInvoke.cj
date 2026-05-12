@@ -8,8 +8,7 @@
 
 // LEVEL: 3
 // (Android) DEPENDENCE: MainInstrumentedTest.java 
-// (Android) EXEC: python3 %java_interop_setup
-// (Android) ERRCHECK: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
+// (Android) ERRCHECK: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f %java_interop_util/logger.cj
 // (Android) ASSERT: scan sema_java_impl_cannot_be_extended_with_interface
 
 package UNNAMED

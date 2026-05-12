@@ -10,7 +10,7 @@
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC: %export cjHeapSize=4MB && %run %run_opt %output %run_args 2>&1 | compare %f
 // (not iOS) ASSERT: scan Out of memory
-// (not CJNATIVE or iOS) ASSERT: scan OutOfMemoryError
+
 
 import std.collection.*
 

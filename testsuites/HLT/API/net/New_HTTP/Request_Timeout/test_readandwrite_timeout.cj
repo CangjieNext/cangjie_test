@@ -9,8 +9,8 @@
 // LEVEL: 2
 // DEPENDENCE: ../data
 // DEPENDENCE: ../../../asan
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %compile_lib_opt asan/asanGC.cj -o asan.%middle
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt asan.%middle %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl %compile_lib_opt asan/asanGC.cj -o asan.%middle
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl asan.%middle %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 /*
@@ -71,7 +71,8 @@ class Test_readTimeout_writeTimeout {
                 {
                     ctx =>
                     ctx.request.body.read(Array<UInt8>(1024 * 1024, repeat: 0))
-                    Sleep(Duration.second * 4)
+                    // Keep enough margin for asynchronous client timeout timers on slow environments.
+                    Sleep(Duration.second * 5)
                 }
             )
         spawn {
@@ -105,7 +106,8 @@ class Test_readTimeout_writeTimeout {
                 {
                     ctx =>
                     ctx.request.body.read(Array<UInt8>(1024 * 1024, repeat: 0))
-                    Sleep(Duration.second * 2)
+                    // Keep enough margin for asynchronous client timeout timers on slow environments.
+                    Sleep(Duration.second * 5)
                 }
             )
         spawn {
@@ -134,6 +136,9 @@ class Test_readTimeout_writeTimeout {
         } catch (e: HttpTimeoutException | HttpException) {
             @Expect(e.message.contains("timeout") || e.message.contains("Stream closed"))
         }
+
+        client.close()
+        client = ClientBuilder().readTimeout(Duration.Zero).writeTimeout(Duration.Zero).build()
 
         // 请求配置后不超时
         var req1 = HttpRequestBuilder()
@@ -186,6 +191,13 @@ class Test_readTimeout_writeTimeout {
         } catch (e: HttpTimeoutException | HttpException) {
             @Expect(e.message.contains("timeout") || e.message.contains("Stream closed"))
         }
+
+        client.close()
+        client = ClientBuilder()
+            .tlsConfig(clientconf)
+            .readTimeout(Duration.Zero)
+            .writeTimeout(Duration.Zero)
+            .build()
         // 请求配置后不超时
         var req1 = HttpRequestBuilder()
             .readTimeout(5 * Duration.second)

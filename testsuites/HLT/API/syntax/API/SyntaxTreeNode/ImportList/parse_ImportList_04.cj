@@ -8,19 +8,21 @@
 
 // LEVEL: 1
 // DEPENDENCE: ImportList_04.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_ImportList_04() {
     let res = parseFile("./ImportList_04.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"internal import a.b.c.d.e.f.g as x1
+    @Expect(sourcefile.toString().replace("\r","").contains(##"internal import a.b.c.d.e.f.g as x1
 internal import {
     std.time as atime
 }
@@ -51,7 +53,7 @@ internal import a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z"##))
         case ModifierKind.Internal => ()
         case _ => @Assert(false)
     }
-    @Expect(import_2.toString(), ##"internal import {
+    @Expect(import_2.toString().replace("\r",""), ##"internal import {
     std.time as atime
 }"##)
 
@@ -76,4 +78,5 @@ internal import a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z"##))
         case _ => @Assert(false)
     }
     @Expect(import_4.toString(), ##"internal import a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z"##)
+}
 }

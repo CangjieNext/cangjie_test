@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output %run_args 2>&1 | compare %f
-// (CJNATIVE) RUN-EXEC-PIPE-0: %run %run_opt %output
+// EXEC: %compiler %cmp_opt %f -o %output %run_args 2>&1 | compare %f
+// RUN-EXEC-PIPE-0: %run %run_opt %output
 // ASSERT: scan function 'GetPI' is deprecated. Use `public func getPI()` instead.
 // ASSERT: scan function 'GetE' is deprecated. Use `public func getE()` instead.
 // ASSERT: scan function 'GetPI' is deprecated. Use `public func getPI()` instead.
