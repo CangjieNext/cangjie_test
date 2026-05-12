@@ -8,10 +8,9 @@
 
 // LEVEL: 3
 // (Android) DEPENDENCE: com MainInstrumentedTest.java 
-// (Android) EXEC: python3 %java_interop_setup
-// (Android) EXEC: %javac com/*.java %java_interop_template/app/src/main/java/com/example/myapplication/Logger.java
+// (Android) EXEC: %javac com/*.java %java_interop_util/Logger.java
 // (Android) EXEC: %java %java_mirror_gen com.JavaClass
-// (Android) ERRCHECK: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f logger.cj UNNAMED/src/*.cj --output-javagen-dir=%java_interop_template/app/src/main/java/UNNAMED
+// (Android) ERRCHECK: %compiler %cmp_opt %compile_dylib_opt %jffi_link %f %java_interop_util/logger.cj UNNAMED/src/*.cj
 // (Android) ASSERT: scan error
 
 package UNNAMED

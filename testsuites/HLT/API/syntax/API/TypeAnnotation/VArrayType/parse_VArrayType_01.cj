@@ -8,21 +8,24 @@
 
 // LEVEL: 1
 // DEPENDENCE: VArrayType_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_VArrayType_01() {
     let res = parseFile("./VArrayType_01.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"var a: VArray<Int64, $0> = VArray<Int64, $0>({ i => i })
+    @Expect(sourcefile.toString().replace("\r","").contains(##"var a: VArray<Int64, $0> = VArray<Int64, $0>({ i => i })
 var a: VArray<UInt64, $5> = [1,2,3,4,5]"##))
 
     var decl_1: VarDecl = (sourcefile.topLevelDecls[0] as VarDecl).getOrThrow()
     let type_1 = (decl_1.tyAnnotation.getOrThrow() as VArrayType).getOrThrow()
     @Assert(type_1.toString(), "VArray<Int64, $0>")
+    @Assert(type_1.toTokens().toString(), "VArray < Int64, $0 >")
     @Assert(type_1.elementType.toString(), "Int64")
     @Assert(type_1.size, 0)
     var Pos_1 = type_1.getCommaPos()
@@ -51,4 +54,5 @@ var a: VArray<UInt64, $5> = [1,2,3,4,5]"##))
     @Assert([Pos_2.beginLine, Pos_2.beginColumn, Pos_2.endLine, Pos_2.endColumn], [10i32, 25i32, 10i32, 26i32])
     Pos_2 = type_2.getVArrayPos()
     @Assert([Pos_2.beginLine, Pos_2.beginColumn, Pos_2.endLine, Pos_2.endColumn], [10i32, 8i32, 10i32, 14i32])
+}
 }

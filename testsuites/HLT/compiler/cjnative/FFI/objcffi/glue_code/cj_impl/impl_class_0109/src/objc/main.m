@@ -14,10 +14,34 @@
 @implementation M1
 @end
 @interface M2 : A
-- (int64_t)f:(int64_t)p1;
+- (BOOL)getBool:(BOOL)p1;
+- (int8_t)getI8:(int8_t)p1;
+- (int16_t)getI16:(int16_t)p1;
+- (int32_t)getI32:(int32_t)p1;
+- (int64_t)getI64:(int64_t)p1;
+- (ssize_t)getIN:(ssize_t)p1;
+- (uint8_t)getU8:(uint8_t)p1;
+- (uint16_t)getU16:(uint16_t)p1;
+- (uint32_t)getU32:(uint32_t)p1;
+- (uint64_t)getU64:(uint64_t)p1;
+- (size_t)getUN:(size_t)p1;
+- (float)getf32:(float)p1;
+- (double)getf64:(double)p1;
 @end
 @implementation M2
-- (int64_t)f:(int64_t)p1 { return p1 + 1; }
+- (BOOL)getBool:(BOOL)p1 { return !p1; }
+- (int8_t)getI8:(int8_t)p1 { return p1 + 1; }
+- (int16_t)getI16:(int16_t)p1 { return p1 + 1; }
+- (int32_t)getI32:(int32_t)p1 { return p1 + 1; }
+- (int64_t)getI64:(int64_t)p1 { return p1 + 1; }
+- (ssize_t)getIN:(ssize_t)p1 { return p1 + 1; }
+- (uint8_t)getU8:(uint8_t)p1 { return p1 + 1; }
+- (uint16_t)getU16:(uint16_t)p1 { return p1 + 1; }
+- (uint32_t)getU32:(uint32_t)p1 { return p1 + 1; }
+- (uint64_t)getU64:(uint64_t)p1 { return p1 + 1; }
+- (size_t)getUN:(size_t)p1 { return p1 + 1; }
+- (float)getf32:(float)p1 { return p1 + 1; }
+- (double)getf64:(double)p1 { return p1 + 1; }
 @end
 int main(int argc, char** argv) {
     @autoreleasepool {
@@ -26,11 +50,14 @@ int main(int argc, char** argv) {
         M1* a3 = [[M1 alloc] init];
         A* a4 = [[M2 alloc] init];
         M2* a5 = [[M2 alloc] init];
-        printf("in oc, %lld\n", [a1 f: 1]);
-        printf("in oc, %lld\n", [a2 f: 1]);
-        printf("in oc, %lld\n", [a3 f: 1]);
-        printf("in oc, %lld\n", [a4 f: 1]);
-        printf("in oc, %lld\n", [a5 f: 1]);
+        printf("in oc, %lld\n", [a1 getI64: 1]);
+        printf("in oc, %lld\n", [a2 getI64: 1]);
+        printf("in oc, %lld\n", [a3 getI64: 1]);
+        printf("in oc, %lld\n", [a4 getI64: 1]);
+        printf("in oc, %lld\n", [a5 getI64: 1]);
+
+        [a1 testOverridden];
+        [a5 testOverridden];
     }
     return 0;
 }

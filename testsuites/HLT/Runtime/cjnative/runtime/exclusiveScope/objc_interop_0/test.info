@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../Cangjie.h entry.cj main.m
+// (target_ios | target_ios_simulator) EXEC: cjc --output-type=dylib -p . -linteroplib.common -linteroplib.objc -lobjc.lang
+// (target_ios | target_ios_simulator) EXEC: clang -fobjc-arc main.m -o main -L %cangjie-home/runtime/lib/%host -I. -Iobjc-gen -I %cangjie-home/include -L. -lpack -lcangjie-runtime -ldl
+// (target_ios | target_ios_simulator) EXEC: export DYLD_LIBRARY_PATH=$(pwd):$CANGJIE_DYLD_PATH:$CANGJIE_HOME/runtime/lib/%host && ./main

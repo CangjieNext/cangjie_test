@@ -13,12 +13,13 @@
 import std.random.*
 import std.unittest.*
 import std.unittest.testmacro.*
+import std.sync.*
 
 let all_count = 20
 var ready_count = 0
 var running_count = 0
 var pending_count = 0
-var terminated_count = 0
+let terminated_count = AtomicInt64(0)
 let random = Random()
 
 class C1 {
@@ -26,7 +27,7 @@ class C1 {
         while (true) {
             if (Thread.currentThread.hasPendingCancellation) {
                 println("Thread.currentThread.hasPendingCancellation")
-                terminated_count++
+                terminated_count.fetchAdd(1)
                 return 0
             }
         }
@@ -59,6 +60,6 @@ main() {
         _thread_info.toString() |> println
         @Assert(_thread_info.toString().contains("ThreadSnapshot(id=${_thread_info.id}, name=, state=${_thread_info.state})"))
     }
-    println("ready: ${ready_count}, running: ${running_count}, pending: ${pending_count}, terminated: ${terminated_count}")
-    @Assert(ready_count + running_count + pending_count + terminated_count, all_count + 1)
+    println("ready: ${ready_count}, running: ${running_count}, pending: ${pending_count}, terminated: ${terminated_count.load()}")
+    @Assert(ready_count + running_count + pending_count + terminated_count.load(), all_count + 1)
 }

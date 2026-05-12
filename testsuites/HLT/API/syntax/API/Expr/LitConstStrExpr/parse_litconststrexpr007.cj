@@ -14,6 +14,8 @@
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_litconststrexpr_007() {
     let res = parseFile("./litconststrexpr007.cj")
     let sourcefile: SourceFile = res.node.getOrThrow()
@@ -42,7 +44,7 @@ func test_litconststrexpr_007() {
     }
 
     var litconststrexpr_3 = (maindecl.body.nodes[2] as LitConstStrExpr).getOrThrow()
-    @Assert(litconststrexpr_3.toString(), ##""""
+    @Assert(litconststrexpr_3.toString().replace("\r",""), ##""""
 ${x}${y} ${z}""""##)
     @Expect(litconststrexpr_3.rawValue, ##"${x}${y} ${z}"##)
     @Assert(litconststrexpr_3.strPartExprs.size, 4)
@@ -84,4 +86,5 @@ ${x}${y} ${z}""""##)
     @Assert(litconststrexpr_5.toString(), ##"#"${x}"#"##)
     @Expect(litconststrexpr_5.rawValue, ##"${x}"##)
     @Assert(litconststrexpr_5.strPartExprs.size, 0)
+}
 }

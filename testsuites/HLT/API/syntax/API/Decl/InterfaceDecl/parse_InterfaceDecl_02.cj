@@ -8,19 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE: InterfaceDecl_02.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_InterfaceDecl_02() {
     let res = parseFile("./InterfaceDecl_02.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"@Deprecated["aaa"]
+    @Expect(sourcefile.toString().replace("\r","").contains(##"@Deprecated["aaa"]
 public interface I1 <: S1 {
     static mut prop p1: Int64 {
         get() {0}
@@ -30,7 +32,7 @@ public interface I1 <: S1 {
 }"##))
 
     var interfaceDecl: InterfaceDecl = (sourcefile.topLevelDecls[0] as InterfaceDecl).getOrThrow()
-    @Expect(interfaceDecl.toString(), ##"@Deprecated["aaa"]
+    @Expect(interfaceDecl.toString().replace("\r",""), ##"@Deprecated["aaa"]
 public interface I1 <: S1 {
     static mut prop p1: Int64 {
         get() {0}
@@ -40,7 +42,7 @@ public interface I1 <: S1 {
 }"##)
     @Assert(interfaceDecl.body.memberDecls.size, 2)
     @Assert(interfaceDecl.body.memberDecls[0] is PropDecl)
-    @Assert(interfaceDecl.body.memberDecls[0].toString(), ##"static mut prop p1: Int64 {
+    @Assert(interfaceDecl.body.memberDecls[0].toString().replace("\r",""), ##"static mut prop p1: Int64 {
         get() {0}
         set(v) {}
     }"##)
@@ -54,4 +56,5 @@ public interface I1 <: S1 {
     @Assert(interfaceDecl.superTyAnnotations[0].toString(), "S1")
     @Assert(interfaceDecl.annotations.size, 1)
     @Assert(interfaceDecl.annotations[0].toString(), ##"@Deprecated["aaa"]"##)
+}
 }

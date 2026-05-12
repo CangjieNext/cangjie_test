@@ -11,5 +11,5 @@
 // EXEC: %compiler %cmp_opt %n.cj -o %output %overflow_wrapping
 // RUN-EXEC: %run %run_opt %output %run_args 
 // EXEC: %cp %n.txt %n.cj
-// (CJNATIVE) ERRCHECK: %compiler %cmp_opt %incremental_compile %n.cj -o %output
+// ERRCHECK: %compiler %cmp_opt %incremental_compile %n.cj -o %output
 // ASSERT: scan sema_invalid_unary_expr

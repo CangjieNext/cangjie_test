@@ -8,13 +8,10 @@
 
 // LEVEL: 2
 // DEPENDENCE: macro_define_20012.cj main_20012.cj
-// (CJNATIVE) EXEC: %compiler %cmp_opt %macro_opt -o libdefine.%test_suffix macro_define_20012.cj
-// (CJNATIVE) EXEC: %compiler %f %macro_opt -o %n.%test_suffix
-// (CJNATIVE) EXEC: %compiler %cmp_opt  -L. -ldefine main_20012.cj -o %output
+// EXEC: %compiler %cmp_opt %macro_opt -o libdefine.%test_suffix macro_define_20012.cj
+// EXEC: %compiler %f %macro_opt -o %n.%test_suffix
+// EXEC: %compiler %cmp_opt  -L. -ldefine main_20012.cj -o %output
 
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %compile_lib_opt macro_define_20012.cj 
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f --compile-macro
-// (not CJNATIVE) EXEC: %compiler %cmp_opt --import-path ./ test.pdba define_20012.%middle main_20012.cj -o %output
 
 macro package test
 

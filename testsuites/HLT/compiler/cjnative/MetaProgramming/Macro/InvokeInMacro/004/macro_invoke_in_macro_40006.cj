@@ -9,9 +9,8 @@
 // LEVEL: 2
 // DEPENDENCE: define_a_40006.cj define_aa_40006.cj
 
-// (CJNATIVE) EXEC-PIPE-1: %compiler define_a_40006.cj define_aa_40006.cj %cmp_macro 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler define_a_40006.cj define_aa_40006.cj %cmp_macro 2>&1 | compare %f
 
-// (not CJNATIVE) EXEC-PIPE-1: %compiler  define_a_40006.cj define_aa_40006.cj  %macro_opt 2>&1 | compare %f
 
 package use
 

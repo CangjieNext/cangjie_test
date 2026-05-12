@@ -19,5 +19,5 @@ main() {
     A()
     return 0
 }
-// (not CJNATIVE) ASSERT: scan sema_generic_function_in_interface
+
 // ASSERT: scan sema_class_need_abstract_modifier_or_func_need_impl

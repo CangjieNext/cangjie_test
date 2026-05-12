@@ -8,11 +8,9 @@
 
 // LEVEL: 2
 // DEPENDENCE: define_30010.cj main_30010.cj
-// (CJNATIVE) EXEC: %compiler define_30010.cj %macro_opt -o define_30010.%test_suffix
-// (CJNATIVE) ERRCHECK: %compiler %cmp_opt %f %macro_opt -o use.%test_suffix
+// EXEC: %compiler define_30010.cj %macro_opt -o define_30010.%test_suffix
+// ERRCHECK: %compiler %cmp_opt %f %macro_opt -o use.%test_suffix
 
-// (not CJNATIVE) EXEC: %compiler %macro_opt define_30010.cj %macro_opt
-// (not CJNATIVE) ERRCHECK: %compiler %cmp_opt %f %macro_opt 
 macro package use
 
 import std.ast.*

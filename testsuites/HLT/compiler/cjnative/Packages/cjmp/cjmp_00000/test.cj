@@ -8,7 +8,7 @@
  
 // LEVEL: 0
 // ERRCHECK: %compiler %cmp_opt %f test.chir -o %output
-// ASSERT: scan No such file or directory: 'test.chir'.
+// ASSERT: scan invalid file or directory 'test.chir'
 
 main() {
     return 0

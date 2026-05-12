@@ -8,12 +8,9 @@
 
 // LEVEL: 0
 // DEPENDENCE: libs
-// (CJNATIVE) EXEC-PIPE: %compiler %cmp_opt %compile_lib_opt libs/myModule/myModule.cj -o libs/myModule/
-// (not CJNATIVE) EXEC-PIPE: %compiler %cmp_opt %compile_cbclib_opt libs/myModule/myModule.cj -o libs/myModule/
-// (CJNATIVE) EXEC-PIPE: %compiler %cmp_opt --import-path libs -L libs/myModule -l myModule.myModule %f -o %output
-// (not CJNATIVE) EXEC-PIPE: %compiler %cmp_opt --import-path libs libs/myModule/myModule.myModule.pdba %f -o %output
-// (CJNATIVE) RUN-EXEC-PIPE: %run %run_opt %output %run_args
-// (not CJNATIVE) RUN-EXEC-PIPE: %run --cbc-path libs/myModule %output %run_args
+// EXEC-PIPE: %compiler %cmp_opt %compile_lib_opt libs/myModule/myModule.cj -o libs/myModule/
+// EXEC-PIPE: %compiler %cmp_opt --import-path libs -L libs/myModule -l myModule.myModule %f -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args
 
 import myModule.myModule.*
 

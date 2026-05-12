@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 1
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f -o %output
-// (CJNATIVE) RUN-EXEC: %export cjHeapSize=3mb && %run %run_opt %output %run_args
-// (CJNATIVE) ASSERT: scan struct 'ThreadInfo' is deprecated. All static Properties are converted to public funtions.
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %export cjHeapSize=3mb && %run %run_opt %output %run_args
+// ASSERT: scan struct 'ThreadInfo' is deprecated. All static Properties are converted to public funtions.
 
 import std.runtime.*
 import std.collection.*

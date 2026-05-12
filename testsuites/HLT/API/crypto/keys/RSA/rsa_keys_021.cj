@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt -o %output %f
+// ERRCHECK: %compiler %import-cangjie-stdx %cmp_opt %link_openssl -o %output %f
 
 import stdx.crypto.keys.*
 import stdx.crypto.digest.*

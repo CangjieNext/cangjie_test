@@ -8,19 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE: EnumPattern_01.cj
-// (CJNATIVE and not OHOS) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
-// (CJNATIVE and not OHOS) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*
 
 @Test
+class test_01{
+    @TestCase
 func test_EnumPattern_01() {
     let res = parseFile("./EnumPattern_01.cj")
     var diags = res.diags
     @Assert(diags.size, 0)
 
     let sourcefile: SourceFile = res.node.getOrThrow()
-    @Expect(sourcefile.toString().contains(##"main() {
+    @Expect(sourcefile.toString().replace("\r","").contains(##"main() {
     match (a) {
         case E1.A0 | E1.B0 => ()
         case E1.A0(1) => ()
@@ -51,6 +53,7 @@ func test_EnumPattern_01() {
 
     var pattern_4: EnumPattern = (expr.matchCases[2].patterns[0] as EnumPattern).getOrThrow()
     @Assert(pattern_4.toString(), "p1.p0.E<Int64>.A1(1)")
+    @Assert(pattern_4.toTokens().toString(), "p1.p0.E < Int64 >.A1(1)")
     @Assert(pattern_4.enumConstructor.toString(), "A1")
     @Assert(pattern_4.enumType.getOrThrow().toString(), "p1.p0.E<Int64>")
     @Assert(pattern_4.subPatterns.toString(), "[1]")
@@ -70,4 +73,5 @@ func test_EnumPattern_01() {
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [14i32, 30i32, 14i32, 31i32])
     pos = pattern_5.getRParenPos().getOrThrow()
     @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], [14i32, 37i32, 14i32, 38i32])
+}
 }

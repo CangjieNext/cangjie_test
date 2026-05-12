@@ -7,8 +7,8 @@
  */
  
 // LEVEL: 0
-// (CJNATIVE) EXEC: %compiler %cmp_opt %f 2>&1 | compare %f
-// (not CJNATIVE) EXEC: %compiler %cmp_opt %f
+// EXEC: %compiler %cmp_opt %f 2>&1 | compare %f
+
 
 private let v_0: Int8 = 86
 private let v_1: Int8 = -99

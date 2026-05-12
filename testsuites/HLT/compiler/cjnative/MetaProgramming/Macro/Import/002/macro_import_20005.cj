@@ -8,9 +8,9 @@
 
 // LEVEL: 2
 // DEPENDENCE: macro_define_20005.cj main_20005.cj
-// (CJNATIVE) EXEC: %compiler %cmp_macro macro_define_20005.cj
-// (CJNATIVE) EXEC: %compiler %f %cmp_macro
-// (CJNATIVE) EXEC: %compiler %cmp_opt  main_20005.cj -o %output
+// EXEC: %compiler %cmp_macro macro_define_20005.cj
+// EXEC: %compiler %f %cmp_macro
+// EXEC: %compiler %cmp_opt  main_20005.cj -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 macro package test
