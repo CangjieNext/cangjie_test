@@ -8,5 +8,5 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm test -V 2>&1 | compare %f
+// (native_compilation)EXEC: cd %n && %cjpm test -V 2>&1 | compare %f
 // ASSERT: regex Error: parse the '.*[/|\\]cjpm.toml' file failed

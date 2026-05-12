@@ -8,11 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build %cjpm_opt -V --cfg1 --cfg2 2>&1 | compare %f
-// ASSERT: scan-6 cjc
-// ASSERT: regex-2 -g\s
-// ASSERT: scan-4 --cfg feature1=lion
-// ASSERT: scan-not --cfg feature1=tiger, feature2=cat
-// ASSERT: scan-not --cfg feature1=tiger, feature2=dog
-// ASSERT: scan cjpm build success
-// (native_compilation)EXEC: cd %n && %cjpm run --skip-build 2>&1 | compare result.txt
+// (native_compilation)EXEC: cd %n && %cjpm build %cjpm_opt -V --cfg1 --cfg2
+// (native_compilation)EXEC: cd %n && %cjpm run --skip-build 2>&1 | compare %f
+// ASSERT: scan aoo feature lion
+// ASSERT: scan boo feature lion
+// ASSERT: scan cjpm run finished

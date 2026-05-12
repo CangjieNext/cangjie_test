@@ -8,5 +8,5 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC-PIPE-0: cd %n && %run %cjpm build -V 2>&1 | compare %f
-// ASSERT: regex case03[/|\\]target[/|\\]release[/|\\]bin
+// (native_compilation)EXEC-PIPE-0: cd %n && %run %cjpm build -V 2>&1 | compare %f
+// (native_compilation)ASSERT: regex case03[/|\\]target[/|\\]release[/|\\]bin

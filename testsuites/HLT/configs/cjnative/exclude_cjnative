@@ -18,6 +18,8 @@ compiler/cjnative/FFI/jffi
 # invoke_api can only be used in cjvm.
 compiler/cjnative/FFI/cffi/invoke_api
 
+
+
 # stable abi: not support jffi
 compiler/cjnative/stable_abi/05_class/02_modify/01_define_content/01_visible_outside_module/02_compiler_directive/Java/class_Java_add.cj
 compiler/cjnative/stable_abi/05_class/02_modify/01_define_content/01_visible_outside_module/02_compiler_directive/Java/class_Java_delete.cj
