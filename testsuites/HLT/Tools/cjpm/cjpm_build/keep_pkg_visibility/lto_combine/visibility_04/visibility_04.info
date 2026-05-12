@@ -7,11 +7,12 @@
 // LEVEL: 0
 // DEPENDENCE: ../%n
 // (target_linux | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
-// ASSERT: regex Compiling package `b`: [\s\S]*.*target[\s\S]*release[/|\\]coo[/|\\]coo.bc .*
-// ASSERT: regex Compiling package `b`: [\s\S]*.*target[\s\S]*release[/|\\]boo[/|\\]boo.bc .*
-// ASSERT: regex Compiling package `b`: [\s\S]*.*target[\s\S]*release[/|\\]aoo[/|\\]aoo.bc .*
-// ASSERT: regex-not Compiling package `b`: [\s\S]*.*target[\s\S]*release[/|\\]doo[/|\\]doo.bc .*
 // ASSERT: regex Compiling package `b`: [\s\S]*libb.(so|dll)
-// ASSERT: scan --lto-keep-pkg-visibility and --compile-as-exe cannot be used together
-// ASSERT: scan cjpm build failed
-// ASSERT: scan --lto-keep-pkg-visibility=""
+// ASSERT: scan cjpm build success
+// ASSERT: scan --lto-keep-pkg-visibility ""
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "D.*(ppa)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "T.*(test)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "T.*(testaoo)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "T.*(testboo)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "T.*(TestDef_1)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "D.*(pp)"

@@ -7,3 +7,7 @@
  */
 
 package dep1
+public func dep1maintest(): Int64 {
+    print("hello world\n")
+    return 0
+}

@@ -13,10 +13,10 @@
 // ASSERT: regex-not Compiling package `b`: [\s\S]*.*target[\s\S]*release[/|\\]doo[/|\\]doo.bc .*
 // ASSERT: regex Compiling package `b`: [\s\S]*libb.(so|dll)
 // ASSERT: scan cjpm build success
-// ASSERT: scan --lto-keep-pkg-visibility=""
-// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/release/b && nm libb.so | grep -E "D.*(ppa)"
-// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/release/b && nm libb.so | grep -E "T.*(test)"
-// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/release/b && nm libb.so | grep -E "T.*(testaoo)"
-// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/release/b && nm libb.so | grep -E "T.*(testboo)"
-// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/release/b && nm libb.so | grep -E "T.*(TestDef_1)"
-// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/release/b && nm libb.so | grep -E "D.*(pp)"
+// ASSERT: scan --lto-keep-pkg-visibility ""
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "D.*(ppa)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "T.*(test)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "T.*(testaoo)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "T.*(testboo)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "T.*(TestDef_1)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "D.*(pp)"

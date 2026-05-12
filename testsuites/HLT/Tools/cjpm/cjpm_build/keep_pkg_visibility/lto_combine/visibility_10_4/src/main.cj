@@ -9,6 +9,7 @@ package b
 import b.aoo.*
 import dep.*
 import dep1.*
+import dep1.aoo.*
 
 main() {
     print("hello world\n")

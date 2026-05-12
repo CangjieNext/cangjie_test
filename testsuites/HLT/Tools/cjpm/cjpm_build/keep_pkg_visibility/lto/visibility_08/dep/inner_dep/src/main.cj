@@ -7,3 +7,8 @@
  */
 
 package inner_dep
+
+public func testinner_dep(): Int64 {
+    print("hello world\n")
+    return 0
+}

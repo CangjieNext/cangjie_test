@@ -8,7 +8,7 @@ package b
 
 internal import aoo.*
 
-public func test(): Int64 {
+public func testmain(): Int64 {
     print("hello world\n")
     println(pp)
     return 0

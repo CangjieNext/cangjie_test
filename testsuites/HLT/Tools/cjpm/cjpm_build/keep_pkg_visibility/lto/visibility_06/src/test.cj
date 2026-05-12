@@ -10,6 +10,7 @@ internal import aoo.*
 
 public func test(): Int64 {
     print("hello world\n")
+    testaoo1()
     println(pp)
     return 0
 }

@@ -3,3 +3,7 @@
 # with Runtime Library Exception.
 #
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
+# bug
+compiler/cjnative/LTO/lto_keep_pkg_visibility/test_001_1.cj
+compiler/cjnative/LTO/lto_keep_pkg_visibility/test_001_2.cj
+compiler/cjnative/LTO/lto_keep_pkg_visibility/test_001_4.cj

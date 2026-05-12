@@ -6,4 +6,4 @@
 
 package coo
 
-public var pp = 2
+public var ppcoo = 2

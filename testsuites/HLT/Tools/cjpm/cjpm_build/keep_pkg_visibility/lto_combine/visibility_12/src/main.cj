@@ -7,12 +7,11 @@
 package b
 
 internal import aoo.*
-internal import boo.*
 internal import coo.*
 
 public func test(): Int64 {
     print("hello world\n")
-    println(pp)
+    println(ppcoo)
     return 0
 }
 

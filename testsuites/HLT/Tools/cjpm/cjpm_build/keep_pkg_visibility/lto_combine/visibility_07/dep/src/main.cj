@@ -8,3 +8,8 @@
 
 package dep
 import inner_dep.*
+
+public func testdep(): Int64 {
+    print("hello world\n")
+    return 0
+}

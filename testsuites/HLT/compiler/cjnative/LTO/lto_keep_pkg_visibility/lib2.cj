@@ -6,6 +6,7 @@
 package lib2
 
 public func fxx() {
+    f3xx()
     println("to be called")
 }
 

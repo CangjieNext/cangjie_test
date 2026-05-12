@@ -6,7 +6,7 @@
 
 package aoo
 
-public var pp = 1
+public var ppa = 1
 
 public func testaoo(): Int64 {
     print("hello world\n")

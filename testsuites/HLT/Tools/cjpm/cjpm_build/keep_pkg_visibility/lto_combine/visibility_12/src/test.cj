@@ -11,6 +11,6 @@ internal import coo.*
 
 public func testmain(): Int64 {
     print("hello world\n")
-    println(pp)
+    println(ppcoo)
     return 0
 }

@@ -14,6 +14,7 @@ import lib1.*
 // EXEC: nm lib2.so | grep -E "T.*(foo|fxx)" 
 
 
+
 main(): Int64 {
     hw()
     return 0

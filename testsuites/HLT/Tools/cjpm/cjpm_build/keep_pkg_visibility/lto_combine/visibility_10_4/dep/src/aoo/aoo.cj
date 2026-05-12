@@ -10,7 +10,7 @@ package dep.aoo
 
 public var aoo = 1
 
-public func testaoo(): Int64 {
+public func deptestaoo(): Int64 {
     print("hello world\n")
     return 0
 }

@@ -8,8 +8,16 @@ package b
 
 import b.aoo.*
 import dep.*
+import dep1.*
 
 main() {
+    print("hello world\n")
+    testdep1()
+    testdepmain()
+    return 0
+}
+
+public func testmain(): Int64 {
     print("hello world\n")
     return 0
 }

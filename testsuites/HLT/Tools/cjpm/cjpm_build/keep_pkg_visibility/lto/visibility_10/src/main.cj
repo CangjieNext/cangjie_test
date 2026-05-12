@@ -13,3 +13,8 @@ main() {
     print("hello world\n")
     return 0
 }
+
+public func testmain(): Int64 {
+    print("hello world\n")
+    return 0
+}

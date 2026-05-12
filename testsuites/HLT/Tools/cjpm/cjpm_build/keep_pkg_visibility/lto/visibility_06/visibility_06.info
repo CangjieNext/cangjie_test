@@ -13,7 +13,7 @@
 // ASSERT: regex-not Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]* -laoo --link-options=--no-whole-archive.*
 // ASSERT: regex Compiling package `b`: [\s\S]*libb.(so|dll)
 // ASSERT: scan cjpm build success
-// ASSERT: scan --lto-keep-pkg-visibility="coo"
-// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/release/aoo && nm libaoo.so | grep -E "T.*(testaoo1)"
-// (target_linux | target_android | target_ohos)EXEC: cd %n && cd target/release/coo && nm libcoo.so | grep -E "D.*(pp)"
-// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/release/b && nm libb.so | grep -E "T.*(testb)"
+// ASSERT: scan --lto-keep-pkg-visibility "aoo,coo"
+// (target_linux | target_android | target_ohos)EXEC: cd %n && cd target/%target_triple/release/aoo && nm libaoo.so | grep -E "T.*(testaoo1)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "T.*(testb)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd target/%target_triple/release/b && nm libb.so | grep -E "T.*(testaoo1)"

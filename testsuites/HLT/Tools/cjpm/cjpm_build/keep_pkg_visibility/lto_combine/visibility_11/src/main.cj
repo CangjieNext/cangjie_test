@@ -17,3 +17,8 @@ public func test(): Int64 {
     print("hello world\n")
     return 0
 }
+
+public func testbmain(): Int64 {
+    print("hello world\n")
+    return 0
+}

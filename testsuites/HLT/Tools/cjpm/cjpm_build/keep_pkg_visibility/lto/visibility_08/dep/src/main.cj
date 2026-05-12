@@ -8,7 +8,7 @@
 
 package dep
 import inner_dep.*
-public func testmain(): Int64 {
+public func testdepmain(): Int64 {
     print("hello world\n")
     return 0
 }

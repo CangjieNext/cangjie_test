@@ -9,6 +9,10 @@ package b
 import b.aoo.*
 import dep.*
 
+public func testbmain(): Int64 {
+    print("hello world\n")
+    return 0
+}
 main() {
     print("hello world\n")
     return 0

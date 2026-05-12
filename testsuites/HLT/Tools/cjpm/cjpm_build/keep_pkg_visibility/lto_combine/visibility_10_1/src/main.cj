@@ -9,13 +9,14 @@ package b
 import b.aoo.*
 import dep.*
 import dep1.*
+import dep1.aoo.*
 
 main() {
     print("hello world\n")
     dep1testaoo()
     return 0
 }
-public func test(): Int64 {
+public func testb(): Int64 {
     print("hello world\n")
     return 0
 }

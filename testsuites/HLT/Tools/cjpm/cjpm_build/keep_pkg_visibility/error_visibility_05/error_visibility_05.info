@@ -8,5 +8,5 @@
 // DEPENDENCE: ../%n
 // (target_linux | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
 // ASSERT: scan toml: line 24: Key 'profile.build.lto.keep-pkg-visibility' has already been defined.
-// ASSERT: scan Error: parse the './cjpm.toml' file failed
+// ASSERT: regex Error: parse the '.[/|\\]cjpm.toml' file failed
 // ASSERT: scan Error: cjpm build failed

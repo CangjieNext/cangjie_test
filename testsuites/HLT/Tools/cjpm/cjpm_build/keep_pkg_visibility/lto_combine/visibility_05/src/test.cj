@@ -10,7 +10,7 @@ internal import aoo.*
 
 public func test(): Int64 {
     print("hello world\n")
-    println(pp)
+    println(ppa)
     return 0
 }
 
