@@ -8,6 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && cjc build.cj && %run %cjpm tree && cat build-script-cache/release/test/bin/script-log 2>&1 | compare %f
-// ASSERT: scan pre tree test
-// ASSERT: scan post tree test
+// (native_compilation)EXEC: cd %n && cjc build.cj && %run %cjpm tree && cat build-script-cache/release/test/bin/script-log 2>&1 | compare %f
+// (native_compilation)ASSERT: scan pre tree test
+// (native_compilation)ASSERT: scan post tree test

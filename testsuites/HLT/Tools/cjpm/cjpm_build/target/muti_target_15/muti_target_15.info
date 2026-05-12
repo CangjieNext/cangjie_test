@@ -8,9 +8,9 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not Windows and not arm) EXEC: cd %n && %cjpm build -g -j1 -V 2>&1 | compare %f
-// (Windows and not arm) EXEC: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
+// (not Windows and not arm and native_compilation) EXEC: cd %n && %cjpm build -g -j1 -V 2>&1 | compare %f
+// (Windows and not arm and native_compilation) EXEC: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
 // (not arm)ASSERT: scan cjpm build success
 // (Windows and not arm) ASSERT: scan --strip-all
-// (arm) ERRCHECK: cd %n && %cjpm build -g -j1 -V
-// (arm) ASSERT: scan Error: root package 'test' imports package 'pro1.aaa' in its source code, but it is not added as a dependency in cjpm.toml
+// (arm and native_compilation) ERRCHECK: cd %n && %cjpm build -g -j1 -V
+// (arm and native_compilation) ASSERT: scan Error: root package 'test' imports package 'pro1.aaa' in its source code, but it is not added as a dependency in cjpm.toml
