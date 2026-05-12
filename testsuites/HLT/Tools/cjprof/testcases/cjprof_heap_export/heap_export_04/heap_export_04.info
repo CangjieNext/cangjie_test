@@ -1,0 +1,12 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../../script/cjprof_heap.py ../../../sourcecode/cjprof_heap.cj ./heap_export_04.py
+// EXEC: %compiler %cmp_opt cjprof_heap.cj -o binarytrees_heap_export_04%cmp_output
+// EXEC-2: %python heap_export_04.py binarytrees_heap_export_04%cmp_output %run_env

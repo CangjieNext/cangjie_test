@@ -1,0 +1,13 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025-2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// EXEC: %cjprof record 2>&1 | compare %f
+// ASSERT: scan Usage: cjprof record [<options>] [<command>]
+// ASSERT: scan or: cjprof record [<options>] -- <command> [<options>]
+// ASSERT: scan -f, --freq <freq>     profile at this frequency
+// ASSERT: scan -h, --help            show this help message
+// ASSERT: scan -o, --output <file>   output file name, default to 'cjprof.data'
+// ASSERT: scan -p, --pid <pid>       record events on existing process id
