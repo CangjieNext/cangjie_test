@@ -59,13 +59,13 @@ error: class 'C2' missing abstract modifier, otherwise abstract function or prop
   ==> interface_implement_invalid_2.cj:19:1:
    | 
 19 | class C2 <: I1 {}
-   | ^ 
+   | ^^^^^^^^^^^^^^^^^ 
    | 
 note: unimplemented interface function 'foo'
   ==> interface_implement_invalid_2.cj:14:5:
    | 
 14 |     func foo(): Base
-   |     ^ 
+   |     ^^^^^^^^^^^^^^^^ 
    | 
 
 error: return type of 'foo' is not identical or not a subtype of the overridden/redefined/implement function

@@ -34,7 +34,7 @@ error: class 'C1' missing abstract modifier, otherwise abstract function or prop
   ==> main.cj:19:1:
    | 
 19 | class C1 <: I1<Int32> {}
-   | ^ 
+   | ^^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
 note: unimplemented interface function 'i1'
   ==> (package pkga)pkga.cj:11:5:
@@ -43,7 +43,7 @@ error: class 'C2' missing abstract modifier, otherwise abstract function or prop
   ==> main.cj:21:1:
    | 
 21 | open class C2<T> <: I1<T> {}
-   | ^ 
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
 note: unimplemented interface function 'i1'
   ==> (package pkga)pkga.cj:10:5:
@@ -54,7 +54,7 @@ error: class 'C3' missing abstract modifier, otherwise abstract function or prop
   ==> main.cj:23:1:
    | 
 23 | class C3 <: I3<Int32> {}
-   | ^ 
+   | ^^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
 note: unimplemented interface function 'i1'
   ==> (package pkga)pkga.cj:11:5:
@@ -63,7 +63,7 @@ error: class 'C4' missing abstract modifier, otherwise abstract function or prop
   ==> main.cj:25:1:
    | 
 25 | class C4 <: C2<Int32> {}
-   | ^ 
+   | ^^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
 note: unimplemented interface function 'i1'
   ==> (package pkga)pkga.cj:11:5:
