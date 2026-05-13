@@ -6,7 +6,7 @@
 
 #import "A.h"
 
-// Interoplib objc common code (libinterop.objclib.dylib)
+// Interoplib objc common code
 extern bool initCJRuntime(const char*);
 extern uint64_t calcOverrideMask(Class, Class, SEL*, int);
 
