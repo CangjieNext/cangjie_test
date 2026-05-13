@@ -23,4 +23,4 @@
     * --test_cfg：cfg文件，指定测试配置文件
     * --test_list：测试用例列表
     * --verbose 测试执行可视化，跑全量用例时不建议开启
-    * 测试框架的更多选项，详见[cangjie - Wiki (huawei.com)](https://codehub-y.huawei.com/MapleKernel/CangjieLang/cangjie/wiki/view/doc/695963)
+    * 测试框架的更多选项，详见[cangjie_test_framework](https://gitcode.com/Cangjie/cangjie_test_framework)
