@@ -6,7 +6,7 @@
 
 #import "TimeUnit.h"
 
-// Interoplib objc common code (libinterop.objclib.dylib)
+// Interoplib objc common code
 extern bool initCJRuntime(const char*);
 
 extern void CJImpl_ObjC_api_TimeUnit_deleteCJObject(int64_t);
