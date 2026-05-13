@@ -6,7 +6,7 @@
 
 #import "Vector.h"
 
-// Interoplib objc common code (libinterop.objclib.dylib)
+// Interoplib objc common code
 extern bool initCJRuntime(const char*);
 
 extern int64_t CJImpl_objc_cjworld_Vector_initCJObject(int32_t, int32_t);
