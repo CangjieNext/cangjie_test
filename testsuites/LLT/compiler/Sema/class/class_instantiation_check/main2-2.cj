@@ -28,32 +28,32 @@ error: class 'C1' missing abstract modifier, otherwise abstract function or prop
   ==> main2-2.cj:18:1:
    | 
 18 | class C1 <: I1<Int32> {}
-   | ^ 
+   | ^^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
 note: unimplemented interface function 'i1'
   ==> main2-2.cj:11:5:
    | 
 11 |     func i1(a: T): Unit
-   |     ^ 
+   |     ^^^^^^^^^^^^^^^^^^^ 
    | 
 
 error: class 'C2' missing abstract modifier, otherwise abstract function or property should be implemented
   ==> main2-2.cj:20:1:
    | 
 20 | class C2 <: I1<Int64> {}
-   | ^ 
+   | ^^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
 note: unimplemented interface function 'i1'
   ==> main2-2.cj:10:5:
    | 
 10 |     func i1(a: Int32): Unit
-   |     ^ 
+   |     ^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
 note: unimplemented interface function 'i1'
   ==> main2-2.cj:11:5:
    | 
 11 |     func i1(a: T): Unit
-   |     ^ 
+   |     ^^^^^^^^^^^^^^^^^^^ 
    | 
 
 error: generic instantiation 'I1<Int32>' causes ambiguous function 'i1'

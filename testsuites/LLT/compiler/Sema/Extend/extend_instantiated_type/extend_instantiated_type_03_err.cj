@@ -37,8 +37,12 @@ main() {
 error: implementation of function or property is needed in 'extend A'
   ==> extend_instantiated_type_03_err.cj:15:1:
    | 
-15 | extend<T> A<Int64, T> <: ToString {
-   | ^ 
+15 |   extend<T> A<Int64, T> <: ToString {
+   |  _^
+16 | |     func test() {
+   | | ...
+19 | | }
+   | |_^
    | 
 note: unimplemented interface function 'toString'
   ==> (package std.core)to_string.cj:18:5:

@@ -217,8 +217,12 @@ note: the parent function is not modified by 'open'
 error: class 'MyFoo45' missing abstract modifier, otherwise abstract function or property should be implemented
    ==> forbidInheritanceOfOpenToMockDecls.cj:111:1:
     | 
-111 | public open class MyFoo45<K> <: Foo19<K> {
-    | ^ 
+111 |   public open class MyFoo45<K> <: Foo19<K> {
+    |  _^
+112 | |     public override func foo2(x: K) {
+    | | ...
+115 | | }
+    | |_^
     | 
 note: unimplemented abstract function 'foo'
    ==> (package declsToOpenToMock)main.cj:101:5:

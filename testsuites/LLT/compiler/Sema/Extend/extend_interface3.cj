@@ -21,14 +21,17 @@ extend A <: I {
 error: implementation of function or property is needed in 'extend A'
   ==> extend_interface3.cj:16:1:
    | 
-16 | extend A <: I {
-   | ^ 
+16 |   extend A <: I {
+   |  _^
+17 | |     // must implement foo() here
+18 | | }
+   | |_^
    | 
 note: unimplemented interface function 'foo'
   ==> extend_interface3.cj:13:5:
    | 
 13 |     func foo(): Unit
-   |     ^ 
+   |     ^^^^^^^^^^^^^^^^ 
    | 
 
 error: 'main' is missing

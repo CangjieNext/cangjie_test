@@ -21,7 +21,7 @@ error: class 'B' missing abstract modifier, otherwise abstract function or prope
   ==> c/c.cj:10:1:
    | 
 10 | public class B <: A {} // `goo` is not implemented here
-   | ^ 
+   | ^^^^^^^^^^^^^^^^^^^^^^ 
    | 
 note: unimplemented abstract function 'goo'
  ==> c/c.cj:7:5:

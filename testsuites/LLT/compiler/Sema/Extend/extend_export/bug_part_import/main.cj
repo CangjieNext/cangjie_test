@@ -29,7 +29,7 @@ error: class 'B' missing abstract modifier, otherwise abstract function or prope
   ==> main.cj:15:1:
    | 
 15 | public class B <: A & IChild {}
-   | ^ 
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
 note: unimplemented interface function 'some'
   ==> (package a)testa.cj:10:5:

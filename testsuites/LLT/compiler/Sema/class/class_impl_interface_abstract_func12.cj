@@ -18,62 +18,62 @@ error: class 'C' missing abstract modifier, otherwise abstract function or prope
  ==> class_impl_interface_abstract_func12.cj:9:1:
   | 
 9 | class C<T, V> <: I<T> & I<V> {} 
-  | ^ 
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
 note: unimplemented interface function 'foo1', of type: (Generics-T) -> Int64
  ==> class_impl_interface_abstract_func12.cj:4:5:
   | 
 4 |     func foo1(a:T):Int64
-  |     ^ 
+  |     ^^^^^^^^^^^^^^^^^^^^ 
   | 
 note: unimplemented interface function 'foo1', of type: (Generics-V) -> Int64
  ==> class_impl_interface_abstract_func12.cj:4:5:
   | 
 4 |     func foo1(a:T):Int64
-  |     ^ 
+  |     ^^^^^^^^^^^^^^^^^^^^ 
   | 
 note: unimplemented interface function 'foo2', of type: (Generics-T) -> Int64
  ==> class_impl_interface_abstract_func12.cj:5:5:
   | 
 5 |     func foo2(a:T):Int64
-  |     ^ 
+  |     ^^^^^^^^^^^^^^^^^^^^ 
   | 
 note: unimplemented interface function 'foo2', of type: (Generics-V) -> Int64
  ==> class_impl_interface_abstract_func12.cj:5:5:
   | 
 5 |     func foo2(a:T):Int64
-  |     ^ 
+  |     ^^^^^^^^^^^^^^^^^^^^ 
   | 
 note: unimplemented interface function 'foo3'
  ==> class_impl_interface_abstract_func12.cj:6:5:
   | 
 6 |     func foo3():Int64
-  |     ^ 
+  |     ^^^^^^^^^^^^^^^^^ 
   | 
 
 error: class 'D' missing abstract modifier, otherwise abstract function or property should be implemented
   ==> class_impl_interface_abstract_func12.cj:10:1:
    | 
 10 | class D<K> <: I<K> {}
-   | ^ 
+   | ^^^^^^^^^^^^^^^^^^^^^ 
    | 
 note: unimplemented interface function 'foo1'
  ==> class_impl_interface_abstract_func12.cj:4:5:
   | 
 4 |     func foo1(a:T):Int64
-  |     ^ 
+  |     ^^^^^^^^^^^^^^^^^^^^ 
   | 
 note: unimplemented interface function 'foo2'
  ==> class_impl_interface_abstract_func12.cj:5:5:
   | 
 5 |     func foo2(a:T):Int64
-  |     ^ 
+  |     ^^^^^^^^^^^^^^^^^^^^ 
   | 
 note: unimplemented interface function 'foo3'
  ==> class_impl_interface_abstract_func12.cj:6:5:
   | 
 6 |     func foo3():Int64
-  |     ^ 
+  |     ^^^^^^^^^^^^^^^^^ 
   | 
 
 2 errors generated, 2 errors printed.
