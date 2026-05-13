@@ -7,7 +7,8 @@
 // EXEC: %compiler %cmp_opt %compile_shared_lib_opt dep1.cj device_info.%middle apilevel.%middle -o libdep.%dylib_suffix
 // EXEC: %rmfile dep.cjo
 // EXEC: %move dep.cjo.bak dep.cjo
-// (CJNATIVE) EXEC: %compiler -ldep -L. %f device_info.%middle apilevel.%middle --cfg=APILevel_level=18 -o %output
+// (CJNATIVE) EXEC: %frontendCompiler %f --cfg=APILevel_level=18 -o %output --dump-ir
+// EXEC: cat external_weak_IR/9_EraseUselessInstsAndDecls/0-default.ll
 // (CJNATIVE) EXEC: %run %run_opt %output %run_args | compare %f
 
 import dep.*
