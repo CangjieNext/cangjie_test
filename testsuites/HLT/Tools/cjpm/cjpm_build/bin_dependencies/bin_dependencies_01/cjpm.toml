@@ -60,3 +60,10 @@
 [target.aarch64-apple-darwin.bin-dependencies]
   package-option = { "dep.aoo" = "dep/target/release/dep/dep.aoo.cjo" }
   path-option = ["dep/target/release/dep"]
+
+[target.aarch64-linux-ohos]
+  compile-option = "-O1"
+ 
+[target.aarch64-linux-ohos.bin-dependencies]
+  package-option = { "dep.aoo" = "dep/target/release/dep/dep.aoo.cjo" }
+  path-option = ["dep/target/release/dep"]

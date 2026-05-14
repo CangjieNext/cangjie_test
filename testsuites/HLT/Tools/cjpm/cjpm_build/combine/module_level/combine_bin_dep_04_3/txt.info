@@ -5,9 +5,9 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 
-// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[/|\\]release[/|\\]b[/|\\] -lb.aoo
-// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[/|\\]release[/|\\][\s\S]* -ldep1
-// ASSERT: regex-not Compiling package `b`: [\s\S]*-L.*target[/|\\]release[/|\\]b[/|\\] -lb.coo
+// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[\s\S]*release[/|\\]b[/|\\] -lb.aoo
+// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[\s\S]*release[/|\\][\s\S]* -ldep1
+// ASSERT: regex-not Compiling package `b`: [\s\S]*-L.*target[\s\S]*release[/|\\]b[/|\\] -lb.coo
 // ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]* -lb.boo[\s\S]*--link-options=--no-whole-archive.*
 // ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]*-lb.coo[\s\S]*--link-options=--no-whole-archive.*
 // ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]* -ldep[\s\S]*--link-options=--no-whole-archive.*

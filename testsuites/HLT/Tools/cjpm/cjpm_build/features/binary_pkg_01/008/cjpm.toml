@@ -41,3 +41,8 @@
 [target.aarch64-apple-darwin.bin-dependencies.package-option]
   "pro1.xoo" = "./pro1/target/release/pro1/pro1.xoo.cjo"
   "pro2.xoo" = "./pro2/target/release/pro2/pro2.xoo.cjo"
+
+
+[target.aarch64-linux-ohos.bin-dependencies.package-option]
+  "pro1.xoo" = "./pro1/target/release/pro1/pro1.xoo.cjo"
+  "pro2.xoo" = "./pro2/target/release/pro2/pro2.xoo.cjo"

@@ -8,5 +8,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../001
-// (CJNATIVE) EXEC: cd 001 && %cjpm build | compare %f
-// (CJNATIVE) ASSERT: scan cjpm build success
+// EXEC: cd 001 && %cjpm build | compare %f
+// ASSERT: scan cjpm build success

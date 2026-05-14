@@ -8,5 +8,5 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC-PIPE-0: cd %n && %run cjpm run --target-dir=./temp_target -V 2>&1 | compare %f
-// ASSERT: regex Run current project: .*[/|\\]temp_target[/|\\]release[/|\\]bin[/|\\]main
+// (native_compilation)EXEC-PIPE-0: cd %n && %run %cjpm run --target-dir=./temp_target -V 2>&1 | compare %f
+// (native_compilation)ASSERT: regex Run current project: .*[/|\\]temp_target[/|\\]release[/|\\]bin[/|\\]main

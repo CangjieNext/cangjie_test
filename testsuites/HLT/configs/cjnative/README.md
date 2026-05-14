@@ -124,6 +124,10 @@ cjtrace-recover 工具
 
 运行可执行文件时的设置
 
+## `release_dir`
+
+release产物保存目录相对cjpm.toml所在目录的相对路径
+
 ## `cangjie-stdx-list`
 
 所有 stdx 的库链接的列表，方便用例测试头部指定链接所有 stdx 库

@@ -7,3 +7,4 @@
 package coo
 import dep.aoo.*
 public var pp = 2
+print(ppa)

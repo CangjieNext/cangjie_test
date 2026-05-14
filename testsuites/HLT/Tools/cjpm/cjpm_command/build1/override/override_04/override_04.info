@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && cjpm build -V -g 2>&1 | compare %f
+// EXEC: cd %n && %cjpm build -V -g 2>&1 | compare %f
 // ASSERT: scan-1 -O2 -Woff all
 // ASSERT: scan-2 -Woff all
 // ASSERT: scan-2 --no-sub-pkg 

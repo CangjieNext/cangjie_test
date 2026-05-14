@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ../002
+// (native_compilation)EXEC: %cp 002/test_result.txt .
+// (native_compilation)EXEC-PIPE-1: cd 002 && %cjpm test -V --cfg1 --cfg6 2>&1 | compare  %f
+// ASSERT: regex Error: please execute 'cjpm(.exe)? build -i --cfg1 --cfg6' successfully first
+// ASSERT: scan Error: cjpm test failed

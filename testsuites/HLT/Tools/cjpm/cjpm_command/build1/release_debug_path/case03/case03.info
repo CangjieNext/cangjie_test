@@ -10,6 +10,5 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -g
 // ERRCHECK: cd %n && %cjpm run --skip-build
-// (CJNATIVE) ASSERT: regex Error: can not find the '.*target[/|\\]release[/|\\]bin[/|\\]main(.exe)*' file
-// (not CJNATIVE) ASSERT: regex Error: can not find the '.*target/release/bin/main.cbc' file
+// ASSERT: regex Error: can not find the '.*target[/|\\]release[/|\\]bin[/|\\]main(.exe)*' file
 // ASSERT: scan Error: cjpm run failed

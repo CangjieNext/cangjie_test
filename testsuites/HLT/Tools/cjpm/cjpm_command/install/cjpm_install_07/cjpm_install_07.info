@@ -8,5 +8,5 @@
 
 // LEVEL:2
 // DEPENDENCE: ../%n 
-// EXEC: cd %n && %cjpm  install installDemo:1.0.1 -V --list 2>&1 | compare %f
-// ASSERT: scan-not cjpm install: installing installDemo:1.0.1 from central repository
+// (native_compilation)EXEC: cd %n && %cjpm  install installDemo:1.0.1 -V --list 2>&1 | compare %f
+// (native_compilation)ASSERT: scan-not cjpm install: installing installDemo:1.0.1 from central repository
