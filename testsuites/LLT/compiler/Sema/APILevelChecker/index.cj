@@ -24,10 +24,10 @@ error: import 'ohos.device_info' to use the 'IfAvailable' expression
   ==> index.cj:15:5:
    | 
 15 |     @IfAvailable(level:19, {=> }, {=> })
-   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+   |     ^ 
    | 
    # note: depend on declaration 'DeviceInfo'
-note: the error originates in the macro `b` (consider using `--debug-macro` for more info)
+note: the error occurs after the macro is expanded
   ==> index.cj:13:1:
    | 
 13 |   @b
@@ -36,6 +36,19 @@ note: the error originates in the macro `b` (consider using `--debug-macro` for 
    | | ...
 16 | | }
    | |_^
+   | 
+note: the code after the macro is expanded as follows
+   | 
+   |   /* 13.1 */func build() {
+   |  _^
+   | | /* 13.2 */    @IfAvailable(level: 19, { => }, { => })
+   | | /* 13.3 */}
+   | |___________^
+   | 
+note: which is expanded as follows
+   | 
+   | /* 13.2 */    @IfAvailable(level: 19, { => }, { => })
+   |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
 
 error: import 'ohos.device_info' to use the 'IfAvailable' expression

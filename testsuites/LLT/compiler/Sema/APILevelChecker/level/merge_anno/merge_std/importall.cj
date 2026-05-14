@@ -32,7 +32,6 @@ import std.posix.*
 import std.process.*
 import std.random.*
 import std.ref.*
-import std.reflect.*
 import std.regex.*
 import std.runtime.*
 import std.sort.*
@@ -54,9 +53,9 @@ main() {
 
 /* SCAN
 error: cannot reference 'ArgOpt'(level: 12) which higher than level of the current scope(level: 11)
-  ==> importall.cj:51:5:
+  ==> importall.cj:50:5:
    | 
-51 |     ArgOpt()
+50 |     ArgOpt()
    |     ^^^^^^^^ 
    | 
 

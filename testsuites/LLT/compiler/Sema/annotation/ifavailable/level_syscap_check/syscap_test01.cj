@@ -7,7 +7,7 @@
 // DEPENDENCE: apilevel.cj canIUse.cj json
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt canIUse.cj -o canIUse.%middle
-// ERRCHECK: %compiler %cmp_opt %f canIUse.%middle canIUse.%middle --cfg=APILevel_syscap=json/config.json
+// ERRCHECK: %compiler %cmp_opt %f apilevel.%middle canIUse.%middle --cfg=APILevel_syscap=json/config.json
 
 // Note: 2in1:   [A, B] + [A, C] ===> [A, B, C]
 //       phone:  [A, D] + [A, E] ===> [A, D, E]

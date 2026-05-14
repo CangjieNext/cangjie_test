@@ -8,7 +8,7 @@
 // EXEC: %compiler %cmp_opt %compile_lib_opt device_info.cj -o device_info.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt canIUse.cj -o canIUse.%middle
 // ERRCHECK: %compiler %cmp_opt %diag_json %f device_info.%middle canIUse.%middle
-// ASSERT: scan-3 sema_ifavailable_level_limit
+// ASSERT: scan-1 sema_ifavailable_level_limit
 
 import ohos.base.canIUse
 import ohos.device_info.DeviceInfo
