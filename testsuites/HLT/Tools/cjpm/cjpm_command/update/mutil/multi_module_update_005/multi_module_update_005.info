@@ -9,5 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // ERRCHECK:cd %n && %export cjStackSize=1MB && %cjpm check
-// (not CJNATIVE)ERRCHECK:cd %n && %export JETVMPROP=-Xss1M && %cjpm check
 // ASSERT: scan cyclic dependency

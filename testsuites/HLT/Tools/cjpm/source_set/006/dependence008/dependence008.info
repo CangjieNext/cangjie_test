@@ -8,11 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-<<<<<<< HEAD:testsuites/HLT/Tools/cjpm/source_set/006/dependence008/dependence008.info
-// (CJNATIVE) EXEC: cd %n && %cjpm run | compare %f
-// (CJNATIVE) ASSERT: scan Hello
-// (CJNATIVE) ASSERT: scan cjpm run finished
-=======
-// EXEC: cd %n && %cjpm run 2>&1| compare %f
+// EXEC: cd %n && %cjpm run | compare %f
+// ASSERT: scan Hello
 // ASSERT: scan cjpm run finished
->>>>>>> upstream/main:testsuites/HLT/Tools/cjpm/source_set/source_set004/source_set_srcdir006/source_set_srcdir006.info

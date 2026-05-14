@@ -8,9 +8,9 @@
 
 // LEVEL:1
 // DEPENDENCE: ../%n 
-// EXEC: cd %n && %cjpm  install --path ./  --target-dir ./temp_test -V 2>&1 | compare %f
-// EXEC: %run test_install_1 && test_install_2
-// ASSERT: scan Compiling package `test_install_1`
-// ASSERT: scan Compiling package `test_install_2`
-// ASSERT: regex .*[\\|/]cjpm_install_17[\\|/]temp_test[\\|/]release[\\|/]bin
-// ASSERT: regex cjpm install success
+// (native_compilation)EXEC: cd %n && %cjpm  install --path ./  --target-dir ./temp_test -V 2>&1 | compare %f
+// (native_compilation)EXEC: %run test_install_1 && test_install_2
+// (native_compilation)ASSERT: scan Compiling package `test_install_1`
+// (native_compilation)ASSERT: scan Compiling package `test_install_2`
+// (native_compilation)ASSERT: regex .*[\\|/]cjpm_install_17[\\|/]temp_test[\\|/]release[\\|/]bin
+// (native_compilation)ASSERT: regex cjpm install success

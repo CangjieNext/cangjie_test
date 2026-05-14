@@ -8,6 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm test -V 2>&1 | compare %f
+// (native_compilation)EXEC: cd %n && %cjpm test -V 2>&1 | compare %f
 // (not Windows) ASSERT: scan Error: the '$$$$$' contains illegal characters in ./cjpm.toml
 // (Windows) ASSERT: scan Error: the '$$$$$' contains illegal characters in .\cjpm.toml

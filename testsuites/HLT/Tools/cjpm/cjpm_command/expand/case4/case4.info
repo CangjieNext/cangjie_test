@@ -9,5 +9,5 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %compiler main.cj -o cjpm-testcase%cmp_output
-// EXEC-PIPE-1: cd %n && cjpm testcase 2>&1 | compare %f
+// EXEC-PIPE-1: cd %n && %cjpm testcase 2>&1 | compare %f
 // ASSERT: scan Error: unknown command 'testcase' for cjpm

@@ -22,7 +22,7 @@
 // ASSERT: regex libstdx.log.(so|dll|dylib)
 // ASSERT: regex libstdx.logger.(so|dll|dylib)
 // ASSERT: regex libstdx.unittest.data.(so|dll|dylib)
-// (not host_win)ASSERT: regex libstdx.fuzz.fuzz.(so|dll|dylib)
+// (not host_win)ASSERT: regex libstdx.fuzz.(so|dll|dylib)
 // ASSERT: regex libstdx.serialization.serialization.(so|dll|dylib)
 // ASSERT: regex libstdx.crypto.common.(so|dll|dylib)
 // ASSERT: regex libstdx.encoding.json.stream.(so|dll|dylib)

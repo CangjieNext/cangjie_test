@@ -10,9 +10,9 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build %cjpm_opt -V --cfg1 --cfg2 2>&1 | compare %f
 // ASSERT: scan-5 cjc
-// ASSERT: scan-5 -g
+// ASSERT: regex-5 -g\s
 // ASSERT: scan-5 --cfg feature1=lion
 // ASSERT: scan-not --cfg feature1=tiger, feature2=cat
 // ASSERT: scan-not --cfg feature1=tiger, feature2=dog
 // ASSERT: scan cjpm build success
-// EXEC: cd %n && %cjpm run --skip-build 2>&1 | compare result.txt
+// (native_compilation)EXEC: cd %n && %cjpm run --skip-build 2>&1 | compare result.txt

@@ -8,8 +8,8 @@
 
 // LEVEL:2
 // DEPENDENCE: ../%n 
-// EXEC: cd %n && %cjpm  build
-// EXEC: cd %n && %cjpm install --skip-build  -V 2>&1 | compare %f
-// EXEC: %run cjpm_install_11
-// ASSERT: regex .*[\\|/]cjpm_install_11[\\|/]target[\\|/]release
-// ASSERT: regex cjpm install success
+// (native_compilation)EXEC: cd %n && %cjpm  build
+// (native_compilation)EXEC: cd %n && %cjpm install --skip-build  -V 2>&1 | compare %f
+// (native_compilation)EXEC: %run cjpm_install_11
+// (native_compilation)ASSERT: regex .*[\\|/]cjpm_install_11[\\|/]target[\\|/]release
+// (native_compilation)ASSERT: regex cjpm install success

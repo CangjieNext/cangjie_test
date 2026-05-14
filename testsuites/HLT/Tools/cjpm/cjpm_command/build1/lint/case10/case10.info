@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (not MAC) EXEC: cd %n && cjpm run --build-args="--lint -V" -V 2>&1 | compare %f
+// (not MAC) EXEC: cd %n && %cjpm run --build-args="--lint -V" -V 2>&1 | compare %f
 // (not MAC) ASSERT: scan check codes in src: cjlint -f src 
 // (not MAC) ASSERT: scan cjpm run finished
 

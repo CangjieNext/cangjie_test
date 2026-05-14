@@ -7,7 +7,7 @@
 
 
 [dependencies]
-stdx = {git = "https://gitcode.com/yaoruili/cangjie_stdx_8916",branch = "dev",output-type = "dynamic"}
+stdx = {git = "https://gitcode.com/yaoruili/cangjie_stdx_8916",branch = "main",output-type = "dynamic"}
 
 [workspace]
 members = ["aoo" ,"boo", "coo"]

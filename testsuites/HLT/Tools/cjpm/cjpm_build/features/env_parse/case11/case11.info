@@ -10,8 +10,7 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %export test_link_option=-s&& %cjpm build %cjpm_opt -j1 -V 2>&1 | compare %f
 // ASSERT: regex Compiling package `test.aoo.*-g
-// (CJNATIVE) ASSERT: scan --link-options -s
-// (not CJNATIVE) ASSERT: scan-not --link-options -s
+// ASSERT: scan --link-options -s
 // ASSERT: regex-not Compiling package `test:.*-g
 // ASSERT: regex-not Compiling package `test.aoo.*--strip-all
 // ASSERT: regex Compiling package `test.*--strip-all
