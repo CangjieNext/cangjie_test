@@ -26,7 +26,7 @@ main() {
     let g = GetRTTIStatic.create(i32)
     bb.appendExpr(g)
     let mty = FuncType.get(Array<Type>(1, { _ => i32 }), UnitType.get())
-    let vir = VirMethodContext("foo", mty, Array<GenericType>())
+    let vir = FuncSigInfo("foo", mty, Array<GenericType>())
     let ic = InvokeCallContext(g.result, vir, FuncCallContext([Constant.create(IntLiteral.get(i32, 1u64)).result], Array<Type>(), None))
     let inv = Invoke.create(UnitType.get(), ic)
     bb.appendExpr(inv)

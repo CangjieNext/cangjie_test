@@ -33,7 +33,7 @@ main() {
     let tap = b.createTryApply(fn, fcc, bn, be)
     let rtti = b.createGetRTTIStatic(i32)
     let mty = FuncType.get(Array<Type>(1, { _ => i32 }), UnitType.get())
-    let ic = InvokeCallContext(rtti.result, VirMethodContext("foo", mty, Array<GenericType>()), fcc)
+    let ic = InvokeCallContext(rtti.result, FuncSigInfo("foo", mty, Array<GenericType>()), fcc)
     let inv = b.createInvoke(UnitType.get(), ic)
     let tinv = b.createTryInvoke(i32, ic, bn, be)
     println("apply invoke: ${ap.callee == fn} ${tap.errorBranch == be} ${inv.methodName == "foo"} ${tinv.normalBranch == bn}")

@@ -29,14 +29,14 @@ main() {
     println("member annotations empty: ${x.annotations.size}")
 
     let a = Annotation("StructFieldAnno")
-    let fields = Array<String>(2, repeat: "tag")
-    a.fields = fields
+    let args = Array<String>(2, repeat: "tag")
+    a.argValues = args
     x.annotations = Array<Annotation>(1, { _ => a })
 
     println("after anno size: ${x.annotations.size}")
     println("anno class: ${x.annotations[0].classSrcCodeName}")
     println("anno str has At: ${x.annotations[0].toString().contains("@")}")
-    if (let fs <- x.annotations[0].fields) {
+    if (let fs <- x.annotations[0].argValues) {
         println("field kind value: ${fs[0]} ${fs[1]}")
     } else {
         println("field kind value: missing")

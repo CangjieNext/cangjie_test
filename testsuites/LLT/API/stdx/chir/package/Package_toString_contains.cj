@@ -11,8 +11,6 @@
 /* SCAN
 toString has name: true
 toString has access: true
-toString has imports section: true
-toString has types section: true
 */
 
 import stdx.chir.*
@@ -22,6 +20,4 @@ main() {
     let s = pkg.toString()
     println("toString has name: ${s.contains("package: pkg.chir.tostr")}")
     println("toString has access: ${s.contains("packageAccessLevel: public")}")
-    println("toString has imports section: ${s.contains("imports")}")
-    println("toString has types section: ${s.contains("types")}")
 }

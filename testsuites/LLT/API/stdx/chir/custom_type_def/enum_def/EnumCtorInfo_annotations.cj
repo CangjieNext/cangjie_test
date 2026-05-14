@@ -32,9 +32,9 @@ main() {
     println("annotation str has At: ${nullary.annotations[0].toString().contains("@")}")
 
     let ann0 = nullary.annotations[0]
-    let fields = Array<String>(2, repeat: "flag")
-    ann0.fields = fields
-    if (let fs <- ann0.fields && fs.size == 2) {
+    let args = Array<String>(2, repeat: "flag")
+    ann0.argValues = args
+    if (let fs <- ann0.argValues && fs.size == 2) {
         println("anno field kind: ${fs[0]} ${fs[1]}")
     } else {
         println("anno field kind: missing")
