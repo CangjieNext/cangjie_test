@@ -12,7 +12,7 @@
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
-import stdx.aspectCJ.*
+import stdx.aspect_cj.*
 import std.time.DateTime
 
 @ReplaceFuncBody[packageName: "default", className: "", methodName: "printCurrentTime", isStatic: false,

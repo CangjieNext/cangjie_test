@@ -12,12 +12,12 @@
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
-import stdx.aspectCJ.*
+import stdx.aspect_cj.*
 import std.time.DateTime
 
 open class CA {
     @InsertAtEntry[packageName: "default", className: "CA", methodName: "foo", isStatic: false,
-        funcTypeStr: "(std.core.String)->Unit", recursive: true]
+        recursive: true, funcTypeStr: "(std.core.String)->Unit"]
     public func goo(x: String) {
         println("#----- SA: ${x} -----#")
     }
