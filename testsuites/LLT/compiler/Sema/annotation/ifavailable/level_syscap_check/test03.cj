@@ -6,10 +6,12 @@
 
 // DEPENDENCE: apilevel.cj canIUse.cj device_info.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt canIUse.cj -o canIUse.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt device_info.cj -o device_info.%middle
-// EXEC: %compiler %noColor %cmp_opt_chir2hlir %f device_info.%middle apilevel.%middle -o %output --cfg=APILevel_level=20
-// EXEC: %run %run_opt %output %run_args 
+// EXEC: %compiler %noColor %cmp_opt_chir2hlir %f canIUse.%middle device_info.%middle apilevel.%middle -o %output --cfg=APILevel_level=20
+// EXEC: %run %run_opt %output %run_args
 
+import ohos.base.canIUse
 import ohos.labels.*
 import ohos.device_info.*
 
