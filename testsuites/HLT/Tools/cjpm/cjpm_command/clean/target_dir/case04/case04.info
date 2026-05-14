@@ -8,6 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC-PIPE-1: cd %n && cjpm clean --target-dir=./temp_target 2>&1 | compare %f
+// EXEC-PIPE-1: cd %n && %cjpm clean --target-dir=./temp_target 2>&1 | compare %f
 // ASSERT: regex Error: parse the '.[/|\\]cjpm.toml' file failed
 // ASSERT: scan Error: cjpm clean failed

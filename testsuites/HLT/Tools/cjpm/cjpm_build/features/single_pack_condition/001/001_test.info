@@ -8,6 +8,4 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../001
-
-
 // EXEC: cd 001 && %cjpm test %cjpm_opt -V --cfg1 --cfg6 2>&1 | compare test_result.txt

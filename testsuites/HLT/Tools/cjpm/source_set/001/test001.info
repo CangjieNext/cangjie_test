@@ -9,8 +9,8 @@
 // LEVEL: 0
 // DEPENDENCE: ../001
 // (Windows) EXEC: cd 001 && %cjpm run --enable-features=os.windows| compare %f
-// (CJNATIVE and not Windows and not MAC) EXEC: cd 001 && %cjpm run --enable-features=os.linux | compare %f
-// (CJNATIVE and MAC)  EXEC: cd 001 && %cjpm run --enable-features=os.darwin | compare %f
-// (CJNATIVE) ASSERT: scan 0
-// (CJNATIVE) ASSERT: regex I run on [Windows|Linux|Darwin]
-// (CJNATIVE) ASSERT: scan cjpm run finished
+// (not Windows and not MAC) EXEC: cd 001 && %cjpm run --enable-features=os.linux | compare %f
+// (MAC)  EXEC: cd 001 && %cjpm run --enable-features=os.darwin | compare %f
+// ASSERT: scan 0
+// ASSERT: regex I run on [Windows|Linux|Darwin]
+// ASSERT: scan cjpm run finished

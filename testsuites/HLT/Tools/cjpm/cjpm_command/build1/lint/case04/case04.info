@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (not MAC) ERRCHECK: cd %n && cjpm build -L -V 
+// (not MAC) ERRCHECK: cd %n && %cjpm build -L -V 
 // (not MAC) ASSERT: scan Error: unknown command '-L' for cjpm build
 // (not MAC) ASSERT: scan Error: cjpm build failed
 

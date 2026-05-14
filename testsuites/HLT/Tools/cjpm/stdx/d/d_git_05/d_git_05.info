@@ -23,7 +23,7 @@
 // ASSERT: regex libstdx.log.a
 // ASSERT: regex libstdx.logger.a
 // ASSERT: regex libstdx.unittest.data.a
-// (not host_win)ASSERT: regex libstdx.fuzz.fuzz.a
+// (not host_win)ASSERT: regex libstdx.fuzz.a
 // ASSERT: regex libstdx.serialization.serialization.a
 // ASSERT: regex libstdx.crypto.common.a
 // ASSERT: regex libstdx.encoding.json.stream.a

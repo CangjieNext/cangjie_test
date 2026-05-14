@@ -8,5 +8,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n/dep && cjpm build && cd .. && %cjpm tree && %ls 2>&1 | compare %f
+// EXEC: cd %n/dep && %cjpm build && cd .. && %cjpm tree && %ls 2>&1 | compare %f
 // ASSERT: scan-not target

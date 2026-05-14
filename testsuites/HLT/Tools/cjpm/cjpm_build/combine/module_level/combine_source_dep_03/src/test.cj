@@ -13,5 +13,11 @@ internal import dep.aoo.*
 func test(): Int64 {
     print("hello world\n")
     println(ppa)
+    println(pp)
+    return 0
+}
+
+main() {
+    test()
     return 0
 }

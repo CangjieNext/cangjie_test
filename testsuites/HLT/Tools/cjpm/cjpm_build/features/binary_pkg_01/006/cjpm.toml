@@ -35,3 +35,6 @@
 
 [target.aarch64-apple-darwin.bin-dependencies.package-option]
   "pro1.macro_calling" = "./pro1/target/release/pro1/pro1.macro_calling.cjo"
+
+[target.aarch64-linux-ohos.bin-dependencies.package-option]
+  "pro1.macro_calling" = "./pro1/target/release/pro1/pro1.macro_calling.cjo"

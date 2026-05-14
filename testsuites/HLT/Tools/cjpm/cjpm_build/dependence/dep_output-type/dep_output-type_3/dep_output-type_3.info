@@ -9,7 +9,7 @@
 // LEVEL: 1 
 // DEPENDENCE: ../%n
 // EXEC: cd %n/pro1 && git init && git add . && git -c user.name='name' -c user.email='' commit -am "foo"
-// EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm build %cjpm_opt -V 2>&1 | compare %f
-// (CJNATIVE) ASSERT: scan --output-type=staticlib
-// (not CJNATIVE) ASSERT: scan --output-type=cbclib
+// (MAC)EXEC: cd %n && %git_dir_prefix%n && %git_dir_suffix %cjpm build %cjpm_opt -V 2>&1 | compare %f
+// (not MAC)EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm build %cjpm_opt -V 2>&1 | compare %f
+// ASSERT: scan --output-type=staticlib
 // ASSERT: scan cjpm build success

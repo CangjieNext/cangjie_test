@@ -8,6 +8,6 @@
 
 // LEVEL: 1 
 // DEPENDENCE: ../%n
-// (CJNATIVE) EXEC: cd %n && %export test_path=./pp/pro1/pro1.xoo.cjo && cjc -p pp/pro1/xoo --output-type=staticlib --module-name pro1 -o pp/pro1/ && %cjpm test src 2>&1 | compare %f
+// EXEC: cd %n && %export test_path=./pp/pro1/pro1.xoo.cjo && cjc -p pp/pro1/xoo --output-type=staticlib --module-name pro1 -o pp/pro1/ && %cjpm test src 2>&1 | compare %f
 // ASSERT: scan PASS
 // ASSERT: scan cjpm test success

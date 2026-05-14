@@ -20,6 +20,9 @@ API/std/time/TimeZone/Location/test_load_007.cj
 # windows不支持~,无法解析成绝对路径
 API/std/os/env/test_getArgs/test_getArgs_003/test_getArgs_003.cj
 
+# bug
+Tools/cjpm/cjpm_command/build1/coverage
+
 # windows没有"/"目录
 API/std/os/path/test_chdir/test_chdir_001/test_chdir_001.cj
 

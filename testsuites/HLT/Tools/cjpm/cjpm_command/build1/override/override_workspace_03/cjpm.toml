@@ -29,3 +29,6 @@ target-dir = "temp_target"
 
 [target.aarch64-unknown-linux-gnu]
   override-compile-option = "-O2"
+
+[target.aarch64-linux-ohos]
+  override-compile-option = "-O2"

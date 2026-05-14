@@ -34,5 +34,8 @@
 [target.aarch64-apple-darwin1.debug.ffi.c]
     test01= { path = "./" }
 
+[target.aarch64-linux-ohos.ffi.c]
+    test01= { path = "./" }
+
 [target.cjvm1.ffi.c]
     test01= { path = "./" }

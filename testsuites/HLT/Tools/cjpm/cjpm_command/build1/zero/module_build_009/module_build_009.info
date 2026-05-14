@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm update && %cjpm build %cjpm_opt
-// EXEC: cd %n && %cjpm run
-// EXEC-PIPE: %ls %n 2>&1 | compare %f
-// ASSERT: scan target
+// (native_compilation)EXEC: cd %n && %cjpm update && %cjpm build %cjpm_opt
+// (native_compilation)EXEC: cd %n && %cjpm run
+// (native_compilation)EXEC-PIPE: %ls %n 2>&1 | compare %f
+// (native_compilation)ASSERT: scan target

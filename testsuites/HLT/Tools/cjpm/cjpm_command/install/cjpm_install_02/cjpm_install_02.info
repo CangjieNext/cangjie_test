@@ -8,7 +8,7 @@
 
 // LEVEL:1
 // DEPENDENCE: ../%n 
-// EXEC: cd %n && %cjpm install -V -j10 -g 2>&1 | compare %f
-// EXEC: %run cjpm_install_02
-// ASSERT: regex .*[\\|/]cjpm_install_02[\\|/]target[\\|/]debug[\\|/]bin
-// ASSERT: regex cjpm install success
+// (native_compilation)EXEC: cd %n && %cjpm install -V -j10 -g 2>&1 | compare %f
+// (native_compilation)EXEC: %run cjpm_install_02
+// (native_compilation)ASSERT: regex .*[\\|/]cjpm_install_02[\\|/]target[\\|/]debug[\\|/]bin
+// (native_compilation)ASSERT: regex cjpm install success

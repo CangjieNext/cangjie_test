@@ -9,6 +9,6 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %compiler %cmp_opt main.cj -o cjpm-init%cmp_output
-// (not Windows)EXEC-PIPE-0: cd %n && %export_expand && cjpm init 2>&1 | compare %f
-// (Windows)EXEC-PIPE-0: cd %n && set "PATH=%~dp0;%PATH%" && cjpm init 2>&1 | compare %f
+// (not Windows)EXEC-PIPE-0: cd %n && %export_expand && %cjpm init 2>&1 | compare %f
+// (Windows)EXEC-PIPE-0: cd %n && set "PATH=%~dp0;%PATH%" && %cjpm init 2>&1 | compare %f
 // ASSERT: scan cjpm init success

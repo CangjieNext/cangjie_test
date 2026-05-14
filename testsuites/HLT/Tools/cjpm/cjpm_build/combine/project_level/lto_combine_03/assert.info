@@ -4,9 +4,9 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ASSERT: regex Compiling package `b`: [\s\S]*.*target[/|\\]release[/|\\]coo[/|\\]coo.bc .*
-// ASSERT: regex Compiling package `b`: [\s\S]*.*target[/|\\]release[/|\\]boo[/|\\]boo.bc .*
-// ASSERT: regex Compiling package `b`: [\s\S]*.*target[/|\\]release[/|\\]aoo[/|\\]aoo.bc .*
-// ASSERT: regex-not Compiling package `b`: [\s\S]*.*target[/|\\]release[/|\\]doo[/|\\]doo.bc .*
+// ASSERT: regex Compiling package `b`: [\s\S]*.*target[\s\S]*release[/|\\]coo[/|\\]coo.bc .*
+// ASSERT: regex Compiling package `b`: [\s\S]*.*target[\s\S]*release[/|\\]boo[/|\\]boo.bc .*
+// ASSERT: regex Compiling package `b`: [\s\S]*.*target[\s\S]*release[/|\\]aoo[/|\\]aoo.bc .*
+// ASSERT: regex-not Compiling package `b`: [\s\S]*.*target[\s\S]*release[/|\\]doo[/|\\]doo.bc .*
 // ASSERT: regex Compiling package `b`: [\s\S]*libb.(so|dll)
 // ASSERT: scan cjpm build success

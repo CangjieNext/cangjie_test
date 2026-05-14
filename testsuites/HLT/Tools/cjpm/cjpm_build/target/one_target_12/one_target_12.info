@@ -8,7 +8,7 @@
 
 // LEVEL: 1 
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
+// (native_compilation)EXEC: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
 // ASSERT: scan cjpm build success
 // (not arm)ASSERT: scan-1 -O2
 // (arm )ASSERT: scan-2 -O2
