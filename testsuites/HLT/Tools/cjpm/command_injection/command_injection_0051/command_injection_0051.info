@@ -9,8 +9,7 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // (not Windows)ERRCHECK: cd %n && %cjpm build -o 'main; ls'
-// (CJNATIVE and not Windows) ASSERT: scan the output name 'main; ls' is wrong, the example is 'main'
-// (not CJNATIVE) ASSERT: scan the output name 'main; ls' is wrong, the example is 'main.cbc'
+// (not Windows) ASSERT: scan the output name 'main; ls' is wrong, the example is 'main'
 // (Windows)ERRCHECK: cd %n && %cjpm build -o "main; ls"
 // (Windows) ASSERT: scan the output name 'main; ls' is wrong, the example is 'main.exe'
 // ASSERT: scan cjpm build failed

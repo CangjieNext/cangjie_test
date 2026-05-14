@@ -9,5 +9,5 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC-PIPE: cd %n && %cjpm build && ls target/release/test/ 2>&1 | compare %f
-// (CJNATIVE) ASSERT: scan libtest.a
-// (not CJNATIVE) ASSERT: scan test.cbc
+// ASSERT: scan libtest.a
+

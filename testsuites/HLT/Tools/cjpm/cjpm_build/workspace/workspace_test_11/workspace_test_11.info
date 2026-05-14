@@ -13,7 +13,7 @@
 // ASSERT: regex workspace_test_11[/|\\]pro1
 // ASSERT: regex workspace_test_11[/|\\]boo
 // ( not MAC)ASSERT: scan-2 --strip-all
-// (not CJNATIVE) ASSERT: scan-not --strip-all
+
 // ASSERT: regex-10 workspace_test_11[/|\\]temp_target
 // ASSERT: scan cjpm build success
 // ASSERT: scan-not workspace_test_11/coo

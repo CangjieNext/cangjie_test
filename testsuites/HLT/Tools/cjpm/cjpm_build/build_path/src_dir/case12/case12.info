@@ -8,6 +8,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build %cjpm_opt
-// EXEC: cd %n && %cjpm run
-(OHOS) RUN-EXEC-PIPE: cd case12/target/aarch64-linux-ohos/release/bin && %run %run_opt ./main %run_args
+// (native_compilation)EXEC: cd %n && %cjpm build %cjpm_opt
+// (native_compilation)EXEC: cd %n && %cjpm run

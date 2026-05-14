@@ -7,3 +7,4 @@
 package b.coo
 
 public var pp = 2
+public var ppc = 2

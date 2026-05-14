@@ -25,5 +25,11 @@ compile-option = "-O2"
 [target.x86_64-apple-darwin]
 compile-option = "-O2"
 
+[target.aarch64-linux-ohos]
+compile-option = "-O2"
+
 [target.aarch64-unknown-linux-gnu.debug.dependencies]
+pro1={path="./pro1"}
+
+[target.arch64-linux-ohos.debug.dependencies]
 pro1={path="./pro1"}

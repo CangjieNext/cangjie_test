@@ -35,3 +35,6 @@ path-option=["./pro1/target/release/pro1"]
 
 [target.x86_64-apple-darwin.dependencies]
   pro1={path="./pro1"}
+
+[target.aarch64-linux-ohos.release.bin-dependencies]
+  path-option=["./pro1/target/release/pro1"]

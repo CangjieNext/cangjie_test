@@ -6,6 +6,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (not host_mac)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
+// (target_linux | target_win | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
 // ASSERT: regex Error: field 'profile.build.combined.coo' in .*coo[/|\\]cjpm.toml can only configured as 'dynamic'
 // ASSERT: scan Error: cjpm build failed

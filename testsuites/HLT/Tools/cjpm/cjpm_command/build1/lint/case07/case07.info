@@ -8,6 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (not MAC) EXEC: cd %n && cjpm build --lint 2>&1 | compare %f
+// (not MAC) EXEC: cd %n && %cjpm build --lint 2>&1 | compare %f
 // (not Windows and not MAC) ASSERT: scan G.NAM.03: Identifier 'a_a_' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias
 // (Windows and not MAC) ASSERT: regex G.NAM.03: Identifier 'a_a_' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias

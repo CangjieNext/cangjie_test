@@ -6,10 +6,11 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (not host_mac)EXEC: cd %n/dep && %cjpm build
-// (not host_mac)EXEC: cd %n && %ls dep/target/release/dep 2>&1 | compare %f
+// (target_linux | target_win | target_android | target_ohos)EXEC: cd %n/dep && %cjpm build %cjpm_opt
+// (target_linux | target_win)EXEC: cd %n && %ls dep/target/release/dep 2>&1 | compare %f
+// (target_android | target_ohos)EXEC: cd %n && %ls dep/target/%target_triple/release/dep 2>&1 | compare %f
 // ASSERT: regex libdep.(dll|so)
 // ASSERT: regex libdep.coo.(dll|so)
 // ASSERT: regex libdep.aoo.(dll|so)
-// (not host_mac)EXEC: cd %n/dep1 && %cjpm build
-// (not host_mac)EXEC: cd %n && %cjpm build -V 2>&1 | compare txt.info
+// (target_linux | target_win | target_android | target_ohos)EXEC: cd %n/dep1 && %cjpm build %cjpm_opt
+// (target_linux | target_win | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare txt.info

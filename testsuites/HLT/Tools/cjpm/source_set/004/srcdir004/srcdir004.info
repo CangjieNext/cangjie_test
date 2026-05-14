@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm run -V 2>&1 | compare %f
+// (not MAC and not Windows and not ohos) ASSERT: scan Package `mp` should be compiled as product, but feature header annotation `@NonProduct` is present in source code
+// (not MAC and not Windows and not ohos) ASSERT: scan Error: cjpm run failed
+// (MAC or Windows or ohos) ASSERT: scan 0
+// (MAC or Windows or ohos) ASSERT: regex I run on [Windows|Darwin|ohos]
+// (MAC or Windows or ohos) ASSERT: scan cjpm run finished

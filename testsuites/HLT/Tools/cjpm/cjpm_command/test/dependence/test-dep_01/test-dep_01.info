@@ -8,10 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (CJNATIVE and x86 and not Windows) EXEC: cd %n && %cjpm test -V src && %ls target/release 2>&1 | compare %f
-// (CJNATIVE and x86 and not Windows) EXEC: cd %n && %cjpm check 2>&1 | compare check_result.txt
-// (CJNATIVE and x86 and not Windows) EXEC: cd %n && %cjpm tree 2>&1 | compare tree_result.txt
-// (CJNATIVE and x86 and not Windows) ASSERT: scan devDep
-// (CJNATIVE and x86 and not Windows) ASSERT: scan test
-// (not CJNATIVE or Windows or (MAC and not x86)) ERRCHECK: cd %n && %cjpm test -V src
-// (not CJNATIVE or Windows or (MAC and not x86)) ASSERT: regex Error: root package 'default' imports package 'devDep' in its source code, but it is not added as a dependency in cjpm.toml
+// (x86 and not Windows) EXEC: cd %n && %cjpm test -V src && %ls target/release 2>&1 | compare %f
+// (x86 and not Windows) EXEC: cd %n && %cjpm check 2>&1 | compare check_result.txt
+// (x86 and not Windows) EXEC: cd %n && %cjpm tree 2>&1 | compare tree_result.txt
+// (x86 and not Windows) ASSERT: scan devDep
+// (x86 and not Windows) ASSERT: scan test
