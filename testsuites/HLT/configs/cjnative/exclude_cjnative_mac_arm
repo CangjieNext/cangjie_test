@@ -26,6 +26,8 @@ compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_func_pointer_0008
 compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_func_pointer_0014
 compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_func_pointer_0015
 
+
+
 # cj generic
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_generic_0019
 

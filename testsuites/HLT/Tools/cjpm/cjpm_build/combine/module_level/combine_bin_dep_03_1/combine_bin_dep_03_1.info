@@ -6,12 +6,12 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (not host_mac)EXEC: cd %n/dep && %cjpm build
-// (not host_mac)EXEC: cd %n/dep1 && %cjpm build
-// (not host_mac)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[/|\\]release[/|\\]b[/|\\] -lb.aoo .*
-// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[/|\\]release[/|\\]dep1 -ldep1 .*
-// ASSERT: regex-not Compiling package `b`: [\s\S]*-L.*target[/|\\]release[/|\\]b[/|\\] -lb.coo .*
+// (target_linux | target_win | target_android | target_ohos)EXEC: cd %n/dep && %cjpm build %cjpm_opt
+// (target_linux | target_win | target_android | target_ohos)EXEC: cd %n/dep1 && %cjpm build %cjpm_opt
+// (target_linux | target_win | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
+// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[\s\S]*release[/|\\]b[/|\\] -lb.aoo .*
+// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[\s\S]*release[/|\\]dep1 -ldep1 .*
+// ASSERT: regex-not Compiling package `b`: [\s\S]*-L.*target[\s\S]*release[/|\\]b[/|\\] -lb.coo .*
 // ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]* -lb.boo[\s\S]*--link-options=--no-whole-archive.*
 // ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]*-lb.coo[\s\S]*--link-options=--no-whole-archive.*
 // ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive -L [\s\S]* -ldep[\s\S]*--link-options=--no-whole-archive.*

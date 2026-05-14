@@ -6,8 +6,8 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (not Windows and not MAC)EXEC: cd %n && %cjpm build && sleep 5 && touch p2/src/p2.cj
-// (not Windows and not MAC)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
+// (target_linux | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt && sleep 5 && touch p2/src/p2.cj
+// (target_linux | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
 // ASSERT: scan Compiling package `p2`
 // ASSERT: scan Compiling package `b`:
 // ASSERT: scan-not Compiling package `p1`

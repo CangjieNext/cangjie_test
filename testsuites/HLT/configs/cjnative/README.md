@@ -26,7 +26,7 @@ cjc-frontend 编译器前端选项
 
 ## `suffix`
 
-可执行文件的后缀名
+target平台上可执行文件的后缀名
 
 ## `test_suffix`
 
@@ -123,6 +123,10 @@ cjtrace-recover 工具
 ## `run_opt`
 
 运行可执行文件时的设置
+
+## `release_dir`
+
+release产物保存目录相对cjpm.toml所在目录的相对路径
 
 ## `cangjie-stdx-list`
 
@@ -537,6 +541,10 @@ target 平台上的 cp 操作
 暂无介绍
 
 ## `obf_layout`
+
+暂无介绍
+
+## `ndk_root`
 
 暂无介绍
 
