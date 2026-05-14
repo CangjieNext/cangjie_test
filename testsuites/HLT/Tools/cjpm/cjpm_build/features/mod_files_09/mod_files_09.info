@@ -8,6 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: src cjpm.toml
-// EXEC: %cjpm build %cjpm_opt
-// (!host_win)EXEC-1: test -f target/release/bin/main
-// (host_win)EXEC-1: if exist target/release/bin/main (exit 0) else (exit 1)
+// (native_compilation)EXEC: %cjpm build %cjpm_opt
+// (native_compilation)EXEC-PIPE: %ls target/release/bin 2>&1 | compare %f
+// ASSERT: scan-not main

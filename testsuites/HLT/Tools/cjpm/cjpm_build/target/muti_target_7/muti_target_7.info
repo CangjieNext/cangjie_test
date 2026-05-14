@@ -10,5 +10,5 @@
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
 // ASSERT: scan cjpm build success
-// (not CJNATIVE) ASSERT: scan -Woff all
+
 // ASSERT: scan-not -Woff all

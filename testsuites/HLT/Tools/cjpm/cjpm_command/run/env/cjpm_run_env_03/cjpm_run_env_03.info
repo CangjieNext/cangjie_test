@@ -8,5 +8,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %export TEMP_PATH=aaaaa && cjpm run -V 2>&1 | compare %f
+// EXEC: cd %n && %export TEMP_PATH=aaaaa && %cjpm run -V 2>&1 | compare %f
 // ASSERT: scan envs: this_is_a_test

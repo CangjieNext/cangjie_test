@@ -9,5 +9,5 @@
 // LEVEL: 0
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm run --skip-build 2>&1 | compare %f
-// (CJNATIVE) ASSERT: regex Error: can not find the 'target[/|\\]release[/|\\]bin[/|\\]main
+// ASSERT: regex Error: can not find the 'target[/|\\]release[/|\\]bin[/|\\]main
 // ASSERT: scan cjpm run failed

@@ -12,5 +12,8 @@ import b.coo.*
 
 main() {
     print("hello world\n")
+    print(ppa)
+    print(ppb)
+    print(ppc)
     return 0
 }

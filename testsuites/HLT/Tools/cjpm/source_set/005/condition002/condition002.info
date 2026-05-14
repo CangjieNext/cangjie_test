@@ -8,8 +8,8 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (CJNATIVE) EXEC: cd %n && %cjpm run 2>&1 | compare %f
-// (CJNATIVE) ASSERT: scan-1 Error at `cjpm.toml:source-set.1.features`: field type error. Expected type is `array[qname]`
-// (CJNATIVE) ASSERT: scan-1 Error at `cjpm.toml:source-set.2.features`: field type error. Expected type is `array[qname]`
-// (CJNATIVE) ASSERT: scan-1 Error at `cjpm.toml:source-set.3.features`: field type error. Expected type is `array[qname]`
-// (CJNATIVE) ASSERT: scan cjpm run failed
+// EXEC: cd %n && %cjpm run 2>&1 | compare %f
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.1.features`: field type error. Expected type is `array[qname]`
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.2.features`: field type error. Expected type is `array[qname]`
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.3.features`: field type error. Expected type is `array[qname]`
+// ASSERT: scan cjpm run failed

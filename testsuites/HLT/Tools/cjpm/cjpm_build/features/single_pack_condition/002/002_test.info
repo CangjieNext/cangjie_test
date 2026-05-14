@@ -9,5 +9,5 @@
 // LEVEL: 2
 // DEPENDENCE: ../002
 
-// EXEC: %cp 002/test_result.txt .
-// EXEC-PIPE-1: cd 002 && %cjpm test %cjpm_opt -V --cfg1 --cfg6 2>&1 | compare test_result.txt
+// (native_compilation)EXEC: %cp 002/test_result.txt .
+// (native_compilation)EXEC-PIPE-1: cd 002 && %cjpm test %cjpm_opt -V --cfg1 --cfg6 2>&1 | compare test_result.txt

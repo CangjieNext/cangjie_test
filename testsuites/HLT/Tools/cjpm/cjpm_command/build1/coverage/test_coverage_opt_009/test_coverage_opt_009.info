@@ -8,5 +8,5 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC-PIPE: cd %n && cjpm test src --coverage -h 2>&1 | compare %f
+// EXEC-PIPE: cd %n && %cjpm test src --coverage -h 2>&1 | compare %f
 // ASSERT: scan --coverage                              enable coverage

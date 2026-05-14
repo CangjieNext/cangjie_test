@@ -31,6 +31,9 @@
 [target.x86_64-apple-darwin.release.ffi.c]
     test01= { path = "./" }
 
+[target.aarch64-linux-ohos.ffi.c]
+    test01= { path = "./" }
+
 [target.aarch64-apple-darwin.release.ffi.c]
     test01= { path = "./" }
 

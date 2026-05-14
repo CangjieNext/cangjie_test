@@ -8,6 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (not Windows) EXEC-PIPE: cd %n && cjpm init --name test_cjpm_init_002 --type=dynamic && str=`grep -r "output-type = \"dynamic\"" cjpm.toml` && if [ -n "$str" ]; then echo "pass";fi | compare %f
-// (Windows) EXEC-PIPE: cd %n && cjpm init --name test_cjpm_init_002 --type=dynamic && set str="findstr dynamic target/.cjpm-history" && if %str% neq ""( echo pass ) | compare %f
+// (not Windows) EXEC-PIPE: cd %n && %cjpm init --name test_cjpm_init_002 --type=dynamic && str=`grep -r "output-type = \"dynamic\"" cjpm.toml` && if [ -n "$str" ]; then echo "pass";fi | compare %f
+// (Windows) EXEC-PIPE: cd %n && %cjpm init --name test_cjpm_init_002 --type=dynamic && set str="findstr dynamic target/.cjpm-history" && if %str% neq ""( echo pass ) | compare %f
 // ASSERT: scan pass

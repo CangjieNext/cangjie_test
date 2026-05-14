@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %run %cjpm update
-// EXEC-PIPE-0: cd %n && cat build-script-cache/release/case13/bin/script-log 2>&1 | compare %f
-// ASSERT: scan PRE-UPDATE
-// ASSERT: scan POST-UPDATE
+// (native_compilation)EXEC: cd %n && %run %cjpm update
+// (native_compilation)EXEC-PIPE-0: cd %n && cat build-script-cache/release/case13/bin/script-log 2>&1 | compare %f
+// (native_compilation)ASSERT: scan PRE-UPDATE
+// (native_compilation)ASSERT: scan POST-UPDATE

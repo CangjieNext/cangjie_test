@@ -36,3 +36,6 @@
 
 [target.cjvm.ffi.c]
     test01= { path = "./" }
+
+[target.aarch64-linux-ohos.ffi.c]
+    test01= { path = "./" }

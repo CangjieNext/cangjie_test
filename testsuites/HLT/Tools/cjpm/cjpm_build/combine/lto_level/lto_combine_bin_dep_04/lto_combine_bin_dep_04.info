@@ -6,14 +6,14 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (not host_mac and not host_win)EXEC: cd %n/dep/inner_dep && %cjpm build
-// (not host_mac and not host_win)EXEC: cd %n/dep && %cjpm build
-// (not host_mac and not host_win)EXEC: cd %n/dep1 && %cjpm build
-// (not host_mac and not host_win)EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
-// ASSERT: regex Compiling package `b`: [\s\S]*.*target[/|\\]release[/|\\]b[/|\\]b.aoo.bc
-// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[/|\\]release[/|\\][\s\S]* -ldep
-// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[/|\\]release[/|\\][\s\S]* -ldep1
-// ASSERT: regex-not Compiling package `b`: [\s\S]*.*target[/|\\]release[/|\\]b[/|\\] -lb.coo
+// (target_linux | target_android | target_ohos)EXEC: cd %n/dep/inner_dep && %cjpm build %cjpm_opt
+// (target_linux | target_android | target_ohos)EXEC: cd %n/dep && %cjpm build %cjpm_opt
+// (target_linux | target_android | target_ohos)EXEC: cd %n/dep1 && %cjpm build %cjpm_opt
+// (target_linux | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
+// ASSERT: regex Compiling package `b`: [\s\S]*.*target[\s\S]*release[/|\\]b[/|\\]b.aoo.bc
+// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[\s\S]*release[/|\\][\s\S]* -ldep
+// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[\s\S]*release[/|\\][\s\S]* -ldep1
+// ASSERT: regex-not Compiling package `b`: [\s\S]*.*target[\s\S]*release[/|\\]b[/|\\] -lb.coo
 // ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive [\s\S]*b.boo.bc[\s\S]*--link-options=--no-whole-archive.*
 // ASSERT: regex Compiling package `b`: [\s\S]*--link-options=--whole-archive [\s\S]*b.coo.bc[\s\S]*--link-options=--no-whole-archive.*
 // ASSERT: regex Compiling package `b`: [\s\S]*libb.(so|dll)

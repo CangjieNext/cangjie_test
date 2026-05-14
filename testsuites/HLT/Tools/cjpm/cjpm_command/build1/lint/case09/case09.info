@@ -8,6 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (not MAC) ERRCHECK: cd %n && cjpm build --lint -V
+// (not MAC) ERRCHECK: cd %n && %cjpm build --lint -V
 // (not MAC) ASSERT: regex Error: path of src directory 'src' in .[/|\\]cjpm.toml does not exist
 // (not MAC) ASSERT: scan Error: cjpm build failed
