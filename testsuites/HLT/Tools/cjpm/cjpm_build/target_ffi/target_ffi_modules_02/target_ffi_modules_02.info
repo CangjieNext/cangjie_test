@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (native_compilation)EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%test_suffix
+// (native_compilation)EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%dylib_suffix
 // (native_compilation)EXEC: cd %n && %cjpm run 2>&1 | compare %f
 // ASSERT: scan aaa
 // ASSERT: scan cjpm run finished
