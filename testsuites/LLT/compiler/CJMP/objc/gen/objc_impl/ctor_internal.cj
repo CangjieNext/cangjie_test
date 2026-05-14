@@ -10,6 +10,7 @@
 /* SCAN-IN
 - (id)initWithM:(M*)m {
     [self doesNotRecognizeSelector:_cmd];
+    return nil;
 }
 */
 
