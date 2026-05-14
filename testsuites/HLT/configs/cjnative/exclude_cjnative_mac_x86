@@ -33,7 +33,6 @@ API/std/collection/TreeSet/treeset_random_key.cj
 
 # testcase is not correct.
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
-Tools/cjprof
 
 # issue 198: syntax rewriter not support
 API/syntax/visit/ASTRewriter/test_rewriter_02.cj

@@ -22,7 +22,6 @@ Tools/cjdb/datacom/within_setVar/cjdb_within_setVar048.info
 Tools/cjdb/datacom/within_watchpoint/lldb_within_watchpoint055.info
 # testcase is not correct.
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
-Tools/cjprof
 
 # syntax will be supported in future
 API/syntax

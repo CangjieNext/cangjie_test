@@ -5,7 +5,6 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 # ======================== API exclude ========================
-Tools/cjprof
 # linux与win环境问题
 API/std/os/env/test_setEnv/test_setEnv_002/test_setEnv_002.cj
 API/std/os/env/test_setEnv/test_setEnv_005/test_setEnv_005.cj

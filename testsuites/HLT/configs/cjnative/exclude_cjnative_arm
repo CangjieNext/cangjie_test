@@ -8,7 +8,6 @@
 API/std/os/process/test_getgroups/test_getgroups_001/test_getgroups_001.cj
 # testcase is not correct.
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
-Tools/cjprof
 
 # syntax will be supported in future
 API/syntax
