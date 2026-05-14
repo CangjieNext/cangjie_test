@@ -6,9 +6,11 @@
 
 // DEPENDENCE: apilevel.cj canIUse.cj device_info.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt canIUse.cj -o canIUse.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt device_info.cj -o device_info.%middle
-// ERRCHECK: %compiler %noColor %cmp_opt_chir2hlir %f device_info.%middle -o %output --cfg=APILevel_level=20
+// ERRCHECK: %compiler %noColor %cmp_opt_chir2hlir %f canIUse.%middle device_info.%middle -o %output --cfg=APILevel_level=20 -Woff unused
 
+import ohos.base.canIUse
 import ohos.labels.*
 import ohos.device_info.*
 
@@ -25,9 +27,9 @@ main() {
 
 /* SCAN
 error: cannot reference 'f21'(level: 21) which higher than level of the current scope(level: 20)
-  ==> test04.cj:22:9:
+  ==> test04.cj:24:9:
    | 
-22 |         f21() // error
+24 |         f21() // error
    |         ^^^^^ 
    | 
 
