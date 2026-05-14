@@ -9,11 +9,9 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC: cd %n/devDep0 && git init && git add . && git -c user.name='name' -c user.email='' commit -am "foo"
-// (CJNATIVE and x86 and not Windows) EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm test -V src && %ls target/release 2>&1 | compare %f
-// (CJNATIVE and x86 and not Windows) EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm check 2>&1 | compare check_result.txt
-// (CJNATIVE and x86 and not Windows) EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm tree 2>&1 | compare tree_result.txt
-// (CJNATIVE and x86 and not Windows) ASSERT: scan devDep0
-// (CJNATIVE and x86 and not Windows) ASSERT: scan devDep1
-// (CJNATIVE and x86 and not MAC and not Windows) ASSERT: scan test
-// (not CJNATIVE or Windows or (MAC and not x86)) ERRCHECK: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm test -V src
-// (not CJNATIVE or Windows or (MAC and not x86)) ASSERT: scan Error: root package 'default' imports package 'devDep1' in its source code, but it is not added as a dependency in cjpm.toml
+// (x86 and not Windows) EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm test -V src && %ls target/release 2>&1 | compare %f
+// (x86 and not Windows) EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm check 2>&1 | compare check_result.txt
+// (x86 and not Windows) EXEC: cd %n && %git_dir_prefix%n%git_dir_suffix %cjpm tree 2>&1 | compare tree_result.txt
+// (x86 and not Windows) ASSERT: scan devDep0
+// (x86 and not Windows) ASSERT: scan devDep1
+// (x86 and not MAC and not Windows) ASSERT: scan test

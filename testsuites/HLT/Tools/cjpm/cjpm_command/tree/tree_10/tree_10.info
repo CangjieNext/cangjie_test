@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1 
-// EXEC: cjpm tree -h 2>&1 | compare %f
+// EXEC: %cjpm tree -h 2>&1 | compare %f
 // ASSERT: scan  -h, --help                  help for tree
 // ASSERT: scan  -V, --verbose               enable verbose
 // ASSERT: scan  --depth <N>                 maximum display depth of the dependency tree

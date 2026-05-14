@@ -7,7 +7,7 @@
 [package]
   cjc-version = "1.0.0"
   name = "test_output_2"
-  version = "1.0.2"
+  version = "1.0.12"
   output-type = "static"
   description = "test_output_2"
 

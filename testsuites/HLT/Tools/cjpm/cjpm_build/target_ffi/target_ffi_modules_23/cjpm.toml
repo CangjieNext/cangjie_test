@@ -28,6 +28,10 @@
 [target.x86_64-w64-mingw32.ffi.c]
     test01= { path = "./invalid" }
 
+
+[target.aarch64-linux-ohos.ffi.c]
+    test01= { path = "./invalid" }
+
 [target.x86_64-apple-darwin.ffi.c]
     test01= { path = "./invalid" }
 

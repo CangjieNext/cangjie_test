@@ -8,11 +8,9 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (OHOS) EXEC: cd %n && %cjpm build %cjpm_opt --cfg1 --cfg6
-// (OHOS) RUN-EXEC-PIPE: cd run_06/target/aarch64-linux-ohos/release/bin && %run %run_opt ./main %run_args | compare %f
-// (not OHOS) EXEC: cd %n && %cjpm run --build-args="--cfg1 --cfg6" 2>&1 | compare %f
+// (native_compilation) EXEC: cd %n && %cjpm run --build-args="--cfg1 --cfg6" 2>&1 | compare %f
 // ASSERT: scan feature cat
 // ASSERT: scan feature lion
 // ASSERT: scan bb
 // ASSERT: scan cc
-// (not OHOS) ASSERT: scan cjpm run finished
+// ASSERT: scan cjpm run finished

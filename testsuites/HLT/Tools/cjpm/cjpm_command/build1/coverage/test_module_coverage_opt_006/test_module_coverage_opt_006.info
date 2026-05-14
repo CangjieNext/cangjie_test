@@ -8,6 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n ../../../../../cjcov/scripts
-// EXEC-1: cd %n && cjpm test --coverage
+// EXEC-1: cd %n && %cjpm test --coverage
 // EXEC: cd %n && %cjcov --root=./ --html-details --output=html_output --keep --verbose
 // EXEC: python3 scripts/compare_html.py -b %n/reference -d %n/html_output

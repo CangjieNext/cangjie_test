@@ -11,4 +11,3 @@
 // EXEC: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
 // ASSERT: scan cjpm build success
 // ASSERT: scan-not -O2
-// (not CJNATIVE) ASSERT: scan -O2

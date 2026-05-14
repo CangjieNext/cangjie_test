@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n/b && %python replace.py
-// EXEC: cd %n && %cjpm build %cjpm_opt
-// EXEC: cd %n && %cjpm run
+// (native_compilation)EXEC: cd %n/b && %python replace.py
+// (native_compilation)EXEC: cd %n && %cjpm build %cjpm_opt
+// (native_compilation)EXEC: cd %n && %cjpm run

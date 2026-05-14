@@ -9,5 +9,4 @@
 // LEVEL: 2
 // DEPENDENCE: ../%n
 // EXEC-PIPE: %export cjStackSize=1MB && cd %n && %cjpm update 2>&1 | compare %f
-// (not CJNATIVE)EXEC-PIPE: %export JETVMPROP=-Xss1M && cd %n && %cjpm update 2>&1 | compare %f
 // ASSERT:scan update success

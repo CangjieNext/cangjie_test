@@ -9,6 +9,6 @@
 // LEVEL: 1 
 // DEPENDENCE: ../%n
 // EXEC: cd %n && %cjpm build %cjpm_opt -V  2>&1 | compare %f
-// (CJNATIVE) ASSERT: scan --output-type=dylib
-// (not CJNATIVE) ASSERT: scan --output-type=cbclib
+// ASSERT: scan --output-type=dylib
+
 // ASSERT: scan cjpm build success

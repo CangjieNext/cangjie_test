@@ -26,3 +26,8 @@ path-option=["./pro1/target/release/pro1"]
 
 [target.cjvm.debug.bin-dependencies]
 path-option=["./pro1/target/release/pro1"]
+
+
+[target.aarch64-linux-ohos.debug.bin-dependencies]
+path-option=["./pro1/target/release/pro1"]
+

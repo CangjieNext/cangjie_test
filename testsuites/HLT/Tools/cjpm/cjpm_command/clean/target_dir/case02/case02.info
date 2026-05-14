@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && cjpm clean --target-dir=./temp_target 2>&1 | compare %f
+// EXEC: cd %n && %cjpm clean --target-dir=./temp_target 2>&1 | compare %f
 // (not Windows) ASSERT: scan Error: the file './cjpm.toml' does not exist
 // (Windows) ASSERT: scan Error: the file '.\cjpm.toml' does not exist
 // ASSERT: scan Error: cjpm clean failed
