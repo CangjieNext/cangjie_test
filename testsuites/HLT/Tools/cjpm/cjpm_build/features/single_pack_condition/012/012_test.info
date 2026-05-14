@@ -11,4 +11,6 @@
 
 
 // EXEC: %cp 012/test_result.txt .
-// EXEC-PIPE-1: cd 012 && %cjpm test %cjpm_opt -V -condition="cfg1" 2>&1 | compare test_result.txt
+// EXEC-PIPE-1: cd 012 && %cjpm test %cjpm_opt -V -condition="cfg1" 2>&1 | compare %f
+// ASSERT: scan Error: unknown command '-condition=cfg1' for cjpm test
+// ASSERT: scan Error: cjpm test failed

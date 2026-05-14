@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// ERRCHECK: cd %n && %run %cjpm run
-// ASSERT:regex Error: failed to run build script in path .* by operation 'post-run', output is redirected
-// ASSERT:scan Error: cjpm run failed
+// (native_compilation)ERRCHECK: cd %n && %run %cjpm run
+// (native_compilation)ASSERT:regex Error: failed to run build script in path .* by operation 'post-run', output is redirected
+// (native_compilation)ASSERT:scan Error: cjpm run failed
 

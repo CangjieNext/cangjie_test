@@ -8,6 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../002
-
 // (native_compilation)EXEC: %cp 002/test_result.txt .
-// (native_compilation)EXEC-PIPE-1: cd 002 && %cjpm test -V --cfg1 --cfg6 2>&1 | compare test_result.txt
+// (native_compilation)EXEC-PIPE-1: cd 002 && %cjpm test -V --cfg1 --cfg6 2>&1 | compare  %f
+// ASSERT: regex Error: please execute 'cjpm(.exe)? build -i --cfg1 --cfg6' successfully first
+// ASSERT: scan Error: cjpm test failed
