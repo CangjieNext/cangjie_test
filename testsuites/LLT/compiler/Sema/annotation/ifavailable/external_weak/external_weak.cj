@@ -1,5 +1,6 @@
-// DEPENDENCE: ../level_syscap_check/apilevel.cj device_info.cj dep.cj dep1.cj
+// DEPENDENCE: ../level_syscap_check/apilevel.cj canIUse.cj device_info.cj dep.cj dep1.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt canIUse.cj -o canIUse.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt device_info.cj -o device_info.%middle
 // EXEC: %compiler %cmp_opt %compile_shared_lib_opt dep.cj device_info.%middle apilevel.%middle -o libdep.%dylib_suffix
 // EXEC: %move dep.cjo dep.cjo.bak
@@ -7,10 +8,15 @@
 // EXEC: %compiler %cmp_opt %compile_shared_lib_opt dep1.cj device_info.%middle apilevel.%middle -o libdep.%dylib_suffix
 // EXEC: %rmfile dep.cjo
 // EXEC: %move dep.cjo.bak dep.cjo
-// (CJNATIVE) EXEC: %compiler -ldep -L. %f device_info.%middle apilevel.%middle --cfg=APILevel_level=18 -o %output
-// (CJNATIVE) EXEC: %run %run_opt %output %run_args | compare %f
+// Linker on macOS (ld64.lld) rejects undefined weak external symbols, which is
+// what @IfAvailable's runtime-gated dispatch emits. Resolving that is tracked
+// separately by issue #899 and not in scope of this PR, so the link+run steps
+// are restricted to Linux for now.
+// (CJNATIVE and Linux) EXEC: %compiler -ldep -L. %f canIUse.%middle device_info.%middle apilevel.%middle --cfg=APILevel_level=18 -o %output
+// (CJNATIVE and Linux) EXEC: %run %run_opt %output %run_args | compare %f
 
 import dep.*
+import ohos.base.canIUse
 import ohos.device_info.DeviceInfo
 
 main() {

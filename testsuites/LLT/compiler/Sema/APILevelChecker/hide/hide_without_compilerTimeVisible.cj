@@ -16,7 +16,7 @@ import ohos.labels.*
 public class A {}
 
 /* SCAN
-error: 'Hide' annotation must be visible at compile time
+error: '@!Hide' annotation must be visible at compile time
   ==> hide_without_compilerTimeVisible.cj:15:1:
    | 
 15 | @Hide[isChecked: true]

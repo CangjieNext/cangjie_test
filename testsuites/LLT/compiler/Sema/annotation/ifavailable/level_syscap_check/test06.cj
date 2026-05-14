@@ -6,9 +6,11 @@
 
 // DEPENDENCE: apilevel.cj canIUse.cj device_info.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt canIUse.cj -o canIUse.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt device_info.cj -o device_info.%middle
-// ERRCHECK: %compiler %noColor %cmp_opt_chir2hlir %f device_info.%middle -o %output --cfg=APILevel_level=20
+// ERRCHECK: %compiler %noColor %cmp_opt_chir2hlir %f canIUse.%middle device_info.%middle -o %output --cfg=APILevel_level=20 -Woff unused
 
+import ohos.base.canIUse
 import ohos.labels.*
 import ohos.device_info.*
 
@@ -61,65 +63,65 @@ main() {
 
 /* SCAN
 error: cannot reference 'f21'(level: 21) which higher than level of the current scope(level: 20)
-  ==> test06.cj:35:13:
+  ==> test06.cj:37:13:
    | 
-35 |             f21() // error
+37 |             f21() // error
    |             ^^^^^ 
    | 
 
 error: cannot reference 'f22'(level: 22) which higher than level of the current scope(level: 20)
-  ==> test06.cj:36:13:
+  ==> test06.cj:38:13:
    | 
-36 |             f22() // error
+38 |             f22() // error
    |             ^^^^^ 
    | 
 
 error: cannot reference 'f23'(level: 23) which higher than level of the current scope(level: 20)
-  ==> test06.cj:37:13:
+  ==> test06.cj:39:13:
    | 
-37 |             f23() // error
+39 |             f23() // error
    |             ^^^^^ 
    | 
 
 error: cannot reference 'f23'(level: 23) which higher than level of the current scope(level: 22)
-  ==> test06.cj:43:13:
+  ==> test06.cj:45:13:
    | 
-43 |             f23() // error
+45 |             f23() // error
    |             ^^^^^ 
    | 
 
 error: cannot reference 'f22'(level: 22) which higher than level of the current scope(level: 21)
-  ==> test06.cj:50:13:
+  ==> test06.cj:52:13:
    | 
-50 |             f22() // error
+52 |             f22() // error
    |             ^^^^^ 
    | 
 
 error: cannot reference 'f23'(level: 23) which higher than level of the current scope(level: 21)
-  ==> test06.cj:51:13:
+  ==> test06.cj:53:13:
    | 
-51 |             f23() // error
+53 |             f23() // error
    |             ^^^^^ 
    | 
 
 error: cannot reference 'f21'(level: 21) which higher than level of the current scope(level: 20)
-  ==> test06.cj:55:13:
+  ==> test06.cj:57:13:
    | 
-55 |             f21() // error
+57 |             f21() // error
    |             ^^^^^ 
    | 
 
 error: cannot reference 'f22'(level: 22) which higher than level of the current scope(level: 20)
-  ==> test06.cj:56:13:
+  ==> test06.cj:58:13:
    | 
-56 |             f22() // error
+58 |             f22() // error
    |             ^^^^^ 
    | 
 
 error: cannot reference 'f23'(level: 23) which higher than level of the current scope(level: 20)
-  ==> test06.cj:57:13:
+  ==> test06.cj:59:13:
    | 
-57 |             f23() // error
+59 |             f23() // error
    |             ^^^^^ 
    | 
 
