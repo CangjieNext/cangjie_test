@@ -22,7 +22,7 @@ warning: unused function:'foo'
   ==> unused_function_2.cj:15:1:
    | 
 15 | private func foo() {}
-   | ^ unused function
+   | ^^^^^^^^^^^^^^^^^^^^^^ unused function
    | 
    # note: this warning can be suppressed by setting the compiler option `-Woff unused`
 note: the warning originates in the macro `M2` (consider using `--debug-macro` for more info)
