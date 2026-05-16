@@ -20,7 +20,6 @@
  */
 
 import std.net.*
-import std.time.*
 import std.sync.*
 
 var port = AtomicUInt16(0)
@@ -32,17 +31,70 @@ var bound = AtomicUInt16(0)
 
 @Test
 class Test_Tcp_ClientSocket_Timeout {
-    public override func beforeEach(): Unit {
+    @BeforeEach
+    func beforeEach(): Unit {
+        resetSockets()
+        port.store(0)
         bound = AtomicUInt16(0)
     }
+
+    @AfterEach
+    func afterEach(): Unit {
+        resetSockets()
+    }
+
+    func resetSockets(): Unit {
+        try {
+            cli.getOrThrow().close()
+        } catch (e: Exception) {}
+        try {
+            ser.getOrThrow().close()
+        } catch (e: Exception) {}
+        cli = Option<TcpSocket>.None
+        ser = Option<TcpServerSocket>.None
+    }
+
+    func waitServerBound(): Bool {
+        for (_ in 0..3000) {
+            let state = bound.load()
+            if (state == UInt16(1) || state == UInt16(2)) {
+                return true
+            }
+            if (state == UInt16(3)) {
+                return false
+            }
+            sleep(Duration.millisecond)
+        }
+        return false
+    }
+
+    func waitServerAccepted(): Bool {
+        for (_ in 0..3000) {
+            let state = bound.load()
+            if (state == UInt16(2)) {
+                return true
+            }
+            if (state == UInt16(3)) {
+                return false
+            }
+            sleep(Duration.millisecond)
+        }
+        return false
+    }
+
     func startServer(): Unit {
-        var server = TcpServerSocket(bindAt: 0)
-        server.bind()
-        port.store((server.localAddress as IPSocketAddress)?.port ?? 0)
-        bound.fetchAdd(1)
-        ser = Option<TcpServerSocket>.Some(server)
-        var serversocket = server.accept(timeout: 2 * Duration.second)
-        cli = Option<TcpSocket>.Some(serversocket)
+        try {
+            var server = TcpServerSocket(bindAt: 0)
+            server.bind()
+            port.store((server.localAddress as IPSocketAddress)?.port ?? 0)
+            ser = Option<TcpServerSocket>.Some(server)
+            bound.store(1)
+            var serversocket = server.accept(timeout: 2 * Duration.second)
+            cli = Option<TcpSocket>.Some(serversocket)
+            bound.store(2)
+        } catch (e: Exception) {
+            bound.store(3)
+        }
     }
 
     @TestCase
@@ -50,8 +102,9 @@ class Test_Tcp_ClientSocket_Timeout {
         spawn {
             startServer()
         }
-        while (!bound.compareAndSwap(1, 0)) {
-            sleep(Duration.millisecond)
+        if (!waitServerBound()) {
+            @Expect(false, true)
+            return
         }
 
         var client1 = TcpSocket("127.0.0.1", port.load())
@@ -61,7 +114,11 @@ class Test_Tcp_ClientSocket_Timeout {
         @Expect(client1.readTimeout, Option<Duration>.None)
         @Expect(client1.writeTimeout, Option<Duration>.None)
 
-        sleep(Duration.second)
+        if (!waitServerAccepted()) {
+            @Expect(false, true)
+            client1.close()
+            return
+        }
         cli.getOrThrow().readTimeout = Duration.second
         cli.getOrThrow().writeTimeout = Duration.second
         @Expect(client1.readTimeout, Option<Duration>.None)
@@ -99,7 +156,6 @@ class Test_Tcp_ClientSocket_Timeout {
             sum += 1
         }
         @Expect(sum, 5)
-        ser.getOrThrow().close()
     }
 
     @TestCase
@@ -107,8 +163,9 @@ class Test_Tcp_ClientSocket_Timeout {
         spawn {
             startServer()
         }
-        while (!bound.compareAndSwap(1, 0)) {
-            sleep(Duration.millisecond)
+        if (!waitServerBound()) {
+            @Expect(false, true)
+            return
         }
         var client = TcpSocket("127.0.0.1", port.load())
         client.connect(timeout: 2 * Duration.second)
@@ -122,7 +179,6 @@ class Test_Tcp_ClientSocket_Timeout {
         }
         @Expect(sum, 1)
         client.close()
-        ser.getOrThrow().close()
     }
 
     @TestCase
@@ -130,17 +186,23 @@ class Test_Tcp_ClientSocket_Timeout {
         spawn {
             startServer()
         }
-        while (!bound.compareAndSwap(1, 0)) {
-            sleep(Duration.millisecond)
+        if (!waitServerBound()) {
+            @Expect(false, true)
+            return
         }
         var client = TcpSocket("127.0.0.1", port.load())
         client.connect(timeout: 2 * Duration.second)
+        if (!waitServerAccepted()) {
+            @Expect(false, true)
+            client.close()
+            return
+        }
 
         client.writeTimeout = Duration.second
         client.sendBufferSize = data.size
         var sum = 0
         try {
-            while (true) {
+            for (_ in 0..200000) {
                 client.write(data)
             }
         } catch (e: SocketTimeoutException) {
@@ -148,6 +210,5 @@ class Test_Tcp_ClientSocket_Timeout {
         }
         @Expect(sum, 1)
         client.close()
-        ser.getOrThrow().close()
     }
 }

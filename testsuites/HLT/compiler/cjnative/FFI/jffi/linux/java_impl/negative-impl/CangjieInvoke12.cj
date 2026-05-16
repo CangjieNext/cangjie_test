@@ -14,7 +14,6 @@
 // 支持抽象类
 package UNNAMED
 
-import interoplib.interop.*
 import java.lang.*
 
 @JavaImpl

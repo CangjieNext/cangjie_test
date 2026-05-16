@@ -8,8 +8,8 @@
 
 // LEVEL: 0
 // DEPENDENCE: libs2
-// EXEC-PIPE: %compiler %cmp_opt %compile_lib_opt libs2/myModule1/myModule1.cj -o libs2/myModule1/
-// EXEC-PIPE: %compiler %cmp_opt %compile_lib_opt libs2/myModule2/myModule2.cj -o libs2/myModule2/
+// EXEC-PIPE: %compiler %cmp_opt %compile_lib_opt libs2/myModule1/myModule1.cj -o libs2/myModule1/libmyModule1.myModule1.%middle
+// EXEC-PIPE: %compiler %cmp_opt %compile_lib_opt libs2/myModule2/myModule2.cj -o libs2/myModule2/libmyModule2.myModule2.%middle
 // EXEC-PIPE: %compiler %cmp_opt --import-path libs2 -L libs2/myModule1 -L libs2/myModule2 -l myModule1.myModule1 -l myModule2.myModule2 %f -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args
 

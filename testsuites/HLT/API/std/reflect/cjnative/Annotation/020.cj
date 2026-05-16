@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 // 对于拥有无参构造函数的注解类型，声明时可以省略括号。如果没有无参构造函数，则不可省略括号。
 
@@ -23,4 +23,4 @@ public class A0 {
 class C0 {}
 
 main() {}
-// (not MAC) ASSERT: scan sema_wrong_number_of_arguments
+// (!(target_mac | target_ios | target_ios_simulator)) ASSERT: scan sema_wrong_number_of_arguments

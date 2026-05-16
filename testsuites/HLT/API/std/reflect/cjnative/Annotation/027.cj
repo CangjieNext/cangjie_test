@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 // 自定义注解可以被使用的地方可以使用 target 进行限制，如果违反限制则编译报错。
 
@@ -22,4 +22,4 @@ public class A0 {
 class Foo {}
 
 main() {}
-// (not MAC) ASSERT: scan chir_annotation_not_applicable
+// (!(target_mac | target_ios | target_ios_simulator)) ASSERT: scan chir_annotation_not_applicable

@@ -50,7 +50,7 @@ cp "$TEST_CASE_PATH/libUNNAMED.so" "$JNI_LIB_PATH/libUNNAMED.so"
 cp "$CANGJIE_HOME/runtime/lib/$1"/* "$JNI_LIB_PATH"
 
 # copying libc++_shared.so from Android NDK.
-cp "$OHOS_ROOT/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/$2/libc++_shared.so" "$JNI_LIB_PATH/libc++_shared.so"
+cp "$NDK_ROOT/sysroot/usr/lib/$2/libc++_shared.so" "$JNI_LIB_PATH/libc++_shared.so"
 
 # copying instrumented test source file.
 rm -rf "$ANDROID_PROJ_PATH/app/src/androidTest/java/com/example/myapplication"

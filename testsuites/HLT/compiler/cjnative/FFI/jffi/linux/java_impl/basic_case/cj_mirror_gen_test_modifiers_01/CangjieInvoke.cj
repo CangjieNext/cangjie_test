@@ -16,7 +16,6 @@
 // (Android) ASSERT: scan run java
 package UNNAMED
 
-import interoplib.interop.*
 import java.lang.*
 
 @JavaImpl

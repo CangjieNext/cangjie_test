@@ -21,11 +21,11 @@ public class MainInstrumentedTest {
     Main.main(new String[] {});
     StringBuilder sb = new StringBuilder();
     sb.append("run java Main\n");
+    sb.append("arr0.size = 9, arr1.size = 2\n");
+    sb.append("arr0[0] = 1, arr1[0] = true\n");
     sb.append("666666仓颉!\n");
     sb.append("hello, 仓颉!\n");
     sb.append("hoo:9\n");
-    sb.append("arr0.size = 9, arr1.size = 2\n");
-    sb.append("arr0[0] = 1, arr1[0] = true\n");
-    assertEquals(Logger.getLog(), sb.toString());
+    assertEquals(sb.toString(), Logger.getLog());
   }
 }

@@ -8,15 +8,15 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../MyType
-// (not MAC) EXEC: cd ./MyType && %compiler %cmp_opt %compile_dylib_opt --module-name=MyType ./src/myType/*.cj -o libMyType_myType.%test_suffix
-// (not MAC) EXEC: cd ./MyType && %compiler %cmp_opt %compile_dylib_opt --module-name=MyType ./src/myType/p0/*.cj -o libMyType_myType.p0.%test_suffix
-// (not MAC) EXEC: %compiler %cmp_opt -o %output %f
-// (not MAC) RUN-EXEC-PIPE-0: %run %run_opt %output %run_args 
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %compile_dylib_opt ./MyType/src/myType/*.cj -o ./MyType/libMyType.myType.%test_suffix
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: cd ./MyType && %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %compile_dylib_opt --module-name=MyType ./src/myType/p0/*.cj -o libMyType.myType.p0.%test_suffix
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std -o %output %f
+// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC-PIPE-0: %run %run_opt %output %run_args 
 // 反复加载同一个动态库模块。
 
 import std.reflect.*
 
 main(): Unit {
-    PackageInfo.load("./MyType/libMyType_myType")
-    PackageInfo.load("./MyType/libMyType_myType.p0")
+    PackageInfo.load("./MyType/libMyType.myType")
+    PackageInfo.load("./MyType/libMyType.myType.p0")
 }

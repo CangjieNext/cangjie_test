@@ -14,7 +14,6 @@
 
 package UNNAMED
 
-import interoplib.interop.*
 import java.lang.*
 
 let a1: ?Init01 = None
