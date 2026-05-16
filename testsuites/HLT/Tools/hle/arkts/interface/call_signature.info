@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 3
+// LEVEL: 0
 // DEPENDENCE: call_signature.d.ts
 // EXEC: %hle_arkts -i call_signature.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/call_signature/src/call_signature.cj | compare %f

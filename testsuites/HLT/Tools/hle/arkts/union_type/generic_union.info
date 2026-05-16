@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 3
+// LEVEL: 0
 // DEPENDENCE: generic_union.d.ts
 // EXEC: %hle_arkts -i generic_union.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/generic_union/src/generic_union.cj | compare %f

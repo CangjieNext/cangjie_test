@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 3
+// LEVEL: 0
 // DEPENDENCE: type_alias.d.ts
 // EXEC: %hle_arkts -i type_alias.d.ts -o . --module-name="my_module"
 // EXEC-PIPE: %cat cj/type_alias/src/type_alias.cj | compare %f
