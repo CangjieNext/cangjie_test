@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: IsExpr_01.cj
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %syntax_extra_options %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import stdx.syntax.*

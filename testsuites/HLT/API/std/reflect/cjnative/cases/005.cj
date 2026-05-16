@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output
-// (not MAC) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// (not MAC) ASSERT: scan IllegalTypeException: The input instance should be "default.C2", but now it`s "default.C3"
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %f -o %output
+// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (!(target_mac | target_ios | target_ios_simulator)) ASSERT: scan IllegalTypeException: The input instance should be "default.C2", but now it`s "default.C3"
 // 如果传入的实例 `instance` 的运行时类型与该实例成员属性信息所对应的实例成员属性所属的类型不严格相同，则会抛出 `IllegalTypeException` 异常。
 // 传入的实例是其子类型的情况。
 

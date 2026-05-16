@@ -19,6 +19,7 @@ compiler/cjnative/FFI/jffi
 
 # issue 198: syntax rewriter not support
 API/syntax/visit/ASTRewriter/test_rewriter_02.cj
+API/syntax/parseFunc/parseDir/path/parsedir_path_012n.cj
 
 # MacOS does not support reflect yet, these test cases for compatibility require reflect so disabled for now.
 compiler/cjnative/stable_abi/package_name
@@ -55,4 +56,3 @@ compiler/cjnative/Chir/CompileOption/plugin/runplugin/plugin5/runplugin.cj
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
-

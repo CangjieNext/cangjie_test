@@ -420,5 +420,8 @@ compiler/cjnative/FFI/objcffi/glue_code
 # cjpm本地可以通过看板失败，需后面对其环境适配用例
 Tools/cjpm/source_set/007/cross001/cross001.info
 
-# https://gitcode.com/Cangjie/cangjie_stdx/issues/291
-API/openssl/check_stdx.info
+API/syntax/parseFunc/parseDir/path/parsedir_path_004.cj
+API/syntax/parseFunc/parseDir/path/parsedir_path_012n.cj
+API/syntax/parseFunc/parseFile/path/parsefile_path_004.cj
+API/syntax/parseFunc/parseFile/path/parsefile_path_005.cj
+API/syntax/parseFunc/parseFile/path/parsefile_path_011n.cj

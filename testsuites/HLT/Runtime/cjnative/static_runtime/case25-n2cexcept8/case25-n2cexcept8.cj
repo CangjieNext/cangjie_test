@@ -9,7 +9,7 @@
 // LEVEL: 2
 // DEPENDENCE: %n.c case25.h
 // (not Windows and not MAC) EXEC: %clang -c %clang_opt %n.c -o lib%n.c.cfile.%dylib_suffix
-// (not Windows and not MAC) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt %overflow_wrapping --static -o %output
+// (not Windows and not MAC) EXEC: %compiler -L. -l%n.c.cfile %f %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --static %overflow_wrapping -o %output
 // (not Windows and not MAC) RUN-EXEC-PIPE: unset LD_LIBRARY_PATH && %output %run_args | compare %f
 // ASSERT:scan CJ2C_Func1 3.000000
 // ASSERT:scan C2CJ_Func1 11.000000

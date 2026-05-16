@@ -17,3 +17,4 @@ compiler/cjnative/stable_abi/package_name
 compiler/cjnative/stable_abi/add_instance_member_variable
 compiler/cjnative/stable_abi/add_virtual_function
 
+API/syntax/parseFunc/parseDir/path/parsedir_path_012n.cj

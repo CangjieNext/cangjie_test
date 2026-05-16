@@ -27,8 +27,9 @@ compiler/cjnative/stable_abi/06_interface/02_modify/01_define_content/02_compile
 compiler/cjnative/stable_abi/06_interface/02_modify/01_define_content/02_compiler_directive/java/06_interface_Java_delete.cj
 compiler/cjnative/stable_abi/interface/modify/funcmemeber_property/modify/compiler_directive/interface_add_java.cj
 
-# issue 198: syntax rewriter not support                                                                                                                                                                                                
+# issue 198: syntax rewriter not support
 API/syntax/visit/ASTRewriter/test_rewriter_02.cj
+API/syntax/parseFunc/parseDir/path/parsedir_path_012n.cj
 
 # fail in ci env
 API/std/socket/UdpSocket/test_udp_transportation_init.cj

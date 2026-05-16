@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 // 被 @Annotation 修饰的 class 类型如果不具有至少一个 const init 构造函数将导致编译器报错。
 
@@ -20,5 +20,5 @@ public class A0 {
 class C0 {}
 
 main() {}
-// (not MAC) ASSERT: scan sema_annotation_no_const_init
-// (not MAC) ASSERT: scan sema_expect_const
+// (!(target_mac | target_ios | target_ios_simulator)) ASSERT: scan sema_annotation_no_const_init
+// (!(target_mac | target_ios | target_ios_simulator)) ASSERT: scan sema_expect_const
