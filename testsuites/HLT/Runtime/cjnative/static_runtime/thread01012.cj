@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// (not Windows and not MAC) ERRCHECK: %compiler %cmp_opt --static %f -o %output
+// (not Windows and not MAC) ERRCHECK: %compiler %compilation_options %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --static %f -o %output
 
 import std.sync.SyncCounter
 

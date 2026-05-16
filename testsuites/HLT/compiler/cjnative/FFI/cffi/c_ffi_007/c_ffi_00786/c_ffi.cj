@@ -8,7 +8,7 @@
 
 // LEVEL:2
 // DEPENDENCE: %n.c
-// (not Windows) EXEC: %clang %clang_opt %n.c -o libc_ffi.%test_suffix
+// (not Windows) EXEC: %clang %clang_opt %n.c -o libc_ffi.%cffi_suffix
 // (not Windows) EXEC: %compiler %cmp_opt c_ffi.cj -l dl -o %output
 
 // (not Windows) RUN-EXEC: %run %run_opt %output %run_args

@@ -10,7 +10,7 @@
 // DESC: 测试基础场景：不指定--apc，O0优化时默认开启后端并行，并行度由--jobs=N控制，当N>1时后端并行度大于1
 // DEPENDENCE: gen_src.py check.py
 // EXEC: %python gen_src.py
-// EXEC: %compiler %cmp_opt --dump-ir main.cj -O0 --jobs 5 -o %output
+// EXEC: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %linkage_options --dump-ir main.cj -O0 --jobs 5 -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 
 // 当前，目标平台为Windows或MacOS或iOS时，不支持开启后端并行

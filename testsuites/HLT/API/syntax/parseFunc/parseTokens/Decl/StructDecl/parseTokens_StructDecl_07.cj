@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output 
+// EXEC: %compiler %import-cangjie-stdx %syntax_extra_options %cmp_opt %f -o %output 
 // RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.unittest.*

@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// (not Windows and not MAC) EXEC: %compiler %cmp_opt -o %n.%suffix --static %f --test
+// (not Windows and not MAC) EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --static -o %n.%suffix %f --test
 // (not Windows and not MAC) RUN-EXEC: unset LD_LIBRARY_PATH && %n.%suffix %run_args
 
 import std.binary.*

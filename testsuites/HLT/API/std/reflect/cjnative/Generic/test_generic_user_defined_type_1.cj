@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt %f %cmp_utest_opt -o %output
-// (not MAC) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %f %cmp_utest_opt -o %output
+// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 package my_org::test0
 

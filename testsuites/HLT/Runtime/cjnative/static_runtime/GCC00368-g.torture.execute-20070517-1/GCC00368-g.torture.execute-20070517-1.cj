@@ -9,7 +9,7 @@
 // LEVEL: 1
 // DEPENDENCE: %n.c
 // (not Windows and not MAC) EXEC: %clang %clang_opt %n.c -o lib%n.c.cfile.%cffi_suffix
-// (not Windows and not MAC) EXEC: %compiler -L. -l%n.c.cfile %f %cmp_opt %overflow_wrapping --static -o %output
+// (not Windows and not MAC) EXEC: %compiler -L. -l%n.c.cfile %f %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --static %overflow_wrapping -o %output
 // (not Windows and not MAC) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT:scan 0
 

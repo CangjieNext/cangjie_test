@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: Error_01.cj
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %syntax_extra_options %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args 2>&1 | compare %f
 // ASSERT: scan possibly confusing line terminator between '1' and '+'
 // ASSERT: scan expected type name here
