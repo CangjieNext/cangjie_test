@@ -9,7 +9,7 @@
 // LEVEL: 0
 // description: specify --compile-as-exe flag while not specifying --lto=[full|thin], expecting driver's compilation error.
 // (target_linux | target_ohos) EXEC: %compiler %cmp_opt --compile-as-exe %f -o %output 2>&1 | compare %f
-// (target_linux | target_ohos) ASSERT: scan --compile-as-exe only takes effect when lto mode is enabled
+// (target_linux | target_ohos) ASSERT: scan option '--compile-as-exe' is deprecated and will be removed in future.
 
 main(): Int64 {
     return 0

@@ -8,9 +8,9 @@
 
 // LEVEL: 1
 // DEPENDENCE: ./define.cj
-// (not MAC) EXEC: %compiler %cmp_opt define.cj %compile_dylib_opt -o libdefine.%test_suffix
-// (not MAC) EXEC: %compiler %cmp_opt %cmp_utest_opt %f -L. -ldefine -o %output
-// (not MAC) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt define.cj %compile_dylib_opt -o libdefine.%test_suffix
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %cmp_utest_opt %f -L. -ldefine -o %output
+// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 
 import std.reflect.*
 import define.*

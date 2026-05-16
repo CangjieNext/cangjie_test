@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 // 拥有 open 语义的 class 类型不允许被宏 @Annotation 修饰。
 
@@ -25,4 +25,4 @@ class C0 {}
 main() {
   return 0
 }
-// (not MAC) ASSERT: scan parse_unexpected_anno_on
+// (!(target_mac | target_ios | target_ios_simulator)) ASSERT: scan parse_unexpected_anno_on
