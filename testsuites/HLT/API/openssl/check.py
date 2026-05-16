@@ -75,6 +75,11 @@ white_list: Set[str] = {
     'SSL_set_tlsext_host_name',
 }
 
+windows_specific_white_list = [
+    'DYN_BIO_pending',
+    'DYN_CJ_SystemRootCerts',
+]
+
 class Symbol:
     def __init__(self, file_name: str, symbol_type: str, symbol_name: str):
         self.file_name = file_name
@@ -130,7 +135,11 @@ def main() -> None:
             if len(find_result) == 0:
                 # 如果在白名单中，则不认为是问题
                 if symbol.symbol_name in white_list:
-                    print(f'no corresponding symbol but in white list: {symbol.symbol_name}')
+                    print(f'in common white list: {symbol.symbol_name}')
+                    continue
+                # Windows有特殊用到的符号，需要单独维护一个白名单
+                if target == 'windows_x86_64_cjnative' and symbol.symbol_name in windows_specific_white_list:
+                    print(f'in Windows-specific white list: {symbol.symbol_name}')
                     continue
                 print(f'no corresponding symbol: {symbol.symbol_name}')
                 check_pass = False

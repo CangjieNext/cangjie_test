@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
-// (not MAC) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt -o %output %f %cmp_utest_opt
+// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 // 当一个实例的静态类型是其运行时类型的父类时，TypeInfo.of函数应该能获得该运行时类型的类型信息。
 import std.reflect.*
 

@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: enum_package.cj
-// EXEC: %compiler %cmp_opt enum_package.cj %compile_lib_opt
+// EXEC: %compiler %cmp_opt enum_package.cj %compile_lib_opt -o liba.b.%middle
 // EXEC: %compiler %cmp_opt %f liba.b.a -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 

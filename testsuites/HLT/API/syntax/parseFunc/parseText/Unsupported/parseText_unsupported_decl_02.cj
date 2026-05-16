@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC: %compiler %import-cangjie-stdx %syntax_extra_options %cmp_opt %f -o %output %cmp_utest_opt
 // RUN-EXEC-PIPE: %run_stdx %output %run_utest_opt %run_args 2>&1 | compare %f
 // ASSERT: scan-not Decl Not Supported in Libast Yet
 

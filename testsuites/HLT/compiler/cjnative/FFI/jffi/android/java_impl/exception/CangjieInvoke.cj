@@ -18,7 +18,6 @@
 
 package UNNAMED
 
-import interoplib.interop.*
 import java.lang.*
 
 public func divide(a: Int64, b: Int64): Int64 {

@@ -14,7 +14,6 @@
 // 支持接口
 package UNNAMED
 
-import interoplib.interop.*
 import java.lang.*
 
 @JavaImpl
