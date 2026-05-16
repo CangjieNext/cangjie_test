@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output
-// (not MAC) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// (not MAC) ASSERT: scan InvocationTargetException: The abstract function cannot be applied.
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %f -o %output
+// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (!(target_mac | target_ios | target_ios_simulator)) ASSERT: scan InvocationTargetException: The abstract function cannot be applied.
 // - 如果该实例成员函数信息所对应的实例成员函数是抽象的，则会抛出 `InvocationTargetException` 异常。
 
 import std.reflect.*

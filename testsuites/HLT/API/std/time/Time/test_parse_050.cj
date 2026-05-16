@@ -11,7 +11,7 @@
 // (target_win) DEPENDENCE: ../zoneinfo.tar.gz
 // (target_win) EXEC: tar -xf zoneinfo.tar.gz
 // ((target_ios | target_ios_simulator)) EXEC: %clang %clang_opt -c date_formatter_01.c
-// (!(target_ios | target_ios_simulator)) EXEC: %clang %clang_opt date_formatter_01.c -o libdate_formatter_01.%test_suffix
+// (!(target_ios | target_ios_simulator)) EXEC: %clang %clang_opt date_formatter_01.c -o libdate_formatter_01.%dylib_suffix
 // EXEC: %compiler %cmp_opt -L . -l date_formatter_01 %f -o %output
 // (target_win) RUN-EXEC-PIPE-0: %export "CJ_TZPATH=%cd%/zoneinfo" && %run %run_opt %output %run_args | compare %f
 // (!target_win) RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f

@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt -o %output %f
-// (not MAC) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// (not MAC) ASSERT: scan Nothing
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt -o %output %f
+// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// (!(target_mac | target_ios | target_ios_simulator)) ASSERT: scan Nothing
 
 import std.reflect.*
 
