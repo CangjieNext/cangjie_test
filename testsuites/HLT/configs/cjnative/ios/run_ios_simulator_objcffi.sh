@@ -27,6 +27,10 @@ dep=${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libdep.dylib
 #   -delete
 find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
   -maxdepth 1 \
+  -name "*.o" \
+  -delete
+find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
+  -maxdepth 1 \
   -name "*.m" \
   -not -name "AppDelegate.m" \
   -not -name "SceneDelegate.m" \
@@ -36,13 +40,13 @@ find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
   -maxdepth 1 \
   -name "*.h" \
   -not -name "AppDelegate.h" \
-  -not -name "Cangjie.h" \
   -not -name "SceneDelegate.h" \
   -not -name "ViewController.h" \
   -delete
 
 cp -f src/objc/*.*  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
-cp objc-gen/*  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
+cp objc-gen/*.h  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
+cp objc-gen/*.o  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
 mkdir -p ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative
 cp -r $CANGJIE_HOME/runtime/lib/$TARGET/*.dylib ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative/
 cp libcjworld.dylib ${cjworld}

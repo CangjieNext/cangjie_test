@@ -9,8 +9,8 @@
 // LEVEL: 3 
 // DEPENDENCE: src
 // (not Windows) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc %ins_nm_cjworld %enable_objc_cjmapping src/cjworld/*.cj
-// (not Windows and not iOS) EXEC: %clang %cangjie_runtime_link %clang_link_core %clang_link_objc_interop  objc-gen/*.m -Iobjc-gen -L. -lcjworld -shared -o libgluecode.%dylib_suffix
-// (not Windows and not iOS) EXEC: %clang %cangjie_runtime_link %clang_link_core -fobjc-arc -L. -lgluecode src/objc/*.m -Isrc/objc -Iobjc-gen -o %output
+// (not Windows) EXEC: cd objc-gen && %clang %clang_opt -framework Foundation *.m -I. -c
+// (not Windows and not iOS) EXEC: %clang %cangjie_runtime_link %clang_link_core %clang_link_objc_interop -fobjc-arc src/objc/*.m objc-gen/*.o -Isrc/objc -Iobjc-gen -L. -lcjworld -o %output
 // (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan in cj enum
 // ASSERT: scan in cj enum implicit
