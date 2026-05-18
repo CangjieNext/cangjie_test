@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 3
+// LEVEL: 0
 // DEPENDENCE:  ../../sourcecode/test.cj
 // EXEC: %compiler %cmp_opt test.cj -o test%cmp_output
 // EXEC: cjprof record test
