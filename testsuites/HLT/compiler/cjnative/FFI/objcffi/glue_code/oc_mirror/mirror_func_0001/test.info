@@ -9,7 +9,8 @@
 // LEVEL: 1
 // DEPENDENCE: src
 // (iOSNative) EXEC: %compiler %compile_dylib_opt %cmp_ocffi_opt %link_oc --link-options="-install_name @rpath/libcjworld.dylib" src/cjworld/*.cj
-// (iOSNative and not iOS) EXEC: %clang %clang_opt_objc %clang_link_objc_interop -Isrc/objc -Iobjc-gen -L . -lcjworld src/objc/*.m objc-gen/*.m -o %output
+// (iOSNative) EXEC: cd objc-gen && %clang %clang_opt -framework Foundation *.m -I. -I../src/objc -c
+// (iOSNative and not iOS) EXEC: %clang %cangjie_runtime_link %clang_link_core %clang_link_objc_interop -fobjc-arc src/objc/*.m objc-gen/*.o -Isrc/objc -Iobjc-gen -L. -lcjworld -o %output
 // (iOSNative) RUN-EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
 // ASSERT: scan-2 in objc init
 // ASSERT: scan in objc goo
