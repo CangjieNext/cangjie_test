@@ -8,11 +8,9 @@
 
 // LEVEL: 2
 // EXEC: %compiler %cmp_opt %f -o %output
-// (not iOS) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// (iOS) ASSERT: scan Failed to InitCJLibrary
-// (not iOS) ASSERT: scan my_exception
-// (not O2 and not iOS) ASSERT: scan throwable_20021.cj:31
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan my_exception
+// (not O2) ASSERT: scan throwable_20021.cj:29
 class A <: Exception {
     public override prop message: String {
         get() {

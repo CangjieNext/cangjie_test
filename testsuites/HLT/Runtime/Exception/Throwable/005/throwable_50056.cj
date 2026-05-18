@@ -8,10 +8,8 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// (not iOS) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// (iOS) ASSERT: scan Failed to InitCJLibrary
-// (not iOS) ASSERT: regex init
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: regex init
 
 class A <: Exception {}
 
