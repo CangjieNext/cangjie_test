@@ -61,10 +61,4 @@ compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
 
-# cjmp
-# these three are not ready for iOS, exclude them here as there is no dedicated iOS exclude list
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0114/test.info
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0115/test.info
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_enum_0031/test.info
-
 API/syntax/parseFunc/parseDir/path/parsedir_path_012n.cj
