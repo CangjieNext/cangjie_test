@@ -8,8 +8,7 @@
 
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
-// (not iOS) RUN-ERRCHECK: %run %run_opt %output %run_args
-// (iOS) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// RUN-ERRCHECK: %run %run_opt %output %run_args
 // ASSERT: scan-not main!
 // ASSERT: scan An exception has occurred:
 

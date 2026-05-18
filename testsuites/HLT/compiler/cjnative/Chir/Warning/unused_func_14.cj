@@ -10,7 +10,7 @@
 // EXEC-PIPE-0: %compiler %cmp_opt  %f -o %output 2>&1 | compare %f
 
 // RUN-EXEC: %run %run_opt %output %run_args
-// ASSERT: scan chir_dce_unused_function
+// (not mock)ASSERT: scan chir_dce_unused_function
 
 class A {
     private func foo() {

@@ -9,7 +9,7 @@
 // LEVEL: 2
 // (!(host_win | target_ohos)) DEPENDENCE: CMakeLists.txt, ./src
 // (!(host_win | target_ohos)) EXEC: %export plugin_lsp_suffix=%plugin_lsp_suffix && %mkdir build && cd build && cmake .. && make clean && make && make install
-// (!(host_win | target_ohos)) EXEC: %compiler %cmp_opt %f -Os --plugin=./output/libmyplugin1.%host_dylib_suffix -o %output
+// (!(host_win | target_ohos)) EXEC: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %f -Os --plugin=./output/libmyplugin1.%host_dylib_suffix -o %output
 
 public class C1<T> where T <: ToString {}
 
