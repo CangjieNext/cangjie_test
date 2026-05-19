@@ -200,7 +200,7 @@ def run_case(execute_cmd, work_dir, timeout):
     finally:
         if "remove_file_on_remote" in execute_cmd and execute_cmd["remove_file_on_remote"]:
             try:
-                logging.info("Cleaning up remote files...")
+                # logging.info("Cleaning up remote files...")
                 cleanup_cmd = execute_cmd["remove_file_on_remote"]
                 run_cmd("remove_file_on_remote", cleanup_cmd, work_dir, timeout)
             except Exception as cleanup_error:
