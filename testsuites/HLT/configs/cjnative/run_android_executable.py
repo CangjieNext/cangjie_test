@@ -200,7 +200,7 @@ def run_case(execute_cmd, work_dir, timeout):
     finally:
         if "remove_file_on_remote" in execute_cmd and execute_cmd["remove_file_on_remote"]:
             try:
-                logging.info("Cleaning up remote files...")
+                # logging.info("Cleaning up remote files...")
                 cleanup_cmd = execute_cmd["remove_file_on_remote"]
                 run_cmd("remove_file_on_remote", cleanup_cmd, work_dir, timeout)
             except Exception as cleanup_error:
@@ -219,11 +219,11 @@ def run_cmd(stage, cmd, work_dir, timeout):
     if stage == "run_case":
         sys.stdout.write(com_out)
         sys.stderr.write(com_err)
-    log_output("execute stage: %s", stage)
-    log_output("execute command: %s", cmd)
-    log_output("execute exit code: %s", return_code)
-    log_output("execute stdout: \n%s", indent(com_out, "\t", lambda line: True))
-    log_output("execute stderr: \n%s", indent(com_err, "\t", lambda line: True))
+    # log_output("execute stage: %s", stage)
+    # log_output("execute command: %s", cmd)
+    # log_output("execute exit code: %s", return_code)
+    # log_output("execute stdout: \n%s", indent(com_out, "\t", lambda line: True))
+    # log_output("execute stderr: \n%s", indent(com_err, "\t", lambda line: True))
     global EXIT_CODE
     if stage != "remove_file_on_remote":
         EXIT_CODE = int(return_code)
