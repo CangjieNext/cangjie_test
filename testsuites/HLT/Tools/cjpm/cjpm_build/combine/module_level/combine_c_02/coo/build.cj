@@ -28,8 +28,8 @@ func stagePreBuild(): Int64 {
 
 @When[target == "aarch64-linux-android26"]
 func stagePreBuild(): Int64 {
-    let OHOS_ROOT = getVariable("OHOS_ROOT").getOrThrow()
-    let clang = "${OHOS_ROOT}/bin/clang"
+    let NDK_ROOT = getVariable("NDK_ROOT").getOrThrow()
+    let clang = "${NDK_ROOT}/bin/clang"
    
 
     return  Process.run(
@@ -40,8 +40,8 @@ func stagePreBuild(): Int64 {
 
 @When[target == "aarch64-linux-android31"]
 func stagePreBuild(): Int64 {
-    let OHOS_ROOT = getVariable("OHOS_ROOT").getOrThrow()
-    let clang = "${OHOS_ROOT}/bin/clang"
+    let NDK_ROOT = getVariable("NDK_ROOT").getOrThrow()
+    let clang = "${NDK_ROOT}/bin/clang"
     
 
     return  Process.run(
@@ -52,8 +52,8 @@ func stagePreBuild(): Int64 {
 
 @When[target == "aarch64-linux-android32"]
 func stagePreBuild(): Int64 {
-    let OHOS_ROOT = getVariable("OHOS_ROOT").getOrThrow()
-    let clang = "${OHOS_ROOT}/bin/clang"
+    let NDK_ROOT = getVariable("NDK_ROOT").getOrThrow()
+    let clang = "${NDK_ROOT}/bin/clang"
    
 
     return  Process.run(
@@ -63,8 +63,8 @@ func stagePreBuild(): Int64 {
 }
 @When[target == "aarch64-linux-android35"]
 func stagePreBuild(): Int64 {
-    let OHOS_ROOT = getVariable("OHOS_ROOT").getOrThrow()
-    let clang = "${OHOS_ROOT}/bin/clang"
+    let NDK_ROOT = getVariable("NDK_ROOT").getOrThrow()
+    let clang = "${NDK_ROOT}/bin/clang"
    
 
     return  Process.run(
