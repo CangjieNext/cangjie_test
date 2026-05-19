@@ -10,7 +10,7 @@ import lib1.*
 // LEVEL: 1
 // DEPENDENCE: lib1.cj lib2.cj
 
-// (target_linux | target_android | target_ohos)EXEC: %compiler %cmp_opt %compile_lib_opt --lto-keep-pkg-visibility="lib1,lib3" --lto=full lib2.cj -o lib2.bc
+// (target_linux | target_android | target_ohos)EXEC: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %compile_lib_opt --lto-keep-pkg-visibility="lib1,lib3" --lto=full lib2.cj -o lib2.bc
 // (target_linux | target_android | target_ohos)ASSERT: scan 'main' is missing
 
 main(): Int64 {
