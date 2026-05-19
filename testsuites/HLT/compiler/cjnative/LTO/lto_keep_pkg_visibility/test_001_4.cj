@@ -10,8 +10,8 @@ import lib1.*
 // LEVEL: 1
 // DEPENDENCE: lib1.cj lib2.cj
 
-// (target_linux | target_android | target_ohos)EXEC: %compiler %cmp_opt %compile_lib_opt --lto=thin lib2.cj -o lib2.bc
-// (target_linux | target_android | target_ohos)EXEC: %compiler --lto-keep-pkg-visibility="" %cmp_opt %compile_dylib_opt --lto=full lib1.cj lib2.bc -o lib.so 
+// (target_linux | target_android | target_ohos)EXEC: %compiler %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %compile_lib_opt --lto=thin lib2.cj -o lib2.bc
+// (target_linux | target_android | target_ohos)EXEC: %compiler --lto-keep-pkg-visibility="" %compilation_options %extra_options %sanitizer_options %mock_options %optimization_options %debug_options %linkage_options %compile_dylib_opt --lto=full lib1.cj lib2.bc -o lib.so 
 // (target_linux | target_android | target_ohos)EXEC-1: nm lib.so | grep -E "T.*(foo|fxx)" 
 // (target_linux | target_android | target_ohos)EXEC-1: nm lib.so | grep -E "T.*(hw)" 
 
