@@ -6,4 +6,4 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-enum M : __int128 { a, b = 1, c = 0xffffffffffffffff, d };
+enum M : unsigned __int128 { a, b = 1, c = 0xffffffffffffffff, d };

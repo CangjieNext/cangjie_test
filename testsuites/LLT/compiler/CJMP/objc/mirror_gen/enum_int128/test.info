@@ -10,9 +10,9 @@
 // EXEC: ObjCInteropGen test.toml
 // EXEC: %cat test.cj | compare %f
 /* SCAN-IN
-public type M = VArray<Int64, $2>
+public type M = VArray<UInt64, $2> /*unsigned __int128*/
 public const a: M = [0, 0]
 public const b: M = [1, 0]
-public const c: M = [-1, 0]
+public const c: M = [18446744073709551615, 0]
 public const d: M = [0, 1]
 */
