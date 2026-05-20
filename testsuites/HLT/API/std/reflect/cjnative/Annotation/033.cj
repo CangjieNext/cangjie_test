@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
 
 // 检查注解定义的语法。
 
@@ -19,4 +19,4 @@ public class Version {
 class Foo {}
 
 main() {}
-// (not MAC) ASSERT: scan sema_no_match_constructor
+// (!(target_mac | target_ios | target_ios_simulator)) ASSERT: scan sema_no_match_constructor

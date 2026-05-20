@@ -8,12 +8,10 @@
 
 // LEVEL: 0 
 // DEPENDENCE: module_case1
-// (not CJNATIVE and not MAC) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=cbclib  test_dynamicloading.cj -o test.dynamicloading.cbc
-// (CJNATIVE) EXEC: cd module_case1 && %compiler %cmp_opt --output-type=dylib  test_dynamicloading.cj -o test.dynamicloading.so
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output
-// (not MAC) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// (not CJNATIVE and not MAC) ASSERT: scan IllegalArgumentException
-// (CJNATIVE) ASSERT: scan IllegalArgumentException
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: cd module_case1 && %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %compile_dylib_opt  test_dynamicloading.cj -o test.dynamicloading.so
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %f -o %output
+// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan IllegalArgumentException
 
 import std.reflect.*
 

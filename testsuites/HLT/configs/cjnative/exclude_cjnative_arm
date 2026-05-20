@@ -9,3 +9,13 @@ API/std/convert/radixconvertible/test_radixconvertible_int_01.cj
 API/std/convert/radixconvertible/test_radixconvertible_uint_02.cj
 API/std/os/env/test_getArgs/test_getArgs_005/test_getArgs_005.cj
 API/std/unittest/mock/test_mock_extend_cjnative.cj
+
+API/std/reflect/cjnative/Generic
+API/std/reflect/cjnative/enum_type
+API/std/reflect/cjnative/findAnnotation/test_findAllAnnotations.cj
+API/std/reflect/cjnative/findAnnotation/test_findAnnotation.cj
+API/std/reflect/cjnative/findAnnotation/test_getAllAnnotations.cj
+API/std/reflect/cjnative/function_type
+API/std/reflect/cjnative/generated
+API/std/reflect/cjnative/stdlib_reflect
+API/std/reflect/cjnative/tuple_type

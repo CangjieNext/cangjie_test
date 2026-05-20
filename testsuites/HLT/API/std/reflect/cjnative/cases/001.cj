@@ -7,8 +7,8 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output
-// (not MAC) RUN-EXEC-PIPE-0: %run %run_opt %output %run_args 2>&1
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %f -o %output
+// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC-PIPE-0: %run %run_opt %output %run_args 2>&1
 
 import std.reflect.*
 

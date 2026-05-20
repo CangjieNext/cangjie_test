@@ -360,4 +360,12 @@ Regression/External/I4AZMP.cj
 API/net/TLS_new/tls_serverconf_08.cj
 API/net/Client/Client/Client_send.cj
 
-
+API\std\reflect\cjnative\Generic
+API\std\reflect\cjnative\enum_type
+API\std\reflect\cjnative\findAnnotation\test_findAllAnnotations.cj
+API\std\reflect\cjnative\findAnnotation\test_findAnnotation.cj
+API\std\reflect\cjnative\findAnnotation\test_getAllAnnotations.cj
+API\std\reflect\cjnative\function_type
+API\std\reflect\cjnative\generated
+API\std\reflect\cjnative\stdlib_reflect\stdlib_reflect_0.cj
+API\std\reflect\cjnative\tuple_type\testcase0.cj

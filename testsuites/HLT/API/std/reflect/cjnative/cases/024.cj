@@ -8,9 +8,9 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../MyType
-// (not MAC) EXEC: cd ./MyType && %compiler %cmp_opt --output-type=dylib --module-name=MyType ./src/myType/*.cj -o libMyType_myType.%test_suffix
-// (not MAC) EXEC: %compiler %cmp_opt -o %output %f
-// (not MAC) RUN-EXEC: %run %run_opt %output %run_args
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std %compile_dylib_opt ./MyType/src/myType/*.cj -o ./MyType/libMyType.myType.%test_suffix
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --dy-std -o %output %f
+// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC: %run %run_opt %output %run_args
 
 import std.reflect.*
 
@@ -31,5 +31,5 @@ main(): Unit {
     // ModuleInfo.load("./libxxx_xxx")
     // 路径非法。
     // ModuleInfo.load(".../libxxx")
-    PackageInfo.load("./MyType/libMyType_myType")
+    PackageInfo.load("./MyType/libMyType.myType")
 }

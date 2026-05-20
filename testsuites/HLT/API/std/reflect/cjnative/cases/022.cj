@@ -8,10 +8,10 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../MyType
-// (not MAC) EXEC: cd ./MyType && %compiler %cmp_opt --output-type=dylib --module-name=MyType ./src/myType/*.cj -o libMyType_myType.%test_suffix
-// (not MAC) EXEC: %compiler %cmp_opt -o %output %f
-// (not MAC) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
-// (not MAC) ASSERT: scan IllegalArgumentException
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_dylib_opt ./MyType/src/myType/*.cj -o ./MyType/libMyType.myType.%test_suffix
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt -o %output %f
+// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC: %run %run_opt %output %run_args 2>&1 | compare %f
+// (!(target_mac | target_ios | target_ios_simulator)) ASSERT: scan IllegalArgumentException
 // 反复加载同一个动态库模块。
 
 import std.reflect.*
