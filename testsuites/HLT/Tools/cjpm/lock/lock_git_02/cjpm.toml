@@ -5,7 +5,7 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [dependencies]
-stdx = {git = "https://gitcode.com/yaoruili/cangjie_stdx",branch = "main",output-type = "dynamic"}
+stdx = {git = "https://gitcode.com/yaoruili/cangjie_stdx",branch = "dev",output-type = "dynamic"}
 [package]
   cjc-version = "1.0.0"
   compile-option = ""

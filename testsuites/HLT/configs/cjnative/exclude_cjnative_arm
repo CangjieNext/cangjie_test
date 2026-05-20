@@ -15,8 +15,6 @@ API/syntax
 # timezone file in ci not support now
 API/std/time/TimeZone/load/test_loadFromPaths.cj
 
-# bug
-Tools/cjpm/cjpm_command/build1/coverage
 
 API/std/io/file/File_create_03.cj
 API/std/io/StringReader/StringReader_readln_13_01.cj

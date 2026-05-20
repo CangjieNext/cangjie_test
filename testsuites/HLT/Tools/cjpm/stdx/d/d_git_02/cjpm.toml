@@ -10,7 +10,7 @@ p2 = {path = "p2"}
 
 [package]
   cjc-version = "1.0.0"
-  compile-option = ""
+  compile-option = "-Woff=all -lstdx.encoding.jsonFFI -lstdx.encoding.json.streamFFI -lstdx.compress.zlibFFI -lstdx.compress.tarFFI -lstdx.crypto.keysFFI -lstdx.crypto.x509FFI -lstdx.net.tlsFFI -lcangjie-dynamicLoader-opensslFFI"
   description = "nothing here"
   link-option = ""
   name = "b"
