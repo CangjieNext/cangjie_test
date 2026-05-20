@@ -6,9 +6,11 @@
 
 // DEPENDENCE: apilevel.cj canIUse.cj device_info.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt apilevel.cj -o apilevel.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt canIUse.cj -o canIUse.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt device_info.cj -o device_info.%middle
-// ERRCHECK: %compiler %noColor %cmp_opt_chir2hlir %f device_info.%middle -o %output --cfg=APILevel_level=10
+// ERRCHECK: %compiler %noColor %cmp_opt_chir2hlir %f canIUse.%middle device_info.%middle -o %output --cfg=APILevel_level=10 -Woff unused
 
+import ohos.base.canIUse
 import ohos.device_info.*
 import ohos.labels.*
 
@@ -28,9 +30,9 @@ main() {}
 
 /* SCAN
 error: cannot reference 'foo'(level: 19) which higher than level of the current scope(level: 18)
-  ==> test09.cj:23:9:
+  ==> test09.cj:25:9:
    | 
-23 |         foo()
+25 |         foo()
    |         ^^^^^ 
    | 
 
