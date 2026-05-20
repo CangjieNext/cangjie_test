@@ -5,12 +5,11 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../api_available.cj ../level_syscap_check/device_info.cj
-// EXEC: %compiler %cmp_opt %compile_lib_opt api_available.cj -o api_available.%middle
-// EXEC: %compiler %cmp_opt %compile_lib_opt device_info.cj -o device_info.%middle
-// EXEC: %compiler %noColor %cmp_opt %compile_lib_opt %f api_available.%middle device_info.%middle -Woff unused -o %output --cfg=APILevel_level=24 --dump-chir --dump-to-screen | compare %f
+// EXEC: %compiler %cmp_opt %compile_lib_opt api_available.cj device_info.cj -o device_info.%middle
+// EXEC: %compiler %noColor %cmp_opt %compile_lib_opt %f device_info.%middle -Woff unused -o %output --cfg=APILevel_level=24 --dump-chir --dump-to-screen | compare %f
 // ASSERT: scan sdkApiVersion
 
-import ohos.base.apiAvailable
+import ohos.device_info.apiAvailable
 import ohos.device_info.DeviceInfo
 
 main() {

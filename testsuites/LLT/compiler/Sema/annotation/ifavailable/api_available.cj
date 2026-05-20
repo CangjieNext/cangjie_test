@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-package ohos.base
+package ohos.device_info
 
 public func apiAvailable(level: Int64): Bool {
     level >= 19

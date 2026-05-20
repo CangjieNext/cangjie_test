@@ -9,12 +9,11 @@
 // sema_apilevel_invalid_version_format (error); compilation fails (exit non-0).
 
 // DEPENDENCE: api_available.cj level_syscap_check/device_info.cj
-// EXEC: %compiler %cmp_opt %compile_lib_opt api_available.cj -o api_available.%middle
-// EXEC: %compiler %cmp_opt %compile_lib_opt device_info.cj -o device_info.%middle
-// ERRCHECK: %compiler %cmp_opt %diag_json %f api_available.%middle device_info.%middle -o %output
+// EXEC: %compiler %cmp_opt %compile_lib_opt api_available.cj device_info.cj -o device_info.%middle
+// ERRCHECK: %compiler %cmp_opt %diag_json %f device_info.%middle -o %output
 // ASSERT: scan-6 sema_apilevel_invalid_version_format
 
-import ohos.base.apiAvailable
+import ohos.device_info.apiAvailable
 import ohos.device_info.DeviceInfo
 
 main(): Int64 {
