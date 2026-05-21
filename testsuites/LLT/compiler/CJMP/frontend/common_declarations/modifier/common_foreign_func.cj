@@ -4,10 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// SEPARATE-FILE: c/c.cj
-// EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c  2>&1 | compare %f
-// ASSERT: scan parse_conflict_modifier
+// case: foreign with const should be conflicted
+// EXEC-PIPE-1: %compiler %diag_json --experimental %f --output-type=chir 2>&1 | compare %f
+// ASSERT: scan-1 parse_conflict_modifier
 package cmp
-
-public common const a : Int64 = 1
-
+foreign common func goo():Unit
