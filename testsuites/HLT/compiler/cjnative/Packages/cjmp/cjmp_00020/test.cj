@@ -7,8 +7,7 @@
  */
  
 // LEVEL: 0
-// ERRCHECK: %compiler %cmp_opt %f %compile_chir_opt -o %output
-// ASSERT: scan parse_conflict_modifier
+// EXEC-0: %compiler %cmp_opt %f %compile_chir_opt -o %output
 
 public const common func f(): Int64 { 0 }
 

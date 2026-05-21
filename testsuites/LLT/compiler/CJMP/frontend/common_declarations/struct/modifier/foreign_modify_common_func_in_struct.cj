@@ -4,14 +4,12 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// case: a common struct with common member func should be conficted with foreign and const
+// case: a common struct with common member func should be conficted with foreign
 // SEPARATE-FILE: c/c.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
 // ASSERT: scan parse_illegal_modifier_in_scope
-// ASSERT: scan parse_conflict_modifier
 package cmp
 common struct A{
     foreign common func foo():Unit
-    const common func goo():Unit{}
     init() {}
 }
