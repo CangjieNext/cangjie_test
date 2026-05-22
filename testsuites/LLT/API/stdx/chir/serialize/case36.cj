@@ -11,7 +11,7 @@
 import std.collection.*
 import stdx.chir.*
 
-// Parameter 带 Annotation
+// Parameter 带 CustomAnnoInstance
 
 main() {
     let pkg = Package("pkg.td13", AccessLevel.Public)
@@ -22,12 +22,12 @@ main() {
 
     let mf = pkg.addFunction(FuncType.get([i64, i32], i64), "mRepo.update", "update", "pkg.td13")
     let p0 = mf.parameters[0]
-    let annoP0 = Annotation("NotNull")
-    p0.annotations = [annoP0]
+    let annoP0 = CustomAnnoInstance("NotNull")
+    p0.customAnnoInstances = [annoP0]
     let p1 = mf.parameters[1]
-    let annoP1 = Annotation("Range")
+    let annoP1 = CustomAnnoInstance("Range")
     annoP1.argValues = ["1", "100"]
-    p1.annotations = [annoP1]
+    p1.customAnnoInstances = [annoP1]
     mf.initBody()
     mf.body.getOrThrow().entryBlock.appendExpr(Exit.create())
     cls.appendMethod(mf)

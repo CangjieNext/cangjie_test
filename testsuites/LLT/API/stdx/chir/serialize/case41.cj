@@ -11,17 +11,17 @@
 import std.collection.*
 import stdx.chir.*
 
-// ClassDef + StructDef + EnumDef 各自带 Annotation，EnumCtorInfo 带 Annotation
+// ClassDef + StructDef + EnumDef 各自带 CustomAnnoInstance，EnumCtorInfo 带 CustomAnnoInstance
 
 main() {
     let pkg = Package("pkg.td18", AccessLevel.Public)
     let i32 = IntType.getInt32()
 
-    // ClassDef 带 Annotation
+    // ClassDef 带 CustomAnnoInstance
     let cls = pkg.addClass("mOrder", "Order", true)
-    let annoTable = Annotation("Table")
+    let annoTable = CustomAnnoInstance("Table")
     annoTable.argValues = ["t_order"]
-    cls.annotations = [annoTable]
+    cls.customAnnoInstances = [annoTable]
     cls.appendInstanceMemberVar("orderId", i32)
 
     let mfCls = pkg.addFunction(FuncType.get(Array<Type>(), i32), "mOrder.getId", "getId", "pkg.td18")
@@ -29,24 +29,24 @@ main() {
     mfCls.body.getOrThrow().entryBlock.appendExpr(Exit.create())
     cls.appendMethod(mfCls)
 
-    // StructDef 带 Annotation
+    // StructDef 带 CustomAnnoInstance
     let st = pkg.addStruct("mCoord", "Coord")
-    let annoStruct = Annotation("ValueType")
-    st.annotations = [annoStruct]
+    let annoStruct = CustomAnnoInstance("ValueType")
+    st.customAnnoInstances = [annoStruct]
     st.appendInstanceMemberVar("x", i32)
     st.appendInstanceMemberVar("y", i32)
 
-    // EnumDef 带 Annotation，构造器也带 Annotation
+    // EnumDef 带 CustomAnnoInstance，构造器也带 CustomAnnoInstance
     let en = pkg.addEnum("mStatus", "Status", true)
-    let annoEnum = Annotation("Sealed")
-    en.annotations = [annoEnum]
+    let annoEnum = CustomAnnoInstance("Sealed")
+    en.customAnnoInstances = [annoEnum]
     let ctorActive = en.appendEnumCtorInfo("mStatus.Active", "Active", argTypes: Array<Type>())
-    let annoActive = Annotation("Default")
-    ctorActive.annotations = [annoActive]
+    let annoActive = CustomAnnoInstance("Default")
+    ctorActive.customAnnoInstances = [annoActive]
     let ctorInactive = en.appendEnumCtorInfo("mStatus.Inactive", "Inactive", argTypes: Array<Type>())
-    let annoInactive = Annotation("Deprecated")
+    let annoInactive = CustomAnnoInstance("Deprecated")
     annoInactive.argValues = ["use Archived"]
-    ctorInactive.annotations = [annoInactive]
+    ctorInactive.customAnnoInstances = [annoInactive]
 
     pkg.dump()
     let (data, size) = serializePackage(pkg)
