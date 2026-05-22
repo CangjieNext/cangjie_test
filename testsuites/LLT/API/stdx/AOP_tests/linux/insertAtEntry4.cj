@@ -12,14 +12,14 @@
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
-import stdx.aspectCJ.*
+import stdx.aspect_cj.*
 import std.time.DateTime
 
 let g_a = 1
 var g_b = true
 
 @InsertAtEntry[packageName: "default", className: "EA", methodName: "printCurrentTime", isStatic: false,
-    funcTypeStr: "(std.core.String)->std.core.String", recursive: false]
+    recursive: false, funcTypeStr: "(std.core.String)->std.core.String"]
 public func printCurrentTimeImpl(x: EA, str: String) {
     println("#----- InsertAtEntry: ${str} -----#")
 }

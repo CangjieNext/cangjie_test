@@ -19,13 +19,13 @@ end
 
 package AOP_demo1
 
-import stdx.aspectCJ.*
+import stdx.aspect_cj.*
 
 public enum AnnotatedClass {
     | A
 
     @InsertAtEntry[packageName: "AOP_demo1", className: "WovenClass", methodName: "wovenFunction", isStatic: true,
-        funcTypeStr: "()->Unit", recursive: true]
+        recursive: true, funcTypeStr: "()->Unit"]
     public static func annotatedFunction(): Unit {
         println("annotatedFunction")
         ()

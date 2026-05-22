@@ -12,14 +12,14 @@
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
-import stdx.aspectCJ.*
+import stdx.aspect_cj.*
 import std.time.DateTime
 
 struct SA {
     @InsertAtEntry[packageName: "default", className: "SA", methodName: "foo", isStatic: false,
-        funcTypeStr: "(std.core.String)->Unit", recursive: false]
+        recursive: false, funcTypeStr: "(std.core.String)->Unit"]
     @InsertAtEntry[packageName: "default", className: "SA", methodName: "foo", isStatic: false,
-        funcTypeStr: "(std.core.String)->Unit", recursive: false]
+        recursive: false, funcTypeStr: "(std.core.String)->Unit"]
     public func goo(x: String) {
         println("#----- SA: ${x} -----#")
     }
