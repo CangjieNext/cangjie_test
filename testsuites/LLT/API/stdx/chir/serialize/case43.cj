@@ -11,7 +11,7 @@
 import std.collection.*
 import stdx.chir.*
 
-// 综合用例：ClassDef 泛型+约束+Annotation，成员函数泛型参数+Annotation，Parameter 带 Annotation
+// 综合用例：ClassDef 泛型+约束+CustomAnnoInstance，成员函数泛型参数+CustomAnnoInstance，Parameter 带 CustomAnnoInstance
 
 main() {
     let pkg = Package("pkg.td20", AccessLevel.Public)
@@ -27,15 +27,15 @@ main() {
     let gU = GenericType.get("pkg.td20.U", "U")
     gU.upperBounds = [RefType.get(ifaceEq.classType)]
 
-    // ClassDef 带泛型参数和 Annotation
+    // ClassDef 带泛型参数和 CustomAnnoInstance
     let cls = pkg.addClass("mSortedMap", "SortedMap", true, genericTypeParams: [gT, gU])
-    let annoRepo = Annotation("Repository")
+    let annoRepo = CustomAnnoInstance("Repository")
     annoRepo.argValues = ["sorted_map"]
-    cls.annotations = [annoRepo]
+    cls.customAnnoInstances = [annoRepo]
 
     let vKey = cls.appendInstanceMemberVar("key", gT)
-    let annoKey = Annotation("Index")
-    vKey.annotations = [annoKey]
+    let annoKey = CustomAnnoInstance("Index")
+    vKey.customAnnoInstances = [annoKey]
 
     let vVal = cls.appendInstanceMemberVar("value", gU)
     let vSize = cls.appendInstanceMemberVar("size", i32)
@@ -44,16 +44,16 @@ main() {
     let sv = pkg.addGlobalVar(i64, "mSortedMap.maxSize", "maxSize", "pkg.td20")
     cls.appendStaticVar(sv)
 
-    // 成员函数带泛型参数、函数 Annotation、参数 Annotation
+    // 成员函数带泛型参数、函数 CustomAnnoInstance、参数 CustomAnnoInstance
     let gR = GenericType.get("pkg.td20.R", "R")
     let mf = pkg.addFunction(FuncType.get([gT], gR), "mSortedMap.find", "find", "pkg.td20")
     mf.genericTypeParams = [gR]
-    let annoMf = Annotation("Cacheable")
+    let annoMf = CustomAnnoInstance("Cacheable")
     annoMf.argValues = ["ttl=60"]
-    mf.annotations = [annoMf]
+    mf.customAnnoInstances = [annoMf]
     let p0 = mf.parameters[0]
-    let annoP0 = Annotation("NotNull")
-    p0.annotations = [annoP0]
+    let annoP0 = CustomAnnoInstance("NotNull")
+    p0.customAnnoInstances = [annoP0]
     mf.initBody()
     mf.body.getOrThrow().entryBlock.appendExpr(Exit.create())
     cls.appendMethod(mf)

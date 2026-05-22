@@ -11,7 +11,7 @@
 import std.collection.*
 import stdx.chir.*
 
-// Function 带 Annotation
+// Function 带 CustomAnnoInstance
 
 main() {
     let pkg = Package("pkg.td12", AccessLevel.Public)
@@ -21,18 +21,18 @@ main() {
     let cls = pkg.addClass("mService", "Service", true)
 
     let mf1 = pkg.addFunction(FuncType.get(Array<Type>(), i64), "mService.query", "query", "pkg.td12")
-    let annoFn1 = Annotation("Override")
-    mf1.annotations = [annoFn1]
+    let annoFn1 = CustomAnnoInstance("Override")
+    mf1.customAnnoInstances = [annoFn1]
     mf1.initBody()
     mf1.body.getOrThrow().entryBlock.appendExpr(Exit.create())
     cls.appendMethod(mf1)
 
     let mf2 = pkg.addFunction(FuncType.get([i32], i64), "mService.queryById", "queryById", "pkg.td12")
-    let annoFn2 = Annotation("Transactional")
+    let annoFn2 = CustomAnnoInstance("Transactional")
     annoFn2.argValues = ["readOnly"]
-    let annoFn3 = Annotation("Cacheable")
+    let annoFn3 = CustomAnnoInstance("Cacheable")
     annoFn3.argValues = ["key", "3600"]
-    mf2.annotations = [annoFn2, annoFn3]
+    mf2.customAnnoInstances = [annoFn2, annoFn3]
     mf2.initBody()
     mf2.body.getOrThrow().entryBlock.appendExpr(Exit.create())
     cls.appendMethod(mf2)

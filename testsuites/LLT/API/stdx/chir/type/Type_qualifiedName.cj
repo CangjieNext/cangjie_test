@@ -18,7 +18,7 @@ qn Gen: T
 qn RA: RawArray<Int32>
 qn VA: VArray<Int32,4>
 qn Box: Box<Int32>
-qn class: pkg.qn:C
+qn class: pkg.qn.C
 */
 
 import stdx.chir.*

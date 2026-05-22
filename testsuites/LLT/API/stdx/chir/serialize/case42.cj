@@ -11,7 +11,7 @@
 import std.collection.*
 import stdx.chir.*
 
-// Function 带 Annotation + Parameter 带 Annotation，成员函数场景
+// Function 带 CustomAnnoInstance + Parameter 带 CustomAnnoInstance，成员函数场景
 
 main() {
     let pkg = Package("pkg.td19", AccessLevel.Public)
@@ -20,20 +20,20 @@ main() {
 
     let cls = pkg.addClass("mCalculator", "Calculator", true)
 
-    // 成员函数带 Annotation，参数也带 Annotation
+    // 成员函数带 CustomAnnoInstance，参数也带 CustomAnnoInstance
     let mf = pkg.addFunction(FuncType.get([i64, i32], i64), "mCalculator.compute", "compute", "pkg.td19")
-    let annoFn = Annotation("Benchmark")
+    let annoFn = CustomAnnoInstance("Benchmark")
     annoFn.argValues = ["warmup=3", "iterations=10"]
-    mf.annotations = [annoFn]
+    mf.customAnnoInstances = [annoFn]
 
     let p0 = mf.parameters[0]
-    let annoP0 = Annotation("NonNegative")
-    p0.annotations = [annoP0]
+    let annoP0 = CustomAnnoInstance("NonNegative")
+    p0.customAnnoInstances = [annoP0]
 
     let p1 = mf.parameters[1]
-    let annoP1 = Annotation("Range")
+    let annoP1 = CustomAnnoInstance("Range")
     annoP1.argValues = ["0", "1000"]
-    p1.annotations = [annoP1]
+    p1.customAnnoInstances = [annoP1]
 
     mf.initBody()
     mf.body.getOrThrow().entryBlock.appendExpr(Exit.create())
