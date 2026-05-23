@@ -7,9 +7,10 @@
  */
 
 // LEVEL: 2
-// (not Windows and not MAC and not O2) EXEC: %compiler %cmp_opt --static %f -o %output
+// (not Windows and not MAC and not O2) EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --static %f -o %output
 // (not Windows and not MAC and not O2) RUN-EXEC-PIPE: %export cjStackSize=64kb && %export CJ_SOF_SIZE=20 && unset LD_LIBRARY_PATH && %output %run_args 2>&1 | compare %f
 
+// 9 = 10 - 1
 // ASSERT: scan-10 at default.my_test_func
 
 // ASSERT: scan-begin An exception has occurred
