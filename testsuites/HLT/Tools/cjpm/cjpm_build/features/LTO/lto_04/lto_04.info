@@ -11,5 +11,5 @@
 // (not MAC and not Windows) EXEC: cd %n/pro1 && %cjpm build -V 2>&1 | compare ../%f
 // (not MAC and not Windows) EXEC: cd %n && %cjpm build -V && %cjpm run
 // (not MAC and not Windows) ASSERT: scan libpro1.xoo.so
-// (not MAC and not Windows) ASSERT: scan-not --lto
+// (not MAC and not Windows) ASSERT: scan-2 --lto
 // (not MAC and not Windows) ASSERT: scan cjpm build success

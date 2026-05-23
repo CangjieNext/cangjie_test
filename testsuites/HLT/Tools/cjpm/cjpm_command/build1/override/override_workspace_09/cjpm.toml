@@ -35,3 +35,8 @@ target-dir = "temp_target"
   override-compile-option = "-O2"
 [target.aarch64-unknown-linux-gnu.release]
   override-compile-option = "-O2"
+
+[target.aarch64-linux-ohos.debug]
+  override-compile-option = "-O2"
+[target.aarch64-linux-ohos.release]
+  override-compile-option = "-O2"

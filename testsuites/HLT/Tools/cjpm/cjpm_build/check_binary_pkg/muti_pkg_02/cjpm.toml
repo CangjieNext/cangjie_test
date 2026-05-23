@@ -42,6 +42,11 @@
       "pro1.zoo" = "./pro1/target/release/pro1/pro1.zoo.cjo"
       "pro1.yoo" = "./pro1/target/release/pro1/pro1.yoo.cjo"
   
+    [target.aarch64-linux-ohos.bin-dependencies.package-option]
+      "pro1.xoo" = "./pro1/target/release/pro1/pro1.xoo.cjo"
+      "pro1.zoo" = "./pro1/target/release/pro1/pro1.zoo.cjo"
+      "pro1.yoo" = "./pro1/target/release/pro1/pro1.yoo.cjo"
+
   [target.cjvm.bin-dependencies.package-option]
         "pro1.xoo" = "./pro1/target/release/pro1/pro1.xoo.cjo"
         "pro1.zoo" = "./pro1/target/release/pro1/pro1.zoo.cjo"

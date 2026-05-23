@@ -11,7 +11,6 @@
   test_repo_4 = "1.0.0"
   test_repo_3 = "1.0.0"
   test_repo_1 = "1.0.0"
-  test_output_2 = "1.0.0"
   test_output_1 = "1.0.2"
   dem_test = "1.0.0"
    "org2::test_repo_6" = "(,)"

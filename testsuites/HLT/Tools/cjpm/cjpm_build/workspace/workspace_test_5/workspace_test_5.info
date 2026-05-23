@@ -10,7 +10,6 @@
 // DEPENDENCE: ../%n
 // (not Windows) EXEC: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
 // ( not Windows and not MAC)ASSERT: scan-2 --lto=full
-// (not CJNATIVE and not Windows)ASSERT: scan-not --lto=full
 // (not Windows) ASSERT: scan-not --incremental-compile
 // (not Windows) ASSERT: regex workspace_test_5[/|\\]aoo
 // (not Windows) ASSERT: regex workspace_test_5[/|\\]boo

@@ -1,0 +1,54 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[package]
+  cjc-version = "0.60.4"
+  name = "mp"
+  description = "nothing here"
+  version = "1.0.0"
+  target-dir = ""
+  output-type = "dynamic"
+  compile-option = ""
+  override-compile-option = ""
+  link-option = ""
+  package-configuration = {}
+
+[dependencies]
+
+
+[[source-set]]
+name = "common"
+src-dir = "./src/common"
+features = []
+product = false
+
+[[source-set]]
+name = "linux"
+src-dir = "./src/linux"
+features = ["os.linux"]
+product = false
+
+[[source-set]]
+name = "darwin"
+src-dir = "./src/darwin"
+features = ["os.darwin"]
+product = true
+
+[[source-set]]
+name = "windows"
+src-dir = "./src/windows"
+features = ["os.windows"]
+product = true
+
+
+[[source-set]]
+name = "ohos"
+src-dir = "./src/ohos"
+features = ["os.ohos"]
+product = true
+
+
+

@@ -4,10 +4,10 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// LEVEL: 0
+// LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC: cd %n && rm -rf cangjie_stdx
-// EXEC: cd %n && git clone https://gitcode.com/Cangjie/cangjie_stdx.git -b main
+// EXEC: cd %n && git clone https://gitcode.com/Cangjie/cangjie_stdx.git -b release/1.1
 // EXEC-PIPE-0: cd %n/cangjie_stdx && %cjpm check 2>&1 | compare %f
 // ASSERT: scan cjpm check success
 

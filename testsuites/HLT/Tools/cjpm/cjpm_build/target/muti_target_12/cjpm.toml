@@ -24,3 +24,6 @@ compile-option="-O1"
 compile-option = "-O1"
 [target.aarch64-unknown-linux-gnu]
 compile-option="-O2"
+
+[target.aarch64-linux-ohos]
+compile-option = "-O2"

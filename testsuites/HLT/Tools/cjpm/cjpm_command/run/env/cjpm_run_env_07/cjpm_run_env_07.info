@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n && cjpm run -V 2>&1 | compare %f
+// EXEC: cd %n && %cjpm run -V 2>&1 | compare %f
 // (not Windows)ASSERT: regex :this_is_a_test
 // (Windows)ASSERT: regex ;this_is_a_test

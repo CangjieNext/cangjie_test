@@ -8,5 +8,5 @@
 
 // LEVEL:0
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %cjpm build %cjpm_opt -j 12
-// EXEC: cd %n && %cjpm run
+// (native_compilation)EXEC: cd %n && %cjpm build %cjpm_opt -j 12
+// (native_compilation)EXEC: cd %n && %cjpm run

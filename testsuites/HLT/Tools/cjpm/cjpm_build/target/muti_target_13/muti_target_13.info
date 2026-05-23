@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n/pro1 && cjpm build
+// EXEC: cd %n/pro1 && %cjpm build
 // EXEC: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
 // ASSERT: scan cjpm build success
