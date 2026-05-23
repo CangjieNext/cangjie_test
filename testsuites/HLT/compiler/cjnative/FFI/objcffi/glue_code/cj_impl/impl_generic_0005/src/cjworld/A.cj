@@ -8,7 +8,7 @@
 
 package cjworld
 
-import interoplib.objc.*
+import objc.lang.*
 
 public enum A<T> where T <: ToString {
     | E(T)

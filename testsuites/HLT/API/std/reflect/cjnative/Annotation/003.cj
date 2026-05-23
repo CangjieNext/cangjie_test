@@ -8,10 +8,9 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../MyType
-// (not MAC) EXEC: cd ./MyType && %compiler %cmp_opt %compile_library --module-name=MyType ./src/myType/*.cj -o libMyType_myType.%test_suffix
-// (not MAC) EXEC: %compiler %cmp_opt -o %output %f --import-path . -L ./MyType -lMyType_myType %cmp_utest_opt
-// (not MAC and not OHOS) RUN-EXEC: %cp ./MyType/libMyType_myType.%test_suffix .&& %run %run_opt %output %run_utest_opt %run_args
-// (Windows and OHOS) RUN-EXEC: cp ./MyType/libMyType_myType.%test_suffix .&& %run %run_opt %output %run_utest_opt %run_args
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %compile_library --module-name=MyType ./MyType/src/myType/*.cj -o libMyType.myType.%library_suffix
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt -o %output %f -L. -lMyType.myType %cmp_utest_opt
+// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
 // 在注解类中可以成功定义实例成员变量。
 
 import std.reflect.*

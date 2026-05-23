@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// (not Windows and not MAC) EXEC: %compiler %cmp_opt --static %f -o %output
+// (not Windows and not MAC) EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %mock_options %optimization_options %debug_options --static %f -o %output
 // (not Windows and not MAC) RUN-EXEC-PIPE-0: unset LD_LIBRARY_PATH && %output %run_args 2>&1 | compare %f
 // ASSERT: scan true23456canghjietesty
 

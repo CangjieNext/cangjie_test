@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // (Windows) DEPENDENCE: file001.cj
-// (Windows) EXEC: %compiler %import-cangjie-stdx %cmp_opt %f -o %output %cmp_utest_opt
+// (Windows) EXEC: %compiler %import-cangjie-stdx %syntax_extra_options %cmp_opt %f -o %output %cmp_utest_opt
 // (Windows) RUN-EXEC: %run_stdx %output %run_utest_opt %run_args
 
 import std.fs.*

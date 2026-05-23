@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DESC: cjc -O2 -g, check in generated chir, unused function should be eliminated.
-// EXEC: %compiler %cmp_opt --save-temps . -O2 -g %f -o %output
+// EXEC: %compiler %compilation_options %extra_options %lto_options %sanitizer_options %linkage_options --save-temps . -O2 -g %f -o %output
 // RUN-EXEC: %run %run_opt %output %run_args
 // EXEC: chir-dis default.chir
 // EXEC: %cat default.chirtxt | compare %f
