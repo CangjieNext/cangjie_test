@@ -284,5 +284,5 @@ if __name__ == "__main__":
         exc_type, exc_value, exc_traceback = sys.exc_info()
         print("Traceback (most recent call last):", file=sys.stderr)
         traceback.print_tb(exc_traceback, file=sys.stderr)
-        print(f"{exc_type.__name__}: {exc_value}", file=sys.stderr)
+        # print(f"{exc_type.__name__}: {exc_value}", file=sys.stderr)
         sys.exit(255)
