@@ -8,5 +8,5 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (native_compilation)EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%dylib_suffix && %cjpm build -g 2>&1 | compare %f
+// (native_compilation)EXEC: cd %n && %clang %clang_opt test01.c  -o libtest01.%dylib_suffix && %cjpm build -g 2>&1 | compare %f
 // ASSERT: scan cjpm build success

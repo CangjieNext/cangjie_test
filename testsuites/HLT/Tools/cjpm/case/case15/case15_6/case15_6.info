@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (native_compilation)EXEC: cd %n/libtest && %clang -c -o test.o test.c && ar -rc libtest.a test.o
+// (native_compilation)EXEC: cd %n/libtest && %clang %clang_opt -c -o test.o test.c && ar -rc libtest.a test.o
 // (native_compilation)EXEC: cd %n && %cjpm test -V 2>&1 | compare %f
 // (native_compilation & host_win) ASSERT: scan -ldep -lcrypt32 --link-options "-L ./libtest -ltest"
 // (native_compilation & !host_win & !host_mac) scan -ldep -ldl --link-options "-L ./libtest -ltest"
