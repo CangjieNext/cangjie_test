@@ -8,7 +8,7 @@
 // DEPENDENCE: ../%n
 // (target_linux | target_android | target_ohos)EXEC: cd %n/coo/dep && %cjpm build %cjpm_opt
 // (target_linux | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
-// ASSERT: regex Compiling package `b`: [\s\S]*[\s\S]*coo/dep/.*
+// ASSERT: regex Compiling package `b`: [\s\S]*[\s\S]*coo[/|\\]dep[/|\\].*
 // ASSERT: regex Compiling package `b`: [\s\S]*-L [\s\S]* -lcoo
 // ASSERT: regex Compiling package `b`: [\s\S]*-L [\s\S]* -laoo
 // ASSERT: regex-not Compiling package `b`: [\s\S]*--link-options=--whole-archive -L .*

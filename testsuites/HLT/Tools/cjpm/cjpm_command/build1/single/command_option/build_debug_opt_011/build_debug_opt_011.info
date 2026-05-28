@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (native_compilation & !host_win) EXEC-PIPE: cd %n && clang test01.c -shared -fPIC -o libtest01.%dylib_suffix && %cjpm build -g -V 2>&1 | compare %f
-// (native_compilation & host_win) EXEC-PIPE: cd %n && gcc test01.c -shared -fPIC -o libtest01.%dylib_suffix && %cjpm build -g -V 2>&1 | compare %f
+// (native_compilation & !host_win) EXEC-PIPE: cd %n && %clang %clang_opt test01.c  -o libtest01.%dylib_suffix && %cjpm build -g -V 2>&1 | compare %f
+// (native_compilation & host_win) EXEC-PIPE: cd %n && %clang %clang_opt test01.c  -o libtest01.%dylib_suffix && %cjpm build -g -V 2>&1 | compare %f
 // ASSERT: scan-1 -g

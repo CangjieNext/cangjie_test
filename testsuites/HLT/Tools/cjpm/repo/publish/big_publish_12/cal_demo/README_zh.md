@@ -900,7 +900,7 @@ test-dependencies 内的依赖仅可用于文件名形如 xxx_test.cj 的测试�
 
 仓颉调用外部 c 动态库的方法说明：
 
-自行将相应的 hello.c 文件编成 .so库（在该文件路径执行 clang -shared -fPIC hello.c -o libhello.so）
+自行将相应的 hello.c 文件编成 .so库（在该文件路径执行 clang  hello.c -o libhello.so）
 修改该项目的 cjpm.toml 文件，配置 ffi.c 字段，如下面的例子所示。其中，./src/ 是编出的 libhello.so 相对当前目录的地址，hello 为库名。
 执行 cjpm build，即可编译成功。
 [ffi.c]
@@ -2544,7 +2544,7 @@ test-dependencies 内的依赖仅可用于文件名形如 xxx_test.cj 的测试�
 
 仓颉调用外部 c 动态库的方法说明：
 
-自行将相应的 hello.c 文件编成 .so库（在该文件路径执行 clang -shared -fPIC hello.c -o libhello.so）
+自行将相应的 hello.c 文件编成 .so库（在该文件路径执行 clang  hello.c -o libhello.so）
 修改该项目的 cjpm.toml 文件，配置 ffi.c 字段，如下面的例子所示。其中，./src/ 是编出的 libhello.so 相对当前目录的地址，hello 为库名。
 执行 cjpm build，即可编译成功。
 [ffi.c]
@@ -4188,7 +4188,7 @@ test-dependencies 内的依赖仅可用于文件名形如 xxx_test.cj 的测试�
 
 仓颉调用外部 c 动态库的方法说明：
 
-自行将相应的 hello.c 文件编成 .so库（在该文件路径执行 clang -shared -fPIC hello.c -o libhello.so）
+自行将相应的 hello.c 文件编成 .so库（在该文件路径执行 clang  hello.c -o libhello.so）
 修改该项目的 cjpm.toml 文件，配置 ffi.c 字段，如下面的例子所示。其中，./src/ 是编出的 libhello.so 相对当前目录的地址，hello 为库名。
 执行 cjpm build，即可编译成功。
 [ffi.c]
@@ -5832,7 +5832,7 @@ test-dependencies 内的依赖仅可用于文件名形如 xxx_test.cj 的测试�
 
 仓颉调用外部 c 动态库的方法说明：
 
-自行将相应的 hello.c 文件编成 .so库（在该文件路径执行 clang -shared -fPIC hello.c -o libhello.so）
+自行将相应的 hello.c 文件编成 .so库（在该文件路径执行 clang  hello.c -o libhello.so）
 修改该项目的 cjpm.toml 文件，配置 ffi.c 字段，如下面的例子所示。其中，./src/ 是编出的 libhello.so 相对当前目录的地址，hello 为库名。
 执行 cjpm build，即可编译成功。
 [ffi.c]
