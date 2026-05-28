@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (native_compilation)EXEC: cd %n && %clang %clang_opt pro0/test01.c -shared -fPIC -o pro0/libtest01.%dylib_suffix && %clang %clang_opt pro0/test02.c -shared -fPIC -o pro0/libtest02.%dylib_suffix && %cjpm build %cjpm_opt 2>&1 | compare %f
+// (native_compilation)EXEC: cd %n && %clang %clang_opt pro0/test01.c  -o pro0/libtest01.%dylib_suffix && %clang %clang_opt pro0/test02.c  -o pro0/libtest02.%dylib_suffix && %cjpm build %cjpm_opt 2>&1 | compare %f
 // (native_compilation)ASSERT: scan cjpm build success
 // (native_compilation)RUN-EXEC: cd %n && %cjpm run
