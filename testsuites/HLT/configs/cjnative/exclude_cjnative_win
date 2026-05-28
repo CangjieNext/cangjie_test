@@ -433,3 +433,5 @@ API\syntax\parseFunc\parseText\Expr\LitConstStrExpr\parseText_litconststrexpr003
 API\syntax\parseFunc\parseTokens\Expr\LitConstStrExpr\parseTokens_litconststrexpr003.cj
 Tools\cjcov\cjcov_special_filename\cjcov_special_filename_017\cjcov_special_filename_017.info
 Tools\cjcov\cjcov_special_filename\cjcov_special_filename_018\cjcov_special_filename_018.info
+
+API/std/console/stdin/test_stdin_windows_35.cj
