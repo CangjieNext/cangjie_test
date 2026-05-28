@@ -5,7 +5,7 @@
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 [dependencies]
-stdx = {git = "https://gitcode.com/Cangjie/cangjie_stdx.git",branch = "dev",output-type="dynamic"}
+stdx = {git = "https://gitcode.com/Cangjie/cangjie_stdx.git",branch = "main",output-type="dynamic"}
 p2 = {path = "p2"}
 
 [package]

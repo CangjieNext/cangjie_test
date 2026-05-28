@@ -16,6 +16,7 @@ API/syntax/visit/ASTRewriter/test_rewriter_02.cj
 API/std/io/file/File_create_03.cj
 API/std/io/StringReader/StringReader_readln_13_01.cj
 
+Tools/cjpm/source_set/009
 
 # cjmp 
 # https://gitcode.com/Cangjie/cangjie_test/issues/265

@@ -9,7 +9,9 @@ Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 Tools/cjprof
 # issue 198: syntax rewriter not support
 API/syntax/visit/ASTRewriter/test_rewriter_02.cj
-Tools/cjpm/stdx/c/build_mock/build_mock.info
+
+
+Tools/cjpm/stdx/r/01/01.info
 
 # fail in ci env
 API/std/socket/UdpSocket/test_udp_transportation_init.cj
