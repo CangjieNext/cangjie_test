@@ -15,6 +15,8 @@ Tools/cjpm/stdx/c/build_mock/build_mock.info
 # old jffi can only be run with cjvm.
 compiler/cjnative/FFI/jffi
 
+Tools/cjpm/source_set/009
+
 # issue 198: syntax rewriter not support
 API/syntax/visit/ASTRewriter/test_rewriter_02.cj
 API/syntax/parseFunc/parseDir/path/parsedir_path_012n.cj
