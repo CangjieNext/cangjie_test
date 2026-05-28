@@ -22,7 +22,7 @@ func stagePreBuild(): Int64 {
 @When[target == "aarch64-linux-android26"]
 func stagePreBuild(): Int64 {
     let NDK_ROOT = getVariable("NDK_ROOT").getOrThrow()
-    let clang = "${v}/bin/clang"
+    let clang = "${NDK_ROOT}/bin/clang"
     Process.run(
         clang,
         ["test01.c","--target=aarch64-linux-android26", "-shared", "-fPIC", "--sysroot=${NDK_ROOT}/sysroot","-o", "libtest01.so"]

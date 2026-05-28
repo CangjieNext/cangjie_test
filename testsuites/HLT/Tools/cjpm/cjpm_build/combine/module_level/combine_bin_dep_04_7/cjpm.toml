@@ -33,10 +33,10 @@ dep1 = {path = "dep1"}
   path-option = ["dep/target/release/dep"]
 
  
-[target.x86_64-w64-mingw32.bin-dependencies]
-  path-option = ["dep/target/release/dep"]
- 
 
+ 
+ [target.x86_64-w64-mingw32.bin-dependencies]
+    path-option = ["dep/target/release/dep"]
 
 
 
@@ -72,4 +72,7 @@ dep1 = {path = "dep1"}
 [target.aarch64-linux-android32]
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
 [target.aarch64-linux-android35]
+  compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
+
+[target.arm-linux-android23]
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"

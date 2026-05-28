@@ -8,6 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (native_compilation and not Windows and not Mac) EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%dylib_suffix && gcc test02.c -shared -fPIC -o libtest02.%dylib_suffix
+// (native_compilation and not Windows and not Mac) EXEC: cd %n && %clang %clang_opt test01.c  -o libtest01.%dylib_suffix && %clang %clang_opt test02.c  -o libtest02.%dylib_suffix
 // (native_compilation and not Windows and not Mac) EXEC: cd %n && %cjpm build --target x86_64-w64-mingw32 2>&1 | compare %f
 // (native_compilation and not Windows and not Mac) ASSERT: scan cjpm build failed
