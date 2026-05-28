@@ -7,7 +7,7 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC: cd %n && rm -rf cangjie_stdx
-// EXEC: cd %n && git clone https://gitcode.com/Cangjie/cangjie_stdx.git -b dev
+// EXEC: cd %n && git clone https://gitcode.com/Cangjie/cangjie_stdx.git -b main
 // EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
 // ASSERT: regex Compiling package `stdx.crypto`: [\s\S]*libstdx.crypto.(so|dll|dylib)
 // ASSERT: regex Compiling package `p2`: [\s\S]*libp2.(so|dll|dylib)

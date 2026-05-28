@@ -20,6 +20,8 @@ API/std/time/TimeZone/Location/test_load_004.cj
 API/std/time/TimeZone/Location/test_load_005.cj
 API/std/time/TimeZone/Location/test_load_007.cj
 
+Tools/cjpm/source_set/009
+
 # windows不支持~,无法解析成绝对路径
 API/std/os/env/test_getArgs/test_getArgs_003/test_getArgs_003.cj
 
