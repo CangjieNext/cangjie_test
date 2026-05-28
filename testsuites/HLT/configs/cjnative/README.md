@@ -26,7 +26,7 @@ cjc-frontend 编译器前端选项
 
 ## `suffix`
 
-可执行文件的后缀名
+target平台上可执行文件的后缀名
 
 ## `test_suffix`
 
@@ -124,6 +124,10 @@ cjtrace-recover 工具
 
 运行可执行文件时的设置
 
+## `release_dir`
+
+release产物保存目录相对cjpm.toml所在目录的相对路径
+
 ## `cangjie-stdx-list`
 
 所有 stdx 的库链接的列表，方便用例测试头部指定链接所有 stdx 库
@@ -208,6 +212,10 @@ ldd 工具
 
 --fchir-constant-propagation 选项
 
+## `syntax_extra_options`
+
+使用stdx.syntax时需要额外增加的链接选项
+
 ## `incremental_compile`
 
 开启增量编译选项
@@ -284,6 +292,10 @@ ldd 工具
 
 暂无介绍
 
+## `lto_options`
+
+暂无介绍
+
 ## `sanitizer_options`
 
 暂无介绍
@@ -308,6 +320,10 @@ ldd 工具
 
 暂无介绍
 
+## `mock_options`
+
+mock 选项，测试 mock 开启或关闭时是否能正常编译/运行
+
 ## `set`
 
 暂无介绍
@@ -317,6 +333,10 @@ ldd 工具
 暂无介绍
 
 ## `chir-dis`
+
+暂无介绍
+
+## `link_openssl`
 
 暂无介绍
 
@@ -528,6 +548,10 @@ target 平台上的 cp 操作
 
 暂无介绍
 
+## `ndk_root`
+
+暂无介绍
+
 ## `no_obf_layout`
 
 暂无介绍
@@ -699,6 +723,10 @@ STDX 根目录的绝对路径
 ## `cangjie-dynamic-stdx-path`
 
 保存动态库版本 STDX 的目录的绝对路径
+
+## `cangjie_static_extern_stdx_path`
+
+保存静态库extern版本 STDX 的目录的绝对路径
 
 ## `check-dylib-dep`
 
