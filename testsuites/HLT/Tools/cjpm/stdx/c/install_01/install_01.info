@@ -7,7 +7,7 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC: cd %n && rm -rf cangjie_stdx
-// EXEC: cd %n && git clone https://gitcode.com/Cangjie/cangjie_stdx.git -b dev
+// EXEC: cd %n && git clone https://gitcode.com/Cangjie/cangjie_stdx.git -b main
 // EXEC-PIPE-1: cd %n/cangjie_stdx && %cjpm install 2>&1 | compare %f
 // ASSERT: scan Error: cjpm install failed
 
