@@ -8,7 +8,7 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%dylib_suffix && gcc test02.c -shared -fPIC -o libtest02.%dylib_suffix
+// EXEC: cd %n && %clang %clang_opt test01.c  -o libtest01.%dylib_suffix && %clang %clang_opt test02.c  -o libtest02.%dylib_suffix
 // ERRCHECK: cd %n && %cjpm build -V
 // (not Windows) ASSERT: scan Error: the members field contains at least one member module at ./cjpm.toml
 // (Windows) ASSERT: scan Error: the members field contains at least one member module at .\cjpm.toml
