@@ -10,5 +10,5 @@
   description = "nothing here"
   version = "1.0.0"
   output-type = "dynamic"
-  include = ["target"]
-  exclude = ["b.toml"]
+  include = ["./target"]
+  exclude = ["./test/b.toml"]

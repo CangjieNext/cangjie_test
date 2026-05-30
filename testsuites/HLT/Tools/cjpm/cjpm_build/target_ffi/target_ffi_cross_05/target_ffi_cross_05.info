@@ -8,6 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (Windows) EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%dylib_suffix && gcc test02.c -shared -fPIC -o libtest02.%dylib_suffix
+// (Windows) EXEC: cd %n && %clang %clang_opt test01.c  -o libtest01.%dylib_suffix && %clang %clang_opt test02.c  -o libtest02.%dylib_suffix
 // (Windows) EXEC: cd %n && %cjpm build --target=aarch64-apple-darwin 2>&1 | compare %f
 // (Windows) ASSERT: scan cjpm build failed

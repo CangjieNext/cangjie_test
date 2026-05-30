@@ -10,4 +10,4 @@
   description = "nothing here"
   version = "1.0.0"
   output-type = "dynamic"
-  include = ["src"]
+  include = ["./src"]
