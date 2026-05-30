@@ -8,7 +8,7 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// EXEC: cd %n/libtest && %clang -c -o test.o test.c && ar -rc libtest.a test.o
+// EXEC: cd %n/libtest && %clang %clang_opt -c -o test.o test.c && ar -rc libtest.a test.o
 // EXEC: cd %n && %cjpm test -V 2>&1 | compare %f
 // ASSERT: scan -ldep --link-options "-L ./libtest -ltest"
 // (native_compilation)ASSERT: scan cjpm test success

@@ -6,6 +6,8 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n txt.info
+// (cross_compilation)EXEC: %mkdir %n/dep/target/release/dep
+// (cross_compilation)EXEC: %mkdir %n/dep1/target/release/dep1
 // (target_linux | target_win | target_android | target_ohos)EXEC: cd %n/dep && %cjpm build %cjpm_opt -V
 // (target_linux | target_win)EXEC: cd %n && %ls dep/target/release/dep
 // (target_android | target_ohos)EXEC: cd %n && %ls dep/target/%target_triple/release/dep
