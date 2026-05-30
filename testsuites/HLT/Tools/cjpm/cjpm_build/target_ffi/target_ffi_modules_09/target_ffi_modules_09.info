@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (native_compilation)EXEC: cd %n && gcc pro0/test01.c -shared -fPIC -o pro0/libtest01.%dylib_suffix && gcc pro0/test02.c -shared -fPIC -o pro0/libtest02.%dylib_suffix
+// (native_compilation)EXEC: cd %n && %clang %clang_opt pro0/test01.c  -o pro0/libtest01.%dylib_suffix && %clang %clang_opt pro0/test02.c  -o pro0/libtest02.%dylib_suffix
 // (native_compilation)EXEC: cd %n && %cjpm run
 // ASSERT: scan aaa
 // ASSERT: scan bbb

@@ -42,3 +42,7 @@
 [target.aarch64-linux-android35]
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
   compile-macros-for-target = "all"
+
+[target.arm-linux-android23]
+  compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
+  compile-macros-for-target = "all"

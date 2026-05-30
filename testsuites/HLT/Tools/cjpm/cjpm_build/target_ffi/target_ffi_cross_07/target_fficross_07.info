@@ -8,6 +8,6 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// (Mac) EXEC: cd %n && gcc test01.c -shared -fPIC -o libtest01.%dylib_suffix && gcc test02.c -shared -fPIC -o libtest02.%dylib_suffix
+// (Mac) EXEC: cd %n && %clang %clang_opt test01.c  -o libtest01.%dylib_suffix && %clang %clang_opt test02.c  -o libtest02.%dylib_suffix
 // (Mac) EXEC: cd %n && %cjpm build --target=aarch64-unknown-linux-gnu 2>&1 | compare %f
 // (Mac) ASSERT: scan cjpm build failed
