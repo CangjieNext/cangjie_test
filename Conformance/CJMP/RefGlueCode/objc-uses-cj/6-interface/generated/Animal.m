@@ -6,7 +6,7 @@
 
 #import "Animal.h"
 
-// Interoplib objc common code (libinterop.objclib.dylib)
+// Interoplib objc common code
 extern bool initCJRuntime(const char*);
 
 extern void CJImpl_objc_cjworld_AnimalImpl_SayImpl(void*);

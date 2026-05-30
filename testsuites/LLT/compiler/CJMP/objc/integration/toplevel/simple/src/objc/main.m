@@ -10,7 +10,7 @@
 
 extern int cangjieMain();
 
-// Interoplib objc common code (libinterop.objclib.dylib)
+// Interoplib objc common code
 extern bool initCJRuntime(const char*);
 
 int main(int argc, char** argv) {

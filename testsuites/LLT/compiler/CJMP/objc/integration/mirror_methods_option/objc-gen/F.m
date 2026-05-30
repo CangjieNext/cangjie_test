@@ -4,7 +4,7 @@ extern void CJImpl_ObjC_cjworld_F_deleteCJObject(int64_t);
 extern int64_t CJImpl_ObjC_cjworld_F_initPu(void*);
 extern void CJImpl_ObjC_cjworld_F_pingF(int64_t);
 
-// Interoplib objc common code (libinterop.objclib.dylib)
+// Interoplib objc common code
 extern bool initCJRuntime(const char*);
 @implementation F
 - (id)init {

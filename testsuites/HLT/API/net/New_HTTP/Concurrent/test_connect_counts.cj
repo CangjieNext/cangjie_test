@@ -97,7 +97,7 @@ class Test_Concurrent_100_connects {
         }
         startServer0()
 
-        let thread = 50
+        let thread = thread_count
         var fs = Array<Future<Unit>>(thread) {
             _ => spawn {startClient("http://127.0.0.1:${port}/quick")}
         }

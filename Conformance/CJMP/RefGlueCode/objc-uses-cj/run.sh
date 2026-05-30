@@ -86,14 +86,14 @@ build_example() {
         # ARC is always OFF for glue-code
         # use ARC_MACRO to setup if [super dealloc] should be called in CJMirror classes
         [ "test$ARCOFF" != "test" ] && ARC_MACRO="-D CALL_SUPER_DEALLOC=1" || ARC_MACRO=""
-        clang -fmodules $ARC_MACRO -shared -undefined dynamic_lookup generated/*.m -o out/libgluecode.dylib -Igenerated -linteroplib.objclib -L"$CANGJIE_RUNTIME_LIB_PATH"
+        clang -fmodules $ARC_MACRO -shared -undefined dynamic_lookup generated/*.m -o out/libgluecode.dylib -Igenerated -lobjc.internal -L"$CANGJIE_RUNTIME_LIB_PATH"
 
         clang -fmodules $ARC app/*.m -o out/main -Iapp -Igenerated -Lout -linteroptest -lapi -lobjc.cjworld -lgluecode -L"$CANGJIE_RUNTIME_LIB_PATH"
     else
         # ARC is always OFF for glue-code
         # shellcheck disable=SC2046
         clang $(gnustep-config --objc-flags) $(gnustep-config --base-libs) -shared \
-            generated/*.m -o out/libgluecode.so -Igenerated -linteroplib.objclib -L"$CANGJIE_RUNTIME_LIB_PATH"
+            generated/*.m -o out/libgluecode.so -Igenerated -lobjc.internal -L"$CANGJIE_RUNTIME_LIB_PATH"
 
         # -lgnustep-corebase is not produced by gnustep-config, set it explicitly
         # shellcheck disable=SC2046
