@@ -7,13 +7,13 @@ class Foo {
 
 }
 
-@JavaMirror
-class M {
+@Java
+foreign class M {
     public func foo(): Foo
 }
 
 /* SCAN-IN
-error: return type 'Class-Foo' of function inside @JavaMirror class is not supported
+error: return type 'Class-Foo' of function inside @Java foreign type must be Java-compatible
   ==> java_mirror_method_ret_ty_mismatch.cj:12:24:
    | 
 12 |     public func foo(): Foo

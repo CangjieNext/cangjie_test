@@ -7,13 +7,13 @@ class Foo {
 
 }
 
-@JavaMirror
-class M {
+@Java
+foreign class M {
     init(a: Foo)
 }
 
 /* SCAN-IN
-error: argument type of java-mirrored constructor must be of @JavaMirror type
+error: parameter type of @Java constructor must be Java-compatible
   ==> java_mirror_ctor_type_mismatch.cj:12:10:
    | 
 12 |     init(a: Foo)

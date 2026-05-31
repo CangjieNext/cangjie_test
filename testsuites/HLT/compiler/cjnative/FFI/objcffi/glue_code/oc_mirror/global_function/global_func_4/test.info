@@ -8,7 +8,7 @@
 
 // Level: 1
 // Description:
-// 测试@ObjCMirror修饰仓颉全局函数定义的场景
+// 测试@ObjC修饰仓颉全局函数定义的场景
 // 一入参基础数据类型，返回类型基础数据类型
 // DEPENDENCE: src test.toml
 // (iOSNative) EXEC: %mirror_gen test.toml

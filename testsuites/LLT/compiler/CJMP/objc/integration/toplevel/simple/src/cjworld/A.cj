@@ -10,29 +10,29 @@ package cjworld
 
 import objc.lang.*
 
-@ObjCMirror
-public open class NSObject {
+@ObjC
+public open foreign class NSObject {
     init()
 }
 
-@ObjCMirror
-public class NSString <: NSObject {
+@ObjC
+public foreign class NSString <: NSObject {
     init()
 }
 
-@ObjCMirror
-public func foo(obj: NSString, f: Float64): NSString
+@ObjC
+public foreign func foo(obj: NSString, f: Float64): NSString
 
-@ObjCMirror
-public func className(obj: NSObject): NSString
+@ObjC
+public foreign func className(obj: NSObject): NSString
 
-@ObjCMirror
-public func bar(i: Int64): Int64
+@ObjC
+public foreign func bar(i: Int64): Int64
 
 foreign func bar2(i: Int64): Int64
 
-@ObjCMirror
-public func NSLog(str: NSString): Unit
+@ObjC
+public foreign func NSLog(str: NSString): Unit
 
 @C
 public func cangjieMain(): Int32 {

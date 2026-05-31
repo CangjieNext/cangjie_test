@@ -6,13 +6,13 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>& 1 | compare %f
  
-@ObjCMirror
-class M {
+@ObjC
+foreign class M {
     ~init()
 }
  
 /* SCAN-IN
-error: @ObjCMirror declaration cannot have finalizer
+error: @ObjC foreign type cannot declare a finalizer
   ==> objc_mirror_finalizer.cj:11:5:
    | 
 11 |     ~init()

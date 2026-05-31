@@ -3,12 +3,12 @@
 
 import java.lang.JObject
 
-@JavaMirror
-abstract class A {
+@Java
+abstract foreign class A {
     init()
 }
 
-@JavaImpl
+@Java
 class Impl <: A {
     init() {
         let a = A()

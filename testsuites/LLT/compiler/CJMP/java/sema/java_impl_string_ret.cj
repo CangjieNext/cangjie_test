@@ -8,7 +8,7 @@
 
 import java.lang.JObject
 
-@JavaImpl
+@Java
 class M <: JObject {
     public func foo() {
         return "123"

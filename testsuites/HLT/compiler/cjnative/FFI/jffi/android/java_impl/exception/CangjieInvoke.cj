@@ -70,7 +70,7 @@ public func testClass(): Unit {
     }
 }
 
-@JavaImpl
+@Java
 public class CangjieClass {
     public init(kind: Int8) {
         throwing(kind)

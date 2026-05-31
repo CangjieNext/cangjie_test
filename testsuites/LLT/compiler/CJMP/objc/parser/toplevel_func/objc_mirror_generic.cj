@@ -8,14 +8,16 @@
 
 import objc.lang.*
 
-@ObjCMirror
-func foo<T>(): Int64
+@ObjC
+foreign func foo<T>(): Int64
 
 /* SCAN-IN
-error: @ObjCMirror top-level function 'foo' cannot be generic
-  ==> objc_mirror_generic.cj:12:1:
+error: @ObjC top-level foreign function 'foo' cannot be generic
+  ==> objc_mirror_generic.cj:12:9:
    | 
-12 | func foo<T>(): Int64
-   | ^ 
+12 | foreign func foo<T>(): Int64
+   |         ^ 
    | 
+
+1 error generated, 1 error printed.
 */

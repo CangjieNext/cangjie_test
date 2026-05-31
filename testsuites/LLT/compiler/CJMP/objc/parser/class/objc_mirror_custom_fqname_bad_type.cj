@@ -6,16 +6,17 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %frontendCompiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
-@ObjCMirror[0]
-class M {
+@ObjC[0]
+foreign class M {
 }
 
 /* SCAN-IN
-error: @ObjCMirror requires zero or one 'String' literal argument
- ==> objc_mirror_custom_fqname_bad_type.cj:9:13:
+
+error: @ObjC requires zero or one 'String' literal argument
+ ==> objc_mirror_custom_fqname_bad_type.cj:9:7:
   | 
-9 | @ObjCMirror[0]
-  |             ^ expected 'String' literal here
+9 | @ObjC[0]
+  |       ^ expected 'String' literal here
   | 
 
 1 error generated, 1 error printed.

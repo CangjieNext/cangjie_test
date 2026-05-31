@@ -8,14 +8,16 @@
 
 import objc.lang.*
 
-@ObjCMirror
-func foo()
+@ObjC
+foreign func foo()
 
 /* SCAN-IN
-error: @ObjCMirror top-level function 'foo' must have result type explicitly specified
-  ==> objc_mirror_no_result_type.cj:12:1:
+error: @ObjC top-level foreign function 'foo' must have return type
+  ==> objc_mirror_no_result_type.cj:12:9:
    | 
-12 | func foo()
-   | ^ 
+12 | foreign func foo()
+   |         ^ 
    | 
+
+1 error generated, 1 error printed.
 */

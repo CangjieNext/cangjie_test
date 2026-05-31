@@ -14,7 +14,7 @@ public struct Point2D {
     }
 }
 
-@ObjCImpl
+@ObjC
 public class A <: M {
     public var cjField: Point2D
 

@@ -8,14 +8,27 @@
 
 import objc.lang.*
 
-@ObjCMirror
-const func foo(): Int64
+@ObjC
+const foreign func foo(): Int64
 
 /* SCAN-IN
-error: @ObjCMirror top-level function 'foo' cannot be const
+error: 'foreign' and 'const' modifiers conflict on function declaration
   ==> objc_mirror_const.cj:12:7:
    | 
-12 | const func foo(): Int64
-   |       ^ 
+12 | const foreign func foo(): Int64
+   | ~~~~~ ^^^^^^^ ~~~~ on function declaration
+   | |     |
+   | |     unexpected modifier
+   | |
+   | because it is conflicted with this
    | 
+
+error: @ObjC top-level foreign function 'foo' cannot be const
+  ==> objc_mirror_const.cj:12:15:
+   | 
+12 | const foreign func foo(): Int64
+   |               ^ 
+   | 
+
+2 errors generated, 2 errors printed.
 */

@@ -6,7 +6,7 @@
 
 package cj
 
-@JavaImpl
+@Java
 public class A <: M {
     public init() { }
     override public func goo(): Unit {
@@ -15,12 +15,12 @@ public class A <: M {
     }
 
     public func getVector(x: Int32, y: Int32): Vector {
-        print("cj: getVector from @JavaImpl class A (${x}, ${y})\n", flush: true)
+        print("cj: getVector from @Java class A (${x}, ${y})\n", flush: true)
         return Vector(x, y)
     }
 
     public func echoVector(v: Vector): Vector {
-        print("cj: echoVector from @JavaImpl class A\n", flush: true)
+        print("cj: echoVector from @Java class A\n", flush: true)
         return v
     }
 }

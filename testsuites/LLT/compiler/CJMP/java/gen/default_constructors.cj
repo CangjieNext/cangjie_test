@@ -65,7 +65,7 @@ package cjworld.theworld
 
 import java.lang.JObject
 
-@JavaImpl
+@Java
 public class CangjieInvoke_Father <: JObject {
     public init() {}
 
@@ -75,7 +75,7 @@ public class CangjieInvoke_Father <: JObject {
     }
 }
 
-@JavaImpl
+@Java
 public class CangjieInvoke <: JObject {
     public init() {
         println("in CangjieInvoke Init")

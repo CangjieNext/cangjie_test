@@ -7,12 +7,12 @@ import java.lang.JObject
 import std.unittest.assertEqual
 import std.unittest.testmacro.Assert
 
-@JavaMirror
-open class M {
+@Java
+open foreign class M {
     init()
 }
 
-@JavaImpl
+@Java
 class A <: M {
     A() {
         super()
@@ -46,21 +46,21 @@ func testWhile(m: Option<JObject>, n: Int64) {
  */
 
 /* SCAN-IN
-error: Java interoperability feature 'let type patterns with JavaImpl or JavaMirror types' is not yet supported
+error: Java interoperability feature 'let type patterns with @Java types' is not yet supported
   ==> let_pattern.cj:25:34:
    | 
 25 |     let r = if (true && let Some(o : A) <- m && true) {
    |                                  ^^^^^ 
    | 
 
-error: Java interoperability feature 'let type patterns with JavaImpl or JavaMirror types' is not yet supported
+error: Java interoperability feature 'let type patterns with @Java types' is not yet supported
   ==> let_pattern.cj:27:25:
    | 
 27 |     } else if (let Some(o : A) <- m) {
    |                         ^^^^^ 
    | 
 
-error: Java interoperability feature 'let type patterns with JavaImpl or JavaMirror types' is not yet supported
+error: Java interoperability feature 'let type patterns with @Java types' is not yet supported
   ==> let_pattern.cj:37:21:
    | 
 37 |     while (let Some(o : A) <- m) {

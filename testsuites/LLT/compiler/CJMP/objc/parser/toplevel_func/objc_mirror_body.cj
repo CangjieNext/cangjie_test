@@ -8,16 +8,18 @@
 
 import objc.lang.*
 
-@ObjCMirror
-func foo(): Int64 {
+@ObjC
+foreign func foo(): Int64 {
    0
 }
 
 /* SCAN-IN
-error: @ObjCMirror top-level function 'foo' cannot have body
-  ==> objc_mirror_body.cj:12:1:
+error: @ObjC top-level foreign function 'foo' cannot have body
+  ==> objc_mirror_body.cj:12:9:
    | 
-12 | func foo(): Int64 {
-   | ^ 
+12 | foreign func foo(): Int64 {
+   |         ^ 
    | 
+
+1 error generated, 1 error printed.
 */

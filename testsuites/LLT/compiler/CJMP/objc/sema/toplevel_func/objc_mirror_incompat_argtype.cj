@@ -8,14 +8,16 @@
 
 import objc.lang.*
 
-@ObjCMirror
-func foo(s: String): Int64
+@ObjC
+foreign func foo(s: String): Int64
 
 /* SCAN-IN
-error: param type of Objective-C mirror top-level function 'foo' must be Objective-C compatible
-  ==> objc_mirror_incompat_argtype.cj:12:13:
+error: parameter type of @ObjC top-level foreign function 'foo' must be Objective-C compatible
+  ==> objc_mirror_incompat_argtype.cj:12:21:
    | 
-12 | func foo(s: String): Int64
-   |             ^^^^^^ 
+12 | foreign func foo(s: String): Int64
+   |                     ^^^^^^ 
    | 
+
+1 error generated, 1 error printed.
 */

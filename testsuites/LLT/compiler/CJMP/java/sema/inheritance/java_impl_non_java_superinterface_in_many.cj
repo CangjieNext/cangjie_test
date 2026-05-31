@@ -7,17 +7,17 @@ interface PureCangjie {
 
 }
 
-@JavaMirror
-open class JMirrorClass {
+@Java
+open foreign class JMirrorClass {
     init()
 }
 
-@JavaImpl
+@Java
 class JImpl <: JMirrorClass & PureCangjie {
 }
 
 /* SCAN-IN
-error: @JavaImpl-annotated declaration cannot inherit pure cangjie type
+error: @Java class cannot inherit non-@Java type
   ==> java_impl_non_java_superinterface_in_many.cj:16:1:
    | 
 16 |   class JImpl <: JMirrorClass & PureCangjie {
@@ -25,12 +25,14 @@ error: @JavaImpl-annotated declaration cannot inherit pure cangjie type
 17 | | }
    | |_^
    | 
-note: 'PureCangjie' is not a java-compatible type
+note: 'PureCangjie' is not a Java-compatible type
   ==> java_impl_non_java_superinterface_in_many.cj:16:31:
    | 
 16 | class JImpl <: JMirrorClass & PureCangjie {
    |                               ^^^^^^^^^^^ 
-   |
+   | 
+
+1 error generated, 1 error printed.
 */
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

@@ -8,8 +8,8 @@ package cj
 
 import java.lang.JObject
 
-@JavaMirror
-open class M {
+@Java
+open foreign class M {
     public init()
     public open func goo(): Unit
 }

@@ -1,13 +1,13 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
-@JavaMirror
-interface I {}
+@Java
+foreign interface I {}
 
-@JavaImpl
+@Java
 interface G <: I {}
 
 /* SCAN-IN
-error: interface cannot be @JavaImpl
+error: interface cannot be exported as @Java
  ==> java_impl_interface.cj:7:1:
   | 
 7 | interface G <: I {}

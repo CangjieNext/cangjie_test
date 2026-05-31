@@ -4,8 +4,8 @@
 
 import java.lang.*
 
-@JavaMirror
-interface I {
+@Java
+foreign interface I {
     public abstract func foo(): Unit
 }
 
@@ -13,13 +13,15 @@ interface I {
 error: unexpected modifier 'abstract' on function declaration in interface body
  ==> abstract_method_in_interface.cj:9:12:
   | 
-8 | interface I {
-  | ~~~~~~~~~ in interface
+8 | foreign interface I {
+  |         ~~~~~~~~~ in interface
 9 |     public abstract func foo(): Unit
   |            ^^^^^^^^ ~~~~ on function declaration
   |            |
   |            unexpected modifier
-  |
+  | 
+
+1 error generated, 1 error printed.
 */
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

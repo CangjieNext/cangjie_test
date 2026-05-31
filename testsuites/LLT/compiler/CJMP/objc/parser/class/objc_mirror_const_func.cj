@@ -6,13 +6,13 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
-@ObjCMirror
-class M {
+@ObjC
+foreign class M {
     const func foo(): Unit
 }
 
 /* SCAN-IN
-error: @ObjCMirror declaration cannot have const member
+error: @ObjC foreign type cannot declare const members
   ==> objc_mirror_const_func.cj:11:5:
    | 
 11 |     const func foo(): Unit

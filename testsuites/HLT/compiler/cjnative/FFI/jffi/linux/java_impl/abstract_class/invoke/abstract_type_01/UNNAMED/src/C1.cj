@@ -10,8 +10,8 @@ package UNNAMED
 
 import java.lang.*
 
-@JavaMirror["com.C1"]
-public abstract open class C1 {
+@Java["com.C1"]
+public abstract open foreign class C1 {
     public init() 
 
     public open func goo(): Int32

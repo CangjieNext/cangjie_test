@@ -6,22 +6,22 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
-@ObjCMirror
-class M {
+@ObjC
+foreign class M {
     public prop x: Int64 {
         set(val) {}
     }
 }
 
 /* SCAN-IN
-error: @ObjCMirror declaration property 'x' cannot have setter
+error: @ObjC foreign type property 'x' cannot declare a setter
   ==> objc_mirror_prop_setter.cj:11:5:
    | 
 11 |       public prop x: Int64 {
    |  _____^
 12 | |         set(val) {}
 13 | |     }
-   | |_____^ @ObjCMirror declaration property cannot have setter
+   | |_____^
    | 
 
 1 error generated, 1 error printed.

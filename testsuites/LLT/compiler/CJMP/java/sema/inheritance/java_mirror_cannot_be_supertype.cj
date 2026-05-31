@@ -3,8 +3,8 @@
 
 import java.lang.JObject
 
-@JavaMirror
-open class JMirror {
+@Java
+open foreign class JMirror {
     init()
 }
 
@@ -14,7 +14,7 @@ open class PureCangjie <: JMirror {
 
 
 /* SCAN-IN
-error: super declaration 'JMirror' is inheritable only for declaration annotated with @JavaMirror or @JavaImpl
+error: super type 'JMirror' is inheritable only by @Java types
   ==> java_mirror_cannot_be_supertype.cj:11:1:
    | 
 11 |   open class PureCangjie <: JMirror {
@@ -23,6 +23,8 @@ error: super declaration 'JMirror' is inheritable only for declaration annotated
 13 | | }
    | |_^
    | 
+
+1 error generated, 1 error printed.
 */
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

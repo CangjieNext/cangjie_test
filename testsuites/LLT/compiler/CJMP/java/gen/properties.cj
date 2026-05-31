@@ -71,14 +71,14 @@ package cjworld.theworld
 
 import java.lang.JObject
 
-@JavaMirror["M"]
-public open class M {
+@Java["M"]
+public open foreign class M {
     init()
     init(x: Int)
     init(x: Int, y: Int)
 }
 
-@JavaImpl["A"]
+@Java["A"]
 public class A <: M {
     private var a: Int64 = 1
     mut prop t: Int64 {

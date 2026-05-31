@@ -3,38 +3,34 @@
 
 import java.lang.JObject
 
-@JavaMirror
-class OtherMirror {
+@Java
+foreign class OtherMirror {
    public init()
 }
 
-@JavaMirror
-class M {
+@Java
+foreign class M {
     public func foo(): ?????JObject
     public func self(): ??M
     public func other(): ???OtherMirror
 }
 
 /* SCAN-IN
-error: return type 'Enum-Option<Enum-Option<Enum-Option<Enum-Option<Enum-Option<Class-JObject>>>>>' of function inside @JavaMirror class is not supported
+error: return type 'Enum-Option<Enum-Option<Enum-Option<Enum-Option<Enum-Option<Class-JObject>>>>>' of function inside @Java foreign type must be Java-compatible
   ==> java_mirror_option_method_return_deep.cj:13:24:
    | 
 13 |     public func foo(): ?????JObject
    |                        ^^^^^^^^^^^^ 
    | 
 
-*/
-/* SCAN-IN
-error: return type 'Enum-Option<Enum-Option<Class-M>>' of function inside @JavaMirror class is not supported
+error: return type 'Enum-Option<Enum-Option<Class-M>>' of function inside @Java foreign type must be Java-compatible
   ==> java_mirror_option_method_return_deep.cj:14:25:
    | 
 14 |     public func self(): ??M
    |                         ^^^ 
    | 
 
-*/
-/* SCAN-IN
-error: return type 'Enum-Option<Enum-Option<Enum-Option<Class-OtherMirror>>>' of function inside @JavaMirror class is not supported
+error: return type 'Enum-Option<Enum-Option<Enum-Option<Class-OtherMirror>>>' of function inside @Java foreign type must be Java-compatible
   ==> java_mirror_option_method_return_deep.cj:15:26:
    | 
 15 |     public func other(): ???OtherMirror

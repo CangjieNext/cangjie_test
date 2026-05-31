@@ -1,17 +1,17 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
 
-@JavaMirror
-interface M {
+@Java
+foreign interface M {
     func foo(): Unit {}
 }
 
 /* SCAN-IN
-error: java-mirrored function 'foo' cannot have body
- ==> java_mirror_method_with_body.cj:6:5:
+error: @Java foreign type function 'foo' cannot have body
+ ==> java_mirror_method_with_body.cj:6:22:
   | 
 6 |     func foo(): Unit {}
-  |     ^^^^^^^^^^^^^^^^^^^ java-mirrored function cannot have body
+  |                      ^^ 
   | 
 
 1 error generated, 1 error printed.

@@ -3,20 +3,19 @@
 
 import java.lang.*
 
-@JavaImpl
+@Java
 abstract class C {
     public abstract func foo(): Unit
 }
 
 /* SCAN-IN
-error: @JavaImpl declaration cannot be abstract
+error: @Java class cannot be abstract
  ==> abstract_method_in_abstract_class.cj:7:10:
   | 
 7 | abstract class C {
-  |          ^
-*/
+  |          ^ 
+  | 
 
-/* SCAN-IN
 error: unexpected modifier 'abstract' on function declaration in class body
  ==> abstract_method_in_abstract_class.cj:8:12:
   | 
@@ -26,6 +25,9 @@ error: unexpected modifier 'abstract' on function declaration in class body
   |     ~~~~   ^^^^^^^^ unexpected modifier
   |     |
   |     on function declaration
+  | 
+
+2 errors generated, 2 errors printed.
 */
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

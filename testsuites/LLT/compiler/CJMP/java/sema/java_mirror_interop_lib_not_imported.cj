@@ -1,18 +1,27 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt 2>& 1 | compare %f
 
-@JavaMirror
-class M {
+@Java
+foreign class M {
 }
 
 /* SCAN-IN
-error: java.lang must be imported to use java interoperability
+error: 'java.lang.JObject' is not imported
+ ==> java_mirror_interop_lib_not_imported.cj:4:15:
+  | 
+4 | foreign class M {
+  |               ^ 
+  | 
+
+error: java.lang must be imported to use Java interoperability
  ==> java_mirror_interop_lib_not_imported.cj:4:1:
   | 
-4 |   class M {
+4 |   foreign class M {
   |  _^
 5 | | }
   | |_^
   | 
+
+2 errors generated, 2 errors printed.
 */
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

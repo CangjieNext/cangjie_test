@@ -3,31 +3,33 @@
 
 import java.lang.JObject
 
-@JavaMirror
-open class JMirrorSuperClass {}
+@Java
+open foreign class JMirrorSuperClass {}
 
 interface PureCangjie {
 }
 
-@JavaMirror
-class JMirror <: JMirrorSuperClass & PureCangjie {
+@Java
+foreign class JMirror <: JMirrorSuperClass & PureCangjie {
 }
 
 /* SCAN-IN
-error: @JavaMirror-annotated declaration cannot inherit pure cangjie type
+error: @Java foreign type cannot inherit non-@Java type
   ==> java_mirror_non_java_superinterface_in_many_1.cj:13:1:
    | 
-13 |   class JMirror <: JMirrorSuperClass & PureCangjie {
+13 |   foreign class JMirror <: JMirrorSuperClass & PureCangjie {
    |  _^
 14 | | }
    | |_^
    | 
-note: 'PureCangjie' is not a java-compatible type
-  ==> java_mirror_non_java_superinterface_in_many_1.cj:13:38:
+note: 'PureCangjie' is not a Java-compatible type
+  ==> java_mirror_non_java_superinterface_in_many_1.cj:13:46:
    | 
-13 | class JMirror <: JMirrorSuperClass & PureCangjie {
-   |                                      ^^^^^^^^^^^ 
+13 | foreign class JMirror <: JMirrorSuperClass & PureCangjie {
+   |                                              ^^^^^^^^^^^ 
    | 
+
+1 error generated, 1 error printed.
 */
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

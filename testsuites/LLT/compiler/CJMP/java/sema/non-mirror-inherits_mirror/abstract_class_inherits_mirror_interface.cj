@@ -9,17 +9,20 @@
 import java.lang.*
 
 
-@JavaMirror["com.MyJavaMirrorInterface"]
-public interface MyJavaMirrorInterface {
+@Java["com.MyJavaMirrorInterface"]
+public foreign interface MyJavaMirrorInterface {
     func sayHello(): Unit
 }
 
 public interface PureAbstractClass <: MyJavaMirrorInterface {}
 
 /* SCAN-IN
-error: super declaration 'MyJavaMirrorInterface' is inheritable only for declaration annotated with @JavaMirror or @JavaImpl
+error: super type 'MyJavaMirrorInterface' is inheritable only by @Java types
   ==> abstract_class_inherits_mirror_interface.cj:17:1:
    | 
 17 | public interface PureAbstractClass <: MyJavaMirrorInterface {}
-   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+   | 
+
+1 error generated, 1 error printed.
 */

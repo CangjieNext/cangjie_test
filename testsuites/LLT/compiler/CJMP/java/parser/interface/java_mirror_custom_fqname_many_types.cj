@@ -1,15 +1,16 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
 
-@JavaMirror["fqname", "anything else"]
-interface M {}
+@Java["fqname", "anything else"]
+foreign interface M {}
 
 /* SCAN-IN
-error: @JavaMirror requires zero or one 'String' literal argument
+
+error: @Java requires zero or one 'String' literal argument
  ==> java_mirror_custom_fqname_many_types.cj:4:1:
   | 
-4 | @JavaMirror["fqname", "anything else"]
-  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected single 'String' literal for @JavaMirror here
+4 | @Java["fqname", "anything else"]
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected single 'String' literal for @Java here
   | 
 
 1 error generated, 1 error printed.

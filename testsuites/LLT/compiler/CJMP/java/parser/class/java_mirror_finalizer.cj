@@ -1,13 +1,13 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
 
-@JavaMirror
-class M {
+@Java
+foreign class M {
     ~init()
 }
 
 /* SCAN-IN
-error: java-mirrored declaration cannot have finalizer
+error: @Java foreign type cannot declare a finalizer
  ==> java_mirror_finalizer.cj:6:5:
   | 
 6 |     ~init()

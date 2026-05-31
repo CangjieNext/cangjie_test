@@ -6,11 +6,12 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
 
-// ASSERT: scan error: param type of Objective-C mirror method must be Objective-C compatible
+// ASSERT: scan error: parameter type of @ObjC class method must be Objective-C compatible
+// ASSERT: scan error: return type of @ObjC class method must be Objective-C compatible
 
 import objc.lang.*
 
-@ObjCImpl
+@ObjC
 public class N <: M {
     init() {}
 
@@ -20,7 +21,7 @@ public class N <: M {
     }
 }
 
-@ObjCMirror
-public open class M {
+@ObjC
+public open foreign class M {
     init()
 }

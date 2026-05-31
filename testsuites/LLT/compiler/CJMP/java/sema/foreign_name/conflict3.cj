@@ -3,30 +3,31 @@
 
 import java.lang.*
 
-@JavaMirror
-open class A1 {
+@Java
+open foreign class A1 {
     public open func foo(): Unit
 }
 
-@JavaMirror
-interface I1 {
+@Java
+foreign interface I1 {
     @ForeignName["fooI1"]
     func foo(): Unit
 }
 
-@JavaMirror
-interface I2 {
+@Java
+foreign interface I2 {
     @ForeignName["fooI2"]
     func foo(): Unit
 }
 
-@JavaMirror
-interface I3 <: I1 & I2 {
+@Java
+foreign interface I3 <: I1 & I2 {
     @ForeignName["fooI3"]
     func foo(): Unit
 }
 
 /* SCAN-IN
+
 error: Declaration 'foo' has a conflicting @ForeignName annotation
   ==> conflict3.cj:13:5:
    | 
@@ -44,10 +45,10 @@ note: Other declaration 'foo' has a different @ForeignName
    | |____________^
    | 
 note: While checking declaration 'I3'
-  ==> conflict3.cj:24:11:
+  ==> conflict3.cj:24:19:
    | 
-24 | interface I3 <: I1 & I2 {
-   |           ^^ 
+24 | foreign interface I3 <: I1 & I2 {
+   |                   ^^ 
    | 
 
 error: @ForeignName could not appear on overridden declaration

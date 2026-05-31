@@ -4,13 +4,13 @@
 
 import java.lang.JObject
 
-@JavaMirror
-public class MyObject {
+@Java
+public foreign class MyObject {
 
 }
 
-@JavaMirror
-public interface MyInterface {
+@Java
+public foreign interface MyInterface {
     func foo(): Unit
 }
 
@@ -22,7 +22,7 @@ extend MyObject <: MyInterface {
 }
 
 /* SCAN-IN
-error: @JavaMirror class cannot be extended with interface
+error: @Java foreign type cannot be extended with interface
   ==> java_mirror_extend_with_mirror_interface.cj:18:1:
    | 
 18 |   extend MyObject <: MyInterface {

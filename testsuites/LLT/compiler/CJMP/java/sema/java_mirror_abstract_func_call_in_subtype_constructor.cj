@@ -3,13 +3,13 @@
 
 import java.lang.JObject
 
-@JavaMirror
-abstract class A {
+@Java
+abstract foreign class A {
     init()
     public abstract func f(): Unit
 }
 
-@JavaImpl
+@Java
 class Impl <: A {
     init() {
         super.f()
