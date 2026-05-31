@@ -7,24 +7,24 @@ open class PureCangjie {
     init() {}
 }
 
-@JavaMirror
-class JMirror <: PureCangjie {
+@Java
+foreign class JMirror <: PureCangjie {
 }
 
 /* SCAN-IN
-error: @JavaMirror-annotated declaration cannot inherit pure cangjie type
+error: @Java foreign type cannot inherit non-@Java type
   ==> java_mirror_non_java_superclass.cj:11:1:
    | 
-11 |   class JMirror <: PureCangjie {
+11 |   foreign class JMirror <: PureCangjie {
    |  _^
 12 | | }
    | |_^
    | 
-note: 'PureCangjie' is not a java-compatible type
-  ==> java_mirror_non_java_superclass.cj:11:18:
+note: 'PureCangjie' is not a Java-compatible type
+  ==> java_mirror_non_java_superclass.cj:11:26:
    | 
-11 | class JMirror <: PureCangjie {
-   |                  ^^^^^^^^^^^ 
+11 | foreign class JMirror <: PureCangjie {
+   |                          ^^^^^^^^^^^ 
    | 
 */
 

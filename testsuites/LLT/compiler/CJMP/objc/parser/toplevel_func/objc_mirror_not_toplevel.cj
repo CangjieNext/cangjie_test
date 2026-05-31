@@ -8,19 +8,22 @@
 
 import objc.lang.*
 
-@ObjCMirror
-class A {
-   @ObjCMirror
+@ObjC
+foreign class A {
+   @ObjC
    func foo(): Int64
 }
 
 /* SCAN-IN
-error: unexpected annotation '@ObjCMirror' on member or local func
+
+error: unexpected annotation '@ObjC' on member or local func
   ==> objc_mirror_not_toplevel.cj:13:4:
    | 
-13 |    @ObjCMirror
-   |    ^^^^^^^^^^^ unexpected annotation here
+13 |    @ObjC
+   |    ^^^^^ unexpected annotation here
 14 |    func foo(): Int64
    |    ~~~~~~~~~~~~~~~~~~ on member or local func
    | 
+
+1 error generated, 1 error printed.
 */

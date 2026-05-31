@@ -6,11 +6,11 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
 
-// ASSERT: scan error: @ObjCImpl declaration method 'someFuncWithParams' with more than one parameter must have @ForeignName annotation
+// ASSERT: scan error: @ObjC class method 'someFuncWithParams' with more than one parameter must have @ForeignName annotation
 
 import objc.lang.*
 
-@ObjCImpl
+@ObjC
 public class N <: M {
     public init() {}
 
@@ -19,7 +19,7 @@ public class N <: M {
     public func someFuncWithParams(first: Int32, second: Int32) {}
 }
 
-@ObjCMirror
-public open class M {
+@ObjC
+public open foreign class M {
     init()
 }

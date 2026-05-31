@@ -10,8 +10,8 @@ package UNNAMED
 
 import java.lang.*
 
-@JavaMirror["com.JavaClass"]
-public open class JavaClass {
+@Java["com.JavaClass"]
+public open foreign class JavaClass {
     public mut static prop v1: Int32
 
     public init() 

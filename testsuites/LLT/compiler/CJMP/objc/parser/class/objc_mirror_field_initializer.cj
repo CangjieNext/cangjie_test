@@ -6,21 +6,21 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %frontendCompiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
-@ObjCMirror
-class M {
+@ObjC
+foreign class M {
     public let x = 42
     public var xm = 123
 }
 
 /* SCAN-IN
-error: @ObjCMirror declaration field cannot have initializer
+error: @ObjC foreign type field declaration cannot have initializer
   ==> objc_mirror_field_initializer.cj:11:5:
    | 
 11 |     public let x = 42
    |     ^^^^^^^^^^^^^^^^^ 
    | 
 
-error: @ObjCMirror declaration field cannot have initializer
+error: @ObjC foreign type field declaration cannot have initializer
   ==> objc_mirror_field_initializer.cj:12:5:
    | 
 12 |     public var xm = 123

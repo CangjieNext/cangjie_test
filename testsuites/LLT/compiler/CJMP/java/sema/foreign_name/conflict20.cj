@@ -3,25 +3,25 @@
 
 import java.lang.*
 
-@JavaMirror
-open class A1 {
+@Java
+open foreign class A1 {
     @ForeignName["fooA1"]
     public open func foo(): Unit
 }
 
-@JavaMirror
-interface I1 {
+@Java
+foreign interface I1 {
     func foo(): Unit
 }
 
-@JavaMirror
-interface I2 {
+@Java
+foreign interface I2 {
     @ForeignName["fooI2"]
     func foo(): Unit
 }
 
-@JavaMirror
-class A2 <: A1 & I2 {
+@Java
+foreign class A2 <: A1 & I2 {
     @ForeignName["fooA1"]
     public func foo(): Unit
 }

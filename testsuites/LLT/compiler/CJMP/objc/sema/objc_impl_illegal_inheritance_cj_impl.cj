@@ -6,7 +6,7 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_objc_interop 2>& 1 | compare %f
 
-// ASSERT: scan error: Objective-C mirror subtype must be annotated with @ObjCMirror or @ObjCImpl
+// ASSERT: scan error: @ObjC subtype must be annotated with @ObjC
 
 import objc.lang.*
 
@@ -14,12 +14,12 @@ public class K <: N {
     init() {}
 }
 
-@ObjCImpl
+@ObjC
 public open class N <: M {
     init() {}
 }
 
-@ObjCMirror
-public open class M {
+@ObjC
+public open foreign class M {
     init()
 }

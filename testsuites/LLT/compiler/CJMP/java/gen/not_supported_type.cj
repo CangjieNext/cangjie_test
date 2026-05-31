@@ -6,21 +6,21 @@
 
 // (CJNATIVE and not Windows) EXEC: %mkdir java-gen
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop 2>&1 | compare %f
-// ASSERT: scan error: argument type of java-mirrored function must be of @JavaMirror type
+// ASSERT: scan error: parameter type of @Java function must be Java-compatible
 // ASSERT: scan func f(arg: Rune)
 
 package cjworld.theworld
 
 import java.lang.JObject
 
-@JavaMirror["M"]
-public open class M {
+@Java["M"]
+public open foreign class M {
     init()
     init(x: Int)
     init(x: Int, y: Int)
 }
 
-@JavaImpl["A"]
+@Java["A"]
 public class A <: M {
     init() {
         super(1)

@@ -10,8 +10,8 @@ package UNNAMED
 
 import java.lang.*
 
-@JavaMirror["com.JavaClass"]
-public open class JavaClass <: C1 {
+@Java["com.JavaClass"]
+public open foreign class JavaClass <: C1 {
     public init() 
 
     public static func bar(): Int32

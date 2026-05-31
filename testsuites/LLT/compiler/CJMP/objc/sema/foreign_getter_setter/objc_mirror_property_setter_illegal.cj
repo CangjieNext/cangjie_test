@@ -10,8 +10,8 @@
 
 import objc.lang.*
 
-@ObjCMirror
-open class M {
+@ObjC
+open foreign class M {
     @ForeignSetterName["assignA:"]
     public prop a: Int32
 }

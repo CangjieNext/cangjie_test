@@ -10,8 +10,8 @@ package UNNAMED
 
 import java.lang.*
 
-@JavaMirror["com.JavaClass"]
-public open class JavaClass {
+@Java["com.JavaClass"]
+public open foreign class JavaClass {
     public mut prop aInt: JArray<JArray<Int32>>
 
     public mut static prop arrLong: JArray<JArray<JArray<Int64>>>

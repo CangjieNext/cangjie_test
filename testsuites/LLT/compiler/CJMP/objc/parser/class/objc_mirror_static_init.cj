@@ -6,14 +6,14 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
-@ObjCMirror
-class M {
+@ObjC
+foreign class M {
     @ForeignName["initialize"]
     static init()
 }
 
 /* SCAN-IN
-error: @ObjCMirror declaration cannot have static initializer
+error: @ObjC foreign type cannot declare a static initializer
   ==> objc_mirror_static_init.cj:12:5:
    | 
 12 |     static init()

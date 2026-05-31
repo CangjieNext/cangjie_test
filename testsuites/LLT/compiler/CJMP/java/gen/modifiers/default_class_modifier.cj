@@ -59,12 +59,12 @@ package cjworld.theworld
 
 import java.lang.JObject
 
-@JavaMirror["M"]
-public open class M {
+@Java["M"]
+public open foreign class M {
     init()
 }
 
-@JavaImpl["A"]
+@Java["A"]
 class A <: M {
     public init() {
         super()

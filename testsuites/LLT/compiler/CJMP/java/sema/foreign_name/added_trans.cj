@@ -3,17 +3,17 @@
 
 import java.lang.JObject
 
-@JavaMirror
-open class M1 {
+@Java
+open foreign class M1 {
     public open func foo(): Unit
 }
 
-@JavaMirror
-open class M2 <: M1 {
+@Java
+open foreign class M2 <: M1 {
 }
 
-@JavaMirror 
-class M3 <: M2 {
+@Java 
+foreign class M3 <: M2 {
     @ForeignName["foo"]
     public open func foo(): Unit
 }

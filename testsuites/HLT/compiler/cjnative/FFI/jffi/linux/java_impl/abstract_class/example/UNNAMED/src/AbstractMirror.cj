@@ -10,8 +10,8 @@ package UNNAMED
 
 import java.lang.*
 
-@JavaMirror["com.AbstractMirror"]
-public abstract open class AbstractMirror {
+@Java["com.AbstractMirror"]
+public abstract open foreign class AbstractMirror {
     public init() 
 
     public static func staticFunc(): Unit

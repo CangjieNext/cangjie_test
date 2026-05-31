@@ -9,13 +9,13 @@
 
 import java.lang.*
 
-@JavaMirror
-public open class A {
+@Java
+public open foreign class A {
     public init()
 }
 
-@JavaMirror
-public open class B {
+@Java
+public open foreign class B {
     public init()
 }
 
@@ -47,56 +47,56 @@ func test() {
 }
 
 /* SCAN-IN
-error: Can not instantiate generic 'X' with java interoperability type 'B'
+error: generic type 'X' cannot be instantiated with @Java type 'B'
   ==> generic_instantiate_classes.cj:32:8:
    | 
 32 | extend X<B> {}
    |        ^^^^ 
    | 
 
-error: Can not instantiate generic 'X' with java interoperability type 'B'
+error: generic type 'X' cannot be instantiated with @Java type 'B'
   ==> generic_instantiate_classes.cj:34:12:
    | 
 34 | class Y <: X<B> {}
    |            ^^^^ 
    | 
 
-error: Can not instantiate generic 'init' with java interoperability type 'A'
+error: generic type 'init' cannot be instantiated with @Java type 'A'
   ==> generic_instantiate_classes.cj:40:13:
    | 
 40 |     let x = X<A>()
    |             ^^^^ 
    | 
 
-error: Can not instantiate generic 'init' with java interoperability type 'A'
+error: generic type 'init' cannot be instantiated with @Java type 'A'
   ==> generic_instantiate_classes.cj:41:13:
    | 
 41 |     let y = X(a)
    |             ^ 
    | 
 
-error: Can not instantiate generic 'X' with java interoperability type 'A'
+error: generic type 'X' cannot be instantiated with @Java type 'A'
   ==> generic_instantiate_classes.cj:43:17:
    | 
 43 |     genericFunc<X<A>>()
    |                 ^^^^ 
    | 
 
-error: Can not instantiate generic 'X' with java interoperability type 'A'
+error: generic type 'X' cannot be instantiated with @Java type 'A'
   ==> generic_instantiate_classes.cj:45:5:
    | 
 45 |     X.foo(Some(a))
    |     ^ 
    | 
 
-error: Can not instantiate generic 'bar' with java interoperability type 'A'
+error: generic type 'bar' cannot be instantiated with @Java type 'A'
   ==> generic_instantiate_classes.cj:46:5:
    | 
 46 |     X<?B>.bar(a)
    |     ^^^^^^^^^ 
    | 
 
-error: Can not instantiate generic 'X' with java interoperability type 'B'
+error: generic type 'X' cannot be instantiated with @Java type 'B'
   ==> generic_instantiate_classes.cj:46:5:
    | 
 46 |     X<?B>.bar(a)

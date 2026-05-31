@@ -8,12 +8,12 @@ package cjworld
 
 import objc.lang.*
 
-@ObjCMirror
-open class NSObject {
+@ObjC
+open foreign class NSObject {
 }
 
-@ObjCMirror
-open class M <: NSObject {
+@ObjC
+open foreign class M <: NSObject {
     @ForeignName["init"]
     public init()
 

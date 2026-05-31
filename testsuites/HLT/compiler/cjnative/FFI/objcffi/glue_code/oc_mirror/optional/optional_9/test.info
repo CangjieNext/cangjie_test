@@ -8,7 +8,7 @@
 
 // Level: 1
 // Description:
-// @ObjCMirror class成员函数形参nullable M*, 返回类型nullable M*
+// @ObjC class成员函数形参nullable M*, 返回类型nullable M*
 // DEPENDENCE: src test.toml
 // (iOSNative) EXEC: %mirror_gen test.toml
 // (iOSNative and not iOS) EXEC: %clang --shared -Isrc/objc src/objc/G.m -o libdep.dylib

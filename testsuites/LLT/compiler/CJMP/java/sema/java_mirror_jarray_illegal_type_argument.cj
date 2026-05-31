@@ -6,26 +6,28 @@ import java.lang.*
 
 class MyClass {}
 
-@JavaMirror
-class M {
+@Java
+foreign class M {
     public func foo1(a: JArray<MyClass>): Unit
     public func foo2(): JArray<MyClass>
 }
 
 /* SCAN-IN
-error: argument type of java-mirrored function must be of @JavaMirror type
+error: parameter type of @Java function must be Java-compatible
   ==> java_mirror_jarray_illegal_type_argument.cj:11:22:
    | 
 11 |     public func foo1(a: JArray<MyClass>): Unit
    |                      ^^^^^^^^^^^^^^^^^^ 
    | 
 
-error: return type 'Class-JArray<Class-MyClass>' of function inside @JavaMirror class is not supported
+error: return type 'Class-JArray<Class-MyClass>' of function inside @Java foreign type must be Java-compatible
   ==> java_mirror_jarray_illegal_type_argument.cj:12:25:
    | 
 12 |     public func foo2(): JArray<MyClass>
    |                         ^^^^^^^^^^^^^^^ 
    | 
+
+2 errors generated, 2 errors printed.
 */
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

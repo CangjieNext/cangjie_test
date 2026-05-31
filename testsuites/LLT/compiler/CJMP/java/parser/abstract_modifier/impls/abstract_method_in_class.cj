@@ -4,7 +4,7 @@
 
 import java.lang.*
 
-@JavaImpl
+@Java
 class C {
     public abstract func foo(): Unit
 }

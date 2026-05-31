@@ -3,13 +3,13 @@
 
 import java.lang.*
 
-@JavaMirror
-abstract class C {
+@Java
+abstract foreign class C {
     public abstract func foo(): Unit
 }
 
-@JavaMirror
-class CImpl <: C {
+@Java
+foreign class CImpl <: C {
     // no abstract func implementation
 }
 
@@ -17,7 +17,7 @@ class CImpl <: C {
 error: class 'CImpl' missing abstract modifier, otherwise abstract function or property should be implemented
   ==> abstract_method_is_not_implemented.cj:12:1:
    | 
-12 |   class CImpl <: C {
+12 |   foreign class CImpl <: C {
    |  _^
 13 | |     // no abstract func implementation
 14 | | }
@@ -29,6 +29,8 @@ note: unimplemented abstract function 'foo'
 8 |     public abstract func foo(): Unit
   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
+
+1 error generated, 1 error printed.
 */
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

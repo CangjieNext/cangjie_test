@@ -67,8 +67,8 @@ package cjworld.theworld
 
 import java.lang.JObject
 
-@JavaMirror["M"]
-public open class M {
+@Java["M"]
+public open foreign class M {
     public init()
 
     @ForeignName["id"]
@@ -81,7 +81,7 @@ public open class M {
     public open func myBar(): Int32
 }
 
-@JavaImpl["A"]
+@Java["A"]
 public class A <: M {
     public init() {
         super()

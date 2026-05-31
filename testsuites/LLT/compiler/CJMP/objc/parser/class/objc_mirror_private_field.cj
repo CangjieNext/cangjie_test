@@ -6,13 +6,13 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
-@ObjCMirror
-class M {
+@ObjC
+foreign class M {
     private let x: Int64
 }
 
 /* SCAN-IN
-error: @ObjCMirror declaration cannot have private member
+error: @ObjC foreign type cannot declare private members
   ==> objc_mirror_private_field.cj:11:5:
    | 
 11 |     private let x: Int64

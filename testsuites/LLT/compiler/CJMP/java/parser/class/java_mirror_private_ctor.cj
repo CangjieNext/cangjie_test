@@ -1,13 +1,13 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
 
-@JavaMirror
-class M {
+@Java
+foreign class M {
     private init()
 }
 
 /* SCAN-IN
-error: java-mirrored declaration cannot have private member
+error: @Java foreign type cannot declare private members
  ==> java_mirror_private_ctor.cj:6:5:
   | 
 6 |     private init()

@@ -8,8 +8,8 @@
 
 import objc.lang.*
 
-@ObjCMirror
-public open class Base {
+@ObjC
+public open foreign class Base {
     public init()
     public open func arg0(): Bool
     @ForeignName["primitive1WithArg0:"]
@@ -20,7 +20,7 @@ public open class Base {
     public open func primitive3(i: Int64, f: Float32, b: Bool): Int64
 }
 
-@ObjCImpl
+@ObjC
 public class Derived <: Base {
     public init() {}
     public func foo<T>(): Unit {
@@ -28,7 +28,7 @@ public class Derived <: Base {
 }
 
 /* SCAN-IN
-error: @ObjCImpl declaration cannot be generic
+error: @ObjC class cannot be generic
   ==> method_generic.cj:26:5:
    | 
 26 |       public func foo<T>(): Unit {
@@ -36,4 +36,6 @@ error: @ObjCImpl declaration cannot be generic
 27 | |     }
    | |_____^
    | 
+
+1 error generated, 1 error printed.
 */

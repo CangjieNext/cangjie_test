@@ -6,92 +6,92 @@
 
 // ERRCHECK: %compiler %f %cmp_opt
 
-@JavaMirror
-@JavaImpl
-class Foo {}
+@Java
+@Java
+foreign class Foo {}
 
-@JavaMirror
+@Java
 @C
-class Foo {}
+foreign class Foo {}
 
-@JavaMirror
-@ObjCMirror
-class Foo {}
+@Java
+@ObjC
+foreign class Foo {}
 
-@JavaMirror
-@ObjCMirror
+@Java
+@ObjC
 @C
-class Foo {}
+foreign class Foo {}
 
-@JavaMirror
-@JavaMirror
-@ObjCMirror
-class Foo {}
+@Java
+@Java
+@ObjC
+foreign class Foo {}
 
 /* SCAN
-error: 'JavaMirror' and 'JavaImpl' annotations conflict on class
-  ==> conflict.cj:9:1:
+error: duplicated annotation: '@Java'
+  ==> conflict.cj:10:1:
    | 
-9  |   @JavaMirror
-   |  _^
-10 | | @JavaImpl
-   | |_________^ unexpected annotation
+9  | @Java
+   | ~~~~~ the previous one is here
+10 | @Java
+   | ^^^^^ duplicated annotation here
    | 
 
-error: 'JavaMirror' and 'C' annotations conflict on class
+error: 'Java' and 'C' annotations conflict on class
   ==> conflict.cj:13:1:
    | 
-13 |   @JavaMirror
+13 |   @Java
    |  _^
 14 | | @C
    | |__^ unexpected annotation
    | 
 
-error: 'JavaMirror' and 'ObjCMirror' annotations conflict on class
+error: 'Java' and 'ObjC' annotations conflict on class
   ==> conflict.cj:17:1:
    | 
-17 |   @JavaMirror
+17 |   @Java
    |  _^
-18 | | @ObjCMirror
-   | |___________^ unexpected annotation
+18 | | @ObjC
+   | |_____^ unexpected annotation
    | 
 
-error: 'JavaMirror' and 'ObjCMirror' annotations conflict on class
+error: 'Java' and 'ObjC' annotations conflict on class
   ==> conflict.cj:21:1:
    | 
-21 |   @JavaMirror
+21 |   @Java
    |  _^
-22 | | @ObjCMirror
-   | |___________^ unexpected annotation
+22 | | @ObjC
+   | |_____^ unexpected annotation
    | 
 
-error: 'JavaMirror' and 'C' annotations conflict on class
+error: 'Java' and 'C' annotations conflict on class
   ==> conflict.cj:21:1:
    | 
-21 |   @JavaMirror
+21 |   @Java
    |  _^
-22 | | @ObjCMirror
+22 | | @ObjC
 23 | | @C
    | |__^ unexpected annotation
    | 
 
-error: 'JavaMirror' and 'ObjCMirror' annotations conflict on class
+error: 'Java' and 'ObjC' annotations conflict on class
   ==> conflict.cj:26:1:
    | 
-26 |   @JavaMirror
+26 |   @Java
    |  _^
-27 | | @JavaMirror
-28 | | @ObjCMirror
-   | |___________^ unexpected annotation
+27 | | @Java
+28 | | @ObjC
+   | |_____^ unexpected annotation
    | 
 
-error: duplicated annotation: '@JavaMirror'
+error: duplicated annotation: '@Java'
   ==> conflict.cj:27:1:
    | 
-26 | @JavaMirror
-   | ~~~~~~~~~~~ the previous one is here
-27 | @JavaMirror
-   | ^^^^^^^^^^^ duplicated annotation here
+26 | @Java
+   | ~~~~~ the previous one is here
+27 | @Java
+   | ^^^^^ duplicated annotation here
    | 
 
 7 errors generated, 7 errors printed.

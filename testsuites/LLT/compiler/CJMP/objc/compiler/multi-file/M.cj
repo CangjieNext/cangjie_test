@@ -8,7 +8,7 @@ package cjworld
 
 import objc.lang.*
 
-@ObjCMirror
-open class M {
+@ObjC
+open foreign class M {
     init()
 }

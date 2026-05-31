@@ -10,14 +10,14 @@ import objc.lang.*
 
 class Foo {}
 
-@ObjCMirror
-class M {
+@ObjC
+foreign class M {
    @ForeignName["initWithA:"]
    init(a: Foo)
 }
 
 /* SCAN-IN
-error: param type of Objective-C mirror constructor must be Objective-C compatible
+error: parameter type of @ObjC foreign type constructor must be Objective-C compatible
   ==> objc_mirror_ctor_type_mismatch.cj:16:9:
    | 
 16 |    init(a: Foo)

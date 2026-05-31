@@ -4,7 +4,7 @@
 
 import java.lang.*
 
-@JavaImpl
+@Java
 interface I {
     public abstract func foo(): Unit
 }

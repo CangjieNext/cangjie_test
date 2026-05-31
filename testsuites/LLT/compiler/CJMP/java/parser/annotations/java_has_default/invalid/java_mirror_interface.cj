@@ -7,18 +7,21 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
 @JavaHasDefault
-@JavaMirror
-interface I {
+@Java
+foreign interface I {
 }
 
 /* SCAN-IN
+
 error: unexpected annotation '@JavaHasDefault' on interface
   ==> java_mirror_interface.cj:9:1:
    | 
 9  | @JavaHasDefault
    | ^^^^^^^^^^^^^^^ unexpected annotation here
-10 | @JavaMirror
-11 | interface I {
-   | ~~~~~~~~~ on interface
+10 | @Java
+11 | foreign interface I {
+   |         ~~~~~~~~~ on interface
    | 
+
+1 error generated, 1 error printed.
 */

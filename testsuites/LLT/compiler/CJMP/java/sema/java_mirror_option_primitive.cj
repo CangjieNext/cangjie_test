@@ -3,8 +3,8 @@
 
 import java.lang.JObject
 
-@JavaMirror
-class M {
+@Java
+foreign class M {
     public func foo(a: ?Int64): Unit
 }
 
@@ -13,7 +13,7 @@ class M {
  */
 
 /* SCAN-IN
-error: argument type of java-mirrored function must be of @JavaMirror type
+error: parameter type of @Java function must be Java-compatible
  ==> java_mirror_option_primitive.cj:8:21:
   | 
 8 |     public func foo(a: ?Int64): Unit

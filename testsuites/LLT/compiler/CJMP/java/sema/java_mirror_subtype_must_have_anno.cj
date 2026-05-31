@@ -3,8 +3,8 @@
 
 import java.lang.JObject
 
-@JavaMirror
-open class M {
+@Java
+open foreign class M {
     init()
 }
 
@@ -20,7 +20,7 @@ class A <: M {
 
 
 /* SCAN-IN
-error: super declaration 'M' is inheritable only for declaration annotated with @JavaMirror or @JavaImpl
+error: super type 'M' is inheritable only by @Java types
   ==> java_mirror_subtype_must_have_anno.cj:11:1:
    | 
 11 |   class A <: M {
@@ -29,6 +29,9 @@ error: super declaration 'M' is inheritable only for declaration annotated with 
    | | ...
 19 | | }
    | |_^
+   | 
+
+1 error generated, 1 error printed.
 */
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0

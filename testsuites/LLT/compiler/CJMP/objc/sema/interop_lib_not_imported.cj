@@ -6,14 +6,23 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt 2>& 1 | compare %f
 
-@ObjCMirror
-class M {}
+@ObjC
+foreign class M {}
 
 /* SCAN-IN
+error: 'objc.lang.ObjCId' is not imported
+  ==> interop_lib_not_imported.cj:10:15:
+   | 
+10 | foreign class M {}
+   |               ^ 
+   | 
+
 error: objc.lang must be imported to use Objective-C interoperability
   ==> interop_lib_not_imported.cj:10:1:
    | 
-10 | class M {}
-   | ^^^^^^^^^^ 
+10 | foreign class M {}
+   | ^^^^^^^^^^^^^^^^^^ 
    | 
+
+2 errors generated, 2 errors printed.
 */

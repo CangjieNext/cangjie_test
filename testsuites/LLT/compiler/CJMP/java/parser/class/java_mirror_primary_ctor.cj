@@ -1,17 +1,17 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %frontendCompiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
 
-@JavaMirror
-class M {
+@Java
+foreign class M {
     M() {}
 }
 
 /* SCAN-IN
-error: java-mirrored declaration cannot have primary constructor
+error: @Java foreign type cannot declare a primary constructor
  ==> java_mirror_primary_ctor.cj:6:5:
   | 
 6 |     M() {}
-  |     ^^^^^^ java-mirrored declaration cannot have primary constructor
+  |     ^^^^^^ 
   | 
 
 1 error generated, 1 error printed.

@@ -6,23 +6,23 @@
 
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
-@ObjCMirror
-sealed abstract class M {
+@ObjC
+sealed abstract foreign class M {
 }
 
-@ObjCImpl
+@ObjC
 sealed abstract class Impl {
 }
 
 /* SCAN-IN
-error: @ObjCMirror declaration cannot be sealed
-  ==> bad_modifier.cj:10:17:
+error: @ObjC foreign type cannot be sealed
+  ==> bad_modifier.cj:10:25:
    | 
-10 | sealed abstract class M {
-   |                 ^ 
+10 | sealed abstract foreign class M {
+   |                         ^ 
    | 
 
-error: @ObjCImpl declaration cannot be abstract
+error: @ObjC class cannot be abstract
   ==> bad_modifier.cj:14:17:
    | 
 14 | sealed abstract class Impl {

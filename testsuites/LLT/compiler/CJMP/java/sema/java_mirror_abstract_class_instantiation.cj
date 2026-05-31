@@ -3,12 +3,12 @@
 
 import java.lang.*
 
-@JavaMirror
-abstract class A {
+@Java
+abstract foreign class A {
     public abstract func foo(): Unit
 }
 
-@JavaImpl
+@Java
 class Impl {
     init() {
         let x = A()

@@ -16,7 +16,7 @@ func globalHello() {
     throw ArithmeticException("ArithmeticException in global func")
 }
 
-@JavaImpl
+@Java
 public class Impl <: MyObject {
     public override func hello(): Unit {
         super.hello()

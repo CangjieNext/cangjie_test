@@ -10,9 +10,9 @@
 @C
 func foo() {}
 
-@JavaMirror
-@JavaMirror
-class Foo {}
+@Java
+@Java
+foreign class Foo {}
 
 @OverflowWrapping
 @OverflowWrapping
@@ -28,13 +28,13 @@ error: duplicated annotation: '@C'
    | ^^ duplicated annotation here
    | 
 
-error: duplicated annotation: '@JavaMirror'
+error: duplicated annotation: '@Java'
   ==> duplicate_builtin.cj:14:1:
    | 
-13 | @JavaMirror
-   | ~~~~~~~~~~~ the previous one is here
-14 | @JavaMirror
-   | ^^^^^^^^^^^ duplicated annotation here
+13 | @Java
+   | ~~~~~ the previous one is here
+14 | @Java
+   | ^^^^^ duplicated annotation here
    | 
 
 error: duplicated annotation: '@OverflowWrapping'

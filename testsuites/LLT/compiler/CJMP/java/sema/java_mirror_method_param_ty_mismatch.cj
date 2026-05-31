@@ -7,18 +7,18 @@ class Foo {
 
 }
 
-@JavaMirror
-class Bar {
+@Java
+foreign class Bar {
 
 }
 
-@JavaMirror
-class M {
+@Java
+foreign class M {
     public func foo(f: Foo): Bar
 }
 
 /* SCAN-IN
-error: argument type of java-mirrored function must be of @JavaMirror type
+error: parameter type of @Java function must be Java-compatible
   ==> java_mirror_method_param_ty_mismatch.cj:17:21:
    | 
 17 |     public func foo(f: Foo): Bar

@@ -1,17 +1,17 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>& 1 | compare %f
 
 
-@JavaMirror
-class M {
+@Java
+foreign class M {
     init() {}
 }
 
 /* SCAN-IN
-error: java-mirrored constructor cannot have body
+error: @Java foreign type constructor cannot have body
  ==> java_mirror_init_ctor_with_body.cj:6:12:
   | 
 6 |     init() {}
-  |            ^ java-mirrored constructor cannot have body
+  |            ^^ 
   | 
 
 1 error generated, 1 error printed.
