@@ -58,7 +58,7 @@ struct teststruct {
 }
 
 foreign {
-    func testfunc(n: Int64, ppst: CPointer<CPointer<teststruct>>): CPointer<CPointer<teststruct>>
+    func testfunc(n: Int32, ppst: CPointer<CPointer<teststruct>>): CPointer<CPointer<teststruct>>
 
     func GetDoublePtr(): CPointer<CPointer<teststruct>>
 
