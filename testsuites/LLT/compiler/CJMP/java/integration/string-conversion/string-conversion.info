@@ -44,4 +44,9 @@ CJ: Some(echo)
 CJ: None
 CJ: java-field
 CJ: None
+foo
+foo
+Some(Some(foo))
+Some(Some(foo))
+Hi
 */
