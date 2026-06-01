@@ -50,7 +50,7 @@ public class CjExe <: Exe {
         arg
     }
 
-    public override func GetStringArray(): ?JArray<String> {
+    public override func GetStringArray(): JArray<String> {
         super.GetStringArray()
     }
 
@@ -81,6 +81,12 @@ public class CjExe <: Exe {
         println("CJ: ${s2}")
         println("CJ: ${e.strField}")
         println("CJ: ${e.nullableField}")
+        println(e.GetStringArray()[0])
+        e.GetStringArray()[0] = ""
+        println(e.GetStringArray()[0])
+        println(e.GetNullableStringArray()?[0])
+        e.GetNullableStringArray()?[0] = ""
+        println(e.GetNullableStringArray()?[0])
     }
 
     public func ReturnString(): String {
