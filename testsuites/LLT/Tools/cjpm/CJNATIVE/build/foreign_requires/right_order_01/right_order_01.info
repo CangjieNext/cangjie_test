@@ -6,5 +6,5 @@
 
 // DEPENDENCE: ../%n
 // EXEC-0: cd %n && gcc test01.c -shared -fPIC -o libtest01%dylib && cjc -p pro1/src/xoo --output-type=staticlib --module-name pro1 -o pro1/libpro1.xoo.a && %cjpm build --cfg1 -V 2>&1 | compare %f
-// ASSERT: regex Compiling package `test.*-ltest.b.*-lpro1.xoo.*-ltest01.*-O0 -g --link-options -s
+// ASSERT: regex Compiling package `test.*-ltest.b.*-lpro1.xoo.*-ltest01.*-O0 -g --link-options "-s -s"
 // ASSERT: scan cjpm build success

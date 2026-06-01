@@ -8,6 +8,6 @@
 // EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
 // ASSERT: regex-not Compiling package `test.boo.*--link-options -s
 // ASSERT: regex-not Compiling package `test.aoo.*--link-options -s
-// ASSERT: regex Compiling package `test.*--link-options -s
+// ASSERT: regex Compiling package `test.*--link-options "-s -s -s"
 // ASSERT: scan cjpm build success
 // EXEC: cd %n && %cjpm run
