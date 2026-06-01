@@ -26,7 +26,7 @@ public open class Exe {
 
     public open func EchoNullableString(arg0: ?String): ?String
 
-    public open func GetStringArray(): ?JArray<String>
+    public open func GetStringArray(): JArray<String>
 
     public open func EchoStringArray(arg0: ?JArray<String>): ?JArray<String>
 
