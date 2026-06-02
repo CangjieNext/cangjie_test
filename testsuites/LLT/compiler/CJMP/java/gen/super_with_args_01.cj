@@ -24,61 +24,61 @@ public class Impl extends MyObject {
 
     public Impl() {
         super(1);
-        self = initCJObject();
+        initCJObject();
     }
 
     private Impl($$NativeConstructorMarker __init__) {
         super(1);
     }
 
-    public native long initCJObject();
+    private native void initCJObject();
 
     public Impl(long value) {
         super(superC1A0P0(value));
-        self = initCJObjectl(value);
+        initCJObjectl(value);
     }
 
     private Impl(long value, $$NativeConstructorMarker __init__) {
         super(superC1A0P0(value));
     }
 
-    public native long initCJObjectl(long value);
+    private native void initCJObjectl(long value);
 
     public static native long superC1A0P0(long value);
     public Impl(long x, long y) {
         super(superC2A0P0P1(x, y));
-        self = initCJObjectll(x, y);
+        initCJObjectll(x, y);
     }
 
     private Impl(long x, long y, $$NativeConstructorMarker __init__) {
         super(superC2A0P0P1(x, y));
     }
 
-    public native long initCJObjectll(long x, long y);
+    private native void initCJObjectll(long x, long y);
 
     public static native long superC2A0P0P1(long x, long y);
     public Impl(long x, long y, long z) {
         super(superC3A0P0P1P2(x, y, z));
-        self = initCJObjectlll(x, y, z);
+        initCJObjectlll(x, y, z);
     }
 
     private Impl(long x, long y, long z, $$NativeConstructorMarker __init__) {
         super(superC3A0P0P1P2(x, y, z));
     }
 
-    public native long initCJObjectlll(long x, long y, long z);
+    private native void initCJObjectlll(long x, long y, long z);
 
     public static native long superC3A0P0P1P2(long x, long y, long z);
     public Impl(long x, long y, long z, long u) {
         super(superC4A0P0P1P2P3(x, y, z, u));
-        self = initCJObjectllll(x, y, z, u);
+        initCJObjectllll(x, y, z, u);
     }
 
     private Impl(long x, long y, long z, long u, $$NativeConstructorMarker __init__) {
         super(superC4A0P0P1P2P3(x, y, z, u));
     }
 
-    public native long initCJObjectllll(long x, long y, long z, long u);
+    private native void initCJObjectllll(long x, long y, long z, long u);
 
     public static native long superC4A0P0P1P2P3(long x, long y, long z, long u);
     @Override
@@ -148,4 +148,3 @@ public class Impl <: MyObject {
         })
     }
 }
-

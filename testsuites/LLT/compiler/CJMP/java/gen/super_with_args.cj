@@ -21,25 +21,25 @@ public class A extends M {
 
     A() {
         super(1);
-        self = initCJObject();
+        initCJObject();
     }
 
     private A($$NativeConstructorMarker __init__) {
         super(1);
     }
 
-    native long initCJObject();
+    private native void initCJObject();
 
     A(long x) {
         super(x, x);
-        self = initCJObjectl(x);
+        initCJObjectl(x);
     }
 
     private A(long x, $$NativeConstructorMarker __init__) {
         super(x, x);
     }
 
-    native long initCJObjectl(long x);
+    private native void initCJObjectl(long x);
 
     @Override
     public boolean equals(Object obj) {
