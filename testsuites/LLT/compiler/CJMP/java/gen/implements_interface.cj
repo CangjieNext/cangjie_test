@@ -24,14 +24,14 @@ import cangjie.lang.internal.$$NativeConstructorMarker;
 
     public C2() {
         super();
-        self = initCJObject();
+        initCJObject();
     }
 
     private C2($$NativeConstructorMarker __init__) {
         super();
     }
 
-    public native long initCJObject();
+    private native void initCJObject();
 
     public boolean test() {
         return test(this.self);

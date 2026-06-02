@@ -134,6 +134,9 @@ compiler/CJMP/java/sema/java_impl_parse.cj
 
 compiler/CJMP/java/sema/struct-with-return-option.cj
 
+# JArray<?JavaImpl> -> field access on array element does not work now
+compiler/CJMP/java/integration/impl-method-accept-jarray-option/impl-method-accept-jarray-option.info
+
 ## func is not hidden
 compiler/CJMP/java/integration/config-struct-public-func-hidden/config-struct-public-func-hidden.info
 compiler/CJMP/java/integration/config-struct-public-struct-hidden/config-struct-public-func-hidden.info

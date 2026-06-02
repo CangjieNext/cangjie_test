@@ -33,38 +33,38 @@ public class A extends M {
 
     A(long x, long y) {
         super();
-        self = initCJObjectll(x, y);
+        initCJObjectll(x, y);
     }
 
     private A(long x, long y, $$NativeConstructorMarker __init__) {
         super();
     }
 
-    native long initCJObjectll(long x, long y);
+    private native void initCJObjectll(long x, long y);
 
     A() {
         super(superC3A0(), superC3A1());
-        self = initCJObject();
+        initCJObject();
     }
 
     private A($$NativeConstructorMarker __init__) {
         super(superC3A0(), superC3A1());
     }
 
-    native long initCJObject();
+    private native void initCJObject();
 
     public static native A superC3A0();
     public static native M superC3A1();
     A(int x) {
         super(superC4A0());
-        self = initCJObjecti(x);
+        initCJObjecti(x);
     }
 
     private A(int x, $$NativeConstructorMarker __init__) {
         super(superC4A0());
     }
 
-    native long initCJObjecti(int x);
+    private native void initCJObjecti(int x);
 
     public static native A superC4A0();
     public void f(M arg) {
