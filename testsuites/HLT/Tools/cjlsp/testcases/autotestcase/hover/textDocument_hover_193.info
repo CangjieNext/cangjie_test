@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 454,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: type01.cj\nPackage info: default.Type\n\ninternal type PP = Tuple<Float64, Float64>\n"},"range": {"end": {"character": 10,"line":12},"start": {"character": 8,"line":12}}}}
+{"id": 454,"jsonrpc": "2.0","result": {"contents": {"kind": "markdown","value": "Declared in: type01.cj  \nPackage info: default.Type  \n\n```cangjie\ninternal type PP = Tuple<Float64, Float64>\n```\n"},"range": {"end": {"character": 10,"line":12},"start": {"character": 8,"line":12}}}}
