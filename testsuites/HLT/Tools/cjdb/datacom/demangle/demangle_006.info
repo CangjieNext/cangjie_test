@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/demangle/
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_class/* -o pkg_class.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_func/* -o pkg_func.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_enum/* -o pkg_enum.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_struct/* -o pkg_struct.%middle
+// EXEC: %compiler %cmp_opt -g demangle/demangle.cj pkg_class.%middle pkg_func.%middle pkg_enum.%middle pkg_struct.%middle -o demangle_target%cmp_output
+// RUN-EXEC: python3 cjdb_test.py demangle_006.info demangle_target %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors demangle_target,demangle_target
+AOT b,b 67,where = demangle_target`default::Cla::fun_cla1\(\) \+ \d+ at demangle.cj:67:14
+CJVM b,b 67,where = default\.Cla\.fun_cla1\(\)i32 at [\s\S]*demangle.cj:67
+AOT r,r,demangle_target`default::Cla::fun_cla1\(this=default.Cla @ [\S\s]*\) at demangle.cj:67:14[\s\S]*-> 67
+CJVM c,c,-> 67
+q,q,

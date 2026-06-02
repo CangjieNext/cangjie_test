@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: flatMapLogic.cj
+// EXEC: %compiler %cmp_opt %f flatMapLogic.cj -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+import std.convert.*
+internal import std.collection.*
+
+main(): Int64 {
+    var arraylist1 = ArrayList<ArrayList<Rune>>(
+        [ArrayList<Rune>([r'd', r'b', r'a', r'd', r'a', r'h', r'j', r'd', r'g', r'a']),
+            ArrayList<Rune>([r'4', r'2', r'4', r'2', r'4', r'2', r'4', r'中']),
+            ArrayList<Rune>([r'j', r'h', r'g', r'd', r'h', r'j', r'a', r'd'])])
+    var arraylist1Expect = ArrayList<Rune>(
+        [r'd', r'b', r'a', r'd', r'a', r'h', r'j', r'd', r'g', r'a', r'4', r'2', r'4', r'2', r'4', r'2', r'4', r'中',
+            r'j', r'h', r'g', r'd', r'h', r'j', r'a', r'd'])
+    var arraylist2 = ArrayList<ArrayList<Rune>>()
+    var arraylist2Expect = ArrayList<Rune>()
+    var cases01 = [
+        testIterableFlatMap<ArrayList<Rune>, Rune>(arraylist1, arraylist1Expect, lamdaCharToChar),
+        testIterableFlatMap<ArrayList<Rune>, Rune>(arraylist2, arraylist2Expect, lamdaCharToChar)
+    ]
+    var resultExpexct1 = Array<Int64>(cases01.size, repeat: 0)
+    if (cases01 != resultExpexct1) {
+        return 3
+    }
+    return 0
+}

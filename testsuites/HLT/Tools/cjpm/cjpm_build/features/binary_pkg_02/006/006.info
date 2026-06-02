@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1 
+// DEPENDENCE: ../%n
+// EXEC: cd %n/pro1 && mkdir -p target/pro1
+// EXEC: %export CANGJIE_PATH=%n/pro1/target/pro1/:$CANGJIE_PATH
+
+// EXEC: %compiler --import-path %n/pro1/target -p "%n/pro1/src/zoo" --module-name pro1 %compile_lib_opt -o %n/pro1/target/pro1/libpro1.xoo.a
+// EXEC: %compiler --import-path %n/pro1/target -p "%n/pro1/src/yoo" --module-name pro1 %compile_lib_opt -o %n/pro1/target/pro1/libpro1.zoo.a
+// EXEC: %compiler --import-path %n/pro1/target -p "%n/pro1/src/xoo" --module-name pro1 %compile_lib_opt -o %n/pro1/target/pro1/libpro1.yoo.a
+
+
+// EXEC: cd %n/ && %cjpm build 2>&1 | compare %f
+// (not MAC and not Windows) ASSERT: scan undefined reference to `_CGP8pro1.zooilHv'
+// (not MAC and not Windows) ASSERT: scan undefined reference to `_CN8pro1.zoo1zE'
+// (not MAC and not Windows) ASSERT: scan cjpm build failed
+// (Windows or MAC) ASSERT: scan cjpm build success

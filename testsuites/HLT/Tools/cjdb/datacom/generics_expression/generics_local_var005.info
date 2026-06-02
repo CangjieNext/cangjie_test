@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var005.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var005.cj -o generics_local_var005%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_local_var005.info generics_local_var005 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_local_var005,generics_local_var005
+b,b 22,generics_local_var005.cj:22
+AOT r,r,-> 22
+CJVM c,c,
+expr~expr r1~\(default.RGBColor<Int32>\) \$[\d] = Red
+expr~expr r4~\(default.RGBColor2<Bool,Float64>\) \$[\d] = {\s+constructor = Green[\s\S]*arg_1 = true[\s\S]*arg_2 = 1[\s\S]*}
+expr~expr RGBColor<Int32>.Green(3)~\(default.RGBColor<Int32>\) \$[\d] = {\s+constructor = Green[\s\S]*arg_1 = 3[\s\S]*}
+expr~expr Green(3, 1.0)~error: unsupported expression
+expr~expr RGBColor2<Int32,Float64>.Green(3, 1.0)~\(default.RGBColor2<Int32,Float64>\) \$[\d] = {[\s\S]*constructor = Green[\s\S]*arg_1 = 3[\s\S]*arg_2 = 1[\s\S]*}
+q,q,

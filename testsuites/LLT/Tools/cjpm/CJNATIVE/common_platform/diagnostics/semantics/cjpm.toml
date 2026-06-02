@@ -1,0 +1,61 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[package]
+  cjc-version = "1.0.0"
+  name = "semantics"
+  description = "nothing here"
+  version = "1.0.0"
+  target-dir = ""
+  output-type = "executable"
+  compile-option = ""
+  override-compile-option = ""
+  link-option = ""
+  package-configuration = {}
+  always-enabled-features = [ "user.semantics", "os.linux" ]
+
+[dependencies]
+
+[profile]
+  experimental = true
+
+[[feature]]
+name = "user.semantics.a"
+
+[[feature]]
+name = "user.semantics.a"
+mapping = [ "user.semantics.b" ]
+
+[[feature]]
+names = [ "user.semantics.a", "user.semantics.b", "user .semantics  .a" ]
+
+[[feature]]
+name = "os.linux"
+
+[[feature]]
+names = [ "user.semantics.c", "user.semantics.b", "os.linux", "os.ohos" ]
+
+[[feature]]
+name = "invalid.qname"
+
+[[feature]]
+names = [ "user.typing.qname" ]
+
+[[source-set]]
+name = "common"
+src-dir = "./common"
+features = []
+product = false
+
+[[source-set]]
+name = "common"
+src-dir = "./platform"
+features = [ "user.semantics.c", "os.linux" ]
+
+[[source-set]]
+name = "platform"
+src-dir = "./platform"
+features = [ "os.linux", "user.semantics.c" ]

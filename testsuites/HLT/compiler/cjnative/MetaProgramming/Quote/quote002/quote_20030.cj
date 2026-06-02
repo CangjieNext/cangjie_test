@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// ERRCHECK: %compiler %cmp_macro %f
+
+
+macro package define
+import std.ast.*
+// bad case for character type
+public macro test(input:Tokens):Tokens{
+    quote('\u{}') 
+    quote('\u{z}') 
+    quote('\u{ffffffffz}') 
+    quote('\u{123456789}') 
+}
+// ASSERT: scan lex_expected_digit
+// ASSERT: scan lex_expected_right_bracket

@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+/*
+  @Name:            02_01_11_02_a08_01
+
+  @Level:         1
+
+  @Assertion:       2.1.11.2(8) As long as there are enum constructor and functions 
+  that pass the type check, they just cannot be resolved.
+
+
+  @Description:     Checks that conflicting function and constructor produce compilation error
+
+  @Mode:            compileonly
+  @Negative:        yes
+  @Structure:       single
+
+  @Comment:
+
+*/
+
+enum E1 {
+    | F
+    | F1(Bool)
+    | F2(Rune, Int8)
+}
+
+func F2(c: Rune, i: Int8) { (c,i) }
+
+let c = F2('z', 8_i8)
+
+main() {
+}

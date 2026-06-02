@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/Packages/src
+//  EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/class_external.cj -o libpkg1.%middle
+//  EXEC: %compiler %cmp_opt -g libpkg1.%middle src/class_external_use.cj -o class_external_use%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_class057.info class_external_use %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors class_external_use,class_external_use
+b,b 21,class_external_use.cj:21
+AOT r,r,-> 21
+CJVM c,c,-> 21
+n,n,-> 22
+locals,locals,C1\) newc = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
+print,print newc.time,TimeUnit\) \$[\d] = {(\r|\n|\r\n)  constructor = Year
+print,print newc.newRectangle1,Rectangle_ex\) \$[\d] = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
+q,q,

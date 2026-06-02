@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_member.cj
+// EXEC: %compiler %cmp_opt -g generics_member.cj -o generics_member%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_member_fun_00.info generics_member %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_member,generics_member
+b,b 59,Breakpoint 1:
+AOT r,r,-> 59
+CJVM c,c,
+p, p a1,\(Int8\) \$[\d] = 8
+p, p a,\(Int8\) \$[\d] = 8
+p, p a2,\(Int16\) \$[\d] = 16
+p, p b,\(Int16\) \$[\d] = 16
+p, p a3,\(Int32\) \$[\d] = 32
+p, p c,\(Int32\) \$[\d] = 32
+p, p a4,\(Int64\) \$[\d] = 64
+p, p d,\(Int64\) \$[\d] = 64
+p, p a5,\(IntNative\) \$[\d] = 100
+p, p e,\(IntNative\) \$[\d] = 100
+locals, locals,\(Int8\) a = 8[\s\S]*\(Int16\) b = 16[\s\S]*\(Int32\) c = 32[\s\S]*\(Int64\) d = 64[\s\S]*\(IntNative\) e = 100[\s\S]*\(Int8\) a1 = 8[\s\S]*\(Int16\) a2 = 16[\s\S]*\(Int32\) a3 = 32[\s\S]*\(Int64\) a4 = 64[\s\S]*\(IntNative\) a5 = 100
+q,q,

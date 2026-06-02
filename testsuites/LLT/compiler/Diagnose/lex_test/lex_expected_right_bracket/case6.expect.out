@@ -1,0 +1,21 @@
+error: expected '}', found '1'
+  ==> case6.cj:15:22:
+   | 
+15 |     cangjie1 \u{12342134134}
+   |                ~        ^ expected '}'
+   |                |
+   |                to match this opening '{'
+   | 
+   # note: unicode escape may contain 8 hexadecimal digits at most
+
+error: expected '}', found '1'
+  ==> case6.cj:17:22:
+   | 
+17 |     cangjie2 \u{1221414214124}"""
+   |                ~        ^ expected '}'
+   |                |
+   |                to match this opening '{'
+   | 
+   # note: unicode escape may contain 8 hexadecimal digits at most
+
+2 errors generated, 2 errors printed.

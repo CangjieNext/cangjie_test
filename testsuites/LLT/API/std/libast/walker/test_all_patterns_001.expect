@@ -1,0 +1,125 @@
+ConstPattern {
+  -litConstExpr: LitConstExpr {
+    -literal: Token {
+      value: "1"
+      kind: INTEGER_LITERAL
+      pos: 47: 22
+    }
+  }
+}
+TuplePattern {
+  -patterns: 0, VarOrEnumPattern {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 48: 23
+    }
+  }
+  -patterns: 1, VarOrEnumPattern {
+    -identifier: Token {
+      value: "b"
+      kind: IDENTIFIER
+      pos: 48: 25
+    }
+  }
+}
+VarOrEnumPattern {
+  -identifier: Token {
+    value: "a"
+    kind: IDENTIFIER
+    pos: 48: 23
+  }
+}
+VarOrEnumPattern {
+  -identifier: Token {
+    value: "b"
+    kind: IDENTIFIER
+    pos: 48: 25
+  }
+}
+TypePattern {
+  -pattern: VarPattern {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 49: 22
+    }
+  }
+  -colon: Token {
+    value: ":"
+    kind: COLON
+    pos: 49: 24
+  }
+  -patternType: PrimitiveType {
+    -keyword: Token {
+      value: "Int64"
+      kind: INT64
+      pos: 49: 26
+    }
+  }
+}
+VarPattern {
+  -identifier: Token {
+    value: "a"
+    kind: IDENTIFIER
+    pos: 49: 22
+  }
+}
+VarOrEnumPattern {
+  -identifier: Token {
+    value: "X"
+    kind: IDENTIFIER
+    pos: 50: 22
+  }
+}
+VarOrEnumPattern {
+  -identifier: Token {
+    value: "X"
+    kind: IDENTIFIER
+    pos: 51: 22
+  }
+}
+VarOrEnumPattern {
+  -identifier: Token {
+    value: "Y"
+    kind: IDENTIFIER
+    pos: 51: 26
+  }
+}
+EnumPattern {
+  -constructor: RefExpr {
+    -identifier: Token {
+      value: "Year"
+      kind: IDENTIFIER
+      pos: 52: 22
+    }
+  }
+  -patterns: 0, VarOrEnumPattern {
+    -identifier: Token {
+      value: "y"
+      kind: IDENTIFIER
+      pos: 52: 27
+    }
+  }
+}
+VarOrEnumPattern {
+  -identifier: Token {
+    value: "y"
+    kind: IDENTIFIER
+    pos: 52: 27
+  }
+}
+WildcardPattern {
+  -wildcard: Token {
+    value: "_"
+    kind: WILDCARD
+    pos: 53: 22
+  }
+}
+WildcardPattern {
+  -wildcard: Token {
+    value: "_"
+    kind: WILDCARD
+    pos: 54: 22
+  }
+}

@@ -1,0 +1,31 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/localvar2.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug localvar2.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb localvar2,localvar2
+b,b 18,localvar2.cj:18
+r,r,-> 18
+ ,expr width,\(Int64\) \$\d+ = 3
+ ,expr height,\(Int64\) \$\d+ = 4
+ ,expr this.aaa,\(Int64\) \$\d+ = 1
+ ,expr this.bbb,\(Int64\) \$\d+ = 2
+ ,expr this.width,\(Int64\) \$\d+ = 2
+ ,expr this.height,\(Int64\) \$\d+ = 4
+ ,expr width2,\(Int64\) \$\d+ = 2
+ ,expr this.width + width,\(Int64\) \$\d+ = 5
+ ,expr this.width + height,\(Int64\) \$\d+ = 6
+ ,expr width + this.width,\(Int64\) \$\d+ = 5
+ ,expr width + this.height,\(Int64\) \$\d+ = 7
+ ,expr this.width + this.height,\(Int64\) \$\d+ = 6
+ ,expr var width = 5; width,\(Int64\) \$\d+ = 5
+ ,expr var width = 5; this.width,\(Int64\) \$\d+ = 2
+ ,expr var width = 5; this.width + width,\(Int64\) \$\d+ = 7
+ ,expr var width = 5; width + this.width,\(Int64\) \$\d+ = 7
+q,q,

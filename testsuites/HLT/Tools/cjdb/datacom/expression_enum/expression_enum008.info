@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/018_enum_return.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 018_enum_return.cj -o 018_enum_return%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum008.info 018_enum_return %run_env
+
+test#
+cjdb,cjdb --no-use-colors 018_enum_return,018_enum_return
+b,b 22,018_enum_return.cj:22
+AOT r,r,-> 22
+CJVM c,c,
+expr,expr bb,\(default.EE1\) \$[\d] = XY
+expr~expr EE1.XY~\(default.EE1\) \$[\d] = XY
+expr~expr (EE1.XY, EE1.XY.name())~\(Tuple<default.EE1,Int64>\) \$[\d] = {[\s\S]*\[0\] = XY[\s\S]*\[1\] = 2[\s\S]*}
+expr,expr aa,\(Tuple<default.EE1,Int64>\) \$[\d] = {[\s\S]*\[0\] = XY[\s\S]*\[1\] = 2[\s\S]*}
+q,q,

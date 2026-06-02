@@ -1,0 +1,16 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/parallel_compiling.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug parallel_compiling.cj -o parallel_compiling
+// EXEC: python3 cjdb_test.py parallel_compiling.info %n %run_env
+
+test#
+cjdb,cjdb parallel_compiling,parallel_compiling
+b,b 62,parallel_compiling.cj:62
+r,r,-> 62
+expr;expr S2(10,10);\(test050.S2\) \$\d+ = {\s+width = 10\s+height = 10
+q, q,

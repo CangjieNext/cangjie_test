@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var001.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var001.cj -o generics_local_var001%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP017.info generics_local_var001 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_local_var001,generics_local_var001
+breakpoint,breakpoint set -l 36 -c "f2(14)==14",generics_local_var001.cj:36
+AOT r,r,-> 36
+CJVM c,c,
+s,s,-> 22
+n,n,-> 24
+n,n,-> 25
+p,p ssa,\(Tuple<Int64,Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 6[\s\S]*}
+p,p vunit,\(Unit\) \$[\d] = ()
+expr:expr ssa[0]:\(Int64\) \$[\d] = 1
+expr:expr ssa[1]:\(Int64\) \$[\d] = 6
+expr~expr ssa[2]~error: unsupported expression
+n,n,-> 26
+n,n,-> 27
+expr:expr vunit is Unit:\(Bool\) \$[\d] = true
+q,q,

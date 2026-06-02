@@ -1,0 +1,26 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// (target_linux | target_android | target_ohos)EXEC: cd %n/dep/inner_dep && %cjpm build %cjpm_opt
+// (target_linux | target_android | target_ohos)EXEC: cd %n/dep && %cjpm build %cjpm_opt
+// (target_linux | target_android | target_ohos)EXEC: cd %n/dep1 && %cjpm build %cjpm_opt
+// (target_linux | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
+// ASSERT: regex Compiling package `b`: [\s\S]*.*target[/|\\][\s\S]*release[/|\\]b[/|\\]b.aoo.bc
+// ASSERT: regex Compiling package `b`: [\s\S]*.*target[/|\\][\s\S]*release[/|\\]b[/|\\]b.boo.bc
+// ASSERT: regex Compiling package `b`: [\s\S]*.*target[/|\\][\s\S]*release[/|\\]b[/|\\]b.coo.bc
+// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[/|\\][\s\S]*release[/|\\][\s\S]* -ldep
+// ASSERT: regex Compiling package `b`: [\s\S]*-L.*target[/|\\][\s\S]*release[/|\\][\s\S]* -ldep1
+// ASSERT: regex Compiling package `b`: [\s\S]*libb.(so|dll)
+// ASSERT: scan cjpm build success
+// ASSERT: scan --lto-keep-pkg-visibility b
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd %release_dir/b && nm libb.so | grep -E "T.*(testaoo)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd %release_dir/b && nm libb.so | grep -E "D.*(coo)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd %release_dir/b && nm libb.so | grep -E "T.*(testinner_dep)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd %release_dir/b && nm libb.so | grep -E "T.*(dep1testaoo)"
+// (target_linux | target_android | target_ohos)EXEC-1: cd %n && cd %release_dir/b && nm libb.so | grep -E "D.*(ppb)"
+// (target_linux | target_android | target_ohos)EXEC: cd %n && cd %release_dir/b && nm libb.so | grep -E "T.*(testbmain)"

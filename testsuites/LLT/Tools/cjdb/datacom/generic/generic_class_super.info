@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/generic/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb generic_class_super,generic_class_super
+b,b 30, generic_class_super.cj:30
+r,r,-> 30
+ ,expr c1,\(default.C1<Int64>\) \$\d+ = {\s+a = 0\s+b = 100
+ ,expr c2,\(default.C2<Int64>\) \$\d+ = {\s+default.C1<Int64> = {\s+a = 0\s+b = -1\s+}\s+c = -1
+q,q,

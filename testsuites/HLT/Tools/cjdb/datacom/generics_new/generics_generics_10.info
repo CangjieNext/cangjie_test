@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_generics.cj
+// EXEC: %compiler %cmp_opt -g generics_generics.cj -o generics_generics%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_generics_10.info generics_generics %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_generics,generics_generics
+b,b 93,Breakpoint 1:
+AOT r,r,-> 93
+CJVM c,c,
+c,c,-> 93
+c,c,-> 93
+c,c,-> 93
+p, p a,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 2
+locals, locals,\(default.C2<std.core.Range<Int64>>\) this = {[\s\S]*c2_a = 1..10 : 2[\s\S]*}[\s\S]*\(std.core.Range<Int64>\) a = 1..10 : 2[\s\S]*
+q,q,

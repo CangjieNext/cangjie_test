@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/pkgs007/src
+// (not MAC) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg2.cj -o libpkg2.%middle
+// (not MAC) EXEC: %compiler %cmp_opt -g libpkg2.%middle src/pkgs002.cj -o pkgs002%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py organization_name_011.info pkgs002 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors pkgs002,pkgs002
+b,b 22,pkgs002.cj:22
+r,r,-> 22
+expr,expr newc,\(org2.pkgs.Exter_C1\) \$[\d] = {[\s\S]*v1 = -20[\s\S]*arrayInt32_1 = {[\s\S]*\[0\] = 321[\s\S]*\[1\] = -20[\s\S]*\[2\] = 10[\s\S]*
+expr,expr main_Rect,\(org2.pkgs.Rectangle_ex\) \$[\d] = {[\s\S]*v1 = -20[\s\S]*arrayInt32_1 = {[\s\S]*\[0\] = -20[\s\S]*\[1\] = 322[\s\S]*\[2\] = 10[\s\S]*
+expr,expr val_1,\(std.core.Array<std.core.Array<Int32>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 321[\s\S]*\[1\] = -20[\s\S]*\[2\] = 10[\s\S]*
+expr,expr arr_1,\(std.core.Array<Int32>\) \$[\d] = {[\s\S]*\[0\] = 321[\s\S]*\[1\] = -20[\s\S]*\[2\] = 10[\s\S]*
+q,q,

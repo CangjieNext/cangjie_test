@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_basetype.cj
+// EXEC: %compiler %cmp_opt -g VArray_basetype.cj -o VArray_basetype_001%cmp_output
+// RUN-EXEC: python3 cjdb_test.py VArray_basetype_001.info VArray_basetype_001 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors VArray_basetype_001,VArray_basetype_001
+b,b 33,Breakpoint 1: where = VArray_basetype_001`default::main[\s\S]*VArray_basetype.cj:33
+AOT r,r,-> 33
+CJVM c,c,-> 33
+p,p vInt8,\(VArray<Int8,\$3>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = -2[\s\S]*\[2\] = -3
+p,p vInt16,\(VArray<Int16,\$3>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = -2[\s\S]*\[2\] = -3
+p,p vInt32,\(VArray<Int32,\$3>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = -2[\s\S]*\[2\] = -3
+p,p vInt64,\(VArray<Int64,\$3>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = -2[\s\S]*\[2\] = -3
+q,q,

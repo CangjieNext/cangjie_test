@@ -1,0 +1,14 @@
+ClassDecl {
+  -keyword: Token {
+    value: "class"
+    kind: CLASS
+    pos: 12: 9
+  }
+  -identifier: Token {
+    value: "X"
+    kind: IDENTIFIER
+    pos: 12: 15
+  }
+  -body: Body {
+  }
+}

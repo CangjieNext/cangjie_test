@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_debug.cj
+// EXEC: %compiler %cmp_opt -g option_debug.cj -o option_debug%cmp_output
+// RUN-EXEC: python3 cjdb_test.py option_test_028.info option_debug %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors option_debug,option_debug
+b,b 76,option_debug.cj:76
+AOT r,r,-> 76
+CJVM c,c,-> 76
+p,p I8,\(std[.]core.Option<Int8>\) \$[\d] = 8
+p,p I16,\(std[.]core.Option<Int16>\) \$[\d] = 16
+p,p I32,\(std[.]core.Option<Int32>\) \$[\d] = 32
+p,p I64,\(std[.]core.Option<Int64>\) \$[\d] = 64
+locals,locals,\(std[.]core.Option<Int8>\) I8 = 8[\s\S]*\(std[.]core.Option<Int16>\) I16 = 16[\s\S]*\(std[.]core.Option<Int32>\) I32 = 32[\s\S]*\(std[.]core.Option<Int64>\) I64 = 64[\s\S]*
+globals,globals,\(std[.]core.Option<Int8>\) default(::|\.)globals_I8 = 8[\s\S]*
+AOT frame var,frame var I8,\(std[.]core.Option<Int8>\) I8 = 8
+AOT frame var,frame var I16,\(std[.]core.Option<Int16>\) I16 = 16
+AOT frame var,frame var I32,\(std[.]core.Option<Int32>\) I32 = 32
+AOT frame var,frame var I64,\(std[.]core.Option<Int64>\) I64 = 64
+q,q,

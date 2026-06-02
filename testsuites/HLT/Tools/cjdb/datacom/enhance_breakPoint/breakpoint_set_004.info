@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/035_debuginfun_func_reload.cj
+// EXEC: %compiler %cmp_opt -g 035_debuginfun_func_reload.cj -o 004_breakpoint_set%cmp_output
+// RUN-EXEC: python3 cjdb_test.py breakpoint_set_004.info 004_breakpoint_set %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 004_breakpoint_set,004_breakpoint_set
+CJVM b,breakpoint set -n main,035_debuginfun_func_reload.cj:12
+CJVM c,c,-> 12
+b,breakpoint set -n demoinfun,035_debuginfun_func_reload.cj:16
+b,breakpoint set -n demofun001,2 locations
+AOT blist,breakpoint list,035_debuginfun_func_reload.cj:16[\s\S]*035_debuginfun_func_reload.cj:20|25[\s\S]*035_debuginfun_func_reload.cj:20|25
+CJVM blist,breakpoint list,035_debuginfun_func_reload.cj:16[\s\S]*035_debuginfun_func_reload.cj:20|25[\s\S]*035_debuginfun_func_reload.cj:20|25
+q,q,

@@ -1,0 +1,25 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// EXEC: %compiler %cmp_opt -j1 %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb class_member,class_member
+b,b 34,class_member.cj:34
+r,r,-> 34
+ ,expr R.width;\(Int64\) \$\d+ = 4
+ ,expr R.height;\(Int64\) \$\d+ = 5
+ ,expr R.width + R.height;\(Int64\) \$\d+ = 9
+ ,expr R.area();\(Int64\) \$\d+ = 20
+ ,expr R.aaa;\(std.core.String\) \$\d+ = "123"
+ ,expr RG.width;\(Int64\) \$\d+ = 4
+ ,expr RG.height;\(Int64\) \$\d+ = 5
+ ,expr RG.width + R.height;\(Int64\) \$\d+ = 9
+ ,expr RG.area();\(Int64\) \$\d+ = 20
+ ,expr RG.aaa;\(std.core.String\) \$\d+ = "123"
+q,q,

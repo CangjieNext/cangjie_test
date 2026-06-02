@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-0: cd %n && %cjpm test --no-color %run_utest_opt 2>&1 | compare %f
+// ASSERT: scan-1 Should be printed in failing1 stderr
+// ASSERT: scan-1 BEFORE TESTS STDOUT:
+// ASSERT: scan-1 Should be printed before tests in stdout
+// ASSERT: scan-1 BEFORE TESTS STDERR:
+// ASSERT: scan-1 Should be printed before tests in stderr
+// ASSERT: scan-2 Summary: TOTAL: 2
+// ASSERT: scan-2 PASSED: 1, SKIPPED: 0, ERROR: 0
+// ASSERT: scan-2 FAILED: 1
+// ASSERT: scan-not Should not be printed in passing1 stdout

@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Range/range_compositeVar.cj
+// EXEC: %compiler %cmp_opt -g range_compositeVar.cj -o range_compositeVar%cmp_output
+// RUN-EXEC: python3 cjdb_test.py range_test_006.info range_compositeVar %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors range_compositeVar,range_compositeVar
+b,b 39,range_compositeVar.cj:39
+AOT r,r,-> 39
+CJVM c,c,-> 39
+p,p a.r0,\(std[.]core.Range<Int64>\) \$[\d] = 0..10 : 1
+p,p a.r1,\(std[.]core.Range<Int64>\) \$[\d] = 0..10 : 1
+p,p a.r2,\(std[.]core.Range<Int64>\) \$[\d] = 0..=10 : 1
+p,p a.r3,\(std[.]core.Range<Int64>\) \$[\d] = 10..0 : -2
+p,p a.r4,\(std[.]core.Range<Int64>\) \$[\d] = 10..=0 : -2
+q,q,

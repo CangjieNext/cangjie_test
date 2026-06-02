@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
+// EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_fun_returnvalue_08.info genericsfun_return %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
+CJVM c,c,
+p, p lcfun,\(default.\(\)->Unit\) \$[\d] = 0x
+p, p s1.vcfuns,\(default.\(\)->Unit\) \$[\d] = 0x
+p, p c1.vcfunc,\(default.\(\)->Unit\) \$[\d] = 0x
+p, p default::S1::vcfun,\(default.\(\)->Unit\) \$[\d] = 0x
+p, p globals_cfun,\(default.\(\)->Unit\) \$[\d] = 0x
+locals, locals,\(default.\(\)->Unit\) lcfun = 0x[\s\S]*\(default.S1\) s1 = {[\s\S]*vcfuns = 0x[\s\S]*\(default.C1\) c1 = {[\s\S]*vcfunc = 0x[\s\S]*
+globals, globals,\(default.\(\)->Unit\) default::S1::vcfun = 0x
+globals, globals,\(default.\(\)->Unit\) default::globals_cfun = 0x
+b, b 161,Breakpoint 2:
+c,c,-> 161
+p, p b,\(default.\(\)->Unit\) \$[\d] = 0x
+p, p test_b,\(default.\(\)->Unit\) \$[\d] = 0x
+locals, locals,\(default.\(\)->Unit\) b = 0x
+q,q,

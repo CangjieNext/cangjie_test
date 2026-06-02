@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case18/case18.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g case18.cj -o case18%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py case18.info case18 %run_env
+
+test#
+cjdb,cjdb --no-use-colors case18,case18
+b,b 20,case18.cj:20
+AOT r,r,-> 20
+CJVM c,c,
+AOT expr,expr add,error: unsupported expression
+AOT expr,expr c,\(default.\(Int32\)->Int32\) \$[\d] = 0x
+AOT expr,expr identity<Int64>,error: unsupported expression
+CJVM expr,expr identity<Int64>,error: variable was not declared in this scope
+q,q,

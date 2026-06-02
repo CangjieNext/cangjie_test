@@ -1,0 +1,8 @@
+error: unknown suffix 'f64' for number literal
+  ==> case1.cj:11:11:
+   | 
+11 | var b1= 16f64
+   |           ^^^ unknown suffix 'f64'
+   | 
+
+1 error generated, 1 error printed.

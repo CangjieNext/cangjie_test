@@ -1,0 +1,13 @@
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+func test(): Int64 {
+    func myfunc():Int64{return 1}
+    match (myfunc) {
+        case _ => 0
+    }
+    return 0
+}
+
+main(): Int64 {
+    return test()
+}

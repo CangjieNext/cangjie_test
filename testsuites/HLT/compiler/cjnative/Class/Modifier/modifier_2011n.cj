@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// ERRCHECK: %compiler %cmp_opt %f -o %output
+
+interface A {
+    mut prop a: Int64 {
+        get() {
+            1
+        }
+        set(v) {
+            v
+        }
+    }
+}
+
+open class B <: A {
+    init() {
+        a
+    }
+}
+
+main() {
+    return 0
+}
+// ASSERT: scan sema_illegal_member_used_in_open_constructor

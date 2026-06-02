@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/C_FFI.c   ../../basecase/CFFI/C_FFI.cj
+// EXEC: %clang -g %clang_opt C_FFI.c -o %cffi_output
+// EXEC: %compiler -g -L. -l%n C_FFI.cj -o %n%cmp_output
+// RUN-EXEC: python3 cjdb_test.py viewVariables_basic_06.info viewVariables_basic_06 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors viewVariables_basic_06,viewVariables_basic_06
+b,b 99,C_FFI.cj:99
+AOT r,r,-> 99
+CJVM c,c,
+p,p bt_F,\(Float32\) \$[\d] = 1.43240537E-16
+q,q,

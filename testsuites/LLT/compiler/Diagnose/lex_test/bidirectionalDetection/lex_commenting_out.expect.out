@@ -1,0 +1,49 @@
+warning: unsecure character:\u{202E}
+  ==> lex_commenting_out.cj:14:7:
+   | 
+14 |     /*‮ } ⁦if (isAdmin)⁩ ⁦ begin admins only */
+   |       ^ unsecure character:\u{202E}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{2066}
+  ==> lex_commenting_out.cj:14:13:
+   | 
+14 |     /*‮ } ⁦if (isAdmin)⁩ ⁦ begin admins only */
+   |          ^ unsecure character:\u{2066}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{2069}
+  ==> lex_commenting_out.cj:14:28:
+   | 
+14 |     /*‮ } ⁦if (isAdmin)⁩ ⁦ begin admins only */
+   |                      ^ unsecure character:\u{2069}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{2066}
+  ==> lex_commenting_out.cj:14:32:
+   | 
+14 |     /*‮ } ⁦if (isAdmin)⁩ ⁦ begin admins only */
+   |                       ^ unsecure character:\u{2066}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{202E}
+  ==> lex_commenting_out.cj:16:24:
+   | 
+16 |     /* end admins only ‮ { ⁦*/
+   |                        ^ unsecure character:\u{202E}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{2066}
+  ==> lex_commenting_out.cj:16:30:
+   | 
+16 |     /* end admins only ‮ { ⁦*/
+   |                           ^ unsecure character:\u{2066}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+6 warnings generated, 6 warnings printed.

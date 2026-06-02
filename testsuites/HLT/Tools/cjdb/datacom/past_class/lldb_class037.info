@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/007_debug_class_main_mod_default.cj
+//  EXEC: %compiler %cmp_opt -g 007_debug_class_main_mod_default.cj -o 007_debug_class_main_mod_default%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_class037.info 007_debug_class_main_mod_default %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 007_debug_class_main_mod_default,007_debug_class_main_mod_default
+b,b 46,007_debug_class_main_mod_default.cj:46
+AOT r,r,-> 46
+CJVM c,c,-> 46
+n,n,-> 49
+locals,locals,Rectangle\) newRectangle = {(\r|\n|\r\n)  name = "zhangsan"(\r|\n|\r\n)  age = 18
+q,q,

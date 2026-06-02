@@ -1,0 +1,58 @@
+SubscriptExpr {
+  -baseExpr: SubscriptExpr {
+    -baseExpr: RefExpr {
+      -identifier: Token {
+        value: "arr"
+        kind: IDENTIFIER
+        pos: 21: 9
+      }
+    }
+    -indexList: 0, RangeExpr {
+      -op: Token {
+        value: ".."
+        kind: RANGEOP
+        pos: 21: 13
+      }
+      -end: LitConstExpr {
+        -literal: Token {
+          value: "4"
+          kind: INTEGER_LITERAL
+          pos: 21: 15
+        }
+      }
+    }
+  }
+  -indexList: 0, RangeExpr {
+    -start: LitConstExpr {
+      -literal: Token {
+        value: "1"
+        kind: INTEGER_LITERAL
+        pos: 21: 18
+      }
+    }
+    -op: Token {
+      value: ".."
+      kind: RANGEOP
+      pos: 21: 19
+    }
+    -end: LitConstExpr {
+      -literal: Token {
+        value: "4"
+        kind: INTEGER_LITERAL
+        pos: 21: 21
+      }
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 21: 22
+    }
+    -step: LitConstExpr {
+      -literal: Token {
+        value: "2"
+        kind: INTEGER_LITERAL
+        pos: 21: 23
+      }
+    }
+  }
+}

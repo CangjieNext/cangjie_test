@@ -1,0 +1,4 @@
+mymod.mod1.Node<T0, T1>.mynodefunc1(T0, T1, Int64) hack1
+mymod.mod1.Node<T0, T1>.mynodefunc2<T2>(T2, Int64) hack2
+mymod.mod1.Node<T0, T1>.>(T0) hack3
+mymod.mod1.Node<T0, T1>.<<(Int64) hack4

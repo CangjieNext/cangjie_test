@@ -1,0 +1,31 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_option_reference_type_05.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_option_reference_type_05.cj -o debuginfo_option_reference_type_05
+// EXEC: python3 cjdb_test.py debuginfo_option_reference_type_05.info
+
+
+test#
+cjdb,cjdb debuginfo_option_reference_type_05,debuginfo_option_reference_type_05
+b,b 34,debuginfo_option_reference_type_05.cj:34
+r,r,-> 34
+s,s,-> 18
+p,p para_aaa,\(std.core.Option<std.collection.ArrayList<default.A>>\) \$\d+ = {\s+\[0\] = {\s+cls = 500\s+}\s+\[1\] = {\s+cls = 500
+p,p para_bbb,\(std.core.Option<std.collection.ArrayList<std.core.String>>\) \$\d+ = {\s+\[0\] = "0.0"\s+\[1\] = "0.o"\s+\[2\] = "O.O"\s+\[3\] = "o.o"
+p,p para_ccc,\(std.core.Option<std.collection.ArrayList<default.E>>\) \$\d+ = {\s+\[0\] = {\s+constructor = K\s+arg_1 = 1\s+}\s+\[1\] = {\s+constructor = M\s+arg_1 = 2\s+}\s+\[2\] = {\s+constructor = B\s+arg_1 = 3
+p,p para_ddd,\(std.core.Option<std.collection.HashMap<Int64,std.core.String>>\) \$\d+ = {\s+\[1 -> "0.0"\] = {\s+key = 1\s+value = "0.0"\s+}\s+\[2 -> "0.o"\] = {\s+key = 2\s+value = "0.o"
+p,p para_eee,\(std.core.Option<std.collection.HashMap<Int64,default.E>>\) \$\d+ = {\s+\[1\] = {\s+key = 1\s+value = {\s+constructor = K\s+arg_1 = 1\s+}\s+}\s+\[2\] = {\s+key = 2\s+value = {\s+constructor = M\s+arg_1 = 2
+p,p para_fff,\(std.core.Option<std.collection.HashSet<std.core.String>>\) \$\d+ = {\s+\[0\] = "0.0"\s+\[1\] = "0.o"\s+\[2\] = "O.O"\s+\[3\] = "o.o"
+finish,finish,-> 35
+s,s,-> 18
+p,p para_aaa,\(std.core.Option<std.collection.ArrayList<default.A>>\) \$\d+ = None
+p,p para_bbb,\(std.core.Option<std.collection.ArrayList<std.core.String>>\) \$\d+ = None
+p,p para_ccc,\(std.core.Option<std.collection.ArrayList<default.E>>\) \$\d+ = None
+p,p para_ddd,\(std.core.Option<std.collection.HashMap<Int64,std.core.String>>\) \$\d+ = None
+p,p para_eee,\(std.core.Option<std.collection.HashMap<Int64,default.E>>\) \$\d+ = None
+p,p para_fff,\(std.core.Option<std.collection.HashSet<std.core.String>>\) \$\d+ = None
+q,q,

@@ -1,0 +1,453 @@
+Chapter name; Count of assertions
+1 Lexical Structure;0
+1.1 Identifiers and Keywords;9
+1.2 Semicolons and Newline Characters;17
+1.3 Literals;3
+1.3.1 Integer Literals;8
+1.3.2 Floating Point Literals;7
+1.3.3 Character Literals;2
+1.3.4 Character Byte Literals;4
+1.3.5 Boolean Literals;1
+1.3.6 String Literals;13
+1.3.7 Byte Array Literals;3
+1.4 Operators;42
+1.5 Comments;2
+2 Types;8
+2.1 Value Types;0
+2.1.1 Numeric Types;21
+2.1.1.1 Numeric Literals;24
+2.1.1.2 Operators Supported by Number Types;18
+2.1.1.3 Operators supported by floating-point types;18
+2.1.2 Rune Type;6
+2.1.3 Bool Type;7
+2.1.4 Unit Type;2
+2.1.5 Nothing Type;5
+2.1.6 String Type;1
+2.1.6.1 String Literals;13
+2.1.6.2 Interpolated String;11
+2.1.7 Tuple Type;7
+2.1.7.1 Tuple Literals;2
+2.1.7.2 Using Tuple to Deconstruct Values;2
+2.1.7.3 Subscript Access to Tuple Values;2
+2.1.7.4 Defining Tuple Variables;2
+2.1.8 Range Type;5
+2.1.8.1 Creating Instances of Range Types;9
+2.1.8.2 Use of Range Types;3
+2.1.8.3 Defining Range Variables;2
+2.1.9 Function Type;7
+2.1.10 struct Type;13
+2.1.10.1 Member Variables in struct;3
+2.1.10.2 Constructors;44
+2.1.10.3 Other Members in struct;1
+2.1.10.4 Modifiers in struct;10
+2.1.10.5 Instances of struct Types;8
+2.1.11 enum Type;2
+2.1.11.1 Enum Definition;15
+2.1.11.2 Accessing Constructors;14
+2.1.11.3 Destructuring Enums;2
+2.1.11.4 Other Members in Enums;3
+2.1.11.5 Option Type;18
+2.1.12 VArray Type;9
+2.1.12.1 Creating Instances of VArray;8
+2.1.12.2 Accessing elements of VArrays;2
+2.1.12.3 Obtain the length of the VArray;2
+2.1.12.4 VArray in function signature;2
+2.2 Reference Types;0
+2.2.1 Array Type;9
+2.2.1.1 Creating Instances of Arrays;5
+2.2.1.2 Accessing elements of Arrays;4
+2.2.1.3 Accessing the size of Arrays;2
+2.2.1.4 The slice of Arrays;10
+2.2.2 class Types and interface Types;0
+2.3 Type Conversion;4
+2.3.1 Type Conversion Between Value Types;36
+2.3.2 Type Conversion Between Class/Interface;1
+2.4 Type Alias;5
+2.4.1 Rules on type alias definition;19
+2.4.2 Usage of type alias;8
+2.5 Relations between Types;1
+2.5.1 Type Equivalence;1
+2.5.2 Subtyping;1
+2.5.3 Smallest Common Supertypes;1
+2.5.4 Greatest Common Subtypes;1
+3 Names, Scopes, Variables and Modifiers;0
+3.1 Names;6
+3.2 Scopes;0
+3.2.1 Blocks;11
+3.2.2 Scope level;9
+3.2.3 Scope principle;1
+3.2.3.1 Top-level;5
+3.2.3.2 Local-level;28
+3.2.3.3 Type-internal;3
+3.2.4 Shadowing;12
+3.3 Variables;2
+3.3.1 Definition of Variables;25
+3.3.2 Initialization of Variables;0
+3.3.2.1 let and var;6
+3.3.2.2 Initializing Global Variables and Static Variables;10
+3.4 Modifiers;2
+3.4.1 Access modifiers;2
+3.4.1.1 Default access modifier;3
+3.4.1.2 Private Access Modifiers;3
+3.4.1.3 Public access modifiers;3
+3.4.1.4 Protected access modifier;3
+3.4.2 Non-access modifiers;10
+4 Expressions;5
+4.1 Literals;3
+4.2 Variable Names and Function Names;11
+4.3 Conditional Expressions;18
+4.4 Pattern Matching Expressions;27
+4.4.1 Patterns;2
+4.4.1.1 Constant Patterns;9
+4.4.1.2 Wildcard Patterns;4
+4.4.1.3 Binding Patterns;8
+4.4.1.4 Tuple Patterns;7
+4.4.1.5 Type Patterns;5
+4.4.1.6 Enum Patterns;8
+4.4.2 Classification of Patterns;8
+4.4.3 Pattern Guards;6
+4.5 Loop Expressions;3
+4.5.1 The for-in Expression;11
+4.5.2 The while Expression;7
+4.5.3 The do-while Expression;3
+4.5.4 Summary of Loop Expressions;7
+4.6 The try Expressions;6
+4.7 Control Transfer Expressions;11
+4.7.1 The break Expression;5
+4.7.2 The continue Expression;4
+4.7.3 The return expression;11
+4.7.4 The throw expression;3
+4.8 Numeric Type Conversion Expressions;3
+4.9 The this and super Expressions;4
+4.10 spawn Expressions;1
+4.11 synchronized Expressions;1
+4.12 Parenthesized Expressions;4
+4.13 Postfix Expressions;4
+4.13.1 Member Access Expressions;12
+4.13.2 Function Invocation Expressions;4
+4.13.3 Index Access Expressions;5
+4.13.4 The Question Mark Operator;24
+4.14 Increment and Decrement Expressions;9
+4.15 Arithmetic Expressions;71
+4.16 Relational Expressions;6
+4.17 Type Check and Type Cast Expressions;2
+4.17.1 The is Operator;3
+4.17.2 The as Operator;3
+4.18 Bitwise Expressions;14
+4.19 Range Expressions;4
+4.20 Logical Expressions;12
+4.21 Coalescing Expressions;8
+4.22 Flow Expressions;3
+4.22.1 The pipeline operator;4
+4.22.2 The composition operator;7
+4.23 Assignment Expressions;35
+4.24 Lambda Expressions;1
+4.25 Quote Expressions;1
+4.26 Macro Call Expressions;1
+4.27 Pass-by-reference Expression;1
+4.28 Precedence and Associativity of Operators;58
+5 Function;2
+5.1 Function Definition;14
+5.1.1 Function Modifiers;0
+5.1.1.1 Modifier of global functions;4
+5.1.1.2 Modifier of local functions;1
+5.1.1.3 Modifier of member functions;5
+5.1.2 Parameters;6
+5.1.2.1 Named parameters;7
+5.1.2.2 Default Values of Parameters;19
+5.1.3 Function Body;1
+5.1.3.1 Local Variables;3
+5.1.3.2 Nested Function;4
+5.1.4 Return Type;11
+5.1.5 Function Declaration;2
+5.1.6 Function Redefinitions;8
+5.2 Function Types;7
+5.3 Function Invocation;0
+5.3.1 Named arguments;7
+5.3.2 Type Checking of Function Invocation;10
+5.3.3 Trailing Lambda;10
+5.3.4 Variable-Length Arguments;12
+5.4 Function Scope;9
+5.5 Lambda Expressions;16
+5.6 Closures;18
+5.7 Function Overloading;0
+5.7.1 Function Overloading Definition;11
+5.8 Mut functions;2
+5.8.1 Definition;5
+5.8.2 The mut function in the interface;5
+5.8.3 Access Rules;6
+6 Class and Interface;0
+6.1 Class;0
+6.1.1 Class Definition;5
+6.1.1.1 Class Modifiers;18
+6.1.1.2 Class Inheritance;14
+6.1.1.3 Implementation Interface;11
+6.1.1.4 Class Body;14
+6.1.2 Class Members;6
+6.1.2.1 Constructors;61
+6.1.2.2 Static Initializers;30
+6.1.2.3 Variables in the Class;17
+6.1.2.4 Member functions in the class;45
+6.1.2.5 Finalizer;8
+6.1.2.6 Member Properties in Class;1
+6.1.2.7 Instances of class Types;5
+6.1.3 The Class Object;2
+6.1.4 This Type;9
+6.1.5 Generic Class: Box;7
+6.2 Interfaces;3
+6.2.1 Interface Declaration;0
+6.2.1.1 Syntax of Interface Declaration;7
+6.2.1.2 Interface Modifiers;11
+6.2.2 Interface Members;3
+6.2.2.1 Functions in the Interface;15
+6.2.2.2 Member Properties in the Interface;8
+6.2.3 Interface Inheritance;7
+6.2.3.1 Default implemention in Child Interfaces;8
+6.2.4 Implementation of Interfaces;0
+6.2.4.1 Overriding and Overloading When a Class Implements Interfaces;19
+6.2.5 Any Interface;4
+6.3 Overridding, Overloading, Shadowing, Redefinition;0
+6.3.1 Overridding;0
+6.3.1.1 Override Definition;8
+6.3.1.2 Invoking of Overridden Functions;2
+6.3.2 Overloading;3
+6.3.3 Shadowing;2
+6.3.4 Redefinition;0
+6.3.4.1 Definition of Redefined Functions;9
+6.3.4.2 Invoking of Redefined Functions;2
+6.3.5 Access Control Restriction;4
+6.4 Limitations on the Use of Generics in Classes Interfaces;0
+6.4.1 Duplicated Function type signature caused by generic instantiation;1
+6.4.2 Generic Member Function in Class and Interface;2
+7 Property;5
+7.1 Syntax of Properties;10
+7.2 Definition of Properties;14
+7.3 Implementation of Properties;8
+7.4 Modifiers for Properties;16
+8 Extension;14
+8.1 Extension Syntax;8
+8.1.1 Direct Extensions;2
+8.1.2 Interface Extensions;19
+8.2 Members of Extension;1
+8.2.1 Functions;4
+8.2.1.1 Modifier;11
+8.2.2 Properties;3
+8.2.2.1 Modifier;9
+8.3 Extensions for generic types;5
+8.4 The Accessing and Shadowing of Extensions;18
+8.5 Inheritance of Extension;4
+8.6 Import and Export of Extensions;1
+8.6.1 Export of Direct Extensions;4
+8.6.2 Export of Interface Extensions;6
+8.6.3 Import of Extensions;4
+9 Generics;4
+9.1 Type Parameters and Type Variable;4
+9.2 Generic Constraints;19
+9.3 Type Variance;0
+9.3.1 Definitions;0
+9.3.2 Generic is Invariant;2
+9.3.3 Type Variance in Functions;2
+9.3.4 Type Variance in Tuples;2
+9.3.5 Derived constraints of upper bounds of a generic constraint;6
+9.4 Generic Functions and Generic Types;0
+9.4.1 Generic Functions;4
+9.4.2 Generic Types;3
+9.5 Type Checking for Generic Types;0
+9.5.1 Type Checking for Generic Declarations;0
+9.5.1.1 Sanity Check of Generic Constraint;14
+9.5.1.2 Type Compatibility Checking;4
+9.5.2 Type Checking for the Usages of Generic Declarations;5
+9.5.3 Depths of Generic Instantiation;2
+9.6 Generic Instantiation;5
+9.6.1 Generic function instantiation;1
+9.6.1.1 Limitation of Generic Function Instantiation;3
+9.6.2 Generic class and interface instantiation;1
+9.6.3 struct instantiation;1
+9.6.4 Enum instantiation;1
+9.7 Generic Function Overloading;8
+10 Overloading;0
+10.1 Function Overloading;0
+10.1.1 Definition of Function Overload;9
+10.1.2 Candidate Set;1
+10.1.2.1 Visible Function Set;24
+10.1.2.2 Type Checking;4
+10.1.3 Function overloading Resolution;5
+10.1.3.1 Scope priority;10
+10.1.3.2 Closest match rule;6
+10.1.3.3 Determine the Argument Type;2
+10.2 Operator Overloading;18
+10.2.1 Define Operator Functions;8
+10.2.2 The Scope of Operator Functions and the Search Strategy when Operators are Used;0
+10.2.2.1 The Scope of Operator Functions;1
+10.2.2.2 The Search Strategy when Operators are Used;1
+10.2.3 Operators that can be Overloaded;21
+10.2.4 Index Operator Overloading;12
+11 Packages and Module Management;4
+11.1 Packages;0
+11.1.1 Package Declaration;3
+11.1.1.1 Package Names;4
+11.1.2 Package Members;1
+11.1.3 Import;17
+11.1.3.1 Importing Visibility;2
+11.1.3.2 import as;12
+11.1.3.3 import;2
+11.1.3.4 Importing Multiple Declarations;2
+11.1.3.5 Importing Multiple Packages;10
+11.1.3.6 Re-exporting;12
+11.1.4 Mapping between Package Names and the File System;11
+11.1.5 Package in the root directory of source files;4
+11.1.5.1 Program Entry Point;8
+11.2 External and Internal;12
+12 Exceptions;6
+12.1 Try Expressions;2
+12.1.1 Ordinary Try Expressions;22
+12.1.1.1 The type of try expression;3
+12.1.1.2 The evaluation order of try expression;11
+12.1.1.3 The exception handling of try expression;7
+12.1.2 The Try-With-Resources Expression;16
+12.2 Throw Expressions;9
+13 Multi-language Interoperability;0
+13.1 C Interoperability;0
+13.1.1 unsafe context;5
+13.1.2 Calling functions in C;0
+13.1.2.1 The foreign keyword and @c;19
+13.1.2.2 CFunc;13
+13.1.2.3 Inout parameter;8
+13.1.2.4 Calling Convention;6
+13.1.3 Type mapping;3
+13.1.3.1 Primitive Types;6
+13.1.3.2 Pointers;9
+13.1.3.3 Strings;5
+13.1.3.4 VArray type;8
+13.1.3.5 Structs;10
+13.1.3.6 Function;2
+13.1.4 CType Interface;6
+13.2 JavaScript Interoperability;0
+13.2.1 Type Mapping;0
+13.2.1.1 Value Type Mapping;0
+13.2.1.2 Reference Type Mapping;0
+13.2.2 Call JavaScript from Cangjie;0
+13.2.2.1 Import Dependency;0
+13.2.2.2 foreign modifier;0
+13.2.2.3 @JsModule;0
+13.2.2.4 @JsMember;0
+13.2.2.5 @JsRename;0
+13.2.2.6 @JsObject;0
+13.2.3 Call Cangjie from JavaScript;0
+13.3 Java Interoperability;0
+13.3.1 Interoperation Mode;0
+13.3.1.1 Invoking Java from Cangjie;12
+13.3.1.2 Invoking Cangjie from Java;2
+13.3.2 Type Mapping;4
+13.3.2.1 Java Primitive Types and Package Classes;20
+13.3.2.2 Java Object;1
+13.3.2.3 Java void;12
+13.3.2.4 Java Array;11
+13.3.2.5 Java Enum;5
+13.3.2.6 Java lambda;5
+13.3.2.7 Java varargs;2
+13.3.3 Java modifier;6
+13.3.4 nullable Type;3
+13.3.5 Exception;4
+13.3.6 Generic;2
+13.3.6.1 Java Type Parameter Constraint;7
+13.3.6.2 Java Type Wildcard;3
+13.3.6.3 Generic Instance Member Function;10
+13.3.6.4 Java Raw Type;2
+13.3.6.5 Java Annotations;6
+14 Metaprogramming;2
+14.1 quote expression and Tokens type;16
+14.1.1 Code interpolation;11
+14.1.2 Rules for Evaluating the Quote Expression;4
+14.2 Macros;6
+14.2.1 Macro Definition;14
+14.2.2 Macro Invocation;27
+14.2.3 Macro Scope and Import;9
+14.2.4 Nested macros and Recursive macros;16
+14.2.5 Restrictions;7
+15 Concurrency;0
+15.1 Cangjie Thread;12
+15.1.1 Future<T> Generic Class;7
+15.1.2 Thread Sleep;2
+15.1.3 Thread Termination;3
+15.2 thread context;1
+15.2.1 Interface ThreadContext;5
+15.2.2 Thread Context Termination;4
+15.2.3 Thread-local Variables;7
+15.3 Synchronization Mechanism;0
+15.3.1 Atomic Operation;9
+15.3.2 IllegalSynchronizationStateException;1
+15.3.3 IReentrantMutex;4
+15.3.4 ReentrantMutex;5
+15.3.5 synchronized;9
+15.3.6 Monitor;7
+15.3.7 MultiConditionMonitor;6
+15.4 Memory Model;2
+15.4.1 Data Race;2
+15.4.2 Happens-Before;10
+16 Automatic Differentiation;0
+16.1 Introduction;0
+16.2 Limitations;0
+16.3 Differentiable Data Types;5
+16.3.1 Differentiable Numerical types;3
+16.3.2 Differentiable Tuple Type;5
+16.3.3 Differentiable Struct Type;11
+16.3.4 Differentiable Unit Type;4
+16.4 Un-Differentiable Data Types;0
+16.4.1 String, Range, enum and Option Types;1
+16.4.2 Class and Interface Types;1
+16.5 Differentiable Functions;24
+16.5.1 Custom Differentiation Behavior;0
+16.5.1.1 Chain rules;0
+16.5.1.2 Jacobian Matrix;0
+16.5.1.3 Jacobian Vector Product & Vector Jacobian Product;0
+16.5.1.4 Adjoint Function;3
+16.5.1.5 Custom Adjoints;3
+16.5.2 Non Top-level Differentiable Functions;1
+16.5.2.1 Struct Constructors and Member Functions;6
+16.5.2.2 Class Member Function;4
+16.5.2.3 Interface Function;5
+16.6 Differentiation Expressions;1
+16.6.1 Grad Expressions;12
+16.6.2 valWithGrad Expressions;12
+16.6.3 VJP Expressions;10
+16.6.4 stopGradient API;4
+16.7 Export/Import of Adjoint functions;8
+16.8 Except-Validity Checking;15
+16.9 Example Code;1
+17 Constant Evaluation;0
+17.1 const Variables;14
+17.2 const Expressions;14
+17.3 const Context;2
+17.4 const function;16
+17.4.1 const Function in the interfaces;4
+17.5 const init;6
+18 Annotation;9
+18.1 Custom Annotations;19
+A Cangjie Grammar Summary;0
+A.1 Lexical Grammar;0
+A.1.1 Comments;2
+A.1.2 Whitespace and Newline;2
+A.1.3 Symbols;1
+A.1.4 Keywords;1
+A.1.5 Literals;6
+A.1.6 Identifiers;2
+A.2 Syntactic Grammar;0
+A.2.1 Translation Unit;1
+A.2.2 Package Definition and Package Import;1
+A.2.3 Top-Level Definitions;1
+A.2.3.1 Class Definitions;1
+A.2.3.2 Interface Definitions;1
+A.2.3.3 Function Definitions;1
+A.2.3.4 Variable definitions;1
+A.2.3.5 Enum Definitions;1
+A.2.3.6 Struct Definitions;1
+A.2.3.7 Typealias Definitions;1
+A.2.3.8 Extension Definitions;1
+A.2.3.9 Foreign Declarations;1
+A.2.3.10 Annotation;1
+A.2.3.11 Macro Declarations;1
+A.2.3.12 Properties Definitions;1
+A.2.3.13 Program Entry Point Definitions;1
+A.2.4 Types;9
+A.2.5 Expressions Syntax;25

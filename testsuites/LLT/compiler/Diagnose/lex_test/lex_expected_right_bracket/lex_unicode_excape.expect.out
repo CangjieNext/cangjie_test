@@ -1,0 +1,28 @@
+error: expected hexadecimal digit, found '}'
+  ==> lex_unicode_excape.cj:15:17:
+   | 
+15 |     var a = '\u{}'
+   |                 ^ expected hexadecimal digit
+   | 
+
+error: expected '}' or hexadecimal digit in unicode escape, found 'm'
+  ==> lex_unicode_excape.cj:16:18:
+   | 
+16 |     var b = '\u{am}'
+   |              ~~  ^ expected '}' or hexadecimal digit
+   |              |
+   |              because it is in this Unicode escape
+   | 
+   # note: unicode escape may only contain hexadecimal digits
+
+error: expected '}', found '1'
+  ==> lex_unicode_excape.cj:17:25:
+   | 
+17 |     var c = '\u{123453231}'
+   |                ~        ^ expected '}'
+   |                |
+   |                to match this opening '{'
+   | 
+   # note: unicode escape may contain 8 hexadecimal digits at most
+
+3 errors generated, 3 errors printed.

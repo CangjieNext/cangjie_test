@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args 2>&1
+
+struct Foo {
+    public func bar(c: Rune) {
+        return c
+    }
+}
+
+func run(): Int64 {
+    var c = r'g'
+    var res: Rune = Foo().bar(c)
+    if (res == r'g') {
+        return 0
+    }
+    return 1
+}
+
+main(): Int64 {
+    return run()
+}

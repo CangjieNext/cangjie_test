@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/packages/pkgs_h_001/src
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/ArrayIns_external_define.cj -o pkgs.%middle
+// EXEC: %compiler %cmp_opt -g src/ArrayIns_external_invoke.cj pkgs.%middle -o ArrayIns_external_invoke.out%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_compositeArray_view069.info ArrayIns_external_invoke.out %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors ArrayIns_external_invoke.out,ArrayIns_external_invoke
+b,b 38,ArrayIns_external_invoke.cj:38
+AOT r,r,-> 38
+CJVM c,c,
+p,p multiArr_sub_cdg1[1],\(std[.]core.Array<pkgs.cla_sub_2<Bool>>\) \$[\d] = {(\r|\n|\r\n)  \[0\] = [\s\S]*
+p,p multiArr_sub_cdg1[1][0],pkgs.cla_sub_2<Bool>\) \$[\d] = {[\s\S]* pkgs.C1<Bool> = {[\s\S]*chwidth = true
+q,q,

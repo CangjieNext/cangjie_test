@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_local.cj
+// EXEC: %compiler %cmp_opt -g genericsfun_local.cj -o genericsfun_local%cmp_output
+// RUN-EXEC: python3 cjdb_test.py local_fun_generics_05.info genericsfun_local %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
+b,b 81,genericsfun_local.cj:81
+AOT r,r,-> 81
+CJVM c,c,
+p, p gengricsvar,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*
+p, p a,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*
+p, p gengricsvar1,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
+p, p b,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
+p, p gengricsvar2,\(\(\)->Unit\) \$[\d] = 0x[\s\S]*
+p, p c,\(\(\)->Unit\) \$[\d] = 0x[\s\S]*
+locals, locals,\(CPointer<Int8>\) a = 0x[\s\S]*\(CString\) b = "CString in Cangjie\\n code. 05"[\s\S]*\(\(\)->Unit\) c = 0x[\s\S]*\(CPointer<Int8>\) gengricsvar = 0x[\s\S]*\(CString\) gengricsvar1 = "CString in Cangjie\\n code. 05"[\s\S]*\(\(\)->Unit\) gengricsvar2 = 0x[\s\S]*
+q,q,

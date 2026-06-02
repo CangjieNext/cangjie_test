@@ -1,0 +1,204 @@
+error: unknown start of token: \u{0000}
+ ==> case2.cj:7:1:
+  | 
+7 | \u{0000}\u{0001}\u{0002}\u{0003}\u{0004}\u{0005}\u{0006}\u{0007}\u{0008}\u{000B}
+  | ^^^^^^^^ unknown start of token: \u{0000}
+  | 
+
+error: unknown start of token: \u{0001}
+ ==> case2.cj:7:2:
+  | 
+7 | \u{0000}\u{0001}\u{0002}\u{0003}\u{0004}\u{0005}\u{0006}\u{0007}\u{0008}\u{000B}
+  |         ^^^^^^^^ unknown start of token: \u{0001}
+  | 
+
+error: unknown start of token: \u{0002}
+ ==> case2.cj:7:3:
+  | 
+7 | \u{0000}\u{0001}\u{0002}\u{0003}\u{0004}\u{0005}\u{0006}\u{0007}\u{0008}\u{000B}
+  |                 ^^^^^^^^ unknown start of token: \u{0002}
+  | 
+
+error: unknown start of token: \u{0003}
+ ==> case2.cj:7:4:
+  | 
+7 | \u{0000}\u{0001}\u{0002}\u{0003}\u{0004}\u{0005}\u{0006}\u{0007}\u{0008}\u{000B}
+  |                         ^^^^^^^^ unknown start of token: \u{0003}
+  | 
+
+error: unknown start of token: \u{0004}
+ ==> case2.cj:7:5:
+  | 
+7 | \u{0000}\u{0001}\u{0002}\u{0003}\u{0004}\u{0005}\u{0006}\u{0007}\u{0008}\u{000B}
+  |                                 ^^^^^^^^ unknown start of token: \u{0004}
+  | 
+
+error: unknown start of token: \u{0005}
+ ==> case2.cj:7:6:
+  | 
+7 | \u{0000}\u{0001}\u{0002}\u{0003}\u{0004}\u{0005}\u{0006}\u{0007}\u{0008}\u{000B}
+  |                                         ^^^^^^^^ unknown start of token: \u{0005}
+  | 
+
+error: unknown start of token: \u{0006}
+ ==> case2.cj:7:7:
+  | 
+7 | \u{0000}\u{0001}\u{0002}\u{0003}\u{0004}\u{0005}\u{0006}\u{0007}\u{0008}\u{000B}
+  |                                                 ^^^^^^^^ unknown start of token: \u{0006}
+  | 
+
+error: unknown start of token: \u{0007}
+ ==> case2.cj:7:8:
+  | 
+7 | \u{0000}\u{0001}\u{0002}\u{0003}\u{0004}\u{0005}\u{0006}\u{0007}\u{0008}\u{000B}
+  |                                                         ^^^^^^^^ unknown start of token: \u{0007}
+  | 
+
+error: unknown start of token: \u{0008}
+ ==> case2.cj:7:9:
+  | 
+7 | \u{0000}\u{0001}\u{0002}\u{0003}\u{0004}\u{0005}\u{0006}\u{0007}\u{0008}\u{000B}
+  |                                                                 ^^^^^^^^ unknown start of token: \u{0008}
+  | 
+
+error: unknown start of token: \u{000B}
+ ==> case2.cj:7:10:
+  | 
+7 | \u{0000}\u{0001}\u{0002}\u{0003}\u{0004}\u{0005}\u{0006}\u{0007}\u{0008}\u{000B}
+  |                                                                         ^^^^^^^^ unknown start of token: \u{000B}
+  | 
+
+error: unknown start of token: \u{000E}
+ ==> case2.cj:8:1:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  | ^^^^^^^^ unknown start of token: \u{000E}
+  | 
+
+error: unknown start of token: \u{000F}
+ ==> case2.cj:8:2:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |         ^^^^^^^^ unknown start of token: \u{000F}
+  | 
+
+error: unknown start of token: \u{0010}
+ ==> case2.cj:8:3:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                 ^^^^^^^^ unknown start of token: \u{0010}
+  | 
+
+error: unknown start of token: \u{0011}
+ ==> case2.cj:8:4:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                         ^^^^^^^^ unknown start of token: \u{0011}
+  | 
+
+error: unknown start of token: \u{0012}
+ ==> case2.cj:8:5:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                 ^^^^^^^^ unknown start of token: \u{0012}
+  | 
+
+error: unknown start of token: \u{0013}
+ ==> case2.cj:8:6:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                         ^^^^^^^^ unknown start of token: \u{0013}
+  | 
+
+error: unknown start of token: \u{0014}
+ ==> case2.cj:8:7:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                                 ^^^^^^^^ unknown start of token: \u{0014}
+  | 
+
+error: unknown start of token: \u{0015}
+ ==> case2.cj:8:8:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                                         ^^^^^^^^ unknown start of token: \u{0015}
+  | 
+
+error: unknown start of token: \u{0016}
+ ==> case2.cj:8:9:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                                                 ^^^^^^^^ unknown start of token: \u{0016}
+  | 
+
+error: unknown start of token: \u{0017}
+ ==> case2.cj:8:10:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                                                         ^^^^^^^^ unknown start of token: \u{0017}
+  | 
+
+error: unknown start of token: \u{0018}
+ ==> case2.cj:8:11:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                                                                 ^^^^^^^^ unknown start of token: \u{0018}
+  | 
+
+error: unknown start of token: \u{0019}
+ ==> case2.cj:8:12:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                                                                         ^^^^^^^^ unknown start of token: \u{0019}
+  | 
+
+error: unknown start of token: \u{001A}
+ ==> case2.cj:8:13:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                                                                                 ^^^^^^^^ unknown start of token: \u{001A}
+  | 
+
+error: unknown start of token: \u{001B}
+ ==> case2.cj:8:14:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                                                                                         ^^^^^^^^ unknown start of token: \u{001B}
+  | 
+
+error: unknown start of token: \u{001C}
+ ==> case2.cj:8:15:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                                                                                                 ^^^^^^^^ unknown start of token: \u{001C}
+  | 
+
+error: unknown start of token: \u{001D}
+ ==> case2.cj:8:16:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                                                                                                         ^^^^^^^^ unknown start of token: \u{001D}
+  | 
+
+error: unknown start of token: \u{001E}
+ ==> case2.cj:8:17:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                                                                                                                 ^^^^^^^^ unknown start of token: \u{001E}
+  | 
+
+error: unknown start of token: \u{001F}
+ ==> case2.cj:8:18:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                                                                                                                         ^^^^^^^^ unknown start of token: \u{001F}
+  | 
+
+error: unknown start of token: \u{007F}
+ ==> case2.cj:8:19:
+  | 
+8 | \u{000E}\u{000F}\u{0010}\u{0011}\u{0012}\u{0013}\u{0014}\u{0015}\u{0016}\u{0017}\u{0018}\u{0019}\u{001A}\u{001B}\u{001C}\u{001D}\u{001E}\u{001F}\u{007F}
+  |                                                                                                                                                 ^^^^^^^^ unknown start of token: \u{007F}
+  | 
+
+29 errors generated, 29 errors printed.

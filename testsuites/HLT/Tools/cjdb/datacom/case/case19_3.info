@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case19/case19_3.cj
+// (CJNATIVE and Linux) EXEC: %compiler %cmp_opt -g case19_3.cj -o case19_3%cmp_output
+// (CJNATIVE and Linux) EXEC: python3 cjdb_test.py case19_3.info case19_3 %run_env
+
+test#
+cjdb,cjdb --no-use-colors case19_3,case19_3
+b,b 20,case19_3.cj:20
+AOT r,r,-> 20
+CJVM c,c,
+AOT expr:expr test_lambda:\(std.core.String\) \$[\d] = "lambda"
+AOT expr:expr ad2:\(Int64\) \$[\d] = 3
+AOT expr:expr ad1(1,2):\(Int64\) \$[\d] = 3
+q,q,

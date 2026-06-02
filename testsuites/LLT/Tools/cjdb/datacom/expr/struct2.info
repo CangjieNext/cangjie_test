@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/struct.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug struct.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb struct2,struct2
+b,b 21,struct.cj:21
+r,r,-> 21
+ ,expr aa,\(default.AA\) \$\d+ = {\s+a = 1\s+b = "abc"
+ ,expr aa.a,\(Int8\) \$\d+ = 1
+ ,expr aa.b,\(std.core.String\) \$\d+ = "abc"
+ ,expr aa.c,\s+'c' is not a member of struct 'AA'
+q,q,

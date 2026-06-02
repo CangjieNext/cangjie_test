@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/023_enum_name.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 023_enum_name.cj -o 023_enum_name%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum019.info 023_enum_name %run_env
+
+test#
+cjdb,cjdb --no-use-colors 023_enum_name,023_enum_name
+b,b 22,023_enum_name.cj:22
+AOT r,r,-> 22
+CJVM c,c,
+expr,expr t1,\(default._1<Int64>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 3[\s\S]*}
+expr,expr t2,\(default.中文<Int64>\) \$[\d] = {[\s\S]*constructor = AA[\s\S]*arg_1 = 1[\s\S]*}
+expr,expr t3,\(default.中文<Bool>\) \$[\d] = {[\s\S]*constructor = 仓颉[\s\S]*arg_1 = true[\s\S]*}
+expr~expr _1<Int64>.Day(3)~\(default._1<Int64>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 3[\s\S]*}
+q,q,

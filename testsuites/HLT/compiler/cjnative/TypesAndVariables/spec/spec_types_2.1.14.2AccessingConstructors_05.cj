@@ -1,0 +1,48 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+package p
+
+var A = 0 // conflict with A
+var F: (Int64) -> Int64 = {i => i} // conflict with F
+
+enum E {
+    | AA1 // conflict with A
+    | F1(Int64) // conflict with F
+}
+
+enum R {
+    | CC(Int64) // conflict with C
+}
+
+enum Ca { // conflict with C
+    | BB1
+}
+
+func g() {
+    let a = A
+    let b = E.AA1 // ok
+    let c = A // ok
+    F(1)
+    E.F1(1) // ok
+
+    //    p.F(1) // ok
+    let x: Ca // error
+    let y: Ca
+}
+
+main() {
+    var Aa = 0 // conflict with A
+    var Fa: (Int64) -> Int64 = {i => i} // conflict with F
+    g()
+    return 0
+}

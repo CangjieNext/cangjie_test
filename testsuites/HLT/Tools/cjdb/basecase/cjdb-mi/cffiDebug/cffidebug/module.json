@@ -1,0 +1,29 @@
+{
+  "cjc_version": "0.41.1",
+  "organization": "cangjie",
+  "name": "cffidebug",
+  "description": "nothing here",
+  "version": "1.0.0",
+  "build_dir": "",
+  "requires": {},
+  "dev_requires": {},
+  "package_requires": {
+    "path_option": [],
+    "package_option": {}
+  },
+  "foreign_requires": {
+    "test": {
+      "path": "./src/",
+      "export":[]
+    }
+  },
+  "output_type": "executable",
+  "command_option": "",
+  "condition_option": {},
+  "link_option": "",
+  "cross_compile_configuration": {},
+  "scripts": {
+    "prebuild": "gcc -g -shared -fPIC src/test.c -o src/libtest.so"
+  },
+  "package_configuration": {}
+}

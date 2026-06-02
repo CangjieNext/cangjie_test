@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/int64.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug int64.cj -o int64
+// EXEC: python3 cjdb_test.py debuginfo_int64.info %n %run_env
+
+test#
+cjdb,cjdb int64,int64
+b,b foo,int64.cj:10
+r,r,-> 10
+expr a,expr a,\(Int64\) \$\d+ = 1
+expr b,expr b,\(Int64\) \$\d+ = 2
+expr c,expr c,\(Int64\) \$\d+ = 4
+q,q,

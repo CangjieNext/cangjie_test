@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/packages/pkgs001/src 
+//(not MAC) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj -o libpkg1.%middle
+//(not MAC) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs001.cj -o 001_thread_frame%cmp_output
+//(not MAC) RUN-EXEC: python3 cjdb_test.py thread_frame_001.info 001_thread_frame %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_thread_frame,001_thread_frame
+CJVM b,breakpoint set -n main,pkgs001.cj:37
+CJVM c,c,-> 37
+AOT b,b main,Breakpoint 1: where[\s\S]*pkgs001.cj:37
+AOT r,r,-> 37
+AOT threadlist,thread list,\* thread #1[\s\S]*pkgs001.cj:37
+CJVM threadlist,thread list,\* thread #1[\s\S]*thread #3
+AOT threadselect,frame select 2,frame #2[\s\S]*001_thread_frame
+CJVM threadselect,frame select 2,frame #2: cj_entry\$
+AOT threadselect,frame select 1,frame #1[\s\S]*001_thread_frame
+CJVM threadselect,frame select 1,frame #1: user_main\$
+AOT threadbt,bt,\* thread #1[\s\S]*001_thread_frame
+CJVM threadbt,bt,\* thread #1[\s\S]* \* frame #1
+q,q,

@@ -1,0 +1,10 @@
+/* SCAN
+error: 'f' is not a member of enum 'Option<Int64>'
+  ==> main.cj:15:7:
+   | 
+15 |     a.f()
+   |       ^ 
+   | 
+
+1 error generated, 1 error printed.
+*/

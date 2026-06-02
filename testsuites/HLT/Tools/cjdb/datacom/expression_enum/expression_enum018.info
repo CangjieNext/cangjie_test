@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/022_enum_numberfun.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 022_enum_numberfun.cj -o 022_enum_numberfun%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum018.info 022_enum_numberfun %run_env
+
+test#
+cjdb,cjdb --no-use-colors 022_enum_numberfun,022_enum_numberfun
+b,b name,022_enum_numberfun.cj:14
+AOT r,r,-> 14
+CJVM c,c,
+n,n,-> 15
+n,n,-> 16
+expr,expr x1,\(default.TimeUnit2<Int64>\) \$[\d] = Month
+expr,expr x2,\(default.TimeUnit2<Int64>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 1[\s\S]*}
+expr~expr TimeUnit2<Int64>.Month~\(default.TimeUnit2<Int64>\) \$[\d] = Month
+expr~expr TimeUnit2<Int64>.Year(1)~\(default.TimeUnit2<Int64>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 1[\s\S]*}
+q,q,

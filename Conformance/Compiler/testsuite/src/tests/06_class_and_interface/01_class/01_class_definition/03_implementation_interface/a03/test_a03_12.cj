@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+/*
+  @Name: 06_01_01_03_a03_12
+
+  @Level:         1
+
+  @Assertion: 6.1.1.3(3)
+              Multiple interfaces are separated by &.
+
+  @Description: Check that in the interface list of several interfaces any two interfaces can not be separated by a whitespace
+
+  @Mode: compileonly
+
+  @Negative: yes
+
+  @Structure: single
+
+*/
+
+interface i1 {}
+interface i2 {}
+interface i3 {}
+interface i4 {}
+interface i5 {}
+
+class A <: i1 & i2 & i3 i4 & i5 {}
+main() {
+}

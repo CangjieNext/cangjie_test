@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/051_debug_watchpoint_within_func.cj
+// EXEC: %compiler %cmp_opt -g 051_debug_watchpoint_within_func.cj -o 051_debug_watchpoint_within_func%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_within_watchpoint059.info 051_debug_watchpoint_within_func %run_env
+
+test#
+cjdb,cjdb --no-use-colors 051_debug_watchpoint_within_func,051_debug_watchpoint_within_func
+b ,b 15,051_debug_watchpoint_within_func.cj:15
+r , r,-> 15
+b,b f_001,051_debug_watchpoint_within_func.cj:23
+c,c,-> 23
+n,n,-> 24
+n,n,-> 25
+watchpoint,watchpoint set variable -w read b1,051_debug_watchpoint_within_func.cj:24
+c,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 27[\s\S]*
+q,q,

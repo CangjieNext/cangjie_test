@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_alias2.cj
+// EXEC: %compiler %cmp_opt -g generics_alias2.cj -o generics_alias2%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_alias2_06_0.info generics_alias2 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_alias2,generics_alias2
+b,b 147,generics_alias2.cj:147
+AOT r,r,-> 147
+CJVM c,c,
+p, p lcp1,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
+p, p s1.vcp1s,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
+p, p c1.vcp1c,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
+p, p default::C1::vcp1,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
+p, p globals_cp1,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
+locals, locals,\(CPointer<Int64>\) lcp1 = 0x0000000000000000[\s\S]*\(default.S1\) s1 = {[\s\S]*vcp1s = 0x0000000000000000[\s\S]*\(default.C1\) c1 = {[\s\S]*vcp1c = 0x0000000000000000[\s\S]*
+globals, globals,\(CPointer<Int64>\) default::C1::vcp1 = 0x0000000000000000
+globals, globals,\(CPointer<Int64>\) default::globals_cp1 = 0x0000000000000000
+b, b 172,generics_alias2.cj:172
+c,c,-> 172
+p, p f,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
+p, p test_f,\(CPointer<Int64>\) \$[\d] = 0x0000000000000000
+locals, locals,\(CPointer<Int64>\) f = 0x0000000000000000
+q,q,

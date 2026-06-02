@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_debug.cj
+// EXEC: %compiler %cmp_opt -g option_debug.cj -o option_debug%cmp_output
+// RUN-EXEC: python3 cjdb_test.py option_test_033.info option_debug %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors option_debug,option_debug
+b,b 76,option_debug.cj:76
+AOT r,r,-> 76
+CJVM c,c,-> 76
+p,p globals_Range,\(std[.]core.Option<std.core.Range<Int64>>\) \$[\d] = 1..10 : 1
+globals,globals,\(std[.]core.Option<std.core.Range<Int64>>\) default(::|\.)globals_Range = 1..10 : 1[\s\S]*
+AOT frame var,frame var globals_Range,\(std[.]core.Option<std.core.Range<Int64>>\) default(::|\.)globals_Range = 1..10 : 1
+q,q,

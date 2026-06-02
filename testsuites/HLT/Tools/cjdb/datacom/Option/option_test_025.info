@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_memberVar.cj
+// EXEC: %compiler %cmp_opt -g option_memberVar.cj -o option_memberVar%cmp_output
+// RUN-EXEC: python3 cjdb_test.py option_test_025.info option_memberVar %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors option_memberVar,option_memberVar
+b,b 50,option_memberVar.cj:50
+AOT r,r,-> 50
+CJVM c,c,-> 50
+p,p b.Arr_none,\(std[.]core.Option<std[.]core.Array<Int64>>\) \$[\d] = None
+p,p b.Arrlist_char,\(std[.]core.Option<std[.]collection.ArrayList<Rune>>\) \$[\d] = {[\s\S]*\[0\] = 'c'[\s\S]*\[6\] = 'e'[\s\S]*}
+q,q,
+

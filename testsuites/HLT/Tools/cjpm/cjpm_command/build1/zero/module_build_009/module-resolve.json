@@ -1,0 +1,15 @@
+{
+    "resolves": [
+        {
+            "organization": "cangjie",
+            "name": "test",
+            "path": "./",
+            "version": "1.0.0",
+            "output_type": "executable",
+            "hash": "WyJjYW5namllIiwidGVzdCIsIi9ob21lL3poYW5naGFpeWFuL2NvZGVodWIvY3BtL2NwbS90ZXN0L0hMVC9MTFZNL2NwbTIvY29tbWFuZC9idWlsZC96ZXJvL21vZHVsZV9idWlsZF8wMDkiLCIxLjAuMCJdOqRolSWT22cnzZrIeIo8IeSqP/I=",
+            "requires": [],
+            "package_requires": {},
+            "foreign_requires": {}
+        }
+    ]
+}

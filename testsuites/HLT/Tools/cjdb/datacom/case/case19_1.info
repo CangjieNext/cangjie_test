@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case19/case19_1.cj
+// (CJNATIVE and Linux) EXEC: %compiler %cmp_opt -g case19_1.cj -o case19_1%cmp_output
+// (CJNATIVE and Linux) EXEC: python3 cjdb_test.py case19_1.info case19_1 %run_env
+
+test#
+cjdb,cjdb --no-use-colors case19_1,case19_1
+b,b 13,case19_1.cj:13
+b,b 20,case19_1.cj:20
+AOT r,r,-> 20
+CJVM c,c,
+AOT expr:expr f4<Bool>(1,true):\(Int64\) \$[\d] = 1
+c,c,-> 13
+AOT expr:expr f2(1):\(Int64\) \$[\d] = 1
+q,q,

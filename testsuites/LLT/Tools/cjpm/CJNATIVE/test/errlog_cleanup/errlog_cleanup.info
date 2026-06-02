@@ -1,0 +1,5 @@
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm test 2>&1
+// EXEC: cd %n && echo "should not be printed" >> ./target/release/.test-logs/errlog_cleanup/errlog_cleanup.errlog
+// EXEC: cd %n && %cjpm test 2>&1 | compare %f
+// ASSERT: scan-not should not be printed

@@ -1,0 +1,11 @@
+error: expected '}' or hexadecimal digit in unicode escape, found '''
+  ==> case2.cj:14:23:
+   | 
+14 |     "cangjie ${'\u{123242'}"
+   |                 ~~       ^ expected '}' or hexadecimal digit
+   |                 |
+   |                 because it is in this Unicode escape
+   | 
+   # note: unicode escape may only contain hexadecimal digits
+
+1 error generated, 1 error printed.

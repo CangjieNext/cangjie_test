@@ -1,0 +1,16 @@
+error: unknown start of token: \u{0000}
+  ==> case7.cj:13:10:
+   | 
+13 |     var a = \u{0000}'
+   |             ^^^^^^^^ unknown start of token: \u{0000}
+   | 
+
+error: unterminated single-line string
+  ==> case7.cj:13:11:
+   | 
+13 |     var a = \u{0000}'
+   |                     ^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+2 errors generated, 2 errors printed.

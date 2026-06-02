@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/005_debug_enum_fun_reload.cj
+// EXEC: %compiler %cmp_opt -g 005_debug_enum_fun_reload.cj -o 005_debug_enum_fun_reload%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_enum022.info 005_debug_enum_fun_reload %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 005_debug_enum_fun_reload,005_debug_enum_fun_reload
+b,b 27,005_debug_enum_fun_reload.cj:27
+b,b 28,005_debug_enum_fun_reload.cj:28
+b,b 29,005_debug_enum_fun_reload.cj:29
+b,b 30,005_debug_enum_fun_reload.cj:30
+AOT r,r,-> 27
+CJVM c,c,
+c,c,-> 28
+finish,finish,-> 29
+n,n,-> 30
+n,n,-> 31
+n,n,-> 32
+n,n,-> 31
+n,n,-> 36
+locals,locals,\(Int64\) num1 = 1
+locals,locals,\(Int64\) num3 = 3
+locals,locals,\(Int64\) howMany = 6
+print,print num2,E\) \$[\d] = {(\r|\n|\r\n)  constructor = f(\r|\n|\r\n)  arg_1 = 1
+print,print num4,E\) \$[\d] = {(\r|\n|\r\n)  constructor = f(\r|\n|\r\n)  arg_1 = 1(\r|\n|\r\n)  arg_2 = 2(\r|\n|\r\n)  arg_3 = 3
+q,q,

@@ -1,0 +1,8 @@
+error: expected decimal digit, found 'e'
+  ==> case4.cj:14:13:
+   | 
+14 |     var a = 12eeeeeee
+   |                ^ expected decimal digit
+   | 
+
+1 error generated, 1 error printed.

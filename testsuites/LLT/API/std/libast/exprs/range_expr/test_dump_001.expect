@@ -1,0 +1,33 @@
+RangeExpr {
+  -start: LitConstExpr {
+    -literal: Token {
+      value: "10"
+      kind: INTEGER_LITERAL
+      pos: 21: 9
+    }
+  }
+  -op: Token {
+    value: ".."
+    kind: RANGEOP
+    pos: 21: 11
+  }
+  -end: LitConstExpr {
+    -literal: Token {
+      value: "0"
+      kind: INTEGER_LITERAL
+      pos: 21: 13
+    }
+  }
+  -colon: Token {
+    value: ":"
+    kind: COLON
+    pos: 21: 14
+  }
+  -step: LitConstExpr {
+    -literal: Token {
+      value: "-2"
+      kind: INTEGER_LITERAL
+      pos: 21: 15
+    }
+  }
+}

@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
+// EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_VariableModify019.info 024_debug_variable %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 31,024_debug_variable.cj:31
+AOT r,r,-> 31
+CJVM c,c,-> 31
+set,set var_uint8 = "aaa",error
+n,n,-> 34
+locals,locals,var_uint8 = 1
+p,p var_uint8,\(UInt8\) \$[\d] = 1
+locals,locals,f_uint8 = 9
+p,p f_uint8,\(UInt8\) \$[\d] = 9
+q,q,

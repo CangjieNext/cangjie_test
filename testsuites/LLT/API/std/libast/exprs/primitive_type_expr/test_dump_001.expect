@@ -1,0 +1,21 @@
+CallExpr {
+  -callFunc: MemberAccess {
+    -baseExpr: PrimitiveTypeExpr {
+      -keyword: Token {
+        value: "Float64"
+        kind: FLOAT64
+        pos: 20: 9
+      }
+    }
+    -dot: Token {
+      value: "."
+      kind: DOT
+      pos: 20: 16
+    }
+    -field: Token {
+      value: "toString"
+      kind: IDENTIFIER
+      pos: 20: 17
+    }
+  }
+}

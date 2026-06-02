@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/011_debug_ArrayIns_composite_record.cj
+// EXEC: %compiler %cmp_opt -g 011_debug_ArrayIns_composite_record.cj -o 011_debug_ArrayIns_composite_record%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_compositeArray_view061.info 011_debug_ArrayIns_composite_record %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 011_debug_ArrayIns_composite_record,011_debug_ArrayIns_composite_record
+b,b 31,011_debug_ArrayIns_composite_record.cj:31
+AOT r,r,-> 31
+CJVM c,c,
+s,s, func fun_r1\(pa_1:Array<R1>,pa_2!:Array<String> = array_top_str_1\)[\s\S]*-> 56
+p,p pa_1,\(std[.]core.Array<default.R1>\) \$[\d] = {[\s\S]*\[0\] = [\s\S]*
+p,p pa_1[1],R1\) \$[\d] = {[\s\S]*arrayInt8 = [\s\S]*
+p,p pa_2[0],\(std[.]core.String\) \$[\d] = "func_arr"
+q,q,

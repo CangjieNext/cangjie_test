@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+type TI = I
+
+interface I {
+    static func b() {
+        true
+    }
+}
+
+extend Bool <: I {
+    public static func b() {
+        true
+    }
+}
+
+interface interfaceA<T> where T <: I {
+    func f1(a: T) {
+        a
+    }
+    static func f2(a: T) {
+        return Bool.b().toString()
+    }
+}
+
+class B <: interfaceA<I> {}
+
+main(): Int64 {
+    if (B.f2(Bool.b()) == "true" && B().f1(false) is I) {
+        return 0
+    } else {
+        return 1
+    }
+}

@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// ERRCHECK:cd %n/pro1 && %cjpm build && cd .. && %cjpm build
+// ASSERT: scan-1 cjpm build success
+// ASSERT: scan-1 Error: can not find the following dependencies
+// ASSERT: scan-1 pro1.xoo
+// ASSERT: scan-1 Error: cjpm build failed

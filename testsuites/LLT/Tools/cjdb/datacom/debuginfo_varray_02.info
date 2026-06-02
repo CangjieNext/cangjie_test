@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_varray_02.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_varray_02.cj -o debuginfo_varray_02
+// EXEC: python3 cjdb_test.py debuginfo_varray_02.info
+
+
+test#
+cjdb,cjdb debuginfo_varray_02,debuginfo_varray_02
+b,b 11,debuginfo_varray_02.cj:11
+r,r,-> 11
+p,p a,\(std.core.Array<VArray<Bool,\$3>>\) \$\d+ = {\s+\[0\] = {\s+\[0\] = true\s+\[1\] = false\s+\[2\] = false
+p,p b,\(std.core.Array<VArray<Unit,\$3>>\) \$\d+ = {\s+\[0\] = {\s+\[0\] = \(\)\s+\[1\] = \(\)\s+\[2\] = \(\)
+p,p c,\(std.core.Array<VArray<Rune,\$3>>\) \$\d+ = {\s+\[0\] = {\s+\[0\] = 'a'\s+\[1\] = 'b'\s+\[2\] = 'c'
+q,q,

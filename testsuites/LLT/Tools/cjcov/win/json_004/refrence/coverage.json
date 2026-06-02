@@ -1,0 +1,56 @@
+{
+  "fileLists": [
+    {
+      "filepath": "src\\dir_0_0\\dir_0_0_0\\dir_0_0_0_0\\file6.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\dir_0_0\\dir_0_0_0\\file5.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\dir_0_0\\file1.cj",
+      "totalLines": 4,
+      "hitLines": [
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "filepath": "src\\dir_0_0\\file2.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\dir_0_0\\file3.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\dir_0_0\\file4.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\dir_0_1\\file7.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src\\main.cj",
+      "totalLines": 8,
+      "hitLines": [
+        9,
+        10,
+        13,
+        17,
+        18,
+        19,
+        21
+      ]
+    }
+  ]
+}

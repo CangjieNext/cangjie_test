@@ -1,0 +1,102 @@
+IfExpr {
+  -keywordI: Token {
+    value: "if"
+    kind: IF
+    pos: 21: 9
+  }
+  -condition: LetPatternExpr {
+    -keyword: Token {
+      value: "let"
+      kind: LET
+      pos: 21: 12
+    }
+    -pattern: EnumPattern {
+      -constructor: RefExpr {
+        -identifier: Token {
+          value: "Some"
+          kind: IDENTIFIER
+          pos: 21: 16
+        }
+      }
+      -patterns: 0, VarOrEnumPattern {
+        -identifier: Token {
+          value: "v"
+          kind: IDENTIFIER
+          pos: 21: 21
+        }
+      }
+    }
+    -backArrow: Token {
+      value: "<-"
+      kind: BACKARROW
+      pos: 21: 24
+    }
+    -expr: RefExpr {
+      -identifier: Token {
+        value: "appHandler"
+        kind: IDENTIFIER
+        pos: 21: 27
+      }
+    }
+  }
+  -ifBlock: Block {
+    -nodes: 0, CallExpr {
+      -callFunc: MemberAccess {
+        -baseExpr: RefExpr {
+          -identifier: Token {
+            value: "v"
+            kind: IDENTIFIER
+            pos: 22: 13
+          }
+        }
+        -dot: Token {
+          value: "."
+          kind: DOT
+          pos: 22: 14
+        }
+        -field: Token {
+          value: "start"
+          kind: IDENTIFIER
+          pos: 22: 15
+        }
+      }
+    }
+  }
+  -keywordE: Token {
+    value: "else"
+    kind: ELSE
+    pos: 23: 11
+  }
+  -elseExpr: Block {
+    -nodes: 0, CallExpr {
+      -callFunc: MemberAccess {
+        -baseExpr: RefExpr {
+          -identifier: Token {
+            value: "logger"
+            kind: IDENTIFIER
+            pos: 24: 13
+          }
+        }
+        -dot: Token {
+          value: "."
+          kind: DOT
+          pos: 24: 19
+        }
+        -field: Token {
+          value: "warn"
+          kind: IDENTIFIER
+          pos: 24: 20
+        }
+      }
+      -arguments: 0, Argument {
+        -expr: LitConstExpr {
+          -literal: Token {
+            value: "AppCollection contains a WebHandler that not an AppHandler, this may be out of expected"
+            kind: STRING_LITERAL
+            pos: 24: 25
+          }
+        }
+      }
+    }
+  }
+}

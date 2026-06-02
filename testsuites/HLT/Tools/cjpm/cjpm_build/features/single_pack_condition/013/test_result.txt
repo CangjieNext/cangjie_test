@@ -1,0 +1,1 @@
+// ASSERT: scan Error: cjpm test failed

@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/Option_some_view_29.cj
+// EXEC: %compiler %cmp_opt -g Option_some_view_29.cj -o Option_some_view_29%cmp_output
+// RUN-EXEC: python3 cjdb_test.py Core_Option_some_view_29.info Option_some_view_29 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors Option_some_view_29,Option_some_view_29
+b,b 18,Option_some_view_29.cj:18
+AOT r,r,-> 18
+CJVM c,c,-> 18
+p,p op1,\(std.core.Option<default.Rectangle>\) \$[\d] = {[\s\S]*al = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}
+AOT globals,globals,\(std.core.Option<default.Rectangle>\) default::op1 = {[\s\S]*al = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}
+CJVM globals,globals,\(std.core.Option<default.Rectangle>\) default.op1 = {[\s\S]*al = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}[\s\S]*}
+q,q,

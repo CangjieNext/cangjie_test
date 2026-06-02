@@ -1,0 +1,731 @@
+TryExpr {
+  -keywordT: Token {
+    value: "try"
+    kind: TRY
+    pos: 21: 9
+  }
+  -resourceSpec: 0, VarDecl {
+    -identifier: Token {
+      value: "certFile"
+      kind: IDENTIFIER
+      pos: 21: 14
+    }
+    -assign: Token {
+      value: "="
+      kind: ASSIGN
+      pos: 21: 23
+    }
+    -expr: CallExpr {
+      -callFunc: RefExpr {
+        -identifier: Token {
+          value: "File"
+          kind: IDENTIFIER
+          pos: 21: 25
+        }
+      }
+      -arguments: 0, Argument {
+        -expr: RefExpr {
+          -identifier: Token {
+            value: "certFilePath"
+            kind: IDENTIFIER
+            pos: 21: 30
+          }
+        }
+      }
+      -arguments: 1, Argument {
+        -expr: RefExpr {
+          -identifier: Token {
+            value: "Read"
+            kind: IDENTIFIER
+            pos: 21: 44
+          }
+        }
+      }
+    }
+  }
+  -tryBlock: Block {
+    -nodes: 0, VarDecl {
+      -keyword: Token {
+        value: "var"
+        kind: VAR
+        pos: 22: 13
+      }
+      -identifier: Token {
+        value: "privateKey"
+        kind: IDENTIFIER
+        pos: 22: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 22: 28
+      }
+      -expr: MemberAccess {
+        -baseExpr: RefExpr {
+          -identifier: Token {
+            value: "Option"
+            kind: IDENTIFIER
+            pos: 22: 30
+          }
+          typeArguments: 0, RefType {
+            -identifier: Token {
+              value: "PrivateKey"
+              kind: IDENTIFIER
+              pos: 22: 37
+            }
+          }
+        }
+        -dot: Token {
+          value: "."
+          kind: DOT
+          pos: 22: 48
+        }
+        -field: Token {
+          value: "None"
+          kind: IDENTIFIER
+          pos: 22: 49
+        }
+      }
+    }
+    -nodes: 1, TryExpr {
+      -keywordT: Token {
+        value: "try"
+        kind: TRY
+        pos: 23: 13
+      }
+      -resourceSpec: 0, VarDecl {
+        -identifier: Token {
+          value: "keyFile"
+          kind: IDENTIFIER
+          pos: 23: 18
+        }
+        -assign: Token {
+          value: "="
+          kind: ASSIGN
+          pos: 23: 26
+        }
+        -expr: CallExpr {
+          -callFunc: RefExpr {
+            -identifier: Token {
+              value: "File"
+              kind: IDENTIFIER
+              pos: 23: 28
+            }
+          }
+          -arguments: 0, Argument {
+            -expr: RefExpr {
+              -identifier: Token {
+                value: "keyFilePath"
+                kind: IDENTIFIER
+                pos: 23: 33
+              }
+            }
+          }
+          -arguments: 1, Argument {
+            -expr: RefExpr {
+              -identifier: Token {
+                value: "Read"
+                kind: IDENTIFIER
+                pos: 23: 46
+              }
+            }
+          }
+        }
+      }
+      -tryBlock: Block {
+        -nodes: 0, VarDecl {
+          -keyword: Token {
+            value: "let"
+            kind: LET
+            pos: 24: 17
+          }
+          -identifier: Token {
+            value: "keyStr"
+            kind: IDENTIFIER
+            pos: 24: 21
+          }
+          -assign: Token {
+            value: "="
+            kind: ASSIGN
+            pos: 24: 28
+          }
+          -expr: CallExpr {
+            -callFunc: MemberAccess {
+              -baseExpr: RefExpr {
+                -identifier: Token {
+                  value: "String"
+                  kind: IDENTIFIER
+                  pos: 24: 30
+                }
+              }
+              -dot: Token {
+                value: "."
+                kind: DOT
+                pos: 24: 36
+              }
+              -field: Token {
+                value: "fromUtf8"
+                kind: IDENTIFIER
+                pos: 24: 37
+              }
+            }
+            -arguments: 0, Argument {
+              -expr: CallExpr {
+                -callFunc: RefExpr {
+                  -identifier: Token {
+                    value: "readToEnd"
+                    kind: IDENTIFIER
+                    pos: 24: 46
+                  }
+                }
+                -arguments: 0, Argument {
+                  -expr: RefExpr {
+                    -identifier: Token {
+                      value: "keyFile"
+                      kind: IDENTIFIER
+                      pos: 24: 56
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        -nodes: 1, AssignExpr {
+          -leftExpr: RefExpr {
+            -identifier: Token {
+              value: "privateKey"
+              kind: IDENTIFIER
+              pos: 25: 17
+            }
+          }
+          -assign: Token {
+            value: "="
+            kind: ASSIGN
+            pos: 25: 28
+          }
+          -rightExpr: CallExpr {
+            -callFunc: MemberAccess {
+              -baseExpr: RefExpr {
+                -identifier: Token {
+                  value: "PrivateKey"
+                  kind: IDENTIFIER
+                  pos: 25: 30
+                }
+              }
+              -dot: Token {
+                value: "."
+                kind: DOT
+                pos: 25: 40
+              }
+              -field: Token {
+                value: "decodeFromPem"
+                kind: IDENTIFIER
+                pos: 25: 41
+              }
+            }
+            -arguments: 0, Argument {
+              -expr: RefExpr {
+                -identifier: Token {
+                  value: "keyStr"
+                  kind: IDENTIFIER
+                  pos: 25: 55
+                }
+              }
+            }
+          }
+        }
+      }
+      -keywordsC: 0, Token {
+        value: "catch"
+        kind: CATCH
+        pos: 26: 15
+      }
+      -catchPatterns: 0, ExceptTypePattern {
+        -pattern: VarPattern {
+          -identifier: Token {
+            value: "e"
+            kind: IDENTIFIER
+            pos: 26: 22
+          }
+        }
+        -colon: Token {
+          value: ":"
+          kind: COLON
+          pos: 26: 23
+        }
+        -types: 0, RefType {
+          -identifier: Token {
+            value: "FSException"
+            kind: IDENTIFIER
+            pos: 26: 25
+          }
+        }
+        -types: 1, RefType {
+          -identifier: Token {
+            value: "TlsException"
+            kind: IDENTIFIER
+            pos: 26: 39
+          }
+        }
+      }
+      -catchBlocks: 0, Block {
+        -nodes: 0, CallExpr {
+          -callFunc: MemberAccess {
+            -baseExpr: RefExpr {
+              -identifier: Token {
+                value: "LOGGER"
+                kind: IDENTIFIER
+                pos: 27: 17
+              }
+            }
+            -dot: Token {
+              value: "."
+              kind: DOT
+              pos: 27: 23
+            }
+            -field: Token {
+              value: "error"
+              kind: IDENTIFIER
+              pos: 27: 24
+            }
+          }
+          -arguments: 0, Argument {
+            -expr: LitConstExpr {
+              -literal: Token {
+                value: "read pem file private_key.pem failed: ${e}"
+                kind: STRING_LITERAL
+                pos: 27: 30
+              }
+            }
+          }
+        }
+        -nodes: 1, ReturnExpr {
+          -keyword: Token {
+            value: "return"
+            kind: RETURN
+            pos: 28: 17
+          }
+          -expr: RefExpr {
+            -identifier: Token {
+              value: "config"
+              kind: IDENTIFIER
+              pos: 28: 24
+            }
+          }
+        }
+      }
+    }
+    -nodes: 2, VarDecl {
+      -keyword: Token {
+        value: "let"
+        kind: LET
+        pos: 31: 13
+      }
+      -identifier: Token {
+        value: "certStr"
+        kind: IDENTIFIER
+        pos: 31: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 31: 25
+      }
+      -expr: CallExpr {
+        -callFunc: MemberAccess {
+          -baseExpr: RefExpr {
+            -identifier: Token {
+              value: "String"
+              kind: IDENTIFIER
+              pos: 31: 27
+            }
+          }
+          -dot: Token {
+            value: "."
+            kind: DOT
+            pos: 31: 33
+          }
+          -field: Token {
+            value: "fromUtf8"
+            kind: IDENTIFIER
+            pos: 31: 34
+          }
+        }
+        -arguments: 0, Argument {
+          -expr: CallExpr {
+            -callFunc: RefExpr {
+              -identifier: Token {
+                value: "readToEnd"
+                kind: IDENTIFIER
+                pos: 31: 43
+              }
+            }
+            -arguments: 0, Argument {
+              -expr: RefExpr {
+                -identifier: Token {
+                  value: "certFile"
+                  kind: IDENTIFIER
+                  pos: 31: 53
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    -nodes: 3, VarDecl {
+      -keyword: Token {
+        value: "let"
+        kind: LET
+        pos: 32: 13
+      }
+      -identifier: Token {
+        value: "certs"
+        kind: IDENTIFIER
+        pos: 32: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 32: 23
+      }
+      -expr: CallExpr {
+        -callFunc: MemberAccess {
+          -baseExpr: MemberAccess {
+            -baseExpr: RefExpr {
+              -identifier: Token {
+                value: "x509"
+                kind: IDENTIFIER
+                pos: 32: 25
+              }
+            }
+            -dot: Token {
+              value: "."
+              kind: DOT
+              pos: 32: 29
+            }
+            -field: Token {
+              value: "X509Certificate"
+              kind: IDENTIFIER
+              pos: 32: 30
+            }
+          }
+          -dot: Token {
+            value: "."
+            kind: DOT
+            pos: 32: 45
+          }
+          -field: Token {
+            value: "decodeFromPem"
+            kind: IDENTIFIER
+            pos: 32: 46
+          }
+        }
+        -arguments: 0, Argument {
+          -expr: RefExpr {
+            -identifier: Token {
+              value: "certStr"
+              kind: IDENTIFIER
+              pos: 32: 60
+            }
+          }
+        }
+      }
+    }
+    -nodes: 4, IfExpr {
+      -keywordI: Token {
+        value: "if"
+        kind: IF
+        pos: 33: 13
+      }
+      -condition: LetPatternExpr {
+        -keyword: Token {
+          value: "let"
+          kind: LET
+          pos: 33: 17
+        }
+        -pattern: EnumPattern {
+          -constructor: RefExpr {
+            -identifier: Token {
+              value: "Some"
+              kind: IDENTIFIER
+              pos: 33: 21
+            }
+          }
+          -patterns: 0, VarOrEnumPattern {
+            -identifier: Token {
+              value: "v"
+              kind: IDENTIFIER
+              pos: 33: 26
+            }
+          }
+        }
+        -backArrow: Token {
+          value: "<-"
+          kind: BACKARROW
+          pos: 33: 29
+        }
+        -expr: RefExpr {
+          -identifier: Token {
+            value: "privateKey"
+            kind: IDENTIFIER
+            pos: 33: 32
+          }
+        }
+      }
+      -ifBlock: Block {
+        -nodes: 0, VarDecl {
+          -keyword: Token {
+            value: "var"
+            kind: VAR
+            pos: 34: 17
+          }
+          -identifier: Token {
+            value: "tlsConfig"
+            kind: IDENTIFIER
+            pos: 34: 21
+          }
+          -assign: Token {
+            value: "="
+            kind: ASSIGN
+            pos: 34: 31
+          }
+          -expr: CallExpr {
+            -callFunc: RefExpr {
+              -identifier: Token {
+                value: "TlsServerConfig"
+                kind: IDENTIFIER
+                pos: 34: 33
+              }
+            }
+            -arguments: 0, Argument {
+              -expr: RefExpr {
+                -identifier: Token {
+                  value: "certs"
+                  kind: IDENTIFIER
+                  pos: 34: 49
+                }
+              }
+            }
+            -arguments: 1, Argument {
+              -expr: RefExpr {
+                -identifier: Token {
+                  value: "v"
+                  kind: IDENTIFIER
+                  pos: 34: 56
+                }
+              }
+            }
+          }
+        }
+        -nodes: 1, IfExpr {
+          -keywordI: Token {
+            value: "if"
+            kind: IF
+            pos: 35: 17
+          }
+          -condition: RefExpr {
+            -identifier: Token {
+              value: "supportHttp2"
+              kind: IDENTIFIER
+              pos: 35: 21
+            }
+          }
+          -ifBlock: Block {
+            -nodes: 0, AssignExpr {
+              -leftExpr: MemberAccess {
+                -baseExpr: RefExpr {
+                  -identifier: Token {
+                    value: "tlsConfig"
+                    kind: IDENTIFIER
+                    pos: 36: 21
+                  }
+                }
+                -dot: Token {
+                  value: "."
+                  kind: DOT
+                  pos: 36: 30
+                }
+                -field: Token {
+                  value: "supportedAlpnProtocols"
+                  kind: IDENTIFIER
+                  pos: 36: 31
+                }
+              }
+              -assign: Token {
+                value: "="
+                kind: ASSIGN
+                pos: 36: 54
+              }
+              -rightExpr: ArrayLiteral {
+                -elements: 0, LitConstExpr {
+                  -literal: Token {
+                    value: "h2"
+                    kind: STRING_LITERAL
+                    pos: 36: 57
+                  }
+                }
+              }
+            }
+          }
+        }
+        -nodes: 2, AssignExpr {
+          -leftExpr: RefExpr {
+            -identifier: Token {
+              value: "config"
+              kind: IDENTIFIER
+              pos: 38: 17
+            }
+          }
+          -assign: Token {
+            value: "="
+            kind: ASSIGN
+            pos: 38: 24
+          }
+          -rightExpr: CallExpr {
+            -callFunc: RefExpr {
+              -identifier: Token {
+                value: "Some"
+                kind: IDENTIFIER
+                pos: 38: 26
+              }
+            }
+            -arguments: 0, Argument {
+              -expr: RefExpr {
+                -identifier: Token {
+                  value: "tlsConfig"
+                  kind: IDENTIFIER
+                  pos: 38: 31
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  -keywordsC: 0, Token {
+    value: "catch"
+    kind: CATCH
+    pos: 40: 11
+  }
+  -catchPatterns: 0, ExceptTypePattern {
+    -pattern: VarPattern {
+      -identifier: Token {
+        value: "e"
+        kind: IDENTIFIER
+        pos: 40: 18
+      }
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 40: 19
+    }
+    -types: 0, RefType {
+      -identifier: Token {
+        value: "FSException"
+        kind: IDENTIFIER
+        pos: 40: 21
+      }
+    }
+    -types: 1, RefType {
+      -identifier: Token {
+        value: "TlsException"
+        kind: IDENTIFIER
+        pos: 40: 35
+      }
+    }
+  }
+  -catchBlocks: 0, Block {
+    -nodes: 0, CallExpr {
+      -callFunc: MemberAccess {
+        -baseExpr: RefExpr {
+          -identifier: Token {
+            value: "LOGGER"
+            kind: IDENTIFIER
+            pos: 41: 13
+          }
+        }
+        -dot: Token {
+          value: "."
+          kind: DOT
+          pos: 41: 19
+        }
+        -field: Token {
+          value: "error"
+          kind: IDENTIFIER
+          pos: 41: 20
+        }
+      }
+      -arguments: 0, Argument {
+        -expr: LitConstExpr {
+          -literal: Token {
+            value: "read cert file cert.pem failed: ${e}"
+            kind: STRING_LITERAL
+            pos: 41: 26
+          }
+        }
+      }
+    }
+  }
+  -keywordsC: 1, Token {
+    value: "catch"
+    kind: CATCH
+    pos: 42: 11
+  }
+  -catchPatterns: 1, ExceptTypePattern {
+    -pattern: VarPattern {
+      -identifier: Token {
+        value: "e"
+        kind: IDENTIFIER
+        pos: 42: 18
+      }
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 42: 19
+    }
+    -types: 0, RefType {
+      -identifier: Token {
+        value: "Exception"
+        kind: IDENTIFIER
+        pos: 42: 21
+      }
+    }
+  }
+  -catchBlocks: 1, Block {
+    -nodes: 0, CallExpr {
+      -callFunc: MemberAccess {
+        -baseExpr: RefExpr {
+          -identifier: Token {
+            value: "LOGGER"
+            kind: IDENTIFIER
+            pos: 43: 13
+          }
+        }
+        -dot: Token {
+          value: "."
+          kind: DOT
+          pos: 43: 19
+        }
+        -field: Token {
+          value: "error"
+          kind: IDENTIFIER
+          pos: 43: 20
+        }
+      }
+      -arguments: 0, Argument {
+        -expr: LitConstExpr {
+          -literal: Token {
+            value: ""
+            kind: STRING_LITERAL
+            pos: 43: 26
+          }
+        }
+      }
+    }
+  }
+}

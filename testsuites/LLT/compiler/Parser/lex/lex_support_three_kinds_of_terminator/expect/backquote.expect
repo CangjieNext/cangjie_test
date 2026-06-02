@@ -1,0 +1,17 @@
+error: expected '`', found 'new line character'
+ ==> backquote.cj:6:12:
+  | 
+6 |     let `fu
+  |         ~  ^ expected '`'
+  |         |
+  |         to match this opening backquote
+  | 
+
+error: expected identifier, found ' '
+ ==> backquote.cj:7:8:
+  | 
+7 |     nc` = 1
+  |        ^ expected identifier
+  | 
+
+2 errors generated, 2 errors printed.

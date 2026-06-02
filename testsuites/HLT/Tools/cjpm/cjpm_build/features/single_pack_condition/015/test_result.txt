@@ -1,0 +1,2 @@
+// ASSERT: regex Error: the length of customized key must be greater than 1 in .[\\|/]cjpm.toml
+// ASSERT: scan Error: cjpm test failed

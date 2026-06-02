@@ -1,0 +1,26 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// EXEC-PIPE-0: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+// EXEC-PIPE-0: %run %run_opt %output %run_args
+// ASSERT: scan-not unused function:'foo1'
+// ASSERT: scan unused variable:'a'
+// ASSERT: scan 1 warning generated, 1 warning printed.
+
+import std.unittest.*
+import std.unittest.testmacro.*
+
+@Test
+class A {
+    @TestCase
+    func foo1(): Unit {
+        var a = 1
+    }
+}
+
+main() {
+    return 0
+}

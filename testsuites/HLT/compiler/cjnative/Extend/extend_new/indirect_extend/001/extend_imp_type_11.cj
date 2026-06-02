@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+type int = IntNative
+
+interface I {
+    static prop i: int {
+        get() {
+            var a: int = 0
+            123 + a
+        }
+    }
+}
+
+extend int <: I {}
+
+func a(a: int) {
+    return a
+}
+
+main(): Int64 {
+    if (a(int.i) == 123) {
+        return 0
+    } else {
+        return 1
+    }
+}

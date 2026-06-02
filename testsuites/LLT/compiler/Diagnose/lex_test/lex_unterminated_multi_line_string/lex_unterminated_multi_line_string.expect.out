@@ -1,0 +1,11 @@
+error: unterminated multi-line string
+  ==> lex_unterminated_multi_line_string.cj:13:13:
+   | 
+13 |       var a = """
+   |  _____________^
+14 | |     cangjie
+15 | |     language
+   | |_____________^ unterminated multi-line string
+   | 
+
+1 error generated, 1 error printed.

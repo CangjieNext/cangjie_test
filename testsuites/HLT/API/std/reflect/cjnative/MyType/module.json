@@ -1,0 +1,26 @@
+{
+  "cjc_version": "0.45.4",
+  "organization": "myOrganization",
+  "name": "MyType",
+  "description": "nothing here",
+  "version": "1.0.0",
+  "build_dir": "",
+  "src_dir": "",
+  "dependencies": {},
+  "requires": {},
+  "dev_requires": {},
+  "package_requires": {
+    "path_option": [],
+    "package_option": {}
+  },
+  "foreign_requires": {},
+  "output_type": "dynamic",
+  "command_option": "",
+  "condition_option": {},
+  "link_option": "",
+  "cross_compile_configuration": {},
+  "scripts": {},
+  "package_configuration": {},
+  "lto": "",
+  "test_configuration": {}
+}

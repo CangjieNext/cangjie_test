@@ -1,0 +1,17 @@
+error: expected identifier, found '`'
+  ==> lex_illegal_backquote.cj:13:14:
+   | 
+13 |     var a = ``
+   |              ^ expected identifier
+   | 
+
+error: expected '`', found 'new line character'
+  ==> lex_illegal_backquote.cj:14:20:
+   | 
+14 |     var b = `identi
+   |             ~      ^ expected '`'
+   |             |
+   |             to match this opening backquote
+   | 
+
+2 errors generated, 2 errors printed.

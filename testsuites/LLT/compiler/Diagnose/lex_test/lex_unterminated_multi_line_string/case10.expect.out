@@ -1,0 +1,12 @@
+error: unterminated multi-line string
+  ==> case10.cj:18:15:
+   | 
+18 |           cangjie4 ${ """
+   |  __________________~~_^
+   | |                  |
+   | |                  because this interpolation is not terminated with a '}'
+19 | | }
+   | |__^ unterminated multi-line string
+   | 
+
+1 error generated, 1 error printed.

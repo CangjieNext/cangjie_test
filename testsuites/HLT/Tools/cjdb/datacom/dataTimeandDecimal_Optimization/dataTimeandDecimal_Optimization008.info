@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/dataTimeandDecimal_Optimization/dataTimeandDecimal_Optimization008.cj
+// (CJNATIVE and not MAC) EXEC: %compiler %cmp_opt -g dataTimeandDecimal_Optimization008.cj -o dataTimeandDecimal_Optimization008%cmp_output
+// (CJNATIVE and not MAC) RUN-EXEC: python3 cjdb_test.py dataTimeandDecimal_Optimization008.info dataTimeandDecimal_Optimization008 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors dataTimeandDecimal_Optimization008,dataTimeandDecimal_Optimization008
+b,b 20,dataTimeandDecimal_Optimization008.cj:20
+r,r,-> 20
+locals,locals,\(std.collection.HashMap<Int64,std.math.numeric.Decimal>\) map1 = {[\s\S]*\[30 -> 465131.0000\] = {[\s\S]*key = 30[\s\S]*value = 465131.0000[\s\S]*}[\s\S]*\[3 -> 65.4321\] = {[\s\S]*key = 3[\s\S]*value = 65.4321[\s\S]*}
+p,p map2,\(std.collection.HashMap<std.math.numeric.Decimal,Int64>\) \$[\d] = {[\s\S]*\[465131.0000 -> 2\] = {[\s\S]*key = 465131.0000[\s\S]*value = 2[\s\S]*
+expr~expr HashSet<Decimal>(d1, d2)~\(std.collection.HashSet<std.math.numeric.Decimal>\) \$[\d] = {[\s\S]*\[0\] = 465131.0000[\s\S]*\[1\] = 65.4321[\s\S]*
+q,q,

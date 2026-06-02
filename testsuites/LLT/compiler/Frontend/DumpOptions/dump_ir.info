@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: main.cj
+// (Linux) EXEC: %rmdir ./*_IR
+// (Linux) EXEC: %frontendCompiler main.cj --dump-ir
+// (Linux) EXEC: test -d "./demo_IR"
+// (Linux) EXEC: %rmdir ./*_IR
+// (Linux) EXEC: %compiler main.cj --dump-ir
+// (Linux) EXEC: test -d "./demo_IR"
+
+// (Linux) EXEC: %mkdir ./output
+// (Linux) EXEC: %compiler main.cj --dump-ir %output_dir_opt output
+// (Linux) EXEC: test -d "./output/demo_IR"
+// (Linux) EXEC: %rmdir ./output/*_IR
+// (Linux) EXEC: %compiler main.cj --dump-ir %output_opt ./output/main.out
+// (Linux) EXEC: test -d "./output/main_IR"

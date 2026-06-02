@@ -1,0 +1,20 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_generic_struct_display_03.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_generic_struct_display_03.cj -o debuginfo_generic_struct_display_03
+// EXEC: python3 cjdb_test.py debuginfo_generic_struct_display_03.info
+
+
+test#
+cjdb,cjdb debuginfo_generic_struct_display_03,debuginfo_generic_struct_display_03
+b,b 12,debuginfo_generic_struct_display_03.cj:12
+r,r,-> 12
+p,p a,\(default.E1<std.core.Option<Int64>>\) \$\d+ = A
+p,p b,\(default.E1<std.core.Option<std.core.Option<Int64>>>\) \$\d+ = {\s+constructor = B\s+arg_1 = None\s+}
+p,p c,\(std.core.Option<std.core.Option<Int64>>\) \$\d+ = None
+p,p d,\(default.Cls<std.core.Option<std.core.Option<Int64>>>\) \$\d+ = {\s+a = None\s+}
+q,q,

@@ -1,0 +1,12 @@
+# This is include list for additional tests reletad to class definitions and sub-rules used in class definitions
+#
+# To run these tests you can execute following command from current directory:
+# /path_to_harness/harness.py --included-tests additional_tests.txt
+# or from test suite root folder:
+# /path_to_harness/harness.py --included-tests src/tests/a_cangjie_grammar_summary/02_syntactic_grammar/03_top_level_definitions/01_class_definitions/a01/additional_tests.txt
+
+src/tests/06_class_and_interface/01_class/01_class_definition/a04
+src/tests/09_generics/01_type_parameters_and_type_variable/a04
+src/tests/09_generics/02_generic_constraints/a11
+src/tests/06_class_and_interface/01_class/01_class_definition/04_class_body/a03
+src/tests/06_class_and_interface/01_class/02_class_members/01_constructors/a03

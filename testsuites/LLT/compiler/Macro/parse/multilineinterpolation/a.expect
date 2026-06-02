@@ -1,0 +1,12 @@
+        """
+        0000    Files XXX
+        """
+        func
+        
+-------------------------------------------
+        '''
+        1111    Files XXX
+        '''
+        func
+        
+this line should be good: 4

@@ -1,0 +1,77 @@
+TryExpr {
+  -keywordT: Token {
+    value: "try"
+    kind: TRY
+    pos: 21: 9
+  }
+  -tryBlock: Block {
+    -nodes: 0, VarDecl {
+      -keyword: Token {
+        value: "var"
+        kind: VAR
+        pos: 22: 13
+      }
+      -identifier: Token {
+        value: "a"
+        kind: IDENTIFIER
+        pos: 22: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 22: 19
+      }
+      -expr: LitConstExpr {
+        -literal: Token {
+          value: "1"
+          kind: INTEGER_LITERAL
+          pos: 22: 21
+        }
+      }
+    }
+  }
+  -keywordsC: 0, Token {
+    value: "catch"
+    kind: CATCH
+    pos: 23: 11
+  }
+  -catchPatterns: 0, ExceptTypePattern {
+    -pattern: VarPattern {
+      -identifier: Token {
+        value: "e"
+        kind: IDENTIFIER
+        pos: 23: 17
+      }
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 23: 18
+    }
+    -types: 0, RefType {
+      -identifier: Token {
+        value: "Exception"
+        kind: IDENTIFIER
+        pos: 23: 20
+      }
+    }
+  }
+  -catchBlocks: 0, Block {
+    -nodes: 0, ThrowExpr {
+      -keyword: Token {
+        value: "throw"
+        kind: THROW
+        pos: 24: 13
+      }
+      -expr: CallExpr {
+        -callFunc: RefExpr {
+          -identifier: Token {
+            value: "Exception"
+            kind: IDENTIFIER
+            pos: 24: 19
+          }
+        }
+      }
+    }
+  }
+}

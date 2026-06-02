@@ -1,0 +1,11 @@
+error: unterminated multi-line string
+  ==> case3.cj:14:9:
+   | 
+14 |       var  = """
+   |  ____________^
+15 | |     cangjie ${
+16 | | }
+   | |__^ unterminated multi-line string
+   | 
+
+1 error generated, 1 error printed.

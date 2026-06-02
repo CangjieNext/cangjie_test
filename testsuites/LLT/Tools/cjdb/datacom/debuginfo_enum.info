@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_enum.cj
+// EXEC: %compiler %cmp_opt -g debuginfo_enum.cj -o debuginfo_enum
+// EXEC: python3 cjdb_test.py debuginfo_enum.info
+
+
+test#
+cjdb,cjdb debuginfo_enum,debuginfo_enum
+b,b 15,debuginfo_enum.cj:15
+r,r,-> 15
+p,p e1,\(default.E\) \$[\d]+ = {\s+constructor = I(\r|\n|\r\n)  arg_1 = 5
+p,p e1,\(default.E\) \$[\d]+ = {\s+constructor = I(\r|\n|\r\n)  arg_1 = 5
+p,p e2,\(default.E\) \$[\d]+ = {\s+constructor = I(\r|\n|\r\n)  arg_1 = 55(\r|\n|\r\n)  arg_2 = 555
+p,p e3,\(default.E\) \$[\d]+ = {\s+constructor = I(\r|\n|\r\n)  arg_1 = 5555(\r|\n|\r\n)  arg_2 = "HH"(\r|\n|\r\n)  arg_3 = {(\r|\n|\r\n)    \[0\] = 5(\r|\n|\r\n)    \[1\] = 6(\r|\n|\r\n)    \[2\] = 7

@@ -1,0 +1,8 @@
+error: unterminated multi-line string
+  ==> case1.cj:14:13:
+   | 
+14 |     var i = """
+   |             ^^^^ unterminated multi-line string
+   | 
+
+1 error generated, 1 error printed.

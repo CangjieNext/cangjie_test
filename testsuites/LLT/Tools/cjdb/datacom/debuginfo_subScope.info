@@ -1,0 +1,29 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_subScope.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_subScope.cj -o debuginfo_subScope
+// EXEC: python3 cjdb_test.py debuginfo_subScope.info
+
+
+test#
+cjdb,cjdb debuginfo_subScope,debuginfo_subScope
+b,b 8,debuginfo_subScope.cj:8
+r,r,-> 8
+n,n,-> 9
+p,p intRange,Range<Int64>\) \$[\d]+ = 0..3 : 1
+n,n,-> 10
+p,p number,\(Int64\) \$[\d]+ = 0
+n,n,-> 9
+n,n,-> 10
+p,p number,\(Int64\) \$[\d]+ = 1
+b,b 14,debuginfo_subScope.cj:14
+c,c,-> 14
+p,p number,\(Int64\) \$[\d]+ = 500
+n,n,-> 14
+n,n,-> 14
+p,p number,\(Int64\) \$[\d]+ = 498
+q,q,

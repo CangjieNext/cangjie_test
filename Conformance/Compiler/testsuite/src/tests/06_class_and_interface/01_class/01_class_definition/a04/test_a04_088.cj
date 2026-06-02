@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+/*
+  @Name: 06_01_01_a04_088
+
+  @Level:         1
+
+  @Assertion: 6.1.1(4)
+              The syntax of a class definition is as follows.
+              classDefinition
+                : classModifierList? 'class' identifier
+                typeParameters?
+                ('<:' superClassOrInterfaces)?
+                genericConstraints?
+                classBody
+              ;
+              superClassOrInterfaces
+                : classType ('&' superInterfaces)?
+                | superInterfaces
+              ;
+
+  @Description: Check that only valid identifier can be used for the class name
+                Case: use a decimal literal
+
+  @Mode: compileonly
+
+  @Negative: yes
+
+  @Structure: single
+
+*/
+
+class 1.4e8 {}
+
+main() {
+}

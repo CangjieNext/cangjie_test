@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_sizeable_generic_enum_01.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_sizeable_generic_enum_01.cj -o debuginfo_sizeable_generic_enum_01
+// EXEC: python3 cjdb_test.py debuginfo_sizeable_generic_enum_01.info
+
+
+test#
+cjdb,cjdb debuginfo_sizeable_generic_enum_01,debuginfo_sizeable_generic_enum_01
+b,b 10,debuginfo_sizeable_generic_enum_01.cj:10
+r,r,-> 10
+p,p this,\(default.E1<Int64>\) \$\d+ = default
+q,q,

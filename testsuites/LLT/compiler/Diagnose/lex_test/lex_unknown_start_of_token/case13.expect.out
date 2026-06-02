@@ -1,0 +1,8 @@
+error: unknown start of token: \u{0000}
+  ==> case13.cj:15:12:
+   | 
+15 |     camsjie ${\u{0000}}
+   |               ^^^^^^^^ unknown start of token: \u{0000}
+   | 
+
+1 error generated, 1 error printed.

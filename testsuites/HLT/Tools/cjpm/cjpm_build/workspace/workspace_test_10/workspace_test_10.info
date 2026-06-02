@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// EXEC-0: cd %n && %cjpm check && %cjpm build -j1 -V 2>&1 | compare %f
+// ASSERT: regex workspace_test_10[/|\\]aoo
+// ASSERT: regex workspace_test_10[/|\\]pro1
+// ASSERT: scan-not workspace_test_10/boo
+// ASSERT: scan --warn-off all
+// ASSERT: regex-8 workspace_test_10[/|\\]target
+// ASSERT: scan cjpm build success
+// ASSERT: scan-not workspace_test_10/coo

@@ -1,0 +1,80 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// EXEC-PIPE: %compiler %cmp_opt %f -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args
+// TIMEOUT: 1000
+
+import std.sync.*
+import std.time.*
+import std.convert.*
+import std.collection.*
+import std.runtime.*
+import std.argopt.*
+import std.process
+
+var reps: Int64 = 291266
+var waiters: Int64 = 4
+var id = 0
+
+func benchmarkCond4(rep: Int64, waiter: Int64) {
+    let m = Monitor()
+    var futs: ArrayList<Future<Unit>> = ArrayList<Future<Unit>>()
+    for (i in 0..(waiter + 1)) {
+        let fut: Future<Unit> = spawn {
+            => benchmarkCond(rep, waiter, m)
+        }
+        futs.add(fut)
+    }
+    for (k in 0..(waiter + 1)) {
+        futs[k].get()
+    }
+}
+
+public func benchmarkCond(rep: Int64, waiter: Int64, m: Monitor): Unit {
+    for (j in 0..rep) {
+        m.lock()
+        if (id == -1) {
+            m.unlock()
+            break
+        }
+        id++
+        if (id == waiter + 1) {
+            id = 0
+            m.notifyAll()
+        } else {
+            m.wait()
+            ()
+        }
+        m.unlock()
+    }
+    m.lock()
+    id = -1
+    m.notifyAll()
+    m.unlock()
+}
+
+main(): Int64 {
+    var startTime: DateTime
+    var endTime: DateTime
+    var perTime: Float64
+    startTime = DateTime.now()
+    benchmarkCond4(reps, waiters)
+    endTime = DateTime.now()
+    perTime = Float64((endTime - startTime).toNanoseconds()) / Float64(reps)
+    print(perTime.format(".2") + " ns/op\n")
+
+    let ao = ArgOpt(process.Process.current.arguments, "", ["asan"])
+    let map = ao.getArgumentsMap()
+    if (map.contains("--asan")) {
+        GC()
+        sleep(Duration.second * 2)
+    }
+    return 0
+}

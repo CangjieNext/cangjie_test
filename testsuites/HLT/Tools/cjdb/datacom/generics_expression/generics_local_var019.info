@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var019.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var019.cj -o generics_local_var019%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_local_var019.info generics_local_var019 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_local_var019,generics_local_var019
+b,b 15,generics_local_var019.cj:15
+AOT r,r,-> 15
+CJVM c,c,
+expr~expr cla_ins~\(default.Cla_1<Int64>\) \$[\d] = {[\s\S]*width = "Cangjie"[\s\S]*intValue = 18[\s\S]*
+expr~expr set_string_1~\(std.collection.HashSet<std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "Cangjie"[\s\S]*}
+q,q,

@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/003_debug_large_array.cj
+// EXEC: %compiler %cmp_opt -g 003_debug_large_array.cj -o 003_debug_large_array%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_within_setVar062.info 003_debug_large_array %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 003_debug_large_array,003_debug_large_array
+b,b 33,003_debug_large_array.cj:33
+AOT r,r,-> 33
+CJVM c,c,
+p, p arrayInt64_q[0][1][0][99],\(Int64\) \$[0-9]* = 98
+set,set arrayInt64_q[0][1][0][99]=-32768,\(Int64\) \$[0-9]* = -32768
+p,p arrayInt64_q[0][1][0][99],\(Int64\) \$[0-9]* = -32768
+q,q,

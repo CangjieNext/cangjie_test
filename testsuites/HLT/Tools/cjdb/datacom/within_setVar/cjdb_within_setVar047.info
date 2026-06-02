@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_setVar/003_debug_setVar_inherit.cj
+// EXEC: %compiler %cmp_opt -g 003_debug_setVar_inherit.cj -o 003_debug_setVar_inherit%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_within_setVar047.info 003_debug_setVar_inherit %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 003_debug_setVar_inherit,003_debug_setVar_inherit
+b,b 25,003_debug_setVar_inherit.cj:25
+AOT r,r,-> 25
+CJVM c,c,
+s,s,static func sub_s1\(\): Clazz_1<Bool>[\s\S]*-> 104
+n,n,-> 105
+p,p f_c1.para_f1,\(Bool\) \$[\d] = true
+AOT set,set f_c1.para_f1=0.0,error: unsupported expression
+CJVM set,set f_c1.para_f1=0.0,error: Incorrect value
+p,p f_c1.para_f1,\(Bool\) \$[\d] = true
+q,q,

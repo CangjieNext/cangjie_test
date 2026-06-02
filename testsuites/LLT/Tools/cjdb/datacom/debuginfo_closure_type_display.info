@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_closure_type_display.cj
+// (CJNATIVE)EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_closure_type_display.cj -o debuginfo_closure_type_display
+// (CJNATIVE)EXEC: python3 cjdb_test.py debuginfo_closure_type_display.info
+
+
+test#
+cjdb,cjdb debuginfo_closure_type_display,debuginfo_closure_type_display
+b,b 28,debuginfo_closure_type_display.cj:28
+r,r,-> 28
+p,p foo,\(default.\(Int64\)->default.E\) \$[\d] = 0x
+p,p goo,\(default.\(\)->std.core.Array<Int64>\) \$[\d] = 0x
+p,p zoo,\(default.\(VArray<Int64,\$3>,Rune\)->default.A\) \$[\d] = 0x
+q,q,

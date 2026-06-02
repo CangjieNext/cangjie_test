@@ -1,0 +1,23 @@
+[default]
+APIStrategy = "Full"
+GenericTypeStrategy = "None"
+
+/*
+  block notes
+*/
+
+[[package]]
+name = "cjworld"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+excluded_apis = [
+]
+generic_object_configuration = [
+    { name = "GenericClass", type_arguments = ["Float64"] },
+    { name = "GenericClass<Float64>", symbols = [
+        "getValue",
+        "GenericClass",
+        "value",
+        "setValue"
+    ]}
+]

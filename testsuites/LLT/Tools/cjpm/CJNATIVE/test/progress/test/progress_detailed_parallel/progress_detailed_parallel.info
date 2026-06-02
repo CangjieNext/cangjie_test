@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-PIPE-1: cd %n && %cjpm test --module "test submodule" --parallel=3 --no-color 2>&1 | compare %f
+
+// ASSERT: scan Project tests finished
+
+// Check that multiple group lines could present
+// ASSERT: regex (📦 group ([\w\.]+)(\s+)(\d+)(\d+)\% \[(\|)*(\-)*\] ([✓✗\s])(\s)+\(\d\d\:\d\d\:\d\d\)\n){1,3}
+
+// Check that multiple test lines could present
+// ASSERT: regex (🧪 test ([\w\.]+) (\s+)\(\d\d\:\d\d\:\d\d\)\n){1,3}
+
+// Check status line
+// ASSERT: regex passed: (\d+), failed: (\d+)(\s+)(\d+)\% \[(\|)*(\-)*\](\s+)(\d+)\/(\d+) \(\d\d\:\d\d\:\d\d\)

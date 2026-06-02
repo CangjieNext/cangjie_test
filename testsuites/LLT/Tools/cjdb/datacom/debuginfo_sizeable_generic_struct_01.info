@@ -1,0 +1,33 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_sizeable_generic_struct_01.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_sizeable_generic_struct_01.cj -o debuginfo_sizeable_generic_struct_01
+// EXEC: python3 cjdb_test.py debuginfo_sizeable_generic_struct_01.info
+
+
+test#
+cjdb,cjdb debuginfo_sizeable_generic_struct_01,debuginfo_sizeable_generic_struct_01
+b,b 11,debuginfo_sizeable_generic_struct_01.cj:11
+r,r,-> 11
+p,p para,\(Int64\) \$\d+ = 50
+p,p this,\(default.S<Int64>\) \$\d+ = {\s+a = {\s+\[0\] = 50\s+\[1\] = 50
+finish,finish,-> 24
+n,n,-> 25
+p,p s,\(default.S<Int64>\) \$\d+ = {\s+a = {\s+\[0\] = 50\s+\[1\] = 50
+s,s,-> 14
+p,p para,\(Int64\) \$\d+ = 60
+p,p this,\(default.S<Int64>\) \$\d+ = {\s+a = {\s+\[0\] = 50\s+\[1\] = 50
+n,n,-> 15
+p,p this,\(default.S<Int64>\) \$\d+ = {\s+a = {\s+\[0\] = 60\s+\[1\] = 60\s+\[2\] = 60
+finish,finish,-> 25
+n,n,-> 26
+p,p s,\(default.S<Int64>\) \$\d+ = {\s+a = {\s+\[0\] = 60\s+\[1\] = 60\s+\[2\] = 60
+s,s,-> 18
+p,p this,\(default.S<Int64>\) \$\d+ = {\s+a = {\s+\[0\] = 60\s+\[1\] = 60\s+\[2\] = 60
+n,n,-> 19
+p,p b,\(std.core.Array<Int64>\) \$\d+ = {\s+\[0\] = 60\s+\[1\] = 60\s+\[2\] = 60
+q,q,

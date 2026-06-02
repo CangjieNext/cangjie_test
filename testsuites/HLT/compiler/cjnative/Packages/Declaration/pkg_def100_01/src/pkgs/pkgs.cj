@@ -1,0 +1,110 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+package pkgs
+
+public var a1 = 1
+public var a2 = 2
+public var a3 = 3
+public var a4 = 4
+public var a5 = 5
+public var a6 = 6
+public var a7 = 7
+public var a8 = 8
+public var a9 = 9
+public var a10 = 10
+public var a11 = 11
+public var a12 = 12
+public var a13 = 13
+public var a14 = 14
+public var a15 = 15
+public var a16 = 16
+public var a17 = 17
+public var a18 = 18
+public var a19 = 19
+public var a20 = 20
+public var a21 = 21
+public var a22 = 22
+public var a23 = 23
+public var a24 = 24
+public var a25 = 25
+public var a26 = 26
+public var a27 = 27
+public var a28 = 28
+public var a29 = 29
+public var a30 = 30
+public var a31 = 31
+public var a32 = 32
+public var a33 = 33
+public var a34 = 34
+public var a35 = 35
+public var a36 = 36
+public var a37 = 37
+public var a38 = 38
+public var a39 = 39
+public var a40 = 40
+public var a41 = 41
+public var a42 = 42
+public var a43 = 43
+public var a44 = 44
+public var a45 = 45
+public var a46 = 46
+public var a47 = 47
+public var a48 = 48
+public var a49 = 49
+public var a50 = 50
+public var a51 = 51
+public var a52 = 52
+public var a53 = 53
+public var a54 = 54
+public var a55 = 55
+public var a56 = 56
+public var a57 = 57
+public var a58 = 58
+public var a59 = 59
+public var a60 = 60
+public var a61 = 61
+public var a62 = 62
+public var a63 = 63
+public var a64 = 64
+public var a65 = 65
+public var a66 = 66
+public var a67 = 67
+public var a68 = 68
+public var a69 = 69
+public var a70 = 70
+public var a71 = 71
+public var a72 = 72
+public var a73 = 73
+public var a74 = 74
+public var a75 = 75
+public var a76 = 76
+public var a77 = 77
+public var a78 = 78
+public var a79 = 79
+public var a80 = 80
+public var a81 = 81
+public var a82 = 82
+public var a83 = 83
+public var a84 = 84
+public var a85 = 85
+public var a86 = 86
+public var a87 = 87
+public var a88 = 88
+public var a89 = 89
+public var a90 = 90
+public var a91 = 91
+public var a92 = 92
+public var a93 = 93
+public var a94 = 94
+public var a95 = 95
+public var a96 = 96
+public var a97 = 97
+public var a98 = 98
+public var a99 = 99
+public var a100 = 100

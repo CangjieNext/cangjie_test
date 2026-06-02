@@ -1,0 +1,3 @@
+func funcLitConstRuneExpr() {
+    b'a'
+}

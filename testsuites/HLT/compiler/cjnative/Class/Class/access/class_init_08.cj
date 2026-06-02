@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+class GenRec {
+    public let a: () -> Int64
+    public init(x: Int64, y: Int32, str: String) {
+        var foo = {=> return x}
+        this.a = foo
+    }
+    public var b: Int32 = 1
+}
+
+main(): Int64 {
+    var data2 = GenRec(3, 4, "1")
+    print(data2.a().toString() + "\n")
+    print(data2.b.toString())
+    if (data2.a() == 3 && data2.b == 1) {
+        return 0
+    }
+    return 1
+}

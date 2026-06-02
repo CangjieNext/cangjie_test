@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/expression/expr_nest.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g expr_nest.cj -o 001_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expr_self_increase_decrease_nesting_00.info 001_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+b,b 51,expr_nest.cj:51
+CJVM c,c,-> 51
+AOT r,r,-> 51
+expr,expr S2().c.lInt8++;S2().c.lInt8,\(Int8\) \$[\d] = 8
+expr,expr S2().c.lInt16++;S2().c.lInt16,\(Int16\) \$[\d] = 16
+expr,expr S2().c.lInt32++;S2().c.lInt32,\(Int32\) \$[\d] = 32
+expr,expr S2().c.lInt64++;S2().c.lInt64,\(Int64\) \$[\d] = 64
+expr,expr S2().c.lIntN++;S2().c.lIntN,\(IntNative\) \$[\d] = 100
+q,q,

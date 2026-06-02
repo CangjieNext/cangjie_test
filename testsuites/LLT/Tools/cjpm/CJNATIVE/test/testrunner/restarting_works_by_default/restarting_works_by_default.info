@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-PIPE-1: cd %n && %cjpm test --module "mainmodule submodule" --no-color %run_utest_opt 2>&1 | compare %f
+// ASSERT: scan-1 TOTAL: 14
+// ASSERT: scan-1 TOTAL: 5
+// ASSERT: scan-2 TOTAL: 4
+// ASSERT: scan-5 SKIPPED: 0
+// ASSERT: scan-2 ERROR: 1
+// ASSERT: scan-1 ERROR: 2
+// ASSERT: scan-1 ERROR: 4
+// ASSERT: scan TCS: Pack0Test
+// ASSERT: scan TCS: Pack1Test
+// ASSERT: scan TCS: Pack2Test
+// ASSERT: scan TCS: MainTest
+// ASSERT: scan TP: submodule.pack3
+// ASSERT: scan-1 REASON: Crashed with exit code 42.

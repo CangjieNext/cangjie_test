@@ -1,0 +1,71 @@
+FuncDecl {
+  -keyword: Token {
+    value: "func"
+    kind: FUNC
+    pos: 11: 5
+  }
+  -identifier: Token {
+    value: "x"
+    kind: IDENTIFIER
+    pos: 11: 10
+  }
+  -block: Block {
+    -nodes: 0, LambdaExpr {
+      -doubleArrow: Token {
+        value: "=>"
+        kind: DOUBLE_ARROW
+        pos: 12: 10
+      }
+    }
+    -nodes: 1, LambdaExpr {
+      -doubleArrow: Token {
+        value: "=>"
+        kind: DOUBLE_ARROW
+        pos: 13: 10
+      }
+      -nodes: 0, LambdaExpr {
+        -doubleArrow: Token {
+          value: "=>"
+          kind: DOUBLE_ARROW
+          pos: 13: 13
+        }
+      }
+    }
+    -nodes: 2, LambdaExpr {
+      -doubleArrow: Token {
+        value: "=>"
+        kind: DOUBLE_ARROW
+        pos: 14: 10
+      }
+      -nodes: 0, LambdaExpr {
+        -doubleArrow: Token {
+          value: "=>"
+          kind: DOUBLE_ARROW
+          pos: 14: 14
+        }
+      }
+    }
+    -nodes: 3, TrailingClosureExpr {
+      -expr: CallExpr {
+        -callFunc: RefExpr {
+          -identifier: Token {
+            value: "a"
+            kind: IDENTIFIER
+            pos: 15: 9
+          }
+        }
+        -arguments: 0, Argument {
+          -expr: RefExpr {
+            -identifier: Token {
+              value: "b"
+              kind: IDENTIFIER
+              pos: 15: 11
+            }
+          }
+        }
+      }
+      -lambdaExpr: LambdaExpr {
+      }
+    }
+  }
+}

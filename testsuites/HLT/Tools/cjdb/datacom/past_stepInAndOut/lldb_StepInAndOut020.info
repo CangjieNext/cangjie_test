@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/012_debug_func_recursion.cj
+//  EXEC: %compiler %cmp_opt -g 012_debug_func_recursion.cj -o 012_debug_func_recursion%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_StepInAndOut020.info 012_debug_func_recursion %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 012_debug_func_recursion,012_debug_func_recursion
+CJVM b main,b main,012_debug_func_recursion.cj:12
+CJVM c,c,-> 12
+b,b 12,012_debug_func_recursion.cj:12
+AOT r,r,-> 12
+s,s,-> 17
+n,n,-> 20
+finish,finish,-> 12
+n,n,-> 13
+locals,locals,Functioncall009 = 15
+q,q,

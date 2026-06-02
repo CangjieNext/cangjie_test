@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/future.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug future.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb future,future
+b,b main,future.cj:11
+r,r,-> 11
+n,n,-> 18
+ ,expr fut1,error: unsupported expression
+q,q,

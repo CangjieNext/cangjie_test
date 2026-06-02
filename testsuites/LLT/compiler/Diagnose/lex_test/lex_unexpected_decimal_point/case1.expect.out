@@ -1,0 +1,10 @@
+error: expected exponent part in hexadecimal float number '0x12.34'
+  ==> case1.cj:14:13:
+   | 
+14 |     var 0x12.34
+   |         ~~~~~~~^ expected exponent part
+   |         |
+   |         because it is hexadecimal float number
+   | 
+
+1 error generated, 1 error printed.

@@ -1,0 +1,13 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ./test obf8.cfg
+//  EXEC: cp -r test/* . && rm -r test && cp obf8.cfg %n.cfg
+//  EXEC: %compiler mymod/mod1/mod1.cj %compile_shared_lib_opt %output_dir_opt mymod --fobf-layout --obf-config %n.cfg --obf-sym-output-mapping a.map --obf-sym-prefix=a %save_temps_opt .
+//  EXEC: %compiler mymod/mod2/mod2.cj %compile_shared_lib_opt %output_dir_opt mymod --fobf-layout --obf-config %n.cfg --obf-sym-output-mapping b.map --obf-sym-prefix=b %save_temps_opt .
+//  EXEC: %compiler -o test -lmymod.mod1 -lmymod.mod2 %import_path_opt=mymod -Lmymod --fobf-layout --obf-config %n.cfg --obf-sym-input-mapping a.map,b.map --obf-sym-prefix=c -p . %save_temps_opt .
+//  EXEC-1: cat default.obf.map | grep mynodefunc1
+//  EXEC-1: cat default.obf.map | grep mynodefunc2

@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/generic/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb generic_class_static_func02,generic_class_static_func02
+b,b 24, generic_class_static_func02.cj:24
+r,r,-> 24
+ ,expr aa.f1(1),\s+object cannot access static member 'f1'
+ ,expr aa.f2<UInt16>(3),\s+object cannot access static member 'f2'
+ ,expr aa.f3<Bool>(false),\s+object cannot access static member 'f3'
+expression:expr A<UInt16, Bool>.f1(1):\(Int64\) \$\d+ = 1
+expression:expr A<UInt16, Bool>.f2<UInt16>(3):\(UInt16\) \$\d+ = 3
+expression:expr A<UInt16, Bool>.f3<Bool>(false):\(Bool\) \$\d+ = false
+q,q,

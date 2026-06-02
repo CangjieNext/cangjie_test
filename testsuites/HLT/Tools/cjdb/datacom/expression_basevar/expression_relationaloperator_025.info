@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/056_debug_tuple.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 056_debug_tuple.cj -o 056_debug_tuple%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_relationaloperator_025.info 056_debug_tuple %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 056_debug_tuple,056_debug_tuple
+b,b 23,Breakpoint 1: where = 056_debug_tuple`default::main[\s\S]*056_debug_tuple.cj:23
+AOT r,r,-> 23
+CJVM c,c,-> 23
+expression, expression tuple4[0]==tuple4[0],\(Bool\) \$[\d] = true
+q,q,

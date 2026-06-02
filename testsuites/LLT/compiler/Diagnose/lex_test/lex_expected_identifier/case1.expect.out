@@ -1,0 +1,8 @@
+error: expected identifier, found '`'
+  ==> case1.cj:14:3:
+   | 
+14 |     ``
+   |      ^ expected identifier
+   | 
+
+1 error generated, 1 error printed.

@@ -1,0 +1,36 @@
+error: expected binary digit, found 'new line character'
+  ==> case1.cj:14:15:
+   | 
+14 |     var a = 0b
+   |               ^ expected binary digit
+   | 
+
+error: expected binary digit, found '_'
+  ==> case1.cj:15:16:
+   | 
+15 |         var b = 0b_
+   |                   ^ expected binary digit
+   | 
+
+error: expected binary digit, found 'e'
+  ==> case1.cj:17:12:
+   | 
+17 |     var c = 0be3
+   |               ^ expected binary digit
+   | 
+
+error: expected binary digit, found 'p'
+  ==> case1.cj:18:12:
+   | 
+18 |     var d = 0bp
+   |               ^ expected binary digit
+   | 
+
+error: expected binary digit, found '_'
+  ==> case1.cj:19:12:
+   | 
+19 |     var e = 0b_18
+   |               ^ expected binary digit
+   | 
+
+5 errors generated, 5 errors printed.

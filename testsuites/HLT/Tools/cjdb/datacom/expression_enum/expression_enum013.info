@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/006_debug_enum_conflict.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 006_debug_enum_conflict.cj -o 006_debug_enum_conflict%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum013.info 006_debug_enum_conflict %run_env
+
+test#
+cjdb,cjdb --no-use-colors 006_debug_enum_conflict,006_debug_enum_conflict
+b,b 38,006_debug_enum_conflict.cj:38
+AOT r,r,-> 38
+CJVM c,c,
+expr,expr A,\(Int64\) \$[\d] = 0
+expr,expr F,\(p.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*
+expr,expr b,\(p.E\) \$[\d] = A
+expr,expr d,\(p.E\) \$[\d] = {[\s\S]*constructor = F[\s\S]*arg_1 = 1[\s\S]*}
+expr,expr f,\(p.R\) \$[\d] = {[\s\S]*constructor = C[\s\S]*arg_1 = 1[\s\S]*}
+q,q,

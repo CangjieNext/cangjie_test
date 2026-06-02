@@ -1,0 +1,23 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_sizeable_generic_enum.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_sizeable_generic_enum.cj -o debuginfo_sizeable_generic_enum
+// EXEC: python3 cjdb_test.py debuginfo_sizeable_generic_enum.info
+
+
+test#
+cjdb,cjdb debuginfo_sizeable_generic_enum,debuginfo_sizeable_generic_enum
+b,b 12,debuginfo_sizeable_generic_enum.cj:12
+r,r,-> 12
+p,p para,\(default.E<Int64>\) \$\d+ = defaultB
+n,n,-> 13
+p,p a,\(default.E<Int64>\) \$\d+ = defaultB
+n,n,-> 14
+p,p b,\(default.E<Int64>\) \$\d+ = defaultB
+n,n,-> 15
+p,p b,\(default.E<Int64>\) \$\d+ = defaultA
+q,q,

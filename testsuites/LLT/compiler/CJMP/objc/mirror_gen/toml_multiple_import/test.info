@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+// DEPENDENCE: test.toml test1.toml test2.toml test.h
+// EXEC: ObjCInteropGen test.toml 2>&1 | compare %f
+/* SCAN-IN
+test2.toml`: multiple import
+  First import: `test.toml` -> `test1.toml` -> `test2.toml`
+  Additional import (ignored): `test.toml` -> `test2.toml`
+*/

@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: cd %n/cal_demo && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC-1: cd %n/cal_demo && %cjpm bundle --skip-test --skip-lint && %cjpm publish 2>&1 | compare %f
+// ASSERT: scan Error: get registry of [repository.home] failed, please check if cjpm-config.toml is set up correctly
+// ASSERT: scan Error: wrong central repository configuration
+// ASSERT: scan Error: running 'cjpm build -i' failed
+// ASSERT: scan Error: cjpm bundle failed

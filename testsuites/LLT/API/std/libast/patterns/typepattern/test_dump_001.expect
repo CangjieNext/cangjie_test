@@ -1,0 +1,96 @@
+MatchExpr {
+  -keyword: Token {
+    value: "match"
+    kind: MATCH
+    pos: 21: 9
+  }
+  -selector: RefExpr {
+    -identifier: Token {
+      value: "d"
+      kind: IDENTIFIER
+      pos: 21: 16
+    }
+  }
+  -matchCases: 0, MatchCase {
+    -keywordC: Token {
+      value: "case"
+      kind: CASE
+      pos: 22: 13
+    }
+    -patterns: 0, TypePattern {
+      -pattern: VarPattern {
+        -identifier: Token {
+          value: "b"
+          kind: IDENTIFIER
+          pos: 22: 18
+        }
+      }
+      -colon: Token {
+        value: ":"
+        kind: COLON
+        pos: 22: 19
+      }
+      -patternType: RefType {
+        -identifier: Token {
+          value: "Base"
+          kind: IDENTIFIER
+          pos: 22: 21
+        }
+      }
+    }
+    -arrow: Token {
+      value: "=>"
+      kind: DOUBLE_ARROW
+      pos: 22: 26
+    }
+    -block: Block {
+      -nodes: 0, MemberAccess {
+        -baseExpr: RefExpr {
+          -identifier: Token {
+            value: "b"
+            kind: IDENTIFIER
+            pos: 22: 29
+          }
+        }
+        -dot: Token {
+          value: "."
+          kind: DOT
+          pos: 22: 30
+        }
+        -field: Token {
+          value: "a"
+          kind: IDENTIFIER
+          pos: 22: 31
+        }
+      }
+    }
+  }
+  -matchCases: 1, MatchCase {
+    -keywordC: Token {
+      value: "case"
+      kind: CASE
+      pos: 23: 13
+    }
+    -patterns: 0, WildcardPattern {
+      -wildcard: Token {
+        value: "_"
+        kind: WILDCARD
+        pos: 23: 18
+      }
+    }
+    -arrow: Token {
+      value: "=>"
+      kind: DOUBLE_ARROW
+      pos: 23: 20
+    }
+    -block: Block {
+      -nodes: 0, LitConstExpr {
+        -literal: Token {
+          value: "0"
+          kind: INTEGER_LITERAL
+          pos: 23: 23
+        }
+      }
+    }
+  }
+}

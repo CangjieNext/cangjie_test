@@ -1,0 +1,26 @@
+error: expected '`', found 'new line character'
+  ==> case1.cj:14:6:
+   | 
+14 |     `var
+   |     ~   ^ expected '`'
+   |     |
+   |     to match this opening backquote
+   | 
+
+error: expected identifier, found 'new line character'
+  ==> case1.cj:15:3:
+   | 
+15 |     `
+   |      ^ expected identifier
+   | 
+
+error: expected '`', found 'new line character'
+  ==> case1.cj:16:6:
+   | 
+16 |     `let
+   |     ~   ^ expected '`'
+   |     |
+   |     to match this opening backquote
+   | 
+
+3 errors generated, 3 errors printed.

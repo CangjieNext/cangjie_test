@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/package_func/pkgA.cj  ../../basecase/expr/package_func/pkgB.cj  ../../basecase/expr/package_func/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug --output-type=staticlib pkgA.cj -o pkgA.a
+// EXEC: %compiler %cmp_opt %enableCompileDebug pkgA.a --import-path pkgA --output-type=staticlib pkgB.cj -o pkgB.a
+// EXEC: %compiler %cmp_opt %enableCompileDebug  pkgB.a --import-path pkgB pkgA.a --import-path pkgA %n.cj  -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb package_func,package_func
+b,b 13,package_func.cj:13
+r,r,-> 13
+ ,expr f1,error: unsupported expression
+ ,expr f2,error: unsupported expression
+q,q,

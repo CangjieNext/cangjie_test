@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_basetype.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g VArray_basetype.cj -o VArray_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_Variable007.info VArray_basetype %run_env
+ 
+ 
+test#
+cjdb,cjdb --no-use-colors VArray_basetype,VArray_basetype
+b,b 33,Breakpoint 1: where = VArray_basetype`default::main[\s\S]*VArray_basetype.cj:33
+AOT r,r,-> 33
+CJVM c,c,-> 33
+p, p vFloat16,\(VArray<Float16,\$3>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+expression, expression vFloat16,\(VArray<Float16,\$3>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+expression, expression vFloat32,\(VArray<Float32,\$3>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+expression, expression vFloat64,\(VArray<Float64,\$3>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3
+q,q,

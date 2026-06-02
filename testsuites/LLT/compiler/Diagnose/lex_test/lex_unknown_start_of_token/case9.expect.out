@@ -1,0 +1,8 @@
+error: unknown start of token: \u{000B}
+  ==> case9.cj:14:2:
+   | 
+14 |     \u{000B}
+   |     ^^^^^^^^ unknown start of token: \u{000B}
+   | 
+
+1 error generated, 1 error printed.

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_var002.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_var002.cj -o generics_global_var002%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP015.info generics_global_var002 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_global_var002,generics_global_var002
+breakpoint,breakpoint set -l 23 -c '9==9',generics_global_var002.cj:23
+AOT r,r,-> 23
+CJVM c,c,
+globals,globals,\(std.collection.ArrayList<Int64>\) default::vlist2 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 1[\s\S]*}
+globals,globals,\(Int64\) default::vcarrc3 = 2
+expr:expr vhmc["b"]:\(Bool\) \$[\d] = true
+expr:expr vhmc.size:\(Int64\) \$[\d] = 3
+q,q,

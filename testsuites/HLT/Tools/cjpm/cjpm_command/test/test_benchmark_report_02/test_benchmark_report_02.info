@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ../%n
+// (not Windows)EXEC: %export cjHeapSize=512MB && cd %n && %cjpm bench --report-format=csv-raw
+// (not Windows)EXEC: cd %n && ls ./benchmarks/bench-a.Benchmark_Report_Class_01.csv
+// (not Windows)EXEC: cd %n && ls ./benchmarks/bench-a.Benchmark_Report_Class_02.csv

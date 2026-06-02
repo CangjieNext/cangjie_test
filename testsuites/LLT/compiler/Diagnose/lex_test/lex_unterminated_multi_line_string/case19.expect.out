@@ -1,0 +1,10 @@
+error: unterminated multi-line string
+  ==> case19.cj:16:7:
+   | 
+16 |       ''""""""
+   |  __________^
+17 | | }
+   | |__^ unterminated multi-line string
+   | 
+
+1 error generated, 1 error printed.

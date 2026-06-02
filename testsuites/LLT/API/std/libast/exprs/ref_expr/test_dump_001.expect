@@ -1,0 +1,41 @@
+CallExpr {
+  -callFunc: RefExpr {
+    -identifier: Token {
+      value: "foo"
+      kind: IDENTIFIER
+      pos: 20: 9
+    }
+    typeArguments: 0, PrimitiveType {
+      -keyword: Token {
+        value: "Int32"
+        kind: INT32
+        pos: 20: 13
+      }
+    }
+    typeArguments: 1, RefType {
+      -identifier: Token {
+        value: "T"
+        kind: IDENTIFIER
+        pos: 20: 20
+      }
+    }
+  }
+  -arguments: 0, Argument {
+    -expr: RefExpr {
+      -identifier: Token {
+        value: "a"
+        kind: IDENTIFIER
+        pos: 20: 23
+      }
+    }
+  }
+  -arguments: 1, Argument {
+    -expr: RefExpr {
+      -identifier: Token {
+        value: "b"
+        kind: IDENTIFIER
+        pos: 20: 25
+      }
+    }
+  }
+}

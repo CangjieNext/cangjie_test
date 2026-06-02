@@ -1,0 +1,10 @@
+error: unterminated raw string
+  ==> case2.cj:16:14:
+   | 
+16 |       cangjie1 "###"cangjie2
+   |  _________________^
+17 | | }
+   | |__^ unterminated raw string
+   | 
+
+1 error generated, 1 error printed.

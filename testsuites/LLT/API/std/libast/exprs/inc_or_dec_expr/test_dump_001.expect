@@ -1,0 +1,14 @@
+IncOrDecExpr {
+  -op: Token {
+    value: "++"
+    kind: INCR
+    pos: 21: 10
+  }
+  -expr: RefExpr {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 21: 9
+    }
+  }
+}

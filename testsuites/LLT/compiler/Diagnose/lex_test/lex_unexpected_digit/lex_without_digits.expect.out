@@ -1,0 +1,57 @@
+error: expected decimal digit, found 'E'
+  ==> lex_without_digits.cj:13:16:
+   | 
+13 |     var a = 2_EEe1
+   |                ^ expected decimal digit
+   | 
+
+error: expected hexadecimal digit, found 'new line character'
+  ==> lex_without_digits.cj:14:16:
+   | 
+14 |     var a1 = 0x
+   |                ^ expected hexadecimal digit
+   | 
+
+error: expected decimal digit, found 'new line character'
+  ==> lex_without_digits.cj:15:17:
+   | 
+15 |     var a2 = 2_E
+   |                 ^ expected decimal digit
+   | 
+
+error: expected hexadecimal digit, found '.'
+  ==> lex_without_digits.cj:17:16:
+   | 
+17 |     var a4 = 0x.p2
+   |                ^ expected hexadecimal digit
+   | 
+
+error: expected binary digit, found 'new line character'
+  ==> lex_without_digits.cj:18:15:
+   | 
+18 |     var b = 0b
+   |               ^ expected binary digit
+   | 
+
+error: expected octal digit, found 'new line character'
+  ==> lex_without_digits.cj:19:15:
+   | 
+19 |     var c = 0o
+   |               ^ expected octal digit
+   | 
+
+error: expected decimal digit, found 'new line character'
+  ==> lex_without_digits.cj:22:16:
+   | 
+22 |     var f = .2e
+   |                ^ expected decimal digit
+   | 
+
+error: expected hexadecimal digit, found 'p'
+  ==> lex_without_digits.cj:23:15:
+   | 
+23 |     var g = 0xp
+   |               ^ expected hexadecimal digit
+   | 
+
+8 errors generated, 8 errors printed.

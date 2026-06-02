@@ -1,0 +1,3 @@
+// ASSERT: scan cjpm build success
+// ASSERT: regex Error: can not find '././pro1/target/release/pro1/pro1.xoo.cjo  ' which is listed in '.*bin-dependencies' field at ./cjpm.toml
+// ASSERT: scan Error: cjpm test failed

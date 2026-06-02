@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: gc_export_code.cj
+// EXEC: %compiler %cmp_opt %overflow_wrapping gc_export_code.cj -o %output
+// EXEC: echo %export cjHeapSize=abc > gc_export_006.sh
+// EXEC: echo %export cjRegionSize=10KB >> gc_export_006.sh
+// EXEC: echo %export cjExemptionThreshold=60% >> gc_export_006.sh
+// EXEC: echo %export cjHeapUtilization=60% >> gc_export_006.sh
+// EXEC: echo %export cjHeapGrowth=60% >> gc_export_006.sh
+// EXEC: echo %export cjAllocationRate=60% >> gc_export_006.sh
+// EXEC: echo %export cjAllocationWaitTime=  >> gc_export_006.sh
+// EXEC: echo %export cjGCThreshold=60MB >> gc_export_006.sh
+// EXEC: echo %export cjGarbageThreshold=60% >> gc_export_006.sh
+// EXEC: echo %export cjGCInterval=50ms >> gc_export_006.sh
+// EXEC: echo %export cjBackupGCInterval=50s >> gc_export_006.sh
+// EXEC: echo %export cjStackSize=abc >> gc_export_006.sh
+// (target_linux | target_android | target_mac) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && %source gc_export_006.sh && %run %run_opt %output %run_args && cat log.txt | compare %f
+// (host_win & !target_ohos) EXEC: ren gc_export_006.sh gc_export_006.bat
+// (host_win & !target_ohos) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && gc_export_006.bat && %run %run_opt %output %run_args && cat log.txt | compare %f
+// (host_win & target_ohos) EXEC: dos2unix gc_export_006.sh
+// (host_win & target_ohos) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && source gc_export_006.sh && %run %run_opt %output %run_args && cat log.txt | compare %f
+// ASSERT:scan 10
+// ASSERT:scan Heap size: 262144(KB)
+// (!target_mac) ASSERT:scan Region size: 10(KB)
+// (target_linux | target_android | target_mac) ASSERT:scan Exemption threshold: 0.80
+// (target_linux | target_android | target_mac) ASSERT:scan Heap utilization: 0.80
+// (target_linux | target_android | target_mac) ASSERT:scan Heap growth: 1.15
+// (target_linux | target_android | target_mac) ASSERT:scan Allocation rate: 10240.00(MB/s)
+// ASSERT:scan Allocation wait time: 1000ns
+// ASSERT:scan GC Threshold: 61440(KB)
+// (target_linux | target_android | target_mac) ASSERT:scan Garbage threshold: 0.50
+// ASSERT:scan GC interval: 50ms
+// ASSERT:scan Backup GC interval: 50s
+// (!target_ohos & !target_android & !target_mac)ASSERT:scan Cangjie stack size: 128(KB)
+// (target_ohos | target_android | target_mac)ASSERT:scan Cangjie stack size: 1024(KB)

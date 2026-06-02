@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/macro/ut1.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug ut1.cj -o ut1 %cmp_utest_opt
+// EXEC: python3 cjdb_test.py debuginfo_ut1.info
+
+
+test#
+cjdb,cjdb ut1,ut1
+b,b testA,ut1.cj:14
+r,r,-> 14
+n,n,-> 15
+n,n,-> 16
+q,q,

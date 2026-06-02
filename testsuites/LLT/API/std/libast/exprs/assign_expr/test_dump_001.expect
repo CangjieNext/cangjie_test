@@ -1,0 +1,21 @@
+AssignExpr {
+  -leftExpr: RefExpr {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 21: 9
+    }
+  }
+  -assign: Token {
+    value: "="
+    kind: ASSIGN
+    pos: 21: 11
+  }
+  -rightExpr: RefExpr {
+    -identifier: Token {
+      value: "b"
+      kind: IDENTIFIER
+      pos: 21: 13
+    }
+  }
+}

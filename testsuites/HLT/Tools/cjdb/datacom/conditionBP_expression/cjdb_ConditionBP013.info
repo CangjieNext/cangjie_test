@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func013.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func013.cj -o generics_global_func013%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP013.info generics_global_func013 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_global_func013,generics_global_func013
+breakpoint,breakpoint set -l 21 -c "a2==5",generics_global_func013.cj:21
+AOT r,r,-> 21
+CJVM c,c,
+locals,locals,\(Int64\) a1 = 0
+expr:expr a2:\(Int64\) \$[\d] = 5
+expr:expr a3/a1:ArithmeticException: Divided by zero!
+expr:expr a3/a2:\(Int64\) \$[\d] = 1
+expr:expr sum(2.0,[1,5]):\(Int64\) \$[\d] = 6
+q,q,

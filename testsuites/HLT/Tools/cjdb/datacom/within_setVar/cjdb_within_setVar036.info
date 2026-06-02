@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_setVar/003_debug_setVar_inherit.cj
+// EXEC: %compiler %cmp_opt -g 003_debug_setVar_inherit.cj -o 003_debug_setVar_inherit%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_within_setVar036.info 003_debug_setVar_inherit %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 003_debug_setVar_inherit,003_debug_setVar_inherit
+b,b 15,003_debug_setVar_inherit.cj:15
+AOT r,r,-> 15
+CJVM c,c,
+AOT p,p *class_sub_ins.clazz_1_ins,error: unsupported expression
+CJVM p,p *class_sub_ins.clazz_1_ins,error: variable was not declared in this scope
+set,set class_sub_ins.clazz_1_ins.para_f1 =56,\(Int32\) \$[0-9]* = 56
+p,p class_sub_ins.clazz_1_ins.para_f1,\(Int32\) \$[\d] = 56
+q,q,

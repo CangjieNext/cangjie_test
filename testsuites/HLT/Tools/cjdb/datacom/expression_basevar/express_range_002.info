@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/060_debug_range.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 060_debug_range.cj -o 002_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py express_range_002.info 002_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 002_express_basetype,002_express_basetype
+CJVM b,b main,060_debug_range.cj:56
+CJVM c,c,-> 56
+b,b 37,060_debug_range.cj:37
+CJVM c,c,-> 37
+AOT r,r,-> 37
+expr,expr ra9,\(std[.]core.Range<Int64>\) \$[\d] = 1..10 : 2
+expr,expr ra10,\(std[.]core.Range<Int64>\) \$[\d] = 0..=10 : 2
+expr,expr ra11,\(std[.]core.Range<Int64>\) \$[\d] = 1..10 : 2
+expr,expr ra12,\(std[.]core.Range<Int64>\) \$[\d] = 0..=10 : 2
+expr,expr ra13,\(std[.]core.Range<Int64>\) \$[\d] = 1..10 : 2
+expr,expr ra14,\(std[.]core.Range<Int64>\) \$[\d] = 0..=10 : 2
+expr,expr ra15,\(std[.]core.Range<Int64>\) \$[\d] = 1..10 : 2
+expr,expr ra16,\(std[.]core.Range<Int64>\) \$[\d] = 0..=10 : 2
+q,q,

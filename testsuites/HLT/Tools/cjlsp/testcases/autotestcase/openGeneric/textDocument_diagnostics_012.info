@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../../lsp_test.py ../../../sourcecode/cangjieTest/openGeneric ../../../lsp_config.txt
+// (CJNATIVE) EXEC: %python lsp_test.py textDocument_diagnostics_012.info
+
+Req#
+{"jsonrpc": "2.0", "id": "0", "method": "initialize", "params": {"processId": null, "rootPath": "diagnosticsTest", "rootUri": "diagnosticsTest", "initializationOptions": {"multiModuleOption": {"diagnosticsTest": { "name": "diagnosticsTest", "requires": {}}}}, "capabilities": {"workspace": {"applyEdit": true, "workspaceEdit": {}, "didChangeWatchedFiles": {}, "symbol": {}, "executeCommand": {}, "workspaceFolders": false, "configuration": false}, "textDocument": {"synchronization": {"willSave": true, "willSaveWaitUntil": true, "didSave": true}, "completion": {"completionItem": {"snippetSupport": true}}, "hover": {}, "signatureHelp": {}, "references": {}, "documentHighlight": {"dynamicRegistration": true}, "formatting": {}, "rangeFormatting": {}, "onTypeFormatting": {}, "definition": {}, "codeAction": {}, "documentLink": {}, "rename": {"prepareSupport": true}, "semanticHighlightingCapabilities": {"semanticHighlighting": true}, "callHierarchy": {}, "semanticTokens": {"tokenTypes": ["namespace", "type", "class", "enum", "interface", "struct", "typeParameter", "parameter", "variable", "property", "enumMember", "event", "function", "method", "macro", "keyword", "modifier", "comment", "string", "number", "regexp", "operator", "member", "label"], "tokenModifiers": ["declaration", "definition", "readonly", "static", "deprecated", "abstract", "async", "modification", "documentation", "defaultLibrary"], "dynamicRegistration": true}}}}}
+{"jsonrpc": "2.0", "method": "initialized", "params": {}}
+{"jsonrpc":"2.0","method":"textDocument/didOpen","params":{"textDocument":{"uri":"openGeneric/src/open_generic_lsp_012.cj","languageId":"Cangjie","version":1,"text":"/*\n * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.\n * This source file is part of the Cangjie project, licensed under Apache-2.0\n * with Runtime Library Exception.\n *\n * See https://cangjie-lang.cn/pages/LICENSE for license information.\n */\n\npackage openGeneric\n\ninterface Base12 {\n    func f1<T, U>(a: T): Unit\n}\n\nabstract class Sub12 <: Base12 {\n    public override func f1<U, T>(b: T): Unit\n}\n"}}}
+{"jsonrpc": "2.0", "id": 10, "method": "shutdown", "params": {}}
+{"jsonrpc": "2.0", "method": "exit", "params": {}}
+
+Rev#
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"category":256,"code":256,"message":"'override' function 'f1' does not have an overridden function in its supertype","range":{"end":{"character":5,"line":15},"start":{"character":4,"line":15}},"severity":1,"source":"Cangjie"}],"uri":"openGeneric/src/open_generic_lsp_012.cj"}}

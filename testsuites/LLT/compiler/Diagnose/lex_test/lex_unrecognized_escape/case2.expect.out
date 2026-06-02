@@ -1,0 +1,11 @@
+error: unrecognized escape '\s' in string literal
+  ==> case2.cj:14:13:
+   | 
+14 |     var a = "\$\s\""
+   |             ~  ^^ unrecognized escape
+   |             |
+   |             because it is in string literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in string literal
+
+1 error generated, 1 error printed.

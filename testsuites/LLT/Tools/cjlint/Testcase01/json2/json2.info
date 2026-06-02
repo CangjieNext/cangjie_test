@@ -1,0 +1,14 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-PIPE-0: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir -o a && %cat a.json 2>&1 | compare %f
+// ASSERT: scan-1 "description": "G.VAR.02: Prefer variable '你好' to follow the principle of minimizing scope."
+// ASSERT: scan-1 "description": "G.NAM.05: Immutable global or static variable name '你好' recommend to use all capital letters"
+// ASSERT: scan-1 "description": "G.VAR.02: Prefer variable 'こんにちは' to follow the principle of minimizing scope."
+// ASSERT: scan-1 "description": "G.NAM.05: Immutable global or static variable name 'こんにちは' recommend to use all capital letters"
+// ASSERT: scan-1 "description": "G.VAR.02: Prefer variable '안녕하세요' to follow the principle of minimizing scope."
+// ASSERT: scan-1 "description": "G.NAM.05: Immutable global or static variable name '안녕하세요' recommend to use all capital letters"

@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/Test_CString.cj
+// EXEC: %compiler -g  Test_CString.cj -o %n%cmp_output
+// RUN-EXEC: python3 cjdb_test.py viewVariables_Cstring_002.info viewVariables_Cstring_002 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors viewVariables_Cstring_002,viewVariables_Cstring_002
+b,b 63,Test_CString.cj:63
+AOT r,r,-> 63
+CJVM c,c,
+p,p str_1,\(CString\) \$[\d] = "a\\\"bc"
+p,p b,\(std[.]core.String\) \$[\d] = "a\\\"bc"
+p,p str_1.toString(),error: unsupported expression
+q,q,

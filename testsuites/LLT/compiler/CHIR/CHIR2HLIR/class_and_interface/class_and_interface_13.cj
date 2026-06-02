@@ -1,0 +1,25 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// EXEC-PIPE-1: %compiler %cmp_opt %enableCompileDebug %f %diag_json -o %n.%suffix 2>&1 | compare %f
+
+public interface Interface8<T> {
+    static func func644(): UInt32
+}
+
+public open class Class7 <: Interface8<Int64> {
+    public static func func644<T>(): UInt32 where T <: Int64 {
+        UInt32(3)
+    }
+}
+
+main() {
+    Class7.func644()
+    0
+}
+// ASSERT: scan sema_upper_bound_must_be_class_or_interface
+// ASSERT: scan sema_class_need_abstract_modifier_or_func_need_impl

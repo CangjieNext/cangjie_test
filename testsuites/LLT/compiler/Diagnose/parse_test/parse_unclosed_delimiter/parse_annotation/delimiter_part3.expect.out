@@ -1,0 +1,10 @@
+error: expected '#' or '"' in raw string, found ' '
+  ==> delimiter_part3.cj:44:5:
+   | 
+44 |    # note: only declarations or macro expressions can be used in the top-level
+   |    ~^ expected '#' or '"'
+   |    |
+   |    because it is raw string prefix
+   | 
+
+1 error generated, 1 error printed.

@@ -1,0 +1,10 @@
+error: expected '{' in unicode escape, found '''
+  ==> case1.cj:14:13:
+   | 
+14 |     var a = '\u'
+   |              ~~^ expected '{'
+   |              |
+   |              because it is in this Unicode escape
+   | 
+
+1 error generated, 1 error printed.

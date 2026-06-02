@@ -1,0 +1,29 @@
+error: expected hexadecimal digit, found '仓'
+  ==> case4.cj:14:12:
+   | 
+14 |     var a = 0x仓颉p仓颉
+   |               ^^ expected hexadecimal digit
+   | 
+
+error: expected binary digit, found '中'
+  ==> case4.cj:15:12:
+   | 
+15 |     var b = 0b中文
+   |               ^^ expected binary digit
+   | 
+
+error: expected octal digit, found '中'
+  ==> case4.cj:16:12:
+   | 
+16 |     var c = 0o中文
+   |               ^^ expected octal digit
+   | 
+
+error: expected decimal digit, found '仓'
+  ==> case4.cj:17:12:
+   | 
+17 |     var d = 12仓颉
+   |               ^^ expected decimal digit
+   | 
+
+4 errors generated, 4 errors printed.

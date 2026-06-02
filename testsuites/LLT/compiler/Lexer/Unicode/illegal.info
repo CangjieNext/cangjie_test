@@ -1,0 +1,16 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: %n.cj
+// EXEC-PIPE-1: %compiler %n.cj --diagnostic-format=noColor 2>&1 | compare %f
+
+// ASSERT: scan error: illegal character:\\u{00C0}
+// ASSERT: scan error: illegal byte '0b10101001' in UTF-8 encoding
+// ASSERT: scan error: illegal character:\\u{00B5}
+// ASSERT: scan error: illegal character:\\u{00E4}
+// ASSERT: scan error: unknown start of token: terminated
+// ASSERT: scan 5 errors generated, 5 errors printed.

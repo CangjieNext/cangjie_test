@@ -1,0 +1,81 @@
+error: unrecognized escape '\q' in rune literal
+  ==> case4.cj:14:4:
+   | 
+14 |     r'\q'
+   |     ~ ^^ unrecognized escape
+   |     |
+   |     because it is in rune literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in rune literal
+
+error: unrecognized escape '\w' in rune literal
+  ==> case4.cj:15:4:
+   | 
+15 |     r'\w'
+   |     ~ ^^ unrecognized escape
+   |     |
+   |     because it is in rune literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in rune literal
+
+error: unrecognized escape '\e' in rune literal
+  ==> case4.cj:16:4:
+   | 
+16 |     r'\e'
+   |     ~ ^^ unrecognized escape
+   |     |
+   |     because it is in rune literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in rune literal
+
+error: unrecognized escape '\y' in rune literal
+  ==> case4.cj:19:4:
+   | 
+19 |     r'\y'
+   |     ~ ^^ unrecognized escape
+   |     |
+   |     because it is in rune literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in rune literal
+
+error: unrecognized escape '\i' in rune literal
+  ==> case4.cj:20:4:
+   | 
+20 |     r'\i'
+   |     ~ ^^ unrecognized escape
+   |     |
+   |     because it is in rune literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in rune literal
+
+error: unrecognized escape '\o' in rune literal
+  ==> case4.cj:21:4:
+   | 
+21 |     r'\o'
+   |     ~ ^^ unrecognized escape
+   |     |
+   |     because it is in rune literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in rune literal
+
+error: unrecognized escape '\p' in rune literal
+  ==> case4.cj:22:4:
+   | 
+22 |     r'\p'
+   |     ~ ^^ unrecognized escape
+   |     |
+   |     because it is in rune literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in rune literal
+
+error: unrecognized escape '\a' in rune literal
+  ==> case4.cj:23:4:
+   | 
+23 |     r'\a'
+   |     ~ ^^ unrecognized escape
+   |     |
+   |     because it is in rune literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in rune literal
+
+20 errors generated, 8 errors printed.

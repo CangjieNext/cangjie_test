@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_var_extend.cj
+// EXEC: %compiler %cmp_opt -g generics_var_extend.cj -o generics_var_extend%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_var_extend_06.info generics_var_extend %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
+b,b 207,Breakpoint 1:
+AOT r,r,-> 207
+CJVM c,c,
+p, p a,\(IntNative\) \$[\d] = 100
+p, p a1,\(IntNative\) \$[\d] = 100
+locals, locals,\(IntNative\) a = 100[\s\S]*\(IntNative\) a1 = 100
+q, q

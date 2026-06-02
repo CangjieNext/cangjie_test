@@ -1,0 +1,12 @@
+error: unterminated multi-line string
+  ==> case17.cj:14:10:
+   | 
+14 |       var a = """
+   |  _____________^
+15 | |     cangjie1
+   | | ...
+22 | | }
+   | |__^ unterminated multi-line string
+   | 
+
+1 error generated, 1 error printed.

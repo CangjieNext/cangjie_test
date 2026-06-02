@@ -1,0 +1,74 @@
+ClassDecl {
+  -keyword: Token {
+    value: "class"
+    kind: CLASS
+    pos: 21: 9
+  }
+  -identifier: Token {
+    value: "Test"
+    kind: IDENTIFIER
+    pos: 21: 15
+  }
+  -body: Body {
+    -decls: 0, FuncDecl {
+      -keyword: Token {
+        value: "func"
+        kind: FUNC
+        pos: 22: 13
+      }
+      -identifier: Token {
+        value: "self"
+        kind: IDENTIFIER
+        pos: 22: 18
+      }
+      -declType: ThisType {
+        -keyword: Token {
+          value: "This"
+          kind: THISTYPE
+          pos: 22: 27
+        }
+      }
+      -block: Block {
+        -nodes: 0, RefExpr {
+          -identifier: Token {
+            value: "this"
+            kind: THIS
+            pos: 22: 34
+          }
+        }
+      }
+    }
+    -decls: 1, FuncDecl {
+      -keyword: Token {
+        value: "func"
+        kind: FUNC
+        pos: 23: 13
+      }
+      -identifier: Token {
+        value: "selfArray"
+        kind: IDENTIFIER
+        pos: 23: 18
+      }
+      -block: Block {
+        -nodes: 0, CallExpr {
+          -callFunc: RefExpr {
+            -identifier: Token {
+              value: "arrayify"
+              kind: IDENTIFIER
+              pos: 23: 32
+            }
+          }
+          -arguments: 0, Argument {
+            -expr: RefExpr {
+              -identifier: Token {
+                value: "self"
+                kind: IDENTIFIER
+                pos: 23: 41
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

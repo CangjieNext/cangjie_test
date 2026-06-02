@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/067_debug_string_literal.cj
+// EXEC: %compiler %cmp_opt -g 067_debug_string_literal.cj -o 067_debug_string_literal%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_String023.info 067_debug_string_literal %run_env
+
+
+
+test#
+cjdb,cjdb --no-use-colors 067_debug_string_literal,067_debug_string_literal
+AOT b,b 11,067_debug_string_literal.cj:14
+CJVM b,b 11,no code at [\s\S]*067_debug_string_literal.cj:11
+CJVM b,b 14,067_debug_string_literal.cj:14
+AOT r,r,-> 14
+CJVM c,c,
+s,s,-> 21
+CJVM finish,finish,-> 14
+AOT finish,finish,-> 15
+b,b 15,067_debug_string_literal.cj:15
+q,q,

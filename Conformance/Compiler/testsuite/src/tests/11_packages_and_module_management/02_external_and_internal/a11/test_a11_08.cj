@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+/*
+  @Name:         11_02_a11_08
+
+  @Level:         1
+
+  @Assertion:    11.2(11)
+                 The type referenced in the declaration modified by public must be external, specifically: 
+    • The type of the inherited class or the implemented interface in the class declaration interface
+    declaration enum declaration or struct declaration modified by public must be external and the type of
+    members including function variable declaration property modified by public or protected must be external. 
+ 
+  @Description:  Check that compiler throws an error when external type struct implements internal type interface
+                 modified by `public`. 
+
+  @Mode:         compileonly 
+
+  @Negative:     no  
+
+  @Structure:    single
+ 
+*/
+
+class C1 {}
+
+public interface I1<C1> {}
+
+public struct S1 <: I1<C1> {}
+
+main() {
+    return 0
+}

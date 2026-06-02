@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/003_HashMap_Ins_composite.cj
+// EXEC: %compiler %cmp_opt -g 003_HashMap_Ins_composite.cj -o 003_HashMap_Ins_composite%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_HashMap038.info 003_HashMap_Ins_composite %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 003_HashMap_Ins_composite,003_HashMap_Ins_composite
+b,b 59,003_HashMap_Ins_composite.cj:59
+AOT r,r,-> 59
+CJVM c,c,-> 59
+p,p map_map_4,std[.]collection.HashMap<Int64,std[.]collection.HashMap<Bool,std[.]core.Array<std[.]collection.HashSet<default.cla>>>>\) \$[\d] = {[\S\s]*key = 2536[\S\s]*value = [\S\s]*}
+q,q,

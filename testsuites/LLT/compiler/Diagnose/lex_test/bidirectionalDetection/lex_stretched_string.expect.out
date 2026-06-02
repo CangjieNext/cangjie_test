@@ -1,0 +1,33 @@
+warning: unsecure character:\u{202E}
+  ==> lex_stretched_string.cj:14:30:
+   | 
+14 |     if (access_level == "user‮ ⁦// Check if admin⁩ ⁦") {
+   |                              ^ unsecure character:\u{202E}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{2066}
+  ==> lex_stretched_string.cj:14:34:
+   | 
+14 |     if (access_level == "user‮ ⁦// Check if admin⁩ ⁦") {
+   |                               ^ unsecure character:\u{2066}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{2069}
+  ==> lex_stretched_string.cj:14:54:
+   | 
+14 |     if (access_level == "user‮ ⁦// Check if admin⁩ ⁦") {
+   |                                                ^ unsecure character:\u{2069}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{2066}
+  ==> lex_stretched_string.cj:14:58:
+   | 
+14 |     if (access_level == "user‮ ⁦// Check if admin⁩ ⁦") {
+   |                                                 ^ unsecure character:\u{2066}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+4 warnings generated, 4 warnings printed.

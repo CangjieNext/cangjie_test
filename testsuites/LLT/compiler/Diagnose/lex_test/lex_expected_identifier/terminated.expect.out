@@ -1,0 +1,8 @@
+error: expected identifier, found 'terminated'
+  ==> terminated.cj:11:2:
+   | 
+11 | `
+   |  ^ expected identifier
+   | 
+
+1 error generated, 1 error printed.

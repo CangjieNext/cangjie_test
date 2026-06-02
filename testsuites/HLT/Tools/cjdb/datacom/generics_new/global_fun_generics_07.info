@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun.cj
+// EXEC: %compiler %cmp_opt -g genericsfun.cj -o genericsfun%cmp_output
+// RUN-EXEC: python3 cjdb_test.py global_fun_generics_07.info genericsfun %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors genericsfun,genericsfun
+b,b 81,genericsfun.cj:81
+AOT r,r,-> 81
+CJVM c,c,
+p, p gengricsvar2,std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p c,std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p gengricsvar3,std[.]collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
+p, p d,std[.]collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
+locals, locals,std.core.Array<Int64>\) c = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*std[.]collection.HashMap<std.core.String,Int64>\) d = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}[\s\S]*std.core.Array<Int64>\) gengricsvar2 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*std[.]collection.HashMap<std.core.String,Int64>\) gengricsvar3 = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}[\s\S]*
+q,q,

@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm tree -V 2>&1 | compare %f
+// ASSERT: regex |-- a 1.0.0 (.*src)
+// ASSERT: regex     └── a.a 1.0.0 (.*a)
+// ASSERT: regex     └── a.b 1.0.0 (.*b)
+// ASSERT: scan cjpm tree success

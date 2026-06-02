@@ -1,0 +1,43 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ../util/run.sh ../util/test.c ../util/cstr2int.c
+// (not MAC and not Windows) EXEC: %clang %clang_opt cstr2int.c -o %cffi_output
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt %ffic_opt -o %output
+// (not MAC and not Windows) RUN-EXEC-PIPE: bash run.sh "%run %run_opt %output %run_args" | compare %f
+// (not MAC and not Windows) ASSERT: scan pass1
+// (not MAC and not Windows) ASSERT: scan pass2
+
+import std.posix.*
+
+foreign func printf(fmt: CString): Int32
+
+foreign func cstr2int(cstr: CString): Int32
+
+unsafe func readtxt(): Int32 {
+    var arr: Array<Rune> = Array<Rune>(100, {i => r'\0'})
+    var str: String = String(arr)
+    var buf = LibC.mallocCString(str)
+    var fd = `open`("test.txt", O_RDWR)
+    var readNum = read(fd, buf.getChars(), UIntNative(1024))
+    close(fd)
+    var mypid: Int32 = cstr2int(buf)
+    LibC.free(buf)
+    return mypid
+}
+
+unsafe main() {
+    var pid: Int32 = readtxt()
+    var result1 = kill(pid, SIGSTKFLT)
+
+    if (result1 == 0) {
+        print(pid.toString())
+    }
+    return 0
+}

@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
+// EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_list_019.info list_debug %run_env
+
+test#
+cjdb,cjdb --no-use-colors list_debug,list_debug
+AOT b,b 133,list_debug.cj:135
+CJVM b,b 135,list_debug.cj:135
+AOT r,r,-> 135
+CJVM c,c,-> 135
+p,p m_base_4,\$[\d]
+AOT set,set m_base_4[0]=0x7a,= 'z'
+CJVM set,set m_base_4[0]='z',= 'z'
+p,p m_base_4[0],= 'z'
+q,quit,

@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/040_debuginfun_typechange.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 040_debuginfun_typechange.cj -o 040_debuginfun_typechange%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP057.info 040_debuginfun_typechange %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 040_debuginfun_typechange,040_debuginfun_typechange
+breakpoint,breakpoint set -l 18 -c 'i8Number==127',040_debuginfun_typechange.cj:18
+breakpoint,breakpoint set -l 19 -c 'i8Number==127',040_debuginfun_typechange.cj:19
+AOT r,r,-> 18
+CJVM c,c,
+c,c,-> 19
+locals,locals,i16Number = 127
+n,n,-> 21
+locals,locals,i8Number = 127
+q,q,

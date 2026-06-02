@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_class_extend.cj
+// EXEC: %compiler %cmp_opt -g generics_class_extend.cj -o generics_class_extend%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_init01.info generics_class_extend %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_class_extend,generics_class_extend
+b,b 37,generics_class_extend.cj:37
+AOT r,r,-> 37
+s,s,-> 13
+n,n,-> 14
+locals,locals,\(Int64\) a = 6[\s\S]*\(Bool\) b = true[\s\S]*
+finish,finish,-> 37
+n,n,-> 38
+n,n,-> 39
+locals,locals,\(default.Pair<Int64,Bool>\) c = {[\s\S]*first = 6[\s\S]*second = true[\s\S]*}[\s\S]*\(Bool\) d = false[\s\S]*
+p,p a,\(default.Foo\) \$[\d] = {}
+q,q,

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/068_debug_hashset.cj
+// EXEC: %compiler %cmp_opt -g 068_debug_hashset.cj -o 068_debug_hashset%cmp_output
+// RUN-EXEC: python3 cjdb_test.py Core_HashSet_view_05.info 068_debug_hashset %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 068_debug_hashset,068_debug_hashset
+b,b 33,068_debug_hashset.cj:33
+AOT r,r,-> 33
+CJVM c,c,-> 33
+p,p a,\(std\.collection.HashSet<Rune>\) \$[\d] = {[\s\S]*\[0\] = '1'[\s\S]*\[1\] = '2'[\s\S]*\[2\] = 'a'[\s\S]*}
+locals,locals,a = {[\s\S]*\[0\] = '1'[\s\S]*\[1\] = '2'[\s\S]*\[2\] = 'a'[\s\S]*}
+q,q,

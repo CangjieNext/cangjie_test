@@ -1,0 +1,22 @@
+error: expected hexadecimal digit, found '}'
+  ==> case12.cj:11:13:
+   | 
+11 | var a = '\u{}'
+   |             ^ expected hexadecimal digit
+   | 
+
+error: expected hexadecimal digit, found 'new line character'
+  ==> case12.cj:12:13:
+   | 
+12 | var b = '\u{
+   |             ^ expected hexadecimal digit
+   | 
+
+error: expected hexadecimal digit, found '我'
+  ==> case12.cj:15:13:
+   | 
+15 | var i = '\u{我}'
+   |             ^ expected hexadecimal digit
+   | 
+
+3 errors generated, 3 errors printed.

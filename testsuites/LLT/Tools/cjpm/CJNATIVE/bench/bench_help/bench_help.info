@@ -1,0 +1,10 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm bench -h | compare %f
+// ASSERT: scan Build and run benchmarks for all packages.
+// ASSERT: scan If you specify some package paths, it will only execute benchmarks in those specified packages.

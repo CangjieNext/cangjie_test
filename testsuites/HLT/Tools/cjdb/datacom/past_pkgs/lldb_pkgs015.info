@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/packages/pkgs006/src
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs1/pkg1.cj  -o libpkg1.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs2/pkg2.cj  -o libpkg2.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs1/pkgs101/pkg101.cj  -o libpkg101.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs1/pkgs101/pkgs102/pkg102.cj  -o libpkg102.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs1/pkgs101/pkgs102/pkgs103/pkg103.cj  -o libpkg103.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs1/pkgs101/pkgs102/pkgs103/pkgs104/pkg104.cj  -o libpkg104.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs1/pkgs101/pkgs102/pkgs103/pkgs104/pkgs105/pkg105.cj  -o libpkg105.%middle
+// EXEC: %compiler %cmp_opt -g libpkg1.%middle libpkg2.%middle libpkg101.%middle libpkg102.%middle libpkg103.%middle libpkg104.%middle libpkg105.%middle src/pkgs006.cj -o pkgs006%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_pkgs015.info pkgs006 %run_env
+
+test#
+cjdb,cjdb --no-use-colors pkgs006,pkgs006
+b,b 38,pkgs006.cj:38
+AOT r,r,-> 38
+CJVM c,c,
+s,s,-> 17
+finish,finish,-> 38
+n,n,-> 39
+locals,locals,Functioncall1041 = 3
+q,q,

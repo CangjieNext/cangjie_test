@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case07/loop.cj
+// EXEC: %compiler %cmp_opt -g loop.cj -o loop%cmp_output
+// RUN-EXEC: python3 cjdb_test.py case07_while.info loop %run_env
+
+test#
+cjdb,cjdb --no-use-colors loop,loop
+AOT b,b 17,loop.cj:18
+CJVM b,b 18,loop.cj:18
+AOT r,r,-> 18
+CJVM c,c,
+n,n,-> 19
+n,n,-> 18
+n,n,-> 19
+n,n,-> 18
+n,n,-> 19
+n,n,-> 21
+q,q,

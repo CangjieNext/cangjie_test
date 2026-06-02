@@ -1,0 +1,8 @@
+error: expected ';' or '<NL>', found 'cangjie1'
+  ==> case2.cj:15:11:
+   | 
+15 | cangjie"""cangjie1
+   |           ^^^^^^^^ expected ';' or '<NL>' here
+   | 
+
+1 error generated, 1 error printed.

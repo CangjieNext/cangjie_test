@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/String/string_globals01.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g string_globals01.cj -o string_globals01%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_string01.info string_globals01 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors string_globals01,string_globals01
+b,b 17,string_globals01.cj:17
+AOT r,r,-> 17
+CJVM c,c,
+expr~expr "1+1"~\(std.core.String\) \$[\d] = "1\+1"
+expr,expr main_str11,\(std.core.String\) \$[\d] = "This is a \\"#\\\\n"
+expr,expr main_str14,\(std.core.String\) \$[\d] = "0123456789abcdxyz"
+q,q,

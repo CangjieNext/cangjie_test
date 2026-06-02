@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_cfunc.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_cfunc.cj -o debuginfo_cfunc
+// EXEC: python3 cjdb_test.py debuginfo_cfunc.info
+
+
+test#
+cjdb,cjdb debuginfo_cfunc,debuginfo_cfunc
+b,b 49,debuginfo_cfunc.cj:49
+r,r,-> 49
+p,p f1,\(default.C3<\(\)->Unit>\) \$\d+ = {\s+c3_a = 0x0000000000000000
+p,p f2,\(default.C4<default.C3<\(\)->Unit>>\) \$\d+ = {\s+c4_a = {\s+c3_a = 0x0000000000000000
+p,p f3,\(default.S3<\(\)->Unit>\) \$\d+ = {\s+s3_a = 0x0000000000000000
+p,p d,\(default.\(\)->Unit\) \$\d+ = 0x0000000000000000
+p,p f4,\(default.C4<default.S3<\(\)->Unit>>\) \$\d+ = {\s+c4_a = {\s+s3_a = 0x0000000000000000
+p,p f5,\(default.S4\) \$\d+ = {\s+s3_a = 0x0000000000000000
+q,q,

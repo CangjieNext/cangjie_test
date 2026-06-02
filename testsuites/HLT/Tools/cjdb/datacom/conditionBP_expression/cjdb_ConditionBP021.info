@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var003.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var003.cj -o generics_local_var003%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP021.info generics_local_var003 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_local_var003,generics_local_var003
+breakpoint,breakpoint set -l 33 -c "lst2.a==32",generics_local_var003.cj:33
+AOT r,r,-> 33
+CJVM c,c,
+locals,locals,\(default.structtype01<Int32>\) lst = {[\s\S]*a = 32[\s\S]*}
+locals,locals,\(default.structtype01<Int32>\) lst2 = {[\s\S]*a = 32[\s\S]*}
+locals,locals,\(default.classtype01<Int32>\) lct = {[\s\S]*a = 16[\s\S]*}
+locals,locals,\(default.classtype01<Int32>\) lct2 = {[\s\S]*a = 16[\s\S]*}
+expr:expr lct:\(default.classtype01<Int32>\) \$[\d] = {[\s\S]*a = 16[\s\S]*}
+expr:expr lst.a:\(Int32\) \$[\d] = 32
+expr:expr lct2.a+1:\(Int32\) \$[\d] = 17
+expr:expr ST<Int32>(32):error: unsupported expression
+expr:expr structtype01<Int32>(32):\(default.structtype01<Int32>\) \$[\d] = {[\s\S]*a = 32[\s\S]*}
+q,q,

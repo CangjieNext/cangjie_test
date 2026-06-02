@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/std_stepin/std_test.cj
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt -g std_test.cj -o std_test%cmp_output
+// EXEC: %run_stdx python3 cjdb_test.py lldb_std_stepin013.info std_test %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors std_test,std_test
+b,b 291,std_test.cj:291
+AOT r,r,-> 291
+CJVM c,c,
+q,q,

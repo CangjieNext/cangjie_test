@@ -1,0 +1,5 @@
+{
+  "test": "BaseTest",
+  "runner": "SimplePyRunner",
+  "compiler_c": "clang-8"
+}

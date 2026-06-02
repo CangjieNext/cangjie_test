@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/ArrayList/ArrayList_baseVar.cj
+// EXEC: %compiler %cmp_opt -g ArrayList_baseVar.cj -o ArrayList_baseVar%cmp_output
+// RUN-EXEC: python3 cjdb_test.py arraylist_test_006.info ArrayList_baseVar %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors ArrayList_baseVar,ArrayList_baseVar
+b,b 38,ArrayList_baseVar.cj:38
+AOT r,r,-> 38
+CJVM c,c,-> 38
+p,p Arrlist_I8,\(std[.]collection.ArrayList<Int8>\) \$[\d] = {[\s\S]*\[0\] = 8[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\[3\] = 4[\s\S]*}
+p,p Arrlist_UI16,\(std[.]collection.ArrayList<UInt16>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 99[\s\S]*\[2\] = 2[\s\S]*\[3\] = 3[\s\S]*\[4\] = 127[\s\S]*}
+p,p Arrlist_F64,\(std[.]collection.ArrayList<Float64>\) \$[\d] = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 99[\s\S]*\[2\] = 88[\s\S]*\[3\] = 128[\s\S]*}
+q,q,

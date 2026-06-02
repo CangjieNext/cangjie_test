@@ -1,0 +1,42 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: %f.expect
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt --debug-macro
+// EXEC: %diff %f.expect %f.macrocall
+
+/* ===== Emitted by MacroCall @Test in debug_macro.cj:11:1 ===== */
+@Attribute[TEST_GENERATED] class A <: TestClass {
+    public override func asTestSuite(): TestSuite {
+        
+        let suiteConfiguration = classConfiguration()
+        let suiteBuilder = TestSuite.builder("A").configure(suiteConfiguration)
+        return suiteBuilder.build()
+    }
+    init() {
+    }
+    private func classConfiguration(): Configuration {
+        let configuration = Configuration()
+        
+        return configuration
+    }
+    private func inheritedFromClassAnnotatedByTestTemplate < T >(): TestSuite where T <: TestClass {
+        throw Exception("Unreachable code")
+    }
+}
+
+
+interface TestPackageExtension_A {
+    func registerA(): Unit
+}
+extend TestPackage <: TestPackageExtension_A {
+    @Attribute[TEST_REGISTER]
+    public func registerA() {
+        registerSuite({ => A().asTestSuite() })
+    }
+}
+
+/* ===== End of the Emit ===== */

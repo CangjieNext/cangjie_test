@@ -1,0 +1,61 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir 2>&1 | compare %f
+// ASSERT: regex .*test.cj:7:17:.*Avoid using the wildcard '\*' in the import declaration 'std.collection'.
+// ASSERT: regex .*test.cj:8:17:.*Avoid using the wildcard '\*' in the import declaration 'std.console'.
+// ASSERT: regex .*test.cj:9:17:.*Avoid using the wildcard '\*' in the import declaration 'std.process'.
+// ASSERT: regex .*test.cj:11:12:.*Parameter 'x' is unused parameter
+// ASSERT: regex .*test.cj:15:12:.*Parameter 'x' is unused parameter
+// ASSERT: regex .*test.cj:15:22:.*Parameter 'y' is unused parameter
+// ASSERT: regex .*test.cj:19:12:.*Parameter 'x' is unused parameter
+// ASSERT: regex .*test.cj:22:1:.*Prefer immutable variables when the value of the variable 'cond' does not change.
+// ASSERT: regex .*test.cj:24:5:.*Prefer immutable variables when the value of the variable 'v0' does not change.
+// ASSERT: regex .*test.cj:24:36:.*Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex .*test.cj:25:5:.*Prefer immutable variables when the value of the variable 'a' does not change.
+// ASSERT: regex .*test.cj:26:5:.*Prefer immutable variables when the value of the variable 'arr' does not change.
+// ASSERT: regex .*test.cj:27:5:.*Prefer immutable variables when the value of the variable 'arr2' does not change.
+// ASSERT: regex .*test.cj:38:5:.*Prefer immutable variables when the value of the variable 'v1' does not change.
+// ASSERT: regex .*test.cj:45:5:.*Prefer immutable variables when the value of the variable 'v2' does not change.
+// ASSERT: regex .*test.cj:55:5:.*Prefer immutable variables when the value of the variable 'v3' does not change.
+// ASSERT: regex .*test.cj:56:5:.*Prefer immutable variables when the value of the variable 'v4' does not change.
+// ASSERT: regex .*test.cj:57:5:.*Prefer immutable variables when the value of the variable 'v5' does not change.
+// ASSERT: regex .*test.cj:59:18:.*Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex .*test.cj:72:5:.*Prefer immutable variables when the value of the variable 'v0' does not change.
+// ASSERT: regex .*test.cj:72:36:.*Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex .*test.cj:73:5:.*Prefer immutable variables when the value of the variable 'a' does not change.
+// ASSERT: regex .*test.cj:74:5:.*Prefer immutable variables when the value of the variable 'b' does not change.
+// ASSERT: regex .*test.cj:75:5:.*Prefer immutable variables when the value of the variable 'hm' does not change.
+// ASSERT: regex .*test.cj:76:5:.*Prefer immutable variables when the value of the variable 'key' does not change.
+// ASSERT: regex .*test.cj:77:5:.*Prefer immutable variables when the value of the variable 'v1' does not change.
+// ASSERT: regex .*test.cj:84:5:.*Prefer immutable variables when the value of the variable 'v2' does not change.
+// ASSERT: regex .*test.cj:85:5:.*Prefer immutable variables when the value of the variable 'v3' does not change.
+// ASSERT: regex .*test.cj:86:5:.*Prefer immutable variables when the value of the variable 'v4' does not change.
+// ASSERT: regex .*test.cj:87:5:.*Prefer immutable variables when the value of the variable 'v5' does not change.
+// ASSERT: regex .*test.cj:88:5:.*Prefer immutable variables when the value of the variable 'v6' does not change.
+// ASSERT: regex .*test.cj:90:5:.*Prefer immutable variables when the value of the variable 'v7' does not change.
+// ASSERT: regex .*test.cj:96:5:.*Prefer immutable variables when the value of the variable 'v8' does not change.
+// ASSERT: regex .*test.cj:97:5:.*Prefer immutable variables when the value of the variable 'hm2' does not change.
+// ASSERT: regex .*test.cj:98:5:.*Prefer immutable variables when the value of the variable 'v9' does not change.
+// ASSERT: regex .*test.cj:99:5:.*Prefer immutable variables when the value of the variable 'v10' does not change.
+// ASSERT: regex .*test.cj:100:5:.*Prefer immutable variables when the value of the variable 'v11' does not change.
+// ASSERT: regex .*test.cj:101:5:.*Prefer immutable variables when the value of the variable 'v12' does not change.
+// ASSERT: regex .*test.cj:107:5:.*Prefer immutable variables when the value of the variable 'v0' does not change.
+// ASSERT: regex .*test.cj:107:36:.*Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex .*test.cj:108:5:.*Prefer immutable variables when the value of the variable 'a' does not change.
+// ASSERT: regex .*test.cj:109:5:.*Prefer immutable variables when the value of the variable 'b' does not change.
+// ASSERT: regex .*test.cj:110:5:.*Prefer immutable variables when the value of the variable 'hs' does not change.
+// ASSERT: regex .*test.cj:111:5:.*Prefer immutable variables when the value of the variable 'v1' does not change.
+// ASSERT: regex .*test.cj:112:5:.*Prefer immutable variables when the value of the variable 'v2' does not change.
+// ASSERT: regex .*test.cj:118:5:.*Prefer immutable variables when the value of the variable 'hs2' does not change.
+// ASSERT: regex .*test.cj:119:5:.*Prefer immutable variables when the value of the variable 'v3' does not change.
+// ASSERT: regex .*test.cj:124:5:.*Prefer immutable variables when the value of the variable 'v4' does not change.
+// ASSERT: regex .*test.cj:125:5:.*Prefer immutable variables when the value of the variable 'v5' does not change.
+// ASSERT: regex .*test.cj:130:5:.*Prefer immutable variables when the value of the variable 'v0' does not change.
+// ASSERT: regex .*test.cj:130:36:.*Avoid using the getOrThrow\(\) function of the Option type.
+// ASSERT: regex .*test.cj:131:5:.*Prefer immutable variables when the value of the variable 'strb' does not change.
+// ASSERT: regex .*test.cj:133:9:.*The return value is untrusted, we can't deliver it outter.

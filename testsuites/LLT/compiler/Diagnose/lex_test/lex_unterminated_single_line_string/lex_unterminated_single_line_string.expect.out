@@ -1,0 +1,75 @@
+error: unterminated single-line string
+  ==> lex_unterminated_single_line_string.cj:12:13:
+   | 
+12 |     var a = "\u{0000}cangjie
+   |             ^^^^^^^^^^^^^^^^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+error: unterminated single-line string
+  ==> lex_unterminated_single_line_string.cj:13:13:
+   | 
+13 |     language"
+   |             ^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+error: unterminated single-line string
+  ==> lex_unterminated_single_line_string.cj:15:14:
+   | 
+15 |     var a1 = "cangjie\u{0000}
+   |              ^^^^^^^^^^^^^^^^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+error: unterminated single-line string
+  ==> lex_unterminated_single_line_string.cj:16:13:
+   | 
+16 |     language"
+   |             ^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+error: unterminated string interpolation
+  ==> lex_unterminated_single_line_string.cj:18:22:
+   | 
+18 |     var b = "cangjie ${var\u{0000}
+   |             ~        ^^^^^^^^^^^^^^ unterminated string interpolation
+   |             |
+   |             because it is in single-line string
+   | 
+
+error: unterminated single-line string
+  ==> lex_unterminated_single_line_string.cj:19:12:
+   | 
+19 |      a = 1}"
+   |            ^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+error: unterminated string interpolation
+  ==> lex_unterminated_single_line_string.cj:21:23:
+   | 
+21 |     var b1 = "cangjie ${var
+   |              ~        ^^^^^^ unterminated string interpolation
+   |              |
+   |              because it is in single-line string
+   | 
+
+error: unterminated single-line string
+  ==> lex_unterminated_single_line_string.cj:22:11:
+   | 
+22 |     a = 1}"
+   |           ^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+error: unterminated single-line string
+  ==> lex_unterminated_single_line_string.cj:24:12:
+   | 
+24 |    var c = "cangjie
+   |            ^^^^^^^^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+9 errors generated, 9 errors printed.

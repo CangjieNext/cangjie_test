@@ -1,0 +1,70 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/007_debug_continue.cj
+// EXEC: %compiler %cmp_opt -g 007_debug_continue.cj -o 007_debug_continue%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_BreakpointInMain020.info 007_debug_continue %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 007_debug_continue,007_debug_continue
+CJVM b,breakpoint set -n main,007_debug_continue.cj:12
+CJVM c,c,-> 12
+b,b 12,007_debug_continue.cj:12
+b,b 13,007_debug_continue.cj:13
+b,b 14,007_debug_continue.cj:14
+b,b 15,007_debug_continue.cj:15
+b,b 16,007_debug_continue.cj:16
+AOT b,b 17,007_debug_continue.cj:19
+CJVM b,b 17,007_debug_continue.cj:17
+AOT b,b 18,007_debug_continue.cj:19
+CJVM b,b 18,007_debug_continue.cj:18
+AOT r,r,-> 12
+c,c,-> 13
+n,n,-> 14
+s,s,-> 15
+c,c,-> 13
+n,n,-> 14
+s,s,-> 15
+c,c,-> 13
+n,n,-> 14
+s,s,-> 15
+c,c,-> 13
+n,n,-> 14
+s,s,-> 15
+c,c,-> 13
+n,n,-> 14
+s,s,-> 15
+c,c,-> 13
+AOT set,set indexcontinue = 11,11
+n,n,-> 14
+s,s,-> 15
+n,n,-> 16
+n,n,-> 13
+AOT set,set indexcontinue = 23,23
+n,n,-> 14
+s,s,-> 15
+n,n,-> 16
+n,n,-> 13
+AOT set,set indexcontinue = 35,35
+n,n,-> 14
+s,s,-> 15
+n,n,-> 16
+n,n,-> 13
+AOT set,set indexcontinue = 47,47
+n,n,-> 14
+s,s,-> 15
+n,n,-> 16
+n,n,-> 13
+AOT set,set indexcontinue = 50,50
+n,n,-> 19
+locals,locals,indexcontinue = 50
+q,q,

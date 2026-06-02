@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/macro/define.cj ../../basecase/macro/test7.cj
+// EXEC: %compiler %cmp_opt %cmp_macro define.cj
+// EXEC: %compiler %cmp_opt -g test7.cj -o test7
+// RUN-EXEC: python3 cjdb_test.py debuginfo_test7.info test7 %run_env
+
+test#
+cjdb,cjdb --no-use-colors test7,test7
+AOT b,breakpoint set -f test7.cj -l 12,Breakpoint 1: where[\s\S]*test7.cj:12
+CJVM b,breakpoint set -l 12,Breakpoint 1: [\s\S]*test7.cj:12
+AOT r,r,-> 12
+CJVM c,c,
+q,q,

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/049_debug_record_main_no_parameter.cj
+// EXEC: %compiler %cmp_opt -g 049_debug_record_main_no_parameter.cj -o 049_debug_record_main_no_parameter%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_record021.info 049_debug_record_main_no_parameter %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 049_debug_record_main_no_parameter,049_debug_record_main_no_parameter
+b,b 42,049_debug_record_main_no_parameter.cj:42
+AOT r,r,-> 42
+CJVM c,c,
+n,n,-> 43
+locals,locals,Rectangle\) newRectangle = {(\r|\n|\r\n)  name = "afdoaidfad"(\r|\n|\r\n)  num = 11(\r|\n|\r\n)  varBool = true(\r|\n|\r\n)  varchar = '5'(\r|\n|\r\n)  width = 1(\r|\n|\r\n)  length = 2(\r|\n|\r\n)  height = 1
+q,q,

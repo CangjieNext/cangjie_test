@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/005_HashMap_via_class.cj
+// EXEC: %compiler %cmp_opt -g 005_HashMap_via_class.cj -o 005_HashMap_via_class%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_HashMap019.info 005_HashMap_via_class %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 005_HashMap_via_class,005_HashMap_via_class
+b,b 21,005_HashMap_via_class.cj:21
+AOT r,r,-> 21
+CJVM c,c,-> 21
+p,p map_cla_fun_2,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 150[\S\s]*value = 'A'[\S\s]*}
+p,p map_cla_fun_2,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 110[\S\s]*value = 'Q'[\S\s]*}
+q,q,
+

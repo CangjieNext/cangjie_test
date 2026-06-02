@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ./new main.cj  pkgA.cj
+// EXEC: ls
+// EXEC: %compiler %incremental_compile %compile_lib_opt %cmp_opt pkgA.cj -o libA.%middle 
+// EXEC: %compiler %incremental_compile %cmp_opt %n.cj libA.%middle -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+// EXEC: %cp ./new/%n.txt %n.cj
+// EXEC: %cp ./new/pkgA.txt pkgA.cj
+// EXEC: %compiler %compile_lib_opt %incremental_compile %cmp_opt pkgA.cj -o libA.%middle
+// EXEC: %compiler %cmp_opt %incremental_compile %n.cj libA.%middle -o %output
+// RUN-EXEC: %run %run_opt %output %run_args

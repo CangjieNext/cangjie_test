@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/066_debug_arraylist.cj
+// EXEC: %compiler %cmp_opt -g 066_debug_arraylist.cj -o 066_debug_arraylist%cmp_output
+// RUN-EXEC: python3 cjdb_test.py Core_ArrayList_view_12.info 066_debug_arraylist %run_env
+
+
+
+test#
+cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
+b,b 26,066_debug_arraylist.cj:26
+AOT r,r,-> 26
+CJVM c,c,-> 26
+p,p arraylistHashMap,\(std\.collection.ArrayList<std.collection.HashMap<std.core.String,Int64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\["aa" -> 10\] = {[\s\S]*key = "aa"[\s\S]*value = 10[\s\S]*}[\s\S]*\["bb" -> 20\] = {[\s\S]*key = "bb"[\s\S]*value = 20[\s\S]*}[\s\S]*}[\s\S]*}
+globals,globals,arraylistHashMap = {[\s\S]*\[0\] = {[\s\S]*\["aa" -> 10\] = {[\s\S]*key = "aa"[\s\S]*value = 10[\s\S]*}[\s\S]*\["bb" -> 20\] = {[\s\S]*key = "bb"[\s\S]*value = 20[\s\S]*}[\s\S]*}[\s\S]*}
+q,q,

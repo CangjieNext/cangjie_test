@@ -1,0 +1,8 @@
+error: return type of 'main' is not 'Integer' or 'Unit'
+  ==> case2.cj:11:1:
+   | 
+11 | main() {
+   | ^ 
+   | 
+
+1 error generated, 1 error printed.

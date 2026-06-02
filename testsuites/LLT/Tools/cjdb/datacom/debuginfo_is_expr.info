@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_is_expr.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_is_expr.cj -o debuginfo_is_expr
+// EXEC: python3 cjdb_test.py debuginfo_is_expr.info
+
+
+test#
+cjdb,cjdb debuginfo_is_expr,debuginfo_is_expr
+b,b 8,debuginfo_is_expr.cj:8
+r,r,-> 8
+n,n,-> 9
+n,n,-> 10
+q,q,

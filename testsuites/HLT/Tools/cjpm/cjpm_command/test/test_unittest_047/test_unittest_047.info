@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ../%n
+// EXEC-PIPE-1: cd %n && %cjpm test src | compare %f
+// ASSERT: regex (.*FAIL.*) CASE: case01
+// ASSERT: regex (.*FAIL.*) CASE: case02
+// ASSERT: regex-not (.*FAIL.*) CASE: case03
+
+/* SCAN-IN
+    Expect Failed: 
+        Different elements (left - expect, right - actual):
+            [0]: [33m0aabc[0m != [33m1aabc[0m
+            [1]: [33m0babc[0m != [33m1babc[0m
+            [2]: [33m0cabc[0m != [33m1cabc[0m
+*/
+/* SCAN-IN
+    Expect Failed: 
+        Different elements (left - expect, right - actual):
+            [2]: [33m0cabc[0m != [33m0dabc[0m
+*/

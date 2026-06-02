@@ -1,0 +1,25 @@
+error: expected identifier after '$', found keyword 'var'
+  ==> case4.cj:15:13:
+   | 
+15 |     cangjie ${$var} $let ${"""
+   |                ^^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+15 |     cangjie ${$`var`} $let ${"""
+   |                ~~~~~ 
+   | 
+
+error: expected identifier after '$', found keyword 'let'
+  ==> case4.cj:16:14:
+   | 
+16 |     cangjie1 ${$let}
+   |                 ^^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+16 |     cangjie1 ${$`let`}
+   |                 ~~~~~ 
+   | 
+
+2 errors generated, 2 errors printed.

@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+/*
+  @Structure:       complex-aux
+*/
+
+package package113
+
+class C1 {
+
+}
+
+struct S1 {
+  
+}
+
+interface I1 {
+
+}
+
+enum E1 {
+    | Car(Int8)
+    | Plane(Int32, Int32)
+    | SpaceShuttle(Float64)
+}
+
+func foo() { 
+    return "foo"
+}
+
+public var currentYear = 2023
+
+
+
+

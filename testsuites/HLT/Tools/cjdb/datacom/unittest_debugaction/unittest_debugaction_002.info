@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/cjdb-mi/macroDebug/test_unittest_001.cj
+// EXEC: %compiler %cmp_opt -g test_unittest_001.cj -o test_unittest_001%cmp_output
+// RUN-EXEC: python3 cjdb_test.py unittest_debugaction_002.info test_unittest_001 %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors test_unittest_001,test_unittest_001
+b,b 51,test_unittest_001.cj:51
+b,b 54,test_unittest_001.cj:54
+CJVM c,c,-> 51
+AOT r,r,-> 51
+c,c,-> 54
+q,q,

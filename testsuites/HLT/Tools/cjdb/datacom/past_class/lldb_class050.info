@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/011_debug_class_main_parameter.cj
+//  EXEC: %compiler %cmp_opt -g 011_debug_class_main_parameter.cj -o 011_debug_class_main_parameter%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_class050.info 011_debug_class_main_parameter %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 011_debug_class_main_parameter,011_debug_class_main_parameter
+b,b 55,011_debug_class_main_parameter.cj:55
+AOT r,r,-> 55
+CJVM c,c,-> 55
+n,n,-> 56
+locals,locals,C1\) newc = {(\r|\n|\r\n)  pro = 5(\r|\n|\r\n)  name = "afdoaidfad"(\r|\n|\r\n)  num = 11
+q,q,

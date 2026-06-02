@@ -1,0 +1,24 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_generic_struct_this.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_generic_struct_this.cj -o debuginfo_generic_struct_this
+// EXEC: python3 cjdb_test.py debuginfo_generic_struct_this.info
+
+
+test#
+cjdb,cjdb debuginfo_generic_struct_this,debuginfo_generic_struct_this
+b,b 11,debuginfo_generic_struct_this.cj:11
+r,r,-> 11
+p,p this,\(default.S<Int64>\) \$\d+ = {\s+a = 100
+p,p para,\(Int64\) \$\d+ = 100
+b,b 14,debuginfo_generic_struct_this.cj:14
+c,c,-> 14
+p,p this,\(default.S<Int64>\) \$\d+ = {\s+a = 100
+p,p para,\(Int64\) \$\d+ = 500
+n,n,-> 15
+p,p this,\(default.S<Int64>\) \$\d+ = {\s+a = 500
+q,q,

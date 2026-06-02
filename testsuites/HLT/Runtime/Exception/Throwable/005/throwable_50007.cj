@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args| compare %f
+// ASSERT: scan success
+
+class A <: Exception {}
+
+class B <: Exception {}
+
+class C {
+    private init() {
+        var a: Int64 = if (true) {
+            throw A();
+            1
+        } else {
+            0
+        }
+    }
+    public init(a: Int64) {
+        this()
+    }
+}
+
+main() {
+    try {
+        C(1);
+        ()
+    } catch (a: A) {
+        print("success")
+    }
+    return 0
+}

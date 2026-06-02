@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: gc_export_code.cj
+// EXEC: %compiler %cmp_opt %overflow_wrapping gc_export_code.cj -o %output
+// EXEC: echo %export cjHeapSize=1GB > gc_export_001.sh
+// EXEC: echo %export cjRegionSize=2048KB >> gc_export_001.sh
+// EXEC: echo %export cjExemptionThreshold=0.60 >> gc_export_001.sh
+// EXEC: echo %export cjHeapUtilization=0.60 >> gc_export_001.sh
+// EXEC: echo %export cjHeapGrowth=0.60 >> gc_export_001.sh
+// EXEC: echo %export cjAllocationRate=1 >> gc_export_001.sh
+// EXEC: echo %export cjAllocationWaitTime=10ns >> gc_export_001.sh
+// EXEC: echo %export cjGCThreshold=1KB >> gc_export_001.sh
+// EXEC: echo %export cjGarbageThreshold=1.01 >> gc_export_001.sh
+// EXEC: echo %export cjGCInterval=1 >> gc_export_001.sh
+// EXEC: echo %export cjBackupGCInterval=1 >> gc_export_001.sh
+// EXEC: echo %export cjProcessorNum=1 >> gc_export_001.sh
+// EXEC: echo %export cjStackSize=1GB >> gc_export_001.sh
+// (not Windows) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && %source gc_export_001.sh && %run %run_opt %output %run_args && cat log.txt | compare %f
+// (Windows and not OHOS) EXEC: ren gc_export_001.sh gc_export_001.bat
+// (Windows and not OHOS) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && gc_export_001.bat && %run %run_opt %output %run_args && cat log.txt | compare %f
+// (Windows and OHOS) EXEC: dos2unix gc_export_001.sh
+// (Windows and OHOS) RUN-EXEC-PIPE: %export MRT_REPORT=./log.txt && source gc_export_001.sh && %run %run_opt %output %run_args && cat log.txt | compare %f
+// ASSERT:scan Heap size: 1048576(KB)
+// ASSERT:scan Region size: 2048(KB)
+// ASSERT:scan Exemption threshold: 0.60
+// ASSERT:scan Heap utilization: 0.60
+// ASSERT:scan Heap growth: 1.60
+// ASSERT:scan Allocation rate: 1.00(MB/s)
+// ASSERT:scan Allocation wait time: 10ns
+// ASSERT:scan GC Threshold: 1(KB)
+// ASSERT:scan Garbage threshold: 0.50
+// ASSERT:scan GC interval: 150ms
+// ASSERT:scan Backup GC interval: 240s
+// ASSERT:scan Processor number: 1
+// ASSERT:scan Cangjie stack size: 1048576(KB)

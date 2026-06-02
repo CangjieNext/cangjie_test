@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/pkgs007/src
+// (not MAC) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg3.cj -o libpkg3.%middle
+// (not MAC) EXEC: %compiler %cmp_opt -g libpkg3.%middle src/pkgs003.cj -o pkgs003%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py organization_name_012.info pkgs003 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors pkgs003,pkgs003
+b,b 31,pkgs003.cj:31
+r,r,-> 31
+expr,expr map_top_1[209],\(Rune\) \$[\d] = 'N'
+expr,expr newc,\(org3.pkgs.Cla_exter_1\) \$[\d] = {[\s\S]*intValue = 120[\s\S]*str = "help me!"[\s\S]*map_c_1 = {[\s\S]*\[-29 -> 'C'\] = {[\s\S]*key = -29[\s\S]*value = 'C'[\s\S]*
+expr,expr val_2[-29],\(Rune\) \$[\d] = 'C'
+expr,expr val_8[76],\(Bool\) \$[\d] = true
+expr,expr val_9[52],\(Int64\) \$[\d] = 3729
+q,q,

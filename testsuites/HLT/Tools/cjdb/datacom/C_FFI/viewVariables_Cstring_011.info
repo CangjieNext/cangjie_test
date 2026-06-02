@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/Test_CString.cj
+// EXEC: %compiler -g  Test_CString.cj -o %n%cmp_output
+// RUN-EXEC: python3 cjdb_test.py viewVariables_Cstring_011.info viewVariables_Cstring_011 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors viewVariables_Cstring_011,viewVariables_Cstring_011
+b,b 71,Test_CString.cj:71
+AOT r,r,-> 71
+CJVM c,c,
+s,s,-> 28
+b,b 31,Test_CString.cj:31
+c,c,-> 31
+n,n,-> 32
+n,n,-> 39
+p,p vf_2,\(CString\) \$[\d] = "\\\"bc"
+finish,finish,-> 71
+n,n,-> 72
+p,p vmf_2,\(CString\) \$[\d] = "\\\"bc"
+q,q,

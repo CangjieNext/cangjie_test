@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+// DEPENDENCE: ../test.toml test.h
+// EXEC: ObjCInteropGen test.toml
+// EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+public type M_ = M
+
+public type M0 = ?M
+
+public type M1 = M
+
+public type M_0 = ?M_
+
+public type M_1 = M_
+
+@ObjCMirror
+public open class M {
+    @ObjCInit @ForeignName["init:"] public static func `init`(x: M_): M
+    @ObjCInit @ForeignName["init:"] public static func `init`(x: M0): M
+    @ObjCInit @ForeignName["init:"] public static func `init`(x: M1): M
+    @ObjCInit @ForeignName["init:"] public static func `init`(x: M_0): M
+    @ObjCInit @ForeignName["init:"] public static func `init`(x: M_1): M
+}
+*/

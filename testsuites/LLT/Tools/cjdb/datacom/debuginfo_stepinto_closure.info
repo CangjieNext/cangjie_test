@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_stepinto_closure.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_stepinto_closure.cj -o debuginfo_stepinto_closure
+// EXEC: python3 cjdb_test.py debuginfo_stepinto_closure.info
+
+
+test#
+cjdb,cjdb debuginfo_stepinto_closure,debuginfo_stepinto_closure
+b,b 16,debuginfo_stepinto_closure.cj:16
+r,r,-> 16
+locals,locals,\(Int64\) a = 50\s+\(Int64\) b = 60
+s,s,-> 12
+n,n,-> 13
+n,n,-> 14
+locals,locals,\(Int64\) a = 50\s+\(Int64\) b = 60\s+\(Int64\) z = 50\s+\(Int64\) x = 60
+q,q,

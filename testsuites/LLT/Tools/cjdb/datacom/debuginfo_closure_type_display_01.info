@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_closure_type_display_01.cj
+// (CJNATIVE)EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_closure_type_display_01.cj -o debuginfo_closure_type_display_01
+// (CJNATIVE)EXEC: python3 cjdb_test.py debuginfo_closure_type_display_01.info
+
+
+test#
+cjdb,cjdb debuginfo_closure_type_display_01,debuginfo_closure_type_display_01
+b,b 17,debuginfo_closure_type_display_01.cj:17
+r,r,-> 17
+p,p a,\(std.core.Range<Rune>\) \$[\d] = 'a'..='z' : 1
+p,p b,\(std.core.Range<Int64>\) \$[\d] = 10..0 : -2
+p,p r8,\(std.core.Range<Int64>\) \$[\d] = 10..=0 : -2
+locals,locals,\(std.core.Array<Int64>\) array01 = {\s+\[0\] = 1\s+\[1\] = 2\s+\[2\] = 3\s+\[3\] = 4\s+\[4\] = 5(\r|\n|\r\n)}
+locals,locals,\(std.core.Range<Rune>\) a = 'a'..='z' : 1
+q,q,

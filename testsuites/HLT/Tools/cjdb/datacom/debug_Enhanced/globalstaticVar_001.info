@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/debug_Enhanced/globalstaticVar.cj
+// EXEC: %compiler %cmp_opt -g globalstaticVar.cj -o globalstaticVar%cmp_output
+// RUN-EXEC: python3 cjdb_test.py globalstaticVar_001.info globalstaticVar %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors globalstaticVar,globalstaticVar
+b,b 41,globalstaticVar.cj:41
+AOT r,r,-> 41
+CJVM c,c,
+target variable,target variable -s,STATIC: \(Rune\) default::A::varchar = '5'
+target variable,target variable -s,STATIC: \(UInt64\) default::A::varUInt = 1
+target variable,target variable -s,STATIC: \(Bool\) default::A::varBool = true
+target variable,target variable -s,STATIC: \(Int64\) default::A::varlet = 9
+target variable,target variable -s,STATIC: \(Int8\) default::A::varInt = -128
+target variable,target variable -s,STATIC: \(Unit\) default::A::varunit = \(\)
+q,q,

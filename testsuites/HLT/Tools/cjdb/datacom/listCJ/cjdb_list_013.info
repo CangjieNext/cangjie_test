@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
+// EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_list_013.info list_debug %run_env
+
+test#
+cjdb,cjdb --no-use-colors list_debug,list_debug
+b,b 123,list_debug.cj:123
+AOT r,r,-> 123
+CJVM c,c,
+AOT p,p m_base_1_8[0..3],\$[\d] =
+AOT set,set m_base_1_8[0]=-3,error: unsupported expression
+CJVM set,set m_base_1_8[0]=-3,\(UInt64\) \$0 = 18446744073709551613
+AOT p,p m_base_1_8[0],\$[\d] = 2
+CJVM p,p m_base_1_8[0],\$[\d] = 18446744073709551613
+q,quit,

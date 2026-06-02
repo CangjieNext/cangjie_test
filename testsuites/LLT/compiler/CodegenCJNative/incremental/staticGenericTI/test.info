@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: test.old.cj test.new.cj
+// EXEC: cp test.old.cj test.inc.cj
+// EXEC: %compiler %cmp_opt %incrementalCompile -j1 %n.inc.cj -o %output
+// EXEC: cp test.new.cj test.inc.cj
+// EXEC: %compiler %cmp_opt %incrementalCompile -j1 %n.inc.cj -o %output --save-temps .
+// EXEC: %llvmDissembler %n.inc.bc -o %n.inc.ll
+// EXEC: %cat %n.inc.ll 2>&1 | compare %f
+// ASSERT: regex @StaticGenericTIs = private global[\s\S]*%TypeInfo\* @"default:CA<Int64>\.ti"[\s\S]*%TypeInfo\* @"default:CA<std.core:String>\.ti"

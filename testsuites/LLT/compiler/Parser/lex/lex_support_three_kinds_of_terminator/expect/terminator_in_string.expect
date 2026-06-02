@@ -1,0 +1,17 @@
+error: unterminated single-line string
+ ==> terminator_in_string.cj:7:13:
+  | 
+7 |     let a = "abc
+  |             ^^^^^ unterminated single-line string
+  | 
+  # note: consider using multi-line string if you intended to include '\n' in string
+
+error: unterminated single-line string
+ ==> terminator_in_string.cj:8:13:
+  | 
+8 |     let b = "efg
+  |             ^^^^^ unterminated single-line string
+  | 
+  # note: consider using multi-line string if you intended to include '\n' in string
+
+2 errors generated, 2 errors printed.

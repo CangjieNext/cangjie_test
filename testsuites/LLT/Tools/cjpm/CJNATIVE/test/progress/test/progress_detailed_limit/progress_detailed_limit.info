@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-PIPE-1: cd %n && %cjpm test --module "test submodule" --parallel=3 --progress-entries-limit=2 --no-color 2>&1 | compare %f
+
+// ASSERT: scan Project tests finished
+
+// Check groups status
+// ASSERT: regex-begin 📦 group ([\w\.]+)(\s+)(\d+)(\d+)\% \[(\|)*(\-)*\] ([✓✗\s])(\s)+\(\d\d\:\d\d\:\d\d\)
+
+// Check that there are only 1 test case lines (as limit is set for 2 entries: 1 for group)
+// ASSERT: regex-after 🧪 test (Pack(\d)\.(test(\d)|fffail)|TestCase_fffail\.fffail) (\s+)\(\d\d\:\d\d\:\d\d\)
+
+// Check line with possible failures
+// ASSERT: regex-next ^((\s*)|(\s*FAIL ((submodule)|(test))\.pack(\d)(.*)fffail\s*))$
+
+// Check status line
+// ASSERT: regex-next passed: (\d+), failed: (\d+)(\s+)(\d+)\% \[(\|)*(\-)*\](\s+)(\d+)\/(\d+) \(\d\d\:\d\d\:\d\d\)

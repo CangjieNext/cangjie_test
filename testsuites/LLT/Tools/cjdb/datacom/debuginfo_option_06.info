@@ -1,0 +1,33 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_option_06.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_option_06.cj -o debuginfo_option_06
+// EXEC: python3 cjdb_test.py debuginfo_option_06.info
+
+
+test#
+cjdb,cjdb debuginfo_option_06,debuginfo_option_06
+b,b 25,debuginfo_option_06.cj:25
+r,r,-> 25
+p,p aaa,\(std.core.Option<Int8>\) \$\d+ = 1
+p,p bbb,\(std.core.Option<Int16>\) \$\d+ = 2
+p,p ccc,\(std.core.Option<Int32>\) \$\d+ = 3
+p,p ddd,\(std.core.Option<Int64>\) \$\d+ = 4
+p,p eee,\(std.core.Option<std.core.Option<Int8>>\) \$\d+ = 5
+p,p fff,\(std.core.Option<std.core.Option<Int16>>\) \$\d+ = 6
+p,p ggg,\(std.core.Option<std.core.Option<Int32>>\) \$\d+ = 7
+p,p hhh,\(std.core.Option<std.core.Option<Int64>>\) \$\d+ = 8
+
+p,p iii,\(std.core.Option<Int8>\) \$\d+ = None
+p,p jjj,\(std.core.Option<Int16>\) \$\d+ = None
+p,p kkk,\(std.core.Option<Int32>\) \$\d+ = None
+p,p lll,\(std.core.Option<Int64>\) \$\d+ = None
+p,p mmm,\(std.core.Option<std.core.Option<Int8>>\) \$\d+ = None
+p,p nnn,\(std.core.Option<std.core.Option<Int16>>\) \$\d+ = None
+p,p ooo,\(std.core.Option<std.core.Option<Int32>>\) \$\d+ = None
+p,p ppp,\(std.core.Option<std.core.Option<Int64>>\) \$\d+ = None
+q,q,

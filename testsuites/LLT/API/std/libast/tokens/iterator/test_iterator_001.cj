@@ -1,0 +1,30 @@
+// EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
+// EXEC: %run %run_opt %output %run_args
+internal import std.ast.*
+
+main() {
+    // Test Tokens Iterator API
+    let tks: Tokens = quote(foo + bar + 42)
+    var itr = tks.iterator()
+    var cnt = 0
+    while (true) {
+        match (itr.next()) {
+            case None => break
+            case Some(obj) => cnt++
+            case _ => ()
+        }
+    }
+    if (cnt != 5) {
+        print("Token Iterator API Failed\n")
+        return -1
+    }
+
+    return 0
+}
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */

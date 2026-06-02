@@ -1,0 +1,8 @@
+error: unterminated string interpolation
+  ==> case2.cj:14:19:
+   | 
+14 |     var a = "cangjie ${
+   |                      ^^^ unterminated string interpolation
+   | 
+
+1 error generated, 1 error printed.

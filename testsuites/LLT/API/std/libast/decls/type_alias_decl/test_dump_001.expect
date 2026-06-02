@@ -1,0 +1,31 @@
+TypeAliasDecl {
+  -keyword: Token {
+    value: "type"
+    kind: TYPE
+    pos: 11: 9
+  }
+  -identifier: Token {
+    value: "Point"
+    kind: IDENTIFIER
+    pos: 11: 14
+  }
+  -genericParam: GenericParam {
+    -parameters: 0, T: Token {
+      value: "T"
+      kind: IDENTIFIER
+      pos: 11: 20
+    }
+  }
+  -assign: Token {
+    value: "="
+    kind: ASSIGN
+    pos: 11: 23
+  }
+  -aliasType: PrimitiveType {
+    -keyword: Token {
+      value: "Float64"
+      kind: FLOAT64
+      pos: 11: 25
+    }
+  }
+}

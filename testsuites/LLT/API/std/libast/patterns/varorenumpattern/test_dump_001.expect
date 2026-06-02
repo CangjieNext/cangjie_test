@@ -1,0 +1,79 @@
+MatchExpr {
+  -keyword: Token {
+    value: "match"
+    kind: MATCH
+    pos: 21: 9
+  }
+  -selector: RefExpr {
+    -identifier: Token {
+      value: "b"
+      kind: IDENTIFIER
+      pos: 21: 15
+    }
+  }
+  -matchCases: 0, MatchCase {
+    -keywordC: Token {
+      value: "case"
+      kind: CASE
+      pos: 22: 13
+    }
+    -patterns: 0, EnumPattern {
+      -constructor: RefExpr {
+        -identifier: Token {
+          value: "a"
+          kind: IDENTIFIER
+          pos: 22: 18
+        }
+      }
+      -patterns: 0, VarOrEnumPattern {
+        -identifier: Token {
+          value: "c"
+          kind: IDENTIFIER
+          pos: 22: 20
+        }
+      }
+    }
+    -arrow: Token {
+      value: "=>"
+      kind: DOUBLE_ARROW
+      pos: 22: 23
+    }
+    -block: Block {
+      -nodes: 0, LitConstExpr {
+        -literal: Token {
+          value: "1"
+          kind: INTEGER_LITERAL
+          pos: 22: 26
+        }
+      }
+    }
+  }
+  -matchCases: 1, MatchCase {
+    -keywordC: Token {
+      value: "case"
+      kind: CASE
+      pos: 23: 13
+    }
+    -patterns: 0, WildcardPattern {
+      -wildcard: Token {
+        value: "_"
+        kind: WILDCARD
+        pos: 23: 18
+      }
+    }
+    -arrow: Token {
+      value: "=>"
+      kind: DOUBLE_ARROW
+      pos: 23: 20
+    }
+    -block: Block {
+      -nodes: 0, LitConstExpr {
+        -literal: Token {
+          value: "2"
+          kind: INTEGER_LITERAL
+          pos: 23: 23
+        }
+      }
+    }
+  }
+}

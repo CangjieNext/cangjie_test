@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func002.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func002.cj -o generics_global_func002%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP002_2.info generics_global_func002 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_global_func002,generics_global_func002
+breakpoint,breakpoint set -l 24 -c 'a5==6',generics_global_func002.cj:24
+AOT r,r,exited with status = 0
+CJVM c,c,
+q,q,

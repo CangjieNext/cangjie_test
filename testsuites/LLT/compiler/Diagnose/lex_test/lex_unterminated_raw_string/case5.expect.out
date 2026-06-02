@@ -1,0 +1,11 @@
+error: unterminated raw string
+  ==> case5.cj:15:12:
+   | 
+15 |       cangjie ${##"}
+   |  _______________^
+16 | | """
+17 | | }
+   | |__^ unterminated raw string
+   | 
+
+1 error generated, 1 error printed.

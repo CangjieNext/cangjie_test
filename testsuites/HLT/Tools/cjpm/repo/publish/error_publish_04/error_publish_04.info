@@ -1,0 +1,11 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC-PIPE-1: cd %n/cal_demo && %cjpm publish 2>&1 | compare %f
+// ASSERT: scan Error: cal_demo-1.0.0 publish failed with status 400: invalid parameters: Last unit does not have enough valid bits
+// ASSERT: scan Error: cjpm publish failed

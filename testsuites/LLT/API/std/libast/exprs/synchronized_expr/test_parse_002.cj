@@ -1,0 +1,32 @@
+// EXEC: %compiler %cmp_opt_chir2hlir %f -o %output
+// EXEC: %run %run_opt %output %run_args
+
+internal import std.ast.*
+
+main(): Int64 {
+    let input = quote(
+        synchronized(mtx) {
+            count = count + 1
+        }
+    )
+    let synchronizedExpr = (parseExpr(input) as SynchronizedExpr).getOrThrow()
+    let mutexExpr = synchronizedExpr.structuredMutex
+    if (!(mutexExpr is RefExpr)) {
+        return 1
+    }
+    let block = synchronizedExpr.block.nodes
+    if (block.size != 1) {
+        return 2
+    }
+    if (!(block[0] is AssignExpr)) {
+        return 3
+    }
+    0
+}
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */

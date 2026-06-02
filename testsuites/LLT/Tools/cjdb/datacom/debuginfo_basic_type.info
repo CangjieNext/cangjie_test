@@ -1,0 +1,24 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_basic_type.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_basic_type.cj -o debuginfo_basic_type
+// EXEC: python3 cjdb_test.py debuginfo_basic_type.info
+
+
+test#
+cjdb,cjdb debuginfo_basic_type,debuginfo_basic_type
+b,b 16,debuginfo_basic_type.cj:16
+r,r,-> 16
+p,p aaa,\(Int8\) \$\d+ = 1
+p,p bbb,\(Int16\) \$\d+ = 2
+p,p ccc,\(Int32\) \$\d+ = 3
+p,p ddd,\(Int64\) \$\d+ = 4
+p,p eee,\(IntNative\) \$\d+ = 50
+p,p fff,\(std.core.Array<IntNative>\) \$\d+ = {\s+\[0\] = 50\s+\[1\] = 50
+p,p ggg,\(std.core.Option<IntNative>\) \$\d+ = 50
+p,p hhh,\(std.core.Option<IntNative>\) \$\d+ = None
+q,q,

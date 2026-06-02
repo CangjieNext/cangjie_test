@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+/*
+  @Name:      04_04_a17_01
+
+  @Level:         1
+
+  @Assertion: 4.4(17) For match expressions without selector, there is no expression after the keyword match, and
+              for each case in {}, there can only be one expression of type Bool between the keyword case and =>
+              (or the wildcard _, which means always true).
+  @Description: Checks that an expression after the keyword match in matching expression without selector causes
+                a compile error.
+  @Mode: compileonly
+  @Negative: yes
+  @Structure: single
+  @CompileWarning: no
+
+*/
+
+var expr = 1
+
+main() {
+
+    var m = match expr {
+        case expr >= 0 => 1
+        case expr < 0 => 2
+        case _ => 3
+    }
+
+    return
+}

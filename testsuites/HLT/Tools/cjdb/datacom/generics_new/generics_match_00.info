@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_match.cj
+// EXEC: %compiler %cmp_opt -g generics_match.cj -o generics_match%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_match_00.info generics_match %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_match,generics_match
+b,b 22,generics_match.cj:22
+AOT r,r,-> 22
+CJVM c,c,
+locals, locals,\(default.RGBColor<Int64>\) c = {(\r|\n|\r\n)  constructor = Green[\s\S]*arg_1 = -100[\s\S]*}[\s\S]*\(std.core.String\) cs = "Green = 0"
+q,q,

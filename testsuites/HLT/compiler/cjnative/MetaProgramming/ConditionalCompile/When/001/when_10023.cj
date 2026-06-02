@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// EXEC: %compiler %conditional_compilation_config_opt="TEST=true" %cmp_opt %compile_lib_opt %f -o %output
+
+@When[TEST == "true"]
+foreign func test(): Unit
+
+@When[TEST == "true"]
+unsafe func foo() {
+    return test()
+}
+
+@When[TEST == "true"]
+main() {
+    return 0
+}

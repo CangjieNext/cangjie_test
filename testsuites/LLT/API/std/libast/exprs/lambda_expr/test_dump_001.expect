@@ -1,0 +1,66 @@
+LambdaExpr {
+  -funcParams: 0, FuncParam {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 21: 10
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 21: 11
+    }
+    -paramType: PrimitiveType {
+      -keyword: Token {
+        value: "Int64"
+        kind: INT64
+        pos: 21: 13
+      }
+    }
+  }
+  -funcParams: 1, FuncParam {
+    -identifier: Token {
+      value: "b"
+      kind: IDENTIFIER
+      pos: 21: 20
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 21: 21
+    }
+    -paramType: PrimitiveType {
+      -keyword: Token {
+        value: "Int64"
+        kind: INT64
+        pos: 21: 23
+      }
+    }
+  }
+  -doubleArrow: Token {
+    value: "=>"
+    kind: DOUBLE_ARROW
+    pos: 21: 29
+  }
+  -nodes: 0, BinaryExpr {
+    -leftExpr: RefExpr {
+      -identifier: Token {
+        value: "a"
+        kind: IDENTIFIER
+        pos: 21: 32
+      }
+    }
+    -op: Token {
+      value: "+"
+      kind: ADD
+      pos: 21: 34
+    }
+    -rightExpr: RefExpr {
+      -identifier: Token {
+        value: "b"
+        kind: IDENTIFIER
+        pos: 21: 36
+      }
+    }
+  }
+}

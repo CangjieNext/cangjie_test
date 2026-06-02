@@ -1,0 +1,14 @@
+// LEVEL: 0
+// DEPENDENCE: code.cj
+
+/// make sure case can be retry
+// (DEBUG_OPTION) EXEC: %rmdir .a && %mkdir a && %move code.cj a
+// (DEBUG_OPTION) EXEC: %compiler -p a --emit-chir=opt %dumpCHIRDebug
+// (DEBUG_OPTION) EXEC: %cat a_Emit_Debug.chirtxt | compare %f
+// (DEBUG_OPTION) ASSERT: scan ToCHIRPhase: opt
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

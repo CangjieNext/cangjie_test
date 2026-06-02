@@ -1,0 +1,38 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-1: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop --output-javagen-dir=src/java/cj 2>& 1 | compare %f
+
+/* SCAN-IN
+error: cannot assign to immutable value
+  ==> src/cj/Main.cj:10:9:
+   |
+10 |         obj.y = 2
+   |         ^^^^^^^^^
+   |
+note: property 'y' is immutable
+ ==> src/cj/MyObject.cj:8:16:
+  |
+8 |     public let y: Int16
+  |                ^
+  |
+
+error: cannot assign to immutable value
+  ==> src/cj/Main.cj:11:9:
+   |
+11 |         MyObject.sy = 111
+   |         ^^^^^^^^^^^^^^^^^
+   |
+note: property 'sy' is immutable
+ ==> src/cj/MyObject.cj:9:23:
+  |
+9 |     public static let sy: Int64
+  |                       ^^
+  |
+
+2 errors generated, 2 errors printed.
+*/

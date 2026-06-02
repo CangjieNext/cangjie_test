@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/016_debug_return.cj
+//  EXEC: %compiler %cmp_opt -g 016_debug_return.cj -o 016_debug_return%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_Unit_InMain002.info 016_debug_return %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 016_debug_return,016_debug_return
+b,b 15,016_debug_return.cj:15
+AOT r,r,-> 15
+CJVM c,c,-> 15
+n,n,-> 17
+locals,locals,\(Unit\) varreturn = \(\)
+print,print varreturn,\(Unit\) \$[\d] = \(\)
+q,q,

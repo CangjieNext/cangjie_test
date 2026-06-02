@@ -1,0 +1,18 @@
+{
+  "packageInformation": {
+    "MyType/myType": {
+      "moduleName": "MyType",
+      "fileNameHash": "5814656900309925859",
+      "timeStamp": 1700153260,
+      "buildFlag": true
+    },
+    "MyType/myType.p0": {
+      "moduleName": "MyType",
+      "fileNameHash": "-2010510887193168629",
+      "timeStamp": 1700045681,
+      "buildFlag": true
+    }
+  },
+  "jsonHash": "-2010404164699327769",
+  "moduleName": "MyType"
+}

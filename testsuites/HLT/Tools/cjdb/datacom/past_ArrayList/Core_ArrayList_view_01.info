@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/066_debug_arraylist.cj
+// EXEC: %compiler %cmp_opt -g 066_debug_arraylist.cj -o 066_debug_arraylist%cmp_output
+// RUN-EXEC: python3 cjdb_test.py Core_ArrayList_view_01.info 066_debug_arraylist %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
+b,b 52,066_debug_arraylist.cj:52
+AOT r,r,-> 52
+CJVM c,c,-> 52
+p,p arraylistUInt8,\(std\.collection.ArrayList<UInt8>\) \$[\d] = {[\s\S]*\[0\] = 11[\s\S]*\[1\] = 12[\s\S]*\[2\] = 13[\s\S]*}
+p,p arraylistUInt16,\(std\.collection.ArrayList<UInt16>\) \$[\d] = {[\s\S]*\[0\] = 21[\s\S]*\[1\] = 22[\s\S]*\[2\] = 23[\s\S]*}
+p,p arraylistUInt32,\(std\.collection.ArrayList<UInt32>\) \$[\d] = {[\s\S]*\[0\] = 31[\s\S]*\[1\] = 32[\s\S]*\[2\] = 33[\s\S]*}
+p,p arraylistUInt64,\(std\.collection.ArrayList<UInt64>\) \$[\d] = {[\s\S]*\[0\] = 41[\s\S]*\[1\] = 42[\s\S]*\[2\] = 43[\s\S]*}
+locals,locals,arraylistUInt8 = {[\s\S]*\[0\] = 11[\s\S]*\[1\] = 12[\s\S]*\[2\] = 13[\s\S]*}[\s\S]*arraylistUInt16 = {[\s\S]*\[0\] = 21[\s\S]*\[1\] = 22[\s\S]*\[2\] = 23[\s\S]*}[\s\S]*arraylistUInt32 = {[\s\S]*\[0\] = 31[\s\S]*\[1\] = 32[\s\S]*\[2\] = 33[\s\S]*}[\s\S]*arraylistUInt64 = {[\s\S]*\[0\] = 41[\s\S]*\[1\] = 42[\s\S]*\[2\] = 43[\s\S]*}
+q,q,

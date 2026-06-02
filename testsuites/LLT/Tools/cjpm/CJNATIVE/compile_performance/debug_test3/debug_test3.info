@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-PIPE-0: cd %n && %cjpm build -g
+// EXEC: cd %n && %ls xxx/yyy/debug/performance_analysis | compare %f
+// ASSERT: scan-1 package_command.json
+// ASSERT: scan-1 memory_cost.json
+// ASSERT: scan-1 time_cost.json
+// ASSERT: scan-1 debug_test3.time.prof
+// ASSERT: scan-1 debug_test3.mem.prof
+// ASSERT: scan-1 debug_test3.info.prof
+// ASSERT: scan-1 submodule.time.prof
+// ASSERT: scan-1 submodule.mem.prof
+// ASSERT: scan-1 submodule.info.prof

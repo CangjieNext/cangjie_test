@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/067_debug_hashmap.cj
+// EXEC: %compiler %cmp_opt -g 067_debug_hashmap.cj -o 067_debug_hashmap%cmp_output
+// RUN-EXEC: python3 cjdb_test.py Core_HashMap_view_04.info 067_debug_hashmap %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 067_debug_hashmap,067_debug_hashmap
+b,b 38,067_debug_hashmap.cj:38
+AOT r,r,-> 38
+CJVM c,c,-> 38
+p,p hashmap04,\(std\.collection.HashMap<std.core.String,Rune>\) \$[\d] = {[\s\S]*\["aa" -> 'a'\] = {[\s\S]*key = "aa"[\s\S]*value = 'a'[\s\S]*}[\s\S]*\["bb" -> 'b'\] = {[\s\S]*key = "bb"[\s\S]*value = 'b'[\s\S]*}[\s\S]*\["cc" -> 'c'\] = {[\s\S]*key = "cc"[\s\S]*value = 'c'[\s\S]*}[\s\S]*}
+locals,locals,hashmap04 = {[\s\S]*key = "aa"[\s\S]*value = 'a'[\s\S]*}[\s\S]*\["bb" -> 'b'\] = {[\s\S]*key = "bb"[\s\S]*value = 'b'[\s\S]*}[\s\S]*\["cc" -> 'c'\] = {[\s\S]*key = "cc"[\s\S]*value = 'c'[\s\S]*}[\s\S]*}
+q,q,

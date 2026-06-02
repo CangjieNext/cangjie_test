@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/012_enum_class.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 012_enum_class.cj -o 012_enum_class%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum002.info 012_enum_class %run_env
+
+test#
+cjdb,cjdb --no-use-colors 012_enum_class,012_enum_class
+b,b 46,012_enum_class.cj:46
+AOT r,r,-> 46
+CJVM c,c,
+p,p m_time2,\(default.TimeUnit1<default.C<default.C<Int64>>>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*c_width = 2[\s\S]*
+expr,expr m_time2,\(default.TimeUnit1<default.C<default.C<Int64>>>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*c_width = 2[\s\S]*
+expr,expr arrayEnum01,\(std.core.Array<default.TimeUnit1<UInt8>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 2[\s\S]*
+expr~expr TimeUnit1<Array<TimeUnit1<UInt8>>>.Year(arrayEnum01)~\(default.TimeUnit1<std.core.Array<default.TimeUnit1<UInt8>>>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*
+expr~expr TimeUnit1<Rectangle<Int64>>.Year(m_rec)~\(default.TimeUnit1<default.Rectangle<Int64>>\) \$[\d] = {(\r|\n|\r\n)  constructor = Year[\s\S]*
+expr~expr Rectangle<TimeUnit1<UInt8>>()~\(default.Rectangle<default.TimeUnit1<UInt8>>\) \$[\d] = {[\s\S]*rec_width = 10[\s\S]*
+expr~expr C<TimeUnit1<UInt8>>(m_time1)~\(default.C<default.TimeUnit1<UInt8>>\) \$[\d] = {[\s\S]*c_width = 2[\s\S]*}
+q,q,

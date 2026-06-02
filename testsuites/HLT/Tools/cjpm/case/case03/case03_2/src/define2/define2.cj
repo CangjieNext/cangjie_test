@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+macro package macro_calling.define2
+
+import std.ast.*
+import macro_calling.define1.*
+
+public macro X2(inputs: Tokens) {
+    inputs
+}

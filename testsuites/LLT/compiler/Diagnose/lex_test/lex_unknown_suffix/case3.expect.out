@@ -1,0 +1,28 @@
+error: unknown suffix 'Z' for number literal
+  ==> case3.cj:11:2:
+   | 
+11 | 1Z;
+   |  ^ unknown suffix 'Z'
+   | 
+
+error: unexpected digit 'A' in decimal
+  ==> case3.cj:12:2:
+   | 
+12 | 1A;
+   | ~^ unexpected digit
+   | |
+   | because the default base is decimal
+   | 
+   # note: decimal may only contain digit within 0~9
+
+error: unexpected digit 'b' in decimal
+  ==> case3.cj:13:2:
+   | 
+13 | 1b;
+   | ~^ unexpected digit
+   | |
+   | because the default base is decimal
+   | 
+   # note: decimal may only contain digit within 0~9
+
+3 errors generated, 3 errors printed.

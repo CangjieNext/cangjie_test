@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_func012.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_func012.cj -o generics_local_func012%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_local_func012.info generics_local_func012 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_local_func012,generics_local_func012
+b,b 44,generics_local_func012.cj:44
+AOT r,r,-> 44
+CJVM c,c,
+expr:expr main_num1:\(Unit\) \$[\d] = ()
+expr:expr main_num2:\(Int32\) \$[\d] = 0
+expr:expr main_num3:\(Int32\) \$[\d] = 1
+expr:expr main_num4:\(Int32\) \$[\d] = 6
+expr:expr main_num5:\(default.\(Int64\)->Int64\) \$[\d] = 0x
+q,q,

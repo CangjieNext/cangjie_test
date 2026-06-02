@@ -1,0 +1,19 @@
+error: expected exponent part in hexadecimal float number '0x12.12'
+  ==> lex_expected_hexadecimal_exponent.cj:14:20:
+   | 
+14 |     var a = 0x12.12
+   |             ~~~~~~~^ expected exponent part
+   |             |
+   |             because it is hexadecimal float number
+   | 
+
+error: expected exponent part in hexadecimal float number '0x.1'
+  ==> lex_expected_hexadecimal_exponent.cj:15:17:
+   | 
+15 |     var b = 0x.1
+   |             ~~~~^ expected exponent part
+   |             |
+   |             because it is hexadecimal float number
+   | 
+
+2 errors generated, 2 errors printed.
