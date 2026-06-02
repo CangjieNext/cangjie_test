@@ -24,50 +24,50 @@ public class Impl extends MyObject {
 
     public Impl(long value) {
         super(superC0A0P0(value));
-        self = initCJObjectl(value);
+        initCJObjectl(value);
     }
 
     private Impl(long value, $$NativeConstructorMarker __init__) {
         super(superC0A0P0(value));
     }
 
-    public native long initCJObjectl(long value);
+    private native void initCJObjectl(long value);
 
     public static native long superC0A0P0(long value);
     public Impl(MyObject value) {
         super(superC1A0P0(value));
-        self = initCJObjectCN2cj8MyObjectE(value);
+        initCJObjectCN2cj8MyObjectE(value);
     }
 
     private Impl(MyObject value, $$NativeConstructorMarker __init__) {
         super(superC1A0P0(value));
     }
 
-    public native long initCJObjectCN2cj8MyObjectE(MyObject value);
+    private native void initCJObjectCN2cj8MyObjectE(MyObject value);
 
     public static native MyObject superC1A0P0(MyObject value);
     public Impl(Impl value) {
         super(superC2A0P0(value));
-        self = initCJObjectCN2cj4ImplE(value);
+        initCJObjectCN2cj4ImplE(value);
     }
 
     private Impl(Impl value, $$NativeConstructorMarker __init__) {
         super(superC2A0P0(value));
     }
 
-    public native long initCJObjectCN2cj4ImplE(Impl value);
+    private native void initCJObjectCN2cj4ImplE(Impl value);
 
     public static native Impl superC2A0P0(Impl value);
     public Impl(String value) {
         super(superC3A0P0(value));
-        self = initCJObjectCN9java_lang7JStringE(value);
+        initCJObjectCN9java_lang7JStringE(value);
     }
 
     private Impl(String value, $$NativeConstructorMarker __init__) {
         super(superC3A0P0(value));
     }
 
-    public native long initCJObjectCN9java_lang7JStringE(String value);
+    private native void initCJObjectCN9java_lang7JStringE(String value);
 
     public static native String superC3A0P0(String value);
     @Override
@@ -137,4 +137,3 @@ public class Impl <: MyObject {
         super(idJString(value))
     }
 }
-

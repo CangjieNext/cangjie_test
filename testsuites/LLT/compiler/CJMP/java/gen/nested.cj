@@ -21,14 +21,14 @@ public class A extends Cla$s.Inner {
 
     public A() {
         super();
-        self = initCJObject();
+        initCJObject();
     }
 
     private A($$NativeConstructorMarker __init__) {
         super();
     }
 
-    public native long initCJObject();
+    private native void initCJObject();
 
     public Clas$.Inner.InnerCla$s useTypes(Clas$ a1, Clas$.Inner a2, Cla$s a3, Cla$s.Inner.InnerCla$s a4) {
         return useTypesCN16cjworld_theworld5OuterECN16cjworld_theworld5InnerECN16cjworld_theworld17OtherPackageOuterECN16cjworld_theworld15OtherInnerInnerE(this.self, a1, a2, a3, a4);

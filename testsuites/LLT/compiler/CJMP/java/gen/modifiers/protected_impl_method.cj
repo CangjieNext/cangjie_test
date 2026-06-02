@@ -5,12 +5,10 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // (CJNATIVE and not Windows) EXEC: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop -L. --output-javagen-dir=src/java/impl
-// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./src/java/impl/A.java | grep 'protected' | compare %f
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cat ./src/java/impl/A.java | compare %f
 
-/* SCAN-IN
-    protected void foo() {
-    protected native void foo(long self);
-*/
+// ASSERT: scan protected void foo() {
+// ASSERT: scan protected native void foo(long self);
 
 package cjworld.theworld
 

@@ -21,14 +21,14 @@ public class A extends M {
 
     public A() {
         super();
-        self = initCJObject();
+        initCJObject();
     }
 
     private A($$NativeConstructorMarker __init__) {
         super();
     }
 
-    public native long initCJObject();
+    private native void initCJObject();
 
     public static native int foo();
 
