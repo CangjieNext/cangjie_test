@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+/*
+  @Name: 06_02_02_02_a05_02
+
+  @Level:         1
+
+  @Assertion: 6.2.2.2(5)
+              The default implementation, like the non-abstract member functions,
+              has access to all accessible elements in the current scope
+
+  @Description: Check that instance functions with default implementation are not accessible
+                in static non-generic functions of the interface
+
+  @Mode: compileonly
+
+  @Negative: yes
+
+  @Structure: single
+
+*/
+
+interface I {
+    func f() {}
+    static func g() {
+        f()
+    }
+}
+
+main() {
+}

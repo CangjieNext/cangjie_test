@@ -1,0 +1,18 @@
+error: unterminated string interpolation
+  ==> case1.cj:14:19:
+   | 
+14 |     var a = "cangjie ${
+   |             ~        ^^^ unterminated string interpolation
+   |             |
+   |             because it is in single-line string
+   | 
+
+error: unterminated single-line string
+  ==> case1.cj:15:2:
+   | 
+15 | }"
+   |  ^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+2 errors generated, 2 errors printed.

@@ -1,0 +1,34 @@
+CallExpr {
+  -callFunc: ParenExpr {
+    -expr: BinaryExpr {
+      -leftExpr: RefExpr {
+        -identifier: Token {
+          value: "a"
+          kind: IDENTIFIER
+          pos: 13: 14
+        }
+      }
+      -op: Token {
+        value: "~>"
+        kind: COMPOSITION
+        pos: 13: 15
+      }
+      -rightExpr: RefExpr {
+        -identifier: Token {
+          value: "b"
+          kind: IDENTIFIER
+          pos: 13: 17
+        }
+      }
+    }
+  }
+  -arguments: 0, Argument {
+    -expr: LitConstExpr {
+      -literal: Token {
+        value: "hello"
+        kind: STRING_LITERAL
+        pos: 13: 20
+      }
+    }
+  }
+}

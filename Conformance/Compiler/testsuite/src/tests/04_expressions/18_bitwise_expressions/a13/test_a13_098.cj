@@ -1,0 +1,32 @@
+
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+/*
+  @Name:        04_18_a13_098
+
+  @Level:         1
+
+  @Assertion:   4.18(13) If the value of the right operand of the bitwise left/right shift operator is equal to or
+                greater than the length of the left operand, overshift occurs and a compilation error is reported if it
+                is detected at compile time or a run-time exception is thrown.
+  @Description: Checks that having right operand more than bitsize of type of the left operand for << for types UInt8
+                and Int8 gives a compilation error.
+  @Mode: compileonly
+  @Negative: yes
+  @Structure: single
+  @CompileWarning: no
+
+*/
+
+
+main() {
+    let v1 : UInt8 = 1
+    let v2 : Int8 = 128
+    v1 << v2
+}

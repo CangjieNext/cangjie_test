@@ -1,0 +1,41 @@
+error: unexpected decimal point '.' in binary base number
+  ==> case5.cj:14:16:
+   | 
+14 |     "cangjei ${0b1.12} 0b1.12 ${0o1.12}"
+   |                ~~ ^ unexpected decimal point
+   |                |
+   |                because of this binary prefix
+   | 
+   # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+   | 
+14 |     "cangjei ${ 1.12} 0b1.12 ${0o1.12}"
+   |                ~ 
+   | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+   | 
+14 |     "cangjei ${0x1.12} 0b1.12 ${0o1.12}"
+   |                ~~ 
+   | 
+
+error: unexpected decimal point '.' in octal base number
+  ==> case5.cj:14:33:
+   | 
+14 |     "cangjei ${0b1.12} 0b1.12 ${0o1.12}"
+   |                                 ~~ ^ unexpected decimal point
+   |                                 |
+   |                                 because of this octal prefix
+   | 
+   # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+   | 
+14 |     "cangjei ${0b1.12} 0b1.12 ${ 1.12}"
+   |                                 ~ 
+   | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+   | 
+14 |     "cangjei ${0b1.12} 0b1.12 ${0x1.12}"
+   |                                 ~~ 
+   | 
+
+2 errors generated, 2 errors printed.

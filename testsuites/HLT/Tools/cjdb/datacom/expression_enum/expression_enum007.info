@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/017_enum_where.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 017_enum_where.cj -o 017_enum_where%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum007.info 017_enum_where %run_env
+
+test#
+cjdb,cjdb --no-use-colors 017_enum_where,017_enum_where
+b,b 25,017_enum_where.cj:25
+AOT r,r,-> 25
+CJVM c,c,
+expr,expr time1,\(default.Time2<default.Bar1,Int32>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = {[\s\S]*default.Foo1 = {[\s\S]*dt1 = 2[\s\S]*}[\s\S]*dt = 4[\s\S]*
+expr~expr Time2<Bar1,Int32>.Day(bar1)~\(default.Time2<default.Bar1,Int32>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = {[\s\S]*default.Foo1 = {[\s\S]*dt1 = 2[\s\S]*}[\s\S]*dt = 4[\s\S]*
+expr~expr Time2<Bar1,Int32>.Hour(6)~\(default.Time2<default.Bar1,Int32>\) \$[\d] = {[\s\S]*constructor = Hour[\s\S]*arg_1 = 6[\s\S]*}
+q,q,

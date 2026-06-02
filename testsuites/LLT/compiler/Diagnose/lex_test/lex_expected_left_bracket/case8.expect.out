@@ -1,0 +1,19 @@
+error: expected '{' in unicode escape, found '1'
+  ==> case8.cj:15:11:
+   | 
+15 |     cangjie\u123""""\u123"
+   |            ~~^ expected '{'
+   |            |
+   |            because it is in this Unicode escape
+   | 
+
+error: expected '{' in unicode escape, found '1'
+  ==> case8.cj:15:20:
+   | 
+15 |     cangjie\u123""""\u123"
+   |                     ~~^ expected '{'
+   |                     |
+   |                     because it is in this Unicode escape
+   | 
+
+2 errors generated, 2 errors printed.

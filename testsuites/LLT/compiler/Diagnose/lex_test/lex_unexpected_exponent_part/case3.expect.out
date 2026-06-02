@@ -1,0 +1,29 @@
+error: unexpected exponent part 'p__' in decimal
+  ==> case3.cj:16:18:
+   | 
+16 |     cangjie1 ${12.34p12}"""}
+   |                ~~~~~^ unexpected exponent part
+   |                |
+   |                because the default base is decimal
+   | 
+help: could try to modify it to decimal exponent type:
+   | 
+16 |     cangjie1 ${12.34e12}"""}
+   |                     ~ 
+   | 
+
+error: unexpected exponent part 'p__' in decimal
+  ==> case3.cj:17:8:
+   | 
+17 | ${12.34p12}
+   |   ~~~~~^ unexpected exponent part
+   |   |
+   |   because the default base is decimal
+   | 
+help: could try to modify it to decimal exponent type:
+   | 
+17 | ${12.34e12}
+   |        ~ 
+   | 
+
+2 errors generated, 2 errors printed.

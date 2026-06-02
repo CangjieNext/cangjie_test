@@ -1,0 +1,833 @@
+IfExpr {
+  -keywordI: Token {
+    value: "if"
+    kind: IF
+    pos: 23: 9
+  }
+  -condition: BinaryExpr {
+    -leftExpr: RefExpr {
+      -identifier: Token {
+        value: "attrSize"
+        kind: IDENTIFIER
+        pos: 23: 13
+      }
+    }
+    -op: Token {
+      value: ">"
+      kind: GT
+      pos: 23: 22
+    }
+    -rightExpr: LitConstExpr {
+      -literal: Token {
+        value: "0"
+        kind: INTEGER_LITERAL
+        pos: 23: 24
+      }
+    }
+  }
+  -ifBlock: Block {
+    -nodes: 0, ForInExpr {
+      -keywordF: Token {
+        value: "for"
+        kind: FOR
+        pos: 24: 13
+      }
+      -pattern: VarPattern {
+        -identifier: Token {
+          value: "i"
+          kind: IDENTIFIER
+          pos: 24: 18
+        }
+      }
+      -keywordI: Token {
+        value: "in"
+        kind: IN
+        pos: 24: 20
+      }
+      -expr: RangeExpr {
+        -start: LitConstExpr {
+          -literal: Token {
+            value: "0"
+            kind: INTEGER_LITERAL
+            pos: 24: 23
+          }
+        }
+        -op: Token {
+          value: ".."
+          kind: RANGEOP
+          pos: 24: 24
+        }
+        -end: BinaryExpr {
+          -leftExpr: RefExpr {
+            -identifier: Token {
+              value: "attrSize"
+              kind: IDENTIFIER
+              pos: 24: 26
+            }
+          }
+          -op: Token {
+            value: "-"
+            kind: SUB
+            pos: 24: 34
+          }
+          -rightExpr: LitConstExpr {
+            -literal: Token {
+              value: "1"
+              kind: INTEGER_LITERAL
+              pos: 24: 35
+            }
+          }
+        }
+      }
+      -block: Block {
+        -nodes: 0, VarDecl {
+          -keyword: Token {
+            value: "var"
+            kind: VAR
+            pos: 25: 17
+          }
+          -identifier: Token {
+            value: "attrStr"
+            kind: IDENTIFIER
+            pos: 25: 21
+          }
+          -assign: Token {
+            value: "="
+            kind: ASSIGN
+            pos: 25: 29
+          }
+          -expr: CallExpr {
+            -callFunc: MemberAccess {
+              -baseExpr: SubscriptExpr {
+                -baseExpr: RefExpr {
+                  -identifier: Token {
+                    value: "attr"
+                    kind: IDENTIFIER
+                    pos: 25: 31
+                  }
+                }
+                -indexList: 0, RefExpr {
+                  -identifier: Token {
+                    value: "i"
+                    kind: IDENTIFIER
+                    pos: 25: 36
+                  }
+                }
+              }
+              -dot: Token {
+                value: "."
+                kind: DOT
+                pos: 25: 38
+              }
+              -field: Token {
+                value: "getOrThrow"
+                kind: IDENTIFIER
+                pos: 25: 39
+              }
+            }
+          }
+        }
+        -nodes: 1, VarDecl {
+          -keyword: Token {
+            value: "var"
+            kind: VAR
+            pos: 26: 17
+          }
+          -identifier: Token {
+            value: "t"
+            kind: IDENTIFIER
+            pos: 26: 21
+          }
+          -assign: Token {
+            value: "="
+            kind: ASSIGN
+            pos: 26: 23
+          }
+          -expr: BinaryExpr {
+            -leftExpr: CallExpr {
+              -callFunc: RefExpr {
+                -identifier: Token {
+                  value: "Tokens"
+                  kind: IDENTIFIER
+                  pos: 26: 25
+                }
+              }
+            }
+            -op: Token {
+              value: "+"
+              kind: ADD
+              pos: 26: 34
+            }
+            -rightExpr: CallExpr {
+              -callFunc: RefExpr {
+                -identifier: Token {
+                  value: "Token"
+                  kind: IDENTIFIER
+                  pos: 26: 36
+                }
+              }
+              -arguments: 0, Argument {
+                -expr: MemberAccess {
+                  -baseExpr: RefExpr {
+                    -identifier: Token {
+                      value: "TokenKind"
+                      kind: IDENTIFIER
+                      pos: 26: 42
+                    }
+                  }
+                  -dot: Token {
+                    value: "."
+                    kind: DOT
+                    pos: 26: 51
+                  }
+                  -field: Token {
+                    value: "IDENTIFIER"
+                    kind: IDENTIFIER
+                    pos: 26: 52
+                  }
+                }
+              }
+              -arguments: 1, Argument {
+                -expr: RefExpr {
+                  -identifier: Token {
+                    value: "attrStr"
+                    kind: IDENTIFIER
+                    pos: 26: 64
+                  }
+                }
+              }
+            }
+          }
+        }
+        -nodes: 2, IfExpr {
+          -keywordI: Token {
+            value: "if"
+            kind: IF
+            pos: 27: 17
+          }
+          -condition: BinaryExpr {
+            -leftExpr: BinaryExpr {
+              -leftExpr: CallExpr {
+                -callFunc: MemberAccess {
+                  -baseExpr: RefExpr {
+                    -identifier: Token {
+                      value: "attrStr"
+                      kind: IDENTIFIER
+                      pos: 27: 21
+                    }
+                  }
+                  -dot: Token {
+                    value: "."
+                    kind: DOT
+                    pos: 27: 28
+                  }
+                  -field: Token {
+                    value: "startsWith"
+                    kind: IDENTIFIER
+                    pos: 27: 29
+                  }
+                }
+                -arguments: 0, Argument {
+                  -expr: LitConstExpr {
+                    -literal: Token {
+                      value: "Skip"
+                      kind: STRING_LITERAL
+                      pos: 27: 40
+                    }
+                  }
+                }
+              }
+              -op: Token {
+                value: "||"
+                kind: OR
+                pos: 27: 48
+              }
+              -rightExpr: CallExpr {
+                -callFunc: MemberAccess {
+                  -baseExpr: RefExpr {
+                    -identifier: Token {
+                      value: "attrStr"
+                      kind: IDENTIFIER
+                      pos: 27: 51
+                    }
+                  }
+                  -dot: Token {
+                    value: "."
+                    kind: DOT
+                    pos: 27: 58
+                  }
+                  -field: Token {
+                    value: "startsWith"
+                    kind: IDENTIFIER
+                    pos: 27: 59
+                  }
+                }
+                -arguments: 0, Argument {
+                  -expr: LitConstExpr {
+                    -literal: Token {
+                      value: "Bench"
+                      kind: STRING_LITERAL
+                      pos: 27: 70
+                    }
+                  }
+                }
+              }
+            }
+            -op: Token {
+              value: "||"
+              kind: OR
+              pos: 27: 79
+            }
+            -rightExpr: CallExpr {
+              -callFunc: MemberAccess {
+                -baseExpr: RefExpr {
+                  -identifier: Token {
+                    value: "attrStr"
+                    kind: IDENTIFIER
+                    pos: 27: 82
+                  }
+                }
+                -dot: Token {
+                  value: "."
+                  kind: DOT
+                  pos: 27: 89
+                }
+                -field: Token {
+                  value: "startsWith"
+                  kind: IDENTIFIER
+                  pos: 27: 90
+                }
+              }
+              -arguments: 0, Argument {
+                -expr: LitConstExpr {
+                  -literal: Token {
+                    value: "TestCase"
+                    kind: STRING_LITERAL
+                    pos: 27: 101
+                  }
+                }
+              }
+            }
+          }
+          -ifBlock: Block {
+            -nodes: 0, ReturnExpr {
+              -keyword: Token {
+                value: "return"
+                kind: RETURN
+                pos: 28: 21
+              }
+              -expr: CallExpr {
+                -callFunc: RefExpr {
+                  -identifier: Token {
+                    value: "Tokens"
+                    kind: IDENTIFIER
+                    pos: 28: 28
+                  }
+                }
+              }
+            }
+          }
+        }
+        -nodes: 3, AssignExpr {
+          -leftExpr: RefExpr {
+            -identifier: Token {
+              value: "t"
+              kind: IDENTIFIER
+              pos: 30: 17
+            }
+          }
+          -assign: Token {
+            value: "="
+            kind: ASSIGN
+            pos: 30: 19
+          }
+          -rightExpr: BinaryExpr {
+            -leftExpr: RefExpr {
+              -identifier: Token {
+                value: "t"
+                kind: IDENTIFIER
+                pos: 30: 21
+              }
+            }
+            -op: Token {
+              value: "+"
+              kind: ADD
+              pos: 30: 23
+            }
+            -rightExpr: CallExpr {
+              -callFunc: RefExpr {
+                -identifier: Token {
+                  value: "Token"
+                  kind: IDENTIFIER
+                  pos: 30: 25
+                }
+              }
+              -arguments: 0, Argument {
+                -expr: MemberAccess {
+                  -baseExpr: RefExpr {
+                    -identifier: Token {
+                      value: "TokenKind"
+                      kind: IDENTIFIER
+                      pos: 30: 31
+                    }
+                  }
+                  -dot: Token {
+                    value: "."
+                    kind: DOT
+                    pos: 30: 40
+                  }
+                  -field: Token {
+                    value: "COMMA"
+                    kind: IDENTIFIER
+                    pos: 30: 41
+                  }
+                }
+              }
+            }
+          }
+        }
+        -nodes: 4, AssignExpr {
+          -leftExpr: RefExpr {
+            -identifier: Token {
+              value: "tksInSquare"
+              kind: IDENTIFIER
+              pos: 31: 17
+            }
+          }
+          -assign: Token {
+            value: "="
+            kind: ASSIGN
+            pos: 31: 29
+          }
+          -rightExpr: BinaryExpr {
+            -leftExpr: RefExpr {
+              -identifier: Token {
+                value: "tksInSquare"
+                kind: IDENTIFIER
+                pos: 31: 31
+              }
+            }
+            -op: Token {
+              value: "+"
+              kind: ADD
+              pos: 31: 43
+            }
+            -rightExpr: RefExpr {
+              -identifier: Token {
+                value: "t"
+                kind: IDENTIFIER
+                pos: 31: 45
+              }
+            }
+          }
+        }
+      }
+    }
+    -nodes: 1, VarDecl {
+      -keyword: Token {
+        value: "var"
+        kind: VAR
+        pos: 33: 13
+      }
+      -identifier: Token {
+        value: "attrStr"
+        kind: IDENTIFIER
+        pos: 33: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 33: 25
+      }
+      -expr: CallExpr {
+        -callFunc: MemberAccess {
+          -baseExpr: SubscriptExpr {
+            -baseExpr: RefExpr {
+              -identifier: Token {
+                value: "attr"
+                kind: IDENTIFIER
+                pos: 33: 27
+              }
+            }
+            -indexList: 0, BinaryExpr {
+              -leftExpr: RefExpr {
+                -identifier: Token {
+                  value: "attrSize"
+                  kind: IDENTIFIER
+                  pos: 33: 32
+                }
+              }
+              -op: Token {
+                value: "-"
+                kind: SUB
+                pos: 33: 40
+              }
+              -rightExpr: LitConstExpr {
+                -literal: Token {
+                  value: "1"
+                  kind: INTEGER_LITERAL
+                  pos: 33: 41
+                }
+              }
+            }
+          }
+          -dot: Token {
+            value: "."
+            kind: DOT
+            pos: 33: 43
+          }
+          -field: Token {
+            value: "getOrThrow"
+            kind: IDENTIFIER
+            pos: 33: 44
+          }
+        }
+      }
+    }
+    -nodes: 2, VarDecl {
+      -keyword: Token {
+        value: "var"
+        kind: VAR
+        pos: 34: 13
+      }
+      -identifier: Token {
+        value: "t"
+        kind: IDENTIFIER
+        pos: 34: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 34: 19
+      }
+      -expr: BinaryExpr {
+        -leftExpr: CallExpr {
+          -callFunc: RefExpr {
+            -identifier: Token {
+              value: "Tokens"
+              kind: IDENTIFIER
+              pos: 34: 21
+            }
+          }
+        }
+        -op: Token {
+          value: "+"
+          kind: ADD
+          pos: 34: 30
+        }
+        -rightExpr: CallExpr {
+          -callFunc: RefExpr {
+            -identifier: Token {
+              value: "Token"
+              kind: IDENTIFIER
+              pos: 34: 32
+            }
+          }
+          -arguments: 0, Argument {
+            -expr: MemberAccess {
+              -baseExpr: RefExpr {
+                -identifier: Token {
+                  value: "TokenKind"
+                  kind: IDENTIFIER
+                  pos: 34: 38
+                }
+              }
+              -dot: Token {
+                value: "."
+                kind: DOT
+                pos: 34: 47
+              }
+              -field: Token {
+                value: "IDENTIFIER"
+                kind: IDENTIFIER
+                pos: 34: 48
+              }
+            }
+          }
+          -arguments: 1, Argument {
+            -expr: RefExpr {
+              -identifier: Token {
+                value: "attrStr"
+                kind: IDENTIFIER
+                pos: 34: 60
+              }
+            }
+          }
+        }
+      }
+    }
+    -nodes: 3, IfExpr {
+      -keywordI: Token {
+        value: "if"
+        kind: IF
+        pos: 35: 13
+      }
+      -condition: BinaryExpr {
+        -leftExpr: BinaryExpr {
+          -leftExpr: CallExpr {
+            -callFunc: MemberAccess {
+              -baseExpr: RefExpr {
+                -identifier: Token {
+                  value: "attrStr"
+                  kind: IDENTIFIER
+                  pos: 35: 17
+                }
+              }
+              -dot: Token {
+                value: "."
+                kind: DOT
+                pos: 35: 24
+              }
+              -field: Token {
+                value: "startsWith"
+                kind: IDENTIFIER
+                pos: 35: 25
+              }
+            }
+            -arguments: 0, Argument {
+              -expr: LitConstExpr {
+                -literal: Token {
+                  value: "Skip"
+                  kind: STRING_LITERAL
+                  pos: 35: 36
+                }
+              }
+            }
+          }
+          -op: Token {
+            value: "||"
+            kind: OR
+            pos: 35: 44
+          }
+          -rightExpr: CallExpr {
+            -callFunc: MemberAccess {
+              -baseExpr: RefExpr {
+                -identifier: Token {
+                  value: "attrStr"
+                  kind: IDENTIFIER
+                  pos: 35: 47
+                }
+              }
+              -dot: Token {
+                value: "."
+                kind: DOT
+                pos: 35: 54
+              }
+              -field: Token {
+                value: "startsWith"
+                kind: IDENTIFIER
+                pos: 35: 55
+              }
+            }
+            -arguments: 0, Argument {
+              -expr: LitConstExpr {
+                -literal: Token {
+                  value: "Bench"
+                  kind: STRING_LITERAL
+                  pos: 35: 66
+                }
+              }
+            }
+          }
+        }
+        -op: Token {
+          value: "||"
+          kind: OR
+          pos: 35: 75
+        }
+        -rightExpr: CallExpr {
+          -callFunc: MemberAccess {
+            -baseExpr: RefExpr {
+              -identifier: Token {
+                value: "attrStr"
+                kind: IDENTIFIER
+                pos: 35: 78
+              }
+            }
+            -dot: Token {
+              value: "."
+              kind: DOT
+              pos: 35: 85
+            }
+            -field: Token {
+              value: "startsWith"
+              kind: IDENTIFIER
+              pos: 35: 86
+            }
+          }
+          -arguments: 0, Argument {
+            -expr: LitConstExpr {
+              -literal: Token {
+                value: "TestCase"
+                kind: STRING_LITERAL
+                pos: 35: 97
+              }
+            }
+          }
+        }
+      }
+      -ifBlock: Block {
+        -nodes: 0, ReturnExpr {
+          -keyword: Token {
+            value: "return"
+            kind: RETURN
+            pos: 36: 17
+          }
+          -expr: CallExpr {
+            -callFunc: RefExpr {
+              -identifier: Token {
+                value: "Tokens"
+                kind: IDENTIFIER
+                pos: 36: 24
+              }
+            }
+          }
+        }
+      }
+    }
+    -nodes: 4, AssignExpr {
+      -leftExpr: RefExpr {
+        -identifier: Token {
+          value: "tksInSquare"
+          kind: IDENTIFIER
+          pos: 38: 13
+        }
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 38: 25
+      }
+      -rightExpr: BinaryExpr {
+        -leftExpr: RefExpr {
+          -identifier: Token {
+            value: "tksInSquare"
+            kind: IDENTIFIER
+            pos: 38: 27
+          }
+        }
+        -op: Token {
+          value: "+"
+          kind: ADD
+          pos: 38: 39
+        }
+        -rightExpr: RefExpr {
+          -identifier: Token {
+            value: "t"
+            kind: IDENTIFIER
+            pos: 38: 41
+          }
+        }
+      }
+    }
+    -nodes: 5, AssignExpr {
+      -leftExpr: RefExpr {
+        -identifier: Token {
+          value: "toks"
+          kind: IDENTIFIER
+          pos: 39: 13
+        }
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 39: 18
+      }
+      -rightExpr: BinaryExpr {
+        -leftExpr: BinaryExpr {
+          -leftExpr: BinaryExpr {
+            -leftExpr: RefExpr {
+              -identifier: Token {
+                value: "toks"
+                kind: IDENTIFIER
+                pos: 39: 20
+              }
+            }
+            -op: Token {
+              value: "+"
+              kind: ADD
+              pos: 39: 25
+            }
+            -rightExpr: CallExpr {
+              -callFunc: RefExpr {
+                -identifier: Token {
+                  value: "Token"
+                  kind: IDENTIFIER
+                  pos: 39: 27
+                }
+              }
+              -arguments: 0, Argument {
+                -expr: MemberAccess {
+                  -baseExpr: RefExpr {
+                    -identifier: Token {
+                      value: "TokenKind"
+                      kind: IDENTIFIER
+                      pos: 39: 33
+                    }
+                  }
+                  -dot: Token {
+                    value: "."
+                    kind: DOT
+                    pos: 39: 42
+                  }
+                  -field: Token {
+                    value: "LSQUARE"
+                    kind: IDENTIFIER
+                    pos: 39: 43
+                  }
+                }
+              }
+            }
+          }
+          -op: Token {
+            value: "+"
+            kind: ADD
+            pos: 39: 52
+          }
+          -rightExpr: RefExpr {
+            -identifier: Token {
+              value: "tksInSquare"
+              kind: IDENTIFIER
+              pos: 39: 54
+            }
+          }
+        }
+        -op: Token {
+          value: "+"
+          kind: ADD
+          pos: 39: 66
+        }
+        -rightExpr: CallExpr {
+          -callFunc: RefExpr {
+            -identifier: Token {
+              value: "Token"
+              kind: IDENTIFIER
+              pos: 39: 68
+            }
+          }
+          -arguments: 0, Argument {
+            -expr: MemberAccess {
+              -baseExpr: RefExpr {
+                -identifier: Token {
+                  value: "TokenKind"
+                  kind: IDENTIFIER
+                  pos: 39: 74
+                }
+              }
+              -dot: Token {
+                value: "."
+                kind: DOT
+                pos: 39: 83
+              }
+              -field: Token {
+                value: "RSQUARE"
+                kind: IDENTIFIER
+                pos: 39: 84
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

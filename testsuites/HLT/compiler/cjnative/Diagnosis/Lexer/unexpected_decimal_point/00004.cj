@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// ERRCHECK: %compiler %cmp_opt %f
+
+var a = 0b.
+var b = 0B.
+var c = 0o.
+var d = 0O.
+// ASSERT: scan lex_expected_digit

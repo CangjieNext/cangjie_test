@@ -1,0 +1,8 @@
+error: unknown start of token: \u{0000}
+  ==> case6.cj:15:12:
+   | 
+15 |     cangjie ${\u{0000}}"""
+   |               ^^^^^^^^ unknown start of token: \u{0000}
+   | 
+
+1 error generated, 1 error printed.

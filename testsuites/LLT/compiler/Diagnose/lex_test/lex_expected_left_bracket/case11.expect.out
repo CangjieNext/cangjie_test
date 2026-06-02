@@ -1,0 +1,10 @@
+error: expected '{' in unicode escape, found '"'
+  ==> case11.cj:16:4:
+   | 
+16 |     \u"""
+   |     ~~^ expected '{'
+   |     |
+   |     because it is in this Unicode escape
+   | 
+
+1 error generated, 1 error printed.

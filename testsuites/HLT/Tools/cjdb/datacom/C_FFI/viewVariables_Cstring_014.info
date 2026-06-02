@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/Test_CString.cj
+// EXEC: %compiler -g  Test_CString.cj -o %n%cmp_output
+// RUN-EXEC: python3 cjdb_test.py viewVariables_Cstring_014.info viewVariables_Cstring_014 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors viewVariables_Cstring_014,viewVariables_Cstring_014
+b,b 82,Test_CString.cj:82
+AOT r,r,-> 82
+CJVM c,c,
+p, p arr_str_5,\(std[.]core.Array<std[.]core.Array<std[.]core.Array<CString>>>\) \$[\d] = {[\s\S]*\[1\] = {[\s\S]*\[1\] = {[\s\S]*\[0\] = "Hello cangjie!"[\s\S]*
+p, p arr_str_5[0][1],\(std[.]core.Array<CString>\) \$[\d] = {[\s\S]*\[0\] = "\\\"bc"[\s\S]*
+p, p arr_str_5[1][1][1..],\(std[.]core.Array<CString>\) \$[\d] = {[\s\S]*\[0\] = "!@#\$\%\^\&\*\(\)<<\?>"[\s\S]*
+p, p arr_str_5[1][2][1..],error
+q,q,

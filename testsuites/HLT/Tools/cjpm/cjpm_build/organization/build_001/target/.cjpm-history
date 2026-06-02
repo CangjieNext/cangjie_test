@@ -1,0 +1,168 @@
+{
+  "resolves": [
+    {
+      "rootPackageName": "huawei::test",
+      "modulePath": ".",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": [
+          {
+            "sourceSetDir": "src",
+            "srcDir": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\organization\\build_001\\src\\pkgA",
+            "features": [],
+            "product": true,
+            "outputSuffix": "src\\product"
+          }
+        ]
+      },
+      "fullName": "huawei::test.pkgA",
+      "isMacroPackage": false,
+      "output-type": "static",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [],
+      "std-requires": [],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    },
+    {
+      "rootPackageName": "huawei::test",
+      "modulePath": ".",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": [
+          {
+            "sourceSetDir": "src",
+            "srcDir": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\organization\\build_001\\src\\pkgB",
+            "features": [],
+            "product": true,
+            "outputSuffix": "src\\product"
+          }
+        ]
+      },
+      "fullName": "huawei::test.pkgB",
+      "isMacroPackage": false,
+      "output-type": "static",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [
+        "huawei::test.pkgA"
+      ],
+      "std-requires": [],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    },
+    {
+      "rootPackageName": "huawei::test",
+      "modulePath": ".",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": [
+          {
+            "sourceSetDir": "src",
+            "srcDir": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\organization\\build_001\\src\\pkgC",
+            "features": [],
+            "product": true,
+            "outputSuffix": "src\\product"
+          }
+        ]
+      },
+      "fullName": "huawei::test.pkgC",
+      "isMacroPackage": false,
+      "output-type": "static",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [
+        "huawei::test.pkgB"
+      ],
+      "std-requires": [],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    },
+    {
+      "rootPackageName": "huawei::test",
+      "modulePath": ".",
+      "packagePath": {
+        "isMultiplatform": false,
+        "sources": [
+          {
+            "sourceSetDir": "src",
+            "srcDir": "C:\\cangjie\\cjpm_code\\cangjie_test\\testsuites\\HLT\\Tools\\cjpm\\cjpm_build\\organization\\build_001\\src",
+            "features": [],
+            "product": true,
+            "outputSuffix": "."
+          }
+        ]
+      },
+      "fullName": "huawei::test",
+      "isMacroPackage": false,
+      "output-type": "executable",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [
+        "huawei::test.pkgC"
+      ],
+      "std-requires": [],
+      "c_libs": {},
+      "cross_c_libs": {},
+      "hasTestFiles": false,
+      "hasProdFiles": true,
+      "hasTestsInProdFiles": false,
+      "accessLevel": "public",
+      "features": [
+        "os.windows"
+      ],
+      "deducer": {
+        "features": [],
+        "mapping": {}
+      }
+    }
+  ],
+  "binDeps": {},
+  "crossBinDeps": {}
+}

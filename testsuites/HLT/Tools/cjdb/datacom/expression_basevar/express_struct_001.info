@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/065_debug_struct.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 065_debug_struct.cj -o 001_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py express_struct_001.info 001_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+CJVM b,b main,065_debug_struct.cj:59
+CJVM c,c,-> 59
+b,b 61,065_debug_struct.cj:61
+CJVM c,c,-> 61
+AOT r,r,-> 61
+expr,expr rr.age,\(Int64\) \$[\d] = 10
+expr,expr rr.age=20,\(Unit\) \$[\d] = ()
+expr,expr rr.age,\(Int64\) \$[\d] = 20
+expr,expr rr.scores,\(Float64\) \$[\d] = 12.119999999999999
+expr,expr rr.scores=13.13,\(Unit\) \$[\d] = ()
+expr,expr rr.scores,\(Float64\) \$[\d] = 13.130000000000001
+expr,expr rr.str1,std.core.String\) \$[\d] = "aaa"
+expr,expr rr.str1="bb",\(Unit\) \$[\d] = ()
+expr,expr rr.str1,std.core.String\) \$[\d] = "bb"
+q,q,

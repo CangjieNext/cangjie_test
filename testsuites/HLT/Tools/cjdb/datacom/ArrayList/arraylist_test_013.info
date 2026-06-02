@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/ArrayList/ArrayList_CompositeVar.cj
+// EXEC: %compiler %cmp_opt -g ArrayList_CompositeVar.cj -o ArrayList_CompositeVar%cmp_output
+// RUN-EXEC: python3 cjdb_test.py arraylist_test_013.info ArrayList_CompositeVar %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors ArrayList_CompositeVar,ArrayList_CompositeVar
+b,b 69,ArrayList_CompositeVar.cj:69
+AOT r,r,-> 69
+CJVM c,c,-> 69
+p,p b.Arrlist_str,\(std[.]collection.ArrayList<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*\[2\] = "                    Hello[\s\S]*                    CangJie![\s\S]*                    "[\s\S]*}
+p,p b.Arrlist_Arr,\(std[.]collection.ArrayList<std[.]core.Array<std[.]core.String>>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
+p,p b.Arrlist_Arrlist,\(std[.]collection.ArrayList<std[.]collection.ArrayList<std[.]core.String>>\) \$[\d] = {[\s\S]*\[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*[0\] = "hello"[\s\S]*\[1\] = "Cangjie"[\s\S]*}
+p,p b.Arrlist_Hset,\(std[.]collection.ArrayList<std[.]collection.HashSet<Rune>>\) \$[\d] = {[\s\S]*\[0\] = 'c'[\s\S]*\[1\] = 'a'[\s\S]*\[0\] = 'n'[\s\S]*\[1\] = 'g'[\s\S]*}
+p,p b.Arrlist_Hmap,\(std[.]collection.ArrayList<std[.]collection.HashMap<Bool,std[.]core.String>>\) \$[\d] = {[\s\S]*key = true[\s\S]*value = "cangjie"[\s\S]*}
+q,q,
+

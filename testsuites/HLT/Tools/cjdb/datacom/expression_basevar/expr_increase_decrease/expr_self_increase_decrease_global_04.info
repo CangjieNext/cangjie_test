@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/expression/expr_globals.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g expr_globals.cj -o 001_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expr_self_increase_decrease_global_04.info 001_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+b,b 56,expr_globals.cj:56
+CJVM c,c,-> 56
+AOT r,r,-> 56
+expr,expr globals_ui8++;globals_ui8,\(UInt8\) \$[\d] = 9
+expr,expr globals_ui16++;globals_ui16,\(UInt16\) \$[\d] = 17
+expr,expr globals_ui32++;globals_ui32,\(UInt32\) \$[\d] = 33
+expr,expr globals_ui64++;globals_ui64,\(UInt64\) \$[\d] = 65
+expr,expr globals_uin++;globals_uin,\(UIntNative\) \$[\d] = 101
+q,q,

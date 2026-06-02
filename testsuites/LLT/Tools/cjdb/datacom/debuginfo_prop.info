@@ -1,0 +1,24 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_prop.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_prop.cj -o debuginfo_prop
+// EXEC: python3 cjdb_test.py debuginfo_prop.info
+
+
+test#
+cjdb,cjdb debuginfo_prop,debuginfo_prop
+b,b 22,debuginfo_prop.cj:22
+r,r,-> 22
+n,n,-> 23
+s,s,-> 16
+n,n,-> 17
+n,n,-> 23
+n,n,-> 24
+s,s,-> 14
+n,n,-> 24
+n,n,-> 27
+q,q,

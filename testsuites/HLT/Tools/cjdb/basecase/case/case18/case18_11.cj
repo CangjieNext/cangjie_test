@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+struct Foo {
+    let a = 0
+    var b = 0
+    const init() {}
+    func f1() {}
+    const func f2() {}
+    mut func f3() {
+        b = 123
+    }
+}
+
+main(): Int64 {
+    const v = Foo()
+    print(v.a)
+    print(v.b)
+    v.f1()
+    v.f2()
+    return 0
+}

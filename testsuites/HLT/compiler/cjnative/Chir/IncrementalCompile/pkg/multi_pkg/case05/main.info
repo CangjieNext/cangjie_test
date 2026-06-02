@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ./new, ./old
+// EXEC: %compiler %cmp_opt %incremental_compile %compile_lib_opt ./old/src/p1/p1.cj -o p1.%middle 
+// EXEC: %compiler %cmp_opt %compile_lib_opt %incremental_compile p1.%middle  ./old/src/p2/p2.cj -o p2.%middle  
+// EXEC: %compiler %cmp_opt %incremental_compile ./old/%n.cj p2.%middle  p1.%middle -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+// EXEC: %cp ./new/src/p1/p1.cj ./old/src/p1/p1.cj
+// EXEC: %mv ./new/src/p2/p2.cj  ./old/src/p2/p2.cj
+// EXEC: %cp ./new/%n.cj  ./old/%n.cj 
+// EXEC: %compiler %cmp_opt %compile_lib_opt ./old/src/p1/p1.cj -o p1.%middle 
+// EXEC: %compiler %cmp_opt %compile_lib_opt p1.%middle  ./old/src/p2/p2.cj -o p2.%middle  
+// EXEC: %compiler %cmp_opt ./old/%n.cj p2.%middle  p1.%middle -o %output
+// RUN-EXEC: %run %run_opt %output %run_args

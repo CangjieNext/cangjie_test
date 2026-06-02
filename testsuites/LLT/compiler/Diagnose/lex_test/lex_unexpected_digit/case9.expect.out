@@ -1,0 +1,21 @@
+error: unexpected digit '3' in binary
+  ==> case9.cj:16:15:
+   | 
+16 | cangjie1 ${0b13}
+   |            ~~ ^ unexpected digit
+   |            |
+   |            because of this binary prefix
+   | 
+   # note: binary may only contain digit within 0~1
+
+error: unexpected digit '9' in octal
+  ==> case9.cj:20:6:
+   | 
+20 | ${0o19}
+   |   ~~ ^ unexpected digit
+   |   |
+   |   because of this octal prefix
+   | 
+   # note: octal may only contain digit within 0~7
+
+2 errors generated, 2 errors printed.

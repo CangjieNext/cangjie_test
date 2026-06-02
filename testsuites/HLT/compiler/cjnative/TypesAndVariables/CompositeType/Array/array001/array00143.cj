@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+interface I {}
+
+open class C {}
+
+class A <: C & I {}
+
+class B <: C & I {}
+
+main(): Int64 {
+    var a = A()
+    var b = B()
+    let myArray0: Array<C> = [a, b]
+    let myArray1: Array<I> = [a, b]
+    return 0
+}

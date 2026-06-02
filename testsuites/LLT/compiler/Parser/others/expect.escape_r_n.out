@@ -1,0 +1,12 @@
+error: unterminated block comment
+  ==> escape_r_n.cj:13:15:
+   | 
+13 |       var a = 1 /*
+   |  _______________^
+14 | |     a = 2
+   | | ...
+16 | | }
+   | |__^ unterminated block comment
+   | 
+
+1 error generated, 1 error printed.

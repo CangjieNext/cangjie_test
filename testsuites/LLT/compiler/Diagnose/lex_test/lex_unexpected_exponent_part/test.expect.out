@@ -1,0 +1,21 @@
+error: unexpected decimal point '.' in octal base number
+ ==> test.cj:3:14:
+  | 
+3 |     var a = 0o12.12
+  |             ~~  ^ unexpected decimal point
+  |             |
+  |             because of this octal prefix
+  | 
+  # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+  | 
+3 |     var a =  12.12
+  |             ~ 
+  | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+  | 
+3 |     var a = 0x12.12
+  |             ~~ 
+  | 
+
+1 error generated

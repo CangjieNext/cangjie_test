@@ -1,0 +1,13 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+src/tests/01_lexical_structure/03_literals/a02/test_a02_054.cj
+src/tests/02_types/01_value_types/10_struct_type/02_constructors/a44/test_a44_01.cj
+src/tests/03_names_scopes_variables_and_modifiers/02_scopes/03_scope_principle/02_local_level/a10/test_a10_01.cj
+src/tests/04_expressions/17_type_check_and_type_cast_expressions/02_the_as_operator/a02/test_a02_12.cj
+src/tests/05_function/01_function_definition/a12/test_a12_01.cj
+src/tests/06_class_and_interface/01_class/01_class_definition/01_class_modifiers/a05/test_a05_01.cj
+src/tests/08_extension/02_members_of_extension/01_functions/01_modifier/a06/test_a06_01.cj

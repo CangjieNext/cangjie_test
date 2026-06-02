@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: define1.cj
+// EXEC: %compiler %cmp_macro define1.cj
+// EXEC: %run_macro %compiler %cmp_opt  %f -o %output --parallel-macro-expansion
+// RUN-EXEC: %run %run_opt %output  %run_args
+
+import define.*
+
+@Parallel001
+func foo() {
+    println("666666")
+}
+
+@Parallel001
+func foo1() {
+    println("88888888")
+}
+
+main() {
+    foo()
+    foo1()
+}

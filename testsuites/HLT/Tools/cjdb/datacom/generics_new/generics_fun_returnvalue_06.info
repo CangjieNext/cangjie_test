@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
+// EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_fun_returnvalue_06.info genericsfun_return %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
+CJVM c,c,
+p, p lu,\(Unit\) \$[\d] = ()
+p, p cvu,\(Unit\) \$[\d] = ()
+p, p s1.vus,\(Unit\) \$[\d] = ()
+p, p c1.vuc,\(Unit\) \$[\d] = ()
+p, p default::C1::vu,\(Unit\) \$[\d] = ()
+p, p globals_vu,\(Unit\) \$[\d] = ()
+locals, locals,\(Unit\) lu = ()[\s\S]*\(default.S1\) s1 = {[\s\S]*vus = ()[\s\S]*\(default.C1\) c1 = {[\s\S]*vuc = ()[\s\S]*
+globals, globals,\(Unit\) default::C1::vu = ()
+globals, globals,\(Unit\) default::globals_vu = ()
+b, b 145,genericsfun_return.cj:145
+c,c,-> 145
+p, p g,\(Unit\) \$[\d] = ()
+p, p test_g,\(Unit\) \$[\d] = ()
+locals, locals,\(Unit\) g = ()
+q,q,

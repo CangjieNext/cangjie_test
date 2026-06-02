@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/054_debug_struct_basetype.cj
+// EXEC: %compiler %cmp_opt -g 054_debug_struct_basetype.cj -o 005_express_basetype%cmp_output
+// RUN-EXEC: python3 cjdb_test.py express_struct_005.info 005_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 005_express_basetype,005_express_basetype
+CJVM b,b main,054_debug_struct_basetype.cj:33
+CJVM c,c,-> 33
+b,b 36,054_debug_struct_basetype.cj:36
+CJVM c,c,-> 36
+AOT r,r,-> 36
+p,p b.varu1=127,\(UInt8\) \$[\d] = 127
+p,p b.varu2=32767,\(UInt16\) \$[\d] = 32767
+p,p b.varu3=2147483647,\(UInt32\) \$[\d] = 2147483647
+p,p b.varu4=9223372036854775807,\(UInt64\) \$[\d] = 9223372036854775807
+p,p b.varu5=9223372036854775807,\(UIntNative\) \$[\d] = 9223372036854775807
+q,q,

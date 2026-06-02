@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_local.cj
+// EXEC: %compiler %cmp_opt -g genericsfun_local.cj -o genericsfun_local%cmp_output
+// RUN-EXEC: python3 cjdb_test.py local_fun_generics_03.info genericsfun_local %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
+b,b 70,genericsfun_local.cj:70
+AOT r,r,-> 70
+CJVM c,c,
+p, p gengricsvar,\(Bool\) \$[\d] = true
+p, p a,\(Bool\) \$[\d] = true
+p, p gengricsvar1,\(Rune\) \$[\d] = 'a'
+p, p b,\(Rune\) \$[\d] = 'a'
+p, p gengricsvar2,\(Unit\) \$[\d] = \(\)
+p, p c,\(Unit\) \$[\d] = \(\)
+locals, locals,\(Bool\) a = true[\s\S]*\(Rune\) b = 'a'[\s\S]*\(Unit\) c = \(\)[\s\S]*\(Bool\) gengricsvar = true[\s\S]*\(Rune\) gengricsvar1 = 'a'[\s\S]*\(Unit\) gengricsvar2 = \(\)
+q,q,

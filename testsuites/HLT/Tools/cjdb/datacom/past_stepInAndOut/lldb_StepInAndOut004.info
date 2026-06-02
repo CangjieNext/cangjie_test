@@ -1,0 +1,48 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/002_debug_if.cj
+//  EXEC: %compiler %cmp_opt -g 002_debug_if.cj -o 002_debug_if%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_StepInAndOut004.info 002_debug_if %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 002_debug_if,002_debug_if
+CJVM b main,b main,002_debug_if.cj:12
+CJVM c,c,-> 12
+b,b 12,002_debug_if.cj:12
+AOT b,b 13,002_debug_if.cj:14
+CJVM b,b 13,002_debug_if.cj:13
+b,b 14,002_debug_if.cj:14
+b,b 15,002_debug_if.cj:15
+AOT b,b 16,002_debug_if.cj:17
+CJVM b,b 16,002_debug_if.cj:16
+b,b 17,002_debug_if.cj:17
+AOT b,b 18,002_debug_if.cj:19
+CJVM b,b 18,002_debug_if.cj:18
+b,b 19,002_debug_if.cj:19
+b,b 20,002_debug_if.cj:20
+AOT b,b 21,002_debug_if.cj:22
+CJVM b,b 21,002_debug_if.cj:21
+b,b 22,002_debug_if.cj:22
+AOT b,b 23,002_debug_if.cj:24
+CJVM b,b 23,002_debug_if.cj:23
+AOT r,r,-> 12
+s,s,-> 14
+s,s,-> 15
+s,s,-> 19
+locals,locals,if_a = 1
+s,s,-> 22
+s,s,-> 24
+locals,locals,if_a = 2
+rerun,r,-> 12
+AOT finish,finish,-> 14
+q,q,

@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/001_debug_array_baseType.cj
+// (not arm) EXEC: %compiler %cmp_opt -g 001_debug_array_baseType.cj -o 001_debug_array_baseType%cmp_output
+// (not arm) RUN-EXEC: python3 cjdb_test.py cjdb_within_setVar060.info 001_debug_array_baseType %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 001_debug_array_baseType,001_debug_array_baseType
+b,b 19,001_debug_array_baseType.cj:19
+AOT r,r,-> 19
+CJVM c,c,
+p, p arrayInt8_d[0],std[.]core.Array<Int8>\) \$[\d] = {[\s\S]*
+set,set arrayInt8_d[0][ 0]=-12,\(Int8\) \$[0-9]* = -12
+set,set arrayInt8_d[0][0 ]=-45,\(Int8\) \$[0-9]* = -45
+set,set arrayInt8_d[ 0][0 ]=87,\(Int8\) \$[0-9]* = 87
+set,set arrayInt8_d[0] [0]=69,\(Int8\) \$[0-9]* = 69
+q,q,

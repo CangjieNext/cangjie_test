@@ -1,0 +1,16 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-0: cd %n/test_output_1 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/test_output_2 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC: cd %n && %cjpm build -V 2>&1 | compare %f
+// ASSERT: scan Error: conflictions occurred between dependencies from central repository:
+// ASSERT: scan - 'test_output_1 = "1.0.0"' depended by 'demo'
+// ASSERT: scan - 'test_output_2 = "1.0.0"' depended by 'demo'
+// ASSERT: scan These are modules which cause the most conflictions, please try to force them with field 'replace':
+// ASSERT: scan test_repo_7
+// ASSERT: scan Error: cjpm build failed

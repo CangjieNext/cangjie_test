@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_unused_local.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_unused_local.cj -o debuginfo_unused_local
+// EXEC: python3 cjdb_test.py debuginfo_unused_local.info
+
+
+test#
+cjdb,cjdb debuginfo_unused_local,debuginfo_unused_local
+b,b 10,debuginfo_unused_local.cj:10
+r,r,-> 10
+p,p u1,\(Unit\)\s+[^\s]+ = \(\)
+q,q,

@@ -1,0 +1,76 @@
+EnumDecl {
+  -keyword: Token {
+    value: "enum"
+    kind: ENUM
+    pos: 10: 9
+  }
+  -identifier: Token {
+    value: "E"
+    kind: IDENTIFIER
+    pos: 10: 14
+  }
+  -constructors: 0, Constructor {
+    -annotations: 0, Annotation {
+      -identifier: API1
+      -arguments: 0, Argument {
+        -expr: LitConstExpr {
+          -literal: Token {
+            value: "11"
+            kind: INTEGER_LITERAL
+            pos: 11: 19
+          }
+        }
+      }
+    }
+    -identifier: Token {
+      value: "caseA"
+      kind: IDENTIFIER
+      pos: 12: 13
+    }
+  }
+  -constructors: 1, Constructor {
+    -annotations: 0, Annotation {
+      -identifier: API2
+      -arguments: 0, Argument {
+        -expr: LitConstExpr {
+          -literal: Token {
+            value: "11"
+            kind: INTEGER_LITERAL
+            pos: 13: 20
+          }
+        }
+      }
+    }
+    -annotations: 1, Annotation {
+      -identifier: API3
+      -arguments: 0, Argument {
+        -expr: LitConstExpr {
+          -literal: Token {
+            value: "11"
+            kind: INTEGER_LITERAL
+            pos: 14: 20
+          }
+        }
+      }
+    }
+    -identifier: Token {
+      value: "caseB"
+      kind: IDENTIFIER
+      pos: 15: 13
+    }
+    -typeArguments: 0, PrimitiveType {
+      -keyword: Token {
+        value: "Int64"
+        kind: INT64
+        pos: 15: 19
+      }
+    }
+    -typeArguments: 1, PrimitiveType {
+      -keyword: Token {
+        value: "Bool"
+        kind: BOOLEAN
+        pos: 15: 26
+      }
+    }
+  }
+}

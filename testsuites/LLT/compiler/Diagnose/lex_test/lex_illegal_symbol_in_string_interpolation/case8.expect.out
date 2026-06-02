@@ -1,0 +1,11 @@
+error: unterminated multi-line string
+  ==> case8.cj:14:2:
+   | 
+14 |       """
+   |  _____^
+15 | |     cangjie ${ a = 1 //}"""
+16 | | }
+   | |__^ unterminated multi-line string
+   | 
+
+1 error generated, 1 error printed.

@@ -1,0 +1,10 @@
+error: unterminated string interpolation
+  ==> case1.cj:14:11:
+   | 
+14 |     "cangjie ${a + b /* comments */ /*}"
+   |     ~        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unterminated string interpolation
+   |     |
+   |     because it is in single-line string
+   | 
+
+1 error generated, 1 error printed.

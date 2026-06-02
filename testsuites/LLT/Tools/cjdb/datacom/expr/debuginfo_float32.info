@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/float32.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug float32.cj -o float32
+// EXEC: python3 cjdb_test.py debuginfo_float32.info %n %run_env
+
+test#
+cjdb,cjdb float32,float32
+b,b foo,float32.cj:10
+r,r,-> 10
+expr a,expr a,\(Float32\) \$\d+ = 1
+expr b,expr b,\(Float32\) \$\d+ = 2
+expr c,expr c,\(Float32\) \$\d+ = 4
+q,q,

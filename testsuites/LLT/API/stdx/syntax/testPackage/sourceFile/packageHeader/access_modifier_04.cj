@@ -1,0 +1,1 @@
+protected package testPackage.childPackage

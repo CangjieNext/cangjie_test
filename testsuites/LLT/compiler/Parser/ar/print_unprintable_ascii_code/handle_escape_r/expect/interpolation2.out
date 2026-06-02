@@ -1,0 +1,10 @@
+error: unterminated string interpolation
+ ==> interpolation2.cj:6:30:
+  | 
+6 |     println("${\u{000D}    println("${
+  |                                    ~^^^ unterminated string interpolation
+  |                                    |
+  |                                    because it is in single-line string
+  | 
+
+1 error generated, 1 error printed.

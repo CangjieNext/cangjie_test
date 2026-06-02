@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/068_debug_hashset.cj
+// EXEC: %compiler %cmp_opt -g 068_debug_hashset.cj -o 068_debug_hashset%cmp_output
+// RUN-EXEC: python3 cjdb_test.py Core_HashSet_view_00.info 068_debug_hashset %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 068_debug_hashset,068_debug_hashset
+b,b 24,068_debug_hashset.cj:24
+AOT r,r,-> 24
+CJVM c,c,-> 24
+p,p hashset01,\(std\.collection.HashSet<Int8>\) \$[\d] = {[\s\S]*\[0\] = 80[\s\S]*\[1\] = 81[\s\S]*\[2\] = 82[\s\S]*}
+p,p hashset02,\(std\.collection.HashSet<Int16>\) \$[\d] = {[\s\S]*\[0\] = 160[\s\S]*\[1\] = 161[\s\S]*\[2\] = 162[\s\S]*}
+p,p hashset03,\(std\.collection.HashSet<Int32>\) \$[\d] = {[\s\S]*\[0\] = 320[\s\S]*\[1\] = 321[\s\S]*\[2\] = 322[\s\S]*}
+p,p hashset04,\(std\.collection.HashSet<Int64>\) \$[\d] = {[\s\S]*\[0\] = 640[\s\S]*\[1\] = 641[\s\S]*\[2\] = 642[\s\S]*}
+globals,globals,hashset01 = {[\s\S]*\[0\] = 80[\s\S]*\[1\] = 81[\s\S]*\[2\] = 82[\s\S]*}
+globals,globals,hashset02 = {[\s\S]*\[0\] = 160[\s\S]*\[1\] = 161[\s\S]*\[2\] = 162[\s\S]*}
+globals,globals,hashset03 = {[\s\S]*\[0\] = 320[\s\S]*\[1\] = 321[\s\S]*\[2\] = 322[\s\S]*}
+globals,globals,hashset04 = {[\s\S]*\[0\] = 640[\s\S]*\[1\] = 641[\s\S]*\[2\] = 642[\s\S]*}
+q,q,

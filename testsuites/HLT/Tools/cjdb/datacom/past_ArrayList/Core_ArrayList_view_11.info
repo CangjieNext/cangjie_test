@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/066_debug_arraylist.cj
+// EXEC: %compiler %cmp_opt -g 066_debug_arraylist.cj -o 066_debug_arraylist%cmp_output
+// RUN-EXEC: python3 cjdb_test.py Core_ArrayList_view_11.info 066_debug_arraylist %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
+b,b 44,066_debug_arraylist.cj:44
+AOT r,r,-> 44
+CJVM c,c,-> 44
+AOT p,p d,\(std\.collection.ArrayList<std.collection.HashSet<Float64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1\.1000000000000001[\s\S]*\[1\] = 2\.2000000000000002[\s\S]*\[2\] = 3\.2999999999999998[\s\S]*}[\s\S]*}
+CJVM p,p d,\(std\.collection.ArrayList<std.collection.HashSet<Float64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1\.100000[\s\S]*\[1\] = 2\.200000[\s\S]*\[2\] = 3\.300000[\s\S]*}[\s\S]*}
+AOT locals,locals,d = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1\.1000000000000001[\s\S]*\[1\] = 2\.2000000000000002[\s\S]*\[2\] = 3\.2999999999999998[\s\S]*}[\s\S]*}
+CJVM locals,locals,d = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1\.100000[\s\S]*\[1\] = 2\.200000[\s\S]*\[2\] = 3\.300000[\s\S]*}[\s\S]*}
+q,q,

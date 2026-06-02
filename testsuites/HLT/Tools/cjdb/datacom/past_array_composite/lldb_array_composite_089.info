@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/014_debug_array_record_class_fun.cj
+// EXEC: %compiler %cmp_opt -g 014_debug_array_record_class_fun.cj -o 014_debug_array_record_class_fun%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_array_composite_089.info 014_debug_array_record_class_fun %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 014_debug_array_record_class_fun,014_debug_array_record_class_fun
+b,b 33,014_debug_array_record_class_fun.cj:33
+AOT r,r,-> 33
+CJVM c,c,
+locals,locals,a = 200
+print,print arr1,std[.]core.Array<Int32>\) \$[\d] = {(\r\n|\r|\n)  \[0\] = 200(\r\n|\r|\n)  \[1\] = 20(\r\n|\r|\n)  \[2\] = 30(\r\n|\r|\n)}
+q,q,

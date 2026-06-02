@@ -1,0 +1,12 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025-2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// EXEC: %cjprof report -h 2>&1 | compare %f
+// ASSERT: scan Usage: cjprof report [<options>]
+// ASSERT: scan -F, --flame-graph     generate flame graph
+// ASSERT: scan -h, --help            show this help message
+// ASSERT: scan -i, --input <file>    input file name, default to 'cjprof.data'
+// ASSERT: scan -o, --output <file>   output file name, only used for flame graph, default to 'FlameGraph.svg'

@@ -1,0 +1,90 @@
+error: unexpected exponent part 'e__' in binary
+  ==> case1.cj:14:14:
+   | 
+14 |     var a = 0b11e1
+   |             ~~  ^ unexpected exponent part
+   |             |
+   |             because of this binary prefix
+   | 
+   # note: only decimal or hexadecimal number can support exponent part
+
+error: unexpected exponent part 'e__' in octal
+  ==> case1.cj:15:14:
+   | 
+15 |     var b = 0o11e.12
+   |             ~~  ^ unexpected exponent part
+   |             |
+   |             because of this octal prefix
+   | 
+   # note: only decimal or hexadecimal number can support exponent part
+
+error: unknown suffix '.' for number literal
+  ==> case1.cj:16:19:
+   | 
+16 |     var c = 0x11.23p2.
+   |                      ^ unknown suffix '.'
+   | 
+
+error: unexpected digit 'd' in decimal
+  ==> case1.cj:17:11:
+   | 
+17 |     var d = 0d.e1
+   |             ~^ unexpected digit
+   |             |
+   |             because the default base is decimal
+   | 
+   # note: decimal may only contain digit within 0~9
+
+error: unexpected digit 'd' in decimal
+  ==> case1.cj:18:11:
+   | 
+18 |     var e = 0d.p1
+   |             ~^ unexpected digit
+   |             |
+   |             because the default base is decimal
+   | 
+   # note: decimal may only contain digit within 0~9
+
+error: unexpected exponent part 'p__' in decimal
+  ==> case1.cj:21:13:
+   | 
+21 |     var h = 0.1p2
+   |             ~~~^ unexpected exponent part
+   |             |
+   |             because the default base is decimal
+   | 
+help: could try to modify it to decimal exponent type:
+   | 
+21 |     var h = 0.1e2
+   |                ~ 
+   | 
+
+error: unexpected exponent part 'p__' in decimal
+  ==> case1.cj:22:12:
+   | 
+22 |     var a = .1p2
+   |             ~~^ unexpected exponent part
+   |             |
+   |             because the default base is decimal
+   | 
+help: could try to modify it to decimal exponent type:
+   | 
+22 |     var a = .1e2
+   |               ~ 
+   | 
+
+error: unexpected exponent part 'p__' in decimal
+  ==> case1.cj:23:11:
+   | 
+23 |     var a = 1p2
+   |             ~^ unexpected exponent part
+   |             |
+   |             because the default base is decimal
+   | 
+help: could try to modify it to decimal exponent type:
+   | 
+23 |     var a = 1e2
+   |              ~ 
+   | 
+
+8 errors generated, 8 errors printed.

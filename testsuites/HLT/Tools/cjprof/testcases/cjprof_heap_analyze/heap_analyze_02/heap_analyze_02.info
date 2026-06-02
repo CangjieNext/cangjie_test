@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../../script/cjprof_heap.py  ../../../sourcecode/test.cj ./heap_analyze_02.py
+// EXEC: %compiler %cmp_opt test.cj -o test%cmp_output
+// EXEC: cjprof record ./test -o heap.data
+// EXEC-2: %python heap_analyze_02.py binarytrees_heap_analyze_02%cmp_output %run_env

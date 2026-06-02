@@ -1,0 +1,40 @@
+error: expected '`', found 'new line character'
+  ==> case2.cj:13:8:
+   | 
+13 |     `va___
+   |     ~     ^ expected '`'
+   |     |
+   |     to match this opening backquote
+   | 
+
+error: expected identifier, found '1'
+  ==> case2.cj:14:3:
+   | 
+14 |     `123
+   |      ^ expected identifier
+   | 
+
+error: expected identifier, found '\u{0000}'
+  ==> case2.cj:15:3:
+   | 
+15 |     `\u{0000}`
+   |      ^^^^^^^^ expected identifier
+   | 
+
+error: expected '`', found '\u{0000}'
+  ==> case2.cj:16:6:
+   | 
+16 |     `var\u{0000}`
+   |     ~   ^^^^^^^^ expected '`'
+   |     |
+   |     to match this opening backquote
+   | 
+
+error: expected identifier, found '$'
+  ==> case2.cj:17:3:
+   | 
+17 |     `$sd`
+   |      ^ expected identifier
+   | 
+
+5 errors generated, 5 errors printed.

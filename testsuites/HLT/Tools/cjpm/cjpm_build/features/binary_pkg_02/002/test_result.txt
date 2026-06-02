@@ -1,0 +1,3 @@
+// ASSERT: regex Error: can not find path '.*pro1/target/pro1.*' which is listed in '.*bin-dependencies' field at .[\|\\/]cjpm.toml
+// ASSERT: regex Error: can not find '.[\|\\/]./pro1/target/pro1/aoo.cjo' which is listed in '.*bin-dependencies' field at .[\|\\/]cjpm.toml
+// ASSERT: scan Error: cjpm test failed

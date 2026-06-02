@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/Array/Packages/src
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/array_external.cj -o libpkg1.%middle
+// EXEC: %compiler %cmp_opt -g libpkg1.%middle src/array_external_use.cj -o array_external_use%cmp_output
+// RUN-EXEC: python3 cjdb_test.py  lldb_array_composite_082.info array_external_use %run_env
+
+
+
+test#
+cjdb,cjdb --no-use-colors array_external_use,array_external_use
+b,b 19,array_external_use.cj:19
+AOT r,r,-> 19
+CJVM c,c,
+n,n,-> 21
+print,print arraymainrec02,std[.]core.Array<Int8>\) \$[\d] = {(\r\n|\r|\n)  \[0\] = 1(\r\n|\r|\n)  \[1\] = 2(\r\n|\r|\n)  \[2\] = 3(\r\n|\r|\n)}
+q,q,

@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/005_debug_class_generics.cj
+// EXEC: %compiler %cmp_opt -g 005_debug_class_generics.cj -o 005_debug_class_generics%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_generics_class_010.info 005_debug_class_generics %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
+b,b 137,005_debug_class_generics.cj:137
+AOT r,r,-> 137
+CJVM c,c,
+n,n,-> 139
+AOT print,print *mc_7.width,error: unsupported expression
+CJVM print,print *mc_7.width,error: variable was not declared in this scope
+AOT print,print *mc_7.length,error: unsupported expression
+CJVM print,print *mc_7.length,error: variable was not declared in this scope
+q,q,

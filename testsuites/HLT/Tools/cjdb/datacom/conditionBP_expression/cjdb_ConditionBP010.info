@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func010.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func010.cj -o generics_global_func010%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP010.info generics_global_func010 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_global_func010,generics_global_func010
+breakpoint,breakpoint set -l 41 -c "9==9",generics_global_func010.cj:41
+AOT r,r,-> 41
+CJVM c,c,
+locals,locals,\(default.RGBColor\) red = {(\r|\n|\r\n)  constructor = Red
+expr,expr rf3,\(default.RGBColor2<Bool>\) \$[\d] = {(\r|\n|\r\n)  constructor = Green[\s\S]*arg_1 = true[\s\S]*}
+expr,expr rf5,\(default.RGBColor3<Float64,Int64>\) \$[\d] = {(\r|\n|\r\n)  constructor = Green[\s\S]*arg_1 = 1.1[\s\S]*arg_2 = 2[\s\S]*}
+expr~expr foo<RGBColor>(RGBColor.Red)~\(default.RGBColor\) \$[\d] = {(\r|\n|\r\n)  constructor = Red
+expr~expr foo(Blue(4))~error: unsupported expression
+q,q,

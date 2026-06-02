@@ -1,0 +1,5 @@
+// ASSERT: scan incremental compilation triggered
+// ASSERT: scan changed decls to recompile: 2
+// ASSERT: scan the changed decl after Spreading is:a in file LF_2_Incr.old.cj in line 3 in column 14
+// ASSERT: scan the changed decl after Spreading is:main in file LF_2_Incr.cj in line 19 in column 1
+// ASSERT: scan [ConstPropagation] The Load at [LF_2_Incr.cj,20,5] has been rewrited to a constant

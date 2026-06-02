@@ -1,0 +1,51 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC-PIPE-1: %run %run_opt %output %run_utest_opt %run_args 2>&1 | compare %f
+// ASSERT: scan CASE: caseA01
+// ASSERT: scan CASE: caseB01
+// ASSERT: scan TestCase_case02
+// ASSERT: regex .*FAILED.*: 1
+
+import std.argopt.*
+import std.unittest.*
+import std.unittest.testmacro.*
+
+func getArr(a: Int16, b: Int16, c: Int16): Array<Int16> {
+    var arr: Array<Int16> = [a, b, c]
+    return arr
+}
+
+@Test
+class TestA {
+    @TestCase
+    func caseA01(): Unit {
+        var args1: Array<Int16> = [1, 2, 3]
+        @Expect(getArr(1, 2, 3), args1)
+    }
+}
+
+@Test
+class TestB {
+    @TestCase
+    func caseB01(): Unit {
+        var args1: Array<Int16> = [1, 2, 3]
+        @Expect(getArr(4, 5, 6), args1)
+    }
+}
+
+@Test
+func case02(): Unit {
+    @TestCase
+    func case02(): Unit {
+        var args1: Array<Int16> = [7, 8, 9]
+        @Expect(getArr(7, 8, 9), args1)
+    }
+}

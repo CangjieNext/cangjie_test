@@ -1,0 +1,28 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_generic_enum_this.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_generic_enum_this.cj -o debuginfo_generic_enum_this
+// EXEC: python3 cjdb_test.py debuginfo_generic_enum_this.info
+
+
+test#
+cjdb,cjdb debuginfo_generic_enum_this,debuginfo_generic_enum_this
+b,b 11,debuginfo_generic_enum_this.cj:11
+r,r,-> 11
+p,p this,\(default.E1<Int64>\) \$\d+ = default
+b,b 13,debuginfo_generic_enum_this.cj:13
+b,b 14,debuginfo_generic_enum_this.cj:14
+c,c,-> 13
+n,n,-> 16
+b,b 23,debuginfo_generic_enum_this.cj:23
+c,c,-> 23
+p,p this,\(default.E2<Int64>\) \$\d+ = {\s+constructor = EEE\s+arg_1 = 111
+b,b 25,debuginfo_generic_enum_this.cj:25
+b,b 26,debuginfo_generic_enum_this.cj:26
+c,c,-> 26
+n,n,-> 28
+q,q,

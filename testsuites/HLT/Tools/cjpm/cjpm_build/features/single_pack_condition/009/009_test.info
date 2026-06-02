@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ../009
+
+
+// (native_compilation)EXEC: %cp 009/test_result.txt .
+// (native_compilation)EXEC-PIPE-1: cd 009 && %cjpm test %cjpm_opt -V --cfg1  2>&1 | compare %f
+// ASSERT: scan Error: can not find the customized key 'cfg1' in all cjpm.toml
+// ASSERT: regex Error: please execute 'cjpm(.exe)? build -i --cfg1' successfully first
+// ASSERT: scan Error: cjpm test failed

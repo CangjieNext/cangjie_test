@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_generic_struct_display_04.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_generic_struct_display_04.cj -o debuginfo_generic_struct_display_04
+// EXEC: python3 cjdb_test.py debuginfo_generic_struct_display_04.info
+
+
+test#
+cjdb,cjdb debuginfo_generic_struct_display_04,debuginfo_generic_struct_display_04
+b,b 11,debuginfo_generic_struct_display_04.cj:11
+r,r,-> 11
+p,p a,\(default.E1<Int64>\) \$\d+ = A
+p,p b,\(default.E1<Int32>\) \$\d+ = {\s+constructor = B\s+arg_1 = 6\s+}
+p,p e,\(default.E1<Int64>\) \$\d+ = {\s+constructor = B\s+arg_1 = 50\s+}
+q,q,

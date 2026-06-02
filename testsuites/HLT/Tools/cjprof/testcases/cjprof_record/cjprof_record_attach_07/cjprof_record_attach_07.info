@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE:  ../../../script ../../../expect ../../../sourcecode/cjprof_binarytrees.cj ../cjprof_record_attach_07
+// EXEC: %compiler %cmp_opt cjprof_binarytrees.cj -o binarytrees_record_attach_07%cmp_output
+// EXEC: %python script/cjprof_record.py -i binarytrees_record_attach_07%cmp_output --freq 2000 --pid True %run_env
+// EXEC: %python script/cjprof_report.py --input cjprof.data
+// EXEC: %python script/cjprof_test.py

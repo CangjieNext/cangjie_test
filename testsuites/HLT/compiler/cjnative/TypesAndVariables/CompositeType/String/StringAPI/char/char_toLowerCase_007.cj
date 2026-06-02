@@ -1,0 +1,56 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+import std.unicode.*
+
+main(): Int64 {
+    var ch1 = r'\u{0001}'
+    var ch2 = r'\u{ffff}'
+
+    if (ch1.toLowerCase() != r'\u{0001}') {
+        return 1
+    }
+
+    if (ch2.toLowerCase() != r'\u{ffff}') {
+        return 1
+    }
+
+    var ch3 = r'\0'
+    let ch4: Rune = r'\\'
+    let ch5: Rune = r'\''
+
+    if (ch3.toLowerCase() != r'\0') {
+        return 1
+    }
+
+    if (ch4.toLowerCase() != r'\\') {
+        return 1
+    }
+
+    if (ch5.toLowerCase() != r'\'') {
+        return 1
+    }
+
+    if (r'\"'.toLowerCase() != r'\"') {
+        return 1
+    }
+
+    if (r'\b'.toLowerCase() != r'\b') {
+        return 1
+    }
+
+    if (r'\t'.toLowerCase() != r'\t') {
+        return 1
+    }
+
+    return 0
+}

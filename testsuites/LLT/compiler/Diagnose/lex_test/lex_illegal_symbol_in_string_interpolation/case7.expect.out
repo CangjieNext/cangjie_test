@@ -1,0 +1,11 @@
+error: unterminated block comment
+  ==> case7.cj:15:19:
+   | 
+15 |       cangjie ${ 1 + 2 /*}
+   |  ______________________^
+16 | | """
+17 | | }
+   | |__^ unterminated block comment
+   | 
+
+1 error generated, 1 error printed.

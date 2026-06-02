@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC: mkdir test
+// EXEC: echo "main(){0}" > test/test.c
+// EXEC: echo "main(){0}" > test/test.cj
+// EXEC: cp -r test test_origin
+// EXEC: %cjfmt -d test
+// EXEC: %diff test_origin/test.c test/test.c
+// EXEC-1: %diff test_origin/test.cj test/test.cj

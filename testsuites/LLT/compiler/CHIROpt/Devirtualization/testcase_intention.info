@@ -1,0 +1,157 @@
+-- This is a file to record testing intention of de-virtualization testcase
+
+# exactly_object.cj
+-- create an object, and know its type exactly, even though this invoke function is a open function,
+   which is under multiple level inheritance
+-- positive testcase
+ 
+# exactly_object_with_let.cj
+-- know an object type exactly, and assign it to `let` variable, under single level inheritance
+-- positive testcase
+
+# exactly_object_with_var.cj
+-- know an object type exactly, and assign it to `var` variable, under single level inheritance
+-- positive testcase
+
+# exactly_object_comparison.cj
+-- single level inheritance, create father object and child object both to make a comparison, both of
+   them can be de-virtualized
+-- positive testcase
+
+# if_assign.cj
+-- assign different object in every if branch, but share a same common father type, to see if it can be de-virtualized
+-- positive testcase
+
+# while_no_assignment.cj
+-- variable invoke call in while block, but don't have assignment in while, so it can be de-virtualized
+-- positive testcase
+
+# check_return_type.cj
+-- de-virtualized invoke node with return object of a function call, it need check function return type extraordinarily 
+   in chir side to get more detailed return type, it will cause extra overhead on compilation time in order to support 
+   this special test case, not sure if we need to support this feature.
+-- positive testcase
+-- can be deleted probably
+
+# exactly_object_with_abstract_class.cj
+-- create child object with exactly type, with the father abstract class
+-- positive testcase
+
+# abstract_class_object.cj
+-- create abstract object, which inherits from a interface, and assign to variable of this interface type, this object
+   should be exact as well
+-- positive testcase
+
+# interface_inherited_object.cj
+-- create a class object inheriting an interface, but not override function in it, which is multiple level inheritance
+-- positive testcase
+
+# multiple_level_inheritace_comparison.cj
+-- create exact father and child object both, and assign to same father class type, can be de-virtualized both
+-- positive testcase
+
+# assign_to_abstract_class.cj
+-- create exact father and child object both, and assign to same father abstract class type, can be de-virtualized both
+-- positive testcase
+
+# subclass_of_cannot_devirtualize.cj
+-- only know the subclass of abstract class, and invoked function has overridden function, cannot be de-virtualized
+-- negative testcase
+
+# subclass_of_class_in_field.cj
+-- a class type is one field of a class, can only know subclass of this class type
+-- negative testcase
+
+# subclass_of_in_return_of_match.cj
+-- match returns a object, which shares a common father type, can only know it is subclass of this father type
+-- negative testcase
+
+# subclassOf_interface_only_one_overridden.cj
+-- subclass of interface, which only has one overridden function
+-- positive testcase
+
+# subclass_of_one_overridden_in_class.cj
+-- subclass of class, which has one overridden function, cannot be devirtualized
+-- negative testcase
+
+# assign.cj
+-- assignment to change object type of a variable
+-- positive testcase
+
+# uncle_class_effect_to_interface.cj
+-- uncle class with open function can override interface function as well
+-- positive testcase
+
+# uncle_class_nonopen_effect_to_interface.cj
+-- uncle class with non-open function can override interface function as well
+-- positive testcase
+
+# uncle_effect_with_abstract_function.cj
+-- uncle class can override abstract function in interface as well
+-- positive testcase
+
+# uncle_class_effect_2.cj
+-- uncle class effect interface and exact object stores as this interface 
+-- positive testcase
+
+# class_override_interface.cj
+-- only one class overrides interface and makes it being de-virtualized
+-- positive testcase
+
+# class_override_interface_multiple_uncle_level.cj
+-- class with multiple level uncle class overrides a interface
+-- positive testcase
+
+# multiple_inheritors.cj
+-- function in class and interface with multiple inheritors
+-- negative testcase
+
+# multiple_inheritors_2.cj
+-- function in class and interface with multiple inheritors, case 2, more complex than above one
+-- negative testcase
+
+# multiple_inheritors_3.cj
+-- function in class and interface with multiple inheritors, case 3
+-- negative testcase
+
+# interface_with_multiple_inheritors.cj
+-- interface have multiple inheritors, but only one is class
+-- positive testcase
+
+# inherit_same_interface_sema_error.cj
+-- A class inherits same interface and doesn't implement the function should report sema error
+-- negative testcase
+
+# interface_with_only_one_inheritor_class.cj
+-- A interface only has one inheritor class
+-- positive testcase
+
+# class_with_multiple_inheritors.cj
+-- a class with multiple inheritors, cannot be de-virtualized
+-- negative testcase
+
+# extend_test.cj
+-- extend testcase
+-- positive testcase
+
+# abstract_class_single_inheritance.cj
+-- abstract class only has one inheritor
+-- positive testcase
+
+# global_typecast.cj
+-- will be core dump in de-virtualization if typecast a global class
+-- positive testcase
+
+# not_assignment_with_path.cj
+-- not reset state in assignment with path
+-- positive testcase
+
+# generic_import_optimize.cj
+-- test an generic instantiation in current package need to be devirtualized
+-- positive testcase
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

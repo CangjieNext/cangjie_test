@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/any.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug any.cj -o any
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+test#
+cjdb,cjdb any,any
+b,b 19,any.cj:19
+r,r,-> 19
+frame,frame select 1,
+expr,expr 1+1,Int64\) \$\d+ = 2
+frame,frame select 2,
+expr,expr 1+1,Int64\) \$\d+ = 2
+frame,frame select 3,
+expr,expr 1+1,Int64\) \$\d+ = 2
+frame,frame select 4,
+expr,expr 1+1,Int64\) \$\d+ = 2
+q,q,

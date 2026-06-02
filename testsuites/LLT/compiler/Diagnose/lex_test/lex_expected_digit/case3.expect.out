@@ -1,0 +1,25 @@
+error: unexpected digit '2' in binary
+  ==> case3.cj:14:13:
+   | 
+14 |     var a = 0b12p_12
+   |             ~~ ^ unexpected digit
+   |             |
+   |             because of this binary prefix
+   | 
+   # note: binary may only contain digit within 0~1
+
+error: expected decimal digit, found '_'
+  ==> case3.cj:15:15:
+   | 
+15 |     var c = 0x12p_12
+   |                  ^ expected decimal digit
+   | 
+
+error: expected decimal digit, found '_'
+  ==> case3.cj:16:13:
+   | 
+16 |     var d = 12e_12
+   |                ^ expected decimal digit
+   | 
+
+3 errors generated, 3 errors printed.

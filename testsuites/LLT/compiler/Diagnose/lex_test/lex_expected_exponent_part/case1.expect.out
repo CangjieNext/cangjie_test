@@ -1,0 +1,75 @@
+error: expected exponent part in hexadecimal float number '0x12.34'
+  ==> case1.cj:14:17:
+   | 
+14 |     var a = 0x12.34
+   |             ~~~~~~~^ expected exponent part
+   |             |
+   |             because it is hexadecimal float number
+   | 
+
+error: expected hexadecimal digit, found '.'
+  ==> case1.cj:16:12:
+   | 
+16 |     var a = 0x.
+   |               ^ expected hexadecimal digit
+   | 
+
+error: unexpected decimal point '.' in octal base number
+  ==> case1.cj:17:14:
+   | 
+17 |     var a = 0o12.31
+   |             ~~  ^ unexpected decimal point
+   |             |
+   |             because of this octal prefix
+   | 
+   # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+   | 
+17 |     var a =  12.31
+   |             ~ 
+   | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+   | 
+17 |     var a = 0x12.31
+   |             ~~ 
+   | 
+
+error: unexpected decimal point '.' in binary base number
+  ==> case1.cj:18:14:
+   | 
+18 |         var a = 0b1.1
+   |                 ~~ ^ unexpected decimal point
+   |                 |
+   |                 because of this binary prefix
+   | 
+   # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+   | 
+18 |         var a =  1.1
+   |                 ~ 
+   | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+   | 
+18 |         var a = 0x1.1
+   |                 ~~ 
+   | 
+
+error: expected exponent part in hexadecimal float number '0x12.3'
+  ==> case1.cj:19:15:
+   | 
+19 | var a = 0x12.3.4.5
+   |         ~~~~~~^ expected exponent part
+   |         |
+   |         because it is hexadecimal float number
+   | 
+
+error: expected exponent part in hexadecimal float number '0x.12'
+  ==> case1.cj:20:15:
+   | 
+20 |     var a = 0x.12
+   |             ~~~~~^ expected exponent part
+   |             |
+   |             because it is hexadecimal float number
+   | 
+
+6 errors generated, 6 errors printed.

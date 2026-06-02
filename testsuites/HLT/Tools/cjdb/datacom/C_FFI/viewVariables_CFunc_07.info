@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/C_FFI.c   ../../basecase/CFFI/C_FFI.cj
+// EXEC: %clang -g %clang_opt C_FFI.c -o %cffi_output
+// EXEC: %compiler -g -L. -l%n C_FFI.cj -o %n%cmp_output
+// RUN-EXEC: python3 cjdb_test.py viewVariables_CFunc_07.info viewVariables_CFunc_07 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors viewVariables_CFunc_07,viewVariables_CFunc_07
+b,b 84,C_FFI.cj:84
+AOT r,r,-> 84
+CJVM c,c,
+p,p CF_D,\(pkg_cffi.\(\)->Float64\) \$[\d] = 0x.*\(libviewVariables_CFunc_07.(so|dll|dylib)\`doubleFromC at C_FFI.c:117\)
+q,q,

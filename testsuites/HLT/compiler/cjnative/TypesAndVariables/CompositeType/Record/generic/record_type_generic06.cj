@@ -1,0 +1,47 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+main(): Int64 {
+    return run()
+}
+
+class Foo<T> {
+    public var data: T
+    public init(data1: T) {
+        data = data1
+    }
+}
+
+struct Data {
+    public var width: Int32 = 1
+    public var length: Int32 = 2
+    public init(width1: Int32, length1: Int32) {
+        width = width1
+        length = length1
+    }
+    public func area(): Int32 {
+        return width * length
+    }
+}
+
+func run(): Int64 {
+    var res: Int32
+    var a: Int32 = 3
+    var b: Int32 = 4
+    let data: Data = Data(a, b)
+    var foo: Foo<Data> = Foo<Data>(data)
+    res = foo.data.area()
+    if (res == 12) {
+        return 0
+    }
+    return 1
+}

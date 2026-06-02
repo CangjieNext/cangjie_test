@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/052_debug_record_generics.cj
+// EXEC: %compiler %cmp_opt -g 052_debug_record_generics.cj -o 052_debug_record_generics%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_generics_record_017.info 052_debug_record_generics %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 052_debug_record_generics,052_debug_record_generics
+b,b 119,052_debug_record_generics.cj:119
+AOT r,r,-> 119
+CJVM c,c,
+n,n,-> 121
+locals,locals,R4<Int8,Int8,Int8,Int16,Int16,Int32,Int32,Int64,Int64,Unit>\) r11 = {[\S\s]*num1 = 1[\S\s]*num2 = 2[\S\s]*num3 = 3[\S\s]*num4 = 4[\S\s]*num5 = 5[\S\s]*num6 = 6[\S\s]*num7 = 7[\S\s]*num8 = 8[\S\s]*num9 = 9[\S\s]*num10 = \(\)[\S\s]*}
+q,q,

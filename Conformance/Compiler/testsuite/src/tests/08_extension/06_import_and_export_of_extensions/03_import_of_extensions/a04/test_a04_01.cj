@@ -1,0 +1,64 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+/*
+  @Name:            08_06_03_a04_01
+
+  @Level:         1
+
+  @Assertion:       8.6.3(4) 
+                    package pkg1
+                    public class Foo {}
+
+                    ///////
+
+                    package pkg2
+                    import pkg1.Foo
+
+                    public interface I1 {
+                        func f(): Unit {}
+                    }
+
+                    extend Foo <: I1 {} // ok, external
+
+                    ///////
+
+                    package pkg3
+                    import pkg1.Foo
+
+                    public interface I2 {
+                        func f(): Unit {}
+                    }
+
+                    extend Foo <: I2 {} // ok, external
+
+                    ///////
+                    
+                    package pkg4
+                    import pkg1.Foo
+                    import pkg2.I1 // error
+                    import pkg3.I2 // error
+
+  @Description:     Positive example from spec.
+
+  @Mode:            compileonly
+
+  @Negative:        no
+
+  @Structure:       complex-main
+
+  @Dependencies:    aux_test_a04_01.cj
+
+*/
+
+package pkg4
+
+import pkg1.AuxTestA0401
+
+main() {
+}

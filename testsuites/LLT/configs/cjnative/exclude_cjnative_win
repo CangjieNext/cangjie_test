@@ -1,0 +1,48 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Windows 非管理员权限不支持软链接
+compiler/Driver/cangjie_home/test_no_cangjie_home.cj
+compiler/Driver/options/input/bc/test_bc_invalid_real_path.cj
+compiler/Driver/options/input/cj/test_cj_invalid_real_path.cj
+compiler/Driver/options/input/o/test_o_invalid_real_path.cj
+compiler/Driver/options/verbose/test_changed_cjc_filaname.cj
+compiler/Driver/options/input/cjo/test_cjo_invalid_real_path.cj
+compiler/Driver/options/input/a/test_a_invalid_real_path.cj
+
+# Windows文件名不能包含引号(")等特殊字符
+compiler/Driver/filenames/ab.cj
+
+# 涉及文件读写权限
+compiler/Driver/options/input/a/test_a_no_permission.cj
+compiler/Driver/options/input/bc/test_bc_no_permission.cj
+
+# Windows 不依靠 LD_LIBRARY_PATH
+compiler/Driver/LD_LIBRARY_PATH/test_unset.cj
+
+# Windows下ld不支持-z，不适用ELF格式
+compiler/Driver/safe_compile/bind_now.cj
+compiler/Driver/safe_compile/got.cj
+compiler/Driver/safe_compile/nx.cj
+compiler/Driver/safe_compile/pie.cj
+
+# MinGW 无 crtBeginS/crtEndS.o
+compiler/Driver/toolchain/crtbeginS.cj
+compiler/Driver/toolchain/crtendS.cj
+
+# Windows 不支持一些os接口
+compiler/Driver/options/obfuscation/test_config/test_no_permission.cj
+
+# cjc for Windows does not support PGO
+compiler/Driver/options/pgo/test_pgo_instr_gen.cj
+compiler/Driver/options/pgo/test_pgo_instr_use.cj
+compiler/Driver/options/occurance_warning_tests/--pgo-instr-use.cj
+
+# windows平台不支持LTO
+compiler/Driver/options/obfuscation/test_level/test_lto_lld_paramet.cj
+
+# ffi-python只支持linux
+compiler/FFI/ffi_python

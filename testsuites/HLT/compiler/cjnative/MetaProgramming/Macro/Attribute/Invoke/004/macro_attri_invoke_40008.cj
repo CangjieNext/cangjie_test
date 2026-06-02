@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  test.cj  test.conf
+// EXEC: %compiler %cmp_macro test.cj
+// EXEC: %run_macro %compiler %cmp_opt  %f -o %output
+// RUN-EXEC: %run %run_opt %output  %run_macro_opt %run_args
+
+import test.*
+
+main() {
+    @M[-0o7](-0o7)
+    @M[-0O6](-0O6)
+    @M[0o5](0o5)
+    @M[-0o4_](-0o4_)
+    @M[-0o3_2](-0o3_2)
+    @M[-0o1__1](-0o1__1)
+    @M[-0o3456](-0o3456)
+    @M[-0o1_2_3_4_](-0o1_2_3_4_)
+    @M[+0o123](+0o123)
+    @M[--0o0](--0o0)
+    return 0
+}

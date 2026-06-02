@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC: %compiler %cmp_opt -o %output %f
+// RUN-EXEC: %run %run_opt %output %run_args
+
+import std.io.*
+import std.fs.*
+
+main() {
+    var arr: Array<Byte> = Array<Byte>(9000, {i => UInt8(i % 256)})
+    var inputStream = ByteBuffer()
+    var inputStream1 = File("init_06.txt", ReadWrite)
+    inputStream.write(arr.slice(0, 4000).toArray())
+    inputStream1.write(arr.slice(4000, 5000).toArray())
+    inputStream1.seek(Begin(0))
+    var chainedInputStream = ChainedInputStream([inputStream, inputStream1])
+    var outputStream = ByteBuffer()
+    var tempBuf = Array<Byte>(1024, repeat: 0)
+    while (true) {
+        var readNums = chainedInputStream.read(tempBuf)
+        if (readNums == 0) {
+            break
+        }
+        outputStream.write(tempBuf.slice(0, readNums).toArray())
+    }
+    var dataArray = readToEnd(outputStream)
+    if (arr != dataArray) {
+        return 1
+    }
+    return 0
+}

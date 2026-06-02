@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ./src ../config
+// EXEC-PIPE: %lint -f ./src -c ./ -m %cangjieDir 2>&1 | compare %f
+// ASSERT: regex :9:.*warning.*?G.VAR.03: Avoid declaring global variable 'a1'.
+// ASSERT: regex :10:.*warning.*?G.VAR.03: Avoid declaring global variable 'a2'.
+// ASSERT: regex :11:.*warning.*?G.VAR.03: Avoid declaring global variable 'a3'.
+// ASSERT: regex :12:.*warning.*?G.VAR.03: Avoid declaring global variable 'a4'.
+// ASSERT: regex :13:.*warning.*?G.VAR.03: Avoid declaring global variable 'a5'.

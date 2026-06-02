@@ -1,0 +1,33 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-1: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop %enable_java_cjmapping --output-javagen-dir=src/java/cj
+
+/* SCAN-IN
+error: return type 'Struct-Vector' of function inside @JavaImpl class is not supported
+  ==> src/cj/A.cj:11:48:
+   |
+11 |     public func getVector(x: Int32, y: Int32): Vector {
+   |                                                ^^^^^^
+   |
+
+error: return type 'Struct-Vector' of function inside @JavaImpl class is not supported
+  ==> src/cj/A.cj:16:40:
+   |
+16 |     public func echoVector(v: Vector): Vector {
+   |                                        ^^^^^^
+   |
+
+error: argument type of java-mirrored function must be of @JavaMirror type
+  ==> src/cj/A.cj:16:28:
+   |
+16 |     public func echoVector(v: Vector): Vector {
+   |                            ^^^^^^^^^
+   |
+
+3 errors generated, 3 errors printed.
+*/

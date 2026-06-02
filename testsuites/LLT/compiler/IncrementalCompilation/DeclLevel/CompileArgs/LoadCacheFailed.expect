@@ -1,0 +1,1 @@
+// ASSERT: scan load cached info failed, roll back to full compilation

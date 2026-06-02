@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/b_main/b_main_001.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g b_main_001.cj -o b_main_001%cmp_output
+// (not MAC and not Windows) EXEC: target_pwd=`realpath b_main_001`;sed -i "s;n,n,b_main_001;n,n,${target_pwd};g" b_main_case_011.info
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py b_main_case_011.info b_main_001 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors b_main_001,b_main_001
+b,b main,Breakpoint 1: where[\s\S]*b_main_001.cj:10
+AOT r,r,-> 10
+CJVM c,c,-> 10
+n,n,-> 13
+q,quit,

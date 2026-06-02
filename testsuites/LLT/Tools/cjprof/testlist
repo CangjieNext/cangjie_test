@@ -1,0 +1,17 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025-2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[ALL-TEST-CASE]
+CJNATIVE/
+
+[EXCLUDE-TEST-CASE]
+# 热点函数数据采集依赖系统perf权限，当前CI机器不具备此权限，相关用例先屏蔽，本地测试时手动打开
+CJNATIVE/record/output_03.info
+CJNATIVE/record/record_01.info
+CJNATIVE/report/flamegraph_01.info
+CJNATIVE/report/input_01.info
+CJNATIVE/report/output_01.info
+CJNATIVE/report/report_01.info

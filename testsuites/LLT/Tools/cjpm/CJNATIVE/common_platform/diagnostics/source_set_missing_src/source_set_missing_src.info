@@ -1,0 +1,11 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-PIPE-1: cd %n && %cjpm check 2>&1 | compare %f
+
+// ASSERT: regex Error at `cjpm.toml:source-set.0`: directory '[\s\S][\s\S]*[/|\\]linux' does not exist or path is too long
+// ASSERT: regex Error at `cjpm.toml:source-set.1`: directory '[\s\S][\s\S]*[/|\\]windows' does not exist or path is too long

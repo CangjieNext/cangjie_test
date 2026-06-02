@@ -1,0 +1,2 @@
+// ASSERT: regex Error: please execute 'cjpm(.exe)? build -i --cfg1 --cfg6' successfully first
+// ASSERT: scan Error: cjpm test failed

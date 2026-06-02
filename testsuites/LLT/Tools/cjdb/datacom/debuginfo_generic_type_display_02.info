@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_generic_type_display_02.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_generic_type_display_02.cj -o debuginfo_generic_type_display_02
+// EXEC: python3 cjdb_test.py debuginfo_generic_type_display_02.info
+
+
+test#
+cjdb,cjdb debuginfo_generic_type_display_02,debuginfo_generic_type_display_02
+b,b 10,where = debuginfo_generic_type_display_02`default::A<T,T2>::init\(T2, T\)
+b,b 14,where = debuginfo_generic_type_display_02`default::A<T,T2>::goo<U>\(Int64\)
+b,b 16,where = debuginfo_generic_type_display_02`default::A<T,T2>::goo<U>::goo2<K1,K2>\(\)
+b,b 24,where = debuginfo_generic_type_display_02`default::foo1<T1>\(\)
+b,b 25,where = debuginfo_generic_type_display_02`default::foo1<T1>::foo2<T2,T4>\(\)
+b,b 26,where = debuginfo_generic_type_display_02`default::foo1<T1>::foo2<T2,T4>::foo3<T3>\(\)
+b,b 36,where = debuginfo_generic_type_display_02`default::f1<T1,T2>\(T1, T2\)
+q,q,

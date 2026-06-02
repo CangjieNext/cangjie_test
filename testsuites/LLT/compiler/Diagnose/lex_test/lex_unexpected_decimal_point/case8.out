@@ -1,0 +1,41 @@
+error: unexpected decimal point '.' in octal base number
+ ==> lex_unexpected_decimal_point.cj:6:18:
+  | 
+6 |    var a = 0o1237.12p3
+  |            ~~    ^ unexpected decimal point
+  |            |
+  |            because of this octal prefix
+  | 
+  # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+  | 
+6 |    var a =  1237.12p3
+  |            ~ 
+  | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+  | 
+6 |    var a = 0x1237.12p3
+  |            ~~ 
+  | 
+
+error: unexpected decimal point '.' in binary base number
+ ==> lex_unexpected_decimal_point.cj:7:15:
+  | 
+7 |     var b = 0b.2
+  |             ~~^ unexpected decimal point
+  |             |
+  |             because of this binary prefix
+  | 
+  # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+  | 
+7 |     var b =  .2
+  |             ~ 
+  | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+  | 
+7 |     var b = 0x.2
+  |             ~~ 
+  | 
+
+2 errors generated, 2 errors printed.

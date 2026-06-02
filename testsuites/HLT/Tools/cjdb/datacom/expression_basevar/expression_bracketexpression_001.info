@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_0o.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_bracketexpression_001.info 057_debug_0o %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 057_debug_0o,057_debug_0o
+CJVM b,b main,057_debug_0o.cj:12
+CJVM c,c,-> 12
+b,b 63,057_debug_0o.cj:63
+AOT r,r,-> 63
+expression, expression (1+1)*(var118+var118*(var118-7))-4,\(Int8\) \$[\d] = 28
+expression, expression (1+1)*(var116+var116*(var116-15))-4,\(Int16\) \$[\d] = 60
+expression, expression (1+1)*(var164+var164*(var164-63))-4,\(Int64\) \$[\d] = 252
+expression, expression (1+1)*(var164+var164*-var164)-4,\(Int64\) \$[\d] = -8068
+expression, expression (1+1)*(var164+var164**2)-4,\(Int64\) \$[\d] = 8316
+expression, expression (1.0+1.0)*(varf13+varf13*(-varf13-1.0))-4.0,\(Float32\) \$[\d] = -4.00000191
+expression, expression (1.0+1.0)*(varf13+varf13*(varf13+1.0))-4.0,\(Float32\) \$[\d] = -3.99599791
+expression, expression (1.0+1.0)*(varf14+varf14*(varf14**2.0))-4.0,\(Float64\) \$[\d] = 0.95526200000000116
+q,q,

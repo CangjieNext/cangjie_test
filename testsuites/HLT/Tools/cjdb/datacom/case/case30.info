@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1 
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case30/case30.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g case30.cj -o case30%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py case30.info case30 %run_env
+
+test#
+cjdb,cjdb --no-use-colors case30,case30
+b,b 13,case30.cj:13
+AOT r,r,-> 13
+CJVM c,c,
+AOT expr,expr e,\(std.collection.ArrayList<std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "0"[\s\S]*\[1\] = "1"[\s\S]*}
+AOT expr~expr ArrayList<String>(2,{x:Int64=>x.toString()})~\(std.collection.ArrayList<std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "0"[\s\S]*\[1\] = "1"[\s\S]*}
+q,q,

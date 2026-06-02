@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/enum02.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g enum02.cj -o enum02%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py enum02.info enum02 %run_env
+
+test#
+cjdb,cjdb --no-use-colors enum02,enum02
+b,b 17,enum02.cj:17
+AOT r,r,-> 17
+CJVM c,c,
+p,p a3,\(default.E<Int64>\) \$[\d] = {[\s\S]*constructor = C[\s\S]*arg_1 = 1[\s\S]*}
+expr,expr a1,\(default.E<Int64>\) \$[\d] = {[\s\S]*constructor = A[\s\S]*}
+expr~expr E<Bool>.B~\(default.E<Bool>\) \$[\d] = {[\s\S]*constructor = B[\s\S]*}
+q,q,

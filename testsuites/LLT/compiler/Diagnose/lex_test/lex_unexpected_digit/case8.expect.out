@@ -1,0 +1,21 @@
+error: unexpected digit '9' in octal
+  ==> case8.cj:14:16:
+   | 
+14 |     "cangjie ${0o19.12 012.a} ${0b12}"
+   |                ~~ ^ unexpected digit
+   |                |
+   |                because of this octal prefix
+   | 
+   # note: octal may only contain digit within 0~7
+
+error: unexpected digit '2' in binary
+  ==> case8.cj:14:33:
+   | 
+14 |     "cangjie ${0o19.12 012.a} ${0b12}"
+   |                                 ~~ ^ unexpected digit
+   |                                 |
+   |                                 because of this binary prefix
+   | 
+   # note: binary may only contain digit within 0~1
+
+2 errors generated, 2 errors printed.

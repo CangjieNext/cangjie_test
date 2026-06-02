@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/optionlike.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug optionlike.cj -o optionlike
+// EXEC: python3 cjdb_test.py %n.info
+
+test#
+cjdb,cjdb optionlike,optionlike
+b,b 21,optionlike.cj:21
+r,r,-> 21
+expr,expr zz,\(default.E2\) \$\d+ = {\s+  constructor = B\s+  arg_1 = {\s+    a = "123"\s+    b = 3
+expr,expr glo_cls,\(default.E2\) \$\d+ = {\s+  constructor = B\s+  arg_1 = {\s+    a = "123"\s+    b = 3
+expr,expr E2.B(cls),\(default.E2\) \$\d+ = {\s+  constructor = B\s+  arg_1 = {\s+    a = "123"\s+    b = 3
+expr,expr E2.B(ABC()),\(default.E2\) \$\d+ = {\s+  constructor = B\s+  arg_1 = {\s+    a = "123"\s+    b = 3
+q,q,

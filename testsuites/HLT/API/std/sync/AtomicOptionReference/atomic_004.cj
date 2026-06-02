@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+import std.collection.*
+import std.sync.*
+
+class A {
+    static var a = AtomicInt64(0)
+    var b = 0
+    init() {
+        b = a.fetchAdd(1)
+    }
+}
+
+var a = A()
+
+main(): Int64 {
+    let atomicRef = AtomicOptionReference<A>(Some(a))
+    let arr = ArrayList<Future<Bool>>()
+    let newObj = A()
+    for (_ in 0..10) {
+        arr.add(spawn {
+            atomicRef.compareAndSwap(a, newObj)
+        })
+    }
+    for (i in 0..10) {
+        arr[i].get()
+    }
+    if (A.a.load() == 2 && a.b == 0 && atomicRef.load().getOrThrow().b == 1) {
+        return 0
+    }
+    return 1
+}

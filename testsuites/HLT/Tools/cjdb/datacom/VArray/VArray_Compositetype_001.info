@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_Compositetype.cj
+// EXEC: %compiler %cmp_opt -g VArray_Compositetype.cj -o VArray_Compositetype_001%cmp_output
+// RUN-EXEC: python3 cjdb_test.py VArray_Compositetype_001.info VArray_Compositetype_001 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors VArray_Compositetype_001,VArray_Compositetype_001
+b,b 43,Breakpoint 1: where = VArray_Compositetype_001`default::main[\s\S]*VArray_Compositetype.cj:43
+AOT r,r,-> 43
+CJVM c,c,-> 43
+p,p v1.vInt8[1]=8,\(Int8\) \$[\d] = 8
+p,p v1.vInt16[1]=16,\(Int16\) \$[\d] = 16
+p,p v1.vInt32[1]=32,\(Int32\) \$[\d] = 32
+p,p v1.vInt64[1]=64,\(Int64\) \$[\d] = 64
+p,p v1.vInt64,\(VArray<Int64,\$3>\) \$[\d] = {[\s\S]*\[0\] = -1[\s\S]*\[1\] = 64[\s\S]*\[2\] = -3
+q,q,

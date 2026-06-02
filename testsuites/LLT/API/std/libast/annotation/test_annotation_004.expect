@@ -1,0 +1,31 @@
+FuncParam {
+  -annotations: 0, Annotation {
+    -identifier: Anno
+    -arguments: 0, Argument {
+      -expr: LitConstExpr {
+        -literal: Token {
+          value: "仓颉"
+          kind: STRING_LITERAL
+          pos: 9: 57
+        }
+      }
+    }
+  }
+  -identifier: Token {
+    value: "a"
+    kind: IDENTIFIER
+    pos: 9: 67
+  }
+  -colon: Token {
+    value: ":"
+    kind: COLON
+    pos: 9: 68
+  }
+  -paramType: PrimitiveType {
+    -keyword: Token {
+      value: "Int64"
+      kind: INT64
+      pos: 9: 70
+    }
+  }
+}

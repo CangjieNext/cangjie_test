@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+
+
+
+main(): Int64 {
+    var r : Int32 = 1
+    var b : Int32 = 1
+    func a():Int32{return 1}
+    a() = r 
+    b++ = r 
+    if (true) {1}else{2} = r 
+    match (b) {case _ => 2} = r 
+    () = r 
+    Int8(b) = r 
+    (1,1) = r 
+    return 0
+}
+// ASSERT: scan parse_invalid_left_hand_expr

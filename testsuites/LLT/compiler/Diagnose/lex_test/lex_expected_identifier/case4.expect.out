@@ -1,0 +1,22 @@
+error: expected identifier, found 'new line character'
+  ==> case4.cj:14:3:
+   | 
+14 |     `
+   |      ^ expected identifier
+   | 
+
+error: expected identifier, found 'new line character'
+  ==> case4.cj:15:2:
+   | 
+15 | `
+   |  ^ expected identifier
+   | 
+
+error: expected identifier, found 'new line character'
+  ==> case4.cj:16:3:
+   | 
+16 |     `
+   |      ^ expected identifier
+   | 
+
+3 errors generated, 3 errors printed.

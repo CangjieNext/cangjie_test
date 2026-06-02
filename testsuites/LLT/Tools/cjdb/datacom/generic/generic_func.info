@@ -1,0 +1,24 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/generic/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb generic_func,generic_func
+b,b 9,generic_func.cj:9
+r,r,-> 9
+ ,expr t,\(Int64\) \$\d+ = 1
+ ,c,-> 9
+ ,expr t,\(std.core.String\) \$\d+ = "abc"
+ ,c,-> 9
+ ,expr t,\(Rune\) \$\d+ = 'a'
+ ,c,-> 9
+ ,expr t,\(default.A\) \$\d+ = {\s+a = 123\s+b = 9
+ ,c,-> 9
+ ,expr t,\(default.B\) \$\d+ = {\s+a = 100\s+b = 101
+q,q,

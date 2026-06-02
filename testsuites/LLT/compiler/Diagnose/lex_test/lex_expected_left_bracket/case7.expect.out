@@ -1,0 +1,19 @@
+error: expected '{' in unicode escape, found 'c'
+  ==> case7.cj:15:10:
+   | 
+15 | cangjie\uc"""
+   |        ~~^ expected '{'
+   |        |
+   |        because it is in this Unicode escape
+   | 
+
+error: multi-line string must start with newline character
+  ==> case7.cj:16:4:
+   | 
+16 | """cangjie2\uc"""
+   | ~~~^ expected to start with newline character
+   | |
+   | because it is in multi-line string
+   | 
+
+2 errors generated, 2 errors printed.

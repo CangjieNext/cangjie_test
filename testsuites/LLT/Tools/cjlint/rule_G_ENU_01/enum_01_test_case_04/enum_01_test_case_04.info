@@ -1,0 +1,10 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir 2>&1 | compare %f
+// ASSERT: regex .*test.cj:11:7:.*Enum sugar access 'B' conflict with type name, try to change it
+// ASSERT: regex .*test.cj:19:11:.*'B' redeclared as different kind of symbol

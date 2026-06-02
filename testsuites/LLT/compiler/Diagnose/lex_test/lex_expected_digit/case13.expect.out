@@ -1,0 +1,22 @@
+error: expected hexadecimal digit, found '仓'
+  ==> case13.cj:14:15:
+   | 
+14 |     var a = 0x仓颉
+   |               ^^ expected hexadecimal digit
+   | 
+
+error: expected binary digit, found '∃'
+  ==> case13.cj:15:15:
+   | 
+15 |     var b = 0b∃∄
+   |               ^ expected binary digit
+   | 
+
+error: expected octal digit, found 'л'
+  ==> case13.cj:16:15:
+   | 
+16 |     var c = 0oлюблю
+   |               ^ expected octal digit
+   | 
+
+3 errors generated, 3 errors printed.

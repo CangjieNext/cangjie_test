@@ -1,0 +1,27 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_loop.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_loop.cj -o debuginfo_loop
+// EXEC: python3 cjdb_test.py debuginfo_loop.info
+
+
+test#
+cjdb,cjdb debuginfo_loop,debuginfo_loop
+b,b 8,debuginfo_loop.cj:8
+r,r,-> 8
+p,p counter,error: unsupported expression
+n,n,-> 9
+n,n,-> 10
+locals,locals,\(Int64\) a = 500(\r|\n|\r\n)\(Int64\) counter = 0
+b,b 10,debuginfo_loop.cj:10
+b,b 13,debuginfo_loop.cj:13
+c,c,-> 10
+p,p counter,Int64\) \$[\d]+ = 1
+c,c,-> 10
+p,p counter,Int64\) \$[\d]+ = 2
+c,c,-> 13
+q,q,

@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/015_debug_basetype.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 015_debug_basetype.cj -o 015_debug_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_Variable001.info 015_debug_basetype %run_env
+ 
+ 
+ 
+ 
+test#
+cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
+CJVM b,b main,015_debug_basetype.cj:12
+CJVM c,c,-> 12
+b,b 37,015_debug_basetype.cj:37
+AOT r,r,-> 37
+p, p var1,\(Int8\) \$[\d] = -128
+expression, expression var1,\(Int8\) \$[\d] = -128
+expression, expression var2,\(Int8\) \$[\d] = 127
+expression, expression var3,\(Int64\) \$[\d] = 1
+expression, expression var4,\(Int16\) \$[\d] = 1
+expression, expression var5,\(Int32\) \$[\d] = 1
+expression, expression var6,\(Int64\) \$[\d] = 1
+expression, expression var7,\(UInt8\) \$[\d] = 1
+expression, expression var8,\(UInt16\) \$[\d] = 1
+expression, expression var9,\(UInt32\) \$[\d] = 1
+q,q,

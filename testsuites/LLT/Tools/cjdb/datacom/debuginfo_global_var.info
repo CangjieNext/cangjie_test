@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_global_var.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_global_var.cj -o debuginfo_global_var
+// EXEC: python3 cjdb_test.py debuginfo_global_var.info
+
+
+test#
+cjdb,cjdb debuginfo_global_var,debuginfo_global_var
+b,b 15,debuginfo_global_var.cj:15
+r,r,-> 15
+globals,globals,\(Int64\) default::A<T,T2>::a = 100
+globals,globals,\(Int64\) default::b = 500
+p,p a = 50,\(Int64\) \$\d+ = 50
+globals,globals,\(Int64\) default::A<T,T2>::a = 50
+p,p b = 2,\(Int64\) \$\d+ = 2
+globals,globals,\(Int64\) default::b = 2
+q,q,

@@ -1,0 +1,46 @@
+error: expected '#' or '"' in raw string, found 'new line character'
+  ==> lex_expected_quote_in_raw_string.cj:13:16:
+   | 
+13 |     var a = ###
+   |             ~~~^ expected '#' or '"'
+   |             |
+   |             because it is raw string prefix
+   | 
+
+error: expected '#' or '"' in raw string, found 'new line character'
+  ==> lex_expected_quote_in_raw_string.cj:14:16:
+   | 
+14 |     var b = ###
+   |             ~~~^ expected '#' or '"'
+   |             |
+   |             because it is raw string prefix
+   | 
+
+error: expected '#' or '"' in raw string, found ' '
+  ==> lex_expected_quote_in_raw_string.cj:15:15:
+   | 
+15 |     var c = ## ##
+   |             ~~^ expected '#' or '"'
+   |             |
+   |             because it is raw string prefix
+   | 
+
+error: expected '#' or '"' in raw string, found 'new line character'
+  ==> lex_expected_quote_in_raw_string.cj:15:18:
+   | 
+15 |     var c = ## ##
+   |                ~~^ expected '#' or '"'
+   |                |
+   |                because it is raw string prefix
+   | 
+
+error: unterminated raw string
+  ==> lex_expected_quote_in_raw_string.cj:16:13:
+   | 
+16 |       var d = #"
+   |  _____________^
+17 | | }
+   | |__^ unterminated raw string
+   | 
+
+5 errors generated, 5 errors printed.

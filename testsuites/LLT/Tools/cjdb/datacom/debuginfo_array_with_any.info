@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_array_with_any.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_array_with_any.cj -o debuginfo_array_with_any
+// EXEC: python3 cjdb_test.py debuginfo_array_with_any.info
+
+
+test#
+cjdb,cjdb debuginfo_array_with_any,debuginfo_array_with_any
+b,b 14,debuginfo_array_with_any.cj:14
+r,r,-> 14
+p,p a,\(std.core.Array<std.core.Any>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = 2\s+\[2\] = {\s+\[0\] = 1\s+\[1\] = 2
+p,p b,\(std.core.Array<std.core.Any>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = "hhh"\s+\[2\] = {\s+a = 1
+q,q,

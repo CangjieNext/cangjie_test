@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/068_debug_hashset.cj
+// EXEC: %compiler %cmp_opt -g 068_debug_hashset.cj -o 068_debug_hashset%cmp_output
+// RUN-EXEC: python3 cjdb_test.py Core_HashSet_view_02.info 068_debug_hashset %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 068_debug_hashset,068_debug_hashset
+b,b 29,068_debug_hashset.cj:29
+AOT r,r,-> 29
+CJVM c,c,-> 29
+AOT p,p a,\(std\.collection.HashSet<Float64>\) \$[\d] = {[\s\S]*\[0\] = 10.1[\s\S]*\[1\] = 20.199999999999999[\s\S]*}
+CJVM p,p a,\(std\.collection.HashSet<Float64>\) \$[\d] = {[\s\S]*\[0\] = 10.100000[\s\S]*\[1\] = 20.200000[\s\S]*}
+AOT locals,locals,a = {[\s\S]*\[0\] = 10.1[\s\S]*\[1\] = 20.199999999999999[\s\S]*}
+CJVM locals,locals,a = {[\s\S]*\[0\] = 10.100000[\s\S]*\[1\] = 20.200000[\s\S]*}
+q,q,

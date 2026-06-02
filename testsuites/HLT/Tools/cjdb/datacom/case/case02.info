@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case02/case02.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g case02.cj -o case02%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py case02.info case02 %run_env
+
+test#
+cjdb,cjdb --no-use-colors case02,case02
+b,b 34,case02.cj:34
+AOT r,r,-> 34
+CJVM c,c,
+AOT p,p b.getA(),error: unsupported expression
+CJVM p,p b.getA(),error: variable was not declared in this scope
+AOT p,p b_2.getA(),error: unsupported expression
+CJVM p,p b_2.getA(),error: variable was not declared in this scope
+q,q,

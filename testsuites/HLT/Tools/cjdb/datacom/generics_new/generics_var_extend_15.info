@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_var_extend.cj
+// EXEC: %compiler %cmp_opt -g generics_var_extend.cj -o generics_var_extend%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_var_extend_15.info generics_var_extend %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
+b,b 281,Breakpoint 1:
+b,b 286,generics_var_extend.cj:286
+AOT r,r,-> 281
+CJVM c,c,
+p, p a,\(Rune\) \$[\d] = 'b'
+p, p a1,\(Rune\) \$[\d] = 'b'
+locals, locals,\(Rune\) a = 'b'[\s\S]*\(Rune\) a1 = 'b'
+c,c,-> 286
+p, p a,\(Float32\) \$[\d] = 32.3199997
+p, p a2,\(UInt32\) \$[\d] = 32
+locals, locals,\(Float32\) a = 32.3199997[\s\S]*\(UInt32\) b = 32[\s\S]*\(Float32\) a1 = 32.3199997[\s\S]*\(UInt32\) a2 = 32
+q, q

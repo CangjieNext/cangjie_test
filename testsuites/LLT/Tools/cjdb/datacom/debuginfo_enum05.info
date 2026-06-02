@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_enum05.cj
+// EXEC: %compiler %cmp_opt -g debuginfo_enum05.cj -o debuginfo_enum05
+// EXEC: python3 cjdb_test.py debuginfo_enum05.info
+
+
+test#
+cjdb,cjdb debuginfo_enum05,debuginfo_enum05
+b,b 37,debuginfo_enum05.cj:37
+r,r,-> 37
+p,p z,\(default.E1\) \$[\d]+ = A
+p,p x,\(default.E1\) \$[\d]+ = {\s+constructor = B\s+arg_1 = 50\s+}
+p,p c,\(default.E2\) \$[\d]+ = C
+p,p v,\(default.E2\) \$[\d]+ = {\s+constructor = D\s+arg_1 = {\s+a = 111\s+b = 222\s+}\s+}
+p,p b,\(default.E3\) \$[\d]+ = E
+p,p n,\(default.E3\) \$[\d]+ = {\s+constructor = F\s+arg_1 = {\s+a = 111\s+b = 222\s+}\s+}
+q,q,

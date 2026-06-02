@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_recursive_enum_03.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_recursive_enum_03.cj -o debuginfo_recursive_enum_03
+// EXEC: python3 cjdb_test.py debuginfo_recursive_enum_03.info
+
+
+test#
+cjdb,cjdb debuginfo_recursive_enum_03,debuginfo_recursive_enum_03
+b,b 21,debuginfo_recursive_enum_03.cj:21
+r,r,-> 21
+p,p z,\(default.Cls\) \$[\d]+ = {\s+a = {\s+constructor = B\s+arg_1 = D\s+}\s+}
+q,q,

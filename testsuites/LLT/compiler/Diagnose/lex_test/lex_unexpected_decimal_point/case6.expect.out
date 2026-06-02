@@ -1,0 +1,31 @@
+error: unexpected decimal point '.' in octal base number
+  ==> case6.cj:16:8:
+   | 
+16 |     ${0o12.3} ${0b12.3}
+   |       ~~  ^ unexpected decimal point
+   |       |
+   |       because of this octal prefix
+   | 
+   # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+   | 
+16 |     ${ 12.3} ${0b12.3}
+   |       ~ 
+   | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+   | 
+16 |     ${0x12.3} ${0b12.3}
+   |       ~~ 
+   | 
+
+error: unexpected digit '2' in binary
+  ==> case6.cj:16:17:
+   | 
+16 |     ${0o12.3} ${0b12.3}
+   |                 ~~ ^ unexpected digit
+   |                 |
+   |                 because of this binary prefix
+   | 
+   # note: binary may only contain digit within 0~1
+
+2 errors generated, 2 errors printed.

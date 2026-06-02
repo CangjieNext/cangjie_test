@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/024_enum_generics.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 024_enum_generics.cj -o 024_enum_generics%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum020.info 024_enum_generics %run_env
+
+test#
+cjdb,cjdb --no-use-colors 024_enum_generics,024_enum_generics
+b,b 12,024_enum_generics.cj:12
+AOT r,r,-> 12
+CJVM c,c,
+locals,locals,\(default.E1<Int64>\) a = A[\s\S]*
+locals,locals,\(default.E1<Int32>\) b = {[\s\S]*constructor = B[\s\S]*arg_1 = 6[\s\S]*}
+p,p a,\(default.E1<Int64>\) \$[\d] = A[\s\S]*
+p,p b,\(default.E1<Int32>\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = 6[\s\S]*}
+expr,expr a,\(default.E1<Int64>\) \$[\d] = A[\s\S]*
+expr~expr E1<Int64>.A~\(default.E1<Int64>\) \$[\d] = A[\s\S]*
+q,q,

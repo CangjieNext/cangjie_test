@@ -1,0 +1,27 @@
+error: expected '{' in unicode escape, found '"'
+  ==> case4.cj:15:4:
+   | 
+15 |     \u"""
+   |     ~~^ expected '{'
+   |     |
+   |     because it is in this Unicode escape
+   | 
+
+error: unknown start of token: \
+  ==> case4.cj:17:2:
+   | 
+17 |     \udc
+   |     ^ unknown start of token: \
+   | 
+
+error: unterminated multi-line string
+  ==> case4.cj:18:1:
+   | 
+18 |   """
+   |  _^
+19 | |  
+20 | | }
+   | |__^ unterminated multi-line string
+   | 
+
+3 errors generated, 3 errors printed.

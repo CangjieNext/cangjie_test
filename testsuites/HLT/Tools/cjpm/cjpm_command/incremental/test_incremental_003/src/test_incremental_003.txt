@@ -1,0 +1,8 @@
+package a
+
+main() {
+    var arr = [0, 1, 2, 3]
+    let num = arr[0] * 1
+    return num
+}
+

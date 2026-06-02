@@ -1,0 +1,28 @@
+error: unterminated single-line string
+  ==> lex_expected_right_bracket.cj:14:29:
+   | 
+14 |     var a = "cangjie ${a + b"
+   |                      ~~     ^^ unterminated single-line string
+   |                      |
+   |                      because this interpolation is not terminated with a '}'
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+error: unterminated string interpolation
+  ==> lex_expected_right_bracket.cj:15:22:
+   | 
+15 |     var b = "cangjie ${a
+   |             ~        ^^^^ unterminated string interpolation
+   |             |
+   |             because it is in single-line string
+   | 
+
+error: unterminated single-line string
+  ==> lex_expected_right_bracket.cj:16:8:
+   | 
+16 |     + b"
+   |        ^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+3 errors generated, 3 errors printed.

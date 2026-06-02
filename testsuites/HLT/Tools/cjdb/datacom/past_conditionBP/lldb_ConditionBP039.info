@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/012_debug_func_recursion.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 012_debug_func_recursion.cj -o 012_debug_func_recursion%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP039.info 012_debug_func_recursion %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 012_debug_func_recursion,012_debug_func_recursion
+breakpoint,breakpoint set -l 20 -c 'a==5',012_debug_func_recursion.cj:20
+AOT r,r,-> 20
+CJVM c,c,
+n,n,-> 12
+n,n,-> 13
+locals,locals,Functioncall009 = 15
+q,q,

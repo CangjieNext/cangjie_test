@@ -1,0 +1,24 @@
+VarDecl {
+  -keyword: Token {
+    value: "var"
+    kind: VAR
+    pos: 10: 21
+  }
+  -identifier: Token {
+    value: "test"
+    kind: IDENTIFIER
+    pos: 11: 24
+  }
+  -assign: Token {
+    value: "="
+    kind: ASSIGN
+    pos: 12: 20
+  }
+  -expr: RefExpr {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 13: 32
+    }
+  }
+}

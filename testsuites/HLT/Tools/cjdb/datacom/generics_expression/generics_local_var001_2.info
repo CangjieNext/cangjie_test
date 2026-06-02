@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var001.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var001.cj -o generics_local_var001%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_local_var001_2.info generics_local_var001 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_local_var001,generics_local_var001
+b,b 19,generics_local_var001.cj:19
+AOT r,r,-> 19
+CJVM c,c,
+expr:expr Float16(vcarrc2[0]):\(Float16\) \$[\d] = 2
+expr:expr ArrayList<Int64>([1, 2]):\(std.collection.ArrayList<Int64>\) [\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*
+expr:expr HashMap<String, Bool>([("a", true)]):\(std.collection.HashMap<std.core.String,Bool>\) \$[\d] = {[\s\S]*\["a" -> true\] = {[\s\S]*key = "a"[\s\S]*value = true[\s\S]*
+expr:expr f1():\(Unit\) \$[\d] = ()
+q,q,

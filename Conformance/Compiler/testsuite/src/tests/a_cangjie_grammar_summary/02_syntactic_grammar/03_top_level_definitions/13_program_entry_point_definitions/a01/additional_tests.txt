@@ -1,0 +1,8 @@
+# This is include list for additional tests reletad to properties definitions
+#
+# To run these tests you can execute following command from current directory:
+# /path_to_harness/harness.py --included-tests additional_tests.txt
+# or from test suite root folder:
+# /path_to_harness/harness.py --included-tests src/tests/a_cangjie_grammar_summary/02_syntactic_grammar/03_top_level_definitions/13_program_entry_point_definitions/a01/additional_tests.txt
+
+src/tests/11_packages_and_module_management/01_packages/05_package_in_the_root_directory_of_the_source_files/01_program_entry_point/a01

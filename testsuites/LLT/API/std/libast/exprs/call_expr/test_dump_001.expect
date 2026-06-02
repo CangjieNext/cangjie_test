@@ -1,0 +1,40 @@
+foo
+a
+b
+CallExpr {
+  -callFunc: RefExpr {
+    -identifier: Token {
+      value: "foo"
+      kind: IDENTIFIER
+      pos: 22: 9
+    }
+  }
+  -arguments: 0, Argument {
+    -expr: RefExpr {
+      -identifier: Token {
+        value: "a"
+        kind: IDENTIFIER
+        pos: 22: 13
+      }
+    }
+  }
+  -arguments: 1, Argument {
+    -identifier: Token {
+      value: "flag"
+      kind: IDENTIFIER
+      pos: 22: 16
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 22: 20
+    }
+    -expr: RefExpr {
+      -identifier: Token {
+        value: "b"
+        kind: IDENTIFIER
+        pos: 22: 22
+      }
+    }
+  }
+}

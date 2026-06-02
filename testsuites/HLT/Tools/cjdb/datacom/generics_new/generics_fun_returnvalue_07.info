@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
+// EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_fun_returnvalue_07.info genericsfun_return %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
+CJVM c,c,
+p, p lcstr,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
+p, p s1.vcstrs,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
+p, p c1.vcstrc,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
+p, p default::S1::vcstr,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
+p, p globals_cstr,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
+locals, locals,\(CString\) lcstr = "CString in Cangjie\\n code. 05"[\s\S]*\(default.S1\) s1 = {[\s\S]*vcstrs = "CString in Cangjie\\n code. 05"[\s\S]*\(default.C1\) c1 = {[\s\S]*vcstrc = "CString in Cangjie\\n code. 05"[\s\S]*
+globals, globals,\(CString\) default::S1::vcstr = "CString in Cangjie\\n code. 05"
+globals, globals,\(CString\) default::globals_cstr = "CString in Cangjie\\n code. 05"
+b, b 145,genericsfun_return.cj:145
+c,c,-> 145
+p, p h,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
+p, p test_h,\(CString\) \$[\d] = "CString in Cangjie\\n code. 05"
+locals, locals,\(CString\) h = "CString in Cangjie\\n code. 05"
+q,q,

@@ -1,0 +1,9 @@
+# This is include list for additional tests reletad to interface definitions
+#
+# To run these tests you can execute following command from current directory:
+# /path_to_harness/harness.py --included-tests additional_tests.txt
+# or from test suite root folder:
+# /path_to_harness/harness.py --included-tests src/tests/a_cangjie_grammar_summary/02_syntactic_grammar/03_top_level_definitions/02_interface_definitions/a01/additional_tests.txt
+
+src/tests/06_class_and_interface/02_interfaces/01_interface_declaration/01_syntax_of_interface_declaration/a04
+src/tests/06_class_and_interface/02_interfaces/02_interface_members/a03

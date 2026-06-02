@@ -1,0 +1,6 @@
+{
+  "package": {
+    "ffi/c": "cangjieCFFI_path",
+    "pkg": "pkg.cjo"
+  }
+}

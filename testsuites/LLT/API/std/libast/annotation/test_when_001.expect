@@ -1,0 +1,17 @@
+Annotation {
+  -identifier: When
+  -condition: UnaryExpr {
+    -op: Token {
+      value: "!"
+      kind: NOT
+      pos: 10: 15
+    }
+    -expr: RefExpr {
+      -identifier: Token {
+        value: "debug"
+        kind: IDENTIFIER
+        pos: 10: 16
+      }
+    }
+  }
+}

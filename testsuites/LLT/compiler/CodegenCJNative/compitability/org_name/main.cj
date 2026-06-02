@@ -1,0 +1,25 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: pkga.cj pkga_new.cj
+// EXEC: %compiler pkga.cj %compile_shared_lib_opt -o libpkga.%dylib_suffix
+// EXEC: %compiler %f -L. -lpkga -o %output
+// EXEC: %compiler pkga_new.cj %compile_shared_lib_opt -o libpkga.%dylib_suffix
+
+// EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan 2\n
+
+package com
+
+import com::lib.pkgA.*
+
+class CA<T> <: I1 {
+    public func foo(): Unit { println(3) }
+}
+
+main() {
+    test(CA<Int64>())
+}

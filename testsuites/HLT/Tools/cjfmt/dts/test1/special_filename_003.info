@@ -1,0 +1,12 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC: echo "main(){0}" > 中文_path.cj
+// EXEC: %cjfmt -f 中文_path.cj -o 中文_path_new.cj
+// EXEC-1: %diff 中文_path.cj 中文_path_new.cj

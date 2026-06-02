@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/char.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug char.cj -o char
+// EXEC: python3 cjdb_test.py debuginfo_char.info %n %run_env
+
+test#
+cjdb,cjdb char,char
+b,b foo,char.cj:10
+r,r,-> 10
+expr a,expr a,\(Rune\) \$\d+ = 'a'
+expr b,expr b,\(Rune\) \$\d+ = 'b'
+expr c,expr c,\(Rune\) \$\d+ = 'c'
+q,q,

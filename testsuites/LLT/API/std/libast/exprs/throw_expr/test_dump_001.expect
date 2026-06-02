@@ -1,0 +1,16 @@
+ThrowExpr {
+  -keyword: Token {
+    value: "throw"
+    kind: THROW
+    pos: 21: 9
+  }
+  -expr: CallExpr {
+    -callFunc: RefExpr {
+      -identifier: Token {
+        value: "Exception"
+        kind: IDENTIFIER
+        pos: 21: 15
+      }
+    }
+  }
+}

@@ -1,0 +1,235 @@
+FuncDecl {
+  -modifiers: 0, Modifier {
+    -keyword: Token {
+      value: "public"
+      kind: PUBLIC
+      pos: 10: 9
+    }
+  }
+  -modifiers: 1, Modifier {
+    -keyword: Token {
+      value: "operator"
+      kind: OPERATOR
+      pos: 10: 16
+    }
+  }
+  -keyword: Token {
+    value: "func"
+    kind: FUNC
+    pos: 10: 25
+  }
+  -identifier: Token {
+    value: "()"
+    kind: IDENTIFIER
+    pos: 10: 30
+  }
+  overloadOp: ()  -funcParams: 0, FuncParam {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 10: 33
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 10: 34
+    }
+    -paramType: PrimitiveType {
+      -keyword: Token {
+        value: "Int32"
+        kind: INT32
+        pos: 10: 36
+      }
+    }
+  }
+  -declType: PrimitiveType {
+    -keyword: Token {
+      value: "Int32"
+      kind: INT32
+      pos: 10: 45
+    }
+  }
+  -block: Block {
+    -nodes: 0, ReturnExpr {
+      -keyword: Token {
+        value: "return"
+        kind: RETURN
+        pos: 11: 13
+      }
+      -expr: RefExpr {
+        -identifier: Token {
+          value: "a"
+          kind: IDENTIFIER
+          pos: 11: 20
+        }
+      }
+    }
+  }
+}
+FuncDecl {
+  -modifiers: 0, Modifier {
+    -keyword: Token {
+      value: "public"
+      kind: PUBLIC
+      pos: 17: 9
+    }
+  }
+  -modifiers: 1, Modifier {
+    -keyword: Token {
+      value: "operator"
+      kind: OPERATOR
+      pos: 17: 16
+    }
+  }
+  -keyword: Token {
+    value: "func"
+    kind: FUNC
+    pos: 17: 25
+  }
+  -identifier: Token {
+    value: "!"
+    kind: IDENTIFIER
+    pos: 17: 30
+  }
+overloadOp: Token {
+    value: "!"
+    kind: NOT
+    pos: 17: 30
+  }
+  -funcParams: 0, FuncParam {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 17: 32
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 17: 33
+    }
+    -paramType: PrimitiveType {
+      -keyword: Token {
+        value: "Int32"
+        kind: INT32
+        pos: 17: 35
+      }
+    }
+  }
+  -declType: PrimitiveType {
+    -keyword: Token {
+      value: "Int32"
+      kind: INT32
+      pos: 17: 44
+    }
+  }
+  -block: Block {
+    -nodes: 0, ReturnExpr {
+      -keyword: Token {
+        value: "return"
+        kind: RETURN
+        pos: 18: 13
+      }
+      -expr: RefExpr {
+        -identifier: Token {
+          value: "a"
+          kind: IDENTIFIER
+          pos: 18: 20
+        }
+      }
+    }
+  }
+}
+FuncDecl {
+  -modifiers: 0, Modifier {
+    -keyword: Token {
+      value: "public"
+      kind: PUBLIC
+      pos: 24: 9
+    }
+  }
+  -keyword: Token {
+    value: "func"
+    kind: FUNC
+    pos: 24: 16
+  }
+  -identifier: Token {
+    value: "f"
+    kind: IDENTIFIER
+    pos: 24: 21
+  }
+  -genericParam: GenericParam {
+    -parameters: 0, T: Token {
+      value: "T"
+      kind: IDENTIFIER
+      pos: 24: 23
+    }
+  }
+  -funcParams: 0, FuncParam {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 24: 26
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 24: 27
+    }
+    -paramType: RefType {
+      -identifier: Token {
+        value: "T"
+        kind: IDENTIFIER
+        pos: 24: 29
+      }
+    }
+  }
+  -declType: PrimitiveType {
+    -keyword: Token {
+      value: "Int32"
+      kind: INT32
+      pos: 24: 33
+    }
+  }
+  -genericConstraint: 0, GenericConstraint {
+    -keyword: Token {
+      value: "where"
+      kind: WHERE
+      pos: 24: 39
+    }
+    -typeArgument: RefType {
+      -identifier: Token {
+        value: "T"
+        kind: IDENTIFIER
+        pos: 24: 45
+      }
+    }
+    -upperBound: Token {
+      value: "<:"
+      kind: UPPERBOUND
+      pos: 24: 47
+    }
+    -upperBounds: 0, RefType {
+      -identifier: Token {
+        value: "I1"
+        kind: IDENTIFIER
+        pos: 24: 50
+      }
+    }
+  }
+  -block: Block {
+    -nodes: 0, ReturnExpr {
+      -keyword: Token {
+        value: "return"
+        kind: RETURN
+        pos: 25: 13
+      }
+      -expr: LitConstExpr {
+        -literal: Token {
+          value: "0"
+          kind: INTEGER_LITERAL
+          pos: 25: 20
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+TrailingClosureExpr {
+  -expr: RefExpr {
+    -identifier: Token {
+      value: "f"
+      kind: IDENTIFIER
+      pos: 21: 9
+    }
+  }
+  -lambdaExpr: LambdaExpr {
+    -nodes: 0, BinaryExpr {
+      -leftExpr: RefExpr {
+        -identifier: Token {
+          value: "i"
+          kind: IDENTIFIER
+          pos: 21: 12
+        }
+      }
+      -op: Token {
+        value: "*"
+        kind: MUL
+        pos: 21: 14
+      }
+      -rightExpr: RefExpr {
+        -identifier: Token {
+          value: "i"
+          kind: IDENTIFIER
+          pos: 21: 16
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ../%n
+// ERRCHECK: cd %n && %cjpm tree
+// ASSERT: regex cyclic dependency
+// ASSERT: regex b.packB -> c.packC
+// ASSERT: regex c.packC -> d.packD
+// ASSERT: regex d.packD -> b.packB
+// ASSERT: scan Error: cjpm tree failed

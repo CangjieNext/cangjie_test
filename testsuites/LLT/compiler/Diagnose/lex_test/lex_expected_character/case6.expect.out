@@ -1,0 +1,17 @@
+error: expected one character in rune literal
+  ==> case6.cj:14:10:
+   | 
+14 |     var a = r'''''
+   |             ^^^ expected one character in rune literal
+   | 
+
+error: unterminated multi-line string
+  ==> case6.cj:14:13:
+   | 
+14 |       var a = r'''''
+   |  ________________^
+15 | | }
+   | |_^ unterminated multi-line string
+   | 
+
+2 errors generated, 2 errors printed.

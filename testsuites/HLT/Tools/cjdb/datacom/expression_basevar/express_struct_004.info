@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/065_debug_struct.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 065_debug_struct.cj -o 004_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py express_struct_004.info 004_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 004_express_basetype,004_express_basetype
+CJVM b,b main,065_debug_struct.cj:59
+CJVM c,c,-> 59
+b,b 61,065_debug_struct.cj:61
+CJVM c,c,-> 61
+AOT r,r,-> 61
+expr,expr rr.a.scores,\(Float64\) \$[\d] = 12.119999999999999
+expr,expr rr.a.scores=13.13,\(Unit\) \$[\d] = ()
+expr,expr rr.a.scores,\(Float64\) \$[\d] = 13.130000000000001
+expr,expr rr.a.bool1,\(Bool\) \$[\d] = true
+expr,expr rr.a.bool1=false,\(Unit\) \$[\d] = ()
+expr,expr rr.a.bool1,\(Bool\) \$[\d] = false
+expr,expr rr.a.str1,std.core.String\) \$[\d] = "aaa"
+expr,expr rr.a.str1="bb",\(Unit\) \$[\d] = ()
+expr,expr rr.a.str1,std.core.String\) \$[\d] = "bb"
+q,q,

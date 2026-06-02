@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/009_debug_enum_result.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 009_debug_enum_result.cj -o 009_debug_enum_result%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum015.info 009_debug_enum_result %run_env
+
+test#
+cjdb,cjdb --no-use-colors 009_debug_enum_result,009_debug_enum_result
+b,b 35,009_debug_enum_result.cj:35
+AOT r,r,-> 35
+CJVM c,c,
+p,p rInt32_1,\(default.Result<Int32>\) \$[\d] = {[\s\S]*constructor = Success[\s\S]*arg_1 = 100[\s\S]*}
+p,p rInt32_2,\(default.Result<Int32>\) \$[\d] = {[\s\S]*constructor = Failure[\s\S]*arg_1 = [\s\S]*}
+expr~expr Result<Int32>.Success(100)~\(default.Result<Int32>\) \$[\d] = {[\s\S]*constructor = Success[\s\S]*arg_1 = 100[\s\S]*}
+expr~expr Result<Int32>.Failure(Exception())~\(default.Result<Int32>\) \$[\d] = {[\s\S]*constructor = Failure[\s\S]*arg_1 = [\s\S]*}
+q,q,

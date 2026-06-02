@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_member.cj
+// EXEC: %compiler %cmp_opt -g generics_member.cj -o generics_member%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_member_fun_09.info generics_member %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_member,generics_member
+b,b 123,Breakpoint 1:
+AOT r,r,-> 123
+CJVM c,c,
+p, p a,\(std.core.String\) \$[\d] = "cangjie"
+p, p a1,\(std.core.String\) \$[\d] = "cangjie"
+locals, locals,\(std.core.String\) a = "cangjie"[\s\S]*\(std.core.String\) a1 = "cangjie"[\s\S]*
+q,q,

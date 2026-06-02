@@ -1,0 +1,16 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// DEPENDENCE: up.old.cj up.new.cj down.cj new.expect
+// EXEC: %compiler %cmp_opt up.old.cj %compile_shared_lib_opt -o libup.%dylib_suffix
+// EXEC: %compiler %cmp_opt down.cj -L . -lup -o %output
+// EXEC-PIPE: %run %run_opt %output %run_args
+// EXEC: %compiler %cmp_opt up.new.cj %compile_shared_lib_opt -o libup.%dylib_suffix
+// check abi
+// EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare new.expect
+// check api
+// EXEC: %compiler %cmp_opt down.cj -L . -lup -o %output

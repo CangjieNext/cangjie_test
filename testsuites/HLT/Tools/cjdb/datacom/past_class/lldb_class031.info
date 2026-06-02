@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/003_debug_class_top_mod_abstract.cj
+//  EXEC: %compiler %cmp_opt -g 003_debug_class_top_mod_abstract.cj -o 003_debug_class_top_mod_abstract%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_class031.info 003_debug_class_top_mod_abstract %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 003_debug_class_top_mod_abstract,003_debug_class_top_mod_abstract
+b,b 23,003_debug_class_top_mod_abstract.cj:23
+AOT r,r,-> 23
+CJVM c,c,-> 23
+n,n,-> 24
+locals,locals,\(Int32\) getnum = 1
+q,q,

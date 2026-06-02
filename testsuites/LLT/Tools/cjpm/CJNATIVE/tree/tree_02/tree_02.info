@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm tree -h 2>&1 | compare %f
+// ASSERT: scan Display a tree visualization of a dependency graph
+// ASSERT: scan -h, --help                  help for tree
+// ASSERT: scan -V, --verbose               enable verbose
+// ASSERT: scan --depth <N>                 maximum display depth of the dependency tree
+// ASSERT: scan -p, --package <value>       package to be used as the root of the tree
+// ASSERT: scan --invert <value>            invert the tree direction and focus on the given package
+// ASSERT: scan --target <value>            display dependencies for the given target platform
+// ASSERT: scan --no-tests                  exclude the test-dependencies
+// ASSERT: scan-not cjpm tree success

@@ -1,0 +1,13 @@
+error: rune literal may only contain one character
+ ==> char_right.cj:6:13:
+  | 
+6 |     let a = r'c\u{000D}    let b = 'c
+  |             ^^^^^^^^^^^^^^^^^^^^^^^^ may only contain one character
+  | 
+help: if you intended to write a string literal, use '"':
+  | 
+6 |     let a = "c\u{000D}    let b = "c
+  |             ~~~~~~~~~~~~~~~~~~~~~~~ 
+  | 
+
+1 error generated, 1 error printed.

@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/packages/pkgs001/src
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj -o libpkg1.%middle
+// EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs001.cj -o pkgs001%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_pkgs005.info pkgs001 %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors pkgs001,pkgs001
+b,b 27,pkgs001.cj:27
+AOT r,r,-> 27
+CJVM c,c,
+s,s,-> 16
+b,b 17,pkg1.cj:17
+finish,finish,-> 17
+locals,locals,a = 10
+globals,globals,varpkg1_001 = 127
+bt,bt,frame #1:
+frame,frame select 1,-> 27
+locals,locals,res1 = 127
+globals,globals,\(Int8\) default(::|\.)test = 127[\s\S]*
+n,n,-> 18
+finish,finish,-> 27
+n,n,-> 28
+locals,locals,res2 = 30
+q,q,

@@ -1,0 +1,11 @@
+error: expected '}', found '4'
+  ==> case10.cj:16:13:
+   | 
+16 |     \u{12321421412"""
+   |       ~        ^ expected '}'
+   |       |
+   |       to match this opening '{'
+   | 
+   # note: unicode escape may contain 8 hexadecimal digits at most
+
+1 error generated, 1 error printed.

@@ -1,0 +1,8 @@
+error: expected identifier, found '1'
+  ==> case_back_quote.cj:11:10:
+   | 
+11 | var a = `1`
+   |          ^ expected identifier
+   | 
+
+1 error generated, 1 error printed.

@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC: %compiler %cmp_opt %overflow_wrapping %f -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+// ASSERT:scan 4
+
+class Main {
+    public static var tag: Int32 = 100
+    public static func aboveTag(v: Int32): Bool {
+        if (v > tag) {
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
+main(): Int64 {
+    var counter: Int32 = 0
+    var i: Int32 = 0
+    while (i < 105) {
+        if (Main.aboveTag(i)) {
+            counter++
+        }
+        i++
+    }
+    print(counter)
+    return 0
+}

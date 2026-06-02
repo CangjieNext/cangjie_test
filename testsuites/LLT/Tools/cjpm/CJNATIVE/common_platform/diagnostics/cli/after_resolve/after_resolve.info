@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC-PIPE-1: cd %n && %cjpm build --enable-features=user.mp.d,user.othermp.d,user.othermp.f,user.unknown.d 2>&1 | compare %f
+
+// ASSERT: scan-1 Error: feature `user.mp.d` is not declared by dependency `mp`
+// ASSERT: scan-1 Error: feature `user.othermp.d` is not declared by dependency `othermp`
+// ASSERT: scan-1 Error: feature `user.othermp.f` is not declared by dependency `othermp`

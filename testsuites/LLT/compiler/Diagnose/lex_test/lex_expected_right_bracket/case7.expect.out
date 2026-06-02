@@ -1,0 +1,21 @@
+error: expected '}', found '1'
+  ==> case7.cj:15:20:
+   | 
+15 |     cnagjie\u{1232123213""""\u{1432432124}"
+   |              ~        ^ expected '}'
+   |              |
+   |              to match this opening '{'
+   | 
+   # note: unicode escape may contain 8 hexadecimal digits at most
+
+error: expected '}', found '2'
+  ==> case7.cj:15:37:
+   | 
+15 |     cnagjie\u{1232123213""""\u{1432432124}"
+   |                               ~        ^ expected '}'
+   |                               |
+   |                               to match this opening '{'
+   | 
+   # note: unicode escape may contain 8 hexadecimal digits at most
+
+2 errors generated, 2 errors printed.

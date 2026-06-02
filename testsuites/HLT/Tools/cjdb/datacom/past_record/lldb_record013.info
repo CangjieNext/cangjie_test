@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/056_debug_record_initial_value.cj
+// EXEC: %compiler %cmp_opt -g 056_debug_record_initial_value.cj -o 056_debug_record_initial_value%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_record013.info 056_debug_record_initial_value %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 056_debug_record_initial_value,056_debug_record_initial_value
+b,b 55,056_debug_record_initial_value.cj:55
+AOT r,r,-> 55
+CJVM c,c,
+n,n,-> 57
+print,print rect.time1,TimeUnit\) \$[\d] = Year
+q,q,

@@ -1,0 +1,10 @@
+error: expected '{' in unicode escape, found '1'
+  ==> case9.cj:15:13:
+   | 
+15 |     cangjie '\u123'"""
+   |              ~~^ expected '{'
+   |              |
+   |              because it is in this Unicode escape
+   | 
+
+1 error generated, 1 error printed.

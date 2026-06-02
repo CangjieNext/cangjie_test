@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/packages/pkgs001/src
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj -o libpkg1.%middle
+// EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs001.cj -o 002_thread_list%cmp_output
+// RUN-EXEC: python3 cjdb_test.py thread_list_002.info 002_thread_list %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 002_thread_list,002_thread_list
+AOT threadlist,thread list,error: Command requires a current process
+CJVM threadlist,thread list,thread #1
+q,q,

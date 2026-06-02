@@ -1,0 +1,49 @@
+# Copyright (c) Huawei Technologies Co., Ltd. _2_025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-_2._0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[dependencies]
+
+[package]
+  cjc-version = "1.0.0"
+  compile-option = ""
+  description = "nothing here"
+  link-option = ""
+  name = "testing"
+  output-type = "dynamic"
+  target-dir = ""
+  version = "1.0.0"
+
+[profile]
+  experimental = true
+
+[[source-set]]
+name = "common"
+src-dir = "./common"
+features = []
+
+[[source-set]]
+name = "linux"
+src-dir = "./linux"
+features = [ "user.testing._1", "user.testing._2" ] 
+
+[[feature]]
+name = "os.linux"
+mapping = [ "user.testing._0" ]
+
+[[feature]]
+name = "os.windows"
+mapping = [ "user.testing._0" ]
+
+[[feature]]
+name = "os.darwin"
+mapping = [ "user.testing._0" ]
+
+[[feature]]
+name = "user.testing._0"
+mapping = [ "user.testing._1","user.testing._2" ] 
+
+[[feature]]
+names = [ "user.testing._1","user.testing._2" ]

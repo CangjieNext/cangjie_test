@@ -1,0 +1,26 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: test utils
+// (LLVM) EXEC: %copy_dir test/* . && %rm_dir test
+// (LLVM) EXEC: %compiler mymod/mod1/mod1.cj %compile_shared_lib_opt %output_dir_opt mymod --fobf-layout --fobf-line-number --obf-sym-output-mapping a.map --obf-sym-prefix=a
+// (LLVM) EXEC: %compiler mymod/mod2/mod2.cj %compile_shared_lib_opt %output_dir_opt mymod --fobf-layout --fobf-line-number --obf-sym-output-mapping b.map --obf-sym-prefix=b
+// (LLVM) EXEC: %compiler -o %n.%suffix -lmymod.mod1 -lmymod.mod2 %import_path_opt=mymod -Lmymod --fobf-layout --fobf-line-number --obf-sym-input-mapping a.map,b.map --obf-sym-output-mapping c.map --obf-sym-prefix=c -p .
+// (LLVM) RUN-EXEC-1: %run_with_mod_path %n.%suffix 2> ./obf_trace
+
+// (LLVM) EXEC: %compiler mymod/mod1/mod1.cj %compile_shared_lib_opt %output_dir_opt mymod
+// (LLVM) EXEC: %compiler mymod/mod2/mod2.cj %compile_shared_lib_opt %output_dir_opt mymod
+// (LLVM) EXEC: %compiler -o %n.%suffix -lmymod.mod1 -lmymod.mod2 %import_path_opt=mymod -Lmymod -p .
+// (LLVM) RUN-EXEC-1: %run_with_mod_path %n.%suffix 2> ./ori_trace
+
+// (LLVM) EXEC: %format_trace 1 ori_trace
+// (LLVM) EXEC: %format_trace 1 obf_trace
+// (LLVM) EXEC: %format_trace 2 ori_trace
+// (LLVM) EXEC: %format_trace 2 obf_trace
+// (LLVM) EXEC: %format_trace 3 ori_trace
+
+// (LLVM) EXEC: %cjtrace-recover -f obf_trace -m a.map,b.map,c.map > ./recov_trace
+// (LLVM) EXEC: %file_diff recov_trace ori_trace

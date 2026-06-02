@@ -1,0 +1,32 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[dependencies]
+pro2 = {path = '../pro2'}
+[package]
+  cjc-version = "0.55.1"
+  compile-option = ""
+  description = "nothing here"
+  link-option = ""
+  name = "pro1"
+  output-type = "static"
+  override-compile-option = "-O2"
+  src-dir = ""
+  target-dir = ""
+  version = "1.0.0"
+  package-configuration = {}
+[target.cjvm]
+  override-compile-option = ""
+[target.x86_64-unknown-linux-gnu]
+  override-compile-option = "-O2"
+[target.x86_64-w64-mingw32]
+  override-compile-option = "-O2"
+[target.x86_64-apple-darwin]
+  override-compile-option = "-O2"
+[target.aarch64-apple-darwin]
+  override-compile-option = "-O2"
+[target.aarch64-unknown-linux-gnu]
+  override-compile-option = "-O2"

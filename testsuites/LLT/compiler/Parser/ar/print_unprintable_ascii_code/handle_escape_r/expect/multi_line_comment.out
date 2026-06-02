@@ -1,0 +1,8 @@
+error: string interpolation cannot be empty
+ ==> multi_line_comment.cj:6:6:
+  | 
+6 |     "${/*\u{000D}    */}"
+  |      ^^^^^^^^^^^^^^^^^^^ empty string interpolation
+  | 
+
+1 error generated, 1 error printed.

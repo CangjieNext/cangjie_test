@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_debug.cj
+// EXEC: %compiler %cmp_opt -g option_debug.cj -o option_debug%cmp_output
+// RUN-EXEC: python3 cjdb_test.py option_test_039.info option_debug %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors option_debug,option_debug
+b,b 74,option_debug.cj:74
+AOT r,r,-> 74
+CJVM c,c,-> 74
+p,p c,\(std[.]core.Option<std.collection.HashSet<Float64>>\) \$[\d] = {[\S\s]*\[0\] = 12.119999999999999[\S\s]*\[1\] = 13.130000000000001[\S\s]*}
+locals,locals,\(std[.]core.Option<std.collection.HashSet<Float64>>\) c = {[\S\s]*\[0\] = 12.119999999999999[\S\s]*\[1\] = 13.130000000000001[\S\s]*}[\s\S]*
+AOT frame var,frame var c,\(std[.]core.Option<std.collection.HashSet<Float64>>\) c = {[\S\s]*\[0\] = 12.119999999999999[\S\s]*\[1\] = 13.130000000000001[\S\s]*}
+q,q,

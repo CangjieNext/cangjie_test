@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_local.cj
+// EXEC: %compiler %cmp_opt -g genericsfun_local.cj -o genericsfun_local%cmp_output
+// RUN-EXEC: python3 cjdb_test.py local_fun_generics_00.info genericsfun_local %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
+b,b 35,genericsfun_local.cj:35
+AOT r,r,-> 35
+CJVM c,c,
+p, p gengricsvar,\(Int8\) \$[\d] = 8
+p, p a,\(Int8\) \$[\d] = 8
+p, p gengricsvar1,\(Int16\) \$[\d] = 16
+p, p b,\(Int16\) \$[\d] = 16
+p, p gengricsvar2,\(Int32\) \$[\d] = 32
+p, p c,\(Int32\) \$[\d] = 32
+p, p gengricsvar3,\(Int64\) \$[\d] = 64
+p, p d,\(Int64\) \$[\d] = 64
+p, p gengricsvar4,\(IntNative\) \$[\d] = 100
+p, p e,\(IntNative\) \$[\d] = 100
+locals, locals,\(Int8\) a = 8[\s\S]*\(Int16\) b = 16[\s\S]*\(Int32\) c = 32[\s\S]*\(Int64\) d = 64[\s\S]*\(IntNative\) e = 100[\s\S]*\(Int8\) gengricsvar = 8[\s\S]*\(Int16\) gengricsvar1 = 16[\s\S]*\(Int32\) gengricsvar2 = 32[\s\S]*\(Int64\) gengricsvar3 = 64[\s\S]*\(IntNative\) gengricsvar4 = 100
+q,q,

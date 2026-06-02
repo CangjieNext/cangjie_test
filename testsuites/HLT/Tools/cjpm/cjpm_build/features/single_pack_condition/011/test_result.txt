@@ -1,0 +1,2 @@
+// ASSERT: scan Error: the customized key 'cfg\\1' is wrong, the example is 'cfg_1'
+// ASSERT: scan Error: cjpm test failed

@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/035_debuginfun_func_reload.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 035_debuginfun_func_reload.cj -o 035_debuginfun_func_reload%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP065.info 035_debuginfun_func_reload %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 035_debuginfun_func_reload,035_debuginfun_func_reload
+breakpoint,breakpoint set -l 25 -c 'a==5 && b==5',035_debuginfun_func_reload.cj:25
+AOT r,r,-> 25
+CJVM c,c,
+n,n,-> 16
+n,n,-> 17
+locals,locals,Functioncall008 = 10
+q,q,

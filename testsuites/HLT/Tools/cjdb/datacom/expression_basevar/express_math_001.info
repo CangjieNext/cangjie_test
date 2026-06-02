@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/059_debug_jit.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 059_debug_jit.cj -o 001_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py express_math_001.info 001_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+CJVM b,b main,059_debug_jit.cj:12
+CJVM c,c,-> 12
+b,b 41,059_debug_jit.cj:41
+CJVM c,c,-> 41
+AOT r,r,-> 41
+expr,expr f_int8/var_int8,\(Int8\) \$[\d] = 13
+expr,expr f_int16/var_int16,\(Int16\) \$[\d] = 11
+expr,expr 10/3,\(Int64\) \$[\d] = 3
+expr,expr f_int32%var_int32,\(Int32\) \$[\d] = 0
+expr,expr var_int64%f_int64,\(Int64\) \$[\d] = 2
+expr,expr 10%4,\(Int64\) \$[\d] = 2
+expr,expr var_float64/f_float64,\(Float64\) \$[\d] = 0.1111111111111111
+expr,expr 2.5/0.5,\(Float64\) \$[\d] = 5
+q,q,

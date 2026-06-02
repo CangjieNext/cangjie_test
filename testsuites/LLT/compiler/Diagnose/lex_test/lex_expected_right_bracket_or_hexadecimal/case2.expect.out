@@ -1,0 +1,31 @@
+error: expected '}' or hexadecimal digit in unicode escape, found '''
+  ==> case2.cj:14:9:
+   | 
+14 |     '\u{123''\u{123'
+   |      ~~    ^ expected '}' or hexadecimal digit
+   |      |
+   |      because it is in this Unicode escape
+   | 
+   # note: unicode escape may only contain hexadecimal digits
+
+error: expected '}' or hexadecimal digit in unicode escape, found '''
+  ==> case2.cj:14:17:
+   | 
+14 |     '\u{123''\u{123'
+   |              ~~    ^ expected '}' or hexadecimal digit
+   |              |
+   |              because it is in this Unicode escape
+   | 
+   # note: unicode escape may only contain hexadecimal digits
+
+error: expected '}' or hexadecimal digit in unicode escape, found '''
+  ==> case2.cj:15:9:
+   | 
+15 |     '\u{123'
+   |      ~~    ^ expected '}' or hexadecimal digit
+   |      |
+   |      because it is in this Unicode escape
+   | 
+   # note: unicode escape may only contain hexadecimal digits
+
+3 errors generated, 3 errors printed.

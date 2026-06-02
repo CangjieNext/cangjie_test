@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/past_basic/063_debug_expr_this.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 063_debug_expr_this.cj -o 001_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py express_this_002.info 001_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
+b,b 33,063_debug_expr_this.cj:33
+CJVM c,c,-> 33
+AOT r,r,-> 33
+expr,expr this.s12,std[.]core.Array<Int32>\) \$[\d] = {[\s\S]*\[0\] = 32[\s\S]*\[1\] = 33[\s\S]*}*
+expr,expr this.ae,default.TimeUnit\) \$[\d] = Red
+expr,expr this.af,\(Float32\) \$[\d] = 32.3199997
+expr,expr this.ain,\(Int32\) \$[\d] = 10
+expr,expr this.ar,default.rect\) \$[\d] = {[\S\s]*ui8 = 8[\S\s]*}
+q,q,

@@ -1,0 +1,21 @@
+AsExpr {
+  -expr: RefExpr {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 21: 9
+    }
+  }
+  -keyword: Token {
+    value: "as"
+    kind: AS
+    pos: 21: 11
+  }
+  -shiftType: RefType {
+    -identifier: Token {
+      value: "T"
+      kind: IDENTIFIER
+      pos: 21: 14
+    }
+  }
+}

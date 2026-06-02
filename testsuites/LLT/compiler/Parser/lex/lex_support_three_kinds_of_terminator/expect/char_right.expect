@@ -1,0 +1,15 @@
+error: unterminated rune literal
+ ==> char_right.cj:6:13:
+  | 
+6 |     let a = r'c
+  |             ^^^^ unterminated rune literal
+  | 
+
+error: unterminated rune literal
+ ==> char_right.cj:7:13:
+  | 
+7 |     let b = r'c
+  |             ^^^^ unterminated rune literal
+  | 
+
+2 errors generated, 2 errors printed.

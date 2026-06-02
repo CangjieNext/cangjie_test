@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_alias2.cj
+// EXEC: %compiler %cmp_opt -g generics_alias2.cj -o generics_alias2%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_alias2_01.info generics_alias2 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_alias2,generics_alias2
+b,b 147,generics_alias2.cj:147
+AOT r,r,-> 147
+CJVM c,c,
+p, p larr,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p s1.varrs,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p c1.vcarrc,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p default::S1::varr,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p globals_arr,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p larr,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p varr,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p globals_arr,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+b, b 159,generics_alias2.cj:159
+c,c,-> 159
+p, p b,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+p, p test_b,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+locals, locals,\(std.core.Array<Int64>\) b = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*
+q,q,

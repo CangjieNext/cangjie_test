@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/020_enum_globals.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 020_enum_globals.cj -o 020_enum_globals%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum016.info 020_enum_globals %run_env
+
+test#
+cjdb,cjdb --no-use-colors 020_enum_globals,020_enum_globals
+b,b 46,020_enum_globals.cj:46
+AOT r,r,-> 46
+CJVM c,c,
+p,p t1,\(default.TimeUnit\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 5[\s\S]*}
+expr,expr t2,\(default.TimeUnit1\) \$[\d] = Year
+expr,expr t3,\(default.TimeUnit2<Bool>\) \$[\d] = {[\s\S]*constructor = Month[\s\S]*arg_1 = true[\s\S]*rg_2 = 3[\s\S]*}
+p,p t4,\(default.TimeUnit3<std.core.Array<Rune>>\) \$[\d] = Year
+expr,expr t5,\(default.TimeUnit3<default.C1>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*}
+expr,expr t6,\(default.TimeUnit4<Int64>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*}
+expr,expr t7,\(default.TimeUnit4<Int64>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*arg_2 = {}[\s\S]*}
+expr~expr TimeUnit.Year(5)~\(default.TimeUnit\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 5[\s\S]*}
+expr~expr TimeUnit1.Year~\(default.TimeUnit1\) \$[\d] = Year
+expr~expr TimeUnit2.Month(true, 3)~\(default.TimeUnit2<Bool>\) \$[\d] = {[\s\S]*constructor = Month[\s\S]*arg_1 = true[\s\S]*rg_2 = 3[\s\S]*}
+expr~expr TimeUnit3<Array<Rune>>.Year~\(default.TimeUnit3<std.core.Array<Rune>>\) \$[\d]+ = Year
+expr~expr TimeUnit3<C1>.Year(C1())~\(default.TimeUnit3<default.C1>\) \$[\d]+ = {[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*}
+expr~expr TimeUnit4<Int64>.Year(C1())~\(default.TimeUnit4<Int64>\) \$[\d]+ = {[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*}
+expr~expr TimeUnit4<Int64>.Year(S1(), S2<Int64>())~\(default.TimeUnit4<Int64>\) \$[\d]+ = {[\s\S]*constructor = Year[\s\S]*arg_1 = {}[\s\S]*arg_2 = {}[\s\S]*}
+q,q,

@@ -1,0 +1,10 @@
+error: unclosed delimiter: '{'
+ ==> boundary_condition_3.cj:6:14:
+  | 
+5 | main():Unit{
+  |            ~ to match this opening '{'
+6 |     let a = 1
+  |              ^ expected '}' here
+  | 
+
+1 error generated, 1 error printed.

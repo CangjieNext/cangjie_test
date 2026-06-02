@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/dowhile.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug dowhile.cj -o while_expr
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb while_expr,while_expr
+b,b 15,dowhile.cj:15
+r,r,-> 15
+ ,expr while(i64<100) {i64++};i64,\(Int64\) \$\d+ = 100
+ ,expr i64=-1;i64,\(Int64\) \$\d+ = -1
+ ,expr while(i64<u64) {i64+=u64};i64,\(Int64\) \$\d+ = 19
+q,q,

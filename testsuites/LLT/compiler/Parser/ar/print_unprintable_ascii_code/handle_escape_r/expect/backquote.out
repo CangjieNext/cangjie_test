@@ -1,0 +1,17 @@
+error: expected '`', found '\u{000D}'
+ ==> backquote.cj:6:12:
+  | 
+6 |     let `fu\u{000D}    nc` = 1
+  |         ~  ^^^^^^^^ expected '`'
+  |         |
+  |         to match this opening backquote
+  | 
+
+error: expected identifier, found ' '
+ ==> backquote.cj:6:20:
+  | 
+6 |     let `fu\u{000D}    nc` = 1
+  |                           ^ expected identifier
+  | 
+
+2 errors generated, 2 errors printed.

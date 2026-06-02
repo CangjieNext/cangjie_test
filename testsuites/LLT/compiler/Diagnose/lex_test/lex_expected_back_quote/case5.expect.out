@@ -1,0 +1,43 @@
+error: expected identifier, found '`'
+  ==> case5.cj:14:3:
+   | 
+14 |     ```
+   |      ^ expected identifier
+   | 
+
+error: expected identifier, found 'new line character'
+  ==> case5.cj:14:5:
+   | 
+14 |     ```
+   |        ^ expected identifier
+   | 
+
+error: expected identifier, found '`'
+  ==> case5.cj:15:2:
+   | 
+15 | ```
+   |  ^ expected identifier
+   | 
+
+error: expected identifier, found 'new line character'
+  ==> case5.cj:15:4:
+   | 
+15 | ```
+   |    ^ expected identifier
+   | 
+
+error: expected identifier, found '`'
+  ==> case5.cj:16:3:
+   | 
+16 |     ``
+   |      ^ expected identifier
+   | 
+
+error: expected identifier, found 'new line character'
+  ==> case5.cj:17:2:
+   | 
+17 | `
+   |  ^ expected identifier
+   | 
+
+6 errors generated, 6 errors printed.

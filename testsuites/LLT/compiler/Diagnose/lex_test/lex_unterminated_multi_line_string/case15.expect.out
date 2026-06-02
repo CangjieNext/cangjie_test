@@ -1,0 +1,12 @@
+error: unterminated string interpolation
+  ==> case15.cj:16:11:
+   | 
+16 |       cangjie2 ${ """
+   |  ______________^
+17 | |     cangjie3 ${ """
+   | | ...
+21 | | """
+   | |_____^ unterminated string interpolation
+   | 
+
+1 error generated, 1 error printed.

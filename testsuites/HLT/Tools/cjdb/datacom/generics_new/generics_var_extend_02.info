@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_var_extend.cj
+// EXEC: %compiler %cmp_opt -g generics_var_extend.cj -o generics_var_extend%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_var_extend_02.info generics_var_extend %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
+b,b 167,generics_var_extend.cj:167
+b,b 174,generics_var_extend.cj:174
+b,b 181,generics_var_extend.cj:181
+AOT r,r,-> 167
+CJVM c,c,
+p, p a,\(Int8\) \$[\d] = -8
+p, p a1,\(Int8\) \$[\d] = -8
+locals, locals,\(Int8\) a = -8[\s\S]*\(Int8\) a1 = -8
+c,c,-> 174
+p, p a,\(UInt8\) \$[\d] = 8
+p, p a1,\(UInt8\) \$[\d] = 8
+locals, locals,\(UInt8\) a = 8[\s\S]*\(UInt8\) a1 = 8
+c,c,-> 181
+p, p a,\(Float16\) \$[\d] = 16.156
+p, p a1,\(Float16\) \$[\d] = 16.156
+locals, locals,\(Float16\) a = 16.156[\s\S]*\(Float16\) a1 = 16.156
+q, q

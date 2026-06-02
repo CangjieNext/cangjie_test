@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case17/case17_1.cj
+// EXEC: %compiler %cmp_opt -g case17_1.cj -o case17_1%cmp_output
+// RUN-EXEC: python3 cjdb_test.py case17_1.info case17_1 %run_env
+
+test#
+cjdb,cjdb --no-use-colors case17_1,case17_1
+b,b 31,case17_1.cj:31
+AOT r,r,-> 31
+CJVM c,c,
+AOT globals,globals,\(std.core.Array<std.core.Any>\) default::mixtuple01 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = {[\s\S]*\[0\] = 3[\s\S]*\[1\] = 4[\s\S]*}[\s\S]*}
+AOT globals,globals,\(std.collection.ArrayList<Tuple<Int64,Bool>>\) default::e1 = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = true[\s\S]*}[\s\S]*}
+AOT globals,globals,\(std.collection.HashMap<std.core.String,Tuple<Int64,Int64>>\) default::f1 = {[\s\S]*\["a"\] = {[\s\S]*key = "a"[\s\S]*value = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}[\s\S]*}[\s\S]*}
+AOT locals,locals,\(Tuple<Tuple<Int64,Int64>,Tuple<Int64,Int64>>\) b = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 3[\s\S]*\[1\] = 4[\s\S]*}[\s\S]*\[1\] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}[\s\S]*}
+AOT locals,locals,\(std.collection.ArrayList<Tuple<Int64,Bool>>\) e = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = true[\s\S]*}[\s\S]*}
+q,q,

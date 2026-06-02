@@ -1,0 +1,18 @@
+error: expected '{' in unicode escape, found '1'
+  ==> case10.cj:15:12:
+   | 
+15 |     cangjie"\u123""""
+   |             ~~^ expected '{'
+   |             |
+   |             because it is in this Unicode escape
+   | 
+
+error: unterminated single-line string
+  ==> case10.cj:15:18:
+   | 
+15 |     cangjie"\u123""""
+   |                     ^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+2 errors generated, 2 errors printed.

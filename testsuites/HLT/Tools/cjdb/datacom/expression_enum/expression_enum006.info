@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/016_enum_struct.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 016_enum_struct.cj -o 016_enum_struct%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum006.info 016_enum_struct %run_env
+
+test#
+cjdb,cjdb --no-use-colors 016_enum_struct,016_enum_struct
+b,b 31,016_enum_struct.cj:31
+b,b 38,016_enum_struct.cj:38
+AOT r,r,-> 31
+CJVM c,c,
+expr~expr time~\(default.TimeUnit<Int32>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 14[\s\S]*}
+c,c,-> 38
+expr~expr test(TimeUnit<Int32>.Day(14))~\(default.test\) \$[\d] = {[\s\S]*time = {[\s\S]*constructor = Day[\s\S]*arg_1 = 14[\s\S]*
+expr~expr Foo().getTime()~\(default.Time<Int32>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 4[\s\S]*}
+expr~expr data.time~\(default.TimeUnit<Int32>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 14[\s\S]*}
+q,q,

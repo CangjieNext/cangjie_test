@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm build -V -l 2>&1 | compare %f
+// ASSERT: scan check codes in abc: cjlint -f abc 2>&1
+// ASSERT: regex error.*: G\.OTH\.03: www\.baidu\.com is public url, hard-coded in the program
+// ASSERT: scan Error: code specifications with level 'MANDATORY' are violated, please check related files
+// ASSERT: scan Error: cjpm build failed

@@ -1,0 +1,22 @@
+error: unknown start of token: \u{0000}
+  ==> case4.cj:13:6:
+   | 
+13 |     var \u{0000} = \u{0000}
+   |         ^^^^^^^^ unknown start of token: \u{0000}
+   | 
+
+error: unknown start of token: \u{0000}
+  ==> case4.cj:13:10:
+   | 
+13 |     var \u{0000} = \u{0000}
+   |                    ^^^^^^^^ unknown start of token: \u{0000}
+   | 
+
+error: unknown start of token: \u{0000}
+  ==> case4.cj:14:2:
+   | 
+14 |     \u{0000}
+   |     ^^^^^^^^ unknown start of token: \u{0000}
+   | 
+
+3 errors generated, 3 errors printed.

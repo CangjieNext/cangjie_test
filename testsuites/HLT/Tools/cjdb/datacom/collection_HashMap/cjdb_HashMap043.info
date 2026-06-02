@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/004_HashMap_Ins_array.cj
+// EXEC: %compiler %cmp_opt -g 004_HashMap_Ins_array.cj -o 004_HashMap_Ins_array%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_HashMap043.info 004_HashMap_Ins_array %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 004_HashMap_Ins_array,004_HashMap_Ins_array
+b,b 52,004_HashMap_Ins_array.cj:52
+AOT r,r,-> 52
+CJVM c,c,-> 52
+p,p map_array_6,std[.]collection.HashMap<Rune,std[.]core.Array<std[.]collection.HashSet<std[.]core.String>>>\) \$[\d] = {[\S\s]*key = 'R'[\S\s]*value = [\S\s]*}
+q,q,

@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/061_debug_fun.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 061_debug_fun.cj -o 002_express_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py express_fun_002.info 002_express_basetype %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 002_express_basetype,002_express_basetype
+CJVM b,b main,061_debug_fun.cj:59
+CJVM c,c,-> 59
+b,b 71,061_debug_fun.cj:71
+CJVM c,c,-> 71
+AOT r,r,-> 71
+expr:expr obj1.f31():\(UInt64\) \$[\d] = 100
+expr:expr obj1.f311(10, 20):\(Int64\) \$[\d] = 30
+expr:expr obj1.f311(10):\(Int64\) \$[\d] = 10
+expr:expr obj2.s311(10):\(Int64\) \$[\d] = 10
+expr:expr obj2.s311(10, 50):\(Int64\) \$[\d] = 60
+expr:expr test_fun():\(Unit\) \$[\d] = ()
+expr:expr test_fun1():\(Int64\) \$[\d] = 20
+expr:expr test_fun2(5,8):\(Int64\) \$[\d] = 13
+q:q:

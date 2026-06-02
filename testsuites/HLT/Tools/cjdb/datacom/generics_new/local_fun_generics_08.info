@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_local.cj
+// EXEC: %compiler %cmp_opt -g genericsfun_local.cj -o genericsfun_local%cmp_output
+// RUN-EXEC: python3 cjdb_test.py local_fun_generics_08.info genericsfun_local %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors genericsfun_local,genericsfun_local
+b,b 106,genericsfun_local.cj:106
+AOT r,r,-> 106
+CJVM c,c,
+p, p gengricsvar5,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*
+p, p f,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*
+locals, locals,\(CPointer<Int8>\) f = 0x[\s\S]*
+locals, locals,\(CPointer<Int8>\) gengricsvar5 = 0x[\s\S]*
+q,q,

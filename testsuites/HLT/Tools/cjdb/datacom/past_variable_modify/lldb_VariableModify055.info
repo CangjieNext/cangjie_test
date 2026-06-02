@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
+// EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_VariableModify055.info 024_debug_variable %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
+CJVM b,b main,024_debug_variable.cj:14
+CJVM c,c,-> 14
+b,b 90,024_debug_variable.cj:90
+AOT r,r,-> 90
+CJVM c,c,-> 90
+set,set var_one = 2,2
+set,set var_two = 2,2
+set,set var_three = 2,2
+set,set var_four = 2,2
+set,set var_five = 2,2
+n,n,-> 95
+locals,locals,var_one = 2
+p,p var_one,\(Int64\) \$[\d] = 2
+locals,locals,var_two = 2
+p,p var_two,\(Int64\) \$[\d] = 2
+locals,locals,var_three = 2
+p,p var_three,\(Int64\) \$[\d] = 2
+locals,locals,var_four = 2
+p,p var_four,\(Int64\) \$[\d] = 2
+locals,locals,var_five = 2
+p,p var_five,\(Int64\) \$[\d] = 2
+locals,locals,f_sum = 10
+p,p f_sum,\(Int64\) \$10 = 10
+q,q,

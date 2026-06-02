@@ -1,0 +1,39 @@
+VarDecl {
+  -annotations: 0, Annotation {
+    -identifier: custom
+    -arguments: 0, Argument {
+      -expr: RefExpr {
+        -identifier: Token {
+          value: "test"
+          kind: IDENTIFIER
+          pos: 11: 14
+        }
+      }
+    }
+  }
+  -annotations: 1, Annotation {
+    -identifier: Frozen
+  }
+  -keyword: Token {
+    value: "var"
+    kind: VAR
+    pos: 13: 5
+  }
+  -identifier: Token {
+    value: "A"
+    kind: IDENTIFIER
+    pos: 13: 9
+  }
+  -assign: Token {
+    value: "="
+    kind: ASSIGN
+    pos: 13: 11
+  }
+  -expr: LitConstExpr {
+    -literal: Token {
+      value: "1"
+      kind: INTEGER_LITERAL
+      pos: 13: 13
+    }
+  }
+}

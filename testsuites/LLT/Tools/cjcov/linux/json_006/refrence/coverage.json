@@ -1,0 +1,33 @@
+{
+  "fileLists": [
+    {
+      "filepath": "src/dir_0_0/file1.cj",
+      "totalLines": 4,
+      "hitLines": []
+    },
+    {
+      "filepath": "src/dir_0_0/file2.cj",
+      "totalLines": 4,
+      "hitLines": [
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "filepath": "src/main.cj",
+      "totalLines": 9,
+      "hitLines": [
+        7,
+        8,
+        9,
+        11,
+        15,
+        16,
+        17,
+        18,
+        20
+      ]
+    }
+  ]
+}

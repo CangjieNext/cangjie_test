@@ -1,0 +1,4 @@
+// ASSERT: scan cjpm build success
+// ASSERT: scan Error: can not find the following dependencies
+// ASSERT: scan pro1.xoo
+// ASSERT: scan Error: cjpm test failed

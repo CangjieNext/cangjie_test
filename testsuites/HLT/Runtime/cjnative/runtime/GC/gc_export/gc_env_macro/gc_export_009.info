@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: test.cj define.cj
+// EXEC: %compiler %cmp_macro define.cj
+// (not Windows) EXEC: %export MRT_REPORT=./log.txt && %export cjAllocationWaitTime=-105 && %run_macro %compiler %cmp_opt %macro_lib test.cj -o %output && cat log.txt | compare %f
+// (Windows) EXEC: set MRT_REPORT=./log.txt && set cjAllocationWaitTime=-105 && %run_macro %compiler %cmp_opt %macro_lib test.cj -o %output && cat log.txt | compare %f
+// ASSERT:scan 10
+// ASSERT:scan Allocation wait time: 1000ns

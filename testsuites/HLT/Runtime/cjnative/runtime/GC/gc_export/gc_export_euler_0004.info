@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE: gc_export_code.cj
+// EXEC: %compiler %cmp_opt gc_export_code.cj -o %output
+// (not Windows and not MAC) RUN-EXEC-PIPE: ! grep -q Euler /etc/os-release || (export MRT_REPORT=./log.txt && export cjCacheRatio && %run %run_opt %output %run_args && cat log.txt | compare %f)
+// ASSERT:scan Cache Ratio: 1.00

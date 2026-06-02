@@ -1,0 +1,35 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_change_immutable_var_02.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_change_immutable_var_02.cj -o debuginfo_change_immutable_var_02
+// EXEC: python3 cjdb_test.py debuginfo_change_immutable_var_02.info
+
+
+test#
+cjdb,cjdb debuginfo_change_immutable_var_02,debuginfo_change_immutable_var_02
+b,b 9,debuginfo_change_immutable_var_02.cj:9
+r,r,-> 9
+p,p a,Int64\) \$[\d]+ = 1
+expr,expr a=100,cannot assign to immutable value
+p,p a,Int64\) \$[\d]+ = 1
+set,set a=100,Int64\) \$[\d]+ = 100
+p,p a,Int64\) \$[\d]+ = 100
+p,p c,Int64\) \$[\d]+ = 555
+expr,expr a=100,cannot assign to immutable value
+p,p c,Int64\) \$[\d]+ = 555
+set,set c=200,Int64\) \$[\d]+ = 200
+p,p c,Int64\) \$[\d]+ = 200
+n,n,-> 10
+p,p e,Int64\) \$[\d]+ = 555
+expr,expr e=100,Unit\) \$[\d]+ = ()
+p,p e,Int64\) \$[\d]+ = 100
+n,n,-> 11
+p,p d,Int64\) \$[\d]+ = 302
+finish,finish,-> 15
+n,n,-> 16
+p,p d,Int64\) \$[\d]+ = 302
+q,q,

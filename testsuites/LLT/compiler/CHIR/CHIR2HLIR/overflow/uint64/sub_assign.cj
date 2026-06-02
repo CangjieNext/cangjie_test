@@ -1,0 +1,60 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt %enableCompileDebug %f -o %n.%suffix
+// EXEC: %run %run_opt %n.%suffix 
+
+@OverflowWrapping
+func testWrapping(x: UInt64, y: UInt64): UInt64 {
+    var res = x
+    res -= y // 此时采用截断处理策略，不会抛异常。
+    return res
+}
+
+@OverflowSaturating
+func testSaturating(x: UInt64, y: UInt64): UInt64 {
+    var res = x
+    res -= y // 此时采用饱和处理策略，不会抛异常。
+    return res
+}
+
+@OverflowThrowing
+func testThrowing(x: UInt64, y: UInt64): UInt64 {
+    var res = x
+    res -= y // 此时采用抛异常策略。
+    return res
+}
+
+main() {
+    let MIN_UINT64: UInt64 = 0
+    let MAX_UINT64: UInt64 = 18446744073709551615
+    let a: UInt64 = 15
+    // wrapping
+    let ret: UInt64 = testWrapping(a, 15) // min
+    if (ret != 0) {
+        return 1
+    }
+    let ret1: UInt64 = testWrapping(a, 16) // min overflow
+    if (ret1 != MAX_UINT64) {
+        return 1
+    }
+    // saturating
+    let ret2: UInt64 = testSaturating(a, 15) // min
+    if (ret2 != 0) {
+        return 1
+    }
+    let ret3: UInt64 = testSaturating(a, 16) // min overflow
+    if (ret3 != 0) {
+        return 1
+    }
+    // throwing
+    let ret4: UInt64 = testThrowing(a, 15) // min
+    if (ret4 != 0) {
+        return 1
+    }
+    return 0
+}

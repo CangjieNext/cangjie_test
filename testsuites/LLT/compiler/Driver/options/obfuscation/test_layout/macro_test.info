@@ -1,0 +1,11 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: macro_test
+//  EXEC: %compiler macro_test/memory.cj %cmp_macro --fobf-layout --obf-sym-output-mapping a.map --obf-sym-prefix=a --save-temps .
+//  EXEC: %compiler macro_test/test.cj -o test --fobf-layout --obf-sym-input-mapping a.map --obf-sym-prefix=b
+//  EXEC: LD_LIBRARY_PATH=mymod:${LD_LIBRARY_PATH} ./test 2>&1 | compare ./%f
+// ASSERT: scan 55

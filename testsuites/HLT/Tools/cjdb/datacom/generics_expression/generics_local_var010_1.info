@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var010.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var010.cj -o generics_local_var010%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_local_var010_1.info generics_local_var010 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_local_var010,generics_local_var010
+b,b 26,generics_local_var010.cj:26
+AOT r,r,-> 26
+CJVM c,c,
+expr:expr vlist2:\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
+p,p vlist2,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
+p,p vhmc,\(std.collection.HashMap<std.core.String,Bool>\) \$[\d] = {[\s\S]*\["a" -> true\] = {[\s\S]*key = "a"[\s\S]*value = true[\s\S]*
+q,q,

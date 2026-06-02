@@ -1,0 +1,21 @@
+error: expected '}', found '3'
+  ==> case2.cj:14:14:
+   | 
+14 |     '\u{123123123'
+   |        ~        ^ expected '}'
+   |        |
+   |        to match this opening '{'
+   | 
+   # note: unicode escape may contain 8 hexadecimal digits at most
+
+error: expected '}', found '3'
+  ==> case2.cj:15:14:
+   | 
+15 |     '\u{123312123'
+   |        ~        ^ expected '}'
+   |        |
+   |        to match this opening '{'
+   | 
+   # note: unicode escape may contain 8 hexadecimal digits at most
+
+2 errors generated, 2 errors printed.

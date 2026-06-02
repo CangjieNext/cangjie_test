@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// ERRCHECK: %compiler %cmp_opt %f -o %output
+
+interface I1 {
+    func test(): I2
+}
+
+interface I2 {
+    func test(): I1
+}
+
+interface I3 <: I2 {}
+
+interface I4 <: I3 {}
+
+interface I5 <: I4 {}
+
+class A<T> where T <: I1 & I3 & I4 & I5 {}
+
+main(): Int64 {
+    return 0
+}
+// ASSERT: scan sema_inherit_member_type_inconsistent

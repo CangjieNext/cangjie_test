@@ -1,0 +1,56 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// (Windows and not OHOS)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (Windows and not OHOS)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args 
+
+import std.fs.*
+
+@Test
+class Test_FileName {
+    var testData: Array<(String, String)> = [
+        ("/", ""),
+        (".", "."),
+        ("/a/b/c", "c"),
+        ("/a/b/c/", "c"),
+        ("//a///b..b.b////c////", "c"),
+        ("//a//.b//.c.c//d.e", "d.e"),
+        ("./a/b/c", "c"),
+        ("./a/.b/c/", "c"),
+        (".//a//.b..b.b//.c.c//d.e", "d.e"),
+        ("..//a//.b.//.c.c//d.e", "d.e"),
+        ("...a/...b...b...b/../.../.c..c..c/...d....d", "...d....d"),
+        ("..//a//.b.//.c.c//d.e/", "d.e"),
+        ("...a/...b...b...b/../.../.c..c..c/...d....d/", "...d....d"),
+        ("./a/b/c/d/../../c/e/", "e"),
+        ("c:", ""),
+        ("c:\\", ""),
+        ("D:\\", ""),
+        ("c:\\a\\b\\c\\d", "d"),
+        ("c:\\\\\\a\\\\b\\c\\\\\\\\d\\\\\\", "d"),
+        ("c:\\\\\\a\\\\.b\\c...c..c\\\\\\\\d.\\\\\\", "d."),
+        ("c:\\a\\b\\..\\b\\d", "d"),
+        (".\\a\\b..\\..c\\\\d...d\\..\\e\\", "e"),
+        ("\\\\\\\\server\\\\share\\\\a\\b\\", "b"),
+        ("a.b.c.d.", "a.b.c.d."),
+        ("c:/a\\b\\..\\/\\/b\\d", "d"),
+        ("./a\\b\\..\\/\\/b\\d", "d"),
+        ("./a.b.c.d..e.", "a.b.c.d..e."),
+        ("/a a/b  b/c ", "c "),
+        ("/a a/b  b / c ", " c ")
+    ]
+
+    @TestCase
+    func test_filename() {
+        for (data in testData) {
+            let (str, filename) = data
+            @Expect(Path(str).fileName, filename)
+        }
+    }
+}

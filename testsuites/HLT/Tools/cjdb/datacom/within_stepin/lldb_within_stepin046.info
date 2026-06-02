@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_stepin/002_debug_stepIn_via_inherit.cj
+// EXEC: %compiler %cmp_opt -g 002_debug_stepIn_via_inherit.cj -o 002_debug_stepIn_via_inherit%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_within_stepin046.info 002_debug_stepIn_via_inherit %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 002_debug_stepIn_via_inherit,002_debug_stepIn_via_inherit
+CJVM b main,b main,002_debug_stepIn_via_inherit.cj:21
+CJVM c,c,-> 21
+b,b 21,002_debug_stepIn_via_inherit.cj:21
+AOT r,r,-> 21
+s,s,open class Class_sub_1 <: Clazz_1[\s\S]*-> 102[\s\S]*
+b,b 109,002_debug_stepIn_via_inherit.cj:109
+c,c,-> 109
+s,s,open class Clazz_1 [\s\S]*-> 46[\s\S]*
+q,q,

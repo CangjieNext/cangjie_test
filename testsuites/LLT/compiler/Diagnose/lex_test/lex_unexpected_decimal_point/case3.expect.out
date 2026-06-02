@@ -1,0 +1,58 @@
+error: unexpected digit '2' in binary
+  ==> case3.cj:14:13:
+   | 
+14 |     var a = 0b12.12.12.12.12.12
+   |             ~~ ^ unexpected digit
+   |             |
+   |             because of this binary prefix
+   | 
+   # note: binary may only contain digit within 0~1
+
+error: unexpected decimal point '.' in octal base number
+  ==> case3.cj:15:14:
+   | 
+15 |     var b = 0o12.12.12.12.12.12
+   |             ~~  ^ unexpected decimal point
+   |             |
+   |             because of this octal prefix
+   | 
+   # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+   | 
+15 |     var b =  12.12.12.12.12.12
+   |             ~ 
+   | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+   | 
+15 |     var b = 0x12.12.12.12.12.12
+   |             ~~ 
+   | 
+
+error: unknown suffix '.12.12.12' for number literal
+  ==> case3.cj:16:15:
+   | 
+16 |     var c = 12.12.12.12.12
+   |                  ^^^^^^^^^ unknown suffix '.12.12.12'
+   | 
+
+error: unexpected decimal point '.' in octal base number
+  ==> case3.cj:17:14:
+   | 
+17 |     var d = 0o12.12.12.12.12.12
+   |             ~~  ^ unexpected decimal point
+   |             |
+   |             because of this octal prefix
+   | 
+   # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+   | 
+17 |     var d =  12.12.12.12.12.12
+   |             ~ 
+   | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+   | 
+17 |     var d = 0x12.12.12.12.12.12
+   |             ~~ 
+   | 
+
+4 errors generated, 4 errors printed.

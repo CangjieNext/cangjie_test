@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/067_debug_hashmap.cj
+// EXEC: %compiler %cmp_opt -g 067_debug_hashmap.cj -o 067_debug_hashmap%cmp_output
+// RUN-EXEC: python3 cjdb_test.py Core_HashMap_view_08.info 067_debug_hashmap %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 067_debug_hashmap,067_debug_hashmap
+b,b 31,067_debug_hashmap.cj:31
+AOT r,r,-> 31
+CJVM c,c,-> 31
+p,p a,\(std\.collection.HashMap<Int8,std.collection.HashMap<UInt8,Int64>>\) \$[\d] = {[\s\S]*\[10\] = {[\s\S]*key = 10[\s\S]*value = {[\s\S]*\[11 -> 12\] = {[\s\S]*key = 11[\s\S]*value = 12[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*\[20\] = {[\s\S]*key = 20[\s\S]*value = {[\s\S]*\[21 -> 22\] = {[\s\S]*key = 21[\s\S]*value = 22[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*}
+locals,locals,a = {[\s\S]*\[10\] = {[\s\S]*key = 10[\s\S]*value = {[\s\S]*\[11 -> 12\] = {[\s\S]*key = 11[\s\S]*value = 12[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*\[20\] = {[\s\S]*key = 20[\s\S]*value = {[\s\S]*\[21 -> 22\] = {[\s\S]*key = 21[\s\S]*value = 22[\s\S]*}[\s\S]*}[\s\S]*}[\s\S]*}
+q,q,

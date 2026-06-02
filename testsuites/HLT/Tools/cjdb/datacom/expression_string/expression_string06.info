@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/String/string_lambda06.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g string_lambda06.cj -o string_lambda06%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_string06.info string_lambda06 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors string_lambda06,string_lambda06
+b,b 14,string_lambda06.cj:14
+b,b 16,string_lambda06.cj:16
+AOT r,r,-> 14
+CJVM c,c,
+expr,expr b,\(std.core.String\) \$[\d] = "lambda\\n"
+c,c,-> 16
+p,p a1,\(Unit\) \$[\d] = ()
+expr~expr test_lambda(1,"lambda\n")~\(Unit\) \$[\d] = ()
+q,q,

@@ -1,0 +1,101 @@
+error: unexpected decimal point '.' in binary base number
+  ==> case7.cj:12:5:
+   | 
+12 | 0b1_.1_
+   | ~~  ^ unexpected decimal point
+   | |
+   | because of this binary prefix
+   | 
+   # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+   | 
+12 |  1_.1_
+   | ~ 
+   | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+   | 
+12 | 0x1_.1_
+   | ~~ 
+   | 
+
+error: unexpected decimal point '.' in binary base number
+  ==> case7.cj:13:4:
+   | 
+13 | 0B1.0ba
+   | ~~ ^ unexpected decimal point
+   | |
+   | because of this binary prefix
+   | 
+   # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+   | 
+13 |  1.0ba
+   | ~ 
+   | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+   | 
+13 | 0x1.0ba
+   | ~~ 
+   | 
+
+error: unexpected decimal point '.' in octal base number
+  ==> case7.cj:14:4:
+   | 
+14 | 0o1.0o1
+   | ~~ ^ unexpected decimal point
+   | |
+   | because of this octal prefix
+   | 
+   # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+   | 
+14 |  1.0o1
+   | ~ 
+   | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+   | 
+14 | 0x1.0o1
+   | ~~ 
+   | 
+
+error: unexpected decimal point '.' in octal base number
+  ==> case7.cj:15:4:
+   | 
+15 | 0O1.0O1
+   | ~~ ^ unexpected decimal point
+   | |
+   | because of this octal prefix
+   | 
+   # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+   | 
+15 |  1.0O1
+   | ~ 
+   | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+   | 
+15 | 0x1.0O1
+   | ~~ 
+   | 
+
+error: unexpected decimal point '.' in binary base number
+  ==> case7.cj:16:4:
+   | 
+16 | 0B1.0
+   | ~~ ^ unexpected decimal point
+   | |
+   | because of this binary prefix
+   | 
+   # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+   | 
+16 |  1.0
+   | ~ 
+   | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+   | 
+16 | 0x1.0
+   | ~~ 
+   | 
+
+5 errors generated, 5 errors printed.

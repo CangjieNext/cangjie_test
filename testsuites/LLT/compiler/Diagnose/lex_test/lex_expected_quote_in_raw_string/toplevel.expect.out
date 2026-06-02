@@ -1,0 +1,10 @@
+error: expected '#' or '"' in raw string, found 'terminated'
+  ==> toplevel.cj:11:2:
+   | 
+11 | #
+   | ~^ expected '#' or '"'
+   | |
+   | because it is raw string prefix
+   | 
+
+1 error generated, 1 error printed.

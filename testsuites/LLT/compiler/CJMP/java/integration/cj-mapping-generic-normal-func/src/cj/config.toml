@@ -1,0 +1,18 @@
+[default]
+APIStrategy = "Full"
+GenericTypeStrategy = "None"
+
+[[package]]
+name = "genericClass"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+excluded_apis = [
+]
+generic_object_configuration = [
+    { name = "GenericClass", type_arguments = ["Float64", "Int32"] },
+    { name = "GenericClass<Float64>", symbols = [
+    ]},
+
+    { name = "GenericClass<Int32>", symbols = [
+    ]}
+]

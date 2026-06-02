@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/String/string_numberfunc05.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g string_numberfunc05.cj -o string_numberfunc05%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_string05.info string_numberfunc05 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors string_numberfunc05,string_numberfunc05
+b,b 13,string_numberfunc05.cj:13
+AOT r,r,-> 13
+CJVM c,c,
+p,p main_str12,\(std.core.String\) \$[\d] = "012"
+p,p main_str11,\(std.core.String\) \$[\d] = "This is a \\"#\\\\n"
+expr,expr main_str11,\(std.core.String\) \$[\d] = "This is a \\"#\\\\n"
+expr,expr main_str12,\(std.core.String\) \$[\d] = "012"
+q,q,

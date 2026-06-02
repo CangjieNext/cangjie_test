@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case27/case27.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g case27.cj -o case27%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py case27.info case27 %run_env
+
+test#
+cjdb,cjdb --no-use-colors case27,case27
+b,b 19,case27.cj:19
+AOT r,r,-> 19
+CJVM c,c,
+AOT expr~expr mergeArray([1, 2], [1, 2, 3])~\(VArray<Int64,\$5>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
+AOT expr~expr b2[0]~\(VArray<Int64,\$2>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
+AOT expr~expr b4[0]~\(VArray<Int64,\$2>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
+q,q,

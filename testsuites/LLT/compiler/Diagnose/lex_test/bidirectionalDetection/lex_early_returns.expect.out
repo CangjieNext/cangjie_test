@@ -1,0 +1,9 @@
+warning: unsecure character:\u{2067}
+  ==> lex_early_returns.cj:14:26:
+   | 
+14 |     /* Say hello; newline⁧ / */ return 0;
+   |                          ^ unsecure character:\u{2067}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+1 warning generated, 1 warning printed.

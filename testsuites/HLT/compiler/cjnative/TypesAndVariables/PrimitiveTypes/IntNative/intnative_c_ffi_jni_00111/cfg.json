@@ -1,0 +1,8 @@
+{
+  "foreign_module": {
+    "libc_ffi_jni.so": {
+      "path": "./",
+      "export": ["testfunc"]
+    }
+  }
+}

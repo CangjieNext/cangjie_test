@@ -1,0 +1,17 @@
+error: unterminated single-line string
+ ==> char_left.cj:6:13:
+  | 
+6 |     let a = '\u{000D}    c
+  |             ^^^^^^^^^^^^^^^ unterminated single-line string
+  | 
+  # note: consider using multi-line string if you intended to include '\n' in string
+
+error: unterminated single-line string
+ ==> char_left.cj:7:13:
+  | 
+7 |     let b = '
+  |             ^^ unterminated single-line string
+  | 
+  # note: consider using multi-line string if you intended to include '\n' in string
+
+2 errors generated, 2 errors printed.

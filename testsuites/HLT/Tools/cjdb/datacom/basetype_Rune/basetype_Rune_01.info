@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_rune.cj
+// EXEC: %compiler %cmp_opt -g 057_debug_rune.cj -o 057_debug_rune%cmp_output
+// RUN-EXEC: python3 cjdb_test.py basetype_Rune_01.info 057_debug_rune %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 057_debug_rune,057_debug_rune
+b,b 16,057_debug_rune.cj:16
+AOT r,r,-> 16
+CJVM c,c,-> 16
+p,p var01,\(Rune\) \$[\d] = 'b'
+p,p a,\(Rune\) \$[\d] = 'a'
+q,q,

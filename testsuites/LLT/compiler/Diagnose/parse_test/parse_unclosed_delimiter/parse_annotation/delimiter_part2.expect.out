@@ -1,0 +1,10 @@
+error: unclosed delimiter: '['
+  ==> delimiter_part2.cj:12:15:
+   | 
+12 | @Attribute[aaa
+   |           ~   ^ expected ']' here
+   |           |
+   |           to match this opening '['
+   | 
+
+1 error generated, 1 error printed.

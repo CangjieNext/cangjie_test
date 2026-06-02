@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/058_debug_varray.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 058_debug_varray.cj -o 058_debug_varray%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_relationaloperator_013.info 058_debug_varray %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 058_debug_varray,058_debug_varray
+b,b 26,Breakpoint 1: where = 058_debug_varray`default::main[\s\S]*058_debug_varray.cj:26
+AOT r,r,-> 26
+CJVM c,c,-> 26
+expression, expression vzj[0]>=vzj[0],\(Bool\) \$[\d] = true
+expression, expression vzj[1]>=vzj[1],\(Bool\) \$[\d] = true
+q,q,

@@ -1,0 +1,86 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC: %compiler %cmp_opt %f  -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+main(): Int64 {
+    var a = Aoo()
+    if (a.goo1()(2) != 2) {
+        return 1
+    }
+    if (a.goo2()() != 2) {
+        return 2
+    }
+    if (a.goo3()() != 2) {
+        return 3
+    }
+    if (a.goo4()() != 2) {
+        return 4
+    }
+    if (a.goo5()() != 1) {
+        return 5
+    }
+    if (a.goo6()() != 1) {
+        return 6
+    }
+    return 0
+}
+
+open class Boo {
+    public var a: Int32 = 1
+    public static var b: Int32 = 1
+}
+
+class Aoo <: Boo {
+    public func foo1(x!: Int32 = a + b) {
+        return x
+    }
+    public func foo2() {
+        var x = a + b;
+        return x
+    }
+    public func foo3() {
+        return a + b
+    }
+    public func foo4() {
+        a + b;
+        return Int32(2)
+    }
+    public func foo5() {
+        a
+    }
+    public func foo6() {
+        b
+    }
+    public func goo1() {
+        var a = foo1
+        return a
+    }
+    public func goo2() {
+        var a = foo2
+        return a
+    }
+    public func goo3() {
+        var a = foo3
+        return a
+    }
+    public func goo4() {
+        var a = foo4
+        return a
+    }
+    public func goo5() {
+        var a = foo5
+        return a
+    }
+    public func goo6() {
+        var a = foo6
+        return a
+    }
+}

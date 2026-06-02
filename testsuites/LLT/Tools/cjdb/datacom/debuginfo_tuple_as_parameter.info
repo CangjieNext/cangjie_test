@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_tuple_as_parameter.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_tuple_as_parameter.cj -o debuginfo_tuple_as_parameter
+// EXEC: python3 cjdb_test.py debuginfo_tuple_as_parameter.info
+
+
+test#
+cjdb,cjdb debuginfo_tuple_as_parameter,debuginfo_tuple_as_parameter
+b,b 14,debuginfo_tuple_as_parameter.cj:14
+r,r,-> 14
+s,s,-> 8
+s,s,-> 9
+p,p para,\(Tuple<Int64,Int64,Int64>\) \$\d+ = {\s+\[0\] = 10\s+\[1\] = 50\s+\[2\] = 20
+p,p para2,\(Tuple<Int64,std.core.String>\) \$\d+ = {\s+\[0\] = 100\s+\[1\] = "KKK"
+p,p a,\(Tuple<Int64,Int64,Int64>\) \$\d+ = {\s+\[0\] = 10\s+\[1\] = 50\s+\[2\] = 20
+q,q,

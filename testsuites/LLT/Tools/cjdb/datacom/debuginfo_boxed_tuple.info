@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_boxed_tuple.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_boxed_tuple.cj -o debuginfo_boxed_tuple
+// EXEC: python3 cjdb_test.py debuginfo_boxed_tuple.info
+
+
+test#
+cjdb,cjdb debuginfo_boxed_tuple,debuginfo_boxed_tuple
+b,b 9,debuginfo_boxed_tuple.cj:9
+r,r,-> 9
+locals,locals,\(Int64\) a = 2(\r|\n|\r\n)\(Int64\) b = 3
+n,n,-> 10
+locals,locals,\(Int64\) a = 4(\r|\n|\r\n)\(Int64\) b = 6
+q,q,

@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/003_debug_enum_reload.cj
+// EXEC: %compiler %cmp_opt -g 003_debug_enum_reload.cj -o 003_debug_enum_reload%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_enum011.info 003_debug_enum_reload %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 003_debug_enum_reload,003_debug_enum_reload
+b,b 25,003_debug_enum_reload.cj:25
+AOT r,r,-> 25
+CJVM c,c,
+n,n,-> 26
+n,n,-> 27
+locals,locals,TimeUnit1\) time2 = {(\r|\n|\r\n)  constructor = Month(\r|\n|\r\n)  arg_1
+print,print time2,TimeUnit1\) \$[\d]+ = {(\r|\n|\r\n)  constructor = Month(\r|\n|\r\n)  arg_1 = 1(\r|\n|\r\n)  arg_2 = 2
+q,q,

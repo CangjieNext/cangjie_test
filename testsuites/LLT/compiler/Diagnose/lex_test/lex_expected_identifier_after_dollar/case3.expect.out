@@ -1,0 +1,37 @@
+error: expected identifier after '$', found keyword 'func'
+  ==> case3.cj:14:14:
+   | 
+14 |     "cangjie ${$func $struct}"
+   |                 ^^^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+14 |     "cangjie ${$`func` $struct}"
+   |                 ~~~~~~ 
+   | 
+
+error: expected identifier after '$', found keyword 'struct'
+  ==> case3.cj:14:20:
+   | 
+14 |     "cangjie ${$func $struct}"
+   |                       ^^^^^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+14 |     "cangjie ${$func $`struct`}"
+   |                       ~~~~~~~~ 
+   | 
+
+error: expected identifier after '$', found keyword 'is'
+  ==> case3.cj:15:14:
+   | 
+15 | "cangjie1 ${$is}"
+   |              ^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+15 | "cangjie1 ${$`is`}"
+   |              ~~~~ 
+   | 
+
+3 errors generated, 3 errors printed.

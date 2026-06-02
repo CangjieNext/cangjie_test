@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/057_debug_0o.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 057_debug_0o.cj -o 057_debug_0o%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_bracketexpression_002.info 057_debug_0o %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 057_debug_0o,057_debug_0o
+CJVM b,b main,057_debug_0o.cj:12
+CJVM c,c,-> 12
+b,b 63,057_debug_0o.cj:63
+AOT r,r,-> 63
+expression, expression (1+1)*(var118<<2)-4,\(Int8\) \$[\d] = 60
+expression, expression (1+1)*(var116>>2)-4,\(Int16\) \$[\d] = 4
+expression, expression (1+1)*(var132&2)-4,\(Int32\) \$[\d] = -4
+expression, expression (1+1)*(var164^2)-4,\(Int64\) \$[\d] = 128
+expression, expression (1+1)*(var20|2)-4,\(UInt8\) \$[\d] = 240
+expression, expression (1+1)*(var1in<<2)-4,\(IntNative\) \$[\d] = 1020
+expression, expression (1+1)*(var6<<2)-4,\(UInt8\) \$[\d] = 60
+expression, expression (1+1)*(var8&var8)-4,\(UInt32\) \$[\d] = 60
+expression, expression (1+1)*(var9^2)-4,\(UInt64\) \$[\d] = 128
+expression, expression (1+1)*(var10|2)-4,\(UIntNative\) \$[\d] = 256
+q,q,

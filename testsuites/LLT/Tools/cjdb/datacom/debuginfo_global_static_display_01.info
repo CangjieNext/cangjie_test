@@ -1,0 +1,20 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_global_static_display_01.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_global_static_display_01.cj -o debuginfo_global_static_display_01
+// EXEC: python3 cjdb_test.py debuginfo_global_static_display_01.info
+
+
+test#
+cjdb,cjdb debuginfo_global_static_display_01,debuginfo_global_static_display_01
+b,b 17,debuginfo_global_static_display_01.cj:17
+r,r,-> 17
+globalScopeViewer,target variable -s,.*GLOBAL: \(std.core.String\) default::bbb = "HHHH"
+globalScopeViewer,target variable -s,.*GLOBAL: \(Int64\) default::aaa = 70
+globalScopeViewer,target variable -s,.*GLOBAL: \(std.core.Array<Int64>\) default::ccc = {\s+\[0\] = 1\s+\[1\] = 2\s+\[2\] = 3\s+}
+globalScopeViewer,target variable -s,.*GLOBAL: \(default.A\) default::ddd = {\s+mem = 50\s+}
+q,q,

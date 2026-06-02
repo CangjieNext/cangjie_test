@@ -1,0 +1,26 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[dependencies]
+
+[package]
+  cjc-version = "1.0.0"
+  compile-option = "-O1"
+  description = "nothing here"
+  link-option = ""
+  name = "compilation_option"
+  output-type = "executable"
+  override-compile-option = "-Os" # Do override -O1
+  src-dir = ""
+  target-dir = ""
+  version = "1.0.0"
+  package-configuration = {}
+
+  [profile.test]
+    no-color = true
+
+  [profile.test.build]
+    compile-option = "-O2" # Do overrride -O1 and -Os (specified later)

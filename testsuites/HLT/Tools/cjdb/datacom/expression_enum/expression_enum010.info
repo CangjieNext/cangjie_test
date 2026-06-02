@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/002_debug_enum_generics.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 002_debug_enum_generics.cj -o 002_debug_enum_generics%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum010.info 002_debug_enum_generics %run_env
+
+test#
+cjdb,cjdb --no-use-colors 002_debug_enum_generics,002_debug_enum_generics
+b,b 70,002_debug_enum_generics.cj:70
+AOT r,r,-> 70
+CJVM c,c,
+expr,expr m_time5,\(default.TimeUnit1<std.core.Array<default.TimeUnit1<UInt8>>>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*\[0\] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 2[\s\S]*
+expr,expr m_time10,\(Int64\) \$[\d] = 10
+expr~expr TimeUnit1<Rectangle>.Year(Rectangle())~\(default.TimeUnit1<default.Rectangle>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*rec_width = 10[\s\S]*
+q,q,

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/048_debug_array_type.cj
+// (not arm and not Windows) EXEC: %compiler %cmp_opt -g 048_debug_array_type.cj -o 048_debug_array_type%cmp_output
+// (not arm and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_Array018.info 048_debug_array_type %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 048_debug_array_type,048_debug_array_type
+b,b 32,048_debug_array_type.cj:32
+AOT r,r,-> 32
+CJVM c,c,
+print,print arrayBool,\[0\] = false
+print,print arrayBool,arrayBool_0 = false|true
+q,q,

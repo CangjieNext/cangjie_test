@@ -1,0 +1,52 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop %enable_java_cjmapping --import-interop-cj-package-config-path src/cj/config.toml --output-javagen-dir=src/java/cj
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/com/java/lib/*.java src/java/cj/*.java -h ./ -d ./
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && %java %cp_cj_loader_java_interop -Djava.library.path./ com.java.lib.Main 2>& 1 | compare %f
+
+/* SCAN-IN
+Java: cangjie lambda:12
+Java: cangjie lambda as param:: 12
+lambda return param: 5
+Java: java lambda as param:: 30
+lambda return param: 15
+Java: IImpl test(): 13
+Java: IImpl with java lambda return func ret:2
+Java: IImpl test(): 12
+Java: IImpl with cj lambda return func ret:2
+CJ: A goo(), b => b + 4
+Java: IImpl test(): 14
+Java: Cj class A param IImpl return func ret:3
+CJ: A goo(), b => b + 4
+CJ: at I default method doo(): 14
+Java: Cj class A param IImpl default method doo return func ret:19
+CJ: A goo(), b => b + 4
+Java: ImplDefault test(): 15
+Java: Cj class A param IImpl java override default method doo return func ret:2
+A init param fun ret: 44
+CJ: A staticFunc(), param func ret: 8
+Java: call cj A static method, param cj lambda, ret func ret: 11
+CJ: A staticFunc(), param func ret: 18
+Java: call cj A static method, param java lambda, ret func ret: 11
+CJ: at cj B testLambda(), param fun ret: 12
+Java: call open cj B, param cj lambda, ret func ret: 12
+CJ: at cj B testLambda(), param fun ret: 30
+Java: call open cj B, param java lambda, ret func ret: 12
+Java: at java BChild, fun param ret: 4
+Java: call java BChild, param cj lambda, ret func ret: 40
+Java: at java BChild, fun param ret: 6
+Java: call java BChild, param java lambda, ret func ret: 40
+CJ: at S test(): 9
+Java: call cj S, param cj lambda, ret func ret: 17
+CJ: at S test(): 21
+Java: call cj S, param java lambda, ret func ret: 17
+CJ: at TimeUnit NumCalcMonth(): 32
+Java: call enum TimeUnit, param cj lambda, ret func ret: 19
+CJ: at TimeUnit NumCalcMonth(): 90
+Java: call enum TimeUnit, param java lambda, ret func ret: 19
+*/

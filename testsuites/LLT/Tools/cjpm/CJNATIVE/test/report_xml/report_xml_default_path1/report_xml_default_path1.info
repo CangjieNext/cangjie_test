@@ -1,0 +1,20 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm test
+// EXEC: cd %n && %ls target/release/reports/tests/test-default.TextX.xml
+
+// EXEC: cd %n && %cat target/release/reports/tests/test-default.TextX.xml 2>&1 | compare %f
+// ASSERT: scan <?xml version="1.0" encoding="UTF-8"?>
+// ASSERT: scan <testsuite name="default.TextX"
+// ASSERT: scan tests="1"
+// ASSERT: scan failures="0"
+// ASSERT: scan errors="0"
+// ASSERT: scan skipped="0"
+// ASSERT: scan <testcase name="foo" classname="default.TextX"
+// ASSERT: scan assertions="1"
+// ASSERT: scan </testsuite>

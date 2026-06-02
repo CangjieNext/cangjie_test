@@ -1,0 +1,14 @@
+import std.ast.*
+main(): Int64{
+    var tks = Tokens()
+    tks = Token(TokenKind.IDENTIFIER, "foo")(TokenKind.END) + Token(TokenKind.IDENTIFIER, "bar")
+    var itr = tks.iterator()
+    while(true) {
+        match (itr.next()) {
+            case None => break
+            case Some(obj) => obj.dump()
+            case _ => break
+        }
+    }
+    return 0
+}

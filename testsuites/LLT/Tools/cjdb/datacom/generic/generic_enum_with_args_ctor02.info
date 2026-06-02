@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/generic/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb generic_enum_with_args_ctor02,generic_enum_with_args_ctor02
+b,b 18, generic_enum_with_args_ctor02.cj:18
+r,r,-> 18
+expression:expr RGBColor<Int64,Int8>.Red(1):\(default.RGBColor<Int64,Int8>\) \$\d+ = {\s+constructor = Red\s+arg_1 = 1
+expression:expr RGBColor<Int64,Int8>.Blue(1):\(default.RGBColor<Int64,Int8>\) \$\d+ = {\s+constructor = Blue\s+arg_1 = 1
+expression:expr RGBColor<Int64,Int8>.Red(1).print<Int64>(1):\(Int64\) \$\d+ = 1
+expression:expr RGBColor<Int64,Int8>.Blue(1).print<Int64>(1):\(Int64\) \$\d+ = 1
+q,q,  
+
+  
+  

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/Option_some_view_27.cj
+// EXEC: %compiler %cmp_opt -g Option_some_view_27.cj -o Option_some_view_27%cmp_output
+// RUN-EXEC: python3 cjdb_test.py Core_Option_some_view_27.info Option_some_view_27 %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors Option_some_view_27,Option_some_view_27
+b,b 18,Option_some_view_27.cj:18
+AOT r,r,-> 18
+CJVM c,c,-> 18
+p,p a,\(std\.core.Option<default.Rectangle>\) \$[\d] = {[\s\S]*hm = {[\s\S]*\["a" -> true\] = {[\s\S]*key = "a"[\s\S]*value = true[\s\S]*}[\s\S]*\["b" -> false\] = {[\s\S]*key = "b"[\s\S]*value = false[\s\S]*}[\s\S]*\["c" -> true\] = {[\s\S]*key = "c"[\s\S]*value = true[\s\S]*}
+locals,locals,\(std\.core.Option<default.Rectangle>\) a = {[\s\S]*hm = {[\s\S]*\["a" -> true\] = {[\s\S]*key = "a"[\s\S]*value = true[\s\S]*}[\s\S]*\["b" -> false\] = {[\s\S]*key = "b"[\s\S]*value = false[\s\S]*}[\s\S]*\["c" -> true\] = {[\s\S]*key = "c"[\s\S]*value = true[\s\S]*}
+q,q,

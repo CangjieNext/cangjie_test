@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/007_debug_continue.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 007_debug_continue.cj -o 007_debug_continue%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP028.info 007_debug_continue %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 007_debug_continue,007_debug_continue
+breakpoint,breakpoint set -l 16 -c 'indexcontinue==48',007_debug_continue.cj:16
+AOT r,r,-> 16
+CJVM c,c,
+n,n,-> 13
+locals,locals,indexcontinue = 48
+q,q,

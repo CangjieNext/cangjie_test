@@ -1,0 +1,14 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %export WINDOWSDIR="windows" && %export LINUXDIR=linux && %export DARWINDIR=darwin && %export UNSAFEVAR='42$()``' && %cjpm check 2>&1 | compare %f
+
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.0`: the '42$()``/linux' contains illegal characters
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.1`: the '$>+=>=>=``/ohos' contains illegal characters
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.3`: directory './darwin' does not exist or path is too long
+// ASSERT: scan-1 Error at `cjpm.toml:source-set.4`: directory './windows' does not exist or path is too long
+// ASSERT: scan-1 Error: cjpm check failed

@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_boxed_bool.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_boxed_bool.cj -o debuginfo_boxed_bool
+// EXEC: python3 cjdb_test.py debuginfo_boxed_bool.info
+
+
+test#
+cjdb,cjdb debuginfo_boxed_bool,debuginfo_boxed_bool
+b,b 8,debuginfo_boxed_bool.cj:8
+r,r,-> 8
+,locals,\(Bool\) para = true
+,p para,\(Bool\) \$[\d]+ = true
+q,q,

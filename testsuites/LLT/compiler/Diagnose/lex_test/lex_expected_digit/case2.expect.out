@@ -1,0 +1,36 @@
+error: expected octal digit, found 'new line character'
+  ==> case2.cj:14:12:
+   | 
+14 |     var a = 0o
+   |               ^ expected octal digit
+   | 
+
+error: expected octal digit, found '_'
+  ==> case2.cj:15:12:
+   | 
+15 |     var b = 0o_
+   |               ^ expected octal digit
+   | 
+
+error: expected octal digit, found 'e'
+  ==> case2.cj:16:12:
+   | 
+16 |     var c = 0oe3
+   |               ^ expected octal digit
+   | 
+
+error: expected octal digit, found '_'
+  ==> case2.cj:17:12:
+   | 
+17 |     var d = 0o_18
+   |               ^ expected octal digit
+   | 
+
+error: expected octal digit, found 'p'
+  ==> case2.cj:18:12:
+   | 
+18 |     var e = 0op2
+   |               ^ expected octal digit
+   | 
+
+5 errors generated, 5 errors printed.

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/007_debug_array_record_parameters.cj
+// EXEC: %compiler %cmp_opt -g 007_debug_array_record_parameters.cj -o 007_debug_array_record_parameters%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_array_composite_053.info 007_debug_array_record_parameters %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 007_debug_array_record_parameters,007_debug_array_record_parameters
+b,b 57,007_debug_array_record_parameters.cj:57
+AOT r,r,-> 57
+CJVM c,c,
+n,n,-> 58
+print,print arraymainrec01[0].newRectangle,Rectangle2\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 200
+q,q,

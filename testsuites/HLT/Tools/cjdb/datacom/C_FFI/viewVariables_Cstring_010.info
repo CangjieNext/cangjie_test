@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/Test_CString.cj
+// EXEC: %compiler -g  Test_CString.cj -o %n%cmp_output
+// RUN-EXEC: python3 cjdb_test.py viewVariables_Cstring_010.info viewVariables_Cstring_010 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors viewVariables_Cstring_010,viewVariables_Cstring_010
+b,b 70,Test_CString.cj:70
+AOT r,r,-> 70
+CJVM c,c,
+s,s,-> 53
+b,b 58,Test_CString.cj:58
+c,c,-> 58
+p,p vf_arr_str_2,\(std[.]core.Array<std[.]core.Array<CString>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = " "[\S\s]*\[1\] = {[\s\S]*\[0\] = "Hello cangjie!"[\S\s]*
+p,p vf_arr_str_2[0],\(std[.]core.Array<CString>\) \$[\d] = {[\s\S]*\[0\] = " "[\S\s]*\[2\] = "仓颉与C互操作_CString\(<>\)"[\s\S]*
+p,p vf_arr_str_2[1][2],\(CString\) \$[\d] = "!@#\$%\^\&\*\(\)<<\?>"
+p,p vf_arr_str_2[2][2],error: unsupported expression
+q,q,

@@ -1,0 +1,53 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt  %f -o %output
+// RUN-EXEC: %run_stdx %output %run_args
+
+import stdx.encoding.url.*
+
+main(): Int64 {
+    var i = "http:eq12-2321"
+    var i1 = "http:eq1.2321?12a=232"
+    var i2 = "http:eq1_21?12a=232#ewqr"
+    var i3 = "http:eq1~21?12a=232"
+    let s = URL.parse(i)
+    let s1 = URL.parse(i1)
+    let s2 = URL.parse(i2)
+    let s3 = URL.parse(i3)
+    var d = s.toString()
+    var d1 = s1.toString()
+    var d2 = s2.toString()
+    var d3 = s3.toString()
+    if (d != "http:eq12-2321") {
+        return 1
+    }
+    if (d1 != "http:eq1.2321?12a=232") {
+        return 2
+    }
+    if (d2 != "http:eq1_21?12a=232#ewqr") {
+        return 3
+    }
+    if (d3 != "http:eq1~21?12a=232") {
+        return 4
+    }
+    if (s.opaque != "eq12-2321") {
+        return 5
+    }
+    if (s1.opaque != "eq1.2321") {
+        return 6
+    }
+    if (s2.opaque != "eq1_21") {
+        return 7
+    }
+    if (s3.opaque != "eq1~21") {
+        return 8
+    }
+    return 0
+}

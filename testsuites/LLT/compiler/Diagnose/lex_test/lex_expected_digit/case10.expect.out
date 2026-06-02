@@ -1,0 +1,15 @@
+error: expected decimal digit, found 'new line character'
+  ==> case10.cj:13:3:
+   | 
+13 | 1e
+   |   ^ expected decimal digit
+   | 
+
+error: expected decimal digit, found 'terminated'
+  ==> case10.cj:14:3:
+   | 
+14 | 1E
+   |   ^ expected decimal digit
+   | 
+
+2 errors generated, 2 errors printed.

@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/066_debug_arraylist.cj
+// EXEC: %compiler %cmp_opt -g 066_debug_arraylist.cj -o 066_debug_arraylist%cmp_output
+// RUN-EXEC: python3 cjdb_test.py Core_ArrayList_view_06.info 066_debug_arraylist %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
+b,b 26,066_debug_arraylist.cj:26
+AOT r,r,-> 26
+CJVM c,c,-> 26
+AOT p,p arraylistTuple,\(std\.collection.ArrayList<Tuple<Int16,Bool>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = true[\s\S]*}[\s\S]*\[1\] = {[\s\S]*\[0\] = 20[\s\S]*\[1\] = false[\s\S]*}[\s\S]*}
+CJVM p,p arraylistTuple,\(std\.collection.ArrayList<\(Int16,Bool\)>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*_0 = 10[\s\S]*_1 = true[\s\S]*}[\s\S]*\[1\] = {[\s\S]*_0 = 20[\s\S]*_1 = false[\s\S]*}[\s\S]*}
+AOT globals,globals,arraylistTuple = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = true[\s\S]*}[\s\S]*\[1\] = {[\s\S]*\[0\] = 20[\s\S]*\[1\] = false[\s\S]*}[\s\S]*}
+CJVM globals,globals,arraylistTuple = {[\s\S]*\[0\] = {[\s\S]*_0 = 10[\s\S]*_1 = true[\s\S]*}[\s\S]*\[1\] = {[\s\S]*_0 = 20[\s\S]*_1 = false[\s\S]*}[\s\S]*}
+q,q,

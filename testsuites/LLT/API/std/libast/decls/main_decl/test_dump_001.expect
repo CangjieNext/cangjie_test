@@ -1,0 +1,406 @@
+MainDecl {
+  -keyword: Token {
+    value: "main"
+    kind: MAIN
+    pos: 9: 9
+  }
+  -identifier: Token {
+    value: "main"
+    kind: IDENTIFIER
+    pos: 9: 9
+  }
+  -funcParams: 0, FuncParam {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 9: 14
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 9: 15
+    }
+    -paramType: RefType {
+      -identifier: Token {
+        value: "Array"
+        kind: IDENTIFIER
+        pos: 9: 17
+      }
+      -typeArguments: 0, RefType {
+        -identifier: Token {
+          value: "String"
+          kind: IDENTIFIER
+          pos: 9: 23
+        }
+      }
+    }
+  }
+  -declType: PrimitiveType {
+    -keyword: Token {
+      value: "Int64"
+      kind: INT64
+      pos: 9: 32
+    }
+  }
+  -block: Block {
+    -nodes: 0, VarDecl {
+      -keyword: Token {
+        value: "let"
+        kind: LET
+        pos: 10: 13
+      }
+      -identifier: Token {
+        value: "score"
+        kind: IDENTIFIER
+        pos: 10: 17
+      }
+      -declType: PrimitiveType {
+        -keyword: Token {
+          value: "Int64"
+          kind: INT64
+          pos: 10: 24
+        }
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 10: 30
+      }
+      -expr: LitConstExpr {
+        -literal: Token {
+          value: "90"
+          kind: INTEGER_LITERAL
+          pos: 10: 32
+        }
+      }
+    }
+    -nodes: 1, VarDecl {
+      -keyword: Token {
+        value: "let"
+        kind: LET
+        pos: 11: 13
+      }
+      -identifier: Token {
+        value: "PASS"
+        kind: IDENTIFIER
+        pos: 11: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 11: 22
+      }
+      -expr: LitConstExpr {
+        -literal: Token {
+          value: "60"
+          kind: INTEGER_LITERAL
+          pos: 11: 24
+        }
+      }
+    }
+    -nodes: 2, VarDecl {
+      -keyword: Token {
+        value: "let"
+        kind: LET
+        pos: 12: 13
+      }
+      -identifier: Token {
+        value: "FULL"
+        kind: IDENTIFIER
+        pos: 12: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 12: 22
+      }
+      -expr: LitConstExpr {
+        -literal: Token {
+          value: "100"
+          kind: INTEGER_LITERAL
+          pos: 12: 24
+        }
+      }
+    }
+    -nodes: 3, VarDecl {
+      -keyword: Token {
+        value: "var"
+        kind: VAR
+        pos: 13: 13
+      }
+      -identifier: Token {
+        value: "scoreResult"
+        kind: IDENTIFIER
+        pos: 13: 17
+      }
+      -declType: RefType {
+        -identifier: Token {
+          value: "String"
+          kind: IDENTIFIER
+          pos: 13: 30
+        }
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 13: 37
+      }
+      -expr: MatchExpr {
+        -keyword: Token {
+          value: "match"
+          kind: MATCH
+          pos: 13: 39
+        }
+        -selector: RefExpr {
+          -identifier: Token {
+            value: "score"
+            kind: IDENTIFIER
+            pos: 13: 46
+          }
+        }
+        -matchCases: 0, MatchCase {
+          -keywordC: Token {
+            value: "case"
+            kind: CASE
+            pos: 14: 17
+          }
+          -patterns: 0, ConstPattern {
+            -litConstExpr: LitConstExpr {
+              -literal: Token {
+                value: "0"
+                kind: INTEGER_LITERAL
+                pos: 14: 22
+              }
+            }
+          }
+          -arrow: Token {
+            value: "=>"
+            kind: DOUBLE_ARROW
+            pos: 14: 24
+          }
+          -block: Block {
+            -nodes: 0, LitConstExpr {
+              -literal: Token {
+                value: "zero"
+                kind: STRING_LITERAL
+                pos: 14: 27
+              }
+            }
+          }
+        }
+        -matchCases: 1, MatchCase {
+          -keywordC: Token {
+            value: "case"
+            kind: CASE
+            pos: 15: 17
+          }
+          -patterns: 0, ConstPattern {
+            -litConstExpr: LitConstExpr {
+              -literal: Token {
+                value: "10"
+                kind: INTEGER_LITERAL
+                pos: 15: 22
+              }
+            }
+          }
+          -patterns: 1, ConstPattern {
+            -litConstExpr: LitConstExpr {
+              -literal: Token {
+                value: "20"
+                kind: INTEGER_LITERAL
+                pos: 15: 27
+              }
+            }
+          }
+          -patterns: 2, ConstPattern {
+            -litConstExpr: LitConstExpr {
+              -literal: Token {
+                value: "30"
+                kind: INTEGER_LITERAL
+                pos: 15: 32
+              }
+            }
+          }
+          -patterns: 3, ConstPattern {
+            -litConstExpr: LitConstExpr {
+              -literal: Token {
+                value: "40"
+                kind: INTEGER_LITERAL
+                pos: 15: 37
+              }
+            }
+          }
+          -patterns: 4, ConstPattern {
+            -litConstExpr: LitConstExpr {
+              -literal: Token {
+                value: "50"
+                kind: INTEGER_LITERAL
+                pos: 15: 42
+              }
+            }
+          }
+          -arrow: Token {
+            value: "=>"
+            kind: DOUBLE_ARROW
+            pos: 15: 45
+          }
+          -block: Block {
+            -nodes: 0, LitConstExpr {
+              -literal: Token {
+                value: "fail"
+                kind: STRING_LITERAL
+                pos: 15: 48
+              }
+            }
+          }
+        }
+        -matchCases: 2, MatchCase {
+          -keywordC: Token {
+            value: "case"
+            kind: CASE
+            pos: 16: 17
+          }
+          -patterns: 0, VarOrEnumPattern {
+            -identifier: Token {
+              value: "PASS"
+              kind: IDENTIFIER
+              pos: 16: 22
+            }
+          }
+          -arrow: Token {
+            value: "=>"
+            kind: DOUBLE_ARROW
+            pos: 16: 27
+          }
+          -block: Block {
+            -nodes: 0, LitConstExpr {
+              -literal: Token {
+                value: "pass"
+                kind: STRING_LITERAL
+                pos: 16: 30
+              }
+            }
+          }
+        }
+        -matchCases: 3, MatchCase {
+          -keywordC: Token {
+            value: "case"
+            kind: CASE
+            pos: 17: 17
+          }
+          -patterns: 0, ConstPattern {
+            -litConstExpr: LitConstExpr {
+              -literal: Token {
+                value: "70"
+                kind: INTEGER_LITERAL
+                pos: 17: 22
+              }
+            }
+          }
+          -patterns: 1, ConstPattern {
+            -litConstExpr: LitConstExpr {
+              -literal: Token {
+                value: "80"
+                kind: INTEGER_LITERAL
+                pos: 17: 27
+              }
+            }
+          }
+          -arrow: Token {
+            value: "=>"
+            kind: DOUBLE_ARROW
+            pos: 17: 30
+          }
+          -block: Block {
+            -nodes: 0, LitConstExpr {
+              -literal: Token {
+                value: "good"
+                kind: STRING_LITERAL
+                pos: 17: 33
+              }
+            }
+          }
+        }
+        -matchCases: 4, MatchCase {
+          -keywordC: Token {
+            value: "case"
+            kind: CASE
+            pos: 18: 17
+          }
+          -patterns: 0, ConstPattern {
+            -litConstExpr: LitConstExpr {
+              -literal: Token {
+                value: "90"
+                kind: INTEGER_LITERAL
+                pos: 18: 22
+              }
+            }
+          }
+          -patterns: 1, VarOrEnumPattern {
+            -identifier: Token {
+              value: "FULL"
+              kind: IDENTIFIER
+              pos: 18: 27
+            }
+          }
+          -arrow: Token {
+            value: "=>"
+            kind: DOUBLE_ARROW
+            pos: 18: 32
+          }
+          -block: Block {
+            -nodes: 0, LitConstExpr {
+              -literal: Token {
+                value: "excellent"
+                kind: STRING_LITERAL
+                pos: 18: 35
+              }
+            }
+          }
+        }
+        -matchCases: 5, MatchCase {
+          -keywordC: Token {
+            value: "case"
+            kind: CASE
+            pos: 19: 17
+          }
+          -patterns: 0, WildcardPattern {
+            -wildcard: Token {
+              value: "_"
+              kind: WILDCARD
+              pos: 19: 22
+            }
+          }
+          -arrow: Token {
+            value: "=>"
+            kind: DOUBLE_ARROW
+            pos: 19: 24
+          }
+          -block: Block {
+            -nodes: 0, LitConstExpr {
+              -literal: Token {
+                value: "not a valid score"
+                kind: STRING_LITERAL
+                pos: 19: 27
+              }
+            }
+          }
+        }
+      }
+    }
+    -nodes: 4, ReturnExpr {
+      -keyword: Token {
+        value: "return"
+        kind: RETURN
+        pos: 21: 13
+      }
+      -expr: LitConstExpr {
+        -literal: Token {
+          value: "0"
+          kind: INTEGER_LITERAL
+          pos: 21: 20
+        }
+      }
+    }
+  }
+}

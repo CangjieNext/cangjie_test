@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_dynamic_type_display.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_dynamic_type_display.cj -o debuginfo_dynamic_type_display
+// EXEC: python3 cjdb_test.py debuginfo_dynamic_type_display.info
+
+
+test#
+cjdb,cjdb debuginfo_dynamic_type_display,debuginfo_dynamic_type_display
+b,b 156,debuginfo_dynamic_type_display.cj:156
+r,r,-> 156
+p,p detail.properties,std.collection.HashMap<std.core.String,default.MetaValue>\) \$\d+ = {\s+\["mlist"\] = {\s+key = "mlist"\s+value = {\s+\[0\] = "l1"\s+\[1\] = "l2"
+p,p detail.properties,std.collection.HashMap<std.core.String,default.MetaValue>\) \$\d+ = {[\s\S]+\["mBlob"\] = {\s+key = "mBlob"\s+value = {\s+\[0\] = 0\s+\[1\] = 1
+p,p detail.properties,std.collection.HashMap<std.core.String,default.MetaValue>\) \$\d+ = {[\s\S]+\["mMap"\] = {\s+key = "mMap"\s+value = {\s+\["m1" -> "m2"\] = {\s+key = "m1"\s+value = "m2"
+p,p detail.properties,std.collection.HashMap<std.core.String,default.MetaValue>\) \$\d+ = {[\s\S]+\["mSet"\] = {\s+key = "mSet"\s+value = {\s+\[0\] = "m1"\s+\[1\] = "m2"
+p,p detail.properties,std.collection.HashMap<std.core.String,default.MetaValue>\) \$\d+ = {[\s\S]+\["mMetaList"\] = {\s+key = "mMetaList"\s+value = {\s+_list = {\s+\[0\] = "l1"\s+\[1\] = "l2"
+p,p detail.properties,std.collection.HashMap<std.core.String,default.MetaValue>\) \$\d+ = {[\s\S]+\["employeeNumber"\] = {\s+key = "employeeNumber"\s+value = "prop"
+q,q,
