@@ -1,0 +1,34 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_captured_var_02.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_captured_var_02.cj -o debuginfo_captured_var_02
+// EXEC: python3 cjdb_test.py debuginfo_captured_var_02.info
+
+
+test#
+cjdb,cjdb debuginfo_captured_var_02,debuginfo_captured_var_02
+b,b 51,debuginfo_captured_var_02.cj:51
+r,r,-> 51
+p,p aa,\(Int64\) \$[\d]+ = 5000
+p,p bb,\(std.core.Array<Int64>\) \$[\d]+ = {\s+\[0\] = 50\s+\[1\] = 60\s+\[2\] = 70\s+}
+p,p cc,\(default.A\) \$[\d]+ = {\s+z = 999\s+}
+p,p dd,\(default.EE1\) \$[\d]+ = EA
+p,p ee,\(default.EE2\) \$[\d]+ = EA
+p,p ff,\(default.EE3\) \$[\d]+ = {\s+constructor = EB\s+arg_1 = 50\s+}
+p,p gg,\(default.EE4\) \$[\d]+ = {\s+constructor = EB\s+arg_1 = {\s+z = 999\s+}\s+}
+p,p hh,\(default.EE5\) \$[\d]+ = {\s+constructor = EB\s+arg_1 = 50\s+}
+b,b 42,debuginfo_captured_var_02.cj:42
+c,c,-> 42
+p,p aa,\(Int64\) \$[\d]+ = 5000
+p,p bb,\(std.core.Array<Int64>\) \$[\d]+ = {\s+\[0\] = 50\s+\[1\] = 60\s+\[2\] = 70\s+}
+p,p cc,\(default.A\) \$[\d]+ = {\s+z = 999\s+}
+p,p dd,\(default.EE1\) \$[\d]+ = EA
+p,p ee,\(default.EE2\) \$[\d]+ = EA
+p,p ff,\(default.EE3\) \$[\d]+ = {\s+constructor = EB\s+arg_1 = 50\s+}
+p,p gg,\(default.EE4\) \$[\d]+ = {\s+constructor = EB\s+arg_1 = {\s+z = 999\s+}\s+}
+p,p hh,\(default.EE5\) \$[\d]+ = {\s+constructor = EB\s+arg_1 = 50\s+}
+q,q,

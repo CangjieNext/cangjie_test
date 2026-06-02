@@ -1,0 +1,35 @@
+FuncType {
+  -types: 0, PrimitiveType {
+    -keyword: Token {
+      value: "Int64"
+      kind: INT64
+      pos: 21: 10
+    }
+  }
+  -types: 1, PrimitiveType {
+    -keyword: Token {
+      value: "Int32"
+      kind: INT32
+      pos: 21: 17
+    }
+  }
+  -ARROW: Token {
+    value: "->"
+    kind: ARROW
+    pos: 21: 24
+  }
+  -returnType: RefType {
+    -identifier: Token {
+      value: "Array"
+      kind: IDENTIFIER
+      pos: 21: 27
+    }
+    -typeArguments: 0, RefType {
+      -identifier: Token {
+        value: "String"
+        kind: IDENTIFIER
+        pos: 21: 33
+      }
+    }
+  }
+}

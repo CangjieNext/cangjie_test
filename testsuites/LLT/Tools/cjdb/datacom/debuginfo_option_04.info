@@ -1,0 +1,26 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_option_04.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_option_04.cj -o debuginfo_option_04
+// EXEC: python3 cjdb_test.py debuginfo_option_04.info
+
+
+test#
+cjdb,cjdb debuginfo_option_04,debuginfo_option_04
+b,b 23,debuginfo_option_04.cj:23
+r,r,-> 23
+p,p aaa,\(std.core.Option<default.A>\) \$\d+ = None
+p,p bbb,\(std.core.Option<default.A>\) \$\d+ = {\s+q = 50
+p,p ccc,\(default.A\) \$\d+ = {\s+q = 50
+p,p ddd,\(std.core.Option<default.A>\) \$\d+ = None
+p,p eee,\(std.core.Option<default.A>\) \$\d+ = {\s+q = 50
+p,p fff,\(default.A\) \$\d+ = {\s+q = 50
+s,s,-> 16
+p,p para1,\(std.core.Option<default.A>\) \$\d+ = None
+p,p para2,\(std.core.Option<default.A>\) \$\d+ = {\s+q = 50
+p,p para3,\(default.A\) \$\d+ = {\s+q = 50
+q,q,

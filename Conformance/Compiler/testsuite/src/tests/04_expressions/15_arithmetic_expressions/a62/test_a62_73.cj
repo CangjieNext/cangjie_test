@@ -1,0 +1,28 @@
+
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+/*
+  @Name:        04_15_a62_73
+
+  @Level:         1
+
+  @Assertion:   4.15(62) Arithmetic operators introduced above are safe in the Cangjie programming language. That is,
+                if an overflow (i.e., the value of an expression is beyond the range of its type) is detected at
+                compile time, then a compilation error will be reported; otherwise an ArithmeticException is thrown
+                at runtime.
+  @Description: Checks for that compilation fails because of the overflow of ** operator calculation for integers.
+  @Mode: compileonly
+  @Negative: yes
+  @Structure: single
+  @CompileWarning: no
+*/
+
+main() {
+    -2 ** 65
+}

@@ -1,0 +1,22 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[dependencies]
+
+[package]
+  cjc-version = "0.25.3"
+  compile-option = ""
+  description = "nothing here"
+  link-option = ""
+  name = "a61"
+  output-type = "static"
+  src-dir = "src"
+  target-dir = ""
+  version = "1.0.0"
+  package-configuration = {}
+
+[target]
+  aarch64-hm-gnu = {compile-option = "-B/opt/RTOS_V2X/301.1.0/arm64le_hm_pro/bin -B/opt/RTOS_V2X/301.1.0/arm64le_hm_pro/sdk/usr/lib -L/opt/RTOS_V2X/301.1.0/arm64le_hm_pro/gnu64/aarch64-hongmeng-musl/lib64"}

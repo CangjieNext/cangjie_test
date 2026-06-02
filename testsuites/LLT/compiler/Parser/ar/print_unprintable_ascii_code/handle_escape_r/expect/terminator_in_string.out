@@ -1,0 +1,15 @@
+error: expected ';' or '<NL>', found 'efg'
+ ==> terminator_in_string.cj:7:31:
+  | 
+7 |     let a = "abc\u{000D}    let b = "efg
+  |                                      ^^^ expected ';' or '<NL>' here
+  | 
+
+error: expected expression or declaration, found '}'
+ ==> terminator_in_string.cj:8:1:
+  | 
+8 | }
+  | ^ expected expression or declaration here
+  | 
+
+2 errors generated, 2 errors printed.

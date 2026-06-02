@@ -1,0 +1,40 @@
+VarDecl {
+  -keyword: Token {
+    value: "var"
+    kind: VAR
+    pos: 21: 9
+  }
+  -identifier: Token {
+    value: "a"
+    kind: IDENTIFIER
+    pos: 21: 13
+  }
+  -declType: QualifiedType {
+    -baseType: RefType {
+      -identifier: Token {
+        value: "b"
+        kind: IDENTIFIER
+        pos: 21: 16
+      }
+    }
+    identifier: Token {
+      value: "c"
+      kind: IDENTIFIER
+      pos: 21: 18
+    }
+    typeArguments: 0, PrimitiveType {
+      -keyword: Token {
+        value: "Int64"
+        kind: INT64
+        pos: 21: 20
+      }
+    }
+    typeArguments: 1, RefType {
+      -identifier: Token {
+        value: "String"
+        kind: IDENTIFIER
+        pos: 21: 27
+      }
+    }
+  }
+}

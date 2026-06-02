@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ../%n
+// (native_compilation)EXEC: cd %n && %cjpm build %cjpm_opt -V --cfg1 --cfg6 2>&1 | compare %f
+// (native_compilation)EXEC: cd %n && %cjpm run --skip-build 2>&1 | compare result.txt
+// ASSERT: scan-4 cjc
+// ASSERT: regex-2 -g\s
+// ASSERT: scan-2 --cfg "feature1=lion, feature2=cat"
+// ASSERT: scan-not --cfg "feature1=lion, feature2=dog"
+// ASSERT: scan-not --cfg "feature1=tiger, feature2=cat"
+// ASSERT: scan-not --cfg "feature1=tiger, feature2=dog"
+// ASSERT: scan cjpm build success

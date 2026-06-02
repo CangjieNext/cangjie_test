@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/Test_CString.cj
+// EXEC: %compiler -g  Test_CString.cj -o %n%cmp_output
+// RUN-EXEC: python3 cjdb_test.py viewVariables_Cstring_006.info viewVariables_Cstring_006 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors viewVariables_Cstring_006,viewVariables_Cstring_006
+b,b 70,Test_CString.cj:70
+AOT r,r,-> 70
+CJVM c,c,
+p, p arr_str_2,\(std[.]core.Array<CString>\) \$[\d] = {[\s\S]*? \[0\] = "\\"a/'b\\"c\\\""[\s\S]*&?\[1\] = "仓颉与C互操作_CString\(<>\)"[\s\S]*
+p, p arr_str_1,\(std[.]core.Array<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "\\"a/'b\\"c\\\""[\s\S]*\[1\] = "仓颉与C互操作_CString\(<>\)"[\s\S]*
+q,q,

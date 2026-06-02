@@ -1,0 +1,10 @@
+# This is include list for additional tests reletad to function definitions
+#
+# To run these tests you can execute following command from current directory:
+# /path_to_harness/harness.py --included-tests additional_tests.txt
+# or from test suite root folder:
+# /path_to_harness/harness.py --included-tests src/tests/a_cangjie_grammar_summary/02_syntactic_grammar/03_top_level_definitions/03_function_definitions/a01/additional_tests.txt
+
+src/tests/05_function/01_function_definition/a01
+src/tests/10_overloading/02_operator_overloading/a05
+src/tests/05_function/01_function_definition/02_parameters/a02

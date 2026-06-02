@@ -1,0 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// ASSERT: regex Apply\(@_CIN7default1B3fooIG_HG_\$i : \(Class-_CN7default1BE&, Int32\) -> Struct-_CNat6StringE, %\d+, %\d+\)
+// ASSERT: regex Apply\(@_CIN7default1A3barIG_HG_\$RNat6StringE : \(Class-_CN7default1BE&, Struct-_CNat6StringE\) -> Struct-_CNat6StringE, %\d+, %\d+\)
+// ASSERT: scan-not Invoke

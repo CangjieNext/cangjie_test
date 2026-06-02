@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// ( not MAC and not Windows) EXEC: cd %n && %cjpm build --target x86_64-w64-mingw32 -V 2>&1 | compare %f
+// (not Windows) ASSERT: scan-2 Compiling package `macro_calling.macro_definition_1`
+// (not Windows) ASSERT: scan-2 Compiling package `macro_calling.macro_definition_2`
+// (not Windows) ASSERT: scan-1 Compiling package `macro_calling`
+// (not Windows) ASSERT: scan cjpm build success

@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+// DEPENDENCE: ../test.toml test.h
+// EXEC: ObjCInteropGen test.toml
+// EXEC: %cat test.cj | compare %f
+/* SCAN-IN
+public type F = ObjCFunc<(?M) -> ?M>
+
+public type F0 = ObjCFunc<(?M) -> ?M>
+
+public type F1 = ObjCFunc<(M) -> M>
+
+@ObjCMirror
+public open class M {
+    protected var p: F
+    protected var p0: F0
+    protected var p1: F1
+    protected var p_0: F
+    protected var p_1: F
+    @ForeignName["f0:"] public open func f0(p: ObjCFunc<(?M) -> ?M>): Unit
+    @ForeignName["f1:"] public open func f1(p: ObjCFunc<(M) -> M>): Unit
+}
+*/

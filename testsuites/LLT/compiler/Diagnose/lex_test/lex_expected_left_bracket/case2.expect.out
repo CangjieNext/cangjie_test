@@ -1,0 +1,19 @@
+error: expected '{' in unicode escape, found '}'
+  ==> case2.cj:14:5:
+   | 
+14 |     '\u}'
+   |      ~~^ expected '{'
+   |      |
+   |      because it is in this Unicode escape
+   | 
+
+error: expected '{' in unicode escape, found '8'
+  ==> case2.cj:15:5:
+   | 
+15 |     '\u89'
+   |      ~~^ expected '{'
+   |      |
+   |      because it is in this Unicode escape
+   | 
+
+2 errors generated, 2 errors printed.

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/demangle/
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_class/* -o pkg_class.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_func/* -o pkg_func.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_enum/* -o pkg_enum.%middle
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g demangle/pkg_struct/* -o pkg_struct.%middle
+// EXEC: %compiler %cmp_opt -g demangle/demangle.cj pkg_class.%middle pkg_func.%middle pkg_enum.%middle pkg_struct.%middle -o demangle_target%cmp_output
+// RUN-EXEC: python3 cjdb_test.py demangle_002.info demangle_target %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors demangle_target,demangle_target
+b,b 17,demangle_target`default::v_top_2.* at demangle.cj:17:28
+AOT r,r,demangle_target`default::v_top_2 at demangle.cj:17:28[\s\S]*-> 17
+CJVM c,c,-> 17
+q,q,

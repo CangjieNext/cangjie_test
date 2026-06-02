@@ -1,0 +1,15 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+package pkg
+
+public let a: Iterable<Array<String>> = Array<Array<String>>(2, {i => Array<String>()})
+
+public func test<T>(val: T): Unit where T <: ToString {
+    println(val.toString())
+    //    let x = val.hashCode() /*Removed hash code implementation for arrays*/
+    return
+}

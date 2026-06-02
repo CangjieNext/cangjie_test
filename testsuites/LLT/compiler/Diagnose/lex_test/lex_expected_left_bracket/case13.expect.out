@@ -1,0 +1,10 @@
+error: expected '{' in unicode escape, found ' '
+  ==> case13.cj:16:3:
+   | 
+16 | \u cangjie2 ${ "\u"
+   | ~~^ expected '{'
+   | |
+   | because it is in this Unicode escape
+   | 
+
+1 error generated, 1 error printed.

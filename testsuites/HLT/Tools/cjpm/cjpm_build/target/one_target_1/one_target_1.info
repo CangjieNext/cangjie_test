@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: cd %n/pro1 && %cjpm build
+// (x86 and not Windows) EXEC: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
+// (x86 and not Windows) ASSERT: scan cjpm build success
+
+// (not x86 or Windows) ERRCHECK: cd %n && %cjpm build
+// (not x86 or Windows) ASSERT: scan Error: root package 'test' imports package 'pro1.aaa' in its source code, but it is not added as a dependency in cjpm.toml

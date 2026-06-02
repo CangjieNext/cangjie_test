@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// ERRCHECK: %compiler %cmp_opt %f -o %output
+// ASSERT: scan sema_lambdaExpr_must_have_type_annotation
+
+main(): Int64 {
+    let f = {
+        a, b =>
+        let (x, _) = (a, b)
+        let y = b
+        // == 可能可以作为下文推上文的依据
+        x == y
+        match (x) {
+            case 0 => ()
+            case _ => ()
+        }
+    }
+    if (f is (Int64, Int64) -> Unit) {
+        return 0
+    }
+    return 1
+}

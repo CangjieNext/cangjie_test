@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_alias2.cj
+// EXEC: %compiler %cmp_opt -g generics_alias2.cj -o generics_alias2%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_alias2_08_0.info generics_alias2 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_alias2,generics_alias2
+b,b 147,generics_alias2.cj:147
+AOT r,r,-> 147
+CJVM c,c,
+p, p lct1,\(default.classtype01<Int32>\) \$[\d] = {[\s\S]*a = 16[\s\S]
+p, p s1.vct1s,\(default.classtype01<Int64>\) \$[\d] = {[\s\S]*a = 10[\s\S]
+p, p c1.vct1c,\(default.classtype01<Int64>\) \$[\d] = {[\s\S]*a = 10[\s\S]
+p, p default::C1::vct1,\(default.classtype01<Int64>\) \$[\d] = {[\s\S]*a = 10[\s\S]
+p, p globals_ct1,\(default.classtype01<Int32>\) \$[\d] = {[\s\S]*a = 16[\s\S]
+locals, locals,\(default.classtype01<Int32>\) lct1 = {[\s\S]*a = 16[\s\S][\s\S]*\(default.S1\) s1 = {[\s\S]*vct1s = {[\s\S]*a = 10[\s\S][\s\S]*\(default.C1\) c1 = {[\s\S]*vct1c = {[\s\S]*a = 10[\s\S][\s\S]*
+globals, globals,\(default.classtype01<Int64>\) default::C1::vct1 = {[\s\S]*a = 10[\s\S]
+globals, globals,\(default.classtype01<Int32>\) default::globals_ct1 = {[\s\S]*a = 16[\s\S]
+b, b 172,generics_alias2.cj:172
+c,c,-> 172
+p, p h,\(default.classtype01<Int32>\) \$[\d] = {[\s\S]*a = 16[\s\S]
+p, p test_h,\(default.classtype01<Int32>\) \$[\d] = {[\s\S]*a = 16[\s\S]
+locals, locals,\(default.classtype01<Int32>\) h = {[\s\S]*a = 16[\s\S]
+q,q,

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: b
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
+// ASSERT: scan [48, 49, 50, 51, 52, 53, 54, 55, 56, 57]
+import std.io.*
+import std.fs.*
+
+main() {
+    var fileName = "./b/b_file_read.txt"
+    var fs1 = File(fileName, Read)
+    var b1: Array<UInt8> = Array<UInt8>(10, {i => 1})
+    fs1.read(b1)
+    println("${b1}")
+    return 0
+}

@@ -1,0 +1,11 @@
+error: unterminated raw string
+  ==> case1.cj:14:10:
+   | 
+14 |       var a = ##"cangjie
+   |  _____________^
+15 | |     cangjie"#
+16 | | }
+   | |__^ unterminated raw string
+   | 
+
+1 error generated, 1 error printed.

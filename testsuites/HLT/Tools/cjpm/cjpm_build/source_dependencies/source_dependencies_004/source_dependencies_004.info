@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm build
+// (not Windows) EXEC: cd %n/dep/src && echo "public func f1(){}" >> main.cj
+// (not Windows) EXEC: cd %n/dep2/src && echo "public func f2(){}" >> main.cj
+// (Windows) EXEC: cd %n/dep/src && echo public func f1(){} >> main.cj
+// (Windows) EXEC: cd %n/dep2/src && echo public func f2(){} >> main.cj
+// EXEC: cd %n && %cjpm build && %cat target/.dep-cache 2>&1 | compare %f
+// ASSERT: scan "package": "dep.aoo"
+// ASSERT: scan "package": "dep.coo"
+// ASSERT: scan "package": "dep"
+// ASSERT: scan "package": "dep2"

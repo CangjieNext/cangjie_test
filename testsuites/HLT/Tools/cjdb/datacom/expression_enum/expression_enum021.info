@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/025_enum_collection.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 025_enum_collection.cj -o 025_enum_collection%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum021.info 025_enum_collection %run_env
+
+test#
+cjdb,cjdb --no-use-colors 025_enum_collection,025_enum_collection
+b,b 22,025_enum_collection.cj:22
+AOT r,r,-> 22
+CJVM c,c,
+p,p a1,\(default.EE<Int64>\) \$[\d] = {[\s\S]*constructor = A[\s\S]*arg_1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
+p,p a2,\(default.EE<Int64>\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}
+p,p a3,\(default.EE<Bool>\) \$[\d] = {[\s\S]*constructor = C[\s\S]*arg_1 = {[\s\S]*\[0\] = 6[\s\S]*}
+expr~expr EE<Int64>.A([1,2])~\(default.EE<Int64>\) \$[\d] = {[\s\S]*constructor = A[\s\S]*arg_1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
+expr~expr EE<Int64>.B(b1)~\(default.EE<Int64>\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}
+expr~expr EE<Bool>.C(b2)~\(default.EE<Bool>\) \$[\d] = {[\s\S]*constructor = C[\s\S]*arg_1 = {[\s\S]*\[0\] = 6[\s\S]*}
+q,q,

@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashSet/003_HashSet_via_class.cj
+// EXEC: %compiler %cmp_opt -g 003_HashSet_via_class.cj -o 003_HashSet_via_class%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_HashSet031.info 003_HashSet_via_class %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
+b,b 34,003_HashSet_via_class.cj:34
+AOT r,r,-> 34
+CJVM c,c,-> 34
+p,p re_ins,rec_ex\) \$[\d] = {[\S\s]*rec_par_1 = 21[\S\s]*set_ruint8 = [\S\s]*}
+p,p re_ins.set_ruint8,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[0\] = 4[\S\s]*}
+p,p re_ins.set_ruint8,std[.]collection.HashSet<UInt8>\) \$[\d] = {[\S\s]*\[1\] = 9[\S\s]*}
+q,q,

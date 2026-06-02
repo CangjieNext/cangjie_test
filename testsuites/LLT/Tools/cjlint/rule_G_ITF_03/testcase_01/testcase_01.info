@@ -1,0 +1,11 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %lint -f ./src  -c %lintConfigDir -m %lintModuleDir 2>&1 | compare %f
+// ASSERT: regex :43:1:.*warning.*G.ITF.03: 'Sub2' is the sub-interface of 'Sub', please avoid declaring both parent-interface and sub-interface.
+// ASSERT: regex :43:1:.*warning.*G.ITF.03: 'Sub2' is the sub-interface of 'Base', please avoid declaring both parent-interface and sub-interface.
+// ASSERT: regex :43:1:.*warning.*G.ITF.03: 'Sub' is the sub-interface of 'Base', please avoid declaring both parent-interface and sub-interface.

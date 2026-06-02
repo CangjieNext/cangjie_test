@@ -1,0 +1,34 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Driver does not support the following testcases on MacOS.
+# third_party/llvm/bin/ld64 is used, ld cannot be customized.
+compiler/Driver/toolchain/no_ld.cj
+# MachO linkage does not require crt files.
+compiler/Driver/toolchain/crtendS.cj
+compiler/Driver/toolchain/crtbeginS.cj
+# ld64 does not support safe compile features for now.
+compiler/Driver/safe_compile
+# darwin target does not set generic target CPU by default.
+compiler/Driver/options/target_cpu/test_default.cj
+# --sysroot cannot be tested for Mac because it is required to be an available darwin SDK path.
+compiler/Driver/options/sysroot/test.cj
+# PGO feature is not supported currently.
+compiler/Driver/options/occurance_warning_tests/--pgo-instr-use.cj
+# Obfuscation feature is not supported currently.
+compiler/Driver/options/obfuscation
+# Linker script is not supported on MacOS.
+compiler/Driver/options/discard_eh_frame/discard_eh_frame.cj
+# cjc uses llvm ld64.lld by default for MachO targets, the following testcase is not supported and cannot be tested.
+compiler/Driver/cross_compile/sysroot_option/sysroot_priority.cj
+compiler/Driver/cross_compile/sysroot_option/sysroot_mock.cj
+# reflect is not supported currently
+compiler/Codegen_CJNative/reflect
+# hot reload is not supported currently
+compiler/Codegen_CJNative/hotupdate
+
+# ffi-python is only supported on linux.
+compiler/FFI/ffi_python

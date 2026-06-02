@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/003_HashMap_Ins_composite.cj
+// EXEC: %compiler %cmp_opt -g 003_HashMap_Ins_composite.cj -o 003_HashMap_Ins_composite%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_HashMap026.info 003_HashMap_Ins_composite %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 003_HashMap_Ins_composite,003_HashMap_Ins_composite
+b,b 40,003_HashMap_Ins_composite.cj:40
+AOT r,r,-> 40
+CJVM c,c,-> 40
+p,p map_list_1,std[.]collection.HashMap<UInt8,std[.]collection.ArrayList<Rune>>\) \$[\d] = {[\S\s]*key = 2[\S\s]*\[0\] = 'r'[\S\s]*\[1\] = 'b'[\S\s]*\[2\] = 'C'[\S\s]*}
+p,p map_list_1,std[.]collection.HashMap<UInt8,std[.]collection.ArrayList<Rune>>\) \$[\d] = {[\S\s]*key = 3[\S\s]*\[0\] = 'r'[\S\s]*\[1\] = 'b'[\S\s]*\[2\] = 'C'[\S\s]*}
+q,q,
+

@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/058_debug_varray.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 058_debug_varray.cj -o 058_debug_varray%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_bitwiseexpression_008.info 058_debug_varray %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 058_debug_varray,058_debug_varray
+b,b 24,Breakpoint 1: where = 058_debug_varray`default::main[\s\S]*058_debug_varray.cj:24
+AOT r,r,-> 24
+CJVM c,c,-> 24
+expression, expression vInt8[0]<<2,\(Int8\) \$[\d] = -4
+expression, expression vInt16[0]<<2,\(Int16\) \$[\d] = -4
+expression, expression vInt32[0]<<2,\(Int32\) \$[\d] = -4
+expression, expression vInt64[0]<<2,\(Int64\) \$[\d] = -4
+expression, expression vIntNative[0]<<2,\(IntNative\) \$[\d] = -4
+q,q,

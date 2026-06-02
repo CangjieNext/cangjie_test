@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/019_enum_match.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 019_enum_match.cj -o 019_enum_match%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum014.info 019_enum_match %run_env
+
+test#
+cjdb,cjdb --no-use-colors 019_enum_match,019_enum_match
+b,b 15,019_enum_match.cj:15
+AOT r,r,-> 15
+CJVM c,c,
+p,p this,\(default.TimeUnit1\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 3[\s\S]*}
+p,p i,\(Int64\) \$[\d] = 1
+expr,expr this,\(default.TimeUnit1\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 3[\s\S]*}
+expr,expr i,\(Int64\) \$[\d] = 1
+q,q,

@@ -1,0 +1,12 @@
+error: unterminated raw string
+  ==> case5.cj:14:13:
+   | 
+14 |       "cangjie ${##"}
+   |  ______________~~^
+   | |              |
+   | |              because it interpolation is not terminated with a '}'
+15 | | }
+   | |__^ unterminated raw string
+   | 
+
+1 error generated, 1 error printed.

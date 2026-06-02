@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm build && %cjpm test --no-color | compare %f
+// ASSERT: regex TP: .*a.*
+// ASSERT: regex TP: a.*
+// ASSERT: regex TOTAL: 0
+// ASSERT: regex .*PASSED.*: 0, .*SKIPPED.*: 0, .*ERROR.*: 0
+// ASSERT: regex .*FAILED.*: 0
+// ASSERT: regex cjpm test success
+// EXEC: cd %n && %cjpm run

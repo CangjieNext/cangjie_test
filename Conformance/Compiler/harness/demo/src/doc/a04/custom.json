@@ -1,0 +1,4 @@
+{
+    "test": "BaseTest",
+    "runner": "SimplePyRunner"
+}

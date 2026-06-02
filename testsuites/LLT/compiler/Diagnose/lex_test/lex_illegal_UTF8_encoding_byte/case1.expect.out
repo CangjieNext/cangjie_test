@@ -1,0 +1,72 @@
+warning: unsecure character:\u{FFFD}
+  ==> case1.cj:14:15:
+   | 
+14 |     var a = "c��cangjie"; ���� = "cang"
+   |               ^ unsecure character:\u{FFFD}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{FFFD}
+  ==> case1.cj:14:18:
+   | 
+14 |     var a = "c��cangjie"; ���� = "cang"
+   |                ^ unsecure character:\u{FFFD}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{FFFD}
+  ==> case1.cj:14:31:
+   | 
+14 |     var a = "c��cangjie"; ���� = "cang"
+   |                           ^ unsecure character:\u{FFFD}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{FFFD}
+  ==> case1.cj:14:34:
+   | 
+14 |     var a = "c��cangjie"; ���� = "cang"
+   |                            ^ unsecure character:\u{FFFD}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{FFFD}
+  ==> case1.cj:14:37:
+   | 
+14 |     var a = "c��cangjie"; ���� = "cang"
+   |                             ^ unsecure character:\u{FFFD}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{FFFD}
+  ==> case1.cj:14:40:
+   | 
+14 |     var a = "c��cangjie"; ���� = "cang"
+   |                              ^ unsecure character:\u{FFFD}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{FFFD}
+  ==> case1.cj:15:2:
+   | 
+15 | }�
+   |  ^ unsecure character:\u{FFFD}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+error: expected expression or declaration, found ''
+  ==> case1.cj:14:31:
+   | 
+14 |     var a = "c��cangjie"; ���� = "cang"
+   |                           ^ expected expression or declaration here
+   | 
+
+error: expected ';' or '<NL>', found ''
+  ==> case1.cj:15:2:
+   | 
+15 | }�
+   |  ^ expected ';' or '<NL>' here
+   | 
+
+2 errors generated, 2 errors printed.
+7 warnings generated, 7 warnings printed.

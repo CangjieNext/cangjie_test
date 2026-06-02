@@ -1,0 +1,16 @@
+// DEPENDENCE: macro_test.cj %f.expect
+// EXEC: %compiler %cmp_macro macro_test.cj
+// EXEC: %run_macro %compiler %cmp_opt --debug-macro %f -o %output
+// EXEC: %diff %f.macrocall %f.expect
+
+import test.*
+
+main() {
+    
+    var flag = true
+    if (flag) {
+        return 0
+    } else {
+        return 1
+    }
+}

@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+main(): Int64 {
+    var test = 1
+    var a: Int8 = 1
+
+    if (!(a == r'a')) {
+        return 1
+    }
+    if (a == r'b') {
+        return 2
+    }
+    return 0
+}
+
+extend Int8 {
+    public operator func ==(right: Rune): Bool { //error: illegal extend member in extend block
+        if (right == r'a') {
+            return true
+        } else {
+            return false
+        }
+    }
+}

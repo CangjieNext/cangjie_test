@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
+// EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_fun_returnvalue_03.info genericsfun_return %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
+CJVM c,c,
+p, p lb,\(Bool\) \$[\d] = true
+p, p cvb,\(Bool\) \$[\d] = false
+p, p s1.vbs,\(Bool\) \$[\d] = true
+p, p c1.vbc,\(Bool\) \$[\d] = true
+p, p default::S1::vb,\(Bool\) \$[\d] = true
+p, p globals_vb,\(Bool\) \$[\d] = true
+locals, locals,\(Bool\) lb = true[\s\S]*\(default.S1\) s1 = {[\s\S]*vbs = true[\s\S]*\(default.C1\) c1 = {[\s\S]*vbc = true[\s\S]*
+globals, globals,\(Bool\) default::S1::vb = true[\s\S]*
+globals, globals,\(Bool\) default::globals_vb = true
+b, b 145,genericsfun_return.cj:145
+c,c,-> 145
+p, p d,\(Bool\) \$[\d] = true
+p, p test_d,\(Bool\) \$[\d] = true
+locals, locals,\(Bool\) d = true
+q,q,

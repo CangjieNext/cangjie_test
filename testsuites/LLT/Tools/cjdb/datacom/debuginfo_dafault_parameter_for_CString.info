@@ -1,0 +1,36 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_dafault_parameter_for_CString.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_dafault_parameter_for_CString.cj -o debuginfo_dafault_parameter_for_CString
+// EXEC: python3 cjdb_test.py debuginfo_dafault_parameter_for_CString.info
+
+
+test#
+cjdb,cjdb debuginfo_dafault_parameter_for_CString,debuginfo_dafault_parameter_for_CString
+b,b 28,debuginfo_dafault_parameter_for_CString.cj:28
+r,r,-> 28
+n,n,-> 29
+s,s,-> 9
+s,s,-> 29
+s,s,-> 11
+n,n,-> 12
+p,p para_1,CString\) \$[\d]+ = "V50"
+p,p para_2,CString\) \$[\d]+ = "- ="
+finish,finish, 29
+s,s,-> 30
+s,s,-> 15
+s,s,-> 30
+s,s,-> 17
+p,p para_2,CString\) \$[\d]+ = "o.O"
+finish,finish, 30
+s,s,-> 31
+s,s,-> 21
+s,s,-> 31
+s,s,-> 23
+p,p para_2,Array<CString>\) \$[\d]+ = {(\r|\n|\r\n)  \[0\] = "aaa"(\r|\n|\r\n)  \[1\] = "bbb"(\r|\n|\r\n)  \[2\] = "o.O"
+finish,finish, 31
+q,q,

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/066_debug_arraylist.cj
+// EXEC: %compiler %cmp_opt -g 066_debug_arraylist.cj -o 066_debug_arraylist%cmp_output
+// RUN-EXEC: python3 cjdb_test.py Core_ArrayList_view_10.info 066_debug_arraylist %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
+b,b 52,066_debug_arraylist.cj:52
+AOT r,r,-> 52
+CJVM c,c,-> 52
+p,p arraylistArray2,\(std\.collection.ArrayList<std.core.Array<Int64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*}[\s\S]*\[1\] = {[\s\S]*\[0\] = 30[\s\S]*\[1\] = 40[\s\S]*}[\s\S]*}
+locals,locals,arraylistArray2 = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*}[\s\S]*\[1\] = {[\s\S]*\[0\] = 30[\s\S]*\[1\] = 40[\s\S]*}[\s\S]*}
+q,q,

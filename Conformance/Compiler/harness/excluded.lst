@@ -1,0 +1,17 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+#  For example:
+#  src/utils                                                           # utils tests
+#  src/tests                                                           # lang tests
+#  03_Names_Scopes_Variables_and_Modifiers/01_Names/                   # 3.1 chapter tests
+#  03_/*01_*/                                                          # 3.1 chapter tests (short)
+#  03_Names_Scopes_Variables_and_Modifiers/01_Names/A01                # 3.1(1) assert tests
+#  03_*01_*A01                                                         # 3.1(1) assert tests (short)
+#  03_Names_Scopes_Variables_and_Modifiers/01_Names/A01/testA01_09.cj  # 3.1(1) 09 test
+#  03_*01_*A01*_09                                                     # 3.1(1) 09 test (short)
+#
+# NOTE: Since this is a mask, the more unique you set the value, the more likely you are to find the match you want.

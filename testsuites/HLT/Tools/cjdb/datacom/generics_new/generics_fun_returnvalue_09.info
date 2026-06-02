@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
+// EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_fun_returnvalue_09.info genericsfun_return %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
+CJVM c,c,
+p, p lstr,\(std.core.String\) \$[\d] = "Cangjie"
+p, p s1.vstrs,\(std.core.String\) \$[\d] = "Cangjie"
+p, p c1.vstrc,\(std.core.String\) \$[\d] = "Cangjie"
+p, p default::C1::vstr,\(std.core.String\) \$[\d] = "Cangjie"
+p, p globals_str,\(std.core.String\) \$[\d] = "Cangjie"
+locals, locals,\(std.core.String\) lstr = "Cangjie"[\s\S]*\(default.S1\) s1 = {[\s\S]*vstrs = "Cangjie"[\s\S]*\(default.C1\) c1 = {[\s\S]*vstrc = "Cangjie"[\s\S]*
+globals, globals,\(std.core.String\) default::C1::vstr = "Cangjie"
+globals, globals,\(std.core.String\) default::globals_str = "Cangjie"
+b, b 161,genericsfun_return.cj:161
+c,c,-> 161
+p, p a,\(std.core.String\) \$[\d] = "Cangjie"
+p, p test_a,\(std.core.String\) \$[\d] = "Cangjie"
+locals, locals,\(std.core.String\) a = "Cangjie"
+q,q,

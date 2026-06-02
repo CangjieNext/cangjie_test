@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var010.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var010.cj -o generics_local_var010%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_local_var010_2.info generics_local_var010 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_local_var010,generics_local_var010
+b,b 18,generics_local_var010.cj:18
+AOT r,r,-> 18
+CJVM c,c,
+expr:expr vcarrc2[0]:\(Int64\) \$[\d] = 2
+expr:expr vrange2:\(std.core.Range<Int32>\) \$[\d] = 1..6 : 2
+expr~expr UInt8(var1+Int8(127))~OverflowException: The result would be less than UInt8.Min.
+q,q,

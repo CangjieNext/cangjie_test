@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var011.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var011.cj -o generics_local_var011%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_local_var011.info generics_local_var011 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_local_var011,generics_local_var011
+b,b 26,generics_local_var011.cj:26
+AOT r,r,-> 26
+CJVM c,c,
+expr:expr a1["a"]:\(Bool\) \$[\d] = true
+expr:expr a7.isEmpty():\(Bool\) \$[\d] = false
+expr:expr a6.fill(4);a6:\(std.core.Array<Int64>\) \$[\d = {[\s\S]*\[0\] = 4[\s\S]*}
+expr:expr a6[1]:IndexOutOfBoundsException
+q,q,

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/009_debug_array_class_parameter.cj
+// EXEC: %compiler %cmp_opt -g 009_debug_array_class_parameter.cj -o 009_debug_array_class_parameter%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_array_composite_069.info 009_debug_array_class_parameter %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 009_debug_array_class_parameter,009_debug_array_class_parameter
+b,b 65,009_debug_array_class_parameter.cj:65
+AOT r,r,-> 65
+CJVM c,c,
+n,n,-> 67
+AOT print,print arraymainrec03[0],default.C2\) \$[\d]+ = {(\r|\n|\r\n)  default.C1 = {(\r|\n|\r\n)    pro = 5(\r|\n|\r\n)    namenum = 110(\r|\n|\r\n)    num = 10(\r|\n|\r\n)    varBool = true(\r|\n|\r\n)    varchar = '5'(\r|\n|\r\n)    width = 1(\r|\n|\r\n)    length = 10(\r|\n|\r\n)    height = 1
+q,q,

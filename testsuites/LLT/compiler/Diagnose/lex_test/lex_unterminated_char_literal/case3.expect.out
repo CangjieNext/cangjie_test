@@ -1,0 +1,9 @@
+error: unterminated single-line string
+  ==> case3.cj:14:2:
+   | 
+14 |     'cangjie
+   |     ^^^^^^^^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+1 error generated, 1 error printed.

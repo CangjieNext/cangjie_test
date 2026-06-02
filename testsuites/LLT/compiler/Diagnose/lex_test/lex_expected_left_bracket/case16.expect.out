@@ -1,0 +1,44 @@
+error: expected '{' in unicode escape, found '}'
+  ==> case16.cj:12:4:
+   | 
+12 | '\u}'
+   |  ~~^ expected '{'
+   |  |
+   |  because it is in this Unicode escape
+   | 
+
+error: expected hexadecimal digit, found '{'
+  ==> case16.cj:13:5:
+   | 
+13 | '\u{{'
+   |     ^ expected hexadecimal digit
+   | 
+
+error: expected '{' in unicode escape, found ' '
+  ==> case16.cj:14:4:
+   | 
+14 | '\u {'
+   |  ~~^ expected '{'
+   |  |
+   |  because it is in this Unicode escape
+   | 
+
+error: expected '{' in unicode escape, found 'new line character'
+  ==> case16.cj:15:4:
+   | 
+15 | '\u
+   |  ~~^ expected '{'
+   |  |
+   |  because it is in this Unicode escape
+   | 
+
+error: expected '{' in unicode escape, found '\'
+  ==> case16.cj:17:4:
+   | 
+17 | '\u\'
+   |  ~~^ expected '{'
+   |  |
+   |  because it is in this Unicode escape
+   | 
+
+5 errors generated, 5 errors printed.

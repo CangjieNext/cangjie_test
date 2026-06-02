@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/001_debug_cover.cj
+//  EXEC: %compiler %cmp_opt -g 001_debug_cover.cj -o 001_debug_cover%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_StepInAndOut003.info 001_debug_cover %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 001_debug_cover,001_debug_cover
+CJVM b main,b main,001_debug_cover.cj:12
+CJVM c,c,-> 12
+b,b 13,001_debug_cover.cj:13
+b,b 15,001_debug_cover.cj:15
+AOT r,r,-> 13
+CJVM c,c,-> 13
+locals,locals,var3 = 1
+s,s,-> 14
+s,s,-> 15
+locals,locals,var3 = 2
+s,s,-> 14
+s,s,-> 17
+locals,locals,var3 = 3
+AOT rerun,r,-> 13
+AOT finish,finish,-> 15
+AOT locals,locals,var3 = 2
+q,q,

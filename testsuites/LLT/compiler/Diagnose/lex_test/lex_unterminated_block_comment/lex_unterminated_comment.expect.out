@@ -1,0 +1,10 @@
+error: unterminated block comment
+  ==> lex_unterminated_comment.cj:13:15:
+   | 
+13 |       var a = 1 /* this is
+   |  _______________^
+14 | | }
+   | |__^ unterminated block comment
+   | 
+
+1 error generated, 1 error printed.

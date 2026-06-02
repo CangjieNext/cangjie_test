@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: p
+// ((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator))) EXEC-PIPE-1: %compiler %cmp_opt %compile_lib_opt --lto=thin p/a.cj -o p.%middle 2>&1 | compare %f
+// (host_win & target_win) ASSERT: scan Windows does not support LTO.
+// (host_mac & target_mac) ASSERT: scan Darwin does not support LTO.
+// (host_mac & (target_ios | target_ios_simulator)) ASSERT: scan iOS does not support LTO.
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) EXEC-PIPE: %compiler %cmp_opt %compile_lib_opt --lto=thin p/a.cj -o p.%middle -V 2>&1 | compare %f
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) ASSERT: scan-not does not support
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) ASSERT: scan --cangjie-lto
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) EXEC-PIPE: %compiler %cmp_opt --lto=full %f p.%middle -o %output -V 2>&1 | compare %f
+// (!((host_win & target_win) | (host_mac & (target_mac | target_ios | target_ios_simulator)))) RUN-EXEC: %run %run_opt %output %run_args
+
+import p.*
+
+main(): Int64 {
+    return a
+}

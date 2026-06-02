@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Range/range_core.cj
+// EXEC: %compiler %cmp_opt -g range_core.cj -o range_core%cmp_output
+// RUN-EXEC: python3 cjdb_test.py core_range_view_02.info range_core %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors range_core,range_core
+b,b 30,range_core.cj:30
+AOT r,r,-> 30
+CJVM c,c,-> 30
+p,p a,\(std.core.Range<Int16>\) \$[\d] = 0..=10 : 1
+locals,locals,\(std.core.Range<Int16>\) a = 0..=10 : 1
+AOT frame var,frame var a,\(std.core.Range<Int16>\) a = 0..=10 : 1
+q,q,

@@ -1,0 +1,17 @@
+error: expected hexadecimal digit, found '.'
+  ==> case3.cj:14:4:
+   | 
+14 |     0x.
+   |       ^ expected hexadecimal digit
+   | 
+
+error: expected exponent part in hexadecimal float number '0x1.1ab'
+  ==> case3.cj:16:9:
+   | 
+16 |     0x1.1ab
+   |     ~~~~~~~^ expected exponent part
+   |     |
+   |     because it is hexadecimal float number
+   | 
+
+2 errors generated, 2 errors printed.

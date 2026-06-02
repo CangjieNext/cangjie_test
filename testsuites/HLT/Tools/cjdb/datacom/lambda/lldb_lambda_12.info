@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/lambda/Test_Lambda_Locals.cj
+// EXEC: %compiler %cmp_opt -g Test_Lambda_Locals.cj -o Test_Lambda%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_lambda_12.info Test_Lambda %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors Test_Lambda,Test_Lambda
+b,b 72,Test_Lambda_Locals.cj:72
+AOT r,r,-> 72
+CJVM c,c,
+locals,locals,\(default.TimeUnit2\) enum_time = {(\r|\n|\r\n)  constructor = Year[\s\S]*arg_1 = 19[\s\S]*}
+p, p enum_time,\(default.TimeUnit2\) \$[\d] = {(\r|\n|\r\n)  constructor = Year[\s\S]*arg_1 = 19[\s\S]*}
+q,q,

@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+import std.collection.*
+
+open class A {
+    A(var ra!: Int64 = 0, let rb!: Int64 = 0) {
+    }
+}
+
+class B <: A {
+    B(var rc!: Int64 = 0, let rd!: Int64 = 0) {
+    }
+}
+
+func comp(lhs: A, rhs: A): Ordering {
+    if (lhs.ra - rhs.ra > 0) {
+        return Ordering.LT
+    } else {
+        return Ordering.GT
+    }
+}
+
+main(): Int64 {
+    var a1 = ArrayList<A>([B(rc: 0, rd: 0), A(ra: 1, rb: 2)])
+    var a2 = ArrayList<A>([B(rc: 0, rd: 0), A(ra: 1, rb: 2)])
+    a1.sortBy(comparator: comp)
+    a2.sortBy(comparator: comp, stable: true)
+    if (a1[0].ra != 1 || a1[0].rb != 2 || a1[1].ra != 0 || a1[1].rb != 0) {
+        return 1
+    }
+    if (a2[0].ra != 1 || a2[0].rb != 2 || a2[1].ra != 0 || a2[1].rb != 0) {
+        return 2
+    }
+    return 0
+}

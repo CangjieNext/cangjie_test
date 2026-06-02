@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/pkg/pkg.cj ../../basecase/expr/pkg/import_member_function.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %compile_lib_opt -j1 pkg.cj -o pkg.%middle
+// EXEC: %compiler %cmp_opt %enableCompileDebug -j1 pkg.%middle import_member_function.cj -o import_member_function
+// EXEC: python3 cjdb_test.py import_member_function.info %n %run_env
+
+test#
+cjdb,cjdb import_member_function, import_member_function
+b,b 12,import_member_function.cj:12
+r,r,-> 12
+ ;expr S2(1,2);\(aaa.S2\) \$\d+ = {\s+width = 1\s+height = 2\s+}
+ ,expr S2.foo(2),\(Int64\) \$\d+ = 3
+q,q,

@@ -1,0 +1,13 @@
+/*
+ * -@TestCaseID: option_type_generic_09.cj
+ * -@TestCaseName: option_type_generic_09.cj
+ * -@TestCaseType: Function Test
+ * -@RequirementID: AR-SR-ARKLANG-2025-02
+ * -@RequirementName: 提供泛型enum
+ * -@Condition: no
+ * -@Brief: 测试泛型record<T>中T为Option类型
+ * -#step1: 定义一个record Data<T>， 定义一个Option<T>
+ * -#step2: 实例化泛型record Data<T>传入类型变元为Option<Int32>
+ * -@Expect: 执行成功，返回期望结果
+ * -@Priority: High
+ */

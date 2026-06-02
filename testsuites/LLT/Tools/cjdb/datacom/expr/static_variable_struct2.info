@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/static_variable_struct.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug static_variable_struct.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb static_variable_struct2,static_variable_struct2
+b,b 24,static_variable_struct.cj:24
+r,r,-> 24
+ ,expr Rect2<Int32>.var1,\(Int8\) \$\d+ = -128
+ ,expr Rect2<Bool>.vcarrc2,\(std.core.Array<Int64>\) \$\d+ = {\s+\[0\] = 2
+ ,expr Rect2<UInt64>.vrange2,\(std.core.Range<Int32>\) \$\d+ = 1..6 : 2
+q,q,

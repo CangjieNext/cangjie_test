@@ -1,0 +1,8 @@
+error: expected identifier, found '`'
+  ==> case6.cj:14:7:
+   | 
+14 |     `var `let
+   |          ^ expected identifier
+   | 
+
+1 error generated, 1 error printed.

@@ -1,0 +1,22 @@
+error: expected a class name after keyword 'class', found keyword 'var'
+  ==> class_decl_1.cj:12:7:
+   | 
+12 | class var {}
+   | ~~~~~ ^^^ expected a class name here
+   | |
+   | after keyword 'class'
+   | 
+help: you could escape keyword as a class name using '`':
+   | 
+12 | class `var` {}
+   |       ~~~~~ 
+   | 
+
+error: expected identifier or pattern after 'var', found '{'
+  ==> class_decl_1.cj:12:11:
+   | 
+12 | class var {}
+   |       ~~~ ^ expected identifier or pattern here
+   | 
+
+2 errors generated, 2 errors printed.

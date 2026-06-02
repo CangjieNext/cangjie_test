@@ -1,0 +1,15 @@
+error: undeclared identifier '仓颉'
+  ==> case4.cj:13:5:
+   | 
+13 |     `仓颉`
+   |     ^ 
+   | 
+
+error: undeclared identifier '编程语言'
+  ==> case4.cj:14:5:
+   | 
+14 |     `编程语言`
+   |     ^ 
+   | 
+
+2 errors generated, 2 errors printed.

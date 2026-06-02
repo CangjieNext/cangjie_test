@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+/*
+   @Structure:       complex-aux
+ */
+
+package p1
+
+public var currentYear = 2023
+
+public struct S1 {
+    public static let NAME = "S1"
+}
+
+public class HW {
+    public static func hello(p1: String) {
+        return "Hello ${p1}"
+    }
+}
+

@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_member.cj
+// EXEC: %compiler %cmp_opt -g generics_member.cj -o generics_member%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_member_fun_02.info generics_member %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_member,generics_member
+b,b 44,Breakpoint 1:
+AOT r,r,-> 44
+CJVM c,c,
+p, p a1,\(Float16\) \$[\d] = 16.156
+p, p a,\(Float16\) \$[\d] = 16.156
+p, p a2,\(Float32\) \$[\d] = 32.3199997
+p, p b,\(Float32\) \$[\d] = 32.3199997
+p, p a3,\(Float64\) \$[\d] = 64.640000000000001
+p, p c,\(Float64\) \$[\d] = 64.640000000000001
+locals, locals,\(Float16\) a = 16.156[\s\S]*\(Float32\) b = 32.3199997[\s\S]*\(Float64\) c = 64.640000000000001[\s\S]*\(Float16\) a1 = 16.156[\s\S]*\(Float32\) a2 = 32.3199997[\s\S]*\(Float64\) a3 = 64.640000000000001
+q,q,

@@ -1,0 +1,56 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// EXEC: %compiler %cmp_opt %n.cj -o %n.%suffix 2>&1 | compare %f
+// EXEC: %run %run_opt %n.%suffix
+
+class A {
+    public var data: Array<Int64> = [1, 2, 3, 4, 5]
+    public let a: Array<Int64> = [3, 1, 2]
+    public let b = B()
+    public func foo(): A {
+        var x = A()
+        return x
+    }
+    public func getData() {
+        return a
+    }
+    public func getB() {
+        return b
+    }
+}
+
+class B {
+    public var data: Array<Int64> = [1, 2, 3, 4, 5, 6]
+    public let a: Array<Int64> = [3, 1, 2, 0]
+    public func foo(): A {
+        var x = A()
+        return x
+    }
+    public func getData() {
+        return a
+    }
+    public func getData(x: Array<Int64>) {
+        return x
+    }
+}
+
+main() {
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    let a = A().foo().foo().foo().foo().foo().foo().data.size
+    let b = A().foo().foo().foo().foo().foo().foo().getData().size
+    let c = A().foo().foo().b.foo().getB().data.size
+    let d = A().foo().foo().b.foo().getB().getData().size
+    let e = A().foo().foo().b.data.size
+    let f = A().foo().foo().b.getData(arr).size
+    if (a.toString() == "5" && b == 3 && c == 6 && d == 4 && e == 6 && f == 10) {
+        return 0
+    }
+    return 1
+}
+
+// ASSERT: regex-not core dumped
+// ASSERT: regex-not stack trace

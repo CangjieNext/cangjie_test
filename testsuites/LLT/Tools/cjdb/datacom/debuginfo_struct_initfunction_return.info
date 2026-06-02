@@ -1,0 +1,20 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_struct_initfunction_return.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_struct_initfunction_return.cj -o debuginfo_struct_initfunction_return
+// EXEC: python3 cjdb_test.py debuginfo_struct_initfunction_return.info
+
+
+test#
+cjdb,cjdb debuginfo_struct_initfunction_return,debuginfo_struct_initfunction_return
+b,b 13,debuginfo_struct_initfunction_return.cj:13
+r,r,-> 13
+s,s,-> 8
+n,n,-> 9
+n,n,-> 7
+n,n,-> 13
+q,q,

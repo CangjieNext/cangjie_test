@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/013_enum_func.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 013_enum_func.cj -o 013_enum_func%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum003.info 013_enum_func %run_env
+
+test#
+cjdb,cjdb --no-use-colors 013_enum_func,013_enum_func
+b,b 35,013_enum_func.cj:35
+AOT r,r,-> 35
+CJVM c,c,
+p,p op1,\(default.A\) \$[\d] = AAA
+expr~expr test01<A>(A.AAA)~\(default.A\) \$[\d] = AAA
+expr~expr test01<B<Int64,Bool>>(B<Int64,Bool>.X(1))~\(default.B<Int64,Bool>\) \$[\d] = {[\s\S]*constructor = X[\s\S]*arg_1 = 1[\s\S]*}
+expr~expr test02()~\(default.A\) \$[\d] = AAA
+expr~expr test03()~\(default.B<Int64,Bool>\) \$[\d] = {[\s\S]*constructor = X[\s\S]*arg_1 = 1[\s\S]*}
+q,q,

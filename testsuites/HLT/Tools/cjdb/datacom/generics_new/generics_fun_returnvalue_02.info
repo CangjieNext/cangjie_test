@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
+// EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_fun_returnvalue_02.info genericsfun_return %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
+CJVM c,c,
+p, p lf,\(Float16\) \$[\d] = 16.156
+p, p cvf,\(Float16\) \$[\d] = 16.156
+p, p s1.vfs,\(Float16\) \$[\d] = 16.156
+p, p c1.vfc,\(Float64\) \$[\d] = 64.640000000000001
+p, p default::C1::vf,\(Float32\) \$[\d] = 32.3199997
+p, p globals_vf,\(Float32\) \$[\d] = 32.3199997
+locals, locals,\(Float16\) lf = 16.156[\s\S]*\(default.S1\) s1 = {[\s\S]*vfs = 16.156[\s\S]*\(default.C1\) c1 = {[\s\S]*vfc = 64.640000000000001[\s\S]*
+globals, globals,\(Float32\) default::C1::vf = 32.3199997[\s\S]*
+globals, globals,\(Float32\) default::globals_vf = 32.3199997
+b, b 142,genericsfun_return.cj:142
+c,c,-> 142
+p, p c,\(Float32\) \$[\d] = 32.3199997
+p, p test_c,\(Float32\) \$[\d] = 32.3199997
+locals, locals,\(Float32\) c = 32.3199997
+q,q,

@@ -1,0 +1,11 @@
+error: expected '}' or hexadecimal digit in unicode escape, found 'r'
+  ==> case4.cj:14:14:
+   | 
+14 |     'adcs\u{123ere
+   |          ~~     ^ expected '}' or hexadecimal digit
+   |          |
+   |          because it is in this Unicode escape
+   | 
+   # note: unicode escape may only contain hexadecimal digits
+
+1 error generated, 1 error printed.

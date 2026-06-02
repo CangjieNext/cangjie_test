@@ -1,0 +1,10 @@
+error: multi-line string must start with newline character
+  ==> case3.cj:17:4:
+   | 
+17 | """cangjie1
+   | ~~~^ expected to start with newline character
+   | |
+   | because it is in multi-line string
+   | 
+
+1 error generated, 1 error printed.

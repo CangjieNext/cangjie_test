@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt -o %output %f
+// RUN-EXEC: %run %run_opt %output %run_args
+
+import std.io.*
+
+main() {
+    var outputStream = ByteBuffer()
+    var strWriter = StringWriter(outputStream)
+    strWriter.writeln(Float64(789))
+    strWriter.writeln(Float64(3.141214))
+    strWriter.writeln(Float64(789.5))
+    strWriter.flush()
+    var readArr: Array<Byte> = readToEnd(outputStream)
+    if (String.fromUtf8(readArr) != "789.000000\n3.141214\n789.500000\n") {
+        return 1
+    }
+    return 0
+}

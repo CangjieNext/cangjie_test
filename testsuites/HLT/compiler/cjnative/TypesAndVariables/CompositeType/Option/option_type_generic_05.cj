@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+func run(): Int64 {
+    var opt = Option<Int32>.Some(2)
+    var tup: (Int32, Option<Int32>) = (1, opt)
+    var opt2: Option<Int32> = tup[1]
+    var res: Int32 = match (opt2) {
+        case Some(x) => x + 2
+        case None => 0
+    }
+    if (res == 4) {
+        return 0
+    }
+    return 1
+}
+
+main(): Int64 {
+    return run()
+}

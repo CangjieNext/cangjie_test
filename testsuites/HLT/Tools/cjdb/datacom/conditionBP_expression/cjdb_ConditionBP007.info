@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func007.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func007.cj -o generics_global_func007%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP007.info generics_global_func007 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_global_func007,generics_global_func007
+breakpoint,breakpoint set -l 28 -c "a1[8]==9",generics_global_func007.cj:28
+AOT r,r,-> 28
+CJVM c,c,
+locals,locals,\(std.core.Array<std.core.Array<Int64>>\) a2 = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1[\s\S]*
+p,p x3,\(std.collection.HashMap<std.core.String,std.core.Array<Int64>>\) \$[\d] = {[\s\S]*\["a"\] = {[\s\S]*key = "a"[\s\S]*value = {[\s\S]*\[0\] = 1[\s\S]*
+expr:expr x1:\(Int64\) \$[\d] = 2
+expr:expr g2(a2,3):\(std.core.Array<std.core.Array<Int64>>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*\[0\] = 1[\s\S]*
+expr:expr x3["a"]:\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*}
+q,q,

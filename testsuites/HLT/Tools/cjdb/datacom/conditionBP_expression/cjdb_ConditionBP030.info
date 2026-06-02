@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var009.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var009.cj -o generics_local_var009%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP030.info generics_local_var009 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_local_var009,generics_local_var009
+breakpoint,breakpoint set -l 21 -c "a6[8]==10",generics_local_var009.cj:21
+AOT r,r,-> 21
+CJVM c,c,
+locals,locals,\(std.core.Array<Int64>\) a6 = {[\s\S]*\[0\] = 2[\s\S*}
+locals,locals,\(Int8\) a3 = -128
+expr:expr UInt8(a3):OverflowException: The result would be less than UInt8.Min.
+expr:expr a4[0]+1:\(Int8\) \$[\d] = 0
+expr~expr Rect2<UInt64>.vInt8~\(VArray<Int8,\$3>\) \$[\d] = {[\s\S]*\[0\] = -1[\s\S]*\[1\] = -2[\s\S]*\[2\] = -3[\s\S]*}
+q,q,

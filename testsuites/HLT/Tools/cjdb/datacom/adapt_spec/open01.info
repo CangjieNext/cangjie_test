@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/open01.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g open01.cj -o open01%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py open01.info open01 %run_env
+
+test#
+cjdb,cjdb --no-use-colors open01,open01
+b,b 48,open01.cj:48
+AOT r,r,-> 48
+CJVM c,c,
+expr~expr Boo().boo<Int64>(3)~\(Int64\) \$[\d] = 1
+expr~expr Moo<Bool>().goo<Bool>(true)~\(Bool\) \$[\d] = true
+expr~expr Noo<UInt32>().goo<Int64>(4)+Moo<Float64>().goo2(1)~\(Int64\) \$[\d] = 7
+q,q,

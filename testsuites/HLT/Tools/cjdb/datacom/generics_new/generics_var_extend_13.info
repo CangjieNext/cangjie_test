@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_var_extend.cj
+// EXEC: %compiler %cmp_opt -g generics_var_extend.cj -o generics_var_extend%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_var_extend_13.info generics_var_extend %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
+b,b 262,Breakpoint 1:
+b,b 267,generics_var_extend.cj:267
+AOT r,r,-> 262
+CJVM c,c,
+p, p a,\(Rune\) \$[\d] = 'b'
+p, p a1,\(Rune\) \$[\d] = 'b'
+locals, locals,\(Rune\) a = 'b'[\s\S]*\(Rune\) a1 = 'b'
+c,c,-> 267
+p, p a,\(Bool\) \$[\d] = true
+p, p a2,\(UInt64\) \$[\d] = 64
+locals, locals,\(Bool\) a = true[\s\S]*\(UInt64\) b = 64[\s\S]*\(Bool\) a1 = true[\s\S]*\(UInt64\) a2 = 64
+q, q

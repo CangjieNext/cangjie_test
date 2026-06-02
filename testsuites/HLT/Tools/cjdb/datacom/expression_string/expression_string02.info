@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/String/string_class02.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g string_class02.cj -o string_class02%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_string02.info string_class02 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors string_class02,string_class02
+b,b 24,string_class02.cj:24
+AOT r,r,-> 24
+CJVM c,c,
+expr,expr a2,\(std.core.String\) \$[\d] = "012"
+expr~expr a1.main_str2~\(std.core.String\) \$[\d] = "012"
+expr~expr C1<Int64>().main_str14~\(std.core.String\) \$[\d] = "012abc"
+q,q,

@@ -1,0 +1,15 @@
+/* SCAN
+A tool used to deserialize and dump CHIR.
+
+Overview: chir-dis xxx.chir -> xxx.chirtxt
+
+Usage:
+  chir-dis [option] file
+
+Options:
+  -v                      print compiler version information.
+  -h                      print this help.
+*/
+
+
+

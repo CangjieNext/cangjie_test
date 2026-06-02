@@ -1,0 +1,27 @@
+// DEPENDENCE: %n.txt expect1.txt expect2.txt
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output | compare expect1.txt
+// RUN-EXEC-6: %run %run_opt %output %run_args
+// EXEC: %cpfile %n.txt %n.cj
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %n.cj -o %output
+// RUN-EXEC-9: %run %run_opt %output %run_args
+
+let g: Int32 = 2
+class B {
+    var a: Int32 = 3
+}
+class A<T> {
+    static var x: B = B()
+}
+
+main(): Int32 {
+    var a: Int32 = A<Int8>.x.a
+    var b: Int32 = A<Int32>.x.a
+    var c: Int32 = B().a
+    return Int32(a + b + c)
+}
+
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.

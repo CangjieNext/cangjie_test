@@ -1,0 +1,89 @@
+error: expected hexadecimal digit, found 'p'
+  ==> lex_unexpected_exponent_part.cj:14:15:
+   | 
+14 |     var a = 0xp
+   |               ^ expected hexadecimal digit
+   | 
+
+error: unexpected exponent part 'p__' in octal
+  ==> lex_unexpected_exponent_part.cj:15:17:
+   | 
+15 |     var v = 0o12p2
+   |             ~~  ^ unexpected exponent part
+   |             |
+   |             because of this octal prefix
+   | 
+   # note: only decimal or hexadecimal number can support exponent part
+
+error: unexpected exponent part 'p__' in binary
+  ==> lex_unexpected_exponent_part.cj:16:17:
+   | 
+16 |     var u = 0b11p2
+   |             ~~  ^ unexpected exponent part
+   |             |
+   |             because of this binary prefix
+   | 
+   # note: only decimal or hexadecimal number can support exponent part
+
+error: unexpected exponent part 'e__' in octal
+  ==> lex_unexpected_exponent_part.cj:17:18:
+   | 
+17 |     var v1 = 0o12e2
+   |              ~~  ^ unexpected exponent part
+   |              |
+   |              because of this octal prefix
+   | 
+   # note: only decimal or hexadecimal number can support exponent part
+
+error: unexpected exponent part 'e__' in binary
+  ==> lex_unexpected_exponent_part.cj:18:18:
+   | 
+18 |     var u1 = 0b11e2
+   |              ~~  ^ unexpected exponent part
+   |              |
+   |              because of this binary prefix
+   | 
+   # note: only decimal or hexadecimal number can support exponent part
+
+error: unexpected exponent part 'p__' in decimal
+  ==> lex_unexpected_exponent_part.cj:20:16:
+   | 
+20 |     var a2 = 11p2
+   |              ~~^ unexpected exponent part
+   |              |
+   |              because the default base is decimal
+   | 
+help: could try to modify it to decimal exponent type:
+   | 
+20 |     var a2 = 11e2
+   |                ~ 
+   | 
+
+error: expected decimal digit, found 'e'
+  ==> lex_unexpected_exponent_part.cj:21:17:
+   | 
+21 |     var a3 = 11ee2
+   |                 ^ expected decimal digit
+   | 
+
+error: unexpected decimal point '.' in octal base number
+  ==> lex_unexpected_exponent_part.cj:23:18:
+   | 
+23 |     var v1 = 0o12.19p2
+   |              ~~  ^ unexpected decimal point
+   |              |
+   |              because of this octal prefix
+   | 
+   # note: only decimal or hexadecimal number can support fractional part
+help: if you expect a decimal fraction, could remove the prefix:
+   | 
+23 |     var v1 =  12.19p2
+   |              ~ 
+   | 
+help: if you expect a hexadecimal fraction, could use hexadecimal prefix:
+   | 
+23 |     var v1 = 0x12.19p2
+   |              ~~ 
+   | 
+
+10 errors generated, 8 errors printed.

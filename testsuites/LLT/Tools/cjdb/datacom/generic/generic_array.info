@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/generic/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb generic_array,generic_array
+b,b 22, generic_array.cj:22
+r,r,-> 22
+ ,expr b,\(std.core.Array<test2.thisstruct>\) \$\d+ = {\s+\[0\] = {\s+b = 321
+ ,expr c,\(std.core.Array<test2.foo>\) \$\d+ = {\s+\[0\] = {\s+aaa = 123
+q,q,

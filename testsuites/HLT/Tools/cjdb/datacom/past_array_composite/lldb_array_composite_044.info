@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/004_debug_array_record_parameter.cj
+// EXEC: %compiler %cmp_opt -g 004_debug_array_record_parameter.cj -o 004_debug_array_record_parameter%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_array_composite_044.info 004_debug_array_record_parameter %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 004_debug_array_record_parameter,004_debug_array_record_parameter
+b,b 44,004_debug_array_record_parameter.cj:44
+AOT r,r,-> 44
+CJVM c,c,
+n,n,-> 47
+locals,locals,Rectangle\) rec1 = {(\r|\n|\r\n)  namenum = 1
+print,print arraymainrec01[1],Rectangle\) \$[\d]+ = {(\r|\n|\r\n)  namenum = 1(\r|\n|\r\n)  num = 15(\r|\n|\r\n)  varBool = true(\r|\n|\r\n)  varchar = '5'(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 20(\r|\n|\r\n)  height = 100
+q,q,

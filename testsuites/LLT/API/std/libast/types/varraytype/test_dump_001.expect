@@ -1,0 +1,24 @@
+VArrayType {
+  -VARRAY: Token {
+    value: "VArray"
+    kind: VARRAY
+    pos: 21: 9
+  }
+  -elementTy: PrimitiveType {
+    -keyword: Token {
+      value: "Int32"
+      kind: INT32
+      pos: 21: 16
+    }
+  }
+  -dollar: Token {
+    value: "$"
+    kind: DOLLAR
+    pos: 21: 24
+  }
+  -size: Token {
+    value: "10"
+    kind: INTEGER_LITERAL
+    pos: 21: 25
+  }
+}

@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_watchpoint_01.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_watchpoint_01.cj -o debuginfo_watchpoint_01
+// EXEC: python3 cjdb_test.py debuginfo_watchpoint_01.info
+
+
+test#
+cjdb,cjdb debuginfo_watchpoint_01,debuginfo_watchpoint_01
+b,b 13,debuginfo_watchpoint_01.cj:13
+r,r,-> 13
+watchpoint,watchpoint set variable -w read tuple_int16[1],debuginfo_watchpoint_01.cj:12[\s\S]*watchpoint spec = 'tuple_int16\[1\]'[\s\S]*new value: 2
+c,c,Watchpoint 1 hit:[\s\S]*old value: 2[\s\S]*new value: 2[\s\S]*-> 20
+q,q,

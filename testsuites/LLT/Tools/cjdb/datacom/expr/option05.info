@@ -1,0 +1,18 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/option.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug option.cj -o option
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb option,option
+b,b 29,option.cj:29
+r,r,-> 29
+expr,expr arr1?[0],\(std.core.Option<Int64>\) \$\d+ = 1
+expr,expr arr2?[0],\(std.core.Option<default.ABC>\) \$\d+ = {\s+a = 1\s+b = {\s+a = 1
+expr,expr arr3?[0],\(std.core.Option<Unit>\) \$\d+ = ()
+q,q,

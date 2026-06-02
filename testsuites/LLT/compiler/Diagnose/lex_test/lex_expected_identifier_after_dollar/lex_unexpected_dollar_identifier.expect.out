@@ -1,0 +1,13 @@
+error: expected identifier after '$', found keyword 'var'
+  ==> lex_unexpected_dollar_identifier.cj:14:14:
+   | 
+14 |     var a = $var
+   |              ^^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+14 |     var a = $`var`
+   |              ~~~~~ 
+   | 
+
+1 error generated, 1 error printed.

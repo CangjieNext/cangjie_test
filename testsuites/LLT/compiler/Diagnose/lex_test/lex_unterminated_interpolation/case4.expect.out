@@ -1,0 +1,8 @@
+error: unterminated string interpolation
+  ==> case4.cj:15:10:
+   | 
+15 |     cangjie ${
+   |             ^^^ unterminated string interpolation
+   | 
+
+1 error generated, 1 error printed.

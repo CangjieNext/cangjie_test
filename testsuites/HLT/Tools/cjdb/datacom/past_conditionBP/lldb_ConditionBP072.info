@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/037_debuginfun_lambda.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 037_debuginfun_lambda.cj -o 037_debuginfun_lambda%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP072.info 037_debuginfun_lambda %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 037_debuginfun_lambda,037_debuginfun_lambda
+breakpoint,breakpoint set -l 18 -c 'a==10',037_debuginfun_lambda.cj:18
+AOT r,r,-> 18
+CJVM c,c,
+n,n,-> 20
+n,n,-> 21
+locals,locals,lamdba001 = 20
+q,q,

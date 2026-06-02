@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_debug.cj
+// EXEC: %compiler %cmp_opt -g option_debug.cj -o option_debug%cmp_output
+// RUN-EXEC: python3 cjdb_test.py option_test_046.info option_debug %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors option_debug,option_debug
+b,b 30,option_debug.cj:30
+AOT r,r,-> 30
+CJVM c,c,-> 30
+p,p option_none,\(std[.]core.Option<std.collection.HashMap<std.core.String,Bool>>\) \$[\d] = None
+locals,locals,\(std[.]core.Option<std.collection.HashMap<std.core.String,Bool>>\) option_none = None[\s\S]*
+AOT frame var,frame var option_none,\(std[.]core.Option<std.collection.HashMap<std.core.String,Bool>>\) option_none = None
+q,q,

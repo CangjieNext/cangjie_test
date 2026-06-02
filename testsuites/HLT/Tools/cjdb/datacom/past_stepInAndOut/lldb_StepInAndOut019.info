@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/011_debug_func_reload.cj
+//  EXEC: %compiler %cmp_opt -g 011_debug_func_reload.cj -o 011_debug_func_reload%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_StepInAndOut019.info 011_debug_func_reload %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 011_debug_func_reload,011_debug_func_reload
+CJVM b main,b main,011_debug_func_reload.cj:12
+CJVM c,c,-> 12
+b,b 12,011_debug_func_reload.cj:12
+AOT r,r,-> 12
+s,s,-> 21
+finish,finish,-> 12
+n,n,-> 13
+locals,locals,Functioncall008 = 10
+q,q,

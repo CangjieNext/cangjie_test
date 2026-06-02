@@ -1,0 +1,23 @@
+# This is include list for additional tests reletad to atomic expression syntax
+#
+# To run these tests you can execute following command from current directory:
+# /path_to_harness/harness.py --included-tests additional_tests.txt
+# or from test suite root folder:
+# /path_to_harness/harness.py --included-tests src/tests/a_cangjie_grammar_summary/02_syntactic_grammar/05_expressions_syntax/a03/additional_tests.txt
+
+src/tests/01_lexical_structure/03_literals/a03
+src/tests/02_types/01_value_types/07_tuple_type/01_tuple_literals/a01
+src/tests/04_expressions/03_conditional_expressions/a02
+src/tests/04_expressions/04_pattern_matching_expressions/a06
+src/tests/04_expressions/05_loop_expressions/a03
+src/tests/04_expressions/06_the_try_expressions/a04
+src/tests/04_expressions/07_control_transfer_expressions/a11
+src/tests/02_types/03_type_conversion/01_type_conversion_between_value_types/a10
+src/tests/04_expressions/09_the_this_and_super_epxressions/a04
+src/tests/15_concurrency/01_thread/a11
+src/tests/15_concurrency/03_synchronization_mechanism/05_synchronized/a09
+src/tests/04_expressions/12_parenthesized_expressions/a03
+src/tests/05_function/05_lambda_expressions/a02
+src/tests/14_metaprogramming/01_quote_expression_and_tokens_type/a01
+src/tests/14_metaprogramming/02_macros/02_macro_invocation/a01
+src/tests/13_multi_language_interoperability/01_c_interoperability/01_unsafe_context/a02

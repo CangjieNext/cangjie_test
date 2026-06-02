@@ -1,0 +1,9 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n/uilang && cjfmt -f ./config_ArrayLit_indent0.cj -c ./../cangjie-format.toml %tonull
+// EXEC: %diff %n/formated/config_ArrayLit_indent0.cj %n/uilang/config_ArrayLit_indent0.cj

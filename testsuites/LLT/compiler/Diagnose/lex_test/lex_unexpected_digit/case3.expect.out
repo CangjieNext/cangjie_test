@@ -1,0 +1,35 @@
+error: unexpected exponent part 'p__' in decimal
+  ==> case3.cj:14:12:
+   | 
+14 |     var a = 12pac
+   |             ~~^ unexpected exponent part
+   |             |
+   |             because the default base is decimal
+   | 
+help: could try to modify it to decimal exponent type:
+   | 
+14 |     var a = 12eac
+   |               ~ 
+   | 
+
+error: unexpected digit 'a' in decimal
+  ==> case3.cj:15:13:
+   | 
+15 |     var b = 12eac
+   |               ~^ unexpected digit
+   |               |
+   |               because the exponent part base is decimal
+   | 
+   # note: decimal may only contain digit within 0~9
+
+error: unexpected digit 'a' in decimal
+  ==> case3.cj:16:18:
+   | 
+16 |     var c = 0x12.12pac
+   |                    ~^ unexpected digit
+   |                    |
+   |                    because the exponent part base is decimal
+   | 
+   # note: decimal may only contain digit within 0~9
+
+3 errors generated, 3 errors printed.

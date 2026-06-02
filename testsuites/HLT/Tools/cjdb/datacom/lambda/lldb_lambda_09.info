@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/lambda/Test_Lambda_Locals.cj
+// EXEC: %compiler %cmp_opt -g Test_Lambda_Locals.cj -o Test_Lambda%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_lambda_09.info Test_Lambda %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors Test_Lambda,Test_Lambda
+b,b 72,Test_Lambda_Locals.cj:72
+AOT r,r,-> 72
+CJVM c,c,
+locals,locals,\(Int8\) intx8 = 8[\s\S]*\(Int16\) intx16 = 16[\s\S]*\(Int32\) intx32 = 32[\s\S]*\(Int64\) intx64 = 64[\s\S]*\(IntNative\) intxn = 10[\s\S]
+p, p intx8,\(Int8\) \$[\d] = 8
+p, p intx16,\(Int16\) \$[\d] = 16
+p, p intx32,\(Int32\) \$[\d] = 32
+p, p intx64,\(Int64\) \$[\d] = 64
+p, p intxn,\(IntNative\) \$[\d] = 10
+q,q,

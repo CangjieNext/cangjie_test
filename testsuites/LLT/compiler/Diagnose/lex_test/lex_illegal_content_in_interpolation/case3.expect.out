@@ -1,0 +1,19 @@
+error: unterminated string interpolation
+  ==> case3.cj:13:22:
+   | 
+13 |     var a = "cangjie ${can //}"
+   |             ~        ^^^^^^^^^^^ unterminated string interpolation
+   |             |
+   |             because it is in single-line string
+   | 
+
+error: unterminated string interpolation
+  ==> case3.cj:15:22:
+   | 
+15 |     var b = "cangjie ${can /* can
+   |             ~        ^^^^^^^^^^^^^ unterminated string interpolation
+   |             |
+   |             because it is in single-line string
+   | 
+
+2 errors generated, 2 errors printed.

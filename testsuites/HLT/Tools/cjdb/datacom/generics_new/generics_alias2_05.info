@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_alias2.cj
+// EXEC: %compiler %cmp_opt -g generics_alias2.cj -o generics_alias2%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_alias2_05.info generics_alias2 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_alias2,generics_alias2
+b,b 147,generics_alias2.cj:147
+AOT r,r,-> 147
+CJVM c,c,
+p, p lhm,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
+p, p s1.vhms,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
+p, p c1.vhmc,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
+p, p default::C1::vhm,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
+p, p globals_hm,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
+locals, locals,\(std.collection.HashMap<std.core.String,Int64>\) lhm = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*\(default.S1\) s1 = {[\s\S]*vhms = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*\(default.C1\) c1 = {[\s\S]*vhmc = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*
+p, p vhm,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*
+p, p globals_hm ,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*
+b, b 159,generics_alias2.cj:159
+c,c,-> 159
+p, p e,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
+p, p test_e,\(std.collection.HashMap<std.core.String,Int64>\) \$[\d] = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*}
+locals, locals,\(std.collection.HashMap<std.core.String,Int64>\) e = {[\S\s]*key = "a"[\S\s]*value = 1[\S\s]*
+q,q,

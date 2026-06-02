@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ../%n
+// (not Windows) EXEC: cd %n && LIBRARY_PATH='`touch "OOPS_INJECTION!"`':$LIBRARY_PATH %cjpm build
+// (not Windows) EXEC-PIPE: cd %n && ls 2>&1 | compare %f
+// (not Windows) ASSERT: scan-not OOPS_INJECTION!

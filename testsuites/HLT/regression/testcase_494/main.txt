@@ -1,0 +1,19 @@
+class A <: Exception{}
+
+class B <: Exception{}
+
+class C{
+    public static var a : Int64 = if (true) {throw A();1} else {3} // throw before main
+    public static var b : Int64 = 1
+}
+
+main() {
+    try{
+        C.b;
+        ()
+    } catch (a:Error) {
+        a.printStackTrace()
+        print("success")
+    }
+    return 0
+}

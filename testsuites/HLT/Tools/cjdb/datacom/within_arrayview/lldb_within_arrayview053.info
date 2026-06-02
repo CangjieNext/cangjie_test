@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/packages/pkgs_h_001/src
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/arrayView_external_define.cj -o libpkg1.%middle
+// EXEC: %compiler %cmp_opt -g libpkg1.%middle src/arrayView_external_invoke.cj -o arrayView_external_invoke%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_within_arrayview053.info arrayView_external_invoke %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors arrayView_external_invoke,arrayView_external_invoke
+b,b 24,arrayView_external_invoke.cj:24
+AOT r,r,-> 24
+CJVM c,c,
+print,print val_2[2][0][0..3],error: unsupported expression
+q,q,

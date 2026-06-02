@@ -1,0 +1,14 @@
+error: return type of 'foo' is not identical or not a subtype of the overridden/redefined/implement function
+  ==> inherited_function.cj:18:10:
+   | 
+18 |     func foo(): C
+   |          ^^^ 
+   | 
+note: 'Class-C' is not a subtype of 'Class-D'
+  ==> inherited_function.cj:18:10:
+   | 
+18 |     func foo(): C
+   |          ^^^ 
+   | 
+
+1 error generated, 1 error printed.

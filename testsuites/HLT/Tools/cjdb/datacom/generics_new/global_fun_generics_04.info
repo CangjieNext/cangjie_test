@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun.cj
+// EXEC: %compiler %cmp_opt -g genericsfun.cj -o genericsfun%cmp_output
+// RUN-EXEC: python3 cjdb_test.py global_fun_generics_04.info genericsfun %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors genericsfun,genericsfun
+b,b 70,genericsfun.cj:70
+AOT r,r,-> 70
+CJVM c,c,
+p, p gengricsvar,Tuple<Int8,UInt8,Float16,Bool>\) \$[\d] = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*
+p, p a,Tuple<Int8,UInt8,Float16,Bool>\) \$[\d] = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*
+p, p gengricsvar1,\(std.core.String\) \$[\d] = "Cangjie仓颉"
+p, p b,\(std.core.String\) \$[\d] = "Cangjie仓颉"
+locals, locals,Tuple<Int8,UInt8,Float16,Bool>\) a = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*\(std.core.String\) b = "Cangjie仓颉"[\s\S]*Tuple<Int8,UInt8,Float16,Bool>\) gengricsvar = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*\(std.core.String\) gengricsvar1 = "Cangjie仓颉"
+q,q,

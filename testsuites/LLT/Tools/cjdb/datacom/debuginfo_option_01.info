@@ -1,0 +1,29 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_option_01.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_option_01.cj -o debuginfo_option_01
+// EXEC: python3 cjdb_test.py debuginfo_option_01.info
+
+
+test#
+cjdb,cjdb debuginfo_option_01,debuginfo_option_01
+b,b 13,debuginfo_option_01.cj:13
+r,r,-> 13
+n,n,-> 14
+n,n,-> 15
+n,n,-> 16
+n,n,-> 17
+n,n,-> 18
+n,n,-> 19
+n,n,-> 20
+p,p s1,std.core.Option<std.core.Option<Int64>>\) \$\d+ = 999
+p,p s2,std.core.Option<std.core.Option<std.core.Array<Int64>>>\) \$\d+ = {\s+\[0\] = 555\s+\[1\] = 666\s+\[2\] = 777\s+\[3\] = 888\s+\[4\] = 999
+p,p s3,std.core.Option<std.core.Option<default.A>>\) \$\d+ = {\s+member1 = 999\s+member2 = "HHH"
+p,p s4,std.core.Option<default.A>\) \$\d+ = {\s+member1 = 999\s+member2 = "HHH"
+p,p s5,std.core.Option<std.core.Option<Int64>>\) \$\d+ = None
+p,p s6,std.core.Option<std.core.Option<std.core.Array<Int64>>>\) \$\d+ = None
+p,p s7,std.core.Option<std.core.Option<default.A>>\) \$\d+ = None

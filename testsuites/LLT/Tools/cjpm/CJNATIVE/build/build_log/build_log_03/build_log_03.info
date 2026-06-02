@@ -1,0 +1,16 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm test --module "test pro0" -V %run_utest_opt 2>&1 | compare %f
+// ASSERT: scan Compiling test package `pro0.zoo`
+// ASSERT: scan Compiling test package `test`
+// ASSERT: scan Compiling test package `test.koo`
+// ASSERT: regex Compiling test.*bin.*pro0.zoo
+// ASSERT: regex Compiling test.*bin.*test.koo
+// ASSERT: regex Compiling test.*bin.*test
+// ASSERT: scan-12 time elapsed
+// ASSERT: scan cjpm test success

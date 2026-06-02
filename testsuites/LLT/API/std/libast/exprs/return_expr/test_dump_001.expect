@@ -1,0 +1,14 @@
+ReturnExpr {
+  -keyword: Token {
+    value: "return"
+    kind: RETURN
+    pos: 21: 9
+  }
+  -expr: RefExpr {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 21: 16
+    }
+  }
+}

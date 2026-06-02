@@ -1,0 +1,32 @@
+error: expected decimal digit, found '仓'
+  ==> case5.cj:15:17:
+   | 
+15 |     var a = 0x1234p仓颉
+   |                    ^^ expected decimal digit
+   | 
+
+error: unexpected digit '2' in binary
+  ==> case5.cj:16:13:
+   | 
+16 |     var b = 0b123p仓颉
+   |             ~~ ^ unexpected digit
+   |             |
+   |             because of this binary prefix
+   | 
+   # note: binary may only contain digit within 0~1
+
+error: expected hexadecimal digit, found '仓'
+  ==> case5.cj:17:18:
+   | 
+17 |     var c = 0x124.ac仓颉
+   |                     ^^ expected hexadecimal digit
+   | 
+
+error: expected decimal digit, found '仓'
+  ==> case5.cj:19:16:
+   | 
+19 |     var e = 12.34e仓颉
+   |                   ^^ expected decimal digit
+   | 
+
+4 errors generated, 4 errors printed.

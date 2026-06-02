@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+
+struct Date {
+    private let Date: Int64 = 5
+    private let Date1: Int64 = 6
+
+    public func get_pub_Date(): Int64 {
+        return Date
+    }
+    public let pub_modifier: () -> Int64 = get_pub_Date
+    private let pri_modifier: () -> Int64 = get_pub_Date
+
+    private func get_pri_Date1(): Int64 {
+        return Date1
+    }
+    public let pub_modifier1: () -> Int64 = get_pri_Date1
+    private let pri_modifier1: () -> Int64 = get_pri_Date1
+}
+
+main(): Int64 {
+    var newRec1: Date = Date()
+
+    if (newRec1.pub_modifier() != 5 || newRec1.pub_modifier1() != 6) {
+        return 1
+    }
+
+    return 0
+}
+// ASSERT: scan sema_illegal_usage_of_member

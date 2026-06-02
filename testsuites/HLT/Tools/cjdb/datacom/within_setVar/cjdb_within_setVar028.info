@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_setVar/002_debug_setVar.cj
+// EXEC: %compiler %cmp_opt -g 002_debug_setVar.cj -o 002_debug_setVar%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_within_setVar028.info 002_debug_setVar %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 002_debug_setVar,002_debug_setVar
+b,b 16,002_debug_setVar.cj:16
+AOT r,r,-> 16
+CJVM c,c,
+s,s,func fun_1\(para_1: Int32 , para_2!: Int32 = 1\)[\s\S]*-> 38
+n,n,-> 39
+p,p a1,\(Int32\) \$[\d] = 12
+set,set a1 =-23,\(Int32\) \$[0-9]* = -23
+p,p a1,\(Int32\) \$[\d] = -23
+q,q,

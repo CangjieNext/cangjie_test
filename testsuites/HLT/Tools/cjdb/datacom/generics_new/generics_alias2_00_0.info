@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_alias2.cj
+// EXEC: %compiler %cmp_opt -g generics_alias2.cj -o generics_alias2%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_alias2_00_0.info generics_alias2 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_alias2,generics_alias2
+b,b 147,generics_alias2.cj:147
+AOT r,r,-> 147
+CJVM c,c,
+p, p lrange1,\(std.core.Range<Int64>\) \$[\d] = 1..=10 : 1
+p, p s1.vrange1s,\(std.core.Range<Int64>\) \$[\d] = 1..=10 : 1
+p, p c1.vrange1c,\(std.core.Range<Int64>\) \$[\d] = 1..=10 : 1
+p, p default::S1::vrange1,\(std.core.Range<Int64>\) \$[\d] = 1..=10 : 1
+p, p globals_range1,\(std.core.Range<Int64>\) \$[\d] = 1..=10 : 1
+locals, locals,\(std.core.Range<Int64>\) lrange1 = 1..=10 : 1[\s\S]*\(default.S1\) s1 = {[\s\S]*vrange1s = 1..=10 : 1[\s\S]*\(default.C1\) c1 = {[\s\S]*vrange1c = 1..=10 : 1[\s\S]*
+globals, globals,\(std.core.Range<Int64>\) default::S1::vrange1 = 1..=10 : 1
+globals, globals,\(std.core.Range<Int64>\) default::globals_range1 = 1..=10 : 1
+b, b 172,generics_alias2.cj:172
+c,c,-> 172
+p, p a,\(std.core.Range<Int64>\) \$[\d] = 1..=10 : 1
+p, p test_a,\(std.core.Range<Int64>\) \$[\d] = 1..=10 : 1
+locals, locals,\(std.core.Range<Int64>\) a = 1..=10 : 1
+q,q,

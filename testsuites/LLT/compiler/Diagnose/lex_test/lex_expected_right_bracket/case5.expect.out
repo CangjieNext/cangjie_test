@@ -1,0 +1,11 @@
+error: expected '}', found '3'
+  ==> case5.cj:15:21:
+   | 
+15 |     cangjie \u{12341234324}
+   |               ~        ^ expected '}'
+   |               |
+   |               to match this opening '{'
+   | 
+   # note: unicode escape may contain 8 hexadecimal digits at most
+
+1 error generated, 1 error printed.

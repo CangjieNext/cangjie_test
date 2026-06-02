@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ../%n
+// EXEC-PIPE: cd %n && %cjpm bench --verbose | compare %f
+// ASSERT: scan Compiling test runner
+// ASSERT: scan Executing test runner
+// ASSERT: scan Starting the benchmark
+// ASSERT: regex Starting measurements of.*.batches. Measuring Duration
+// ASSERT: regex Max batch size.*.estimated execution time

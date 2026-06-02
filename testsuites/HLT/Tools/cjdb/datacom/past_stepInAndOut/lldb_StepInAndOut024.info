@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/019_debug_expressions.cj
+//  EXEC: %compiler %cmp_opt -g 019_debug_expressions.cj -o 019_debug_expressions%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_StepInAndOut024.info 019_debug_expressions %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 019_debug_expressions,019_debug_expressions
+CJVM b main,b main,019_debug_expressions.cj:13
+CJVM c,c,-> 13
+b,b 34,019_debug_expressions.cj:34
+b,b 35,019_debug_expressions.cj:35
+AOT r,r,-> 34
+CJVM c,c,-> 34
+s,s,-> 35
+AOT finish,finish,stopped
+CJVM finish,finish,Process exited
+q,q,

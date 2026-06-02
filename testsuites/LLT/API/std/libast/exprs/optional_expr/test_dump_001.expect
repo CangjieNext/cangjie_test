@@ -1,0 +1,25 @@
+CallExpr {
+  -callFunc: OptionalExpr {
+    -baseExpr: RefExpr {
+      -identifier: Token {
+        value: "a"
+        kind: IDENTIFIER
+        pos: 17: 22
+      }
+    }
+    -quest: Token {
+      value: "?"
+      kind: QUEST
+      pos: 17: 23
+    }
+  }
+  -arguments: 0, Argument {
+    -expr: RefExpr {
+      -identifier: Token {
+        value: "b"
+        kind: IDENTIFIER
+        pos: 17: 25
+      }
+    }
+  }
+}

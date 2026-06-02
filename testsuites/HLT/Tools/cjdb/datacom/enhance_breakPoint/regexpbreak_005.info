@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/035_debuginfun_func_reload.cj
+// EXEC: %compiler %cmp_opt -g 035_debuginfun_func_reload.cj -o 005_regexpbreak%cmp_output
+// RUN-EXEC: python3 cjdb_test.py regexpbreak_005.info 005_regexpbreak %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 005_regexpbreak,005_regexpbreak
+CJVM b,breakpoint set -n main,035_debuginfun_func_reload.cj:12
+CJVM c,c,-> 12
+AOT b,b notexist,Unable to resolve breakpoint to any actual locations
+CJVM b,b notexist,Breakpoint 2: notexist not loaded.
+q,q,

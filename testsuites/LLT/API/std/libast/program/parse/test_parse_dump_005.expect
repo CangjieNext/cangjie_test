@@ -1,0 +1,111 @@
+Program {
+  -packageHeader: PackageHeader {
+      -keywordP: Token {
+        value: "package"
+        kind: PACKAGE
+      }
+      -packageIdentifier: Token {
+        value: "p"
+        kind: IDENTIFIER
+      }
+    }
+  -importLists: 0, ImportList {
+    -modifier: Token {
+      value: "internal"
+      kind: INTERNAL
+    }
+    -keywordI: Token {
+      value: "import"
+      kind: IMPORT
+    }
+    -importKind: All
+    prefixPath: 0: Token {
+      value: "std"
+      kind: IDENTIFIER
+    }
+    prefixPath: 1: Token {
+      value: "ast"
+      kind: IDENTIFIER
+    }
+    -identifier: Token {
+      value: "*"
+      kind: MUL
+    }
+  }
+  -decls: 0, VarDecl {
+    -keyword: Token {
+      value: "var"
+      kind: VAR
+    }
+    -identifier: Token {
+      value: "global"
+      kind: IDENTIFIER
+    }
+    -assign: Token {
+      value: "="
+      kind: ASSIGN
+    }
+    -expr: LitConstExpr {
+      -literal: Token {
+        value: "0"
+        kind: INTEGER_LITERAL
+      }
+    }
+  }
+  -decls: 1, ClassDecl {
+    -keyword: Token {
+      value: "class"
+      kind: CLASS
+    }
+    -identifier: Token {
+      value: "A"
+      kind: IDENTIFIER
+    }
+    -body: Body {
+    }
+  }
+  -decls: 2, MainDecl {
+    -keyword: Token {
+      value: "main"
+      kind: MAIN
+    }
+    -identifier: Token {
+      value: "main"
+      kind: IDENTIFIER
+    }
+    -block: Block {
+      -nodes: 0, VarDecl {
+        -keyword: Token {
+          value: "var"
+          kind: VAR
+        }
+        -identifier: Token {
+          value: "a"
+          kind: IDENTIFIER
+        }
+        -assign: Token {
+          value: "="
+          kind: ASSIGN
+        }
+        -expr: LitConstExpr {
+          -literal: Token {
+            value: "1"
+            kind: INTEGER_LITERAL
+          }
+        }
+      }
+      -nodes: 1, ReturnExpr {
+        -keyword: Token {
+          value: "return"
+          kind: RETURN
+        }
+        -expr: LitConstExpr {
+          -literal: Token {
+            value: "0"
+            kind: INTEGER_LITERAL
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+error: unexpected digit 'a' in decimal
+  ==> case1.cj:14:12:
+   | 
+14 |     var a = 12a.12
+   |             ~~^ unexpected digit
+   |             |
+   |             because the default base is decimal
+   | 
+   # note: decimal may only contain digit within 0~9
+
+error: unexpected digit '2' in binary
+  ==> case1.cj:15:12:
+   | 
+15 |     var b = 0b23.fd
+   |             ~~^ unexpected digit
+   |             |
+   |             because of this binary prefix
+   | 
+   # note: binary may only contain digit within 0~1
+
+error: unexpected digit '9' in octal
+  ==> case1.cj:16:12:
+   | 
+16 |     var c = 0o9a.123
+   |             ~~^ unexpected digit
+   |             |
+   |             because of this octal prefix
+   | 
+   # note: octal may only contain digit within 0~7
+
+error: unexpected digit 'a' in decimal
+  ==> case1.cj:17:13:
+   | 
+17 |     var d = .32a
+   |             ~~~^ unexpected digit
+   |             |
+   |             because the default base is decimal
+   | 
+   # note: decimal may only contain digit within 0~9
+
+error: unexpected digit 'b' in decimal
+  ==> case1.cj:19:12:
+   | 
+19 |     var g = 12b
+   |             ~~^ unexpected digit
+   |             |
+   |             because the default base is decimal
+   | 
+   # note: decimal may only contain digit within 0~9
+
+5 errors generated, 5 errors printed.

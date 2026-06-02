@@ -1,0 +1,22 @@
+error: unknown start of token: \u{001B}
+  ==> case8.cj:14:2:
+   | 
+14 |     \u{001B}
+   |     ^^^^^^^^ unknown start of token: \u{001B}
+   | 
+
+error: unknown start of token: \u{001B}
+  ==> case8.cj:15:3:
+   | 
+15 |         \u{001B}\u{001B}
+   |         ^^^^^^^^ unknown start of token: \u{001B}
+   | 
+
+error: unknown start of token: \u{001B}
+  ==> case8.cj:15:4:
+   | 
+15 |         \u{001B}\u{001B}
+   |                 ^^^^^^^^ unknown start of token: \u{001B}
+   | 
+
+3 errors generated, 3 errors printed.

@@ -1,0 +1,10 @@
+/* SCAN
+error: no matching function declaration for function call 'f'
+  ==> main.cj:15:7:
+   | 
+15 |     a.f()
+   |       ^ 
+   | 
+
+1 error generated, 1 error printed.
+*/

@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/008_debug_func_no_arg.cj
+//  EXEC: %compiler %cmp_opt -g 008_debug_func_no_arg.cj -o 008_debug_func_no_arg%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_StepInAndOut013.info 008_debug_func_no_arg %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 008_debug_func_no_arg,008_debug_func_no_arg
+CJVM b main,b main,008_debug_func_no_arg.cj:12
+CJVM c,c,-> 12
+b,b 13,008_debug_func_no_arg.cj:13
+AOT r,r,-> 13
+CJVM c,c,-> 13
+s,s,-> 19
+finish,finish,-> 13
+s,s,-> 19
+finish,finish,-> 13
+s,s,-> 14
+locals,locals,Functioncall002 = 60
+q,q,

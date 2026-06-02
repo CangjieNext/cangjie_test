@@ -1,0 +1,51 @@
+TupleLiteral {
+  -elements: 0, LitConstExpr {
+    -literal: Token {
+      value: "1"
+      kind: INTEGER_LITERAL
+      pos: 23: 10
+    }
+  }
+  -elements: 1, LitConstExpr {
+    -literal: Token {
+      value: "2"
+      kind: INTEGER_LITERAL
+      pos: 23: 13
+    }
+  }
+  -elements: 2, LitConstExpr {
+    -literal: Token {
+      value: "3"
+      kind: INTEGER_LITERAL
+      pos: 23: 16
+    }
+  }
+  -elements: 3, LitConstExpr {
+    -literal: Token {
+      value: "emptyArray"
+      kind: STRING_LITERAL
+      pos: 23: 19
+    }
+  }
+  -elements: 4, LitConstExpr {
+    -literal: Token {
+      value: "10"
+      kind: INTEGER_LITERAL
+      pos: 37: 43
+    }
+  }
+  -elements: 5, LitConstExpr {
+    -literal: Token {
+      value: "2"
+      kind: INTEGER_LITERAL
+      pos: 23: 36
+    }
+  }
+  -elements: 6, LitConstExpr {
+    -literal: Token {
+      value: "1"
+      kind: INTEGER_LITERAL
+      pos: 23: 39
+    }
+  }
+}

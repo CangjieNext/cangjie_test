@@ -1,0 +1,74 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[ALL-TEST-CASE]
+compiler/FFI/CFFI
+API/std/env/unix
+API/std/net/
+API/std/socket/
+API/std/posix/
+API/std/process/darwin
+API/std/process/unix
+API/std/time/
+compiler/CJMP/objc/
+compiler/CJMP/refgluecode/
+compiler/Diagnose/PlatformRelated
+compiler/Driver/PlatformRelated
+compiler/Driver/LTO/lto_test11_1.cj
+
+[EXCLUDE-TEST-CASE]
+
+# exclude first.
+compiler/FFI/CFFI
+API/std/env/unix
+API/std/net/
+API/std/socket/
+API/std/posix/
+API/std/process/darwin
+API/std/process/unix
+API/std/time/
+
+## objc (Assertion failed)
+compiler/CJMP/objc/integration/cstruct
+compiler/CJMP/objc/integration/cstruct_pointer
+
+## objc @C-struct tests are disabled for now as currently LLVM IR generated for functions returning structs is invalid for darwin-aarch64 platform
+compiler/CJMP/objc/sema/objc_cstruct_impl.cj
+compiler/CJMP/objc/sema/objc_struct_illegal.cj
+
+## objc (no named arguments checks)
+compiler/CJMP/objc/sema/objc_impl/ctor_args_named.cj
+compiler/CJMP/objc/sema/objc_impl/ctor_arg_default.cj
+
+## objc (weird parser fails)
+compiler/CJMP/objc/parser/class/objc_impl/can_be_open.cj
+compiler/CJMP/objc/parser/class/objc_impl/ctor.cj
+
+## objc (illegal instruction 4 failure)
+compiler/CJMP/objc/integration/cjmapping_open_class
+
+## "Objective-C calls Cangjie" interop (cjmapping) is disabled
+compiler/CJMP/objc/sema/cj_mapping_interop_lib_not_imported_class.cj
+compiler/CJMP/objc/sema/cjmapping_struct.cj
+compiler/CJMP/objc/integration/cj-mapping-generic-class-static/cj-mapping-generic-class-static.info
+compiler/CJMP/objc/integration/cj-mapping-generic-class/cj-mapping-generic-class.info
+compiler/CJMP/objc/integration/cj-mapping-generic-enum-prop/cj-mapping-generic-enum-prop.info
+compiler/CJMP/objc/integration/cj-mapping-generic-enum/cj-mapping-generic-enum.info
+compiler/CJMP/objc/integration/cj-mapping-generic-interface/cj-mapping-generic-interface.info
+compiler/CJMP/objc/integration/cj-mapping-generic-struct-prop/cj-mapping-generic-struct-prop.info
+compiler/CJMP/objc/integration/cj-mapping-mul-generic-class/cj-mapping-mul-generic-class.info
+compiler/CJMP/objc/integration/cj-mapping-mul-generic-struct/cj-mapping-mul-generic-struct.info
+compiler/CJMP/objc/integration/cjmapping_enum_1/cjmapping_enum_1.info
+compiler/CJMP/objc/integration/cjmapping_enum_2/cjmapping_enum_2.info
+compiler/CJMP/objc/integration/cjmapping_enum_dependencies/impl_enum_0021/impl_enum_0021.info
+compiler/CJMP/objc/integration/cjmapping_enum_dependencies/impl_enum_0022/impl_enum_0022.info
+compiler/CJMP/objc/integration/cjmapping_enum_dependencies/impl_enum_0025/impl_enum_0025.info
+compiler/CJMP/objc/integration/cjmapping_enum_dependencies/impl_enum_0026/impl_enum_0026.info
+compiler/CJMP/objc/integration/cjmapping_interface/cjmapping_interface.info
+compiler/CJMP/objc/integration/cjmapping_non_open_class/cjmapping_non_open_class.info
+compiler/CJMP/objc/integration/cjmapping_struct/cjmapping_struct.info
+compiler/CJMP/objc/integration/cjmapping_struct_with_param/cjmapping_struct_with_param.info
+compiler/CJMP/objc/integration/output_objcgen_dir/test_objc_uses_cj.info

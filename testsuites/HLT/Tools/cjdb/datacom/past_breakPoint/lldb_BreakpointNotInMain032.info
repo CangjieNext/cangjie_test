@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/037_debuginfun_lambda.cj
+// EXEC: %compiler %cmp_opt -g 037_debuginfun_lambda.cj -o 037_debuginfun_lambda%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain032.info 037_debuginfun_lambda %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 037_debuginfun_lambda,037_debuginfun_lambda
+CJVM b,breakpoint set -n main,037_debuginfun_lambda.cj:12
+CJVM c,c,-> 12
+b,b 16,Breakpoint
+AOT b,b 17,037_debuginfun_lambda.cj:18
+CJVM b,b 17,037_debuginfun_lambda.cj:17
+b,b 18,037_debuginfun_lambda.cj:18
+AOT b,b 19,037_debuginfun_lambda.cj:20
+CJVM b,b 19,037_debuginfun_lambda.cj:19
+b,b 20,037_debuginfun_lambda.cj:20
+AOT r,r,-> 16
+CJVM c,c,-> 16
+c,c,-> 20
+n,n,-> 18
+n,n,-> 20
+n,n,-> 21
+locals,locals,lamdba001 = 20
+q,q,

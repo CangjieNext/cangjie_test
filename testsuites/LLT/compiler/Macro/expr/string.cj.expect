@@ -1,0 +1,58 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: define.cj %f.expect
+// EXEC: %compiler %cmp_macro define.cj
+// EXEC: %run_macro %compiler %cmp_opt --debug-macro %f -o %output
+// EXEC: %diff %f.expect %f.macrocall
+
+import define.*
+internal import std.unittest.*
+import std.unittest.testmacro.*
+
+/* ===== Emitted by MacroCall @M0 in string.cj:16:1 ===== */
+var a = #"hello
+    Cangjie"#
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @M in string.cj:20:1 ===== */
+var a1 = #"hello
+    Cangjie"#
+
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @M0 in string.cj:24:1 ===== */
+var b = """
+    <showList color="blue">
+        <file color='blue2' size="180">
+            <name>Rain2</name>
+            <date>2020-01-03</date>
+        </file>
+    </showList>
+    """
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @M in string.cj:34:1 ===== */
+var b1 = """
+    <showList color="blue">
+        <file color='blue2' size="180">
+            <name>Rain2</name>
+            <date>2020-01-03</date>
+        </file>
+    </showList>
+    """
+
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @M0 in string.cj:44:1 ===== */
+let c =[r'\t', r'\r', r'\n', r'\u{0020}', r' ', r'\'']
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @M0 in string.cj:47:1 ===== */
+let d = r'\''
+/* ===== End of the Emit ===== */
+
+main() {}

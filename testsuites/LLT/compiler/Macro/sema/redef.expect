@@ -1,0 +1,55 @@
+error: redefinition of declaration 'C1'
+   | 
+   | /* 14.1 */public class C1 {
+   |                        ^^ 
+   | 
+note: the error occurs after the macro is expanded
+  ==> redef.cj:14:1:
+   | 
+14 | @B1(C1().ab)
+   | ^^^^^^^^^^^^ 
+   | 
+note: the code after the macro is expanded as follows
+   | 
+   |   /* 14.1 */public class C1 {
+   |  _^
+   | | /* 14.2 */    public var ab = 1
+   | | /* 14.3 */    func gg1(x: Int64) { }
+   | | /* 14.4 */}
+   | |___________^
+   | 
+note: 'C1' is previously declared here
+ ==> redef.cj:8:14:
+  | 
+8 | public class C1 {
+  |              ^^ 
+  | 
+
+error: redefinition of declaration 'C1'
+   | 
+   | /* 16.1 */public class C1 {
+   |                        ^^ 
+   | 
+note: the error occurs after the macro is expanded
+  ==> redef.cj:16:1:
+   | 
+16 | @B1(EEB.ABC)
+   | ^^^^^^^^^^^^ 
+   | 
+note: the code after the macro is expanded as follows
+   | 
+   |   /* 16.1 */public class C1 {
+   |  _^
+   | | /* 16.2 */    public var ab = 1
+   | | /* 16.3 */    func gg1(x: Int64) { }
+   | | /* 16.4 */}
+   | |___________^
+   | 
+note: 'C1' is previously declared here
+ ==> redef.cj:8:14:
+  | 
+8 | public class C1 {
+  |              ^^ 
+  | 
+
+2 errors generated, 2 errors printed.

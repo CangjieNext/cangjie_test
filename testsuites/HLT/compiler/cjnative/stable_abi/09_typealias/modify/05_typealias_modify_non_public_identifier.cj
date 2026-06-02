@@ -1,0 +1,57 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+ 
+/*
+  @No: 9.5
+  @Scene: modify
+  @Visibility: non public
+  @Object: typealias
+  @Behavior: modify non public typealias
+  @Expect: api compatible & abi compatible
+*/
+// LEVEL: 0
+// Expect: API Compatible & ABI Compatible
+// DEPENDENCE: main.cj, template.cj
+// EXEC: %compiler %cmp_opt %compile_dylib_opt template.cj -o libstable_abi.%dylib_suffix
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+// EXEC: %rm libstable_abi.*
+// EXEC: %mv test_stable_abi.cjo old.cjo
+// EXEC: %compiler %cmp_opt %compile_dylib_opt %f -o libstable_abi.%dylib_suffix
+
+// TEST CJCPL
+// E-EXEC-PIPE: %cjcpl %old_cjo old.cjo %new_cjo test_stable_abi.cjo 2>&1 | compare template.cj
+// TEST ABI Compatibility
+// RUN-EXEC: %run %run_opt %output %run_args
+// TEST API Compatibility
+// EXEC: %compiler %cmp_opt main.cj %cmp_stable_abi_dylib -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+package test_stable_abi
+
+// test typeAlias: modify non public typeAlias
+type Mytype1 = Int64
+type Mytype = Int32
+public type Mytype3 = Float64
+public type Mytype4 = Float32
+public func f1(){
+    var a: Mytype1 = 1
+    return 1
+}
+public func f2(){
+    var b: Mytype = 2
+    return 2
+}
+public func f3(){
+    var c: Mytype3 = 1.1
+    return 1.1
+}
+public func f4(){
+    var d: Mytype4 = 2.2
+    return 2.2
+}

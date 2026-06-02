@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/005_debug_class_generics.cj
+// EXEC: %compiler %cmp_opt -g 005_debug_class_generics.cj -o 005_debug_class_generics%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_generics_class_020.info 005_debug_class_generics %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 005_debug_class_generics,005_debug_class_generics
+b,b 152,005_debug_class_generics.cj:152
+AOT r,r,-> 152
+CJVM c,c,
+n,n,-> 154
+locals,locals,\(default.C4<Int8,Int8,Int8,Int16,Int16,Int32,Int32,Int64,Int64,Unit>\) mc4_1 = {(\r\n|\r|\n)  num1 = 1(\r\n|\r|\n)  num2 = 2(\r\n|\r|\n)  num3 = 3(\r\n|\r|\n)  num4 = 4(\r\n|\r|\n)  num5 = 5(\r\n|\r|\n)  num6 = 6(\r\n|\r|\n)  num7 = 7(\r\n|\r|\n)  num8 = 8(\r\n|\r|\n)  num9 = 9(\r\n|\r|\n)  num10 = \(\)(\r\n|\r|\n)}
+q,q,

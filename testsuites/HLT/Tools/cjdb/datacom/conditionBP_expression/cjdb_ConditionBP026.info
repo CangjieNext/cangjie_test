@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var007.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var007.cj -o generics_local_var007%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP026.info generics_local_var007 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_local_var007,generics_local_var007
+breakpoint,breakpoint set -l 57 -c "a==7",generics_local_var007.cj:57
+AOT r,r,-> 57
+CJVM c,c,
+locals,locals,\(Int64\) para = 7
+locals,locals,\(Int64\) a = 7
+locals,locals,\(Int32\) var5 = 1
+p,p tuple2,\(Tuple<std.core.String,std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "a"[\s\S]*\[1\] = "b"[\s\S]*}
+locals,locals,\(VArray<Float64,\$3>\) vFloat64 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}
+p,p var22,\(UIntNative\) \$[\d] = 8
+expr:expr Float64(var22):\(Float64\) \$[\d] = 8
+expr~expr vUInt64[0]-2~OverflowException: sub
+expr~expr tuple_I1[0]+7~\(Int64\) \$[\d] = -1
+expr~expr Int8(var7)-2~\(Int8\) \$[\d] = -1
+q,q,

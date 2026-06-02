@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/ArrayList/ArrayList_baseVar.cj
+// EXEC: %compiler %cmp_opt -g ArrayList_baseVar.cj -o ArrayList_baseVar%cmp_output
+// RUN-EXEC: python3 cjdb_test.py arraylist_test_004.info ArrayList_baseVar %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors ArrayList_baseVar,ArrayList_baseVar
+b,b 30,ArrayList_baseVar.cj:30
+AOT r,r,-> 30
+CJVM c,c,-> 30
+p,p Arrlist_F16,\(std[.]collection.ArrayList<Float16>\) \$[\d] = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
+p,p Arrlist_F32,\(std[.]collection.ArrayList<Float32>\) \$[\d] = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
+p,p Arrlist_F64,\(std[.]collection.ArrayList<Float64>\) \$[\d] = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}
+q,q,

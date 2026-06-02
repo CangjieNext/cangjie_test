@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm build --no-feature-deduce --enable-features=user.cmp.arch.little
+// EXEC: cd %n && sleep 1 && touch multiplatform/common/c.cj && %cjpm build -i -V --no-feature-deduce --enable-features=user.cmp.arch.little 2>&1 | compare %f
+// ASSERT: scan Compiling `./common/nonproduct` part of package `cmp`
+// ASSERT: scan Compiling `./platformB/product` part of package `cmp`
+// ASSERT: scan cjpm build success

@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashSet/003_HashSet_via_class.cj
+// EXEC: %compiler %cmp_opt -g 003_HashSet_via_class.cj -o 003_HashSet_via_class%cmp_output
+// RUN-EXEC: python3 cjdb_test.py cjdb_HashSet025.info 003_HashSet_via_class %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
+b,b 27,003_HashSet_via_class.cj:27
+AOT r,r,-> 27
+CJVM c,c,-> 27
+AOT p,p set_class,std[.]collection.HashSet<default.cla>\) \$[\d] = {[\S\s]*\[0\] = 0x0000[\S\s]*}
+AOT p,p set_class,std[.]collection.HashSet<default.cla>\) \$[\d] = {[\S\s]*\[1\] = 0x0000[\S\s]*}
+CJVM p,p set_class,std[.]collection.HashSet<default.cla>\) \$[\d] = {[\S\s]*\[0\] = {[\s\S]*x = 1[\s\S]*set_cla_int32[\s\S]*\[0\] = -94
+CJVM p,p set_class,std[.]collection.HashSet<default.cla>\) \$[\d] = {[\S\s]*\[0\] = {[\s\S]*x = 1[\s\S]*set_cla_int32[\s\S]*\[1\] = 98
+CJVM p,p set_class,std[.]collection.HashSet<default.cla>\) \$[\d] = {[\S\s]*\[0\] = {[\s\S]*x = 1[\s\S]*set_cla_int32[\s\S]*\[2\] = -6154
+CJVM p,p set_class,std[.]collection.HashSet<default.cla>\) \$[\d] = {[\S\s]*\[1\] = {[\s\S]*x = 2[\s\S]*set_cla_int32[\s\S]*\[0\] = -94
+CJVM p,p set_class,std[.]collection.HashSet<default.cla>\) \$[\d] = {[\S\s]*\[1\] = {[\s\S]*x = 2[\s\S]*set_cla_int32[\s\S]*\[1\] = 98
+CJVM p,p set_class,std[.]collection.HashSet<default.cla>\) \$[\d] = {[\S\s]*\[1\] = {[\s\S]*x = 2[\s\S]*set_cla_int32[\s\S]*\[2\] = -6154
+q,q,

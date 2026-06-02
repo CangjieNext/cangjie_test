@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+import std.collection.*
+
+var hashmap1: HashMap<Int8, String> = HashMap<Int8, String>([(2, "a"), (1, "c")])
+
+func foo(hashmap1: HashMap<Int8, String>) {
+    hashmap1.add(3, "5")
+    return hashmap1
+}
+
+main(): Int64 {
+    var a = foo(hashmap1)
+    if (a.size == 3 && a[1] == "c" && a[3] == "5" && a[2] == "a") {
+        return 0
+    }
+    return 1
+}

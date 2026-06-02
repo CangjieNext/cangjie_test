@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/015_debug_basetype.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 015_debug_basetype.cj -o 015_debug_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_Variable004.info 015_debug_basetype %run_env
+ 
+ 
+ 
+ 
+test#
+cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
+CJVM b,b main,015_debug_basetype.cj:12
+CJVM c,c,-> 12
+b,b 37,015_debug_basetype.cj:37
+AOT r,r,-> 37
+expression, expression r'a',\(Rune\) \$[\d] = \'a\'
+expression, expression 10,\(Int64\) \$[\d] = 10
+expression, expression 12.12,\(Float64\) \$[\d] = 12.119999999999999
+expression, expression true,\(Bool\) \$[\d] = true
+expression, expression false,\(Bool\) \$[\d] = false
+expression, expression 10i8,\(Int8\) \$[\d] = 10
+expression, expression 10i16,\(Int16\) \$[\d] = 10
+expression, expression 10i32,\(Int32\) \$[\d] = 10
+expression, expression 10i64,\(Int64\) \$[\d] = 10
+q,q,

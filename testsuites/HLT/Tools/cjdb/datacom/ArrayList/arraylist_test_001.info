@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/ArrayList/ArrayList_baseVar.cj
+// EXEC: %compiler %cmp_opt -g ArrayList_baseVar.cj -o ArrayList_baseVar%cmp_output
+// RUN-EXEC: python3 cjdb_test.py arraylist_test_001.info ArrayList_baseVar %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors ArrayList_baseVar,ArrayList_baseVar
+b,b 19,ArrayList_baseVar.cj:19
+AOT r,r,-> 19
+CJVM c,c,-> 19
+p,p Arrlist_I8,\(std[.]collection.ArrayList<Int8>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\[3\] = 4[\s\S]*}
+p,p Arrlist_I16,\(std[.]collection.ArrayList<Int16>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\[3\] = 127[\s\S]*}
+p,p Arrlist_I32,\(std[.]collection.ArrayList<Int32>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\[3\] = 1023[\s\S]*}
+p,p Arrlist_I64,\(std[.]collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*\[3\] = 2048[\s\S]*}
+q,q,

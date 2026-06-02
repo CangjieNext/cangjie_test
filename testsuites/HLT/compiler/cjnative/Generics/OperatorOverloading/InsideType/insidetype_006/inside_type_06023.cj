@@ -1,0 +1,169 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+
+class A<T> where T <: Int64 & Countable<T> & Comparable & Equatable {
+    //operator func ~(a:A<T>):Bool {true} // ~ not support overload
+    public operator func !(): Bool {
+        true
+    }
+    //operator func +():Bool {true} // ~ not support overload
+    public operator func -(): Bool {
+        true
+    }
+    //operator func ++():Bool {true} // ~ not support overload
+    //operator func --():Bool {true} // ~ not support overload
+    public operator func [](b: A<Range<T>>): Bool {
+        true
+    }
+    // operator ** is illegal
+    public operator func *(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func /(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func %(b: A<Range<T>>): Bool {
+        true
+    }
+    // operator *& is illegal
+    public operator func +(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func -(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func <<(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func >>(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func <(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func <=(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func >(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func >=(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func ==(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func !=(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func &(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func ^(b: A<Range<T>>): Bool {
+        true
+    }
+    public operator func |(b: A<Range<T>>): Bool {
+        true
+    }
+    //        operator func ^^(b:A<Range<T>>):Bool {true}
+    // operator +& is illegal
+    // operator -& is illegal
+}
+
+main(): Int64 {
+    var a: A<Range<Int32>> = A<Range<Int32>>()
+    var b: A<Int32> = A<Int32>()
+    if (!(b[a])) {
+        return 1
+    }
+    if (!(true)) {
+        return 8
+    }
+    if (!(b * a)) {
+        return 9
+    }
+    if (!(b / a)) {
+        return 10
+    }
+    if (!(b % a)) {
+        return 11
+    }
+    if (!(true)) {
+        return 12
+    }
+    if (!(b + a)) {
+        return 13
+    }
+    if (!(b - a)) {
+        return 14
+    }
+    if (!(true)) {
+        return 15
+    }
+    if (!(true)) {
+        return 16
+    }
+    if (!(b << a)) {
+        return 17
+    }
+    if (!(b >> a)) {
+        return 18
+    }
+    if (!(b < a)) {
+        return 19
+    }
+    if (!(b <= a)) {
+        return 20
+    }
+    if (!(b > a)) {
+        return 21
+    }
+    if (!(b >= a)) {
+        return 22
+    }
+    if (!(b == a)) {
+        return 23
+    }
+    if (!(b != a)) {
+        return 24
+    }
+    if (!(b & a)) {
+        return 25
+    }
+    if (!(b ^ a)) {
+        return 26
+    }
+    if (!(b | a)) {
+        return 27
+    }
+    //    if (!(b^^a)) {
+    //        return 28
+    //    }
+    /*
+    if (!(~b)) {
+        return 29
+    }
+    if (!(!b)) {
+        return 30
+    }
+    if (!(+b)) {
+        return 31
+    }
+    if (!(-b)) {
+        return 32
+    }
+     */
+    return 0
+}
+
+// ASSERT: scan sema_generic_type_without_type_argument
+// ASSERT: scan sema_generic_type_argument_not_match_constraint
+// ASSERT: scan sema_upper_bound_must_be_class_or_interface

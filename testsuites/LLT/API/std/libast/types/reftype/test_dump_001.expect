@@ -1,0 +1,14 @@
+RefType {
+  -identifier: Token {
+    value: "A"
+    kind: IDENTIFIER
+    pos: 21: 9
+  }
+  -typeArguments: 0, PrimitiveType {
+    -keyword: Token {
+      value: "Int64"
+      kind: INT64
+      pos: 21: 11
+    }
+  }
+}

@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+type int = Int32
+
+type str = String
+
+class Data {
+    public var a: int = 0
+    public init() {}
+    public init(x: int, y: String) {
+        this()
+        a = x
+    }
+    public func foo(x: int): str {
+        return x.toString()
+    }
+}
+
+main(): Int64 {
+    var i: int = 3
+    let s: str = "hi"
+    var data: Data = Data(i, s)
+    var res1 = data.a
+    var res2 = data.foo(2)
+    if (res1 == 3 && res2 == "2") {
+        return 0
+    }
+    return 1
+}

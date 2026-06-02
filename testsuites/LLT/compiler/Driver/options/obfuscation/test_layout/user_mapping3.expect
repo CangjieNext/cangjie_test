@@ -1,0 +1,2 @@
+mymod.mod1.MyException.init(std.core::String) hack1
+mymod.mod1.MyClassA.myfunc1(Int64, Float64) hack2

@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: test_fj_0.txt test_fj_notnull.txt
+// (not Windows) EXEC-PIPE: rm -rf mylink && rm -rf mylink2
+// (not Windows) EXEC-PIPE: ln -s test_fj_0.txt mylink && ln -s test_fj_notnull.txt mylink2
+// (not Windows) EXEC-PIPE: %compiler %cmp_opt -o %output %f
+// (not Windows) RUN-EXEC-PIPE: %run %run_opt %output %run_args
+
+import std.posix.*
+
+main(): Int64 {
+    var loginname: String = getlogin()
+    var res1 = lchown("mylink", UInt32(10133333), UInt32(0))
+    var res2 = lchown("mylink2", UInt32(0), UInt32(66677777))
+    if (res1 != Int32(0) && res1 != Int32(-1) && res2 != Int32(-1) && res2 != Int32(0)) {
+        return 1
+    }
+    return 0
+}

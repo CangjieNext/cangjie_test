@@ -1,0 +1,34 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun_return.cj
+// EXEC: %compiler %cmp_opt -g genericsfun_return.cj -o genericsfun_return%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_fun_returnvalue_05.info genericsfun_return %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors genericsfun_return,genericsfun_return
+b,b 134,genericsfun_return.cj:134
+AOT r,r,-> 134
+CJVM c,c,
+p, p lt,\(Tuple<Int8,UInt16>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
+p, p cvt,\(Tuple<Int8,UInt16>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
+p, p s1.vts,\(Tuple<Int8,UInt16>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
+p, p c1.vtc,\(Tuple<Int8,UInt16>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
+p, p default::S1::vt,\(Tuple<Int8,UInt16>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
+p, p globals_vt,\(Tuple<Int8,UInt16>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
+locals, locals,\(Tuple<Int8,UInt16>\) lt = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*\(default.S1\) s1 = {[\s\S]*vts = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*\(default.C1\) c1 = {[\s\S]*vtc = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
+globals, globals,\(Tuple<Int8,UInt16>\) default::S1::vt = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
+globals, globals,\(Tuple<Int8,UInt16>\) default::globals_vt = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
+b, b 145,genericsfun_return.cj:145
+c,c,-> 145
+p, p f,\(Tuple<Int8,UInt16>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
+p, p test_f,\(Tuple<Int8,UInt16>\) \$[\d] = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
+locals, locals,\(Tuple<Int8,UInt16>\) f = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 20[\s\S]*
+q,q,

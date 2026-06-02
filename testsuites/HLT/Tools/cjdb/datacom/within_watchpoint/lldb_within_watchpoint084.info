@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/packages/pkgs_h_001/src
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/watchpoint_external_define.cj -o libpkg1.%middle
+// EXEC: %compiler %cmp_opt -g libpkg1.%middle src/watchpoint_external_invoke.cj -o watchpoint_external_invoke%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_within_watchpoint084.info watchpoint_external_invoke %run_env
+
+test#
+cjdb,cjdb --no-use-colors watchpoint_external_invoke,watchpoint_external_invoke
+b ,b 35,watchpoint_external_invoke.cj:35
+r , r,-> 35
+s , s,-> 40
+b , b 42,watchpoint_external_invoke.cj:42
+c , c,-> 42
+watchpoint,watchpoint set variable -w read_write v3,watchpoint_external_invoke.cj:42
+c,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 43[\s\S]*
+q,q,

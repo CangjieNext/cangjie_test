@@ -1,0 +1,81 @@
+error: unrecognized escape '\q' in string literal
+  ==> case3.cj:14:3:
+   | 
+14 |     "\q"
+   |     ~^^ unrecognized escape
+   |     |
+   |     because it is in string literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in string literal
+
+error: unrecognized escape '\w' in string literal
+  ==> case3.cj:15:3:
+   | 
+15 |     "\w"
+   |     ~^^ unrecognized escape
+   |     |
+   |     because it is in string literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in string literal
+
+error: unrecognized escape '\e' in string literal
+  ==> case3.cj:16:3:
+   | 
+16 |     "\e"
+   |     ~^^ unrecognized escape
+   |     |
+   |     because it is in string literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in string literal
+
+error: unrecognized escape '\y' in string literal
+  ==> case3.cj:19:3:
+   | 
+19 |     "\y"
+   |     ~^^ unrecognized escape
+   |     |
+   |     because it is in string literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in string literal
+
+error: unrecognized escape '\i' in string literal
+  ==> case3.cj:20:3:
+   | 
+20 |     "\i"
+   |     ~^^ unrecognized escape
+   |     |
+   |     because it is in string literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in string literal
+
+error: unrecognized escape '\o' in string literal
+  ==> case3.cj:21:3:
+   | 
+21 |     "\o"
+   |     ~^^ unrecognized escape
+   |     |
+   |     because it is in string literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in string literal
+
+error: unrecognized escape '\p' in string literal
+  ==> case3.cj:22:3:
+   | 
+22 |     "\p"
+   |     ~^^ unrecognized escape
+   |     |
+   |     because it is in string literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in string literal
+
+error: unrecognized escape '\a' in string literal
+  ==> case3.cj:23:3:
+   | 
+23 |     "\a"
+   |     ~^^ unrecognized escape
+   |     |
+   |     because it is in string literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in string literal
+
+20 errors generated, 8 errors printed.

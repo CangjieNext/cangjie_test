@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+type int = Int16
+
+type A = I
+
+interface I {
+    operator func [](index: int): int {
+        return 0
+    }
+}
+
+extend int <: A {}
+
+func a<T>(a: T) {
+    Int16(1)[1]
+}
+
+main(): Int64 {
+    if (a<int>(1) == 0) {
+        return 0
+    } else {
+        return 1
+    }
+}

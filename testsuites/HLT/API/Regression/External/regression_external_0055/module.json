@@ -1,0 +1,12 @@
+{
+  "requires": {},
+  "command_option": "",
+  "PackageRequires": {},
+  "cjc_version": "0.26.1",
+  "description": "nothing here",
+  "version": "1.0.0",
+  "organization": "cangjie",
+  "foreign_requires": {},
+  "name": "golden",
+  "library_type": "executable"
+}

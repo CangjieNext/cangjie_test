@@ -1,0 +1,24 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/ffic/debuginfo_cFunc_as_funcArg.c    ../../basecase/ffic/debuginfo_cFunc_as_funcArg.cj
+// EXEC: %clang -g %clang_opt debuginfo_cFunc_as_funcArg.c -o %cffi_output
+// EXEC: %compiler %cmp_opt %enableCompileDebug -L. -l%n debuginfo_cFunc_as_funcArg.cj -o %n
+// EXEC: python3 cjdb_test.py debuginfo_cFunc_as_funcArg.info
+
+
+test#
+cjdb,cjdb --no-use-colors debuginfo_cFunc_as_funcArg,debuginfo_cFunc_as_funcArg
+b,b main,Breakpoint 1: where[\s\S]*debuginfo_cFunc_as_funcArg.cj:16
+r,r,-> 16
+b,b 9, debuginfo_cFunc_as_funcArg.cj:9
+b,b 17, debuginfo_cFunc_as_funcArg.cj:17
+c,c,-> 9
+c,c,-> 17
+s,s,-> 27
+s,s,-> 28
+s,s,-> 18|17
+q,q,

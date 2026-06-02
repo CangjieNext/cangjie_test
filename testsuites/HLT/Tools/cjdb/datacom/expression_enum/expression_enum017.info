@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/021_enum_interface.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 021_enum_interface.cj -o 021_enum_interface%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum017.info 021_enum_interface %run_env
+
+test#
+cjdb,cjdb --no-use-colors 021_enum_interface,021_enum_interface
+b,b 29,021_enum_interface.cj:29
+AOT r,r,-> 29
+CJVM c,c,
+expr,expr t1,\(default.TimeUnit2<default.I1>\) \$[\d] = {[\s\S]*constructor = Month[\s\S]*arg_1 = {}[\s\S]*arg_2 = 1[\s\S]*}
+expr,expr t2,\(default.TimeUnit2<default.I1>\) \$[\d] = {[\s\S]*constructor = Year\s+arg_1 = 5[\s\S]*}
+expr~expr TimeUnit2<I1>.Month(C1(),1)~\(default.TimeUnit2<default.I1>\) \$[\d] = {[\s\S]*constructor = Month[\s\S]*arg_1 = {}[\s\S]*arg_2 = 1[\s\S]*}
+expr~expr TimeUnit2<I1>.Year(5)~\(default.TimeUnit2<default.I1>\) \$[\d] = {[\s\S]*constructor = Year\s+arg_1 = 5[\s\S]*}
+q,q,

@@ -1,0 +1,11 @@
+// DEPENDENCE: test_macro1.cj %f.expect
+// EXEC: %compiler %cmp_macro test_macro1.cj
+// EXEC: %run_macro %compiler %cmp_opt %f --debug-macro -o %output
+// EXEC: %diff %f.macrocall %f.expect
+
+import view.*
+
+main(): Int64 {
+    
+    return 0
+}

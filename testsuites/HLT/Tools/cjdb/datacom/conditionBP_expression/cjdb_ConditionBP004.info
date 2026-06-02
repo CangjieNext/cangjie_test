@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func004.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func004.cj -o generics_global_func004%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP004.info generics_global_func004 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_global_func004,generics_global_func004
+breakpoint,breakpoint set -l 26 -c 'a6==5',generics_global_func004.cj:26
+AOT r,r,-> 26
+breakpoint,breakpoint set -l 28 -c 'a6==5',Breakpoint 2: no locations
+CJVM c,c,
+locals,locals,\(Unit\) vunit = ()
+p,p a2,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*
+expr:expr a2:error: unsupported expression
+expr:expr a4:\(Int64\) \$[\d] = 5
+expr:expr foo(vcfunc,5):\(\(\)->Unit\) \$[\d] = 0x[\s\S]*
+expr:expr a6+1:\(Int32\) \$[\d] = 6
+expr:expr a6+1.1:error: unsupported expression
+expr:expr foo(vunit,vunit):\(Unit\) \$[\d] = ()
+q,q,

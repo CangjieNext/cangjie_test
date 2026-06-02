@@ -1,0 +1,419 @@
+ClassDecl {
+  -modifiers: 0, Modifier {
+    -keyword: Token {
+      value: "public"
+      kind: PUBLIC
+      pos: 35: 9
+    }
+  }
+  -modifiers: 1, Modifier {
+    -keyword: Token {
+      value: "open"
+      kind: OPEN
+      pos: 35: 16
+    }
+  }
+  -keyword: Token {
+    value: "class"
+    kind: CLASS
+    pos: 35: 21
+  }
+  -identifier: Token {
+    value: "A"
+    kind: IDENTIFIER
+    pos: 35: 27
+  }
+  -genericParam: GenericParam {
+    -parameters: 0, T: Token {
+      value: "T"
+      kind: IDENTIFIER
+      pos: 35: 29
+    }
+  }
+  -upperBound: Token {
+    value: "<:"
+    kind: UPPERBOUND
+    pos: 35: 32
+  }
+  -superTypes: 0, RefType {
+    -identifier: Token {
+      value: "T1"
+      kind: IDENTIFIER
+      pos: 35: 35
+    }
+  }
+  -superTypes: 1, RefType {
+    -identifier: Token {
+      value: "T2"
+      kind: IDENTIFIER
+      pos: 35: 40
+    }
+  }
+  -superTypes: 2, RefType {
+    -identifier: Token {
+      value: "T3"
+      kind: IDENTIFIER
+      pos: 35: 45
+    }
+  }
+  -genericConstraint: 0, GenericConstraint {
+    -keyword: Token {
+      value: "where"
+      kind: WHERE
+      pos: 35: 48
+    }
+    -typeArgument: RefType {
+      -identifier: Token {
+        value: "T"
+        kind: IDENTIFIER
+        pos: 35: 54
+      }
+    }
+    -upperBound: Token {
+      value: "<:"
+      kind: UPPERBOUND
+      pos: 35: 56
+    }
+    -upperBounds: 0, RefType {
+      -identifier: Token {
+        value: "Comparable"
+        kind: IDENTIFIER
+        pos: 35: 59
+      }
+      -typeArguments: 0, RefType {
+        -identifier: Token {
+          value: "T"
+          kind: IDENTIFIER
+          pos: 35: 70
+        }
+      }
+    }
+    -upperBounds: 1, RefType {
+      -identifier: Token {
+        value: "ToString"
+        kind: IDENTIFIER
+        pos: 35: 75
+      }
+    }
+  }
+  -body: Body {
+    -decls: 0, VarDecl {
+      -keyword: Token {
+        value: "let"
+        kind: LET
+        pos: 36: 13
+      }
+      -identifier: Token {
+        value: "a"
+        kind: IDENTIFIER
+        pos: 36: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 36: 19
+      }
+      -expr: LitConstExpr {
+        -literal: Token {
+          value: "10"
+          kind: INTEGER_LITERAL
+          pos: 36: 21
+        }
+      }
+    }
+    -decls: 1, VarDecl {
+      -keyword: Token {
+        value: "var"
+        kind: VAR
+        pos: 37: 13
+      }
+      -identifier: Token {
+        value: "count"
+        kind: IDENTIFIER
+        pos: 37: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 37: 23
+      }
+      -expr: LitConstExpr {
+        -literal: Token {
+          value: "0"
+          kind: INTEGER_LITERAL
+          pos: 37: 26
+        }
+      }
+    }
+    -decls: 2, VarDecl {
+      -keyword: Token {
+        value: "var"
+        kind: VAR
+        pos: 38: 13
+      }
+      -identifier: Token {
+        value: "res"
+        kind: IDENTIFIER
+        pos: 38: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 38: 21
+      }
+      -expr: LitConstExpr {
+        -literal: Token {
+          value: ""
+          kind: STRING_LITERAL
+          pos: 38: 23
+        }
+      }
+    }
+    -decls: 3, VarDecl {
+      -keyword: Token {
+        value: "let"
+        kind: LET
+        pos: 39: 13
+      }
+      -identifier: Token {
+        value: "arr1"
+        kind: IDENTIFIER
+        pos: 39: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 39: 22
+      }
+      -expr: ArrayLiteral {
+        -elements: 0, LitConstExpr {
+          -literal: Token {
+            value: "1"
+            kind: INTEGER_LITERAL
+            pos: 39: 25
+          }
+        }
+        -elements: 1, LitConstExpr {
+          -literal: Token {
+            value: "2"
+            kind: INTEGER_LITERAL
+            pos: 39: 27
+          }
+        }
+        -elements: 2, LitConstExpr {
+          -literal: Token {
+            value: "3"
+            kind: INTEGER_LITERAL
+            pos: 39: 29
+          }
+        }
+        -elements: 3, LitConstExpr {
+          -literal: Token {
+            value: "4"
+            kind: INTEGER_LITERAL
+            pos: 39: 31
+          }
+        }
+        -elements: 4, LitConstExpr {
+          -literal: Token {
+            value: "5"
+            kind: INTEGER_LITERAL
+            pos: 39: 33
+          }
+        }
+      }
+    }
+    -decls: 4, VarDecl {
+      -keyword: Token {
+        value: "let"
+        kind: LET
+        pos: 40: 13
+      }
+      -identifier: Token {
+        value: "arr2"
+        kind: IDENTIFIER
+        pos: 40: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 40: 22
+      }
+      -expr: ArrayLiteral {
+        -elements: 0, RefExpr {
+          -identifier: Token {
+            value: "a"
+            kind: IDENTIFIER
+            pos: 40: 25
+          }
+        }
+        -elements: 1, RefExpr {
+          -identifier: Token {
+            value: "a"
+            kind: IDENTIFIER
+            pos: 40: 27
+          }
+        }
+        -elements: 2, RefExpr {
+          -identifier: Token {
+            value: "a"
+            kind: IDENTIFIER
+            pos: 40: 29
+          }
+        }
+        -elements: 3, LitConstExpr {
+          -literal: Token {
+            value: "10"
+            kind: INTEGER_LITERAL
+            pos: 40: 31
+          }
+        }
+      }
+    }
+    -decls: 5, FuncDecl {
+      -keyword: Token {
+        value: "init"
+        kind: INIT
+        pos: 42: 13
+      }
+      -identifier: Token {
+        value: "init"
+        kind: IDENTIFIER
+        pos: 42: 13
+      }
+      -funcParams: 0, FuncParam {
+        -identifier: Token {
+          value: "res"
+          kind: IDENTIFIER
+          pos: 42: 18
+        }
+        -colon: Token {
+          value: ":"
+          kind: COLON
+          pos: 42: 21
+        }
+        -paramType: RefType {
+          -identifier: Token {
+            value: "String"
+            kind: IDENTIFIER
+            pos: 42: 23
+          }
+        }
+      }
+      -funcParams: 1, FuncParam {
+        -identifier: Token {
+          value: "count"
+          kind: IDENTIFIER
+          pos: 42: 31
+        }
+        -colon: Token {
+          value: ":"
+          kind: COLON
+          pos: 42: 36
+        }
+        -paramType: RefType {
+          -identifier: Token {
+            value: "int64"
+            kind: IDENTIFIER
+            pos: 42: 38
+          }
+        }
+      }
+      -block: Block {
+        -nodes: 0, CallExpr {
+          -callFunc: RefExpr {
+            -identifier: Token {
+              value: "super"
+              kind: SUPER
+              pos: 43: 17
+            }
+          }
+          -arguments: 0, Argument {
+            -expr: RefExpr {
+              -identifier: Token {
+                value: "res"
+                kind: IDENTIFIER
+                pos: 43: 23
+              }
+            }
+          }
+          -arguments: 1, Argument {
+            -expr: RefExpr {
+              -identifier: Token {
+                value: "count"
+                kind: IDENTIFIER
+                pos: 43: 28
+              }
+            }
+          }
+        }
+        -nodes: 1, AssignExpr {
+          -leftExpr: MemberAccess {
+            -baseExpr: RefExpr {
+              -identifier: Token {
+                value: "this"
+                kind: THIS
+                pos: 44: 17
+              }
+            }
+            -dot: Token {
+              value: "."
+              kind: DOT
+              pos: 44: 21
+            }
+            -field: Token {
+              value: "res"
+              kind: IDENTIFIER
+              pos: 44: 22
+            }
+          }
+          -assign: Token {
+            value: "="
+            kind: ASSIGN
+            pos: 44: 26
+          }
+          -rightExpr: RefExpr {
+            -identifier: Token {
+              value: "res"
+              kind: IDENTIFIER
+              pos: 44: 28
+            }
+          }
+        }
+        -nodes: 2, AssignExpr {
+          -leftExpr: MemberAccess {
+            -baseExpr: RefExpr {
+              -identifier: Token {
+                value: "this"
+                kind: THIS
+                pos: 45: 17
+              }
+            }
+            -dot: Token {
+              value: "."
+              kind: DOT
+              pos: 45: 21
+            }
+            -field: Token {
+              value: "count"
+              kind: IDENTIFIER
+              pos: 45: 22
+            }
+          }
+          -assign: Token {
+            value: "="
+            kind: ASSIGN
+            pos: 45: 28
+          }
+          -rightExpr: RefExpr {
+            -identifier: Token {
+              value: "count"
+              kind: IDENTIFIER
+              pos: 45: 30
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/override01.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g override01.cj -o override01%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py override01.info override01 %run_env
+
+test#
+cjdb,cjdb --no-use-colors override01,override01
+b,b 53,override01.cj:53
+AOT r,r,-> 53
+CJVM c,c,
+expr~expr C2().f()~\(Unit\) \$[\d] = ()
+expr~expr C2().f1()~\(default.Child\) \$[\d] = {}
+expr~expr C2().f2<Int64>(2)~\(Int64\) \$[\d] = 2
+expr~expr r4.f3<C3>(C3())~\(default.C3\) \$[\d] = {}
+q,q,

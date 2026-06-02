@@ -1,0 +1,17 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// (not Windows)EXEC: cd %n && %cjpm bundle --skip-test --skip-lint && tar -zxf target/demo-1.0.0.cjp && %ls demo-1.0.0 2>&1 | compare %f
+// (not Windows)ASSERT: scan cjpm.toml
+// (not Windows)ASSERT: scan src
+// (not Windows)ASSERT: scan README.md
+// (not Windows)ASSERT: scan-not target
+// (not Windows)ASSERT: scan-not cjpm.lock
+// (not Windows)ASSERT: scan bundle_build_03.info
+// (not Windows)ASSERT: scan-not libtest01
+// (not Windows)ASSERT: scan-not build-script-cache

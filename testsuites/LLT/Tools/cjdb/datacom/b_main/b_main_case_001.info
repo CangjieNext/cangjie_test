@@ -1,0 +1,15 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/b_main/b_main_001.cj 
+// EXEC: %compiler %cmp_opt %enableCompileDebug b_main_001.cj -o b_main_001
+// EXEC: python3 cjdb_test.py b_main_case_001.info
+
+test#
+cjdb,cjdb -- b_main_001 hello world,b_main_001
+b,b 9,Breakpoint 1: where.*b_main_001.cj:9
+r,r,-> 9
+q,quit,

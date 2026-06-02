@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/generics_abstract_fun02.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_abstract_fun02.cj -o generics_abstract_fun02%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_abstract_fun02.info generics_abstract_fun02 %run_env
+
+test#
+cjdb,cjdb --no-use-colors generics_abstract_fun02,generics_abstract_fun02
+b,b 33,generics_abstract_fun02.cj:33
+AOT r,r,-> 33
+CJVM c,c,
+expr,expr a1,\(default.AB1<Int64>\) \$[\d] = {}
+expr,expr a3,\(Int64\) \$[\d] = 1
+expr~expr a1.foo<Int64>(3)~\(Unit\) \$[\d] = \(\)
+expr~expr a1.bar2<Int64,Float64>(1,2.0)~\(Int64\) \$[\d] = 1
+expr~expr a1.bar(1)~\(Int64\) \$[\d] = 1
+q,q,

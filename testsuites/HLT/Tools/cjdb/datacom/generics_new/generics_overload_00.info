@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_overload.cj
+// EXEC: %compiler %cmp_opt -g generics_overload.cj -o generics_overload%cmp_output
+// RUN-EXEC: python3 cjdb_test.py generics_overload_00.info generics_overload %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_overload,generics_overload
+b,b 18,generics_overload.cj:18
+AOT r,r,-> 18
+CJVM c,c,
+locals, locals,\(default.A<Int64>\) a = {}[\s\S]*\(Int64\) b = 8
+q,q,

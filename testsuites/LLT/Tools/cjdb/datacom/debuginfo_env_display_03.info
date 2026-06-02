@@ -1,0 +1,23 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_env_display_03.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_env_display_03.cj -o debuginfo_env_display_03
+// EXEC: python3 cjdb_test.py debuginfo_env_display_03.info
+
+
+test#
+cjdb,cjdb debuginfo_env_display_03,debuginfo_env_display_03
+b,b 31,debuginfo_env_display_03.cj:31
+r,r,-> 31
+s,s,-> 21
+s,s,-> 16
+s,s,-> 23
+locals,locals,S\) this = {(\r|\n|\r\n)  a = Default(\r|\n|\r\n)  b = {(\r|\n|\r\n)    \[0\] = 1(\r|\n|\r\n)  }(\r|\n|\r\n)  c = Ctor {(\r|\n|\r\n)    arg_1 = "HHH"
+p,p $CapturedVars.this.a,\(E\) \$[\d]+ = Default
+p,p $CapturedVars.this.b,\(std.core.Array<Int64>\) \$[\d]+ = {(\r|\n|\r\n)  \[0\] = 1
+p,p $CapturedVars.this.c,\(E\) \$[\d]+ = Ctor {(\r|\n|\r\n)  arg_1 = "HHH"
+q,q,

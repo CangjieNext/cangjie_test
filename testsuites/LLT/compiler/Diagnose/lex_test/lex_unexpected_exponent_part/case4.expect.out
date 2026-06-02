@@ -1,0 +1,15 @@
+error: unexpected exponent part 'p__' in decimal
+  ==> case4.cj:14:18:
+   | 
+14 |     "cangjie ${12.34p12}"
+   |                ~~~~~^ unexpected exponent part
+   |                |
+   |                because the default base is decimal
+   | 
+help: could try to modify it to decimal exponent type:
+   | 
+14 |     "cangjie ${12.34e12}"
+   |                     ~ 
+   | 
+
+1 error generated, 1 error printed.

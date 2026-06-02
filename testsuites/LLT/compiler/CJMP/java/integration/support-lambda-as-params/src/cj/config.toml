@@ -1,0 +1,16 @@
+[default]
+APIStrategy = "Full"
+GenericTypeStrategy = "None"
+
+[[package]]
+name = "cj"
+APIStrategy = "Full"
+GenericTypeStrategy = "Partial"
+excluded_apis = [
+]
+lambda_patterns = [
+    {signature = "(Int32) -> Int32"},
+    {signature = "(Int32, Float32) -> Boolean"},
+    {signature = "(Int32, Float64) -> Unit"},
+    {signature = "() -> Int32"}
+]

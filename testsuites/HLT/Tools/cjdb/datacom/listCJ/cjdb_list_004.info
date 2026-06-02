@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
+// (not arm) EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
+// (not arm) EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
+// (not arm) RUN-EXEC: python3 cjdb_test.py cjdb_list_004.info list_debug %run_env
+
+test#
+cjdb,cjdb --no-use-colors list_debug,list_debug
+b,b 113,list_debug.cj:113
+AOT r,r,-> 113
+CJVM c,c,
+p,p m_base_1_1[0],\(Int8\) \$[\d] = 127
+AOT set,set m_base_1_1[0]=128,error: unsupported expression
+CJVM set,set m_base_1_1[0]=128,\(Int8\) \$1 = -128
+AOT p,p m_base_1_1[0],\$[\d] = 127
+CJVM p,p m_base_1_1[0],\$[\d] = -128
+q,quit,

@@ -1,0 +1,18 @@
+error: expected hexadecimal digit, found 'x'
+  ==> case9.cj:15:14:
+   | 
+15 |     cangjie ${0xx 0b23}"""
+   |                 ^ expected hexadecimal digit
+   | 
+
+error: unexpected digit '2' in binary
+  ==> case9.cj:15:18:
+   | 
+15 |     cangjie ${0xx 0b23}"""
+   |                   ~~^ unexpected digit
+   |                   |
+   |                   because of this binary prefix
+   | 
+   # note: binary may only contain digit within 0~1
+
+2 errors generated, 2 errors printed.

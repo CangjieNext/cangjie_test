@@ -1,0 +1,222 @@
+FuncDecl {
+  -modifiers: 0, Modifier {
+    -keyword: Token {
+      value: "public"
+      kind: PUBLIC
+      pos: 10: 9
+    }
+  }
+  -keyword: Token {
+    value: "func"
+    kind: FUNC
+    pos: 10: 16
+  }
+  -identifier: Token {
+    value: "foo"
+    kind: IDENTIFIER
+    pos: 10: 21
+  }
+  -funcParams: 0, FuncParam {
+    -identifier: Token {
+      value: "a"
+      kind: IDENTIFIER
+      pos: 10: 25
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 10: 26
+    }
+    -paramType: PrimitiveType {
+      -keyword: Token {
+        value: "Int32"
+        kind: INT32
+        pos: 10: 28
+      }
+    }
+  }
+  -funcParams: 1, FuncParam {
+    -identifier: Token {
+      value: "b"
+      kind: IDENTIFIER
+      pos: 10: 35
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 10: 36
+    }
+    -paramType: RefType {
+      -identifier: Token {
+        value: "T"
+        kind: IDENTIFIER
+        pos: 10: 38
+      }
+    }
+  }
+  -funcParams: 2, FuncParam {
+    -identifier: Token {
+      value: "c"
+      kind: IDENTIFIER
+      pos: 10: 41
+    }
+    -not: Token {
+      value: "!"
+      kind: NOT
+      pos: 10: 42
+    }
+    -colon: Token {
+      value: ":"
+      kind: COLON
+      pos: 10: 43
+    }
+    -paramType: PrimitiveType {
+      -keyword: Token {
+        value: "Int32"
+        kind: INT32
+        pos: 10: 45
+      }
+    }
+    -assign: Token {
+      value: "="
+      kind: ASSIGN
+      pos: 10: 51
+    }
+    -expr: LitConstExpr {
+      -literal: Token {
+        value: "42"
+        kind: INTEGER_LITERAL
+        pos: 10: 53
+      }
+    }
+  }
+  -declType: PrimitiveType {
+    -keyword: Token {
+      value: "Int64"
+      kind: INT64
+      pos: 44: 45
+    }
+  }
+  -block: Block {
+    -nodes: 0, IfExpr {
+      -keywordI: Token {
+        value: "if"
+        kind: IF
+        pos: 11: 13
+      }
+      -condition: BinaryExpr {
+        -leftExpr: RefExpr {
+          -identifier: Token {
+            value: "a"
+            kind: IDENTIFIER
+            pos: 11: 18
+          }
+        }
+        -op: Token {
+          value: ">"
+          kind: GT
+          pos: 11: 20
+        }
+        -rightExpr: LitConstExpr {
+          -literal: Token {
+            value: "100"
+            kind: INTEGER_LITERAL
+            pos: 11: 22
+          }
+        }
+      }
+      -ifBlock: Block {
+        -nodes: 0, ReturnExpr {
+          -keyword: Token {
+            value: "return"
+            kind: RETURN
+            pos: 12: 17
+          }
+          -expr: LitConstExpr {
+            -literal: Token {
+              value: "42"
+              kind: INTEGER_LITERAL
+              pos: 12: 24
+            }
+          }
+        }
+      }
+    }
+    -nodes: 1, VarDecl {
+      -keyword: Token {
+        value: "var"
+        kind: VAR
+        pos: 43: 33
+      }
+      -identifier: Token {
+        value: "e"
+        kind: IDENTIFIER
+        pos: 43: 37
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 43: 39
+      }
+      -expr: LitConstExpr {
+        -literal: Token {
+          value: "1"
+          kind: INTEGER_LITERAL
+          pos: 43: 41
+        }
+      }
+    }
+    -nodes: 2, VarDecl {
+      -keyword: Token {
+        value: "let"
+        kind: LET
+        pos: 14: 13
+      }
+      -identifier: Token {
+        value: "d"
+        kind: IDENTIFIER
+        pos: 14: 17
+      }
+      -assign: Token {
+        value: "="
+        kind: ASSIGN
+        pos: 14: 19
+      }
+      -expr: BinaryExpr {
+        -leftExpr: RefExpr {
+          -identifier: Token {
+            value: "a"
+            kind: IDENTIFIER
+            pos: 14: 21
+          }
+        }
+        -op: Token {
+          value: "+"
+          kind: ADD
+          pos: 14: 23
+        }
+        -rightExpr: RefExpr {
+          -identifier: Token {
+            value: "c"
+            kind: IDENTIFIER
+            pos: 14: 25
+          }
+        }
+      }
+    }
+    -nodes: 3, ReturnExpr {
+      -keyword: Token {
+        value: "return"
+        kind: RETURN
+        pos: 15: 13
+      }
+      -expr: RefExpr {
+        -identifier: Token {
+          value: "d"
+          kind: IDENTIFIER
+          pos: 15: 20
+        }
+      }
+    }
+  }
+}

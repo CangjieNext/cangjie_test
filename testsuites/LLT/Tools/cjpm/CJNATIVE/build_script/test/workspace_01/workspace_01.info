@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../%n
+// EXEC: cd %n && %cjpm test -m aoo %run_utest_opt && %cat build-script-cache/release/cjpm-workspace/bin/script-log 2>&1 | compare %f
+// ASSERT: scan-1 pre-build
+// ASSERT: scan-1 post-build
+// ASSERT: scan-1 pre-test
+// ASSERT: scan-1 post-test

@@ -1,0 +1,58 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+ 
+// (CJNATIVE and not Windows) DEPENDENCE: ../%n
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && cjc %compile_shared_lib_opt -p src/cj %import_java_interop %enable_java_cjmapping --import-interop-cj-package-config-path src/cj/config.toml --output-javagen-dir=src/java/cj
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd %n && %javac %cp_cj_loader_java_interop src/java/cjworld/*.java src/java/cj/*.java -h ./ -d ./
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd %n && %java %cp_cj_loader_java_interop -Djava.library.path./ cjworld.Main 2>& 1 | compare %f
+ 
+/* SCAN-IN
+4
+5
+6.000000
+7.000000
+false
+1
+2
+3
+4
+5
+6.000000
+7.000000
+false
+8
+7
+6
+5
+4
+3.000000
+2.000000
+true
+8
+7
+6
+5
+4
+3.0
+2.0
+true
+0
+2
+3
+4
+5
+6.0
+7.0
+true
+7
+6
+5
+4
+3
+2.0
+1.0
+false
+*/

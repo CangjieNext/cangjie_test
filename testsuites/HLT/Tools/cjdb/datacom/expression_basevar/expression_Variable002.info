@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/015_debug_basetype.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 015_debug_basetype.cj -o 015_debug_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_Variable002.info 015_debug_basetype %run_env
+ 
+ 
+ 
+ 
+test#
+cjdb,cjdb --no-use-colors 015_debug_basetype,015_debug_basetype
+CJVM b,b main,015_debug_basetype.cj:12
+CJVM c,c,-> 12
+b,b 37,015_debug_basetype.cj:37
+AOT r,r,-> 37
+p, p varf11,\(Float16\) \$[\d] = 0.0010004
+expression, expression varf11,\(Float16\) \$[\d] = 0.0010004
+expression, expression varf12,\(Float16\) \$[\d] = 4
+expression, expression varf13,\(Float32\) \$[\d] = 0.00100000005
+expression, expression varf131,\(Float32\) \$[\d] = 65504
+expression, expression varf14,\(Float64\) \$[\d] = 1
+expression, expression varu15,\(Unit\) \$[\d] = ()
+expression, expression varBool16,\(Bool\) \$[\d] = true
+expression, expression varchar17,\(Rune\) \$[\d] = '5'
+expression, expression var18,\(Int64\) \$[\d] = 9
+q,q,

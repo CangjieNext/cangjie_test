@@ -1,0 +1,17 @@
+warning: unsecure character:\u{202E}
+  ==> lex_character.cj:13:22:
+   | 
+13 |     var acc_level = "‮resu‬"
+   |                      ^ unsecure character:\u{202E}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+warning: unsecure character:\u{202C}
+  ==> lex_character.cj:13:29:
+   | 
+13 |     var acc_level = "‮resu‬"
+   |                          ^ unsecure character:\u{202C}
+   | 
+   # note: this warning can be suppressed by setting the compiler option `-Woff parser`
+
+2 warnings generated, 2 warnings printed.

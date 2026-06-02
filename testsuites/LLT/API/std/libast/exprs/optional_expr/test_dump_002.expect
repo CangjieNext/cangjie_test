@@ -1,0 +1,44 @@
+CallExpr {
+  -callFunc: OptionalExpr {
+    -baseExpr: MemberAccess {
+      -baseExpr: OptionalExpr {
+        -baseExpr: RefExpr {
+          -identifier: Token {
+            value: "c"
+            kind: IDENTIFIER
+            pos: 16: 22
+          }
+        }
+        -quest: Token {
+          value: "?"
+          kind: QUEST
+          pos: 16: 23
+        }
+      }
+      -dot: Token {
+        value: "."
+        kind: DOT
+        pos: 16: 24
+      }
+      -field: Token {
+        value: "a"
+        kind: IDENTIFIER
+        pos: 16: 25
+      }
+    }
+    -quest: Token {
+      value: "?"
+      kind: QUEST
+      pos: 16: 26
+    }
+  }
+  -arguments: 0, Argument {
+    -expr: RefExpr {
+      -identifier: Token {
+        value: "b"
+        kind: IDENTIFIER
+        pos: 16: 28
+      }
+    }
+  }
+}

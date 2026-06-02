@@ -1,0 +1,19 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/range.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug range.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb range,range
+b,b 16,range.cj:16
+r,r,-> 16
+ ,expr c,\(std.core.Range<Int16>\) \$\d+ = 0..10 : 1
+ ,expr cc,\(std.core.Range<Rune>\) \$\d+ = 'A'..'Z' : 1
+ ,expr d,\(std.core.Range<Int64>\) \$\d+ = 1..10 : 2
+ ,expr e,\(std.core.Range<Int8>\) \$\d+ = 1..=25 : 2
+q,q,

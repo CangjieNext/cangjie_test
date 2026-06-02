@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/C_FFI.c   ../../basecase/CFFI/C_FFI.cj
+// EXEC: %clang -g %clang_opt C_FFI.c -o %cffi_output
+// EXEC: %compiler -g -L. -l%n C_FFI.cj -o %n%cmp_output
+// RUN-EXEC: python3 cjdb_test.py viewVariables_CPointer_10.info viewVariables_CPointer_10 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors viewVariables_CPointer_10,viewVariables_CPointer_10
+b,b 74,C_FFI.cj:74
+AOT r,r,-> 74
+CJVM c,c,
+p,p p_ptr,\(CPointer<Int32>\) \$[\d]+ = 0x[0-9a-f]+
+q,q,

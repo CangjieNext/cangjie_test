@@ -1,0 +1,52 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+/*
+  @Name: 04_13_04_a02_01
+
+  @Level:         1
+
+  @Assertion: 4.13.4(2) The ? must be used with the postfix operators, including ., () and [](appearing before postfix
+              operators), to make Option types support for these postfix operators, e.g., a?.b, a?(b), a?[b]. 
+
+  @Description: Check supported question mark operator usage patterns.
+
+  @Mode: run
+
+  @Negative: no
+
+*/
+
+import utils.assert.Assert
+
+struct S {
+    S(var x!: Int64) {}
+
+    func foo(arg: Int64) {
+        return arg
+    }
+}
+
+main() {
+    var s: ?S = S(x: 3)
+
+    // Case: a?.b
+    let x = s?.x
+    Assert.equals(3, x.getOrThrow())
+
+    // Case: a?(b)
+    let f = s?.foo
+    let y = f?(42)
+    Assert.equals(42, y.getOrThrow())
+
+    // Case: a?[b]
+    let t: ?(Int64, Int64) = (42, 53)
+    let z = t?[1]
+    Assert.equals(53, z.getOrThrow())
+}
+

@@ -1,0 +1,14 @@
+PrefixType {
+  -prefixOps: 0: Token {
+    value: "?"
+    kind: QUEST
+    pos: 21: 9
+  }
+  -baseType: PrimitiveType {
+    -keyword: Token {
+      value: "Int64"
+      kind: INT64
+      pos: 21: 10
+    }
+  }
+}

@@ -1,0 +1,45 @@
+TupleType {
+  -types: 0, PrimitiveType {
+    -typeParameterName: Token {
+      value: "x"
+      kind: IDENTIFIER
+      pos: 11: 10
+    }
+    -COLON: Token {
+      value: ":"
+      kind: COLON
+      pos: 11: 11
+    }
+    -keyword: Token {
+      value: "Int64"
+      kind: INT64
+      pos: 11: 13
+    }
+  }
+  -types: 1, TupleType {
+    -typeParameterName: Token {
+      value: "y"
+      kind: IDENTIFIER
+      pos: 11: 20
+    }
+    -COLON: Token {
+      value: ":"
+      kind: COLON
+      pos: 11: 21
+    }
+    -types: 0, PrimitiveType {
+      -keyword: Token {
+        value: "Int32"
+        kind: INT32
+        pos: 11: 24
+      }
+    }
+    -types: 1, PrimitiveType {
+      -keyword: Token {
+        value: "Float64"
+        kind: FLOAT64
+        pos: 11: 31
+      }
+    }
+  }
+}

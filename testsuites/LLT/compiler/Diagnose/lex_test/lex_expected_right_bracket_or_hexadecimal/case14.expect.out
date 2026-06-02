@@ -1,0 +1,19 @@
+error: expected '}' or hexadecimal digit in unicode escape, found '"'
+  ==> case14.cj:15:16:
+   | 
+15 | cangjie "\u{123""""
+   |          ~~    ^ expected '}' or hexadecimal digit
+   |          |
+   |          because it is in this Unicode escape
+   | 
+   # note: unicode escape may only contain hexadecimal digits
+
+error: unterminated single-line string
+  ==> case14.cj:15:19:
+   | 
+15 | cangjie "\u{123""""
+   |                   ^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+2 errors generated, 2 errors printed.

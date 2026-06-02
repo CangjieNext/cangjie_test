@@ -1,0 +1,23 @@
+FuncDecl {
+  -keyword: Token {
+    value: "func"
+    kind: FUNC
+    pos: 12: 9
+  }
+  -identifier: Token {
+    value: "test"
+    kind: IDENTIFIER
+    pos: 12: 14
+  }
+  -block: Block {
+    -nodes: 0, SpawnExpr {
+      -keyword: Token {
+        value: "spawn"
+        kind: SPAWN
+        pos: 13: 13
+      }
+      -lambdaExpr: LambdaExpr {
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb relationalExpr,relationalExpr
+b,b 46,relationalExpr.cj:46
+r,r,-> 46
+ ,expr a==b,\(Bool\) \$\d+ = false
+ ,expr a!=b,\(Bool\) \$\d+ = true
+ ,expr a>b,\(Bool\) \$\d+ = false
+ ,expr a>=b,\(Bool\) \$\d+ = false
+ ,expr a<b,\(Bool\) \$\d+ = true
+ ,expr a<=b,\(Bool\) \$\d+ = true
+ ,expr c==d,\(Bool\) \$\d+ = false
+ ,expr c!=d,\(Bool\) \$\d+ = true
+ ,expr c>d,\(Bool\) \$\d+ = false
+ ,expr c>=d,\(Bool\) \$\d+ = false
+ ,expr c<d,\(Bool\) \$\d+ = true
+ ,expr c<=d,\(Bool\) \$\d+ = true
+ ,expr ch=='a',\(Bool\) \$\d+ = true
+ ,expr ch!='a',\(Bool\) \$\d+ = false
+ ,expr ch>'a',\(Bool\) \$\d+ = false
+ ,expr ch>='a',\(Bool\) \$\d+ = true
+ ,expr ch<'a',\(Bool\) \$\d+ = false
+ ,expr ch<='a',\(Bool\) \$\d+ = true
+ ,expr t==f,\(Bool\) \$\d+ = false
+ ,expr t!=f,\(Bool\) \$\d+ = true
+ ,expr un==(),\(Bool\) \$\d+ = true
+ ,expr un!=(),\(Bool\) \$\d+ = false
+q,q,

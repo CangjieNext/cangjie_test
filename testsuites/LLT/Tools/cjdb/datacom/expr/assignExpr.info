@@ -1,0 +1,27 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// EXEC: python3 --version
+// EXEC: cjdb --version
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb assignExpr,assignExpr
+b,b 15,assignExpr.cj:15
+r,r,-> 15
+ ,expr a=2,\(Unit\) \$\d+ = ()
+ ,expr a,\(Int64\) \$\d+ = 2
+ ,expr b=3,\(Unit\) \$\d+ = ()
+ ,expr b,\(Int64\) \$\d+ = 3
+ ,expr a+=b,\(Unit\) \$\d+ = ()
+ ,expr a-=b,\(Unit\) \$\d+ = ()
+ ,expr a*=b,\(Unit\) \$\d+ = ()
+ ,expr c=false,\(Unit\) \$\d+ = ()
+ ,expr d='a',\(Unit\) \$\d+ = ()
+ ,expr e="cccc",\(Unit\) \$\d+ = ()
+q,q,

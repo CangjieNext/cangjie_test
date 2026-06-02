@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func006.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func006.cj -o generics_global_func006%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP006.info generics_global_func006 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_global_func006,generics_global_func006
+breakpoint,breakpoint set -l 50 -c "varr1[9]==10",generics_global_func006.cj:50
+AOT r,r,-> 50
+CJVM c,c,
+locals,locals,\(VArray<Int64,\$2>\) varr1 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
+p,p x1,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
+expr:expr vhm["a"]:\(Int64\) \$[\d] = 1
+expr:expr varr2[0]+1.1:\(Float32\) \$[\d] = 2.2[\s\S]*
+expr:expr x1:\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
+expr:expr x1.isEmpty():\(Bool\) \$[\d] = false
+expr:expr genericsfun_list(varr2,vhm):\(std.core.Array<Float32>\) \$[\d] = {[\s\S]*\[0\] = 1.1[\s\S]*}
+q,q,

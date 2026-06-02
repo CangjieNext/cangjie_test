@@ -1,0 +1,58 @@
+
+. // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// LEVEL: 1
+// DEPENDENCE: ../%n
+// EXEC: cd %n/add_demo && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo1 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo2 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo3 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo4 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo5 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo6 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo7 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo8 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo9 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo10 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo11 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo12 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo13 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo14 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo15 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo16 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo17 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo18 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo19 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo20 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/add_demo21 && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+// EXEC: cd %n/del_demo && %repo_sed "s/token=CANGJIE_REPO_TOKEN/token=\"%cangjie-repo-token\"/" cangjie-repo.toml
+
+// EXEC-0: cd %n/add_demo && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/del_demo && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo1 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo2 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo3 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo4 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo5 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo6 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo7 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo8 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo9 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo10 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo11 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo12 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo13 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo14 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo15 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo16 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo17 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo18 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo19 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo20 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+// EXEC-0: cd %n/add_demo21 && %cjpm bundle --skip-test --skip-lint && %cjpm publish
+
+

@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/packages/pkgs001/src 
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj -o libpkg1.%middle
+// EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs001.cj -o 003_breakpoint_set%cmp_output
+// RUN-EXEC: python3 cjdb_test.py breakpoint_set_003.info 003_breakpoint_set %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 003_breakpoint_set,003_breakpoint_set
+CJVM b,breakpoint set -n main,pkgs001.cj:37
+CJVM c,c,-> 37
+AOT b,breakpoint set -f pkg1.cj -l 16,Breakpoint 1: where[\s\S]*pkg1.cj:16
+AOT b,breakpoint set -f pkg1.cj -l 17,Breakpoint 2: where[\s\S]*pkg1.cj:17
+CJVM b,breakpoint set -l 16,Breakpoint 2: [\s\S]*pkgs001.cj:16
+CJVM b,breakpoint set -l 17,Breakpoint 3: [\s\S]*pkgs001.cj:17
+q,q,

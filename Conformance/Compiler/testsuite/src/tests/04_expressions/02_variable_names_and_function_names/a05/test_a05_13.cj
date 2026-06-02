@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+/*
+  @Name:      04_02_a05_13
+
+  @Level:         1
+
+  @Assertion: 4.2(5) For variable names, it is specified that variables 
+              declared by var are always mutable and that variables 
+              declared by let may only be assigned once (at or after its 
+              declaration), before the assignment it is mutable and after the
+              assignment it is immutable.
+  @Description: Checks that local variable declared by let cannot be assigned
+                twice: more complex case with local variable and if-block.
+  @Mode: compileonly
+  @Negative: yes
+  @Structure: single
+
+*/
+
+import utils.assert.Assert
+
+var i = Assert.getRuntimeZero()
+
+main() {
+    let x: Int64
+
+    if (i < 3) {
+        x = 20
+    } 
+
+    x = 1
+}

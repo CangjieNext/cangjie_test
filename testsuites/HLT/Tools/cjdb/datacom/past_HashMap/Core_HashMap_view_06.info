@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/067_debug_hashmap.cj
+// EXEC: %compiler %cmp_opt -g 067_debug_hashmap.cj -o 067_debug_hashmap%cmp_output
+// RUN-EXEC: python3 cjdb_test.py Core_HashMap_view_06.info 067_debug_hashmap %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 067_debug_hashmap,067_debug_hashmap
+b,b 21,067_debug_hashmap.cj:21
+AOT r,r,-> 21
+CJVM c,c,-> 21
+p,p hashmap05,\(std\.collection.HashMap<Bool,std.collection.HashSet<Int32>>\) \$[\d] = {[\s\S]*\[false\] = {[\s\S]*key = false[\s\S]*value = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*}[\s\S]*}[\s\S]*\[true\] = {[\s\S]*key = true[\s\S]*value = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 11[\s\S]*}[\s\S]*}[\s\S]*}
+globals,globals,hashmap05 = {[\s\S]*\[false\] = {[\s\S]*key = false[\s\S]*value = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*}[\s\S]*}[\s\S]*\[true\] = {[\s\S]*key = true[\s\S]*value = {[\s\S]*\[0\] = 10[\s\S]*\[1\] = 11[\s\S]*}[\s\S]*}[\s\S]*}
+q,q,

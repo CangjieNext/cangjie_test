@@ -1,0 +1,52 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/006_debug_break.cj
+// EXEC: %compiler %cmp_opt -g 006_debug_break.cj -o 006_debug_break%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_BreakpointInMain019.info 006_debug_break %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 006_debug_break,006_debug_break
+CJVM b,breakpoint set -n main,006_debug_break.cj:12
+CJVM c,c,-> 12
+b,b 12,006_debug_break.cj:12
+b,b 13,006_debug_break.cj:13
+b,b 14,006_debug_break.cj:14
+b,b 15,006_debug_break.cj:15
+b,b 16,006_debug_break.cj:16
+AOT b,b 17,006_debug_break.cj:19
+CJVM b,b 17,006_debug_break.cj:17
+AOT b,b 18,006_debug_break.cj:19
+CJVM b,b 18,006_debug_break.cj:18
+AOT r,r,-> 12
+c,c,-> 13
+n,n,-> 14
+s,s,-> 15
+n,n,-> 13
+n,n,-> 13
+s,s,-> 14
+c,c,-> 15
+c,c,-> 13
+n,n,-> 14
+s,s,-> 15
+n,n,-> 13
+n,n,-> 13
+s,s,-> 14
+c,c,-> 15
+set,set indexbreak = 11,11
+c,c,-> 13
+n,n,-> 14
+s,s,-> 15
+n,n,-> 16
+n,n,-> 19
+locals,locals,\(Int64\) indexbreak = 12
+q,q,

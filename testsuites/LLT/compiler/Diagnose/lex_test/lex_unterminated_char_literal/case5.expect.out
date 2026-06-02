@@ -1,0 +1,9 @@
+error: unterminated single-line string
+  ==> case5.cj:15:11:
+   | 
+15 | cangjie ${'cangjie1}"""
+   |           ^^^^^^^^^^^^^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+1 error generated, 1 error printed.

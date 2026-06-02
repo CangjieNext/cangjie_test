@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// EXEC-PIPE-0: %compiler %enableO2 -Woff all %f -o %n.%suffix
+// EXEC-PIPE: %run %run_opt %output %run_args 2>&1 | compare %f
+// ASSERT: scan ArithmeticException: Divided by zero!
+
+main() {
+    let username = "aaa"
+    var zero: Int64 = 1
+    var res: Int64 = 1
+    if (username.size > 0) {
+        zero--
+        println("zero new value: ${zero}")
+    }
+    res = 1/zero
+    println("res: ${res}")
+    0
+}

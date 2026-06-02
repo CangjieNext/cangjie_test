@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/018_debug_parentheses.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 018_debug_parentheses.cj -o 018_debug_parentheses%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py lldb_ConditionBP046.info 018_debug_parentheses %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 018_debug_parentheses,018_debug_parentheses
+breakpoint,breakpoint set -l 13 -c 'kuonum==5',018_debug_parentheses.cj:13
+AOT r,r,-> 13
+CJVM c,c,
+locals,locals,kuonum = 5
+q,q,

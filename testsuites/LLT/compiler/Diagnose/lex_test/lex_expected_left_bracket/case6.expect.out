@@ -1,0 +1,28 @@
+error: expected '{' in unicode escape, found '1'
+  ==> case6.cj:14:5:
+   | 
+14 |     '\u1234}'
+   |      ~~^ expected '{'
+   |      |
+   |      because it is in this Unicode escape
+   | 
+
+error: expected '{' in unicode escape, found '1'
+  ==> case6.cj:15:5:
+   | 
+15 |     "\u1234}"
+   |      ~~^ expected '{'
+   |      |
+   |      because it is in this Unicode escape
+   | 
+
+error: expected '{' in unicode escape, found '1'
+  ==> case6.cj:17:4:
+   | 
+17 |     \u1234}
+   |     ~~^ expected '{'
+   |     |
+   |     because it is in this Unicode escape
+   | 
+
+3 errors generated, 3 errors printed.

@@ -1,0 +1,23 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/expr/%n.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %n.cj -o %n
+// EXEC: python3 cjdb_test.py %n.info %n %run_env
+
+test#
+cjdb,cjdb reference_type,reference_type
+b,b 25,reference_type.cj:25
+r,r,-> 25
+ ,expr arr,\(std.core.Array<Int64>\) \$\d+ = {\s+\[0\] = 0\s+\[1\] = 1\s+\[2\] = 2
+ ,expr arrl,\(std.collection.ArrayList<Int64>\) \$\d+ = {\s+\[0\] = 0\s+\[1\] = 1\s+\[2\] = 2
+ ,expr arrl[0] = 1;arrl[0],\(Int64\) \$\d+ = 1
+ ,expr arrl,\(std.collection.ArrayList<Int64>\) \$\d+ = {\s+\[0\] = 1\s+\[1\] = 1\s+\[2\] = 2
+ ,expr map["a"];\(Int64\) \$\d+ = 0
+ ,expr mapg["b"];\(Int64\) \$\d+ = 1
+ ,expr tup[1];\(Bool\) \$\d+ = false
+ ,expr tupg[1];\(Bool\) \$\d+ = false
+q,q,

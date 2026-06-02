@@ -1,0 +1,22 @@
+error: unknown start of token: \u{0000}
+  ==> case3.cj:13:4:
+   | 
+13 |     va\u{0000}\u{0000}\u{0000} = 1
+   |       ^^^^^^^^ unknown start of token: \u{0000}
+   | 
+
+error: unknown start of token: \u{0000}
+  ==> case3.cj:13:5:
+   | 
+13 |     va\u{0000}\u{0000}\u{0000} = 1
+   |               ^^^^^^^^ unknown start of token: \u{0000}
+   | 
+
+error: unknown start of token: \u{0000}
+  ==> case3.cj:13:6:
+   | 
+13 |     va\u{0000}\u{0000}\u{0000} = 1
+   |                       ^^^^^^^^ unknown start of token: \u{0000}
+   | 
+
+3 errors generated, 3 errors printed.

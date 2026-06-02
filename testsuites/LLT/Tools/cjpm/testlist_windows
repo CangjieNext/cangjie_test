@@ -1,0 +1,91 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+[ALL-TEST-CASE]
+CJNATIVE/build/build_env_var
+CJNATIVE/build/cangjie_macro_build
+CJNATIVE/build/combined
+CJNATIVE/build/foreign_requires
+CJNATIVE/build/lint
+CJNATIVE/build/macro_expansion_env
+CJNATIVE/build_script/script
+CJNATIVE/common_platform
+CJNATIVE/compile_performance
+CJNATIVE/install/local
+CJNATIVE/organization
+CJNATIVE/source_sets
+CJNATIVE/target/bin_dependencies
+CJNATIVE/test/unittest
+
+[EXCLUDE-TEST-CASE]
+# 交叉编译用例仅用于本地验证
+CJNATIVE/target/cross_compile
+CJNATIVE/cross_compile
+CJNATIVE/organization/cross_001
+CJNATIVE/build/lint
+CJNATIVE/test/Coverage
+
+# mock failed.
+CJNATIVE/test/mock/mock_01/mock_01.info
+CJNATIVE/test/mock/mock_08/mock_08.info
+CJNATIVE/test/mock/mock_11/mock_11.info
+CJNATIVE/test/mock/mock_12/mock_12.info
+CJNATIVE/test/mock/mock_13/mock_13.info
+
+# 路径过深的用例场景,暂时无法使用测试框架
+CJNATIVE/build/build_depth
+CJNATIVE/init/init_019/`ps`/aa
+CJNATIVE/init/init_021/`ps`/aa
+CJNATIVE/init/init_022/`ps`/aa
+CJNATIVE/build/long_pkg/long_pkg_01
+
+# windows 脚本路径问题
+CJNATIVE/build/git_local
+CJNATIVE/build/cangjie_test_build/cangjie_test_build_13
+
+# windows版本的ld不支持以下选项,-z、--disable-new-dtags
+CJNATIVE/build/safe_compile/safe_compile_02
+CJNATIVE/build/safe_compile/safe_compile_03
+CJNATIVE/build/safe_compile/safe_compile_06
+
+# 查看文件的读写权限用例
+CJNATIVE/init/cangjie_test_init014/cangjie_test_init014.info
+
+# windows不支持lto功能，不需要跑相关用例
+CJNATIVE/build/lto
+CJNATIVE/test/lto
+CJNATIVE/build/lto_combine
+CJNATIVE/organization/lto_combine_01
+
+# 增量编译相关用例本地全部自验通过
+# 暂时无法使用测试框架, win上需要类似touch命令去修改文件的时间戳
+CJNATIVE/build/incremental
+CJNATIVE/workspace/case_18
+CJNATIVE/workspace/case_19
+CJNATIVE/workspace/case_20
+CJNATIVE/workspace/case_21
+CJNATIVE/test/incremental
+
+# windows 标准库已知问题
+CJNATIVE/build_script/clean
+CJNATIVE/install/git
+
+# git 用例暂时屏蔽，仅保留基础用例，避免并行问题
+CJNATIVE/install/git
+CJNATIVE/build/git_local/multiple_module_git_02
+CJNATIVE/build/git_local/multiple_module_git_03
+CJNATIVE/build/git_local/multiple_module_git_04
+CJNATIVE/build/git_local/multiple_module_git_05
+CJNATIVE/build/git_local/multiple_module_git_06
+CJNATIVE/build/git_local/multiple_module_git_07
+CJNATIVE/build/git_local/multiple_module_git_08
+CJNATIVE/build/git_local/multiple_module_git_10
+CJNATIVE/build/git_local/multiple_module_git_11
+CJNATIVE/build/git_local/multiple_module_git_12
+
+# 中心仓联调用例，线下看护
+CJNATIVE/repo/download
+CJNATIVE/repo/publish

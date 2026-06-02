@@ -1,0 +1,24 @@
+error: unknown start of token: \
+  ==> lex_illegal_symbol_in_interpolation.cj:14:27:
+   | 
+14 |     var a = "cangjie ${ a \\}"
+   |                           ^ unknown start of token: \
+   | 
+
+error: unknown start of token: \
+  ==> lex_illegal_symbol_in_interpolation.cj:14:28:
+   | 
+14 |     var a = "cangjie ${ a \\}"
+   |                            ^ unknown start of token: \
+   | 
+
+error: expected '#' or '"' in raw string, found '}'
+  ==> lex_illegal_symbol_in_interpolation.cj:15:27:
+   | 
+15 |     var b = "cangjie ${b #}"
+   |                          ~^ expected '#' or '"'
+   |                          |
+   |                          because it is raw string prefix
+   | 
+
+3 errors generated, 3 errors printed.

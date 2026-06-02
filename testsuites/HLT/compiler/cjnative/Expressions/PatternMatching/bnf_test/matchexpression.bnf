@@ -1,0 +1,61 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+# 
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+tuplePattern
+    : '(' pattern (',' pattern)+ ')' 
+    ;
+
+valueBindingPattern
+    : Identifier_varBind '@' pattern
+    ;
+
+variablePattern
+    : Identifier_var
+    ;
+
+wildcardPattern
+    : '_'
+    ;
+
+constantPattern
+    : (literalConstant | DollarIdentifier) ('|' (literalConstant | DollarIdentifier))*
+    ;
+DollarIdentifier
+    : '$' Identifier_const
+    ;
+literalConstant
+    : IntegerLiteral
+    | FloatLiteral
+    | CharacterLiteral
+    | BooleanLiteral
+    | stringLiteral
+    ;
+
+pattern
+   : constantPattern
+   | wildcardPattern
+   | variablePattern
+   | valueBindingPattern
+   | tuplePattern
+   | sequencePattern
+   | inPattern
+   | typePattern
+   | enumPattern
+   ;
+
+patternGuard
+    : 'if' '(' expression_if ')'
+    ;
+
+matchCase
+    :  'case' pattern patternGuard? '=>' expression_ret?
+    ;
+
+matchExpression
+    : 'match'  expression_var '{' matchCase+ '}'
+    | 'match' '{' ('case' (expression_bool | '_') '=>' expression_ret)+ '}'
+    ;
+

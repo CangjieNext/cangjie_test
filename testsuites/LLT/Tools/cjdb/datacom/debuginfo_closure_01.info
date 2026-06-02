@@ -1,0 +1,20 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_closure_01.cj
+// (CJNATIVE)EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_closure_01.cj -o debuginfo_closure_01
+// (CJNATIVE)EXEC: python3 cjdb_test.py debuginfo_closure_01.info
+
+
+test#
+cjdb,cjdb debuginfo_closure_01,debuginfo_closure_01
+b,b 14,debuginfo_closure_01.cj:14
+r,r,-> 14
+p,p k0,\(default.\(Int32\)->Int64\) \$[\d] = 0x
+p,p k1,\(default.CA<\(Int32\)->Int64>\) \$[\d] = {}
+p,p k2,\(default.CA<\(Int32\)->Int64>\) \$[\d] = {}
+p,p k3,\(default.CA<default.CA<\(\(Int32\)->Int16\)->\(Int64\)->Bool>>\) \$[\d] = {}
+q,q,

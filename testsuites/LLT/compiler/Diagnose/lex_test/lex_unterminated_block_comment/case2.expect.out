@@ -1,0 +1,12 @@
+error: unterminated block comment
+  ==> case2.cj:16:12:
+   | 
+16 |       var c = 3 /* this is cangjie2
+   |  _______________^
+17 | | }
+   | | ...
+20 | | 
+   | |_^ unterminated block comment
+   | 
+
+1 error generated, 1 error printed.

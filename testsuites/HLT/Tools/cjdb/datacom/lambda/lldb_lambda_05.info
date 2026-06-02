@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/lambda/Test_Lambda.cj
+// EXEC: %compiler %cmp_opt -g Test_Lambda.cj -o Test_Lambda%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_lambda_05.info Test_Lambda %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors Test_Lambda,Test_Lambda
+b,b 11,Breakpoint [\d]: 2 locations.
+AOT b,b 12,Test_Lambda.cj:15
+AOT b,b 13,Test_Lambda.cj:15
+AOT b,b 14,Test_Lambda.cj:15
+AOT r,r,-> 11
+CJVM c,c,
+n,n,-> 15
+locals,locals,\(Int64\) a = 1[\s\S]*\(std[.]core.String\) b = "测试lambda[\s\S]*"[\s\S]*\(Int64\) c = \d+
+n,n,-> 16
+locals,locals,\(Int64\) a = 1[\s\S]*\(std[.]core.String\) b = "测试lambda[\s\S]*"[\s\S]*\(Int64\) c = \d+
+n,n,-> 17
+locals,locals,\(Int64\) a = 1[\s\S]*\(std[.]core.String\) b = "测试lambda[\s\S]*"[\s\S]*\(Int64\) c = \d+
+n,n,-> 18
+locals,locals,\(Int64\) a = 1[\s\S]*\(std[.]core.String\) b = "测试lambda[\s\S]*"[\s\S]*\(Int64\) c = 3
+CJVM n,n,-> 10
+CJVM locals,locals,\(Unit\) test_lambda = \(\)
+n,n,-> 19
+locals,locals,\(Unit\) test_lambda = \(\)
+q,q,

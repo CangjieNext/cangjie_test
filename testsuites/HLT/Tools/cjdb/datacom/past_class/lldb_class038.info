@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/009_debug_class_main_mod_private.cj
+//  EXEC: %compiler %cmp_opt -g 009_debug_class_main_mod_private.cj -o 009_debug_class_main_mod_private%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_class038.info 009_debug_class_main_mod_private %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 009_debug_class_main_mod_private,009_debug_class_main_mod_private
+b,b 37,009_debug_class_main_mod_private.cj:37
+AOT r,r,-> 37
+CJVM c,c,-> 37
+n,n,-> 38
+locals,locals,Rectangle\) newRectangle = {(\r|\n|\r\n)  name = "afdoaidfad"(\r|\n|\r\n)  width = 1(\r|\n|\r\n)  length = 2(\r|\n|\r\n)  height = 1
+q,q,

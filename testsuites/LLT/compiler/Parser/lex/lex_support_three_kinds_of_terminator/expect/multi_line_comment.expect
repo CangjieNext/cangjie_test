@@ -1,0 +1,10 @@
+error: unterminated string interpolation
+ ==> multi_line_comment.cj:6:6:
+  | 
+6 |     "${/*
+  |     ~^^^^^ unterminated string interpolation
+  |     |
+  |     because it is in single-line string
+  | 
+
+1 error generated, 1 error printed.

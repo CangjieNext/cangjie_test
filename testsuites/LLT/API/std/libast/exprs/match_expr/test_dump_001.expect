@@ -1,0 +1,422 @@
+bodyType
+MatchExpr {
+  -keyword: Token {
+    value: "match"
+    kind: MATCH
+    pos: 24: 9
+  }
+  -selector: RefExpr {
+    -identifier: Token {
+      value: "bodyType"
+      kind: IDENTIFIER
+      pos: 24: 15
+    }
+  }
+  -matchCases: 0, MatchCase {
+    -keywordC: Token {
+      value: "case"
+      kind: CASE
+      pos: 25: 13
+    }
+    -patterns: 0, EnumPattern {
+      -constructor: RefExpr {
+        -identifier: Token {
+          value: "Some"
+          kind: IDENTIFIER
+          pos: 25: 18
+        }
+      }
+      -patterns: 0, VarOrEnumPattern {
+        -identifier: Token {
+          value: "value"
+          kind: IDENTIFIER
+          pos: 25: 23
+        }
+      }
+    }
+    -arrow: Token {
+      value: "=>"
+      kind: DOUBLE_ARROW
+      pos: 25: 30
+    }
+    -block: Block {
+      -nodes: 0, IfExpr {
+        -keywordI: Token {
+          value: "if"
+          kind: IF
+          pos: 26: 17
+        }
+        -condition: BinaryExpr {
+          -leftExpr: RefExpr {
+            -identifier: Token {
+              value: "value"
+              kind: IDENTIFIER
+              pos: 26: 21
+            }
+          }
+          -op: Token {
+            value: "=="
+            kind: EQUAL
+            pos: 26: 27
+          }
+          -rightExpr: LitConstExpr {
+            -literal: Token {
+              value: "-1"
+              kind: INTEGER_LITERAL
+              pos: 26: 30
+            }
+          }
+        }
+        -ifBlock: Block {
+          -nodes: 0, AssignExpr {
+            -leftExpr: MemberAccess {
+              -baseExpr: RefExpr {
+                -identifier: Token {
+                  value: "response"
+                  kind: IDENTIFIER
+                  pos: 27: 21
+                }
+              }
+              -dot: Token {
+                value: "."
+                kind: DOT
+                pos: 27: 29
+              }
+              -field: Token {
+                value: "_bodySize"
+                kind: IDENTIFIER
+                pos: 27: 30
+              }
+            }
+            -assign: Token {
+              value: "="
+              kind: ASSIGN
+              pos: 27: 40
+            }
+            -rightExpr: RefExpr {
+              -identifier: Token {
+                value: "None"
+                kind: IDENTIFIER
+                pos: 27: 42
+              }
+            }
+          }
+          -nodes: 1, ReturnExpr {
+            -keyword: Token {
+              value: "return"
+              kind: RETURN
+              pos: 28: 21
+            }
+            -expr: CallExpr {
+              -callFunc: RefExpr {
+                -identifier: Token {
+                  value: "ResponseBodyProviderUtilConnectionClose"
+                  kind: IDENTIFIER
+                  pos: 28: 28
+                }
+              }
+              -arguments: 0, Argument {
+                -expr: RefExpr {
+                  -identifier: Token {
+                    value: "this"
+                    kind: THIS
+                    pos: 28: 68
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      -nodes: 1, IfExpr {
+        -keywordI: Token {
+          value: "if"
+          kind: IF
+          pos: 30: 17
+        }
+        -condition: BinaryExpr {
+          -leftExpr: RefExpr {
+            -identifier: Token {
+              value: "value"
+              kind: IDENTIFIER
+              pos: 30: 21
+            }
+          }
+          -op: Token {
+            value: "=="
+            kind: EQUAL
+            pos: 30: 27
+          }
+          -rightExpr: LitConstExpr {
+            -literal: Token {
+              value: "0"
+              kind: INTEGER_LITERAL
+              pos: 30: 30
+            }
+          }
+        }
+        -ifBlock: Block {
+          -nodes: 0, CallExpr {
+            -callFunc: MemberAccess {
+              -baseExpr: RefExpr {
+                -identifier: Token {
+                  value: "readTimer"
+                  kind: IDENTIFIER
+                  pos: 31: 21
+                }
+              }
+              -dot: Token {
+                value: "."
+                kind: DOT
+                pos: 31: 30
+              }
+              -field: Token {
+                value: "cancel"
+                kind: IDENTIFIER
+                pos: 31: 31
+              }
+            }
+          }
+          -nodes: 1, ReturnExpr {
+            -keyword: Token {
+              value: "return"
+              kind: RETURN
+              pos: 32: 21
+            }
+            -expr: MemberAccess {
+              -baseExpr: RefExpr {
+                -identifier: Token {
+                  value: "HttpEmptyBody"
+                  kind: IDENTIFIER
+                  pos: 32: 28
+                }
+              }
+              -dot: Token {
+                value: "."
+                kind: DOT
+                pos: 32: 41
+              }
+              -field: Token {
+                value: "INSTANCE"
+                kind: IDENTIFIER
+                pos: 32: 42
+              }
+            }
+          }
+        }
+      }
+      -nodes: 2, AssignExpr {
+        -leftExpr: MemberAccess {
+          -baseExpr: RefExpr {
+            -identifier: Token {
+              value: "response"
+              kind: IDENTIFIER
+              pos: 34: 17
+            }
+          }
+          -dot: Token {
+            value: "."
+            kind: DOT
+            pos: 34: 25
+          }
+          -field: Token {
+            value: "_bodySize"
+            kind: IDENTIFIER
+            pos: 34: 26
+          }
+        }
+        -assign: Token {
+          value: "="
+          kind: ASSIGN
+          pos: 34: 36
+        }
+        -rightExpr: RefExpr {
+          -identifier: Token {
+            value: "value"
+            kind: IDENTIFIER
+            pos: 34: 38
+          }
+        }
+      }
+      -nodes: 3, ReturnExpr {
+        -keyword: Token {
+          value: "return"
+          kind: RETURN
+          pos: 35: 17
+        }
+        -expr: CallExpr {
+          -callFunc: RefExpr {
+            -identifier: Token {
+              value: "HttpNormalBodyProvider"
+              kind: IDENTIFIER
+              pos: 35: 24
+            }
+          }
+          -arguments: 0, Argument {
+            -expr: RefExpr {
+              -identifier: Token {
+                value: "this"
+                kind: THIS
+                pos: 35: 47
+              }
+            }
+          }
+          -arguments: 1, Argument {
+            -expr: RefExpr {
+              -identifier: Token {
+                value: "value"
+                kind: IDENTIFIER
+                pos: 35: 53
+              }
+            }
+          }
+          -arguments: 2, Argument {
+            -expr: RefExpr {
+              -identifier: Token {
+                value: "readTimer"
+                kind: IDENTIFIER
+                pos: 35: 60
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  -matchCases: 1, MatchCase {
+    -keywordC: Token {
+      value: "case"
+      kind: CASE
+      pos: 36: 13
+    }
+    -patterns: 0, VarOrEnumPattern {
+      -identifier: Token {
+        value: "None"
+        kind: IDENTIFIER
+        pos: 36: 18
+      }
+    }
+    -arrow: Token {
+      value: "=>"
+      kind: DOUBLE_ARROW
+      pos: 36: 23
+    }
+    -block: Block {
+      -nodes: 0, CallExpr {
+        -callFunc: RefExpr {
+          -identifier: Token {
+            value: "checkTrailerInHeader"
+            kind: IDENTIFIER
+            pos: 37: 17
+          }
+        }
+        -arguments: 0, Argument {
+          -expr: MemberAccess {
+            -baseExpr: RefExpr {
+              -identifier: Token {
+                value: "response"
+                kind: IDENTIFIER
+                pos: 37: 38
+              }
+            }
+            -dot: Token {
+              value: "."
+              kind: DOT
+              pos: 37: 46
+            }
+            -field: Token {
+              value: "headers"
+              kind: IDENTIFIER
+              pos: 37: 47
+            }
+          }
+        }
+        -arguments: 1, Argument {
+          -expr: LitConstExpr {
+            -literal: Token {
+              value: "false"
+              kind: BOOL_LITERAL
+              pos: 37: 56
+            }
+          }
+        }
+      }
+      -nodes: 1, AssignExpr {
+        -leftExpr: MemberAccess {
+          -baseExpr: RefExpr {
+            -identifier: Token {
+              value: "response"
+              kind: IDENTIFIER
+              pos: 38: 17
+            }
+          }
+          -dot: Token {
+            value: "."
+            kind: DOT
+            pos: 38: 25
+          }
+          -field: Token {
+            value: "_bodySize"
+            kind: IDENTIFIER
+            pos: 38: 26
+          }
+        }
+        -assign: Token {
+          value: "="
+          kind: ASSIGN
+          pos: 38: 36
+        }
+        -rightExpr: RefExpr {
+          -identifier: Token {
+            value: "None"
+            kind: IDENTIFIER
+            pos: 38: 38
+          }
+        }
+      }
+      -nodes: 2, ReturnExpr {
+        -keyword: Token {
+          value: "return"
+          kind: RETURN
+          pos: 39: 17
+        }
+        -expr: CallExpr {
+          -callFunc: RefExpr {
+            -identifier: Token {
+              value: "HttpChunkedBodyProvider"
+              kind: IDENTIFIER
+              pos: 39: 24
+            }
+          }
+          -arguments: 0, Argument {
+            -expr: RefExpr {
+              -identifier: Token {
+                value: "this"
+                kind: THIS
+                pos: 39: 48
+              }
+            }
+          }
+          -arguments: 1, Argument {
+            -expr: RefExpr {
+              -identifier: Token {
+                value: "response"
+                kind: IDENTIFIER
+                pos: 39: 54
+              }
+            }
+          }
+          -arguments: 2, Argument {
+            -expr: RefExpr {
+              -identifier: Token {
+                value: "readTimer"
+                kind: IDENTIFIER
+                pos: 39: 64
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

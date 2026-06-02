@@ -1,0 +1,15 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+//  DEPENDENCE: ./test user_mapping4.expect
+//  EXEC: cp -r test/* . && rm -r test && cp user_mapping4.expect %n.map
+//  EXEC: %compiler mymod/mod1/mod1.cj %compile_shared_lib_opt %output_dir_opt mymod --fobf-layout --obf-apply-mapping-file %n.map --obf-sym-output-mapping a.map --obf-sym-prefix=a %save_temps_opt .
+//  EXEC: ls -la
+//  EXEC: cat a.map | compare ./%f
+//  ASSERT: regex mymod.*mod1.*Node.*mynodefunc1.* hack1
+//  ASSERT: regex mymod.*mod1.*Node.*mynodefunc2.* hack2
+//  ASSERT: regex mymod.*mod1.*Node.*gt.* hack3
+//  ASSERT: regex mymod.*mod1.*Node.*ls.* hack4

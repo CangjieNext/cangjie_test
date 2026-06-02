@@ -1,0 +1,59 @@
+error: unexpected digit '9' in octal
+  ==> case11.cj:14:16:
+   | 
+14 |     var a = 0o12379
+   |             ~~    ^ unexpected digit
+   |             |
+   |             because of this octal prefix
+   | 
+   # note: octal may only contain digit within 0~7
+
+error: unexpected digit '9' in octal
+  ==> case11.cj:15:16:
+   | 
+15 |     var b = 0o12379.129
+   |             ~~    ^ unexpected digit
+   |             |
+   |             because of this octal prefix
+   | 
+   # note: octal may only contain digit within 0~7
+
+error: unexpected digit '2' in binary
+  ==> case11.cj:16:12:
+   | 
+16 |     var c = 0b23
+   |             ~~^ unexpected digit
+   |             |
+   |             because of this binary prefix
+   | 
+   # note: binary may only contain digit within 0~1
+
+error: unexpected digit 'a' in decimal
+  ==> case11.cj:17:12:
+   | 
+17 |     var d = 12a6
+   |             ~~^ unexpected digit
+   |             |
+   |             because the default base is decimal
+   | 
+   # note: decimal may only contain digit within 0~9
+
+error: illegal float number suffix 'f7'
+  ==> case11.cj:18:12:
+   | 
+18 |     var e = 12f7
+   |               ^^ expected valid float number type suffix
+   | 
+   # note: float literal type suffix can only be 'f16', 'f32', 'f64'
+
+error: unexpected digit 'd' in decimal
+  ==> case11.cj:19:11:
+   | 
+19 |     var f = 0d12a
+   |             ~^ unexpected digit
+   |             |
+   |             because the default base is decimal
+   | 
+   # note: decimal may only contain digit within 0~9
+
+6 errors generated, 6 errors printed.

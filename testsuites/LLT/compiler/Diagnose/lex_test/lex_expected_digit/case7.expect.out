@@ -1,0 +1,29 @@
+error: expected binary digit, found ' '
+  ==> case7.cj:14:15:
+   | 
+14 |     "cangjie ${0b 0x 0o 0x12.34p}"
+   |                  ^ expected binary digit
+   | 
+
+error: expected hexadecimal digit, found ' '
+  ==> case7.cj:14:18:
+   | 
+14 |     "cangjie ${0b 0x 0o 0x12.34p}"
+   |                     ^ expected hexadecimal digit
+   | 
+
+error: expected octal digit, found ' '
+  ==> case7.cj:14:21:
+   | 
+14 |     "cangjie ${0b 0x 0o 0x12.34p}"
+   |                        ^ expected octal digit
+   | 
+
+error: expected decimal digit, found '}'
+  ==> case7.cj:14:30:
+   | 
+14 |     "cangjie ${0b 0x 0o 0x12.34p}"
+   |                                 ^ expected decimal digit
+   | 
+
+4 errors generated, 4 errors printed.

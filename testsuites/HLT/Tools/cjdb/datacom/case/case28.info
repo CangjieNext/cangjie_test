@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case28/case28.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g case28.cj -o case28%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py case28.info case28 %run_env
+
+test#
+cjdb,cjdb --no-use-colors case28,case28
+b,b 12,case28.cj:12
+AOT r,r,-> 12
+CJVM c,c,
+AOT p,p as,\(Int64\) \$[\d] = 1
+AOT expr,expr as,error: unsupported expression
+AOT expr:expr _1:\(Int64\) \$[\d] = 2
+q,q,

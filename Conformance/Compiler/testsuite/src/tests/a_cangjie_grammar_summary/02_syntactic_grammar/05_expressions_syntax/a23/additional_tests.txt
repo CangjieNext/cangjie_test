@@ -1,0 +1,8 @@
+# This is include list for additional tests reletad to quote expression syntax
+#
+# To run these tests you can execute following command from current directory:
+# /path_to_harness/harness.py --included-tests additional_tests.txt
+# or from test suite root folder:
+# /path_to_harness/harness.py --included-tests src/tests/a_cangjie_grammar_summary/02_syntactic_grammar/05_expressions_syntax/a23/additional_tests.txt
+
+src/tests/14_metaprogramming/01_quote_expression_and_tokens_type/a01

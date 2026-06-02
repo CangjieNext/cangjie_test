@@ -1,0 +1,21 @@
+error: unrecognized escape '\s' in rune literal
+  ==> lex_unrecognized_excape.cj:14:15:
+   | 
+14 |     var a = r'\s'
+   |             ~ ^^ unrecognized escape
+   |             |
+   |             because it is in rune literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in rune literal
+
+error: unrecognized escape '\s' in string literal
+  ==> lex_unrecognized_excape.cj:15:16:
+   | 
+15 |     var b = "\r\s\b"
+   |             ~  ^^ unrecognized escape
+   |             |
+   |             because it is in string literal
+   | 
+   # note: found 12 possible escapes: '\r', '\f', '\v', '\n', '\t', '\b', '\0', '\\', '\'', '\"', '\u{__}', '\$' in string literal
+
+2 errors generated, 2 errors printed.

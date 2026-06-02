@@ -1,0 +1,12 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ./test.cj
+//  EXEC: cp test.cj %n.cj
+//  EXEC: touch file1
+//  EXEC: %compiler %cmp_opt %n.cj -o %output --fobf-layout -j2 --aggressive-parallel-compile > log
+//  EXEC: echo `cat ./log | grep bin/opt | wc -l` opt process
+// ASSERT: scan 1 opt process

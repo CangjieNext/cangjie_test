@@ -1,0 +1,17 @@
+error: unterminated single-line string
+ ==> byte_array.cj:6:14:
+  | 
+6 |     let a = b"
+  |              ^^ unterminated single-line string
+  | 
+  # note: consider using multi-line string if you intended to include '\n' in string
+
+error: unterminated single-line string
+ ==> byte_array.cj:7:14:
+  | 
+7 |     let b = b"
+  |              ^^ unterminated single-line string
+  | 
+  # note: consider using multi-line string if you intended to include '\n' in string
+
+2 errors generated, 2 errors printed.

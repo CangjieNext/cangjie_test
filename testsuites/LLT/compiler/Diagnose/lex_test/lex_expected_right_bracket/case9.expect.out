@@ -1,0 +1,19 @@
+error: expected '}', found '2'
+  ==> case9.cj:15:22:
+   | 
+15 |     cangjie "\u{12324214213""""
+   |                ~        ^ expected '}'
+   |                |
+   |                to match this opening '{'
+   | 
+   # note: unicode escape may contain 8 hexadecimal digits at most
+
+error: unterminated single-line string
+  ==> case9.cj:15:28:
+   | 
+15 |     cangjie "\u{12324214213""""
+   |                               ^^ unterminated single-line string
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+2 errors generated, 2 errors printed.

@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/010_debug_enum_toplevel.cj
+// EXEC: %compiler %cmp_opt -g 010_debug_enum_toplevel.cj -o 010_debug_enum_toplevel%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_enum021.info 010_debug_enum_toplevel %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 010_debug_enum_toplevel,010_debug_enum_toplevel
+b,b 21,010_debug_enum_toplevel.cj:21
+AOT r,r,-> 21
+CJVM c,c,
+n,n,-> 22
+n,n,-> 23
+n,n,-> 22
+n,n,-> 28
+locals,locals,\(Int8\) howManyYears = 120
+print,print timemain,\(default.TimeUnit\) \$[\d] = {(\r|\n|\r\n)  constructor = Year
+print,print timetop,\(default.TimeUnit\) \$[\d] = {(\r|\n|\r\n)  constructor = Year
+q,q,

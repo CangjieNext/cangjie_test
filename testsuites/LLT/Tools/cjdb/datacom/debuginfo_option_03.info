@@ -1,0 +1,25 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../cjdb_test.py  ../basecase/debuginfo_option_03.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_option_03.cj -o debuginfo_option_03
+// EXEC: python3 cjdb_test.py debuginfo_option_03.info
+
+
+test#
+cjdb,cjdb debuginfo_option_03,debuginfo_option_03
+b,b 35,debuginfo_option_03.cj:35
+r,r,-> 35
+n,n,-> 36
+n,n,-> 37
+n,n,-> 38
+n,n,-> 39
+p,p s1,S1\) \$\d+ = {\s+d = 5\s+a = None\s+
+p,p s2,S2\) \$\d+ = {\s+d = 5\s+a = None\s+b = 5
+b,b 41,debuginfo_option_03.cj:41
+c,c,-> 41
+p,p s1,S1\) \$\d+ = {\s+d = 5\s+a = {\s+d = 5\s+a = None\s+b = 5\s+}\s+b = 5
+p,p s2,S2\) \$\d+ = {\s+d = 5\s+a = {\s+d = 5\s+a = {\s+d = 5\s+a = {

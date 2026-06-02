@@ -1,0 +1,17 @@
+error: expected declaration, found '<EOF>'
+  ==> callFoo2.cj:16:3:
+   | 
+16 | }
+   |   ^ expected declaration here
+   | 
+
+error: unclosed delimiter: '['
+  ==> callFoo2.cj:16:3:
+   | 
+15 |   var a: Int64 = @Foo[[1+))))](2+3)
+   |                      ~ to match this opening '['
+16 | }
+   |   ^ expected ']' here
+   | 
+
+2 errors generated, 2 errors printed.

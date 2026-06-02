@@ -1,0 +1,41 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+class A {
+    init() {}
+    func test_func() {
+        3
+    }
+
+    func func_outer(p: Int64): Int64 {
+        match (p) {
+            case 1 =>
+                func test_func() {
+                    1
+                }
+                var test_p = test_func()
+                test_p
+            case _ =>
+                var test_p = test_func()
+                test_p + 1
+        }
+    }
+}
+
+main() {
+    var a = A()
+    var p1 = 1
+    var p2 = 2
+    var res1 = a.func_outer(p1)
+    var res2 = a.func_outer(p2)
+    return res1 + res2 - 5
+}

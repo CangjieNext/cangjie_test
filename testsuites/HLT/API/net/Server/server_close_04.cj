@@ -1,0 +1,58 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %link_openssl -o %output %f
+// RUN-EXEC: %run_stdx %output %run_args
+
+import stdx.net.http.*
+import stdx.net.tls.common.*
+import stdx.net.tls
+import stdx.crypto.kit
+import std.io.*
+import std.net.*
+import std.runtime.*
+import std.argopt.*
+
+main(): Int64 {
+    let serverSocket = TcpServerSocket(bindAt: 0)
+    let server = ServerBuilder().listener(serverSocket).build()
+    server.distributor.register("/dd", {
+        ctx => ctx.responseBuilder.body("Hello")
+    })
+    spawn {
+        spawn {
+            server.serve()
+        }
+        while (server.port == 0) {
+            sleep(Duration.millisecond)
+        }
+        return server
+    }
+    let b = abc()
+    server.close()
+    sleep(Duration.second)
+    server.onShutdown(
+        {
+            =>
+            b.a = 100
+            print("===============")
+        }
+    )
+    server.close()
+
+    if (b.a != 10) {
+        return 1
+    }
+
+    return 0
+}
+
+class abc {
+    var a = 10
+}

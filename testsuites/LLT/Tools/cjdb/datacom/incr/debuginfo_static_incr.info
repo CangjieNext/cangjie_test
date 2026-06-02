@@ -1,0 +1,21 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/incr/debuginfo_static_incr/debuginfo_static_incr_old.cj ../../basecase/incr/debuginfo_static_incr/debuginfo_static_incr_new.cj
+// EXEC: %cpfile debuginfo_static_incr_old.cj debuginfo_static_incr.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %incrementalCompile debuginfo_static_incr.cj -o debuginfo_static_incr
+// EXEC: %cpfile debuginfo_static_incr_new.cj debuginfo_static_incr.cj
+// EXEC: %compiler %cmp_opt %enableCompileDebug %incrementalCompile debuginfo_static_incr.cj -o debuginfo_static_incr
+// EXEC: python3 cjdb_test.py debuginfo_static_incr.info
+
+
+test#
+cjdb,cjdb debuginfo_static_incr,debuginfo_static_incr
+b,b 25,debuginfo_static_incr.cj:25
+r,r,-> 25
+globals,globals,Int64\) default::Rect::degree = 180
+globals,globals,Int64\) default::Rect::age = 100
+q,q,

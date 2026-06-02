@@ -1,0 +1,11 @@
+error: unterminated single-line string
+  ==> case6.cj:15:23:
+   | 
+15 | cangjie ${"cangjie2 ${'cangjie3}"}"""
+   |                     ~~^^^^^^^^^^^^^^^^ unterminated single-line string
+   |                     |
+   |                     because this interpolation is not terminated with a '}'
+   | 
+   # note: consider using multi-line string if you intended to include '\n' in string
+
+1 error generated, 1 error printed.

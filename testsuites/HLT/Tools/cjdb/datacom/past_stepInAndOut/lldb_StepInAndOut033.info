@@ -1,0 +1,56 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/029_debuginfun_dowhile.cj
+//  EXEC: %compiler %cmp_opt -g 029_debuginfun_dowhile.cj -o 029_debuginfun_dowhile%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_StepInAndOut033.info 029_debuginfun_dowhile %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 029_debuginfun_dowhile,029_debuginfun_dowhile
+CJVM b main,b main,029_debuginfun_dowhile.cj:12
+CJVM c,c,-> 12
+b,b 16,029_debuginfun_dowhile.cj:16
+AOT b,b 17,029_debuginfun_dowhile.cj:18
+CJVM b,b 17,029_debuginfun_dowhile.cj:17
+b,b 18,029_debuginfun_dowhile.cj:18
+b,b 19,029_debuginfun_dowhile.cj:19
+AOT r,r,-> 16
+CJVM c,c,-> 16
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+finish,finish,-> 18
+s,s,-> 19
+s,s,-> 20
+locals,locals,hundredo = 10
+rerun,r,-> 16
+AOT finish,finish,-> 18
+AOT finish,finish,-> 19
+AOT set,set hundredo = 11,11
+AOT s,s,-> 20
+AOT locals,locals,hundredo = 11
+q,q,

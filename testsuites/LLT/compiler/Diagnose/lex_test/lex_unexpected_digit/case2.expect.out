@@ -1,0 +1,11 @@
+error: unexpected digit 'a' in decimal
+  ==> case2.cj:14:16:
+   | 
+14 |     var f = 12.23eab
+   |                  ~^ unexpected digit
+   |                  |
+   |                  because the exponent part base is decimal
+   | 
+   # note: decimal may only contain digit within 0~9
+
+1 error generated, 1 error printed.

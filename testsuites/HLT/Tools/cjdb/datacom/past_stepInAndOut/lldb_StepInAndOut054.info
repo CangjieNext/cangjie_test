@@ -1,0 +1,61 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/021_debug_file.cj
+//  EXEC: %compiler %cmp_opt -g 021_debug_file.cj -o 021_debug_file%cmp_output
+//  EXEC: python3 cjdb_test.py lldb_StepInAndOut054.info 021_debug_file %run_env
+
+
+
+test#
+cjdb,cjdb --no-use-colors 021_debug_file,021_debug_file
+CJVM b main,b main,021_debug_file.cj:16
+CJVM c,c,-> 16
+b,b 16,021_debug_file.cj:16
+AOT r,r,-> 16
+s,s,-> 22
+s,s,-> 26
+s,s,-> 30
+s,s,-> 34
+s,s,-> 38
+s,s,-> 42
+s,s,-> 46
+s,s,-> 50
+s,s,-> 54
+s,s,-> 59
+s,s,-> 63
+s,s,-> 67
+s,s,-> 71
+s,s,-> 75
+s,s,-> 79
+s,s,-> 83
+s,s,-> 87
+s,s,-> 91
+s,s,-> 95
+s,s,-> 100
+finish,finish,-> 95
+finish,finish,-> 91
+finish,finish,-> 87
+finish,finish,-> 83
+finish,finish,-> 79
+finish,finish,-> 75
+finish,finish,-> 71
+finish,finish,-> 67
+finish,finish,-> 63
+finish,finish,-> 59
+finish,finish,-> 54
+finish,finish,-> 50
+finish,finish,-> 46
+finish,finish,-> 42
+finish,finish,-> 38
+finish,finish,-> 34
+finish,finish,-> 30
+finish,finish,-> 26
+finish,finish,-> 22
+q,q,

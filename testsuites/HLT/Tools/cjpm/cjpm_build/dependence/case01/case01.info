@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../%n
+// EXEC: git config --global user.email ""
+// EXEC: git config --global user.name ""
+// EERCHECK: cd %n && %cjpm build %cjpm_opt
+/* scan
+fatal: could not read Username for 'abcdefg': terminal prompts disabled
+
+Error: reference 'master' not found in git repository with url: abcdefg
+Error: failed to retrieve git dependency b
+Error: cjpm build failed
+*/

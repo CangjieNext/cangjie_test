@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/001_HashMap_Ins_basic.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g 001_HashMap_Ins_basic.cj -o case31%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py case31.info case31 %run_env
+
+test#
+cjdb,cjdb --no-use-colors case31,case31
+b,b 35,001_HashMap_Ins_basic.cj:35
+AOT r,r,-> 35
+CJVM c,c,-> 35
+locals,locals,\(std[.]collection.HashMap<Int8,UInt8>\) map_main_1 =
+locals,locals,\(std[.]collection.HashMap<Int32,UInt32>\) map_main_3 =
+q,q,

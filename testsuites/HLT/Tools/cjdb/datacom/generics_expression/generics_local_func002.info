@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_func002.cj
+// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_func002.cj -o generics_local_func002%cmp_output
+// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_local_func002.info generics_local_func002 %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors generics_local_func002,generics_local_func002
+b,b 32,generics_local_func002.cj:32
+AOT r,r,-> 32
+CJVM c,c,
+expr:expr a:\(Int16\) \$[\d] = 3
+expr~expr goo(a)~error: unsupported expression
+q,q,

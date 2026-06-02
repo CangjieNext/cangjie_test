@@ -1,0 +1,55 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC-PIPE-1: %compiler %cmp_opt %f -o %output 2>&1 | compare %f
+
+main(): Int64 {
+    var x = Doo()
+    if (x.a != 1) { // a is Doo's
+        return 1
+    }
+    if (x.b != 1) {
+        print("${x.b}")
+        return 2
+    }
+    if (x.c != ()) {
+        return 3
+    }
+    return 0
+}
+
+open class Boo {
+    public mut prop m: Int32 {
+        get() {
+            return a
+        }
+        set(input) {
+            a = input + 1
+        }
+    }
+    public prop n: Int32 {
+        get() {
+            return a
+        }
+    }
+    public var a: Int32 = 1 // a = 1
+}
+
+class Doo <: Boo {
+    public var b: Int32 = if (true) {
+        a
+    } else {
+        0
+    }
+    public var c: Unit = if (true) {
+        m = 1
+    }
+}
+// ASSERT: scan sema_illegal_usage_of_super_member
+// ASSERT: scan sema_illegal_usage_of_member

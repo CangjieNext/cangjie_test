@@ -1,0 +1,76 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+from std import unittest.*
+from std import unittest.testmacro.*
+from std import fs.*
+
+@Test
+class TestMetaData {
+    private var metaData1 = Directory("./data/meta_data_test.txt").metadata
+    private var metaData2 = Directory("./data/link_file").metadata
+    private var metaData3 = Directory("./data/meta_data_test").metadata
+    private var metaData4 = Directory("./data/link_dir").metadata
+
+    public override func afterEach(): Unit {
+        metaData1 = Directory("./data/meta_data_test.txt").metadata
+        metaData2 = Directory("./data/link_file").metadata
+        metaData3 = Directory("./data/meta_data_test").metadata
+        metaData4 = Directory("./data/link_dir").metadata
+    }
+
+    @TestCase
+    func path() {
+        @Expect(metaData1.path.toString(), "./data/meta_data_test.txt")
+        @Expect(metaData2.path.toString(), "./data/link_file")
+        @Expect(metaData3.path.toString(), "./data/meta_data_test")
+        @Expect(metaData4.path.toString(), "./data/link_dir")
+    }
+
+    @TestCase
+    func creationTime() {
+        @Expect(metaData1.creationTime.toString(), "2022-08-08T18:22:58Z")
+        @Expect(metaData2.creationTime.toString(), "2022-08-08T18:22:58Z")
+        @Expect(metaData3.creationTime.toString(), "2022-08-08T21:09:54Z")
+        @Expect(metaData4.creationTime.toString(), "2022-08-08T21:09:54Z")
+    }
+
+    @TestCase
+    func lastAccessTime() {
+        @Expect(metaData1.lastAccessTime.toString(), "2022-08-08T18:22:58Z")
+        @Expect(metaData2.lastAccessTime.toString(), "2022-08-08T18:22:58Z")
+        @Expect(metaData3.lastAccessTime.toString(), "2022-08-08T21:09:54Z")
+        @Expect(metaData4.lastAccessTime.toString(), "2022-08-08T21:09:54Z")
+    }
+
+    @TestCase
+    func lastModificationTime() {
+        @Expect(metaData1.lastModificationTime.toString(), "2022-08-08T18:22:36Z")
+        @Expect(metaData2.lastModificationTime.toString(), "2022-08-08T18:22:36Z")
+        @Expect(metaData3.lastModificationTime.toString(), "2022-08-08T21:09:54Z")
+        @Expect(metaData4.lastModificationTime.toString(), "2022-08-08T21:09:54Z")
+    }
+
+    @TestCase
+    func size() {
+        @Expect(metaData1.size, 35)
+        @Expect(metaData2.size, 18)
+        @Expect(metaData3.size, 4131)    // dir 4095 + file 35
+        @Expect(metaData4.size, 14)
+    }
+
+
+}
+
+main() {
+    let cases = TestMetaData()
+    cases.execute()
+    cases.printResult()
+    var info = cases.getTestInfo()
+    return info.failedCount + info.errorCount
+}

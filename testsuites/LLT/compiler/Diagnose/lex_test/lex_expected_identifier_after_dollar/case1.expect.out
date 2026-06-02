@@ -1,0 +1,97 @@
+error: expected identifier after '$', found keyword 'func'
+  ==> case1.cj:19:3:
+   | 
+19 |     $func
+   |      ^^^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+19 |     $`func`
+   |      ~~~~~~ 
+   | 
+
+error: expected identifier after '$', found keyword 'let'
+  ==> case1.cj:20:4:
+   | 
+20 |      $let
+   |       ^^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+20 |      $`let`
+   |       ~~~~~ 
+   | 
+
+error: expected identifier after '$', found keyword 'is'
+  ==> case1.cj:21:3:
+   | 
+21 |     $is
+   |      ^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+21 |     $`is`
+   |      ~~~~ 
+   | 
+
+error: expected identifier after '$', found keyword 'as'
+  ==> case1.cj:22:3:
+   | 
+22 |     $as
+   |      ^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+22 |     $`as`
+   |      ~~~~ 
+   | 
+
+error: expected identifier after '$', found keyword 'Int8'
+  ==> case1.cj:23:3:
+   | 
+23 |     $Int8
+   |      ^^^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+23 |     $`Int8`
+   |      ~~~~~~ 
+   | 
+
+error: expected identifier after '$', found keyword 'Int16'
+  ==> case1.cj:24:3:
+   | 
+24 |     $Int16
+   |      ^^^^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+24 |     $`Int16`
+   |      ~~~~~~~ 
+   | 
+
+error: expected identifier after '$', found keyword 'Int32'
+  ==> case1.cj:25:3:
+   | 
+25 |     $Int32
+   |      ^^^^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+25 |     $`Int32`
+   |      ~~~~~~~ 
+   | 
+
+error: expected identifier after '$', found keyword 'Int64'
+  ==> case1.cj:26:3:
+   | 
+26 |     $Int64
+   |      ^^^^^ expected identifier after '$'
+   | 
+help: you could escape keyword as identifier using '`':
+   | 
+26 |     $`Int64`
+   |      ~~~~~~~ 
+   | 
+
+25 errors generated, 8 errors printed.

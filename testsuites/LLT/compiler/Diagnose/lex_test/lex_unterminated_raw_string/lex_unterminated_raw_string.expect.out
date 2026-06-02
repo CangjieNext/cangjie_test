@@ -1,0 +1,11 @@
+error: unterminated raw string
+  ==> lex_unterminated_raw_string.cj:13:13:
+   | 
+13 |       var a = ##"
+   |  _____________^
+14 | |     cangjie
+15 | |     language
+   | |_____________^ unterminated raw string
+   | 
+
+1 error generated, 1 error printed.

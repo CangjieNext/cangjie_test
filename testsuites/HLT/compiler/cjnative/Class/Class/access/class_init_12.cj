@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// EXEC: %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+class Data {
+    public var a: Int64 = 3
+}
+
+class GenRec {
+    public let b: String
+    public var c: Float64
+    public init() {
+        var tpl = (3.14, (2, "hi"))
+        a = tpl
+        this.b = this.a[1][1]
+        this.c = this.a[0]
+    }
+    public let a: (Float64, (Int64, String))
+}
+
+main(): Int64 {
+    var rec = GenRec()
+    if (rec.b == "hi" && rec.c == 3.14) {
+        return 0
+    }
+    return 1
+}

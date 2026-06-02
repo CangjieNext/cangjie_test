@@ -1,0 +1,37 @@
+error: expected '#' or '"' in raw string, found 'new line character'
+  ==> case1.cj:14:4:
+   | 
+14 |     ##
+   |     ~~^ expected '#' or '"'
+   |     |
+   |     because it is raw string prefix
+   | 
+
+error: expected '#' or '"' in raw string, found 'new line character'
+  ==> case1.cj:15:3:
+   | 
+15 | ##
+   | ~~^ expected '#' or '"'
+   | |
+   | because it is raw string prefix
+   | 
+
+error: expected '#' or '"' in raw string, found 'new line character'
+  ==> case1.cj:16:4:
+   | 
+16 |     ##
+   |     ~~^ expected '#' or '"'
+   |     |
+   |     because it is raw string prefix
+   | 
+
+error: expected '#' or '"' in raw string, found 'new line character'
+  ==> case1.cj:17:5:
+   | 
+17 |         ##
+   |         ~~^ expected '#' or '"'
+   |         |
+   |         because it is raw string prefix
+   | 
+
+4 errors generated, 4 errors printed.

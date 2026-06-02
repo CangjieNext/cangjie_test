@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/034_debuginfun_func_default_arg.cj
+// EXEC: %compiler %cmp_opt -g 034_debuginfun_func_default_arg.cj -o 034_debuginfun_func_default_arg%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain021.info 034_debuginfun_func_default_arg %run_env
+
+
+
+
+test#
+cjdb,cjdb --no-use-colors 034_debuginfun_func_default_arg,034_debuginfun_func_default_arg
+CJVM b,breakpoint set -n main,034_debuginfun_func_default_arg.cj:12
+CJVM c,c,-> 12
+b,b 17,034_debuginfun_func_default_arg.cj:17
+AOT r,r,-> 17
+CJVM c,c,-> 17
+n,n,-> 18
+locals,locals,Functioncall007 = 3
+q,q,

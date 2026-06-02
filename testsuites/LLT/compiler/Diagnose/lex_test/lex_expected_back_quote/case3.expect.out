@@ -1,0 +1,28 @@
+error: expected '`', found '*'
+  ==> case3.cj:14:10:
+   | 
+14 |     `cangjie*`
+   |     ~       ^ expected '`'
+   |     |
+   |     to match this opening backquote
+   | 
+
+error: expected '`', found '^'
+  ==> case3.cj:15:10:
+   | 
+15 |     `cangjie^`
+   |     ~       ^ expected '`'
+   |     |
+   |     to match this opening backquote
+   | 
+
+error: expected '`', found '\u{0001}'
+  ==> case3.cj:17:10:
+   | 
+17 |     `cangjie\u{0001}`
+   |     ~       ^^^^^^^^ expected '`'
+   |     |
+   |     to match this opening backquote
+   | 
+
+3 errors generated, 3 errors printed.

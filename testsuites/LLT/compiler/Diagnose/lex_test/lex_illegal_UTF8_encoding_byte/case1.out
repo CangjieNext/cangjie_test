@@ -1,0 +1,22 @@
+error: illegal UTF8 encoding byte '0b11111111'
+ ==> lex_illegel_utf8.cj:7:15:
+  | 
+7 |     var a = "c��cangjie"; ���� = "cang"
+  |               ^ illegal UTF8 encoding byte
+  | 
+
+error: illegal UTF8 encoding byte '0b11111111'
+ ==> lex_illegel_utf8.cj:7:27:
+  | 
+7 |     var a = "c��cangjie"; ���� = "cang"
+  |                           ^ illegal UTF8 encoding byte
+  | 
+
+error: illegal UTF8 encoding byte '0b00001010'
+ ==> lex_illegel_utf8.cj:8:2:
+  | 
+8 | }�
+  |  ^ illegal UTF8 encoding byte
+  | 
+
+3 errors generated, 3 errors printed.

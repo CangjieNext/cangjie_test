@@ -1,0 +1,32 @@
+// DEPENDENCE: define.cj
+// EXEC: %compiler %cmp_macro define.cj
+// EXEC: %pwd_to_ld_path %compiler %cmp_opt %f -o %output
+// RUN-EXEC: %run %run_opt %output %run_args
+
+package test
+
+import define.*
+
+main() {
+    var fileName = @M[@sourceFile()]()
+    if (fileName != "call.cj") {
+        return 1
+    }
+
+    var fileline = @M[@sourceLine() + 3]()
+    if (fileline != 19) {
+        return 2
+    }
+
+    var filepkg = @M[@sourcePackage()]()
+    if (filepkg != "test") {
+        return 3
+    }
+    return 0
+}
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+

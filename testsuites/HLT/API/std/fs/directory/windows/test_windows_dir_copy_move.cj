@@ -1,0 +1,203 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// (Windows and not OHOS)EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// (Windows and not OHOS)RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args 
+
+/*
+ * Test description: Test the rename
+ * Test API: public static func move(sourceDirPath: String, destinationDirPath: String, overwrite: Bool): Unit
+ *           public static func move(sourceDirPath: Path, destinationDirPath: Path, overwrite: Bool): Unit
+ *           public static func copy(sourceDirPath: String, destinationDirPath: String, overwrite: Bool): Unit
+ *           public static func copy(sourceDirPath: Path, destinationDirPath: Path, overwrite: Bool): Unit
+ */
+
+import std.unittest.*
+import std.unittest.testmacro.*
+import std.fs.*
+
+@Test
+class Test_Dir_Move_Copy {
+    private var dirpath = canonicalize(Path(".\\")).join("tmp").toString()
+    private var dirpaths = [dirpath + "\\dir1", ".\\tmp\\dir2"]
+    private var sum = 0
+
+    public override func beforeEach(): Unit {
+        Directory.create(dirpath)
+        @Assert(exists(dirpath), true)
+        sum = 0
+    }
+
+    public override func afterEach(): Unit {
+        remove(dirpath, recursive: true)
+    }
+
+    @TestCase
+    func test_path_copy_move(): Unit {
+        Directory.create(dirpaths[0], recursive: true)
+        @Assert(exists(dirpaths[0]), true)
+        rename(dirpaths[0], to: dirpaths[1], overwrite: false)
+        @Expect(exists(dirpaths[0]), false)
+        @Expect(exists(dirpaths[1]), true)
+
+        copy(dirpaths[1], to: dirpaths[0], overwrite: true) //无异常
+        @Expect(exists(dirpaths[0]), true)
+        @Expect(exists(dirpaths[1]), true)
+    }
+
+    @TestCase
+    func test_move_withfile(): Unit {
+        var path1 = canonicalize(Path("./tmp")).join("dir1").join("file")
+        var path2 = canonicalize(Path("./tmp")).join("dir1").join("dir")
+        var path3 = canonicalize(Path("./tmp")).join("dir2").join("file")
+        var path4 = canonicalize(Path("./tmp")).join("dir2").join("dir")
+
+        Directory.create(dirpaths[0])
+        @Assert(exists(dirpaths[0]), true)
+        Directory.create(path2)
+        @Assert(exists(path2), true)
+        File.create(path1).close()
+        var fileinfo = FileInfo(path1)
+        @Expect(fileinfo.canWrite(), true)
+        fileinfo.setWritable(false)
+
+        rename(dirpaths[0], to: dirpaths[1], overwrite: false)
+        @Expect(exists(path1), false)
+        @Expect(exists(path2), false)
+        @Expect(exists(path3), true)
+        @Expect(exists(path4), true)
+
+        rename(dirpaths[1], to: dirpaths[0], overwrite: true)
+        @Expect(exists(path1), true)
+        @Expect(exists(path2), true)
+        @Expect(exists(path3), false)
+        @Expect(exists(path4), false)
+
+        var fileinfo1 = FileInfo(path1)
+        @Expect(fileinfo1.canWrite(), false)
+        fileinfo1.setWritable(true)
+
+        Directory.create(dirpaths[1])
+        @Assert(exists(dirpaths[1]), true)
+        try {
+            rename(dirpaths[0], to: dirpaths[1], overwrite: false)
+        } catch (e: FSException) {
+            @Expect(e.message.contains("already exists and overwrite is false"))
+            sum += 1
+        }
+        @Expect(sum, 1)
+    }
+
+    @TestCase
+    func test_copy_withfile(): Unit {
+        var path1 = canonicalize(Path("./tmp")).join("dir1").join("file")
+        var path2 = canonicalize(Path("./tmp")).join("dir1").join("dir")
+        var path3 = canonicalize(Path("./tmp")).join("dir2").join("file")
+        var path4 = canonicalize(Path("./tmp")).join("dir2").join("dir")
+
+        Directory.create(dirpaths[0])
+        @Assert(exists(dirpaths[0]), true)
+        Directory.create(path2)
+        @Assert(exists(path2), true)
+        File.create(path1).close()
+        var fileinfo = FileInfo(path1)
+        fileinfo.setWritable(false)
+
+        copy(dirpaths[0], to: dirpaths[1], overwrite: true)
+        @Expect(exists(path1), true)
+        @Expect(exists(path2), true)
+        @Expect(exists(path3), true)
+        @Expect(exists(path4), true)
+        var fileinfo1 = FileInfo(path3)
+        @Expect(fileinfo1.canWrite(), false)
+
+        fileinfo1.setWritable(true)
+        fileinfo.setWritable(true)
+        try {
+            copy(dirpaths[1], to: dirpaths[0], overwrite: false)
+        } catch (e: FSException) {
+            @Expect(e.message.contains("Destination path `${dirpaths[0]}` is already exists"))
+            sum += 1
+        }
+        copy(dirpaths[1], to: dirpaths[0], overwrite: true)
+        @Expect(exists(path1), true)
+        @Expect(exists(path2), true)
+        @Expect(exists(path3), true)
+        @Expect(exists(path4), true)
+
+        var fileinfo2 = FileInfo(path1)
+        @Expect(fileinfo2.canWrite(), true)
+        @Expect(sum, 1)
+    }
+
+    @TestCase
+    func test_copy_to_self(): Unit {
+        Directory.create(dirpaths[0])
+        @Assert(exists(dirpaths[0]), true)
+        try {
+            copy(dirpaths[0], to: dirpaths[0], overwrite: false)
+        } catch (e: FSException) {
+            @Expect(e.message.contains("The input path 'sourcePath' `${dirpaths[0]}` and 'to' `${dirpaths[0]}` are the same path"))
+            sum += 1
+        }
+        @Expect(sum, 1)
+    }
+
+    @TestCase
+    func test_move_to_self(): Unit {
+        Directory.create(dirpaths[0])
+        @Assert(exists(dirpaths[0]), true)
+        File.create(".\\tmp\\dir1\\file").close()
+        try {
+            rename(dirpaths[0], to: dirpaths[0], overwrite: true)
+        } catch (e: FSException) {
+            @Expect(e.message.contains("the same path"))
+            sum += 1
+        }
+        @Expect(sum, 1)
+    }
+
+    @TestCase
+    func test_copy_to_subdir(): Unit {
+        Directory.create(dirpaths[0])
+        @Assert(exists(dirpaths[0]), true)
+        try {
+            copy(dirpath, to: dirpaths[0], overwrite: false)
+        } catch (e: FSException) {
+            @Expect(e.message.contains("Destination path `${dirpaths[0]}` is already exists"))
+            sum += 1
+        }
+        try {
+            copy(dirpath, to: dirpaths[0], overwrite: true)
+        } catch (e: FSException) {
+            @Expect(e.message, "The destinationDirPath `${dirpaths[0]}` is in the sourceDirPath `${dirpath}`.")
+            sum += 1
+        }
+        @Expect(sum, 2)
+    }
+
+    @TestCase
+    func test_move_to_subdir(): Unit {
+        Directory.create(dirpaths[0])
+        @Assert(exists(dirpaths[0]), true)
+        try {
+            copy(dirpath, to: dirpaths[0], overwrite: false)
+        } catch (e: FSException) {
+            @Expect(e.message.contains("Destination path `${dirpaths[0]}` is already exists"))
+            sum += 1
+        }
+        try {
+            copy(dirpath, to: dirpaths[0], overwrite: true)
+        } catch (e: FSException) {
+            @Expect(e.message, "The destinationDirPath `${dirpaths[0]}` is in the sourceDirPath `${dirpath}`.")
+            sum += 1
+        }
+        @Expect(sum, 2)
+    }
+}

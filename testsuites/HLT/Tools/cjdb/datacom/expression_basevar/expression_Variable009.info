@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_basetype.cj
+// (not MAC) EXEC: %compiler %cmp_opt -g VArray_basetype.cj -o VArray_basetype%cmp_output
+// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_Variable009.info VArray_basetype %run_env
+ 
+ 
+test#
+cjdb,cjdb --no-use-colors VArray_basetype,VArray_basetype
+b,b 50,Breakpoint 1: where = VArray_basetype`default::main[\s\S]*VArray_basetype.cj:50
+AOT r,r,-> 50
+CJVM c,c,-> 50
+p, p vInt8[0],\(Int8\) \$[\d] = 0
+expression, expression vInt8[0],\(Int8\) \$[\d] = 0
+expression, expression vInt16[1],\(Int16\) \$[\d] = -2
+expression, expression vInt32[2],\(Int32\) \$[\d] = -3
+expression, expression vInt64[3],error: unsupported expression
+expression, expression vUInt8[0],\(UInt8\) \$[\d] = 0
+expression, expression vUInt16[1],\(UInt16\) \$[\d] = 2
+expression, expression vUInt32[2],\(UInt32\) \$[\d] = 3
+expression, expression vUInt64[3],error: unsupported expression
+expression, expression vFloat16[0],\(Float16\) \$[\d] = 0
+expression, expression vFloat32[1],\(Float32\) \$[\d] = 2
+expression, expression vFloat64[2],\(Float64\) \$[\d] = 3
+q,q,

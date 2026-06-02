@@ -1,0 +1,317 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// EXEC: %cjc %compile_exe_opt %debugCHIROpt %n.cj %cmp_opt -o %output 2>&1 | compare %f
+// ASSERT: scan-not core dumped
+// ASSERT: scan-not stack trace
+
+const bitnot1: Int8 = !1
+const bitnot2: Int16 = !1
+const bitnot3: Int32= !1
+const bitnot4: Int64 = !1
+const bitnot5: IntNative = !1
+const bitnot6: UInt8 = !1
+const bitnot7: UInt16 = !1
+const bitnot8: UInt32 = !1
+const bitnot9: UInt64 = !1
+const bitnot10: UIntNative = !1
+
+const sub1: Int8 = 10 - 2
+const sub2: Int16 = 10 - 2
+const sub3: Int32= 10 - 2
+const sub4: Int64 = 10 - 2
+const sub5: IntNative = 10 - 2
+const sub6: UInt8 = 10 - 2
+const sub7: UInt16 = 10 - 2
+const sub8: UInt32 = 10 - 2
+const sub9: UInt64 = 10 - 2
+const sub10: UIntNative = 10 - 2
+const sub11: Float32 = 10.3 - 2.1
+const sub12: Float64 = 10.1 - 2.4
+
+const mul1: Int8 = 10 * 2
+const mul2: Int16 = 10 * 2
+const mul3: Int32= 10 * 2
+const mul4: Int64 = 10 * 2
+const mul5: IntNative = 10 * 2
+const mul6: UInt8 = 10 * 2
+const mul7: UInt16 = 10 * 2
+const mul8: UInt32 = 10 * 2
+const mul9: UInt64 = 10 * 2
+const mul10: UIntNative = 10 * 2
+const mul11: Float32 = 10.3 * 2.1
+const mul12: Float64 = 10.1 * 2.4
+
+const div1: Int8 = 10 / 2
+const div2: Int16 = 10 / 2
+const div3: Int32= 10 / 2
+const div4: Int64 = 10 / 2
+const div5: IntNative = 10 / 2
+const div6: UInt8 = 10 / 2
+const div7: UInt16 = 10 / 2
+const div8: UInt32 = 10 / 2
+const div9: UInt64 = 10 / 2
+const div10: UIntNative = 10 / 2
+const div11: Float32 = 10.3 / 2.1
+const div12: Float64 = 10.1 / 2.4
+
+const mod1: Int8 = 10 % 2
+const mod2: Int16 = 10 % 2
+const mod3: Int32= 10 % 2
+const mod4: Int64 = 10 % 2
+const mod5: IntNative = 10 % 2
+const mod6: UInt8 = 10 % 2
+const mod7: UInt16 = 10 % 2
+const mod8: UInt32 = 10 % 2
+const mod9: UInt64 = 10 % 2
+const mod10: UIntNative = 10 % 2
+
+const pow: Float64 = 10.1 ** 2.4
+
+const and1: Int8 = 10 & 3
+const and2: Int16 = 10 & 3
+const and3: Int32= 10 & 3
+const and4: Int64 = 10 & 3
+const and5: IntNative = 10 & 3
+const and6: UInt8 = 10 & 3
+const and7: UInt16 = 10 & 3
+const and8: UInt32 = 10 & 3
+const and9: UInt64 = 10 & 3
+const and10: UIntNative = 10 & 3
+
+const or1: Int8 = 10 & 3
+const or2: Int16 = 10 & 3
+const or3: Int32= 10 & 3
+const or4: Int64 = 10 & 3
+const or5: IntNative = 10 & 3
+const or6: UInt8 = 10 & 3
+const or7: UInt16 = 10 & 3
+const or8: UInt32 = 10 & 3
+const or9: UInt64 = 10 & 3
+const or10: UIntNative = 10 & 3
+
+const xor1: Int8 = 10 ^ 3
+const xor2: Int16 = 10 ^ 3
+const xor3: Int32= 10 ^ 3
+const xor4: Int64 = 10 ^ 3
+const xor5: IntNative = 10 ^ 3
+const xor6: UInt8 = 10 ^ 3
+const xor7: UInt16 = 10 ^ 3
+const xor8: UInt32 = 10 ^ 3
+const xor9: UInt64 = 10 ^ 3
+const xor10: UIntNative = 10 ^ 3
+
+const shl1: Int8 = 10 << 3
+const shl2: Int16 = 10 << 3
+const shl3: Int32= 10 << 3
+const shl4: Int64 = 10 << 3
+const shl5: IntNative = 10 << 3
+const shl6: UInt8 = 10 << 3
+const shl7: UInt16 = 10 << 3
+const shl8: UInt32 = 10 << 3
+const shl9: UInt64 = 10 << 3
+const shl10: UIntNative = 10 << 3
+
+const shr1: Int8 = 10 >> 3
+const shr2: Int16 = 10 >> 3
+const shr3: Int32= 10 >> 3
+const shr4: Int64 = 10 >> 3
+const shr5: IntNative = 10 >> 3
+const shr6: UInt8 = 10 >> 3
+const shr7: UInt16 = 10 >> 3
+const shr8: UInt32 = 10 >> 3
+const shr9: UInt64 = 10 >> 3
+const shr10: UIntNative = 10 >> 3
+
+const int8_10 : Int8 = 10
+const int16_10 : Int16 = 10
+const int32_10 : Int32 = 10
+const int64_10 : Int64 = 10
+const intnative_10 : IntNative = 10
+const uint8_10 : UInt8 = 10
+const uint16_10 : UInt16 = 10
+const uint32_10 : UInt32 = 10
+const uint64_10 : UInt64 = 10
+const uintnative_10 : UIntNative = 10
+const int8_3 : Int8 = 3
+const int16_3 : Int16 = 3
+const int32_3 : Int32 = 3
+const int64_3 : Int64 = 3
+const intnative_3 : IntNative = 3
+const uint8_3 : UInt8 = 3
+const uint16_3 : UInt16 = 3
+const uint32_3 : UInt32 = 3
+const uint64_3 : UInt64 = 3
+const uintnative_3 : UIntNative = 3
+
+const dshr1: Int8 = int8_10 >> int16_3
+const dshr2: Int8 = int8_10 >> int32_3
+const dshr3: Int8 = int8_10 >> int64_3
+const dshr4: Int8 = int8_10 >> intnative_3
+const dshr5: Int16 = int16_10 >> int8_3
+const dshr6: Int16 = int16_10 >> int32_3
+const dshr7: Int16 = int16_10 >> int64_3
+const dshr8: Int16 = int16_10 >> intnative_3
+const dshr9: Int32 = int32_10 >> int8_3
+const dshr10: Int32 = int32_10 >> int16_3
+const dshr11: Int32 = int32_10 >> int64_3
+const dshr12: Int32 = int32_10 >> intnative_3
+const dshr13: Int64 = int64_10 >> int8_3
+const dshr14: Int64 = int64_10 >> int16_3
+const dshr15: Int64 = int64_10 >> int32_3
+const dshr16: Int64 = int64_10 >> intnative_3
+const dshr17: IntNative = intnative_10 >> int8_3
+const dshr18: IntNative = intnative_10 >> int16_3
+const dshr19: IntNative = intnative_10 >> int32_3
+const dshr20: IntNative = intnative_10 >> int64_3
+const dshr21: Int8 = int8_10 >> uint16_3
+const dshr22: Int8 = int8_10 >> uint32_3
+const dshr23: Int8 = int8_10 >> uint64_3
+const dshr24: Int8 = int8_10 >> uintnative_3
+const dshr25: Int16 = int16_10 >> uint8_3
+const dshr26: Int16 = int16_10 >> uint32_3
+const dshr27: Int16 = int16_10 >> uint64_3
+const dshr28: Int16 = int16_10 >> uintnative_3
+const dshr29: Int32 = int32_10 >> uint8_3
+const dshr30: Int32 = int32_10 >> uint16_3
+const dshr31: Int32 = int32_10 >> uint64_3
+const dshr32: Int32 = int32_10 >> uintnative_3
+const dshr33: Int64 = int64_10 >> uint8_3
+const dshr34: Int64 = int64_10 >> uint16_3
+const dshr35: Int64 = int64_10 >> uint32_3
+const dshr36: Int64 = int64_10 >> uintnative_3
+const dshr37: IntNative = intnative_10 >> uint8_3
+const dshr38: IntNative = intnative_10 >> uint16_3
+const dshr39: IntNative = intnative_10 >> uint32_3
+const dshr40: IntNative = intnative_10 >> uint64_3
+const dshr41: UInt8 = uint8_10 >> uint16_3
+const dshr42: UInt8 = uint8_10 >> uint32_3
+const dshr43: UInt8 = uint8_10 >> uint64_3
+const dshr44: UInt8 = uint8_10 >> uintnative_3
+const dshr45: UInt16 = uint16_10 >> uint8_3
+const dshr46: UInt16 = uint16_10 >> uint32_3
+const dshr47: UInt16 = uint16_10 >> uint64_3
+const dshr48: UInt16 = uint16_10 >> uintnative_3
+const dshr49: UInt32 = uint32_10 >> uint8_3
+const dshr50: UInt32 = uint32_10 >> uint16_3
+const dshr51: UInt32 = uint32_10 >> uint64_3
+const dshr52: UInt32 = uint32_10 >> uintnative_3
+const dshr53: UInt64 = uint64_10 >> uint8_3
+const dshr54: UInt64 = uint64_10 >> uint16_3
+const dshr55: UInt64 = uint64_10 >> uint32_3
+const dshr56: UInt64 = uint64_10 >> uintnative_3
+const dshr57: UIntNative = uintnative_10 >> uint8_3
+const dshr58: UIntNative = uintnative_10 >> uint16_3
+const dshr59: UIntNative = uintnative_10 >> uint32_3
+const dshr60: UIntNative = uintnative_10 >> uint64_3
+const dshr61: UInt8 = uint8_10 >> int16_3
+const dshr62: UInt8 = uint8_10 >> int32_3
+const dshr63: UInt8 = uint8_10 >> int64_3
+const dshr64: UInt8 = uint8_10 >> intnative_3
+const dshr65: UInt16 = uint16_10 >> int8_3
+const dshr66: UInt16 = uint16_10 >> int32_3
+const dshr67: UInt16 = uint16_10 >> int64_3
+const dshr68: UInt16 = uint16_10 >> intnative_3
+const dshr69: UInt32 = uint32_10 >> int8_3
+const dshr70: UInt32 = uint32_10 >> int16_3
+const dshr71: UInt32 = uint32_10 >> int64_3
+const dshr72: UInt32 = uint32_10 >> intnative_3
+const dshr73: UInt64 = uint64_10 >> int8_3
+const dshr74: UInt64 = uint64_10 >> int16_3
+const dshr75: UInt64 = uint64_10 >> int32_3
+const dshr76: UInt64 = uint64_10 >> intnative_3
+const dshr77: UIntNative = uintnative_10 >> int8_3
+const dshr78: UIntNative = uintnative_10 >> int16_3
+const dshr79: UIntNative = uintnative_10 >> int32_3
+const dshr80: UIntNative = uintnative_10 >> int64_3
+
+const dshl1: Int8 = int8_10 << int16_3
+const dshl2: Int8 = int8_10 << int32_3
+const dshl3: Int8 = int8_10 << int64_3
+const dshl4: Int8 = int8_10 << intnative_3
+const dshl5: Int16 = int16_10 << int8_3
+const dshl6: Int16 = int16_10 << int32_3
+const dshl7: Int16 = int16_10 << int64_3
+const dshl8: Int16 = int16_10 << intnative_3
+const dshl9: Int32 = int32_10 << int8_3
+const dshl10: Int32 = int32_10 << int16_3
+const dshl11: Int32 = int32_10 << int64_3
+const dshl12: Int32 = int32_10 << intnative_3
+const dshl13: Int64 = int64_10 << int8_3
+const dshl14: Int64 = int64_10 << int16_3
+const dshl15: Int64 = int64_10 << int32_3
+const dshl16: Int64 = int64_10 << intnative_3
+const dshl17: IntNative = intnative_10 << int8_3
+const dshl18: IntNative = intnative_10 << int16_3
+const dshl19: IntNative = intnative_10 << int32_3
+const dshl20: IntNative = intnative_10 << int64_3
+const dshl21: Int8 = int8_10 << uint16_3
+const dshl22: Int8 = int8_10 << uint32_3
+const dshl23: Int8 = int8_10 << uint64_3
+const dshl24: Int8 = int8_10 << uintnative_3
+const dshl25: Int16 = int16_10 << uint8_3
+const dshl26: Int16 = int16_10 << uint32_3
+const dshl27: Int16 = int16_10 << uint64_3
+const dshl28: Int16 = int16_10 << uintnative_3
+const dshl29: Int32 = int32_10 << uint8_3
+const dshl30: Int32 = int32_10 << uint16_3
+const dshl31: Int32 = int32_10 << uint64_3
+const dshl32: Int32 = int32_10 << uintnative_3
+const dshl33: Int64 = int64_10 << uint8_3
+const dshl34: Int64 = int64_10 << uint16_3
+const dshl35: Int64 = int64_10 << uint32_3
+const dshl36: Int64 = int64_10 << uintnative_3
+const dshl37: IntNative = intnative_10 << uint8_3
+const dshl38: IntNative = intnative_10 << uint16_3
+const dshl39: IntNative = intnative_10 << uint32_3
+const dshl40: IntNative = intnative_10 << uint64_3
+const dshl41: UInt8 = uint8_10 << uint16_3
+const dshl42: UInt8 = uint8_10 << uint32_3
+const dshl43: UInt8 = uint8_10 << uint64_3
+const dshl44: UInt8 = uint8_10 << uintnative_3
+const dshl45: UInt16 = uint16_10 << uint8_3
+const dshl46: UInt16 = uint16_10 << uint32_3
+const dshl47: UInt16 = uint16_10 << uint64_3
+const dshl48: UInt16 = uint16_10 << uintnative_3
+const dshl49: UInt32 = uint32_10 << uint8_3
+const dshl50: UInt32 = uint32_10 << uint16_3
+const dshl51: UInt32 = uint32_10 << uint64_3
+const dshl52: UInt32 = uint32_10 << uintnative_3
+const dshl53: UInt64 = uint64_10 << uint8_3
+const dshl54: UInt64 = uint64_10 << uint16_3
+const dshl55: UInt64 = uint64_10 << uint32_3
+const dshl56: UInt64 = uint64_10 << uintnative_3
+const dshl57: UIntNative = uintnative_10 << uint8_3
+const dshl58: UIntNative = uintnative_10 << uint16_3
+const dshl59: UIntNative = uintnative_10 << uint32_3
+const dshl60: UIntNative = uintnative_10 << uint64_3
+const dshl61: UInt8 = uint8_10 << int16_3
+const dshl62: UInt8 = uint8_10 << int32_3
+const dshl63: UInt8 = uint8_10 << int64_3
+const dshl64: UInt8 = uint8_10 << intnative_3
+const dshl65: UInt16 = uint16_10 << int8_3
+const dshl66: UInt16 = uint16_10 << int32_3
+const dshl67: UInt16 = uint16_10 << int64_3
+const dshl68: UInt16 = uint16_10 << intnative_3
+const dshl69: UInt32 = uint32_10 << int8_3
+const dshl70: UInt32 = uint32_10 << int16_3
+const dshl71: UInt32 = uint32_10 << int64_3
+const dshl72: UInt32 = uint32_10 << intnative_3
+const dshl73: UInt64 = uint64_10 << int8_3
+const dshl74: UInt64 = uint64_10 << int16_3
+const dshl75: UInt64 = uint64_10 << int32_3
+const dshl76: UInt64 = uint64_10 << intnative_3
+const dshl77: UIntNative = uintnative_10 << int8_3
+const dshl78: UIntNative = uintnative_10 << int16_3
+const dshl79: UIntNative = uintnative_10 << int32_3
+const dshl80: UIntNative = uintnative_10 << int64_3
+
+const unit: Bool = () == ()
+const nonunit: Bool = () != ()
+
+main () {}
+
+

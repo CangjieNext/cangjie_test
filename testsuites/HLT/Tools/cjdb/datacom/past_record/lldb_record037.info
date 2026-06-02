@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/Packages/src
+// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/046_debug_record_mod_external.cj -o libpkg1.%middle
+// EXEC: %compiler %cmp_opt -g libpkg1.%middle src/046_debug_record_mod_external_use.cj -o 046_debug_record_mod_external_use%cmp_output
+// RUN-EXEC: python3 cjdb_test.py lldb_record037.info 046_debug_record_mod_external_use %run_env
+
+
+test#
+cjdb,cjdb --no-use-colors 046_debug_record_mod_external_use,046_debug_record_mod_external_use
+b,b 20,046_debug_record_mod_external_use.cj:20
+AOT r,r,-> 20
+CJVM c,c,
+globals,globals,Rectangle_ex\) default(::|\.)top_R = {(\r|\n|\r\n)  width = 5(\r|\n|\r\n)  length = 6
+q,q,

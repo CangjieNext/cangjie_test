@@ -1,0 +1,8 @@
+error: unknown start of token: \u{0000}
+  ==> case2.cj:13:8:
+   | 
+13 |     var a \u{0000} 1
+   |           ^^^^^^^^ unknown start of token: \u{0000}
+   | 
+
+1 error generated, 1 error printed.

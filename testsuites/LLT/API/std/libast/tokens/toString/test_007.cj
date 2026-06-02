@@ -1,0 +1,35 @@
+// DEPENDENCE: macro_define.cj
+// EXEC-0: %compiler %cmp_opt macro_define.cj %cmp_macro
+// EXEC-PIPE-0: %pwd_to_ld_path %compiler %cmp_opt -Woff unused %n.cj %macro_lib -o %output 2>&1 | compare %f
+import std.ast.*
+import macro_def.*
+
+/* COLON test */
+@M
+func f(a: Float64): Float64 {
+    var b: Int64 = 0
+    var c: Int64 = 0
+    var d: Int64 = 0
+    return 0.0
+}
+
+main(): Int64 {
+    return 0
+}
+
+/* SCAN-IN
+func f(a: Float64): Float64 {
+    var b: Int64 = 0
+    var c: Int64 = 0
+    var d: Int64 = 0
+    return 0.0
+}
+
+*/
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
