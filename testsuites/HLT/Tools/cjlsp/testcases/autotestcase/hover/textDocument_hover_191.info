@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 452,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: type01.cj\nPackage info: default.Type\n\ninternal type I64 = Int64\n"},"range": {"end": {"character": 8,"line":10},"start": {"character": 5,"line":10}}}}
+{"id": 452,"jsonrpc": "2.0","result": {"contents": {"kind": "markdown","value": "Declared in: type01.cj  \nPackage info: default.Type  \n\n```cangjie\ninternal type I64 = Int64\n```\n"},"range": {"end": {"character": 8,"line":10},"start": {"character": 5,"line":10}}}}

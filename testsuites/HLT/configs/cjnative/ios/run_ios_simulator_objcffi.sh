@@ -45,8 +45,8 @@ find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
   -delete
 
 cp -f src/objc/*.*  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
-cp objc-gen/*.h  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
-cp objc-gen/*.o  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
+find objc-gen -maxdepth 1 -type f  -name "*.h" -exec cp {}  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ \;
+find objc-gen -maxdepth 1 -type f  -name "*.o" -exec cp {}  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ \; 
 mkdir -p ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative
 cp -r $CANGJIE_HOME/runtime/lib/$TARGET/*.dylib ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative/
 cp libcjworld.dylib ${cjworld}

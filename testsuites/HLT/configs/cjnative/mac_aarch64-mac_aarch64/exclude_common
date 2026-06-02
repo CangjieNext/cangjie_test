@@ -6,17 +6,16 @@
 
 # testcase is not correct.
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
-Tools/cjpm/stdx/c/build_mock/build_mock.info
 Tools/cjpm/stdx/c/check_01/check_01.info
 Tools/cjpm/stdx/c/tree_01/tree_01.info
 Tools/cjprof
-Tools/cjpm/stdx/c/build_mock/build_mock.info
 
 # old jffi can only be run with cjvm.
 compiler/cjnative/FFI/jffi
 
 # issue 198: syntax rewriter not support
 API/syntax/visit/ASTRewriter/test_rewriter_02.cj
+Tools/cjpm/stdx/c/build_mock/build_mock.info
 API/syntax/parseFunc/parseDir/path/parsedir_path_012n.cj
 
 # MacOS does not support reflect yet, these test cases for compatibility require reflect so disabled for now.
@@ -49,30 +48,10 @@ compiler/cjnative/Packages/cjmp/cjmp_16009/test.cj
 compiler/cjnative/Chir/CompileOption/plugin/testpath/test_plugin_path_05n.cj
 compiler/cjnative/Chir/CompileOption/plugin/runplugin/plugin5/runplugin.cj
 
-# cjmp
-
-# "Objective-C calls Cangjie" interop (cjmapping) is disabled
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl
-
-# https://gitcode.com/Cangjie/cangjie_compiler/issues/566
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
-
 API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
-
-# testcase is not correct.
-Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
-Tools/cjprof
-# issue 198: syntax rewriter not support
-API/syntax/visit/ASTRewriter/test_rewriter_02.cj
-Tools/cjpm/stdx/c/build_mock/build_mock.info
 
 # fail in ci env
 API/std/socket/UdpSocket/test_udp_transportation_init.cj
-# limit described in the doc
-compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_pointer_0014/
-compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_prop_0003/
 # mirrorgen error Option<M> -> M
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_func_pointer_0007
 compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_func_pointer_0008
@@ -121,12 +100,12 @@ compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0102/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
 
-# cjmp
-# these three are not ready for iOS, exclude them here as there is no dedicated iOS exclude list
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0114/test.info
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0115/test.info
-compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_enum_0031/test.info
+# error: no visible @interface for 'A' declares the selector 'f3'
+compiler/cjnative/FFI/objcffi/glue_code/oc_impl/impl_inheritance_0007/test.info
 
-API/syntax/parseFunc/parseDir/path/parsedir_path_012n.cj
+# SIGSEGV when run
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/mirror_objcinit_0014/test.info
 
-API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
+# SIGUSR1 (Bus error: 10) from native frame
+compiler/cjnative/FFI/objcffi/glue_code/oc_mirror/optional/optional_10/test.info
+
