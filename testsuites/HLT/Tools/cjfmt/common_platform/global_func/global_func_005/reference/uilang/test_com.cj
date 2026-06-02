@@ -8,6 +8,6 @@
 
 package mp
 
-public common func f1<T>(a:T):T
+common public func f1<T>(a: T): T
 
-public common const func f():Unit
+common public const func f(): Unit
