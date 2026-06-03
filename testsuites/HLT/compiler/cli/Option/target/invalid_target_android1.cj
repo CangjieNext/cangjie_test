@@ -10,6 +10,7 @@
 // DESC: 测试target为安卓时，不同安卓API Level时的cjc命令行为，小于或等于25，大于或等于10001的API Level将导致报错不支持该API Level
 // (target_android) EXEC-PIPE-1: %compiler --target=aarch64-linux-android0 -B=%prebuilt-toolchain/bin --sysroot=%prebuilt-toolchain/sysroot %f -o %output 2>&1 | compare %f
 // (target_android) EXEC-PIPE-1: %compiler --target=aarch64-linux-android1 -B=%prebuilt-toolchain/bin --sysroot=%prebuilt-toolchain/sysroot %f -o %output 2>&1 | compare %f
+// (target_android) EXEC-PIPE-1: %compiler --target=arm-linux-android22 -B=%prebuilt-toolchain/bin --sysroot=%prebuilt-toolchain/sysroot %f -o %output 2>&1 | compare %f
 // (target_android) EXEC-PIPE-1: %compiler --target=aarch64-linux-android25 -B=%prebuilt-toolchain/bin --sysroot=%prebuilt-toolchain/sysroot %f -o %output 2>&1 | compare %f
 // API Level26无问题
 // (target_android) EXEC: %compiler --target=aarch64-linux-android26 -B=%prebuilt-toolchain/bin --sysroot=%prebuilt-toolchain/sysroot %f -o %output
