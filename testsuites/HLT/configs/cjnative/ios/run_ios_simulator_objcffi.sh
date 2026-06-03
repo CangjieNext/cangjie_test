@@ -7,7 +7,15 @@
 
 WORKSPACE=$(cd `dirname $0`; pwd)
 TARGET=$1
-XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST=${WORKSPACE}/objc_ffi_test/objc_ffi_test.xcodeproj
+
+if [ "$1" = "ios_simulator_aarch64_cjnative" ]; then
+    XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST=${WORKSPACE}/arm64/objc_ffi_test/objc_ffi_test.xcodeproj
+elif [ "$1" = "ios_simulator_x86_64_cjnative" ]; then
+    XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST=${WORKSPACE}/x64/objc_ffi_test/objc_ffi_test.xcodeproj
+else
+    echo "invalid argument: $1, should be either ios_simulator_aarch64_cjnative or ios_simulator_x86_64_cjnative"
+    exit 1
+fi
 XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST=${XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST}/../objc_ffi_test
 XCODE_SCHEME_OF_CANGJIE_IOS_TEST=objc_ffi_test
 XCODE_BUNDLE_ID_OF_CANGJIE_IOS_TEST=test.objc-ffi-test
@@ -45,8 +53,8 @@ find ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} \
   -delete
 
 cp -f src/objc/*.*  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
-cp objc-gen/*.h  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
-cp objc-gen/*.o  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}
+find objc-gen -maxdepth 1 -type f  -name "*.h" -exec cp {}  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ \;
+find objc-gen -maxdepth 1 -type f  -name "*.o" -exec cp {}  ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ \; 
 mkdir -p ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative
 cp -r $CANGJIE_HOME/runtime/lib/$TARGET/*.dylib ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/ios_aarch64_cjnative/
 cp libcjworld.dylib ${cjworld}
