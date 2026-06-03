@@ -63,3 +63,6 @@ compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
 
 API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
+
+Runtime/cjnative/runtime/PointerAuth
+compiler/cjnative/FFI/jffi/android/native
