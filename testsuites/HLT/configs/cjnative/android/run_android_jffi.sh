@@ -6,7 +6,7 @@
 
 #!/bin/bash
 
-set -xe
+set +xe
 
 # copy Logger.java & logger.cj to test case dir.
 TEST_CASE_PATH=$PWD
@@ -67,7 +67,16 @@ cd "$ANDROID_PROJ_PATH"
 
 # build APKs.
 ./gradlew assembleDebug
+if [ $? -ne 0 ]; then
+    echo "Fail to build assembleDebug."
+    exit 1
+fi
+
 ./gradlew assembleAndroidTest
+if [ $? -ne 0 ]; then
+    echo "Fail to assembleAndroidTest."
+    exit 1
+fi
 
 if [ -z "${DEVICE_ID}" ]; then
 	DEVICE_ID="emulator-5554"
@@ -80,7 +89,21 @@ adb -s "${DEVICE_ID}" install -r "$ANDROID_PROJ_PATH/app/build/outputs/apk/debug
 adb -s "${DEVICE_ID}" install -r "$ANDROID_PROJ_PATH/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
 
 # run tests.
+timestamp=$(date +%s)
+TEMP_LOG_FILE=$(mktemp /tmp/adb_logs_${timestamp}.txt)
+adb logcat -c
+LOG_TAG="APP_OUTPUT"
+adb logcat -s "$LOG_TAG" > "$TEMP_LOG_FILE" &
+LOG_PID=$!
 adb -s "$DEVICE_ID" shell am instrument -w -e junitXml "/sdcard/report.xml" "com.example.myapplication.test/androidx.test.runner.AndroidJUnitRunner" 2>&1 > result.txt
+sleep 0.5
+kill $LOG_PID 2>/dev/null
+wait $LOG_PID 2>/dev/null
+
+cat "$TEMP_LOG_FILE"
+
+# 清理临时文件
+rm -f "$TEMP_LOG_FILE"
 
 # do cleaning.
 rm -rf "$ANDROID_PROJ_PATH/app/build"
