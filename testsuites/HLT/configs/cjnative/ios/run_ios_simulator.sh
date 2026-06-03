@@ -9,7 +9,14 @@ set +xe
 
 WORKSPACE=$(cd `dirname $0`; pwd)
 if [ -z ${XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST} ]; then
-    XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST=${WORKSPACE}/xcode_project_of_cangjie_ios_test/test_cangjie_ios_175.xcodeproj
+    if [ "$1" = "ios_simulator_aarch64_cjnative" ]; then
+        XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST=${WORKSPACE}/arm64/xcode_project_of_cangjie_ios_test/test_cangjie_ios_175.xcodeproj
+    elif [ "$1" = "ios_simulator_x86_64_cjnative" ]; then
+        XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST=${WORKSPACE}/x64/xcode_project_of_cangjie_ios_test/test_cangjie_ios_175.xcodeproj
+    else
+        echo "invalid argument: $1, should be either ios_simulator_aarch64_cjnative or ios_simulator_x86_64_cjnative"
+        exit 1
+    fi
     if [ -z ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST} ]; then
         XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST=${XCODEPROJ_PATH_OF_CANGJIE_IOS_TEST}/../test_cangjie_ios_175/bridge_cangjie
     fi
@@ -62,6 +69,18 @@ rm -rf "$TEMP_DIR"
 
 rm -f ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
 cp libcangjie_main.a ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
+
+for FILE_PATH in $CANGJIE_HOME/lib/$1/*.a; do
+    if [ -e "$FILE_PATH" ]; then
+        cp $FILE_PATH $XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST
+    fi
+done
+
+for FILE_PATH in $CANGJIE_HOME/lib/$1/*.o; do
+    if [ -e "$FILE_PATH" ]; then
+        cp $FILE_PATH $XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST
+    fi
+done
 
 ret=255
 if [ -z ${XCODE_DEVICE_UDID_OF_CANGJIE_IOS_TEST} ]; then
