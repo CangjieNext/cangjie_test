@@ -9,8 +9,8 @@
 // LEVEL: 1
 // EXEC: %compiler %cmp_opt %f -o %output
 // RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// (target_ios | target_ios_simulator) ASSERT: scan exception:std.core:OverflowException
-// (!(target_ios | target_ios_simulator)) ASSERT: scan OverflowException: add
+// ASSERT: scan An exception has occurred:
+// ASSERT: scan OverflowException: add
 
 let a: ((Int8, Int8), Int8) = ((10, 10), 10)
 let b: Int8 = 120 + a[0][0]
@@ -19,8 +19,8 @@ main() {
     return 0
 }
 
-class Color {
-} 
+class Color {}
+
 public func stripSlashDoubleQuote(s: String): String {
     s.trimEnd("\\\"").trimStart("\\\"")
 }
