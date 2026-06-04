@@ -18,15 +18,7 @@ func stagePreBuild(): Int64 {
 
 
 
-@When[env == "ohos"]
-func stagePreBuild(): Int64 {
-   
 
-    return  Process.run(
-        "gcc",
-        ["test02.c", "-shared", "-fPIC", "-o", "libtest02.so"]
-    )
-}
 
 @When[target == "aarch64-linux-android26"]
 func stagePreBuild(): Int64 {

@@ -30,7 +30,7 @@ func stagePreBuild(): Int64 {
 
 @When[target == "aarch64-linux-android31"]
 func stagePreBuild(): Int64 {
-    let NDK_ROOT = getVariable("v").getOrThrow()
+    let NDK_ROOT = getVariable("NDK_ROOT").getOrThrow()
     let clang = "${NDK_ROOT}/bin/clang"
     
 
