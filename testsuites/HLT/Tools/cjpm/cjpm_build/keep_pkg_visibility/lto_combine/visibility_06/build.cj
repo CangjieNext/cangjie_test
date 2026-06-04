@@ -9,12 +9,12 @@ import std.env.*
 @When[os == "Linux"]
 func stagePreBuild(): Int64 {
     Process.run(
-        "%clang %clang_opt",
+        "gcc",
         ["test01.c", "-shared", "-fPIC", "-o", "libtest01.so"]
     )
 
     return  Process.run(
-        "%clang %clang_opt",
+        "gcc",
         ["test02.c", "-shared", "-fPIC", "-o", "libtest02.so"]
     )
 }
