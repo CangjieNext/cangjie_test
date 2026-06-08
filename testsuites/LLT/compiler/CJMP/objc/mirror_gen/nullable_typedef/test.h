@@ -15,9 +15,9 @@ typedef M_ _Nullable M_0;
 typedef M_ _Nonnull M_1;
 
 @interface M
-// Objective-C does not support method overloading in the Cangjie sense.  These
-// five methods will be considered by clang as one method.  At the Cangjie side,
-// just one method must be created as well.
+// Objective-C does not support method overloading in Cangjie terms.  These five
+// methods will be considered by clang as one method.  At the Cangjie side, just
+// one method must be created as well.
 -(instancetype)init: (M_)x;
 -(instancetype)init: (M0)x;
 -(instancetype)init: (M1)x;
