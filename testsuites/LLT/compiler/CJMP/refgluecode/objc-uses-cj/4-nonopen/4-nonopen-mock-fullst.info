@@ -8,10 +8,8 @@
 // (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_lib_opt api/*.cj -o libapi.a
 // (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_lib_opt generated/*.cj -o libobjc.cjworld.a
 // (CJNATIVE and not Windows) RUN-EXEC: %clang -c generated/*.m -Igenerated -o libgluecode.o
-// (CJNATIVE and not Windows) RUN-EXEC: ar rc libgluecode.a libgluecode.o
-// (COMMENT) the test is not working yet on GNUstep, so 2 steps below are OFF when not Darwin
-// (CJNATIVE and Darwin) RUN-EXEC: %clang -lc++ $CANGJIE_HOME/lib/%run_env/*.a $CANGJIE_HOME/lib/%run_env/section.o $CANGJIE_HOME/lib/%run_env/cjstart.o libapi.a libobjc.cjworld.a libgluecode.a -fobjc-arc app/*.m -Iapp -Igenerated -o main
-// (CJNATIVE and Darwin) RUN-EXEC: %run_macro ./main 2>&1 | sed 's/.* main\[[0-9]*:[0-9]*\] //g' | compare ./%f
+// (CJNATIVE and not Windows) RUN-EXEC: %clang -o main -fobjc-arc -Iapp -Igenerated app/*.m libgluecode.o libobjc.cjworld.a libapi.a %import_objc_interop_st %cangjie_runtime_link_st
+// (CJNATIVE and not Windows) RUN-EXEC: %run_macro ./main 2>&1 | sed 's/.* main\[[0-9]*:[0-9]*\] //g' | compare ./%f
 
 /* SCAN-IN
 ObjC: main creates instance and calls [nonOpen Foo] implemented in Cangjie:

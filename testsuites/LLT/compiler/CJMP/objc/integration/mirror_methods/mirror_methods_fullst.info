@@ -1,0 +1,24 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// (CJNATIVE and not Windows) DEPENDENCE: src
+// (CJNATIVE and not Windows) RUN-EXEC-0: mkdir -p out
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %compile_lib_opt %overflowOpt -p src/cjworld -o out
+// (CJNATIVE and not Windows) RUN-EXEC: %cd objc-gen && %clang -c *.m -I. -I../src/objc
+// (CJNATIVE and not Windows) RUN-EXEC-0: %clang %modules_opt %objc_arc_opt -Isrc/objc -Iobjc-gen src/objc/*.m objc-gen/*.o -o out/main out/libcjworld.a %import_objc_interop_st %cangjie_runtime_link_st
+// (CJNATIVE and not Windows) RUN-EXEC-PIPE: %cd out && ./main 2>& 1 | compare %f
+
+/* SCAN-IN
+objc: M init()
+objc: noParams
+objc: K init()
+cj: runFromCJ k.number 42
+objc: oneParam 987
+objc: K init()
+cj: runFromCJ f.numberPlusOne 43
+objc: staticFunc 42
+objc: openFunc 42
+*/
