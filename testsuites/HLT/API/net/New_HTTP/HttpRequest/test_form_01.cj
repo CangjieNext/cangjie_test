@@ -138,18 +138,19 @@ class Test_HttpRequestBuilder_Form {
         client.close()
     }
 
-    // 请求 url 中 query 部分非法
+    // 请求 url 中 query 部分包含非法百分号编码，客户端用 rawQuery 发送不抛异常，
+    // 但服务端解析 form 时遇到非法编码会抛 UrlSyntaxException
     @TestCase
     func test_form_04(): Unit {
+        var req1 = HttpRequestBuilder()
+            .method("HEAD")
+            .header("content-type", "application/x-www-form-urlencoded")
+            .body("2=3&1=2&filePath=123")
+            .url("http://127.0.0.1:${port}/test/d?a=3%h")
+            .build()
+        @Expect(req1.url.rawQuery, "?a=3%h")
         try {
-            var req1 = HttpRequestBuilder()
-                .method("HEAD")
-                .header("content-type", "application/x-www-form-urlencoded")
-                .body("2=3&1=2&filePath=123")
-                .url("http://127.0.0.1:${port}/test/d?a=3%h")
-                .build()
-            var client = ClientBuilder().build()
-            var response1 = client.send(req1)
+            var form = req1.form
             @Expect(1, 2)
         } catch (e: UrlSyntaxException) {
             println(e.message)
