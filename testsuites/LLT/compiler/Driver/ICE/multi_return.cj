@@ -4,11 +4,14 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+// The 20000-deep `return return ...` chain used to overflow the parser stack and
+// die with SIGSEGV (UsersForum issue 3128). The parser now bounds its nesting
+// depth and reports a regular diagnostic instead of an internal compiler error.
+
 // DEPENDENCE: generate_multi_return.py
 // (Linux) EXEC: %python generate_multi_return.py
-// (Linux) EXEC-PIPE-139: %compiler %cmp_opt %f -o %n.%suffix 2>&1 | compare %f
+// (Linux) EXEC-PIPE-1: %compiler %cmp_opt %f -o %n.%suffix 2>&1 | compare %f
 // (Linux) ASSERT: scan-not core dumped
-// (CJNATIVE and Linux) ASSERT: scan [31mInternal Compiler Error: [0mInterrupt signal (11) received.\nPlease report this to Cangjie team and include the project. Error Code: 1
-// (CJNATIVE and Windows) ASSERT: scan [31mInternal Compiler Error: [0mWindows unexpected exception code (3221225725) received.\nPlease report this to Cangjie team and include the project. Error Code: 1
-// (not CJNATIVE and Linux) ASSERT: scan [31mInternal Compiler Error: [0mInterrupt signal (11) received.\nPlease report this to Cangjie team and include the project. Error Code: 0
-// (not CJNATIVE and Windows) ASSERT: scan [31mInternal Compiler Error: [0mWindows unexpected exception code (3221225725) received.\nPlease report this to Cangjie team and include the project. Error Code: 0
+// (Linux) ASSERT: scan-not Internal Compiler Error
+// (Linux) ASSERT: scan exceeded maximum nesting depth while parsing
+// (Linux) ASSERT: scan unclosed delimiter

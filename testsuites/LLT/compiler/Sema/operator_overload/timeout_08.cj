@@ -18,10 +18,10 @@ main():Int64 {
 error: expected '#' or '"' in raw string, found '-'
   ==> timeout_08.cj:12:147:
    | 
-12 |     var b = - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#- - - - - - - - - - - - - - - - - - - - - - - - - - - - -0b1u64
-   |                                                                                                                                                  ~^ expected '#' or '"'
-   |                                                                                                                                                  |
-   |                                                                                                                                                  because it is raw string prefix
+12 | ... - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#- - - - - - - - - - - - - - - - - - - - - - - - - - - - -0b1u64
+   |                                                                                    ~^ expected '#' or '"'
+   |                                                                                    |
+   |                                                                                    because it is raw string prefix
    | 
 
 1 error generated, 1 error printed.
