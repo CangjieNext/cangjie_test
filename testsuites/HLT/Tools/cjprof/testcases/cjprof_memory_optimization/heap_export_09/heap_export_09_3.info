@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 1
+// DEPENDENCE: ../../../data/cjprof_mixed.data
+// EXEC: cjprof heap -i cjprof_mixed.data --show-reference="default::StartGeneric1<Int64>;default::RootClass;default::DiamondStart"| compare %f
+// ASSERT: scan default::DiamondStart @ 0x7f570a9d6808                                       40            120
+// ASSERT: scan default::LeftGeneric<Int64> @ 0x7f570a9d6830                               40             40
+// ASSERT: scan default::RootClass @ 0x7f570a9d65d8                                          40            120
+// ASSERT: scan default::BranchGenericA<Int64> @ 0x7f570a9d6600                            40             40
+// ASSERT: scan default::StartGeneric1<Int64> @ 0x7f570a9d6480                               40            288
+// ASSERT: scan default::NormalNode2 @ 0x7f570a9d64b8                                      40            248

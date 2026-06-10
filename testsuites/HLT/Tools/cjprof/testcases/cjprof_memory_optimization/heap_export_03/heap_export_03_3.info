@@ -1,0 +1,12 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE:  ../../../data/heap_depth_5.data
+// EXEC: cjprof heap --input ./heap_depth_5.data | compare %f
+// ASSERT: scan RawArray<std.core::Array<Tuple<UInt64,UInt64,UInt64>>>                        8            512           7296

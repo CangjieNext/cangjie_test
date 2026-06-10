@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 2
+// DEPENDENCE: ../../../data/cjprof_generic.data
+// EXEC: cjprof heap -i cjprof_generic.data --show-reference="default::MixedGeneric3<Int64,std.core::String>" --incoming-reference| compare %f
+// ASSERT: scan default::MixedGeneric3<Int64,std.core::String> @ 0x47f8                      56            768
+// ASSERT: scan default::MixedGeneric2<std.core::String,Int64> @ 0x4798                    56            824
+// ASSERT: scan default::MixedGeneric1<Int64,std.core::String> @ 0x4738                  56            880

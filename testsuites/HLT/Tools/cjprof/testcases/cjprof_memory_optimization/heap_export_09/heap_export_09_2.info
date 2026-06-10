@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../../data/cjprof_mixed.data
+// EXEC: cjprof heap -i cjprof_mixed.data --show-reference="default::NormalClass1"| compare %f
+// ASSERT: scan default::NormalClass1 @ 0x7f570a9d6348                                       40            272
+// ASSERT: scan default::GenericClass2<Int64> @ 0x7f570a9d6370                             40            232
+// ASSERT: scan default::NormalClass3 @ 0x7f570a9d63a8                                   40            192
+// ASSERT: scan default::GenericClass4<std.core::String> @ 0x7f570a9d63d0              48            152
+// ASSERT: scan default::NormalClass5 @ 0x7f570a9d6418                               48            104
+// ASSERT: scan RawArray<DWord>[] @ 0x7f570a9d6448                                 56             56
