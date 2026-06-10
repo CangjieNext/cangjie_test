@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../../data/cjprof_depth_15.data
+// EXEC: cjprof heap -i cjprof_depth_15.data --show-reference="default::Diamond15" --incoming-reference -D 6| compare %f
+// ASSERT: scan default::Diamond15 @ 0x4920                                                  48            104
+// ASSERT: scan default::Diamond14 @ 0x4900                                                32            136
+// ASSERT: scan default::Diamond13 @ 0x48e0                                              32            168
+// ASSERT: scan default::Diamond12 @ 0x48c0                                            32            200
+// ASSERT: scan default::Diamond11 @ 0x48a0                                          32            232
+// ASSERT: scan default::Diamond10 @ 0x4880                                        32            264
+// ASSERT: scan default::Diamond9 @ 0x4860                                       32            296
+// ASSERT: scan-not default::Diamond8

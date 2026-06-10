@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 0
+// DEPENDENCE: ../../../data/heap_stack.data
+// EXEC: cjprof heap -i heap_stack.data --show-thread | compare %f
+// ASSERT: regex at default.functionLevel5[\s\S]*/thread_stack_example.cj:86
+// ASSERT: scan <local> default::StackObject5 @ 0x5568                                               48             48
+// ASSERT: scan <local> default::StackObject1 @ 0x44e0                                               56             96

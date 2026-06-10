@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ * 
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
+
+// LEVEL: 3
+// DEPENDENCE: ../../../data/cjprof_depth_15.data
+// EXEC: cjprof heap -i cjprof_depth_15.data --show-reference="default::Level1" -D 15 | compare %f
+// ASSERT: scan default::Level1 @ 0x4318                                                     32            552
+// ASSERT: scan default::Level9 @ 0x4418                                     32            296
+// ASSERT: scan default::Level15 @ 0x44d8                        48            104
