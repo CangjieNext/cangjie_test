@@ -23,7 +23,7 @@ error: missing argument for parameter list '(Int64, (Int64) -> Generics-T)' in c
    |                            ^^^^^^^^^^^ expected 2 arguments, found 1
    | 
 note: found candidate
-  ==> (package std.core)array.cj:49:12:
+  ==> (package std.core)array.cj:54:12:
 
 error: undeclared identifier 'i'
   ==> array_invalid_trailing_closure.cj:12:33:
@@ -39,7 +39,7 @@ error: extra argument given for parameter list '(Int64, (Int64) -> Generics-T)' 
    |                            ^^^^^^^^^^^^^^^ expected 2 arguments, found 3
    | 
 note: found candidate
-  ==> (package std.core)array.cj:49:12:
+  ==> (package std.core)array.cj:54:12:
 
 3 errors generated, 3 errors printed.
 */
