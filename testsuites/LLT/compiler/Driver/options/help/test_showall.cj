@@ -44,6 +44,10 @@ Options:
   --lto <value>               Enable LTO to either 'full' or 'thin' (Not available for Windows target)
     <value>=full                
     <value>=thin                
+  --lto-staticlib-format <value>
+                              Specify the format of static library output in LTO mode. Candidate formats:  (Experimental)
+    <value>=bitcode             
+    <value>=native              
   --compile-as-exe            Hide symbols from bitcode files in LTO mode, and only the package init symbols remain visible
   --lto-keep-pkg-visibility <value>
                               Specify packages that remain visible in LTO mode. Use "" to hide all packages
