@@ -17,15 +17,15 @@ import std.time.*
 main(): Int64 {
     let results = ThreadScope<Int64, ArrayList<Int64>> {
         group =>
-            group.add {
+            group.launch {
                 sleep(Duration.millisecond * 60)
                 1
             }
-            group.add {
+            group.launch {
                 sleep(Duration.millisecond * 10)
                 2
             }
-            group.add {
+            group.launch {
                 sleep(Duration.millisecond * 30)
                 3
             }

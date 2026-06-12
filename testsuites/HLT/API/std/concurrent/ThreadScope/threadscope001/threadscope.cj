@@ -19,7 +19,7 @@ private func requireUnit(value: Unit): Unit {
 main(): Int64 {
     ThreadScope<Int64, Unit> {
         group =>
-            requireUnit(group.add { 1 })
+            requireUnit(group.launch { 1 })
     }
     return 0
 }

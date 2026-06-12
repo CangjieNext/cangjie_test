@@ -17,11 +17,11 @@ main(): Int64 {
     try {
         ThreadScope<Int64, Unit> {
             group =>
-                group.add { 1 }
-                group.add {
+                group.launch { 1 }
+                group.launch {
                     throw Exception("subtask failed")
                 }
-                group.add { 3 }
+                group.launch { 3 }
         }
     } catch (e: Exception) {
         caughtMessage = e.message

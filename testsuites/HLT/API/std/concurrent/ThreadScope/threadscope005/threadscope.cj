@@ -19,15 +19,15 @@ main(): Int64 {
 
     ThreadScope<Unit, Unit> {
         group =>
-            group.add {
+            group.launch {
                 sleep(Duration.millisecond * 30)
                 finishedCount.fetchAdd(1)
             }
-            group.add {
+            group.launch {
                 sleep(Duration.millisecond * 60)
                 finishedCount.fetchAdd(1)
             }
-            group.add {
+            group.launch {
                 sleep(Duration.millisecond * 90)
                 finishedCount.fetchAdd(1)
             }

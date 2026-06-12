@@ -15,9 +15,9 @@ import std.concurrent.*
 main(): Int64 {
     let sum = ThreadScope<Int64, Int64> {
         group =>
-            group.add { 10 }
-            group.add { 20 }
-            group.add { 30 }
+            group.launch { 10 }
+            group.launch { 20 }
+            group.launch { 30 }
 
             var total = 0
             for (value in group) {

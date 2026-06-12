@@ -22,22 +22,22 @@ main(): Int64 {
     try {
         ThreadScope<Int64, Unit> {
             group =>
-                group.add {
+                group.launch {
                     sleep(Duration.millisecond * 20)
                     finishedCount.fetchAdd(1)
                     1
                 }
-                group.add {
+                group.launch {
                     sleep(Duration.millisecond * 50)
                     finishedCount.fetchAdd(1)
                     throw Exception("middle task failed")
                 }
-                group.add {
+                group.launch {
                     sleep(Duration.millisecond * 80)
                     finishedCount.fetchAdd(1)
                     3
                 }
-                group.add {
+                group.launch {
                     sleep(Duration.millisecond * 110)
                     finishedCount.fetchAdd(1)
                     4

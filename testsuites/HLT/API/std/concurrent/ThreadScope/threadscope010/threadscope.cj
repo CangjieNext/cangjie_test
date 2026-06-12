@@ -22,7 +22,7 @@ main(): Int64 {
     try {
         ThreadScope<Unit, Unit> {
             group =>
-                group.add {
+                group.launch {
                     try {
                         sleep(Duration.millisecond * 30)
                         throw Exception("task 0 failed")
@@ -30,7 +30,7 @@ main(): Int64 {
                         finishedCount.fetchAdd(1)
                     }
                 }
-                group.add {
+                group.launch {
                     try {
                         sleep(Duration.millisecond * 60)
                         throw Exception("task 1 failed")
@@ -38,7 +38,7 @@ main(): Int64 {
                         finishedCount.fetchAdd(1)
                     }
                 }
-                group.add {
+                group.launch {
                     try {
                         sleep(Duration.millisecond * 90)
                         throw Exception("task 2 failed")
@@ -46,7 +46,7 @@ main(): Int64 {
                         finishedCount.fetchAdd(1)
                     }
                 }
-                group.add {
+                group.launch {
                     try {
                         sleep(Duration.millisecond * 120)
                         throw Exception("task 3 failed")

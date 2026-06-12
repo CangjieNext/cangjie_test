@@ -19,7 +19,7 @@ main(): Int64 {
 
     ThreadScope<Unit, Unit> {
         group =>
-            group.add {
+            group.launch {
                 while (!Thread.currentThread.hasPendingCancellation) {
                     sleep(Duration.millisecond * 10)
                 }

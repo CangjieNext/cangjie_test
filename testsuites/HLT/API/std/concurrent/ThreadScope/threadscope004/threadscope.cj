@@ -21,11 +21,11 @@ main(): Int64 {
     try {
         ThreadScope<Unit, Unit> {
             group =>
-                group.add {
+                group.launch {
                     throw Exception("child failed")
                 }
                 sleep(Duration.millisecond * 20)
-                group.add {
+                group.launch {
                     var attempts: Int64 = 0
                     var done = false
                     while (!done && attempts < 200) {
