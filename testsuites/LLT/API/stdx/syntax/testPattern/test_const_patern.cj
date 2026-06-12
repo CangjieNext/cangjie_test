@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/const_pattern.cj
 // (not Windows) EXEC: dos2unix const_pattern.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -26,7 +33,8 @@ class Test {
         let pattern = (matchExpr.matchCases[0].patterns[0] as ConstPattern).getOrThrow()
 
         @Expect(pattern.litConstExpr.rawValue, "1")
-        @Expect(pattern.toString(), "1")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "1")
+        @Expect(pattern.toTokens().toString().replace("\r\n", "\n"), "1")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 14, 5, 15]).toArray())
@@ -38,7 +46,7 @@ class Test {
         let pattern = (matchExpr.matchCases[0].patterns[0] as ConstPattern).getOrThrow()
 
         @Expect(pattern.litConstExpr.rawValue, "true")
-        @Expect(pattern.toString(), "true")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "true")
     }
 
     @TestCase
@@ -48,11 +56,18 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let matchExpr = (nodes[2] as MatchExpr).getOrThrow()
+        let pattern = (matchExpr.matchCases[0].patterns[0] as ConstPattern).getOrThrow()
+        let constPattern = ConstPattern(pattern.litConstExpr)
+
+        @Expect(constPattern.litConstExpr.rawValue, "1")
+        @Expect(constPattern.toString().replace("\r\n", "\n"), "1")
+
+        var pos = constPattern.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+    }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+

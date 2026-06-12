@@ -159,12 +159,12 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
                 if "cjnative" in run_env:
                     if 'CJVM' in firstcmd:
                         continue
-                    process = pexpect.popen_spawn.PopenSpawn(["cmd", "/c", doline], timeout=15,
+                    process = pexpect.popen_spawn.PopenSpawn(doline, timeout=15,
                                                              encoding='utf-8',
-                                                             maxread=3000
+                                                             maxread=3000,
+                                                             codec_errors='replace'
                                                              )
                 elif "cjti" in run_env:
-                    # not cjnative not support windows yet
                     pass
             elif run_platform == 'darwin' or run_platform == 'linux':
                 if "cjnative" in run_env:
@@ -190,7 +190,7 @@ def on_debugging(f_e, lines_e, test_case, cmp_res, run_platform, run_env, port_n
                                                  preexec_fn=os.setsid
                                                  )
                         time.sleep(2)
-                process = pexpect.spawn(doline, timeout=15, encoding='utf-8', maxread=3000)
+                process = pexpect.spawnu(doline, timeout=15, maxread=200000)
             result = '[\\s\\S]*' + result + '[\\s\\S]*'
 
         # CJVM need 'process connect' command to connect server
@@ -257,13 +257,12 @@ def dotest(process, doline, result, f_e, run_env, run_platform, p=None):
         result = '\n[\\s\\S]*' + result + '[\\s\\S]*\\(cjdb\\)'
     else:
         result = '\n[\\s\\S]*' + result + '[\\s\\S]*'
-    # index for both win and linux
     index = process.expect([result, pexpect.EOF, pexpect.TIMEOUT], timeout=15)
-    indextest(process, doline, index, f_e, run_env, p)
+    indextest(process, doline, index, f_e, run_env, run_platform, p)
     return
 
 
-def indextest(process, doline, index, f_e, run_env, p):
+def indextest(process, doline, index, f_e, run_env, run_platform, p):
     """
     index: pass testcase or report error info 
     """
@@ -276,10 +275,8 @@ def indextest(process, doline, index, f_e, run_env, p):
         print("ERROR: " + doline)
         print("RECEIVED: " + error_log)
         print("--------------------------")
-        # if actual result not match the expect result
-        # Need to kill not cjnative's pid to make sure the next correct test can pass 
         if p:
-            clean_process(p)
+            clean_process(p, run_platform)
 
         process.sendline("q")
         process.sendline("y")
@@ -292,13 +289,16 @@ def indextest(process, doline, index, f_e, run_env, p):
     return
 
 
-def clean_process(p):
+def clean_process(p, run_platform='linux'):
     """
     clean_process: kill cjti on pid to ensure next textcase can run
     """
     try:
-        os.killpg(p.pid, signal.SIGTERM)
-    except ProcessLookupError:
+        if run_platform == 'windows':
+            p.terminate()
+        else:
+            os.killpg(os.getpgid(p.pid), signal.SIGTERM)
+    except (ProcessLookupError, OSError):
         pass
 
 
@@ -316,7 +316,7 @@ def debugging():
     # if current testcase can pass, kill subprocess on not cjnative-backend
     # Need to kill not cjnative's pid to make sure the next correct test can pass 
     if p:
-        clean_process(p)
+        clean_process(p, run_platform)
 
     # close file and kill process
     f_e.close()

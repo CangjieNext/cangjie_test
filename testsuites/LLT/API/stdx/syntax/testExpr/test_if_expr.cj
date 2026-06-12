@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/if_expr.cj
 // (not Windows) EXEC: dos2unix if_expr.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -23,10 +30,11 @@ class Test {
     @TestCase
     func testExpr01() {
         let expr = (nodes[0] as IfExpr).getOrThrow()
-        @Expect(expr.condition.toString(), "true")
-        @Expect(expr.ifBlock.toString(), "{}")
+        @Expect(expr.condition.toString().replace("\r\n", "\n"), "true")
+        @Expect(expr.ifBlock.toString().replace("\r\n", "\n"), "{}")
         @Expect(expr.elseBlock.isNone())
-        @Expect(expr.toString(), "if (true) {}")
+        @Expect(expr.toString().replace("\r\n", "\n"), "if (true) {}")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
 
         var pos = expr.getIfKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 7]).toArray())
@@ -40,12 +48,13 @@ class Test {
     @TestCase
     func testExpr02() {
         let expr = (nodes[1] as IfExpr).getOrThrow()
-        @Expect(expr.condition.toString(), "x == 1")
-        @Expect(expr.ifBlock.toString(), "{}")
+        @Expect(expr.condition.toString().replace("\r\n", "\n"), "x == 1")
+        @Expect(expr.ifBlock.toString().replace("\r\n", "\n"), "{}")
         if (let Some(elseBlock) <- expr.elseBlock) {
-            @Expect(elseBlock.toString(), "{}")
+            @Expect(elseBlock.toString().replace("\r\n", "\n"), "{}")
         }
-        @Expect(expr.toString(), "if (x == 1) {} else {}")
+        @Expect(expr.toString().replace("\r\n", "\n"), "if (x == 1) {} else {}")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
 
         var pos = expr.getElseKeyWordPos().getOrThrow()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 20, 3, 24]).toArray())
@@ -54,35 +63,35 @@ class Test {
     @TestCase
     func testExpr03() {
         let expr = (nodes[2] as IfExpr).getOrThrow()
-        @Expect(expr.condition.toString(), "x && y + 1 > 2")
-        @Expect(expr.ifBlock.toString(), """
+        @Expect(expr.condition.toString().replace("\r\n", "\n"), "x && y + 1 > 2")
+        @Expect(expr.ifBlock.toString().replace("\r\n", "\n"), """
 {
         println()
     }""")
         @Expect(expr.elseBlock.isNone())
 
         let elseIf = expr.elseIf.getOrThrow()
-        @Expect(elseIf.condition.toString(), "let Some(f) <- d && f > 3")
-        @Expect(elseIf.ifBlock.toString(), """
+        @Expect(elseIf.condition.toString().replace("\r\n", "\n"), "let Some(f) <- d && f > 3")
+        @Expect(elseIf.ifBlock.toString().replace("\r\n", "\n"), """
 {
         println()
     }""")
         @Expect(elseIf.elseBlock.isNone())
 
         let elseElseIf = elseIf.elseIf.getOrThrow()
-        @Expect(elseElseIf.condition.toString(), "let Some(_) <- a || let Some(_) <- d")
-        @Expect(elseElseIf.ifBlock.toString(), """
+        @Expect(elseElseIf.condition.toString().replace("\r\n", "\n"), "let Some(_) <- a || let Some(_) <- d")
+        @Expect(elseElseIf.ifBlock.toString().replace("\r\n", "\n"), """
 {
         return
     }""")
         if (let Some(elseBlock) <- elseElseIf.elseBlock) {
-            @Expect(elseBlock.toString(), """
+            @Expect(elseBlock.toString().replace("\r\n", "\n"), """
 {
         return
     }""")
         }
 
-        @Expect(expr.toString(), """
+        @Expect(expr.toString().replace("\r\n", "\n"), """
 if (x && y + 1 > 2) {
         println()
     } else if (let Some(f) <- d && f > 3) {
@@ -97,7 +106,7 @@ if (x && y + 1 > 2) {
     @TestCase
     func testExpr05() {
         let expr = (nodes[4] as IfExpr).getOrThrow()
-        @Expect(expr.condition.toString(), "a == 1 || b > 3 && (c < 1 && let Some(d) <- f)")
+        @Expect(expr.condition.toString().replace("\r\n", "\n"), "a == 1 || b > 3 && (c < 1 && let Some(d) <- f)")
 
         let condition = (expr.condition as DisjunctionCondition).getOrThrow()
         var posArray = condition.getOrsPos()
@@ -123,7 +132,7 @@ if (x && y + 1 > 2) {
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([20, 28, 20, 29]).toArray())
         pos = parenCondition.getRParenPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([20, 54, 20, 55]).toArray())
-        @Expect(parenCondition.cond.toString(), "c < 1 && let Some(d) <- f")
+        @Expect(parenCondition.cond.toString().replace("\r\n", "\n"), "c < 1 && let Some(d) <- f")
 
         let disCondition = (parenCondition.cond as DisjunctionCondition).getOrThrow()
         let conCondition = (disCondition.cond[0] as ConjunctionCondition).getOrThrow()
@@ -137,10 +146,10 @@ if (x && y + 1 > 2) {
         }
         let letPattern = optionLetPattern.getOrThrow()
         let letPatternCond = (letPattern as LetPattern).getOrThrow()
-        @Expect(letPatternCond.toString(), "let Some(d) <- f")
+        @Expect(letPatternCond.toString().replace("\r\n", "\n"), "let Some(d) <- f")
 
-        @Expect(expr.ifBlock.toString(), "{}")
-        @Expect(expr.toString(), "if (a == 1 || b > 3 && (c < 1 && let Some(d) <- f)) {}")
+        @Expect(expr.ifBlock.toString().replace("\r\n", "\n"), "{}")
+        @Expect(expr.toString().replace("\r\n", "\n"), "if (a == 1 || b > 3 && (c < 1 && let Some(d) <- f)) {}")
     }
 
     @TestCase
@@ -172,18 +181,86 @@ if (x && y + 1 > 2) {
     }
 
     @TestCase
+    func testIfExprInit01() {
+        let expr = (nodes[2] as IfExpr).getOrThrow()
+        let ifExpr = IfExpr(expr.condition, expr.elseBlock, expr.elseIf, expr.ifBlock)
+        @Expect(ifExpr.condition.toString().replace("\r\n", "\n"), "x && y + 1 > 2")
+        @Expect(ifExpr.ifBlock.toString().replace("\r\n", "\n"), """
+{
+        println()
+    }""")
+        @Expect(ifExpr.elseBlock.isNone())
+
+        let elseIf = ifExpr.elseIf.getOrThrow()
+        @Expect(elseIf.condition.toString().replace("\r\n", "\n"), "let Some(f) <- d && f > 3")
+        @Expect(elseIf.ifBlock.toString().replace("\r\n", "\n"), """
+{
+        println()
+    }""")
+        @Expect(elseIf.elseBlock.isNone())
+
+        let elseElseIf = elseIf.elseIf.getOrThrow()
+        @Expect(elseElseIf.condition.toString().replace("\r\n", "\n"), "let Some(_) <- a || let Some(_) <- d")
+        @Expect(elseElseIf.ifBlock.toString().replace("\r\n", "\n"), """
+{
+        return
+    }""")
+        if (let Some(elseBlock) <- elseElseIf.elseBlock) {
+            @Expect(elseBlock.toString().replace("\r\n", "\n"), """
+{
+        return
+    }""")
+        }
+
+        @Expect(ifExpr.toString().replace("\r\n", "\n"), """
+if (x && y + 1 > 2) {
+        println()
+    } else if (let Some(f) <- d && f > 3) {
+        println()
+    } else if (let Some(_) <- a || let Some(_) <- d) {
+        return
+    } else {
+        return
+    }""")
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("if_expr.cj")
         let input = String.fromUtf8(File.readFrom("if_expr.cj"))
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
-}
 
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+    @TestCase
+    func testParenConditionInit01() {
+        let expr = (nodes[4] as IfExpr).getOrThrow()
+        @Expect(expr.condition.toString().replace("\r\n", "\n"), "a == 1 || b > 3 && (c < 1 && let Some(d) <- f)")
+
+        let condition = (expr.condition as DisjunctionCondition).getOrThrow()
+        let conjunctionCond = (condition.cond[1] as ConjunctionCondition).getOrThrow()
+        let optionParenCond = match (conjunctionCond.cond[1]) {
+            case AtomicCondition.ParenConditionConstructor(r) => r
+            case _ => 
+                @FailExpect("kind wrong")
+                Option<ParenCondition>.None
+        }
+        let parenCond = optionParenCond.getOrThrow()
+        let tmp = (parenCond as ParenCondition).getOrThrow()
+        let parenCondition = ParenCondition(tmp.cond)
+        var pos = parenCondition.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = parenCondition.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 27, 1, 28]).toArray())
+        @Expect(parenCondition.toString().replace("\r\n", "\n"), "(c < 1 && let Some(d) <- f)")
+        @Expect(parenCondition.cond.toString().replace("\r\n", "\n"), "c < 1 && let Some(d) <- f")
+    }
+
+    @TestCase
+    func testIfExprInit02() {
+        let expr = (nodes[1] as IfExpr).getOrThrow()
+        let elseIf = (nodes[0] as IfExpr).getOrThrow()
+        let ifExpr = IfExpr(expr.condition, expr.elseBlock, elseIf, expr.ifBlock)
+        @Expect(ifExpr.toString().replace("\r\n", "\n"), "if (x == 1) {} else if (true) {} else {}")
+    }
+}

@@ -32,14 +32,18 @@ main() {
 error: class 'A' missing abstract modifier, otherwise abstract function or property should be implemented
   ==> class_impl_interface_abstract_func3.cj:17:1:
    | 
-17 | class A <: I1 & I2 {
-   | ^ 
+17 |   class A <: I1 & I2 {
+   |  _^
+18 | |     public func a(): Int32 {
+   | | ...
+21 | | }
+   | |_^
    | 
 note: unimplemented interface function 'a'
   ==> class_impl_interface_abstract_func3.cj:10:5:
    | 
 10 |     func a(a: Int32): Int32
-   |     ^ 
+   |     ^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
 
 1 error generated, 1 error printed.

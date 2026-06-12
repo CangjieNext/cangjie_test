@@ -4,7 +4,7 @@
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
 // EXEC-1: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 14
 // ASSERT: scan the changed decl after Spreading is:A in file DupExtend.old.cj in line 3 in column 7
 // ASSERT: scan the changed decl after Spreading is:ExtendDecl in file DupExtend.old.cj in line 5 in column 1

@@ -10,7 +10,7 @@
 // (CJNATIVE and Unix) EXEC: %compiler %import-stdx-fuzz %cmp_opt -o %n.%suffix %f mock_libfuzzer.o
 // (CJNATIVE and Unix) EXEC: %set_stdx_path %run %n.%suffix 2>&1 | compare %f
 // (CJNATIVE and Unix) ASSERT: scan OutOfMemoryError throws during fuzz.
-import stdx.fuzz.fuzz.*
+import stdx.fuzz.*
 import std.math.*
 
 main() {

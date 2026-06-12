@@ -8,7 +8,7 @@
 // (CJNATIVE and Linux) EXEC: %compiler %import-stdx-fuzz %cmp_opt -o %n.%suffix %f --link-options="--whole-archive $(find $CANGJIE_HOME -name libclang_rt.fuzzer_no_main.a) -no-whole-archive -lstdc++ -lpthread -lgcc_s"
 // (CJNATIVE and Darwin) EXEC: %compiler %import-stdx-fuzz %cmp_opt -o %n.%suffix %f $(find $CANGJIE_HOME -name libclang_rt.fuzzer_no_main.a) -lc++
 // (CJNATIVE and Unix) EXEC-77: %set_stdx_path %run %set_stdx_path %run_opt %n.%suffix
-import stdx.fuzz.fuzz.*
+import stdx.fuzz.*
 
 main() {
     let f = Fuzzer(ttt)

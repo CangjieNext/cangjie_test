@@ -29,12 +29,12 @@ public func id3(x: Int) { return X }
 public var Y = id2(id3(id(foo())))
 
 /* SCAN
-error: variable 'X' is used before initialization
- ==> c/c3.cj:4:34:
-  | 
-4 | public func id3(x: Int) { return X }
-  |                                  ^ 
-  | 
+error: variable 'Y' is used before initialization
+  ==> c/c1.cj:11:30:
+   | 
+11 | public let X: Int64 = id(id2(Y))
+   |                              ^ 
+   | 
 
 1 error generated, 1 error printed.
 */

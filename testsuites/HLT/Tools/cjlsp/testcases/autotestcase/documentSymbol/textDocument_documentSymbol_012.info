@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 93,"jsonrpc": "2.0","result": [{"children": [{"detail": "static","kind": 12,"name": "fromArray<T>(Array<T>): Tuple<T, T>","range": {"end": {"character": 5,"line":13},"start": {"character": 4,"line":11}},"selectionRange": {"end": {"character": 25,"line":11},"start": {"character": 16,"line":11}}}],"detail": "class","kind": 5,"name": "ToPair","range": {"end": {"character": 1,"line":14},"start": {"character": 0,"line":10}},"selectionRange": {"end": {"character": 12,"line":10},"start": {"character": 6,"line":10}}}]}
+{"id": 93,"jsonrpc": "2.0","result": [{"children": [{"detail": "static","kind": 12,"name": "fromArray<T>(Array<T>): (T, T)","range": {"end": {"character": 5,"line": 13},"start": {"character": 4,"line": 11}},"selectionRange": {"end": {"character": 25,"line": 11},"start": {"character": 16,"line": 11}}}],"detail": "class","kind": 5,"name": "ToPair","range": {"end": {"character": 1,"line": 14},"start": {"character": 0,"line": 10}},"selectionRange": {"end": {"character": 12,"line": 10},"start": {"character": 6,"line": 10}}}]}

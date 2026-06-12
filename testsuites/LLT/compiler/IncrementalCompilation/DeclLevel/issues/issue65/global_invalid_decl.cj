@@ -1,7 +1,7 @@
 // DEPENDENCE: %n.diag.txt
 
 // EXEC-PIPE-1: %compiler %cmp_opt %incrementalCompile %f 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 
 // ASSERT: scan frontend error detected, roll back to full compilation
 

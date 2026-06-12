@@ -9,5 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC-PIPE-1: cd %n&& %cjcov 2>&1 | compare %f
-// (CJNATIVE) ASSERT: scan There are no *.gcno files, coverage reports will not be generated.
-// (not CJNATIVE) ASSERT: scan There are no *.jcno files, coverage reports will not be generated.
+// ASSERT: scan There are no *.gcno files, coverage reports will not be generated.

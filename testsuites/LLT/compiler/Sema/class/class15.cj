@@ -35,14 +35,18 @@ main() {
 error: class 'C' missing abstract modifier, otherwise abstract function or property should be implemented
   ==> class15.cj:20:1:
    | 
-20 | public class C <: B {
-   | ^ 
+20 |   public class C <: B {
+   |  _^
+21 | |     public func c(): Int64 {
+   | | ...
+24 | | }
+   | |_^
    | 
 note: unimplemented abstract function 'a'
   ==> class15.cj:10:5:
    | 
 10 |     public func a(): Int64
-   |     ^ 
+   |     ^^^^^^^^^^^^^^^^^^^^^^ 
    | 
 
 1 error generated, 1 error printed.

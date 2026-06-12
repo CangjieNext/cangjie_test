@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.cj -o %output
 // EXEC: %cpfile %n.txt %n.cj
 // EXEC-PIPE-1: %compiler %cmp_opt %incrementalCompile %n.cj -o %output 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 
 let a: Int64 = 1
 let b: Int64 = a

@@ -9,9 +9,9 @@
 // DEPENDENCE: certs
 // DEPENDENCE: mock.c
 
-// EXEC: %clang -shared -Wno-deprecated-declarations -lssl -lcrypto -o mock.%dylib_suffix mock.c
-// EXEC: %compiler %cangjie-stdx-import-path -L %cangjie-stdx-package -lstdx.unittest.data -lstdx.unittest -lstdx.encoding.json -lstdx.serialization.serialization -lstdx.serialization  -lstdx.net.http -lstdx.net.tls -lstdx.net.tls.common -lstdx.net -lstdx.logger -lstdx.log -lstdx.encoding.url -lstdx.encoding.json.stream -lstdx.crypto.kit -lstdx.crypto.x509 -lstdx.crypto.keys -lstdx.crypto.crypto -lstdx.crypto.digest -lstdx.crypto.common -lstdx.crypto -lstdx.encoding.hex -lstdx.encoding.base64 -lstdx.encoding -lstdx.compress.zlib -lstdx.compress -lstdx %cmp_opt %cmp_utest_opt -lssl -lcrypto -l:mock.%dylib_suffix -L. -o %n.%suffix %f
-// RUN-EXEC: %set_stdx_path %run_opt %n.%suffix %run_utest_opt %run_args
+// EXEC: %clang %clang_opt -Wno-deprecated-declarations -lssl -lcrypto -o mock.%dylib_suffix mock.c
+// EXEC: %compiler %import-cangjie-stdx %cmp_opt %cmp_utest_opt -lssl -lcrypto -l:mock.%dylib_suffix -L. -o %n.%suffix %f
+// RUN-EXEC: %export CJ_KEYLESS_DEBUG=1 && %set_stdx_path %run_opt %n.%suffix %run_utest_opt %run_args
 
 import std.fs.{File, OpenMode}
 import std.net.{TcpServerSocket, TcpSocket}

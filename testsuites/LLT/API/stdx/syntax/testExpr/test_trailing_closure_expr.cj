@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/trailing_closure_expr.cj
 // (not Windows) EXEC: dos2unix trailing_closure_expr.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -23,10 +30,11 @@ class Test {
     @TestCase
     func testExpr01() {
         let expr = (nodes[0] as TrailingClosureExpr).getOrThrow()
-        @Expect(expr.toString(), "f  { println() }")
+        @Expect(expr.toString().replace("\r\n", "\n"), "f  { println() }")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         @Expect(expr.arguments.size, 0)
         let callee = (expr.callee as SymbolRef).getOrThrow()
-        @Expect(callee.toString(), "f")
+        @Expect(callee.toString().replace("\r\n", "\n"), "f")
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 21]).toArray())
     }
@@ -34,12 +42,12 @@ class Test {
     @TestCase
     func testExpr02() {
         let expr = (nodes[1] as TrailingClosureExpr).getOrThrow()
-        @Expect(expr.toString(), ##"f(1, "") { a: Int64 => return a}"##)
+        @Expect(expr.toString().replace("\r\n", "\n"), ##"f(1, "") { a: Int64 => return a}"##)
         @Expect(expr.arguments.size, 2)
-        @Expect(expr.arguments[0].toString(), "1")
-        @Expect(expr.arguments[1].toString(), ##""""##)
+        @Expect(expr.arguments[0].toString().replace("\r\n", "\n"), "1")
+        @Expect(expr.arguments[1].toString().replace("\r\n", "\n"), ##""""##)
         let callee = (expr.callee as SymbolRef).getOrThrow()
-        @Expect(callee.toString(), "f")
+        @Expect(callee.toString().replace("\r\n", "\n"), "f")
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 37]).toArray())
         pos = expr.getCommasPos()[0]
@@ -53,10 +61,10 @@ class Test {
     @TestCase
     func testExpr03() {
         let expr = (nodes[2] as TrailingClosureExpr).getOrThrow()
-        @Expect(expr.toString(), ##"A.f {println()}"##)
+        @Expect(expr.toString().replace("\r\n", "\n"), ##"A.f {println()}"##)
         @Expect(expr.arguments.size, 0)
         let callee = (expr.callee as MemberAccess).getOrThrow()
-        @Expect(callee.toString(), "A.f")
+        @Expect(callee.toString().replace("\r\n", "\n"), "A.f")
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 5, 4, 20]).toArray())
     }
@@ -68,12 +76,23 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
-}
 
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[0] as TrailingClosureExpr).getOrThrow()
+        let expr = TrailingClosureExpr(tmp.callee, tmp.arguments, tmp.trailingLambdaExpr)
+        @Expect(expr.toString().replace("\r\n", "\n"), "f { println() }")
+        @Expect(expr.arguments.size, 0)
+        let callee = (expr.callee as SymbolRef).getOrThrow()
+        @Expect(callee.toString().replace("\r\n", "\n"), "f")
+        var pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 16]).toArray())
+    }
+
+    @TestCase
+    func testInit02() {
+        let tmp = (nodes[1] as TrailingClosureExpr).getOrThrow()
+        let expr = TrailingClosureExpr(tmp.callee, tmp.arguments, tmp.trailingLambdaExpr)
+        @Expect(expr.toString().replace("\r\n", "\n"), ##"f(1, "") { a: Int64 => return a}"##)
+    }
+}

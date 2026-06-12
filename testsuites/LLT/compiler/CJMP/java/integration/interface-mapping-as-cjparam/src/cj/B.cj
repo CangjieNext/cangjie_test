@@ -8,7 +8,7 @@
  
 package cj
  
-import interoplib.interop.*
+import java.lang.*
  
 public struct B {
     public func hoo(a : A) : Unit {

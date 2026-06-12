@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 package UNNAMED
-import interoplib.interop.*
+import java.lang.*
 
 public struct S  {
     protected func foo(param0: Int8, param1!: Int8, param2!: Int8= 1i8): Int16  {

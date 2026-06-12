@@ -2,8 +2,8 @@
 // EXEC: %rmdir .cached
 // EXEC: %compiler %n.cj -Woff all --experimental --incremental-compile
 // EXEC: %compiler %n.cj -Woff all --experimental --incremental-compile -g
-// EXEC: (cd .cached && %cat *.log) | compare %n.cj
-
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
+// (Windows)EXEC: type .cached\*.log | compare %n.cj
 var a = 0
 main () { a }
 // ASSERT: scan compile args changed, roll back to full compilation

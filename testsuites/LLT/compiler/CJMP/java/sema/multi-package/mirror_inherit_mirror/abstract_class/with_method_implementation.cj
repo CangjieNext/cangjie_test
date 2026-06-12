@@ -10,7 +10,6 @@
 
 package n
 
-import interoplib.interop.*
 import java.lang.JObject
 import a.A
 

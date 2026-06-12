@@ -131,4 +131,19 @@ class ConvertFloat64Test {
         }
         @Expect(successCount.load(), expectedSuccess)
     }
+
+    @TestCase
+    func tryParseUnderscoreRejected(): Unit {
+        let underscoreInputs: Array<String> = [
+            "-3_.1_24_46_46",
+            "-.35_45464",
+            "-1_24.22___14___",
+            "1_000.5",
+            "3_.14"
+        ]
+        for (input in underscoreInputs) {
+            var ret: Option<Float64> = Float64.tryParse(input)
+            @Expect(ret, Option<Float64>.None)
+        }
+    }
 }

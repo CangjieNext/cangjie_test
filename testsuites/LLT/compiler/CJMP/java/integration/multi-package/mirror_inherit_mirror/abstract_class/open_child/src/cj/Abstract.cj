@@ -6,7 +6,6 @@
 
 package abstract
 
-import interoplib.interop.*
 import java.lang.JObject
 
 @JavaMirror["com.java.lib.Abstract"]

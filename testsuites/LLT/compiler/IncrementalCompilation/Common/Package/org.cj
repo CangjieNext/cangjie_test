@@ -9,6 +9,6 @@
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
 // EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1
-// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 
 // ASSERT: scan package or import specs changed, roll back to full compilation

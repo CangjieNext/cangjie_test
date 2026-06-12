@@ -1,9 +1,9 @@
 main(): Unit {}
 @C @CallingConv[CDECL]
 foreign func foo(a: Int32): Int32 
-@C @CallingConv[STDCALL]
+@C @CallingConv[CDECL]
 foreign func bar(a: Int32): Int32 
-@C @CallingConv[STDCALL]
+@C @CallingConv[CDECL]
 foreign func too(a: Int32): Int32
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

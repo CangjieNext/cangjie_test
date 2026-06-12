@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// EXEC: %compiler %cmp_opt --target=aarch64-linux-ohos  --static 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt --target=aarch64-linux-ohos  --static 2>&1 | compare %f
 // ASSERT: scan '--static' option is not supported
 
 main() {

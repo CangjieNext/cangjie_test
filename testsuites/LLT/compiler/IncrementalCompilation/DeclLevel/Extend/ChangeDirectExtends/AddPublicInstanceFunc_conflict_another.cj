@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %n.old.cj -o %output
 // EXEC: %cpfile %n.new.cj %n.old.cj
 // EXEC-PIPE-1: %compiler %incrementalCompile %n.old.cj -o %output 2>&1 %cmp_opt | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 5
 // ASSERT: scan the changed decl after Spreading is:A in file AddPublicInstanceFunc_conflict_another.old.cj in line 1 in column 7
 // ASSERT: scan the changed decl after Spreading is:ExtendDecl in file AddPublicInstanceFunc_conflict_another.old.cj in line 3 in column 1

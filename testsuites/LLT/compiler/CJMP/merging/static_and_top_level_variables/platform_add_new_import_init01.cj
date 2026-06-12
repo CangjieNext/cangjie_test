@@ -32,7 +32,7 @@ package b
 public let gb: Int64 = 2 * 3
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor -g --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --import-path=./p --import-path=./t --output-type=dylib --output-dir ./p
+// EXEC-0: %compiler %noColor -g --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --import-path=./p --import-path=./t --output-type=dylib --output-dir ./p
 package cmp
 
 import a.*
@@ -45,9 +45,9 @@ public specific func showGV(): Unit {
 
 // SEPARATE-FILE: m_platform.cj
 // EXEC-0: %compiler %noColor m_platform.cj -g --import-path=./p --import-path=./t -L./p -L./t -lcmp -la -lb -o %output
-// (LLVM and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p:./t %run %output 2>&1 | compare %f
-// (LLVM and Windows)EXEC-PIPE: set PATH=./p;./t;%PATH% && %run %output 2>&1 | compare %f
-// (LLVM and Darwin)EXEC-PIPE: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p:./t %run %output 2>&1 | compare %f
+// (CJNATIVE and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p:./t %run %output 2>&1 | compare %f
+// (CJNATIVE and Windows)EXEC-PIPE: set PATH=./p;./t;%PATH% && %run %output 2>&1 | compare %f
+// (CJNATIVE and Darwin)EXEC-PIPE: DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./p:./t %run %output 2>&1 | compare %f
 import cmp.*
 
 main(): Unit {

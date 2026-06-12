@@ -10,7 +10,6 @@
 
 // info: checks that returning `This` does not crash and works as java-compatible type
 
-import interoplib.interop.*
 import java.lang.JObject
 
 @JavaImpl

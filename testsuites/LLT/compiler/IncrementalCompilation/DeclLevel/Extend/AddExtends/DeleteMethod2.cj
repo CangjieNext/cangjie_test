@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile common2.cj -o %output
 // EXEC: %cpfile %n.new.cj common2.cj
 // EXEC-PIPE-1: %compiler %cmp_opt %incrementalCompile common2.cj -o %output 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 3
 // ASSERT: scan the changed decl after Spreading is:A in file common2.cj in line 1 in column 7
 // ASSERT: scan the changed decl after Spreading is:ExtendDecl in file common2.cj in line 13 in column 1

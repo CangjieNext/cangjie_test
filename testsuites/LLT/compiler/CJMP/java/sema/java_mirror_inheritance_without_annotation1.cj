@@ -8,7 +8,6 @@
 
 // ASSERT: scan sema_java_mirror_subtype_must_be_annotated
 
-import interoplib.interop.*
 import java.lang.JObject
 
 public class CangjieInvoke <: JObject {

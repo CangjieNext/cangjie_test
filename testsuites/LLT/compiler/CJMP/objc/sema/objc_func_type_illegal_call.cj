@@ -8,7 +8,6 @@
 
 // ASSERT: scan-2 error: ObjCFunc property 'call' can only be called directly, no other operations are permitted
 
-import interoplib.objc.*
 import objc.lang.*
 
 func aa(f: (Float64) -> Float64) {}

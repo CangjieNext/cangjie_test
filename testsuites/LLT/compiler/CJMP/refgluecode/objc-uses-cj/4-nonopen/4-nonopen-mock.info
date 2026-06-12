@@ -1,0 +1,22 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+// DEPENDENCE: ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/4-nonopen/api ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/4-nonopen/app ../../../../../../../Conformance/CJMP/RefGlueCode/objc-uses-cj/4-nonopen/generated
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt api/*.cj -o libapi.%dylib_suffix
+// (CJNATIVE and not Windows) RUN-EXEC: %compiler %overflowOpt -Woff all %compile_shared_lib_opt generated/*.cj -L. -lapi -o libobjc.cjworld.%dylib_suffix %import_objc_interop
+// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link generated/*.m -Igenerated -L. -lobjc.cjworld -shared -o libgluecode.%dylib_suffix %clang_link_objc_interop
+// (CJNATIVE and not Windows) RUN-EXEC: %clang %cangjie_runtime_link -fobjc-arc app/*.m -Iapp -Igenerated -L. -lapi -lobjc.cjworld -lgluecode -o main
+// (CJNATIVE and not Windows) RUN-EXEC: test -f libobjc.cjworld.dylib || cp libobjc.cjworld.%dylib_suffix libobjc.cjworld.dylib
+// (CJNATIVE and not Windows) RUN-EXEC: %run_macro ./main 2>&1 | sed 's/.* main\[[0-9]*:[0-9]*\] //g' | compare ./%f
+
+/* SCAN-IN
+ObjC: main creates instance and calls [nonOpen Foo] implemented in Cangjie:
+[CJ]: NonOpen.Foo()
+
+ObjC: main calls [restrictedHeir CallParentFoo] that should call super.Foo implemented in Cangjie:
+ObjC: RestrictedHeir.CallParentFoo()
+[CJ]: NonOpen.Foo()
+*/

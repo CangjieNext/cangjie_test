@@ -13,7 +13,7 @@ enum E{
 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 // ASSERT: scan error: 'specific' variable 'X1' can not find 'common' match
 // ASSERT: scan error: 'specific' variable 'X2' can not find 'common' match
 // ASSERT: scan error: 'specific' variable with pattern can not find 'common' match

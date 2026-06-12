@@ -6,7 +6,6 @@
 
 package a
 
-import interoplib.interop.*
 import java.lang.JObject
 
 @JavaMirror

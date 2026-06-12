@@ -4,7 +4,7 @@
 // EXEC-3: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
 // EXEC-PIPE-1: %compiler %incrementalCompile %n.inc.cj -o %output 2>&1 | compare diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan incremental compilation triggered
 // ASSERT: regex changed decls.* 8
 

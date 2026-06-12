@@ -13,7 +13,7 @@
 // EXEC: %cpfile %n.2.cj a.cj
 // EXEC: %compiler %incrementalCompile a.cj %compile_lib_opt -o %n.%lib_extension
 // EXEC-PIPE: %compiler %incrementalCompile %n.old.cj %n.%lib_extension 2>&1
-// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 package a::b
 public let a = 1
 // ASSERT: scan package or import specs changed, roll back to full compilation

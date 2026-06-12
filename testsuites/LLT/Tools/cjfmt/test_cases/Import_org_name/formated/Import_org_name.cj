@@ -4,6 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
+package org::import_org_name
+
 import org::UI.Foundation.* //ABC
 import org::test.bottomContent // ABC
 import test.*

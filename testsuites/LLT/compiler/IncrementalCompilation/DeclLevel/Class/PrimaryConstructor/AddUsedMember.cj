@@ -4,7 +4,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
 // EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt %n.inc.cj -o %output 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan changed decls to recompile: 5
 
 

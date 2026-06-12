@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
  * This source file is part of the Cangjie project, licensed under Apache-2.0
  * with Runtime Library Exception.
  *
@@ -118,6 +118,43 @@ class classTypeInfoTest {
         } catch (e: Exception) {
         }
     }
+
+    @TestCase
+    func testEnumVariable() {
+        let ti = ClassTypeInfo.of<C>()
+        @Expect(ti.instanceVariables.size, 3)
+        let info = ti.getInstanceVariable("v2")
+        let c = C()
+        c.v2 = E2.M2(1, 2)
+        let val = match (info.getValue(c) as E2) {
+            case Some(E2.M2(v1, v2)) => (v1, v2)
+            case Some(E2.M1) => "M1"
+            case _ => throw Exception("xxx")
+        }
+        @Expect((val as (Int64, Int64)).getOrThrow()[0], 1)
+        @Expect((val as (Int64, Int64)).getOrThrow()[1], 2)
+    }
+
+    @TestCase
+    func testTupleVariable() {
+        let ti = ClassTypeInfo.of<C>()
+        let info = ti.getInstanceVariable("v3")
+        let c = C()
+        c.v3 = (100, "hello")
+        let val = (info.getValue(c) as (Int64, String)).getOrThrow()
+        @Expect(val[0], 100)
+        @Expect(val[1], "hello")
+    }
+
+    @TestCase
+    func testFunctionVariable() {
+        let ti = ClassTypeInfo.of<C>()
+        let info = ti.getInstanceVariable("v1")
+        let c = C()
+        c.v1 = {v: Int64 => v + 10}
+        let val = (info.getValue(c) as (Int64) -> Int64).getOrThrow()(5)
+        @Expect(val, 15)
+    }
 }
 
 public open class Animal {
@@ -213,4 +250,40 @@ public class Bird <: Animal & Flyable {
             return 2
         }
     }
+}
+
+public enum E {
+    | M1
+    | M2(Int64)
+}
+
+public enum E2 {
+    | M1
+    | M2(Int64)
+    | M2(Int64, Int64)
+    | M3(Int64, String)
+    | M3(Int64, String, C1)
+    | M4(C1)
+    | M5(E)
+
+    public func foo(): Unit {
+        println("foo")
+    }
+    public static func bar(): Unit {
+    }
+}
+
+public class C1 {
+    public C1(public var val: Int64) {}
+
+    public init() {
+        this.val = 0
+    }
+}
+
+
+public class C {
+    public var v1 = {v: Int64 => v * 2}
+    public var v2: E2 = E2.M1
+    public var v3: (Int64, String) = (42, "Universe")
 }

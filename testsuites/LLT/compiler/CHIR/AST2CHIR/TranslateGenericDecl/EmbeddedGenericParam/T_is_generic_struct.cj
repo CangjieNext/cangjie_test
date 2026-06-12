@@ -1,6 +1,10 @@
 // LEVEL: 0
-// EXEC: %compiler --disable-inst %f -o %output || true
-// ASSERT: scan disable instantiation, CHIR2 translation done.
+// EXEC-PIPE-1: %compiler %f -o %output 2>&1 | compare %f
+// ASSERT: scan the upper bound 'Int32' of generic parameter 'Generics-T' must be class or interface
+// ASSERT: scan the upper bound 'Struct-A<Int32>' of generic parameter 'Generics-T' must be class or interface
+// ASSERT: scan cannot convert an integer literal to type 'Generics-T'
+// ASSERT: scan mismatched types
+// ASSERT: scan expected 'Rune', found 'Struct-String'
 
 interface Base1<T> {
     func base1(a: T): T

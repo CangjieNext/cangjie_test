@@ -10,8 +10,8 @@
 // EXEC: %cpfile %n.new.cj lib.cj
 
 // EXEC: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt %compile_lib_opt lib.cj -o A.%lib_extension > %redirectNull
-// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj A.%lib_extension -o out/%output 2>&1 && (cd out && cd .cached && %cat *.log) | compare %f
-// RUN-EXEC-1: %run %run_opt out/%output %run_args && (cd .cached && %cat *.log) | compare %n.new.cj
+// EXEC-PIPE-0: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj A.%lib_extension -o out/%output 2>&1 && cat out/.cached/*.log | compare %f
+// RUN-EXEC-1: %run %run_opt out/%output %run_args && cat .cached/*.log | compare %n.new.cj
 
 internal import inc.*
 

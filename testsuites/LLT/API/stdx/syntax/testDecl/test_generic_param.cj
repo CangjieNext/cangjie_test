@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/generic_param.cj
 // (not Windows) EXEC: dos2unix generic_param.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -24,10 +31,11 @@ class Test {
     func test01() {
         @Expect(params.size, 2)
         @Expect(params[0].name, "T1")
-        @Expect(params[0].toString(), "T1")
+        @Expect(params[0].toString().replace("\r\n", "\n"), "T1")
 
         @Expect(params[1].name, "T2")
-        @Expect(params[1].toString(), "T2")
+        @Expect(params[1].toString().replace("\r\n", "\n"), "T2")
+        @Expect(params[1].toTokens().toString().replace("\r\n", "\n"), params[1].toString().replace("\r\n", "\n"))
 
         let decl = funcDecl.getOrThrow()
         var pos = decl.getGenericParamsLAnglePos().getOrThrow()
@@ -43,6 +51,17 @@ class Test {
     }
 
     @TestCase
+    func testGenericParamInit() {
+        @Expect(params.size, 2)
+        var genericParam = GenericParam(params[0].name)
+        @Expect(genericParam.name, "T1")
+        @Expect(genericParam.toString().replace("\r\n", "\n"), "T1")
+        genericParam = GenericParam(params[1].name)
+        @Expect(genericParam.name, "T2")
+        @Expect(genericParam.toString().replace("\r\n", "\n"), "T2")
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("generic_param.cj")
         let input = String.fromUtf8(File.readFrom("generic_param.cj"))
@@ -51,10 +70,3 @@ class Test {
     }
 }
 
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

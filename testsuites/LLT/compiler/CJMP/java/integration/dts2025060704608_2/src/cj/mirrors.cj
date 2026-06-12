@@ -6,7 +6,6 @@
 
 package cj
 
-import interoplib.interop.*
 import java.lang.*
 
 @JavaMirror["com.java.lib.I1"]

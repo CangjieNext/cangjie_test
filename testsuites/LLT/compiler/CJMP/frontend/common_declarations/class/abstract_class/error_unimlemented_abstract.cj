@@ -21,13 +21,13 @@ error: class 'B' missing abstract modifier, otherwise abstract function or prope
   ==> c/c.cj:10:1:
    | 
 10 | public class B <: A {} // `goo` is not implemented here
-   | ^ 
+   | ^^^^^^^^^^^^^^^^^^^^^^ 
    | 
 note: unimplemented abstract function 'goo'
  ==> c/c.cj:7:5:
   | 
 7 |     public common abstract func goo(): String
-  |     ^ 
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
 
 1 error generated, 1 error printed.

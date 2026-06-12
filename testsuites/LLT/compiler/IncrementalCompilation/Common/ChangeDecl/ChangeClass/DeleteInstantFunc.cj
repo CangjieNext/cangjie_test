@@ -4,7 +4,7 @@
 // EXEC: %rmfile %n.old.cj
 // EXEC: %cpfile %n.new.cj %n.old.cj
 // EXEC-1: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output
-// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // EXEC: %run %run_opt %output %run_args
 // ASSERT: scan C 7default1CC DeleteInstantFunc.old.cj 1: body
 // ASSERT: scan changed decls to recompile: 3

@@ -4,7 +4,7 @@
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
 // EXEC: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj -o %output
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 // EXEC-1: %run %run_opt %output %run_args | compare %n.expect
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan the changed decl after Spreading is:main in file Exception.old.cj in line 25 in column 1

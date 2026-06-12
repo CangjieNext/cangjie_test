@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir --import-path %cangjieStdxPath 2>&1 | compare %f
-// ASSERT: regex-1 :12:.*error.*?'a' is or includes external data, it should not be used to regular expressions directly.
+// ASSERT: regex-1 :20:.*error.*?'a' is or includes external data, it should not be used to regular expressions directly.

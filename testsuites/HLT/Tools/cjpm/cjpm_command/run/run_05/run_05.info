@@ -8,8 +8,6 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../%n
-// (OHOS) EXEC: cd %n && %cjpm build %cjpm_opt
-// (OHOS) RUN-EXEC-PIPE: cd run_05/target/aarch64-linux-ohos/release/bin && %run %run_opt ./main %run_args | compare %f
-// (not OHOS) EXEC: cd %n && %cjpm run --name=main 2>&1 | compare %f
+// (native_compilation) EXEC: cd %n && %cjpm run --name=main 2>&1 | compare %f
 // ASSERT: scan hello world
-// (not OHOS) ASSERT: scan cjpm run finished
+// (native_compilation) ASSERT: scan cjpm run finished

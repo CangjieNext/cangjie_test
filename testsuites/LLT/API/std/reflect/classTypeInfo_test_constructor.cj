@@ -38,6 +38,18 @@ class classTypeInfoTest {
         @Expect(instance is Bar)
         @Expect((instance as Bar).getOrThrow().b1, 11)
     }
+
+    @TestCase
+    func testConstructorOrder(): Unit {
+        let ty = ClassTypeInfo.get("default.Foo01")
+        // 获取 constructors
+        @Expect(ty.constructors.toArray()[0].toString(), "init()")
+        @Expect(ty.constructors.toArray()[1].toString(), "init(Int64, Bool)")
+        @Expect(ty.constructors.toArray()[2].toString(), "init(UInt8, Float32)")
+        @Expect(ty.constructors.toArray()[3].toString(), "init(Float32, UInt8)")
+        @Expect(ty.constructors.toArray()[4].toString(), "init(Bool, Int64)")
+        @Expect(ty.constructors.toArray()[5].toString(), "init(UInt32, Int64, UInt8)")
+    }
 }
 
 public class Foo {
@@ -47,6 +59,17 @@ public class Foo {
         f1 = a1
         f2 = a2
     }
+}
+
+public class Foo01 {
+    public var f1: Int64 = 1
+    public var f2: Bool = false
+    public init(){}
+    public init(a1: Int64, a2: Bool) {}
+    public init(a1: Byte, a2: Float32) {}
+    public init(a1: Float32, a2: Byte) {}
+    public init(a1: Bool, a2: Int64) {}
+    public init(a1: UInt32, a2: Int64, a3: UInt8) {}
 }
 
 public struct Bar {

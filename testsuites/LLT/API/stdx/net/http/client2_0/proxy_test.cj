@@ -40,17 +40,20 @@ class TestProxy {
 	let proxyServerSocket = TcpServerSocket(bindAt: 0)
     @TestCase
     func proxy(): Unit {
-        let server = startServer1()
+        let sc1 = SyncCounter(1)
+        let server = startServer1(sc1)
+        sc1.waitUntilZero()
 
-		spawn { startProxy(server.port) }
+        let sc2 = SyncCounter(1)
+		spawn { startProxy(server.port, sc2) }
+        sc2.waitUntilZero()
 
-        sleep(Duration.millisecond * 100)
 		let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
 		var cfg = clientConfig()
         cfg.supportedAlpnProtocols = ["h2"]
 		let client = ClientBuilder()
 			.tlsConfig(cfg)
-			.httpsProxy("http://127.0.0.1:${port1}")
+			.httpsProxy("http://user:password@127.0.0.1:${port1}")
 			.build()
 		let req = HttpRequestBuilder()
 			.version(HTTP2_0)
@@ -63,7 +66,7 @@ class TestProxy {
 		asanGC()
 	}
 
-    func startServer1(): Server {
+    func startServer1(sc: SyncCounter): Server {
         var transportCfg = TransportConfig()
         transportCfg.readBufferSize = 8192
         var cfg = serverConfig()
@@ -75,6 +78,7 @@ class TestProxy {
                     .tlsConfig(cfg)
                     .headerTableSize(10 * 1024)
                     .maxRequestHeaderSize(1024 * 1024)
+                    .afterBind({=> sc.dec()})
                     .build()
         server.distributor.register("", {httpContext =>
             httpContext.responseBuilder.body("Hello!")
@@ -82,24 +86,23 @@ class TestProxy {
         spawn {
             server.serve()
         }
-        sleep(Duration.millisecond*100)
         return server
 	}
 
 
-    func startProxy(serverPort: UInt16) {
+    func startProxy(serverPort: UInt16, sc: SyncCounter) {
         try{
             proxyServerSocket.bind()
-            sleep(Duration.millisecond * 200)
+            sc.dec()
             let port1 = (proxyServerSocket.localAddress as IPSocketAddress)?.port ?? 0
             let socket = proxyServerSocket.accept()
-            socket.readTimeout = Duration.millisecond * 100
-        
+            socket.readTimeout = Duration.second * 10
+
             let buf = Array<UInt8>(500, repeat: 0)
-            sleep(Duration.millisecond * 100)
             let i = socket.read(buf)
             let read = String.fromUtf8(buf[0..i])
             @Expect(read.contains("CONNECT 127.0.0.1:${serverPort} HTTP/1.1"))
+            @Expect(read.contains("proxy-authorization: Basic dXNlcjpwYXNzd29yZA==\r\n"))
             @Expect(read.contains("host: 127.0.0.1:${serverPort}"))
             @Expect(read.contains("user-agent: CANGJIEUSERAGENT_1_1"))
 
@@ -126,7 +129,7 @@ class TestProxy {
                     }
                 }
             }
-            
+
             spawn{
                 while(true){
                     let buf1 = Array<UInt8>(5000, repeat: 0)

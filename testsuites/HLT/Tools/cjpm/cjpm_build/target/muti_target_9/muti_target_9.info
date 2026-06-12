@@ -8,11 +8,11 @@
 
 // LEVEL: 1 
 // DEPENDENCE: ../%n
-// EXEC: cd %n/pro1 && cjpm build
+// (native_compilation)EXEC: cd %n/pro1 && %cjpm build
 // (not Windows)EXEC: cd %n && %cjpm build -j1 -g -V 2>&1 | compare %f
 // (not Windows)ASSERT: scan cjpm build success
 // (not arm  or MAC)ASSERT: scan-not -O2
 // (arm and not MAC)ASSERT: scan -O2
 
-// (Windows)ERRCHECK: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
-// (Windows)ASSERT: scan Error: cjpm build failed
+// (Windows and native_compilation)ERRCHECK: cd %n && %cjpm build -j1 -V 2>&1 | compare %f
+// (Windows and native_compilation)ASSERT: scan Error: cjpm build failed

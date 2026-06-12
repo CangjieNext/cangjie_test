@@ -5,7 +5,7 @@
 
 // EXEC: %cpdir test1 test2
 // EXEC: %cd test2 && %compiler %incrementalCompile %cmp_opt -p inc %compile_lib_opt -o A.%lib_extension 2>&1
-// EXEC: (cd test2  && cd .cached && %cat *.log) | compare NoChange.expect
+// (Linux)EXEC: cat test2/.cached/*.log | compare NoChange.expect
 
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

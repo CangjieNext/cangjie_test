@@ -8,7 +8,6 @@
 
 // ASSERT: scan-not error
 
-import interoplib.interop.*
 import java.lang.JObject
 
 @JavaImpl

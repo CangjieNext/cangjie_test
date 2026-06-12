@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/annotation.cj
 // (not Windows) EXEC: dos2unix annotation.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -25,7 +32,8 @@ class Test {
 
         @Expect(annotations[0].identifier, "Frozen")
         @Expect(annotations[0].arguments.size, 0)
-        @Expect(annotations[0].toString(), "@Frozen")
+        @Expect(annotations[0].toString().replace("\r\n", "\n"), "@Frozen")
+        @Expect(annotations[0].toTokens().toString().replace("\r\n", "\n"), "@Frozen")
         var pos = annotations[0].nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 8]).toArray())
         pos = annotations[0].getAtOpPos()
@@ -43,8 +51,9 @@ class Test {
 
         @Expect(annotations[0].identifier, "Deprecated")
         @Expect(annotations[0].arguments.size, 1)
-        @Expect(annotations[0].arguments[0].toString(), "message: \'tt\'")
-        @Expect(annotations[0].toString(), "@Deprecated[ message: \'tt\' ]")
+        @Expect(annotations[0].arguments[0].toString().replace("\r\n", "\n"), "message: \'tt\'")
+        @Expect(annotations[0].toString().replace("\r\n", "\n"), "@Deprecated[ message: \'tt\' ]")
+        @Expect(annotations[0].toTokens().toString().replace("\r\n", "\n"), "@Deprecated[message: \'tt\']")
     }
 
     @TestCase
@@ -54,13 +63,13 @@ class Test {
 
         @Expect(annotations[0].identifier, "When")
         @Expect(annotations[0].arguments.size, 1)
-        @Expect(annotations[0].toString(), "@When[os == \"Windows\" || os == \"macOS\"]")
+        @Expect(annotations[0].toString().replace("\r\n", "\n"), "@When[os == \"Windows\" || os == \"macOS\"]")
 
         @Expect(annotations[1].identifier, "Deprecated")
         @Expect(annotations[1].arguments.size, 2)
-        @Expect(annotations[1].arguments[0].toString(), "message: \"tt\"")
-        @Expect(annotations[1].arguments[1].toString(), "since: \"1.3.4\"")
-        @Expect(annotations[1].toString(), "@Deprecated[ message: \"tt\", since: \"1.3.4\" ]")
+        @Expect(annotations[1].arguments[0].toString().replace("\r\n", "\n"), "message: \"tt\"")
+        @Expect(annotations[1].arguments[1].toString().replace("\r\n", "\n"), "since: \"1.3.4\"")
+        @Expect(annotations[1].toString().replace("\r\n", "\n"), "@Deprecated[ message: \"tt\", since: \"1.3.4\" ]")
 
         var pos = annotations[0].nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([7, 1, 7, 40]).toArray())
@@ -87,7 +96,7 @@ class Test {
     @TestCase
     func test04() {
         var structDecl = (decls[3] as StructDecl).getOrThrow()
-        @Expect(structDecl.toString(), ##"@Deprecated[ message: "tt", since: "1.3.4" ]
+        @Expect(structDecl.toString().replace("\r\n", "\n"), ##"@Deprecated[ message: "tt", since: "1.3.4" ]
    @!Anno1[message: "tt"]
      @When[os == "Windows" || os == "macOS"]
 private struct MyStruct<A, B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z> <: I1 & I2  where T <: I1<T> & I2<T> {
@@ -102,11 +111,11 @@ private struct MyStruct<A, B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z> <:
     }
 }"##)
         @Expect(structDecl.annotations.size, 3)
-        @Expect(structDecl.annotations[0].toString(), ##"@Deprecated[ message: "tt", since: "1.3.4" ]"##)
+        @Expect(structDecl.annotations[0].toString().replace("\r\n", "\n"), ##"@Deprecated[ message: "tt", since: "1.3.4" ]"##)
         @Expect(structDecl.annotations[0].identifier, "Deprecated")
-        @Expect(structDecl.annotations[1].toString(), ##"@!Anno1[message: "tt"]"##)
+        @Expect(structDecl.annotations[1].toString().replace("\r\n", "\n"), ##"@!Anno1[message: "tt"]"##)
         @Expect(structDecl.annotations[1].identifier, "Anno1")
-        @Expect(structDecl.annotations[2].toString(), ##"@When[os == "Windows" || os == "macOS"]"##)
+        @Expect(structDecl.annotations[2].toString().replace("\r\n", "\n"), ##"@When[os == "Windows" || os == "macOS"]"##)
         @Expect(structDecl.annotations[2].identifier, "When")
         let annotations = structDecl.annotations
         var pos = annotations[0].nodePos
@@ -146,9 +155,9 @@ private struct MyStruct<A, B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z> <:
         var funcDecl = (decls[4] as FuncDecl).getOrThrow()
         let params = (funcDecl.params as ParameterList).getOrThrow().params
         let param = (params[0] as FuncParam).getOrThrow()
-        @Expect(param.toString(), ##"@!testMacro[message: "tt"]a: Int64"##)
+        @Expect(param.toString().replace("\r\n", "\n"), ##"@!testMacro[message: "tt"]a: Int64"##)
         @Expect(param.annotations.size, 1)
-        @Expect(param.annotations[0].toString(), ##"@!testMacro[message: "tt"]"##)
+        @Expect(param.annotations[0].toString().replace("\r\n", "\n"), ##"@!testMacro[message: "tt"]"##)
         @Expect(param.annotations[0].identifier, "testMacro")
         let annotations = param.annotations
         var pos = annotations[0].nodePos
@@ -166,12 +175,12 @@ private struct MyStruct<A, B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z> <:
     @TestCase
     func test06() {
         var structDecl = (decls[5] as StructDecl).getOrThrow()
-        @Expect(structDecl.toString(), ##"@!Anno1
+        @Expect(structDecl.toString().replace("\r\n", "\n"), ##"@!Anno1
 private struct MyStruct<A> {
     public var s1: T
 }"##)
         @Expect(structDecl.annotations.size, 1)
-        @Expect(structDecl.annotations[0].toString(), ##"@!Anno1"##)
+        @Expect(structDecl.annotations[0].toString().replace("\r\n", "\n"), ##"@!Anno1"##)
         @Expect(structDecl.annotations[0].identifier, "Anno1")
         let annotations = structDecl.annotations
         var pos = annotations[0].nodePos
@@ -187,11 +196,11 @@ private struct MyStruct<A> {
     @TestCase
     func test07() {
         var decl_2: VarDecl = (decls[6] as VarDecl).getOrThrow()
-        @Assert(decl_2.toString(), ##"@Deprecated ["abc仓颉", strict : false] var a = 2"##)
+        @Assert(decl_2.toString().replace("\r\n", "\n"), ##"@Deprecated ["abc仓颉", strict : false] var a = 2"##)
         let anno_2: Annotation = decl_2.annotations[0]
-        @Assert(anno_2.toString(), ##"@Deprecated ["abc仓颉", strict : false]"##)
-        @Assert(anno_2.arguments.toString(), ##"["abc仓颉", strict : false]"##)
-        @Assert(anno_2.identifier.toString(), ##"Deprecated"##)
+        @Assert(anno_2.toString().replace("\r\n", "\n"), ##"@Deprecated ["abc仓颉", strict : false]"##)
+        @Assert(anno_2.arguments.toString().replace("\r\n", "\n"), ##"["abc仓颉", strict : false]"##)
+        @Assert(anno_2.identifier.toString().replace("\r\n", "\n"), ##"Deprecated"##)
 
         var pos = anno_2.getAtOpPos()
         @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([33, 1, 33, 2]).toArray())
@@ -216,11 +225,11 @@ private struct MyStruct<A> {
     @TestCase
     func test08() {
         var decl_2: VarDecl = (decls[7] as VarDecl).getOrThrow()
-        @Assert(decl_2.toString(), ##"@Attribute[State] var cnt = 0"##)
+        @Assert(decl_2.toString().replace("\r\n", "\n"), ##"@Attribute[State] var cnt = 0"##)
         let anno_2: Annotation = decl_2.annotations[0]
-        @Assert(anno_2.toString(), ##"@Attribute[State]"##)
-        @Assert(anno_2.arguments.toString(), ##"[State]"##)
-        @Assert(anno_2.identifier.toString(), ##"Attribute"##)
+        @Assert(anno_2.toString().replace("\r\n", "\n"), ##"@Attribute[State]"##)
+        @Assert(anno_2.arguments.toString().replace("\r\n", "\n"), ##"[State]"##)
+        @Assert(anno_2.identifier.toString().replace("\r\n", "\n"), ##"Attribute"##)
  
         var pos = anno_2.getAtOpPos()
         @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([35, 1, 35, 2]).toArray())
@@ -243,11 +252,11 @@ private struct MyStruct<A> {
     @TestCase
     func test09() {
         var decl_2: VarDecl = (decls[8] as VarDecl).getOrThrow()
-        @Assert(decl_2.toString(), ##"@Attribute['Binding', "ovo", 'hello'] var bcnt = 0"##)
+        @Assert(decl_2.toString().replace("\r\n", "\n"), ##"@Attribute['Binding', "ovo", 'hello'] var bcnt = 0"##)
         let anno_2: Annotation = decl_2.annotations[0]
-        @Assert(anno_2.toString(), ##"@Attribute['Binding', "ovo", 'hello']"##)
-        @Assert(anno_2.arguments.toString(), ##"['Binding', "ovo", 'hello']"##)
-        @Assert(anno_2.identifier.toString(), ##"Attribute"##)
+        @Assert(anno_2.toString().replace("\r\n", "\n"), ##"@Attribute['Binding', "ovo", 'hello']"##)
+        @Assert(anno_2.arguments.toString().replace("\r\n", "\n"), ##"['Binding', "ovo", 'hello']"##)
+        @Assert(anno_2.identifier.toString().replace("\r\n", "\n"), ##"Attribute"##)
  
         var pos = anno_2.getAtOpPos()
         @Assert([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([36, 1, 36, 2]).toArray())
@@ -271,6 +280,98 @@ private struct MyStruct<A> {
     }
 
     @TestCase
+    func testAnnotationInit01() {
+        var structDecl = (decls[5] as StructDecl).getOrThrow()
+        @Expect(structDecl.annotations.size, 1)
+        let structAnno = structDecl.annotations[0]
+        let anno = Annotation(structAnno.arguments, structAnno.identifier, structAnno.opKind)
+        @Expect(anno.toString().replace("\r\n", "\n"), ##"@!Anno1"##)
+        @Expect(anno.identifier, "Anno1")
+        var pos = anno.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 8]).toArray())
+        pos = anno.getAtOpPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 3]).toArray())
+        pos = anno.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 8]).toArray())
+        @Expect(anno.getLSquarePos().isNone())
+        @Expect(anno.getRSquarePos().isNone())
+    }
+
+    @TestCase
+    func testAnnotationInit02() {
+        let annotations = decls[1].annotations
+        @Expect(annotations.size, 1)
+        let anno = Annotation(annotations[0].arguments, annotations[0].identifier, annotations[0].opKind)
+
+        @Expect(anno.identifier, "Deprecated")
+        @Expect(anno.arguments.size, 1)
+        @Expect(anno.arguments[0].toString().replace("\r\n", "\n"), "message: \'tt\'")
+        @Expect(anno.toString().replace("\r\n", "\n"), "@Deprecated[message: \'tt\']")
+    }
+
+    @TestCase
+    func testAnnotationInit03() {
+        let annotations = decls[2].annotations
+        @Expect(annotations.size, 2)
+        var anno = Annotation(annotations[0].arguments, annotations[0].identifier, annotations[0].opKind)
+        
+        
+        @Expect(anno.identifier, "When")
+        @Expect(anno.arguments.size, 1)
+        @Expect(anno.toString().replace("\r\n", "\n"), "@When[os == \"Windows\" || os == \"macOS\"]")
+        var pos = anno.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 40]).toArray())
+        pos = anno.getAtOpPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = anno.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 6]).toArray())
+        pos = anno.getLSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 6, 1, 7]).toArray())
+        pos = anno.getRSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 39, 1, 40]).toArray())
+
+        anno = Annotation(annotations[1].arguments, annotations[1].identifier, annotations[1].opKind)
+        @Expect(anno.identifier, "Deprecated")
+        @Expect(anno.arguments.size, 2)
+        @Expect(anno.arguments[0].toString().replace("\r\n", "\n"), "message: \"tt\"")
+        @Expect(anno.arguments[1].toString().replace("\r\n", "\n"), "since: \"1.3.4\"")
+        @Expect(anno.toString().replace("\r\n", "\n"), "@Deprecated[message: \"tt\", since: \"1.3.4\"]")
+        pos = anno.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 43]).toArray())
+        pos = anno.getAtOpPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = anno.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 12]).toArray())
+        pos = anno.getLSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 12, 1, 13]).toArray())
+        pos = anno.getRSquarePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 42, 1, 43]).toArray())
+    }
+
+    @TestCase
+    func testArgumentInit() {
+        let annotations = decls[1].annotations
+        @Expect(annotations.size, 1)
+        let anno = Annotation(annotations[0].arguments, annotations[0].identifier, annotations[0].opKind)
+
+        @Expect(anno.identifier, "Deprecated")
+        @Expect(anno.arguments.size, 1)
+        let argument = Argument(anno.arguments[0].identifier, anno.arguments[0].isInOut, anno.arguments[0].value)
+        @Expect(argument.toString().replace("\r\n", "\n"), "message: \'tt\'")
+        @Expect(argument.isNamed, true)
+        @Expect(argument.isInOut, false)
+        @Expect(argument.value.toString().replace("\r\n", "\n"), "\'tt\'")
+        @Expect(anno.toString().replace("\r\n", "\n"), "@Deprecated[message: \'tt\']")
+    }
+
+    @TestCase
+    func testAnnotationIdentifier() {
+        let annotations = decls[2].annotations
+        @Expect(annotations.size, 2)
+        @AssertThrows[Exception](Annotation(annotations[0].arguments, "*&(%)", annotations[0].opKind))
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("annotation.cj")
         let input = String.fromUtf8(File.readFrom("annotation.cj"))
@@ -278,10 +379,4 @@ private struct MyStruct<A> {
         @Expect(file.toString(), input)
     }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+

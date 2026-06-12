@@ -20,7 +20,6 @@
 
 package UNNAMED
 
-import interoplib.interop.*
 import java.lang.*
 
 // cj can not create [][]

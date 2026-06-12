@@ -9,7 +9,7 @@
 // EXEC: %compiler %incrementalCompile %n.p1.cj %compile_lib_opt -o libp1.%lib_extension 
 // EXEC: %compiler %incrementalCompile libp1.%lib_extension %n.p2.cj %compile_lib_opt -o libp2.%lib_extension
 // EXEC: %compiler %incrementalCompile libp1.%lib_extension libp2.%lib_extension %f -o %output 2>&1
-// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // EXEC-2: %run %run_opt %output %run_args
 
 

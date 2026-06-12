@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/composite_type.cj
 // (not Windows) EXEC: dos2unix composite_type.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -26,7 +33,7 @@ class Test {
         @Expect(ty.typeArguments.size, 0)
         @Expect(ty.name, "A")
         @Expect(ty.prefixes.size, 0)
-        @Expect(ty.toString(), "A")
+        @Expect(ty.toString().replace("\r\n", "\n"), "A")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 9]).toArray())
@@ -43,10 +50,11 @@ class Test {
 
         @Expect(ty.typeArguments.size, 1)
         @Expect(ty.typeArguments[0] is CompositeType)
-        @Expect(ty.typeArguments[0].toString(), "B")
+        @Expect(ty.typeArguments[0].toString().replace("\r\n", "\n"), "B")
         @Expect(ty.name, "A")
         @Expect(ty.prefixes.size, 0)
-        @Expect(ty.toString(), "A<B>")
+        @Expect(ty.toString().replace("\r\n", "\n"), "A<B>")
+        @Expect(ty.toTokens().toString().replace("\r\n", "\n"), "A < B >")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 8, 3, 12]).toArray())
@@ -65,11 +73,11 @@ class Test {
         @Expect(ty.typeArguments.size, 2)
         @Expect(ty.typeArguments[0] is CompositeType)
         @Expect(ty.typeArguments[1] is CompositeType)
-        @Expect(ty.typeArguments[0].toString(), "B")
-        @Expect(ty.typeArguments[1].toString(), "C")
+        @Expect(ty.typeArguments[0].toString().replace("\r\n", "\n"), "B")
+        @Expect(ty.typeArguments[1].toString().replace("\r\n", "\n"), "C")
         @Expect(ty.name, "A")
         @Expect(ty.prefixes.size, 0)
-        @Expect(ty.toString(), "A<B, C>")
+        @Expect(ty.toString().replace("\r\n", "\n"), "A<B, C>")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 8, 4, 15]).toArray())
@@ -89,10 +97,10 @@ class Test {
 
         @Expect(ty.typeArguments.size, 1)
         @Expect(ty.typeArguments[0] is AtomicType)
-        @Expect(ty.typeArguments[0].toString(), "Int32")
+        @Expect(ty.typeArguments[0].toString().replace("\r\n", "\n"), "Int32")
         @Expect(ty.name, "A")
         @Expect(ty.prefixes.size, 0)
-        @Expect(ty.toString(), "A<Int32>")
+        @Expect(ty.toString().replace("\r\n", "\n"), "A<Int32>")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 8, 5, 16]).toArray())
@@ -112,12 +120,12 @@ class Test {
         @Expect(ty.typeArguments[0] is CompositeType)
         @Expect(ty.typeArguments[1] is PrefixType)
         @Expect(ty.typeArguments[2] is TupleType)
-        @Expect(ty.typeArguments[0].toString(), "String")
-        @Expect(ty.typeArguments[1].toString(), "?B")
-        @Expect(ty.typeArguments[2].toString(), "((C), T.D)")
+        @Expect(ty.typeArguments[0].toString().replace("\r\n", "\n"), "String")
+        @Expect(ty.typeArguments[1].toString().replace("\r\n", "\n"), "?B")
+        @Expect(ty.typeArguments[2].toString().replace("\r\n", "\n"), "((C), T.D)")
         @Expect(ty.name, "A")
         @Expect(ty.prefixes.size, 0)
-        @Expect(ty.toString(), "A<String, ?B, ((C), T.D)>")
+        @Expect(ty.toString().replace("\r\n", "\n"), "A<String, ?B, ((C), T.D)>")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 8, 6, 33]).toArray())
@@ -141,7 +149,7 @@ class Test {
         @Expect(ty.prefixes[0], "T")
         @Expect(ty.name, "A")
         @Expect(ty.typeArguments.size, 0)
-        @Expect(ty.toString(), "T.A")
+        @Expect(ty.toString().replace("\r\n", "\n"), "T.A")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([7, 8, 7, 11]).toArray())
@@ -164,8 +172,8 @@ class Test {
         @Expect(ty.name, "A")
         @Expect(ty.typeArguments.size, 1)
         @Expect(ty.typeArguments[0] is CompositeType)
-        @Expect(ty.typeArguments[0].toString(), "T.S.B")
-        @Expect(ty.toString(), "T.S.A<T.S.B>")
+        @Expect(ty.typeArguments[0].toString().replace("\r\n", "\n"), "T.S.B")
+        @Expect(ty.toString().replace("\r\n", "\n"), "T.S.A<T.S.B>")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([8, 8, 8, 20]).toArray())
@@ -192,9 +200,9 @@ class Test {
         @Expect(ty.typeArguments.size, 2)
         @Expect(ty.typeArguments[0] is CompositeType)
         @Expect(ty.typeArguments[1] is TupleType)
-        @Expect(ty.typeArguments[0].toString(), "T.B")
-        @Expect(ty.typeArguments[1].toString(), "(T.C, T.D)")
-        @Expect(ty.toString(), "T.A<T.B, (T.C, T.D)>")
+        @Expect(ty.typeArguments[0].toString().replace("\r\n", "\n"), "T.B")
+        @Expect(ty.typeArguments[1].toString().replace("\r\n", "\n"), "(T.C, T.D)")
+        @Expect(ty.toString().replace("\r\n", "\n"), "T.A<T.B, (T.C, T.D)>")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([9, 8, 9, 28]).toArray())
@@ -215,7 +223,7 @@ class Test {
         let funcDecl = (decls[0] as FuncDecl).getOrThrow()
         let ty = (funcDecl.retTyAnnotation.getOrThrow() as CompositeType).getOrThrow()
 
-        @Expect(ty.toString(), "A<B, C>")
+        @Expect(ty.toString().replace("\r\n", "\n"), "A<B, C>")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 18, 1, 25]).toArray())
@@ -235,11 +243,27 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let varDecl = (decls[2] as VarDecl).getOrThrow()
+        let ty = (varDecl.tyAnnotation.getOrThrow() as CompositeType).getOrThrow()
+        let compositeType = CompositeType(ty.name, ty.prefixes, ty.typeArguments)
+
+        @Expect(compositeType.typeArguments.size, 1)
+        @Expect(compositeType.typeArguments[0] is CompositeType)
+        @Expect(compositeType.typeArguments[0].toString().replace("\r\n", "\n"), "B")
+        @Expect(compositeType.name, "A")
+        @Expect(compositeType.prefixes.size, 0)
+        @Expect(compositeType.toString().replace("\r\n", "\n"), "A<B>")
+
+        var pos = compositeType.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 5]).toArray())
+        pos = compositeType.getLAnglePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 3]).toArray())
+        pos = compositeType.getRAnglePos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 4, 1, 5]).toArray())
+        @Expect(compositeType.getCommasPos().size, 0)
+    }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+

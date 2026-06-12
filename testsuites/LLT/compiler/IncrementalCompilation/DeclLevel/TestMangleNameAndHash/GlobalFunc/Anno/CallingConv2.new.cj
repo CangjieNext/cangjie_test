@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-@CallingConv[STDCALL]
+@CallingConv[CDECL]
 foreign func f():Int64
 
 main(): Int64 { 0 }

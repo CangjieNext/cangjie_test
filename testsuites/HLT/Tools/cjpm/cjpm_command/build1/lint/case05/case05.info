@@ -8,6 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// (not MAC) ERRCHECK: cd %n && cjpm build -l -V
+// (not MAC) ERRCHECK: cd %n && %cjpm build -l -V
 // (not MAC) ASSERT: scan-2 unterminated single-line string
 

@@ -4,7 +4,7 @@
 // EXEC: %cpfile %n.1new.cj %n.1.cj
 // EXEC: %cpfile %n.2new.cj %n.2.cj
 // EXEC-PIPE-1: %compiler %incrementalCompile %noStackInfo %cmp_opt %n.1.cj %n.2.cj -o %output -Woff unused 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 
 // ASSERT: scan 7 order changed decl(s).
 // ASSERT: scan order change 7default2I1I3fooF$$

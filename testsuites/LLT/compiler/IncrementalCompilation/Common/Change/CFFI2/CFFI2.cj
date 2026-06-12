@@ -8,7 +8,7 @@
 // EXEC: %cpfile %n.new.cj %n.inc.cj
 // (not Windows) EXEC: %compiler %incrementalCompile %n.inc.cj --lto=full  --error-count-limit=all --diagnostic-format=noColor %cffi-link -o %output %f 2>&1
 // (Windows) EXEC: %compiler %incrementalCompile %n.inc.cj --error-count-limit=all --diagnostic-format=noColor %cffi-link -o %output %f 2>&1
-// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 

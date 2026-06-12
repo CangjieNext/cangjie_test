@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/import_single.cj
 // (not Windows) EXEC: dos2unix import_single.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -29,7 +36,7 @@ class Test {
         let content = (importList.contents as ImportSingle).getOrThrow()
         @Expect(content.prefixes, [])
         @Expect(content.identifier, "testPackage")
-        @Expect(content.toString(), "testPackage")
+        @Expect(content.toString().replace("\r\n", "\n"), "testPackage")
         var pos = content.getIdentifierPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 19]).toArray())
         pos = content.nodePos
@@ -47,7 +54,8 @@ class Test {
         let content = (importList.contents as ImportSingle).getOrThrow()
         @Expect(content.prefixes, ["a"])
         @Expect(content.identifier, "testPackage")
-        @Expect(content.toString(), "a.testPackage")
+        @Expect(content.toString().replace("\r\n", "\n"), "a.testPackage")
+        @Expect(content.toTokens().toString().replace("\r\n", "\n"), "a.testPackage")
         var pos = content.getIdentifierPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 10, 2, 21]).toArray())
         pos = content.getPrefixesPos()[0]
@@ -66,7 +74,7 @@ class Test {
         let content = (importList.contents as ImportSingle).getOrThrow()
         @Expect(content.prefixes, ["a", "b"])
         @Expect(content.identifier, "testPackage")
-        @Expect(content.toString(), "a.b.testPackage")
+        @Expect(content.toString().replace("\r\n", "\n"), "a.b.testPackage")
         var pos = content.getIdentifierPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 12, 3, 23]).toArray())
     }
@@ -78,11 +86,27 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let importList = importLists[1]
+        match(importList.kind) {
+            case ImportKind.Single => @Expect(true)
+            case _ => @Expect(false)
+        }
+
+        let tmp = (importList.contents as ImportSingle).getOrThrow()
+        let content = ImportSingle(tmp.prefixes, tmp.identifier)
+        @Expect(content.prefixes, ["a"])
+        @Expect(content.identifier, "testPackage")
+        @Expect(content.toString().replace("\r\n", "\n"), "a.testPackage")
+        println(content.toString().replace("\r\n", "\n"))
+        var pos = content.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 14]).toArray())
+        pos = content.getPrefixesPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = content.getDotsPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 3]).toArray())
+    }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+

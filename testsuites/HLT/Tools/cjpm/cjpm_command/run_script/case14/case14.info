@@ -8,6 +8,6 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC: cd %n && %run %cjpm build
-// ASSERT:scan cjpm build success
+// (native_compilation)EXEC: cd %n && %run %cjpm build
+// (native_compilation)ASSERT:scan cjpm build success
 

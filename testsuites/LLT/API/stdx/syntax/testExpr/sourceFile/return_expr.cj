@@ -3,7 +3,7 @@ func test(): Int64 {
 }
 
 func test_null() {
-    return
+    return // return nothing
 }
 
 func test1() {

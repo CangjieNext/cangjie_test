@@ -10,7 +10,6 @@
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %java %cp_cj_loader_java_interop -Djava.library.path=./ cj.Main 2>& 1 | compare %f
 package cj
 
-import interoplib.interop.*
 import java.lang.*
 
 @JavaMirror["com.java.lib.Cla\\$s"]

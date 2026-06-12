@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/import_list.cj
 // (not Windows) EXEC: dos2unix import_list.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -22,7 +29,7 @@ class Test {
     func testModifier01() {
         let importList = importLists[0]
         @Expect(importList.modifier.isNone())
-        @Expect(importList.toString(), "import testPackage")
+        @Expect(importList.toString().replace("\r\n", "\n"), "import testPackage")
         var pos = importList.getImportKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
         pos = importList.nodePos
@@ -37,7 +44,8 @@ class Test {
             case ModifierKind.Private => @Expect(true)
             case _ => @Expect(false)
         }
-        @Expect(importList.toString(), "private import testPackage")
+        @Expect(importList.toString().replace("\r\n", "\n"), "private import testPackage")
+        @Expect(importList.toTokens().toString().replace("\r\n", "\n"), "private import testPackage")
         var pos = importList.getImportKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 9, 2, 15]).toArray())
     }
@@ -50,7 +58,7 @@ class Test {
             case ModifierKind.Protected => @Expect(true)
             case _ => @Expect(false)
         }
-        @Expect(importList.toString(), "protected import testPackage")
+        @Expect(importList.toString().replace("\r\n", "\n"), "protected import testPackage")
         var pos = importList.getImportKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 11, 3, 17]).toArray())
     }
@@ -63,7 +71,7 @@ class Test {
             case ModifierKind.Internal=> @Expect(true)
             case _ => @Expect(false)
         }
-        @Expect(importList.toString(), "internal import testPackage")
+        @Expect(importList.toString().replace("\r\n", "\n"), "internal import testPackage")
         var pos = importList.getImportKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 10, 4, 16]).toArray())
     }
@@ -76,7 +84,7 @@ class Test {
             case ModifierKind.Public => @Expect(true)
             case _ => @Expect(false)
         }
-        @Expect(importList.toString(), "public import testPackage")
+        @Expect(importList.toString().replace("\r\n", "\n"), "public import testPackage")
         var pos = importList.getImportKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 8, 5, 14]).toArray())
     }
@@ -88,11 +96,17 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = importLists[0]
+        let importList = ImportList(tmp.contents, tmp.modifier)
+        @Expect(importList.modifier.isNone())
+        @Expect(importList.toString().replace("\r\n", "\n"), "import testPackage")
+        var pos = importList.getImportKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
+        pos = importList.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 19]).toArray())
+    }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+

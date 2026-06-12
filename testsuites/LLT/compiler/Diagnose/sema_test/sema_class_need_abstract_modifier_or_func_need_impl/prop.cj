@@ -14,14 +14,16 @@ main() {
 error: class 'A' missing abstract modifier, otherwise abstract function or property should be implemented
  ==> prop.cj:6:1:
   | 
-6 | class A <: C1 {
-  | ^ 
+6 |   class A <: C1 {
+  |  _^
+7 | | }
+  | |_^
   | 
 note: unimplemented abstract property 'a'
  ==> prop.cj:4:5:
   | 
 4 |     public mut prop a: Int64
-  |     ^ 
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
 
 1 error generated, 1 error printed.

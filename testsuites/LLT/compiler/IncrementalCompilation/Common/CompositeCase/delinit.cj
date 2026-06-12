@@ -4,7 +4,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
 // EXEC-PIPE-0: %compiler %incrementalCompile %n.inc.cj -Woff unused -o %output 2>&1
-// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // EXEC: %run %run_opt %output %run_args | compare %n.new.cj
 // ASSERT: scan changed decls to recompile: 1
 // ASSERT: scan the changed decl after Spreading is:init in file delinit.inc.cj in line 21 in column 5

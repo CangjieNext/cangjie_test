@@ -19,27 +19,27 @@ public class A extends M {
 
     long self;
 
-    A() {
+    public A() {
         super(1);
-        self = initCJObject();
+        initCJObject();
     }
 
     private A($$NativeConstructorMarker __init__) {
         super(1);
     }
 
-    public native long initCJObject();
+    private native void initCJObject();
 
-    A(long x) {
+    public A(long x) {
         super(x, x);
-        self = initCJObjectl(x);
+        initCJObjectl(x);
     }
 
     private A(long x, $$NativeConstructorMarker __init__) {
         super(x, x);
     }
 
-    public native long initCJObjectl(long x);
+    private native void initCJObjectl(long x);
 
     public void p(A[] o) {
         pCN9java_lang6JArrayICN16cjworld_theworld1AEE(this.self, o);
@@ -79,9 +79,7 @@ public class A extends M {
 
 package cjworld.theworld
 
-import interoplib.interop.*
-import java.lang.JObject
-import java.lang.JArray
+import java.lang.*
 
 @JavaMirror["M"]
 public open class M {
@@ -92,25 +90,25 @@ public open class M {
 
 @JavaImpl["A"]
 public class A <: M {
-    init() {
+    public init() {
         super(1)
         println("Hello from Cangjie!")
     }
-    init(x: Int) {
+    public init(x: Int) {
         super(x, x)
         let a = JArray<Int64>(3)
         a[1]
         a[0] = -22
     }
 
-    func p(o: JArray<A>) {
+    public func p(o: JArray<A>) {
         var a = JArray<A>(33)
         a[1]
         a[22] = A()
         a = o
     }
 
-    func r(o: JArray<UInt16>): Unit {
+    public func r(o: JArray<UInt16>): Unit {
         JArray<Bool>(12)
     }
 }

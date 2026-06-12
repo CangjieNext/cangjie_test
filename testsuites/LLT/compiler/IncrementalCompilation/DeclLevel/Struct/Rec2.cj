@@ -4,7 +4,7 @@
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
 // EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 
 // ASSERT: scan the changed decl after Spreading is:B in file Rec2.old.cj in line 5 in column 8
 // ASSERT: scan the changed decl after Spreading is:B in file Rec2.old.cj in line 6 in column 5

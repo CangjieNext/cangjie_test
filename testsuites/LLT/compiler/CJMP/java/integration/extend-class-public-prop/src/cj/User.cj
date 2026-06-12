@@ -6,7 +6,7 @@
 
 package cj
 
-import interoplib.interop.*
+import java.lang.*
 
 public class User {
     public var a: Int32 = 0

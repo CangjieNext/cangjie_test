@@ -7,8 +7,8 @@
  */
 
 // EXEC-PIPE-1: %compiler %enableEH %core_cmp_opt  %f -o %output 2>&1 | compare %f
-// ASSERT: scan lambda capturing mutable variables needs to be called directly
-// ASSERT: scan 2 errors generated, 2 errors printed
+// ASSERT: scan 'try'-'handle' expressions cannot capture mutable variables; consider using 'let' or boxing
+// ASSERT: scan 3 errors generated, 3 errors printed
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 
@@ -21,8 +21,10 @@ main() {
     var x: Int64 = 1
     try {
         x += 1
-    } handle (e: Eff) {
+    } handle (_: Eff) {
         x += 1
         resume
+    } finally {
+        x += 1
     }
 }

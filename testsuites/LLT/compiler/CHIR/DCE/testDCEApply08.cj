@@ -32,7 +32,7 @@ warning: unreachable 'call'
   ==> testDCEApply08.cj:18:5:
    | 
 18 |     test()(return 0)
-   |     ^^^^^^^^^^^^^^^^any code following this expression is unreachable
+   |     ^^^^^^ ~~~~~~~~ any code following this expression is unreachable
    |     |
    |     unreachable 'call'
    | 

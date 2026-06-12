@@ -11,8 +11,6 @@
 // EXEC-PIPE: cd %n&& cjpm init --name default&& cjpm build --coverage&& cjpm run --skip-build
 // EXEC-PIPE: cd %n&& %cjcov --rootpath=./ -o dir_not_exist --html-details && %ls && %ls dir_not_exist && %ls target/release/bin | compare %f
 // ASSERT: scan index.html
-// (CJNATIVE) ASSERT: scan default.gcda
-// (CJNATIVE) ASSERT: scan default.gcno
-// (not CJNATIVE) ASSERT: scan main.jcda
-// (not CJNATIVE) ASSERT: scan main.jcno
+// ASSERT: scan default.gcda
+// ASSERT: scan default.gcno
 // EXEC-PIPE: python3 compare_html.py -b %n/refrence -d %n/dir_not_exist

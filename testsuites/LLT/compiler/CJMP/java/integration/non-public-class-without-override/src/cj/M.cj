@@ -6,7 +6,7 @@
 
 package cj
 
-import interoplib.interop.*
+import java.lang.*
 
 protected class M {
     public init() {}

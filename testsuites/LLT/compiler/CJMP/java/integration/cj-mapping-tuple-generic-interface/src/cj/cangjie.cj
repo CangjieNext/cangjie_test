@@ -1,6 +1,6 @@
 package cjworld
 
-import interoplib.interop.*
+import java.lang.*
 
 public interface GenericInterface<T, U> {
 

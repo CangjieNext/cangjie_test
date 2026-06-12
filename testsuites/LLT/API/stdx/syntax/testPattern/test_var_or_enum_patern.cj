@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/var_or_enum_pattern.cj
 // (not Windows) EXEC: dos2unix var_or_enum_pattern.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -28,8 +35,9 @@ class Test {
         if (let Some(ty) <- pattern.enumType) {
             @Expect(ty.name, "TestEnum")
         }
-        @Expect(pattern.enumConstructor.toString(), "A")
-        @Expect(pattern.toString(), "TestEnum.A")
+        @Expect(pattern.enumConstructor.toString().replace("\r\n", "\n"), "A")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "TestEnum.A")
+        @Expect(pattern.toTokens().toString().replace("\r\n", "\n"), "TestEnum.A")
     }
 
     @TestCase
@@ -38,7 +46,7 @@ class Test {
         let pattern = (matchExpr.matchCases[0].patterns[0] as VarOrEnumPattern).getOrThrow()
 
         @Expect(pattern.identifier, "B")
-        @Expect(pattern.toString(), "B")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "B")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([9, 14, 9, 15]).toArray())
@@ -51,11 +59,18 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let matchExpr = (nodes[3] as MatchExpr).getOrThrow()
+        let pattern = (matchExpr.matchCases[0].patterns[0] as VarOrEnumPattern).getOrThrow()
+        let varOrEnumPattern = VarOrEnumPattern(pattern.identifier)
+
+        @Expect(varOrEnumPattern.identifier, "B")
+        @Expect(varOrEnumPattern.toString().replace("\r\n", "\n"), "B")
+
+        var pos = varOrEnumPattern.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+    }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+

@@ -6,7 +6,7 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
 
-// LEVEL: 0
+// LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/015_debug_class_obj_box.cj
 //  EXEC: %compiler %cmp_opt -g 015_debug_class_obj_box.cj -o 015_debug_class_obj_box%cmp_output
 //  EXEC: python3 cjdb_test.py lldb_class068.info 015_debug_class_obj_box %run_env
@@ -20,5 +20,5 @@ b,b 26,015_debug_class_obj_box.cj:26
 AOT r,r,-> 26
 CJVM c,c,-> 26
 n,n,-> 27
-AOT locals,locals,\(default.A\) a = {(\r\n|\r|\n|)}
+AOT locals,locals,\(default.A\) a = \{\}
 q,q,

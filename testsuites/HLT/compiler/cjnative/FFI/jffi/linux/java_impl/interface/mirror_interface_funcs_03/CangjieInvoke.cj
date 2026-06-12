@@ -32,7 +32,6 @@
 
 package UNNAMED
 
-import interoplib.interop.*
 import java.lang.*
 
 @JavaImpl

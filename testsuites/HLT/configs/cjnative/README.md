@@ -30,7 +30,7 @@ target平台上可执行文件的后缀名
 
 ## `test_suffix`
 
-静态库文件的后缀名
+动态库文件的后缀名
 
 ## `middle`
 
@@ -123,6 +123,10 @@ cjtrace-recover 工具
 ## `run_opt`
 
 运行可执行文件时的设置
+
+## `release_dir`
+
+release产物保存目录相对cjpm.toml所在目录的相对路径
 
 ## `cangjie-stdx-list`
 
@@ -280,11 +284,23 @@ ldd 工具
 
 暂无介绍
 
+## `clang_link_core`
+
+暂无介绍
+
+## `clang_link_objc_interop`
+
+暂无介绍
+
 ## `optimization_options`
 
 暂无介绍
 
 ## `debug_options`
+
+暂无介绍
+
+## `lto_options`
 
 暂无介绍
 

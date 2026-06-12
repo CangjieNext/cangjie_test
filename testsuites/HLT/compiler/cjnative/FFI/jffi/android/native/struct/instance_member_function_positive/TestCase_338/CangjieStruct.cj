@@ -8,7 +8,6 @@
 
 package UNNAMED
 
-import interoplib.interop.*
 import java.lang.*
 
 public struct CangjieStruct {

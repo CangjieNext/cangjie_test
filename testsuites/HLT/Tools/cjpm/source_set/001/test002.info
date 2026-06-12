@@ -9,8 +9,8 @@
 // LEVEL: 1
 // DEPENDENCE: ../001
 // (Windows) EXEC: cd 001 && %cjpm run| compare %f
-// (CJNATIVE and not Windows and not MAC) EXEC: cd 001 && %cjpm run| compare %f
-// (CJNATIVE and MAC)  EXEC: cd 001 && %cjpm run| compare %f\
-// (CJNATIVE) ASSERT: scan 0
-// (CJNATIVE) ASSERT: regex I run on [Windows|Linux|Darwin]
-// (CJNATIVE) ASSERT: scan cjpm run finished
+// (not Windows and not MAC) EXEC: cd 001 && %cjpm run| compare %f
+// (MAC)  EXEC: cd 001 && %cjpm run| compare %f\
+// ASSERT: scan 0
+// ASSERT: regex I run on [Windows|Linux|Darwin]
+// ASSERT: scan cjpm run finished

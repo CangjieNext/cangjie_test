@@ -10,9 +10,7 @@
 
 package javaapp.my
 
-import interoplib.interop.*
-import java.lang.JObject
-import java.lang.JString
+import java.lang.*
 
 func useJString(_: JString) {}
 

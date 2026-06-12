@@ -10,18 +10,18 @@
 
 /* ===== Emitted by MacroCall @Test in debug_macro.cj:11:1 ===== */
 @Attribute[TEST_GENERATED] class A <: TestClass {
+    public override func asTestSuite(): TestSuite {
+        
+        let suiteConfiguration = classConfiguration()
+        let suiteBuilder = TestSuite.builder("A").configure(suiteConfiguration)
+        return suiteBuilder.build()
+    }
     init() {
     }
     private func classConfiguration(): Configuration {
         let configuration = Configuration()
         
         return configuration
-    }
-    public override func asTestSuite(): TestSuite {
-        
-        let suiteConfiguration = classConfiguration()
-        let suiteBuilder = TestSuite.builder("A").configure(suiteConfiguration)
-        return suiteBuilder.build()
     }
     private func inheritedFromClassAnnotatedByTestTemplate < T >(): TestSuite where T <: TestClass {
         throw Exception("Unreachable code")

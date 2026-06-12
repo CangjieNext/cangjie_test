@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // EXEC: %compiler %cmp_opt %f -o %output 
-// RUN_EXEC: %output
+// RUN-EXEC: %output
 
 open class Base0<T> {
     public open func foo() { }

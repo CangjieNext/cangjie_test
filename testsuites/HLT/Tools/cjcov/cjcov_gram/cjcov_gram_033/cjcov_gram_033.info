@@ -8,10 +8,8 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n ../../scripts/compare_html.py
-// (CJNATIVE) EXEC-PIPE: cd %n&& %compiler %compile_lib_opt p1/b.cj -o p1.o
-// (CJNATIVE) EXEC-PIPE: cd %n&& %compiler --coverage a.cj p1.o --int-overflow wrapping && ./main
-// (not CJNATIVE) EXEC-PIPE: cd %n&& %compiler --output-type=cbclib p1/b.cj -o p1.cbc
-// (not CJNATIVE) EXEC-PIPE: cd %n&& %compiler --coverage a.cj p1.pdba --int-overflow wrapping && cj --cbc-path ./ main.cbc
+// EXEC-PIPE: cd %n&& %compiler %compile_lib_opt p1/b.cj -o p1.o
+// EXEC-PIPE: cd %n&& %compiler --coverage a.cj p1.o --int-overflow wrapping && ./main
 // EXEC-PIPE: cd %n&& %cjcov --root=./ --html-details --output=html_output
 // EXEC-PIPE: python3 compare_html.py -b %n/refrence -d %n/html_output
 

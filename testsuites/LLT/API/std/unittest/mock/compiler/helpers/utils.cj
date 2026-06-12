@@ -230,12 +230,8 @@ class DummyCallHandler <: CallHandler {
         m.clear()
     }
 
-    public func requireMockObject<T>(obj: T): T {
-        if (obj is Mocked) {
-            return obj
-        } else {
-            throw NotAMockObjectException("Receiver of the function to stub is not a mock object")
-        }
+    public func throwNotAMockObject(): Nothing {
+        throw NotAMockObjectException("Receiver of the function to stub is not a mock object")
     }
 }
 

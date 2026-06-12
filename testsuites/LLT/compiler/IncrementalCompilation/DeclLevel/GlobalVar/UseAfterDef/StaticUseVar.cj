@@ -3,7 +3,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.old.cj
 // EXEC-PIPE-1: %compiler %incrementalCompile %noStackInfo %cmp_opt %n.old.cj -o %output -Woff unused 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 
 // ASSERT: scan 2 order changed decl(s).
 // ASSERT: scan order change 7default1AC3fooF$$

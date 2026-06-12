@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/lit_const_rune_expr.cj
 // (not Windows) EXEC: dos2unix lit_const_rune_expr.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -25,9 +32,21 @@ class Test {
         let expr = (nodes[0] as LitConstRuneExpr).getOrThrow()
         @Expect(expr.rawValue, "a")
         @Expect(expr.isSingleQuote, true)
-        @Expect(expr.toString(), "r'a'")
+        @Expect(expr.toString().replace("\r\n", "\n"), "r'a'")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         let pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 9]).toArray())
+    }
+
+    @TestCase
+    func testLitConstRuneExprInit() {
+        let expr = (nodes[0] as LitConstRuneExpr).getOrThrow()
+        let litConstRuneExpr = LitConstRuneExpr(expr.kind, expr.rawValue, expr.isSingleQuote)
+        @Expect(litConstRuneExpr.rawValue, "a")
+        @Expect(litConstRuneExpr.isSingleQuote, true)
+        @Expect(litConstRuneExpr.toString().replace("\r\n", "\n"), "r'a'")
+        let pos = litConstRuneExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 5]).toArray())
     }
 
     @TestCase
@@ -39,10 +58,3 @@ class Test {
     }
 }
 
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

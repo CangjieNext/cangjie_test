@@ -16,7 +16,6 @@
 
 package UNNAMED
 
-import interoplib.interop.*
 import java.lang.*
 
 @Annotation

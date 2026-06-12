@@ -9,7 +9,7 @@
 // EXEC: %cpfile %n.new.cj %n/%n.old.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension
 // EXEC: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o %output 2>&1
-// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // EXEC-1: %run %run_opt %output %run_args
 
 internal import p1.*

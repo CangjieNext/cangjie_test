@@ -48,3 +48,8 @@
     [target.aarch64-apple-darwin.bin-dependencies]
       path-option = ["./pro1/target/pro1"]
       package-option = {"pro1.xoo" = "./pro1/target/pro1/pro1.zoo.cjo", "pro1.yoo" = "./pro1/target/pro1/pro1.xoo.cjo", "pro1.zoo" = "./pro1/target/pro1/pro1.yoo.cjo"}
+
+  [target.aarch64-linux-ohos]
+    [target.aarch64-linux-ohos.bin-dependencies]
+      path-option = ["./pro1/target/pro1"]
+      package-option = {"pro1.xoo" = "./pro1/target/pro1/pro1.zoo.cjo", "pro1.yoo" = "./pro1/target/pro1/pro1.xoo.cjo", "pro1.zoo" = "./pro1/target/pro1/pro1.yoo.cjo"}

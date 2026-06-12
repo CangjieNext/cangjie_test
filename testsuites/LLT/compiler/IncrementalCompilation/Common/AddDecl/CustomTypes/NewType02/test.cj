@@ -4,7 +4,7 @@
 // EXEC: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
 // EXEC: %compiler %incrementalCompile %n.inc.cj -o %output 2>&1
-// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan changed decls to recompile: 4
 // ASSERT: scan the changed decl after Spreading is:E1 in file test.inc.cj in line 27 in column 5
 // ASSERT: scan the changed decl after Spreading is:E2 in file test.inc.cj in line 27 in column 10

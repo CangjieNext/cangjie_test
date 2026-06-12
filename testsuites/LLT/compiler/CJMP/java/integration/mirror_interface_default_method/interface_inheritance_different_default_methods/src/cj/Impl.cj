@@ -6,7 +6,6 @@
 
 package lib1
 
-import interoplib.interop.*
 import java.lang.*;
 
 import dom.java.lib.I0

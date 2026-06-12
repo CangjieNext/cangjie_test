@@ -6,7 +6,7 @@
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
 // EXEC: %compiler %incrementalCompile --compile-macro %n.old.cj 2>&1
-// EXEC: (cd .cached && %cat *.log) | compare %n.old.cj
+// EXEC: cat .cached/*.log | compare %n.old.cj
 // EXEC: %run_macro %compiler %incrementalCompile %cmp_opt %compile_exe_opt %macro_lib %f -o %output 2>&1 | compare %f
 
 // ASSERT: scan expect a plain macro 'M', but find an attributed one

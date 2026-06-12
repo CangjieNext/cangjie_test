@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %noStackInfo %cmp_opt %n.old.cj -o %output %compile_lib_opt
 // EXEC: %cpfile %n.new.cj %n.old.cj
 // EXEC-PIPE-1: %compiler %incrementalCompile %noStackInfo %cmp_opt %n.old.cj -o %output %compile_lib_opt 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan 1 order changed decl(s).
 // ASSERT: scan order change 7default1AC1AY
 

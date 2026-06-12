@@ -8,5 +8,5 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// ERRCHECK: cd %n && cjpm run -V 
+// ERRCHECK: cd %n && %cjpm run -V 
 // ASSERT: regex Error: splice type of environment variable 'PATH' in profile 'run' in .[/|\\]cjpm.toml can be only 'absent', 'replace', 'prepend' or 'append'

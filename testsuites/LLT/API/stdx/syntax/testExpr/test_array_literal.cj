@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/array_literal.cj
 // (not Windows) EXEC: dos2unix array_literal.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -24,10 +31,11 @@ class Test {
     func testArrayLiteral01() {
         let expr = (nodes[0] as ArrayLiteral).getOrThrow()
         @Expect(expr.elements.size, 3)
-        @Expect(expr.elements[0].toString(), "1")
-        @Expect(expr.elements[1].toString(), "2")
-        @Expect(expr.elements[2].toString(), "3")
-        @Expect(expr.toString(), "[1, 2, 3]")
+        @Expect(expr.elements[0].toString().replace("\r\n", "\n"), "1")
+        @Expect(expr.elements[1].toString().replace("\r\n", "\n"), "2")
+        @Expect(expr.elements[2].toString().replace("\r\n", "\n"), "3")
+        @Expect(expr.toString().replace("\r\n", "\n"), "[1, 2, 3]")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = expr.getLSquarePos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 6]).toArray())
         pos = expr.getRSquarePos()
@@ -44,15 +52,37 @@ class Test {
     func testArrayLiteral02() {
         let expr = (nodes[1] as ArrayLiteral).getOrThrow()
         @Expect(expr.elements.size, 2)
-        @Expect(expr.elements[0].toString(), "\"a\"")
-        @Expect(expr.elements[1].toString(), "\"b\"")
-        @Expect(expr.toString(), "[\"a\", \"b\"]")
+        @Expect(expr.elements[0].toString().replace("\r\n", "\n"), "\"a\"")
+        @Expect(expr.elements[1].toString().replace("\r\n", "\n"), "\"b\"")
+        @Expect(expr.toString().replace("\r\n", "\n"), "[\"a\", \"b\"]")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = expr.getLSquarePos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 6]).toArray())
         pos = expr.getRSquarePos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 14, 3, 15]).toArray())
         pos = expr.getCommasPos()[0]
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 9, 3, 10]).toArray())
+    }
+
+    @TestCase
+    func testArrayLiteralInit() {
+        let expr = (nodes[0] as ArrayLiteral).getOrThrow()
+        let arrayExpr = ArrayLiteral(expr.elements)
+        @Expect(arrayExpr.elements.size, 3)
+        @Expect(arrayExpr.elements[0].toString().replace("\r\n", "\n"), "1")
+        @Expect(arrayExpr.elements[1].toString().replace("\r\n", "\n"), "2")
+        @Expect(arrayExpr.elements[2].toString().replace("\r\n", "\n"), "3")
+        @Expect(arrayExpr.toString().replace("\r\n", "\n"), "[1, 2, 3]")
+        var pos = arrayExpr.getLSquarePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = arrayExpr.getRSquarePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 9, 1, 10]).toArray())
+        pos = arrayExpr.getCommasPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 4]).toArray())
+        pos = arrayExpr.getCommasPos()[1]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 6, 1, 7]).toArray())
+        pos = arrayExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 10]).toArray())
     }
 
     @TestCase
@@ -64,10 +94,3 @@ class Test {
     }
 }
 
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

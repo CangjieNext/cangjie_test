@@ -10,7 +10,7 @@
 // EXEC: %cpfile %n.new.cj %n/%n.old.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension
 // EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o out/%output 2>&1 | compare %n.diag.txt
-// EXEC: (cd out && cd .cached && %cat *.log) | compare %f
+// EXEC: cat out/.cached/*.log | compare %f
 
 // ASSERT: scan-not rollback
 // ASSERT: scan-not no change
@@ -19,7 +19,7 @@
 // EXEC: %rmfile %n/%n.old.cj
 // EXEC: %cpfile %n.3rd.cj %n/%n.old.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension
-// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o out/%output 2>&1 && (cd out && cd .cached && %cat *.log) | compare NoChange.expect
+// EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt %n.%lib_extension %f -o out/%output 2>&1 && cat out/.cached/*.log | compare NoChange.expect
 // EXEC-5: %run %run_opt out/%output %run_args
 
 internal import inc.*

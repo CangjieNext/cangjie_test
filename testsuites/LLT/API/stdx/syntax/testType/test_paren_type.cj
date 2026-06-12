@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/paren_type.cj
 // (not Windows) EXEC: dos2unix paren_type.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -24,8 +31,9 @@ class Test {
         let ty = (varDecl.tyAnnotation.getOrThrow() as ParenType).getOrThrow()
 
         @Expect(ty.subType is AtomicType)
-        @Expect(ty.subType.toString(), "Int16")
-        @Expect(ty.toString(), "(Int16)")
+        @Expect(ty.subType.toString().replace("\r\n", "\n"), "Int16")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(Int16)")
+        @Expect(ty.toTokens().toString().replace("\r\n", "\n"), "(Int16)")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 15]).toArray())
@@ -41,8 +49,8 @@ class Test {
         let ty = (varDecl.tyAnnotation.getOrThrow() as ParenType).getOrThrow()
 
         @Expect(ty.subType is PrefixType)
-        @Expect(ty.subType.toString(), "?Int16")
-        @Expect(ty.toString(), "(?Int16)")
+        @Expect(ty.subType.toString().replace("\r\n", "\n"), "?Int16")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(?Int16)")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 8, 3, 16]).toArray())
@@ -58,8 +66,8 @@ class Test {
         let ty = (varDecl.tyAnnotation.getOrThrow() as ParenType).getOrThrow()
 
         @Expect(ty.subType is ParenType)
-        @Expect(ty.subType.toString(), "((Int16, Int16))")
-        @Expect(ty.toString(), "(((Int16, Int16)))")
+        @Expect(ty.subType.toString().replace("\r\n", "\n"), "((Int16, Int16))")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(((Int16, Int16)))")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 8, 4, 26]).toArray())
@@ -74,7 +82,7 @@ class Test {
         let funcDecl = (decls[0] as FuncDecl).getOrThrow()
         let ty = (funcDecl.retTyAnnotation.getOrThrow() as ParenType).getOrThrow()
 
-        @Expect(ty.toString(), "(Int64)")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(Int64)")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 18, 1, 25]).toArray())
@@ -91,11 +99,23 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let varDecl = (decls[1] as VarDecl).getOrThrow()
+        let ty = (varDecl.tyAnnotation.getOrThrow() as ParenType).getOrThrow()
+        let parenType = ParenType(ty.subType)
+
+        @Expect(parenType.subType is AtomicType)
+        @Expect(parenType.subType.toString().replace("\r\n", "\n"), "Int16")
+        @Expect(parenType.toString().replace("\r\n", "\n"), "(Int16)")
+
+        var pos = parenType.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 8]).toArray())
+        pos = parenType.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = parenType.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 7, 1, 8]).toArray())
+    }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+

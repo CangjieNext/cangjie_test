@@ -4,11 +4,11 @@
 // EXEC: %mkdir dir1/inc
 // EXEC: %cpfile pkg.cj dir1/inc
 // EXEC: %cd dir1 && %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt --output-dir outputDir 2>&1
-// EXEC: (cd dir1 && cd outputDir && cd .cached && %cat *.log) | compare Fail.expect
+// (Linux)EXEC: cat dir1/outputDir/.cached/*.log | compare Fail.expect
 
 // EXEC: %cpdir dir1 dir2
 // EXEC: %cd dir2 && %compiler %cmp_opt %incrementalCompile -p inc %compile_lib_opt --output-dir outputDir 2>&1
-// EXEC: (cd dir2 && cd outputDir && cd .cached && %cat *.log) | compare NoChange.expect
+// (Linux)EXEC: cat dir2/outputDir/.cached/*.log | compare NoChange.expect
 
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

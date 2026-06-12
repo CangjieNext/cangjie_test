@@ -6,7 +6,6 @@
 
 // EXEC-PIPE-1: %compiler %cmp_opt --int-overflow=wrapping --static --dy-std %f -o %output 2>&1 | compare %f
 // ASSERT: scan options --static and --dy-std are mutually exclusive
-
 main() {
     try {
         throw Exception()

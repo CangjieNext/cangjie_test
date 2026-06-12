@@ -11,7 +11,7 @@
 // ASSERT:scan ExhaustedException: Remaining data is not enough, please increase -max_len=N
 // (CJNATIVE and Unix) EXEC-77: %set_stdx_path %run %set_stdx_path %run_opt %n.%suffix -max_len=1024
 // (CJNATIVE and Unix) EXEC-77: %set_stdx_path %run %set_stdx_path %run_opt %n.%suffix
-import stdx.fuzz.fuzz.*
+import stdx.fuzz.*
 
 main() {
     Fuzzer(ttt).startFuzz()

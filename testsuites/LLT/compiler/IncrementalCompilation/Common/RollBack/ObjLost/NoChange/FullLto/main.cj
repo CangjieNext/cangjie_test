@@ -3,7 +3,7 @@
 // (Linux)EXEC: %compiler %n.cj -Woff all %enableCompileDebug %incrementalCompile --output-type=staticlib --lto=full
 // (Linux)ERRORCHECK: ls .cached/*.o
 // (Linux)EXEC: %compiler %n.cj -Woff all %enableCompileDebug %incrementalCompile --output-type=staticlib --lto=full 2>&1
-// (Linux)EXEC: (cd .cached && %cat *.log) | compare %n.cj
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 
 public func foo (){}
 main () {}

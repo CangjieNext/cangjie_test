@@ -8,11 +8,13 @@
 
 package mp
 
-public specific class A<X, Y> {
+public specific class A {
     public specific init(){}
 }
 
-public specific class C<X, Y> where X <: A<(X, Y), (Y, X)>, Y <: A<(Y, X), (X, Y)> {
+public specific interface B {}
+
+public specific class Z<X, Y> where X <: A, Y <: B {
     public specific init(){}
     public specific func f1(): Int64 {
         1

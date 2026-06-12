@@ -10,7 +10,6 @@
 
 // info: checks that declaration order (mirror is before impl and vice versa) does not matter
 
-import interoplib.interop.*
 import java.lang.JObject
 
 @JavaMirror

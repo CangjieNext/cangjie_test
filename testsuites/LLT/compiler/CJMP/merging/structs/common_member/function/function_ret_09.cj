@@ -7,12 +7,12 @@
 // SEPARATE-FILE: c/c.cj
 // EXEC-PIPE-1: %compiler %diag_json --experimental c/c.cj --output-type=chir --output-dir ./c 2>&1 | compare %f
 // ASSERT: scan parse_common_function_must_have_return_type
+
 package cmp
 
 struct GeneralStruct {}
 
 common struct A {
-    common func testFunc() {
-        GeneralStruct()
-    }
+    common init() {}
+    common func testFunc()
 }

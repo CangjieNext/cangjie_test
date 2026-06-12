@@ -1,5 +1,5 @@
 // DEPENDENCE: %n.txt
-// EXEC: %compiler %optimization_level_2 %incrementalCompile %typecheck %n.cj -o %output && (cd .cached && %cat *.log) | compare %f
+// EXEC: %compiler %optimization_level_2 %incrementalCompile %typecheck %n.cj -o %output && cat .cached/*.log | compare %f
 // EXEC: %cpfile %n.txt %n.cj
 // EXEC: %compiler %optimization_level_2 %incrementalCompile %typecheck %n.cj -o %output 2>&1
 

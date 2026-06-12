@@ -6,7 +6,6 @@
 
 package cj
 
-import interoplib.interop.*
 import java.lang.*
 
 @JavaImpl["com.java.lib.Main"]

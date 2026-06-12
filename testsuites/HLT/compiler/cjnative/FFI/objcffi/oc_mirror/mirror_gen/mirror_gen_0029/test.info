@@ -14,7 +14,6 @@
 package cjworld
 
 import objc.foundation.NSObject
-import interoplib.objc.*
 import objc.lang.*
 
 @ObjCMirror

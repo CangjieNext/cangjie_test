@@ -11,7 +11,6 @@ package cj
  * DTS
  */
 
-import interoplib.interop.*
 import java.lang.*
 
 

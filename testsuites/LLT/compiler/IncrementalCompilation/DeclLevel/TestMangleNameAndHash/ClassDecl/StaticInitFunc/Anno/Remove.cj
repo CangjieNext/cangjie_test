@@ -5,7 +5,7 @@
 
 // EXEC: %cpfile %n.new.cj main.cj
 // EXEC-PIPE-1: %compiler -Woff all %noStackInfo %incrementalCompile %cmp_opt main.cj -o %output 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 
 // ASSERT: scan begin dump raw modified decls:
 // ASSERT: scan S 7default1SC main.cj 1:

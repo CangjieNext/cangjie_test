@@ -1,6 +1,7 @@
 // LEVEL: 0
-// EXEC: %compiler --disable-inst %f -o %output || true
-// ASSERT: scan disable instantiation, CHIR2 translation done.
+// EXEC-PIPE-1: %compiler %f -o %output 2>&1 | compare %f
+// ASSERT: scan the upper bound 'Int32' of generic parameter 'Generics-T2' must be class or interface
+// ASSERT: scan cannot convert an integer literal to type 'Generics-T2'
 
 var x: Int32 = 1
 func foo<T1, T2, T3>(a: T1) where T2 <: Int32 {

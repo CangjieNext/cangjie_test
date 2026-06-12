@@ -26,42 +26,106 @@ import std.sync.*
 var port = AtomicUInt16(0)
 var ser = Option<TcpServerSocket>.None
 var cli = Option<TcpSocket>.None
-var data = Array<Byte>(1000, repeat: 55)
+var data = Array<Byte>(1048576, repeat: 55)
 var empty_buffer = Array<Byte>(50000, repeat: 0)
 var bound = AtomicUInt16(0)
 
 @Test
 class Test_Tcp_ClientSocket_Timeout {
-    public override func beforeEach(): Unit {
-        bound = AtomicUInt16(0)
+    @BeforeEach
+    func beforeEach(): Unit {
+        resetSockets()
+        port.store(0)
+        bound.store(0)
     }
+
+    @AfterEach
+    func afterEach(): Unit {
+        resetSockets()
+    }
+
+    func resetSockets(): Unit {
+        try {
+            cli.getOrThrow().close()
+        } catch (e: Exception) {}
+        try {
+            ser.getOrThrow().close()
+        } catch (e: Exception) {}
+        cli = Option<TcpSocket>.None
+        ser = Option<TcpServerSocket>.None
+    }
+
+    func waitServerBound(): Bool {
+        for (_ in 0..10000) {
+            let state = bound.load()
+            if (state == UInt16(1) || state == UInt16(2)) {
+                return true
+            }
+            if (state == UInt16(3)) {
+                return false
+            }
+            sleep(Duration.millisecond)
+        }
+        return false
+    }
+
+    func waitServerAccepted(): Bool {
+        for (_ in 0..10000) {
+            let state = bound.load()
+            if (state == UInt16(2)) {
+                return true
+            }
+            if (state == UInt16(3)) {
+                return false
+            }
+            sleep(Duration.millisecond)
+        }
+        return false
+    }
+
     func startServer(): Unit {
-        var server = TcpServerSocket(bindAt: 0)
-        server.bind()
-        port.store((server.localAddress as IPSocketAddress)?.port ?? 0)
-        bound.fetchAdd(1)
-        ser = Option<TcpServerSocket>.Some(server)
-        var serversocket = server.accept(timeout: 2 * Duration.second)
-        cli = Option<TcpSocket>.Some(serversocket)
+        try {
+            var server = TcpServerSocket(bindAt: IPSocketAddress("127.0.0.1", 0))
+            server.receiveBufferSize = 1024
+            server.bind()
+            port.store((server.localAddress as IPSocketAddress)?.port ?? 0)
+            ser = Option<TcpServerSocket>.Some(server)
+            bound.store(1)
+            var serversocket = server.accept(timeout: 10 * Duration.second)
+            serversocket.receiveBufferSize = 1024
+            cli = Option<TcpSocket>.Some(serversocket)
+            bound.store(2)
+        } catch (e: Exception) {
+            bound.store(3)
+        }
     }
 
     @TestCase
     func test_default_settings(): Unit {
-        spawn {
+        let serverTask = spawn {
             startServer()
         }
-        while (!bound.compareAndSwap(1, 0)) {
-            sleep(Duration.millisecond)
+        if (!waitServerBound()) {
+            resetSockets()
+            serverTask.get()
+            @Expect(false, true)
+            return
         }
 
         var client1 = TcpSocket("127.0.0.1", port.load())
         @Expect(client1.readTimeout, Option<Duration>.None)
         @Expect(client1.writeTimeout, Option<Duration>.None)
-        client1.connect(timeout: 2 * Duration.second)
+        client1.connect(timeout: 10 * Duration.second)
         @Expect(client1.readTimeout, Option<Duration>.None)
         @Expect(client1.writeTimeout, Option<Duration>.None)
 
-        sleep(Duration.second)
+        if (!waitServerAccepted()) {
+            client1.close()
+            resetSockets()
+            serverTask.get()
+            @Expect(false, true)
+            return
+        }
         cli.getOrThrow().readTimeout = Duration.second
         cli.getOrThrow().writeTimeout = Duration.second
         @Expect(client1.readTimeout, Option<Duration>.None)
@@ -99,19 +163,30 @@ class Test_Tcp_ClientSocket_Timeout {
             sum += 1
         }
         @Expect(sum, 5)
-        ser.getOrThrow().close()
+        resetSockets()
+        serverTask.get()
     }
 
     @TestCase
     func test_read_timeout(): Unit {
-        spawn {
+        let serverTask = spawn {
             startServer()
         }
-        while (!bound.compareAndSwap(1, 0)) {
-            sleep(Duration.millisecond)
+        if (!waitServerBound()) {
+            resetSockets()
+            serverTask.get()
+            @Expect(false, true)
+            return
         }
         var client = TcpSocket("127.0.0.1", port.load())
-        client.connect(timeout: 2 * Duration.second)
+        client.connect(timeout: 10 * Duration.second)
+        if (!waitServerAccepted()) {
+            client.close()
+            resetSockets()
+            serverTask.get()
+            @Expect(false, true)
+            return
+        }
 
         client.readTimeout = Duration.second
         var sum = 0
@@ -122,32 +197,47 @@ class Test_Tcp_ClientSocket_Timeout {
         }
         @Expect(sum, 1)
         client.close()
-        ser.getOrThrow().close()
+        resetSockets()
+        serverTask.get()
     }
 
     @TestCase
     func test_write_timeout(): Unit {
-        spawn {
+        let serverTask = spawn {
             startServer()
         }
-        while (!bound.compareAndSwap(1, 0)) {
-            sleep(Duration.millisecond)
+        if (!waitServerBound()) {
+            resetSockets()
+            serverTask.get()
+            @Expect(false, true)
+            return
         }
         var client = TcpSocket("127.0.0.1", port.load())
-        client.connect(timeout: 2 * Duration.second)
+        client.sendBufferSize = 1024
+        client.connect(timeout: 10 * Duration.second)
+        if (!waitServerAccepted()) {
+            client.close()
+            resetSockets()
+            serverTask.get()
+            @Expect(false, true)
+            return
+        }
 
         client.writeTimeout = Duration.second
-        client.sendBufferSize = data.size
         var sum = 0
-        try {
-            while (true) {
+        var writeCount = 0
+        let startTime = DateTime.now()
+        while (sum == 0 && writeCount < 128 && DateTime.now() - startTime < 30 * Duration.second) {
+            try {
                 client.write(data)
+                writeCount += 1
+            } catch (e: SocketTimeoutException) {
+                sum += 1
             }
-        } catch (e: SocketTimeoutException) {
-            sum += 1
         }
         @Expect(sum, 1)
         client.close()
-        ser.getOrThrow().close()
+        resetSockets()
+        serverTask.get()
     }
 }

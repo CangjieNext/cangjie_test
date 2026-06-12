@@ -8,6 +8,5 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../004
-
-
-// EXEC: cd 004 && %cjpm test %cjpm_opt -V --cfg1 --cfg2 2>&1 | compare test_result.txt
+// EXEC: cd 004 && %cjpm test %cjpm_opt -V --cfg1 --cfg2 2>&1 | compare %f
+// ASSERT: scan cjpm test success

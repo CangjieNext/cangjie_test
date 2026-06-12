@@ -6,9 +6,7 @@
 
 package cj
 
-import interoplib.interop.*
-import java.lang.JObject
-import java.lang.JString
+import java.lang.*
 
 @JavaMirror["com.java.lib.JBase"]
 public open class JBase {

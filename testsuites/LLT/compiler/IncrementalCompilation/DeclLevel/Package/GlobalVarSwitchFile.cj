@@ -8,7 +8,7 @@
 // EXEC: %move %n.new.cj %n.old.cj
 // EXEC: %move %n.othernew.cj %n.otherold.cj
 // EXEC-PIPE-1: %compiler %incrementalCompile -Woff unused %cmp_opt %n.old.cj %n.otherold.cj -o %output 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan the changed decl after Spreading is:main in file GlobalVarSwitchFile.old.cj in line 5 in column 1
 // ASSERT: scan the changed decl after Spreading is:b in file GlobalVarSwitchFile.old.cj in line 6 in column 5

@@ -4,7 +4,7 @@
 // EXEC: %rmfile %n.old.cj
 // EXEC: %move %n.new.cj %n.old.cj
 // EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt %n.old.cj -o %output 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan C 7default1CC WithParent_AddParent_Full.old.cj 4: sig
 // ASSERT: scan changed decls to recompile: 2
 // ASSERT: scan the changed decl after Spreading is:C in file WithParent_AddParent_Full.old.cj in line 4 in column 7

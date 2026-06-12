@@ -16,7 +16,7 @@ error: function 'f' can not be abstract
    |
 */
 
-import interoplib.interop.*
+
 import java.lang.JObject
 
 @JavaMirror

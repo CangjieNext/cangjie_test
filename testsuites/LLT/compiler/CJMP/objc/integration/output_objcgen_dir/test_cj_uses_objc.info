@@ -1,0 +1,13 @@
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+// This source file is part of the Cangjie project, licensed under Apache-2.0
+// with Runtime Library Exception.
+//
+// See https://cangjie-lang.cn/pages/LICENSE for license information.
+-o out
+// (CJNATIVE and not Windows) DEPENDENCE: ../impl_methods
+// (CJNATIVE and not Windows) RUN-EXEC-0: %cd impl_methods && %compiler %compile_shared_lib_opt %overflowOpt -p src/cjworld %import_objc_interop --objc-interop-output-dir=testobjcgendir
+// (CJNATIVE and not Windows) EXEC-0: test -d impl_methods/testobjcgendir
+// (CJNATIVE and not Windows) EXEC-0: test -f impl_methods/testobjcgendir/Derived.h
+// (CJNATIVE and not Windows) EXEC-0: test -f impl_methods/testobjcgendir/Derived.m
+// (CJNATIVE and not Windows) EXEC-0: test -f impl_methods/testobjcgendir/ImplBox.h
+// (CJNATIVE and not Windows) EXEC-0: test -f impl_methods/testobjcgendir/ImplBox.m

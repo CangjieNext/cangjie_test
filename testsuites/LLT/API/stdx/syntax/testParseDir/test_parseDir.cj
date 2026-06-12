@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile
 // (not Windows) EXEC: dos2unix sourceFile/package1/test_file_input1.cj sourceFile/package1/test_file_input2.cj sourceFile/package2/test_file_input1.cj sourceFile/package2/test_file_input2.cj 
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -7,6 +14,22 @@ import stdx.syntax.*
 import std.fs.*
 import std.collection.ArrayList
 import std.regex.*
+
+@When[os != "Windows"]
+const NEWLINE = "\n"
+@When[os == "Windows"]
+const NEWLINE = "\r\n"
+
+func skipRedundancy(text: String): String {
+    var res = ""
+    for (i in 0..text.size) {
+        let cur = text[i..i + 1]
+        if (cur != "\n" && cur!= " " && cur != ";" && !(cur == "\r" && i < text.size - 1 && text[i + 1..i + 2] == "\n")) {
+            res += cur
+        }
+    }
+    return res
+}
 
 @Test
 class Test {
@@ -59,11 +82,11 @@ x: Bool,
             @Expect(val.nodePos.fileName, "")
             @Expect(val.nodePos.filePath, "")
             @Expect(val.srcFile[0].nodePos.fileName, "test_file_input1.cj")
-            @Expect(val.srcFile[0].nodePos.filePath.contains("/test_file_input1.cj"), true)
+            @Expect(val.srcFile[0].nodePos.filePath.contains("test_file_input1.cj"), true)
             pos = val.srcFile[0].nodePos
             @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 9, 2]).toArray())
             @Expect(val.srcFile[1].nodePos.fileName, "test_file_input2.cj")
-            @Expect(val.srcFile[1].nodePos.filePath.contains("/test_file_input2.cj"), true)
+            @Expect(val.srcFile[1].nodePos.filePath.contains("test_file_input2.cj"), true)
             pos = val.srcFile[1].nodePos
             @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 14, 2]).toArray())
         } else {
@@ -74,7 +97,8 @@ x: Bool,
     @TestCase
     func test02() {
         if (let Some(val) <- pkg) {
-            @Expect(val.toString(), packageStr)
+            @Expect(val.toString().replace("\r\n", "\n"), packageStr)
+            @Expect(skipRedundancy(val.toTokens().toString()), skipRedundancy(packageStr))
         } else {
             @Expect(false)
         }
@@ -92,7 +116,7 @@ x: Bool,
     @TestCase
     func testPkgFailed() {
         let filePath = "./sourceFile/package3/test_file_input1.cj"
-        var canPath: String = canonicalize(filePath).toString()
+        var canPath: String = canonicalize(filePath).toString().replace("\r\n", "\n")
         let r = Regex("(?:\u{001b})[[0-9]*m")
         let hint0 = """
  ==> {file_path_placeholder}:4:1:
@@ -119,10 +143,4 @@ x: Bool,
         }
     }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+

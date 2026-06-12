@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/type_conv_expr.cj
 // (not Windows) EXEC: dos2unix type_conv_expr.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -23,14 +30,15 @@ class Test {
     @TestCase
     func testTypeConvExpr01() {
         let expr = (nodes[0] as TypeConvExpr).getOrThrow()
-        @Expect(expr.srcVal.toString(), "32")
+        @Expect(expr.srcVal.toString().replace("\r\n", "\n"), "32")
         let targetTy = (expr.targetTypeAnnotation as TypeAnnotation).getOrThrow()
         let targetType = (targetTy as AtomicType).getOrThrow()
         match (targetType.kind) {
             case Int8Type => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), "Int8(32)")
+        @Expect(expr.toString().replace("\r\n", "\n"), "Int8(32)")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 13]).toArray())
@@ -47,12 +55,26 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[0] as TypeConvExpr).getOrThrow()
+        let expr = TypeConvExpr(tmp.srcVal, tmp.targetTypeAnnotation)
+        @Expect(expr.srcVal.toString().replace("\r\n", "\n"), "32")
+        let targetTy = (expr.targetTypeAnnotation as TypeAnnotation).getOrThrow()
+        let targetType = (targetTy as AtomicType).getOrThrow()
+        match (targetType.kind) {
+            case Int8Type => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(expr.toString().replace("\r\n", "\n"), "Int8(32)")
+
+        var pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 9]).toArray())
+        pos = expr.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 5, 1, 6]).toArray())
+        pos = expr.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 9]).toArray())
+    }
 }
 
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

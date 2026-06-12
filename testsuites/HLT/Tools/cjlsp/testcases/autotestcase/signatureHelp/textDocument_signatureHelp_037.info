@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":561,"jsonrpc":"2.0","result":{"activeParameter":1,"activeSignature":0,"signatures":[{"label":"h(lam: (Class-U2) -> Class-S1) -> S1","parameters":[{"label":"lam: (Class-U2) -> Class-S1"}]}]}}
+{"id":561,"jsonrpc":"2.0","result":{"activeParameter":1,"activeSignature":0,"signatures":[{"label":"h(lam: (U2) -> S1) -> S1","parameters":[{"label":"lam: (U2) -> S1"}]}]}}

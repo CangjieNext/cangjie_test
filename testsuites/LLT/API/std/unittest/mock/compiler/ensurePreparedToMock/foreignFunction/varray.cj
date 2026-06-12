@@ -48,7 +48,7 @@ func test_varray3() {
 }
 
 // FIXME
-// Problem is related to mick framework with `inout` modifier
+// Problem is related to mock framework with `inout` modifier
 // @Test
 // func test_varray4() {
 //     var a: VArray<Int64, $3> = [1, 2, 3]

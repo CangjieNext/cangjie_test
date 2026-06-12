@@ -11,4 +11,4 @@
   version = "1.0.0"
   output-type = "dynamic"
   include = ["cjpm.lock"]
-  exclude = ["b.toml"]
+  exclude = ["./test/b.toml"]

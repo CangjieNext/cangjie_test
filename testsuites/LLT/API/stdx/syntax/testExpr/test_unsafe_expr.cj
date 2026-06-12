@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/unsafe_expr.cj
 // (not Windows) EXEC: dos2unix unsafe_expr.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -21,7 +28,7 @@ class Test {
     }
 
     @TestCase
-    func testCallExpr01() {
+    func testUnsafeExpr01() {
         var expr = (nodes[0] as UnsafeExpr).getOrThrow()
         var pos = expr.getUnsafePos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 11]).toArray())
@@ -29,12 +36,34 @@ class Test {
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 14]).toArray())
         let expr1 = (nodes[1] as SubscriptExpr).getOrThrow()
         let expr2 = (expr1.base as UnsafeExpr).getOrThrow()
-        @Expect(expr2.toString(), "unsafe { data.rawData() }")
-        @Expect(expr2.block.toString(), "{ data.rawData() }")
+        @Expect(expr2.toString().replace("\r\n", "\n"), "unsafe { data.rawData() }")
+        @Expect(parseTokens(expr2.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr2.toString().replace("\r\n", "\n"))
+        @Expect(expr2.block.toString().replace("\r\n", "\n"), "{ data.rawData() }")
         pos = expr2.getUnsafePos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 11]).toArray())
         pos = expr2.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 30]).toArray())
+        
+    }
+
+    @TestCase
+    func testUnsafeExprInit() {
+        var expr = (nodes[0] as UnsafeExpr).getOrThrow()
+        var unsafeExpr = UnsafeExpr(expr.block)
+
+        var pos = unsafeExpr.getUnsafePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
+        pos = unsafeExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 10]).toArray())
+        let expr1 = (nodes[1] as SubscriptExpr).getOrThrow()
+        let expr2 = (expr1.base as UnsafeExpr).getOrThrow()
+        unsafeExpr = UnsafeExpr(expr2.block)
+        @Expect(unsafeExpr.toString().replace("\r\n", "\n"), "unsafe { data.rawData() }")
+        @Expect(unsafeExpr.block.toString().replace("\r\n", "\n"), "{ data.rawData() }")
+        pos = unsafeExpr.getUnsafePos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
+        pos = unsafeExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 26]).toArray())
         
     }
 
@@ -47,10 +76,3 @@ class Test {
     }
 }
 
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

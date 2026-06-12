@@ -6,7 +6,7 @@
 
 package java.cj.mirrors
 
-import interoplib.interop.*
+import java.lang.*
 
 @JavaImpl["java.cj.mirrors.String"]
 public class JString <: Obj {

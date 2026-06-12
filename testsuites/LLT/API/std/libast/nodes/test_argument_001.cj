@@ -34,6 +34,13 @@ class TestA {
         let expected = quote(@CallingConv[test, value])
         @Expect(compareTokens(expected, anno.toTokens()))
     }
+
+    @TestCase
+    public func exceptionCase(): Unit {
+        let arg = Argument()
+        @ExpectThrows[ASTException](arg.identifier = Token(BREAK))
+        @ExpectThrows[ASTException](arg.identifier = Token(IDENTIFIER, ""))
+    }
 }
 /*
  * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

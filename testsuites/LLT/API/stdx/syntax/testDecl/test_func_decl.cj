@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/func_decl.cj
 // (not Windows) EXEC: dos2unix func_decl.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -26,7 +33,7 @@ class Test {
         let funcDecl = (file.getOrThrow().topLevelDecls[0] as FuncDecl).getOrThrow()
         @Expect(funcDecl.name, "b")
         let paramList = funcDecl.params
-        @Expect(paramList.toString(), "(param1: Int64)")
+        @Expect(paramList.toString().replace("\r\n", "\n"), "(param1: Int64)")
         @Expect(paramList.params.size, 1)
         let param = (paramList.params[0] as FuncParam).getOrThrow()
         @Expect(param.name, "param1")
@@ -69,6 +76,7 @@ class Test {
         @Expect(body.nodes.size, 3)
         @Expect((body.nodes[0] as LitConstExpr).getOrThrow().rawValue, "1")
         @Expect((body.nodes[2] as LitConstExpr).getOrThrow().rawValue, "a")
+        @Expect(parseTokens(funcDecl.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), funcDecl.toString().replace("\r\n", "\n"))
     }
 
     @TestCase
@@ -80,13 +88,13 @@ class Test {
         @Expect(decl.params.params.size, 0)
         @Expect(decl.retTyAnnotation.isNone())
         if (let Some(body) <- decl.body) {
-            @Expect(body.toString(), "{}")
+            @Expect(body.toString().replace("\r\n", "\n"), "{}")
         }
         match (decl.kind) {
             case PrimaryConstructor => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(decl.toString(), "public A() {}")
+        @Expect(decl.toString().replace("\r\n", "\n"), "public A() {}")
         var pos = decl.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([8, 5, 8, 18]).toArray())
         @Expect(decl.getFuncKindKeyWordPos().isNone(), true)
@@ -106,7 +114,7 @@ class Test {
         @Expect(decl.params.params.size, 1)
         @Expect(decl.retTyAnnotation.isNone())
         if (let Some(body) <- decl.body) {
-            @Expect(body.toString(), """
+            @Expect(body.toString().replace("\r\n", "\n"), """
 {
         println(a)
     }""")
@@ -115,7 +123,7 @@ class Test {
             case Constructor => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 public init(a: A) {
         println(a)
     }""")
@@ -137,10 +145,10 @@ public init(a: A) {
         @Expect(decl.genericConstraints.isNone())
         @Expect(decl.params.params.size, 1)
         if (let Some(retTyAnnotation) <- decl.retTyAnnotation) {
-            @Expect(retTyAnnotation.toString(), "A")
+            @Expect(retTyAnnotation.toString().replace("\r\n", "\n"), "A")
         }
         if (let Some(body) <- decl.body) {
-            @Expect(body.toString(), """
+            @Expect(body.toString().replace("\r\n", "\n"), """
 {
         right
     }""")
@@ -149,7 +157,7 @@ public init(a: A) {
             case Operator => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(decl.toString(), """
+        @Expect(decl.toString().replace("\r\n", "\n"), """
 public operator func +(right: A): A {
         right
     }""")
@@ -175,7 +183,7 @@ public operator func +(right: A): A {
         @Expect(decl.genericConstraints.isNone())
         @Expect(decl.params.params.size, 0)
         if (let Some(body) <- decl.body) {
-            @Expect(body.toString(), "{}")
+            @Expect(body.toString().replace("\r\n", "\n"), "{}")
         }
         @Expect(decl.modifiers.size, 2)
         match (decl.modifiers[0].kind) {
@@ -190,7 +198,7 @@ public operator func +(right: A): A {
             case Normal => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(decl.toString(), "public open func function(): Unit {}")
+        @Expect(decl.toString().replace("\r\n", "\n"), "public open func function(): Unit {}")
     }
 
     @TestCase
@@ -203,13 +211,13 @@ public operator func +(right: A): A {
         @Expect(paramList.params.size, 0)
         @Expect(decl.retTyAnnotation.isNone())
         if (let Some(body) <- decl.body) {
-            @Expect(body.toString(), "{}")
+            @Expect(body.toString().replace("\r\n", "\n"), "{}")
         }
         match (decl.kind) {
             case Finalizer => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(decl.toString(), "~ init() {}")
+        @Expect(decl.toString().replace("\r\n", "\n"), "~ init() {}")
         var pos = decl.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([17, 5, 17, 16]).toArray())
         pos = decl.getFuncKindKeyWordPos().getOrThrow()
@@ -241,8 +249,8 @@ public operator func +(right: A): A {
         }
         let genericConstraints = funcDecl.genericConstraints.getOrThrow()
         @Expect(genericConstraints.constraints.size, 2)
-        @Expect(genericConstraints.constraints[0].toString(), "T <: A<S>")
-        @Expect(genericConstraints.constraints[1].toString(), "S <: ToString & B")
+        @Expect(genericConstraints.constraints[0].toString().replace("\r\n", "\n"), "T <: A<S>")
+        @Expect(genericConstraints.constraints[1].toString().replace("\r\n", "\n"), "S <: ToString & B")
 
         var pos = genericConstraints.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([20, 36, 20, 70]).toArray())
@@ -259,7 +267,7 @@ public operator func +(right: A): A {
 
         let body = funcDecl.body.getOrThrow()
         @Expect(body.nodes.size, 0)
-        @Expect(funcDecl.toString(), "func c<T, S>(param1: Int64): Int64 where T <: A<S>, S <: ToString & B {}")
+        @Expect(funcDecl.toString().replace("\r\n", "\n"), "func c<T, S>(param1: Int64): Int64 where T <: A<S>, S <: ToString & B {}")
     }
 
     @TestCase
@@ -273,8 +281,8 @@ public operator func +(right: A): A {
         }
         let body = funcDecl.body.getOrThrow()
         @Expect(body.nodes.size, 1)
-        @Expect((body.nodes[0] as UnsafeExpr).getOrThrow().toString(), "unsafe {println()}")
-        @Expect(funcDecl.toString(), """
+        @Expect((body.nodes[0] as UnsafeExpr).getOrThrow().toString().replace("\r\n", "\n"), "unsafe {println()}")
+        @Expect(funcDecl.toString().replace("\r\n", "\n"), """
 func a() {
     unsafe {println()}
 }""")
@@ -288,7 +296,7 @@ func a() {
             case _ => @FailExpect("kind wrong")
         }
         @Expect(funcDecl.name, "foo")
-        @Expect(funcDecl.params.toString(), "()")
+        @Expect(funcDecl.params.toString().replace("\r\n", "\n"), "()")
 
         var pos = funcDecl.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([26, 1, 26, 26]).toArray())
@@ -308,7 +316,7 @@ func a() {
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([26, 19, 26, 20]).toArray())
         pos = funcDecl.retTyAnnotation.getOrThrow().nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([26, 21, 26, 26]).toArray())
-        @Expect(funcDecl.toString(), """
+        @Expect(funcDecl.toString().replace("\r\n", "\n"), """
 foreign func foo(): Int64""")
     }
 
@@ -321,7 +329,7 @@ foreign func foo(): Int64""")
         }
         @Expect(funcDecl.name, "func_1")
         @Expect(funcDecl.modifiers.size, 1)
-        @Expect(funcDecl.modifiers.toString(), "[const]")
+        @Expect(funcDecl.modifiers.toString().replace("\r\n", "\n"), "[const]")
 
         var pos = funcDecl.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([28, 1, 28, 23]).toArray())
@@ -333,7 +341,7 @@ foreign func foo(): Int64""")
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([28, 18, 28, 19]).toArray())
         pos = funcDecl.params.getParamsRParenPos().getOrThrow()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([28, 19, 28, 20]).toArray())
-        @Expect(funcDecl.toString(), "const func func_1() {}")
+        @Expect(funcDecl.toString().replace("\r\n", "\n"), "const func func_1() {}")
     }
 
     @TestCase
@@ -344,7 +352,7 @@ foreign func foo(): Int64""")
 
         @Expect(decl.name, "init")
         @Expect(decl.modifiers.size, 1)
-        @Expect(decl.modifiers.toString(), "[const]")
+        @Expect(decl.modifiers.toString().replace("\r\n", "\n"), "[const]")
 
         var pos = decl.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([31, 5, 33, 6]).toArray())
@@ -354,9 +362,245 @@ foreign func foo(): Int64""")
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([31, 5, 31, 10]).toArray())
         pos = decl.getIdentifierPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([31, 11, 31, 15]).toArray())
-        @Expect(decl.toString(), ##"const init(b: B) {
+        @Expect(decl.toString().replace("\r\n", "\n"), ##"const init(b: B) {
         println(b)
     }"##)
+    }
+
+    @TestCase
+    func TestFuncDeclInit01(): Unit {
+        let decl = (file.getOrThrow().topLevelDecls[0] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "b")
+        let paramList = funcDecl.params
+        @Expect(paramList.toString().replace("\r\n", "\n"), "(param1: Int64)")
+        @Expect(paramList.params.size, 1)
+        let param = (paramList.params[0] as FuncParam).getOrThrow()
+        @Expect(param.name, "param1")
+        match (funcDecl.kind) {
+            case Normal => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let retTy = (funcDecl.retTyAnnotation).getOrThrow()
+        let retType = (retTy as AtomicType).getOrThrow()
+        match (retType.kind) {
+            case Int64Type => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let body = funcDecl.body.getOrThrow()
+        @Expect(body.nodes.size, 3)
+        @Expect((body.nodes[0] as LitConstExpr).getOrThrow().rawValue, "1")
+        @Expect((body.nodes[2] as LitConstExpr).getOrThrow().rawValue, "a")
+    }
+
+    @TestCase
+    func TestFuncDeclInit02(): Unit {
+        let classDecl = (file.getOrThrow().topLevelDecls[6] as ClassDecl).getOrThrow()
+        let decls = classDecl.body.memberDecls
+        let decl = (decls[0] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "init")
+        @Expect(funcDecl.modifiers.size, 1)
+        @Expect(funcDecl.modifiers.toString().replace("\r\n", "\n"), "[const]")
+
+        @Expect(funcDecl.toString().replace("\r\n", "\n"), ##"const init(b: B) {
+        println(b)
+    }"##)
+    }
+
+        @TestCase
+    func TestFuncDeclInit03(): Unit {
+        let decl = (decls[0] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "A")
+        @Expect(funcDecl.genericParams.size, 0)
+        @Expect(funcDecl.genericConstraints.isNone())
+        @Expect(funcDecl.params.params.size, 0)
+        @Expect(funcDecl.retTyAnnotation.isNone())
+        if (let Some(body) <- funcDecl.body) {
+            @Expect(body.toString().replace("\r\n", "\n"), "{}")
+        }
+        match (funcDecl.kind) {
+            case PrimaryConstructor => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.toString().replace("\r\n", "\n"), "public A() {}")
+    }
+
+    @TestCase
+    func TestFuncDeclInit04(): Unit {
+        let decl = (decls[1] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "init")
+        @Expect(funcDecl.genericParams.size, 0)
+        @Expect(funcDecl.genericConstraints.isNone())
+        @Expect(funcDecl.params.params.size, 1)
+        @Expect(funcDecl.retTyAnnotation.isNone())
+        if (let Some(body) <- funcDecl.body) {
+            @Expect(body.toString().replace("\r\n", "\n"), """
+{
+        println(a)
+    }""")
+        }
+        match (funcDecl.kind) {
+            case Constructor => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.toString().replace("\r\n", "\n"), """
+public init(a: A) {
+        println(a)
+    }""")
+    }
+
+    @TestCase
+    func TestFuncDeclInit05(): Unit {
+        let decl = (decls[2] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "+")
+        @Expect(funcDecl.genericParams.size, 0)
+        @Expect(funcDecl.genericConstraints.isNone())
+        @Expect(funcDecl.params.params.size, 1)
+        if (let Some(retTyAnnotation) <- funcDecl.retTyAnnotation) {
+            @Expect(retTyAnnotation.toString().replace("\r\n", "\n"), "A")
+        }
+        if (let Some(body) <- funcDecl.body) {
+            @Expect(body.toString().replace("\r\n", "\n"), """
+{
+        right
+    }""")
+        }
+        match (funcDecl.kind) {
+            case Operator => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.toString().replace("\r\n", "\n"), """
+public operator func +(right: A): A {
+        right
+    }""")
+    }
+
+    @TestCase
+    func TestFuncDeclInit06(): Unit {
+        let decl = (decls[3] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "function")
+        @Expect(funcDecl.genericParams.size, 0)
+        @Expect(funcDecl.genericConstraints.isNone())
+        @Expect(funcDecl.params.params.size, 0)
+        if (let Some(body) <- funcDecl.body) {
+            @Expect(body.toString().replace("\r\n", "\n"), "{}")
+        }
+        @Expect(funcDecl.modifiers.size, 2)
+        match (funcDecl.modifiers[0].kind) {
+            case Public => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        match (funcDecl.modifiers[1].kind) {
+            case Open => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        match (funcDecl.kind) {
+            case Normal => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.toString().replace("\r\n", "\n"), "public open func function(): Unit {}")
+    }
+
+    @TestCase
+    func TestFuncDeclInit07(): Unit {
+        let decl = (decls[4] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        let paramList = decl.params
+        @Expect(funcDecl.name, "~init")
+        @Expect(funcDecl.genericParams.size, 0)
+        @Expect(funcDecl.genericConstraints.isNone())
+        @Expect(paramList.params.size, 0)
+        @Expect(funcDecl.retTyAnnotation.isNone())
+        if (let Some(body) <- funcDecl.body) {
+            @Expect(body.toString().replace("\r\n", "\n"), "{}")
+        }
+        match (funcDecl.kind) {
+            case Finalizer => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.toString().replace("\r\n", "\n"), "~init() {}")
+    }
+
+    @TestCase
+    func TestFuncDeclInit08(): Unit {
+        let decl = (file.getOrThrow().topLevelDecls[2] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        @Expect(funcDecl.name, "c")
+        let paramList = funcDecl.params
+        @Expect(paramList.params.size, 1)
+        @Expect((paramList.params[0] as FuncParam).getOrThrow().name, "param1")
+        match (funcDecl.kind) {
+            case Normal => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let retTy = (funcDecl.retTyAnnotation).getOrThrow()
+        let retType = (retTy as AtomicType).getOrThrow()
+        match (retType.kind) {
+            case Int64Type => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        let genericConstraints = funcDecl.genericConstraints.getOrThrow()
+        @Expect(genericConstraints.constraints.size, 2)
+        @Expect(genericConstraints.constraints[0].toString().replace("\r\n", "\n"), "T <: A<S>")
+        @Expect(genericConstraints.constraints[1].toString().replace("\r\n", "\n"), "S <: ToString & B")
+
+        let body = funcDecl.body.getOrThrow()
+        @Expect(body.nodes.size, 0)
+        @Expect(funcDecl.toString().replace("\r\n", "\n"), "func c<T, S>(param1: Int64): Int64 where T <: A<S>, S <: ToString & B {}")
+    }
+
+    @TestCase
+    func TestFuncDeclInit09(): Unit {
+        let decl = (file.getOrThrow().topLevelDecls[4] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        match (funcDecl.kind) {
+            case Foreign => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.name, "foo")
+        @Expect(funcDecl.params.toString().replace("\r\n", "\n"), "()")
+
+        @Expect(funcDecl.toString().replace("\r\n", "\n"), "foreign func foo(): Int64")
+    }
+
+    @TestCase
+    func TestFuncDeclInit10(): Unit {
+        let decl = (file.getOrThrow().topLevelDecls[5] as FuncDecl).getOrThrow()
+        let funcDecl = FuncDecl(decl.body, decl.genericConstraints, 
+                                decl.genericParams, decl.kind, decl.name, decl.params, decl.retTyAnnotation, annotations: decl.annotations, modifiers: decl.modifiers)
+        match (funcDecl.kind) {
+            case Normal => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(funcDecl.name, "func_1")
+        @Expect(funcDecl.modifiers.size, 1)
+        @Expect(funcDecl.modifiers.toString().replace("\r\n", "\n"), "[const]")
+
+        var pos = funcDecl.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 23]).toArray())
+        pos = funcDecl.getFuncKeyWordPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 7, 1, 11]).toArray())
+        pos = funcDecl.getIdentifierPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 12, 1, 18]).toArray())
+        pos = funcDecl.params.getParamsLParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 18, 1, 19]).toArray())
+        pos = funcDecl.params.getParamsRParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 19, 1, 20]).toArray())
+        @Expect(funcDecl.toString().replace("\r\n", "\n"), "const func func_1() {}")
     }
 
     @TestCase
@@ -368,10 +612,3 @@ foreign func foo(): Int64""")
     }
 }
 
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

@@ -7,7 +7,7 @@
 // EXEC-1: %run %run_opt out/%output %run_args
 
 // EXEC: %cpfile %n.txt %n.cj
-// EXEC: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o out/%output 2>&1 && (cd out && cd .cached && %cat *.log) | compare %f
+// EXEC: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o out/%output 2>&1 && cat out/.cached/*.log | compare %f
 // EXEC-1: %run %run_opt out/%output %run_args
 
 // ASSERT: scan-not the changed decl after Spreading is:main

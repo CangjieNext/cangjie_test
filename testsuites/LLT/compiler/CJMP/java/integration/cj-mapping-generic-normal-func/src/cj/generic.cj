@@ -1,6 +1,6 @@
 package genericClass
 
-import interoplib.interop.*
+import java.lang.*
 
 public class GenericClass<T> {
 

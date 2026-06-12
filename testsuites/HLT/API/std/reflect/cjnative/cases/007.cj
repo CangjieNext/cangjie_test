@@ -7,9 +7,9 @@
  */
 
 // LEVEL: 2
-// (not MAC) EXEC: %compiler %cmp_opt %f -o %output
-// (not MAC) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
-// (not MAC) ASSERT: scan IllegalSetException: Attempt to modify immutable property 'p'
+// (!(target_mac | target_ios | target_ios_simulator)) EXEC: %compiler %cmp_opt %f -o %output
+// (!(target_mac | target_ios | target_ios_simulator)) RUN-EXEC-PIPE-1: %run %run_opt %output %run_args 2>&1 | compare %f
+// (!(target_mac | target_ios | target_ios_simulator)) ASSERT: scan IllegalSetException: Attempt to modify immutable property 'p'
 // 如果该实例成员属性信息所对应的实例成员属性不可修改，则会抛出 `IllegalSetException` 异常。
 
 import std.reflect.*

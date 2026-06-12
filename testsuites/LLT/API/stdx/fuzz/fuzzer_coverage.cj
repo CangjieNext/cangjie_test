@@ -14,7 +14,7 @@
 // ASSERT: regex COVERED_FUNC: hits: \d+ edges: \d+/\d+ ttt .+\/fuzzer_coverage.cj:\d+
 // ASSERT: regex UNCOVERED_FUNC: hits: 0 edges: 0/\d+ main .+\/fuzzer_coverage.cj:\d+
 
-import stdx.fuzz.fuzz.*
+import stdx.fuzz.*
 
 main() {
     Fuzzer(ttt).startFuzz()

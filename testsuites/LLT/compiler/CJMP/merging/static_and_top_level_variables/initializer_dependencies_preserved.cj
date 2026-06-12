@@ -35,7 +35,7 @@ public let x4 = f4()
 // c3 -> c1, x2
 
 // SEPARATE-FILE: p/p_invalid_1.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p_invalid_1.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p_invalid_1.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 
 // INVALID: c1 -> x2
@@ -47,7 +47,7 @@ error: p_invalid_1.cj and c.cj might have file circular dependency
 */
 
 // SEPARATE-FILE: p/p_invalid_2.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p_invalid_2.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p_invalid_2.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 
 // INVALID: c1 -> x2
@@ -59,7 +59,7 @@ error: p_invalid_2.cj and c.cj might have file circular dependency
 */
 
 // SEPARATE-FILE: p/p_invalid_3.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p_invalid_3.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p_invalid_3.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 
 public specific let c1: Int = x2
@@ -73,7 +73,7 @@ error: p_invalid_3.cj and c.cj might have file circular dependency
 */
 
 // SEPARATE-FILE: p/p_invalid_4.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p_invalid_4.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p_invalid_4.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p 2>&1 | compare %f
 package cmp
 
 // INVALID:
@@ -87,7 +87,7 @@ error: p_invalid_4.cj and c.cj might have file circular dependency
 */
 
 // SEPARATE-FILE: p/p_valid_1.cj
-// EXEC-0: %compiler %noColor --experimental p/p_valid_1.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
+// EXEC-0: %compiler %noColor --experimental p/p_valid_1.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
 // VALID: c3 -> c1
@@ -97,7 +97,7 @@ public specific let c3: Int = c1
 // REMOVED: c3 -> x2 (it's okay)
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
+// EXEC-0: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib --output-dir ./p
 package cmp
 
 public specific let c3: Int = 42
@@ -106,7 +106,7 @@ public specific let c1: Int = c3 + 48
 
 // SEPARATE-FILE: m_common.cj
 // EXEC-0: %compiler %noColor m_common.cj --import-path=./c -L./p -lcmp -o %output
-// (LLVM and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
+// (CJNATIVE and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
 import cmp.*
 
 main(): Unit {
@@ -125,7 +125,7 @@ main(): Unit {
 
 // SEPARATE-FILE: m_platform.cj
 // EXEC-0: %compiler %noColor m_platform.cj --import-path=./p -L./p -lcmp -o %output
-// (LLVM and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
+// (CJNATIVE and Linux)EXEC-PIPE: LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./p %run %output 2>&1 | compare %f
 import cmp.*
 
 main(): Unit {

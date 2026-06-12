@@ -24,38 +24,38 @@ public class Impl extends MyObject {
 
     public Impl() {
         super(superC0A0());
-        self = initCJObject();
+        initCJObject();
     }
 
     private Impl($$NativeConstructorMarker __init__) {
         super(superC0A0());
     }
 
-    public native long initCJObject();
+    private native void initCJObject();
 
     public static native long superC0A0();
     public Impl(long value) {
         super(superC1A0P0(value));
-        self = initCJObjectl(value);
+        initCJObjectl(value);
     }
 
     private Impl(long value, $$NativeConstructorMarker __init__) {
         super(superC1A0P0(value));
     }
 
-    public native long initCJObjectl(long value);
+    private native void initCJObjectl(long value);
 
     public static native MyObject superC1A0P0(long value);
     public Impl(long x, long y) {
         super(superC2A0P0P1(x, y));
-        self = initCJObjectll(x, y);
+        initCJObjectll(x, y);
     }
 
     private Impl(long x, long y, $$NativeConstructorMarker __init__) {
         super(superC2A0P0P1(x, y));
     }
 
-    public native long initCJObjectll(long x, long y);
+    private native void initCJObjectll(long x, long y);
 
     public static native Impl superC2A0P0P1(long x, long y);
     @Override
@@ -111,5 +111,3 @@ public class Impl <: MyObject {
         super(Impl(x * y))
     }
 }
-
-

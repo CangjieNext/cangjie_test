@@ -18,7 +18,7 @@
 import mp.*
 
 main(): Int64 {
-    var a = C<A<Int64,Bool>,A<Int64,Bool>>()
+    var a = Z<A, B>()
     var b = a.f1()
     0
 }

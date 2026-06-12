@@ -38,7 +38,7 @@ main(): Int64 {
     return 0
 }
 
-/* SCAN-IN
+/* SCAN
 Cannot construct the 'Program' node.
 Program {
   -featuresDirective: FeaturesDirective {

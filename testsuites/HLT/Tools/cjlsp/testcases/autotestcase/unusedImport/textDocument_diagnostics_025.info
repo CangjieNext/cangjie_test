@@ -18,4 +18,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[],"uri":"unusedImport/src/unused_import/pkg25/unused_import_25.cj"}}
+{"jsonrpc": "2.0","method": "textDocument/publishDiagnostics","params": {"diagnostics": [{"code": 0,"message": "Function 'f25' is declared but never used","range": {"end": {"character": 8,"line": 14},"start": {"character": 5,"line": 14}},"severity": 4,"source": "Cangjie","tags": [1]}],"uri": "unusedImport/src/unused_import/pkg25/unused_import_25.cj"}}

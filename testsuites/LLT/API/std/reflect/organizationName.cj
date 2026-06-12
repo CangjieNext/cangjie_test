@@ -5,7 +5,9 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
-
+// DEPENDENCE: ./organization
+// (CJNATIVE) EXEC: cd organization/withOrg && cjpm build
+// (CJNATIVE) EXEC: cd organization/noOrg && cjpm build
 // (CJNATIVE) EXEC: %compiler -Woff all %cmp_opt %f -g -o %output %cmp_utest_opt
 // (CJNATIVE) RUN-EXEC-PIPE-0: %run %run_opt %output %run_utest_opt %run_args 2>&1
 
@@ -29,7 +31,17 @@ public class F {
 
 @Test
 class TestOrganizationName {
-    @Skip
+    @TestCase
+    func testNoOrganizationName() {
+        let info = PackageInfo.load("organization/noOrg/target/release/myPkg2/libmyPkg2.so")
+        @Expect(info.organizationName, "")
+    }
+    @TestCase
+    func testWithOrganizationName() {
+        let info = PackageInfo.load("organization/withOrg/target/release/myPkg@myOrg/libmyPkg@myOrg.so")
+        @Expect(info.organizationName, "myOrg")
+    }
+
     @TestCase
     func testQualifiedName() {
         @Assert(ClassTypeInfo.get("my_org::pkg1.C<Int64>").toString(), "my_org::pkg1.C<Int64>")

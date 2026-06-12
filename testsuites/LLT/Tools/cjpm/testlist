@@ -41,6 +41,3 @@ CJNATIVE/repo/publish
 
 # Excluded until compiler issue with `--import-path` and `CJMP` is fixed
 CJNATIVE/common_platform/merging/packages
-
-# dev 回合 main 临时屏蔽
-CJNATIVE/common_platform/merging/diamond

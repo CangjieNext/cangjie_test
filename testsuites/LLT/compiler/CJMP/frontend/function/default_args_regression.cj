@@ -12,7 +12,7 @@ package cmp
 public common func faf(fafParam!: Range<Int> = 1..2) { fafParam }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC: %compiler %diag_json --experimental --common-part-cjo=c/cmp.cjo c/cmp.chir p/p.cj --output-type=dylib 2>&1 | compare %f
+// EXEC: %compiler %diag_json --experimental --common-part-cjo=c/cmp.cjo --common-part-chir=c/cmp.chir p/p.cj --output-type=dylib 2>&1 | compare %f
 package cmp
  
 public specific func faf(fafParam!: Range<Int> = 10..20) { fafParam }

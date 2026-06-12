@@ -7,7 +7,7 @@
 // EXEC: %cpfile pkg.new.cj pkg.cj
 // EXEC: %compiler %cmp_opt pkg.cj %compile_lib_opt %incrementalCompile -o pkg.%lib_extension
 // EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt pkg.%lib_extension pkg2.%lib_extension %f -o %output 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan incremental compilation triggered
 // ASSERT: scan-not no change
 // ASSERT: scan the changed decl after Spreading is:main in file import_new_type01.cj

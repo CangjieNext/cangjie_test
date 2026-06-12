@@ -1,6 +1,6 @@
 package cjworld
 
-import interoplib.interop.*
+import java.lang.*
 
 public class GenericClass<T, U> where T <: ToString, U <: ToString {
 

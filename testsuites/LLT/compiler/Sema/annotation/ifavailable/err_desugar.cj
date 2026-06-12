@@ -1,7 +1,9 @@
-// DEPENDENCE: level_syscap_check/device_info.cj
+// DEPENDENCE: level_syscap_check/canIUse.cj level_syscap_check/device_info.cj
+// EXEC: %compiler %cmp_opt %compile_lib_opt canIUse.cj -o canIUse.%middle
 // EXEC: %compiler %cmp_opt %compile_lib_opt device_info.cj -o device_info.%middle
-// ERRCHECK: %compiler %f device_info.%middle %cmp_opt
+// ERRCHECK: %compiler %f canIUse.%middle device_info.%middle %cmp_opt -Woff unused
 
+import ohos.base.canIUse
 import ohos.device_info.DeviceInfo
 
 
@@ -14,9 +16,9 @@ main() {
 
 /* SCAN
 error: types Int64 and Struct-String of the two lambda of this '@IfAvailable' expression mismatch
-  ==> err_desugar.cj:12:5:
+  ==> err_desugar.cj:14:5:
    | 
-12 |     @IfAvailable(level:19, { => foo() }, { => goo() })
+14 |     @IfAvailable(level:19, { => foo() }, { => goo() })
    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
    | 
    # note: Traces:

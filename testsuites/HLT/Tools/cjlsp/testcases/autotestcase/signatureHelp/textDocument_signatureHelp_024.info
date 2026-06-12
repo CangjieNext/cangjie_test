@@ -20,4 +20,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id":367,"jsonrpc":"2.0","result":{"activeParameter":0,"activeSignature":0,"signatures":[{"label":"fff2(a: Tuple<Int64, Int64>, b: Tuple<Int64, Bool>) -> Unit","parameters":[{"label":"a: Tuple<Int64, Int64>"},{"label":"b: Tuple<Int64, Bool>"}]}]}}
+{"id":367,"jsonrpc":"2.0","result":{"activeParameter":0,"activeSignature":0,"signatures":[{"label":"fff2(a: (Int64, Int64), b: (Int64, Bool)) -> Unit","parameters":[{"label":"a: (Int64, Int64)"},{"label":"b: (Int64, Bool)"}]}]}}

@@ -9,4 +9,4 @@
 // LEVEL: 1
 // DEPENDENCE: ../%n
 // EXEC-PIPE: cd %n&& %cjcov --version | compare %f
-// ASSERT: regex 1.*.*
+// ASSERT: regex 0.*.*

@@ -7,7 +7,6 @@
 // SEPARATE-FILE: otherPackage.cj
 package cj.other
 
-import interoplib.interop.*
 import java.lang.*
 
 @JavaMirror["com.java.lib.JBase"]
@@ -19,9 +18,6 @@ public open class JBase <: JObject {
 
     @ForeignName["id"]
     public let myIdConst: Int32
-
-    @ForeignName["id"]
-    public mut prop myId: Int32
 
     @ForeignName["getClassName"]
     public static func myGetClassName(): String
@@ -51,7 +47,7 @@ public interface JIface {
 // (CJNATIVE and not Windows) RUN-EXEC-PIPE: %java %cp_cj_loader_java_interop -Djava.library.path=./ cj.Main 2>& 1 | compare %f
 package cj
 
-import interoplib.interop.*
+
 import java.lang.*
 
 import cj.other.*
@@ -99,23 +95,23 @@ public class Main <: JObject {
         print("cj: Main()\n", flush: true)
 
         let jb = JBase()
-        println(jb.myId)
+        println(jb.myIdVar)
         println(JBase.myGetClassName())
         println(jb.myGetName())
 
         let jd = JDer()
-        println(jd.myId)
+        println(jd.myIdVar)
         println(JDer.myGetClassName())
         println(jd.myGetName())
 
         let jdd = JDerDer()
-        println(jdd.myId)
+        println(jdd.myIdVar)
         println(JDerDer.myGetClassName())
         println(jdd.myGetName())
 
         let jddd = JDerDerDer()
-        jddd.myId = 54
-        println(jddd.myId)
+        jddd.myIdVar = 54
+        println(jddd.myIdVar)
         println(JDerDerDer.myGetClassName())
         println(jddd.myGetName())
 

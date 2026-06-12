@@ -15,7 +15,7 @@
 // EXEC-PIPE-1: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension
 
 // EXEC: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o out/%output 2>&1 | compare %n.diag.txt
-// EXEC: (cd out && cd .cached && %cat *.log) | compare %f
+// EXEC: cat out/.cached/*.log | compare %f
 
 // ASSERT: scan incremental compilation triggered
 

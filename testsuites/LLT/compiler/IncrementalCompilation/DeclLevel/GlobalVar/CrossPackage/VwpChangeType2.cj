@@ -10,7 +10,7 @@
 // EXEC: %cpfile %n.new.cj %n/%n.old.cj
 // EXEC-PIPE-0: %compiler %incrementalCompile %cmp_opt -p %n %compile_lib_opt -o %n.%lib_extension
 
-// EXEC: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o out/%output 2>&1 && (cd out && cd .cached && %cat *.log) | compare %f
+// EXEC: %compiler %cmp_opt %incrementalCompile %n.%lib_extension %f -o out/%output 2>&1 && cat out/.cached/*.log | compare %f
 // ASSERT: scan incremental compilation triggered
 // EXEC-2: %run %run_opt out/%output %run_args
 

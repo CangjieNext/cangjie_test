@@ -14,7 +14,7 @@ public abstract common class A {
 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj --common-part-chir=c/cmp.chir --common-part-cjo=./c/cmp.cjo --output-type=dylib 2>&1 | compare %f
 package cmp
 
 public abstract specific class A {
@@ -29,8 +29,5 @@ error: 'specific' property modifier is not match 'common' modifier
   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
   | 
 
-error: 'common' property 'B' can not find 'platform' match
- ==> c/c.cj:9:3:
-
-2 errors generated, 2 errors printed.
+1 error generated, 1 error printed.
 */

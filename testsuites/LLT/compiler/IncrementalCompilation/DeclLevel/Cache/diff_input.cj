@@ -2,7 +2,7 @@
 
 // EXEC: %compiler %incrementalCompile %cmp_opt %compile_lib_opt pkg.cj pkg2.cj
 // EXEC: %compiler %incrementalCompile %cmp_opt %compile_lib_opt pkg.cj 2>&1
-// EXEC: (cd .cached && %cat *.log) | compare Fail.expect
+// (Linux)EXEC: cat .cached/*.log | compare Fail.expect
 
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

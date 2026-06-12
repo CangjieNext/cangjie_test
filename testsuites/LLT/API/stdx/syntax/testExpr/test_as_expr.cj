@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/as_expr.cj
 // (not Windows) EXEC: dos2unix as_expr.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -23,14 +30,15 @@ class Test {
     @TestCase
     func testAsExpr01() {
         let expr = (nodes[1] as AsExpr).getOrThrow()
-        @Expect(expr.srcVal.toString(), "a")
+        @Expect(expr.srcVal.toString().replace("\r\n", "\n"), "a")
         let targetTy = (expr.targetTypeAnnotation as TypeAnnotation).getOrThrow()
         let targetType = (targetTy as CompositeType).getOrThrow()
         match (targetType.name) {
             case "String" => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), "a as String")
+        @Expect(expr.toString().replace("\r\n", "\n"), "a as String")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
 
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 5, 3, 16]).toArray())
@@ -41,14 +49,14 @@ class Test {
     @TestCase
     func testAsExpr02() {
         let expr = (nodes[0] as AsExpr).getOrThrow()
-        @Expect(expr.srcVal.toString(), "b")
+        @Expect(expr.srcVal.toString().replace("\r\n", "\n"), "b")
         let targetTy = (expr.targetTypeAnnotation as TypeAnnotation).getOrThrow()
         let targetType = (targetTy as AtomicType).getOrThrow()
         match (targetType.kind) {
             case Int64Type => ()
             case _ => @FailExpect("kind wrong")
         }
-        @Expect(expr.toString(), "b as Int64")
+        @Expect(expr.toString().replace("\r\n", "\n"), "b as Int64")
         var pos = expr.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 15]).toArray())
         pos = expr.getAsKeyWordPos()
@@ -62,12 +70,24 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let tmp = (nodes[1] as AsExpr).getOrThrow()
+        let expr = AsExpr(tmp.srcVal, tmp.targetTypeAnnotation)
+        @Expect(expr.srcVal.toString().replace("\r\n", "\n"), "a")
+        let targetTy = (expr.targetTypeAnnotation as TypeAnnotation).getOrThrow()
+        let targetType = (targetTy as CompositeType).getOrThrow()
+        match (targetType.name) {
+            case "String" => ()
+            case _ => @FailExpect("kind wrong")
+        }
+        @Expect(expr.toString().replace("\r\n", "\n"), "a as String")
+
+        var pos = expr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 12]).toArray())
+        pos = expr.getAsKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 5]).toArray())
+    }
 }
 
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

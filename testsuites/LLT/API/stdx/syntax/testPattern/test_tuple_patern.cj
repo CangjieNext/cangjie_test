@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/tuple_pattern.cj
 // (not Windows) EXEC: dos2unix tuple_pattern.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -27,10 +34,11 @@ class Test {
 
         @Expect(pattern.subPatterns.size, 2)
         @Expect(pattern.subPatterns[0] is VarOrEnumPattern)
-        @Expect(pattern.subPatterns[0].toString(), "x")
+        @Expect(pattern.subPatterns[0].toString().replace("\r\n", "\n"), "x")
         @Expect(pattern.subPatterns[1] is VarOrEnumPattern)
-        @Expect(pattern.subPatterns[1].toString(), "y")
-        @Expect(pattern.toString(), "(x, y)")
+        @Expect(pattern.subPatterns[1].toString().replace("\r\n", "\n"), "y")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "(x, y)")
+        @Expect(pattern.toTokens().toString().replace("\r\n", "\n"), "(x, y)")
 
         var pos = pattern.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 14, 5, 20]).toArray())
@@ -49,10 +57,10 @@ class Test {
 
         @Expect(pattern.subPatterns.size, 2)
         @Expect(pattern.subPatterns[0] is ConstPattern)
-        @Expect(pattern.subPatterns[0].toString(), "\"abc\"")
+        @Expect(pattern.subPatterns[0].toString().replace("\r\n", "\n"), "\"abc\"")
         @Expect(pattern.subPatterns[1] is VarOrEnumPattern)
-        @Expect(pattern.subPatterns[1].toString(), "x")
-        @Expect(pattern.toString(), "(\"abc\", x)")
+        @Expect(pattern.subPatterns[1].toString().replace("\r\n", "\n"), "x")
+        @Expect(pattern.toString().replace("\r\n", "\n"), "(\"abc\", x)")
     }
 
     @TestCase
@@ -62,11 +70,33 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let matchExpr = (nodes[2] as MatchExpr).getOrThrow()
+        let pattern = (matchExpr.matchCases[0].patterns[0] as TuplePattern).getOrThrow()
+        let tuplePattern = TuplePattern(pattern.subPatterns)
+
+        @Expect(tuplePattern.subPatterns.size, 2)
+        @Expect(tuplePattern.subPatterns[0] is VarOrEnumPattern)
+        @Expect(tuplePattern.subPatterns[0].toString().replace("\r\n", "\n"), "x")
+        @Expect(tuplePattern.subPatterns[1] is VarOrEnumPattern)
+        @Expect(tuplePattern.subPatterns[1].toString().replace("\r\n", "\n"), "y")
+        @Expect(tuplePattern.toString().replace("\r\n", "\n"), "(x, y)")
+
+        var pos = tuplePattern.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 7]).toArray())
+        pos = tuplePattern.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = tuplePattern.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 6, 1, 7]).toArray())
+        pos = tuplePattern.getCommasPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 4]).toArray())
+    }
+
+    @TestCase
+    func testInit02() {
+        let varPattern = VarPattern("i")
+        @AssertThrows[Exception](TuplePattern([varPattern]))
+    }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

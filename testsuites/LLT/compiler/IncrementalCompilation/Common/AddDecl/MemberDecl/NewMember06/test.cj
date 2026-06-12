@@ -4,7 +4,7 @@
 // EXEC-5: %run %run_opt %output %run_args
 // EXEC: %cpfile %n.new.cj %n.inc.cj
 // EXEC-PIPE-1: %compiler %incrementalCompile %n.inc.cj -o %output 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %n.cj
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
 // ASSERT: scan illegal source code leads to duplicated raw mangle name, roll back to full compilation
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

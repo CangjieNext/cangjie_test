@@ -19,16 +19,16 @@ public class A extends M {
 
     long self;
 
-    A() {
+    public A() {
         super();
-        self = initCJObject();
+        initCJObject();
     }
 
     private A($$NativeConstructorMarker __init__) {
         super();
     }
 
-    public native long initCJObject();
+    private native void initCJObject();
 
     @Override
     public boolean equals(Object obj) {
@@ -57,7 +57,6 @@ public class A extends M {
 
 package cjworld.theworld
 
-import interoplib.interop.*
 import java.lang.JObject
 
 @JavaMirror["M"]
@@ -67,7 +66,7 @@ public open class M {
 
 @JavaImpl["A"]
 public class A <: M {
-    init() {
+    public init() {
         super()
     }
 }

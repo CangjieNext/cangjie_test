@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/func_type.cj
 // (not Windows) EXEC: dos2unix func_type.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -31,7 +38,8 @@ class Test {
             case UnitType => ()
             case _ => @FailExpect("The primitive kind is wrong.")
         }
-        @Expect(ty.toString(), "() -> Unit")
+        @Expect(ty.toString().replace("\r\n", "\n"), "() -> Unit")
+        @Expect(ty.toTokens().toString().replace("\r\n", "\n"), "() -> Unit")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 8, 2, 18]).toArray())
@@ -53,12 +61,12 @@ class Test {
 
         @Expect(ty.paramTypes.size, 1)
         @Expect(ty.paramTypes[0] is AtomicType)
-        @Expect(ty.paramTypes[0].toString(), "Int32")
+        @Expect(ty.paramTypes[0].toString().replace("\r\n", "\n"), "Int32")
         @Expect(ty.labels.size, 1)
         @Expect(ty.labels[0], "x")
         @Expect(ty.retType is CompositeType)
-        @Expect(ty.retType.toString(), "A")
-        @Expect(ty.toString(), "(x: Int32) -> A")
+        @Expect(ty.retType.toString().replace("\r\n", "\n"), "A")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(x: Int32) -> A")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 8, 3, 23]).toArray())
@@ -84,13 +92,13 @@ class Test {
         @Expect(ty.paramTypes[0] is CompositeType)
         @Expect(ty.paramTypes[1] is CompositeType)
         @Expect(ty.paramTypes[2] is TupleType)
-        @Expect(ty.paramTypes[0].toString(), "A<B>")
-        @Expect(ty.paramTypes[1].toString(), "T.C")
-        @Expect(ty.paramTypes[2].toString(), "((String), VArray<Int64, $3>)")
+        @Expect(ty.paramTypes[0].toString().replace("\r\n", "\n"), "A<B>")
+        @Expect(ty.paramTypes[1].toString().replace("\r\n", "\n"), "T.C")
+        @Expect(ty.paramTypes[2].toString().replace("\r\n", "\n"), "((String), VArray<Int64, $3>)")
         @Expect(ty.labels.size, 0)
         @Expect(ty.retType is TupleType)
-        @Expect(ty.retType.toString(), "(?Int32, () -> Unit)")
-        @Expect(ty.toString(), "(A<B>, T.C, ((String), VArray<Int64, $3>)) -> (?Int32, () -> Unit)")
+        @Expect(ty.retType.toString().replace("\r\n", "\n"), "(?Int32, () -> Unit)")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(A<B>, T.C, ((String), VArray<Int64, $3>)) -> (?Int32, () -> Unit)")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 8, 4, 74]).toArray())
@@ -122,7 +130,7 @@ class Test {
             case UnitType => ()
             case _ => @FailExpect("The primitive kind is wrong.")
         }
-        @Expect(ty.toString(), "CFunc<() -> Unit>")
+        @Expect(ty.toString().replace("\r\n", "\n"), "CFunc<() -> Unit>")
 
         var pos = fnTy.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([5, 14, 5, 24]).toArray())
@@ -146,10 +154,10 @@ class Test {
         let fnTy = (ty.typeArguments[0] as FuncType).getOrThrow()
         @Expect(fnTy.paramTypes.size, 1)
         @Expect(fnTy.paramTypes[0] is CompositeType)
-        @Expect(fnTy.paramTypes[0].toString(), "CPointer<Int8>")
+        @Expect(fnTy.paramTypes[0].toString().replace("\r\n", "\n"), "CPointer<Int8>")
         @Expect(fnTy.retType is CompositeType)
-        @Expect(fnTy.retType.toString(), "CPointer<Int8>")
-        @Expect(ty.toString(), "CFunc<(CPointer<Int8>) -> CPointer<Int8>>")
+        @Expect(fnTy.retType.toString().replace("\r\n", "\n"), "CPointer<Int8>")
+        @Expect(ty.toString().replace("\r\n", "\n"), "CFunc<(CPointer<Int8>) -> CPointer<Int8>>")
 
         var pos = fnTy.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([6, 14, 6, 48]).toArray())
@@ -169,7 +177,7 @@ class Test {
         let funcDecl = (decls[0] as FuncDecl).getOrThrow()
         let ty = (funcDecl.retTyAnnotation.getOrThrow() as FuncType).getOrThrow()
 
-        @Expect(ty.toString(), "(a: Int64, b: Int64) -> Int64")
+        @Expect(ty.toString().replace("\r\n", "\n"), "(a: Int64, b: Int64) -> Int64")
 
         var pos = ty.nodePos
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 18, 1, 47]).toArray())
@@ -194,11 +202,35 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let varDecl = (decls[2] as VarDecl).getOrThrow()
+        let ty = (varDecl.tyAnnotation.getOrThrow() as FuncType).getOrThrow()
+        let funcType = FuncType(ty.paramTypes, ty.labels, ty.retType)
+
+        @Expect(funcType.paramTypes.size, 1)
+        @Expect(funcType.paramTypes[0] is AtomicType)
+        @Expect(funcType.paramTypes[0].toString().replace("\r\n", "\n"), "Int32")
+        @Expect(funcType.labels.size, 1)
+        @Expect(funcType.labels[0], "x")
+        @Expect(funcType.retType is CompositeType)
+        @Expect(funcType.retType.toString().replace("\r\n", "\n"), "A")
+        @Expect(funcType.toString().replace("\r\n", "\n"), "(x: Int32) -> A")
+
+        var pos = funcType.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 16]).toArray())
+        pos = funcType.getLParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = funcType.getRParenPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 10, 1, 11]).toArray())
+        @Expect(funcType.getCommasPos().size, 0)
+        pos = funcType.getLabelsPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 2, 1, 3]).toArray())
+        pos = funcType.getColonsPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 4]).toArray())
+        pos = funcType.getArrowPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 12, 1, 14]).toArray())
+    }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+

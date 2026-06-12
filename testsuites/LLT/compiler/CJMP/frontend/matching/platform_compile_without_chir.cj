@@ -12,7 +12,7 @@ common class A{ A(){} }
 
 // SEPARATE-FILE: p/p.cj
 // EXEC-PIPE-1: %compiler %noColor --experimental p/p.cj --common-part-cjo=./c/cmp.cjo --output-dir ./p  2>&1 | compare %f
-// ASSERT: scan expected one chir path to build
+// ASSERT: scan common .chir files count should be equal to common .cjo files count
 
 package cmp
 

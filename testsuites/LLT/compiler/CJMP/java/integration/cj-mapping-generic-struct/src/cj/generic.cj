@@ -1,6 +1,6 @@
 package genericStruct
 
-import interoplib.interop.*
+import java.lang.*
 
 public struct GenericStruct<T> where T <: ToString {
 

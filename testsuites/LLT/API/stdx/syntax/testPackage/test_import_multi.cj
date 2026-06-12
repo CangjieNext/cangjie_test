@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/import_multi.cj
 // (not Windows) EXEC: dos2unix import_multi.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -32,10 +39,11 @@ class Test {
         @Expect(content.contents[0] is ImportSingle)
         @Expect(content.contents[1] is ImportAll)
         @Expect(content.contents[2] is ImportAlias)
-        @Expect(content.contents[0].toString(), "testPackage1")
-        @Expect(content.contents[1].toString(), "testPackage2.*")
-        @Expect(content.contents[2].toString(), "testPackage3 as pkg")
-        @Expect(content.toString(), "{testPackage1, testPackage2.*, testPackage3 as pkg}")
+        @Expect(content.contents[0].toString().replace("\r\n", "\n"), "testPackage1")
+        @Expect(content.contents[1].toString().replace("\r\n", "\n"), "testPackage2.*")
+        @Expect(content.contents[2].toString().replace("\r\n", "\n"), "testPackage3 as pkg")
+        @Expect(content.toString().replace("\r\n", "\n"), "{testPackage1, testPackage2.*, testPackage3 as pkg}")
+        @Expect(content.toTokens().toString().replace("\r\n", "\n"), "{ testPackage1, testPackage2.*, testPackage3 as pkg }")
         var pos = content.getLCurlPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 8, 1, 9]).toArray())
         pos = content.getRCurlPos()
@@ -62,10 +70,10 @@ class Test {
         @Expect(content.contents[0] is ImportSingle)
         @Expect(content.contents[1] is ImportAll)
         @Expect(content.contents[2] is ImportAlias)
-        @Expect(content.contents[0].toString(), "a1.testPackage1")
-        @Expect(content.contents[1].toString(), "a2.testPackage2.*")
-        @Expect(content.contents[2].toString(), "a3.testPackage3 as pkg")
-        @Expect(content.toString(), "a.{a1.testPackage1, a2.testPackage2.*, a3.testPackage3 as pkg}")
+        @Expect(content.contents[0].toString().replace("\r\n", "\n"), "a1.testPackage1")
+        @Expect(content.contents[1].toString().replace("\r\n", "\n"), "a2.testPackage2.*")
+        @Expect(content.contents[2].toString().replace("\r\n", "\n"), "a3.testPackage3 as pkg")
+        @Expect(content.toString().replace("\r\n", "\n"), "a.{a1.testPackage1, a2.testPackage2.*, a3.testPackage3 as pkg}")
         var pos = content.getLCurlPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 10, 2, 11]).toArray())
         pos = content.getRCurlPos()
@@ -90,10 +98,10 @@ class Test {
         @Expect(content.contents[0] is ImportSingle)
         @Expect(content.contents[1] is ImportAll)
         @Expect(content.contents[2] is ImportAlias)
-        @Expect(content.contents[0].toString(), "a1.b1.testPackage1")
-        @Expect(content.contents[1].toString(), "a2.b2.testPackage2.*")
-        @Expect(content.contents[2].toString(), "a3.b3.testPackage3 as pkg")
-        @Expect(content.toString(), "a.b.{a1.b1.testPackage1, a2.b2.testPackage2.*, a3.b3.testPackage3 as pkg}")
+        @Expect(content.contents[0].toString().replace("\r\n", "\n"), "a1.b1.testPackage1")
+        @Expect(content.contents[1].toString().replace("\r\n", "\n"), "a2.b2.testPackage2.*")
+        @Expect(content.contents[2].toString().replace("\r\n", "\n"), "a3.b3.testPackage3 as pkg")
+        @Expect(content.toString().replace("\r\n", "\n"), "a.b.{a1.b1.testPackage1, a2.b2.testPackage2.*, a3.b3.testPackage3 as pkg}")
         var pos = content.getLCurlPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([3, 12, 3, 13]).toArray())
         pos = content.getRCurlPos()
@@ -119,11 +127,11 @@ class Test {
         @Expect(content.contents[1] is ImportSingle)
         @Expect(content.contents[2] is ImportSingle)
         @Expect(content.contents[3] is ImportAlias)
-        @Expect(content.contents[0].toString(), "a")
-        @Expect(content.contents[1].toString(), "b.a")
-        @Expect(content.contents[2].toString(), "c.b.a")
-        @Expect(content.contents[3].toString(), "d.c.b.a as _d_c_b_a")
-        @Expect(content.toString(), "{a, b.a, c.b.a, d.c.b.a as _d_c_b_a,}")
+        @Expect(content.contents[0].toString().replace("\r\n", "\n"), "a")
+        @Expect(content.contents[1].toString().replace("\r\n", "\n"), "b.a")
+        @Expect(content.contents[2].toString().replace("\r\n", "\n"), "c.b.a")
+        @Expect(content.contents[3].toString().replace("\r\n", "\n"), "d.c.b.a as _d_c_b_a")
+        @Expect(content.toString().replace("\r\n", "\n"), "{a, b.a, c.b.a, d.c.b.a as _d_c_b_a,}")
         var pos = content.getLCurlPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([4, 8, 4, 9]).toArray())
         pos = content.getRCurlPos()
@@ -148,10 +156,10 @@ class Test {
         @Expect(content.contents[0] is ImportSingle)
         @Expect(content.contents[1] is ImportAlias)
         @Expect(content.contents[2] is ImportAll)
-        @Expect(content.contents[0].toString(), "std.time")
-        @Expect(content.contents[1].toString(), "std.fs as fileSystem")
-        @Expect(content.contents[2].toString(), "std.io.*")
-        @Expect(content.toString(), #"{
+        @Expect(content.contents[0].toString().replace("\r\n", "\n"), "std.time")
+        @Expect(content.contents[1].toString().replace("\r\n", "\n"), "std.fs as fileSystem")
+        @Expect(content.contents[2].toString().replace("\r\n", "\n"), "std.io.*")
+        @Expect(content.toString().replace("\r\n", "\n"), #"{
     std.time,
     std.fs as fileSystem,
     std.io.*,
@@ -173,11 +181,37 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let importList = importLists[0]
+        match(importList.kind) {
+            case ImportKind.Multi => @Expect(true)
+            case _ => @Expect(false)
+        }
+
+        let tmp = (importList.contents as ImportMulti).getOrThrow()
+        let content = ImportMulti(tmp.prefixes, tmp.contents)
+
+        @Expect(content.prefixes, [])
+        @Expect(content.contents.size, 3)
+        @Expect(content.contents[0] is ImportSingle)
+        @Expect(content.contents[1] is ImportAll)
+        @Expect(content.contents[2] is ImportAlias)
+        @Expect(content.contents[0].toString().replace("\r\n", "\n"), "testPackage1")
+        @Expect(content.contents[1].toString().replace("\r\n", "\n"), "testPackage2.*")
+        @Expect(content.contents[2].toString().replace("\r\n", "\n"), "testPackage3 as pkg")
+        @Expect(content.toString().replace("\r\n", "\n"), "{testPackage1, testPackage2.*, testPackage3 as pkg}")
+        var pos = content.getLCurlPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 2]).toArray())
+        pos = content.getRCurlPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 51, 1, 52]).toArray())
+        pos = content.getCommasPos()[0]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 14, 1, 15]).toArray())
+        pos = content.getCommasPos()[1]
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 30, 1, 31]).toArray())
+        pos = content.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 52]).toArray())
+    }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+

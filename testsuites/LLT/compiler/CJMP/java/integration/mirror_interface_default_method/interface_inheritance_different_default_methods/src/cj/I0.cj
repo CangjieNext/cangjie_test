@@ -6,7 +6,6 @@
 
 package dom.java.lib
 
-import interoplib.interop.*
 import java.lang.*;
 
 @JavaMirror["com.java.lib.I0"]

@@ -1,4 +1,4 @@
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
 // with Runtime Library Exception.
 //
@@ -23,7 +23,7 @@ public func runCommon() {
 }
 
 // SEPARATE-FILE: p/pa.cj
-// EXEC-0: %compiler %noColor --experimental p/pa.cj ./c/a.chir --common-part-cjo=./c/a.cjo --output-type=dylib
+// EXEC-0: %compiler %noColor --experimental p/pa.cj --common-part-chir=./c/a.chir --common-part-cjo=./c/a.cjo --output-type=dylib
 package a
 
 public specific open class A {

@@ -1,0 +1,38 @@
+{
+  "packageInformation": {
+    "huawei::test.pkgC": {
+      "rootPackageName": "huawei::test",
+      "fileNameHash": "2138271714033347047",
+      "timeStamp": 1761882965,
+      "isBuilt": false,
+      "exeName": "",
+      "hasSubPkgs": false
+    },
+    "huawei::test.pkgA": {
+      "rootPackageName": "huawei::test",
+      "fileNameHash": "1834755992997619531",
+      "timeStamp": 1761882965,
+      "isBuilt": false,
+      "exeName": "",
+      "hasSubPkgs": false
+    },
+    "huawei::test": {
+      "rootPackageName": "huawei::test",
+      "fileNameHash": "6360970297443461335",
+      "timeStamp": 1761882965,
+      "isBuilt": false,
+      "exeName": "main",
+      "hasSubPkgs": true
+    },
+    "huawei::test.pkgB": {
+      "rootPackageName": "huawei::test",
+      "fileNameHash": "-1841589503334190343",
+      "timeStamp": 1761882965,
+      "isBuilt": false,
+      "exeName": "",
+      "hasSubPkgs": false
+    }
+  },
+  "jsonHash": "914683235466861822",
+  "rootPackageName": "huawei::test"
+}

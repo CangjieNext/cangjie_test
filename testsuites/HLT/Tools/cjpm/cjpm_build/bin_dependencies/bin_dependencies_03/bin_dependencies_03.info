@@ -8,7 +8,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
-// EXEC: cd %n/dep && cjpm build && cd .. && %cjpm build && touch dep/target/release/dep/dep.aoo.cjo && cjpm tree && %cat target/.dep-cache 2>&1 | compare %f
+// EXEC: cd %n/dep && %cjpm build && cd .. && %cjpm build && touch dep/target/release/dep/dep.aoo.cjo && %cjpm tree && %cat target/.dep-cache 2>&1 | compare %f
 // ASSERT: scan "package": "dep.aoo"
 // ASSERT: scan "package": "dep.coo"
 // ASSERT: scan "package": "dep"

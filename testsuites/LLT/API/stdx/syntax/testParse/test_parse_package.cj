@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile
 // EXEC: mkdir -p sourceFile/parse_dir/test_file_ln/
 // EXEC: ln -s sourceFile/parse_dir/test_file/test_file.cj sourceFile/parse_dir/test_file_ln/test_file_ln.cj
@@ -145,10 +152,4 @@ class Test {
         @Expect(pkg.srcFile[1].path.contains("sourceFile/parse_dir/test_warning_2/test_warning_file_2.cj"), true)
     }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+

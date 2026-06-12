@@ -14,7 +14,6 @@ package cj
  * String: 
  */
 
-import interoplib.interop.*
 import java.lang.*
 
 func id<T>(x: T): T {

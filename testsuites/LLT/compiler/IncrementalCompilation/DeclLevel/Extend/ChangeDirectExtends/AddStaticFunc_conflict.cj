@@ -2,7 +2,7 @@
 // EXEC: %compiler %incrementalCompile %n.old.cj -o %output
 // EXEC: %cpfile %n.new.cj %n.old.cj
 // EXEC-1: %compiler %incrementalCompile %n.old.cj -o %output 2>&1
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 // ASSERT: scan illegal source code leads to duplicated raw mangle name, roll back to full compilation
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

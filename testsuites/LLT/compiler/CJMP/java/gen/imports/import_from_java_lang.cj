@@ -19,27 +19,27 @@ public class A extends M {
 
     long self;
 
-    A() {
+    public A() {
         super(1);
-        self = initCJObject();
+        initCJObject();
     }
 
     private A($$NativeConstructorMarker __init__) {
         super(1);
     }
 
-    public native long initCJObject();
+    private native void initCJObject();
 
-    A(long x) {
+    public A(long x) {
         super(x, x);
-        self = initCJObjectl(x);
+        initCJObjectl(x);
     }
 
     private A(long x, $$NativeConstructorMarker __init__) {
         super(x, x);
     }
 
-    public native long initCJObjectl(long x);
+    private native void initCJObjectl(long x);
 
     public void f(String arg) {
         fCN9java_lang7JStringE(this.self, arg);
@@ -86,8 +86,7 @@ public class A extends M {
 
 package cjworld.theworld
 
-import interoplib.interop.*
-import java.lang.JString
+import java.lang.*
 
 @JavaMirror["M"]
 public open class M {
@@ -98,23 +97,23 @@ public open class M {
 
 @JavaImpl["A"]
 public class A <: M {
-    init() {
+    public init() {
         super(1)
         println("Hello from Cangjie!")
     }
-    init(x: Int) {
+    public init(x: Int) {
         super(x, x)
     }
 
-    func f(arg: JString) {
+    public func f(arg: JString) {
         println(1)
     }
 
-    func oneArg(x: Int) {
+    public func oneArg(x: Int) {
         println(x)
     }
 
-    func twoArgs(x: Int, y: Bool) {
+    public func twoArgs(x: Int, y: Bool) {
         println(x)
         println(y)
     }

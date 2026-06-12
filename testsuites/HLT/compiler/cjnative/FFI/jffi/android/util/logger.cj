@@ -7,7 +7,6 @@
  */
 package UNNAMED
 
-import interoplib.interop.*
 import java.lang.*
 
 @JavaMirror["com.example.myapplication.Logger"]

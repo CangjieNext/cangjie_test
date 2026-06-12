@@ -9,7 +9,7 @@
 
 // EXEC: %cpfile %n.new.cj %n/%n.old.cj
 // EXEC-PIPE-1: %compiler %cmp_opt %incrementalCompile -p %n %compile_lib_opt -o %n.%lib_extension 2>&1 | compare %n.diag.txt
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 
 // ASSERT: scan illegal source code leads to duplicated raw mangle name, roll back to full compilation
 

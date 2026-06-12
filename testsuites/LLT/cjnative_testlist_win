@@ -25,6 +25,7 @@ API/stdx/logger
 compiler/Diagnose/PlatformRelated
 Tools/cjdb/datacom/expr
 Tools/cjdb/datacom/generic
+compiler/Driver/LTO/lto_test10_1.cj
 
 [EXCLUDE-TEST-CASE]
 API/std/socket/redesign/props/tcp_props_quickack.cj
@@ -78,6 +79,8 @@ API\std\time\timezone\test_base.cj
 API\std\time\timezone\test_load.cj
 API\std\time\timezone\test_local1_1.cj
 API\std\time\timezone\test_local1_4.cj
+API/stdx/crypto/x509/x509_test.cj
+API/stdx/logger/logger_test.cj
 
 #cjdb CI
 Tools/cjdb/datacom/expr/arrayList2.info
@@ -138,15 +141,5 @@ Tools/cjdb/datacom/expr/debuginfo_uintnative.info
 Tools/cjdb/datacom/expr/debuginfo_unit.info
 Tools/cjdb/datacom/generic/generic_any.info
 
-# API testcases commented on 2025-11-03, need to be fixed.
-## fuzzer testcases (libclang_rt.fuzzer_no_main.a: No Such file or directory)
-API/stdx/fuzz/fuzzer_coverage.cj
-API/stdx/fuzz/fuzzer_enable_debugdp.cj
-API/stdx/fuzz/fuzzer_enable_fakecov.cj
-API/stdx/fuzz/fuzzer_main.cj
-API/stdx/fuzz/fuzzer_main_dp.cj
-API/stdx/fuzz/test_u32.cj
-API/stdx/fuzz/test_u64.cj
-# 930: dev merge main
-API\stdx\crypto\x509\x509_test.cj
-API\stdx\logger\logger_test.cj
+# cjpm tree failed, should be checked
+Tools/cjpm/stdx/stdx_/tree_01/tree_01.info

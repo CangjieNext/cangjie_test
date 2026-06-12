@@ -8,11 +8,13 @@
 
 package mp
 
-public common class A<X, Y> {
+public common class A {
     public common init(){}
 }
 
-public common class C<X, Y> where X <: A<(X, Y), (Y, X)>, Y <: A<(Y, X), (X, Y)> {
+public common interface B {}
+
+public common class Z<X, Y> where X <: A, Y <: B {
     public common init(){}
-    public common func f1(): Int64
+    public common func f1(): Int64 {0}
 }

@@ -8,5 +8,5 @@
 
 // LEVEL: 2
 // DEPENDENCE: ../%n
-// EXEC-PIPE-1: cd %n && cjpm clean --target-dir=./temp_target 2>&1 | compare %f
+// EXEC-PIPE-1: cd %n && %cjpm clean --target-dir=./temp_target 2>&1 | compare %f
 // ASSERT: scan Error: cjpm clean failed

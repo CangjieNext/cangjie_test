@@ -21,14 +21,14 @@ public class CangjieInvoke_Father {
 
     public CangjieInvoke_Father() {
         super();
-        self = initCJObject();
+        initCJObject();
     }
 
     private CangjieInvoke_Father($$NativeConstructorMarker __init__) {
         super();
     }
 
-    public native long initCJObject();
+    private native void initCJObject();
 
     public boolean test() {
         return test(this.self);
@@ -63,7 +63,6 @@ public class CangjieInvoke_Father {
 
 package cjworld.theworld
 
-import interoplib.interop.*
 import java.lang.JObject
 
 @JavaImpl

@@ -2,8 +2,8 @@
 // EXEC: %rmdir .cached
 // EXEC: %compiler %n.cj -Woff all --experimental --incremental-compile
 // EXEC: %compiler %n.cj -Woff all --experimental --incremental-compile
-// EXEC: (cd .cached && %cat *.log) | compare %n.cj
-
+// (Linux)EXEC: cat .cached/*.log | compare %n.cj
+// (Windows)EXEC: type .cached\*.log | compare %n.cj
 main () {}
 // ASSERT: scan no change
 

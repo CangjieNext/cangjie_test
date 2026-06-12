@@ -2,7 +2,7 @@
 
 package javaapp.my
 
-import interoplib.interop.*
+
 import java.lang.JObject
 import std.unittest.assertEqual
 import std.unittest.testmacro.Assert

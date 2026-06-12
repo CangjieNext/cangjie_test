@@ -19,39 +19,39 @@ public class A extends M {
 
     long self;
 
-    A() {
+    public A() {
         super(1);
-        self = initCJObject();
+        initCJObject();
     }
 
     private A($$NativeConstructorMarker __init__) {
         super(1);
     }
 
-    public native long initCJObject();
+    private native void initCJObject();
 
-    A(long f, int x) {
+    public A(long f, int x) {
         super(superC3A0P0P1(f, x));
-        self = initCJObjectli(f, x);
+        initCJObjectli(f, x);
     }
 
     private A(long f, int x, $$NativeConstructorMarker __init__) {
         super(superC3A0P0P1(f, x));
     }
 
-    public native long initCJObjectli(long f, int x);
+    private native void initCJObjectli(long f, int x);
 
     public static native long superC3A0P0P1(long f, int x);
-    A(long f) {
+    public A(long f) {
         super(superC4A0P0(f));
-        self = initCJObjectl(f);
+        initCJObjectl(f);
     }
 
     private A(long f, $$NativeConstructorMarker __init__) {
         super(superC4A0P0(f));
     }
 
-    public native long initCJObjectl(long f);
+    private native void initCJObjectl(long f);
 
     public static native long superC4A0P0(long f);
     public static long fieldInitStatic(long f, int x) {
@@ -93,7 +93,6 @@ public class A extends M {
 
 package cjworld.theworld
 
-import interoplib.interop.*
 import java.lang.JObject
 
 @JavaMirror["M"]
@@ -105,7 +104,7 @@ public open class M {
 
 @JavaImpl["A"]
 public class A <: M {
-    init() {
+    public init() {
         super(1)
         println("Hello from Cangjie!")
     }
@@ -118,11 +117,11 @@ public class A <: M {
         f * 3
     }
 
-    init(f: Int64, x: Int32) {
+    public init(f: Int64, x: Int32) {
         super(fieldInitStatic(f, x))
     }
 
-    init(f: Int64) {
+    public init(f: Int64) {
         super(fieldInitStatic(f))
     }
 }

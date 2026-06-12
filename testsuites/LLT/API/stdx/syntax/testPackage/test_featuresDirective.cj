@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/featuresDirective
 // (not Windows) EXEC: find featuresDirective -type f -exec dos2unix {} \;
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -29,7 +36,7 @@ class Test {
             case _ => @Fail("FeaturesDirective is None")
         }
 
-        @Assert(ftr.toString(), "features { os.linux, os.windows }")
+        @Assert(ftr.toString().replace("\r\n", "\n"), "features { os.linux, os.windows }")
 
         let keywordPos = ftr.getFeaturesKeywordPos()
         let ftrPos = ftr.nodePos
@@ -67,7 +74,7 @@ class Test {
         }
 
         let ftrId = ftr.featuresSet.content[0]
-        @Assert(ftrId.toString(), "os.linux")
+        @Assert(ftrId.toString().replace("\r\n", "\n"), "os.linux")
 
         let base = ftrId.nodePos
         @Expect([base.beginLine, base.beginColumn, base.endLine, base.endColumn], ArrayList<Int32>([9, 12, 9, 20]).toArray())
@@ -94,7 +101,7 @@ class Test {
         }
 
         let ftrId = ftr.featuresSet.content[1]
-        @Assert(ftrId.toString(), "os.windows")
+        @Assert(ftrId.toString().replace("\r\n", "\n"), "os.windows")
 
         let base = ftrId.nodePos
         @Expect([base.beginLine, base.beginColumn, base.endLine, base.endColumn], ArrayList<Int32>([9, 22, 9, 32]).toArray())
@@ -117,20 +124,14 @@ class Test {
     func testInit_01(): Unit {
         let ftrId1 = FeatureId(["os", "linux"])
         let ftrId2 = FeatureId(["os", "windows"])
-        @Expect("os.linux", ftrId1.toTokens().toString())
-        @Expect("os.windows", ftrId2.toTokens().toString())
+        @Expect("os.linux", ftrId1.toTokens().toString().replace("\r\n", "\n"))
+        @Expect("os.windows", ftrId2.toTokens().toString().replace("\r\n", "\n"))
 
         let ftrSet = FeaturesSet([ftrId1, ftrId2])
-        @Expect("{ os.linux, os.windows }", ftrSet.toTokens().toString())
+        @Expect("{ os.linux, os.windows }", ftrSet.toTokens().toString().replace("\r\n", "\n"))
 
         let ftrDirective01 = FeaturesDirective([], ftrSet)
-        @Expect("features { os.linux, os.windows }", ftrDirective01.toTokens().toString())
+        @Expect("features { os.linux, os.windows }", ftrDirective01.toTokens().toString().replace("\r\n", "\n"))
     }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+

@@ -5,38 +5,38 @@ main(): Int64 { 0 }
 // ASSERT: scan incremental compile result kind: rollback
 
 // EXEC-1: %compiler %f %incrementalCompile -o %output --sanitizer-coverage-inline-8bit-counters 2>&1
-// EXEC: (cd .cached && %cat *.log) | compare %f
+// EXEC: cat .cached/*.log | compare %f
 
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --sanitizer-coverage-level=0 2>&1 && (cd .cached && %cat *.log) | compare %f
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && cat .cached/*.log | compare %f
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --sanitizer-coverage-level=0 2>&1 && cat .cached/*.log | compare %f
 
-// (DISABLECHIROPT)EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
-// (DISABLECHIROPT)EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --disable-chir-opt 2>&1 && (cd .cached && %cat *.log) | compare %f
+// (DISABLECHIROPT)EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && cat .cached/*.log | compare %f
+// (DISABLECHIROPT)EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --disable-chir-opt 2>&1 && cat .cached/*.log | compare %f
 
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --fast-math 2>&1 && (cd .cached && %cat *.log) | compare %f
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && cat .cached/*.log | compare %f
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --fast-math 2>&1 && cat .cached/*.log | compare %f
 
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --int-overflow=wrapping 2>&1 && (cd .cached && %cat *.log) | compare %f
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && cat .cached/*.log | compare %f
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --int-overflow=wrapping 2>&1 && cat .cached/*.log | compare %f
 // (not Windows) EXEC-1: %compiler %f %incrementalCompile -o %output --sysroot ~ 2>&1
-// (not Windows) EXEC: (cd .cached && %cat *.log) | compare %f
-// (not Windows) EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --int-overflow=wrapping 2>&1 && (cd .cached && %cat *.log) | compare %f
+// (not Windows) EXEC: cat .cached/*.log | compare %f
+// (not Windows) EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --int-overflow=wrapping 2>&1 && cat .cached/*.log | compare %f
 
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --int-overflow=wrapping 2>&1 && (cd .cached && %cat *.log) | compare %f
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && cat .cached/*.log | compare %f
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --int-overflow=wrapping 2>&1 && cat .cached/*.log | compare %f
 
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --output-type=dylib 2>&1 && (cd .cached && %cat *.log) | compare %f
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && cat .cached/*.log | compare %f
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --output-type=dylib 2>&1 && cat .cached/*.log | compare %f
 
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && (cd .cached && %cat *.log) | compare %f
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && cat .cached/*.log | compare %f
 // deprecated '--module-name'
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --module-name abc 2>&1 && (cd .cached && %cat *.log) | compare NoChange.expect
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output --module-name abc 2>&1 && cat .cached/*.log | compare NoChange.expect
 
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && (cd .cached && %cat *.log) | compare NoChange.expect
-// EXEC-PIPE-0: %compiler %f %incrementalCompile --experimental -o %output 2>&1 && (cd .cached && %cat *.log) | compare NoChange.expect
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && (cd .cached && %cat *.log) | compare NoChange.expect
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && cat .cached/*.log | compare NoChange.expect
+// EXEC-PIPE-0: %compiler %f %incrementalCompile --experimental -o %output 2>&1 && cat .cached/*.log | compare NoChange.expect
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output 2>&1 && cat .cached/*.log | compare NoChange.expect
 
-// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output -g --cfg "today=111" 2>&1 && (cd .cached && %cat *.log) | compare %f
+// EXEC-PIPE-0: %compiler %f %incrementalCompile -o %output -g --cfg "today=111" 2>&1 && cat .cached/*.log | compare %f
 
 
 // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.

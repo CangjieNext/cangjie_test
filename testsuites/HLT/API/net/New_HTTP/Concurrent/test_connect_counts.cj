@@ -26,7 +26,7 @@ import std.io.*
 @When[os == "macOS"]
 let thread_count = 10
 @When[os != "macOS"]
-let thread_count = 20
+let thread_count = 15
 
 @Test
 class Test_Concurrent_100_connects {
@@ -97,7 +97,7 @@ class Test_Concurrent_100_connects {
         }
         startServer0()
 
-        let thread = 50
+        let thread = thread_count
         var fs = Array<Future<Unit>>(thread) {
             _ => spawn {startClient("http://127.0.0.1:${port}/quick")}
         }

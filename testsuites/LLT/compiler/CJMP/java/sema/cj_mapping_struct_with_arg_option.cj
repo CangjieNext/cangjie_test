@@ -7,7 +7,6 @@
 // (CJNATIVE and not Windows) EXEC-PIPE-1: %compiler %cmp_opt %f -o %output %compile_shared_lib_opt %import_java_interop %enable_java_cjmapping 2>& 1 | compare %f
 
 import java.lang.*
-import interoplib.interop.*
 
 public struct X {
     private var val: Int32 = 0

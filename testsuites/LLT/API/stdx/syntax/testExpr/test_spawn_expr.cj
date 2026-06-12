@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/spawn_expr.cj
 // (not Windows) EXEC: dos2unix spawn_expr.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -24,18 +31,19 @@ class Test {
     func testExpr01() {
         let expr = (nodes[0] as SpawnExpr).getOrThrow()
         @Expect(expr.threadContext.isNone())
-        @Expect(expr.trailingLambdaExpr.toString(), """
+        @Expect(expr.trailingLambdaExpr.toString().replace("\r\n", "\n"), """
 { =>
         println("New thread before sleeping")
         sleep(100 * Duration.millisecond)
         println("New thread after sleeping")
     }""")
-        @Expect(expr.toString(), """
+        @Expect(expr.toString().replace("\r\n", "\n"), """
 spawn { =>
         println("New thread before sleeping")
         sleep(100 * Duration.millisecond)
         println("New thread after sleeping")
     }""")
+        @Expect(parseTokens(expr.toTokens(), refreshPos: false).node.getOrThrow().toString().replace("\r\n", "\n"), expr.toString().replace("\r\n", "\n"))
         var pos = expr.getSpawnKeyWordPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 5, 2, 10]).toArray())
         @Expect(expr.getThreadContextLParenPos().isNone())
@@ -47,13 +55,13 @@ spawn { =>
     @TestCase
     func testExpr02() {
         let expr = (nodes[1] as SpawnExpr).getOrThrow()
-        @Expect(expr.threadContext.getOrThrow().toString(), "a")
-        @Expect(expr.trailingLambdaExpr.toString(), """
+        @Expect(expr.threadContext.getOrThrow().toString().replace("\r\n", "\n"), "a")
+        @Expect(expr.trailingLambdaExpr.toString().replace("\r\n", "\n"), """
 { =>
         sleep(Duration.second)
         return 1
     }""")
-        @Expect(expr.toString(), """
+        @Expect(expr.toString().replace("\r\n", "\n"), """
 spawn (a) { =>
         sleep(Duration.second)
         return 1
@@ -69,6 +77,31 @@ spawn (a) { =>
     }
 
     @TestCase
+    func testSpawnExprInit() {
+        let expr = (nodes[1] as SpawnExpr).getOrThrow()
+        let spawnExpr = SpawnExpr(expr.threadContext, expr.trailingLambdaExpr)
+        @Expect(spawnExpr.threadContext.getOrThrow().toString().replace("\r\n", "\n"), "a")
+        @Expect(spawnExpr.trailingLambdaExpr.toString().replace("\r\n", "\n"), """
+{ =>
+        sleep(Duration.second)
+        return 1
+    }""")
+        @Expect(spawnExpr.toString().replace("\r\n", "\n"), """
+spawn (a) { =>
+        sleep(Duration.second)
+        return 1
+    }""")
+        var pos = spawnExpr.getSpawnKeyWordPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 6]).toArray())
+        pos = spawnExpr.getThreadContextLParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 7, 1, 8]).toArray())
+        pos = spawnExpr.getThreadContextRParenPos().getOrThrow()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 9, 1, 10]).toArray())
+        pos = spawnExpr.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 4, 6]).toArray())
+    }
+
+    @TestCase
     func testFileToString() {
         let node = parseFile("spawn_expr.cj")
         let input = String.fromUtf8(File.readFrom("spawn_expr.cj"))
@@ -77,10 +110,3 @@ spawn (a) { =>
     }
 }
 
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */

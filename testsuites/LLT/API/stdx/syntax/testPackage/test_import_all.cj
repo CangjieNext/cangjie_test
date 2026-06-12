@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+ * This source file is part of the Cangjie project, licensed under Apache-2.0
+ * with Runtime Library Exception.
+ *
+ * See https://cangjie-lang.cn/pages/LICENSE for license information.
+ */
 // DEPENDENCE: sourceFile/import_all.cj
 // (not Windows) EXEC: dos2unix import_all.cj
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f %cmp_utest_opt
@@ -26,7 +33,8 @@ class Test {
         }
         let content = (importList.contents as ImportAll).getOrThrow()
         @Expect(content.prefixes, ["a"])
-        @Expect(content.toString(), "a.*")
+        @Expect(content.toString().replace("\r\n", "\n"), "a.*")
+        @Expect(content.toTokens().toString().replace("\r\n", "\n"), "a.*")
         var pos = content.getMulPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 10, 1, 11]).toArray())
         pos = content.nodePos
@@ -43,7 +51,7 @@ class Test {
 
         let content = (importList.contents as ImportAll).getOrThrow()
         @Expect(content.prefixes, ["a", "b"])
-        @Expect(content.toString(), "a.b.*")
+        @Expect(content.toString().replace("\r\n", "\n"), "a.b.*")
         var pos = content.getMulPos()
         @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([2, 12, 2, 13]).toArray())
     }
@@ -55,11 +63,22 @@ class Test {
         let file = (node.node.getOrThrow() as SourceFile).getOrThrow()
         @Expect(file.toString(), input)
     }
+
+    @TestCase
+    func testInit01() {
+        let importList = importLists[0]
+        match(importList.kind) {
+            case ImportKind.All => @Expect(true)
+            case _ => @Expect(false)
+        }
+        let tmp = (importList.contents as ImportAll).getOrThrow()
+        let content = ImportAll(tmp.prefixes)
+        @Expect(content.prefixes, ["a"])
+        @Expect(content.toString().replace("\r\n", "\n"), "a.*")
+        var pos = content.getMulPos()
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 3, 1, 4]).toArray())
+        pos = content.nodePos
+        @Expect([pos.beginLine, pos.beginColumn, pos.endLine, pos.endColumn], ArrayList<Int32>([1, 1, 1, 4]).toArray())
+    }
 }
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- * This source file is part of the Cangjie project, licensed under Apache-2.0
- * with Runtime Library Exception.
- *
- * See https://cangjie-lang.cn/pages/LICENSE for license information.
- */
+

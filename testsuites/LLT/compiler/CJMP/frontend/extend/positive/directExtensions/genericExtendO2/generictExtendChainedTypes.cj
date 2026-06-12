@@ -25,7 +25,7 @@ public func f1() {
 }
 
 // SEPARATE-FILE: p/p.cj
-// EXEC-0: %compiler %noColor %enableO2 --experimental p/p.cj c/mp.chir --common-part-cjo=./c/mp.cjo  --output-type=dylib -o ./
+// EXEC-0: %compiler %noColor %enableO2 --experimental p/p.cj --common-part-chir=c/mp.chir --common-part-cjo=./c/mp.cjo  --output-type=dylib -o ./
 package mp
 specific extend <T> A<B<T>, Int64> {
     public specific func foo1(a: B<Int64>) { a.a + 1 }
