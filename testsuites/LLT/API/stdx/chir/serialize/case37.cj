@@ -11,7 +11,7 @@
 import std.collection.*
 import stdx.chir.*
 
-// CustomTypeDef (ClassDef) 自身带 Annotation
+// CustomTypeDef (ClassDef) 自身带 CustomAnnoInstance
 
 main() {
     let pkg = Package("pkg.td14", AccessLevel.Public)
@@ -19,11 +19,11 @@ main() {
     let i64 = IntType.getInt64()
 
     let cls = pkg.addClass("mEntity", "Entity", true)
-    let annoTable = Annotation("Table")
+    let annoTable = CustomAnnoInstance("Table")
     annoTable.argValues = ["t_entity"]
-    let annoCache = Annotation("Cacheable")
+    let annoCache = CustomAnnoInstance("Cacheable")
     annoCache.argValues = ["entity"]
-    cls.annotations = [annoTable, annoCache]
+    cls.customAnnoInstances = [annoTable, annoCache]
 
     cls.appendInstanceMemberVar("id", i64)
     cls.appendInstanceMemberVar("version", i32)

@@ -24,25 +24,25 @@ public class A extends M {
 
     public A() {
         super(1);
-        self = initCJObject();
+        initCJObject();
     }
 
     private A($$NativeConstructorMarker __init__) {
         super(1);
     }
 
-    public native long initCJObject();
+    private native void initCJObject();
 
     public A(long x) {
         super(x, x);
-        self = initCJObjectl(x);
+        initCJObjectl(x);
     }
 
     private A(long x, $$NativeConstructorMarker __init__) {
         super(x, x);
     }
 
-    public native long initCJObjectl(long x);
+    private native void initCJObjectl(long x);
 
     public void f(String arg) {
         fCN15java_cj_mirrors7JStringE(this.self, arg);

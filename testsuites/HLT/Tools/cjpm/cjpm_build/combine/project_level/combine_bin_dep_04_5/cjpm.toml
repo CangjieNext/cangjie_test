@@ -69,3 +69,6 @@ combine-all-deps = true
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
 [target.aarch64-linux-android35]
   compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"
+
+[target.arm-linux-android23]
+  compile-option = "-B=${NDK_ROOT}/bin --sysroot=${NDK_ROOT}/sysroot"

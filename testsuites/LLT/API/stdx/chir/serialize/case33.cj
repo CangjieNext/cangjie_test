@@ -11,7 +11,7 @@
 import std.collection.*
 import stdx.chir.*
 
-// ClassDef 成员变量带 Annotation
+// ClassDef 成员变量带 CustomAnnoInstance
 
 main() {
     let pkg = Package("pkg.td10", AccessLevel.Public)
@@ -21,14 +21,14 @@ main() {
     let cls = pkg.addClass("mUser", "User", true)
 
     let vId = cls.appendInstanceMemberVar("id", i64)
-    let anno1 = Annotation("NotNull")
+    let anno1 = CustomAnnoInstance("NotNull")
     anno1.argValues = ["true"]
-    vId.annotations = [anno1]
+    vId.customAnnoInstances = [anno1]
 
     let vName = cls.appendInstanceMemberVar("name", i32)
-    let anno2 = Annotation("Column")
+    let anno2 = CustomAnnoInstance("Column")
     anno2.argValues = ["user_name", "varchar(64)"]
-    vName.annotations = [anno2]
+    vName.customAnnoInstances = [anno2]
 
     // 成员函数
     let mf = pkg.addFunction(FuncType.get(Array<Type>(), i64), "mUser.getId", "getId", "pkg.td10")

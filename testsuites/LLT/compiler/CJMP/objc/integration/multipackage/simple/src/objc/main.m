@@ -10,7 +10,7 @@
 #import "Base.h"
 #import "Derived.h"
 
-// Interoplib objc common code (libinterop.objclib.dylib)
+// Interoplib objc common code
 extern bool initCJRuntime(const char*);
 
 extern int cangjieMain();

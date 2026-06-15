@@ -6,11 +6,11 @@
 
 # testcase is not correct.
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
-Tools/cjpm/stdx/c/build_mock/build_mock.info
-Tools/cjpm/stdx/c/check_01/check_01.info
-Tools/cjpm/stdx/c/tree_01/tree_01.info
+
+Tools/cjpm/stdx/r/01/01.info
 Tools/cjprof
-Tools/cjpm/stdx/c/build_mock/build_mock.info
+Tools/cjpm/stdx/r/04/04.info
+Tools/cjpm/stdx/r/03/03.info
 
 # old jffi can only be run with cjvm.
 compiler/cjnative/FFI/jffi
@@ -66,7 +66,7 @@ Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 Tools/cjprof
 # issue 198: syntax rewriter not support
 API/syntax/visit/ASTRewriter/test_rewriter_02.cj
-Tools/cjpm/stdx/c/build_mock/build_mock.info
+
 
 # fail in ci env
 API/std/socket/UdpSocket/test_udp_transportation_init.cj

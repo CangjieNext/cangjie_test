@@ -11,7 +11,7 @@
 import std.collection.*
 import stdx.chir.*
 
-// EnumDef 构造器带 Annotation
+// EnumDef 构造器带 CustomAnnoInstance
 
 main() {
     let pkg = Package("pkg.td11", AccessLevel.Public)
@@ -20,14 +20,14 @@ main() {
 
     let en = pkg.addEnum("mShape", "Shape", true)
     let ctorCircle = en.appendEnumCtorInfo("mShape.Circle", "Circle", argTypes: [i32])
-    let anno1 = Annotation("Deprecated")
+    let anno1 = CustomAnnoInstance("Deprecated")
     anno1.argValues = ["use Ellipse instead"]
-    ctorCircle.annotations = [anno1]
+    ctorCircle.customAnnoInstances = [anno1]
 
     let ctorRect = en.appendEnumCtorInfo("mShape.Rect", "Rect", argTypes: [i32, i32])
-    let anno2 = Annotation("Tag")
+    let anno2 = CustomAnnoInstance("Tag")
     anno2.argValues = ["rectangle"]
-    ctorRect.annotations = [anno2]
+    ctorRect.customAnnoInstances = [anno2]
 
     en.appendEnumCtorInfo("mShape.Point", "Point", argTypes: Array<Type>())
 

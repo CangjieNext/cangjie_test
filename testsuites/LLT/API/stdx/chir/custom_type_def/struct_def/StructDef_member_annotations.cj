@@ -9,7 +9,7 @@
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_args | compare %f
 
 /* SCAN
-member annotations empty: 0
+member customAnnoInstances empty: 0
 after anno size: 1
 anno class: StructFieldAnno
 anno str has At: true
@@ -26,17 +26,17 @@ main() {
     let st = pkg.addStruct("mS", "Point")
 
     let x = st.appendInstanceMemberVar("x", IntType.getInt32())
-    println("member annotations empty: ${x.annotations.size}")
+    println("member customAnnoInstances empty: ${x.customAnnoInstances.size}")
 
-    let a = Annotation("StructFieldAnno")
+    let a = CustomAnnoInstance("StructFieldAnno")
     let args = Array<String>(2, repeat: "tag")
     a.argValues = args
-    x.annotations = Array<Annotation>(1, { _ => a })
+    x.customAnnoInstances = Array<CustomAnnoInstance>(1, { _ => a })
 
-    println("after anno size: ${x.annotations.size}")
-    println("anno class: ${x.annotations[0].classSrcCodeName}")
-    println("anno str has At: ${x.annotations[0].toString().contains("@")}")
-    if (let fs <- x.annotations[0].argValues) {
+    println("after anno size: ${x.customAnnoInstances.size}")
+    println("anno class: ${x.customAnnoInstances[0].classSrcCodeName}")
+    println("anno str has At: ${x.customAnnoInstances[0].toString().contains("@")}")
+    if (let fs <- x.customAnnoInstances[0].argValues) {
         println("field kind value: ${fs[0]} ${fs[1]}")
     } else {
         println("field kind value: missing")
@@ -46,5 +46,5 @@ main() {
 
     let y = st.appendInstanceMemberVar("y", IntType.getInt32())
     println("instance vars: ${st.instanceVars.size}")
-    println("second member anno size: ${y.annotations.size}")
+    println("second member anno size: ${y.customAnnoInstances.size}")
 }

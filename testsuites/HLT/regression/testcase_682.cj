@@ -7,11 +7,11 @@
  */
  
 // LEVEL: 0
-// (not VM and O2) EXEC: %compiler %cmp_opt %f -o %output
-// (not VM and O2) RUN-EXEC: %run %run_opt %output %run_args
-// (not VM and not O2 and not iOS) ERRCHECK: %compiler %cmp_opt %f -o %output
-
-
+// DEPENDENCE: ./c_def.c
+// EXEC: %clang %clang_opt ./c_def.c -o %cffi_output
+// EXEC-PIPE: %compiler %cmp_opt %ffic_opt -o %output 2>&1 | compare %f
+// RUN-EXEC: %run %run_opt %output %run_args
+// ASSERT: scan chir_dce_unused_operator
 
 foreign func C_Abort(): Unit
 
@@ -60,4 +60,3 @@ main(): Int64 {
   print(0)
   return 0
 }
-// ASSERT: scan chir_dce_unused_operator

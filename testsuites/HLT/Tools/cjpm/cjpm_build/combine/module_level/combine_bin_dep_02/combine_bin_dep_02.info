@@ -6,6 +6,7 @@
 
 // LEVEL: 1
 // DEPENDENCE: ../%n
+// (cross_compilation)EXEC: %mkdir %n/coo/dep/%release_dir/dep
 // (target_linux | target_win | target_android | target_ohos)EXEC: cd %n/coo/dep && %cjpm build %cjpm_opt
 // (target_linux | target_win | target_android | target_ohos)EXEC: cd %n && %cjpm build %cjpm_opt -V 2>&1 | compare %f
 // ASSERT: regex Compiling package `b`: [\s\S]*-L [\s\S]*-laoo

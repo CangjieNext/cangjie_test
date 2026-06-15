@@ -19,4 +19,4 @@ Req#
 {"jsonrpc": "2.0", "method": "exit", "params": {}}
 
 Rev#
-{"id": 464,"jsonrpc": "2.0","result": {"contents": {"language": "Cangjie","value": "Declared in: type12.cj\nPackage info: default.Type\n\ninternal type Time = TimeUnit\n"},"range": {"end": {"character": 13,"line":16},"start": {"character": 9,"line":16}}}}
+{"id": 464,"jsonrpc": "2.0","result": {"contents": {"kind": "markdown","value": "Declared in: type12.cj  \nPackage info: default.Type  \n\n```cangjie\ninternal type Time = TimeUnit\n```\n"},"range": {"end": {"character": 13,"line":16},"start": {"character": 9,"line":16}}}}
