@@ -14,9 +14,9 @@ public type Int = Int32
 
 public type Int1 = Int
 
-public type Float = Float32
+public type Func = CFunc<() -> Unit>
 
-public type Float1 = Float
+public type PFunc = CPointer<Func>
 
 public type Enum = Int32
 public const a: Enum = 0
@@ -37,13 +37,18 @@ public interface BaseProtocol {
 public interface P {
 }
 
+@C
+public struct CStruct {
+}
+
 @ObjCMirror
 public open class M <: BaseClass & BaseProtocol {
     protected var x: Int32
     protected var i: Int1
-    protected var pf: ObjCPointer<Float1>
+    protected var pf: ObjCPointer<ObjCPointer<ObjCFunc<() -> Unit> /*Func*/> /*PFunc*/>
     protected var e: Enum
     protected var c: ?C
     protected var p: ?P
+    protected var c_struct: ObjCPointer<CStruct>
 }
 */

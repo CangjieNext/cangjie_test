@@ -9,8 +9,8 @@
 typedef int Int;
 typedef Int Int1;
 
-typedef float Float;
-typedef Float Float1;
+typedef void(*Func)();
+typedef Func *PFunc;
 
 enum Enum : int { a };
 
@@ -30,12 +30,16 @@ enum Enum : int { a };
 @protocol P
 @end
 
+struct CStruct {
+};
+
 @interface M : BaseClass <BaseProtocol> {
     int x;
     Int1 i;
-    Float1* pf;
+    PFunc* pf;
     enum Enum e;
     C* c;
     id<P> p;
+    struct CStruct* c_struct;
 }
 @end
