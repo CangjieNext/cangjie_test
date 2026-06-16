@@ -15,6 +15,10 @@ public open class BaseClass {
 }
 
 @ObjCMirror
+public interface BaseProtocol {
+}
+
+@ObjCMirror
 public open class M <: BaseClass & BaseProtocol {
     protected var x: Int32
 }
