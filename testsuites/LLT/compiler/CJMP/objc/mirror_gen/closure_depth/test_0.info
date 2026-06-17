@@ -6,8 +6,8 @@
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
  
-// DEPENDENCE: ../test.toml test-0.toml test.h
-// EXEC: ObjCInteropGen test-0.toml
+// DEPENDENCE: ../test.toml test_0.toml test.h
+// EXEC: ObjCInteropGen test_0.toml
 // EXEC: %cat test.cj | compare %f
 /* SCAN-IN
 @ObjCMirror
