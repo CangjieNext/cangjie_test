@@ -20,7 +20,7 @@ main() {
     let _thread_info = _thread_infos[0]
     @Assert(_thread_info.id is Int64)
     @Assert(_thread_info.name, "")
-    match(_thread_info.state) {
+    match (_thread_info.state) {
         case ThreadState.Running => println("Running")
         case _ => @Assert(false)
     }
