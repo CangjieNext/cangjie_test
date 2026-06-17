@@ -250,7 +250,7 @@ def main():
                 com_out = com_out.split("cj_main_return_start")[0] + com_out.split("cj_main_return_end")[1]
             else:
                 # 如果没有找到cj_main_return_start/cj_main_return_end可能是因为全局抛出异常导致的
-                if 'Init Image fail! exception occurrence when init image' in sys_log_content:
+                if 'An exception has occurred' in sys_log_content:
                     # 全局静态初始化过程中抛出异常，退出码改为1，并将日志内容输出到标准输出流
                     return_code = 1
                 elif 'CJNative Handle signal: 11.' in sys_log_content or 'SIGSEGV(11)' in exit_message:

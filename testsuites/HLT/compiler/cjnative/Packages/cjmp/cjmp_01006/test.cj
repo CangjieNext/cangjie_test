@@ -8,7 +8,7 @@
  
 // LEVEL: 0
 // DEPENDENCE: mp
-// ERRCHECK: %compiler %cmp_opt mp/test_com.cj mp/test_plat.cj %compile_dylib_opt -o ./
+// ERRCHECK: %compiler %cmp_opt mp/test_com.cj mp/test_plat.cj %compile_library -o ./
 // ASSERT: scan parse_unexpected_cjmp_decl
 
 

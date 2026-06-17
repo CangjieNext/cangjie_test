@@ -19,9 +19,8 @@
 // 当前，目标平台为Windows或MacOS或iOS时，不支持开启后端并行，同时报错不支持LTO
 // (target_win) ASSERT: scan '--apc' is not supported when targeting windows.
 // (target_win) ASSERT: scan Windows does not support LTO.
-// (target_mac) ASSERT: scan '--apc' is not supported when targeting darwin.
+// (target_mac | target_ios | target_ios_simulator) ASSERT: scan '--apc' is not supported when targeting darwin.
 // (target_mac) ASSERT: scan Darwin does not support LTO.
-// (target_ios | target_ios_simulator) ASSERT: scan '--apc' is not supported when targeting ios.
 // (target_ios | target_ios_simulator) ASSERT: scan iOS does not support LTO.
 
 // 目标平台为Linux或OHOS或Android时，支持开启后端并行，但由于开启LTO，导致APC无效
