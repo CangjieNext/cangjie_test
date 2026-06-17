@@ -16,8 +16,7 @@
 
 // 当前，目标平台为Windows或MacOS或iOS时，不支持开启后端并行
 // (target_win) ASSERT: scan '--apc' is not supported when targeting windows.
-// (target_mac) ASSERT: scan '--apc' is not supported when targeting darwin.
-// (target_ios | target_ios_simulator) ASSERT: scan '--apc' is not supported when targeting ios.
+// (target_mac | target_ios | target_ios_simulator) ASSERT: scan '--apc' is not supported when targeting darwin.
 // (target_win | target_mac) EXEC: %python check.py --dir_path "%n"_IR/3_GenTypeInfos --expected_count 1
 // (target_ios | target_ios_simulator) EXEC: %python check.py --dir_path libcangjie_main_IR/3_GenTypeInfos --expected_count 1
 

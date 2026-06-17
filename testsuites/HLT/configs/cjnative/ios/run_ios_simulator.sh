@@ -63,6 +63,24 @@ rm -rf "$TEMP_DIR"
 rm -f ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
 cp libcangjie_main.a ${XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST}/libcangjie_main.a
 
+for FILE_PATH in $CANGJIE_HOME/lib/$1/*.a; do
+    if [ -e "$FILE_PATH" ]; then
+        cp $FILE_PATH $XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST
+    fi
+done
+
+for FILE_PATH in $CANGJIE_HOME/lib/$1/*.o; do
+    if [ -e "$FILE_PATH" ]; then
+        cp $FILE_PATH $XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST
+    fi
+done
+
+for FILE_PATH in $CANGJIE_STDX_PATH/*.a; do
+    if [ -e "$FILE_PATH" ]; then
+        cp $FILE_PATH $XCODE_BRIDGE_CANGJIE_DIR_OF_CANGJIE_IOS_TEST
+    fi
+done
+
 ret=255
 if [ -z ${XCODE_DEVICE_UDID_OF_CANGJIE_IOS_TEST} ]; then
     if [ -z "${XCODE_SIMULATOR_NAME_OF_CANGJIE_IOS_TEST}" ]; then
