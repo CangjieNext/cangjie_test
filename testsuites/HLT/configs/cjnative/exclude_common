@@ -7,16 +7,10 @@
 # testcase is not correct.
 Tools/cjlsp/testcases/autotestcase/deprecated/textDocument_completion_018.info
 
-
-
 # pffi should run with Python-ffi version
 API/std/ffi/Python
-# old jffi can only be run with cjvm.
-compiler/cjnative/FFI/jffi
 # invoke_api can only be used in cjvm.
 compiler/cjnative/FFI/cffi/invoke_api
-
-
 
 # stable abi: not support jffi
 compiler/cjnative/stable_abi/05_class/02_modify/01_define_content/01_visible_outside_module/02_compiler_directive/Java/class_Java_add.cj
@@ -63,3 +57,6 @@ compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0103/test.info
 compiler/cjnative/FFI/objcffi/glue_code/cj_impl/impl_class_0104/test.info
 
 API/net/TLS_new/KeylessTlsServerConfig/test_KeylessTlsServerConfig.cj
+
+Runtime/cjnative/runtime/PointerAuth
+compiler/cjnative/FFI/jffi/android/native

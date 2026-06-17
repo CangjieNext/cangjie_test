@@ -86,11 +86,12 @@ def run(cmd, work_dir, timeout):
         process.terminate()
 
 
-def construct_tool_shell_cmd(cmd: str, remote_temp_dir: str):
+def construct_tool_shell_cmd(cmd: str):
     if IS_WINDOWS:
         symbol = '\"'
     else:
         symbol = '\''
+    remote_temp_dir = '/data/local/tmp'
     h = '{}/{}'.format(remote_temp_dir, uuid.uuid4())
     shell_cmd = f'{cmd} 1> {h}_stdout.txt 2> {h}_stderr.txt ; echo exit_code_start$?exit_code_end > {h}_exit_code.txt ; cat {h}_stdout.txt ; cat {h}_exit_code.txt ; cat {h}_stderr.txt'
     cmd = f"{tool} shell {symbol}{shell_cmd}{symbol}"
@@ -107,7 +108,7 @@ def construct_tool_send_cmd(src, dest):
     elif "adb" in tool:
         for root_dir_path, _, file_name_list in os.walk(src):
             for file_name in file_name_list:
-                if file_name.endswith('.c'):
+                if file_name.endswith('.c') or file_name.endswith('.cpp') or file_name.endswith('.java'):
                     file_path = os.path.join(root_dir_path, file_name)
                     print(f'removing {file_path}')
                     os.remove(file_path)
@@ -130,7 +131,7 @@ def construct_remote_cmd(execute_cmd, execute_case_cmd, upload_file, remote_temp
         "cd {path}; chmod -R +x {path}; export PATH=$(pwd):$PATH; export LD_LIBRARY_PATH=$(pwd):$LD_LIBRARY_PATH && "
         "{execute_case_cmd}".format(path=remote_temp_dir, execute_case_cmd=execute_case_cmd)
     )
-    execute_cmd["run_case"] = construct_tool_shell_cmd(run_case_cmd, remote_temp_dir=remote_temp_dir)
+    execute_cmd["run_case"] = construct_tool_shell_cmd(run_case_cmd)
 
     execute_cmd["copy_file_to_remote"] = [
         construct_tool_send_cmd(upload_file, remote_temp_dir)
@@ -139,7 +140,7 @@ def construct_remote_cmd(execute_cmd, execute_case_cmd, upload_file, remote_temp
         "rm -rf {}".format(remote_temp_dir)
         # "ls {}".format(remote_temp_dir)
     )
-    execute_cmd["remove_file_on_remote"] = construct_tool_shell_cmd(remove_case_cmd, remote_temp_dir=remote_temp_dir)
+    execute_cmd["remove_file_on_remote"] = construct_tool_shell_cmd(remove_case_cmd)
 
 
 def parse_cli():
@@ -278,7 +279,7 @@ def main():
         local_path,
         remote_path,
     )
-    check_case = construct_tool_shell_cmd("ls /data/local/tmp/run/" + remote_path, remote_temp_dir=remote_path)
+    check_case = construct_tool_shell_cmd("ls /data/local/tmp/run/" + remote_path)
     return_code, com_out, com_err = run(check_case, ".", 10)
     if "No such file or directory" not in com_out and "No such file or directory" not in com_err:
         execute_stages["copy_file_to_remote"] = None
