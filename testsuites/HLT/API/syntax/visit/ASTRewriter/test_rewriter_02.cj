@@ -18,17 +18,20 @@ public class MyVisitor_nochange <: ASTVisitor {
         return PreActionMode.Continue
     }
 
-    override public func postAction(node: SyntaxTreeNode): PostActionMode {
+    public override func postAction(node: SyntaxTreeNode): PostActionMode {
         return PostActionMode.Continue
     }
 }
 
 @Test
-class test_01{
+class test_01 {
     @TestCase
-func test_ASTVistor_01() {
-    let filedecl = parseFile("class02.cj").node.getOrThrow()
-    let _visitor = MyVisitor_nochange()
-    _visitor.walk(filedecl)   
-}
+    func test_ASTVistor_01() {
+        // 目前syntax不支持Byte Literal，将导致parseFile报错
+        let e = @AssertThrows[Exception](parseFile("class02.cj"))
+        @Assert(e.message, "Rune Byte literal is not supported in syntax")
+        // let filedecl = parseFile("class02.cj").node.getOrThrow()
+        // let _visitor = MyVisitor_nochange()
+        // _visitor.walk(filedecl)
+    }
 }
