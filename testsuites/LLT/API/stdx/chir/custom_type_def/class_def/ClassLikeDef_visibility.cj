@@ -10,6 +10,10 @@
 
 /* SCAN
 class public: true
+class after private: true
+class protected: true
+[protected][pluginAdded]class @mC { // srcCodeName: C, packageName: pkg.class.vis
+}
 */
 
 import stdx.chir.*
@@ -19,4 +23,10 @@ main() {
     let cls = pkg.addClass("mC", "C", true)
     cls.setPublic()
     println("class public: ${cls.isPublic()}")
+    cls.setPrivate()
+    println("class after private: ${cls.isPrivate()}")
+
+    cls.setProtected()
+    println("class protected: ${cls.isProtected()}")
+    cls.dump()
 }
