@@ -15,5 +15,5 @@ struct M {
         int b;
     } c;
 
-    enum { d } e;
+    enum : int { d } e;
 };
