@@ -13,6 +13,8 @@ iface default impl: 0
 class default impl: 0
 class impl count: 2
 impl0 is iface ty: true
+class str has colon_lt: true
+class str has amp join: true
 */
 
 import stdx.chir.*
@@ -35,4 +37,10 @@ main() {
     })
     println("class impl count: ${cls.implementedInterfaceTypes.size}")
     println("impl0 is iface ty: ${cls.implementedInterfaceTypes[0] == i1.classType}")
+
+    let cs = cls.toString()
+    let i1Ty = i1.classType.toString()
+    let i2Ty = i2.classType.toString()
+    println("class str has colon_lt: ${cs.contains(" <: ")}")
+    println("class str has amp join: ${cs.contains(i1Ty + " & " + i2Ty)}")
 }
