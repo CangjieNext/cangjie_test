@@ -14,10 +14,14 @@
 public struct M {
     public var a: Int32 = 0
     public var c: __test_1 = __test_1()
+    public var e: __test_2 = 0
 }
 
 @C
 public struct __test_1 {
     public var b: Int32 = 0
 }
+
+public type __test_2 = Int32
+public const d: __test_2 = 0
 */
