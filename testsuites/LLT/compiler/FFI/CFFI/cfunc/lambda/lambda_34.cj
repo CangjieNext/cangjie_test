@@ -1,4 +1,4 @@
-// Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+// Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
 // This source file is part of the Cangjie project, licensed under Apache-2.0
 // with Runtime Library Exception.
 //
@@ -14,7 +14,7 @@ interface I1 {
 interface I2 <: I1 {
     static func f() {
         let fn: CFunc<()->Unit> = { =>
-            g() // equal to I2.g()
+            g() // equal to I1.g()
         }
         unsafe{fn()}
     }
