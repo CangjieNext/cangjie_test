@@ -16,6 +16,7 @@ public func genericsfun_c<T>(a: T):Int64 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var vcptr = CPointer<Int8>()
     var vcfunc = CFunc<() -> Unit>(vcptr)
     var aa = [1,2]

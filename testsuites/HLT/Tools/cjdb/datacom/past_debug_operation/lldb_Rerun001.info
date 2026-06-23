@@ -9,7 +9,7 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/022_debug_launch.cj
 // EXEC: %compiler %cmp_opt -g 022_debug_launch.cj -o 022_debug_launch%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_Rerun001.info 022_debug_launch %run_env
+// EXEC: python3 cjdb_test.py lldb_Rerun001.info 022_debug_launch %run_env
 
 
 
@@ -17,5 +17,6 @@
 test#
 cjdb,cjdb --no-use-colors 022_debug_launch,022_debug_launch
 AOT r,r,exited with status
+Android c,c,exited with status
 CJVM c,c,
 q,q,

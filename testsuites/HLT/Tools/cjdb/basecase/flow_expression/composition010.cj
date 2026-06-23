@@ -35,6 +35,7 @@ enum E2<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = E1.AB.f2 ~> E1.AB.f2
     var a2 = E1.f3 ~> E1.f3
     var a3 = E1.AB.f1<Bool> ~> E1.AB.f2

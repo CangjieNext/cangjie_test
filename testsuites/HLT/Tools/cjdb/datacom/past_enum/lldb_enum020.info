@@ -9,17 +9,18 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/004_debug_enum_recursion.cj
 // EXEC: %compiler %cmp_opt -g 004_debug_enum_recursion.cj -o 004_debug_enum_recursion%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_enum020.info 004_debug_enum_recursion %run_env
+// EXEC: python3 cjdb_test.py lldb_enum020.info 004_debug_enum_recursion %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_enum_recursion,004_debug_enum_recursion
-b,b 43,004_debug_enum_recursion.cj:43
-AOT r,r,-> 43
+b,b 44,004_debug_enum_recursion.cj:44
+AOT r,r,-> 44
+Android c,c,44
 CJVM c,c,
-n,n,-> 42
-n,n,-> 46
+n,n,43
+n,n,47
 locals,locals,\(Int32\) howManyYears2 = 9
 q,q,

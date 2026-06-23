@@ -7,6 +7,7 @@
  */
 
 main(){
+    sleep(Duration.millisecond*3000)
     let v1 = Option<Rune>.Some(r'A')
     let v2 = Option<Rune>.None
     let v3 = Option<Range<Int64>>.Some(1..6)

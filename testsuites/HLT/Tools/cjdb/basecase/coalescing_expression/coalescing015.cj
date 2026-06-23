@@ -13,6 +13,7 @@ struct S1{
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     //var a1 = HashSet<S1>([S1()])
     //var a2 = ArrayList<S1>([S1()])
     //var a3 = HashMap<S1,S1>([(S1(),S1())])

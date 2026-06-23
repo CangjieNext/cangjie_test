@@ -18,6 +18,7 @@ func test1<T>() {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = test1<Int64>()
     0
 }

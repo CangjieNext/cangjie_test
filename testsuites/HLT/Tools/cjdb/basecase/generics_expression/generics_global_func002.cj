@@ -11,6 +11,7 @@ func foo<T>(para: T) {
     a
 }
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     var x1:UInt8 = 1
     var x2:UInt16 = 2
     var x3:UInt32 = 3

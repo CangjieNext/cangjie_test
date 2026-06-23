@@ -32,6 +32,7 @@ class Foo <: Eq<Foo> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a = Pair(Foo(), 8).first
     let b = Pair(Foo(), Foo()).equals
     let c = Pair<Int64, Bool>(6, true)

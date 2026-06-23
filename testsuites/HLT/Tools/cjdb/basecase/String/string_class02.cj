@@ -18,6 +18,7 @@ cangjie "#\n"##
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = C1<Int64>()
     var a2 = a1.main_str2
     var a3 = a1.s2

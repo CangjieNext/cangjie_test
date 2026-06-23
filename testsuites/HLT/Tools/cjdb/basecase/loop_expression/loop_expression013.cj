@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     var root = 0.0
     var min = 1.0
     var max = 2.0

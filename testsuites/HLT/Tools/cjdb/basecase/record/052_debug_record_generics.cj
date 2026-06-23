@@ -93,6 +93,7 @@ class C {
 var top_r = R1<Int32>(10)
 
 main() {
+    sleep(Duration.millisecond*3000)
     let r1 = R1<UInt32>(100)
     var r2 = R1<Float64>(100.0, 100.0)
     var r3 = R1<String>("abc")

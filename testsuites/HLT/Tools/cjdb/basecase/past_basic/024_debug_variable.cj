@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
 
     //基本类型变量:Int8 var_int8 值改为 -2 时 f_int8 值为 10
     var var_int8: Int8 = 1

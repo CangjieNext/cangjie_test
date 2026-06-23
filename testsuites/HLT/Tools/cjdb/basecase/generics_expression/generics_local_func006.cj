@@ -17,6 +17,7 @@ func add2<T>(c: T, a: Int64): Int64 {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     add(1, 2)
     add2<Int64>(1, 4)
     return 0

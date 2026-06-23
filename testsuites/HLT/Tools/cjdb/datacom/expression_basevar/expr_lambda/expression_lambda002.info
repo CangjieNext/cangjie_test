@@ -8,16 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../../cjdb_test.py    ../../../basecase/past_basic/066_debug_lambda.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_lambda002.info 066_debug_lambda %run_env
+// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
+// (not target_mac and not target_android) EXEC: python3 cjdb_test.py expression_lambda002.info 066_debug_lambda %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
-CJVM b,b main,066_debug_lambda.cj:18
-CJVM c,c,-> 18
-b,b 20,066_debug_lambda.cj:20
-AOT r,r,-> 20
+CJVM b,b main,066_debug_lambda.cj:19
+CJVM c,c,19
+b,b 21,066_debug_lambda.cj:21
+AOT r,r,-> 21
+Android c,c,21
 expr~ expr { => a - 1 }()~\(Int64\) \$[\d] = 9
 expr~  expr let l1 ={=>}()~\(Unit\) \$[\d] = ()
 expr~ expr f1({ a2 => a2 + 10 })~\(Int64\) \$[\d] = 11

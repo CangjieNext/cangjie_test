@@ -9,12 +9,13 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/052_debug_watchpoint_within_static.cj
 // (not arm) EXEC: %compiler %cmp_opt -g 052_debug_watchpoint_within_static.cj -o 052_debug_watchpoint_within_static%cmp_output
-// (not arm) RUN-EXEC: python3 cjdb_test.py lldb_within_watchpoint076.info 052_debug_watchpoint_within_static %run_env
+// (not arm) EXEC: python3 cjdb_test.py lldb_within_watchpoint076.info 052_debug_watchpoint_within_static %run_env
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_watchpoint_within_static,052_debug_watchpoint_within_static
-b ,b 21,052_debug_watchpoint_within_static.cj:21
-r , r,-> 21
-watchpoint,watchpoint set variable -w read v_main_6,052_debug_watchpoint_within_static.cj:21
-c,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*-> 22[\s\S]*
+b ,b 22,052_debug_watchpoint_within_static.cj:22
+AOT r,r,-> 22
+Android c,c,22
+watchpoint,watchpoint set variable -w read v_main_6,052_debug_watchpoint_within_static.cj:22
+c,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*23[\s\S]*
 q,q,

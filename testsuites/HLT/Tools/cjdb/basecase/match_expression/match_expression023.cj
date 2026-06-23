@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     let x = -10
     let y = match (x) {
         case 0 => "zero"

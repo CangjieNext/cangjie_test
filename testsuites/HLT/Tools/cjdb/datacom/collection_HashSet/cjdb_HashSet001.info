@@ -9,14 +9,15 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashSet/001_HashSet_Ins_basic.cj
 // EXEC: %compiler %cmp_opt -g 001_HashSet_Ins_basic.cj -o 001_HashSet_Ins_basic%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_HashSet001.info 001_HashSet_Ins_basic %run_env
+// EXEC: python3 cjdb_test.py cjdb_HashSet001.info 001_HashSet_Ins_basic %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 001_HashSet_Ins_basic,001_HashSet_Ins_basic
-b,b 16,001_HashSet_Ins_basic.cj:16
-AOT r,r,-> 16
-CJVM c,c,-> 16
+b,b 17,001_HashSet_Ins_basic.cj:17
+AOT r,r,-> 17
+Android c,c,17
+CJVM c,c,17
 p,p set_int8,std[.]collection.HashSet<Int8>\) \$[\d] = {[\S\s]*\[0\] = 76[\S\s]*}
 p,p set_int8,std[.]collection.HashSet<Int8>\) \$[\d] = {[\S\s]*\[1\] = 9[\S\s]*}
 q,q,

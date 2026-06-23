@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var var1: Int8 = 0o32
     var var2: Int16 = 0o16
     var var3: Int32 = 0o32

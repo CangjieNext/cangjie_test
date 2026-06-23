@@ -9,6 +9,7 @@
 
 var topnum: Int64 = 0
 main() {
+    sleep(Duration.millisecond*3000)
     var numint8: Int8 = 0
     while (numint8 < 10) { // until numint8 < 10
         numint8++

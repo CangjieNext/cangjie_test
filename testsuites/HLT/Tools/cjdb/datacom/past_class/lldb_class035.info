@@ -16,10 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_class_top_mod,001_debug_class_top_mod
-b,b 49,001_debug_class_top_mod.cj:49
-AOT r,r,-> 49
-CJVM c,c,-> 49
-n,n,-> 50
+b,b 50,001_debug_class_top_mod.cj:50
+AOT r,r,-> 50
+Android c,c,50
+CJVM c,c,50
+n,n,51
 AOT print,print m_c.name,error: unsupported expression
 CJVM print,print m_c.name,error: variable was not declared in this scope
 AOT print,print abc,error: unsupported expression

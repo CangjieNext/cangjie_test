@@ -17,6 +17,7 @@ class Rectangle{
 
 }
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var rec = Rectangle()
     println("hello world")
     return 0

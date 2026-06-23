@@ -9,14 +9,15 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/011_debug_ArrayIns_composite_record.cj
 // EXEC: %compiler %cmp_opt -g 011_debug_ArrayIns_composite_record.cj -o 011_debug_ArrayIns_composite_record%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_compositeArray_view062.info 011_debug_ArrayIns_composite_record %run_env
+// EXEC: python3 cjdb_test.py cjdb_compositeArray_view062.info 011_debug_ArrayIns_composite_record %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_ArrayIns_composite_record,011_debug_ArrayIns_composite_record
-b,b 32,011_debug_ArrayIns_composite_record.cj:32
-AOT r,r,-> 32
+b,b 33,011_debug_ArrayIns_composite_record.cj:33
+AOT r,r,-> 33
+Android c,c,33
 CJVM c,c,
-s,s,-> 56
-n,n,-> 57
+s,s,57
+n,n,58
 q,q,

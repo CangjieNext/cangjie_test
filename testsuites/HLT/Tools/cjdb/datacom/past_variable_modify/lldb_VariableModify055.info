@@ -9,24 +9,25 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
 // EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_VariableModify055.info 024_debug_variable %run_env
+// EXEC: python3 cjdb_test.py lldb_VariableModify055.info 024_debug_variable %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:14
-CJVM c,c,-> 14
-b,b 90,024_debug_variable.cj:90
-AOT r,r,-> 90
-CJVM c,c,-> 90
+CJVM b,b main,024_debug_variable.cj:15
+CJVM c,c,15
+b,b 91,024_debug_variable.cj:91
+AOT r,r,-> 91
+Android c,c,91
+CJVM c,c,91
 set,set var_one = 2,2
 set,set var_two = 2,2
 set,set var_three = 2,2
 set,set var_four = 2,2
 set,set var_five = 2,2
-n,n,-> 95
+n,n,96
 locals,locals,var_one = 2
 p,p var_one,\(Int64\) \$[\d] = 2
 locals,locals,var_two = 2

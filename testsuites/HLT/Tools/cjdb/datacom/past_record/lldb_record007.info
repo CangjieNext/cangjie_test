@@ -9,17 +9,18 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/045_debug_record_mod.cj
 // EXEC: %compiler %cmp_opt -g 045_debug_record_mod.cj -o 045_debug_record_mod%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_record007.info 045_debug_record_mod %run_env
+// EXEC: python3 cjdb_test.py lldb_record007.info 045_debug_record_mod %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 045_debug_record_mod,045_debug_record_mod
-b,b 64,045_debug_record_mod.cj:64
-AOT r,r,-> 64
+b,b 65,045_debug_record_mod.cj:65
+AOT r,r,-> 65
+Android c,c,65
 CJVM c,c,
-n,n,-> 65
+n,n,66
 locals,locals,\(Bool\) main_bool = true
 print,print rect.varBool,\(Bool\) \$[\d] = true
 q,q,

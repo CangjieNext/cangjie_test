@@ -35,6 +35,7 @@ let mlength: Int32 = mc.length
 var mvarBool: Bool = mc.varBool
 
 main() {
+    sleep(Duration.millisecond*3000)
     let m_c = C2()
     let m_length: Int32 = m_c.length
     var m_varBool: Bool = m_c.varBool

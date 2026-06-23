@@ -13,6 +13,7 @@ class A1 {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     var aa = A1() //expr aa
     0
 }

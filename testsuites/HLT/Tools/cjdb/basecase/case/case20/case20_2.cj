@@ -14,6 +14,7 @@ enum E1 {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     var aa = E1.AB.foo(4)
     0
 }

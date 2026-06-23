@@ -16,6 +16,7 @@ public var vhmc: HashMap<String, Bool> = HashMap<String, Bool>([("a", true),("b"
 var vhmc3 = vhmc.add("c",true)
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let aa:Range<Int64> = 0..6:2
     for (i in aa) {
         println(i)

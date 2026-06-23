@@ -11,6 +11,7 @@ func f(x: Int64): Float64 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var l1 = {x:Int64 => x} ~> f
     var l2 = f ~> {x:Float64 => x}
     var l3 = {x:Int64 => x} ~> {x:Int64 => x}~> {x:Int64 => 1}

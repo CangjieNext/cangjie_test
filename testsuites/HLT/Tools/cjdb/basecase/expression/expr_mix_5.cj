@@ -44,6 +44,7 @@ class classC {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var cc = classC()
     return 0
 }

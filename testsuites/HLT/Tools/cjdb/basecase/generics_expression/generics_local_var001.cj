@@ -32,6 +32,7 @@ func f2<T>(a:T){
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     f1()
     f2(6)
     return 0

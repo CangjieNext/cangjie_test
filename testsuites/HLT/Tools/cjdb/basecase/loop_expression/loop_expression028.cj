@@ -9,6 +9,7 @@
 import std.random.Random
 
 main() {
+    sleep(Duration.millisecond*3000)
     let random = Random()
     var totalPoints = 0
     var hitPoints = 0

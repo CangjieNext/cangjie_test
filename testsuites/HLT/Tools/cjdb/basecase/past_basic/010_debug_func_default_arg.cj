@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var Functioncall006: Int32 = demofun007(2, b: 2) //命名形参 Functioncall006=4
     var Functioncall007: Int32 = demofun007(2) //可选形参  Functioncall007=3
     var a: Int64 = 10

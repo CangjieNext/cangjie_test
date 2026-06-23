@@ -9,6 +9,7 @@
 import std.collection.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     let c = HashMap<String, Int64>([("a", 0), ("b", 1), ("c", 2)])
     let a1 = Option<HashMap<String, Int64>>.Some(c)
     let a2 = Option<HashMap<String, Int64>>.None

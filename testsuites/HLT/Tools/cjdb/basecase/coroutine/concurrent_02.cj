@@ -9,6 +9,7 @@
 
 
 main(){
+    sleep(Duration.millisecond*3000)
 	for (i in 0..5) {
 		print("i number = ${i}\n")
 		sleep(Duration.millisecond * 100) // sleep for 100ms.

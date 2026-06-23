@@ -28,6 +28,7 @@ enum E1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = E1.AB
     var b = a.test1()
     var c = E1.test2()

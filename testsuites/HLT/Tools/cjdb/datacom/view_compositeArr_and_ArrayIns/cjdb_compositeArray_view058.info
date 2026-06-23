@@ -9,13 +9,14 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/010_debug_ArrayIns_composite_class.cj
 // EXEC: %compiler %cmp_opt -g 010_debug_ArrayIns_composite_class.cj -o 010_debug_ArrayIns_composite_class%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_compositeArray_view058.info 010_debug_ArrayIns_composite_class %run_env
+// EXEC: python3 cjdb_test.py cjdb_compositeArray_view058.info 010_debug_ArrayIns_composite_class %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 010_debug_ArrayIns_composite_class,010_debug_ArrayIns_composite_class
-b,b 114,010_debug_ArrayIns_composite_class.cj:114
-AOT r,r,-> 114
+b,b 115,010_debug_ArrayIns_composite_class.cj:115
+AOT r,r,-> 115
+Android c,c,115
 CJVM c,c,
 p,p multiArr_mg_d3[0],\(std[.]core.Array<default.Cla_sub_2<UInt16>>\) \$[\d] = {[\s\S]*\[0\] = [\s\S]*
 p,p multiArr_mg_d3[0][1],default.Cla_sub_2<UInt16>\) \$[\d] = {[\s\S]*length = 86[\s\S]*chwidth = 86

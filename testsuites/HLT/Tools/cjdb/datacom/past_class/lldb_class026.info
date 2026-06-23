@@ -16,9 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_class_top_mod_open,002_debug_class_top_mod_open
-b,b 49,002_debug_class_top_mod_open.cj:49
-AOT r,r,-> 49
-CJVM c,c,-> 49
-n,n,-> 50
+b,b 50,002_debug_class_top_mod_open.cj:50
+AOT r,r,-> 50
+Android c,c,50
+CJVM c,c,50
+n,n,51
 print,print data3.a3,\(Int64\) \$[\d] = 1
 q,q,

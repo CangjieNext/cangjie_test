@@ -16,10 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 012_debug_class_init,012_debug_class_init
-b,b 35,012_debug_class_init.cj:35
-b,b 63,012_debug_class_init.cj:63
-AOT r,r,-> 35
-CJVM c,c,-> 35
-c,c,-> 63
+b,b 36,012_debug_class_init.cj:36
+b,b 64,012_debug_class_init.cj:64
+AOT r,r,-> 36
+Android c,c,36
+CJVM c,c,36
+c,c,64
 print,print num2.perimeter,\(Int32\) \$[\d] = 14
 q,q,

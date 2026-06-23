@@ -23,6 +23,7 @@ struct S1<T>{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = S1<String>("qqq")
     0
 }

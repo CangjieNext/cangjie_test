@@ -24,6 +24,7 @@ class C2<T> <: C1<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     const c1 = C1<Int64>(100) //expr c1
     const c2 = C2<Int64>(-1) //expr c2
     c1.b

@@ -17,6 +17,7 @@ class C1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = C1.result
     0
 }

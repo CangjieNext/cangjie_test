@@ -19,6 +19,7 @@ public class test_C4<X,Y> {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
         let class_004 = test_C4<Bool,String>(1, true, v:2, z:"你好，cangjie。")
         return 0
 }

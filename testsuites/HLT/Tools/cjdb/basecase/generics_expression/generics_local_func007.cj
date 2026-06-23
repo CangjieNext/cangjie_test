@@ -12,6 +12,7 @@ struct C<T> { }
 struct D<T,R> { }
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     var aa = A<UInt16>()
     var bb = B<UInt16,Int32>()
     var cc = C<UInt16>()

@@ -14,6 +14,7 @@ let mtx = ReentrantMutex()
 
 /* 协程最多显示数目查看 */
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
 
     /*互斥锁*/
     var thread_list = ArrayList<Future<Unit>>()

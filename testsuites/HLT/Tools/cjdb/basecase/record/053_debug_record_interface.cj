@@ -27,6 +27,7 @@ extend String <: Hashable { // Implement `Hashable` interface using extend.
     }
 }
 main() {
+    sleep(Duration.millisecond*3000)
     let r1 = String()
 
     return 0
