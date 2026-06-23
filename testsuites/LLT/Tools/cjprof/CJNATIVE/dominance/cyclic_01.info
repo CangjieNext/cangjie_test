@@ -1,0 +1,14 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: cyclic self-reference in dominator tree (V2 format data)
+# A Node instance references itself. retained_size should equal shallow_size.
+
+// DEPENDENCE: cjprof_api_test.py ../sample/dom_cyclic.data
+// EXEC: python3 cjprof_api_test.py cyclic_01.info
+
+test#
+dom_cyclic,/api/dominance/tree,class_name:default::Node,regex,"retained_size":32,"shallow_size":32

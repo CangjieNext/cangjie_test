@@ -1,0 +1,16 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: diamond reference in dominator tree (V2 format data)
+# A→B→D and A→C→D. D's idom is A (not B or C).
+# Container retained=160, Node retained=40 (not including D).
+
+// DEPENDENCE: cjprof_api_test.py ../sample/dom_diamond.data
+// EXEC: python3 cjprof_api_test.py diamond_01.info
+
+test#
+dom_diamond,/api/dominance/tree,class_name:default::Container,regex,"retained_size":160
+dom_diamond,/api/dominance/tree,class_name:default::Node,regex,"retained_size":40,"parent_id":16

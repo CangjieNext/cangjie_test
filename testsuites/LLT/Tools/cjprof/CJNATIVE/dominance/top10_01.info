@@ -1,0 +1,15 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2026. All rights reserved.
+# This source file is part of the Cangjie project, licensed under Apache-2.0
+# with Runtime Library Exception.
+#
+# See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# Test: top10 ranking and percentage (V2 format data)
+# Uses dom_diamond.data. Container retained=160 (100%), Node retained=40 (25%).
+
+// DEPENDENCE: cjprof_api_test.py ../sample/dom_diamond.data
+// EXEC: python3 cjprof_api_test.py top10_01.info
+
+test#
+dom_diamond,/api/dominance/top10,retained_size":160,regex,percentage":100
+dom_diamond,/api/dominance/top10,retained_size":40,regex,percentage":25
