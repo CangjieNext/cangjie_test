@@ -12,9 +12,7 @@
 
 import std.concurrent.*
 
-private func requireUnit(value: Unit): Unit {
-    value
-}
+private func requireUnit(_: Unit): Unit {}
 
 main(): Int64 {
     ThreadScope<Int64, Unit> {

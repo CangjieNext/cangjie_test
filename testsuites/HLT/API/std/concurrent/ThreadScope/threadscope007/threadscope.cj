@@ -12,7 +12,6 @@
 
 import std.collection.ArrayList
 import std.concurrent.*
-import std.time.*
 
 main(): Int64 {
     let results = ThreadScope<Int64, ArrayList<Int64>> {
