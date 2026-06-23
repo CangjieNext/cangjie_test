@@ -93,6 +93,7 @@ class Cla_sub_2<T> <: C2<T> {
 
 }
 main() {
+    sleep(Duration.millisecond*3000)
     let m_c1 = C1(3)
     var m_c2 = C1(4)
     var array_m_1 : Array<C1> = [m_c1, m_c2]

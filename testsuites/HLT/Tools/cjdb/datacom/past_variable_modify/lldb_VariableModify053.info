@@ -9,20 +9,21 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
 // EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_VariableModify053.info 024_debug_variable %run_env
+// EXEC: python3 cjdb_test.py lldb_VariableModify053.info 024_debug_variable %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:14
-CJVM c,c,-> 14
-b,b 75,024_debug_variable.cj:75
-AOT r,r,-> 75
-CJVM c,c,-> 75
+CJVM b,b main,024_debug_variable.cj:15
+CJVM c,c,15
+b,b 76,024_debug_variable.cj:76
+AOT r,r,-> 76
+Android c,c,76
+CJVM c,c,76
 set,set var_let = 2,2
-n,n,-> 78
+n,n,79
 locals,locals,\(Int8\) var_int8 = 1
 p,p var_int8,\(Int8\) \$[\d] = 1
 locals,locals,\(Int64\) var_return =

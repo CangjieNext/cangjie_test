@@ -8,24 +8,24 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/008_debug_func_no_arg.cj
-// EXEC: %compiler %cmp_opt -g 008_debug_func_no_arg.cj -o 008_debug_func_no_arg%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_Breakpoint003.info 008_debug_func_no_arg %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 008_debug_func_no_arg.cj -o 008_debug_func_no_arg%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_Breakpoint003.info 008_debug_func_no_arg %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_func_no_arg,008_debug_func_no_arg
-CJVM b,breakpoint set -n main,008_debug_func_no_arg.cj:12
-CJVM c,c,-> 12
-b,b 12,008_debug_func_no_arg.cj:12
+CJVM b,breakpoint set -n main,008_debug_func_no_arg.cj:13
+CJVM c,c,-> 13
 b,b 13,008_debug_func_no_arg.cj:13
-b,b 19,008_debug_func_no_arg.cj:19
+b,b 14,008_debug_func_no_arg.cj:14
 b,b 20,008_debug_func_no_arg.cj:20
-AOT r,r,-> 12
-CJVM c,c,-> 19
-AOT n,n,-> 19
-finish,finish,-> 20
-finish,finish,-> 12
+b,b 21,008_debug_func_no_arg.cj:21
+AOT r,r,-> 13
+CJVM c,c,-> 20
+AOT n,n,-> 20
+finish,finish,-> 21
 finish,finish,-> 13
+finish,finish,-> 14
 q,q,

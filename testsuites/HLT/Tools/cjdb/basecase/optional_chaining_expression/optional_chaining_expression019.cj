@@ -15,6 +15,7 @@ class CB{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var aa = Option<CB>.Some(CB())
     var bb = Option<CB>.None
     let r1 = aa?.item1

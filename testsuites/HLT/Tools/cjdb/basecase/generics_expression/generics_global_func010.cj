@@ -31,6 +31,7 @@ func foo<T,R>(para: T,para2:R) {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let red = RGBColor.Red
     var rf = foo(red)
     var rf2 = foo(Blue(4))

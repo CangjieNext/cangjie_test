@@ -8,13 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/match_expression/match_expression029.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g match_expression029.cj -o match_expression029%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py match_expression_029.info match_expression029 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g match_expression029.cj -o match_expression029%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py match_expression_029.info match_expression029 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors match_expression029,match_expression029
-b,b 29,match_expression029.cj:29
-r,r,-> 29
+b,b 30,match_expression029.cj:30
+r,r,-> 30
+Android c,c,30
 expr,expr r,\(Int64\) \$[\d] = 20
 q,q,

@@ -25,6 +25,7 @@ enum E1 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = E1.f1(6)
     var b = E1.f3<Bool>(true)
 }

@@ -8,9 +8,9 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/packages/pkgs002/src
-// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj src/pkgs/pkg2.cj -o libpkg1.%middle
-// EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs002.cj -o pkgs002%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_pkgs007.info pkgs002 %run_env
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj src/pkgs/pkg2.cj -o libpkg1.%middle
+// (!target_android) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs002.cj -o pkgs002%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_pkgs007.info pkgs002 %run_env
 
 
 
@@ -21,12 +21,13 @@ b,b 21,pkgs002.cj:21
 b,b 29,pkgs002.cj:29
 b,b 30,pkgs002.cj:30
 AOT r,r,-> 21
+Android c,c,21
 CJVM c,c,
-n,n,-> 22
-n,n,-> 24
-n,n,-> 25
-c,c,-> 29
-s,s,-> 30
+n,n,22
+n,n,24
+n,n,25
+c,c,29
+s,s,31
 locals,locals,var001 = 1
 locals,locals,var005 = 1
 locals,locals,var2_003 = 1

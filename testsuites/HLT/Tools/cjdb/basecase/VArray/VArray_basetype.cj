@@ -7,6 +7,7 @@
  */
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     var vInt8: VArray<Int8, $3> = [-1, -2, -3]
     var vInt16: VArray<Int16, $3> = [-1, -2, -3]
     var vInt32: VArray<Int32, $3> = [-1, -2, -3]

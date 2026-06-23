@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     // Int-type
     var I8: ?Int8 = Some(8)
     var I8_none: ?Int8 = None

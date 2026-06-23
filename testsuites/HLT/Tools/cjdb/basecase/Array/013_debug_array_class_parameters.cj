@@ -67,6 +67,7 @@ class C1 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var m_c = C1()
     var arraymainrec01 : Array<C1> = [m_c]
     return 0

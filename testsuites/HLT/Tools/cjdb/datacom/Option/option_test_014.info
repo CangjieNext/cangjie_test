@@ -9,14 +9,15 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_compositeVar.cj
 // EXEC: %compiler %cmp_opt -g option_compositeVar.cj -o option_compositeVar%cmp_output
-// RUN-EXEC: python3 cjdb_test.py option_test_014.info option_compositeVar %run_env
+// EXEC: python3 cjdb_test.py option_test_014.info option_compositeVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors option_compositeVar,option_compositeVar
-b,b 27,option_compositeVar.cj:27
-AOT r,r,-> 27
-CJVM c,c,-> 27
+b,b 28,option_compositeVar.cj:28
+AOT r,r,-> 28
+Android c,c,28
+CJVM c,c,28
 p,p Arrlist_bool,\(std[.]core.Option<std[.]collection.ArrayList<Bool>>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = false[\s\S]*}
 p,p Arrlist_char,\(std[.]core.Option<std[.]collection.ArrayList<Rune>>\) \$[\d] = {[\s\S]*\[0\] = 'c'[\s\S]*\[6\] = 'e'[\s\S]*}
 q,q,

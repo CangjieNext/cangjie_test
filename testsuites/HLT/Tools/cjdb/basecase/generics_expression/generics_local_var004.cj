@@ -25,6 +25,7 @@ struct S1<T> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var s1 = S1<Int32>()
     var c1 = C1<Bool>()
     return 0

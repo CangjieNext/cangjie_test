@@ -8,13 +8,13 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/050_debug_dataType_basic.cj
-// EXEC: %compiler %cmp_opt -g 050_debug_dataType_basic.cj -o 050_debug_dataType_basic%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_within_watchpoint014.info 050_debug_dataType_basic %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 050_debug_dataType_basic.cj -o 050_debug_dataType_basic%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_within_watchpoint014.info 050_debug_dataType_basic %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b , b 18 , 050_debug_dataType_basic.cj:18
-breakpoint, breakpoint set -l 20 -c "v2 == 127" ,050_debug_dataType_basic.cj:20:19
+b , b 19 , 050_debug_dataType_basic.cj:19
+breakpoint, breakpoint set -l 21 -c "v2 == 127" ,050_debug_dataType_basic.cj:21:19
 watchpoint, watchpoint set variable -w read_write v2  ,Command requires a current process.
 q,q,

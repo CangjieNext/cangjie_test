@@ -9,6 +9,7 @@
 import std.collection.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     var map_main_1: HashMap<Rune, cla> = HashMap<Rune, cla>([(r'K', cla(10)), (r'Q', cla(12))])
     var map_main_2: HashMap<Bool, cla> = HashMap<Bool, cla>([(true, cla(4)), (false, cla(3)), (true, cla(6))])
     var map_main_3: HashMap<Rune, str> = HashMap<Rune, str>([(r'K', str(10)), (r'Q', str(12))])

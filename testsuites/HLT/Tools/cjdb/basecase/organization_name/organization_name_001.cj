@@ -23,6 +23,7 @@ func test1() {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     test1()
     var a1:Int8 = 1
     var a2:UInt8 = 2

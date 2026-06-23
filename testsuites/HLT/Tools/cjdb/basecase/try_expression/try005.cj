@@ -9,6 +9,7 @@
 class A <: Exception {}
 
 main() {
+    sleep(Duration.millisecond*3000)
     Int64(try {
         1
     }finally {})

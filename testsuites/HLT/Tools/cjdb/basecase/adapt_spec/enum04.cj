@@ -15,6 +15,7 @@ enum A {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let a = A.X + A.Y
     return 1
 }

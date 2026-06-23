@@ -43,6 +43,7 @@ public class Clazz{
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     let cla_ins:Clazz =Clazz(69)
     var data = cla_ins.getBaseType() //((Int8,Int16,Int32,Int64),(UInt8,UInt16,UInt32,UInt64),(Float16,Float32,Float64),(Bool,Rune))
     var v1 :(Int8,Int16,Int32,Int64) = data[0] //

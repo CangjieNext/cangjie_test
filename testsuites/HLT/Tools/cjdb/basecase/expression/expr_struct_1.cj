@@ -34,6 +34,7 @@ struct Rect {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var ret = Rect(10, 20)
     ret.test_hm()
     return 0

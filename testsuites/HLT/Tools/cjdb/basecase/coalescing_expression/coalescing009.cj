@@ -38,6 +38,7 @@ struct S1{
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     var m1 = S1()
     0
 }

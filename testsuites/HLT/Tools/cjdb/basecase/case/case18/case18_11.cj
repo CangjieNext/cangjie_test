@@ -18,6 +18,7 @@ struct Foo {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     const v = Foo()
     print(v.a)
     print(v.b)

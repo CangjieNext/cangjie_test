@@ -17,6 +17,7 @@ var map_f = HashMap<String, Int64>([('a', 1), ('b', 2)])
 var map_g = HashMap<String, Float64>([('abc', 1.0), ("bcd", 2.0)])
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var map_1: HashMap<Int8, UInt8> = HashMap<Int8, UInt8>([(-3, 42), (2, 12), (-76, 165)])
     var map_2: HashMap<Int16, UInt16> = HashMap<Int16, UInt16>([(-39, 150), (-90, 1662), (76, 675)])
     var map_3: HashMap<Int32, UInt32> = HashMap<Int32, UInt32>([(-329, 1750), (-910, 1732), (-76, 1675)])

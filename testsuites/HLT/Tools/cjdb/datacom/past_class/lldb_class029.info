@@ -16,11 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_class_top_mod_open,002_debug_class_top_mod_open
-b,b 56,002_debug_class_top_mod_open.cj:56
-AOT r,r,-> 56
-CJVM c,c,-> 56
-s,s,-> 40
-finish,finish,-> 56
-n,n,-> 57
+b,b 57,002_debug_class_top_mod_open.cj:57
+AOT r,r,-> 57
+Android c,c,57
+CJVM c,c,57
+s,s,41
+finish,finish,57
+n,n,58
 locals,locals,\(Int64\) fun_num3 = 1
 q,q,

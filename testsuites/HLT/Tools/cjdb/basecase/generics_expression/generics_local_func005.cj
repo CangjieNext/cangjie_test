@@ -17,6 +17,7 @@ struct Planet {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     const myMass = 71.0
     const earth = Planet(5.0, 6.0)
     println(earth.gravity(myMass, earth.radius))

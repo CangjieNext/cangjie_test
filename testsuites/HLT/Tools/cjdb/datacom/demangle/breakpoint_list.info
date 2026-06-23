@@ -8,12 +8,12 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/demangle/
-// (CJNATIVE) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_class/* -o libpkg_class.%test_suffix
-// (CJNATIVE) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_func/* -o libpkg_func.%test_suffix
-// (CJNATIVE) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_enum/* -o libpkg_enum.%test_suffix
-// (CJNATIVE) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_struct/* -o libpkg_struct.%test_suffix
-// (CJNATIVE) EXEC: %compiler %cmp_opt -g demangle/demangle.cj -L. -lpkg_class -lpkg_func -lpkg_enum -lpkg_struct -o demangle_target%cmp_output
-// (CJNATIVE) RUN-EXEC: python3 cjdb_test.py breakpoint_list.info demangle_target %run_env
+// (!target_android) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_class/* -o libpkg_class.%test_suffix
+// (!target_android) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_func/* -o libpkg_func.%test_suffix
+// (!target_android) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_enum/* -o libpkg_enum.%test_suffix
+// (!target_android) EXEC: %compiler %cmp_opt %compile_dylib_opt -g demangle/pkg_struct/* -o libpkg_struct.%test_suffix
+// (!target_android) EXEC: %compiler %cmp_opt -g demangle/demangle.cj -L. -lpkg_class -lpkg_func -lpkg_enum -lpkg_struct -o demangle_target%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py breakpoint_list.info demangle_target %run_env
 
 
 test#

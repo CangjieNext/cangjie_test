@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/018_enum_return.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 018_enum_return.cj -o 018_enum_return%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum008.info 018_enum_return %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 018_enum_return.cj -o 018_enum_return%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum008.info 018_enum_return %run_env
 
 test#
 cjdb,cjdb --no-use-colors 018_enum_return,018_enum_return
-b,b 22,018_enum_return.cj:22
-AOT r,r,-> 22
+b,b 23,018_enum_return.cj:23
+AOT r,r,-> 23
+Android c,c,23
 CJVM c,c,
 expr,expr bb,\(default.EE1\) \$[\d] = XY
 expr~expr EE1.XY~\(default.EE1\) \$[\d] = XY

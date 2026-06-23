@@ -8,8 +8,8 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/dataTimeandDecimal_Optimization/dataTimeandDecimal_Optimization011.cj
-// (CJNATIVE and not Windows and not MAC) EXEC: %compiler %cmp_opt -g dataTimeandDecimal_Optimization011.cj -o dataTimeandDecimal_Optimization011%cmp_output
-// (CJNATIVE and not Windows and not MAC) RUN-EXEC: python3 cjdb_test.py dataTimeandDecimal_Optimization011.info dataTimeandDecimal_Optimization011 %run_env
+// (not target_android and not Windows and not target_mac) EXEC: %compiler %cmp_opt -g dataTimeandDecimal_Optimization011.cj -o dataTimeandDecimal_Optimization011%cmp_output
+// (not target_android and not Windows and not target_mac)EXEC: python3 cjdb_test.py dataTimeandDecimal_Optimization011.info dataTimeandDecimal_Optimization011 %run_env
 
 
 test#

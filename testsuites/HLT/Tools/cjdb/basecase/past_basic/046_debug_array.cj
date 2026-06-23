@@ -13,6 +13,7 @@ var arrayTopInt8 : Array<Int8> = [1, 2, 3]
 var arrayTopcopy =  arrayTopInt8.clone()
 
 main() {
+    sleep(Duration.millisecond*3000)
     var value_TopInt8 = arrayTopInt8[2]
     var value_Topcopy = arrayTopcopy[2]
 

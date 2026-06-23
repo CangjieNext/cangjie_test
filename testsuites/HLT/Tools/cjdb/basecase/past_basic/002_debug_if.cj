@@ -9,6 +9,7 @@
 
 
 main() { //设置断点：4-15行 //不会执行到的代码：9/12
+    sleep(Duration.millisecond*3000)    
     var if001: Bool = true
     var if_a: Int64 
     if (if001) {

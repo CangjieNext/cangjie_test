@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/021_enum_interface.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 021_enum_interface.cj -o 021_enum_interface%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum017.info 021_enum_interface %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 021_enum_interface.cj -o 021_enum_interface%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum017.info 021_enum_interface %run_env
 
 test#
 cjdb,cjdb --no-use-colors 021_enum_interface,021_enum_interface
-b,b 29,021_enum_interface.cj:29
-AOT r,r,-> 29
+b,b 30,021_enum_interface.cj:30
+AOT r,r,-> 30
+Android c,c,30
 CJVM c,c,
 expr,expr t1,\(default.TimeUnit2<default.I1>\) \$[\d] = {[\s\S]*constructor = Month[\s\S]*arg_1 = {}[\s\S]*arg_2 = 1[\s\S]*}
 expr,expr t2,\(default.TimeUnit2<default.I1>\) \$[\d] = {[\s\S]*constructor = Year\s+arg_1 = 5[\s\S]*}

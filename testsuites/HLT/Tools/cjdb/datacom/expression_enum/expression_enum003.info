@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/013_enum_func.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 013_enum_func.cj -o 013_enum_func%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum003.info 013_enum_func %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 013_enum_func.cj -o 013_enum_func%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum003.info 013_enum_func %run_env
 
 test#
 cjdb,cjdb --no-use-colors 013_enum_func,013_enum_func
-b,b 35,013_enum_func.cj:35
-AOT r,r,-> 35
+b,b 36,013_enum_func.cj:36
+AOT r,r,-> 36
+Android c,c,36
 CJVM c,c,
 p,p op1,\(default.A\) \$[\d] = AAA
 expr~expr test01<A>(A.AAA)~\(default.A\) \$[\d] = AAA

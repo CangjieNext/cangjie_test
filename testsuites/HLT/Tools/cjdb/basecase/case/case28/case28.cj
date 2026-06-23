@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     var `as` = 1
     var `_1` = 2
     0

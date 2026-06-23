@@ -8,28 +8,28 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/013_debug_lambda.cj
-// EXEC: %compiler %cmp_opt -g 013_debug_lambda.cj -o 013_debug_lambda%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_BreakpointInMain038.info 013_debug_lambda %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 013_debug_lambda.cj -o 013_debug_lambda%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointInMain038.info 013_debug_lambda %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 013_debug_lambda,013_debug_lambda
-CJVM b,breakpoint set -n main,013_debug_lambda.cj:12
-CJVM c,c,-> 12
-b,b 12,Breakpoint
-AOT b,b 13,013_debug_lambda.cj:14
-CJVM b,b 13,013_debug_lambda.cj:13
-AOT b,b 14,013_debug_lambda.cj:14
-CJVM b,b 13,013_debug_lambda.cj:13
-AOT b,b 15,013_debug_lambda.cj:16
-CJVM b,b 15,013_debug_lambda.cj:15
-b,b 16,013_debug_lambda.cj:16
-AOT r,r,-> 12
-c,c,-> 16
-n,n,-> 14
-n,n,-> 16
+CJVM b,breakpoint set -n main,013_debug_lambda.cj:13
+CJVM c,c,-> 13
+b,b 13,Breakpoint
+AOT b,b 14,013_debug_lambda.cj:15
+CJVM b,b 14,013_debug_lambda.cj:14
+AOT b,b 15,013_debug_lambda.cj:15
+CJVM b,b 14,013_debug_lambda.cj:14
+AOT b,b 16,013_debug_lambda.cj:17
+CJVM b,b 16,013_debug_lambda.cj:16
+b,b 17,013_debug_lambda.cj:17
+AOT r,r,-> 13
+c,c,-> 17
+n,n,-> 15
 n,n,-> 17
+n,n,-> 18
 locals,locals,lamdba001 = 20
 q,q,

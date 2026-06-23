@@ -8,13 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/match_expression/match_expression035.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g match_expression035.cj -o match_expression035%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py match_expression_035.info match_expression035 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g match_expression035.cj -o match_expression035%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py match_expression_035.info match_expression035 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors match_expression035,match_expression035
-b,b 28,match_expression035.cj:28
-r,r,-> 28
+b,b 29,match_expression035.cj:29
+r,r,-> 29
+Android c,c,29
 expr,expr a,\(std.core.String\) \$[\d] = "Set year 2025"
 q,q,

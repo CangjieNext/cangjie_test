@@ -24,6 +24,7 @@ class Rectangle {
     }
 }
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var ret = Rectangle(10, 20)
 
     return 0

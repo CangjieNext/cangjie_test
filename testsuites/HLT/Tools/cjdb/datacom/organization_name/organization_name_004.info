@@ -8,24 +8,25 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/pkgs003/src
-// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs1/pkg1.cj -o libpkg1.%middle
-// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs2/pkg2.cj -o libpkg2.%middle
-// EXEC: %compiler %cmp_opt -g libpkg1.%middle libpkg2.%middle src/pkgs003.cj -o pkgs003%cmp_output
-// RUN-EXEC: python3 cjdb_test.py organization_name_004.info pkgs003 %run_env
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs1/pkg1.cj -o libpkg1.%middle
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs2/pkg2.cj -o libpkg2.%middle
+// (!target_android) EXEC: %compiler %cmp_opt -g libpkg1.%middle libpkg2.%middle src/pkgs003.cj -o pkgs003%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py organization_name_004.info pkgs003 %run_env
 
 
 
 test#
 cjdb,cjdb --no-use-colors pkgs003,pkgs003
-b,b 16,pkgs003.cj:16
-r,r,-> 16
+b,b 17,pkgs003.cj:17
+r,r,-> 17
+Android c,c,17
 s,s,pkg1.cj:14
-finish,finish,-> 16
-n,n,-> 17
+finish,finish,17
+n,n,17
 s,s,pkg2.cj:14
-n,n,-> 15
+n,n,15
 p,p a,\(Int64\) \$[\d] = 20
-finish,finish,-> 17
-n,n,-> 18
+finish,finish,18
+n,n,19
 p,p res2,\(Int64\) \$[\d] = 40
 q,q,
