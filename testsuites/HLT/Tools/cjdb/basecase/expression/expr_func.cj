@@ -21,6 +21,7 @@ class Rectangle{
     var arrin: Array<IntNative> = [1, 2, 3]
 }
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var rec = Rectangle()
     var lInt8: Int8 = 8
     var lInt16: Int16 = 16

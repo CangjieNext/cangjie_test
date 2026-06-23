@@ -8,16 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case19/case19_6.cj
-// (CJNATIVE and Linux) EXEC: %compiler %cmp_opt -g case19_6.cj -o case19_6%cmp_output
-// (CJNATIVE and Linux) EXEC: python3 cjdb_test.py case19_6.info case19_6 %run_env
+// (not target_android and Linux) EXEC: %compiler %cmp_opt -g case19_6.cj -o case19_6%cmp_output
+// (not target_android and Linux) EXEC: python3 cjdb_test.py case19_6.info case19_6 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case19_6,case19_6
-b,b 15,case19_6.cj:15
-b,b 22,case19_6.cj:22
-AOT r,r,-> 15
+b,b 16,case19_6.cj:16
+b,b 23,case19_6.cj:23
+AOT r,r,-> 16
+Android c,c,16
 CJVM c,c,
 AOT expr:expr f2(1):\(Int64\) \$[\d] = 1
-c,c-> 22
+c,c-> 23
 AOT expr:expr f4<Bool>(1,true):\(Bool\) \$[\d] = true
 q,q,

@@ -22,6 +22,7 @@ struct C2<X, Y> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let mc_1 = C2<Int64, Float64>(1,2.0)
     let mc_2 = C2<Int64, Float64>(1,3,4.0)
     return 0

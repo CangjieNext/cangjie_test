@@ -16,9 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 20,049_debug_string.cj:20
-AOT r,r,-> 20
+b,b 21,049_debug_string.cj:21
+AOT r,r,-> 21
+Android c,c,21
 CJVM c,c,
-n,n,-> 21
-locals,locals,\(std[.]core.String\) main_str6 = "仓颉字符串测试"
+n,n,22
+locals,locals,\(std[.]core.String\) main_str6 = "仓颉字符串测�?
 q,q,

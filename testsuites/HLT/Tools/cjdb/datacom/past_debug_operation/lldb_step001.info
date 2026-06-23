@@ -9,19 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/044_debug_func_nobody.cj
 // EXEC: %compiler %cmp_opt -g 044_debug_func_nobody.cj -o 044_debug_func_nobody%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_step001.info 044_debug_func_nobody %run_env
+// EXEC: python3 cjdb_test.py lldb_step001.info 044_debug_func_nobody %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 044_debug_func_nobody,044_debug_func_nobody
-b,b 12,044_debug_func_nobody.cj:12
 b,b 13,044_debug_func_nobody.cj:13
-b,b 21,044_debug_func_nobody.cj:21
-AOT r,r,-> 12
+b,b 14,044_debug_func_nobody.cj:14
+b,b 22,044_debug_func_nobody.cj:22
+AOT r,r,-> 13
+Android c,c,13
 CJVM c,c,
-n,n,-> 13
-n,n,-> 21
-finish,finish,-> 14
+n,n,14
+n,n,22
+finish,finish,15
 q,q,

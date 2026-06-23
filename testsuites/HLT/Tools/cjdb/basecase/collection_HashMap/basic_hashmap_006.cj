@@ -23,6 +23,7 @@ var map_array_5 = HashMap<Int64, ArrayList<Int8>>([(1, Arrlist_I8)])
 var map_array_6 = HashMap<Float64, HashMap<Int8, Int16>>([(1.0, map_top_k_int8), (2.0, map_top_k_int8)])
 
 main() {
+    sleep(Duration.millisecond*3000)
     var array1: Array<String> = ["aa", "bb"]
     var array2: Array<Int64> = [1, 2]
     var array3: Array<Array<String>> = [array1]

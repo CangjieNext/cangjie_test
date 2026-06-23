@@ -9,25 +9,26 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashSet/002_HashSet_via_inherit.cj
 // EXEC: %compiler %cmp_opt -g 002_HashSet_via_inherit.cj -o 002_HashSet_via_inherit%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_HashSet037.info 002_HashSet_via_inherit %run_env
+// EXEC: python3 cjdb_test.py cjdb_HashSet037.info 002_HashSet_via_inherit %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 002_HashSet_via_inherit,002_HashSet_via_inherit
-b,b 18,002_HashSet_via_inherit.cj:18
-AOT r,r,-> 18
-CJVM c,c,-> 18
-s,s,-> 75
+b,b 19,002_HashSet_via_inherit.cj:19
+AOT r,r,-> 19
+Android c,c,19
+CJVM c,c,19
+s,s,76
 p,p par_1,\(UInt32\) \$[\d] = 20
-b,b 76,002_HashSet_via_inherit.cj:76
-c,c,-> 76
+b,b 77,002_HashSet_via_inherit.cj:77
+c,c,77
 p,p set_cla_fun_1,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[3\] = 32[\S\s]*}
 p,p set_cla_fun_1,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[4\] = 126[\S\s]*}
-n,n,-> 77
+n,n,78
 p,p set_cla_fun_1,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[8\] = 20[\S\s]*}
 p,p set_cla_fun_1,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[4\] = 126[\S\s]*}
-finish,finish,-> 18
-n,n,-> 19
+finish,finish,19
+n,n,20
 p,p set_main_2,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[3\] = 32[\S\s]*}
 p,p set_main_2,std[.]collection.HashSet<UInt32>\) \$[\d] = {[\S\s]*\[4\] = 126[\S\s]*}
 q,q,

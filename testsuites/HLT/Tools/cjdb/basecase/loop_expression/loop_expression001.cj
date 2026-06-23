@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     let metaArray = [r'a', r'b', r'c', r'd', r'e', r'f']
     let noumenonArray = [r'1', r'2', r'3', r'4', r'5', r'6']
     let year = 2025

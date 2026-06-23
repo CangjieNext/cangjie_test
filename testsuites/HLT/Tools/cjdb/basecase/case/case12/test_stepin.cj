@@ -39,6 +39,7 @@ func returnFunc_8(para_1:Int64,para_2!:Rune=r'C'){
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
         returnFunc(2)
         returnFunc_2(2)
 	returnFunc_3(2)

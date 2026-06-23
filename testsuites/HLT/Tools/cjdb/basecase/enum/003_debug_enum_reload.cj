@@ -21,6 +21,7 @@ enum TimeUnit1 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let time1 = Year
     let time2 = TimeUnit1.Month(1, 2)
     let howManyMonths: Int32 = match (time2) {

@@ -23,6 +23,7 @@ func assert<T>(input: T) {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = thisstruct()
     var b: Array<thisstruct> = [a, a, a] //expr b
     var c: Array<foo> = [a.c,foo()] //expr c

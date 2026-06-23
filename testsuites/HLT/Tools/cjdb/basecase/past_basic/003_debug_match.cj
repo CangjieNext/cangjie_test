@@ -9,6 +9,7 @@
 
 
 main() { //设置断点：4/7/12/14行，第7和14行设置断点后，显示失败图标
+    sleep(Duration.millisecond*3000)
     let score: Int64 = 90
     let PASS = 60
     let FULL = 100

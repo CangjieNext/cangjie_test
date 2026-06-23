@@ -16,6 +16,7 @@ enum E1<T>{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let tv = (Year, E1<Int64>.AB(6))
     let s = match (tv) {
         case (Year, E1<Int64>.AB(6)) => "matched"

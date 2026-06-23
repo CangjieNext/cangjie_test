@@ -17,6 +17,7 @@ var top_g2 = R2<Rune>(r'F')
 var arraytop_c02 : Array<R2<Rune>> = [top_g1, top_g2] //泛型struct
 
 main() {
+    sleep(Duration.millisecond*3000)
     let m_r1 = R1(3)
     var m_r2 = R1(4)
     var m_r3 = R1(32)

@@ -44,6 +44,7 @@ enum C {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     // ArrayList<String>
     var ss:String = """
                     Hello

@@ -15,6 +15,7 @@ interface I1{
 class A1 <:I1{}
 
 main() {
+    sleep(Duration.millisecond*3000)
     var aa = A1()
     var bb = A1.foo<Int64, Bool>(1, true)
     0

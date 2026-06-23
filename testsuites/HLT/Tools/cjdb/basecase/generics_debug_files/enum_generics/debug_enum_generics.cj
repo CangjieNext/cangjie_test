@@ -13,6 +13,7 @@ import p2.*
 let top_time3 = TimeUnit1<Int64>.Year(2020).funcdemo1()
 
 main() {
+    sleep(Duration.millisecond*3000)
     // 单类型泛型enum 实例化方法
     let m_time1 = TimeUnit1<Int64>.Year(2021).funcdemo1()
 

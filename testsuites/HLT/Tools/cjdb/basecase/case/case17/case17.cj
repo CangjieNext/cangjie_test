@@ -24,6 +24,7 @@ var mixtuple07 = (e, a)
 var mixtuple08 = ((), ())
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let a = 1..5
     let b = ArrayList<String>(2, {x: Int64 => x.toString()})
     let c = HashSet<Int64>([0, 1, 2])

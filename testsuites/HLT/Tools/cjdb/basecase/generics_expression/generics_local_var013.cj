@@ -36,6 +36,7 @@ enum RGBColor2<T,R> {
 
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let r1= RGBColor<Int32>.Red.name()
     let r2 = RGBColor<Int32>.Red.name<Int64>(1)
     let r3 = Green(3, 1.0).name()

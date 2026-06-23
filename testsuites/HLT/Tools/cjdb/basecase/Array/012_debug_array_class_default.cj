@@ -16,6 +16,7 @@ class C {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let r1 = C()
     var arraymainrec01 : Array<C> = [r1]
     return 0

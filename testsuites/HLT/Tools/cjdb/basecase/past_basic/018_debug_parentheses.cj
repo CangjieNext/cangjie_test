@@ -9,6 +9,7 @@
 
 
 main() { //设置断点：4
+    sleep(Duration.millisecond*3000)
     var kuonum = (1 + 2) * 3 - 4 // The result is 5.
     return kuonum
 }

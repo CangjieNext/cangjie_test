@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a = Some(3)
     let c = while (let Some(b) <- a) {
         for (i in [1,2]) {

@@ -25,6 +25,7 @@ struct Rect2<T> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var a1 = Rect1<Int64>(2)
     var a2 = Rect2<Float64>(1.2)
     return 0

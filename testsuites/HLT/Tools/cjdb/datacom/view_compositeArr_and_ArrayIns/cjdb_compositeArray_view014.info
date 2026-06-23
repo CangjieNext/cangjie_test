@@ -9,15 +9,16 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/004_debug_multiArray_composite_string.cj
 // EXEC: %compiler %cmp_opt -g 004_debug_multiArray_composite_string.cj -o 004_debug_multiArray_composite_string%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_compositeArray_view014.info 004_debug_multiArray_composite_string %run_env
+// EXEC: python3 cjdb_test.py cjdb_compositeArray_view014.info 004_debug_multiArray_composite_string %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_multiArray_composite_string,004_debug_multiArray_composite_string
-b,b 33,004_debug_multiArray_composite_string.cj:33
-AOT r,r,-> 33
+b,b 34,004_debug_multiArray_composite_string.cj:34
+AOT r,r,-> 34
+Android c,c,34
 CJVM c,c,
 p,p multiArr_str_t1[1][2],std[.]core.Array<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "1 a #0123456789abcdxyz"[\s\S]*
-p,p multiArr_str_t1[1][2][1..],std[.]core.Array<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "\\"Hello Cangjie Lang\\"仓颉中文字符串测试"[\s\S]*
+p,p multiArr_str_t1[1][2][1..],std[.]core.Array<std[.]core.String>\) \$[\d] = {[\s\S]*\[0\] = "\\"Hello Cangjie Lang\\"仓颉中文字符串测�?[\s\S]*
 p,p multiArr_str_t1[1][2][-1..3],error: unsupported expression
 q,q,

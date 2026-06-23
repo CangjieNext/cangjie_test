@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     var sum = 0
     var hundred: Int64 = 0
     var hundredo = 0

@@ -9,15 +9,16 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashSet/003_HashSet_via_class.cj
 // EXEC: %compiler %cmp_opt -g 003_HashSet_via_class.cj -o 003_HashSet_via_class%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_HashSet035.info 003_HashSet_via_class %run_env
+// EXEC: python3 cjdb_test.py cjdb_HashSet035.info 003_HashSet_via_class %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 003_HashSet_via_class,003_HashSet_via_class
-b,b 37,003_HashSet_via_class.cj:37
-AOT r,r,-> 37
-CJVM c,c,-> 37
-b,b 43,003_HashSet_via_class.cj:43
-c,c,-> 43
+b,b 38,003_HashSet_via_class.cj:38
+AOT r,r,-> 38
+Android c,c,38
+CJVM c,c,38
+b,b 44,003_HashSet_via_class.cj:44
+c,c,44
 AOT p,p set_re_empty,std[.]collection.HashSet<UInt32>\) \$[\d] = {}
 q,q,

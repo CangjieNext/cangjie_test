@@ -42,6 +42,7 @@ class Rectangle {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let newc = C1(length:2)
     let newRectangle = Rectangle("zhangsan")
 

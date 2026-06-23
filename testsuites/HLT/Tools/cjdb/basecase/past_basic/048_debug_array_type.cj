@@ -10,6 +10,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
 
     var arrayInt8 : Array<Int8> = [8]
     var arrayInt16 : Array<Int16> = [161, 162]

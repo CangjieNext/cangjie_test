@@ -16,19 +16,20 @@
 
 test#
 cjdb,cjdb --no-use-colors 025_debuginfun_cover,025_debuginfun_cover
-CJVM b main,b main,025_debuginfun_cover.cj:12
-CJVM c,c,-> 12
-b,b 17,025_debuginfun_cover.cj:17
-b,b 19,025_debuginfun_cover.cj:19
-AOT r,r,-> 17
-CJVM c,c,-> 17
+CJVM b main,b main,025_debuginfun_cover.cj:13
+CJVM c,c,13
+b,b 18,025_debuginfun_cover.cj:18
+b,b 20,025_debuginfun_cover.cj:20
+AOT r,r,-> 18
+Android c,c,18
+CJVM c,c,18
 locals,locals,var3 = 1
-s,s,-> 18
-s,s,-> 19
+s,s,19
+s,s,20
 locals,locals,var3 = 2
-s,s,-> 18
-s,s,-> 21
+s,s,19
+s,s,22
 locals,locals,var3 = 3
-rerun,r,-> 17
-AOT finish,finish,-> 19
+rerun,r,-> 18
+AOT finish,finish,13
 q,q,

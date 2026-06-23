@@ -14,6 +14,7 @@ public open class Rect2<T> {
 }
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     var a3 = Rect2<Int32>.var1
     var a4 = Rect2<UInt64>.vInt8
     var a6 = Rect2<Bool>.vcarrc2

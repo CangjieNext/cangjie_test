@@ -48,6 +48,7 @@ public class TestA{
 }
 
 main():Int32 {
+    sleep(Duration.millisecond*3000)
     let a= TestA()
     a.asTestSuite().runTests()
     if(n == 5){

@@ -16,9 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 038_debuginfun_basetype,038_debuginfun_basetype
-b,b 33,038_debuginfun_basetype.cj:33
-AOT r,r,-> 33
-CJVM c,c,-> 33
+b,b 34,038_debuginfun_basetype.cj:34
+AOT r,r,-> 34
+Android c,c,34
+CJVM c,c,34
 locals,locals,\(Unit\) varu15 = \(\)
 print,print varu15,\(Unit\) \$[\d] = \(\)
 q,q,
