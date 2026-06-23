@@ -16,7 +16,6 @@ import stdx.encoding.url.*
 import std.collection.*
 import std.unittest.*
 import std.unittest.testmacro.*
-import asan.*
 
 @Test
 public class Test_URL {
@@ -68,15 +67,20 @@ public class Test_URL {
         var rawUserInfo1 = url2.rawUserInfo.toString()
         @Expect(rawUserInfo1, "abc")
         // replace()
-        var url10 = url2.replace(scheme: "http", userInfo: "testUser1:testpsswd1", hostName: "testUser2", port: "88888",
+        var url10 = url2.replace(scheme: "http", userInfo: "testUser1:testpsswd1", hostName: "testUser2",
             path: "/next/#/detail?uuid=867181847298789376", query: "key=987", fragment: "testfragment1")
         @Expect(url10.scheme, "http")
         @Expect(url10.userInfo.toString(), "testUser1:testpsswd1")
         @Expect(url10.hostName, "testuser2")
-        @Expect(url10.port, "88888")
         @Expect(url10.path, "/next/#/detail?uuid=867181847298789376")
         @Expect(url10.query, "key=987")
         @Expect(url10.fragment, "testfragment1")
+        try {
+            var url11 = url2.replace(port: "88888")
+            @Expect(false)
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message, "Port out of range.")
+        }
     }
 
     @TestCase
@@ -106,6 +110,12 @@ public class Test_URL {
         @Expect(url10.path, "")
         @Expect(url10.query, "")
         @Expect(url10.fragment, "")
+        try {
+            var url11 = url2.replace(hostName: "testUser2", port: "")
+            @Expect(false)
+        } catch (e: UrlSyntaxException) {
+            @Expect(e.message, "Port out of range.")
+        }
     }
 
     @TestCase
