@@ -26,6 +26,7 @@ func son_thread():Future<Unit>{
     return fut
 }
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     m.lock() //Lock the monitor to avoid finishing the son thread before the breakpoints
     var fut = son_thread()
     print("main thread: I am reading sheep 0\n")

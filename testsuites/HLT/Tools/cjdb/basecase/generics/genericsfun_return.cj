@@ -105,6 +105,7 @@ var globals_hm = test_t<HM<String, Int64>>(HM<String, Int64>([("a", 1), ("b", 2)
 var globals_cp = test_t<CP<Int64>>(CP<Int64>())
 
 main() {
+    sleep(Duration.millisecond*3000)
     let lint = test_t<Int8>(8)
     let luint = test_t<UInt8>(8)
     let lf = test_t<Float16>(16.16)

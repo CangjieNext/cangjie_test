@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var002.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var002.cj -o generics_local_var002%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP020.info generics_local_var002 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_var002.cj -o generics_local_var002%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py cjdb_ConditionBP020.info generics_local_var002 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var002,generics_local_var002
-breakpoint,breakpoint set -l 56 -c "9==9",generics_local_var002.cj:56
-AOT r,r,-> 56
+breakpoint,breakpoint set -l 57 -c "9==9",generics_local_var002.cj:57
+AOT r,r,-> 57
+Android c,c,57
 CJVM c,c,
 locals,locals,vhss = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*}
 p,p c1,\(default.C1\) \$[\d] = {[\s\S]*vrangec = 1..10 : 1[\s\S]*vcarrc = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3[\s\S]*

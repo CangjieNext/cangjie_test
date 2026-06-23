@@ -44,6 +44,7 @@ class C {
 let top_time = TimeUnit1<Int8>.Year(8)
 
 main() {
+    sleep(Duration.millisecond*3000)
     let m_time1 = TimeUnit1<UInt8>.Year(2)
     var m_time2 = TimeUnit2<Int64, Float64>.Day(1, 2.0, 3.0)
     var m_time3 = Month<Rune, Bool>(r'5', true)

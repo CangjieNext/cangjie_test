@@ -8,17 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/001_debug_class_top_mod.cj
-// EXEC: %compiler %cmp_opt -g 001_debug_class_top_mod.cj -o 001_debug_class_top_mod%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_class003.info 001_debug_class_top_mod %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 001_debug_class_top_mod.cj -o 001_debug_class_top_mod%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_class003.info 001_debug_class_top_mod %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 001_debug_class_top_mod,001_debug_class_top_mod
-b,b 50,001_debug_class_top_mod.cj:50
-AOT r,r,-> 50
-CJVM c,c,-> 50
-n,n,-> 51
+b,b 51,001_debug_class_top_mod.cj:51
+AOT r,r,-> 51
+Android c,c,51
+CJVM c,c,51
+n,n,52
 locals,locals,\(Int32\) m_length = 3
 q,q,

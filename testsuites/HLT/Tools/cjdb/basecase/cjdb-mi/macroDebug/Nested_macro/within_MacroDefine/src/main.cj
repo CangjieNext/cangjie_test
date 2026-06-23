@@ -13,6 +13,7 @@ class A {
     private let a_: Int64 = 1
 }
 main() {
+    sleep(Duration.millisecond*3000)
     let b = A()
     println("${b.a}")
 }

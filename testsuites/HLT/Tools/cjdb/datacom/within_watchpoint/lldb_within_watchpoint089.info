@@ -9,15 +9,16 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/050_debug_dataType_basic.cj
 // EXEC: %compiler %cmp_opt -g 050_debug_dataType_basic.cj -o 050_debug_dataType_basic%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_within_watchpoint089.info 050_debug_dataType_basic %run_env
+// EXEC: python3 cjdb_test.py lldb_within_watchpoint089.info 050_debug_dataType_basic %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b,b 30,050_debug_dataType_basic.cj:30
-AOT r,r,-> 30
+b,b 31,050_debug_dataType_basic.cj:31
+AOT r,r,-> 31
+Android c,c,31
 CJVM c,c,
-watchpoint,watchpoint set variable -w read_write vu5,050_debug_dataType_basic.cj:29
-c,c,-> 31|32
+watchpoint,watchpoint set variable -w read_write vu5,050_debug_dataType_basic.cj:30
+c,c,32|33
 print,print vu5,\(UInt8\) \$[\d] = 2
 q,q,

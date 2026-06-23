@@ -16,6 +16,7 @@ struct Rectangle {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let newRectangle = Rectangle("zhangsan")
     var mainnum: Int64 = 1
     return mainnum

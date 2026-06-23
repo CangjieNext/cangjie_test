@@ -13,6 +13,7 @@ let test: Int8 = varpkg1_001
 var test1: Int8 = 1
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var res11: Int8 = varpkg1_001
     var res22 = f1()
     0

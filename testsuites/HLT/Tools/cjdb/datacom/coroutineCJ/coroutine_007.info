@@ -8,16 +8,17 @@
 
 // LEVEL:1
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/coroutine/
-// EXEC: %compiler %cmp_opt -g coroutine/coroutine_4.cj -o coroutine_4%cmp_output
-// RUN-EXEC: python3 cjdb_test.py coroutine_007.info coroutine_4 %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g coroutine/coroutine_4.cj -o coroutine_4%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py coroutine_007.info coroutine_4 %run_env
 
 test#
 cjdb,cjdb --no-use-colors coroutine_4,coroutine_4
-b,b 28,coroutine_4.cj:28
-AOT r,r,-> 28
+b,b 29,coroutine_4.cj:29
+AOT r,r,-> 29
+Android c,c,29
 CJVM c,c,
 cjthread,cjthread list,tid = 2, state
-cjthread,cjthread list,tid = 1, state = running[\s\S]*coroutine_4.cj:28
+cjthread,cjthread list,tid = 1, state = running[\s\S]*coroutine_4.cj:29
 cjthread,cjthread backtrace -c 2 -s 2,tid = 1, state[\s\S]*frame #2[\s\S]*frame #3
 cjthread,cjthread backtrace -c 2 -s -1,error: invalid integer value for option 's'
 q,quit,

@@ -12,6 +12,7 @@ import std.collection.*
 var map_top_k_int8 : HashMap<Int8, Int16> = HashMap<Int8, Int16>([(-3,-42), (2,12),(-72,1682)])
 var map_top_empty_uint32 : HashMap<UInt32, UInt32> = HashMap<UInt32, UInt32>()
 main() {
+    sleep(Duration.millisecond*3000)
 
 	let cla_ins_1 = Cla_1(120,"help!")
     var map_c_f1 : HashMap<Int32, Rune> = HashMap<Int32, Rune>([(219,r'J'), (-120,r'B'),(86,r'G')])

@@ -19,6 +19,7 @@ enum Time2<T1, T2> where T1 <: Foo1 {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var bar1: Bar1 = Bar1()
     var time1 = Time2<Bar1,Int32>.Day(bar1)
     var time2 = Time2<Bar1,Int32>.Hour(6)

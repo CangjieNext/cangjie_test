@@ -13,6 +13,7 @@ func foo<T,R>(para: T,para2:R) {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var vunit: Unit = ()
     var vcptr = CPointer<Int8>()
     let cstr: CString = unsafe { LibC.mallocCString("CString in Cangjie\n code. 05") }

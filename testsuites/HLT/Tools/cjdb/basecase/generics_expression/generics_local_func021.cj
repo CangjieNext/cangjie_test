@@ -22,6 +22,7 @@ func test() {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     myIf(true, {=> 100})
     myIf(true) {
         100

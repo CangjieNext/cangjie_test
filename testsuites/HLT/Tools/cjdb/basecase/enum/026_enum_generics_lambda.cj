@@ -16,6 +16,7 @@ enum TimeUnit5<T> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var time4 = TimeUnit4<Int32>.Year({x: Int32 => 1})
     var time5 = TimeUnit5<Int64>.Year((1, 2))
     return 0

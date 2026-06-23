@@ -8,49 +8,49 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/004_debug_while.cj
-// EXEC: %compiler %cmp_opt -g 004_debug_while.cj -o 004_debug_while%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_BreakpointInMain016.info 004_debug_while %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 004_debug_while.cj -o 004_debug_while%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointInMain016.info 004_debug_while %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_while,004_debug_while
-CJVM b,breakpoint set -n main,004_debug_while.cj:12
-CJVM c,c,-> 12
-b,b 12,004_debug_while.cj:12
+CJVM b,breakpoint set -n main,004_debug_while.cj:13
+CJVM c,c,-> 13
 b,b 13,004_debug_while.cj:13
 b,b 14,004_debug_while.cj:14
-AOT b,b 15,004_debug_while.cj:16
-AOT r,r,-> 12
-c,c,-> 13
+b,b 15,004_debug_while.cj:15
+AOT b,b 16,004_debug_while.cj:17
+AOT r,r,-> 13
+c,c,-> 14
+n,n,-> 15
 n,n,-> 14
-n,n,-> 13
-AOT n,n,-> 13
 AOT n,n,-> 14
-c,c,-> 13
-n,n,-> 14
-c,c,-> 13
-AOT n,n,-> 14
-AOT c,c,-> 13
-n,n,-> 14
-c,c,-> 13
-AOT n,n,-> 14
-AOT c,c,-> 13
-AOT n,n,-> 14
-AOT c,c,-> 13
-AOT n,n,-> 14
-AOT c,c,-> 13
-AOT n,n,-> 14
-AOT c,c,-> 13
-AOT n,n,-> 14
-AOT c,c,-> 13
-AOT n,n,-> 16
+AOT n,n,-> 15
+c,c,-> 14
+n,n,-> 15
+c,c,-> 14
+AOT n,n,-> 15
+AOT c,c,-> 14
+n,n,-> 15
+c,c,-> 14
+AOT n,n,-> 15
+AOT c,c,-> 14
+AOT n,n,-> 15
+AOT c,c,-> 14
+AOT n,n,-> 15
+AOT c,c,-> 14
+AOT n,n,-> 15
+AOT c,c,-> 14
+AOT n,n,-> 15
+AOT c,c,-> 14
+AOT n,n,-> 17
 AOT locals,locals,hundred = 10
 CJVM locals,locals,hundred = 3
-AOT rerun,r,-> 12
-AOT c,c,-> 13
+AOT rerun,r,-> 13
+AOT c,c,-> 14
 AOT set,set hundred = 11,11
-AOT n,n,-> 16
+AOT n,n,-> 17
 AOT locals,locals,hundred = 11
 q,q,

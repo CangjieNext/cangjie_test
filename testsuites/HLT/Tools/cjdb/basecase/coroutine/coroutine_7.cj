@@ -11,6 +11,7 @@ import std.sync.*
 let m = Monitor()
 /* 查看跨包子协程 ready running pending 状态*/
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     m.lock()
     var fut = son_thread2()
     print("main thread: I am reading sheep 0\n")

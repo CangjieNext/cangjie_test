@@ -8,22 +8,23 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/generics_debug_files/class_generics/
-//  EXEC: %compiler %cmp_opt %compile_lib_opt -g class_generics/p1/debug_class_generics_p101.cj class_generics/p1/debug_class_generics_p102.cj -o p1.%middle
-//  EXEC: %compiler %cmp_opt %compile_lib_opt -g class_generics/p2/debug_class_generics_p201.cj -o p2.%middle
-//  EXEC: %compiler %cmp_opt -g class_generics/debug_class_generics.cj p1.%middle p2.%middle -o debug_class_generics%cmp_output
-//  EXEC: python3 cjdb_test.py cjdb_class_generics_009.info debug_class_generics %run_env
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g class_generics/p1/debug_class_generics_p101.cj class_generics/p1/debug_class_generics_p102.cj -o p1.%middle
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g class_generics/p2/debug_class_generics_p201.cj -o p2.%middle
+// (!target_android) EXEC: %compiler %cmp_opt -g class_generics/debug_class_generics.cj p1.%middle p2.%middle -o debug_class_generics%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py cjdb_class_generics_009.info debug_class_generics %run_env
 
 test#
 cjdb,cjdb --no-use-colors debug_class_generics,debug_class_generics
-CJVM b main,b main,debug_class_generics.cj:19
-CJVM c,c,-> 19
-b,b 43,debug_class_generics.cj:43
-AOT r,r,-> 43
-CJVM c,c,-> 43
-s,s,-> 33
-finish,finish,-> 43
-s,s,-> 19
-s,s,-> 22
-finish,finish,-> 20
-finish,finish,-> 43
+CJVM b main,b main,debug_class_generics.cj:20
+CJVM c,c,20
+b,b 44,debug_class_generics.cj:44
+AOT r,r,-> 44
+Android c,c,44
+CJVM c,c,44
+s,s,34
+finish,finish,44
+s,s,20
+s,s,23
+finish,finish,21
+finish,finish,44
 q,quit,

@@ -9,12 +9,13 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/enum_arg.cj
 // EXEC: %compiler %cmp_opt -g enum_arg.cj -o enum_arg%cmp_output
-// RUN-EXEC: python3 cjdb_test.py enum_arg_03.info enum_arg %run_env
+// EXEC: python3 cjdb_test.py enum_arg_03.info enum_arg %run_env
 
 test#
 cjdb,cjdb --no-use-colors enum_arg,enum_arg
-b,b 30,default(::|\.)main\(\)[\s\S]*enum_arg.cj:30
-AOT r,r,-> 30
+b,b 31,default(::|\.)main\(\)[\s\S]*enum_arg.cj:31
+AOT r,r,-> 31
+Android c,c,31
 CJVM c,c,
 p,p enum_2,\(default.test_R\) \$[\d] = Red
 q,q,

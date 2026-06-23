@@ -17,6 +17,7 @@ class Derived2 <: Base {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
 
     var testVT = 1 is Int64            // testVT = true
     testVT = 1 is String               // testVT = false

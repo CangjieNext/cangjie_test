@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/002_debug_enum_generics.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 002_debug_enum_generics.cj -o 002_debug_enum_generics%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum010.info 002_debug_enum_generics %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 002_debug_enum_generics.cj -o 002_debug_enum_generics%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum010.info 002_debug_enum_generics %run_env
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_enum_generics,002_debug_enum_generics
-b,b 70,002_debug_enum_generics.cj:70
-AOT r,r,-> 70
+b,b 71,002_debug_enum_generics.cj:71
+AOT r,r,-> 71
+Android c,c,71
 CJVM c,c,
 expr,expr m_time5,\(default.TimeUnit1<std.core.Array<default.TimeUnit1<UInt8>>>\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = {[\s\S]*\[0\] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 2[\s\S]*
 expr,expr m_time10,\(Int64\) \$[\d] = 10

@@ -18,6 +18,7 @@ class C2 <: MyInterface {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var newc = C1(100, 200)
     var main_c_area: Int32 = newc.area()
     var mian_time = newc.time

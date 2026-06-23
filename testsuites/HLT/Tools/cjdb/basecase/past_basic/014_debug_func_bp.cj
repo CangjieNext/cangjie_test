@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
 
     //无入参：Functioncall001=30
     var Functioncall001: Int8 = funcbp001()

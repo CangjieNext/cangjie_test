@@ -8,14 +8,15 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/coalescing_expression/coalescing005.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g coalescing005.cj -o coalescing005%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py coalescing_expression_005.info coalescing005 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g coalescing005.cj -o coalescing005%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py coalescing_expression_005.info coalescing005 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors coalescing005,coalescing005
 b,b 29,coalescing005.cj:29
 AOT r,r,-> 29
+Android c,c,29
 expr~expr v1??1+1~\(Int8\) \$[\d] = 1
 expr~expr v2??1+1~\(Int8\) \$[\d] = 2
 expr,expr r3,\(Int16\) \$[\d] = 2

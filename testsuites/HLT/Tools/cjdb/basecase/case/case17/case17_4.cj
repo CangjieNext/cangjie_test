@@ -28,6 +28,7 @@ class B {
 }
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     var a = B()
     var b= a.name()
     return 0

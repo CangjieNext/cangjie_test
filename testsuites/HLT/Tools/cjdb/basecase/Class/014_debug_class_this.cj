@@ -26,6 +26,7 @@ class C2 <: C1 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var obj1: C2 = C2()
     var obj2: C1 = C2()
 

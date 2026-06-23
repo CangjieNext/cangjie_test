@@ -19,6 +19,7 @@ open class Bar{
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var aa = Color.RED
     var cc = Color.Green(7) //expr Color.Green(7)
     var bb = Bar.x

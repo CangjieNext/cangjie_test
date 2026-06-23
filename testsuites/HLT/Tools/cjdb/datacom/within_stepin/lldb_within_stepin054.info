@@ -9,19 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_stepin/002_debug_stepIn_via_inherit.cj
 // EXEC: %compiler %cmp_opt -g 002_debug_stepIn_via_inherit.cj -o 002_debug_stepIn_via_inherit%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_within_stepin054.info 002_debug_stepIn_via_inherit %run_env
+// EXEC: python3 cjdb_test.py lldb_within_stepin054.info 002_debug_stepIn_via_inherit %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_stepIn_via_inherit,002_debug_stepIn_via_inherit
-CJVM b main,b main,002_debug_stepIn_via_inherit.cj:21
-CJVM c,c,-> 21
-b,b 33,002_debug_stepIn_via_inherit.cj:33
-AOT r,r,-> 33
-CJVM c,c,-> 33
-s,s,-> 130
-AOT finish,finish,-> 33
-CJVM finish,finish,-> 33|34
+CJVM b main,b main,002_debug_stepIn_via_inherit.cj:22
+CJVM c,c,22
+b,b 34,002_debug_stepIn_via_inherit.cj:34
+AOT r,r,-> 34
+Android c,c,34
+CJVM c,c,34
+s,s,131
+AOT finish,finish,34
+CJVM finish,finish,34|34
 q,q,

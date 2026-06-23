@@ -19,6 +19,7 @@ public func g1<T>():Int64 {
 }
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     var a1 = [1]
     var a2 = [a1]
     var a3 = HashMap<String, Array<Int64>>([("a", a1)])

@@ -38,6 +38,7 @@ enum TimeUnit {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let stu = student()
     let rect1 = rect()
     println("hello world")

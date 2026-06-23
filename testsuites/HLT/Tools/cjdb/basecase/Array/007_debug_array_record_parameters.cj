@@ -53,6 +53,7 @@ struct Rectangle2 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let rect = Rectangle()
     var arraymainrec01 : Array<Rectangle> = [rect]
     return 0

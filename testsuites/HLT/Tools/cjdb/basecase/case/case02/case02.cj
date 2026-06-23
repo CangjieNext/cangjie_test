@@ -29,6 +29,7 @@ class C {
 
 main():Int64
 {
+    sleep(Duration.millisecond*3000)
 	var b = T()
 	var b_2 = C()
 	return 0

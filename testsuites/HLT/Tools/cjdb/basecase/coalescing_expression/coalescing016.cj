@@ -13,6 +13,7 @@ struct S1{
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     let v1 = Option<Array<Array<Int64>>>.Some([[1,2]])
     let v2 = Option<Array<Array<Int64>>>.None
     let v3 = Option<Array<Array<S1>>>.Some([[S1()]])
