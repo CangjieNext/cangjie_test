@@ -15,6 +15,7 @@ let top_c2 = CHC1(10)
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     // use generics init and overloading init method of a one-type generics class in p101 of package p1
     let mc_1 = C1<UInt32>(100)
 

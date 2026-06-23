@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var varreturnexpr: Int32    //设置断点1： 5/14/16
     varreturnexpr = demofun002(10, 20)
     var varreturn: Unit  //设置断点2： 7/22/24

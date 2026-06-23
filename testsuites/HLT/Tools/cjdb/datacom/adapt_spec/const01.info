@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/const01.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g const01.cj -o const01%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py const01.info const01 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g const01.cj -o const01%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py const01.info const01 %run_env
 
 test#
 cjdb,cjdb --no-use-colors const01,const01
-b,b 32,const01.cj:32
-AOT r,r,-> 32
+b,b 33,const01.cj:33
+AOT r,r,-> 33
+Android c,c,33
 CJVM c,c,
 globals,globals,\(default.C1<Int64>\) default::c1 = {[\s\S]*a = 0[\s\S]*b = 100[\s\S]*}
 p,p c1,\(default.C1<Int64>\) \$[\d] = {[\s\S]*a = 0[\s\S]*b = 100[\s\S]*}

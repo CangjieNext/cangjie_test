@@ -12,6 +12,7 @@ import std.collection.*
 var set_top_uint32 : HashSet<UInt32> = HashSet<UInt32>([32,126,5,6978,13354])
 var set_top_empty_uint32 : HashSet<UInt32> = HashSet<UInt32>()
 main() {
+    sleep(Duration.millisecond*3000)
     var set_int32 : HashSet<Int32> = HashSet<Int32>([-74,9,-6954])
 	var set_uint32 : HashSet<UInt32> = HashSet<UInt32>([9458,625654,12])
 

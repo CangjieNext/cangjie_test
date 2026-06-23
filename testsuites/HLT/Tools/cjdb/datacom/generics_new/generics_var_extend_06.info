@@ -9,13 +9,14 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_var_extend.cj
 // EXEC: %compiler %cmp_opt -g generics_var_extend.cj -o generics_var_extend%cmp_output
-// RUN-EXEC: python3 cjdb_test.py generics_var_extend_06.info generics_var_extend %run_env
+// EXEC: python3 cjdb_test.py generics_var_extend_06.info generics_var_extend %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 207,Breakpoint 1:
-AOT r,r,-> 207
+b,b 208,Breakpoint 1:
+AOT r,r,-> 208
+Android c,c,208
 CJVM c,c,
 p, p a,\(IntNative\) \$[\d] = 100
 p, p a1,\(IntNative\) \$[\d] = 100

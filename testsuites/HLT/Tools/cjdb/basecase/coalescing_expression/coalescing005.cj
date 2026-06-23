@@ -29,6 +29,7 @@ class C1 {
     }
 }
 main(){
+    sleep(Duration.millisecond*3000)
     var c1 = C1()
     var c2 = c1.test1()
     0

@@ -30,6 +30,7 @@ var a = 1 |> A2().f
 var a2 = 1 |> {x: Int64 => A2.f2(x, b: 3)}
 
 main() {
+    sleep(Duration.millisecond*3000)
     var x = 1 |> {x: Int64 => A2().f(a: x)}
     var a = 1 |> A1().f |> {x: Int64 => A2().f(a: x)}
     var a2 = 1 |> {x: Int64 => A2.f2(x, b: 3)}

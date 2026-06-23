@@ -10,13 +10,14 @@
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/packages/pkgs_h_001/src
 // EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/collection_HashMap_external_define.cj -o pkgs.%middle
 // EXEC: %compiler %cmp_opt -g src/collection_HashMap_external_invoke.cj pkgs.%middle -o collection_HashMap_external_invoke%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_collection_map_crossPackage_005.info collection_HashMap_external_invoke %run_env
+// EXEC: python3 cjdb_test.py cjdb_collection_map_crossPackage_005.info collection_HashMap_external_invoke %run_env
 
 test#
 cjdb,cjdb --no-use-colors collection_HashMap_external_invoke,collection_HashMap_external_invoke
-b,b 19,collection_HashMap_external_invoke.cj:19
-AOT r,r,-> 19
-CJVM c,c,-> 19
+b,b 20,collection_HashMap_external_invoke.cj:20
+AOT r,r,-> 20
+Android c,c,20
+CJVM c,c,20
 p,p newc.map_c_1,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = -29[\S\s]*value = 'C'[\S\s]*}
 p,p newc.map_c_1,std[.]collection.HashMap<Int32,Rune>\) \$[\d] = {[\S\s]*key = 76[\S\s]*value = 'N'[\S\s]*}
 q,q,

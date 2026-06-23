@@ -9,14 +9,15 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_Compositetype.cj
 // EXEC: %compiler %cmp_opt -g VArray_Compositetype.cj -o VArray_Compositetype_003%cmp_output
-// RUN-EXEC: python3 cjdb_test.py VArray_Compositetype_003.info VArray_Compositetype_003 %run_env
+// EXEC: python3 cjdb_test.py VArray_Compositetype_003.info VArray_Compositetype_003 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors VArray_Compositetype_003,VArray_Compositetype_003
-b,b 43,Breakpoint 1: where = VArray_Compositetype_003`default::main[\s\S]*VArray_Compositetype.cj:43
-AOT r,r,-> 43
-CJVM c,c,-> 43
+b,b 44,Breakpoint 1: where = VArray_Compositetype_003`default::main[\s\S]*VArray_Compositetype.cj:44
+AOT r,r,-> 44
+Android c,c,44
+CJVM c,c,44
 p,p v1.vFloat16[2]=16.0,\(Float16\) \$[\d] = 16
 p,p v1.vFloat32[2]=16.0,\(Float32\) \$[\d] = 16
 p,p v1.vFloat64[2]=16.0,\(Float64\) \$[\d] = 16

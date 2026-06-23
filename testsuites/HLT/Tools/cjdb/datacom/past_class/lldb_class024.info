@@ -16,10 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_class_top_mod_open,002_debug_class_top_mod_open
-b,b 49,002_debug_class_top_mod_open.cj:49
-AOT r,r,-> 49
-CJVM c,c,-> 49
-n,n,-> 50
+b,b 50,002_debug_class_top_mod_open.cj:50
+AOT r,r,-> 50
+Android c,c,50
+CJVM c,c,50
+n,n,51
 AOT print,print data3,default.C3\) \$[\d] = {(\r|\n|\r\n)  default.C2 = {(\r|\n|\r\n)    default.C1 = {(\r|\n|\r\n)      a1 = 1(\r|\n|\r\n)    }(\r|\n|\r\n)    a2 = 1(\r|\n|\r\n)  }(\r|\n|\r\n)  a3 = 1
 print,print data3.a3,\(Int64\) \$[\d] = 1
 q,q,

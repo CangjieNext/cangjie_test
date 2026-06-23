@@ -37,6 +37,7 @@ struct S1<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var b1 = C1<Int64>().f1 ~> C1<Float32>().f3<Float32>
     var b2 = C1<Int64>().f4 ~> C1<Int64>.f2
     var b3 = S1<Int64>().f1 ~> S1<Float32>().f3<Float32>

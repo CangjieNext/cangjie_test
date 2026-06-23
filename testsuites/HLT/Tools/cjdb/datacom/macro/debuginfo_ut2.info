@@ -6,14 +6,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/macro/ut2.cj
-// EXEC: %compiler %cmp_opt -g ut2.cj -o ut2 %cmp_utest_opt
-// RUN-EXEC: python3 cjdb_test.py debuginfo_ut2.info ut2 %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g ut2.cj -o ut2 %cmp_utest_opt
+// (!target_android) EXEC: python3 cjdb_test.py debuginfo_ut2.info ut2 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors ut2,ut2
-AOT b,breakpoint set -f ut2.cj -l 22,Breakpoint 1: where[\s\S]*ut2.cj:22
-CJVM b,breakpoint set -l 22,Breakpoint 1: [\s\S]*ut2.cj:22
-AOT r,r,-> 22
+AOT b,breakpoint set -f ut2.cj -l 23,Breakpoint 1: where[\s\S]*ut2.cj:23
+CJVM b,breakpoint set -l 23,Breakpoint 1: [\s\S]*ut2.cj:23
+AOT r,r,-> 23
 CJVM c,c,
 q,q,

@@ -26,6 +26,7 @@ var res3 = a2 |> f2
 var res4 = a2 |> f2<A2>
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a: A1 = 1
     let a2: A2 = 2.0
     var res1 = a |> {x: A1 => x + 1}

@@ -8,9 +8,9 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/packages/pkgs001/src
-// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj -o libpkg1.%middle
-// EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs001.cj -o 002_thread_list%cmp_output
-// RUN-EXEC: python3 cjdb_test.py thread_list_002.info 002_thread_list %run_env
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj -o libpkg1.%middle
+// (!target_android) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs001.cj -o 002_thread_list%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py thread_list_002.info 002_thread_list %run_env
 
 
 

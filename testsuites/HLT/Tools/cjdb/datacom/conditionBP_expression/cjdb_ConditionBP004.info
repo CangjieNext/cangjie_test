@@ -8,15 +8,16 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_global_func004.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_global_func004.cj -o generics_global_func004%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP004.info generics_global_func004 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_global_func004.cj -o generics_global_func004%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py cjdb_ConditionBP004.info generics_global_func004 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_global_func004,generics_global_func004
-breakpoint,breakpoint set -l 26 -c 'a6==5',generics_global_func004.cj:26
-AOT r,r,-> 26
-breakpoint,breakpoint set -l 28 -c 'a6==5',Breakpoint 2: no locations
+breakpoint,breakpoint set -l 27 -c 'a6==5',generics_global_func004.cj:27
+AOT r,r,-> 27
+Android c,c,27
+breakpoint,breakpoint set -l 29 -c 'a6==5',Breakpoint 2: no locations
 CJVM c,c,
 locals,locals,\(Unit\) vunit = ()
 p,p a2,\(CPointer<Int8>\) \$[\d] = 0x[\s\S]*

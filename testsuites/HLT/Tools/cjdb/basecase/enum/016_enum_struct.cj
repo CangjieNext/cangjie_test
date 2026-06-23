@@ -32,6 +32,7 @@ struct test {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var time: Time<Int32> = Foo().getTime()
     let data = test(TimeUnit<Int32>.Day(14))
     let time2 = data.time

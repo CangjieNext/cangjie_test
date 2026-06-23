@@ -9,15 +9,16 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/014_debug_array_record_class_fun.cj
 // EXEC: %compiler %cmp_opt -g 014_debug_array_record_class_fun.cj -o 014_debug_array_record_class_fun%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_array_composite_091.info 014_debug_array_record_class_fun %run_env
+// EXEC: python3 cjdb_test.py lldb_array_composite_091.info 014_debug_array_record_class_fun %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 014_debug_array_record_class_fun,014_debug_array_record_class_fun
-b,b 91,014_debug_array_record_class_fun.cj:91
-AOT r,r,-> 91
+b,b 92,014_debug_array_record_class_fun.cj:92
+AOT r,r,-> 92
+Android c,c,92
 CJVM c,c,
 locals,locals,a = 100
 print,print arr1,std[.]core.Array<Int32>\) \$[\d] = {(\r\n|\r|\n)  \[0\] = 100(\r\n|\r|\n)  \[1\] = 200(\r\n|\r|\n)  \[2\] = 300(\r\n|\r|\n)}

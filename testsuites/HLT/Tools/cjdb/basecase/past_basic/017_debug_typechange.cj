@@ -9,6 +9,7 @@
 
 
 main() { //设置断点：5/6/7
+    sleep(Duration.millisecond*3000)
     var i8Number: Int8 = 127
     var i16Number: Int16 = 0
     i16Number = Int16(i8Number) // ok: i16Number = 127

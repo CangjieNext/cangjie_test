@@ -15,6 +15,7 @@ func func3(a:ABC){
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = Some(ABC())
     var f1 = Option<(ABC)->ABC>.Some(func3)
     var f2 = Option<(ABC)->ABC>.None

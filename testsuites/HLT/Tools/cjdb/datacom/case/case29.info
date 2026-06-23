@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case29/case29.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g case29.cj -o case29%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py case29.info case29 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g case29.cj -o case29%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py case29.info case29 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case29,case29
-b,b 18,case29.cj:18
-AOT r,r,-> 18
+b,b 19,case29.cj:19
+AOT r,r,-> 19
+Android c,c,19
 CJVM c,c,
 AOT p,p b,\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A
 AOT expr,expr b,\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = {[\s\S]*constructor = C[\s\S]*arg_1 = A

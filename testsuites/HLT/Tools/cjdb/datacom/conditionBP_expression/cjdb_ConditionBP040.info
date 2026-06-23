@@ -8,17 +8,18 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_func001.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g generics_local_func001.cj -o generics_local_func001%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP040.info generics_local_func001 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g generics_local_func001.cj -o generics_local_func001%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py cjdb_ConditionBP040.info generics_local_func001 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func001,generics_local_func001
 breakpoint,breakpoint set -l 12 -c "9==9",generics_local_func001.cj:12
 AOT r,r,-> 12
+Android c,c,12
 CJVM c,c,
 p,p gengricsvar,\(\(\)->Unit\) \$[\d] = 0x
-n,n,-> 14
-n,n,-> 15
+n,n,13
+n,n,14
 expr~expr test_c(a)~error: unsupported expression
 q,q,

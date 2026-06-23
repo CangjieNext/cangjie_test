@@ -30,6 +30,7 @@ class C1 <: I1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = C1()
     var b = a.test1()
     var c = C1.test2()

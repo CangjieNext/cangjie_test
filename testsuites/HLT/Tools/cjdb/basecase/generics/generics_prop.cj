@@ -23,6 +23,7 @@ class Foo<X> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var x = Foo<Int64>(6,8)
     let y = x.b + 1
 }

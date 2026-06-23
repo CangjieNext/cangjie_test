@@ -16,33 +16,34 @@
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_if,002_debug_if
-CJVM b main,b main,002_debug_if.cj:12
-CJVM c,c,-> 12
-b,b 12,002_debug_if.cj:12
-AOT b,b 13,002_debug_if.cj:14
-CJVM b,b 13,002_debug_if.cj:13
-b,b 14,002_debug_if.cj:14
+CJVM b main,b main,002_debug_if.cj:13
+CJVM c,c,13
+b,b 13,002_debug_if.cj:13
+AOT b,b 14,002_debug_if.cj:15
+CJVM b,b 14,002_debug_if.cj:14
 b,b 15,002_debug_if.cj:15
-AOT b,b 16,002_debug_if.cj:17
-CJVM b,b 16,002_debug_if.cj:16
-b,b 17,002_debug_if.cj:17
-AOT b,b 18,002_debug_if.cj:19
-CJVM b,b 18,002_debug_if.cj:18
-b,b 19,002_debug_if.cj:19
+b,b 16,002_debug_if.cj:16
+AOT b,b 17,002_debug_if.cj:18
+CJVM b,b 17,002_debug_if.cj:17
+b,b 18,002_debug_if.cj:18
+AOT b,b 19,002_debug_if.cj:20
+CJVM b,b 19,002_debug_if.cj:19
 b,b 20,002_debug_if.cj:20
-AOT b,b 21,002_debug_if.cj:22
-CJVM b,b 21,002_debug_if.cj:21
-b,b 22,002_debug_if.cj:22
-AOT b,b 23,002_debug_if.cj:24
-CJVM b,b 23,002_debug_if.cj:23
-AOT r,r,-> 12
-s,s,-> 14
-s,s,-> 15
-s,s,-> 19
+b,b 21,002_debug_if.cj:21
+AOT b,b 22,002_debug_if.cj:23
+CJVM b,b 22,002_debug_if.cj:22
+b,b 23,002_debug_if.cj:23
+AOT b,b 24,002_debug_if.cj:25
+CJVM b,b 24,002_debug_if.cj:24
+AOT r,r,-> 13
+Android c,c,13
+s,s,15
+s,s,16
+s,s,20
 locals,locals,if_a = 1
-s,s,-> 22
-s,s,-> 24
+s,s,23
+s,s,25
 locals,locals,if_a = 2
-rerun,r,-> 12
-AOT finish,finish,-> 14
+rerun,r,-> 13
+AOT finish,finish,
 q,q,

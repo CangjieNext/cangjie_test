@@ -9,6 +9,7 @@
 
 let a: Rune = r'a'
 main() {
+    sleep(Duration.millisecond*3000)
     let var01: Rune = r"b"
     let var02: Rune = '\\'
     let var03: Rune = '\u{4f60}'

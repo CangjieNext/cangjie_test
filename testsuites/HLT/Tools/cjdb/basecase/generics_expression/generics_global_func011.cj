@@ -26,6 +26,7 @@ class C2 <: B2 {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var ans1: B<Int32> = C<Int32>()
     var ans2: C<Int32> = C<Int32>()
     var ans3 = C2().a

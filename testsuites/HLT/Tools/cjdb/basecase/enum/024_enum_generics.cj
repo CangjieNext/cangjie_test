@@ -17,6 +17,7 @@ enum E1<T> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     test_class<Int64>()
     0
 }

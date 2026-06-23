@@ -8,12 +8,13 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/050_debug_dataType_basic.cj
-// EXEC: %compiler %cmp_opt -g 050_debug_dataType_basic.cj -o 050_debug_dataType_basic%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_within_watchpoint019.info 050_debug_dataType_basic %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 050_debug_dataType_basic.cj -o 050_debug_dataType_basic%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_within_watchpoint019.info 050_debug_dataType_basic %run_env
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b , b 19 ,050_debug_dataType_basic.cj:19
-r , r ,-> 19
+b , b 20 ,050_debug_dataType_basic.cj:20
+AOT r , r ,-> 20
+Android c,c,20
 watchpoint,watchpoint set variable -w read para ,error: no variable named \'para\' found in this frame
 q,q,

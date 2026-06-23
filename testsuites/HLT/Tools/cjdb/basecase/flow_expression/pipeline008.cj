@@ -25,6 +25,7 @@ func f2<T>(x: T): T {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a = [1, 2]
     let a2 = ArrayList<Int64>([0, 1, 2])
     let a3 = HashSet<Int64>([0, 1, 2])

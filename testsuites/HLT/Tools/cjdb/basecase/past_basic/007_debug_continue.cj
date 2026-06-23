@@ -9,6 +9,7 @@
 
 
 main() {   //设置断点：4-10 9和10行设置断点后，显示失败图标
+    sleep(Duration.millisecond*3000)
     var indexcontinue: Int64 = 0
     while (indexcontinue < 50) {
         indexcontinue++

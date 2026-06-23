@@ -26,6 +26,7 @@ class AB1 <T> <: Foo<Int64> & Bar<Int64,Int64>{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = AB1<Int64>()
     var a2 = a1.foo<Int64>(3)
     var a3 = a1.bar(1) //expr a1.bar(1)

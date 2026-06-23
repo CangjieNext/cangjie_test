@@ -9,19 +9,20 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/generics_var_extend.cj
 // EXEC: %compiler %cmp_opt -g generics_var_extend.cj -o generics_var_extend%cmp_output
-// RUN-EXEC: python3 cjdb_test.py generics_var_extend_09.info generics_var_extend %run_env
+// EXEC: python3 cjdb_test.py generics_var_extend_09.info generics_var_extend %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_var_extend,generics_var_extend
-b,b 226,Breakpoint 1:
-b,b 231,generics_var_extend.cj:231
-AOT r,r,-> 226
+b,b 227,Breakpoint 1:
+b,b 232,generics_var_extend.cj:232
+AOT r,r,-> 227
+Android c,c,227
 CJVM c,c,
 p, p a,\(Rune\) \$[\d] = 'a'
 p, p a1,\(Rune\) \$[\d] = 'a'
 locals, locals,\(Rune\) a = 'a'[\s\S]*\(Rune\) a1 = 'a'
-c,c,-> 231
+c,c,232
 p, p a,\(Bool\) \$[\d] = true
 p, p b,\(Int64\) \$[\d] = 64
 locals, locals,\(Bool\) a = true[\s\S]*\(Int64\) b = 64[\s\S]*\(Bool\) a1 = true[\s\S]*\(Int64\) a2 = 64

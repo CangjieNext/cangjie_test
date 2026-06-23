@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var Functioncall004: Int16 = demofun006(2) //单行中只有一个调用 ,单入参/ Functioncall004=2
     var Functioncall005: Int32 = demofun002(2, 1) //单行中只有一个调用 ,双入参 Functioncall005=2
     var a: Int64 = 10

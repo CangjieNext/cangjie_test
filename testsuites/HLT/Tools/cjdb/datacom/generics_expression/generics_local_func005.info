@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_func005.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_func005.cj -o generics_local_func005%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_local_func005.info generics_local_func005 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_func005.cj -o generics_local_func005%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py generics_local_func005.info generics_local_func005 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func005,generics_local_func005
-b,b 23,generics_local_func005.cj:23
-AOT r,r,-> 23
+b,b 24,generics_local_func005.cj:24
+AOT r,r,-> 24
+Android c,c,24
 CJVM c,c,
 expr:expr myMass:\(Float64\) \$[\d] = 71
 expr:expr earth:\(default.Planet\) \$[\d] = {[\s\S]*mass = 5[\s\S]*radius = 6[\s\S]*}

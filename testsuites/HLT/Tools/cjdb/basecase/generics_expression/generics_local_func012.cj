@@ -34,6 +34,7 @@ open class C2<T> <: C1<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var newc1 = C1<Int64>()
     var main_num1 = newc1.funcdemo1()
     var main_num2 = C1<Int64>.foo1(2)

@@ -24,6 +24,7 @@ func test01<T>(a:T):T {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var aaa = ArrayList<Rectangle>.of(Rectangle(), Rectangle())
     test01<ArrayList<Rectangle>>(aaa)
     return 0

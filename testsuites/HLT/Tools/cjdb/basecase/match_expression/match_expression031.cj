@@ -14,6 +14,7 @@ enum TimeUnit {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     let oneYear = TimeUnit.Year(1.0)
     var howManyHours: Float32 = match (oneYear) {
         case Year(y) where y > 0.0f32 => y * Float32(365 * 24)
