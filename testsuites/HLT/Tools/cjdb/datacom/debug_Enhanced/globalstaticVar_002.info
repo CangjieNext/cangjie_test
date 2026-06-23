@@ -9,15 +9,16 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/debug_Enhanced/globalstaticVar.cj
 // EXEC: %compiler %cmp_opt -g globalstaticVar.cj -o globalstaticVar%cmp_output
-// RUN-EXEC: python3 cjdb_test.py globalstaticVar_002.info globalstaticVar %run_env
+// EXEC: python3 cjdb_test.py globalstaticVar_002.info globalstaticVar %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors globalstaticVar,globalstaticVar
-b,b 41,globalstaticVar.cj:41
-AOT r,r,-> 41
+b,b 42,globalstaticVar.cj:42
+AOT r,r,-> 42
+Android c,c,42
 CJVM c,c,
 target variable,target variable -s,STATIC: \(Rune\) default::B::varchar = '5'
 target variable,target variable -s,STATIC: \(UInt64\) default::B::varUInt = 1

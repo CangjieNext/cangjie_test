@@ -17,6 +17,7 @@ func test01<T>(a:T):T {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let op1: Option<Rectangle> = Some(Rectangle())
     test01<Option<Rectangle>>(op1)
     return 0

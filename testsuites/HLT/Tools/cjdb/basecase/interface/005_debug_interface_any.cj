@@ -10,6 +10,7 @@ class A {}
 struct B {}
 enum C { D }
 main() {
+    sleep(Duration.millisecond*3000)
     var i: Any = A() // ok
     i = B() // ok
     i = C.D // ok

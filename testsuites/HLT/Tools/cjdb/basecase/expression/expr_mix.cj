@@ -43,6 +43,7 @@ struct S1 {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var vi8: Int8 = 8
     var vi16: Int16 = 16
     var vi32: Int32 = 32

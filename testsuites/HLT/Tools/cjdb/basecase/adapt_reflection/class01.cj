@@ -23,6 +23,7 @@ class C1 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let m_c = C1(3)
     let m_length: Int32 = m_c.length
     var m_varBool: Bool = m_c.varBool

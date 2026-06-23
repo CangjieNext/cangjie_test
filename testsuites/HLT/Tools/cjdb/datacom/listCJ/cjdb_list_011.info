@@ -10,12 +10,13 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
 // EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_list_011.info list_debug %run_env
+// EXEC: python3 cjdb_test.py cjdb_list_011.info list_debug %run_env
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 119,list_debug.cj:119
-AOT r,r,-> 119
+b,b 120,list_debug.cj:120
+AOT r,r,-> 120
+Android c,c,120
 CJVM c,c,
 AOT p,p m_base_1_6[0..3],\$[\d] = 
 CJVM p,p m_base_1_6[0..3],error: variable was not declared in this scope

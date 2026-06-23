@@ -43,6 +43,7 @@ extend AC {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var b = AA.y
     var a = S.y
     var c = AB.typename()

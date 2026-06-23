@@ -14,6 +14,7 @@ var top_str2:String = "string_test_002"
 var arrayTopString : Array<String> =[top_str1, top_str2]
 
 main() {
+    sleep(Duration.millisecond*3000)
 
     var main_str1:String = ""
     let main_str2:String = "0123456789"

@@ -10,6 +10,7 @@
 
 var arrayTopInt32 : Array<Int32> = [12, 23, 34]
 main() {
+    sleep(Duration.millisecond*3000)
     let class_sub_ins = Class_sub_1(20)
     var v_main_1  =class_sub_ins.para_sub1 //非泛型子类非静态成员变量
     let vm_1 = Class_sub_1.para_sub2 //非泛型子类静态成员变量

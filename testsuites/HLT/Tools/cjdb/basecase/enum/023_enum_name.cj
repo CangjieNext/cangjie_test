@@ -16,6 +16,7 @@ enum 中文<T>{
 
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var t1 = _1<Int64>.Day(3)
     var t2 = 中文<Int64>.AA(1)
     var t3 = 中文<Bool>.仓颉(true)

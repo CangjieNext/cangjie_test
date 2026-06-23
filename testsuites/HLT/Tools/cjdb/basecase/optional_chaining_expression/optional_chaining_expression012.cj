@@ -25,6 +25,7 @@ class MM{
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = MM().test()
     0
 }

@@ -17,9 +17,10 @@
 
 test#
 cjdb,cjdb --no-use-colors class_external_use,class_external_use
-b,b 22,class_external_use.cj:22
-AOT r,r,-> 22
-CJVM c,c,-> 22
-n,n,-> 23
+b,b 23,class_external_use.cj:23
+AOT r,r,-> 23
+Android c,c,23
+CJVM c,c,23
+n,n,24
 locals,locals,\(Int32\) main_c_area = 20000
 q,q,

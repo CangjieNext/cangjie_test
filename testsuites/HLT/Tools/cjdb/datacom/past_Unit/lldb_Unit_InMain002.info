@@ -16,10 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 016_debug_return,016_debug_return
-b,b 15,016_debug_return.cj:15
-AOT r,r,-> 15
-CJVM c,c,-> 15
-n,n,-> 17
+b,b 16,016_debug_return.cj:16
+AOT r,r,-> 16
+Android c,c,16
+CJVM c,c,16
+n,n,18
 locals,locals,\(Unit\) varreturn = \(\)
 print,print varreturn,\(Unit\) \$[\d] = \(\)
 q,q,

@@ -31,6 +31,7 @@ func test_int() {
     return a
 }
 main() {
+    sleep(Duration.millisecond*3000)
     var c2 = C2()
     return 0
 }

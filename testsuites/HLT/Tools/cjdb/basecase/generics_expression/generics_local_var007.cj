@@ -58,6 +58,7 @@ func foo<T>(para: T) {
 }
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     foo(7)
     return 0
 }

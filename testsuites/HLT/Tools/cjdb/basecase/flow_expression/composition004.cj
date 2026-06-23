@@ -15,6 +15,7 @@ func h1<T>(x:T): T {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var l1 = h1<Int64> ~> f
     var l2 = f ~> h1<Float64>
     var l3 = h1<Float64> ~> {x: Float64 => x} ~> {x: Float64 => x}

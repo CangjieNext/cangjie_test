@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     let score = "abc"
     let level = match (score) {
         case "abc" => "true"

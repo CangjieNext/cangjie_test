@@ -14,6 +14,7 @@ func f2<T>(a:String,b:T):T {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = f1("a: String")
     var a2 = f2<Int64>("a: String", 1)
     0

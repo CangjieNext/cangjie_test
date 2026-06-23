@@ -25,6 +25,7 @@ func translate2(n: Byte) {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = translate(r"C")
     var b = translate2(51)
     0

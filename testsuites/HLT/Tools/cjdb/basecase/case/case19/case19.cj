@@ -21,6 +21,7 @@ func f3(a: Int64) {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     f3(1)
     f1(1)
     0

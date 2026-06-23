@@ -18,6 +18,7 @@ func test_hashmap(a:HashMap<Bool, UInt64>) {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var hashmap02 = HashMap<Bool, UInt64>([(true, 10), (false, 20)])
     let hashmap_lambda = {a:HashMap<UInt64, String> =>
         a

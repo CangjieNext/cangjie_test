@@ -13,6 +13,7 @@ func foo<T>(para: T, para2: Int64) {
 }
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     var r1 = foo(6,1)
     var r2 = foo('6',1)
     var r3 = foo<Bool>(true,3)

@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     let score = 90
     let level = match (score) {
         case 0 | 10 | 20 | 30 | 40 | 50 => "D"

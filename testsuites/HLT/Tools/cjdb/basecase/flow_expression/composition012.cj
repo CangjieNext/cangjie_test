@@ -40,6 +40,7 @@ extend E1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = C1().f1 ~> C1.f2
     var a2 = C1().f3 ~> C1().f3
     var a3 = C1().f4<Bool> ~> C1().f3

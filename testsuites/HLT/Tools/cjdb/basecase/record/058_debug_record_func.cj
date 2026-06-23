@@ -39,6 +39,7 @@ struct Rectangle {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var rect = Rectangle()
 
     var main_get1: Int32 = rect.funcdemo1()
