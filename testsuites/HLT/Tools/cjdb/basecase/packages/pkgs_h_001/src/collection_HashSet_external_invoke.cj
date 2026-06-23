@@ -17,6 +17,7 @@ var set_top_uint32 : HashSet<UInt32> = HashSet<UInt32>([32,126,5,6978,13354])
 
 
 main() {
+    sleep(Duration.millisecond*3000)
        var newc = Class_sub_exter1()
        var main_rect = Rec_r1(10,12)
 

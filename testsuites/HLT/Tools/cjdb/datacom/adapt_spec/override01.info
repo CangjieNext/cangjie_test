@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/override01.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g override01.cj -o override01%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py override01.info override01 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g override01.cj -o override01%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py override01.info override01 %run_env
 
 test#
 cjdb,cjdb --no-use-colors override01,override01
-b,b 53,override01.cj:53
-AOT r,r,-> 53
+b,b 54,override01.cj:54
+AOT r,r,-> 54
+Android c,c,54
 CJVM c,c,
 expr~expr C2().f()~\(Unit\) \$[\d] = ()
 expr~expr C2().f1()~\(default.Child\) \$[\d] = {}

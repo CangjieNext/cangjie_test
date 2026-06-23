@@ -28,6 +28,7 @@ struct S1<T>{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = C1()
     var b = a.test1<Int64>()
     var c = S1<Int64>()

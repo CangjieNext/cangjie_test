@@ -52,6 +52,7 @@ struct Rectangle2 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let rect = Rectangle()
 
     return 0

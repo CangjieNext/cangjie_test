@@ -8,12 +8,13 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case11/case11.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g case11.cj -o case11%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py case11.info case11 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g case11.cj -o case11%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py case11.info case11 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case11,case11
-AOT b,b main,case11.cj:22
-AOT r,r,22
+AOT b,b 23,case11.cj:23
+AOT r,r,23
+Android c,c,23
 AOT s,s,15
 q,q,

@@ -33,6 +33,7 @@ struct S1<T> <: I2<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = C1()
     var a2 = S1<String>()
     var a3 = S1<C1>()

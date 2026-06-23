@@ -17,6 +17,7 @@ enum TimeUnit1 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
 
     let rInt32_1 = Result<Int32>.Success(100)    // The type of 'rInt32_1' is 'Result<Int32>'
     let rInt32_2 = Result<Int32>.Failure(Exception())   // The type of 'rInt32_2' is 'Result<Int32>'

@@ -26,6 +26,7 @@ extend  ClassViaExtend{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let claIns_1:ClassViaExtend = ClassViaExtend(12,32)
     var varCE3 = claIns_1.v2 //实例成员属性 (Int64) :2
 }

@@ -19,6 +19,7 @@ struct Rectangle {
     }
 }
 main() {
+    sleep(Duration.millisecond*3000)
     let r1 = Rectangle(item1: 1, item2: 2, item3: true)
     let r2 = Rectangle(item3: false, item2: 5, item1: 10)
     let r3 = Rectangle(item1: 20)

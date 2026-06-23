@@ -9,6 +9,7 @@
 import std.collection.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a1 = [1.0,2.0,3.0]
     let a2 = [a1]
     let b1 = HashMap<String, Int64>([("a",1),("b",2)])

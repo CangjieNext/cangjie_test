@@ -9,14 +9,15 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_basetype.cj
 // EXEC: %compiler %cmp_opt -g VArray_basetype.cj -o VArray_basetype_004%cmp_output
-// RUN-EXEC: python3 cjdb_test.py VArray_basetype_004.info VArray_basetype_004 %run_env
+// EXEC: python3 cjdb_test.py VArray_basetype_004.info VArray_basetype_004 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors VArray_basetype_004,VArray_basetype_004
-b,b 40,Breakpoint 1: where = VArray_basetype_004`default::main[\s\S]*VArray_basetype.cj:40
-AOT r,r,-> 40
-CJVM c,c,-> 40
+b,b 41,Breakpoint 1: where = VArray_basetype_004`default::main[\s\S]*VArray_basetype.cj:41
+AOT r,r,-> 41
+Android c,c,41
+CJVM c,c,41
 p,p vChar,\(VArray<Rune,\$2>\) \$[\d] = {[\s\S]*\[0\] = 'b'[\s\S]*\[1\] = 'b'
 p,p vBool,\(VArray<Bool,\$2>\) \$[\d] = {[\s\S]*\[0\] = true[\s\S]*\[1\] = true
 p,p vUnit,\(VArray<Unit,\$2>\) \$[\d] = {[\s\S]*\[0\] = \(\)[\s\S]*\[1\] = \(\)

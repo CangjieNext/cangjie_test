@@ -16,9 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 36,049_debug_string.cj:36
-AOT r,r,-> 36
+b,b 37,049_debug_string.cj:37
+AOT r,r,-> 37
+Android c,c,37
 CJVM c,c,
-n,n,-> 37
-locals,locals,\(std[.]core.String\) s2 = "你好仓颉！"
+n,n,38
+locals,locals,\(std[.]core.String\) s2 = "你好仓颉�?
 q,q,

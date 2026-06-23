@@ -78,6 +78,7 @@ func coroutine3() {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     // Coroutine1: show variables
     let fut1 = coroutine1()
     fut1.get()

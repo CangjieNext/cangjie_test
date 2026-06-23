@@ -84,6 +84,7 @@ var globals_st = ST<Int32>(32)
 var globals_ct = CT<Int32>(16)
 
 main() {
+    sleep(Duration.millisecond*3000)
     let lrange = For<Int64>(1, 10, 1, true, true, true)
     let larr: A<Int64> = [1, 2, 3]
     let llist = AL<Int64>([1, 2, 3])

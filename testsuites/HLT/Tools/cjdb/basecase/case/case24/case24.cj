@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     for (i in r'a' ..= r'z') {
         println(i) //b 3;locals
     }

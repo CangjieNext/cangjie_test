@@ -8,49 +8,49 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/026_debuginfun_if.cj
-// EXEC: %compiler %cmp_opt -g 026_debuginfun_if.cj -o 026_debuginfun_if%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain006.info 026_debuginfun_if %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 026_debuginfun_if.cj -o 026_debuginfun_if%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain006.info 026_debuginfun_if %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 026_debuginfun_if,026_debuginfun_if
-CJVM b,breakpoint set -n main,026_debuginfun_if.cj:12
-CJVM c,c,-> 12
-b,b 16,026_debuginfun_if.cj:16
-AOT b,b 17,026_debuginfun_if.cj:18
-CJVM b,b 17,026_debuginfun_if.cj:17
-b,b 18,026_debuginfun_if.cj:18
+CJVM b,breakpoint set -n main,026_debuginfun_if.cj:13
+CJVM c,c,-> 13
+b,b 17,026_debuginfun_if.cj:17
+AOT b,b 18,026_debuginfun_if.cj:19
+CJVM b,b 18,026_debuginfun_if.cj:18
 b,b 19,026_debuginfun_if.cj:19
-AOT b,b 22,026_debuginfun_if.cj:23
-CJVM b,b 22,026_debuginfun_if.cj:22
-b,b 21,026_debuginfun_if.cj:21
-AOT b,b 22,026_debuginfun_if.cj:23
-CJVM b,b 22,026_debuginfun_if.cj:22
-b,b 23,026_debuginfun_if.cj:23
+b,b 20,026_debuginfun_if.cj:20
+AOT b,b 23,026_debuginfun_if.cj:24
+CJVM b,b 23,026_debuginfun_if.cj:23
+b,b 22,026_debuginfun_if.cj:22
+AOT b,b 23,026_debuginfun_if.cj:24
+CJVM b,b 23,026_debuginfun_if.cj:23
 b,b 24,026_debuginfun_if.cj:24
-AOT b,b 25,026_debuginfun_if.cj:26
-CJVM b,b 25,026_debuginfun_if.cj:25
-b,b 26,026_debuginfun_if.cj:26
-AOT b,b 27,026_debuginfun_if.cj:28
-CJVM b,b 27,026_debuginfun_if.cj:27
-AOT r,r,-> 16
-CJVM c,c,-> 16
-n,n,-> 18
+b,b 25,026_debuginfun_if.cj:25
+AOT b,b 26,026_debuginfun_if.cj:27
+CJVM b,b 26,026_debuginfun_if.cj:26
+b,b 27,026_debuginfun_if.cj:27
+AOT b,b 28,026_debuginfun_if.cj:29
+CJVM b,b 28,026_debuginfun_if.cj:28
+AOT r,r,-> 17
+CJVM c,c,-> 17
 n,n,-> 19
-n,n,-> 23
+n,n,-> 20
+n,n,-> 24
 locals,locals,if_a = 1
-n,n,-> 26
-n,n,-> 28
+n,n,-> 27
+n,n,-> 29
 locals,locals,if_a = 2
-AOT rerun,r,-> 16
-AOT c,c,-> 18
+AOT rerun,r,-> 17
+AOT c,c,-> 19
 AOT set,set if001 = 0,false
-AOT n,n,-> 21
-AOT n,n,-> 23
-AOT locals,locals,if_a = 2
+AOT n,n,-> 22
 AOT n,n,-> 24
-AOT n,n,-> 28
+AOT locals,locals,if_a = 2
+AOT n,n,-> 25
+AOT n,n,-> 29
 AOT locals,locals,if_a = 1
 q,q,

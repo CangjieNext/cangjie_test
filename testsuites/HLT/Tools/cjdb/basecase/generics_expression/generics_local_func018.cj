@@ -36,6 +36,7 @@ public func genericsfun_int(a: Int64, b: Int64): Int64 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = genericsfun_int(1,2)
     var b = genericsfun_int<Int64,Int32>(1,2)
     var c = genericsfun_int(1,2.0,true)

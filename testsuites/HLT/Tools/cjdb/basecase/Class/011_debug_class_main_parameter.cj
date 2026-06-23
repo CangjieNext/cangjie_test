@@ -52,6 +52,7 @@ class C2 <: C1 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let newc = C1(11, length:2)
     let newc2 = C2()
     return 1

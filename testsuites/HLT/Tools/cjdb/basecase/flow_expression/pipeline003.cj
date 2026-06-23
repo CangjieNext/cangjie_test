@@ -19,6 +19,7 @@ func f3(x: Unit): Unit {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a1 = r'A'
     var res1 = a1 |> f1
     let a2 = true

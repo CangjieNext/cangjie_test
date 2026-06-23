@@ -9,26 +9,27 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/005_debug_enum_fun_reload.cj
 // EXEC: %compiler %cmp_opt -g 005_debug_enum_fun_reload.cj -o 005_debug_enum_fun_reload%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_enum022.info 005_debug_enum_fun_reload %run_env
+// EXEC: python3 cjdb_test.py lldb_enum022.info 005_debug_enum_fun_reload %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 005_debug_enum_fun_reload,005_debug_enum_fun_reload
-b,b 27,005_debug_enum_fun_reload.cj:27
 b,b 28,005_debug_enum_fun_reload.cj:28
 b,b 29,005_debug_enum_fun_reload.cj:29
 b,b 30,005_debug_enum_fun_reload.cj:30
-AOT r,r,-> 27
+b,b 31,005_debug_enum_fun_reload.cj:31
+AOT r,r,-> 28
+Android c,c,28
 CJVM c,c,
-c,c,-> 28
-finish,finish,-> 29
-n,n,-> 30
-n,n,-> 31
-n,n,-> 32
-n,n,-> 31
-n,n,-> 36
+c,c,29
+finish,finish,30
+n,n,31
+n,n,32
+n,n,33
+n,n,32
+n,n,37
 locals,locals,\(Int64\) num1 = 1
 locals,locals,\(Int64\) num3 = 3
 locals,locals,\(Int64\) howMany = 6

@@ -8,19 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/065_debug_struct.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 065_debug_struct.cj -o 001_express_basetype%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py express_struct_001.info 001_express_basetype %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g 065_debug_struct.cj -o 001_express_basetype%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py express_struct_001.info 001_express_basetype %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-CJVM b,b main,065_debug_struct.cj:59
-CJVM c,c,-> 59
-b,b 61,065_debug_struct.cj:61
-CJVM c,c,-> 61
-AOT r,r,-> 61
+CJVM b,b main,065_debug_struct.cj:60
+CJVM c,c,60
+b,b 62,065_debug_struct.cj:62
+CJVM c,c,62
+AOT r,r,-> 62
+Android c,c,62
 expr,expr rr.age,\(Int64\) \$[\d] = 10
 expr,expr rr.age=20,\(Unit\) \$[\d] = ()
 expr,expr rr.age,\(Int64\) \$[\d] = 20

@@ -12,6 +12,7 @@ var count: Int64 = 0
 let m = Monitor()
 /* 查看子协程 running 状态*/
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     m.lock()
     let fut = spawn {
         print("son thread: I am reading sheep 0\n")

@@ -15,6 +15,7 @@ enum enumCol{
 
 var v1: Int8 = 89
 main() {
+    sleep(Duration.millisecond*3000)
     var v1: Int8 = -128
     var v2: Int16 = 127
         v1 = Int8(v2)

@@ -8,16 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../../cjdb_test.py    ../../../basecase/past_basic/066_debug_lambda.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_circulate001.info 066_debug_lambda %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py expression_circulate001.info 066_debug_lambda %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
-CJVM b,b main,066_debug_lambda.cj:18
-CJVM c,c,-> 18
-b,b 20,066_debug_lambda.cj:20
-AOT r,r,-> 20
+CJVM b,b main,066_debug_lambda.cj:19
+CJVM c,c,19
+b,b 21,066_debug_lambda.cj:21
+AOT r,r,-> 21
+Android c,c,21
 expr~ expr while(globals_i64 < 70) {globals_i64++};globals_i64~\(Int64\) \$[\d] = 70
 expr~ expr do{globals_i64++}while(globals_i64 < a);globals_i64~\(Int64\) \$[\d] = 71
 expr~ expr do{globals_i64++;break}while(12<13);globals_i64~\(Int64\) \$[\d] = 72

@@ -18,6 +18,7 @@ enum TimeUnit1 {
     | Month(Int32)
 }
 main() {
+    sleep(Duration.millisecond*3000)
     let class_sub_ins = Class_sub_1()
     let class_sub_ins_3 = Class_sub_3()
     var v_main_1 : Int32 =class_sub_ins.para_sub1 //子类非静态成员变量

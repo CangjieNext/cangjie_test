@@ -8,21 +8,22 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case18/case18_7.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g case18_7.cj -o case18_7%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py case18_7.info case18_7 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g case18_7.cj -o case18_7%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py case18_7.info case18_7 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case18_7,case18_7
-b,b 22,Breakpoint 1:
-b,b 36,Breakpoint 2:
-b,b 50,Breakpoint 3:
-AOT r,r,-> 22
+b,b 23,Breakpoint 1:
+b,b 37,Breakpoint 2:
+b,b 51,Breakpoint 3:
+AOT r,r,-> 23
+Android c,c,23
 CJVM c,c,
 expr,expr testVT,\(Bool\) \$[\d] = true
-n,n,-> 23
+n,n,24
 expr,expr testVT,\(Bool\) \$[\d] = false
-c,c,-> 36
+c,c,37
 expr,expr test,\(Bool\) \$[\d] = false
-c,c,-> 50
+c,c,51
 expr,expr test,\(Bool\) \$[\d] = true
 q,q,

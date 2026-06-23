@@ -9,14 +9,15 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/003_HashMap_Ins_composite.cj
 // EXEC: %compiler %cmp_opt -g 003_HashMap_Ins_composite.cj -o 003_HashMap_Ins_composite%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_HashMap028.info 003_HashMap_Ins_composite %run_env
+// EXEC: python3 cjdb_test.py cjdb_HashMap028.info 003_HashMap_Ins_composite %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 003_HashMap_Ins_composite,003_HashMap_Ins_composite
-b,b 43,003_HashMap_Ins_composite.cj:43
-AOT r,r,-> 43
-CJVM c,c,-> 43
+b,b 44,003_HashMap_Ins_composite.cj:44
+AOT r,r,-> 44
+Android c,c,44
+CJVM c,c,44
 p,p map_list_3,std[.]collection.HashMap<std[.]core.String,std[.]collection.ArrayList<std[.]collection.HashMap<Rune,default.cla>>>\) \$[\d] = {[\S\s]*key = "list"[\S\s]*}
 p,p map_list_3,std[.]collection.HashMap<std[.]core.String,std[.]collection.ArrayList<std[.]collection.HashMap<Rune,default.cla>>>\) \$[\d] = {[\S\s]*key = "_map"[\S\s]*}
 q,q,

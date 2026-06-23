@@ -9,6 +9,7 @@
 import std.ast.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     let intList: Array<Int64> = [1, 2, 3, 4, 5]
     let float: Float64 = 1.0
     let str: String = "Hello"

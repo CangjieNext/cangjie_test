@@ -19,6 +19,7 @@ enum E1<T> {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     let v1 = Option<S1<Array<Int64>>>.Some(S1<Array<Int64>>())
     let v2 = Option<S1<Array<Int64>>>.None
     let v3 = Option<E1<HashSet<Int64>>>.Some(E1<HashSet<Int64>>.AB)

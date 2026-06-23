@@ -16,6 +16,7 @@ func test_range(ra:Range<Rune>){
     return 0
 }
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let r1: Range<Int32> = 10..=0 : -1
     let r2 = Range<Int16>(0, 10, 1, true, true, true)
     let r3 = Range<UInt8>(0, 10, 1, true, true, true)

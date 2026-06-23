@@ -8,23 +8,24 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/008_debug_func_no_arg.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 008_debug_func_no_arg.cj -o 008_debug_func_no_arg%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py lldb_Variable006.info 008_debug_func_no_arg %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g 008_debug_func_no_arg.cj -o 008_debug_func_no_arg%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py lldb_Variable006.info 008_debug_func_no_arg %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_func_no_arg,008_debug_func_no_arg
-CJVM b,b main,008_debug_func_no_arg.cj:12
-CJVM c,c,-> 12
-b,b 20,008_debug_func_no_arg.cj:20
-AOT r,r,-> 20
-CJVM c,c,-> 20
+CJVM b,b main,008_debug_func_no_arg.cj:13
+CJVM c,c,13
+b,b 21,008_debug_func_no_arg.cj:21
+AOT r,r,-> 21
+Android c,c,21
+CJVM c,c,21
 locals,locals,a = 10
 p,p a,\(Int32\) \$[\d] = 10
-finish,finish,-> 12
-s,s,-> 13
+finish,finish,13
+s,s,14
 locals,locals,Functioncall001 = 30
 p,p Functioncall001,\(Int32\) \$[\d] = 30
 q,q,

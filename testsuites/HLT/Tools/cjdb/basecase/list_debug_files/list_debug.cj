@@ -102,6 +102,7 @@ func inputArray2(a!:Array<Int32>=[1,2,3]){
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
 
     // empty Array
     var m_empty:Array<Int64> = []

@@ -14,6 +14,7 @@ enum E<T> {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     var a1 = E<Int64>.A.name
     var a2 = E<Bool>.B(1,true).name(false)
     var a3 = C(1).name(4)

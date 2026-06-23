@@ -15,6 +15,7 @@ class Data {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var value: Data = Data(HashMap<Int32, Bool>([(1, true), (2, false)]))
     0
 }

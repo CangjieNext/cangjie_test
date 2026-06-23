@@ -8,19 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/062_debug_super.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 062_debug_super.cj -o 002_express_basetype%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py express_super_002.info 002_express_basetype %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g 062_debug_super.cj -o 002_express_basetype%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py express_super_002.info 002_express_basetype %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 002_express_basetype,002_express_basetype
-CJVM b,b main,062_debug_super.cj:52
-CJVM c,c,-> 52
+CJVM b,b main,062_debug_super.cj:53
+CJVM c,c,53
 b,b 45,062_debug_super.cj:45
-CJVM c,c,-> 45
+CJVM c,c,45
 AOT r,r,-> 45
+Android c,c,45
 expr,expr super.ahm,std[.]collection.HashMap<Int64,Int64>\) \$[\d] = {[\S\s]*\[10 -> 11\] = {[\S\s]*key = 10[\S\s]*value = 11[\S\s]*
 expr,expr super.hs,std[.]collection.HashSet<Bool>\) \$[\d] = {[\S\s]*\[0\] = true[\S\s]*\[1\] = false[\S\s]*}
 expr,expr super.ass,default.rect\) \$[\d] = {[\S\s]*boolr = true[\S\s]*width = 10[\S\s]*height = 32[\S\s]*}

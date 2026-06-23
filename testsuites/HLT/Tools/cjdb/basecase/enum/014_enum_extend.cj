@@ -20,6 +20,7 @@ enum E1<U> <:I1<Int64>{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = E1<Int64>.XY(5)
     var b = a.test1(2)
     var c = a.test2()

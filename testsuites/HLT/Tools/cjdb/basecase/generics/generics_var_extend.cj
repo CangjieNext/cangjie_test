@@ -295,6 +295,7 @@ extend CP<Int64> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var i8: I8 = 8
     i8.printIntAndArg<Bool>(true)
     var i16: I16 = 16

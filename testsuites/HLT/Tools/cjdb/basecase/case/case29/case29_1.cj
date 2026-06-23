@@ -14,6 +14,7 @@ enum EE {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var b = EE.AB.f1() //expr EE.AB.f1()
     return 0
 }

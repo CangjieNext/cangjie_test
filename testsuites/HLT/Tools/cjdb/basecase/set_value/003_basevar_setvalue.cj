@@ -7,6 +7,7 @@
  */
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let lambda1 = { a:Int64, b:Int64 =>
     let c = 3
     var d = a + b + c

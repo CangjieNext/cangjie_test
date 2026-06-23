@@ -17,6 +17,7 @@ let test: Int32 = top_C.width
  var test1: Int8 = 1
 
 main() {
+    sleep(Duration.millisecond*3000)
     var newc = Exter_C1(100, 200)
     var main_Rect = newc.rectangle_Ins
     var main_c_area: Int32 = newc.area()

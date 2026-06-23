@@ -36,6 +36,7 @@ func test_optionarrl(optiona: Option<ArrayList<Rune>>, option_none: Option<Array
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let UI8: Option<UInt8> = Some(8)
     let UI16: ?UInt16 = Some(16)
     let UI32: Option<UInt32> = Some(32)

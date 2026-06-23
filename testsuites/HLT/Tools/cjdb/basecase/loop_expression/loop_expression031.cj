@@ -25,6 +25,7 @@ class C1 <: I1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = C1()
     var a2 = a1.test1()
     println("ddd")

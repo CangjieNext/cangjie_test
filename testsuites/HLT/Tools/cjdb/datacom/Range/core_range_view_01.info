@@ -9,15 +9,16 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Range/range_core.cj
 // EXEC: %compiler %cmp_opt -g range_core.cj -o range_core%cmp_output
-// RUN-EXEC: python3 cjdb_test.py core_range_view_01.info range_core %run_env
+// EXEC: python3 cjdb_test.py core_range_view_01.info range_core %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors range_core,range_core
-b,b 33,range_core.cj:33
-AOT r,r,-> 33
-CJVM c,c,-> 33
+b,b 34,range_core.cj:34
+AOT r,r,-> 34
+Android c,c,34
+CJVM c,c,34
 p,p r1,\(std.core.Range<Int32>\) \$[\d] = 10..=0 : -1
 locals,locals,\(std.core.Range<Int32>\) r1 = 10..=0 : -1
-AOT frame var,frame var r1,\(std.core.Range<Int32>\) r1 = 10..=0 : -1
+frame var,frame var r1,\(std.core.Range<Int32>\) r1 = 10..=0 : -1
 q,q,

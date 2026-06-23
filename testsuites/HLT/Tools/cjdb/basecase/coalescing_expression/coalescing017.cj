@@ -13,6 +13,7 @@ struct S1<T>{
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     var a1 = ArrayList<S1<Int64>>([S1<Int64>()])
     var a2 = Array<S1<Int64>>()
     let v1 = Option<Array<S1<Int64>>>.Some(a2)

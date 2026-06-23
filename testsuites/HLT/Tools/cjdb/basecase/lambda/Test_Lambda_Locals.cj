@@ -31,6 +31,7 @@ enum TimeUnit2 {
     | Minu(Float32, Float32, Float32, Float32, Float32)
 }
 main(){
+    sleep(Duration.millisecond*3000)
     let arr011 = [0, 1, 2]
     var str = "hello cangjie"
     let hss = HashSet<Int64>([0, 1, 2])

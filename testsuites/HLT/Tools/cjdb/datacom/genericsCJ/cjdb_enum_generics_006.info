@@ -8,19 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/generics_debug_files/enum_generics/
-//  EXEC: %compiler %cmp_opt %compile_lib_opt -g enum_generics/p1/debug_enum_generics_p101.cj enum_generics/p1/debug_enum_generics_p102.cj -o p1.%middle
-//  EXEC: %compiler %cmp_opt %compile_lib_opt -g enum_generics/p2/debug_enum_generics_p201.cj -o p2.%middle
-//  EXEC: %compiler %cmp_opt -g enum_generics/debug_enum_generics.cj p1.%middle p2.%middle -o debug_enum_generics%cmp_output
-//  EXEC: python3 cjdb_test.py cjdb_enum_generics_006.info debug_enum_generics %run_env
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g enum_generics/p1/debug_enum_generics_p101.cj enum_generics/p1/debug_enum_generics_p102.cj -o p1.%middle
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g enum_generics/p2/debug_enum_generics_p201.cj -o p2.%middle
+// (!target_android) EXEC: %compiler %cmp_opt -g enum_generics/debug_enum_generics.cj p1.%middle p2.%middle -o debug_enum_generics%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py cjdb_enum_generics_006.info debug_enum_generics %run_env
 
 test#
 cjdb,cjdb --no-use-colors debug_enum_generics,debug_enum_generics
-CJVM b main,b main,debug_enum_generics.cj:17
-CJVM c,c,-> 17
-b,b 29,debug_enum_generics.cj:29
-AOT r,r,-> 29
-CJVM c,c,-> 29
-s,s,-> 16
-n,n,-> 17
-finish,finish,-> 29
+CJVM b main,b main,debug_enum_generics.cj:18
+CJVM c,c,18
+b,b 30,debug_enum_generics.cj:30
+AOT r,r,-> 30
+Android c,c,30
+CJVM c,c,30
+s,s,17
+n,n,18
+finish,finish,30
 q,quit,

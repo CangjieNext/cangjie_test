@@ -9,18 +9,19 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/053_debug_class_basetype.cj
 // EXEC: %compiler %cmp_opt -g 053_debug_class_basetype.cj -o 004_express_basetype%cmp_output
-// RUN-EXEC: python3 cjdb_test.py express_error_004.info 004_express_basetype %run_env
+// EXEC: python3 cjdb_test.py express_error_004.info 004_express_basetype %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 004_express_basetype,004_express_basetype
-CJVM b,b main,053_debug_class_basetype.cj:33
-CJVM c,c,-> 33
-b,b 36,053_debug_class_basetype.cj:36
-CJVM c,c,-> 36
-AOT r,r,-> 36
+CJVM b,b main,053_debug_class_basetype.cj:34
+CJVM c,c,34
+b,b 37,053_debug_class_basetype.cj:37
+CJVM c,c,37
+AOT r,r,-> 37
+Android c,c,37
 AOT p,p a.var1=9223372036854775809,error
 CJVM p,p a.var1=9223372036854775809,\(Int8\) \$0 = 1
 AOT p,p a.var2=9223372036854775809,error

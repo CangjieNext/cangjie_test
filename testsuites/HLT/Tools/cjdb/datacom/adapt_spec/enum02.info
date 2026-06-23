@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/enum02.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g enum02.cj -o enum02%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py enum02.info enum02 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g enum02.cj -o enum02%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py enum02.info enum02 %run_env
 
 test#
 cjdb,cjdb --no-use-colors enum02,enum02
-b,b 17,enum02.cj:17
-AOT r,r,-> 17
+b,b 18,enum02.cj:18
+AOT r,r,-> 18
+Android c,c,18
 CJVM c,c,
 p,p a3,\(default.E<Int64>\) \$[\d] = {[\s\S]*constructor = C[\s\S]*arg_1 = 1[\s\S]*}
 expr,expr a1,\(default.E<Int64>\) \$[\d] = {[\s\S]*constructor = A[\s\S]*}
