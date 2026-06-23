@@ -16,10 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 23,049_debug_string.cj:23
-AOT r,r,-> 23
+b,b 24,049_debug_string.cj:24
+AOT r,r,-> 24
+Android c,c,24
 CJVM c,c,
-n,n,-> 24
-AOT locals,locals,\(std[.]core.String\) main_str9 = "Hello Cangjie Lang\\nHello Cangjie Lang"
+n,n,25
+locals,locals,\(std[.]core.String\) main_str9 = "Hello Cangjie Lang\\nHello Cangjie Lang"
 CJVM locals,locals,\(std[.]core.String\) main_str9 = "Hello Cangjie Lang[\s\S]*Hello Cangjie Lang"
 q,q,

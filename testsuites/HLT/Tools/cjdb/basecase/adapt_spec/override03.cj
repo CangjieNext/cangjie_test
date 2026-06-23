@@ -31,6 +31,7 @@ class C2<T> <: C1<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var r1 = C2<Int64>().f() //expr C2<Int64>()
     var r2 = C2<Float64>().f1() //expr C2<Float64>().f1()
     var r3 = C2<Bool>().f2<Int64>(2) //expr C2<Bool>().f2<Int64>(2)

@@ -9,13 +9,14 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun.cj
 // EXEC: %compiler %cmp_opt -g genericsfun.cj -o genericsfun%cmp_output
-// RUN-EXEC: python3 cjdb_test.py global_fun_generics_06.info genericsfun %run_env
+// EXEC: python3 cjdb_test.py global_fun_generics_06.info genericsfun %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun,genericsfun
 b,b 81,genericsfun.cj:81
 AOT r,r,-> 81
+Android c,c,81
 CJVM c,c,
 p, p gengricsvar,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1
 p, p a,\(std.core.Range<Int64>\) \$[\d] = 1..10 : 1

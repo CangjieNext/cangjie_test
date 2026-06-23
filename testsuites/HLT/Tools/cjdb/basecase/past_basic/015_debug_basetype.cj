@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var var1: Int8 = -128
     var var2: Int8 = 127
     var var3: Int64 = 1

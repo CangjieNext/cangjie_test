@@ -31,6 +31,7 @@ class C1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = C1()
     var a2 = C1.a2
     0

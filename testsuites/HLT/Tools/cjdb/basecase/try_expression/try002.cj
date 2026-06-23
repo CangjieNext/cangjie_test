@@ -23,6 +23,7 @@ extend C {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     try {
         C().bar();
         ()

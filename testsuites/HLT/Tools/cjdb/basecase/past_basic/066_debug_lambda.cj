@@ -15,6 +15,7 @@ func f2(): (Int64) -> Int64 {
 }
 var globals_i64 = 64
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var a = 10
     let result = Option<Int64>.Some(2023)
     return 0

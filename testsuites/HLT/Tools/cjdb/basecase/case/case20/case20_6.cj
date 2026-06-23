@@ -13,6 +13,7 @@ struct S1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var aa = S1()
     var bb = aa.foo<Int64>(2)
     0

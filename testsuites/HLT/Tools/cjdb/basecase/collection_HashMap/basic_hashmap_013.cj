@@ -17,6 +17,7 @@ func f1(a: HashMap<C1, UInt8>): HashMap<C1, UInt8> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var map_a: HashMap<C1, UInt8> = HashMap<C1, UInt8>([(cla(1), 42), (cla(2), 12)])
     f1(map_a)
     0

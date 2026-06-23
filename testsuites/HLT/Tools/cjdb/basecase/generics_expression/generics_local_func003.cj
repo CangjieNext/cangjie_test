@@ -19,6 +19,7 @@ extend A1 {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     var aa = A1()
     let bb : UInt16 = 4
     var cc = aa.coo(bb)

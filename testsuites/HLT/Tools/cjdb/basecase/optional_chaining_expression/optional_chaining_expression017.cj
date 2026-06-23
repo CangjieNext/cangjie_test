@@ -24,6 +24,7 @@ interface I1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = CB().test()
     0
 }

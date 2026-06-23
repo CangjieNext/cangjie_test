@@ -9,14 +9,15 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_debug.cj
 // EXEC: %compiler %cmp_opt -g option_debug.cj -o option_debug%cmp_output
-// RUN-EXEC: python3 cjdb_test.py option_test_041.info option_debug %run_env
+// EXEC: python3 cjdb_test.py option_test_041.info option_debug %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors option_debug,option_debug
-b,b 74,option_debug.cj:74
-AOT r,r,-> 74
-CJVM c,c,-> 74
+b,b 75,option_debug.cj:75
+AOT r,r,-> 75
+Android c,c,75
+CJVM c,c,75
 p,p a,std.core.Option<std.core.Array<std.core.Range<Int64>>>\) \$[\d] = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 1..10 : 1[\s\S]*}
 locals,locals,std.core.Option<std.core.Array<std.core.Range<Int64>>>\) a = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 1..10 : 1[\s\S]*}
 AOT frame var,frame var a,std.core.Option<std.core.Array<std.core.Range<Int64>>>\) a = {[\s\S]*\[0\] = 1..10 : 1[\s\S]*\[1\] = 1..10 : 1[\s\S]*}

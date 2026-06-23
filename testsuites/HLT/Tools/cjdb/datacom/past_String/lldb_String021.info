@@ -16,14 +16,14 @@
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 15,049_debug_string.cj:15
 b,b 16,049_debug_string.cj:16
 b,b 17,049_debug_string.cj:17
-AOT r,r,-> 15
+b,b 18,049_debug_string.cj:18
+AOT r,r,-> 16
+Android c,c,16
 CJVM c,c,
-c,c,-> 16
-finish,finish,-> 17
-s,s,-> 18
-n,n,-> 19
-rerun,r,-> 15
+c,c,17
+finish,finish,18
+s,s,19
+n,n,20
 q,q,

@@ -8,13 +8,14 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/try_expression/try004.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g try004.cj -o try004%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py try_expression004.info try004 %run_env
+// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g try004.cj -o try004%cmp_output
+// (not target_mac and not target_android) EXEC: python3 cjdb_test.py try_expression004.info try004 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors try004,try004
-b,b 14,try004.cj:14
-AOT r,r,-> 14
+b,b 15,try004.cj:15
+AOT r,r,-> 15
+Android c,c,15
 expr~expr try {throw A()} catch (_) {return 0} finally {}~error: unsupported expression
 q,q,

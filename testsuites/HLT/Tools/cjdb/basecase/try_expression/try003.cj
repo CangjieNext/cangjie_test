@@ -23,6 +23,7 @@ func test() {
     return 10
 }
 main() {
+    sleep(Duration.millisecond*3000)
     var res = test()
     print("success,${res}\n")
     return res-10

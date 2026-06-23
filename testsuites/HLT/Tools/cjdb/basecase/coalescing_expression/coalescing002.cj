@@ -7,6 +7,7 @@
  */
 
 main(){
+    sleep(Duration.millisecond*3000)
     let v1 = Option<Bool>.Some(true)
     let v2 = Option<Bool>.None
     let r1 = v1 ?? false

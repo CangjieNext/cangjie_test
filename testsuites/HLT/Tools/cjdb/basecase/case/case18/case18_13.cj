@@ -41,6 +41,7 @@ public class Cuboid <: Rectangle {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let arraylist02 = ArrayList<Float64>([1.111, 2.222, 3.3333])
     let classvar02=Cuboid(11,12,13)
     return 0

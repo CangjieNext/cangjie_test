@@ -26,6 +26,7 @@ var top_enum2 = b
 var arrayTopEnum01 : Array<TimeUnit1> = [top_enum1, top_enum2]
 
 main() {
+    sleep(Duration.millisecond*3000)
     var time1 = top_enum1
     var time2 = c
 

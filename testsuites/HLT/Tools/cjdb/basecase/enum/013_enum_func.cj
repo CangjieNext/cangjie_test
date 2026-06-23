@@ -27,6 +27,7 @@ func test03(): B<Int64, Bool> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let op1 = test01<A>(A.AAA)
     let op2 = test01<A>(AAA)
     let op3 = test01<B<Int64, Bool>>(B<Int64, Bool>.X(1))

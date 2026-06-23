@@ -11,6 +11,7 @@ enum E1{XY|XY2}
 enum E2<T> {AB(T)}
 
 main(){
+    sleep(Duration.millisecond*3000)
     let v1 = Option<E1>.Some(E1.XY)
     let v2 = Option<E1>.None
     let v3 = Option<E2<Int64>>.Some(E2<Int64>.AB(2))

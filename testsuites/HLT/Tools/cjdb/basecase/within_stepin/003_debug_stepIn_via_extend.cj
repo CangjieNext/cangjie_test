@@ -13,6 +13,7 @@ var width : Int32 = 12
 var length : Int32 = 10
 var arrayTopInt64 : Array<Int64> =[12, 23, 34]
 main() {
+    sleep(Duration.millisecond*3000)
     let clazz_ins1 = Clazz_1(10,12)
     let clazz_ins2 = Clazz_2(12,23)
     let rectangle_ins = Rectangle_ex()

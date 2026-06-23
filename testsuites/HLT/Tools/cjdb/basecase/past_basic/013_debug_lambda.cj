@@ -9,6 +9,7 @@
 
 
 main() { //设置断点：4/5/6/7/8 第5/7行设置断点后，显示失败图标
+    sleep(Duration.millisecond*3000)
     let f1: (Int64, Int64)->Int64 = {a: Int64, b: Int64 
         => 
         a + b

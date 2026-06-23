@@ -14,6 +14,7 @@ import pkgs.*
    var arrayUInt64 : Array<UInt64> = [41, 42, 43, 44, 45, 46, 47, 48]
    var arrayUInt64_d : Array<Array<UInt64>> = [arrayUInt64,arrayUInt64]
 main() {
+    sleep(Duration.millisecond*3000)
        var newc = Exter_C1(100, 200)
        var main_Rect = Rectangle_ex(10,12)
 

@@ -31,6 +31,7 @@ var globals_arrfloat64: Array<Float64> = [12.12, 22.22]
 var globals_sa1: ArrayList<Float32> = ArrayList<Float32>([32.32, 12.12])
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var arrl: ArrayList<Int64> = ArrayList<Int64>([0, 1, 2])
     let arrt: Array<ArrayList<Int64>> = [arrl, arrl, arrl]
     let arr1: Array<Int64> = [1, 2, 3]

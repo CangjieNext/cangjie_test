@@ -37,6 +37,7 @@ class C1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = C1().f3 ~> E1.AB.f2
     var a2 = C1.f2 ~> E1.AB.f1<Bool>
     var a3 = E1.f3 ~> C1().f1

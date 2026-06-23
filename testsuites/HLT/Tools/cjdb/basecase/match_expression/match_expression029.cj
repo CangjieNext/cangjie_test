@@ -21,6 +21,7 @@ class Derived <: Base {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var d = Derived()
     var r = match (d) {
         case b: Base => b.a

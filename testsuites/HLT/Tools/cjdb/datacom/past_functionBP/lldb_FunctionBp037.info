@@ -17,13 +17,14 @@
 
 test#
 cjdb,cjdb --no-use-colors pkgs001,pkgs001
-CJVM b,breakpoint set -n main,pkgs001.cj:37
-CJVM c,c,-> 37
+CJVM b,breakpoint set -n main,pkgs001.cj:38
+CJVM c,c,38
 b,b funpkg1001,2 locations.
 list,breakpoint list,pkgs001.cj:20
 list,breakpoint list,pkg1.cj:16
 AOT r,r,-> 16
-CJVM c,c,-> 16
-c,c,-> 16
-c,c,-> 20
+Android c,c,16
+CJVM c,c,16
+c,c,16
+c,c,20
 q,q,

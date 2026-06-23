@@ -14,5 +14,6 @@ var s2 = "\u{4f60}\u{597d}\u{4ed3}\u{9889}\u{ff01}"
 var main_str14: String = "${main_str2}${main_str3}"
 var b1 = ["a","b"]
 main() {
+    sleep(Duration.millisecond*3000)
     0
 }

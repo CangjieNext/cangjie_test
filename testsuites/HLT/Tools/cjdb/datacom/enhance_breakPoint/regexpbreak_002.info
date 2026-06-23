@@ -9,21 +9,21 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/022_debug_launch.cj
 // EXEC: %compiler %cmp_opt -g 022_debug_launch.cj -o 002_regexpbreak%cmp_output
-// RUN-EXEC: python3 cjdb_test.py regexpbreak_002.info 002_regexpbreak %run_env
+// EXEC: python3 cjdb_test.py regexpbreak_002.info 002_regexpbreak %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 002_regexpbreak,002_regexpbreak
-CJVM b,breakpoint set -n main,022_debug_launch.cj:12
-CJVM c,c,-> 12
-AOT b,_regexp-break notexist.cj:12,Unable to resolve breakpoint to any actual locations
+CJVM b,breakpoint set -n main,022_debug_launch.cj:13
+CJVM c,c,13
 AOT b,_regexp-break notexist.cj:13,Unable to resolve breakpoint to any actual locations
 AOT b,_regexp-break notexist.cj:14,Unable to resolve breakpoint to any actual locations
-CJVM b,_regexp-break notexist.cj:12,Breakpoint 2: no code at notexist.cj:12
-CJVM b,_regexp-break notexist.cj:13,Breakpoint 3: no code at notexist.cj:13
-CJVM b,_regexp-break notexist.cj:14,Breakpoint 4: no code at notexist.cj:14
-AOT b,b notexist.cj:15,Unable to resolve breakpoint to any actual locations
-CJVM b,b notexist.cj:15,Breakpoint 5: no code at notexist.cj:15
+AOT b,_regexp-break notexist.cj:15,Unable to resolve breakpoint to any actual locations
+CJVM b,_regexp-break notexist.cj:13,Breakpoint 2: no code at notexist.cj:13
+CJVM b,_regexp-break notexist.cj:14,Breakpoint 3: no code at notexist.cj:14
+CJVM b,_regexp-break notexist.cj:15,Breakpoint 4: no code at notexist.cj:15
+AOT b,b notexist.cj:16,Unable to resolve breakpoint to any actual locations
+CJVM b,b notexist.cj:16,Breakpoint 5: no code at notexist.cj:16
 AOT blist,breakpoint list,1: file = 'notexist.cj'
 AOT blist,breakpoint list,2: file = 'notexist.cj'
 AOT blist,breakpoint list,3: file = 'notexist.cj'

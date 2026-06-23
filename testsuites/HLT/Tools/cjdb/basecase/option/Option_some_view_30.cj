@@ -13,6 +13,7 @@ struct Rectangle {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let op1: ?Rectangle = Some(Rectangle())
     return 0
 }

@@ -20,6 +20,7 @@ enum TimeUnit2 {
     |Green6 (HashMap<String, Int64>)
 }
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var a:Int8 = 10
     var b:UInt16 = 10
     var c:Float32 = 32.32

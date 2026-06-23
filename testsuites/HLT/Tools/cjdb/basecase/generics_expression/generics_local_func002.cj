@@ -34,6 +34,7 @@ func foo<T>(a: T) {
 }
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     var a : Int16 = 3
     foo(a)
     return 0
