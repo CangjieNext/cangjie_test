@@ -55,6 +55,7 @@ class C2 <: C1 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var newc1 = C1(11, length:2)
     var newc2 = C1(15, width:100, length:20)
     var arraymainrec01 : Array<C1> = [newc1, newc2]

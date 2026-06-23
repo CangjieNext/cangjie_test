@@ -9,18 +9,19 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case07/loop.cj
 // EXEC: %compiler %cmp_opt -g loop.cj -o loop%cmp_output
-// RUN-EXEC: python3 cjdb_test.py case07_while.info loop %run_env
+// EXEC: python3 cjdb_test.py case07_while.info loop %run_env
 
 test#
 cjdb,cjdb --no-use-colors loop,loop
-AOT b,b 17,loop.cj:18
-CJVM b,b 18,loop.cj:18
-AOT r,r,-> 18
+AOT b,b 18,loop.cj:19
+CJVM b,b 19,loop.cj:19
+AOT r,r,-> 19
+Android c,c,19
 CJVM c,c,
-n,n,-> 19
-n,n,-> 18
-n,n,-> 19
-n,n,-> 18
-n,n,-> 19
-n,n,-> 21
+n,n,20
+n,n,19
+n,n,20
+n,n,19
+n,n,20
+n,n,22
 q,q,

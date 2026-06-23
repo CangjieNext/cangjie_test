@@ -17,5 +17,6 @@ struct Data {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var data:Data = Data()
 }

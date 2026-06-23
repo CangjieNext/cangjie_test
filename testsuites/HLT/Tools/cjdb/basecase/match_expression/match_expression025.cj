@@ -11,6 +11,7 @@ enum E1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let tv = (E1.AB, E1.CD)
     let s = match (tv) {
         case (AB, CD) => "matched"

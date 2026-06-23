@@ -8,6 +8,7 @@
 
 import p1.*
 main(){
+    sleep(Duration.millisecond*3000)
 var varCG1 = C1<Float32>(32.32).width //泛型类的成员变量
 var carC1 = C1<Int64>(32,32)
 test1()

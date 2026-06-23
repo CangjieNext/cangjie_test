@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     var i8:Int8 = 10
     var i16:Int16 = 10
     var i32:Int32 = 10

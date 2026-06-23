@@ -15,6 +15,7 @@ enum EE<T>{
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var b = aoo<Int32>({x: Int32 => Int32(1)}) //expr aoo<Int32>({x: Int32 => Int32(1)})
     var e = aoo({x: Int32 => Int32(1)}) //expr aoo({x: Int32 => Int32(1)})
     var a1 = EE.EE(b) //expr a1 or expr EE.EE(b)

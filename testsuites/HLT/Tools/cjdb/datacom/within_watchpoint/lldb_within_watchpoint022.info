@@ -9,13 +9,14 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/050_debug_dataType_basic.cj
 // (not arm) EXEC: %compiler %cmp_opt -g 050_debug_dataType_basic.cj -o 050_debug_dataType_basic%cmp_output
-// (not arm) RUN-EXEC: python3 cjdb_test.py lldb_within_watchpoint022.info 050_debug_dataType_basic %run_env
+// (not arm) EXEC: python3 cjdb_test.py lldb_within_watchpoint022.info 050_debug_dataType_basic %run_env
 
 test#
 cjdb,cjdb --no-use-colors 050_debug_dataType_basic,050_debug_dataType_basic
-b,b 43,050_debug_dataType_basic.cj:43
-AOT r,r,-> 43
+b,b 44,050_debug_dataType_basic.cj:44
+AOT r,r,-> 44
+Android c,c,44
 CJVM c,c,
-watchpoint,watchpoint set variable -w read eVar1,050_debug_dataType_basic.cj:42
-c,c,-> 45
+watchpoint,watchpoint set variable -w read eVar1,050_debug_dataType_basic.cj:43
+c,c,46
 q,q,

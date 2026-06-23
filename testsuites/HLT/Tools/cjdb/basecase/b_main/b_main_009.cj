@@ -12,6 +12,7 @@ func mmain(){
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
 	var test_1:Int64
 	mmain()
 	return 0

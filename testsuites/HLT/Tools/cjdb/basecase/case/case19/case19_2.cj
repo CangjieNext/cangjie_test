@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     let ad1: (Int64, Int64) -> Int64 = {a: Int64, b: Int64 => a + b}
     let ad2 = ad1(1, 2)
     var test_lambda = {

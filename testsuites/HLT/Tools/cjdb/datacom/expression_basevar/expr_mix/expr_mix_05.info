@@ -8,17 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/expression/expr_mix.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g expr_mix.cj -o 001_express_basetype%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py expr_mix_05.info 001_express_basetype %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g expr_mix.cj -o 001_express_basetype%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py expr_mix_05.info 001_express_basetype %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 63,expr_mix.cj:63
-CJVM c,c,-> 63
-AOT r,r,-> 63
+b,b 64,expr_mix.cj:64
+CJVM c,c,64
+AOT r,r,-> 64
+Android c,c,64
 expr,expr if (test_bool(true)&&(globals_int64+1)>=0){ globals_int64=-globals_int64} else {globals_int64 = 10};globals_int64,\(Int64\) \$[\d] = -10
 expr,expr if (test_rune(r'c')<=r'b'&&(globals_int64+1)>=0){ globals_int64=-globals_int64} else {globals_int64 = 10};globals_int64,\(Int64\) \$[\d] = 10
 expr,expr if ((test_int(10)+test_int(5))<globals_int64){ globals_int64=(test_int(10)+test_int(5)*2)/5} else if(test_bool(false)){globals_int64 = 10};globals_int64 ,\(Int64\) \$[\d] = 10

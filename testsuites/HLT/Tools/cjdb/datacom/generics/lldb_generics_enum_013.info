@@ -9,16 +9,17 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/002_debug_enum_generics.cj
 // EXEC: %compiler %cmp_opt -g 002_debug_enum_generics.cj -o 002_debug_enum_generics%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_generics_enum_013.info 002_debug_enum_generics %run_env
+// EXEC: python3 cjdb_test.py lldb_generics_enum_013.info 002_debug_enum_generics %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_enum_generics,002_debug_enum_generics
-b,b 67,002_debug_enum_generics.cj:67
-AOT r,r,-> 67
+b,b 68,002_debug_enum_generics.cj:68
+AOT r,r,-> 68
+Android c,c,68
 CJVM c,c,
-n,n,-> 69
+n,n,70
 locals,locals,\(default.TimeUnit3<Int8,Int8,Int8,Int16,Int16,Int32,Int32,Int64,Int64,Unit>\) m_time9 = {(\r|\n|\r\n)  constructor = ten_enum[\s\S]*arg_1 = 1[\s\S]*arg_2 = 2[\s\S]*arg_3 = 3[\s\S]*arg_4 = 4[\s\S]*arg_5 = 5[\s\S]*arg_6 = 6[\s\S]*arg_7 = 7[\s\S]*arg_8 = 8[\s\S]*arg_9 = 9[\s\S]*arg_10 = \(\)[\s\S]*}
 q,q,

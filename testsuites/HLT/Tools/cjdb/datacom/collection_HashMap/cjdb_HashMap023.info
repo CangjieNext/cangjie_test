@@ -9,14 +9,15 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/collection_HashMap/005_HashMap_via_class.cj
 // EXEC: %compiler %cmp_opt -g 005_HashMap_via_class.cj -o 005_HashMap_via_class%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_HashMap023.info 005_HashMap_via_class %run_env
+// EXEC: python3 cjdb_test.py cjdb_HashMap023.info 005_HashMap_via_class %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 005_HashMap_via_class,005_HashMap_via_class
-b,b 29,005_HashMap_via_class.cj:29
-AOT r,r,-> 29
-CJVM c,c,-> 29
+b,b 30,005_HashMap_via_class.cj:30
+AOT r,r,-> 30
+Android c,c,30
+CJVM c,c,30
 p,p map_re_fun_s2,std[.]collection.HashMap<Int64,Bool>\) \$[\d] = {[\S\s]*key = -130[\S\s]*value = false[\S\s]*}
 p,p map_re_fun_s2,std[.]collection.HashMap<Int64,Bool>\) \$[\d] = {[\S\s]*key = -96[\S\s]*value = true[\S\s]*}
 q,q,

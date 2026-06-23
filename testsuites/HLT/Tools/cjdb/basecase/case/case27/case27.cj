@@ -11,6 +11,7 @@ func mergeArray(a: VArray<Int64, $2>, b: VArray<Int64, $3>): VArray<Int64, $5> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var aa = mergeArray([1, 2], [1, 2, 3]) //expr mergeArray([1, 2], [1, 2, 3])
     let b1: VArray<Int64, $2> = [1, 2]
     let b2: VArray<VArray<Int64, $2>, $1> = [b1] //expr b2[0]

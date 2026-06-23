@@ -20,6 +20,7 @@ struct Rectangle {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var aaa = ArrayList<Rectangle>.of(Rectangle(), Rectangle())
     let lambda1 = {a:ArrayList<Rectangle> =>
         println("lamdda.....")

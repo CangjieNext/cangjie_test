@@ -11,6 +11,7 @@ import std.sync.*
 
 /* 查看跨包子协程 ready running pending 状态*/
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var (fut,m) = son_thread()
 
     sleep(Duration.second)

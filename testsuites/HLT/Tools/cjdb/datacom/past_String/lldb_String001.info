@@ -14,9 +14,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 15,049_debug_string.cj:15
-AOT r,r,-> 15
+b,b 16,049_debug_string.cj:16
+AOT r,r,-> 16
+Android c,c,16
 CJVM c,c,
-AOT globals,globals,\(std[.]core.String\) default::top_str1 = "string_test_001"
+globals,globals,\(std[.]core.String\) default::top_str1 = "string_test_001"
 CJVM globals,globals,\(std[.]core.String\) default.top_str1 = "string_test_001"
 q,q,

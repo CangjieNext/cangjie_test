@@ -119,6 +119,7 @@ func test_locals() {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var c1 = C1()
     var r1 = Rect()
     var r2 = r1.area1()

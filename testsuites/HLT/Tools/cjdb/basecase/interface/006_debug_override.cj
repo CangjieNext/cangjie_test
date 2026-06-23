@@ -19,6 +19,7 @@ class C2 <: C1 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var myC1 = C1()
     var myC2 = C2()
 

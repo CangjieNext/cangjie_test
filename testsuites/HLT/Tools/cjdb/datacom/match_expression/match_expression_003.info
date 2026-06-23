@@ -8,8 +8,8 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/match_expression/match_expression003.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g match_expression003.cj -o match_expression003%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py match_expression_003.info match_expression003 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g match_expression003.cj -o match_expression003%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py match_expression_003.info match_expression003 %run_env
 
 
 test#
@@ -17,8 +17,9 @@ cjdb,cjdb --no-use-colors match_expression003,match_expression003
 b,b 17,match_expression003.cj:17
 b,b 27,match_expression003.cj:27
 r,r,-> 17
+Android c,c,17
 expr,expr a,\(Int64\) \$[\d] = 1
 expr~expr match {case x > 0 => 0 case x < 0 => 1 case _ => 2}~\(Int64\) \$[\d] = 1
-c,c,-> 27
+c,c,28
 expr,expr a,\(Unit\) \$[\d] = ()
 q,q,

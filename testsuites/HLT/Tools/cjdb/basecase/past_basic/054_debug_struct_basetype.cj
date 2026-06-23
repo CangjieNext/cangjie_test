@@ -30,6 +30,7 @@ struct C {
 } 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a:A = A()
     var b:B = B()
     var c:C = C()

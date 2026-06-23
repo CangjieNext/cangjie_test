@@ -8,18 +8,19 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_func021.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_func021.cj -o generics_local_func021%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP041.info generics_local_func021 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_func021.cj -o generics_local_func021%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py cjdb_ConditionBP041.info generics_local_func021 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func021,generics_local_func021
-breakpoint,breakpoint set -l 29 -c "test()!=8",generics_local_func021.cj:29
-AOT r,r,-> 29
+breakpoint,breakpoint set -l 30 -c "test()!=8",generics_local_func021.cj:30
+AOT r,r,-> 30
+Android c,c,30
 CJVM c,c,
 expr:expr test():\(Int64\) \$[\d] = 100
 expr:expr myIf(true, {=> 200}):\(Int64\) \$[\d] = 200
-s,s,-> 18
-n,n,-> 19
+s,s,19
+n,n,20
 expr:expr myIf(true){100}:\(Int64\) \$[\d] = 100
 q,q,

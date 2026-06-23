@@ -56,6 +56,7 @@ class C2 <: C1 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var num1 = C1(500)    // OK: public修饰的init构造函数可在class外访问
     var num2 = C1(3, 4) // OK: 缺省时为public，无`public` 或 `private` 修饰的init构造函数可在class外访问
     var num3 = C2()

@@ -13,6 +13,7 @@ enum TimeUnit {
     | Hour(Float32,Float32,Float32,Float32)
 }
 main() {
+    sleep(Duration.millisecond*3000)
     let oneYear = Year(1.0)
     var howManyHours:Float32 = match(oneYear) {
         case Year(y) => y*Float32(365*24)

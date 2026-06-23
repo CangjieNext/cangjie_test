@@ -16,10 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_class_main_parameter,011_debug_class_main_parameter
-b,b 56,011_debug_class_main_parameter.cj:56
-AOT r,r,-> 56
-CJVM c,c,-> 56
-n,n,-> 57
+b,b 57,011_debug_class_main_parameter.cj:57
+AOT r,r,-> 57
+Android c,c,57
+CJVM c,c,57
+n,n,58
 print,print newc2.stac2,\(Int64\) \$[\d] = 3
 print,print newc2.sta_proc2,\(Int64\) \$[\d] = 10
 q,q,

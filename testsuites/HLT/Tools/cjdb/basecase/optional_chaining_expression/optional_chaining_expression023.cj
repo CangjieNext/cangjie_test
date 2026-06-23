@@ -9,6 +9,7 @@
 import std.collection.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     let c = ArrayList<Int64>([0, 1, 2])
     let a1 = Option<ArrayList<Int64>>.Some(c)
     let a2 = Option<ArrayList<Int64>>.None

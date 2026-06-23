@@ -6,8 +6,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/macro/test.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g test.cj -o test%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py debuginfo_test.info test %run_env
+// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g test.cj -o test%cmp_output
+// (not target_mac and not target_android) EXEC: python3 cjdb_test.py debuginfo_test.info test %run_env
 
 test#
 cjdb,cjdb --no-use-colors test,test
@@ -15,6 +15,6 @@ AOT b,breakpoint set -f test.cj -l 15,Breakpoint 1: where[\s\S]*test.cj:15
 CJVM b,breakpoint set -l 15,Breakpoint 1: [\s\S]*test.cj:15
 AOT r,r,-> 15
 CJVM c,c,
-n,n,-> 16
-n,n,-> 17
+n,n,16
+n,n,17
 q,q,

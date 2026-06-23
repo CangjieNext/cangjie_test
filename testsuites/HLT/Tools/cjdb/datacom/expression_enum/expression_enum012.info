@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/004_debug_enum_recursion.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 004_debug_enum_recursion.cj -o 004_debug_enum_recursion%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum012.info 004_debug_enum_recursion %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 004_debug_enum_recursion.cj -o 004_debug_enum_recursion%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum012.info 004_debug_enum_recursion %run_env
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_enum_recursion,004_debug_enum_recursion
-b,b 46,004_debug_enum_recursion.cj:46
-AOT r,r,-> 46
+b,b 47,004_debug_enum_recursion.cj:47
+AOT r,r,-> 47
+Android c,c,47
 CJVM c,c,
 expr~expr TimeUnit.Twounit(TimeUnit.Year(3),TimeUnit.Year(3))~\(default.TimeUnit\) \$[\d] = {[\s\S]*constructor = Twounit[\s\S]*arg_1 = {[\s\S]*constructor = Year[\s\S]*arg_1 = 3[\s\S]*}
 expr~expr E1.B(E2.C(E1.B(E2.D(TimeUnit.Year(3)))))~\(default.E1\) \$[\d] = {[\s\S]*constructor = B[\s\S]*arg_1 = [\s\S]*constructor = C[\s\S]*arg_1 = [\s\S]*constructor = D[\s\S]*arg_1 = [\s\S]*constructor = Year[\s\S]*arg_1 = 3

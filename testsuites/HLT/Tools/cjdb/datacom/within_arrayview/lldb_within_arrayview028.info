@@ -9,13 +9,14 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_array_view/002_debug_array_via_inherit.cj
 // EXEC: %compiler %cmp_opt -g 002_debug_array_via_inherit.cj -o 002_debug_array_via_inherit%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_within_arrayview028.info 002_debug_array_via_inherit %run_env
+// EXEC: python3 cjdb_test.py lldb_within_arrayview028.info 002_debug_array_via_inherit %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 002_debug_array_via_inherit,002_debug_array_via_inherit
-b,b 16,002_debug_array_via_inherit.cj:16
-AOT r,r,-> 16
+b,b 17,002_debug_array_via_inherit.cj:17
+AOT r,r,-> 17
+Android c,c,17
 CJVM c,c,
 print,print v_main_1[0][4],\(UInt64\) \$[\d] = 45
 q,q,

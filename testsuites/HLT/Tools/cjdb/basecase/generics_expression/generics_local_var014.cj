@@ -23,6 +23,7 @@ class Rect1<T> <: I3<T> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     Rect1<Int64>().fun_I2(2)
     Rect1<Float64>().f()
     return 0

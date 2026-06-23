@@ -56,6 +56,7 @@ struct Rect{
     public var b:testc32 = testc32()
 }
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var rr = Rect()
     println("hello world")
     return 0

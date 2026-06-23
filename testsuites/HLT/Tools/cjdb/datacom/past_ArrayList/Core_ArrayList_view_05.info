@@ -9,16 +9,17 @@
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/066_debug_arraylist.cj
 // EXEC: %compiler %cmp_opt -g 066_debug_arraylist.cj -o 066_debug_arraylist%cmp_output
-// RUN-EXEC: python3 cjdb_test.py Core_ArrayList_view_05.info 066_debug_arraylist %run_env
+// EXEC: python3 cjdb_test.py Core_ArrayList_view_05.info 066_debug_arraylist %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_arraylist,066_debug_arraylist
-b,b 35,066_debug_arraylist.cj:35
-AOT r,r,-> 35
-CJVM c,c,-> 35
+b,b 36,066_debug_arraylist.cj:36
+AOT r,r,-> 36
+Android c,c,36
+CJVM c,c,36
 p,p b,\(std\.collection.ArrayList<std.core.String>\) \$[\d] = {[\s\S]*\[0\] = "aaa"[\s\S]*\[1\] = "abc"[\s\S]*}
 locals,locals,b = {[\s\S]*\[0\] = "aaa"[\s\S]*\[1\] = "abc"[\s\S]*}
 q,q,

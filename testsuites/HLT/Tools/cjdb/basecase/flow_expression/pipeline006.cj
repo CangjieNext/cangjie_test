@@ -34,6 +34,7 @@ func foo(): Unit {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     foo()
     0
 }

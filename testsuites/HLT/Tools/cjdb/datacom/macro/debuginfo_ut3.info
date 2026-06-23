@@ -6,8 +6,8 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/macro/ut3.cj
-// EXEC: %compiler %cmp_opt -g ut3.cj -o ut3 %cmp_utest_opt
-// RUN-EXEC: python3 cjdb_test.py debuginfo_ut3.info ut3 %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g ut3.cj -o ut3 %cmp_utest_opt
+// (!target_android) EXEC: python3 cjdb_test.py debuginfo_ut3.info ut3 %run_env
 
 
 test#

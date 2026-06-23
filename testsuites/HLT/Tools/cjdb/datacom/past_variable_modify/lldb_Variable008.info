@@ -9,20 +9,21 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/010_debug_func_default_arg.cj
 // EXEC: %compiler %cmp_opt -g 010_debug_func_default_arg.cj -o 010_debug_func_default_arg%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_Variable008.info 010_debug_func_default_arg %run_env
+// EXEC: python3 cjdb_test.py lldb_Variable008.info 010_debug_func_default_arg %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 010_debug_func_default_arg,010_debug_func_default_arg
-CJVM b,b main,010_debug_func_default_arg.cj:12
-CJVM c,c,-> 12
-b,b 12,010_debug_func_default_arg.cj:12
+CJVM b,b main,010_debug_func_default_arg.cj:13
+CJVM c,c,13
 b,b 13,010_debug_func_default_arg.cj:13
-b,b 21,010_debug_func_default_arg.cj:21
-AOT r,r,-> 12
-c,c,-> 21
+b,b 14,010_debug_func_default_arg.cj:14
+b,b 22,010_debug_func_default_arg.cj:22
+AOT r,r,-> 13
+Android c,c,13
+c,c,22
 locals,locals,a = 2
 p,p a,\(Int32\) \$[\d] = 2
 locals,locals,b = 2
@@ -31,10 +32,10 @@ locals,locals,a1 = 2
 p,p a1,\(Int32\) \$[\d] = 2
 locals,locals,b1 = 2
 p,p b1,\(Int32\) \$[\d] = 2
-c,c,-> 13
+c,c,14
 locals,locals,Functioncall006 = 4
 p,p Functioncall006,\(Int32\) \$[\d] = 4
-c,c,-> 21
+c,c,22
 locals,locals,a = 2
 p,p a,\(Int32\) \$[\d] = 2
 locals,locals,b = 1

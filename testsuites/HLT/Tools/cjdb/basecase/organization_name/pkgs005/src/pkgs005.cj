@@ -12,6 +12,7 @@ let test1: Int64 = varpkg1
 let test2: Int64 = varpkg2
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var res1: Int64 = funpkg1() //20
     var res2: Int64 = funpkg2() //40
     0

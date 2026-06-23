@@ -19,6 +19,7 @@ class Data <: Base {
 
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var value = Data()
     var getnum = value.get()
     if (value.get() != 1) {

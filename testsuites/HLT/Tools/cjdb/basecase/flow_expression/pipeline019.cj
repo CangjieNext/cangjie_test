@@ -40,6 +40,7 @@ extend E1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = C1()
     var a2 = E1.AB
     var b1 = 1 |> a1.f1

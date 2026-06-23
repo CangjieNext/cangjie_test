@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/optional_chaining_expression/optional_chaining_expression029.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g optional_chaining_expression029.cj -o optional_chaining_expression029%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py optional_chaining_expression029.info optional_chaining_expression029 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g optional_chaining_expression029.cj -o optional_chaining_expression029%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py optional_chaining_expression029.info optional_chaining_expression029 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors optional_chaining_expression029,optional_chaining_expression029
-b,b 20,optional_chaining_expression029.cj:20
-r,r,-> 20
+b,b 21,optional_chaining_expression029.cj:21
+r,r,-> 21
+Android c,c,21
 expr,expr r1,\(std.core.Option<Int64>\) \$[\d] = 4
 expr,expr r2,\(std.core.Option<Int64>\) \$[\d] = None
 expr,expr b1,\(std.core.Option<Int64>\) \$[\d] = 4
