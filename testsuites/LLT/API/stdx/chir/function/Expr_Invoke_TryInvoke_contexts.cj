@@ -7,7 +7,7 @@
  */
 // EXEC: %compiler %import-cangjie-stdx %cmp_opt -o %n.%suffix %f
 // RUN-EXEC: %set_stdx_path %run %run_opt %n.%suffix %run_args | compare %f
-// Invoke、TryInvoke、VirMethodContext、InvokeCallContext
+// Invoke、TryInvoke、InvokeCallContext
 
 /* SCAN
 invoke name: foo mgp: true
@@ -26,8 +26,8 @@ main() {
     let g = GetRTTIStatic.create(i32)
     bb.appendExpr(g)
     let mty = FuncType.get(Array<Type>(1, { _ => i32 }), UnitType.get())
-    let vir = FuncSigInfo("foo", mty, Array<GenericType>())
-    let ic = InvokeCallContext(g.result, vir, FuncCallContext([Constant.create(IntLiteral.get(i32, 1u64)).result], Array<Type>(), None))
+    let methodFn = pkg.addFunction(mty, "foo", "foo", "pkg.iv")
+    let ic = InvokeCallContext(g.result, FuncCallContext([Constant.create(IntLiteral.get(i32, 1u64)).result], Array<Type>(), None), methodFn)
     let inv = Invoke.create(UnitType.get(), ic)
     bb.appendExpr(inv)
     println("invoke name: ${inv.methodName} mgp: ${inv.methodGenericTypeParams.isEmpty()}")
