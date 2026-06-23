@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/024_enum_generics.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 024_enum_generics.cj -o 024_enum_generics%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum020.info 024_enum_generics %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 024_enum_generics.cj -o 024_enum_generics%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum020.info 024_enum_generics %run_env
 
 test#
 cjdb,cjdb --no-use-colors 024_enum_generics,024_enum_generics
 b,b 12,024_enum_generics.cj:12
 AOT r,r,-> 12
+Android c,c,12
 CJVM c,c,
 locals,locals,\(default.E1<Int64>\) a = A[\s\S]*
 locals,locals,\(default.E1<Int32>\) b = {[\s\S]*constructor = B[\s\S]*arg_1 = 6[\s\S]*}

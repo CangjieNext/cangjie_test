@@ -12,6 +12,7 @@ import std.collection.*
 var map_top_k_int8 : HashMap<Int8, Int16> = HashMap<Int8, Int16>([(-3,-42), (2,12),(-72,1682)])
 var map_top_empty_uint32 : HashMap<UInt32, UInt32> = HashMap<UInt32, UInt32>()
 main() {
+    sleep(Duration.millisecond*3000)
     let cla_ins = Clazz_1()
     var list_char : ArrayList<Rune> = ArrayList<Rune>([r'r', r'b', r'C'])
     var set_int32 : HashSet<Int32> = HashSet<Int32>([-74,92,-6954])

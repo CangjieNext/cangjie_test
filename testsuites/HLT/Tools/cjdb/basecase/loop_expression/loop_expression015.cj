@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a = Some(3)
     let c = if (let Some(b) <- a) {
             1

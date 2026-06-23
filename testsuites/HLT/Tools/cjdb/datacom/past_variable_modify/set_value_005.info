@@ -8,14 +8,15 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/set_value/004_basevar_setvalue.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 004_basevar_setvalue.cj -o 004_basevar_setvalue%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py set_value_005.info 004_basevar_setvalue %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g 004_basevar_setvalue.cj -o 004_basevar_setvalue%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py set_value_005.info 004_basevar_setvalue %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 004_basevar_setvalue,004_basevar_setvalue
 b,b 16,004_basevar_setvalue.cj:16
 AOT r,r,-> 16
+Android c,c,16
 CJVM c,c,
 AOT expression,expression ccc,\(std.core.String\) \$[\d] = "A"
 CJVM p,p ccc,\(std\.core\.String\) \$[\d] = \"A\"

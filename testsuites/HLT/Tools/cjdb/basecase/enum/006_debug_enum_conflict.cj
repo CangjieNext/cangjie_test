@@ -26,6 +26,7 @@ enum C { // conflict with C
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let b = E.A // ok
     let c = A // ok
 

@@ -16,13 +16,14 @@
 
 test#
 cjdb,cjdb --no-use-colors 008_debug_func_no_arg,008_debug_func_no_arg
-CJVM b main,b main,008_debug_func_no_arg.cj:12
-CJVM c,c,-> 12
-b,b 14,008_debug_func_no_arg.cj:14
-AOT r,r,-> 14
-CJVM c,c,-> 14
-s,s,-> 24
-finish,finish,-> 14
-s,s,-> 15
+CJVM b main,b main,008_debug_func_no_arg.cj:13
+CJVM c,c,13
+b,b 15,008_debug_func_no_arg.cj:15
+AOT r,r,-> 15
+Android c,c,15
+CJVM c,c,15
+s,s,25
+finish,finish,15
+s,s,16
 locals,locals,Functioncall003 = 30
 q,q,

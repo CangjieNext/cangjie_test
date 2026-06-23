@@ -53,6 +53,7 @@ struct ranges {
 let globals_r1 = 0..10 : 1
 let globals_r2: Range<Int64> =  0..20:2
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let n = 10
     let r0 = 0..10 // r0 contains 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
     let r1 = 0..10 : 1 // r1 contains 0, 1, 2, 3, 4, 5, 6, 7, 8, 9

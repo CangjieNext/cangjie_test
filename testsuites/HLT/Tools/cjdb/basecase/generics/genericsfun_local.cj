@@ -110,6 +110,7 @@ public func genericsfun_type<T, T1, T2, T3, T4, T5, T6>(a: T, b: T1, c: T2, d: T
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var vi8: Int8 = 8
     var vi16: Int16 = 16
     var vi32: Int32 = 32

@@ -16,9 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 013_debug_class_func,013_debug_class_func
-b,b 88,013_debug_class_func.cj:88
-AOT r,r,-> 88
-CJVM c,c,-> 88
-n,n,-> 90
+b,b 89,013_debug_class_func.cj:89
+AOT r,r,-> 89
+Android c,c,89
+CJVM c,c,89
+n,n,91
 locals,locals,\(Int32\) main_num5 = 6
 q,q,

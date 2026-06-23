@@ -38,6 +38,7 @@ class student {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let stu = student()
     println("hello world")
     return 0

@@ -11,6 +11,7 @@ enum RGBColor {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let c = Blue
     let cs = match (c) {
         case Red => "Red"

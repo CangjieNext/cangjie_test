@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/coroutine/
-// EXEC: %compiler %cmp_opt %compile_lib_opt -g coroutine/p1/p1_file.cj -o p1.%middle
-// EXEC: %compiler %cmp_opt -g coroutine/coroutine_6.cj p1.%middle -o coroutine_6%cmp_output
-// RUN-EXEC: python3 cjdb_test.py coroutine_009.info coroutine_6 %run_env
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g coroutine/p1/p1_file.cj -o p1.%middle
+// (!target_android) EXEC: %compiler %cmp_opt -g coroutine/coroutine_6.cj p1.%middle -o coroutine_6%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py coroutine_009.info coroutine_6 %run_env
 
 test#
 cjdb,cjdb --no-use-colors coroutine_6,coroutine_6
-b,b 18,coroutine_6.cj:18
-AOT r,r,-> 18
+b,b 19,coroutine_6.cj:19
+AOT r,r,-> 19
+Android c,c,19
 CJVM c,c,
 cjthread,cjthread list,tid = 2, state[\s\S]*
 cjthread,cjthread backtrace -c 2 -s 2 999,error: invalid cjthread index "999"

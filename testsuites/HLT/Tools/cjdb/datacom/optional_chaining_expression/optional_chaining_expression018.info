@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/optional_chaining_expression/optional_chaining_expression018.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g optional_chaining_expression018.cj -o optional_chaining_expression018%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py optional_chaining_expression018.info optional_chaining_expression018 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g optional_chaining_expression018.cj -o optional_chaining_expression018%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py optional_chaining_expression018.info optional_chaining_expression018 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors optional_chaining_expression018,optional_chaining_expression018
-b,b 27,optional_chaining_expression018.cj:27
-r,r,-> 27
+b,b 28,optional_chaining_expression018.cj:28
+r,r,-> 28
+Android c,c,28
 expr,expr r1,\(std.core.Option<Unit>\) \$[\d] = ()
 expr,expr r2,\(std.core.Option<Unit>\) \$[\d] = None
 expr,expr r3,\(std.core.Option<Tuple<Int64,Int64>>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}

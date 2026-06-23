@@ -18,6 +18,7 @@ enum Command {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let command = (SetTimeUnit(Year(2026)), SetTimeUnit(Year(2024)))
     var t1 = match (command) {
         case (SetTimeUnit(Year(year)), _) => "Set year ${year}"

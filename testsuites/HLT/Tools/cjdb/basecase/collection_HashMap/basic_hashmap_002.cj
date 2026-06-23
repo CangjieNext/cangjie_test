@@ -19,6 +19,7 @@ type A4 = UInt32
 type A5 = Rune
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var map_1: HashMap<Int8, Byte> = HashMap<Int8, Byte>([(-3, 42), (2, 12), (-76, 165)])
     var map_3: HashMap<Int32, A4> = HashMap<Int32, A4>([(-329, 1750), (-910, 1732), (-76, 1675)])
     var map_4: HashMap<Int, UInt> = HashMap<Int64, UInt>([(-759, 17550), (-830, 18972), (906, 32245)])

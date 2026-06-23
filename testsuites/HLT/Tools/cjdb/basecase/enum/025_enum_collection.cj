@@ -13,6 +13,7 @@ enum EE<T> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var a1 = EE<Int64>.A([1, 2])
     var b1 = ArrayList<Int64>([0, 1, 2])
     var b2 = HashSet<Int64>([6, 6])

@@ -9,17 +9,18 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/cjdb-mi/macroDebug/test_unittest_001.cj
 // EXEC: %compiler %cmp_opt -g test_unittest_001.cj -o test_unittest_001%cmp_output
-// RUN-EXEC: python3 cjdb_test.py unittest_debugaction_005.info test_unittest_001 %run_env
+// EXEC: python3 cjdb_test.py unittest_debugaction_005.info test_unittest_001 %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors test_unittest_001,test_unittest_001
-b,b 51,test_unittest_001.cj:51
-CJVM c,c,-> 51
-AOT r,r,-> 51
-n,n,-> 52
-n,n,-> 53
-n,n,-> 54
+b,b 52,test_unittest_001.cj:52
+CJVM c,c,52
+AOT r,r,-> 52
+Android c,c,52
+n,n,53
+n,n,54
+n,n,55
 q,q,

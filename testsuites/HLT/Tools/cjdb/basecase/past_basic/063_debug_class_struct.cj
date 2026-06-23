@@ -90,6 +90,7 @@ var globals_sa1:ArrayList<Float32> = ArrayList<Float32>([32.32, 12.12])
 var globals_hm:HashMap<String, Float64> = HashMap<String, Float64>([("aaaa", 11.11), ("bbb", 22.22)])
 var globals_hs:HashSet<Float64> = HashSet<Float64>([12.12, 13.13])
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var arrl:ArrayList<Int64> = ArrayList<Int64>([0, 1, 2])
     let arrt:Array<ArrayList<Int64>> = [arrl, arrl, arrl]
     let arr1:Array<Int64> = [1,2,3]

@@ -9,17 +9,17 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/035_debuginfun_func_reload.cj
 // EXEC: %compiler %cmp_opt -g 035_debuginfun_func_reload.cj -o 004_regexpbreak%cmp_output
-// RUN-EXEC: python3 cjdb_test.py regexpbreak_004.info 004_regexpbreak %run_env
+// EXEC: python3 cjdb_test.py regexpbreak_004.info 004_regexpbreak %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 004_regexpbreak,004_regexpbreak
-CJVM b,breakpoint set -n main,035_debuginfun_func_reload.cj:12
-CJVM c,c,-> 12
-AOT b,_regexp-break demoinfun,Breakpoint 1: where[\s\S]*035_debuginfun_func_reload.cj:16
-CJVM b,_regexp-break demoinfun,Breakpoint 2[\s\S]*035_debuginfun_func_reload.cj:16
+CJVM b,breakpoint set -n main,035_debuginfun_func_reload.cj:13
+CJVM c,c,13
+AOT b,_regexp-break demoinfun,Breakpoint 1: where[\s\S]*035_debuginfun_func_reload.cj:17
+CJVM b,_regexp-break demoinfun,Breakpoint 2[\s\S]*035_debuginfun_func_reload.cj:17
 AOT b,_regexp-break demofun001,Breakpoint 2: 2 locations
 CJVM b,_regexp-break demofun001,Breakpoint 3[\s\S]*2 locations
-AOT blist,breakpoint list,1: name = 'demoinfun'[\s\S]*1.1: where[\s\S]*035_debuginfun_func_reload.cj:16[\s\S]*2: name = 'demofun001'[\s\S]*2.1: where[\s\S]*035_debuginfun_func_reload.cj:20|25[\s\S]*2.2: where[\s\S]*035_debuginfun_func_reload.cj:20|25
-CJVM blist,breakpoint list,2.1[\s\S]*035_debuginfun_func_reload.cj:16[\s\S]*3.1[\s\S]*035_debuginfun_func_reload.cj:25[\s\S]*3.2[\s\S]*035_debuginfun_func_reload.cj:20
+AOT blist,breakpoint list,1: name = 'demoinfun'[\s\S]*1.1: where[\s\S]*035_debuginfun_func_reload.cj:17[\s\S]*2: name = 'demofun001'[\s\S]*2.1: where[\s\S]*035_debuginfun_func_reload.cj:21|25[\s\S]*2.2: where[\s\S]*035_debuginfun_func_reload.cj:21|25
+CJVM blist,breakpoint list,2.1[\s\S]*035_debuginfun_func_reload.cj:17[\s\S]*3.1[\s\S]*035_debuginfun_func_reload.cj:26[\s\S]*3.2[\s\S]*035_debuginfun_func_reload.cj:21
 q,q,

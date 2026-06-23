@@ -12,6 +12,7 @@ enum TimeUnit {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let x = Year(2,3)
     let s = match (x) {
         case Year(2,3) => "1:OK"

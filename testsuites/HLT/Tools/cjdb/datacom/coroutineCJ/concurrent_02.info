@@ -8,15 +8,16 @@
 
 // LEVEL:1
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/coroutine/
-// EXEC: %compiler %cmp_opt -g coroutine/concurrent_02.cj -o concurrent_02%cmp_output
-// RUN-EXEC: python3 cjdb_test.py concurrent_02.info concurrent_02 %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g coroutine/concurrent_02.cj -o concurrent_02%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py concurrent_02.info concurrent_02 %run_env
 
 test#
 cjdb,cjdb --no-use-colors concurrent_02,concurrent_02
-b,b 16,concurrent_02.cj:16
-AOT r,r,-> 16
+b,b 17,concurrent_02.cj:17
+AOT r,r,-> 17
+Android c,c,17
 AOT break,breakpoint disable,
 CJVM c,c,
-n,n,-> 17
+n,n,18
 c,c,with status = 0
 q,q,

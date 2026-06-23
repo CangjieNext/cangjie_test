@@ -7,6 +7,7 @@
  */
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let score: Int64 = 90
     var scoreResult: String = match (score) {
         case 0 => "zero"

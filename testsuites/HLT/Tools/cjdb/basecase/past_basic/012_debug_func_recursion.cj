@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var Functioncall009: Int32 = demofun008(5) //函数递归/ Functioncall009=15
     var a: Int64 = 10
     return a

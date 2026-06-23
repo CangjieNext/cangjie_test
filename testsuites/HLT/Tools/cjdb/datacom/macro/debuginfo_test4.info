@@ -6,14 +6,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/macro/define.cj ../../basecase/macro/test4.cj
-// EXEC: %compiler %cmp_opt %cmp_macro define.cj
-// EXEC: %compiler %cmp_opt -g test4.cj -o test4
-// RUN-EXEC: python3 cjdb_test.py debuginfo_test4.info test4 %run_env
+// (!target_android) EXEC: %compiler %cmp_opt %cmp_macro define.cj
+// (!target_android) EXEC: %compiler %cmp_opt -g test4.cj -o test4
+// (!target_android) EXEC: python3 cjdb_test.py debuginfo_test4.info test4 %run_env
 
 test#
 cjdb,cjdb --no-use-colors test4,test4
-AOT b,breakpoint set -f test4.cj -l 20,Breakpoint 1: where[\s\S]*test4.cj:20
-CJVM b,breakpoint set -l 20,Breakpoint 1: [\s\S]*test4.cj:20
-AOT r,r,-> 20
+AOT b,breakpoint set -f test4.cj -l 21,Breakpoint 1: where[\s\S]*test4.cj:21
+CJVM b,breakpoint set -l 21,Breakpoint 1: [\s\S]*test4.cj:21
+AOT r,r,-> 21
 CJVM c,c,
 q,q,

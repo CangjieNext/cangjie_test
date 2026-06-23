@@ -18,6 +18,7 @@ enum TimeUnit1 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var time = Year(3).printValue()
     return 0
 }

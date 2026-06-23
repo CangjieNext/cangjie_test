@@ -30,6 +30,7 @@ var vst = structtype01<Float32>(1.0)
 private var vctc = classtype01<Int64>(10)
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     println("hello world")
     return 0
 }

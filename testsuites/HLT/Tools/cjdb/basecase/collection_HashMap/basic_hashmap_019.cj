@@ -9,6 +9,7 @@
 import std.collection.*
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var map_1: HashMap<String, String> = HashMap<String, String>([('0', 'a'), ('1', 'b')])
     var map_2: HashMap<String, String> = HashMap<String, String>([("01", "a1"), ("11", 'b')])
     var map_3: HashMap<String, String> = HashMap<String, String>(

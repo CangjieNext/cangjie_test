@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     try {
         throw Exception()
     } catch (_: Exception) {

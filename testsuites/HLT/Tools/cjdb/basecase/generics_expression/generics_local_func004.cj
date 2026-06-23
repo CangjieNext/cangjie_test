@@ -36,6 +36,7 @@ class A<T> {
 }
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     let p1 = Point(8, 24)
     let p2 = -p1
     let p3 = p1 + p2

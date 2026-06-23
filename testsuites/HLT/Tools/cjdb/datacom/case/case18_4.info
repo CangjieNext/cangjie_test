@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case18/case18_4.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g case18_4.cj -o case18_4%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py case18_4.info case18_4 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g case18_4.cj -o case18_4%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py case18_4.info case18_4 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case18_4,case18_4
-b,b 20,case18_4.cj:20
-AOT r,r,-> 20
+b,b 21,case18_4.cj:21
+AOT r,r,-> 21
+Android c,c,21
 CJVM c,c,
 AOT expr,expr tokens,\(std.ast.ConcatTokens\) \$[\d] = {[\s\S]*tokens = {}[\s\S]*}
 q,q,

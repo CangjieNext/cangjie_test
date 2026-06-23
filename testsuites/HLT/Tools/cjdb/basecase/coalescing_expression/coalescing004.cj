@@ -7,6 +7,7 @@
  */
 
 main(){
+    sleep(Duration.millisecond*3000)
     let v1 = Option<UInt8>.Some(1)
     let v2 = Option<UInt8>.None
     let v3 = Option<UInt16>.Some(2)

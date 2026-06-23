@@ -8,19 +8,20 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/060_debug_range.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 060_debug_range.cj -o 004_express_basetype%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py express_range_004.info 004_express_basetype %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g 060_debug_range.cj -o 004_express_basetype%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py express_range_004.info 004_express_basetype %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 004_express_basetype,004_express_basetype
-CJVM b,b main,060_debug_range.cj:56
-CJVM c,c,-> 56
-b,b 81,060_debug_range.cj:81
-CJVM c,c,-> 81
-AOT r,r,-> 81
+CJVM b,b main,060_debug_range.cj:57
+CJVM c,c,57
+b,b 82,060_debug_range.cj:82
+CJVM c,c,82
+AOT r,r,-> 82
+Android c,c,82
 expr,expr r1,\(std[.]core.Range<Int64>\) \$[\d] = 0..10 : 1
 expr,expr r12,\(std[.]core.Range<Int8>\) \$[\d] = 0..10 : 1
 expr,expr globals_r1,\(std[.]core.Range<Int64>\) \$[\d] = 0..10 : 1

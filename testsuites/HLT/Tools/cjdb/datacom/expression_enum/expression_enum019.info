@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/023_enum_name.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 023_enum_name.cj -o 023_enum_name%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum019.info 023_enum_name %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 023_enum_name.cj -o 023_enum_name%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum019.info 023_enum_name %run_env
 
 test#
 cjdb,cjdb --no-use-colors 023_enum_name,023_enum_name
-b,b 22,023_enum_name.cj:22
-AOT r,r,-> 22
+b,b 23,023_enum_name.cj:23
+AOT r,r,-> 23
+Android c,c,23
 CJVM c,c,
 expr,expr t1,\(default._1<Int64>\) \$[\d] = {[\s\S]*constructor = Day[\s\S]*arg_1 = 3[\s\S]*}
 expr,expr t2,\(default.中文<Int64>\) \$[\d] = {[\s\S]*constructor = AA[\s\S]*arg_1 = 1[\s\S]*}

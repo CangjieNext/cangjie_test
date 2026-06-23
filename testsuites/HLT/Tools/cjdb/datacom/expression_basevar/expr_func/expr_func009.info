@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../../cjdb_test.py    ../../../basecase/expression/expr_function.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g expr_function.cj -o expr_function%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py expr_func009.info expr_function %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g expr_function.cj -o expr_function%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py expr_func009.info expr_function %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors expr_function,expr_function
-b,b 135,expr_function.cj:135
-CJVM c,c,-> 135
-AOT r,r,-> 135
+b,b 136,expr_function.cj:136
+CJVM c,c,136
+AOT r,r,-> 136
+Android c,c,136
 expr, expr r1.area1,error: unsupported expression
 q,q,

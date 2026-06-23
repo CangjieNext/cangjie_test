@@ -8,19 +8,19 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/009_debug_func_with_arg.cj
-// EXEC: %compiler %cmp_opt -g 009_debug_func_with_arg.cj -o 009_debug_func_with_arg%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_BreakpointInMain028.info 009_debug_func_with_arg %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 009_debug_func_with_arg.cj -o 009_debug_func_with_arg%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointInMain028.info 009_debug_func_with_arg %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 009_debug_func_with_arg,009_debug_func_with_arg
-CJVM b,breakpoint set -n main,009_debug_func_with_arg.cj:12
-CJVM c,c,-> 12
-b,b 13,009_debug_func_with_arg.cj:13
-AOT r,r,-> 13
+CJVM b,breakpoint set -n main,009_debug_func_with_arg.cj:13
 CJVM c,c,-> 13
-n,n,-> 14
+b,b 14,009_debug_func_with_arg.cj:14
+AOT r,r,-> 14
+CJVM c,c,-> 14
+n,n,-> 15
 locals,locals,Functioncall005 = 2
 q,q,

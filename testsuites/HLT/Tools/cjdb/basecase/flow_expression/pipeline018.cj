@@ -35,6 +35,7 @@ enum E2<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = E1.AB
     var a2 = E2<Float32>.AB
     var b1 = 1|> a1.f1

@@ -9,15 +9,15 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/035_debuginfun_func_reload.cj
 // EXEC: %compiler %cmp_opt -g 035_debuginfun_func_reload.cj -o 004_breakpoint_set%cmp_output
-// RUN-EXEC: python3 cjdb_test.py breakpoint_set_004.info 004_breakpoint_set %run_env
+// EXEC: python3 cjdb_test.py breakpoint_set_004.info 004_breakpoint_set %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 004_breakpoint_set,004_breakpoint_set
-CJVM b,breakpoint set -n main,035_debuginfun_func_reload.cj:12
-CJVM c,c,-> 12
-b,breakpoint set -n demoinfun,035_debuginfun_func_reload.cj:16
+CJVM b,breakpoint set -n main,035_debuginfun_func_reload.cj:13
+CJVM c,c,13
+b,breakpoint set -n demoinfun,035_debuginfun_func_reload.cj:17
 b,breakpoint set -n demofun001,2 locations
-AOT blist,breakpoint list,035_debuginfun_func_reload.cj:16[\s\S]*035_debuginfun_func_reload.cj:20|25[\s\S]*035_debuginfun_func_reload.cj:20|25
-CJVM blist,breakpoint list,035_debuginfun_func_reload.cj:16[\s\S]*035_debuginfun_func_reload.cj:20|25[\s\S]*035_debuginfun_func_reload.cj:20|25
+AOT blist,breakpoint list,035_debuginfun_func_reload.cj:17[\s\S]*035_debuginfun_func_reload.cj:21|25[\s\S]*035_debuginfun_func_reload.cj:21|25
+CJVM blist,breakpoint list,035_debuginfun_func_reload.cj:17[\s\S]*035_debuginfun_func_reload.cj:21|25[\s\S]*035_debuginfun_func_reload.cj:21|25
 q,q,

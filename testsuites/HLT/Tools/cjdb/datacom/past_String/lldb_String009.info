@@ -8,18 +8,19 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/049_debug_string.cj
-//  EXEC: %compiler %cmp_opt -g 049_debug_string.cj -o 049_debug_string%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_String009.info 049_debug_string %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 049_debug_string.cj -o 049_debug_string%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_String009.info 049_debug_string %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 22,049_debug_string.cj:22
-AOT r,r,-> 22
+b,b 23,049_debug_string.cj:23
+AOT r,r,-> 23
+Android c,c,23
 CJVM c,c,
-n,n,-> 23
-AOT locals,locals,\(std[.]core.String\) main_str8 = "\\"Hello Cangjie Lang\\""
+n,n,24
+locals,locals,\(std[.]core.String\) main_str8 = "\\"Hello Cangjie Lang\\""
 CJVM locals,locals,\(std[.]core.String\) main_str8 = ""Hello Cangjie Lang""
 q,q,

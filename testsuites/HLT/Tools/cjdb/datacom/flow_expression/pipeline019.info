@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/pipeline019.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g pipeline019.cj -o pipeline019%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py pipeline019.info pipeline019 %run_env
+// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g pipeline019.cj -o pipeline019%cmp_output
+// (not target_mac and not target_android) EXEC: python3 cjdb_test.py pipeline019.info pipeline019 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pipeline019,pipeline019
-b,b 53,pipeline019.cj:53
-AOT r,r,-> 53
+b,b 54,pipeline019.cj:54
+AOT r,r,-> 54
+Android c,c,54
 expr,expr b1,\(Float32\) \$[\d] = 1
 expr,expr b2,\(Bool\) \$[\d] = true
 expr~expr 2|>E1.f3~\(UInt32\) \$[\d] = 2

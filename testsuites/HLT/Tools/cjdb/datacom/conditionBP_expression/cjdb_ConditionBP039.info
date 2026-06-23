@@ -8,12 +8,13 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var018.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var018.cj -o generics_local_var018%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py cjdb_ConditionBP039.info generics_local_var018 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_var018.cj -o generics_local_var018%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py cjdb_ConditionBP039.info generics_local_var018 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var018,generics_local_var018
-breakpoint,breakpoint set -l 14 -c "indexbreak==24",generics_local_var018.cj:14
+breakpoint,breakpoint set -l 15 -c "indexbreak==24",generics_local_var018.cj:15
 AOT r,r,exited with status = 0
+Android c,c,exited with status = 0
 q,q,

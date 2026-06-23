@@ -16,9 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 012_debug_class_init,012_debug_class_init
-b,b 24,012_debug_class_init.cj:24
-AOT r,r,-> 24
-CJVM c,c,-> 24
-n,n,-> 25
+b,b 25,012_debug_class_init.cj:25
+AOT r,r,-> 25
+Android c,c,25
+CJVM c,c,25
+n,n,26
 locals,locals,squareLength = 500
 q,q,

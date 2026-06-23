@@ -8,13 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_spec/enum03.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g enum03.cj -o enum03%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py enum03.info enum03 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g enum03.cj -o enum03%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py enum03.info enum03 %run_env
 
 test#
 cjdb,cjdb --no-use-colors enum03,enum03
-b,b 20,enum03.cj:20
-AOT r,r,-> 20
+b,b 21,enum03.cj:21
+AOT r,r,-> 21
+Android c,c,21
 CJVM c,c,
 p,p a3,\(Int64\) \$[\d] = 4
 expr,expr a1,\(default.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*

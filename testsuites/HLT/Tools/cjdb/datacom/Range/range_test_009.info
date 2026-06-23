@@ -9,14 +9,15 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Range/range_compositeVar.cj
 // EXEC: %compiler %cmp_opt -g range_compositeVar.cj -o range_compositeVar%cmp_output
-// RUN-EXEC: python3 cjdb_test.py range_test_009.info range_compositeVar %run_env
+// EXEC: python3 cjdb_test.py range_test_009.info range_compositeVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors range_compositeVar,range_compositeVar
-b,b 39,range_compositeVar.cj:39
-AOT r,r,-> 39
-CJVM c,c,-> 39
+b,b 40,range_compositeVar.cj:40
+AOT r,r,-> 40
+Android c,c,40
+CJVM c,c,40
 p,p b.r5,\(std[.]core.Range<Rune>\) \$[\d] = 'A'..'Z' : 1
 p,p b.r6,\(std[.]core.Range<Rune>\) \$[\d] = 'z'..'a' : -1
 q,q,

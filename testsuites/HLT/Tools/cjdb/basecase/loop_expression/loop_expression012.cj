@@ -28,6 +28,7 @@ extend S1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = S1()
     var a2 = a1.test1()
     0

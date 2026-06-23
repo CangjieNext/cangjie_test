@@ -11,6 +11,7 @@
 
     var arr : Array<Int64> = Array<Int64>(5000, {i => i+1}) //给定数组大小和构造元素的函数创建Array
 main() {
+    sleep(Duration.millisecond*3000)
     var a_d :Array<Array<Int64>> = [Array<Int64>(2000, {i => i-1}),arr] //7000个元素
     var arrayInt64_t : Array<Array<Array<Int64>>> = [a_d,a_d] //3维
 

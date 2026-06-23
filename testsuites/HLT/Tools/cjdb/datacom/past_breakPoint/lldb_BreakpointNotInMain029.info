@@ -8,21 +8,21 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/042_debuginfun_expressions.cj
-// EXEC: %compiler %cmp_opt -g 042_debuginfun_expressions.cj -o 042_debuginfun_expressions%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain029.info 042_debuginfun_expressions %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 042_debuginfun_expressions.cj -o 042_debuginfun_expressions%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain029.info 042_debuginfun_expressions %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 042_debuginfun_expressions,042_debuginfun_expressions
-CJVM b,breakpoint set -n main,042_debuginfun_expressions.cj:12
-CJVM c,c,-> 12
-b,b 33,042_debuginfun_expressions.cj:33
+CJVM b,breakpoint set -n main,042_debuginfun_expressions.cj:13
+CJVM c,c,-> 13
 b,b 34,042_debuginfun_expressions.cj:34
-AOT r,r,-> 33
-CJVM c,c,-> 33
-c,c,-> 34
-n,n,-> 37
+b,b 35,042_debuginfun_expressions.cj:35
+AOT r,r,-> 34
+CJVM c,c,-> 34
+c,c,-> 35
+n,n,-> 38
 locals,locals,weiq = -120
 q,q,

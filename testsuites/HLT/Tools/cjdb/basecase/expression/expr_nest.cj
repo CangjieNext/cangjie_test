@@ -46,6 +46,7 @@ class C2 {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var sret = S2()
     var cret = C2()
     return 0

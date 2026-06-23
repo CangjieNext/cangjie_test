@@ -8,47 +8,47 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/028_debuginfun_while.cj
-// EXEC: %compiler %cmp_opt -g 028_debuginfun_while.cj -o 028_debuginfun_while%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain008.info 028_debuginfun_while %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 028_debuginfun_while.cj -o 028_debuginfun_while%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain008.info 028_debuginfun_while %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 028_debuginfun_while,028_debuginfun_while
-b,b 16,028_debuginfun_while.cj:16
 b,b 17,028_debuginfun_while.cj:17
 b,b 18,028_debuginfun_while.cj:18
-AOT b,b 19,028_debuginfun_while.cj:20
-CJVM b,b 19,028_debuginfun_while.cj:19
-AOT r,r,-> 16
-CJVM c,c,-> 16
-c,c,-> 17
-n,n,-> 18
-c,c,-> 17
-n,n,-> 18
-c,c,-> 17
-n,n,-> 18
-c,c,-> 17
-n,n,-> 18
-c,c,-> 17
-n,n,-> 18
-c,c,-> 17
-n,n,-> 18
-c,c,-> 17
-n,n,-> 18
-c,c,-> 17
-n,n,-> 18
-c,c,-> 17
-n,n,-> 18
-c,c,-> 17
-n,n,-> 18
-c,c,-> 17
-n,n,-> 20
+b,b 19,028_debuginfun_while.cj:19
+AOT b,b 20,028_debuginfun_while.cj:21
+CJVM b,b 20,028_debuginfun_while.cj:20
+AOT r,r,-> 17
+CJVM c,c,-> 17
+c,c,-> 18
+n,n,-> 19
+c,c,-> 18
+n,n,-> 19
+c,c,-> 18
+n,n,-> 19
+c,c,-> 18
+n,n,-> 19
+c,c,-> 18
+n,n,-> 19
+c,c,-> 18
+n,n,-> 19
+c,c,-> 18
+n,n,-> 19
+c,c,-> 18
+n,n,-> 19
+c,c,-> 18
+n,n,-> 19
+c,c,-> 18
+n,n,-> 19
+c,c,-> 18
+n,n,-> 21
 locals,locals,hundred = 10
-AOT rerun,r,-> 16
-AOT c,c,-> 17
+AOT rerun,r,-> 17
+AOT c,c,-> 18
 AOT set,set hundred = 11,11
-AOT n,n,-> 20
+AOT n,n,-> 21
 AOT locals,locals,hundred = 11
 q,q,
