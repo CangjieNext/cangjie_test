@@ -23,6 +23,7 @@ func test1<T>() {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     test1<Int64>()
     0
 }

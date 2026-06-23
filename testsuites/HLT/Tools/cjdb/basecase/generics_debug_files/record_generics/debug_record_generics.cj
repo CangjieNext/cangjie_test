@@ -13,6 +13,7 @@ import p2.*
 var top_r = R1<Int32>(10)
 
 main() {
+    sleep(Duration.millisecond*3000)
     // 单类型泛型 struct
     let r1 = R1<UInt32>(100)
 

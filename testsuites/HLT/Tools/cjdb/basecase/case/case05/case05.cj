@@ -7,6 +7,7 @@
  */
 
 main(){
+    sleep(Duration.millisecond*3000)
 	var intRange = 0..5
 	let unit_001 = for(number in intRange){print("${number}")}
 	var number = 100

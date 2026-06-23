@@ -11,6 +11,7 @@ var arrayTopInt8 : Array<Int8> = [1, 2, 3]
 var arrayTopcopy =  arrayTopInt8.clone()
 var array_empty: Array<Array<Int64>> = Array<Array<Int64>>()  //空array
 main() {
+    sleep(Duration.millisecond*3000)
         var arrayInt8 : Array<Int8> = [8,-10,-2]
         var arrayInt8_d : Array<Array<Int8>> = [arrayInt8,arrayInt8.clone()]
 

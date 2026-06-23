@@ -16,20 +16,21 @@
 
 test#
 cjdb,cjdb --no-use-colors 013_debug_lambda,013_debug_lambda
-CJVM b main,b main,013_debug_lambda.cj:12
-CJVM c,c,-> 12
-b,b 12,Breakpoint
-AOT b,b 13,013_debug_lambda.cj:14
-CJVM b,b 13,013_debug_lambda.cj:13
-b,b 14,013_debug_lambda.cj:14
-AOT b,b 15,013_debug_lambda.cj:16
-CJVM b,b 15,013_debug_lambda.cj:15
-b,b 16,013_debug_lambda.cj:16
-AOT r,r,-> 12
-s,s,-> 16
-s,s,-> 14
-AOT finish,finish,-> 16
-CJVM finish,finish,-> 16
-n,n,-> 17
+CJVM b main,b main,013_debug_lambda.cj:13
+CJVM c,c,13
+b,b 13,Breakpoint
+AOT b,b 14,013_debug_lambda.cj:15
+CJVM b,b 14,013_debug_lambda.cj:14
+b,b 15,013_debug_lambda.cj:15
+AOT b,b 16,013_debug_lambda.cj:17
+CJVM b,b 16,013_debug_lambda.cj:16
+b,b 17,013_debug_lambda.cj:17
+AOT r,r,-> 13
+Android c,c,13
+s,s,17
+s,s,15
+AOT finish,finish,17
+CJVM finish,finish,17
+n,n,18
 locals,locals,lamdba001 = 20
 q,q,

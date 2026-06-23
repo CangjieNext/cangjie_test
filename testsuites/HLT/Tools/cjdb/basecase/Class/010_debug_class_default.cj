@@ -15,6 +15,7 @@ class R {
     public var item3: String = "Hello"
 }
 main() {
+    sleep(Duration.millisecond*3000)
     let r1 = R()
     return 0
 }

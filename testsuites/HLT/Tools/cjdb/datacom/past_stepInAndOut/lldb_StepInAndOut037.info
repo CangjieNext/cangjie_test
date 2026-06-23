@@ -16,16 +16,17 @@
 
 test#
 cjdb,cjdb --no-use-colors 040_debuginfun_typechange,040_debuginfun_typechange
-CJVM b main,b main,040_debuginfun_typechange.cj:12
-CJVM c,c,-> 12
-b,b 17,040_debuginfun_typechange.cj:17
+CJVM b main,b main,040_debuginfun_typechange.cj:13
+CJVM c,c,13
 b,b 18,040_debuginfun_typechange.cj:18
 b,b 19,040_debuginfun_typechange.cj:19
-AOT r,r,-> 17
-CJVM c,c,-> 17
-s,s,-> 18
-finish,finish,-> 19
-n,n,-> 21
+b,b 20,040_debuginfun_typechange.cj:20
+AOT r,r,-> 18
+Android c,c,18
+CJVM c,c,18
+s,s,19
+finish,finish,20
+n,n,22
 locals,locals,i16Number = 127
 locals,locals,i8Number = 127
 q,q,

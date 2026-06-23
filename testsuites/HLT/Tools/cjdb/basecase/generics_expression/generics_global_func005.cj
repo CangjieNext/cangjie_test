@@ -15,6 +15,7 @@ func foo<T>(para: T, para2: Int64, para3!: Bool = true) {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var vrange: Range<Int32> = 1..10 : 1
     var varr: Array<UInt64> = [1, 2, 3]
     var vlist: ArrayList<Int8> = ArrayList<Int8>([1, 2, 3])

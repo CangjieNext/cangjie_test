@@ -9,16 +9,17 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case12/test_stepin.cj
 // EXEC: %compiler %cmp_opt -g test_stepin.cj -o test_stepin%cmp_output
-// RUN-EXEC: python3 cjdb_test.py case12_tuple.info test_stepin %run_env
+// EXEC: python3 cjdb_test.py case12_tuple.info test_stepin %run_env
 
 test#
 cjdb,cjdb --no-use-colors test_stepin,test_stepin
-b,b 42,test_stepin.cj:42
-AOT r,r,-> 42
+b,b 43,test_stepin.cj:43
+AOT r,r,-> 43
+Android c,c,43
 CJVM c,c,
-s,s,-> 10
-finish,finish,-> 42|43
+s,s,10
+finish,finish,43|44
 b,b returnFunc_2,test_stepin.cj:14
-c,c,-> 14
-finish,finish,-> 43|44
+c,c,15
+finish,finish,45|44
 q,q,

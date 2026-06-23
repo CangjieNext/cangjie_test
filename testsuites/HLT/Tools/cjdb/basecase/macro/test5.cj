@@ -7,6 +7,7 @@
 import define.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     @M5(
     let a = 1
     println("${a}")

@@ -9,13 +9,14 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/collection_HashMap/basic_hashmap_014.cj
 // EXEC: %compiler %cmp_opt -g basic_hashmap_014.cj -o basic_hashmap_014%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_hashmap_014.info basic_hashmap_014 %run_env
+// EXEC: python3 cjdb_test.py cjdb_hashmap_014.info basic_hashmap_014 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors basic_hashmap_014,basic_hashmap_014
-b,b 24,basic_hashmap_014.cj:24
-AOT r,r,-> 24
+b,b 25,basic_hashmap_014.cj:25
+AOT r,r,-> 25
+Android c,c,25
 locals,locals,\(default.testC1\) a1 = {[\s\S]*map_a = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 42[\s\S]*
 p,p a1.map_c,\(std.collection.HashMap<default.cla,Float32>\) \$[\d] = {[\s\S]*\[0\] = {[\s\S]*key = {[\s\S]*x = 1[\s\S]*}[\s\S]*value = 17.75[\s\S]*
 q,q,

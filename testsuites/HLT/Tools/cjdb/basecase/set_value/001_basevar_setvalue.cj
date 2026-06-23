@@ -9,6 +9,7 @@
 import std.collection.*
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let lInt1:Int8 = 10
     //UInt
     let lUInt8:UInt8 = 5   

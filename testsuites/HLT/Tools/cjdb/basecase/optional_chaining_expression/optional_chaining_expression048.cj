@@ -20,6 +20,7 @@ func func3<T>(a:T){
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var f1 = Option<(ArrayList<Int64>)->ArrayList<Int64>>.Some(func1)
     var f2 = Option<(ArrayList<Int64>)->ArrayList<Int64>>.None
     var f3 = Option<(Array<Int64>)->Array<Int64>>.Some(func2)

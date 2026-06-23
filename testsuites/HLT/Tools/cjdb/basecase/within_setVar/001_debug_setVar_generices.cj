@@ -10,6 +10,7 @@
 var top_c1 = C1<Int32>(10)
 
 main() {
+    sleep(Duration.millisecond*3000)
     let mc_u8 = C1<UInt8>(100)
     var mc_m1 = mc_u8.length //实例成员变量
     var mc_ms2 = C1<UInt16>.par_s1 //静态成员变量

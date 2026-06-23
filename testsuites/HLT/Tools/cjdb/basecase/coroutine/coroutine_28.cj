@@ -12,6 +12,7 @@ import std.collection.*
 var count: Int64 = 0
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
 
     var thread_list = ArrayList<Future<Unit>>()
     var maxCoroutineNumber = 50

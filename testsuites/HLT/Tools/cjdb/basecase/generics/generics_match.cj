@@ -10,6 +10,7 @@ enum RGBColor<T> {
     | Red(Int16) | Green(T) | Blue(Int16)
 }
 main() {
+    sleep(Duration.millisecond*3000)
     let c = RGBColor.Green(-100)
     let cs = match (c) {
         case Red(r) where r < 0 => "Red = 0"

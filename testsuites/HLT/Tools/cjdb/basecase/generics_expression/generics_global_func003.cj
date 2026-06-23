@@ -12,6 +12,7 @@ func foo<T>(para: T) {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var x1: Bool = true
     var x2: Rune = r'f'
     var x3: String = "aaa"

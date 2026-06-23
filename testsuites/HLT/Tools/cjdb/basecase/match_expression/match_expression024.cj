@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     let tv = ("Alice", 24)
     let s = match (tv) {
         case ("Bob", age) => "Bob is ${age} years old"

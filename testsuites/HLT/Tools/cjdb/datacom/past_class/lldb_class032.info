@@ -16,9 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_class_interface,006_debug_class_interface
-b,b 45,006_debug_class_interface.cj:45
-AOT r,r,-> 45
-CJVM c,c,-> 45
-n,n,-> 46
+b,b 46,006_debug_class_interface.cj:46
+AOT r,r,-> 46
+Android c,c,46
+CJVM c,c,46
+n,n,47
 locals,locals,\(Int64\) data1 = 1
 q,q,

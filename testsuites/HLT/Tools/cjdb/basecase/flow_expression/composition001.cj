@@ -17,6 +17,7 @@ var fg = f ~> g
 var fg2 = g ~> g                        
 
 main() {
+    sleep(Duration.millisecond*3000)
     var fg = f ~> g
     var fg2 = g ~> g
     0

@@ -8,6 +8,7 @@
 
 package p1
 main(){
+    sleep(Duration.millisecond*3000)
     print("p1.\n")
     return 0
 }

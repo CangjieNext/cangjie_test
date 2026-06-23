@@ -19,6 +19,7 @@ class A<T> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var a = A<Int64>(2)
     var b = a[2]
     var c = a[8] + a[1]

@@ -16,6 +16,7 @@ enum TimeUnit1 {
 }
  var arrayTopInt64 : Array<Int64> =[12, 23, 34]
 main() {
+    sleep(Duration.millisecond*3000)
     var cla = Clazz_1(12,10)
     var funPar = cla.fun_1(12,10,para_3:1)
     let time1 = TimeUnit1.Year

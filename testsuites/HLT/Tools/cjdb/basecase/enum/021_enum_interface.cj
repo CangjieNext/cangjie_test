@@ -24,6 +24,7 @@ class C1 <: I1 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var t1 = TimeUnit2<I1>.Month(C1(), 1)
     var t2 = TimeUnit2<I1>.Year(5)
     0

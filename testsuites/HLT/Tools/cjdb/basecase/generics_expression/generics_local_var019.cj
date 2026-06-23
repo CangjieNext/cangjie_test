@@ -9,6 +9,7 @@
 import std.collection.*
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     let cla_ins = Cla_1<Int64>()
     var set_int32 = [cla_ins.width]
     var set_string_1: HashSet<String> = HashSet<String>([cla_ins.width, cla_ins.str])

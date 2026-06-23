@@ -13,6 +13,7 @@ var set_top_empty_uint32 : HashSet<UInt32> = HashSet<UInt32>()
 var arrayInt32 : Array<Int32> = [321, -322, 10,-123,-98]
 
 main() {
+    sleep(Duration.millisecond*3000)
     let class_sub_ins = Class_sub_1()
     var set_main_1 :HashSet<UInt32>  =class_sub_ins.set_sub_uint32 //子类成员变量
     var set_main_2 :HashSet<UInt32> =class_sub_ins.fun_sub_c1(20)  //子类实例函数

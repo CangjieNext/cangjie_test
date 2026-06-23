@@ -56,6 +56,7 @@ public class Cla{
 }
 
 main():Int64{
+    sleep(Duration.millisecond*3000)
     /*##>>>>>>>>>>>>>>>>>>>baseType<<<<<<<<<<<<<<<<<<<<<<<<##*/
     let claIns1:Cla = Cla()
     var vm_1:Int8 = claIns1.tuple_I[0] //(Int8):-8

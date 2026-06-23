@@ -29,6 +29,7 @@ class C1 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = C1()
     var b1 = a1.map_1
     var b2 = a1.map_2

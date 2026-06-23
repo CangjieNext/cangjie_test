@@ -9,16 +9,17 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Class/016_debug_class_initial_value.cj
 //  EXEC: %compiler %cmp_opt -g 016_debug_class_initial_value.cj -o 016_debug_class_initial_value%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_class012.info 016_debug_class_initial_value %run_env
+// EXEC: python3 cjdb_test.py lldb_class012.info 016_debug_class_initial_value %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 016_debug_class_initial_value,016_debug_class_initial_value
-b,b 70,016_debug_class_initial_value.cj:70
-AOT r,r,-> 70
-CJVM c,c,-> 70
-n,n,-> 72
+b,b 71,016_debug_class_initial_value.cj:71
+AOT r,r,-> 71
+Android c,c,71
+CJVM c,c,71
+n,n,73
 print,print m_c.width,\(Int32\) \$[\d] = 0
 q,q,

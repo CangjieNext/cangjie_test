@@ -7,6 +7,7 @@
  */
 
 main(){
+    sleep(Duration.millisecond*3000)
         var number = 2
         var unit_005 = while(number>0) { number-- }
         let unit_006 = do { number++ } while (number<5)

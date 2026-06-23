@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var mainnum: Int64 =demoinfun()
     return mainnum
 }

@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case19/case19_3.cj
-// (CJNATIVE and Linux) EXEC: %compiler %cmp_opt -g case19_3.cj -o case19_3%cmp_output
-// (CJNATIVE and Linux) EXEC: python3 cjdb_test.py case19_3.info case19_3 %run_env
+// (not target_android and Linux) EXEC: %compiler %cmp_opt -g case19_3.cj -o case19_3%cmp_output
+// (not target_android and Linux) EXEC: python3 cjdb_test.py case19_3.info case19_3 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case19_3,case19_3
-b,b 20,case19_3.cj:20
-AOT r,r,-> 20
+b,b 21,case19_3.cj:21
+AOT r,r,-> 21
+Android c,c,21
 CJVM c,c,
 AOT expr:expr test_lambda:\(std.core.String\) \$[\d] = "lambda"
 AOT expr:expr ad2:\(Int64\) \$[\d] = 3
