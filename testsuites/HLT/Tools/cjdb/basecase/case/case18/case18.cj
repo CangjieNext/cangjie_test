@@ -14,6 +14,7 @@ func add(p1: Int64, p2: Int64) {
 }
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     var b = add(1, 3)
     var a = identity<Int64>(5)
     var c = identity<Int32>

@@ -10,13 +10,14 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
 // EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_list_028.info list_debug %run_env
+// EXEC: python3 cjdb_test.py cjdb_list_028.info list_debug %run_env
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-AOT b,b 159,list_debug.cj:161
-CJVM b,b 161,list_debug.cj:161
-AOT r,r,-> 161
+AOT b,b 160,list_debug.cj:162
+CJVM b,b 162,list_debug.cj:162
+AOT r,r,-> 162
+Android c,c,162
 CJVM c,c,
 p,p m_com_1_5,\$[\d] = 
 p,p m_com_1_5[0],\$[\d] = "There are 100 apples."

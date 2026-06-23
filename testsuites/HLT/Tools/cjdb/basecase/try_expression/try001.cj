@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     try {} catch (_) {} finally {}
     return 0
 }

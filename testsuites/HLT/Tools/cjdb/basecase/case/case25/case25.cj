@@ -11,6 +11,7 @@ enum enumCol {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var eVar1 = enumCol.Aa //locals
     return 1
 }

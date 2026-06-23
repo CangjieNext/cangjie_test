@@ -9,6 +9,7 @@
 import pkg_1.*
 
 main(){
+    sleep(Duration.millisecond*3000)
     while(true){
         let cla_ins:Clazz =Clazz(23)
         var data = cla_ins.getBaseType()

@@ -19,6 +19,7 @@ enum E1<T> {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     let v1 = Option<S1<C1>>.Some(S1<C1>())
     let v2 = Option<S1<C1>>.None
     let v3 = Option<E1<C1>>.Some(E1<C1>.AB)

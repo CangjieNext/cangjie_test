@@ -12,6 +12,7 @@ enum TimeUnit {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let x = Year(2)
     let s = match (x) {
         case Year(n) => "x has ${n * 12} months" // Matched.

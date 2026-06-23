@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var var3: Int64 = 1
     var3 = 2    //设置行断点
     while (var3 == 2) {

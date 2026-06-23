@@ -8,14 +8,15 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/coalescing_expression/coalescing017.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g coalescing017.cj -o coalescing017%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py coalescing_expression_017.info coalescing017 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g coalescing017.cj -o coalescing017%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py coalescing_expression_017.info coalescing017 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors coalescing017,coalescing017
-b,b 26,coalescing017.cj:26
-AOT r,r,-> 26
+b,b 27,coalescing017.cj:27
+AOT r,r,-> 27
+Android c,c,27
 expr,expr r1,\(std.core.Array<default.S1<Int64>>\) \$[\d] = {}
 expr,expr r2,\(std.core.Array<default.S1<Int64>>\) \$[\d] = {}
 expr,expr r3,\(std.collection.ArrayList<default.S1<Int64>>\) \$[\d] = [\s\S]*a = 1[\s\S]*

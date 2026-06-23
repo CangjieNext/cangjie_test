@@ -8,19 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/065_debug_struct.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 065_debug_struct.cj -o 007_express_basetype%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py express_struct_007.info 007_express_basetype %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g 065_debug_struct.cj -o 007_express_basetype%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py express_struct_007.info 007_express_basetype %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 007_express_basetype,007_express_basetype
-CJVM b,b main,065_debug_struct.cj:59
-CJVM c,c,-> 59
-b,b 61,065_debug_struct.cj:61
-CJVM c,c,-> 61
-AOT r,r,-> 61
+CJVM b,b main,065_debug_struct.cj:60
+CJVM c,c,60
+b,b 62,065_debug_struct.cj:62
+CJVM c,c,62
+AOT r,r,-> 62
+Android c,c,62
 expr,expr rr.a.structinvar11,Tuple<UInt8,Int64,Float32,Bool,std.core.String>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 32[\s\S]*\[2\] = 13.3100004[\s\S]*\[3\] = true[\s\S]*\[4\] = "hello"[\s\S]*}*
 expr,expr rr.a.structinvar11[0],\(UInt8\) \$[\d] = 1
 expr,expr rr.vara,VArray<Int64,\$3>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 3

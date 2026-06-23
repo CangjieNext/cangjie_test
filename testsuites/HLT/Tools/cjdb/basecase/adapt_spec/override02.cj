@@ -43,6 +43,7 @@ class C2<T> <: C1<T> & I<Int64> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var r1 = C2<Int64>().f() //expr C2<Int64>()
     var r2 = C2<Float64>().f1()
     var r3 = C2<Bool>().f2<Int64>(2)

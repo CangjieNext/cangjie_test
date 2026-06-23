@@ -13,6 +13,7 @@ struct Rectangle {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let op1: Option<Rectangle> = Some(Rectangle())
     let lambda1 = { a:Option<Rectangle> =>
         println("lamdda.....")

@@ -8,6 +8,7 @@
 
 import std.collection.*
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var count: Int64 = 0
     var thread_list = ArrayList<Future<Unit>>()
 

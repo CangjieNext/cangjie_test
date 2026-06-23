@@ -8,6 +8,7 @@
 
 package p1
 main(){
+    sleep(Duration.millisecond*3000)
 	var test_1:Int64
 	print("package p1.\n")
 	main1()

@@ -15,6 +15,7 @@ func func3(a:(ABC)->ABC){
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var f1 = Some(func3)
     var a1 = f1?({i=>ABC()})
     0

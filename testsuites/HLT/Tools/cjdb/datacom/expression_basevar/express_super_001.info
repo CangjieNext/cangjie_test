@@ -8,19 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/062_debug_super.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 062_debug_super.cj -o 001_express_basetype%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py express_super_001.info 001_express_basetype %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g 062_debug_super.cj -o 001_express_basetype%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py express_super_001.info 001_express_basetype %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-CJVM b,b main,062_debug_super.cj:52
-CJVM c,c,-> 52
-b,b 45,062_debug_super.cj:45
-CJVM c,c,-> 45
-AOT r,r,-> 45
+CJVM b,b main,062_debug_super.cj:53
+CJVM c,c,53
+b,b 46,062_debug_super.cj:46
+CJVM c,c,46
+AOT r,r,-> 46
+Android c,c,46
 expr,expr super.a1,\(Int64\) \$[\d] = 1
 expr,expr super.au2,\(UInt64\) \$[\d] = 10
 expr,expr super.af2,\(Float16\) \$[\d] = 16.156

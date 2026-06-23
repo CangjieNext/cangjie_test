@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     var sum = 0
     let array = [(1, 2), (3, 4), (5, 6)]
     for (i in 1..=100) {

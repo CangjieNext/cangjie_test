@@ -40,6 +40,7 @@ class Moo<T> <: Goo<Int64> {
 class Noo<T> <: Foo {}
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = Boo().boo<Int64>(3)
     var a2 = Coo<Int64>().boo(1)
     var a3 = Moo<Bool>().goo<Bool>(true)

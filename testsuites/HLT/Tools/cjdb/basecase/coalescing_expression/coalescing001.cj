@@ -20,6 +20,7 @@ func test1() {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     test1()
     0
 }

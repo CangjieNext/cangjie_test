@@ -8,9 +8,9 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/CFFI/C_FFI.c   ../../basecase/CFFI/C_FFI.cj
-// EXEC: %clang -g %clang_opt C_FFI.c -o %cffi_output
-// EXEC: %compiler -g -L. -l%n C_FFI.cj -o %n%cmp_output
-// RUN-EXEC: python3 cjdb_test.py viewVariables_basic_04.info viewVariables_basic_04 %run_env
+// (!target_android) EXEC: %clang -g %clang_opt C_FFI.c -o %cffi_output
+// (!target_android) EXEC: %compiler -g -L. -l%n C_FFI.cj -o %n%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py viewVariables_basic_04.info viewVariables_basic_04 %run_env
 
 
 test#

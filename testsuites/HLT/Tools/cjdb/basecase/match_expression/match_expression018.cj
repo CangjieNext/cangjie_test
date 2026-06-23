@@ -14,6 +14,7 @@ enum TimeUnit<T> {
 class C1{var a= 1}
 
 main() {
+    sleep(Duration.millisecond*3000)
     let x = TimeUnit<C1>.Year(C1())
     let s = match (x) {
         case Year(C1) => "1:OK"

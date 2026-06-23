@@ -10,12 +10,13 @@
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
 // EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
 // EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_list_001.info list_debug %run_env
+// EXEC: python3 cjdb_test.py cjdb_list_001.info list_debug %run_env
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-b,b 108,list_debug.cj:108
-AOT r,r,-> 108
+b,b 109,list_debug.cj:109
+AOT r,r,-> 109
+Android c,c,109
 CJVM c,c,
 p,p m_empty,\(std[.]core.Array<Int64>\) \$[\d] = {[\s\S]*}
 q,quit,

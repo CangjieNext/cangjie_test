@@ -37,6 +37,7 @@ struct Sect1<T, T3> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var t1 = Rect2<I32, Bl, F64>(6, true, 6.6)
     var t2 = Sect1<Int64, F64>(8)
     var t3 = t1.ftuple(5)

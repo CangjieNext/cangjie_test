@@ -14,6 +14,7 @@ class Derived <: Base {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a = 1 is Int64
     println("Is the type of 1 'Int64'? ${a}")
     let b = 1 is String

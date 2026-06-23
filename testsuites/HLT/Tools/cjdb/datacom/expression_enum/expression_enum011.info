@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/003_debug_enum_reload.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 003_debug_enum_reload.cj -o 003_debug_enum_reload%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum011.info 003_debug_enum_reload %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 003_debug_enum_reload.cj -o 003_debug_enum_reload%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum011.info 003_debug_enum_reload %run_env
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_enum_reload,003_debug_enum_reload
-b,b 40,003_debug_enum_reload.cj:40
-AOT r,r,-> 40
+b,b 41,003_debug_enum_reload.cj:41
+AOT r,r,-> 41
+Android c,c,41
 CJVM c,c,
 expr,expr howManyMonths,\(Int32\) \$[\d] = 3
 expr,expr howManyMonths1,\(Int32\) \$[\d] = 2

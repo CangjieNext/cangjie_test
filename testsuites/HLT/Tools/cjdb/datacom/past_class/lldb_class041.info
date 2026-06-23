@@ -16,10 +16,11 @@
 
 test#
 cjdb,cjdb --no-use-colors 011_debug_class_main_parameter,011_debug_class_main_parameter
-b,b 56,011_debug_class_main_parameter.cj:56
-AOT r,r,-> 56
-CJVM c,c,-> 56
-n,n,-> 57
+b,b 57,011_debug_class_main_parameter.cj:57
+AOT r,r,-> 57
+Android c,c,57
+CJVM c,c,57
+n,n,58
 locals,locals,stac2 = 3
 locals,locals,sta_proc2 = 10
 AOT locals,locals,C2\) newc2 = {(\r|\n|\r\n)  default.C1 = {(\r|\n|\r\n)    pro = 5(\r|\n|\r\n)    name = "afdoaidfad"(\r|\n|\r\n)    num = 10

@@ -19,6 +19,7 @@ func f3(x: Float64): Float64 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a: Float16 = 1.0
     var res1 = a |> f1
     let a2: Float32 = 1.0

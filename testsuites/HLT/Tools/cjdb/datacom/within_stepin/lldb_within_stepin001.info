@@ -9,7 +9,7 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/within_stepin/001_debug_stepIn_via_overLoad.cj
 // EXEC: %compiler %cmp_opt -g 001_debug_stepIn_via_overLoad.cj -o 001_debug_stepIn_via_overLoad%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_within_stepin001.info 001_debug_stepIn_via_overLoad %run_env
+// EXEC: python3 cjdb_test.py lldb_within_stepin001.info 001_debug_stepIn_via_overLoad %run_env
 
 
 test#

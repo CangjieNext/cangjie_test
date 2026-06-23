@@ -10,6 +10,7 @@ class A {
     public static func f1(): Unit {}
 }
 main() {
+    sleep(Duration.millisecond*3000)
     let v9 = A.f1()
     0
 }

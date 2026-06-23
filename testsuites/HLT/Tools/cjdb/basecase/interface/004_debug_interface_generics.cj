@@ -23,6 +23,7 @@ class A<U> <: I2<U> {}
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let call_ca1 = A<Int64>().foo1()
 
     return 0

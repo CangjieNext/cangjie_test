@@ -126,6 +126,7 @@ var globals_ct: CT1<Int32> = CT<Int32>(16)
 var globals_ct1: CT1<Int32> = classtype01<Int32>(16)
 
 main() {
+    sleep(Duration.millisecond*3000)
     let lrange: For1<Int64> = For<Int64>(1, 10, 1, true, true, true)
     let lrange1: For1<Int64> = Range<Int64>(1, 10, 1, true, true, true)
     let larr: A1<Int64> = [1, 2, 3]

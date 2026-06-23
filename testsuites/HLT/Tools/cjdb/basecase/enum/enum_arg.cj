@@ -25,6 +25,7 @@ func returnFunc(para_1:test_RGBColor,para_2!:test_RGBColor=Yellow(1,2,3,4,1.1,1.
 let global_enum = test_R.Red(test_RGBColor.Yellow)
 main()
 {
+    sleep(Duration.millisecond*3000)
         let enum_1 = test_RGBColor.Red
         var enum_2 = test_R.Red
         let enum_3 = Blue

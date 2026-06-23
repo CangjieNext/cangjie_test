@@ -47,6 +47,7 @@ class C3 <: C2 {
 
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     var data1 = C1()
     var data2 = C2()
     var data3 = C3()

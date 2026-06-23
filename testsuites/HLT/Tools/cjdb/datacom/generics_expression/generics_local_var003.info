@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_var003.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_var003.cj -o generics_local_var003%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_local_var003.info generics_local_var003 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_var003.cj -o generics_local_var003%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py generics_local_var003.info generics_local_var003 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_var003,generics_local_var003
-b,b 33,generics_local_var003.cj:33
-AOT r,r,-> 33
+b,b 34,generics_local_var003.cj:34
+AOT r,r,-> 34
+Android c,c,34
 CJVM c,c,
 expr:expr lct:\(default.classtype01<Int32>\) \$[\d] = {[\s\S]*a = 16[\s\S]*}
 expr:expr lst.a:\(Int32\) \$[\d] = 32

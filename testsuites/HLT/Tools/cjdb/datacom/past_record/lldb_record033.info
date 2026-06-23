@@ -9,16 +9,17 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/record/051_debug_record_default.cj
 // EXEC: %compiler %cmp_opt -g 051_debug_record_default.cj -o 051_debug_record_default%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_record033.info 051_debug_record_default %run_env
+// EXEC: python3 cjdb_test.py lldb_record033.info 051_debug_record_default %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 051_debug_record_default,051_debug_record_default
-b,b 22,051_debug_record_default.cj:22
-AOT r,r,-> 22
+b,b 23,051_debug_record_default.cj:23
+AOT r,r,-> 23
+Android c,c,23
 CJVM c,c,
-n,n,-> 23
+n,n,24
 locals,locals,R\) r1 = {(\r|\n|\r\n)  item1 = 1(\r|\n|\r\n)  item2 = 1.2[\s\S]*(\r|\n|\r\n)  item3 = "a"
 q,q,

@@ -24,6 +24,7 @@ func f(a: Int64, b: Int64) {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let num1: Int64 = f(1) // ok
     let num2 = E.f(1) // ok
     let num3: Int64 = f(1, 2) // ok, find f(a: Int64, b: Int64)

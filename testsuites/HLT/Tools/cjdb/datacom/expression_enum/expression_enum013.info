@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/006_debug_enum_conflict.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 006_debug_enum_conflict.cj -o 006_debug_enum_conflict%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum013.info 006_debug_enum_conflict %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 006_debug_enum_conflict.cj -o 006_debug_enum_conflict%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum013.info 006_debug_enum_conflict %run_env
 
 test#
 cjdb,cjdb --no-use-colors 006_debug_enum_conflict,006_debug_enum_conflict
-b,b 38,006_debug_enum_conflict.cj:38
-AOT r,r,-> 38
+b,b 39,006_debug_enum_conflict.cj:39
+AOT r,r,-> 39
+Android c,c,39
 CJVM c,c,
 expr,expr A,\(Int64\) \$[\d] = 0
 expr,expr F,\(p.\(Int64\)->Int64\) \$[\d] = 0x[\s\S]*

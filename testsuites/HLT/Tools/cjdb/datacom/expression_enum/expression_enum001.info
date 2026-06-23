@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/011_enum_option.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 011_enum_option.cj -o 011_enum_option%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum001.info 011_enum_option %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 011_enum_option.cj -o 011_enum_option%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum001.info 011_enum_option %run_env
 
 test#
 cjdb,cjdb --no-use-colors 011_enum_option,011_enum_option
-b,b 20,011_enum_option.cj:20
-AOT r,r,-> 20
+b,b 21,011_enum_option.cj:21
+AOT r,r,-> 21
+Android c,c,21
 CJVM c,c,
 p,p c1,\(default.C\) \$[\d] = {[\s\S]*constructor = C1[\s\S]*arg_1 = 16[\s\S]*}
 expr,expr c4,\(default.C\) \$[\d] = {[\s\S]*constructor = C4[\s\S]*arg_1 = {[\s\S]*\[0\] = 16[\s\S]*\[1\] = 128[\s\S]*}[\s\S]*}

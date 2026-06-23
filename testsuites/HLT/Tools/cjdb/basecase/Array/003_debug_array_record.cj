@@ -46,6 +46,7 @@ var arraytoprec01 : Array<Rectangle2> = [toprec1, toprec2]
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let rec1 = Rectangle1(3)
     var rec2 = Rectangle1(4)
     var arraymainrec01 : Array<Rectangle1> = [rec1, rec2]

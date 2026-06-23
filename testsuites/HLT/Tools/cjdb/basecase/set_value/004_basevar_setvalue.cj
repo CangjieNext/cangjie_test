@@ -28,6 +28,7 @@ public open class Rectangle { // Object
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let classvar01=Rectangle(2)
     return 0
 }
