@@ -3,3 +3,6 @@
 # with Runtime Library Exception.
 #
 # See https://cangjie-lang.cn/pages/LICENSE for license information.
+
+# std.concurrent is not built for OHOS
+API/std/concurrent
