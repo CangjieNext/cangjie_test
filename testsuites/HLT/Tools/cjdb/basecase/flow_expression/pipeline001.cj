@@ -56,6 +56,7 @@ let a4: Int64 = 1
 var res4 = a4 |> f4
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a: Int8 = 1
     var res = a |> f1
     let a2: Int16 = 1

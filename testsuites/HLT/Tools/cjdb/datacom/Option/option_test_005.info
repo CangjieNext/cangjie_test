@@ -9,14 +9,15 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/option/option_baseVar.cj
 // EXEC: %compiler %cmp_opt -g option_baseVar.cj -o option_baseVar%cmp_output
-// RUN-EXEC: python3 cjdb_test.py option_test_005.info option_baseVar %run_env
+// EXEC: python3 cjdb_test.py option_test_005.info option_baseVar %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors option_baseVar,option_baseVar
-b,b 40,option_baseVar.cj:40
-AOT r,r,-> 40
-CJVM c,c,-> 40
+b,b 41,option_baseVar.cj:41
+AOT r,r,-> 41
+Android c,c,41
+CJVM c,c,41
 p,p AA,\(std[.]core.Option<UInt8>\) \$[\d] = 120
 p,p BB,\(std[.]core.Option<UInt8>\) \$[\d] = 10
 p,p CC,\(std[.]core.Option<UInt8>\) \$[\d] = 120

@@ -16,11 +16,12 @@
 
 test#
 cjdb,cjdb --no-use-colors 012_debug_class_init,012_debug_class_init
-b,b 64,012_debug_class_init.cj:64
-AOT r,r,-> 64
-CJVM c,c,-> 64
-n,n,-> 65
-n,n,-> 66
+b,b 65,012_debug_class_init.cj:65
+AOT r,r,-> 65
+Android c,c,65
+CJVM c,c,65
+n,n,66
+n,n,67
 locals,locals,\(Int32\) main_get1 = 14
 locals,locals,\(Int32\) main_get2 = 10
 q,q,

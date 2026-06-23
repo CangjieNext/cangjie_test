@@ -9,6 +9,7 @@
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     demofun001(2) //函数体为空
     demofun002(2, 1) //函数体if内为空
     return 1

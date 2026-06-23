@@ -21,6 +21,7 @@ func f3<T>(a: Int64) {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     f3<Int64>(1)
     f1<Int64>(1)
     0

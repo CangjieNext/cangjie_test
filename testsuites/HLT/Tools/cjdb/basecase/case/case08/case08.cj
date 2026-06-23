@@ -22,6 +22,7 @@ public open class ClassViaOverLoad{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let claIns_2:ClassViaOverLoad = ClassViaOverLoad(12,32)
 }
 

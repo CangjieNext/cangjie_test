@@ -39,6 +39,7 @@ struct Rectangle {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let rec1 = Rectangle(11, length:2)
     let rec2 = Rectangle(15, width:100, length:20)
     var arraymainrec01 : Array<Rectangle> = [rec1, rec2]

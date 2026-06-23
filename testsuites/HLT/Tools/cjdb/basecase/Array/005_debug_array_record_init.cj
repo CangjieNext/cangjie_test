@@ -47,6 +47,7 @@ struct Rectangle {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var rectangle0 = Rectangle()
     var rectangle1 = Rectangle(500)    // OK: public修饰的init构造函数可在struct外访问
     var rectangle2 = Rectangle(3, 4) // OK: 缺省时为public，无`public` 或 `private` 修饰的init构造函数可在struct外访问

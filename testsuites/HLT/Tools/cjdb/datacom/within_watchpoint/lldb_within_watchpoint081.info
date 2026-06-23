@@ -9,16 +9,17 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/052_debug_watchpoint_within_static.cj
 // EXEC: %compiler %cmp_opt -g 052_debug_watchpoint_within_static.cj -o 052_debug_watchpoint_within_static%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_within_watchpoint081.info 052_debug_watchpoint_within_static %run_env
+// EXEC: python3 cjdb_test.py lldb_within_watchpoint081.info 052_debug_watchpoint_within_static %run_env
 
 test#
 cjdb,cjdb --no-use-colors 052_debug_watchpoint_within_static,052_debug_watchpoint_within_static
-b ,b 27,052_debug_watchpoint_within_static.cj:27
-r , r,-> 27
-b , b f_002,052_debug_watchpoint_within_static.cj:40
-s , s,-> 40
-b ,b 42,052_debug_watchpoint_within_static.cj:42
-c , c,-> 42
-watchpoint,watchpoint set variable -w write vf_1,052_debug_watchpoint_within_static.cj:40
+b ,b 28,052_debug_watchpoint_within_static.cj:28
+AOT r,r,-> 28
+Android c,c,28
+b , b f_002,052_debug_watchpoint_within_static.cj:41
+s , s,41
+b ,b 43,052_debug_watchpoint_within_static.cj:43
+c , c,43
+watchpoint,watchpoint set variable -w write vf_1,052_debug_watchpoint_within_static.cj:41
 c,c,Watchpoint\s[1-9]\shit[\s\S]*old value[\s\S]*new value[\s\S]*
 q,q,

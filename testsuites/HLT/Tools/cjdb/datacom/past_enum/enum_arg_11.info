@@ -9,13 +9,14 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/enum_arg.cj
 // EXEC: %compiler %cmp_opt -g enum_arg.cj -o enum_arg%cmp_output
-// RUN-EXEC: python3 cjdb_test.py enum_arg_11.info enum_arg %run_env
+// EXEC: python3 cjdb_test.py enum_arg_11.info enum_arg %run_env
 
 test#
 cjdb,cjdb --no-use-colors enum_arg,enum_arg
-b,b 38,default(::|\.)main\(\)[\s\S]*enum_arg.cj:38
-AOT r,r,-> 38
+b,b 39,default(::|\.)main\(\)[\s\S]*enum_arg.cj:39
+AOT r,r,-> 39
+Android c,c,39
 CJVM c,c,
-s,s,-> 22
-p,p para_1,\(default.test_RGBColor\) \$[\d] = {(\r|\n|\r\n)  constructor = Yellow_3[\s\S]*arg_1 = "测试%&……%￥#"[\s\S]*arg_6 = {(\r|\n|\r\n)    constructor = Yellow[\s\S]*}
+s,s,23
+p,p para_1,\(default.test_RGBColor\) \$[\d] = {(\r|\n|\r\n)  constructor = Yellow_3[\s\S]*arg_1 = "测试%&…�?�?"[\s\S]*arg_6 = {(\r|\n|\r\n)    constructor = Yellow[\s\S]*}
 q,q,

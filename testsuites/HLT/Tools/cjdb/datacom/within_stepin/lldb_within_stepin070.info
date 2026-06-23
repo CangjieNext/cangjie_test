@@ -8,15 +8,16 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py ../../basecase/within_stepin/004_debug_stepin_via_unused_local.cj
-// EXEC: %compiler %cmp_opt -g 004_debug_stepin_via_unused_local.cj -o 004_debug_stepin_via_unused_local%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_within_stepin070.info 004_debug_stepin_via_unused_local %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 004_debug_stepin_via_unused_local.cj -o 004_debug_stepin_via_unused_local%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_within_stepin070.info 004_debug_stepin_via_unused_local %run_env
 
 test#
 cjdb,cjdb --no-use-colors 004_debug_stepin_via_unused_local,004_debug_stepin_via_unused_local
-CJVM b main,b main,004_debug_stepin_via_unused_local.cj:13
-CJVM c,c,-> 13
-b,b 14,004_debug_stepin_via_unused_local.cj:14
-AOT r,r,-> 14
-CJVM c,c,-> 14
+CJVM b main,b main,004_debug_stepin_via_unused_local.cj:14
+CJVM c,c,14
+b,b 15,004_debug_stepin_via_unused_local.cj:15
+AOT r,r,-> 15
+Android c,c,15
+CJVM c,c,15
 AOT p,p v9,\(Unit\).*\(\)
 q,q,

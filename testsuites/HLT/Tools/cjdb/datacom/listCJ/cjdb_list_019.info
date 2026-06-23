@@ -8,16 +8,17 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/list_debug_files/
-// EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
-// EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
-// RUN-EXEC: python3 cjdb_test.py cjdb_list_019.info list_debug %run_env
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g list_debug_files/p1/list_debug_p101.cj -o p1.%middle
+// (!target_android) EXEC: %compiler %cmp_opt -g list_debug_files/list_debug.cj p1.%middle -o list_debug%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py cjdb_list_019.info list_debug %run_env
 
 test#
 cjdb,cjdb --no-use-colors list_debug,list_debug
-AOT b,b 133,list_debug.cj:135
-CJVM b,b 135,list_debug.cj:135
-AOT r,r,-> 135
-CJVM c,c,-> 135
+AOT b,b 134,list_debug.cj:136
+CJVM b,b 136,list_debug.cj:136
+AOT r,r,-> 136
+Android c,c,136
+CJVM c,c,136
 p,p m_base_4,\$[\d]
 AOT set,set m_base_4[0]=0x7a,= 'z'
 CJVM set,set m_base_4[0]='z',= 'z'

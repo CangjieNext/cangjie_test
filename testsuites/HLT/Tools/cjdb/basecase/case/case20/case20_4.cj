@@ -15,6 +15,7 @@ extend A1 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var aa = A1()
     var bb = aa.foo<Int64, Bool>(1, true)
     0

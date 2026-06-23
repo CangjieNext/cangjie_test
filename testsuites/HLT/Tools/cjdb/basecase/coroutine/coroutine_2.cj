@@ -11,6 +11,7 @@ let m = Monitor()
 
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
 
     let fut = spawn {
         m.lock()

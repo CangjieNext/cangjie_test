@@ -8,33 +8,34 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/014_debug_func_bp.cj
-//  EXEC: %compiler %cmp_opt -g 014_debug_func_bp.cj -o 014_debug_func_bp%cmp_output
-//  EXEC: python3 cjdb_test.py lldb_FunctionBp008.info 014_debug_func_bp %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 014_debug_func_bp.cj -o 014_debug_func_bp%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_FunctionBp008.info 014_debug_func_bp %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 014_debug_func_bp,014_debug_func_bp
-CJVM b,breakpoint set -n main,014_debug_func_bp.cj:14
-CJVM c,c,-> 14
-b,b funcbp001,014_debug_func_bp.cj:66
-b,b funcbp002,014_debug_func_bp.cj:72
-b,b funcbp003,014_debug_func_bp.cj:78
-b,b funcbp004,014_debug_func_bp.cj:86
-b,b funcbp005,014_debug_func_bp.cj:95
-b,b funcbp006,014_debug_func_bp.cj:101
-b,b funcbp008,014_debug_func_bp.cj:116
-b,b funcbp009,014_debug_func_bp.cj:120
-b,b funcbp010,014_debug_func_bp.cj:129
+CJVM b,breakpoint set -n main,014_debug_func_bp.cj:15
+CJVM c,c,15
+b,b funcbp001,014_debug_func_bp.cj:67
+b,b funcbp002,014_debug_func_bp.cj:73
+b,b funcbp003,014_debug_func_bp.cj:79
+b,b funcbp004,014_debug_func_bp.cj:87
+b,b funcbp005,014_debug_func_bp.cj:96
+b,b funcbp006,014_debug_func_bp.cj:102
+b,b funcbp008,014_debug_func_bp.cj:117
+b,b funcbp009,014_debug_func_bp.cj:121
+b,b funcbp010,014_debug_func_bp.cj:130
 b,b funcbp011,Breakpoint
-AOT r,r,-> 66
-CJVM c,c,-> 66
-c,c,-> 72
-c,c,-> 78
-c,c,-> 86
-c,c,-> 95
-c,c,-> 101
-c,c,-> 116
-c,c,-> 120
-c,c,-> 129
-c,c,-> 134
+AOT r,r,-> 67
+Android c,c,67
+CJVM c,c,67
+c,c,73
+c,c,79
+c,c,87
+c,c,96
+c,c,102
+c,c,117
+c,c,121
+c,c,130
+c,c,135
 q,q,

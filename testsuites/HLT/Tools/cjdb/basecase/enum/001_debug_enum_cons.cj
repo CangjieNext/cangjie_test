@@ -25,6 +25,7 @@ enum TimeUnit2 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let time1 = TimeUnit1.Year
     var howManyYears: Int32 = match (time1) {
         case Year => 365 * 24 // matched

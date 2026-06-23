@@ -9,6 +9,7 @@
 import a_b::pkgs.*
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var var001: Int16 = varpkg1_001
     var var002: Int32 = varpkg1_002
     var var003: Int64 = varpkg1_003

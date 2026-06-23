@@ -16,9 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 013_debug_class_func,013_debug_class_func
-b,b 84,013_debug_class_func.cj:84
-AOT r,r,-> 84
-CJVM c,c,-> 84
-n,n,-> 86
+b,b 85,013_debug_class_func.cj:85
+AOT r,r,-> 85
+Android c,c,85
+CJVM c,c,85
+n,n,87
 locals,locals,C1\) newc2 = {(\r|\n|\r\n)  length = 40(\r|\n|\r\n)  width = 40(\r|\n|\r\n)  perimeter = 0
 q,q,

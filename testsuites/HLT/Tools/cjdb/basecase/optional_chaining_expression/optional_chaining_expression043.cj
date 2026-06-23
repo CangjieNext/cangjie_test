@@ -11,6 +11,7 @@ func func4(para:(Int64)->Int64) {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var f1 = Some(func4)
     var r1 = f1?({i=>i+1})
     0

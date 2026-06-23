@@ -11,6 +11,7 @@ struct C<T,R>{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = C<Int32, Bool>()
     let b1 = Option<C<Int32, Bool>>.Some(a1)
     let b2 = Option<C<Int32, Bool>>.None

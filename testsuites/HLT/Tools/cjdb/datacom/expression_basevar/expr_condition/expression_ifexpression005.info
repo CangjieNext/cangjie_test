@@ -8,16 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../../cjdb_test.py    ../../../basecase/past_basic/066_debug_lambda.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_ifexpression005.info 066_debug_lambda %run_env
+// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g 066_debug_lambda.cj -o 066_debug_lambda%cmp_output
+// (not target_mac and not target_android) EXEC: python3 cjdb_test.py expression_ifexpression005.info 066_debug_lambda %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 066_debug_lambda,066_debug_lambda
-CJVM b,b main,066_debug_lambda.cj:18
-CJVM c,c,-> 18
-b,b 20,066_debug_lambda.cj:20
-AOT r,r,-> 20
+CJVM b,b main,066_debug_lambda.cj:19
+CJVM c,c,19
+b,b 21,066_debug_lambda.cj:21
+AOT r,r,-> 21
+Android c,c,21
 expr~ expr if (let Some(data) <- result){ globals_i64++}else{globals_i64--};globals_i64~\(Int64\) \$[\d] = 65
 expr~ expr if (let Some(data) <- result){ test_f();globals_i64++}else{globals_i64--};globals_i64~\(Int64\) \$[\d] = 66
 expr~  expr if (false) {test_f();globals_i64++ }else if (let Some(data) <- result){ globals_i64 = 4};globals_i64~\(Int64\) \$[\d] = 4

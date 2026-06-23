@@ -8,15 +8,16 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/058_debug_varray.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 058_debug_varray.cj -o 058_debug_varray%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_relationaloperator_009.info 058_debug_varray %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g 058_debug_varray.cj -o 058_debug_varray%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py expression_relationaloperator_009.info 058_debug_varray %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 058_debug_varray,058_debug_varray
-b,b 26,Breakpoint 1: where = 058_debug_varray`default::main[\s\S]*058_debug_varray.cj:26
-AOT r,r,-> 26
-CJVM c,c,-> 26
+b,b 27,Breakpoint 1: where = 058_debug_varray`default::main[\s\S]*058_debug_varray.cj:27
+AOT r,r,-> 27
+Android c,c,27
+CJVM c,c,27
 expression, expression vzj[0]!=vzj[0],\(Bool\) \$[\d] = false
 expression, expression vzj[1]!=vzj[1],\(Bool\) \$[\d] = false
 q,q,

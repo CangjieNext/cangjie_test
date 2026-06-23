@@ -24,6 +24,7 @@ class B<T> <: A<Int64> {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var b = A<Int64>(1).a
     var a = B<Int64>()
     0

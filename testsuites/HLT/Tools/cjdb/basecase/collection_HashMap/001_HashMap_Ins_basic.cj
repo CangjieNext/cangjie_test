@@ -12,6 +12,7 @@ import std.collection.*
 var map_top_k_int8 : HashMap<Int8, Int16> = HashMap<Int8, Int16>([(-3,-42), (2,12),(-72,1682)])
 var map_top_empty_uint32 : HashMap<UInt32, UInt32> = HashMap<UInt32, UInt32>()
 main() {
+    sleep(Duration.millisecond*3000)
     // HashMap 元素key和value是基础类型
     var map_main_1 : HashMap<Int8, UInt8> = HashMap<Int8, UInt8>([(-3,42), (2,12),(-76,165)])
     var map_main_2 : HashMap<Int16, UInt16> = HashMap<Int16, UInt16>([(-39,150), (-90,1662),(76,675)])

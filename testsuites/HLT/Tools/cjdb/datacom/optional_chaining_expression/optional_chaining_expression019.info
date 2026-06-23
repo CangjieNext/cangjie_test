@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/optional_chaining_expression/optional_chaining_expression019.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g optional_chaining_expression019.cj -o optional_chaining_expression019%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py optional_chaining_expression019.info optional_chaining_expression019 %run_env
+// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g optional_chaining_expression019.cj -o optional_chaining_expression019%cmp_output
+// (not target_mac and not target_android) EXEC: python3 cjdb_test.py optional_chaining_expression019.info optional_chaining_expression019 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors optional_chaining_expression019,optional_chaining_expression019
-b,b 26,optional_chaining_expression019.cj:26
-r,r,-> 26
+b,b 27,optional_chaining_expression019.cj:27
+r,r,-> 27
+Android c,c,27
 expr,expr r1,\(std.core.Option<std.collection.ArrayList<Int64>>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*
 expr,expr r2,\(std.core.Option<std.collection.ArrayList<Int64>>\) \$[\d] = None
 expr,expr r3,\(std.core.Option<std.collection.HashSet<Int64>>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*

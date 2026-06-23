@@ -51,6 +51,7 @@ var arraytop_c01 : Array<C2> = [top_c1, top_c2]
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let m_c1 = C1(3)
     var m_c2 = C1(4)
     var arraymainrec01 : Array<C1> = [m_c1, m_c2]

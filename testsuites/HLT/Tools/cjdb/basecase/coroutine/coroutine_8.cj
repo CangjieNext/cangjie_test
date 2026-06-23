@@ -11,6 +11,7 @@ import p3.*
 import std.sync.*
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var (fut,getList,m) = son_thread2()
 
     print("main thread: I am reading sheep 0\n")

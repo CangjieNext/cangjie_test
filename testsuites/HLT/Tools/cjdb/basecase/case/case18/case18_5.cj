@@ -12,6 +12,7 @@ var count: Int64 = 0
 let mtx = ReentrantMutex()
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let fut = synchronized(mtx) {
         count++
     }

@@ -21,6 +21,7 @@ func test<T>() {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = test<Array<Int64>>()
     0
 }

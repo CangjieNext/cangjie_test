@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_func014.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_func014.cj -o generics_local_func014%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_local_func014.info generics_local_func014 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_func014.cj -o generics_local_func014%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py generics_local_func014.info generics_local_func014 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func014,generics_local_func014
-b,b 38,generics_local_func014.cj:38
-AOT r,r,-> 38
+b,b 39,generics_local_func014.cj:39
+AOT r,r,-> 39
+Android c,c,39
 CJVM c,c,
 expr:expr main_num1:\(Unit\) \$[\d] = ()
 expr:expr main_num2:\(Int32\) \$[\d] = 0

@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/adapt_reflection/enum01.cj
-// (CJNATIVE and not MAC) EXEC: %compiler %cmp_opt -g --disable-reflection enum01.cj -o enum01%cmp_output
-// (CJNATIVE and not MAC) RUN-EXEC: python3 cjdb_test.py adapt_reflection04.info enum01 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g --disable-reflection enum01.cj -o enum01%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py adapt_reflection04.info enum01 %run_env
 
 test#
 cjdb,cjdb --no-use-colors enum01,enum01
-b,b 41,enum01.cj:41
-r,r,-> 41
+b,b 40,enum01.cj:40
+AOT r,r,-> 40
+Android c,c,40
 globals,globals,\(default.TimeUnit1\) default::time_1 = Year
 locals,locals,\(default.TimeUnit2\) time2 = {[\s\S]*constructor = Year[\s\S]*arg_1 = 19[\s\S]*}
 p,p time4,\(default.TimeUnit1\) \$[\d] = Year

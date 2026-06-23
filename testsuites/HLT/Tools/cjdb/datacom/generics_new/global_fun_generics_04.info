@@ -9,13 +9,14 @@
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/generics/genericsfun.cj
 // EXEC: %compiler %cmp_opt -g genericsfun.cj -o genericsfun%cmp_output
-// RUN-EXEC: python3 cjdb_test.py global_fun_generics_04.info genericsfun %run_env
+// EXEC: python3 cjdb_test.py global_fun_generics_04.info genericsfun %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors genericsfun,genericsfun
 b,b 70,genericsfun.cj:70
 AOT r,r,-> 70
+Android c,c,70
 CJVM c,c,
 p, p gengricsvar,Tuple<Int8,UInt8,Float16,Bool>\) \$[\d] = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*
 p, p a,Tuple<Int8,UInt8,Float16,Bool>\) \$[\d] = {[\s\S]*\[0\] = -8[\s\S]*\[1\] = 8[\s\S]*\[2\] = 16.156[\s\S]*\[3\] = false[\s\S]*

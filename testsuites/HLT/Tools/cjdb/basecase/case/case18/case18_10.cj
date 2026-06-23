@@ -7,6 +7,7 @@
  */
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     func f(x: Int32): Int32 {
         x + 1
     }

@@ -8,13 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/match_expression/match_expression022.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g match_expression022.cj -o match_expression022%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py match_expression_022.info match_expression022 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g match_expression022.cj -o match_expression022%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py match_expression_022.info match_expression022 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors match_expression022,match_expression022
-b,b 21,match_expression022.cj:21
-r,r,-> 21
+b,b 22,match_expression022.cj:22
+r,r,-> 22
+Android c,c,22
 expr,expr cs,\(std.core.String\) \$[\d] = "Blue"
 q,q,

@@ -8,13 +8,14 @@
 
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case28/case28.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g case28.cj -o case28%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py case28.info case28 %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g case28.cj -o case28%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py case28.info case28 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case28,case28
-b,b 12,case28.cj:12
-AOT r,r,-> 12
+b,b 13,case28.cj:13
+AOT r,r,-> 13
+Android c,c,13
 CJVM c,c,
 AOT p,p as,\(Int64\) \$[\d] = 1
 AOT expr,expr as,error: unsupported expression

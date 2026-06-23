@@ -8,22 +8,23 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py ../../basecase/generics_debug_files/interface_generics/
-//  EXEC: %compiler %cmp_opt %compile_lib_opt -g interface_generics/p1/debug_interface_generics_p101.cj interface_generics/p1/debug_interface_generics_p102.cj -o p1.%middle
-//  EXEC: %compiler %cmp_opt %compile_lib_opt -g interface_generics/p2/debug_interface_generics_p201.cj -o p2.%middle
-//  EXEC: %compiler %cmp_opt -g interface_generics/debug_interface_generics.cj p1.%middle p2.%middle -o debug_interface_generics%cmp_output
-//  EXEC: python3 cjdb_test.py cjdb_interface_generics_005.info debug_interface_generics %run_env
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g interface_generics/p1/debug_interface_generics_p101.cj interface_generics/p1/debug_interface_generics_p102.cj -o p1.%middle
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g interface_generics/p2/debug_interface_generics_p201.cj -o p2.%middle
+// (!target_android) EXEC: %compiler %cmp_opt -g interface_generics/debug_interface_generics.cj p1.%middle p2.%middle -o debug_interface_generics%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py cjdb_interface_generics_005.info debug_interface_generics %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors debug_interface_generics,debug_interface_generics
-CJVM b main,b main,debug_interface_generics.cj:18
-CJVM c,c,-> 18
-b,b 30,debug_interface_generics.cj:30
-AOT r,r,-> 30
-CJVM c,c,-> 30
-s,s,-> 17
-s,s,-> 36
-n,n,-> 37
-finish,finish,-> 18
-finish,finish,-> 30
+CJVM b main,b main,debug_interface_generics.cj:19
+CJVM c,c,19
+b,b 31,debug_interface_generics.cj:31
+AOT r,r,-> 31
+Android c,c,31
+CJVM c,c,31
+s,s,18
+s,s,37
+n,n,38
+finish,finish,19
+finish,finish,31
 q,quit,

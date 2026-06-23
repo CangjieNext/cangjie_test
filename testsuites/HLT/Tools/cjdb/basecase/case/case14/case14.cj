@@ -29,6 +29,7 @@ class Test<T> {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var x1 = Test<Float64>(
         8,
         {

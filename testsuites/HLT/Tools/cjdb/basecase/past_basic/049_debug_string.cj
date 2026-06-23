@@ -11,6 +11,7 @@
 var top_str1:String = "string_test_001"
 
 main() {
+    sleep(Duration.millisecond*3000)
 
     var main_str1:String = ""
     var main_str2:String = "0123456789"

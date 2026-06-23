@@ -15,6 +15,7 @@ func foo(a: Int64) {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let a: Int64 = 1
     let b: Int64 = pkgs1.foo(a)
     let c: Int64 = pkgs2.foo(a)

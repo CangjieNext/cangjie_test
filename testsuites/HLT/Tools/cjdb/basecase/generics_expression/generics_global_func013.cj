@@ -15,6 +15,7 @@ func sum<Y>(a: Y, arr: Array<Int64>) {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = sum(1)
     var a2 = sum(1, 2, 3)
     var a3 = sum(1, [4, 5])
