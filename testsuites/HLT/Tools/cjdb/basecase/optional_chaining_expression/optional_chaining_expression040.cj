@@ -17,6 +17,7 @@ class C1{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var f1 = Some(C1().func4)
     var r1 = f1?({i:S1=>S1()})
     0

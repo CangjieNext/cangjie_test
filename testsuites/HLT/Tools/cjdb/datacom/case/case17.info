@@ -9,12 +9,13 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/case/case17/case17.cj
 // EXEC: %compiler %cmp_opt -g case17.cj -o case17%cmp_output
-// RUN-EXEC: python3 cjdb_test.py case17.info case17 %run_env
+// EXEC: python3 cjdb_test.py case17.info case17 %run_env
 
 test#
 cjdb,cjdb --no-use-colors case17,case17
-b,b 41,case17.cj:41
-AOT r,r,-> 41
+b,b 42,case17.cj:42
+AOT r,r,-> 42
+Android c,c,42
 CJVM c,c,
 AOT globals,globals,\(Tuple<Int64,Int64,std.core.Range<Int64>>\) default::mixtuple03 = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*\[2\] = 1..5 : 1[\s\S]*}
 AOT globals,globals,\(std.collection.ArrayList<std.core.String>\) default::mixtuple04 = {[\s\S]*\[0\] = "0"[\s\S]*\[1\] = "1"[\s\S]*}

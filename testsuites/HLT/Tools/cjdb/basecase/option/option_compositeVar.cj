@@ -9,6 +9,7 @@
 import std.collection.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     // Array-type
     var Arr_I8: ?Array<Int8> = [1,2,3,4]
     var Arr_I16: ?Array<Int16> = [1,2,3,4]

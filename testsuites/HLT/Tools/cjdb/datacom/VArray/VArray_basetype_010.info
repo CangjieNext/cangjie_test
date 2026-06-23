@@ -9,14 +9,15 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/VArray/VArray_basetype.cj
 // EXEC: %compiler %cmp_opt -g VArray_basetype.cj -o VArray_basetype_010%cmp_output
-// RUN-EXEC: python3 cjdb_test.py VArray_basetype_010.info VArray_basetype_010 %run_env
+// EXEC: python3 cjdb_test.py VArray_basetype_010.info VArray_basetype_010 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors VArray_basetype_010,VArray_basetype_010
-b,b 40,Breakpoint 1: where = VArray_basetype_010`default::main[\s\S]*VArray_basetype.cj:40
-AOT r,r,-> 40
-CJVM c,c,-> 40
+b,b 41,Breakpoint 1: where = VArray_basetype_010`default::main[\s\S]*VArray_basetype.cj:41
+AOT r,r,-> 41
+Android c,c,41
+CJVM c,c,41
 p,p vChar[1],\(Rune\) \$[\d] = 'b'
 p,p vBool[1],\(Bool\) \$[\d] = true
 p,p vUnit[1],\(Unit\) \$[\d] = ()

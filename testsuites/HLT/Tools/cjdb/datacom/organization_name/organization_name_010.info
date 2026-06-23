@@ -8,15 +8,16 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/pkgs007/src
-// EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj -o libpkg1.%middle
-// EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs001.cj -o pkgs001%cmp_output
-// RUN-EXEC: python3 cjdb_test.py organization_name_010.info pkgs001 %run_env
+// (!target_android) EXEC: %compiler %cmp_opt %compile_lib_opt -g src/pkgs/pkg1.cj -o libpkg1.%middle
+// (!target_android) EXEC: %compiler %cmp_opt -g libpkg1.%middle src/pkgs001.cj -o pkgs001%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py organization_name_010.info pkgs001 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pkgs001,pkgs001
-b,b 63,pkgs001.cj:63
-r,r,-> 63
+b,b 64,pkgs001.cj:64
+r,r,-> 64
+Android c,c,64
 p,p cla_ins_g1,\(org1.pkgs.C1<Rune>\) \$[\d] = {[\s\S]*width = 'F'[\s\S]*length = 'F'[\s\S]*}
 p,p cla_ins_sub_g1,\(org1.pkgs.cla_sub_2<Bool>\) \$[\d] = {[\s\S]*org1.pkgs.C1<Bool> = {[\s\S]*width = true[\s\S]*length = true[\s\S]*}[\s\S]*chwidth = true[\s\S]*chlength = true[\s\S]*}
 p,p enum_ins_1,\(org1.pkgs.Times\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 100[\s\S]*}

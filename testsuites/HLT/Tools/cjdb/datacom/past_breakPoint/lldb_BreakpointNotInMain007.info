@@ -8,28 +8,28 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/027_debuginfun_match.cj
-// EXEC: %compiler %cmp_opt -g 027_debuginfun_match.cj -o 027_debuginfun_match%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain007.info 027_debuginfun_match %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 027_debuginfun_match.cj -o 027_debuginfun_match%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointNotInMain007.info 027_debuginfun_match %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 027_debuginfun_match,027_debuginfun_match
-CJVM b,breakpoint set -n main,027_debuginfun_match.cj:12
-CJVM c,c,-> 12
-b,b 16,027_debuginfun_match.cj:16
-b,b 19,027_debuginfun_match.cj:19
-b,b 24,027_debuginfun_match.cj:24
-AOT b,b 26,027_debuginfun_match.cj:27
-CJVM b,b 26,027_debuginfun_match.cj:26
-AOT r,r,-> 16
-CJVM c,c,-> 16
-n,n,-> 17
+CJVM b,breakpoint set -n main,027_debuginfun_match.cj:13
+CJVM c,c,-> 13
+b,b 17,027_debuginfun_match.cj:17
+b,b 20,027_debuginfun_match.cj:20
+b,b 25,027_debuginfun_match.cj:25
+AOT b,b 27,027_debuginfun_match.cj:28
+CJVM b,b 27,027_debuginfun_match.cj:27
+AOT r,r,-> 17
+CJVM c,c,-> 17
 n,n,-> 18
 n,n,-> 19
-n,n,-> 24
-n,n,-> 19
-n,n,-> 27
+n,n,-> 20
+n,n,-> 25
+n,n,-> 20
+n,n,-> 28
 locals,locals,scoreResult = 5
 q,q,

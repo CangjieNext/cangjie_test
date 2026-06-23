@@ -9,6 +9,7 @@
 import std.collection.*
 
 main() {
+    sleep(Duration.millisecond*3000)
     // Int-type
     var Arrlist_I8: ArrayList<Int8> = ArrayList<Int8>([1,2,3,4])
     var Arrlist_I16: ArrayList<Int16> = ArrayList<Int16>([1,2,3,127])

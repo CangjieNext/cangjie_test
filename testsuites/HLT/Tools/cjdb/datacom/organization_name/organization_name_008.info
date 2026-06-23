@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/organization_name/organization_name_001.cj
-// EXEC: %compiler %cmp_opt -g organization_name_001.cj -o organization_name_001%cmp_output
-// RUN-EXEC: python3 cjdb_test.py organization_name_008.info organization_name_001 %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g organization_name_001.cj -o organization_name_001%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py organization_name_008.info organization_name_001 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors organization_name_001,organization_name_001
-b,b 34,organization_name_001.cj:34
-r,r,-> 34
+b,b 35,organization_name_001.cj:35
+r,r,-> 35
+Android c,c,35
 p,p a1,\(Int8\) \$[\d] = 1
 p,p a3,\(Float16\) \$[\d] = 3
 p,p a4,\(Rune\) \$[\d] = 'a'

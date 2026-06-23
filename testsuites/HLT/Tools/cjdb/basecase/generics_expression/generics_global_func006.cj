@@ -37,6 +37,7 @@ public func genericsfun_type<T, T1, T2, T3, T4, T5, T6>(a: T, b: T1, c: T2, d: T
 }
 
 main():Int64 {
+    sleep(Duration.millisecond*3000)
     var vrange: For<Int64> = 1..10 : 1
     var varr: A<Int64> = [1, 2, 3]
     var varr2 : A02<Float32> = [1.1]

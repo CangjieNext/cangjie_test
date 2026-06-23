@@ -34,6 +34,7 @@ class Rectangle {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let newRectangle = Rectangle(length:2)
     return 1
 }

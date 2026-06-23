@@ -66,6 +66,7 @@ class C2 <: C1 {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
 
     var mr1 = Rectangle(10, 20)
     var mr2 = Rectangle(10, 200)

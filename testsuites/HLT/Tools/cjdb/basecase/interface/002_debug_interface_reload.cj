@@ -34,6 +34,7 @@ class B <: I1 & I2 {}
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     let call_ca1 =  A().foo1()
     let call_ca2 =  A().foo1(2)
     let call_cb1 =  B().foo1()

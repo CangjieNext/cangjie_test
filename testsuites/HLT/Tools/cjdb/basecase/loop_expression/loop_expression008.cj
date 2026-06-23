@@ -20,6 +20,7 @@ func foo() {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     let f = foo()
     let x = f(1, 2)
     println("result: ${x}")

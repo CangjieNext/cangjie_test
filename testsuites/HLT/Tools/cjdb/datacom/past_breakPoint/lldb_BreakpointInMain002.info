@@ -8,17 +8,17 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/022_debug_launch.cj
-// EXEC: %compiler %cmp_opt -g 022_debug_launch.cj -o 022_debug_launch%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_BreakpointInMain002.info 022_debug_launch %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g 022_debug_launch.cj -o 022_debug_launch%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py lldb_BreakpointInMain002.info 022_debug_launch %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 022_debug_launch,022_debug_launch
-CJVM b,breakpoint set -n main,022_debug_launch.cj:12
-CJVM c,c,-> 12
-b,b 12,022_debug_launch.cj:12
+CJVM b,breakpoint set -n main,022_debug_launch.cj:13
+CJVM c,c,-> 13
+b,b 13,022_debug_launch.cj:13
 bdelete,breakpoint delete 1,breakpoints deleted
 AOT r,r,exited with status
 q,q,

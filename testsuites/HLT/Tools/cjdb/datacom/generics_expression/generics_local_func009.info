@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/generics_expression/generics_local_func009.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g generics_local_func009.cj -o generics_local_func009%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py generics_local_func009.info generics_local_func009 %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g generics_local_func009.cj -o generics_local_func009%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py generics_local_func009.info generics_local_func009 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors generics_local_func009,generics_local_func009
-b,b 29,generics_local_func009.cj:29
-AOT r,r,-> 29
+b,b 30,generics_local_func009.cj:30
+AOT r,r,-> 30
+Android c,c,30
 CJVM c,c,
 expr:expr b:\(Int64\) \$[\d] = 1
 expr:expr a:\(default.B<Int64>\) \$[\d] = {[\s\S]*default.A<Int64> = {[\s\S]*a = 30[\s\S]*}[\s\S]*b = 20[\s\S]*}

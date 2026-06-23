@@ -16,6 +16,7 @@ class CA{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = CA()
     let r1 = a1.aa?.item
     let r2 = a1.bb?.item

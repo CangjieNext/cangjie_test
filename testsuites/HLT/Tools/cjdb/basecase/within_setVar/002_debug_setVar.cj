@@ -10,6 +10,7 @@
 
  var arrayTopInt32 : Array<Int32> = [12, 23, 34]
 main() {
+    sleep(Duration.millisecond*3000)
     var cla = Clazz_1(12,10)
     let vm_1 =  Foo.A.f1() //enum的实例成员函数
     var vm_2= cla.fun_1(12) //默认参数

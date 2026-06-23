@@ -8,14 +8,15 @@
 
 // LEVEL: 2
 // DEPENDENCE:  ../../cjdb_test.py    ../../basecase/past_basic/056_debug_tuple.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 056_debug_tuple.cj -o 056_debug_tuple%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py expression_relationaloperator_025.info 056_debug_tuple %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g 056_debug_tuple.cj -o 056_debug_tuple%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py expression_relationaloperator_025.info 056_debug_tuple %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors 056_debug_tuple,056_debug_tuple
-b,b 23,Breakpoint 1: where = 056_debug_tuple`default::main[\s\S]*056_debug_tuple.cj:23
-AOT r,r,-> 23
-CJVM c,c,-> 23
+b,b 24,Breakpoint 1: where = 056_debug_tuple`default::main[\s\S]*056_debug_tuple.cj:24
+AOT r,r,-> 24
+Android c,c,24
+CJVM c,c,24
 expression, expression tuple4[0]==tuple4[0],\(Bool\) \$[\d] = true
 q,q,

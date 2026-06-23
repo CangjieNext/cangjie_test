@@ -9,24 +9,25 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/024_debug_variable.cj
 // EXEC: %compiler %cmp_opt -g 024_debug_variable.cj -o 024_debug_variable%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_VariableModify046.info 024_debug_variable %run_env
+// EXEC: python3 cjdb_test.py lldb_VariableModify046.info 024_debug_variable %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 024_debug_variable,024_debug_variable
-CJVM b,b main,024_debug_variable.cj:14
-CJVM c,c,-> 14
-b,b 61,024_debug_variable.cj:61
-AOT r,r,-> 61
-CJVM c,c,-> 61
-AOT set,set var_bool = 0,false
+CJVM b,b main,024_debug_variable.cj:15
+CJVM c,c,15
+b,b 62,024_debug_variable.cj:62
+AOT r,r,-> 62
+Android c,c,62
+CJVM c,c,62
+set,set var_bool = 0,false
 CJVM set,set var_bool = false,false
-n,n,-> 64
-n,n,-> 69
+n,n,65
+n,n,70
 locals,locals,var_bool = false
-AOT p,p var_bool,\(Bool\) \$[\d] = false
+ p,p var_bool,\(Bool\) \$[\d] = false
 CJVM p,p var_bool,\(Bool\) \$[\d] = false
 locals,locals,f_bool = 2
 p,p f_bool,\(Int64\) \$[\d] = 2

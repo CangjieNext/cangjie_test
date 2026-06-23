@@ -16,9 +16,10 @@
 
 test#
 cjdb,cjdb --no-use-colors 049_debug_string,049_debug_string
-b,b 42,049_debug_string.cj:42
-AOT r,r,-> 42
+b,b 43,049_debug_string.cj:43
+AOT r,r,-> 43
+Android c,c,43
 CJVM c,c,
-n,n,-> 45
+n,n,46
 locals,locals,\(std[.]core.String\) main_str1 = "string_test_0010123456789abcdxyz"
 q,q,

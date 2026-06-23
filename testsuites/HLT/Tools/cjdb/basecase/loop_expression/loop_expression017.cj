@@ -7,6 +7,7 @@
  */
 
 main() {
+    sleep(Duration.millisecond*3000)
     var hundred: Int64 = 0
     while (false) {
         hundred++

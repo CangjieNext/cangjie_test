@@ -8,17 +8,18 @@
 
 // LEVEL: 3
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/coroutine/
-// EXEC: %compiler %cmp_opt -g coroutine/coroutine_11.cj -o coroutine_11%cmp_output
-// RUN-EXEC: python3 cjdb_test.py coroutine_032.info coroutine_11 %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g coroutine/coroutine_11.cj -o coroutine_11%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py coroutine_032.info coroutine_11 %run_env
 
 test#
 cjdb,cjdb --no-use-colors coroutine_11,coroutine_11
-b,b 31,coroutine_11.cj:31
-AOT r,r,-> 31
+b,b 32,coroutine_11.cj:32
+AOT r,r,-> 32
+Android c,c,32
 b,breakpoint disable,
-cjthread,cjthread list,thread #[\s\S]*state = running[\s\S]*coroutine_11.cj:31
-cjthread,cjthread select 1,thread #[\s\S]*state = running[\s\S]*coroutine_11.cj:31
-cjthread,cjthread n,coroutine_11.cj:29
+cjthread,cjthread list,thread #[\s\S]*state = running[\s\S]*coroutine_11.cj:32
+cjthread,cjthread select 1,thread #[\s\S]*state = running[\s\S]*coroutine_11.cj:32
 cjthread,cjthread n,coroutine_11.cj:30
-cjthread,cjthread s,coroutine_11.cj:31
+cjthread,cjthread n,coroutine_11.cj:31
+cjthread,cjthread s,coroutine_11.cj:32
 q,quit,

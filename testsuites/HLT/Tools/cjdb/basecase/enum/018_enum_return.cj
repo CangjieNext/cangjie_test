@@ -17,6 +17,7 @@ extend EE1 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var aa = (EE1.XY, EE1.XY.name())
     var bb = EE1.XY
     return 0

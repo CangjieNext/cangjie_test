@@ -11,6 +11,7 @@ enum E1<T> {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = E1<Int64>.A("String")
     var a2 = E1<Int64>.B("String", 1)
     0

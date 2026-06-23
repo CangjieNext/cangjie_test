@@ -8,14 +8,15 @@
 
 // LEVEL: 0
 // DEPENDENCE: ../../cjdb_test.py  ../../basecase/flow_expression/pipeline008.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g pipeline008.cj -o pipeline008%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py pipeline008.info pipeline008 %run_env
+// (not target_mac and not target_android) EXEC: %compiler %cmp_opt -g pipeline008.cj -o pipeline008%cmp_output
+// (not target_mac and not target_android) EXEC: python3 cjdb_test.py pipeline008.info pipeline008 %run_env
 
 
 test#
 cjdb,cjdb --no-use-colors pipeline008,pipeline008
-b,b 38,pipeline008.cj:38
-AOT r,r,-> 38
+b,b 39,pipeline008.cj:39
+AOT r,r,-> 39
+Android c,c,39
 expr,expr res1,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
 expr,expr res2,\(std.core.Array<Int64>\) \$[\d] = {[\s\S]*\[0\] = 1[\s\S]*\[1\] = 2[\s\S]*}
 expr,expr res3,\(std.collection.ArrayList<Int64>\) \$[\d] = {[\s\S]*\[0\] = 0[\s\S]*\[1\] = 1[\s\S]*\[2\] = 2[\s\S]*}

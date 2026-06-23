@@ -8,16 +8,17 @@
 
 // LEVEL:1
 // DEPENDENCE:  ../../cjdb_test.py ../../basecase/coroutine/
-// EXEC: %compiler %cmp_opt -g coroutine/coroutine_5.cj -o coroutine_5%cmp_output
-// RUN-EXEC: python3 cjdb_test.py coroutine_008.info coroutine_5 %run_env
+// (!target_android) EXEC: %compiler %cmp_opt -g coroutine/coroutine_5.cj -o coroutine_5%cmp_output
+// (!target_android) EXEC: python3 cjdb_test.py coroutine_008.info coroutine_5 %run_env
 
 test#
 cjdb,cjdb --no-use-colors coroutine_5,coroutine_5
-b,b 32,coroutine_5.cj:32
-AOT r,r,-> 32
+b,b 33,coroutine_5.cj:33
+AOT r,r,-> 33
+Android c,c,33
 CJVM c,c,
-cjthread,cjthread list,tid = 1, state = running[\s\S]*coroutine_5.cj:32
-n,n,-> 33
+cjthread,cjthread list,tid = 1, state = running[\s\S]*coroutine_5.cj:33
+n,n,34
 cjthread,cjthread list,tid = 2, state
 cjthread,cjthread backtrace -c 2 -s 2 -1,error: unknown or ambiguous option
 q,quit,

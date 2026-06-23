@@ -16,6 +16,7 @@ enum TimeUnit1 {
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
 
     let opInt32_1 = Option<Int32>.Some(100)             // The type of 'opInt32_1' is 'Option<Int32>'
     let opInt32_2 = Option<Int32>.None                  // The type of 'opInt32_2' is 'Option<Int32>'

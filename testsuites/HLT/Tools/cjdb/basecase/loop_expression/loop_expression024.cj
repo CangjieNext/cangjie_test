@@ -19,6 +19,7 @@ enum E1<T> {
 
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a = E1<Int64>.AB(1)
     a.test1()
     0

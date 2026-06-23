@@ -13,6 +13,7 @@ class Rectangle {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let op1: Option<Option<Rectangle>> = Some(Some(Rectangle()))
     let lambda1 = {a:Option<Option<Rectangle>> =>
         println("lamdda.....")

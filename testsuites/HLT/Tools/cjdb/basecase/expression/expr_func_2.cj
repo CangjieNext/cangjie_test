@@ -17,6 +17,7 @@ class Rectangle{
     var hmin = HashMap<String, IntNative>([("a", 0), ("b", 1), ("c", 2)])
 }
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var rec = Rectangle()
     println("hello world")
     return 0

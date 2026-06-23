@@ -9,15 +9,16 @@
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/Array/003_debug_array_record.cj
 // EXEC: %compiler %cmp_opt -g 003_debug_array_record.cj -o 003_debug_array_record%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_array_composite_039.info 003_debug_array_record %run_env
+// EXEC: python3 cjdb_test.py lldb_array_composite_039.info 003_debug_array_record %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 003_debug_array_record,003_debug_array_record
-b,b 68,003_debug_array_record.cj:68
-AOT r,r,-> 68
+b,b 69,003_debug_array_record.cj:69
+AOT r,r,-> 69
+Android c,c,69
 CJVM c,c,
 locals,locals,std[.]core.Array<default.Rectangle2>\) arrayfun = {(\r|\n|\r\n)  \[0\]
 print,print arrayfun[0],Rectangle2\) \$[\d]+ = {(\r|\n|\r\n)  width = 100(\r|\n|\r\n)  length = 100

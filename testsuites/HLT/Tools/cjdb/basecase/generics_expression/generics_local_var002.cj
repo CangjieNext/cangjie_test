@@ -51,6 +51,7 @@ struct S1 {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     var s1 = S1()
     var c1 = C1()
     return 0

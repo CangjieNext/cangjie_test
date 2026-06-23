@@ -8,13 +8,14 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/enum/020_enum_globals.cj
-// (not MAC and not Windows) EXEC: %compiler %cmp_opt -g 020_enum_globals.cj -o 020_enum_globals%cmp_output
-// (not MAC and not Windows) RUN-EXEC: python3 cjdb_test.py expression_enum016.info 020_enum_globals %run_env
+// (!(target_mac|target_win)) EXEC: %compiler %cmp_opt -g 020_enum_globals.cj -o 020_enum_globals%cmp_output
+// (!(target_mac|target_win)) EXEC: python3 cjdb_test.py expression_enum016.info 020_enum_globals %run_env
 
 test#
 cjdb,cjdb --no-use-colors 020_enum_globals,020_enum_globals
-b,b 46,020_enum_globals.cj:46
-AOT r,r,-> 46
+b,b 47,020_enum_globals.cj:47
+AOT r,r,-> 47
+Android c,c,47
 CJVM c,c,
 p,p t1,\(default.TimeUnit\) \$[\d] = {[\s\S]*constructor = Year[\s\S]*arg_1 = 5[\s\S]*}
 expr,expr t2,\(default.TimeUnit1\) \$[\d] = Year

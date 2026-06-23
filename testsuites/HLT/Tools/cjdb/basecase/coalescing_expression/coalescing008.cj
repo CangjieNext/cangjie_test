@@ -37,6 +37,7 @@ enum E1 {
 }
 
 main(){
+    sleep(Duration.millisecond*3000)
     var m1 = E1.XY.test1()
     0
 }

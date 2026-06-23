@@ -9,17 +9,18 @@
 // LEVEL: 1
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/048_debug_array_type.cj
 // EXEC: %compiler %cmp_opt -g 048_debug_array_type.cj -o 048_debug_array_type%cmp_output
-// RUN-EXEC: python3 cjdb_test.py lldb_Array016.info 048_debug_array_type %run_env
+// EXEC: python3 cjdb_test.py lldb_Array016.info 048_debug_array_type %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 048_debug_array_type,048_debug_array_type
-b,b 29,048_debug_array_type.cj:29
-AOT r,r,-> 29
+b,b 30,048_debug_array_type.cj:30
+AOT r,r,-> 30
+Android c,c,30
 CJVM c,c,
-n,n,-> 31
+n,n,32
 locals,locals,std[.]core.Array<Bool>
 locals,locals,\[0\] = true
 locals,locals,\[2\] = false

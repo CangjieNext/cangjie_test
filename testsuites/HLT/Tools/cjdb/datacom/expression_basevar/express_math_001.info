@@ -8,19 +8,20 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../cjdb_test.py  ../../basecase/past_basic/059_debug_jit.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g 059_debug_jit.cj -o 001_express_basetype%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py express_math_001.info 001_express_basetype %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g 059_debug_jit.cj -o 001_express_basetype%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py express_math_001.info 001_express_basetype %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-CJVM b,b main,059_debug_jit.cj:12
-CJVM c,c,-> 12
-b,b 41,059_debug_jit.cj:41
-CJVM c,c,-> 41
-AOT r,r,-> 41
+CJVM b,b main,059_debug_jit.cj:13
+CJVM c,c,13
+b,b 42,059_debug_jit.cj:42
+CJVM c,c,42
+AOT r,r,-> 42
+Android c,c,42
 expr,expr f_int8/var_int8,\(Int8\) \$[\d] = 13
 expr,expr f_int16/var_int16,\(Int16\) \$[\d] = 11
 expr,expr 10/3,\(Int64\) \$[\d] = 3

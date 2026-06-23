@@ -23,6 +23,7 @@ struct R {
     }
 }
 main() {
+    sleep(Duration.millisecond*3000)
     let r1 = R(100, 200)
     let r2 = R(100, 200)
     let r3 = r1 == r2

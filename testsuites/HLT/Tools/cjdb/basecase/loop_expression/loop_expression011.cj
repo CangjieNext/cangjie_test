@@ -24,6 +24,7 @@ struct S1<T>{
 }
 
 main() {
+    sleep(Duration.millisecond*3000)
     var a1 = test<Int64>(["ab","cd"])
     var a2 = S1<String>("aa")
     0

@@ -17,6 +17,7 @@ class Derived2 <: Base {
 }
 
 main(): Int64 {
+    sleep(Duration.millisecond*3000)
     let base1: Base = Base()
     let base2: Base = Derived1()
     let base3: Base = Derived2()

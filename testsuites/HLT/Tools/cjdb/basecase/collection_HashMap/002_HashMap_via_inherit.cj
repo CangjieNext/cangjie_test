@@ -12,6 +12,7 @@ var map_top_2 : HashMap<Int32,Rune> = HashMap<Int32,Rune>([(-29,r'C'), (-10,r'a'
 var arrayInt32 : Array<Int32> = [321, -322, 10,-123,-98]
 
 main() {
+    sleep(Duration.millisecond*3000)
     let class_sub_ins = Class_sub_1()
     var map_main_1 :HashMap<Int32,Rune>  =class_sub_ins.sub_cp1 //子类成员变量
     var map_main_2 :HashMap<Int32,Rune> =class_sub_ins.fun_sub_c1(map_top_2) //子类实例函数

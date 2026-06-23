@@ -8,17 +8,18 @@
 
 // LEVEL: 0
 // DEPENDENCE:  ../../../cjdb_test.py  ../../../basecase/expression/expr_mix.cj
-// (not MAC) EXEC: %compiler %cmp_opt -g expr_mix.cj -o 001_express_basetype%cmp_output
-// (not MAC) RUN-EXEC: python3 cjdb_test.py expr_mix_09.info 001_express_basetype %run_env
+// (!target_mac) EXEC: %compiler %cmp_opt -g expr_mix.cj -o 001_express_basetype%cmp_output
+// (!target_mac) EXEC: python3 cjdb_test.py expr_mix_09.info 001_express_basetype %run_env
 
 
 
 
 test#
 cjdb,cjdb --no-use-colors 001_express_basetype,001_express_basetype
-b,b 63,expr_mix.cj:63
-CJVM c,c,-> 63
-AOT r,r,-> 63
+b,b 64,expr_mix.cj:64
+CJVM c,c,64
+AOT r,r,-> 64
+Android c,c,64
 expr,expr if (vi8 == Int8(vu8)) {vi8+=vi8}else if(vi16 != 17) {vi8 -= vi8}else{vi8*=vi8 };vi8,\(Int8\) \$[\d] = 16
 expr,expr if (vi64 == 10) {vi64/=2}else if(vu16 != 17) {vi64**=2}else{vi64<<=2 };vi64,\(Int64\) \$[\d] = 4096
 expr,expr if (vu64 != 10) {vu64>>=2}else if(vi32 != 17) {vu64&=2}else{vu64^=2 };vu64,\(UInt64\) \$[\d] = 16
